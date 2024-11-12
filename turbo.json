@@ -1,0 +1,37 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "tasks": {
+    "build": {
+      "outputs": ["dist/**", "storybook-static/**"],
+      "dependsOn": ["^build"]
+    },
+    "checks": {
+      "outputs": ["dist/**"]
+    },
+    "format": {
+      "outputs": ["src/**", "raw/**"]
+    },
+    "format:ci": {
+      "outputs": []
+    },
+    "lint": {
+      "outputs": [],
+      "dependsOn": ["^build"]
+    },
+    "lint:fix": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "generate": {
+      "cache": false
+    },
+    "build:storybook": {
+      "outputs": ["packages/react/storybook-static/**"]
+    }
+  }
+}

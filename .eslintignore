@@ -1,0 +1,7 @@
+dist/
+/node_modules/*
+.eslintrc.js
+./.vscode/
+tsconfig.json
+*.md*
+**/__testfixtures__
