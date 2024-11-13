@@ -6,19 +6,19 @@
     padding: var(--uwp-padding);
   }
 
-  @media (min-width: 740px) {
+  @media (--tablet) {
     &:where(.tablet\:uwp-padding) {
       padding: var(--uwp-padding-tablet);
     }
   }
 
-  @media (min-width: 992px) {
+  @media (--desktop) {
     &:where(.desktop\:uwp-padding) {
       padding: var(--uwp-padding-desktop);
     }
   }
 
-  @media (min-width: 1200px) {
+  @media (--wide) {
     &:where(.wide\:uwp-padding) {
       padding: var(--uwp-padding-wide);
     }
