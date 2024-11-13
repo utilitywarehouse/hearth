@@ -125,21 +125,21 @@ importers:
         specifier: ^5.4.10
         version: 5.4.11(@types/node@22.9.0)
 
-  apps/test:
+  packages/react:
     dependencies:
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.3.1
-        version: 18.3.1(react@18.3.1)
+      '@utilitywarehouse/colour-system':
+        specifier: ^0.5.0
+        version: 0.5.0
+      '@utilitywarehouse/react-icons':
+        specifier: ^1.11.0
+        version: 1.11.0(react@18.3.1)
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^3.2.2
         version: 3.2.2(react@18.3.1)(storybook@8.4.2(prettier@3.3.3))
-      '@eslint/js':
-        specifier: ^9.13.0
-        version: 9.14.0
       '@storybook/addon-essentials':
         specifier: ^8.4.2
         version: 8.4.2(@types/react@18.3.12)(storybook@8.4.2(prettier@3.3.3))
@@ -161,67 +161,33 @@ importers:
       '@storybook/test':
         specifier: ^8.4.2
         version: 8.4.2(storybook@8.4.2(prettier@3.3.3))
-      '@types/react':
-        specifier: ^18.3.12
-        version: 18.3.12
-      '@types/react-dom':
-        specifier: ^18.3.1
-        version: 18.3.1
-      '@vitejs/plugin-react':
-        specifier: ^4.3.3
-        version: 4.3.3(vite@5.4.11(@types/node@22.9.0))
-      eslint:
-        specifier: ^9.13.0
-        version: 9.14.0
-      eslint-plugin-react-hooks:
-        specifier: ^5.0.0
-        version: 5.0.0(eslint@9.14.0)
-      eslint-plugin-react-refresh:
-        specifier: ^0.4.14
-        version: 0.4.14(eslint@9.14.0)
-      eslint-plugin-storybook:
-        specifier: ^0.11.0
-        version: 0.11.0(eslint@9.14.0)(typescript@5.6.3)
-      globals:
-        specifier: ^15.11.0
-        version: 15.12.0
-      storybook:
-        specifier: ^8.4.2
-        version: 8.4.2(prettier@3.3.3)
-      typescript:
-        specifier: ~5.6.2
-        version: 5.6.3
-      typescript-eslint:
-        specifier: ^8.11.0
-        version: 8.14.0(eslint@9.14.0)(typescript@5.6.3)
-      vite:
-        specifier: ^5.4.10
-        version: 5.4.11(@types/node@22.9.0)
-
-  packages/react:
-    dependencies:
-      '@utilitywarehouse/colour-system':
-        specifier: ^0.5.0
-        version: 0.5.0
-      '@utilitywarehouse/react-icons':
-        specifier: ^1.11.0
-        version: 1.11.0(react@18.3.1)
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
-    devDependencies:
       '@types/node':
         specifier: ^22.9.0
         version: 22.9.0
       '@types/react':
         specifier: ^18.3.12
         version: 18.3.12
+      '@utilitywarehouse/css-reset':
+        specifier: ^0.1.0
+        version: 0.1.0
+      '@utilitywarehouse/fontsource':
+        specifier: ^0.1.0
+        version: 0.1.0
+      eslint-plugin-storybook:
+        specifier: ^0.11.0
+        version: 0.11.0(eslint@9.14.0)(typescript@5.6.3)
+      prop-types:
+        specifier: ^15.8.1
+        version: 15.8.1
       react:
         specifier: ^17.0.0 || ^18.0.0
         version: 18.3.1
       react-dom:
         specifier: ^17.0.0 || ^18.0.0
         version: 18.3.1(react@18.3.1)
+      storybook:
+        specifier: ^8.4.2
+        version: 8.4.2(prettier@3.3.3)
       tsup:
         specifier: ^8.3.5
         version: 8.3.5(postcss@8.4.49)(typescript@5.6.3)
@@ -1191,6 +1157,12 @@ packages:
 
   '@utilitywarehouse/colour-system@0.5.0':
     resolution: {integrity: sha512-vH/IShwnnk3s6mn8MCo7ifMydjsTm2smbfyC7ITaNNjlPTDws54vvF8rhkOIRY/XLu4EuGr7qgHURhP1oPYhYA==}
+
+  '@utilitywarehouse/css-reset@0.1.0':
+    resolution: {integrity: sha512-kiEd8gnFKPgBQgM46n4kFKlAZd9UQ6W4coFzZhf22OKS7p5ElzxzmM/rAQYDXGdN9h2jS+pd72fvJyp9SxMDxQ==}
+
+  '@utilitywarehouse/fontsource@0.1.0':
+    resolution: {integrity: sha512-/qsvnWAJdtRHpwt2rhn0HClXVL3m8SwERLvBDk+uN0xbAxXiS4Ae8dkoi8wGypyFX4Y9WIMZBB7MD+NywIXfHg==}
 
   '@utilitywarehouse/prettier-config@0.1.1':
     resolution: {integrity: sha512-Lcs5K0qQSP8eQd82Ug2Q98pLAM41c1WsB1oMeOHKXmAumD7KHR8UsDSIsdv9ILmMb4RPYZLY0A2j3DIRzyVjHg==}
@@ -4123,6 +4095,10 @@ snapshots:
   '@utilitywarehouse/colour-system@0.5.0':
     dependencies:
       dotenv: 16.4.5
+
+  '@utilitywarehouse/css-reset@0.1.0': {}
+
+  '@utilitywarehouse/fontsource@0.1.0': {}
 
   '@utilitywarehouse/prettier-config@0.1.1': {}
 
