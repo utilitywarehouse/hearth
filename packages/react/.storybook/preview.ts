@@ -1,7 +1,7 @@
 import { Preview } from '@storybook/react';
 import '@utilitywarehouse/fontsource';
 import '@utilitywarehouse/css-reset';
-import '../src/components/Box/Box.css';
+import '../styles.css';
 
 const preview: Preview = {
   parameters: {},
