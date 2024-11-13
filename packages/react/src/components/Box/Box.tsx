@@ -1,11 +1,10 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import { withBreakpoints } from '../../helpers';
-
 import type { BoxProps } from './Box.props';
 
 import './Box.css';
+import { withBreakpoints } from '../../helpers/with-breakpoints';
 
 const componentName = 'Box';
 const componentClassName = 'uwp-' + componentName;
