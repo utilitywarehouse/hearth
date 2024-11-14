@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Box } from './Box';
+import React from 'react';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Box> = {
@@ -20,6 +21,12 @@ const meta: Meta<typeof Box> = {
       control: { type: 'radio' },
     },
     padding: { control: { type: 'text' } },
+    paddingInline: { control: { type: 'text' } },
+    paddingBlock: { control: { type: 'text' } },
+    paddingTop: { control: { type: 'text' } },
+    paddingRight: { control: { type: 'text' } },
+    paddingBottom: { control: { type: 'text' } },
+    paddingLeft: { control: { type: 'text' } },
   },
   args: {
     children: 'Pollen Box',
@@ -31,4 +38,6 @@ const meta: Meta<typeof Box> = {
 export default meta;
 type Story = StoryObj<typeof Box>;
 
-export const Workshop: Story = {};
+export const Workshop: Story = {
+  render: args => <Box {...args} />,
+};

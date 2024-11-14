@@ -14,16 +14,58 @@ const componentClassName = 'uwp-' + componentName;
 type BoxElement = ElementRef<'div'>;
 
 export const Box = React.forwardRef<BoxElement, BoxProps>(
-  ({ className, asChild, as: Tag = 'div', padding, style, ...props }, ref) => {
+  (
+    {
+      className,
+      asChild,
+      as: Tag = 'div',
+      padding,
+      paddingTop,
+      paddingLeft,
+      paddingBlock,
+      paddingRight,
+      paddingBottom,
+      paddingInline,
+      style = undefined,
+      ...props
+    },
+    ref
+  ) => {
     const Component = asChild ? Slot : Tag;
-    const styleProps = withBreakpoints(padding, 'padding');
+    const paddingProps = withBreakpoints(padding, 'padding');
+    const paddingTopProps = withBreakpoints(paddingTop, 'padding-top');
+    const paddingRightProps = withBreakpoints(paddingRight, 'padding-right');
+    const paddingBottomProps = withBreakpoints(paddingBottom, 'padding-bottom');
+    const paddingLeftProps = withBreakpoints(paddingLeft, 'padding-left');
+    const paddingInlineProps = withBreakpoints(paddingInline, 'padding-inline');
+    const paddingBlockProps = withBreakpoints(paddingBlock, 'padding-block');
+    const styleProps = {
+      ...paddingProps?.style,
+      ...paddingTopProps?.style,
+      ...paddingRightProps?.style,
+      ...paddingBottomProps?.style,
+      ...paddingLeftProps?.style,
+      ...paddingInlineProps?.style,
+      ...paddingBlockProps?.style,
+      ...style,
+    };
 
     return (
       <Component
         ref={ref}
-        className={clsx(componentClassName, styleProps?.className, className)}
+        className={clsx(
+          componentClassName,
+          paddingProps?.className,
+          paddingInlineProps?.className,
+          paddingBlockProps?.className,
+          paddingTopProps?.className,
+          paddingRightProps?.className,
+          paddingBottomProps?.className,
+          paddingLeftProps?.className,
+          className
+        )}
         {...props}
-        style={{ ...styleProps?.style, ...style }}
+        style={styleProps}
       />
     );
   }

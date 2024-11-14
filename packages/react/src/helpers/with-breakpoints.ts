@@ -1,6 +1,9 @@
 import { Breakpoints, Responsive } from '../types';
 
 export const withBreakpoints = (value: Responsive<string> | undefined, prefix = '') => {
+  if (value === '') {
+    return undefined;
+  }
   if (typeof value === 'string') {
     return { className: `uwp-r-${prefix}`, style: { [`--uwp-${prefix}`]: value } };
   }

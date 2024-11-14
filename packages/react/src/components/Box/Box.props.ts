@@ -4,6 +4,12 @@ import { Responsive } from '../../types';
 
 interface PaddingProps {
   padding?: Responsive<string>;
+  paddingTop?: Responsive<string>;
+  paddingRight?: Responsive<string>;
+  paddingBottom?: Responsive<string>;
+  paddingLeft?: Responsive<string>;
+  paddingInline?: Responsive<string>;
+  paddingBlock?: Responsive<string>;
 }
 
 // Omits the specified props from the component props. Autocomplete will suggest props
