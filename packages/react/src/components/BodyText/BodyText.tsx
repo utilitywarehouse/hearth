@@ -2,9 +2,6 @@ import * as React from 'react';
 
 import clsx from 'clsx';
 
-import '@utilitywarehouse/colour-system/css/colours.css';
-
-import './BodyText.css';
 import { BodyTextProps } from './BodyText.props';
 
 import { withBreakpoints } from './with-breakpoints';
