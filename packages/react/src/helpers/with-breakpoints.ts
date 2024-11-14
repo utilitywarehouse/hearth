@@ -5,7 +5,7 @@ export const withBreakpoints = (value: Responsive<string> | undefined, prefix = 
     return undefined;
   }
   if (typeof value === 'string') {
-    return { className: `uwp-r-${prefix}`, style: { [`--uwp-${prefix}`]: value } };
+    return { className: `uwp-${prefix}`, style: { [`--uwp-${prefix}`]: value } };
   }
 
   if (typeof value === 'object') {
