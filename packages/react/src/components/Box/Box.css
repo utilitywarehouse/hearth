@@ -1,10 +1,4 @@
 .uwp-Box {
   box-sizing: border-box;
   display: block;
-
-  @breakpoints {
-    &:where(.uwp-r-padding) {
-      padding: var(--uwp-padding);
-    }
-  }
 }

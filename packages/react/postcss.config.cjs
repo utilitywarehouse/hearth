@@ -5,8 +5,8 @@ module.exports = {
     require('./postcss-breakpoints.cjs'),
     require('postcss-custom-media'),
     require('autoprefixer'),
-    // require('cssnano')({
-    //   preset: 'default',
-    // }),
+    require('cssnano')({
+      preset: 'default',
+    }),
   ],
 };

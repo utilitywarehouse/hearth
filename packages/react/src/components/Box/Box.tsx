@@ -5,15 +5,21 @@ import type { BoxProps } from './Box.props';
 
 import './Box.css';
 import { withBreakpoints } from '../../helpers/with-breakpoints';
+import type { ElementRef } from 'react';
+import { Slot } from '@radix-ui/react-slot';
 
 const componentName = 'Box';
 const componentClassName = 'uwp-' + componentName;
 
-export const Box = React.forwardRef<React.ElementRef<'div'>, React.PropsWithChildren<BoxProps>>(
-  ({ className, padding, style, ...props }, ref) => {
+type BoxElement = ElementRef<'div'>;
+
+export const Box = React.forwardRef<BoxElement, BoxProps>(
+  ({ className, asChild, as: Tag = 'div', padding, style, ...props }, ref) => {
+    const Component = asChild ? Slot : Tag;
     const styleProps = withBreakpoints(padding, 'padding');
+
     return (
-      <div
+      <Component
         ref={ref}
         className={clsx(componentClassName, styleProps?.className, className)}
         {...props}
