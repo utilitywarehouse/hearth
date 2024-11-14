@@ -2,25 +2,9 @@
   box-sizing: border-box;
   display: block;
 
-  &:where(.uwp-padding) {
-    padding: var(--uwp-padding);
-  }
-
-  @media (--tablet) {
-    &:where(.tablet\:uwp-padding) {
-      padding: var(--uwp-padding-tablet);
-    }
-  }
-
-  @media (--desktop) {
-    &:where(.desktop\:uwp-padding) {
-      padding: var(--uwp-padding-desktop);
-    }
-  }
-
-  @media (--wide) {
-    &:where(.wide\:uwp-padding) {
-      padding: var(--uwp-padding-wide);
+  @breakpoints {
+    &:where(.uwp-r-padding) {
+      padding: var(--uwp-padding);
     }
   }
 }

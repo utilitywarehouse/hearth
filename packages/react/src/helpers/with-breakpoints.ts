@@ -2,7 +2,7 @@ import { Breakpoints, Responsive } from '../types';
 
 export const withBreakpoints = (value: Responsive<string> | undefined, prefix = '') => {
   if (typeof value === 'string') {
-    return { className: `uwp-${prefix}`, style: { [`--uwp-${prefix}`]: value } };
+    return { className: `uwp-r-${prefix}`, style: { [`--uwp-${prefix}`]: value } };
   }
 
   if (typeof value === 'object') {
@@ -10,7 +10,7 @@ export const withBreakpoints = (value: Responsive<string> | undefined, prefix = 
     const classes = (Object.keys(value) as Array<Breakpoints>).map(bp => {
       const breakpointValue = value[bp];
       if (breakpointValue !== undefined) {
-        const baseClassName = `uwp-${prefix}`;
+        const baseClassName = `uwp-r-${prefix}`;
         const className = bp === initialBreakpoint ? baseClassName : `${bp}:${baseClassName}`;
         return className;
       }
