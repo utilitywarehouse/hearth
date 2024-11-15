@@ -3,7 +3,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 import { ButtonProps } from './Button.props';
 import { ButtonBase } from '../ButtonBase/ButtonBase';
-import { withBreakpoints } from '../BodyText/with-breakpoints';
+import { withBreakpoints } from '../../helpers/with-breakpoints';
 
 const componentName = 'Button';
 const componentClassName = 'uwp-' + componentName;

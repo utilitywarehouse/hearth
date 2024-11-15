@@ -1,11 +1,8 @@
-import { Breakpoints, Responsive } from '../types';
+import type { Breakpoints, Responsive } from '../types/responsive';
 
 export const withBreakpoints = (value: Responsive<string> | undefined, prefix = '') => {
-  if (value === '') {
-    return undefined;
-  }
   if (typeof value === 'string') {
-    return { className: `uwp-${prefix}`, style: { [`--uwp-${prefix}`]: value } };
+    return `uwp-r-${prefix}-${value}`;
   }
 
   if (typeof value === 'object') {
@@ -13,25 +10,11 @@ export const withBreakpoints = (value: Responsive<string> | undefined, prefix = 
     const classes = (Object.keys(value) as Array<Breakpoints>).map(bp => {
       const breakpointValue = value[bp];
       if (breakpointValue !== undefined) {
-        const baseClassName = `uwp-r-${prefix}`;
+        const baseClassName = `uwp-r-${prefix}-${breakpointValue}`;
         const className = bp === initialBreakpoint ? baseClassName : `${bp}:${baseClassName}`;
         return className;
       }
     });
-    const styles = (Object.keys(value) as Array<Breakpoints>).reduce(
-      (acc: { [key: string]: string }, bp: Breakpoints) => {
-        const breakpointValue = value[bp];
-        if (breakpointValue !== undefined) {
-          const baseStyleName = `--uwp-${prefix}`;
-          const styleName = bp === initialBreakpoint ? baseStyleName : `${baseStyleName}-${bp}`;
-          acc[styleName] = breakpointValue;
-          return acc;
-        }
-        return acc;
-      },
-      {}
-    );
-
-    return { className: classes.join(' '), style: styles };
+    return classes.join(' ');
   }
 };

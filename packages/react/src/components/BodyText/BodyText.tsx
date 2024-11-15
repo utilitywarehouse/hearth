@@ -3,8 +3,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 
 import { BodyTextProps } from './BodyText.props';
-
-import { withBreakpoints } from './with-breakpoints';
+import { withBreakpoints } from '../../helpers/with-breakpoints';
 
 const componentName = 'BodyText';
 const componentClassName = 'uwp-' + componentName;

@@ -1,6 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react';
-
-import { Responsive } from '../../types';
+import type { Responsive } from '../../types/responsive';
 
 export interface BodyTextProps extends ComponentPropsWithoutRef<'p'> {
   /**
