@@ -8,11 +8,13 @@
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "dev:css": "postcss --watch --verbose src/styles/index.css -o styles.css",
     "clean": "rm -rf .turbo node_modules dist *.css",
     "build": "pnpm build:css && pnpm build:js",
     "build:css": "postcss ./src/styles/index.css -o styles.css",
     "build:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
+    "dev": "pnpm dev:storybook & pnpm dev:css",
+    "dev:css": "postcss --watch --verbose src/styles/index.css -o styles.css",
+    "dev:storybook": "storybook dev -p 6006",
     "ts-types": "tsc",
     "lint": "pnpm lint:js && pnpm lint:css",
     "lint:fix": "pnpm lint:js:fix && pnpm lint:css:fix",
@@ -22,7 +24,6 @@
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
     "format": "prettier --write \"src/**/*.ts*\"",
     "format:ci": "prettier --list-different \"src/**/*.ts*\"",
-    "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "publishConfig": {
