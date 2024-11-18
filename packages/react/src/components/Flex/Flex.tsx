@@ -28,6 +28,7 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
       paddingBottom,
       paddingInline,
       gap,
+      direction,
       style = undefined,
       ...props
     },
@@ -36,6 +37,7 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
     const Component = asChild ? Slot : Tag;
 
     const displayClassName = withBreakpoints(display, 'display');
+    const directionClassName = withBreakpoints(direction, 'flex-direction');
 
     const paddingProps = withBreakpointStyles(padding, 'padding');
     const paddingTopProps = withBreakpointStyles(paddingTop, 'padding-top');
@@ -65,6 +67,7 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
         className={clsx(
           componentClassName,
           displayClassName,
+          directionClassName,
           paddingProps?.className,
           paddingInlineProps?.className,
           paddingBlockProps?.className,

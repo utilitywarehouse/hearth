@@ -3,7 +3,7 @@ import type { ComponentPropsWithout, RemovedProps } from '../../types/component-
 import type { Responsive } from '../../types/responsive';
 
 interface CommonFlexProps extends PaddingProps {
-  as: 'div' | 'span';
+  as?: 'div' | 'span';
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    */

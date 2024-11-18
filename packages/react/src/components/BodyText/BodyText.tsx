@@ -18,9 +18,6 @@ const classNames = {
   truncate: 'uwp-truncate',
 };
 
-/**
- * Text renders the secondary UW font, Work Sans, to be used for body text.
- */
 export const BodyText = React.forwardRef<
   React.ElementRef<'p'>,
   React.PropsWithChildren<BodyTextProps>

@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { BodyText } from './BodyText';
+import { Heading } from './Heading';
 import { Flex } from '../Flex/Flex';
 import * as React from 'react';
 
-const variants = ['subtitle', 'body', 'legalNote', 'caption'] as const;
-const weights = ['regular', 'medium', 'semibold'] as const;
+const variants = ['displayHeading', 'h1', 'h2', 'h3', 'h4'] as const;
+const weights = ['regular', 'bold'] as const;
 
-const meta: Meta<typeof BodyText> = {
-  title: 'Components / BodyText',
-  component: BodyText,
+const meta: Meta<typeof Heading> = {
+  title: 'Components / Heading',
+  component: Heading,
   parameters: {
     layout: 'centered',
   },
@@ -17,32 +17,28 @@ const meta: Meta<typeof BodyText> = {
     children: { control: { type: 'text' } },
     variant: { options: variants, control: { type: 'radio' } },
     weight: { options: weights, control: { type: 'radio' } },
-    truncate: { control: { type: 'boolean' } },
   },
   args: {
     children: 'Hamburgefons',
-    variant: 'body',
-    weight: { mobile: 'regular', tablet: 'medium', desktop: 'semibold' },
+    variant: 'h2',
     align: { mobile: 'left', tablet: 'center', desktop: 'right' },
-    truncate: false,
     color: '',
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof BodyText>;
+type Story = StoryObj<typeof Heading>;
 
 export const Workshop: Story = {};
 
 export const KitchenSink: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
   render: () => {
     return (
       <Flex direction="column" gap="8px">
         {variants.map(variant => (
-          <BodyText key={variant} variant={variant}>
+          <Heading key={variant} variant={variant}>
             Hamburgefons
-          </BodyText>
+          </Heading>
         ))}
       </Flex>
     );
