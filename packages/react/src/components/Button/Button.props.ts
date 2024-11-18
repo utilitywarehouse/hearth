@@ -1,4 +1,4 @@
-import { Responsive } from '../../types';
+import { Responsive } from '../../types/responsive';
 import { ButtonBaseProps } from '../ButtonBase/ButtonBase.props';
 
 export type ButtonProps = ButtonBaseProps & {
