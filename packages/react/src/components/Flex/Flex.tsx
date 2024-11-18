@@ -29,6 +29,7 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
       paddingInline,
       gap,
       direction,
+      align,
       style = undefined,
       ...props
     },
@@ -38,6 +39,7 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
 
     const displayClassName = withBreakpoints(display, 'display');
     const directionClassName = withBreakpoints(direction, 'flex-direction');
+    const alignClassName = withBreakpoints(align, 'align-items');
 
     const paddingProps = withBreakpointStyles(padding, 'padding');
     const paddingTopProps = withBreakpointStyles(paddingTop, 'padding-top');
@@ -48,6 +50,7 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
     const paddingBlockProps = withBreakpointStyles(paddingBlock, 'padding-block');
 
     const gapProps = withBreakpointStyles(gap, 'gap');
+    console.log({ gapProps });
 
     const styleProps = {
       ...paddingProps?.style,
@@ -68,6 +71,7 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
           componentClassName,
           displayClassName,
           directionClassName,
+          alignClassName,
           paddingProps?.className,
           paddingInlineProps?.className,
           paddingBlockProps?.className,

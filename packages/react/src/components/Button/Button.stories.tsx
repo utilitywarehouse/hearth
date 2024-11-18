@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Button } from './Button';
 import * as React from 'react';
+import { Flex } from '../Flex/Flex';
+import { Heading } from '../Heading/Heading';
 
 const sizes = ['medium', 'small'] as const;
 const variants = ['solid', 'outline', 'ghost'] as const;
@@ -40,86 +42,83 @@ type Story = StoryObj<typeof Button>;
 
 export const Workshop: Story = {};
 
-// export const KitchenSink: Story = {
-//   parameters: { controls: { hideNoControlsWarning: true } },
-//   render: () => {
-//     return (
-//       <Flex direction="column" gap={6}>
-//         <Flex gap={2} direction="column">
-//           <Heading variant="h2" textTransform="capitalize">
-//             solid
-//           </Heading>
-//           <Flex gap={4} align="center">
-//             {sizes.map(size => (
-//               <Flex key={size} gap={1}>
-//                 {solidColorSchemes.map(colorScheme => (
-//                   <Button key={colorScheme} variant="solid" colorScheme={colorScheme} size={size}>
-//                     Button
-//                   </Button>
-//                 ))}
-//               </Flex>
-//             ))}
-//           </Flex>
-//           <Flex gap={4} align="center">
-//             {sizes.map(size => (
-//               <Flex key={size} gap={1}>
-//                 {solidColorSchemes.map(colorScheme => (
-//                   <Button
-//                     disabled
-//                     key={colorScheme}
-//                     variant="solid"
-//                     colorScheme={colorScheme}
-//                     size={size}
-//                   >
-//                     Button
-//                   </Button>
-//                 ))}
-//               </Flex>
-//             ))}
-//           </Flex>
-//         </Flex>
-//         {(['outline', 'ghost'] as const).map(variant => (
-//           <Flex key={variant} gap={2} direction="column">
-//             <Heading variant="h2" textTransform="capitalize">
-//               {variant}
-//             </Heading>
-//             <Flex gap={4} align="center">
-//               {sizes.map(size => (
-//                 <Flex key={size} gap={1}>
-//                   {colorSchemes.map(colorScheme => (
-//                     <Button
-//                       key={colorScheme}
-//                       variant={variant}
-//                       colorScheme={colorScheme}
-//                       size={size}
-//                     >
-//                       Button
-//                     </Button>
-//                   ))}
-//                 </Flex>
-//               ))}
-//             </Flex>
-//             <Flex gap={4} align="center">
-//               {sizes.map(size => (
-//                 <Flex key={size} gap={1}>
-//                   {colorSchemes.map(colorScheme => (
-//                     <Button
-//                       disabled
-//                       key={colorScheme}
-//                       variant={variant}
-//                       colorScheme={colorScheme}
-//                       size={size}
-//                     >
-//                       Button
-//                     </Button>
-//                   ))}
-//                 </Flex>
-//               ))}
-//             </Flex>
-//           </Flex>
-//         ))}
-//       </Flex>
-//     );
-//   },
-// };
-//
+export const KitchenSink: Story = {
+  parameters: { controls: { hideNoControlsWarning: true } },
+  render: () => {
+    return (
+      <Flex direction="column" gap="48px">
+        <Flex gap="16px" direction="column">
+          <Heading variant="h2">Solid</Heading>
+          <Flex gap="32px" align="center">
+            {sizes.map(size => (
+              <Flex key={size} gap="8px">
+                {solidColorSchemes.map(colorScheme => (
+                  <Button key={colorScheme} variant="solid" colorScheme={colorScheme} size={size}>
+                    Button
+                  </Button>
+                ))}
+              </Flex>
+            ))}
+          </Flex>
+          <Flex gap="32px" align="center">
+            {sizes.map(size => (
+              <Flex key={size} gap="8px">
+                {solidColorSchemes.map(colorScheme => (
+                  <Button
+                    disabled
+                    key={colorScheme}
+                    variant="solid"
+                    colorScheme={colorScheme}
+                    size={size}
+                  >
+                    Button
+                  </Button>
+                ))}
+              </Flex>
+            ))}
+          </Flex>
+        </Flex>
+        {(['outline', 'ghost'] as const).map(variant => (
+          <Flex key={variant} gap="16px" direction="column">
+            <Heading variant="h2" style={{ textTransform: 'capitalize' }}>
+              {variant}
+            </Heading>
+            <Flex gap="32px" align="center">
+              {sizes.map(size => (
+                <Flex key={size} gap="8px">
+                  {colorSchemes.map(colorScheme => (
+                    <Button
+                      key={colorScheme}
+                      variant={variant}
+                      colorScheme={colorScheme}
+                      size={size}
+                    >
+                      Button
+                    </Button>
+                  ))}
+                </Flex>
+              ))}
+            </Flex>
+            <Flex gap="32px" align="center">
+              {sizes.map(size => (
+                <Flex key={size} gap="8px">
+                  {colorSchemes.map(colorScheme => (
+                    <Button
+                      disabled
+                      key={colorScheme}
+                      variant={variant}
+                      colorScheme={colorScheme}
+                      size={size}
+                    >
+                      Button
+                    </Button>
+                  ))}
+                </Flex>
+              ))}
+            </Flex>
+          </Flex>
+        ))}
+      </Flex>
+    );
+  },
+};

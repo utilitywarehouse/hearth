@@ -1,7 +1,13 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
-export interface BodyTextProps extends ComponentPropsWithoutRef<'p'> {
+interface CommonBodyTextProps {
+  /**
+   * @default p
+   */
+  as?: 'p' | 'div' | 'span' | 'label';
+  /** Change the default rendered element for the one passed as a child, merging their props and behavior. */
+  asChild?: boolean;
   /**
    * Applies the text font styles.
    * @default body
@@ -26,3 +32,9 @@ export interface BodyTextProps extends ComponentPropsWithoutRef<'p'> {
    */
   color?: string;
 }
+type BodyTextDivProps = { as: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
+type BodyTextSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
+type BodyTextLabelProps = { as: 'label' } & ComponentPropsWithout<'label', RemovedProps>;
+type BodyTextPProps = { as?: 'p' } & ComponentPropsWithout<'p', RemovedProps>;
+export type BodyTextProps = CommonBodyTextProps &
+  (BodyTextSpanProps | BodyTextDivProps | BodyTextPProps | BodyTextLabelProps);

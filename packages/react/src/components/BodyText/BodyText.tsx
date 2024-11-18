@@ -1,9 +1,11 @@
 import * as React from 'react';
+import type { ElementRef } from 'react';
 
 import clsx from 'clsx';
 
 import { BodyTextProps } from './BodyText.props';
 import { withBreakpoints } from '../../helpers/with-breakpoints';
+import { Slot } from '@radix-ui/react-slot';
 
 const componentName = 'BodyText';
 const componentClassName = 'uwp-' + componentName;
@@ -18,19 +20,30 @@ const classNames = {
   truncate: 'uwp-truncate',
 };
 
-export const BodyText = React.forwardRef<
-  React.ElementRef<'p'>,
-  React.PropsWithChildren<BodyTextProps>
->(
+type BodyTextElement = ElementRef<'p'>;
+
+export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>(
   (
-    { variant = 'body', weight = 'regular', align, truncate, color, className, style, ...props },
+    {
+      children,
+      asChild,
+      as: Tag = 'p',
+      variant = 'body',
+      weight = 'regular',
+      align,
+      truncate,
+      color,
+      className,
+      style,
+      ...props
+    },
     ref
   ) => {
     const fontWeightClassName = withBreakpoints(weight, 'weight');
     const textAlignClassName = withBreakpoints(align, 'text-align');
     const styleProps = { '--uwp-color': color, ...style };
     return (
-      <p
+      <Slot
         ref={ref}
         className={clsx(
           componentClassName,
@@ -42,7 +55,9 @@ export const BodyText = React.forwardRef<
         )}
         style={styleProps}
         {...props}
-      />
+      >
+        {asChild ? children : <Tag>{children}</Tag>}
+      </Slot>
     );
   }
 );
