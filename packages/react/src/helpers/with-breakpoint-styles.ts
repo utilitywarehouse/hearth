@@ -5,7 +5,7 @@ export const withBreakpointStyles = (value: Responsive<string> | undefined, pref
     return undefined;
   }
   if (typeof value === 'string') {
-    return { className: `uwp-r-${prefix}`, style: { [`--uwp-r-${prefix}`]: value } };
+    return { className: `uwp-r-${prefix}`, style: { [`--uwp-${prefix}`]: value } };
   }
 
   if (typeof value === 'object') {
@@ -22,7 +22,7 @@ export const withBreakpointStyles = (value: Responsive<string> | undefined, pref
       (acc: { [key: string]: string }, bp: Breakpoints) => {
         const breakpointValue = value[bp];
         if (breakpointValue !== undefined) {
-          const baseStyleName = `--uwp-r-${prefix}`;
+          const baseStyleName = `--uwp-${prefix}`;
           const styleName = bp === initialBreakpoint ? baseStyleName : `${baseStyleName}-${bp}`;
           acc[styleName] = breakpointValue;
           return acc;

@@ -50,7 +50,6 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
     const paddingBlockProps = withBreakpointStyles(paddingBlock, 'padding-block');
 
     const gapProps = withBreakpointStyles(gap, 'gap');
-    console.log({ gapProps });
 
     const styleProps = {
       ...paddingProps?.style,

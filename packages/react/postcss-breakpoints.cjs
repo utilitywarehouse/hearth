@@ -88,15 +88,15 @@ function updateClass(node, prefix) {
    * Should match responsive classes (uwp-r- prefix):
    * ```
    * .uwp-r-size-1
-   * .uwp-m-2
-   * .-uwp-m-2
+   * .uwp-r-m-2
+   * .-uwp-r-m-2
    * .uwp-Button.uwp-r-size-1 (captures "uwp-r-size-1")
    * ```
    *
    * Should not match:
    * .uwp-Button
    */
-  const classNameRegexp = /\.(-?uwp-r-[a-z0-9-]+)/g; // TODO: import class prefix
+  const classNameRegexp = /\.(-?uwp-r-[a-z0-9-]+)/g; // TODO: import class prefix?
 
   // Check for rules that use compound props on a component:
   // - a component name (prefixed with "rt-" and pascal cased)
@@ -125,7 +125,7 @@ function addPropertySuffixes(propertyNode, suffix) {
      * --uwp-padding
      * ```
      */
-    const propertyNameRegexp = /(--uwp-r-[a-z0-9-]+)/g; // TODO: import class prefix
+    const propertyNameRegexp = /(--uwp-[a-z0-9-]+)/g; // TODO: import class prefix?
     if (propertyNameRegexp.test(node.value)) {
       node.value = node.value.replace(propertyNameRegexp, `$1-${suffix}`);
     }
