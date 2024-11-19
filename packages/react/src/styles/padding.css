@@ -1,0 +1,41 @@
+@breakpoints {
+  .uwp-r-padding {
+    padding: var(--uwp-padding);
+  }
+}
+
+@breakpoints {
+  .uwp-r-padding-inline {
+    padding-inline: var(--uwp-padding-inline);
+  }
+}
+
+@breakpoints {
+  .uwp-r-padding-block {
+    padding-block: var(--uwp-padding-block);
+  }
+}
+
+@breakpoints {
+  .uwp-r-padding-top {
+    padding-top: var(--uwp-padding-top);
+  }
+}
+
+@breakpoints {
+  .uwp-r-padding-right {
+    padding-right: var(--uwp-padding-right);
+  }
+}
+
+@breakpoints {
+  .uwp-r-padding-bottom {
+    padding-bottom: var(--uwp-padding-bottom);
+  }
+}
+
+@breakpoints {
+  .uwp-r-padding-left {
+    padding-left: var(--uwp-padding-left);
+  }
+}

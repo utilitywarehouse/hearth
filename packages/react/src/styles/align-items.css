@@ -1,0 +1,21 @@
+@breakpoints {
+  .uwp-r-align-items-start {
+    align-items: flex-start;
+  }
+
+  .uwp-r-align-items-center {
+    align-items: center;
+  }
+
+  .uwp-r-align-items-end {
+    align-items: flex-end;
+  }
+
+  .uwp-r-align-items-baseline {
+    align-items: baseline;
+  }
+
+  .uwp-r-align-items-stretch {
+    align-items: stretch;
+  }
+}
