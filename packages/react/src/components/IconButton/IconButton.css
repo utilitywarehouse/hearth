@@ -1,16 +1,18 @@
 .uwp-IconButton {
-  height: var(--uwp-icon-button-size);
-  width: var(--uwp-icon-button-size);
+  height: var(--size);
+  width: var(--size);
 
   @breakpoints {
     &:where(.uwp-r-size-medium) {
-      --uwp-icon-button-size: 3rem;
+      --size: 3rem;
     }
+
     &:where(.uwp-r-size-small) {
-      --uwp-icon-button-size: 2rem;
+      --size: 2rem;
     }
+
     &:where(.uwp-r-size-xsmall) {
-      --uwp-icon-button-size: 1.5rem;
+      --size: 1.5rem;
     }
   }
 }

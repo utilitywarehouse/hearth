@@ -1,8 +1,8 @@
 .uwp-BodyText {
-  font-family: var(--uwp-body-font-family);
-  color: var(--uwp-color, var(--color-brand-midnight));
+  font-family: var(--font-family-body);
+  color: var(--color, var(--color-brand-midnight));
 
-  &:where(.uwp-truncate) {
+  &:where(.truncate) {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -10,22 +10,26 @@
 
   /** variants **/
   &:where(.uwp-variant-subtitle) {
-    font-size: var(--uwp-body-font-size-lg);
-    line-height: var(--uwp-line-height-lg);
+    font-size: var(--font-size-body-lg);
+    line-height: var(--line-height-lg);
+
     @media (--desktop) {
-      font-size: var(--uwp-body-font-size-xl);
+      font-size: var(--font-size-body-xl);
     }
   }
+
   &:where(.uwp-variant-body) {
-    font-size: var(--uwp-body-font-size-md);
-    line-height: var(--uwp-line-height-lg);
+    font-size: var(--font-size-body-md);
+    line-height: var(--line-height-lg);
   }
+
   &:where(.uwp-variant-legalNote) {
-    font-size: var(--uwp-body-font-size-sm);
-    line-height: var(--uwp-line-height-lg);
+    font-size: var(--font-size-body-sm);
+    line-height: var(--line-height-lg);
   }
+
   &:where(.uwp-variant-caption) {
-    font-size: var(--uwp-body-font-size-xs);
-    line-height: var(--uwp-line-height-xl);
+    font-size: var(--font-size-body-xs);
+    line-height: var(--line-height-xl);
   }
 }
