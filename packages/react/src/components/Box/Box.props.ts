@@ -1,5 +1,5 @@
-import type { ComponentPropsWithoutRef, ElementType } from 'react';
-import { Responsive } from '../../types/responsive';
+import type { Responsive } from '../../types/responsive';
+import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
 interface PaddingProps {
   padding?: Responsive<string>;
@@ -11,17 +11,13 @@ interface PaddingProps {
   paddingBlock?: Responsive<string>;
 }
 
-// Omits the specified props from the component props. Autocomplete will suggest props
-// of the component, but won't restrict the omittable props to those that actually exist.
-type ComponentPropsWithout<
-  T extends ElementType,
-  O extends Omit<string, keyof ComponentPropsWithoutRef<T>> | keyof ComponentPropsWithoutRef<T>,
-> = Omit<ComponentPropsWithoutRef<T>, O & string>;
+interface ColorProps {
+  color?: string;
+  backgroundColor?: string;
+}
 
-type RemovedProps = 'asChild' | 'defaultChecked' | 'defaultValue' | 'color';
-
-interface CommonBoxProps extends PaddingProps {
-  as: 'div' | 'span';
+interface CommonBoxProps extends ColorProps, PaddingProps {
+  as?: 'div' | 'span';
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    */

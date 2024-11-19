@@ -18,6 +18,8 @@ export const Box = React.forwardRef<BoxElement, BoxProps>(
       className,
       asChild,
       as: Tag = 'div',
+      color,
+      backgroundColor,
       padding,
       paddingTop,
       paddingLeft,
@@ -38,7 +40,18 @@ export const Box = React.forwardRef<BoxElement, BoxProps>(
     const paddingLeftProps = withBreakpointStyles(paddingLeft, 'padding-left');
     const paddingInlineProps = withBreakpointStyles(paddingInline, 'padding-inline');
     const paddingBlockProps = withBreakpointStyles(paddingBlock, 'padding-block');
+
+    const colorClassNames = {
+      'uwp-color': !!color,
+      'uwp-background-color': !!backgroundColor,
+    };
+    const colorStyleProps = {
+      '--color': color,
+      '--background-color': backgroundColor,
+    };
+
     const styleProps = {
+      ...colorStyleProps,
       ...paddingProps?.style,
       ...paddingTopProps?.style,
       ...paddingRightProps?.style,
@@ -54,6 +67,7 @@ export const Box = React.forwardRef<BoxElement, BoxProps>(
         ref={ref}
         className={clsx(
           componentClassName,
+          colorClassNames,
           paddingProps?.className,
           paddingInlineProps?.className,
           paddingBlockProps?.className,
