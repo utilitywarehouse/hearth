@@ -1,0 +1,23 @@
+.uwp-HelperText {
+  display: inline-flex;
+  font-family: var(--uwp-body-font-family);
+  font-size: var(--uwp-body-font-size-md);
+  font-weight: var(--uwp-font-weight-regular);
+  line-height: var(--uwp-line-height-lg);
+  color: var(--uwp-helper-text-color);
+  gap: 8px;
+  align-items: center;
+  --uwp-helper-text-color: var(--color-grey700);
+  --uwp-helper-text-color-disabled: var(--color-grey400);
+  --uwp-helper-text-color-valid: var(--color-green600);
+  --uwp-helper-text-color-invalid: var(--color-red600);
+  &:where([data-disabled], [data-disabled] &) {
+    --uwp-helper-text-color: var(--uwp-helper-text-color-disabled);
+  }
+  &:where([data-validation='valid']) {
+    --uwp-helper-text-color: var(--uwp-helper-text-color-valid);
+  }
+  &:where([data-validation='invalid']) {
+    --uwp-helper-text-color: var(--uwp-helper-text-color-invalid);
+  }
+}

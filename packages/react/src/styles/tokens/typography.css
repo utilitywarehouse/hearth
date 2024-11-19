@@ -1,0 +1,32 @@
+& {
+  /** font-family **/
+  --uwp-body-font-family: 'Work Sans', arial, sans-serif;
+  --uwp-heading-font-family: Aeonik, arial, sans-serif;
+
+  /** font-sizes **/
+  --uwp-body-font-size-xs: 0.75rem;
+  --uwp-body-font-size-sm: 0.875rem;
+  --uwp-body-font-size-md: 1rem;
+  --uwp-body-font-size-lg: 1.125rem;
+  --uwp-body-font-size-xl: 1.25rem;
+  --uwp-heading-font-size-xs: 1.125rem;
+  --uwp-heading-font-size-sm: 1.25rem;
+  --uwp-heading-font-size-md: 1.375rem;
+  --uwp-heading-font-size-lg: 1.5rem;
+  --uwp-heading-font-size-xl: 1.75rem;
+  --uwp-heading-font-size-2xl: 2rem;
+  --uwp-heading-font-size-3xl: 2.625rem;
+  --uwp-heading-font-size-4xl: 4rem;
+
+  /** font-weights **/
+  --uwp-font-weight-regular: 400;
+  --uwp-font-weight-medium: 500;
+  --uwp-font-weight-semibold: 600;
+  --uwp-font-weight-bold: 700;
+
+  /** line-heights **/
+  --uwp-line-height-sm: 1;
+  --uwp-line-height-md: 1.2;
+  --uwp-line-height-lg: 1.5;
+  --uwp-line-height-xl: 2;
+}

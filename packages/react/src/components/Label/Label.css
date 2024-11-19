@@ -1,0 +1,17 @@
+.uwp-Label {
+  font-family: var(--uwp-body-font-family);
+  font-size: var(--uwp-body-font-size-md);
+  font-weight: var(--uwp-label-font-weight);
+  line-height: var(--uwp-line-height-lg);
+  color: var(--uwp-label-color);
+  --uwp-label-color: var(--color-grey1000);
+  --uwp-label-color-disabled: var(--color-grey400);
+  --uwp-label-font-weight: var(--uwp-font-weight-semibold);
+  --uwp-label-font-weight-nested: var(--uwp-font-weight-regular);
+  &:where([data-disabled], [data-disabled] &) {
+    --uwp-label-color: var(--uwp-label-color-disabled);
+  }
+  &:where(.uwp-nested) {
+    --uwp-label-font-weight: var(--label-font-weight-nested);
+  }
+}
