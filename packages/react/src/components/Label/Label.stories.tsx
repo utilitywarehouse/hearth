@@ -10,6 +10,7 @@ const meta: Meta<typeof Label> = {
   },
   argTypes: {
     children: { control: { type: 'text' } },
+    disabled: { control: { type: 'boolean' } },
     nested: { control: { type: 'boolean' } },
     disableUserSelect: { control: { type: 'boolean' } },
   },
@@ -17,6 +18,7 @@ const meta: Meta<typeof Label> = {
     children: 'Pollen Label',
     nested: false,
     disabled: false,
+    disableUserSelect: false,
   },
 };
 
