@@ -1,6 +1,5 @@
 import type { ComponentPropsWithoutRef, ElementType } from 'react';
-
-import { Responsive } from '../../types';
+import { Responsive } from '../../types/responsive';
 
 interface PaddingProps {
   padding?: Responsive<string>;
