@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Radio } from './Radio';
 import { Flex } from '../Flex/Flex';
-import { Root } from '@radix-ui/react-radio-group';
+import { RadioGroup } from '../RadioGroup/RadioGroup';
 
 const meta: Meta<typeof Radio> = {
   title: 'Components / Radio',
@@ -25,9 +25,13 @@ export const RadioStory: Story = {
   render: args => {
     return (
       <Flex gap="32px">
-        <Root>
+        <RadioGroup value="2" label="Unchecked Radio">
           <Radio {...args} />
-        </Root>
+        </RadioGroup>
+
+        <RadioGroup defaultValue={args.value} label="Checked Radio">
+          <Radio {...args} />
+        </RadioGroup>
       </Flex>
     );
   },

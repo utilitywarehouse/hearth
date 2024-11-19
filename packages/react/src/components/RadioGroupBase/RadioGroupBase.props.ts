@@ -2,7 +2,7 @@ import { type ReactNode } from 'react';
 
 import { type RadioGroupProps as RadixRadioGroupProps } from '@radix-ui/react-radio-group';
 
-export interface BaseRadioGroupProps extends Omit<RadixRadioGroupProps, 'dir'> {
+export interface RadioGroupBaseProps extends Omit<RadixRadioGroupProps, 'dir'> {
   /**
    * The label for the radio group. This should contain the question being
    * answered by the radio group.

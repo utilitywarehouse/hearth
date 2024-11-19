@@ -1,0 +1,5 @@
+@breakpoints {
+  .uwp-r-width {
+    padding: var(--width);
+  }
+}

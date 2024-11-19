@@ -1,8 +1,9 @@
 import type { PaddingProps } from '../../props/padding.props';
+import type { SizeProps } from '../../props/size.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
-interface CommonFlexProps extends PaddingProps {
+interface CommonFlexProps extends PaddingProps, SizeProps {
   as?: 'div' | 'span';
   /** Change the default rendered element for the one passed as a child, merging their props and behavior. */
   asChild?: boolean;
