@@ -12,6 +12,7 @@
     "build": "pnpm build:css && pnpm build:js",
     "build:css": "postcss ./src/styles/index.css -o styles.css",
     "build:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
+    "build:storybook": "storybook build",
     "dev": "pnpm dev:storybook & pnpm dev:css",
     "dev:css": "postcss --watch --verbose src/styles/index.css -o styles.css",
     "dev:storybook": "storybook dev -p 6006",
@@ -23,8 +24,7 @@
     "lint:css": "stylelint \"src/**/*.css\"",
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
     "format": "prettier --write \"src/**/*.ts*\"",
-    "format:ci": "prettier --list-different \"src/**/*.ts*\"",
-    "build-storybook": "storybook build"
+    "format:ci": "prettier --list-different \"src/**/*.ts*\""
   },
   "publishConfig": {
     "access": "restricted"
