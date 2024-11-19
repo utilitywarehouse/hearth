@@ -1,7 +1,7 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
-export interface HeadingProps extends ComponentPropsWithoutRef<'h2'> {
+export interface HeadingProps extends ComponentPropsWithout<'h2', RemovedProps> {
   /**
    * Applies the text font styles.
    * @default h2

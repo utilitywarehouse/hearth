@@ -1,6 +1,6 @@
 .uwp-BodyText {
   font-family: var(--font-family-body);
-  color: var(--color, var(--color-brand-midnight));
+  color: var(--body-text-color, var(--color-brand-midnight));
 
   &:where(.uwp-truncate) {
     overflow: hidden;

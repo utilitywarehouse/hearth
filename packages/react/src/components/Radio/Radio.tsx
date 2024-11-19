@@ -16,9 +16,12 @@ import { Flex } from '../Flex/Flex';
 import { Label } from '../Label/Label';
 import { useIds } from '../../hooks/use-ids';
 import { HelperText } from '../HelperText/HelperText';
+import type { ElementRef } from 'react';
 
 const componentName = 'Radio';
 const componentClassName = withGlobalPrefix(componentName);
+
+type RadioElement = ElementRef<'button'>;
 
 /**
  * `Radio` can be used to choose between a set of more than two options.
@@ -32,7 +35,7 @@ const componentClassName = withGlobalPrefix(componentName);
  *
  * > This component does not need to be wrapped in a `ThemeProvider` and can be used standalone with other component libraries.
  */
-export const Radio = React.forwardRef<HTMLButtonElement, RadioProps>(
+export const Radio = React.forwardRef<RadioElement, RadioProps>(
   (
     {
       id: providedId,

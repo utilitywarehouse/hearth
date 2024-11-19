@@ -4,6 +4,7 @@ import clsx from 'clsx';
 
 import { HeadingProps } from './Heading.props';
 import { withBreakpoints } from '../../helpers/with-breakpoints';
+import type { ElementRef } from 'react';
 
 const componentName = 'Heading';
 const componentClassName = 'uwp-' + componentName;
@@ -18,27 +19,28 @@ const classNames = {
   },
 };
 
-export const Heading = React.forwardRef<
-  React.ElementRef<'h2'>,
-  React.PropsWithChildren<HeadingProps>
->(({ variant = 'h2', weight = 'bold', align, color, className, style, ...props }, ref) => {
-  const fontWeightClassName = withBreakpoints(weight, 'weight');
-  const textAlignClassName = withBreakpoints(align, 'text-align');
-  const styleProps = { '--uwp-color': color, ...style };
-  return (
-    <h2
-      ref={ref}
-      className={clsx(
-        componentClassName,
-        classNames.variant[variant],
-        fontWeightClassName,
-        textAlignClassName,
-        className
-      )}
-      style={styleProps}
-      {...props}
-    />
-  );
-});
+type HeadingElement = ElementRef<'h2'>;
+
+export const Heading = React.forwardRef<HeadingElement, HeadingProps>(
+  ({ variant = 'h2', weight = 'bold', align, color, className, style, ...props }, ref) => {
+    const fontWeightClassName = withBreakpoints(weight, 'weight');
+    const textAlignClassName = withBreakpoints(align, 'text-align');
+    const styleProps = { '--heading-color': color, ...style };
+    return (
+      <h2
+        ref={ref}
+        className={clsx(
+          componentClassName,
+          classNames.variant[variant],
+          fontWeightClassName,
+          textAlignClassName,
+          className
+        )}
+        style={styleProps}
+        {...props}
+      />
+    );
+  }
+);
 
 Heading.displayName = componentName;

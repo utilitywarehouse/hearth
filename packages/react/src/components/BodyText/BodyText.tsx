@@ -41,7 +41,7 @@ export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>(
   ) => {
     const fontWeightClassName = withBreakpoints(weight, 'weight');
     const textAlignClassName = withBreakpoints(align, 'text-align');
-    const styleProps = { '--uwp-color': color, ...style };
+    const styleProps = { '--body-text-color': color, ...style };
     return (
       <Slot
         ref={ref}

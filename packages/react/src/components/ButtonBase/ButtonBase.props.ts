@@ -1,4 +1,6 @@
-export type ButtonBaseProps = React.ComponentPropsWithoutRef<'button'> &
+import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+
+export type ButtonBaseProps = ComponentPropsWithout<'button', RemovedProps> &
   (
     | {
         /**
