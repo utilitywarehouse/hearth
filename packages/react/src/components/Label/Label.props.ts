@@ -18,6 +18,6 @@ interface CommonLabelProps {
   /** Make the text unselectable, for use when associated with input elements. */
   disableUserSelect?: boolean;
 }
-type LabelSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
+type LabelSpanProps = { as?: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
 type LabelLabelProps = { as: 'label' } & ComponentPropsWithout<'label', RemovedProps>;
 export type LabelProps = CommonLabelProps & (LabelSpanProps | LabelLabelProps);

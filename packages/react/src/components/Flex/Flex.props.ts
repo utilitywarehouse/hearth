@@ -10,6 +10,7 @@ interface CommonFlexProps extends PaddingProps {
   direction?: Responsive<'row' | 'column' | 'row-reverse' | 'column-reverse'>;
   gap?: Responsive<string>;
   align?: Responsive<'start' | 'center' | 'end' | 'baseline' | 'stretch'>;
+  justify?: Responsive<'start' | 'center' | 'end' | 'baseline' | 'stretch'>;
 }
 type FlexDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
 type FlexSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;

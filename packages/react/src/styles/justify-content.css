@@ -1,0 +1,21 @@
+@breakpoints {
+  .uwp-r-justify-content-start {
+    justify-content: flex-start;
+  }
+
+  .uwp-r-justify-content-center {
+    justify-content: center;
+  }
+
+  .uwp-r-justify-content-end {
+    justify-content: flex-end;
+  }
+
+  .uwp-r-justify-content-baseline {
+    justify-content: baseline;
+  }
+
+  .uwp-r-justify-content-stretch {
+    justify-content: stretch;
+  }
+}

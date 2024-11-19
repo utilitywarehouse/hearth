@@ -38,6 +38,7 @@
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
+    "@radix-ui/react-radio-group": "^1.2.1",
     "@radix-ui/react-slot": "^1.1.0",
     "@utilitywarehouse/react-icons": "^1.11.0",
     "clsx": "^2.1.1"
