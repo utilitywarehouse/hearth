@@ -178,6 +178,7 @@
 
   &:where(:active) {
     transition-duration: 0s;
+
     --background-color: var(--background-color-active);
   }
 

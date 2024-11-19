@@ -2,7 +2,7 @@
   font-family: var(--font-family-body);
   color: var(--color, var(--color-brand-midnight));
 
-  &:where(.truncate) {
+  &:where(.uwp-truncate) {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
