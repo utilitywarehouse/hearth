@@ -7,9 +7,7 @@ import {
   Item as RadixRadioItem,
 } from '@radix-ui/react-radio-group';
 
-import { RadioProps } from './Radio.props';
-
-// import { useBaseRadioGroup } from '../BaseRadioGroup';
+import type { RadioProps } from './Radio.props';
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Flex } from '../Flex/Flex';
@@ -17,7 +15,7 @@ import { Label } from '../Label/Label';
 import { useIds } from '../../hooks/use-ids';
 import { HelperText } from '../HelperText/HelperText';
 import type { ElementRef } from 'react';
-import { useRadioGroupBase } from '../RadioGroupBase/RadioGroupBase.context';
+import { useFormFieldGroup } from '../FormFieldGroup/FormFieldGroup.context';
 
 const componentName = 'Radio';
 const componentClassName = withGlobalPrefix(componentName);
@@ -50,7 +48,7 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
     ref
   ) => {
     const { id, labelId, helperTextId } = useIds({ providedId, componentPrefix: 'radio' });
-    const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useRadioGroupBase();
+    const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormFieldGroup();
     const showHelperText = !hasGroupHelperText && !!helperText;
     const showLabel = !!label;
 
