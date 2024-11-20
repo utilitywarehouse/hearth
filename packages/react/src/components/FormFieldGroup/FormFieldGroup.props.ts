@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
-import {FieldsetProps} from '../Fieldset/Fieldset.props';
-
+import { FieldsetProps } from '../Fieldset/Fieldset.props';
 
 export interface FormFieldGroupProps extends FieldsetProps {
   /**

@@ -1,9 +1,11 @@
 .uwp-RadioGroupRoot {
   min-width: fit-content;
   flex-wrap: wrap;
+
   &:where([data-orientation='horizontal']) {
     flex-direction: row;
   }
+
   &:where([data-orientation='vertical']) {
     flex-direction: column;
   }

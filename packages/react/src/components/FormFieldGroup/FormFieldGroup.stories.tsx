@@ -37,7 +37,7 @@ export const Workshop: Story = {
   render: args => {
     return (
       <FormFieldGroup {...args}>
-        <Box className="Placeholder" height="100px" width="300px" />
+        <Box className="uwp-sb-Placeholder" height="100px" width="300px" />
       </FormFieldGroup>
     );
   },

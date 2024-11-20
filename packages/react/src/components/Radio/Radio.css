@@ -6,9 +6,11 @@
   --radio-border-color-disabled: var(--color-grey300);
 
   cursor: pointer;
+
   * {
     cursor: pointer;
   }
+
   flex: 1;
 
   .uwp-RadioContainer {
@@ -24,19 +26,25 @@
     background-color: white;
     border-radius: 100%;
     border: 2px solid var(--radio-border-color);
+
     &:where(:focus-visible) {
       --border-color: var(--radio-border-color-focus);
+
       outline: 2px solid var(--color-cyan700);
     }
+
     &:where([data-state='checked']) {
       --radio-border-color: var(--radio-border-color-checked);
     }
+
     @media (hover: hover) {
       &:where(:hover:enabled) {
         --radio-border-color: var(--radio-border-color-hover);
+
         box-shadow: 0 0 0 8px var(--color-cyan75);
       }
     }
+
     &:where([data-disabled]) {
       --radio-border-color: var(--radio-border-color-disabled);
     }
@@ -45,6 +53,7 @@
   /* we do this so that the gap between the checkbox & label is clickable */
   .uwp-RadioLabel {
     position: relative;
+
     &::before {
       content: '';
       position: absolute;
@@ -58,12 +67,14 @@
 .uwp-RadioIndicator {
   --radio-indicator-background-color: var(--color-cyan500);
   --radio-indicator-background-color-disabled: var(--color-grey300);
+
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
   position: relative;
+
   &::after {
     content: '';
     display: block;
@@ -72,6 +83,7 @@
     border-radius: 50%;
     background-color: var(--radio-indicator-background-color);
   }
+
   &:where([data-disabled]) {
     &::after {
       background-color: var(--radio-indicator-background-color-disabled);

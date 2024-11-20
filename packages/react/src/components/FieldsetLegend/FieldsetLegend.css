@@ -8,6 +8,7 @@
   font-size: var(--font-size-body-md);
   line-height: var(--line-height-lg);
   color: var(--fieldset-legend-color);
+
   &:where([data-disabled]) {
     --fieldset-legend-color: var(--fieldset-legend-color-disabled);
   }
