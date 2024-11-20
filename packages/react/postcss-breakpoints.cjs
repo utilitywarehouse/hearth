@@ -125,7 +125,8 @@ function addPropertySuffixes(propertyNode, suffix) {
      * --uwp-padding
      * ```
      */
-    const propertyNameRegexp = /(--uwp-[a-z0-9-]+)/g; // TODO: import class prefix?
+    const propertyNameRegexp = /(--[a-z0-9-]+)/g; // TODO: import class prefix?
+    console.log(node.value);
     if (propertyNameRegexp.test(node.value)) {
       node.value = node.value.replace(propertyNameRegexp, `$1-${suffix}`);
     }

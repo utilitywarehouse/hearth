@@ -1,10 +1,13 @@
 import type { Breakpoints, Responsive } from '../types/responsive';
 
-export const withBreakpointStyles = (value: Responsive<string> | undefined, prefix = '') => {
+export const withBreakpointStyles = (
+  value: Responsive<string | number> | undefined,
+  prefix = ''
+) => {
   if (value === '') {
     return undefined;
   }
-  if (typeof value === 'string') {
+  if (typeof value === 'string' || typeof value === 'number') {
     return { className: `uwp-r-${prefix}`, style: { [`--${prefix}`]: value } };
   }
 
@@ -19,7 +22,7 @@ export const withBreakpointStyles = (value: Responsive<string> | undefined, pref
       }
     });
     const styles = (Object.keys(value) as Array<Breakpoints>).reduce(
-      (acc: { [key: string]: string }, bp: Breakpoints) => {
+      (acc: { [key: string]: string | number }, bp: Breakpoints) => {
         const breakpointValue = value[bp];
         if (breakpointValue !== undefined) {
           const baseStyleName = `--${prefix}`;

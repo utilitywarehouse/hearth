@@ -52,7 +52,7 @@
       --radio-border-color: var(--radio-border-color-focus);
       box-shadow: 0 0 0 2px var(--color-cyan700);
     }
-    &:where([data-state='checked']) {
+    &:where([data-state='checked'] &) {
       --radio-border-color: var(--radio-border-color-checked);
     }
     &:where([data-disabled] &) {
