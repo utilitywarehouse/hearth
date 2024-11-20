@@ -21,6 +21,7 @@ export const Box = React.forwardRef<BoxElement, BoxProps>(
       color,
       backgroundColor,
       width,
+      height,
       padding,
       paddingTop,
       paddingLeft,
@@ -36,6 +37,8 @@ export const Box = React.forwardRef<BoxElement, BoxProps>(
     const Component = asChild ? Slot : Tag;
 
     const widthProps = withBreakpointStyles(width, 'width');
+    const heightProps = withBreakpointStyles(height, 'height');
+
     const paddingProps = withBreakpointStyles(padding, 'padding');
     const paddingTopProps = withBreakpointStyles(paddingTop, 'padding-top');
     const paddingRightProps = withBreakpointStyles(paddingRight, 'padding-right');
@@ -56,6 +59,7 @@ export const Box = React.forwardRef<BoxElement, BoxProps>(
     const styleProps = {
       ...colorStyleProps,
       ...widthProps?.style,
+      ...heightProps?.style,
       ...paddingProps?.style,
       ...paddingTopProps?.style,
       ...paddingRightProps?.style,
@@ -73,6 +77,7 @@ export const Box = React.forwardRef<BoxElement, BoxProps>(
           componentClassName,
           colorClassNames,
           widthProps?.className,
+          heightProps?.className,
           paddingProps?.className,
           paddingInlineProps?.className,
           paddingBlockProps?.className,

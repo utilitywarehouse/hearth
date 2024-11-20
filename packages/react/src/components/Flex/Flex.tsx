@@ -7,9 +7,10 @@ import type { ElementRef } from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { withBreakpointStyles } from '../../helpers/with-breakpoint-styles';
 import { withBreakpoints } from '../../helpers/with-breakpoints';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 
 const componentName = 'Flex';
-const componentClassName = 'uwp-' + componentName;
+const componentClassName = withGlobalPrefix(componentName);
 
 type FlexElement = ElementRef<'div'>;
 
