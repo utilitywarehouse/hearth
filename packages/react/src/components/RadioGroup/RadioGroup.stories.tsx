@@ -3,11 +3,11 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { colors } from '@utilitywarehouse/colour-system';
-
 import { RadioGroup } from './RadioGroup';
 import { Flex } from '../Flex/Flex';
 import { Radio } from '../Radio/Radio';
+import { RadioTile } from '../RadioTile/RadioTile';
+import { Box } from '../Box/Box';
 
 const meta: Meta<typeof RadioGroup> = {
   title: 'Components / RadioGroup',
@@ -44,11 +44,6 @@ const meta: Meta<typeof RadioGroup> = {
 export default meta;
 type Story = StoryObj<typeof RadioGroup>;
 
-// <RadioGroup {...args} name="with-radio-tile">
-//   <RadioTile value="1" label="One" />
-//   <RadioTile value="2" label="Two" />
-//   <RadioTile value="3" label="Three" />
-// </RadioGroup>
 export const Workshop: Story = {
   render: args => {
     return (
@@ -57,6 +52,11 @@ export const Workshop: Story = {
           <Radio value="1" label="One" />
           <Radio value="2" label="Two" />
           <Radio value="3" label="Three" />
+        </RadioGroup>
+        <RadioGroup {...args} name="with-radio-tile">
+          <RadioTile value="1" label="One" />
+          <RadioTile value="2" label="Two" />
+          <RadioTile value="3" label="Three" />
         </RadioGroup>
       </Flex>
     );
@@ -137,19 +137,18 @@ export const ShowingError: Story = {
   },
 };
 
-// export const Wrap: Story = {
-//   name: 'Wrap',
-//   render: args => {
-//     return (
-//       <Box height={800} width={400} padding={2} border="2px solid" borderColor={colors.grey500}>
-//         <RadioGroup {...args} direction="row" helperText="Child elements will wrap by default">
-//           <RadioTile value="1" label="One" />
-//           <RadioTile value="2" label="Two" />
-//           <RadioTile value="3" label="Three" />
-//           <RadioTile value="4" label="Four" />
-//           <RadioTile value="5" label="Five" />
-//         </RadioGroup>
-//       </Box>
-//     );
-//   },
-// };
+export const Wrap: Story = {
+  render: args => {
+    return (
+      <Box height="800px" width="400px" padding="16px">
+        <RadioGroup {...args} direction="row" helperText="Child elements will wrap by default">
+          <RadioTile value="1" label="One" />
+          <RadioTile value="2" label="Two" />
+          <RadioTile value="3" label="Three" />
+          <RadioTile value="4" label="Four" />
+          <RadioTile value="5" label="Five" />
+        </RadioGroup>
+      </Box>
+    );
+  },
+};
