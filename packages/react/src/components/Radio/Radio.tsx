@@ -17,6 +17,7 @@ import { Label } from '../Label/Label';
 import { useIds } from '../../hooks/use-ids';
 import { HelperText } from '../HelperText/HelperText';
 import type { ElementRef } from 'react';
+import { useRadioGroupBase } from '../RadioGroupBase/RadioGroupBase.context';
 
 const componentName = 'Radio';
 const componentClassName = withGlobalPrefix(componentName);
@@ -49,9 +50,8 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
     ref
   ) => {
     const { id, labelId, helperTextId } = useIds({ providedId, componentPrefix: 'radio' });
-    // const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useBaseRadioGroup();
-    // const showHelperText = !hasGroupHelperText && !!helperText;
-    const showHelperText = true;
+    const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useRadioGroupBase();
+    const showHelperText = !hasGroupHelperText && !!helperText;
     const showLabel = !!label;
 
     return (
@@ -66,7 +66,7 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
             {...props}
             id={id}
             disabled={disabled}
-            // aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
+            aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
             aria-labelledby={ariaLabelledby || !!label ? labelId : undefined}
             className="uwp-RadioItem"
           >
