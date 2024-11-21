@@ -8,7 +8,7 @@ const variants = ['subtitle', 'body', 'legalNote', 'caption'] as const;
 const weights = ['regular', 'medium', 'semibold'] as const;
 
 const meta: Meta<typeof BodyText> = {
-  title: 'Components / BodyText',
+  title: 'Stories / BodyText',
   component: BodyText,
   parameters: {
     layout: 'centered',

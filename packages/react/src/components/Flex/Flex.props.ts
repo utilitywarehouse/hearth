@@ -11,8 +11,26 @@ interface CommonFlexProps extends ColorProps, PaddingProps, SizeProps {
   display?: Responsive<'none' | 'flex' | 'inline-flex'>;
   direction?: Responsive<'row' | 'column' | 'row-reverse' | 'column-reverse'>;
   gap?: Responsive<string>;
-  align?: Responsive<'start' | 'center' | 'end' | 'baseline' | 'stretch'>;
-  justify?: Responsive<'start' | 'center' | 'end' | 'baseline' | 'stretch'>;
+  align?: Responsive<
+    | 'start'
+    | 'center'
+    | 'end'
+    | 'baseline'
+    | 'stretch'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly'
+  >;
+  justify?: Responsive<
+    | 'start'
+    | 'center'
+    | 'end'
+    | 'baseline'
+    | 'stretch'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly'
+  >;
 }
 type FlexDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
 type FlexSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;

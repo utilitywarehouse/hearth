@@ -21,7 +21,11 @@ export const Box = React.forwardRef<BoxElement, BoxProps>(
       color,
       backgroundColor,
       width,
+      maxWidth,
+      minWidth,
       height,
+      maxHeight,
+      minHeight,
       padding,
       paddingTop,
       paddingLeft,
@@ -37,7 +41,11 @@ export const Box = React.forwardRef<BoxElement, BoxProps>(
     const Component = asChild ? Slot : Tag;
 
     const widthProps = withBreakpointStyles(width, 'width');
+    const maxWidthProps = withBreakpointStyles(maxWidth, 'max-width');
+    const minWidthProps = withBreakpointStyles(minWidth, 'min-width');
     const heightProps = withBreakpointStyles(height, 'height');
+    const maxHeightProps = withBreakpointStyles(maxHeight, 'max-height');
+    const minHeightProps = withBreakpointStyles(minHeight, 'min-height');
 
     const paddingProps = withBreakpointStyles(padding, 'padding');
     const paddingTopProps = withBreakpointStyles(paddingTop, 'padding-top');
@@ -59,7 +67,11 @@ export const Box = React.forwardRef<BoxElement, BoxProps>(
     const styleProps = {
       ...colorStyleProps,
       ...widthProps?.style,
+      ...maxWidthProps?.style,
+      ...minWidthProps?.style,
       ...heightProps?.style,
+      ...maxHeightProps?.style,
+      ...minHeightProps?.style,
       ...paddingProps?.style,
       ...paddingTopProps?.style,
       ...paddingRightProps?.style,
@@ -77,7 +89,11 @@ export const Box = React.forwardRef<BoxElement, BoxProps>(
           componentClassName,
           colorClassNames,
           widthProps?.className,
+          maxWidthProps?.className,
+          minWidthProps?.className,
           heightProps?.className,
+          maxHeightProps?.className,
+          minHeightProps?.className,
           paddingProps?.className,
           paddingInlineProps?.className,
           paddingBlockProps?.className,

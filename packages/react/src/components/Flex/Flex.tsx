@@ -22,6 +22,11 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
       as: Tag = 'div',
       display,
       width,
+      maxWidth,
+      minWidth,
+      height,
+      maxHeight,
+      minHeight,
       color,
       backgroundColor,
       padding,
@@ -48,6 +53,12 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
     const justifyClassName = withBreakpoints(justify, 'justify-content');
 
     const widthProps = withBreakpointStyles(width, 'width');
+    const maxWidthProps = withBreakpointStyles(maxWidth, 'max-width');
+    const minWidthProps = withBreakpointStyles(minWidth, 'min-width');
+    const heightProps = withBreakpointStyles(height, 'height');
+    const maxHeightProps = withBreakpointStyles(maxHeight, 'max-height');
+    const minHeightProps = withBreakpointStyles(minHeight, 'min-height');
+
     const paddingProps = withBreakpointStyles(padding, 'padding');
     const paddingTopProps = withBreakpointStyles(paddingTop, 'padding-top');
     const paddingRightProps = withBreakpointStyles(paddingRight, 'padding-right');
@@ -70,6 +81,11 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
     const styleProps = {
       ...colorStyleProps,
       ...widthProps?.style,
+      ...maxWidthProps?.style,
+      ...minWidthProps?.style,
+      ...heightProps?.style,
+      ...maxHeightProps?.style,
+      ...minHeightProps?.style,
       ...paddingProps?.style,
       ...paddingTopProps?.style,
       ...paddingRightProps?.style,
@@ -92,6 +108,11 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
           alignClassName,
           justifyClassName,
           widthProps?.className,
+          maxWidthProps?.className,
+          minWidthProps?.className,
+          heightProps?.className,
+          maxHeightProps?.className,
+          minHeightProps?.className,
           paddingProps?.className,
           paddingInlineProps?.className,
           paddingBlockProps?.className,
