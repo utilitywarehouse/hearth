@@ -2,26 +2,26 @@ import * as React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Em } from './Em';
+import { Strong } from './Strong';
 import { Flex } from '../Flex/Flex';
 import { BodyText } from '../BodyText/BodyText';
 
 const textVariants = ['subtitle', 'body', 'legalNote', 'caption'] as const;
 
-const meta: Meta<typeof Em> = {
-  title: 'Components / Em',
-  component: Em,
+const meta: Meta<typeof Strong> = {
+  title: 'Components / Strong',
+  component: Strong,
 };
 
 export default meta;
-type Story = StoryObj<typeof Em>;
+type Story = StoryObj<typeof Strong>;
 
 export const KitchenSink: Story = {
   render: () => (
     <Flex direction="column" gap="8px">
       {textVariants.map(variant => (
         <BodyText key={variant} variant={variant}>
-          We <Em>had</Em> to do something about it.
+          The most important thing to remember is, <Strong>stay positive</Strong>.
         </BodyText>
       ))}
     </Flex>
