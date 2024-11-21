@@ -22,6 +22,8 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
       as: Tag = 'div',
       display,
       width,
+      color,
+      backgroundColor,
       padding,
       paddingTop,
       paddingLeft,
@@ -56,7 +58,17 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
 
     const gapProps = withBreakpointStyles(gap, 'gap');
 
+    const colorClassNames = {
+      'uwp-color': !!color,
+      'uwp-background-color': !!backgroundColor,
+    };
+    const colorStyleProps = {
+      '--color': color,
+      '--background-color': backgroundColor,
+    };
+
     const styleProps = {
+      ...colorStyleProps,
       ...widthProps?.style,
       ...paddingProps?.style,
       ...paddingTopProps?.style,
@@ -74,6 +86,7 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>(
         ref={ref}
         className={clsx(
           componentClassName,
+          colorClassNames,
           displayClassName,
           directionClassName,
           alignClassName,

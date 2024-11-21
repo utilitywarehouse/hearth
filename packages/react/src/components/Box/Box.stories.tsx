@@ -39,5 +39,17 @@ export default meta;
 type Story = StoryObj<typeof Box>;
 
 export const Workshop: Story = {
-  render: args => <Box {...args} padding={{ mobile: '4px', tablet: '8px' }} />,
+  render: args => <Box {...args} />,
+};
+
+export const ResponsivePadding: Story = {
+  args: {
+    children: 'Responsive padding',
+    padding: {
+      mobile: '4px',
+      tablet: '8px',
+      desktop: '16px',
+      wide: '32px',
+    },
+  },
 };

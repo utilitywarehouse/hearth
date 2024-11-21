@@ -120,12 +120,12 @@ function updateClass(node, prefix) {
 function addPropertySuffixes(propertyNode, suffix) {
   propertyNode.nodes.map(node => {
     /**
-     * Should match custom properties with --uwp prefix:
+     * Should match custom properties with responsive --r prefix:
      * ```
-     * --uwp-padding
+     * --r-padding
      * ```
      */
-    const propertyNameRegexp = /(--[a-z0-9-]+)/g; // TODO: import class prefix?
+    const propertyNameRegexp = /(--r-[a-z0-9-]+)/g;
     if (propertyNameRegexp.test(node.value)) {
       node.value = node.value.replace(propertyNameRegexp, `$1-${suffix}`);
     }

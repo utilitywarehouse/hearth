@@ -122,3 +122,15 @@ export const KitchenSink: Story = {
     );
   },
 };
+
+export const ResponsiveSize: Story = {
+  args: {
+    children: 'Responsive size button',
+    size: {
+      mobile: 'medium',
+      tablet: 'small',
+      desktop: 'medium',
+      wide: 'small',
+    },
+  },
+};

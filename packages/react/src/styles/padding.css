@@ -1,41 +1,41 @@
 @breakpoints {
   .uwp-r-padding {
-    padding: var(--padding);
+    padding: var(--r-padding);
   }
 }
 
 @breakpoints {
   .uwp-r-padding-inline {
-    padding-inline: var(--padding-inline);
+    padding-inline: var(--r-padding-inline);
   }
 }
 
 @breakpoints {
   .uwp-r-padding-block {
-    padding-block: var(--padding-block);
+    padding-block: var(--r-padding-block);
   }
 }
 
 @breakpoints {
   .uwp-r-padding-top {
-    padding-top: var(--padding-top);
+    padding-top: var(--r-padding-top);
   }
 }
 
 @breakpoints {
   .uwp-r-padding-right {
-    padding-right: var(--padding-right);
+    padding-right: var(--r-padding-right);
   }
 }
 
 @breakpoints {
   .uwp-r-padding-bottom {
-    padding-bottom: var(--padding-bottom);
+    padding-bottom: var(--r-padding-bottom);
   }
 }
 
 @breakpoints {
   .uwp-r-padding-left {
-    padding-left: var(--padding-left);
+    padding-left: var(--r-padding-left);
   }
 }
