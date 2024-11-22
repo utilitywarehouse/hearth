@@ -13,6 +13,7 @@
     "build:css": "postcss ./src/styles/index.css -o styles.css",
     "build:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
     "build:storybook": "storybook build",
+    "build:storybook:ci": "pnpm build && pnpm build:storybook",
     "dev": "pnpm dev:storybook & pnpm dev:css",
     "dev:css": "postcss --watch --verbose src/styles/index.css -o styles.css",
     "dev:storybook": "storybook dev -p 6006",
