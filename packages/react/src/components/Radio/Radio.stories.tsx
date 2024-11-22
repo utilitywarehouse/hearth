@@ -15,8 +15,7 @@ const meta: Meta<typeof Radio> = {
 export default meta;
 type Story = StoryObj<typeof Radio>;
 
-export const RadioStory: Story = {
-  name: 'Radio',
+export const Workshop: Story = {
   render: args => {
     return (
       <Flex gap="32px">
