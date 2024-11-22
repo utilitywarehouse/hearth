@@ -2,8 +2,6 @@ import * as React from 'react';
 
 import clsx from 'clsx';
 
-import { colors } from '@utilitywarehouse/colour-system';
-
 import type { DividerProps } from './Divider.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { ORIENTATIONS, type Orientation } from '../../types/orientation';

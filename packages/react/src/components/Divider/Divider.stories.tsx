@@ -17,7 +17,7 @@ const meta: Meta<typeof Divider> = {
   argTypes: {
     orientation: { options: ['horizontal', 'vertical'], control: { type: 'radio' } },
     decorative: { control: { type: 'boolean' } },
-    children: { control: { type: 'text' } },
+    color: { control: { type: 'text' } },
   },
   args: {
     orientation: 'horizontal',

@@ -18,12 +18,15 @@
   .uwp-r-align-items-stretch {
     align-items: stretch;
   }
+
   .uwp-r-align-items-space-between {
     align-items: space-between;
   }
+
   .uwp-r-align-items-space-around {
     align-items: space-between;
   }
+
   .uwp-r-align-items-space-evenly {
     align-items: space-between;
   }
