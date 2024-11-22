@@ -10,9 +10,7 @@ const weights = ['regular', 'medium', 'semibold'] as const;
 const meta: Meta<typeof BodyText> = {
   title: 'Stories / BodyText',
   component: BodyText,
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   argTypes: {
     children: { control: { type: 'text' } },
     variant: { options: variants, control: { type: 'radio' } },

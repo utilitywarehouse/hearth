@@ -14,10 +14,22 @@ import { BodyText } from '../BodyText/BodyText';
 const meta: Meta<typeof Divider> = {
   title: 'Stories / Divider',
   component: Divider,
+  argTypes: {
+    orientation: { options: ['horizontal', 'vertical'], control: { type: 'radio' } },
+    decorative: { control: { type: 'boolean' } },
+    children: { control: { type: 'text' } },
+  },
+  args: {
+    orientation: 'horizontal',
+    decorative: true,
+    color: '',
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Divider>;
+
+export const Workshop: Story = {};
 
 export const KitchenSink: Story = {
   render: () => {

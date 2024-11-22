@@ -10,7 +10,7 @@ import { Flex } from '../Flex/Flex';
 import { BodyText } from '../BodyText/BodyText';
 
 const meta: Meta<typeof TextLink> = {
-  title: 'Components / TextLink',
+  title: 'Stories / TextLink',
   component: TextLink,
   argTypes: {
     children: { control: { type: 'text' } },

@@ -3,11 +3,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { FieldsetLegend } from './FieldsetLegend';
 
 const meta: Meta<typeof FieldsetLegend> = {
-  title: 'Components / FieldsetLegend',
+  title: 'Stories / FieldsetLegend',
   component: FieldsetLegend,
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   argTypes: {
     children: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },

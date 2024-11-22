@@ -14,17 +14,10 @@ const colorSchemes = {
   ghost: ['cyan', 'red', 'green', 'gold', 'grey'] as const,
 };
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof IconButton> = {
-  title: 'Components / IconButton',
+  title: 'Stories / IconButton',
   component: IconButton,
-  parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
-    layout: 'centered',
-  },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
-  // More on argTypes: https://storybook.js.org/docs/api/argtypes
+  parameters: { layout: 'centered' },
   argTypes: {
     children: { control: { type: 'text' } },
     variant: { control: { type: 'radio' }, options: variants },
@@ -33,7 +26,6 @@ const meta: Meta<typeof IconButton> = {
     disabled: { control: { type: 'boolean' } },
   },
   args: {
-    // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
     onClick: fn(),
     variant: 'solid',
     colorScheme: 'cyan',

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Label } from './Label';
 
 const meta: Meta<typeof Label> = {
-  title: 'Components / Label',
+  title: 'Stories / Label',
   component: Label,
   parameters: {
     layout: 'centered',

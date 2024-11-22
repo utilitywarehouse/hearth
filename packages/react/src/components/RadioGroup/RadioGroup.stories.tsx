@@ -10,7 +10,7 @@ import { RadioTile } from '../RadioTile/RadioTile';
 import { Box } from '../Box/Box';
 
 const meta: Meta<typeof RadioGroup> = {
-  title: 'Components / RadioGroup',
+  title: 'Stories / RadioGroup',
   component: RadioGroup,
   argTypes: {
     direction: {

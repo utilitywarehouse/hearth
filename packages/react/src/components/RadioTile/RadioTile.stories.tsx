@@ -7,7 +7,7 @@ import { Flex } from '../Flex/Flex';
 import { RadioGroup } from '../RadioGroup/RadioGroup';
 
 const meta: Meta<typeof RadioTile> = {
-  title: 'Components / RadioTile',
+  title: 'Stories / RadioTile',
   component: RadioTile,
   argTypes: {
     value: { control: { type: 'text' } },

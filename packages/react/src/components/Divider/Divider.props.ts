@@ -1,7 +1,7 @@
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Orientation } from '../../types/orientation';
 
-export interface DividerProps extends ComponentPropsWithout<'hr', RemovedProps> {
+export interface DividerProps extends ComponentPropsWithout<'hr', 'children' | RemovedProps> {
   /**
    * @default horizontal
    */

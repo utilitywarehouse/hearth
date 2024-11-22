@@ -9,7 +9,7 @@ import { BodyText } from '../BodyText/BodyText';
 const textVariants = ['subtitle', 'body', 'legalNote', 'caption'] as const;
 
 const meta: Meta<typeof Em> = {
-  title: 'Components / Em',
+  title: 'Stories / Em',
   component: Em,
 };
 

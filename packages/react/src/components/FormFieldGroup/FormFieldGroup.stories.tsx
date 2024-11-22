@@ -6,7 +6,7 @@ import { FormFieldGroup } from './FormFieldGroup';
 import { Box } from '../Box/Box';
 
 const meta: Meta<typeof FormFieldGroup> = {
-  title: 'Components / FormFieldGroup',
+  title: 'Stories / FormFieldGroup',
   component: FormFieldGroup,
   argTypes: {
     helperText: { control: { type: 'text' } },

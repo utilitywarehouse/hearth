@@ -5,7 +5,7 @@ import { RadioGridGroup } from './RadioGridGroup';
 import { RadioTile } from '../RadioTile/RadioTile';
 
 const meta: Meta<typeof RadioGridGroup> = {
-  title: 'Components / RadioGridGroup',
+  title: 'Stories / RadioGridGroup',
   component: RadioGridGroup,
   argTypes: {
     error: { control: { type: 'boolean' } },

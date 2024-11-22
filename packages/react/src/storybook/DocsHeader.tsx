@@ -18,12 +18,13 @@ export const DocsHeader = ({ componentName, figmaLink, stories }: DocsHeaderProp
       <Flex width="100%" align="center" justify="space-between">
         <Heading variant="h1">{componentName}</Heading>
         <Flex gap="24px">
+          <Link href={`/?path=/story/stories-${componentName}`}>Stories</Link>
           <Link
-            href={`https://github.com/utilitywarehouse/design-systems/blob/main/packages/web-ui/src/${componentName}.tsx`}
+            href={`https://github.com/utilitywarehouse/pollen/blob/main/packages/react/src/components/${componentName}`}
           >
-            View on GitHub
+            Source
           </Link>
-          {figmaLink ? <Link href={figmaLink}>View on Figma</Link> : null}
+          {figmaLink ? <Link href={figmaLink}>Design</Link> : null}
         </Flex>
       </Flex>
       <Description of={stories} />

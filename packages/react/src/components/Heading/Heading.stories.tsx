@@ -8,11 +8,9 @@ const variants = ['displayHeading', 'h1', 'h2', 'h3', 'h4'] as const;
 const weights = ['regular', 'bold'] as const;
 
 const meta: Meta<typeof Heading> = {
-  title: 'Components / Heading',
+  title: 'Stories / Heading',
   component: Heading,
-  parameters: {
-    layout: 'centered',
-  },
+  parameters: { layout: 'centered' },
   argTypes: {
     children: { control: { type: 'text' } },
     variant: { options: variants, control: { type: 'radio' } },

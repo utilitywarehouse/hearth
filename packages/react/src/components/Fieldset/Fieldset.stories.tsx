@@ -7,7 +7,7 @@ import { FieldsetLegend } from '../FieldsetLegend/FieldsetLegend';
 import { Box } from '../Box/Box';
 
 const meta: Meta<typeof Fieldset> = {
-  title: 'Components / Fieldset',
+  title: 'Stories / Fieldset',
   component: Fieldset,
 };
 
