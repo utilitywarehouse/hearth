@@ -22,6 +22,9 @@ const classNames = {
 
 type BodyTextElement = ElementRef<'p'>;
 
+/**
+ * BodyText renders the secondary UW font, Work Sans, to be used for body text.
+ */
 export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>(
   (
     {

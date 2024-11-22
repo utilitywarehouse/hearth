@@ -13,7 +13,10 @@ interface CommonBodyTextProps {
    * @default body
    */
   variant?: 'subtitle' | 'body' | 'legalNote' | 'caption';
-  /** Set the font-weight */
+  /**
+   * Set the font-weight
+   * @default regular
+   */
   weight?: Responsive<'regular' | 'medium' | 'semibold'>;
   /**
    * Set the text-align on the component.
