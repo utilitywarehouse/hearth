@@ -22,5 +22,12 @@ const config: StorybookConfig = {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {},
   },
+  async viteFinal(config) {
+    // Add your configuration here
+    config.optimizeDeps = {
+      exclude: ['node_modules/.cache/sb-vite'],
+    };
+    return config;
+  },
 };
 export default config;
