@@ -5,7 +5,7 @@ import '@utilitywarehouse/css-reset';
 import '@utilitywarehouse/colour-system/css/colours.css';
 import '../styles.css';
 import '../src/storybook/styles.css';
-import { breakpoints } from '../../web-ui/src/tokens';
+import { breakpoints } from '../src/tokens/breakpoints';
 
 const customViewports = {
   mobile: {
