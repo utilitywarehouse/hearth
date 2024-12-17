@@ -1,6 +1,6 @@
-.uwp-Badge {
+.uw-Badge {
   display: inline-flex;
-  gap: 4px;
+  gap: var(--space-50);
   align-items: center;
   white-space: nowrap;
   font-size: var(--font-size-body-sm);
@@ -10,40 +10,47 @@
   flex-shrink: 0;
   line-height: var(--line-height-md);
   text-align: center;
+
   /* Make sure that the height is not stretched in a Flex/Grid layout */
   height: fit-content;
   border-radius: 4px;
   color: var(--badge-color);
   background-color: var(--badge-background-color);
-  padding-block: 4px;
+  padding-block: var(--space-50);
 
   @breakpoints {
-    &:where(.uwp-r-size-medium) {
-      padding-inline: 16px;
+    &:where(.uw-r-size-medium) {
+      padding-inline: var(--space-200);
     }
-    &:where(.uwp-r-size-small) {
-      padding-inline: 8px;
+
+    &:where(.uw-r-size-small) {
+      padding-inline: var(--space-100);
     }
   }
 
-  &:where(.uwp-bottom-radius-zero) {
+  &:where([data-bottom-radius-zero]) {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
-  &:where(.uwp-variant-soft) {
+
+  &:where(.uw-variant-soft) {
     --badge-color: var(--badge-soft-color);
     --badge-background-color: var(--badge-soft-background-color);
   }
-  &:where(.uwp-variant-strong) {
+
+  &:where(.uw-variant-strong) {
     --badge-color: var(--badge-strong-color);
     --badge-background-color: var(--badge-strong-background-color);
   }
-  &:where(.uwp-variant-outline) {
+
+  &:where(.uw-variant-outline) {
     --badge-color: var(--badge-outline-color);
     --badge-background-color: transparent;
     --badge-border-color: var(--badge-outline-border-color);
+
     box-shadow: inset 0 0 0 2px var(--badge-border-color);
   }
+
   &:where([data-colorscheme='cyan']) {
     --badge-soft-color: var(--color-cyan900);
     --badge-soft-background-color: var(--color-cyan200);
@@ -54,6 +61,7 @@
     --badge-outline-color-inverted: var(--color-cyan50);
     --badge-outline-border-color-inverted: var(--color-cyan500);
   }
+
   &:where([data-colorscheme='green']) {
     --badge-soft-color: var(--color-green900);
     --badge-soft-background-color: var(--color-green200);
@@ -64,6 +72,7 @@
     --badge-outline-color-inverted: var(--color-green50);
     --badge-outline-border-color-inverted: var(--color-green400);
   }
+
   &:where([data-colorscheme='red']) {
     --badge-soft-color: var(--color-red900);
     --badge-soft-background-color: var(--color-red200);
@@ -74,6 +83,7 @@
     --badge-outline-color-inverted: var(--color-red50);
     --badge-outline-border-color-inverted: var(--color-red500);
   }
+
   &:where([data-colorscheme='gold']) {
     --badge-soft-color: var(--color-gold900);
     --badge-soft-background-color: var(--color-gold200);
@@ -84,6 +94,7 @@
     --badge-outline-color-inverted: var(--color-gold50);
     --badge-outline-border-color-inverted: var(--color-gold400);
   }
+
   &:where([data-colorscheme='grey']) {
     --badge-soft-color: var(--color-grey900);
     --badge-soft-background-color: var(--color-grey100);

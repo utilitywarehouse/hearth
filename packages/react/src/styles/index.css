@@ -1,4 +1,5 @@
 @import url('./tokens/typography.css');
+@import url('./tokens/space.css');
 @import url('../components/index.css');
 @import url('./breakpoints.css');
 @import url('./padding.css');
@@ -12,3 +13,4 @@
 @import url('./justify-content.css');
 @import url('./disable-user-select.css');
 @import url('./size.css');
+@import url('./columns.css');

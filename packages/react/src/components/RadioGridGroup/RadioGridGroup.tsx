@@ -2,46 +2,11 @@ import * as React from 'react';
 
 import clsx from 'clsx';
 
-import { Root } from '@radix-ui/react-radio-group';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
-import { RadioGridGroupProps, RadioGridGroupRootProps } from './RadioGridGroup.props';
-import { Box } from '../Box/Box';
-import { withBreakpointStyles } from '../../helpers/with-breakpoint-styles';
+import type { RadioGridGroupProps } from './RadioGridGroup.props';
 import { FormFieldGroup } from '../FormFieldGroup/FormFieldGroup';
-
-const rootComponentName = 'RadioGridGroupRoot';
-const rootComponentClassName = withGlobalPrefix(rootComponentName);
-
-type RadioGridGroupRootElement = ElementRef<'div'>;
-
-export const RadioGridGroupRoot = React.forwardRef<
-  RadioGridGroupRootElement,
-  RadioGridGroupRootProps
->(({ id, disabled, children, width, columns = 2, className, style, ...props }, ref) => {
-  const columnsProps = withBreakpointStyles(columns, 'columns');
-  console.log({ columns, columnsProps });
-  return (
-    <Root
-      ref={ref}
-      asChild
-      {...props}
-      disabled={disabled}
-      id={id}
-      className={clsx(rootComponentClassName, className)}
-    >
-      <Box
-        className={clsx('uwp-RadioGridGroupContent', columnsProps?.className)}
-        style={{ ...columnsProps?.style, ...style }}
-        width={width}
-      >
-        {children}
-      </Box>
-    </Root>
-  );
-});
-
-RadioGridGroupRoot.displayName = rootComponentName;
+import { RadioGridGroupRoot } from './RadioGridGroupRoot';
 
 const componentName = 'RadioGridGroup';
 const componentClassName = withGlobalPrefix(componentName);

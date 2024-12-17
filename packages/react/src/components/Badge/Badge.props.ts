@@ -1,12 +1,24 @@
+import { PropDef } from '../../props/prop-def';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive } from '../../types/responsive';
+
+const variants = ['soft', 'strong', 'outline'] as const;
+const sizes = ['small', 'medium'] as const;
+
+export const badgePropDefs = {
+  variant: { className: 'variant', tokens: variants, responsive: false, default: 'soft' },
+  size: { className: 'size', tokens: sizes, responsive: true, default: 'medium' },
+} satisfies {
+  variant: PropDef<(typeof variants)[number]>;
+  size: PropDef<(typeof sizes)[number]>;
+};
 
 export interface BadgeProps extends ComponentPropsWithout<'span', RemovedProps> {
   /**
    * Sets the badges's visual variant
    * @default soft
    */
-  variant?: 'soft' | 'strong' | 'outline';
+  variant?: (typeof variants)[number];
   /**
    * Sets the colour scheme.
    * @default cyan
@@ -18,8 +30,8 @@ export interface BadgeProps extends ComponentPropsWithout<'span', RemovedProps> 
    */
   bottomRadiusZero?: boolean;
   /**
-   * Sets a more compact padding
-   * @default false
+   * Set the size of the Badge
+   * @default medium
    */
-  size?: Responsive<'small' | 'medium'>;
+  size?: Responsive<(typeof sizes)[number]>;
 }
