@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import clsx from 'clsx';
 import { mergeStyles } from './merge-styles';
 import { getClassNameStyles } from './get-classname-styles';

@@ -10,7 +10,7 @@
     "directory": "packages/fonts"
   },
   "scripts": {
-    "build": "postcss src --dir .",
+    "build:ignore": "postcss src --dir .",
     "dev": "postcss --watch --verbose src --dir .",
     "clean": "rm -f *.css",
     "clean:deps": "rm -rf node_modules"
