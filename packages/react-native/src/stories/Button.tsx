@@ -2,7 +2,7 @@ import React from 'react';
 
 import './button.css';
 import { Text } from 'react-native';
-import { Center } from '../components';
+import { Center, Button as RNButton, Box, Badge } from '../components';
 
 export interface ButtonProps {
   /** Is this the principal call to action on the page? */
@@ -27,9 +27,11 @@ export const Button = ({
 }: ButtonProps) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
-    <>
-      <Center>{label}</Center>
+    <Box bg="$apple400" p={4}>
+      <Badge>Badge</Badge>
+      <RNButton onPress={() => alert('yeah')}>Test</RNButton>
+      <Center backgroundColor="$red300">{label}</Center>
       <Text>label</Text>
-    </>
+    </Box>
   );
 };

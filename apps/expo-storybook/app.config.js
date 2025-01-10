@@ -4,6 +4,6 @@ export default ({ config }) => ({
   slug: 'storybook-tutorial-template',
   newArchEnabled: true,
   extra: {
-    storybookEnabled: process.env.STORYBOOK_ENABLED,
+    storybookEnabled: true,
   },
 });
