@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo } from 'react';
 import { Text } from '../Text';
-import { StyleSheet } from 'react-native-unistyles';
+import { StyleSheet, Variants } from 'react-native-unistyles';
 import { View } from 'react-native';
 import { Icon } from '../Icon';
 import {
@@ -12,7 +12,6 @@ import { HelperContext } from './HelperContext';
 
 const Helper = forwardRef<View, HelperProps>(
   ({ children, validationStatus, showIcon, style, disabled, icon, text, ...props }, ref) => {
-    styles.useVariants({ validationStatus, disabled });
     let HelperIcon = icon;
     if (validationStatus === 'valid' && !icon) {
       HelperIcon = TickMediumContainedIcon;
@@ -25,18 +24,20 @@ const Helper = forwardRef<View, HelperProps>(
 
     return (
       <HelperContext.Provider value={value}>
-        <View ref={ref} style={styles.container}>
-          {children ? (
-            children
-          ) : (
-            <>
-              {showIcon && <Icon as={HelperIcon} style={styles.text} />}
-              <Text ref={ref} style={[styles.text, style]} {...props}>
-                {text}
-              </Text>
-            </>
-          )}
-        </View>
+        <Variants variants={{ validationStatus, disabled }}>
+          <View ref={ref} style={styles.container}>
+            {children ? (
+              children
+            ) : (
+              <>
+                {showIcon && <Icon as={HelperIcon} style={styles.text} />}
+                <Text ref={ref} style={[styles.text, style]} {...props}>
+                  {text}
+                </Text>
+              </>
+            )}
+          </View>
+        </Variants>
       </HelperContext.Provider>
     );
   }

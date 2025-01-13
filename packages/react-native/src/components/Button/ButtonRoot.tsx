@@ -2,7 +2,7 @@
 import React, { forwardRef, PropsWithChildren, useMemo } from 'react';
 import type { BaseButtonProps } from './Button.props';
 import { Pressable, ViewStyle } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
+import { StyleSheet, Variants } from 'react-native-unistyles';
 import { ButtonContext } from './Button.context';
 import { PressableRef } from '../../types';
 
@@ -23,17 +23,18 @@ const ButtonRoot = forwardRef<
     ref
   ) => {
     const { active, disabled } = states || {};
-    styles.useVariants({ variant, size, colorScheme, disabled, inverted, active });
     const value = useMemo(
       () => ({ colorScheme, variant, size, inverted, disabled, active }),
       [colorScheme, variant, size, inverted, disabled, active]
     );
     return (
-      <ButtonContext.Provider value={value}>
-        <Pressable ref={ref} {...props} style={[styles.container, props.style as ViewStyle]}>
-          {children}
-        </Pressable>
-      </ButtonContext.Provider>
+      <Variants variants={{ colorScheme, variant, size, disabled, inverted, active }}>
+        <ButtonContext.Provider value={value}>
+          <Pressable ref={ref} {...props} style={[styles.container, props.style as ViewStyle]}>
+            {children}
+          </Pressable>
+        </ButtonContext.Provider>
+      </Variants>
     );
   }
 );

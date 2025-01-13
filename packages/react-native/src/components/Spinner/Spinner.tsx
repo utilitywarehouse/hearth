@@ -12,7 +12,7 @@ import { Circle, G, Svg } from 'react-native-svg';
 import type SpinnerProps from './Spinner.props';
 import { getStrokeWidth, getWidth } from './Spinner.utils';
 import { createSpinner } from '@gluestack-ui/spinner';
-import { StyleSheet } from 'react-native-unistyles';
+import { StyleSheet, Variants } from 'react-native-unistyles';
 import { View } from 'react-native';
 import { useTheme } from '../../hooks';
 
@@ -29,9 +29,6 @@ const SpinnerRoot: React.FC<SpinnerProps> = forwardRef<View, SpinnerProps>(
     const DIAMETER = 2 * HALF_CIRCLE;
 
     const { colors } = useTheme();
-    styles.useVariants({
-      size,
-    });
 
     const progress = useSharedValue(1);
     const rotation = useSharedValue(0);
@@ -76,36 +73,38 @@ const SpinnerRoot: React.FC<SpinnerProps> = forwardRef<View, SpinnerProps>(
     const defaultColor = color || colors.purple800;
 
     return (
-      <View
-        ref={ref}
-        {...props}
-        style={[styles.container, props.style]}
-        aria-busy
-        aria-live="polite"
-        role="status"
-      >
-        <AnimatedSvg
-          width={width}
-          height={width}
-          viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}
-          style={animatedSvgStyle}
-          color={defaultColor}
+      <Variants variants={{ size }}>
+        <View
+          ref={ref}
+          {...props}
+          style={[styles.container, props.style]}
+          aria-busy
+          aria-live="polite"
+          role="status"
         >
-          <G origin={`${HALF_CIRCLE}, ${HALF_CIRCLE}`} rotation={-90}>
-            <AnimatedCircle
-              fill="transparent"
-              stroke="currentColor"
-              strokeWidth={STROKE_WIDTH}
-              cx="50%"
-              cy="50%"
-              r={R}
-              strokeLinecap="round"
-              animatedProps={animatedCircleProps}
-              strokeDasharray={CIRCUMFERENCE}
-            />
-          </G>
-        </AnimatedSvg>
-      </View>
+          <AnimatedSvg
+            width={width}
+            height={width}
+            viewBox={`0 0 ${DIAMETER} ${DIAMETER}`}
+            style={animatedSvgStyle}
+            color={defaultColor}
+          >
+            <G origin={`${HALF_CIRCLE}, ${HALF_CIRCLE}`} rotation={-90}>
+              <AnimatedCircle
+                fill="transparent"
+                stroke="currentColor"
+                strokeWidth={STROKE_WIDTH}
+                cx="50%"
+                cy="50%"
+                r={R}
+                strokeLinecap="round"
+                animatedProps={animatedCircleProps}
+                strokeDasharray={CIRCUMFERENCE}
+              />
+            </G>
+          </AnimatedSvg>
+        </View>
+      </Variants>
     );
   }
 );

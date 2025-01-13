@@ -5,7 +5,7 @@ import AlertIconButton, { AlertIconButtonChevron } from './AlertIconButton';
 import AlertCloseButton, { AlertCloseButtonIcon } from './AlertCloseButton';
 import type { AlertProps } from './Alert.props';
 import { AlertContext } from './Alert.context';
-import { StyleSheet } from 'react-native-unistyles';
+import { StyleSheet, Variants } from 'react-native-unistyles';
 import { View } from 'react-native';
 import AlertText from './AlertText';
 import AlertIcon from './AlertIcon';
@@ -38,40 +38,40 @@ const Alert = forwardRef<View, AlertProps>(
 
     const value = useMemo(() => ({ colorScheme }), [colorScheme]);
 
-    styles.useVariants({ colorScheme });
-
     return (
-      <AlertContext.Provider value={value}>
-        <View ref={ref} {...props} style={[styles.container, style]}>
-          {children ? (
-            children
-          ) : (
-            <>
-              <AlertIcon />
-              <View style={styles.content}>
-                {!!title && <AlertTitle>{title}</AlertTitle>}
-                <AlertText>{text}</AlertText>
-                {!!link && (
-                  <AlertLink onPress={onPressLink}>
-                    <AlertLinkText>{link}</AlertLinkText>
-                    <AlertLinkChevron />
-                  </AlertLink>
+      <Variants variants={{ colorScheme }}>
+        <AlertContext.Provider value={value}>
+          <View ref={ref} {...props} style={[styles.container, style]}>
+            {children ? (
+              children
+            ) : (
+              <>
+                <AlertIcon />
+                <View style={styles.content}>
+                  {!!title && <AlertTitle>{title}</AlertTitle>}
+                  <AlertText>{text}</AlertText>
+                  {!!link && (
+                    <AlertLink onPress={onPressLink}>
+                      <AlertLinkText>{link}</AlertLinkText>
+                      <AlertLinkChevron />
+                    </AlertLink>
+                  )}
+                </View>
+                {!!onPressIconButton && !link && (
+                  <AlertIconButton onPress={onPressIconButton}>
+                    <AlertIconButtonChevron />
+                  </AlertIconButton>
                 )}
-              </View>
-              {!!onPressIconButton && !link && (
-                <AlertIconButton onPress={onPressIconButton}>
-                  <AlertIconButtonChevron />
-                </AlertIconButton>
-              )}
-              {!!onClose && (
-                <AlertCloseButton onPress={onClose}>
-                  <AlertCloseButtonIcon />
-                </AlertCloseButton>
-              )}
-            </>
-          )}
-        </View>
-      </AlertContext.Provider>
+                {!!onClose && (
+                  <AlertCloseButton onPress={onClose}>
+                    <AlertCloseButtonIcon />
+                  </AlertCloseButton>
+                )}
+              </>
+            )}
+          </View>
+        </AlertContext.Provider>
+      </Variants>
     );
   }
 );

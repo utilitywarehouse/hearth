@@ -1,18 +1,18 @@
 import React, { forwardRef } from 'react';
 import { Text } from '../Text';
-import { StyleSheet } from 'react-native-unistyles';
+import { StyleSheet, Variants } from 'react-native-unistyles';
 import { Text as RNText } from 'react-native';
 import TextProps from '../Text/Text.props';
 import { useHelperContext } from './HelperContext';
 
 const HelperText = forwardRef<RNText, TextProps>(({ children, style, ...props }, ref) => {
   const { validationStatus, disabled } = useHelperContext();
-  styles.useVariants({ validationStatus, disabled });
-
   return (
-    <Text ref={ref} style={[styles.text, style]} {...props}>
-      {children}
-    </Text>
+    <Variants variants={{ validationStatus, disabled }}>
+      <Text ref={ref} style={[styles.text, style]} {...props}>
+        {children}
+      </Text>
+    </Variants>
   );
 });
 

@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { StyleSheet } from 'react-native-unistyles';
+import { StyleSheet, Variants } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import { SvgRef } from '../../types';
 import IconProps from '../Icon/Icon.props';
@@ -8,21 +8,21 @@ import { Platform, StyleProp, ViewStyle } from 'react-native';
 
 const HelperIcon = forwardRef<SvgRef, IconProps>(({ style, ...props }, ref) => {
   const { validationStatus, disabled } = useHelperContext();
-  styles.useVariants({ validationStatus, disabled });
-
   return (
-    <Icon
-      ref={ref}
-      style={
-        Platform.OS === 'web'
-          ? {
-              ...styles.icon,
-              ...(style as ViewStyle),
-            }
-          : [styles.icon as StyleProp<ViewStyle>, style]
-      }
-      {...props}
-    />
+    <Variants variants={{ validationStatus, disabled }}>
+      <Icon
+        ref={ref}
+        style={
+          Platform.OS === 'web'
+            ? {
+                ...styles.icon,
+                ...(style as ViewStyle),
+              }
+            : [styles.icon as StyleProp<ViewStyle>, style]
+        }
+        {...props}
+      />
+    </Variants>
   );
 });
 

@@ -10,7 +10,7 @@ import Animated, {
   Easing,
 } from 'react-native-reanimated';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/react-native-icons';
-import { StyleSheet } from 'react-native-unistyles';
+import { StyleSheet, Variants } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import SwitchProps from './Switch.props';
 import { useTheme } from '../../hooks';
@@ -27,7 +27,6 @@ const CustomSwitch: React.FC<SwitchProps> = ({
   const PADDING = 2;
 
   const { tokens, colorMode } = useTheme();
-  styles.useVariants({ size, disabled, value });
 
   const offset = useSharedValue(value ? SWITCH_WIDTH - THUMB_SIZE - PADDING * 2 : 0);
   const progress = useSharedValue(value ? 1 : 0);
@@ -108,36 +107,38 @@ const CustomSwitch: React.FC<SwitchProps> = ({
   };
 
   return (
-    <Pressable
-      onPress={toggleSwitch}
-      onPressIn={onPressIn}
-      onPressOut={onPressOut}
-      disabled={disabled}
-      aria-checked={value}
-      accessibilityRole="switch"
-      accessibilityState={{ checked: value, disabled }}
-      accessibilityLabel={accessibilityProps.accessibilityLabel}
-      accessibilityHint={accessibilityProps.accessibilityHint}
-      {...accessibilityProps}
-    >
-      <Animated.View
-        style={[
-          styles.switch,
-          disabled && styles.disabledSwitch,
-          animatedSwitchStyle,
-          animatedSwitchBackgroundStyle,
-        ]}
+    <Variants variants={{ size, disabled, value }}>
+      <Pressable
+        onPress={toggleSwitch}
+        onPressIn={onPressIn}
+        onPressOut={onPressOut}
+        disabled={disabled}
+        aria-checked={value}
+        accessibilityRole="switch"
+        accessibilityState={{ checked: value, disabled }}
+        accessibilityLabel={accessibilityProps.accessibilityLabel}
+        accessibilityHint={accessibilityProps.accessibilityHint}
+        {...accessibilityProps}
       >
-        <Animated.View style={[styles.thumb, animatedThumbStyle]}>
-          <Animated.View style={[styles.iconWrap, animatedTickStyle]}>
-            <Icon as={TickSmallIcon} style={styles.icon} />
-          </Animated.View>
-          <Animated.View style={[styles.iconWrap, animatedCrossStyle]}>
-            <Icon as={CloseSmallIcon} style={styles.icon} />
+        <Animated.View
+          style={[
+            styles.switch,
+            disabled && styles.disabledSwitch,
+            animatedSwitchStyle,
+            animatedSwitchBackgroundStyle,
+          ]}
+        >
+          <Animated.View style={[styles.thumb, animatedThumbStyle]}>
+            <Animated.View style={[styles.iconWrap, animatedTickStyle]}>
+              <Icon as={TickSmallIcon} style={styles.icon} />
+            </Animated.View>
+            <Animated.View style={[styles.iconWrap, animatedCrossStyle]}>
+              <Icon as={CloseSmallIcon} style={styles.icon} />
+            </Animated.View>
           </Animated.View>
         </Animated.View>
-      </Animated.View>
-    </Pressable>
+      </Pressable>
+    </Variants>
   );
 };
 

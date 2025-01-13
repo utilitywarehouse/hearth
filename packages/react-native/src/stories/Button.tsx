@@ -29,7 +29,7 @@ export const Button = ({
   return (
     <Box bg="$apple400" p={4}>
       <Badge>Badge</Badge>
-      <RNButton onPress={() => alert('yeah')}>Test</RNButton>
+      {/* <RNButton onPress={() => alert('yeah')}>Test</RNButton> */}
       <Center backgroundColor="$red300">{label}</Center>
       <Text>label</Text>
     </Box>

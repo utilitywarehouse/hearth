@@ -2,27 +2,27 @@
 import React, { forwardRef } from 'react';
 import { Platform, type StyleProp, type ViewStyle } from 'react-native';
 import { useButtonContext } from './Button.context';
-import { StyleSheet } from 'react-native-unistyles';
+import { StyleSheet, Variants } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import { IconRef } from '../../types';
 import IconProps from '../Icon/Icon.props';
 
 const ButtonIcon = forwardRef<IconRef, IconProps>(({ children, ...props }, ref) => {
   const { colorScheme, variant, inverted, disabled } = useButtonContext();
-  styles.useVariants({ colorScheme, variant, inverted, disabled });
-
   return (
-    <Icon
-      ref={ref}
-      {...props}
-      style={
-        Platform.OS === 'web'
-          ? (styles.icon as StyleProp<ViewStyle>)
-          : [styles.icon as StyleProp<ViewStyle>, props.style]
-      }
-    >
-      {children}
-    </Icon>
+    <Variants variants={{ colorScheme, variant, inverted, disabled }}>
+      <Icon
+        ref={ref}
+        {...props}
+        style={
+          Platform.OS === 'web'
+            ? (styles.icon as StyleProp<ViewStyle>)
+            : [styles.icon as StyleProp<ViewStyle>, props.style]
+        }
+      >
+        {children}
+      </Icon>
+    </Variants>
   );
 });
 

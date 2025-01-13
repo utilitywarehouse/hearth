@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { StyleSheet } from 'react-native-unistyles';
+import { StyleSheet, Variants } from 'react-native-unistyles';
 import { Text } from 'react-native';
 
 import { useCheckboxContext } from './Checkbox.context';
@@ -9,16 +9,14 @@ import { useFormFieldContext } from '../FormField';
 
 const CheckboxLabel = forwardRef<Text, LabelProps>(({ children, style, ...props }, ref) => {
   const { checked, disabled } = useCheckboxContext();
-  styles.useVariants({
-    checked,
-    disabled,
-  });
   const { validationStatus } = useFormFieldContext();
   const isNested = !!validationStatus;
   return (
-    <Label ref={ref} nested={isNested} {...props} style={[styles.text, style]}>
-      {children}
-    </Label>
+    <Variants variants={{ checked, disabled }}>
+      <Label ref={ref} nested={isNested} {...props} style={[styles.text, style]}>
+        {children}
+      </Label>
+    </Variants>
   );
 });
 

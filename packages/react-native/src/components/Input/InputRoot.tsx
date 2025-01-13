@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo } from 'react';
-import { StyleSheet } from 'react-native-unistyles';
+import { StyleSheet, Variants } from 'react-native-unistyles';
 import { View } from 'react-native';
 import InputProps from './Input.props';
 import { InputContext } from './Input.context';
@@ -9,8 +9,6 @@ const InputRoot = forwardRef<
   InputProps & { states?: { focus?: boolean; disabled?: boolean; readonly?: boolean } }
 >(({ children, style, states, validationStatus, showValidationIcon, ...props }, ref) => {
   const { focus = false, disabled = false, readonly = false } = states || {};
-  styles.useVariants({ validationStatus, focus, disabled, readonly });
-
   const value = useMemo(
     () => ({ focused: focus, disabled, readonly, validationStatus, showValidationIcon }),
     [focus, disabled, readonly, validationStatus, showValidationIcon]
@@ -18,9 +16,11 @@ const InputRoot = forwardRef<
 
   return (
     <InputContext.Provider value={value}>
-      <View ref={ref} {...props} style={[styles.container, style]}>
-        {children}
-      </View>
+      <Variants variants={{ focus, validationStatus, disabled, readonly }}>
+        <View ref={ref} {...props} style={[styles.container, style]}>
+          {children}
+        </View>
+      </Variants>
     </InputContext.Provider>
   );
 });

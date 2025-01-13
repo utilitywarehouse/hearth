@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { ComponentType, forwardRef } from 'react';
 import { Platform, type StyleProp, type ViewStyle } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
+import { StyleSheet, Variants } from 'react-native-unistyles';
 import { useInputContext } from './Input.context';
 import { Icon, IconProps } from '../Icon';
 import type { SvgRef } from '../../types';
@@ -13,23 +13,24 @@ import {
 const InputIcon = forwardRef<SvgRef, IconProps & { as?: ComponentType }>(
   ({ as, ...props }, ref) => {
     const { disabled, validationStatus } = useInputContext();
-    styles.useVariants({ disabled, validationStatus });
     const ValidationIcon =
       validationStatus === 'invalid' ? WarningMediumContainedIcon : TickMediumContainedIcon;
     return (
-      <Icon
-        ref={ref}
-        {...props}
-        as={as ?? ValidationIcon}
-        style={
-          Platform.OS === 'web'
-            ? {
-                ...styles.icon,
-                ...(props.style as ViewStyle),
-              }
-            : [styles.icon as StyleProp<ViewStyle>, props.style]
-        }
-      />
+      <Variants variants={{ disabled, validationStatus }}>
+        <Icon
+          ref={ref}
+          {...props}
+          as={as ?? ValidationIcon}
+          style={
+            Platform.OS === 'web'
+              ? {
+                  ...styles.icon,
+                  ...(props.style as ViewStyle),
+                }
+              : [styles.icon as StyleProp<ViewStyle>, props.style]
+          }
+        />
+      </Variants>
     );
   }
 );
