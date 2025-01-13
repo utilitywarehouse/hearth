@@ -22,7 +22,7 @@
     "@expo/metro-runtime": "~4.0.0",
     "@expo/vector-icons": "^14.0.3",
     "@types/react": "~18.3.12",
-    "@utilitywarehouse/ds-react-native": "workspace:^",
+    "@utilitywarehouse/hearth-react-native": "workspace:^",
     "expo": "^52.0.25",
     "expo-constants": "~17.0.4",
     "react": "18.3.1",
