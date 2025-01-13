@@ -1,3 +1,4 @@
+import './styles.css';
 import './DMSans.css';
 import '@utilitywarehouse/hearth-fonts/dm-sans.css';
 
@@ -6,14 +7,14 @@ export const DMSans = () => (
     <p className="dm-sans" contentEditable="true">
       AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
     </p>
-    <p className="dm-sans" contentEditable="true">
-      0123456789 !@#$%^&*(),.?
+    <p className="dm-sans italic" contentEditable="true">
+      AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
     </p>
     <p className="dm-sans bold" contentEditable="true">
       AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
     </p>
-    <p className="dm-sans bold" contentEditable="true">
-      0123456789 !@#$%^&*(),.?
+    <p className="dm-sans bold italic" contentEditable="true">
+      AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
     </p>
   </div>
 );

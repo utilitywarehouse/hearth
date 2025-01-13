@@ -2,6 +2,7 @@
 
 
 - DM Sans source: https://github.com/googlefonts/dm-fonts/tree/main/Sans/fonts/webfonts
+- DM Mono source: https://fonts.google.com/specimen/DM+Mono
 
 
 All the font and CSS files you need to self-host the UW font families in your
