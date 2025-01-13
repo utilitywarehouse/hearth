@@ -11,7 +11,7 @@ const meta: Meta<typeof FieldsetLegend> = {
     disabled: { control: { type: 'boolean' } },
   },
   args: {
-    children: 'Pollen fieldset legend',
+    children: 'Hearth fieldset legend',
     disabled: false,
   },
 };

@@ -27,7 +27,7 @@ export interface UseMediaQueryOptions {
  * @see [Documentation](https://uw-web-ui.vercel.app/?path=/docs/web-ui-helpers-media-queries--documentation##usemediaqueries-hook)
  * @example
  * ```tsx
- * import { useMediaQuery, media } from '@utilitywarehouse/ds-react';
+ * import { useMediaQuery, media } from '@utilitywarehouse/hearth-react';
  *
  * const isMobileOrTablet = useMediaQuery(media.below('desktop'));
  * // Use `isMobileOrTablet ` to conditionally apply styles or logic based on the screen size.

@@ -12,7 +12,7 @@ you need to you can use the `media` object to help create responsive
 styles.
 
 ```tsx
-import { media } from '@utilitywarehouse/ds-react';
+import { media } from '@utilitywarehouse/hearth-react';
 
 [...]
 
@@ -91,7 +91,7 @@ This is a custom hook that tracks the state of a media query using the [`Match M
 We recommend you use it with the `media` object, however you can pass in your own custom media query strings.
 
 ```tsx
-import { useMediaQuery, media } from '@utilitywarehouse/ds-react';
+import { useMediaQuery, media } from '@utilitywarehouse/hearth-react';
 
 const isMobileOrTablet = useMediaQuery(media.below('desktop'));
 const isDesktop = useMediaQuery(media.above('desktop'));

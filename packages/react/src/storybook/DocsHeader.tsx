@@ -20,7 +20,7 @@ export const DocsHeader = ({ componentName, figmaLink, stories }: DocsHeaderProp
         <Flex gap="24px">
           <Link href={`/?path=/story/stories-${componentName}`}>Stories</Link>
           <Link
-            href={`https://github.com/utilitywarehouse/pollen/blob/main/packages/react/src/components/${componentName}`}
+            href={`https://github.com/utilitywarehouse/hearth/blob/main/packages/react/src/components/${componentName}`}
           >
             Source
           </Link>
