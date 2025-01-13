@@ -1,5 +1,9 @@
 # Fonts
 
+
+- DM Sans source: https://github.com/googlefonts/dm-fonts/tree/main/Sans/fonts/webfonts
+
+
 All the font and CSS files you need to self-host the UW font families in your
 application.
 
