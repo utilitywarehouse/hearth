@@ -69,6 +69,7 @@
     "react-native-reanimated": "~3.16.5",
     "react-native-unistyles": "3.0.0-beta.4",
     "react-native-web": "^0.19.13",
+    "remark-gfm": "^4.0.0",
     "storybook": "^8.4.7",
     "typescript": "^5.5.3",
     "vite-plugin-react-native-web": "^1.1.2"

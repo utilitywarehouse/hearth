@@ -1,5 +1,5 @@
 import React, { forwardRef, useMemo } from 'react';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import {
   WarningMediumContainedIcon,
   TickMediumContainedIcon,
@@ -21,39 +21,34 @@ const AlertIcon = forwardRef<IconRef, IconProps>(({ ...props }, ref) => {
     }
     return InformationMediumContainedIcon;
   }, [colorScheme]);
-  return (
-    <Variants variants={{ colorScheme }}>
-      <Icon ref={ref} {...props} as={props.as ?? asProp} style={styles.icon} />
-    </Variants>
-  );
+  const color = useMemo(() => {
+    if (colorScheme === 'cyan') {
+      return '$cyan700';
+    }
+    if (colorScheme === 'red') {
+      return '$red700';
+    }
+    if (colorScheme === 'green') {
+      return '$green700';
+    }
+    if (colorScheme === 'gold') {
+      return '$gold700';
+    }
+    return '$cyan700';
+  }, [colorScheme]);
+  return <Icon ref={ref} {...props} as={props.as ?? asProp} style={styles.icon} color={color} />;
 });
 
 AlertIcon.displayName = 'AlertIcon';
 
-const styles = StyleSheet.create(theme => ({
+const styles = StyleSheet.create({
   icon: {
     width: 24,
     height: 24,
     minWidth: 24,
     minHeight: 24,
     alignSelf: 'flex-start',
-    variants: {
-      colorScheme: {
-        cyan: {
-          color: theme.colors.cyan700,
-        },
-        red: {
-          color: theme.colors.red700,
-        },
-        green: {
-          color: theme.colors.green700,
-        },
-        gold: {
-          color: theme.colors.gold700,
-        },
-      },
-    },
   },
-}));
+});
 
 export default AlertIcon;

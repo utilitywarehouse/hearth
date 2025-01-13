@@ -1,9 +1,10 @@
-import React, { ComponentProps, forwardRef } from 'react';
+import React, { ComponentProps, forwardRef, useMemo } from 'react';
 import { Pressable, type PressableProps } from 'react-native';
 import { StyleSheet, Variants } from 'react-native-unistyles';
 import { CloseSmallIcon } from '@utilitywarehouse/react-native-icons';
 import { useAlertContext } from './Alert.context';
 import { PressableRef } from '../../types';
+import { Icon } from '../Icon';
 
 const AlertCloseButton = forwardRef<PressableRef, PressableProps>(({ children, ...props }, ref) => {
   return (
@@ -17,9 +18,24 @@ export const AlertCloseButtonIcon: React.FC<ComponentProps<typeof CloseSmallIcon
   ...props
 }) => {
   const { colorScheme } = useAlertContext();
+  const color = useMemo(() => {
+    if (colorScheme === 'cyan') {
+      return '$cyan700';
+    }
+    if (colorScheme === 'red') {
+      return '$red700';
+    }
+    if (colorScheme === 'green') {
+      return '$green700';
+    }
+    if (colorScheme === 'gold') {
+      return '$gold700';
+    }
+    return '$cyan700';
+  }, [colorScheme]);
   return (
     <Variants variants={{ colorScheme }}>
-      <CloseSmallIcon {...props} style={styles.icon} />
+      <Icon as={CloseSmallIcon} {...props} style={styles.icon} color={color} />
     </Variants>
   );
 };
@@ -27,7 +43,7 @@ export const AlertCloseButtonIcon: React.FC<ComponentProps<typeof CloseSmallIcon
 AlertCloseButton.displayName = 'AlertCloseButton';
 AlertCloseButtonIcon.displayName = 'AlertCloseButtonIcon';
 
-const styles = StyleSheet.create(theme => ({
+const styles = StyleSheet.create({
   container: {
     width: 24,
     height: 24,
@@ -45,23 +61,7 @@ const styles = StyleSheet.create(theme => ({
     minWidth: 16,
     minHeight: 16,
     alignSelf: 'center',
-    variants: {
-      colorScheme: {
-        cyan: {
-          color: theme.colors.cyan700,
-        },
-        red: {
-          color: theme.colors.red700,
-        },
-        green: {
-          color: theme.colors.green700,
-        },
-        gold: {
-          color: theme.colors.gold700,
-        },
-      },
-    },
   },
-}));
+});
 
 export default AlertCloseButton;
