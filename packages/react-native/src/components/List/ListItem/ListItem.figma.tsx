@@ -158,7 +158,7 @@ figma.connect(
     },
     props,
     example: ({ disabled, divider, loading, text, leadingIcon }) => (
-      // Toggle doesn't exist in native-ui yet
+      // Toggle doesn't exist in hearth-react-native yet
       <ListItem
         text={text.text}
         supportingText={text.supportingText}
@@ -182,7 +182,7 @@ figma.connect(
     },
     props,
     example: ({ disabled, divider, loading, text, leadingIcon }) => (
-      // Toggle doesn't exist in native-ui yet
+      // Toggle doesn't exist in hearth-react-native yet
       <ListItem
         text={text.text}
         supportingText={text.supportingText}
@@ -206,7 +206,7 @@ figma.connect(
     },
     props,
     example: ({ disabled, divider, loading, text }) => (
-      // Toggle doesn't exist in native-ui yet
+      // Toggle doesn't exist in hearth-react-native yet
       <ListItem
         text={text.text}
         supportingText={text.supportingText}

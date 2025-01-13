@@ -49,7 +49,7 @@ figma.connect(
     links: [
       {
         name: 'Documentation',
-        url: 'https://uw-native-ui.vercel.app/?path=/docs/native-ui-components-button--docs',
+        url: 'https://uw-hearth-react-native.vercel.app/?path=/docs/hearth-react-native-components-button--docs',
       },
     ],
     example: ({ text, inverted, disabled, loading, colorScheme, size, icon, iconPosition }) => (
@@ -78,7 +78,7 @@ figma.connect(
     links: [
       {
         name: 'Documentation',
-        url: 'https://uw-native-ui.vercel.app/?path=/docs/native-ui-components-button--docs',
+        url: 'https://uw-hearth-react-native.vercel.app/?path=/docs/hearth-react-native-components-button--docs',
       },
     ],
     variant: {
@@ -112,7 +112,7 @@ figma.connect(
     links: [
       {
         name: 'Documentation',
-        url: 'https://uw-native-ui.vercel.app/?path=/docs/native-ui-components-button--docs',
+        url: 'https://uw-hearth-react-native.vercel.app/?path=/docs/hearth-react-native-components-button--docs',
       },
     ],
     example: ({ text, inverted, disabled, loading, colorScheme, size, icon, iconPosition }) => (
@@ -141,7 +141,7 @@ figma.connect(
     links: [
       {
         name: 'Documentation',
-        url: 'https://uw-native-ui.vercel.app/?path=/docs/native-ui-components-button--docs',
+        url: 'https://uw-hearth-react-native.vercel.app/?path=/docs/hearth-react-native-components-button--docs',
       },
     ],
     variant: {
@@ -175,7 +175,7 @@ figma.connect(
     links: [
       {
         name: 'Documentation',
-        url: 'https://uw-native-ui.vercel.app/?path=/docs/native-ui-components-button--docs',
+        url: 'https://uw-hearth-react-native.vercel.app/?path=/docs/hearth-react-native-components-button--docs',
       },
     ],
     example: ({ text, inverted, disabled, loading, colorScheme, size, icon, iconPosition }) => (
@@ -204,7 +204,7 @@ figma.connect(
     links: [
       {
         name: 'Documentation',
-        url: 'https://uw-native-ui.vercel.app/?path=/docs/native-ui-components-button--docs',
+        url: 'https://uw-hearth-react-native.vercel.app/?path=/docs/hearth-react-native-components-button--docs',
       },
     ],
     variant: {

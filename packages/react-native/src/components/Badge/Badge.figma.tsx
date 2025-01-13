@@ -9,7 +9,7 @@ figma.connect(
     links: [
       {
         name: 'Storybook - Docs',
-        url: 'https://uw-native-ui.vercel.app/?path=/docs/components-badge--docs',
+        url: 'https://uw-hearth-react-native.vercel.app/?path=/docs/components-badge--docs',
       },
     ],
     props: {
