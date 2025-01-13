@@ -6,7 +6,7 @@
     "url": "https://github.com/utilitywarehouse/pollen"
   },
   "scripts": {
-    "setup": "corepack enable && corepack prepare pnpm@9 --activate",
+    "setup": "corepack enable && corepack prepare pnpm@9 --activate && pnpm node --version",
     "build": "turbo run build",
     "preinstall": "npx only-allow pnpm",
     "format": "turbo run format",
