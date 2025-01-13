@@ -6,7 +6,7 @@
   "author": "Rob Phoenix <rphoenix@uw.co.uk>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/utilitywarehouse/pollen.git",
+    "url": "https://github.com/utilitywarehouse/hearth.git",
     "directory": "packages/fonts"
   },
   "scripts": {
