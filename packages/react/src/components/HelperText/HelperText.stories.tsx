@@ -14,7 +14,7 @@ const meta: Meta<typeof HelperText> = {
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
   },
   args: {
-    children: 'Pollen helper text',
+    children: 'Hearth helper text',
     disabled: false,
     showIcon: false,
     validationStatus: undefined,

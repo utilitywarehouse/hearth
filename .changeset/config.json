@@ -1,6 +1,6 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
-  "changelog": ["@changesets/changelog-github", { "repo": "utilitywarehouse/pollen" }],
+  "changelog": ["@changesets/changelog-github", { "repo": "utilitywarehouse/hearth" }],
   "commit": false,
   "access": "restricted",
   "baseBranch": "main",

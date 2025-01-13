@@ -1,3 +1,3 @@
 # React
 
-[Storybook](https://uw-ds-react.vercel.app)
+[Storybook](https://uw-hearth-react.vercel.app)

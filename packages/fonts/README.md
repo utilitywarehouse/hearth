@@ -33,18 +33,18 @@ This package includes the following font families, styles and weights.
 Add the Fonts package to your project dependencies.
 
 ```console
-yarn add @utilitywarehouse/ds-fonts
+yarn add @utilitywarehouse/hearth-fonts
 # or
-pnpm add @utilitywarehouse/ds-fonts
+pnpm add @utilitywarehouse/hearth-fonts
 # or
-npm install --save @utilitywarehouse/ds-fonts
+npm install --save @utilitywarehouse/hearth-fonts
 ```
 
 You can then import the CSS within your app entry file or site component. This
 will include all font families, weights & styles.
 
 ```js
-import '@utilitywarehouse/ds-fonts
+import '@utilitywarehouse/hearth-fonts
 ```
 
 ## Contributing
