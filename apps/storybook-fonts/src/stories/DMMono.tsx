@@ -1,5 +1,4 @@
 import './styles.css';
-import './DMMono.css';
 import '@utilitywarehouse/hearth-fonts/dm-mono.css';
 
 export const DMMono = () => (

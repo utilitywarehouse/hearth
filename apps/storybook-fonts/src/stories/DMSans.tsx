@@ -1,5 +1,4 @@
 import './styles.css';
-import './DMSans.css';
 import '@utilitywarehouse/hearth-fonts/dm-sans.css';
 
 export const DMSans = () => (
