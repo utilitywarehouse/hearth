@@ -1,16 +1,16 @@
 {
-  "name": "@utilitywarehouse/ds-fonts",
+  "name": "@utilitywarehouse/hearth-fonts",
   "version": "0.0.1",
-  "description": "Fonts for UW applications",
+  "description": "Fonts for the UW Hearth Design System",
   "main": "index.css",
   "author": "Rob Phoenix <rphoenix@uw.co.uk>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/utilitywarehouse/pollen.git",
+    "url": "https://github.com/utilitywarehouse/hearth.git",
     "directory": "packages/fonts"
   },
   "scripts": {
-    "build:ignore": "postcss src --dir .",
+    "build": "postcss src --dir .",
     "dev": "postcss --watch --verbose src --dir .",
     "clean": "rm -f *.css",
     "clean:deps": "rm -rf node_modules"
