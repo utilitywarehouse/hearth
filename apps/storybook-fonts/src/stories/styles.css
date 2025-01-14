@@ -1,0 +1,22 @@
+.dm-sans {
+  font-family: 'DM Sans';
+  font-weight: 400;
+}
+
+.dm-mono {
+  font-family: 'DM Mono';
+  font-weight: 500;
+}
+
+.tmt-limkin-flare {
+  font-family: 'TMT Limkin Flare';
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.italic {
+  font-style: italic;
+}

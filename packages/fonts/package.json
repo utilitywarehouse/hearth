@@ -1,0 +1,32 @@
+{
+  "name": "@utilitywarehouse/hearth-fonts",
+  "version": "0.0.2",
+  "description": "Fonts for the UW Hearth Design System",
+  "main": "index.css",
+  "author": "Rob Phoenix <rphoenix@uw.co.uk>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/utilitywarehouse/hearth.git",
+    "directory": "packages/fonts"
+  },
+  "scripts": {
+    "build": "postcss src --dir .",
+    "dev": "postcss --watch --verbose src --dir .",
+    "clean": "rm -f *.css",
+    "clean:deps": "rm -rf node_modules"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "devDependencies": {
+    "cssnano": "^5.1.15",
+    "postcss": "^8.4.49",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0"
+  },
+  "files": [
+    "README.md",
+    "*.css",
+    "files"
+  ]
+}

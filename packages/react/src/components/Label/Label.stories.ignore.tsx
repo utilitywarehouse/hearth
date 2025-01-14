@@ -15,7 +15,7 @@ const meta: Meta<typeof Label> = {
     disableUserSelect: { control: { type: 'boolean' } },
   },
   args: {
-    children: 'Pollen Label',
+    children: 'Hearth Label',
     nested: false,
     disabled: false,
     disableUserSelect: false,

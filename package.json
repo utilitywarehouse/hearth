@@ -3,7 +3,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/utilitywarehouse/pollen"
+    "url": "https://github.com/utilitywarehouse/hearth"
   },
   "scripts": {
     "setup": "corepack enable && corepack prepare pnpm@9 --activate",
