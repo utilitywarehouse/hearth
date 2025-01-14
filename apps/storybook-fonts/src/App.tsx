@@ -6,11 +6,6 @@ function App() {
 
   return (
     <>
-      <div>
-        <div className="gfd">Google Font Downloader</div>
-        <div className="fontsquirrel">Fontsquirrel</div>
-        <div className="transfonter">Transfonter</div>
-      </div>
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount(count => count + 1)}>count is {count}</button>
