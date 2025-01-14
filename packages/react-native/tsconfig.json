@@ -1,0 +1,45 @@
+{
+    "include": [
+        "./src",
+    ],
+    "exclude": [
+        "node_modules",
+        "./src/stories",
+        "./src/**/*.figma.tsx",
+        "./src/**/*.stories.tsx",
+    ],
+    "compilerOptions": {
+        "baseUrl": ".", // This must be specified if "paths" is.
+        "paths": {
+            "react-native": [
+                "node_modules/react-native/"
+            ],
+        },
+        "ignoreDeprecations": "5.0",
+        "noEmit": false,
+        "declaration": true,
+        "allowJs": true,
+        "allowUnreachableCode": false,
+        "allowUnusedLabels": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react",
+        "lib": [
+            "esnext",
+            "dom"
+        ],
+        "module": "esnext",
+        "moduleResolution": "node",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noImplicitUseStrict": false,
+        "noStrictGenericChecks": false,
+        "noUnusedLocals": false,
+        "noUnusedParameters": true,
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "target": "esnext",
+        "outDir": "./build"
+    }
+}
