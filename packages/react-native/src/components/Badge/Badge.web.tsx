@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import type BadgeProps from './Badge.props';
 import { StyleSheet, Variants } from 'react-native-unistyles';
-import { View } from 'react-native';
+import { Platform, View } from 'react-native';
 import { BadgeContext } from './Badge.context';
 import BadgeText from './BadgeText';
 
@@ -21,8 +21,6 @@ const Badge = forwardRef<View, BadgeProps>(({ children, ...props }, ref) => {
   );
 
   const childIsText = typeof children === 'string' || typeof children === 'number';
-
-  styles.useVariants({ colorScheme, strong, size, borderless });
 
   return (
     <Variants variants={{ colorScheme, strong, size, borderless }}>

@@ -1,4 +1,4 @@
-import { colorsDark, colors, colorsCommon } from '@utilitywarehouse/colour-system';
+import { colorsDark, colors, colorsCommon } from './colours';
 import { DimensionValue, Platform, TextStyle } from 'react-native';
 import { breakpoints } from './breakpoints';
 import { components } from '@utilitywarehouse/design-tokens';
