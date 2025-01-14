@@ -10,7 +10,7 @@ importers:
     dependencies:
       pnpm:
         specifier: latest
-        version: 9.15.3
+        version: 9.15.4
     devDependencies:
       '@changesets/changelog-github':
         specifier: ^0.5.0
@@ -52,8 +52,8 @@ importers:
   apps/storybook-fonts:
     dependencies:
       '@utilitywarehouse/hearth-fonts':
-        specifier: workspace:*
-        version: link:../../packages/fonts
+        specifier: ^0.0.2
+        version: 0.0.2
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -887,7 +887,7 @@ packages:
     resolution: {integrity: sha512-QjHtSaoameoalGnKDT3FoIl4+9RwyTmo9ZJGBdLOks/YOiWHoRDI3PUwEzOE7kEmGcV3AFcp9K6dYu9rEuKLAQ==}
     peerDependencies:
       '@types/react': '>=16'
-      react: '>=16'
+      react: 18.2.0
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -1764,6 +1764,9 @@ packages:
 
   '@utilitywarehouse/fontsource@0.1.0':
     resolution: {integrity: sha512-/qsvnWAJdtRHpwt2rhn0HClXVL3m8SwERLvBDk+uN0xbAxXiS4Ae8dkoi8wGypyFX4Y9WIMZBB7MD+NywIXfHg==}
+
+  '@utilitywarehouse/hearth-fonts@0.0.2':
+    resolution: {integrity: sha512-Lbl5q/p2BbAQXhG8d6VH9OjM6h4M4ppZMeG8MLQ94hbQtQLaeHuuHW8ZSublS8bi/jViQZCS7HvRHZTBGexwTw==}
 
   '@utilitywarehouse/prettier-config@0.1.1':
     resolution: {integrity: sha512-Lcs5K0qQSP8eQd82Ug2Q98pLAM41c1WsB1oMeOHKXmAumD7KHR8UsDSIsdv9ILmMb4RPYZLY0A2j3DIRzyVjHg==}
@@ -3438,8 +3441,8 @@ packages:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
     engines: {node: '>= 6'}
 
-  pnpm@9.15.3:
-    resolution: {integrity: sha512-H3m8JFpm6wsHxdTYMTEkB3RkLKqobvfQQ0q0fA0W9msE4h4MCG62HmLHfvxNf37Aca+tN5avZIkvrmZQkXOJOg==}
+  pnpm@9.15.4:
+    resolution: {integrity: sha512-stwg4vxys+GISEWbNzWaMgZGY+VielHkx0ssKd2OjgSRSDw6u0B4nP1Xi/Ni+2uoJhsF8Dh9dnku1uI+o7G2oA==}
     engines: {node: '>=18.12'}
     hasBin: true
 
@@ -3930,7 +3933,7 @@ packages:
     resolution: {integrity: sha512-7Ypx4vz0+g8ECVxr88W9zhcQpbeujJAVqL14ZnXJ3I23mOI9/oBVTQ3dkJhUmB0D6XOtCZEM6N0Gm9PMngkORw==}
     engines: {node: '>=10.18'}
     peerDependencies:
-      react: ^16.3.0 || ^17.0.1 || ^18.0.0
+      react: 18.2.0
 
   react-docgen-typescript@2.2.2:
     resolution: {integrity: sha512-tvg2ZtOpOi6QDwsb3GZhOjDkkX0h8Z2gipvTg6OVMUyoYoURhEiRNePT8NZItTVCDh39JJHnLdfCOkzoLbFnTg==}
@@ -6335,6 +6338,8 @@ snapshots:
 
   '@utilitywarehouse/fontsource@0.1.0': {}
 
+  '@utilitywarehouse/hearth-fonts@0.0.2': {}
+
   '@utilitywarehouse/prettier-config@0.1.1': {}
 
   '@utilitywarehouse/react-icons@1.11.0(react@18.3.1)':
@@ -8379,7 +8384,7 @@ snapshots:
 
   pirates@4.0.6: {}
 
-  pnpm@9.15.3: {}
+  pnpm@9.15.4: {}
 
   polished@4.3.1:
     dependencies:
