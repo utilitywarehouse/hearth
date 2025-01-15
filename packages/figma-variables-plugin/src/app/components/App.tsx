@@ -245,7 +245,7 @@ function App() {
         method: 'POST',
         headers,
         body: JSON.stringify({
-          title: `Export Figma Variables - All Collections`,
+          title: `Export Figma Variables - ${tokensData.length} Collections`,
           head: newBranchName,
           base: branchName,
           body: `This PR contains exported Figma variables for all selected collections. It includes the following changes:\n\n${tokensData

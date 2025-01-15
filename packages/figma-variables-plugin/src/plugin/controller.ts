@@ -1,4 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-misused-promises */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { figmaColorToHex } from '../app/utils';
+
+////////////////////////////////////////////////////////////////////////////////
+// 1. UI SETUP
+////////////////////////////////////////////////////////////////////////////////
 
 figma.showUI(__html__, { width: 400, height: 600 });
 
@@ -8,6 +15,7 @@ const consoleLog = debugMode
   : { log: () => {}, warn: () => {}, error: () => {}, clear: () => {} };
 consoleLog.clear();
 
+// Example: restore window size from client storage
 figma.clientStorage
   .getAsync('size')
   .then((size?: { w: number; h: number }) => {
@@ -17,66 +25,294 @@ figma.clientStorage
     consoleLog.error(err);
   });
 
-// Update the exportVariables function to conditionally rename modes
+////////////////////////////////////////////////////////////////////////////////
+// 2. ALIAS RESOLUTION + NESTED TOKENS
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * A type guard for checking if a `VariableValue` is a `VariableAlias`.
+ */
+function isVariableAlias(value: VariableValue): value is VariableAlias {
+  return typeof value === 'object' && value !== null && (value as any).type === 'VARIABLE_ALIAS';
+}
+
+/**
+ * Converts a slash-delimited variable name, e.g. "colors/red/100",
+ * into dot notation, e.g. "colors.red.100".
+ */
+function variableNameToDotNotation(name: string): string {
+  return name.trim().replace(/\s*\/\s*/g, '.');
+}
+
+/**
+ * Recursively resolves a variable value (which might be an alias chain)
+ * to always return the shape:
+ *
+ *     { alias?: string; value: any }
+ *
+ * - If it's an alias, we'll have `alias: "{{colors.red.100}}"` plus
+ *   its fully resolved primitive in `value`.
+ * - If it's already a primitive, we simply return `{ value: primitive }`.
+ */
+async function fullyResolveValue(
+  rawValue: VariableValue | undefined,
+  currentModeId: string,
+  visitedIds: Set<string> = new Set()
+): Promise<{ alias?: string; value: any }> {
+  if (rawValue === undefined) {
+    return { value: undefined };
+  }
+
+  // If it's an alias
+  if (isVariableAlias(rawValue)) {
+    // Create a unique visited key from "variableId::modeId"
+    const visitedKey = `${rawValue.id}::${currentModeId}`;
+
+    // Check for circular references
+    if (visitedIds.has(visitedKey)) {
+      consoleLog.warn(`Circular reference detected for variable: ${visitedKey}`);
+      return { value: undefined };
+    }
+    visitedIds.add(visitedKey);
+
+    // Fetch alias variable
+    const aliasVar = await figma.variables.getVariableByIdAsync(rawValue.id);
+    if (!aliasVar) {
+      consoleLog.error(`Alias variable not found for ID: ${rawValue.id}`);
+      return { value: undefined };
+    }
+
+    // Build the "{{colors.red.100}}" alias string
+    const aliasString = `{{${variableNameToDotNotation(aliasVar.name)}}}`;
+
+    // Determine correct mode
+    let aliasModeId = currentModeId;
+    const aliasCollection = await figma.variables.getVariableCollectionByIdAsync(
+      aliasVar.variableCollectionId
+    );
+    if (!aliasCollection || !(aliasModeId in aliasVar.valuesByMode)) {
+      aliasModeId = aliasCollection ? aliasCollection.defaultModeId : undefined;
+    }
+    if (!aliasModeId || !(aliasModeId in aliasVar.valuesByMode)) {
+      consoleLog.warn(`No matching mode found for alias variable ${rawValue.id}.`);
+      return { alias: aliasString, value: undefined };
+    }
+
+    // Recursively resolve the actual value
+    const nestedVal = aliasVar.valuesByMode[aliasModeId];
+    const { value: nestedValue } = await fullyResolveValue(nestedVal, aliasModeId, visitedIds);
+
+    return {
+      alias: aliasString,
+      value: nestedValue,
+    };
+  }
+
+  // If not alias => already a primitive
+  return { value: rawValue };
+}
+
+/**
+ * Resolves a single variable across all of its modes.
+ * Returns a structure with each mode ID as a key:
+ *
+ *  {
+ *    name: string;
+ *    path: string[];
+ *    values: { [modeId: string]: { alias?: string; value: any } };
+ *  }
+ */
+async function resolveVariable(
+  variable: Variable,
+  visitedVariables = new Set<string>()
+): Promise<{
+  name: string;
+  path: Array<string>;
+  values: Record<string, { alias?: string; value: any }>;
+}> {
+  const resolved: Record<string, { alias?: string; value: any }> = {};
+
+  for (const [modeId, rawVal] of Object.entries(variable.valuesByMode)) {
+    if (rawVal === undefined) {
+      consoleLog.warn(`Variable "${variable.name}" has no value in mode "${modeId}"`);
+      continue;
+    }
+    const result = await fullyResolveValue(rawVal, modeId, visitedVariables);
+    resolved[modeId] = result;
+  }
+
+  // We also build a "path" from the variable name => "colors.red.100"
+  const path = variable.name.split('/').map(segment => segment.trim());
+  return {
+    name: variable.name,
+    path,
+    values: resolved,
+  };
+}
+
+/**
+ * Takes an array of Variables, resolves them (including alias chains),
+ * then builds a nested tokens object:
+ *
+ *  - If a variable only has 1 mode, it goes in the root.
+ *  - If it has multiple modes, each mode ID (or name) is a top-level key.
+ */
+async function processVariables(variables: Array<Variable>): Promise<Record<string, any>> {
+  const resolvedList = await Promise.all(variables.map(v => resolveVariable(v)));
+
+  const tokens: Record<string, any> = {};
+
+  for (const variable of resolvedList) {
+    const modeIds = Object.keys(variable.values);
+    if (modeIds.length === 1) {
+      // Single-mode => place directly at root
+      const onlyModeId = modeIds[0];
+      nestTokens(tokens, variable.path, {
+        value: formatResolvedValue(variable.values[onlyModeId]),
+      });
+    } else {
+      // Multi-mode => each mode is a top-level key
+      for (const [modeId, resolvedVal] of Object.entries(variable.values)) {
+        if (!tokens[modeId]) tokens[modeId] = {};
+        nestTokens(tokens[modeId], variable.path, {
+          value: formatResolvedValue(resolvedVal),
+        });
+      }
+    }
+  }
+
+  return tokens;
+}
+
+/**
+ * Nests data at the given path inside an object,
+ * e.g. path ["colors", "red", "100"] => tokens.colors.red.100
+ */
+function nestTokens(tokens: Record<string, any>, path: Array<string>, data: any) {
+  let current = tokens;
+  for (let i = 0; i < path.length; i++) {
+    const segment = path[i].replaceAll(' ', '-');
+    if (i === path.length - 1) {
+      current[segment] = data;
+    } else {
+      if (!current[segment]) {
+        current[segment] = {};
+      }
+      current = current[segment];
+    }
+  }
+}
+
+/**
+ * Takes the final resolved object { alias?: string; value: any }
+ * and transforms the 'value' if it's a colour object,
+ * or otherwise returns them as a { alias?, value } shape.
+ */
+function formatResolvedValue(resolved: { alias?: string; value: any }): any {
+  // If there's an alias, we keep it + transform the final 'value'.
+  if (resolved.alias !== undefined) {
+    return {
+      alias: resolved.alias,
+      value: formatPrimitive(resolved.value),
+    };
+  }
+  // If no alias, it's a direct primitive
+  return formatPrimitive(resolved.value);
+}
+
+/**
+ * Convert colour objects to hex, keep number/string as-is, etc.
+ */
+function formatPrimitive(val: any): any {
+  if (val && typeof val === 'object' && 'r' in val && 'g' in val && 'b' in val) {
+    return figmaColorToHex(val);
+  } else if (typeof val === 'number' || typeof val === 'string') {
+    return val;
+  } else if (val === undefined || val === null) {
+    return val;
+  }
+  consoleLog.warn(`Unrecognised primitive type: ${JSON.stringify(val)}`);
+  return val;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// 3. OPTIONAL MODE RENAMING LOGIC
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Example function: rename the top-level keys (like "9356:0") to
+ * the actual mode names or something custom.
+ *
+ * Supply a `modeMap` from modeId => modeName, then we rewrite the keys.
+ */
+function renameModesWithMap(tokens: Record<string, any>, modeMap: Record<string, string>) {
+  const renamed: Record<string, any> = {};
+  for (const modeId of Object.keys(tokens)) {
+    const newName = modeMap[modeId] ?? modeId;
+    renamed[newName] = tokens[modeId];
+  }
+  return renamed;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// 4. EXPORT VARIABLES: Main Logic for Your Plugin
+////////////////////////////////////////////////////////////////////////////////
+
 async function exportVariables(selectedCollectionKeys: Array<string>) {
   consoleLog.log('Selected Collection Keys:', selectedCollectionKeys);
   try {
+    // Show loading in UI
     figma.ui.postMessage({ type: 'show-loading' });
 
-    // Fetch available library collections
+    // Fetch library collections
     const libraryCollections =
       await figma.teamLibrary.getAvailableLibraryVariableCollectionsAsync();
 
     consoleLog.log('Available Library Collections:', libraryCollections);
 
-    // Map collections without relying on `id` and `modes`
-    const collectionsData = libraryCollections.map(collection => ({
-      key: collection.key,
-      name: collection.name,
-      libraryName: collection.libraryName,
-    }));
-
-    // Filter collections based on selected keys
-    const selectedLibraryCollections = collectionsData.filter(collection => {
-      consoleLog.log(`Checking if selected keys include: ${collection.key}`);
-      return selectedCollectionKeys.includes(collection.key);
-    });
-
+    // Filter to the collections the user selected
+    const selectedLibraryCollections = libraryCollections.filter(col =>
+      selectedCollectionKeys.includes(col.key)
+    );
     consoleLog.log('Selected Library Collections:', selectedLibraryCollections);
 
     const tokensPerCollection = [];
 
+    // For each selected collection
     for (const collection of selectedLibraryCollections) {
-      // Get variables in the collection using `collection.key`
-      const libraryVariables = await figma.teamLibrary.getVariablesInLibraryCollectionAsync(
+      // 1) Get the variables in that library collection
+      const libraryVars = await figma.teamLibrary.getVariablesInLibraryCollectionAsync(
         collection.key
       );
 
+      // 2) Import them into the local file
       const importedVariables: Array<Variable> = [];
-      for (const variable of libraryVariables) {
-        const importedVariable = await figma.variables.importVariableByKeyAsync(variable.key);
-        importedVariables.push(importedVariable);
+      for (const variable of libraryVars) {
+        const importedVar = await figma.variables.importVariableByKeyAsync(variable.key);
+        importedVariables.push(importedVar);
       }
 
-      consoleLog.log(`Imported Variables for "${collection.name}":`, importedVariables);
-
-      // Process variables without collections
+      // 3) Process them (alias resolution, nesting, etc.)
       let tokens = await processVariables(importedVariables);
 
-      consoleLog.log(`Generated tokens for "${collection.name}":`, tokens);
-
-      // Check if there are exactly two modes before renaming
-      const modeCount = Object.keys(tokens).length;
-      if (modeCount === 2) {
-        // check keys of the token for numbers and a colon in the key e.g 9356:0
-        const isNumber = Object.keys(tokens).every(key => /^\d+:\d+$/.test(key));
-        const isColon = Object.keys(tokens).every(key => key.includes(':'));
-        if (isNumber && isColon) {
-          tokens = renameModes(tokens, ['light', 'dark']);
-          consoleLog.log(`Renamed tokens for "${collection.name}":`, tokens);
+      // 3b) Optional: rename "9356:0" => "mobile" or the actual mode name from the collection
+      // e.g. build a modeMap from the variableCollection's modes array
+      const varCollection = await figma.variables.getVariableCollectionByIdAsync(
+        importedVariables[0].variableCollectionId
+      );
+      if (varCollection) {
+        const modeMap: Record<string, string> = {};
+        for (const m of varCollection.modes) {
+          // For example: m = { modeId: "9356:0", name: "mobile" }
+          modeMap[m.modeId] = m.name;
         }
+        // Now rename top-level keys
+        tokens = renameModesWithMap(tokens, modeMap);
       }
 
+      console.log(tokens);
+
+      // 4) Store the resulting JSON
       tokensPerCollection.push({
         collectionName: `${collection.libraryName}--${collection.name}`,
         tokensJson: JSON.stringify(tokens, null, 2),
@@ -85,208 +321,50 @@ async function exportVariables(selectedCollectionKeys: Array<string>) {
 
     // Send tokens back to the UI
     figma.ui.postMessage({ type: 'variables-exported', data: tokensPerCollection });
-  } catch (error) {
-    consoleLog.error('Error during exportVariables:', error);
-    figma.ui.postMessage({ type: 'export-error', message: error.message });
+  } catch (err: any) {
+    consoleLog.error('Error during exportVariables:', err);
+    figma.ui.postMessage({ type: 'export-error', message: err.message });
   } finally {
-    // Hide loading indicator
+    // Hide loading spinner
     figma.ui.postMessage({ type: 'hide-loading' });
   }
 }
 
-// Modify the renameModes function to handle 'light' and 'dark' renaming
-function renameModes(tokens: Record<string, any>, customNames: Array<string>): Record<string, any> {
-  const renamedTokens: Record<string, any> = {};
-  const modeKeys = Object.keys(tokens);
-  modeKeys.sort(); // Ensure consistent order if necessary
+////////////////////////////////////////////////////////////////////////////////
+// 5. PLUGIN MESSAGE HANDLERS
+////////////////////////////////////////////////////////////////////////////////
 
-  modeKeys.forEach((modeKey, index) => {
-    const newModeName = customNames[index];
-    renamedTokens[newModeName] = tokens[modeKey];
-  });
-
-  return renamedTokens;
-}
-
-// Update the processVariables function to handle named modes
-async function processVariables(variables: Array<Variable>): Promise<Record<string, any>> {
-  // Map to store resolved variables
-  const resolvedVariablesPromises = variables.map(variable => resolveVariable(variable));
-  const resolvedVariables = await Promise.all(resolvedVariablesPromises);
-
-  const tokens: Record<string, any> = {};
-
-  for (const variable of resolvedVariables) {
-    const modes = Object.keys(variable.values);
-    if (modes.length === 1) {
-      // Single mode, place values at root
-      nestTokens(tokens, variable.path, { value: formatValue(variable.values[modes[0]]) });
-    } else {
-      // Multiple modes, create mode objects
-      for (const [modeName, value] of Object.entries(variable.values)) {
-        if (!tokens[modeName]) tokens[modeName] = {};
-        nestTokens(tokens[modeName], variable.path, { value: formatValue(value) });
-      }
-    }
-  }
-
-  return tokens;
-}
-
-// Enhance the resolveVariable function to handle nested aliases
-async function resolveVariable(
-  variable: Variable,
-  visitedVariables = new Set<string>()
-): Promise<{
-  name: string;
-  path: Array<string>;
-  values: Record<string, VariableValue>;
-}> {
-  const resolvedValues: Record<string, any> = {};
-
-  consoleLog.log(`Resolving variable: ${variable.name}`);
-
-  // Process each mode directly from valuesByMode
-  for (const [modeId, value] of Object.entries(variable.valuesByMode)) {
-    const modeName = modeId; // Use raw modeId as modeName
-
-    if (value === undefined) {
-      consoleLog.warn(`Variable "${variable.name}" has no value for mode ID "${modeId}"`);
-      continue;
-    }
-
-    // Start resolving aliases recursively
-    let currentValue = value;
-    const visited = new Set<string>(visitedVariables);
-
-    while (isVariableAlias(currentValue)) {
-      if (visited.has(currentValue.id)) {
-        consoleLog.warn(`Circular reference detected for variable "${variable.name}"`);
-        break;
-      }
-      visited.add(currentValue.id);
-
-      consoleLog.log(
-        `Resolving alias for variable "${variable.name}": alias ID "${currentValue.id}"`
-      );
-
-      const aliasVariable = await figma.variables.getVariableByIdAsync(currentValue.id);
-
-      if (aliasVariable && aliasVariable !== variable) {
-        // Use the first available value from aliasVariable.valuesByMode
-        const aliasValue = Object.values(aliasVariable.valuesByMode)[0]; // Use first available mode value
-
-        console.log(aliasValue); // Existing log
-
-        if (aliasValue !== undefined) {
-          consoleLog.log(`Alias variable found: "${aliasVariable.name}"`);
-          currentValue = aliasValue;
-        } else {
-          consoleLog.warn(`No available value found for alias variable "${aliasVariable.name}"`);
-          currentValue = undefined;
-          break;
-        }
-      } else {
-        consoleLog.warn(
-          `Alias variable with ID "${currentValue.id}" not found or is the same as the current variable`
-        );
-        break;
-      }
-    }
-
-    if (currentValue !== undefined) {
-      resolvedValues[modeName] = currentValue;
-    } else {
-      consoleLog.warn(
-        `Value for variable "${variable.name}" in mode ID "${modeId}" could not be resolved`
-      );
-    }
-  }
-
-  // Split the variable name into path segments based on '/'
-  const path = variable.name.split('/').map(segment => segment.trim());
-
-  return {
-    name: variable.name,
-    path,
-    values: resolvedValues,
-  };
-}
-
-// Type guard for VariableValueAlias
-function isVariableAlias(value: VariableValue): value is VariableAlias {
-  return (value as VariableAlias).type === 'VARIABLE_ALIAS';
-}
-
-// Function to nest tokens based on path
-function nestTokens(tokens: Record<string, any>, path: Array<string>, value: any): void {
-  let currentLevel = tokens;
-  for (let i = 0; i < path.length; i++) {
-    const segment = path[i].replaceAll(' ', '-');
-    if (i === path.length - 1) {
-      // Last segment, assign the value
-      currentLevel[segment] = value;
-    } else {
-      // Intermediate segment, create object if it doesn't exist
-      if (!currentLevel[segment]) {
-        currentLevel[segment] = {};
-      }
-      currentLevel = currentLevel[segment];
-    }
-  }
-}
-
-// Improve the formatValue function to handle all possible resolved value types
-function formatValue(value: any): any {
-  // Convert Figma color types to HEX
-  if (value && typeof value === 'object' && 'r' in value && 'g' in value && 'b' in value) {
-    return figmaColorToHex(value);
-  }
-  // Handle numeric values
-  else if (typeof value === 'number') {
-    return value;
-  }
-  // Handle string values
-  else if (typeof value === 'string') {
-    return value;
-  }
-  // Handle other types as needed
-  consoleLog.warn(`Unrecognised value type: ${JSON.stringify(value)}`);
-  return value;
-}
-
-/* eslint-disable @typescript-eslint/no-misused-promises */
 figma.ui.onmessage = async msg => {
   if (msg.type === 'get-filename') {
-    // Get the current file name
     const fileName = figma.root.name;
-    // Filename to kebab case and remove special characters
     const fileNameKebab = fileName
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-+|-+$/g, '');
     figma.ui.postMessage({ type: 'filename', data: fileNameKebab });
   } else if (msg.type === 'get-collections') {
+    // Return the available library collections to the UI
     const libraryCollections =
       await figma.teamLibrary.getAvailableLibraryVariableCollectionsAsync();
-    const collectionsData = libraryCollections.map(collection => ({
-      key: collection.key,
-      name: collection.name,
-      libraryName: collection.libraryName,
+    const collectionsData = libraryCollections.map(c => ({
+      key: c.key,
+      name: c.name,
+      libraryName: c.libraryName,
     }));
     figma.ui.postMessage({ type: 'collections-loaded', data: collectionsData });
   } else if (msg.type === 'export-variables') {
-    const selectedCollectionKeys = msg.selectedCollections; // Array of selected collection keys
+    const selectedCollectionKeys = msg.selectedCollections; // e.g. ["Key123", "Key456"]
     await exportVariables(selectedCollectionKeys);
   } else if (msg.type === 'save-token') {
-    // Save the GitHub token
+    // Save a GitHub token (example)
     await figma.clientStorage.setAsync('githubToken', msg.token);
     figma.ui.postMessage({ type: 'token-saved' });
   } else if (msg.type === 'load-token') {
-    // Load the GitHub token
+    // Load a GitHub token (example)
     const token = await figma.clientStorage.getAsync('githubToken');
     figma.ui.postMessage({ type: 'token-loaded', token });
   } else if (msg.type === 'resize') {
+    // UI resize message
     figma.ui.resize(msg.size.w, msg.size.h);
     figma.clientStorage.setAsync('size', msg.size).catch(err => {
       consoleLog.error(err);
