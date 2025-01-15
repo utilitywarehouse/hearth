@@ -3,10 +3,14 @@
     "components": {
       "button": {
         "background-color": {
-          "value": "#ffffff"
+          "alias": "{{colour.light.yellow.400}}",
+          "value": "#ffb921",
+          "type": "color"
         },
         "border-color": {
-          "value": "#ffffff"
+          "alias": "{{colour.light.grey.1000}}",
+          "value": "#101010",
+          "type": "color"
         }
       }
     }
@@ -15,10 +19,14 @@
     "components": {
       "button": {
         "background-color": {
-          "value": "#ffffff"
+          "alias": "{{colour.dark.yellow.400}}",
+          "value": "#d69200",
+          "type": "color"
         },
         "border-color": {
-          "value": "#ffffff"
+          "alias": "{{colour.dark.grey.1000}}",
+          "value": "#fcfbf2",
+          "type": "color"
         }
       }
     }
