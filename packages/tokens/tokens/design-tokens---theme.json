@@ -1,0 +1,26 @@
+{
+  "light": {
+    "components": {
+      "button": {
+        "background-color": {
+          "value": "#ffffff"
+        },
+        "border-color": {
+          "value": "#ffffff"
+        }
+      }
+    }
+  },
+  "dark": {
+    "components": {
+      "button": {
+        "background-color": {
+          "value": "#ffffff"
+        },
+        "border-color": {
+          "value": "#ffffff"
+        }
+      }
+    }
+  }
+}
