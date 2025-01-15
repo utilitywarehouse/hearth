@@ -1,5 +1,5 @@
-.uw-RadioGridGroup {
-  .uw-RadioGridGroupRoot {
+.hearth-RadioGridGroup {
+  .hearth-RadioGridGroupRoot {
     display: grid;
     gap: 16px;
     min-width: fit-content;

@@ -1,33 +1,33 @@
 @breakpoints {
-  .uw-r-align-items-start {
+  .hearth-r-align-items-start {
     align-items: flex-start;
   }
 
-  .uw-r-align-items-center {
+  .hearth-r-align-items-center {
     align-items: center;
   }
 
-  .uw-r-align-items-end {
+  .hearth-r-align-items-end {
     align-items: flex-end;
   }
 
-  .uw-r-align-items-baseline {
+  .hearth-r-align-items-baseline {
     align-items: baseline;
   }
 
-  .uw-r-align-items-stretch {
+  .hearth-r-align-items-stretch {
     align-items: stretch;
   }
 
-  .uw-r-align-items-space-between {
+  .hearth-r-align-items-space-between {
     align-items: space-between;
   }
 
-  .uw-r-align-items-space-around {
+  .hearth-r-align-items-space-around {
     align-items: space-between;
   }
 
-  .uw-r-align-items-space-evenly {
+  .hearth-r-align-items-space-evenly {
     align-items: space-between;
   }
 }

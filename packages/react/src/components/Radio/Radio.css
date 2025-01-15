@@ -1,4 +1,4 @@
-.uw-Radio {
+.hearth-Radio {
   --radio-border-color: var(--color-grey500);
   --radio-border-color-hover: var(--color-cyan500);
   --radio-border-color-focus: var(--color-cyan500);
@@ -13,13 +13,13 @@
 
   flex: 1;
 
-  .uw-RadioContainer {
+  .hearth-RadioContainer {
     width: 40px;
     height: 40px;
     margin: -8px;
   }
 
-  .uw-RadioItem {
+  .hearth-RadioItem {
     all: unset;
     height: 20px;
     width: 20px;
@@ -51,7 +51,7 @@
   }
 
   /* we do this so that the gap between the checkbox & label is clickable */
-  .uw-RadioLabel {
+  .hearth-RadioLabel {
     position: relative;
 
     &::before {
@@ -64,7 +64,7 @@
   }
 }
 
-.uw-RadioIndicator {
+.hearth-RadioIndicator {
   --radio-indicator-background-color: var(--color-cyan500);
   --radio-indicator-background-color-disabled: var(--color-grey300);
 

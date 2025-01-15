@@ -1,18 +1,18 @@
-.uw-Checkbox {
+.hearth-Checkbox {
   cursor: pointer;
 
   * {
     cursor: pointer;
   }
 
-  .uw-CheckboxBase {
+  .hearth-CheckboxBase {
     &:where(:focus-visible) {
       --checkbox-outline-color: var(--color-cyan700);
     }
   }
 
   /* we do this so that the gap between the checkbox & label is clickable */
-  .uw-Label {
+  .hearth-Label {
     position: relative;
 
     &::before {
