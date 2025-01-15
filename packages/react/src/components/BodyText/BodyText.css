@@ -1,8 +1,8 @@
-.uw-BodyText {
+.hearth-BodyText {
   font-family: var(--font-family-body);
   color: var(--color-brand-midnight);
 
-  &:where(.uw-body-text-color) {
+  &:where(.hearth-body-text-color) {
     color: var(--body-text-color);
   }
 
@@ -13,7 +13,7 @@
   }
 
   /** variants **/
-  &:where(.uw-variant-subtitle) {
+  &:where(.hearth-variant-subtitle) {
     font-size: var(--font-size-body-lg);
     line-height: var(--line-height-lg);
 
@@ -22,17 +22,17 @@
     }
   }
 
-  &:where(.uw-variant-body) {
+  &:where(.hearth-variant-body) {
     font-size: var(--font-size-body-md);
     line-height: var(--line-height-lg);
   }
 
-  &:where(.uw-variant-legalNote) {
+  &:where(.hearth-variant-legalNote) {
     font-size: var(--font-size-body-sm);
     line-height: var(--line-height-lg);
   }
 
-  &:where(.uw-variant-caption) {
+  &:where(.hearth-variant-caption) {
     font-size: var(--font-size-body-xs);
     line-height: var(--line-height-xl);
   }

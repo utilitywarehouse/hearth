@@ -1,5 +1,5 @@
-.uw-CheckboxGridGroup {
-  .uw-CheckboxGridGroupRoot {
+.hearth-CheckboxGridGroup {
+  .hearth-CheckboxGridGroupRoot {
     display: grid;
     gap: 16px;
     min-width: fit-content;

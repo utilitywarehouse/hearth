@@ -1,17 +1,17 @@
 @breakpoints {
-  .uw-r-flex-direction-row {
+  .hearth-r-flex-direction-row {
     flex-direction: row;
   }
 
-  .uw-r-flex-direction-column {
+  .hearth-r-flex-direction-column {
     flex-direction: column;
   }
 
-  .uw-r-flex-direction-row-reverse {
+  .hearth-r-flex-direction-row-reverse {
     flex-direction: row-reverse;
   }
 
-  .uw-r-flex-direction-column-reverse {
+  .hearth-r-flex-direction-column-reverse {
     flex-direction: column-reverse;
   }
 }

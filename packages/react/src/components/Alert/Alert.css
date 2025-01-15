@@ -1,4 +1,4 @@
-.uw-Alert {
+.hearth-Alert {
   flex-direction: row;
   gap: var(--space-100);
   padding: var(--space-200);
@@ -47,7 +47,7 @@
     --alert-border-color: var(--color-red500);
   }
 
-  .uw-IconButton {
+  .hearth-IconButton {
     height: auto;
     width: auto;
 
@@ -57,7 +57,7 @@
   }
 }
 
-.uw-AlertLink {
+.hearth-AlertLink {
   font-weight: var(--font-weight-semibold);
   color: var(--alert-link-color);
   text-decoration-color: var(--alert-link-color);
@@ -88,7 +88,7 @@
   }
 }
 
-.uw-AlertButton {
+.hearth-AlertButton {
   color: var(--alert-button-color);
 
   @media (hover: hover) {
@@ -98,6 +98,6 @@
   }
 }
 
-.uw-AlertTitle {
+.hearth-AlertTitle {
   color: var(--alert-text-color);
 }

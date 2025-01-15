@@ -1,11 +1,11 @@
 @breakpoints {
-  .uw-r-width {
+  .hearth-r-width {
     width: var(--r-width);
   }
 }
 
 @breakpoints {
-  .uw-r-height {
+  .hearth-r-height {
     height: var(--r-height);
   }
 }
