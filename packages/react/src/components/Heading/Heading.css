@@ -1,12 +1,12 @@
-.uw-Heading {
+.hearth-Heading {
   font-family: var(--font-family-heading);
   color: var(--color-brand-primaryPurple);
 
-  &:where(.uw-heading-color) {
+  &:where(.hearth-heading-color) {
     color: var(--heading-color);
   }
 
-  &:where(.uw-variant-displayHeading) {
+  &:where(.hearth-variant-displayHeading) {
     font-size: var(--font-size-heading-3xl);
     line-height: var(--line-height-md);
 
@@ -15,7 +15,7 @@
     }
   }
 
-  &:where(.uw-variant-h1) {
+  &:where(.hearth-variant-h1) {
     font-size: var(--font-size-heading-2xl);
     line-height: var(--line-height-md);
 
@@ -24,7 +24,7 @@
     }
   }
 
-  &:where(.uw-variant-h2) {
+  &:where(.hearth-variant-h2) {
     font-size: var(--font-size-heading-xl);
     line-height: var(--line-height-md);
 
@@ -34,7 +34,7 @@
     }
   }
 
-  &:where(.uw-variant-h3) {
+  &:where(.hearth-variant-h3) {
     font-size: var(--font-size-heading-md);
     line-height: var(--line-height-lg);
 
@@ -43,7 +43,7 @@
     }
   }
 
-  &:where(.uw-variant-h4) {
+  &:where(.hearth-variant-h4) {
     font-size: var(--font-size-heading-xs);
     line-height: var(--line-height-lg);
 

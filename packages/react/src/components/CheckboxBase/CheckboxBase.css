@@ -1,4 +1,4 @@
-.uw-CheckboxBase {
+.hearth-CheckboxBase {
   --checkbox-box-shadow-color: var(--color-grey500);
 
   position: relative;
@@ -59,7 +59,7 @@
     border-color: var(--color-cyan500);
   }
 
-  .uw-CheckboxBaseIndicator {
+  .hearth-CheckboxBaseIndicator {
     position: absolute;
   }
 }

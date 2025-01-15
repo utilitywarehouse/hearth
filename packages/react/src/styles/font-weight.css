@@ -1,17 +1,17 @@
 @breakpoints {
-  .uw-r-weight-regular {
+  .hearth-r-weight-regular {
     font-weight: var(--font-weight-regular);
   }
 
-  .uw-r-weight-medium {
+  .hearth-r-weight-medium {
     font-weight: var(--font-weight-medium);
   }
 
-  .uw-r-weight-semibold {
+  .hearth-r-weight-semibold {
     font-weight: var(--font-weight-semibold);
   }
 
-  .uw-r-weight-bold {
+  .hearth-r-weight-bold {
     font-weight: var(--font-weight-bold);
   }
 }
