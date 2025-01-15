@@ -1,0 +1,647 @@
+{
+  "mobile": {
+    "typography": {
+      "scales": {
+        "body-text": {
+          "md": {
+            "paragraph-spacing": {
+              "value": 16
+            },
+            "highlight-font-weight": {
+              "value": 700
+            },
+            "font-weight": {
+              "value": 400
+            },
+            "font-size": {
+              "value": 16
+            },
+            "letter-spacing": {
+              "value": 0
+            },
+            "line-height": {
+              "value": 24
+            }
+          },
+          "sm": {
+            "paragraph-spacing": {
+              "value": 14
+            },
+            "highlight-font-weight": {
+              "value": 700
+            },
+            "letter-spacing": {
+              "value": 0
+            },
+            "font-weight": {
+              "value": 400
+            },
+            "line-height": {
+              "value": 20
+            },
+            "font-size": {
+              "value": 14
+            }
+          },
+          "lg": {
+            "font-size": {
+              "value": 18
+            },
+            "line-height": {
+              "value": 24
+            },
+            "paragraph-spacing": {
+              "value": 18
+            },
+            "highlight-font-weight": {
+              "value": 700
+            },
+            "font-weight": {
+              "value": 400
+            },
+            "letter-spacing": {
+              "value": 0
+            }
+          },
+          "font-family": {
+            "value": "DM Sans"
+          }
+        },
+        "detail-text": {
+          "sm": {
+            "font-size": {
+              "value": 14
+            },
+            "line-height": {
+              "value": 18
+            },
+            "font-weight": {
+              "value": 600
+            },
+            "letter-spacing": {
+              "value": -0.41999998688697815
+            }
+          },
+          "4xl": {
+            "letter-spacing": {
+              "value": -1.0800000429153442
+            },
+            "line-height": {
+              "value": 36
+            },
+            "font-weight": {
+              "value": 600
+            },
+            "font-size": {
+              "value": 36
+            }
+          },
+          "lg": {
+            "letter-spacing": {
+              "value": -0.5400000214576721
+            },
+            "font-weight": {
+              "value": 600
+            },
+            "font-size": {
+              "value": 18
+            },
+            "line-height": {
+              "value": 22
+            }
+          },
+          "3xl": {
+            "letter-spacing": {
+              "value": -0.8999999761581421
+            },
+            "font-weight": {
+              "value": 600
+            },
+            "line-height": {
+              "value": 36
+            },
+            "font-size": {
+              "value": 30
+            }
+          },
+          "md": {
+            "font-weight": {
+              "value": 600
+            },
+            "font-size": {
+              "value": 16
+            },
+            "line-height": {
+              "value": 24
+            },
+            "letter-spacing": {
+              "value": -0.47999998927116394
+            }
+          },
+          "2xl": {
+            "font-weight": {
+              "value": 600
+            },
+            "letter-spacing": {
+              "value": -0.7200000286102295
+            },
+            "line-height": {
+              "value": 32
+            },
+            "font-size": {
+              "value": 24
+            }
+          },
+          "xl": {
+            "font-size": {
+              "value": 20
+            },
+            "line-height": {
+              "value": 22
+            },
+            "letter-spacing": {
+              "value": -0.6000000238418579
+            },
+            "font-weight": {
+              "value": 600
+            }
+          },
+          "font-family": {
+            "value": "DM Mono"
+          }
+        },
+        "heading": {
+          "sm": {
+            "font-size": {
+              "value": 18
+            },
+            "letter-spacing": {
+              "value": -0.5400000214576721
+            },
+            "font-weight": {
+              "value": 600
+            },
+            "line-height": {
+              "value": 22
+            }
+          },
+          "font-family": {
+            "value": "TMT Limkin"
+          },
+          "md": {
+            "font-size": {
+              "value": 20
+            },
+            "font-weight": {
+              "value": 600
+            },
+            "letter-spacing": {
+              "value": -0.6000000238418579
+            },
+            "line-height": {
+              "value": 24
+            }
+          },
+          "lg": {
+            "font-size": {
+              "value": 24
+            },
+            "letter-spacing": {
+              "value": -0.7200000286102295
+            },
+            "line-height": {
+              "value": 32
+            },
+            "font-weight": {
+              "value": 600
+            }
+          },
+          "xl": {
+            "font-weight": {
+              "value": 700
+            },
+            "line-height": {
+              "value": 36
+            },
+            "letter-spacing": {
+              "value": -0.8999999761581421
+            },
+            "font-size": {
+              "value": 30
+            }
+          }
+        }
+      }
+    },
+    "test": {
+      "test": {
+        "value": 0
+      }
+    }
+  },
+  "desktop": {
+    "typography": {
+      "scales": {
+        "body-text": {
+          "md": {
+            "paragraph-spacing": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:2e98720703d56ea080ffe1fe6220d04dda0458b6/66:11"
+              }
+            },
+            "highlight-font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:7475803738ff4182ecc6a3909809bfadd6a1f640/47:303"
+              }
+            },
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:12ce34ac6ed829b54c4a2264e9d136bd181d37a7/47:363"
+              }
+            },
+            "font-size": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:aecb4c66679063901a9ebc2ea8502e583f4e243d/47:618"
+              }
+            },
+            "letter-spacing": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:37b5bfdf0c4e52c222905222b53ca199f96b49c9/47:451"
+              }
+            },
+            "line-height": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:89a4947937b441306319151a2e87bc6fc1bdbdaf/47:344"
+              }
+            }
+          },
+          "sm": {
+            "paragraph-spacing": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:cbb789b800012479bafbfdf115a22a931f43bf50/66:24"
+              }
+            },
+            "highlight-font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:7475803738ff4182ecc6a3909809bfadd6a1f640/47:303"
+              }
+            },
+            "letter-spacing": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:37b5bfdf0c4e52c222905222b53ca199f96b49c9/47:451"
+              }
+            },
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:12ce34ac6ed829b54c4a2264e9d136bd181d37a7/47:363"
+              }
+            },
+            "line-height": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:44bc3001694edbf0c28e7f450b7845e43f1e3cd7/47:356"
+              }
+            },
+            "font-size": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b70bfca4f555cc70a784eb0d0182c12feb80122a/47:617"
+              }
+            }
+          },
+          "lg": {
+            "font-size": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:05b68e7533173b0c6c73ea882f9b43f0511f42c5/47:619"
+              }
+            },
+            "line-height": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:89a4947937b441306319151a2e87bc6fc1bdbdaf/47:344"
+              }
+            },
+            "paragraph-spacing": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:05b68e7533173b0c6c73ea882f9b43f0511f42c5/47:619"
+              }
+            },
+            "highlight-font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:7475803738ff4182ecc6a3909809bfadd6a1f640/47:303"
+              }
+            },
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:12ce34ac6ed829b54c4a2264e9d136bd181d37a7/47:363"
+              }
+            },
+            "letter-spacing": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:37b5bfdf0c4e52c222905222b53ca199f96b49c9/47:451"
+              }
+            }
+          },
+          "font-family": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:4f56167b132011eac66d71fabcc088ba956296cc/47:415"
+            }
+          }
+        },
+        "detail-text": {
+          "sm": {
+            "font-size": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b70bfca4f555cc70a784eb0d0182c12feb80122a/47:617"
+              }
+            },
+            "line-height": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:ba982b59d3d332735dd15f42f1149ebf597bcd92/47:337"
+              }
+            },
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:88035084bc13981dc76225a4fe89769ec8399008/47:377"
+              }
+            },
+            "letter-spacing": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:a17146e76b1e6886df52641d6fe1e8939e7566e4/47:312"
+              }
+            }
+          },
+          "4xl": {
+            "letter-spacing": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:eb14ad2218e2bff83c0d88602f14f0d4c560b8c0/47:332"
+              }
+            },
+            "line-height": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:901366aca8e947c03f11d5b17ce3c7f86b6dd04c/47:330"
+              }
+            },
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:88035084bc13981dc76225a4fe89769ec8399008/47:377"
+              }
+            },
+            "font-size": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:819fc0caad12f0094817fb32506ff870b4d5bb6a/47:628"
+              }
+            }
+          },
+          "lg": {
+            "letter-spacing": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:7bda1c3dca47b92f9fb5cf34f0d1bef75823e7d7/47:322"
+              }
+            },
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:88035084bc13981dc76225a4fe89769ec8399008/47:377"
+              }
+            },
+            "font-size": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:05b68e7533173b0c6c73ea882f9b43f0511f42c5/47:619"
+              }
+            },
+            "line-height": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:ff066afb04f241d358009a5b0913208d1fd5c492/47:471"
+              }
+            }
+          },
+          "3xl": {
+            "letter-spacing": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:672a42f4a6a0871b4d4d3fdea6e37cc982e7ee1f/47:348"
+              }
+            },
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:88035084bc13981dc76225a4fe89769ec8399008/47:377"
+              }
+            },
+            "line-height": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:901366aca8e947c03f11d5b17ce3c7f86b6dd04c/47:330"
+              }
+            },
+            "font-size": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:74baff5c6a8b762565f40075795c1a59f3ff82df/47:626"
+              }
+            }
+          },
+          "md": {
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:88035084bc13981dc76225a4fe89769ec8399008/47:377"
+              }
+            },
+            "font-size": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:aecb4c66679063901a9ebc2ea8502e583f4e243d/47:618"
+              }
+            },
+            "line-height": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:89a4947937b441306319151a2e87bc6fc1bdbdaf/47:344"
+              }
+            },
+            "letter-spacing": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3006c81eb99c0629be116286d850410e99190e06/47:294"
+              }
+            }
+          },
+          "2xl": {
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:88035084bc13981dc76225a4fe89769ec8399008/47:377"
+              }
+            },
+            "letter-spacing": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:86b81a3f959a52d9b9c860b77f4582d77a82d34a/47:292"
+              }
+            },
+            "line-height": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f245c5005fa59ab142eb6fe82862f5a90ce43651/47:289"
+              }
+            },
+            "font-size": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:8af1344e5a1d879ce41d61a8c0480a226d05ad77/47:622"
+              }
+            }
+          },
+          "xl": {
+            "font-size": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:9291c0574c23acdbc697d524d10765e49da904a4/47:610"
+              }
+            },
+            "line-height": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:ff066afb04f241d358009a5b0913208d1fd5c492/47:471"
+              }
+            },
+            "letter-spacing": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:faf804f443f448fcbb2f490a474e8b1f205a30a8/47:324"
+              }
+            },
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:88035084bc13981dc76225a4fe89769ec8399008/47:377"
+              }
+            }
+          },
+          "font-family": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:8d81cafc158897f56e7104d977aa8bb9b28e605c/47:368"
+            }
+          }
+        },
+        "heading": {
+          "sm": {
+            "font-size": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:05b68e7533173b0c6c73ea882f9b43f0511f42c5/47:619"
+              }
+            },
+            "letter-spacing": {
+              "value": -0.6000000238418579
+            },
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:88035084bc13981dc76225a4fe89769ec8399008/47:377"
+              }
+            },
+            "line-height": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:ff066afb04f241d358009a5b0913208d1fd5c492/47:471"
+              }
+            }
+          },
+          "font-family": {
+            "value": {
+              "type": "VARIABLE_ALIAS",
+              "id": "VariableID:721216e2efe1feb7fffdb20cb012b893a595114c/47:420"
+            }
+          },
+          "md": {
+            "font-size": {
+              "value": 24
+            },
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:88035084bc13981dc76225a4fe89769ec8399008/47:377"
+              }
+            },
+            "letter-spacing": {
+              "value": -0.7200000286102295
+            },
+            "line-height": {
+              "value": 28
+            }
+          },
+          "lg": {
+            "font-size": {
+              "value": 30
+            },
+            "letter-spacing": {
+              "value": -0.8999999761581421
+            },
+            "line-height": {
+              "value": 36
+            },
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:88035084bc13981dc76225a4fe89769ec8399008/47:377"
+              }
+            }
+          },
+          "xl": {
+            "font-weight": {
+              "value": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:7475803738ff4182ecc6a3909809bfadd6a1f640/47:303"
+              }
+            },
+            "line-height": {
+              "value": 48
+            },
+            "letter-spacing": {
+              "value": -1.0800000429153442
+            },
+            "font-size": {
+              "value": 40
+            }
+          }
+        }
+      }
+    },
+    "test": {
+      "test": {
+        "value": 0
+      }
+    }
+  }
+}
