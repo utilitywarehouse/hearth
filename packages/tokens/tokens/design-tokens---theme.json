@@ -1,0 +1,16 @@
+{
+  "light": {
+    "button": {
+      "background-color": {
+        "value": "#ffffff"
+      }
+    }
+  },
+  "dark": {
+    "button": {
+      "background-color": {
+        "value": "#ffffff"
+      }
+    }
+  }
+}
