@@ -30,29 +30,36 @@ figma.clientStorage
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- * A type guard for checking if a `VariableValue` is a `VariableAlias`.
+ * A type guard to check if a `VariableValue` is a `VariableAlias`.
  */
 function isVariableAlias(value: VariableValue): value is VariableAlias {
   return typeof value === 'object' && value !== null && (value as any).type === 'VARIABLE_ALIAS';
 }
 
 /**
- * Converts a slash-delimited variable name, e.g. "colors/red/100",
- * into dot notation, e.g. "colors.red.100".
+ * Converts a slash-delimited variable name, e.g. `"Button Large / Primary / Font Weight"`,
+ * into dot notation, e.g. `"Button-Large.Primary.Font-Weight"`.
+ * - Slashes -> dots
+ * - Spaces -> hyphens
  */
 function variableNameToDotNotation(name: string): string {
-  return name.trim().replace(/\s*\/\s*/g, '.');
+  // Trim, then:
+  // 1) replace all slashes (and optional surrounding spaces) with a single dot
+  // 2) replace remaining spaces with hyphens
+  return name
+    .trim()
+    .replace(/\s*\/\s*/g, '.')
+    .replace(/\s+/g, '-');
 }
 
 /**
  * Recursively resolves a variable value (which might be an alias chain)
- * to always return the shape:
- *
+ * to always return:
  *     { alias?: string; value: any }
  *
- * - If it's an alias, we'll have `alias: "{{colors.red.100}}"` plus
- *   its fully resolved primitive in `value`.
- * - If it's already a primitive, we simply return `{ value: primitive }`.
+ * - If it's an alias, we produce `alias: "{{button-large.primary.font-weight}}"` plus
+ *   a fully resolved final primitive in `value`.
+ * - If it's already a primitive, we return `{ value: primitive }`.
  */
 async function fullyResolveValue(
   rawValue: VariableValue | undefined,
@@ -75,14 +82,14 @@ async function fullyResolveValue(
     }
     visitedIds.add(visitedKey);
 
-    // Fetch alias variable
+    // Fetch the aliased variable
     const aliasVar = await figma.variables.getVariableByIdAsync(rawValue.id);
     if (!aliasVar) {
       consoleLog.error(`Alias variable not found for ID: ${rawValue.id}`);
       return { value: undefined };
     }
 
-    // Build the "{{colors.red.100}}" alias string
+    // Build something like "{{Button-Large.Primary.Font-Weight}}"
     const aliasString = `{{${variableNameToDotNotation(aliasVar.name)}}}`;
 
     // Determine correct mode
@@ -108,7 +115,7 @@ async function fullyResolveValue(
     };
   }
 
-  // If not alias => already a primitive
+  // If not an alias => it's already a primitive
   return { value: rawValue };
 }
 
@@ -141,7 +148,7 @@ async function resolveVariable(
     resolved[modeId] = result;
   }
 
-  // We also build a "path" from the variable name => "colors.red.100"
+  // Split the variable name on '/' to create a path array
   const path = variable.name.split('/').map(segment => segment.trim());
   return {
     name: variable.name,
@@ -164,19 +171,18 @@ async function processVariables(variables: Array<Variable>): Promise<Record<stri
 
   for (const variable of resolvedList) {
     const modeIds = Object.keys(variable.values);
+
     if (modeIds.length === 1) {
       // Single-mode => place directly at root
       const onlyModeId = modeIds[0];
-      nestTokens(tokens, variable.path, {
-        value: formatResolvedValue(variable.values[onlyModeId]),
-      });
+      const finalObj = createFinalValueObject(variable.values[onlyModeId]);
+      nestTokens(tokens, variable.path, finalObj);
     } else {
       // Multi-mode => each mode is a top-level key
       for (const [modeId, resolvedVal] of Object.entries(variable.values)) {
         if (!tokens[modeId]) tokens[modeId] = {};
-        nestTokens(tokens[modeId], variable.path, {
-          value: formatResolvedValue(resolvedVal),
-        });
+        const finalObj = createFinalValueObject(resolvedVal);
+        nestTokens(tokens[modeId], variable.path, finalObj);
       }
     }
   }
@@ -191,6 +197,7 @@ async function processVariables(variables: Array<Variable>): Promise<Record<stri
 function nestTokens(tokens: Record<string, any>, path: Array<string>, data: any) {
   let current = tokens;
   for (let i = 0; i < path.length; i++) {
+    // Convert spaces to hyphens in the path segments
     const segment = path[i].replaceAll(' ', '-');
     if (i === path.length - 1) {
       current[segment] = data;
@@ -204,35 +211,50 @@ function nestTokens(tokens: Record<string, any>, path: Array<string>, data: any)
 }
 
 /**
- * Takes the final resolved object { alias?: string; value: any }
- * and transforms the 'value' if it's a colour object,
- * or otherwise returns them as a { alias?, value } shape.
+ * Create the final object that will be placed in the JSON tree:
+ *   - Always have "value" (the final primitive)
+ *   - If there's an alias, also include "alias"
+ *   - Always include "type" for style dictionary or other uses
  */
-function formatResolvedValue(resolved: { alias?: string; value: any }): any {
-  // If there's an alias, we keep it + transform the final 'value'.
+function createFinalValueObject(resolved: { alias?: string; value: any }) {
+  // 1) transform the final value if it's a color object -> hex
+  const [typedValue, valueType] = determineValueAndType(resolved.value);
+
+  // 2) Build the object
   if (resolved.alias !== undefined) {
     return {
       alias: resolved.alias,
-      value: formatPrimitive(resolved.value),
+      value: typedValue,
+      type: valueType,
     };
   }
-  // If no alias, it's a direct primitive
-  return formatPrimitive(resolved.value);
+  // No alias => just the value + type
+  return {
+    value: typedValue,
+    type: valueType,
+  };
 }
 
 /**
- * Convert colour objects to hex, keep number/string as-is, etc.
+ * Determine if `val` is a color, a number, or a string, etc.
+ * Return `[convertedValue, typeString]`.
  */
-function formatPrimitive(val: any): any {
+function determineValueAndType(val: any): [any, string] {
   if (val && typeof val === 'object' && 'r' in val && 'g' in val && 'b' in val) {
-    return figmaColorToHex(val);
-  } else if (typeof val === 'number' || typeof val === 'string') {
-    return val;
+    // It's a Figma color -> convert to hex
+    const hex = figmaColorToHex(val);
+    return [hex, 'color'];
+  } else if (typeof val === 'number') {
+    return [val, 'number'];
+  } else if (typeof val === 'string') {
+    return [val, 'string'];
   } else if (val === undefined || val === null) {
-    return val;
+    return [val, 'unknown'];
   }
+
+  // fallback
   consoleLog.warn(`Unrecognised primitive type: ${JSON.stringify(val)}`);
-  return val;
+  return [val, 'unknown'];
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -240,10 +262,7 @@ function formatPrimitive(val: any): any {
 ////////////////////////////////////////////////////////////////////////////////
 
 /**
- * Example function: rename the top-level keys (like "9356:0") to
- * the actual mode names or something custom.
- *
- * Supply a `modeMap` from modeId => modeName, then we rewrite the keys.
+ * Rename the top-level keys (e.g. "9356:0") to the actual mode names or something custom.
  */
 function renameModesWithMap(tokens: Record<string, any>, modeMap: Record<string, string>) {
   const renamed: Record<string, any> = {};
@@ -296,21 +315,17 @@ async function exportVariables(selectedCollectionKeys: Array<string>) {
       let tokens = await processVariables(importedVariables);
 
       // 3b) Optional: rename "9356:0" => "mobile" or the actual mode name from the collection
-      // e.g. build a modeMap from the variableCollection's modes array
       const varCollection = await figma.variables.getVariableCollectionByIdAsync(
         importedVariables[0].variableCollectionId
       );
       if (varCollection) {
         const modeMap: Record<string, string> = {};
         for (const m of varCollection.modes) {
-          // For example: m = { modeId: "9356:0", name: "mobile" }
+          // e.g.: m = { modeId: "9356:0", name: "mobile" }
           modeMap[m.modeId] = m.name;
         }
-        // Now rename top-level keys
         tokens = renameModesWithMap(tokens, modeMap);
       }
-
-      console.log(tokens);
 
       // 4) Store the resulting JSON
       tokensPerCollection.push({

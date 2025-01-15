@@ -6,247 +6,225 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Register custom transforms
-
-// Add a custom transform to rename spacing tokens from "X-5" to "X.5"
-StyleDictionary.registerTransform({
-  name: 'spacing/rename',
-  type: 'attribute',
-  filter: token =>
-    token.path[0] === 'spacing' &&
-    typeof token.path[1] === 'string' &&
-    token.path[1].includes('-5'),
-  transform: token => {
-    token.path[1] = token.path[1].replace('-5', '.5');
-    token.attributes.type = token.attributes.type.replace('-5', '.5');
-  },
-});
-
-// Register custom format for components
-StyleDictionary.registerFormat({
-  name: 'javascript/custom-es6',
-  format: ({ dictionary, options }) => {
-    const tokens = {};
-    dictionary.allTokens.forEach(token => {
-      const path = options?.slice ? token.path.slice(1) : token.path; // Omit the first path element ('light' or 'dark')
-      let current = tokens;
-
-      path.forEach((part, index) => {
-        // Replace hyphens with camelCase or keep as is based on your preference
-        const key = part.includes('-') ? part.replace(/-([a-z])/g, g => g[1].toUpperCase()) : part;
-
-        if (!current[key]) {
-          current[key] = index === path.length - 1 ? token.value : {};
-        }
-        current = current[key];
-      });
-    });
-
-    return `export default ${JSON.stringify(tokens, null, 2)};`;
-  },
-});
-
-// Register custom CSS format without theme prefix
-StyleDictionary.registerFormat({
-  name: 'css/no-theme-variables',
-  format: ({ dictionary, options }) => {
-    return (
-      `${options.prefix ? options.prefix : ':root'} {\n` +
-      dictionary.allTokens
-        .map(token => {
-          const name = token.path.slice(1).join('-');
-          return `  --${name}: ${token.value};`;
-        })
-        .join('\n') +
-      '\n}'
-    );
-  },
-});
-
-// Register the JS transform group with the added 'spacing/rename' transform
-StyleDictionary.registerTransformGroup({
-  name: 'js-custom',
-  transforms: ['attribute/cti', 'name/camel', 'spacing/rename', 'size/rem', 'color/hex'],
-});
-
-// Function to generate index.ts in a directory
-function generateIndexFile(dir, defaultVal = false) {
-  const items = fs.readdirSync(dir);
-  let isDirectory = false;
-  let exportAll = 'export {';
-  const exportStatements = items
-    .map((item, i) => {
-      const fullPath = path.join(dir, item);
-      if (fs.statSync(fullPath).isDirectory() && defaultVal) {
-        return `export { default as ${item} } from './${item}';`;
-      }
-      if (fs.statSync(fullPath).isDirectory() && !defaultVal) {
-        isDirectory = true;
-        exportAll += `\n${item}${i === items.length - 1 ? '' : ','}`;
-        return `import * as ${item} from './${item}';`;
-      }
-    })
-    .filter(statement => statement !== '')
-    .join('\n');
-  exportAll += '\n};';
-  fs.writeFileSync(
-    path.join(dir, 'index.ts'),
-    exportStatements + '\n' + (isDirectory ? exportAll : '')
-  );
+/**
+ * Helper function to unwrap an alias like `{{space.200}}` => `space.200`
+ */
+function unwrapAlias(aliasString) {
+  return aliasString.replace(/^{{|}}$/g, '');
 }
 
-// Build function for js platform
+/**
+ * --------------------------------------------
+ * 1) REGISTER TRANSFORMS
+ * --------------------------------------------
+ * Style Dictionary v4 uses:
+ *   - type: 'value' | 'attribute' | 'name'
+ *   - filter(token) => boolean
+ *   - transform(token) => any
+ *   - optional transitive: true/false
+ */
+StyleDictionary.registerTransform({
+  name: 'alias/variable-css',
+  type: 'value',
+  // If token has `token.value.alias`, let's transform it
+  filter: token => {
+    if (token?.filePath.includes('primitive')) {
+      console.log(token);
+    }
+    return token.value && typeof token.alias === 'string';
+  },
+  transform: token => {
+    // console.log(token);
+    const aliasPath = unwrapAlias(token.alias).replace(/\./g, '-');
+    return `var(--${aliasPath})`;
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'alias/variable-js',
+  type: 'value',
+  // If token has `token.value.alias`, let's transform it
+  filter: token => {
+    return token.value && typeof token.alias === 'string';
+  },
+  transform: token => {
+    // e.g. "{{space.200}}" -> "space.200"
+    return unwrapAlias(token.alias);
+  },
+});
+
+/**
+ * --------------------------------------------
+ * 2) REGISTER TRANSFORM GROUPS
+ * --------------------------------------------
+ */
+StyleDictionary.registerTransformGroup({
+  name: 'css-device',
+  transforms: [
+    // For example, built-in CTI attribute transform
+    'attribute/cti',
+    // built-in name transform, e.g. name/cti/kebab or name/camel
+    'name/kebab',
+    // our custom transform for alias references in CSS
+    'alias/variable-css',
+  ],
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'js-device',
+  transforms: [
+    'attribute/cti',
+    'name/pascal',
+    'alias/variable-js', // our custom transform for alias references in JS
+  ],
+});
+
+/**
+ * --------------------------------------------
+ * 3) REGISTER CUSTOM FORMATS
+ * --------------------------------------------
+ * In v4, you can use `registerFormat({ name, format: fn })`.
+ * The function receives an object with shape:
+ *   {
+ *     dictionary,
+ *     platform,
+ *     file,
+ *     options,
+ *     allProperties, // legacy
+ *   }
+ * and must return a string, which will be written to the file.
+ */
+
+/** Example: “Device-based” CSS => :root for mobile, @media for desktop */
+StyleDictionary.registerFormat({
+  name: 'css/device-variables',
+  format: ({ dictionary }) => {
+    console.log(dictionary);
+    const mobileTokens = dictionary.allTokens.filter(t => t.path[0] === 'mobile');
+    const desktopTokens = dictionary.allTokens.filter(t => t.path[0] === 'desktop');
+
+    const mobileVars = mobileTokens
+      .map(t => `  --${t.path.slice(1).join('-')}: ${t.value};`)
+      .join('\n');
+    const desktopVars = desktopTokens
+      .map(t => `    --${t.path.slice(1).join('-')}: ${t.value};`)
+      .join('\n');
+
+    return `:root {\n${mobileVars}\n}\n\n@media (min-width: 1024px) {\n  :root {\n${desktopVars}\n  }\n}`;
+  },
+});
+
+/** Example: “Device-based” JS => default is mobile, with a nested “desktop” key */
+StyleDictionary.registerFormat({
+  name: 'js/device-module',
+  format: ({ dictionary }) => {
+    console.log(dictionary);
+    const output = { mobile: {}, desktop: {} };
+    dictionary.allTokens.forEach(token => {
+      const [device, ...rest] = token.path;
+      if (!output[device]) return; // skip if not 'mobile' or 'desktop'
+      let current = output[device];
+      rest.forEach((part, i) => {
+        if (i === rest.length - 1) {
+          current[part] = token.value;
+        } else {
+          current[part] = current[part] || {};
+          current = current[part];
+        }
+      });
+    });
+    // By design, "mobile" is default root, "desktop" is nested:
+    const final = { ...output.mobile, desktop: output.desktop };
+    return `export default ${JSON.stringify(final, null, 2)};`;
+  },
+});
+
+/**
+ * --------------------------------------------
+ * 4) BUILD DICTIONARIES / PLATFORMS
+ * --------------------------------------------
+ * You can define a set of style dictionaries or just one
+ * combined config. The snippet below uses multiple.
+ */
+
 async function buildStyles() {
   const dictionaries = [
-    // JS and CSS colors
-    new StyleDictionary({
-      source: ['./tokens/design-tokens-global--primitive-colors.json'],
-      platforms: {
-        js: {
-          transformGroup: 'js-custom',
-          buildPath: './build/js/',
-          files: [
-            // Light mode colors
-            {
-              destination: 'colors/light/index.ts',
-              format: 'javascript/custom-es6',
-              options: { slice: true },
-              filter: token => token.attributes.category === 'light',
-            },
-            // Dark mode colors
-            {
-              destination: 'colors/dark/index.ts',
-              format: 'javascript/custom-es6',
-              options: { slice: true },
-              filter: token => token.attributes.category === 'dark',
-            },
-          ],
-        },
-        css: {
-          transformGroup: 'css',
-          buildPath: './build/css/',
-          files: [
-            // Consolidated CSS variable files for colors
-            {
-              destination: 'colors/light.css',
-              format: 'css/no-theme-variables',
-              options: { prefix: ':root' },
-              filter: token => token.path[0] === 'light',
-            },
-            {
-              destination: 'colors/dark.css',
-              format: 'css/no-theme-variables',
-              options: { prefix: ':root' },
-              filter: token => token.path[0] === 'dark',
-            },
-          ],
-        },
-      },
-    }),
-    // Primitive tokens JS
+    // PRIMITIVE tokens
     new StyleDictionary({
       source: [
-        './tokens/design-tokens-global--primitive-tokens.json',
-        './tokens/uw-app-ui--primitive-tokens.json',
-      ],
-      platforms: {
-        js: {
-          transformGroup: 'js-custom',
-          buildPath: './build/js/',
-          files: [
-            {
-              destination: 'primitive/index.ts',
-              format: 'javascript/custom-es6',
-            },
-          ],
-        },
-      },
-    }),
-    // Semantic tokens JS
-    new StyleDictionary({
-      source: ['./tokens/design-tokens-global--semantic-tokens.json'],
-      platforms: {
-        js: {
-          transformGroup: 'js-custom',
-          buildPath: './build/js/',
-          files: [
-            // Semantic tokens
-            {
-              destination: 'semantic/index.ts',
-              format: 'javascript/custom-es6',
-            },
-          ],
-        },
-      },
-    }),
-    // Component tokens JS
-    new StyleDictionary({
-      source: [
-        './tokens/design-tokens-global--component-tokens.json',
-        './tokens/uw-app-ui--component-tokens.json',
-      ],
-      platforms: {
-        js: {
-          transformGroup: 'js-custom',
-          buildPath: './build/js/',
-          files: [
-            // Light mode components
-            {
-              destination: 'components/light/index.ts',
-              format: 'javascript/custom-es6',
-              options: { slice: true },
-              filter: token => token.attributes.category === 'light',
-            },
-            // Dark mode components
-            {
-              destination: 'components/dark/index.ts',
-              format: 'javascript/custom-es6',
-              options: { slice: true },
-              filter: token => token.attributes.category === 'dark',
-            },
-          ],
-        },
-      },
-    }),
-    // Component tokens CSS
-    new StyleDictionary({
-      source: [
-        './tokens/design-tokens-global--component-tokens.json',
-        './tokens/uw-web-ui--component-tokens.json',
+        './tokens/design-tokens---primitive.json',
+        './tokens/design-tokens---device.json',
+        './tokens/design-tokens---theme.json',
       ],
       platforms: {
         css: {
-          transformGroup: 'css',
-          buildPath: './build/css/',
-          files: [...getComponentFiles()],
-        },
-      },
-    }),
-    // Primitive tokens CSS
-    new StyleDictionary({
-      source: [
-        './tokens/design-tokens-global--primitive-tokens.json',
-        './tokens/uw-web-ui--primitive-tokens.json',
-      ],
-      platforms: {
-        css: {
-          transformGroup: 'css',
+          transformGroup: 'css-device',
           buildPath: './build/css/',
           files: [
             {
               destination: 'primitive.css',
               format: 'css/variables',
-              options: { outputReferences: true },
+              filter: token => {
+                console.log(token);
+                return true;
+              },
+            },
+          ],
+        },
+        js: {
+          transformGroup: 'js-device',
+          buildPath: './build/js/',
+          files: [
+            {
+              destination: 'primitive.js',
+              format: 'javascript/es6', // or a custom format if you like
+              filter: token => {
+                console.log(token);
+                return true;
+              },
             },
           ],
         },
       },
     }),
-    // Semantic tokens CSS
+
+    // DEVICE tokens (mobile vs desktop)
     new StyleDictionary({
       source: [
-        './tokens/design-tokens-global--semantic-tokens.json',
-        './tokens/uw-web-ui--semantic-tokens.json',
+        './tokens/design-tokens---primitive.json',
+        './tokens/design-tokens---device.json',
+        './tokens/design-tokens---theme.json',
+      ],
+      platforms: {
+        css: {
+          transformGroup: 'css-device',
+          buildPath: './build/css/',
+          files: [
+            {
+              destination: 'device.css',
+              format: 'css/device-variables', // Our custom device-based CSS format
+            },
+          ],
+        },
+        js: {
+          transformGroup: 'js-device',
+          buildPath: './build/js/',
+          files: [
+            {
+              destination: 'device.js',
+              format: 'js/device-module', // Our custom device-based JS format
+            },
+          ],
+        },
+      },
+    }),
+
+    // THEME tokens (light vs dark)
+    new StyleDictionary({
+      source: [
+        './tokens/design-tokens---primitive.json',
+        './tokens/design-tokens---device.json',
+        './tokens/design-tokens---theme.json',
       ],
       platforms: {
         css: {
@@ -254,9 +232,34 @@ async function buildStyles() {
           buildPath: './build/css/',
           files: [
             {
-              destination: 'semantic.css',
+              destination: 'theme-light.css',
               format: 'css/variables',
-              options: { outputReferences: true },
+              filter: token => {
+                console.log(token);
+                return token.path[0] === 'light';
+              },
+            },
+            {
+              destination: 'theme-dark.css',
+              format: 'css/variables',
+              filter: token => token.path[0] === 'dark',
+            },
+          ],
+        },
+        js: {
+          // could also do 'js-device' if you want alias references or device grouping
+          transformGroup: 'js-device',
+          buildPath: './build/js/',
+          files: [
+            {
+              destination: 'theme/light.js',
+              format: 'javascript/es6',
+              filter: token => token.path[0] === 'light',
+            },
+            {
+              destination: 'theme/dark.js',
+              format: 'javascript/es6',
+              filter: token => token.path[0] === 'dark',
             },
           ],
         },
@@ -264,73 +267,17 @@ async function buildStyles() {
     }),
   ];
 
-  // Build the all platform
   try {
-    await Promise.allSettled(dictionaries.map(dictionary => dictionary.buildAllPlatforms()));
-  } catch (error) {
-    console.error('Error building tokens:', error);
-  }
-
-  try {
-    // Generate index.ts files in each subdirectory
-    const buildPath = path.resolve(__dirname, '../');
-    ['/build/js'].forEach(subDir => {
-      const fullPath = path.join(buildPath, subDir);
-      generateIndexFile(fullPath, false);
-    });
-    ['/build/js/colors', '/build/js/components'].forEach(subDir => {
-      const otherPath = path.join(buildPath, subDir);
-      generateIndexFile(otherPath, true);
-    });
-  } catch (error) {
-    console.error('Error generating index files:', error);
-  }
-}
-
-// Add helper function to retrieve component keys from the tokens file
-function getComponentNames(tokenPath, key) {
-  const tokensPath = path.resolve(__dirname, tokenPath);
-  const tokens = JSON.parse(fs.readFileSync(tokensPath, 'utf8'));
-  return Object.keys(key ? tokens[key] : tokens);
-}
-
-// Modify getComponentFiles to exclude color-related tokens
-function getComponentFiles() {
-  const themedComponents = getComponentNames(
-    '../tokens/design-tokens-global--component-tokens.json',
-    'light'
-  );
-  const components = getComponentNames('../tokens/uw-web-ui--component-tokens.json');
-  const themes = ['light', 'dark'];
-
-  return themes.flatMap(theme =>
-    themedComponents
-      .map(component => ({
-        destination: `components/${theme}/${component}.css`,
-        format: 'css/no-theme-variables', // Use the new format
-        options: { outputReferences: true },
-        filter: token =>
-          token.path[0] === theme &&
-          token.path.includes(component) &&
-          token.attributes.category !== 'color', // Exclude color tokens
-      }))
-      .concat(
-        components.map(component => ({
-          destination: `components/${component}.css`,
-          format: 'css/no-theme-variables', // Use the new format
-          options: { outputReferences: true },
-          filter: token => token.path.includes(component) && token.attributes.category !== 'color', // Exclude color tokens
-        }))
-      )
-  );
-}
-
-// Build all platforms
-(async () => {
-  try {
-    await buildStyles();
+    // Style Dictionary v4 is async => buildAllPlatforms returns a Promise
+    // We can do Promise.allSettled to run them in parallel:
+    await Promise.allSettled(dictionaries.map(d => d.buildAllPlatforms()));
     console.log('Tokens built successfully!');
   } catch (error) {
     console.error('Error building tokens:', error);
   }
+}
+
+// Run the build:
+(async () => {
+  await buildStyles();
 })();
