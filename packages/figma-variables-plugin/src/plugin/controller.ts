@@ -57,7 +57,7 @@ function variableNameToDotNotation(name: string): string {
  * to always return:
  *     { alias?: string; value: any }
  *
- * - If it's an alias, we produce `alias: "{{button-large.primary.font-weight}}"` plus
+ * - If it's an alias, we produce `alias: "{button-large.primary.font-weight}"` plus
  *   a fully resolved final primitive in `value`.
  * - If it's already a primitive, we return `{ value: primitive }`.
  */
@@ -89,8 +89,8 @@ async function fullyResolveValue(
       return { value: undefined };
     }
 
-    // Build something like "{{Button-Large.Primary.Font-Weight}}"
-    const aliasString = `{{${variableNameToDotNotation(aliasVar.name)}}}`;
+    // Build something like "{Button-Large.Primary.Font-Weight}"
+    const aliasString = `{${variableNameToDotNotation(aliasVar.name)}}`;
 
     // Determine correct mode
     let aliasModeId = currentModeId;

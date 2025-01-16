@@ -1,5 +1,4 @@
 import StyleDictionary from 'style-dictionary';
-import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -7,10 +6,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /**
- * Helper function to unwrap an alias like `{{space.200}}` => `space.200`
+ * Helper function to unwrap an alias like `{space.200}` => `space.200`
  */
 function unwrapAlias(aliasString) {
-  return aliasString.replace(/^{{|}}$/g, '');
+  return aliasString.replace(/^{|}$/g, '');
 }
 
 /**
@@ -28,13 +27,10 @@ StyleDictionary.registerTransform({
   type: 'value',
   // If token has `token.value.alias`, let's transform it
   filter: token => {
-    if (token?.filePath.includes('primitive')) {
-      console.log(token);
-    }
+    console.log(token);
     return token.value && typeof token.alias === 'string';
   },
   transform: token => {
-    // console.log(token);
     const aliasPath = unwrapAlias(token.alias).replace(/\./g, '-');
     return `var(--${aliasPath})`;
   },
@@ -48,8 +44,20 @@ StyleDictionary.registerTransform({
     return token.value && typeof token.alias === 'string';
   },
   transform: token => {
-    // e.g. "{{space.200}}" -> "space.200"
+    // e.g. "{space.200}" -> "space.200"
+    // console.log(token);
     return unwrapAlias(token.alias);
+  },
+});
+
+StyleDictionary.registerTransform({
+  name: 'remove-color',
+  type: 'name',
+  filter: token => {
+    return token.type === 'color' && token.attributes?.type !== 'dark';
+  },
+  transform: token => {
+    return token.name.replace(/light-/, '').replace(/colour/, 'color');
   },
 });
 
@@ -74,8 +82,8 @@ StyleDictionary.registerTransformGroup({
   name: 'js-device',
   transforms: [
     'attribute/cti',
-    'name/pascal',
-    'alias/variable-js', // our custom transform for alias references in JS
+    'name/camel',
+    // 'alias/variable-js', // our custom transform for alias references in JS
   ],
 });
 
@@ -99,7 +107,7 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.registerFormat({
   name: 'css/device-variables',
   format: ({ dictionary }) => {
-    console.log(dictionary);
+    // console.log(dictionary.allTokens);
     const mobileTokens = dictionary.allTokens.filter(t => t.path[0] === 'mobile');
     const desktopTokens = dictionary.allTokens.filter(t => t.path[0] === 'desktop');
 
@@ -118,7 +126,7 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerFormat({
   name: 'js/device-module',
   format: ({ dictionary }) => {
-    console.log(dictionary);
+    // console.log(dictionary.allTokens);
     const output = { mobile: {}, desktop: {} };
     dictionary.allTokens.forEach(token => {
       const [device, ...rest] = token.path;
@@ -159,29 +167,34 @@ async function buildStyles() {
       platforms: {
         css: {
           transformGroup: 'css-device',
+          transforms: ['remove-color'],
           buildPath: './build/css/',
           files: [
             {
               destination: 'primitive.css',
               format: 'css/variables',
               filter: token => {
-                console.log(token);
-                return true;
+                if (token.attributes?.type === 'dark') {
+                  return false;
+                }
+                return token.filePath.includes('primitive');
               },
             },
           ],
         },
         js: {
-          transformGroup: 'js-device',
+          transforms: ['attribute/cti', 'name/camel'],
           buildPath: './build/js/',
           files: [
             {
               destination: 'primitive.js',
-              format: 'javascript/es6', // or a custom format if you like
+              format: 'javascript/es6',
               filter: token => {
-                console.log(token);
-                return true;
+                return token.filePath.includes('primitive');
               },
+              // options: {
+              //   minify: true,
+              // },
             },
           ],
         },
@@ -235,7 +248,7 @@ async function buildStyles() {
               destination: 'theme-light.css',
               format: 'css/variables',
               filter: token => {
-                console.log(token);
+                // console.log(token);
                 return token.path[0] === 'light';
               },
             },
@@ -253,13 +266,19 @@ async function buildStyles() {
           files: [
             {
               destination: 'theme/light.js',
-              format: 'javascript/es6',
+              format: 'javascript/esm',
               filter: token => token.path[0] === 'light',
+              options: {
+                minify: true,
+              },
             },
             {
               destination: 'theme/dark.js',
-              format: 'javascript/es6',
+              format: 'javascript/esm',
               filter: token => token.path[0] === 'dark',
+              options: {
+                minify: true,
+              },
             },
           ],
         },
