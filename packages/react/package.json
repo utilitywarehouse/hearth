@@ -1,12 +1,11 @@
 {
   "name": "@utilitywarehouse/hearth-react",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "React components",
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "style": "./styles.css",
   "sideEffects": false,
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist *.css",
@@ -32,7 +31,7 @@
     "access": "restricted"
   },
   "files": [
-    "dist/**",
+    "dist",
     "*.css"
   ],
   "peerDependencies": {
