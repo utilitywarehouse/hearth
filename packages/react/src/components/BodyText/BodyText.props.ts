@@ -3,16 +3,16 @@ import { TextAlignProps } from '../../props/text-align.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
-const weights = ['regular', 'medium', 'semibold'] as const;
-const variants = ['subtitle', 'body', 'legalNote', 'caption'] as const;
+export const sizes = ['sm', 'md', 'lg'] as const;
+export const weights = ['regular', 'bold'] as const;
 
 export const bodyTextPropDefs = {
+  size: { className: 'size', tokens: sizes, responsive: true, default: 'md' },
   weight: { className: 'weight', tokens: weights, responsive: true, default: 'regular' },
-  variant: { className: 'variant', tokens: variants, responsive: false, default: 'body' },
   color: { className: 'body-text-color', responsive: false },
 } satisfies {
+  size: PropDef<(typeof sizes)[number]>;
   weight: PropDef<(typeof weights)[number]>;
-  variant: PropDef<(typeof variants)[number]>;
   color: PropDef<string>;
 };
 
@@ -24,10 +24,10 @@ interface CommonBodyTextProps extends TextAlignProps {
   /** Change the default rendered element for the one passed as a child, merging their props and behavior. */
   asChild?: boolean;
   /**
-   * Applies the text font styles.
-   * @default body
+   * Set the text size styles.
+   * @default md
    */
-  variant?: (typeof variants)[number];
+  size?: Responsive<(typeof sizes)[number]>;
   /**
    * Set the text color
    * It is recommended to use the colours from the `@utilitywarehouse/colour-system` package.

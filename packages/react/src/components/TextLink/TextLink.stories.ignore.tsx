@@ -54,37 +54,37 @@ export const Workshop: Story = {
   },
 };
 
-export const KitchenSink: Story = {
-  render: () => {
-    return (
-      <Flex direction="column" gap="8px">
-        {variants.map(variant => (
-          <BodyText key={variant} variant={variant}>
-            <TextLink href="#" style={{ textTransform: 'capitalize' }}>
-              {variant} TextLink
-            </TextLink>
-          </BodyText>
-        ))}
-      </Flex>
-    );
-  },
-};
+// export const KitchenSink: Story = {
+//   render: () => {
+//     return (
+//       <Flex direction="column" gap="8px">
+//         {variants.map(variant => (
+//           <BodyText key={variant} variant={variant}>
+//             <TextLink href="#" style={{ textTransform: 'capitalize' }}>
+//               {variant} TextLink
+//             </TextLink>
+//           </BodyText>
+//         ))}
+//       </Flex>
+//     );
+//   },
+// };
 
-export const WithinText: Story = {
-  name: 'In a block of text',
-  render: () => {
-    return (
-      <Flex direction="column" gap="8px">
-        {variants.map(variant => (
-          <BodyText key={variant} variant={variant}>
-            This is the {variant} text style, and it contains{' '}
-            <TextLink href="#">an embedded link</TextLink> within this text.
-          </BodyText>
-        ))}
-      </Flex>
-    );
-  },
-};
+// export const WithinText: Story = {
+//   name: 'In a block of text',
+//   render: () => {
+//     return (
+//       <Flex direction="column" gap="8px">
+//         {variants.map(variant => (
+//           <BodyText key={variant} variant={variant}>
+//             This is the {variant} text style, and it contains{' '}
+//             <TextLink href="#">an embedded link</TextLink> within this text.
+//           </BodyText>
+//         ))}
+//       </Flex>
+//     );
+//   },
+// };
 
 export const WithIcons: Story = {
   render: args => (

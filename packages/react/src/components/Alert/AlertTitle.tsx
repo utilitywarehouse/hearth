@@ -20,8 +20,8 @@ export const AlertTitle = React.forwardRef<AlertTitleElement, AlertTitleProps>(
     <BodyText
       ref={ref}
       className={clsx(componentClassName, className)}
-      variant="body"
-      weight="semibold"
+      // variant="body"
+      // weight="semibold"
       asChild
       {...props}
     >

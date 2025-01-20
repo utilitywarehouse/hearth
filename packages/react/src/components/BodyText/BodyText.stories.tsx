@@ -4,9 +4,7 @@ import { BodyText } from './BodyText';
 import { Flex } from '../Flex/Flex';
 import * as React from 'react';
 import { colors, colorsCommon } from '@utilitywarehouse/colour-system';
-
-const variants = ['subtitle', 'body', 'legalNote', 'caption'] as const;
-const weights = ['regular', 'medium', 'semibold'] as const;
+import { sizes, weights } from './BodyText.props';
 
 const meta: Meta<typeof BodyText> = {
   title: 'Stories / BodyText',
@@ -15,14 +13,14 @@ const meta: Meta<typeof BodyText> = {
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['span', 'p', 'div'], control: { type: 'radio' } },
-    variant: { options: variants, control: { type: 'radio' } },
+    size: { options: sizes, control: { type: 'radio' } },
     weight: { options: weights, control: { type: 'radio' } },
     truncate: { control: { type: 'boolean' } },
   },
   args: {
-    children: 'Hamburgefons',
-    variant: 'body',
-    weight: { mobile: 'regular', tablet: 'medium', desktop: 'semibold' },
+    children: 'The five boxing wizards jump quickly.',
+    size: 'md',
+    weight: 'regular',
     align: { mobile: 'left', tablet: 'center', desktop: 'right' },
     truncate: false,
   },
@@ -36,10 +34,13 @@ export const KitchenSink: Story = {
   render: () => {
     return (
       <Flex direction="column" gap="100">
-        {variants.map(variant => (
-          <BodyText key={variant} variant={variant}>
-            Hamburgefons
-          </BodyText>
+        {sizes.map(size => (
+          <>
+            <BodyText size={size}>The five boxing wizards jump quickly.</BodyText>
+            <BodyText size={size} weight="bold">
+              The five boxing wizards jump quickly.
+            </BodyText>
+          </>
         ))}
       </Flex>
     );
@@ -68,16 +69,17 @@ export const Workshop: Story = {
   },
 };
 
-export const TextVariants: Story = {
-  name: 'Variants',
+export const TextSizes: Story = {
+  name: 'Sizes',
   render: () => {
     return (
       <Flex direction="column" gap="100">
-        {variants.map(variant => (
-          <BodyText key={variant} variant={variant}>
-            {variant}
+        {sizes.map(size => (
+          <BodyText key={size} size={size}>
+            {size}
           </BodyText>
         ))}
+        <BodyText size={{ mobile: 'sm', tablet: 'md', desktop: 'lg' }}>Responsive size</BodyText>
       </Flex>
     );
   },
@@ -88,8 +90,8 @@ export const TextTruncate: Story = {
   render: args => {
     return (
       <Flex direction="column" gap="100" width="200px">
-        {variants.map(variant => (
-          <BodyText key={variant} {...args} variant={variant}>
+        {sizes.map(size => (
+          <BodyText key={size} {...args} size={size}>
             the quick brown fox jumped over the lazy dog.
           </BodyText>
         ))}
