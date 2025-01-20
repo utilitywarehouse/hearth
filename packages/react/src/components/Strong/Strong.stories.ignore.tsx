@@ -16,14 +16,14 @@ const meta: Meta<typeof Strong> = {
 export default meta;
 type Story = StoryObj<typeof Strong>;
 
-export const KitchenSink: Story = {
-  render: () => (
-    <Flex direction="column" gap="8px">
-      {textVariants.map(variant => (
-        <BodyText key={variant} variant={variant}>
-          The most important thing to remember is, <Strong>stay positive</Strong>.
-        </BodyText>
-      ))}
-    </Flex>
-  ),
-};
+// export const KitchenSink: Story = {
+//   render: () => (
+//     <Flex direction="column" gap="8px">
+//       {textVariants.map(variant => (
+//         <BodyText key={variant} variant={variant}>
+//           The most important thing to remember is, <Strong>stay positive</Strong>.
+//         </BodyText>
+//       ))}
+//     </Flex>
+//   ),
+// };

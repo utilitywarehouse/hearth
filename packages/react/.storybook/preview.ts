@@ -1,7 +1,7 @@
 import { Preview } from '@storybook/react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import '@utilitywarehouse/fontsource';
 import '@utilitywarehouse/css-reset';
+import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/colour-system/css/colours.css';
 import '../styles.css';
 import '../src/storybook/styles.css';

@@ -16,14 +16,14 @@ const meta: Meta<typeof Em> = {
 export default meta;
 type Story = StoryObj<typeof Em>;
 
-export const KitchenSink: Story = {
-  render: () => (
-    <Flex direction="column" gap="8px">
-      {textVariants.map(variant => (
-        <BodyText key={variant} variant={variant}>
-          We <Em>had</Em> to do something about it.
-        </BodyText>
-      ))}
-    </Flex>
-  ),
-};
+// export const KitchenSink: Story = {
+//   render: () => (
+//     <Flex direction="column" gap="8px">
+//       {textVariants.map(variant => (
+//         <BodyText key={variant} variant={variant}>
+//           We <Em>had</Em> to do something about it.
+//         </BodyText>
+//       ))}
+//     </Flex>
+//   ),
+// };

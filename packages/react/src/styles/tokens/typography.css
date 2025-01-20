@@ -1,9 +1,38 @@
 & {
   /** font-family **/
-  --font-family-body: 'Work Sans', arial, sans-serif;
+  --font-family-body: 'DM Sans';
   --font-family-heading: aeonik, arial, sans-serif;
 
   /** font-sizes **/
+  /** primitive **/
+  --font-size-90: 0.875rem;
+  --font-size-100: 1rem;
+  --font-size-150: 1.125rem;
+  /** semantic **/
+  --body-text-sm-font-size: var(--font-size-90);
+  --body-text-md-font-size: var(--font-size-100);
+  --body-text-lg-font-size: var(--font-size-150);
+
+  /** font-weights **/
+  /** primitive **/
+  --font-weight-400: 400;
+  --font-weight-700: 700;
+  /** semantic **/
+  --body-text-font-weight-regular: var(--font-weight-400);
+  --body-text-font-weight-bold: var(--font-weight-700);
+
+  /** line-heights **/
+  --line-height-sm: 1;
+  --line-height-md: 1.2;
+  --line-height-lg: 1.5;
+  --line-height-xl: 2;
+
+  /** legacy to be removed **/
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  /** legacy to be removed **/
   --font-size-body-xs: 0.75rem;
   --font-size-body-sm: 0.875rem;
   --font-size-body-md: 1rem;
@@ -17,16 +46,4 @@
   --font-size-heading-2xl: 2rem;
   --font-size-heading-3xl: 2.625rem;
   --font-size-heading-4xl: 4rem;
-
-  /** font-weights **/
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-
-  /** line-heights **/
-  --line-height-sm: 1;
-  --line-height-md: 1.2;
-  --line-height-lg: 1.5;
-  --line-height-xl: 2;
 }

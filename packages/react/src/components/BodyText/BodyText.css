@@ -12,28 +12,15 @@
     white-space: nowrap;
   }
 
-  /** variants **/
-  &:where(.hearth-variant-subtitle) {
-    font-size: var(--font-size-body-lg);
-    line-height: var(--line-height-lg);
-
-    @media (--desktop) {
-      font-size: var(--font-size-body-xl);
+  @breakpoints {
+    &:where(.hearth-r-size-sm) {
+      font-size: var(--body-text-sm-font-size);
     }
-  }
-
-  &:where(.hearth-variant-body) {
-    font-size: var(--font-size-body-md);
-    line-height: var(--line-height-lg);
-  }
-
-  &:where(.hearth-variant-legalNote) {
-    font-size: var(--font-size-body-sm);
-    line-height: var(--line-height-lg);
-  }
-
-  &:where(.hearth-variant-caption) {
-    font-size: var(--font-size-body-xs);
-    line-height: var(--line-height-xl);
+    &:where(.hearth-r-size-md) {
+      font-size: var(--body-text-md-font-size);
+    }
+    &:where(.hearth-r-size-lg) {
+      font-size: var(--body-text-lg-font-size);
+    }
   }
 }

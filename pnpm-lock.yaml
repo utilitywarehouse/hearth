@@ -416,9 +416,9 @@ importers:
       '@utilitywarehouse/css-reset':
         specifier: ^0.1.0
         version: 0.1.0
-      '@utilitywarehouse/fontsource':
-        specifier: ^0.1.0
-        version: 0.1.0
+      '@utilitywarehouse/hearth-fonts':
+        specifier: workspace:*
+        version: link:../fonts
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.49)
@@ -472,7 +472,7 @@ importers:
     dependencies:
       '@expo/html-elements':
         specifier: latest
-        version: 0.11.1
+        version: 0.11.2
       '@gluestack-ui/alert':
         specifier: 0.1.15
         version: 0.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1966,8 +1966,8 @@ packages:
     resolution: {integrity: sha512-2rfYVS4nqWmOPQk+AL5GPfPSawbqqmI5mL++bxAhWADt+d+fjoQYfIrGtjZxQ30f9o/a1PrRPVSuh2j09+diVg==}
     hasBin: true
 
-  '@expo/html-elements@0.11.1':
-    resolution: {integrity: sha512-6eIsWhs/pDyY8wthuMX0GFfhMhEpG00r3ULz/wOU+itAYMhZ4tsi5rxwPMYOEnOiO6XOO2Xv03awRh98mTCZVQ==}
+  '@expo/html-elements@0.11.2':
+    resolution: {integrity: sha512-OC98eZ4mMzpFQq/KF9t+CGC4Vcg4RnoOxWAzSmNVd3VZ2dFFi64QCoHlT719wDmuccemn1VPXu1/rFvOGmJgOg==}
 
   '@expo/image-utils@0.6.4':
     resolution: {integrity: sha512-L++1PBzSvf5iYc6UHJ8Db8GcYNkfLDw+a+zqEFBQ3xqRXP/muxb/O7wuiMFlXrj/cfkx4e0U+z1a4ceV0A7S7Q==}
@@ -3886,9 +3886,6 @@ packages:
 
   '@utilitywarehouse/design-tokens@0.0.1-alpha.2':
     resolution: {integrity: sha512-Nem/YtBSRDltUwsVdUYdDIQCfXgzZfN+xUy2nU4YBcVgUAXyy5wl4SrYJdtvMLx1q1RjN0lpnWwo3aQkxuzgLA==}
-
-  '@utilitywarehouse/fontsource@0.1.0':
-    resolution: {integrity: sha512-/qsvnWAJdtRHpwt2rhn0HClXVL3m8SwERLvBDk+uN0xbAxXiS4Ae8dkoi8wGypyFX4Y9WIMZBB7MD+NywIXfHg==}
 
   '@utilitywarehouse/hearth-fonts@0.0.2':
     resolution: {integrity: sha512-Lbl5q/p2BbAQXhG8d6VH9OjM6h4M4ppZMeG8MLQ94hbQtQLaeHuuHW8ZSublS8bi/jViQZCS7HvRHZTBGexwTw==}
@@ -10839,7 +10836,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@expo/html-elements@0.11.1': {}
+  '@expo/html-elements@0.11.2': {}
 
   '@expo/image-utils@0.6.4':
     dependencies:
@@ -13540,8 +13537,6 @@ snapshots:
   '@utilitywarehouse/css-reset@0.1.0': {}
 
   '@utilitywarehouse/design-tokens@0.0.1-alpha.2': {}
-
-  '@utilitywarehouse/fontsource@0.1.0': {}
 
   '@utilitywarehouse/hearth-fonts@0.0.2': {}
 

@@ -6,6 +6,3 @@ export type { BodyTextProps } from './BodyText/BodyText.props';
 
 export { Flex } from './Flex/Flex';
 export type { FlexProps } from './Flex/Flex.props';
-
-export { Divider } from './Divider/Divider';
-export type { DividerProps } from './Divider/Divider.props';

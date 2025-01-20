@@ -61,7 +61,7 @@
     "@types/react": "^18.3.12",
     "@utilitywarehouse/colour-system": "^0.5.0",
     "@utilitywarehouse/css-reset": "^0.1.0",
-    "@utilitywarehouse/fontsource": "^0.1.0",
+    "@utilitywarehouse/hearth-fonts": "workspace:*",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
     "eslint-plugin-storybook": "^0.11.0",
