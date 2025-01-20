@@ -275,7 +275,7 @@ async function exportVariables(selectedCollectionIds: Array<string>) {
           figma.variables.getVariableByIdAsync(vId)
         );
         const results = await Promise.all(varPromises);
-        importedVariables = results.filter(Boolean) as Variable[];
+        importedVariables = results.filter(Boolean);
       }
 
       consoleLog.log(`Imported Variables for "${matched.name}":`, importedVariables);
