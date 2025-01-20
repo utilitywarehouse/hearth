@@ -102,7 +102,7 @@ function App() {
     if (selectAll) {
       setSelectedCollections([]);
     } else {
-      const allKeys = collections.map(collection => collection.key);
+      const allKeys = collections.map(collection => collection.id);
       setSelectedCollections(allKeys);
     }
     setSelectAll(!selectAll);
@@ -359,9 +359,9 @@ function App() {
             >
               {collections.map(collection => (
                 <Checkbox
-                  key={collection.key}
-                  id={`checkbox-${collection.key}`}
-                  value={collection.key}
+                  key={collection.id}
+                  id={`checkbox-${collection.id}`}
+                  value={collection.id}
                   label={collection.name}
                   helperText={collection.libraryName}
                 />
