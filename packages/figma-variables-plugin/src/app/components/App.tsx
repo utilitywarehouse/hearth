@@ -15,13 +15,17 @@ import {
   Flex,
   Alert,
   TextField,
+  Text,
 } from '@utilitywarehouse/web-ui';
 
-const LoadingSpinner = () => (
-  <div className="spinner-container">
-    <div className="loading-spinner"></div>
-  </div>
-);
+const LoadingSpinner = ({ text }) => {
+  return (
+    <div className="spinner-container">
+      <div className="loading-spinner"></div>
+      {!!text && <Text>{text}</Text>}
+    </div>
+  );
+};
 
 function App() {
   const [githubToken, setGithubToken] = React.useState('');
@@ -32,6 +36,7 @@ function App() {
   const [collections, setCollections] = React.useState([]);
   const [selectedCollections, setSelectedCollections] = React.useState([]);
   const [loadingImport, setLoadingImport] = React.useState(false);
+  const [loadingText, setLoadingText] = React.useState('');
   const repoOwner = 'utilitywarehouse';
   const repoName = 'hearth';
   const branchName = 'main';
@@ -153,6 +158,8 @@ function App() {
         'Content-Type': 'application/json',
       };
 
+      setLoadingText('Getting branch SHA...');
+
       // Get the SHA of the base branch
       const branchResponse = await fetch(
         `${apiBase}/repos/${repoOwner}/${repoName}/git/ref/heads/${branchName}`,
@@ -161,6 +168,8 @@ function App() {
       if (!branchResponse.ok) throw new Error('Failed to fetch branch information.');
       const branchData = await branchResponse.json();
       const baseSha = branchData.object.sha;
+
+      setLoadingText('Creating a new branch...');
 
       // Create a new branch
       const newBranchName = `figma-export-${Date.now()}`;
@@ -173,6 +182,8 @@ function App() {
         }),
       });
       if (!refResponse.ok) throw new Error('Failed to create new branch.');
+
+      setLoadingText('Updating files...');
 
       // Prepare all file updates
       for (const { collectionName, tokensJson } of tokensData) {
@@ -240,6 +251,8 @@ function App() {
         }
       }
 
+      setLoadingText('Creating a pull request...');
+
       // Create a single pull request
       const prResponse = await fetch(`${apiBase}/repos/${repoOwner}/${repoName}/pulls`, {
         method: 'POST',
@@ -266,6 +279,8 @@ function App() {
       setStatusType('red');
     } finally {
       setExporting(false);
+      setLoadingImport(false);
+      setLoadingText('');
     }
   };
 
@@ -361,7 +376,7 @@ function App() {
           </Flex>
         </Box>
       )}
-      {(exporting || loadingImport) && <LoadingSpinner />}
+      {(exporting || loadingImport) && <LoadingSpinner text={loadingText} />}
 
       <svg
         id="corner"

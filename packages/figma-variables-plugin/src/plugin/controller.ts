@@ -316,7 +316,7 @@ async function exportVariables(selectedCollectionKeys: Array<string>) {
 
       // 3b) Optional: rename "9356:0" => "mobile" or the actual mode name from the collection
       const varCollection = await figma.variables.getVariableCollectionByIdAsync(
-        importedVariables[0].variableCollectionId
+        importedVariables[0]?.variableCollectionId
       );
       if (varCollection) {
         const modeMap: Record<string, string> = {};
