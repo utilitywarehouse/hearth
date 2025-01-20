@@ -27,7 +27,7 @@ interface CommonBodyTextProps extends TextAlignProps {
    * Applies the text size styles.
    * @default md
    */
-  size?: (typeof sizes)[number];
+  size?: Responsive<(typeof sizes)[number]>;
   /**
    * Set the text color
    * It is recommended to use the colours from the `@utilitywarehouse/colour-system` package.

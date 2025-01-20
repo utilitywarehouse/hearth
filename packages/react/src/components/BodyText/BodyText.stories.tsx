@@ -79,6 +79,7 @@ export const TextSizes: Story = {
             {size}
           </BodyText>
         ))}
+        <BodyText size={{ mobile: 'sm', tablet: 'md', desktop: 'lg' }}>Responsive size</BodyText>
       </Flex>
     );
   },
