@@ -24,7 +24,7 @@ interface CommonBodyTextProps extends TextAlignProps {
   /** Change the default rendered element for the one passed as a child, merging their props and behavior. */
   asChild?: boolean;
   /**
-   * Applies the text size styles.
+   * Set the text size styles.
    * @default md
    */
   size?: Responsive<(typeof sizes)[number]>;

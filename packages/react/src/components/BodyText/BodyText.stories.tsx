@@ -18,9 +18,9 @@ const meta: Meta<typeof BodyText> = {
     truncate: { control: { type: 'boolean' } },
   },
   args: {
-    children: 'Hamburgefons',
+    children: 'The five boxing wizards jump quickly.',
     size: 'md',
-    weight: { mobile: 'regular', desktop: 'bold' },
+    weight: 'regular',
     align: { mobile: 'left', tablet: 'center', desktop: 'right' },
     truncate: false,
   },
@@ -36,9 +36,9 @@ export const KitchenSink: Story = {
       <Flex direction="column" gap="100">
         {sizes.map(size => (
           <>
-            <BodyText size={size}>Hamburgefons</BodyText>
+            <BodyText size={size}>The five boxing wizards jump quickly.</BodyText>
             <BodyText size={size} weight="bold">
-              Hamburgefons
+              The five boxing wizards jump quickly.
             </BodyText>
           </>
         ))}
