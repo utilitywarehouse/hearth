@@ -16,9 +16,11 @@
     &:where(.hearth-r-size-sm) {
       font-size: var(--body-text-sm-font-size);
     }
+
     &:where(.hearth-r-size-md) {
       font-size: var(--body-text-md-font-size);
     }
+
     &:where(.hearth-r-size-lg) {
       font-size: var(--body-text-lg-font-size);
     }
