@@ -8,6 +8,7 @@
 
   &:where(.hearth-size-md) {
     font-size: var(--heading-md-font-size);
+
     @media (--desktop) {
       font-size: var(--heading-md-font-size-desktop);
     }
@@ -15,6 +16,7 @@
 
   &:where(.hearth-size-lg) {
     font-size: var(--heading-lg-font-size);
+
     @media (--desktop) {
       font-size: var(--heading-lg-font-size-desktop);
     }
@@ -23,6 +25,7 @@
   &:where(.hearth-size-xl) {
     font-size: var(--heading-xl-font-size);
     font-weight: var(--font-weight-bold);
+
     @media (--desktop) {
       font-size: var(--heading-xl-font-size-desktop);
     }
