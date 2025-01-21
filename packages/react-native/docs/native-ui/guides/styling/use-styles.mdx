@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/blocks';
 import { Center, NativeUIProvider } from '../../../../src';
 
-<Meta title="Native UI / Guides / Styling / useStyles" />
+<Meta title="React Native / Guides / Styling / useStyles" />
 
 # useStyles
 
@@ -14,10 +14,10 @@ Without useStyles, you can't utilise features like:
 - themes
 - variants
 
-It can be imported from the `@utilitywarehouse/native-ui` package:
+It can be imported from the `@utilitywarehouse/hearth-react-native` package:
 
 ```tsx
-import { useStyles } from '@utilitywarehouse/native-ui';
+import { useStyles } from '@utilitywarehouse/hearth-react-native';
 ```
 
 useStyles accepts two optional arguments: stylesheet and variants.
@@ -83,7 +83,7 @@ The values of `theme` come from the [theme tokens](/docs/native-ui-guides-stylin
 ```tsx
 import React from 'react';
 import { Button } from 'react-native';
-import { useStyles } from '@utilitywarehouse/native-ui';
+import { useStyles } from '@utilitywarehouse/hearth-react-native';
 
 export const Example = () => {
   const { theme } = useStyles();

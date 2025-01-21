@@ -5,21 +5,21 @@ import imgDark from './phone-dark.png';
 import { DynamicImage, BackToTopButton } from '../components';
 import { Box } from '../../src';
 
-<Meta title="Native UI / Introduction" />
+<Meta title="React Native / Introduction" />
 <BackToTopButton />
 <Box alignItems='center'>
 <DynamicImage
   width={500}
   height="auto"
-  alt="UW Design Systems - Native UI"
-  title="UW - Native UI"
+  alt="Utility Warehouse Design Systems - React Native"
+  title="Utility Warehouse - React Native"
   darkSrc={imgDark}
   lightSrc={img}
 />
 
-# UW - Native UI
+# Hearth - React Native
 
-React Native component library for building UIs at UW.
+React Native component library for building UIs at Utility Warehouse.
 
 </Box>
 
@@ -37,7 +37,7 @@ Current version: v{version}
 Assuming you already have React Native installed and your project set up, to get started install the library and it's peer dependencies.
 
 ```console
-npm install @utilitywarehouse/native-ui
+npm install @utilitywarehouse/hearth-react-native
 ```
 
 To install the peer dependencies, you can run the following command:
@@ -51,7 +51,7 @@ For more information on how to install and configure `react-native-svg`, `react-
 
 ## Additional packages
 
-The `@utilitywarehouse/native-ui` library uses two packages under the hood for colours and icons, feel free to install them if you need to use them in your project.
+The `@utilitywarehouse/hearth-react-native` library uses two packages under the hood for colours and icons, feel free to install them if you need to use them in your project.
 
 ```console
 npm install @utilitywarehouse/colour-system @utilitywarehouse/react-native-icons
@@ -126,7 +126,7 @@ Wrap your application with the `NativeUIProvider` component.
 
 ```tsx
 import React from 'react';
-import { NativeUIProvider } from '@utilitywarehouse/native-ui';
+import { NativeUIProvider } from '@utilitywarehouse/hearth-react-native';
 import App from './App';
 
 const RootApp: React.FC = () => (
@@ -143,7 +143,7 @@ By default the light colour mode is enabled. If you want to enable dark mode, yo
 ```tsx
 import React from 'react';
 import { ColorSchemeName, useColorScheme } from 'react-native';
-import { NativeUIProvider } from '@utilitywarehouse/native-ui';
+import { NativeUIProvider } from '@utilitywarehouse/hearth-react-native';
 import App from './App';
 
 const RootApp: React.FC = () => {

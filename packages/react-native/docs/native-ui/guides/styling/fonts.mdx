@@ -2,7 +2,7 @@ import { Meta, Canvas } from '@storybook/blocks';
 import { BackToTopButton } from '../../../components';
 import { Center, NativeUIProvider, Text } from '../../../../src';
 
-<Meta title="Native UI / Guides / Styling / Fonts" />
+<Meta title="React Native / Guides / Styling / Fonts" />
 
 <BackToTopButton />
 
@@ -49,7 +49,7 @@ const MyComponent = () => (
 Whereas with `native-ui`, you can use the following:
 
 ```tsx
-import { Text, Box } from '@utilitywarehouse/native-ui';
+import { Text, Box } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
   <Box>
@@ -89,7 +89,7 @@ This is because `native-ui` uses a custom font loader to load the fonts into the
 To make it easier to use the font weights, we have added aliases for the font weights. To use the aliases you need to use the `fontWeights` property. For example:
 
 ```tsx
-import { Text, Box, useStyles } from '@utilitywarehouse/native-ui';
+import { Text, Box, useStyles } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const {

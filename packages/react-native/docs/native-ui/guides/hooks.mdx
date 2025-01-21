@@ -3,11 +3,11 @@ import BackToTopButton from '../../components/BackToTopButton';
 
 <BackToTopButton />
 
-<Meta title="Native UI / Guides / Hooks" />
+<Meta title="React Native / Guides / Hooks" />
 
 # Hooks
 
-The following hooks are available in the Native UI library:
+The following hooks are available in the React Native library:
 
 - [React Native Aria](#react-native-aria)
 - [`useStyles`](#useStyles)
@@ -26,7 +26,7 @@ The following hooks are available in the Native UI library:
 [Read more here](/?path=/docs/native-ui-guides-styling-usestyles--docs)
 
 ```tsx
-import { useStyles } from '@utilitywarehouse/native-ui';
+import { useStyles } from '@utilitywarehouse/hearth-react-native';
 
 const { theme, breakpoint } = useStyles();
 ```
@@ -36,14 +36,14 @@ const { theme, breakpoint } = useStyles();
 `useToken` is a custom hook to resolves design tokens from the theme.
 
 ```tsx
-import { useToken } from '@utilitywarehouse/native-ui';
+import { useToken } from '@utilitywarehouse/hearth-react-native';
 ```
 
 Let's use our `useToken` value to give background color to `View` from `react-native`.
 
 ```tsx
 import { View } from 'react-native';
-import { useToken } from '@utilitywarehouse/native-ui';
+import { useToken } from '@utilitywarehouse/hearth-react-native';
 
 function Example() {
   const resolvedGreen = useToken('colors', 'green500');
@@ -64,7 +64,7 @@ function Example() {
 `useBreakpointValue` is a custom hook to returns the value for the current breakpoint based on the provided responsive values object. It is also responsive to window resizing and returning the appropriate value according to the new window size.
 
 ```tsx
-import { useBreakpointValue } from '@utilitywarehouse/native-ui';
+import { useBreakpointValue } from '@utilitywarehouse/hearth-react-native';
 ```
 
 ```tsx
@@ -100,7 +100,7 @@ const BreakPointValue = () => {
 `useMedia` is a custom hook that returns the breakpoints object with boolean value if your current screen size is a particular breakpoint or not. It is also responsive to window resizing and returning the appropriate value according to the new window size.
 
 ```tsx
-import { useMedia } from '@utilitywarehouse/native-ui';
+import { useMedia } from '@utilitywarehouse/hearth-react-native';
 ```
 
 ```tsx
@@ -133,14 +133,14 @@ const MediaExample = () => {
 `useColorMode` is a custom hook which return current color mode.
 
 ```tsx
-import { useColorMode } from '@utilitywarehouse/native-ui';
+import { useColorMode } from '@utilitywarehouse/hearth-react-native';
 ```
 
 Let's use our `useColorMode` value to give background color to `View` from `react-native`.
 
 ```tsx
 import { View } from 'react-native';
-import { useColorMode } from '@utilitywarehouse/native-ui';
+import { useColorMode } from '@utilitywarehouse/hearth-react-native';
 
 function Example() {
   const colorMode = useColorMode();

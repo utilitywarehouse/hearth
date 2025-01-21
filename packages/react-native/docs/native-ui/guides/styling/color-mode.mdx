@@ -1,7 +1,7 @@
 import { Meta, Canvas } from '@storybook/blocks';
 import { BackToTopButton } from '../../../components';
 
-<Meta title="Native UI / Guides / Styling / Color Mode" />
+<Meta title="React Native / Guides / Styling / Color Mode" />
 
 <BackToTopButton />
 
@@ -21,7 +21,7 @@ prop for example:
 #### Using the `isDark` or `isLight` prop on `createStyleSheet`
 
 ```tsx
-import { useStyles, createStyleSheet } from '@utilitywarehouse/native-ui';
+import { useStyles, createStyleSheet } from '@utilitywarehouse/hearth-react-native';
 
 const stylesheet = createStyleSheet(({ colors, isDark, isLight }) => ({
   container: {
@@ -49,7 +49,7 @@ const MyComponent = () => {
 #### Using the `colorMode` prop on `createStyleSheet`
 
 ```tsx
-import { useStyles, createStyleSheet } from '@utilitywarehouse/native-ui';
+import { useStyles, createStyleSheet } from '@utilitywarehouse/hearth-react-native';
 
 const stylesheet = createStyleSheet(({ colors, colorMode }) => ({
   container: {
@@ -74,7 +74,7 @@ const MyComponent = () => {
 #### Using the `isDark` or `isLight` prop on `useStyles` prop
 
 ```tsx
-import { useStyles } from '@utilitywarehouse/native-ui';
+import { useStyles } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const {
@@ -93,7 +93,7 @@ const MyComponent = () => {
 #### Using the `colorMode` prop on `useStyles` prop
 
 ```tsx
-import { useStyles } from '@utilitywarehouse/native-ui';
+import { useStyles } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const {
@@ -111,8 +111,8 @@ const MyComponent = () => {
 #### Using the `useColorMode` hook
 
 ```tsx
-import { useColorMode } from '@utilitywarehouse/native-ui';
-import { Box } from '@utilitywarehouse/native-ui/lab';
+import { useColorMode } from '@utilitywarehouse/hearth-react-native';
+import { Box } from '@utilitywarehouse/hearth-react-native/lab';
 
 const MyComponent = () => {
   const colorMode = useColorMode();

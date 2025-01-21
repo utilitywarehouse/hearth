@@ -3,13 +3,13 @@ import { BackToTopButton } from '../../components';
 
 <BackToTopButton />
 
-<Meta title="Native UI / Guides / Migrating from UW Native UI" />
+<Meta title="React Native / Guides / Migrating from Utility Warehouse React Native" />
 
 # Migration Guide
 
-This guide is intended to help you migrate from our old React Native UI library, UW Native UI (`@utilitywarehouse/uw-native-ui`)
-to Native UI (`@utilitywarehouse/native-ui`). Although you can use both libraries in the same project, it is recommended that you
-migrate to Native UI as UW Native UI is deprecated.
+This guide is intended to help you migrate from our old React React Native library, Utility Warehouse React Native (`@utilitywarehouse/uw-native-ui`)
+to React Native (`@utilitywarehouse/hearth-react-native`). Although you can use both libraries in the same project, it is recommended that you
+migrate to React Native as Utility Warehouse React Native is deprecated.
 
 - [Key Info](#key-info)
 - [Migration Steps](#migration-steps)
@@ -28,30 +28,30 @@ migrate to Native UI as UW Native UI is deprecated.
 
 ## Key Info
 
-- UW Native UI: `@utilitywarehouse/uw-native-ui` - [Repo](https://github.com/utilitywarehouse/uw-native-ui)
-- Native UI: `@utilitywarehouse/native-ui` - [Repo](https://github.com/utilitywarehouse/design-systems/tree/main/packages/native-ui)
+- Utility Warehouse React Native: `@utilitywarehouse/uw-native-ui` - [Repo](https://github.com/utilitywarehouse/uw-native-ui)
+- React Native: `@utilitywarehouse/hearth-react-native` - [Repo](https://github.com/utilitywarehouse/design-systems/tree/main/packages/native-ui)
 
 - `@utilitywarehouse/uw-native-ui` is deprecated and will not receive any updates.
-- `@utilitywarehouse/native-ui` is the new library and will receive updates and new features.
-- `@utilitywarehouse/native-ui` is a complete rewrite of `@utilitywarehouse/uw-native-ui` and has a different API.
+- `@utilitywarehouse/hearth-react-native` is the new library and will receive updates and new features.
+- `@utilitywarehouse/hearth-react-native` is a complete rewrite of `@utilitywarehouse/uw-native-ui` and has a different API.
 - `@utilitywarehouse/uw-native-ui` uses `react-native-paper` under the hood.
-- `@utilitywarehouse/native-ui` uses `gluestack-ui` under the hood.
-- `@utilitywarehouse/native-ui` uses `react-native-unistyles` for styling.
+- `@utilitywarehouse/hearth-react-native` uses `gluestack-ui` under the hood.
+- `@utilitywarehouse/hearth-react-native` uses `react-native-unistyles` for styling.
 
 ## Migration Steps
 
 ### Components
 
-Not all components from `@utilitywarehouse/uw-native-ui` are available in `@utilitywarehouse/native-ui` yet and
+Not all components from `@utilitywarehouse/uw-native-ui` are available in `@utilitywarehouse/hearth-react-native` yet and
 not all components have a 1:1 mapping. Below are the steps to replace the components.
 
 #### `Button`
 
-Replace all `Button` components from `@utilitywarehouse/uw-native-ui` with `@utilitywarehouse/native-ui`.
+Replace all `Button` components from `@utilitywarehouse/uw-native-ui` with `@utilitywarehouse/hearth-react-native`.
 
 ```tsx
 - import { Button } from '@utilitywarehouse/uw-native-ui';
-+ import { Button} from '@utilitywarehouse/native-ui';
++ import { Button} from '@utilitywarehouse/hearth-react-native';
 
 ...
 
@@ -73,11 +73,11 @@ For more info see the [Button](/docs/native-ui-components-button--docs) document
 
 #### `IconButton`
 
-Replace all `IconButton` components from `@utilitywarehouse/uw-native-ui` with `@utilitywarehouse/native-ui`.
+Replace all `IconButton` components from `@utilitywarehouse/uw-native-ui` with `@utilitywarehouse/hearth-react-native`.
 
 ```tsx
 - import { IconButton } from '@utilitywarehouse/uw-native-ui';
-+ import { IconButton } from '@utilitywarehouse/native-ui';
++ import { IconButton } from '@utilitywarehouse/hearth-react-native';
 import { AddMediumIcon } from '@utilitywarehouse/react-native-icons';
 
 ...
@@ -91,11 +91,11 @@ For more info see the [IconButton](/docs/native-ui-components-iconbutton--docs) 
 #### `Typography`
 
 The `Typography` component doesn't map 1:1 with `@utilitywarehouse/uw-native-ui`. You can use the `Text` and `Heading` components
-from `@utilitywarehouse/native-ui` instead.
+from `@utilitywarehouse/hearth-react-native` instead.
 
 ```tsx
 - import { Typography } from '@utilitywarehouse/uw-native-ui';
-+ import { Text, Heading } from '@utilitywarehouse/native-ui';
++ import { Text, Heading } from '@utilitywarehouse/hearth-react-native';
 
 ...
 
@@ -112,7 +112,7 @@ For more info see the [Text](/docs/native-ui-components-text--docs) and [Heading
 
 ```tsx
 - import { ThemeProvider } from '@utilitywarehouse/uw-native-ui';
-+ import { NativeUIProvider } from '@utilitywarehouse/native-ui';
++ import { NativeUIProvider } from '@utilitywarehouse/hearth-react-native';
 ```
 
 ```tsx
@@ -124,8 +124,8 @@ More info can be found in the [Getting Started](/docs/native-ui-introduction--do
 
 ### Styles
 
-`@utilitywarehouse/uw-native-ui` uses `StyleSheet` from `react-native` for styling, whereas `@utilitywarehouse/native-ui` uses
-`react-native-unitstyles` for styles. You can still use the `StyleSheet` from `react-native` with `@utilitywarehouse/native-ui` but
+`@utilitywarehouse/uw-native-ui` uses `StyleSheet` from `react-native` for styling, whereas `@utilitywarehouse/hearth-react-native` uses
+`react-native-unitstyles` for styles. You can still use the `StyleSheet` from `react-native` with `@utilitywarehouse/hearth-react-native` but
 it is recommended to use the `createStyleSheet` method and `useStyles` hook for styling. With the `Box` component you can use
 utility props for styling. See out [Styling](/docs/native-ui-guides-styling-overview--docs) documentation for more info.
 
@@ -134,9 +134,9 @@ utility props for styling. See out [Styling](/docs/native-ui-guides-styling-over
 ```tsx
 - import { StyleSheet } from 'react-native';
 - import { View } from '@utilitywarehouse/uw-native-ui';
-+ import { Box } from '@utilitywarehouse/native-ui';
++ import { Box } from '@utilitywarehouse/hearth-react-native';
 // or
-+ import { styled } from '@utilitywarehouse/native-ui';
++ import { styled } from '@utilitywarehouse/hearth-react-native';
 
 - const styles = StyleSheet.create({
 -   container: {
@@ -177,14 +177,14 @@ You can also use the `useColorMode` hook to get the current colour mode of the d
 
 ```tsx
 - import { useDarkMode } from '@utilitywarehouse/uw-native-ui';
-+ import { useColorMode } from '@utilitywarehouse/native-ui';
++ import { useColorMode } from '@utilitywarehouse/hearth-react-native';
 ```
 
 Dark mode is also baked into the styling so you no longer need to use the `DynamicValue` for the colour scheme.
 
 ```tsx
 - import { DynamicValue, makeDynamicStyles, Typography } from '@utilitywarehouse/uw-native-ui';
-+ import { Box, Text } from '@utilitywarehouse/native-ui';
++ import { Box, Text } from '@utilitywarehouse/hearth-react-native';
 
 - const useDynamicStyles = makeDynamicStyles(theme => ({
 -   root: {
