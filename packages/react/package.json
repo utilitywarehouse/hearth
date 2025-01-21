@@ -6,6 +6,18 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      },
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
   "sideEffects": false,
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist *.css",
@@ -61,7 +73,7 @@
     "@types/react": "^18.3.12",
     "@utilitywarehouse/colour-system": "^0.5.0",
     "@utilitywarehouse/css-reset": "^0.1.0",
-    "@utilitywarehouse/hearth-fonts": "^0.0.2",
+    "@utilitywarehouse/hearth-fonts": "workspace:*",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
     "eslint-plugin-storybook": "^0.11.0",
