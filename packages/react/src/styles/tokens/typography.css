@@ -13,6 +13,7 @@
   --font-size-400: 1.875rem;
   --font-size-500: 2.25rem;
   --font-size-550: 2.5rem;
+
   /** font-sizes: component **/
   --body-text-sm-font-size: var(--font-size-90);
   --body-text-md-font-size: var(--font-size-100);
