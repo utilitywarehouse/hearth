@@ -7,5 +7,8 @@ export type { FlexProps } from './Flex/Flex.props';
 export { BodyText } from './BodyText/BodyText';
 export type { BodyTextProps } from './BodyText/BodyText.props';
 
+export { DetailText } from './DetailText/DetailText';
+export type { DetailTextProps } from './DetailText/DetailText.props';
+
 export { Heading } from './Heading/Heading';
 export type { HeadingProps } from './Heading/Heading.props';

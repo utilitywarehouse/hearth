@@ -1,5 +1,5 @@
 .hearth-BodyText {
-  font-family: var(--font-family-body);
+  font-family: var(--font-family-body-text);
 
   &:where([data-truncate]) {
     overflow: hidden;
