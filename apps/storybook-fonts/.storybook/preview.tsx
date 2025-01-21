@@ -1,5 +1,7 @@
 import type { Preview } from '@storybook/react';
 import * as React from 'react';
+import '../src/stories/styles.css';
+import '@utilitywarehouse/hearth-fonts';
 
 const preview: Preview = {
   decorators: [
