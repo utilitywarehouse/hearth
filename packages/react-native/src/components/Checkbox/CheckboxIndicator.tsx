@@ -2,28 +2,27 @@ import React, { forwardRef } from 'react';
 import AnimatedOutline from '../AnimatedOutline';
 import { useListContext } from '../List';
 import { View, ViewProps } from 'react-native';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import { useCheckboxContext } from './Checkbox.context';
 
 const CheckboxIndicator = forwardRef<View, ViewProps>((props, ref) => {
   const [show, setShow] = React.useState(false);
   const isInList = Boolean(useListContext());
   const { disabled, checked } = useCheckboxContext();
+  styles.useVariants({ checked, disabled });
   return (
     <AnimatedOutline show={isInList || disabled ? false : show} style={styles.outline}>
-      <Variants variants={{ checked, disabled }}>
-        <View
-          ref={ref}
-          {...props}
-          onTouchStart={() => setShow(true)}
-          onTouchEnd={() => setTimeout(() => setShow(false), 250)}
-          onPointerUp={() => setTimeout(() => setShow(false), 250)}
-          onPointerDown={() => setShow(true)}
-          style={[styles.container, props.style]}
-        >
-          {props.children}
-        </View>
-      </Variants>
+      <View
+        ref={ref}
+        {...props}
+        onTouchStart={() => setShow(true)}
+        onTouchEnd={() => setTimeout(() => setShow(false), 250)}
+        onPointerUp={() => setTimeout(() => setShow(false), 250)}
+        onPointerDown={() => setShow(true)}
+        style={[styles.container, props.style]}
+      >
+        {props.children}
+      </View>
     </AnimatedOutline>
   );
 });

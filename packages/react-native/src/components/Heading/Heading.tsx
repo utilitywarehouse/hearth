@@ -4,7 +4,7 @@
 import React, { forwardRef, useMemo } from 'react';
 import { Text, TextStyle } from 'react-native';
 import type HeadingProps from './Heading.props';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import type { ColorValue } from '../../types';
 import getStyleValue from '../../utils/getStyleValue';
 import { useTheme } from '../../hooks';
@@ -27,31 +27,30 @@ const Heading = forwardRef<Text, HeadingProps>(
   ) => {
     const { colors, colorMode } = useTheme();
     const colorValue: ColorValue = useMemo(() => getStyleValue(color, colors), [color, colorMode]);
+    styles.useVariants({ size, underline, strikeThrough });
     return (
-      <Variants variants={{ size, underline, strikeThrough }}>
-        <Text
-          ref={ref}
-          {...props}
-          {...(truncated
-            ? {
-                numberOfLines: 1,
-                ellipsizeMode: 'tail',
-              }
-            : {})}
-          style={[
-            styles.text,
-            {
-              ...(colorValue ? { color: colorValue } : {}),
-              ...(textTransform ? { textTransform } : {}),
-              ...(textAlign ? { textAlign } : {}),
-              ...(textAlignVertical ? { textAlignVertical } : {}),
-            },
-            props.style,
-          ]}
-        >
-          {children}
-        </Text>
-      </Variants>
+      <Text
+        ref={ref}
+        {...props}
+        {...(truncated
+          ? {
+              numberOfLines: 1,
+              ellipsizeMode: 'tail',
+            }
+          : {})}
+        style={[
+          styles.text,
+          {
+            ...(colorValue ? { color: colorValue } : {}),
+            ...(textTransform ? { textTransform } : {}),
+            ...(textAlign ? { textAlign } : {}),
+            ...(textAlignVertical ? { textAlignVertical } : {}),
+          },
+          props.style,
+        ]}
+      >
+        {children}
+      </Text>
     );
   }
 );

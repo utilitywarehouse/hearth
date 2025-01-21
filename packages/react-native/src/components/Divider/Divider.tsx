@@ -4,23 +4,22 @@
 import React, { forwardRef, useMemo } from 'react';
 import { View, ColorValue } from 'react-native';
 import type DividerProps from './Divider.props';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import getStyleValue from '../../utils/getStyleValue';
 import { useTheme } from '../../hooks';
 
 const Divider = forwardRef<View, DividerProps>(({ children, color, space, ...props }, ref) => {
   const { colors, colorMode } = useTheme();
   const colorValue: ColorValue = useMemo(() => getStyleValue(color, colors), [color, colorMode]);
+  styles.useVariants({ space });
   return (
-    <Variants variants={{ space }}>
-      <View
-        ref={ref}
-        {...props}
-        style={[styles.divider, styles.extraStyles(colorValue), props.style]}
-      >
-        {children}
-      </View>
-    </Variants>
+    <View
+      ref={ref}
+      {...props}
+      style={[styles.divider, styles.extraStyles(colorValue), props.style]}
+    >
+      {children}
+    </View>
   );
 });
 

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { ComponentType, forwardRef } from 'react';
 import { Platform, type StyleProp, type ViewStyle } from 'react-native';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import { useListItemContext } from './ListItem.context';
 import { Icon, IconProps } from '../../Icon';
 import type { SvgRef } from '../../../types';
@@ -9,23 +9,22 @@ import type { SvgRef } from '../../../types';
 const ListItemIcon = forwardRef<SvgRef, IconProps & { as?: ComponentType }>(
   ({ children, ...props }, ref) => {
     const { disabled } = useListItemContext();
+    styles.useVariants({ disabled });
     return (
-      <Variants variants={{ disabled }}>
-        <Icon
-          ref={ref}
-          {...props}
-          style={
-            Platform.OS === 'web'
-              ? {
-                  ...styles.icon,
-                  ...(props.style as ViewStyle),
-                }
-              : [styles.icon as StyleProp<ViewStyle>, props.style]
-          }
-        >
-          {children}
-        </Icon>
-      </Variants>
+      <Icon
+        ref={ref}
+        {...props}
+        style={
+          Platform.OS === 'web'
+            ? {
+                ...styles.icon,
+                ...(props.style as ViewStyle),
+              }
+            : [styles.icon as StyleProp<ViewStyle>, props.style]
+        }
+      >
+        {children}
+      </Icon>
     );
   }
 );

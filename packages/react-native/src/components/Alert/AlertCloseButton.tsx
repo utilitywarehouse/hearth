@@ -1,6 +1,6 @@
 import React, { ComponentProps, forwardRef, useMemo } from 'react';
 import { Pressable, type PressableProps } from 'react-native';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import { CloseSmallIcon } from '@utilitywarehouse/react-native-icons';
 import { useAlertContext } from './Alert.context';
 import { PressableRef } from '../../types';
@@ -18,32 +18,14 @@ export const AlertCloseButtonIcon: React.FC<ComponentProps<typeof CloseSmallIcon
   ...props
 }) => {
   const { colorScheme } = useAlertContext();
-  const color = useMemo(() => {
-    if (colorScheme === 'cyan') {
-      return '$cyan700';
-    }
-    if (colorScheme === 'red') {
-      return '$red700';
-    }
-    if (colorScheme === 'green') {
-      return '$green700';
-    }
-    if (colorScheme === 'gold') {
-      return '$gold700';
-    }
-    return '$cyan700';
-  }, [colorScheme]);
-  return (
-    <Variants variants={{ colorScheme }}>
-      <Icon as={CloseSmallIcon} {...props} style={styles.icon} color={color} />
-    </Variants>
-  );
+  styles.useVariants({ colorScheme });
+  return <Icon as={CloseSmallIcon} {...props} style={styles.icon} />;
 };
 
 AlertCloseButton.displayName = 'AlertCloseButton';
 AlertCloseButtonIcon.displayName = 'AlertCloseButtonIcon';
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create(theme => ({
   container: {
     width: 24,
     height: 24,
@@ -61,7 +43,23 @@ const styles = StyleSheet.create({
     minWidth: 16,
     minHeight: 16,
     alignSelf: 'center',
+    variants: {
+      colorScheme: {
+        cyan: {
+          color: theme.colors.cyan700,
+        },
+        red: {
+          color: theme.colors.red700,
+        },
+        green: {
+          color: theme.colors.green700,
+        },
+        gold: {
+          color: theme.colors.gold700,
+        },
+      },
+    },
   },
-});
+}));
 
 export default AlertCloseButton;

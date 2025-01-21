@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { View } from 'react-native';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import CardProps from './Card.props';
 
 const Card = forwardRef<View, CardProps>(
@@ -16,13 +16,14 @@ const Card = forwardRef<View, CardProps>(
       ...props
     },
     ref
-  ) => (
-    <Variants variants={{ variant, surface, nested, colorScheme, padding }}>
+  ) => {
+    styles.useVariants({ variant, surface, nested, colorScheme, padding });
+    return (
       <View ref={ref} style={[styles.card, style]} {...props}>
         {children}
       </View>
-    </Variants>
-  )
+    );
+  }
 );
 
 Card.displayName = 'Card';

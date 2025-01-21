@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import { Text } from 'react-native';
 
 import { useRadioContext } from './Radio.context';
@@ -11,12 +11,11 @@ const RadioLabel = forwardRef<Text, LabelProps>(({ children, style, ...props }, 
   const { checked, disabled } = useRadioContext();
   const { validationStatus } = useFormFieldContext();
   const isNested = !!validationStatus;
+  styles.useVariants({ checked, disabled });
   return (
-    <Variants variants={{ checked, disabled }}>
-      <Label ref={ref} nested={isNested} {...props} style={[styles.text, style]}>
-        {children}
-      </Label>
-    </Variants>
+    <Label ref={ref} nested={isNested} {...props} style={[styles.text, style]}>
+      {children}
+    </Label>
   );
 });
 

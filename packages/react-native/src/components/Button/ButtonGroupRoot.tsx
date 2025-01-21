@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { type StyleProp, type ViewStyle, type ViewProps, View } from 'react-native';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 
 const ButtonGroupRoot = forwardRef<
   View,
@@ -22,21 +22,15 @@ const ButtonGroupRoot = forwardRef<
       if (flexDirection === 'row-reverse') direction = 'row';
       if (flexDirection === 'column-reverse') direction = 'column';
     }
+    styles.useVariants({ attached, space });
     return (
-      <Variants
-        variants={{
-          attached,
-          space,
-        }}
+      <View
+        ref={ref}
+        {...props}
+        style={[styles.text, styles.extraStyles(direction) as StyleProp<ViewStyle>, props.style]}
       >
-        <View
-          ref={ref}
-          {...props}
-          style={[styles.text, styles.extraStyles(direction) as StyleProp<ViewStyle>, props.style]}
-        >
-          {children}
-        </View>
-      </Variants>
+        {children}
+      </View>
     );
   }
 );

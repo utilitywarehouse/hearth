@@ -2,11 +2,15 @@ export {
   StyleSheet,
   UnistylesRuntime,
   withUnistyles,
-  Variants,
   Hide,
   Display,
   ScopedTheme,
   mq,
+  getServerUnistyles,
+  useUnistyles,
+  hydrateServerUnistyles,
+  useServerUnistyles,
+  resetServerUnistyles,
 } from 'react-native-unistyles';
 export type {
   UnistylesBreakpoints,

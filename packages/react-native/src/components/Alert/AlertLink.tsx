@@ -1,6 +1,6 @@
 import React, { ComponentProps, forwardRef, ElementRef } from 'react';
 import { Pressable, Text, type PressableProps, type TextProps } from 'react-native';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import AlertText from './AlertText';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/react-native-icons';
 import { useAlertContext } from './Alert.context';
@@ -28,11 +28,8 @@ export const AlertLinkChevron: React.FC<ComponentProps<typeof ChevronRightSmallI
   ...props
 }) => {
   const { colorScheme } = useAlertContext();
-  return (
-    <Variants variants={{ colorScheme }}>
-      <ChevronRightSmallIcon {...props} style={styles.icon} />
-    </Variants>
-  );
+  styles.useVariants({ colorScheme });
+  return <ChevronRightSmallIcon {...props} style={styles.icon} />;
 };
 
 AlertLink.displayName = 'AlertLink';

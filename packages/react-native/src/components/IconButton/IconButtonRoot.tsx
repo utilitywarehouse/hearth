@@ -2,7 +2,7 @@
 import React, { forwardRef, PropsWithChildren, useMemo } from 'react';
 import type { IconButtonProps } from './IconButton.props';
 import { Pressable, ViewStyle } from 'react-native';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import { IconButtonContext } from './IconButton.context';
 import { PressableRef } from '../../types';
 
@@ -27,13 +27,12 @@ const IconButtonRoot = forwardRef<
       () => ({ colorScheme, variant, size, inverted, disabled, active }),
       [colorScheme, variant, size, inverted, disabled, active]
     );
+    styles.useVariants({ colorScheme, variant, size, inverted, disabled, active });
     return (
       <IconButtonContext.Provider value={value}>
-        <Variants variants={{ colorScheme, variant, size, inverted, disabled, active }}>
-          <Pressable ref={ref} {...props} style={[styles.container, props.style as ViewStyle]}>
-            {children}
-          </Pressable>
-        </Variants>
+        <Pressable ref={ref} {...props} style={[styles.container, props.style as ViewStyle]}>
+          {children}
+        </Pressable>
       </IconButtonContext.Provider>
     );
   }

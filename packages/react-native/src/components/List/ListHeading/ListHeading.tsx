@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { View } from 'react-native';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import { useListContext } from '../List.context';
 import ListHeadingTitle from './ListHeadingTitle';
 import ListHeadingSupportingText from './ListHeadingSupportingText';
@@ -9,21 +9,20 @@ import ListHeadingProps from './ListHeading.props';
 const ListHeading = forwardRef<View, ListHeadingProps>(
   ({ text, supportingText, children, style, ...props }, ref) => {
     const listContext = useListContext();
+    styles.useVariants({ container: listContext?.container });
     return (
-      <Variants variants={{ container: listContext?.container }}>
-        <View ref={ref} {...props} style={[styles.container, style]}>
-          {children ? (
-            children
-          ) : (
-            <>
-              <ListHeadingTitle>{text}</ListHeadingTitle>
-              {!!supportingText && (
-                <ListHeadingSupportingText>{supportingText}</ListHeadingSupportingText>
-              )}
-            </>
-          )}
-        </View>
-      </Variants>
+      <View ref={ref} {...props} style={[styles.container, style]}>
+        {children ? (
+          children
+        ) : (
+          <>
+            <ListHeadingTitle>{text}</ListHeadingTitle>
+            {!!supportingText && (
+              <ListHeadingSupportingText>{supportingText}</ListHeadingSupportingText>
+            )}
+          </>
+        )}
+      </View>
     );
   }
 );

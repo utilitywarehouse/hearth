@@ -1,6 +1,6 @@
 import React, { forwardRef, useMemo } from 'react';
 import { Text } from '../Text';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
 import { Icon } from '../Icon';
 import {
@@ -21,23 +21,22 @@ const Helper = forwardRef<View, HelperProps>(
     }
 
     const value = useMemo(() => ({ validationStatus, disabled }), [validationStatus, disabled]);
+    styles.useVariants({ validationStatus, disabled });
 
     return (
       <HelperContext.Provider value={value}>
-        <Variants variants={{ validationStatus, disabled }}>
-          <View ref={ref} style={styles.container}>
-            {children ? (
-              children
-            ) : (
-              <>
-                {showIcon && <Icon as={HelperIcon} style={styles.text} />}
-                <Text ref={ref} style={[styles.text, style]} {...props}>
-                  {text}
-                </Text>
-              </>
-            )}
-          </View>
-        </Variants>
+        <View ref={ref} style={styles.container}>
+          {children ? (
+            children
+          ) : (
+            <>
+              {showIcon && <Icon as={HelperIcon} style={styles.text} />}
+              <Text ref={ref} style={[styles.text, style]} {...props}>
+                {text}
+              </Text>
+            </>
+          )}
+        </View>
       </HelperContext.Provider>
     );
   }
