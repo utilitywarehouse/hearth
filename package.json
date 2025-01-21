@@ -16,7 +16,7 @@
     "clean": "pnpm -r --stream clean && rm -rf node_modules",
     "changeset": "changeset",
     "ci:version": "changeset version && pnpm install --no-frozen-lockfile",
-    "ci:publish": "NODE_OPTIONS=\"--max_old_space_size=4096\" pnpm run build && changeset publish",
+    "ci:publish": "pnpm run build && changeset publish",
     "checks": "turbo run format lint:fix build --filter='./packages/*'",
     "checks:ci": "turbo run format:ci lint build --filter='./packages/*'"
   },

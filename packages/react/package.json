@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "description": "React components",
   "type": "module",
-  "main": "dist/index.cjs",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist *.css",
