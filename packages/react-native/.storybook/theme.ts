@@ -1,6 +1,6 @@
 import { create } from '@storybook/theming/create';
 // @ts-ignore
-import logo from './assets/images/hearth-logo.png';
+import logo from './assets/images/logo.png';
 
 export default create({
   base: 'light',
@@ -19,7 +19,7 @@ export default create({
   textMutedColor: '#9E9E9E',
 
   // UI
-  appBg: '#FFFBE8',
+  appBg: '#7A42C8',
   appContentBg: '#FFFBE8',
   appPreviewBg: '#fff',
   appBorderColor: '#101010',
