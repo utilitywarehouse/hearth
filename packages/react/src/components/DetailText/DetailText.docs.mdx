@@ -1,0 +1,39 @@
+import { Meta, Canvas } from '@storybook/blocks';
+
+import * as Stories from './DetailText.stories';
+
+import { DocsHeader } from '../../storybook/DocsHeader';
+
+<Meta title="Typography / DetailText" />
+
+<DocsHeader componentName="DetailText" stories={Stories} />
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+## Alternatives
+
+- [BodyText](?path=/docs/typography-bodytext--docs) - For body text
+- [Strong](?path=/docs/typography-strong--docs) - For strong importance
+- [Em](?path=/docs/typography-em--docs) - For emphasis
+- [Heading](?path=/docs/typography-heading--docs) - For heading-level text
+
+## Sizes
+
+The size prop is responsive, so you can render different sizes at different breakpoints.
+
+```tsx
+<DetailText size={{ mobile: 'sm', tablet: 'md', desktop: 'lg'}}>{...}</DetailText>
+```
+
+<Canvas of={Stories.TextSizes} />
+
+## API
+
+This component is based on the `span` element.
+
+| Prop      | Type                                                      | Description                                                                                                                                    | Default  |
+| --------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| `as`      | `"p" \| "div" \| "span"`                                  | Shorthand for changing the default rendered element into a semantically appropriate alternative. Cannot be used in combination with `asChild`. | `"span"` |
+| `asChild` | `boolean`                                                 | Change the default rendered element for the one passed as a child, merging their props and behavior.                                           | `false`  |
+| `size`    | `'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl' \| '3xl' \| '4xl'` | Set the text size styles.                                                                                                                      | `"md"`   |
+| `align`   | `Responsive<"left" \| "center" \| "right">`               | Set the text-align.                                                                                                                            |          |
