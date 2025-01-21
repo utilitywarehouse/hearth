@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
 import { NativeUIProvider } from '../src/core';
-import { convert, ThemeProvider, themes } from 'storybook/internal/theming';
 
 import theme from './theme';
 
@@ -20,11 +19,9 @@ const preview: Preview = {
   decorators: [
     Story => {
       return (
-        <ThemeProvider theme={convert(themes.light)}>
-          <NativeUIProvider>
-            <Story />
-          </NativeUIProvider>
-        </ThemeProvider>
+        <NativeUIProvider>
+          <Story />
+        </NativeUIProvider>
       );
     },
   ],

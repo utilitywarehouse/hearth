@@ -12,9 +12,15 @@ export default ({ config }) => ({
   },
   ios: {
     supportsTablet: true,
-    bundleIdentifier: 'com.utilitywarehouse.uw-hearth',
+    bundleIdentifier: 'com.utilitywarehouse.hearth',
     infoPlist: {
       LSApplicationQueriesSchemes: ['uw-hearth'],
+    },
+  },
+  android: {
+    package: 'com.utilitywarehouse.hearth',
+    adaptiveIcon: {
+      backgroundColor: '#FFFFFF',
     },
   },
 });
