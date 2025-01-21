@@ -14,6 +14,9 @@ const componentClassName = withGlobalPrefix(componentName);
 
 type HeadingElement = ElementRef<'h2'>;
 
+/**
+ * Heading renders the primary UW font, to be used for heading-level typography.
+ */
 export const Heading = React.forwardRef<HeadingElement, HeadingProps>(({ size, ...props }, ref) => {
   const { className, as, asChild, children, ...headingProps } = extractProps(
     { size, ...props },

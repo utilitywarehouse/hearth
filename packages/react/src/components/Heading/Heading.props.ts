@@ -7,10 +7,8 @@ export const sizes = ['sm', 'md', 'lg', 'xl'] as const;
 
 export const headingPropDefs = {
   size: { className: 'size', tokens: sizes, responsive: false, default: 'md' },
-  // color: { className: 'heading-color', responsive: false },
 } satisfies {
   size: PropDef<(typeof sizes)[number]>;
-  // color: PropDef<string>;
 };
 
 export interface HeadingProps extends TextAlignProps, ComponentPropsWithout<'h2', RemovedProps> {
@@ -25,10 +23,6 @@ export interface HeadingProps extends TextAlignProps, ComponentPropsWithout<'h2'
    * @default md
    */
   size?: (typeof sizes)[number];
-  /**
-   * Set the text color
-   */
-  // color?: string;
   /**
    * Set the text-align on the component.
    */
