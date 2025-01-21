@@ -51,9 +51,7 @@ export const KitchenSink: Story = {
     return (
       <Flex direction="column" gap="48px">
         <Flex gap="16px" direction="column">
-          <Heading variant="h2" style={{ textTransform: 'capitalize' }}>
-            Solid
-          </Heading>
+          <Heading style={{ textTransform: 'capitalize' }}>Solid</Heading>
           <Flex gap="32px" align="center">
             {sizes.map(size => (
               <Flex key={size} gap="8px">
@@ -94,9 +92,7 @@ export const KitchenSink: Story = {
         </Flex>
         {(['outline', 'ghost'] as const).map(variant => (
           <Flex key={variant} gap="16px" direction="column">
-            <Heading variant="h2" style={{ textTransform: 'capitalize' }}>
-              {variant}
-            </Heading>
+            <Heading style={{ textTransform: 'capitalize' }}>{variant}</Heading>
             <Flex gap="32px" align="center">
               {sizes.map(size => (
                 <Flex key={size} gap="8px">

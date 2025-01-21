@@ -14,22 +14,22 @@ const componentClassName = withGlobalPrefix(componentName);
 
 type HeadingElement = ElementRef<'h2'>;
 
-export const Heading = React.forwardRef<HeadingElement, HeadingProps>(
-  ({ variant, ...props }, ref) => {
-    const { className, as, asChild, children, ...headingProps } = extractProps(
-      { variant, ...props },
-      headingPropDefs,
-      textAlignPropDefs
-    );
-    const defaultElement = 'h2';
-    const variantElement = variant === 'displayHeading' ? 'h1' : variant || defaultElement;
-    const Tag = as ? as : variant ? variantElement : defaultElement;
-    return (
-      <Slot ref={ref} className={clsx(componentClassName, className)} {...headingProps}>
-        {asChild ? children : <Tag>{children}</Tag>}
-      </Slot>
-    );
-  }
-);
+/**
+ * Heading renders the primary UW font, to be used for heading-level typography.
+ */
+export const Heading = React.forwardRef<HeadingElement, HeadingProps>(({ size, ...props }, ref) => {
+  const { className, as, asChild, children, ...headingProps } = extractProps(
+    { size, ...props },
+    headingPropDefs,
+    textAlignPropDefs
+  );
+  const defaultElement = 'h2';
+  const Tag = as ? as : defaultElement;
+  return (
+    <Slot ref={ref} className={clsx(componentClassName, className)} {...headingProps}>
+      {asChild ? children : <Tag>{children}</Tag>}
+    </Slot>
+  );
+});
 
 Heading.displayName = componentName;
