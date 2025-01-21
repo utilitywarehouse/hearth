@@ -9,11 +9,11 @@ export const weights = ['regular', 'bold'] as const;
 export const bodyTextPropDefs = {
   size: { className: 'size', tokens: sizes, responsive: true, default: 'md' },
   weight: { className: 'weight', tokens: weights, responsive: true, default: 'regular' },
-  color: { className: 'body-text-color', responsive: false },
+  // color: { className: 'body-text-color', responsive: false },
 } satisfies {
   size: PropDef<(typeof sizes)[number]>;
   weight: PropDef<(typeof weights)[number]>;
-  color: PropDef<string>;
+  // color: PropDef<string>;
 };
 
 interface CommonBodyTextProps extends TextAlignProps {
@@ -30,9 +30,8 @@ interface CommonBodyTextProps extends TextAlignProps {
   size?: Responsive<(typeof sizes)[number]>;
   /**
    * Set the text color
-   * It is recommended to use the colours from the `@utilitywarehouse/colour-system` package.
    */
-  color?: string;
+  // color?: string;
   /**
    * Set the font-weight
    * @default regular

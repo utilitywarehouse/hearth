@@ -3,17 +3,14 @@ import { TextAlignProps } from '../../props/text-align.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
-const weights = ['regular', 'bold'] as const;
-const variants = ['displayHeading', 'h1', 'h2', 'h3', 'h4'] as const;
+export const sizes = ['sm', 'md', 'lg', 'xl'] as const;
 
 export const headingPropDefs = {
-  weight: { className: 'weight', tokens: weights, responsive: true, default: 'bold' },
-  variant: { className: 'variant', tokens: variants, responsive: false, default: 'h2' },
-  color: { className: 'heading-color', responsive: false },
+  size: { className: 'size', tokens: sizes, responsive: true, default: 'md' },
+  // color: { className: 'heading-color', responsive: false },
 } satisfies {
-  weight: PropDef<(typeof weights)[number]>;
-  variant: PropDef<(typeof variants)[number]>;
-  color: PropDef<string>;
+  size: PropDef<(typeof sizes)[number]>;
+  // color: PropDef<string>;
 };
 
 export interface HeadingProps extends TextAlignProps, ComponentPropsWithout<'h2', RemovedProps> {
@@ -24,20 +21,14 @@ export interface HeadingProps extends TextAlignProps, ComponentPropsWithout<'h2'
   /** Change the default rendered element for the one passed as a child, merging their props and behavior. */
   asChild?: boolean;
   /**
-   * Applies the text font styles.
-   * @default h2
+   * Set the text size styles.
+   * @default md
    */
-  variant?: (typeof variants)[number];
+  size?: Responsive<(typeof sizes)[number]>;
   /**
    * Set the text color
-   * It is recommended to use the colours from the `@utilitywarehouse/colour-system` package.
    */
-  color?: string;
-  /**
-   * Set the font-weight
-   * @default 'bold'
-   */
-  weight?: Responsive<(typeof weights)[number]>;
+  // color?: string;
   /**
    * Set the text-align on the component.
    */
