@@ -6,7 +6,7 @@ import type { Responsive } from '../../types/responsive';
 export const sizes = ['sm', 'md', 'lg', 'xl'] as const;
 
 export const headingPropDefs = {
-  size: { className: 'size', tokens: sizes, responsive: true, default: 'md' },
+  size: { className: 'size', tokens: sizes, responsive: false, default: 'md' },
   // color: { className: 'heading-color', responsive: false },
 } satisfies {
   size: PropDef<(typeof sizes)[number]>;
@@ -24,7 +24,7 @@ export interface HeadingProps extends TextAlignProps, ComponentPropsWithout<'h2'
    * Set the text size styles.
    * @default md
    */
-  size?: Responsive<(typeof sizes)[number]>;
+  size?: (typeof sizes)[number];
   /**
    * Set the text color
    */

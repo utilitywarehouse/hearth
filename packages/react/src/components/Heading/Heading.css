@@ -2,31 +2,29 @@
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-semibold);
 
-  @breakpoints {
-    &:where(.hearth-r-size-sm) {
-      font-size: var(--heading-sm-font-size);
-    }
+  &:where(.hearth-size-sm) {
+    font-size: var(--heading-sm-font-size);
+  }
 
-    &:where(.hearth-r-size-md) {
-      font-size: var(--heading-md-font-size);
-      @media (--desktop) {
-        font-size: var(--heading-md-font-size-desktop);
-      }
+  &:where(.hearth-size-md) {
+    font-size: var(--heading-md-font-size);
+    @media (--desktop) {
+      font-size: var(--heading-md-font-size-desktop);
     }
+  }
 
-    &:where(.hearth-r-size-lg) {
-      font-size: var(--heading-lg-font-size);
-      @media (--desktop) {
-        font-size: var(--heading-lg-font-size-desktop);
-      }
+  &:where(.hearth-size-lg) {
+    font-size: var(--heading-lg-font-size);
+    @media (--desktop) {
+      font-size: var(--heading-lg-font-size-desktop);
     }
+  }
 
-    &:where(.hearth-r-size-xl) {
-      font-size: var(--heading-xl-font-size);
-      font-weight: var(--font-weight-bold);
-      @media (--desktop) {
-        font-size: var(--heading-xl-font-size-desktop);
-      }
+  &:where(.hearth-size-xl) {
+    font-size: var(--heading-xl-font-size);
+    font-weight: var(--font-weight-bold);
+    @media (--desktop) {
+      font-size: var(--heading-xl-font-size-desktop);
     }
   }
 }
