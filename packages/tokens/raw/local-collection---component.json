@@ -1,0 +1,26 @@
+{
+  "light": {
+    "button": {
+      "emphasis": {
+        "yellow": {
+          "background-color": {
+            "value": "#ffb921",
+            "type": "color"
+          }
+        }
+      }
+    }
+  },
+  "dark": {
+    "button": {
+      "emphasis": {
+        "yellow": {
+          "background-color": {
+            "value": "#d69200",
+            "type": "color"
+          }
+        }
+      }
+    }
+  }
+}
