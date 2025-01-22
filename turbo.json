@@ -3,23 +3,27 @@
   "tasks": {
     "build": {
       "inputs": ["$TURBO_DEFAULT$", "!**/*.stories.{tsx,jsx,mdx}"],
-      "outputs": ["dist/**", "storybook-static/**"],
+      "outputs": ["dist/**", "storybook-static/**", "*.css"],
       "dependsOn": ["^build"]
     },
     "checks": {
       "outputs": ["dist/**"]
     },
     "format": {
-      "dependsOn": ["^format"]
+      "dependsOn": ["^format"],
+      "outputs": []
     },
     "format:ci": {
-      "dependsOn": ["^format:ci"]
+      "dependsOn": ["^format:ci"],
+      "outputs": []
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": ["^lint"],
+      "outputs": []
     },
     "lint:fix": {
-      "dependsOn": ["^lint:fix"]
+      "dependsOn": ["^lint:fix"],
+      "outputs": []
     },
     "dev": {
       "cache": false,

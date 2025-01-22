@@ -13,8 +13,7 @@
   "scripts": {
     "build": "postcss src --dir .",
     "dev": "postcss --watch --verbose src --dir .",
-    "clean": "rm -f *.css",
-    "clean:deps": "rm -rf node_modules"
+    "clean": "rm -rf *.css node_modules .turbo"
   },
   "publishConfig": {
     "access": "restricted"

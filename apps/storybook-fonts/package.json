@@ -7,7 +7,7 @@
     "dev": "vite",
     "build:vite": "tsc -b && vite build",
     "preview": "vite preview",
-    "clean": "rm -rf node_modules storybook-static",
+    "clean": "rm -rf node_modules storybook-static .turbo",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build"
   },

@@ -5,7 +5,7 @@ import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/colour-system/css/colours.css';
 import '@utilitywarehouse/hearth-react/styles.css';
 import '../src/storybook-components/styles.css';
-import {breakpoints} from '@utilitywarehouse/hearth-react'
+import { breakpoints } from '@utilitywarehouse/hearth-react';
 
 const customViewports = {
   mobile: {
