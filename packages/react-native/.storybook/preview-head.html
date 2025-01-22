@@ -63,7 +63,12 @@
     border: 1px solid #e6e4db !important;
   }
 
-  thead {
+  :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr,
+  .docblock-argstable-body tr td {
+    background-color: var(--colors-grey50) !important;
+  }
+
+  thead th {
     background-color: white !important;
   }
 
@@ -72,9 +77,15 @@
     background-color: white !important;
   }
 
-  .docblock-argstable-head {
-    border-width: 1px 1px 0 1px !important;
-    border-color: #101010 !important;
-    border-style: solid !important;
+  .docblock-argstable-head th {
+    border-top: 1px solid #101010 !important;
+  }
+
+  .docblock-argstable-head th:first-of-type {
+    border-left: 1px solid #101010 !important;
+  }
+
+  .docblock-argstable-head th:last-of-type {
+    border-right: 1px solid #101010 !important;
   }
 </style>
