@@ -2,10 +2,10 @@
 /* eslint-disable  @typescript-eslint/no-unsafe-return */
 /* eslint-disable  @typescript-eslint/no-unsafe-call */
 import React, { useEffect } from 'react';
-import logo from '../assets/logo.svg';
+import logo from './assets/logo.svg';
 import '@utilitywarehouse/css-reset';
-import '../styles/ui.css';
-import { encodeContent, kebabCase } from '../utils';
+import './styles/ui.css';
+import { encodeContent, kebabCase } from './utils';
 import {
   Heading,
   Button,
@@ -15,17 +15,8 @@ import {
   Flex,
   Alert,
   TextField,
-  Text,
 } from '@utilitywarehouse/web-ui';
-
-const LoadingSpinner = ({ text }) => {
-  return (
-    <div className="spinner-container">
-      <div className="loading-spinner"></div>
-      {!!text && <Text>{text}</Text>}
-    </div>
-  );
-};
+import LoadingSpinner from './components/LoadingSpinner';
 
 function App() {
   const [githubToken, setGithubToken] = React.useState('');
@@ -188,7 +179,7 @@ function App() {
       // Prepare all file updates
       for (const { collectionName, tokensJson } of tokensData) {
         const kebabCollectionName = kebabCase(collectionName);
-        const filePath = `packages/tokens/tokens/${kebabCollectionName}.json`;
+        const filePath = `packages/tokens/raw/${kebabCollectionName}.json`;
 
         let fileSha;
         try {
@@ -264,7 +255,7 @@ function App() {
           body: `This PR contains exported Figma variables for all selected collections. It includes the following changes:\n\n${tokensData
             .map(
               ({ collectionName }) =>
-                `- Exported variables to packages/tokens/tokens/${kebabCase(collectionName)}.json`
+                `- Exported variables to packages/tokens/raw/${kebabCase(collectionName)}.json`
             )
             .join('\n')}`,
         }),

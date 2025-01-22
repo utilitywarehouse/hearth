@@ -2,10 +2,10 @@
   "name": "@utilitywarehouse/hearth-tokens",
   "version": "0.0.1",
   "description": "",
-  "main": "build/js/index.js",
+  "main": "js/index.js",
   "type": "module",
   "scripts": {
-    "build": "node ./scripts/build.js"
+    "build": "node ./scripts/index.js"
   },
   "keywords": [],
   "author": "",
