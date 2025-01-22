@@ -241,10 +241,10 @@ importers:
   apps/storybook-react:
     dependencies:
       '@utilitywarehouse/hearth-fonts':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../packages/fonts
       '@utilitywarehouse/hearth-react':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../../packages/react
       react:
         specifier: ^18.3.1
