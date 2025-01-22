@@ -1,17 +1,16 @@
 import React, { forwardRef } from 'react';
 import { Text, TextProps } from 'react-native';
 import { useAlertContext } from './Alert.context';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 
 const AlertText = forwardRef<Text, TextProps & { semibold?: boolean }>(
   ({ children, semibold = false, ...props }, ref) => {
     const { colorScheme } = useAlertContext();
+    styles.useVariants({ colorScheme });
     return (
-      <Variants variants={{ colorScheme, semibold }}>
-        <Text ref={ref} {...props} style={[styles.text, props.style]}>
-          {children}
-        </Text>
-      </Variants>
+      <Text ref={ref} {...props} style={[styles.text, props.style]}>
+        {children}
+      </Text>
     );
   }
 );

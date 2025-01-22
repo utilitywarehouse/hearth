@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
 import { NativeUIProvider } from '../src/core';
+
 import theme from './theme';
 
 const preview: Preview = {

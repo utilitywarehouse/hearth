@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { View, ViewProps, ViewStyle } from 'react-native';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 
 interface HStackProps extends ViewProps {
   space?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl';
@@ -53,13 +53,14 @@ const styles = StyleSheet.create(({ space }) => ({
 }));
 
 const HStack = forwardRef<View, HStackProps>(
-  ({ children, style, space, reversed, wrap, ...props }, ref) => (
-    <Variants variants={{ space, reversed, wrap }}>
+  ({ children, style, space, reversed, wrap, ...props }, ref) => {
+    styles.useVariants({ space, reversed, wrap });
+    return (
       <View ref={ref} style={[styles.container, style]} {...props}>
         {children}
       </View>
-    </Variants>
-  )
+    );
+  }
 );
 
 HStack.displayName = 'HStack';

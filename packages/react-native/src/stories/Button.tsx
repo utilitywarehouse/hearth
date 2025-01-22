@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './button.css';
 import { Text } from 'react-native';
@@ -30,7 +30,9 @@ export const Button = ({
     <Box bg="$apple400" p={4}>
       <Badge>Badge</Badge>
       {/* <RNButton onPress={() => alert('yeah')}>Test</RNButton> */}
-      <Center backgroundColor="$red300">{label}</Center>
+      <Center backgroundColor="$red300">
+        <Text>{label}</Text>
+      </Center>
       <Text>label</Text>
     </Box>
   );

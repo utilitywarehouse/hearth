@@ -2,18 +2,16 @@ import React, { forwardRef } from 'react';
 
 import { Text } from 'react-native';
 import type { TextProps } from 'react-native';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import { useBadgeContext } from './Badge.context';
 
 const BadgeText = forwardRef<Text, TextProps>(({ children, style, ...props }, ref) => {
   const { colorScheme, strong } = useBadgeContext();
-
+  styles.useVariants({ colorScheme, strong });
   return (
-    <Variants variants={{ colorScheme, strong }}>
-      <Text ref={ref} {...props} style={[styles.text, style]}>
-        {children}
-      </Text>
-    </Variants>
+    <Text ref={ref} {...props} style={[styles.text, style]}>
+      {children}
+    </Text>
   );
 });
 

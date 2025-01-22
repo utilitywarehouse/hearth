@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import type BadgeProps from './Badge.props';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
 import { BadgeContext } from './Badge.context';
 import BadgeText from './BadgeText';
@@ -25,13 +25,11 @@ const Badge = forwardRef<View, BadgeProps>(({ children, ...props }, ref) => {
   styles.useVariants({ colorScheme, strong, size, borderless });
 
   return (
-    <Variants variants={{ colorScheme, strong, size, borderless }}>
-      <BadgeContext.Provider value={value}>
-        <View ref={ref} {...rest} style={[styles.container, style]}>
-          {childIsText ? <BadgeText>{children}</BadgeText> : children}
-        </View>
-      </BadgeContext.Provider>
-    </Variants>
+    <BadgeContext.Provider value={value}>
+      <View ref={ref} {...rest} style={[styles.container, style]}>
+        {childIsText ? <BadgeText>{children}</BadgeText> : children}
+      </View>
+    </BadgeContext.Provider>
   );
 });
 

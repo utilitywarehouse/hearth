@@ -2,16 +2,15 @@
 import React, { forwardRef } from 'react';
 import { Text, type TextProps } from 'react-native';
 import { useButtonContext } from './Button.context';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 
 const ButtonText = forwardRef<Text, TextProps>(({ children, ...props }, ref) => {
   const { colorScheme, variant, inverted, disabled } = useButtonContext();
+  styles.useVariants({ colorScheme, variant, inverted, disabled });
   return (
-    <Variants variants={{ colorScheme, variant, inverted, disabled }}>
-      <Text ref={ref} {...props} style={[styles.text, props.style]}>
-        {children}
-      </Text>
-    </Variants>
+    <Text ref={ref} {...props} style={[styles.text, props.style]}>
+      {children}
+    </Text>
   );
 });
 

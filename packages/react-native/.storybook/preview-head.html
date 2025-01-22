@@ -49,4 +49,43 @@
   :where(.docblock-argstable-body tr td:first-of-type span) {
     font-weight: 600 !important;
   } */
+
+  .docblock-source,
+  .docs-story,
+  .sbdocs-preview {
+    background-color: white !important;
+    border-radius: 8px !important;
+  }
+
+  code {
+    background-color: #d4d0c0 !important;
+    color: #101010 !important;
+    border: 1px solid #e6e4db !important;
+  }
+
+  :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr,
+  .docblock-argstable-body tr td {
+    background-color: var(--colors-grey50) !important;
+  }
+
+  thead th {
+    background-color: white !important;
+  }
+
+  :where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
+  .docblock-argstable-body tr:nth-of-type(2n) td {
+    background-color: white !important;
+  }
+
+  .docblock-argstable-head th {
+    border-top: 1px solid #101010 !important;
+  }
+
+  .docblock-argstable-head th:first-of-type {
+    border-left: 1px solid #101010 !important;
+  }
+
+  .docblock-argstable-head th:last-of-type {
+    border-right: 1px solid #101010 !important;
+  }
 </style>

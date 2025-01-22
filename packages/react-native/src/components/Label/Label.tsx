@@ -1,17 +1,16 @@
 import React, { forwardRef } from 'react';
 import { Text } from '../Text';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import { Text as RNText } from 'react-native';
 import LabelProps from './Label.props';
 
 const Label = forwardRef<RNText, LabelProps>(
   ({ children, nested, style, disabled, ...props }, ref) => {
+    styles.useVariants({ nested, disabled });
     return (
-      <Variants variants={{ nested, disabled }}>
-        <Text ref={ref} style={[styles.text, style]} {...props}>
-          {children}
-        </Text>
-      </Variants>
+      <Text ref={ref} style={[styles.text, style]} {...props}>
+        {children}
+      </Text>
     );
   }
 );

@@ -2,19 +2,18 @@
 import React, { forwardRef } from 'react';
 import { ViewStyle } from 'react-native';
 import { useIconButtonContext } from './IconButton.context';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import { IconRef } from '../../types';
 import IconProps from '../Icon/Icon.props';
 
 const IconButtonIcon = forwardRef<IconRef, IconProps>(({ children, ...props }, ref) => {
   const { colorScheme, variant, inverted, disabled, size } = useIconButtonContext();
+  styles.useVariants({ colorScheme, variant, inverted, disabled, size });
   return (
-    <Variants variants={{ colorScheme, variant, inverted, disabled, size }}>
-      <Icon ref={ref} {...props} style={[styles.icon as ViewStyle, props.style]}>
-        {children}
-      </Icon>
-    </Variants>
+    <Icon ref={ref} {...props} style={[styles.icon as ViewStyle, props.style]}>
+      {children}
+    </Icon>
   );
 });
 

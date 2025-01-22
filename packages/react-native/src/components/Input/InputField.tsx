@@ -1,5 +1,5 @@
 import React, { ElementRef, forwardRef } from 'react';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import { TextInputProps, TextInput } from 'react-native';
 import { useInputContext } from './Input.context';
 import { useTheme } from '../../hooks';
@@ -8,19 +8,18 @@ const InputField = forwardRef<ElementRef<typeof TextInput>, TextInputProps>(
   ({ style, ...props }, ref) => {
     const { disabled, focused = false } = useInputContext();
     const { colors } = useTheme();
+    styles.useVariants({ disabled, focused });
 
     return (
-      <Variants variants={{ focused, disabled }}>
-        <TextInput
-          ref={ref}
-          placeholderTextColor={disabled ? colors.grey200 : colors.grey600}
-          selectionColor={colors.cyan500}
-          cursorColor={colors.cyan500}
-          aria-disabled={disabled}
-          {...props}
-          style={[styles.input, style]}
-        />
-      </Variants>
+      <TextInput
+        ref={ref}
+        placeholderTextColor={disabled ? colors.grey200 : colors.grey600}
+        selectionColor={colors.cyan500}
+        cursorColor={colors.cyan500}
+        aria-disabled={disabled}
+        {...props}
+        style={[styles.input, style]}
+      />
     );
   }
 );

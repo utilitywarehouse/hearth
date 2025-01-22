@@ -4,7 +4,7 @@
 import React, { forwardRef, useMemo } from 'react';
 import { Text as RNText } from 'react-native';
 import type TextProps from './Text.props';
-import { StyleSheet, Variants } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import type { ColorValue } from '../../types';
 import getStyleValue from '../../utils/getStyleValue';
 import { useTheme } from '../../hooks';
@@ -38,44 +38,34 @@ const Text = forwardRef<RNText, TextProps>(
       () => getStyleValue(textDecorationColor, colors),
       [textDecorationColor, colorMode]
     );
+    styles.useVariants({ size, bold, underline, strikeThrough, italic, highlight });
     return (
-      <Variants
-        variants={{
-          size,
-          bold,
-          underline,
-          strikeThrough,
-          italic,
-          highlight,
-        }}
+      <RNText
+        ref={ref}
+        {...props}
+        {...(truncated
+          ? {
+              numberOfLines: 1,
+              ellipsizeMode: 'tail',
+            }
+          : {})}
+        style={[
+          styles.text,
+          {
+            ...(colorValue && { color: colorValue }),
+            ...(textTransform && { textTransform }),
+            ...(textAlign && { textAlign }),
+            ...(decorationColor && { textDecorationColor: decorationColor }),
+            ...(textDecorationLine && { textDecorationLine }),
+            ...(textDecorationStyle && { textDecorationStyle }),
+            ...(userSelect && { userSelect }),
+            ...(textAlignVertical && { textAlignVertical }),
+          },
+          props.style,
+        ]}
       >
-        <RNText
-          ref={ref}
-          {...props}
-          {...(truncated
-            ? {
-                numberOfLines: 1,
-                ellipsizeMode: 'tail',
-              }
-            : {})}
-          style={[
-            styles.text,
-            {
-              ...(colorValue && { color: colorValue }),
-              ...(textTransform && { textTransform }),
-              ...(textAlign && { textAlign }),
-              ...(decorationColor && { textDecorationColor: decorationColor }),
-              ...(textDecorationLine && { textDecorationLine }),
-              ...(textDecorationStyle && { textDecorationStyle }),
-              ...(userSelect && { userSelect }),
-              ...(textAlignVertical && { textAlignVertical }),
-            },
-            props.style,
-          ]}
-        >
-          {children}
-        </RNText>
-      </Variants>
+        {children}
+      </RNText>
     );
   }
 );
