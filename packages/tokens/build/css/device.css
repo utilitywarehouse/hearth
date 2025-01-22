@@ -64,6 +64,21 @@
   --typography-scales-heading-xl-line-height: var(--line-height-800);
   --typography-scales-heading-xl-letter-spacing: var(--letter-spacing-400);
   --typography-scales-heading-xl-font-size: var(--font-size-400);
+  --layout-content-spacing-md: var(--space-200);
+  --layout-content-spacing-lg: var(--space-200);
+  --layout-content-spacing-xs: var(--space-100);
+  --layout-content-spacing-xl: var(--space-350);
+  --layout-content-padding-top: var(--space-300);
+  --layout-content-spacing-sm: var(--space-150);
+  --layout-content-padding-bottom: var(--space-400);
+  --layout-grid-gutter: var(--space-200);
+  --layout-grid-grid: var(--space-100);
+  --layout-grid-column-number: 4;
+  --layout-grid-margin: var(--space-200);
+  --layout-grid-column-width: 64;
+  --layout-container-padding-horizontal: var(--space-200);
+  --layout-container-width: 360;
+  --device-width: 360;
 }
 
 @media (min-width: 1024px) {
@@ -133,5 +148,20 @@
     --typography-scales-heading-xl-line-height: var(--line-height-950);
     --typography-scales-heading-xl-letter-spacing: var(--letter-spacing-500);
     --typography-scales-heading-xl-font-size: var(--font-size-550);
+    --layout-content-spacing-md: var(--space-200);
+    --layout-content-spacing-lg: var(--space-300);
+    --layout-content-spacing-xs: var(--space-100);
+    --layout-content-spacing-xl: var(--space-500);
+    --layout-content-padding-top: var(--space-400);
+    --layout-content-spacing-sm: var(--space-150);
+    --layout-content-padding-bottom: var(--space-600);
+    --layout-grid-gutter: var(--space-300);
+    --layout-grid-grid: var(--space-100);
+    --layout-grid-column-number: 12;
+    --layout-grid-margin: var(--space-400);
+    --layout-grid-column-width: 64;
+    --layout-container-padding-horizontal: var(--space-400);
+    --layout-container-width: 1096;
+    --device-width: 1400;
   }
 }

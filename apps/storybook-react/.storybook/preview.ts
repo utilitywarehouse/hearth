@@ -1,12 +1,48 @@
-import type { Preview } from '@storybook/react';
+import { Preview } from '@storybook/react';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import '@utilitywarehouse/css-reset';
+import '@utilitywarehouse/hearth-fonts';
+import '@utilitywarehouse/colour-system/css/colours.css';
+import '@utilitywarehouse/hearth-react/styles.css';
+import '../src/storybook-components/styles.css';
+import { breakpoints } from '@utilitywarehouse/hearth-react';
+
+const customViewports = {
+  mobile: {
+    name: 'mobile',
+    styles: {
+      width: `${breakpoints.tablet / 2}px`,
+      height: '100vh',
+    },
+  },
+  tablet: {
+    name: 'tablet',
+    styles: {
+      width: `${breakpoints.tablet}px`,
+      height: '100vh',
+    },
+  },
+  desktop: {
+    name: 'desktop',
+    styles: {
+      width: `${breakpoints.desktop}px`,
+      height: '100vh',
+    },
+  },
+  wide: {
+    name: 'wide',
+    styles: {
+      width: `${breakpoints.wide}px`,
+      height: '100vh',
+    },
+  },
+  ...INITIAL_VIEWPORTS,
+};
 
 const preview: Preview = {
   parameters: {
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
-      },
+    viewport: {
+      viewports: customViewports,
     },
   },
 };
