@@ -259,10 +259,11 @@ async function exportVariables(selectedCollectionIds: Array<string>) {
         const libraryVars = await figma.teamLibrary.getVariablesInLibraryCollectionAsync(
           matched.id
         );
-        for (const lv of libraryVars) {
-          const imported = await figma.variables.importVariableByKeyAsync(lv.key);
-          importedVariables.push(imported);
-        }
+        const importPromises = libraryVars.map(lv =>
+          figma.variables.importVariableByKeyAsync(lv.key)
+        );
+        const allImported = await Promise.all(importPromises);
+        importedVariables.push(...allImported);
       } else {
         // local
         const localColl = await figma.variables.getVariableCollectionByIdAsync(matched.id);

@@ -76,6 +76,7 @@ function App() {
       setLoadingText('Importing variables, please wait...');
     } else if (pluginMessage.type === 'hide-loading') {
       setLoadingImport(false);
+      setLoadingText('');
     }
   };
 
@@ -83,18 +84,13 @@ function App() {
     let timeout;
     if (loadingText === 'Importing variables, please wait...') {
       timeout = setTimeout(() => {
-        setLoadingText("Still exporting variables, there's a few...");
-      }, 5000);
-    }
-    if (loadingText === "Still exporting variables, there's a few...") {
-      timeout = setTimeout(() => {
         setLoadingText("Shouldn't be much longer now...");
-      }, 10000);
+      }, 5000);
     }
     if (loadingText === "Shouldn't be much longer now...") {
       timeout = setTimeout(() => {
         setLoadingText('Just a few more seconds...');
-      }, 15000);
+      }, 10000);
     }
     return () => clearTimeout(timeout);
   }, [loadingText]);
