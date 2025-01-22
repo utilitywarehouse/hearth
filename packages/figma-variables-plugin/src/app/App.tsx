@@ -25,6 +25,7 @@ function App() {
   const [statusMessage, setStatusMessage] = React.useState('');
   const [exporting, setExporting] = React.useState(false);
   const [collections, setCollections] = React.useState([]);
+  const [loadingCollections, setLoadingCollections] = React.useState(true);
   const [selectedCollections, setSelectedCollections] = React.useState([]);
   const [loadingImport, setLoadingImport] = React.useState(false);
   const [loadingText, setLoadingText] = React.useState('');
@@ -71,6 +72,7 @@ function App() {
     if (pluginMessage.type === 'collections-loaded') {
       console.log('Collections loaded:', pluginMessage.data);
       setCollections(pluginMessage.data);
+      setLoadingCollections(false);
     } else if (pluginMessage.type === 'show-loading') {
       setLoadingImport(true);
       setLoadingText('Importing variables, please wait...');
@@ -352,39 +354,57 @@ function App() {
               helperText="Published library collections in this file"
               sx={{ mb: 3 }}
             >
-              <Checkbox
-                id="select-all"
-                value="select-all"
-                label="Select All"
-                checked={selectAll}
-                onCheckedChange={handleSelectAll}
-              />
-            </CheckboxGroup>
-            <CheckboxGroup
-              direction="row"
-              value={selectedCollections}
-              onValueChange={val => setSelectedCollections(val)}
-            >
-              {collections.map(collection => (
+              {!loadingCollections && collections.length > 0 && (
                 <Checkbox
-                  key={collection.id}
-                  id={`checkbox-${collection.id}`}
-                  value={collection.id}
-                  label={collection.name}
-                  helperText={collection.libraryName}
+                  id="select-all"
+                  value="select-all"
+                  label="Select All"
+                  checked={selectAll}
+                  onCheckedChange={handleSelectAll}
                 />
-              ))}
+              )}
             </CheckboxGroup>
+            {
+              // Show loading spinner while fetching collections
+              loadingCollections && <LoadingSpinner text="Loading collections..." />
+            }
+            {!loadingCollections && collections.length === 0 && (
+              <Alert
+                colorScheme="cyan"
+                text="No collections found in this file. Please create a collection in the library."
+                sx={{ mb: 3 }}
+              />
+            )}
+            {!loadingCollections && collections.length > 0 && (
+              <CheckboxGroup
+                direction="row"
+                value={selectedCollections}
+                onValueChange={val => setSelectedCollections(val)}
+              >
+                {collections.map(collection => (
+                  <Checkbox
+                    key={collection.id}
+                    id={`checkbox-${collection.id}`}
+                    value={collection.id}
+                    label={collection.name}
+                    helperText={collection.libraryName}
+                  />
+                ))}
+              </CheckboxGroup>
+            )}
           </Box>
 
           <Flex direction="column" align={{ mobile: 'stretch', desktop: 'start' }}>
-            <Button onClick={exportVariables} disabled={exporting || loadingImport}>
+            <Button
+              onClick={exportVariables}
+              disabled={exporting || loadingImport || loadingCollections}
+            >
               {exporting ? 'Exporting...' : 'Export Variables'}
             </Button>
           </Flex>
         </Box>
       )}
-      {(exporting || loadingImport) && <LoadingSpinner text={loadingText} />}
+      {(exporting || loadingImport) && <LoadingSpinner text={loadingText} overlay />}
 
       <svg
         id="corner"

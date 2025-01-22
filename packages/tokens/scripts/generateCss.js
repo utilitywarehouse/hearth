@@ -136,6 +136,19 @@ function generateCss() {
             },
           ],
         },
+        'css-components': {
+          transformGroup: 'css-device',
+          transforms: ['remove-color', 'px-to-rem'],
+          buildPath: './css/',
+          files: [
+            {
+              destination: 'components.css',
+              format: 'css/variables',
+              filter: token => {
+                return token.filePath.includes('component');
+              },
+            },
+          ],
       },
     }),
   ];
