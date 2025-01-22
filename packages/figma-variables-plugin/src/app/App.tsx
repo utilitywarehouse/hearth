@@ -73,10 +73,31 @@ function App() {
       setCollections(pluginMessage.data);
     } else if (pluginMessage.type === 'show-loading') {
       setLoadingImport(true);
+      setLoadingText('Importing variables, please wait...');
     } else if (pluginMessage.type === 'hide-loading') {
       setLoadingImport(false);
     }
   };
+
+  useEffect(() => {
+    let timeout;
+    if (loadingText === 'Importing variables, please wait...') {
+      timeout = setTimeout(() => {
+        setLoadingText("Still exporting variables, there's a few...");
+      }, 5000);
+    }
+    if (loadingText === "Still exporting variables, there's a few...") {
+      timeout = setTimeout(() => {
+        setLoadingText("Shouldn't be much longer now...");
+      }, 10000);
+    }
+    if (loadingText === "Shouldn't be much longer now...") {
+      timeout = setTimeout(() => {
+        setLoadingText('Just a few more seconds...');
+      }, 15000);
+    }
+    return () => clearTimeout(timeout);
+  }, [loadingText]);
 
   // Save GitHub token to clientStorage
   const saveToken = () => {
