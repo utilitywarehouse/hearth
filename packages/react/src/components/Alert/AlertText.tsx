@@ -21,7 +21,7 @@ export const AlertText = React.forwardRef<AlertTextElement, AlertTextProps>(
       ref={ref}
       className={clsx(componentClassName, className)}
       // variant="body"
-      color="inherit"
+      // color="inherit"
       as="p"
       {...props}
     />

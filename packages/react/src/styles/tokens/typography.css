@@ -1,54 +1,46 @@
 & {
   /** font-family **/
-  --font-family-body: 'DM Sans';
-  --font-family-heading: aeonik, arial, sans-serif;
+  --font-family-body-text: 'DM Sans';
+  --font-family-detail-text: 'DM Mono';
+  --font-family-heading: 'TMT Limkin Flare';
 
-  /** font-sizes **/
-
-  /** primitive **/
+  /** font-sizes: primitive **/
   --font-size-90: 0.875rem;
   --font-size-100: 1rem;
   --font-size-150: 1.125rem;
+  --font-size-200: 1.25rem;
+  --font-size-300: 1.5rem;
+  --font-size-400: 1.875rem;
+  --font-size-500: 2.25rem;
+  --font-size-550: 2.5rem;
 
-  /** semantic **/
+  /** font-sizes: component **/
   --body-text-sm-font-size: var(--font-size-90);
   --body-text-md-font-size: var(--font-size-100);
   --body-text-lg-font-size: var(--font-size-150);
+  --detail-text-sm-font-size: var(--font-size-90);
+  --detail-text-md-font-size: var(--font-size-100);
+  --detail-text-lg-font-size: var(--font-size-150);
+  --detail-text-xl-font-size: var(--font-size-200);
+  --detail-text-2xl-font-size: var(--font-size-300);
+  --detail-text-3xl-font-size: var(--font-size-400);
+  --detail-text-4xl-font-size: var(--font-size-500);
+  --heading-sm-font-size: var(--font-size-150);
+  --heading-md-font-size: var(--font-size-200);
+  --heading-md-font-size-desktop: var(--font-size-300);
+  --heading-lg-font-size: var(--font-size-300);
+  --heading-lg-font-size-desktop: var(--font-size-400);
+  --heading-xl-font-size: var(--font-size-400);
+  --heading-xl-font-size-desktop: var(--font-size-550);
 
   /** font-weights **/
-
-  /** primitive **/
-  --font-weight-400: 400;
-  --font-weight-700: 700;
-
-  /** semantic **/
-  --body-text-font-weight-regular: var(--font-weight-400);
-  --body-text-font-weight-bold: var(--font-weight-700);
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 
   /** line-heights **/
   --line-height-sm: 1;
   --line-height-md: 1.2;
   --line-height-lg: 1.5;
   --line-height-xl: 2;
-
-  /** legacy to be removed **/
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-
-  /** legacy to be removed **/
-  --font-size-body-xs: 0.75rem;
-  --font-size-body-sm: 0.875rem;
-  --font-size-body-md: 1rem;
-  --font-size-body-lg: 1.125rem;
-  --font-size-body-xl: 1.25rem;
-  --font-size-heading-xs: 1.125rem;
-  --font-size-heading-sm: 1.25rem;
-  --font-size-heading-md: 1.375rem;
-  --font-size-heading-lg: 1.5rem;
-  --font-size-heading-xl: 1.75rem;
-  --font-size-heading-2xl: 2rem;
-  --font-size-heading-3xl: 2.625rem;
-  --font-size-heading-4xl: 4rem;
 }

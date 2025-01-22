@@ -26,6 +26,11 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_PUBLISH_TOKEN }}
 
+      - name: Checks
+        run: pnpm checks:ci
+        env:
+          NODE_OPTIONS: '--max_old_space_size=4096'
+
       - name: Create Release Pull Request or Publish to npm
         uses: changesets/action@v1
         with:

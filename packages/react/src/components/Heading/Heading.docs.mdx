@@ -1,0 +1,34 @@
+import { Meta, Canvas } from '@storybook/blocks';
+
+import * as Stories from './Heading.stories';
+
+import { DocsHeader } from '../../storybook/DocsHeader';
+
+<Meta title="Typography / Heading" />
+
+<DocsHeader componentName="Heading" stories={Stories} />
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+## Alternatives
+
+- [BodyText](?path=/docs/typography-bodytext--docs) - For body text
+- [DetailText](?path=/docs/typography-detailtext--docs) - For detail text
+- [Strong](?path=/docs/typography-strong--docs) - For strong importance
+- [Em](?path=/docs/typography-em--docs) - For emphasis
+
+## Sizes
+
+The size prop is not responsive, as the sizes themselves are already responsive
+where necessary.
+
+## API
+
+This component is based on the `h2` element.
+
+| Prop      | Type                                        | Description                                                                                                                                    | Default |
+| --------- | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `as`      | `"h1" \| "h2" \| "h3" \| "h4"`              | Shorthand for changing the default rendered element into a semantically appropriate alternative. Cannot be used in combination with `asChild`. | `"h2"`  |
+| `asChild` | `boolean`                                   | Change the default rendered element for the one passed as a child, merging their props and behavior.                                           | `false` |
+| `size`    | `'sm' \| 'md' \| 'lg' \| 'xl'`              | Set the text size styles.                                                                                                                      | `"md"`  |
+| `align`   | `Responsive<"left" \| "center" \| "right">` | Set the text-align.                                                                                                                            |         |

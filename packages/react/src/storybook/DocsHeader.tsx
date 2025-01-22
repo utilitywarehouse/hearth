@@ -16,7 +16,7 @@ export const DocsHeader = ({ componentName, figmaLink, stories }: DocsHeaderProp
   <Unstyled>
     <Flex direction="column" gap="24px">
       <Flex width="100%" align="center" justify="space-between">
-        <Heading variant="h1">{componentName}</Heading>
+        <Heading size="lg">{componentName}</Heading>
         <Flex gap="24px">
           <Link href={`/?path=/story/stories-${componentName}`}>Stories</Link>
           <Link

@@ -3,10 +3,11 @@
   "version": "0.0.2",
   "description": "Fonts for the UW Hearth Design System",
   "main": "index.css",
+  "type": "commonjs",
   "author": "Rob Phoenix <rphoenix@uw.co.uk>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/utilitywarehouse/hearth.git",
+    "url": "git+https://github.com/utilitywarehouse/hearth.git",
     "directory": "packages/fonts"
   },
   "scripts": {

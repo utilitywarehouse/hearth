@@ -9,14 +9,13 @@
       "outputs": ["dist/**"]
     },
     "format": {
-      "outputs": ["src/**", "raw/**"]
+      "outputs": []
     },
     "format:ci": {
       "outputs": []
     },
     "lint": {
-      "outputs": [],
-      "dependsOn": ["^build"]
+      "outputs": []
     },
     "lint:fix": {
       "outputs": []
@@ -27,11 +26,12 @@
     "clean": {
       "cache": false
     },
-    "generate": {
-      "cache": false
-    },
     "build:storybook": {
-      "outputs": ["packages/react/storybook-static/**", "apps/storybook-fonts/storybook-static/**"],
+      "outputs": ["storybook-static/**"],
+      "dependsOn": ["^build"]
+    },
+    "build:storybook:ci": {
+      "outputs": ["dist/**", "storybook-static/**"],
       "dependsOn": ["^build"]
     }
   }

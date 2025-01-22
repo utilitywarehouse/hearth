@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BodyText } from './BodyText';
 import { Flex } from '../Flex/Flex';
 import * as React from 'react';
-import { colors, colorsCommon } from '@utilitywarehouse/colour-system';
 import { sizes, weights } from './BodyText.props';
 
 const meta: Meta<typeof BodyText> = {
@@ -36,9 +35,15 @@ export const KitchenSink: Story = {
       <Flex direction="column" gap="100">
         {sizes.map(size => (
           <>
-            <BodyText size={size}>The five boxing wizards jump quickly.</BodyText>
+            <BodyText size={size}>Hamburgefons ({size})</BodyText>
             <BodyText size={size} weight="bold">
-              The five boxing wizards jump quickly.
+              Hamburgefons ({size}, bold)
+            </BodyText>
+            <BodyText size={size} style={{ fontStyle: 'italic' }}>
+              Hamburgefons ({size}, italic)
+            </BodyText>
+            <BodyText size={size} weight="bold" style={{ fontStyle: 'italic' }}>
+              Hamburgefons ({size}, bold, italic)
             </BodyText>
           </>
         ))}
@@ -47,27 +52,7 @@ export const KitchenSink: Story = {
   },
 };
 
-export const Workshop: Story = {
-  render: ({ color = undefined, ...args }) => {
-    return (
-      <BodyText
-        // @ts-expect-error story
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-        color={Object.keys(colorsCommon).includes(color) ? colorsCommon[color] : colors[color]}
-        {...args}
-      />
-    );
-  },
-  argTypes: {
-    color: {
-      options: [undefined, ...Object.keys(colorsCommon), ...Object.keys(colors)],
-      control: { type: 'select' },
-    },
-  },
-  args: {
-    color: undefined,
-  },
-};
+export const Workshop: Story = {};
 
 export const TextSizes: Story = {
   name: 'Sizes',
