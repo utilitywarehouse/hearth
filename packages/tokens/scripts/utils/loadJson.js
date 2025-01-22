@@ -1,5 +1,9 @@
 import fs from 'fs';
+import path from 'path';
 
-const loadJSON = path => JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
+const loadJSON = relativePath => {
+  const filePath = path.resolve(relativePath);
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+};
 
 export default loadJSON;

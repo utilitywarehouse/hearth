@@ -1,7 +1,7 @@
 import StyleDictionary from 'style-dictionary';
 import { loadJSON, unwrapAlias } from './utils/index.js';
 
-const componentJson = loadJSON('../raw/hearth-components---component.json');
+const componentJson = loadJSON('./raw/hearth-components---component.json');
 
 StyleDictionary.registerTransform({
   name: 'alias/variable-css',
