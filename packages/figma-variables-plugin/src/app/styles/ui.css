@@ -1,0 +1,47 @@
+:root {
+  --rem: 16;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  margin: 20px;
+  font-size: 16px;
+  background-color: #f4f3f6;
+}
+img {
+  height: 50px;
+}
+
+#corner {
+  position: fixed;
+  right: 1px;
+  bottom: 2px;
+  cursor: nwse-resize;
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #18a0fb;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
