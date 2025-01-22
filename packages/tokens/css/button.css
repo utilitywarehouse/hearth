@@ -7,6 +7,6 @@
 }
 
 /* Illustrative example of how we could do dark mode, this isn't generated. */
-body.dark-mode {
+[data-theme='dark'] {
   --button-emphasis-yellow-background-color: var(--color-dark-yellow-400);
 }
