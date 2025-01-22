@@ -9,7 +9,7 @@
     "clean": "rm -rf node_modules && rm -rf dist",
     "lint:fix": "TIMING=1 eslint --fix --max-warnings 0 --ext ts,tsx src",
     "lint": "TIMING=1 eslint --max-warnings 0 --ext ts,tsx src",
-    "postinstall": "node ./postinstall.js",
+    "postinstall:ignore": "node ./postinstall.js",
     "prettier:format": "prettier --write '**/*.{js,jsx,ts,tsx,css,json}' "
   },
   "dependencies": {

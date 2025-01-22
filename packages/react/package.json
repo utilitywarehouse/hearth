@@ -26,7 +26,7 @@
     "build": "pnpm build:css && pnpm build:js",
     "build:css": "postcss ./src/styles/index.css -o styles.css",
     "build:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
-    "build:storybook": "storybook build",
+    "build:storybook:react": "storybook build",
     "build:storybook:ci": "pnpm build && pnpm build:storybook",
     "dev": "pnpm dev:js && pnpm dev:css",
     "dev:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
@@ -46,7 +46,7 @@
     "access": "restricted"
   },
   "files": [
-    "dist",
+    "dist/**",
     "*.css"
   ],
   "peerDependencies": {
