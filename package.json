@@ -7,7 +7,7 @@
   },
   "scripts": {
     "setup": "corepack enable && corepack prepare pnpm@9 --activate",
-    "build": "turbo run build",
+    "build": "turbo build",
     "build:storybook": "turbo build:storybook build",
     "preinstall": "npx only-allow pnpm",
     "format": "turbo run format",
