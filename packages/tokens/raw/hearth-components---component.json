@@ -4,6 +4,7 @@
       "emphasis": {
         "yellow": {
           "background-color": {
+            "alias": "{colour.light.yellow.400}",
             "value": "#ffb921",
             "type": "color"
           }
@@ -16,6 +17,7 @@
       "emphasis": {
         "yellow": {
           "background-color": {
+            "alias": "{colour.dark.yellow.400}",
             "value": "#d69200",
             "type": "color"
           }

@@ -1,0 +1,12 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --button-emphasis-yellow-background-color: var(--colour-light-yellow-400);
+}
+
+/* Illustrative example of how we could do dark mode, this isn't generated. */
+body.dark-mode {
+  --button-emphasis-yellow-background-color: var(--colour-dark-yellow-400);
+}

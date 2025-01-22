@@ -1,5 +1,7 @@
 import StyleDictionary from 'style-dictionary';
-import unwrapAlias from './utils/unwrapAlias.js';
+import { loadJSON, unwrapAlias } from './utils/index.js';
+
+const componentJson = loadJSON('../raw/hearth-components---component.json');
 
 StyleDictionary.registerTransform({
   name: 'alias/variable-css',
@@ -45,7 +47,6 @@ StyleDictionary.registerTransform({
     return token.attributes.type === 'layout';
   },
   transform: token => {
-    console.log(token);
     return `${token.attributes.item}-${token.attributes.subitem}-${token.attributes.category}`;
   },
 });
@@ -54,7 +55,6 @@ StyleDictionary.registerTransform({
   name: 'px-to-rem',
   type: 'value',
   filter: token => {
-    console.log(token);
     return (
       typeof token.value === 'number' &&
       (token.name.includes('font-size') ||
@@ -78,6 +78,19 @@ StyleDictionary.registerTransformGroup({
     'alias/variable-css',
   ],
 });
+
+const lightComponents = Object.keys(componentJson.light);
+const dynamicComponentFiles = lightComponents.map(componentName => ({
+  destination: `${componentName}.css`,
+  format: 'css/variables',
+  filter: token => {
+    return (
+      token.filePath.includes('component') &&
+      token.attributes.category !== 'dark' &&
+      token.path.includes(componentName)
+    );
+  },
+}));
 
 function generateCss() {
   console.log('Generating CSS...');
@@ -140,15 +153,8 @@ function generateCss() {
           transformGroup: 'css-device',
           transforms: ['remove-color', 'px-to-rem'],
           buildPath: './css/',
-          files: [
-            {
-              destination: 'components.css',
-              format: 'css/variables',
-              filter: token => {
-                return token.filePath.includes('component');
-              },
-            },
-          ],
+          files: dynamicComponentFiles,
+        },
       },
     }),
   ];
