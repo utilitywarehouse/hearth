@@ -1,6 +1,8 @@
 import Head from 'next/head';
-import { Box as HearthBox } from '@utilitywarehouse/hearth-react';
+import '@utilitywarehouse/hearth-css-reset';
 import '@utilitywarehouse/hearth-react/styles.css';
+
+import { Box as HearthBox } from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';
 
 export default function Home() {
