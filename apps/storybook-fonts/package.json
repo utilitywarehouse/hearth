@@ -12,7 +12,7 @@
     "build:storybook": "storybook build"
   },
   "dependencies": {
-    "@utilitywarehouse/hearth-fonts": "^0.0.2",
+    "@utilitywarehouse/hearth-fonts": "workspace:*",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

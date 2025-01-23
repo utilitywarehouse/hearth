@@ -1,15 +1,54 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Box } from './Box';
-import { paddingTokens } from '../../props/padding.props';
+import { Box, Flex } from '@utilitywarehouse/hearth-react';
+
+const paddingTokens = [
+  '0',
+  '25',
+  '50',
+  '75',
+  '100',
+  '150',
+  '200',
+  '250',
+  '300',
+  '350',
+  '400',
+  '500',
+  '600',
+  '700',
+  '800',
+  '900',
+  '1000',
+] as const;
+const gapTokens = [
+  '0',
+  '25',
+  '50',
+  '75',
+  '100',
+  '150',
+  '200',
+  '250',
+  '300',
+  '350',
+  '400',
+  '500',
+  '600',
+  '700',
+  '800',
+  '900',
+  '1000',
+] as const;
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta: Meta<typeof Box> = {
-  title: 'Stories / Box',
-  component: Box,
+const meta: Meta<typeof Flex> = {
+  title: 'Stories / Flex',
+  component: Flex,
   parameters: { layout: 'centered' },
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },
+    display: { options: ['none', 'flex', 'inline-flex'], control: { type: 'radio' } },
     padding: { options: paddingTokens, control: { type: 'select' } },
     paddingInline: { options: paddingTokens, control: { type: 'select' } },
     paddingBlock: { options: paddingTokens, control: { type: 'select' } },
@@ -17,6 +56,7 @@ const meta: Meta<typeof Box> = {
     paddingRight: { options: paddingTokens, control: { type: 'select' } },
     paddingBottom: { options: paddingTokens, control: { type: 'select' } },
     paddingLeft: { options: paddingTokens, control: { type: 'select' } },
+    gap: { options: gapTokens, control: { type: 'select' } },
     width: { control: { type: 'text' } },
     minWidth: { control: { type: 'text' } },
     maxWidth: { control: { type: 'text' } },
@@ -27,30 +67,33 @@ const meta: Meta<typeof Box> = {
     backgroundColor: { control: { type: 'text' } },
   },
   args: {
-    children: 'Box',
+    children: 'Flex',
     style: { border: '1px solid rebeccapurple' },
   },
-} satisfies Meta<typeof Box>;
+} satisfies Meta<typeof Flex>;
 
 export default meta;
-type Story = StoryObj<typeof Box>;
+type Story = StoryObj<typeof Flex>;
 
 export const Workshop: Story = {};
 
-export const ResponsiveProps: Story = {
+export const ResponsiveGap: Story = {
+  render: args => (
+    <Flex {...args}>
+      <Box className="hearth-sb-Placeholder" width="400px" height="100px" />
+      <Box className="hearth-sb-Placeholder" width="400px" height="100px" />
+      <Box className="hearth-sb-Placeholder" width="400px" height="100px" />
+    </Flex>
+  ),
   args: {
-    children: 'Responsive props',
-    padding: {
-      mobile: '4px',
-      tablet: '200',
-      desktop: '16px',
-      wide: '0',
+    gap: {
+      mobile: '50',
+      tablet: '100',
+      desktop: '200',
+      wide: '400',
     },
-    width: {
-      mobile: '100px',
-      tablet: '200px',
-      desktop: '300px',
-      wide: '400px',
-    },
+    children: '',
+    style: { border: 'none' },
+    direction: 'column',
   },
 };
