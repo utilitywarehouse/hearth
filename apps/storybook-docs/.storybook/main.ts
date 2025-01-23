@@ -10,7 +10,7 @@ function getAbsolutePath(value: string): any {
   return dirname(require.resolve(join(value, 'package.json')));
 }
 const config: StorybookConfig = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: ['../docs/**/*.docs.mdx'],
   addons: [
     getAbsolutePath('@storybook/addon-onboarding'),
     getAbsolutePath('@storybook/addon-essentials'),
@@ -22,14 +22,14 @@ const config: StorybookConfig = {
     options: {},
   },
   refs: {
-    fonts: {
-      title: 'Hearth Fonts',
-      url: 'https://uw-hearth-fonts.vercel.app',
-      expanded: false,
-    },
     react: {
       title: 'Hearth React',
       url: 'https://uw-hearth-react.vercel.app',
+      expanded: false,
+    },
+    fonts: {
+      title: 'Hearth Fonts',
+      url: 'https://uw-hearth-fonts.vercel.app',
       expanded: false,
     },
   },

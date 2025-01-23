@@ -1,4 +1,4 @@
-# UW CSS Reset
+# Hearth CSS Reset
 
 A bare-bones CSS reset for UW web development.
 
@@ -12,21 +12,21 @@ These styles are derived from the following CSS resets:
 Install the package.
 
 ```console
-pnpm add @utilitywarehouse/css-reset
+pnpm add @utilitywarehouse/hearth-css-reset
 ```
 
 ```console
-yarn add @utilitywarehouse/css-reset
+yarn add @utilitywarehouse/hearth-css-reset
 ```
 
 ```console
-npm install @utilitywarehouse/css-reset
+npm install @utilitywarehouse/hearth-css-reset
 ```
 
 Import into the root of your project.
 
 ```js
-import '@utilitywarehouse/css-reset';
+import '@utilitywarehouse/hearth-css-reset';
 ```
 
 
