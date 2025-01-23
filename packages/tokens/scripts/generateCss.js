@@ -157,6 +157,26 @@ function generateCss() {
                 return token.filePath.includes('primitive') && token.type === 'color';
               },
             },
+            {
+              destination: '/colours/light.css',
+              format: 'css/variables',
+              filter: token => {
+                if (token.attributes?.type === 'dark') {
+                  return false;
+                }
+                return token.filePath.includes('primitive') && token.type === 'color';
+              },
+            },
+            {
+              destination: '/colours/dark.css',
+              format: 'css/variables',
+              filter: token => {
+                if (token.attributes?.type === 'light') {
+                  return false;
+                }
+                return token.filePath.includes('primitive') && token.type === 'color';
+              },
+            },
           ],
         },
         'css-primitve': {
