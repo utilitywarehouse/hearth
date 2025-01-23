@@ -16,7 +16,7 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'remove-color',
+  name: 'remove-light-color',
   type: 'name',
   filter: token => {
     return (
@@ -25,7 +25,7 @@ StyleDictionary.registerTransform({
     );
   },
   transform: token => {
-    return token.name.replace(/light-/, '').replace(/colour/, 'color');
+    return token.name.replace(/light-/, '');
   },
 });
 
@@ -36,7 +36,7 @@ StyleDictionary.registerTransform({
     return token.type === 'color' && token.attributes?.type !== 'dark';
   },
   transform: token => {
-    return token.value.replace(/light-/, '').replace(/colour/, 'color');
+    return token.value.replace(/light-/, '');
   },
 });
 
@@ -146,9 +146,22 @@ function generateCss() {
             },
           ],
         },
+        'css-colour': {
+          transformGroup: 'css-device',
+          buildPath: './css/',
+          files: [
+            {
+              destination: 'colour.css',
+              format: 'css/variables',
+              filter: token => {
+                return token.filePath.includes('primitive') && token.type === 'color';
+              },
+            },
+          ],
+        },
         'css-primitve': {
           transformGroup: 'css-device',
-          transforms: ['remove-color', 'px-to-rem'],
+          transforms: ['remove-light-color', 'px-to-rem'],
           buildPath: './css/',
           files: [
             {
@@ -165,7 +178,7 @@ function generateCss() {
         },
         'css-components': {
           transformGroup: 'css-device',
-          transforms: ['remove-color', 'remove-alias-color', 'px-to-rem'],
+          transforms: ['remove-light-color', 'remove-alias-color', 'px-to-rem'],
           buildPath: './css/',
           files: dynamicComponentFiles,
         },
