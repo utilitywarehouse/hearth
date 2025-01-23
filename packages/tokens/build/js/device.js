@@ -102,6 +102,29 @@ export default {
       }
     }
   },
+  "layout": {
+    "content": {
+      "spacing-md": 16,
+      "spacing-lg": 16,
+      "spacing-xs": 8,
+      "spacing-xl": 28,
+      "padding-top": 24,
+      "spacing-sm": 12,
+      "padding-bottom": 32
+    },
+    "grid": {
+      "gutter": 16,
+      "grid": 8,
+      "column-number": 4,
+      "margin": 16,
+      "column-width": 64
+    },
+    "container": {
+      "padding-horizontal": 16,
+      "width": 360
+    }
+  },
+  "device-width": 360,
   "desktop": {
     "typography": {
       "scales": {
@@ -205,6 +228,29 @@ export default {
           }
         }
       }
-    }
+    },
+    "layout": {
+      "content": {
+        "spacing-md": 16,
+        "spacing-lg": 24,
+        "spacing-xs": 8,
+        "spacing-xl": 40,
+        "padding-top": 32,
+        "spacing-sm": 12,
+        "padding-bottom": 48
+      },
+      "grid": {
+        "gutter": 24,
+        "grid": 8,
+        "column-number": 12,
+        "margin": 32,
+        "column-width": 64
+      },
+      "container": {
+        "padding-horizontal": 32,
+        "width": 1096
+      }
+    },
+    "device-width": 1400
   }
 };

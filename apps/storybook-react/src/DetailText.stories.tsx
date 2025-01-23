@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { DetailText, Flex } from '@utilitywarehouse/hearth-react';
 
-import { DetailText } from './DetailText';
-import { Flex } from '../Flex/Flex';
-import * as React from 'react';
-import { sizes } from './DetailText.props';
+const sizes = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'] as const;
 
 const meta: Meta<typeof DetailText> = {
   title: 'Stories / DetailText',

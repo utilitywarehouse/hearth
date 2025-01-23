@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { BodyText, Flex } from '@utilitywarehouse/hearth-react';
 
-import { BodyText } from './BodyText';
-import { Flex } from '../Flex/Flex';
-import * as React from 'react';
-import { sizes, weights } from './BodyText.props';
+const sizes = ['sm', 'md', 'lg'] as const;
+const weights = ['regular', 'bold'] as const;
 
 const meta: Meta<typeof BodyText> = {
   title: 'Stories / BodyText',

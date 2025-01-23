@@ -3,8 +3,8 @@ import { TextAlignProps } from '../../props/text-align.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
-export const sizes = ['sm', 'md', 'lg'] as const;
-export const weights = ['regular', 'bold'] as const;
+const sizes = ['sm', 'md', 'lg'] as const;
+const weights = ['regular', 'bold'] as const;
 
 export const bodyTextPropDefs = {
   size: { className: 'size', tokens: sizes, responsive: true, default: 'md' },

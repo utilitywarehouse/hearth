@@ -7,8 +7,10 @@
   },
   "scripts": {
     "setup": "corepack enable && corepack prepare pnpm@9 --activate",
-    "build": "turbo run build",
+    "build": "turbo build",
+    "build:storybook": "turbo build build:storybook",
     "preinstall": "npx only-allow pnpm",
+    "dev:react": "turbo run @utilitywarehouse/hearth-react#dev storybook-react#dev",
     "format": "turbo run format",
     "format:ci": "turbo run format:ci",
     "lint": "turbo run lint --filter='./packages/*'",

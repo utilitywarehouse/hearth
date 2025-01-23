@@ -6,6 +6,7 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "style": "./styles.css",
   "exports": {
     ".": {
       "require": {
@@ -16,7 +17,8 @@
         "types": "./dist/index.d.ts",
         "default": "./dist/index.js"
       }
-    }
+    },
+    "./*": "./*"
   },
   "sideEffects": false,
   "scripts": {
@@ -24,11 +26,9 @@
     "build": "pnpm build:css && pnpm build:js",
     "build:css": "postcss ./src/styles/index.css -o styles.css",
     "build:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
-    "build:storybook": "storybook build",
-    "build:storybook:ci": "pnpm build && pnpm build:storybook",
-    "dev": "pnpm dev:storybook & pnpm dev:css",
+    "dev:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
     "dev:css": "postcss --watch --verbose src/styles/index.css -o styles.css",
-    "dev:storybook": "storybook dev -p 6006",
+    "dev": "pnpm run \"/^dev:.*/\"",
     "ts-types": "tsc",
     "lint": "pnpm lint:js && pnpm lint:css",
     "lint:fix": "pnpm lint:js:fix && pnpm lint:css:fix",
@@ -43,7 +43,7 @@
     "access": "restricted"
   },
   "files": [
-    "dist",
+    "dist/**",
     "*.css"
   ],
   "peerDependencies": {
@@ -59,16 +59,6 @@
     "clsx": "^2.1.1"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3.2.2",
-    "@storybook/addon-essentials": "^8.4.2",
-    "@storybook/addon-interactions": "^8.4.2",
-    "@storybook/addon-mdx-gfm": "^8.4.5",
-    "@storybook/addon-onboarding": "^8.4.2",
-    "@storybook/addon-viewport": "^8.4.7",
-    "@storybook/blocks": "^8.4.2",
-    "@storybook/react": "^8.4.2",
-    "@storybook/react-vite": "^8.4.2",
-    "@storybook/test": "^8.4.2",
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
     "@utilitywarehouse/colour-system": "^0.5.0",
@@ -76,7 +66,6 @@
     "@utilitywarehouse/hearth-fonts": "^0.0.2",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
-    "eslint-plugin-storybook": "^0.11.0",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
     "postcss-custom-media": "^11.0.5",
@@ -85,7 +74,6 @@
     "prop-types": "^15.8.1",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
-    "storybook": "^8.4.2",
     "stylelint": "^16.10.0",
     "stylelint-config-standard": "^36.0.1",
     "stylelint-media-use-custom-media": "^4.0.0",
