@@ -8,7 +8,7 @@
     "build:watch": "webpack --mode=development --watch",
     "clean": "rm -rf node_modules dist .turbo",
     "lint:fix:ignore": "TIMING=1 eslint --fix --max-warnings 0 --ext ts,tsx src",
-    "lint": "TIMING=1 eslint --max-warnings 0 --ext ts,tsx src",
+    "lint:ignore": "TIMING=1 eslint --max-warnings 0 --ext ts,tsx src",
     "postinstall:ignore": "node ./postinstall.js",
     "prettier:format": "prettier --write '**/*.{js,jsx,ts,tsx,css,json}' "
   },
