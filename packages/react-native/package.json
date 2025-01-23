@@ -13,7 +13,7 @@
     "generateColours": "node ./scripts/generateColours.js",
     "lint:fix": "TIMING=1 eslint --fix --max-warnings 0",
     "lint": "TIMING=1 eslint --max-warnings 0",
-    "build:ignore": "tsc",
+    "build": "tsc",
     "watch": "tsc --watch",
     "watch:lab": "tsc --p tsconfig.lab.json  --watch",
     "figma:create": "figma connect create",

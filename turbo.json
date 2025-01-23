@@ -3,7 +3,7 @@
   "tasks": {
     "build": {
       "inputs": ["$TURBO_DEFAULT$", "!**/*.stories.{tsx,jsx,mdx}"],
-      "outputs": ["dist/**", "storybook-static/**", "*.css"],
+      "outputs": ["dist/**", "build/**", "storybook-static/**", "*.css"],
       "dependsOn": ["^build"]
     },
     "checks": {
