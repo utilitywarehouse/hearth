@@ -1,5 +1,6 @@
 import { ColorProps } from '../../props/color.props';
 import { GapProps } from '../../props/gap.props';
+import { MarginProps } from '../../props/margin.props';
 import type { PaddingProps } from '../../props/padding.props';
 import { PropDef } from '../../props/prop-def';
 import type { SizeProps } from '../../props/size.props';
@@ -43,7 +44,7 @@ export const flexPropDefs = {
   wrap: PropDef<(typeof wrapValues)[number]>;
 };
 
-interface CommonFlexProps extends ColorProps, PaddingProps, SizeProps, GapProps {
+interface CommonFlexProps extends ColorProps, PaddingProps, MarginProps, SizeProps, GapProps {
   as?: 'div' | 'span';
   /** Change the default rendered element for the one passed as a child, merging their props and behavior. */
   asChild?: boolean;

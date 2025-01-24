@@ -1,4 +1,16 @@
+/********************
+ *
+ * Tokens
+ *
+ ********************/
 export { breakpoints } from './tokens/breakpoints';
+export { spaceTokens } from './tokens/space';
+
+/********************
+ *
+ * Utilities
+ *
+ ********************/
 export { media } from './utils/media';
 
 /********************
