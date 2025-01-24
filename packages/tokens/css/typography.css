@@ -4,13 +4,13 @@
 
 :root {
   --body-text-md-paragraph-spacing: var(--space-200);
-  --body-text-md-highlight-font-weight: var(--font-weight-700);
+  --body-text-md-bold-font-weight: var(--font-weight-700);
   --body-text-md-font-weight: var(--font-weight-400);
   --body-text-md-font-size: var(--font-size-100);
   --body-text-md-letter-spacing: 0;
   --body-text-md-line-height: var(--line-height-500);
   --body-text-sm-paragraph-spacing: var(--space-175);
-  --body-text-sm-highlight-font-weight: var(--font-weight-700);
+  --body-text-sm-bold-font-weight: var(--font-weight-700);
   --body-text-sm-letter-spacing: 0;
   --body-text-sm-font-weight: var(--font-weight-400);
   --body-text-sm-line-height: var(--line-height-300);
@@ -18,7 +18,7 @@
   --body-text-lg-font-size: var(--font-size-150);
   --body-text-lg-line-height: var(--line-height-500);
   --body-text-lg-paragraph-spacing: var(--font-size-150);
-  --body-text-lg-highlight-font-weight: var(--font-weight-700);
+  --body-text-lg-bold-font-weight: var(--font-weight-700);
   --body-text-lg-font-weight: var(--font-weight-400);
   --body-text-lg-letter-spacing: 0;
   --body-text-font-family: var(--font-family-body);
@@ -69,13 +69,13 @@
   --heading-xl-letter-spacing: var(--letter-spacing-400);
   --heading-xl-font-size: var(--font-size-400);
   --body-text-md-paragraph-spacing-tablet: var(--space-200);
-  --body-text-md-highlight-font-weight-tablet: var(--font-weight-700);
+  --body-text-md-bold-font-weight-tablet: var(--font-weight-700);
   --body-text-md-font-weight-tablet: var(--font-weight-400);
   --body-text-md-font-size-tablet: var(--font-size-100);
   --body-text-md-letter-spacing-tablet: 0;
   --body-text-md-line-height-tablet: var(--line-height-500);
   --body-text-sm-paragraph-spacing-tablet: var(--space-175);
-  --body-text-sm-highlight-font-weight-tablet: var(--font-weight-700);
+  --body-text-sm-bold-font-weight-tablet: var(--font-weight-700);
   --body-text-sm-letter-spacing-tablet: 0;
   --body-text-sm-font-weight-tablet: var(--font-weight-400);
   --body-text-sm-line-height-tablet: var(--line-height-300);
@@ -83,7 +83,7 @@
   --body-text-lg-font-size-tablet: var(--font-size-150);
   --body-text-lg-line-height-tablet: var(--line-height-500);
   --body-text-lg-paragraph-spacing-tablet: var(--font-size-150);
-  --body-text-lg-highlight-font-weight-tablet: var(--font-weight-700);
+  --body-text-lg-bold-font-weight-tablet: var(--font-weight-700);
   --body-text-lg-font-weight-tablet: var(--font-weight-400);
   --body-text-lg-letter-spacing-tablet: 0;
   --detail-text-sm-font-size-tablet: var(--font-size-90);
@@ -131,13 +131,13 @@
   --heading-xl-letter-spacing-tablet: var(--letter-spacing-400);
   --heading-xl-font-size-tablet: var(--font-size-400);
   --body-text-md-paragraph-spacing-desktop: var(--space-200);
-  --body-text-md-highlight-font-weight-desktop: var(--font-weight-700);
+  --body-text-md-bold-font-weight-desktop: var(--font-weight-700);
   --body-text-md-font-weight-desktop: var(--font-weight-400);
   --body-text-md-font-size-desktop: var(--font-size-100);
   --body-text-md-letter-spacing-desktop: 0;
   --body-text-md-line-height-desktop: var(--line-height-500);
   --body-text-sm-paragraph-spacing-desktop: var(--space-175);
-  --body-text-sm-highlight-font-weight-desktop: var(--font-weight-700);
+  --body-text-sm-bold-font-weight-desktop: var(--font-weight-700);
   --body-text-sm-letter-spacing-desktop: 0;
   --body-text-sm-font-weight-desktop: var(--font-weight-400);
   --body-text-sm-line-height-desktop: var(--line-height-300);
@@ -145,7 +145,7 @@
   --body-text-lg-font-size-desktop: var(--font-size-150);
   --body-text-lg-line-height-desktop: var(--line-height-500);
   --body-text-lg-paragraph-spacing-desktop: var(--font-size-150);
-  --body-text-lg-highlight-font-weight-desktop: var(--font-weight-700);
+  --body-text-lg-bold-font-weight-desktop: var(--font-weight-700);
   --body-text-lg-font-weight-desktop: var(--font-weight-400);
   --body-text-lg-letter-spacing-desktop: 0;
   --detail-text-sm-font-size-desktop: var(--font-size-90);
