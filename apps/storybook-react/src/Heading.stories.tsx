@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { Flex, Heading } from '@utilitywarehouse/hearth-react';
 
-import { Heading } from './Heading';
-import { Flex } from '../Flex/Flex';
-import * as React from 'react';
-import { sizes } from './Heading.props';
+const sizes = ['sm', 'md', 'lg', 'xl'] as const;
 
 const meta: Meta<typeof Heading> = {
   title: 'Stories / Heading',

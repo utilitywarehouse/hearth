@@ -1,19 +1,34 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Flex } from './Flex';
-import React from 'react';
-import { Box } from '../Box/Box';
-import { paddingTokens } from '../../props/padding.props';
-import { gapTokens } from '../../props/gap.props';
+import { Box } from '@utilitywarehouse/hearth-react';
+
+const paddingTokens = [
+  '0',
+  '25',
+  '50',
+  '75',
+  '100',
+  '150',
+  '200',
+  '250',
+  '300',
+  '350',
+  '400',
+  '500',
+  '600',
+  '700',
+  '800',
+  '900',
+  '1000',
+] as const;
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
-const meta: Meta<typeof Flex> = {
-  title: 'Stories / Flex',
-  component: Flex,
+const meta: Meta<typeof Box> = {
+  title: 'Stories / Box',
+  component: Box,
   parameters: { layout: 'centered' },
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },
-    display: { options: ['none', 'flex', 'inline-flex'], control: { type: 'radio' } },
     padding: { options: paddingTokens, control: { type: 'select' } },
     paddingInline: { options: paddingTokens, control: { type: 'select' } },
     paddingBlock: { options: paddingTokens, control: { type: 'select' } },
@@ -21,7 +36,6 @@ const meta: Meta<typeof Flex> = {
     paddingRight: { options: paddingTokens, control: { type: 'select' } },
     paddingBottom: { options: paddingTokens, control: { type: 'select' } },
     paddingLeft: { options: paddingTokens, control: { type: 'select' } },
-    gap: { options: gapTokens, control: { type: 'select' } },
     width: { control: { type: 'text' } },
     minWidth: { control: { type: 'text' } },
     maxWidth: { control: { type: 'text' } },
@@ -32,33 +46,30 @@ const meta: Meta<typeof Flex> = {
     backgroundColor: { control: { type: 'text' } },
   },
   args: {
-    children: 'Flex',
+    children: 'Box',
     style: { border: '1px solid rebeccapurple' },
   },
-} satisfies Meta<typeof Flex>;
+} satisfies Meta<typeof Box>;
 
 export default meta;
-type Story = StoryObj<typeof Flex>;
+type Story = StoryObj<typeof Box>;
 
 export const Workshop: Story = {};
 
-export const ResponsiveGap: Story = {
-  render: args => (
-    <Flex {...args}>
-      <Box className="hearth-sb-Placeholder" width="400px" height="100px" />
-      <Box className="hearth-sb-Placeholder" width="400px" height="100px" />
-      <Box className="hearth-sb-Placeholder" width="400px" height="100px" />
-    </Flex>
-  ),
+export const ResponsiveProps: Story = {
   args: {
-    gap: {
-      mobile: '50',
-      tablet: '100',
-      desktop: '200',
-      wide: '400',
+    children: 'Responsive props',
+    padding: {
+      mobile: '4px',
+      tablet: '200',
+      desktop: '16px',
+      wide: '0',
     },
-    children: '',
-    style: { border: 'none' },
-    direction: 'column',
+    width: {
+      mobile: '100px',
+      tablet: '200px',
+      desktop: '300px',
+      wide: '400px',
+    },
   },
 };

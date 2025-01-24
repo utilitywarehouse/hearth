@@ -9,7 +9,7 @@
   "type": "module",
   "sideEffects": false,
   "scripts": {
-    "clean": "rm -rf node_modules && rm -rf build",
+    "clean": "rm -rf node_modules rm -rf build .turbo",
     "generateColours": "node ./scripts/generateColours.js",
     "lint:fix": "TIMING=1 eslint --fix --max-warnings 0",
     "lint": "TIMING=1 eslint --max-warnings 0",

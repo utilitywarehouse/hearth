@@ -5,7 +5,8 @@
   "main": "js/index.js",
   "type": "module",
   "scripts": {
-    "build": "node ./scripts/index.js"
+    "build": "node ./scripts/build.js",
+    "clean": "rm -rf node_modules .turbo"
   },
   "keywords": [],
   "author": "",

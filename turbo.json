@@ -2,36 +2,39 @@
   "$schema": "https://turborepo.org/schema.json",
   "tasks": {
     "build": {
-      "outputs": ["dist/**"],
+      "inputs": ["$TURBO_DEFAULT$", "!**/*.stories.{tsx,jsx,mdx}"],
+      "outputs": ["dist/**", "build/**", "storybook-static/**", "*.css"],
       "dependsOn": ["^build"]
     },
     "checks": {
       "outputs": ["dist/**"]
     },
     "format": {
+      "dependsOn": ["^format"],
       "outputs": []
     },
     "format:ci": {
+      "dependsOn": ["^format:ci"],
       "outputs": []
     },
     "lint": {
+      "dependsOn": ["^lint"],
       "outputs": []
     },
     "lint:fix": {
+      "dependsOn": ["^lint:fix"],
       "outputs": []
     },
     "dev": {
-      "cache": false
+      "cache": false,
+      "persistent": true
     },
     "clean": {
-      "cache": false
+      "cache": false,
+      "persistent": true
     },
     "build:storybook": {
       "outputs": ["storybook-static/**"],
-      "dependsOn": ["^build"]
-    },
-    "build:storybook:ci": {
-      "outputs": ["dist/**", "storybook-static/**"],
       "dependsOn": ["^build"]
     }
   }

@@ -17,8 +17,8 @@
       "emphasis": {
         "yellow": {
           "background-color": {
-            "alias": "{color.dark.yellow.400}",
-            "value": "#d69200",
+            "alias": "{color.dark.yellow.500}",
+            "value": "#eba400",
             "type": "color"
           }
         }

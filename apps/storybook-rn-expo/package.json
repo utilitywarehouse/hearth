@@ -16,7 +16,8 @@
     "storybook-generate": "sb-rn-get-stories -js",
     "storybook": "cross-env STORYBOOK_ENABLED='true' expo start ",
     "storybook:ios": "cross-env STORYBOOK_ENABLED='true' expo start --ios",
-    "storybook:android": "cross-env STORYBOOK_ENABLED='true' expo start --android"
+    "storybook:android": "cross-env STORYBOOK_ENABLED='true' expo start --android",
+    "clean": "rm -rf node_modules storybook-static .turbo"
   },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.1",

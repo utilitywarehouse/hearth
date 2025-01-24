@@ -3,7 +3,7 @@ import { TextAlignProps } from '../../props/text-align.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
-export const sizes = ['sm', 'md', 'lg', 'xl'] as const;
+const sizes = ['sm', 'md', 'lg', 'xl'] as const;
 
 export const headingPropDefs = {
   size: { className: 'size', tokens: sizes, responsive: false, default: 'md' },

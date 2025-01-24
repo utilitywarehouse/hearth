@@ -3,9 +3,9 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import '@utilitywarehouse/css-reset';
 import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/colour-system/css/colours.css';
-import '../styles.css';
-import '../src/storybook/styles.css';
-import { breakpoints } from '../src/tokens/breakpoints';
+import '@utilitywarehouse/hearth-react/styles.css';
+import '../src/storybook-components/styles.css';
+import { breakpoints } from '@utilitywarehouse/hearth-react';
 
 const customViewports = {
   mobile: {

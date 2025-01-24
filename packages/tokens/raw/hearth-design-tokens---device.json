@@ -9,7 +9,7 @@
               "value": 16,
               "type": "number"
             },
-            "highlight-font-weight": {
+            "bold-font-weight": {
               "alias": "{font.weight.700}",
               "value": 700,
               "type": "number"
@@ -41,7 +41,7 @@
               "value": 14,
               "type": "number"
             },
-            "highlight-font-weight": {
+            "bold-font-weight": {
               "alias": "{font.weight.700}",
               "value": 700,
               "type": "number"
@@ -83,7 +83,7 @@
               "value": 18,
               "type": "number"
             },
-            "highlight-font-weight": {
+            "bold-font-weight": {
               "alias": "{font.weight.700}",
               "value": 700,
               "type": "number"
@@ -453,7 +453,7 @@
               "value": 16,
               "type": "number"
             },
-            "highlight-font-weight": {
+            "bold-font-weight": {
               "alias": "{font.weight.700}",
               "value": 700,
               "type": "number"
@@ -485,7 +485,7 @@
               "value": 14,
               "type": "number"
             },
-            "highlight-font-weight": {
+            "bold-font-weight": {
               "alias": "{font.weight.700}",
               "value": 700,
               "type": "number"
@@ -527,7 +527,7 @@
               "value": 18,
               "type": "number"
             },
-            "highlight-font-weight": {
+            "bold-font-weight": {
               "alias": "{font.weight.700}",
               "value": 700,
               "type": "number"
@@ -897,7 +897,7 @@
               "value": 16,
               "type": "number"
             },
-            "highlight-font-weight": {
+            "bold-font-weight": {
               "alias": "{font.weight.700}",
               "value": 700,
               "type": "number"
@@ -929,7 +929,7 @@
               "value": 14,
               "type": "number"
             },
-            "highlight-font-weight": {
+            "bold-font-weight": {
               "alias": "{font.weight.700}",
               "value": 700,
               "type": "number"
@@ -971,7 +971,7 @@
               "value": 18,
               "type": "number"
             },
-            "highlight-font-weight": {
+            "bold-font-weight": {
               "alias": "{font.weight.700}",
               "value": 700,
               "type": "number"
