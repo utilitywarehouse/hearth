@@ -30,13 +30,27 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
+  name: 'remove-dark-color',
+  type: 'name',
+  filter: token => {
+    return (
+      (token.type === 'color' || token.filePath.includes('component')) &&
+      token.attributes?.type !== 'light'
+    );
+  },
+  transform: token => {
+    return token.name.replace(/dark-/, '');
+  },
+});
+
+StyleDictionary.registerTransform({
   name: 'remove-alias-color',
   type: 'value',
   filter: token => {
-    return token.type === 'color' && token.attributes?.type !== 'dark';
+    return token.type === 'color';
   },
   transform: token => {
-    return token.value.replace(/light-/, '');
+    return token.value.replace(/light-/, '').replace(/dark-/, '');
   },
 });
 
@@ -50,7 +64,7 @@ StyleDictionary.registerTransform({
     if (token.attributes.state === 'font-family') {
       return `${token.attributes.subitem}-${token.attributes.state}`;
     }
-    return `${token.attributes.subitem}-${token.attributes.state}-${token.path[token.path.length - 1]}-${token.attributes.category}`;
+    return `${token.attributes.subitem}-${token.attributes.state}-${token.path[token.path.length - 1]}${token.attributes.category !== 'mobile' ? `-${token.attributes.category}` : ''}`;
   },
 });
 
@@ -61,7 +75,7 @@ StyleDictionary.registerTransform({
     return token.attributes.type === 'layout';
   },
   transform: token => {
-    return `${token.attributes.item}-${token.attributes.subitem}-${token.attributes.category}`;
+    return `${token.attributes.item}-${token.attributes.subitem}${token.attributes.category !== 'mobile' ? `-${token.attributes.category}` : ''}`;
   },
 });
 
@@ -69,12 +83,7 @@ StyleDictionary.registerTransform({
   name: 'px-to-rem',
   type: 'value',
   filter: token => {
-    return (
-      typeof token.value === 'number' &&
-      (token.name.includes('font-size') ||
-        token.name.includes('line-height') ||
-        token.name.includes('letter-spacing'))
-    );
+    return typeof token.value === 'number' && token.name.includes('font-size');
   },
   transform: token => {
     return `${token.value / 16}rem`;
@@ -93,14 +102,58 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
+StyleDictionary.registerFormat({
+  name: 'css/theme-component-variables',
+  format: ({ dictionary }) => {
+    // console.log(dictionary.allTokens);
+    const lightTokens = dictionary.allTokens.filter(t => t.path[0] === 'light');
+    const darkTokens = dictionary.allTokens.filter(t => t.path[0] === 'dark');
+
+    const lightVars = lightTokens
+      .map(t => `  --${t.path.slice(1).join('-')}: ${t.value};`)
+      .join('\n');
+    const darkVars = darkTokens
+      .map(t => `  --${t.path.slice(1).join('-')}: ${t.value};`)
+      .join('\n');
+
+    return `/**
+ * Do not edit directly, this file was auto-generated.
+ */\n\n:root {\n${lightVars}\n}\n\n[data-theme='dark'] {\n${darkVars}\n}`;
+  },
+});
+
+StyleDictionary.registerFormat({
+  name: 'css/theme-color-variables',
+  format: ({ dictionary }) => {
+    // console.log(dictionary.allTokens);
+    const lightTokens = dictionary.allTokens.filter(t => t.attributes?.type === 'light');
+    const darkTokens = dictionary.allTokens.filter(t => t.attributes?.type === 'dark');
+
+    const lightVars = lightTokens
+      .map(t => `  --color-${t.path.slice(2).join('-')}: ${t.value};`)
+      .join('\n');
+    const darkVars = darkTokens
+      .map(t => `  --color-${t.path.slice(2).join('-')}: ${t.value};`)
+      .join('\n');
+
+    return `/**
+ * Do not edit directly, this file was auto-generated.
+ */\n\n:root {\n${lightVars}\n}\n\n[data-theme='dark'] {\n${darkVars}\n}`;
+  },
+});
+
 const lightComponents = Object.keys(componentJson.light);
-const dynamicComponentFiles = lightComponents.map(componentName => ({
+const darkComponents = Object.keys(componentJson.dark);
+const dynamicComponentFiles = [...lightComponents, ...darkComponents].map(componentName => ({
   destination: `${componentName}.css`,
-  format: 'css/variables',
+  format: 'css/theme-component-variables',
   filter: token => {
+    if (token.filePath.includes('component') && token.path.includes(componentName)) {
+      // console.log(token);
+    }
     return (
       token.filePath.includes('component') &&
-      token.attributes.category !== 'dark' &&
+      // token.attributes.category !== 'dark' &&
       token.path.includes(componentName)
     );
   },
@@ -152,11 +205,18 @@ function generateCss() {
           files: [
             {
               destination: 'colour.css',
-              format: 'css/variables',
+              format: 'css/theme-color-variables',
               filter: token => {
                 return token.filePath.includes('primitive') && token.type === 'color';
               },
             },
+          ],
+        },
+        'css-colour-light': {
+          transformGroup: 'css-device',
+          transforms: ['remove-light-color'],
+          buildPath: './css/',
+          files: [
             {
               destination: '/colours/light.css',
               format: 'css/variables',
@@ -167,6 +227,13 @@ function generateCss() {
                 return token.filePath.includes('primitive') && token.type === 'color';
               },
             },
+          ],
+        },
+        'css-colour-dark': {
+          transformGroup: 'css-device',
+          transforms: ['remove-dark-color'],
+          buildPath: './css/',
+          files: [
             {
               destination: '/colours/dark.css',
               format: 'css/variables',
@@ -188,7 +255,7 @@ function generateCss() {
               destination: 'primitive.css',
               format: 'css/variables',
               filter: token => {
-                if (token.attributes?.type === 'dark') {
+                if (token.type === 'color') {
                   return false;
                 }
                 return token.filePath.includes('primitive');

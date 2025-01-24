@@ -3,20 +3,20 @@
  */
 
 :root {
-  --content-spacing-md-mobile: var(--space-200);
-  --content-spacing-lg-mobile: var(--space-200);
-  --content-spacing-xs-mobile: var(--space-100);
-  --content-spacing-xl-mobile: var(--space-350);
-  --content-padding-top-mobile: var(--space-300);
-  --content-spacing-sm-mobile: var(--space-150);
-  --content-padding-bottom-mobile: var(--space-400);
-  --grid-gutter-mobile: var(--space-200);
-  --grid-grid-size-mobile: var(--space-100);
-  --grid-column-number-mobile: 4;
-  --grid-margin-mobile: var(--space-200);
-  --grid-column-width-mobile: 64;
-  --container-padding-horizontal-mobile: var(--space-200);
-  --container-width-mobile: 360;
+  --content-spacing-md: var(--space-200);
+  --content-spacing-lg: var(--space-200);
+  --content-spacing-xs: var(--space-100);
+  --content-spacing-xl: var(--space-350);
+  --content-padding-top: var(--space-300);
+  --content-spacing-sm: var(--space-150);
+  --content-padding-bottom: var(--space-400);
+  --grid-gutter: var(--space-200);
+  --grid-grid-size: var(--space-100);
+  --grid-column-number: 4;
+  --grid-margin: var(--space-200);
+  --grid-column-width: 64;
+  --container-padding-horizontal: var(--space-200);
+  --container-width: 360;
   --content-spacing-md-tablet: var(--space-200);
   --content-spacing-lg-tablet: var(--space-300);
   --content-spacing-xs-tablet: var(--space-100);
