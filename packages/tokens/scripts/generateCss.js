@@ -143,19 +143,11 @@ StyleDictionary.registerFormat({
 });
 
 const lightComponents = Object.keys(componentJson.light);
-const darkComponents = Object.keys(componentJson.dark);
-const dynamicComponentFiles = [...lightComponents, ...darkComponents].map(componentName => ({
+const dynamicComponentFiles = lightComponents.map(componentName => ({
   destination: `${componentName}.css`,
   format: 'css/theme-component-variables',
   filter: token => {
-    if (token.filePath.includes('component') && token.path.includes(componentName)) {
-      // console.log(token);
-    }
-    return (
-      token.filePath.includes('component') &&
-      // token.attributes.category !== 'dark' &&
-      token.path.includes(componentName)
-    );
+    return token.filePath.includes('component') && token.path.includes(componentName);
   },
 }));
 
@@ -218,7 +210,7 @@ function generateCss() {
           buildPath: './css/',
           files: [
             {
-              destination: '/colours/light.css',
+              destination: 'colours/light.css',
               format: 'css/variables',
               filter: token => {
                 if (token.attributes?.type === 'dark') {
@@ -235,7 +227,7 @@ function generateCss() {
           buildPath: './css/',
           files: [
             {
-              destination: '/colours/dark.css',
+              destination: 'colours/dark.css',
               format: 'css/variables',
               filter: token => {
                 if (token.attributes?.type === 'light') {
