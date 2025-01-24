@@ -3,105 +3,156 @@
  *
  * - https://www.joshwcomeau.com/css/custom-css-reset/
  * - https://andy-bell.co.uk/a-modern-css-reset/
+ * - https://github.com/mayank99/reset.css
  */
 
-/* Use a more intuitive box-sizing model. */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-/* Remove default margin */
-* {
-  margin: 0;
-}
-
-/* Core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
-/* Core body defaults & typography adjustments */
-body {
-  min-height: 100vh;
-  line-height: 1.5;
-  text-rendering: optimizeSpeed;
-  -moz-osx-font-smoothing: grayscale; /* Firefox */
-  -webkit-font-smoothing: antialiased; /* WebKit  */
-  -webkit-text-size-adjust: 100%; /** Prevent adjustments of font size after orientation changes in iOS. */
-  font-family: 'Work Sans', Arial, sans-serif; /** TODO: replace this with a custom property when available **/
-}
-
-/** Preserve the ligatures and kerning of the Aeonik typeface used for headings. */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: Aeonik, Arial, sans-serif; /** TODO: replace this with a custom property when available **/
-  text-rendering: optimizeLegibility;
-}
-
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-/* a elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-/* Improve media defaults */
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-/* Ensure svg icons do not shrink */
-svg {
-  overflow: visible;
-}
-
-/* Remove built-in form typography styles */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-/* Avoid text overflows */
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-/* Remove all animations and transitions for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
+@layer reset {
+  /* Use a more intuitive box-sizing model, and remove default margin & padding. */
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :where(ul, ol) {
+    padding: revert;
+  }
+
+  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+  :where(ul[role='list'], ol[role='list']) {
+    list-style: none;
+    padding: 0;
+  }
+
+  /* Core root defaults */
+  @media (prefers-reduced-motion: no-preference) {
+    :where(html:focus-within) {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* Typography variables */
+  :root {
+    --font-family-heading: 'TMT Limkin Flare';
+    --font-family-heading-fallback: Georgia, serif;
+    --font-family-body-text: 'DM Sans';
+    --font-family-body-text-fallback: Helvetica, Arial, sans-serif;
+    --font-family-detail-text: 'DM Mono';
+    --font-family-detail-text-fallback: 'Courier New', Courier, monospace;
+  }
+
+  /* Core body defaults & typography adjustments */
+  :where(body) {
+    min-height: 100vh;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    -moz-osx-font-smoothing: grayscale; /* Firefox */
+    -webkit-font-smoothing: antialiased; /* WebKit  */
+    font-family: var(--font-family-body-text), var(--font-family-body-text-fallback);
+  }
+
+  /* Prevent font size inflation */
+  :where(html) {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+  }
+
+  /* Set shorter line heights on headings and interactive elements */
+  :where(h1, h2, h3, h4, button, input, label) {
+    line-height: 1.1;
+  }
+
+  :where(h1, h2, h3, h4) {
+    font-family: var(--font-family-heading), var(--font-family-heading-fallback);
+    /* don't remove heading element kerning */
+    text-rendering: optimizeLegibility;
+  }
+
+  /* a elements that don't have a class get default styles */
+  :where(a:not([class])) {
+    text-decoration-skip-ink: auto;
+  }
+
+  /* Improve media defaults */
+  :where(img, picture) {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* Ensure svg icons do not shrink */
+  :where(svg) {
+    overflow: visible;
+  }
+
+  /* Remove built-in form typography styles */
+  :where(input, button, textarea, select) {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+  }
+
+  :where(button, a) {
+    font-family: var(--font-family-detail-text), var(--font-family-detail-text-fallback);
+  }
+
+  :where(textarea) {
+    resize: vertical;
+    resize: block;
+  }
+
+  :where(button, label, select, summary, [role='button'], [role='option']) {
+    cursor: pointer;
+  }
+
+  :where(:disabled, [aria-disabled], [data-disabled], label:has(> :disabled, + disabled)) {
+    cursor: not-allowed;
+  }
+
+  /* Avoid text overflows */
+  :where(p, h1, h2, h3, h4) {
+    overflow-wrap: break-word;
+  }
+
+  /* Balance text wrapping on headings */
+  :where(h1, h2, h3, h4) {
+    text-wrap: balance;
+  }
+
+  /* Anything that has been anchored to should have extra scroll margin */
+  :where(:target) {
+    scroll-margin-block: 5ex;
+  }
+
+  /* Remove all animations and transitions for people that prefer not to see them */
+  @media (prefers-reduced-motion: reduce) {
+    :where(html:focus-within) {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* "visually hidden" styles for screenreader-only text. */
+  :where(.visually-hidden:not(:focus-within, :active)) {
+    clip-path: inset(50%) !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+    user-select: none !important;
   }
 }

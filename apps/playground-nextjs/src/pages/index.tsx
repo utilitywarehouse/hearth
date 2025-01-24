@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import '@utilitywarehouse/hearth-css-reset';
-import '@utilitywarehouse/hearth-react/styles.css';
+import '@utilitywarehouse/hearth-fonts';
 
 import { Box as HearthBox } from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';
@@ -18,6 +17,22 @@ export default function Home() {
       <StyledBox sx={{ border: '1px solid red', padding: '32px', display: 'flex' }}>
         Hearth styled with sx
       </StyledBox>
+      <div>
+        <h1>CSS Reset</h1>
+        <button>button</button>
+        <button data-disabled>button</button>
+        <button aria-disabled>button</button>
+        <ul role="list">
+          <li>dog</li>
+          <li>cat</li>
+          <li>horse</li>
+        </ul>
+        <a href="#">link</a>
+        <div style={{ width: '300px', textAlign: 'center' }}>
+          <h1>The UK's cheapest energy supplier when you bundle</h1>
+        </div>
+      </div>
+      <div className="visually-hidden">Visually Hidden</div>
     </>
   );
 }
