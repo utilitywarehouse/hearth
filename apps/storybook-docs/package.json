@@ -28,6 +28,7 @@
     "@storybook/test": "^8.4.7",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "@utilitywarehouse/hearth-css-reset": "workspace:*",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.17.0",
     "eslint-plugin-react-hooks": "^5.0.0",
