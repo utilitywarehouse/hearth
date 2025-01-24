@@ -27,6 +27,10 @@
     padding: var(--space-150);
   }
 
+  .hearth-r-padding-175 {
+    padding: var(--space-175);
+  }
+
   .hearth-r-padding-200 {
     padding: var(--space-200);
   }
@@ -99,6 +103,10 @@
 
   .hearth-r-padding-inline-150 {
     padding-inline: var(--space-150);
+  }
+
+  .hearth-r-padding-inline-175 {
+    padding-inline: var(--space-175);
   }
 
   .hearth-r-padding-inline-200 {
@@ -175,6 +183,10 @@
     padding-block: var(--space-150);
   }
 
+  .hearth-r-padding-block-175 {
+    padding-block: var(--space-175);
+  }
+
   .hearth-r-padding-block-200 {
     padding-block: var(--space-200);
   }
@@ -247,6 +259,10 @@
 
   .hearth-r-padding-top-150 {
     padding-top: var(--space-150);
+  }
+
+  .hearth-r-padding-top-175 {
+    padding-top: var(--space-175);
   }
 
   .hearth-r-padding-top-200 {
@@ -323,6 +339,10 @@
     padding-right: var(--space-150);
   }
 
+  .hearth-r-padding-right-175 {
+    padding-right: var(--space-175);
+  }
+
   .hearth-r-padding-right-200 {
     padding-right: var(--space-200);
   }
@@ -397,6 +417,10 @@
     padding-bottom: var(--space-150);
   }
 
+  .hearth-r-padding-bottom-175 {
+    padding-bottom: var(--space-175);
+  }
+
   .hearth-r-padding-bottom-200 {
     padding-bottom: var(--space-200);
   }
@@ -469,6 +493,10 @@
 
   .hearth-r-padding-left-150 {
     padding-left: var(--space-150);
+  }
+
+  .hearth-r-padding-left-175 {
+    padding-left: var(--space-175);
   }
 
   .hearth-r-padding-left-200 {
