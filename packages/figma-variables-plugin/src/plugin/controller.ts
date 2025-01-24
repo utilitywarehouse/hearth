@@ -237,7 +237,7 @@ async function exportVariables(selectedCollectionIds: Array<string>) {
         isLocal: true as const,
         id: c.id, // local uses .id
         name: c.name,
-        libraryName: 'Local Collection',
+        libraryName: `${figma.root.name} (Local)`,
       })),
     ];
 
@@ -259,10 +259,11 @@ async function exportVariables(selectedCollectionIds: Array<string>) {
         const libraryVars = await figma.teamLibrary.getVariablesInLibraryCollectionAsync(
           matched.id
         );
-        for (const lv of libraryVars) {
-          const imported = await figma.variables.importVariableByKeyAsync(lv.key);
-          importedVariables.push(imported);
-        }
+        const importPromises = libraryVars.map(lv =>
+          figma.variables.importVariableByKeyAsync(lv.key)
+        );
+        const allImported = await Promise.all(importPromises);
+        importedVariables.push(...allImported);
       } else {
         // local
         const localColl = await figma.variables.getVariableCollectionByIdAsync(matched.id);
@@ -301,7 +302,7 @@ async function exportVariables(selectedCollectionIds: Array<string>) {
 
       // 4) Save final
       tokensPerCollection.push({
-        collectionName: `${matched.libraryName}--${matched.name}`,
+        collectionName: `${matched.libraryName?.replace(' (Local)', '')}--${matched.name}`,
         tokensJson: JSON.stringify(tokens, null, 2),
       });
     }
@@ -345,7 +346,7 @@ figma.ui.onmessage = async msg => {
         isLocal: true,
         id: c.id,
         name: c.name,
-        libraryName: 'Local Collection',
+        libraryName: `${figma.root.name} (Local)`,
       })),
     ];
     figma.ui.postMessage({ type: 'collections-loaded', data: allCollections });

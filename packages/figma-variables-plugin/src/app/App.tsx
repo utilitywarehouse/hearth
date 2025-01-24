@@ -2,10 +2,10 @@
 /* eslint-disable  @typescript-eslint/no-unsafe-return */
 /* eslint-disable  @typescript-eslint/no-unsafe-call */
 import React, { useEffect } from 'react';
-import logo from '../assets/logo.svg';
+import logo from './assets/logo.svg';
 import '@utilitywarehouse/css-reset';
-import '../styles/ui.css';
-import { encodeContent, kebabCase } from '../utils';
+import './styles/ui.css';
+import { encodeContent, kebabCase } from './utils';
 import {
   Heading,
   Button,
@@ -15,17 +15,8 @@ import {
   Flex,
   Alert,
   TextField,
-  Text,
 } from '@utilitywarehouse/web-ui';
-
-const LoadingSpinner = ({ text }) => {
-  return (
-    <div className="spinner-container">
-      <div className="loading-spinner"></div>
-      {!!text && <Text>{text}</Text>}
-    </div>
-  );
-};
+import LoadingSpinner from './components/LoadingSpinner';
 
 function App() {
   const [githubToken, setGithubToken] = React.useState('');
@@ -34,6 +25,7 @@ function App() {
   const [statusMessage, setStatusMessage] = React.useState('');
   const [exporting, setExporting] = React.useState(false);
   const [collections, setCollections] = React.useState([]);
+  const [loadingCollections, setLoadingCollections] = React.useState(true);
   const [selectedCollections, setSelectedCollections] = React.useState([]);
   const [loadingImport, setLoadingImport] = React.useState(false);
   const [loadingText, setLoadingText] = React.useState('');
@@ -80,12 +72,30 @@ function App() {
     if (pluginMessage.type === 'collections-loaded') {
       console.log('Collections loaded:', pluginMessage.data);
       setCollections(pluginMessage.data);
+      setLoadingCollections(false);
     } else if (pluginMessage.type === 'show-loading') {
       setLoadingImport(true);
+      setLoadingText('Importing variables, please wait...');
     } else if (pluginMessage.type === 'hide-loading') {
       setLoadingImport(false);
+      setLoadingText('');
     }
   };
+
+  useEffect(() => {
+    let timeout;
+    if (loadingText === 'Importing variables, please wait...') {
+      timeout = setTimeout(() => {
+        setLoadingText("Shouldn't be much longer now...");
+      }, 5000);
+    }
+    if (loadingText === "Shouldn't be much longer now...") {
+      timeout = setTimeout(() => {
+        setLoadingText('Just a few more seconds...');
+      }, 10000);
+    }
+    return () => clearTimeout(timeout);
+  }, [loadingText]);
 
   // Save GitHub token to clientStorage
   const saveToken = () => {
@@ -188,7 +198,7 @@ function App() {
       // Prepare all file updates
       for (const { collectionName, tokensJson } of tokensData) {
         const kebabCollectionName = kebabCase(collectionName);
-        const filePath = `packages/tokens/tokens/${kebabCollectionName}.json`;
+        const filePath = `packages/tokens/raw/${kebabCollectionName}.json`;
 
         let fileSha;
         try {
@@ -264,7 +274,7 @@ function App() {
           body: `This PR contains exported Figma variables for all selected collections. It includes the following changes:\n\n${tokensData
             .map(
               ({ collectionName }) =>
-                `- Exported variables to packages/tokens/tokens/${kebabCase(collectionName)}.json`
+                `- Exported variables to packages/tokens/raw/${kebabCase(collectionName)}.json`
             )
             .join('\n')}`,
         }),
@@ -344,39 +354,57 @@ function App() {
               helperText="Published library collections in this file"
               sx={{ mb: 3 }}
             >
-              <Checkbox
-                id="select-all"
-                value="select-all"
-                label="Select All"
-                checked={selectAll}
-                onCheckedChange={handleSelectAll}
-              />
-            </CheckboxGroup>
-            <CheckboxGroup
-              direction="row"
-              value={selectedCollections}
-              onValueChange={val => setSelectedCollections(val)}
-            >
-              {collections.map(collection => (
+              {!loadingCollections && collections.length > 0 && (
                 <Checkbox
-                  key={collection.id}
-                  id={`checkbox-${collection.id}`}
-                  value={collection.id}
-                  label={collection.name}
-                  helperText={collection.libraryName}
+                  id="select-all"
+                  value="select-all"
+                  label="Select All"
+                  checked={selectAll}
+                  onCheckedChange={handleSelectAll}
                 />
-              ))}
+              )}
             </CheckboxGroup>
+            {
+              // Show loading spinner while fetching collections
+              loadingCollections && <LoadingSpinner text="Loading collections..." />
+            }
+            {!loadingCollections && collections.length === 0 && (
+              <Alert
+                colorScheme="cyan"
+                text="No collections found in this file. Please create a collection in the library."
+                sx={{ mb: 3 }}
+              />
+            )}
+            {!loadingCollections && collections.length > 0 && (
+              <CheckboxGroup
+                direction="row"
+                value={selectedCollections}
+                onValueChange={val => setSelectedCollections(val)}
+              >
+                {collections.map(collection => (
+                  <Checkbox
+                    key={collection.id}
+                    id={`checkbox-${collection.id}`}
+                    value={collection.id}
+                    label={collection.name}
+                    helperText={collection.libraryName}
+                  />
+                ))}
+              </CheckboxGroup>
+            )}
           </Box>
 
           <Flex direction="column" align={{ mobile: 'stretch', desktop: 'start' }}>
-            <Button onClick={exportVariables} disabled={exporting || loadingImport}>
+            <Button
+              onClick={exportVariables}
+              disabled={exporting || loadingImport || loadingCollections}
+            >
               {exporting ? 'Exporting...' : 'Export Variables'}
             </Button>
           </Flex>
         </Box>
       )}
-      {(exporting || loadingImport) && <LoadingSpinner text={loadingText} />}
+      {(exporting || loadingImport) && <LoadingSpinner text={loadingText} overlay />}
 
       <svg
         id="corner"
