@@ -1,26 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Box } from '@utilitywarehouse/hearth-react';
-
-const paddingTokens = [
-  '0',
-  '25',
-  '50',
-  '75',
-  '100',
-  '150',
-  '175',
-  '200',
-  '250',
-  '300',
-  '350',
-  '400',
-  '500',
-  '600',
-  '700',
-  '800',
-  '900',
-  '1000',
-] as const;
+import { Box, spaceTokens } from '@utilitywarehouse/hearth-react';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Box> = {
@@ -30,13 +9,13 @@ const meta: Meta<typeof Box> = {
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },
-    padding: { options: paddingTokens, control: { type: 'select' } },
-    paddingInline: { options: paddingTokens, control: { type: 'select' } },
-    paddingBlock: { options: paddingTokens, control: { type: 'select' } },
-    paddingTop: { options: paddingTokens, control: { type: 'select' } },
-    paddingRight: { options: paddingTokens, control: { type: 'select' } },
-    paddingBottom: { options: paddingTokens, control: { type: 'select' } },
-    paddingLeft: { options: paddingTokens, control: { type: 'select' } },
+    padding: { options: spaceTokens, control: { type: 'select' } },
+    paddingInline: { options: spaceTokens, control: { type: 'select' } },
+    paddingBlock: { options: spaceTokens, control: { type: 'select' } },
+    paddingTop: { options: spaceTokens, control: { type: 'select' } },
+    paddingRight: { options: spaceTokens, control: { type: 'select' } },
+    paddingBottom: { options: spaceTokens, control: { type: 'select' } },
+    paddingLeft: { options: spaceTokens, control: { type: 'select' } },
     width: { control: { type: 'text' } },
     minWidth: { control: { type: 'text' } },
     maxWidth: { control: { type: 'text' } },
@@ -71,6 +50,12 @@ export const ResponsiveProps: Story = {
       tablet: '200px',
       desktop: '300px',
       wide: '400px',
+    },
+    margin: {
+      mobile: '16px',
+      tablet: '0',
+      desktop: '300',
+      wide: '500',
     },
   },
 };

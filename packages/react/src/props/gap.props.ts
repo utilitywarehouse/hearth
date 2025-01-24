@@ -1,26 +1,8 @@
+import { spaceTokens } from '../tokens/space';
 import { Responsive, Union } from '../types/responsive';
 import { PropDef } from './prop-def';
 
-const gapTokens = [
-  '0',
-  '25',
-  '50',
-  '75',
-  '100',
-  '150',
-  '175',
-  '200',
-  '250',
-  '300',
-  '350',
-  '400',
-  '500',
-  '600',
-  '700',
-  '800',
-  '900',
-  '1000',
-] as const;
+const gapTokens = spaceTokens;
 
 const gapPropDefs = {
   gap: { className: 'gap', tokens: gapTokens, responsive: true },
