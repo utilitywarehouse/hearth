@@ -12,6 +12,7 @@ import { colorPropDefs } from '../../props/color.props';
 import { sizePropDefs } from '../../props/size.props';
 import { gapPropDefs } from '../../props/gap.props';
 import { marginPropDefs } from '../../props/margin.props';
+import { gridItemPropDefs } from '../../props/grid-item.props';
 
 const componentName = 'Flex';
 const componentClassName = withGlobalPrefix(componentName);
@@ -31,7 +32,8 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
     marginPropDefs,
     colorPropDefs,
     sizePropDefs,
-    gapPropDefs
+    gapPropDefs,
+    gridItemPropDefs
   );
 
   const Component = asChild ? Slot : Tag;

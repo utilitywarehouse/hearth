@@ -12,6 +12,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { marginPropDefs } from '../../props/margin.props';
 import { gapPropDefs } from '../../props/gap.props';
 import { sizePropDefs } from '../../props/size.props';
+import { gridItemPropDefs } from '../../props/grid-item.props';
 
 const componentName = 'Grid';
 const componentClassName = withGlobalPrefix(componentName);
@@ -22,7 +23,7 @@ export const Grid = React.forwardRef<GridElement, GridProps>((props, ref) => {
   const {
     className,
     asChild,
-    container,
+    defaultResponsiveColumns,
     as: Tag = 'div',
     ...gridProps
   } = extractProps(
@@ -32,13 +33,15 @@ export const Grid = React.forwardRef<GridElement, GridProps>((props, ref) => {
     marginPropDefs,
     colorPropDefs,
     gapPropDefs,
-    sizePropDefs
+    sizePropDefs,
+    gridItemPropDefs
   );
 
-  const Component = asChild ? Slot : Tag;
   const dataAttributeProps = {
-    'data-container': container ? '' : undefined,
+    'data-responsive-columns': defaultResponsiveColumns ? '' : undefined,
   };
+
+  const Component = asChild ? Slot : Tag;
 
   return (
     <Component

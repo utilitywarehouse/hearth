@@ -11,6 +11,7 @@ import { colorPropDefs } from '../../props/color.props';
 import { sizePropDefs } from '../../props/size.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { marginPropDefs } from '../../props/margin.props';
+import { gridItemPropDefs } from '../../props/grid-item.props';
 
 const componentName = 'Box';
 const componentClassName = withGlobalPrefix(componentName);
@@ -23,7 +24,14 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
     asChild,
     as: Tag = 'div',
     ...boxProps
-  } = extractProps(props, paddingPropDefs, marginPropDefs, colorPropDefs, sizePropDefs);
+  } = extractProps(
+    props,
+    paddingPropDefs,
+    marginPropDefs,
+    colorPropDefs,
+    sizePropDefs,
+    gridItemPropDefs
+  );
 
   const Component = asChild ? Slot : Tag;
 
