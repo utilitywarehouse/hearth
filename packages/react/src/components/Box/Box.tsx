@@ -1,7 +1,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import type { BoxProps } from './Box.props';
+import { boxPropDefs, type BoxProps } from './Box.props';
 
 import type { ElementRef } from 'react';
 import { Slot } from '@radix-ui/react-slot';
@@ -27,6 +27,7 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
     ...boxProps
   } = extractProps(
     props,
+    boxPropDefs,
     paddingPropDefs,
     marginPropDefs,
     colorPropDefs,
