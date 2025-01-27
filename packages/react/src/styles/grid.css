@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @breakpoints {
   .hearth-r-grid-template {
     grid-template: var(--r-grid-template);
@@ -241,3 +242,212 @@
     grid-row-end: var(--r-grid-row-end);
   }
 }
+||||||| parent of edb494f (add `Grid` component)
+=======
+@breakpoints {
+  .hearth-r-grid-template {
+    grid-template: var(--r-grid-template);
+  }
+}
+
+@breakpoints {
+  .hearth-r-grid-template-columns {
+    grid-template-columns: var(--r-grid-template-columns);
+  }
+}
+
+@breakpoints {
+  .hearth-r-grid-template-rows {
+    grid-template-rows: var(--r-grid-template-rows);
+  }
+}
+
+@breakpoints {
+  .hearth-r-grid-template-areas {
+    grid-template-areas: var(--r-grid-template-areas);
+  }
+}
+
+@breakpoints {
+  .hearth-r-grid-column-start {
+    grid-column-start: var(--r-grid-column-start);
+  }
+}
+
+@breakpoints {
+  .hearth-r-grid-column-end {
+    grid-column-end: var(--r-grid-column-end);
+  }
+}
+
+@breakpoints {
+  .hearth-r-grid-auto-flow-row {
+    grid-auto-flow: row;
+  }
+
+  .hearth-r-grid-auto-flow-column {
+    grid-auto-flow: column;
+  }
+
+  .hearth-r-grid-auto-flow-dense {
+    grid-auto-flow: dense;
+  }
+
+  .hearth-r-grid-auto-flow-row-dense {
+    grid-auto-flow: row dense;
+  }
+
+  .hearth-r-grid-auto-flow-column-dense {
+    grid-auto-flow: column dense;
+  }
+}
+
+@breakpoints {
+  .hearth-r-grid-area {
+    grid-area: var(--r-grid-area);
+  }
+}
+
+@breakpoints {
+  .hearth-r-grid-column {
+    grid-column: var(--r-grid-column);
+  }
+  .hearth-r-grid-column-1 {
+    grid-column: 1;
+  }
+  .hearth-r-grid-column-2 {
+    grid-column: 2;
+  }
+  .hearth-r-grid-column-3 {
+    grid-column: 3;
+  }
+  .hearth-r-grid-column-4 {
+    grid-column: 4;
+  }
+  .hearth-r-grid-column-5 {
+    grid-column: 5;
+  }
+  .hearth-r-grid-column-6 {
+    grid-column: 6;
+  }
+  .hearth-r-grid-column-7 {
+    grid-column: 7;
+  }
+  .hearth-r-grid-column-8 {
+    grid-column: 8;
+  }
+  .hearth-r-grid-column-9 {
+    grid-column: 9;
+  }
+  .hearth-r-grid-column-10 {
+    grid-column: 10;
+  }
+  .hearth-r-grid-column-11 {
+    grid-column: 11;
+  }
+  .hearth-r-grid-column-12 {
+    grid-column: 12;
+  }
+}
+
+@breakpoints {
+  .hearth-r-grid-column-start {
+    grid-column-start: var(--r-grid-column-start);
+  }
+  .hearth-r-grid-column-start-1 {
+    grid-column-start: 1;
+  }
+  .hearth-r-grid-column-start-2 {
+    grid-column-start: 2;
+  }
+  .hearth-r-grid-column-start-3 {
+    grid-column-start: 3;
+  }
+  .hearth-r-grid-column-start-4 {
+    grid-column-start: 4;
+  }
+  .hearth-r-grid-column-start-5 {
+    grid-column-start: 5;
+  }
+  .hearth-r-grid-column-start-6 {
+    grid-column-start: 6;
+  }
+  .hearth-r-grid-column-start-7 {
+    grid-column-start: 7;
+  }
+  .hearth-r-grid-column-start-8 {
+    grid-column-start: 8;
+  }
+  .hearth-r-grid-column-start-9 {
+    grid-column-start: 9;
+  }
+  .hearth-r-grid-column-start-10 {
+    grid-column-start: 10;
+  }
+  .hearth-r-grid-column-start-11 {
+    grid-column-start: 11;
+  }
+  .hearth-r-grid-column-start-12 {
+    grid-column-start: 12;
+  }
+}
+
+@breakpoints {
+  .hearth-r-grid-column-end {
+    grid-column-end: var(--r-grid-column-end);
+  }
+  .hearth-r-grid-column-end-1 {
+    grid-column-end: 1;
+  }
+  .hearth-r-grid-column-end-2 {
+    grid-column-end: 2;
+  }
+  .hearth-r-grid-column-end-3 {
+    grid-column-end: 3;
+  }
+  .hearth-r-grid-column-end-4 {
+    grid-column-end: 4;
+  }
+  .hearth-r-grid-column-end-5 {
+    grid-column-end: 5;
+  }
+  .hearth-r-grid-column-end-6 {
+    grid-column-end: 6;
+  }
+  .hearth-r-grid-column-end-7 {
+    grid-column-end: 7;
+  }
+  .hearth-r-grid-column-end-8 {
+    grid-column-end: 8;
+  }
+  .hearth-r-grid-column-end-9 {
+    grid-column-end: 9;
+  }
+  .hearth-r-grid-column-end-10 {
+    grid-column-end: 10;
+  }
+  .hearth-r-grid-column-end-11 {
+    grid-column-end: 11;
+  }
+  .hearth-r-grid-column-end-12 {
+    grid-column-end: 12;
+  }
+
+@breakpoints {
+  .hearth-r-grid-row {
+    grid-row: var(--r-grid-row);
+  }
+}
+
+@breakpoints {
+  .hearth-r-grid-row-start {
+    grid-row-start: var(--r-grid-row-start);
+  }
+}
+
+@breakpoints {
+  .hearth-r-grid-row-end {
+    grid-row-end: var(--r-grid-row-end);
+  }
+}
+>>>>>>> edb494f (add `Grid` component)
