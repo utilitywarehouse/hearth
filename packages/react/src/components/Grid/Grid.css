@@ -1,16 +1,12 @@
 .hearth-Grid {
   box-sizing: border-box;
   display: grid;
-
-  /**
-   * Default values to provide the initial styles in the object syntax,
-   * e.g. `<Grid columns={{ mobile: '4', tablet: '8', desktop: '12' }} />`
-   **/
   align-items: stretch;
   justify-content: flex-start;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: none;
 
-  &:where([data-container]) {
+  &:where([data-responsive-columns]) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
 
     @media (--tablet) {
@@ -69,56 +65,6 @@
 
     &:where(.hearth-r-columns-12) {
       grid-template-columns: repeat(12, minmax(0, 1fr));
-    }
-  }
-
-  @breakpoints {
-    &:where(.hearth-r-size-1) {
-      grid-column: span 1;
-    }
-
-    &:where(.hearth-r-size-2) {
-      grid-column: span 2;
-    }
-
-    &:where(.hearth-r-size-3) {
-      grid-column: span 3;
-    }
-
-    &:where(.hearth-r-size-4) {
-      grid-column: span 4;
-    }
-
-    &:where(.hearth-r-size-5) {
-      grid-column: span 5;
-    }
-
-    &:where(.hearth-r-size-6) {
-      grid-column: span 6;
-    }
-
-    &:where(.hearth-r-size-7) {
-      grid-column: span 7;
-    }
-
-    &:where(.hearth-r-size-8) {
-      grid-column: span 8;
-    }
-
-    &:where(.hearth-r-size-9) {
-      grid-column: span 9;
-    }
-
-    &:where(.hearth-r-size-10) {
-      grid-column: span 10;
-    }
-
-    &:where(.hearth-r-size-11) {
-      grid-column: span 11;
-    }
-
-    &:where(.hearth-r-size-12) {
-      grid-column: span 12;
     }
   }
 }
