@@ -44,6 +44,11 @@ const preview: Preview = {
     viewport: {
       viewports: customViewports,
     },
+    options: {
+      storySort: {
+        order: ['Layout', 'Typography', 'Utilities', 'Stories'],
+      },
+    },
   },
 };
 
