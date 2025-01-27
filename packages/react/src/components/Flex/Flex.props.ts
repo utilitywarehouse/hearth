@@ -1,4 +1,5 @@
 import { ColorProps } from '../../props/color.props';
+import { FlexItemProps } from '../../props/flex-item.props';
 import { GapProps } from '../../props/gap.props';
 import { GridItemProps } from '../../props/grid-item.props';
 import { MarginProps } from '../../props/margin.props';
@@ -51,7 +52,8 @@ interface CommonFlexProps
     MarginProps,
     SizeProps,
     GapProps,
-    GridItemProps {
+    GridItemProps,
+    FlexItemProps {
   as?: 'div' | 'span';
   /** Change the default rendered element for the one passed as a child, merging their props and behavior. */
   asChild?: boolean;
