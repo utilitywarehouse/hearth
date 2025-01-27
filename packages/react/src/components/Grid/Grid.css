@@ -1,0 +1,124 @@
+.hearth-Grid {
+  box-sizing: border-box;
+  display: grid;
+
+  /**
+   * Default values to provide the initial styles in the object syntax,
+   * e.g. `<Grid columns={{ mobile: '4', tablet: '8', desktop: '12' }} />`
+   **/
+  align-items: stretch;
+  justify-content: flex-start;
+  grid-template-rows: none;
+
+  &:where([data-container]) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    @media (--tablet) {
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+    }
+
+    @media (--desktop) {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+  }
+
+  @breakpoints {
+    &:where(.hearth-r-columns-1) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    &:where(.hearth-r-columns-2) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &:where(.hearth-r-columns-3) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    &:where(.hearth-r-columns-4) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    &:where(.hearth-r-columns-5) {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    &:where(.hearth-r-columns-6) {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    &:where(.hearth-r-columns-7) {
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+
+    &:where(.hearth-r-columns-8) {
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+    }
+
+    &:where(.hearth-r-columns-9) {
+      grid-template-columns: repeat(9, minmax(0, 1fr));
+    }
+
+    &:where(.hearth-r-columns-10) {
+      grid-template-columns: repeat(10, minmax(0, 1fr));
+    }
+
+    &:where(.hearth-r-columns-11) {
+      grid-template-columns: repeat(11, minmax(0, 1fr));
+    }
+
+    &:where(.hearth-r-columns-12) {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+  }
+
+  @breakpoints {
+    &:where(.hearth-r-size-1) {
+      grid-column: span 1;
+    }
+
+    &:where(.hearth-r-size-2) {
+      grid-column: span 2;
+    }
+
+    &:where(.hearth-r-size-3) {
+      grid-column: span 3;
+    }
+
+    &:where(.hearth-r-size-4) {
+      grid-column: span 4;
+    }
+
+    &:where(.hearth-r-size-5) {
+      grid-column: span 5;
+    }
+
+    &:where(.hearth-r-size-6) {
+      grid-column: span 6;
+    }
+
+    &:where(.hearth-r-size-7) {
+      grid-column: span 7;
+    }
+
+    &:where(.hearth-r-size-8) {
+      grid-column: span 8;
+    }
+
+    &:where(.hearth-r-size-9) {
+      grid-column: span 9;
+    }
+
+    &:where(.hearth-r-size-10) {
+      grid-column: span 10;
+    }
+
+    &:where(.hearth-r-size-11) {
+      grid-column: span 11;
+    }
+
+    &:where(.hearth-r-size-12) {
+      grid-column: span 12;
+    }
+  }
+}

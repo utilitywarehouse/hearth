@@ -41,9 +41,9 @@ export const Workshop: Story = {};
 export const ResponsiveGap: Story = {
   render: args => (
     <Flex {...args}>
-      <Box className="hearth-sb-Placeholder" width="400px" height="100px" />
-      <Box className="hearth-sb-Placeholder" width="400px" height="100px" />
-      <Box className="hearth-sb-Placeholder" width="400px" height="100px" />
+      <Box className="hearth-sb-Placeholder" width="400px" />
+      <Box className="hearth-sb-Placeholder" width="400px" />
+      <Box className="hearth-sb-Placeholder" width="400px" />
     </Flex>
   ),
   args: {
