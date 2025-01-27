@@ -15,3 +15,21 @@
     flex-direction: column-reverse;
   }
 }
+
+@breakpoints {
+  .hearth-r-flex-basis {
+    flex-basis: var(--r-flex-basis);
+  }
+}
+
+@breakpoints {
+  .hearth-r-flex-shrink {
+    flex-shrink: var(--r-flex-shrink);
+  }
+}
+
+@breakpoints {
+  .hearth-r-flex-grow {
+    flex-grow: var(--r-flex-grow);
+  }
+}

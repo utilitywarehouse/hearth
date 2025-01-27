@@ -13,6 +13,7 @@ import { marginPropDefs } from '../../props/margin.props';
 import { gapPropDefs } from '../../props/gap.props';
 import { sizePropDefs } from '../../props/size.props';
 import { gridItemPropDefs } from '../../props/grid-item.props';
+import { flexItemPropDefs } from '../../props/flex-item.props';
 
 const componentName = 'Grid';
 const componentClassName = withGlobalPrefix(componentName);
@@ -34,7 +35,8 @@ export const Grid = React.forwardRef<GridElement, GridProps>((props, ref) => {
     colorPropDefs,
     gapPropDefs,
     sizePropDefs,
-    gridItemPropDefs
+    gridItemPropDefs,
+    flexItemPropDefs
   );
 
   const dataAttributeProps = {
