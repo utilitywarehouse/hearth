@@ -36,6 +36,7 @@ export const Workshop: Story = {
     </Grid>
   ),
 };
+<<<<<<< HEAD
 
 export const ResponsiveProps: Story = {
   args: {
@@ -98,3 +99,17 @@ export const ResponsiveProps: Story = {
   },
 };
 >>>>>>> edb494f (add `Grid` component)
+||||||| parent of 4b6d099 (add Box docs)
+
+export const ResponsiveProps: Story = {
+  args: {
+    children: 'Responsive props',
+    columns: {
+      mobile: '4',
+      tablet: '8',
+      desktop: '12',
+    },
+  },
+};
+=======
+>>>>>>> 4b6d099 (add Box docs)

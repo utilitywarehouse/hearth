@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Box, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { Box, BoxProps, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { useRef } from 'react';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Box> = {
@@ -58,4 +59,27 @@ export const ResponsiveProps: Story = {
       wide: '500',
     },
   },
+};
+
+type Props = React.ComponentPropsWithoutRef<'a'> & BoxProps;
+const CustomAnchor = ({ onClick, href, ...props }: Props) => {
+  const ref = useRef<HTMLAnchorElement>(null);
+  return (
+    <Box
+      asChild
+      {...props}
+      padding="100"
+      color="rebeccapurple"
+      style={{ textDecoration: 'underline' }}
+    >
+      <a onClick={onClick} href={href} ref={ref}>
+        Custom Component
+      </a>
+    </Box>
+  );
+};
+
+export const CustomAnchorStory: Story = {
+  name: 'Custom Component',
+  render: () => <CustomAnchor />,
 };

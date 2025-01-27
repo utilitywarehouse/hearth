@@ -1,0 +1,74 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
+
+import * as Stories from './Box.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Layout / Box" />
+
+<DocsHeader componentName="Box" stories={Stories} />
+
+## Semantic HTML
+
+By default `Box` renders a `div` element, this can be customised using the
+`as` prop, to render a `span`.
+
+```tsx
+<Box as="span">...</Box>
+```
+
+To render any other valid HTML element, you can use the `asChild` prop.
+
+```tsx
+<Box asChild>
+  <main>...</main>
+</Box>
+```
+
+This will render the child element, with all the styles declared on the `Box`
+component passed down to it as well.
+
+### Custom Components
+
+Box can be used to build custom components.
+
+```tsx
+type Props = React.ComponentPropsWithoutRef<'a'> & BoxProps;
+
+const CustomAnchor = ({ onClick, href, ...props }: Props) => {
+  const ref = useRef<HTMLAnchorElement>(null);
+  return (
+    <Box
+      asChild
+      {...props}
+      padding="100"
+      color="rebeccapurple"
+      style={{ textDecoration: 'underline' }}
+    >
+      <a onClick={onClick} href={href} ref={ref}>
+        Custom Component
+      </a>
+    </Box>
+  );
+};
+```
+
+## Accessibility
+
+The `Box` component is an all purpose component. By default, it has no
+accessibility concerns. If you use the `Box` as a custom element, it is up to
+you to manage the resulting accessibility implications.
+
+## API
+
+This component is based on the `div` element and supports the following common style props:
+
+- padding
+- margin
+- size
+- color
+
+| Prop      | Type              | Description                                                                                                                                    | Default |
+| --------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `as`      | `"div" \| "span"` | Shorthand for changing the default rendered element into a semantically appropriate alternative. Cannot be used in combination with `asChild`. | `"div"` |
+| `asChild` | `boolean`         | Change the default rendered element for the one passed as a child, merging their props and behavior.                                           | `false` |
