@@ -24,6 +24,9 @@ export type { BoxProps } from './components/Box/Box.props';
 export { Flex } from './components/Flex/Flex';
 export type { FlexProps } from './components/Flex/Flex.props';
 
+export { Grid } from './components/Grid/Grid';
+export type { GridProps } from './components/Grid/Grid.props';
+
 export { BodyText } from './components/BodyText/BodyText';
 export type { BodyTextProps } from './components/BodyText/BodyText.props';
 
