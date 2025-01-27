@@ -89,10 +89,11 @@ export type GridProps = CommonGridProps & (GridSpanProps | GridDivProps);
 ||||||| parent of edb494f (add `Grid` component)
 =======
 import type { ColorProps } from '../../props/color.props';
+import { GapProps } from '../../props/gap.props';
 import type { MarginProps } from '../../props/margin.props';
 import type { PaddingProps } from '../../props/padding.props';
 import { PropDef } from '../../props/prop-def';
-import type { SizeProps } from '../../props/size.props';
+import { SizeProps } from '../../props/size.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive, Union } from '../../types/responsive';
 
@@ -144,7 +145,7 @@ export const gridPropDefs = {
   justify: PropDef<(typeof justifyValues)[number]>;
 };
 
-interface CommonGridProps extends ColorProps, PaddingProps, MarginProps, SizeProps {
+interface CommonGridProps extends ColorProps, PaddingProps, MarginProps, GapProps, SizeProps {
   as?: 'div' | 'span';
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
