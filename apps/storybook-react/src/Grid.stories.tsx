@@ -27,6 +27,7 @@ export const Workshop: Story = {
       container
       width={{ mobile: '360px', tablet: '744px', desktop: '1096px' }}
       padding={{ mobile: '200', tablet: '400' }}
+      gap="200"
     >
       <Grid className="hearth-sb-Placeholder" size="4" />
       <Grid className="hearth-sb-Placeholder" size="4" />
