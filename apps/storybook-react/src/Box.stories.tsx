@@ -2,11 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Box, BoxProps, spaceTokens } from '@utilitywarehouse/hearth-react';
 import { useRef } from 'react';
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Box> = {
   title: 'Stories / Box',
   component: Box,
-  parameters: { layout: 'centered' },
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },
@@ -26,31 +24,33 @@ const meta: Meta<typeof Box> = {
     color: { control: { type: 'text' } },
     backgroundColor: { control: { type: 'text' } },
   },
-  args: {
-    children: 'Box',
-    style: { border: '1px solid rebeccapurple' },
-  },
 } satisfies Meta<typeof Box>;
 
 export default meta;
 type Story = StoryObj<typeof Box>;
 
-export const Workshop: Story = {};
+export const Workshop: Story = {
+  args: {
+    className: 'hearth-sb-Placeholder',
+    padding: '600',
+  },
+};
 
 export const ResponsiveProps: Story = {
   args: {
+    className: 'hearth-sb-Placeholder',
     children: 'Responsive props',
     padding: {
-      mobile: '4px',
+      mobile: '40px',
       tablet: '200',
-      desktop: '16px',
-      wide: '0',
+      desktop: '8rem',
+      wide: '400',
     },
     width: {
-      mobile: '100px',
-      tablet: '200px',
-      desktop: '300px',
-      wide: '400px',
+      mobile: '400px',
+      tablet: '600px',
+      desktop: '800px',
+      wide: '200px',
     },
     margin: {
       mobile: '16px',
