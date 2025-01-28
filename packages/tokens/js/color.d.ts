@@ -1,0 +1,350 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+export declare const common: {
+    "cashback-lilac": string;
+    "insurance-orange": string;
+    "mobile-rose": string;
+    "broadband-blue": string;
+    "energy-green": string;
+    "piggy-pink": string;
+    "off-white": string;
+    "dark-purple": string;
+    "uw-purple": string;
+    white: string;
+};
+export declare const light: {
+    blue: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    orange: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    green: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    yellow: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    red: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    grey: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+};
+export declare const dark: {
+    orange: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    red: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    blue: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    green: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    grey: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    yellow: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+};
+declare const color: {
+    common: {
+        "cashback-lilac": string;
+        "insurance-orange": string;
+        "mobile-rose": string;
+        "broadband-blue": string;
+        "energy-green": string;
+        "piggy-pink": string;
+        "off-white": string;
+        "dark-purple": string;
+        "uw-purple": string;
+        white: string;
+    };
+    light: {
+        blue: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        orange: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        green: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        yellow: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        red: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        grey: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+    };
+    dark: {
+        orange: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        red: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        blue: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        green: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        grey: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        yellow: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+    };
+};
+export default color;
