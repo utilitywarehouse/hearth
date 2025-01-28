@@ -1,6 +1,6 @@
 {
-  "name": "UW Variables Plugin",
-  "id": "1415740052799811983",
+  "name": "UW Hearth - Variables Plugin",
+  "id": "1465643951899915053",
   "api": "1.0.0",
   "main": "dist/code.js",
   "ui": "dist/ui.html",
