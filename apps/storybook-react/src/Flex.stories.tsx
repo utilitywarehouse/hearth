@@ -5,7 +5,6 @@ import { Box, Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
 const meta: Meta<typeof Flex> = {
   title: 'Stories / Flex',
   component: Flex,
-  parameters: { layout: 'centered' },
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },
@@ -27,34 +26,40 @@ const meta: Meta<typeof Flex> = {
     color: { control: { type: 'text' } },
     backgroundColor: { control: { type: 'text' } },
   },
-  args: {
-    children: 'Flex',
-    style: { border: '1px solid rebeccapurple' },
-  },
 } satisfies Meta<typeof Flex>;
 
 export default meta;
 type Story = StoryObj<typeof Flex>;
 
-export const Workshop: Story = {};
+export const Workshop: Story = {
+  render: args => (
+    <Flex {...args}>
+      <Box className="hearth-sb-Placeholder" padding="600" />
+      <Box className="hearth-sb-Placeholder" padding="600" />
+      <Box className="hearth-sb-Placeholder" padding="600" />
+      <Box className="hearth-sb-Placeholder" padding="600" />
+    </Flex>
+  ),
+  args: {
+    gap: '200',
+  },
+};
 
 export const ResponsiveGap: Story = {
   render: args => (
     <Flex {...args}>
-      <Box className="hearth-sb-Placeholder" width="400px" />
-      <Box className="hearth-sb-Placeholder" width="400px" />
-      <Box className="hearth-sb-Placeholder" width="400px" />
+      <Box className="hearth-sb-Placeholder" padding="600" />
+      <Box className="hearth-sb-Placeholder" padding="600" />
+      <Box className="hearth-sb-Placeholder" padding="600" />
     </Flex>
   ),
   args: {
     gap: {
-      mobile: '50',
+      mobile: '200',
       tablet: '100',
-      desktop: '200',
-      wide: '400',
+      desktop: '300',
+      wide: '600',
     },
-    children: '',
-    style: { border: 'none' },
     direction: 'column',
   },
 };
