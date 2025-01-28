@@ -78,27 +78,27 @@ export const mobile = {
   "heading": {
     "sm": {
       "font-size": 18,
-      "letter-spacing": -0.5400000214576721,
+      "letter-spacing": 0,
       "font-weight": 600,
       "line-height": 22
     },
-    "font-family": "TMT Limkin",
+    "font-family": "Comic Hams",
     "md": {
       "font-size": 20,
       "font-weight": 600,
-      "letter-spacing": -0.6000000238418579,
+      "letter-spacing": 0,
       "line-height": 24
     },
     "lg": {
       "font-size": 24,
-      "letter-spacing": -0.7200000286102295,
+      "letter-spacing": 0,
       "line-height": 32,
       "font-weight": 600
     },
     "xl": {
       "font-weight": 700,
       "line-height": 36,
-      "letter-spacing": -0.8999999761581421,
+      "letter-spacing": 0,
       "font-size": 30
     }
   }
@@ -178,26 +178,26 @@ export const tablet = {
   "heading": {
     "sm": {
       "font-size": 18,
-      "letter-spacing": -0.5400000214576721,
+      "letter-spacing": 0,
       "font-weight": 600,
       "line-height": 22
     },
     "md": {
       "font-size": 20,
       "font-weight": 600,
-      "letter-spacing": -0.6000000238418579,
+      "letter-spacing": 0,
       "line-height": 24
     },
     "lg": {
       "font-size": 24,
-      "letter-spacing": -0.7200000286102295,
+      "letter-spacing": 0,
       "line-height": 32,
       "font-weight": 600
     },
     "xl": {
       "font-weight": 700,
       "line-height": 36,
-      "letter-spacing": -0.8999999761581421,
+      "letter-spacing": 0,
       "font-size": 30
     }
   }
@@ -277,26 +277,26 @@ export const desktop = {
   "heading": {
     "sm": {
       "font-size": 18,
-      "letter-spacing": -0.6000000238418579,
+      "letter-spacing": 0,
       "font-weight": 600,
       "line-height": 22
     },
     "md": {
       "font-size": 24,
       "font-weight": 600,
-      "letter-spacing": -0.7200000286102295,
+      "letter-spacing": 0,
       "line-height": 28
     },
     "lg": {
       "font-size": 30,
-      "letter-spacing": -0.8999999761581421,
+      "letter-spacing": 0,
       "line-height": 36,
       "font-weight": 600
     },
     "xl": {
       "font-weight": 700,
       "line-height": 48,
-      "letter-spacing": -1.0800000429153442,
+      "letter-spacing": 0,
       "font-size": 40
     }
   }

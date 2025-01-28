@@ -3,3 +3,4 @@
  */
 
 export { default as button } from './button.js';
+export { default as spinner } from './spinner.js';

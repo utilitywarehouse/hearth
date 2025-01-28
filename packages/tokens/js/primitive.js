@@ -106,7 +106,7 @@ export default {
     family: {
       detail: "DM Mono",
       body: "DM Sans",
-      heading: "TMT Limkin",
+      heading: "Comic Hams",
     },
   },
   "border-radius": {

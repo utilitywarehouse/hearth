@@ -274,8 +274,8 @@
               "type": "number"
             },
             "letter-spacing": {
-              "alias": "{letter-spacing.150}",
-              "value": -0.5400000214576721,
+              "alias": "{letter-spacing.0}",
+              "value": 0,
               "type": "number"
             },
             "font-weight": {
@@ -291,7 +291,7 @@
           },
           "font-family": {
             "alias": "{font.family.heading}",
-            "value": "TMT Limkin",
+            "value": "Comic Hams",
             "type": "string"
           },
           "md": {
@@ -306,8 +306,8 @@
               "type": "number"
             },
             "letter-spacing": {
-              "alias": "{letter-spacing.200}",
-              "value": -0.6000000238418579,
+              "alias": "{letter-spacing.0}",
+              "value": 0,
               "type": "number"
             },
             "line-height": {
@@ -323,8 +323,8 @@
               "type": "number"
             },
             "letter-spacing": {
-              "alias": "{letter-spacing.300}",
-              "value": -0.7200000286102295,
+              "alias": "{letter-spacing.0}",
+              "value": 0,
               "type": "number"
             },
             "line-height": {
@@ -350,8 +350,8 @@
               "type": "number"
             },
             "letter-spacing": {
-              "alias": "{letter-spacing.400}",
-              "value": -0.8999999761581421,
+              "alias": "{letter-spacing.0}",
+              "value": 0,
               "type": "number"
             },
             "font-size": {
@@ -718,8 +718,8 @@
               "type": "number"
             },
             "letter-spacing": {
-              "alias": "{letter-spacing.150}",
-              "value": -0.5400000214576721,
+              "alias": "{letter-spacing.0}",
+              "value": 0,
               "type": "number"
             },
             "font-weight": {
@@ -735,7 +735,7 @@
           },
           "font-family": {
             "alias": "{font.family.heading}",
-            "value": "TMT Limkin",
+            "value": "Comic Hams",
             "type": "string"
           },
           "md": {
@@ -750,8 +750,8 @@
               "type": "number"
             },
             "letter-spacing": {
-              "alias": "{letter-spacing.200}",
-              "value": -0.6000000238418579,
+              "alias": "{letter-spacing.0}",
+              "value": 0,
               "type": "number"
             },
             "line-height": {
@@ -767,8 +767,8 @@
               "type": "number"
             },
             "letter-spacing": {
-              "alias": "{letter-spacing.300}",
-              "value": -0.7200000286102295,
+              "alias": "{letter-spacing.0}",
+              "value": 0,
               "type": "number"
             },
             "line-height": {
@@ -794,8 +794,8 @@
               "type": "number"
             },
             "letter-spacing": {
-              "alias": "{letter-spacing.400}",
-              "value": -0.8999999761581421,
+              "alias": "{letter-spacing.0}",
+              "value": 0,
               "type": "number"
             },
             "font-size": {
@@ -1162,8 +1162,8 @@
               "type": "number"
             },
             "letter-spacing": {
-              "alias": "{letter-spacing.200}",
-              "value": -0.6000000238418579,
+              "alias": "{letter-spacing.0}",
+              "value": 0,
               "type": "number"
             },
             "font-weight": {
@@ -1179,7 +1179,7 @@
           },
           "font-family": {
             "alias": "{font.family.heading}",
-            "value": "TMT Limkin",
+            "value": "Comic Hams",
             "type": "string"
           },
           "md": {
@@ -1194,8 +1194,8 @@
               "type": "number"
             },
             "letter-spacing": {
-              "alias": "{letter-spacing.300}",
-              "value": -0.7200000286102295,
+              "alias": "{letter-spacing.0}",
+              "value": 0,
               "type": "number"
             },
             "line-height": {
@@ -1211,8 +1211,8 @@
               "type": "number"
             },
             "letter-spacing": {
-              "alias": "{letter-spacing.400}",
-              "value": -0.8999999761581421,
+              "alias": "{letter-spacing.0}",
+              "value": 0,
               "type": "number"
             },
             "line-height": {
@@ -1238,8 +1238,8 @@
               "type": "number"
             },
             "letter-spacing": {
-              "alias": "{letter-spacing.500}",
-              "value": -1.0800000429153442,
+              "alias": "{letter-spacing.0}",
+              "value": 0,
               "type": "number"
             },
             "font-size": {
