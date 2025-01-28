@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
     paths:
-      - 'packages/design-tokens/raw/**'
+      - 'packages/tokens/raw/**'
 
 permissions:
   contents: write
@@ -41,7 +41,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: 🏗 Build Design Tokens
-        working-directory: ./packages/design-tokens
+        working-directory: ./packages/tokens
         run: pnpm build
 
       - name: 🔍 Run Checks
