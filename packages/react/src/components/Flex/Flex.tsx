@@ -20,6 +20,9 @@ const componentClassName = withGlobalPrefix(componentName);
 
 type FlexElement = ElementRef<'div'>;
 
+/**
+ * `Flex` is a fundamental primitive, and should be used for CSS flexbox based layouts.
+ */
 export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
   const {
     className,

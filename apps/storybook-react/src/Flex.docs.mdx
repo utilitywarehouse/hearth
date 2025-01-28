@@ -1,0 +1,97 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
+
+import * as Stories from './Flex.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Primitives / Flex" />
+
+<DocsHeader componentName="Flex" stories={Stories} />
+
+<Canvas of={Stories.Workshop} sourceState="none" />
+
+```tsx
+<Flex gap="200">
+  <Box padding="600" />
+  <Box padding="600" />
+  <Box padding="600" />
+  <Box padding="600" />
+</Flex>
+```
+
+## Shorthand props
+
+`Flex` supports a set of shorthand, flexbox specific, props.
+
+- `direction` is `flexDirection`
+- `wrap` is `flexWrap`
+- `align` is `alignItems`
+- `justify` is `justifyContent`
+
+## Semantic HTML
+
+By default `Flex` renders a `div` element, this can be customised using the
+`as` prop, to render a `span`.
+
+```tsx
+<Flex as="span">...</Flex>
+```
+
+To render any other valid HTML element, you can use the `asChild` prop.
+
+```tsx
+<Flex asChild>
+  <main>...</main>
+</Flex>
+```
+
+This will render the child element, with all the styles declared on the `Flex`
+component passed down to it as well.
+
+## Usage with Divider
+
+You can insert a `Divider` component in between `Flex` children in the following way:
+
+```tsx
+<Flex direction="column">
+  {meters.map((meter, index) => (
+    <>
+      <EnergyMeter
+        key={meter.meterId ? meter.meterId : `${meter.__typename}-${index}`}
+        meter={meter}
+      />
+        <Divider />
+      </>
+  ))}
+</Flex>
+
+<Flex direction="column">
+  {["100", "200", "400"].map((padding, i) => (
+    <>
+      <Box padding={padding} >
+        <BodyText>Item {i + 1}</BodyText>
+      </Box>
+      {i < 2 ? <Divider /> : null}
+    </>
+  ))}
+</Flex>
+```
+
+## API
+
+This component is based on the `div` element and supports the following common style props:
+
+- padding
+- margin
+- size
+- color
+
+| Prop        | Type                                                                                                                         | Description                                                                                                                                    | Default     |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `as`        | `"div" \| "span"`                                                                                                            | Shorthand for changing the default rendered element into a semantically appropriate alternative. Cannot be used in combination with `asChild`. | `"div"`     |
+| `asChild`   | `boolean`                                                                                                                    | Change the default rendered element for the one passed as a child, merging their props and behavior.                                           | `false`     |
+| `display`   | `Responsive<"none" \| "flex" \| "inline-flex">`                                                                              | Set the element's display property.                                                                                                            | `"flex"`    |
+| `direction` | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">`                                                         | Set the element's flex-direction.                                                                                                              | `"row"`     |
+| `align`     | `Responsive<"start" \| "center" \| "end" \| "baseline" \| "stretch" \| "space-around" \| "space-between" \| "space-evenly">` | Set the element's align-items property.                                                                                                        | `"stretch"` |
+| `justify`   | `Responsive<"start" \| "center" \| "end" \| "between" \| "space-around" \| "space-between" \| "space-evenly">`               | Set the element's justify-content property.                                                                                                    | `"start"`   |
+| `wrap`      | `Responsive<"wrap" \| "nowrap" \| "wrap-reverse">`                                                                           | Set the element's flex-wrap property.                                                                                                          | `"nowrap"`  |

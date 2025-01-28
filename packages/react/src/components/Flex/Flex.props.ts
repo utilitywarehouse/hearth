@@ -36,7 +36,11 @@ export const flexPropDefs = {
   display: { className: 'display', tokens: displayValues, responsive: true },
   direction: { className: 'flex-direction', tokens: directionValues, responsive: true },
   align: { className: 'align-items', tokens: alignValues, responsive: true },
-  justify: { className: 'justify-content', tokens: justifyValues, responsive: true },
+  justify: {
+    className: 'justify-content',
+    tokens: justifyValues,
+    responsive: true,
+  },
   wrap: { className: 'flex-wrap', tokens: wrapValues, responsive: true },
 } satisfies {
   display: PropDef<(typeof displayValues)[number]>;
