@@ -30,20 +30,6 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'remove-dark-color',
-  type: 'name',
-  filter: token => {
-    return (
-      (token.type === 'color' || token.filePath.includes('component')) &&
-      token.attributes?.type !== 'light'
-    );
-  },
-  transform: token => {
-    return token.name.replace(/dark-/, '');
-  },
-});
-
-StyleDictionary.registerTransform({
   name: 'remove-alias-color',
   type: 'value',
   filter: token => {
@@ -193,44 +179,14 @@ function generateCss() {
         },
         'css-colour': {
           transformGroup: 'css-device',
-          buildPath: './css/',
-          files: [
-            {
-              destination: 'colour.css',
-              format: 'css/theme-color-variables',
-              filter: token => {
-                return token.filePath.includes('primitive') && token.type === 'color';
-              },
-            },
-          ],
-        },
-        'css-colour-light': {
-          transformGroup: 'css-device',
           transforms: ['remove-light-color'],
           buildPath: './css/',
           files: [
             {
-              destination: 'colours/light.css',
+              destination: 'color.css',
               format: 'css/variables',
               filter: token => {
                 if (token.attributes?.type === 'dark') {
-                  return false;
-                }
-                return token.filePath.includes('primitive') && token.type === 'color';
-              },
-            },
-          ],
-        },
-        'css-colour-dark': {
-          transformGroup: 'css-device',
-          transforms: ['remove-dark-color'],
-          buildPath: './css/',
-          files: [
-            {
-              destination: 'colours/dark.css',
-              format: 'css/variables',
-              filter: token => {
-                if (token.attributes?.type === 'light') {
                   return false;
                 }
                 return token.filePath.includes('primitive') && token.type === 'color';
