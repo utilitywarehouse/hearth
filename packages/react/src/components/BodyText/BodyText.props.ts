@@ -16,10 +16,14 @@ export const bodyTextPropDefs = {
 
 interface CommonBodyTextProps extends TextAlignProps {
   /**
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   * Cannot be used in combination with `asChild`.
    * @default p
    */
   as?: 'p' | 'div' | 'span';
-  /** Change the default rendered element for the one passed as a child, merging their props and behavior. */
+  /**
+   * Change the default rendered element for the one passed as a child, merging their props and behavior.
+   */
   asChild?: boolean;
   /**
    * Set the text size styles.

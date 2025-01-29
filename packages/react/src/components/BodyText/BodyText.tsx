@@ -14,9 +14,6 @@ const componentClassName = withGlobalPrefix(componentName);
 
 type BodyTextElement = ElementRef<'p'>;
 
-/**
- * `BodyText` renders the secondary UW font, to be used for body text.
- */
 export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props, ref) => {
   const {
     className,

@@ -6,7 +6,13 @@ const sizes = ['sm', 'md', 'lg', 'xl'] as const;
 const meta: Meta<typeof Heading> = {
   title: 'Stories / Heading',
   component: Heading,
-  parameters: { layout: 'centered' },
+  parameters: {
+    docs: {
+      description: {
+        component: '`Heading` is to be used for heading-level typography.',
+      },
+    },
+  },
   argTypes: {
     children: { control: { type: 'text' } },
     size: { options: sizes, control: { type: 'radio' } },

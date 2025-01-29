@@ -19,10 +19,6 @@ const componentClassName = withGlobalPrefix(componentName);
 
 type BoxElement = ElementRef<'div'>;
 
-/*
- * `Box` is a fundamental primitive, based on the `div` element, for creating
- * layouts, styling content and as a building block for other elements.
- */
 export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
   const {
     className,

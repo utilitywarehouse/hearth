@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { Unstyled, Description } from '@storybook/blocks';
-import { Flex, Heading } from '@utilitywarehouse/hearth-react';
+import { Description } from '@storybook/blocks';
+import { Flex } from '@utilitywarehouse/hearth-react';
 
 interface DocsHeaderProps {
   componentName: string;
@@ -10,11 +10,11 @@ interface DocsHeaderProps {
   stories: React.ReactNode;
 }
 
-export const DocsHeader = ({ componentName, figmaLink, stories }: DocsHeaderProps) => (
-  <Unstyled>
-    <Flex direction="column" gap="24px">
+export const DocsHeader = ({ componentName, figmaLink, stories }: DocsHeaderProps) => {
+  return (
+    <div>
       <Flex width="100%" align="center" justify="space-between">
-        <Heading size="lg">{componentName}</Heading>
+        <h1>{componentName}</h1>
         <Flex gap="24px">
           <a href={`/?path=/story/stories-${componentName}`}>Stories</a>
           <a
@@ -26,6 +26,6 @@ export const DocsHeader = ({ componentName, figmaLink, stories }: DocsHeaderProp
         </Flex>
       </Flex>
       <Description of={stories} />
-    </Flex>
-  </Unstyled>
-);
+    </div>
+  );
+};

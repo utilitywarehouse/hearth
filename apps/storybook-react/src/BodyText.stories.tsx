@@ -7,7 +7,13 @@ const weights = ['regular', 'bold'] as const;
 const meta: Meta<typeof BodyText> = {
   title: 'Stories / BodyText',
   component: BodyText,
-  parameters: { layout: 'centered' },
+  parameters: {
+    docs: {
+      description: {
+        component: '`BodyText` is to be used for body text.',
+      },
+    },
+  },
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['span', 'p', 'div'], control: { type: 'radio' } },
@@ -64,6 +70,22 @@ export const TextSizes: Story = {
           </BodyText>
         ))}
         <BodyText size={{ mobile: 'sm', tablet: 'md', desktop: 'lg' }}>Responsive size</BodyText>
+      </Flex>
+    );
+  },
+};
+
+export const TextWeights: Story = {
+  name: 'Weights',
+  render: () => {
+    return (
+      <Flex direction="column" gap="100">
+        {weights.map(weight => (
+          <BodyText key={weight} weight={weight}>
+            {weight}
+          </BodyText>
+        ))}
+        <BodyText weight={{ mobile: 'bold', tablet: 'regular' }}>Responsive weight</BodyText>
       </Flex>
     );
   },
