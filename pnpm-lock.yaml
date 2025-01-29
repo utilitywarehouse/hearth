@@ -551,8 +551,8 @@ importers:
         specifier: ^0.1.0
         version: 0.1.0
       '@utilitywarehouse/hearth-fonts':
-        specifier: ^0.0.2
-        version: 0.0.2
+        specifier: workspace:*
+        version: link:../fonts
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.1)
@@ -3787,9 +3787,6 @@ packages:
 
   '@utilitywarehouse/design-tokens@0.0.1-alpha.2':
     resolution: {integrity: sha512-Nem/YtBSRDltUwsVdUYdDIQCfXgzZfN+xUy2nU4YBcVgUAXyy5wl4SrYJdtvMLx1q1RjN0lpnWwo3aQkxuzgLA==}
-
-  '@utilitywarehouse/hearth-fonts@0.0.2':
-    resolution: {integrity: sha512-Lbl5q/p2BbAQXhG8d6VH9OjM6h4M4ppZMeG8MLQ94hbQtQLaeHuuHW8ZSublS8bi/jViQZCS7HvRHZTBGexwTw==}
 
   '@utilitywarehouse/prettier-config@0.1.1':
     resolution: {integrity: sha512-Lcs5K0qQSP8eQd82Ug2Q98pLAM41c1WsB1oMeOHKXmAumD7KHR8UsDSIsdv9ILmMb4RPYZLY0A2j3DIRzyVjHg==}
@@ -13888,8 +13885,6 @@ snapshots:
   '@utilitywarehouse/css-reset@0.1.0': {}
 
   '@utilitywarehouse/design-tokens@0.0.1-alpha.2': {}
-
-  '@utilitywarehouse/hearth-fonts@0.0.2': {}
 
   '@utilitywarehouse/prettier-config@0.1.1': {}
 

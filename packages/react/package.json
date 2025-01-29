@@ -64,7 +64,7 @@
     "@types/react": "^18.3.12",
     "@utilitywarehouse/colour-system": "^0.5.0",
     "@utilitywarehouse/css-reset": "^0.1.0",
-    "@utilitywarehouse/hearth-fonts": "^0.0.3-alpha.0",
+    "@utilitywarehouse/hearth-fonts": "workspace:*",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
     "postcss": "^8.4.49",
