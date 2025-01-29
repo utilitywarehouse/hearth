@@ -35,12 +35,12 @@
 
   /* Typography variables */
   :root {
-    --font-family-heading: 'TMT Limkin Flare';
+    --font-family-heading: Comic hams;
     --font-family-heading-fallback: Georgia, serif;
-    --font-family-body-text: 'DM Sans';
+    --font-family-body-text: DM Sans;
     --font-family-body-text-fallback: Helvetica, Arial, sans-serif;
-    --font-family-detail-text: 'DM Mono';
-    --font-family-detail-text-fallback: 'Courier New', Courier, monospace;
+    --font-family-detail-text: DM Mono;
+    --font-family-detail-text-fallback: Courier New, Courier, monospace;
   }
 
   /* Core body defaults & typography adjustments */
