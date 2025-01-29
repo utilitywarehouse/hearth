@@ -10,6 +10,48 @@
           }
         }
       }
+    },
+    "spinner": {
+      "xs": {
+        "size": {
+          "value": 16,
+          "type": "number"
+        },
+        "stroke-width": {
+          "value": 1.5,
+          "type": "number"
+        }
+      },
+      "md": {
+        "size": {
+          "value": 28,
+          "type": "number"
+        },
+        "stroke-width": {
+          "value": 2.5,
+          "type": "number"
+        }
+      },
+      "sm": {
+        "size": {
+          "value": 20,
+          "type": "number"
+        },
+        "stroke-width": {
+          "value": 2,
+          "type": "number"
+        }
+      },
+      "lg": {
+        "size": {
+          "value": 40,
+          "type": "number"
+        },
+        "stroke-width": {
+          "value": 3,
+          "type": "number"
+        }
+      }
     }
   },
   "dark": {
@@ -21,6 +63,48 @@
             "value": "#eba400",
             "type": "color"
           }
+        }
+      }
+    },
+    "spinner": {
+      "xs": {
+        "size": {
+          "value": 16,
+          "type": "number"
+        },
+        "stroke-width": {
+          "value": 1.5,
+          "type": "number"
+        }
+      },
+      "md": {
+        "size": {
+          "value": 28,
+          "type": "number"
+        },
+        "stroke-width": {
+          "value": 2.5,
+          "type": "number"
+        }
+      },
+      "sm": {
+        "size": {
+          "value": 20,
+          "type": "number"
+        },
+        "stroke-width": {
+          "value": 2,
+          "type": "number"
+        }
+      },
+      "lg": {
+        "size": {
+          "value": 40,
+          "type": "number"
+        },
+        "stroke-width": {
+          "value": 3,
+          "type": "number"
         }
       }
     }
