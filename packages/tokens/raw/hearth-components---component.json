@@ -1,5 +1,68 @@
 {
   "light": {
+    "spinner": {
+      "xs": {
+        "size": {
+          "value": 20,
+          "type": "number"
+        },
+        "svg-size": {
+          "value": 16,
+          "type": "number"
+        },
+        "stroke-width": {
+          "value": 1.5,
+          "type": "number"
+        }
+      },
+      "sm": {
+        "size": {
+          "value": 24,
+          "type": "number"
+        },
+        "svg-size": {
+          "value": 20,
+          "type": "number"
+        },
+        "stroke-width": {
+          "value": 2,
+          "type": "number"
+        }
+      },
+      "lg": {
+        "size": {
+          "value": 44,
+          "type": "number"
+        },
+        "svg-size": {
+          "value": 40,
+          "type": "number"
+        },
+        "stroke-width": {
+          "value": 3,
+          "type": "number"
+        }
+      },
+      "md": {
+        "size": {
+          "value": 32,
+          "type": "number"
+        },
+        "svg-size": {
+          "value": 28,
+          "type": "number"
+        },
+        "stroke-width": {
+          "value": 2.5,
+          "type": "number"
+        }
+      },
+      "default-fill": {
+        "alias": "{color.uw-purple}",
+        "value": "#7a42c8",
+        "type": "color"
+      }
+    },
     "button": {
       "emphasis": {
         "yellow": {
@@ -10,10 +73,16 @@
           }
         }
       }
-    },
+    }
+  },
+  "dark": {
     "spinner": {
       "xs": {
         "size": {
+          "value": 20,
+          "type": "number"
+        },
+        "svg-size": {
           "value": 16,
           "type": "number"
         },
@@ -22,18 +91,12 @@
           "type": "number"
         }
       },
-      "md": {
-        "size": {
-          "value": 28,
-          "type": "number"
-        },
-        "stroke-width": {
-          "value": 2.5,
-          "type": "number"
-        }
-      },
       "sm": {
         "size": {
+          "value": 24,
+          "type": "number"
+        },
+        "svg-size": {
           "value": 20,
           "type": "number"
         },
@@ -44,6 +107,10 @@
       },
       "lg": {
         "size": {
+          "value": 44,
+          "type": "number"
+        },
+        "svg-size": {
           "value": 40,
           "type": "number"
         },
@@ -51,10 +118,27 @@
           "value": 3,
           "type": "number"
         }
+      },
+      "md": {
+        "size": {
+          "value": 32,
+          "type": "number"
+        },
+        "svg-size": {
+          "value": 28,
+          "type": "number"
+        },
+        "stroke-width": {
+          "value": 2.5,
+          "type": "number"
+        }
+      },
+      "default-fill": {
+        "alias": "{color.uw-purple}",
+        "value": "#7a42c8",
+        "type": "color"
       }
-    }
-  },
-  "dark": {
+    },
     "button": {
       "emphasis": {
         "yellow": {
@@ -63,48 +147,6 @@
             "value": "#eba400",
             "type": "color"
           }
-        }
-      }
-    },
-    "spinner": {
-      "xs": {
-        "size": {
-          "value": 16,
-          "type": "number"
-        },
-        "stroke-width": {
-          "value": 1.5,
-          "type": "number"
-        }
-      },
-      "md": {
-        "size": {
-          "value": 28,
-          "type": "number"
-        },
-        "stroke-width": {
-          "value": 2.5,
-          "type": "number"
-        }
-      },
-      "sm": {
-        "size": {
-          "value": 20,
-          "type": "number"
-        },
-        "stroke-width": {
-          "value": 2,
-          "type": "number"
-        }
-      },
-      "lg": {
-        "size": {
-          "value": 40,
-          "type": "number"
-        },
-        "stroke-width": {
-          "value": 3,
-          "type": "number"
         }
       }
     }

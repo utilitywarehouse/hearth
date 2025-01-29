@@ -6,6 +6,14 @@ const columnsValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', 
 const meta: Meta<typeof Grid> = {
   title: 'Stories / Grid',
   component: Grid,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '`Grid` is a fundamental primitive, and should be used for CSS grid based layouts.',
+      },
+    },
+  },
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },
@@ -40,11 +48,11 @@ export const ResponsiveGrid: Story = {
       padding={{ mobile: '200', tablet: '400' }}
       gap="200"
     >
-      <Box className="hearth-sb-Placeholder" gridItemColumns="4" padding="400" />
-      <Box className="hearth-sb-Placeholder" gridItemColumns="4" padding="400" />
+      <Box className="hearth-sb-Placeholder" gridColumnSpan="4" padding="400" />
+      <Box className="hearth-sb-Placeholder" gridColumnSpan="4" padding="400" />
       <Box
         className="hearth-sb-Placeholder"
-        gridItemColumns={{ mobile: '4', tablet: '8', desktop: '4' }}
+        gridColumnSpan={{ mobile: '4', tablet: '8', desktop: '4' }}
         padding="400"
       />
     </Grid>
