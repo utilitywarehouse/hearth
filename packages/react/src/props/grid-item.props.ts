@@ -4,7 +4,7 @@ import { PropDef } from './prop-def';
 const columnsValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'] as const;
 
 const gridItemPropDefs = {
-  gridItemColumns: { className: 'grid-item-columns', tokens: columnsValues, responsive: true },
+  gridColumnSpan: { className: 'grid-column-span', tokens: columnsValues, responsive: true },
   gridArea: { className: 'grid-area', responsive: true },
   gridColumn: { className: 'grid-column', responsive: true },
   gridColumnStart: { className: 'grid-column-start', responsive: true },
@@ -13,7 +13,7 @@ const gridItemPropDefs = {
   gridRowStart: { className: 'grid-row-start', responsive: true },
   gridRowEnd: { className: 'grid-row-end', responsive: true },
 } satisfies {
-  gridItemColumns: PropDef<(typeof columnsValues)[number]>;
+  gridColumnSpan: PropDef<(typeof columnsValues)[number]>;
   gridArea: PropDef<string>;
   gridColumn: PropDef<string>;
   gridColumnStart: PropDef<string>;
@@ -24,7 +24,7 @@ const gridItemPropDefs = {
 };
 
 interface GridItemProps {
-  gridItemColumns?: Responsive<Union<string, (typeof columnsValues)[number]>>;
+  gridColumnSpan?: Responsive<Union<string, (typeof columnsValues)[number]>>;
   gridArea?: Responsive<string>;
   gridColumn?: Responsive<string>;
   gridColumnStart?: Responsive<string>;

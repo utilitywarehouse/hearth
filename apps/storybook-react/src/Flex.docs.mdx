@@ -19,14 +19,28 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 </Flex>
 ```
 
+## Alternatives
+
+- [Box](?path=/docs/primitives-box--docs) - For primitive styling and layouts
+- [Flex](?path=/docs/primitives-flex--docs) - For stacked, inline or flexbox based layouts
+
 ## Shorthand props
 
 `Flex` supports a set of shorthand, flexbox specific, props.
 
-- `direction` is `flexDirection`
-- `wrap` is `flexWrap`
-- `align` is `alignItems`
-- `justify` is `justifyContent`
+- `direction` is `flex-direction`
+- `wrap` is `flex-wrap`
+- `align` is `align-items`
+- `justify` is `justify-content`
+
+## Gap
+
+`Flex` supports the `gap`, `columnGap` and `rowGap` properties, which use the
+design token spacing scale. All gap properties are repsonsive.
+
+```tsx
+<Flex columnGap="400" rowGap={{ mobile: "100", desktop: "300" }}>
+```
 
 ## Semantic HTML
 
