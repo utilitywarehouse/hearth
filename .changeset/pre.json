@@ -1,0 +1,20 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "playground-nextjs": "0.1.0",
+    "storybook-docs": "0.0.0",
+    "storybook-fonts": "0.0.0",
+    "storybook-react": "0.0.0",
+    "@utilitywarehouse/hearth-react-native-expo": "0.0.1",
+    "@utilitywarehouse/hearth-css-reset": "0.0.1",
+    "@utilitywarehouse/figma-variables-plugin": "0.1.0",
+    "@utilitywarehouse/hearth-fonts": "0.0.2",
+    "@utilitywarehouse/hearth-react": "0.0.0",
+    "@utilitywarehouse/hearth-react-native": "0.0.1",
+    "@utilitywarehouse/hearth-tokens": "0.0.1"
+  },
+  "changesets": [
+    "khaki-boats-joke"
+  ]
+}
