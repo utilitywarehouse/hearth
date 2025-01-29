@@ -428,9 +428,9 @@ importers:
       '@mui/material':
         specifier: 5.14.15
         version: 5.14.15(@emotion/react@11.14.0(@types/react@18.3.18)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.18)(react@18.3.1))(@types/react@18.3.18)(react@18.3.1))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@utilitywarehouse/css-reset':
-        specifier: latest
-        version: 0.1.0
+      '@utilitywarehouse/hearth-css-reset':
+        specifier: workspace:^
+        version: link:../css-reset
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:^
         version: link:../fonts
@@ -531,6 +531,9 @@ importers:
       '@radix-ui/react-use-controllable-state':
         specifier: ^1.0.1
         version: 1.1.0(@types/react@18.3.18)(react@18.3.1)
+      '@utilitywarehouse/hearth-fonts':
+        specifier: workspace:*
+        version: link:../fonts
       '@utilitywarehouse/react-icons':
         specifier: ^1.11.0
         version: 1.12.0(react@18.3.1)
@@ -547,12 +550,9 @@ importers:
       '@utilitywarehouse/colour-system':
         specifier: ^0.5.0
         version: 0.5.0
-      '@utilitywarehouse/css-reset':
-        specifier: ^0.1.0
-        version: 0.1.0
-      '@utilitywarehouse/hearth-fonts':
+      '@utilitywarehouse/hearth-css-reset':
         specifier: workspace:*
-        version: link:../fonts
+        version: link:../css-reset
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.1)
@@ -3781,9 +3781,6 @@ packages:
 
   '@utilitywarehouse/colour-system@0.5.0':
     resolution: {integrity: sha512-vH/IShwnnk3s6mn8MCo7ifMydjsTm2smbfyC7ITaNNjlPTDws54vvF8rhkOIRY/XLu4EuGr7qgHURhP1oPYhYA==}
-
-  '@utilitywarehouse/css-reset@0.1.0':
-    resolution: {integrity: sha512-kiEd8gnFKPgBQgM46n4kFKlAZd9UQ6W4coFzZhf22OKS7p5ElzxzmM/rAQYDXGdN9h2jS+pd72fvJyp9SxMDxQ==}
 
   '@utilitywarehouse/design-tokens@0.0.1-alpha.2':
     resolution: {integrity: sha512-Nem/YtBSRDltUwsVdUYdDIQCfXgzZfN+xUy2nU4YBcVgUAXyy5wl4SrYJdtvMLx1q1RjN0lpnWwo3aQkxuzgLA==}
@@ -13881,8 +13878,6 @@ snapshots:
   '@utilitywarehouse/colour-system@0.5.0':
     dependencies:
       dotenv: 16.4.7
-
-  '@utilitywarehouse/css-reset@0.1.0': {}
 
   '@utilitywarehouse/design-tokens@0.0.1-alpha.2': {}
 
