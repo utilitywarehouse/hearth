@@ -1,5 +1,5 @@
 import type { StoryObj } from '@storybook/react';
-import { TMTLimkinFlare } from './TMTLimkinFlare';
+import { ComicHams } from './ComicHams';
 import { DMSans } from './DMSans';
 import { DMMono } from './DMMono';
 
@@ -16,7 +16,7 @@ export const KitchenSink: Story = {
     <div>
       <DMSans />
       <DMMono />
-      <TMTLimkinFlare />
+      <ComicHams />
     </div>
   ),
 };
