@@ -28,7 +28,7 @@ StyleDictionary.registerTransformGroup({
 StyleDictionary.registerFormat({
   name: 'js/device-module',
   format: ({ dictionary, options, file }) => {
-    const fileName = file?.destination?.replace('.js', '');
+    const fileName = file?.destination?.replace('.ts', '');
     const output = buildDeviceOutput(dictionary, options);
     return `/**
  * Do not edit directly, this file was auto-generated.
@@ -109,7 +109,7 @@ StyleDictionary.registerFormat({
  * Do not edit directly, this file was auto-generated.
  */
 
-${components.map(name => `export { default as ${name} } from './${name}.js';`).join('\n')}`;
+${components.map(name => `export { default as ${name} } from './${name}';`).join('\n')}`;
   },
 });
 
@@ -120,8 +120,8 @@ StyleDictionary.registerFormat({
  * Do not edit directly, this file was auto-generated.
  */
 
-export * as light from './light/index.js';
-export * as dark from './dark/index.js';`;
+export * as light from './light/index';
+export * as dark from './dark/index';`;
   },
 });
 
@@ -132,11 +132,11 @@ StyleDictionary.registerFormat({
  * Do not edit directly, this file was auto-generated.
  */
 
-export { default as color } from './color.js';
-export { default as layout } from './layout.js';
-export { default as primitive } from './primitive.js';
-export { default as typography } from './typography.js';
-export * as components from './components/index.js';`;
+export { default as color } from './color';
+export { default as layout } from './layout';
+export { default as primitive } from './primitive';
+export { default as typography } from './typography';
+export * as components from './components';`;
   },
 });
 
@@ -145,7 +145,7 @@ const lightComponents = Object.keys(componentJson.light);
 const darkComponents = Object.keys(componentJson.dark);
 
 const dynamicLightComponentFiles = lightComponents.map(componentName => ({
-  destination: `components/light/${componentName}.js`,
+  destination: `components/light/${componentName}.ts`,
   format: 'js/component-output',
   options: {
     minify: true,
@@ -161,7 +161,7 @@ const dynamicLightComponentFiles = lightComponents.map(componentName => ({
 }));
 
 const dynamicDarkComponentFiles = darkComponents.map(componentName => ({
-  destination: `components/dark/${componentName}.js`,
+  destination: `components/dark/${componentName}.ts`,
   format: 'js/component-output',
   options: {
     minify: true,
@@ -177,7 +177,7 @@ const dynamicDarkComponentFiles = darkComponents.map(componentName => ({
 }));
 
 const indexLightFile = {
-  destination: 'components/light/index.js',
+  destination: 'components/light/index.ts',
   format: 'js/component-index',
   transformGroup: 'js-device',
   options: {
@@ -186,7 +186,7 @@ const indexLightFile = {
 };
 
 const indexDarkFile = {
-  destination: 'components/dark/index.js',
+  destination: 'components/dark/index.ts',
   format: 'js/component-index',
   transformGroup: 'js-device',
   options: {
@@ -195,13 +195,13 @@ const indexDarkFile = {
 };
 
 const indexRootFile = {
-  destination: 'components/index.js',
+  destination: 'components/index.ts',
   format: 'js/component-root-index',
   transformGroup: 'js-device',
 };
 
 const rootJsIndexFile = {
-  destination: 'index.js',
+  destination: 'index.ts',
   format: 'js/root-index',
   transformGroup: 'js-device',
 };
@@ -214,10 +214,10 @@ function generateJs() {
       platforms: {
         'js-typography': {
           transformGroup: 'js-device',
-          buildPath: './js/',
+          buildPath: './ts/',
           files: [
             {
-              destination: 'typography.js',
+              destination: 'typography.ts',
               format: 'js/device-module',
               options: {
                 skipPaths: ['typography', 'scales'],
@@ -236,10 +236,10 @@ function generateJs() {
         },
         'js-layout': {
           transformGroup: 'js-device',
-          buildPath: './js/',
+          buildPath: './ts/',
           files: [
             {
-              destination: 'layout.js',
+              destination: 'layout.ts',
               format: 'js/device-module',
               options: {
                 skipPaths: ['layout'],
@@ -252,10 +252,10 @@ function generateJs() {
         },
         'js-colour': {
           transformGroup: 'js-device',
-          buildPath: './js/',
+          buildPath: './ts/',
           files: [
             {
-              destination: 'color.js',
+              destination: 'color.ts',
               format: 'js/theme-module',
               filter: token => {
                 return token.filePath.includes('primitive') && token.type === 'color';
@@ -265,10 +265,10 @@ function generateJs() {
         },
         'js-primitive': {
           transformGroup: 'js-device',
-          buildPath: './js/',
+          buildPath: './ts/',
           files: [
             {
-              destination: 'primitive.js',
+              destination: 'primitive.ts',
               format: 'javascript/esm',
               filter: token => {
                 return token.filePath.includes('primitive') && token.type !== 'color';
@@ -281,7 +281,7 @@ function generateJs() {
         },
         'js-components': {
           transformGroup: 'js-device',
-          buildPath: './js/',
+          buildPath: './ts/',
           files: [
             ...dynamicLightComponentFiles,
             ...dynamicDarkComponentFiles,
