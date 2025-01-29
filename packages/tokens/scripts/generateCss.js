@@ -16,6 +16,17 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
+  name: 'add-space-px',
+  type: 'value',
+  filter: token => {
+    return token.value && token.attributes.category === 'space';
+  },
+  transform: token => {
+    return `${token.value}px`;
+  },
+});
+
+StyleDictionary.registerTransform({
   name: 'remove-light-color',
   type: 'name',
   filter: token => {
@@ -143,6 +154,20 @@ function generateCss() {
     new StyleDictionary({
       source: ['./raw/*.json'],
       platforms: {
+        'css-space': {
+          transformGroup: 'css-device',
+          transforms: ['add-space-px'],
+          buildPath: './css/',
+          files: [
+            {
+              destination: 'space.css',
+              format: 'css/variables',
+              filter: token => {
+                return token.attributes.category === 'space';
+              },
+            },
+          ],
+        },
         'css-typography': {
           transformGroup: 'css-device',
           transforms: ['rename-typography'],
@@ -204,6 +229,9 @@ function generateCss() {
               format: 'css/variables',
               filter: token => {
                 if (token.type === 'color') {
+                  return false;
+                }
+                if (token.attributes.category === 'space') {
                   return false;
                 }
                 return token.filePath.includes('primitive');
