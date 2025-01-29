@@ -3,134 +3,134 @@
  */
 export declare const mobile: {
     content: {
-        "spacing-md": number;
-        "spacing-lg": number;
-        "spacing-xs": number;
-        "spacing-xl": number;
-        "padding-top": number;
-        "spacing-sm": number;
-        "padding-bottom": number;
+        spacingMd: number;
+        spacingLg: number;
+        spacingXs: number;
+        spacingXl: number;
+        paddingTop: number;
+        spacingSm: number;
+        paddingBottom: number;
     };
     grid: {
         gutter: number;
-        "grid-size": number;
-        "column-number": number;
+        gridSize: number;
+        columnNumber: number;
         margin: number;
-        "column-width": number;
+        columnWidth: number;
     };
     container: {
-        "padding-horizontal": number;
+        paddingHorizontal: number;
         width: number;
     };
 };
 export declare const tablet: {
     content: {
-        "spacing-md": number;
-        "spacing-lg": number;
-        "spacing-xs": number;
-        "spacing-xl": number;
-        "padding-top": number;
-        "spacing-sm": number;
-        "padding-bottom": number;
+        spacingMd: number;
+        spacingLg: number;
+        spacingXs: number;
+        spacingXl: number;
+        paddingTop: number;
+        spacingSm: number;
+        paddingBottom: number;
     };
     grid: {
         gutter: number;
-        "grid-size": number;
-        "column-number": number;
+        gridSize: number;
+        columnNumber: number;
         margin: number;
-        "column-width": number;
+        columnWidth: number;
     };
     container: {
-        "padding-horizontal": number;
+        paddingHorizontal: number;
         width: number;
     };
 };
 export declare const desktop: {
     content: {
-        "spacing-md": number;
-        "spacing-lg": number;
-        "spacing-xs": number;
-        "spacing-xl": number;
-        "padding-top": number;
-        "spacing-sm": number;
-        "padding-bottom": number;
+        spacingMd: number;
+        spacingLg: number;
+        spacingXs: number;
+        spacingXl: number;
+        paddingTop: number;
+        spacingSm: number;
+        paddingBottom: number;
     };
     grid: {
         gutter: number;
-        "grid-size": number;
-        "column-number": number;
+        gridSize: number;
+        columnNumber: number;
         margin: number;
-        "column-width": number;
+        columnWidth: number;
     };
     container: {
-        "padding-horizontal": number;
+        paddingHorizontal: number;
         width: number;
     };
 };
 declare const layout: {
     mobile: {
         content: {
-            "spacing-md": number;
-            "spacing-lg": number;
-            "spacing-xs": number;
-            "spacing-xl": number;
-            "padding-top": number;
-            "spacing-sm": number;
-            "padding-bottom": number;
+            spacingMd: number;
+            spacingLg: number;
+            spacingXs: number;
+            spacingXl: number;
+            paddingTop: number;
+            spacingSm: number;
+            paddingBottom: number;
         };
         grid: {
             gutter: number;
-            "grid-size": number;
-            "column-number": number;
+            gridSize: number;
+            columnNumber: number;
             margin: number;
-            "column-width": number;
+            columnWidth: number;
         };
         container: {
-            "padding-horizontal": number;
+            paddingHorizontal: number;
             width: number;
         };
     };
     tablet: {
         content: {
-            "spacing-md": number;
-            "spacing-lg": number;
-            "spacing-xs": number;
-            "spacing-xl": number;
-            "padding-top": number;
-            "spacing-sm": number;
-            "padding-bottom": number;
+            spacingMd: number;
+            spacingLg: number;
+            spacingXs: number;
+            spacingXl: number;
+            paddingTop: number;
+            spacingSm: number;
+            paddingBottom: number;
         };
         grid: {
             gutter: number;
-            "grid-size": number;
-            "column-number": number;
+            gridSize: number;
+            columnNumber: number;
             margin: number;
-            "column-width": number;
+            columnWidth: number;
         };
         container: {
-            "padding-horizontal": number;
+            paddingHorizontal: number;
             width: number;
         };
     };
     desktop: {
         content: {
-            "spacing-md": number;
-            "spacing-lg": number;
-            "spacing-xs": number;
-            "spacing-xl": number;
-            "padding-top": number;
-            "spacing-sm": number;
-            "padding-bottom": number;
+            spacingMd: number;
+            spacingLg: number;
+            spacingXs: number;
+            spacingXl: number;
+            paddingTop: number;
+            spacingSm: number;
+            paddingBottom: number;
         };
         grid: {
             gutter: number;
-            "grid-size": number;
-            "column-number": number;
+            gridSize: number;
+            columnNumber: number;
             margin: number;
-            "column-width": number;
+            columnWidth: number;
         };
         container: {
-            "padding-horizontal": number;
+            paddingHorizontal: number;
             width: number;
         };
     };

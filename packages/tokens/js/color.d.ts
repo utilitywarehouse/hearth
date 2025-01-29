@@ -2,15 +2,15 @@
  * Do not edit directly, this file was auto-generated.
  */
 export declare const common: {
-    "cashback-lilac": string;
-    "insurance-orange": string;
-    "mobile-rose": string;
-    "broadband-blue": string;
-    "energy-green": string;
-    "piggy-pink": string;
-    "off-white": string;
-    "dark-purple": string;
-    "uw-purple": string;
+    cashbackLilac: string;
+    insuranceOrange: string;
+    mobileRose: string;
+    broadbandBlue: string;
+    energyGreen: string;
+    piggyPink: string;
+    offWhite: string;
+    darkPurple: string;
+    uwPurple: string;
     white: string;
 };
 export declare const light: {
@@ -175,15 +175,15 @@ export declare const dark: {
 };
 declare const color: {
     common: {
-        "cashback-lilac": string;
-        "insurance-orange": string;
-        "mobile-rose": string;
-        "broadband-blue": string;
-        "energy-green": string;
-        "piggy-pink": string;
-        "off-white": string;
-        "dark-purple": string;
-        "uw-purple": string;
+        cashbackLilac: string;
+        insuranceOrange: string;
+        mobileRose: string;
+        broadbandBlue: string;
+        energyGreen: string;
+        piggyPink: string;
+        offWhite: string;
+        darkPurple: string;
+        uwPurple: string;
         white: string;
     };
     light: {

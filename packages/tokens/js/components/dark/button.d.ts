@@ -4,7 +4,7 @@
 declare const _default: {
     emphasis: {
         yellow: {
-            "background-color": string;
+            backgroundColor: string;
         };
     };
 };
