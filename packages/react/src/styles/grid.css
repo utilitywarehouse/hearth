@@ -1,49 +1,49 @@
 @breakpoints {
-  .hearth-r-grid-item-columns-1 {
+  .hearth-r-grid-column-span-1 {
     grid-column: span 1;
   }
 
-  .hearth-r-grid-item-columns-2 {
+  .hearth-r-grid-column-span-2 {
     grid-column: span 2;
   }
 
-  .hearth-r-grid-item-columns-3 {
+  .hearth-r-grid-column-span-3 {
     grid-column: span 3;
   }
 
-  .hearth-r-grid-item-columns-4 {
+  .hearth-r-grid-column-span-4 {
     grid-column: span 4;
   }
 
-  .hearth-r-grid-item-columns-5 {
+  .hearth-r-grid-column-span-5 {
     grid-column: span 5;
   }
 
-  .hearth-r-grid-item-columns-6 {
+  .hearth-r-grid-column-span-6 {
     grid-column: span 6;
   }
 
-  .hearth-r-grid-item-columns-7 {
+  .hearth-r-grid-column-span-7 {
     grid-column: span 7;
   }
 
-  .hearth-r-grid-item-columns-8 {
+  .hearth-r-grid-column-span-8 {
     grid-column: span 8;
   }
 
-  .hearth-r-grid-item-columns-9 {
+  .hearth-r-grid-column-span-9 {
     grid-column: span 9;
   }
 
-  .hearth-r-grid-item-columns-10 {
+  .hearth-r-grid-column-span-10 {
     grid-column: span 10;
   }
 
-  .hearth-r-grid-item-columns-11 {
+  .hearth-r-grid-column-span-11 {
     grid-column: span 11;
   }
 
-  .hearth-r-grid-item-columns-12 {
+  .hearth-r-grid-column-span-12 {
     grid-column: span 12;
   }
 }
