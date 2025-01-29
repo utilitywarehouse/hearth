@@ -28,7 +28,7 @@ const SpinnerRoot: React.FC<SpinnerProps> = forwardRef<View, SpinnerProps>(
     const HALF_CIRCLE = R + STROKE_WIDTH;
     const DIAMETER = 2 * HALF_CIRCLE;
 
-    const { colors } = useTheme();
+    const { components } = useTheme();
 
     const progress = useSharedValue(1);
     const rotation = useSharedValue(0);
@@ -70,7 +70,7 @@ const SpinnerRoot: React.FC<SpinnerProps> = forwardRef<View, SpinnerProps>(
       [rotation]
     );
 
-    const defaultColor = color || colors.purple800;
+    const defaultColor = color || components.spinner.de;
 
     styles.useVariants({ size });
 
@@ -111,7 +111,7 @@ const SpinnerRoot: React.FC<SpinnerProps> = forwardRef<View, SpinnerProps>(
 
 SpinnerRoot.displayName = 'Spinner';
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create(theme => ({
   container: {
     display: 'flex',
     justifyContent: 'center',
@@ -119,12 +119,12 @@ const styles = StyleSheet.create({
     variants: {
       size: {
         xs: {
-          width: 16,
-          height: 16,
+          width: theme.components.spinner.xs.size,
+          height: theme.components.spinner.xs.size,
         },
         sm: {
-          width: 24,
-          height: 24,
+          width: theme.components.spinner.sm.size,
+          height: theme.components.spinner.sm.size,
         },
         md: {
           width: 32,
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
       },
     },
   },
-});
+}));
 
 const Spinner = createSpinner({ Root: SpinnerRoot });
 

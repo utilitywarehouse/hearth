@@ -21,7 +21,7 @@ export default create({
   // UI
   appBg: '#7A42C8',
   appContentBg: '#FFFBE8',
-  appPreviewBg: '#fff',
+  appPreviewBg: '#FFFBE8',
   appBorderColor: '#101010',
   appBorderRadius: 0,
 
