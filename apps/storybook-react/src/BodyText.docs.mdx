@@ -17,7 +17,27 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 - [Strong](?path=/docs/typography-strong--docs) - For strong importance
 - [Em](?path=/docs/typography-em--docs) - For emphasis
 
-## Sizes
+## Semantic HTML
+
+By default `BodyText` renders a `p` element, this can be customised using the
+`as` prop, to render a `span` or a `div`.
+
+```tsx
+<BodyText as="span">...</Box>
+```
+
+To render any other valid HTML element, you can use the `asChild` prop.
+
+```tsx
+<BodyText asChild>
+  <label>...</label>
+</Box>
+```
+
+This will render the child element, with all the styles declared on the `Box`
+component passed down to it as well.
+
+## Size
 
 The size prop is responsive, so you can render different sizes at different breakpoints.
 
@@ -26,6 +46,16 @@ The size prop is responsive, so you can render different sizes at different brea
 ```
 
 <Canvas of={Stories.TextSizes} />
+
+## Weight
+
+The weight prop is responsive, so you can render different weights at different breakpoints.
+
+```tsx
+<BodyText weight={{ mobile: 'bold', tablet: 'regular'}}>{...}</BodyText>
+```
+
+<Canvas of={Stories.TextWeights} />
 
 ## Text truncate
 
@@ -40,11 +70,11 @@ overflow).
 
 This component is based on the `p` element.
 
-| Prop       | Type                                        | Description                                                                                                                                                                                                                           | Default     |
-| ---------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `as`       | `"p" \| "div" \| "span"`                    | Shorthand for changing the default rendered element into a semantically appropriate alternative. Cannot be used in combination with `asChild`.                                                                                        | `"p"`       |
-| `asChild`  | `boolean`                                   | Change the default rendered element for the one passed as a child, merging their props and behavior.                                                                                                                                  | `false`     |
-| `size`     | `'sm' \| 'md' \| 'lg'`                      | Set the text size styles.                                                                                                                                                                                                             | `"body"`    |
-| `weight`   | `Responsive<'regular' \| 'bold'>`           | Set the font-weight.                                                                                                                                                                                                                  | `"regular"` |
-| `align`    | `Responsive<"left" \| "center" \| "right">` | Set the text-align.                                                                                                                                                                                                                   |             |
-| `truncate` | `boolean`                                   | If true, the text will not wrap, but instead will truncate with a text overflow ellipsis. Note that text overflow can only happen with block or inline-block level elements (the element needs to have a width in order to overflow). |             |
+| Prop       | Type                                        |
+| ---------- | ------------------------------------------- |
+| `as`       | `"p" \| "div" \| "span"`                    |
+| `asChild`  | `boolean`                                   |
+| `size`     | `Responsive<"sm" \| "md" \| "lg">`          |
+| `weight`   | `Responsive<"regular" \| "bold">`           |
+| `align`    | `Responsive<"left" \| "center" \| "right">` |
+| `truncate` | `boolean`                                   |

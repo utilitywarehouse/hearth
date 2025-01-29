@@ -1,10 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Box, BoxProps, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { Box, BoxProps, Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
 import { useRef } from 'react';
 
 const meta: Meta<typeof Box> = {
   title: 'Stories / Box',
   component: Box,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '`Box` is a fundamental primitive, based on the `div` element, for creating layouts, styling content and as a building block for other elements.',
+      },
+    },
+  },
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },
@@ -59,6 +67,35 @@ export const ResponsiveProps: Story = {
       wide: '500',
     },
   },
+};
+
+export const HideContent: Story = {
+  name: 'Responsively hide content',
+  render: () => (
+    <Flex gap="300" direction="column">
+      <Box
+        className="hearth-sb-Placeholder"
+        display={{ mobile: 'none', tablet: 'block' }}
+        padding="300"
+      >
+        hidden on mobile screens
+      </Box>
+      <Box
+        className="hearth-sb-Placeholder"
+        display={{ mobile: 'block', tablet: 'none', desktop: 'block' }}
+        padding="300"
+      >
+        hidden on tablet screens
+      </Box>
+      <Box
+        className="hearth-sb-Placeholder"
+        display={{ mobile: 'block', desktop: 'none' }}
+        padding="300"
+      >
+        hidden on desktop screens
+      </Box>
+    </Flex>
+  ),
 };
 
 type Props = React.ComponentPropsWithoutRef<'a'> & BoxProps;

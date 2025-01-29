@@ -14,9 +14,6 @@ const componentClassName = withGlobalPrefix(componentName);
 
 type DetailTextElement = ElementRef<'span'>;
 
-/**
- * `DetailText` renders the monospace UW font, to be used for detail text.
- */
 export const DetailText = React.forwardRef<DetailTextElement, DetailTextProps>((props, ref) => {
   const {
     className,
