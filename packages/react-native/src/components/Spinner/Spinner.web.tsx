@@ -9,7 +9,6 @@ import Animated, {
 } from 'react-native-reanimated';
 import { Circle, G, Svg } from 'react-native-svg';
 import type SpinnerProps from './Spinner.props';
-import { getStrokeWidth, getWidth } from './Spinner.utils';
 import { createSpinner } from '@gluestack-ui/spinner';
 import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
@@ -19,14 +18,13 @@ const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
 const SpinnerRoot: React.FC<SpinnerProps> = ({ size = 'md', color, ...props }) => {
-  const width = getWidth(size);
+  const { components } = useTheme();
+  const width = components.spinner[size].svgSize;
   const CIRCUMFERENCE = (width - 4) * Math.PI;
   const R = CIRCUMFERENCE / (2 * Math.PI);
-  const STROKE_WIDTH = getStrokeWidth(size);
+  const STROKE_WIDTH = components.spinner[size].strokeWidth;
   const HALF_CIRCLE = R + STROKE_WIDTH;
   const DIAMETER = 2 * HALF_CIRCLE;
-
-  const { colors } = useTheme();
 
   const progress = useSharedValue(1);
   const rotation = useSharedValue(0);
@@ -63,7 +61,7 @@ const SpinnerRoot: React.FC<SpinnerProps> = ({ size = 'md', color, ...props }) =
     };
   }, [progress]);
 
-  const defaultColor = color || colors.purple800;
+  const defaultColor = color || components.spinner.defaultFill;
 
   styles.useVariants({ size });
 
@@ -100,7 +98,7 @@ const SpinnerRoot: React.FC<SpinnerProps> = ({ size = 'md', color, ...props }) =
   );
 };
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create(theme => ({
   container: {
     display: 'flex',
     justifyContent: 'center',
@@ -108,25 +106,25 @@ const styles = StyleSheet.create({
     variants: {
       size: {
         xs: {
-          width: 16,
-          height: 16,
+          width: theme.components.spinner.xs.size,
+          height: theme.components.spinner.xs.size,
         },
         sm: {
-          width: 24,
-          height: 24,
+          width: theme.components.spinner.sm.size,
+          height: theme.components.spinner.sm.size,
         },
         md: {
-          width: 32,
-          height: 32,
+          width: theme.components.spinner.md.size,
+          height: theme.components.spinner.md.size,
         },
         lg: {
-          width: 48,
-          height: 48,
+          width: theme.components.spinner.lg.size,
+          height: theme.components.spinner.lg.size,
         },
       },
     },
   },
-});
+}));
 
 const Spinner = createSpinner({ Root: SpinnerRoot });
 
