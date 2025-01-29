@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TMTLimkinFlare } from './TMTLimkinFlare';
+import { ComicHams } from './ComicHams';
 
 const meta = {
-  title: 'TMT Limkin Flare',
-  component: TMTLimkinFlare,
+  title: 'ComicHams',
+  component: ComicHams,
   parameters: { layout: 'fullscreen' },
-} satisfies Meta<typeof TMTLimkinFlare>;
+} satisfies Meta<typeof ComicHams>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
