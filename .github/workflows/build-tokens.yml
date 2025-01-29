@@ -47,6 +47,18 @@ jobs:
       - name: 🔍 Run Checks
         run: pnpm checks
 
+      - name: Add changeset
+        run: |
+          touch ./.changeset/${{ github.sha }}.md
+          cat > ./.changeset/${{ github.sha }}.md << EOF
+          ---
+          "@utilitywarehouse/hearth-tokens": "minor"
+          ---
+
+          Generate tokens
+
+          EOF
+
       - name: 📝 Commit Built Files
         run: |
           git config --global user.name 'UW Design Systems Bot'
