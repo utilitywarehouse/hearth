@@ -1,6 +1,6 @@
 {
   "include": [
-    "./build",
+    "./ts",
   ],
   "compilerOptions": {
     "ignoreDeprecations": "5.0",
@@ -16,6 +16,7 @@
       "esnext",
       "dom"
     ],
+    "outDir": "./js",
     "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,

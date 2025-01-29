@@ -2,9 +2,11 @@
 /* eslint-disable  @typescript-eslint/no-unsafe-return */
 /* eslint-disable  @typescript-eslint/no-unsafe-call */
 import React, { useEffect } from 'react';
-import logo from './assets/logo.svg';
+// @ts-expect-error - No type definitions available
+import logo from './assets/logo.png';
 import '@utilitywarehouse/css-reset';
 import './styles/ui.css';
+import { color } from '@utilitywarehouse/hearth-tokens';
 import { encodeContent, kebabCase } from './utils';
 import {
   Heading,
@@ -307,126 +309,141 @@ function App() {
   }
 
   return (
-    <div>
-      {tokenLoaded && !showTokenInput && (
-        <Button
-          onClick={editToken}
-          className="edit-token-button"
-          size="small"
-          sx={{ position: 'absolute', top: 16, right: 16 }}
-        >
-          Edit Token
-        </Button>
-      )}
-      <img src={logo} />
-      <Heading variant="h3" sx={{ my: 2 }}>
-        Export Figma Variables
-      </Heading>
-      {!githubToken && (
-        <Alert
-          colorScheme="cyan"
-          text="Enter your GitHub token to be able to export the variables and create a PR."
-          sx={{ mb: 3 }}
-        />
-      )}
-      {loadingImport && (
-        <Alert colorScheme="cyan" text="Importing variables, please wait..." sx={{ mb: 3 }} />
-      )}
-      {((tokenLoaded && showTokenInput) || !tokenLoaded) && (
-        <Box sx={{ padding: 3, backgroundColor: '#fff', borderRadius: '14px', mb: 3 }}>
-          <TextField
-            id="github-token"
-            type="password"
-            label="GitHub Token"
-            value={githubToken}
-            onChange={e => setGithubToken(e.target.value)}
-          />
-          <Button onClick={saveToken}>Save Token</Button>
+    <Box bgcolor={color.common['off-white']} height="100%">
+      <Box bgcolor={color.common['uw-purple']} p={2} sx={{ position: 'relative' }}>
+        {tokenLoaded && !showTokenInput && (
+          <Button
+            onClick={editToken}
+            className="edit-token-button"
+            size="small"
+            sx={{ position: 'absolute', top: 16, right: 16 }}
+          >
+            Edit Token
+          </Button>
+        )}
+        <img src={logo} />
+      </Box>
+      <Box p={2}>
+        <Box sx={{ mb: 2 }}>
+          <Heading variant="h3" color="black">
+            Export Figma Variables
+          </Heading>
         </Box>
-      )}
-      {statusMessage && <Alert colorScheme={statusType} text={statusMessage} sx={{ mb: 3 }} />}
-      {githubToken && (
-        <Box sx={{ padding: 3, backgroundColor: '#fff', borderRadius: '14px' }}>
-          <Box mb={2}>
-            <CheckboxGroup
-              direction="column"
-              label="Select Collections to Export:"
-              helperText="Published library collections in this file"
-              sx={{ mb: 3 }}
-            >
-              {!loadingCollections && collections.length > 0 && (
-                <Checkbox
-                  id="select-all"
-                  value="select-all"
-                  label="Select All"
-                  checked={selectAll}
-                  onCheckedChange={handleSelectAll}
+        {!githubToken && (
+          <Alert
+            colorScheme="cyan"
+            text="Enter your GitHub token to be able to export the variables and create a PR."
+            sx={{ mb: 3 }}
+          />
+        )}
+        {loadingImport && (
+          <Alert colorScheme="cyan" text="Importing variables, please wait..." sx={{ mb: 3 }} />
+        )}
+        {((tokenLoaded && showTokenInput) || !tokenLoaded) && (
+          <Box sx={{ padding: 3, backgroundColor: '#fff', borderRadius: '14px', mb: 3 }}>
+            <TextField
+              id="github-token"
+              type="password"
+              label="GitHub Token"
+              value={githubToken}
+              onChange={e => setGithubToken(e.target.value)}
+            />
+            <Button onClick={saveToken}>Save Token</Button>
+          </Box>
+        )}
+        {statusMessage && <Alert colorScheme={statusType} text={statusMessage} sx={{ mb: 3 }} />}
+        {githubToken && (
+          <Box
+            sx={{
+              padding: 3,
+              backgroundColor: '#fff',
+              borderRadius: '14px',
+              borderWidth: 2,
+              borderColor: color.light.grey[1000],
+              borderStyle: 'solid',
+            }}
+          >
+            <Box mb={2}>
+              <CheckboxGroup
+                direction="column"
+                label="Select Collections to Export:"
+                helperText="Published library collections in this file"
+                sx={{ mb: 3 }}
+              >
+                {!loadingCollections && collections.length > 0 && (
+                  <Checkbox
+                    id="select-all"
+                    value="select-all"
+                    label="Select All"
+                    checked={selectAll}
+                    onCheckedChange={handleSelectAll}
+                  />
+                )}
+              </CheckboxGroup>
+              {
+                // Show loading spinner while fetching collections
+                loadingCollections && <LoadingSpinner text="Loading collections..." />
+              }
+              {!loadingCollections && collections.length === 0 && (
+                <Alert
+                  colorScheme="cyan"
+                  text="No collections found in this file. Please create a collection in the library."
+                  sx={{ mb: 3 }}
                 />
               )}
-            </CheckboxGroup>
-            {
-              // Show loading spinner while fetching collections
-              loadingCollections && <LoadingSpinner text="Loading collections..." />
-            }
-            {!loadingCollections && collections.length === 0 && (
-              <Alert
-                colorScheme="cyan"
-                text="No collections found in this file. Please create a collection in the library."
-                sx={{ mb: 3 }}
-              />
-            )}
-            {!loadingCollections && collections.length > 0 && (
-              <CheckboxGroup
-                direction="row"
-                value={selectedCollections}
-                onValueChange={val => setSelectedCollections(val)}
+              {!loadingCollections && collections.length > 0 && (
+                <CheckboxGroup
+                  direction="row"
+                  value={selectedCollections}
+                  onValueChange={val => setSelectedCollections(val)}
+                >
+                  {collections.map(collection => (
+                    <Checkbox
+                      key={collection.id}
+                      id={`checkbox-${collection.id}`}
+                      value={collection.id}
+                      label={collection.name}
+                      helperText={collection.libraryName}
+                    />
+                  ))}
+                </CheckboxGroup>
+              )}
+            </Box>
+
+            <Flex direction="column" align={{ mobile: 'stretch', desktop: 'start' }}>
+              <Button
+                onClick={exportVariables}
+                disabled={exporting || loadingImport || loadingCollections}
               >
-                {collections.map(collection => (
-                  <Checkbox
-                    key={collection.id}
-                    id={`checkbox-${collection.id}`}
-                    value={collection.id}
-                    label={collection.name}
-                    helperText={collection.libraryName}
-                  />
-                ))}
-              </CheckboxGroup>
-            )}
+                {exporting ? 'Exporting...' : 'Export Variables'}
+              </Button>
+            </Flex>
           </Box>
+        )}
+        {(exporting || loadingImport) && <LoadingSpinner text={loadingText} overlay />}
 
-          <Flex direction="column" align={{ mobile: 'stretch', desktop: 'start' }}>
-            <Button
-              onClick={exportVariables}
-              disabled={exporting || loadingImport || loadingCollections}
-            >
-              {exporting ? 'Exporting...' : 'Export Variables'}
-            </Button>
-          </Flex>
-        </Box>
-      )}
-      {(exporting || loadingImport) && <LoadingSpinner text={loadingText} overlay />}
-
-      <svg
-        id="corner"
-        width="16"
-        height="16"
-        viewBox="0 0 16 16"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        onPointerDown={e => {
-          e.currentTarget.onpointermove = resizeWindow;
-          e.currentTarget.setPointerCapture(e.pointerId);
-        }}
-        onPointerUp={e => {
-          e.currentTarget.onpointermove = null;
-          e.currentTarget.releasePointerCapture(e.pointerId);
-        }}
-      >
-        <path d="M16 0V16H0L16 0Z" fill="white" />
-        <path d="M6.22577 16H3L16 3V6.22576L6.22577 16Z" fill="#8C8C8C" />
-        <path d="M11.8602 16H8.63441L16 8.63441V11.8602L11.8602 16Z" fill="#8C8C8C" />
-      </svg>
-    </div>
+        <svg
+          id="corner"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          onPointerDown={e => {
+            e.currentTarget.onpointermove = resizeWindow;
+            e.currentTarget.setPointerCapture(e.pointerId);
+          }}
+          onPointerUp={e => {
+            e.currentTarget.onpointermove = null;
+            e.currentTarget.releasePointerCapture(e.pointerId);
+          }}
+        >
+          <path d="M16 0V16H0L16 0Z" fill="white" />
+          <path d="M6.22577 16H3L16 3V6.22576L6.22577 16Z" fill="#8C8C8C" />
+          <path d="M11.8602 16H8.63441L16 8.63441V11.8602L11.8602 16Z" fill="#8C8C8C" />
+        </svg>
+      </Box>
+    </Box>
   );
 }
 
