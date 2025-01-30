@@ -209,6 +209,20 @@ function renameModesWithMap(tokens: Record<string, any>, modeMap: Record<string,
   return renamed;
 }
 
+function sortTokensRecursive(obj: any): any {
+  if (Array.isArray(obj)) {
+    return obj.map(sortTokensRecursive);
+  } else if (obj !== null && typeof obj === 'object') {
+    const sortedKeys = Object.keys(obj).sort();
+    const newObj: any = {};
+    for (const key of sortedKeys) {
+      newObj[key] = sortTokensRecursive(obj[key]);
+    }
+    return newObj;
+  }
+  return obj;
+}
+
 ////////////////////////////////////////////////////////////////////////////////
 // 4. EXPORT VARIABLES (LOCAL + LIBRARY) - Using Async
 ////////////////////////////////////////////////////////////////////////////////
@@ -299,6 +313,9 @@ async function exportVariables(selectedCollectionIds: Array<string>) {
           tokens = renameModesWithMap(tokens, modeMap);
         }
       }
+
+      // Sort tokens
+      tokens = sortTokensRecursive(tokens);
 
       // 4) Save final
       tokensPerCollection.push({

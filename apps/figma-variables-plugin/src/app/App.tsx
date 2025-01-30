@@ -309,8 +309,8 @@ function App() {
   }
 
   return (
-    <Box bgcolor={color.common['off-white']} height="100%">
-      <Box bgcolor={color.common['uw-purple']} p={2} sx={{ position: 'relative' }}>
+    <Box bgcolor={color.common.offWhite} height="100%">
+      <Box bgcolor={color.common.uwPurple} p={2} sx={{ position: 'relative' }}>
         {tokenLoaded && !showTokenInput && (
           <Button
             onClick={editToken}
