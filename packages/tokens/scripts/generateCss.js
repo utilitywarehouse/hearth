@@ -71,11 +71,8 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: 'rename-layout',
   type: 'name',
-  filter: token => {
-    return token.attributes.type === 'layout';
-  },
   transform: token => {
-    return `${token.attributes.item}-${token.attributes.subitem}${token.attributes.category !== 'mobile' ? `-${token.attributes.category}` : ''}`;
+    return `${token.attributes.type}-${token.attributes.item}-${token.attributes.subitem}-${token.attributes.category}`;
   },
 });
 
@@ -188,7 +185,7 @@ function generateCss() {
               destination: 'layout.css',
               format: 'css/variables',
               filter: token => {
-                return token.attributes.type === 'layout';
+                return token.attributes.type === 'layout' && token.attributes.item === 'spacing';
               },
             },
           ],
