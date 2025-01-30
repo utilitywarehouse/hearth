@@ -4,7 +4,7 @@
 import React, { useEffect } from 'react';
 // @ts-expect-error - No type definitions available
 import logo from './assets/logo.png';
-import '@utilitywarehouse/css-reset';
+import '@utilitywarehouse/hearth-css-reset';
 import './styles/ui.css';
 import { color } from '@utilitywarehouse/hearth-tokens';
 import { encodeContent, kebabCase } from './utils';
