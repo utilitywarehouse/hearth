@@ -113,6 +113,7 @@ StyleDictionary.registerFormat({
       .map(t => `  --${t.path.slice(1).join('-')}: ${t.value};`)
       .join('\n');
     const darkVars = darkTokens
+      .filter(t => t.type === 'color')
       .map(t => `  --${t.path.slice(1).join('-')}: ${t.value};`)
       .join('\n');
 
@@ -133,6 +134,7 @@ StyleDictionary.registerFormat({
       .map(t => `  --color-${t.path.slice(2).join('-')}: ${t.value};`)
       .join('\n');
     const darkVars = darkTokens
+      .filter(t => t.type === 'color')
       .map(t => `  --color-${t.path.slice(2).join('-')}: ${t.value};`)
       .join('\n');
 
