@@ -4,24 +4,21 @@
 declare const _default: {
     xs: {
         size: number;
-        svgSize: number;
         strokeWidth: number;
     };
     sm: {
         size: number;
-        svgSize: number;
-        strokeWidth: number;
-    };
-    lg: {
-        size: number;
-        svgSize: number;
         strokeWidth: number;
     };
     md: {
         size: number;
-        svgSize: number;
+        strokeWidth: number;
+    };
+    lg: {
+        size: number;
         strokeWidth: number;
     };
     defaultFill: string;
+    padding: number;
 };
 export default _default;

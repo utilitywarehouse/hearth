@@ -3,19 +3,16 @@
  */
 
 :root {
-  --spinner-xs-size: 20;
-  --spinner-xs-svg-size: 16;
+  --spinner-xs-size: 16;
   --spinner-xs-stroke-width: 1.5;
-  --spinner-sm-size: 24;
-  --spinner-sm-svg-size: 20;
+  --spinner-sm-size: 20;
   --spinner-sm-stroke-width: 2;
-  --spinner-lg-size: 44;
-  --spinner-lg-svg-size: 40;
-  --spinner-lg-stroke-width: 3;
-  --spinner-md-size: 32;
-  --spinner-md-svg-size: 28;
+  --spinner-md-size: 28;
   --spinner-md-stroke-width: 2.5;
+  --spinner-lg-size: 40;
+  --spinner-lg-stroke-width: 3;
   --spinner-default-fill: var(--color-uw-purple);
+  --spinner-padding: var(--space-25);
 }
 
 [data-theme='dark'] {

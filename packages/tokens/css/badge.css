@@ -1,0 +1,27 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --badge-gap: var(--space-50);
+  --badge-padding-horizontal: var(--space-75);
+  --badge-padding-vertical: var(--space-25);
+  --badge-color: var(--color-off-white);
+  --badge-border-radius: var(--border-radius-200);
+  --badge-flat-base-border-radius-bottom-left: 0;
+  --badge-flat-base-border-radius-bottom-right: 0;
+  --badge-red-background-color: var(--color-red-700);
+  --badge-blue-background-color: var(--color-blue-700);
+  --badge-orange-background-color: var(--color-orange-800);
+  --badge-green-background-color: var(--color-green-700);
+  --badge-grey-background-color: var(--color-grey-600);
+}
+
+[data-theme='dark'] {
+  --badge-color: var(--color-off-white);
+  --badge-red-background-color: var(--color-red-700);
+  --badge-blue-background-color: var(--color-blue-700);
+  --badge-orange-background-color: var(--color-orange-800);
+  --badge-green-background-color: var(--color-green-700);
+  --badge-grey-background-color: var(--color-grey-600);
+}

@@ -5,17 +5,13 @@ export declare const mobile: {
     bodyText: {
         md: {
             paragraphSpacing: number;
-            boldFontWeight: number;
-            fontWeight: number;
             fontSize: number;
             letterSpacing: number;
             lineHeight: number;
         };
         sm: {
             paragraphSpacing: number;
-            boldFontWeight: number;
             letterSpacing: number;
-            fontWeight: number;
             lineHeight: number;
             fontSize: number;
         };
@@ -23,45 +19,40 @@ export declare const mobile: {
             fontSize: number;
             lineHeight: number;
             paragraphSpacing: number;
-            boldFontWeight: number;
-            fontWeight: number;
             letterSpacing: number;
         };
+        fontWeightBold: number;
         fontFamily: string;
+        fontWeight: number;
     };
     detailText: {
         sm: {
             fontSize: number;
             lineHeight: number;
-            fontWeight: number;
             letterSpacing: number;
         };
         "4xl": {
             letterSpacing: number;
             lineHeight: number;
-            fontWeight: number;
             fontSize: number;
         };
         lg: {
             letterSpacing: number;
-            fontWeight: number;
             fontSize: number;
             lineHeight: number;
         };
         "3xl": {
             letterSpacing: number;
-            fontWeight: number;
             lineHeight: number;
             fontSize: number;
         };
+        fontWeight: number;
         md: {
-            fontWeight: number;
             fontSize: number;
             lineHeight: number;
             letterSpacing: number;
         };
         "2xl": {
-            fontWeight: number;
             letterSpacing: number;
             lineHeight: number;
             fontSize: number;
@@ -70,7 +61,6 @@ export declare const mobile: {
             fontSize: number;
             lineHeight: number;
             letterSpacing: number;
-            fontWeight: number;
         };
         fontFamily: string;
     };
@@ -106,17 +96,13 @@ export declare const tablet: {
     bodyText: {
         md: {
             paragraphSpacing: number;
-            boldFontWeight: number;
-            fontWeight: number;
             fontSize: number;
             letterSpacing: number;
             lineHeight: number;
         };
         sm: {
             paragraphSpacing: number;
-            boldFontWeight: number;
             letterSpacing: number;
-            fontWeight: number;
             lineHeight: number;
             fontSize: number;
         };
@@ -124,44 +110,40 @@ export declare const tablet: {
             fontSize: number;
             lineHeight: number;
             paragraphSpacing: number;
-            boldFontWeight: number;
-            fontWeight: number;
             letterSpacing: number;
         };
+        fontWeightBold: number;
+        fontFamily: string;
+        fontWeight: number;
     };
     detailText: {
         sm: {
             fontSize: number;
             lineHeight: number;
-            fontWeight: number;
             letterSpacing: number;
         };
         "4xl": {
             letterSpacing: number;
             lineHeight: number;
-            fontWeight: number;
             fontSize: number;
         };
         lg: {
             letterSpacing: number;
-            fontWeight: number;
             fontSize: number;
             lineHeight: number;
         };
         "3xl": {
             letterSpacing: number;
-            fontWeight: number;
             lineHeight: number;
             fontSize: number;
         };
+        fontWeight: number;
         md: {
-            fontWeight: number;
             fontSize: number;
             lineHeight: number;
             letterSpacing: number;
         };
         "2xl": {
-            fontWeight: number;
             letterSpacing: number;
             lineHeight: number;
             fontSize: number;
@@ -170,8 +152,8 @@ export declare const tablet: {
             fontSize: number;
             lineHeight: number;
             letterSpacing: number;
-            fontWeight: number;
         };
+        fontFamily: string;
     };
     heading: {
         sm: {
@@ -180,6 +162,7 @@ export declare const tablet: {
             fontWeight: number;
             lineHeight: number;
         };
+        fontFamily: string;
         md: {
             fontSize: number;
             fontWeight: number;
@@ -204,17 +187,13 @@ export declare const desktop: {
     bodyText: {
         md: {
             paragraphSpacing: number;
-            boldFontWeight: number;
-            fontWeight: number;
             fontSize: number;
             letterSpacing: number;
             lineHeight: number;
         };
         sm: {
             paragraphSpacing: number;
-            boldFontWeight: number;
             letterSpacing: number;
-            fontWeight: number;
             lineHeight: number;
             fontSize: number;
         };
@@ -222,44 +201,40 @@ export declare const desktop: {
             fontSize: number;
             lineHeight: number;
             paragraphSpacing: number;
-            boldFontWeight: number;
-            fontWeight: number;
             letterSpacing: number;
         };
+        fontWeightBold: number;
+        fontFamily: string;
+        fontWeight: number;
     };
     detailText: {
         sm: {
             fontSize: number;
             lineHeight: number;
-            fontWeight: number;
             letterSpacing: number;
         };
         "4xl": {
             letterSpacing: number;
             lineHeight: number;
-            fontWeight: number;
             fontSize: number;
         };
         lg: {
             letterSpacing: number;
-            fontWeight: number;
             fontSize: number;
             lineHeight: number;
         };
         "3xl": {
             letterSpacing: number;
-            fontWeight: number;
             lineHeight: number;
             fontSize: number;
         };
+        fontWeight: number;
         md: {
-            fontWeight: number;
             fontSize: number;
             lineHeight: number;
             letterSpacing: number;
         };
         "2xl": {
-            fontWeight: number;
             letterSpacing: number;
             lineHeight: number;
             fontSize: number;
@@ -268,8 +243,8 @@ export declare const desktop: {
             fontSize: number;
             lineHeight: number;
             letterSpacing: number;
-            fontWeight: number;
         };
+        fontFamily: string;
     };
     heading: {
         sm: {
@@ -278,6 +253,7 @@ export declare const desktop: {
             fontWeight: number;
             lineHeight: number;
         };
+        fontFamily: string;
         md: {
             fontSize: number;
             fontWeight: number;
@@ -303,17 +279,13 @@ declare const typography: {
         bodyText: {
             md: {
                 paragraphSpacing: number;
-                boldFontWeight: number;
-                fontWeight: number;
                 fontSize: number;
                 letterSpacing: number;
                 lineHeight: number;
             };
             sm: {
                 paragraphSpacing: number;
-                boldFontWeight: number;
                 letterSpacing: number;
-                fontWeight: number;
                 lineHeight: number;
                 fontSize: number;
             };
@@ -321,45 +293,40 @@ declare const typography: {
                 fontSize: number;
                 lineHeight: number;
                 paragraphSpacing: number;
-                boldFontWeight: number;
-                fontWeight: number;
                 letterSpacing: number;
             };
+            fontWeightBold: number;
             fontFamily: string;
+            fontWeight: number;
         };
         detailText: {
             sm: {
                 fontSize: number;
                 lineHeight: number;
-                fontWeight: number;
                 letterSpacing: number;
             };
             "4xl": {
                 letterSpacing: number;
                 lineHeight: number;
-                fontWeight: number;
                 fontSize: number;
             };
             lg: {
                 letterSpacing: number;
-                fontWeight: number;
                 fontSize: number;
                 lineHeight: number;
             };
             "3xl": {
                 letterSpacing: number;
-                fontWeight: number;
                 lineHeight: number;
                 fontSize: number;
             };
+            fontWeight: number;
             md: {
-                fontWeight: number;
                 fontSize: number;
                 lineHeight: number;
                 letterSpacing: number;
             };
             "2xl": {
-                fontWeight: number;
                 letterSpacing: number;
                 lineHeight: number;
                 fontSize: number;
@@ -368,7 +335,6 @@ declare const typography: {
                 fontSize: number;
                 lineHeight: number;
                 letterSpacing: number;
-                fontWeight: number;
             };
             fontFamily: string;
         };
@@ -404,17 +370,13 @@ declare const typography: {
         bodyText: {
             md: {
                 paragraphSpacing: number;
-                boldFontWeight: number;
-                fontWeight: number;
                 fontSize: number;
                 letterSpacing: number;
                 lineHeight: number;
             };
             sm: {
                 paragraphSpacing: number;
-                boldFontWeight: number;
                 letterSpacing: number;
-                fontWeight: number;
                 lineHeight: number;
                 fontSize: number;
             };
@@ -422,44 +384,40 @@ declare const typography: {
                 fontSize: number;
                 lineHeight: number;
                 paragraphSpacing: number;
-                boldFontWeight: number;
-                fontWeight: number;
                 letterSpacing: number;
             };
+            fontWeightBold: number;
+            fontFamily: string;
+            fontWeight: number;
         };
         detailText: {
             sm: {
                 fontSize: number;
                 lineHeight: number;
-                fontWeight: number;
                 letterSpacing: number;
             };
             "4xl": {
                 letterSpacing: number;
                 lineHeight: number;
-                fontWeight: number;
                 fontSize: number;
             };
             lg: {
                 letterSpacing: number;
-                fontWeight: number;
                 fontSize: number;
                 lineHeight: number;
             };
             "3xl": {
                 letterSpacing: number;
-                fontWeight: number;
                 lineHeight: number;
                 fontSize: number;
             };
+            fontWeight: number;
             md: {
-                fontWeight: number;
                 fontSize: number;
                 lineHeight: number;
                 letterSpacing: number;
             };
             "2xl": {
-                fontWeight: number;
                 letterSpacing: number;
                 lineHeight: number;
                 fontSize: number;
@@ -468,8 +426,8 @@ declare const typography: {
                 fontSize: number;
                 lineHeight: number;
                 letterSpacing: number;
-                fontWeight: number;
             };
+            fontFamily: string;
         };
         heading: {
             sm: {
@@ -478,6 +436,7 @@ declare const typography: {
                 fontWeight: number;
                 lineHeight: number;
             };
+            fontFamily: string;
             md: {
                 fontSize: number;
                 fontWeight: number;
@@ -502,17 +461,13 @@ declare const typography: {
         bodyText: {
             md: {
                 paragraphSpacing: number;
-                boldFontWeight: number;
-                fontWeight: number;
                 fontSize: number;
                 letterSpacing: number;
                 lineHeight: number;
             };
             sm: {
                 paragraphSpacing: number;
-                boldFontWeight: number;
                 letterSpacing: number;
-                fontWeight: number;
                 lineHeight: number;
                 fontSize: number;
             };
@@ -520,44 +475,40 @@ declare const typography: {
                 fontSize: number;
                 lineHeight: number;
                 paragraphSpacing: number;
-                boldFontWeight: number;
-                fontWeight: number;
                 letterSpacing: number;
             };
+            fontWeightBold: number;
+            fontFamily: string;
+            fontWeight: number;
         };
         detailText: {
             sm: {
                 fontSize: number;
                 lineHeight: number;
-                fontWeight: number;
                 letterSpacing: number;
             };
             "4xl": {
                 letterSpacing: number;
                 lineHeight: number;
-                fontWeight: number;
                 fontSize: number;
             };
             lg: {
                 letterSpacing: number;
-                fontWeight: number;
                 fontSize: number;
                 lineHeight: number;
             };
             "3xl": {
                 letterSpacing: number;
-                fontWeight: number;
                 lineHeight: number;
                 fontSize: number;
             };
+            fontWeight: number;
             md: {
-                fontWeight: number;
                 fontSize: number;
                 lineHeight: number;
                 letterSpacing: number;
             };
             "2xl": {
-                fontWeight: number;
                 letterSpacing: number;
                 lineHeight: number;
                 fontSize: number;
@@ -566,8 +517,8 @@ declare const typography: {
                 fontSize: number;
                 lineHeight: number;
                 letterSpacing: number;
-                fontWeight: number;
             };
+            fontFamily: string;
         };
         heading: {
             sm: {
@@ -576,6 +527,7 @@ declare const typography: {
                 fontWeight: number;
                 lineHeight: number;
             };
+            fontFamily: string;
             md: {
                 fontSize: number;
                 fontWeight: number;

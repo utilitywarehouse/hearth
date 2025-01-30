@@ -92,15 +92,11 @@ declare const _default: {
             1000: number;
         };
         weight: {
-            100: number;
-            200: number;
-            300: number;
-            400: number;
-            500: number;
-            600: number;
-            700: number;
-            800: number;
-            900: number;
+            medium: number;
+            regular: number;
+            semibold: number;
+            heavy: number;
+            bold: number;
         };
         family: {
             detail: string;

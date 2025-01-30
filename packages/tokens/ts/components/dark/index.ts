@@ -4,3 +4,4 @@
 
 export { default as spinner } from './spinner';
 export { default as button } from './button';
+export { default as badge } from './badge';

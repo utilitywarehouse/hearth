@@ -6,17 +6,13 @@ export const mobile = {
   "bodyText": {
     "md": {
       "paragraphSpacing": 16,
-      "boldFontWeight": 700,
-      "fontWeight": 400,
       "fontSize": 16,
       "letterSpacing": 0,
       "lineHeight": 24
     },
     "sm": {
       "paragraphSpacing": 14,
-      "boldFontWeight": 700,
       "letterSpacing": 0,
-      "fontWeight": 400,
       "lineHeight": 20,
       "fontSize": 14
     },
@@ -24,45 +20,40 @@ export const mobile = {
       "fontSize": 18,
       "lineHeight": 24,
       "paragraphSpacing": 18,
-      "boldFontWeight": 700,
-      "fontWeight": 400,
       "letterSpacing": 0
     },
-    "fontFamily": "DM Sans"
+    "fontWeightBold": 700,
+    "fontFamily": "DM Sans",
+    "fontWeight": 400
   },
   "detailText": {
     "sm": {
       "fontSize": 14,
       "lineHeight": 18,
-      "fontWeight": 600,
       "letterSpacing": -0.41999998688697815
     },
     "4xl": {
       "letterSpacing": -1.0800000429153442,
       "lineHeight": 36,
-      "fontWeight": 600,
       "fontSize": 36
     },
     "lg": {
       "letterSpacing": -0.5400000214576721,
-      "fontWeight": 600,
       "fontSize": 18,
       "lineHeight": 22
     },
     "3xl": {
       "letterSpacing": -0.8999999761581421,
-      "fontWeight": 600,
       "lineHeight": 36,
       "fontSize": 30
     },
+    "fontWeight": 600,
     "md": {
-      "fontWeight": 600,
       "fontSize": 16,
       "lineHeight": 24,
       "letterSpacing": -0.47999998927116394
     },
     "2xl": {
-      "fontWeight": 600,
       "letterSpacing": -0.7200000286102295,
       "lineHeight": 32,
       "fontSize": 24
@@ -70,8 +61,7 @@ export const mobile = {
     "xl": {
       "fontSize": 20,
       "lineHeight": 22,
-      "letterSpacing": -0.6000000238418579,
-      "fontWeight": 600
+      "letterSpacing": -0.6000000238418579
     },
     "fontFamily": "DM Mono"
   },
@@ -108,17 +98,13 @@ export const tablet = {
   "bodyText": {
     "md": {
       "paragraphSpacing": 16,
-      "boldFontWeight": 700,
-      "fontWeight": 400,
       "fontSize": 16,
       "letterSpacing": 0,
       "lineHeight": 24
     },
     "sm": {
       "paragraphSpacing": 14,
-      "boldFontWeight": 700,
       "letterSpacing": 0,
-      "fontWeight": 400,
       "lineHeight": 20,
       "fontSize": 14
     },
@@ -126,44 +112,40 @@ export const tablet = {
       "fontSize": 18,
       "lineHeight": 24,
       "paragraphSpacing": 18,
-      "boldFontWeight": 700,
-      "fontWeight": 400,
       "letterSpacing": 0
-    }
+    },
+    "fontWeightBold": 700,
+    "fontFamily": "DM Sans",
+    "fontWeight": 400
   },
   "detailText": {
     "sm": {
       "fontSize": 14,
       "lineHeight": 18,
-      "fontWeight": 600,
       "letterSpacing": -0.41999998688697815
     },
     "4xl": {
       "letterSpacing": -1.0800000429153442,
       "lineHeight": 36,
-      "fontWeight": 600,
       "fontSize": 36
     },
     "lg": {
       "letterSpacing": -0.5400000214576721,
-      "fontWeight": 600,
       "fontSize": 18,
       "lineHeight": 22
     },
     "3xl": {
       "letterSpacing": -0.8999999761581421,
-      "fontWeight": 600,
       "lineHeight": 36,
       "fontSize": 30
     },
+    "fontWeight": 600,
     "md": {
-      "fontWeight": 600,
       "fontSize": 16,
       "lineHeight": 24,
       "letterSpacing": -0.47999998927116394
     },
     "2xl": {
-      "fontWeight": 600,
       "letterSpacing": -0.7200000286102295,
       "lineHeight": 32,
       "fontSize": 24
@@ -171,9 +153,9 @@ export const tablet = {
     "xl": {
       "fontSize": 20,
       "lineHeight": 22,
-      "letterSpacing": -0.6000000238418579,
-      "fontWeight": 600
-    }
+      "letterSpacing": -0.6000000238418579
+    },
+    "fontFamily": "DM Mono"
   },
   "heading": {
     "sm": {
@@ -182,6 +164,7 @@ export const tablet = {
       "fontWeight": 600,
       "lineHeight": 22
     },
+    "fontFamily": "Comic Hams",
     "md": {
       "fontSize": 20,
       "fontWeight": 600,
@@ -207,17 +190,13 @@ export const desktop = {
   "bodyText": {
     "md": {
       "paragraphSpacing": 16,
-      "boldFontWeight": 700,
-      "fontWeight": 400,
       "fontSize": 16,
       "letterSpacing": 0,
       "lineHeight": 24
     },
     "sm": {
       "paragraphSpacing": 14,
-      "boldFontWeight": 700,
       "letterSpacing": 0,
-      "fontWeight": 400,
       "lineHeight": 20,
       "fontSize": 14
     },
@@ -225,44 +204,40 @@ export const desktop = {
       "fontSize": 18,
       "lineHeight": 24,
       "paragraphSpacing": 18,
-      "boldFontWeight": 700,
-      "fontWeight": 400,
       "letterSpacing": 0
-    }
+    },
+    "fontWeightBold": 700,
+    "fontFamily": "DM Sans",
+    "fontWeight": 400
   },
   "detailText": {
     "sm": {
       "fontSize": 14,
       "lineHeight": 18,
-      "fontWeight": 600,
       "letterSpacing": -0.41999998688697815
     },
     "4xl": {
       "letterSpacing": -1.0800000429153442,
       "lineHeight": 36,
-      "fontWeight": 600,
       "fontSize": 36
     },
     "lg": {
       "letterSpacing": -0.5400000214576721,
-      "fontWeight": 600,
       "fontSize": 18,
       "lineHeight": 22
     },
     "3xl": {
       "letterSpacing": -0.8999999761581421,
-      "fontWeight": 600,
       "lineHeight": 36,
       "fontSize": 30
     },
+    "fontWeight": 600,
     "md": {
-      "fontWeight": 600,
       "fontSize": 16,
       "lineHeight": 24,
       "letterSpacing": -0.47999998927116394
     },
     "2xl": {
-      "fontWeight": 600,
       "letterSpacing": -0.7200000286102295,
       "lineHeight": 32,
       "fontSize": 24
@@ -270,9 +245,9 @@ export const desktop = {
     "xl": {
       "fontSize": 20,
       "lineHeight": 22,
-      "letterSpacing": -0.6000000238418579,
-      "fontWeight": 600
-    }
+      "letterSpacing": -0.6000000238418579
+    },
+    "fontFamily": "DM Mono"
   },
   "heading": {
     "sm": {
@@ -281,6 +256,7 @@ export const desktop = {
       "fontWeight": 600,
       "lineHeight": 22
     },
+    "fontFamily": "Comic Hams",
     "md": {
       "fontSize": 24,
       "fontWeight": 600,

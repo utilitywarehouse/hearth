@@ -61,10 +61,10 @@ StyleDictionary.registerTransform({
     return token.attributes.type === 'typography';
   },
   transform: token => {
-    if (token.attributes.state === 'font-family') {
-      return `${token.attributes.subitem}-${token.attributes.state}`;
+    if (token.path.subitem === 'font-family') {
+      return `${token.attributes.item}-${token.attributes.subitem}`;
     }
-    return `${token.attributes.subitem}-${token.attributes.state}-${token.path[token.path.length - 1]}${token.attributes.category !== 'mobile' ? `-${token.attributes.category}` : ''}`;
+    return `${token.attributes.item}-${token.attributes.subitem}${token.attributes.state ? `-${token.attributes.state}` : ''}${token.attributes.category !== 'mobile' ? `-${token.attributes.category}` : ''}`;
   },
 });
 
@@ -169,7 +169,7 @@ function generateCss() {
               format: 'css/variables',
               filter: token => {
                 if (
-                  token.attributes.state === 'font-family' &&
+                  token.attributes.subitem === 'font-family' &&
                   token.attributes.category !== 'mobile'
                 ) {
                   return false;
