@@ -312,40 +312,30 @@
       }
     },
     "layout": {
-      "content": {
-        "spacing-md": {
+      "spacing": {
+        "md": {
           "alias": "{space.200}",
           "value": 16,
           "type": "number"
         },
-        "spacing-lg": {
+        "lg": {
           "alias": "{space.200}",
           "value": 16,
           "type": "number"
         },
-        "spacing-xs": {
+        "xs": {
           "alias": "{space.100}",
           "value": 8,
           "type": "number"
         },
-        "spacing-xl": {
+        "xl": {
           "alias": "{space.350}",
           "value": 28,
           "type": "number"
         },
-        "padding-top": {
-          "alias": "{space.300}",
-          "value": 24,
-          "type": "number"
-        },
-        "spacing-sm": {
+        "sm": {
           "alias": "{space.150}",
           "value": 12,
-          "type": "number"
-        },
-        "padding-bottom": {
-          "alias": "{space.400}",
-          "value": 32,
           "type": "number"
         }
       },
@@ -382,6 +372,16 @@
         },
         "width": {
           "value": 360,
+          "type": "number"
+        },
+        "padding-top": {
+          "alias": "{space.300}",
+          "value": 24,
+          "type": "number"
+        },
+        "padding-bottom": {
+          "alias": "{space.400}",
+          "value": 32,
           "type": "number"
         }
       }
@@ -704,40 +704,30 @@
       }
     },
     "layout": {
-      "content": {
-        "spacing-md": {
+      "spacing": {
+        "md": {
           "alias": "{space.200}",
           "value": 16,
           "type": "number"
         },
-        "spacing-lg": {
+        "lg": {
           "alias": "{space.300}",
           "value": 24,
           "type": "number"
         },
-        "spacing-xs": {
+        "xs": {
           "alias": "{space.100}",
           "value": 8,
           "type": "number"
         },
-        "spacing-xl": {
+        "xl": {
           "alias": "{space.350}",
           "value": 28,
           "type": "number"
         },
-        "padding-top": {
-          "alias": "{space.300}",
-          "value": 24,
-          "type": "number"
-        },
-        "spacing-sm": {
+        "sm": {
           "alias": "{space.150}",
           "value": 12,
-          "type": "number"
-        },
-        "padding-bottom": {
-          "alias": "{space.400}",
-          "value": 32,
           "type": "number"
         }
       },
@@ -774,6 +764,16 @@
         },
         "width": {
           "value": 744,
+          "type": "number"
+        },
+        "padding-top": {
+          "alias": "{space.300}",
+          "value": 24,
+          "type": "number"
+        },
+        "padding-bottom": {
+          "alias": "{space.400}",
+          "value": 32,
           "type": "number"
         }
       }
@@ -1096,40 +1096,30 @@
       }
     },
     "layout": {
-      "content": {
-        "spacing-md": {
+      "spacing": {
+        "md": {
           "alias": "{space.200}",
           "value": 16,
           "type": "number"
         },
-        "spacing-lg": {
+        "lg": {
           "alias": "{space.300}",
           "value": 24,
           "type": "number"
         },
-        "spacing-xs": {
+        "xs": {
           "alias": "{space.100}",
           "value": 8,
           "type": "number"
         },
-        "spacing-xl": {
+        "xl": {
           "alias": "{space.500}",
           "value": 40,
           "type": "number"
         },
-        "padding-top": {
-          "alias": "{space.400}",
-          "value": 32,
-          "type": "number"
-        },
-        "spacing-sm": {
+        "sm": {
           "alias": "{space.150}",
           "value": 12,
-          "type": "number"
-        },
-        "padding-bottom": {
-          "alias": "{space.600}",
-          "value": 48,
           "type": "number"
         }
       },
@@ -1166,6 +1156,16 @@
         },
         "width": {
           "value": 1096,
+          "type": "number"
+        },
+        "padding-top": {
+          "alias": "{space.400}",
+          "value": 32,
+          "type": "number"
+        },
+        "padding-bottom": {
+          "alias": "{space.600}",
+          "value": 48,
           "type": "number"
         }
       }
