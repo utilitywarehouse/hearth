@@ -90,6 +90,18 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'unitless-line-height',
+  type: 'value',
+  filter: token => {
+    return typeof token.value === 'number' && token.attributes.category === 'line-height';
+  },
+  transform: token => {
+    console.log({ token });
+    return `${token.value / 16}`;
+  },
+});
+
 StyleDictionary.registerTransformGroup({
   name: 'css-device',
   transforms: [
@@ -242,7 +254,7 @@ function generateCss() {
         },
         'css-primitve': {
           transformGroup: 'css-device',
-          transforms: ['remove-light-color', 'px-to-rem'],
+          transforms: ['remove-light-color', 'px-to-rem', 'unitless-line-height'],
           buildPath: './css/',
           files: [
             {
