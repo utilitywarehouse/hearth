@@ -2,14 +2,12 @@
  * Do not edit directly, this file was auto-generated.
  */
 export declare const mobile: {
-    content: {
-        spacingMd: number;
-        spacingLg: number;
-        spacingXs: number;
-        spacingXl: number;
-        paddingTop: number;
-        spacingSm: number;
-        paddingBottom: number;
+    spacing: {
+        md: number;
+        lg: number;
+        xs: number;
+        xl: number;
+        sm: number;
     };
     grid: {
         gutter: number;
@@ -21,17 +19,17 @@ export declare const mobile: {
     container: {
         paddingHorizontal: number;
         width: number;
+        paddingTop: number;
+        paddingBottom: number;
     };
 };
 export declare const tablet: {
-    content: {
-        spacingMd: number;
-        spacingLg: number;
-        spacingXs: number;
-        spacingXl: number;
-        paddingTop: number;
-        spacingSm: number;
-        paddingBottom: number;
+    spacing: {
+        md: number;
+        lg: number;
+        xs: number;
+        xl: number;
+        sm: number;
     };
     grid: {
         gutter: number;
@@ -43,17 +41,17 @@ export declare const tablet: {
     container: {
         paddingHorizontal: number;
         width: number;
+        paddingTop: number;
+        paddingBottom: number;
     };
 };
 export declare const desktop: {
-    content: {
-        spacingMd: number;
-        spacingLg: number;
-        spacingXs: number;
-        spacingXl: number;
-        paddingTop: number;
-        spacingSm: number;
-        paddingBottom: number;
+    spacing: {
+        md: number;
+        lg: number;
+        xs: number;
+        xl: number;
+        sm: number;
     };
     grid: {
         gutter: number;
@@ -65,18 +63,18 @@ export declare const desktop: {
     container: {
         paddingHorizontal: number;
         width: number;
+        paddingTop: number;
+        paddingBottom: number;
     };
 };
 declare const layout: {
     mobile: {
-        content: {
-            spacingMd: number;
-            spacingLg: number;
-            spacingXs: number;
-            spacingXl: number;
-            paddingTop: number;
-            spacingSm: number;
-            paddingBottom: number;
+        spacing: {
+            md: number;
+            lg: number;
+            xs: number;
+            xl: number;
+            sm: number;
         };
         grid: {
             gutter: number;
@@ -88,17 +86,17 @@ declare const layout: {
         container: {
             paddingHorizontal: number;
             width: number;
+            paddingTop: number;
+            paddingBottom: number;
         };
     };
     tablet: {
-        content: {
-            spacingMd: number;
-            spacingLg: number;
-            spacingXs: number;
-            spacingXl: number;
-            paddingTop: number;
-            spacingSm: number;
-            paddingBottom: number;
+        spacing: {
+            md: number;
+            lg: number;
+            xs: number;
+            xl: number;
+            sm: number;
         };
         grid: {
             gutter: number;
@@ -110,17 +108,17 @@ declare const layout: {
         container: {
             paddingHorizontal: number;
             width: number;
+            paddingTop: number;
+            paddingBottom: number;
         };
     };
     desktop: {
-        content: {
-            spacingMd: number;
-            spacingLg: number;
-            spacingXs: number;
-            spacingXl: number;
-            paddingTop: number;
-            spacingSm: number;
-            paddingBottom: number;
+        spacing: {
+            md: number;
+            lg: number;
+            xs: number;
+            xl: number;
+            sm: number;
         };
         grid: {
             gutter: number;
@@ -132,6 +130,8 @@ declare const layout: {
         container: {
             paddingHorizontal: number;
             width: number;
+            paddingTop: number;
+            paddingBottom: number;
         };
     };
 };

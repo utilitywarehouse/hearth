@@ -2,14 +2,12 @@
  * Do not edit directly, this file was auto-generated.
  */
 export const mobile = {
-    "content": {
-        "spacingMd": 16,
-        "spacingLg": 16,
-        "spacingXs": 8,
-        "spacingXl": 28,
-        "paddingTop": 24,
-        "spacingSm": 12,
-        "paddingBottom": 32
+    "spacing": {
+        "md": 16,
+        "lg": 16,
+        "xs": 8,
+        "xl": 28,
+        "sm": 12
     },
     "grid": {
         "gutter": 16,
@@ -20,18 +18,18 @@ export const mobile = {
     },
     "container": {
         "paddingHorizontal": 16,
-        "width": 360
+        "width": 360,
+        "paddingTop": 24,
+        "paddingBottom": 32
     }
 };
 export const tablet = {
-    "content": {
-        "spacingMd": 16,
-        "spacingLg": 24,
-        "spacingXs": 8,
-        "spacingXl": 28,
-        "paddingTop": 24,
-        "spacingSm": 12,
-        "paddingBottom": 32
+    "spacing": {
+        "md": 16,
+        "lg": 24,
+        "xs": 8,
+        "xl": 28,
+        "sm": 12
     },
     "grid": {
         "gutter": 24,
@@ -42,18 +40,18 @@ export const tablet = {
     },
     "container": {
         "paddingHorizontal": 32,
-        "width": 744
+        "width": 744,
+        "paddingTop": 24,
+        "paddingBottom": 32
     }
 };
 export const desktop = {
-    "content": {
-        "spacingMd": 16,
-        "spacingLg": 24,
-        "spacingXs": 8,
-        "spacingXl": 40,
-        "paddingTop": 32,
-        "spacingSm": 12,
-        "paddingBottom": 48
+    "spacing": {
+        "md": 16,
+        "lg": 24,
+        "xs": 8,
+        "xl": 40,
+        "sm": 12
     },
     "grid": {
         "gutter": 24,
@@ -64,7 +62,9 @@ export const desktop = {
     },
     "container": {
         "paddingHorizontal": 32,
-        "width": 1096
+        "width": 1096,
+        "paddingTop": 32,
+        "paddingBottom": 48
     }
 };
 const layout = { mobile, tablet, desktop };
