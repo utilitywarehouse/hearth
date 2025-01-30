@@ -4,69 +4,69 @@
 
 export const mobile = {
   "content": {
-    "spacing-md": 16,
-    "spacing-lg": 16,
-    "spacing-xs": 8,
-    "spacing-xl": 28,
-    "padding-top": 24,
-    "spacing-sm": 12,
-    "padding-bottom": 32
+    "spacingMd": 16,
+    "spacingLg": 16,
+    "spacingXs": 8,
+    "spacingXl": 28,
+    "paddingTop": 24,
+    "spacingSm": 12,
+    "paddingBottom": 32
   },
   "grid": {
     "gutter": 16,
-    "grid-size": 8,
-    "column-number": 4,
+    "gridSize": 8,
+    "columnNumber": 4,
     "margin": 16,
-    "column-width": 64
+    "columnWidth": 64
   },
   "container": {
-    "padding-horizontal": 16,
+    "paddingHorizontal": 16,
     "width": 360
   }
 };
 
 export const tablet = {
   "content": {
-    "spacing-md": 16,
-    "spacing-lg": 24,
-    "spacing-xs": 8,
-    "spacing-xl": 28,
-    "padding-top": 24,
-    "spacing-sm": 12,
-    "padding-bottom": 32
+    "spacingMd": 16,
+    "spacingLg": 24,
+    "spacingXs": 8,
+    "spacingXl": 28,
+    "paddingTop": 24,
+    "spacingSm": 12,
+    "paddingBottom": 32
   },
   "grid": {
     "gutter": 24,
-    "grid-size": 8,
-    "column-number": 8,
+    "gridSize": 8,
+    "columnNumber": 8,
     "margin": 32,
-    "column-width": 64
+    "columnWidth": 64
   },
   "container": {
-    "padding-horizontal": 32,
+    "paddingHorizontal": 32,
     "width": 744
   }
 };
 
 export const desktop = {
   "content": {
-    "spacing-md": 16,
-    "spacing-lg": 24,
-    "spacing-xs": 8,
-    "spacing-xl": 40,
-    "padding-top": 32,
-    "spacing-sm": 12,
-    "padding-bottom": 48
+    "spacingMd": 16,
+    "spacingLg": 24,
+    "spacingXs": 8,
+    "spacingXl": 40,
+    "paddingTop": 32,
+    "spacingSm": 12,
+    "paddingBottom": 48
   },
   "grid": {
     "gutter": 24,
-    "grid-size": 8,
-    "column-number": 12,
+    "gridSize": 8,
+    "columnNumber": 12,
     "margin": 32,
-    "column-width": 64
+    "columnWidth": 64
   },
   "container": {
-    "padding-horizontal": 32,
+    "paddingHorizontal": 32,
     "width": 1096
   }
 };

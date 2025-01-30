@@ -3,301 +3,301 @@
  */
 
 export const mobile = {
-  "body-text": {
+  "bodyText": {
     "md": {
-      "paragraph-spacing": 16,
-      "bold-font-weight": 700,
-      "font-weight": 400,
-      "font-size": 16,
-      "letter-spacing": 0,
-      "line-height": 24
+      "paragraphSpacing": 16,
+      "boldFontWeight": 700,
+      "fontWeight": 400,
+      "fontSize": 16,
+      "letterSpacing": 0,
+      "lineHeight": 24
     },
     "sm": {
-      "paragraph-spacing": 14,
-      "bold-font-weight": 700,
-      "letter-spacing": 0,
-      "font-weight": 400,
-      "line-height": 20,
-      "font-size": 14
+      "paragraphSpacing": 14,
+      "boldFontWeight": 700,
+      "letterSpacing": 0,
+      "fontWeight": 400,
+      "lineHeight": 20,
+      "fontSize": 14
     },
     "lg": {
-      "font-size": 18,
-      "line-height": 24,
-      "paragraph-spacing": 18,
-      "bold-font-weight": 700,
-      "font-weight": 400,
-      "letter-spacing": 0
+      "fontSize": 18,
+      "lineHeight": 24,
+      "paragraphSpacing": 18,
+      "boldFontWeight": 700,
+      "fontWeight": 400,
+      "letterSpacing": 0
     },
-    "font-family": "DM Sans"
+    "fontFamily": "DM Sans"
   },
-  "detail-text": {
+  "detailText": {
     "sm": {
-      "font-size": 14,
-      "line-height": 18,
-      "font-weight": 600,
-      "letter-spacing": -0.41999998688697815
+      "fontSize": 14,
+      "lineHeight": 18,
+      "fontWeight": 600,
+      "letterSpacing": -0.41999998688697815
     },
     "4xl": {
-      "letter-spacing": -1.0800000429153442,
-      "line-height": 36,
-      "font-weight": 600,
-      "font-size": 36
+      "letterSpacing": -1.0800000429153442,
+      "lineHeight": 36,
+      "fontWeight": 600,
+      "fontSize": 36
     },
     "lg": {
-      "letter-spacing": -0.5400000214576721,
-      "font-weight": 600,
-      "font-size": 18,
-      "line-height": 22
+      "letterSpacing": -0.5400000214576721,
+      "fontWeight": 600,
+      "fontSize": 18,
+      "lineHeight": 22
     },
     "3xl": {
-      "letter-spacing": -0.8999999761581421,
-      "font-weight": 600,
-      "line-height": 36,
-      "font-size": 30
+      "letterSpacing": -0.8999999761581421,
+      "fontWeight": 600,
+      "lineHeight": 36,
+      "fontSize": 30
     },
     "md": {
-      "font-weight": 600,
-      "font-size": 16,
-      "line-height": 24,
-      "letter-spacing": -0.47999998927116394
+      "fontWeight": 600,
+      "fontSize": 16,
+      "lineHeight": 24,
+      "letterSpacing": -0.47999998927116394
     },
     "2xl": {
-      "font-weight": 600,
-      "letter-spacing": -0.7200000286102295,
-      "line-height": 32,
-      "font-size": 24
+      "fontWeight": 600,
+      "letterSpacing": -0.7200000286102295,
+      "lineHeight": 32,
+      "fontSize": 24
     },
     "xl": {
-      "font-size": 20,
-      "line-height": 22,
-      "letter-spacing": -0.6000000238418579,
-      "font-weight": 600
+      "fontSize": 20,
+      "lineHeight": 22,
+      "letterSpacing": -0.6000000238418579,
+      "fontWeight": 600
     },
-    "font-family": "DM Mono"
+    "fontFamily": "DM Mono"
   },
   "heading": {
     "sm": {
-      "font-size": 18,
-      "letter-spacing": 0,
-      "font-weight": 600,
-      "line-height": 22
+      "fontSize": 18,
+      "letterSpacing": 0,
+      "fontWeight": 600,
+      "lineHeight": 22
     },
-    "font-family": "Comic Hams",
+    "fontFamily": "Comic Hams",
     "md": {
-      "font-size": 20,
-      "font-weight": 600,
-      "letter-spacing": 0,
-      "line-height": 24
+      "fontSize": 20,
+      "fontWeight": 600,
+      "letterSpacing": 0,
+      "lineHeight": 24
     },
     "lg": {
-      "font-size": 24,
-      "letter-spacing": 0,
-      "line-height": 32,
-      "font-weight": 600
+      "fontSize": 24,
+      "letterSpacing": 0,
+      "lineHeight": 32,
+      "fontWeight": 600
     },
     "xl": {
-      "font-weight": 700,
-      "line-height": 36,
-      "letter-spacing": 0,
-      "font-size": 30
+      "fontWeight": 700,
+      "lineHeight": 36,
+      "letterSpacing": 0,
+      "fontSize": 30
     }
   }
 };
 
 export const tablet = {
-  "body-text": {
+  "bodyText": {
     "md": {
-      "paragraph-spacing": 16,
-      "bold-font-weight": 700,
-      "font-weight": 400,
-      "font-size": 16,
-      "letter-spacing": 0,
-      "line-height": 24
+      "paragraphSpacing": 16,
+      "boldFontWeight": 700,
+      "fontWeight": 400,
+      "fontSize": 16,
+      "letterSpacing": 0,
+      "lineHeight": 24
     },
     "sm": {
-      "paragraph-spacing": 14,
-      "bold-font-weight": 700,
-      "letter-spacing": 0,
-      "font-weight": 400,
-      "line-height": 20,
-      "font-size": 14
+      "paragraphSpacing": 14,
+      "boldFontWeight": 700,
+      "letterSpacing": 0,
+      "fontWeight": 400,
+      "lineHeight": 20,
+      "fontSize": 14
     },
     "lg": {
-      "font-size": 18,
-      "line-height": 24,
-      "paragraph-spacing": 18,
-      "bold-font-weight": 700,
-      "font-weight": 400,
-      "letter-spacing": 0
+      "fontSize": 18,
+      "lineHeight": 24,
+      "paragraphSpacing": 18,
+      "boldFontWeight": 700,
+      "fontWeight": 400,
+      "letterSpacing": 0
     }
   },
-  "detail-text": {
+  "detailText": {
     "sm": {
-      "font-size": 14,
-      "line-height": 18,
-      "font-weight": 600,
-      "letter-spacing": -0.41999998688697815
+      "fontSize": 14,
+      "lineHeight": 18,
+      "fontWeight": 600,
+      "letterSpacing": -0.41999998688697815
     },
     "4xl": {
-      "letter-spacing": -1.0800000429153442,
-      "line-height": 36,
-      "font-weight": 600,
-      "font-size": 36
+      "letterSpacing": -1.0800000429153442,
+      "lineHeight": 36,
+      "fontWeight": 600,
+      "fontSize": 36
     },
     "lg": {
-      "letter-spacing": -0.5400000214576721,
-      "font-weight": 600,
-      "font-size": 18,
-      "line-height": 22
+      "letterSpacing": -0.5400000214576721,
+      "fontWeight": 600,
+      "fontSize": 18,
+      "lineHeight": 22
     },
     "3xl": {
-      "letter-spacing": -0.8999999761581421,
-      "font-weight": 600,
-      "line-height": 36,
-      "font-size": 30
+      "letterSpacing": -0.8999999761581421,
+      "fontWeight": 600,
+      "lineHeight": 36,
+      "fontSize": 30
     },
     "md": {
-      "font-weight": 600,
-      "font-size": 16,
-      "line-height": 24,
-      "letter-spacing": -0.47999998927116394
+      "fontWeight": 600,
+      "fontSize": 16,
+      "lineHeight": 24,
+      "letterSpacing": -0.47999998927116394
     },
     "2xl": {
-      "font-weight": 600,
-      "letter-spacing": -0.7200000286102295,
-      "line-height": 32,
-      "font-size": 24
+      "fontWeight": 600,
+      "letterSpacing": -0.7200000286102295,
+      "lineHeight": 32,
+      "fontSize": 24
     },
     "xl": {
-      "font-size": 20,
-      "line-height": 22,
-      "letter-spacing": -0.6000000238418579,
-      "font-weight": 600
+      "fontSize": 20,
+      "lineHeight": 22,
+      "letterSpacing": -0.6000000238418579,
+      "fontWeight": 600
     }
   },
   "heading": {
     "sm": {
-      "font-size": 18,
-      "letter-spacing": 0,
-      "font-weight": 600,
-      "line-height": 22
+      "fontSize": 18,
+      "letterSpacing": 0,
+      "fontWeight": 600,
+      "lineHeight": 22
     },
     "md": {
-      "font-size": 20,
-      "font-weight": 600,
-      "letter-spacing": 0,
-      "line-height": 24
+      "fontSize": 20,
+      "fontWeight": 600,
+      "letterSpacing": 0,
+      "lineHeight": 24
     },
     "lg": {
-      "font-size": 24,
-      "letter-spacing": 0,
-      "line-height": 32,
-      "font-weight": 600
+      "fontSize": 24,
+      "letterSpacing": 0,
+      "lineHeight": 32,
+      "fontWeight": 600
     },
     "xl": {
-      "font-weight": 700,
-      "line-height": 36,
-      "letter-spacing": 0,
-      "font-size": 30
+      "fontWeight": 700,
+      "lineHeight": 36,
+      "letterSpacing": 0,
+      "fontSize": 30
     }
   }
 };
 
 export const desktop = {
-  "body-text": {
+  "bodyText": {
     "md": {
-      "paragraph-spacing": 16,
-      "bold-font-weight": 700,
-      "font-weight": 400,
-      "font-size": 16,
-      "letter-spacing": 0,
-      "line-height": 24
+      "paragraphSpacing": 16,
+      "boldFontWeight": 700,
+      "fontWeight": 400,
+      "fontSize": 16,
+      "letterSpacing": 0,
+      "lineHeight": 24
     },
     "sm": {
-      "paragraph-spacing": 14,
-      "bold-font-weight": 700,
-      "letter-spacing": 0,
-      "font-weight": 400,
-      "line-height": 20,
-      "font-size": 14
+      "paragraphSpacing": 14,
+      "boldFontWeight": 700,
+      "letterSpacing": 0,
+      "fontWeight": 400,
+      "lineHeight": 20,
+      "fontSize": 14
     },
     "lg": {
-      "font-size": 18,
-      "line-height": 24,
-      "paragraph-spacing": 18,
-      "bold-font-weight": 700,
-      "font-weight": 400,
-      "letter-spacing": 0
+      "fontSize": 18,
+      "lineHeight": 24,
+      "paragraphSpacing": 18,
+      "boldFontWeight": 700,
+      "fontWeight": 400,
+      "letterSpacing": 0
     }
   },
-  "detail-text": {
+  "detailText": {
     "sm": {
-      "font-size": 14,
-      "line-height": 18,
-      "font-weight": 600,
-      "letter-spacing": -0.41999998688697815
+      "fontSize": 14,
+      "lineHeight": 18,
+      "fontWeight": 600,
+      "letterSpacing": -0.41999998688697815
     },
     "4xl": {
-      "letter-spacing": -1.0800000429153442,
-      "line-height": 36,
-      "font-weight": 600,
-      "font-size": 36
+      "letterSpacing": -1.0800000429153442,
+      "lineHeight": 36,
+      "fontWeight": 600,
+      "fontSize": 36
     },
     "lg": {
-      "letter-spacing": -0.5400000214576721,
-      "font-weight": 600,
-      "font-size": 18,
-      "line-height": 22
+      "letterSpacing": -0.5400000214576721,
+      "fontWeight": 600,
+      "fontSize": 18,
+      "lineHeight": 22
     },
     "3xl": {
-      "letter-spacing": -0.8999999761581421,
-      "font-weight": 600,
-      "line-height": 36,
-      "font-size": 30
+      "letterSpacing": -0.8999999761581421,
+      "fontWeight": 600,
+      "lineHeight": 36,
+      "fontSize": 30
     },
     "md": {
-      "font-weight": 600,
-      "font-size": 16,
-      "line-height": 24,
-      "letter-spacing": -0.47999998927116394
+      "fontWeight": 600,
+      "fontSize": 16,
+      "lineHeight": 24,
+      "letterSpacing": -0.47999998927116394
     },
     "2xl": {
-      "font-weight": 600,
-      "letter-spacing": -0.7200000286102295,
-      "line-height": 32,
-      "font-size": 24
+      "fontWeight": 600,
+      "letterSpacing": -0.7200000286102295,
+      "lineHeight": 32,
+      "fontSize": 24
     },
     "xl": {
-      "font-size": 20,
-      "line-height": 22,
-      "letter-spacing": -0.6000000238418579,
-      "font-weight": 600
+      "fontSize": 20,
+      "lineHeight": 22,
+      "letterSpacing": -0.6000000238418579,
+      "fontWeight": 600
     }
   },
   "heading": {
     "sm": {
-      "font-size": 18,
-      "letter-spacing": 0,
-      "font-weight": 600,
-      "line-height": 22
+      "fontSize": 18,
+      "letterSpacing": 0,
+      "fontWeight": 600,
+      "lineHeight": 22
     },
     "md": {
-      "font-size": 24,
-      "font-weight": 600,
-      "letter-spacing": 0,
-      "line-height": 28
+      "fontSize": 24,
+      "fontWeight": 600,
+      "letterSpacing": 0,
+      "lineHeight": 28
     },
     "lg": {
-      "font-size": 30,
-      "letter-spacing": 0,
-      "line-height": 36,
-      "font-weight": 600
+      "fontSize": 30,
+      "letterSpacing": 0,
+      "lineHeight": 36,
+      "fontWeight": 600
     },
     "xl": {
-      "font-weight": 700,
-      "line-height": 48,
-      "letter-spacing": 0,
-      "font-size": 40
+      "fontWeight": 700,
+      "lineHeight": 48,
+      "letterSpacing": 0,
+      "fontSize": 40
     }
   }
 };

@@ -4,7 +4,7 @@
 export default {
     "emphasis": {
         "yellow": {
-            "background-color": "#ffb921"
+            "backgroundColor": "#ffb921"
         }
     }
 };

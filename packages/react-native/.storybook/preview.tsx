@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
 import { NativeUIProvider } from '../src/core';
+import '@utilitywarehouse/hearth-fonts';
 
 import theme from './theme';
 

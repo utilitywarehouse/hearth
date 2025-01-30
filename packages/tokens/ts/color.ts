@@ -3,15 +3,15 @@
  */
 
 export const common = {
-  "cashback-lilac": "#be7aeb",
-  "insurance-orange": "#ff7b00",
-  "mobile-rose": "#ee6dbb",
-  "broadband-blue": "#84b9c3",
-  "energy-green": "#96b850",
-  "piggy-pink": "#e8a3ff",
-  "off-white": "#fffbe8",
-  "dark-purple": "#26164f",
-  "uw-purple": "#7a42c8",
+  "cashbackLilac": "#be7aeb",
+  "insuranceOrange": "#ff7b00",
+  "mobileRose": "#ee6dbb",
+  "broadbandBlue": "#84b9c3",
+  "energyGreen": "#96b850",
+  "piggyPink": "#e8a3ff",
+  "offWhite": "#fffbe8",
+  "darkPurple": "#26164f",
+  "uwPurple": "#7a42c8",
   "white": "#ffffff"
 };
 

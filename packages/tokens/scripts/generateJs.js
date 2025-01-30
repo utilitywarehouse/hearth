@@ -1,6 +1,10 @@
 import StyleDictionary from 'style-dictionary';
 import { loadJSON } from './utils/index.js';
 
+function camelCase(str) {
+  return str.replace(/[-_](\w)/g, (_, c) => c.toUpperCase());
+}
+
 function buildDeviceOutput(dictionary, options) {
   const output = { mobile: {}, tablet: {}, desktop: {} };
   dictionary.allTokens.forEach(token => {
@@ -8,17 +12,29 @@ function buildDeviceOutput(dictionary, options) {
     if (!output[device]) return;
     let current = output[device];
     rest.forEach((part, i) => {
+      const camelPart = camelCase(part);
       if (options.skipPaths?.includes(part)) return;
       if (i === rest.length - 1) {
-        current[part] = token.value;
+        current[camelPart] = token.value;
       } else {
-        current[part] = current[part] || {};
-        current = current[part];
+        current[camelPart] = current[camelPart] || {};
+        current = current[camelPart];
       }
     });
   });
   return output;
 }
+
+// transform for js name to camel case
+StyleDictionary.registerTransform({
+  name: 'name/camel-case',
+  type: 'name',
+  transform: (token, options) => {
+    return token.name.replace(/(\b\w)/g, function (match) {
+      return match.toLowerCase();
+    });
+  },
+});
 
 StyleDictionary.registerTransformGroup({
   name: 'js-device',
@@ -57,11 +73,12 @@ StyleDictionary.registerFormat({
       if (isLight) current = light;
       if (isDark) current = dark;
       (isLight || isDark ? parts : rest).forEach((part, i) => {
+        const camelPart = camelCase(part);
         if (i === rest.length - (isLight || isDark ? 2 : 1)) {
-          current[part] = token.value;
+          current[camelPart] = token.value;
         } else {
-          current[part] = current[part] || {};
-          current = current[part];
+          current[camelPart] = current[camelPart] || {};
+          current = current[camelPart];
         }
       });
     });
@@ -85,11 +102,12 @@ StyleDictionary.registerFormat({
       const subKeys = token.path.slice(2);
       let current = output;
       subKeys.forEach((part, i) => {
+        const camelPart = camelCase(part);
         if (i === subKeys.length - 1) {
-          current[part] = token.value;
+          current[camelPart] = token.value;
         } else {
-          current[part] = current[part] || {};
-          current = current[part];
+          current[camelPart] = current[camelPart] || {};
+          current = current[camelPart];
         }
       });
     });

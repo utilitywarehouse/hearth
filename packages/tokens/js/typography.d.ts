@@ -2,597 +2,597 @@
  * Do not edit directly, this file was auto-generated.
  */
 export declare const mobile: {
-    "body-text": {
+    bodyText: {
         md: {
-            "paragraph-spacing": number;
-            "bold-font-weight": number;
-            "font-weight": number;
-            "font-size": number;
-            "letter-spacing": number;
-            "line-height": number;
+            paragraphSpacing: number;
+            boldFontWeight: number;
+            fontWeight: number;
+            fontSize: number;
+            letterSpacing: number;
+            lineHeight: number;
         };
         sm: {
-            "paragraph-spacing": number;
-            "bold-font-weight": number;
-            "letter-spacing": number;
-            "font-weight": number;
-            "line-height": number;
-            "font-size": number;
+            paragraphSpacing: number;
+            boldFontWeight: number;
+            letterSpacing: number;
+            fontWeight: number;
+            lineHeight: number;
+            fontSize: number;
         };
         lg: {
-            "font-size": number;
-            "line-height": number;
-            "paragraph-spacing": number;
-            "bold-font-weight": number;
-            "font-weight": number;
-            "letter-spacing": number;
+            fontSize: number;
+            lineHeight: number;
+            paragraphSpacing: number;
+            boldFontWeight: number;
+            fontWeight: number;
+            letterSpacing: number;
         };
-        "font-family": string;
+        fontFamily: string;
     };
-    "detail-text": {
+    detailText: {
         sm: {
-            "font-size": number;
-            "line-height": number;
-            "font-weight": number;
-            "letter-spacing": number;
+            fontSize: number;
+            lineHeight: number;
+            fontWeight: number;
+            letterSpacing: number;
         };
         "4xl": {
-            "letter-spacing": number;
-            "line-height": number;
-            "font-weight": number;
-            "font-size": number;
+            letterSpacing: number;
+            lineHeight: number;
+            fontWeight: number;
+            fontSize: number;
         };
         lg: {
-            "letter-spacing": number;
-            "font-weight": number;
-            "font-size": number;
-            "line-height": number;
+            letterSpacing: number;
+            fontWeight: number;
+            fontSize: number;
+            lineHeight: number;
         };
         "3xl": {
-            "letter-spacing": number;
-            "font-weight": number;
-            "line-height": number;
-            "font-size": number;
+            letterSpacing: number;
+            fontWeight: number;
+            lineHeight: number;
+            fontSize: number;
         };
         md: {
-            "font-weight": number;
-            "font-size": number;
-            "line-height": number;
-            "letter-spacing": number;
+            fontWeight: number;
+            fontSize: number;
+            lineHeight: number;
+            letterSpacing: number;
         };
         "2xl": {
-            "font-weight": number;
-            "letter-spacing": number;
-            "line-height": number;
-            "font-size": number;
+            fontWeight: number;
+            letterSpacing: number;
+            lineHeight: number;
+            fontSize: number;
         };
         xl: {
-            "font-size": number;
-            "line-height": number;
-            "letter-spacing": number;
-            "font-weight": number;
+            fontSize: number;
+            lineHeight: number;
+            letterSpacing: number;
+            fontWeight: number;
         };
-        "font-family": string;
+        fontFamily: string;
     };
     heading: {
         sm: {
-            "font-size": number;
-            "letter-spacing": number;
-            "font-weight": number;
-            "line-height": number;
+            fontSize: number;
+            letterSpacing: number;
+            fontWeight: number;
+            lineHeight: number;
         };
-        "font-family": string;
+        fontFamily: string;
         md: {
-            "font-size": number;
-            "font-weight": number;
-            "letter-spacing": number;
-            "line-height": number;
+            fontSize: number;
+            fontWeight: number;
+            letterSpacing: number;
+            lineHeight: number;
         };
         lg: {
-            "font-size": number;
-            "letter-spacing": number;
-            "line-height": number;
-            "font-weight": number;
+            fontSize: number;
+            letterSpacing: number;
+            lineHeight: number;
+            fontWeight: number;
         };
         xl: {
-            "font-weight": number;
-            "line-height": number;
-            "letter-spacing": number;
-            "font-size": number;
+            fontWeight: number;
+            lineHeight: number;
+            letterSpacing: number;
+            fontSize: number;
         };
     };
 };
 export declare const tablet: {
-    "body-text": {
+    bodyText: {
         md: {
-            "paragraph-spacing": number;
-            "bold-font-weight": number;
-            "font-weight": number;
-            "font-size": number;
-            "letter-spacing": number;
-            "line-height": number;
+            paragraphSpacing: number;
+            boldFontWeight: number;
+            fontWeight: number;
+            fontSize: number;
+            letterSpacing: number;
+            lineHeight: number;
         };
         sm: {
-            "paragraph-spacing": number;
-            "bold-font-weight": number;
-            "letter-spacing": number;
-            "font-weight": number;
-            "line-height": number;
-            "font-size": number;
+            paragraphSpacing: number;
+            boldFontWeight: number;
+            letterSpacing: number;
+            fontWeight: number;
+            lineHeight: number;
+            fontSize: number;
         };
         lg: {
-            "font-size": number;
-            "line-height": number;
-            "paragraph-spacing": number;
-            "bold-font-weight": number;
-            "font-weight": number;
-            "letter-spacing": number;
+            fontSize: number;
+            lineHeight: number;
+            paragraphSpacing: number;
+            boldFontWeight: number;
+            fontWeight: number;
+            letterSpacing: number;
         };
     };
-    "detail-text": {
+    detailText: {
         sm: {
-            "font-size": number;
-            "line-height": number;
-            "font-weight": number;
-            "letter-spacing": number;
+            fontSize: number;
+            lineHeight: number;
+            fontWeight: number;
+            letterSpacing: number;
         };
         "4xl": {
-            "letter-spacing": number;
-            "line-height": number;
-            "font-weight": number;
-            "font-size": number;
+            letterSpacing: number;
+            lineHeight: number;
+            fontWeight: number;
+            fontSize: number;
         };
         lg: {
-            "letter-spacing": number;
-            "font-weight": number;
-            "font-size": number;
-            "line-height": number;
+            letterSpacing: number;
+            fontWeight: number;
+            fontSize: number;
+            lineHeight: number;
         };
         "3xl": {
-            "letter-spacing": number;
-            "font-weight": number;
-            "line-height": number;
-            "font-size": number;
+            letterSpacing: number;
+            fontWeight: number;
+            lineHeight: number;
+            fontSize: number;
         };
         md: {
-            "font-weight": number;
-            "font-size": number;
-            "line-height": number;
-            "letter-spacing": number;
+            fontWeight: number;
+            fontSize: number;
+            lineHeight: number;
+            letterSpacing: number;
         };
         "2xl": {
-            "font-weight": number;
-            "letter-spacing": number;
-            "line-height": number;
-            "font-size": number;
+            fontWeight: number;
+            letterSpacing: number;
+            lineHeight: number;
+            fontSize: number;
         };
         xl: {
-            "font-size": number;
-            "line-height": number;
-            "letter-spacing": number;
-            "font-weight": number;
+            fontSize: number;
+            lineHeight: number;
+            letterSpacing: number;
+            fontWeight: number;
         };
     };
     heading: {
         sm: {
-            "font-size": number;
-            "letter-spacing": number;
-            "font-weight": number;
-            "line-height": number;
+            fontSize: number;
+            letterSpacing: number;
+            fontWeight: number;
+            lineHeight: number;
         };
         md: {
-            "font-size": number;
-            "font-weight": number;
-            "letter-spacing": number;
-            "line-height": number;
+            fontSize: number;
+            fontWeight: number;
+            letterSpacing: number;
+            lineHeight: number;
         };
         lg: {
-            "font-size": number;
-            "letter-spacing": number;
-            "line-height": number;
-            "font-weight": number;
+            fontSize: number;
+            letterSpacing: number;
+            lineHeight: number;
+            fontWeight: number;
         };
         xl: {
-            "font-weight": number;
-            "line-height": number;
-            "letter-spacing": number;
-            "font-size": number;
+            fontWeight: number;
+            lineHeight: number;
+            letterSpacing: number;
+            fontSize: number;
         };
     };
 };
 export declare const desktop: {
-    "body-text": {
+    bodyText: {
         md: {
-            "paragraph-spacing": number;
-            "bold-font-weight": number;
-            "font-weight": number;
-            "font-size": number;
-            "letter-spacing": number;
-            "line-height": number;
+            paragraphSpacing: number;
+            boldFontWeight: number;
+            fontWeight: number;
+            fontSize: number;
+            letterSpacing: number;
+            lineHeight: number;
         };
         sm: {
-            "paragraph-spacing": number;
-            "bold-font-weight": number;
-            "letter-spacing": number;
-            "font-weight": number;
-            "line-height": number;
-            "font-size": number;
+            paragraphSpacing: number;
+            boldFontWeight: number;
+            letterSpacing: number;
+            fontWeight: number;
+            lineHeight: number;
+            fontSize: number;
         };
         lg: {
-            "font-size": number;
-            "line-height": number;
-            "paragraph-spacing": number;
-            "bold-font-weight": number;
-            "font-weight": number;
-            "letter-spacing": number;
+            fontSize: number;
+            lineHeight: number;
+            paragraphSpacing: number;
+            boldFontWeight: number;
+            fontWeight: number;
+            letterSpacing: number;
         };
     };
-    "detail-text": {
+    detailText: {
         sm: {
-            "font-size": number;
-            "line-height": number;
-            "font-weight": number;
-            "letter-spacing": number;
+            fontSize: number;
+            lineHeight: number;
+            fontWeight: number;
+            letterSpacing: number;
         };
         "4xl": {
-            "letter-spacing": number;
-            "line-height": number;
-            "font-weight": number;
-            "font-size": number;
+            letterSpacing: number;
+            lineHeight: number;
+            fontWeight: number;
+            fontSize: number;
         };
         lg: {
-            "letter-spacing": number;
-            "font-weight": number;
-            "font-size": number;
-            "line-height": number;
+            letterSpacing: number;
+            fontWeight: number;
+            fontSize: number;
+            lineHeight: number;
         };
         "3xl": {
-            "letter-spacing": number;
-            "font-weight": number;
-            "line-height": number;
-            "font-size": number;
+            letterSpacing: number;
+            fontWeight: number;
+            lineHeight: number;
+            fontSize: number;
         };
         md: {
-            "font-weight": number;
-            "font-size": number;
-            "line-height": number;
-            "letter-spacing": number;
+            fontWeight: number;
+            fontSize: number;
+            lineHeight: number;
+            letterSpacing: number;
         };
         "2xl": {
-            "font-weight": number;
-            "letter-spacing": number;
-            "line-height": number;
-            "font-size": number;
+            fontWeight: number;
+            letterSpacing: number;
+            lineHeight: number;
+            fontSize: number;
         };
         xl: {
-            "font-size": number;
-            "line-height": number;
-            "letter-spacing": number;
-            "font-weight": number;
+            fontSize: number;
+            lineHeight: number;
+            letterSpacing: number;
+            fontWeight: number;
         };
     };
     heading: {
         sm: {
-            "font-size": number;
-            "letter-spacing": number;
-            "font-weight": number;
-            "line-height": number;
+            fontSize: number;
+            letterSpacing: number;
+            fontWeight: number;
+            lineHeight: number;
         };
         md: {
-            "font-size": number;
-            "font-weight": number;
-            "letter-spacing": number;
-            "line-height": number;
+            fontSize: number;
+            fontWeight: number;
+            letterSpacing: number;
+            lineHeight: number;
         };
         lg: {
-            "font-size": number;
-            "letter-spacing": number;
-            "line-height": number;
-            "font-weight": number;
+            fontSize: number;
+            letterSpacing: number;
+            lineHeight: number;
+            fontWeight: number;
         };
         xl: {
-            "font-weight": number;
-            "line-height": number;
-            "letter-spacing": number;
-            "font-size": number;
+            fontWeight: number;
+            lineHeight: number;
+            letterSpacing: number;
+            fontSize: number;
         };
     };
 };
 declare const typography: {
     mobile: {
-        "body-text": {
+        bodyText: {
             md: {
-                "paragraph-spacing": number;
-                "bold-font-weight": number;
-                "font-weight": number;
-                "font-size": number;
-                "letter-spacing": number;
-                "line-height": number;
+                paragraphSpacing: number;
+                boldFontWeight: number;
+                fontWeight: number;
+                fontSize: number;
+                letterSpacing: number;
+                lineHeight: number;
             };
             sm: {
-                "paragraph-spacing": number;
-                "bold-font-weight": number;
-                "letter-spacing": number;
-                "font-weight": number;
-                "line-height": number;
-                "font-size": number;
+                paragraphSpacing: number;
+                boldFontWeight: number;
+                letterSpacing: number;
+                fontWeight: number;
+                lineHeight: number;
+                fontSize: number;
             };
             lg: {
-                "font-size": number;
-                "line-height": number;
-                "paragraph-spacing": number;
-                "bold-font-weight": number;
-                "font-weight": number;
-                "letter-spacing": number;
+                fontSize: number;
+                lineHeight: number;
+                paragraphSpacing: number;
+                boldFontWeight: number;
+                fontWeight: number;
+                letterSpacing: number;
             };
-            "font-family": string;
+            fontFamily: string;
         };
-        "detail-text": {
+        detailText: {
             sm: {
-                "font-size": number;
-                "line-height": number;
-                "font-weight": number;
-                "letter-spacing": number;
+                fontSize: number;
+                lineHeight: number;
+                fontWeight: number;
+                letterSpacing: number;
             };
             "4xl": {
-                "letter-spacing": number;
-                "line-height": number;
-                "font-weight": number;
-                "font-size": number;
+                letterSpacing: number;
+                lineHeight: number;
+                fontWeight: number;
+                fontSize: number;
             };
             lg: {
-                "letter-spacing": number;
-                "font-weight": number;
-                "font-size": number;
-                "line-height": number;
+                letterSpacing: number;
+                fontWeight: number;
+                fontSize: number;
+                lineHeight: number;
             };
             "3xl": {
-                "letter-spacing": number;
-                "font-weight": number;
-                "line-height": number;
-                "font-size": number;
+                letterSpacing: number;
+                fontWeight: number;
+                lineHeight: number;
+                fontSize: number;
             };
             md: {
-                "font-weight": number;
-                "font-size": number;
-                "line-height": number;
-                "letter-spacing": number;
+                fontWeight: number;
+                fontSize: number;
+                lineHeight: number;
+                letterSpacing: number;
             };
             "2xl": {
-                "font-weight": number;
-                "letter-spacing": number;
-                "line-height": number;
-                "font-size": number;
+                fontWeight: number;
+                letterSpacing: number;
+                lineHeight: number;
+                fontSize: number;
             };
             xl: {
-                "font-size": number;
-                "line-height": number;
-                "letter-spacing": number;
-                "font-weight": number;
+                fontSize: number;
+                lineHeight: number;
+                letterSpacing: number;
+                fontWeight: number;
             };
-            "font-family": string;
+            fontFamily: string;
         };
         heading: {
             sm: {
-                "font-size": number;
-                "letter-spacing": number;
-                "font-weight": number;
-                "line-height": number;
+                fontSize: number;
+                letterSpacing: number;
+                fontWeight: number;
+                lineHeight: number;
             };
-            "font-family": string;
+            fontFamily: string;
             md: {
-                "font-size": number;
-                "font-weight": number;
-                "letter-spacing": number;
-                "line-height": number;
+                fontSize: number;
+                fontWeight: number;
+                letterSpacing: number;
+                lineHeight: number;
             };
             lg: {
-                "font-size": number;
-                "letter-spacing": number;
-                "line-height": number;
-                "font-weight": number;
+                fontSize: number;
+                letterSpacing: number;
+                lineHeight: number;
+                fontWeight: number;
             };
             xl: {
-                "font-weight": number;
-                "line-height": number;
-                "letter-spacing": number;
-                "font-size": number;
+                fontWeight: number;
+                lineHeight: number;
+                letterSpacing: number;
+                fontSize: number;
             };
         };
     };
     tablet: {
-        "body-text": {
+        bodyText: {
             md: {
-                "paragraph-spacing": number;
-                "bold-font-weight": number;
-                "font-weight": number;
-                "font-size": number;
-                "letter-spacing": number;
-                "line-height": number;
+                paragraphSpacing: number;
+                boldFontWeight: number;
+                fontWeight: number;
+                fontSize: number;
+                letterSpacing: number;
+                lineHeight: number;
             };
             sm: {
-                "paragraph-spacing": number;
-                "bold-font-weight": number;
-                "letter-spacing": number;
-                "font-weight": number;
-                "line-height": number;
-                "font-size": number;
+                paragraphSpacing: number;
+                boldFontWeight: number;
+                letterSpacing: number;
+                fontWeight: number;
+                lineHeight: number;
+                fontSize: number;
             };
             lg: {
-                "font-size": number;
-                "line-height": number;
-                "paragraph-spacing": number;
-                "bold-font-weight": number;
-                "font-weight": number;
-                "letter-spacing": number;
+                fontSize: number;
+                lineHeight: number;
+                paragraphSpacing: number;
+                boldFontWeight: number;
+                fontWeight: number;
+                letterSpacing: number;
             };
         };
-        "detail-text": {
+        detailText: {
             sm: {
-                "font-size": number;
-                "line-height": number;
-                "font-weight": number;
-                "letter-spacing": number;
+                fontSize: number;
+                lineHeight: number;
+                fontWeight: number;
+                letterSpacing: number;
             };
             "4xl": {
-                "letter-spacing": number;
-                "line-height": number;
-                "font-weight": number;
-                "font-size": number;
+                letterSpacing: number;
+                lineHeight: number;
+                fontWeight: number;
+                fontSize: number;
             };
             lg: {
-                "letter-spacing": number;
-                "font-weight": number;
-                "font-size": number;
-                "line-height": number;
+                letterSpacing: number;
+                fontWeight: number;
+                fontSize: number;
+                lineHeight: number;
             };
             "3xl": {
-                "letter-spacing": number;
-                "font-weight": number;
-                "line-height": number;
-                "font-size": number;
+                letterSpacing: number;
+                fontWeight: number;
+                lineHeight: number;
+                fontSize: number;
             };
             md: {
-                "font-weight": number;
-                "font-size": number;
-                "line-height": number;
-                "letter-spacing": number;
+                fontWeight: number;
+                fontSize: number;
+                lineHeight: number;
+                letterSpacing: number;
             };
             "2xl": {
-                "font-weight": number;
-                "letter-spacing": number;
-                "line-height": number;
-                "font-size": number;
+                fontWeight: number;
+                letterSpacing: number;
+                lineHeight: number;
+                fontSize: number;
             };
             xl: {
-                "font-size": number;
-                "line-height": number;
-                "letter-spacing": number;
-                "font-weight": number;
+                fontSize: number;
+                lineHeight: number;
+                letterSpacing: number;
+                fontWeight: number;
             };
         };
         heading: {
             sm: {
-                "font-size": number;
-                "letter-spacing": number;
-                "font-weight": number;
-                "line-height": number;
+                fontSize: number;
+                letterSpacing: number;
+                fontWeight: number;
+                lineHeight: number;
             };
             md: {
-                "font-size": number;
-                "font-weight": number;
-                "letter-spacing": number;
-                "line-height": number;
+                fontSize: number;
+                fontWeight: number;
+                letterSpacing: number;
+                lineHeight: number;
             };
             lg: {
-                "font-size": number;
-                "letter-spacing": number;
-                "line-height": number;
-                "font-weight": number;
+                fontSize: number;
+                letterSpacing: number;
+                lineHeight: number;
+                fontWeight: number;
             };
             xl: {
-                "font-weight": number;
-                "line-height": number;
-                "letter-spacing": number;
-                "font-size": number;
+                fontWeight: number;
+                lineHeight: number;
+                letterSpacing: number;
+                fontSize: number;
             };
         };
     };
     desktop: {
-        "body-text": {
+        bodyText: {
             md: {
-                "paragraph-spacing": number;
-                "bold-font-weight": number;
-                "font-weight": number;
-                "font-size": number;
-                "letter-spacing": number;
-                "line-height": number;
+                paragraphSpacing: number;
+                boldFontWeight: number;
+                fontWeight: number;
+                fontSize: number;
+                letterSpacing: number;
+                lineHeight: number;
             };
             sm: {
-                "paragraph-spacing": number;
-                "bold-font-weight": number;
-                "letter-spacing": number;
-                "font-weight": number;
-                "line-height": number;
-                "font-size": number;
+                paragraphSpacing: number;
+                boldFontWeight: number;
+                letterSpacing: number;
+                fontWeight: number;
+                lineHeight: number;
+                fontSize: number;
             };
             lg: {
-                "font-size": number;
-                "line-height": number;
-                "paragraph-spacing": number;
-                "bold-font-weight": number;
-                "font-weight": number;
-                "letter-spacing": number;
+                fontSize: number;
+                lineHeight: number;
+                paragraphSpacing: number;
+                boldFontWeight: number;
+                fontWeight: number;
+                letterSpacing: number;
             };
         };
-        "detail-text": {
+        detailText: {
             sm: {
-                "font-size": number;
-                "line-height": number;
-                "font-weight": number;
-                "letter-spacing": number;
+                fontSize: number;
+                lineHeight: number;
+                fontWeight: number;
+                letterSpacing: number;
             };
             "4xl": {
-                "letter-spacing": number;
-                "line-height": number;
-                "font-weight": number;
-                "font-size": number;
+                letterSpacing: number;
+                lineHeight: number;
+                fontWeight: number;
+                fontSize: number;
             };
             lg: {
-                "letter-spacing": number;
-                "font-weight": number;
-                "font-size": number;
-                "line-height": number;
+                letterSpacing: number;
+                fontWeight: number;
+                fontSize: number;
+                lineHeight: number;
             };
             "3xl": {
-                "letter-spacing": number;
-                "font-weight": number;
-                "line-height": number;
-                "font-size": number;
+                letterSpacing: number;
+                fontWeight: number;
+                lineHeight: number;
+                fontSize: number;
             };
             md: {
-                "font-weight": number;
-                "font-size": number;
-                "line-height": number;
-                "letter-spacing": number;
+                fontWeight: number;
+                fontSize: number;
+                lineHeight: number;
+                letterSpacing: number;
             };
             "2xl": {
-                "font-weight": number;
-                "letter-spacing": number;
-                "line-height": number;
-                "font-size": number;
+                fontWeight: number;
+                letterSpacing: number;
+                lineHeight: number;
+                fontSize: number;
             };
             xl: {
-                "font-size": number;
-                "line-height": number;
-                "letter-spacing": number;
-                "font-weight": number;
+                fontSize: number;
+                lineHeight: number;
+                letterSpacing: number;
+                fontWeight: number;
             };
         };
         heading: {
             sm: {
-                "font-size": number;
-                "letter-spacing": number;
-                "font-weight": number;
-                "line-height": number;
+                fontSize: number;
+                letterSpacing: number;
+                fontWeight: number;
+                lineHeight: number;
             };
             md: {
-                "font-size": number;
-                "font-weight": number;
-                "letter-spacing": number;
-                "line-height": number;
+                fontSize: number;
+                fontWeight: number;
+                letterSpacing: number;
+                lineHeight: number;
             };
             lg: {
-                "font-size": number;
-                "letter-spacing": number;
-                "line-height": number;
-                "font-weight": number;
+                fontSize: number;
+                letterSpacing: number;
+                lineHeight: number;
+                fontWeight: number;
             };
             xl: {
-                "font-weight": number;
-                "line-height": number;
-                "letter-spacing": number;
-                "font-size": number;
+                fontWeight: number;
+                lineHeight: number;
+                letterSpacing: number;
+                fontSize: number;
             };
         };
     };
