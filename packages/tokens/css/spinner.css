@@ -14,7 +14,3 @@
   --spinner-default-fill: var(--color-uw-purple);
   --spinner-padding: var(--space-25);
 }
-
-[data-theme='dark'] {
-  --spinner-default-fill: var(--color-uw-purple);
-}

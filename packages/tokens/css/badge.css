@@ -16,12 +16,3 @@
   --badge-green-background-color: var(--color-green-700);
   --badge-grey-background-color: var(--color-grey-600);
 }
-
-[data-theme='dark'] {
-  --badge-color: var(--color-off-white);
-  --badge-red-background-color: var(--color-red-700);
-  --badge-blue-background-color: var(--color-blue-700);
-  --badge-orange-background-color: var(--color-orange-800);
-  --badge-green-background-color: var(--color-green-700);
-  --badge-grey-background-color: var(--color-grey-600);
-}
