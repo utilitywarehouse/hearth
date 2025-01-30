@@ -1,364 +1,312 @@
 {
   "mobile": {
     "typography": {
-      "scales": {
-        "body-text": {
-          "md": {
-            "paragraph-spacing": {
-              "alias": "{space.200}",
-              "value": 16,
-              "type": "number"
-            },
-            "bold-font-weight": {
-              "alias": "{font.weight.700}",
-              "value": 700,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.400}",
-              "value": 400,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.100}",
-              "value": 16,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.500}",
-              "value": 24,
-              "type": "number"
-            }
+      "body-text": {
+        "md": {
+          "paragraph-spacing": {
+            "alias": "{space.200}",
+            "value": 16,
+            "type": "number"
           },
-          "sm": {
-            "paragraph-spacing": {
-              "alias": "{space.175}",
-              "value": 14,
-              "type": "number"
-            },
-            "bold-font-weight": {
-              "alias": "{font.weight.700}",
-              "value": 700,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.400}",
-              "value": 400,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.300}",
-              "value": 20,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.90}",
-              "value": 14,
-              "type": "number"
-            }
+          "font-size": {
+            "alias": "{font.size.100}",
+            "value": 16,
+            "type": "number"
           },
-          "lg": {
-            "font-size": {
-              "alias": "{font.size.150}",
-              "value": 18,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.500}",
-              "value": 24,
-              "type": "number"
-            },
-            "paragraph-spacing": {
-              "alias": "{font.size.150}",
-              "value": 18,
-              "type": "number"
-            },
-            "bold-font-weight": {
-              "alias": "{font.weight.700}",
-              "value": 700,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.400}",
-              "value": 400,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            }
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
           },
-          "font-family": {
-            "alias": "{font.family.body}",
-            "value": "DM Sans",
-            "type": "string"
+          "line-height": {
+            "alias": "{line-height.500}",
+            "value": 24,
+            "type": "number"
           }
         },
-        "detail-text": {
-          "sm": {
-            "font-size": {
-              "alias": "{font.size.90}",
-              "value": 14,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.200}",
-              "value": 18,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.90}",
-              "value": -0.41999998688697815,
-              "type": "number"
-            }
+        "sm": {
+          "paragraph-spacing": {
+            "alias": "{space.175}",
+            "value": 14,
+            "type": "number"
           },
-          "4xl": {
-            "letter-spacing": {
-              "alias": "{letter-spacing.500}",
-              "value": -1.0800000429153442,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.800}",
-              "value": 36,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.500}",
-              "value": 36,
-              "type": "number"
-            }
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
           },
-          "lg": {
-            "letter-spacing": {
-              "alias": "{letter-spacing.150}",
-              "value": -0.5400000214576721,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.150}",
-              "value": 18,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.400}",
-              "value": 22,
-              "type": "number"
-            }
+          "line-height": {
+            "alias": "{line-height.300}",
+            "value": 20,
+            "type": "number"
           },
-          "3xl": {
-            "letter-spacing": {
-              "alias": "{letter-spacing.400}",
-              "value": -0.8999999761581421,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.800}",
-              "value": 36,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.400}",
-              "value": 30,
-              "type": "number"
-            }
-          },
-          "md": {
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.100}",
-              "value": 16,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.500}",
-              "value": 24,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.100}",
-              "value": -0.47999998927116394,
-              "type": "number"
-            }
-          },
-          "2xl": {
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.300}",
-              "value": -0.7200000286102295,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.700}",
-              "value": 32,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.300}",
-              "value": 24,
-              "type": "number"
-            }
-          },
-          "xl": {
-            "font-size": {
-              "alias": "{font.size.200}",
-              "value": 20,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.400}",
-              "value": 22,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.200}",
-              "value": -0.6000000238418579,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            }
-          },
-          "font-family": {
-            "alias": "{font.family.detail}",
-            "value": "DM Mono",
-            "type": "string"
+          "font-size": {
+            "alias": "{font.size.90}",
+            "value": 14,
+            "type": "number"
           }
         },
-        "heading": {
-          "sm": {
-            "font-size": {
-              "alias": "{font.size.150}",
-              "value": 18,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.400}",
-              "value": 22,
-              "type": "number"
-            }
+        "lg": {
+          "font-size": {
+            "alias": "{font.size.150}",
+            "value": 18,
+            "type": "number"
           },
-          "font-family": {
-            "alias": "{font.family.heading}",
-            "value": "Comic Hams",
-            "type": "string"
+          "line-height": {
+            "alias": "{line-height.500}",
+            "value": 24,
+            "type": "number"
           },
-          "md": {
-            "font-size": {
-              "alias": "{font.size.200}",
-              "value": 20,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.500}",
-              "value": 24,
-              "type": "number"
-            }
+          "paragraph-spacing": {
+            "alias": "{font.size.150}",
+            "value": 18,
+            "type": "number"
           },
-          "lg": {
-            "font-size": {
-              "alias": "{font.size.300}",
-              "value": 24,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.700}",
-              "value": 32,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            }
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          }
+        },
+        "font-weight-bold": {
+          "alias": "{font.weight.bold}",
+          "value": 700,
+          "type": "number"
+        },
+        "font-family": {
+          "alias": "{font.family.body}",
+          "value": "DM Sans",
+          "type": "string"
+        },
+        "font-weight": {
+          "alias": "{font.weight.regular}",
+          "value": 400,
+          "type": "number"
+        }
+      },
+      "detail-text": {
+        "sm": {
+          "font-size": {
+            "alias": "{font.size.90}",
+            "value": 14,
+            "type": "number"
           },
-          "xl": {
-            "font-weight": {
-              "alias": "{font.weight.700}",
-              "value": 700,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.800}",
-              "value": 36,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.400}",
-              "value": 30,
-              "type": "number"
-            }
+          "line-height": {
+            "alias": "{line-height.200}",
+            "value": 18,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.90}",
+            "value": -0.41999998688697815,
+            "type": "number"
+          }
+        },
+        "4xl": {
+          "letter-spacing": {
+            "alias": "{letter-spacing.500}",
+            "value": -1.0800000429153442,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.800}",
+            "value": 36,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.500}",
+            "value": 36,
+            "type": "number"
+          }
+        },
+        "lg": {
+          "letter-spacing": {
+            "alias": "{letter-spacing.150}",
+            "value": -0.5400000214576721,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.150}",
+            "value": 18,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.400}",
+            "value": 22,
+            "type": "number"
+          }
+        },
+        "3xl": {
+          "letter-spacing": {
+            "alias": "{letter-spacing.400}",
+            "value": -0.8999999761581421,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.800}",
+            "value": 36,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.400}",
+            "value": 30,
+            "type": "number"
+          }
+        },
+        "font-weight": {
+          "alias": "{font.weight.semibold}",
+          "value": 600,
+          "type": "number"
+        },
+        "md": {
+          "font-size": {
+            "alias": "{font.size.100}",
+            "value": 16,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.500}",
+            "value": 24,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.100}",
+            "value": -0.47999998927116394,
+            "type": "number"
+          }
+        },
+        "2xl": {
+          "letter-spacing": {
+            "alias": "{letter-spacing.300}",
+            "value": -0.7200000286102295,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.700}",
+            "value": 32,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.300}",
+            "value": 24,
+            "type": "number"
+          }
+        },
+        "xl": {
+          "font-size": {
+            "alias": "{font.size.200}",
+            "value": 20,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.400}",
+            "value": 22,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.200}",
+            "value": -0.6000000238418579,
+            "type": "number"
+          }
+        },
+        "font-family": {
+          "alias": "{font.family.detail}",
+          "value": "DM Mono",
+          "type": "string"
+        }
+      },
+      "heading": {
+        "sm": {
+          "font-size": {
+            "alias": "{font.size.150}",
+            "value": 18,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          },
+          "font-weight": {
+            "alias": "{font.weight.semibold}",
+            "value": 600,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.400}",
+            "value": 22,
+            "type": "number"
+          }
+        },
+        "font-family": {
+          "alias": "{font.family.heading}",
+          "value": "Comic Hams",
+          "type": "string"
+        },
+        "md": {
+          "font-size": {
+            "alias": "{font.size.200}",
+            "value": 20,
+            "type": "number"
+          },
+          "font-weight": {
+            "alias": "{font.weight.semibold}",
+            "value": 600,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.500}",
+            "value": 24,
+            "type": "number"
+          }
+        },
+        "lg": {
+          "font-size": {
+            "alias": "{font.size.300}",
+            "value": 24,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.700}",
+            "value": 32,
+            "type": "number"
+          },
+          "font-weight": {
+            "alias": "{font.weight.semibold}",
+            "value": 600,
+            "type": "number"
+          }
+        },
+        "xl": {
+          "font-weight": {
+            "alias": "{font.weight.bold}",
+            "value": 700,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.800}",
+            "value": 36,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.400}",
+            "value": 30,
+            "type": "number"
           }
         }
       }
@@ -445,364 +393,312 @@
   },
   "tablet": {
     "typography": {
-      "scales": {
-        "body-text": {
-          "md": {
-            "paragraph-spacing": {
-              "alias": "{space.200}",
-              "value": 16,
-              "type": "number"
-            },
-            "bold-font-weight": {
-              "alias": "{font.weight.700}",
-              "value": 700,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.400}",
-              "value": 400,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.100}",
-              "value": 16,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.500}",
-              "value": 24,
-              "type": "number"
-            }
+      "body-text": {
+        "md": {
+          "paragraph-spacing": {
+            "alias": "{space.200}",
+            "value": 16,
+            "type": "number"
           },
-          "sm": {
-            "paragraph-spacing": {
-              "alias": "{space.175}",
-              "value": 14,
-              "type": "number"
-            },
-            "bold-font-weight": {
-              "alias": "{font.weight.700}",
-              "value": 700,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.400}",
-              "value": 400,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.300}",
-              "value": 20,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.90}",
-              "value": 14,
-              "type": "number"
-            }
+          "font-size": {
+            "alias": "{font.size.100}",
+            "value": 16,
+            "type": "number"
           },
-          "lg": {
-            "font-size": {
-              "alias": "{font.size.150}",
-              "value": 18,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.500}",
-              "value": 24,
-              "type": "number"
-            },
-            "paragraph-spacing": {
-              "alias": "{font.size.150}",
-              "value": 18,
-              "type": "number"
-            },
-            "bold-font-weight": {
-              "alias": "{font.weight.700}",
-              "value": 700,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.400}",
-              "value": 400,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            }
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
           },
-          "font-family": {
-            "alias": "{font.family.body}",
-            "value": "DM Sans",
-            "type": "string"
+          "line-height": {
+            "alias": "{line-height.500}",
+            "value": 24,
+            "type": "number"
           }
         },
-        "detail-text": {
-          "sm": {
-            "font-size": {
-              "alias": "{font.size.90}",
-              "value": 14,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.200}",
-              "value": 18,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.90}",
-              "value": -0.41999998688697815,
-              "type": "number"
-            }
+        "sm": {
+          "paragraph-spacing": {
+            "alias": "{space.175}",
+            "value": 14,
+            "type": "number"
           },
-          "4xl": {
-            "letter-spacing": {
-              "alias": "{letter-spacing.500}",
-              "value": -1.0800000429153442,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.800}",
-              "value": 36,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.500}",
-              "value": 36,
-              "type": "number"
-            }
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
           },
-          "lg": {
-            "letter-spacing": {
-              "alias": "{letter-spacing.150}",
-              "value": -0.5400000214576721,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.150}",
-              "value": 18,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.400}",
-              "value": 22,
-              "type": "number"
-            }
+          "line-height": {
+            "alias": "{line-height.300}",
+            "value": 20,
+            "type": "number"
           },
-          "3xl": {
-            "letter-spacing": {
-              "alias": "{letter-spacing.400}",
-              "value": -0.8999999761581421,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.800}",
-              "value": 36,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.400}",
-              "value": 30,
-              "type": "number"
-            }
-          },
-          "md": {
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.100}",
-              "value": 16,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.500}",
-              "value": 24,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.100}",
-              "value": -0.47999998927116394,
-              "type": "number"
-            }
-          },
-          "2xl": {
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.300}",
-              "value": -0.7200000286102295,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.700}",
-              "value": 32,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.300}",
-              "value": 24,
-              "type": "number"
-            }
-          },
-          "xl": {
-            "font-size": {
-              "alias": "{font.size.200}",
-              "value": 20,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.400}",
-              "value": 22,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.200}",
-              "value": -0.6000000238418579,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            }
-          },
-          "font-family": {
-            "alias": "{font.family.detail}",
-            "value": "DM Mono",
-            "type": "string"
+          "font-size": {
+            "alias": "{font.size.90}",
+            "value": 14,
+            "type": "number"
           }
         },
-        "heading": {
-          "sm": {
-            "font-size": {
-              "alias": "{font.size.150}",
-              "value": 18,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.400}",
-              "value": 22,
-              "type": "number"
-            }
+        "lg": {
+          "font-size": {
+            "alias": "{font.size.150}",
+            "value": 18,
+            "type": "number"
           },
-          "font-family": {
-            "alias": "{font.family.heading}",
-            "value": "Comic Hams",
-            "type": "string"
+          "line-height": {
+            "alias": "{line-height.500}",
+            "value": 24,
+            "type": "number"
           },
-          "md": {
-            "font-size": {
-              "alias": "{font.size.200}",
-              "value": 20,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.500}",
-              "value": 24,
-              "type": "number"
-            }
+          "paragraph-spacing": {
+            "alias": "{font.size.150}",
+            "value": 18,
+            "type": "number"
           },
-          "lg": {
-            "font-size": {
-              "alias": "{font.size.300}",
-              "value": 24,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.700}",
-              "value": 32,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            }
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          }
+        },
+        "font-weight-bold": {
+          "alias": "{font.weight.bold}",
+          "value": 700,
+          "type": "number"
+        },
+        "font-family": {
+          "alias": "{font.family.body}",
+          "value": "DM Sans",
+          "type": "string"
+        },
+        "font-weight": {
+          "alias": "{font.weight.regular}",
+          "value": 400,
+          "type": "number"
+        }
+      },
+      "detail-text": {
+        "sm": {
+          "font-size": {
+            "alias": "{font.size.90}",
+            "value": 14,
+            "type": "number"
           },
-          "xl": {
-            "font-weight": {
-              "alias": "{font.weight.700}",
-              "value": 700,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.800}",
-              "value": 36,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.400}",
-              "value": 30,
-              "type": "number"
-            }
+          "line-height": {
+            "alias": "{line-height.200}",
+            "value": 18,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.90}",
+            "value": -0.41999998688697815,
+            "type": "number"
+          }
+        },
+        "4xl": {
+          "letter-spacing": {
+            "alias": "{letter-spacing.500}",
+            "value": -1.0800000429153442,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.800}",
+            "value": 36,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.500}",
+            "value": 36,
+            "type": "number"
+          }
+        },
+        "lg": {
+          "letter-spacing": {
+            "alias": "{letter-spacing.150}",
+            "value": -0.5400000214576721,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.150}",
+            "value": 18,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.400}",
+            "value": 22,
+            "type": "number"
+          }
+        },
+        "3xl": {
+          "letter-spacing": {
+            "alias": "{letter-spacing.400}",
+            "value": -0.8999999761581421,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.800}",
+            "value": 36,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.400}",
+            "value": 30,
+            "type": "number"
+          }
+        },
+        "font-weight": {
+          "alias": "{font.weight.semibold}",
+          "value": 600,
+          "type": "number"
+        },
+        "md": {
+          "font-size": {
+            "alias": "{font.size.100}",
+            "value": 16,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.500}",
+            "value": 24,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.100}",
+            "value": -0.47999998927116394,
+            "type": "number"
+          }
+        },
+        "2xl": {
+          "letter-spacing": {
+            "alias": "{letter-spacing.300}",
+            "value": -0.7200000286102295,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.700}",
+            "value": 32,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.300}",
+            "value": 24,
+            "type": "number"
+          }
+        },
+        "xl": {
+          "font-size": {
+            "alias": "{font.size.200}",
+            "value": 20,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.400}",
+            "value": 22,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.200}",
+            "value": -0.6000000238418579,
+            "type": "number"
+          }
+        },
+        "font-family": {
+          "alias": "{font.family.detail}",
+          "value": "DM Mono",
+          "type": "string"
+        }
+      },
+      "heading": {
+        "sm": {
+          "font-size": {
+            "alias": "{font.size.150}",
+            "value": 18,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          },
+          "font-weight": {
+            "alias": "{font.weight.semibold}",
+            "value": 600,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.400}",
+            "value": 22,
+            "type": "number"
+          }
+        },
+        "font-family": {
+          "alias": "{font.family.heading}",
+          "value": "Comic Hams",
+          "type": "string"
+        },
+        "md": {
+          "font-size": {
+            "alias": "{font.size.200}",
+            "value": 20,
+            "type": "number"
+          },
+          "font-weight": {
+            "alias": "{font.weight.semibold}",
+            "value": 600,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.500}",
+            "value": 24,
+            "type": "number"
+          }
+        },
+        "lg": {
+          "font-size": {
+            "alias": "{font.size.300}",
+            "value": 24,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.700}",
+            "value": 32,
+            "type": "number"
+          },
+          "font-weight": {
+            "alias": "{font.weight.semibold}",
+            "value": 600,
+            "type": "number"
+          }
+        },
+        "xl": {
+          "font-weight": {
+            "alias": "{font.weight.bold}",
+            "value": 700,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.800}",
+            "value": 36,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.400}",
+            "value": 30,
+            "type": "number"
           }
         }
       }
@@ -889,364 +785,312 @@
   },
   "desktop": {
     "typography": {
-      "scales": {
-        "body-text": {
-          "md": {
-            "paragraph-spacing": {
-              "alias": "{space.200}",
-              "value": 16,
-              "type": "number"
-            },
-            "bold-font-weight": {
-              "alias": "{font.weight.700}",
-              "value": 700,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.400}",
-              "value": 400,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.100}",
-              "value": 16,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.500}",
-              "value": 24,
-              "type": "number"
-            }
+      "body-text": {
+        "md": {
+          "paragraph-spacing": {
+            "alias": "{space.200}",
+            "value": 16,
+            "type": "number"
           },
-          "sm": {
-            "paragraph-spacing": {
-              "alias": "{space.175}",
-              "value": 14,
-              "type": "number"
-            },
-            "bold-font-weight": {
-              "alias": "{font.weight.700}",
-              "value": 700,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.400}",
-              "value": 400,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.300}",
-              "value": 20,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.90}",
-              "value": 14,
-              "type": "number"
-            }
+          "font-size": {
+            "alias": "{font.size.100}",
+            "value": 16,
+            "type": "number"
           },
-          "lg": {
-            "font-size": {
-              "alias": "{font.size.150}",
-              "value": 18,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.500}",
-              "value": 24,
-              "type": "number"
-            },
-            "paragraph-spacing": {
-              "alias": "{font.size.150}",
-              "value": 18,
-              "type": "number"
-            },
-            "bold-font-weight": {
-              "alias": "{font.weight.700}",
-              "value": 700,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.400}",
-              "value": 400,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            }
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
           },
-          "font-family": {
-            "alias": "{font.family.body}",
-            "value": "DM Sans",
-            "type": "string"
+          "line-height": {
+            "alias": "{line-height.500}",
+            "value": 24,
+            "type": "number"
           }
         },
-        "detail-text": {
-          "sm": {
-            "font-size": {
-              "alias": "{font.size.90}",
-              "value": 14,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.200}",
-              "value": 18,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.90}",
-              "value": -0.41999998688697815,
-              "type": "number"
-            }
+        "sm": {
+          "paragraph-spacing": {
+            "alias": "{space.175}",
+            "value": 14,
+            "type": "number"
           },
-          "4xl": {
-            "letter-spacing": {
-              "alias": "{letter-spacing.500}",
-              "value": -1.0800000429153442,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.800}",
-              "value": 36,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.500}",
-              "value": 36,
-              "type": "number"
-            }
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
           },
-          "lg": {
-            "letter-spacing": {
-              "alias": "{letter-spacing.150}",
-              "value": -0.5400000214576721,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.150}",
-              "value": 18,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.400}",
-              "value": 22,
-              "type": "number"
-            }
+          "line-height": {
+            "alias": "{line-height.300}",
+            "value": 20,
+            "type": "number"
           },
-          "3xl": {
-            "letter-spacing": {
-              "alias": "{letter-spacing.400}",
-              "value": -0.8999999761581421,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.800}",
-              "value": 36,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.400}",
-              "value": 30,
-              "type": "number"
-            }
-          },
-          "md": {
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.100}",
-              "value": 16,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.500}",
-              "value": 24,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.100}",
-              "value": -0.47999998927116394,
-              "type": "number"
-            }
-          },
-          "2xl": {
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.300}",
-              "value": -0.7200000286102295,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.700}",
-              "value": 32,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.300}",
-              "value": 24,
-              "type": "number"
-            }
-          },
-          "xl": {
-            "font-size": {
-              "alias": "{font.size.200}",
-              "value": 20,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.400}",
-              "value": 22,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.200}",
-              "value": -0.6000000238418579,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            }
-          },
-          "font-family": {
-            "alias": "{font.family.detail}",
-            "value": "DM Mono",
-            "type": "string"
+          "font-size": {
+            "alias": "{font.size.90}",
+            "value": 14,
+            "type": "number"
           }
         },
-        "heading": {
-          "sm": {
-            "font-size": {
-              "alias": "{font.size.150}",
-              "value": 18,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.400}",
-              "value": 22,
-              "type": "number"
-            }
+        "lg": {
+          "font-size": {
+            "alias": "{font.size.150}",
+            "value": 18,
+            "type": "number"
           },
-          "font-family": {
-            "alias": "{font.family.heading}",
-            "value": "Comic Hams",
-            "type": "string"
+          "line-height": {
+            "alias": "{line-height.500}",
+            "value": 24,
+            "type": "number"
           },
-          "md": {
-            "font-size": {
-              "alias": "{font.size.300}",
-              "value": 24,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.600}",
-              "value": 28,
-              "type": "number"
-            }
+          "paragraph-spacing": {
+            "alias": "{font.size.150}",
+            "value": 18,
+            "type": "number"
           },
-          "lg": {
-            "font-size": {
-              "alias": "{font.size.400}",
-              "value": 30,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.800}",
-              "value": 36,
-              "type": "number"
-            },
-            "font-weight": {
-              "alias": "{font.weight.600}",
-              "value": 600,
-              "type": "number"
-            }
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          }
+        },
+        "font-weight-bold": {
+          "alias": "{font.weight.bold}",
+          "value": 700,
+          "type": "number"
+        },
+        "font-family": {
+          "alias": "{font.family.body}",
+          "value": "DM Sans",
+          "type": "string"
+        },
+        "font-weight": {
+          "alias": "{font.weight.regular}",
+          "value": 400,
+          "type": "number"
+        }
+      },
+      "detail-text": {
+        "sm": {
+          "font-size": {
+            "alias": "{font.size.90}",
+            "value": 14,
+            "type": "number"
           },
-          "xl": {
-            "font-weight": {
-              "alias": "{font.weight.700}",
-              "value": 700,
-              "type": "number"
-            },
-            "line-height": {
-              "alias": "{line-height.950}",
-              "value": 48,
-              "type": "number"
-            },
-            "letter-spacing": {
-              "alias": "{letter-spacing.0}",
-              "value": 0,
-              "type": "number"
-            },
-            "font-size": {
-              "alias": "{font.size.550}",
-              "value": 40,
-              "type": "number"
-            }
+          "line-height": {
+            "alias": "{line-height.200}",
+            "value": 18,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.90}",
+            "value": -0.41999998688697815,
+            "type": "number"
+          }
+        },
+        "4xl": {
+          "letter-spacing": {
+            "alias": "{letter-spacing.500}",
+            "value": -1.0800000429153442,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.800}",
+            "value": 36,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.500}",
+            "value": 36,
+            "type": "number"
+          }
+        },
+        "lg": {
+          "letter-spacing": {
+            "alias": "{letter-spacing.150}",
+            "value": -0.5400000214576721,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.150}",
+            "value": 18,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.400}",
+            "value": 22,
+            "type": "number"
+          }
+        },
+        "3xl": {
+          "letter-spacing": {
+            "alias": "{letter-spacing.400}",
+            "value": -0.8999999761581421,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.800}",
+            "value": 36,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.400}",
+            "value": 30,
+            "type": "number"
+          }
+        },
+        "font-weight": {
+          "alias": "{font.weight.semibold}",
+          "value": 600,
+          "type": "number"
+        },
+        "md": {
+          "font-size": {
+            "alias": "{font.size.100}",
+            "value": 16,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.500}",
+            "value": 24,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.100}",
+            "value": -0.47999998927116394,
+            "type": "number"
+          }
+        },
+        "2xl": {
+          "letter-spacing": {
+            "alias": "{letter-spacing.300}",
+            "value": -0.7200000286102295,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.700}",
+            "value": 32,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.300}",
+            "value": 24,
+            "type": "number"
+          }
+        },
+        "xl": {
+          "font-size": {
+            "alias": "{font.size.200}",
+            "value": 20,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.400}",
+            "value": 22,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.200}",
+            "value": -0.6000000238418579,
+            "type": "number"
+          }
+        },
+        "font-family": {
+          "alias": "{font.family.detail}",
+          "value": "DM Mono",
+          "type": "string"
+        }
+      },
+      "heading": {
+        "sm": {
+          "font-size": {
+            "alias": "{font.size.150}",
+            "value": 18,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          },
+          "font-weight": {
+            "alias": "{font.weight.semibold}",
+            "value": 600,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.400}",
+            "value": 22,
+            "type": "number"
+          }
+        },
+        "font-family": {
+          "alias": "{font.family.heading}",
+          "value": "Comic Hams",
+          "type": "string"
+        },
+        "md": {
+          "font-size": {
+            "alias": "{font.size.300}",
+            "value": 24,
+            "type": "number"
+          },
+          "font-weight": {
+            "alias": "{font.weight.semibold}",
+            "value": 600,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.600}",
+            "value": 28,
+            "type": "number"
+          }
+        },
+        "lg": {
+          "font-size": {
+            "alias": "{font.size.400}",
+            "value": 30,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.800}",
+            "value": 36,
+            "type": "number"
+          },
+          "font-weight": {
+            "alias": "{font.weight.semibold}",
+            "value": 600,
+            "type": "number"
+          }
+        },
+        "xl": {
+          "font-weight": {
+            "alias": "{font.weight.bold}",
+            "value": 700,
+            "type": "number"
+          },
+          "line-height": {
+            "alias": "{line-height.950}",
+            "value": 48,
+            "type": "number"
+          },
+          "letter-spacing": {
+            "alias": "{letter-spacing.0}",
+            "value": 0,
+            "type": "number"
+          },
+          "font-size": {
+            "alias": "{font.size.550}",
+            "value": 40,
+            "type": "number"
           }
         }
       }
