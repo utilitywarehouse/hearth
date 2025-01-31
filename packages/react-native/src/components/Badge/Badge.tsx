@@ -39,27 +39,27 @@ const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: theme.space[2],
-    borderRadius: theme.radii.sm,
-    paddingVertical: theme.space[1],
+    paddingHorizontal: theme.space[200],
+    borderRadius: theme.borderRadius[200],
+    paddingVertical: theme.space[100],
     alignSelf: 'flex-start',
-    gap: theme.space[1],
+    gap: theme.space[200],
     variants: {
       colorScheme: {
         cyan: {
-          backgroundColor: theme.isDark ? theme.colors.cyan700 : theme.colors.cyan200,
+          backgroundColor: theme.colors.blue[700],
         },
         red: {
-          backgroundColor: theme.isDark ? theme.colors.red700 : theme.colors.red200,
+          backgroundColor: theme.colors.red[700],
         },
         green: {
-          backgroundColor: theme.isDark ? theme.colors.green700 : theme.colors.green200,
+          backgroundColor: theme.colors.green[700],
         },
         gold: {
-          backgroundColor: theme.isDark ? theme.colors.gold700 : theme.colors.gold200,
+          backgroundColor: theme.colors.orange[700],
         },
         grey: {
-          backgroundColor: theme.isDark ? theme.colors.grey700 : theme.colors.grey200,
+          backgroundColor: theme.colors.grey[700],
         },
       },
       borderless: {
@@ -75,10 +75,10 @@ const styles = StyleSheet.create(theme => ({
       },
       size: {
         small: {
-          paddingVertical: theme.space[0.5],
+          paddingVertical: theme.space[25],
         },
         large: {
-          paddingVertical: theme.space[1],
+          paddingVertical: theme.space[200],
         },
       },
     },
@@ -86,27 +86,27 @@ const styles = StyleSheet.create(theme => ({
       {
         colorScheme: 'cyan',
         strong: true,
-        styles: { backgroundColor: theme.isDark ? theme.colors.cyan700 : theme.colors.cyan600 },
+        styles: { backgroundColor: theme.colors.blue[700] },
       },
       {
         colorScheme: 'red',
         strong: true,
-        styles: { backgroundColor: theme.isDark ? theme.colors.red700 : theme.colors.red600 },
+        styles: { backgroundColor: theme.colors.red[700] },
       },
       {
         colorScheme: 'green',
         strong: true,
-        styles: { backgroundColor: theme.isDark ? theme.colors.green700 : theme.colors.green600 },
+        styles: { backgroundColor: theme.colors.green[700] },
       },
       {
         colorScheme: 'gold',
         strong: true,
-        styles: { backgroundColor: theme.isDark ? theme.colors.gold700 : theme.colors.gold300 },
+        styles: { backgroundColor: theme.colors.orange[700] },
       },
       {
         colorScheme: 'grey',
         strong: true,
-        styles: { backgroundColor: theme.isDark ? theme.colors.grey700 : theme.colors.grey600 },
+        styles: { backgroundColor: theme.colors.grey[700] },
       },
     ],
   },

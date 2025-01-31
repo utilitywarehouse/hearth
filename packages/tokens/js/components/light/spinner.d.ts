@@ -2,11 +2,8 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-    xs: {
-        size: number;
-        strokeWidth: number;
-    };
-    sm: {
+    defaultFill: string;
+    lg: {
         size: number;
         strokeWidth: number;
     };
@@ -14,11 +11,14 @@ declare const _default: {
         size: number;
         strokeWidth: number;
     };
-    lg: {
+    padding: number;
+    sm: {
         size: number;
         strokeWidth: number;
     };
-    defaultFill: string;
-    padding: number;
+    xs: {
+        size: number;
+        strokeWidth: number;
+    };
 };
 export default _default;
