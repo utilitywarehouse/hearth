@@ -19,7 +19,7 @@ const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
 const SpinnerRoot: React.FC<SpinnerProps> = ({ size = 'md', color, ...props }) => {
   const { components } = useTheme();
-  const width = components.spinner[size].svgSize;
+  const width = components.spinner[size].size;
   const CIRCUMFERENCE = (width - 4) * Math.PI;
   const R = CIRCUMFERENCE / (2 * Math.PI);
   const STROKE_WIDTH = components.spinner[size].strokeWidth;
