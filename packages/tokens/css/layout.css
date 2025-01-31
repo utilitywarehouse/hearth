@@ -3,19 +3,19 @@
  */
 
 :root {
-  --layout-spacing-md-mobile: var(--space-200);
-  --layout-spacing-lg-mobile: var(--space-200);
-  --layout-spacing-xs-mobile: var(--space-100);
-  --layout-spacing-xl-mobile: var(--space-350);
-  --layout-spacing-sm-mobile: var(--space-150);
-  --layout-spacing-md-tablet: var(--space-200);
-  --layout-spacing-lg-tablet: var(--space-300);
-  --layout-spacing-xs-tablet: var(--space-100);
-  --layout-spacing-xl-tablet: var(--space-350);
-  --layout-spacing-sm-tablet: var(--space-150);
-  --layout-spacing-md-desktop: var(--space-200);
   --layout-spacing-lg-desktop: var(--space-300);
-  --layout-spacing-xs-desktop: var(--space-100);
-  --layout-spacing-xl-desktop: var(--space-500);
+  --layout-spacing-md-desktop: var(--space-200);
   --layout-spacing-sm-desktop: var(--space-150);
+  --layout-spacing-xl-desktop: var(--space-500);
+  --layout-spacing-xs-desktop: var(--space-100);
+  --layout-spacing-lg-mobile: var(--space-200);
+  --layout-spacing-md-mobile: var(--space-200);
+  --layout-spacing-sm-mobile: var(--space-150);
+  --layout-spacing-xl-mobile: var(--space-350);
+  --layout-spacing-xs-mobile: var(--space-100);
+  --layout-spacing-lg-tablet: var(--space-300);
+  --layout-spacing-md-tablet: var(--space-200);
+  --layout-spacing-sm-tablet: var(--space-150);
+  --layout-spacing-xl-tablet: var(--space-350);
+  --layout-spacing-xs-tablet: var(--space-100);
 }
