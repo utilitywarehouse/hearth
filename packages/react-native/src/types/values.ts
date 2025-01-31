@@ -28,12 +28,12 @@ export type ColorValue =
   | undefined;
 
 export type RadiiValue =
-  | keyof addPrefixToObject<(typeof lightTheme)['radii'], '$'>
+  | keyof addPrefixToObject<(typeof lightTheme)['borderRadius'], '$'>
   | AnimatableNumericValue
   | undefined;
 
 export type BordeWidthValue =
-  | keyof addPrefixToObject<(typeof lightTheme)['borderWidths'], '$'>
+  | keyof addPrefixToObject<(typeof lightTheme)['borderWidth'], '$'>
   | number
   | undefined;
 

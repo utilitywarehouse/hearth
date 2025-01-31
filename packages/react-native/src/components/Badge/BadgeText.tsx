@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { Text } from 'react-native';
-import type { TextProps } from 'react-native';
+import type { TextProps, TextStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useBadgeContext } from './Badge.context';
 
@@ -19,26 +19,26 @@ BadgeText.displayName = 'BadgeText';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    fontSize: theme.fontSizes.sm,
-    fontWeight: theme.fontWeights.normal,
-    lineHeight: theme.lineHeights['2xs'],
-    fontFamily: theme.fonts.body,
+    fontSize: theme.fontSize[200],
+    fontWeight: theme.fontWeights.regular as TextStyle['fontWeight'],
+    lineHeight: theme.lineHeight[400],
+    fontFamily: theme.fontFamily.body,
     variants: {
       colorScheme: {
         cyan: {
-          color: theme.isDark ? theme.colors.cyan50 : theme.colors.cyan900,
+          color: theme.colors.blue[50],
         },
         red: {
-          color: theme.isDark ? theme.colors.red50 : theme.colors.red900,
+          color: theme.colors.blue[50],
         },
         green: {
-          color: theme.isDark ? theme.colors.green50 : theme.colors.green900,
+          color: theme.colors.blue[50],
         },
         gold: {
-          color: theme.isDark ? theme.colors.gold50 : theme.colors.gold900,
+          color: theme.colors.blue[50],
         },
         grey: {
-          color: theme.isDark ? theme.colors.grey50 : theme.colors.grey900,
+          color: theme.colors.blue[50],
         },
       },
       strong: {
@@ -49,27 +49,28 @@ const styles = StyleSheet.create(theme => ({
       {
         colorScheme: 'cyan',
         strong: true,
-        styles: { color: theme.colors.cyan50 },
+        styles: { color: theme.colors.blue[50] },
       },
       {
         colorScheme: 'red',
         strong: true,
-        styles: { color: theme.colors.red50 },
+        styles: { color: theme.colors.blue[50] },
       },
       {
         colorScheme: 'green',
         strong: true,
-        styles: { color: theme.colors.green50 },
+        styles: { color: theme.colors.blue[50] },
       },
       {
         colorScheme: 'gold',
         strong: true,
-        styles: { color: theme.isDark ? theme.colors.gold50 : theme.colors.gold900 },
+        styles: { color: theme.colors.blue[50] },
       },
       {
         colorScheme: 'grey',
         strong: true,
-        styles: { color: theme.colors.grey50 },
+
+        styles: { color: theme.colors.blue[50] },
       },
     ],
   },
