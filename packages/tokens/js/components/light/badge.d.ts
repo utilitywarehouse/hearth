@@ -2,28 +2,28 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-    gap: number;
-    paddingHorizontal: number;
-    paddingVertical: number;
-    color: string;
+    blue: {
+        backgroundColor: string;
+    };
     borderRadius: number;
+    color: string;
     flatBase: {
         borderRadiusBottomLeft: number;
         borderRadiusBottomRight: number;
     };
-    red: {
+    gap: number;
+    green: {
         backgroundColor: string;
     };
-    blue: {
+    grey: {
         backgroundColor: string;
     };
     orange: {
         backgroundColor: string;
     };
-    green: {
-        backgroundColor: string;
-    };
-    grey: {
+    paddingHorizontal: number;
+    paddingVertical: number;
+    red: {
         backgroundColor: string;
     };
 };

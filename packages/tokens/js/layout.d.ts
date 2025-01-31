@@ -2,136 +2,136 @@
  * Do not edit directly, this file was auto-generated.
  */
 export declare const mobile: {
-    spacing: {
-        md: number;
-        lg: number;
-        xs: number;
-        xl: number;
-        sm: number;
+    container: {
+        paddingBottom: number;
+        paddingHorizontal: number;
+        paddingTop: number;
+        width: number;
     };
     grid: {
-        gutter: number;
-        gridSize: number;
         columnNumber: number;
-        margin: number;
         columnWidth: number;
+        gridSize: number;
+        gutter: number;
+        margin: number;
     };
-    container: {
-        paddingHorizontal: number;
-        width: number;
-        paddingTop: number;
-        paddingBottom: number;
+    spacing: {
+        lg: number;
+        md: number;
+        sm: number;
+        xl: number;
+        xs: number;
     };
 };
 export declare const tablet: {
-    spacing: {
-        md: number;
-        lg: number;
-        xs: number;
-        xl: number;
-        sm: number;
+    container: {
+        paddingBottom: number;
+        paddingHorizontal: number;
+        paddingTop: number;
+        width: number;
     };
     grid: {
-        gutter: number;
-        gridSize: number;
         columnNumber: number;
-        margin: number;
         columnWidth: number;
+        gridSize: number;
+        gutter: number;
+        margin: number;
     };
-    container: {
-        paddingHorizontal: number;
-        width: number;
-        paddingTop: number;
-        paddingBottom: number;
+    spacing: {
+        lg: number;
+        md: number;
+        sm: number;
+        xl: number;
+        xs: number;
     };
 };
 export declare const desktop: {
-    spacing: {
-        md: number;
-        lg: number;
-        xs: number;
-        xl: number;
-        sm: number;
+    container: {
+        paddingBottom: number;
+        paddingHorizontal: number;
+        paddingTop: number;
+        width: number;
     };
     grid: {
-        gutter: number;
-        gridSize: number;
         columnNumber: number;
-        margin: number;
         columnWidth: number;
+        gridSize: number;
+        gutter: number;
+        margin: number;
     };
-    container: {
-        paddingHorizontal: number;
-        width: number;
-        paddingTop: number;
-        paddingBottom: number;
+    spacing: {
+        lg: number;
+        md: number;
+        sm: number;
+        xl: number;
+        xs: number;
     };
 };
 declare const layout: {
     mobile: {
-        spacing: {
-            md: number;
-            lg: number;
-            xs: number;
-            xl: number;
-            sm: number;
+        container: {
+            paddingBottom: number;
+            paddingHorizontal: number;
+            paddingTop: number;
+            width: number;
         };
         grid: {
-            gutter: number;
-            gridSize: number;
             columnNumber: number;
-            margin: number;
             columnWidth: number;
+            gridSize: number;
+            gutter: number;
+            margin: number;
         };
-        container: {
-            paddingHorizontal: number;
-            width: number;
-            paddingTop: number;
-            paddingBottom: number;
+        spacing: {
+            lg: number;
+            md: number;
+            sm: number;
+            xl: number;
+            xs: number;
         };
     };
     tablet: {
-        spacing: {
-            md: number;
-            lg: number;
-            xs: number;
-            xl: number;
-            sm: number;
+        container: {
+            paddingBottom: number;
+            paddingHorizontal: number;
+            paddingTop: number;
+            width: number;
         };
         grid: {
-            gutter: number;
-            gridSize: number;
             columnNumber: number;
-            margin: number;
             columnWidth: number;
+            gridSize: number;
+            gutter: number;
+            margin: number;
         };
-        container: {
-            paddingHorizontal: number;
-            width: number;
-            paddingTop: number;
-            paddingBottom: number;
+        spacing: {
+            lg: number;
+            md: number;
+            sm: number;
+            xl: number;
+            xs: number;
         };
     };
     desktop: {
-        spacing: {
-            md: number;
-            lg: number;
-            xs: number;
-            xl: number;
-            sm: number;
+        container: {
+            paddingBottom: number;
+            paddingHorizontal: number;
+            paddingTop: number;
+            width: number;
         };
         grid: {
-            gutter: number;
-            gridSize: number;
             columnNumber: number;
-            margin: number;
             columnWidth: number;
+            gridSize: number;
+            gutter: number;
+            margin: number;
         };
-        container: {
-            paddingHorizontal: number;
-            width: number;
-            paddingTop: number;
-            paddingBottom: number;
+        spacing: {
+            lg: number;
+            md: number;
+            sm: number;
+            xl: number;
+            xs: number;
         };
     };
 };
