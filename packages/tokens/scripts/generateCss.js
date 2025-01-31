@@ -76,6 +76,12 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'add-px',
+  type: 'value',
+  transform: token => `${token.value}px`,
+});
+
 StyleDictionary.registerTransformGroup({
   name: 'css-device',
   transforms: [
@@ -170,8 +176,24 @@ function generateCss() {
                 if (token.type === 'color') {
                   return false;
                 }
+                if (token.attributes.category === 'space') {
+                  return false;
+                }
                 return token.filePath.includes('primitive');
               },
+            },
+          ],
+        },
+        'css-space': {
+          transformGroup: 'css-device',
+          transforms: ['add-px'],
+          buildPath: './css/',
+          files: [
+            {
+              destination: 'space.css',
+              format: 'css/variables',
+              filter: token =>
+                token.filePath.includes('primitive') && token.attributes.category === 'space',
             },
           ],
         },
