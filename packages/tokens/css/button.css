@@ -5,7 +5,3 @@
 :root {
   --button-emphasis-yellow-background-color: var(--color-yellow-400);
 }
-
-[data-theme='dark'] {
-  --button-emphasis-yellow-background-color: var(--color-yellow-500);
-}
