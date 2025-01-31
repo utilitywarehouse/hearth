@@ -2,19 +2,45 @@
  * Do not edit directly, this file was auto-generated.
  */
 export declare const common: {
+    broadbandBlue: string;
     cashbackLilac: string;
+    darkPurple: string;
+    energyGreen: string;
     insuranceOrange: string;
     mobileRose: string;
-    broadbandBlue: string;
-    energyGreen: string;
-    piggyPink: string;
     offWhite: string;
-    darkPurple: string;
+    piggyPink: string;
     uwPurple: string;
     white: string;
 };
 export declare const light: {
     blue: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    green: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    grey: {
         "50": string;
         "100": string;
         "200": string;
@@ -40,7 +66,7 @@ export declare const light: {
         "900": string;
         "1000": string;
     };
-    green: {
+    red: {
         "50": string;
         "100": string;
         "200": string;
@@ -66,60 +92,8 @@ export declare const light: {
         "900": string;
         "1000": string;
     };
-    red: {
-        "50": string;
-        "100": string;
-        "200": string;
-        "300": string;
-        "400": string;
-        "500": string;
-        "600": string;
-        "700": string;
-        "800": string;
-        "900": string;
-        "1000": string;
-    };
-    grey: {
-        "50": string;
-        "100": string;
-        "200": string;
-        "300": string;
-        "400": string;
-        "500": string;
-        "600": string;
-        "700": string;
-        "800": string;
-        "900": string;
-        "1000": string;
-    };
 };
 export declare const dark: {
-    orange: {
-        "50": string;
-        "100": string;
-        "200": string;
-        "300": string;
-        "400": string;
-        "500": string;
-        "600": string;
-        "700": string;
-        "800": string;
-        "900": string;
-        "1000": string;
-    };
-    red: {
-        "50": string;
-        "100": string;
-        "200": string;
-        "300": string;
-        "400": string;
-        "500": string;
-        "600": string;
-        "700": string;
-        "800": string;
-        "900": string;
-        "1000": string;
-    };
     blue: {
         "50": string;
         "100": string;
@@ -147,6 +121,32 @@ export declare const dark: {
         "1000": string;
     };
     grey: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    orange: {
+        "50": string;
+        "100": string;
+        "200": string;
+        "300": string;
+        "400": string;
+        "500": string;
+        "600": string;
+        "700": string;
+        "800": string;
+        "900": string;
+        "1000": string;
+    };
+    red: {
         "50": string;
         "100": string;
         "200": string;
@@ -175,19 +175,45 @@ export declare const dark: {
 };
 declare const color: {
     common: {
+        broadbandBlue: string;
         cashbackLilac: string;
+        darkPurple: string;
+        energyGreen: string;
         insuranceOrange: string;
         mobileRose: string;
-        broadbandBlue: string;
-        energyGreen: string;
-        piggyPink: string;
         offWhite: string;
-        darkPurple: string;
+        piggyPink: string;
         uwPurple: string;
         white: string;
     };
     light: {
         blue: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        green: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        grey: {
             "50": string;
             "100": string;
             "200": string;
@@ -213,7 +239,7 @@ declare const color: {
             "900": string;
             "1000": string;
         };
-        green: {
+        red: {
             "50": string;
             "100": string;
             "200": string;
@@ -239,60 +265,8 @@ declare const color: {
             "900": string;
             "1000": string;
         };
-        red: {
-            "50": string;
-            "100": string;
-            "200": string;
-            "300": string;
-            "400": string;
-            "500": string;
-            "600": string;
-            "700": string;
-            "800": string;
-            "900": string;
-            "1000": string;
-        };
-        grey: {
-            "50": string;
-            "100": string;
-            "200": string;
-            "300": string;
-            "400": string;
-            "500": string;
-            "600": string;
-            "700": string;
-            "800": string;
-            "900": string;
-            "1000": string;
-        };
     };
     dark: {
-        orange: {
-            "50": string;
-            "100": string;
-            "200": string;
-            "300": string;
-            "400": string;
-            "500": string;
-            "600": string;
-            "700": string;
-            "800": string;
-            "900": string;
-            "1000": string;
-        };
-        red: {
-            "50": string;
-            "100": string;
-            "200": string;
-            "300": string;
-            "400": string;
-            "500": string;
-            "600": string;
-            "700": string;
-            "800": string;
-            "900": string;
-            "1000": string;
-        };
         blue: {
             "50": string;
             "100": string;
@@ -320,6 +294,32 @@ declare const color: {
             "1000": string;
         };
         grey: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        orange: {
+            "50": string;
+            "100": string;
+            "200": string;
+            "300": string;
+            "400": string;
+            "500": string;
+            "600": string;
+            "700": string;
+            "800": string;
+            "900": string;
+            "1000": string;
+        };
+        red: {
             "50": string;
             "100": string;
             "200": string;

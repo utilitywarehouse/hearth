@@ -3,274 +3,274 @@
  */
 export const mobile = {
     "bodyText": {
-        "md": {
-            "paragraphSpacing": 16,
-            "fontSize": 16,
-            "letterSpacing": 0,
-            "lineHeight": 24
-        },
-        "sm": {
-            "paragraphSpacing": 14,
-            "letterSpacing": 0,
-            "lineHeight": 20,
-            "fontSize": 14
-        },
+        "fontFamily": "DM Sans",
+        "fontWeight": 400,
+        "fontWeightBold": 700,
         "lg": {
             "fontSize": 18,
+            "letterSpacing": 0,
             "lineHeight": 24,
-            "paragraphSpacing": 18,
-            "letterSpacing": 0
+            "paragraphSpacing": 18
         },
-        "fontWeightBold": 700,
-        "fontFamily": "DM Sans",
-        "fontWeight": 400
-    },
-    "detailText": {
+        "md": {
+            "fontSize": 16,
+            "letterSpacing": 0,
+            "lineHeight": 24,
+            "paragraphSpacing": 16
+        },
         "sm": {
             "fontSize": 14,
-            "lineHeight": 18,
-            "letterSpacing": -0.41999998688697815
-        },
-        "4xl": {
-            "letterSpacing": -1.0800000429153442,
-            "lineHeight": 36,
-            "fontSize": 36
-        },
-        "lg": {
-            "letterSpacing": -0.5400000214576721,
-            "fontSize": 18,
-            "lineHeight": 22
+            "letterSpacing": 0,
+            "lineHeight": 20,
+            "paragraphSpacing": 14
+        }
+    },
+    "detailText": {
+        "2xl": {
+            "fontSize": 24,
+            "letterSpacing": -0.7200000286102295,
+            "lineHeight": 32
         },
         "3xl": {
+            "fontSize": 30,
             "letterSpacing": -0.8999999761581421,
-            "lineHeight": 36,
-            "fontSize": 30
+            "lineHeight": 36
         },
+        "4xl": {
+            "fontSize": 36,
+            "letterSpacing": -1.0800000429153442,
+            "lineHeight": 36
+        },
+        "fontFamily": "DM Mono",
         "fontWeight": 600,
+        "lg": {
+            "fontSize": 18,
+            "letterSpacing": -0.5400000214576721,
+            "lineHeight": 22
+        },
         "md": {
             "fontSize": 16,
-            "lineHeight": 24,
-            "letterSpacing": -0.47999998927116394
+            "letterSpacing": -0.47999998927116394,
+            "lineHeight": 24
         },
-        "2xl": {
-            "letterSpacing": -0.7200000286102295,
-            "lineHeight": 32,
-            "fontSize": 24
+        "sm": {
+            "fontSize": 14,
+            "letterSpacing": -0.41999998688697815,
+            "lineHeight": 18
         },
         "xl": {
             "fontSize": 20,
-            "lineHeight": 22,
-            "letterSpacing": -0.6000000238418579
-        },
-        "fontFamily": "DM Mono"
+            "letterSpacing": -0.6000000238418579,
+            "lineHeight": 22
+        }
     },
     "heading": {
-        "sm": {
-            "fontSize": 18,
-            "letterSpacing": 0,
-            "fontWeight": 600,
-            "lineHeight": 22
-        },
         "fontFamily": "Comic Hams",
+        "lg": {
+            "fontSize": 24,
+            "fontWeight": 600,
+            "letterSpacing": 0,
+            "lineHeight": 32
+        },
         "md": {
             "fontSize": 20,
             "fontWeight": 600,
             "letterSpacing": 0,
             "lineHeight": 24
         },
-        "lg": {
-            "fontSize": 24,
+        "sm": {
+            "fontSize": 18,
+            "fontWeight": 600,
             "letterSpacing": 0,
-            "lineHeight": 32,
-            "fontWeight": 600
+            "lineHeight": 22
         },
         "xl": {
+            "fontSize": 30,
             "fontWeight": 700,
-            "lineHeight": 36,
             "letterSpacing": 0,
-            "fontSize": 30
+            "lineHeight": 36
         }
     }
 };
 export const tablet = {
     "bodyText": {
-        "md": {
-            "paragraphSpacing": 16,
-            "fontSize": 16,
-            "letterSpacing": 0,
-            "lineHeight": 24
-        },
-        "sm": {
-            "paragraphSpacing": 14,
-            "letterSpacing": 0,
-            "lineHeight": 20,
-            "fontSize": 14
-        },
+        "fontFamily": "DM Sans",
+        "fontWeight": 400,
+        "fontWeightBold": 700,
         "lg": {
             "fontSize": 18,
+            "letterSpacing": 0,
             "lineHeight": 24,
-            "paragraphSpacing": 18,
-            "letterSpacing": 0
+            "paragraphSpacing": 18
         },
-        "fontWeightBold": 700,
-        "fontFamily": "DM Sans",
-        "fontWeight": 400
-    },
-    "detailText": {
+        "md": {
+            "fontSize": 16,
+            "letterSpacing": 0,
+            "lineHeight": 24,
+            "paragraphSpacing": 16
+        },
         "sm": {
             "fontSize": 14,
-            "lineHeight": 18,
-            "letterSpacing": -0.41999998688697815
-        },
-        "4xl": {
-            "letterSpacing": -1.0800000429153442,
-            "lineHeight": 36,
-            "fontSize": 36
-        },
-        "lg": {
-            "letterSpacing": -0.5400000214576721,
-            "fontSize": 18,
-            "lineHeight": 22
+            "letterSpacing": 0,
+            "lineHeight": 20,
+            "paragraphSpacing": 14
+        }
+    },
+    "detailText": {
+        "2xl": {
+            "fontSize": 24,
+            "letterSpacing": -0.7200000286102295,
+            "lineHeight": 32
         },
         "3xl": {
+            "fontSize": 30,
             "letterSpacing": -0.8999999761581421,
-            "lineHeight": 36,
-            "fontSize": 30
+            "lineHeight": 36
         },
+        "4xl": {
+            "fontSize": 36,
+            "letterSpacing": -1.0800000429153442,
+            "lineHeight": 36
+        },
+        "fontFamily": "DM Mono",
         "fontWeight": 600,
+        "lg": {
+            "fontSize": 18,
+            "letterSpacing": -0.5400000214576721,
+            "lineHeight": 22
+        },
         "md": {
             "fontSize": 16,
-            "lineHeight": 24,
-            "letterSpacing": -0.47999998927116394
+            "letterSpacing": -0.47999998927116394,
+            "lineHeight": 24
         },
-        "2xl": {
-            "letterSpacing": -0.7200000286102295,
-            "lineHeight": 32,
-            "fontSize": 24
+        "sm": {
+            "fontSize": 14,
+            "letterSpacing": -0.41999998688697815,
+            "lineHeight": 18
         },
         "xl": {
             "fontSize": 20,
-            "lineHeight": 22,
-            "letterSpacing": -0.6000000238418579
-        },
-        "fontFamily": "DM Mono"
+            "letterSpacing": -0.6000000238418579,
+            "lineHeight": 22
+        }
     },
     "heading": {
-        "sm": {
-            "fontSize": 18,
-            "letterSpacing": 0,
-            "fontWeight": 600,
-            "lineHeight": 22
-        },
         "fontFamily": "Comic Hams",
+        "lg": {
+            "fontSize": 24,
+            "fontWeight": 600,
+            "letterSpacing": 0,
+            "lineHeight": 32
+        },
         "md": {
             "fontSize": 20,
             "fontWeight": 600,
             "letterSpacing": 0,
             "lineHeight": 24
         },
-        "lg": {
-            "fontSize": 24,
+        "sm": {
+            "fontSize": 18,
+            "fontWeight": 600,
             "letterSpacing": 0,
-            "lineHeight": 32,
-            "fontWeight": 600
+            "lineHeight": 22
         },
         "xl": {
+            "fontSize": 30,
             "fontWeight": 700,
-            "lineHeight": 36,
             "letterSpacing": 0,
-            "fontSize": 30
+            "lineHeight": 36
         }
     }
 };
 export const desktop = {
     "bodyText": {
+        "fontFamily": "DM Sans",
+        "fontWeight": 400,
+        "fontWeightBold": 700,
+        "lg": {
+            "fontSize": 18,
+            "letterSpacing": 0,
+            "lineHeight": 24,
+            "paragraphSpacing": 18
+        },
         "md": {
-            "paragraphSpacing": 16,
             "fontSize": 16,
             "letterSpacing": 0,
+            "lineHeight": 24,
+            "paragraphSpacing": 16
+        },
+        "sm": {
+            "fontSize": 14,
+            "letterSpacing": 0,
+            "lineHeight": 20,
+            "paragraphSpacing": 14
+        }
+    },
+    "detailText": {
+        "2xl": {
+            "fontSize": 24,
+            "letterSpacing": -0.7200000286102295,
+            "lineHeight": 32
+        },
+        "3xl": {
+            "fontSize": 30,
+            "letterSpacing": -0.8999999761581421,
+            "lineHeight": 36
+        },
+        "4xl": {
+            "fontSize": 36,
+            "letterSpacing": -1.0800000429153442,
+            "lineHeight": 36
+        },
+        "fontFamily": "DM Mono",
+        "fontWeight": 600,
+        "lg": {
+            "fontSize": 18,
+            "letterSpacing": -0.5400000214576721,
+            "lineHeight": 22
+        },
+        "md": {
+            "fontSize": 16,
+            "letterSpacing": -0.47999998927116394,
             "lineHeight": 24
         },
         "sm": {
-            "paragraphSpacing": 14,
-            "letterSpacing": 0,
-            "lineHeight": 20,
-            "fontSize": 14
-        },
-        "lg": {
-            "fontSize": 18,
-            "lineHeight": 24,
-            "paragraphSpacing": 18,
-            "letterSpacing": 0
-        },
-        "fontWeightBold": 700,
-        "fontFamily": "DM Sans",
-        "fontWeight": 400
-    },
-    "detailText": {
-        "sm": {
             "fontSize": 14,
-            "lineHeight": 18,
-            "letterSpacing": -0.41999998688697815
-        },
-        "4xl": {
-            "letterSpacing": -1.0800000429153442,
-            "lineHeight": 36,
-            "fontSize": 36
-        },
-        "lg": {
-            "letterSpacing": -0.5400000214576721,
-            "fontSize": 18,
-            "lineHeight": 22
-        },
-        "3xl": {
-            "letterSpacing": -0.8999999761581421,
-            "lineHeight": 36,
-            "fontSize": 30
-        },
-        "fontWeight": 600,
-        "md": {
-            "fontSize": 16,
-            "lineHeight": 24,
-            "letterSpacing": -0.47999998927116394
-        },
-        "2xl": {
-            "letterSpacing": -0.7200000286102295,
-            "lineHeight": 32,
-            "fontSize": 24
+            "letterSpacing": -0.41999998688697815,
+            "lineHeight": 18
         },
         "xl": {
             "fontSize": 20,
-            "lineHeight": 22,
-            "letterSpacing": -0.6000000238418579
-        },
-        "fontFamily": "DM Mono"
+            "letterSpacing": -0.6000000238418579,
+            "lineHeight": 22
+        }
     },
     "heading": {
-        "sm": {
-            "fontSize": 18,
-            "letterSpacing": 0,
-            "fontWeight": 600,
-            "lineHeight": 22
-        },
         "fontFamily": "Comic Hams",
+        "lg": {
+            "fontSize": 30,
+            "fontWeight": 600,
+            "letterSpacing": 0,
+            "lineHeight": 36
+        },
         "md": {
             "fontSize": 24,
             "fontWeight": 600,
             "letterSpacing": 0,
             "lineHeight": 28
         },
-        "lg": {
-            "fontSize": 30,
+        "sm": {
+            "fontSize": 18,
+            "fontWeight": 600,
             "letterSpacing": 0,
-            "lineHeight": 36,
-            "fontWeight": 600
+            "lineHeight": 22
         },
         "xl": {
+            "fontSize": 40,
             "fontWeight": 700,
-            "lineHeight": 48,
             "letterSpacing": 0,
-            "fontSize": 40
+            "lineHeight": 48
         }
     }
 };

@@ -3,14 +3,14 @@
  */
 
 :root {
-  --spinner-xs-size: 16;
-  --spinner-xs-stroke-width: 1.5;
-  --spinner-sm-size: 20;
-  --spinner-sm-stroke-width: 2;
-  --spinner-md-size: 28;
-  --spinner-md-stroke-width: 2.5;
+  --spinner-default-fill: var(--color-uw-purple);
   --spinner-lg-size: 40;
   --spinner-lg-stroke-width: 3;
-  --spinner-default-fill: var(--color-uw-purple);
+  --spinner-md-size: 28;
+  --spinner-md-stroke-width: 2.5;
   --spinner-padding: var(--space-25);
+  --spinner-sm-size: 20;
+  --spinner-sm-stroke-width: 2;
+  --spinner-xs-size: 16;
+  --spinner-xs-stroke-width: 1.5;
 }
