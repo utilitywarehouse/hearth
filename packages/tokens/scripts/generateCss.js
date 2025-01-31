@@ -30,20 +30,6 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'remove-dark-color',
-  type: 'name',
-  filter: token => {
-    return (
-      (token.type === 'color' || token.filePath.includes('component')) &&
-      token.attributes?.type !== 'light'
-    );
-  },
-  transform: token => {
-    return token.name.replace(/dark-/, '');
-  },
-});
-
-StyleDictionary.registerTransform({
   name: 'remove-alias-color',
   type: 'value',
   filter: token => {
@@ -102,54 +88,16 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
-StyleDictionary.registerFormat({
-  name: 'css/theme-component-variables',
-  format: ({ dictionary }) => {
-    // console.log(dictionary.allTokens);
-    const lightTokens = dictionary.allTokens.filter(t => t.path[0] === 'light');
-    const darkTokens = dictionary.allTokens.filter(t => t.path[0] === 'dark');
-
-    const lightVars = lightTokens
-      .map(t => `  --${t.path.slice(1).join('-')}: ${t.value};`)
-      .join('\n');
-    const darkVars = darkTokens
-      .filter(t => t.type === 'color')
-      .map(t => `  --${t.path.slice(1).join('-')}: ${t.value};`)
-      .join('\n');
-
-    return `/**
- * Do not edit directly, this file was auto-generated.
- */\n\n:root {\n${lightVars}\n}\n\n[data-theme='dark'] {\n${darkVars}\n}`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'css/theme-color-variables',
-  format: ({ dictionary }) => {
-    // console.log(dictionary.allTokens);
-    const lightTokens = dictionary.allTokens.filter(t => t.attributes?.type === 'light');
-    const darkTokens = dictionary.allTokens.filter(t => t.attributes?.type === 'dark');
-
-    const lightVars = lightTokens
-      .map(t => `  --color-${t.path.slice(2).join('-')}: ${t.value};`)
-      .join('\n');
-    const darkVars = darkTokens
-      .filter(t => t.type === 'color')
-      .map(t => `  --color-${t.path.slice(2).join('-')}: ${t.value};`)
-      .join('\n');
-
-    return `/**
- * Do not edit directly, this file was auto-generated.
- */\n\n:root {\n${lightVars}\n}\n\n[data-theme='dark'] {\n${darkVars}\n}`;
-  },
-});
-
 const lightComponents = Object.keys(componentJson.light);
 const dynamicComponentFiles = lightComponents.map(componentName => ({
   destination: `${componentName}.css`,
-  format: 'css/theme-component-variables',
+  format: 'css/variables',
   filter: token => {
-    return token.filePath.includes('component') && token.path.includes(componentName);
+    return (
+      token.filePath.includes('component') &&
+      token.path.includes(componentName) &&
+      token.attributes.category === 'light'
+    );
   },
 }));
 
@@ -195,44 +143,14 @@ function generateCss() {
         },
         'css-colour': {
           transformGroup: 'css-device',
-          buildPath: './css/',
-          files: [
-            {
-              destination: 'colour.css',
-              format: 'css/theme-color-variables',
-              filter: token => {
-                return token.filePath.includes('primitive') && token.type === 'color';
-              },
-            },
-          ],
-        },
-        'css-colour-light': {
-          transformGroup: 'css-device',
           transforms: ['remove-light-color'],
           buildPath: './css/',
           files: [
             {
-              destination: 'colours/light.css',
+              destination: 'color.css',
               format: 'css/variables',
               filter: token => {
                 if (token.attributes?.type === 'dark') {
-                  return false;
-                }
-                return token.filePath.includes('primitive') && token.type === 'color';
-              },
-            },
-          ],
-        },
-        'css-colour-dark': {
-          transformGroup: 'css-device',
-          transforms: ['remove-dark-color'],
-          buildPath: './css/',
-          files: [
-            {
-              destination: 'colours/dark.css',
-              format: 'css/variables',
-              filter: token => {
-                if (token.attributes?.type === 'light') {
                   return false;
                 }
                 return token.filePath.includes('primitive') && token.type === 'color';

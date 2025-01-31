@@ -5,8 +5,9 @@
   "main": "js/index.js",
   "type": "module",
   "scripts": {
-    "build": "node ./scripts/index.js && tsc",
-    "clean": "rm -rf node_modules .turbo"
+    "build": "pnpm run clean:build && node ./scripts/index.js && tsc",
+    "clean": "rm -rf node_modules .turbo",
+    "clean:build": "rm -rf css js"
   },
   "keywords": [],
   "author": "",
