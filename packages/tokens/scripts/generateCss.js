@@ -80,7 +80,6 @@ StyleDictionary.registerTransform({
     return typeof token.value === 'number' && token.attributes.category === 'line-height';
   },
   transform: token => {
-    console.log({ token });
     return `${token.value / 16}`;
   },
 });

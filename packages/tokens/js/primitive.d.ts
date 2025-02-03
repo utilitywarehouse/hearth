@@ -3,24 +3,16 @@
  */
 declare const _default: {
     "border-radius": {
-        0: number;
-        100: number;
-        200: number;
-        300: number;
-        400: number;
-        500: number;
-        600: number;
-        700: number;
-        800: number;
-        900: number;
         full: number;
+        lg: number;
+        md: number;
+        none: number;
+        sm: number;
+        xs: number;
     };
     "border-width": {
-        0: number;
-        100: number;
-        200: number;
-        400: number;
-        800: number;
+        1: number;
+        2: number;
     };
     font: {
         family: {
@@ -87,22 +79,6 @@ declare const _default: {
         1000: number;
         1100: number;
         1200: number;
-    };
-    opacity: {
-        0: number;
-        50: number;
-        100: number;
-        200: number;
-        250: number;
-        300: number;
-        400: number;
-        500: number;
-        600: number;
-        700: number;
-        750: number;
-        800: number;
-        900: number;
-        1000: number;
     };
     space: {
         0: number;

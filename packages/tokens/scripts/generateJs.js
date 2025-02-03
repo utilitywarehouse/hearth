@@ -1,4 +1,9 @@
 import StyleDictionary from 'style-dictionary';
+import {
+  logBrokenReferenceLevels,
+  logVerbosityLevels,
+  logWarningLevels,
+} from 'style-dictionary/enums';
 import { loadJSON } from './utils/index.js';
 
 function camelCase(str) {
@@ -229,6 +234,13 @@ function generateJs() {
   return [
     new StyleDictionary({
       source: ['./raw/*.json'],
+      log: {
+        warnings: logWarningLevels.warn, // 'warn' | 'error' | 'disabled'
+        verbosity: logVerbosityLevels.default, // 'default' | 'silent' | 'verbose'
+        errors: {
+          brokenReferences: logBrokenReferenceLevels.throw, // 'throw' | 'console'
+        },
+      },
       platforms: {
         'js-typography': {
           transformGroup: 'js-device',
