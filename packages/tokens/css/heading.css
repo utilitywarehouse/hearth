@@ -19,7 +19,6 @@
   --heading-xl-font-weight-desktop: var(--font-weight-bold);
   --heading-xl-letter-spacing-desktop: 0;
   --heading-xl-line-height-desktop: var(--line-height-950);
-  --heading-font-family: var(--font-family-heading); // TODO: fix this
   --heading-lg-font-size: var(--font-size-300);
   --heading-lg-font-weight: var(--font-weight-semibold);
   --heading-lg-letter-spacing: 0;

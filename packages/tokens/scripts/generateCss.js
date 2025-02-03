@@ -128,7 +128,7 @@ const typographyComponentFiles = typographyComponents.map(componentName => ({
   destination: `${componentName}.css`,
   format: 'css/variables',
   filter: token => {
-    if (token.attributes.subitem === 'font-family' && token.attributes.category !== 'mobile') {
+    if (token.path.includes('font-family')) {
       return false;
     }
     return token.attributes.type === 'typography' && token.path.includes(componentName);

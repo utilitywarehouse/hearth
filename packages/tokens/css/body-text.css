@@ -17,7 +17,6 @@
   --body-text-sm-letter-spacing-desktop: 0;
   --body-text-sm-line-height-desktop: var(--line-height-300);
   --body-text-sm-paragraph-spacing-desktop: var(--space-175);
-  --body-text-font-family: var(--font-family-body);
   --body-text-font-weight: var(--font-weight-regular);
   --body-text-font-weight-bold: var(--font-weight-bold);
   --body-text-lg-font-size: var(--font-size-150);
