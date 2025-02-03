@@ -1,0 +1,55 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --heading-lg-font-size-desktop: var(--font-size-400);
+  --heading-lg-font-weight-desktop: var(--font-weight-semibold);
+  --heading-lg-letter-spacing-desktop: 0;
+  --heading-lg-line-height-desktop: var(--line-height-800);
+  --heading-md-font-size-desktop: var(--font-size-300);
+  --heading-md-font-weight-desktop: var(--font-weight-semibold);
+  --heading-md-letter-spacing-desktop: 0;
+  --heading-md-line-height-desktop: var(--line-height-600);
+  --heading-sm-font-size-desktop: var(--font-size-150);
+  --heading-sm-font-weight-desktop: var(--font-weight-semibold);
+  --heading-sm-letter-spacing-desktop: 0;
+  --heading-sm-line-height-desktop: var(--line-height-400);
+  --heading-xl-font-size-desktop: var(--font-size-550);
+  --heading-xl-font-weight-desktop: var(--font-weight-bold);
+  --heading-xl-letter-spacing-desktop: 0;
+  --heading-xl-line-height-desktop: var(--line-height-950);
+  --heading-font-family: var(--font-family-heading); // TODO: fix this
+  --heading-lg-font-size: var(--font-size-300);
+  --heading-lg-font-weight: var(--font-weight-semibold);
+  --heading-lg-letter-spacing: 0;
+  --heading-lg-line-height: var(--line-height-700);
+  --heading-md-font-size: var(--font-size-200);
+  --heading-md-font-weight: var(--font-weight-semibold);
+  --heading-md-letter-spacing: 0;
+  --heading-md-line-height: var(--line-height-500);
+  --heading-sm-font-size: var(--font-size-150);
+  --heading-sm-font-weight: var(--font-weight-semibold);
+  --heading-sm-letter-spacing: 0;
+  --heading-sm-line-height: var(--line-height-400);
+  --heading-xl-font-size: var(--font-size-400);
+  --heading-xl-font-weight: var(--font-weight-bold);
+  --heading-xl-letter-spacing: 0;
+  --heading-xl-line-height: var(--line-height-800);
+  --heading-lg-font-size-tablet: var(--font-size-300);
+  --heading-lg-font-weight-tablet: var(--font-weight-semibold);
+  --heading-lg-letter-spacing-tablet: 0;
+  --heading-lg-line-height-tablet: var(--line-height-700);
+  --heading-md-font-size-tablet: var(--font-size-200);
+  --heading-md-font-weight-tablet: var(--font-weight-semibold);
+  --heading-md-letter-spacing-tablet: 0;
+  --heading-md-line-height-tablet: var(--line-height-500);
+  --heading-sm-font-size-tablet: var(--font-size-150);
+  --heading-sm-font-weight-tablet: var(--font-weight-semibold);
+  --heading-sm-letter-spacing-tablet: 0;
+  --heading-sm-line-height-tablet: var(--line-height-400);
+  --heading-xl-font-size-tablet: var(--font-size-400);
+  --heading-xl-font-weight-tablet: var(--font-weight-bold);
+  --heading-xl-letter-spacing-tablet: 0;
+  --heading-xl-line-height-tablet: var(--line-height-800);
+}

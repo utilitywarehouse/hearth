@@ -2,6 +2,7 @@ import StyleDictionary from 'style-dictionary';
 import { loadJSON, unwrapAlias } from './utils/index.js';
 
 const componentJson = loadJSON('./raw/hearth-components---component.json');
+const deviceJson = loadJSON('./raw/hearth-design-tokens---device.json');
 
 StyleDictionary.registerTransform({
   name: 'alias/variable-css',
@@ -19,10 +20,10 @@ StyleDictionary.registerTransform({
   name: 'remove-light-color',
   type: 'name',
   filter: token => {
-    return (
-      (token.type === 'color' || token.filePath.includes('component')) &&
-      token.attributes?.type !== 'dark'
-    );
+    if (token.attributes?.type === 'dark') {
+      return false;
+    }
+    return token.filePath.includes('primitive') && token.type === 'color';
   },
   transform: token => {
     return token.name.replace(/light-/, '');
@@ -44,21 +45,26 @@ StyleDictionary.registerTransform({
   name: 'rename-typography',
   type: 'name',
   filter: token => {
+    if (token.attributes.subitem === 'font-family' && token.attributes.category !== 'mobile') {
+      return false;
+    }
     return token.attributes.type === 'typography';
   },
   transform: token => {
-    if (token.path.subitem === 'font-family') {
-      return `${token.attributes.item}-${token.attributes.subitem}`;
-    }
-    return `${token.attributes.item}-${token.attributes.subitem}${token.attributes.state ? `-${token.attributes.state}` : ''}${token.attributes.category !== 'mobile' ? `-${token.attributes.category}` : ''}`;
+    const { item, subitem, state, category } = token.attributes;
+    return `${item}-${subitem}${state ? `-${state}` : ''}${category !== 'mobile' ? `-${category}` : ''}`;
   },
 });
 
 StyleDictionary.registerTransform({
   name: 'rename-layout',
   type: 'name',
+  filter: token => {
+    return token.attributes.type === 'layout' && token.attributes.item === 'spacing';
+  },
   transform: token => {
-    return `${token.attributes.type}-${token.attributes.item}-${token.attributes.subitem}-${token.attributes.category}`;
+    const { type, item, subitem, category } = token.attributes;
+    return `${type}-${item}-${subitem}-${category}`;
   },
 });
 
@@ -85,33 +91,47 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'add-px',
+  name: 'add-space-px',
   type: 'value',
+  filter: token => token.filePath.includes('primitive') && token.attributes.category === 'space',
   transform: token => `${token.value}px`,
 });
 
 StyleDictionary.registerTransformGroup({
-  name: 'css-device',
+  name: 'css-transforms',
   transforms: [
-    // For example, built-in CTI attribute transform
     'attribute/cti',
-    // built-in name transform, e.g. name/cti/kebab or name/camel
     'name/kebab',
-    // our custom transform for alias references in CSS
     'alias/variable-css',
+    'rename-typography',
+    'rename-layout',
+    'add-space-px',
+    'remove-light-color',
   ],
 });
 
+const typographyComponents = Object.keys(deviceJson.mobile.typography);
 const lightComponents = Object.keys(componentJson.light);
-const dynamicComponentFiles = lightComponents.map(componentName => ({
+const dynamicComponentFiles = [...lightComponents].map(componentName => ({
   destination: `${componentName}.css`,
   format: 'css/variables',
   filter: token => {
+    console.log({ token });
     return (
       token.filePath.includes('component') &&
       token.path.includes(componentName) &&
       token.attributes.category === 'light'
     );
+  },
+}));
+const typographyComponentFiles = typographyComponents.map(componentName => ({
+  destination: `${componentName}.css`,
+  format: 'css/variables',
+  filter: token => {
+    if (token.attributes.subitem === 'font-family' && token.attributes.category !== 'mobile') {
+      return false;
+    }
+    return token.attributes.type === 'typography' && token.path.includes(componentName);
   },
 }));
 
@@ -121,31 +141,29 @@ function generateCss() {
     new StyleDictionary({
       source: ['./raw/*.json'],
       platforms: {
-        'css-typography': {
-          transformGroup: 'css-device',
+        'css-components': {
+          transformGroup: 'css-transforms',
           transforms: ['rename-typography'],
           buildPath: './css/',
-          files: [
-            {
-              destination: 'typography.css',
-              format: 'css/variables',
-              filter: token => {
-                if (
-                  token.attributes.subitem === 'font-family' &&
-                  token.attributes.category !== 'mobile'
-                ) {
-                  return false;
-                }
-                return token.attributes.type === 'typography';
-              },
-            },
-          ],
+          files: typographyComponentFiles,
         },
-        'css-layout': {
-          transformGroup: 'css-device',
-          transforms: ['rename-layout'],
+        css: {
+          transformGroup: 'css-transforms',
           buildPath: './css/',
           files: [
+            // {
+            //   destination: 'typography.css',
+            //   format: 'css/variables',
+            //   filter: token => {
+            //     if (
+            //       token.attributes.subitem === 'font-family' &&
+            //       token.attributes.category !== 'mobile'
+            //     ) {
+            //       return false;
+            //     }
+            //     return token.attributes.type === 'typography';
+            //   },
+            // },
             {
               destination: 'layout.css',
               format: 'css/variables',
@@ -153,13 +171,12 @@ function generateCss() {
                 return token.attributes.type === 'layout' && token.attributes.item === 'spacing';
               },
             },
-          ],
-        },
-        'css-colour': {
-          transformGroup: 'css-device',
-          transforms: ['remove-light-color'],
-          buildPath: './css/',
-          files: [
+            {
+              destination: 'space.css',
+              format: 'css/variables',
+              filter: token =>
+                token.filePath.includes('primitive') && token.attributes.category === 'space',
+            },
             {
               destination: 'color.css',
               format: 'css/variables',
@@ -172,45 +189,27 @@ function generateCss() {
             },
           ],
         },
-        'css-primitve': {
-          transformGroup: 'css-device',
-          transforms: ['remove-light-color', 'px-to-rem', 'unitless-line-height'],
-          buildPath: './css/',
-          files: [
-            {
-              destination: 'primitive.css',
-              format: 'css/variables',
-              filter: token => {
-                if (token.type === 'color') {
-                  return false;
-                }
-                if (token.attributes.category === 'space') {
-                  return false;
-                }
-                return token.filePath.includes('primitive');
-              },
-            },
-          ],
-        },
-        'css-space': {
-          transformGroup: 'css-device',
-          transforms: ['add-px'],
-          buildPath: './css/',
-          files: [
-            {
-              destination: 'space.css',
-              format: 'css/variables',
-              filter: token =>
-                token.filePath.includes('primitive') && token.attributes.category === 'space',
-            },
-          ],
-        },
-        'css-components': {
-          transformGroup: 'css-device',
-          transforms: ['remove-light-color', 'remove-alias-color', 'px-to-rem'],
-          buildPath: './css/',
-          files: dynamicComponentFiles,
-        },
+        // 'css-primitve': {
+        //   transformGroup: 'css-device',
+        //   transforms: ['remove-light-color', 'px-to-rem', 'unitless-line-height'],
+        //   buildPath: './css/',
+        //   files: [
+        //     {
+        //       destination: 'primitive.css',
+        //       format: 'css/variables',
+        //       filter: token => {
+        //         // console.log(`--${token.path.join('-')}`);
+        //         if (token.type === 'color') {
+        //           return false;
+        //         }
+        //         if (token.attributes.category === 'space') {
+        //           return false;
+        //         }
+        //         return token.filePath.includes('primitive');
+        //       },
+        //     },
+        //   ],
+        // },
       },
     }),
   ];
