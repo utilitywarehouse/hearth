@@ -1,7 +1,7 @@
 import StyleDictionary from 'style-dictionary';
 import { unwrapAlias } from './utils/unwrap-alias.js';
 import { loadJSON } from './utils/load-json.js';
-import { normalizeTokenName } from './utils/normalize-token-name.js';
+import { normalizeTokenName } from './utils/normalize-token.js';
 import { px } from './utils/px.js';
 import { filters } from './utils/filters.js';
 

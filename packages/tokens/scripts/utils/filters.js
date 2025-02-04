@@ -23,7 +23,8 @@ export const filters = {
     }
     return token.filePath.includes('primitive') && token.type === 'color';
   },
-  isSpace: token => token.filePath.includes('primitive') && token.attributes.category === 'space',
+  isSpace: token => token.filePath.includes('primitive') && token.path.includes('space'),
   isLineHeight: token => token.attributes.category === 'line-height',
   isBorder: token => token.attributes.category.includes('border'),
+  isLightMode: token => !token.path.includes('dark'),
 };
