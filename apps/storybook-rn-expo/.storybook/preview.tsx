@@ -1,4 +1,4 @@
-import { NativeUIProvider } from '@utilitywarehouse/ds-react-native';
+import { NativeUIProvider } from '@utilitywarehouse/hearth-react-native';
 import { View } from 'react-native';
 
 /** @type{import("@storybook/react").Preview} */

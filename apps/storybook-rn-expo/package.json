@@ -4,10 +4,10 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "build:preview:android": "eas build --profile preview -p android --local --output './build/native-ui.apk'",
+    "build:preview:android": "eas build --profile preview -p android --local --output './build/hearth-react-native.apk'",
     "build:development:android": "eas build --profile development -p android",
     "build:development-sim:android": "eas build --profile development-simulator -p android",
-    "build:preview:ios": "mv ./app.config.ts ./app.config.android.ts && mv ./app.config.ios.ts ./app.config.ts && EAS_LOCAL_BUILD_WORKINGDIR='./eas-build' eas build --profile preview -p ios --local --output './build/native-ui.tar.gz' && mv ./app.config.ts ./app.config.ios.ts && mv ./app.config.android.ts ./app.config.ts",
+    "build:preview:ios": "mv ./app.config.ts ./app.config.android.ts && mv ./app.config.ios.ts ./app.config.ts && EAS_LOCAL_BUILD_WORKINGDIR='./eas-build' eas build --profile preview -p ios --local --output './build/hearth-react-native.tar.gz' && mv ./app.config.ts ./app.config.ios.ts && mv ./app.config.android.ts ./app.config.ts",
     "build:development:ios": "eas build --profile development -p ios",
     "build:development-sim:ios": "eas build --profile development-simulator -p ios",
     "eas-build-pre-install": "echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > temp.txt && echo 'registry=https://registry.npmjs.org/' >> temp.txt && cat ../../.npmrc >> temp.txt && mv temp.txt ../../.npmrc",
@@ -25,9 +25,11 @@
     "@types/react": "~18.3.12",
     "@utilitywarehouse/colour-system": "^0.5.0",
     "@utilitywarehouse/hearth-react-native": "workspace:^",
+    "@utilitywarehouse/hearth-tokens": "workspace:^",
     "expo": "^52.0.27",
     "expo-constants": "~17.0.4",
     "expo-font": "^13.0.3",
+    "expo-xml-font": "^3.0.2",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-native": "0.76.6",
@@ -38,7 +40,7 @@
     "react-native-reanimated": "~3.16.5",
     "react-native-safe-area-context": "4.12.0",
     "react-native-svg": "^15.8.0",
-    "react-native-unistyles": "3.0.0-beta.5",
+    "react-native-unistyles": "3.0.0-beta.6",
     "react-native-web": "^0.19.10"
   },
   "devDependencies": {

@@ -8,26 +8,24 @@ import { useEffect } from 'react';
 LogBox.ignoreAllLogs();
 
 const App = () => {
-  // const [loaded] = useFonts({
-  //   /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-  //   'Aeonik-Bold': require('../../node_modules/@utilitywarehouse/fontsource/files/truetype/Aeonik/Aeonik-Bold.otf'),
-  //   'Aeonik-Regular': require('../../node_modules/@utilitywarehouse/fontsource/files/truetype/Aeonik/Aeonik-Regular.otf'),
-  //   'WorkSans-Black': require('../../node_modules/@utilitywarehouse/fontsource/files/truetype/WorkSans/WorkSans-Black.ttf'),
-  //   'WorkSans-Bold': require('../../node_modules/@utilitywarehouse/fontsource/files/truetype/WorkSans/WorkSans-Bold.ttf'),
-  //   'WorkSans-ExtraBold': require('../../node_modules/@utilitywarehouse/fontsource/files/truetype/WorkSans/WorkSans-ExtraBold.ttf'),
-  //   'WorkSans-ExtraLight': require('../../node_modules/@utilitywarehouse/fontsource/files/truetype/WorkSans/WorkSans-ExtraLight.ttf'),
-  //   'WorkSans-Light': require('../../node_modules/@utilitywarehouse/fontsource/files/truetype/WorkSans/WorkSans-Light.ttf'),
-  //   'WorkSans-Medium': require('../../node_modules/@utilitywarehouse/fontsource/files/truetype/WorkSans/WorkSans-Medium.ttf'),
-  //   'WorkSans-Regular': require('../../node_modules/@utilitywarehouse/fontsource/files/truetype/WorkSans/WorkSans-Regular.ttf'),
-  //   'WorkSans-SemiBold': require('../../node_modules/@utilitywarehouse/fontsource/files/truetype/WorkSans/WorkSans-SemiBold.ttf'),
-  //   'WorkSans-Thin': require('../../node_modules/@utilitywarehouse/fontsource/files/truetype/WorkSans/WorkSans-Thin.ttf'),
-  // });
+  const [loaded] = useFonts({
+    /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+    'ComicHams-BoldFlare': require('../../packages/fonts/files/ttf/ComicHams-BoldFlare.ttf'),
+    'ComicHams-HeavyFlare': require('../../packages/fonts/files/ttf/ComicHams-HeavyFlare.ttf'),
+    'ComicHams-SemiBoldFlare': require('../../packages/fonts/files/ttf/ComicHams-SemiBoldFlare.ttf'),
+    'DMMono-Medium': require('../../packages/fonts/files/ttf/DMMono-Medium.ttf'),
+    'DMMono-MediumItalic': require('../../packages/fonts/files/ttf/DMMono-MediumItalic.ttf'),
+    'DMSans-Bold': require('../../packages/fonts/files/ttf/DMSans-Bold.ttf'),
+    'DMSans-BoldItalic': require('../../packages/fonts/files/ttf/DMSans-BoldItalic.ttf'),
+    'DMSans-Italic': require('../../packages/fonts/files/ttf/DMSans-Italic.ttf'),
+    'DMSans-Regular': require('../../packages/fonts/files/ttf/DMSans-Regular.ttf'),
+  });
 
   useEffect(() => {
     UnistylesRuntime.setTheme('light');
   }, []);
 
-  // if (!loaded) return null;
+  if (!loaded) return null;
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <StorybookUIRoot />
