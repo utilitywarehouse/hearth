@@ -1,67 +1,22 @@
 import StyleDictionary from 'style-dictionary';
-import { loadJSON, unwrapAlias } from './utils/index.js';
+import { unwrapAlias } from './helpers/unwrap-alias.js';
+import { loadJSON } from './helpers/load-json.js';
+import { normalizeTokenName } from './helpers/normalize-token-name.js';
+import { px } from './helpers/px.js';
+import { filters } from './helpers/filters.js';
 
-const COMPONENT_JSON = loadJSON('./raw/hearth-components---component.json');
-const DEVICES = ['mobile', 'tablet', 'desktop'];
-const BUILD_PATH = './css/';
-const DELIMITER = '-';
-
-const filters = {
-  isFont: token => token.attributes.category === 'font',
-  isLayout: token => token.attributes.type === 'layout' && token.attributes.item === 'spacing',
-  isTypography: token => {
-    if (token.attributes.type === 'typography') {
-      if (token.attributes.subitem === 'font-family') {
-        return false;
-      }
-      if (token.name.includes('font-weight') && token.attributes.category !== 'mobile') {
-        return false;
-      }
-      if (token.path.includes('letter-spacing')) {
-        return false;
-      }
-      return token;
-    }
-  },
-  isColor: token => {
-    if (token.attributes?.type === 'dark') {
-      return false;
-    }
-    return token.filePath.includes('primitive') && token.type === 'color';
-  },
-  isSpace: token => token.filePath.includes('primitive') && token.attributes.category === 'space',
-  isLineHeight: token => token.attributes.category === 'line-height',
-  isBorder: token => token.attributes.category.includes('border'),
-};
-
-const normalizeName = token => {
-  if (DEVICES.includes(token.path[0]) && token.path[1] === 'typography') {
-    if (token.name.includes('font-weight')) {
-      return token.path.slice(2).join(DELIMITER);
-    }
-    return [...token.path.slice(2), token.path[0]].join(DELIMITER);
-  }
-  if (token.path[0] === 'color' && token.path[1] === 'light') {
-    return [token.path[0], ...token.path.slice(2)].join(DELIMITER);
-  }
-  if (token.path[0] === 'light') {
-    return token.path.slice(1).join(DELIMITER);
-  }
-  return token.name;
-};
+export const BUILD_PATH = './css/';
 
 StyleDictionary.registerTransform({
   name: 'css/normalize-name',
   type: 'name',
-  transform: normalizeName,
+  transform: normalizeTokenName,
 });
 
 StyleDictionary.registerTransform({
   name: 'alias/variable-css',
   type: 'value',
-  filter: token => {
-    return token.value && typeof token.alias === 'string';
-  },
+  filter: filters.isStringToken,
   transform: token => {
     const aliasPath = unwrapAlias(token.alias).replace(/\./g, '-');
     return `var(--${aliasPath})`;
@@ -69,9 +24,9 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'font/px-to-rem',
+  name: 'font-size/px-to-rem',
   type: 'value',
-  filter: token => token.attributes.category === 'font' && token.attributes.type === 'size',
+  filter: filters.isFontSize,
   transform: token => `${token.value / 16}rem`,
 });
 
@@ -79,12 +34,8 @@ StyleDictionary.registerTransform({
   name: 'line-height/unitless',
   type: 'value',
   filter: filters.isLineHeight,
-  transform: token => {
-    return `${token.value / 16}`;
-  },
+  transform: token => `${token.value / 16}`,
 });
-
-const px = token => token.value + 'px';
 
 StyleDictionary.registerTransform({
   name: 'space/px',
@@ -109,24 +60,22 @@ StyleDictionary.registerTransformGroup({
     'css/normalize-name',
     'space/px',
     'border/px',
-    'font/px-to-rem',
+    'font-size/px-to-rem',
     'line-height/unitless',
   ],
 });
 
-const componentFiles = Object.keys(COMPONENT_JSON.light).map(componentName => ({
+const componentJson = loadJSON('./raw/hearth-components---component.json');
+const componentFiles = Object.keys(componentJson.light).map(componentName => ({
   destination: `${componentName}.css`,
   format: 'css/variables',
-  filter: token => {
-    return (
-      token.filePath.includes('component') &&
-      token.path.includes(componentName) &&
-      token.attributes.category === 'light'
-    );
-  },
+  filter: token =>
+    token.filePath.includes('component') &&
+    token.path.includes(componentName) &&
+    token.attributes.category === 'light',
 }));
 
-function buildCss() {
+export function buildCss() {
   console.log('Building CSS...');
   return [
     new StyleDictionary({
@@ -182,5 +131,3 @@ function buildCss() {
     }),
   ];
 }
-
-export default buildCss;

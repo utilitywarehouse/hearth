@@ -4,7 +4,7 @@ import {
   logVerbosityLevels,
   logWarningLevels,
 } from 'style-dictionary/enums';
-import { loadJSON } from './utils/index.js';
+import { loadJSON } from './helpers/load-json.js';
 
 function camelCase(str) {
   return str.replace(/[-_](\w)/g, (_, c) => c.toUpperCase());
@@ -34,7 +34,7 @@ function buildDeviceOutput(dictionary, options) {
 StyleDictionary.registerTransform({
   name: 'name/camel-case',
   type: 'name',
-  transform: (token, options) => {
+  transform: token => {
     return token.name.replace(/(\b\w)/g, function (match) {
       return match.toLowerCase();
     });
@@ -229,8 +229,8 @@ const rootJsIndexFile = {
   transformGroup: 'js-device',
 };
 
-function generateJs() {
-  console.log('Generating JS...');
+export function buildJs() {
+  console.log('Building JS...');
   return [
     new StyleDictionary({
       source: ['./raw/*.json'],
@@ -325,5 +325,3 @@ function generateJs() {
     }),
   ];
 }
-
-export default generateJs;
