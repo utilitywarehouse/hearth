@@ -1,8 +1,10 @@
 import StyleDictionary from 'style-dictionary';
 import { loadJSON, unwrapAlias } from './utils/index.js';
 
-const componentJson = loadJSON('./raw/hearth-components---component.json');
-const deviceJson = loadJSON('./raw/hearth-design-tokens---device.json');
+const COMPONENT_JSON = loadJSON('./raw/hearth-components---component.json');
+const DEVICES = ['mobile', 'tablet', 'desktop'];
+const BUILD_PATH = './css/';
+const DELIMITER = '-';
 
 const filters = {
   isFont: token => token.attributes.category === 'font',
@@ -32,17 +34,18 @@ const filters = {
   isBorder: token => token.attributes.category.includes('border'),
 };
 
-const DEVICES = ['mobile', 'tablet', 'desktop'];
-
 const normalizeName = token => {
   if (DEVICES.includes(token.path[0]) && token.path[1] === 'typography') {
     if (token.name.includes('font-weight')) {
-      return token.path.slice(2).join('-');
+      return token.path.slice(2).join(DELIMITER);
     }
-    return [...token.path.slice(2), token.path[0]].join('-');
+    return [...token.path.slice(2), token.path[0]].join(DELIMITER);
   }
   if (token.path[0] === 'color' && token.path[1] === 'light') {
-    return [token.path[0], ...token.path.slice(2)].join('-');
+    return [token.path[0], ...token.path.slice(2)].join(DELIMITER);
+  }
+  if (token.path[0] === 'light') {
+    return token.path.slice(1).join(DELIMITER);
   }
   return token.name;
 };
@@ -111,9 +114,7 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
-const typographyComponents = Object.keys(deviceJson.mobile.typography);
-const lightComponents = Object.keys(componentJson.light);
-const dynamicComponentFiles = [...lightComponents].map(componentName => ({
+const componentFiles = Object.keys(COMPONENT_JSON.light).map(componentName => ({
   destination: `${componentName}.css`,
   format: 'css/variables',
   filter: token => {
@@ -124,16 +125,6 @@ const dynamicComponentFiles = [...lightComponents].map(componentName => ({
     );
   },
 }));
-const typographyComponentFiles = typographyComponents.map(componentName => ({
-  destination: `${componentName}.css`,
-  format: 'css/variables',
-  filter: token => {
-    if (token.path.includes('font-family') || token.path.includes('letter-spacing')) {
-      return false;
-    }
-    return token.attributes.type === 'typography' && token.path.includes(componentName);
-  },
-}));
 
 function buildCss() {
   console.log('Building CSS...');
@@ -141,15 +132,9 @@ function buildCss() {
     new StyleDictionary({
       source: ['./raw/*.json'],
       platforms: {
-        // 'css-components': {
-        //   transformGroup: 'css-transforms',
-        //   transforms: ['rename-typography'],
-        //   buildPath: './css/',
-        //   files: typographyComponentFiles,
-        // },
         css: {
           transformGroup: 'css-transforms',
-          buildPath: './css/',
+          buildPath: BUILD_PATH,
           files: [
             {
               destination: 'color.css',
@@ -188,27 +173,11 @@ function buildCss() {
             },
           ],
         },
-        // 'css-primitve': {
-        //   transformGroup: 'css-device',
-        //   transforms: ['remove-light-color', 'px-to-rem', 'unitless-line-height'],
-        //   buildPath: './css/',
-        //   files: [
-        //     {
-        //       destination: 'primitive.css',
-        //       format: 'css/variables',
-        //       filter: token => {
-        //         // console.log(`--${token.path.join('-')}`);
-        //         if (token.type === 'color') {
-        //           return false;
-        //         }
-        //         if (token.attributes.category === 'space') {
-        //           return false;
-        //         }
-        //         return token.filePath.includes('primitive');
-        //       },
-        //     },
-        //   ],
-        // },
+        'css-components': {
+          transformGroup: 'css-transforms',
+          buildPath: BUILD_PATH,
+          files: componentFiles,
+        },
       },
     }),
   ];
