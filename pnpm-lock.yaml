@@ -747,8 +747,8 @@ importers:
         specifier: ~3.16.5
         version: 3.16.7(@babel/core@7.26.0)(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       react-native-unistyles:
-        specifier: 3.0.0-beta.5
-        version: 3.0.0-beta.5(@react-native/normalize-colors@0.76.6)(react-native-edge-to-edge@1.4.2(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native-nitro-modules@0.21.0(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+        specifier: 3.0.0-beta.6
+        version: 3.0.0-beta.6(@react-native/normalize-colors@0.76.6)(react-native-edge-to-edge@1.4.2(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native-nitro-modules@0.21.0(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       react-native-web:
         specifier: ^0.19.13
         version: 0.19.13(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -8148,16 +8148,6 @@ packages:
 
   react-native-swipe-gestures@1.0.5:
     resolution: {integrity: sha512-Ns7Bn9H/Tyw278+5SQx9oAblDZ7JixyzeOczcBK8dipQk2pD7Djkcfnf1nB/8RErAmMLL9iXgW0QHqiII8AhKw==}
-
-  react-native-unistyles@3.0.0-beta.5:
-    resolution: {integrity: sha512-Ho6Q3clwBizTGtWgbYn2d0spXE+DJcBxoeHRx5sWzHtGgg12dVqWaMjttzn0mdEKyPkWgNEgYd56yzHYpJP3VQ==}
-    engines: {node: '>= 18.0.0'}
-    peerDependencies:
-      '@react-native/normalize-colors': '*'
-      react: '*'
-      react-native: '>=0.76.0'
-      react-native-edge-to-edge: '*'
-      react-native-nitro-modules: '*'
 
   react-native-unistyles@3.0.0-beta.6:
     resolution: {integrity: sha512-poUz+gUl9fgPs16Id+Y+Jn4m5ST7GAr0zui+1GZi1hbA1+vbeXuHoZjv9mdjHR6ch/IMmEno4V71A4rXWKXjTg==}
@@ -19282,7 +19272,7 @@ snapshots:
 
   react-native-swipe-gestures@1.0.5: {}
 
-  react-native-unistyles@3.0.0-beta.5(@react-native/normalize-colors@0.76.6)(react-native-edge-to-edge@1.4.2(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native-nitro-modules@0.21.0(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1):
+  react-native-unistyles@3.0.0-beta.6(@react-native/normalize-colors@0.76.6)(react-native-edge-to-edge@1.4.2(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native-nitro-modules@0.21.0(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.76.5(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1):
     dependencies:
       '@react-native/normalize-colors': 0.76.6
       react: 18.3.1
