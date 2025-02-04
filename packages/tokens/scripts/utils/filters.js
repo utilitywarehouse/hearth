@@ -18,7 +18,7 @@ export const filters = {
     }
   },
   isColor: token => {
-    if (token.attributes?.type === 'dark') {
+    if (token.type === 'color' && token.path[1] === 'dark') {
       return false;
     }
     return token.filePath.includes('primitive') && token.type === 'color';
@@ -26,5 +26,4 @@ export const filters = {
   isSpace: token => token.filePath.includes('primitive') && token.path.includes('space'),
   isLineHeight: token => token.attributes.category === 'line-height',
   isBorder: token => token.attributes.category.includes('border'),
-  isLightMode: token => !token.path.includes('dark'),
 };

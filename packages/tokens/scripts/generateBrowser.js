@@ -2,6 +2,7 @@ import StyleDictionary from 'style-dictionary';
 import { loadJSON } from './utils/load-json.js';
 import { filters } from './utils/filters.js';
 import { DELIMITER, normalizeTokenPath } from './utils/normalize-token.js';
+import merge from 'lodash.merge';
 
 export const BUILD_PATH = './browser/';
 
@@ -12,18 +13,20 @@ StyleDictionary.registerFormat({
     const tokensName = file.destination.split('.')[0];
     dictionary.allTokens.forEach(token => {
       const normalizedPath = normalizeTokenPath(token);
-      normalizedPath.forEach((el, i) => {
-        if (el === tokensName) {
-          return;
-        }
-        if (i < normalizedPath.length - 1) {
-          tokens[el] = {};
+      const cssCustomProperty = `--${normalizedPath.join(DELIMITER)}`;
+      var object = {};
+      normalizedPath.reduce((o, s, i) => {
+        if (i === 0 && s === tokensName) {
+          return o;
         }
         if (i === normalizedPath.length - 1) {
-          tokens[el] = `--${normalizedPath.join(DELIMITER)}`;
+          return (o[s] = cssCustomProperty);
         }
-      });
+        return (o[s] = {});
+      }, object);
+      merge(tokens, object);
     });
+    console.log({ tokens });
     return `export const ${tokensName} = ${JSON.stringify(tokens, null, 2)};\n`;
   },
 });
@@ -47,11 +50,11 @@ function generateBrowser() {
         browser: {
           buildPath: BUILD_PATH,
           files: [
-            // {
-            //   destination: 'color.css',
-            //   format: 'browser/variables',
-            //   filter: filters.isColor,
-            // },
+            {
+              destination: 'color.js',
+              format: 'browser/variables',
+              filter: filters.isColor,
+            },
             {
               destination: 'space.js',
               format: 'browser/variables',
