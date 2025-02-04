@@ -3,7 +3,7 @@ import generateCss from './generateCss.js';
 import generateBrowser from './generateBrowser.js';
 
 async function buildStyles() {
-  const dictionaries = [...generateBrowser()];
+  const dictionaries = [...generateCss(), ...generateJs(), ...generateBrowser()];
 
   try {
     // Style Dictionary v4 is async => buildAllPlatforms returns a Promise
