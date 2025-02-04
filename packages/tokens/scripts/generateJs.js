@@ -4,7 +4,7 @@ import {
   logVerbosityLevels,
   logWarningLevels,
 } from 'style-dictionary/enums';
-import { loadJSON } from './helpers/load-json.js';
+import { loadJSON } from './utils/load-json.js';
 
 function camelCase(str) {
   return str.replace(/[-_](\w)/g, (_, c) => c.toUpperCase());
@@ -229,8 +229,8 @@ const rootJsIndexFile = {
   transformGroup: 'js-device',
 };
 
-export function buildJs() {
-  console.log('Building JS...');
+export function generateJs() {
+  console.log('Generating JS...');
   return [
     new StyleDictionary({
       source: ['./raw/*.json'],
@@ -325,3 +325,5 @@ export function buildJs() {
     }),
   ];
 }
+
+export default generateJs;

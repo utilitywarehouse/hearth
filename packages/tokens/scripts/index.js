@@ -1,8 +1,8 @@
-import { buildJs } from './build-js.js';
-import { buildCss } from './build-css.js';
+import generateJs from './generateJs.js';
+import generateCss from './generateCss.js';
 
 async function buildStyles() {
-  const dictionaries = [...buildCss(), ...buildJs()];
+  const dictionaries = [...generateCss(), ...generateJs()];
 
   try {
     // Style Dictionary v4 is async => buildAllPlatforms returns a Promise
