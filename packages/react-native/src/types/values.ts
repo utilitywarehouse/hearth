@@ -5,21 +5,41 @@ export type addPrefixToObject<T, P extends string> = {
   [K in keyof T as K extends string | number ? `${P}${K}` : never]: T[K];
 };
 
+export type ConvertNumbers<T> = T extends number
+  ? string
+  : T extends object
+    ? { [K in keyof T]: ConvertNumbers<T[K]> }
+    : T;
+
 export type SpaceValue =
-  | keyof addPrefixToObject<(typeof lightTheme)['space'], '$'>
+  | `${keyof (typeof lightTheme)['space'] & (string | number)}`
   | DimensionValue
   | undefined;
 
-export type RGB = `rgb(${number}, ${number}, ${number})`;
-export type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
+type OptionalSpace = '' | ' ';
+
+export type RGB =
+  `rgb(${OptionalSpace}${number}${OptionalSpace},${OptionalSpace}${number}${OptionalSpace},${OptionalSpace}${number}${OptionalSpace})`;
+export type RGBA =
+  `rgba(${OptionalSpace}${number}${OptionalSpace},${OptionalSpace}${number}${OptionalSpace},${OptionalSpace}${number}${OptionalSpace},${OptionalSpace}${number}${OptionalSpace})`;
 export type HEX = `#${string}`;
-export type HSLA = `hsla(${string})`;
-export type HSL = `hsl(${string})`;
+export type HSLA =
+  | `hsla(${string})`
+  | `hsla(${OptionalSpace}${number}${OptionalSpace},${OptionalSpace}${number}${OptionalSpace},${OptionalSpace}${number}${OptionalSpace},${OptionalSpace}${number}${OptionalSpace})`;
+export type HSL =
+  | `hsl(${string})`
+  | `hsl(${OptionalSpace}${number}${OptionalSpace},${OptionalSpace}${number}${OptionalSpace},${OptionalSpace}${number}${OptionalSpace})`;
+
+type FlattenColorKeys<T> = {
+  [K in keyof T]: T[K] extends Record<string, unknown>
+    ? { [K2 in keyof T[K]]: `${K & string}${K2 & string}` }[keyof T[K]]
+    : K;
+}[keyof T];
 
 export type ColorValue =
   | 'currentColor'
   | 'transparent'
-  | keyof addPrefixToObject<(typeof lightTheme)['colors'], '$'>
+  | FlattenColorKeys<(typeof lightTheme)['color']>
   | HSLA
   | HSL
   | RGB
@@ -27,17 +47,14 @@ export type ColorValue =
   | HEX
   | undefined;
 
-export type RadiiValue =
-  | keyof addPrefixToObject<(typeof lightTheme)['borderRadius'], '$'>
+export type BorderRadiusValue =
+  | `${keyof (typeof lightTheme)['borderRadius'] & (string | number)}`
   | AnimatableNumericValue
   | undefined;
 
 export type BordeWidthValue =
-  | keyof addPrefixToObject<(typeof lightTheme)['borderWidth'], '$'>
+  | `${keyof (typeof lightTheme)['borderWidth'] & (string | number)}`
   | number
   | undefined;
 
-export type OpacityValue =
-  | keyof addPrefixToObject<(typeof lightTheme)['opacity'], '$'>
-  | AnimatableNumericValue
-  | undefined;
+export type OpacityValue = AnimatableNumericValue | undefined;

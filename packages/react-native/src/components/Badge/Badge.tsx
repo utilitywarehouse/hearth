@@ -40,26 +40,26 @@ const styles = StyleSheet.create(theme => ({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: theme.space[200],
-    borderRadius: theme.borderRadius[200],
+    borderRadius: theme.borderRadius.sm,
     paddingVertical: theme.space[100],
     alignSelf: 'flex-start',
     gap: theme.space[200],
     variants: {
       colorScheme: {
         cyan: {
-          backgroundColor: theme.colors.blue[700],
+          backgroundColor: theme.color.blue[700],
         },
         red: {
-          backgroundColor: theme.colors.red[700],
+          backgroundColor: theme.color.red[700],
         },
         green: {
-          backgroundColor: theme.colors.green[700],
+          backgroundColor: theme.color.green[700],
         },
         gold: {
-          backgroundColor: theme.colors.orange[700],
+          backgroundColor: theme.color.orange[700],
         },
         grey: {
-          backgroundColor: theme.colors.grey[700],
+          backgroundColor: theme.color.grey[700],
         },
       },
       borderless: {
@@ -86,27 +86,27 @@ const styles = StyleSheet.create(theme => ({
       {
         colorScheme: 'cyan',
         strong: true,
-        styles: { backgroundColor: theme.colors.blue[700] },
+        styles: { backgroundColor: theme.color.blue[700] },
       },
       {
         colorScheme: 'red',
         strong: true,
-        styles: { backgroundColor: theme.colors.red[700] },
+        styles: { backgroundColor: theme.color.red[700] },
       },
       {
         colorScheme: 'green',
         strong: true,
-        styles: { backgroundColor: theme.colors.green[700] },
+        styles: { backgroundColor: theme.color.green[700] },
       },
       {
         colorScheme: 'gold',
         strong: true,
-        styles: { backgroundColor: theme.colors.orange[700] },
+        styles: { backgroundColor: theme.color.orange[700] },
       },
       {
         colorScheme: 'grey',
         strong: true,
-        styles: { backgroundColor: theme.colors.grey[700] },
+        styles: { backgroundColor: theme.color.grey[700] },
       },
     ],
   },

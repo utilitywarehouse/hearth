@@ -21,9 +21,9 @@ const PrimitiveIcon = withUnistyles(
         return {};
       }, [size, height, width]);
 
-      const { colors, colorMode } = useTheme();
+      const { color: themeColor, colorMode } = useTheme();
       const colorValue: ColorValue = useMemo(
-        () => getStyleValue(color, colors),
+        () => getStyleValue(color, themeColor),
         [color, colorMode]
       );
 

@@ -1,4 +1,4 @@
-import { DimensionValue, Platform } from 'react-native';
+import { DimensionValue, Platform, TextStyle } from 'react-native';
 import { breakpoints } from './breakpoints';
 import { components, color, layout, primitive, typography } from '@utilitywarehouse/hearth-tokens';
 
@@ -13,10 +13,11 @@ const shared = {
   breakpoints,
   letterSpacing: primitive['letter-spacing'],
   lineHeight: primitive['line-height'],
-  fontWeights: primitive.font.weight,
+  fontWeight: primitive.font.weight as {
+    [K in keyof typeof primitive.font.weight]: TextStyle['fontWeight'];
+  },
   fontFamily: primitive.font.family,
   fontSize: primitive.font.size,
-  opacity: primitive.opacity,
   typography,
   layout,
   globalStyle: {
@@ -142,7 +143,7 @@ export const lightTheme = {
   colorMode: 'light',
   isLight: true,
   isDark: false,
-  colors: {
+  color: {
     ...color.light,
     ...color.common,
     black: '#000000',
@@ -155,7 +156,7 @@ export const darkTheme = {
   colorMode: 'dark',
   isLight: false,
   isDark: true,
-  colors: {
+  color: {
     ...color.dark,
     ...color.common,
     black: '#000000',

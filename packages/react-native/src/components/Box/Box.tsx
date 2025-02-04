@@ -63,18 +63,18 @@ const themeStyleMapping: { [key in keyof ViewStyle]?: keyof UnistylesThemes['lig
   maxHeight: 'space',
   start: 'space',
   end: 'space',
-  backgroundColor: 'colors',
-  borderColor: 'colors',
-  borderBottomColor: 'colors',
-  borderLeftColor: 'colors',
-  borderRightColor: 'colors',
-  borderTopColor: 'colors',
-  borderBlockColor: 'colors',
-  borderBlockEndColor: 'colors',
-  borderBlockStartColor: 'colors',
-  borderEndColor: 'colors',
-  borderStartColor: 'colors',
-  shadowColor: 'colors',
+  backgroundColor: 'color',
+  borderColor: 'color',
+  borderBottomColor: 'color',
+  borderLeftColor: 'color',
+  borderRightColor: 'color',
+  borderTopColor: 'color',
+  borderBlockColor: 'color',
+  borderBlockEndColor: 'color',
+  borderBlockStartColor: 'color',
+  borderEndColor: 'color',
+  borderStartColor: 'color',
+  shadowColor: 'color',
   borderRadius: 'borderRadius',
   borderBottomEndRadius: 'borderRadius',
   borderBottomLeftRadius: 'borderRadius',
@@ -88,7 +88,6 @@ const themeStyleMapping: { [key in keyof ViewStyle]?: keyof UnistylesThemes['lig
   borderEndStartRadius: 'borderRadius',
   borderStartEndRadius: 'borderRadius',
   borderStartStartRadius: 'borderRadius',
-  opacity: 'opacity',
   borderBottomWidth: 'borderWidth',
   borderEndWidth: 'borderWidth',
   borderLeftWidth: 'borderWidth',
@@ -99,16 +98,11 @@ const themeStyleMapping: { [key in keyof ViewStyle]?: keyof UnistylesThemes['lig
 };
 
 const resolveThemeValue = (value: any, themeMapping: any): any => {
-  if (
-    typeof value === 'string' &&
-    value.startsWith('$') &&
-    themeMapping &&
-    typeof themeMapping === 'object'
-  ) {
-    const key = value.slice(1);
-    if (themeMapping[key] !== undefined) {
-      return themeMapping[key];
+  if (typeof value === 'string' && themeMapping && typeof themeMapping === 'object') {
+    if (themeMapping[value] !== undefined) {
+      return themeMapping[value];
     }
+    return value;
   }
   return value;
 };

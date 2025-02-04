@@ -3,7 +3,7 @@ import type {
   BordeWidthValue,
   ColorValue,
   OpacityValue,
-  RadiiValue,
+  BorderRadiusValue,
   SpaceValue,
 } from '../../types';
 import React from 'react';
@@ -143,7 +143,7 @@ export interface BoxStyleMappingValues {
   mr?: SpaceValue;
   ml?: SpaceValue;
   // - Radii
-  rounded?: RadiiValue;
+  rounded?: BorderRadiusValue;
 }
 
 export interface ThemedBoxViewStyleProps {
@@ -195,19 +195,19 @@ export interface ThemedBoxViewStyleProps {
   borderStartColor?: ColorValue;
   shadowColor?: ColorValue;
   // - Radii
-  borderRadius?: RadiiValue;
-  borderBottomEndRadius?: RadiiValue;
-  borderBottomLeftRadius?: RadiiValue;
-  borderBottomRightRadius?: RadiiValue;
-  borderBottomStartRadius?: RadiiValue;
-  borderTopEndRadius?: RadiiValue;
-  borderTopLeftRadius?: RadiiValue;
-  borderTopRightRadius?: RadiiValue;
-  borderTopStartRadius?: RadiiValue;
-  borderEndEndRadius?: RadiiValue;
-  borderEndStartRadius?: RadiiValue;
-  borderStartEndRadius?: RadiiValue;
-  borderStartStartRadius?: RadiiValue;
+  borderRadius?: BorderRadiusValue;
+  borderBottomEndRadius?: BorderRadiusValue;
+  borderBottomLeftRadius?: BorderRadiusValue;
+  borderBottomRightRadius?: BorderRadiusValue;
+  borderBottomStartRadius?: BorderRadiusValue;
+  borderTopEndRadius?: BorderRadiusValue;
+  borderTopLeftRadius?: BorderRadiusValue;
+  borderTopRightRadius?: BorderRadiusValue;
+  borderTopStartRadius?: BorderRadiusValue;
+  borderEndEndRadius?: BorderRadiusValue;
+  borderEndStartRadius?: BorderRadiusValue;
+  borderStartEndRadius?: BorderRadiusValue;
+  borderStartStartRadius?: BorderRadiusValue;
   // - Opacity
   opacity?: OpacityValue;
   // - Border Width
