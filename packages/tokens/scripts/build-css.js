@@ -4,6 +4,55 @@ import { loadJSON, unwrapAlias } from './utils/index.js';
 const componentJson = loadJSON('./raw/hearth-components---component.json');
 const deviceJson = loadJSON('./raw/hearth-design-tokens---device.json');
 
+const filters = {
+  isFont: token => token.attributes.category === 'font',
+  isLayout: token => token.attributes.type === 'layout' && token.attributes.item === 'spacing',
+  isTypography: token => {
+    if (token.attributes.type === 'typography') {
+      if (token.attributes.subitem === 'font-family') {
+        return false;
+      }
+      if (token.name.includes('font-weight') && token.attributes.category !== 'mobile') {
+        return false;
+      }
+      if (token.path.includes('letter-spacing')) {
+        return false;
+      }
+      return token;
+    }
+  },
+  isColor: token => {
+    if (token.attributes?.type === 'dark') {
+      return false;
+    }
+    return token.filePath.includes('primitive') && token.type === 'color';
+  },
+  isSpace: token => token.filePath.includes('primitive') && token.attributes.category === 'space',
+  isLineHeight: token => token.attributes.category === 'line-height',
+  isBorder: token => token.attributes.category.includes('border'),
+};
+
+const DEVICES = ['mobile', 'tablet', 'desktop'];
+
+const normalizeName = token => {
+  if (DEVICES.includes(token.path[0]) && token.path[1] === 'typography') {
+    if (token.name.includes('font-weight')) {
+      return token.path.slice(2).join('-');
+    }
+    return [...token.path.slice(2), token.path[0]].join('-');
+  }
+  if (token.path[0] === 'color' && token.path[1] === 'light') {
+    return [token.path[0], ...token.path.slice(2)].join('-');
+  }
+  return token.name;
+};
+
+StyleDictionary.registerTransform({
+  name: 'css/normalize-name',
+  type: 'name',
+  transform: normalizeName,
+});
+
 StyleDictionary.registerTransform({
   name: 'alias/variable-css',
   type: 'value',
@@ -17,84 +66,35 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'remove-light-color',
-  type: 'name',
-  filter: token => {
-    if (token.attributes?.type === 'dark') {
-      return false;
-    }
-    return token.filePath.includes('primitive') && token.type === 'color';
-  },
-  transform: token => {
-    return token.name.replace(/light-/, '');
-  },
-});
-
-StyleDictionary.registerTransform({
-  name: 'remove-alias-color',
+  name: 'font/px-to-rem',
   type: 'value',
-  filter: token => {
-    return token.type === 'color';
-  },
-  transform: token => {
-    return token.value.replace(/light-/, '').replace(/dark-/, '');
-  },
+  filter: token => token.attributes.category === 'font' && token.attributes.type === 'size',
+  transform: token => `${token.value / 16}rem`,
 });
 
 StyleDictionary.registerTransform({
-  name: 'rename-typography',
-  type: 'name',
-  filter: token => {
-    if (token.attributes.subitem === 'font-family' && token.attributes.category !== 'mobile') {
-      return false;
-    }
-    return token.attributes.type === 'typography';
-  },
-  transform: token => {
-    const { item, subitem, state, category } = token.attributes;
-    return `${item}-${subitem}${state ? `-${state}` : ''}-${category}`;
-  },
-});
-
-StyleDictionary.registerTransform({
-  name: 'rename-layout',
-  type: 'name',
-  filter: token => {
-    return token.attributes.type === 'layout' && token.attributes.item === 'spacing';
-  },
-  transform: token => {
-    const { type, item, subitem, category } = token.attributes;
-    return `${type}-${item}-${subitem}-${category}`;
-  },
-});
-
-StyleDictionary.registerTransform({
-  name: 'px-to-rem',
+  name: 'line-height/unitless',
   type: 'value',
-  filter: token => {
-    return typeof token.value === 'number' && token.name.includes('font-size');
-  },
-  transform: token => {
-    return `${token.value / 16}rem`;
-  },
-});
-
-StyleDictionary.registerTransform({
-  name: 'unitless-line-height',
-  type: 'value',
-  filter: token => {
-    return typeof token.value === 'number' && token.attributes.category === 'line-height';
-  },
+  filter: filters.isLineHeight,
   transform: token => {
     return `${token.value / 16}`;
   },
 });
 
+const px = token => token.value + 'px';
+
 StyleDictionary.registerTransform({
-  name: 'add-space-px',
+  name: 'space/px',
   type: 'value',
-  filter: token => token.filePath.includes('primitive') && token.attributes.category === 'space',
-  transform: token => `${token.value}px`,
+  filter: filters.isSpace,
+  transform: px,
+});
+
+StyleDictionary.registerTransform({
+  name: 'border/px',
+  type: 'value',
+  filter: filters.isBorder,
+  transform: px,
 });
 
 StyleDictionary.registerTransformGroup({
@@ -103,10 +103,11 @@ StyleDictionary.registerTransformGroup({
     'attribute/cti',
     'name/kebab',
     'alias/variable-css',
-    'rename-typography',
-    'rename-layout',
-    'add-space-px',
-    'remove-light-color',
+    'css/normalize-name',
+    'space/px',
+    'border/px',
+    'font/px-to-rem',
+    'line-height/unitless',
   ],
 });
 
@@ -116,7 +117,6 @@ const dynamicComponentFiles = [...lightComponents].map(componentName => ({
   destination: `${componentName}.css`,
   format: 'css/variables',
   filter: token => {
-    console.log({ token });
     return (
       token.filePath.includes('component') &&
       token.path.includes(componentName) &&
@@ -135,8 +135,8 @@ const typographyComponentFiles = typographyComponents.map(componentName => ({
   },
 }));
 
-function generateCss() {
-  console.log('Generating CSS...');
+function buildCss() {
+  console.log('Building CSS...');
   return [
     new StyleDictionary({
       source: ['./raw/*.json'],
@@ -151,42 +151,40 @@ function generateCss() {
           transformGroup: 'css-transforms',
           buildPath: './css/',
           files: [
-            // {
-            //   destination: 'typography.css',
-            //   format: 'css/variables',
-            //   filter: token => {
-            //     if (
-            //       token.attributes.subitem === 'font-family' &&
-            //       token.attributes.category !== 'mobile'
-            //     ) {
-            //       return false;
-            //     }
-            //     return token.attributes.type === 'typography';
-            //   },
-            // },
             {
-              destination: 'layout.css',
+              destination: 'color.css',
               format: 'css/variables',
-              filter: token => {
-                console.log(token.path);
-                return token.attributes.type === 'layout' && token.attributes.item === 'spacing';
-              },
+              filter: filters.isColor,
             },
             {
               destination: 'space.css',
               format: 'css/variables',
-              filter: token =>
-                token.filePath.includes('primitive') && token.attributes.category === 'space',
+              filter: filters.isSpace,
             },
             {
-              destination: 'color.css',
+              destination: 'layout.css',
               format: 'css/variables',
-              filter: token => {
-                if (token.attributes?.type === 'dark') {
-                  return false;
-                }
-                return token.filePath.includes('primitive') && token.type === 'color';
-              },
+              filter: filters.isLayout,
+            },
+            {
+              destination: 'font.css',
+              format: 'css/variables',
+              filter: filters.isFont,
+            },
+            {
+              destination: 'line-height.css',
+              format: 'css/variables',
+              filter: filters.isLineHeight,
+            },
+            {
+              destination: 'typography.css',
+              format: 'css/variables',
+              filter: filters.isTypography,
+            },
+            {
+              destination: 'border.css',
+              format: 'css/variables',
+              filter: filters.isBorder,
             },
           ],
         },
@@ -216,4 +214,4 @@ function generateCss() {
   ];
 }
 
-export default generateCss;
+export default buildCss;

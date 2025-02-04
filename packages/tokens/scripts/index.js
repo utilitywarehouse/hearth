@@ -1,8 +1,10 @@
 import generateCss from './generateCss.js';
 import generateJs from './generateJs.js';
+import buildCss from './build-css.js';
 
 async function buildStyles() {
-  const dictionaries = [...generateCss(), ...generateJs()];
+  // const dictionaries = [...generateCss(), ...generateJs()];
+  const dictionaries = [...buildCss()];
 
   try {
     // Style Dictionary v4 is async => buildAllPlatforms returns a Promise
