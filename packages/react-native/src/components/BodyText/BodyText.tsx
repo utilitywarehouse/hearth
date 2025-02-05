@@ -30,7 +30,6 @@ const BodyText = forwardRef<Text, BodyTextProps>(
     },
     ref
   ) => {
-    console.log(bold);
     const { color: themeColor, colorMode } = useTheme();
     styles.useVariants({
       size,
@@ -81,7 +80,7 @@ const styles = StyleSheet.create(theme => ({
   text: {
     color: theme.color.grey['1000'],
     fontWeight: theme.fontWeight.regular,
-    fontFamily: theme.typography.mobile.detailText.fontFamily,
+    fontFamily: theme.typography.mobile.bodyText.fontFamily,
     fontStyle: 'normal',
     variants: {
       size: {

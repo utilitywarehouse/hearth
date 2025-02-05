@@ -111,23 +111,23 @@ Follow the [expo-xml-font](https://github.com/Armster15/expo-xml-font) documenta
 
 ## Getting Started
 
-Wrap your application with the `NativeUIProvider` component.
+Wrap your application with the `HearthUIProvider` component.
 
 ```tsx
 import React from 'react';
-import { NativeUIProvider } from '@utilitywarehouse/hearth-react-native';
+import { HearthUIProvider } from '@utilitywarehouse/hearth-react-native';
 import App from './App';
 
 const RootApp: React.FC = () => (
-  <NativeUIProvider>
+  <HearthUIProvider>
     <App />
-  </NativeUIProviderr>
+  </HearthUIProviderr>
 );
 ```
 
 ### Dark Mode
 
-By default the light colour mode is enabled. If you want to enable dark mode, you can pass the `colorMode` prop to the `NativeUIProvider` component. The two options for `colorMode` are `light` and `dark`.
+By default the light colour mode is enabled. If you want to enable dark mode, you can pass the `colorMode` prop to the `HearthUIProvider` component. The two options for `colorMode` are `light` and `dark`.
 
 ```tsx
 import React from 'react';

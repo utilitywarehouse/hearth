@@ -105,20 +105,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Workshop: Story = {};
 
-export const Bold: Story = {
-  args: {
-    bold: true,
-    children: "Hello there, I'm some bold body text!",
-  },
-};
-
-export const Underline: Story = {
-  args: {
-    underline: true,
-    children: "Hello there, I'm some underlined body text!",
-  },
-};
-
 export const KitchenSink: Story = {
   render: args => (
     <Box gap="200">
@@ -139,4 +125,18 @@ export const KitchenSink: Story = {
       </VariantTitle>
     </Box>
   ),
+};
+
+export const Bold: Story = {
+  args: {
+    bold: true,
+    children: "Hello there, I'm some bold body text!",
+  },
+};
+
+export const Underline: Story = {
+  args: {
+    underline: true,
+    children: "Hello there, I'm some underlined body text!",
+  },
 };
