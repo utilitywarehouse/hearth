@@ -1,17 +1,17 @@
 import { Meta, Canvas, Story, Controls, Primary } from '@storybook/blocks';
-import * as Stories from './BodyText.stories';
-import { Center, Pressable, BodyText, Box } from '../../';
+import * as Stories from './Heading.stories';
+import { Center, Pressable, Heading, Box } from '../..';
 import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
 
-<Meta title="Components / Text (Body Text)" />
+<Meta title="Components / Heading" />
 
 <BackToTopButton />
 
 <ViewFigmaButton url="https://www.figma.com/design/9kCLtrMGwNFTscSEIbrXEl/Hearth-Design-Tokens?node-id=43-709" />
 
-# BodyText
+# Heading
 
-The `BodyText` component gives you the ability to create text for your screen. It can be used to display text in different sizes and styles.
+The `Heading` component gives you the ability to create headings for your screen with different sizes.
 
 - [Playground](#playground)
 - [Usage](#usage)
@@ -28,36 +28,24 @@ The `BodyText` component gives you the ability to create text for your screen. I
 
 <UsageWrap>
   <Center>
-    <BodyText>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat.
-    </BodyText>
+    <Heading>Welcome to Utility Warehouse</Heading>
   </Center>
 </UsageWrap>
 
 ```jsx
-import { BodyText } from '@utilitywarehouse/hearth-react-native';
+import { Heading } from '@utilitywarehouse/hearth-react-native';
 
-const MyComponent = () => (
-  <BodyText>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-    laboris nisi ut aliquip ex ea commodo consequat.
-  </BodyText>
-);
+const MyComponent = () => <Heading>Welcome to Utility Warehouse</Heading>;
 ```
 
 ## Props
 
 | Property              | Type                                                                  | Description                         | Default      |
 | --------------------- | --------------------------------------------------------------------- | ----------------------------------- | ------------ |
-| `size`                | `'sm' \| 'md' \| 'lg'`                                                | The size of the text.               | `'md'`       |
+| `size`                | `'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl' \| '3xl' \| '4xl'`             | The size of the text.               | `'md'`       |
 | `strikeThrough`       | `boolean`                                                             | Strike through the text.            | `false`      |
 | `truncated`           | `boolean`                                                             | Truncate the text with an ellipsis. | `false`      |
 | `underline`           | `boolean`                                                             | Underline the text.                 | `false`      |
-| `bold`                | `boolean`                                                             | Bold the text.                      | `false`      |
-| `italic`              | `boolean`                                                             | Italicise the text.                 | `false`      |
 | `color`               | `string`                                                              | The color of the text.              | `'grey1000'` |
 | `textAlign`           | `'left' \| 'center' \| 'right' \| 'auto' \| 'justify'`                | The alignment of the text.          | `-`          |
 | `textTransform`       | `'none' \| 'capitalize' \| 'uppercase' \| 'lowercase'`                | Transform the text.                 | `-`          |
@@ -68,6 +56,6 @@ const MyComponent = () => (
 
 ## Sizes
 
-The `BodyText` component has different sizes to style the text.
+The `Heading` component has different sizes to style the text.
 
 <Canvas of={Stories.KitchenSink} />

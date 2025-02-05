@@ -7,7 +7,7 @@ import { Box } from '../Box';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'React Native / Components / BodyText',
+  title: 'Stories / BodyText',
   component: BodyText,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -103,7 +103,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Workshop: Story = {};
+export const Playground: Story = {};
 
 export const KitchenSink: Story = {
   render: args => (

@@ -5,7 +5,7 @@ import { Text } from 'react-native';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'React Native / Components / Badge',
+  title: 'Stories / Badge',
   component: Badge,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
@@ -25,7 +25,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-  render: args => <Text>Hello</Text>,
+  render: () => <Text>Hello</Text>,
 };
 
 export const Cyan: Story = {
