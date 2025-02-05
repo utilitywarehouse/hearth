@@ -8,6 +8,23 @@ import merge from 'lodash.merge';
 export const BUILD_PATH = './browser-src/';
 
 StyleDictionary.registerFormat({
+  name: 'browser/index',
+  format: () => {
+    return `export * from './badge.js'
+export * from './border.js';
+export * from './button.js';
+export * from './color.js';
+export * from './font.js';
+export * from './layout.js';
+export * from './line-height.js';
+export * from './space.js';
+export * from './spinner.js';
+export * from './typography.js';
+`;
+  },
+});
+
+StyleDictionary.registerFormat({
   name: 'browser/variables',
   format: ({ dictionary, file }) => {
     const tokens = {};
@@ -107,6 +124,15 @@ function generateBrowser() {
         'browser-components': {
           buildPath: BUILD_PATH,
           files: componentFiles,
+        },
+        'browser-index': {
+          buildPath: BUILD_PATH,
+          files: [
+            {
+              destination: 'index.js',
+              format: 'browser/index',
+            },
+          ],
         },
       },
     }),

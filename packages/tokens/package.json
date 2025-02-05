@@ -3,7 +3,15 @@
   "version": "0.0.1",
   "description": "",
   "main": "js/index.js",
+  "style": "./index.css",
   "type": "module",
+  "exports": {
+    "./browser": {
+      "types": "./browser/index.d.ts",
+      "default": "./browser/index.js"
+    },
+    "./*": "./*"
+  },
   "scripts": {
     "dev:css": "postcss --watch --verbose src --dir .",
     "build:css": "postcss css/index.css --dir .",
@@ -21,7 +29,6 @@
   "devDependencies": {
     "@types/lodash.merge": "^4.6.9",
     "cssnano": "^5.1.15",
-    "fs-extra": "^11.3.0",
     "lodash.merge": "^4.6.2",
     "postcss": "^8.4.49",
     "postcss-cli": "^10.1.0",

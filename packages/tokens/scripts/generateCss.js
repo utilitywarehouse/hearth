@@ -7,6 +7,25 @@ import { filters } from './utils/filters.js';
 
 export const BUILD_PATH = './css/';
 
+// I tried to get this working with fs.readdirSync but I couldn't
+// so this will have to do for now
+StyleDictionary.registerFormat({
+  name: 'css/index',
+  format: () => {
+    return `@import '../css/badge.css';
+@import '../css/border.css';
+@import '../css/button.css';
+@import '../css/color.css';
+@import '../css/font.css';
+@import '../css/layout.css';
+@import '../css/line-height.css';
+@import '../css/space.css';
+@import '../css/spinner.css';
+@import '../css/typography.css';
+`;
+  },
+});
+
 StyleDictionary.registerTransform({
   name: 'css/normalize-name',
   type: 'name',
@@ -139,6 +158,16 @@ function generateCss() {
           transformGroup: 'css-transforms',
           buildPath: BUILD_PATH,
           files: componentFiles,
+        },
+        'css-index': {
+          transformGroup: 'css-transforms',
+          buildPath: BUILD_PATH,
+          files: [
+            {
+              destination: 'index.css',
+              format: 'css/index',
+            },
+          ],
         },
       },
     }),
