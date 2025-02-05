@@ -49,10 +49,8 @@ export default ({ config }) => ({
           folder: './assets/fonts',
           variants: [
             { fontFile: 'dmsans_bold', fontWeight: 700 },
-            { fontFile: 'dmsans_medium', fontWeight: 500 },
-            { fontFile: 'dmsans_regular', fontWeight: 400 },
             { fontFile: 'dmsans_bolditalic', fontWeight: 700, italic: true },
-            { fontFile: 'dmsans_mediumitalic', fontWeight: 500, italic: true },
+            { fontFile: 'dmsans_regular', fontWeight: 400 },
             { fontFile: 'dmsans_italic', fontWeight: 400, italic: true },
           ],
         },

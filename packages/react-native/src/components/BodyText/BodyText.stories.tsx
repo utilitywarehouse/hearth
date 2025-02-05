@@ -20,11 +20,6 @@ const meta = {
       control: 'select',
       description: 'The size of the text.',
     },
-    highlight: {
-      type: 'boolean',
-      control: 'boolean',
-      description: 'Highlight the text.',
-    },
     truncated: {
       type: 'boolean',
       control: 'boolean',
@@ -95,12 +90,13 @@ const meta = {
   args: {
     children: "Hello there, I'm some body text!",
     size: 'md',
-    highlight: false,
     truncated: false,
     bold: false,
     italic: false,
     underline: false,
     strikeThrough: false,
+    color: 'grey1000',
+    textDecorationColor: 'grey1000',
   },
 } satisfies Meta<typeof BodyText>;
 
@@ -112,12 +108,14 @@ export const Workshop: Story = {};
 export const Bold: Story = {
   args: {
     bold: true,
+    children: "Hello there, I'm some bold body text!",
   },
 };
 
 export const Underline: Story = {
   args: {
     underline: true,
+    children: "Hello there, I'm some underlined body text!",
   },
 };
 

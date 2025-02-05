@@ -1,18 +1,18 @@
 import React, { PropsWithChildren, useEffect } from 'react';
 import { breakpoints } from './breakpoints';
-import { appThemes } from './themes';
+import { themes } from './themes';
 import { StyleSheet, UnistylesRuntime, UnistylesThemes } from 'react-native-unistyles';
 
 StyleSheet.configure({
   breakpoints,
-  themes: appThemes,
+  themes,
   settings: {
     initialTheme: 'light',
     adaptiveThemes: false,
   },
 });
 
-const NativeUIProvider: React.FC<PropsWithChildren<{ colorMode?: keyof UnistylesThemes }>> = ({
+const HearthUIProvider: React.FC<PropsWithChildren<{ colorMode?: keyof UnistylesThemes }>> = ({
   children,
   colorMode = 'light',
 }) => {
@@ -22,4 +22,4 @@ const NativeUIProvider: React.FC<PropsWithChildren<{ colorMode?: keyof Unistyles
   return children;
 };
 
-export default NativeUIProvider;
+export default HearthUIProvider;

@@ -2,28 +2,33 @@ import { LogBox } from 'react-native';
 import { useFonts } from 'expo-font';
 import StorybookUIRoot from './.storybook';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { UnistylesRuntime } from 'react-native-unistyles';
-import { useEffect } from 'react';
+
+import { StyleSheet, breakpoints, themes } from '@utilitywarehouse/hearth-react-native';
 
 LogBox.ignoreAllLogs();
+
+StyleSheet.configure({
+  breakpoints,
+  themes,
+  settings: {
+    initialTheme: 'light',
+    adaptiveThemes: false,
+  },
+});
 
 const App = () => {
   const [loaded] = useFonts({
     /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-    'ComicHams-BoldFlare': require('../../packages/fonts/files/ttf/ComicHams-BoldFlare.ttf'),
-    'ComicHams-HeavyFlare': require('../../packages/fonts/files/ttf/ComicHams-HeavyFlare.ttf'),
-    'ComicHams-SemiBoldFlare': require('../../packages/fonts/files/ttf/ComicHams-SemiBoldFlare.ttf'),
-    'DMMono-Medium': require('../../packages/fonts/files/ttf/DMMono-Medium.ttf'),
-    'DMMono-MediumItalic': require('../../packages/fonts/files/ttf/DMMono-MediumItalic.ttf'),
-    'DMSans-Bold': require('../../packages/fonts/files/ttf/DMSans-Bold.ttf'),
-    'DMSans-BoldItalic': require('../../packages/fonts/files/ttf/DMSans-BoldItalic.ttf'),
-    'DMSans-Italic': require('../../packages/fonts/files/ttf/DMSans-Italic.ttf'),
-    'DMSans-Regular': require('../../packages/fonts/files/ttf/DMSans-Regular.ttf'),
+    'ComicHams-BoldFlare': require('./assets/fonts/comichams_boldflare.ttf'),
+    'ComicHams-HeavyFlare': require('./assets/fonts/comichams_heavyflare.ttf'),
+    'ComicHams-SemiBoldFlare': require('./assets/fonts/comichams_semiboldflare.ttf'),
+    'DMMono-Medium': require('./assets/fonts/dmmono_medium.ttf'),
+    'DMMono-MediumItalic': require('./assets/fonts/dmmono_mediumitalic.ttf'),
+    'DMSans-Bold': require('./assets/fonts/dmsans_bold.ttf'),
+    'DMSans-BoldItalic': require('./assets/fonts/dmsans_bolditalic.ttf'),
+    'DMSans-Italic': require('./assets/fonts/dmsans_italic.ttf'),
+    'DMSans-Regular': require('./assets/fonts/dmsans_regular.ttf'),
   });
-
-  useEffect(() => {
-    UnistylesRuntime.setTheme('light');
-  }, []);
 
   if (!loaded) return null;
   return (

@@ -18,6 +18,9 @@ export type {
   UnistylesVariants,
 } from 'react-native-unistyles';
 
-export { default as NativeUIProvider } from './NativeUIProvider';
+export * from './themes';
+export * from './breakpoints';
+
+export { default as HearthUIProvider } from './HearthUIProvider';
 
 export type * from '../types/unistyles';

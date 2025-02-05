@@ -8,11 +8,11 @@ const shared = {
     ...primitive.space,
     full: '100%' as DimensionValue,
   },
-  borderWidth: primitive['border-width'],
-  borderRadius: primitive['border-radius'],
+  borderWidth: primitive.borderWidth,
+  borderRadius: primitive.borderRadius,
   breakpoints,
-  letterSpacing: primitive['letter-spacing'],
-  lineHeight: primitive['line-height'],
+  letterSpacing: primitive.letterSpacing,
+  lineHeight: primitive.lineHeight,
   fontWeight: primitive.font.weight as {
     [K in keyof typeof primitive.font.weight]: TextStyle['fontWeight'];
   },
@@ -165,7 +165,7 @@ export const darkTheme = {
   ...shared,
 };
 
-export const appThemes = {
+export const themes = {
   light: lightTheme,
   dark: darkTheme,
 };

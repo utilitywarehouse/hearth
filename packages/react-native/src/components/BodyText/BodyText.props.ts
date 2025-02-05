@@ -3,7 +3,6 @@ import type { ColorValue } from '../../types';
 
 interface TextProps extends RNTextProps {
   size?: 'sm' | 'md' | 'lg';
-  highlight?: boolean;
   strikeThrough?: boolean;
   underline?: boolean;
   truncated?: boolean;

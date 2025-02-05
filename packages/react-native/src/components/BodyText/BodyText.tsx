@@ -19,7 +19,6 @@ const BodyText = forwardRef<Text, BodyTextProps>(
       underline,
       strikeThrough,
       italic,
-      highlight,
       textTransform,
       textAlign,
       textAlignVertical,
@@ -31,6 +30,7 @@ const BodyText = forwardRef<Text, BodyTextProps>(
     },
     ref
   ) => {
+    console.log(bold);
     const { color: themeColor, colorMode } = useTheme();
     styles.useVariants({
       size,
@@ -38,14 +38,12 @@ const BodyText = forwardRef<Text, BodyTextProps>(
       underline,
       strikeThrough,
       italic,
-      highlight,
     });
     const colorValue = useMemo(() => getFlattenedColorValue(color, themeColor), [color, colorMode]);
     const decorationColor = useMemo(
       () => getFlattenedColorValue(textDecorationColor, themeColor),
       [textDecorationColor, colorMode]
     );
-    console.log(color, colorValue);
     return (
       <Text
         ref={ref}
@@ -83,7 +81,7 @@ const styles = StyleSheet.create(theme => ({
   text: {
     color: theme.color.grey['1000'],
     fontWeight: theme.fontWeight.regular,
-    fontFamily: theme.typography.mobile.bodyText.fontFamily,
+    fontFamily: theme.typography.mobile.detailText.fontFamily,
     fontStyle: 'normal',
     variants: {
       size: {
@@ -121,11 +119,6 @@ const styles = StyleSheet.create(theme => ({
       italic: {
         true: {
           fontStyle: 'italic',
-        },
-      },
-      highlight: {
-        true: {
-          fontWeight: theme.fontWeight.semibold,
         },
       },
     },
