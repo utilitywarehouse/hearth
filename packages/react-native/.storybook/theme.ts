@@ -1,5 +1,5 @@
 import { create } from '@storybook/theming/create';
-// @ts-ignore
+// @ts-expect-error - logo is not a module
 import logo from './assets/images/logo.png';
 
 export default create({
@@ -8,8 +8,8 @@ export default create({
   fontBase: '"DM Sans", sans-serif',
   fontCode: '"DM Mono", monospace',
 
-  brandTitle: 'My custom Storybook',
-  brandUrl: 'https://example.com',
+  brandTitle: 'UW Hearth - Design System',
+  brandUrl: 'https://hearth.uw.co.uk/',
   brandImage: logo,
   brandTarget: '_self',
 

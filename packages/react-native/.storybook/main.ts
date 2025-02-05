@@ -3,7 +3,7 @@ import remarkGfm from 'remark-gfm';
 
 import { join, dirname } from 'path';
 
-function getAbsolutePath(value: string): any {
+function getAbsolutePath(value: string) {
   return dirname(require.resolve(join(value, 'package.json')));
 }
 
