@@ -10,23 +10,36 @@ StyleDictionary.registerFormat({
   name: 'browser/variables',
   format: ({ dictionary, file }) => {
     const tokens = {};
+    // get the group name of the current set of tokens
     const tokensName = file.destination.split('.')[0];
+    // we assume that these tokens are filtered before they get here
     dictionary.allTokens.forEach(token => {
+      // normalize the tokens in the same way they are for the CSS
       const normalizedPath = normalizeTokenPath(token);
+      // this will give us the generated CSS variable
       const cssCustomProperty = `--${normalizedPath.join(DELIMITER)}`;
-      var object = {};
-      normalizedPath.reduce((o, s, i) => {
-        if (i === 0 && s === tokensName) {
-          return o;
+      var token = {};
+      // we need to build the JS object from the path, this will give us the
+      // dot notation path to the token
+      // ie. color.blue.200
+      normalizedPath.reduce((acc, curr, i) => {
+        // ignore the first element of the path if it is the same as the group name
+        // we want to avoid stuttered objects
+        // ie. space.space.100
+        if (i === 0 && curr === tokensName) {
+          return acc;
         }
+        // the last element of the path should point to the CSS variable
         if (i === normalizedPath.length - 1) {
-          return (o[s] = cssCustomProperty);
+          return (acc[curr] = cssCustomProperty);
         }
-        return (o[s] = {});
-      }, object);
-      merge(tokens, object);
+        return (acc[curr] = {});
+      }, token);
+      // deep merge the token into the tokens object
+      merge(tokens, token);
     });
     // console.log({ tokens });
+    // write the tokens to file
     return `export const ${tokensName} = ${JSON.stringify(tokens, null, 2)};\n`;
   },
 });
@@ -60,11 +73,11 @@ function generateBrowser() {
               format: 'browser/variables',
               filter: filters.isSpace,
             },
-            // {
-            //   destination: 'layout.css',
-            //   format: 'browser/variables',
-            //   filter: filters.isLayout,
-            // },
+            {
+              destination: 'layout.css',
+              format: 'browser/variables',
+              filter: filters.isLayout,
+            },
             // {
             //   destination: 'font.css',
             //   format: 'browser/variables',
