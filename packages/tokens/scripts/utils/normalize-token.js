@@ -3,7 +3,7 @@ export const DELIMITER = '-';
 
 export const normalizeTokenPath = token => {
   // Move device name from being a prefix to a modifier
-  if (DEVICES.includes(token.path[0]) && token.path[1] === 'typography') {
+  if (DEVICES.includes(token.path[0])) {
     // except for font-weight where it's not needed at all
     if (token.name.includes('font-weight')) {
       return token.path.slice(2);

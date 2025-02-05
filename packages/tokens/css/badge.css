@@ -3,16 +3,16 @@
  */
 
 :root {
-  --badge-blue-background-color: var(--color-light-blue-700);
+  --badge-blue-background-color: var(--color-blue-700);
   --badge-border-radius: var(--border-radius-xs);
   --badge-color: var(--color-off-white);
   --badge-flat-base-border-radius-bottom-left: 0;
   --badge-flat-base-border-radius-bottom-right: 0;
   --badge-gap: var(--space-50);
-  --badge-green-background-color: var(--color-light-green-700);
-  --badge-grey-background-color: var(--color-light-grey-600);
-  --badge-orange-background-color: var(--color-light-orange-800);
+  --badge-green-background-color: var(--color-green-700);
+  --badge-grey-background-color: var(--color-grey-600);
+  --badge-orange-background-color: var(--color-orange-800);
   --badge-padding-horizontal: var(--space-75);
   --badge-padding-vertical: var(--space-25);
-  --badge-red-background-color: var(--color-light-red-700);
+  --badge-red-background-color: var(--color-red-700);
 }

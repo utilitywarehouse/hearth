@@ -14,7 +14,7 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'alias/variable-css',
+  name: 'alias/unwrap',
   type: 'value',
   filter: filters.isStringToken,
   transform: token => {
@@ -51,12 +51,22 @@ StyleDictionary.registerTransform({
   transform: px,
 });
 
+StyleDictionary.registerTransform({
+  name: 'alias/remove-light-color-prefix',
+  type: 'value',
+  filter: filters.isColor,
+  transform: token => {
+    return token.value.replace(/light-/, '');
+  },
+});
+
 StyleDictionary.registerTransformGroup({
   name: 'css-transforms',
   transforms: [
     'attribute/cti',
     'name/kebab',
-    'alias/variable-css',
+    'alias/unwrap',
+    'alias/remove-light-color-prefix',
     'css/normalize-name',
     'space/px',
     'border/px',
@@ -69,10 +79,13 @@ const componentJson = loadJSON('./raw/hearth-components---component.json');
 const componentFiles = Object.keys(componentJson.light).map(componentName => ({
   destination: `${componentName}.css`,
   format: 'css/variables',
-  filter: token =>
-    token.filePath.includes('component') &&
-    token.path.includes(componentName) &&
-    token.attributes.category === 'light',
+  filter: token => {
+    return (
+      token.filePath.includes('component') &&
+      token.path.includes(componentName) &&
+      token.attributes.category === 'light'
+    );
+  },
 }));
 
 function generateCss() {
@@ -88,7 +101,7 @@ function generateCss() {
             {
               destination: 'color.css',
               format: 'css/variables',
-              filter: filters.isColor,
+              filter: filters.isPrimitiveLightColor,
             },
             {
               destination: 'space.css',

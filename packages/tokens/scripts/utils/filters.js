@@ -17,7 +17,8 @@ export const filters = {
       return token;
     }
   },
-  isColor: token => {
+  isColor: token => token.type === 'color',
+  isPrimitiveLightColor: token => {
     if (token.type === 'color' && token.path[1] === 'dark') {
       return false;
     }

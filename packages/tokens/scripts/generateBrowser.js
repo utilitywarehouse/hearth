@@ -26,7 +26,7 @@ StyleDictionary.registerFormat({
       }, object);
       merge(tokens, object);
     });
-    console.log({ tokens });
+    // console.log({ tokens });
     return `export const ${tokensName} = ${JSON.stringify(tokens, null, 2)};\n`;
   },
 });
