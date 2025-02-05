@@ -1,7 +1,4 @@
 {
-  "installCommand": "pnpm install",
-  "buildCommand": "pnpm build:storybook",
-  "outputDirectory": "storybook-static",
   "headers": [
     {
       "source": "/(stories|metadata).json",
