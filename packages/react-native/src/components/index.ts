@@ -2,7 +2,7 @@
 export * from './Spinner';
 export * from './Badge';
 export * from './Center';
-
+export * from './BodyText';
 export * from './Icon';
 export * from './Box';
 

@@ -20,25 +20,25 @@ BadgeText.displayName = 'BadgeText';
 const styles = StyleSheet.create(theme => ({
   text: {
     fontSize: theme.fontSize[200],
-    fontWeight: theme.fontWeights.regular as TextStyle['fontWeight'],
+    fontWeight: theme.fontWeight.regular as TextStyle['fontWeight'],
     lineHeight: theme.lineHeight[400],
     fontFamily: theme.fontFamily.body,
     variants: {
       colorScheme: {
         cyan: {
-          color: theme.colors.blue[50],
+          color: theme.color.blue[50],
         },
         red: {
-          color: theme.colors.blue[50],
+          color: theme.color.blue[50],
         },
         green: {
-          color: theme.colors.blue[50],
+          color: theme.color.blue[50],
         },
         gold: {
-          color: theme.colors.blue[50],
+          color: theme.color.blue[50],
         },
         grey: {
-          color: theme.colors.blue[50],
+          color: theme.color.blue[50],
         },
       },
       strong: {
@@ -49,28 +49,28 @@ const styles = StyleSheet.create(theme => ({
       {
         colorScheme: 'cyan',
         strong: true,
-        styles: { color: theme.colors.blue[50] },
+        styles: { color: theme.color.blue[50] },
       },
       {
         colorScheme: 'red',
         strong: true,
-        styles: { color: theme.colors.blue[50] },
+        styles: { color: theme.color.blue[50] },
       },
       {
         colorScheme: 'green',
         strong: true,
-        styles: { color: theme.colors.blue[50] },
+        styles: { color: theme.color.blue[50] },
       },
       {
         colorScheme: 'gold',
         strong: true,
-        styles: { color: theme.colors.blue[50] },
+        styles: { color: theme.color.blue[50] },
       },
       {
         colorScheme: 'grey',
         strong: true,
 
-        styles: { color: theme.colors.blue[50] },
+        styles: { color: theme.color.blue[50] },
       },
     ],
   },

@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-    "border-radius": {
+    borderRadius: {
         full: number;
         lg: number;
         md: number;
@@ -10,9 +10,9 @@ declare const _default: {
         sm: number;
         xs: number;
     };
-    "border-width": {
-        1: number;
-        2: number;
+    borderWidth: {
+        "1": number;
+        "2": number;
     };
     font: {
         family: {
@@ -21,21 +21,21 @@ declare const _default: {
             heading: string;
         };
         size: {
-            50: number;
-            75: number;
-            90: number;
-            100: number;
-            150: number;
-            200: number;
-            300: number;
-            400: number;
-            500: number;
-            550: number;
-            600: number;
-            700: number;
-            800: number;
-            900: number;
-            1000: number;
+            "50": number;
+            "75": number;
+            "90": number;
+            "100": number;
+            "150": number;
+            "200": number;
+            "300": number;
+            "400": number;
+            "500": number;
+            "550": number;
+            "600": number;
+            "700": number;
+            "800": number;
+            "900": number;
+            "1000": number;
         };
         weight: {
             bold: number;
@@ -45,60 +45,60 @@ declare const _default: {
             semibold: number;
         };
     };
-    "letter-spacing": {
-        0: number;
-        50: number;
-        75: number;
-        90: number;
-        100: number;
-        150: number;
-        200: number;
-        300: number;
-        400: number;
-        500: number;
-        550: number;
-        600: number;
-        700: number;
-        800: number;
-        900: number;
-        1000: number;
+    letterSpacing: {
+        "0": number;
+        "50": number;
+        "75": number;
+        "90": number;
+        "100": number;
+        "150": number;
+        "200": number;
+        "300": number;
+        "400": number;
+        "500": number;
+        "550": number;
+        "600": number;
+        "700": number;
+        "800": number;
+        "900": number;
+        "1000": number;
     };
-    "line-height": {
-        50: number;
-        75: number;
-        100: number;
-        200: number;
-        300: number;
-        400: number;
-        500: number;
-        600: number;
-        700: number;
-        800: number;
-        900: number;
-        950: number;
-        1000: number;
-        1100: number;
-        1200: number;
+    lineHeight: {
+        "50": number;
+        "75": number;
+        "100": number;
+        "200": number;
+        "300": number;
+        "400": number;
+        "500": number;
+        "600": number;
+        "700": number;
+        "800": number;
+        "900": number;
+        "950": number;
+        "1000": number;
+        "1100": number;
+        "1200": number;
     };
     space: {
-        0: number;
-        25: number;
-        50: number;
-        75: number;
-        100: number;
-        150: number;
-        175: number;
-        200: number;
-        250: number;
-        300: number;
-        350: number;
-        400: number;
-        500: number;
-        600: number;
-        700: number;
-        800: number;
-        900: number;
-        1000: number;
+        "0": number;
+        "25": number;
+        "50": number;
+        "75": number;
+        "100": number;
+        "150": number;
+        "175": number;
+        "200": number;
+        "250": number;
+        "300": number;
+        "350": number;
+        "400": number;
+        "500": number;
+        "600": number;
+        "700": number;
+        "800": number;
+        "900": number;
+        "1000": number;
     };
 };
 export default _default;

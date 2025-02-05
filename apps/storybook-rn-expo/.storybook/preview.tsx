@@ -1,4 +1,3 @@
-import { NativeUIProvider } from '@utilitywarehouse/ds-react-native';
 import { View } from 'react-native';
 
 /** @type{import("@storybook/react").Preview} */
@@ -14,17 +13,15 @@ const preview = {
 
   decorators: [
     (Story, { parameters }) => (
-      <NativeUIProvider>
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: parameters.noBackground === true ? undefined : '#fff',
-            padding: 8,
-          }}
-        >
-          <Story />
-        </View>
-      </NativeUIProvider>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: parameters.noBackground === true ? undefined : '#fff',
+          padding: 8,
+        }}
+      >
+        <Story />
+      </View>
     ),
   ],
 };

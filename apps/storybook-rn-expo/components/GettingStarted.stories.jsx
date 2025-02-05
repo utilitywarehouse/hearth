@@ -40,7 +40,7 @@ const StarterComponent = () => {
 
 const styles = StyleSheet.create(theme => ({
   thing: {
-    backgroundColor: theme.colors.red300,
+    backgroundColor: theme.color.red[300],
   },
 }));
 

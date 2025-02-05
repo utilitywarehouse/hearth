@@ -10,6 +10,19 @@ function camelCase(str) {
   return str.replace(/[-_](\w)/g, (_, c) => c.toUpperCase());
 }
 
+function recursiveCamelCase(obj) {
+  if (Array.isArray(obj)) {
+    return obj.map(recursiveCamelCase);
+  } else if (obj && typeof obj === 'object') {
+    return Object.keys(obj).reduce((acc, key) => {
+      const camelKey = camelCase(key);
+      acc[camelKey] = recursiveCamelCase(obj[key]);
+      return acc;
+    }, {});
+  }
+  return obj;
+}
+
 function buildDeviceOutput(dictionary, options) {
   const output = { mobile: {}, tablet: {}, desktop: {} };
   dictionary.allTokens.forEach(token => {
@@ -35,9 +48,7 @@ StyleDictionary.registerTransform({
   name: 'name/camel-case',
   type: 'name',
   transform: (token, options) => {
-    return token.name.replace(/(\b\w)/g, function (match) {
-      return match.toLowerCase();
-    });
+    return token.name.replace(/[-_](\w)/g, (_, c) => c.toUpperCase());
   },
 });
 
@@ -160,6 +171,33 @@ export { default as layout } from './layout';
 export { default as primitive } from './primitive';
 export { default as typography } from './typography';
 export * as components from './components';`;
+  },
+});
+
+// UPDATED: Modify the "javascript/esm-camel" format to build output from dictionary.allTokens
+StyleDictionary.registerFormat({
+  name: 'javascript/esm-camel',
+  format: ({ dictionary }) => {
+    const output = {};
+    dictionary.allTokens.forEach(token => {
+      let current = output;
+      token.path.forEach((part, i) => {
+        const camelPart = camelCase(part);
+        if (i === token.path.length - 1) {
+          current[camelPart] = token.value;
+        } else {
+          current[camelPart] = current[camelPart] || {};
+          current = current[camelPart];
+        }
+      });
+    });
+    // Optionally reapply recursiveCamelCase (already applied during build)
+    const camelOutput = recursiveCamelCase(output);
+    return `/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+export default ${JSON.stringify(camelOutput, null, 2)};`;
   },
 });
 
@@ -299,7 +337,7 @@ function generateJs() {
           files: [
             {
               destination: 'primitive.ts',
-              format: 'javascript/esm',
+              format: 'javascript/esm-camel',
               filter: token => {
                 return token.filePath.includes('primitive') && token.type !== 'color';
               },

@@ -21,6 +21,7 @@ export default ({ config }) => ({
     bundleIdentifier: 'com.utilitywarehouse.hearth',
     infoPlist: {
       LSApplicationQueriesSchemes: ['uw-hearth'],
+      ITSAppUsesNonExemptEncryption: false,
     },
   },
   android: {

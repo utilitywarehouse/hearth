@@ -71,7 +71,7 @@
     "react-native-gesture-handler": "^2.20.2",
     "react-native-nitro-modules": "^0.21.0",
     "react-native-reanimated": "~3.16.5",
-    "react-native-unistyles": "3.0.0-beta.5",
+    "react-native-unistyles": "3.0.0-beta.6",
     "react-native-web": "^0.19.13",
     "remark-gfm": "^4.0.0",
     "storybook": "^8.4.7",

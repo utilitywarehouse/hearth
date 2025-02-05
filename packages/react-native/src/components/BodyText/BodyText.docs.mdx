@@ -1,0 +1,73 @@
+import { Meta, Canvas, Story, Controls, Primary } from '@storybook/blocks';
+import * as Stories from './BodyText.stories';
+import { Center, Pressable, BodyText, Box } from '../../';
+import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+
+<Meta of={Stories} />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/9kCLtrMGwNFTscSEIbrXEl/Hearth-Design-Tokens?node-id=43-709" />
+
+# BodyText
+
+The `BodyText` component gives you the ability to create text for your screen. It can be used to display text in different sizes and styles.
+
+- [Workshop](#workshop)
+- [Usage](#usage)
+- [Props](#props)
+- [Sizes](#sizes)
+
+## Workshop
+
+<Primary />
+
+<Controls />
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <BodyText>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+      laboris nisi ut aliquip ex ea commodo consequat.
+    </BodyText>
+  </Center>
+</UsageWrap>
+
+```jsx
+import { BodyText } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <BodyText>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    laboris nisi ut aliquip ex ea commodo consequat.
+  </BodyText>
+);
+```
+
+## Props
+
+| Property              | Type                                                                  | Description                         | Default      |
+| --------------------- | --------------------------------------------------------------------- | ----------------------------------- | ------------ |
+| `size`                | `'sm' \| 'md' \| 'lg'`                                                | The size of the text.               | `'md'`       |
+| `strikeThrough`       | `boolean`                                                             | Strike through the text.            | `false`      |
+| `truncated`           | `boolean`                                                             | Truncate the text with an ellipsis. | `false`      |
+| `underline`           | `boolean`                                                             | Underline the text.                 | `false`      |
+| `bold`                | `boolean`                                                             | Bold the text.                      | `false`      |
+| `italic`              | `boolean`                                                             | Italicise the text.                 | `false`      |
+| `color`               | `string`                                                              | The color of the text.              | `'grey1000'` |
+| `textAlign`           | `'left' \| 'center' \| 'right' \| 'auto' \| 'justify'`                | The alignment of the text.          | `-`          |
+| `textTransform`       | `'none' \| 'capitalize' \| 'uppercase' \| 'lowercase'`                | Transform the text.                 | `-`          |
+| `textDecorationLine`  | `'none' \| 'underline' \| 'line-through' \| 'underline line-through'` | The decoration of the text.         | `-`          |
+| `textDecorationStyle` | `'solid' \| 'double' \| 'dotted' \| 'dashed'`                         | The style of the text decoration.   | `-`          |
+| `textDecorationColor` | `string`                                                              | The color of the text decoration.   | `-`          |
+| `userSelect`          | `'none' \| 'auto' \| 'text' \| 'all' \| 'contain'`                    | The user select behaviour.          | `-`          |
+
+## Sizes
+
+The `BodyText` component has different sizes to style the text.
+
+<Canvas of={Stories.KitchenSink} />
