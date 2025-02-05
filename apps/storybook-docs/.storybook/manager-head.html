@@ -1,0 +1,53 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+  rel="stylesheet"
+/>
+
+<style>
+  div:where([role='main']) > div {
+    box-shadow: none !important;
+    border-left: 1px solid #101010;
+  }
+  .container {
+    border-right: 1px solid #101010;
+  }
+
+  /* div:where([orientation='horizontal']) + div {
+    border-top: 2px solid #101010;
+  }
+  div:where([orientation='vertical']) + div > div {
+    border-left: 2px solid #101010;
+  } */
+  /* .dark div:where([role='main']) > div {
+      box-shadow: none !important;
+      border-left: 1px solid #323232;
+    } */
+
+  #storybook-explorer-tree .sidebar-item button,
+  #storybook-explorer-tree .sidebar-item a,
+  .sidebar-subheading button {
+    color: white !important;
+    font-family: 'DM Mono';
+  }
+
+  #storybook-explorer-tree .sidebar-item svg {
+    color: white !important;
+  }
+
+  #storybook-explorer-tree .sidebar-item:hover {
+    background-color: #ffb921 !important;
+  }
+
+  #storybook-explorer-tree .sidebar-item:hover button,
+  #storybook-explorer-tree .sidebar-item:hover a,
+  #storybook-explorer-tree .sidebar-item:hover svg {
+    color: #101010 !important;
+  }
+
+  /* selector for data-test-id="sb-preview-toolbar" - brave browser fix */
+  [data-test-id='sb-preview-toolbar'] {
+    margin-top: 0 !important;
+  }
+</style>
