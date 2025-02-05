@@ -27,7 +27,7 @@ const config: StorybookConfig = {
       url: 'https://uw-hearth-react.vercel.app',
       expanded: false,
     },
-    reactNative: {
+    'react-native': {
       title: 'Hearth React Native',
       url: 'https://uw-hearth-react-native.vercel.app',
       expanded: false,
