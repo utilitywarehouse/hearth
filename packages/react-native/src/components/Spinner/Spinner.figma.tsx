@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spinner } from './';
 import figma from '@figma/code-connect';
-import { colors } from '@utilitywarehouse/colour-system';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 figma.connect(
   Spinner,
@@ -15,6 +15,6 @@ figma.connect(
         large: 'lg',
       }),
     },
-    example: ({ size }) => <Spinner size={size} color={colors.purple800} />,
+    example: ({ size }) => <Spinner size={size} color={color.common.uwPurple} />,
   }
 );
