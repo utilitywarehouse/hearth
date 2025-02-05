@@ -33,21 +33,21 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: 'line-height/unitless',
   type: 'value',
-  filter: filters.isLineHeight,
+  filter: filters.isPrimitiveLineHeight,
   transform: token => `${token.value / 16}`,
 });
 
 StyleDictionary.registerTransform({
   name: 'space/px',
   type: 'value',
-  filter: filters.isSpace,
+  filter: filters.isPrimitiveSpace,
   transform: px,
 });
 
 StyleDictionary.registerTransform({
   name: 'border/px',
   type: 'value',
-  filter: filters.isBorder,
+  filter: filters.isPrimitiveBorder,
   transform: px,
 });
 
@@ -106,12 +106,12 @@ function generateCss() {
             {
               destination: 'space.css',
               format: 'css/variables',
-              filter: filters.isSpace,
+              filter: filters.isPrimitiveSpace,
             },
             {
               destination: 'layout.css',
               format: 'css/variables',
-              filter: filters.isLayout,
+              filter: filters.isLayoutSpacing,
             },
             {
               destination: 'font.css',
@@ -121,7 +121,7 @@ function generateCss() {
             {
               destination: 'line-height.css',
               format: 'css/variables',
-              filter: filters.isLineHeight,
+              filter: filters.isPrimitiveLineHeight,
             },
             {
               destination: 'typography.css',
@@ -131,7 +131,7 @@ function generateCss() {
             {
               destination: 'border.css',
               format: 'css/variables',
-              filter: filters.isBorder,
+              filter: filters.isPrimitiveBorder,
             },
           ],
         },

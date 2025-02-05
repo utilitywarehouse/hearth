@@ -5,10 +5,7 @@ import {
   logWarningLevels,
 } from 'style-dictionary/enums';
 import { loadJSON } from './utils/load-json.js';
-
-function camelCase(str) {
-  return str.replace(/[-_](\w)/g, (_, c) => c.toUpperCase());
-}
+import { camelCase } from './utils/camel-case.js';
 
 function buildDeviceOutput(dictionary, options) {
   const output = { mobile: {}, tablet: {}, desktop: {} };

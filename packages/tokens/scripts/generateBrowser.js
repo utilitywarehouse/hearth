@@ -2,6 +2,7 @@ import StyleDictionary from 'style-dictionary';
 import { loadJSON } from './utils/load-json.js';
 import { filters } from './utils/filters.js';
 import { DELIMITER, normalizeTokenPath } from './utils/normalize-token.js';
+import { camelCase } from './utils/camel-case.js';
 import merge from 'lodash.merge';
 
 export const BUILD_PATH = './browser/';
@@ -14,11 +15,12 @@ StyleDictionary.registerFormat({
     const tokensName = file.destination.split('.')[0];
     // we assume that these tokens are filtered before they get here
     dictionary.allTokens.forEach(token => {
+      // console.log({ token });
       // normalize the tokens in the same way they are for the CSS
       const normalizedPath = normalizeTokenPath(token);
       // this will give us the generated CSS variable
       const cssCustomProperty = `--${normalizedPath.join(DELIMITER)}`;
-      var token = {};
+      var tokenObject = {};
       // we need to build the JS object from the path, this will give us the
       // dot notation path to the token
       // ie. color.blue.200
@@ -31,16 +33,18 @@ StyleDictionary.registerFormat({
         }
         // the last element of the path should point to the CSS variable
         if (i === normalizedPath.length - 1) {
-          return (acc[curr] = cssCustomProperty);
+          return (acc[camelCase(curr)] = cssCustomProperty);
         }
-        return (acc[curr] = {});
-      }, token);
+        // again to avoid stuttering (specifically for border properties, ie. border.borderRadius)
+        const el = camelCase(curr.replace(`${tokensName}-`, ''));
+        return (acc[el] = {});
+      }, tokenObject);
       // deep merge the token into the tokens object
-      merge(tokens, token);
+      merge(tokens, tokenObject);
     });
     // console.log({ tokens });
     // write the tokens to file
-    return `export const ${tokensName} = ${JSON.stringify(tokens, null, 2)};\n`;
+    return `export const ${camelCase(tokensName)} = ${JSON.stringify(tokens, null, 2)};\n`;
   },
 });
 
@@ -66,38 +70,38 @@ function generateBrowser() {
             {
               destination: 'color.js',
               format: 'browser/variables',
-              filter: filters.isColor,
+              filter: filters.isPrimitiveLightColor,
             },
             {
               destination: 'space.js',
               format: 'browser/variables',
-              filter: filters.isSpace,
+              filter: filters.isPrimitiveSpace,
             },
             {
-              destination: 'layout.css',
+              destination: 'layout.js',
               format: 'browser/variables',
-              filter: filters.isLayout,
+              filter: filters.isLayoutSpacing,
             },
-            // {
-            //   destination: 'font.css',
-            //   format: 'browser/variables',
-            //   filter: filters.isFont,
-            // },
-            // {
-            //   destination: 'line-height.css',
-            //   format: 'browser/variables',
-            //   filter: filters.isLineHeight,
-            // },
-            // {
-            //   destination: 'typography.css',
-            //   format: 'browser/variables',
-            //   filter: filters.isTypography,
-            // },
-            // {
-            //   destination: 'border.css',
-            //   format: 'browser/variables',
-            //   filter: filters.isBorder,
-            // },
+            {
+              destination: 'font.js',
+              format: 'browser/variables',
+              filter: filters.isFont,
+            },
+            {
+              destination: 'line-height.js',
+              format: 'browser/variables',
+              filter: filters.isPrimitiveLineHeight,
+            },
+            {
+              destination: 'typography.js',
+              format: 'browser/variables',
+              filter: filters.isTypography,
+            },
+            {
+              destination: 'border.js',
+              format: 'browser/variables',
+              filter: filters.isPrimitiveBorder,
+            },
           ],
         },
         // 'css-components': {

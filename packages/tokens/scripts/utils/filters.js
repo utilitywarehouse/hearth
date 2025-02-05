@@ -1,30 +1,41 @@
+// Shared filters for gathering specific sets of tokens.
+// These avoid using `token.attributes` as we can't rely that they'll always be
+// available. Use `token.path` instead.
 export const filters = {
   isStringToken: token => token.value && typeof token.alias === 'string',
-  isFont: token => token.attributes.category === 'font',
+  isFont: token => token.path.includes('font'),
   isFontSize: token => token.attributes.category === 'font' && token.attributes.type === 'size',
-  isLayout: token => token.attributes.type === 'layout' && token.attributes.item === 'spacing',
+  isLayoutSpacing: token => token.path.includes('layout') && token.path.includes('spacing'),
   isTypography: token => {
-    if (token.attributes.type === 'typography') {
-      if (token.attributes.subitem === 'font-family') {
+    if (token.path.includes('typography')) {
+      // this is one alias too far, we can use primitive tokens for this
+      if (token.path.includes('font-family')) {
         return false;
       }
-      if (token.name.includes('font-weight') && token.attributes.category !== 'mobile') {
-        return false;
-      }
+      // we're ignoring letter-spacing for now
       if (token.path.includes('letter-spacing')) {
+        return false;
+      }
+      // font-weight does not change across devices, so we only need one
+      // instance of the font-weight per variant/size, in this case we'll use
+      // the initial mobile value
+      if (token.name.includes('font-weight') && !token.path.includes('mobile')) {
         return false;
       }
       return token;
     }
   },
   isColor: token => token.type === 'color',
+  isPrimitiveSpace: token => token.filePath.includes('primitive') && token.path.includes('space'),
+  isPrimitiveBorder: token =>
+    token.filePath.includes('primitive') &&
+    (token.path.includes('border-width') || token.path.includes('border-radius')),
+  isPrimitiveLineHeight: token =>
+    token.filePath.includes('primitive') && token.path.includes('line-height'),
   isPrimitiveLightColor: token => {
     if (token.type === 'color' && token.path[1] === 'dark') {
       return false;
     }
     return token.filePath.includes('primitive') && token.type === 'color';
   },
-  isSpace: token => token.filePath.includes('primitive') && token.path.includes('space'),
-  isLineHeight: token => token.attributes.category === 'line-height',
-  isBorder: token => token.attributes.category.includes('border'),
 };
