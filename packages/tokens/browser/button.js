@@ -1,7 +1,7 @@
 export const button = {
-  emphasis: {
-    yellow: {
-      backgroundColor: '--button-emphasis-yellow-background-color',
-    },
-  },
+  "emphasis": {
+    "yellow": {
+      "backgroundColor": "var(--button-emphasis-yellow-background-color)"
+    }
+  }
 };

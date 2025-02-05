@@ -1,14 +1,14 @@
 export const border = {
   "radius": {
-    "full": "--border-radius-full",
-    "lg": "--border-radius-lg",
-    "md": "--border-radius-md",
-    "none": "--border-radius-none",
-    "sm": "--border-radius-sm",
-    "xs": "--border-radius-xs"
+    "full": "var(--border-radius-full)",
+    "lg": "var(--border-radius-lg)",
+    "md": "var(--border-radius-md)",
+    "none": "var(--border-radius-none)",
+    "sm": "var(--border-radius-sm)",
+    "xs": "var(--border-radius-xs)"
   },
   "width": {
-    "1": "--border-width-1",
-    "2": "--border-width-2"
+    "1": "var(--border-width-1)",
+    "2": "var(--border-width-2)"
   }
 };

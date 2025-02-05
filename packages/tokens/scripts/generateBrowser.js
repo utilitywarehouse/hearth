@@ -19,7 +19,7 @@ StyleDictionary.registerFormat({
       // normalize the tokens in the same way they are for the CSS
       const normalizedPath = normalizeTokenPath(token);
       // this will give us the generated CSS variable
-      const cssCustomProperty = `--${normalizedPath.join(DELIMITER)}`;
+      const cssCustomProperty = `var(--${normalizedPath.join(DELIMITER)})`;
       var tokenObject = {};
       // we need to build the JS object from the path, this will give us the
       // dot notation path to the token
