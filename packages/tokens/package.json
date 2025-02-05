@@ -5,7 +5,7 @@
   "main": "js/index.js",
   "type": "module",
   "scripts": {
-    "build:css": "postcss src --dir .",
+    "build:css": "postcss css/index.css --dir .",
     "dev:css": "postcss --watch --verbose src --dir .",
     "build": "pnpm clean:build && node ./scripts/index.js && tsc && pnpm build:css",
     "clean": "rm -rf node_modules .turbo",
@@ -17,6 +17,7 @@
   "devDependencies": {
     "@types/lodash.merge": "^4.6.9",
     "cssnano": "^5.1.15",
+    "fs-extra": "^11.3.0",
     "lodash.merge": "^4.6.2",
     "postcss": "^8.4.49",
     "postcss-cli": "^10.1.0",
