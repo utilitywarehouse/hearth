@@ -5,7 +5,7 @@ import { DELIMITER, normalizeTokenPath } from './utils/normalize-token.js';
 import { camelCase } from './utils/camel-case.js';
 import merge from 'lodash.merge';
 
-export const BUILD_PATH = './browser/';
+export const BUILD_PATH = './browser-src/';
 
 StyleDictionary.registerFormat({
   name: 'browser/variables',
@@ -50,7 +50,7 @@ StyleDictionary.registerFormat({
 
 const componentJson = loadJSON('./raw/hearth-components---component.json');
 const componentFiles = Object.keys(componentJson.light).map(componentName => ({
-  destination: `${componentName}.js`,
+  destination: `${componentName}.ts`,
   format: 'browser/variables',
   filter: token =>
     token.filePath.includes('component') &&
@@ -68,37 +68,37 @@ function generateBrowser() {
           buildPath: BUILD_PATH,
           files: [
             {
-              destination: 'color.js',
+              destination: 'color.ts',
               format: 'browser/variables',
               filter: filters.isPrimitiveLightColor,
             },
             {
-              destination: 'space.js',
+              destination: 'space.ts',
               format: 'browser/variables',
               filter: filters.isPrimitiveSpace,
             },
             {
-              destination: 'layout.js',
+              destination: 'layout.ts',
               format: 'browser/variables',
               filter: filters.isLayoutSpacing,
             },
             {
-              destination: 'font.js',
+              destination: 'font.ts',
               format: 'browser/variables',
               filter: filters.isFont,
             },
             {
-              destination: 'line-height.js',
+              destination: 'line-height.ts',
               format: 'browser/variables',
               filter: filters.isPrimitiveLineHeight,
             },
             {
-              destination: 'typography.js',
+              destination: 'typography.ts',
               format: 'browser/variables',
               filter: filters.isTypography,
             },
             {
-              destination: 'border.js',
+              destination: 'border.ts',
               format: 'browser/variables',
               filter: filters.isPrimitiveBorder,
             },

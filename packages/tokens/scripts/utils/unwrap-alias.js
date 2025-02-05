@@ -4,4 +4,3 @@
 export function unwrapAlias(aliasString) {
   return aliasString.replace(/^{|}$/g, '');
 }
-

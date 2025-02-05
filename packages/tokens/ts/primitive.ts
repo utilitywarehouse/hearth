@@ -3,7 +3,7 @@
  */
 
 export default {
-  "border-radius": {
+  'border-radius': {
     full: 9999,
     lg: 16,
     md: 8,
@@ -11,15 +11,15 @@ export default {
     sm: 6,
     xs: 4,
   },
-  "border-width": {
+  'border-width': {
     1: 1,
     2: 2,
   },
   font: {
     family: {
-      body: "DM Sans",
-      detail: "DM Mono",
-      heading: "Comic Hams",
+      body: 'DM Sans',
+      detail: 'DM Mono',
+      heading: 'Comic Hams',
     },
     size: {
       50: 10,
@@ -46,7 +46,7 @@ export default {
       semibold: 600,
     },
   },
-  "letter-spacing": {
+  'letter-spacing': {
     0: 0,
     50: -0.30000001192092896,
     75: -0.36000001430511475,
@@ -64,7 +64,7 @@ export default {
     900: -2.880000114440918,
     1000: -3.8399999141693115,
   },
-  "line-height": {
+  'line-height': {
     50: 12,
     75: 14,
     100: 16,
