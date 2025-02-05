@@ -3,6 +3,7 @@ export * from './Spinner';
 export * from './Badge';
 export * from './Center';
 export * from './BodyText';
+export * from './DetailText';
 export * from './Icon';
 export * from './Box';
 

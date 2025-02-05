@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, BodyText } from '../../src';
+import { Box, DetailText } from '../../src';
 import { FC, PropsWithChildren } from 'react';
 
 const VariantTitle: FC<
@@ -9,9 +9,9 @@ const VariantTitle: FC<
   }>
 > = ({ title, upperCase = true, children }) => (
   <Box gap="100">
-    <BodyText textTransform={upperCase ? 'uppercase' : 'none'} size="sm" bold color="grey600">
+    <DetailText textTransform={upperCase ? 'uppercase' : 'none'} size="sm" color="grey600">
       {title}
-    </BodyText>
+    </DetailText>
     {children}
   </Box>
 );

@@ -1,0 +1,145 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { forwardRef, useMemo } from 'react';
+import { Text } from 'react-native';
+import type DetailTextProps from './DetailText.props';
+import { StyleSheet } from 'react-native-unistyles';
+import { useTheme } from '../../hooks';
+import { getFlattenedColorValue } from '../../utils';
+
+const DetailText = forwardRef<Text, DetailTextProps>(
+  (
+    {
+      children,
+      color,
+      size = 'md',
+      truncated,
+      underline,
+      strikeThrough,
+      italic,
+      textTransform,
+      textAlign,
+      textAlignVertical,
+      textDecorationColor,
+      textDecorationLine,
+      textDecorationStyle,
+      userSelect,
+      ...props
+    },
+    ref
+  ) => {
+    const { color: themeColor, colorMode } = useTheme();
+    styles.useVariants({
+      size,
+      underline,
+      strikeThrough,
+      italic,
+    });
+    const colorValue = useMemo(() => getFlattenedColorValue(color, themeColor), [color, colorMode]);
+    const decorationColor = useMemo(
+      () => getFlattenedColorValue(textDecorationColor, themeColor),
+      [textDecorationColor, colorMode]
+    );
+    return (
+      <Text
+        ref={ref}
+        {...props}
+        {...(truncated
+          ? {
+              numberOfLines: 1,
+              ellipsizeMode: 'tail',
+            }
+          : {})}
+        style={[
+          styles.text,
+          {
+            ...(colorValue && { color: colorValue }),
+            ...(textTransform && { textTransform }),
+            ...(textAlign && { textAlign }),
+            ...(decorationColor && { textDecorationColor: decorationColor }),
+            ...(textDecorationLine && { textDecorationLine }),
+            ...(textDecorationStyle && { textDecorationStyle }),
+            ...(userSelect && { userSelect }),
+            ...(textAlignVertical && { textAlignVertical }),
+          },
+          props.style,
+        ]}
+      >
+        {children}
+      </Text>
+    );
+  }
+);
+
+DetailText.displayName = 'DetailText';
+
+const styles = StyleSheet.create(theme => ({
+  text: {
+    color: theme.color.grey['1000'],
+    fontWeight: theme.fontWeight.regular,
+    fontFamily: theme.typography.mobile.detailText.fontFamily,
+    fontStyle: 'normal',
+    variants: {
+      size: {
+        '4xl': {
+          fontSize: theme.typography.mobile.detailText['4xl'].fontSize,
+          lineHeight: theme.typography.mobile.detailText['4xl'].lineHeight,
+          letterSpacing: theme.typography.mobile.detailText['4xl'].letterSpacing,
+        },
+        '3xl': {
+          fontSize: theme.typography.mobile.detailText['3xl'].fontSize,
+          lineHeight: theme.typography.mobile.detailText['3xl'].lineHeight,
+          letterSpacing: theme.typography.mobile.detailText['3xl'].letterSpacing,
+        },
+        '2xl': {
+          fontSize: theme.typography.mobile.detailText['2xl'].fontSize,
+          lineHeight: theme.typography.mobile.detailText['2xl'].lineHeight,
+          letterSpacing: theme.typography.mobile.detailText['2xl'].letterSpacing,
+        },
+        xl: {
+          fontSize: theme.typography.mobile.detailText.xl.fontSize,
+          lineHeight: theme.typography.mobile.detailText.xl.lineHeight,
+          letterSpacing: theme.typography.mobile.detailText.xl.letterSpacing,
+        },
+        lg: {
+          fontSize: theme.typography.mobile.detailText.lg.fontSize,
+          lineHeight: theme.typography.mobile.detailText.lg.lineHeight,
+          letterSpacing: theme.typography.mobile.detailText.lg.letterSpacing,
+        },
+        md: {
+          fontSize: theme.typography.mobile.detailText.md.fontSize,
+          lineHeight: theme.typography.mobile.detailText.md.lineHeight,
+          letterSpacing: theme.typography.mobile.detailText.md.letterSpacing,
+        },
+        sm: {
+          fontSize: theme.typography.mobile.detailText.sm.fontSize,
+          lineHeight: theme.typography.mobile.detailText.sm.lineHeight,
+          letterSpacing: theme.typography.mobile.detailText.sm.letterSpacing,
+        },
+      },
+      bold: {
+        true: {
+          fontWeight: theme.fontWeight.bold,
+        },
+      },
+      underline: {
+        true: {
+          textDecorationLine: 'underline',
+        },
+      },
+      strikeThrough: {
+        true: {
+          textDecorationLine: 'line-through',
+        },
+      },
+      italic: {
+        true: {
+          fontStyle: 'italic',
+        },
+      },
+    },
+  },
+}));
+
+export default DetailText;

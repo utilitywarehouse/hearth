@@ -11,7 +11,7 @@
     border-left: 1px solid #101010;
   }
   .container {
-    border-right: 2px solid #101010;
+    border-right: 1px solid #101010;
   }
 
   /* div:where([orientation='horizontal']) + div {
@@ -26,13 +26,24 @@
     } */
 
   #storybook-explorer-tree .sidebar-item button,
-  #storybook-explorer-tree .sidebar-item a {
+  #storybook-explorer-tree .sidebar-item a,
+  .sidebar-subheading button {
     color: white !important;
     font-family: 'DM Mono';
   }
 
+  #storybook-explorer-tree .sidebar-item svg {
+    color: white !important;
+  }
+
   #storybook-explorer-tree .sidebar-item:hover {
     background-color: #ffb921 !important;
+  }
+
+  #storybook-explorer-tree .sidebar-item:hover button,
+  #storybook-explorer-tree .sidebar-item:hover a,
+  #storybook-explorer-tree .sidebar-item:hover svg {
+    color: #101010 !important;
   }
 
   /* selector for data-test-id="sb-preview-toolbar" - brave browser fix */
