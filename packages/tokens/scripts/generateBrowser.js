@@ -50,12 +50,12 @@ StyleDictionary.registerFormat({
 
 const componentJson = loadJSON('./raw/hearth-components---component.json');
 const componentFiles = Object.keys(componentJson.light).map(componentName => ({
-  destination: `${componentName}.css`,
-  format: 'css/variables',
+  destination: `${componentName}.js`,
+  format: 'browser/variables',
   filter: token =>
     token.filePath.includes('component') &&
     token.path.includes(componentName) &&
-    token.attributes.category === 'light',
+    token.path.includes('light'),
 }));
 
 function generateBrowser() {
@@ -104,11 +104,10 @@ function generateBrowser() {
             },
           ],
         },
-        // 'css-components': {
-        //   transformGroup: 'css-transforms',
-        //   buildPath: BUILD_PATH,
-        //   files: componentFiles,
-        // },
+        'browser-components': {
+          buildPath: BUILD_PATH,
+          files: componentFiles,
+        },
       },
     }),
   ];
