@@ -8,8 +8,8 @@ export default {
     "borderRadius": 4,
     "color": "#fffbe8",
     "flatBase": {
-        "borderRadiusBottomLeft": 0,
-        "borderRadiusBottomRight": 0
+        "borderBottomLeftRadius": 0,
+        "borderBottomRadiusRight": 0
     },
     "gap": 4,
     "green": {

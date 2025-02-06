@@ -8,6 +8,7 @@ declare const _default: {
         md: number;
         none: number;
         sm: number;
+        xl: number;
         xs: number;
     };
     borderWidth: {

@@ -19,12 +19,12 @@
         "value": "#fffbe8"
       },
       "flat-base": {
-        "border-radius-bottom-left": {
+        "border-bottom-left-radius": {
           "alias": "{border-radius.none}",
           "type": "number",
           "value": 0
         },
-        "border-radius-bottom-right": {
+        "border-bottom-radius-right": {
           "alias": "{border-radius.none}",
           "type": "number",
           "value": 0
@@ -158,12 +158,12 @@
         "value": "#fffbe8"
       },
       "flat-base": {
-        "border-radius-bottom-left": {
+        "border-bottom-left-radius": {
           "alias": "{border-radius.none}",
           "type": "number",
           "value": 0
         },
-        "border-radius-bottom-right": {
+        "border-bottom-radius-right": {
           "alias": "{border-radius.none}",
           "type": "number",
           "value": 0
