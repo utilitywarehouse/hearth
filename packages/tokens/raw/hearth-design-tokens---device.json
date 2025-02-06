@@ -445,9 +445,9 @@
       },
       "spacing": {
         "lg": {
-          "alias": "{space.200}",
+          "alias": "{space.250}",
           "type": "number",
-          "value": 16
+          "value": 20
         },
         "md": {
           "alias": "{space.200}",
