@@ -3,7 +3,6 @@
  */
 declare const _default: {
     readonly borderRadius: 4;
-    readonly color: "#fffbe8";
     readonly flatBase: {
         readonly borderBottomLeftRadius: 0;
         readonly borderBottomRightRadius: 0;
@@ -31,6 +30,7 @@ declare const _default: {
     readonly paddingHorizontal: 6;
     readonly paddingVertical: 2;
     readonly solid: {
+        readonly color: "#fffbe8";
         readonly blue: {
             readonly backgroundColor: "#93c1ff";
         };

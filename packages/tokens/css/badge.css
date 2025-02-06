@@ -4,7 +4,6 @@
 
 :root {
   --badge-border-radius: var(--border-radius-xs);
-  --badge-color: var(--color-off-white);
   --badge-flat-base-border-bottom-left-radius: 0;
   --badge-flat-base-border-bottom-right-radius: 0;
   --badge-gap: var(--space-50);
@@ -17,6 +16,7 @@
   --badge-outline-red-color: var(--color-red-700);
   --badge-padding-horizontal: var(--space-75);
   --badge-padding-vertical: var(--space-25);
+  --badge-solid-color: var(--color-off-white);
   --badge-solid-blue-background-color: var(--color-blue-700);
   --badge-solid-green-background-color: var(--color-green-700);
   --badge-solid-grey-background-color: var(--color-grey-600);

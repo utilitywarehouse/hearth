@@ -3,7 +3,6 @@
  */
 export default {
     "borderRadius": 4,
-    "color": "#fffbe8",
     "flatBase": {
         "borderBottomLeftRadius": 0,
         "borderBottomRightRadius": 0
@@ -31,6 +30,7 @@ export default {
     "paddingHorizontal": 6,
     "paddingVertical": 2,
     "solid": {
+        "color": "#fffbe8",
         "blue": {
             "backgroundColor": "#93c1ff"
         },
