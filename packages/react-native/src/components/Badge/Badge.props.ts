@@ -1,10 +1,8 @@
 import type { ViewProps } from 'react-native';
 
 interface BadgeProps extends ViewProps {
-  colorScheme?: 'cyan' | 'green' | 'red' | 'gold' | 'grey';
-  size?: 'small' | 'large';
-  strong?: boolean;
-  borderless?: boolean;
+  colorScheme?: 'blue' | 'green' | 'red' | 'orange' | 'grey';
+  flatBase?: boolean;
 }
 
 export default BadgeProps;
