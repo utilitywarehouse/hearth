@@ -11,11 +11,6 @@ export default ({ config }) => ({
       projectId: '524f9fb5-ddb4-4db6-92ce-9e605c9dc20b',
     },
   },
-  splash: {
-    image: './assets/splash.png',
-    resizeMode: 'contain',
-    backgroundColor: '#7A42C8',
-  },
   ios: {
     supportsTablet: true,
     bundleIdentifier: 'com.utilitywarehouse.hearth',
@@ -23,12 +18,18 @@ export default ({ config }) => ({
       LSApplicationQueriesSchemes: ['uw-hearth'],
       ITSAppUsesNonExemptEncryption: false,
     },
+    icon: {
+      dark: './assets/icons/icon-dark.png',
+      light: './assets/icons/icon-light.png',
+      tinted: './assets/icons/icon-tinted.png',
+    },
   },
   android: {
     package: 'com.utilitywarehouse.hearth',
     adaptiveIcon: {
-      foregroundImage: './assets/adaptive-icon.png',
-      backgroundColor: '#FFFBE8',
+      foregroundImage: './assets/icons/adaptive-icon.png',
+      monochromeImage: './assets/icons/adaptive-icon.png',
+      backgroundColor: '#7a42c8',
     },
   },
   plugins: [
@@ -63,6 +64,19 @@ export default ({ config }) => ({
           ],
         },
       ],
+    ],
+    [
+      'expo-splash-screen',
+      {
+        image: './assets/icons/splash-icon-light.png',
+        imageWidth: 200,
+        resizeMode: 'contain',
+        backgroundColor: '#7a42c8',
+        dark: {
+          image: './assets/icons/splash-icon-dark.png',
+          backgroundColor: '#010101',
+        },
+      },
     ],
   ],
 });

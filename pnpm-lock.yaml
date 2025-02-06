@@ -446,6 +446,9 @@ importers:
       expo-font:
         specifier: ^13.0.3
         version: 13.0.3(expo@52.0.30(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@expo/metro-runtime@4.0.1(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react@18.3.1)
+      expo-splash-screen:
+        specifier: ^0.29.21
+        version: 0.29.21(expo@52.0.30(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@expo/metro-runtime@4.0.1(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))
       expo-xml-font:
         specifier: ^3.0.2
         version: 3.0.2(@expo/config-plugins@9.0.14)
@@ -491,7 +494,7 @@ importers:
         version: 7.26.7
       babel-loader:
         specifier: ^9.1.3
-        version: 9.2.1(@babel/core@7.26.7)(webpack@5.97.1)
+        version: 9.2.1(@babel/core@7.26.7)(webpack@5.97.1(esbuild@0.24.2))
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
@@ -5592,6 +5595,11 @@ packages:
 
   expo-modules-core@2.2.0:
     resolution: {integrity: sha512-mOFEHIe6jZ7G5pYUVSQ2Ghs3CUr9Uz6DOh4JI+4PsTf0gmEvMmMEOrxirS89jRWQjXPJ7QaGBK0CJrZlj/Sdeg==}
+
+  expo-splash-screen@0.29.21:
+    resolution: {integrity: sha512-7uZ+qvIuNcvrvrLIklW+Wbt6llPuCj6LKYjrMu+GOX8s///laldS4TGiMAbqcE7fmfCzQ8ffgfY7xhxRourhcA==}
+    peerDependencies:
+      expo: '*'
 
   expo-updates-interface@1.0.0:
     resolution: {integrity: sha512-93oWtvULJOj+Pp+N/lpTcFfuREX1wNeHtp7Lwn8EbzYYmdn37MvZU3TPW2tYYCZuhzmKEXnUblYcruYoDu7IrQ==}
@@ -15659,12 +15667,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  babel-loader@9.2.1(@babel/core@7.26.7)(webpack@5.97.1):
+  babel-loader@9.2.1(@babel/core@7.26.7)(webpack@5.97.1(esbuild@0.24.2)):
     dependencies:
       '@babel/core': 7.26.7
       find-cache-dir: 4.0.0
       schema-utils: 4.3.0
-      webpack: 5.97.1(webpack-cli@4.10.0)
+      webpack: 5.97.1(esbuild@0.24.2)
 
   babel-plugin-istanbul@6.1.1:
     dependencies:
@@ -17286,6 +17294,13 @@ snapshots:
   expo-modules-core@2.2.0:
     dependencies:
       invariant: 2.2.4
+
+  expo-splash-screen@0.29.21(expo@52.0.30(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@expo/metro-runtime@4.0.1(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)):
+    dependencies:
+      '@expo/prebuild-config': 8.0.25
+      expo: 52.0.30(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@expo/metro-runtime@4.0.1(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+    transitivePeerDependencies:
+      - supports-color
 
   expo-updates-interface@1.0.0(expo@52.0.30(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@expo/metro-runtime@4.0.1(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1)))(react-native@0.76.6(@babel/core@7.26.7)(@babel/preset-env@7.26.0(@babel/core@7.26.7))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)):
     dependencies:
@@ -21726,6 +21741,17 @@ snapshots:
       ansi-escapes: 4.3.2
       supports-hyperlinks: 2.3.0
 
+  terser-webpack-plugin@5.3.11(esbuild@0.24.2)(webpack@5.97.1(esbuild@0.24.2)):
+    dependencies:
+      '@jridgewell/trace-mapping': 0.3.25
+      jest-worker: 27.5.1
+      schema-utils: 4.3.0
+      serialize-javascript: 6.0.2
+      terser: 5.37.0
+      webpack: 5.97.1(esbuild@0.24.2)
+    optionalDependencies:
+      esbuild: 0.24.2
+
   terser-webpack-plugin@5.3.11(webpack@5.97.1):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
@@ -22326,6 +22352,36 @@ snapshots:
   webpack-sources@3.2.3: {}
 
   webpack-virtual-modules@0.6.2: {}
+
+  webpack@5.97.1(esbuild@0.24.2):
+    dependencies:
+      '@types/eslint-scope': 3.7.7
+      '@types/estree': 1.0.6
+      '@webassemblyjs/ast': 1.14.1
+      '@webassemblyjs/wasm-edit': 1.14.1
+      '@webassemblyjs/wasm-parser': 1.14.1
+      acorn: 8.14.0
+      browserslist: 4.24.4
+      chrome-trace-event: 1.0.4
+      enhanced-resolve: 5.18.0
+      es-module-lexer: 1.6.0
+      eslint-scope: 5.1.1
+      events: 3.3.0
+      glob-to-regexp: 0.4.1
+      graceful-fs: 4.2.11
+      json-parse-even-better-errors: 2.3.1
+      loader-runner: 4.3.0
+      mime-types: 2.1.35
+      neo-async: 2.6.2
+      schema-utils: 3.3.0
+      tapable: 2.2.1
+      terser-webpack-plugin: 5.3.11(esbuild@0.24.2)(webpack@5.97.1(esbuild@0.24.2))
+      watchpack: 2.4.2
+      webpack-sources: 3.2.3
+    transitivePeerDependencies:
+      - '@swc/core'
+      - esbuild
+      - uglify-js
 
   webpack@5.97.1(webpack-cli@4.10.0):
     dependencies:
