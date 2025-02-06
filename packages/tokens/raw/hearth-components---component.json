@@ -1,13 +1,6 @@
 {
   "dark": {
     "badge": {
-      "blue": {
-        "background-color": {
-          "alias": "{color.dark.blue.700}",
-          "type": "color",
-          "value": "#93c1ff"
-        }
-      },
       "border-radius": {
         "alias": "{border-radius.xs}",
         "type": "number",
@@ -35,25 +28,51 @@
         "type": "number",
         "value": 4
       },
-      "green": {
-        "background-color": {
-          "alias": "{color.dark.green.700}",
+      "outline": {
+        "blue": {
+          "color": {
+            "alias": "{badge.solid.blue.background-color}",
+            "type": "color",
+            "value": "#93c1ff"
+          }
+        },
+        "border-color": {
+          "alias": "{color.dark.grey.300}",
           "type": "color",
-          "value": "#7bd5aa"
-        }
-      },
-      "grey": {
-        "background-color": {
-          "alias": "{color.dark.grey.600}",
-          "type": "color",
-          "value": "#a19e91"
-        }
-      },
-      "orange": {
-        "background-color": {
-          "alias": "{color.dark.orange.800}",
-          "type": "color",
-          "value": "#ffcca8"
+          "value": "#565352"
+        },
+        "border-width": {
+          "alias": "{border-width.1}",
+          "type": "number",
+          "value": 1
+        },
+        "green": {
+          "color": {
+            "alias": "{badge.solid.green.background-color}",
+            "type": "color",
+            "value": "#7bd5aa"
+          }
+        },
+        "grey": {
+          "color": {
+            "alias": "{badge.solid.grey.background-color}",
+            "type": "color",
+            "value": "#a19e91"
+          }
+        },
+        "orange": {
+          "color": {
+            "alias": "{badge.solid.orange.background-color}",
+            "type": "color",
+            "value": "#ffcca8"
+          }
+        },
+        "red": {
+          "color": {
+            "alias": "{badge.solid.red.background-color}",
+            "type": "color",
+            "value": "#ffa89d"
+          }
         }
       },
       "padding-horizontal": {
@@ -66,11 +85,41 @@
         "type": "number",
         "value": 2
       },
-      "red": {
-        "background-color": {
-          "alias": "{color.dark.red.700}",
-          "type": "color",
-          "value": "#ffa89d"
+      "solid": {
+        "blue": {
+          "background-color": {
+            "alias": "{color.dark.blue.700}",
+            "type": "color",
+            "value": "#93c1ff"
+          }
+        },
+        "green": {
+          "background-color": {
+            "alias": "{color.dark.green.700}",
+            "type": "color",
+            "value": "#7bd5aa"
+          }
+        },
+        "grey": {
+          "background-color": {
+            "alias": "{color.dark.grey.600}",
+            "type": "color",
+            "value": "#a19e91"
+          }
+        },
+        "orange": {
+          "background-color": {
+            "alias": "{color.dark.orange.800}",
+            "type": "color",
+            "value": "#ffcca8"
+          }
+        },
+        "red": {
+          "background-color": {
+            "alias": "{color.dark.red.700}",
+            "type": "color",
+            "value": "#ffa89d"
+          }
         }
       }
     },
@@ -140,13 +189,6 @@
   },
   "light": {
     "badge": {
-      "blue": {
-        "background-color": {
-          "alias": "{color.light.blue.700}",
-          "type": "color",
-          "value": "#1c6cd4"
-        }
-      },
       "border-radius": {
         "alias": "{border-radius.xs}",
         "type": "number",
@@ -174,25 +216,51 @@
         "type": "number",
         "value": 4
       },
-      "green": {
-        "background-color": {
-          "alias": "{color.light.green.700}",
+      "outline": {
+        "blue": {
+          "color": {
+            "alias": "{badge.solid.blue.background-color}",
+            "type": "color",
+            "value": "#1c6cd4"
+          }
+        },
+        "border-color": {
+          "alias": "{color.light.grey.300}",
           "type": "color",
-          "value": "#0f834a"
-        }
-      },
-      "grey": {
-        "background-color": {
-          "alias": "{color.light.grey.600}",
-          "type": "color",
-          "value": "#6d6b69"
-        }
-      },
-      "orange": {
-        "background-color": {
-          "alias": "{color.light.orange.800}",
-          "type": "color",
-          "value": "#ad4b00"
+          "value": "#d4d0c0"
+        },
+        "border-width": {
+          "alias": "{border-width.1}",
+          "type": "number",
+          "value": 1
+        },
+        "green": {
+          "color": {
+            "alias": "{badge.solid.green.background-color}",
+            "type": "color",
+            "value": "#0f834a"
+          }
+        },
+        "grey": {
+          "color": {
+            "alias": "{badge.solid.grey.background-color}",
+            "type": "color",
+            "value": "#6d6b69"
+          }
+        },
+        "orange": {
+          "color": {
+            "alias": "{badge.solid.orange.background-color}",
+            "type": "color",
+            "value": "#ad4b00"
+          }
+        },
+        "red": {
+          "color": {
+            "alias": "{badge.solid.red.background-color}",
+            "type": "color",
+            "value": "#de2612"
+          }
         }
       },
       "padding-horizontal": {
@@ -205,11 +273,41 @@
         "type": "number",
         "value": 2
       },
-      "red": {
-        "background-color": {
-          "alias": "{color.light.red.700}",
-          "type": "color",
-          "value": "#de2612"
+      "solid": {
+        "blue": {
+          "background-color": {
+            "alias": "{color.light.blue.700}",
+            "type": "color",
+            "value": "#1c6cd4"
+          }
+        },
+        "green": {
+          "background-color": {
+            "alias": "{color.light.green.700}",
+            "type": "color",
+            "value": "#0f834a"
+          }
+        },
+        "grey": {
+          "background-color": {
+            "alias": "{color.light.grey.600}",
+            "type": "color",
+            "value": "#6d6b69"
+          }
+        },
+        "orange": {
+          "background-color": {
+            "alias": "{color.light.orange.800}",
+            "type": "color",
+            "value": "#ad4b00"
+          }
+        },
+        "red": {
+          "background-color": {
+            "alias": "{color.light.red.700}",
+            "type": "color",
+            "value": "#de2612"
+          }
         }
       }
     },
