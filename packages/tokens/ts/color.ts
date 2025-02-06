@@ -13,7 +13,7 @@ export const common = {
   "piggyPink": "#e8a3ff",
   "uwPurple": "#7a42c8",
   "white": "#ffffff"
-};
+} as const;
 
 export const light = {
   "blue": {
@@ -94,7 +94,7 @@ export const light = {
     "900": "#6b4900",
     "1000": "#473100"
   }
-};
+} as const;
 
 export const dark = {
   "blue": {
@@ -175,8 +175,8 @@ export const dark = {
     "900": "#ffe8b8",
     "1000": "#fff8ea"
   }
-};
+} as const;
 
-const color = { common, light, dark };
+const color = { common, light, dark } as const;
 
 export default color;

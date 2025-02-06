@@ -65,10 +65,10 @@ StyleDictionary.registerFormat({
     return `/**
  * Do not edit directly, this file was auto-generated.
  */
-\nexport const mobile = ${JSON.stringify(output.mobile, null, 2)};
-\nexport const tablet = ${JSON.stringify(output.tablet, null, 2)};
-\nexport const desktop = ${JSON.stringify(output.desktop, null, 2)};
-\nconst ${fileName} = { mobile, tablet, desktop };
+\nexport const mobile = ${JSON.stringify(output.mobile, null, 2)} as const;
+\nexport const tablet = ${JSON.stringify(output.tablet, null, 2)} as const;
+\nexport const desktop = ${JSON.stringify(output.desktop, null, 2)} as const;
+\nconst ${fileName} = { mobile, tablet, desktop } as const;
 \nexport default ${fileName};`;
   },
 });
@@ -102,10 +102,10 @@ StyleDictionary.registerFormat({
     return `/**
  * Do not edit directly, this file was auto-generated.
  */
-\nexport const common = ${JSON.stringify(common, null, 2)};
-\nexport const light = ${JSON.stringify(light, null, 2)};
-\nexport const dark = ${JSON.stringify(dark, null, 2)};
-\nconst color = { common, light, dark };
+\nexport const common = ${JSON.stringify(common, null, 2)} as const;
+\nexport const light = ${JSON.stringify(light, null, 2)} as const;
+\nexport const dark = ${JSON.stringify(dark, null, 2)} as const;
+\nconst color = { common, light, dark } as const;
 \nexport default color;`;
   },
 });
@@ -131,7 +131,7 @@ StyleDictionary.registerFormat({
  * Do not edit directly, this file was auto-generated.
  */
 
-export default ${JSON.stringify(output, null, 2)};`;
+export default ${JSON.stringify(output, null, 2)} as const;`;
   },
 });
 
@@ -197,7 +197,7 @@ StyleDictionary.registerFormat({
  * Do not edit directly, this file was auto-generated.
  */
 
-export default ${JSON.stringify(camelOutput, null, 2)};`;
+export default ${JSON.stringify(camelOutput, null, 2)} as const;`;
   },
 });
 

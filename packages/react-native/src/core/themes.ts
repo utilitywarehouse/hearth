@@ -13,9 +13,7 @@ const shared = {
   breakpoints,
   letterSpacing: primitive.letterSpacing,
   lineHeight: primitive.lineHeight,
-  fontWeight: primitive.font.weight as {
-    [K in keyof typeof primitive.font.weight]: TextStyle['fontWeight'];
-  },
+  fontWeight: primitive.font.weight,
   fontFamily: primitive.font.family,
   fontSize: primitive.font.size,
   typography,
@@ -137,7 +135,7 @@ const shared = {
       },
     },
   },
-};
+} as const;
 
 export const lightTheme = {
   colorMode: 'light',
@@ -147,10 +145,10 @@ export const lightTheme = {
     ...color.light,
     ...color.common,
     black: '#000000',
-  },
+  } as const,
   components: components.light,
   ...shared,
-};
+} as const;
 
 export const darkTheme = {
   colorMode: 'dark',
@@ -163,9 +161,9 @@ export const darkTheme = {
   },
   components: components.dark,
   ...shared,
-};
+} as const;
 
 export const themes = {
   light: lightTheme,
   dark: darkTheme,
-};
+} as const;

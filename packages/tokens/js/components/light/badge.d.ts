@@ -2,29 +2,29 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-    blue: {
-        backgroundColor: string;
+    readonly blue: {
+        readonly backgroundColor: "#1c6cd4";
     };
-    borderRadius: number;
-    color: string;
-    flatBase: {
-        borderBottomLeftRadius: number;
-        borderBottomRightRadius: number;
+    readonly borderRadius: 4;
+    readonly color: "#fffbe8";
+    readonly flatBase: {
+        readonly borderBottomLeftRadius: 0;
+        readonly borderBottomRightRadius: 0;
     };
-    gap: number;
-    green: {
-        backgroundColor: string;
+    readonly gap: 4;
+    readonly green: {
+        readonly backgroundColor: "#0f834a";
     };
-    grey: {
-        backgroundColor: string;
+    readonly grey: {
+        readonly backgroundColor: "#6d6b69";
     };
-    orange: {
-        backgroundColor: string;
+    readonly orange: {
+        readonly backgroundColor: "#ad4b00";
     };
-    paddingHorizontal: number;
-    paddingVertical: number;
-    red: {
-        backgroundColor: string;
+    readonly paddingHorizontal: 6;
+    readonly paddingVertical: 2;
+    readonly red: {
+        readonly backgroundColor: "#de2612";
     };
 };
 export default _default;

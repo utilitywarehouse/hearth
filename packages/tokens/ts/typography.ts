@@ -92,7 +92,7 @@ export const mobile = {
       "lineHeight": 36
     }
   }
-};
+} as const;
 
 export const tablet = {
   "bodyText": {
@@ -184,7 +184,7 @@ export const tablet = {
       "lineHeight": 36
     }
   }
-};
+} as const;
 
 export const desktop = {
   "bodyText": {
@@ -276,8 +276,8 @@ export const desktop = {
       "lineHeight": 48
     }
   }
-};
+} as const;
 
-const typography = { mobile, tablet, desktop };
+const typography = { mobile, tablet, desktop } as const;
 
 export default typography;

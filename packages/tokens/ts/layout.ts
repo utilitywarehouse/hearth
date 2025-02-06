@@ -23,7 +23,7 @@ export const mobile = {
     "xl": 28,
     "xs": 8
   }
-};
+} as const;
 
 export const tablet = {
   "container": {
@@ -46,7 +46,7 @@ export const tablet = {
     "xl": 28,
     "xs": 8
   }
-};
+} as const;
 
 export const desktop = {
   "container": {
@@ -69,8 +69,8 @@ export const desktop = {
     "xl": 40,
     "xs": 8
   }
-};
+} as const;
 
-const layout = { mobile, tablet, desktop };
+const layout = { mobile, tablet, desktop } as const;
 
 export default layout;

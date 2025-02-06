@@ -27,4 +27,4 @@ export default {
   "red": {
     "backgroundColor": "#de2612"
   }
-};
+} as const;

@@ -102,4 +102,4 @@ export default {
     "900": 72,
     "1000": 80
   }
-};
+} as const;

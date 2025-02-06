@@ -2,104 +2,104 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-    borderRadius: {
-        full: number;
-        lg: number;
-        md: number;
-        none: number;
-        sm: number;
-        xl: number;
-        xs: number;
+    readonly borderRadius: {
+        readonly full: 9999;
+        readonly lg: 12;
+        readonly md: 8;
+        readonly none: 0;
+        readonly sm: 6;
+        readonly xl: 16;
+        readonly xs: 4;
     };
-    borderWidth: {
-        "1": number;
-        "2": number;
+    readonly borderWidth: {
+        readonly "1": 1;
+        readonly "2": 2;
     };
-    font: {
-        family: {
-            body: string;
-            detail: string;
-            heading: string;
+    readonly font: {
+        readonly family: {
+            readonly body: "DM Sans";
+            readonly detail: "DM Mono";
+            readonly heading: "Comic Hams";
         };
-        size: {
-            "50": number;
-            "75": number;
-            "90": number;
-            "100": number;
-            "150": number;
-            "200": number;
-            "300": number;
-            "400": number;
-            "500": number;
-            "550": number;
-            "600": number;
-            "700": number;
-            "800": number;
-            "900": number;
-            "1000": number;
+        readonly size: {
+            readonly "50": 10;
+            readonly "75": 12;
+            readonly "90": 14;
+            readonly "100": 16;
+            readonly "150": 18;
+            readonly "200": 20;
+            readonly "300": 24;
+            readonly "400": 30;
+            readonly "500": 36;
+            readonly "550": 40;
+            readonly "600": 48;
+            readonly "700": 60;
+            readonly "800": 72;
+            readonly "900": 96;
+            readonly "1000": 128;
         };
-        weight: {
-            bold: number;
-            heavy: number;
-            medium: number;
-            regular: number;
-            semibold: number;
+        readonly weight: {
+            readonly bold: 700;
+            readonly heavy: 900;
+            readonly medium: 500;
+            readonly regular: 400;
+            readonly semibold: 600;
         };
     };
-    letterSpacing: {
-        "0": number;
-        "50": number;
-        "75": number;
-        "90": number;
-        "100": number;
-        "150": number;
-        "200": number;
-        "300": number;
-        "400": number;
-        "500": number;
-        "550": number;
-        "600": number;
-        "700": number;
-        "800": number;
-        "900": number;
-        "1000": number;
+    readonly letterSpacing: {
+        readonly "0": 0;
+        readonly "50": -0.30000001192092896;
+        readonly "75": -0.36000001430511475;
+        readonly "90": -0.41999998688697815;
+        readonly "100": -0.47999998927116394;
+        readonly "150": -0.5400000214576721;
+        readonly "200": -0.6000000238418579;
+        readonly "300": -0.7200000286102295;
+        readonly "400": -0.8999999761581421;
+        readonly "500": -1.0800000429153442;
+        readonly "550": -1.2000000476837158;
+        readonly "600": -1.440000057220459;
+        readonly "700": -1.7999999523162842;
+        readonly "800": -2.1600000858306885;
+        readonly "900": -2.880000114440918;
+        readonly "1000": -3.8399999141693115;
     };
-    lineHeight: {
-        "50": number;
-        "75": number;
-        "100": number;
-        "200": number;
-        "300": number;
-        "400": number;
-        "500": number;
-        "600": number;
-        "700": number;
-        "800": number;
-        "900": number;
-        "950": number;
-        "1000": number;
-        "1100": number;
-        "1200": number;
+    readonly lineHeight: {
+        readonly "50": 12;
+        readonly "75": 14;
+        readonly "100": 16;
+        readonly "200": 18;
+        readonly "300": 20;
+        readonly "400": 22;
+        readonly "500": 24;
+        readonly "600": 28;
+        readonly "700": 32;
+        readonly "800": 36;
+        readonly "900": 40;
+        readonly "950": 48;
+        readonly "1000": 56;
+        readonly "1100": 72;
+        readonly "1200": 90;
     };
-    space: {
-        "0": number;
-        "25": number;
-        "50": number;
-        "75": number;
-        "100": number;
-        "150": number;
-        "175": number;
-        "200": number;
-        "250": number;
-        "300": number;
-        "350": number;
-        "400": number;
-        "500": number;
-        "600": number;
-        "700": number;
-        "800": number;
-        "900": number;
-        "1000": number;
+    readonly space: {
+        readonly "0": 0;
+        readonly "25": 2;
+        readonly "50": 4;
+        readonly "75": 6;
+        readonly "100": 8;
+        readonly "150": 12;
+        readonly "175": 14;
+        readonly "200": 16;
+        readonly "250": 20;
+        readonly "300": 24;
+        readonly "350": 28;
+        readonly "400": 32;
+        readonly "500": 40;
+        readonly "600": 48;
+        readonly "700": 56;
+        readonly "800": 64;
+        readonly "900": 72;
+        readonly "1000": 80;
     };
 };
 export default _default;

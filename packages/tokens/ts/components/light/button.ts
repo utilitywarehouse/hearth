@@ -8,4 +8,4 @@ export default {
       "backgroundColor": "#ffb921"
     }
   }
-};
+} as const;

@@ -21,4 +21,4 @@ export default {
     "size": 16,
     "strokeWidth": 1.5
   }
-};
+} as const;

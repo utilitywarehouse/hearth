@@ -91,9 +91,9 @@ const styles = StyleSheet.create(theme => ({
             lg: theme.typography.desktop.heading.sm.fontSize,
           },
           fontWeight: {
-            base: theme.typography.mobile.heading.sm.fontWeight as TextStyle['fontWeight'],
-            md: theme.typography.tablet.heading.sm.fontWeight as TextStyle['fontWeight'],
-            lg: theme.typography.desktop.heading.sm.fontWeight as TextStyle['fontWeight'],
+            base: theme.typography.mobile.heading.sm.fontWeight,
+            md: theme.typography.tablet.heading.sm.fontWeight,
+            lg: theme.typography.desktop.heading.sm.fontWeight,
           },
           lineHeight: {
             base: theme.typography.mobile.heading.sm.lineHeight,
@@ -113,9 +113,9 @@ const styles = StyleSheet.create(theme => ({
             lg: theme.typography.desktop.heading.md.fontSize,
           },
           fontWeight: {
-            base: theme.typography.mobile.heading.md.fontWeight as TextStyle['fontWeight'],
-            md: theme.typography.tablet.heading.md.fontWeight as TextStyle['fontWeight'],
-            lg: theme.typography.desktop.heading.md.fontWeight as TextStyle['fontWeight'],
+            base: theme.typography.mobile.heading.md.fontWeight,
+            md: theme.typography.tablet.heading.md.fontWeight,
+            lg: theme.typography.desktop.heading.md.fontWeight,
           },
           lineHeight: {
             base: theme.typography.mobile.heading.md.lineHeight,
@@ -135,9 +135,9 @@ const styles = StyleSheet.create(theme => ({
             lg: theme.typography.desktop.heading.lg.fontSize,
           },
           fontWeight: {
-            base: theme.typography.mobile.heading.lg.fontWeight as TextStyle['fontWeight'],
-            md: theme.typography.tablet.heading.lg.fontWeight as TextStyle['fontWeight'],
-            lg: theme.typography.desktop.heading.lg.fontWeight as TextStyle['fontWeight'],
+            base: theme.typography.mobile.heading.lg.fontWeight,
+            md: theme.typography.tablet.heading.lg.fontWeight,
+            lg: theme.typography.desktop.heading.lg.fontWeight,
           },
           lineHeight: {
             base: theme.typography.mobile.heading.lg.lineHeight,
@@ -157,9 +157,9 @@ const styles = StyleSheet.create(theme => ({
             lg: theme.typography.desktop.heading.xl.fontSize,
           },
           fontWeight: {
-            base: theme.typography.mobile.heading.xl.fontWeight as TextStyle['fontWeight'],
-            md: theme.typography.tablet.heading.xl.fontWeight as TextStyle['fontWeight'],
-            lg: theme.typography.desktop.heading.xl.fontWeight as TextStyle['fontWeight'],
+            base: theme.typography.mobile.heading.xl.fontWeight,
+            md: theme.typography.tablet.heading.xl.fontWeight,
+            lg: theme.typography.desktop.heading.xl.fontWeight,
           },
           lineHeight: {
             base: theme.typography.mobile.heading.xl.lineHeight,
