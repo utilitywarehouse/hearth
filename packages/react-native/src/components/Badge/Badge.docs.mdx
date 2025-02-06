@@ -1,0 +1,64 @@
+import { Meta, Canvas, Story, Controls, Primary } from '@storybook/blocks';
+import * as Stories from './Badge.stories';
+import { Center, Pressable, Badge, Box } from '../..';
+import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+import { color } from '@utilitywarehouse/hearth-tokens';
+
+<Meta title="Components / Badge" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components?node-id=1-148" />
+
+# Badge
+
+Use the `Badge` component to draw attention to another interface element or to provide additional context (such as status).
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Color Schemes](#color-schemes)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+Badge is a stateless component, e.g. it has no Pressed, Disabled, Active states. Badges should not be used as a mechanism for:
+
+- Filtering content
+- Assigning a piece of content to a group (tagging)
+- Performing an action
+
+<UsageWrap>
+  <Center>
+    <Badge colorScheme="red">I'm a badge</Badge>
+  </Center>
+</UsageWrap>
+
+```jsx
+import { Badge, Center } from '@utilitywarehouse/hearth-react-native';
+import { color } from '@utilitywarehouse/hearth-tokens';
+
+const MyComponent = () => (
+  <Center>
+    <Badge colorScheme="red">I'm a badge</Badge>
+  </Center>
+);
+```
+
+## Props
+
+| Property      | Type                                               | Description                            | Default |
+| ------------- | -------------------------------------------------- | -------------------------------------- | ------- |
+| `colorScheme` | `'blue' \| 'green' \| 'red' \| 'orange' \| 'grey'` | The color scheme to use for the badge. | `cyan`  |
+| `flatBase`    | `boolean`                                          | Whether the badge has a flat base.     | `false` |
+
+## Color Schemes
+
+The `Badge` component has different sizes to style the spinner.
+
+<Canvas of={Stories.KitchenSink} />

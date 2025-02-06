@@ -39,9 +39,12 @@ type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {};
 
-export const Blue: Story = {
+export const FlatBase: Story = {
+  parameters: {
+    controls: { exclude: ['flatBase'] },
+  },
   args: {
-    colorScheme: 'blue',
+    flatBase: true,
   },
 };
 
