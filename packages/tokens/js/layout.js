@@ -16,7 +16,7 @@ export const mobile = {
         "margin": 16
     },
     "spacing": {
-        "lg": 16,
+        "lg": 20,
         "md": 16,
         "sm": 12,
         "xl": 28,
