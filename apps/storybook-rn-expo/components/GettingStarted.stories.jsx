@@ -1,13 +1,5 @@
 import { Linking, Text, View } from 'react-native';
-import {
-  Button,
-  Badge,
-  StyleSheet,
-  useTheme,
-  UnistylesRuntime,
-} from '@utilitywarehouse/hearth-react-native';
-import { useEffect } from 'react';
-import { theme } from '@storybook/react-native';
+import { Badge, StyleSheet } from '@utilitywarehouse/hearth-react-native';
 
 const StarterComponent = () => {
   return (
@@ -33,7 +25,6 @@ const StarterComponent = () => {
       <Badge size="small" borderless>
         New
       </Badge>
-      <Button onPress={() => alert('yeah')}>Test</Button>
     </View>
   );
 };

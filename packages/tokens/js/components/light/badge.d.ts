@@ -9,7 +9,7 @@ declare const _default: {
     color: string;
     flatBase: {
         borderBottomLeftRadius: number;
-        borderBottomRadiusRight: number;
+        borderBottomRightRadius: number;
     };
     gap: number;
     green: {

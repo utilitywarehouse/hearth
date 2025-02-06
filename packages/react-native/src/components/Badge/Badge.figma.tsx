@@ -4,7 +4,7 @@ import figma from '@figma/code-connect';
 
 figma.connect(
   Badge,
-  'https://www.figma.com/file/3RY3OvLA88yZksRjOfjQJm/UW-App-UI?type=design&node-id=3386-6376&mode=dev',
+  'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components?node-id=61-652&t=j6vWFfxRVLbnAYhY-4',
   {
     links: [
       {
@@ -14,22 +14,17 @@ figma.connect(
     ],
     props: {
       text: figma.string('text'),
-      strong: figma.boolean('strong'),
-      colorScheme: figma.enum('colorScheme', {
-        cyan: 'cyan',
-        gold: 'gold',
+      colorScheme: figma.enum('Color Scheme', {
+        blue: 'blue',
+        orange: 'orange',
         green: 'green',
         grey: 'grey',
         red: 'red',
       }),
-      size: figma.enum('size', {
-        'large (default)': 'large',
-        small: 'small',
-      }),
-      borderless: figma.boolean('borderless?'),
+      flatBase: figma.boolean('Flat Base?'),
     },
-    example: ({ text, colorScheme, strong, size, borderless }) => (
-      <Badge colorScheme={colorScheme} strong={strong} size={size} borderless={borderless}>
+    example: ({ text, colorScheme, flatBase }) => (
+      <Badge colorScheme={colorScheme} flatBase={flatBase}>
         {text}
       </Badge>
     ),

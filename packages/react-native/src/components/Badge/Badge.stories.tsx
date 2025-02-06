@@ -1,7 +1,8 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Badge } from '.';
-import { Text } from 'react-native';
+import { VariantTitle } from '../../../docs/components';
+import { Box } from '../Box';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -14,22 +15,57 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     children: { control: 'text' },
+    colorScheme: {
+      options: ['blue', 'green', 'red', 'orange', 'grey'],
+      control: 'select',
+      description: 'Color scheme of the badge.',
+    },
+    flatBase: {
+      type: 'boolean',
+      control: 'boolean',
+      description: 'Whether the badge has a flat base.',
+    },
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {
-    children: 'This is an alert',
+    children: 'Badge',
+    colorScheme: 'blue',
+    flatBase: false,
   },
 } satisfies Meta<typeof Badge>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {
-  render: () => <Text>Hello</Text>,
+export const Playground: Story = {};
+
+export const FlatBase: Story = {
+  parameters: {
+    controls: { exclude: ['flatBase'] },
+  },
+  args: {
+    flatBase: true,
+  },
 };
 
-export const Cyan: Story = {
-  args: {
-    colorScheme: 'cyan',
-  },
+export const KitchenSink: Story = {
+  render: () => (
+    <Box gap="200">
+      <VariantTitle title="Blue">
+        <Badge colorScheme="blue">Blue badge</Badge>
+      </VariantTitle>
+      <VariantTitle title="Green">
+        <Badge colorScheme="green">Green badge</Badge>
+      </VariantTitle>
+      <VariantTitle title="Red">
+        <Badge colorScheme="red">Red badge</Badge>
+      </VariantTitle>
+      <VariantTitle title="Orange">
+        <Badge colorScheme="orange">Orange badge</Badge>
+      </VariantTitle>
+      <VariantTitle title="Grey">
+        <Badge colorScheme="grey">Grey badge</Badge>
+      </VariantTitle>
+    </Box>
+  ),
 };
