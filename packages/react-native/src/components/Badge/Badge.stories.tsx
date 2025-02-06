@@ -15,10 +15,22 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     children: { control: 'text' },
+    colorScheme: {
+      options: ['blue', 'green', 'red', 'orange', 'grey'],
+      control: 'select',
+      description: 'Color scheme of the badge.',
+    },
+    flatBase: {
+      type: 'boolean',
+      control: 'boolean',
+      description: 'Whether the badge has a flat base.',
+    },
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {
     children: 'Badge',
+    colorScheme: 'blue',
+    flatBase: false,
   },
 } satisfies Meta<typeof Badge>;
 

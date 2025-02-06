@@ -9,7 +9,7 @@ export default {
     "color": "#fffbe8",
     "flatBase": {
         "borderBottomLeftRadius": 0,
-        "borderBottomRadiusRight": 0
+        "borderBottomRightRadius": 0
     },
     "gap": 4,
     "green": {

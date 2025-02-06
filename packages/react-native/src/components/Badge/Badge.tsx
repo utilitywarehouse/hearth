@@ -54,8 +54,8 @@ const styles = StyleSheet.create(theme => ({
       },
       flatBase: {
         true: {
-          borderBottomLeftRadius: theme.components.badge.flatBase.borderRadiusBottomLeft,
-          borderBottomRightRadius: theme.components.badge.flatBase.borderRadiusBottomRight,
+          borderBottomLeftRadius: theme.components.badge.flatBase.borderBottomLeftRadius,
+          borderBottomRightRadius: theme.components.badge.flatBase.borderBottomRightRadius,
         },
         false: {},
       },
