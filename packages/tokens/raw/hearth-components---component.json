@@ -6,11 +6,7 @@
         "type": "number",
         "value": 4
       },
-      "color": {
-        "alias": "{color.off-white}",
-        "type": "color",
-        "value": "#fffbe8"
-      },
+
       "flat-base": {
         "border-bottom-left-radius": {
           "alias": "{border-radius.none}",
@@ -86,6 +82,11 @@
         "value": 2
       },
       "solid": {
+        "color": {
+          "alias": "{color.off-white}",
+          "type": "color",
+          "value": "#fffbe8"
+        },
         "blue": {
           "background-color": {
             "alias": "{color.dark.blue.700}",
@@ -194,11 +195,6 @@
         "type": "number",
         "value": 4
       },
-      "color": {
-        "alias": "{color.off-white}",
-        "type": "color",
-        "value": "#fffbe8"
-      },
       "flat-base": {
         "border-bottom-left-radius": {
           "alias": "{border-radius.none}",
@@ -274,6 +270,11 @@
         "value": 2
       },
       "solid": {
+        "color": {
+          "alias": "{color.off-white}",
+          "type": "color",
+          "value": "#fffbe8"
+        },
         "blue": {
           "background-color": {
             "alias": "{color.light.blue.700}",
