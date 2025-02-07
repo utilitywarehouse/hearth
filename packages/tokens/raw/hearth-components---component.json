@@ -6,7 +6,6 @@
         "type": "number",
         "value": 4
       },
-
       "flat-base": {
         "border-bottom-left-radius": {
           "alias": "{border-radius.none}",
@@ -82,17 +81,17 @@
         "value": 2
       },
       "solid": {
-        "color": {
-          "alias": "{color.off-white}",
-          "type": "color",
-          "value": "#fffbe8"
-        },
         "blue": {
           "background-color": {
             "alias": "{color.dark.blue.700}",
             "type": "color",
             "value": "#93c1ff"
           }
+        },
+        "color": {
+          "alias": "{color.off-white}",
+          "type": "color",
+          "value": "#fffbe8"
         },
         "green": {
           "background-color": {
@@ -270,17 +269,17 @@
         "value": 2
       },
       "solid": {
-        "color": {
-          "alias": "{color.off-white}",
-          "type": "color",
-          "value": "#fffbe8"
-        },
         "blue": {
           "background-color": {
             "alias": "{color.light.blue.700}",
             "type": "color",
             "value": "#1c6cd4"
           }
+        },
+        "color": {
+          "alias": "{color.off-white}",
+          "type": "color",
+          "value": "#fffbe8"
         },
         "green": {
           "background-color": {
