@@ -123,23 +123,24 @@ const styles = StyleSheet.create(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    padding: theme.components.spinner.padding,
     variants: {
       size: {
         xs: {
-          width: theme.components.spinner.xs.size,
-          height: theme.components.spinner.xs.size,
+          width: theme.components.spinner.xs.size + theme.components.spinner.padding * 2,
+          height: theme.components.spinner.xs.size + theme.components.spinner.padding * 2,
         },
         sm: {
-          width: theme.components.spinner.sm.size,
-          height: theme.components.spinner.sm.size,
+          width: theme.components.spinner.sm.size + theme.components.spinner.padding * 2,
+          height: theme.components.spinner.sm.size + theme.components.spinner.padding * 2,
         },
         md: {
-          width: theme.components.spinner.md.size,
-          height: theme.components.spinner.md.size,
+          width: theme.components.spinner.md.size + theme.components.spinner.padding * 2,
+          height: theme.components.spinner.md.size + theme.components.spinner.padding * 2,
         },
         lg: {
-          width: theme.components.spinner.lg.size,
-          height: theme.components.spinner.lg.size,
+          width: theme.components.spinner.lg.size + theme.components.spinner.padding * 2,
+          height: theme.components.spinner.lg.size + theme.components.spinner.padding * 2,
         },
       },
     },

@@ -1,8 +1,9 @@
 import { Meta, Canvas, Story, Controls, Primary } from '@storybook/blocks';
 import * as Stories from './Badge.stories';
-import { Center, Pressable, Badge, Box } from '../..';
+import { Center, Pressable, Badge, BadgeText, BadgeIcon, Box } from '../..';
 import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
 import { color } from '@utilitywarehouse/hearth-tokens';
+import { TickSmallIcon, AddSmallIcon } from '@utilitywarehouse/react-native-icons';
 
 <Meta title="Components / Badge" />
 
@@ -18,6 +19,7 @@ Use the `Badge` component to draw attention to another interface element or to p
 - [Usage](#usage)
 - [Props](#props)
 - [Color Schemes](#color-schemes)
+- [Advanced Usage](#advanced-usage)
 
 ## Playground
 
@@ -36,7 +38,9 @@ Badge is a stateless component, e.g. it has no Pressed, Disabled, Active states.
 <UsageWrap>
   <Center>
     <Box>
-      <Badge colorScheme="red">I'm a badge</Badge>
+      <Badge colorScheme="red" icon={TickSmallIcon}>
+        {"I'm a badge"}
+      </Badge>
     </Box>
   </Center>
 </UsageWrap>
@@ -44,10 +48,13 @@ Badge is a stateless component, e.g. it has no Pressed, Disabled, Active states.
 ```jsx
 import { Badge, Center } from '@utilitywarehouse/hearth-react-native';
 import { color } from '@utilitywarehouse/hearth-tokens';
+import { TickSmallIcon } from '@utilitywarehouse/react-native-icons';
 
 const MyComponent = () => (
   <Center>
-    <Badge colorScheme="red">I'm a badge</Badge>
+    <Badge colorScheme="red" icon={TickSmallIcon}>
+      I'm a badge
+    </Badge>
   </Center>
 );
 ```
@@ -59,9 +66,36 @@ const MyComponent = () => (
 | `variant`     | `'solid' \| 'outline'`                             | The variant of the badge.              | `solid` |
 | `colorScheme` | `'blue' \| 'green' \| 'red' \| 'orange' \| 'grey'` | The color scheme to use for the badge. | `cyan`  |
 | `flatBase`    | `boolean`                                          | Whether the badge has a flat base.     | `false` |
+| `icon`        | `ReactNode`                                        | The icon to display in the badge.      |         |
 
 ## Color Schemes
 
 The `Badge` component has different sizes to style the spinner.
 
 <Canvas of={Stories.KitchenSink} />
+
+## Advanced Usage
+
+Although not recommended, the `Badge` component can be used to create more complex UI with the internal parts of the badge.
+
+<UsageWrap>
+  <Center>
+    <Box>
+      <Badge colorScheme="green" variant="outline">
+        <BadgeIcon as={AddSmallIcon} />
+        <BadgeText>Plus</BadgeText>
+      </Badge>
+    </Box>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Badge, BadgeText, BadgeIcon } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <Badge colorScheme="green" variant="outline">
+    <BadgeIcon as={AddSmallIcon} />
+    <BadgeText>Plus</BadgeText>
+  </Badge>
+);
+```

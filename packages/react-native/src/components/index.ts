@@ -7,6 +7,7 @@ export * from './DetailText';
 export * from './Heading';
 export * from './Icon';
 export * from './Box';
+export * from './Flex';
 
 export {
   FlatList,

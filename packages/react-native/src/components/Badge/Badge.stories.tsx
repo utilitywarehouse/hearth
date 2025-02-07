@@ -3,6 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Badge } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Box } from '../Box';
+import { TickSmallIcon } from '@utilitywarehouse/react-native-icons';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -70,6 +71,10 @@ export const FlatBase: Story = {
   args: {
     flatBase: true,
   },
+};
+
+export const Icon: Story = {
+  render: args => <Badge {...args} icon={TickSmallIcon} />,
 };
 
 export const KitchenSink: Story = {
