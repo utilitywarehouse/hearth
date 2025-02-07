@@ -13,9 +13,9 @@ const styles = StyleSheet.create({
 });
 
 const Center = forwardRef<View, CenterProps>(({ children, ...props }, ref) => (
-  <Box ref={ref} style={styles.container} {...props}>
+  <View ref={ref} style={styles.container} {...props}>
     {children}
-  </Box>
+  </View>
 ));
 
 Center.displayName = 'Center';

@@ -99,7 +99,19 @@ const themeStyleMapping: { [key in keyof ViewStyle]?: keyof UnistylesThemes['lig
 
 const resolveThemeValue = (value: any, themeMapping: any): any => {
   if (typeof value === 'string' && themeMapping && typeof themeMapping === 'object') {
-    if (themeMapping[value] !== undefined) {
+    // Look for colour values by detecting the last number in the string
+    const shadeMatch = value.match(/\d+$/);
+    if (shadeMatch) {
+      const shade = shadeMatch[0];
+      const base = value.slice(0, -shade.length);
+      const nested = themeMapping[base];
+      if (nested && typeof nested === 'object') {
+        return nested[shade] ?? value;
+      }
+    }
+
+    // Otherwise if themeMapping has a direct mapping
+    if ((typeof themeMapping[value] === 'string') !== undefined) {
       return themeMapping[value];
     }
     return value;
