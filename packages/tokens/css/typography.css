@@ -5,6 +5,7 @@
 :root {
   --body-text-font-weight-desktop: var(--font-weight-regular);
   --body-text-font-weight-bold-desktop: var(--font-weight-bold);
+  --body-text-font-weight-semibold-desktop: var(--font-weight-semibold);
   --body-text-lg-font-size-desktop: var(--font-size-150);
   --body-text-lg-letter-spacing-desktop: 0;
   --body-text-lg-line-height-desktop: var(--line-height-500);
@@ -58,6 +59,7 @@
   --body-text-font-family: var(--font-family-body);
   --body-text-font-weight: var(--font-weight-regular);
   --body-text-font-weight-bold: var(--font-weight-bold);
+  --body-text-font-weight-semibold: var(--font-weight-semibold);
   --body-text-lg-font-size: var(--font-size-150);
   --body-text-lg-letter-spacing: 0;
   --body-text-lg-line-height: var(--line-height-500);
@@ -112,6 +114,7 @@
   --heading-xl-line-height: var(--line-height-800);
   --body-text-font-weight-tablet: var(--font-weight-regular);
   --body-text-font-weight-bold-tablet: var(--font-weight-bold);
+  --body-text-font-weight-semibold-tablet: var(--font-weight-semibold);
   --body-text-lg-font-size-tablet: var(--font-size-150);
   --body-text-lg-letter-spacing-tablet: 0;
   --body-text-lg-line-height-tablet: var(--line-height-500);
