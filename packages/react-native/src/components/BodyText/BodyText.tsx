@@ -15,6 +15,7 @@ const BodyText = forwardRef<Text, BodyTextProps>(
       color,
       size = 'md',
       truncated,
+      semibold,
       bold,
       underline,
       strikeThrough,
@@ -33,6 +34,7 @@ const BodyText = forwardRef<Text, BodyTextProps>(
     const { color: themeColor, colorMode } = useTheme();
     styles.useVariants({
       size,
+      semibold,
       bold,
       underline,
       strikeThrough,
@@ -98,6 +100,11 @@ const styles = StyleSheet.create(theme => ({
           fontSize: theme.typography.mobile.bodyText.sm.fontSize,
           lineHeight: theme.typography.mobile.bodyText.sm.lineHeight,
           letterSpacing: theme.typography.mobile.bodyText.sm.letterSpacing,
+        },
+      },
+      semibold: {
+        true: {
+          fontWeight: theme.fontWeight.semibold,
         },
       },
       bold: {

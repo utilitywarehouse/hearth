@@ -7,6 +7,7 @@ interface TextProps extends RNTextProps {
   underline?: boolean;
   truncated?: boolean;
   bold?: boolean;
+  semibold?: boolean;
   italic?: boolean;
   color?: ColorValue;
   textTransform?: TextStyle['textTransform'];
