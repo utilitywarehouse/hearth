@@ -5,254 +5,41 @@ import {
   logWarningLevels,
 } from 'style-dictionary/enums';
 import { loadJSON } from './utils/index.js';
+import { registerDictionaryExtensions } from './formats.js';
 
-function camelCase(str) {
-  return str.replace(/[-_](\w)/g, (_, c) => c.toUpperCase());
+// Call registration once
+registerDictionaryExtensions(StyleDictionary);
+
+// Helper to create dynamic component files
+function createDynamicComponentFiles(componentJson, mode) {
+  return Object.keys(componentJson[mode]).map(componentName => ({
+    destination: `components/${mode}/${componentName}.ts`,
+    format: 'js/component-output',
+    options: { minify: true },
+    transformGroup: 'js-device',
+    filter: token =>
+      token.filePath.includes('component') &&
+      token.path.includes(componentName) &&
+      token.path.includes(mode),
+  }));
 }
-
-function recursiveCamelCase(obj) {
-  if (Array.isArray(obj)) {
-    return obj.map(recursiveCamelCase);
-  } else if (obj && typeof obj === 'object') {
-    return Object.keys(obj).reduce((acc, key) => {
-      const camelKey = camelCase(key);
-      acc[camelKey] = recursiveCamelCase(obj[key]);
-      return acc;
-    }, {});
-  }
-  return obj;
-}
-
-function buildDeviceOutput(dictionary, options) {
-  const output = { mobile: {}, tablet: {}, desktop: {} };
-  dictionary.allTokens.forEach(token => {
-    const [device, ...rest] = token.path;
-    if (!output[device]) return;
-    let current = output[device];
-    rest.forEach((part, i) => {
-      const camelPart = camelCase(part);
-      if (options.skipPaths?.includes(part)) return;
-      if (i === rest.length - 1) {
-        current[camelPart] = token.value;
-      } else {
-        current[camelPart] = current[camelPart] || {};
-        current = current[camelPart];
-      }
-    });
-  });
-  return output;
-}
-
-// transform for js name to camel case
-StyleDictionary.registerTransform({
-  name: 'name/camel-case',
-  type: 'name',
-  transform: (token, options) => {
-    return token.name.replace(/[-_](\w)/g, (_, c) => c.toUpperCase());
-  },
-});
-
-StyleDictionary.registerTransformGroup({
-  name: 'js-device',
-  transforms: ['attribute/cti', 'name/camel'],
-});
-
-StyleDictionary.registerFormat({
-  name: 'js/device-module',
-  format: ({ dictionary, options, file }) => {
-    const fileName = file?.destination?.replace('.ts', '');
-    const output = buildDeviceOutput(dictionary, options);
-    return `/**
- * Do not edit directly, this file was auto-generated.
- */
-\nexport const mobile = ${JSON.stringify(output.mobile, null, 2)} as const;
-\nexport const tablet = ${JSON.stringify(output.tablet, null, 2)} as const;
-\nexport const desktop = ${JSON.stringify(output.desktop, null, 2)} as const;
-\nconst ${fileName} = { mobile, tablet, desktop } as const;
-\nexport default ${fileName};`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'js/theme-module',
-  format: ({ dictionary }) => {
-    const common = {};
-    const light = {};
-    const dark = {};
-
-    dictionary.allTokens.forEach(token => {
-      const [_, ...rest] = token.path;
-      const [__, ___, ...parts] = token.path;
-      let current = common;
-      const isLight = rest[0] === 'light';
-      const isDark = rest[0] === 'dark';
-      if (isLight) current = light;
-      if (isDark) current = dark;
-      (isLight || isDark ? parts : rest).forEach((part, i) => {
-        const camelPart = camelCase(part);
-        if (i === rest.length - (isLight || isDark ? 2 : 1)) {
-          current[camelPart] = token.value;
-        } else {
-          current[camelPart] = current[camelPart] || {};
-          current = current[camelPart];
-        }
-      });
-    });
-
-    return `/**
- * Do not edit directly, this file was auto-generated.
- */
-\nexport const common = ${JSON.stringify(common, null, 2)} as const;
-\nexport const light = ${JSON.stringify(light, null, 2)} as const;
-\nexport const dark = ${JSON.stringify(dark, null, 2)} as const;
-\nconst color = { common, light, dark } as const;
-\nexport default color;`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'js/component-output',
-  format: ({ dictionary }) => {
-    const output = {};
-    dictionary.allTokens.forEach(token => {
-      const subKeys = token.path.slice(2);
-      let current = output;
-      subKeys.forEach((part, i) => {
-        const camelPart = camelCase(part);
-        if (i === subKeys.length - 1) {
-          current[camelPart] = token.value;
-        } else {
-          current[camelPart] = current[camelPart] || {};
-          current = current[camelPart];
-        }
-      });
-    });
-    return `/**
- * Do not edit directly, this file was auto-generated.
- */
-
-export default ${JSON.stringify(output, null, 2)} as const;`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'js/component-index',
-  format: ({ options }) => {
-    const { components } = options;
-    return `/**
- * Do not edit directly, this file was auto-generated.
- */
-
-${components.map(name => `export { default as ${name} } from './${name}';`).join('\n')}`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'js/component-root-index',
-  format: () => {
-    return `/**
- * Do not edit directly, this file was auto-generated.
- */
-
-export * as light from './light/index';
-export * as dark from './dark/index';`;
-  },
-});
-
-StyleDictionary.registerFormat({
-  name: 'js/root-index',
-  format: () => {
-    return `/**
- * Do not edit directly, this file was auto-generated.
- */
-
-export { default as color } from './color';
-export { default as layout } from './layout';
-export { default as primitive } from './primitive';
-export { default as typography } from './typography';
-export * as components from './components';`;
-  },
-});
-
-// UPDATED: Modify the "javascript/esm-camel" format to build output from dictionary.allTokens
-StyleDictionary.registerFormat({
-  name: 'javascript/esm-camel',
-  format: ({ dictionary }) => {
-    const output = {};
-    dictionary.allTokens.forEach(token => {
-      let current = output;
-      token.path.forEach((part, i) => {
-        const camelPart = camelCase(part);
-        if (i === token.path.length - 1) {
-          current[camelPart] = token.value;
-        } else {
-          current[camelPart] = current[camelPart] || {};
-          current = current[camelPart];
-        }
-      });
-    });
-    // Optionally reapply recursiveCamelCase (already applied during build)
-    const camelOutput = recursiveCamelCase(output);
-    return `/**
- * Do not edit directly, this file was auto-generated.
- */
-
-export default ${JSON.stringify(camelOutput, null, 2)} as const;`;
-  },
-});
 
 const componentJson = loadJSON('./raw/hearth-components---component.json');
-const lightComponents = Object.keys(componentJson.light);
-const darkComponents = Object.keys(componentJson.dark);
-
-const dynamicLightComponentFiles = lightComponents.map(componentName => ({
-  destination: `components/light/${componentName}.ts`,
-  format: 'js/component-output',
-  options: {
-    minify: true,
-  },
-  transformGroup: 'js-device',
-  filter: token => {
-    return (
-      token.filePath.includes('component') &&
-      token.path.includes(componentName) &&
-      token.path.includes('light')
-    );
-  },
-}));
-
-const dynamicDarkComponentFiles = darkComponents.map(componentName => ({
-  destination: `components/dark/${componentName}.ts`,
-  format: 'js/component-output',
-  options: {
-    minify: true,
-  },
-  transformGroup: 'js-device',
-  filter: token => {
-    return (
-      token.filePath.includes('component') &&
-      token.path.includes(componentName) &&
-      token.path.includes('dark')
-    );
-  },
-}));
+const dynamicLightComponentFiles = createDynamicComponentFiles(componentJson, 'light');
+const dynamicDarkComponentFiles = createDynamicComponentFiles(componentJson, 'dark');
 
 const indexLightFile = {
   destination: 'components/light/index.ts',
   format: 'js/component-index',
   transformGroup: 'js-device',
-  options: {
-    components: lightComponents,
-  },
+  options: { components: Object.keys(componentJson.light) },
 };
 
 const indexDarkFile = {
   destination: 'components/dark/index.ts',
   format: 'js/component-index',
   transformGroup: 'js-device',
-  options: {
-    components: darkComponents,
-  },
+  options: { components: Object.keys(componentJson.dark) },
 };
 
 const indexRootFile = {
@@ -273,10 +60,10 @@ function generateJs() {
     new StyleDictionary({
       source: ['./raw/*.json'],
       log: {
-        warnings: logWarningLevels.warn, // 'warn' | 'error' | 'disabled'
-        verbosity: logVerbosityLevels.default, // 'default' | 'silent' | 'verbose'
+        warnings: logWarningLevels.warn,
+        verbosity: logVerbosityLevels.default,
         errors: {
-          brokenReferences: logBrokenReferenceLevels.throw, // 'throw' | 'console'
+          brokenReferences: logBrokenReferenceLevels.throw,
         },
       },
       platforms: {
@@ -287,18 +74,11 @@ function generateJs() {
             {
               destination: 'typography.ts',
               format: 'js/device-module',
-              options: {
-                skipPaths: ['typography', 'scales'],
-              },
-              filter: token => {
-                if (
-                  token.attributes.state === 'font-family' &&
-                  token.attributes.category !== 'mobile'
-                ) {
-                  return false;
-                }
-                return token.attributes.type === 'typography';
-              },
+              options: { skipPaths: ['typography', 'scales'] },
+              filter: token =>
+                token.attributes.state === 'font-family'
+                  ? token.attributes.category === 'mobile'
+                  : token.attributes.type === 'typography',
             },
           ],
         },
@@ -309,12 +89,8 @@ function generateJs() {
             {
               destination: 'layout.ts',
               format: 'js/device-module',
-              options: {
-                skipPaths: ['layout'],
-              },
-              filter: token => {
-                return token.attributes.type === 'layout';
-              },
+              options: { skipPaths: ['layout'] },
+              filter: token => token.attributes.type === 'layout',
             },
           ],
         },
@@ -325,9 +101,7 @@ function generateJs() {
             {
               destination: 'color.ts',
               format: 'js/theme-module',
-              filter: token => {
-                return token.filePath.includes('primitive') && token.type === 'color';
-              },
+              filter: token => token.filePath.includes('primitive') && token.type === 'color',
             },
           ],
         },
@@ -338,12 +112,8 @@ function generateJs() {
             {
               destination: 'primitive.ts',
               format: 'javascript/esm-camel',
-              filter: token => {
-                return token.filePath.includes('primitive') && token.type !== 'color';
-              },
-              options: {
-                minify: true,
-              },
+              filter: token => token.filePath.includes('primitive') && token.type !== 'color',
+              options: { minify: true },
             },
           ],
         },
