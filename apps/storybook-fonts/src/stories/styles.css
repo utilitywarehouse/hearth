@@ -17,6 +17,10 @@
   font-weight: 700;
 }
 
+.semibold {
+  font-weight: 600;
+}
+
 .heavy {
   font-weight: 900;
 }

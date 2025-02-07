@@ -6,6 +6,12 @@ export const DMSans = () => (
     <p className="dm-sans italic" contentEditable="true">
       AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
     </p>
+    <p className="dm-sans semibold" contentEditable="true">
+      AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
+    </p>
+    <p className="dm-sans semibold italic" contentEditable="true">
+      AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
+    </p>
     <p className="dm-sans bold" contentEditable="true">
       AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
     </p>
