@@ -26,6 +26,8 @@ const App = () => {
     'DMMono-MediumItalic': require('./assets/fonts/dmmono_mediumitalic.ttf'),
     'DMSans-Bold': require('./assets/fonts/dmsans_bold.ttf'),
     'DMSans-BoldItalic': require('./assets/fonts/dmsans_bolditalic.ttf'),
+    'DMSans-SemiBold': require('./assets/fonts/dmsans_semibold.ttf'),
+    'DMSans-SemiBoldItalic': require('./assets/fonts/dmsans_semibolditalic.ttf'),
     'DMSans-Italic': require('./assets/fonts/dmsans_italic.ttf'),
     'DMSans-Regular': require('./assets/fonts/dmsans_regular.ttf'),
   });

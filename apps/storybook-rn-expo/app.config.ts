@@ -51,6 +51,8 @@ export default ({ config }) => ({
           variants: [
             { fontFile: 'dmsans_bold', fontWeight: 700 },
             { fontFile: 'dmsans_bolditalic', fontWeight: 700, italic: true },
+            { fontFile: 'dmsans_semibold', fontWeight: 600 },
+            { fontFile: 'dmsans_semibolditalic', fontWeight: 600, italic: true },
             { fontFile: 'dmsans_regular', fontWeight: 400 },
             { fontFile: 'dmsans_italic', fontWeight: 400, italic: true },
           ],
