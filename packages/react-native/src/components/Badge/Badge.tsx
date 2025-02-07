@@ -4,9 +4,10 @@ import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
 import { BadgeContext } from './Badge.context';
 import BadgeText from './BadgeText';
+import BadgeIcon from './BadgeIcon';
 
 const Badge = forwardRef<View, BadgeProps>(({ children, ...props }, ref) => {
-  const { variant = 'solid', colorScheme = 'blue', flatBase = false, style, ...rest } = props;
+  const { variant = 'solid', icon, colorScheme = 'blue', flatBase = false, style, ...rest } = props;
 
   const value = React.useMemo(
     () => ({ colorScheme, flatBase, variant }),
@@ -20,6 +21,7 @@ const Badge = forwardRef<View, BadgeProps>(({ children, ...props }, ref) => {
   return (
     <BadgeContext.Provider value={value}>
       <View ref={ref} {...rest} style={[styles.container, style]}>
+        {!!icon && <BadgeIcon as={icon} />}
         {childIsText ? <BadgeText>{children}</BadgeText> : children}
       </View>
     </BadgeContext.Provider>
