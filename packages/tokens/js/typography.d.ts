@@ -6,6 +6,7 @@ export declare const mobile: {
         readonly fontFamily: "DM Sans";
         readonly fontWeight: 400;
         readonly fontWeightBold: 700;
+        readonly fontWeightSemibold: 600;
         readonly lg: {
             readonly fontSize: 18;
             readonly letterSpacing: 0;
@@ -97,6 +98,7 @@ export declare const tablet: {
         readonly fontFamily: "DM Sans";
         readonly fontWeight: 400;
         readonly fontWeightBold: 700;
+        readonly fontWeightSemibold: 600;
         readonly lg: {
             readonly fontSize: 18;
             readonly letterSpacing: 0;
@@ -188,6 +190,7 @@ export declare const desktop: {
         readonly fontFamily: "DM Sans";
         readonly fontWeight: 400;
         readonly fontWeightBold: 700;
+        readonly fontWeightSemibold: 600;
         readonly lg: {
             readonly fontSize: 18;
             readonly letterSpacing: 0;
@@ -280,6 +283,7 @@ declare const typography: {
             readonly fontFamily: "DM Sans";
             readonly fontWeight: 400;
             readonly fontWeightBold: 700;
+            readonly fontWeightSemibold: 600;
             readonly lg: {
                 readonly fontSize: 18;
                 readonly letterSpacing: 0;
@@ -371,6 +375,7 @@ declare const typography: {
             readonly fontFamily: "DM Sans";
             readonly fontWeight: 400;
             readonly fontWeightBold: 700;
+            readonly fontWeightSemibold: 600;
             readonly lg: {
                 readonly fontSize: 18;
                 readonly letterSpacing: 0;
@@ -462,6 +467,7 @@ declare const typography: {
             readonly fontFamily: "DM Sans";
             readonly fontWeight: 400;
             readonly fontWeightBold: 700;
+            readonly fontWeightSemibold: 600;
             readonly lg: {
                 readonly fontSize: 18;
                 readonly letterSpacing: 0;

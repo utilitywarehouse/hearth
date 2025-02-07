@@ -30,10 +30,10 @@ declare const _default: {
     readonly paddingHorizontal: 6;
     readonly paddingVertical: 2;
     readonly solid: {
-        readonly color: "#fffbe8";
         readonly blue: {
             readonly backgroundColor: "#1c6cd4";
         };
+        readonly color: "#fffbe8";
         readonly green: {
             readonly backgroundColor: "#0f834a";
         };

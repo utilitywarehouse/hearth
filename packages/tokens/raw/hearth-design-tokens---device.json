@@ -96,6 +96,11 @@
           "type": "number",
           "value": 700
         },
+        "font-weight-semibold": {
+          "alias": "{font.weight.semibold}",
+          "type": "number",
+          "value": 600
+        },
         "lg": {
           "font-size": {
             "alias": "{font.size.150}",
@@ -488,6 +493,11 @@
           "type": "number",
           "value": 700
         },
+        "font-weight-semibold": {
+          "alias": "{font.weight.semibold}",
+          "type": "number",
+          "value": 600
+        },
         "lg": {
           "font-size": {
             "alias": "{font.size.150}",
@@ -879,6 +889,11 @@
           "alias": "{font.weight.bold}",
           "type": "number",
           "value": 700
+        },
+        "font-weight-semibold": {
+          "alias": "{font.weight.semibold}",
+          "type": "number",
+          "value": 600
         },
         "lg": {
           "font-size": {

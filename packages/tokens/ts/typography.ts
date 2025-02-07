@@ -7,6 +7,7 @@ export const mobile = {
     "fontFamily": "DM Sans",
     "fontWeight": 400,
     "fontWeightBold": 700,
+    "fontWeightSemibold": 600,
     "lg": {
       "fontSize": 18,
       "letterSpacing": 0,
@@ -99,6 +100,7 @@ export const tablet = {
     "fontFamily": "DM Sans",
     "fontWeight": 400,
     "fontWeightBold": 700,
+    "fontWeightSemibold": 600,
     "lg": {
       "fontSize": 18,
       "letterSpacing": 0,
@@ -191,6 +193,7 @@ export const desktop = {
     "fontFamily": "DM Sans",
     "fontWeight": 400,
     "fontWeightBold": 700,
+    "fontWeightSemibold": 600,
     "lg": {
       "fontSize": 18,
       "letterSpacing": 0,

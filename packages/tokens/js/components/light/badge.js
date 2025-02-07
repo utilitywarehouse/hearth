@@ -30,10 +30,10 @@ export default {
     "paddingHorizontal": 6,
     "paddingVertical": 2,
     "solid": {
-        "color": "#fffbe8",
         "blue": {
             "backgroundColor": "#1c6cd4"
         },
+        "color": "#fffbe8",
         "green": {
             "backgroundColor": "#0f834a"
         },
