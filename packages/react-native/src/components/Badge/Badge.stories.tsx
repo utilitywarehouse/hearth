@@ -15,6 +15,11 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {
     children: { control: 'text' },
+    variant: {
+      options: ['solid', 'outline'],
+      control: 'radio',
+      description: 'Variant of the badge.',
+    },
     colorScheme: {
       options: ['blue', 'green', 'red', 'orange', 'grey'],
       control: 'select',
@@ -29,6 +34,7 @@ const meta = {
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {
     children: 'Badge',
+    variant: 'solid',
     colorScheme: 'blue',
     flatBase: false,
   },
@@ -38,6 +44,24 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {};
+
+export const Solid: Story = {
+  parameters: {
+    controls: { exclude: ['variant'] },
+  },
+  args: {
+    variant: 'solid',
+  },
+};
+
+export const Outline: Story = {
+  parameters: {
+    controls: { exclude: ['variant'] },
+  },
+  args: {
+    variant: 'outline',
+  },
+};
 
 export const FlatBase: Story = {
   parameters: {
@@ -51,20 +75,45 @@ export const FlatBase: Story = {
 export const KitchenSink: Story = {
   render: () => (
     <Box gap="200">
-      <VariantTitle title="Blue">
+      <VariantTitle title="Blue - Solid">
         <Badge colorScheme="blue">Blue badge</Badge>
       </VariantTitle>
-      <VariantTitle title="Green">
+      <VariantTitle title="Green - Solid">
         <Badge colorScheme="green">Green badge</Badge>
       </VariantTitle>
-      <VariantTitle title="Red">
+      <VariantTitle title="Red - Solid">
         <Badge colorScheme="red">Red badge</Badge>
       </VariantTitle>
-      <VariantTitle title="Orange">
+      <VariantTitle title="Orange - Solid">
         <Badge colorScheme="orange">Orange badge</Badge>
       </VariantTitle>
-      <VariantTitle title="Grey">
+      <VariantTitle title="Grey - Solid">
         <Badge colorScheme="grey">Grey badge</Badge>
+      </VariantTitle>
+      <VariantTitle title="Blue - Outline">
+        <Badge colorScheme="blue" variant="outline">
+          Blue badge
+        </Badge>
+      </VariantTitle>
+      <VariantTitle title="Green - Outline">
+        <Badge colorScheme="green" variant="outline">
+          Green badge
+        </Badge>
+      </VariantTitle>
+      <VariantTitle title="Red - Outline">
+        <Badge colorScheme="red" variant="outline">
+          Red badge
+        </Badge>
+      </VariantTitle>
+      <VariantTitle title="Orange - Outline">
+        <Badge colorScheme="orange" variant="outline">
+          Orange badge
+        </Badge>
+      </VariantTitle>
+      <VariantTitle title="Grey - Outline">
+        <Badge colorScheme="grey" variant="outline">
+          Grey badge
+        </Badge>
       </VariantTitle>
     </Box>
   ),

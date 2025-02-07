@@ -43,13 +43,13 @@ const StorybookUIRoot = view.getStorybookUI({
     barTextColor: '#9E9E9E',
     barSelectedColor: '#585C6D',
     barHoverColor: '#585C6D',
-    barBg: '#FFFBE8',
+    // barBg: '#FFFBE8',
 
     // Form colors
-    inputBg: '#FFFBE8',
-    inputBorder: '#10162F',
-    inputTextColor: '#10162F',
-    inputBorderRadius: 2,
+    // inputBg: '#FFFBE8',
+    // inputBorder: '#10162F',
+    // inputTextColor: '#10162F',
+    // inputBorderRadius: 2,
   },
 });
 

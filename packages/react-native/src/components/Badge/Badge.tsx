@@ -6,13 +6,16 @@ import { BadgeContext } from './Badge.context';
 import BadgeText from './BadgeText';
 
 const Badge = forwardRef<View, BadgeProps>(({ children, ...props }, ref) => {
-  const { colorScheme = 'blue', flatBase = false, style, ...rest } = props;
+  const { variant = 'solid', colorScheme = 'blue', flatBase = false, style, ...rest } = props;
 
-  const value = React.useMemo(() => ({ colorScheme, flatBase }), [colorScheme, flatBase]);
+  const value = React.useMemo(
+    () => ({ colorScheme, flatBase, variant }),
+    [colorScheme, flatBase, variant]
+  );
 
   const childIsText = typeof children === 'string' || typeof children === 'number';
 
-  styles.useVariants({ colorScheme, flatBase });
+  styles.useVariants({ colorScheme, flatBase, variant });
 
   return (
     <BadgeContext.Provider value={value}>
@@ -36,20 +39,17 @@ const styles = StyleSheet.create(theme => ({
     gap: theme.components.badge.gap,
     variants: {
       colorScheme: {
-        blue: {
-          backgroundColor: theme.components.badge.blue.backgroundColor,
-        },
-        red: {
-          backgroundColor: theme.components.badge.red.backgroundColor,
-        },
-        green: {
-          backgroundColor: theme.components.badge.green.backgroundColor,
-        },
-        orange: {
-          backgroundColor: theme.components.badge.orange.backgroundColor,
-        },
-        grey: {
-          backgroundColor: theme.components.badge.grey.backgroundColor,
+        blue: {},
+        red: {},
+        green: {},
+        orange: {},
+        grey: {},
+      },
+      variant: {
+        solid: {},
+        outline: {
+          borderWidth: theme.components.badge.outline.borderWidth,
+          borderColor: theme.components.badge.outline.borderColor,
         },
       },
       flatBase: {
@@ -60,6 +60,78 @@ const styles = StyleSheet.create(theme => ({
         false: {},
       },
     },
+    compoundVariants: [
+      {
+        colorScheme: 'blue',
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.components.badge.solid.blue.backgroundColor,
+        },
+      },
+      {
+        colorScheme: 'red',
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.components.badge.solid.red.backgroundColor,
+        },
+      },
+      {
+        colorScheme: 'green',
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.components.badge.solid.green.backgroundColor,
+        },
+      },
+      {
+        colorScheme: 'orange',
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.components.badge.solid.orange.backgroundColor,
+        },
+      },
+      {
+        colorScheme: 'grey',
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.components.badge.solid.grey.backgroundColor,
+        },
+      },
+      {
+        colorScheme: 'blue',
+        variant: 'outline',
+        styles: {
+          backgroundColor: 'transparent',
+        },
+      },
+      {
+        colorScheme: 'red',
+        variant: 'outline',
+        styles: {
+          backgroundColor: 'transparent',
+        },
+      },
+      {
+        colorScheme: 'green',
+        variant: 'outline',
+        styles: {
+          backgroundColor: 'transparent',
+        },
+      },
+      {
+        colorScheme: 'orange',
+        variant: 'outline',
+        styles: {
+          backgroundColor: 'transparent',
+        },
+      },
+      {
+        colorScheme: 'grey',
+        variant: 'outline',
+        styles: {
+          backgroundColor: 'transparent',
+        },
+      },
+    ],
   },
 }));
 
