@@ -6,11 +6,11 @@ import FlexProps from './Flex.props';
 const Flex: React.FC<FlexProps> = ({
   style,
   children,
-  direction,
-  align,
-  justify,
-  wrap,
-  spacing,
+  direction = 'column',
+  align = 'flex-start',
+  justify = 'flex-start',
+  wrap = 'nowrap',
+  spacing = 'md',
   ...rest
 }) => {
   const propStyle: ViewStyle = {

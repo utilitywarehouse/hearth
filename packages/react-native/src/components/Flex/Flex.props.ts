@@ -1,7 +1,7 @@
 import type { ViewProps, ViewStyle, FlexAlignType } from 'react-native';
 
 interface FlexProps extends ViewProps {
-  direction?: 'row' | 'column';
+  direction?: ViewStyle['flexDirection'];
   align?: FlexAlignType;
   justify?: ViewStyle['justifyContent'];
   wrap?: ViewStyle['flexWrap'];
