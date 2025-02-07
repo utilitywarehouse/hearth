@@ -1,6 +1,5 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { forwardRef } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
-
 import { useBadgeContext } from './Badge.context';
 import { Icon } from '../Icon';
 import type IconProps from '../Icon/Icon.props';
