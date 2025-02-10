@@ -4,10 +4,10 @@ import generateBrowser from './generateBrowser.js';
 
 async function buildStyles() {
   const dictionaries = [
-    // Generate CSS Custom properties
-    ...generateCss(),
     // Generate JS objects, optimised for use in React Native applications
     ...generateJs(),
+    // Generate CSS Custom properties
+    ...generateCss(),
     // Generate JS objects, optimised for use in the browser. These will refer
     // to CSS custom properties rather than raw values, so need to be used in
     // conjunction with the CSS tokens.

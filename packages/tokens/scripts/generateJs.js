@@ -112,7 +112,9 @@ function generateJs() {
             {
               destination: 'primitive.ts',
               format: 'javascript/esm-camel',
-              filter: token => token.filePath.includes('primitive') && token.type !== 'color',
+              filter: token => {
+                return token.filePath.includes('primitive') && token.type !== 'color';
+              },
               options: { minify: true },
             },
           ],

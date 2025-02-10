@@ -23,6 +23,7 @@ function buildDeviceOutput(dictionary, options) {
 
 // Register transforms, formats, and groups
 function registerDictionaryExtensions(StyleDictionary) {
+  console.log('hello');
   StyleDictionary.registerTransform({
     name: 'name/camel-case',
     type: 'name',
@@ -160,6 +161,7 @@ export * as components from './components';`;
         });
       });
       const camelOutput = recursiveCamelCase(output);
+      console.log({ camelOutput });
       return `/**
  * Do not edit directly, this file was auto-generated.
  */
