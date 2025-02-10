@@ -38,3 +38,6 @@ export type { HeadingProps } from './components/Heading/Heading.props';
 
 export { Strong } from './components/Strong/Strong';
 export type { StrongProps } from './components/Strong/Strong.props';
+
+export { Em } from './components/Em/Em';
+export type { EmProps } from './components/Em/Em.props';

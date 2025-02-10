@@ -1,12 +1,6 @@
 .hearth-BodyText {
   font-family: var(--font-family-body-text);
 
-  &:where([data-truncate]) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
   @breakpoints {
     &:where(.hearth-r-size-sm) {
       font-size: var(--body-text-sm-font-size);

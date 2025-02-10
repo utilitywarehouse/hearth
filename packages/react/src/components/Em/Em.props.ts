@@ -1,6 +1,6 @@
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
-export interface StrongProps extends ComponentPropsWithout<'strong', RemovedProps> {
+export interface EmProps extends ComponentPropsWithout<'em', RemovedProps> {
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    */
