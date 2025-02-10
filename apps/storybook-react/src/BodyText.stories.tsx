@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { BodyText, Flex } from '@utilitywarehouse/hearth-react';
 
 export const sizes = ['sm', 'md', 'lg'] as const;
-export const weights = ['regular', 'bold'] as const;
+export const weights = ['regular', 'semibold', 'bold'] as const;
 
 const meta: Meta<typeof BodyText> = {
   title: 'Stories / BodyText',
@@ -25,7 +25,6 @@ const meta: Meta<typeof BodyText> = {
     children: 'The five boxing wizards jump quickly.',
     size: 'md',
     weight: 'regular',
-    align: { mobile: 'left', tablet: 'center', desktop: 'right' },
     truncate: false,
   },
 };
@@ -38,20 +37,13 @@ export const KitchenSink: Story = {
   render: () => {
     return (
       <Flex direction="column" gap="100">
-        {sizes.map(size => (
-          <>
-            <BodyText size={size}>Hamburgefons ({size})</BodyText>
-            <BodyText size={size} weight="bold">
-              Hamburgefons ({size}, bold)
+        {sizes.map(size =>
+          weights.map(weight => (
+            <BodyText size={size} weight={weight}>
+              Hamburgefons ({size}, {weight})
             </BodyText>
-            <BodyText size={size} style={{ fontStyle: 'italic' }}>
-              Hamburgefons ({size}, italic)
-            </BodyText>
-            <BodyText size={size} weight="bold" style={{ fontStyle: 'italic' }}>
-              Hamburgefons ({size}, bold, italic)
-            </BodyText>
-          </>
-        ))}
+          ))
+        )}
       </Flex>
     );
   },
