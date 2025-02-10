@@ -35,3 +35,6 @@ export type { DetailTextProps } from './components/DetailText/DetailText.props';
 
 export { Heading } from './components/Heading/Heading';
 export type { HeadingProps } from './components/Heading/Heading.props';
+
+export { Strong } from './components/Strong/Strong';
+export type { StrongProps } from './components/Strong/Strong.props';
