@@ -1,0 +1,39 @@
+import { Meta, Canvas, Story, Controls, Primary } from '@storybook/blocks';
+import * as Stories from './Center.stories';
+import { Center, Pressable, Box, BodyText } from '../..';
+import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+
+<Meta title="Components / Center" />
+
+<BackToTopButton />
+
+# Center
+
+When you need to center-align content, the Center component comes in handy. It is a layout component that can be used with other components to create complex layouts and positioning.
+
+- [Usage](#usage)
+- [Props](#props)
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <Center backgroundColor="red400" width={300} height={200} padding="200">
+      <BodyText color="white">It's hard being in the middle of everything.</BodyText>
+    </Center>
+  </Center>
+</UsageWrap>
+
+```jsx
+import { Center, BodyText } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <Center backgroundColor="red400" width={300} height={200} padding="200">
+    <BodyText color="white">It's hard being in the middle of everything.</BodyText>
+  </Center>
+);
+```
+
+## Props
+
+The `Center` component extends the [`Box`](/docs/components-box--docs) component, so it has all the same props as [`Box`](/docs/components-box--docs).

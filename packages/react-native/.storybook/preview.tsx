@@ -1,9 +1,18 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
-import { NativeUIProvider } from '../src/core';
+import { themes, breakpoints, StyleSheet } from '../src/core';
 import '@utilitywarehouse/hearth-fonts';
 
 import theme from './theme';
+
+StyleSheet.configure({
+  breakpoints,
+  themes: themes,
+  settings: {
+    initialTheme: 'light',
+    adaptiveThemes: false,
+  },
+});
 
 const preview: Preview = {
   parameters: {
@@ -19,11 +28,7 @@ const preview: Preview = {
   },
   decorators: [
     Story => {
-      return (
-        <NativeUIProvider>
-          <Story />
-        </NativeUIProvider>
-      );
+      return <Story />;
     },
   ],
 };

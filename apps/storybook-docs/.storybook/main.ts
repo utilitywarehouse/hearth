@@ -6,7 +6,7 @@ import { join, dirname } from 'path';
  * This function is used to resolve the absolute path of a package.
  * It is needed in projects that use Yarn PnP or are set up within a monorepo.
  */
-function getAbsolutePath(value: string): any {
+function getAbsolutePath(value: string) {
   return dirname(require.resolve(join(value, 'package.json')));
 }
 const config: StorybookConfig = {
@@ -25,6 +25,11 @@ const config: StorybookConfig = {
     react: {
       title: 'Hearth React',
       url: 'https://uw-hearth-react.vercel.app',
+      expanded: false,
+    },
+    'react-native': {
+      title: 'Hearth React Native',
+      url: 'https://uw-hearth-react-native.vercel.app',
       expanded: false,
     },
     fonts: {

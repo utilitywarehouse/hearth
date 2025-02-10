@@ -3,9 +3,7 @@ import type BadgeProps from './Badge.props';
 
 export const BadgeContext = React.createContext<{
   colorScheme?: BadgeProps['colorScheme'];
-  size?: BadgeProps['size'];
-  strong?: BadgeProps['strong'];
-  borderless?: BadgeProps['borderless'];
+  variant?: BadgeProps['variant'];
 }>({});
 
 export const useBadgeContext = () => useContext(BadgeContext);

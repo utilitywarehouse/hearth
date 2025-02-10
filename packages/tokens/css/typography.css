@@ -36,6 +36,7 @@
   --heading-xl-line-height-desktop: var(--line-height-950);
   --body-text-font-weight: var(--font-weight-regular);
   --body-text-font-weight-bold: var(--font-weight-bold);
+  --body-text-font-weight-semibold: var(--font-weight-semibold);
   --body-text-lg-font-size-mobile: var(--font-size-150);
   --body-text-lg-line-height-mobile: var(--line-height-500);
   --body-text-lg-paragraph-spacing-mobile: var(--font-size-150);

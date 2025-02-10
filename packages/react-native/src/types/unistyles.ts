@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-empty-object-type */
 import { breakpoints } from '../core/breakpoints';
-import { appThemes } from '../core/themes';
+import { themes } from '../core/themes';
 
 export type AppBreakpoints = typeof breakpoints;
 
-export type AppThemes = typeof appThemes;
+export type AppThemes = typeof themes;
 
 declare module 'react-native-unistyles' {
   export interface UnistylesThemes extends AppThemes {}

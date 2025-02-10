@@ -28,7 +28,7 @@
     "apps/*"
   ],
   "dependencies": {
-    "pnpm": "9.15.2"
+    "pnpm": "9.15.0"
   },
   "prettier": "@utilitywarehouse/prettier-config",
   "packageManager": "pnpm@9.15.2",

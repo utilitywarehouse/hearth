@@ -2,23 +2,23 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  defaultFill: string;
-  lg: {
-    size: number;
-    strokeWidth: number;
-  };
-  md: {
-    size: number;
-    strokeWidth: number;
-  };
-  padding: number;
-  sm: {
-    size: number;
-    strokeWidth: number;
-  };
-  xs: {
-    size: number;
-    strokeWidth: number;
-  };
+    readonly defaultFill: "#7a42c8";
+    readonly lg: {
+        readonly size: 40;
+        readonly strokeWidth: 3;
+    };
+    readonly md: {
+        readonly size: 28;
+        readonly strokeWidth: 2.5;
+    };
+    readonly padding: 2;
+    readonly sm: {
+        readonly size: 20;
+        readonly strokeWidth: 2;
+    };
+    readonly xs: {
+        readonly size: 16;
+        readonly strokeWidth: 1.5;
+    };
 };
 export default _default;

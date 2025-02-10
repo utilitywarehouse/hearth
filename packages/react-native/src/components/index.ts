@@ -2,9 +2,12 @@
 export * from './Spinner';
 export * from './Badge';
 export * from './Center';
-
+export * from './BodyText';
+export * from './DetailText';
+export * from './Heading';
 export * from './Icon';
 export * from './Box';
+export * from './Flex';
 
 export {
   FlatList,

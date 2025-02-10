@@ -3,9 +3,9 @@
  */
 
 :root {
-  --font-family-body: dm sans;
-  --font-family-detail: dm mono;
-  --font-family-heading: comic hams;
+  --font-family-body: DM Sans;
+  --font-family-detail: DM Mono;
+  --font-family-heading: Comic Hams;
   --font-size-50: 0.625rem;
   --font-size-75: 0.75rem;
   --font-size-90: 0.875rem;

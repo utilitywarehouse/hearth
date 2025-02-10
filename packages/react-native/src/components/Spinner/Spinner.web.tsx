@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useCallback, useEffect, useMemo } from 'react';
 import Animated, {
   useSharedValue,
   withTiming,
@@ -13,6 +14,8 @@ import { createSpinner } from '@gluestack-ui/spinner';
 import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
 import { useTheme } from '../../hooks';
+import { getFlattenedColorValue } from '../../utils';
+import { ColorValue } from '../../types';
 
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
@@ -61,7 +64,13 @@ const SpinnerRoot: React.FC<SpinnerProps> = ({ size = 'md', color, ...props }) =
     };
   }, [progress]);
 
-  const defaultColor = color || components.spinner.defaultFill;
+  const { color: themeColor, colorMode } = useTheme();
+  const colorValue: ColorValue = useMemo(
+    () => getFlattenedColorValue(color, themeColor),
+    [color, colorMode, themeColor]
+  );
+
+  const defaultColor = colorValue || components.spinner.defaultFill;
 
   styles.useVariants({ size });
 
@@ -103,23 +112,24 @@ const styles = StyleSheet.create(theme => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    padding: theme.components.spinner.padding,
     variants: {
       size: {
         xs: {
-          width: theme.components.spinner.xs.size,
-          height: theme.components.spinner.xs.size,
+          width: theme.components.spinner.xs.size + theme.components.spinner.padding * 2,
+          height: theme.components.spinner.xs.size + theme.components.spinner.padding * 2,
         },
         sm: {
-          width: theme.components.spinner.sm.size,
-          height: theme.components.spinner.sm.size,
+          width: theme.components.spinner.sm.size + theme.components.spinner.padding * 2,
+          height: theme.components.spinner.sm.size + theme.components.spinner.padding * 2,
         },
         md: {
-          width: theme.components.spinner.md.size,
-          height: theme.components.spinner.md.size,
+          width: theme.components.spinner.md.size + theme.components.spinner.padding * 2,
+          height: theme.components.spinner.md.size + theme.components.spinner.padding * 2,
         },
         lg: {
-          width: theme.components.spinner.lg.size,
-          height: theme.components.spinner.lg.size,
+          width: theme.components.spinner.lg.size + theme.components.spinner.padding * 2,
+          height: theme.components.spinner.lg.size + theme.components.spinner.padding * 2,
         },
       },
     },

@@ -1,4 +1,4 @@
-import { DimensionValue, Platform } from 'react-native';
+import { DimensionValue, Platform, TextStyle } from 'react-native';
 import { breakpoints } from './breakpoints';
 import { components, color, layout, primitive, typography } from '@utilitywarehouse/hearth-tokens';
 
@@ -8,15 +8,14 @@ const shared = {
     ...primitive.space,
     full: '100%' as DimensionValue,
   },
-  borderWidth: primitive['border-width'],
-  borderRadius: primitive['border-radius'],
+  borderWidth: primitive.borderWidth,
+  borderRadius: primitive.borderRadius,
   breakpoints,
-  letterSpacing: primitive['letter-spacing'],
-  lineHeight: primitive['line-height'],
-  fontWeights: primitive.font.weight,
+  letterSpacing: primitive.letterSpacing,
+  lineHeight: primitive.lineHeight,
+  fontWeight: primitive.font.weight,
   fontFamily: primitive.font.family,
   fontSize: primitive.font.size,
-  opacity: primitive.opacity,
   typography,
   layout,
   globalStyle: {
@@ -136,35 +135,35 @@ const shared = {
       },
     },
   },
-};
+} as const;
 
 export const lightTheme = {
   colorMode: 'light',
   isLight: true,
   isDark: false,
-  colors: {
+  color: {
     ...color.light,
     ...color.common,
     black: '#000000',
-  },
+  } as const,
   components: components.light,
   ...shared,
-};
+} as const;
 
 export const darkTheme = {
   colorMode: 'dark',
   isLight: false,
   isDark: true,
-  colors: {
+  color: {
     ...color.dark,
     ...color.common,
     black: '#000000',
   },
   components: components.dark,
   ...shared,
-};
+} as const;
 
-export const appThemes = {
+export const themes = {
   light: lightTheme,
   dark: darkTheme,
-};
+} as const;

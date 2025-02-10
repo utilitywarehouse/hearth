@@ -1,17 +1,18 @@
 import React, { forwardRef } from 'react';
 
 import { Text } from 'react-native';
-import type { TextProps, TextStyle } from 'react-native';
+import type { TextProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { BodyText } from '../BodyText';
 import { useBadgeContext } from './Badge.context';
 
 const BadgeText = forwardRef<Text, TextProps>(({ children, style, ...props }, ref) => {
-  const { colorScheme, strong } = useBadgeContext();
-  styles.useVariants({ colorScheme, strong });
+  const { variant, colorScheme } = useBadgeContext();
+  styles.useVariants({ variant, colorScheme });
   return (
-    <Text ref={ref} {...props} style={[styles.text, style]}>
+    <BodyText ref={ref} {...props} size="sm" style={[styles.text, style]}>
       {children}
-    </Text>
+    </BodyText>
   );
 });
 
@@ -19,58 +20,56 @@ BadgeText.displayName = 'BadgeText';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    fontSize: theme.fontSize[200],
-    fontWeight: theme.fontWeights.regular as TextStyle['fontWeight'],
-    lineHeight: theme.lineHeight[400],
-    fontFamily: theme.fontFamily.body,
     variants: {
       colorScheme: {
-        cyan: {
-          color: theme.colors.blue[50],
-        },
-        red: {
-          color: theme.colors.blue[50],
-        },
-        green: {
-          color: theme.colors.blue[50],
-        },
-        gold: {
-          color: theme.colors.blue[50],
-        },
-        grey: {
-          color: theme.colors.blue[50],
-        },
+        blue: {},
+        red: {},
+        green: {},
+        orange: {},
+        grey: {},
       },
-      strong: {
-        true: {},
+      variant: {
+        solid: {
+          color: theme.components.badge.solid.color,
+        },
+        outline: {},
       },
     },
     compoundVariants: [
       {
-        colorScheme: 'cyan',
-        strong: true,
-        styles: { color: theme.colors.blue[50] },
+        colorScheme: 'blue',
+        variant: 'outline',
+        styles: {
+          color: theme.components.badge.outline.blue.color,
+        },
       },
       {
         colorScheme: 'red',
-        strong: true,
-        styles: { color: theme.colors.blue[50] },
+        variant: 'outline',
+        styles: {
+          color: theme.components.badge.outline.red.color,
+        },
       },
       {
         colorScheme: 'green',
-        strong: true,
-        styles: { color: theme.colors.blue[50] },
+        variant: 'outline',
+        styles: {
+          color: theme.components.badge.outline.green.color,
+        },
       },
       {
-        colorScheme: 'gold',
-        strong: true,
-        styles: { color: theme.colors.blue[50] },
+        colorScheme: 'orange',
+        variant: 'outline',
+        styles: {
+          color: theme.components.badge.outline.orange.color,
+        },
       },
       {
         colorScheme: 'grey',
-        strong: true,
-
-        styles: { color: theme.colors.blue[50] },
+        variant: 'outline',
+        styles: {
+          color: theme.components.badge.outline.grey.color,
+        },
       },
     ],
   },

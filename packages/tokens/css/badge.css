@@ -3,16 +3,23 @@
  */
 
 :root {
-  --badge-blue-background-color: var(--color-blue-700);
   --badge-border-radius: var(--border-radius-xs);
-  --badge-color: var(--color-off-white);
-  --badge-flat-base-border-radius-bottom-left: 0;
-  --badge-flat-base-border-radius-bottom-right: 0;
+  --badge-flat-base-border-bottom-left-radius: 0;
+  --badge-flat-base-border-bottom-right-radius: 0;
   --badge-gap: var(--space-50);
-  --badge-green-background-color: var(--color-green-700);
-  --badge-grey-background-color: var(--color-grey-600);
-  --badge-orange-background-color: var(--color-orange-800);
+  --badge-outline-blue-color: var(--color-blue-700);
+  --badge-outline-border-color: var(--color-grey-300);
+  --badge-outline-border-width: var(--border-width-1);
+  --badge-outline-green-color: var(--color-green-700);
+  --badge-outline-grey-color: var(--color-grey-600);
+  --badge-outline-orange-color: var(--color-orange-800);
+  --badge-outline-red-color: var(--color-red-700);
   --badge-padding-horizontal: var(--space-75);
   --badge-padding-vertical: var(--space-25);
-  --badge-red-background-color: var(--color-red-700);
+  --badge-solid-blue-background-color: var(--color-blue-700);
+  --badge-solid-color: var(--color-off-white);
+  --badge-solid-green-background-color: var(--color-green-700);
+  --badge-solid-grey-background-color: var(--color-grey-600);
+  --badge-solid-orange-background-color: var(--color-orange-800);
+  --badge-solid-red-background-color: var(--color-red-700);
 }

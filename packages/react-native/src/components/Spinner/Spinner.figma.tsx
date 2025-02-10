@@ -1,20 +1,20 @@
 import React from 'react';
 import { Spinner } from './';
 import figma from '@figma/code-connect';
-import { colors } from '@utilitywarehouse/colour-system';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 figma.connect(
   Spinner,
-  'https://www.figma.com/file/3RY3OvLA88yZksRjOfjQJm/UW-App-UI?type=design&node-id=5627-2858&mode=dev',
+  'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components?node-id=61-195&t=j6vWFfxRVLbnAYhY-4',
   {
     props: {
       size: figma.enum('size', {
-        'x-small': 'xs',
-        small: 'sm',
-        medium: 'md',
-        large: 'lg',
+        XS: 'xs',
+        SM: 'sm',
+        MD: 'md',
+        LG: 'lg',
       }),
     },
-    example: ({ size }) => <Spinner size={size} color={colors.purple800} />,
+    example: ({ size }) => <Spinner size={size} color={color.common.uwPurple} />,
   }
 );

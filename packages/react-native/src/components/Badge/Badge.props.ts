@@ -1,10 +1,11 @@
+import type { ComponentType } from 'react';
 import type { ViewProps } from 'react-native';
 
 interface BadgeProps extends ViewProps {
-  colorScheme?: 'cyan' | 'green' | 'red' | 'gold' | 'grey';
-  size?: 'small' | 'large';
-  strong?: boolean;
-  borderless?: boolean;
+  variant?: 'solid' | 'outline';
+  colorScheme?: 'blue' | 'green' | 'red' | 'orange' | 'grey';
+  icon?: ComponentType;
+  flatBase?: boolean;
 }
 
 export default BadgeProps;

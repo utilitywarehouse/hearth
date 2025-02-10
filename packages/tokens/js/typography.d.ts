@@ -2,551 +2,557 @@
  * Do not edit directly, this file was auto-generated.
  */
 export declare const mobile: {
-  bodyText: {
-    fontFamily: string;
-    fontWeight: number;
-    fontWeightBold: number;
-    lg: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-      paragraphSpacing: number;
+    readonly bodyText: {
+        readonly fontFamily: "DM Sans";
+        readonly fontWeight: 400;
+        readonly fontWeightBold: 700;
+        readonly fontWeightSemibold: 600;
+        readonly lg: {
+            readonly fontSize: 18;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 24;
+            readonly paragraphSpacing: 18;
+        };
+        readonly md: {
+            readonly fontSize: 16;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 24;
+            readonly paragraphSpacing: 16;
+        };
+        readonly sm: {
+            readonly fontSize: 14;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 20;
+            readonly paragraphSpacing: 14;
+        };
     };
-    md: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-      paragraphSpacing: number;
+    readonly detailText: {
+        readonly "2xl": {
+            readonly fontSize: 24;
+            readonly letterSpacing: -0.7200000286102295;
+            readonly lineHeight: 32;
+        };
+        readonly "3xl": {
+            readonly fontSize: 30;
+            readonly letterSpacing: -0.8999999761581421;
+            readonly lineHeight: 36;
+        };
+        readonly "4xl": {
+            readonly fontSize: 36;
+            readonly letterSpacing: -1.0800000429153442;
+            readonly lineHeight: 36;
+        };
+        readonly fontFamily: "DM Mono";
+        readonly fontWeight: 600;
+        readonly lg: {
+            readonly fontSize: 18;
+            readonly letterSpacing: -0.5400000214576721;
+            readonly lineHeight: 22;
+        };
+        readonly md: {
+            readonly fontSize: 16;
+            readonly letterSpacing: -0.47999998927116394;
+            readonly lineHeight: 24;
+        };
+        readonly sm: {
+            readonly fontSize: 14;
+            readonly letterSpacing: -0.41999998688697815;
+            readonly lineHeight: 18;
+        };
+        readonly xl: {
+            readonly fontSize: 20;
+            readonly letterSpacing: -0.6000000238418579;
+            readonly lineHeight: 22;
+        };
     };
-    sm: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-      paragraphSpacing: number;
+    readonly heading: {
+        readonly fontFamily: "Comic Hams";
+        readonly lg: {
+            readonly fontSize: 24;
+            readonly fontWeight: 600;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 32;
+        };
+        readonly md: {
+            readonly fontSize: 20;
+            readonly fontWeight: 600;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 24;
+        };
+        readonly sm: {
+            readonly fontSize: 18;
+            readonly fontWeight: 600;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 22;
+        };
+        readonly xl: {
+            readonly fontSize: 30;
+            readonly fontWeight: 700;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 36;
+        };
     };
-  };
-  detailText: {
-    '2xl': {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    '3xl': {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    '4xl': {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    fontFamily: string;
-    fontWeight: number;
-    lg: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    md: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    sm: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    xl: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-  };
-  heading: {
-    fontFamily: string;
-    lg: {
-      fontSize: number;
-      fontWeight: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    md: {
-      fontSize: number;
-      fontWeight: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    sm: {
-      fontSize: number;
-      fontWeight: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    xl: {
-      fontSize: number;
-      fontWeight: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-  };
 };
 export declare const tablet: {
-  bodyText: {
-    fontFamily: string;
-    fontWeight: number;
-    fontWeightBold: number;
-    lg: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-      paragraphSpacing: number;
+    readonly bodyText: {
+        readonly fontFamily: "DM Sans";
+        readonly fontWeight: 400;
+        readonly fontWeightBold: 700;
+        readonly fontWeightSemibold: 600;
+        readonly lg: {
+            readonly fontSize: 18;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 24;
+            readonly paragraphSpacing: 18;
+        };
+        readonly md: {
+            readonly fontSize: 16;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 24;
+            readonly paragraphSpacing: 16;
+        };
+        readonly sm: {
+            readonly fontSize: 14;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 20;
+            readonly paragraphSpacing: 14;
+        };
     };
-    md: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-      paragraphSpacing: number;
+    readonly detailText: {
+        readonly "2xl": {
+            readonly fontSize: 24;
+            readonly letterSpacing: -0.7200000286102295;
+            readonly lineHeight: 32;
+        };
+        readonly "3xl": {
+            readonly fontSize: 30;
+            readonly letterSpacing: -0.8999999761581421;
+            readonly lineHeight: 36;
+        };
+        readonly "4xl": {
+            readonly fontSize: 36;
+            readonly letterSpacing: -1.0800000429153442;
+            readonly lineHeight: 36;
+        };
+        readonly fontFamily: "DM Mono";
+        readonly fontWeight: 600;
+        readonly lg: {
+            readonly fontSize: 18;
+            readonly letterSpacing: -0.5400000214576721;
+            readonly lineHeight: 22;
+        };
+        readonly md: {
+            readonly fontSize: 16;
+            readonly letterSpacing: -0.47999998927116394;
+            readonly lineHeight: 24;
+        };
+        readonly sm: {
+            readonly fontSize: 14;
+            readonly letterSpacing: -0.41999998688697815;
+            readonly lineHeight: 18;
+        };
+        readonly xl: {
+            readonly fontSize: 20;
+            readonly letterSpacing: -0.6000000238418579;
+            readonly lineHeight: 22;
+        };
     };
-    sm: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-      paragraphSpacing: number;
+    readonly heading: {
+        readonly fontFamily: "Comic Hams";
+        readonly lg: {
+            readonly fontSize: 24;
+            readonly fontWeight: 600;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 32;
+        };
+        readonly md: {
+            readonly fontSize: 20;
+            readonly fontWeight: 600;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 24;
+        };
+        readonly sm: {
+            readonly fontSize: 18;
+            readonly fontWeight: 600;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 22;
+        };
+        readonly xl: {
+            readonly fontSize: 30;
+            readonly fontWeight: 700;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 36;
+        };
     };
-  };
-  detailText: {
-    '2xl': {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    '3xl': {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    '4xl': {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    fontFamily: string;
-    fontWeight: number;
-    lg: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    md: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    sm: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    xl: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-  };
-  heading: {
-    fontFamily: string;
-    lg: {
-      fontSize: number;
-      fontWeight: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    md: {
-      fontSize: number;
-      fontWeight: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    sm: {
-      fontSize: number;
-      fontWeight: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    xl: {
-      fontSize: number;
-      fontWeight: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-  };
 };
 export declare const desktop: {
-  bodyText: {
-    fontFamily: string;
-    fontWeight: number;
-    fontWeightBold: number;
-    lg: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-      paragraphSpacing: number;
+    readonly bodyText: {
+        readonly fontFamily: "DM Sans";
+        readonly fontWeight: 400;
+        readonly fontWeightBold: 700;
+        readonly fontWeightSemibold: 600;
+        readonly lg: {
+            readonly fontSize: 18;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 24;
+            readonly paragraphSpacing: 18;
+        };
+        readonly md: {
+            readonly fontSize: 16;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 24;
+            readonly paragraphSpacing: 16;
+        };
+        readonly sm: {
+            readonly fontSize: 14;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 20;
+            readonly paragraphSpacing: 14;
+        };
     };
-    md: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-      paragraphSpacing: number;
+    readonly detailText: {
+        readonly "2xl": {
+            readonly fontSize: 24;
+            readonly letterSpacing: -0.7200000286102295;
+            readonly lineHeight: 32;
+        };
+        readonly "3xl": {
+            readonly fontSize: 30;
+            readonly letterSpacing: -0.8999999761581421;
+            readonly lineHeight: 36;
+        };
+        readonly "4xl": {
+            readonly fontSize: 36;
+            readonly letterSpacing: -1.0800000429153442;
+            readonly lineHeight: 36;
+        };
+        readonly fontFamily: "DM Mono";
+        readonly fontWeight: 600;
+        readonly lg: {
+            readonly fontSize: 18;
+            readonly letterSpacing: -0.5400000214576721;
+            readonly lineHeight: 22;
+        };
+        readonly md: {
+            readonly fontSize: 16;
+            readonly letterSpacing: -0.47999998927116394;
+            readonly lineHeight: 24;
+        };
+        readonly sm: {
+            readonly fontSize: 14;
+            readonly letterSpacing: -0.41999998688697815;
+            readonly lineHeight: 18;
+        };
+        readonly xl: {
+            readonly fontSize: 20;
+            readonly letterSpacing: -0.6000000238418579;
+            readonly lineHeight: 22;
+        };
     };
-    sm: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-      paragraphSpacing: number;
+    readonly heading: {
+        readonly fontFamily: "Comic Hams";
+        readonly lg: {
+            readonly fontSize: 30;
+            readonly fontWeight: 600;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 36;
+        };
+        readonly md: {
+            readonly fontSize: 24;
+            readonly fontWeight: 600;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 28;
+        };
+        readonly sm: {
+            readonly fontSize: 18;
+            readonly fontWeight: 600;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 22;
+        };
+        readonly xl: {
+            readonly fontSize: 40;
+            readonly fontWeight: 700;
+            readonly letterSpacing: 0;
+            readonly lineHeight: 48;
+        };
     };
-  };
-  detailText: {
-    '2xl': {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    '3xl': {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    '4xl': {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    fontFamily: string;
-    fontWeight: number;
-    lg: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    md: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    sm: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    xl: {
-      fontSize: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-  };
-  heading: {
-    fontFamily: string;
-    lg: {
-      fontSize: number;
-      fontWeight: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    md: {
-      fontSize: number;
-      fontWeight: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    sm: {
-      fontSize: number;
-      fontWeight: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-    xl: {
-      fontSize: number;
-      fontWeight: number;
-      letterSpacing: number;
-      lineHeight: number;
-    };
-  };
 };
 declare const typography: {
-  mobile: {
-    bodyText: {
-      fontFamily: string;
-      fontWeight: number;
-      fontWeightBold: number;
-      lg: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-        paragraphSpacing: number;
-      };
-      md: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-        paragraphSpacing: number;
-      };
-      sm: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-        paragraphSpacing: number;
-      };
+    readonly mobile: {
+        readonly bodyText: {
+            readonly fontFamily: "DM Sans";
+            readonly fontWeight: 400;
+            readonly fontWeightBold: 700;
+            readonly fontWeightSemibold: 600;
+            readonly lg: {
+                readonly fontSize: 18;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 24;
+                readonly paragraphSpacing: 18;
+            };
+            readonly md: {
+                readonly fontSize: 16;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 24;
+                readonly paragraphSpacing: 16;
+            };
+            readonly sm: {
+                readonly fontSize: 14;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 20;
+                readonly paragraphSpacing: 14;
+            };
+        };
+        readonly detailText: {
+            readonly "2xl": {
+                readonly fontSize: 24;
+                readonly letterSpacing: -0.7200000286102295;
+                readonly lineHeight: 32;
+            };
+            readonly "3xl": {
+                readonly fontSize: 30;
+                readonly letterSpacing: -0.8999999761581421;
+                readonly lineHeight: 36;
+            };
+            readonly "4xl": {
+                readonly fontSize: 36;
+                readonly letterSpacing: -1.0800000429153442;
+                readonly lineHeight: 36;
+            };
+            readonly fontFamily: "DM Mono";
+            readonly fontWeight: 600;
+            readonly lg: {
+                readonly fontSize: 18;
+                readonly letterSpacing: -0.5400000214576721;
+                readonly lineHeight: 22;
+            };
+            readonly md: {
+                readonly fontSize: 16;
+                readonly letterSpacing: -0.47999998927116394;
+                readonly lineHeight: 24;
+            };
+            readonly sm: {
+                readonly fontSize: 14;
+                readonly letterSpacing: -0.41999998688697815;
+                readonly lineHeight: 18;
+            };
+            readonly xl: {
+                readonly fontSize: 20;
+                readonly letterSpacing: -0.6000000238418579;
+                readonly lineHeight: 22;
+            };
+        };
+        readonly heading: {
+            readonly fontFamily: "Comic Hams";
+            readonly lg: {
+                readonly fontSize: 24;
+                readonly fontWeight: 600;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 32;
+            };
+            readonly md: {
+                readonly fontSize: 20;
+                readonly fontWeight: 600;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 24;
+            };
+            readonly sm: {
+                readonly fontSize: 18;
+                readonly fontWeight: 600;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 22;
+            };
+            readonly xl: {
+                readonly fontSize: 30;
+                readonly fontWeight: 700;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 36;
+            };
+        };
     };
-    detailText: {
-      '2xl': {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      '3xl': {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      '4xl': {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      fontFamily: string;
-      fontWeight: number;
-      lg: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      md: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      sm: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      xl: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
+    readonly tablet: {
+        readonly bodyText: {
+            readonly fontFamily: "DM Sans";
+            readonly fontWeight: 400;
+            readonly fontWeightBold: 700;
+            readonly fontWeightSemibold: 600;
+            readonly lg: {
+                readonly fontSize: 18;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 24;
+                readonly paragraphSpacing: 18;
+            };
+            readonly md: {
+                readonly fontSize: 16;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 24;
+                readonly paragraphSpacing: 16;
+            };
+            readonly sm: {
+                readonly fontSize: 14;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 20;
+                readonly paragraphSpacing: 14;
+            };
+        };
+        readonly detailText: {
+            readonly "2xl": {
+                readonly fontSize: 24;
+                readonly letterSpacing: -0.7200000286102295;
+                readonly lineHeight: 32;
+            };
+            readonly "3xl": {
+                readonly fontSize: 30;
+                readonly letterSpacing: -0.8999999761581421;
+                readonly lineHeight: 36;
+            };
+            readonly "4xl": {
+                readonly fontSize: 36;
+                readonly letterSpacing: -1.0800000429153442;
+                readonly lineHeight: 36;
+            };
+            readonly fontFamily: "DM Mono";
+            readonly fontWeight: 600;
+            readonly lg: {
+                readonly fontSize: 18;
+                readonly letterSpacing: -0.5400000214576721;
+                readonly lineHeight: 22;
+            };
+            readonly md: {
+                readonly fontSize: 16;
+                readonly letterSpacing: -0.47999998927116394;
+                readonly lineHeight: 24;
+            };
+            readonly sm: {
+                readonly fontSize: 14;
+                readonly letterSpacing: -0.41999998688697815;
+                readonly lineHeight: 18;
+            };
+            readonly xl: {
+                readonly fontSize: 20;
+                readonly letterSpacing: -0.6000000238418579;
+                readonly lineHeight: 22;
+            };
+        };
+        readonly heading: {
+            readonly fontFamily: "Comic Hams";
+            readonly lg: {
+                readonly fontSize: 24;
+                readonly fontWeight: 600;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 32;
+            };
+            readonly md: {
+                readonly fontSize: 20;
+                readonly fontWeight: 600;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 24;
+            };
+            readonly sm: {
+                readonly fontSize: 18;
+                readonly fontWeight: 600;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 22;
+            };
+            readonly xl: {
+                readonly fontSize: 30;
+                readonly fontWeight: 700;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 36;
+            };
+        };
     };
-    heading: {
-      fontFamily: string;
-      lg: {
-        fontSize: number;
-        fontWeight: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      md: {
-        fontSize: number;
-        fontWeight: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      sm: {
-        fontSize: number;
-        fontWeight: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      xl: {
-        fontSize: number;
-        fontWeight: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
+    readonly desktop: {
+        readonly bodyText: {
+            readonly fontFamily: "DM Sans";
+            readonly fontWeight: 400;
+            readonly fontWeightBold: 700;
+            readonly fontWeightSemibold: 600;
+            readonly lg: {
+                readonly fontSize: 18;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 24;
+                readonly paragraphSpacing: 18;
+            };
+            readonly md: {
+                readonly fontSize: 16;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 24;
+                readonly paragraphSpacing: 16;
+            };
+            readonly sm: {
+                readonly fontSize: 14;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 20;
+                readonly paragraphSpacing: 14;
+            };
+        };
+        readonly detailText: {
+            readonly "2xl": {
+                readonly fontSize: 24;
+                readonly letterSpacing: -0.7200000286102295;
+                readonly lineHeight: 32;
+            };
+            readonly "3xl": {
+                readonly fontSize: 30;
+                readonly letterSpacing: -0.8999999761581421;
+                readonly lineHeight: 36;
+            };
+            readonly "4xl": {
+                readonly fontSize: 36;
+                readonly letterSpacing: -1.0800000429153442;
+                readonly lineHeight: 36;
+            };
+            readonly fontFamily: "DM Mono";
+            readonly fontWeight: 600;
+            readonly lg: {
+                readonly fontSize: 18;
+                readonly letterSpacing: -0.5400000214576721;
+                readonly lineHeight: 22;
+            };
+            readonly md: {
+                readonly fontSize: 16;
+                readonly letterSpacing: -0.47999998927116394;
+                readonly lineHeight: 24;
+            };
+            readonly sm: {
+                readonly fontSize: 14;
+                readonly letterSpacing: -0.41999998688697815;
+                readonly lineHeight: 18;
+            };
+            readonly xl: {
+                readonly fontSize: 20;
+                readonly letterSpacing: -0.6000000238418579;
+                readonly lineHeight: 22;
+            };
+        };
+        readonly heading: {
+            readonly fontFamily: "Comic Hams";
+            readonly lg: {
+                readonly fontSize: 30;
+                readonly fontWeight: 600;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 36;
+            };
+            readonly md: {
+                readonly fontSize: 24;
+                readonly fontWeight: 600;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 28;
+            };
+            readonly sm: {
+                readonly fontSize: 18;
+                readonly fontWeight: 600;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 22;
+            };
+            readonly xl: {
+                readonly fontSize: 40;
+                readonly fontWeight: 700;
+                readonly letterSpacing: 0;
+                readonly lineHeight: 48;
+            };
+        };
     };
-  };
-  tablet: {
-    bodyText: {
-      fontFamily: string;
-      fontWeight: number;
-      fontWeightBold: number;
-      lg: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-        paragraphSpacing: number;
-      };
-      md: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-        paragraphSpacing: number;
-      };
-      sm: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-        paragraphSpacing: number;
-      };
-    };
-    detailText: {
-      '2xl': {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      '3xl': {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      '4xl': {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      fontFamily: string;
-      fontWeight: number;
-      lg: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      md: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      sm: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      xl: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-    };
-    heading: {
-      fontFamily: string;
-      lg: {
-        fontSize: number;
-        fontWeight: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      md: {
-        fontSize: number;
-        fontWeight: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      sm: {
-        fontSize: number;
-        fontWeight: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      xl: {
-        fontSize: number;
-        fontWeight: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-    };
-  };
-  desktop: {
-    bodyText: {
-      fontFamily: string;
-      fontWeight: number;
-      fontWeightBold: number;
-      lg: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-        paragraphSpacing: number;
-      };
-      md: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-        paragraphSpacing: number;
-      };
-      sm: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-        paragraphSpacing: number;
-      };
-    };
-    detailText: {
-      '2xl': {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      '3xl': {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      '4xl': {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      fontFamily: string;
-      fontWeight: number;
-      lg: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      md: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      sm: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      xl: {
-        fontSize: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-    };
-    heading: {
-      fontFamily: string;
-      lg: {
-        fontSize: number;
-        fontWeight: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      md: {
-        fontSize: number;
-        fontWeight: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      sm: {
-        fontSize: number;
-        fontWeight: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-      xl: {
-        fontSize: number;
-        fontWeight: number;
-        letterSpacing: number;
-        lineHeight: number;
-      };
-    };
-  };
 };
 export default typography;

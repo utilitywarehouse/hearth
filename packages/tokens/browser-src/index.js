@@ -1,4 +1,4 @@
-export * from './badge.js';
+export * from './badge.js'
 export * from './border.js';
 export * from './button.js';
 export * from './color.js';

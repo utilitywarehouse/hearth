@@ -4,29 +4,24 @@ import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
 import { BadgeContext } from './Badge.context';
 import BadgeText from './BadgeText';
+import BadgeIcon from './BadgeIcon';
 
 const Badge = forwardRef<View, BadgeProps>(({ children, ...props }, ref) => {
-  const {
-    colorScheme = 'cyan',
-    size = 'large',
-    strong = false,
-    borderless = false,
-    style,
-    ...rest
-  } = props;
+  const { variant = 'solid', icon, colorScheme = 'blue', flatBase = false, style, ...rest } = props;
 
   const value = React.useMemo(
-    () => ({ colorScheme, size, borderless, strong }),
-    [colorScheme, size, borderless, strong]
+    () => ({ colorScheme, flatBase, variant }),
+    [colorScheme, flatBase, variant]
   );
 
   const childIsText = typeof children === 'string' || typeof children === 'number';
 
-  styles.useVariants({ colorScheme, strong, size, borderless });
+  styles.useVariants({ colorScheme, flatBase, variant });
 
   return (
     <BadgeContext.Provider value={value}>
       <View ref={ref} {...rest} style={[styles.container, style]}>
+        {!!icon && <BadgeIcon as={icon} />}
         {childIsText ? <BadgeText>{children}</BadgeText> : children}
       </View>
     </BadgeContext.Provider>
@@ -39,74 +34,104 @@ const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: theme.space[200],
-    borderRadius: theme.borderRadius[200],
-    paddingVertical: theme.space[100],
     alignSelf: 'flex-start',
-    gap: theme.space[200],
+    paddingHorizontal: theme.components.badge.paddingHorizontal,
+    borderRadius: theme.components.badge.borderRadius,
+    paddingVertical: theme.components.badge.paddingVertical,
+    gap: theme.components.badge.gap,
     variants: {
       colorScheme: {
-        cyan: {
-          backgroundColor: theme.colors.blue[700],
-        },
-        red: {
-          backgroundColor: theme.colors.red[700],
-        },
-        green: {
-          backgroundColor: theme.colors.green[700],
-        },
-        gold: {
-          backgroundColor: theme.colors.orange[700],
-        },
-        grey: {
-          backgroundColor: theme.colors.grey[700],
+        blue: {},
+        red: {},
+        green: {},
+        orange: {},
+        grey: {},
+      },
+      variant: {
+        solid: {},
+        outline: {
+          borderWidth: theme.components.badge.outline.borderWidth,
+          borderColor: theme.components.badge.outline.borderColor,
         },
       },
-      borderless: {
+      flatBase: {
         true: {
-          borderBottomLeftRadius: 0,
-          borderBottomRightRadius: 0,
+          borderBottomLeftRadius: theme.components.badge.flatBase.borderBottomLeftRadius,
+          borderBottomRightRadius: theme.components.badge.flatBase.borderBottomRightRadius,
         },
         false: {},
-      },
-      strong: {
-        true: {},
-        false: {},
-      },
-      size: {
-        small: {
-          paddingVertical: theme.space[25],
-        },
-        large: {
-          paddingVertical: theme.space[200],
-        },
       },
     },
     compoundVariants: [
       {
-        colorScheme: 'cyan',
-        strong: true,
-        styles: { backgroundColor: theme.colors.blue[700] },
+        colorScheme: 'blue',
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.components.badge.solid.blue.backgroundColor,
+        },
       },
       {
         colorScheme: 'red',
-        strong: true,
-        styles: { backgroundColor: theme.colors.red[700] },
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.components.badge.solid.red.backgroundColor,
+        },
       },
       {
         colorScheme: 'green',
-        strong: true,
-        styles: { backgroundColor: theme.colors.green[700] },
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.components.badge.solid.green.backgroundColor,
+        },
       },
       {
-        colorScheme: 'gold',
-        strong: true,
-        styles: { backgroundColor: theme.colors.orange[700] },
+        colorScheme: 'orange',
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.components.badge.solid.orange.backgroundColor,
+        },
       },
       {
         colorScheme: 'grey',
-        strong: true,
-        styles: { backgroundColor: theme.colors.grey[700] },
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.components.badge.solid.grey.backgroundColor,
+        },
+      },
+      {
+        colorScheme: 'blue',
+        variant: 'outline',
+        styles: {
+          backgroundColor: 'transparent',
+        },
+      },
+      {
+        colorScheme: 'red',
+        variant: 'outline',
+        styles: {
+          backgroundColor: 'transparent',
+        },
+      },
+      {
+        colorScheme: 'green',
+        variant: 'outline',
+        styles: {
+          backgroundColor: 'transparent',
+        },
+      },
+      {
+        colorScheme: 'orange',
+        variant: 'outline',
+        styles: {
+          backgroundColor: 'transparent',
+        },
+      },
+      {
+        colorScheme: 'grey',
+        variant: 'outline',
+        styles: {
+          backgroundColor: 'transparent',
+        },
       },
     ],
   },

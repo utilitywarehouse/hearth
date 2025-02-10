@@ -2,7 +2,7 @@ import StyleDictionary from 'style-dictionary';
 import { loadJSON } from './utils/load-json.js';
 import { filters } from './utils/filters.js';
 import { DELIMITER, normalizeTokenPath } from './utils/normalize-token.js';
-import { camelCase } from './utils/camel-case.js';
+import { camelCase } from './utils/camelCase.js';
 import merge from 'lodash.merge';
 
 export const BUILD_PATH = './browser-src/';
