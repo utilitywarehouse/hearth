@@ -10,6 +10,10 @@
       "types": "./browser/index.d.ts",
       "default": "./browser/index.js"
     },
+    "./js": {
+      "types": "./js/index.d.ts",
+      "default": "./js/index.js"
+    },
     "./*": "./*"
   },
   "scripts": {
