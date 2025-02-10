@@ -1,4 +1,4 @@
-import { camelCase } from './camelCase.js';
+import { camelCase } from './camel-case.js';
 
 export function recursiveCamelCase(obj) {
   if (Array.isArray(obj)) {

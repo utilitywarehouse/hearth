@@ -1,9 +1,9 @@
 import StyleDictionary from 'style-dictionary';
-import { unwrapAlias } from './utils/unwrap-alias.js';
-import { loadJSON } from './utils/load-json.js';
-import { normalizeTokenName } from './utils/normalize-token.js';
-import { px } from './utils/px.js';
-import { filters } from './utils/filters.js';
+import { unwrapAlias } from './helpers/unwrap-alias.js';
+import { loadJSON } from './helpers/load-json.js';
+import { normalizeTokenName } from './helpers/normalize-token.js';
+import { px } from './helpers/px.js';
+import { filters } from './helpers/filters.js';
 
 export const BUILD_PATH = './css/';
 
@@ -107,8 +107,8 @@ const componentFiles = Object.keys(componentJson.light).map(componentName => ({
   },
 }));
 
-function generateCss() {
-  console.log('Generating CSS...');
+export function buildCss() {
+  console.log('Buildng CSS...');
   return [
     new StyleDictionary({
       source: ['./raw/*.json'],
@@ -173,5 +173,3 @@ function generateCss() {
     }),
   ];
 }
-
-export default generateCss;

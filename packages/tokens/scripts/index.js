@@ -1,17 +1,17 @@
-import generateJs from './generateJs.js';
-import generateCss from './generateCss.js';
-import generateBrowser from './generateBrowser.js';
+import { buildJs } from './build-js.js';
+import { buildCss } from './build-css.js';
+import { buildBrowser } from './build-browser.js';
 
 async function buildStyles() {
   const dictionaries = [
-    // Generate JS objects, optimised for use in React Native applications
-    ...generateJs(),
-    // Generate CSS Custom properties
-    ...generateCss(),
-    // Generate JS objects, optimised for use in the browser. These will refer
+    // Build JS objects, optimised for use in React Native applications
+    ...buildJs(),
+    // Build CSS Custom properties
+    ...buildCss(),
+    // Build JS objects, optimised for use in the browser. These will refer
     // to CSS custom properties rather than raw values, so need to be used in
     // conjunction with the CSS tokens.
-    ...generateBrowser(),
+    ...buildBrowser(),
   ];
 
   try {

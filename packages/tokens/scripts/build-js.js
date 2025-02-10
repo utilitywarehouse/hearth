@@ -4,8 +4,8 @@ import {
   logVerbosityLevels,
   logWarningLevels,
 } from 'style-dictionary/enums';
-import { loadJSON } from './utils/load-json.js';
-import { registerDictionaryExtensions } from './formats.js';
+import { loadJSON } from './helpers/load-json.js';
+import { registerDictionaryExtensions } from './helpers/register-dictionary-extensions.js';
 
 // Call registration once
 registerDictionaryExtensions(StyleDictionary);
@@ -54,8 +54,8 @@ const rootJsIndexFile = {
   transformGroup: 'js-device',
 };
 
-function generateJs() {
-  console.log('Generating JS...');
+export function buildJs() {
+  console.log('Buildng JS...');
   return [
     new StyleDictionary({
       source: ['./raw/*.json'],
@@ -135,5 +135,3 @@ function generateJs() {
     }),
   ];
 }
-
-export default generateJs;
