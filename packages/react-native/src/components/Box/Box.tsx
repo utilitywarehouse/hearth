@@ -3,9 +3,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { forwardRef, memo } from 'react';
 import { View, ViewStyle } from 'react-native';
-import { UnistylesThemes } from 'react-native-unistyles';
+import { UnistylesThemes, useUnistyles } from 'react-native-unistyles';
 import type BoxProps from './Box.props';
-import { useTheme } from '../../hooks';
 
 const propStyleMapping: { [key: string]: keyof ViewStyle } = {
   p: 'padding',
@@ -253,7 +252,7 @@ const BoxComponent = <T extends React.ElementType = typeof View>(
   { as, style, children, ...props }: BoxProps<T>,
   ref: React.Ref<any>
 ) => {
-  const theme = useTheme();
+  const { theme } = useUnistyles();
 
   const styles: Partial<ViewStyle> = {};
   const componentProps: Record<string, any> = {};
