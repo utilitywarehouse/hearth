@@ -2,7 +2,6 @@
   "name": "@utilitywarehouse/hearth-tokens",
   "version": "0.0.1",
   "description": "",
-  "main": "js/index.js",
   "style": "./index.css",
   "type": "module",
   "exports": {
@@ -14,7 +13,8 @@
       "types": "./js/index.d.ts",
       "default": "./js/index.js"
     },
-    "./*": "./*"
+    "./*": "./*",
+    ".": "./"
   },
   "scripts": {
     "dev:css": "postcss --watch --verbose src --dir .",
