@@ -1,3 +1,3 @@
-export default function camelCase(str) {
+export function camelCase(str) {
   return str.replace(/[-_](\w)/g, (_, c) => c.toUpperCase());
 }

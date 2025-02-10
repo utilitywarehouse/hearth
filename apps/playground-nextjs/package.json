@@ -16,6 +16,7 @@
     "@utilitywarehouse/hearth-css-reset": "workspace:*",
     "@utilitywarehouse/hearth-fonts": "workspace:*",
     "@utilitywarehouse/hearth-react": "workspace:*",
+    "@utilitywarehouse/hearth-tokens": "workspace:*",
     "next": "15.1.4",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"

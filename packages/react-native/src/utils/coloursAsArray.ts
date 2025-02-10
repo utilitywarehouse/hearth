@@ -1,4 +1,4 @@
-import { color } from '@utilitywarehouse/hearth-tokens';
+import { color } from '@utilitywarehouse/hearth-tokens/js';
 
 export function extractLightColorValues(): Record<string, string> {
   return Object.entries(color.light).reduce(
@@ -12,6 +12,6 @@ export function extractLightColorValues(): Record<string, string> {
   );
 }
 
-export default function coloursAsArray(): string[] {
+export default function coloursAsArray(): Array<string> {
   return [...Object.keys(color.common), ...Object.keys(extractLightColorValues())];
 }

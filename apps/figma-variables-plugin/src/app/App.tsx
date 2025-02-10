@@ -6,7 +6,7 @@ import React, { useEffect } from 'react';
 import logo from './assets/logo.png';
 import '@utilitywarehouse/css-reset';
 import './styles/ui.css';
-import { color } from '@utilitywarehouse/hearth-tokens';
+import { color } from '@utilitywarehouse/hearth-tokens/js';
 import { encodeContent, kebabCase } from './utils';
 import {
   Heading,

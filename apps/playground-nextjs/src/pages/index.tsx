@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import '@utilitywarehouse/hearth-fonts';
+import '@utilitywarehouse/hearth-tokens/index.css';
 
 import { Box as HearthBox } from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';
+import { space, color } from '@utilitywarehouse/hearth-tokens/browser';
 
 export default function Home() {
   return (
@@ -33,6 +35,17 @@ export default function Home() {
         </div>
       </div>
       <div className="visually-hidden">Visually Hidden</div>
+      <div>
+        <h1>Hearth Tokens</h1>
+        <StyledBox
+          sx={{
+            padding: space[200],
+            color: color.broadbandBlue,
+          }}
+        >
+          Hearth Tokens
+        </StyledBox>
+      </div>
     </>
   );
 }
