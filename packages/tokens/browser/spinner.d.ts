@@ -1,20 +1,20 @@
 export declare const spinner: {
-  defaultFill: string;
-  lg: {
-    size: string;
-    strokeWidth: string;
+  readonly defaultFill: 'var(--spinner-default-fill)';
+  readonly lg: {
+    readonly size: 'var(--spinner-lg-size)';
+    readonly strokeWidth: 'var(--spinner-lg-stroke-width)';
   };
-  md: {
-    size: string;
-    strokeWidth: string;
+  readonly md: {
+    readonly size: 'var(--spinner-md-size)';
+    readonly strokeWidth: 'var(--spinner-md-stroke-width)';
   };
-  padding: string;
-  sm: {
-    size: string;
-    strokeWidth: string;
+  readonly padding: 'var(--spinner-padding)';
+  readonly sm: {
+    readonly size: 'var(--spinner-sm-size)';
+    readonly strokeWidth: 'var(--spinner-sm-stroke-width)';
   };
-  xs: {
-    size: string;
-    strokeWidth: string;
+  readonly xs: {
+    readonly size: 'var(--spinner-xs-size)';
+    readonly strokeWidth: 'var(--spinner-xs-stroke-width)';
   };
 };

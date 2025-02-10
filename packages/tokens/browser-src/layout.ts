@@ -26,4 +26,4 @@ export const layout = {
       tablet: 'var(--spacing-xs-tablet)',
     },
   },
-};
+} as const;

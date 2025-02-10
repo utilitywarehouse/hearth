@@ -1,7 +1,7 @@
 export declare const button: {
-  emphasis: {
-    yellow: {
-      backgroundColor: string;
+  readonly emphasis: {
+    readonly yellow: {
+      readonly backgroundColor: 'var(--button-emphasis-yellow-background-color)';
     };
   };
 };

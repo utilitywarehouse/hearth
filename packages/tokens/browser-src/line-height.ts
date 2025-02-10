@@ -14,4 +14,4 @@ export const lineHeight = {
   '1000': 'var(--line-height-1000)',
   '1100': 'var(--line-height-1100)',
   '1200': 'var(--line-height-1200)',
-};
+} as const;

@@ -17,4 +17,4 @@ export const spinner = {
     size: 'var(--spinner-xs-size)',
     strokeWidth: 'var(--spinner-xs-stroke-width)',
   },
-};
+} as const;

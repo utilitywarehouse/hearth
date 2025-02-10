@@ -61,7 +61,7 @@ StyleDictionary.registerFormat({
     });
     // console.log({ tokens });
     // write the tokens to file
-    return `export const ${camelCase(tokensName)} = ${JSON.stringify(tokens, null, 2)};\n`;
+    return `export const ${camelCase(tokensName)} = ${JSON.stringify(tokens, null, 2)} as const;\n`;
   },
 });
 

@@ -28,4 +28,4 @@ export const font = {
     regular: 'var(--font-weight-regular)',
     semibold: 'var(--font-weight-semibold)',
   },
-};
+} as const;

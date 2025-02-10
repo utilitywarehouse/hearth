@@ -196,4 +196,4 @@ export const typography = {
       fontWeight: 'var(--heading-xl-font-weight)',
     },
   },
-};
+} as const;

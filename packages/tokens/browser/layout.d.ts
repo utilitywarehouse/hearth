@@ -1,29 +1,29 @@
 export declare const layout: {
-  spacing: {
-    lg: {
-      desktop: string;
-      mobile: string;
-      tablet: string;
+  readonly spacing: {
+    readonly lg: {
+      readonly desktop: 'var(--spacing-lg-desktop)';
+      readonly mobile: 'var(--spacing-lg-mobile)';
+      readonly tablet: 'var(--spacing-lg-tablet)';
     };
-    md: {
-      desktop: string;
-      mobile: string;
-      tablet: string;
+    readonly md: {
+      readonly desktop: 'var(--spacing-md-desktop)';
+      readonly mobile: 'var(--spacing-md-mobile)';
+      readonly tablet: 'var(--spacing-md-tablet)';
     };
-    sm: {
-      desktop: string;
-      mobile: string;
-      tablet: string;
+    readonly sm: {
+      readonly desktop: 'var(--spacing-sm-desktop)';
+      readonly mobile: 'var(--spacing-sm-mobile)';
+      readonly tablet: 'var(--spacing-sm-tablet)';
     };
-    xl: {
-      desktop: string;
-      mobile: string;
-      tablet: string;
+    readonly xl: {
+      readonly desktop: 'var(--spacing-xl-desktop)';
+      readonly mobile: 'var(--spacing-xl-mobile)';
+      readonly tablet: 'var(--spacing-xl-tablet)';
     };
-    xs: {
-      desktop: string;
-      mobile: string;
-      tablet: string;
+    readonly xs: {
+      readonly desktop: 'var(--spacing-xs-desktop)';
+      readonly mobile: 'var(--spacing-xs-mobile)';
+      readonly tablet: 'var(--spacing-xs-tablet)';
     };
   };
 };

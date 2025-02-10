@@ -4,4 +4,4 @@ export const button = {
       backgroundColor: 'var(--button-emphasis-yellow-background-color)',
     },
   },
-};
+} as const;

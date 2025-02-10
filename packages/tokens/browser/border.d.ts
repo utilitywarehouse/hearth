@@ -1,15 +1,15 @@
 export declare const border: {
-  radius: {
-    full: string;
-    lg: string;
-    md: string;
-    none: string;
-    sm: string;
-    xl: string;
-    xs: string;
+  readonly radius: {
+    readonly full: 'var(--border-radius-full)';
+    readonly lg: 'var(--border-radius-lg)';
+    readonly md: 'var(--border-radius-md)';
+    readonly none: 'var(--border-radius-none)';
+    readonly sm: 'var(--border-radius-sm)';
+    readonly xl: 'var(--border-radius-xl)';
+    readonly xs: 'var(--border-radius-xs)';
   };
-  width: {
-    '1': string;
-    '2': string;
+  readonly width: {
+    readonly '1': 'var(--border-width-1)';
+    readonly '2': 'var(--border-width-2)';
   };
 };

@@ -87,4 +87,4 @@ export const color = {
   piggyPink: 'var(--color-piggy-pink)',
   uwPurple: 'var(--color-uw-purple)',
   white: 'var(--color-white)',
-};
+} as const;

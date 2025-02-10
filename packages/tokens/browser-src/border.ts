@@ -12,4 +12,4 @@ export const border = {
     '1': 'var(--border-width-1)',
     '2': 'var(--border-width-2)',
   },
-};
+} as const;

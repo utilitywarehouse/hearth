@@ -1,47 +1,47 @@
 export declare const badge: {
-  borderRadius: string;
-  flatBase: {
-    borderBottomLeftRadius: string;
-    borderBottomRightRadius: string;
+  readonly borderRadius: 'var(--badge-border-radius)';
+  readonly flatBase: {
+    readonly borderBottomLeftRadius: 'var(--badge-flat-base-border-bottom-left-radius)';
+    readonly borderBottomRightRadius: 'var(--badge-flat-base-border-bottom-right-radius)';
   };
-  gap: string;
-  outline: {
-    blue: {
-      color: string;
+  readonly gap: 'var(--badge-gap)';
+  readonly outline: {
+    readonly blue: {
+      readonly color: 'var(--badge-outline-blue-color)';
     };
-    borderColor: string;
-    borderWidth: string;
-    green: {
-      color: string;
+    readonly borderColor: 'var(--badge-outline-border-color)';
+    readonly borderWidth: 'var(--badge-outline-border-width)';
+    readonly green: {
+      readonly color: 'var(--badge-outline-green-color)';
     };
-    grey: {
-      color: string;
+    readonly grey: {
+      readonly color: 'var(--badge-outline-grey-color)';
     };
-    orange: {
-      color: string;
+    readonly orange: {
+      readonly color: 'var(--badge-outline-orange-color)';
     };
-    red: {
-      color: string;
+    readonly red: {
+      readonly color: 'var(--badge-outline-red-color)';
     };
   };
-  paddingHorizontal: string;
-  paddingVertical: string;
-  solid: {
-    blue: {
-      backgroundColor: string;
+  readonly paddingHorizontal: 'var(--badge-padding-horizontal)';
+  readonly paddingVertical: 'var(--badge-padding-vertical)';
+  readonly solid: {
+    readonly blue: {
+      readonly backgroundColor: 'var(--badge-solid-blue-background-color)';
     };
-    color: string;
-    green: {
-      backgroundColor: string;
+    readonly color: 'var(--badge-solid-color)';
+    readonly green: {
+      readonly backgroundColor: 'var(--badge-solid-green-background-color)';
     };
-    grey: {
-      backgroundColor: string;
+    readonly grey: {
+      readonly backgroundColor: 'var(--badge-solid-grey-background-color)';
     };
-    orange: {
-      backgroundColor: string;
+    readonly orange: {
+      readonly backgroundColor: 'var(--badge-solid-orange-background-color)';
     };
-    red: {
-      backgroundColor: string;
+    readonly red: {
+      readonly backgroundColor: 'var(--badge-solid-red-background-color)';
     };
   };
 };

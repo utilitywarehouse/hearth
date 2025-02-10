@@ -44,4 +44,4 @@ export const badge = {
       backgroundColor: 'var(--badge-solid-red-background-color)',
     },
   },
-};
+} as const;
