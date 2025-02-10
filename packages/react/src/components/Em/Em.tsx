@@ -2,18 +2,18 @@ import * as React from 'react';
 
 import clsx from 'clsx';
 
-import { StrongProps } from './Strong.props';
+import { EmProps } from './Em.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Slot } from '@radix-ui/react-slot';
 
 import type { ElementRef } from 'react';
 
-const componentName = 'Strong';
+const componentName = 'Em';
 const componentClassName = withGlobalPrefix(componentName);
 
-type StrongElement = ElementRef<'strong'>;
+type EmElement = ElementRef<'em'>;
 
-export const Strong = React.forwardRef<StrongElement, StrongProps>(
+export const Em = React.forwardRef<EmElement, EmProps>(
   ({ className, asChild, children, truncate, ...props }, ref) => {
     return (
       <Slot
@@ -22,10 +22,10 @@ export const Strong = React.forwardRef<StrongElement, StrongProps>(
         data-truncate={truncate ? '' : undefined}
         {...props}
       >
-        {asChild ? children : <strong>{children}</strong>}
+        {asChild ? children : <em>{children}</em>}
       </Slot>
     );
   }
 );
 
-Strong.displayName = componentName;
+Em.displayName = componentName;
