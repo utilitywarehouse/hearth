@@ -3,9 +3,9 @@
  */
 
 export default {
-  "emphasis": {
-    "yellow": {
-      "backgroundColor": "#ffb921"
-    }
-  }
+  emphasis: {
+    yellow: {
+      backgroundColor: '#ffb921',
+    },
+  },
 } as const;

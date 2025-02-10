@@ -1,14 +1,41 @@
 import StyleDictionary from 'style-dictionary';
-import { loadJSON, unwrapAlias } from './utils/index.js';
+import { unwrapAlias } from './utils/unwrap-alias.js';
+import { loadJSON } from './utils/load-json.js';
+import { normalizeTokenName } from './utils/normalize-token.js';
+import { px } from './utils/px.js';
+import { filters } from './utils/filters.js';
 
-const componentJson = loadJSON('./raw/hearth-components---component.json');
+export const BUILD_PATH = './css/';
+
+// I tried to get this working with fs.readdirSync but I couldn't
+// so this will have to do for now
+StyleDictionary.registerFormat({
+  name: 'css/index',
+  format: () => {
+    return `@import '../css/badge.css';
+@import '../css/border.css';
+@import '../css/button.css';
+@import '../css/color.css';
+@import '../css/font.css';
+@import '../css/layout.css';
+@import '../css/line-height.css';
+@import '../css/space.css';
+@import '../css/spinner.css';
+@import '../css/typography.css';
+`;
+  },
+});
 
 StyleDictionary.registerTransform({
-  name: 'alias/variable-css',
+  name: 'css/normalize-name',
+  type: 'name',
+  transform: normalizeTokenName,
+});
+
+StyleDictionary.registerTransform({
+  name: 'alias/unwrap',
   type: 'value',
-  filter: token => {
-    return token.value && typeof token.alias === 'string';
-  },
+  filter: filters.isStringToken,
   transform: token => {
     const aliasPath = unwrapAlias(token.alias).replace(/\./g, '-');
     return `var(--${aliasPath})`;
@@ -16,94 +43,59 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'remove-light-color',
-  type: 'name',
-  filter: token => {
-    return (
-      (token.type === 'color' || token.filePath.includes('component')) &&
-      token.attributes?.type !== 'dark'
-    );
-  },
-  transform: token => {
-    return token.name.replace(/light-/, '');
-  },
-});
-
-StyleDictionary.registerTransform({
-  name: 'remove-alias-color',
+  name: 'font-size/px-to-rem',
   type: 'value',
-  filter: token => {
-    return token.type === 'color';
-  },
-  transform: token => {
-    return token.value.replace(/light-/, '').replace(/dark-/, '');
-  },
+  filter: filters.isFontSize,
+  transform: token => `${token.value / 16}rem`,
 });
 
 StyleDictionary.registerTransform({
-  name: 'rename-typography',
-  type: 'name',
-  filter: token => {
-    return token.attributes.type === 'typography';
-  },
-  transform: token => {
-    if (token.path.subitem === 'font-family') {
-      return `${token.attributes.item}-${token.attributes.subitem}`;
-    }
-    return `${token.attributes.item}-${token.attributes.subitem}${token.attributes.state ? `-${token.attributes.state}` : ''}${token.attributes.category !== 'mobile' ? `-${token.attributes.category}` : ''}`;
-  },
-});
-
-StyleDictionary.registerTransform({
-  name: 'rename-layout',
-  type: 'name',
-  transform: token => {
-    return `${token.attributes.type}-${token.attributes.item}-${token.attributes.subitem}-${token.attributes.category}`;
-  },
-});
-
-StyleDictionary.registerTransform({
-  name: 'px-to-rem',
+  name: 'line-height/unitless',
   type: 'value',
-  filter: token => {
-    return typeof token.value === 'number' && token.name.includes('font-size');
-  },
-  transform: token => {
-    return `${token.value / 16}rem`;
-  },
+  filter: filters.isPrimitiveLineHeight,
+  transform: token => `${token.value / 16}`,
 });
 
 StyleDictionary.registerTransform({
-  name: 'unitless-line-height',
+  name: 'space/px',
   type: 'value',
-  filter: token => {
-    return typeof token.value === 'number' && token.attributes.category === 'line-height';
-  },
-  transform: token => {
-    return `${token.value / 16}`;
-  },
+  filter: filters.isPrimitiveSpace,
+  transform: px,
 });
 
 StyleDictionary.registerTransform({
-  name: 'add-px',
+  name: 'border/px',
   type: 'value',
-  transform: token => `${token.value}px`,
+  filter: filters.isPrimitiveBorder,
+  transform: px,
+});
+
+StyleDictionary.registerTransform({
+  name: 'alias/remove-light-color-prefix',
+  type: 'value',
+  filter: filters.isColor,
+  transform: token => {
+    return token.value.replace(/light-/, '');
+  },
 });
 
 StyleDictionary.registerTransformGroup({
-  name: 'css-device',
+  name: 'css-transforms',
   transforms: [
-    // For example, built-in CTI attribute transform
     'attribute/cti',
-    // built-in name transform, e.g. name/cti/kebab or name/camel
     'name/kebab',
-    // our custom transform for alias references in CSS
-    'alias/variable-css',
+    'alias/unwrap',
+    'alias/remove-light-color-prefix',
+    'css/normalize-name',
+    'space/px',
+    'border/px',
+    'font-size/px-to-rem',
+    'line-height/unitless',
   ],
 });
 
-const lightComponents = Object.keys(componentJson.light);
-const dynamicComponentFiles = lightComponents.map(componentName => ({
+const componentJson = loadJSON('./raw/hearth-components---component.json');
+const componentFiles = Object.keys(componentJson.light).map(componentName => ({
   destination: `${componentName}.css`,
   format: 'css/variables',
   filter: token => {
@@ -121,95 +113,61 @@ function generateCss() {
     new StyleDictionary({
       source: ['./raw/*.json'],
       platforms: {
-        'css-typography': {
-          transformGroup: 'css-device',
-          transforms: ['rename-typography'],
-          buildPath: './css/',
-          files: [
-            {
-              destination: 'typography.css',
-              format: 'css/variables',
-              filter: token => {
-                if (
-                  token.attributes.subitem === 'font-family' &&
-                  token.attributes.category !== 'mobile'
-                ) {
-                  return false;
-                }
-                return token.attributes.type === 'typography';
-              },
-            },
-          ],
-        },
-        'css-layout': {
-          transformGroup: 'css-device',
-          transforms: ['rename-layout'],
-          buildPath: './css/',
-          files: [
-            {
-              destination: 'layout.css',
-              format: 'css/variables',
-              filter: token => {
-                return token.attributes.type === 'layout' && token.attributes.item === 'spacing';
-              },
-            },
-          ],
-        },
-        'css-colour': {
-          transformGroup: 'css-device',
-          transforms: ['remove-light-color'],
-          buildPath: './css/',
+        css: {
+          transformGroup: 'css-transforms',
+          buildPath: BUILD_PATH,
           files: [
             {
               destination: 'color.css',
               format: 'css/variables',
-              filter: token => {
-                if (token.attributes?.type === 'dark') {
-                  return false;
-                }
-                return token.filePath.includes('primitive') && token.type === 'color';
-              },
+              filter: filters.isPrimitiveLightColor,
             },
-          ],
-        },
-        'css-primitve': {
-          transformGroup: 'css-device',
-          transforms: ['remove-light-color', 'px-to-rem', 'unitless-line-height'],
-          buildPath: './css/',
-          files: [
-            {
-              destination: 'primitive.css',
-              format: 'css/variables',
-              filter: token => {
-                if (token.type === 'color') {
-                  return false;
-                }
-                if (token.attributes.category === 'space') {
-                  return false;
-                }
-                return token.filePath.includes('primitive');
-              },
-            },
-          ],
-        },
-        'css-space': {
-          transformGroup: 'css-device',
-          transforms: ['add-px'],
-          buildPath: './css/',
-          files: [
             {
               destination: 'space.css',
               format: 'css/variables',
-              filter: token =>
-                token.filePath.includes('primitive') && token.attributes.category === 'space',
+              filter: filters.isPrimitiveSpace,
+            },
+            {
+              destination: 'layout.css',
+              format: 'css/variables',
+              filter: filters.isLayoutSpacing,
+            },
+            {
+              destination: 'font.css',
+              format: 'css/variables',
+              filter: filters.isFont,
+            },
+            {
+              destination: 'line-height.css',
+              format: 'css/variables',
+              filter: filters.isPrimitiveLineHeight,
+            },
+            {
+              destination: 'typography.css',
+              format: 'css/variables',
+              filter: filters.isTypography,
+            },
+            {
+              destination: 'border.css',
+              format: 'css/variables',
+              filter: filters.isPrimitiveBorder,
             },
           ],
         },
         'css-components': {
-          transformGroup: 'css-device',
-          transforms: ['remove-light-color', 'remove-alias-color', 'px-to-rem'],
-          buildPath: './css/',
-          files: dynamicComponentFiles,
+          transformGroup: 'css-transforms',
+          buildPath: BUILD_PATH,
+          files: componentFiles,
+        },
+        'css-index': {
+          transformGroup: 'css-transforms',
+          buildPath: BUILD_PATH,
+          files: [
+            {
+              destination: 'index.css',
+              format: 'css/index',
+            },
+          ],
         },
       },
     }),

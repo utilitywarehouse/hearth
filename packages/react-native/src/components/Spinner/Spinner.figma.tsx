@@ -1,7 +1,7 @@
 import React from 'react';
 import { Spinner } from './';
 import figma from '@figma/code-connect';
-import { color } from '@utilitywarehouse/hearth-tokens';
+import { color } from '@utilitywarehouse/hearth-tokens/js';
 
 figma.connect(
   Spinner,

@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Box } from '.';
 import { BodyText } from '../BodyText';
 import { coloursAsArray } from '../../utils';
-import { primitive } from '@utilitywarehouse/hearth-tokens';
+import { primitive } from '@utilitywarehouse/hearth-tokens/js';
 import { InputType } from 'storybook/internal/types';
 
 const backgroundColor: InputType = {

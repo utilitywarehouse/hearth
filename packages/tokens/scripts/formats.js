@@ -1,4 +1,5 @@
-import { camelCase, recursiveCamelCase } from './utils/index.js';
+import { camelCase } from './utils/camelCase.js';
+import { recursiveCamelCase } from './utils/recursiveCamelCase.js';
 
 // Helper to build device-specific output
 function buildDeviceOutput(dictionary, options) {

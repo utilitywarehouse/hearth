@@ -1,5 +1,9 @@
-export default function recursiveCamelCase(obj) {
-  if (Array.isArray(obj)) return obj.map(recursiveCamelCase);
+import { camelCase } from './camelCase.js';
+
+export function recursiveCamelCase(obj) {
+  if (Array.isArray(obj)) {
+    return obj.map(recursiveCamelCase);
+  }
   if (obj && typeof obj === 'object') {
     return Object.keys(obj).reduce((acc, key) => {
       acc[camelCase(key)] = recursiveCamelCase(obj[key]);

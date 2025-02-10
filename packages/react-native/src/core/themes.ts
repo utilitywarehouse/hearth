@@ -1,6 +1,12 @@
 import { DimensionValue, Platform, TextStyle } from 'react-native';
 import { breakpoints } from './breakpoints';
-import { components, color, layout, primitive, typography } from '@utilitywarehouse/hearth-tokens';
+import {
+  components,
+  color,
+  layout,
+  primitive,
+  typography,
+} from '@utilitywarehouse/hearth-tokens/js';
 
 const shared = {
   platform: Platform.OS,
