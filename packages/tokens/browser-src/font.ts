@@ -1,31 +1,31 @@
 export const font = {
-  "family": {
-    "body": "var(--font-family-body)",
-    "detail": "var(--font-family-detail)",
-    "heading": "var(--font-family-heading)"
+  family: {
+    body: 'var(--font-family-body)',
+    detail: 'var(--font-family-detail)',
+    heading: 'var(--font-family-heading)',
   },
-  "size": {
-    "50": "var(--font-size-50)",
-    "75": "var(--font-size-75)",
-    "90": "var(--font-size-90)",
-    "100": "var(--font-size-100)",
-    "150": "var(--font-size-150)",
-    "200": "var(--font-size-200)",
-    "300": "var(--font-size-300)",
-    "400": "var(--font-size-400)",
-    "500": "var(--font-size-500)",
-    "550": "var(--font-size-550)",
-    "600": "var(--font-size-600)",
-    "700": "var(--font-size-700)",
-    "800": "var(--font-size-800)",
-    "900": "var(--font-size-900)",
-    "1000": "var(--font-size-1000)"
+  size: {
+    '50': 'var(--font-size-50)',
+    '75': 'var(--font-size-75)',
+    '90': 'var(--font-size-90)',
+    '100': 'var(--font-size-100)',
+    '150': 'var(--font-size-150)',
+    '200': 'var(--font-size-200)',
+    '300': 'var(--font-size-300)',
+    '400': 'var(--font-size-400)',
+    '500': 'var(--font-size-500)',
+    '550': 'var(--font-size-550)',
+    '600': 'var(--font-size-600)',
+    '700': 'var(--font-size-700)',
+    '800': 'var(--font-size-800)',
+    '900': 'var(--font-size-900)',
+    '1000': 'var(--font-size-1000)',
   },
-  "weight": {
-    "bold": "var(--font-weight-bold)",
-    "heavy": "var(--font-weight-heavy)",
-    "medium": "var(--font-weight-medium)",
-    "regular": "var(--font-weight-regular)",
-    "semibold": "var(--font-weight-semibold)"
-  }
+  weight: {
+    bold: 'var(--font-weight-bold)',
+    heavy: 'var(--font-weight-heavy)',
+    medium: 'var(--font-weight-medium)',
+    regular: 'var(--font-weight-regular)',
+    semibold: 'var(--font-weight-semibold)',
+  },
 };
