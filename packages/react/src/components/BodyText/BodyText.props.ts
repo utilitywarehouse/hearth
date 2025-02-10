@@ -4,7 +4,7 @@ import type { ComponentPropsWithout, RemovedProps } from '../../types/component-
 import type { Responsive } from '../../types/responsive';
 
 const sizes = ['sm', 'md', 'lg'] as const;
-const weights = ['regular', 'bold'] as const;
+const weights = ['regular', 'semibold', 'bold'] as const;
 
 export const bodyTextPropDefs = {
   size: { className: 'size', tokens: sizes, responsive: true, default: 'md' },
