@@ -3,13 +3,14 @@
   "version": "0.0.1",
   "description": "",
   "style": "./index.css",
+  "main": "./build/js/index.js",
   "type": "module",
   "exports": {
+    "./css/*": "./build/css/*",
     "./js": {
       "types": "./build/js/index.d.ts",
       "default": "./build/js/index.js"
     },
-    "./css": "./build/css",
     "./browser": {
       "types": "./build/browser/index.d.ts",
       "default": "./build/browser/index.js"
