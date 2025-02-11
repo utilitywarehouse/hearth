@@ -1,6 +1,7 @@
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
+import { TextWrapProps } from '../../props/text-wrap.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
@@ -15,6 +16,7 @@ export const headingPropDefs = {
 export interface HeadingProps
   extends TextAlignProps,
     TextTransformProps,
+    TextWrapProps,
     ComponentPropsWithout<'h2', RemovedProps> {
   /**
    * @default h2

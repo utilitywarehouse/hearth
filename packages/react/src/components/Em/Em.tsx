@@ -10,6 +10,7 @@ import type { ElementRef } from 'react';
 import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
+import { textWrapPropDefs } from '../../props/text-wrap.props';
 
 const componentName = 'Em';
 const componentClassName = withGlobalPrefix(componentName);
@@ -20,7 +21,8 @@ export const Em = React.forwardRef<EmElement, EmProps>((props, ref) => {
   const { className, asChild, children, truncate, ...emProps } = extractProps(
     props,
     textAlignPropDefs,
-    textTransformPropDefs
+    textTransformPropDefs,
+    textWrapPropDefs
   );
   return (
     <Slot
