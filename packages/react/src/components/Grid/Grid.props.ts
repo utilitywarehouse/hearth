@@ -6,6 +6,7 @@ import type { MarginProps } from '../../props/margin.props';
 import type { PaddingProps } from '../../props/padding.props';
 import { PropDef } from '../../props/prop-def';
 import { SizeProps } from '../../props/size.props';
+import { SpacingProps } from '../../props/spacing.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive, Union } from '../../types/responsive';
 
@@ -46,6 +47,7 @@ interface CommonGridProps
     PaddingProps,
     MarginProps,
     GapProps,
+    SpacingProps,
     SizeProps,
     GridItemProps,
     FlexItemProps {

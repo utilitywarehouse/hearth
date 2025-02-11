@@ -1,0 +1,27 @@
+.hearth-spacing-xs {
+  gap: var(--spacing-xs-mobile);
+}
+
+.hearth-spacing-sm {
+  gap: var(--spacing-sm-mobile);
+}
+
+.hearth-spacing-md {
+  gap: var(--spacing-md-mobile);
+}
+
+.hearth-spacing-lg {
+  gap: var(--spacing-lg-mobile);
+
+  @media (--tablet) {
+    gap: var(--spacing-lg-tablet);
+  }
+}
+
+.hearth-spacing-xl {
+  gap: var(--spacing-xl-mobile);
+
+  @media (--desktop) {
+    gap: var(--spacing-xl-desktop);
+  }
+}
