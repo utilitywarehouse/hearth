@@ -1,5 +1,6 @@
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
+import { TextTransformProps } from '../../props/text-transform.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
@@ -11,7 +12,10 @@ export const headingPropDefs = {
   size: PropDef<(typeof sizes)[number]>;
 };
 
-export interface HeadingProps extends TextAlignProps, ComponentPropsWithout<'h2', RemovedProps> {
+export interface HeadingProps
+  extends TextAlignProps,
+    TextTransformProps,
+    ComponentPropsWithout<'h2', RemovedProps> {
   /**
    * @default h2
    */

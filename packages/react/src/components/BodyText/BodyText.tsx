@@ -8,6 +8,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const componentName = 'BodyText';
 const componentClassName = withGlobalPrefix(componentName);
@@ -22,7 +23,7 @@ export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props,
     children,
     truncate,
     ...bodyTextProps
-  } = extractProps(props, bodyTextPropDefs, textAlignPropDefs);
+  } = extractProps(props, bodyTextPropDefs, textAlignPropDefs, textTransformPropDefs);
 
   return (
     <Slot
