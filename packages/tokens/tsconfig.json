@@ -1,5 +1,5 @@
 {
-  "include": ["./ts"],
+  "include": ["./src/ts"],
   "compilerOptions": {
     "ignoreDeprecations": "5.0",
     "noEmit": false,
@@ -11,7 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "lib": ["esnext", "dom"],
-    "outDir": "./js",
+    "outDir": "./build/js",
     "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,

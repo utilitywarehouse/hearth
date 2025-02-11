@@ -5,26 +5,26 @@
   "style": "./index.css",
   "type": "module",
   "exports": {
-    "./browser": {
-      "types": "./browser/index.d.ts",
-      "default": "./browser/index.js"
-    },
     "./js": {
-      "types": "./js/index.d.ts",
-      "default": "./js/index.js"
+      "types": "./build/js/index.d.ts",
+      "default": "./build/js/index.js"
+    },
+    "./css": "./build/css",
+    "./browser": {
+      "types": "./build/browser/index.d.ts",
+      "default": "./build/browser/index.js"
     },
     "./*": "./*",
     ".": "./"
   },
   "scripts": {
-    "dev:css": "postcss --watch --verbose src --dir .",
-    "build:css": "postcss css/index.css --dir .",
+    "build:css": "postcss build/css/index.css --dir .",
     "build:js": "tsc --project ./tsconfig.json",
     "build:browser": "tsc --project ./tsconfig.browser.json",
     "build:tokens": "node ./scripts/build-tokens.js",
     "build": "pnpm clean:build && pnpm build:tokens && pnpm build:css && pnpm build:js && pnpm build:browser && pnpm format",
     "clean": "rm -rf node_modules .turbo",
-    "clean:build": "rm -rf css js ts browser browser-src",
+    "clean:build": "rm -rf build src",
     "lint:css": "stylelint \"./**/*.css\" --fix",
     "format": "prettier --write \"./**/*.{ts,js}\" && pnpm lint:css"
   },

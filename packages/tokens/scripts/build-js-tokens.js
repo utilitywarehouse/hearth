@@ -7,6 +7,8 @@ import {
 import { loadJSON } from './helpers/load-json.js';
 import { registerDictionaryExtensions } from './helpers/register-dictionary-extensions.js';
 
+const BUILD_PATH = './src/ts/';
+
 // Call registration once
 registerDictionaryExtensions(StyleDictionary);
 
@@ -69,7 +71,7 @@ export function buildJsTokens() {
       platforms: {
         'js-typography': {
           transformGroup: 'js-device',
-          buildPath: './ts/',
+          buildPath: BUILD_PATH,
           files: [
             {
               destination: 'typography.ts',
@@ -84,7 +86,7 @@ export function buildJsTokens() {
         },
         'js-layout': {
           transformGroup: 'js-device',
-          buildPath: './ts/',
+          buildPath: BUILD_PATH,
           files: [
             {
               destination: 'layout.ts',
@@ -96,7 +98,7 @@ export function buildJsTokens() {
         },
         'js-colour': {
           transformGroup: 'js-device',
-          buildPath: './ts/',
+          buildPath: BUILD_PATH,
           files: [
             {
               destination: 'color.ts',
@@ -107,7 +109,7 @@ export function buildJsTokens() {
         },
         'js-primitive': {
           transformGroup: 'js-device',
-          buildPath: './ts/',
+          buildPath: BUILD_PATH,
           files: [
             {
               destination: 'primitive.ts',
@@ -121,7 +123,7 @@ export function buildJsTokens() {
         },
         'js-components': {
           transformGroup: 'js-device',
-          buildPath: './ts/',
+          buildPath: BUILD_PATH,
           files: [
             ...dynamicLightComponentFiles,
             ...dynamicDarkComponentFiles,

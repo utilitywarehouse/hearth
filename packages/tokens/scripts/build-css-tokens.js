@@ -5,7 +5,7 @@ import { normalizeTokenName } from './helpers/normalize-token.js';
 import { px } from './helpers/px.js';
 import { filters } from './helpers/filters.js';
 
-export const BUILD_PATH = './css/';
+export const BUILD_PATH = './build/css/';
 
 // I tried to get this working with fs.readdirSync but I couldn't
 // so this will have to do for now

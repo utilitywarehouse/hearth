@@ -5,7 +5,7 @@ import { DELIMITER, normalizeTokenPath } from './helpers/normalize-token.js';
 import { camelCase } from './helpers/camel-case.js';
 import merge from 'lodash.merge';
 
-export const BUILD_PATH = './browser-src/';
+export const BUILD_PATH = './src/browser/';
 
 StyleDictionary.registerFormat({
   name: 'browser/index',
