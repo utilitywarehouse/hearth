@@ -15,8 +15,7 @@ const BodyText = forwardRef<Text, BodyTextProps>(
       color,
       size = 'md',
       truncated,
-      semibold,
-      bold,
+      weight = 'regular',
       underline,
       strikeThrough,
       italic,
@@ -34,8 +33,7 @@ const BodyText = forwardRef<Text, BodyTextProps>(
     const { color: themeColor, colorMode } = useTheme();
     styles.useVariants({
       size,
-      semibold,
-      bold,
+      weight,
       underline,
       strikeThrough,
       italic,
@@ -81,7 +79,6 @@ BodyText.displayName = 'BodyText';
 const styles = StyleSheet.create(theme => ({
   text: {
     color: theme.color.grey['1000'],
-    fontWeight: theme.fontWeight.regular,
     fontFamily: theme.typography.mobile.bodyText.fontFamily,
     fontStyle: 'normal',
     variants: {
@@ -102,13 +99,14 @@ const styles = StyleSheet.create(theme => ({
           letterSpacing: theme.typography.mobile.bodyText.sm.letterSpacing,
         },
       },
-      semibold: {
-        true: {
+      weight: {
+        regular: {
+          fontWeight: theme.fontWeight.regular,
+        },
+        semibold: {
           fontWeight: theme.fontWeight.semibold,
         },
-      },
-      bold: {
-        true: {
+        bold: {
           fontWeight: theme.fontWeight.bold,
         },
       },
