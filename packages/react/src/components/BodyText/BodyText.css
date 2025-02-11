@@ -1,6 +1,10 @@
 .hearth-BodyText {
   font-family: var(--font-family-body-text);
 
+  &:where(.hearth-paragraph-spacing) {
+    margin-bottom: 1em;
+  }
+
   @breakpoints {
     &:where(.hearth-r-size-sm) {
       font-size: var(--body-text-sm-font-size);

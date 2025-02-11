@@ -11,9 +11,11 @@ const weights = ['regular', 'semibold', 'bold'] as const;
 export const bodyTextPropDefs = {
   size: { className: 'size', tokens: sizes, responsive: true, default: 'md' },
   weight: { className: 'weight', tokens: weights, responsive: true, default: 'regular' },
+  paragraphSpacing: { className: 'paragraph-spacing', responsive: false },
 } satisfies {
   size: PropDef<(typeof sizes)[number]>;
   weight: PropDef<(typeof weights)[number]>;
+  paragraphSpacing: PropDef<boolean>;
 };
 
 interface CommonBodyTextProps extends TextAlignProps, TextTransformProps, TextWrapProps {
@@ -42,6 +44,10 @@ interface CommonBodyTextProps extends TextAlignProps, TextTransformProps, TextWr
    * Note that text overflow can only happen with block or inline-block level elements (the element needs to have a width in order to overflow).
    */
   truncate?: boolean | undefined;
+  /**
+   * If true, the text will have a bottom margin.
+   */
+  paragraphSpacing?: boolean;
 }
 type BodyTextDivProps = { as: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
 type BodyTextSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
