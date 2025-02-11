@@ -66,17 +66,30 @@ overflow).
 
 <Canvas of={Stories.TextTruncate} />
 
+## Paragraph Spacing
+
+The `paragraphSpacing` prop aligns with the auto spacing between paragraphs in
+Figma designs. While layout components are preferred for managing layouts, and
+applying spacing between elements, sometimes multiple paragraphs can be stacked
+without a parent layout component. When this happens in a design there is no
+indication what the spacing is between these stacked paragraphs. You can use
+`paragraphSpacing` on these `BodyText` elements to apply a predefined bottom
+gutter.
+
+<Canvas of={Stories.ParagraphSpacing} />
+
 ## API
 
 This component is based on the `p` element.
 
-| Prop            | Type                                                               |
-| --------------- | ------------------------------------------------------------------ |
-| `as`            | `"p" \| "div" \| "span"`                                           |
-| `asChild`       | `boolean`                                                          |
-| `size`          | `Responsive<"sm" \| "md" \| "lg">`                                 |
-| `weight`        | `Responsive<"regular" \| "bold">`                                  |
-| `align`         | `Responsive<"left" \| "center" \| "right">`                        |
-| `textTransform` | `Responsive<"none" \| "capitalize" \| "uppercase" \| "lowercase">` |
-| `wrap`          | `Responsive<"wrap" \| "nowrap" \| "balance" \| "pretty">`          |
-| `truncate`      | `boolean`                                                          |
+| Prop               | Type                                                               |
+| ------------------ | ------------------------------------------------------------------ |
+| `as`               | `"p" \| "div" \| "span"`                                           |
+| `asChild`          | `boolean`                                                          |
+| `size`             | `Responsive<"sm" \| "md" \| "lg">`                                 |
+| `weight`           | `Responsive<"regular" \| "bold">`                                  |
+| `align`            | `Responsive<"left" \| "center" \| "right">`                        |
+| `textTransform`    | `Responsive<"none" \| "capitalize" \| "uppercase" \| "lowercase">` |
+| `wrap`             | `Responsive<"wrap" \| "nowrap" \| "balance" \| "pretty">`          |
+| `truncate`         | `boolean`                                                          |
+| `paragraphSpacing` | `boolean`                                                          |
