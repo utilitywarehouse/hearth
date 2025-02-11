@@ -11,7 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react",
     "lib": ["esnext", "dom"],
-    "outDir": "./build/js",
+    "outDir": "./js",
     "module": "esnext",
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
