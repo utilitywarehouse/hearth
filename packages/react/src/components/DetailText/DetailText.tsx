@@ -9,6 +9,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { textTransformPropDefs } from '../../props/text-transform.props';
+import { textWrapPropDefs } from '../../props/text-wrap.props';
 
 const componentName = 'DetailText';
 const componentClassName = withGlobalPrefix(componentName);
@@ -22,7 +23,13 @@ export const DetailText = React.forwardRef<DetailTextElement, DetailTextProps>((
     as: Tag = 'span',
     children,
     ...detailTextProps
-  } = extractProps(props, detailTextPropDefs, textAlignPropDefs, textTransformPropDefs);
+  } = extractProps(
+    props,
+    detailTextPropDefs,
+    textAlignPropDefs,
+    textTransformPropDefs,
+    textWrapPropDefs
+  );
 
   return (
     <Slot ref={ref} className={clsx(componentClassName, className)} {...detailTextProps}>

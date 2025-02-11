@@ -9,6 +9,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { textTransformPropDefs } from '../../props/text-transform.props';
+import { textWrapPropDefs } from '../../props/text-wrap.props';
 
 const componentName = 'BodyText';
 const componentClassName = withGlobalPrefix(componentName);
@@ -23,7 +24,13 @@ export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props,
     children,
     truncate,
     ...bodyTextProps
-  } = extractProps(props, bodyTextPropDefs, textAlignPropDefs, textTransformPropDefs);
+  } = extractProps(
+    props,
+    bodyTextPropDefs,
+    textAlignPropDefs,
+    textTransformPropDefs,
+    textWrapPropDefs
+  );
 
   return (
     <Slot
