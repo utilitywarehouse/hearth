@@ -56,8 +56,8 @@ const rootJsIndexFile = {
   transformGroup: 'js-device',
 };
 
-export function buildJsTokens() {
-  console.log('Building JS tokens...');
+export function generateJsTokens() {
+  console.log('Generating JS tokens...');
   return [
     new StyleDictionary({
       source: ['./raw/*.json'],

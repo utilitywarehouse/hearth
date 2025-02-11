@@ -1,17 +1,17 @@
-import { buildJsTokens } from './build-js-tokens.js';
-import { buildCssTokens } from './build-css-tokens.js';
-import { buildBrowserTokens } from './build-browser-tokens.js';
+import { generateJsTokens } from './generate-js-tokens.js';
+import { generateCssTokens } from './generate-css-tokens.js';
+import { generateBrowserTokens } from './generate-browser-tokens.js';
 
-async function buildStyles() {
+async function generateTokens() {
   const dictionaries = [
-    // Build JS objects, optimised for use in React Native applications
-    ...buildJsTokens(),
-    // Build CSS Custom properties
-    ...buildCssTokens(),
-    // Build JS objects, optimised for use in the browser. These will refer
+    // Generate JS objects, optimised for use in React Native applications
+    ...generateJsTokens(),
+    // Generate CSS Custom properties
+    ...generateCssTokens(),
+    // Generate JS objects, optimised for use in the browser. These will refer
     // to CSS custom properties rather than raw values, so need to be used in
     // conjunction with the CSS tokens.
-    ...buildBrowserTokens(),
+    ...generateBrowserTokens(),
   ];
 
   try {
@@ -26,5 +26,5 @@ async function buildStyles() {
 
 // Run the build:
 (async () => {
-  await buildStyles();
+  await generateTokens();
 })();

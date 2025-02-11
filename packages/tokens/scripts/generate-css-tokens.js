@@ -107,8 +107,8 @@ const componentFiles = Object.keys(componentJson.light).map(componentName => ({
   },
 }));
 
-export function buildCssTokens() {
-  console.log('Buildng CSS tokens...');
+export function generateCssTokens() {
+  console.log('Generating CSS tokens...');
   return [
     new StyleDictionary({
       source: ['./raw/*.json'],
