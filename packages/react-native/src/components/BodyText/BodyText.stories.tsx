@@ -25,15 +25,10 @@ const meta = {
       control: 'boolean',
       description: 'Truncate the text.',
     },
-    semibold: {
-      type: 'boolean',
-      control: 'boolean',
-      description: 'Semi Bold the text.',
-    },
-    bold: {
-      type: 'boolean',
-      control: 'boolean',
-      description: 'Bold the text.',
+    weight: {
+      options: ['regular', 'semibold', 'bold'],
+      control: 'select',
+      description: 'The weight of the text.',
     },
     italic: {
       type: 'boolean',
@@ -96,8 +91,7 @@ const meta = {
     children: "Hello there, I'm some body text!",
     size: 'md',
     truncated: false,
-    semibold: false,
-    bold: false,
+    weight: 'regular',
     italic: false,
     underline: false,
     strikeThrough: false,
@@ -135,7 +129,7 @@ export const KitchenSink: Story = {
 
 export const SemiBold: Story = {
   args: {
-    semibold: true,
+    weight: 'semibold',
     children: "Hello there, I'm some semi bold body text!",
   },
 };
