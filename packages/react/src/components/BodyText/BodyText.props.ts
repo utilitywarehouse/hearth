@@ -1,5 +1,6 @@
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
+import {TextTransformProps} from '../../props/text-transform.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
@@ -14,7 +15,7 @@ export const bodyTextPropDefs = {
   weight: PropDef<(typeof weights)[number]>;
 };
 
-interface CommonBodyTextProps extends TextAlignProps {
+interface CommonBodyTextProps extends TextAlignProps, TextTransformProps {
   /**
    * Shorthand for changing the default rendered element into a semantically appropriate alternative.
    * Cannot be used in combination with `asChild`.

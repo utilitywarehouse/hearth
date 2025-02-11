@@ -8,6 +8,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { Slot } from '@radix-ui/react-slot';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const componentName = 'Heading';
 const componentClassName = withGlobalPrefix(componentName);
@@ -18,7 +19,8 @@ export const Heading = React.forwardRef<HeadingElement, HeadingProps>(({ size, .
   const { className, as, asChild, children, ...headingProps } = extractProps(
     { size, ...props },
     headingPropDefs,
-    textAlignPropDefs
+    textAlignPropDefs,
+    textTransformPropDefs
   );
   const defaultElement = 'h2';
   const Tag = as ? as : defaultElement;

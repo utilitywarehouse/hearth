@@ -1,6 +1,11 @@
+import { TextAlignProps } from '../../props/text-align.props';
+import { TextTransformProps } from '../../props/text-transform.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
-export interface StrongProps extends ComponentPropsWithout<'strong', RemovedProps> {
+export interface StrongProps
+  extends TextAlignProps,
+    TextTransformProps,
+    ComponentPropsWithout<'strong', RemovedProps> {
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    */
