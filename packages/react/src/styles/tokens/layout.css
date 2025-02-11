@@ -1,0 +1,17 @@
+:root {
+  --spacing-lg-desktop: var(--space-300);
+  --spacing-lg-mobile: var(--space-250);
+  --spacing-lg-tablet: var(--space-300);
+  --spacing-md-desktop: var(--space-200);
+  --spacing-md-mobile: var(--space-200);
+  --spacing-md-tablet: var(--space-200);
+  --spacing-sm-desktop: var(--space-150);
+  --spacing-sm-mobile: var(--space-150);
+  --spacing-sm-tablet: var(--space-150);
+  --spacing-xl-desktop: var(--space-500);
+  --spacing-xl-mobile: var(--space-350);
+  --spacing-xl-tablet: var(--space-350);
+  --spacing-xs-desktop: var(--space-100);
+  --spacing-xs-mobile: var(--space-100);
+  --spacing-xs-tablet: var(--space-100);
+}

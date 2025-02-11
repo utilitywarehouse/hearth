@@ -42,6 +42,16 @@ design token spacing scale. All gap properties are repsonsive.
 <Flex columnGap="400" rowGap={{ mobile: "100", desktop: "300" }}>
 ```
 
+## Spacing
+
+As well as `gap`, there is a `spacing` prop which uses a smaller scale, already
+optimised for responsive design. This prop will be overridden by the `gap`
+prop.
+
+```tsx
+<Flex spacing="lg">
+```
+
 ## Semantic HTML
 
 By default `Flex` renders a `div` element, this can be customised using the
@@ -109,3 +119,4 @@ This component is based on the `div` element and supports the following common s
 | `align`     | `Responsive<"start" \| "center" \| "end" \| "baseline" \| "stretch" \| "space-around" \| "space-between" \| "space-evenly">` |
 | `justify`   | `Responsive<"start" \| "center" \| "end" \| "between" \| "space-around" \| "space-between" \| "space-evenly">`               |
 | `wrap`      | `Responsive<"wrap" \| "nowrap" \| "wrap-reverse">`                                                                           |
+| `spacing`   | `"xs" \| "sm" \| "md" \| "lg" \| "xl">`                                                                                      |
