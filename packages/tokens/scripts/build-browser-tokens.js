@@ -75,8 +75,8 @@ const componentFiles = Object.keys(componentJson.light).map(componentName => ({
     token.path.includes('light'),
 }));
 
-export function buildBrowser() {
-  console.log('Buildng Browser tokens...');
+export function buildBrowserTokens() {
+  console.log('Building Browser tokens...');
   return [
     new StyleDictionary({
       source: ['./raw/*.json'],

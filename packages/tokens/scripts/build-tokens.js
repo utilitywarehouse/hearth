@@ -1,17 +1,17 @@
-import { buildJs } from './build-js.js';
-import { buildCss } from './build-css.js';
-import { buildBrowser } from './build-browser.js';
+import { buildJsTokens } from './build-js-tokens.js';
+import { buildCssTokens } from './build-css-tokens.js';
+import { buildBrowserTokens } from './build-browser-tokens.js';
 
 async function buildStyles() {
   const dictionaries = [
     // Build JS objects, optimised for use in React Native applications
-    ...buildJs(),
+    ...buildJsTokens(),
     // Build CSS Custom properties
-    ...buildCss(),
+    ...buildCssTokens(),
     // Build JS objects, optimised for use in the browser. These will refer
     // to CSS custom properties rather than raw values, so need to be used in
     // conjunction with the CSS tokens.
-    ...buildBrowser(),
+    ...buildBrowserTokens(),
   ];
 
   try {
