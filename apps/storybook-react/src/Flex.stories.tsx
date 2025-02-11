@@ -24,6 +24,7 @@ const meta: Meta<typeof Flex> = {
     paddingBottom: { options: spaceTokens, control: { type: 'select' } },
     paddingLeft: { options: spaceTokens, control: { type: 'select' } },
     gap: { options: spaceTokens, control: { type: 'select' } },
+    spacing: { options: ['xs', 'sm', 'md', 'lg', 'xl'], control: { type: 'select' } },
     width: { control: { type: 'text' } },
     minWidth: { control: { type: 'text' } },
     maxWidth: { control: { type: 'text' } },
@@ -67,6 +68,20 @@ export const ResponsiveGap: Story = {
       desktop: '300',
       wide: '600',
     },
+    direction: 'column',
+  },
+};
+
+export const Spacing: Story = {
+  render: args => (
+    <Flex {...args}>
+      <Box className="hearth-sb-Placeholder" padding="600" />
+      <Box className="hearth-sb-Placeholder" padding="600" />
+      <Box className="hearth-sb-Placeholder" padding="600" />
+    </Flex>
+  ),
+  args: {
+    spacing: 'lg',
     direction: 'column',
   },
 };

@@ -20,6 +20,7 @@ const meta: Meta<typeof BodyText> = {
     size: { options: sizes, control: { type: 'radio' } },
     weight: { options: weights, control: { type: 'radio' } },
     truncate: { control: { type: 'boolean' } },
+    paragraphSpacing: { control: { type: 'boolean' } },
   },
   args: {
     children: 'The five boxing wizards jump quickly.',
@@ -92,6 +93,35 @@ export const TextTruncate: Story = {
           <BodyText key={size} {...args} size={size}>
             the quick brown fox jumped over the lazy dog.
           </BodyText>
+        ))}
+      </Flex>
+    );
+  },
+  args: {
+    truncate: true,
+    weight: 'regular',
+  },
+};
+
+export const ParagraphSpacing: Story = {
+  render: () => {
+    return (
+      <Flex gap="500">
+        {sizes.map(size => (
+          <Flex key={size} direction="column" width="360px">
+            <BodyText paragraphSpacing size={size}>
+              EV tariffs offer fantastic value if your driving patterns mean you can regularly
+              charge your car at home - and can schedule your vehicle to charge while you sleep.
+            </BodyText>
+            <BodyText paragraphSpacing size={size}>
+              You’ll get the most value out of our EV tariff by consistently charging your car
+              off-peak between midnight and 5am in the morning
+            </BodyText>
+            <BodyText size={size}>
+              And don't forget, any domestic usage (e.g. washing machines) in that off-peak window
+              will also be charged at the reduced rate.
+            </BodyText>
+          </Flex>
         ))}
       </Flex>
     );

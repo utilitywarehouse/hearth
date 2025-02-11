@@ -14,6 +14,7 @@ import { gapPropDefs } from '../../props/gap.props';
 import { marginPropDefs } from '../../props/margin.props';
 import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
+import { spacingPropDefs } from '../../props/spacing.props';
 
 const componentName = 'Flex';
 const componentClassName = withGlobalPrefix(componentName);
@@ -35,7 +36,8 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
     sizePropDefs,
     gapPropDefs,
     gridItemPropDefs,
-    flexItemPropDefs
+    flexItemPropDefs,
+    spacingPropDefs
   );
 
   const Component = asChild ? Slot : Tag;

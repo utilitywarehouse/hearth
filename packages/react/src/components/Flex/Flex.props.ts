@@ -6,6 +6,7 @@ import { MarginProps } from '../../props/margin.props';
 import type { PaddingProps } from '../../props/padding.props';
 import { PropDef } from '../../props/prop-def';
 import type { SizeProps } from '../../props/size.props';
+import { SpacingProps } from '../../props/spacing.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
@@ -56,6 +57,7 @@ interface CommonFlexProps
     MarginProps,
     SizeProps,
     GapProps,
+    SpacingProps,
     GridItemProps,
     FlexItemProps {
   as?: 'div' | 'span';

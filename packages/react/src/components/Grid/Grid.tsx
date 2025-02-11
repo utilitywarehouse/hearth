@@ -14,6 +14,7 @@ import { gapPropDefs } from '../../props/gap.props';
 import { sizePropDefs } from '../../props/size.props';
 import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
+import { spacingPropDefs } from '../../props/spacing.props';
 
 const componentName = 'Grid';
 const componentClassName = withGlobalPrefix(componentName);
@@ -36,7 +37,8 @@ export const Grid = React.forwardRef<GridElement, GridProps>((props, ref) => {
     gapPropDefs,
     sizePropDefs,
     gridItemPropDefs,
-    flexItemPropDefs
+    flexItemPropDefs,
+    spacingPropDefs
   );
 
   const dataAttributeProps = {

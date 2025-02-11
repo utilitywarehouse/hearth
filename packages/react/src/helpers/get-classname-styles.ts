@@ -34,6 +34,12 @@ export const getClassNameStyles = ({
     };
   }
 
+  if (typeof value === 'boolean' && value === true) {
+    // we can assume that a boolean value does not have any associated tokens
+    // and currently we don't support responsive boolean props, though we may in the future.
+    return { className: `${GLOBAL_PREFIX}-${prefix}` };
+  }
+
   if (isResponsiveObject(value)) {
     const initialBreakpoint = 'mobile';
 

@@ -58,3 +58,16 @@ export const ResponsiveGrid: Story = {
     </Grid>
   ),
 };
+
+export const Spacing: Story = {
+  render: args => (
+    <Grid {...args}>
+      <Box className="hearth-sb-Placeholder" padding="600" />
+      <Box className="hearth-sb-Placeholder" padding="600" />
+      <Box className="hearth-sb-Placeholder" padding="600" />
+    </Grid>
+  ),
+  args: {
+    spacing: 'lg',
+  },
+};
