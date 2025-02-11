@@ -1,6 +1,6 @@
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
-import {TextTransformProps} from '../../props/text-transform.props';
+import { TextTransformProps } from '../../props/text-transform.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
