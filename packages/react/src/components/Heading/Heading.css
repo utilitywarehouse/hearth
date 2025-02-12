@@ -3,31 +3,38 @@
   font-weight: var(--font-weight-semibold);
 
   &:where(.hearth-size-sm) {
-    font-size: var(--heading-sm-font-size);
+    font-size: var(--heading-sm-font-size-mobile);
+    line-height: var(--heading-sm-line-height-mobile);
   }
 
   &:where(.hearth-size-md) {
-    font-size: var(--heading-md-font-size);
+    font-size: var(--heading-md-font-size-mobile);
+    line-height: var(--heading-md-line-height-mobile);
 
     @media (--desktop) {
       font-size: var(--heading-md-font-size-desktop);
+      line-height: var(--heading-md-line-height-desktop);
     }
   }
 
   &:where(.hearth-size-lg) {
-    font-size: var(--heading-lg-font-size);
+    font-size: var(--heading-lg-font-size-mobile);
+    line-height: var(--heading-lg-line-height-mobile);
 
     @media (--desktop) {
       font-size: var(--heading-lg-font-size-desktop);
+      line-height: var(--heading-lg-line-height-desktop);
     }
   }
 
   &:where(.hearth-size-xl) {
-    font-size: var(--heading-xl-font-size);
+    font-size: var(--heading-xl-font-size-mobile);
+    line-height: var(--heading-xl-line-height-mobile);
     font-weight: var(--font-weight-bold);
 
     @media (--desktop) {
       font-size: var(--heading-xl-font-size-desktop);
+      line-height: var(--heading-xl-line-height-desktop);
     }
   }
 }

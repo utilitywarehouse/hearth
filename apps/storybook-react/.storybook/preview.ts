@@ -1,8 +1,8 @@
 import { Preview } from '@storybook/react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import '@utilitywarehouse/css-reset';
+import '@utilitywarehouse/hearth-css-reset';
 import '@utilitywarehouse/hearth-fonts';
-import '@utilitywarehouse/colour-system/css/colours.css';
+import '@utilitywarehouse/hearth-tokens/index.css';
 import '@utilitywarehouse/hearth-react/styles.css';
 import '../src/storybook-components/styles.css';
 import { breakpoints } from '@utilitywarehouse/hearth-react';

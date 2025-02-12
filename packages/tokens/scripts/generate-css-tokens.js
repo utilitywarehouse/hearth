@@ -50,10 +50,10 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'line-height/unitless',
+  name: 'line-height/px-to-rem',
   type: 'value',
   filter: filters.isPrimitiveLineHeight,
-  transform: token => `${token.value / 16}`,
+  transform: token => `${token.value / 16}rem`,
 });
 
 StyleDictionary.registerTransform({
@@ -90,7 +90,7 @@ StyleDictionary.registerTransformGroup({
     'space/px',
     'border/px',
     'font-size/px-to-rem',
-    'line-height/unitless',
+    'line-height/px-to-rem',
   ],
 });
 

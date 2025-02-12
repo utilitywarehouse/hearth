@@ -331,12 +331,18 @@ importers:
 
   apps/storybook-react:
     dependencies:
+      '@utilitywarehouse/hearth-css-reset':
+        specifier: workspace:*
+        version: link:../../packages/css-reset
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:*
         version: link:../../packages/fonts
       '@utilitywarehouse/hearth-react':
         specifier: workspace:*
         version: link:../../packages/react
+      '@utilitywarehouse/hearth-tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
       react:
         specifier: ^18.3.1
         version: 18.3.1
