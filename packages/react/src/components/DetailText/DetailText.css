@@ -4,30 +4,37 @@
   @breakpoints {
     &:where(.hearth-r-size-sm) {
       font-size: var(--detail-text-sm-font-size);
+      line-height: var(--detail-text-sm-line-height);
     }
 
     &:where(.hearth-r-size-md) {
       font-size: var(--detail-text-md-font-size);
+      line-height: var(--detail-text-md-line-height);
     }
 
     &:where(.hearth-r-size-lg) {
       font-size: var(--detail-text-lg-font-size);
+      line-height: var(--detail-text-lg-line-height);
     }
 
     &:where(.hearth-r-size-xl) {
       font-size: var(--detail-text-xl-font-size);
+      line-height: var(--detail-text-xl-line-height);
     }
 
     &:where(.hearth-r-size-2xl) {
       font-size: var(--detail-text-2xl-font-size);
+      line-height: var(--detail-text-2xl-line-height);
     }
 
     &:where(.hearth-r-size-3xl) {
       font-size: var(--detail-text-3xl-font-size);
+      line-height: var(--detail-text-3xl-line-height);
     }
 
     &:where(.hearth-r-size-4xl) {
       font-size: var(--detail-text-4xl-font-size);
+      line-height: var(--detail-text-4xl-line-height);
     }
   }
 }

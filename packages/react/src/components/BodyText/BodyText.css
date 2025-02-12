@@ -8,14 +8,17 @@
   @breakpoints {
     &:where(.hearth-r-size-sm) {
       font-size: var(--body-text-sm-font-size);
+      line-height: var(--body-text-sm-line-height);
     }
 
     &:where(.hearth-r-size-md) {
       font-size: var(--body-text-md-font-size);
+      line-height: var(--body-text-md-line-height);
     }
 
     &:where(.hearth-r-size-lg) {
       font-size: var(--body-text-lg-font-size);
+      line-height: var(--body-text-lg-line-height);
     }
   }
 }

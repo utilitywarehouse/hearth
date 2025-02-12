@@ -20,7 +20,7 @@ const meta: Meta<typeof Heading> = {
   args: {
     children: 'The five boxing wizards jump quickly.',
     size: 'md',
-    align: { mobile: 'left', tablet: 'center', desktop: 'right' },
+    align: 'left',
   },
 };
 
