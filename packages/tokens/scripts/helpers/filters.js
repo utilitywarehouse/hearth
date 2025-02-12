@@ -8,18 +8,30 @@ export const filters = {
   isLayoutSpacing: token => token.path.includes('layout') && token.path.includes('spacing'),
   isTypography: token => {
     if (token.path.includes('typography')) {
-      // this is one alias too far, we can use primitive tokens for this
       if (token.path.includes('font-family')) {
+        // this is one alias too far, we can use primitive tokens for this
         return false;
       }
-      // we're ignoring letter-spacing for now
       if (token.path.includes('letter-spacing')) {
+        // we're ignoring letter-spacing for now
         return false;
       }
       // font-weight does not change across devices, so we only need one
       // instance of the font-weight per variant/size, in this case we'll use
       // the initial mobile value
-      if (token.name.includes('font-weight') && !token.path.includes('mobile')) {
+      if (token.path.includes('font-weight') && !token.path.includes('mobile')) {
+        return false;
+      }
+      // body-text values do not change across devices, so we only need one
+      // instance of the font-weight per variant/size, in this case we'll use
+      // the initial mobile value
+      if (token.path.includes('body-text') && !token.path.includes('mobile')) {
+        return false;
+      }
+      // detail-text values do not change across devices, so we only need one
+      // instance of the font-weight per variant/size, in this case we'll use
+      // the initial mobile value
+      if (token.path.includes('detail-text') && !token.path.includes('mobile')) {
         return false;
       }
       return token;
