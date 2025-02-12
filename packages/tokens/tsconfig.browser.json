@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["./browser-src"],
+  "include": ["./src/browser"],
   "compilerOptions": {
     "outDir": "./browser"
   }

@@ -1,11 +1,11 @@
 import StyleDictionary from 'style-dictionary';
-import { loadJSON } from './utils/load-json.js';
-import { filters } from './utils/filters.js';
-import { DELIMITER, normalizeTokenPath } from './utils/normalize-token.js';
-import { camelCase } from './utils/camelCase.js';
+import { loadJSON } from './helpers/load-json.js';
+import { filters } from './helpers/filters.js';
+import { DELIMITER, normalizeTokenPath } from './helpers/normalize-token.js';
+import { camelCase } from './helpers/camel-case.js';
 import merge from 'lodash.merge';
 
-export const BUILD_PATH = './browser-src/';
+export const BUILD_PATH = './src/browser/';
 
 StyleDictionary.registerFormat({
   name: 'browser/index',
@@ -75,7 +75,7 @@ const componentFiles = Object.keys(componentJson.light).map(componentName => ({
     token.path.includes('light'),
 }));
 
-function generateBrowser() {
+export function generateBrowserTokens() {
   console.log('Generating Browser tokens...');
   return [
     new StyleDictionary({
@@ -138,5 +138,3 @@ function generateBrowser() {
     }),
   ];
 }
-
-export default generateBrowser;

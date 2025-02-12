@@ -3,27 +3,16 @@
   "version": "0.0.1",
   "description": "",
   "style": "./index.css",
+  "main": "./js/index.js",
   "type": "module",
-  "exports": {
-    "./browser": {
-      "types": "./browser/index.d.ts",
-      "default": "./browser/index.js"
-    },
-    "./js": {
-      "types": "./js/index.d.ts",
-      "default": "./js/index.js"
-    },
-    "./*": "./*",
-    ".": "./"
-  },
   "scripts": {
-    "dev:css": "postcss --watch --verbose src --dir .",
     "build:css": "postcss css/index.css --dir .",
     "build:js": "tsc --project ./tsconfig.json",
     "build:browser": "tsc --project ./tsconfig.browser.json",
-    "build": "pnpm clean:build && node ./scripts/index.js && pnpm build:css && pnpm build:js && pnpm build:browser && pnpm format",
+    "generate:tokens": "node ./scripts/generate-tokens.js",
+    "build": "pnpm clean:build && pnpm generate:tokens && pnpm build:css && pnpm build:js && pnpm build:browser && pnpm format",
     "clean": "rm -rf node_modules .turbo",
-    "clean:build": "rm -rf css js ts browser browser-src",
+    "clean:build": "rm -rf src css js browser",
     "lint:css": "stylelint \"./**/*.css\" --fix",
     "format": "prettier --write \"./**/*.{ts,js}\" && pnpm lint:css"
   },
@@ -40,5 +29,11 @@
     "style-dictionary": "^4.2.0",
     "stylelint": "^16.10.0",
     "typescript": "^5.6.3"
-  }
+  },
+  "files": [
+    "js/**",
+    "css/**",
+    "browser/**",
+    "index.css"
+  ]
 }

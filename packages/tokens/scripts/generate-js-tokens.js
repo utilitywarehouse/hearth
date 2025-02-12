@@ -4,8 +4,10 @@ import {
   logVerbosityLevels,
   logWarningLevels,
 } from 'style-dictionary/enums';
-import { loadJSON } from './utils/load-json.js';
-import { registerDictionaryExtensions } from './formats.js';
+import { loadJSON } from './helpers/load-json.js';
+import { registerDictionaryExtensions } from './helpers/register-dictionary-extensions.js';
+
+const BUILD_PATH = './src/ts/';
 
 // Call registration once
 registerDictionaryExtensions(StyleDictionary);
@@ -54,8 +56,8 @@ const rootJsIndexFile = {
   transformGroup: 'js-device',
 };
 
-function generateJs() {
-  console.log('Generating JS...');
+export function generateJsTokens() {
+  console.log('Generating JS tokens...');
   return [
     new StyleDictionary({
       source: ['./raw/*.json'],
@@ -69,7 +71,7 @@ function generateJs() {
       platforms: {
         'js-typography': {
           transformGroup: 'js-device',
-          buildPath: './ts/',
+          buildPath: BUILD_PATH,
           files: [
             {
               destination: 'typography.ts',
@@ -84,7 +86,7 @@ function generateJs() {
         },
         'js-layout': {
           transformGroup: 'js-device',
-          buildPath: './ts/',
+          buildPath: BUILD_PATH,
           files: [
             {
               destination: 'layout.ts',
@@ -96,7 +98,7 @@ function generateJs() {
         },
         'js-colour': {
           transformGroup: 'js-device',
-          buildPath: './ts/',
+          buildPath: BUILD_PATH,
           files: [
             {
               destination: 'color.ts',
@@ -107,7 +109,7 @@ function generateJs() {
         },
         'js-primitive': {
           transformGroup: 'js-device',
-          buildPath: './ts/',
+          buildPath: BUILD_PATH,
           files: [
             {
               destination: 'primitive.ts',
@@ -121,7 +123,7 @@ function generateJs() {
         },
         'js-components': {
           transformGroup: 'js-device',
-          buildPath: './ts/',
+          buildPath: BUILD_PATH,
           files: [
             ...dynamicLightComponentFiles,
             ...dynamicDarkComponentFiles,
@@ -135,5 +137,3 @@ function generateJs() {
     }),
   ];
 }
-
-export default generateJs;

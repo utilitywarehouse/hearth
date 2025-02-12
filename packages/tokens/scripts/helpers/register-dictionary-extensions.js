@@ -1,5 +1,5 @@
-import { camelCase } from './utils/camelCase.js';
-import { recursiveCamelCase } from './utils/recursiveCamelCase.js';
+import { camelCase } from './camel-case.js';
+import { recursiveCamelCase } from './recursive-camel-case.js';
 
 // Helper to build device-specific output
 function buildDeviceOutput(dictionary, options) {
@@ -22,7 +22,7 @@ function buildDeviceOutput(dictionary, options) {
 }
 
 // Register transforms, formats, and groups
-function registerDictionaryExtensions(StyleDictionary) {
+export function registerDictionaryExtensions(StyleDictionary) {
   StyleDictionary.registerTransform({
     name: 'name/camel-case',
     type: 'name',
@@ -167,5 +167,3 @@ export * as components from './components';`;
     },
   });
 }
-
-export { registerDictionaryExtensions };
