@@ -79,6 +79,44 @@
         }
       }
     },
+    "shadow": {
+      "md": {
+        "blur": {
+          "type": "number",
+          "value": 0
+        },
+        "spread": {
+          "type": "number",
+          "value": 0
+        },
+        "x": {
+          "type": "number",
+          "value": 6
+        },
+        "y": {
+          "type": "number",
+          "value": 6
+        }
+      },
+      "sm": {
+        "blur": {
+          "type": "number",
+          "value": 0
+        },
+        "spread": {
+          "type": "number",
+          "value": 0
+        },
+        "x": {
+          "type": "number",
+          "value": 4
+        },
+        "y": {
+          "type": "number",
+          "value": 4
+        }
+      }
+    },
     "typography": {
       "body-text": {
         "font-family": {
@@ -476,6 +514,44 @@
         }
       }
     },
+    "shadow": {
+      "md": {
+        "blur": {
+          "type": "number",
+          "value": 0
+        },
+        "spread": {
+          "type": "number",
+          "value": 0
+        },
+        "x": {
+          "type": "number",
+          "value": 4
+        },
+        "y": {
+          "type": "number",
+          "value": 4
+        }
+      },
+      "sm": {
+        "blur": {
+          "type": "number",
+          "value": 0
+        },
+        "spread": {
+          "type": "number",
+          "value": 0
+        },
+        "x": {
+          "type": "number",
+          "value": 4
+        },
+        "y": {
+          "type": "number",
+          "value": 4
+        }
+      }
+    },
     "typography": {
       "body-text": {
         "font-family": {
@@ -870,6 +946,44 @@
           "alias": "{space.100}",
           "type": "number",
           "value": 8
+        }
+      }
+    },
+    "shadow": {
+      "md": {
+        "blur": {
+          "type": "number",
+          "value": 0
+        },
+        "spread": {
+          "type": "number",
+          "value": 0
+        },
+        "x": {
+          "type": "number",
+          "value": 6
+        },
+        "y": {
+          "type": "number",
+          "value": 6
+        }
+      },
+      "sm": {
+        "blur": {
+          "type": "number",
+          "value": 0
+        },
+        "spread": {
+          "type": "number",
+          "value": 0
+        },
+        "x": {
+          "type": "number",
+          "value": 4
+        },
+        "y": {
+          "type": "number",
+          "value": 4
         }
       }
     },
