@@ -69,6 +69,12 @@ export const color = {
     '900': 'var(--color-red-900)',
     '1000': 'var(--color-red-1000)',
   },
+  warmWhite: {
+    '50': 'var(--color-warm-white-50)',
+    '100': 'var(--color-warm-white-100)',
+    '200': 'var(--color-warm-white-200)',
+    '300': 'var(--color-warm-white-300)',
+  },
   yellow: {
     '50': 'var(--color-yellow-50)',
     '100': 'var(--color-yellow-100)',
@@ -83,7 +89,6 @@ export const color = {
     '1000': 'var(--color-yellow-1000)',
   },
   mobileRose: 'var(--color-mobile-rose)',
-  offWhite: 'var(--color-off-white)',
   piggyPink: 'var(--color-piggy-pink)',
   uwPurple: 'var(--color-uw-purple)',
   white: 'var(--color-white)',

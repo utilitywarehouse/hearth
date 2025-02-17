@@ -69,6 +69,12 @@ export declare const color: {
     readonly '900': 'var(--color-red-900)';
     readonly '1000': 'var(--color-red-1000)';
   };
+  readonly warmWhite: {
+    readonly '50': 'var(--color-warm-white-50)';
+    readonly '100': 'var(--color-warm-white-100)';
+    readonly '200': 'var(--color-warm-white-200)';
+    readonly '300': 'var(--color-warm-white-300)';
+  };
   readonly yellow: {
     readonly '50': 'var(--color-yellow-50)';
     readonly '100': 'var(--color-yellow-100)';
@@ -83,7 +89,6 @@ export declare const color: {
     readonly '1000': 'var(--color-yellow-1000)';
   };
   readonly mobileRose: 'var(--color-mobile-rose)';
-  readonly offWhite: 'var(--color-off-white)';
   readonly piggyPink: 'var(--color-piggy-pink)';
   readonly uwPurple: 'var(--color-uw-purple)';
   readonly white: 'var(--color-white)';

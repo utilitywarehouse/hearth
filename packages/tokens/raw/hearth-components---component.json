@@ -1,9 +1,5 @@
 {
   "dark": {
-    "Link?": {
-      "type": "unknown",
-      "value": true
-    },
     "badge": {
       "border-radius": {
         "alias": "{border-radius.xs}",
@@ -650,10 +646,6 @@
     }
   },
   "light": {
-    "Link?": {
-      "type": "unknown",
-      "value": true
-    },
     "badge": {
       "border-radius": {
         "alias": "{border-radius.xs}",

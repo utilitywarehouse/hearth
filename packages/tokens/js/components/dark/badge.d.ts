@@ -12,13 +12,13 @@ declare const _default: {
     readonly blue: {
       readonly color: '#93c1ff';
     };
-    readonly borderColor: '#565352';
+    readonly borderColor: '#fcfbf2';
     readonly borderWidth: 1;
     readonly green: {
       readonly color: '#7bd5aa';
     };
     readonly grey: {
-      readonly color: '#a19e91';
+      readonly color: '#8a8686';
     };
     readonly orange: {
       readonly color: '#ffcca8';
@@ -33,12 +33,12 @@ declare const _default: {
     readonly blue: {
       readonly backgroundColor: '#93c1ff';
     };
-    readonly color: '#fffbe8';
+    readonly color: '#fcfbf2';
     readonly green: {
       readonly backgroundColor: '#7bd5aa';
     };
     readonly grey: {
-      readonly backgroundColor: '#a19e91';
+      readonly backgroundColor: '#8a8686';
     };
     readonly orange: {
       readonly backgroundColor: '#ffcca8';

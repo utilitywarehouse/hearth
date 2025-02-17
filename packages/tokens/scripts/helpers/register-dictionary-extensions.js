@@ -115,7 +115,7 @@ export function registerDictionaryExtensions(StyleDictionary) {
       return `/**
  * Do not edit directly, this file was auto-generated.
  */
-\n${components.map(name => `export { default as ${name} } from './${name}';`).join('\n')}`;
+\n${components.map(name => `export { default as ${camelCase(name)} } from './${name}';`).join('\n')}`;
     },
   });
 

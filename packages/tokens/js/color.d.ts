@@ -8,7 +8,6 @@ export declare const common: {
   readonly energyGreen: '#96b850';
   readonly insuranceOrange: '#ff7b00';
   readonly mobileRose: '#ee6dbb';
-  readonly offWhite: '#fffbe8';
   readonly piggyPink: '#e8a3ff';
   readonly uwPurple: '#7a42c8';
   readonly white: '#ffffff';
@@ -41,16 +40,16 @@ export declare const light: {
     readonly '1000': '#002e18';
   };
   readonly grey: {
-    readonly '50': '#fcfbf2';
-    readonly '100': '#f1efe4';
-    readonly '200': '#e6e4db';
-    readonly '300': '#d4d0c0';
-    readonly '400': '#a19e91';
-    readonly '500': '#858380';
-    readonly '600': '#6d6b69';
-    readonly '700': '#565352';
-    readonly '800': '#423e3e';
-    readonly '900': '#292626';
+    readonly '50': '#f6f5f5';
+    readonly '100': '#e7e6e6';
+    readonly '200': '#d1d0d0';
+    readonly '300': '#b2afae';
+    readonly '400': '#8a8686';
+    readonly '500': '#6f6c6b';
+    readonly '600': '#5f5c5b';
+    readonly '700': '#555352';
+    readonly '800': '#464444';
+    readonly '900': '#3e3c3b';
     readonly '1000': '#101010';
   };
   readonly orange: {
@@ -78,6 +77,12 @@ export declare const light: {
     readonly '800': '#a4281e';
     readonly '900': '#6b1f1a';
     readonly '1000': '#3b1512';
+  };
+  readonly warmWhite: {
+    readonly '50': '#fcfbf2';
+    readonly '100': '#f7f6eb';
+    readonly '200': '#f1efe4';
+    readonly '300': '#d4d2c0';
   };
   readonly yellow: {
     readonly '50': '#fff8ea';
@@ -122,16 +127,16 @@ export declare const dark: {
   };
   readonly grey: {
     readonly '50': '#101010';
-    readonly '100': '#292626';
-    readonly '200': '#423e3e';
-    readonly '300': '#565352';
-    readonly '400': '#6d6b69';
-    readonly '500': '#858380';
-    readonly '600': '#a19e91';
-    readonly '700': '#d4d0c0';
-    readonly '800': '#e6e4db';
-    readonly '900': '#f1efe4';
-    readonly '1000': '#fcfbf2';
+    readonly '100': '#3e3c3b';
+    readonly '200': '#464444';
+    readonly '300': '#555352';
+    readonly '400': '#5f5c5b';
+    readonly '500': '#6f6c6b';
+    readonly '600': '#8a8686';
+    readonly '700': '#b2afae';
+    readonly '800': '#d1d0d0';
+    readonly '900': '#e7e6e6';
+    readonly '1000': '#f6f5f5';
   };
   readonly orange: {
     readonly '50': '#4a1f00';
@@ -159,6 +164,12 @@ export declare const dark: {
     readonly '900': '#ffe3df';
     readonly '1000': '#fff3f1';
   };
+  readonly warmWhite: {
+    readonly '700': '#d4d2c0';
+    readonly '800': '#f1efe4';
+    readonly '900': '#f7f6eb';
+    readonly '1000': '#fcfbf2';
+  };
   readonly yellow: {
     readonly '50': '#473100';
     readonly '100': '#6b4900';
@@ -181,7 +192,6 @@ declare const color: {
     readonly energyGreen: '#96b850';
     readonly insuranceOrange: '#ff7b00';
     readonly mobileRose: '#ee6dbb';
-    readonly offWhite: '#fffbe8';
     readonly piggyPink: '#e8a3ff';
     readonly uwPurple: '#7a42c8';
     readonly white: '#ffffff';
@@ -214,16 +224,16 @@ declare const color: {
       readonly '1000': '#002e18';
     };
     readonly grey: {
-      readonly '50': '#fcfbf2';
-      readonly '100': '#f1efe4';
-      readonly '200': '#e6e4db';
-      readonly '300': '#d4d0c0';
-      readonly '400': '#a19e91';
-      readonly '500': '#858380';
-      readonly '600': '#6d6b69';
-      readonly '700': '#565352';
-      readonly '800': '#423e3e';
-      readonly '900': '#292626';
+      readonly '50': '#f6f5f5';
+      readonly '100': '#e7e6e6';
+      readonly '200': '#d1d0d0';
+      readonly '300': '#b2afae';
+      readonly '400': '#8a8686';
+      readonly '500': '#6f6c6b';
+      readonly '600': '#5f5c5b';
+      readonly '700': '#555352';
+      readonly '800': '#464444';
+      readonly '900': '#3e3c3b';
       readonly '1000': '#101010';
     };
     readonly orange: {
@@ -251,6 +261,12 @@ declare const color: {
       readonly '800': '#a4281e';
       readonly '900': '#6b1f1a';
       readonly '1000': '#3b1512';
+    };
+    readonly warmWhite: {
+      readonly '50': '#fcfbf2';
+      readonly '100': '#f7f6eb';
+      readonly '200': '#f1efe4';
+      readonly '300': '#d4d2c0';
     };
     readonly yellow: {
       readonly '50': '#fff8ea';
@@ -295,16 +311,16 @@ declare const color: {
     };
     readonly grey: {
       readonly '50': '#101010';
-      readonly '100': '#292626';
-      readonly '200': '#423e3e';
-      readonly '300': '#565352';
-      readonly '400': '#6d6b69';
-      readonly '500': '#858380';
-      readonly '600': '#a19e91';
-      readonly '700': '#d4d0c0';
-      readonly '800': '#e6e4db';
-      readonly '900': '#f1efe4';
-      readonly '1000': '#fcfbf2';
+      readonly '100': '#3e3c3b';
+      readonly '200': '#464444';
+      readonly '300': '#555352';
+      readonly '400': '#5f5c5b';
+      readonly '500': '#6f6c6b';
+      readonly '600': '#8a8686';
+      readonly '700': '#b2afae';
+      readonly '800': '#d1d0d0';
+      readonly '900': '#e7e6e6';
+      readonly '1000': '#f6f5f5';
     };
     readonly orange: {
       readonly '50': '#4a1f00';
@@ -331,6 +347,12 @@ declare const color: {
       readonly '800': '#ffccc5';
       readonly '900': '#ffe3df';
       readonly '1000': '#fff3f1';
+    };
+    readonly warmWhite: {
+      readonly '700': '#d4d2c0';
+      readonly '800': '#f1efe4';
+      readonly '900': '#f7f6eb';
+      readonly '1000': '#fcfbf2';
     };
     readonly yellow: {
       readonly '50': '#473100';

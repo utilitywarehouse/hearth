@@ -13,13 +13,13 @@ export default {
     blue: {
       color: '#93c1ff',
     },
-    borderColor: '#565352',
+    borderColor: '#fcfbf2',
     borderWidth: 1,
     green: {
       color: '#7bd5aa',
     },
     grey: {
-      color: '#a19e91',
+      color: '#8a8686',
     },
     orange: {
       color: '#ffcca8',
@@ -34,12 +34,12 @@ export default {
     blue: {
       backgroundColor: '#93c1ff',
     },
-    color: '#fffbe8',
+    color: '#fcfbf2',
     green: {
       backgroundColor: '#7bd5aa',
     },
     grey: {
-      backgroundColor: '#a19e91',
+      backgroundColor: '#8a8686',
     },
     orange: {
       backgroundColor: '#ffcca8',
