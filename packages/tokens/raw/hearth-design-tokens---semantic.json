@@ -1,8 +1,8 @@
 {
   "opacity": {
     "disabled": {
-      "type": "number",
-      "value": 0.5
+      "value": 50,
+      "type": "number"
     }
   }
 }
