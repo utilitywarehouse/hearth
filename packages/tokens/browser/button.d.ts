@@ -1,13 +1,13 @@
 export declare const button: {
   readonly emphasis: {
     readonly yellow: {
-      readonly Inverted: {
-        readonly backgroundColor: 'var(--button-emphasis-yellow-Inverted-background-color)';
-        readonly backgroundColorActive: 'var(--button-emphasis-yellow-Inverted-background-color-active)';
-        readonly backgroundColorHover: 'var(--button-emphasis-yellow-Inverted-background-color-hover)';
-        readonly borderColor: 'var(--button-emphasis-yellow-Inverted-border-color)';
-        readonly foregroundColor: 'var(--button-emphasis-yellow-Inverted-foreground-color)';
-        readonly shadowColor: 'var(--button-emphasis-yellow-Inverted-shadow-color)';
+      readonly '#fcfbf2': {
+        readonly backgroundColor: 'var(--button-emphasis-yellow-#fcfbf2-background-color)';
+        readonly backgroundColorActive: 'var(--button-emphasis-yellow-#fcfbf2-background-color-active)';
+        readonly backgroundColorHover: 'var(--button-emphasis-yellow-#fcfbf2-background-color-hover)';
+        readonly borderColor: 'var(--button-emphasis-yellow-#fcfbf2-border-color)';
+        readonly foregroundColor: 'var(--button-emphasis-yellow-#fcfbf2-foreground-color)';
+        readonly shadowColor: 'var(--button-emphasis-yellow-#fcfbf2-shadow-color)';
       };
       readonly backgroundColor: 'var(--button-emphasis-yellow-background-color)';
       readonly backgroundColorActive: 'var(--button-emphasis-yellow-background-color-active)';

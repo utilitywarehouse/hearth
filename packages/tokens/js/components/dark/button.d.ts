@@ -4,7 +4,7 @@
 declare const _default: {
   readonly emphasis: {
     readonly yellow: {
-      readonly Inverted: {
+      readonly inverted: {
         readonly backgroundColor: '#ffb921';
         readonly backgroundColorActive: '#d69200';
         readonly backgroundColorHover: '#eba400';

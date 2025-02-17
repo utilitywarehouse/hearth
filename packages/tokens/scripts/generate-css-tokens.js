@@ -4,6 +4,7 @@ import { loadJSON } from './helpers/load-json.js';
 import { normalizeTokenName } from './helpers/normalize-token.js';
 import { px } from './helpers/px.js';
 import { filters } from './helpers/filters.js';
+import { kebabCase } from './helpers/kebab-case.js';
 
 export const BUILD_PATH = './css/';
 
@@ -12,9 +13,9 @@ export const BUILD_PATH = './css/';
 StyleDictionary.registerFormat({
   name: 'css/index',
   format: () => {
+    // @import '../css/button.css'; // TODO: @robphoenix fix button output
     return `@import '../css/badge.css';
 @import '../css/border.css';
-@import '../css/button.css';
 @import '../css/color.css';
 @import '../css/font.css';
 @import '../css/layout.css';
@@ -38,7 +39,7 @@ StyleDictionary.registerTransform({
   filter: filters.isStringToken,
   transform: token => {
     const aliasPath = unwrapAlias(token.alias).replace(/\./g, '-');
-    return `var(--${aliasPath})`;
+    return `var(--${kebabCase(aliasPath)})`;
   },
 });
 
@@ -102,7 +103,8 @@ const componentFiles = Object.keys(componentJson.light).map(componentName => ({
     return (
       token.filePath.includes('component') &&
       token.path.includes(componentName) &&
-      token.attributes.category === 'light'
+      token.attributes.category === 'light' &&
+      !token.name.includes('button') // TODO: @robphoenix fix button output
     );
   },
 }));

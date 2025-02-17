@@ -5,7 +5,7 @@
 export default {
   emphasis: {
     yellow: {
-      Inverted: {
+      '#fcfbf2': {
         backgroundColor: '#ffb921',
         backgroundColorActive: '#d69200',
         backgroundColorHover: '#eba400',

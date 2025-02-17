@@ -1,13 +1,13 @@
 export const button = {
   emphasis: {
     yellow: {
-      Inverted: {
-        backgroundColor: 'var(--button-emphasis-yellow-Inverted-background-color)',
-        backgroundColorActive: 'var(--button-emphasis-yellow-Inverted-background-color-active)',
-        backgroundColorHover: 'var(--button-emphasis-yellow-Inverted-background-color-hover)',
-        borderColor: 'var(--button-emphasis-yellow-Inverted-border-color)',
-        foregroundColor: 'var(--button-emphasis-yellow-Inverted-foreground-color)',
-        shadowColor: 'var(--button-emphasis-yellow-Inverted-shadow-color)',
+      '#fcfbf2': {
+        backgroundColor: 'var(--button-emphasis-yellow-#fcfbf2-background-color)',
+        backgroundColorActive: 'var(--button-emphasis-yellow-#fcfbf2-background-color-active)',
+        backgroundColorHover: 'var(--button-emphasis-yellow-#fcfbf2-background-color-hover)',
+        borderColor: 'var(--button-emphasis-yellow-#fcfbf2-border-color)',
+        foregroundColor: 'var(--button-emphasis-yellow-#fcfbf2-foreground-color)',
+        shadowColor: 'var(--button-emphasis-yellow-#fcfbf2-shadow-color)',
       },
       backgroundColor: 'var(--button-emphasis-yellow-background-color)',
       backgroundColorActive: 'var(--button-emphasis-yellow-background-color-active)',

@@ -20,8 +20,8 @@ export default create({
 
   // UI
   appBg: '#7A42C8',
-  appContentBg: '#FFFBE8',
-  appPreviewBg: '#FFFBE8',
+  appContentBg: '#fcfbf2',
+  appPreviewBg: '#fcfbf2',
   appBorderColor: '#101010',
   appBorderRadius: 0,
 
@@ -36,10 +36,10 @@ export default create({
   barTextColor: '#9E9E9E',
   barSelectedColor: '#585C6D',
   barHoverColor: '#585C6D',
-  barBg: '#FFFBE8',
+  barBg: '#fcfbf2',
 
   // Form colors
-  inputBg: '#FFFBE8',
+  inputBg: '#fcfbf2',
   inputBorder: '#10162F',
   inputTextColor: '#10162F',
   inputBorderRadius: 2,

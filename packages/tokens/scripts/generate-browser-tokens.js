@@ -3,6 +3,7 @@ import { loadJSON } from './helpers/load-json.js';
 import { filters } from './helpers/filters.js';
 import { DELIMITER, normalizeTokenPath } from './helpers/normalize-token.js';
 import { camelCase } from './helpers/camel-case.js';
+import { kebabCase } from './helpers/kebab-case.js';
 import merge from 'lodash.merge';
 
 export const BUILD_PATH = './src/browser/';
@@ -36,7 +37,7 @@ StyleDictionary.registerFormat({
       // normalize the tokens in the same way they are for the CSS
       const normalizedPath = normalizeTokenPath(token);
       // this will give us the generated CSS variable
-      const cssCustomProperty = `var(--${normalizedPath.join(DELIMITER)})`;
+      const cssCustomProperty = `var(--${kebabCase(normalizedPath.join(DELIMITER))})`;
       var tokenObject = {};
       // we need to build the JS object from the path, this will give us the
       // dot notation path to the token

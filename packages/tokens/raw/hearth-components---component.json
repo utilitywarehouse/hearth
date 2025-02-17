@@ -126,7 +126,7 @@
     "button": {
       "emphasis": {
         "yellow": {
-          "Inverted": {
+          "inverted": {
             "background-color": {
               "alias": "{color.dark.yellow.600}",
               "type": "color",
@@ -772,7 +772,7 @@
     "button": {
       "emphasis": {
         "yellow": {
-          "Inverted": {
+          "#fcfbf2": {
             "background-color": {
               "alias": "{color.light.yellow.400}",
               "type": "color",
