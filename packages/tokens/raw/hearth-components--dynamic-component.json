@@ -1,0 +1,20 @@
+{
+  "Desktop": {
+    "Component": {
+      "type": "string",
+      "value": "Modal"
+    }
+  },
+  "Mobile": {
+    "Component": {
+      "type": "string",
+      "value": "Sheet"
+    }
+  },
+  "Tablet": {
+    "Component": {
+      "type": "string",
+      "value": "Modal"
+    }
+  }
+}
