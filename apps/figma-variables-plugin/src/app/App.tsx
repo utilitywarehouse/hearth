@@ -309,7 +309,7 @@ function App() {
   }
 
   return (
-    <Box bgcolor={color.common.offWhite} height="100%">
+    <Box bgcolor={color.light.warmWhite[50]} height="100%">
       <Box bgcolor={color.common.uwPurple} p={2} sx={{ position: 'relative' }}>
         {tokenLoaded && !showTokenInput && (
           <Button

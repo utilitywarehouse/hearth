@@ -1,20 +1,21 @@
 export const button = {
+  borderWidth: 'var(--button-border-width)',
   emphasis: {
+    borderColor: 'var(--button-emphasis-border-color)',
+    shadowColor: 'var(--button-emphasis-shadow-color)',
     yellow: {
-      '#fcfbf2': {
-        backgroundColor: 'var(--button-emphasis-yellow-#fcfbf2-background-color)',
-        backgroundColorActive: 'var(--button-emphasis-yellow-#fcfbf2-background-color-active)',
-        backgroundColorHover: 'var(--button-emphasis-yellow-#fcfbf2-background-color-hover)',
-        borderColor: 'var(--button-emphasis-yellow-#fcfbf2-border-color)',
-        foregroundColor: 'var(--button-emphasis-yellow-#fcfbf2-foreground-color)',
-        shadowColor: 'var(--button-emphasis-yellow-#fcfbf2-shadow-color)',
-      },
       backgroundColor: 'var(--button-emphasis-yellow-background-color)',
       backgroundColorActive: 'var(--button-emphasis-yellow-background-color-active)',
       backgroundColorHover: 'var(--button-emphasis-yellow-background-color-hover)',
-      borderColor: 'var(--button-emphasis-yellow-border-color)',
       foregroundColor: 'var(--button-emphasis-yellow-foreground-color)',
-      shadowColor: 'var(--button-emphasis-yellow-shadow-color)',
+      inverted: {
+        backgroundColor: 'var(--button-emphasis-yellow-inverted-background-color)',
+        backgroundColorActive: 'var(--button-emphasis-yellow-inverted-background-color-active)',
+        backgroundColorHover: 'var(--button-emphasis-yellow-inverted-background-color-hover)',
+        borderColor: 'var(--button-emphasis-yellow-inverted-border-color)',
+        foregroundColor: 'var(--button-emphasis-yellow-inverted-foreground-color)',
+        shadowColor: 'var(--button-emphasis-yellow-inverted-shadow-color)',
+      },
     },
   },
   ghost: {
@@ -78,31 +79,28 @@ export const button = {
     paddingVertical: 'var(--button-sm-padding-vertical)',
   },
   solid: {
+    borderColor: 'var(--button-solid-border-color)',
     green: {
       backgroundColor: 'var(--button-solid-green-background-color)',
       backgroundColorActive: 'var(--button-solid-green-background-color-active)',
       backgroundColorHover: 'var(--button-solid-green-background-color-hover)',
-      borderColor: 'var(--button-solid-green-border-color)',
       foregroundColor: 'var(--button-solid-green-foreground-color)',
     },
     red: {
       backgroundColor: 'var(--button-solid-red-background-color)',
       backgroundColorActive: 'var(--button-solid-red-background-color-active)',
       backgroundColorHover: 'var(--button-solid-red-background-color-hover)',
-      borderColor: 'var(--button-solid-red-border-color)',
       foregroundColor: 'var(--button-solid-red-foreground-color)',
     },
     yellow: {
       backgroundColor: 'var(--button-solid-yellow-background-color)',
       backgroundColorActive: 'var(--button-solid-yellow-background-color-active)',
       backgroundColorHover: 'var(--button-solid-yellow-background-color-hover)',
-      borderColor: 'var(--button-solid-yellow-border-color)',
       foregroundColor: 'var(--button-solid-yellow-foreground-color)',
       inverted: {
         backgroundColor: 'var(--button-solid-yellow-inverted-background-color)',
         backgroundColorActive: 'var(--button-solid-yellow-inverted-background-color-active)',
         backgroundColorHover: 'var(--button-solid-yellow-inverted-background-color-hover)',
-        borderColor: 'var(--button-solid-yellow-inverted-border-color)',
         foregroundColor: 'var(--button-solid-yellow-inverted-foreground-color)',
       },
     },

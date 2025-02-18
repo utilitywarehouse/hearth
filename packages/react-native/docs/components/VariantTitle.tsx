@@ -1,15 +1,21 @@
 import React from 'react';
 import { Box, DetailText } from '../../src';
 import { FC, PropsWithChildren } from 'react';
+import { invert } from 'react-native-svg/lib/typescript/elements/Shape';
 
 const VariantTitle: FC<
   PropsWithChildren<{
     title: string;
     upperCase?: boolean;
+    invert?: boolean;
   }>
-> = ({ title, upperCase = true, children }) => (
+> = ({ title, upperCase = true, invert = false, children }) => (
   <Box gap="100">
-    <DetailText textTransform={upperCase ? 'uppercase' : 'none'} size="sm" color="grey600">
+    <DetailText
+      textTransform={upperCase ? 'uppercase' : 'none'}
+      size="sm"
+      color={invert ? 'warmWhite50' : 'grey600'}
+    >
       {title}
     </DetailText>
     {children}

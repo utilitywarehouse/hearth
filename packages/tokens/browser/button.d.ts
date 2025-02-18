@@ -1,20 +1,21 @@
 export declare const button: {
+  readonly borderWidth: 'var(--button-border-width)';
   readonly emphasis: {
+    readonly borderColor: 'var(--button-emphasis-border-color)';
+    readonly shadowColor: 'var(--button-emphasis-shadow-color)';
     readonly yellow: {
-      readonly '#fcfbf2': {
-        readonly backgroundColor: 'var(--button-emphasis-yellow-#fcfbf2-background-color)';
-        readonly backgroundColorActive: 'var(--button-emphasis-yellow-#fcfbf2-background-color-active)';
-        readonly backgroundColorHover: 'var(--button-emphasis-yellow-#fcfbf2-background-color-hover)';
-        readonly borderColor: 'var(--button-emphasis-yellow-#fcfbf2-border-color)';
-        readonly foregroundColor: 'var(--button-emphasis-yellow-#fcfbf2-foreground-color)';
-        readonly shadowColor: 'var(--button-emphasis-yellow-#fcfbf2-shadow-color)';
-      };
       readonly backgroundColor: 'var(--button-emphasis-yellow-background-color)';
       readonly backgroundColorActive: 'var(--button-emphasis-yellow-background-color-active)';
       readonly backgroundColorHover: 'var(--button-emphasis-yellow-background-color-hover)';
-      readonly borderColor: 'var(--button-emphasis-yellow-border-color)';
       readonly foregroundColor: 'var(--button-emphasis-yellow-foreground-color)';
-      readonly shadowColor: 'var(--button-emphasis-yellow-shadow-color)';
+      readonly inverted: {
+        readonly backgroundColor: 'var(--button-emphasis-yellow-inverted-background-color)';
+        readonly backgroundColorActive: 'var(--button-emphasis-yellow-inverted-background-color-active)';
+        readonly backgroundColorHover: 'var(--button-emphasis-yellow-inverted-background-color-hover)';
+        readonly borderColor: 'var(--button-emphasis-yellow-inverted-border-color)';
+        readonly foregroundColor: 'var(--button-emphasis-yellow-inverted-foreground-color)';
+        readonly shadowColor: 'var(--button-emphasis-yellow-inverted-shadow-color)';
+      };
     };
   };
   readonly ghost: {
@@ -78,31 +79,28 @@ export declare const button: {
     readonly paddingVertical: 'var(--button-sm-padding-vertical)';
   };
   readonly solid: {
+    readonly borderColor: 'var(--button-solid-border-color)';
     readonly green: {
       readonly backgroundColor: 'var(--button-solid-green-background-color)';
       readonly backgroundColorActive: 'var(--button-solid-green-background-color-active)';
       readonly backgroundColorHover: 'var(--button-solid-green-background-color-hover)';
-      readonly borderColor: 'var(--button-solid-green-border-color)';
       readonly foregroundColor: 'var(--button-solid-green-foreground-color)';
     };
     readonly red: {
       readonly backgroundColor: 'var(--button-solid-red-background-color)';
       readonly backgroundColorActive: 'var(--button-solid-red-background-color-active)';
       readonly backgroundColorHover: 'var(--button-solid-red-background-color-hover)';
-      readonly borderColor: 'var(--button-solid-red-border-color)';
       readonly foregroundColor: 'var(--button-solid-red-foreground-color)';
     };
     readonly yellow: {
       readonly backgroundColor: 'var(--button-solid-yellow-background-color)';
       readonly backgroundColorActive: 'var(--button-solid-yellow-background-color-active)';
       readonly backgroundColorHover: 'var(--button-solid-yellow-background-color-hover)';
-      readonly borderColor: 'var(--button-solid-yellow-border-color)';
       readonly foregroundColor: 'var(--button-solid-yellow-foreground-color)';
       readonly inverted: {
         readonly backgroundColor: 'var(--button-solid-yellow-inverted-background-color)';
         readonly backgroundColorActive: 'var(--button-solid-yellow-inverted-background-color-active)';
         readonly backgroundColorHover: 'var(--button-solid-yellow-inverted-background-color-hover)';
-        readonly borderColor: 'var(--button-solid-yellow-inverted-border-color)';
         readonly foregroundColor: 'var(--button-solid-yellow-inverted-foreground-color)';
       };
     };

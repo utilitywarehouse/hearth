@@ -2,9 +2,16 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
+  borderWidth: 2,
   emphasis: {
+    borderColor: '#101010',
+    shadowColor: '#101010',
     yellow: {
-      '#fcfbf2': {
+      backgroundColor: '#ffb921',
+      backgroundColorActive: '#d69200',
+      backgroundColorHover: '#eba400',
+      foregroundColor: '#101010',
+      inverted: {
         backgroundColor: '#ffb921',
         backgroundColorActive: '#d69200',
         backgroundColorHover: '#eba400',
@@ -12,12 +19,6 @@ export default {
         foregroundColor: '#101010',
         shadowColor: '#101010',
       },
-      backgroundColor: '#ffb921',
-      backgroundColorActive: '#d69200',
-      backgroundColorHover: '#eba400',
-      borderColor: '#101010',
-      foregroundColor: '#101010',
-      shadowColor: '#101010',
     },
   },
   ghost: {
@@ -61,8 +62,8 @@ export default {
       borderColor: '#101010',
       foregroundColor: '#101010',
       inverted: {
-        backgroundColorActive: '#464444',
-        backgroundColorHover: '#3e3c3b',
+        backgroundColorActive: '#3e3c3b',
+        backgroundColorHover: '#464444',
         borderColor: '#fcfbf2',
         foregroundColor: '#fcfbf2',
       },
@@ -81,31 +82,28 @@ export default {
     paddingVertical: 4,
   },
   solid: {
+    borderColor: '#101010',
     green: {
       backgroundColor: '#0f834a',
       backgroundColorActive: '#074b2a',
       backgroundColorHover: '#04663a',
-      borderColor: '#101010',
       foregroundColor: '#fcfbf2',
     },
     red: {
       backgroundColor: '#de2612',
       backgroundColorActive: '#6b1f1a',
       backgroundColorHover: '#a4281e',
-      borderColor: '#101010',
       foregroundColor: '#fcfbf2',
     },
     yellow: {
       backgroundColor: '#ffb921',
       backgroundColorActive: '#d69200',
       backgroundColorHover: '#eba400',
-      borderColor: '#101010',
       foregroundColor: '#101010',
       inverted: {
         backgroundColor: '#fcfbf2',
         backgroundColorActive: '#d4d2c0',
         backgroundColorHover: '#f1efe4',
-        borderColor: '#101010',
         foregroundColor: '#101010',
       },
     },
