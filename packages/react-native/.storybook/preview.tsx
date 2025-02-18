@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { Preview } from '@storybook/react';
+import { useArgs } from 'storybook/internal/preview-api';
 import { themes, breakpoints, StyleSheet } from '../src/core';
 import '@utilitywarehouse/hearth-fonts';
 
 import theme from './theme';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 StyleSheet.configure({
   breakpoints,
@@ -28,6 +30,21 @@ const preview: Preview = {
   },
   decorators: [
     Story => {
+      const [args, setArgs] = useArgs();
+
+      useEffect(() => {
+        const storybookContainer = document.getElementsByTagName('body')[0];
+        if (storybookContainer) {
+          if (args.inverted) {
+            storybookContainer.style.backgroundColor = color.common.uwPurple;
+          } else {
+            storybookContainer.style.backgroundColor = !args.darkMode
+              ? color.light.warmWhite['50']
+              : color.dark.grey[900];
+          }
+        }
+      }, [args.darkMode, args.surface, args.inverted]);
+
       return <Story />;
     },
   ],
