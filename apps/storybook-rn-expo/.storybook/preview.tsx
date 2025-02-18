@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 
 /** @type{import("@storybook/react").Preview} */
 const preview = {
@@ -13,15 +13,15 @@ const preview = {
 
   decorators: [
     (Story, { parameters }) => (
-      <View
+      <ScrollView
         style={{
           flex: 1,
           backgroundColor: parameters.noBackground === true ? undefined : '#fff',
-          padding: 8,
         }}
+        contentContainerStyle={{ padding: 8 }}
       >
         <Story />
-      </View>
+      </ScrollView>
     ),
   ],
 };
