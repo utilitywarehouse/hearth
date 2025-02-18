@@ -1,4 +1,5 @@
 import { camelCase } from './camel-case.js';
+import { loadJSON } from './load-json.js';
 import { recursiveCamelCase } from './recursive-camel-case.js';
 
 // Helper to build device-specific output
@@ -20,6 +21,8 @@ function buildDeviceOutput(dictionary, options) {
   });
   return output;
 }
+
+const primitiveJson = loadJSON('./raw/hearth-design-tokens---primitive.json');
 
 // Register transforms, formats, and groups
 export function registerDictionaryExtensions(StyleDictionary) {
@@ -138,7 +141,16 @@ export * as dark from './dark';`;
  */
 \nexport { default as color } from './color';
 export { default as layout } from './layout';
+export { default as shadow } from './shadow';
 export { default as primitive } from './primitive';
+${Object.keys(primitiveJson)
+  .filter(primitive => primitive !== 'color')
+  .map(primitive =>
+    primitive !== 'color'
+      ? `export { default as ${camelCase(primitive)} } from './${primitive}';`
+      : ''
+  )
+  .join('\n')}
 export { default as typography } from './typography';
 export * as components from './components';`;
     },
@@ -146,13 +158,17 @@ export * as components from './components';`;
 
   StyleDictionary.registerFormat({
     name: 'javascript/esm-camel',
-    format: ({ dictionary }) => {
+    format: ({ dictionary, options }) => {
+      // define skip list from either options.skip or options.skipPaths
+      const skip = options?.skip || options?.skipPaths || [];
       const output = {};
       dictionary.allTokens.forEach(token => {
+        // Create effectivePath by filtering out keys in the skip list
+        const effectivePath = token.path.filter(part => !skip.includes(part));
         let current = output;
-        token.path.forEach((part, i) => {
+        effectivePath.forEach((part, i) => {
           const camelPart = camelCase(part);
-          if (i === token.path.length - 1) current[camelPart] = token.value;
+          if (i === effectivePath.length - 1) current[camelPart] = token.value;
           else {
             current[camelPart] = current[camelPart] || {};
             current = current[camelPart];

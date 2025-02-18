@@ -1,29 +1,36 @@
-import { DimensionValue, Platform, TextStyle } from 'react-native';
+import { DimensionValue, Platform } from 'react-native';
 import { breakpoints } from './breakpoints';
 import {
   components,
   color,
   layout,
-  primitive,
   typography,
+  shadow,
+  borderWidth,
+  borderRadius,
+  font,
+  letterSpacing,
+  lineHeight,
+  space,
 } from '@utilitywarehouse/hearth-tokens/js';
 
 const shared = {
   platform: Platform.OS,
   space: {
-    ...primitive.space,
+    ...space,
     full: '100%' as DimensionValue,
   },
-  borderWidth: primitive.borderWidth,
-  borderRadius: primitive.borderRadius,
+  borderWidth,
+  borderRadius,
   breakpoints,
-  letterSpacing: primitive.letterSpacing,
-  lineHeight: primitive.lineHeight,
-  fontWeight: primitive.font.weight,
-  fontFamily: primitive.font.family,
-  fontSize: primitive.font.size,
+  letterSpacing,
+  lineHeight,
+  fontWeight: font.weight,
+  fontFamily: font.family,
+  fontSize: font.size,
   typography,
   layout,
+  shadow,
   globalStyle: {
     variants: {
       hardShadow: {

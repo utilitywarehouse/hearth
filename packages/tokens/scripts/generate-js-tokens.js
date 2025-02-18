@@ -27,6 +27,7 @@ function createDynamicComponentFiles(componentJson, mode) {
 }
 
 const componentJson = loadJSON('./raw/hearth-components---component.json');
+const primitiveJson = loadJSON('./raw/hearth-design-tokens---primitive.json');
 const dynamicLightComponentFiles = createDynamicComponentFiles(componentJson, 'light');
 const dynamicDarkComponentFiles = createDynamicComponentFiles(componentJson, 'dark');
 
@@ -96,6 +97,18 @@ export function generateJsTokens() {
             },
           ],
         },
+        'js-shadow': {
+          transformGroup: 'js-device',
+          buildPath: BUILD_PATH,
+          files: [
+            {
+              destination: 'shadow.ts',
+              format: 'js/device-module',
+              options: { skipPaths: ['shadow'] },
+              filter: token => token.attributes.type === 'shadow',
+            },
+          ],
+        },
         'js-colour': {
           transformGroup: 'js-device',
           buildPath: BUILD_PATH,
@@ -119,6 +132,20 @@ export function generateJsTokens() {
               },
               options: { minify: true },
             },
+            ...Object.keys(primitiveJson)
+              .filter(primitive => primitive !== 'color')
+              .map(primitive => ({
+                destination: `${primitive}.ts`,
+                format: 'javascript/esm-camel',
+                filter: token => {
+                  return (
+                    token.filePath.includes('primitive') &&
+                    token.type !== 'color' &&
+                    token.attributes.category === primitive
+                  );
+                },
+                options: { minify: true, skipPaths: [primitive] },
+              })),
           ],
         },
         'js-components': {
