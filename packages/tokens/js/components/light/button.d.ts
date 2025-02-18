@@ -2,9 +2,16 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
+  readonly borderWidth: 2;
   readonly emphasis: {
+    readonly borderColor: '#101010';
+    readonly shadowColor: '#101010';
     readonly yellow: {
-      readonly '#fcfbf2': {
+      readonly backgroundColor: '#ffb921';
+      readonly backgroundColorActive: '#d69200';
+      readonly backgroundColorHover: '#eba400';
+      readonly foregroundColor: '#101010';
+      readonly inverted: {
         readonly backgroundColor: '#ffb921';
         readonly backgroundColorActive: '#d69200';
         readonly backgroundColorHover: '#eba400';
@@ -12,12 +19,6 @@ declare const _default: {
         readonly foregroundColor: '#101010';
         readonly shadowColor: '#101010';
       };
-      readonly backgroundColor: '#ffb921';
-      readonly backgroundColorActive: '#d69200';
-      readonly backgroundColorHover: '#eba400';
-      readonly borderColor: '#101010';
-      readonly foregroundColor: '#101010';
-      readonly shadowColor: '#101010';
     };
   };
   readonly ghost: {
@@ -61,8 +62,8 @@ declare const _default: {
       readonly borderColor: '#101010';
       readonly foregroundColor: '#101010';
       readonly inverted: {
-        readonly backgroundColorActive: '#464444';
-        readonly backgroundColorHover: '#3e3c3b';
+        readonly backgroundColorActive: '#3e3c3b';
+        readonly backgroundColorHover: '#464444';
         readonly borderColor: '#fcfbf2';
         readonly foregroundColor: '#fcfbf2';
       };
@@ -81,31 +82,28 @@ declare const _default: {
     readonly paddingVertical: 4;
   };
   readonly solid: {
+    readonly borderColor: '#101010';
     readonly green: {
       readonly backgroundColor: '#0f834a';
       readonly backgroundColorActive: '#074b2a';
       readonly backgroundColorHover: '#04663a';
-      readonly borderColor: '#101010';
       readonly foregroundColor: '#fcfbf2';
     };
     readonly red: {
       readonly backgroundColor: '#de2612';
       readonly backgroundColorActive: '#6b1f1a';
       readonly backgroundColorHover: '#a4281e';
-      readonly borderColor: '#101010';
       readonly foregroundColor: '#fcfbf2';
     };
     readonly yellow: {
       readonly backgroundColor: '#ffb921';
       readonly backgroundColorActive: '#d69200';
       readonly backgroundColorHover: '#eba400';
-      readonly borderColor: '#101010';
       readonly foregroundColor: '#101010';
       readonly inverted: {
         readonly backgroundColor: '#fcfbf2';
         readonly backgroundColorActive: '#d4d2c0';
         readonly backgroundColorHover: '#f1efe4';
-        readonly borderColor: '#101010';
         readonly foregroundColor: '#101010';
       };
     };

@@ -81,10 +81,12 @@ const styles = StyleSheet.create(theme => ({
       },
       variant: {
         emphasis: {
-          borderColor: theme.components.button.emphasis.yellow.borderColor,
-          boxShadow: `${theme.shadow.mobile.sm.x}px ${theme.shadow.mobile.sm.y}px ${theme.shadow.mobile.sm.spread}px ${theme.components.button.emphasis.yellow.shadowColor}`,
+          borderColor: theme.components.button.emphasis.borderColor,
+          boxShadow: `${theme.shadow.mobile.sm.x}px ${theme.shadow.mobile.sm.y}px ${theme.shadow.mobile.sm.spread}px ${theme.components.button.emphasis.shadowColor}`,
         },
-        solid: {},
+        solid: {
+          borderColor: theme.components.button.solid.borderColor,
+        },
         outline: {
           backgroundColor: 'transparent',
           borderWidth: 2,
@@ -128,7 +130,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'yellow',
         styles: {
           backgroundColor: theme.components.button.emphasis.yellow.backgroundColor,
-          borderColor: theme.components.button.emphasis.yellow.borderColor,
+          borderColor: theme.components.button.emphasis.borderColor,
           _web: {
             _hover: {
               backgroundColor: theme.components.button.emphasis.yellow.backgroundColorHover,
