@@ -1,14 +1,19 @@
 /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
-import React, { act, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import { Text, type TextProps } from 'react-native';
 import { useLinkContext } from './Link.context';
 import { StyleSheet } from 'react-native-unistyles';
 import { DetailText } from '../DetailText';
+import { BodyText } from '../BodyText';
 
 const LinkText = forwardRef<Text, TextProps>(({ children, ...props }, ref) => {
-  const { inverted, disabled, active } = useLinkContext();
-  styles.useVariants({ active, inverted, disabled });
-  return (
+  const { inverted, disabled, active, inline } = useLinkContext();
+  styles.useVariants({ active, inverted, disabled, inline });
+  return inline ? (
+    <BodyText ref={ref} {...props} style={[styles.text, props.style]}>
+      {children}
+    </BodyText>
+  ) : (
     <DetailText size="md" ref={ref} {...props} style={[styles.text, props.style]}>
       {children}
     </DetailText>
@@ -43,6 +48,12 @@ const styles = StyleSheet.create(theme => ({
       disabled: {
         true: {
           opacity: 0.5,
+        },
+      },
+      inline: {
+        true: {
+          color: theme.color.blue[700],
+          textDecorationColor: theme.color.blue[700],
         },
       },
     },

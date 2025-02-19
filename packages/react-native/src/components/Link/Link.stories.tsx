@@ -16,7 +16,21 @@ const meta = {
       control: 'text',
       description: 'The text of the button.',
     },
-
+    href: {
+      type: 'string',
+      control: 'text',
+      description: 'The URL the link will navigate to.',
+    },
+    target: {
+      options: ['_blank', '_self', '_parent', '_top'],
+      control: 'select',
+      description: 'The target of the link.',
+    },
+    inline: {
+      type: 'boolean',
+      control: 'boolean',
+      description: 'To set the link to be inline.',
+    },
     disabled: {
       type: 'boolean',
       control: 'boolean',
@@ -42,6 +56,7 @@ const meta = {
     children: 'Link',
     href: 'https://www.uw.co.uk',
     target: '_blank',
+    inline: false,
     icon: 'ChervonRightSmallIcon' as unknown as ComponentType,
     disabled: false,
     inverted: false,

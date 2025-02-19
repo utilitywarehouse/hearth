@@ -10,10 +10,13 @@ import Link from './Link';
 const LinkRoot = forwardRef<
   PressableRef,
   PropsWithChildren<LinkProps & { states?: { active?: boolean; disabled?: boolean } }>
->(({ children, inverted = false, onPress, states, ...props }, ref) => {
+>(({ children, inline, inverted = false, onPress, states, ...props }, ref) => {
   const { active, disabled = false } = states || {};
   styles.useVariants({ disabled, inverted, active });
-  const value = useMemo(() => ({ inverted, disabled, active }), [inverted, disabled, active]);
+  const value = useMemo(
+    () => ({ inverted, disabled, active, inline }),
+    [inverted, disabled, active, inline]
+  );
   return (
     <LinkContext.Provider value={value}>
       <Pressable ref={ref} {...props} style={[styles.container, props.style as ViewStyle]}>

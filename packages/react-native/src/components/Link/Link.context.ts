@@ -4,6 +4,7 @@ import type { LinkProps } from './Link.props';
 export const LinkContext = createContext<{
   inverted?: LinkProps['inverted'];
   disabled?: LinkProps['disabled'];
+  inline?: LinkProps['inline'];
   active?: boolean;
 }>({});
 
