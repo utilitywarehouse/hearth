@@ -1,6 +1,7 @@
-import { BodyText, Pressable } from '../../src';
+import { Button, ButtonIcon, ButtonText } from '../../src';
 import React, { useState } from 'react';
 import { Platform } from 'react-native';
+import { ChevronUpSmallIcon } from './icons';
 
 const ScrollButton = () => {
   const [visible, setVisible] = useState(false);
@@ -25,27 +26,31 @@ const ScrollButton = () => {
 
   return (
     <div className="sb-unstyled">
-      <Pressable
+      <Button
         onPress={scrollToTop}
+        variant="ghost"
+        colorScheme="grey"
+        size="sm"
+        // @ts-expect-error - This is a playground
         style={{
           display: visible ? 'flex' : 'none',
-          maxWidth: 220,
+          maxWidth: 160,
           ...(Platform.OS === 'web'
             ? {
                 position: 'fixed',
                 width: '100%',
-                right: 10,
+                right: 16,
                 bottom: 40,
                 height: 20,
-                zIndex: 1,
+                zIndex: 99,
                 cursor: 'pointer',
               }
             : {}),
         }}
       >
-        {/* <ButtonIcon as={ChevronUpSmallIcon} /> */}
-        <BodyText>Back to top</BodyText>
-      </Pressable>
+        <ButtonIcon as={ChevronUpSmallIcon} />
+        <ButtonText>Back to top</ButtonText>
+      </Button>
     </div>
   );
 };

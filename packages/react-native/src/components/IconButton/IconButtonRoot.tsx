@@ -1,14 +1,14 @@
 /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
 import React, { forwardRef, PropsWithChildren, useMemo } from 'react';
-import type { BaseButtonProps } from './Button.props';
+import type { IconButtonProps } from './IconButton.props';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { ButtonContext } from './Button.context';
+import { IconButtonContext } from './IconButton.context';
 import { PressableRef } from '../../types';
 
-const ButtonRoot = forwardRef<
+const IconButtonRoot = forwardRef<
   PressableRef,
-  PropsWithChildren<BaseButtonProps & { states?: { active?: boolean; disabled?: boolean } }>
+  PropsWithChildren<IconButtonProps & { states?: { active?: boolean; disabled?: boolean } }>
 >(
   (
     {
@@ -22,23 +22,23 @@ const ButtonRoot = forwardRef<
     },
     ref
   ) => {
-    const { active, disabled = false } = states || {};
-    styles.useVariants({ variant, size, colorScheme, disabled, inverted, active });
+    const { active, disabled } = states || {};
+    styles.useVariants({ colorScheme, variant, size, inverted, disabled, active });
     const value = useMemo(
       () => ({ colorScheme, variant, size, inverted, disabled, active }),
       [colorScheme, variant, size, inverted, disabled, active]
     );
     return (
-      <ButtonContext.Provider value={value}>
+      <IconButtonContext.Provider value={value}>
         <Pressable ref={ref} {...props} style={[styles.container, props.style as ViewStyle]}>
           {children}
         </Pressable>
-      </ButtonContext.Provider>
+      </IconButtonContext.Provider>
     );
   }
 );
 
-ButtonRoot.displayName = 'ButtonRoot';
+IconButtonRoot.displayName = 'IconButtonRoot';
 
 const styles = StyleSheet.create(theme => ({
   container: {
@@ -98,18 +98,30 @@ const styles = StyleSheet.create(theme => ({
       },
       size: {
         sm: {
-          borderRadius: theme.components.button.sm.borderRadius,
-          paddingVertical: theme.components.button.sm.paddingVertical,
-          paddingHorizontal: theme.components.button.sm.paddingHorizontal,
+          borderRadius: theme.components.iconButton.sm.borderRadius,
+          paddingVertical:
+            theme.components.iconButton.sm.paddingVertical -
+            theme.components.button.borderWidth * 2,
+          paddingHorizontal:
+            theme.components.iconButton.sm.paddingHorizontal - theme.components.button.borderWidth,
           gap: theme.components.button.sm.gap,
           minHeight: 32,
+          maxHeight: 32,
+          minWidth: 32,
+          maxWidth: 32,
         },
         md: {
-          borderRadius: theme.components.button.md.borderRadius,
-          paddingVertical: theme.components.button.md.paddingVertical,
-          paddingHorizontal: theme.components.button.md.paddingHorizontal,
+          borderRadius: theme.components.iconButton.md.borderRadius,
+          paddingVertical:
+            theme.components.iconButton.md.paddingVertical -
+            theme.components.button.borderWidth * 2,
+          paddingHorizontal:
+            theme.components.iconButton.md.paddingHorizontal - theme.components.button.borderWidth,
           gap: theme.components.button.md.gap,
           minHeight: 48,
+          maxHeight: 48,
+          minWidth: 48,
+          maxWidth: 48,
         },
       },
     },
@@ -440,4 +452,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-export default ButtonRoot;
+export default IconButtonRoot;

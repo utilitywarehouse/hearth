@@ -1,26 +1,20 @@
-import React from 'react';
-import { Button, ButtonGroup } from '.';
-import type { ButtonProps } from '.';
+import React, { ComponentType } from 'react';
+import { IconButton, IconButtonProps } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { VariantTitle } from '../../../docs/components';
 import * as Icons from '../../../docs/components/icons';
-import { Flex } from '../Flex';
 import { Box } from '../Box';
-import { AddSmallIcon, ChevronRight01SmallIcon } from '../../../docs/components/icons';
+import { ButtonGroup } from '../Button';
+import { Flex } from '../Flex';
 import { DetailText } from '../DetailText';
 
 const meta = {
-  title: 'Stories / Button',
-  component: Button,
+  title: 'Stories / IconButton',
+  component: IconButton,
   parameters: {
     layout: 'centered',
   },
   argTypes: {
-    text: {
-      type: 'string',
-      control: 'text',
-      description: 'The text of the button.',
-    },
     size: {
       options: ['sm', 'md'],
       control: 'select',
@@ -51,11 +45,6 @@ const meta = {
       control: 'select',
       description: 'The icon component for the button.',
     },
-    iconPosition: {
-      options: ['left', 'right'],
-      control: 'select',
-      description: 'The position of the icon component in the button.',
-    },
     loading: {
       type: 'boolean',
       control: 'boolean',
@@ -68,28 +57,25 @@ const meta = {
     },
   },
   args: {
-    text: 'Press me',
     size: 'md',
     variant: 'solid',
     colorScheme: 'yellow',
+    icon: 'AddMediumIcon' as unknown as ComponentType,
+    loading: false,
     disabled: false,
     inverted: false,
-    loading: false,
-    icon: undefined,
-    iconPosition: 'left',
     pressed: false,
   },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof IconButton>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-  render: ({ icon: _icon, children: _, ...args }) => {
+  render: ({ icon: _icon, ...args }) => {
     // @ts-expect-error - This is a playground
     const icon = _icon === 'none' ? undefined : Icons[_icon];
-    return <Button {...args} icon={icon} />;
+    return <IconButton {...args} icon={icon} />;
   },
 };
 
@@ -97,8 +83,7 @@ export const Variants: Story = {
   parameters: {
     controls: { exclude: ['variant'] },
   },
-  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-  render: ({ icon: _icon, children: _, ...args }) => {
+  render: ({ icon: _icon, ...args }) => {
     // @ts-expect-error - This is a playground
     const icon = _icon === 'none' ? undefined : Icons[_icon];
     return (
@@ -106,23 +91,23 @@ export const Variants: Story = {
         <>
           {args.colorScheme === 'yellow' && (
             <VariantTitle title="Emphasis" invert={args.inverted}>
-              <Button {...args} variant="emphasis" icon={icon} />
+              <IconButton {...args} variant="emphasis" icon={icon} />
             </VariantTitle>
           )}
           {args.colorScheme !== 'grey' && (
             <VariantTitle title="Solid" invert={args.inverted}>
-              <Button {...args} variant="solid" icon={icon} />
+              <IconButton {...args} variant="solid" icon={icon} />
             </VariantTitle>
           )}
           {args.colorScheme !== 'yellow' && (
             <>
               <VariantTitle title="Outline" invert={args.inverted}>
                 {/* @ts-expect-error - story loop types don't match */}
-                <Button {...args} variant="outline" icon={icon} />
+                <IconButton {...args} variant="outline" icon={icon} />
               </VariantTitle>
               <VariantTitle title="Ghost" invert={args.inverted}>
                 {/* @ts-expect-error - story loop types don't match */}
-                <Button {...args} variant="ghost" icon={icon} />
+                <IconButton {...args} variant="ghost" icon={icon} />
               </VariantTitle>
             </>
           )}
@@ -132,14 +117,16 @@ export const Variants: Story = {
   },
 };
 
-type ColorScheme = ButtonProps['colorScheme'];
-type Variant = ButtonProps['variant'];
+type ColorScheme = IconButtonProps['colorScheme'];
+type Variant = IconButtonProps['variant'];
 
 export const KitchenSink: Story = {
   parameters: {
-    controls: { include: ['text', 'size', 'inverted'] },
+    controls: { include: ['icon'] },
   },
-  render: ({ text, inverted, size }) => {
+  render: ({ icon: _icon, inverted, size }) => {
+    // @ts-expect-error - This is a playground
+    const icon = _icon === 'none' ? undefined : Icons[_icon];
     const schemes: Array<ColorScheme> = ['yellow', 'red', 'green', 'grey'];
     const variants: Array<Variant> = ['emphasis', 'solid', 'outline', 'ghost'];
     return (
@@ -175,69 +162,46 @@ export const KitchenSink: Story = {
                   <Flex direction="column" spacing="lg">
                     <VariantTitle title="Default" invert={inverted}>
                       {/* @ts-expect-error - story loop types don't match */}
-                      <Button
-                        text={text}
+                      <IconButton
                         variant={variant}
                         colorScheme={scheme}
                         size={size}
                         inverted={inverted}
+                        icon={icon}
                       />
                     </VariantTitle>
                     <VariantTitle title="Pressed" invert={inverted}>
                       {/* @ts-expect-error - story loop types don't match */}
-                      <Button
-                        text={text}
+                      <IconButton
                         pressed
                         variant={variant}
                         colorScheme={scheme}
                         size={size}
                         inverted={inverted}
+                        icon={icon}
                       />
                     </VariantTitle>
                     <VariantTitle title="Disabled" invert={inverted}>
                       {/* @ts-expect-error - story loop types don't match */}
-                      <Button
-                        text={text}
+                      <IconButton
                         disabled
                         variant={variant}
                         colorScheme={scheme}
                         size={size}
                         inverted={inverted}
-                      />
-                    </VariantTitle>
-                    <VariantTitle title="Icon Left" invert={inverted}>
-                      {/* @ts-expect-error - story loop types don't match */}
-                      <Button
-                        text={text}
-                        icon={AddSmallIcon}
-                        variant={variant}
-                        colorScheme={scheme}
-                        size={size}
-                        inverted={inverted}
-                      />
-                    </VariantTitle>
-                    <VariantTitle title="Icon Left" invert={inverted}>
-                      {/* @ts-expect-error - story loop types don't match */}
-                      <Button
-                        text={text}
-                        icon={ChevronRight01SmallIcon}
-                        iconPosition="right"
-                        variant={variant}
-                        colorScheme={scheme}
-                        size={size}
-                        inverted={inverted}
+                        icon={icon}
                       />
                     </VariantTitle>
                     <VariantTitle title="Loading" invert={inverted}>
                       {/* @ts-expect-error - story loop types don't match */}
-                      <Button
-                        text={text}
+                      <IconButton
                         loading
                         variant={variant}
                         colorScheme={scheme}
                         disabled
                         size={size}
                         inverted={inverted}
+                        icon={icon}
                       />
                     </VariantTitle>
                   </Flex>
