@@ -3,6 +3,7 @@ import { Badge } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { VariantTitle } from '../../../docs/components';
 import { TickSmallIcon } from '../../../docs/components/icons';
+import * as Icons from '../../../docs/components/icons';
 import { Box } from '../Box';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -31,6 +32,11 @@ const meta = {
       control: 'boolean',
       description: 'Whether the badge has a flat base.',
     },
+    icon: {
+      options: ['none', ...Object.keys(Icons).filter(icon => icon.includes('Small'))],
+      control: 'select',
+      description: 'The icon component for the button.',
+    },
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {
@@ -44,7 +50,14 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+  render: ({ icon: _icon, ...args }) => {
+    // @ts-expect-error - This is a playground
+    const icon = _icon === 'none' ? undefined : Icons[_icon];
+    return <Badge {...args} icon={icon} />;
+  },
+};
 
 export const Solid: Story = {
   parameters: {

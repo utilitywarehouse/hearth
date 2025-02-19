@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button, ButtonGroup, ButtonProps } from '.';
+import { Button, ButtonGroup } from '.';
+import type { ButtonProps } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { VariantTitle } from '../../../docs/components';
-import * as Icons from '@utilitywarehouse/react-native-icons';
+import * as Icons from '../../../docs/components/icons';
 import { Flex } from '../Flex';
 import { Box } from '../Box';
-import { AddSmallIcon, ChevronRight01SmallIcon } from '@utilitywarehouse/react-native-icons';
+import { AddSmallIcon, ChevronRight01SmallIcon } from '../../../docs/components/icons';
 import { DetailText } from '../DetailText';
 
 const meta = {
@@ -104,15 +105,18 @@ export const Variants: Story = {
           )}
           {args.colorScheme !== 'grey' && (
             <VariantTitle title="Solid" invert={args.inverted}>
+              {/* @ts-expect-error - story loop types don't match */}
               <Button {...args} variant="solid" icon={icon} />
             </VariantTitle>
           )}
           {args.colorScheme !== 'yellow' && (
             <>
               <VariantTitle title="Outline" invert={args.inverted}>
+                {/* @ts-expect-error - story loop types don't match */}
                 <Button {...args} variant="outline" icon={icon} />
               </VariantTitle>
               <VariantTitle title="Ghost" invert={args.inverted}>
+                {/* @ts-expect-error - story loop types don't match */}
                 <Button {...args} variant="ghost" icon={icon} />
               </VariantTitle>
             </>

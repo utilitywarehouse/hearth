@@ -1,13 +1,6 @@
 import * as React from 'react';
 import Svg, { Path } from 'react-native-svg';
-import { SvgProps } from 'react-native-svg';
-
-export interface IconProps extends SvgProps {
-  children?: never;
-  /** Sets the color of the icon fill */
-  color?: string;
-}
-
+import { IconProps } from './types';
 const SvgAddSmallIcon = ({ color = 'currentColor', ...props }: IconProps) => (
   <Svg width={16} height={16} fill="none" viewBox="0 0 16 16" {...props}>
     <Path

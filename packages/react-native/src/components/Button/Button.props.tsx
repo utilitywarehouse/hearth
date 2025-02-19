@@ -3,13 +3,13 @@ import type { PressableProps } from 'react-native';
 
 // New union type for allowed combinations of variant, colorScheme, and inverted
 export type ButtonVariants =
-  | { variant: 'solid'; colorScheme: 'green' | 'red'; inverted?: never }
-  | { variant: 'outline'; colorScheme: 'green' | 'red'; inverted?: never }
-  | { variant: 'ghost'; colorScheme: 'green' | 'red'; inverted?: never }
-  | { variant: 'emphasis'; colorScheme: 'yellow'; inverted?: boolean }
-  | { variant: 'solid'; colorScheme: 'yellow'; inverted?: boolean }
-  | { variant: 'outline'; colorScheme: 'grey'; inverted?: boolean }
-  | { variant: 'ghost'; colorScheme: 'grey'; inverted?: boolean };
+  | { variant?: 'solid'; colorScheme?: 'green' | 'red'; inverted?: never }
+  | { variant?: 'outline'; colorScheme?: 'green' | 'red'; inverted?: never }
+  | { variant?: 'ghost'; colorScheme?: 'green' | 'red'; inverted?: never }
+  | { variant?: 'emphasis'; colorScheme?: 'yellow'; inverted?: boolean }
+  | { variant?: 'solid'; colorScheme?: 'yellow'; inverted?: boolean }
+  | { variant?: 'outline'; colorScheme?: 'grey'; inverted?: boolean }
+  | { variant?: 'ghost'; colorScheme?: 'grey'; inverted?: boolean };
 
 // Updated BaseButtonProps: removed previous variant, colorScheme, and inverted definitions
 export type BaseButtonProps = Omit<PressableProps, 'children'> & {
