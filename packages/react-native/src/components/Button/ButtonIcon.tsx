@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { forwardRef } from 'react';
-import { Platform, type StyleProp, type ViewStyle } from 'react-native';
+import { type StyleProp, type ViewStyle } from 'react-native';
 import { useButtonContext } from './Button.context';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
