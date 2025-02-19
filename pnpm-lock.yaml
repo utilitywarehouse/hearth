@@ -655,9 +655,6 @@ importers:
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:^
         version: link:../tokens
-      '@utilitywarehouse/react-native-icons':
-        specifier: 1.12.0
-        version: 1.12.0(react-native-svg@15.11.1(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       nanoid:
         specifier: ^5.0.8
         version: 5.0.9
@@ -3988,13 +3985,6 @@ packages:
     resolution: {integrity: sha512-oLuawtObgU1N9g3dL5n+DS1A9LjxxEsOCNpbS4DvuYMOTKm/t6VFzZkkFh2mt14YhFouP78pcmjGjBIynkRDmg==}
     peerDependencies:
       react: ^18.2.0
-
-  '@utilitywarehouse/react-native-icons@1.12.0':
-    resolution: {integrity: sha512-Mhqk8nSVUhMSb0r6DHbLb7I7VvK++P2c9joo//5yUrMqJ9mp65xifOnKv2wOdn61c7p1cECQOM8VTTklbxrtFw==}
-    peerDependencies:
-      react: '>=18.1.0'
-      react-native: '>=0.70.6'
-      react-native-svg: '>=12.3.0'
 
   '@utilitywarehouse/web-ui@1.1.0':
     resolution: {integrity: sha512-OQAtvupfVVrg7XGslPbOtqPvyFt4PfD6qmrIKKPNrSUC12/0aG6zLP3F1OEc/XxS++mBKLHoCJ2oR8R3Vldyag==}
@@ -15208,12 +15198,6 @@ snapshots:
   '@utilitywarehouse/react-icons@1.12.0(react@18.3.1)':
     dependencies:
       react: 18.3.1
-
-  '@utilitywarehouse/react-native-icons@1.12.0(react-native-svg@15.11.1(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-      react-native: 0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1)
-      react-native-svg: 15.11.1(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
 
   '@utilitywarehouse/web-ui@1.1.0(@mui/material@5.14.15(@emotion/react@11.14.0(@types/react@18.3.18)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.18)(react@18.3.1))(@types/react@18.3.18)(react@18.3.1))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:

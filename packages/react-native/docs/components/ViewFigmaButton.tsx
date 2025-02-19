@@ -32,7 +32,7 @@ const ViewFigmaButton: React.FC<Props> = ({ url }) => (
       }}
       onPress={() => window.open(url)}
     >
-      <ButtonIcon as={FigmaIcon} width={24} />
+      <ButtonIcon as={FigmaIcon} height={20} />
       <ButtonText>View in Figma</ButtonText>
       <ButtonIcon as={ChevronRightSmallIcon} />
     </Button>
