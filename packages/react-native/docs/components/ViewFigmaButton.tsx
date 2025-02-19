@@ -21,9 +21,10 @@ const ViewFigmaButton: React.FC<Props> = ({ url }) => (
     <Button
       variant="ghost"
       colorScheme="grey"
+      size="sm"
       style={{
         zIndex: 1,
-        marginTop: -4,
+        marginTop: 8,
         ...(Platform.OS === 'web'
           ? {
               float: 'right',
@@ -32,7 +33,7 @@ const ViewFigmaButton: React.FC<Props> = ({ url }) => (
       }}
       onPress={() => window.open(url)}
     >
-      <ButtonIcon as={FigmaIcon} height={20} />
+      <ButtonIcon as={FigmaIcon} height={16} />
       <ButtonText>View in Figma</ButtonText>
       <ButtonIcon as={ChevronRightSmallIcon} />
     </Button>

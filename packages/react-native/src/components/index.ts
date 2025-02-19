@@ -9,6 +9,7 @@ export * from './Icon';
 export * from './Box';
 export * from './Flex';
 export * from './Button';
+export * from './IconButton';
 
 export {
   FlatList,

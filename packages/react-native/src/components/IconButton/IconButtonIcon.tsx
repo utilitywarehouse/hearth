@@ -1,24 +1,29 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { forwardRef } from 'react';
-import { Platform, type StyleProp, type ViewStyle } from 'react-native';
-import { useButtonContext } from './Button.context';
+import { ViewStyle } from 'react-native';
+import { useIconButtonContext } from './IconButton.context';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import { IconRef } from '../../types';
 import IconProps from '../Icon/Icon.props';
 
-const ButtonIcon = forwardRef<IconRef, IconProps>(({ children, ...props }, ref) => {
-  const { colorScheme, variant, inverted, disabled } = useButtonContext();
-  styles.useVariants({ colorScheme, variant, inverted, disabled });
-
+const IconButtonIcon = forwardRef<IconRef, IconProps>(({ children, ...props }, ref) => {
+  const { colorScheme, variant, inverted, disabled, size } = useIconButtonContext();
+  styles.useVariants({
+    colorScheme,
+    variant,
+    inverted,
+    disabled,
+    size,
+  });
   return (
-    <Icon ref={ref} {...props} style={[styles.icon as StyleProp<ViewStyle>, props.style]}>
+    <Icon ref={ref} {...props} style={[styles.icon as ViewStyle, props.style]}>
       {children}
     </Icon>
   );
 });
 
-ButtonIcon.displayName = 'ButtonIcon';
+IconButtonIcon.displayName = 'IconButtonIcon';
 
 const styles = StyleSheet.create(theme => ({
   icon: {
@@ -40,6 +45,16 @@ const styles = StyleSheet.create(theme => ({
       },
       disabled: {
         true: {},
+      },
+      size: {
+        sm: {
+          width: 20,
+          height: 20,
+        },
+        md: {
+          width: 24,
+          height: 24,
+        },
       },
     },
     compoundVariants: [
@@ -133,4 +148,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-export default ButtonIcon;
+export default IconButtonIcon;
