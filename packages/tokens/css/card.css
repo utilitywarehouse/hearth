@@ -1,0 +1,18 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --card-broadband-blue-background-color: var(--color-broadband-blue);
+  --card-cashback-lilac-background-color: var(--color-cashback-lilac);
+  --card-emphasis-border-color: var(--color-grey-1000);
+  --card-emphasis-border-width: var(--border-width-2);
+  --card-energy-green-background-color: var(--color-energy-green);
+  --card-insurance-orange-background-color: var(--color-insurance-orange);
+  --card-mobile-rose-background-color: var(--color-mobile-rose);
+  --card-purple-background-color: var(--color-uw-purple);
+  --card-subtle-border-color: var(--color-warm-white-300);
+  --card-subtle-border-width: var(--border-width-1);
+  --card-warm-white-background-color: var(--color-warm-white-50);
+  --card-white-background-color: var(--color-white);
+}
