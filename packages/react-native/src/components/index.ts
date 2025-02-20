@@ -10,6 +10,8 @@ export * from './Box';
 export * from './Flex';
 export * from './Button';
 export * from './IconButton';
+export * from './Link';
+export * from './InlineLink';
 
 export {
   FlatList,

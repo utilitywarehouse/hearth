@@ -10,7 +10,7 @@ const Flex: React.FC<FlexProps> = ({
   align = 'flex-start',
   justify = 'flex-start',
   wrap = 'nowrap',
-  spacing = 'md',
+  space = 'md',
   ...rest
 }) => {
   const propStyle: ViewStyle = {
@@ -20,7 +20,7 @@ const Flex: React.FC<FlexProps> = ({
     flexWrap: wrap,
   };
 
-  styles.useVariants({ spacing });
+  styles.useVariants({ space });
 
   return (
     <View style={[propStyle, styles.flex, style]} {...rest}>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create(theme => ({
   flex: {
     display: 'flex',
     variants: {
-      spacing: {
+      space: {
         none: {},
         xs: {
           gap: {

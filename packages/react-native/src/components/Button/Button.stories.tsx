@@ -143,9 +143,9 @@ export const KitchenSink: Story = {
     const schemes: Array<ColorScheme> = ['yellow', 'red', 'green', 'grey'];
     const variants: Array<Variant> = ['emphasis', 'solid', 'outline', 'ghost'];
     return (
-      <Flex direction="row" spacing="lg" wrap="wrap">
+      <Flex direction="row" space="lg" wrap="wrap">
         {schemes.map(scheme => (
-          <Flex direction="column" spacing="lg" key={scheme}>
+          <Flex direction="column" space="lg" key={scheme}>
             {variants
               .filter(variant => {
                 if (inverted) {
@@ -172,7 +172,7 @@ export const KitchenSink: Story = {
                       {scheme} - {variant}
                     </DetailText>
                   </Box>
-                  <Flex direction="column" spacing="lg">
+                  <Flex direction="column" space="lg">
                     <VariantTitle title="Default" invert={inverted}>
                       {/* @ts-expect-error - story loop types don't match */}
                       <Button

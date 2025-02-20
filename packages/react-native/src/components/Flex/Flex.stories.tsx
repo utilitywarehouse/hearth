@@ -40,10 +40,10 @@ const meta = {
       control: 'select',
       description: 'The justify of the flex container.',
     },
-    spacing: {
+    space: {
       options: ['none', 'xs', 'sm', 'md', 'lg', 'xl'],
       control: 'radio',
-      description: 'The spacing of the flex container.',
+      description: 'The space of the flex container.',
     },
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
@@ -52,7 +52,7 @@ const meta = {
     align: 'center',
     wrap: 'wrap',
     justify: 'flex-start',
-    spacing: 'sm',
+    space: 'sm',
   },
 } satisfies Meta<typeof Flex>;
 
