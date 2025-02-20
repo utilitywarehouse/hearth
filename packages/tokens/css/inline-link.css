@@ -1,0 +1,12 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --inline-link-color: var(--color-blue-700);
+  --inline-link-color-visited: var(--color-uw-purple);
+  --inline-link-inverted-color: var(--color-warm-white-50);
+  --inline-link-inverted-color-active: var(--color-warm-white-200);
+  --inline-link-inverted-color-hover: var(--color-warm-white-50);
+  --inline-link-inverted-color-visited: var(--color-warm-white-200);
+}
