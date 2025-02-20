@@ -5,7 +5,6 @@ export interface LinkProps extends Omit<PressableProps, 'children'> {
   children: TextProps['children'];
   href?: string;
   target?: '_blank' | '_self' | '_parent' | '_top';
-  inline?: boolean;
   inverted?: boolean;
   disabled?: boolean;
   icon?: ComponentType;

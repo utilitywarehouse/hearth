@@ -24,7 +24,6 @@ const Link = forwardRef<PressableRef, LinkProps>(
       disabled = false,
       target = '_self',
       iconPosition = 'right',
-      inline = false,
       ...props
     },
     ref
@@ -34,13 +33,12 @@ const Link = forwardRef<PressableRef, LinkProps>(
         // @ts-expect-error - ref
         ref={ref}
         {...props}
-        inline={inline}
         isDisabled={disabled}
         isExternal={target === '_blank'}
       >
-        {!inline && icon && iconPosition === 'left' ? <LinkIcon as={icon} /> : null}
+        {icon && iconPosition === 'left' ? <LinkIcon as={icon} /> : null}
         <LinkText>{children}</LinkText>
-        {!inline && icon && iconPosition === 'right' ? <LinkIcon as={icon} /> : null}
+        {icon && iconPosition === 'right' ? <LinkIcon as={icon} /> : null}
       </LinkComponent>
     );
   }

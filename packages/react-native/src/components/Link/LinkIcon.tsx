@@ -8,8 +8,8 @@ import { IconRef } from '../../types';
 import IconProps from '../Icon/Icon.props';
 
 const LinkIcon = forwardRef<IconRef, IconProps>(({ children, ...props }, ref) => {
-  const { active, inverted, disabled, inline } = useLinkContext();
-  styles.useVariants({ active, inverted, disabled, inline });
+  const { active, inverted, disabled } = useLinkContext();
+  styles.useVariants({ active, inverted, disabled });
 
   return (
     <Icon ref={ref} {...props} style={[styles.icon as StyleProp<ViewStyle>, props.style]}>
@@ -26,11 +26,6 @@ const styles = StyleSheet.create(theme => ({
       active: {
         true: {
           color: theme.components.link.colorActive,
-        },
-      },
-      inline: {
-        true: {
-          color: theme.color.blue[700],
         },
       },
       inverted: {

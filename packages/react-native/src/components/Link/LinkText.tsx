@@ -7,13 +7,9 @@ import { DetailText } from '../DetailText';
 import { BodyText } from '../BodyText';
 
 const LinkText = forwardRef<Text, TextProps>(({ children, ...props }, ref) => {
-  const { inverted, disabled, active, inline } = useLinkContext();
-  styles.useVariants({ active, inverted, disabled, inline });
-  return inline ? (
-    <BodyText ref={ref} {...props} style={[styles.text, props.style]}>
-      {children}
-    </BodyText>
-  ) : (
+  const { inverted, disabled, active } = useLinkContext();
+  styles.useVariants({ active, inverted, disabled });
+  return (
     <DetailText size="md" ref={ref} {...props} style={[styles.text, props.style]}>
       {children}
     </DetailText>
@@ -48,12 +44,6 @@ const styles = StyleSheet.create(theme => ({
       disabled: {
         true: {
           opacity: 0.5,
-        },
-      },
-      inline: {
-        true: {
-          color: theme.color.blue[700],
-          textDecorationColor: theme.color.blue[700],
         },
       },
     },
