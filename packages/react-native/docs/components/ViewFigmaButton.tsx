@@ -1,4 +1,4 @@
-import { Button, ButtonIcon, ButtonText, createIcon } from '../../';
+import { Button, ButtonIcon, ButtonText, createIcon } from '../../src';
 import { ChevronRightSmallIcon } from '../components/icons';
 import React from 'react';
 import { Platform } from 'react-native';
