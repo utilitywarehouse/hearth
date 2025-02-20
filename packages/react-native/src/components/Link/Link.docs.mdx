@@ -1,0 +1,51 @@
+import { Meta, Canvas, Story, Controls, Primary } from '@storybook/blocks';
+import * as Stories from './Link.stories';
+import { Center, Pressable, Link, Box } from '../..';
+import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+
+<Meta title="Components / Link" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components?node-id=1-154" />
+
+# Link
+
+Links are used to navigate a user to another screen or website, another place on the same page, or to open a link in a new tab.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <Link href="http://uw.co.uk">Visit Utility Warehouse</Link>
+  </Center>
+</UsageWrap>
+
+```jsx
+import { Link } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => <Link>Welcome to Utility Warehouse</Link>;
+```
+
+## Props
+
+| Property       | Type                                         | Description                                     | Default   |
+| -------------- | -------------------------------------------- | ----------------------------------------------- | --------- |
+| `href`         | `string`                                     | The URL to navigate to.                         | `-`       |
+| `onPress`      | `() => void`                                 | Function to be called on press.                 | `-`       |
+| `target`       | `'_self' \| '_blank' \| '_parent' \| '_top'` | The target of the link.                         | `'_self'` |
+| `inverted`     | `boolean`                                    | Invert the link colours for purple backgrounds. | `false`   |
+| `disabled`     | `boolean`                                    | Disable the link.                               | `false`   |
+| `icon`         | `ReactNode`                                  | Icon to be displayed next to the link.          | `-`       |
+| `iconPosition` | `'left' \| 'right'`                          | Position of the icon.                           | `'left'`  |
+| `showIcon`     | `boolean`                                    | Show the icon.                                  | `false`   |

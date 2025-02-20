@@ -1,16 +1,14 @@
 /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
 import React, { forwardRef, PropsWithChildren, useMemo } from 'react';
-import { GestureResponderEvent, Linking, Pressable, ViewStyle, Text } from 'react-native';
+import { Text } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { InlineLinkContext } from './InlineLink.context';
-import { PressableRef } from '../../types';
 import InlineLinkProps from './InlineLink.props';
-import InlineLink from './InlineLink';
 
 const InlineLinkRoot = forwardRef<
   Text,
   PropsWithChildren<InlineLinkProps & { states?: { active?: boolean; disabled?: boolean } }>
->(({ children, inverted = false, onPress, states, ...props }, ref) => {
+>(({ children, inverted = false, states, ...props }, ref) => {
   const { active, disabled = false } = states || {};
   styles.useVariants({ disabled, inverted, active });
   const value = useMemo(() => ({ inverted, disabled, active }), [inverted, disabled, active]);
@@ -27,10 +25,10 @@ InlineLinkRoot.displayName = 'InlineLinkRoot';
 
 const styles = StyleSheet.create(theme => ({
   container: {
-    color: theme.components.link.color,
+    color: theme.components.inlineLink.color,
     textDecorationStyle: 'solid',
     textDecorationLine: 'underline',
-    textDecorationColor: theme.components.link.color,
+    textDecorationColor: theme.components.inlineLink.color,
     _web: {
       '_focus-visible': {
         borderRadius: theme.borderRadius.xs,
@@ -47,13 +45,13 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       active: {
         true: {
-          color: theme.components.link.colorActive,
+          color: theme.components.inlineLink.color,
         },
       },
       inverted: {
         true: {
-          color: theme.components.link.inverted.color,
-          textDecorationColor: theme.components.link.inverted.color,
+          color: theme.components.inlineLink.inverted.color,
+          textDecorationColor: theme.components.inlineLink.inverted.color,
           _web: {
             '_focus-visible': {
               outlineColor: theme.components.focus.borderInverted,
@@ -78,7 +76,7 @@ const styles = StyleSheet.create(theme => ({
         inverted: true,
         active: true,
         styles: {
-          color: theme.components.link.inverted.colorActive,
+          color: theme.components.inlineLink.inverted.colorActive,
         },
       },
     ],

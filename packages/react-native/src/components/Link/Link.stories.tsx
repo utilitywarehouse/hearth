@@ -1,7 +1,6 @@
 import React, { ComponentType } from 'react';
 import { Link } from '.';
 import { Meta, StoryObj } from '@storybook/react';
-import { VariantTitle } from '../../../docs/components';
 import * as Icons from '../../../docs/components/icons';
 
 const meta = {
@@ -14,7 +13,7 @@ const meta = {
     children: {
       type: 'string',
       control: 'text',
-      description: 'The text of the button.',
+      description: 'The text of the link.',
     },
     href: {
       type: 'string',
@@ -29,22 +28,27 @@ const meta = {
     disabled: {
       type: 'boolean',
       control: 'boolean',
-      description: 'To manually set disable to the button.',
+      description: 'To manually set disable to the link.',
     },
     inverted: {
       type: 'boolean',
       control: 'boolean',
-      description: 'To set the button to be inverted. (To only be used on `purple` backgrounds)',
+      description: 'To set the link to be inverted. (To only be used on `purple` backgrounds)',
     },
     icon: {
       options: ['none', ...Object.keys(Icons).filter(icon => icon.includes('Small'))],
       control: 'select',
-      description: 'The icon component for the button.',
+      description: 'The icon component for the link.',
     },
     iconPosition: {
       options: ['left', 'right'],
       control: 'select',
-      description: 'The position of the icon component in the button.',
+      description: 'The position of the icon component in the link.',
+    },
+    showIcon: {
+      type: 'boolean',
+      control: 'boolean',
+      description: 'To show or hide the icon component in the link.',
     },
   },
   args: {
@@ -52,9 +56,10 @@ const meta = {
     href: 'https://www.uw.co.uk',
     target: '_blank',
     icon: 'ChervonRightSmallIcon' as unknown as ComponentType,
+    iconPosition: 'right',
+    showIcon: true,
     disabled: false,
     inverted: false,
-    iconPosition: 'right',
   },
 } satisfies Meta<typeof Link>;
 

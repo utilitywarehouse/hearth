@@ -22,6 +22,7 @@ LinkIcon.displayName = 'LinkIcon';
 
 const styles = StyleSheet.create(theme => ({
   icon: {
+    color: theme.components.link.color,
     variants: {
       active: {
         true: {

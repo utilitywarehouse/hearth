@@ -1,16 +1,15 @@
 /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
 import React, { forwardRef, PropsWithChildren, useMemo } from 'react';
-import { GestureResponderEvent, Linking, Pressable, ViewStyle } from 'react-native';
+import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { LinkContext } from './Link.context';
 import { PressableRef } from '../../types';
 import LinkProps from './Link.props';
-import Link from './Link';
 
 const LinkRoot = forwardRef<
   PressableRef,
   PropsWithChildren<LinkProps & { states?: { active?: boolean; disabled?: boolean } }>
->(({ children, inverted = false, onPress, states, ...props }, ref) => {
+>(({ children, inverted = false, states, ...props }, ref) => {
   const { active, disabled = false } = states || {};
   styles.useVariants({ disabled, inverted, active });
   const value = useMemo(() => ({ inverted, disabled, active }), [inverted, disabled, active]);

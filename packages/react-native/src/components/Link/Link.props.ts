@@ -9,6 +9,7 @@ export interface LinkProps extends Omit<PressableProps, 'children'> {
   disabled?: boolean;
   icon?: ComponentType;
   iconPosition?: 'left' | 'right';
+  showIcon?: boolean;
 }
 
 export default LinkProps;

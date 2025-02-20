@@ -24,6 +24,7 @@ const Link = forwardRef<PressableRef, LinkProps>(
       disabled = false,
       target = '_self',
       iconPosition = 'right',
+      showIcon = true,
       ...props
     },
     ref
@@ -36,9 +37,9 @@ const Link = forwardRef<PressableRef, LinkProps>(
         isDisabled={disabled}
         isExternal={target === '_blank'}
       >
-        {icon && iconPosition === 'left' ? <LinkIcon as={icon} /> : null}
+        {showIcon && icon && iconPosition === 'left' ? <LinkIcon as={icon} /> : null}
         <LinkText>{children}</LinkText>
-        {icon && iconPosition === 'right' ? <LinkIcon as={icon} /> : null}
+        {showIcon && icon && iconPosition === 'right' ? <LinkIcon as={icon} /> : null}
       </LinkComponent>
     );
   }

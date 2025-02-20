@@ -1,6 +1,8 @@
 import React from 'react';
 import { InlineLink } from '.';
 import { Meta, StoryObj } from '@storybook/react';
+import { BodyText } from '../BodyText';
+import { Flex } from '../Flex';
 
 const meta = {
   title: 'Stories / InlineLink',
@@ -12,7 +14,7 @@ const meta = {
     children: {
       type: 'string',
       control: 'text',
-      description: 'The text of the button.',
+      description: 'The text of the link.',
     },
     href: {
       type: 'string',
@@ -28,16 +30,16 @@ const meta = {
     disabled: {
       type: 'boolean',
       control: 'boolean',
-      description: 'To manually set disable to the button.',
+      description: 'To manually set disable to the link.',
     },
     inverted: {
       type: 'boolean',
       control: 'boolean',
-      description: 'To set the button to be inverted. (To only be used on `purple` backgrounds)',
+      description: 'To set the link to be inverted. (To only be used on `purple` backgrounds)',
     },
   },
   args: {
-    children: 'InlineLink',
+    children: 'embedded link',
     href: 'https://www.uw.co.uk',
     target: '_blank',
     disabled: false,
@@ -49,3 +51,40 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {};
+
+export const Variants: Story = {
+  render: ({ children }) => {
+    return (
+      <Flex direction="column" space="sm">
+        <BodyText>
+          This is the body text style, and it contains an{' '}
+          <InlineLink href="https://www.uw.co.uk" target="_blank">
+            {children}
+          </InlineLink>{' '}
+          within this text. This works on white backgrounds
+        </BodyText>
+        <BodyText weight="semibold">
+          This is the body text style, and it contains an{' '}
+          <InlineLink href="https://www.uw.co.uk" target="_blank">
+            {children}
+          </InlineLink>{' '}
+          within this text. This works on white backgrounds
+        </BodyText>
+        <BodyText size="lg">
+          This is the body text style, and it contains an{' '}
+          <InlineLink href="https://www.uw.co.uk" target="_blank">
+            {children}
+          </InlineLink>{' '}
+          within this text. This works on white backgrounds
+        </BodyText>
+        <BodyText size="lg" weight="semibold">
+          This is the body text style, and it contains an{' '}
+          <InlineLink href="https://www.uw.co.uk" target="_blank">
+            {children}
+          </InlineLink>{' '}
+          within this text. This works on white backgrounds
+        </BodyText>
+      </Flex>
+    );
+  },
+};
