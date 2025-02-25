@@ -3,5 +3,5 @@
  */
 
 export default {
-  loadingColor: '#d4d2c0',
+  loadingColor: '#f1efe4',
 } as const;

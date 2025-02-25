@@ -22,7 +22,7 @@ function buildDeviceOutput(dictionary, options) {
   return output;
 }
 
-const primitiveJson = loadJSON('./raw/hearth-design-tokens---primitive.json');
+const primitiveJson = loadJSON('./raw/hearth-components--tokens---primitive.json');
 
 // Register transforms, formats, and groups
 export function registerDictionaryExtensions(StyleDictionary) {

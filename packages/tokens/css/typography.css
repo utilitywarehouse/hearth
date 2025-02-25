@@ -19,10 +19,10 @@
   --body-text-lg-paragraph-spacing: var(--font-size-150);
   --body-text-md-font-size: var(--font-size-100);
   --body-text-md-line-height: var(--line-height-500);
-  --body-text-md-paragraph-spacing: var(--space-200);
+  --body-text-md-paragraph-spacing: var(--font-size-100);
   --body-text-sm-font-size: var(--font-size-90);
   --body-text-sm-line-height: var(--line-height-300);
-  --body-text-sm-paragraph-spacing: var(--space-175);
+  --body-text-sm-paragraph-spacing: var(--font-size-90);
   --detail-text-2xl-font-size: var(--font-size-300);
   --detail-text-2xl-line-height: var(--line-height-700);
   --detail-text-3xl-font-size: var(--font-size-400);

@@ -198,7 +198,7 @@ export declare const desktop: {
       readonly paragraphSpacing: 18;
     };
     readonly md: {
-      readonly fontSize: 16;
+      readonly fontSize: 128;
       readonly letterSpacing: 0;
       readonly lineHeight: 24;
       readonly paragraphSpacing: 16;
@@ -475,7 +475,7 @@ declare const typography: {
         readonly paragraphSpacing: 18;
       };
       readonly md: {
-        readonly fontSize: 16;
+        readonly fontSize: 128;
         readonly letterSpacing: 0;
         readonly lineHeight: 24;
         readonly paragraphSpacing: 16;

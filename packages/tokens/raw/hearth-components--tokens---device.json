@@ -163,9 +163,9 @@
         },
         "md": {
           "font-size": {
-            "alias": "{font.size.100}",
+            "alias": "{font.size.1000}",
             "type": "number",
-            "value": 16
+            "value": 128
           },
           "letter-spacing": {
             "alias": "{letter-spacing.0}",
@@ -178,7 +178,7 @@
             "value": 24
           },
           "paragraph-spacing": {
-            "alias": "{space.200}",
+            "alias": "{font.size.100}",
             "type": "number",
             "value": 16
           }
@@ -200,7 +200,7 @@
             "value": 20
           },
           "paragraph-spacing": {
-            "alias": "{space.175}",
+            "alias": "{font.size.90}",
             "type": "number",
             "value": 14
           }
@@ -613,7 +613,7 @@
             "value": 24
           },
           "paragraph-spacing": {
-            "alias": "{space.200}",
+            "alias": "{font.size.100}",
             "type": "number",
             "value": 16
           }
@@ -635,7 +635,7 @@
             "value": 20
           },
           "paragraph-spacing": {
-            "alias": "{space.175}",
+            "alias": "{font.size.90}",
             "type": "number",
             "value": 14
           }
@@ -1048,7 +1048,7 @@
             "value": 24
           },
           "paragraph-spacing": {
-            "alias": "{space.200}",
+            "alias": "{font.size.100}",
             "type": "number",
             "value": 16
           }
@@ -1070,7 +1070,7 @@
             "value": 20
           },
           "paragraph-spacing": {
-            "alias": "{space.175}",
+            "alias": "{font.size.90}",
             "type": "number",
             "value": 14
           }

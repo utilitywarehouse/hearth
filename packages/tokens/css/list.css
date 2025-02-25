@@ -3,9 +3,16 @@
  */
 
 :root {
+  --list-background-color-active: var(--color-warm-white-200);
   --list-background-color-hover: var(--color-warm-white-100);
   --list-border-emphasis-color: var(--color-grey-1000);
   --list-border-subtle-color: var(--color-warm-white-300);
   --list-border-width: var(--border-width-1);
+  --list-content-gap: var(--space-25);
+  --list-gap: var(--space-150);
+  --list-heading-gap-horizontal: var(--space-150);
+  --list-heading-gap-vertical: var(--space-25);
   --list-icon-color: var(--color-grey-1000);
+  --list-padding-horizontal: var(--space-150);
+  --list-padding-vertical: var(--space-200);
 }

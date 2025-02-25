@@ -3,9 +3,10 @@
  */
 declare const _default: {
   readonly bodyTextColor: '#101010';
-  readonly errorColor: '#de2612';
+  readonly colorInvalid: '#de2612';
+  readonly colorValid: '#0f834a';
   readonly headingColor: '#101010';
+  readonly labelColor: '#101010';
   readonly supportingTextColor: '#6f6c6b';
-  readonly validationColor: '#0f834a';
 };
 export default _default;
