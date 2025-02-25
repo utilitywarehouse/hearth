@@ -5,7 +5,7 @@
 export default {
   color: '#101010',
   colorActive: '#464444',
-  colorHover: '#101010',
+  colorHover: '#3e3c3b',
   gap: 2,
   inverted: {
     color: '#fcfbf2',

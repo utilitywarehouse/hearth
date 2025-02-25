@@ -26,8 +26,8 @@ function createDynamicComponentFiles(componentJson, mode) {
   }));
 }
 
-const componentJson = loadJSON('./raw/hearth-components---component.json');
-const primitiveJson = loadJSON('./raw/hearth-design-tokens---primitive.json');
+const componentJson = loadJSON('./raw/hearth-components--tokens---component.json');
+const primitiveJson = loadJSON('./raw/hearth-components--tokens---primitive.json');
 const dynamicLightComponentFiles = createDynamicComponentFiles(componentJson, 'light');
 const dynamicDarkComponentFiles = createDynamicComponentFiles(componentJson, 'dark');
 

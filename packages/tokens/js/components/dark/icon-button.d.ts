@@ -12,5 +12,12 @@ declare const _default: {
     readonly paddingHorizontal: 6;
     readonly paddingVertical: 6;
   };
+  readonly unstyled: {
+    readonly foregroundColor: '#f6f5f5';
+    readonly foregroundColorActive: '#d1d0d0';
+    readonly foregroundColorHover: '#e7e6e6';
+    readonly paddingHorizontal: 0;
+    readonly paddingVertical: 0;
+  };
 };
 export default _default;

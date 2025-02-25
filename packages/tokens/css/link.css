@@ -5,7 +5,7 @@
 :root {
   --link-color: var(--color-grey-1000);
   --link-color-active: var(--color-grey-800);
-  --link-color-hover: var(--color-grey-1000);
+  --link-color-hover: var(--color-grey-900);
   --link-gap: var(--space-25);
   --link-inverted-color: var(--color-warm-white-50);
   --link-inverted-color-active: var(--color-warm-white-200);

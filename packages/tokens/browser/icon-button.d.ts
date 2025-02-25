@@ -9,4 +9,11 @@ export declare const iconButton: {
     readonly paddingHorizontal: 'var(--icon-button-sm-padding-horizontal)';
     readonly paddingVertical: 'var(--icon-button-sm-padding-vertical)';
   };
+  readonly unstyled: {
+    readonly foregroundColor: 'var(--icon-button-unstyled-foreground-color)';
+    readonly foregroundColorActive: 'var(--icon-button-unstyled-foreground-color-active)';
+    readonly foregroundColorHover: 'var(--icon-button-unstyled-foreground-color-hover)';
+    readonly paddingHorizontal: 'var(--icon-button-unstyled-padding-horizontal)';
+    readonly paddingVertical: 'var(--icon-button-unstyled-padding-vertical)';
+  };
 };

@@ -1,0 +1,20 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --input-background-color: var(--color-white);
+  --input-border-color: var(--color-grey-1000);
+  --input-border-color-invalid: var(--color-red-700);
+  --input-border-color-read-only: var(--color-grey-200);
+  --input-border-color-valid: var(--color-green-700);
+  --input-border-radius: var(--border-radius-md);
+  --input-border-width: var(--border-width-1);
+  --input-border-width-focused: var(--border-width-2);
+  --input-foreground-color-textarea: var(--color-grey-500);
+  --input-gap: var(--space-75);
+  --input-gap-currency: var(--space-25);
+  --input-padding-horizontal: var(--space-200);
+  --input-padding-vertical: var(--space-150);
+  --input-placeholder-color: var(--color-grey-500);
+}

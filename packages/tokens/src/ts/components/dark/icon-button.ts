@@ -13,4 +13,11 @@ export default {
     paddingHorizontal: 6,
     paddingVertical: 6,
   },
+  unstyled: {
+    foregroundColor: '#f6f5f5',
+    foregroundColorActive: '#d1d0d0',
+    foregroundColorHover: '#e7e6e6',
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+  },
 } as const;

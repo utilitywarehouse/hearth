@@ -4,7 +4,7 @@
 declare const _default: {
   readonly color: '#101010';
   readonly colorActive: '#464444';
-  readonly colorHover: '#101010';
+  readonly colorHover: '#3e3c3b';
   readonly gap: 2;
   readonly inverted: {
     readonly color: '#fcfbf2';

@@ -3,8 +3,9 @@
  */
 export default {
   bodyTextColor: '#f6f5f5',
-  errorColor: '#ffa89d',
-  headingColor: '#f6f5f5',
+  colorInvalid: '#ffa89d',
+  colorValid: '#7bd5aa',
+  headingColor: '#101010',
+  labelColor: '#101010',
   supportingTextColor: '#6f6c6b',
-  validationColor: '#7bd5aa',
 };

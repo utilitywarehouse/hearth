@@ -66,7 +66,7 @@ StyleDictionary.registerFormat({
   },
 });
 
-const componentJson = loadJSON('./raw/hearth-components---component.json');
+const componentJson = loadJSON('./raw/hearth-components--tokens---component.json');
 const componentFiles = Object.keys(componentJson.light).map(componentName => ({
   destination: `${componentName}.ts`,
   format: 'browser/variables',
