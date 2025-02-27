@@ -34,7 +34,23 @@ const markFirstListItem = (children: ReactNode): ReactNode => {
 };
 
 const List = forwardRef<View, ListProps>(
-  ({ children, headingText, headingSupportingText, ...props }, ref) => {
+  (
+    {
+      children,
+      headingText,
+      headingSupportingText,
+      headingLinkText,
+      headingLinkHref,
+      headingLinkOnPress,
+      headingLinkTarget,
+      headingLinkDisabled,
+      headingLinkIcon,
+      headingLinkIconPosition,
+      headingLinkShowIcon,
+      ...props
+    },
+    ref
+  ) => {
     const { loading, disabled, divider = true, container = 'none' } = props;
     const updatedChildren = markFirstListItem(children);
     const value = useMemo(
@@ -46,7 +62,18 @@ const List = forwardRef<View, ListProps>(
       <ListContext.Provider value={value}>
         <View ref={ref} {...props} style={[styles.container, props.style]}>
           {headingText ? (
-            <ListHeading text={headingText} supportingText={headingSupportingText} />
+            <ListHeading
+              text={headingText}
+              supportingText={headingSupportingText}
+              linkText={headingLinkText}
+              linkHref={headingLinkHref}
+              linkOnPress={headingLinkOnPress}
+              linkTarget={headingLinkTarget}
+              linkDisabled={headingLinkDisabled}
+              linkIcon={headingLinkIcon}
+              linkIconPosition={headingLinkIconPosition}
+              linkShowIcon={headingLinkShowIcon}
+            />
           ) : null}
           <View>{updatedChildren}</View>
         </View>
@@ -64,7 +91,7 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       disabled: {
         true: {
-          opacity: theme.opacity.disabled,
+          opacity: 0.5,
         },
       },
     },

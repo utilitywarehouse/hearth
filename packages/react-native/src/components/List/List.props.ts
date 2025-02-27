@@ -12,7 +12,7 @@ interface ListProps extends ViewProps {
   headingSupportingText?: string;
   headingLinkText?: string;
   headingLinkHref?: string;
-  linkOnPress?: () => void;
+  headingLinkOnPress?: () => void;
   headingLinkTarget?: '_blank' | '_self' | '_parent' | '_top';
   headingLinkDisabled?: boolean;
   headingLinkIcon?: ComponentType;

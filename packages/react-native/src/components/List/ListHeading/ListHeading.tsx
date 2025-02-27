@@ -64,6 +64,7 @@ ListHeading.displayName = 'ListHeading';
 
 const styles = StyleSheet.create(theme => ({
   container: {
+    flexDirection: 'row',
     gap: theme.components.list.heading.gap,
   },
 }));

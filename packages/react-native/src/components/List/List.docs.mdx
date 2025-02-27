@@ -93,38 +93,37 @@ const MyComponent = () => (
 
 ### `List`
 
-| Name                    | Type                                                                                                    | Default | Description                                                |
-| ----------------------- | ------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------- |
-| container               | `'none' \| 'subtle white' \| 'emphasis white' \|` <br /> `'subtle warm white' \| 'emphasis warm white'` |         | The container style of the list.                           |
-| headingText             | string                                                                                                  |         | The text to display in the heading of the list.            |
-| headingSupportingText   | string                                                                                                  |         | The supporting text to display in the heading of the list. |
-| headingLinkText         | string                                                                                                  |         | The text for the link in the heading.                      |
-| headingLinkHref         | string                                                                                                  |         | The href for the link in the heading.                      |
-| linkOnPress             | () => void                                                                                              |         | Callback function when the heading link is pressed.        |
-| headingLinkTarget       | '\_blank' \| '\_self' \| '\_parent' \| '\_top'                                                          |         | Target for the link in the heading.                        |
-| headingLinkDisabled     | boolean                                                                                                 | false   | Whether the heading link is disabled.                      |
-| headingLinkIcon         | ComponentType                                                                                           |         | Icon for the heading link.                                 |
-| headingLinkIconPosition | 'left' \| 'right'                                                                                       | 'right' | Position of the icon in the heading link.                  |
-| headingLinkShowIcon     | boolean                                                                                                 | true    | Whether to show the icon in the heading link.              |
-| divider                 | boolean                                                                                                 | false   | Whether to display a divider below the list items.         |
-| dividerColor            | string                                                                                                  |         | The color of the divider.                                  |
-| loading                 | boolean                                                                                                 | false   | Whether to show the list items in loading state.           |
-| disabled                | boolean                                                                                                 | false   | Whether to disable the list.                               |
+| Name                    | Type                                                                                                    | Default   | Description                                                |
+| ----------------------- | ------------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------- |
+| container               | `'none' \| 'subtle white' \| 'emphasis white' \|` <br /> `'subtle warm white' \| 'emphasis warm white'` |           | The container style of the list.                           |
+| headingText             | `string`                                                                                                |           | The text to display in the heading of the list.            |
+| headingSupportingText   | `string`                                                                                                |           | The supporting text to display in the heading of the list. |
+| headingLinkText         | `string`                                                                                                |           | The text for the link in the heading.                      |
+| headingLinkHref         | `string`                                                                                                |           | The href for the link in the heading.                      |
+| headingLinkOnPress      | `() => void`                                                                                            |           | Callback function when the heading link is pressed.        |
+| headingLinkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'`                                                            |           | Target for the link in the heading.                        |
+| headingLinkDisabled     | `boolean`                                                                                               | `false`   | Whether the heading link is disabled.                      |
+| headingLinkIcon         | `ComponentType`                                                                                         |           | Icon for the heading link.                                 |
+| headingLinkIconPosition | `'left' \| 'right'`                                                                                     | `'right'` | Position of the icon in the heading link.                  |
+| headingLinkShowIcon     | `boolean`                                                                                               | `true`    | Whether to show the icon in the heading link.              |
+| divider                 | `boolean`                                                                                               | `false`   | Whether to display a divider below the list items.         |
+| loading                 | `boolean`                                                                                               | `false`   | Whether to show the list items in loading state.           |
+| disabled                | `boolean`                                                                                               | `false`   | Whether to disable the list.                               |
 
 ### `ListHeading`
 
-| Name             | Type                                           | Default | Description                                                |
-| ---------------- | ---------------------------------------------- | ------- | ---------------------------------------------------------- |
-| text             | string                                         |         | The text to display in the heading of the list.            |
-| supportingText   | string                                         |         | The supporting text to display in the heading of the list. |
-| linkText         | string                                         |         | The text for the link in the heading.                      |
-| linkHref         | string                                         |         | The href for the link in the heading.                      |
-| linkOnPress      | () => void                                     |         | Callback function when the link is pressed.                |
-| linkTarget       | '\_blank' \| '\_self' \| '\_parent' \| '\_top' |         | Target for the link in the heading.                        |
-| linkDisabled     | boolean                                        | false   | Whether the link is disabled.                              |
-| linkIcon         | ComponentType                                  |         | Icon for the link.                                         |
-| linkIconPosition | 'left' \| 'right'                              | 'right' | Position of the icon in the link.                          |
-| linkShowIcon     | boolean                                        | true    | Whether to show the icon in the link.                      |
+| Name             | Type                                         | Default    | Description                                                |
+| ---------------- | -------------------------------------------- | ---------- | ---------------------------------------------------------- |
+| text             | `string`                                     |            | The text to display in the heading of the list.            |
+| supportingText   | `string`                                     |            | The supporting text to display in the heading of the list. |
+| linkText         | `string`                                     |            | The text for the link in the heading.                      |
+| linkHref         | `string`                                     |            | The href for the link in the heading.                      |
+| linkOnPress      | `() => void`                                 |            | Callback function when the link is pressed.                |
+| linkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'` | `'_blank'` | Target for the link in the heading.                        |
+| linkDisabled     | `boolean`                                    | `false`    | Whether the link is disabled.                              |
+| linkIcon         | `ComponentType`                              |            | Icon for the link.                                         |
+| linkIconPosition | `'left' \| 'right'`                          | `'right'`  | Position of the icon in the link.                          |
+| linkShowIcon     | `boolean`                                    | `true`     | Whether to show the icon in the link.                      |
 
 #### - `ListHeadingText`
 
@@ -132,27 +131,25 @@ const MyComponent = () => (
 
 ### `ListItem`
 
-| Name            | Type                   | Default | Description                                                     |
-| --------------- | ---------------------- | ------- | --------------------------------------------------------------- |
-| text            | string                 |         | The text to display in the list item.                           |
-| onPress         | () => void             |         | A callback function to be called when the list item is pressed. |
-| supportingText  | string                 |         | The supporting text to display in the list item.                |
-| leadingContent  | ReactNode              |         | The leading content to display in the list item.                |
-| trailingContent | ReactNode              |         | The trailing content to display in the list item.               |
-| variant         | 'subtle' \| 'emphasis' |         | The variant style of the list item.                             |
-| isFirst         | boolean                | false   | Whether this is the first item in the list.                     |
-| disabled        | boolean                | false   | Whether to disable the list item.                               |
-| loading         | boolean                | false   | Whether to show the list item in loading state.                 |
-| divider         | boolean                | false   | Whether to display a divider below the list item.               |
-| dividerColor    | string                 |         | The color of the divider.                                       |
+| Name            | Type                     | Default | Description                                                     |
+| --------------- | ------------------------ | ------- | --------------------------------------------------------------- |
+| text            | `string`                 |         | The text to display in the list item.                           |
+| onPress         | `() => void`             |         | A callback function to be called when the list item is pressed. |
+| supportingText  | `string`                 |         | The supporting text to display in the list item.                |
+| leadingContent  | `ReactNode`              |         | The leading content to display in the list item.                |
+| trailingContent | `ReactNode`              |         | The trailing content to display in the list item.               |
+| variant         | `'subtle' \| 'emphasis'` |         | The variant style of the list item.                             |
+| disabled        | `boolean`                | `false` | Whether to disable the list item.                               |
+| loading         | `boolean`                | `false` | Whether to show the list item in loading state.                 |
+| divider         | `boolean`                | `false` | Whether to display a divider below the list item.               |
 
 #### - `ListItemLeadingContent`
 
 #### - `ListItemIcon`
 
-| Name | Type     | Default | Description                                     |
-| ---- | -------- | ------- | ----------------------------------------------- |
-| as   | React.FC |         | The icon component to display in the list item. |
+| Name | Type            | Default | Description                                     |
+| ---- | --------------- | ------- | ----------------------------------------------- |
+| as   | `ComponentType` |         | The icon component to display in the list item. |
 
 #### - `ListItemContent`
 
@@ -164,9 +161,9 @@ const MyComponent = () => (
 
 #### - `ListItemTrailingIcon`
 
-| Name | Type     | Default | Description                                     |
-| ---- | -------- | ------- | ----------------------------------------------- |
-| as   | React.FC |         | The icon component to display in the list item. |
+| Name | Type            | Default | Description                                     |
+| ---- | --------------- | ------- | ----------------------------------------------- |
+| as   | `ComponentType` |         | The icon component to display in the list item. |
 
 ## Advanced Usage
 
@@ -175,7 +172,7 @@ If you need to use the List component in a more advanced way, you can use the pa
 <UsageWrap>
   <List>
     <ListHeading text="Your account" supportingText="Tap the links below to view your account" />
-    <ListItem onPress={() => console.log('pressed')} divider>
+    <ListItem onPress={() => console.log('pressed')}>
       <ListItemLeadingContent>
         <ListItemIcon as={BillMediumIcon} />
       </ListItemLeadingContent>
@@ -187,7 +184,7 @@ If you need to use the List component in a more advanced way, you can use the pa
         <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
       </ListItemTrailingContent>
     </ListItem>
-    <ListItem onPress={() => console.log('pressed')} divider>
+    <ListItem onPress={() => console.log('pressed')}>
       <ListItemLeadingContent>
         <ListItemIcon as={PaymentMediumIcon} />
       </ListItemLeadingContent>
@@ -199,7 +196,7 @@ If you need to use the List component in a more advanced way, you can use the pa
         <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
       </ListItemTrailingContent>
     </ListItem>
-    <ListItem onPress={() => console.log('pressed')} divider>
+    <ListItem onPress={() => console.log('pressed')}>
       <ListItemLeadingContent>
         <ListItemIcon as={HomeMediumIcon} />
       </ListItemLeadingContent>
@@ -250,9 +247,9 @@ import {
 const MyComponent = () => (
   <List>
     <ListHeading text="Your account" supportingText="Tap the links below to view your account" />
-    <ListItem onPress={() => console.log('pressed')} divider>
+    <ListItem onPress={() => console.log('pressed')}>
       <ListItemLeadingContent>
-        <ListItemIcon as={BillMediumIcon} color="$pink300" />
+        <ListItemIcon as={BillMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
         <ListItemText>Bills</ListItemText>
@@ -262,9 +259,9 @@ const MyComponent = () => (
         <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
       </ListItemTrailingContent>
     </ListItem>
-    <ListItem onPress={() => console.log('pressed')} divider>
+    <ListItem onPress={() => console.log('pressed')}>
       <ListItemLeadingContent>
-        <ListItemIcon as={PaymentMediumIcon} color="$pink300" />
+        <ListItemIcon as={PaymentMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
         <ListItemText>Payments</ListItemText>
@@ -274,9 +271,9 @@ const MyComponent = () => (
         <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
       </ListItemTrailingContent>
     </ListItem>
-    <ListItem onPress={() => console.log('pressed')} divider>
+    <ListItem onPress={() => console.log('pressed')}>
       <ListItemLeadingContent>
-        <ListItemIcon as={HomeMediumIcon} color="$pink300" />
+        <ListItemIcon as={HomeMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
         <ListItemText>Moving home</ListItemText>
@@ -288,7 +285,7 @@ const MyComponent = () => (
     </ListItem>
     <ListItem onPress={() => console.log('pressed')}>
       <ListItemLeadingContent>
-        <ListItemIcon as={UserMediumIcon} color="$pink300" />
+        <ListItemIcon as={UserMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
         <ListItemText>Refer a friend</ListItemText>
@@ -306,7 +303,7 @@ const MyComponent = () => (
 
 The `List` component has different ways to display the list.
 
-<Canvas of={Stories.Variants} />
+<Canvas of={Stories.KitchenSink} />
 
 ## Examples
 

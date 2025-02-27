@@ -73,7 +73,7 @@ export const Playground: Story = {
   },
 };
 
-export const Variants: Story = {
+export const KitchenSink: Story = {
   parameters: {
     controls: { include: [] },
   },
@@ -84,7 +84,7 @@ export const Variants: Story = {
       { text: 'List Item 3', supportingText: 'Supporting Text 3' },
     ];
     return (
-      <Flex space="sm" style={{ width: '100%' }}>
+      <Flex space="sm" direction="column" style={{ width: '100%' }}>
         <VariantTitle title="List with title and supporting text">
           <List headingText="List Heading" headingSupportingText="Supporting Text">
             {list.map((item, index) => (
@@ -127,8 +127,8 @@ export const Variants: Story = {
             ))}
           </List>
         </VariantTitle>
-        <VariantTitle title="List with divider">
-          <List divider>
+        <VariantTitle title="List without divider">
+          <List divider={false}>
             {list.map((item, index) => (
               <ListItem
                 key={index}
@@ -153,6 +153,19 @@ export const Variants: Story = {
         </VariantTitle>
         <VariantTitle title="List with loading items">
           <List loading>
+            {list.map((item, index) => (
+              <ListItem
+                key={index}
+                text={item.text}
+                supportingText={item.supportingText}
+                leadingContent={<ListItemIcon as={SettingsMediumIcon} />}
+                onPress={() => console.log('List Item Pressed')}
+              />
+            ))}
+          </List>
+        </VariantTitle>
+        <VariantTitle title="List with heading link">
+          <List headingText="Heading" headingLinkText="View all" headingLinkHref="http://uw.co.uk">
             {list.map((item, index) => (
               <ListItem
                 key={index}
