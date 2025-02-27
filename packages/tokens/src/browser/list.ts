@@ -1,16 +1,22 @@
 export const list = {
-  backgroundColorActive: 'var(--list-background-color-active)',
-  backgroundColorHover: 'var(--list-background-color-hover)',
-  borderEmphasisColor: 'var(--list-border-emphasis-color)',
-  borderSubtleColor: 'var(--list-border-subtle-color)',
-  borderWidth: 'var(--list-border-width)',
-  contentGap: 'var(--list-content-gap)',
   gap: 'var(--list-gap)',
   heading: {
-    gapHorizontal: 'var(--list-heading-gap-horizontal)',
-    gapVertical: 'var(--list-heading-gap-vertical)',
+    gap: 'var(--list-heading-gap)',
+    textContentGap: 'var(--list-heading-text-content-gap)',
   },
-  iconColor: 'var(--list-icon-color)',
-  paddingHorizontal: 'var(--list-padding-horizontal)',
-  paddingVertical: 'var(--list-padding-vertical)',
+  item: {
+    backgroundColorActive: 'var(--list-item-background-color-active)',
+    backgroundColorHover: 'var(--list-item-background-color-hover)',
+    borderWidth: 'var(--list-item-border-width)',
+    contentGap: 'var(--list-item-content-gap)',
+    emphasis: {
+      borderColor: 'var(--list-item-emphasis-border-color)',
+    },
+    gap: 'var(--list-item-gap)',
+    paddingHorizontal: 'var(--list-item-padding-horizontal)',
+    paddingVertical: 'var(--list-item-padding-vertical)',
+    subtle: {
+      borderColor: 'var(--list-item-subtle-border-color)',
+    },
+  },
 } as const;

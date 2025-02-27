@@ -1,0 +1,400 @@
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
+import * as Stories from './List.stories';
+import { ViewFigmaButton, BackToTopButton, UsageWrap, BadgeList } from '../../../docs/components';
+import {
+  List,
+  ListHeading,
+  ListItem,
+  ListItemIcon,
+  ListItemLeadingContent,
+  ListItemSupportingText,
+  ListItemText,
+  ListItemTrailingContent,
+  ListItemTrailingIcon,
+  ListItemContent,
+  Box,
+  Badge,
+  BadgeText,
+  // HStack,
+  // Checkbox,
+  // CheckboxGroup,
+  // CheckboxIndicator,
+  FlatList,
+  // Card,
+  Image,
+} from '../../';
+import {
+  BillMediumIcon,
+  ChevronRight01MediumIcon,
+  PaymentMediumIcon,
+  HomeMediumIcon,
+  UserMediumIcon,
+  ElectricityMediumIcon,
+  GasMediumIcon,
+} from '../../../docs/components/icons';
+
+<Meta title="Components / List" />
+
+<ViewFigmaButton url="https://www.figma.com/design/3RY3OvLA88yZksRjOfjQJm/UW-App-UI?node-id=2692-3920&m=dev" />
+
+<BackToTopButton />
+
+# List
+
+The List component serves as the primary wrapper for List Items and List Heading components.
+
+List item is the main building block of list. Each item has its own set of properties that you can customise and adapt to suit your needs.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+  - [`List`](#list-1)
+  - [`ListHeading`](#listheading)
+  - [`ListItem`](#listitem)
+- [Advanced Usage](#advanced-usage)
+- [Variants](#variants)
+- [Examples](#examples)
+  - [List Item with Card](#list-item-with-card)
+  - [List Item with Badge](#list-item-with-badge)
+  - [Checbox List](#checbox-list)
+  - [Radio List](#radio-list)
+  - [Switch List](#switch-list)
+  - [List with FlatList](#list-with-flatlist)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <List headingText="Heading" headingSupportingText="Supporting text" divider>
+    <ListItem text="List Item 1" onPress={() => console.log('item pressed')} />
+    <ListItem text="List Item 2" onPress={() => console.log('item pressed')} />
+    <ListItem text="List Item 3" onPress={() => console.log('item pressed')} />
+  </List>
+</UsageWrap>
+
+```tsx
+import { List, ListItem } from '@utilitywarehouse/native-ui';
+
+const MyComponent = () => (
+  <List headingText="Heading" headingSupportingText="Supporting text" divider>
+    <ListItem text="List Item 1" onPress={() => console.log('item pressed')} />
+    <ListItem text="List Item 2" onPress={() => console.log('item pressed')} />
+    <ListItem text="List Item 3" onPress={() => console.log('item pressed')} />
+  </List>
+);
+```
+
+## Props
+
+### `List`
+
+| Name                    | Type                                                                                                    | Default   | Description                                                |
+| ----------------------- | ------------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------- |
+| container               | `'none' \| 'subtle white' \| 'emphasis white' \|` <br /> `'subtle warm white' \| 'emphasis warm white'` |           | The container style of the list.                           |
+| headingText             | `string`                                                                                                |           | The text to display in the heading of the list.            |
+| headingSupportingText   | `string`                                                                                                |           | The supporting text to display in the heading of the list. |
+| headingLinkText         | `string`                                                                                                |           | The text for the link in the heading.                      |
+| headingLinkHref         | `string`                                                                                                |           | The href for the link in the heading.                      |
+| headingLinkOnPress      | `() => void`                                                                                            |           | Callback function when the heading link is pressed.        |
+| headingLinkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'`                                                            |           | Target for the link in the heading.                        |
+| headingLinkDisabled     | `boolean`                                                                                               | `false`   | Whether the heading link is disabled.                      |
+| headingLinkIcon         | `ComponentType`                                                                                         |           | Icon for the heading link.                                 |
+| headingLinkIconPosition | `'left' \| 'right'`                                                                                     | `'right'` | Position of the icon in the heading link.                  |
+| headingLinkShowIcon     | `boolean`                                                                                               | `true`    | Whether to show the icon in the heading link.              |
+| divider                 | `boolean`                                                                                               | `false`   | Whether to display a divider below the list items.         |
+| loading                 | `boolean`                                                                                               | `false`   | Whether to show the list items in loading state.           |
+| disabled                | `boolean`                                                                                               | `false`   | Whether to disable the list.                               |
+
+### `ListHeading`
+
+| Name             | Type                                         | Default    | Description                                                |
+| ---------------- | -------------------------------------------- | ---------- | ---------------------------------------------------------- |
+| text             | `string`                                     |            | The text to display in the heading of the list.            |
+| supportingText   | `string`                                     |            | The supporting text to display in the heading of the list. |
+| linkText         | `string`                                     |            | The text for the link in the heading.                      |
+| linkHref         | `string`                                     |            | The href for the link in the heading.                      |
+| linkOnPress      | `() => void`                                 |            | Callback function when the link is pressed.                |
+| linkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'` | `'_blank'` | Target for the link in the heading.                        |
+| linkDisabled     | `boolean`                                    | `false`    | Whether the link is disabled.                              |
+| linkIcon         | `ComponentType`                              |            | Icon for the link.                                         |
+| linkIconPosition | `'left' \| 'right'`                          | `'right'`  | Position of the icon in the link.                          |
+| linkShowIcon     | `boolean`                                    | `true`     | Whether to show the icon in the link.                      |
+
+#### - `ListHeadingText`
+
+#### - `ListHeadingSupportingText`
+
+### `ListItem`
+
+| Name            | Type                     | Default | Description                                                     |
+| --------------- | ------------------------ | ------- | --------------------------------------------------------------- |
+| text            | `string`                 |         | The text to display in the list item.                           |
+| onPress         | `() => void`             |         | A callback function to be called when the list item is pressed. |
+| supportingText  | `string`                 |         | The supporting text to display in the list item.                |
+| leadingContent  | `ReactNode`              |         | The leading content to display in the list item.                |
+| trailingContent | `ReactNode`              |         | The trailing content to display in the list item.               |
+| variant         | `'subtle' \| 'emphasis'` |         | The variant style of the list item.                             |
+| disabled        | `boolean`                | `false` | Whether to disable the list item.                               |
+| loading         | `boolean`                | `false` | Whether to show the list item in loading state.                 |
+| divider         | `boolean`                | `false` | Whether to display a divider below the list item.               |
+
+#### - `ListItemLeadingContent`
+
+#### - `ListItemIcon`
+
+| Name | Type            | Default | Description                                     |
+| ---- | --------------- | ------- | ----------------------------------------------- |
+| as   | `ComponentType` |         | The icon component to display in the list item. |
+
+#### - `ListItemContent`
+
+#### - `ListItemText`
+
+#### - `ListItemSupportingText`
+
+#### - `ListItemTrailingContent`
+
+#### - `ListItemTrailingIcon`
+
+| Name | Type            | Default | Description                                     |
+| ---- | --------------- | ------- | ----------------------------------------------- |
+| as   | `ComponentType` |         | The icon component to display in the list item. |
+
+## Advanced Usage
+
+If you need to use the List component in a more advanced way, you can use the parts of the component directly.
+
+<UsageWrap>
+  <List>
+    <ListHeading text="Your account" supportingText="Tap the links below to view your account" />
+    <ListItem onPress={() => console.log('pressed')}>
+      <ListItemLeadingContent>
+        <ListItemIcon as={BillMediumIcon} />
+      </ListItemLeadingContent>
+      <ListItemContent>
+        <ListItemText>Bills</ListItemText>
+        <ListItemSupportingText>View your bills</ListItemSupportingText>
+      </ListItemContent>
+      <ListItemTrailingContent>
+        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+      </ListItemTrailingContent>
+    </ListItem>
+    <ListItem onPress={() => console.log('pressed')}>
+      <ListItemLeadingContent>
+        <ListItemIcon as={PaymentMediumIcon} />
+      </ListItemLeadingContent>
+      <ListItemContent>
+        <ListItemText>Payments</ListItemText>
+        <ListItemSupportingText>Make a payment</ListItemSupportingText>
+      </ListItemContent>
+      <ListItemTrailingContent>
+        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+      </ListItemTrailingContent>
+    </ListItem>
+    <ListItem onPress={() => console.log('pressed')}>
+      <ListItemLeadingContent>
+        <ListItemIcon as={HomeMediumIcon} />
+      </ListItemLeadingContent>
+      <ListItemContent>
+        <ListItemText>Moving home</ListItemText>
+        <ListItemSupportingText>Tell us if your moving</ListItemSupportingText>
+      </ListItemContent>
+      <ListItemTrailingContent>
+        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+      </ListItemTrailingContent>
+    </ListItem>
+    <ListItem onPress={() => console.log('pressed')}>
+      <ListItemLeadingContent>
+        <ListItemIcon as={UserMediumIcon} />
+      </ListItemLeadingContent>
+      <ListItemContent>
+        <ListItemText>Refer a friend</ListItemText>
+        <ListItemSupportingText>Get rewarded with a friend</ListItemSupportingText>
+      </ListItemContent>
+      <ListItemTrailingContent>
+        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+      </ListItemTrailingContent>
+    </ListItem>
+  </List>
+</UsageWrap>
+
+```tsx
+import {
+  List,
+  ListHeading,
+  ListItem,
+  ListItemIcon,
+  ListItemLeadingContent,
+  ListItemSupportingText,
+  ListItemText,
+  ListItemTrailingContent,
+  ListItemTrailingIcon,
+  ListItemContent,
+} from '@utilitywarehouse/native-ui';
+import {
+  BillMediumIcon,
+  ChevronRight01MediumIcon,
+  PaymentMediumIcon,
+  HomeMediumIcon,
+  UserMediumIcon,
+} from '@utilitywarehouse/react-native-icons';
+
+const MyComponent = () => (
+  <List>
+    <ListHeading text="Your account" supportingText="Tap the links below to view your account" />
+    <ListItem onPress={() => console.log('pressed')}>
+      <ListItemLeadingContent>
+        <ListItemIcon as={BillMediumIcon} />
+      </ListItemLeadingContent>
+      <ListItemContent>
+        <ListItemText>Bills</ListItemText>
+        <ListItemSupportingText>View your bills</ListItemSupportingText>
+      </ListItemContent>
+      <ListItemTrailingContent>
+        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+      </ListItemTrailingContent>
+    </ListItem>
+    <ListItem onPress={() => console.log('pressed')}>
+      <ListItemLeadingContent>
+        <ListItemIcon as={PaymentMediumIcon} />
+      </ListItemLeadingContent>
+      <ListItemContent>
+        <ListItemText>Payments</ListItemText>
+        <ListItemSupportingText>Make a payment</ListItemSupportingText>
+      </ListItemContent>
+      <ListItemTrailingContent>
+        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+      </ListItemTrailingContent>
+    </ListItem>
+    <ListItem onPress={() => console.log('pressed')}>
+      <ListItemLeadingContent>
+        <ListItemIcon as={HomeMediumIcon} />
+      </ListItemLeadingContent>
+      <ListItemContent>
+        <ListItemText>Moving home</ListItemText>
+        <ListItemSupportingText>Tell us if your moving</ListItemSupportingText>
+      </ListItemContent>
+      <ListItemTrailingContent>
+        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+      </ListItemTrailingContent>
+    </ListItem>
+    <ListItem onPress={() => console.log('pressed')}>
+      <ListItemLeadingContent>
+        <ListItemIcon as={UserMediumIcon} />
+      </ListItemLeadingContent>
+      <ListItemContent>
+        <ListItemText>Refer a friend</ListItemText>
+        <ListItemSupportingText>Get rewarded with a friend</ListItemSupportingText>
+      </ListItemContent>
+      <ListItemTrailingContent>
+        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+      </ListItemTrailingContent>
+    </ListItem>
+  </List>
+);
+```
+
+## Variants
+
+The `List` component has different ways to display the list.
+
+<Canvas of={Stories.KitchenSink} />
+
+## Examples
+
+### List Item with Badge
+
+You can use the `Badge` component to display additional information in the list item. You can achieve this by using the List Item's
+parts like `ListItemLeadingContent`, `ListItemContent`, and `ListItemTrailingContent` components.
+
+<UsageWrap>
+  <BadgeList />
+</UsageWrap>
+
+```tsx
+import {
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemLeadingContent,
+  ListItemSupportingText,
+  ListItemText,
+  ListItemTrailingContent,
+  ListItemTrailingIcon,
+  ListItemContent,
+  Badge,
+  BadgeText,
+  HStack,
+  useColorMode,
+} from '@utilitywarehouse/native-ui';
+
+import {
+  ChevronRight01MediumIcon,
+  ElectricityMediumIcon,
+  GasMediumIcon,
+} from '@utilitywarehouse/react-native-icons';
+import { Box } from '@utilitywarehouse/native-ui/lab';
+
+const BadgeList = () => {
+  const colorMode = useColorMode();
+  return (
+    <List>
+      <ListItem onPress={() => console.log('pressed')} divider>
+        <ListItemLeadingContent>
+          <Box
+            padding="$3"
+            borderRadius="$lg"
+            bg={colorMode === 'light' ? '$apple50' : '$apple800'}
+          >
+            <ListItemIcon
+              as={ElectricityMediumIcon}
+              color={colorMode === 'light' ? '$apple800' : '$apple200'}
+            />
+          </Box>
+        </ListItemLeadingContent>
+        <ListItemContent>
+          <ListItemText>Electricity</ListItemText>
+          <Badge colorScheme="cyan" size="small">
+            <BadgeText>Text</BadgeText>
+          </Badge>
+          <ListItemSupportingText>Last reading 23/03/24</ListItemSupportingText>
+        </ListItemContent>
+        <ListItemTrailingContent>
+          <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+        </ListItemTrailingContent>
+      </ListItem>
+      <ListItem onPress={() => console.log('pressed')} divider={false}>
+        <ListItemLeadingContent>
+          <Box
+            padding="$3"
+            borderRadius="$lg"
+            bg={colorMode === 'light' ? '$apple50' : '$apple800'}
+          >
+            <ListItemIcon
+              as={GasMediumIcon}
+              color={colorMode === 'light' ? '$apple800' : '$apple200'}
+            />
+          </Box>
+        </ListItemLeadingContent>
+        <ListItemContent>
+          <HStack style={{ justifyContent: 'space-between' }}>
+            <ListItemText>Electricity</ListItemText>
+            <Badge colorScheme="green" size="small">
+              <BadgeText>Smart meter</BadgeText>
+            </Badge>
+          </HStack>
+          <ListItemSupportingText>Last reading 23/03/24</ListItemSupportingText>
+        </ListItemContent>
+        <ListItemTrailingContent>
+          <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+        </ListItemTrailingContent>
+      </ListItem>
+    </List>
+  );
+};
+```

@@ -10,7 +10,7 @@ const VariantTitle: FC<
     invert?: boolean;
   }>
 > = ({ title, upperCase = true, invert = false, children }) => (
-  <Box gap="100">
+  <Box gap="100" w="full">
     <DetailText
       textTransform={upperCase ? 'uppercase' : 'none'}
       size="sm"

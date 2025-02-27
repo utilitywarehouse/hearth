@@ -3,6 +3,7 @@ import { InlineLink } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { BodyText } from '../BodyText';
 import { Flex } from '../Flex';
+import { List } from '../List';
 
 const meta = {
   title: 'Stories / InlineLink',
@@ -56,6 +57,7 @@ export const Variants: Story = {
   render: ({ children }) => {
     return (
       <Flex direction="column" space="sm">
+        <List></List>
         <BodyText>
           This is the body text style, and it contains an{' '}
           <InlineLink href="https://www.uw.co.uk" target="_blank">

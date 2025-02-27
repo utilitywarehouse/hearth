@@ -2,19 +2,25 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly backgroundColorActive: '#f1efe4';
-  readonly backgroundColorHover: '#d4d2c0';
-  readonly borderEmphasisColor: '#f6f5f5';
-  readonly borderSubtleColor: '#d4d2c0';
-  readonly borderWidth: 1;
-  readonly contentGap: 2;
   readonly gap: 12;
   readonly heading: {
-    readonly gapHorizontal: 12;
-    readonly gapVertical: 2;
+    readonly gap: 12;
+    readonly textContentGap: 2;
   };
-  readonly iconColor: '#f6f5f5';
-  readonly paddingHorizontal: 12;
-  readonly paddingVertical: 16;
+  readonly item: {
+    readonly backgroundColorActive: '#f1efe4';
+    readonly backgroundColorHover: '#d4d2c0';
+    readonly borderWidth: 1;
+    readonly contentGap: 2;
+    readonly emphasis: {
+      readonly borderColor: '#f6f5f5';
+    };
+    readonly gap: 12;
+    readonly paddingHorizontal: 12;
+    readonly paddingVertical: 16;
+    readonly subtle: {
+      readonly borderColor: '#d4d2c0';
+    };
+  };
 };
 export default _default;

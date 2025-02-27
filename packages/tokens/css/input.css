@@ -11,10 +11,10 @@
   --input-border-radius: var(--border-radius-md);
   --input-border-width: var(--border-width-1);
   --input-border-width-focused: var(--border-width-2);
-  --input-foreground-color-textarea: var(--color-grey-500);
+  --input-color-placeholder: var(--color-grey-500);
   --input-gap: var(--space-75);
   --input-gap-currency: var(--space-25);
   --input-padding-horizontal: var(--space-200);
   --input-padding-vertical: var(--space-150);
-  --input-placeholder-color: var(--color-grey-500);
+  --input-text-area-resize-icon-color: var(--color-grey-500);
 }
