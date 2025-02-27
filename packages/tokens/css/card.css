@@ -3,6 +3,7 @@
  */
 
 :root {
+  --card-border-radius: var(--border-radius-xl);
   --card-broadband-blue-background-color: var(--color-broadband-blue);
   --card-cashback-lilac-background-color: var(--color-cashback-lilac);
   --card-emphasis-border-color: var(--color-grey-1000);

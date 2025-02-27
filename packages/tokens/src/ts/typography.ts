@@ -201,7 +201,7 @@ export const desktop = {
       paragraphSpacing: 18,
     },
     md: {
-      fontSize: 128,
+      fontSize: 16,
       letterSpacing: 0,
       lineHeight: 24,
       paragraphSpacing: 16,

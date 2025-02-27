@@ -56,6 +56,12 @@ export const color = {
     900: 'var(--color-orange-900)',
     1000: 'var(--color-orange-1000)',
   },
+  purple: {
+    700: 'var(--color-purple-700)',
+    800: 'var(--color-purple-800)',
+    900: 'var(--color-purple-900)',
+    1000: 'var(--color-purple-1000)',
+  },
   red: {
     50: 'var(--color-red-50)',
     100: 'var(--color-red-100)',

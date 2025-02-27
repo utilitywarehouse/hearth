@@ -3,6 +3,7 @@
  */
 
 export default {
+  borderRadius: 16,
   broadbandBlueBackgroundColor: '#84b9c3',
   cashbackLilacBackgroundColor: '#be7aeb',
   emphasis: {
@@ -19,4 +20,58 @@ export default {
   },
   warmWhiteBackgroundColor: '#fcfbf2',
   whiteBackgroundColor: '#ffffff',
+  mobile: {
+    lg: {
+      paddingHorizontal: 16,
+      paddingVertical: 16,
+    },
+    md: {
+      paddingHorizontal: 12,
+      paddingVertical: 12,
+    },
+    none: {
+      paddingHorizontal: 0,
+      paddingVertical: 0,
+    },
+    sm: {
+      paddingHorizontal: 8,
+      paddingVertical: 8,
+    },
+  },
+  tablet: {
+    lg: {
+      paddingHorizontal: 24,
+      paddingVertical: 24,
+    },
+    md: {
+      paddingHorizontal: 16,
+      paddingVertical: 16,
+    },
+    none: {
+      paddingHorizontal: 0,
+      paddingVertical: 0,
+    },
+    sm: {
+      paddingHorizontal: 12,
+      paddingVertical: 12,
+    },
+  },
+  desktop: {
+    lg: {
+      paddingHorizontal: 24,
+      paddingVertical: 24,
+    },
+    md: {
+      paddingHorizontal: 16,
+      paddingVertical: 16,
+    },
+    none: {
+      paddingHorizontal: 0,
+      paddingVertical: 0,
+    },
+    sm: {
+      paddingHorizontal: 12,
+      paddingVertical: 12,
+    },
+  },
 } as const;

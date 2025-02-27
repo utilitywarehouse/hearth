@@ -1,4 +1,5 @@
 export const card = {
+  borderRadius: 'var(--card-border-radius)',
   broadbandBlueBackgroundColor: 'var(--card-broadband-blue-background-color)',
   cashbackLilacBackgroundColor: 'var(--card-cashback-lilac-background-color)',
   emphasis: {

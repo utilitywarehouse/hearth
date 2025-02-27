@@ -52,6 +52,10 @@
   --color-orange-800: #ad4b00;
   --color-orange-900: #893900;
   --color-orange-1000: #4a1f00;
+  --color-purple-700: var(--color-uw-purple);
+  --color-purple-800: #572e9e;
+  --color-purple-900: #4b2475;
+  --color-purple-1000: var(--color-dark-purple);
   --color-red-50: #fff3f1;
   --color-red-100: #ffe3df;
   --color-red-200: #ffccc5;

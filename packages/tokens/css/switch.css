@@ -1,0 +1,15 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --switch-checked-background-color: var(--color-purple-700);
+  --switch-checked-background-color-active: var(--color-purple-900);
+  --switch-checked-background-color-hover: var(--color-purple-800);
+  --switch-circle-background-color: var(--color-white);
+  --switch-padding: var(--space-25);
+  --switch-radius: var(--border-radius-full);
+  --switch-unchecked-background-color: var(--color-grey-400);
+  --switch-unchecked-background-color-active: var(--color-grey-600);
+  --switch-unchecked-background-color-hover: var(--color-grey-500);
+}
