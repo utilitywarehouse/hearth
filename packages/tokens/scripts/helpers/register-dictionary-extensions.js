@@ -23,6 +23,7 @@ function buildDeviceOutput(dictionary, options) {
 }
 
 const primitiveJson = loadJSON('./raw/hearth-components--tokens---primitive.json');
+const deviceJson = loadJSON('./raw/hearth-components--tokens---device.json');
 
 // Register transforms, formats, and groups
 export function registerDictionaryExtensions(StyleDictionary) {
@@ -92,6 +93,13 @@ export function registerDictionaryExtensions(StyleDictionary) {
     name: 'js/component-output',
     format: ({ dictionary }) => {
       const output = {};
+
+      // Extract the component name from the first token's path
+      const componentName =
+        dictionary.allTokens.length > 0 ? dictionary.allTokens[0].path[1] : null;
+
+      console.log('Generating component:', componentName);
+
       dictionary.allTokens.forEach(token => {
         const subKeys = token.path.slice(2);
         let current = output;
@@ -104,6 +112,38 @@ export function registerDictionaryExtensions(StyleDictionary) {
           }
         });
       });
+
+      // Add device-specific tokens if they exist for this component
+      if (componentName && deviceJson) {
+        ['mobile', 'tablet', 'desktop'].forEach(deviceSize => {
+          const deviceComponents = deviceJson[deviceSize]?.components;
+          if (deviceComponents && deviceComponents[componentName]) {
+            // Initialize device section in output
+            output[deviceSize] = {};
+
+            // Process the device component structure recursively
+            const processDeviceTokens = (obj, current) => {
+              for (const [key, value] of Object.entries(obj)) {
+                const camelKey = camelCase(key);
+                if (value && typeof value === 'object' && !value.type) {
+                  // It's a nested object, recurse
+                  current[camelKey] = current[camelKey] || {};
+                  processDeviceTokens(value, current[camelKey]);
+                } else if (value && typeof value === 'object' && value.value !== undefined) {
+                  // It's a token object with a value
+                  current[camelKey] = value.value;
+                } else {
+                  // Direct value or other case
+                  current[camelKey] = value;
+                }
+              }
+            };
+
+            processDeviceTokens(deviceComponents[componentName], output[deviceSize]);
+          }
+        });
+      }
+
       return `/**
  * Do not edit directly, this file was auto-generated.
  */

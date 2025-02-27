@@ -1,4 +1,5 @@
 export declare const card: {
+  readonly borderRadius: 'var(--card-border-radius)';
   readonly broadbandBlueBackgroundColor: 'var(--card-broadband-blue-background-color)';
   readonly cashbackLilacBackgroundColor: 'var(--card-cashback-lilac-background-color)';
   readonly emphasis: {

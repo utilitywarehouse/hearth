@@ -30,7 +30,7 @@ StyleDictionary.registerFormat({
   format: ({ dictionary, file }) => {
     const tokens = {};
     // get the group name of the current set of tokens
-    const tokensName = file.destination.split('.')[0];
+    let tokensName = file.destination.split('.')[0];
     // we assume that these tokens are filtered before they get here
     dictionary.allTokens.forEach(token => {
       // console.log({ token });
@@ -62,6 +62,10 @@ StyleDictionary.registerFormat({
     });
     // console.log({ tokens });
     // write the tokens to file
+
+    if (tokensName === 'switch') {
+      tokensName = 'switchComponent'; // @robphoenix the switch token is a reserved word in JS
+    }
     return `export const ${camelCase(tokensName)} = ${JSON.stringify(tokens, null, 2)} as const;\n`;
   },
 });

@@ -65,6 +65,12 @@ export declare const light: {
     readonly '900': '#893900';
     readonly '1000': '#4a1f00';
   };
+  readonly purple: {
+    readonly '700': '#7a42c8';
+    readonly '800': '#572e9e';
+    readonly '900': '#4b2475';
+    readonly '1000': '#26164f';
+  };
   readonly red: {
     readonly '50': '#fff3f1';
     readonly '100': '#ffe3df';
@@ -150,6 +156,12 @@ export declare const dark: {
     readonly '800': '#ffcca8';
     readonly '900': '#ffe6d4';
     readonly '1000': '#fff5ed';
+  };
+  readonly purple: {
+    readonly '50': '#26164f';
+    readonly '100': '#4b2475';
+    readonly '200': '#572e9e';
+    readonly '300': '#7a42c8';
   };
   readonly red: {
     readonly '50': '#3b1512';
@@ -249,6 +261,12 @@ declare const color: {
       readonly '900': '#893900';
       readonly '1000': '#4a1f00';
     };
+    readonly purple: {
+      readonly '700': '#7a42c8';
+      readonly '800': '#572e9e';
+      readonly '900': '#4b2475';
+      readonly '1000': '#26164f';
+    };
     readonly red: {
       readonly '50': '#fff3f1';
       readonly '100': '#ffe3df';
@@ -334,6 +352,12 @@ declare const color: {
       readonly '800': '#ffcca8';
       readonly '900': '#ffe6d4';
       readonly '1000': '#fff5ed';
+    };
+    readonly purple: {
+      readonly '50': '#26164f';
+      readonly '100': '#4b2475';
+      readonly '200': '#572e9e';
+      readonly '300': '#7a42c8';
     };
     readonly red: {
       readonly '50': '#3b1512';

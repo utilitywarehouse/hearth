@@ -56,6 +56,12 @@ export declare const color: {
     readonly '900': 'var(--color-orange-900)';
     readonly '1000': 'var(--color-orange-1000)';
   };
+  readonly purple: {
+    readonly '700': 'var(--color-purple-700)';
+    readonly '800': 'var(--color-purple-800)';
+    readonly '900': 'var(--color-purple-900)';
+    readonly '1000': 'var(--color-purple-1000)';
+  };
   readonly red: {
     readonly '50': 'var(--color-red-50)';
     readonly '100': 'var(--color-red-100)';

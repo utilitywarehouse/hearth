@@ -15,4 +15,5 @@ export { default as link } from './link';
 export { default as list } from './list';
 export { default as skeleton } from './skeleton';
 export { default as spinner } from './spinner';
+export { default as switch } from './switch';
 export { default as text } from './text';
