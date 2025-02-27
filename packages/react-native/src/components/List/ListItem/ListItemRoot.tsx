@@ -56,7 +56,7 @@ const ListItemRoot = forwardRef<
     styles.useVariants({
       divider: showDivider,
       variant: listItemVariant,
-      showPressed: showPressed,
+      showPressed,
       active,
       disabled: isDisabled || isLoading,
       showDisabled: !listContext?.disabled && disabled,
