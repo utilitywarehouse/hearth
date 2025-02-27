@@ -7,10 +7,12 @@ export const input = {
   borderRadius: 'var(--input-border-radius)',
   borderWidth: 'var(--input-border-width)',
   borderWidthFocused: 'var(--input-border-width-focused)',
-  foregroundColorTextarea: 'var(--input-foreground-color-textarea)',
+  colorPlaceholder: 'var(--input-color-placeholder)',
   gap: 'var(--input-gap)',
   gapCurrency: 'var(--input-gap-currency)',
   paddingHorizontal: 'var(--input-padding-horizontal)',
   paddingVertical: 'var(--input-padding-vertical)',
-  placeholderColor: 'var(--input-placeholder-color)',
+  textArea: {
+    resizeIconColor: 'var(--input-text-area-resize-icon-color)',
+  },
 } as const;

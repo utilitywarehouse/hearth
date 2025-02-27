@@ -10,11 +10,13 @@ declare const _default: {
   readonly borderRadius: 8;
   readonly borderWidth: 1;
   readonly borderWidthFocused: 2;
-  readonly foregroundColorTextarea: '#6f6c6b';
+  readonly colorPlaceholder: '#6f6c6b';
   readonly gap: 6;
   readonly gapCurrency: 2;
   readonly paddingHorizontal: 16;
   readonly paddingVertical: 12;
-  readonly placeholderColor: '#6f6c6b';
+  readonly textArea: {
+    readonly resizeIconColor: '#6f6c6b';
+  };
 };
 export default _default;

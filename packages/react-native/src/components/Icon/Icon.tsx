@@ -6,9 +6,9 @@ import React, { useMemo } from 'react';
 import { Svg } from 'react-native-svg';
 import type IconProps from './Icon.props';
 import type { ColorValue, SvgRef } from '../../types';
-import getStyleValue from '../../utils/getStyleValue';
 import { withUnistyles } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
+import { getFlattenedColorValue } from '../../utils';
 
 const PrimitiveIcon = withUnistyles(
   React.forwardRef<SvgRef, IconProps>(
@@ -23,7 +23,7 @@ const PrimitiveIcon = withUnistyles(
 
       const { color: themeColor, colorMode } = useTheme();
       const colorValue: ColorValue = useMemo(
-        () => getStyleValue(color, themeColor),
+        () => getFlattenedColorValue(color, themeColor),
         [color, colorMode]
       );
 

@@ -10,10 +10,12 @@ export default {
   borderRadius: 8,
   borderWidth: 1,
   borderWidthFocused: 2,
-  foregroundColorTextarea: '#6f6c6b',
+  colorPlaceholder: '#6f6c6b',
   gap: 6,
   gapCurrency: 2,
   paddingHorizontal: 16,
   paddingVertical: 12,
-  placeholderColor: '#6f6c6b',
+  textArea: {
+    resizeIconColor: '#6f6c6b',
+  },
 };

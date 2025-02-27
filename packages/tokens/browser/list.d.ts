@@ -1,16 +1,22 @@
 export declare const list: {
-  readonly backgroundColorActive: 'var(--list-background-color-active)';
-  readonly backgroundColorHover: 'var(--list-background-color-hover)';
-  readonly borderEmphasisColor: 'var(--list-border-emphasis-color)';
-  readonly borderSubtleColor: 'var(--list-border-subtle-color)';
-  readonly borderWidth: 'var(--list-border-width)';
-  readonly contentGap: 'var(--list-content-gap)';
   readonly gap: 'var(--list-gap)';
   readonly heading: {
-    readonly gapHorizontal: 'var(--list-heading-gap-horizontal)';
-    readonly gapVertical: 'var(--list-heading-gap-vertical)';
+    readonly gap: 'var(--list-heading-gap)';
+    readonly textContentGap: 'var(--list-heading-text-content-gap)';
   };
-  readonly iconColor: 'var(--list-icon-color)';
-  readonly paddingHorizontal: 'var(--list-padding-horizontal)';
-  readonly paddingVertical: 'var(--list-padding-vertical)';
+  readonly item: {
+    readonly backgroundColorActive: 'var(--list-item-background-color-active)';
+    readonly backgroundColorHover: 'var(--list-item-background-color-hover)';
+    readonly borderWidth: 'var(--list-item-border-width)';
+    readonly contentGap: 'var(--list-item-content-gap)';
+    readonly emphasis: {
+      readonly borderColor: 'var(--list-item-emphasis-border-color)';
+    };
+    readonly gap: 'var(--list-item-gap)';
+    readonly paddingHorizontal: 'var(--list-item-padding-horizontal)';
+    readonly paddingVertical: 'var(--list-item-padding-vertical)';
+    readonly subtle: {
+      readonly borderColor: 'var(--list-item-subtle-border-color)';
+    };
+  };
 };

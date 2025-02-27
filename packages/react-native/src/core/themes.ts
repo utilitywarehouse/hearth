@@ -31,6 +31,9 @@ const shared = {
   typography,
   layout,
   shadow,
+  opacity: {
+    disabled: 0.5,
+  },
   globalStyle: {
     variants: {
       hardShadow: {

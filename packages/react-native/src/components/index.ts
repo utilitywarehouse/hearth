@@ -12,6 +12,7 @@ export * from './Icon';
 export * from './IconButton';
 export * from './InlineLink';
 export * from './Link';
+export * from './List';
 export * from './Spinner';
 
 export {
