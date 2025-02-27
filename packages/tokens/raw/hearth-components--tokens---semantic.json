@@ -1,0 +1,16 @@
+{
+  "Supporting-text?": {
+    "type": "unknown",
+    "value": true
+  },
+  "Supporting-text??": {
+    "type": "unknown",
+    "value": true
+  },
+  "opacity": {
+    "disabled": {
+      "type": "number",
+      "value": 50
+    }
+  }
+}
