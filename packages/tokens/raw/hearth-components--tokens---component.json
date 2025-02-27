@@ -496,6 +496,11 @@
       }
     },
     "card": {
+      "border-radius": {
+        "alias": "{border-radius.xl}",
+        "type": "number",
+        "value": 16
+      },
       "broadband-blue-background-color": {
         "alias": "{color.broadband-blue}",
         "type": "color",
@@ -938,6 +943,56 @@
         "stroke-width": {
           "type": "number",
           "value": 1.5
+        }
+      }
+    },
+    "switch": {
+      "checked": {
+        "background-color": {
+          "alias": "{color.dark.purple.300}",
+          "type": "unknown"
+        },
+        "background-color-active": {
+          "alias": "{color.dark.purple.100}",
+          "type": "color",
+          "value": "#4b2475"
+        },
+        "background-color-hover": {
+          "alias": "{color.dark.purple.200}",
+          "type": "color",
+          "value": "#572e9e"
+        }
+      },
+      "circle-background-color": {
+        "alias": "{color.white}",
+        "type": "color",
+        "value": "#ffffff"
+      },
+      "padding": {
+        "alias": "{space.25}",
+        "type": "number",
+        "value": 2
+      },
+      "radius": {
+        "alias": "{border-radius.full}",
+        "type": "number",
+        "value": 9999
+      },
+      "unchecked": {
+        "background-color": {
+          "alias": "{color.dark.grey.600}",
+          "type": "color",
+          "value": "#8a8686"
+        },
+        "background-color-active": {
+          "alias": "{color.dark.grey.400}",
+          "type": "color",
+          "value": "#5f5c5b"
+        },
+        "background-color-hover": {
+          "alias": "{color.dark.grey.500}",
+          "type": "color",
+          "value": "#6f6c6b"
         }
       }
     },
@@ -1471,6 +1526,11 @@
       }
     },
     "card": {
+      "border-radius": {
+        "alias": "{border-radius.xl}",
+        "type": "number",
+        "value": 16
+      },
       "broadband-blue-background-color": {
         "alias": "{color.broadband-blue}",
         "type": "color",
@@ -1913,6 +1973,57 @@
         "stroke-width": {
           "type": "number",
           "value": 1.5
+        }
+      }
+    },
+    "switch": {
+      "checked": {
+        "background-color": {
+          "alias": "{color.light.purple.700}",
+          "type": "color",
+          "value": "#7a42c8"
+        },
+        "background-color-active": {
+          "alias": "{color.light.purple.900}",
+          "type": "color",
+          "value": "#4b2475"
+        },
+        "background-color-hover": {
+          "alias": "{color.light.purple.800}",
+          "type": "color",
+          "value": "#572e9e"
+        }
+      },
+      "circle-background-color": {
+        "alias": "{color.white}",
+        "type": "color",
+        "value": "#ffffff"
+      },
+      "padding": {
+        "alias": "{space.25}",
+        "type": "number",
+        "value": 2
+      },
+      "radius": {
+        "alias": "{border-radius.full}",
+        "type": "number",
+        "value": 9999
+      },
+      "unchecked": {
+        "background-color": {
+          "alias": "{color.light.grey.400}",
+          "type": "color",
+          "value": "#8a8686"
+        },
+        "background-color-active": {
+          "alias": "{color.light.grey.600}",
+          "type": "color",
+          "value": "#5f5c5b"
+        },
+        "background-color-hover": {
+          "alias": "{color.light.grey.500}",
+          "type": "color",
+          "value": "#6f6c6b"
         }
       }
     },
