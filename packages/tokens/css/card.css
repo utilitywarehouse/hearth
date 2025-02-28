@@ -3,7 +3,9 @@
  */
 
 :root {
+  --card-border-color-selected: var(--color-grey-1000);
   --card-border-radius: var(--border-radius-xl);
+  --card-border-width-selected: var(--border-width-2);
   --card-broadband-blue-background-color: var(--color-broadband-blue);
   --card-cashback-lilac-background-color: var(--color-cashback-lilac);
   --card-emphasis-border-color: var(--color-grey-1000);
@@ -15,5 +17,9 @@
   --card-subtle-border-color: var(--color-warm-white-300);
   --card-subtle-border-width: var(--border-width-1);
   --card-warm-white-background-color: var(--color-warm-white-50);
+  --card-warm-white-background-color-active: var(--color-warm-white-200);
+  --card-warm-white-background-color-hover: var(--color-warm-white-100);
   --card-white-background-color: var(--color-white);
+  --card-white-background-color-active: var(--color-warm-white-100);
+  --card-white-background-color-hover: var(--color-warm-white-50);
 }

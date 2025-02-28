@@ -2,7 +2,9 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
+  borderColorSelected: '#101010',
   borderRadius: 16,
+  borderWidthSelected: 2,
   broadbandBlueBackgroundColor: '#84b9c3',
   cashbackLilacBackgroundColor: '#be7aeb',
   emphasis: {
@@ -17,8 +19,16 @@ export default {
     borderColor: '#d4d2c0',
     borderWidth: 1,
   },
-  warmWhiteBackgroundColor: '#fcfbf2',
-  whiteBackgroundColor: '#ffffff',
+  warmWhite: {
+    backgroundColor: '#fcfbf2',
+    backgroundColorActive: '#f1efe4',
+    backgroundColorHover: '#f7f6eb',
+  },
+  white: {
+    backgroundColor: '#ffffff',
+    backgroundColorActive: '#f7f6eb',
+    backgroundColorHover: '#fcfbf2',
+  },
   mobile: {
     lg: {
       paddingHorizontal: 16,

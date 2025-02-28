@@ -14,36 +14,40 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['dashed', 'outline', 'elevated', 'filled'],
+      options: ['subtle', 'emphasis'],
       description: 'Use this value to set the Card variant.',
     },
     padding: {
       control: 'select',
-      options: ['large', 'medium', 'small', 'none'],
+      options: ['lg', 'md', 'sm', 'none'],
       description: 'Use this value to set the Card padding.',
     },
     colorScheme: {
       control: 'select',
-      options: ['base', 'grey', 'purple'],
+      options: [
+        'white',
+        'warmWhite',
+        'purple',
+        'energyGreen',
+        'broadbandBlue',
+        'mobileRose',
+        'insuranceOrange',
+        'cashbackLilac',
+      ],
       description: 'Use this value to set the Card color scheme.',
     },
-    surface: {
-      control: 'select',
-      options: ['base', 'purple'],
-      description: 'Use this value to set the Card surface.',
-    },
-    nested: {
+    selected: {
+      type: 'boolean',
       control: 'boolean',
-      description: 'Use this value to set the Card nested.',
+      description: 'Use this value to set the Card selected state.',
     },
   },
   args: {
     children: 'This is a card',
-    variant: 'outline',
-    padding: 'medium',
-    colorScheme: 'base',
-    surface: 'base',
-    nested: false,
+    variant: 'subtle',
+    padding: 'lg',
+    colorScheme: 'white',
+    selected: false,
   },
 } satisfies Meta<typeof Card>;
 
@@ -54,7 +58,7 @@ export const Playground: Story = {
   render: ({ children, ...props }) => {
     return (
       <Card {...props}>
-        <BodyText color={props.surface === 'base' ? 'grey1000' : 'white'}>{children}</BodyText>
+        <BodyText>{children as string}</BodyText>
       </Card>
     );
   },
@@ -67,54 +71,131 @@ export const Variants: Story = {
   render: ({ children, ...props }) => {
     return (
       <Flex space="lg">
-        <VariantTitle title="Dashed - Base">
-          <Card {...props} variant="dashed">
-            <BodyText color={props.surface === 'base' ? 'grey1000' : 'white'}>{children}</BodyText>
+        <VariantTitle title="Subtle - White">
+          <Card {...props} variant="subtle" colorScheme="white">
+            <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Elevated - Base">
-          <Card {...props} variant="elevated">
-            <BodyText color={props.surface === 'base' ? 'grey1000' : 'white'}>{children}</BodyText>
+        <VariantTitle title="Subtle - Warm White">
+          <Card {...props} variant="subtle" colorScheme="warmWhite">
+            <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Outline - Base">
-          <Card {...props} variant="outline">
-            <BodyText color={props.surface === 'base' ? 'grey1000' : 'white'}>{children}</BodyText>
+        <VariantTitle title="Emphasis - White">
+          <Card {...props} variant="emphasis" colorScheme="white">
+            <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Filled - Base">
-          <Card {...props} variant="filled">
-            <BodyText color={props.surface === 'base' ? 'grey1000' : 'white'}>{children}</BodyText>
+        <VariantTitle title="Emphasis - Warm White">
+          <Card {...props} variant="emphasis" colorScheme="warmWhite">
+            <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Dashed - Grey">
-          <Card {...props} variant="dashed" colorScheme="grey">
-            <BodyText color={props.surface === 'base' ? 'grey1000' : 'white'}>{children}</BodyText>
+        <VariantTitle title="Purple">
+          <Card {...props} colorScheme="purple">
+            <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Elevated - Grey">
-          <Card {...props} variant="elevated" colorScheme="grey">
-            <BodyText color={props.surface === 'base' ? 'grey1000' : 'white'}>{children}</BodyText>
+        <VariantTitle title="Energy Green">
+          <Card {...props} colorScheme="energyGreen">
+            <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Outline - Grey">
-          <Card {...props} variant="outline" colorScheme="grey">
-            <BodyText color={props.surface === 'base' ? 'grey1000' : 'white'}>{children}</BodyText>
+        <VariantTitle title="Broadband Blue">
+          <Card {...props} colorScheme="broadbandBlue">
+            <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Filled - Grey">
-          <Card {...props} variant="filled" colorScheme="grey">
-            <BodyText color={props.surface === 'base' ? 'grey1000' : 'white'}>{children}</BodyText>
+        <VariantTitle title="Mobile Rose">
+          <Card {...props} colorScheme="mobileRose">
+            <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Outline - Purple">
-          <Card {...props} variant="outline" colorScheme="purple">
-            <BodyText color={props.surface === 'base' ? 'grey1000' : 'white'}>{children}</BodyText>
+        <VariantTitle title="Insurance Orange">
+          <Card {...props} colorScheme="insuranceOrange">
+            <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Filled - Purple">
-          <Card {...props} variant="filled" colorScheme="purple">
-            <BodyText color="white">{children}</BodyText>
+        <VariantTitle title="Cashback Lilac">
+          <Card {...props} colorScheme="cashbackLilac">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+      </Flex>
+    );
+  },
+};
+
+export const Interactive: Story = {
+  parameters: {
+    controls: { exclude: ['variant', 'colorScheme', 'selected'] },
+  },
+  render: ({ children, ...props }) => {
+    const [selectedSubtleWhite, setSelectedSubtleWhite] = React.useState(false);
+    const [selectedSubtleWarmWhite, setSelectedSubtleWarmWhite] = React.useState(false);
+
+    return (
+      <Flex space="lg">
+        <VariantTitle title="Pressable - Subtle - White">
+          <Card
+            {...props}
+            onPress={() => console.log('pressed')}
+            variant="subtle"
+            colorScheme="white"
+          >
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Pressable - Emphasis - White">
+          <Card
+            {...props}
+            onPress={() => console.log('pressed')}
+            variant="emphasis"
+            colorScheme="white"
+          >
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Pressable - Subtle - Warm White">
+          <Card
+            {...props}
+            onPress={() => console.log('pressed')}
+            variant="subtle"
+            colorScheme="warmWhite"
+          >
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Pressable - Emphasis - Warm White">
+          <Card
+            {...props}
+            onPress={() => console.log('pressed')}
+            variant="emphasis"
+            colorScheme="warmWhite"
+          >
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Selectable - Subtle - White">
+          <Card
+            {...props}
+            selected={selectedSubtleWhite}
+            onPress={() => setSelectedSubtleWhite(!selectedSubtleWhite)}
+            variant="subtle"
+            colorScheme="white"
+          >
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Selectable - Subtle - Warm White">
+          <Card
+            {...props}
+            selected={selectedSubtleWarmWhite}
+            onPress={() => setSelectedSubtleWarmWhite(!selectedSubtleWarmWhite)}
+            variant="subtle"
+            colorScheme="warmWhite"
+          >
+            <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
       </Flex>

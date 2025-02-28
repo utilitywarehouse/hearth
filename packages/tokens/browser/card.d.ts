@@ -1,5 +1,7 @@
 export declare const card: {
+  readonly borderColorSelected: 'var(--card-border-color-selected)';
   readonly borderRadius: 'var(--card-border-radius)';
+  readonly borderWidthSelected: 'var(--card-border-width-selected)';
   readonly broadbandBlueBackgroundColor: 'var(--card-broadband-blue-background-color)';
   readonly cashbackLilacBackgroundColor: 'var(--card-cashback-lilac-background-color)';
   readonly emphasis: {
@@ -14,6 +16,14 @@ export declare const card: {
     readonly borderColor: 'var(--card-subtle-border-color)';
     readonly borderWidth: 'var(--card-subtle-border-width)';
   };
-  readonly warmWhiteBackgroundColor: 'var(--card-warm-white-background-color)';
-  readonly whiteBackgroundColor: 'var(--card-white-background-color)';
+  readonly warmWhite: {
+    readonly backgroundColor: 'var(--card-warm-white-background-color)';
+    readonly backgroundColorActive: 'var(--card-warm-white-background-color-active)';
+    readonly backgroundColorHover: 'var(--card-warm-white-background-color-hover)';
+  };
+  readonly white: {
+    readonly backgroundColor: 'var(--card-white-background-color)';
+    readonly backgroundColorActive: 'var(--card-white-background-color-active)';
+    readonly backgroundColorHover: 'var(--card-white-background-color-hover)';
+  };
 };

@@ -40,9 +40,11 @@ const ListItemRoot = forwardRef<
     const { active } = states || { active: false };
 
     const getListContainer = (): ListItemProps['variant'] => {
-      const listVariant = listContext?.container?.split(' ')?.[0];
-      if (listVariant && listVariant !== 'none') {
-        return listVariant as ListItemProps['variant'];
+      if (listContext?.container?.includes('subtle')) {
+        return 'subtle';
+      }
+      if (listContext?.container?.includes('emphasis')) {
+        return 'emphasis';
       }
       return undefined;
     };

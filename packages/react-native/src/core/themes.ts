@@ -34,6 +34,7 @@ const shared = {
   opacity: {
     disabled: 0.5,
   },
+  helpers: {},
   globalStyle: {
     variants: {
       hardShadow: {
@@ -153,6 +154,16 @@ const shared = {
   },
 } as const;
 
+const lightHelpers = {
+  ...shared.helpers,
+  focuseVisible: {
+    outlineStyle: 'solid',
+    outlineWidth: 2,
+    outlineColor: components.light.focus.border,
+    outlineOffset: 1,
+  },
+};
+
 export const lightTheme = {
   colorMode: 'light',
   isLight: true,
@@ -164,7 +175,18 @@ export const lightTheme = {
   } as const,
   components: components.light,
   ...shared,
+  helpers: lightHelpers,
 } as const;
+
+const darkHelpers = {
+  ...shared.helpers,
+  focuseVisible: {
+    outlineStyle: 'solid',
+    outlineWidth: 2,
+    outlineColor: components.dark.focus.border,
+    outlineOffset: 1,
+  },
+};
 
 export const darkTheme = {
   colorMode: 'dark',
@@ -177,6 +199,7 @@ export const darkTheme = {
   },
   components: components.dark,
   ...shared,
+  helpers: darkHelpers,
 } as const;
 
 export const themes = {

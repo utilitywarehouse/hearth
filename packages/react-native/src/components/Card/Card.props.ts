@@ -4,16 +4,17 @@ interface CardProps extends PressableProps {
   variant?: 'emphasis' | 'subtle';
   colorScheme?:
     | 'white'
-    | 'warm white'
+    | 'warmWhite'
     | 'purple'
-    | 'energy green'
-    | 'broadband blue'
-    | 'mobile rose'
-    | 'insurance orange'
-    | 'cashback lilac';
+    | 'energyGreen'
+    | 'broadbandBlue'
+    | 'mobileRose'
+    | 'insuranceOrange'
+    | 'cashbackLilac';
   padding?: 'lg' | 'md' | 'sm' | 'none';
   selected?: boolean;
   onSelect?: (selelected: boolean) => void;
+  disabled?: boolean;
 }
 
 export default CardProps;

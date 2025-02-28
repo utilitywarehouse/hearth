@@ -2,12 +2,7 @@ import type { ViewProps } from 'react-native';
 import { ComponentType } from 'react';
 
 interface ListProps extends ViewProps {
-  container?:
-    | 'none'
-    | 'subtle white'
-    | 'emphasis white'
-    | 'subtle warm white'
-    | 'emphasis warm white';
+  container?: 'none' | 'subtleWhite' | 'emphasisWhite' | 'subtleWarmWhite' | 'emphasisWwarmWhite';
   headingText?: string;
   headingSupportingText?: string;
   headingLinkText?: string;
