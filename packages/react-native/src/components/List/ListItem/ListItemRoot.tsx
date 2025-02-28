@@ -40,9 +40,11 @@ const ListItemRoot = forwardRef<
     const { active } = states || { active: false };
 
     const getListContainer = (): ListItemProps['variant'] => {
-      const listVariant = listContext?.container?.split(' ')?.[0];
-      if (listVariant && listVariant !== 'none') {
-        return listVariant as ListItemProps['variant'];
+      if (listContext?.container?.includes('subtle')) {
+        return 'subtle';
+      }
+      if (listContext?.container?.includes('emphasis')) {
+        return 'emphasis';
       }
       return undefined;
     };
@@ -56,7 +58,7 @@ const ListItemRoot = forwardRef<
     styles.useVariants({
       divider: showDivider,
       variant: listItemVariant,
-      showPressed: showPressed,
+      showPressed,
       active,
       disabled: isDisabled || isLoading,
       showDisabled: !listContext?.disabled && disabled,
@@ -167,7 +169,7 @@ const styles = StyleSheet.create(theme => ({
       },
       showDisabled: {
         true: {
-          opacity: 0.5,
+          opacity: theme.opacity.disabled,
         },
       },
       showPressed: {

@@ -1,6 +1,7 @@
 export const text = {
-  bodyTextColor: 'var(--text-body-text-color)',
+  color: 'var(--text-color)',
   colorInvalid: 'var(--text-color-invalid)',
+  colorInverted: 'var(--text-color-inverted)',
   colorValid: 'var(--text-color-valid)',
   headingColor: 'var(--text-heading-color)',
   labelColor: 'var(--text-label-color)',

@@ -98,8 +98,6 @@ export function registerDictionaryExtensions(StyleDictionary) {
       const componentName =
         dictionary.allTokens.length > 0 ? dictionary.allTokens[0].path[1] : null;
 
-      console.log('Generating component:', componentName);
-
       dictionary.allTokens.forEach(token => {
         const subKeys = token.path.slice(2);
         let current = output;

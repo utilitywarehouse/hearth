@@ -26,6 +26,7 @@ const BodyText = forwardRef<Text, BodyTextProps>(
       textDecorationLine,
       textDecorationStyle,
       userSelect,
+      inverted,
       ...props
     },
     ref
@@ -37,6 +38,7 @@ const BodyText = forwardRef<Text, BodyTextProps>(
       underline,
       strikeThrough,
       italic,
+      inverted,
     });
     const colorValue = useMemo(() => getFlattenedColorValue(color, themeColor), [color, colorMode]);
     const decorationColor = useMemo(
@@ -78,7 +80,7 @@ BodyText.displayName = 'BodyText';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.color.grey['1000'],
+    color: theme.components.text.color,
     fontFamily: theme.typography.mobile.bodyText.fontFamily,
     fontStyle: 'normal',
     variants: {
@@ -123,6 +125,11 @@ const styles = StyleSheet.create(theme => ({
       italic: {
         true: {
           fontStyle: 'italic',
+        },
+      },
+      inverted: {
+        true: {
+          color: theme.components.text.colorInverted,
         },
       },
     },

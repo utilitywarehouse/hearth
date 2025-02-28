@@ -15,6 +15,7 @@ interface TextProps extends RNTextProps {
   textDecorationStyle?: TextStyle['textDecorationStyle'];
   textDecorationColor?: ColorValue;
   userSelect?: TextStyle['userSelect'];
+  inverted?: boolean;
 }
 
 export default TextProps;

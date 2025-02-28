@@ -61,7 +61,7 @@ const styles = StyleSheet.create(theme => ({
       },
       disabled: {
         true: {
-          opacity: 0.5,
+          opacity: theme.opacity.disabled,
         },
       },
       inline: {

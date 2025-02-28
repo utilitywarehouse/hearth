@@ -12,14 +12,12 @@ import {
   Badge,
   BadgeText,
   Flex,
-  useColorMode,
   Box,
 } from '../../src';
 
 import { ChevronRight01MediumIcon, ElectricityMediumIcon, GasMediumIcon } from './icons';
 
 const BadgeList = () => {
-  const colorMode = useColorMode();
   return (
     <List>
       <ListItem onPress={() => console.log('pressed')} divider>

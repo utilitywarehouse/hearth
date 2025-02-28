@@ -1,0 +1,70 @@
+import { Meta, Canvas, Story, Primary, Controls } from '@storybook/blocks';
+import * as Stories from './Card.stories';
+import { Center, Card, BodyText, DetailText } from '../../';
+import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
+
+<Meta title="Components / Card" />
+
+<ViewFigmaButton url="https://www.figma.com/design/3RY3OvLA88yZksRjOfjQJm/UW-App-UI?node-id=9344-2255&m=dev" />
+
+<BackToTopButton />
+
+# Card
+
+A Card component serves as a visual container that groups related content and actions.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Interactive](#interactive)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <Card padding="lg" colorScheme="white" variant="subtle">
+      <DetailText size="2xl">Quick Start</DetailText>
+      <BodyText>Start building your next project in minutes.</BodyText>
+    </Card>
+  </Center>
+</UsageWrap>
+
+```jsx
+import { Card, BodyText } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <Card padding="lg" colorScheme="white" variant="subtle">
+    <DetailText size="2xl">Quick Start</DetailText>
+    <BodyText>Start building your next project in minutes.</BodyText>
+  </Card>
+);
+```
+
+## Props
+
+| Property    | Type                                                                                                                                   | Description                     | Default    |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | ---------- |
+| padding     | `'sm' \| 'md' \| 'lg' \| 'none'`                                                                                                       | The padding size of the card.   | `'lg'`     |
+| variant     | `'subtle' \| 'emphasis' `                                                                                                              | The variant of the card.        | `'subtle'` |
+| colorScheme | `'white' \| 'warmWhite' \| 'purple' \| 'energyGreen'` <br /> `'broadbandBlue' \| 'mobileRose' \| 'insuranceOrange' \| 'cashbackLilac'` | The color scheme of the card.   | `'white'`  |
+| selected    | `boolean`                                                                                                                              | Whether the card is selected.   | `false`    |
+| onPress     | `() => void`                                                                                                                           | Callback function to be called. | -          |
+| disabled    | `boolean`                                                                                                                              | Whether the card is disabled.   | `false`    |
+
+## Variants
+
+<Canvas of={Stories.Variants} />
+
+## Interactive
+
+You can make the card interactive by adding an `onPress` prop. You can also toggle the `selected` prop
+to change the card's appearance.
+
+<Canvas of={Stories.Interactive} />

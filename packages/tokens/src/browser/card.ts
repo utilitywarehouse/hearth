@@ -1,5 +1,7 @@
 export const card = {
+  borderColorSelected: 'var(--card-border-color-selected)',
   borderRadius: 'var(--card-border-radius)',
+  borderWidthSelected: 'var(--card-border-width-selected)',
   broadbandBlueBackgroundColor: 'var(--card-broadband-blue-background-color)',
   cashbackLilacBackgroundColor: 'var(--card-cashback-lilac-background-color)',
   emphasis: {
@@ -14,6 +16,14 @@ export const card = {
     borderColor: 'var(--card-subtle-border-color)',
     borderWidth: 'var(--card-subtle-border-width)',
   },
-  warmWhiteBackgroundColor: 'var(--card-warm-white-background-color)',
-  whiteBackgroundColor: 'var(--card-white-background-color)',
+  warmWhite: {
+    backgroundColor: 'var(--card-warm-white-background-color)',
+    backgroundColorActive: 'var(--card-warm-white-background-color-active)',
+    backgroundColorHover: 'var(--card-warm-white-background-color-hover)',
+  },
+  white: {
+    backgroundColor: 'var(--card-white-background-color)',
+    backgroundColorActive: 'var(--card-white-background-color-active)',
+    backgroundColorHover: 'var(--card-white-background-color-hover)',
+  },
 } as const;

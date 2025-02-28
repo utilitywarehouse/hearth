@@ -3,7 +3,9 @@
  */
 
 export default {
+  borderColorSelected: '#f6f5f5',
   borderRadius: 16,
+  borderWidthSelected: 2,
   broadbandBlueBackgroundColor: '#84b9c3',
   cashbackLilacBackgroundColor: '#be7aeb',
   emphasis: {
@@ -18,8 +20,16 @@ export default {
     borderColor: '#d4d2c0',
     borderWidth: 1,
   },
-  warmWhiteBackgroundColor: '#d4d2c0',
-  whiteBackgroundColor: '#ffffff',
+  warmWhite: {
+    backgroundColor: '#d4d2c0',
+    backgroundColorActive: '#f7f6eb',
+    backgroundColorHover: '#f1efe4',
+  },
+  white: {
+    backgroundColor: '#ffffff',
+    backgroundColorActive: '#f7f6eb',
+    backgroundColorHover: '#fcfbf2',
+  },
   mobile: {
     lg: {
       paddingHorizontal: 16,

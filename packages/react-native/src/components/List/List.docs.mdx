@@ -54,7 +54,7 @@ List item is the main building block of list. Each item has its own set of prope
 - [Advanced Usage](#advanced-usage)
 - [Variants](#variants)
 - [Examples](#examples)
-  - [List Item with Card](#list-item-with-card)
+  - [List Item with Container](#list-item-with-container)
   - [List Item with Badge](#list-item-with-badge)
   - [Checbox List](#checbox-list)
   - [Radio List](#radio-list)
@@ -78,7 +78,7 @@ List item is the main building block of list. Each item has its own set of prope
 </UsageWrap>
 
 ```tsx
-import { List, ListItem } from '@utilitywarehouse/native-ui';
+import { List, ListItem } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
   <List headingText="Heading" headingSupportingText="Supporting text" divider>
@@ -93,22 +93,22 @@ const MyComponent = () => (
 
 ### `List`
 
-| Name                    | Type                                                                                                    | Default   | Description                                                |
-| ----------------------- | ------------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------- |
-| container               | `'none' \| 'subtle white' \| 'emphasis white' \|` <br /> `'subtle warm white' \| 'emphasis warm white'` |           | The container style of the list.                           |
-| headingText             | `string`                                                                                                |           | The text to display in the heading of the list.            |
-| headingSupportingText   | `string`                                                                                                |           | The supporting text to display in the heading of the list. |
-| headingLinkText         | `string`                                                                                                |           | The text for the link in the heading.                      |
-| headingLinkHref         | `string`                                                                                                |           | The href for the link in the heading.                      |
-| headingLinkOnPress      | `() => void`                                                                                            |           | Callback function when the heading link is pressed.        |
-| headingLinkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'`                                                            |           | Target for the link in the heading.                        |
-| headingLinkDisabled     | `boolean`                                                                                               | `false`   | Whether the heading link is disabled.                      |
-| headingLinkIcon         | `ComponentType`                                                                                         |           | Icon for the heading link.                                 |
-| headingLinkIconPosition | `'left' \| 'right'`                                                                                     | `'right'` | Position of the icon in the heading link.                  |
-| headingLinkShowIcon     | `boolean`                                                                                               | `true`    | Whether to show the icon in the heading link.              |
-| divider                 | `boolean`                                                                                               | `false`   | Whether to display a divider below the list items.         |
-| loading                 | `boolean`                                                                                               | `false`   | Whether to show the list items in loading state.           |
-| disabled                | `boolean`                                                                                               | `false`   | Whether to disable the list.                               |
+| Name                    | Type                                                                                              | Default   | Description                                                |
+| ----------------------- | ------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------- |
+| container               | `'none' \| 'subtleWhite' \| 'emphasisWhite' \|` <br /> `'subtleWarmWhite' \| 'emphasisWarmWhite'` | `'none'`  | The container style of the list.                           |
+| headingText             | `string`                                                                                          |           | The text to display in the heading of the list.            |
+| headingSupportingText   | `string`                                                                                          |           | The supporting text to display in the heading of the list. |
+| headingLinkText         | `string`                                                                                          |           | The text for the link in the heading.                      |
+| headingLinkHref         | `string`                                                                                          |           | The href for the link in the heading.                      |
+| headingLinkOnPress      | `() => void`                                                                                      |           | Callback function when the heading link is pressed.        |
+| headingLinkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'`                                                      |           | Target for the link in the heading.                        |
+| headingLinkDisabled     | `boolean`                                                                                         | `false`   | Whether the heading link is disabled.                      |
+| headingLinkIcon         | `ComponentType`                                                                                   |           | Icon for the heading link.                                 |
+| headingLinkIconPosition | `'left' \| 'right'`                                                                               | `'right'` | Position of the icon in the heading link.                  |
+| headingLinkShowIcon     | `boolean`                                                                                         | `true`    | Whether to show the icon in the heading link.              |
+| divider                 | `boolean`                                                                                         | `false`   | Whether to display a divider below the list items.         |
+| loading                 | `boolean`                                                                                         | `false`   | Whether to show the list items in loading state.           |
+| disabled                | `boolean`                                                                                         | `false`   | Whether to disable the list.                               |
 
 ### `ListHeading`
 
@@ -235,7 +235,7 @@ import {
   ListItemTrailingContent,
   ListItemTrailingIcon,
   ListItemContent,
-} from '@utilitywarehouse/native-ui';
+} from '@utilitywarehouse/hearth-react-native';
 import {
   BillMediumIcon,
   ChevronRight01MediumIcon,
@@ -307,6 +307,65 @@ The `List` component has different ways to display the list.
 
 ## Examples
 
+### List Item with Container
+
+Thie `List` has an inbuilt `Card` component to wrap the list items and setting the `container` prop to one if `subtleWhite`,
+`emphasisWhite`, `subtleWarmWhite`, or `emphasisWarmWhite` will apply the respective background color and border colour to
+the `Card` and child `ListItem` components.
+
+<UsageWrap>
+  <List container="subtleWhite">
+    <ListItem
+      leadingContent={<BillMediumIcon />}
+      text="Bills"
+      divider
+      onPress={() => console.log('item pressed')}
+    />
+    <ListItem
+      leadingContent={<PaymentMediumIcon />}
+      text="Payments"
+      divider
+      onPress={() => console.log('item pressed')}
+    />
+    <ListItem
+      leadingContent={<HomeMediumIcon />}
+      text="Moving Home"
+      onPress={() => console.log('item pressed')}
+    />
+  </List>
+</UsageWrap>
+
+```tsx
+import { List, ListItem, Card } from '@utilitywarehouse/hearth-react-native';
+import {
+  BillMediumIcon,
+  PaymentMediumIcon,
+  HomeMediumIcon,
+} from '@utilitywarehouse/react-native-icons';
+
+const MyComponent = () => (
+  <List container="subtleWhite">
+    <ListItem
+      leadingContent={<BillMediumIcon />}
+      text="Bills"
+      divider
+      onPress={() => console.log('item pressed')}
+    />
+    <ListItem
+      leadingContent={<PaymentMediumIcon />}
+      text="Payments"
+      divider
+      onPress={() => console.log('item pressed')}
+    />
+    <ListItem
+      leadingContent={<HomeMediumIcon />}
+      text="Moving Home"
+      onPress={() => console.log('item pressed')}
+    />
+  </List>
+);
+```
+
 ### List Item with Badge
 
 You can use the `Badge` component to display additional information in the list item. You can achieve this by using the List Item's
@@ -317,6 +376,7 @@ parts like `ListItemLeadingContent`, `ListItemContent`, and `ListItemTrailingCon
 </UsageWrap>
 
 ```tsx
+import React from 'react';
 import {
   List,
   ListItem,
@@ -329,37 +389,24 @@ import {
   ListItemContent,
   Badge,
   BadgeText,
-  HStack,
-  useColorMode,
-} from '@utilitywarehouse/native-ui';
+  Flex,
+  Box,
+} from '@utilitywarehouse/hearth-react-native';
 
-import {
-  ChevronRight01MediumIcon,
-  ElectricityMediumIcon,
-  GasMediumIcon,
-} from '@utilitywarehouse/react-native-icons';
-import { Box } from '@utilitywarehouse/native-ui/lab';
+import { ChevronRight01MediumIcon, ElectricityMediumIcon, GasMediumIcon } from './icons';
 
 const BadgeList = () => {
-  const colorMode = useColorMode();
   return (
     <List>
       <ListItem onPress={() => console.log('pressed')} divider>
         <ListItemLeadingContent>
-          <Box
-            padding="$3"
-            borderRadius="$lg"
-            bg={colorMode === 'light' ? '$apple50' : '$apple800'}
-          >
-            <ListItemIcon
-              as={ElectricityMediumIcon}
-              color={colorMode === 'light' ? '$apple800' : '$apple200'}
-            />
+          <Box padding="300" borderRadius="lg" bg={'energyGreen'}>
+            <ListItemIcon as={ElectricityMediumIcon} color="green900" />
           </Box>
         </ListItemLeadingContent>
         <ListItemContent>
           <ListItemText>Electricity</ListItemText>
-          <Badge colorScheme="cyan" size="small">
+          <Badge colorScheme="blue">
             <BadgeText>Text</BadgeText>
           </Badge>
           <ListItemSupportingText>Last reading 23/03/24</ListItemSupportingText>
@@ -370,24 +417,17 @@ const BadgeList = () => {
       </ListItem>
       <ListItem onPress={() => console.log('pressed')} divider={false}>
         <ListItemLeadingContent>
-          <Box
-            padding="$3"
-            borderRadius="$lg"
-            bg={colorMode === 'light' ? '$apple50' : '$apple800'}
-          >
-            <ListItemIcon
-              as={GasMediumIcon}
-              color={colorMode === 'light' ? '$apple800' : '$apple200'}
-            />
+          <Box padding="300" borderRadius="lg" bg={'energyGreen'}>
+            <ListItemIcon as={GasMediumIcon} color="green900" />
           </Box>
         </ListItemLeadingContent>
         <ListItemContent>
-          <HStack style={{ justifyContent: 'space-between' }}>
-            <ListItemText>Electricity</ListItemText>
-            <Badge colorScheme="green" size="small">
+          <Flex direction="row" style={{ justifyContent: 'space-between' }}>
+            <ListItemText>Gas</ListItemText>
+            <Badge colorScheme="green">
               <BadgeText>Smart meter</BadgeText>
             </Badge>
-          </HStack>
+          </Flex>
           <ListItemSupportingText>Last reading 23/03/24</ListItemSupportingText>
         </ListItemContent>
         <ListItemTrailingContent>
@@ -397,4 +437,6 @@ const BadgeList = () => {
     </List>
   );
 };
+
+export default BadgeList;
 ```

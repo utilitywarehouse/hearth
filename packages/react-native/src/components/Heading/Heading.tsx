@@ -25,6 +25,7 @@ const Heading = forwardRef<Text, HeadingProps>(
       textDecorationLine,
       textDecorationStyle,
       userSelect,
+      inverted,
       ...props
     },
     ref
@@ -33,6 +34,7 @@ const Heading = forwardRef<Text, HeadingProps>(
       size,
       underline,
       strikeThrough,
+      inverted,
     });
     const { color: themeColor, colorMode } = useTheme();
     const colorValue: ColorValue = useMemo(
@@ -78,7 +80,7 @@ Heading.displayName = 'Heading';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.color.grey['1000'],
+    color: theme.components.text.headingColor,
     fontFamily: theme.typography.mobile.heading.fontFamily,
     marginVertical: 0,
     fontStyle: 'normal',
@@ -181,6 +183,11 @@ const styles = StyleSheet.create(theme => ({
       strikeThrough: {
         true: {
           textDecorationLine: 'line-through' as TextStyle['textDecorationLine'],
+        },
+      },
+      inverted: {
+        true: {
+          color: theme.components.text.colorInverted,
         },
       },
     },

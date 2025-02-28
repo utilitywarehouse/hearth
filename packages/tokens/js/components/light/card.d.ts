@@ -2,7 +2,9 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
+  readonly borderColorSelected: '#101010';
   readonly borderRadius: 16;
+  readonly borderWidthSelected: 2;
   readonly broadbandBlueBackgroundColor: '#84b9c3';
   readonly cashbackLilacBackgroundColor: '#be7aeb';
   readonly emphasis: {
@@ -17,8 +19,16 @@ declare const _default: {
     readonly borderColor: '#d4d2c0';
     readonly borderWidth: 1;
   };
-  readonly warmWhiteBackgroundColor: '#fcfbf2';
-  readonly whiteBackgroundColor: '#ffffff';
+  readonly warmWhite: {
+    readonly backgroundColor: '#fcfbf2';
+    readonly backgroundColorActive: '#f1efe4';
+    readonly backgroundColorHover: '#f7f6eb';
+  };
+  readonly white: {
+    readonly backgroundColor: '#ffffff';
+    readonly backgroundColorActive: '#f7f6eb';
+    readonly backgroundColorHover: '#fcfbf2';
+  };
   readonly mobile: {
     readonly lg: {
       readonly paddingHorizontal: 16;

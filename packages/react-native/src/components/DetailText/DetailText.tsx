@@ -25,6 +25,7 @@ const DetailText = forwardRef<Text, DetailTextProps>(
       textDecorationLine,
       textDecorationStyle,
       userSelect,
+      inverted,
       ...props
     },
     ref
@@ -35,6 +36,7 @@ const DetailText = forwardRef<Text, DetailTextProps>(
       underline,
       strikeThrough,
       italic,
+      inverted,
     });
     const colorValue = useMemo(() => getFlattenedColorValue(color, themeColor), [color, colorMode]);
     const decorationColor = useMemo(
@@ -76,7 +78,7 @@ DetailText.displayName = 'DetailText';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.color.grey['1000'],
+    color: theme.components.text.color,
     fontWeight: theme.fontWeight.regular,
     fontFamily: theme.typography.mobile.detailText.fontFamily,
     fontStyle: 'normal',
@@ -136,6 +138,11 @@ const styles = StyleSheet.create(theme => ({
       italic: {
         true: {
           fontStyle: 'italic',
+        },
+      },
+      inverted: {
+        true: {
+          color: theme.components.text.colorInverted,
         },
       },
     },
