@@ -13,7 +13,7 @@ const meta = {
   component: List,
   argTypes: {
     container: {
-      options: ['full', 'card'],
+      options: ['none', 'subtleWhite', 'subtleWarmWhite', 'emphasisWhite', 'emphasisWarmWhite'],
       control: 'select',
       description: 'The container variant to be displayed on the list.',
     },

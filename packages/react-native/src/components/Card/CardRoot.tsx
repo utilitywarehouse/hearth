@@ -167,7 +167,7 @@ const styles = StyleSheet.create(theme => ({
       },
       disabled: {
         true: {
-          opacity: 0.5,
+          opacity: theme.opacity.disabled,
         },
       },
     },
@@ -184,7 +184,7 @@ const styles = StyleSheet.create(theme => ({
               backgroundColor: theme.components.card.white.backgroundColorActive,
             },
             '_focus-visible': {
-              //   ...theme.helpers.focuseVisible,
+              ...theme.helpers.focuseVisible,
             },
           },
         },
@@ -209,7 +209,7 @@ const styles = StyleSheet.create(theme => ({
               backgroundColor: theme.components.card.warmWhite.backgroundColorActive,
             },
             '_focus-visible': {
-              //   ...theme.helpers.focuseVisible,
+              ...theme.helpers.focuseVisible,
             },
           },
         },

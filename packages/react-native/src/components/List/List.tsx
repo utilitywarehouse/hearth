@@ -5,6 +5,7 @@ import { ListContext } from './List.context';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { ListItem, ListItemProps } from './ListItem';
+import { Card } from '../Card';
 
 const markFirstListItem = (children: ReactNode): ReactNode => {
   let found = false;
@@ -52,6 +53,15 @@ const List = forwardRef<View, ListProps>(
     ref
   ) => {
     const { loading, disabled, divider = true, container = 'none' } = props;
+    const containerToCard: {
+      variant: 'subtle' | 'emphasis';
+      colorScheme: 'white' | 'warmWhite';
+    } = {
+      variant:
+        container === 'subtleWhite' || container === 'subtleWarmWhite' ? 'subtle' : 'emphasis',
+      colorScheme:
+        container === 'subtleWhite' || container === 'emphasisWhite' ? 'white' : 'warmWhite',
+    };
     const updatedChildren = markFirstListItem(children);
     const value = useMemo(
       () => ({ loading, disabled, divider, container }),
@@ -75,7 +85,13 @@ const List = forwardRef<View, ListProps>(
               linkShowIcon={headingLinkShowIcon}
             />
           ) : null}
-          <View>{updatedChildren}</View>
+          {container === 'none' ? (
+            <View>{updatedChildren}</View>
+          ) : (
+            <Card {...containerToCard} padding="none">
+              {updatedChildren}
+            </Card>
+          )}
         </View>
       </ListContext.Provider>
     );
@@ -91,7 +107,7 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       disabled: {
         true: {
-          opacity: 0.5,
+          opacity: theme.opacity.disabled,
         },
       },
     },

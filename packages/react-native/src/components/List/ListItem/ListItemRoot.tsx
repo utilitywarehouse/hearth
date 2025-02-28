@@ -169,7 +169,7 @@ const styles = StyleSheet.create(theme => ({
       },
       showDisabled: {
         true: {
-          opacity: 0.5,
+          opacity: theme.opacity.disabled,
         },
       },
       showPressed: {

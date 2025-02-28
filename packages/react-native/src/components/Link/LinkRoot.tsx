@@ -43,7 +43,7 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       disabled: {
         true: {
-          opacity: 0.5,
+          opacity: theme.opacity.disabled,
         },
       },
       inverted: {

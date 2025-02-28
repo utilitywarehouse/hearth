@@ -3,6 +3,7 @@ export * from './Badge';
 export * from './BodyText';
 export * from './Box';
 export * from './Button';
+export * from './Card';
 export * from './Center';
 export * from './DetailText';
 export * from './Divider';
