@@ -8,6 +8,7 @@ import { Flex } from '../Flex';
 import { Box } from '../Box';
 import { AddSmallIcon, ChevronRight01SmallIcon } from '../../../docs/components/icons';
 import { DetailText } from '../DetailText';
+import { Platform } from 'react-native';
 
 const meta = {
   title: 'Stories / Button',
@@ -23,17 +24,17 @@ const meta = {
     },
     size: {
       options: ['sm', 'md'],
-      control: 'select',
+      control: Platform.OS === 'android' ? 'radio' : 'select',
       description: 'The size of the button.',
     },
     variant: {
       options: ['emphasis', 'solid', 'outline', 'ghost'],
-      control: 'select',
+      control: Platform.OS === 'android' ? 'radio' : 'select',
       description: 'The variant of the button.',
     },
     colorScheme: {
       options: ['yellow', 'red', 'green', 'grey'],
-      control: 'select',
+      control: Platform.OS === 'android' ? 'radio' : 'select',
       description: 'The color scheme of the button.',
     },
     disabled: {

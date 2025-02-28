@@ -1,4 +1,4 @@
-import { ColorValue } from 'src/types';
+import { ColorValue } from '../types';
 
 type ThemeColor = string | Record<string, string>;
 

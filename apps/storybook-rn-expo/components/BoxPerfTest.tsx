@@ -91,8 +91,7 @@ const BoxPerfTest: StoryFn = () => {
       <ButtonGroup space="sm" flexDirection="column">
         <Button text="React Native" onPress={onStyleTypePress('React Native')} />
         <Button text="Unsistyles" onPress={onStyleTypePress('Unsistyles')} />
-        <Button text="Gluestack" onPress={onStyleTypePress('Gluestack')} />
-        <Button text="Lab" onPress={onStyleTypePress('Lab')} />
+        <Button text="Box" onPress={onStyleTypePress('Box')} />
       </ButtonGroup>
 
       {styleType ? (
