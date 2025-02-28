@@ -1,6 +1,7 @@
 export declare const text: {
-  readonly bodyTextColor: 'var(--text-body-text-color)';
+  readonly color: 'var(--text-color)';
   readonly colorInvalid: 'var(--text-color-invalid)';
+  readonly colorInverted: 'var(--text-color-inverted)';
   readonly colorValid: 'var(--text-color-valid)';
   readonly headingColor: 'var(--text-heading-color)';
   readonly labelColor: 'var(--text-label-color)';

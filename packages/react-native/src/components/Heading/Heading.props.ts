@@ -14,6 +14,7 @@ interface HeadingProps extends TextProps {
   textDecorationStyle?: TextStyle['textDecorationStyle'];
   textDecorationColor?: ColorValue;
   userSelect?: TextStyle['userSelect'];
+  inverted?: boolean;
 }
 
 export default HeadingProps;

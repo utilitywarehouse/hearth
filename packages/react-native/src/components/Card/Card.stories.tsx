@@ -68,16 +68,16 @@ export const Variants: Story = {
   parameters: {
     controls: { exclude: ['variant', 'colorScheme'] },
   },
-  render: ({ children, ...props }) => {
+  render: ({ children, selected, ...props }) => {
     return (
       <Flex space="lg">
         <VariantTitle title="Subtle - White">
-          <Card {...props} variant="subtle" colorScheme="white">
+          <Card {...props} selected={selected} variant="subtle" colorScheme="white">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Subtle - Warm White">
-          <Card {...props} variant="subtle" colorScheme="warmWhite">
+          <Card {...props} selected={selected} variant="subtle" colorScheme="warmWhite">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
@@ -93,7 +93,7 @@ export const Variants: Story = {
         </VariantTitle>
         <VariantTitle title="Purple">
           <Card {...props} colorScheme="purple">
-            <BodyText>{children as string}</BodyText>
+            <BodyText inverted>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Energy Green">

@@ -3,8 +3,9 @@
  */
 
 :root {
-  --text-body-text-color: var(--color-grey-1000);
+  --text-color: var(--color-grey-1000);
   --text-color-invalid: var(--color-red-700);
+  --text-color-inverted: var(--color-grey-50);
   --text-color-valid: var(--color-green-700);
   --text-heading-color: var(--color-grey-1000);
   --text-label-color: var(--color-grey-1000);
