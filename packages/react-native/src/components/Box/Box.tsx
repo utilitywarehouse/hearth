@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React, { forwardRef, memo } from 'react';
+import React, { forwardRef, memo, useMemo } from 'react';
 import { View, ViewStyle } from 'react-native';
 import { UnistylesThemes, useUnistyles } from 'react-native-unistyles';
 import type BoxProps from './Box.props';
@@ -96,34 +96,37 @@ const themeStyleMapping: { [key in keyof ViewStyle]?: keyof UnistylesThemes['lig
   borderWidth: 'borderWidth',
 };
 
-const resolveThemeValue = (value: any, themeMapping: any): any => {
-  if (typeof value === 'string' && themeMapping && typeof themeMapping === 'object') {
-    // Look for colour values by detecting the last number in the string
-    const shadeMatch = value.match(/\d+$/);
-    if (shadeMatch) {
-      const shade = shadeMatch[0];
-      const base = value.slice(0, -shade.length);
-      const nested = themeMapping[base];
-      if (nested && typeof nested === 'object') {
-        return nested[shade] ?? value;
-      }
-    }
-
-    // Otherwise if themeMapping has a direct mapping
-    if ((typeof themeMapping[value] === 'string') !== undefined) {
-      return themeMapping[value];
-    }
-    return value;
-  }
-  return value;
-};
-
-const viewStyleProps = new Set<keyof ViewStyle>([
+// Create a single set for all view style properties
+const viewStyleProps = new Set<string>([
+  // Style props that don't need theme resolution
   'alignContent',
   'alignItems',
   'alignSelf',
   'aspectRatio',
   'backfaceVisibility',
+  'borderCurve',
+  'borderStyle',
+  'cursor',
+  'direction',
+  'display',
+  'elevation',
+  'flex',
+  'flexBasis',
+  'flexDirection',
+  'flexGrow',
+  'flexShrink',
+  'flexWrap',
+  'justifyContent',
+  'overflow',
+  'pointerEvents',
+  'position',
+  'shadowOffset',
+  'shadowOpacity',
+  'shadowRadius',
+  'transform',
+  'transformOrigin',
+  'zIndex',
+  // Theme-resolvable style props
   'backgroundColor',
   'borderBlockColor',
   'borderBlockEndColor',
@@ -135,7 +138,6 @@ const viewStyleProps = new Set<keyof ViewStyle>([
   'borderBottomStartRadius',
   'borderBottomWidth',
   'borderColor',
-  'borderCurve',
   'borderEndColor',
   'borderEndEndRadius',
   'borderEndStartRadius',
@@ -149,7 +151,6 @@ const viewStyleProps = new Set<keyof ViewStyle>([
   'borderStartEndRadius',
   'borderStartStartRadius',
   'borderStartWidth',
-  'borderStyle',
   'borderTopColor',
   'borderTopEndRadius',
   'borderTopLeftRadius',
@@ -159,20 +160,9 @@ const viewStyleProps = new Set<keyof ViewStyle>([
   'borderWidth',
   'bottom',
   'columnGap',
-  'cursor',
-  'direction',
-  'display',
-  'elevation',
   'end',
-  'flex',
-  'flexBasis',
-  'flexDirection',
-  'flexGrow',
-  'flexShrink',
-  'flexWrap',
   'gap',
   'height',
-  'justifyContent',
   'left',
   'margin',
   'marginBottom',
@@ -188,7 +178,6 @@ const viewStyleProps = new Set<keyof ViewStyle>([
   'minHeight',
   'minWidth',
   'opacity',
-  'overflow',
   'padding',
   'paddingBottom',
   'paddingEnd',
@@ -198,55 +187,36 @@ const viewStyleProps = new Set<keyof ViewStyle>([
   'paddingStart',
   'paddingTop',
   'paddingVertical',
-  'pointerEvents',
-  'position',
   'right',
   'rowGap',
   'shadowColor',
-  'shadowOffset',
-  'shadowOpacity',
-  'shadowRadius',
   'start',
   'top',
-  'transform',
-  'transformOrigin',
   'width',
-  'zIndex',
 ]);
 
-const directStyleProps: Array<keyof ViewStyle> = [
-  'alignContent',
-  'alignItems',
-  'alignSelf',
-  'aspectRatio',
-  'backfaceVisibility',
-  'borderCurve',
-  'borderStyle',
-  'cursor',
-  'direction',
-  'display',
-  'elevation',
-  'flex',
-  'flexBasis',
-  'flexDirection',
-  'flexGrow',
-  'flexShrink',
-  'flexWrap',
-  'justifyContent',
-  'overflow',
-  'pointerEvents',
-  'position',
-  'shadowOffset',
-  'shadowOpacity',
-  'shadowRadius',
-  'transform',
-  'transformOrigin',
-  'zIndex',
-];
+/**
+ * Resolves a value against the theme if applicable
+ */
+const resolveThemeValue = (value: any, themeMapping: any): any => {
+  if (typeof value !== 'string' || !themeMapping || typeof themeMapping !== 'object') {
+    return value;
+  }
 
-function isViewStyleProp(propName: string): propName is keyof ViewStyle {
-  return viewStyleProps.has(propName as keyof ViewStyle);
-}
+  // Look for colour values by detecting the last number in the string
+  const shadeMatch = value.match(/\d+$/);
+  if (shadeMatch) {
+    const shade = shadeMatch[0];
+    const base = value.slice(0, -shade.length);
+    const nested = themeMapping[base];
+    if (nested && typeof nested === 'object') {
+      return nested[shade] ?? value;
+    }
+  }
+
+  // Otherwise if themeMapping has a direct mapping
+  return themeMapping[value] ?? value;
+};
 
 const BoxComponent = <T extends React.ElementType = typeof View>(
   { as, style, children, ...props }: BoxProps<T>,
@@ -254,72 +224,52 @@ const BoxComponent = <T extends React.ElementType = typeof View>(
 ) => {
   const { theme } = useUnistyles();
 
-  const styles: Partial<ViewStyle> = {};
-  const componentProps: Record<string, any> = {};
+  // Memoize styles processing to prevent unnecessary recalculations
+  const { styles, componentProps } = useMemo(() => {
+    const computedStyles: Partial<ViewStyle> = {};
+    const computedProps: Record<string, any> = {};
 
-  // propStyleMapping
-  for (const prop in propStyleMapping) {
-    const stylePropName = propStyleMapping[prop];
-    const propValue = props[prop as keyof Omit<BoxProps, 'children' | 'style'>];
+    // Process all props in a single pass
+    for (const propName in props) {
+      const propValue = props[propName as keyof typeof props];
 
-    if (propValue !== undefined) {
-      const themeKey = themeStyleMapping[stylePropName];
-      if (themeKey) {
-        const themeMapping = theme[themeKey];
-        if (themeMapping && typeof themeMapping === 'object') {
-          (styles as any)[stylePropName] = resolveThemeValue(propValue, themeMapping);
-        } else {
-          (styles as any)[stylePropName] = propValue;
-        }
-      } else {
-        (styles as any)[stylePropName] = propValue;
-      }
-    }
-  }
+      // Skip undefined values
+      if (propValue === undefined) continue;
 
-  // directStyleProps
-  directStyleProps.forEach(stylePropName => {
-    const propValue = props[stylePropName as keyof Omit<BoxProps, 'children' | 'style'>];
-    if (propValue !== undefined) {
-      (styles as any)[stylePropName] = propValue;
-    }
-  });
-
-  // Remaining style props
-  for (const propName in props) {
-    // Skip if already handled
-    if (
-      Object.prototype.hasOwnProperty.call(propStyleMapping, propName) ||
-      directStyleProps.includes(propName as keyof ViewStyle) ||
-      Object.prototype.hasOwnProperty.call(styles, propName)
-    ) {
-      continue;
-    }
-
-    // Check if propName is a valid style property
-    if (isViewStyleProp(propName)) {
-      const stylePropName = propName;
-      const propValue = props[propName as keyof Omit<BoxProps, 'children' | 'style'>];
-
-      if (propValue !== undefined) {
+      // Check if it's a mapped shorthand prop
+      if (propStyleMapping[propName]) {
+        const stylePropName = propStyleMapping[propName];
         const themeKey = themeStyleMapping[stylePropName];
+
         if (themeKey) {
           const themeMapping = theme[themeKey];
-          if (themeMapping && typeof themeMapping === 'object') {
-            (styles as any)[stylePropName] = resolveThemeValue(propValue, themeMapping);
-          } else {
-            (styles as any)[stylePropName] = propValue;
-          }
+          computedStyles[stylePropName] = resolveThemeValue(propValue, themeMapping);
         } else {
-          (styles as any)[stylePropName] = propValue;
+          computedStyles[stylePropName] = propValue;
         }
+        continue;
       }
-    } else {
-      // Non-style props, add to componentProps
-      (componentProps as any)[propName] =
-        props[propName as keyof Omit<BoxProps, 'children' | 'style'>];
+
+      // Check if it's a direct style property
+      if (viewStyleProps.has(propName)) {
+        const stylePropName = propName as keyof ViewStyle;
+        const themeKey = themeStyleMapping[stylePropName];
+
+        if (themeKey) {
+          const themeMapping = theme[themeKey];
+          computedStyles[stylePropName] = resolveThemeValue(propValue, themeMapping);
+        } else {
+          computedStyles[stylePropName] = propValue;
+        }
+        continue;
+      }
+
+      // If not a style prop, it's a component prop
+      computedProps[propName] = propValue;
     }
-  }
+
+    return { styles: computedStyles, componentProps: computedProps };
+  }, [props, theme]);
 
   const Component = as || View;
 
