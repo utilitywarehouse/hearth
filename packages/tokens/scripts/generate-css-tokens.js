@@ -17,10 +17,12 @@ StyleDictionary.registerFormat({
 @import '../css/border.css';
 @import '../css/button.css';
 @import '../css/color.css';
+@import '../css/focus.css';
 @import '../css/font.css';
 @import '../css/icon-button.css';
 @import '../css/layout.css';
 @import '../css/line-height.css';
+@import '../css/opacity.css';
 @import '../css/space.css';
 @import '../css/spinner.css';
 @import '../css/typography.css';
@@ -81,6 +83,15 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'opacity/value',
+  type: 'value',
+  filter: filters.isOpacity,
+  transform: token => {
+    return token.value / 100;
+  },
+});
+
 StyleDictionary.registerTransformGroup({
   name: 'css-transforms',
   transforms: [
@@ -93,6 +104,7 @@ StyleDictionary.registerTransformGroup({
     'border/px',
     'font-size/px-to-rem',
     'line-height/px-to-rem',
+    'opacity/value',
   ],
 });
 
@@ -153,6 +165,11 @@ export function generateCssTokens() {
               destination: 'border.css',
               format: 'css/variables',
               filter: filters.isPrimitiveBorder,
+            },
+            {
+              destination: 'opacity.css',
+              format: 'css/variables',
+              filter: filters.isOpacity,
             },
           ],
         },
