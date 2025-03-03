@@ -15,7 +15,6 @@
   -webkit-touch-callout: none;
   touch-action: manipulation; /* make clicks not need to wait and observe a potential double click, making the buttons feel faster */
   transition: background-color 200ms ease-out;
-
   box-shadow: inset 0 0 0 var(--button-border-width) var(--button-base-border-color);
   border-radius: var(--button-border-radius);
   color: var(--button-base-foreground-color);
@@ -36,6 +35,7 @@
     --emphasis-shadow-color: var(--button-emphasis-shadow-color);
     --emphasis-transform: translateY(4px) translateX(4px);
   }
+
   &:where([data-colorscheme='green']) {
     --solid-background-color: var(--button-solid-green-background-color);
     --solid-background-color-active: var(--button-solid-green-background-color-active);
@@ -52,6 +52,7 @@
     --ghost-foreground-color: var(--button-ghost-green-foreground-color);
     --emphasis-border-color: transparent;
   }
+
   &:where([data-colorscheme='red']) {
     --solid-background-color: var(--button-solid-red-background-color);
     --solid-background-color-active: var(--button-solid-red-background-color-active);
@@ -68,6 +69,7 @@
     --ghost-foreground-color: var(--button-ghost-red-foreground-color);
     --emphasis-border-color: transparent;
   }
+
   &:where([data-colorscheme='grey']) {
     --outline-background-color: var(--button-outline-grey-background-color);
     --outline-background-color-active: var(--button-outline-grey-background-color-active);
@@ -80,47 +82,6 @@
     --ghost-foreground-color: var(--button-ghost-grey-foreground-color);
     --solid-border-color: transparent;
     --emphasis-border-color: transparent;
-  }
-
-  &:where(.hearth-variant-emphasis) {
-    position: relative;
-    border: none;
-  }
-
-  &:where(.hearth-variant-emphasis) > .hearth-shadow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: var(--button-border-radius);
-    background: var(--emphasis-shadow-color);
-    will-change: transform;
-    transform: var(--emphasis-transform);
-  }
-
-  &:where(.hearth-variant-emphasis) > .hearth-front {
-    border-color: var(--emphasis-border-color);
-    color: var(--button-base-foreground-color);
-    background-color: var(--button-base-background-color);
-    border-radius: var(--button-border-radius);
-    border-width: var(--button-border-width);
-    border-style: solid;
-    display: block;
-    position: relative;
-    will-change: transform;
-    /* we can add a transition here when required */
-    /* transition: transform 200ms ease-out; */
-    --button-base-foreground-color: var(--emphasis-foreground-color);
-    --button-base-border-color: var(--button-emphasis-border-color);
-    --button-base-background-color: var(--emphasis-background-color);
-    --button-base-background-color-hover: var(--emphasis-background-color-hover);
-    --button-base-background-color-active: var(--emphasis-background-color-active);
-    @media (hover: hover) {
-      &:where(:hover):not([aria-disabled]) {
-        --button-base-background-color: var(--button-base-background-color-hover);
-      }
-    }
   }
 
   &:where(.hearth-variant-solid) {
@@ -147,12 +108,56 @@
     --button-base-background-color-active: var(--ghost-background-color-active);
   }
 
+  &:where(.hearth-variant-emphasis) {
+    position: relative;
+    box-shadow: none;
+
+    & > .hearth-shadow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--button-border-radius);
+      background: var(--emphasis-shadow-color);
+      will-change: transform;
+      transform: var(--emphasis-transform);
+    }
+
+    & > .hearth-front {
+      box-shadow: inset 0 0 0 var(--button-border-width) var(--button-base-border-color);
+      border-radius: var(--button-border-radius);
+      color: var(--button-base-foreground-color);
+      background-color: var(--button-base-background-color);
+      display: block;
+      position: relative;
+
+      /* we can add a transition here when required */
+
+      /* will-change: transform; */
+
+      /* transition: transform 200ms ease-out; */
+      --button-base-foreground-color: var(--emphasis-foreground-color);
+      --button-base-border-color: var(--button-emphasis-border-color);
+      --button-base-background-color: var(--emphasis-background-color);
+      --button-base-background-color-hover: var(--emphasis-background-color-hover);
+      --button-base-background-color-active: var(--emphasis-background-color-active);
+
+      @media (hover: hover) {
+        &:where(:hover):not([aria-disabled]) {
+          --button-base-background-color: var(--button-base-background-color-hover);
+        }
+      }
+    }
+  }
+
   &:where(:focus-visible) {
     outline: 2px solid var(--focus-border);
     outline-offset: 1px;
-  }
-  &:where(:focus-visible) > .hearth-shadow {
-    background: transparent;
+
+    & > .hearth-shadow {
+      background: transparent;
+    }
   }
 
   @media (hover: hover) {
@@ -161,18 +166,18 @@
     }
   }
 
-  &:where(:active):not([aria-disabled]) {
-    transition-duration: 0s;
-    --button-base-background-color: var(--button-base-background-color-active);
-  }
-  &:where(:active):not([aria-disabled]) > .hearth-front {
-    transition-duration: 0s;
-    --button-base-background-color: var(--button-base-background-color-active);
-    transform: var(--emphasis-transform);
-  }
-
   &:where([aria-disabled]) {
     cursor: not-allowed;
     opacity: var(--opacity-disabled);
+  }
+
+  &:where(:active):not([aria-disabled]) {
+    transition-duration: 0s;
+
+    --button-base-background-color: var(--button-base-background-color-active);
+
+    & > .hearth-front {
+      transform: var(--emphasis-transform);
+    }
   }
 }
