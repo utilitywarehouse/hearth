@@ -4,7 +4,7 @@ import figma from '@figma/code-connect';
 
 figma.connect(
   Badge,
-  'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components?node-id=61-652&t=j6vWFfxRVLbnAYhY-4',
+  'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components-%26-Tokens?node-id=61-652&t=8rlYQ45xy8j75vwM-4',
   {
     links: [
       {
@@ -13,20 +13,21 @@ figma.connect(
       },
     ],
     props: {
-      text: figma.string('text'),
+      text: figma.string('Text'),
       colorScheme: figma.enum('Color Scheme', {
-        blue: 'blue',
-        orange: 'orange',
-        green: 'green',
-        grey: 'grey',
-        red: 'red',
+        Blue: 'blue',
+        Orange: 'orange',
+        Green: 'green',
+        Grey: 'grey',
+        Red: 'red',
+      }),
+      variant: figma.enum('Variant', {
+        Solid: 'solid',
+        Outline: 'outline',
       }),
       flatBase: figma.boolean('Flat Base?'),
+      icon: figma.instance('Icon'),
     },
-    example: ({ text, colorScheme, flatBase }) => (
-      <Badge colorScheme={colorScheme} flatBase={flatBase}>
-        {text}
-      </Badge>
-    ),
+    example: ({ text, ...props }) => <Badge {...props}>{text}</Badge>,
   }
 );
