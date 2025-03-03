@@ -41,3 +41,6 @@ export type { StrongProps } from './components/Strong/Strong.props';
 
 export { Em } from './components/Em/Em';
 export type { EmProps } from './components/Em/Em.props';
+
+export { Button } from './components/Button/Button';
+export type { ButtonProps } from './components/Button/Button.props';

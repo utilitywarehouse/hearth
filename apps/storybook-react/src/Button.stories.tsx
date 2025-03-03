@@ -1,24 +1,28 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Button } from './Button';
-import * as React from 'react';
-import { Flex } from '../Flex/Flex';
-import { Heading } from '../Heading/Heading';
+import { Button, Flex, Heading, BodyText } from '@utilitywarehouse/hearth-react';
+import { ChevronLeft01SmallIcon, ChevronRight01SmallIcon } from '@utilitywarehouse/react-icons';
 
-const sizes = ['medium', 'small'] as const;
+const sizes = ['md', 'sm'] as const;
 const variants = ['solid', 'outline', 'ghost'] as const;
-const solidColorSchemes = ['cyan', 'red', 'green'] as const;
-const colorSchemes = [...solidColorSchemes, 'grey', 'gold'] as const;
+const solidColorSchemes = ['yellow', 'green', 'red'] as const;
+const otherColorSchemes = ['grey', 'green', 'red'] as const;
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Button> = {
   title: 'Stories / Button',
   component: Button,
-  parameters: { layout: 'centered' },
+  parameters: {
+    docs: {
+      description: {
+        component: 'Trigger an action or event, such as submitting a form or displaying a dialog.',
+      },
+    },
+  },
   argTypes: {
     children: { control: { type: 'text' } },
-    variant: { control: { type: 'radio' }, options: variants },
-    colorScheme: { options: colorSchemes, control: { type: 'radio' } },
+    variant: { control: { type: 'radio' }, options: ['emphasis', ...variants] },
+    colorScheme: { options: ['yellow', ...otherColorSchemes], control: { type: 'radio' } },
     size: { control: { type: 'radio' }, options: sizes },
     disabled: { control: { type: 'boolean' } },
   },
@@ -26,7 +30,7 @@ const meta: Meta<typeof Button> = {
     children: 'Button',
     onClick: fn(),
     variant: 'solid',
-    colorScheme: 'cyan',
+    colorScheme: 'yellow',
   },
 } satisfies Meta<typeof Button>;
 
@@ -40,7 +44,28 @@ export const KitchenSink: Story = {
   render: () => {
     return (
       <Flex direction="column" gap="600">
-        <Flex gap="16px" direction="column">
+        <Flex gap="200" direction="column">
+          <Heading>Emphasis</Heading>
+          <Flex gap="400" align="center">
+            {sizes.map(size => (
+              <Flex key={size} gap="100">
+                <Button variant="emphasis" colorScheme="yellow" size={size}>
+                  Button
+                </Button>
+              </Flex>
+            ))}
+          </Flex>
+          <Flex gap="400" align="center">
+            {sizes.map(size => (
+              <Flex key={size} gap="100">
+                <Button disabled variant="emphasis" colorScheme="yellow" size={size}>
+                  Button
+                </Button>
+              </Flex>
+            ))}
+          </Flex>
+        </Flex>
+        <Flex gap="200" direction="column">
           <Heading>Solid</Heading>
           <Flex gap="400" align="center">
             {sizes.map(size => (
@@ -77,7 +102,7 @@ export const KitchenSink: Story = {
             <Flex gap="400" align="center">
               {sizes.map(size => (
                 <Flex key={size} gap="100">
-                  {colorSchemes.map(colorScheme => (
+                  {otherColorSchemes.map(colorScheme => (
                     <Button
                       key={colorScheme}
                       variant={variant}
@@ -93,7 +118,7 @@ export const KitchenSink: Story = {
             <Flex gap="400" align="center">
               {sizes.map(size => (
                 <Flex key={size} gap="100">
-                  {colorSchemes.map(colorScheme => (
+                  {otherColorSchemes.map(colorScheme => (
                     <Button
                       disabled
                       key={colorScheme}
@@ -118,10 +143,10 @@ export const ResponsiveSize: Story = {
   args: {
     children: 'Responsive size button',
     size: {
-      mobile: 'medium',
-      tablet: 'small',
-      desktop: 'medium',
-      wide: 'small',
+      mobile: 'md',
+      tablet: 'sm',
+      desktop: 'md',
+      wide: 'sm',
     },
   },
 };
@@ -134,4 +159,51 @@ export const AsLink: Story = {
       </Button>
     );
   },
+};
+
+export const ButtonVariants: Story = {
+  parameters: { controls: { hideNoControlsWarning: true } },
+  render: () => {
+    return (
+      <Flex direction="column" gap="200">
+        <Button variant="emphasis">Emphasis Button</Button>
+
+        <Flex gap="100">
+          {solidColorSchemes.map(colorScheme => (
+            <Button key={colorScheme} variant="solid" colorScheme={colorScheme}>
+              Solid Button
+            </Button>
+          ))}
+        </Flex>
+
+        <Flex gap="100">
+          {otherColorSchemes.map(colorScheme => (
+            <Button key={colorScheme} variant="outline" colorScheme={colorScheme}>
+              Outline Button
+            </Button>
+          ))}
+        </Flex>
+        <Flex gap="100">
+          {otherColorSchemes.map(colorScheme => (
+            <Button key={colorScheme} variant="ghost" colorScheme={colorScheme}>
+              Ghost Button
+            </Button>
+          ))}
+        </Flex>
+      </Flex>
+    );
+  },
+};
+
+export const FullWidth: Story = {
+  render: args => (
+    <Flex direction="column" align={{ mobile: 'stretch', desktop: 'start' }} gap="200">
+      <BodyText>This Button is full width for screen widths below the desktop breakpoint.</BodyText>
+      <Button {...args}>
+        {args.children}
+        <ChevronRight01SmallIcon />
+      </Button>
+    </Flex>
+  ),
+  args: { children: 'Full width button with icon' },
 };

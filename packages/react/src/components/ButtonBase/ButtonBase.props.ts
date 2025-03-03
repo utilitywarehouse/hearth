@@ -1,7 +1,7 @@
 import { PropDef } from '../../props/prop-def';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
-const variants = ['solid', 'outline', 'ghost'] as const;
+const variants = ['emphasis', 'solid', 'outline', 'ghost'] as const;
 
 export const buttonBasePropDefs = {
   variant: { className: 'variant', tokens: variants, responsive: false, default: 'solid' },
@@ -14,18 +14,26 @@ export type ButtonBaseProps = ComponentPropsWithout<'button', RemovedProps> &
     | {
         /**
          * Sets the button's visual variant
-         * @default solid
+         */
+        variant?: 'emphasis';
+        /**
+         * Sets the button's colour scheme
+         */
+        colorScheme?: 'yellow';
+      }
+    | {
+        /**
+         * Sets the button's visual variant
          */
         variant?: 'solid';
         /**
          * Sets the button's colour scheme
-         * @default cyan
          */
-        colorScheme?: 'cyan' | 'red' | 'green';
+        colorScheme?: 'yellow' | 'green' | 'red';
       }
     | {
         variant?: 'outline' | 'ghost';
-        colorScheme?: 'cyan' | 'red' | 'green' | 'gold' | 'grey';
+        colorScheme?: 'grey' | 'green' | 'red';
       }
   ) & {
     /**

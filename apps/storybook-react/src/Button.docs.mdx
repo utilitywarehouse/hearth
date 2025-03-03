@@ -1,0 +1,221 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
+
+import * as Stories from './Button.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Components / Button" />
+
+<DocsHeader componentName="Button" stories={Stories} />
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+- [Accessibility](#accessibility)
+  - [Disabled buttons](#disabled-buttons)
+- [Variants](#variants)
+- [Colour schemes](#colour-schemes)
+- [Size](#size)
+- [Dead prop combinations](#dead-prop-combinations)
+- [With icons](#with-icons)
+- [Semantic HTML](#semantic-html)
+- [Full Width Button](#full-width-button)
+- [Usage with Next.js](#usage-with-next.js)
+- [API](#api)
+
+## Accessibility
+
+Uses a native `<button>` element under the hood, with support for the <kbd>Space</kbd> and <kbd>Enter</kbd> keys.
+
+### Disabled buttons
+
+Disabled buttons use `aria-disabled`, rather than `disabled`, so that they are
+still focusable when using the keyboard. This means that screen readers are
+still able to find the button, with the insight that it is disabled and that
+there is perhaps an action which needs to be taken, rather than not knowing
+there is a button there at all. The `onClick` handler will be disabled, however
+you will need to make sure you disable any other expected actions, including
+when using `type="submit"`.
+
+## Variants
+
+The variant prop controls the visual appearance of the Button.
+
+```tsx
+<Flex gap={2} align="center">
+  <Button variant="emphasis">Button</Button>
+  <Button variant="solid">Button</Button>
+  <Button variant="outline">Button</Button>
+  <Button variant="ghost">Button</Button>
+</Flex>
+```
+
+- The Emphasis variant of the Button is used for high emphasis actions where there will be no compromise to functionality.
+- Solid Buttons are typically used for actions that require high emphasis and are considered primary actions.
+- Outline Buttons typically have a medium level of emphasis. They are best suited for non-critical actions.
+- Ghost buttons are designed to have a lower prominence compared to other button variants. This makes them suitable for actions that are not as important and also allows them to be used as building blocks for other components.
+
+<Canvas of={Stories.ButtonVariants} sourceState="none" />
+
+## Colour schemes
+
+The `colorScheme` prop will change the button colours.
+
+```tsx
+<Button colorScheme="red">
+```
+
+## Size
+
+The size prop controls the size of the `Button`. This is a responsive prop and
+can be used to display different sizes at different breakpoints.
+
+```tsx
+<Button
+  size={{
+    mobile: 'md',
+    tablet: 'sm',
+    desktop: 'md',
+    wide: 'sm',
+  }}
+/>
+```
+
+## Dead prop combinations
+
+Be aware there are some combinations of `colorScheme` & `variant` that do not work together (ie. `solid` &
+`grey`), and if used will render a button with no colours at all.
+
+## With icons
+
+You can nest icons directly inside the `Button`. An appropriate gap is provided
+automatically, and the icon will inherit the appropriate colours.
+
+```tsx
+<Button variant="solid" size="md">
+  Continue
+  <ChevronRight01SmallIcon />
+</Button>
+```
+
+Icons from the Hearth Icons packages have `aria-hidden="true"` set by default. If
+you are using an icon from outside these packages, and for purely decorative
+reasons, please ensure it has this attribute set so that the icon is hidden
+from screen readers.
+
+Please also add the `data-icon` attribute to your icon so that it renders the
+appropriate styles.
+
+```tsx
+<Button>
+  <MyFontIcon aria-hidden="true" data-icon />
+  Edit account
+</Button>
+```
+
+## Semantic HTML
+
+> If it goes somewhere it's a link, if it does something it's a button.
+
+A semantic HTML `button` is rendered by default, however you can change the
+underlying HTML element by using the `asChild` prop.
+
+When `asChild` is set to true, we will not render a default DOM element,
+instead cloning the child and passing it the props and behaviour required to
+make it functional.
+
+Read more about this idea in the [Radix UI composition docs](https://www.radix-ui.com/primitives/docs/guides/composition).
+
+<Canvas of={Stories.AsLink} />
+
+```tsx
+<Button asChild>
+  <a href="https://uw.co.uk/services">View UW services</a>
+</Button>
+```
+
+## Full Width Button
+
+Use layout components, like `Flex`, to define your UI layouts, which can also be responsive.
+
+<Canvas of={Stories.FullWidth} />
+
+```tsx
+<Flex direction="column">
+  <Button>Button</Button>
+</Flex>
+
+<Flex direction="column" align={{ mobile: 'stretch', desktop: 'start' }}>
+  <Button>Responsive Button</Button>
+</Flex>
+```
+
+## Usage with Next.js
+
+### Next.js v13
+
+The Next.js `Link` component behaviour has changed in v13, so that an `<a>` is
+no longer required as a child. You can render the Heart React `Button` component as a
+Next.js `Link` component using `asChild`:
+
+```tsx
+import NextLink from 'next/link';
+import { Button } from '@utilitywarehouse/web-ui';
+
+[...]
+
+<Button asChild onClick={onClick}>
+  <NextLink href={href}>{title}</NextLink>
+</Button>
+```
+
+You can also use the `legacyBehavior` prop directly on the Next.js Link component:
+
+```tsx
+import NextLink from 'next/link';
+import { Button } from '@utilitywarehouse/web-ui';
+
+[...]
+
+<NextLink href={href} passHref legacyBehavior>
+  <Button {...props} asChild onClick={onClick}>
+    <a href={href as string}>{title}</a>
+  </Button>
+</NextLink>
+```
+
+And if you want to set this behavior globally you can use the following Next.js
+configuration:
+
+```
+{
+  experimental: {
+    newNextLinkBehavior: false
+  }
+}
+```
+
+### Next.js before v13
+
+```tsx
+import NextLink from 'next/link';
+import { Button } from '@utilitywarehouse/web-ui';
+
+[...]
+
+<NextLink href={href} passHref>
+  <Button {...props} asChild onClick={onClick}>
+    <a href={href as string}>{title}</a>
+  </Button>
+</NextLink>
+```
+
+## API
+
+This component is based on the `button` element.
+
+| Prop          | Type                                            |
+| ------------- | ----------------------------------------------- |
+| `asChild`     | `boolean`                                       |
+| `size`        | `Responsive<"sm" \| "md">`                      |
+| `variant`     | `"emphasis" \| "solid" \| "outline" \| "ghost"` |
+| `colorScheme` | `"yellow" \| "grey" \| "green" \| "red"`        |

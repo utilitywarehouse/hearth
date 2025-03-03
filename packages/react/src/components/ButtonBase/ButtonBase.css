@@ -1,0 +1,187 @@
+.hearth-ButtonBase {
+  all: unset;
+  outline: transparent;
+  appearance: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-shrink: 0;
+  user-select: none; /* make inner text unselectable */
+  vertical-align: top;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  touch-action: manipulation; /* make clicks not need to wait and observe a potential double click, making the buttons feel faster */
+  transition: background-color 200ms ease-out;
+  box-shadow: inset 0 0 0 var(--button-border-width) var(--button-base-border-color);
+  border-radius: var(--button-border-radius);
+  color: var(--button-base-foreground-color);
+  background-color: var(--button-base-background-color);
+
+  &:where([data-colorscheme='yellow']) {
+    --solid-background-color: var(--button-solid-yellow-background-color);
+    --solid-background-color-active: var(--button-solid-yellow-background-color-active);
+    --solid-background-color-hover: var(--button-solid-yellow-background-color-hover);
+    --solid-foreground-color: var(--button-solid-yellow-foreground-color);
+    --solid-border-color: var(--button-solid-border-color);
+    --emphasis-border-color: var(--button-base-border-color);
+    --outline-border-color: transparent;
+    --emphasis-background-color: var(--button-emphasis-yellow-background-color);
+    --emphasis-background-color-active: var(--button-emphasis-yellow-background-color-active);
+    --emphasis-background-color-hover: var(--button-emphasis-yellow-background-color-hover);
+    --emphasis-foreground-color: var(--button-emphasis-yellow-foreground-color);
+    --emphasis-shadow-color: var(--button-emphasis-shadow-color);
+    --emphasis-transform: translateY(4px) translateX(4px);
+  }
+
+  &:where([data-colorscheme='green']) {
+    --solid-background-color: var(--button-solid-green-background-color);
+    --solid-background-color-active: var(--button-solid-green-background-color-active);
+    --solid-background-color-hover: var(--button-solid-green-background-color-hover);
+    --solid-foreground-color: var(--button-solid-green-foreground-color);
+    --solid-border-color: var(--button-solid-border-color);
+    --outline-background-color: var(--button-outline-green-background-color);
+    --outline-background-color-active: var(--button-outline-green-background-color-active);
+    --outline-background-color-hover: var(--button-outline-green-background-color-hover);
+    --outline-foreground-color: var(--button-outline-green-foreground-color);
+    --outline-border-color: var(--button-outline-green-border-color);
+    --ghost-background-color: var(--button-ghost-green-background-color);
+    --ghost-background-color-active: var(--button-ghost-green-background-color-active);
+    --ghost-background-color-hover: var(--button-ghost-green-background-color-hover);
+    --ghost-foreground-color: var(--button-ghost-green-foreground-color);
+    --emphasis-border-color: transparent;
+  }
+
+  &:where([data-colorscheme='red']) {
+    --solid-background-color: var(--button-solid-red-background-color);
+    --solid-background-color-active: var(--button-solid-red-background-color-active);
+    --solid-background-color-hover: var(--button-solid-red-background-color-hover);
+    --solid-foreground-color: var(--button-solid-red-foreground-color);
+    --solid-border-color: var(--button-solid-border-color);
+    --outline-background-color: var(--button-outline-red-background-color);
+    --outline-background-color-active: var(--button-outline-red-background-color-active);
+    --outline-background-color-hover: var(--button-outline-red-background-color-hover);
+    --outline-foreground-color: var(--button-outline-red-foreground-color);
+    --outline-border-color: var(--button-outline-red-border-color);
+    --ghost-background-color: var(--button-ghost-red-background-color);
+    --ghost-background-color-active: var(--button-ghost-red-background-color-active);
+    --ghost-background-color-hover: var(--button-ghost-red-background-color-hover);
+    --ghost-foreground-color: var(--button-ghost-red-foreground-color);
+    --emphasis-border-color: transparent;
+  }
+
+  &:where([data-colorscheme='grey']) {
+    --outline-background-color: var(--button-outline-grey-background-color);
+    --outline-background-color-active: var(--button-outline-grey-background-color-active);
+    --outline-background-color-hover: var(--button-outline-grey-background-color-hover);
+    --outline-foreground-color: var(--button-outline-grey-foreground-color);
+    --outline-border-color: var(--button-outline-grey-border-color);
+    --ghost-background-color: var(--button-ghost-grey-background-color);
+    --ghost-background-color-active: var(--button-ghost-grey-background-color-active);
+    --ghost-background-color-hover: var(--button-ghost-grey-background-color-hover);
+    --ghost-foreground-color: var(--button-ghost-grey-foreground-color);
+    --solid-border-color: transparent;
+    --emphasis-border-color: transparent;
+  }
+
+  &:where(.hearth-variant-solid) {
+    --button-base-foreground-color: var(--solid-foreground-color);
+    --button-base-border-color: var(--solid-border-color);
+    --button-base-background-color: var(--solid-background-color);
+    --button-base-background-color-hover: var(--solid-background-color-hover);
+    --button-base-background-color-active: var(--solid-background-color-active);
+  }
+
+  &:where(.hearth-variant-outline) {
+    --button-base-foreground-color: var(--outline-foreground-color);
+    --button-base-border-color: var(--outline-border-color);
+    --button-base-background-color: transparent;
+    --button-base-background-color-hover: var(--outline-background-color-hover);
+    --button-base-background-color-active: var(--outline-background-color-active);
+  }
+
+  &:where(.hearth-variant-ghost) {
+    --button-base-border-color: transparent;
+    --button-base-foreground-color: var(--ghost-foreground-color);
+    --button-base-background-color: transparent;
+    --button-base-background-color-hover: var(--ghost-background-color-hover);
+    --button-base-background-color-active: var(--ghost-background-color-active);
+  }
+
+  &:where(.hearth-variant-emphasis) {
+    position: relative;
+    box-shadow: none;
+    width: fit-content;
+    height: fit-content;
+
+    & > .hearth-shadow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: var(--button-border-radius);
+      background: var(--emphasis-shadow-color);
+      will-change: transform;
+      transform: var(--emphasis-transform);
+    }
+
+    & > .hearth-front {
+      box-shadow: inset 0 0 0 var(--button-border-width) var(--button-base-border-color);
+      border-radius: var(--button-border-radius);
+      color: var(--button-base-foreground-color);
+      background-color: var(--button-base-background-color);
+      display: block;
+      position: relative;
+
+      /* we can add a transition here when required */
+
+      /* will-change: transform; */
+
+      /* transition: transform 200ms ease-out; */
+      --button-base-foreground-color: var(--emphasis-foreground-color);
+      --button-base-border-color: var(--button-emphasis-border-color);
+      --button-base-background-color: var(--emphasis-background-color);
+      --button-base-background-color-hover: var(--emphasis-background-color-hover);
+      --button-base-background-color-active: var(--emphasis-background-color-active);
+
+      @media (hover: hover) {
+        &:where(:hover):not([aria-disabled]) {
+          --button-base-background-color: var(--button-base-background-color-hover);
+        }
+      }
+    }
+  }
+
+  &:where(:focus-visible) {
+    outline: 2px solid var(--focus-border);
+    outline-offset: 1px;
+
+    & > .hearth-shadow {
+      background: transparent;
+    }
+  }
+
+  @media (hover: hover) {
+    &:where(:hover):not([aria-disabled]) {
+      --button-base-background-color: var(--button-base-background-color-hover);
+    }
+  }
+
+  &:where([aria-disabled]) {
+    cursor: not-allowed;
+    opacity: var(--opacity-disabled);
+  }
+
+  &:where(:active):not([aria-disabled]) {
+    transition-duration: 0s;
+
+    --button-base-background-color: var(--button-base-background-color-active);
+
+    & > .hearth-front {
+      transform: var(--emphasis-transform);
+    }
+  }
+}
