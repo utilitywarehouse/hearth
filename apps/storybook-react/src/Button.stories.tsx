@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Button, Flex, Heading } from '@utilitywarehouse/hearth-react';
+import { Button, Flex, Heading, BodyText } from '@utilitywarehouse/hearth-react';
+import { ChevronLeft01SmallIcon, ChevronRight01SmallIcon } from '@utilitywarehouse/react-icons';
 
 const sizes = ['md', 'sm'] as const;
 const variants = ['solid', 'outline', 'ghost'] as const;
@@ -11,6 +12,13 @@ const otherColorSchemes = ['grey', 'green', 'red'] as const;
 const meta: Meta<typeof Button> = {
   title: 'Stories / Button',
   component: Button,
+  parameters: {
+    docs: {
+      description: {
+        component: 'Trigger an action or event, such as submitting a form or displaying a dialog.',
+      },
+    },
+  },
   argTypes: {
     children: { control: { type: 'text' } },
     variant: { control: { type: 'radio' }, options: ['emphasis', ...variants] },
@@ -36,7 +44,7 @@ export const KitchenSink: Story = {
   render: () => {
     return (
       <Flex direction="column" gap="600">
-        <Flex gap="16px" direction="column">
+        <Flex gap="200" direction="column">
           <Heading>Emphasis</Heading>
           <Flex gap="400" align="center">
             {sizes.map(size => (
@@ -57,7 +65,7 @@ export const KitchenSink: Story = {
             ))}
           </Flex>
         </Flex>
-        <Flex gap="16px" direction="column">
+        <Flex gap="200" direction="column">
           <Heading>Solid</Heading>
           <Flex gap="400" align="center">
             {sizes.map(size => (
@@ -151,4 +159,51 @@ export const AsLink: Story = {
       </Button>
     );
   },
+};
+
+export const ButtonVariants: Story = {
+  parameters: { controls: { hideNoControlsWarning: true } },
+  render: () => {
+    return (
+      <Flex direction="column" gap="200">
+        <Button variant="emphasis">Emphasis Button</Button>
+
+        <Flex gap="100">
+          {solidColorSchemes.map(colorScheme => (
+            <Button key={colorScheme} variant="solid" colorScheme={colorScheme}>
+              Solid Button
+            </Button>
+          ))}
+        </Flex>
+
+        <Flex gap="100">
+          {otherColorSchemes.map(colorScheme => (
+            <Button key={colorScheme} variant="outline" colorScheme={colorScheme}>
+              Outline Button
+            </Button>
+          ))}
+        </Flex>
+        <Flex gap="100">
+          {otherColorSchemes.map(colorScheme => (
+            <Button key={colorScheme} variant="ghost" colorScheme={colorScheme}>
+              Ghost Button
+            </Button>
+          ))}
+        </Flex>
+      </Flex>
+    );
+  },
+};
+
+export const FullWidth: Story = {
+  render: args => (
+    <Flex direction="column" align={{ mobile: 'stretch', desktop: 'start' }} gap="200">
+      <BodyText>This Button is full width for screen widths below the desktop breakpoint.</BodyText>
+      <Button {...args}>
+        {args.children}
+        <ChevronRight01SmallIcon />
+      </Button>
+    </Flex>
+  ),
+  args: { children: 'Full width button with icon' },
 };

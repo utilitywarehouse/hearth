@@ -41,6 +41,7 @@
     --solid-background-color-active: var(--button-solid-green-background-color-active);
     --solid-background-color-hover: var(--button-solid-green-background-color-hover);
     --solid-foreground-color: var(--button-solid-green-foreground-color);
+    --solid-border-color: var(--button-solid-border-color);
     --outline-background-color: var(--button-outline-green-background-color);
     --outline-background-color-active: var(--button-outline-green-background-color-active);
     --outline-background-color-hover: var(--button-outline-green-background-color-hover);
@@ -58,6 +59,7 @@
     --solid-background-color-active: var(--button-solid-red-background-color-active);
     --solid-background-color-hover: var(--button-solid-red-background-color-hover);
     --solid-foreground-color: var(--button-solid-red-foreground-color);
+    --solid-border-color: var(--button-solid-border-color);
     --outline-background-color: var(--button-outline-red-background-color);
     --outline-background-color-active: var(--button-outline-red-background-color-active);
     --outline-background-color-hover: var(--button-outline-red-background-color-hover);
@@ -111,6 +113,8 @@
   &:where(.hearth-variant-emphasis) {
     position: relative;
     box-shadow: none;
+    width: fit-content;
+    height: fit-content;
 
     & > .hearth-shadow {
       position: absolute;

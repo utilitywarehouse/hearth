@@ -50,6 +50,7 @@ const preview: Preview = {
           'Primitives',
           ['Overview', 'Box', 'Flex', 'Grid'],
           'Typography',
+          'Components',
           'Utilities',
           'Stories',
         ],

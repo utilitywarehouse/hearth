@@ -16,8 +16,9 @@ export type ButtonBaseElement = ElementRef<'button'>;
 export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((props, ref) => {
   const { colorScheme, className, disabled, onClick, asChild, children, ...buttonBaseProps } =
     extractProps(props, buttonBasePropDefs);
-  const dataAttributeProps = { [DATA_ATTRIBUTES.colorscheme]: colorScheme };
   const { variant } = props;
+  const defaultColorScheme = variant === 'emphasis' || variant === 'solid' ? 'yellow' : 'grey';
+  const dataAttributeProps = { [DATA_ATTRIBUTES.colorscheme]: colorScheme || defaultColorScheme };
 
   const Component = asChild ? Slot : 'button';
 
