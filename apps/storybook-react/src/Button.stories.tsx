@@ -13,7 +13,7 @@ const meta: Meta<typeof Button> = {
   component: Button,
   argTypes: {
     children: { control: { type: 'text' } },
-    variant: { control: { type: 'radio' }, options: variants },
+    variant: { control: { type: 'radio' }, options: ['emphasis', ...variants] },
     colorScheme: { options: ['yellow', ...otherColorSchemes], control: { type: 'radio' } },
     size: { control: { type: 'radio' }, options: sizes },
     disabled: { control: { type: 'boolean' } },

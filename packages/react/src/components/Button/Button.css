@@ -8,6 +8,17 @@
   padding-inline: var(--button-padding-inline);
   padding-block: var(--button-padding-block);
 
+  &:where(.hearth-variant-emphasis) {
+    min-width: 0;
+    padding: 0;
+  }
+
+  &:where(.hearth-variant-emphasis) > .hearth-front {
+    min-width: 124px;
+    padding-inline: var(--button-padding-inline);
+    padding-block: var(--button-padding-block);
+  }
+
   @breakpoints {
     &:where(.hearth-r-size-md) {
       --button-padding-inline: var(--button-md-padding-horizontal);

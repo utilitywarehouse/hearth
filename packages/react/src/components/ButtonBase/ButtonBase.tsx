@@ -14,13 +14,33 @@ const componentClassName = withGlobalPrefix(componentName);
 export type ButtonBaseElement = ElementRef<'button'>;
 
 export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((props, ref) => {
-  const { colorScheme, className, disabled, onClick, asChild, ...buttonBaseProps } = extractProps(
-    props,
-    buttonBasePropDefs
-  );
+  const { colorScheme, className, disabled, onClick, asChild, children, ...buttonBaseProps } =
+    extractProps(props, buttonBasePropDefs);
   const dataAttributeProps = { [DATA_ATTRIBUTES.colorscheme]: colorScheme };
+  const { variant } = props;
 
   const Component = asChild ? Slot : 'button';
+
+  // We're rendering a different component here so that we don't have to apply
+  // transitions to box-shadow, which causes re-paints on every frame, heavily
+  // impacting performance.
+  if (variant === 'emphasis') {
+    return (
+      <Component
+        ref={ref}
+        aria-disabled={disabled || undefined}
+        className={clsx(componentClassName, className)}
+        // as we're using aria-disabled instead of disabled then we need to
+        // disable the onClick event
+        onClick={disabled ? undefined : onClick}
+        {...dataAttributeProps}
+        {...buttonBaseProps}
+      >
+        <span className="hearth-shadow"></span>
+        <span className="hearth-front">{children}</span>
+      </Component>
+    );
+  }
 
   return (
     <Component
@@ -32,7 +52,9 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
       onClick={disabled ? undefined : onClick}
       {...dataAttributeProps}
       {...buttonBaseProps}
-    />
+    >
+      {children}
+    </Component>
   );
 });
 
