@@ -442,7 +442,8 @@
         "yellow": {
           "background-color": {
             "alias": "{color.dark.yellow.600}",
-            "type": "unknown"
+            "type": "color",
+            "value": "#d69200"
           },
           "background-color-active": {
             "alias": "{color.dark.yellow.400}",
@@ -973,7 +974,8 @@
       "checked": {
         "background-color": {
           "alias": "{color.dark.purple.300}",
-          "type": "unknown"
+          "type": "color",
+          "value": "#7a42c8"
         },
         "background-color-active": {
           "alias": "{color.dark.purple.100}",

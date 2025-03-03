@@ -95,6 +95,7 @@ export default {
       foregroundColor: '#fcfbf2',
     },
     yellow: {
+      backgroundColor: '#d69200',
       backgroundColorActive: '#d69200',
       backgroundColorHover: '#eba400',
       foregroundColor: '#101010',

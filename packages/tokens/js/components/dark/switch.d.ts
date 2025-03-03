@@ -3,6 +3,7 @@
  */
 declare const _default: {
   readonly checked: {
+    readonly backgroundColor: '#7a42c8';
     readonly backgroundColorActive: '#4b2475';
     readonly backgroundColorHover: '#572e9e';
   };
