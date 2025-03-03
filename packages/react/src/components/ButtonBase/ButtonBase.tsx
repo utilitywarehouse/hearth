@@ -14,14 +14,10 @@ const componentClassName = withGlobalPrefix(componentName);
 export type ButtonBaseElement = ElementRef<'button'>;
 
 export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((props, ref) => {
-  const {
-    colorScheme = 'cyan',
-    className,
-    disabled,
-    onClick,
-    asChild,
-    ...buttonBaseProps
-  } = extractProps(props, buttonBasePropDefs);
+  const { colorScheme, className, disabled, onClick, asChild, ...buttonBaseProps } = extractProps(
+    props,
+    buttonBasePropDefs
+  );
   const dataAttributeProps = { [DATA_ATTRIBUTES.colorscheme]: colorScheme };
 
   const Component = asChild ? Slot : 'button';

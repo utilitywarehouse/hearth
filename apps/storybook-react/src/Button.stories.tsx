@@ -1,24 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Button } from './Button';
-import * as React from 'react';
-import { Flex } from '../Flex/Flex';
-import { Heading } from '../Heading/Heading';
+import { Button, Flex, Heading } from '@utilitywarehouse/hearth-react';
 
-const sizes = ['medium', 'small'] as const;
+const sizes = ['md', 'sm'] as const;
 const variants = ['solid', 'outline', 'ghost'] as const;
-const solidColorSchemes = ['cyan', 'red', 'green'] as const;
-const colorSchemes = [...solidColorSchemes, 'grey', 'gold'] as const;
+const solidColorSchemes = ['yellow', 'green', 'red'] as const;
+const otherColorSchemes = ['grey', 'green', 'red'] as const;
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Button> = {
   title: 'Stories / Button',
   component: Button,
-  parameters: { layout: 'centered' },
   argTypes: {
     children: { control: { type: 'text' } },
     variant: { control: { type: 'radio' }, options: variants },
-    colorScheme: { options: colorSchemes, control: { type: 'radio' } },
+    colorScheme: { options: ['yellow', ...otherColorSchemes], control: { type: 'radio' } },
     size: { control: { type: 'radio' }, options: sizes },
     disabled: { control: { type: 'boolean' } },
   },
@@ -26,7 +22,7 @@ const meta: Meta<typeof Button> = {
     children: 'Button',
     onClick: fn(),
     variant: 'solid',
-    colorScheme: 'cyan',
+    colorScheme: 'yellow',
   },
 } satisfies Meta<typeof Button>;
 
@@ -77,7 +73,7 @@ export const KitchenSink: Story = {
             <Flex gap="400" align="center">
               {sizes.map(size => (
                 <Flex key={size} gap="100">
-                  {colorSchemes.map(colorScheme => (
+                  {otherColorSchemes.map(colorScheme => (
                     <Button
                       key={colorScheme}
                       variant={variant}
@@ -93,7 +89,7 @@ export const KitchenSink: Story = {
             <Flex gap="400" align="center">
               {sizes.map(size => (
                 <Flex key={size} gap="100">
-                  {colorSchemes.map(colorScheme => (
+                  {otherColorSchemes.map(colorScheme => (
                     <Button
                       disabled
                       key={colorScheme}
@@ -118,10 +114,10 @@ export const ResponsiveSize: Story = {
   args: {
     children: 'Responsive size button',
     size: {
-      mobile: 'medium',
-      tablet: 'small',
-      desktop: 'medium',
-      wide: 'small',
+      mobile: 'md',
+      tablet: 'sm',
+      desktop: 'md',
+      wide: 'sm',
     },
   },
 };

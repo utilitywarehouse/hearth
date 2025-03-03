@@ -14,18 +14,26 @@ export type ButtonBaseProps = ComponentPropsWithout<'button', RemovedProps> &
     | {
         /**
          * Sets the button's visual variant
-         * @default solid
+         */
+        variant?: 'emphasis';
+        /**
+         * Sets the button's colour scheme
+         */
+        colorScheme?: 'yellow';
+      }
+    | {
+        /**
+         * Sets the button's visual variant
          */
         variant?: 'solid';
         /**
          * Sets the button's colour scheme
-         * @default cyan
          */
-        colorScheme?: 'cyan' | 'red' | 'green';
+        colorScheme?: 'yellow' | 'green' | 'red';
       }
     | {
         variant?: 'outline' | 'ghost';
-        colorScheme?: 'cyan' | 'red' | 'green' | 'gold' | 'grey';
+        colorScheme?: 'grey' | 'green' | 'red';
       }
   ) & {
     /**

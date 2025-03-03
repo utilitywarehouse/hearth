@@ -1,0 +1,78 @@
+.hearth-ButtonBase {
+  all: unset;
+  outline: transparent;
+  appearance: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-shrink: 0;
+  user-select: none; /* make inner text unselectable */
+  vertical-align: top;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  touch-action: manipulation; /* make clicks not need to wait and observe a potential double click, making the buttons feel faster */
+  transition-duration: 0.2s;
+  transition-property: color, background-color, border-color;
+
+  border-style: solid;
+  border-width: var(--button-border-width);
+  border-radius: var(--button-border-radius);
+  border-color: var(--button-base-border-color);
+  color: var(--button-base-foreground-color);
+  background-color: var(--button-base-background-color);
+
+  &:where([data-colorscheme='yellow']) {
+    --solid-background-color: var(--button-solid-yellow-background-color);
+    --solid-background-color-active: var(--button-solid-yellow-background-color-active);
+    --solid-background-color-hover: var(--button-solid-yellow-background-color-hover);
+    --solid-foreground-color: var(--button-solid-yellow-foreground-color);
+  }
+  &:where([data-colorscheme='green']) {
+    --solid-background-color: var(--button-solid-green-background-color);
+    --solid-background-color-active: var(--button-solid-green-background-color-active);
+    --solid-background-color-hover: var(--button-solid-green-background-color-hover);
+    --solid-foreground-color: var(--button-solid-green-foreground-color);
+  }
+  &:where([data-colorscheme='red']) {
+    --solid-background-color: var(--button-solid-red-background-color);
+    --solid-background-color-active: var(--button-solid-red-background-color-active);
+    --solid-background-color-hover: var(--button-solid-red-background-color-hover);
+    --solid-foreground-color: var(--button-solid-red-foreground-color);
+  }
+
+  &:where(.hearth-variant-solid) {
+    --button-base-foreground-color: var(--solid-foreground-color);
+    --button-base-border-color: var(--button-solid-border-color);
+    --button-base-background-color: var(--solid-background-color);
+    --button-base-background-color-hover: var(--solid-background-color-hover);
+    --button-base-background-color-active: var(--solid-background-color-active);
+  }
+
+  &:where(:focus-visible) {
+    outline: 2px solid var(--focus-border);
+    outline-offset: 1px;
+  }
+
+  @media (hover: hover) {
+    &:where(:hover) {
+      --button-base-background-color: var(--button-base-background-color-hover);
+    }
+  }
+
+  &:where(:active) {
+    transition-duration: 0s;
+    --button-base-background-color: var(--button-base-background-color-active);
+  }
+
+  &:where([aria-disabled]) {
+    cursor: not-allowed;
+
+    --button-base-foreground-color: var(--button-base-foreground-color-disabled);
+    --button-base-background-color: var(--button-base-background-color-disabled);
+    --button-base-border-color: var(--button-base-border-color-disabled);
+
+  }
+}
