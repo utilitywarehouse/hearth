@@ -3,6 +3,7 @@
  */
 
 export default {
+  borderRadius: 8,
   borderWidth: 2,
   emphasis: {
     borderColor: '#101010',
@@ -22,6 +23,7 @@ export default {
       },
     },
   },
+  gap: 6,
   ghost: {
     green: {
       backgroundColorActive: '#c5edda',
@@ -45,8 +47,6 @@ export default {
     },
   },
   md: {
-    borderRadius: 8,
-    gap: 6,
     paddingHorizontal: 16,
     paddingVertical: 12,
   },
@@ -77,8 +77,6 @@ export default {
     },
   },
   sm: {
-    borderRadius: 8,
-    gap: 6,
     paddingHorizontal: 16,
     paddingVertical: 4,
   },
@@ -97,7 +95,6 @@ export default {
       foregroundColor: '#fcfbf2',
     },
     yellow: {
-      backgroundColor: '#ffb921',
       backgroundColorActive: '#d69200',
       backgroundColorHover: '#eba400',
       foregroundColor: '#101010',

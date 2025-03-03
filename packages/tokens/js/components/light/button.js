@@ -2,6 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
+  borderRadius: 8,
   borderWidth: 2,
   emphasis: {
     borderColor: '#101010',
@@ -21,6 +22,7 @@ export default {
       },
     },
   },
+  gap: 6,
   ghost: {
     green: {
       backgroundColorActive: '#c5edda',
@@ -44,8 +46,6 @@ export default {
     },
   },
   md: {
-    borderRadius: 8,
-    gap: 6,
     paddingHorizontal: 16,
     paddingVertical: 12,
   },
@@ -76,8 +76,6 @@ export default {
     },
   },
   sm: {
-    borderRadius: 8,
-    gap: 6,
     paddingHorizontal: 16,
     paddingVertical: 4,
   },

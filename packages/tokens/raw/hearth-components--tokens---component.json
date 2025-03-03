@@ -148,7 +148,8 @@
         "yellow": {
           "background-color": {
             "alias": "{color.dark.yellow.600}",
-            "type": "unknown"
+            "type": "color",
+            "value": "#ffb921"
           },
           "background-color-active": {
             "alias": "{color.dark.yellow.400}",
@@ -168,7 +169,8 @@
           "inverted": {
             "background-color": {
               "alias": "{color.dark.yellow.600}",
-              "type": "unknown"
+              "type": "color",
+              "value": "#ffb921"
             },
             "background-color-active": {
               "alias": "{color.dark.yellow.400}",
