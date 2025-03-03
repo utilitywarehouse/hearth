@@ -3,11 +3,19 @@
     font-weight: var(--font-weight-regular);
   }
 
+  .hearth-r-weight-medium {
+    font-weight: var(--font-weight-medium);
+  }
+
   .hearth-r-weight-semibold {
     font-weight: var(--font-weight-semibold);
   }
 
   .hearth-r-weight-bold {
     font-weight: var(--font-weight-bold);
+  }
+
+  .hearth-r-weight-heavy {
+    font-weight: var(--font-weight-heavy);
   }
 }
