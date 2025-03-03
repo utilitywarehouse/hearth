@@ -14,6 +14,7 @@ export * from './IconButton';
 export * from './InlineLink';
 export * from './Link';
 export * from './List';
+export * from './Skeleton';
 export * from './Spinner';
 
 export {

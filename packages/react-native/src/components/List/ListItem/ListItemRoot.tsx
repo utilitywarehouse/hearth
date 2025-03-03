@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useMemo } from 'react';
 import type ListItemProps from './ListItem.props';
 import { ChevronRight01MediumIcon } from '../../../../docs/components/icons';
-// import { Skeleton } from '../../Skeleton';
+import { Skeleton } from '../../Skeleton';
 import { useListContext } from '../List.context';
 import { StyleSheet } from 'react-native-unistyles';
 import { Pressable, ViewStyle } from 'react-native';
@@ -75,28 +75,23 @@ const ListItemRoot = forwardRef<
       };
     }, [active, showPressed, showDivider, isLoading, isDisabled]);
 
-    // if (loading || listContext?.loading) {
-    //   return (
-    //     <Pressable
-    //       ref={ref}
-    //       {...props}
-    //       style={[styles.container, props.style as ViewStyle]}
-    //       disabled={isDisabled}
-    //     >
-    //       {leadingContent ? <Skeleton width={24} height={24} /> : null}
-    //       <ListItemContent>
-    //         <Skeleton
-    //           width="80%"
-    //           height={20}
-    //           backgroundColor="$grey100"
-    //           $dark-backgroundColor="$darkGrey400"
-    //         />
-    //         <Skeleton width="100%" height={16} />
-    //       </ListItemContent>
-    //       {onPress || trailingContent ? <Skeleton width={24} height={24} /> : null}
-    //     </Pressable>
-    //   );
-    // }
+    if (loading || listContext?.loading) {
+      return (
+        <Pressable
+          ref={ref}
+          {...props}
+          style={[styles.container, props.style as ViewStyle]}
+          disabled={isDisabled}
+        >
+          {leadingContent ? <Skeleton width={24} height={24} /> : null}
+          <ListItemContent>
+            <Skeleton width="80%" height={20} />
+            <Skeleton width="100%" height={16} />
+          </ListItemContent>
+          {onPress || trailingContent ? <Skeleton width={24} height={24} /> : null}
+        </Pressable>
+      );
+    }
 
     return (
       <ListItemContext.Provider value={value}>
