@@ -1,7 +1,7 @@
 import { PropDef } from '../../props/prop-def';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
-const variants = ['solid', 'outline', 'ghost'] as const;
+const variants = ['emphasis', 'solid', 'outline', 'ghost'] as const;
 
 export const buttonBasePropDefs = {
   variant: { className: 'variant', tokens: variants, responsive: false, default: 'solid' },

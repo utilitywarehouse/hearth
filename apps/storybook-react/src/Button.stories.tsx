@@ -37,6 +37,27 @@ export const KitchenSink: Story = {
     return (
       <Flex direction="column" gap="600">
         <Flex gap="16px" direction="column">
+          <Heading>Emphasis</Heading>
+          <Flex gap="400" align="center">
+            {sizes.map(size => (
+              <Flex key={size} gap="100">
+                <Button variant="emphasis" colorScheme="yellow" size={size}>
+                  Button
+                </Button>
+              </Flex>
+            ))}
+          </Flex>
+          <Flex gap="400" align="center">
+            {sizes.map(size => (
+              <Flex key={size} gap="100">
+                <Button disabled variant="emphasis" colorScheme="yellow" size={size}>
+                  Button
+                </Button>
+              </Flex>
+            ))}
+          </Flex>
+        </Flex>
+        <Flex gap="16px" direction="column">
           <Heading>Solid</Heading>
           <Flex gap="400" align="center">
             {sizes.map(size => (

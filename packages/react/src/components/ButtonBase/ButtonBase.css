@@ -29,18 +29,68 @@
     --solid-background-color-active: var(--button-solid-yellow-background-color-active);
     --solid-background-color-hover: var(--button-solid-yellow-background-color-hover);
     --solid-foreground-color: var(--button-solid-yellow-foreground-color);
+    --emphasis-background-color: var(--button-emphasis-yellow-background-color);
+    --emphasis-background-color-active: var(--button-emphasis-yellow-background-color-active);
+    --emphasis-background-color-hover: var(--button-emphasis-yellow-background-color-hover);
+    --emphasis-foreground-color: var(--button-emphasis-yellow-foreground-color);
   }
   &:where([data-colorscheme='green']) {
     --solid-background-color: var(--button-solid-green-background-color);
     --solid-background-color-active: var(--button-solid-green-background-color-active);
     --solid-background-color-hover: var(--button-solid-green-background-color-hover);
     --solid-foreground-color: var(--button-solid-green-foreground-color);
+    --outline-background-color: var(--button-outline-green-background-color);
+    --outline-background-color-active: var(--button-outline-green-background-color-active);
+    --outline-background-color-hover: var(--button-outline-green-background-color-hover);
+    --outline-foreground-color: var(--button-outline-green-foreground-color);
+    --outline-border-color: var(--button-outline-green-border-color);
+    --ghost-background-color: var(--button-ghost-green-background-color);
+    --ghost-background-color-active: var(--button-ghost-green-background-color-active);
+    --ghost-background-color-hover: var(--button-ghost-green-background-color-hover);
+    --ghost-foreground-color: var(--button-ghost-green-foreground-color);
   }
   &:where([data-colorscheme='red']) {
     --solid-background-color: var(--button-solid-red-background-color);
     --solid-background-color-active: var(--button-solid-red-background-color-active);
     --solid-background-color-hover: var(--button-solid-red-background-color-hover);
     --solid-foreground-color: var(--button-solid-red-foreground-color);
+    --outline-background-color: var(--button-outline-red-background-color);
+    --outline-background-color-active: var(--button-outline-red-background-color-active);
+    --outline-background-color-hover: var(--button-outline-red-background-color-hover);
+    --outline-foreground-color: var(--button-outline-red-foreground-color);
+    --outline-border-color: var(--button-outline-red-border-color);
+    --ghost-background-color: var(--button-ghost-red-background-color);
+    --ghost-background-color-active: var(--button-ghost-red-background-color-active);
+    --ghost-background-color-hover: var(--button-ghost-red-background-color-hover);
+    --ghost-foreground-color: var(--button-ghost-red-foreground-color);
+  }
+  &:where([data-colorscheme='grey']) {
+    --outline-background-color: var(--button-outline-grey-background-color);
+    --outline-background-color-active: var(--button-outline-grey-background-color-active);
+    --outline-background-color-hover: var(--button-outline-grey-background-color-hover);
+    --outline-foreground-color: var(--button-outline-grey-foreground-color);
+    --outline-border-color: var(--button-outline-grey-border-color);
+    --ghost-background-color: var(--button-ghost-grey-background-color);
+    --ghost-background-color-active: var(--button-ghost-grey-background-color-active);
+    --ghost-background-color-hover: var(--button-ghost-grey-background-color-hover);
+    --ghost-foreground-color: var(--button-ghost-grey-foreground-color);
+  }
+
+  &:where(.hearth-variant-emphasis) {
+    box-shadow: 4px 4px 0px var(--button-emphasis-shadow-color);
+    --button-base-foreground-color: var(--emphasis-foreground-color);
+    --button-base-border-color: var(--button-emphasis-border-color);
+    --button-base-background-color: var(--emphasis-background-color);
+    --button-base-background-color-hover: var(--emphasis-background-color-hover);
+    --button-base-background-color-active: var(--emphasis-background-color-active);
+  }
+  &:where(.hearth-variant-emphasis) {
+    box-shadow: 4px 4px 0px var(--button-emphasis-shadow-color);
+    --button-base-foreground-color: var(--emphasis-foreground-color);
+    --button-base-border-color: var(--button-emphasis-border-color);
+    --button-base-background-color: var(--emphasis-background-color);
+    --button-base-background-color-hover: var(--emphasis-background-color-hover);
+    --button-base-background-color-active: var(--emphasis-background-color-active);
   }
 
   &:where(.hearth-variant-solid) {
@@ -51,28 +101,46 @@
     --button-base-background-color-active: var(--solid-background-color-active);
   }
 
+  &:where(.hearth-variant-outline) {
+    --button-base-foreground-color: var(--outline-foreground-color);
+    --button-base-border-color: var(--outline-border-color);
+    --button-base-background-color: transparent;
+    --button-base-background-color-hover: var(--outline-background-color-hover);
+    --button-base-background-color-active: var(--outline-background-color-active);
+  }
+
+  &:where(.hearth-variant-ghost) {
+    border: none;
+    --button-base-foreground-color: var(--ghost-foreground-color);
+    --button-base-background-color: transparent;
+    --button-base-background-color-hover: var(--ghost-background-color-hover);
+    --button-base-background-color-active: var(--ghost-background-color-active);
+  }
+
   &:where(:focus-visible) {
     outline: 2px solid var(--focus-border);
     outline-offset: 1px;
   }
 
   @media (hover: hover) {
-    &:where(:hover) {
+    &:where(:hover):not([aria-disabled]) {
       --button-base-background-color: var(--button-base-background-color-hover);
     }
   }
 
-  &:where(:active) {
+  &:where(:active):not([aria-disabled]) {
     transition-duration: 0s;
     --button-base-background-color: var(--button-base-background-color-active);
+    &:where(.hearth-variant-emphasis) {
+      will-change: transform;
+      transform: translateY(4px) translateX(4px);
+      box-shadow: none;
+      transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+    }
   }
 
   &:where([aria-disabled]) {
     cursor: not-allowed;
-
-    --button-base-foreground-color: var(--button-base-foreground-color-disabled);
-    --button-base-background-color: var(--button-base-background-color-disabled);
-    --button-base-border-color: var(--button-base-border-color-disabled);
-
+    opacity: var(--opacity-disabled);
   }
 }
