@@ -16,10 +16,8 @@
   touch-action: manipulation; /* make clicks not need to wait and observe a potential double click, making the buttons feel faster */
   transition: background-color 200ms ease-out;
 
-  border-style: solid;
-  border-width: var(--button-border-width);
+  box-shadow: inset 0 0 0 var(--button-border-width) var(--button-base-border-color);
   border-radius: var(--button-border-radius);
-  border-color: var(--button-base-border-color);
   color: var(--button-base-foreground-color);
   background-color: var(--button-base-background-color);
 
@@ -28,10 +26,15 @@
     --solid-background-color-active: var(--button-solid-yellow-background-color-active);
     --solid-background-color-hover: var(--button-solid-yellow-background-color-hover);
     --solid-foreground-color: var(--button-solid-yellow-foreground-color);
+    --solid-border-color: var(--button-solid-border-color);
+    --emphasis-border-color: var(--button-base-border-color);
+    --outline-border-color: transparent;
     --emphasis-background-color: var(--button-emphasis-yellow-background-color);
     --emphasis-background-color-active: var(--button-emphasis-yellow-background-color-active);
     --emphasis-background-color-hover: var(--button-emphasis-yellow-background-color-hover);
     --emphasis-foreground-color: var(--button-emphasis-yellow-foreground-color);
+    --emphasis-shadow-color: var(--button-emphasis-shadow-color);
+    --emphasis-transform: translateY(4px) translateX(4px);
   }
   &:where([data-colorscheme='green']) {
     --solid-background-color: var(--button-solid-green-background-color);
@@ -47,6 +50,7 @@
     --ghost-background-color-active: var(--button-ghost-green-background-color-active);
     --ghost-background-color-hover: var(--button-ghost-green-background-color-hover);
     --ghost-foreground-color: var(--button-ghost-green-foreground-color);
+    --emphasis-border-color: transparent;
   }
   &:where([data-colorscheme='red']) {
     --solid-background-color: var(--button-solid-red-background-color);
@@ -62,6 +66,7 @@
     --ghost-background-color-active: var(--button-ghost-red-background-color-active);
     --ghost-background-color-hover: var(--button-ghost-red-background-color-hover);
     --ghost-foreground-color: var(--button-ghost-red-foreground-color);
+    --emphasis-border-color: transparent;
   }
   &:where([data-colorscheme='grey']) {
     --outline-background-color: var(--button-outline-grey-background-color);
@@ -73,6 +78,8 @@
     --ghost-background-color-active: var(--button-ghost-grey-background-color-active);
     --ghost-background-color-hover: var(--button-ghost-grey-background-color-hover);
     --ghost-foreground-color: var(--button-ghost-grey-foreground-color);
+    --solid-border-color: transparent;
+    --emphasis-border-color: transparent;
   }
 
   &:where(.hearth-variant-emphasis) {
@@ -87,13 +94,13 @@
     width: 100%;
     height: 100%;
     border-radius: var(--button-border-radius);
-    background: var(--button-emphasis-shadow-color);
+    background: var(--emphasis-shadow-color);
     will-change: transform;
-    transform: translateY(4px) translateX(4px);
+    transform: var(--emphasis-transform);
   }
 
   &:where(.hearth-variant-emphasis) > .hearth-front {
-    border-color: var(--button-base-border-color);
+    border-color: var(--emphasis-border-color);
     color: var(--button-base-foreground-color);
     background-color: var(--button-base-background-color);
     border-radius: var(--button-border-radius);
@@ -118,7 +125,7 @@
 
   &:where(.hearth-variant-solid) {
     --button-base-foreground-color: var(--solid-foreground-color);
-    --button-base-border-color: var(--button-solid-border-color);
+    --button-base-border-color: var(--solid-border-color);
     --button-base-background-color: var(--solid-background-color);
     --button-base-background-color-hover: var(--solid-background-color-hover);
     --button-base-background-color-active: var(--solid-background-color-active);
@@ -133,7 +140,7 @@
   }
 
   &:where(.hearth-variant-ghost) {
-    border: none;
+    --button-base-border-color: transparent;
     --button-base-foreground-color: var(--ghost-foreground-color);
     --button-base-background-color: transparent;
     --button-base-background-color-hover: var(--ghost-background-color-hover);
@@ -161,7 +168,7 @@
   &:where(:active):not([aria-disabled]) > .hearth-front {
     transition-duration: 0s;
     --button-base-background-color: var(--button-base-background-color-active);
-    transform: translateY(4px) translateX(4px);
+    transform: var(--emphasis-transform);
   }
 
   &:where([aria-disabled]) {
