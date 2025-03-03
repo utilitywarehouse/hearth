@@ -46,6 +46,8 @@ const styles = StyleSheet.create(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: theme.components.button.borderWidth,
+    borderRadius: theme.components.button.borderRadius,
+    gap: theme.components.button.gap,
     _web: {
       '_focus-visible': {
         outlineStyle: 'solid',
@@ -98,17 +100,13 @@ const styles = StyleSheet.create(theme => ({
       },
       size: {
         sm: {
-          borderRadius: theme.components.button.sm.borderRadius,
           paddingVertical: theme.components.button.sm.paddingVertical,
           paddingHorizontal: theme.components.button.sm.paddingHorizontal,
-          gap: theme.components.button.sm.gap,
           minHeight: 32,
         },
         md: {
-          borderRadius: theme.components.button.md.borderRadius,
           paddingVertical: theme.components.button.md.paddingVertical,
           paddingHorizontal: theme.components.button.md.paddingHorizontal,
-          gap: theme.components.button.md.gap,
           minHeight: 48,
         },
       },

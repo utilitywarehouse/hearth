@@ -2,6 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
+  readonly borderRadius: 8;
   readonly borderWidth: 2;
   readonly emphasis: {
     readonly borderColor: '#101010';
@@ -21,6 +22,7 @@ declare const _default: {
       };
     };
   };
+  readonly gap: 6;
   readonly ghost: {
     readonly green: {
       readonly backgroundColorActive: '#c5edda';
@@ -44,8 +46,6 @@ declare const _default: {
     };
   };
   readonly md: {
-    readonly borderRadius: 8;
-    readonly gap: 6;
     readonly paddingHorizontal: 16;
     readonly paddingVertical: 12;
   };
@@ -76,8 +76,6 @@ declare const _default: {
     };
   };
   readonly sm: {
-    readonly borderRadius: 8;
-    readonly gap: 6;
     readonly paddingHorizontal: 16;
     readonly paddingVertical: 4;
   };
@@ -96,7 +94,7 @@ declare const _default: {
       readonly foregroundColor: '#fcfbf2';
     };
     readonly yellow: {
-      readonly backgroundColor: '#ffb921';
+      readonly backgroundColor: '#d69200';
       readonly backgroundColorActive: '#d69200';
       readonly backgroundColorHover: '#eba400';
       readonly foregroundColor: '#101010';

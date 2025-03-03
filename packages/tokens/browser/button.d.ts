@@ -1,4 +1,5 @@
 export declare const button: {
+  readonly borderRadius: 'var(--button-border-radius)';
   readonly borderWidth: 'var(--button-border-width)';
   readonly emphasis: {
     readonly borderColor: 'var(--button-emphasis-border-color)';
@@ -18,6 +19,7 @@ export declare const button: {
       };
     };
   };
+  readonly gap: 'var(--button-gap)';
   readonly ghost: {
     readonly green: {
       readonly backgroundColorActive: 'var(--button-ghost-green-background-color-active)';
@@ -41,8 +43,6 @@ export declare const button: {
     };
   };
   readonly md: {
-    readonly borderRadius: 'var(--button-md-border-radius)';
-    readonly gap: 'var(--button-md-gap)';
     readonly paddingHorizontal: 'var(--button-md-padding-horizontal)';
     readonly paddingVertical: 'var(--button-md-padding-vertical)';
   };
@@ -73,8 +73,6 @@ export declare const button: {
     };
   };
   readonly sm: {
-    readonly borderRadius: 'var(--button-sm-border-radius)';
-    readonly gap: 'var(--button-sm-gap)';
     readonly paddingHorizontal: 'var(--button-sm-padding-horizontal)';
     readonly paddingVertical: 'var(--button-sm-padding-vertical)';
   };

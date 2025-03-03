@@ -1,4 +1,5 @@
 export const button = {
+  borderRadius: 'var(--button-border-radius)',
   borderWidth: 'var(--button-border-width)',
   emphasis: {
     borderColor: 'var(--button-emphasis-border-color)',
@@ -18,6 +19,7 @@ export const button = {
       },
     },
   },
+  gap: 'var(--button-gap)',
   ghost: {
     green: {
       backgroundColorActive: 'var(--button-ghost-green-background-color-active)',
@@ -41,8 +43,6 @@ export const button = {
     },
   },
   md: {
-    borderRadius: 'var(--button-md-border-radius)',
-    gap: 'var(--button-md-gap)',
     paddingHorizontal: 'var(--button-md-padding-horizontal)',
     paddingVertical: 'var(--button-md-padding-vertical)',
   },
@@ -73,8 +73,6 @@ export const button = {
     },
   },
   sm: {
-    borderRadius: 'var(--button-sm-border-radius)',
-    gap: 'var(--button-sm-gap)',
     paddingHorizontal: 'var(--button-sm-padding-horizontal)',
     paddingVertical: 'var(--button-sm-padding-vertical)',
   },
