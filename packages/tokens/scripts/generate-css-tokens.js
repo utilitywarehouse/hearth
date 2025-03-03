@@ -13,11 +13,12 @@ export const BUILD_PATH = './css/';
 StyleDictionary.registerFormat({
   name: 'css/index',
   format: () => {
-    // @import '../css/button.css'; // TODO: @robphoenix fix button output
     return `@import '../css/badge.css';
 @import '../css/border.css';
+@import '../css/button.css';
 @import '../css/color.css';
 @import '../css/font.css';
+@import '../css/icon-button.css';
 @import '../css/layout.css';
 @import '../css/line-height.css';
 @import '../css/space.css';
@@ -103,8 +104,7 @@ const componentFiles = Object.keys(componentJson.light).map(componentName => ({
     return (
       token.filePath.includes('component') &&
       token.path.includes(componentName) &&
-      token.attributes.category === 'light' &&
-      !token.name.includes('button') // TODO: @robphoenix fix button output
+      token.attributes.category === 'light'
     );
   },
 }));

@@ -1,0 +1,72 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --button-border-width: var(--border-width-2);
+  --button-emphasis-border-color: var(--color-grey-1000);
+  --button-emphasis-shadow-color: var(--color-grey-1000);
+  --button-emphasis-yellow-background-color: var(--color-yellow-400);
+  --button-emphasis-yellow-background-color-active: var(--color-yellow-600);
+  --button-emphasis-yellow-background-color-hover: var(--color-yellow-500);
+  --button-emphasis-yellow-foreground-color: var(--color-grey-1000);
+  --button-emphasis-yellow-inverted-background-color: var(--color-yellow-400);
+  --button-emphasis-yellow-inverted-background-color-active: var(--color-yellow-600);
+  --button-emphasis-yellow-inverted-background-color-hover: var(--color-yellow-500);
+  --button-emphasis-yellow-inverted-border-color: var(--color-grey-1000);
+  --button-emphasis-yellow-inverted-foreground-color: var(--color-grey-1000);
+  --button-emphasis-yellow-inverted-shadow-color: var(--color-grey-1000);
+  --button-ghost-green-background-color-active: var(--color-green-100);
+  --button-ghost-green-background-color-hover: var(--color-green-50);
+  --button-ghost-green-foreground-color: var(--color-green-800);
+  --button-ghost-grey-background-color-active: var(--color-grey-200);
+  --button-ghost-grey-background-color-hover: var(--color-grey-100);
+  --button-ghost-grey-foreground-color: var(--color-grey-1000);
+  --button-ghost-grey-inverted-background-color-active: var(--color-grey-900);
+  --button-ghost-grey-inverted-background-color-hover: var(--color-grey-800);
+  --button-ghost-grey-inverted-foreground-color: var(--color-warm-white-50);
+  --button-ghost-red-background-color-active: var(--color-red-100);
+  --button-ghost-red-background-color-hover: var(--color-red-50);
+  --button-ghost-red-foreground-color: var(--color-red-800);
+  --button-md-border-radius: var(--space-100);
+  --button-md-gap: var(--space-75);
+  --button-md-padding-horizontal: var(--space-200);
+  --button-md-padding-vertical: var(--space-150);
+  --button-outline-green-background-color-active: var(--color-green-100);
+  --button-outline-green-background-color-hover: var(--color-green-50);
+  --button-outline-green-border-color: var(--color-green-800);
+  --button-outline-green-foreground-color: var(--color-green-800);
+  --button-outline-grey-background-color-active: var(--color-grey-200);
+  --button-outline-grey-background-color-hover: var(--color-grey-100);
+  --button-outline-grey-border-color: var(--color-grey-1000);
+  --button-outline-grey-foreground-color: var(--color-grey-1000);
+  --button-outline-grey-inverted-background-color-active: var(--color-grey-900);
+  --button-outline-grey-inverted-background-color-hover: var(--color-grey-800);
+  --button-outline-grey-inverted-border-color: var(--color-warm-white-50);
+  --button-outline-grey-inverted-foreground-color: var(--color-warm-white-50);
+  --button-outline-red-background-color-active: var(--color-red-100);
+  --button-outline-red-background-color-hover: var(--color-red-50);
+  --button-outline-red-border-color: var(--color-red-800);
+  --button-outline-red-foreground-color: var(--color-red-800);
+  --button-sm-border-radius: var(--space-100);
+  --button-sm-gap: var(--space-75);
+  --button-sm-padding-horizontal: var(--space-200);
+  --button-sm-padding-vertical: var(--space-50);
+  --button-solid-border-color: var(--color-grey-1000);
+  --button-solid-green-background-color: var(--color-green-700);
+  --button-solid-green-background-color-active: var(--color-green-900);
+  --button-solid-green-background-color-hover: var(--color-green-800);
+  --button-solid-green-foreground-color: var(--color-warm-white-50);
+  --button-solid-red-background-color: var(--color-red-700);
+  --button-solid-red-background-color-active: var(--color-red-900);
+  --button-solid-red-background-color-hover: var(--color-red-800);
+  --button-solid-red-foreground-color: var(--color-warm-white-50);
+  --button-solid-yellow-background-color: var(--color-yellow-400);
+  --button-solid-yellow-background-color-active: var(--color-yellow-600);
+  --button-solid-yellow-background-color-hover: var(--color-yellow-500);
+  --button-solid-yellow-foreground-color: var(--color-grey-1000);
+  --button-solid-yellow-inverted-background-color: var(--color-warm-white-50);
+  --button-solid-yellow-inverted-background-color-active: var(--color-warm-white-300);
+  --button-solid-yellow-inverted-background-color-hover: var(--color-warm-white-200);
+  --button-solid-yellow-inverted-foreground-color: var(--color-grey-1000);
+}
