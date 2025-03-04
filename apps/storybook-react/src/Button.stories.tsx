@@ -334,3 +334,22 @@ export const WithIcons: Story = {
     );
   },
 };
+
+export const Inverted: Story = {
+  render: () => (
+    <Flex gap="400" backgroundColor="var(--color-uw-purple)" padding="400">
+      <Button variant="emphasis" inverted>
+        Emphasis
+      </Button>
+      <Button variant="solid" colorScheme="yellow" inverted>
+        Solid
+      </Button>
+      <Button variant="outline" colorScheme="grey" inverted>
+        Outline
+      </Button>
+      <Button variant="ghost" colorScheme="grey" inverted>
+        Ghost
+      </Button>
+    </Flex>
+  ),
+};

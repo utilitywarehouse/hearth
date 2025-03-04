@@ -299,3 +299,22 @@ export const ResponsiveSize: Story = {
     </IconButton>
   ),
 };
+
+export const Inverted: Story = {
+  render: () => (
+    <Flex gap="400" backgroundColor="var(--color-uw-purple)" padding="400">
+      <IconButton variant="emphasis" inverted label="add">
+        <AddMediumIcon />
+      </IconButton>
+      <IconButton variant="solid" colorScheme="yellow" inverted label="add">
+        <AddMediumIcon />
+      </IconButton>
+      <IconButton variant="outline" colorScheme="grey" inverted label="add">
+        <AddMediumIcon />
+      </IconButton>
+      <IconButton variant="ghost" colorScheme="grey" inverted label="add">
+        <AddMediumIcon />
+      </IconButton>
+    </Flex>
+  ),
+};
