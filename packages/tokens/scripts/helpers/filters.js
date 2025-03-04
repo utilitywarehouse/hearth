@@ -51,4 +51,12 @@ export const filters = {
     return token.filePath.includes('primitive') && token.type === 'color';
   },
   isOpacity: token => token.filePath.includes('semantic') && token.path.includes('opacity'),
+  isSpinnerComponentSize: token => {
+    return (
+      token.filePath.includes('component') &&
+      token.path.includes('spinner') &&
+      // we only want the size values, not the stroke width
+      token.path.includes('size')
+    );
+  },
 };

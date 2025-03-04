@@ -7,6 +7,7 @@ export { default as button } from './button';
 export { default as card } from './card';
 export { default as divider } from './divider';
 export { default as focus } from './focus';
+export { default as formField } from './form-field';
 export { default as icon } from './icon';
 export { default as iconButton } from './icon-button';
 export { default as inlineLink } from './inline-link';

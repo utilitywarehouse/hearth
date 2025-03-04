@@ -4,13 +4,13 @@
 
 :root {
   --spinner-default-fill: var(--color-uw-purple);
-  --spinner-lg-size: 40;
+  --spinner-lg-size: 40px;
   --spinner-lg-stroke-width: 3;
-  --spinner-md-size: 28;
+  --spinner-md-size: 28px;
   --spinner-md-stroke-width: 2.5;
   --spinner-padding: var(--space-25);
-  --spinner-sm-size: 20;
+  --spinner-sm-size: 20px;
   --spinner-sm-stroke-width: 2;
-  --spinner-xs-size: 16;
+  --spinner-xs-size: 16px;
   --spinner-xs-stroke-width: 1.5;
 }
