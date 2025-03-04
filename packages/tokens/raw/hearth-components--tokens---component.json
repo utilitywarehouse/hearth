@@ -614,6 +614,20 @@
         "value": "#fcfbf2"
       }
     },
+    "form-field": {
+      "gap": {
+        "alias": "{space.75}",
+        "type": "number",
+        "value": 6
+      },
+      "helper": {
+        "gap": {
+          "alias": "{space.25}",
+          "type": "number",
+          "value": 2
+        }
+      }
+    },
     "icon": {
       "color": {
         "alias": "{color.dark.grey.1000}",
@@ -1687,6 +1701,20 @@
         "alias": "{color.light.warm-white.50}",
         "type": "color",
         "value": "#fcfbf2"
+      }
+    },
+    "form-field": {
+      "gap": {
+        "alias": "{space.75}",
+        "type": "number",
+        "value": 6
+      },
+      "helper": {
+        "gap": {
+          "alias": "{space.25}",
+          "type": "number",
+          "value": 2
+        }
       }
     },
     "icon": {
