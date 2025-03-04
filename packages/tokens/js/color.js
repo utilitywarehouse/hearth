@@ -11,6 +11,7 @@ export const common = {
   piggyPink: '#e8a3ff',
   uwPurple: '#7a42c8',
   white: '#ffffff',
+  yellow: '#ffb921',
 };
 export const light = {
   blue: {

@@ -1,13 +1,16 @@
 export const iconButton = {
+  borderRadius: 'var(--icon-button-border-radius)',
   md: {
-    borderRadius: 'var(--icon-button-md-border-radius)',
+    height: 'var(--icon-button-md-height)',
     paddingHorizontal: 'var(--icon-button-md-padding-horizontal)',
     paddingVertical: 'var(--icon-button-md-padding-vertical)',
+    width: 'var(--icon-button-md-width)',
   },
   sm: {
-    borderRadius: 'var(--icon-button-sm-border-radius)',
+    height: 'var(--icon-button-sm-height)',
     paddingHorizontal: 'var(--icon-button-sm-padding-horizontal)',
     paddingVertical: 'var(--icon-button-sm-padding-vertical)',
+    width: 'var(--icon-button-sm-width)',
   },
   unstyled: {
     foregroundColor: 'var(--icon-button-unstyled-foreground-color)',

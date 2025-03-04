@@ -94,7 +94,7 @@ declare const _default: {
       readonly foregroundColor: '#fcfbf2';
     };
     readonly yellow: {
-      readonly backgroundColor: '#d69200';
+      readonly backgroundColor: '#ffb921';
       readonly backgroundColorActive: '#d69200';
       readonly backgroundColorHover: '#eba400';
       readonly foregroundColor: '#101010';
