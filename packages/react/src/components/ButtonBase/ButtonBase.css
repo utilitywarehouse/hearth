@@ -26,6 +26,14 @@
     --solid-background-color-hover: var(--button-solid-yellow-background-color-hover);
     --solid-foreground-color: var(--button-solid-yellow-foreground-color);
     --solid-border-color: var(--button-solid-border-color);
+
+    &:where([data-inverted]) {
+      --solid-background-color: var(--button-solid-yellow-inverted-background-color);
+      --solid-background-color-active: var(--button-solid-yellow-inverted-background-color-active);
+      --solid-background-color-hover: var(--button-solid-yellow-inverted-background-color-hover);
+      --solid-foreground-color: var(--button-solid-yellow-inverted-foreground-color);
+    }
+
     --outline-border-color: transparent;
     --emphasis-background-color: var(--button-emphasis-yellow-background-color);
     --emphasis-background-color-active: var(--button-emphasis-yellow-background-color-active);
@@ -82,6 +90,19 @@
     --ghost-background-color-active: var(--button-ghost-grey-background-color-active);
     --ghost-background-color-hover: var(--button-ghost-grey-background-color-hover);
     --ghost-foreground-color: var(--button-ghost-grey-foreground-color);
+
+    &:where([data-inverted]) {
+      --outline-background-color-active: var(
+        --button-outline-grey-inverted-background-color-active
+      );
+      --outline-background-color-hover: var(--button-outline-grey-inverted-background-color-hover);
+      --outline-foreground-color: var(--button-outline-grey-inverted-foreground-color);
+      --outline-border-color: var(--button-outline-grey-inverted-border-color);
+      --ghost-background-color-active: var(--button-ghost-grey-inverted-background-color-active);
+      --ghost-background-color-hover: var(--button-ghost-grey-inverted-background-color-hover);
+      --ghost-foreground-color: var(--button-ghost-grey-inverted-foreground-color);
+    }
+
     --solid-border-color: transparent;
     --emphasis-border-color: transparent;
   }
@@ -161,6 +182,10 @@
   &:where(:focus-visible) {
     outline: 2px solid var(--focus-border);
     outline-offset: 1px;
+
+    &:where([data-inverted]) {
+      outline: 2px solid var(--focus-border-inverted);
+    }
 
     & > .hearth-shadow {
       background: transparent;

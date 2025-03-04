@@ -15,6 +15,7 @@ import { DocsHeader } from './storybook-components/DocsHeader';
   - [Disabled buttons](#disabled-buttons)
 - [Variants](#variants)
 - [Colour schemes](#colour-schemes)
+- [Inverted](#inverted)
 - [Size](#size)
   - [Responsive icon sizes](#responsive-icon-sizes)
 - [Semantic HTML](#semantic-html)
@@ -125,6 +126,24 @@ actions.
 
 <Canvas of={Stories.GreenColorScheme} sourceState="none" />
 
+## Inverted
+
+The `inverted` prop should be used when using a button on darker surface
+colours, specifically the UW Purple and Dark Purple colours. It only affects
+the following buttons: 
+
+- Emphasis/Yellow
+- Solid/Yellow
+- Outline/Grey
+- Ghost/grey.
+
+**It is very important to remember to use the `inverted` prop when using the
+Emphasis button on darker backgrounds. While the button itself doesn't change
+colours, the focus ring colour does change, and omitting the `inverted` prop
+will indermine the accessibility of the button.**
+
+<Canvas of={Stories.Inverted} sourceState="none" />
+
 ## Size
 
 The size prop controls the size of the `IconButton`. This is a responsive prop and
@@ -216,3 +235,4 @@ This component is based on the `button` element.
 | `size`        | `Responsive<"sm" \| "md">`                      |
 | `variant`     | `"emphasis" \| "solid" \| "outline" \| "ghost"` |
 | `colorScheme` | `"yellow" \| "grey" \| "green" \| "red"`        |
+| `inverted`    | `boolean`                                       |
