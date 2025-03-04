@@ -443,7 +443,7 @@
           "background-color": {
             "alias": "{color.dark.yellow.600}",
             "type": "color",
-            "value": "#d69200"
+            "value": "#ffb921"
           },
           "background-color-active": {
             "alias": "{color.dark.yellow.400}",
@@ -632,11 +632,16 @@
       }
     },
     "icon-button": {
+      "border-radius": {
+        "alias": "{border-radius.md}",
+        "type": "number",
+        "value": 8
+      },
       "md": {
-        "border-radius": {
-          "alias": "{space.100}",
+        "height": {
+          "alias": "{space.600}",
           "type": "number",
-          "value": 8
+          "value": 48
         },
         "padding-horizontal": {
           "alias": "{space.150}",
@@ -647,13 +652,18 @@
           "alias": "{space.150}",
           "type": "number",
           "value": 12
+        },
+        "width": {
+          "alias": "{space.600}",
+          "type": "number",
+          "value": 48
         }
       },
       "sm": {
-        "border-radius": {
-          "alias": "{space.100}",
+        "height": {
+          "alias": "{space.400}",
           "type": "number",
-          "value": 8
+          "value": 32
         },
         "padding-horizontal": {
           "alias": "{space.75}",
@@ -664,6 +674,11 @@
           "alias": "{space.75}",
           "type": "number",
           "value": 6
+        },
+        "width": {
+          "alias": "{space.400}",
+          "type": "number",
+          "value": 32
         }
       },
       "unstyled": {
@@ -1692,11 +1707,16 @@
       }
     },
     "icon-button": {
+      "border-radius": {
+        "alias": "{border-radius.md}",
+        "type": "number",
+        "value": 8
+      },
       "md": {
-        "border-radius": {
-          "alias": "{space.100}",
+        "height": {
+          "alias": "{space.600}",
           "type": "number",
-          "value": 8
+          "value": 48
         },
         "padding-horizontal": {
           "alias": "{space.150}",
@@ -1707,13 +1727,18 @@
           "alias": "{space.150}",
           "type": "number",
           "value": 12
+        },
+        "width": {
+          "alias": "{space.600}",
+          "type": "number",
+          "value": 48
         }
       },
       "sm": {
-        "border-radius": {
-          "alias": "{space.100}",
+        "height": {
+          "alias": "{space.400}",
           "type": "number",
-          "value": 8
+          "value": 32
         },
         "padding-horizontal": {
           "alias": "{space.75}",
@@ -1724,6 +1749,11 @@
           "alias": "{space.75}",
           "type": "number",
           "value": 6
+        },
+        "width": {
+          "alias": "{space.400}",
+          "type": "number",
+          "value": 32
         }
       },
       "unstyled": {
