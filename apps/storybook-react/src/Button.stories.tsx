@@ -1,14 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Button, Flex, Heading, BodyText } from '@utilitywarehouse/hearth-react';
-import { ChevronLeft01SmallIcon, ChevronRight01SmallIcon } from '@utilitywarehouse/react-icons';
+import {
+  ChevronRight01SmallIcon,
+  SettingsSmallIcon,
+  TrashSmallIcon,
+  UserSmallIcon,
+} from '@utilitywarehouse/react-icons';
 
 const sizes = ['md', 'sm'] as const;
 const variants = ['solid', 'outline', 'ghost'] as const;
 const solidColorSchemes = ['yellow', 'green', 'red'] as const;
 const otherColorSchemes = ['grey', 'green', 'red'] as const;
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Button> = {
   title: 'Stories / Button',
   component: Button,
@@ -206,4 +210,127 @@ export const FullWidth: Story = {
     </Flex>
   ),
   args: { children: 'Full width button with icon' },
+};
+
+export const YellowColorScheme: Story = {
+  render: () => (
+    <Flex gap="400">
+      <Button variant="emphasis" colorScheme="yellow">
+        Emphasis
+      </Button>
+      <Button variant="solid" colorScheme="yellow">
+        Solid
+      </Button>
+    </Flex>
+  ),
+};
+
+export const GreyColorScheme: Story = {
+  render: () => (
+    <Flex gap="400">
+      <Button variant="outline" colorScheme="grey">
+        Outline
+      </Button>
+      <Button variant="ghost" colorScheme="grey">
+        Ghost
+      </Button>
+    </Flex>
+  ),
+};
+
+export const RedColorScheme: Story = {
+  render: () => (
+    <Flex gap="400">
+      <Button variant="solid" colorScheme="red">
+        Solid
+      </Button>
+      <Button variant="outline" colorScheme="red">
+        Outline
+      </Button>
+      <Button variant="ghost" colorScheme="red">
+        Ghost
+      </Button>
+    </Flex>
+  ),
+};
+
+export const GreenColorScheme: Story = {
+  render: () => (
+    <Flex gap="400">
+      <Button variant="solid" colorScheme="green">
+        Solid
+      </Button>
+      <Button variant="outline" colorScheme="green">
+        Outline
+      </Button>
+      <Button variant="ghost" colorScheme="green">
+        Ghost
+      </Button>
+    </Flex>
+  ),
+};
+
+export const Sizes: Story = {
+  render: () => (
+    <Flex gap="400" direction="column">
+      <Flex gap="400">
+        <Button variant="emphasis" size="md">
+          Emphasis
+        </Button>
+        <Button variant="solid" size="md">
+          Solid
+        </Button>
+        <Button variant="outline" size="md">
+          Outline
+        </Button>
+        <Button variant="ghost" size="md">
+          Ghost
+        </Button>
+      </Flex>
+      <Flex gap="400">
+        <Button variant="emphasis" size="sm">
+          Emphasis
+        </Button>
+        <Button variant="solid" size="sm">
+          Solid
+        </Button>
+        <Button variant="outline" size="sm">
+          Outline
+        </Button>
+        <Button variant="ghost" size="sm">
+          Ghost
+        </Button>
+      </Flex>
+    </Flex>
+  ),
+};
+
+export const DeadPropCombinations: Story = {
+  render: () => (
+    // @ts-ignore: for illustration purposes only
+    <Button variant="emphasis" colorScheme="grey">
+      Invalid Button
+    </Button>
+  ),
+};
+
+export const WithIcons: Story = {
+  render: () => {
+    return (
+      <Flex gap="200">
+        <Button variant="solid" colorScheme="red">
+          <TrashSmallIcon />
+          Delete
+        </Button>
+        <Button variant="solid" colorScheme="yellow">
+          Account
+          <UserSmallIcon />
+        </Button>
+        <Button variant="outline" colorScheme="grey">
+          <SettingsSmallIcon />
+          Settings
+        </Button>
+      </Flex>
+    );
+  },
 };

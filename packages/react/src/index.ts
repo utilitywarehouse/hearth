@@ -44,3 +44,6 @@ export type { EmProps } from './components/Em/Em.props';
 
 export { Button } from './components/Button/Button';
 export type { ButtonProps } from './components/Button/Button.props';
+
+export { IconButton } from './components/IconButton/IconButton';
+export type { IconButtonProps } from './components/IconButton/IconButton.props';

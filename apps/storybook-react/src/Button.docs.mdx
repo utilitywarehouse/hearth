@@ -61,8 +61,36 @@ The variant prop controls the visual appearance of the Button.
 The `colorScheme` prop will change the button colours.
 
 ```tsx
-<Button colorScheme="red">
+<Button colorScheme="yellow">
 ```
+
+### Yellow
+
+The Yellow color scheme serves as the default color scheme for primary actions,
+therefore is only available for Emphasis and Solid Buttons variants.
+
+<Canvas of={Stories.YellowColorScheme} sourceState="none" />
+
+### Grey
+
+The Grey color scheme is best suited for situations that have lower prominence,
+which is why it is only available for Outline and Ghost Button variants.
+
+<Canvas of={Stories.GreyColorScheme} sourceState="none" />
+
+### Red
+
+The Red color scheme is suitable for destructive actions that are irreversible,
+or will have significant and negative consequences for the user.
+
+<Canvas of={Stories.RedColorScheme} sourceState="none" />
+
+### Green
+
+The green button color scheme is ideal for indicating positive or affirmative
+actions.
+
+<Canvas of={Stories.GreenColorScheme} sourceState="none" />
 
 ## Size
 
@@ -80,10 +108,24 @@ can be used to display different sizes at different breakpoints.
 />
 ```
 
+<Canvas of={Stories.Sizes} sourceState="none" />
+
 ## Dead prop combinations
 
-Be aware there are some combinations of `colorScheme` & `variant` that do not work together (ie. `solid` &
+Be aware there are some combinations of `colorScheme` & `variant` that do not work together (ie. `emphasis` &
 `grey`), and if used will render a button with no colours at all.
+
+<Canvas of={Stories.DeadPropCombinations} sourceState="none" />
+
+You will also see a TypeScript error:
+
+```console
+Type '{ children: string; variant: "emphasis"; colorScheme: "grey"; }' is not
+assignable to type 'IntrinsicAttributes & (ButtonProps &
+RefAttributes<HTMLButtonElement>)'.
+  Types of property 'colorScheme' are incompatible.
+    Type '"grey"' is not assignable to type '"yellow"'. (tsserver 2322)
+```
 
 ## With icons
 
@@ -96,6 +138,8 @@ automatically, and the icon will inherit the appropriate colours.
   <ChevronRight01SmallIcon />
 </Button>
 ```
+
+<Canvas of={Stories.WithIcons} sourceState="none" />
 
 Icons from the Hearth Icons packages have `aria-hidden="true"` set by default. If
 you are using an icon from outside these packages, and for purely decorative
