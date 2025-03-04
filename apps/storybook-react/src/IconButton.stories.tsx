@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Flex, Heading, IconButton } from '@utilitywarehouse/hearth-react';
-import { AddMediumIcon } from '@utilitywarehouse/react-icons';
+import { Box, Flex, Heading, IconButton } from '@utilitywarehouse/hearth-react';
+import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/react-icons';
 
 const sizes = ['md', 'sm'] as const;
 const variants = ['solid', 'outline', 'ghost'] as const;
@@ -173,4 +173,129 @@ export const AsLink: Story = {
       </IconButton>
     );
   },
+};
+
+export const Variants: Story = {
+  render: () => (
+    <Flex gap="400">
+      <IconButton variant="emphasis" colorScheme="yellow" label="add">
+        <AddMediumIcon />
+      </IconButton>
+      <IconButton variant="solid" colorScheme="yellow" label="add">
+        <AddMediumIcon />
+      </IconButton>
+      <IconButton variant="outline" colorScheme="grey" label="add">
+        <AddMediumIcon />
+      </IconButton>
+      <IconButton variant="ghost" colorScheme="grey" label="add">
+        <AddMediumIcon />
+      </IconButton>
+    </Flex>
+  ),
+};
+
+export const YellowColorScheme: Story = {
+  render: () => (
+    <Flex gap="400">
+      <IconButton variant="emphasis" colorScheme="yellow" label="add">
+        <AddMediumIcon />
+      </IconButton>
+      <IconButton variant="solid" colorScheme="yellow" label="add">
+        <AddMediumIcon />
+      </IconButton>
+    </Flex>
+  ),
+};
+
+export const GreyColorScheme: Story = {
+  render: () => (
+    <Flex gap="400">
+      <IconButton variant="outline" colorScheme="grey" label="add">
+        <AddMediumIcon />
+      </IconButton>
+      <IconButton variant="ghost" colorScheme="grey" label="add">
+        <AddMediumIcon />
+      </IconButton>
+    </Flex>
+  ),
+};
+
+export const RedColorScheme: Story = {
+  render: () => (
+    <Flex gap="400">
+      <IconButton variant="solid" colorScheme="red" label="add">
+        <AddMediumIcon />
+      </IconButton>
+      <IconButton variant="outline" colorScheme="red" label="add">
+        <AddMediumIcon />
+      </IconButton>
+      <IconButton variant="ghost" colorScheme="red" label="add">
+        <AddMediumIcon />
+      </IconButton>
+    </Flex>
+  ),
+};
+
+export const GreenColorScheme: Story = {
+  render: () => (
+    <Flex gap="400">
+      <IconButton variant="solid" colorScheme="green" label="add">
+        <AddMediumIcon />
+      </IconButton>
+      <IconButton variant="outline" colorScheme="green" label="add">
+        <AddMediumIcon />
+      </IconButton>
+      <IconButton variant="ghost" colorScheme="green" label="add">
+        <AddMediumIcon />
+      </IconButton>
+    </Flex>
+  ),
+};
+
+export const Sizes: Story = {
+  render: () => (
+    <Flex gap="400" direction="column">
+      <Flex gap="400">
+        <IconButton variant="emphasis" size="md" label="add">
+          <AddMediumIcon />
+        </IconButton>
+        <IconButton variant="solid" size="md" label="add">
+          <AddMediumIcon />
+        </IconButton>
+        <IconButton variant="outline" size="md" label="add">
+          <AddMediumIcon />
+        </IconButton>
+        <IconButton variant="ghost" size="md" label="add">
+          <AddMediumIcon />
+        </IconButton>
+      </Flex>
+      <Flex gap="400">
+        <IconButton variant="emphasis" size="sm" label="add">
+          <AddMediumIcon />
+        </IconButton>
+        <IconButton variant="solid" size="sm" label="add">
+          <AddMediumIcon />
+        </IconButton>
+        <IconButton variant="outline" size="sm" label="add">
+          <AddMediumIcon />
+        </IconButton>
+        <IconButton variant="ghost" size="sm" label="add">
+          <AddMediumIcon />
+        </IconButton>
+      </Flex>
+    </Flex>
+  ),
+};
+
+export const ResponsiveSize: Story = {
+  render: () => (
+    <IconButton size={{ mobile: 'sm', desktop: 'md' }} label="add">
+      <Box asChild display={{ mobile: 'none', desktop: 'block' }}>
+        <AddMediumIcon />
+      </Box>
+      <Box asChild display={{ desktop: 'none' }}>
+        <AddSmallIcon />
+      </Box>
+    </IconButton>
+  ),
 };
