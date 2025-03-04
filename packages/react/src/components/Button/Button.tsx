@@ -1,12 +1,10 @@
 import * as React from 'react';
 
 import clsx from 'clsx';
-import { buttonPropDefs } from './Button.props';
-import type { ButtonProps } from './Button.props';
-import { ButtonBase } from '../ButtonBase/ButtonBase';
-import type { ButtonBaseElement } from '../ButtonBase/ButtonBase';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
+import { ButtonBase, ButtonBaseElement } from '../ButtonBase/ButtonBase';
+import { buttonPropDefs, ButtonProps } from './Button.props';
 
 const componentName = 'Button';
 const componentClassName = withGlobalPrefix(componentName);

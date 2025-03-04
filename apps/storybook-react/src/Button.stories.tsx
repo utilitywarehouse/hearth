@@ -13,7 +13,6 @@ const variants = ['solid', 'outline', 'ghost'] as const;
 const solidColorSchemes = ['yellow', 'green', 'red'] as const;
 const otherColorSchemes = ['grey', 'green', 'red'] as const;
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta: Meta<typeof Button> = {
   title: 'Stories / Button',
   component: Button,
