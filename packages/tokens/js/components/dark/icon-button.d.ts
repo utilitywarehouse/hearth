@@ -2,15 +2,18 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
+  readonly borderRadius: 8;
   readonly md: {
-    readonly borderRadius: 8;
+    readonly height: 48;
     readonly paddingHorizontal: 12;
     readonly paddingVertical: 12;
+    readonly width: 48;
   };
   readonly sm: {
-    readonly borderRadius: 8;
+    readonly height: 32;
     readonly paddingHorizontal: 6;
     readonly paddingVertical: 6;
+    readonly width: 32;
   };
   readonly unstyled: {
     readonly foregroundColor: '#f6f5f5';

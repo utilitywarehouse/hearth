@@ -1,13 +1,16 @@
 export declare const iconButton: {
+  readonly borderRadius: 'var(--icon-button-border-radius)';
   readonly md: {
-    readonly borderRadius: 'var(--icon-button-md-border-radius)';
+    readonly height: 'var(--icon-button-md-height)';
     readonly paddingHorizontal: 'var(--icon-button-md-padding-horizontal)';
     readonly paddingVertical: 'var(--icon-button-md-padding-vertical)';
+    readonly width: 'var(--icon-button-md-width)';
   };
   readonly sm: {
-    readonly borderRadius: 'var(--icon-button-sm-border-radius)';
+    readonly height: 'var(--icon-button-sm-height)';
     readonly paddingHorizontal: 'var(--icon-button-sm-padding-horizontal)';
     readonly paddingVertical: 'var(--icon-button-sm-padding-vertical)';
+    readonly width: 'var(--icon-button-sm-width)';
   };
   readonly unstyled: {
     readonly foregroundColor: 'var(--icon-button-unstyled-foreground-color)';

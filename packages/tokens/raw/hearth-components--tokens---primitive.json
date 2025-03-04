@@ -235,7 +235,6 @@
       },
       "purple": {
         "50": {
-          "alias": "{color.dark-purple}",
           "type": "color",
           "value": "#26164f"
         },
@@ -248,7 +247,6 @@
           "value": "#572e9e"
         },
         "300": {
-          "alias": "{color.uw-purple}",
           "type": "color",
           "value": "#7a42c8"
         }
@@ -563,7 +561,6 @@
       },
       "purple": {
         "700": {
-          "alias": "{color.uw-purple}",
           "type": "color",
           "value": "#7a42c8"
         },
@@ -576,7 +573,6 @@
           "value": "#4b2475"
         },
         "1000": {
-          "alias": "{color.dark-purple}",
           "type": "color",
           "value": "#26164f"
         }
@@ -707,6 +703,10 @@
     "white": {
       "type": "color",
       "value": "#ffffff"
+    },
+    "yellow": {
+      "type": "color",
+      "value": "#ffb921"
     }
   },
   "font": {

@@ -11,6 +11,7 @@ export declare const common: {
   readonly piggyPink: '#e8a3ff';
   readonly uwPurple: '#7a42c8';
   readonly white: '#ffffff';
+  readonly yellow: '#ffb921';
 };
 export declare const light: {
   readonly blue: {
@@ -207,6 +208,7 @@ declare const color: {
     readonly piggyPink: '#e8a3ff';
     readonly uwPurple: '#7a42c8';
     readonly white: '#ffffff';
+    readonly yellow: '#ffb921';
   };
   readonly light: {
     readonly blue: {

@@ -3,15 +3,18 @@
  */
 
 export default {
+  borderRadius: 8,
   md: {
-    borderRadius: 8,
+    height: 48,
     paddingHorizontal: 12,
     paddingVertical: 12,
+    width: 48,
   },
   sm: {
-    borderRadius: 8,
+    height: 32,
     paddingHorizontal: 6,
     paddingVertical: 6,
+    width: 32,
   },
   unstyled: {
     foregroundColor: '#f6f5f5',
