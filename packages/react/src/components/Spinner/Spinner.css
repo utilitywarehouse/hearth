@@ -1,6 +1,11 @@
 .hearth-Spinner {
   height: var(--spinner-size);
   width: var(--spinner-size);
+  color: var(--spinner-default-fill);
+
+  &:where(.hearth-color) {
+    color: var(--color);
+  }
 
   --spinner-animation-duration: 1.4s;
   --pi: 3.14;
@@ -31,7 +36,7 @@
   & > svg {
     width: 100%;
     height: 100%;
-    stroke: var(--spinner-color, var(--spinner-default-fill));
+    stroke: currentColor;
     animation: hearth-rotator var(--spinner-animation-duration) linear infinite;
 
     & > circle {
