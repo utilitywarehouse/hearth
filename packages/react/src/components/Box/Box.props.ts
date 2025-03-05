@@ -1,11 +1,12 @@
-import type { ColorProps } from '../../props/color.props';
+import { BackgroundColorProps } from '../../props/background-color.props';
+import { ColorProps } from '../../props/color.props';
 import { FlexItemProps } from '../../props/flex-item.props';
-import type { GridItemProps } from '../../props/grid-item.props';
-import type { MarginProps } from '../../props/margin.props';
-import type { PaddingProps } from '../../props/padding.props';
+import { GridItemProps } from '../../props/grid-item.props';
+import { MarginProps } from '../../props/margin.props';
+import { PaddingProps } from '../../props/padding.props';
 import { PropDef } from '../../props/prop-def';
-import type { SizeProps } from '../../props/size.props';
-import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+import { SizeProps } from '../../props/size.props';
+import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive } from '../../types/responsive';
 
 const displayValues = ['none', 'inline', 'inline-block', 'block'] as const;
@@ -18,6 +19,7 @@ export const boxPropDefs = {
 
 interface CommonBoxProps
   extends ColorProps,
+    BackgroundColorProps,
     PaddingProps,
     MarginProps,
     SizeProps,

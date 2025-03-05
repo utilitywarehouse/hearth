@@ -1,14 +1,15 @@
+import { BackgroundColorProps } from '../../props/background-color.props';
 import { ColorProps } from '../../props/color.props';
 import { FlexItemProps } from '../../props/flex-item.props';
 import { GapProps } from '../../props/gap.props';
 import { GridItemProps } from '../../props/grid-item.props';
 import { MarginProps } from '../../props/margin.props';
-import type { PaddingProps } from '../../props/padding.props';
+import { PaddingProps } from '../../props/padding.props';
 import { PropDef } from '../../props/prop-def';
-import type { SizeProps } from '../../props/size.props';
+import { SizeProps } from '../../props/size.props';
 import { SpacingProps } from '../../props/spacing.props';
-import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
-import type { Responsive } from '../../types/responsive';
+import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+import { Responsive } from '../../types/responsive';
 
 const displayValues = ['none', 'inline-flex', 'flex'] as const;
 const directionValues = ['row', 'column', 'row-reverse', 'column-reverse'] as const;
@@ -53,6 +54,7 @@ export const flexPropDefs = {
 
 interface CommonFlexProps
   extends ColorProps,
+    BackgroundColorProps,
     PaddingProps,
     MarginProps,
     SizeProps,
