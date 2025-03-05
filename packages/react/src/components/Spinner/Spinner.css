@@ -1,6 +1,7 @@
 .hearth-Spinner {
   height: var(--spinner-size);
   width: var(--spinner-size);
+
   --spinner-animation-duration: 1.4s;
   --pi: 3.14;
   --circumference: calc(var(--pi) * var(--spinner-size));
@@ -10,14 +11,17 @@
       --spinner-size: var(--spinner-xs-size);
       --spinner-stroke-width: var(--spinner-xs-stroke-width);
     }
+
     &:where(.hearth-r-size-sm) {
       --spinner-size: var(--spinner-sm-size);
       --spinner-stroke-width: var(--spinner-sm-stroke-width);
     }
+
     &:where(.hearth-r-size-md) {
       --spinner-size: var(--spinner-md-size);
       --spinner-stroke-width: var(--spinner-md-stroke-width);
     }
+
     &:where(.hearth-r-size-lg) {
       --spinner-size: var(--spinner-lg-size);
       --spinner-stroke-width: var(--spinner-lg-stroke-width);
@@ -27,8 +31,8 @@
   & > svg {
     width: 100%;
     height: 100%;
-    animation: rotator var(--spinner-animation-duration) linear infinite;
     stroke: var(--spinner-color, var(--spinner-default-fill));
+    animation: hearth-rotator var(--spinner-animation-duration) linear infinite;
 
     & > circle {
       fill: transparent;
@@ -37,28 +41,31 @@
       stroke-dasharray: var(--circumference);
       stroke-dashoffset: 0;
       transform-origin: center;
-      animation: dash var(--spinner-animation-duration) ease-in-out infinite;
+      animation: hearth-dash var(--spinner-animation-duration) ease-in-out infinite;
     }
   }
 }
 
-@keyframes rotator {
+@keyframes hearth-rotator {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(270deg);
   }
 }
 
-@keyframes dash {
+@keyframes hearth-dash {
   0% {
     stroke-dashoffset: var(--circumference);
   }
+
   50% {
     stroke-dashoffset: calc(var(--circumference) / 4);
     transform: rotate(135deg);
   }
+
   100% {
     stroke-dashoffset: var(--circumference);
     transform: rotate(450deg);
