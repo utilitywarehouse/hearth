@@ -21,7 +21,6 @@ const meta: Meta<typeof DetailText> = {
   args: {
     children: 'The five boxing wizards jump quickly.',
     size: 'md',
-    align: { mobile: 'left', tablet: 'center', desktop: 'right' },
   },
 };
 
@@ -43,7 +42,7 @@ export const KitchenSink: Story = {
   },
 };
 
-export const Workshop: Story = {};
+export const Playground: Story = {};
 
 export const TextSizes: Story = {
   name: 'Sizes',

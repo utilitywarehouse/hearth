@@ -20,14 +20,13 @@ const meta: Meta<typeof Heading> = {
   args: {
     children: 'The five boxing wizards jump quickly.',
     size: 'md',
-    align: 'left',
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof Heading>;
 
-export const Workshop: Story = {};
+export const Playground: Story = {};
 
 export const KitchenSink: Story = {
   render: () => {

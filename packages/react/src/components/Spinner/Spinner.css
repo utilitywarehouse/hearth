@@ -2,7 +2,8 @@
   height: var(--spinner-size);
   width: var(--spinner-size);
   --spinner-animation-duration: 1.4s;
-  --circumference: calc(2 * 3.14 * var(--spinner-size) / 2);
+  --pi: 3.14;
+  --circumference: calc(var(--pi) * var(--spinner-size));
 
   @breakpoints {
     &:where(.hearth-r-size-xs) {
@@ -27,10 +28,10 @@
     width: 100%;
     height: 100%;
     animation: rotator var(--spinner-animation-duration) linear infinite;
+    stroke: var(--spinner-color, var(--spinner-default-fill));
 
     & > circle {
       fill: transparent;
-      stroke: currentColor;
       stroke-width: var(--spinner-stroke-width);
       stroke-linecap: round;
       stroke-dasharray: var(--circumference);

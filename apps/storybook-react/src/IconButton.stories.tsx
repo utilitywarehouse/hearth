@@ -36,7 +36,7 @@ const meta: Meta<typeof IconButton> = {
 export default meta;
 type Story = StoryObj<typeof IconButton>;
 
-export const Workshop: Story = {
+export const Playground: Story = {
   render: args => (
     <IconButton {...args}>
       <AddMediumIcon />

@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
 
 import * as Stories from './Button.stories';
 
@@ -10,6 +10,7 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 
+- [Playground](#playground)
 - [Accessibility](#accessibility)
   - [Disabled buttons](#disabled-buttons)
 - [Variants](#variants)
@@ -22,6 +23,11 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 - [Full Width Button](#full-width-button)
 - [Usage with Next.js](#usage-with-next.js)
 - [API](#api)
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
 
 ## Accessibility
 
