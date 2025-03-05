@@ -1,4 +1,4 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
 
 import * as Stories from './Grid.stories';
 
@@ -8,18 +8,10 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 
 <DocsHeader componentName="Grid" stories={Stories} />
 
-<Canvas of={Stories.Workshop} sourceState="none" />
+## Playground
 
-```tsx
-<Grid columns="3" width="600px" gap="100">
-  <Box padding="400" />
-  <Box padding="400" />
-  <Box padding="400" />
-  <Box padding="400" />
-  <Box padding="400" />
-  <Box padding="400" />
-</Grid>
-```
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
 
 ## Alternatives
 

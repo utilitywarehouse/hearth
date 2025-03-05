@@ -50,7 +50,7 @@ export const KitchenSink: Story = {
   },
 };
 
-export const Workshop: Story = {};
+export const Playground: Story = {};
 
 export const TextSizes: Story = {
   name: 'Sizes',

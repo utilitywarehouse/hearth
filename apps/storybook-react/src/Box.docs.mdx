@@ -1,4 +1,4 @@
-import { Meta, Canvas, Description } from '@storybook/blocks';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
 
 import * as Stories from './Box.stories';
 
@@ -8,26 +8,15 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 
 <DocsHeader componentName="Box" stories={Stories} />
 
-<Canvas of={Stories.Workshop} sourceState="none" />
+## Playground
 
-```tsx
-<Box padding="600" />
-```
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
 
 ## Alternatives
 
 - [Grid](?path=/docs/primitives-grid--docs) - For grid layouts
 - [Flex](?path=/docs/primitives-flex--docs) - For stacked, inline or flexbox based layouts
-
-## Display
-
-The `display` prop is responsive, you can use this to show or hide content responsively.
-
-<Canvas of={Stories.HideContent} />
-
-```tsx
-<Box display={{ mobile: 'none', tablet: 'block' }}>hide on mobile screens</Box>
-```
 
 ## Semantic HTML
 
@@ -74,11 +63,19 @@ const CustomAnchor = ({ onClick, href, ...props }: Props) => {
 };
 ```
 
-## Accessibility
+### Accessibility
 
 The `Box` component is an all purpose component. By default, it has no
 accessibility concerns. If you use the `Box` as a custom element, it is up to
 you to manage the resulting accessibility implications.
+
+## Display
+
+The `display` prop is responsive, you can use this to show or hide content responsively.
+
+```tsx
+<Box display={{ mobile: 'none', tablet: 'block' }}>hide on mobile screens</Box>
+```
 
 ## API
 

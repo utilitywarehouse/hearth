@@ -1,4 +1,4 @@
-import { Meta, Canvas } from '@storybook/blocks';
+import { Meta, Canvas, Controls } from '@storybook/blocks';
 
 import * as Stories from './Heading.stories';
 
@@ -9,6 +9,11 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 <DocsHeader componentName="Heading" stories={Stories} />
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
 
 ## Alternatives
 

@@ -75,6 +75,13 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
+  name: 'spinner/px',
+  type: 'value',
+  filter: filters.isSpinnerComponentSize,
+  transform: px,
+});
+
+StyleDictionary.registerTransform({
   name: 'alias/remove-light-color-prefix',
   type: 'value',
   filter: filters.isColor,
@@ -102,6 +109,7 @@ StyleDictionary.registerTransformGroup({
     'css/normalize-name',
     'space/px',
     'border/px',
+    'spinner/px',
     'font-size/px-to-rem',
     'line-height/px-to-rem',
     'opacity/value',

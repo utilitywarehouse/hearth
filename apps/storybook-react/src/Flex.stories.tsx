@@ -39,7 +39,7 @@ const meta: Meta<typeof Flex> = {
 export default meta;
 type Story = StoryObj<typeof Flex>;
 
-export const Workshop: Story = {
+export const Playground: Story = {
   render: args => (
     <Flex {...args}>
       <Box className="hearth-sb-Placeholder" padding="600" />

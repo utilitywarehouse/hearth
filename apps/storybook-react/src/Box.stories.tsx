@@ -37,10 +37,11 @@ const meta: Meta<typeof Box> = {
 export default meta;
 type Story = StoryObj<typeof Box>;
 
-export const Workshop: Story = {
+export const Playground: Story = {
   args: {
     className: 'hearth-sb-Placeholder',
     padding: '600',
+    width: 'fit-content',
   },
 };
 

@@ -41,7 +41,7 @@ const meta: Meta<typeof Button> = {
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Workshop: Story = {};
+export const Playground: Story = {};
 
 export const KitchenSink: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
