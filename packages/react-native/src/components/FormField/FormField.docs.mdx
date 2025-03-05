@@ -14,6 +14,7 @@ import {
   FormFieldValidIcon,
   FormFieldValid,
   FormFieldValidText,
+  FormFieldTextContent,
   Center,
   // RadioGroup,
   // Radio,
@@ -25,7 +26,7 @@ import {
   // CheckboxLabel,
   // VStack,
 } from '../../';
-import { EmailMediumIcon } from '@utilitywarehouse/react-native-icons';
+import { EmailMediumIcon } from '../../../docs/components/icons';
 import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
 
 <Meta title="Components / Form Field" />
@@ -133,6 +134,7 @@ const MyComponent = () => {
 The `FormField` component is composed of the following components:
 
 - `FormFieldLabel`
+- `FormFieldTextContent`
 - `FormFieldLabelText`
 - `FormFieldHelper`
 - `FormFieldHelperText`
@@ -153,14 +155,16 @@ The `FormField` component can be broken down into smaller components to provide 
 
 <UsageWrap>
   <Center>
-    <FormField validationStatus="invalid" showValidationIcon={false}>
-      <FormFieldLabel>
-        <FormFieldLabelText>Label</FormFieldLabelText>
-      </FormFieldLabel>
+    <FormField validationStatus="valid" showValidationIcon={false}>
+      <FormFieldTextContent>
+        <FormFieldLabel>
+          <FormFieldLabelText>Label</FormFieldLabelText>
+        </FormFieldLabel>
+        <FormFieldHelper>
+          <FormFieldHelperText>Helper text</FormFieldHelperText>
+        </FormFieldHelper>
+      </FormFieldTextContent>
       <Input onChange={() => console.log('###')} placeholder="Placeholder" />
-      <FormFieldHelper>
-        <FormFieldHelperText>Helper text</FormFieldHelperText>
-      </FormFieldHelper>
       <FormFieldInvalid>
         <FormFieldInvalidIcon />
         <FormFieldInvalidText>Invalid form field text</FormFieldInvalidText>
@@ -177,6 +181,7 @@ The `FormField` component can be broken down into smaller components to provide 
 import {
   Input,
   FormField,
+  FormFieldTextContent,
   FormFieldLabel,
   FormFieldLabelText,
   FormFieldHelper,
@@ -191,14 +196,16 @@ import {
 
 const MyComponent = () => {
   return (
-    <FormField validationStatus="invalid" showValidationIcon={false}>
-      <FormFieldLabel>
-        <FormFieldLabelText>Label</FormFieldLabelText>
-      </FormFieldLabel>
+    <FormField validationStatus="valid" showValidationIcon={false}>
+      <FormFieldTextContent>
+        <FormFieldLabel>
+          <FormFieldLabelText>Label</FormFieldLabelText>
+        </FormFieldLabel>
+        <FormFieldHelper>
+          <FormFieldHelperText>Helper text</FormFieldHelperText>
+        </FormFieldHelper>
+      </FormFieldTextContent>
       <Input onChange={() => console.log('###')} placeholder="Placeholder" />
-      <FormFieldHelper>
-        <FormFieldHelperText>Helper text</FormFieldHelperText>
-      </FormFieldHelper>
       <FormFieldInvalid>
         <FormFieldInvalidIcon />
         <FormFieldInvalidText>Invalid form field text</FormFieldInvalidText>

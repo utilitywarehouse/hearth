@@ -5,7 +5,6 @@ export interface HelperBaseProps extends ViewProps {
   validationStatus?: 'valid' | 'invalid' | 'initial';
   showIcon?: boolean;
   disabled?: boolean;
-  size?: 'sm' | 'md';
 }
 
 interface HelperWithChildrenProps extends HelperBaseProps {

@@ -5,12 +5,17 @@ import TextProps from '../BodyText/BodyText.props';
 import { useHelperContext } from './HelperContext';
 import { BodyText } from '../BodyText';
 
-const HelperText = forwardRef<Text, TextProps>(({ children, style, size, ...props }, ref) => {
+const HelperText = forwardRef<Text, TextProps>(({ children, style, ...props }, ref) => {
   const { validationStatus, disabled } = useHelperContext();
   styles.useVariants({ validationStatus, disabled });
 
   return (
-    <BodyText size={size} ref={ref} style={[styles.text, style]} {...props}>
+    <BodyText
+      size={validationStatus !== 'initial' ? 'sm' : 'md'}
+      ref={ref}
+      style={[styles.text, style]}
+      {...props}
+    >
       {children}
     </BodyText>
   );

@@ -29,9 +29,9 @@ export const FormFieldLabel = FormFieldComponent.Label;
 export const FormFieldLabelText = FormFieldComponent.Label.Text;
 export const FormFieldHelper = FormFieldComponent.Helper;
 export const FormFieldHelperText = FormFieldComponent.Helper.Text;
-export const FormFieldHelperIcon = FormFieldValidIcon;
-export const FormFieldValidText = FormFieldValid;
-export const FormFieldInvalidText = FormFieldInvalid;
+export const FormFieldHelperIcon = HelperIcon;
+export const FormFieldValidText = HelperText;
+export const FormFieldInvalidText = HelperText;
 export const FormFieldTextContent = View;
 
 const FormField: FC<FormFieldProps> = ({

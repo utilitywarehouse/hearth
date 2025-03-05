@@ -7,6 +7,7 @@ export {
   FormFieldHelperIcon,
   FormFieldValidText,
   FormFieldInvalidText,
+  FormFieldTextContent,
 } from './FormField';
 export { default as FormFieldValidIcon } from './FormFieldValidIcon';
 export { default as FormFieldInvalidIcon } from './FormFielInvalidIcon';

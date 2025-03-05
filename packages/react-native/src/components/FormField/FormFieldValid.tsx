@@ -13,14 +13,13 @@ const FormFieldValid: FC<Omit<HelperProps, 'validationStatus'>> = ({
   const { validationStatus, disabled } = useFormFieldContext();
   return validationStatus === 'valid' ? (
     children ? (
-      <Helper validationStatus="valid" showIcon size="sm" disabled={disabled} {...props}>
+      <Helper validationStatus="valid" showIcon disabled={disabled} {...props}>
         {children}
       </Helper>
     ) : (
       <Helper
         validationStatus="valid"
         disabled={disabled}
-        size="sm"
         showIcon
         icon={icon}
         text={text}

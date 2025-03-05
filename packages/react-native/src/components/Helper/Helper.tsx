@@ -11,7 +11,10 @@ import HelperIcon from './HelperIcon';
 import HelperText from './HelperText';
 
 const Helper = forwardRef<View, HelperProps>(
-  ({ children, validationStatus, showIcon, style, disabled, icon, text, size, ...props }, ref) => {
+  (
+    { children, validationStatus = 'initial', showIcon, style, disabled, icon, text, ...props },
+    ref
+  ) => {
     styles.useVariants({ disabled });
     let Icon = icon;
     if (validationStatus === 'valid' && !icon) {
@@ -31,7 +34,7 @@ const Helper = forwardRef<View, HelperProps>(
           ) : (
             <>
               {showIcon && <HelperIcon as={Icon} />}
-              <HelperText size={size} ref={ref} {...props}>
+              <HelperText ref={ref} {...props}>
                 {text}
               </HelperText>
             </>
