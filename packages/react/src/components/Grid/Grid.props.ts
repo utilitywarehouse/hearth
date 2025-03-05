@@ -1,13 +1,14 @@
-import type { ColorProps } from '../../props/color.props';
+import { BackgroundColorProps } from '../../props/background-color.props';
+import { ColorProps } from '../../props/color.props';
 import { FlexItemProps } from '../../props/flex-item.props';
 import { GapProps } from '../../props/gap.props';
 import { GridItemProps } from '../../props/grid-item.props';
-import type { MarginProps } from '../../props/margin.props';
-import type { PaddingProps } from '../../props/padding.props';
+import { MarginProps } from '../../props/margin.props';
+import { PaddingProps } from '../../props/padding.props';
 import { PropDef } from '../../props/prop-def';
 import { SizeProps } from '../../props/size.props';
 import { SpacingProps } from '../../props/spacing.props';
-import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive, Union } from '../../types/responsive';
 
 const displayValues = ['none', 'inline-grid', 'grid'] as const;
@@ -44,6 +45,7 @@ export const gridPropDefs = {
 
 interface CommonGridProps
   extends ColorProps,
+    BackgroundColorProps,
     PaddingProps,
     MarginProps,
     GapProps,

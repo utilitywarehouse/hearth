@@ -15,6 +15,7 @@ import { marginPropDefs } from '../../props/margin.props';
 import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
 import { spacingPropDefs } from '../../props/spacing.props';
+import { backgroundColorPropDefs } from '../../props/background-color.props';
 
 const componentName = 'Flex';
 const componentClassName = withGlobalPrefix(componentName);
@@ -33,6 +34,7 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
     paddingPropDefs,
     marginPropDefs,
     colorPropDefs,
+    backgroundColorPropDefs,
     sizePropDefs,
     gapPropDefs,
     gridItemPropDefs,

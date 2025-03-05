@@ -13,6 +13,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { marginPropDefs } from '../../props/margin.props';
 import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
+import { backgroundColorPropDefs } from '../../props/background-color.props';
 
 const componentName = 'Box';
 const componentClassName = withGlobalPrefix(componentName);
@@ -31,6 +32,7 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
     paddingPropDefs,
     marginPropDefs,
     colorPropDefs,
+    backgroundColorPropDefs,
     sizePropDefs,
     gridItemPropDefs,
     flexItemPropDefs
