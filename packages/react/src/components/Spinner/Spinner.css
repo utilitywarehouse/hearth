@@ -1,10 +1,8 @@
 .hearth-Spinner {
-  /* height: var(--spinner-size); */
-  /* width: var(--spinner-size); */
-  height: 40px;
-  width: 40px;
+  height: var(--spinner-size);
+  width: var(--spinner-size);
   --spinner-animation-duration: 1.4s;
-  --offset: 187;
+  --circumference: calc(2 * 3.14 * var(--spinner-size) / 2);
 
   @breakpoints {
     &:where(.hearth-r-size-xs) {
@@ -26,16 +24,16 @@
   }
 
   & > svg {
-    width: var(--spinner-size);
-    height: var(--spinner-size);
-    stroke: var(--spinner-stroke, hotpink);
+    width: 100%;
+    height: 100%;
     animation: rotator var(--spinner-animation-duration) linear infinite;
 
     & > circle {
-      fill: none;
+      fill: transparent;
+      stroke: currentColor;
       stroke-width: var(--spinner-stroke-width);
       stroke-linecap: round;
-      stroke-dasharray: var(--offset);
+      stroke-dasharray: var(--circumference);
       stroke-dashoffset: 0;
       transform-origin: center;
       animation: dash var(--spinner-animation-duration) ease-in-out infinite;
@@ -54,14 +52,14 @@
 
 @keyframes dash {
   0% {
-    stroke-dashoffset: var(--offset);
+    stroke-dashoffset: var(--circumference);
   }
   50% {
-    stroke-dashoffset: var(--offset) / 4;
+    stroke-dashoffset: calc(var(--circumference) / 4);
     transform: rotate(135deg);
   }
   100% {
-    stroke-dashoffset: var(--offset);
+    stroke-dashoffset: var(--circumference);
     transform: rotate(450deg);
   }
 }

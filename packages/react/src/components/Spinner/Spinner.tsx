@@ -17,14 +17,11 @@ export const Spinner = React.forwardRef<SpinnerElement, SpinnerProps>((props, re
   const { className, ...spinnerProps } = extractProps(props, spinnerPropDefs);
   return (
     <div ref={ref} className={clsx(componentClassName, className)} {...spinnerProps}>
-      <svg width="24" height="24x" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="33" cy="33" r="30"></circle>
+      <svg xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50%" cy="50%" r="50%" />
       </svg>
     </div>
   );
 });
 
 Spinner.displayName = componentName;
-// <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" aria-hidden>
-//   <circle cx="20" cy="20" r="18"></circle>
-// </svg>
