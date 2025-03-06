@@ -4,14 +4,14 @@
 
 :root {
   --icon-button-border-radius: var(--border-radius-md);
-  --icon-button-md-height: var(--space-600);
+  --icon-button-md-height: 48;
   --icon-button-md-padding-horizontal: var(--space-150);
   --icon-button-md-padding-vertical: var(--space-150);
-  --icon-button-md-width: var(--space-600);
-  --icon-button-sm-height: var(--space-400);
+  --icon-button-md-width: 48;
+  --icon-button-sm-height: 32;
   --icon-button-sm-padding-horizontal: var(--space-75);
   --icon-button-sm-padding-vertical: var(--space-75);
-  --icon-button-sm-width: var(--space-400);
+  --icon-button-sm-width: 32;
   --icon-button-unstyled-foreground-color: var(--color-grey-1000);
   --icon-button-unstyled-foreground-color-active: var(--color-grey-800);
   --icon-button-unstyled-foreground-color-hover: var(--color-grey-900);

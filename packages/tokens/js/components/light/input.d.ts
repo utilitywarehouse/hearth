@@ -11,11 +11,16 @@ declare const _default: {
   readonly borderWidth: 1;
   readonly borderWidthFocused: 2;
   readonly colorPlaceholder: '#6f6c6b';
+  readonly currency: {
+    readonly gap: 2;
+    readonly height: 60;
+  };
   readonly gap: 6;
-  readonly gapCurrency: 2;
+  readonly height: 48;
   readonly paddingHorizontal: 16;
   readonly paddingVertical: 12;
   readonly textArea: {
+    readonly height: 96;
     readonly resizeIconColor: '#6f6c6b';
   };
 };

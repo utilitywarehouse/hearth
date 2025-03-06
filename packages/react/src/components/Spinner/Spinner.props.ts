@@ -1,3 +1,4 @@
+import { ColorProps } from '../../props/color.props';
 import { PropDef } from '../../props/prop-def';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive } from '../../types/responsive';
@@ -10,10 +11,10 @@ export const spinnerPropDefs = {
   size: PropDef<(typeof sizes)[number]>;
 };
 
-export type SpinnerProps = ComponentPropsWithout<'div', RemovedProps> & {
+export interface SpinnerProps extends ColorProps, ComponentPropsWithout<'div', RemovedProps> {
   /**
    * Sets the button height.
    * @default md
    */
   size?: Responsive<(typeof sizes)[number]>;
-};
+}

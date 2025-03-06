@@ -50,16 +50,6 @@
             "value": 12
           }
         }
-      },
-      "modal": {
-        "action-modal": {
-          "type": "string",
-          "value": "modal"
-        },
-        "header": {
-          "type": "string",
-          "value": "close"
-        }
       }
     },
     "device-width": {
@@ -547,16 +537,6 @@
             "value": 8
           }
         }
-      },
-      "modal": {
-        "action-modal": {
-          "type": "string",
-          "value": "sheet"
-        },
-        "header": {
-          "type": "string",
-          "value": "sheet"
-        }
       }
     },
     "device-width": {
@@ -1043,16 +1023,6 @@
             "type": "number",
             "value": 12
           }
-        }
-      },
-      "modal": {
-        "action-modal": {
-          "type": "string",
-          "value": "modal"
-        },
-        "header": {
-          "type": "string",
-          "value": "close"
         }
       }
     },

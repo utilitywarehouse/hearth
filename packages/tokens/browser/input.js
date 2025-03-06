@@ -8,11 +8,16 @@ export const input = {
   borderWidth: 'var(--input-border-width)',
   borderWidthFocused: 'var(--input-border-width-focused)',
   colorPlaceholder: 'var(--input-color-placeholder)',
+  currency: {
+    gap: 'var(--input-currency-gap)',
+    height: 'var(--input-currency-height)',
+  },
   gap: 'var(--input-gap)',
-  gapCurrency: 'var(--input-gap-currency)',
+  height: 'var(--input-height)',
   paddingHorizontal: 'var(--input-padding-horizontal)',
   paddingVertical: 'var(--input-padding-vertical)',
   textArea: {
+    height: 'var(--input-text-area-height)',
     resizeIconColor: 'var(--input-text-area-resize-icon-color)',
   },
 };
