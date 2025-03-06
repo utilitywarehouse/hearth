@@ -8,11 +8,16 @@ export declare const input: {
   readonly borderWidth: 'var(--input-border-width)';
   readonly borderWidthFocused: 'var(--input-border-width-focused)';
   readonly colorPlaceholder: 'var(--input-color-placeholder)';
+  readonly currency: {
+    readonly gap: 'var(--input-currency-gap)';
+    readonly height: 'var(--input-currency-height)';
+  };
   readonly gap: 'var(--input-gap)';
-  readonly gapCurrency: 'var(--input-gap-currency)';
+  readonly height: 'var(--input-height)';
   readonly paddingHorizontal: 'var(--input-padding-horizontal)';
   readonly paddingVertical: 'var(--input-padding-vertical)';
   readonly textArea: {
+    readonly height: 'var(--input-text-area-height)';
     readonly resizeIconColor: 'var(--input-text-area-resize-icon-color)';
   };
 };
