@@ -8,7 +8,7 @@
   padding: var(--spinner-padding);
 
   &:where([data-currentColor]) {
-    color: currentColor;
+    color: currentcolor;
   }
 
   &:where(.hearth-color) {
@@ -44,7 +44,7 @@
   & > svg {
     width: 100%;
     height: 100%;
-    stroke: currentColor;
+    stroke: currentcolor;
     animation: hearth-rotator var(--spinner-animation-duration) linear infinite;
 
     & > circle {
