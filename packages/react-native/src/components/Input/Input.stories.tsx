@@ -5,6 +5,7 @@ import { VariantTitle } from '../../../docs/components';
 import * as Icons from '../../../docs/components/icons';
 import { Flex } from '../Flex';
 import { EmailMediumIcon } from '../../../docs/components/icons';
+import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
 
 const meta = {
   title: 'Stories / Input',
@@ -86,6 +87,13 @@ export const Variants: Story = {
     controls: { include: [] },
   },
   render: () => {
+    const [clearableSearchValue, setClearableSearchValue] = React.useState('clearble search');
+    const handleClearableSearchChange = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
+      setClearableSearchValue(e.nativeEvent.text);
+    };
+    const handleClearableSearchClear = () => {
+      setClearableSearchValue('');
+    };
     return (
       <Flex direction="column" space="lg">
         <VariantTitle title="Default">
@@ -105,6 +113,22 @@ export const Variants: Story = {
         </VariantTitle>
         <VariantTitle title="Type password">
           <Input placeholder="Input placeholder" value="filling the value" type="password" />
+        </VariantTitle>
+        <VariantTitle title="Type search">
+          <Input placeholder="Input placeholder" type="search" />
+        </VariantTitle>
+        <VariantTitle title="Type search - clearable">
+          <Input
+            placeholder="Input placeholder"
+            type="search"
+            value={clearableSearchValue}
+            clearable
+            onChange={handleClearableSearchChange}
+            onClear={handleClearableSearchClear}
+          />
+        </VariantTitle>
+        <VariantTitle title="Type search - loading">
+          <Input placeholder="Input placeholder" type="search" loading />
         </VariantTitle>
         <VariantTitle title="Valid">
           <Input validationStatus="valid" placeholder="Input placeholder" />

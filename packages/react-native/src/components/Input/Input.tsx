@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentType, useState } from 'react';
 import { createInput } from '@gluestack-ui/input';
 import type InputProps from './Input.props';
 
@@ -7,6 +7,16 @@ import InputSlotComponent from './InputSlot';
 import InputIconComponent from './InputIcon';
 import InputFieldComponent from './InputField';
 import { useFormFieldContext } from '../FormField';
+import {
+  CloseMediumIcon,
+  EyeMediumIcon,
+  EyeOffMediumIcon,
+  SearchMediumIcon,
+} from '../../../docs/components/icons';
+import { InputWithoutChildrenProps } from './Input.props';
+import { UnstyledIconButton } from '../UnstyledIconButton';
+import { Spinner } from '../Spinner';
+import { useTheme } from '../../hooks';
 
 export const InputComponent = createInput({
   Icon: InputIconComponent,
@@ -28,11 +38,34 @@ const Input: React.FC<InputProps> = ({
   leadingIcon,
   trailingIcon,
   type,
+  showPasswordToggle = true,
+  onClear,
+  format,
+  loading,
+  clearable = false,
   ...props
 }) => {
   const formFieldContext = useFormFieldContext();
   const { disabled: formFieldDisabled } = formFieldContext;
   const validationStatusFromContext = formFieldContext?.validationStatus ?? validationStatus;
+  const [fieldType, setFieldType] = useState<'password' | 'text'>(
+    type === 'password' ? 'password' : 'text'
+  );
+  const { components } = useTheme();
+
+  const shouldShowPasswordToggle = type === 'password' && showPasswordToggle;
+  const shouldShowClear = clearable && !!(props as InputWithoutChildrenProps)?.value;
+
+  const toggleFieldType = () => {
+    setFieldType(fieldType === 'password' ? 'text' : 'password');
+  };
+
+  const leadingIconComponent = ((): ComponentType | undefined => {
+    if (type === 'search') {
+      return SearchMediumIcon;
+    }
+    return leadingIcon;
+  })();
 
   return (
     <InputComponent
@@ -47,12 +80,30 @@ const Input: React.FC<InputProps> = ({
         <>{children}</>
       ) : (
         <>
-          {leadingIcon && (
+          {!!leadingIconComponent && (
             <InputSlot>
-              <InputIcon as={leadingIcon} />
+              <InputIcon as={leadingIconComponent} />
             </InputSlot>
           )}
-          <InputField type={type} {...props} />
+          <InputField type={fieldType} {...props} />
+          {shouldShowClear && (
+            <InputSlot>
+              <UnstyledIconButton onPress={onClear} icon={CloseMediumIcon} />
+            </InputSlot>
+          )}
+          {loading && (
+            <InputSlot>
+              <Spinner size="xs" color={components.icon.color} />
+            </InputSlot>
+          )}
+          {shouldShowPasswordToggle && (
+            <InputSlot>
+              <UnstyledIconButton
+                onPress={toggleFieldType}
+                icon={fieldType === 'password' ? EyeMediumIcon : EyeOffMediumIcon}
+              />
+            </InputSlot>
+          )}
           {trailingIcon && (
             <InputSlot>
               <InputIcon as={trailingIcon} />

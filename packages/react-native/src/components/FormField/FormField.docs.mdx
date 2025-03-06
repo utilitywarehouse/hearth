@@ -24,7 +24,6 @@ import {
   // CheckboxIndicator,
   // CheckboxIcon,
   // CheckboxLabel,
-  // VStack,
 } from '../../';
 import { EmailMediumIcon } from '../../../docs/components/icons';
 import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
@@ -261,7 +260,7 @@ import {
   FormFieldInvalidIcon,
   FormFieldInvalid,
   FormFieldInvalidText,
-  VStack,
+  Flex,
 } from '@utilitywarehouse/native-ui';
 
 const MyComponent = () => {
@@ -269,7 +268,7 @@ const MyComponent = () => {
     <FormField validationStatus="invalid">
       <Checkbox alignItems="flex-start">
         <CheckboxIndicator />
-        <VStack space="xs">
+        <Flex direction="column" space="xs">
           <CheckboxLabel nested={false}>I accept the terms and conditions</CheckboxLabel>
           <FormFieldHelper>
             <FormFieldHelperText>Read and accept the terms and conditions</FormFieldHelperText>
@@ -278,7 +277,7 @@ const MyComponent = () => {
             <FormFieldInvalidIcon />
             <FormFieldInvalidText>Please check the box above</FormFieldInvalidText>
           </FormFieldInvalid>
-        </VStack>
+        </Flex>
       </Checkbox>
     </FormField>
   );

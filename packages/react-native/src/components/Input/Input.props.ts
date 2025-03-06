@@ -1,6 +1,7 @@
 import type { ComponentType } from 'react';
 import type { TextInputProps, ViewProps } from 'react-native';
 
+// Base props common to all input types
 export interface InputBaseProps {
   /**
    * If true, the input will be disabled.
@@ -26,22 +27,84 @@ export interface InputBaseProps {
   focused?: boolean;
 }
 
+// For inputs that have children
 export interface InputWithChildrenProps extends InputBaseProps, ViewProps {
   children: React.ReactNode;
+  type?: undefined;
+  showPasswordToggle?: never;
+  format?: never;
+  loading?: never;
+  clearable?: never;
+  onClear?: never;
   leadingIcon?: never;
   trailingIcon?: never;
-  type?: never;
 }
 
-interface InputWithoutChildrenProps extends InputBaseProps, TextInputProps {
+// Base for inputs without children
+interface InputWithoutChildrenBaseProps extends InputBaseProps, Omit<TextInputProps, 'children'> {
   children?: never;
   leadingIcon?: ComponentType;
   trailingIcon?: ComponentType;
-  type?: 'text' | 'password';
 }
+
+// Specific input types with their unique props
+interface TextInputSpecificProps extends InputWithoutChildrenBaseProps {
+  type?: 'text';
+  showPasswordToggle?: never;
+  format?: never;
+  loading?: never;
+  clearable?: never;
+  onClear?: never;
+}
+
+interface PasswordInputSpecificProps extends InputWithoutChildrenBaseProps {
+  type: 'password';
+  showPasswordToggle?: boolean;
+  format?: never;
+  loading?: never;
+  clearable?: never;
+  onClear?: never;
+}
+
+interface DateInputSpecificProps extends InputWithoutChildrenBaseProps {
+  type: 'date';
+  format?: string;
+  showPasswordToggle?: never;
+  loading?: never;
+  clearable?: never;
+  onClear?: never;
+}
+
+interface CurrencyInputSpecificProps extends InputWithoutChildrenBaseProps {
+  type: 'currency';
+  format?: string;
+  showPasswordToggle?: never;
+  loading?: never;
+  clearable?: never;
+  onClear?: never;
+}
+
+interface SearchInputSpecificProps extends InputWithoutChildrenBaseProps {
+  type: 'search';
+  loading?: boolean;
+  clearable?: boolean;
+  onClear?: () => void;
+  showPasswordToggle?: never;
+  format?: never;
+}
+
+// Union of all input types
+export type InputWithoutChildrenProps =
+  | TextInputSpecificProps
+  | PasswordInputSpecificProps
+  | DateInputSpecificProps
+  | CurrencyInputSpecificProps
+  | SearchInputSpecificProps;
 
 /**
  * Props for the Input component.
+ * This is a discriminated union type where the 'type' property
+ * determines which specific props are available.
  */
 type InputProps = InputWithChildrenProps | InputWithoutChildrenProps;
 
