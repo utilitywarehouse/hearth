@@ -577,6 +577,9 @@ importers:
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:*
         version: link:../fonts
+      '@utilitywarehouse/hearth-tokens':
+        specifier: workspace:*
+        version: link:../tokens
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.1)

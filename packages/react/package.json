@@ -38,7 +38,7 @@
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
     "format": "prettier --write \"src/**/*.ts*\"",
     "format:ci": "prettier --list-different \"src/**/*.ts*\"",
-    "gen:color-tokens": "cp ../tokens/js/color.js ./scripts/color.js && node ./scripts/generate-color-tokens.js && prettier --write \"./src/tokens/color.ts\" && rm ./scripts/color.js"
+    "gen:color-tokens": "node ./scripts/generate-color-tokens.js && prettier --write \"./src/tokens/color.ts\""
   },
   "publishConfig": {
     "access": "restricted"
@@ -65,6 +65,7 @@
     "@utilitywarehouse/colour-system": "^0.5.0",
     "@utilitywarehouse/css-reset": "^0.1.0",
     "@utilitywarehouse/hearth-fonts": "workspace:*",
+    "@utilitywarehouse/hearth-tokens": "workspace:*",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
     "ejs": "^3.1.10",
