@@ -1,24 +1,22 @@
 import { spaceTokens } from '../tokens/space';
-import { Responsive, Union } from '../types/responsive';
+import { Responsive } from '../types/responsive';
 import { PropDef } from './prop-def';
 
-const gapTokens = spaceTokens;
-
 const gapPropDefs = {
-  gap: { className: 'gap', tokens: gapTokens, responsive: true },
-  rowGap: { className: 'row-gap', tokens: gapTokens, responsive: true },
-  columnGap: { className: 'column-gap', tokens: gapTokens, responsive: true },
+  gap: { className: 'gap', tokens: spaceTokens, responsive: true },
+  rowGap: { className: 'row-gap', tokens: spaceTokens, responsive: true },
+  columnGap: { className: 'column-gap', tokens: spaceTokens, responsive: true },
 } satisfies {
-  gap: PropDef<(typeof gapTokens)[number]>;
-  rowGap: PropDef<(typeof gapTokens)[number]>;
-  columnGap: PropDef<(typeof gapTokens)[number]>;
+  gap: PropDef<(typeof spaceTokens)[number]>;
+  rowGap: PropDef<(typeof spaceTokens)[number]>;
+  columnGap: PropDef<(typeof spaceTokens)[number]>;
 };
 
 interface GapProps {
-  gap?: Responsive<Union<string, (typeof gapTokens)[number]>>;
-  rowGap?: Responsive<Union<string, (typeof gapTokens)[number]>>;
-  columnGap?: Responsive<Union<string, (typeof gapTokens)[number]>>;
+  gap?: Responsive<(typeof spaceTokens)[number]>;
+  rowGap?: Responsive<(typeof spaceTokens)[number]>;
+  columnGap?: Responsive<(typeof spaceTokens)[number]>;
 }
 
-export { gapPropDefs, gapTokens };
+export { gapPropDefs };
 export type { GapProps };

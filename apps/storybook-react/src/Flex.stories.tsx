@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Box, Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { Box, colorTokens, Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Flex> = {
   title: 'Stories / Flex',
@@ -16,6 +16,8 @@ const meta: Meta<typeof Flex> = {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },
     display: { options: ['none', 'flex', 'inline-flex'], control: { type: 'radio' } },
+    color: { options: colorTokens, control: { type: 'select' } },
+    backgroundColor: { control: { type: 'text' } },
     padding: { options: spaceTokens, control: { type: 'select' } },
     paddingInline: { options: spaceTokens, control: { type: 'select' } },
     paddingBlock: { options: spaceTokens, control: { type: 'select' } },
@@ -31,8 +33,6 @@ const meta: Meta<typeof Flex> = {
     height: { control: { type: 'text' } },
     minHeight: { control: { type: 'text' } },
     maxHeight: { control: { type: 'text' } },
-    color: { control: { type: 'text' } },
-    backgroundColor: { control: { type: 'text' } },
   },
 } satisfies Meta<typeof Flex>;
 

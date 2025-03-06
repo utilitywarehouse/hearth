@@ -9,6 +9,9 @@ const spacingPropDefs = {
 };
 
 interface SpacingProps {
+  /**
+   * Set responsive spacing between child elements.
+   */
   spacing?: (typeof spacingValues)[number];
 }
 
