@@ -11,11 +11,16 @@ export default {
   borderWidth: 1,
   borderWidthFocused: 2,
   colorPlaceholder: '#6f6c6b',
+  currency: {
+    gap: 2,
+    height: 60,
+  },
   gap: 6,
-  gapCurrency: 2,
+  height: 48,
   paddingHorizontal: 16,
   paddingVertical: 12,
   textArea: {
+    height: 96,
     resizeIconColor: '#6f6c6b',
   },
 };

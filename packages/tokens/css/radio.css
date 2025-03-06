@@ -1,0 +1,18 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --radio-border-width: var(--border-width-2);
+  --radio-checked-border-color-active: var(--color-warm-white-200);
+  --radio-checked-color: var(--color-grey-1000);
+  --radio-checked-color-active: var(--color-grey-800);
+  --radio-checked-color-hover: var(--color-grey-900);
+  --radio-radius: var(--border-radius-full);
+  --radio-unchecked-background-color: var(--color-white);
+  --radio-unchecked-background-color-active: var(--color-warm-white-50);
+  --radio-unchecked-background-color-hover: var(--color-warm-white-50);
+  --radio-unchecked-border-color: var(--color-grey-400);
+  --radio-unchecked-border-color-2: var(--color-grey-400);
+  --radio-unchecked-border-color-active: var(--color-warm-white-200);
+}
