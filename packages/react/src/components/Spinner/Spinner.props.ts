@@ -17,4 +17,5 @@ export interface SpinnerProps extends ColorProps, ComponentPropsWithout<'div', R
    * @default md
    */
   size?: Responsive<(typeof sizes)[number]>;
+  currentColor?: boolean;
 }

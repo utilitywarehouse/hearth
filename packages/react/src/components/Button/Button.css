@@ -11,10 +11,12 @@
   &:where(.hearth-variant-emphasis) {
     min-width: 0;
     padding: 0;
+    gap: 0;
   }
 
   &:where(.hearth-variant-emphasis) > .hearth-front {
     min-width: 124px;
+    gap: var(--button-gap);
     padding-inline: var(--button-padding-inline);
     padding-block: var(--button-padding-block);
   }

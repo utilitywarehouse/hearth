@@ -28,6 +28,7 @@ const meta: Meta<typeof Button> = {
     variant: { control: { type: 'radio' }, options: ['emphasis', ...variants] },
     colorScheme: { options: ['yellow', ...otherColorSchemes], control: { type: 'radio' } },
     size: { control: { type: 'radio' }, options: sizes },
+    loading: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
   },
   args: {
