@@ -36,7 +36,7 @@ const styles = StyleSheet.create(theme => ({
     overflow: 'hidden',
     alignContent: 'center',
     paddingHorizontal: theme.components.input.paddingHorizontal,
-    paddingVertical: theme.components.input.paddingVertical,
+    // paddingVertical: theme.components.input.paddingVertical,
     backgroundColor: theme.components.input.backgroundColor,
     gap: theme.components.input.gap,
     outlineStyle: 'solid',

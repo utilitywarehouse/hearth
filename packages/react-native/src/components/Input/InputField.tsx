@@ -17,7 +17,6 @@ const InputField = forwardRef<ElementRef<typeof TextInput>, TextInputProps>(
         selectionColor={color.uwPurple}
         cursorColor={color.uwPurple}
         verticalAlign="middle"
-        textAlignVertical="center"
         aria-disabled={disabled}
         {...props}
         style={[styles.input, style]}
@@ -31,6 +30,8 @@ InputField.displayName = 'InputField';
 const styles = StyleSheet.create(theme => ({
   input: {
     flex: 1,
+    alignSelf: 'stretch',
+    // minHeight: 40,
     width: 'auto',
     justifyContent: 'center',
     alignItems: 'center',
@@ -38,11 +39,10 @@ const styles = StyleSheet.create(theme => ({
     fontSize: theme.typography.mobile.bodyText.md.fontSize,
     fontFamily: theme.typography.mobile.bodyText.fontFamily,
     fontWeight: theme.typography.mobile.bodyText.fontWeight,
+    borderWidth: 0,
     variants: {
       focused: {
-        true: {
-          borderWidth: 0,
-        },
+        true: {},
       },
       type: {
         text: {},
@@ -54,14 +54,20 @@ const styles = StyleSheet.create(theme => ({
           fontWeight: theme.typography.mobile.detailText.fontWeight,
           paddingTop: 0,
           paddingBottom: 0,
-          textAlignVertical: 'center',
           // todo: fix this
-          ...(Platform.OS === 'android' && { height: 37, marginTop: 5 }),
-          ...(Platform.OS === 'ios' && { marginTop: -3 }),
         },
         date: {},
       },
     },
+    compoundVariants: [
+      // {
+      //   focused: true,
+      //   type: 'currency',
+      //   styles: {
+      //     ...(Platform.OS === 'android' && { paddingTop: 1 }),
+      //   },
+      // },
+    ],
     _web: {
       width: '100%',
     },

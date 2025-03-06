@@ -19,7 +19,6 @@ import { UnstyledIconButton } from '../UnstyledIconButton';
 import { Spinner } from '../Spinner';
 import { useTheme } from '../../hooks';
 import { DetailText } from '../DetailText';
-import { Placeholder } from 'storybook/internal/components';
 import { Platform } from 'react-native';
 
 export const InputComponent = createInput({
@@ -133,8 +132,7 @@ const Input: React.FC<InputProps> = ({
                 size="4xl"
                 style={{
                   // todo: fix this
-                  ...(Platform.OS === 'android' && { lineHeight: 37 }),
-                  ...(Platform.OS === 'ios' && { lineHeight: 40 }),
+                  ...(Platform.OS === 'ios' && { lineHeight: 46 }),
                 }}
               >
                 £
