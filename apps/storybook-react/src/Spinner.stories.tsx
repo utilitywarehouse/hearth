@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Flex, Spinner } from '@utilitywarehouse/hearth-react';
+import { colorTokens, Flex, Spinner } from '@utilitywarehouse/hearth-react';
 
 const sizes = ['xs', 'sm', 'md', 'lg'] as const;
 
@@ -16,7 +16,7 @@ const meta: Meta<typeof Spinner> = {
   },
   argTypes: {
     size: { control: { type: 'radio' }, options: sizes },
-    color: { control: { type: 'text' } },
+    color: { options: colorTokens, control: { type: 'select' } },
   },
   args: {
     size: 'md',
