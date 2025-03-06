@@ -7,13 +7,13 @@ import { InputContext } from './Input.context';
 const InputRoot = forwardRef<
   View,
   InputProps & { states?: { focus?: boolean; disabled?: boolean; readonly?: boolean } }
->(({ children, style, states, validationStatus, ...props }, ref) => {
+>(({ children, style, states, validationStatus, type, ...props }, ref) => {
   const { focus = false, disabled = false, readonly = false } = states || {};
-  styles.useVariants({ validationStatus, focus, disabled, readonly });
+  styles.useVariants({ validationStatus, focus, disabled, readonly, type });
 
   const value = useMemo(
-    () => ({ focused: focus, disabled, readonly, validationStatus }),
-    [focus, disabled, readonly, validationStatus]
+    () => ({ focused: focus, disabled, readonly, validationStatus, type }),
+    [focus, disabled, readonly, validationStatus, type]
   );
 
   return (
@@ -29,29 +29,33 @@ InputRoot.displayName = 'InputRoot';
 
 const styles = StyleSheet.create(theme => ({
   container: {
-    borderWidth: theme.components.input.borderWidth,
     borderColor: theme.components.input.borderColor,
-    height: 48,
+    height: theme.components.input.height,
     borderRadius: theme.components.input.borderRadius,
     flexDirection: 'row',
     overflow: 'hidden',
     alignContent: 'center',
     paddingHorizontal: theme.components.input.paddingHorizontal,
+    paddingVertical: theme.components.input.paddingVertical,
     backgroundColor: theme.components.input.backgroundColor,
     gap: theme.components.input.gap,
+    outlineStyle: 'solid',
+    outlineWidth: theme.components.input.borderWidth,
+    outlineColor: theme.components.input.borderColor,
     variants: {
       focus: {
         true: {
-          borderWidth: theme.components.input.borderWidthFocused,
-          marginHorizontal: -theme.components.input.borderWidthFocused / 2,
+          outlineWidth: theme.components.input.borderWidthFocused,
         },
       },
       validationStatus: {
         invalid: {
           borderColor: theme.components.input.borderColorInvalid,
+          outlineColor: theme.components.input.borderColorInvalid,
         },
         valid: {
           borderColor: theme.components.input.borderColorValid,
+          outlineColor: theme.components.input.borderColorValid,
         },
         initial: {},
       },
@@ -64,6 +68,16 @@ const styles = StyleSheet.create(theme => ({
         true: {
           borderColor: theme.components.input.borderColorReadOnly,
         },
+      },
+      type: {
+        text: {},
+        password: {},
+        search: {},
+        currency: {
+          height: theme.components.input.currency.height,
+          gap: theme.components.input.currency.gap,
+        },
+        date: {},
       },
     },
   },

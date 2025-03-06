@@ -25,6 +25,7 @@ export interface InputBaseProps {
   validationStatus?: 'initial' | 'valid' | 'invalid';
   readonly?: boolean;
   focused?: boolean;
+  placeholder?: string;
 }
 
 // For inputs that have children
@@ -108,6 +109,12 @@ export type InputWithoutChildrenProps =
  */
 type InputProps = InputWithChildrenProps | InputWithoutChildrenProps;
 
-export type InputContextValue = InputBaseProps;
+export type InputContextValue = {
+  disabled?: InputProps['disabled'];
+  focused?: InputProps['focused'];
+  readonly?: InputProps['readonly'];
+  validationStatus?: InputProps['validationStatus'];
+  type?: InputProps['type'];
+};
 
 export default InputProps;

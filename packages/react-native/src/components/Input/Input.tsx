@@ -8,6 +8,7 @@ import InputIconComponent from './InputIcon';
 import InputFieldComponent from './InputField';
 import { useFormFieldContext } from '../FormField';
 import {
+  CalendarMediumIcon,
   CloseMediumIcon,
   EyeMediumIcon,
   EyeOffMediumIcon,
@@ -17,6 +18,9 @@ import { InputWithoutChildrenProps } from './Input.props';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import { Spinner } from '../Spinner';
 import { useTheme } from '../../hooks';
+import { DetailText } from '../DetailText';
+import { Placeholder } from 'storybook/internal/components';
+import { Platform } from 'react-native';
 
 export const InputComponent = createInput({
   Icon: InputIconComponent,
@@ -53,6 +57,26 @@ const Input: React.FC<InputProps> = ({
   );
   const { components } = useTheme();
 
+  const defaultFornat = (() => {
+    if (type === 'currency') {
+      return '0.00';
+    }
+    if (type === 'date') {
+      return 'DD/MM/YYYY';
+    }
+    return;
+  })();
+
+  const getPlaceholder = (() => {
+    if (type === 'currency') {
+      return props.placeholder ?? format ?? defaultFornat;
+    }
+    if (type === 'date') {
+      return props.placeholder ?? format ?? defaultFornat;
+    }
+    return props.placeholder;
+  })();
+
   const shouldShowPasswordToggle = type === 'password' && showPasswordToggle;
   const shouldShowClear = clearable && !!(props as InputWithoutChildrenProps)?.value;
 
@@ -67,6 +91,23 @@ const Input: React.FC<InputProps> = ({
     return leadingIcon;
   })();
 
+  const trailingIconComponent = ((): ComponentType | undefined => {
+    if (type === 'date') {
+      return CalendarMediumIcon;
+    }
+    return trailingIcon;
+  })();
+
+  const getInputMode = (() => {
+    if (type === 'currency') {
+      return 'decimal';
+    }
+    if (type === 'search') {
+      return 'search';
+    }
+    return undefined;
+  })();
+
   return (
     <InputComponent
       {...(children ? props : {})}
@@ -75,6 +116,7 @@ const Input: React.FC<InputProps> = ({
       isReadOnly={readonly}
       isDisabled={formFieldDisabled ?? disabled}
       isFocused={focused}
+      type={type as undefined}
     >
       {children ? (
         <>{children}</>
@@ -85,7 +127,26 @@ const Input: React.FC<InputProps> = ({
               <InputIcon as={leadingIconComponent} />
             </InputSlot>
           )}
-          <InputField type={fieldType} {...props} />
+          {type === 'currency' && (
+            <InputSlot>
+              <DetailText
+                size="4xl"
+                style={{
+                  // todo: fix this
+                  ...(Platform.OS === 'android' && { lineHeight: 37 }),
+                  ...(Platform.OS === 'ios' && { lineHeight: 40 }),
+                }}
+              >
+                £
+              </DetailText>
+            </InputSlot>
+          )}
+          <InputField
+            type={fieldType}
+            inputMode={getInputMode}
+            {...props}
+            placeholder={getPlaceholder}
+          />
           {shouldShowClear && (
             <InputSlot>
               <UnstyledIconButton onPress={onClear} icon={CloseMediumIcon} />
@@ -104,9 +165,9 @@ const Input: React.FC<InputProps> = ({
               />
             </InputSlot>
           )}
-          {trailingIcon && (
+          {!!trailingIconComponent && (
             <InputSlot>
-              <InputIcon as={trailingIcon} />
+              <InputIcon as={trailingIconComponent} />
             </InputSlot>
           )}
         </>
