@@ -8,6 +8,8 @@ type GetClassNameStylesOptions = {
   tokens: ReadonlyArray<string | number> | undefined;
   isResponsive: boolean;
   defaultValue?: string | number;
+  isSingleClassNameTokens?: boolean;
+  transformValue?: (value: string) => string;
 };
 
 export const getClassNameStyles = ({
@@ -16,6 +18,8 @@ export const getClassNameStyles = ({
   tokens,
   isResponsive,
   defaultValue,
+  isSingleClassNameTokens,
+  transformValue,
 }: GetClassNameStylesOptions) => {
   const responsivePrefix = isResponsive ? '-r' : '';
 
@@ -26,6 +30,15 @@ export const getClassNameStyles = ({
   if (typeof value === 'string' || typeof value === 'number') {
     const isTokenValue = tokens?.includes(value);
     if (isTokenValue) {
+      // As we're currently only dealing with the colour tokens here,
+      // we don't need to consider responsive objects because there is,
+      // as yet, no reason to have the colour props responsive.
+      if (typeof value === 'string' && isSingleClassNameTokens && transformValue !== undefined) {
+        return {
+          className: `${GLOBAL_PREFIX}${responsivePrefix}-${prefix}`,
+          style: { [`-${responsivePrefix}-${prefix}`]: transformValue(value) },
+        };
+      }
       return { className: `${GLOBAL_PREFIX}${responsivePrefix}-${prefix}-${value}` };
     }
     return {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Box, BoxProps, Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { Box, BoxProps, Flex, spaceTokens, colorTokens } from '@utilitywarehouse/hearth-react';
 import { useRef } from 'react';
 
 const meta: Meta<typeof Box> = {
@@ -16,6 +16,8 @@ const meta: Meta<typeof Box> = {
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },
+    color: { options: colorTokens, control: { type: 'select' } },
+    backgroundColor: { control: { type: 'text' } },
     padding: { options: spaceTokens, control: { type: 'select' } },
     paddingInline: { options: spaceTokens, control: { type: 'select' } },
     paddingBlock: { options: spaceTokens, control: { type: 'select' } },
@@ -29,8 +31,6 @@ const meta: Meta<typeof Box> = {
     height: { control: { type: 'text' } },
     minHeight: { control: { type: 'text' } },
     maxHeight: { control: { type: 'text' } },
-    color: { control: { type: 'text' } },
-    backgroundColor: { control: { type: 'text' } },
   },
 } satisfies Meta<typeof Box>;
 
@@ -103,13 +103,7 @@ type Props = React.ComponentPropsWithoutRef<'a'> & BoxProps;
 const CustomAnchor = ({ onClick, href, ...props }: Props) => {
   const ref = useRef<HTMLAnchorElement>(null);
   return (
-    <Box
-      asChild
-      {...props}
-      padding="100"
-      color="rebeccapurple"
-      style={{ textDecoration: 'underline' }}
-    >
+    <Box asChild {...props} padding="100" color="uwPurple" style={{ textDecoration: 'underline' }}>
       <a onClick={onClick} href={href} ref={ref}>
         Custom Component
       </a>

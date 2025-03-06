@@ -37,7 +37,8 @@
     "lint:css": "stylelint \"src/**/*.css\"",
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
     "format": "prettier --write \"src/**/*.ts*\"",
-    "format:ci": "prettier --list-different \"src/**/*.ts*\""
+    "format:ci": "prettier --list-different \"src/**/*.ts*\"",
+    "gen:color-tokens": "node ./scripts/generate-color-tokens.js && prettier --write \"./src/tokens/color.ts\""
   },
   "publishConfig": {
     "access": "restricted"
@@ -64,8 +65,10 @@
     "@utilitywarehouse/colour-system": "^0.5.0",
     "@utilitywarehouse/css-reset": "^0.1.0",
     "@utilitywarehouse/hearth-fonts": "workspace:*",
+    "@utilitywarehouse/hearth-tokens": "workspace:*",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
+    "ejs": "^3.1.10",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
     "postcss-custom-media": "^11.0.5",

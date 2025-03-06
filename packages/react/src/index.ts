@@ -5,6 +5,7 @@
  ********************/
 export { breakpoints } from './tokens/breakpoints';
 export { spaceTokens } from './tokens/space';
+export { colorTokens } from './tokens/color';
 
 /********************
  *

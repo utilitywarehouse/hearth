@@ -1,16 +1,27 @@
+import { transformColorValue } from '../helpers/transform-color-value';
+import { colorTokens as importedColorTokens } from '../tokens/color';
 import { PropDef } from './prop-def';
 
+// we need to redefine as const so that intellisense works
+const colorTokens = [...importedColorTokens] as const;
+
 const colorPropDefs = {
-  color: { className: 'color', responsive: false },
+  color: {
+    className: 'color',
+    tokens: colorTokens,
+    responsive: false,
+    singleClassNameTokens: true,
+    transformValue: transformColorValue,
+  },
 } satisfies {
-  color: PropDef<string>;
+  color: PropDef<(typeof colorTokens)[number]>;
 };
 
 interface ColorProps {
   /**
    * Set the foreground colour.
    */
-  color?: string;
+  color?: (typeof colorTokens)[number];
 }
 
 export { colorPropDefs };

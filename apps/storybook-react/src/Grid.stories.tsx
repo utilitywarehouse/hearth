@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Box, Grid, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { Box, colorTokens, Grid, spaceTokens } from '@utilitywarehouse/hearth-react';
 
 const columnsValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'] as const;
 
@@ -19,6 +19,8 @@ const meta: Meta<typeof Grid> = {
     as: { options: ['div', 'span'], control: { type: 'radio' } },
     columns: { options: columnsValues, control: { type: 'select' } },
     gap: { options: spaceTokens, control: { type: 'select' } },
+    color: { options: colorTokens, control: { type: 'select' } },
+    backgroundColor: { control: { type: 'text' } },
   },
 } satisfies Meta<typeof Grid>;
 
