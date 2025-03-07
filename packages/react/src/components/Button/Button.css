@@ -24,6 +24,7 @@
 
   & :where(.hearth-loading) {
     display: grid;
+
     > div,
     > span {
       grid-column: 1;
@@ -36,6 +37,7 @@
       justify-content: center;
       gap: var(--button-gap);
     }
+
     & :where(.hearth-hidden) {
       visibility: hidden;
     }
