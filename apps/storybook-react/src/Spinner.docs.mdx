@@ -23,8 +23,25 @@ The size prop is responsive, so you can render different sizes at different brea
 <Spinner size={{ mobile: 'sm', tablet: 'md', desktop: 'lg' }} />
 ```
 
+## Color
+
+The color prop allows you to set the strok width colour to any of the colour token values.
+
+```tsx
+<Spinner color="uwPurple" />
+```
+
+If you are using the `Spinner` as an element within a parent component, and
+need it to inherit the parent's colour scheme, you can set the `currentColor`
+prop.
+
+```tsx
+<Spinner currentColor />
+```
+
 ## API
 
-| Prop   | Type                                       |
-| ------ | ------------------------------------------ |
-| `size` | `Responsive<"xs" \| "sm" \| "md" \| "lg">` |
+| Prop           | Type                                       |
+| -------------- | ------------------------------------------ |
+| `size`         | `Responsive<"xs" \| "sm" \| "md" \| "lg">` |
+| `currentColor` | `boolean`                                  |
