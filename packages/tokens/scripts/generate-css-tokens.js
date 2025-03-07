@@ -23,6 +23,7 @@ StyleDictionary.registerFormat({
 @import '../css/layout.css';
 @import '../css/letter-spacing.css';
 @import '../css/line-height.css';
+@import '../css/link.css';
 @import '../css/opacity.css';
 @import '../css/space.css';
 @import '../css/spinner.css';

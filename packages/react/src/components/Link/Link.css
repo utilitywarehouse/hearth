@@ -1,0 +1,61 @@
+.hearth-Link {
+  /*  unset button styles when asChild is used */
+  &:where(button) {
+    outline: transparent;
+    appearance: none;
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--font-family-detail);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-500);
+  color: var(--link-color);
+  text-decoration-line: underline;
+  text-decoration-color: currentColor;
+  border-radius: var(--border-radius-xs);
+  &:where([data-inverted]) {
+    color: var(--link-inverted-color);
+  }
+
+  @media (hover: hover) {
+    &:where(:hover) {
+      color: var(--link-color-hover);
+      text-decoration: none;
+      &:where([data-inverted]) {
+        color: var(--link-inverted-color-hover);
+      }
+    }
+  }
+  &:where(:active) {
+    color: var(--link-color-active);
+    &:where([data-inverted]) {
+      color: var(--link-inverted-color-active);
+    }
+  }
+  &:where(:focus-visible) {
+    outline: 2px solid var(--focus-border);
+    outline-offset: 1px;
+
+    &:where([data-inverted]) {
+      outline: 2px solid var(--focus-border-inverted);
+    }
+  }
+
+  &:where([data-inverted]) {
+    --solid-background-color: var(--button-solid-yellow-inverted-background-color);
+    --solid-background-color-active: var(--button-solid-yellow-inverted-background-color-active);
+    --solid-background-color-hover: var(--button-solid-yellow-inverted-background-color-hover);
+    --solid-foreground-color: var(--button-solid-yellow-inverted-foreground-color);
+  }
+
+  &:has(svg, [data-icon]) {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: var(--link-gap);
+  }
+}

@@ -51,3 +51,6 @@ export type { IconButtonProps } from './components/IconButton/IconButton.props';
 
 export { Spinner } from './components/Spinner/Spinner';
 export type { SpinnerProps } from './components/Spinner/Spinner.props';
+
+export { Link } from './components/Link/Link';
+export type { LinkProps } from './components/Link/Link.props';
