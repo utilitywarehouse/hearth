@@ -54,7 +54,6 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
       </Component>
     );
   }
-
   return (
     <Component
       ref={ref}

@@ -7,4 +7,5 @@ export const DATA_ATTRIBUTES = {
   colorscheme: withDataPrefix('colorscheme'),
   inverted: withDataPrefix('inverted'),
   disableUserSelect: withDataPrefix('disable-user-select'),
+  currentColor: withDataPrefix('currentColor'),
 };

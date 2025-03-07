@@ -9,6 +9,7 @@ const backgroundColorPropDefs = {
     className: 'background-color',
     tokens: colorTokens,
     responsive: false,
+    singleClassNameTokens: true,
     transformValue: transformColorValue,
   },
 } satisfies {

@@ -25,6 +25,7 @@ const meta: Meta<typeof IconButton> = {
     colorScheme: { options: ['yellow', ...otherColorSchemes], control: { type: 'radio' } },
     size: { control: { type: 'radio' }, options: sizes },
     disabled: { control: { type: 'boolean' } },
+    loading: { control: { type: 'boolean' } },
   },
   args: {
     onClick: fn(),
@@ -75,12 +76,21 @@ export const KitchenSink: Story = {
               </Flex>
             ))}
           </Flex>
-        </Flex>
-        <Flex gap="16px" direction="column">
-          <Heading style={{ textTransform: 'capitalize' }}>Solid</Heading>
-          <Flex gap="32px" align="center">
+          <Flex gap="400" align="center">
             {sizes.map(size => (
-              <Flex key={size} gap="8px">
+              <Flex key={size} gap="100">
+                <IconButton loading variant="emphasis" colorScheme="yellow" size={size} label="add">
+                  <AddMediumIcon />
+                </IconButton>
+              </Flex>
+            ))}
+          </Flex>
+        </Flex>
+        <Flex gap="200" direction="column">
+          <Heading style={{ textTransform: 'capitalize' }}>Solid</Heading>
+          <Flex gap="400" align="center">
+            {sizes.map(size => (
+              <Flex key={size} gap="100">
                 {solidColorSchemes.map(colorScheme => (
                   <IconButton
                     key={colorScheme}
@@ -96,9 +106,9 @@ export const KitchenSink: Story = {
               </Flex>
             ))}
           </Flex>
-          <Flex gap="32px" align="center">
+          <Flex gap="400" align="center">
             {sizes.map(size => (
-              <Flex key={size} gap="8px">
+              <Flex key={size} gap="100">
                 {solidColorSchemes.map(colorScheme => (
                   <IconButton
                     disabled
@@ -115,13 +125,32 @@ export const KitchenSink: Story = {
               </Flex>
             ))}
           </Flex>
+          <Flex gap="400" align="center">
+            {sizes.map(size => (
+              <Flex key={size} gap="100">
+                {solidColorSchemes.map(colorScheme => (
+                  <IconButton
+                    loading
+                    key={colorScheme}
+                    variant="solid"
+                    colorScheme={colorScheme}
+                    size={size}
+                    onClick={fn}
+                    label="add"
+                  >
+                    <AddMediumIcon />
+                  </IconButton>
+                ))}
+              </Flex>
+            ))}
+          </Flex>
         </Flex>
         {(['outline', 'ghost'] as const).map(variant => (
-          <Flex key={variant} gap="16px" direction="column">
+          <Flex key={variant} gap="200" direction="column">
             <Heading style={{ textTransform: 'capitalize' }}>{variant}</Heading>
-            <Flex gap="32px" align="center">
+            <Flex gap="400" align="center">
               {sizes.map(size => (
-                <Flex key={size} gap="8px">
+                <Flex key={size} gap="100">
                   {otherColorSchemes.map(colorScheme => (
                     <IconButton
                       key={colorScheme}
@@ -137,12 +166,31 @@ export const KitchenSink: Story = {
                 </Flex>
               ))}
             </Flex>
-            <Flex gap="32px" align="center">
+            <Flex gap="400" align="center">
               {sizes.map(size => (
-                <Flex key={size} gap="8px">
+                <Flex key={size} gap="100">
                   {otherColorSchemes.map(colorScheme => (
                     <IconButton
                       disabled
+                      key={colorScheme}
+                      variant={variant}
+                      colorScheme={colorScheme}
+                      size={size}
+                      onClick={fn}
+                      label="add"
+                    >
+                      <AddMediumIcon />
+                    </IconButton>
+                  ))}
+                </Flex>
+              ))}
+            </Flex>
+            <Flex gap="400" align="center">
+              {sizes.map(size => (
+                <Flex key={size} gap="100">
+                  {otherColorSchemes.map(colorScheme => (
+                    <IconButton
+                      loading
                       key={colorScheme}
                       variant={variant}
                       colorScheme={colorScheme}
@@ -288,8 +336,8 @@ export const Sizes: Story = {
 };
 
 export const ResponsiveSize: Story = {
-  render: () => (
-    <IconButton size={{ mobile: 'sm', desktop: 'md' }} label="add">
+  render: args => (
+    <IconButton {...args} size={{ mobile: 'sm', desktop: 'md' }} label="add">
       <Box asChild display={{ mobile: 'none', desktop: 'block' }}>
         <AddMediumIcon />
       </Box>
@@ -302,7 +350,7 @@ export const ResponsiveSize: Story = {
 
 export const Inverted: Story = {
   render: () => (
-    <Flex gap="400" backgroundColor="var(--color-uw-purple)" padding="400">
+    <Flex gap="400" backgroundColor="uwPurple" padding="400">
       <IconButton variant="emphasis" inverted label="add">
         <AddMediumIcon />
       </IconButton>

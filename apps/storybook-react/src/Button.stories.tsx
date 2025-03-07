@@ -28,6 +28,7 @@ const meta: Meta<typeof Button> = {
     variant: { control: { type: 'radio' }, options: ['emphasis', ...variants] },
     colorScheme: { options: ['yellow', ...otherColorSchemes], control: { type: 'radio' } },
     size: { control: { type: 'radio' }, options: sizes },
+    loading: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
   },
   args: {
@@ -68,6 +69,15 @@ export const KitchenSink: Story = {
               </Flex>
             ))}
           </Flex>
+          <Flex gap="400" align="center">
+            {sizes.map(size => (
+              <Flex key={size} gap="100">
+                <Button loading variant="emphasis" colorScheme="yellow" size={size}>
+                  Button
+                </Button>
+              </Flex>
+            ))}
+          </Flex>
         </Flex>
         <Flex gap="200" direction="column">
           <Heading>Solid</Heading>
@@ -88,6 +98,23 @@ export const KitchenSink: Story = {
                 {solidColorSchemes.map(colorScheme => (
                   <Button
                     disabled
+                    key={colorScheme}
+                    variant="solid"
+                    colorScheme={colorScheme}
+                    size={size}
+                  >
+                    Button
+                  </Button>
+                ))}
+              </Flex>
+            ))}
+          </Flex>
+          <Flex gap="400" align="center">
+            {sizes.map(size => (
+              <Flex key={size} gap="100">
+                {solidColorSchemes.map(colorScheme => (
+                  <Button
+                    loading
                     key={colorScheme}
                     variant="solid"
                     colorScheme={colorScheme}
@@ -125,6 +152,23 @@ export const KitchenSink: Story = {
                   {otherColorSchemes.map(colorScheme => (
                     <Button
                       disabled
+                      key={colorScheme}
+                      variant={variant}
+                      colorScheme={colorScheme}
+                      size={size}
+                    >
+                      Button
+                    </Button>
+                  ))}
+                </Flex>
+              ))}
+            </Flex>
+            <Flex gap="400" align="center">
+              {sizes.map(size => (
+                <Flex key={size} gap="100">
+                  {otherColorSchemes.map(colorScheme => (
+                    <Button
+                      loading
                       key={colorScheme}
                       variant={variant}
                       colorScheme={colorScheme}
@@ -315,18 +359,18 @@ export const DeadPropCombinations: Story = {
 };
 
 export const WithIcons: Story = {
-  render: () => {
+  render: args => {
     return (
       <Flex gap="200">
-        <Button variant="solid" colorScheme="red">
+        <Button {...args} variant="solid" colorScheme="red">
           <TrashSmallIcon />
           Delete
         </Button>
-        <Button variant="solid" colorScheme="yellow">
+        <Button {...args} variant="solid" colorScheme="yellow">
           Account
           <UserSmallIcon />
         </Button>
-        <Button variant="outline" colorScheme="grey">
+        <Button {...args} variant="outline" colorScheme="grey">
           <SettingsSmallIcon />
           Settings
         </Button>
@@ -337,7 +381,7 @@ export const WithIcons: Story = {
 
 export const Inverted: Story = {
   render: () => (
-    <Flex gap="400" backgroundColor="var(--color-uw-purple)" padding="400">
+    <Flex gap="400" backgroundColor="uwPurple" padding="400">
       <Button variant="emphasis" inverted>
         Emphasis
       </Button>
@@ -352,4 +396,26 @@ export const Inverted: Story = {
       </Button>
     </Flex>
   ),
+};
+
+export const Loading: Story = {
+  render: args => (
+    <Flex gap="400" direction="column">
+      <Button {...args} variant="emphasis" colorScheme="yellow">
+        This is a long button label
+      </Button>
+      <Button {...args} variant="solid" colorScheme="yellow">
+        This is a long button label
+      </Button>
+      <Button {...args} variant="outline" colorScheme="grey">
+        This is a long button label
+      </Button>
+      <Button {...args} variant="ghost" colorScheme="grey">
+        This is a long button label
+      </Button>
+    </Flex>
+  ),
+  args: {
+    loading: false,
+  },
 };

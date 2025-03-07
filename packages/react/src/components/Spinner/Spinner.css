@@ -1,9 +1,17 @@
 .hearth-Spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   height: var(--spinner-size);
   width: var(--spinner-size);
   color: var(--spinner-default-fill);
+  padding: var(--spinner-padding);
 
-  &:where(.hearth-color) {
+  &:where([data-currentColor]) {
+    color: currentcolor;
+  }
+
+  &:where(.hearth-color):not([data-currentColor]) {
     color: var(--color);
   }
 

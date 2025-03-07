@@ -3,6 +3,7 @@
   font-size: var(--font-size-100);
   font-weight: var(--font-weight-medium);
   line-height: var(--line-height-500);
+  letter-spacing: var(--letter-spacing-100);
   gap: var(--button-gap);
   min-width: 124px;
   padding-inline: var(--button-padding-inline);
@@ -11,12 +12,35 @@
   &:where(.hearth-variant-emphasis) {
     min-width: 0;
     padding: 0;
+    gap: 0;
   }
 
   &:where(.hearth-variant-emphasis) > .hearth-front {
     min-width: 124px;
+    gap: var(--button-gap);
     padding-inline: var(--button-padding-inline);
     padding-block: var(--button-padding-block);
+  }
+
+  & :where(.hearth-loading) {
+    display: grid;
+
+    > div,
+    > span {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    > div {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--button-gap);
+    }
+
+    & :where(.hearth-hidden) {
+      visibility: hidden;
+    }
   }
 
   @breakpoints {

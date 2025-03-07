@@ -17,6 +17,7 @@ const meta: Meta<typeof Spinner> = {
   argTypes: {
     size: { control: { type: 'radio' }, options: sizes },
     color: { options: colorTokens, control: { type: 'select' } },
+    currentColor: { control: { type: 'boolean' } },
   },
   args: {
     size: 'md',

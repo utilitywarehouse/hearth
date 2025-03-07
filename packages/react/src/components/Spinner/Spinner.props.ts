@@ -17,4 +17,9 @@ export interface SpinnerProps extends ColorProps, ComponentPropsWithout<'div', R
    * @default md
    */
   size?: Responsive<(typeof sizes)[number]>;
+  /**
+   * Sets the Spinner stroke colour to `currentColor`.
+   * For use when the Spinner needs to inherit a parent component's colour scheme.
+   */
+  currentColor?: boolean;
 }

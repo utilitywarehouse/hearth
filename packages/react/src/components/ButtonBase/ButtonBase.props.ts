@@ -36,10 +36,14 @@ export type ButtonBaseProps = ComponentPropsWithout<'button', RemovedProps> &
         colorScheme?: 'grey' | 'green' | 'red';
       }
   ) & {
-    /** Inverts the component colours, for use on darker surface colours. */
-    inverted?: boolean;
     /**
      * Change the default rendered element for the one passed as a child, merging their props and behavior.
      */
     asChild?: boolean;
+    /**
+     * Indicate when the button is in a loading state, will also disable the button.
+     */
+    loading?: boolean;
+    /** Inverts the component colours, for use on darker surface colours. */
+    inverted?: boolean;
   };
