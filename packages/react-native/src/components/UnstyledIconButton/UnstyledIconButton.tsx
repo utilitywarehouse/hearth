@@ -1,0 +1,47 @@
+import React, { forwardRef } from 'react';
+import { createButton } from '@gluestack-ui/button';
+import { UnstyledIconButtonProps } from './UnstyledIconButton.props';
+import UnstyledIconButtonRootComponent from './UnstyledIconButtonRoot';
+import UnstyledIconButtonIconComponent from './UnstyledIconButtonIcon';
+import UnstyledIconButtonSpinerComponent from './UnstyledIconButtonSpinner';
+import { useButtonGroupContext } from '../Button/ButtonGroup.context';
+import { PressableRef } from '../../types';
+
+const UnstyledIconButtonComponent = createButton({
+  Root: UnstyledIconButtonRootComponent,
+  Icon: UnstyledIconButtonIconComponent,
+  Group: () => null,
+  Text: () => null,
+  Spinner: UnstyledIconButtonSpinerComponent,
+});
+
+const UnstyledIconButtonSpinner = UnstyledIconButtonComponent.Spinner;
+const UnstyledIconButtonIcon = UnstyledIconButtonComponent.Icon;
+
+UnstyledIconButtonSpinner.displayName = 'UnstyledIconButtonSpinner';
+UnstyledIconButtonIcon.displayName = 'UnstyledIconButtonIcon';
+
+const UnstyledIconButton = forwardRef<PressableRef, UnstyledIconButtonProps>(
+  ({ icon, disabled = false, pressed, ...props }, ref) => {
+    const { disabled: groupDisabled, loading: groupLoading } = useButtonGroupContext();
+    const { loading } = props;
+    const isLoading = loading ?? groupLoading;
+    const buttonDisabled = isLoading || (disabled ?? groupDisabled);
+
+    return (
+      <UnstyledIconButtonComponent
+        // @ts-expect-error - ref
+        ref={ref}
+        {...props}
+        isDisabled={buttonDisabled}
+        isPressed={pressed}
+      >
+        {loading ? <UnstyledIconButtonSpinner /> : <UnstyledIconButtonIcon as={icon} />}
+      </UnstyledIconButtonComponent>
+    );
+  }
+);
+
+UnstyledIconButton.displayName = 'UnstyledIconButton';
+
+export default UnstyledIconButton;

@@ -661,6 +661,9 @@ importers:
       '@gluestack-ui/switch':
         specifier: 0.1.22
         version: 0.1.22(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+      '@gluestack-ui/textarea':
+        specifier: 0.1.23
+        version: 0.1.23(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:^
         version: link:../fonts
@@ -2225,6 +2228,12 @@ packages:
 
   '@gluestack-ui/switch@0.1.22':
     resolution: {integrity: sha512-R5gVyKh7O5vGUvao8VWI1ZAnVhlt2TFYpoiSILydbWLnYydqNa8EQujnXAH4RvjTS6/CVu/sH7sK03uKMmPdvA==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+
+  '@gluestack-ui/textarea@0.1.23':
+    resolution: {integrity: sha512-yZmCoj+0ZHkdqKMY/VTaW6AZ2EVGgaP4WOmXFnglWYsRDH+ZVUuBPYUJeqfko3WZ3gjgcS5vL+NKV98zirtyaA==}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
@@ -12791,6 +12800,16 @@ snapshots:
       '@react-native-aria/focus': 0.2.9(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       '@react-native-aria/interactions': 0.2.13(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       '@react-stately/toggle': 3.8.1(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - react-native
+
+  '@gluestack-ui/textarea@0.1.23(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@gluestack-ui/form-control': 0.1.19(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+      '@gluestack-ui/utils': 0.1.14(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+      '@react-native-aria/focus': 0.2.9(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
     transitivePeerDependencies:

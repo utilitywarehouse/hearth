@@ -4,3 +4,4 @@ export { default as BackToTopButton } from './BackToTopButton';
 export { default as ViewFigmaButton } from './ViewFigmaButton';
 export { default as DocComponentWrap } from './DocComponentWrap';
 export { default as BadgeList } from './BadgeList';
+export { default as AdvancedInputExample } from './AdvancedInputExample';
