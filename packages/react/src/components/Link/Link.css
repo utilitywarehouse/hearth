@@ -15,8 +15,9 @@
   line-height: var(--line-height-500);
   color: var(--link-color);
   text-decoration-line: underline;
-  text-decoration-color: currentColor;
+  text-decoration-color: currentcolor;
   border-radius: var(--border-radius-xs);
+
   &:where([data-inverted]) {
     color: var(--link-inverted-color);
   }
@@ -25,6 +26,7 @@
     &:where(:hover) {
       color: var(--link-color-hover);
       text-decoration: none;
+
       &:where([data-inverted]) {
         color: var(--link-inverted-color-hover);
       }
@@ -33,10 +35,12 @@
 
   &:where(:active) {
     color: var(--link-color-active);
+
     &:where([data-inverted]) {
       color: var(--link-inverted-color-active);
     }
   }
+
   &:where(:focus-visible) {
     outline: 2px solid var(--focus-border);
     outline-offset: 1px;

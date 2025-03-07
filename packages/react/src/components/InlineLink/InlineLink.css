@@ -16,8 +16,9 @@
   font-weight: inherit;
   color: var(--inline-link-color);
   text-decoration-line: underline;
-  text-decoration-color: currentColor;
+  text-decoration-color: currentcolor;
   border-radius: var(--border-radius-xs);
+
   &:where([data-inverted]) {
     color: var(--inline-link-inverted-color);
   }
@@ -29,6 +30,7 @@
   @media (hover: hover) {
     &:where(:hover) {
       text-decoration: none;
+
       &:where([data-inverted]) {
         color: var(--inline-link-inverted-color-hover);
       }
