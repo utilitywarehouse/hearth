@@ -1,13 +1,12 @@
 import React, { ElementRef, forwardRef } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
-import { TextInputProps, TextInput, Platform } from 'react-native';
-import { useInputContext } from './Input.context';
+import { TextInputProps, TextInput } from 'react-native';
+import { useTextareaContext } from './Textarea.context';
 import { useTheme } from '../../hooks';
 
-const InputField = forwardRef<ElementRef<typeof TextInput>, TextInputProps>(
+const TextareaField = forwardRef<ElementRef<typeof TextInput>, TextInputProps>(
   ({ style, ...props }, ref) => {
-    const { disabled, focused = false, type } = useInputContext();
-    styles.useVariants({ focused, type });
+    const { disabled } = useTextareaContext();
     const { components, color } = useTheme();
 
     return (
@@ -16,7 +15,7 @@ const InputField = forwardRef<ElementRef<typeof TextInput>, TextInputProps>(
         placeholderTextColor={components.input.colorPlaceholder}
         selectionColor={color.uwPurple}
         cursorColor={color.uwPurple}
-        verticalAlign="middle"
+        verticalAlign="top"
         aria-disabled={disabled}
         {...props}
         style={[styles.input, style]}
@@ -25,42 +24,26 @@ const InputField = forwardRef<ElementRef<typeof TextInput>, TextInputProps>(
   }
 );
 
-InputField.displayName = 'InputField';
+TextareaField.displayName = 'TextareaField';
 
 const styles = StyleSheet.create(theme => ({
   input: {
     flex: 1,
     alignSelf: 'stretch',
     width: 'auto',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
+    textAlignVertical: 'top',
+    alignItems: 'flex-start',
     color: theme.components.text.color,
     fontSize: theme.typography.mobile.bodyText.md.fontSize,
     fontFamily: theme.typography.mobile.bodyText.fontFamily,
     fontWeight: theme.typography.mobile.bodyText.fontWeight,
     borderWidth: 0,
-    variants: {
-      focused: {
-        true: {},
-      },
-      type: {
-        text: {},
-        password: {},
-        search: {},
-        currency: {
-          fontSize: theme.typography.mobile.detailText['4xl'].fontSize,
-          fontFamily: theme.typography.mobile.detailText.fontFamily,
-          fontWeight: theme.typography.mobile.detailText.fontWeight,
-          paddingTop: 0,
-          paddingBottom: 0,
-        },
-        date: {},
-      },
-    },
+    outlineWidth: 0,
     _web: {
       width: '100%',
     },
   },
 }));
 
-export default InputField;
+export default TextareaField;
