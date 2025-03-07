@@ -21,6 +21,7 @@ StyleDictionary.registerFormat({
 @import '../css/font.css';
 @import '../css/icon-button.css';
 @import '../css/layout.css';
+@import '../css/letter-spacing.css';
 @import '../css/line-height.css';
 @import '../css/opacity.css';
 @import '../css/space.css';
@@ -99,6 +100,15 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'letter-spacing/normalize-value',
+  type: 'value',
+  filter: filters.isPrimitiveLetterSpacing,
+  transform: token => {
+    return token.value.toFixed(2) + 'px';
+  },
+});
+
 StyleDictionary.registerTransformGroup({
   name: 'css-transforms',
   transforms: [
@@ -113,6 +123,7 @@ StyleDictionary.registerTransformGroup({
     'font-size/px-to-rem',
     'line-height/px-to-rem',
     'opacity/value',
+    'letter-spacing/normalize-value',
   ],
 });
 
@@ -163,6 +174,11 @@ export function generateCssTokens() {
               destination: 'line-height.css',
               format: 'css/variables',
               filter: filters.isPrimitiveLineHeight,
+            },
+            {
+              destination: 'letter-spacing.css',
+              format: 'css/variables',
+              filter: filters.isPrimitiveLetterSpacing,
             },
             {
               destination: 'typography.css',

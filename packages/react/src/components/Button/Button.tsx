@@ -5,17 +5,37 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { ButtonBase, ButtonBaseElement } from '../ButtonBase/ButtonBase';
 import { buttonPropDefs, ButtonProps } from './Button.props';
+import { translateLoadingButtonSize } from '../../helpers/translate-loading-button-size';
 import { Spinner } from '../Spinner/Spinner';
 
 const componentName = 'Button';
 const componentClassName = withGlobalPrefix(componentName);
 
 export const Button = React.forwardRef<ButtonBaseElement, ButtonProps>((props, forwardedRef) => {
-  const { className, loading, children, ...buttonProps } = extractProps(props, buttonPropDefs);
+  const { className, children, disabled, loading, ...buttonProps } = extractProps(
+    props,
+    buttonPropDefs
+  );
+  const { size } = props;
+  const spinnerSize = translateLoadingButtonSize(size || 'md');
   return (
-    <ButtonBase ref={forwardedRef} className={clsx(componentClassName, className)} {...buttonProps}>
-      {loading ? <Spinner size="xs" /> : null}
-      {children}
+    <ButtonBase
+      ref={forwardedRef}
+      className={clsx(componentClassName, className)}
+      disabled={disabled || loading}
+      {...buttonProps}
+    >
+      {loading ? (
+        <div className="hearth-loading">
+          <div>
+            <Spinner size={spinnerSize} currentColor />
+            Loading
+          </div>
+          <span className="hearth-hidden">{children}</span>
+        </div>
+      ) : (
+        children
+      )}
     </ButtonBase>
   );
 });

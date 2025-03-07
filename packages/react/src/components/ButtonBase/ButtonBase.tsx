@@ -7,7 +7,6 @@ import { DATA_ATTRIBUTES } from '../../helpers/data-attributes';
 import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
-import { Spinner } from '../Spinner/Spinner';
 
 const componentName = 'ButtonBase';
 const componentClassName = withGlobalPrefix(componentName);
@@ -22,7 +21,6 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
     disabled,
     onClick,
     asChild,
-    loading,
     children,
     ...buttonBaseProps
   } = extractProps(props, buttonBasePropDefs);
@@ -52,10 +50,7 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
         {...buttonBaseProps}
       >
         <span className="hearth-shadow"></span>
-        <span className="hearth-front">
-          {loading ? <Spinner size="xs" currentColor /> : null}
-          {children}
-        </span>
+        <span className="hearth-front">{children}</span>
       </Component>
     );
   }
@@ -70,7 +65,6 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
       {...dataAttributeProps}
       {...buttonBaseProps}
     >
-      {loading ? <Spinner size="xs" currentColor /> : null}
       {children}
     </Component>
   );

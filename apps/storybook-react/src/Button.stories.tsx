@@ -316,18 +316,18 @@ export const DeadPropCombinations: Story = {
 };
 
 export const WithIcons: Story = {
-  render: () => {
+  render: args => {
     return (
       <Flex gap="200">
-        <Button variant="solid" colorScheme="red">
+        <Button {...args} variant="solid" colorScheme="red">
           <TrashSmallIcon />
           Delete
         </Button>
-        <Button variant="solid" colorScheme="yellow">
+        <Button {...args} variant="solid" colorScheme="yellow">
           Account
           <UserSmallIcon />
         </Button>
-        <Button variant="outline" colorScheme="grey">
+        <Button {...args} variant="outline" colorScheme="grey">
           <SettingsSmallIcon />
           Settings
         </Button>

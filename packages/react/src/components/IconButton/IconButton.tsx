@@ -6,20 +6,30 @@ import { ButtonBase } from '../ButtonBase/ButtonBase';
 import type { ButtonBaseElement } from '../ButtonBase/ButtonBase';
 import { extractProps } from '../../helpers/extract-props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { Spinner } from '../Spinner/Spinner';
+import { translateLoadingButtonSize } from '../../helpers/translate-loading-button-size';
 
 const componentName = 'IconButton';
 const componentClassName = withGlobalPrefix(componentName);
 
 export const IconButton = React.forwardRef<ButtonBaseElement, IconButtonProps>(
   (props, forwardedRef) => {
-    const { className, label, ...iconButtonProps } = extractProps(props, iconButtonPropDefs);
+    const { className, label, disabled, loading, children, ...iconButtonProps } = extractProps(
+      props,
+      iconButtonPropDefs
+    );
+    const { size } = props;
+    const spinnerSize = translateLoadingButtonSize(size || 'md');
     return (
       <ButtonBase
         ref={forwardedRef}
         className={clsx(componentClassName, className)}
         aria-label={label}
+        disabled={disabled || loading}
         {...iconButtonProps}
-      />
+      >
+        {loading ? <Spinner size={spinnerSize} currentColor /> : children}
+      </ButtonBase>
     );
   }
 );

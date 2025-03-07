@@ -25,6 +25,7 @@ const meta: Meta<typeof IconButton> = {
     colorScheme: { options: ['yellow', ...otherColorSchemes], control: { type: 'radio' } },
     size: { control: { type: 'radio' }, options: sizes },
     disabled: { control: { type: 'boolean' } },
+    loading: { control: { type: 'boolean' } },
   },
   args: {
     onClick: fn(),
@@ -288,8 +289,8 @@ export const Sizes: Story = {
 };
 
 export const ResponsiveSize: Story = {
-  render: () => (
-    <IconButton size={{ mobile: 'sm', desktop: 'md' }} label="add">
+  render: args => (
+    <IconButton {...args} size={{ mobile: 'sm', desktop: 'md' }} label="add">
       <Box asChild display={{ mobile: 'none', desktop: 'block' }}>
         <AddMediumIcon />
       </Box>
@@ -302,7 +303,7 @@ export const ResponsiveSize: Story = {
 
 export const Inverted: Story = {
   render: () => (
-    <Flex gap="400" backgroundColor="var(--color-uw-purple)" padding="400">
+    <Flex gap="400" backgroundColor="uwPurple" padding="400">
       <IconButton variant="emphasis" inverted label="add">
         <AddMediumIcon />
       </IconButton>

@@ -12,10 +12,6 @@ export const filters = {
         // this is one alias too far, we can use primitive tokens for this
         return false;
       }
-      if (token.path.includes('letter-spacing')) {
-        // we're ignoring letter-spacing for now
-        return false;
-      }
       // font-weight does not change across devices, so we only need one
       // instance of the font-weight per variant/size, in this case we'll use
       // the initial mobile value
@@ -44,6 +40,8 @@ export const filters = {
     (token.path.includes('border-width') || token.path.includes('border-radius')),
   isPrimitiveLineHeight: token =>
     token.filePath.includes('primitive') && token.path.includes('line-height'),
+  isPrimitiveLetterSpacing: token =>
+    token.filePath.includes('primitive') && token.path.includes('letter-spacing'),
   isPrimitiveLightColor: token => {
     if (token.type === 'color' && token.path[1] === 'dark') {
       return false;
