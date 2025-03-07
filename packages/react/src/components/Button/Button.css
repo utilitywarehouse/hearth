@@ -22,10 +22,10 @@
     padding-block: var(--button-padding-block);
   }
 
-  > .hearth-loading {
+  & :where(.hearth-loading) {
     display: grid;
     > div,
-    span {
+    > span {
       grid-column: 1;
       grid-row: 1;
     }
@@ -36,7 +36,7 @@
       justify-content: center;
       gap: var(--button-gap);
     }
-    > .hearth-hidden {
+    & :where(.hearth-hidden) {
       visibility: hidden;
     }
   }

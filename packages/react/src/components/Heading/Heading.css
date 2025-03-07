@@ -1,6 +1,7 @@
 .hearth-Heading {
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-semibold);
+  color: var(--color-grey-1000);
 
   &:where(.hearth-size-sm) {
     font-size: var(--heading-sm-font-size-mobile);

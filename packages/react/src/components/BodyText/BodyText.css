@@ -1,5 +1,6 @@
 .hearth-BodyText {
   font-family: var(--font-family-body-text);
+  color: var(--color-grey-1000);
 
   &:where(.hearth-paragraph-spacing) {
     margin-bottom: 1em;

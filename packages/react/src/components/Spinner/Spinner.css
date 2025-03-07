@@ -11,7 +11,7 @@
     color: currentcolor;
   }
 
-  &:where(.hearth-color) {
+  &:where(.hearth-color):not([data-currentColor]) {
     color: var(--color);
   }
 
