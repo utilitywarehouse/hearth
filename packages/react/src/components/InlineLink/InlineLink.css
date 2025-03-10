@@ -1,13 +1,4 @@
 .hearth-InlineLink {
-  /* unset button styles when asChild is used */
-  &:where(button) {
-    outline: transparent;
-    appearance: none;
-    border: none;
-    background: transparent;
-    padding: 0;
-  }
-
   cursor: pointer;
   display: inline;
   font-family: inherit;
