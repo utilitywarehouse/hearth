@@ -1,0 +1,39 @@
+.hearth-InlineLink {
+  cursor: pointer;
+  display: inline;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  color: var(--inline-link-color);
+  text-decoration-line: underline;
+  text-decoration-color: currentcolor;
+  border-radius: var(--border-radius-xs);
+
+  &:where([data-inverted]) {
+    color: var(--inline-link-inverted-color);
+  }
+
+  &:where(:visited) {
+    color: var(--inline-link-color-visited);
+  }
+
+  @media (hover: hover) {
+    &:where(:hover) {
+      text-decoration: none;
+
+      &:where([data-inverted]) {
+        color: var(--inline-link-inverted-color-hover);
+      }
+    }
+  }
+
+  &:where(:focus-visible) {
+    outline: 2px solid var(--focus-border);
+    outline-offset: 1px;
+
+    &:where([data-inverted]) {
+      outline: 2px solid var(--focus-border-inverted);
+    }
+  }
+}

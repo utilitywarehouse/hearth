@@ -2,6 +2,7 @@ import { PropDef } from './prop-def';
 import { colorTokens as importedColorTokens } from '../tokens/color';
 import { transformColorValue } from '../helpers/transform-color-value';
 
+// we need to redefine as const so that intellisense works
 const colorTokens = [...importedColorTokens] as const;
 
 const backgroundColorPropDefs = {
