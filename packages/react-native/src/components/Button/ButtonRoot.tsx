@@ -42,12 +42,15 @@ ButtonRoot.displayName = 'ButtonRoot';
 
 const styles = StyleSheet.create(theme => ({
   container: {
+    position: 'relative',
+    overflow: 'hidden',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: theme.components.button.borderWidth,
     borderRadius: theme.components.button.borderRadius,
     gap: theme.components.button.gap,
+    minWidth: 124,
     _web: {
       '_focus-visible': {
         outlineStyle: 'solid',

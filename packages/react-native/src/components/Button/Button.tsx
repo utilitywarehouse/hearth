@@ -9,6 +9,8 @@ import ButtonRoot from './ButtonRoot';
 import ButtonGroupRoot from './ButtonGroupRoot';
 import { useButtonGroupContext } from './ButtonGroup.context';
 import { PressableRef } from '../../types';
+import { StyleSheet } from 'react-native-unistyles';
+import { View } from 'react-native';
 
 const ButtonComponent = createButton({
   Root: ButtonRoot,
@@ -33,6 +35,7 @@ const Button = forwardRef<PressableRef, ButtonProps>(
     const { loading } = props;
     const isLoading = loading ?? groupLoading;
     const buttonDisabled = isLoading || (disabled ?? groupDisabled);
+    styles.useVariants({ loading: isLoading });
     if (typeof children === 'string' || typeof children === 'number' || !children) {
       const { icon, iconPosition = 'left' } = props as ButtonWithStringChildrenProps;
       return (
@@ -44,8 +47,13 @@ const Button = forwardRef<PressableRef, ButtonProps>(
           isPressed={pressed}
         >
           {!!icon && !isLoading && iconPosition === 'left' ? <ButtonIcon as={icon} /> : null}
-          {isLoading ? <ButtonSpinner /> : null}
-          <ButtonText>{children ?? text}</ButtonText>
+          {isLoading ? (
+            <View style={styles.loadingWrapper}>
+              <ButtonSpinner />
+              <ButtonText>Loading</ButtonText>
+            </View>
+          ) : null}
+          <ButtonText style={styles.textLoading}>{children ?? text}</ButtonText>
           {!!icon && !isLoading && iconPosition === 'right' ? <ButtonIcon as={icon} /> : null}
         </ButtonComponent>
       );
@@ -57,6 +65,29 @@ const Button = forwardRef<PressableRef, ButtonProps>(
     );
   }
 );
+
+const styles = StyleSheet.create(theme => ({
+  loadingWrapper: {
+    flexDirection: 'row',
+    gap: theme.components.button.gap,
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  textLoading: {
+    variants: {
+      loading: {
+        true: {
+          opacity: 0,
+        },
+      },
+    },
+  },
+}));
 
 Button.displayName = 'Button';
 
