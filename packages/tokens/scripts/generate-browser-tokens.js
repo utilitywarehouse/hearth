@@ -14,10 +14,17 @@ StyleDictionary.registerFormat({
     return `export * from './badge.js'
 export * from './border.js';
 export * from './button.js';
+export * from './card.js';
 export * from './color.js';
+export * from './focus.js';
 export * from './font.js';
+export * from './icon-button.js';
+export * from './inline-link.js';
 export * from './layout.js';
+export * from './letter-spacing.js';
 export * from './line-height.js';
+export * from './link.js';
+export * from './opacity.js';
 export * from './space.js';
 export * from './spinner.js';
 export * from './typography.js';
