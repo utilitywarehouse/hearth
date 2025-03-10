@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { BodyText, Em, Flex } from '@utilitywarehouse/hearth-react';
-import { sizes } from './BodyText.stories';
+
+const sizes = ['sm', 'md', 'lg'] as const;
 
 const meta: Meta<typeof Em> = {
   title: 'Stories / Em',
@@ -20,7 +21,7 @@ type Story = StoryObj<typeof Em>;
 
 export const KitchenSink: Story = {
   render: () => (
-    <Flex direction="column" gap="8px">
+    <Flex direction="column" gap="100">
       {sizes.map(size => (
         <BodyText key={size} size={size}>
           We <Em>had</Em> to do something about it.
