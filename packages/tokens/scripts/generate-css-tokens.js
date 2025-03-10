@@ -17,6 +17,7 @@ StyleDictionary.registerFormat({
 @import '../css/border.css';
 @import '../css/button.css';
 @import '../css/color.css';
+@import '../css/divider.css';
 @import '../css/focus.css';
 @import '../css/font.css';
 @import '../css/icon-button.css';
