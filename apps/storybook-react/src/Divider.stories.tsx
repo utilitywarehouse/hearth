@@ -21,7 +21,7 @@ const meta: Meta<typeof Divider> = {
   args: {
     orientation: 'horizontal',
     decorative: true,
-    color: '',
+    color: undefined,
   },
 };
 
