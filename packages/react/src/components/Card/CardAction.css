@@ -1,0 +1,25 @@
+.hearth-CardAction {
+  &:not([data-secondary]) {
+    &:where(a[href], button),
+    :where(a[href], button) {
+      &:where(:focus-visible) {
+        outline: none;
+      }
+
+      &::after {
+        z-index: 0;
+        cursor: pointer;
+        content: '';
+        position: absolute;
+        inset: 0;
+      }
+    }
+  }
+  &:where([data-secondary]) {
+    &:where(a[href], button),
+    :where(a[href], button) {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}

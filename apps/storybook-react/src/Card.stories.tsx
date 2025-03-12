@@ -7,8 +7,11 @@ import {
   BodyText,
   Heading,
   Link,
+  CardAction,
+  Button,
+  IconButton,
 } from '@utilitywarehouse/hearth-react';
-import { ChevronRightSmallIcon } from '@utilitywarehouse/react-icons';
+import { ChevronRightSmallIcon, CloseSmallIcon } from '@utilitywarehouse/react-icons';
 
 const variants = ['emphasis', 'subtle'] as const;
 const colorSchemes = [
@@ -129,108 +132,202 @@ export const Playground: Story = {
   ),
 };
 
-export const FixedCards: Story = {
+export const InteractiveCards: Story = {
   render: () => {
     return (
       <Flex padding="600" gap="400" direction="column">
-        <Flex direction="column" gap="200">
-          <BodyText size="md" weight="semibold">
-            White and Warm White Fixed Cards
-          </BodyText>
-          <Flex gap="300" width="800px">
-            <Card
-              variant="emphasis"
-              colorScheme="white"
-              padding="lg"
-              flex="1"
-              direction="column"
-              gap="150"
-            >
-              <Heading size="sm">White Emphasis Card</Heading>
+        <Flex gap="300" width="800px">
+          <Card
+            variant="emphasis"
+            colorScheme="white"
+            padding="lg"
+            flex="1"
+            direction="column"
+            gap="150"
+          >
+            <Heading size="sm">White Emphasis Card</Heading>
+            <BodyText size="md">Content...</BodyText>
+            <CardAction asChild>
+              <Link href="#">
+                Link
+                <ChevronRightSmallIcon />
+              </Link>
+            </CardAction>
+          </Card>
+          <Card variant="subtle" colorScheme="white" padding="lg" flex="1">
+            <Flex direction="column" gap="150">
+              <Heading size="sm">White Subtle Card</Heading>
+              <BodyText size="md">Content...</BodyText>
+              <CardAction asChild>
+                <Link href="#">
+                  Link
+                  <ChevronRightSmallIcon />
+                </Link>
+              </CardAction>
+            </Flex>
+          </Card>
+          <Card variant="emphasis" colorScheme="warmWhite" padding="lg" flex="1">
+            <Flex direction="column" gap="150">
+              <Heading size="sm">Warm White Emphasis Card</Heading>
               <BodyText size="md">Content...</BodyText>
               <Link href="#">
                 Link
                 <ChevronRightSmallIcon />
               </Link>
-            </Card>
-            <Card variant="subtle" colorScheme="white" padding="lg" flex="1">
-              <Flex direction="column" gap="150">
-                <Heading size="sm">White Subtle Card</Heading>
-                <BodyText size="md">Content...</BodyText>
-                <Link href="#">
-                  Link
-                  <ChevronRightSmallIcon />
-                </Link>
-              </Flex>
-            </Card>
-            <Card variant="emphasis" colorScheme="warmWhite" padding="lg" flex="1">
-              <Flex direction="column" gap="150">
-                <Heading size="sm">Warm White Emphasis Card</Heading>
-                <BodyText size="md">Content...</BodyText>
-                <Link href="#">
-                  Link
-                  <ChevronRightSmallIcon />
-                </Link>
-              </Flex>
-            </Card>
-            <Card variant="subtle" colorScheme="warmWhite" padding="lg" flex="1">
-              <Flex direction="column" gap="150">
-                <Heading size="sm">Warm White Subtle Card</Heading>
-                <BodyText size="md">Content...</BodyText>
-                <Link href="#">
-                  Link
-                  <ChevronRightSmallIcon />
-                </Link>
-              </Flex>
-            </Card>
-          </Flex>
+            </Flex>
+          </Card>
+          <Card variant="subtle" colorScheme="warmWhite" padding="lg" flex="1">
+            <Flex direction="column" gap="150">
+              <Heading size="sm">Warm White Subtle Card</Heading>
+              <BodyText size="md">Content...</BodyText>
+              <Link href="#">
+                Link
+                <ChevronRightSmallIcon />
+              </Link>
+            </Flex>
+          </Card>
         </Flex>
-        <Flex direction="column" gap="200">
-          <BodyText size="md" weight="semibold">
-            Service Colour Fixed Cards
-          </BodyText>
-          <Flex gap="300" width="800px">
-            <Card variant="emphasis" colorScheme="energyGreen" padding="lg" flex="1">
-              <Flex direction="column" gap="150">
-                <Heading size="sm">Energy Green Card</Heading>
-                <BodyText size="md">Content...</BodyText>
-                <Link href="#">
-                  Link
-                  <ChevronRightSmallIcon />
-                </Link>
-              </Flex>
-            </Card>
-            <Card variant="emphasis" colorScheme="mobileRose" padding="lg" flex="1">
-              <Flex direction="column" gap="150">
-                <Heading size="sm">Mobile Rose Card</Heading>
-                <BodyText size="md">Content...</BodyText>
-                <Link href="#">
-                  Link
-                  <ChevronRightSmallIcon />
-                </Link>
-              </Flex>
-            </Card>
-            <Card variant="emphasis" colorScheme="broadbandBlue" padding="lg" flex="1">
-              <Flex direction="column" gap="150">
-                <Heading size="sm">Broadband Blue Card</Heading>
-                <BodyText size="md">Content...</BodyText>
-                <Link href="#">
-                  Link
-                  <ChevronRightSmallIcon />
-                </Link>
-              </Flex>
-            </Card>
-            <Card variant="emphasis" colorScheme="insuranceOrange" padding="lg" flex="1">
-              <Flex direction="column" gap="150">
-                <Heading size="sm">Insurance Orange Card</Heading>
-                <BodyText size="md">Content...</BodyText>
-                <Link href="#">
-                  Link
-                  <ChevronRightSmallIcon />
-                </Link>
-              </Flex>
-            </Card>
-          </Flex>
+
+        <Flex gap="300" width="800px">
+          <Card variant="emphasis" colorScheme="energyGreen" padding="lg" flex="1">
+            <Flex direction="column" gap="150">
+              <Heading size="sm">Energy Green Card</Heading>
+              <BodyText size="md">Content...</BodyText>
+              <Link href="#">
+                Link
+                <ChevronRightSmallIcon />
+              </Link>
+            </Flex>
+          </Card>
+          <Card variant="emphasis" colorScheme="mobileRose" padding="lg" flex="1">
+            <Flex direction="column" gap="150">
+              <Heading size="sm">Mobile Rose Card</Heading>
+              <BodyText size="md">Content...</BodyText>
+              <Link href="#">
+                Link
+                <ChevronRightSmallIcon />
+              </Link>
+            </Flex>
+          </Card>
+          <Card variant="emphasis" colorScheme="broadbandBlue" padding="lg" flex="1">
+            <Flex direction="column" gap="150">
+              <Heading size="sm">Broadband Blue Card</Heading>
+              <BodyText size="md">Content...</BodyText>
+              <Link href="#">
+                Link
+                <ChevronRightSmallIcon />
+              </Link>
+            </Flex>
+          </Card>
+          <Card variant="emphasis" colorScheme="insuranceOrange" padding="lg" flex="1">
+            <Flex direction="column" gap="150">
+              <Heading size="sm">Insurance Orange Card</Heading>
+              <BodyText size="md">Content...</BodyText>
+              <Link href="#">
+                Link
+                <ChevronRightSmallIcon />
+              </Link>
+            </Flex>
+          </Card>
+        </Flex>
+
+        <Flex gap="300" width="800px">
+          <Card
+            variant="emphasis"
+            colorScheme="white"
+            padding="lg"
+            flex="1"
+            direction="column"
+            gap="150"
+          >
+            <Heading size="sm">This is a card with a single interaction</Heading>
+            <BodyText size="md">
+              This whole card is tappable/clickable but the state is applied to the interactive
+              component
+            </BodyText>
+            <CardAction>
+              <Button variant="solid" colorScheme="yellow" onClick={() => console.log('hello')}>
+                Button
+              </Button>
+            </CardAction>
+          </Card>
+          <Card
+            variant="emphasis"
+            colorScheme="broadbandBlue"
+            padding="lg"
+            flex="1"
+            direction="column"
+            gap="150"
+          >
+            <Heading size="sm">This is a card with a single interaction</Heading>
+            <BodyText size="md">
+              This whole card is tappable/clickable but the state is applied to the interactive
+              component
+            </BodyText>
+            <CardAction>
+              <Button variant="outline" colorScheme="grey" onClick={() => console.log('hello')}>
+                Button
+              </Button>
+            </CardAction>
+          </Card>
+        </Flex>
+        <Flex gap="300" width="800px">
+          <Card
+            variant="emphasis"
+            colorScheme="white"
+            padding="lg"
+            flex="1"
+            direction="column"
+            gap="150"
+          >
+            <Flex align="start">
+              <Heading size="sm">This is a card with multiple interactions</Heading>
+              <CardAction secondary>
+                <IconButton
+                  variant="ghost"
+                  size="sm"
+                  label="close"
+                  onClick={() => console.log('close')}
+                >
+                  <CloseSmallIcon />
+                </IconButton>
+              </CardAction>
+            </Flex>
+            <BodyText size="md">The components within the card are interactive component</BodyText>
+            <CardAction>
+              <Button variant="solid" colorScheme="yellow" onClick={() => console.log('action')}>
+                Button
+              </Button>
+            </CardAction>
+          </Card>
+          <Card
+            variant="emphasis"
+            colorScheme="broadbandBlue"
+            padding="lg"
+            flex="1"
+            direction="column"
+            gap="150"
+          >
+            <Flex align="start">
+              <Heading size="sm">This is a card with multiple interactions</Heading>
+              <CardAction secondary>
+                <IconButton
+                  variant="ghost"
+                  size="sm"
+                  label="close"
+                  onClick={() => console.log('close')}
+                >
+                  <CloseSmallIcon />
+                </IconButton>
+              </CardAction>
+            </Flex>
+            <BodyText size="md">The components within the card are interactive component</BodyText>
+            <CardAction>
+              <Button variant="outline" colorScheme="grey" onClick={() => console.log('action')}>
+                Button
+              </Button>
+            </CardAction>
+          </Card>
         </Flex>
       </Flex>
     );
