@@ -5,29 +5,38 @@
   &:where(.hearth-padding-none) {
     padding: 0;
   }
+
   &:where(.hearth-padding-sm) {
     padding: var(--card-sm-padding-vertical-mobile);
+
     @media (--tablet) {
       padding: var(--card-sm-padding-vertical-tablet);
     }
+
     @media (--desktop) {
       padding: var(--card-sm-padding-vertical-tablet);
     }
   }
+
   &:where(.hearth-padding-md) {
     padding: var(--card-md-padding-vertical-mobile);
+
     @media (--tablet) {
       padding: var(--card-md-padding-vertical-tablet);
     }
+
     @media (--desktop) {
       padding: var(--card-md-padding-vertical-tablet);
     }
   }
+
   &:where(.hearth-padding-lg) {
     padding: var(--card-lg-padding-vertical-mobile);
+
     @media (--tablet) {
       padding: var(--card-lg-padding-vertical-tablet);
     }
+
     @media (--desktop) {
       padding: var(--card-lg-padding-vertical-tablet);
     }
@@ -78,10 +87,12 @@
   &:where([data-selectable]) {
     @media (hover: hover) {
       cursor: pointer;
+
       &:where(:hover) {
         &:where(.hearth-color-scheme-white) {
           background-color: var(--card-white-background-color-hover);
         }
+
         &:where(.hearth-color-scheme-warm-white) {
           background-color: var(--card-warm-white-background-color-hover);
         }
@@ -92,6 +103,7 @@
       &:where(.hearth-color-scheme-white) {
         background-color: var(--card-white-background-color-active);
       }
+
       &:where(.hearth-color-scheme-warm-white) {
         background-color: var(--card-warm-white-background-color-active);
       }

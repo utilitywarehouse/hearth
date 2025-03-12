@@ -1,6 +1,6 @@
 import { PropDef } from '../../props/prop-def';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive } from '../../types/responsive';
+import { ButtonBaseProps } from '../ButtonBase/ButtonBase.props';
 
 const sizes = ['sm', 'md'] as const;
 
@@ -10,7 +10,7 @@ export const buttonPropDefs = {
   size: PropDef<(typeof sizes)[number]>;
 };
 
-export type ButtonProps = ComponentPropsWithout<'div', RemovedProps> & {
+export type ButtonProps = ButtonBaseProps & {
   /**
    * Sets the button height.
    * @default md

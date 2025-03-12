@@ -14,7 +14,7 @@ const componentClassName = withGlobalPrefix(componentName);
 type SelectableCardElement = ElementRef<'button'>;
 
 export const SelectableCard = React.forwardRef<SelectableCardElement, SelectableCardProps>(
-  ({ className, children, selected, ...selectableCardProps }, ref) => {
+  ({ className, children, selected, ...selectableCardProps }) => {
     const dataAttributeProps = { 'data-selected': selected ? '' : undefined };
     return (
       <Card
