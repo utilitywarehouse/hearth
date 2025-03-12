@@ -170,20 +170,24 @@ export const InteractiveCards: Story = {
             <Flex direction="column" gap="150">
               <Heading size="sm">Warm White Emphasis Card</Heading>
               <BodyText size="md">Content...</BodyText>
-              <Link href="#">
-                Link
-                <ChevronRightSmallIcon />
-              </Link>
+              <CardAction asChild>
+                <Link href="#">
+                  Link
+                  <ChevronRightSmallIcon />
+                </Link>
+              </CardAction>
             </Flex>
           </Card>
           <Card variant="subtle" colorScheme="warmWhite" padding="lg" flex="1">
             <Flex direction="column" gap="150">
               <Heading size="sm">Warm White Subtle Card</Heading>
               <BodyText size="md">Content...</BodyText>
-              <Link href="#">
-                Link
-                <ChevronRightSmallIcon />
-              </Link>
+              <CardAction asChild>
+                <Link href="#">
+                  Link
+                  <ChevronRightSmallIcon />
+                </Link>
+              </CardAction>
             </Flex>
           </Card>
         </Flex>
@@ -193,40 +197,48 @@ export const InteractiveCards: Story = {
             <Flex direction="column" gap="150">
               <Heading size="sm">Energy Green Card</Heading>
               <BodyText size="md">Content...</BodyText>
-              <Link href="#">
-                Link
-                <ChevronRightSmallIcon />
-              </Link>
+              <CardAction asChild>
+                <Link href="#">
+                  Link
+                  <ChevronRightSmallIcon />
+                </Link>
+              </CardAction>
             </Flex>
           </Card>
           <Card variant="emphasis" colorScheme="mobileRose" padding="lg" flex="1">
             <Flex direction="column" gap="150">
               <Heading size="sm">Mobile Rose Card</Heading>
               <BodyText size="md">Content...</BodyText>
-              <Link href="#">
-                Link
-                <ChevronRightSmallIcon />
-              </Link>
+              <CardAction asChild>
+                <Link href="#">
+                  Link
+                  <ChevronRightSmallIcon />
+                </Link>
+              </CardAction>
             </Flex>
           </Card>
           <Card variant="emphasis" colorScheme="broadbandBlue" padding="lg" flex="1">
             <Flex direction="column" gap="150">
               <Heading size="sm">Broadband Blue Card</Heading>
               <BodyText size="md">Content...</BodyText>
-              <Link href="#">
-                Link
-                <ChevronRightSmallIcon />
-              </Link>
+              <CardAction asChild>
+                <Link href="#">
+                  Link
+                  <ChevronRightSmallIcon />
+                </Link>
+              </CardAction>
             </Flex>
           </Card>
           <Card variant="emphasis" colorScheme="insuranceOrange" padding="lg" flex="1">
             <Flex direction="column" gap="150">
               <Heading size="sm">Insurance Orange Card</Heading>
               <BodyText size="md">Content...</BodyText>
-              <Link href="#">
-                Link
-                <ChevronRightSmallIcon />
-              </Link>
+              <CardAction asChild>
+                <Link href="#">
+                  Link
+                  <ChevronRightSmallIcon />
+                </Link>
+              </CardAction>
             </Flex>
           </Card>
         </Flex>
