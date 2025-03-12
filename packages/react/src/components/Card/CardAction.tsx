@@ -3,7 +3,7 @@ import type { ElementRef } from 'react';
 
 import clsx from 'clsx';
 
-import { cardPropDefs, CardProps } from './Card.props';
+import { cardPropDefs } from './Card.props';
 import { extractProps } from '../../helpers/extract-props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { marginPropDefs } from '../../props/margin.props';
