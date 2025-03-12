@@ -11,7 +11,6 @@ import { sizePropDefs } from '../../props/size.props';
 import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
 import { Flex } from '../Flex/Flex';
-import { DATA_ATTRIBUTES } from '../../helpers/data-attributes';
 import { FlexProps } from '../Flex/Flex.props';
 
 const componentName = 'Card';
@@ -20,7 +19,7 @@ const componentClassName = withGlobalPrefix(componentName);
 type CardElement = ElementRef<'div'>;
 
 export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
-  const { className, selectable, ...cardProps } = extractProps(
+  const { className, ...cardProps } = extractProps(
     props,
     cardPropDefs,
     marginPropDefs,
@@ -29,15 +28,8 @@ export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
     flexItemPropDefs
   );
 
-  const dataAttributeProps = { [DATA_ATTRIBUTES.selectable]: selectable ? '' : undefined };
-
   return (
-    <Flex
-      ref={ref}
-      className={clsx(componentClassName, className)}
-      {...(cardProps as FlexProps)}
-      {...dataAttributeProps}
-    />
+    <Flex ref={ref} className={clsx(componentClassName, className)} {...(cardProps as FlexProps)} />
   );
 });
 
