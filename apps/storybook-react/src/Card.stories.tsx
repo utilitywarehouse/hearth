@@ -138,21 +138,26 @@ export const FixedCards: Story = {
             White and Warm White Fixed Cards
           </BodyText>
           <Flex gap="300" width="800px">
-            <Card variant="emphasis" colorScheme="white" padding="lg" flex="1">
-              <Flex direction="column" gap="150">
-                <Heading size="sm">White Emphasis Card</Heading>
-                <BodyText size="md">Content...</BodyText>
-                <Link>
-                  Link
-                  <ChevronRightSmallIcon />
-                </Link>
-              </Flex>
+            <Card
+              variant="emphasis"
+              colorScheme="white"
+              padding="lg"
+              flex="1"
+              direction="column"
+              gap="150"
+            >
+              <Heading size="sm">White Emphasis Card</Heading>
+              <BodyText size="md">Content...</BodyText>
+              <Link href="#">
+                Link
+                <ChevronRightSmallIcon />
+              </Link>
             </Card>
             <Card variant="subtle" colorScheme="white" padding="lg" flex="1">
               <Flex direction="column" gap="150">
                 <Heading size="sm">White Subtle Card</Heading>
                 <BodyText size="md">Content...</BodyText>
-                <Link>
+                <Link href="#">
                   Link
                   <ChevronRightSmallIcon />
                 </Link>
@@ -162,7 +167,7 @@ export const FixedCards: Story = {
               <Flex direction="column" gap="150">
                 <Heading size="sm">Warm White Emphasis Card</Heading>
                 <BodyText size="md">Content...</BodyText>
-                <Link>
+                <Link href="#">
                   Link
                   <ChevronRightSmallIcon />
                 </Link>
@@ -172,7 +177,7 @@ export const FixedCards: Story = {
               <Flex direction="column" gap="150">
                 <Heading size="sm">Warm White Subtle Card</Heading>
                 <BodyText size="md">Content...</BodyText>
-                <Link>
+                <Link href="#">
                   Link
                   <ChevronRightSmallIcon />
                 </Link>
@@ -189,7 +194,7 @@ export const FixedCards: Story = {
               <Flex direction="column" gap="150">
                 <Heading size="sm">Energy Green Card</Heading>
                 <BodyText size="md">Content...</BodyText>
-                <Link>
+                <Link href="#">
                   Link
                   <ChevronRightSmallIcon />
                 </Link>
@@ -199,7 +204,7 @@ export const FixedCards: Story = {
               <Flex direction="column" gap="150">
                 <Heading size="sm">Mobile Rose Card</Heading>
                 <BodyText size="md">Content...</BodyText>
-                <Link>
+                <Link href="#">
                   Link
                   <ChevronRightSmallIcon />
                 </Link>
@@ -209,7 +214,7 @@ export const FixedCards: Story = {
               <Flex direction="column" gap="150">
                 <Heading size="sm">Broadband Blue Card</Heading>
                 <BodyText size="md">Content...</BodyText>
-                <Link>
+                <Link href="#">
                   Link
                   <ChevronRightSmallIcon />
                 </Link>
@@ -219,7 +224,7 @@ export const FixedCards: Story = {
               <Flex direction="column" gap="150">
                 <Heading size="sm">Insurance Orange Card</Heading>
                 <BodyText size="md">Content...</BodyText>
-                <Link>
+                <Link href="#">
                   Link
                   <ChevronRightSmallIcon />
                 </Link>
