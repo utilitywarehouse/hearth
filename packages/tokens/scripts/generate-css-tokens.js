@@ -6,7 +6,8 @@ import { px } from './helpers/px.js';
 import { filters } from './helpers/filters.js';
 import { kebabCase } from './helpers/kebab-case.js';
 
-export const BUILD_PATH = './css/';
+const BUILD_PATH = './css/';
+const VALID_DEVICE_COMPONENTS = ['card'];
 
 // I tried to get this working with fs.readdirSync but I couldn't
 // so this will have to do for now
@@ -30,6 +31,9 @@ StyleDictionary.registerFormat({
 @import '../css/space.css';
 @import '../css/spinner.css';
 @import '../css/typography.css';
+@import '../css/mobile.css';
+@import '../css/tablet.css';
+@import '../css/desktop.css';
 `;
   },
 });
@@ -142,6 +146,20 @@ const componentFiles = Object.keys(componentJson.light).map(componentName => ({
     );
   },
 }));
+const deviceJson = loadJSON('./raw/hearth-components--tokens---device.json');
+const deviceFiles = Object.keys(deviceJson).map(device => {
+  return {
+    destination: `${device}.css`,
+    format: 'css/variables',
+    filter: token => {
+      return (
+        token.filePath.includes('device') &&
+        token.path.includes(device) &&
+        token.path.some(el => VALID_DEVICE_COMPONENTS.includes(el))
+      );
+    },
+  };
+});
 
 export function generateCssTokens() {
   console.log('Generating CSS tokens...');
@@ -204,6 +222,11 @@ export function generateCssTokens() {
           transformGroup: 'css-transforms',
           buildPath: BUILD_PATH,
           files: componentFiles,
+        },
+        'css-device-components': {
+          transformGroup: 'css-transforms',
+          buildPath: BUILD_PATH,
+          files: deviceFiles,
         },
         'css-index': {
           transformGroup: 'css-transforms',

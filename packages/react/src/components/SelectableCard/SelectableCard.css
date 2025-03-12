@@ -1,0 +1,35 @@
+.hearth-SelectableCard {
+  cursor: pointer;
+  position: relative;
+  box-shadow: inset 0 0 0 var(--card-subtle-border-width) var(--card-subtle-border-color);
+
+  & button {
+    &:where(:focus-visible) {
+      outline: none;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+  }
+
+  &:where(:has(:focus-visible)) {
+    outline: 2px solid var(--focus-border);
+    outline-offset: 1px;
+  }
+
+  @media (hover: hover) {
+    &:where(:hover) {
+      background-color: var(--card-white-background-color-hover);
+    }
+  }
+
+  &:where(:active) {
+    background-color: var(--card-white-background-color-active);
+  }
+
+  &:where([data-selected], :has([data-selected]), :has([data-state='checked'])) {
+    box-shadow: inset 0 0 0 var(--card-emphasis-border-width) var(--card-emphasis-border-color);
+  }
+}

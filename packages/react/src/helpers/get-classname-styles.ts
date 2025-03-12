@@ -1,5 +1,6 @@
 import type { Breakpoints, Responsive } from '../types/responsive';
 import { isResponsiveObject } from './is-responsive-object';
+import { kebabCase } from './kebab-case';
 import { GLOBAL_PREFIX } from './with-global-prefix';
 
 type GetClassNameStylesOptions = {
@@ -39,7 +40,9 @@ export const getClassNameStyles = ({
           style: { [`-${responsivePrefix}-${prefix}`]: transformValue(value) },
         };
       }
-      return { className: `${GLOBAL_PREFIX}${responsivePrefix}-${prefix}-${value}` };
+      return {
+        className: `${GLOBAL_PREFIX}${responsivePrefix}-${prefix}-${kebabCase(String(value))}`,
+      };
     }
     return {
       className: `${GLOBAL_PREFIX}${responsivePrefix}-${prefix}`,
