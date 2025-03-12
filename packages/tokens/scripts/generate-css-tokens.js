@@ -171,6 +171,7 @@ export function generateCssTokens() {
         css: {
           transformGroup: 'css-transforms',
           buildPath: BUILD_PATH,
+          prefix: '-h',
           files: [
             {
               destination: 'color.css',
