@@ -24,4 +24,7 @@ export default {
     height: 96,
     resizeIconColor: '#6f6c6b',
   },
+  validation: {
+    gap: 2,
+  },
 } as const;

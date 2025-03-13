@@ -20,4 +20,5 @@
   --input-padding-vertical: var(--space-150);
   --input-text-area-height: 96;
   --input-text-area-resize-icon-color: var(--color-grey-500);
+  --input-validation-gap: var(--space-25);
 }

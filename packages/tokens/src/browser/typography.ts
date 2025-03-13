@@ -6,11 +6,6 @@ export const typography = {
         mobile: 'var(--heading-lg-font-size-mobile)',
         tablet: 'var(--heading-lg-font-size-tablet)',
       },
-      letterSpacing: {
-        desktop: 'var(--heading-lg-letter-spacing-desktop)',
-        mobile: 'var(--heading-lg-letter-spacing-mobile)',
-        tablet: 'var(--heading-lg-letter-spacing-tablet)',
-      },
       lineHeight: {
         desktop: 'var(--heading-lg-line-height-desktop)',
         mobile: 'var(--heading-lg-line-height-mobile)',
@@ -23,11 +18,6 @@ export const typography = {
         desktop: 'var(--heading-md-font-size-desktop)',
         mobile: 'var(--heading-md-font-size-mobile)',
         tablet: 'var(--heading-md-font-size-tablet)',
-      },
-      letterSpacing: {
-        desktop: 'var(--heading-md-letter-spacing-desktop)',
-        mobile: 'var(--heading-md-letter-spacing-mobile)',
-        tablet: 'var(--heading-md-letter-spacing-tablet)',
       },
       lineHeight: {
         desktop: 'var(--heading-md-line-height-desktop)',
@@ -42,11 +32,6 @@ export const typography = {
         mobile: 'var(--heading-sm-font-size-mobile)',
         tablet: 'var(--heading-sm-font-size-tablet)',
       },
-      letterSpacing: {
-        desktop: 'var(--heading-sm-letter-spacing-desktop)',
-        mobile: 'var(--heading-sm-letter-spacing-mobile)',
-        tablet: 'var(--heading-sm-letter-spacing-tablet)',
-      },
       lineHeight: {
         desktop: 'var(--heading-sm-line-height-desktop)',
         mobile: 'var(--heading-sm-line-height-mobile)',
@@ -59,11 +44,6 @@ export const typography = {
         desktop: 'var(--heading-xl-font-size-desktop)',
         mobile: 'var(--heading-xl-font-size-mobile)',
         tablet: 'var(--heading-xl-font-size-tablet)',
-      },
-      letterSpacing: {
-        desktop: 'var(--heading-xl-letter-spacing-desktop)',
-        mobile: 'var(--heading-xl-letter-spacing-mobile)',
-        tablet: 'var(--heading-xl-letter-spacing-tablet)',
       },
       lineHeight: {
         desktop: 'var(--heading-xl-line-height-desktop)',
@@ -79,19 +59,16 @@ export const typography = {
     fontWeightSemibold: 'var(--body-text-font-weight-semibold)',
     lg: {
       fontSize: 'var(--body-text-lg-font-size)',
-      letterSpacing: 'var(--body-text-lg-letter-spacing)',
       lineHeight: 'var(--body-text-lg-line-height)',
       paragraphSpacing: 'var(--body-text-lg-paragraph-spacing)',
     },
     md: {
       fontSize: 'var(--body-text-md-font-size)',
-      letterSpacing: 'var(--body-text-md-letter-spacing)',
       lineHeight: 'var(--body-text-md-line-height)',
       paragraphSpacing: 'var(--body-text-md-paragraph-spacing)',
     },
     sm: {
       fontSize: 'var(--body-text-sm-font-size)',
-      letterSpacing: 'var(--body-text-sm-letter-spacing)',
       lineHeight: 'var(--body-text-sm-line-height)',
       paragraphSpacing: 'var(--body-text-sm-paragraph-spacing)',
     },

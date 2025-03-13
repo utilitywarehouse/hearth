@@ -102,11 +102,6 @@ const styles = StyleSheet.create(theme => ({
             md: theme.typography.tablet.heading.sm.lineHeight,
             lg: theme.typography.desktop.heading.sm.lineHeight,
           },
-          letterSpacing: {
-            base: theme.typography.mobile.heading.sm.letterSpacing,
-            md: theme.typography.tablet.heading.sm.letterSpacing,
-            lg: theme.typography.desktop.heading.sm.letterSpacing,
-          },
         },
         md: {
           fontSize: {
@@ -123,11 +118,6 @@ const styles = StyleSheet.create(theme => ({
             base: theme.typography.mobile.heading.md.lineHeight,
             md: theme.typography.tablet.heading.md.lineHeight,
             lg: theme.typography.desktop.heading.md.lineHeight,
-          },
-          letterSpacing: {
-            base: theme.typography.mobile.heading.md.letterSpacing,
-            md: theme.typography.tablet.heading.md.letterSpacing,
-            lg: theme.typography.desktop.heading.md.letterSpacing,
           },
         },
         lg: {
@@ -146,11 +136,6 @@ const styles = StyleSheet.create(theme => ({
             md: theme.typography.tablet.heading.lg.lineHeight,
             lg: theme.typography.desktop.heading.lg.lineHeight,
           },
-          letterSpacing: {
-            base: theme.typography.mobile.heading.lg.letterSpacing,
-            md: theme.typography.tablet.heading.lg.letterSpacing,
-            lg: theme.typography.desktop.heading.lg.letterSpacing,
-          },
         },
         xl: {
           fontSize: {
@@ -167,11 +152,6 @@ const styles = StyleSheet.create(theme => ({
             base: theme.typography.mobile.heading.xl.lineHeight,
             md: theme.typography.tablet.heading.xl.lineHeight,
             lg: theme.typography.desktop.heading.xl.lineHeight,
-          },
-          letterSpacing: {
-            base: theme.typography.mobile.heading.xl.letterSpacing,
-            md: theme.typography.tablet.heading.xl.letterSpacing,
-            lg: theme.typography.desktop.heading.xl.letterSpacing,
           },
         },
       },

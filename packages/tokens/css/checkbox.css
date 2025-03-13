@@ -5,14 +5,12 @@
 :root {
   --checkbox-border-radius: var(--border-radius-xs);
   --checkbox-border-width: var(--border-width-2);
-  --checkbox-checked-border-color-active: var(--color-warm-white-200);
+  --checkbox-checked-border-color-active: var(--color-warm-white-300);
+  --checkbox-checked-border-color-hover: var(--color-warm-white-200);
   --checkbox-checked-color: var(--color-grey-1000);
-  --checkbox-checked-color-active: var(--color-grey-800);
-  --checkbox-checked-color-hover: var(--color-grey-900);
   --checkbox-checked-icon-color: var(--color-warm-white-50);
   --checkbox-unchecked-background-color: var(--color-white);
-  --checkbox-unchecked-background-color-active: var(--color-warm-white-50);
-  --checkbox-unchecked-background-color-hover: var(--color-warm-white-50);
   --checkbox-unchecked-border-color: var(--color-grey-400);
-  --checkbox-unchecked-border-color-active: var(--color-warm-white-200);
+  --checkbox-unchecked-border-color-active: var(--color-warm-white-300);
+  --checkbox-unchecked-border-color-hover: var(--color-warm-white-200);
 }

@@ -1,0 +1,19 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --accordion-border-color: var(--color-warm-white-300);
+  --accordion-gap: var(--space-150);
+  --accordion-heading-gap: var(--space-25);
+  --accordion-item-background-color-hover: var(--color-warm-white-100);
+  --accordion-item-content-gap: var(--space-200);
+  --accordion-item-content-padding-bottom: var(--space-200);
+  --accordion-item-content-padding-horizontal: 0;
+  --accordion-item-content-padding-top: var(--space-50);
+  --accordion-item-gap: 0;
+  --accordion-item-heading-gap: var(--space-200);
+  --accordion-item-heading-padding-horizontal: 0;
+  --accordion-item-heading-padding-vertical: var(--space-200);
+  --accordion-padding: 0;
+}

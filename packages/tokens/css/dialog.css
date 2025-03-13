@@ -1,0 +1,13 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --dialog-action-gap: var(--space-150);
+  --dialog-background-color: var(--color-white);
+  --dialog-border-radius: var(--border-radius-xl);
+  --dialog-content-gap: var(--space-150);
+  --dialog-gap: var(--space-300);
+  --dialog-padding: var(--space-200);
+  --dialog-width: 600;
+}

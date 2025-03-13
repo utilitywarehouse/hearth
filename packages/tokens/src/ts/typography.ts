@@ -10,19 +10,16 @@ export const mobile = {
     fontWeightSemibold: 600,
     lg: {
       fontSize: 18,
-      letterSpacing: 0,
       lineHeight: 24,
       paragraphSpacing: 18,
     },
     md: {
       fontSize: 16,
-      letterSpacing: 0,
       lineHeight: 24,
       paragraphSpacing: 16,
     },
     sm: {
       fontSize: 14,
-      letterSpacing: 0,
       lineHeight: 20,
       paragraphSpacing: 14,
     },
@@ -71,25 +68,21 @@ export const mobile = {
     lg: {
       fontSize: 24,
       fontWeight: 600,
-      letterSpacing: 0,
       lineHeight: 32,
     },
     md: {
       fontSize: 20,
       fontWeight: 600,
-      letterSpacing: 0,
       lineHeight: 24,
     },
     sm: {
       fontSize: 18,
       fontWeight: 600,
-      letterSpacing: 0,
       lineHeight: 22,
     },
     xl: {
       fontSize: 30,
       fontWeight: 700,
-      letterSpacing: 0,
       lineHeight: 36,
     },
   },
@@ -103,19 +96,16 @@ export const tablet = {
     fontWeightSemibold: 600,
     lg: {
       fontSize: 18,
-      letterSpacing: 0,
       lineHeight: 24,
       paragraphSpacing: 18,
     },
     md: {
       fontSize: 16,
-      letterSpacing: 0,
       lineHeight: 24,
       paragraphSpacing: 16,
     },
     sm: {
       fontSize: 14,
-      letterSpacing: 0,
       lineHeight: 20,
       paragraphSpacing: 14,
     },
@@ -164,25 +154,21 @@ export const tablet = {
     lg: {
       fontSize: 24,
       fontWeight: 600,
-      letterSpacing: 0,
       lineHeight: 32,
     },
     md: {
       fontSize: 20,
       fontWeight: 600,
-      letterSpacing: 0,
       lineHeight: 24,
     },
     sm: {
       fontSize: 18,
       fontWeight: 600,
-      letterSpacing: 0,
       lineHeight: 22,
     },
     xl: {
       fontSize: 30,
       fontWeight: 700,
-      letterSpacing: 0,
       lineHeight: 36,
     },
   },
@@ -196,19 +182,16 @@ export const desktop = {
     fontWeightSemibold: 600,
     lg: {
       fontSize: 18,
-      letterSpacing: 0,
       lineHeight: 24,
       paragraphSpacing: 18,
     },
     md: {
       fontSize: 16,
-      letterSpacing: 0,
       lineHeight: 24,
       paragraphSpacing: 16,
     },
     sm: {
       fontSize: 14,
-      letterSpacing: 0,
       lineHeight: 20,
       paragraphSpacing: 14,
     },
@@ -257,25 +240,21 @@ export const desktop = {
     lg: {
       fontSize: 30,
       fontWeight: 600,
-      letterSpacing: 0,
       lineHeight: 36,
     },
     md: {
       fontSize: 24,
       fontWeight: 600,
-      letterSpacing: 0,
       lineHeight: 28,
     },
     sm: {
       fontSize: 18,
       fontWeight: 600,
-      letterSpacing: 0,
       lineHeight: 22,
     },
     xl: {
       fontSize: 40,
       fontWeight: 700,
-      letterSpacing: 0,
       lineHeight: 48,
     },
   },

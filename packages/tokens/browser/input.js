@@ -20,4 +20,7 @@ export const input = {
     height: 'var(--input-text-area-height)',
     resizeIconColor: 'var(--input-text-area-resize-icon-color)',
   },
+  validation: {
+    gap: 'var(--input-validation-gap)',
+  },
 };

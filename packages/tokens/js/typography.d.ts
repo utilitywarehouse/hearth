@@ -9,19 +9,16 @@ export declare const mobile: {
     readonly fontWeightSemibold: 600;
     readonly lg: {
       readonly fontSize: 18;
-      readonly letterSpacing: 0;
       readonly lineHeight: 24;
       readonly paragraphSpacing: 18;
     };
     readonly md: {
       readonly fontSize: 16;
-      readonly letterSpacing: 0;
       readonly lineHeight: 24;
       readonly paragraphSpacing: 16;
     };
     readonly sm: {
       readonly fontSize: 14;
-      readonly letterSpacing: 0;
       readonly lineHeight: 20;
       readonly paragraphSpacing: 14;
     };
@@ -70,25 +67,21 @@ export declare const mobile: {
     readonly lg: {
       readonly fontSize: 24;
       readonly fontWeight: 600;
-      readonly letterSpacing: 0;
       readonly lineHeight: 32;
     };
     readonly md: {
       readonly fontSize: 20;
       readonly fontWeight: 600;
-      readonly letterSpacing: 0;
       readonly lineHeight: 24;
     };
     readonly sm: {
       readonly fontSize: 18;
       readonly fontWeight: 600;
-      readonly letterSpacing: 0;
       readonly lineHeight: 22;
     };
     readonly xl: {
       readonly fontSize: 30;
       readonly fontWeight: 700;
-      readonly letterSpacing: 0;
       readonly lineHeight: 36;
     };
   };
@@ -101,19 +94,16 @@ export declare const tablet: {
     readonly fontWeightSemibold: 600;
     readonly lg: {
       readonly fontSize: 18;
-      readonly letterSpacing: 0;
       readonly lineHeight: 24;
       readonly paragraphSpacing: 18;
     };
     readonly md: {
       readonly fontSize: 16;
-      readonly letterSpacing: 0;
       readonly lineHeight: 24;
       readonly paragraphSpacing: 16;
     };
     readonly sm: {
       readonly fontSize: 14;
-      readonly letterSpacing: 0;
       readonly lineHeight: 20;
       readonly paragraphSpacing: 14;
     };
@@ -162,25 +152,21 @@ export declare const tablet: {
     readonly lg: {
       readonly fontSize: 24;
       readonly fontWeight: 600;
-      readonly letterSpacing: 0;
       readonly lineHeight: 32;
     };
     readonly md: {
       readonly fontSize: 20;
       readonly fontWeight: 600;
-      readonly letterSpacing: 0;
       readonly lineHeight: 24;
     };
     readonly sm: {
       readonly fontSize: 18;
       readonly fontWeight: 600;
-      readonly letterSpacing: 0;
       readonly lineHeight: 22;
     };
     readonly xl: {
       readonly fontSize: 30;
       readonly fontWeight: 700;
-      readonly letterSpacing: 0;
       readonly lineHeight: 36;
     };
   };
@@ -193,19 +179,16 @@ export declare const desktop: {
     readonly fontWeightSemibold: 600;
     readonly lg: {
       readonly fontSize: 18;
-      readonly letterSpacing: 0;
       readonly lineHeight: 24;
       readonly paragraphSpacing: 18;
     };
     readonly md: {
       readonly fontSize: 16;
-      readonly letterSpacing: 0;
       readonly lineHeight: 24;
       readonly paragraphSpacing: 16;
     };
     readonly sm: {
       readonly fontSize: 14;
-      readonly letterSpacing: 0;
       readonly lineHeight: 20;
       readonly paragraphSpacing: 14;
     };
@@ -254,25 +237,21 @@ export declare const desktop: {
     readonly lg: {
       readonly fontSize: 30;
       readonly fontWeight: 600;
-      readonly letterSpacing: 0;
       readonly lineHeight: 36;
     };
     readonly md: {
       readonly fontSize: 24;
       readonly fontWeight: 600;
-      readonly letterSpacing: 0;
       readonly lineHeight: 28;
     };
     readonly sm: {
       readonly fontSize: 18;
       readonly fontWeight: 600;
-      readonly letterSpacing: 0;
       readonly lineHeight: 22;
     };
     readonly xl: {
       readonly fontSize: 40;
       readonly fontWeight: 700;
-      readonly letterSpacing: 0;
       readonly lineHeight: 48;
     };
   };
@@ -286,19 +265,16 @@ declare const typography: {
       readonly fontWeightSemibold: 600;
       readonly lg: {
         readonly fontSize: 18;
-        readonly letterSpacing: 0;
         readonly lineHeight: 24;
         readonly paragraphSpacing: 18;
       };
       readonly md: {
         readonly fontSize: 16;
-        readonly letterSpacing: 0;
         readonly lineHeight: 24;
         readonly paragraphSpacing: 16;
       };
       readonly sm: {
         readonly fontSize: 14;
-        readonly letterSpacing: 0;
         readonly lineHeight: 20;
         readonly paragraphSpacing: 14;
       };
@@ -347,25 +323,21 @@ declare const typography: {
       readonly lg: {
         readonly fontSize: 24;
         readonly fontWeight: 600;
-        readonly letterSpacing: 0;
         readonly lineHeight: 32;
       };
       readonly md: {
         readonly fontSize: 20;
         readonly fontWeight: 600;
-        readonly letterSpacing: 0;
         readonly lineHeight: 24;
       };
       readonly sm: {
         readonly fontSize: 18;
         readonly fontWeight: 600;
-        readonly letterSpacing: 0;
         readonly lineHeight: 22;
       };
       readonly xl: {
         readonly fontSize: 30;
         readonly fontWeight: 700;
-        readonly letterSpacing: 0;
         readonly lineHeight: 36;
       };
     };
@@ -378,19 +350,16 @@ declare const typography: {
       readonly fontWeightSemibold: 600;
       readonly lg: {
         readonly fontSize: 18;
-        readonly letterSpacing: 0;
         readonly lineHeight: 24;
         readonly paragraphSpacing: 18;
       };
       readonly md: {
         readonly fontSize: 16;
-        readonly letterSpacing: 0;
         readonly lineHeight: 24;
         readonly paragraphSpacing: 16;
       };
       readonly sm: {
         readonly fontSize: 14;
-        readonly letterSpacing: 0;
         readonly lineHeight: 20;
         readonly paragraphSpacing: 14;
       };
@@ -439,25 +408,21 @@ declare const typography: {
       readonly lg: {
         readonly fontSize: 24;
         readonly fontWeight: 600;
-        readonly letterSpacing: 0;
         readonly lineHeight: 32;
       };
       readonly md: {
         readonly fontSize: 20;
         readonly fontWeight: 600;
-        readonly letterSpacing: 0;
         readonly lineHeight: 24;
       };
       readonly sm: {
         readonly fontSize: 18;
         readonly fontWeight: 600;
-        readonly letterSpacing: 0;
         readonly lineHeight: 22;
       };
       readonly xl: {
         readonly fontSize: 30;
         readonly fontWeight: 700;
-        readonly letterSpacing: 0;
         readonly lineHeight: 36;
       };
     };
@@ -470,19 +435,16 @@ declare const typography: {
       readonly fontWeightSemibold: 600;
       readonly lg: {
         readonly fontSize: 18;
-        readonly letterSpacing: 0;
         readonly lineHeight: 24;
         readonly paragraphSpacing: 18;
       };
       readonly md: {
         readonly fontSize: 16;
-        readonly letterSpacing: 0;
         readonly lineHeight: 24;
         readonly paragraphSpacing: 16;
       };
       readonly sm: {
         readonly fontSize: 14;
-        readonly letterSpacing: 0;
         readonly lineHeight: 20;
         readonly paragraphSpacing: 14;
       };
@@ -531,25 +493,21 @@ declare const typography: {
       readonly lg: {
         readonly fontSize: 30;
         readonly fontWeight: 600;
-        readonly letterSpacing: 0;
         readonly lineHeight: 36;
       };
       readonly md: {
         readonly fontSize: 24;
         readonly fontWeight: 600;
-        readonly letterSpacing: 0;
         readonly lineHeight: 28;
       };
       readonly sm: {
         readonly fontSize: 18;
         readonly fontWeight: 600;
-        readonly letterSpacing: 0;
         readonly lineHeight: 22;
       };
       readonly xl: {
         readonly fontSize: 40;
         readonly fontWeight: 700;
-        readonly letterSpacing: 0;
         readonly lineHeight: 48;
       };
     };

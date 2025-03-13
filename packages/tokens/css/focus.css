@@ -5,4 +5,10 @@
 :root {
   --focus-border: var(--color-grey-1000);
   --focus-border-inverted: var(--color-warm-white-50);
+  --menu-item-focus-border-color: var(--color-grey-1000);
+  --menu-item-focus-border-width: var(--border-width-2);
+  --menu-item-focus-red-color: var(--color-dark-red-200);
+  --menu-item-focus-red-icon-color: var(--color-dark-red-200);
+  --select-dropdown-item-focus-border-color: var(--color-grey-1000);
+  --select-dropdown-item-focus-border-width-focused: var(--border-width-2);
 }
