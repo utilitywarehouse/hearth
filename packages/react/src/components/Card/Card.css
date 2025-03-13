@@ -1,0 +1,99 @@
+.hearth-Card {
+  border-radius: var(--card-border-radius);
+  box-shadow: inset 0 0 0 var(--card-border-width) var(--card-border-color);
+  padding: var(--card-padding-mobile);
+
+  @media (--tablet) {
+    padding: var(--card-padding-tablet);
+  }
+
+  @media (--desktop) {
+    padding: var(--card-padding-desktop);
+  }
+
+  &:where(.hearth-padding-none) {
+    padding: var(--card-padding-none-mobile);
+  }
+
+  &:where(:has(:focus-visible)) {
+    outline: 2px solid var(--focus-border);
+    outline-offset: 1px;
+  }
+
+  &:where(.hearth-variant-emphasis) {
+    --card-border-color: var(--card-emphasis-border-color);
+    --card-border-width: var(--card-emphasis-border-width);
+  }
+
+  &:where(.hearth-variant-subtle) {
+    --card-border-color: var(--card-subtle-border-color);
+    --card-border-width: var(--card-subtle-border-width);
+  }
+
+  &:where(.hearth-color-scheme-white) {
+    background-color: var(--card-white-background-color);
+  }
+
+  &:where(.hearth-color-scheme-warm-white) {
+    background-color: var(--card-warm-white-background-color);
+  }
+
+  &:where(.hearth-color-scheme-purple) {
+    background-color: var(--card-purple-background-color);
+  }
+
+  &:where(.hearth-color-scheme-energy-green) {
+    background-color: var(--card-energy-green-background-color);
+  }
+
+  &:where(.hearth-color-scheme-broadband-blue) {
+    background-color: var(--card-broadband-blue-background-color);
+  }
+
+  &:where(.hearth-color-scheme-mobile-rose) {
+    background-color: var(--card-mobile-rose-background-color);
+  }
+
+  &:where(.hearth-color-scheme-insurance-orange) {
+    background-color: var(--card-insurance-orange-background-color);
+  }
+
+  &:where(.hearth-color-scheme-cashback-lilac) {
+    background-color: var(--card-cashback-lilac-background-color);
+  }
+
+  &:where([data-selectable]) {
+    @media (hover: hover) {
+      cursor: pointer;
+
+      &:where(:hover) {
+        &:where(.hearth-color-scheme-white) {
+          background-color: var(--card-white-background-color-hover);
+        }
+
+        &:where(.hearth-color-scheme-warm-white) {
+          background-color: var(--card-warm-white-background-color-hover);
+        }
+      }
+    }
+
+    &:where(:active) {
+      &:where(.hearth-color-scheme-white) {
+        background-color: var(--card-white-background-color-active);
+      }
+
+      &:where(.hearth-color-scheme-warm-white) {
+        background-color: var(--card-warm-white-background-color-active);
+      }
+    }
+
+    &:where(:has(:focus-visible)) {
+      outline: 2px solid var(--focus-border);
+      outline-offset: 1px;
+    }
+  }
+
+  &:has(.hearth-CardAction) {
+    position: relative;
+  }
+}

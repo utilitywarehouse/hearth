@@ -30,9 +30,9 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
     props,
     boxPropDefs,
     paddingPropDefs,
-    marginPropDefs,
     colorPropDefs,
     backgroundColorPropDefs,
+    marginPropDefs,
     sizePropDefs,
     gridItemPropDefs,
     flexItemPropDefs

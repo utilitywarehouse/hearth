@@ -14,9 +14,6 @@ const componentClassName = withGlobalPrefix(componentName);
 
 type LinkElement = ElementRef<'a'>;
 
-/**
- * A semantic Call To Action for navigating between pages.
- */
 export const Link = React.forwardRef<LinkElement, LinkProps>(
   ({ className, asChild, inverted, children, ...linkProps }, ref) => {
     const dataAttributeProps = {

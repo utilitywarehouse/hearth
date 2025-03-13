@@ -17,6 +17,12 @@
 }
 
 @breakpoints {
+  .hearth-r-flex {
+    flex: var(--r-flex);
+  }
+}
+
+@breakpoints {
   .hearth-r-flex-basis {
     flex-basis: var(--r-flex-basis);
   }
