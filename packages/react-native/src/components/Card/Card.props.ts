@@ -11,10 +11,10 @@ interface CardProps extends PressableProps {
     | 'mobileRose'
     | 'insuranceOrange'
     | 'cashbackLilac';
-  padding?: 'lg' | 'md' | 'sm' | 'none';
+  noPadding?: boolean;
   selected?: boolean;
-  onSelect?: (selelected: boolean) => void;
   disabled?: boolean;
+  inheritChildAction?: boolean;
 }
 
 export default CardProps;
