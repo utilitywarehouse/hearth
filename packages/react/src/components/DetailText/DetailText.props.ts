@@ -6,11 +6,14 @@ import type { ComponentPropsWithout, RemovedProps } from '../../types/component-
 import type { Responsive } from '../../types/responsive';
 
 const sizes = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'] as const;
+const colorValues = ['text', 'valid', 'invalid'] as const;
 
 export const detailTextPropDefs = {
   size: { className: 'size', tokens: sizes, responsive: true, default: 'md' },
+  color: { className: 'text-color', tokens: colorValues, responsive: false, default: 'text' },
 } satisfies {
   size: PropDef<(typeof sizes)[number]>;
+  color: PropDef<(typeof colorValues)[number]>;
 };
 
 interface CommonDetailTextProps extends TextAlignProps, TextTransformProps, TextWrapProps {
@@ -25,6 +28,13 @@ interface CommonDetailTextProps extends TextAlignProps, TextTransformProps, Text
    * @default md
    */
   size?: Responsive<(typeof sizes)[number]>;
+  /**
+   * Set the text color
+   * @default text
+   */
+  color?: Responsive<(typeof colorValues)[number]>;
+  /** Inverts the component colours, for use on darker surface colours. */
+  inverted?: boolean;
 }
 type DetailTextDivProps = { as: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
 type DetailTextSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;

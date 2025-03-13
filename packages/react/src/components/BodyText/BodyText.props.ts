@@ -48,6 +48,8 @@ interface CommonBodyTextProps extends TextAlignProps, TextTransformProps, TextWr
    * If true, the text will have a bottom margin.
    */
   paragraphSpacing?: boolean;
+  /** Inverts the component colours, for use on darker surface colours. */
+  inverted?: boolean;
 }
 type BodyTextDivProps = { as: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
 type BodyTextSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;

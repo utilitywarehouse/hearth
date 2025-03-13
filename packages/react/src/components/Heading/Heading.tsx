@@ -17,7 +17,7 @@ const componentClassName = withGlobalPrefix(componentName);
 type HeadingElement = ElementRef<'h2'>;
 
 export const Heading = React.forwardRef<HeadingElement, HeadingProps>(({ size, ...props }, ref) => {
-  const { className, as, asChild, children, ...headingProps } = extractProps(
+  const { className, as, asChild, inverted, children, ...headingProps } = extractProps(
     { size, ...props },
     headingPropDefs,
     textAlignPropDefs,
@@ -27,7 +27,12 @@ export const Heading = React.forwardRef<HeadingElement, HeadingProps>(({ size, .
   const defaultElement = 'h2';
   const Tag = as ? as : defaultElement;
   return (
-    <Slot ref={ref} className={clsx(componentClassName, className)} {...headingProps}>
+    <Slot
+      ref={ref}
+      className={clsx(componentClassName, className)}
+      data-inverted={inverted ? '' : undefined}
+      {...headingProps}
+    >
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot>
   );

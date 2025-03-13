@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { BodyText, Flex } from '@utilitywarehouse/hearth-react';
+import { Box, BodyText, Flex } from '@utilitywarehouse/hearth-react';
 
 const sizes = ['sm', 'md', 'lg'] as const;
 const weights = ['regular', 'semibold', 'bold'] as const;
@@ -100,6 +100,24 @@ export const TextTruncate: Story = {
   args: {
     truncate: true,
     weight: 'regular',
+  },
+};
+
+export const InvertedText: Story = {
+  render: args => {
+    return (
+      <Flex direction="column">
+        <Box backgroundColor="uwPurple" padding="400">
+          <BodyText {...args}>Inverted text</BodyText>
+        </Box>
+        <Box backgroundColor="darkPurple" padding="400">
+          <BodyText {...args}>Inverted text</BodyText>
+        </Box>
+      </Flex>
+    );
+  },
+  args: {
+    inverted: true,
   },
 };
 

@@ -33,4 +33,6 @@ export interface HeadingProps
    * Set the text-align on the component.
    */
   align?: Responsive<'left' | 'center' | 'right'>;
+  /** Inverts the component colours, for use on darker surface colours. */
+  inverted?: boolean;
 }

@@ -1,6 +1,19 @@
 .hearth-DetailText {
   font-family: var(--font-family-detail-text);
-  color: var(--color-grey-1000);
+
+  &:where(.hearth-text-color-text) {
+    color: var(--text-color);
+  }
+  &:where(.hearth-text-color-valid) {
+    color: var(--text-color-valid);
+  }
+  &:where(.hearth-text-color-invalid) {
+    color: var(--text-color-invalid);
+  }
+
+  &:where([data-inverted]) {
+    color: var(--text-color-inverted);
+  }
 
   @breakpoints {
     &:where(.hearth-r-size-sm) {

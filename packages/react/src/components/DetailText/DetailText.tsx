@@ -22,6 +22,7 @@ export const DetailText = React.forwardRef<DetailTextElement, DetailTextProps>((
     asChild,
     as: Tag = 'span',
     children,
+    inverted,
     ...detailTextProps
   } = extractProps(
     props,
@@ -32,7 +33,12 @@ export const DetailText = React.forwardRef<DetailTextElement, DetailTextProps>((
   );
 
   return (
-    <Slot ref={ref} className={clsx(componentClassName, className)} {...detailTextProps}>
+    <Slot
+      ref={ref}
+      className={clsx(componentClassName, className)}
+      data-inverted={inverted ? '' : undefined}
+      {...detailTextProps}
+    >
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot>
   );
