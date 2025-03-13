@@ -1,7 +1,6 @@
 .hearth-Card {
   border-radius: var(--card-border-radius);
   box-shadow: inset 0 0 0 var(--card-border-width) var(--card-border-color);
-
   padding: var(--card-padding-mobile);
 
   @media (--tablet) {
