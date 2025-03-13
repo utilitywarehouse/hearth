@@ -1,0 +1,28 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --menu-background-color: var(--color-white);
+  --menu-border-color: var(--color-warm-white-300);
+  --menu-border-width: var(--border-width-1);
+  --menu-gap: var(--space-50);
+  --menu-item-active-background-color: var(--color-grey-200);
+  --menu-item-active-red-background-color: var(--color-red-100);
+  --menu-item-border-radius: var(--border-radius-xs);
+  --menu-item-default-red-color: var(--color-dark-red-200);
+  --menu-item-default-red-icon-color: var(--color-dark-red-200);
+  --menu-item-disabled-red-color: var(--color-dark-red-200);
+  --menu-item-disabled-red-icon-color: var(--color-dark-red-200);
+  --menu-item-focus-border-color: var(--color-grey-1000);
+  --menu-item-focus-border-width: var(--border-width-2);
+  --menu-item-focus-red-color: var(--color-dark-red-200);
+  --menu-item-focus-red-icon-color: var(--color-dark-red-200);
+  --menu-item-gap: var(--space-75);
+  --menu-item-hover-background-color: var(--color-grey-100);
+  --menu-item-hover-red-background-color: var(--color-red-50);
+  --menu-item-hover-red-color: var(--color-dark-red-200);
+  --menu-item-hover-red-icon-color: var(--color-dark-red-200);
+  --menu-item-padding: var(--space-150);
+  --menu-padding: var(--space-50);
+}

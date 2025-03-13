@@ -20,4 +20,7 @@ export declare const input: {
     readonly height: 'var(--input-text-area-height)';
     readonly resizeIconColor: 'var(--input-text-area-resize-icon-color)';
   };
+  readonly validation: {
+    readonly gap: 'var(--input-validation-gap)';
+  };
 };

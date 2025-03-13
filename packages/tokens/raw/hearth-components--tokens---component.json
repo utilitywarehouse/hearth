@@ -2,7 +2,7 @@
   "dark": {
     "accordion": {
       "border-color": {
-        "alias": "{divider.border-color}",
+        "alias": "{color.dark.warm-white.700}",
         "type": "color",
         "value": "#d4d2c0"
       },
@@ -1762,7 +1762,7 @@
   "light": {
     "accordion": {
       "border-color": {
-        "alias": "{divider.border-color}",
+        "alias": "{color.light.warm-white.300}",
         "type": "color",
         "value": "#d4d2c0"
       },

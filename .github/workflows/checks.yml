@@ -2,9 +2,13 @@ name: Code Checks
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+    paths:
+      - '!packages/tokens/raw/**'
   push:
     branches:
       - main
+    paths:
+      - '!packages/tokens/raw/**'
 
 jobs:
   checks:
