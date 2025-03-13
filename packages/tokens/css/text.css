@@ -3,11 +3,11 @@
  */
 
 :root {
-  --text-color: var(--color-grey-1000);
-  --text-color-invalid: var(--color-red-700);
-  --text-color-inverted: var(--color-grey-50);
-  --text-color-valid: var(--color-green-700);
-  --text-heading-color: var(--color-grey-1000);
-  --text-label-color: var(--color-grey-1000);
-  --text-supporting-text-color: var(--color-grey-500);
+  --h-text-color: var(--h-color-grey-1000);
+  --h-text-color-invalid: var(--h-color-red-700);
+  --h-text-color-inverted: var(--h-color-grey-50);
+  --h-text-color-valid: var(--h-color-green-700);
+  --h-text-heading-color: var(--h-color-grey-1000);
+  --h-text-label-color: var(--h-color-grey-1000);
+  --h-text-supporting-text-color: var(--h-color-grey-500);
 }

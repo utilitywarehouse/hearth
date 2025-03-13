@@ -1,16 +1,16 @@
 export const checkbox = {
-  borderRadius: 'var(--checkbox-border-radius)',
-  borderWidth: 'var(--checkbox-border-width)',
+  borderRadius: 'var(--h-checkbox-border-radius)',
+  borderWidth: 'var(--h-checkbox-border-width)',
   checked: {
-    borderColorActive: 'var(--checkbox-checked-border-color-active)',
-    borderColorHover: 'var(--checkbox-checked-border-color-hover)',
-    color: 'var(--checkbox-checked-color)',
-    iconColor: 'var(--checkbox-checked-icon-color)',
+    borderColorActive: 'var(--h-checkbox-checked-border-color-active)',
+    borderColorHover: 'var(--h-checkbox-checked-border-color-hover)',
+    color: 'var(--h-checkbox-checked-color)',
+    iconColor: 'var(--h-checkbox-checked-icon-color)',
   },
   unchecked: {
-    backgroundColor: 'var(--checkbox-unchecked-background-color)',
-    borderColor: 'var(--checkbox-unchecked-border-color)',
-    borderColorActive: 'var(--checkbox-unchecked-border-color-active)',
-    borderColorHover: 'var(--checkbox-unchecked-border-color-hover)',
+    backgroundColor: 'var(--h-checkbox-unchecked-background-color)',
+    borderColor: 'var(--h-checkbox-unchecked-border-color)',
+    borderColorActive: 'var(--h-checkbox-unchecked-border-color-active)',
+    borderColorHover: 'var(--h-checkbox-unchecked-border-color-hover)',
   },
 } as const;

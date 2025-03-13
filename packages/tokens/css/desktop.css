@@ -3,6 +3,6 @@
  */
 
 :root {
-  --card-padding-desktop: var(--space-300);
-  --card-padding-none-desktop: 0;
+  --h-card-padding-desktop: var(--h-space-300);
+  --h-card-padding-none-desktop: 0;
 }

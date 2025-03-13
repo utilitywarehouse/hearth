@@ -1,23 +1,23 @@
 export const alert = {
   blue: {
-    backgroundColor: 'var(--alert-blue-background-color)',
-    borderColor: 'var(--alert-blue-border-color)',
+    backgroundColor: 'var(--h-alert-blue-background-color)',
+    borderColor: 'var(--h-alert-blue-border-color)',
   },
-  borderRadius: 'var(--alert-border-radius)',
-  borderWidth: 'var(--alert-border-width)',
-  gap: 'var(--alert-gap)',
+  borderRadius: 'var(--h-alert-border-radius)',
+  borderWidth: 'var(--h-alert-border-width)',
+  gap: 'var(--h-alert-gap)',
   green: {
-    backgroundColor: 'var(--alert-green-background-color)',
-    borderColor: 'var(--alert-green-border-color)',
+    backgroundColor: 'var(--h-alert-green-background-color)',
+    borderColor: 'var(--h-alert-green-border-color)',
   },
   orange: {
-    backgroundColor: 'var(--alert-orange-background-color)',
-    borderColor: 'var(--alert-orange-border-color)',
+    backgroundColor: 'var(--h-alert-orange-background-color)',
+    borderColor: 'var(--h-alert-orange-border-color)',
   },
-  paddingHorizontal: 'var(--alert-padding-horizontal)',
-  paddingVertical: 'var(--alert-padding-vertical)',
+  paddingHorizontal: 'var(--h-alert-padding-horizontal)',
+  paddingVertical: 'var(--h-alert-padding-vertical)',
   red: {
-    backgroundColor: 'var(--alert-red-background-color)',
-    borderColor: 'var(--alert-red-border-color)',
+    backgroundColor: 'var(--h-alert-red-background-color)',
+    borderColor: 'var(--h-alert-red-border-color)',
   },
 };

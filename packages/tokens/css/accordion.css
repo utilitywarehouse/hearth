@@ -3,17 +3,17 @@
  */
 
 :root {
-  --accordion-border-color: var(--color-warm-white-300);
-  --accordion-gap: var(--space-150);
-  --accordion-heading-gap: var(--space-25);
-  --accordion-item-background-color-hover: var(--color-warm-white-100);
-  --accordion-item-content-gap: var(--space-200);
-  --accordion-item-content-padding-bottom: var(--space-200);
-  --accordion-item-content-padding-horizontal: 0;
-  --accordion-item-content-padding-top: var(--space-50);
-  --accordion-item-gap: 0;
-  --accordion-item-heading-gap: var(--space-200);
-  --accordion-item-heading-padding-horizontal: 0;
-  --accordion-item-heading-padding-vertical: var(--space-200);
-  --accordion-padding: 0;
+  --h-accordion-border-color: var(--h-color-warm-white-300);
+  --h-accordion-gap: var(--h-space-150);
+  --h-accordion-heading-gap: var(--h-space-25);
+  --h-accordion-item-background-color-hover: var(--h-color-warm-white-100);
+  --h-accordion-item-content-gap: var(--h-space-200);
+  --h-accordion-item-content-padding-bottom: var(--h-space-200);
+  --h-accordion-item-content-padding-horizontal: 0;
+  --h-accordion-item-content-padding-top: var(--h-space-50);
+  --h-accordion-item-gap: 0;
+  --h-accordion-item-heading-gap: var(--h-space-200);
+  --h-accordion-item-heading-padding-horizontal: 0;
+  --h-accordion-item-heading-padding-vertical: var(--h-space-200);
+  --h-accordion-padding: 0;
 }

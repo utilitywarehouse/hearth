@@ -3,22 +3,22 @@
  */
 
 :root {
-  --input-background-color: var(--color-white);
-  --input-border-color: var(--color-grey-1000);
-  --input-border-color-invalid: var(--color-red-700);
-  --input-border-color-read-only: var(--color-grey-200);
-  --input-border-color-valid: var(--color-green-700);
-  --input-border-radius: var(--border-radius-md);
-  --input-border-width: var(--border-width-1);
-  --input-border-width-focused: var(--border-width-2);
-  --input-color-placeholder: var(--color-grey-500);
-  --input-currency-gap: var(--space-25);
-  --input-currency-height: 60;
-  --input-gap: var(--space-75);
-  --input-height: 48;
-  --input-padding-horizontal: var(--space-200);
-  --input-padding-vertical: var(--space-150);
-  --input-text-area-height: 96;
-  --input-text-area-resize-icon-color: var(--color-grey-500);
-  --input-validation-gap: var(--space-25);
+  --h-input-background-color: var(--h-color-white);
+  --h-input-border-color: var(--h-color-grey-1000);
+  --h-input-border-color-invalid: var(--h-color-red-700);
+  --h-input-border-color-read-only: var(--h-color-grey-200);
+  --h-input-border-color-valid: var(--h-color-green-700);
+  --h-input-border-radius: var(--h-border-radius-md);
+  --h-input-border-width: var(--h-border-width-1);
+  --h-input-border-width-focused: var(--h-border-width-2);
+  --h-input-color-placeholder: var(--h-color-grey-500);
+  --h-input-currency-gap: var(--h-space-25);
+  --h-input-currency-height: 60;
+  --h-input-gap: var(--h-space-75);
+  --h-input-height: 48;
+  --h-input-padding-horizontal: var(--h-space-200);
+  --h-input-padding-vertical: var(--h-space-150);
+  --h-input-text-area-height: 96;
+  --h-input-text-area-resize-icon-color: var(--h-color-grey-500);
+  --h-input-validation-gap: var(--h-space-25);
 }

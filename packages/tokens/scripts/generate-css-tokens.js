@@ -8,6 +8,7 @@ import { kebabCase } from './helpers/kebab-case.js';
 
 const BUILD_PATH = './css/';
 const VALID_DEVICE_COMPONENTS = ['card'];
+const PREFIX = 'h';
 
 // I tried to get this working with fs.readdirSync but I couldn't
 // so this will have to do for now
@@ -51,7 +52,7 @@ StyleDictionary.registerTransform({
   filter: filters.isStringToken,
   transform: token => {
     const aliasPath = unwrapAlias(token.alias).replace(/\./g, '-');
-    return `var(--${kebabCase(aliasPath)})`;
+    return `var(--${PREFIX}-${kebabCase(aliasPath)})`;
   },
 });
 
@@ -117,6 +118,14 @@ StyleDictionary.registerTransform({
   },
 });
 
+StyleDictionary.registerTransform({
+  name: 'css/global-prefix',
+  type: 'name',
+  transform: token => {
+    return `${PREFIX}-${token.name}`;
+  },
+});
+
 StyleDictionary.registerTransformGroup({
   name: 'css-transforms',
   transforms: [
@@ -132,6 +141,7 @@ StyleDictionary.registerTransformGroup({
     'line-height/px-to-rem',
     'opacity/value',
     'letter-spacing/normalize-value',
+    'css/global-prefix',
   ],
 });
 

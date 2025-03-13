@@ -1,13 +1,13 @@
 export const dialog = {
   action: {
-    gap: 'var(--dialog-action-gap)',
+    gap: 'var(--h-dialog-action-gap)',
   },
-  backgroundColor: 'var(--dialog-background-color)',
-  borderRadius: 'var(--dialog-border-radius)',
+  backgroundColor: 'var(--h-dialog-background-color)',
+  borderRadius: 'var(--h-dialog-border-radius)',
   content: {
-    gap: 'var(--dialog-content-gap)',
+    gap: 'var(--h-dialog-content-gap)',
   },
-  gap: 'var(--dialog-gap)',
-  padding: 'var(--dialog-padding)',
-  width: 'var(--dialog-width)',
+  gap: 'var(--h-dialog-gap)',
+  padding: 'var(--h-dialog-padding)',
+  width: 'var(--h-dialog-width)',
 };

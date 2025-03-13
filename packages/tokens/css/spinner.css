@@ -3,14 +3,14 @@
  */
 
 :root {
-  --spinner-default-fill: var(--color-uw-purple);
-  --spinner-lg-size: 40px;
-  --spinner-lg-stroke-width: 3;
-  --spinner-md-size: 28px;
-  --spinner-md-stroke-width: 2.5;
-  --spinner-padding: var(--space-25);
-  --spinner-sm-size: 20px;
-  --spinner-sm-stroke-width: 2;
-  --spinner-xs-size: 16px;
-  --spinner-xs-stroke-width: 1.5;
+  --h-spinner-default-fill: var(--h-color-uw-purple);
+  --h-spinner-lg-size: 40px;
+  --h-spinner-lg-stroke-width: 3;
+  --h-spinner-md-size: 28px;
+  --h-spinner-md-stroke-width: 2.5;
+  --h-spinner-padding: var(--h-space-25);
+  --h-spinner-sm-size: 20px;
+  --h-spinner-sm-stroke-width: 2;
+  --h-spinner-xs-size: 16px;
+  --h-spinner-xs-stroke-width: 1.5;
 }

@@ -3,6 +3,6 @@
  */
 
 :root {
-  --form-field-gap: var(--space-75);
-  --form-field-helper-gap: var(--space-25);
+  --h-form-field-gap: var(--h-space-75);
+  --h-form-field-helper-gap: var(--h-space-25);
 }

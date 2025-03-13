@@ -1,5 +1,5 @@
 export declare const bottomSheet: {
-  readonly backgroundColor: 'var(--bottom-sheet-background-color)';
-  readonly borderRadius: 'var(--bottom-sheet-border-radius)';
-  readonly padding: 'var(--bottom-sheet-padding)';
+  readonly backgroundColor: 'var(--h-bottom-sheet-background-color)';
+  readonly borderRadius: 'var(--h-bottom-sheet-border-radius)';
+  readonly padding: 'var(--h-bottom-sheet-padding)';
 };

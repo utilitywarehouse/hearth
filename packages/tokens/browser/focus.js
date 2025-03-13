@@ -1,14 +1,14 @@
 export const focus = {
-  border: 'var(--focus-border)',
-  borderInverted: 'var(--focus-border-inverted)',
+  border: 'var(--h-focus-border)',
+  borderInverted: 'var(--h-focus-border-inverted)',
   menu: {
     item: {
       focus: {
-        borderColor: 'var(--menu-item-focus-border-color)',
-        borderWidth: 'var(--menu-item-focus-border-width)',
+        borderColor: 'var(--h-menu-item-focus-border-color)',
+        borderWidth: 'var(--h-menu-item-focus-border-width)',
         red: {
-          color: 'var(--menu-item-focus-red-color)',
-          iconColor: 'var(--menu-item-focus-red-icon-color)',
+          color: 'var(--h-menu-item-focus-red-color)',
+          iconColor: 'var(--h-menu-item-focus-red-icon-color)',
         },
       },
     },
@@ -17,8 +17,8 @@ export const focus = {
     dropdown: {
       item: {
         focus: {
-          borderColor: 'var(--select-dropdown-item-focus-border-color)',
-          borderWidthFocused: 'var(--select-dropdown-item-focus-border-width-focused)',
+          borderColor: 'var(--h-select-dropdown-item-focus-border-color)',
+          borderWidthFocused: 'var(--h-select-dropdown-item-focus-border-width-focused)',
         },
       },
     },

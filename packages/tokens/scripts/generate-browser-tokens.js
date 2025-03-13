@@ -6,7 +6,8 @@ import { camelCase } from './helpers/camel-case.js';
 import { kebabCase } from './helpers/kebab-case.js';
 import merge from 'lodash.merge';
 
-export const BUILD_PATH = './src/browser/';
+const BUILD_PATH = './src/browser/';
+const PREFIX = 'h';
 
 StyleDictionary.registerFormat({
   name: 'browser/index',
@@ -44,7 +45,7 @@ StyleDictionary.registerFormat({
       // normalize the tokens in the same way they are for the CSS
       const normalizedPath = normalizeTokenPath(token);
       // this will give us the generated CSS variable
-      const cssCustomProperty = `var(--${kebabCase(normalizedPath.join(DELIMITER))})`;
+      const cssCustomProperty = `var(--${PREFIX}-${kebabCase(normalizedPath.join(DELIMITER))})`;
       var tokenObject = {};
       // we need to build the JS object from the path, this will give us the
       // dot notation path to the token

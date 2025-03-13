@@ -3,13 +3,13 @@
  */
 
 :root {
-  --modal-action-gap: var(--space-150);
-  --modal-background-color: var(--color-white);
-  --modal-border-radius: var(--border-radius-xl);
-  --modal-container-max-width: 500;
-  --modal-content-gap: var(--space-150);
-  --modal-gap: var(--space-300);
-  --modal-min-width: 375;
-  --modal-padding: var(--space-200);
-  --modal-width: 600;
+  --h-modal-action-gap: var(--h-space-150);
+  --h-modal-background-color: var(--h-color-white);
+  --h-modal-border-radius: var(--h-border-radius-xl);
+  --h-modal-container-max-width: 500;
+  --h-modal-content-gap: var(--h-space-150);
+  --h-modal-gap: var(--h-space-300);
+  --h-modal-min-width: 375;
+  --h-modal-padding: var(--h-space-200);
+  --h-modal-width: 600;
 }

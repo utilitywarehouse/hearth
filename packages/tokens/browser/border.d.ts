@@ -1,15 +1,15 @@
 export declare const border: {
   readonly radius: {
-    readonly full: 'var(--border-radius-full)';
-    readonly lg: 'var(--border-radius-lg)';
-    readonly md: 'var(--border-radius-md)';
-    readonly none: 'var(--border-radius-none)';
-    readonly sm: 'var(--border-radius-sm)';
-    readonly xl: 'var(--border-radius-xl)';
-    readonly xs: 'var(--border-radius-xs)';
+    readonly full: 'var(--h-border-radius-full)';
+    readonly lg: 'var(--h-border-radius-lg)';
+    readonly md: 'var(--h-border-radius-md)';
+    readonly none: 'var(--h-border-radius-none)';
+    readonly sm: 'var(--h-border-radius-sm)';
+    readonly xl: 'var(--h-border-radius-xl)';
+    readonly xs: 'var(--h-border-radius-xs)';
   };
   readonly width: {
-    readonly '1': 'var(--border-width-1)';
-    readonly '2': 'var(--border-width-2)';
+    readonly '1': 'var(--h-border-width-1)';
+    readonly '2': 'var(--h-border-width-2)';
   };
 };

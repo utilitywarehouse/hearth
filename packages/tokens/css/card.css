@@ -3,23 +3,23 @@
  */
 
 :root {
-  --card-border-color-selected: var(--color-grey-1000);
-  --card-border-radius: var(--border-radius-xl);
-  --card-border-width-selected: var(--border-width-2);
-  --card-broadband-blue-background-color: var(--color-broadband-blue);
-  --card-cashback-lilac-background-color: var(--color-cashback-lilac);
-  --card-emphasis-border-color: var(--color-grey-1000);
-  --card-emphasis-border-width: var(--border-width-2);
-  --card-energy-green-background-color: var(--color-energy-green);
-  --card-insurance-orange-background-color: var(--color-insurance-orange);
-  --card-mobile-rose-background-color: var(--color-mobile-rose);
-  --card-purple-background-color: var(--color-uw-purple);
-  --card-subtle-border-color: var(--color-warm-white-300);
-  --card-subtle-border-width: var(--border-width-1);
-  --card-warm-white-background-color: var(--color-warm-white-50);
-  --card-warm-white-background-color-active: var(--color-warm-white-200);
-  --card-warm-white-background-color-hover: var(--color-warm-white-100);
-  --card-white-background-color: var(--color-white);
-  --card-white-background-color-active: var(--color-warm-white-100);
-  --card-white-background-color-hover: var(--color-warm-white-50);
+  --h-card-border-color-selected: var(--h-color-grey-1000);
+  --h-card-border-radius: var(--h-border-radius-xl);
+  --h-card-border-width-selected: var(--h-border-width-2);
+  --h-card-broadband-blue-background-color: var(--h-color-broadband-blue);
+  --h-card-cashback-lilac-background-color: var(--h-color-cashback-lilac);
+  --h-card-emphasis-border-color: var(--h-color-grey-1000);
+  --h-card-emphasis-border-width: var(--h-border-width-2);
+  --h-card-energy-green-background-color: var(--h-color-energy-green);
+  --h-card-insurance-orange-background-color: var(--h-color-insurance-orange);
+  --h-card-mobile-rose-background-color: var(--h-color-mobile-rose);
+  --h-card-purple-background-color: var(--h-color-uw-purple);
+  --h-card-subtle-border-color: var(--h-color-warm-white-300);
+  --h-card-subtle-border-width: var(--h-border-width-1);
+  --h-card-warm-white-background-color: var(--h-color-warm-white-50);
+  --h-card-warm-white-background-color-active: var(--h-color-warm-white-200);
+  --h-card-warm-white-background-color-hover: var(--h-color-warm-white-100);
+  --h-card-white-background-color: var(--h-color-white);
+  --h-card-white-background-color-active: var(--h-color-warm-white-100);
+  --h-card-white-background-color-hover: var(--h-color-warm-white-50);
 }

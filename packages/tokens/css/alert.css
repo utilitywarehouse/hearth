@@ -3,17 +3,17 @@
  */
 
 :root {
-  --alert-blue-background-color: var(--color-blue-200);
-  --alert-blue-border-color: var(--color-blue-700);
-  --alert-border-radius: var(--border-radius-md);
-  --alert-border-width: var(--border-width-2);
-  --alert-gap: var(--space-100);
-  --alert-green-background-color: var(--color-green-200);
-  --alert-green-border-color: var(--color-green-700);
-  --alert-orange-background-color: var(--color-orange-200);
-  --alert-orange-border-color: var(--color-orange-700);
-  --alert-padding-horizontal: var(--space-150);
-  --alert-padding-vertical: var(--space-150);
-  --alert-red-background-color: var(--color-red-200);
-  --alert-red-border-color: var(--color-red-700);
+  --h-alert-blue-background-color: var(--h-color-blue-200);
+  --h-alert-blue-border-color: var(--h-color-blue-700);
+  --h-alert-border-radius: var(--h-border-radius-md);
+  --h-alert-border-width: var(--h-border-width-2);
+  --h-alert-gap: var(--h-space-100);
+  --h-alert-green-background-color: var(--h-color-green-200);
+  --h-alert-green-border-color: var(--h-color-green-700);
+  --h-alert-orange-background-color: var(--h-color-orange-200);
+  --h-alert-orange-border-color: var(--h-color-orange-700);
+  --h-alert-padding-horizontal: var(--h-space-150);
+  --h-alert-padding-vertical: var(--h-space-150);
+  --h-alert-red-background-color: var(--h-color-red-200);
+  --h-alert-red-border-color: var(--h-color-red-700);
 }

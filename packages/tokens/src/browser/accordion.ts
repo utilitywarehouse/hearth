@@ -1,23 +1,23 @@
 export const accordion = {
-  borderColor: 'var(--accordion-border-color)',
-  gap: 'var(--accordion-gap)',
+  borderColor: 'var(--h-accordion-border-color)',
+  gap: 'var(--h-accordion-gap)',
   heading: {
-    gap: 'var(--accordion-heading-gap)',
+    gap: 'var(--h-accordion-heading-gap)',
   },
   item: {
-    backgroundColorHover: 'var(--accordion-item-background-color-hover)',
+    backgroundColorHover: 'var(--h-accordion-item-background-color-hover)',
     content: {
-      gap: 'var(--accordion-item-content-gap)',
-      paddingBottom: 'var(--accordion-item-content-padding-bottom)',
-      paddingHorizontal: 'var(--accordion-item-content-padding-horizontal)',
-      paddingTop: 'var(--accordion-item-content-padding-top)',
+      gap: 'var(--h-accordion-item-content-gap)',
+      paddingBottom: 'var(--h-accordion-item-content-padding-bottom)',
+      paddingHorizontal: 'var(--h-accordion-item-content-padding-horizontal)',
+      paddingTop: 'var(--h-accordion-item-content-padding-top)',
     },
-    gap: 'var(--accordion-item-gap)',
+    gap: 'var(--h-accordion-item-gap)',
     heading: {
-      gap: 'var(--accordion-item-heading-gap)',
-      paddingHorizontal: 'var(--accordion-item-heading-padding-horizontal)',
-      paddingVertical: 'var(--accordion-item-heading-padding-vertical)',
+      gap: 'var(--h-accordion-item-heading-gap)',
+      paddingHorizontal: 'var(--h-accordion-item-heading-padding-horizontal)',
+      paddingVertical: 'var(--h-accordion-item-heading-padding-vertical)',
     },
   },
-  padding: 'var(--accordion-padding)',
+  padding: 'var(--h-accordion-padding)',
 } as const;

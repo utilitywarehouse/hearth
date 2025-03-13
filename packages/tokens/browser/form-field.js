@@ -1,6 +1,6 @@
 export const formField = {
-  gap: 'var(--form-field-gap)',
+  gap: 'var(--h-form-field-gap)',
   helper: {
-    gap: 'var(--form-field-helper-gap)',
+    gap: 'var(--h-form-field-helper-gap)',
   },
 };
