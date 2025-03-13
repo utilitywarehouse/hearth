@@ -1,3 +1,4 @@
+import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
   Card,
@@ -11,7 +12,12 @@ import {
   Button,
   IconButton,
 } from '@utilitywarehouse/hearth-react';
-import { ChevronRightSmallIcon, CloseSmallIcon } from '@utilitywarehouse/react-icons';
+import {
+  ChevronRightSmallIcon,
+  CloseSmallIcon,
+  HeartMediumIcon,
+  HeartMediumFilledIcon,
+} from '@utilitywarehouse/react-icons';
 
 const variants = ['emphasis', 'subtle'] as const;
 const whiteColorSchemes = ['white', 'warmWhite'];
@@ -329,6 +335,69 @@ export const InteractiveCards: Story = {
                   Button
                 </Button>
               </CardAction>
+            </Card>
+          </ul>
+        </Flex>
+      </Flex>
+    );
+  },
+};
+
+export const WithoutLink: Story = {
+  render: () => {
+    const [likedArgos, setLikedArgos] = React.useState(false);
+    const [likedAskItalian, setLikedAskItalian] = React.useState(false);
+    return (
+      <Flex padding="600" backgroundColor="warmWhite50" justify="center" gap="400">
+        <Flex asChild gap="400" width="400px">
+          <ul role="list">
+            <Card as="li" direction="column" flex="1" justify="center" gap="300">
+              <Flex justify="space-between" align="center">
+                <DetailText>5%</DetailText>
+                <CardAction secondary>
+                  <IconButton
+                    label="like"
+                    variant="ghost"
+                    colorScheme="red"
+                    onClick={() => setLikedArgos(likedArgos => !likedArgos)}
+                  >
+                    {likedArgos ? <HeartMediumFilledIcon /> : <HeartMediumIcon />}
+                  </IconButton>
+                </CardAction>
+              </Flex>
+              <Flex direction="column" align="center" gap="200">
+                <Box className="hearth-sb-Placeholder" width="100px" height="50px" />
+                <BodyText size="md" id="title-argos">
+                  Argos
+                </BodyText>
+                <CardAction>
+                  <Link href="https://www.argos.co.uk/" aria-labelledby="title-argos" />
+                </CardAction>
+              </Flex>
+            </Card>
+            <Card as="li" direction="column" flex="1" justify="center" gap="300">
+              <Flex justify="space-between" align="center">
+                <DetailText>5%</DetailText>
+                <CardAction secondary>
+                  <IconButton
+                    label="like"
+                    variant="ghost"
+                    colorScheme="red"
+                    onClick={() => setLikedAskItalian(likedAskItalian => !likedAskItalian)}
+                  >
+                    {likedAskItalian ? <HeartMediumFilledIcon /> : <HeartMediumIcon />}
+                  </IconButton>
+                </CardAction>
+              </Flex>
+              <Flex direction="column" align="center" gap="200">
+                <Box className="hearth-sb-Placeholder" width="100px" height="50px" />
+                <BodyText size="md" id="title-askitalian">
+                  Ask Italian
+                </BodyText>
+                <CardAction>
+                  <Link href="https://www.askitalian.co.uk/" aria-labelledby="title-askitalian" />
+                </CardAction>
+              </Flex>
             </Card>
           </ul>
         </Flex>
