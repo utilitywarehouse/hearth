@@ -20,9 +20,11 @@ StyleDictionary.registerFormat({
 @import '../css/focus.css';
 @import '../css/font.css';
 @import '../css/icon-button.css';
+@import '../css/inline-link.css';
 @import '../css/layout.css';
 @import '../css/letter-spacing.css';
 @import '../css/line-height.css';
+@import '../css/link.css';
 @import '../css/opacity.css';
 @import '../css/space.css';
 @import '../css/spinner.css';
