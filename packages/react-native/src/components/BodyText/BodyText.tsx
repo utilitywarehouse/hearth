@@ -88,17 +88,14 @@ const styles = StyleSheet.create(theme => ({
         lg: {
           fontSize: theme.typography.mobile.bodyText.lg.fontSize,
           lineHeight: theme.typography.mobile.bodyText.lg.lineHeight,
-          letterSpacing: theme.typography.mobile.bodyText.lg.letterSpacing,
         },
         md: {
           fontSize: theme.typography.mobile.bodyText.md.fontSize,
           lineHeight: theme.typography.mobile.bodyText.md.lineHeight,
-          letterSpacing: theme.typography.mobile.bodyText.md.letterSpacing,
         },
         sm: {
           fontSize: theme.typography.mobile.bodyText.sm.fontSize,
           lineHeight: theme.typography.mobile.bodyText.sm.lineHeight,
-          letterSpacing: theme.typography.mobile.bodyText.sm.letterSpacing,
         },
       },
       weight: {
