@@ -33,13 +33,13 @@ export const SelectRadioExample: Story = {
   render: () => {
     return (
       <RadioGroup defaultValue="1" direction="row" contentWidth="800px">
-        <SelectableCard padding="lg" flex="1">
+        <SelectableCard flex="1">
           <Flex direction="row" justify="space-between" width="100%">
             <BodyText size="md">Debit card payment</BodyText>
             <Radio value="1" sx={{ flex: 'none' }} />
           </Flex>
         </SelectableCard>
-        <SelectableCard padding="lg" flex="1">
+        <SelectableCard flex="1">
           <Flex direction="row" justify="space-between" width="100%">
             <BodyText size="md">Instant bank transfer</BodyText>
             <Radio value="2" sx={{ flex: 'none' }} />
