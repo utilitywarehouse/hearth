@@ -2,53 +2,15 @@
   "desktop": {
     "components": {
       "card": {
-        "lg": {
-          "padding-horizontal": {
-            "alias": "{space.300}",
-            "type": "number",
-            "value": 24
-          },
-          "padding-vertical": {
-            "alias": "{space.300}",
-            "type": "number",
-            "value": 24
-          }
+        "padding": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
         },
-        "md": {
-          "padding-horizontal": {
-            "alias": "{space.200}",
-            "type": "number",
-            "value": 16
-          },
-          "padding-vertical": {
-            "alias": "{space.200}",
-            "type": "number",
-            "value": 16
-          }
-        },
-        "none": {
-          "padding-horizontal": {
-            "alias": "{space.0}",
-            "type": "number",
-            "value": 0
-          },
-          "padding-vertical": {
-            "alias": "{space.0}",
-            "type": "number",
-            "value": 0
-          }
-        },
-        "sm": {
-          "padding-horizontal": {
-            "alias": "{space.150}",
-            "type": "number",
-            "value": 12
-          },
-          "padding-vertical": {
-            "alias": "{space.150}",
-            "type": "number",
-            "value": 12
-          }
+        "padding-none": {
+          "alias": "{space.0}",
+          "type": "number",
+          "value": 0
         }
       }
     },
@@ -197,11 +159,6 @@
             "type": "number",
             "value": 18
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.500}",
             "type": "number",
@@ -219,11 +176,6 @@
             "type": "number",
             "value": 16
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.500}",
             "type": "number",
@@ -240,11 +192,6 @@
             "alias": "{font.size.90}",
             "type": "number",
             "value": 14
-          },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
           },
           "line-height": {
             "alias": "{line-height.300}",
@@ -406,11 +353,6 @@
             "type": "number",
             "value": 600
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.800}",
             "type": "number",
@@ -427,11 +369,6 @@
             "alias": "{font.weight.semibold}",
             "type": "number",
             "value": 600
-          },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
           },
           "line-height": {
             "alias": "{line-height.600}",
@@ -450,11 +387,6 @@
             "type": "number",
             "value": 600
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.400}",
             "type": "number",
@@ -472,11 +404,6 @@
             "type": "number",
             "value": 700
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.950}",
             "type": "number",
@@ -489,53 +416,15 @@
   "mobile": {
     "components": {
       "card": {
-        "lg": {
-          "padding-horizontal": {
-            "alias": "{space.200}",
-            "type": "number",
-            "value": 16
-          },
-          "padding-vertical": {
-            "alias": "{space.200}",
-            "type": "number",
-            "value": 16
-          }
+        "padding": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
         },
-        "md": {
-          "padding-horizontal": {
-            "alias": "{space.150}",
-            "type": "number",
-            "value": 12
-          },
-          "padding-vertical": {
-            "alias": "{space.150}",
-            "type": "number",
-            "value": 12
-          }
-        },
-        "none": {
-          "padding-horizontal": {
-            "alias": "{space.0}",
-            "type": "number",
-            "value": 0
-          },
-          "padding-vertical": {
-            "alias": "{space.0}",
-            "type": "number",
-            "value": 0
-          }
-        },
-        "sm": {
-          "padding-horizontal": {
-            "alias": "{space.100}",
-            "type": "number",
-            "value": 8
-          },
-          "padding-vertical": {
-            "alias": "{space.100}",
-            "type": "number",
-            "value": 8
-          }
+        "padding-none": {
+          "alias": "{space.0}",
+          "type": "number",
+          "value": 0
         }
       }
     },
@@ -684,11 +573,6 @@
             "type": "number",
             "value": 18
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.500}",
             "type": "number",
@@ -706,11 +590,6 @@
             "type": "number",
             "value": 16
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.500}",
             "type": "number",
@@ -727,11 +606,6 @@
             "alias": "{font.size.90}",
             "type": "number",
             "value": 14
-          },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
           },
           "line-height": {
             "alias": "{line-height.300}",
@@ -893,11 +767,6 @@
             "type": "number",
             "value": 600
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.700}",
             "type": "number",
@@ -914,11 +783,6 @@
             "alias": "{font.weight.semibold}",
             "type": "number",
             "value": 600
-          },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
           },
           "line-height": {
             "alias": "{line-height.500}",
@@ -937,11 +801,6 @@
             "type": "number",
             "value": 600
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.400}",
             "type": "number",
@@ -959,11 +818,6 @@
             "type": "number",
             "value": 700
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.800}",
             "type": "number",
@@ -976,53 +830,15 @@
   "tablet": {
     "components": {
       "card": {
-        "lg": {
-          "padding-horizontal": {
-            "alias": "{space.300}",
-            "type": "number",
-            "value": 24
-          },
-          "padding-vertical": {
-            "alias": "{space.300}",
-            "type": "number",
-            "value": 24
-          }
+        "padding": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
         },
-        "md": {
-          "padding-horizontal": {
-            "alias": "{space.200}",
-            "type": "number",
-            "value": 16
-          },
-          "padding-vertical": {
-            "alias": "{space.200}",
-            "type": "number",
-            "value": 16
-          }
-        },
-        "none": {
-          "padding-horizontal": {
-            "alias": "{space.0}",
-            "type": "number",
-            "value": 0
-          },
-          "padding-vertical": {
-            "alias": "{space.0}",
-            "type": "number",
-            "value": 0
-          }
-        },
-        "sm": {
-          "padding-horizontal": {
-            "alias": "{space.150}",
-            "type": "number",
-            "value": 12
-          },
-          "padding-vertical": {
-            "alias": "{space.150}",
-            "type": "number",
-            "value": 12
-          }
+        "padding-none": {
+          "alias": "{space.0}",
+          "type": "number",
+          "value": 0
         }
       }
     },
@@ -1171,11 +987,6 @@
             "type": "number",
             "value": 18
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.500}",
             "type": "number",
@@ -1193,11 +1004,6 @@
             "type": "number",
             "value": 16
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.500}",
             "type": "number",
@@ -1214,11 +1020,6 @@
             "alias": "{font.size.90}",
             "type": "number",
             "value": 14
-          },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
           },
           "line-height": {
             "alias": "{line-height.300}",
@@ -1380,11 +1181,6 @@
             "type": "number",
             "value": 600
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.700}",
             "type": "number",
@@ -1401,11 +1197,6 @@
             "alias": "{font.weight.semibold}",
             "type": "number",
             "value": 600
-          },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
           },
           "line-height": {
             "alias": "{line-height.500}",
@@ -1424,11 +1215,6 @@
             "type": "number",
             "value": 600
           },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
-          },
           "line-height": {
             "alias": "{line-height.400}",
             "type": "number",
@@ -1445,11 +1231,6 @@
             "alias": "{font.weight.bold}",
             "type": "number",
             "value": 700
-          },
-          "letter-spacing": {
-            "alias": "{letter-spacing.0}",
-            "type": "number",
-            "value": 0
           },
           "line-height": {
             "alias": "{line-height.800}",
