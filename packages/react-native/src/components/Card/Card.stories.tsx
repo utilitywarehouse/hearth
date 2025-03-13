@@ -180,12 +180,7 @@ export const Interactive: Story = {
           </Card>
         </VariantTitle>
         <VariantTitle title="Pressable - Emphasis - Warm White">
-          <Card
-            {...props}
-            onPress={() => console.log('pressed')}
-            variant="emphasis"
-            colorScheme="warmWhite"
-          >
+          <Card {...props} inheritChildAction variant="emphasis" colorScheme="warmWhite">
             <Flex space="md" direction="column" align="stretch">
               <Heading size="md">Heading</Heading>
               <BodyText>{children as string}</BodyText>

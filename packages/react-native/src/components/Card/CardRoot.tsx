@@ -1,9 +1,29 @@
-import React, { forwardRef, useMemo, useRef } from 'react';
+import React, { forwardRef, ReactNode, useMemo } from 'react';
 import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import CardProps from './Card.props';
 import { PressableRef } from '../../types';
 import { CardContext } from './Card.context';
+
+// Helper that recursively collects onPress handlers from descendants
+const collectOnPressHandlers = (
+  children: React.ReactNode
+): Array<(e: GestureResponderEvent) => void> => {
+  return React.Children.toArray(children).reduce(
+    (handlers, child) => {
+      if (React.isValidElement(child)) {
+        if (typeof child.props.onPress === 'function') {
+          handlers.push(child.props.onPress);
+        }
+        if (child.props.children) {
+          handlers.push(...collectOnPressHandlers(child.props.children));
+        }
+      }
+      return handlers;
+    },
+    [] as Array<(e: GestureResponderEvent) => void>
+  );
+};
 
 const Card = forwardRef<
   PressableRef,
@@ -38,18 +58,17 @@ const Card = forwardRef<
       disabled,
     });
 
-    const childActionsRef = useRef<((e: GestureResponderEvent) => void)[]>([]);
-
-    const registerChildAction = (action: (e: GestureResponderEvent) => void) => {
-      childActionsRef.current.push(action);
-    };
+    // Recursively gather onPress handlers from descendant children.
+    const childOnPressHandlers = inheritChildAction
+      ? collectOnPressHandlers(children as ReactNode)
+      : [];
 
     const handlePress = (e: GestureResponderEvent) => {
       if (onPress) {
         onPress(e);
       }
       if (inheritChildAction) {
-        childActionsRef.current.forEach(fn => fn(e));
+        childOnPressHandlers.forEach(fn => fn(e));
       }
     };
 
@@ -57,7 +76,6 @@ const Card = forwardRef<
       () => ({
         pressed: showPressed && active,
         inheritChildAction,
-        registerChildAction: inheritChildAction ? registerChildAction : undefined,
       }),
       [showPressed, active, inheritChildAction]
     );

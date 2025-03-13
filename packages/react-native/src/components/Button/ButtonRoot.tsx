@@ -25,7 +25,7 @@ const ButtonRoot = forwardRef<
     ref
   ) => {
     const { active, disabled = false } = states || {};
-    const { registerChildAction, pressed } = useCardContext();
+    const { pressed } = useCardContext();
 
     styles.useVariants({
       variant,
@@ -35,12 +35,6 @@ const ButtonRoot = forwardRef<
       inverted,
       active: active || pressed,
     });
-
-    React.useEffect(() => {
-      if (registerChildAction && onPress) {
-        registerChildAction(onPress);
-      }
-    }, [registerChildAction, onPress]);
 
     const value = useMemo(
       () => ({ colorScheme, variant, size, inverted, disabled, active }),
