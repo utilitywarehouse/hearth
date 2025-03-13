@@ -43,16 +43,18 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerTransform({
   name: 'css/normalize-name',
   type: 'name',
-  transform: normalizeTokenName,
+  transform: (token, config) => {
+    return normalizeTokenName(token, config);
+  },
 });
 
 StyleDictionary.registerTransform({
   name: 'alias/unwrap',
   type: 'value',
   filter: filters.isStringToken,
-  transform: token => {
-    const aliasPath = unwrapAlias(token.alias).replace(/\./g, '-');
-    return `var(--${PREFIX}-${kebabCase(aliasPath)})`;
+  transform: (token, config) => {
+    const aliasPath = unwrapAlias(token.alias).split('.');
+    return `var(--${kebabCase([config.prefix, ...aliasPath].join('-'))})`;
   },
 });
 
@@ -180,6 +182,7 @@ export function generateCssTokens() {
       platforms: {
         css: {
           transformGroup: 'css-transforms',
+          prefix: PREFIX,
           buildPath: BUILD_PATH,
           prefix: '-h',
           files: [
@@ -232,16 +235,19 @@ export function generateCssTokens() {
         },
         'css-components': {
           transformGroup: 'css-transforms',
+          prefix: PREFIX,
           buildPath: BUILD_PATH,
           files: componentFiles,
         },
         'css-device-components': {
           transformGroup: 'css-transforms',
+          prefix: PREFIX,
           buildPath: BUILD_PATH,
           files: deviceFiles,
         },
         'css-index': {
           transformGroup: 'css-transforms',
+          prefix: PREFIX,
           buildPath: BUILD_PATH,
           files: [
             {
