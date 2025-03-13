@@ -19,7 +19,12 @@ const componentClassName = withGlobalPrefix(componentName);
 type CardElement = ElementRef<'div'>;
 
 export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
-  const { className, ...cardProps } = extractProps(
+  const {
+    className,
+    as: Tag = 'div',
+    children,
+    ...cardProps
+  } = extractProps(
     props,
     cardPropDefs,
     marginPropDefs,
@@ -29,7 +34,14 @@ export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
   );
 
   return (
-    <Flex ref={ref} className={clsx(componentClassName, className)} {...(cardProps as FlexProps)} />
+    <Flex
+      ref={ref}
+      asChild
+      className={clsx(componentClassName, className)}
+      {...(cardProps as FlexProps)}
+    >
+      <Tag>{children}</Tag>
+    </Flex>
   );
 });
 

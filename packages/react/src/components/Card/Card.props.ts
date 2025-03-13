@@ -1,6 +1,7 @@
 import { PropDef } from '../../props/prop-def';
 import { FlexProps } from '../Flex/Flex.props';
 import { PaddingProps } from '../../props/padding.props';
+import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
 const variants = ['emphasis', 'subtle'] as const;
 const whiteColorSchemes = ['white', 'warmWhite'];
@@ -29,7 +30,7 @@ export const cardPropDefs = {
   paddingNone: PropDef<boolean>;
 };
 
-export type CardProps = Omit<
+type CommonCardProps = Omit<
   FlexProps,
   'color' | 'backgroundColor' | 'as' | 'asChild' | keyof PaddingProps
 > &
@@ -42,13 +43,13 @@ export type CardProps = Omit<
         /**
          * Sets the card's colour scheme
          */
-        colorScheme?: (typeof colorSchemes)[number];
+        colorScheme?: (typeof nonWhiteColorSchemes)[number];
       }
     | {
         /**
          * Sets the card's visual variant
          */
-        variant?: 'subtle';
+        variant?: (typeof variants)[number];
         /**
          * Sets the card's colour scheme
          */
@@ -56,7 +57,16 @@ export type CardProps = Omit<
       }
   ) & {
     /**
+     * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+     * @default div
+     */
+    as?: 'div' | 'li';
+    /**
      * Remove padding
      */
     paddingNone?: boolean;
   };
+
+type CardDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
+type CardLiProps = { as: 'li' } & ComponentPropsWithout<'li', RemovedProps>;
+export type CardProps = CommonCardProps & (CardLiProps | CardDivProps);
