@@ -14,9 +14,8 @@ import {
 import { ChevronRightSmallIcon, CloseSmallIcon } from '@utilitywarehouse/react-icons';
 
 const variants = ['emphasis', 'subtle'] as const;
-const colorSchemes = [
-  'white',
-  'warmWhite',
+const whiteColorSchemes = ['white', 'warmWhite'];
+const nonWhiteColorSchemes = [
   'purple',
   'energyGreen',
   'broadbandBlue',
@@ -24,7 +23,7 @@ const colorSchemes = [
   'insuranceOrange',
   'cashbackLilac',
 ] as const;
-const paddingValues = ['lg', 'md', 'sm', 'none'] as const;
+const colorSchemes = [...whiteColorSchemes, ...nonWhiteColorSchemes] as const;
 
 const meta: Meta<typeof Card> = {
   title: 'Stories / Card',
@@ -33,7 +32,7 @@ const meta: Meta<typeof Card> = {
     docs: {
       description: {
         component:
-          'Links are used to navigate a user to another page or website, another place on the same page, or to open a link in a new tab.',
+          'Use Cards as containers for concise information about a single subject. They can display featured information, related content, or navigational choices. In groups, cards present collections of similar content.',
       },
     },
   },
@@ -41,15 +40,12 @@ const meta: Meta<typeof Card> = {
     children: { control: { type: 'text' } },
     variant: { control: { type: 'radio' }, options: variants },
     colorScheme: { control: { type: 'radio' }, options: colorSchemes },
-    padding: { control: { type: 'radio' }, options: paddingValues },
-    selectable: { control: { type: 'boolean' } },
+    paddingNone: { control: { type: 'boolean' } },
   },
   args: {
-    children:
-      'Agnes Bernice Martin was an American abstract painter known for her minimalist style.',
+    children: 'Maya Angelou was an American memoirist, poet, and civil rights activist.',
     variant: 'emphasis',
     colorScheme: 'white',
-    padding: 'lg',
   },
 };
 
@@ -60,60 +56,33 @@ export const KitchenSink: Story = {
   render: ({ children }) => (
     <Flex padding="600" backgroundColor="warmWhite50" direction="column" gap="300">
       {variants.map(variant => (
-        <Flex direction="column" gap="300">
-          {['white', 'warmWhite'].map(colorScheme => (
-            <Flex gap="300" align="center">
-              {paddingValues.map(padding => (
-                <Card
-                  key={`${variant}${colorScheme}${padding}`}
-                  variant={variant}
-                  colorScheme={colorScheme}
-                  padding={padding}
-                  justify="center"
-                  align="center"
-                >
-                  <DetailText
-                    size="sm"
-                    // inverted={colorScheme === 'purple'}
-                    style={{ color: colorScheme === 'purple' ? 'white' : undefined }}
-                  >
-                    {children}
-                  </DetailText>
-                </Card>
-              ))}
-            </Flex>
+        <Flex gap="300" width="600px">
+          {whiteColorSchemes.map(colorScheme => (
+            <Card
+              key={`${variant}${colorScheme}`}
+              variant={variant}
+              colorScheme={colorScheme}
+              justify="center"
+              align="center"
+            >
+              <DetailText size="sm">{children}</DetailText>
+            </Card>
           ))}
         </Flex>
       ))}
-      <Flex direction="column" gap="300">
-        {[
-          'purple',
-          'energyGreen',
-          'broadbandBlue',
-          'mobileRose',
-          'insuranceOrange',
-          'cashbackLilac',
-        ].map(colorScheme => (
-          <Flex gap="300" align="center">
-            {paddingValues.map(padding => (
-              <Card
-                key={`${colorScheme}${padding}`}
-                variant="emphasis"
-                colorScheme={colorScheme}
-                padding={padding}
-                justify="center"
-                align="center"
-              >
-                <DetailText
-                  size="sm"
-                  // inverted={colorScheme === 'purple'}
-                  style={{ color: colorScheme === 'purple' ? 'white' : undefined }}
-                >
-                  {children}
-                </DetailText>
-              </Card>
-            ))}
-          </Flex>
+      <Flex gap="300">
+        {nonWhiteColorSchemes.map(colorScheme => (
+          <Card
+            key={`${colorScheme}`}
+            variant="emphasis"
+            colorScheme={colorScheme}
+            justify="center"
+            align="center"
+          >
+            <DetailText size="sm" style={{ color: colorScheme === 'purple' ? 'white' : undefined }}>
+              {children}
+            </DetailText>
+          </Card>
         ))}
       </Flex>
     </Flex>
@@ -137,14 +106,7 @@ export const InteractiveCards: Story = {
     return (
       <Flex padding="600" gap="400" direction="column">
         <Flex gap="300" width="800px">
-          <Card
-            variant="emphasis"
-            colorScheme="white"
-            padding="lg"
-            flex="1"
-            direction="column"
-            gap="150"
-          >
+          <Card variant="emphasis" colorScheme="white" flex="1" direction="column" gap="150">
             <Heading size="sm">White Emphasis Card</Heading>
             <BodyText size="md">Content...</BodyText>
             <CardAction asChild>
@@ -154,7 +116,7 @@ export const InteractiveCards: Story = {
               </Link>
             </CardAction>
           </Card>
-          <Card variant="subtle" colorScheme="white" padding="lg" flex="1">
+          <Card variant="subtle" colorScheme="white" flex="1">
             <Flex direction="column" gap="150">
               <Heading size="sm">White Subtle Card</Heading>
               <BodyText size="md">Content...</BodyText>
@@ -166,7 +128,7 @@ export const InteractiveCards: Story = {
               </CardAction>
             </Flex>
           </Card>
-          <Card variant="emphasis" colorScheme="warmWhite" padding="lg" flex="1">
+          <Card variant="emphasis" colorScheme="warmWhite" flex="1">
             <Flex direction="column" gap="150">
               <Heading size="sm">Warm White Emphasis Card</Heading>
               <BodyText size="md">Content...</BodyText>
@@ -178,7 +140,7 @@ export const InteractiveCards: Story = {
               </CardAction>
             </Flex>
           </Card>
-          <Card variant="subtle" colorScheme="warmWhite" padding="lg" flex="1">
+          <Card variant="subtle" colorScheme="warmWhite" flex="1">
             <Flex direction="column" gap="150">
               <Heading size="sm">Warm White Subtle Card</Heading>
               <BodyText size="md">Content...</BodyText>
@@ -193,7 +155,7 @@ export const InteractiveCards: Story = {
         </Flex>
 
         <Flex gap="300" width="800px">
-          <Card variant="emphasis" colorScheme="energyGreen" padding="lg" flex="1">
+          <Card variant="emphasis" colorScheme="energyGreen" flex="1">
             <Flex direction="column" gap="150">
               <Heading size="sm">Energy Green Card</Heading>
               <BodyText size="md">Content...</BodyText>
@@ -205,7 +167,7 @@ export const InteractiveCards: Story = {
               </CardAction>
             </Flex>
           </Card>
-          <Card variant="emphasis" colorScheme="mobileRose" padding="lg" flex="1">
+          <Card variant="emphasis" colorScheme="mobileRose" flex="1">
             <Flex direction="column" gap="150">
               <Heading size="sm">Mobile Rose Card</Heading>
               <BodyText size="md">Content...</BodyText>
@@ -217,7 +179,7 @@ export const InteractiveCards: Story = {
               </CardAction>
             </Flex>
           </Card>
-          <Card variant="emphasis" colorScheme="broadbandBlue" padding="lg" flex="1">
+          <Card variant="emphasis" colorScheme="broadbandBlue" flex="1">
             <Flex direction="column" gap="150">
               <Heading size="sm">Broadband Blue Card</Heading>
               <BodyText size="md">Content...</BodyText>
@@ -229,7 +191,7 @@ export const InteractiveCards: Story = {
               </CardAction>
             </Flex>
           </Card>
-          <Card variant="emphasis" colorScheme="insuranceOrange" padding="lg" flex="1">
+          <Card variant="emphasis" colorScheme="insuranceOrange" flex="1">
             <Flex direction="column" gap="150">
               <Heading size="sm">Insurance Orange Card</Heading>
               <BodyText size="md">Content...</BodyText>
@@ -244,14 +206,7 @@ export const InteractiveCards: Story = {
         </Flex>
 
         <Flex gap="300" width="800px">
-          <Card
-            variant="emphasis"
-            colorScheme="white"
-            padding="lg"
-            flex="1"
-            direction="column"
-            gap="150"
-          >
+          <Card variant="emphasis" colorScheme="white" flex="1" direction="column" gap="150">
             <Heading size="sm">This is a card with a single interaction</Heading>
             <BodyText size="md">
               This whole card is tappable/clickable but the state is applied to the interactive
@@ -266,7 +221,6 @@ export const InteractiveCards: Story = {
           <Card
             variant="emphasis"
             colorScheme="broadbandBlue"
-            padding="lg"
             flex="1"
             direction="column"
             gap="150"
@@ -284,14 +238,7 @@ export const InteractiveCards: Story = {
           </Card>
         </Flex>
         <Flex gap="300" width="800px">
-          <Card
-            variant="emphasis"
-            colorScheme="white"
-            padding="lg"
-            flex="1"
-            direction="column"
-            gap="150"
-          >
+          <Card variant="emphasis" colorScheme="white" flex="1" direction="column" gap="150">
             <Flex align="start">
               <Heading size="sm">This is a card with multiple interactions</Heading>
               <CardAction secondary>
@@ -315,7 +262,6 @@ export const InteractiveCards: Story = {
           <Card
             variant="emphasis"
             colorScheme="broadbandBlue"
-            padding="lg"
             flex="1"
             direction="column"
             gap="150"

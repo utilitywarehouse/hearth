@@ -3,9 +3,8 @@ import { FlexProps } from '../Flex/Flex.props';
 import { PaddingProps } from '../../props/padding.props';
 
 const variants = ['emphasis', 'subtle'] as const;
-const colorSchemes = [
-  'white',
-  'warmWhite',
+const whiteColorSchemes = ['white', 'warmWhite'];
+const nonWhiteColorSchemes = [
   'purple',
   'energyGreen',
   'broadbandBlue',
@@ -13,7 +12,7 @@ const colorSchemes = [
   'insuranceOrange',
   'cashbackLilac',
 ] as const;
-const paddingValues = ['none', 'sm', 'md', 'lg'] as const;
+const colorSchemes = [...whiteColorSchemes, ...nonWhiteColorSchemes] as const;
 
 export const cardPropDefs = {
   variant: { className: 'variant', tokens: variants, responsive: false, default: 'emphasis' },
@@ -23,28 +22,41 @@ export const cardPropDefs = {
     responsive: false,
     default: 'white',
   },
-  padding: { className: 'padding', tokens: paddingValues, responsive: false, default: 'lg' },
+  paddingNone: { className: 'padding-none', responsive: false },
 } satisfies {
   variant: PropDef<(typeof variants)[number]>;
   colorScheme: PropDef<(typeof colorSchemes)[number]>;
-  padding: PropDef<(typeof paddingValues)[number]>;
+  paddingNone: PropDef<boolean>;
 };
 
-export interface CardProps
-  extends Omit<FlexProps, 'color' | 'backgroundColor' | 'as' | 'asChild' | keyof PaddingProps> {
-  /**
-   * Set the variant
-   * @default emphasis
-   */
-  variant?: (typeof variants)[number];
-  /**
-   * Set the color-scheme
-   * @default white
-   */
-  colorScheme?: (typeof colorSchemes)[number];
-  /**
-   * Set the padding
-   * @default lg
-   */
-  padding?: (typeof paddingValues)[number];
-}
+export type CardProps = Omit<
+  FlexProps,
+  'color' | 'backgroundColor' | 'as' | 'asChild' | keyof PaddingProps
+> &
+  (
+    | {
+        /**
+         * Sets the card's visual variant
+         */
+        variant?: 'emphasis';
+        /**
+         * Sets the card's colour scheme
+         */
+        colorScheme?: (typeof colorSchemes)[number];
+      }
+    | {
+        /**
+         * Sets the card's visual variant
+         */
+        variant?: 'subtle';
+        /**
+         * Sets the card's colour scheme
+         */
+        colorScheme?: (typeof whiteColorSchemes)[number];
+      }
+  ) & {
+    /**
+     * Remove padding
+     */
+    paddingNone?: boolean;
+  };

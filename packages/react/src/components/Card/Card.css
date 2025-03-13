@@ -2,49 +2,23 @@
   border-radius: var(--card-border-radius);
   box-shadow: inset 0 0 0 var(--card-border-width) var(--card-border-color);
 
-  &:where(:has(:focus-visible)) {
-    outline: 2px solid var(--focus-border);
-    outline-offset: 1px;
+  padding: var(--card-lg-padding-vertical-mobile);
+
+  @media (--tablet) {
+    padding: var(--card-lg-padding-vertical-tablet);
+  }
+
+  @media (--desktop) {
+    padding: var(--card-lg-padding-vertical-tablet);
   }
 
   &:where(.hearth-padding-none) {
     padding: 0;
   }
 
-  &:where(.hearth-padding-sm) {
-    padding: var(--card-sm-padding-vertical-mobile);
-
-    @media (--tablet) {
-      padding: var(--card-sm-padding-vertical-tablet);
-    }
-
-    @media (--desktop) {
-      padding: var(--card-sm-padding-vertical-tablet);
-    }
-  }
-
-  &:where(.hearth-padding-md) {
-    padding: var(--card-md-padding-vertical-mobile);
-
-    @media (--tablet) {
-      padding: var(--card-md-padding-vertical-tablet);
-    }
-
-    @media (--desktop) {
-      padding: var(--card-md-padding-vertical-tablet);
-    }
-  }
-
-  &:where(.hearth-padding-lg) {
-    padding: var(--card-lg-padding-vertical-mobile);
-
-    @media (--tablet) {
-      padding: var(--card-lg-padding-vertical-tablet);
-    }
-
-    @media (--desktop) {
-      padding: var(--card-lg-padding-vertical-tablet);
-    }
+  &:where(:has(:focus-visible)) {
+    outline: 2px solid var(--focus-border);
+    outline-offset: 1px;
   }
 
   &:where(.hearth-variant-emphasis) {
