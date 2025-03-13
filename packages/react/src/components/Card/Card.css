@@ -2,18 +2,18 @@
   border-radius: var(--card-border-radius);
   box-shadow: inset 0 0 0 var(--card-border-width) var(--card-border-color);
 
-  padding: var(--card-lg-padding-vertical-mobile);
+  padding: var(--card-padding-mobile);
 
   @media (--tablet) {
-    padding: var(--card-lg-padding-vertical-tablet);
+    padding: var(--card-padding-tablet);
   }
 
   @media (--desktop) {
-    padding: var(--card-lg-padding-vertical-tablet);
+    padding: var(--card-padding-desktop);
   }
 
   &:where(.hearth-padding-none) {
-    padding: 0;
+    padding: var(--card-padding-none-mobile);
   }
 
   &:where(:has(:focus-visible)) {
