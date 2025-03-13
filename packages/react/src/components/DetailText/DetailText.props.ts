@@ -32,7 +32,7 @@ interface CommonDetailTextProps extends TextAlignProps, TextTransformProps, Text
    * Set the text color
    * @default text
    */
-  color?: Responsive<(typeof colorValues)[number]>;
+  // color?: Responsive<(typeof colorValues)[number]>;
   /** Inverts the component colours, for use on darker surface colours. */
   inverted?: boolean;
 }
