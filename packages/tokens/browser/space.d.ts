@@ -1,0 +1,20 @@
+export declare const space: {
+  readonly '0': 'var(--space-0)';
+  readonly '25': 'var(--space-25)';
+  readonly '50': 'var(--space-50)';
+  readonly '75': 'var(--space-75)';
+  readonly '100': 'var(--space-100)';
+  readonly '150': 'var(--space-150)';
+  readonly '175': 'var(--space-175)';
+  readonly '200': 'var(--space-200)';
+  readonly '250': 'var(--space-250)';
+  readonly '300': 'var(--space-300)';
+  readonly '350': 'var(--space-350)';
+  readonly '400': 'var(--space-400)';
+  readonly '500': 'var(--space-500)';
+  readonly '600': 'var(--space-600)';
+  readonly '700': 'var(--space-700)';
+  readonly '800': 'var(--space-800)';
+  readonly '900': 'var(--space-900)';
+  readonly '1000': 'var(--space-1000)';
+};

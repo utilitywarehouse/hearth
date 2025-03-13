@@ -1,6 +1,10 @@
 .hearth-BodyText {
   font-family: var(--font-family-body-text);
-  color: var(--color-grey-1000);
+  color: var(--text-color);
+
+  &:where([data-inverted]) {
+    color: var(--text-color-inverted);
+  }
 
   &:where(.hearth-paragraph-spacing) {
     margin-bottom: 1em;

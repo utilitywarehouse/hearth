@@ -30,6 +30,7 @@ StyleDictionary.registerFormat({
 @import '../css/opacity.css';
 @import '../css/space.css';
 @import '../css/spinner.css';
+@import '../css/text.css';
 @import '../css/typography.css';
 @import '../css/mobile.css';
 @import '../css/tablet.css';

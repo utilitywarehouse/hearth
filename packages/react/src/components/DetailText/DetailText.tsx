@@ -5,6 +5,7 @@ import clsx from 'clsx';
 
 import { detailTextPropDefs, DetailTextProps } from './DetailText.props';
 import { Slot } from '@radix-ui/react-slot';
+import type { SlotProps } from '@radix-ui/react-slot';
 import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -22,6 +23,7 @@ export const DetailText = React.forwardRef<DetailTextElement, DetailTextProps>((
     asChild,
     as: Tag = 'span',
     children,
+    inverted,
     ...detailTextProps
   } = extractProps(
     props,
@@ -32,7 +34,12 @@ export const DetailText = React.forwardRef<DetailTextElement, DetailTextProps>((
   );
 
   return (
-    <Slot ref={ref} className={clsx(componentClassName, className)} {...detailTextProps}>
+    <Slot
+      ref={ref}
+      className={clsx(componentClassName, className)}
+      data-inverted={inverted ? '' : undefined}
+      {...(detailTextProps as SlotProps)}
+    >
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot>
   );
