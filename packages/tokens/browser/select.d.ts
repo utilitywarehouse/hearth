@@ -1,41 +1,41 @@
 export declare const select: {
-  readonly backgroundColor: 'var(--select-background-color)';
-  readonly borderColor: 'var(--select-border-color)';
-  readonly borderColorInvalid: 'var(--select-border-color-invalid)';
-  readonly borderColorReadOnly: 'var(--select-border-color-read-only)';
-  readonly borderColorValid: 'var(--select-border-color-valid)';
-  readonly borderRadius: 'var(--select-border-radius)';
-  readonly borderWidth: 'var(--select-border-width)';
-  readonly borderWidthFocused: 'var(--select-border-width-focused)';
-  readonly colorPlaceholder: 'var(--select-color-placeholder)';
+  readonly backgroundColor: 'var(--h-select-background-color)';
+  readonly borderColor: 'var(--h-select-border-color)';
+  readonly borderColorInvalid: 'var(--h-select-border-color-invalid)';
+  readonly borderColorReadOnly: 'var(--h-select-border-color-read-only)';
+  readonly borderColorValid: 'var(--h-select-border-color-valid)';
+  readonly borderRadius: 'var(--h-select-border-radius)';
+  readonly borderWidth: 'var(--h-select-border-width)';
+  readonly borderWidthFocused: 'var(--h-select-border-width-focused)';
+  readonly colorPlaceholder: 'var(--h-select-color-placeholder)';
   readonly dropdown: {
-    readonly backgroundColor: 'var(--select-dropdown-background-color)';
-    readonly borderColor: 'var(--select-dropdown-border-color)';
-    readonly borderWidth: 'var(--select-dropdown-border-width)';
-    readonly gap: 'var(--select-dropdown-gap)';
+    readonly backgroundColor: 'var(--h-select-dropdown-background-color)';
+    readonly borderColor: 'var(--h-select-dropdown-border-color)';
+    readonly borderWidth: 'var(--h-select-dropdown-border-width)';
+    readonly gap: 'var(--h-select-dropdown-gap)';
     readonly item: {
       readonly active: {
-        readonly backgroundColor: 'var(--select-dropdown-item-active-background-color)';
+        readonly backgroundColor: 'var(--h-select-dropdown-item-active-background-color)';
       };
-      readonly borderRadius: 'var(--select-dropdown-item-border-radius)';
+      readonly borderRadius: 'var(--h-select-dropdown-item-border-radius)';
       readonly focus: {
-        readonly borderColor: 'var(--select-dropdown-item-focus-border-color)';
-        readonly borderWidthFocused: 'var(--select-dropdown-item-focus-border-width-focused)';
+        readonly borderColor: 'var(--h-select-dropdown-item-focus-border-color)';
+        readonly borderWidthFocused: 'var(--h-select-dropdown-item-focus-border-width-focused)';
       };
-      readonly gap: 'var(--select-dropdown-item-gap)';
+      readonly gap: 'var(--h-select-dropdown-item-gap)';
       readonly hover: {
-        readonly backgroundColor: 'var(--select-dropdown-item-hover-background-color)';
+        readonly backgroundColor: 'var(--h-select-dropdown-item-hover-background-color)';
       };
-      readonly padding: 'var(--select-dropdown-item-padding)';
+      readonly padding: 'var(--h-select-dropdown-item-padding)';
     };
-    readonly padding: 'var(--select-dropdown-padding)';
+    readonly padding: 'var(--h-select-dropdown-padding)';
   };
-  readonly gap: 'var(--select-gap)';
-  readonly gapContainer: 'var(--select-gap-container)';
-  readonly height: 'var(--select-height)';
-  readonly paddingHorizontal: 'var(--select-padding-horizontal)';
-  readonly paddingVertical: 'var(--select-padding-vertical)';
+  readonly gap: 'var(--h-select-gap)';
+  readonly gapContainer: 'var(--h-select-gap-container)';
+  readonly height: 'var(--h-select-height)';
+  readonly paddingHorizontal: 'var(--h-select-padding-horizontal)';
+  readonly paddingVertical: 'var(--h-select-padding-vertical)';
   readonly validation: {
-    readonly gap: 'var(--select-validation-gap)';
+    readonly gap: 'var(--h-select-validation-gap)';
   };
 };

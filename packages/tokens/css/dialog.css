@@ -3,11 +3,11 @@
  */
 
 :root {
-  --dialog-action-gap: var(--space-150);
-  --dialog-background-color: var(--color-white);
-  --dialog-border-radius: var(--border-radius-xl);
-  --dialog-content-gap: var(--space-150);
-  --dialog-gap: var(--space-300);
-  --dialog-padding: var(--space-200);
-  --dialog-width: 600;
+  --h-dialog-action-gap: var(--h-space-150);
+  --h-dialog-background-color: var(--h-color-white);
+  --h-dialog-border-radius: var(--h-border-radius-xl);
+  --h-dialog-content-gap: var(--h-space-150);
+  --h-dialog-gap: var(--h-space-300);
+  --h-dialog-padding: var(--h-space-200);
+  --h-dialog-width: 600;
 }

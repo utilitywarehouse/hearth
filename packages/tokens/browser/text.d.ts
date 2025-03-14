@@ -1,9 +1,9 @@
 export declare const text: {
-  readonly color: 'var(--text-color)';
-  readonly colorInvalid: 'var(--text-color-invalid)';
-  readonly colorInverted: 'var(--text-color-inverted)';
-  readonly colorValid: 'var(--text-color-valid)';
-  readonly headingColor: 'var(--text-heading-color)';
-  readonly labelColor: 'var(--text-label-color)';
-  readonly supportingTextColor: 'var(--text-supporting-text-color)';
+  readonly color: 'var(--h-text-color)';
+  readonly colorInvalid: 'var(--h-text-color-invalid)';
+  readonly colorInverted: 'var(--h-text-color-inverted)';
+  readonly colorValid: 'var(--h-text-color-valid)';
+  readonly headingColor: 'var(--h-text-heading-color)';
+  readonly labelColor: 'var(--h-text-label-color)';
+  readonly supportingTextColor: 'var(--h-text-supporting-text-color)';
 };

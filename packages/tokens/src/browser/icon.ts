@@ -1,5 +1,5 @@
 export const icon = {
-  color: 'var(--icon-color)',
-  colorInvalid: 'var(--icon-color-invalid)',
-  colorValid: 'var(--icon-color-valid)',
+  color: 'var(--h-icon-color)',
+  colorInvalid: 'var(--h-icon-color-invalid)',
+  colorValid: 'var(--h-icon-color-valid)',
 } as const;

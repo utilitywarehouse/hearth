@@ -3,7 +3,7 @@
  */
 
 :root {
-  --icon-color: var(--color-grey-1000);
-  --icon-color-invalid: var(--color-red-700);
-  --icon-color-valid: var(--color-green-700);
+  --h-icon-color: var(--h-color-grey-1000);
+  --h-icon-color-invalid: var(--h-color-red-700);
+  --h-icon-color-valid: var(--h-color-green-700);
 }

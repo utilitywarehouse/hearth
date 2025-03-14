@@ -1,3 +1,3 @@
-@custom-media --tablet (min-width: 740px);
-@custom-media --desktop (min-width: 992px);
-@custom-media --wide (min-width: 1200px);
+@custom-media --h-tablet (min-width: 740px);
+@custom-media --h-desktop (min-width: 992px);
+@custom-media --h-wide (min-width: 1200px);

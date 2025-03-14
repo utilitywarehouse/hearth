@@ -1,4 +1,4 @@
 export const divider = {
-  borderColor: 'var(--divider-border-color)',
-  borderWidth: 'var(--divider-border-width)',
+  borderColor: 'var(--h-divider-border-color)',
+  borderWidth: 'var(--h-divider-border-width)',
 } as const;

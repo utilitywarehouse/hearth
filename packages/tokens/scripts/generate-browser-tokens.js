@@ -6,7 +6,8 @@ import { camelCase } from './helpers/camel-case.js';
 import { kebabCase } from './helpers/kebab-case.js';
 import merge from 'lodash.merge';
 
-export const BUILD_PATH = './src/browser/';
+const BUILD_PATH = './src/browser/';
+const PREFIX = 'h';
 
 StyleDictionary.registerFormat({
   name: 'browser/index',
@@ -34,7 +35,7 @@ export * from './typography.js';
 
 StyleDictionary.registerFormat({
   name: 'browser/variables',
-  format: ({ dictionary, file }) => {
+  format: ({ dictionary, file, platform }) => {
     const tokens = {};
     // get the group name of the current set of tokens
     let tokensName = file.destination.split('.')[0];
@@ -44,7 +45,7 @@ StyleDictionary.registerFormat({
       // normalize the tokens in the same way they are for the CSS
       const normalizedPath = normalizeTokenPath(token);
       // this will give us the generated CSS variable
-      const cssCustomProperty = `var(--${kebabCase(normalizedPath.join(DELIMITER))})`;
+      const cssCustomProperty = `var(--${kebabCase([platform.prefix, ...normalizedPath].join(DELIMITER))})`;
       var tokenObject = {};
       // we need to build the JS object from the path, this will give us the
       // dot notation path to the token
@@ -95,6 +96,7 @@ export function generateBrowserTokens() {
       platforms: {
         browser: {
           buildPath: BUILD_PATH,
+          prefix: PREFIX,
           files: [
             {
               destination: 'color.ts',
@@ -135,10 +137,12 @@ export function generateBrowserTokens() {
         },
         'browser-components': {
           buildPath: BUILD_PATH,
+          prefix: PREFIX,
           files: componentFiles,
         },
         'browser-index': {
           buildPath: BUILD_PATH,
+          prefix: PREFIX,
           files: [
             {
               destination: 'index.js',

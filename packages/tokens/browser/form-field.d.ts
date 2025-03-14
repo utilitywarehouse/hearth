@@ -1,6 +1,6 @@
 export declare const formField: {
-  readonly gap: 'var(--form-field-gap)';
+  readonly gap: 'var(--h-form-field-gap)';
   readonly helper: {
-    readonly gap: 'var(--form-field-helper-gap)';
+    readonly gap: 'var(--h-form-field-helper-gap)';
   };
 };

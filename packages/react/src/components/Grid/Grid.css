@@ -9,11 +9,11 @@
   &:where([data-responsive-columns]) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
 
-    @media (--tablet) {
+    @media (--h-tablet) {
       grid-template-columns: repeat(8, minmax(0, 1fr));
     }
 
-    @media (--desktop) {
+    @media (--h-desktop) {
       grid-template-columns: repeat(12, minmax(0, 1fr));
     }
   }

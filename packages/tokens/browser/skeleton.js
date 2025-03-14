@@ -1,3 +1,3 @@
 export const skeleton = {
-  loadingColor: 'var(--skeleton-loading-color)',
+  loadingColor: 'var(--h-skeleton-loading-color)',
 };

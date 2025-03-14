@@ -29,7 +29,7 @@ export const normalizeTokenPath = token => {
   return token.path;
 };
 
-export const normalizeTokenName = token => {
+export const normalizeTokenName = (token, config) => {
   const normalizedPath = normalizeTokenPath(token);
-  return normalizedPath.join(DELIMITER);
+  return [config.prefix, ...normalizedPath].join(DELIMITER);
 };

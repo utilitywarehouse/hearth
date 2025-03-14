@@ -8,6 +8,7 @@ import { kebabCase } from './helpers/kebab-case.js';
 
 const BUILD_PATH = './css/';
 const VALID_DEVICE_COMPONENTS = ['card'];
+const PREFIX = 'h';
 
 // I tried to get this working with fs.readdirSync but I couldn't
 // so this will have to do for now
@@ -42,16 +43,18 @@ StyleDictionary.registerFormat({
 StyleDictionary.registerTransform({
   name: 'css/normalize-name',
   type: 'name',
-  transform: normalizeTokenName,
+  transform: (token, config) => {
+    return normalizeTokenName(token, config);
+  },
 });
 
 StyleDictionary.registerTransform({
   name: 'alias/unwrap',
   type: 'value',
   filter: filters.isStringToken,
-  transform: token => {
-    const aliasPath = unwrapAlias(token.alias).replace(/\./g, '-');
-    return `var(--${kebabCase(aliasPath)})`;
+  transform: (token, config) => {
+    const aliasPath = unwrapAlias(token.alias).split('.');
+    return `var(--${kebabCase([config.prefix, ...aliasPath].join('-'))})`;
   },
 });
 
@@ -170,6 +173,7 @@ export function generateCssTokens() {
       platforms: {
         css: {
           transformGroup: 'css-transforms',
+          prefix: PREFIX,
           buildPath: BUILD_PATH,
           files: [
             {
@@ -221,16 +225,19 @@ export function generateCssTokens() {
         },
         'css-components': {
           transformGroup: 'css-transforms',
+          prefix: PREFIX,
           buildPath: BUILD_PATH,
           files: componentFiles,
         },
         'css-device-components': {
           transformGroup: 'css-transforms',
+          prefix: PREFIX,
           buildPath: BUILD_PATH,
           files: deviceFiles,
         },
         'css-index': {
           transformGroup: 'css-transforms',
+          prefix: PREFIX,
           buildPath: BUILD_PATH,
           files: [
             {

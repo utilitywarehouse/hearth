@@ -1,15 +1,15 @@
 export declare const modal: {
   readonly action: {
-    readonly gap: 'var(--modal-action-gap)';
+    readonly gap: 'var(--h-modal-action-gap)';
   };
-  readonly backgroundColor: 'var(--modal-background-color)';
-  readonly borderRadius: 'var(--modal-border-radius)';
-  readonly containerMaxWidth: 'var(--modal-container-max-width)';
+  readonly backgroundColor: 'var(--h-modal-background-color)';
+  readonly borderRadius: 'var(--h-modal-border-radius)';
+  readonly containerMaxWidth: 'var(--h-modal-container-max-width)';
   readonly content: {
-    readonly gap: 'var(--modal-content-gap)';
+    readonly gap: 'var(--h-modal-content-gap)';
   };
-  readonly gap: 'var(--modal-gap)';
-  readonly minWidth: 'var(--modal-min-width)';
-  readonly padding: 'var(--modal-padding)';
-  readonly width: 'var(--modal-width)';
+  readonly gap: 'var(--h-modal-gap)';
+  readonly minWidth: 'var(--h-modal-min-width)';
+  readonly padding: 'var(--h-modal-padding)';
+  readonly width: 'var(--h-modal-width)';
 };

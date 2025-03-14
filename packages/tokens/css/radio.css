@@ -3,13 +3,13 @@
  */
 
 :root {
-  --radio-border-width: var(--border-width-2);
-  --radio-checked-border-color-active: var(--color-warm-white-300);
-  --radio-checked-border-color-hover: var(--color-warm-white-200);
-  --radio-checked-color: var(--color-grey-1000);
-  --radio-radius: var(--border-radius-full);
-  --radio-unchecked-background-color: var(--color-white);
-  --radio-unchecked-border-color: var(--color-grey-400);
-  --radio-unchecked-border-color-active: var(--color-warm-white-300);
-  --radio-unchecked-border-color-hover: var(--color-warm-white-200);
+  --h-radio-border-width: var(--h-border-width-2);
+  --h-radio-checked-border-color-active: var(--h-color-warm-white-300);
+  --h-radio-checked-border-color-hover: var(--h-color-warm-white-200);
+  --h-radio-checked-color: var(--h-color-grey-1000);
+  --h-radio-radius: var(--h-border-radius-full);
+  --h-radio-unchecked-background-color: var(--h-color-white);
+  --h-radio-unchecked-border-color: var(--h-color-grey-400);
+  --h-radio-unchecked-border-color-active: var(--h-color-warm-white-300);
+  --h-radio-unchecked-border-color-hover: var(--h-color-warm-white-200);
 }

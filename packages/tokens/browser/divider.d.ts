@@ -1,4 +1,4 @@
 export declare const divider: {
-  readonly borderColor: 'var(--divider-border-color)';
-  readonly borderWidth: 'var(--divider-border-width)';
+  readonly borderColor: 'var(--h-divider-border-color)';
+  readonly borderWidth: 'var(--h-divider-border-width)';
 };

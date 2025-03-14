@@ -1,9 +1,9 @@
 export const text = {
-  color: 'var(--text-color)',
-  colorInvalid: 'var(--text-color-invalid)',
-  colorInverted: 'var(--text-color-inverted)',
-  colorValid: 'var(--text-color-valid)',
-  headingColor: 'var(--text-heading-color)',
-  labelColor: 'var(--text-label-color)',
-  supportingTextColor: 'var(--text-supporting-text-color)',
+  color: 'var(--h-text-color)',
+  colorInvalid: 'var(--h-text-color-invalid)',
+  colorInverted: 'var(--h-text-color-inverted)',
+  colorValid: 'var(--h-text-color-valid)',
+  headingColor: 'var(--h-text-heading-color)',
+  labelColor: 'var(--h-text-label-color)',
+  supportingTextColor: 'var(--h-text-supporting-text-color)',
 } as const;

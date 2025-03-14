@@ -3,6 +3,6 @@
  */
 
 :root {
-  --card-padding-tablet: var(--space-300);
-  --card-padding-none-tablet: 0;
+  --h-card-padding-tablet: var(--h-space-300);
+  --h-card-padding-none-tablet: 0;
 }
