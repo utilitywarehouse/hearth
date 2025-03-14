@@ -1,14 +1,8 @@
-import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { colors } from '@utilitywarehouse/colour-system';
 
-import { Divider } from '@utilitywarehouse/hearth-react/src/components/Divider/Divider.js';
-import { Flex } from '@utilitywarehouse/hearth-react/src/components/Flex/Flex.js';
-import { Heading } from '@utilitywarehouse/hearth-react/src/components/Heading/Heading.js';
-import { Strong } from '@utilitywarehouse/hearth-react/src/components/Strong/Strong.js';
-import { Box } from '@utilitywarehouse/hearth-react/src/components/Box/Box.js';
-import { BodyText } from '@utilitywarehouse/hearth-react/src/components/BodyText/BodyText.js';
+import { BodyText, Box, Divider, Flex, Heading, Strong } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Divider> = {
   title: 'Stories / Divider',
@@ -35,7 +29,7 @@ export const KitchenSink: Story = {
     return (
       <Flex direction="column" gap="400" width="100%" maxWidth="800px" padding="200">
         <Flex direction="column" gap="100" paddingInline="400">
-<Heading>Mobile number: 07891123456</Heading>
+          <Heading>Mobile number: 07891123456</Heading>
           <Flex gap="300" align="center">
             <BodyText>Unlimited Tariff</BodyText>
             <Divider decorative orientation="vertical" />
