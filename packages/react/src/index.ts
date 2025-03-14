@@ -65,3 +65,6 @@ export type { CardActionProps } from './components/Card/CardAction.props';
 
 export { SelectableCard } from './components/SelectableCard/SelectableCard';
 export type { SelectableCardProps } from './components/SelectableCard/SelectableCard.props';
+
+export { Divider } from './components/Divider/Divider';
+export type { DividerProps } from './components/Divider/Divider.props';
