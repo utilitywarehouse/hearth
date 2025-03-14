@@ -31,57 +31,15 @@ export default {
     backgroundColorHover: '#fcfbf2',
   },
   mobile: {
-    lg: {
-      paddingHorizontal: 16,
-      paddingVertical: 16,
-    },
-    md: {
-      paddingHorizontal: 12,
-      paddingVertical: 12,
-    },
-    none: {
-      paddingHorizontal: 0,
-      paddingVertical: 0,
-    },
-    sm: {
-      paddingHorizontal: 8,
-      paddingVertical: 8,
-    },
+    padding: 16,
+    paddingNone: 0,
   },
   tablet: {
-    lg: {
-      paddingHorizontal: 24,
-      paddingVertical: 24,
-    },
-    md: {
-      paddingHorizontal: 16,
-      paddingVertical: 16,
-    },
-    none: {
-      paddingHorizontal: 0,
-      paddingVertical: 0,
-    },
-    sm: {
-      paddingHorizontal: 12,
-      paddingVertical: 12,
-    },
+    padding: 24,
+    paddingNone: 0,
   },
   desktop: {
-    lg: {
-      paddingHorizontal: 24,
-      paddingVertical: 24,
-    },
-    md: {
-      paddingHorizontal: 16,
-      paddingVertical: 16,
-    },
-    none: {
-      paddingHorizontal: 0,
-      paddingVertical: 0,
-    },
-    sm: {
-      paddingHorizontal: 12,
-      paddingVertical: 12,
-    },
+    padding: 24,
+    paddingNone: 0,
   },
 } as const;

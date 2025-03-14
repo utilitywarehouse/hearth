@@ -1,0 +1,15 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-modal-action-gap: var(--h-space-150);
+  --h-modal-background-color: var(--h-color-white);
+  --h-modal-border-radius: var(--h-border-radius-xl);
+  --h-modal-container-max-width: 500;
+  --h-modal-content-gap: var(--h-space-150);
+  --h-modal-gap: var(--h-space-300);
+  --h-modal-min-width: 375;
+  --h-modal-padding: var(--h-space-200);
+  --h-modal-width: 600;
+}

@@ -23,5 +23,8 @@ declare const _default: {
     readonly height: 96;
     readonly resizeIconColor: '#6f6c6b';
   };
+  readonly validation: {
+    readonly gap: 2;
+  };
 };
 export default _default;

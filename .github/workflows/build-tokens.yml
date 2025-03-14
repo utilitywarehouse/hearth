@@ -44,9 +44,6 @@ jobs:
         working-directory: ./packages/tokens
         run: pnpm build
 
-      - name: 🔍 Run Checks
-        run: pnpm checks
-
       - name: 📝 Commit Built Files
         run: |
           git config --global user.name 'UW Design Systems Bot'

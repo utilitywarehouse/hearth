@@ -1,18 +1,15 @@
 export const radio = {
-  borderWidth: 'var(--radio-border-width)',
+  borderWidth: 'var(--h-radio-border-width)',
   checked: {
-    borderColorActive: 'var(--radio-checked-border-color-active)',
-    color: 'var(--radio-checked-color)',
-    colorActive: 'var(--radio-checked-color-active)',
-    colorHover: 'var(--radio-checked-color-hover)',
+    borderColorActive: 'var(--h-radio-checked-border-color-active)',
+    borderColorHover: 'var(--h-radio-checked-border-color-hover)',
+    color: 'var(--h-radio-checked-color)',
   },
-  radius: 'var(--radio-radius)',
+  radius: 'var(--h-radio-radius)',
   unchecked: {
-    backgroundColor: 'var(--radio-unchecked-background-color)',
-    backgroundColorActive: 'var(--radio-unchecked-background-color-active)',
-    backgroundColorHover: 'var(--radio-unchecked-background-color-hover)',
-    borderColor: 'var(--radio-unchecked-border-color)',
-    borderColor2: 'var(--radio-unchecked-border-color-2)',
-    borderColorActive: 'var(--radio-unchecked-border-color-active)',
+    backgroundColor: 'var(--h-radio-unchecked-background-color)',
+    borderColor: 'var(--h-radio-unchecked-border-color)',
+    borderColorActive: 'var(--h-radio-unchecked-border-color-active)',
+    borderColorHover: 'var(--h-radio-unchecked-border-color-hover)',
   },
 } as const;

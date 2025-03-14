@@ -1,20 +1,20 @@
 export const spinner = {
-  defaultFill: 'var(--spinner-default-fill)',
+  defaultFill: 'var(--h-spinner-default-fill)',
   lg: {
-    size: 'var(--spinner-lg-size)',
-    strokeWidth: 'var(--spinner-lg-stroke-width)',
+    size: 'var(--h-spinner-lg-size)',
+    strokeWidth: 'var(--h-spinner-lg-stroke-width)',
   },
   md: {
-    size: 'var(--spinner-md-size)',
-    strokeWidth: 'var(--spinner-md-stroke-width)',
+    size: 'var(--h-spinner-md-size)',
+    strokeWidth: 'var(--h-spinner-md-stroke-width)',
   },
-  padding: 'var(--spinner-padding)',
+  padding: 'var(--h-spinner-padding)',
   sm: {
-    size: 'var(--spinner-sm-size)',
-    strokeWidth: 'var(--spinner-sm-stroke-width)',
+    size: 'var(--h-spinner-sm-size)',
+    strokeWidth: 'var(--h-spinner-sm-stroke-width)',
   },
   xs: {
-    size: 'var(--spinner-xs-size)',
-    strokeWidth: 'var(--spinner-xs-stroke-width)',
+    size: 'var(--h-spinner-xs-size)',
+    strokeWidth: 'var(--h-spinner-xs-stroke-width)',
   },
 } as const;

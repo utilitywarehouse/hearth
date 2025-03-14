@@ -17,19 +17,25 @@
 }
 
 @breakpoints {
+  .hearth-r-flex {
+    flex: var(--h-r-flex);
+  }
+}
+
+@breakpoints {
   .hearth-r-flex-basis {
-    flex-basis: var(--r-flex-basis);
+    flex-basis: var(--h-r-flex-basis);
   }
 }
 
 @breakpoints {
   .hearth-r-flex-shrink {
-    flex-shrink: var(--r-flex-shrink);
+    flex-shrink: var(--h-r-flex-shrink);
   }
 }
 
 @breakpoints {
   .hearth-r-flex-grow {
-    flex-grow: var(--r-flex-grow);
+    flex-grow: var(--h-r-flex-grow);
   }
 }

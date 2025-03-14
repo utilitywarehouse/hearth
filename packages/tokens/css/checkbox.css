@@ -3,16 +3,14 @@
  */
 
 :root {
-  --checkbox-border-radius: var(--border-radius-xs);
-  --checkbox-border-width: var(--border-width-2);
-  --checkbox-checked-border-color-active: var(--color-warm-white-200);
-  --checkbox-checked-color: var(--color-grey-1000);
-  --checkbox-checked-color-active: var(--color-grey-800);
-  --checkbox-checked-color-hover: var(--color-grey-900);
-  --checkbox-checked-icon-color: var(--color-warm-white-50);
-  --checkbox-unchecked-background-color: var(--color-white);
-  --checkbox-unchecked-background-color-active: var(--color-warm-white-50);
-  --checkbox-unchecked-background-color-hover: var(--color-warm-white-50);
-  --checkbox-unchecked-border-color: var(--color-grey-400);
-  --checkbox-unchecked-border-color-active: var(--color-warm-white-200);
+  --h-checkbox-border-radius: var(--h-border-radius-xs);
+  --h-checkbox-border-width: var(--h-border-width-2);
+  --h-checkbox-checked-border-color-active: var(--h-color-warm-white-300);
+  --h-checkbox-checked-border-color-hover: var(--h-color-warm-white-200);
+  --h-checkbox-checked-color: var(--h-color-grey-1000);
+  --h-checkbox-checked-icon-color: var(--h-color-warm-white-50);
+  --h-checkbox-unchecked-background-color: var(--h-color-white);
+  --h-checkbox-unchecked-border-color: var(--h-color-grey-400);
+  --h-checkbox-unchecked-border-color-active: var(--h-color-warm-white-300);
+  --h-checkbox-unchecked-border-color-hover: var(--h-color-warm-white-200);
 }

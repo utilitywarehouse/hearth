@@ -3,27 +3,27 @@
  */
 
 :root {
-  --font-family-body: dm sans;
-  --font-family-detail: dm mono;
-  --font-family-heading: comic hams;
-  --font-size-50: 0.625rem;
-  --font-size-75: 0.75rem;
-  --font-size-90: 0.875rem;
-  --font-size-100: 1rem;
-  --font-size-150: 1.125rem;
-  --font-size-200: 1.25rem;
-  --font-size-300: 1.5rem;
-  --font-size-400: 1.875rem;
-  --font-size-500: 2.25rem;
-  --font-size-550: 2.5rem;
-  --font-size-600: 3rem;
-  --font-size-700: 3.75rem;
-  --font-size-800: 4.5rem;
-  --font-size-900: 6rem;
-  --font-size-1000: 8rem;
-  --font-weight-bold: 700;
-  --font-weight-heavy: 900;
-  --font-weight-medium: 500;
-  --font-weight-regular: 400;
-  --font-weight-semibold: 600;
+  --h-font-family-body: dm sans;
+  --h-font-family-detail: dm mono;
+  --h-font-family-heading: comic hams;
+  --h-font-size-50: 0.625rem;
+  --h-font-size-75: 0.75rem;
+  --h-font-size-90: 0.875rem;
+  --h-font-size-100: 1rem;
+  --h-font-size-150: 1.125rem;
+  --h-font-size-200: 1.25rem;
+  --h-font-size-300: 1.5rem;
+  --h-font-size-400: 1.875rem;
+  --h-font-size-500: 2.25rem;
+  --h-font-size-550: 2.5rem;
+  --h-font-size-600: 3rem;
+  --h-font-size-700: 3.75rem;
+  --h-font-size-800: 4.5rem;
+  --h-font-size-900: 6rem;
+  --h-font-size-1000: 8rem;
+  --h-font-weight-bold: 700;
+  --h-font-weight-heavy: 900;
+  --h-font-weight-medium: 500;
+  --h-font-weight-regular: 400;
+  --h-font-weight-semibold: 600;
 }

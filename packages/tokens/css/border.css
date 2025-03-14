@@ -3,13 +3,13 @@
  */
 
 :root {
-  --border-radius-full: 9999px;
-  --border-radius-lg: 12px;
-  --border-radius-md: 8px;
-  --border-radius-none: 0px;
-  --border-radius-sm: 6px;
-  --border-radius-xl: 16px;
-  --border-radius-xs: 4px;
-  --border-width-1: 1px;
-  --border-width-2: 2px;
+  --h-border-radius-full: 9999px;
+  --h-border-radius-lg: 12px;
+  --h-border-radius-md: 8px;
+  --h-border-radius-none: 0px;
+  --h-border-radius-sm: 6px;
+  --h-border-radius-xl: 16px;
+  --h-border-radius-xs: 4px;
+  --h-border-width-1: 1px;
+  --h-border-width-2: 2px;
 }

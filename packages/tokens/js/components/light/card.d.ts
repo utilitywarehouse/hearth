@@ -30,58 +30,16 @@ declare const _default: {
     readonly backgroundColorHover: '#fcfbf2';
   };
   readonly mobile: {
-    readonly lg: {
-      readonly paddingHorizontal: 16;
-      readonly paddingVertical: 16;
-    };
-    readonly md: {
-      readonly paddingHorizontal: 12;
-      readonly paddingVertical: 12;
-    };
-    readonly none: {
-      readonly paddingHorizontal: 0;
-      readonly paddingVertical: 0;
-    };
-    readonly sm: {
-      readonly paddingHorizontal: 8;
-      readonly paddingVertical: 8;
-    };
+    readonly padding: 16;
+    readonly paddingNone: 0;
   };
   readonly tablet: {
-    readonly lg: {
-      readonly paddingHorizontal: 24;
-      readonly paddingVertical: 24;
-    };
-    readonly md: {
-      readonly paddingHorizontal: 16;
-      readonly paddingVertical: 16;
-    };
-    readonly none: {
-      readonly paddingHorizontal: 0;
-      readonly paddingVertical: 0;
-    };
-    readonly sm: {
-      readonly paddingHorizontal: 12;
-      readonly paddingVertical: 12;
-    };
+    readonly padding: 24;
+    readonly paddingNone: 0;
   };
   readonly desktop: {
-    readonly lg: {
-      readonly paddingHorizontal: 24;
-      readonly paddingVertical: 24;
-    };
-    readonly md: {
-      readonly paddingHorizontal: 16;
-      readonly paddingVertical: 16;
-    };
-    readonly none: {
-      readonly paddingHorizontal: 0;
-      readonly paddingVertical: 0;
-    };
-    readonly sm: {
-      readonly paddingHorizontal: 12;
-      readonly paddingVertical: 12;
-    };
+    readonly padding: 24;
+    readonly paddingNone: 0;
   };
 };
 export default _default;
