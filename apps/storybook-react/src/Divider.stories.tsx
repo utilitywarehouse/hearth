@@ -35,8 +35,8 @@ export const KitchenSink: Story = {
     return (
       <Flex direction="column" gap="400" width="100%" maxWidth="800px" padding="200">
         <Flex direction="column" gap="100" paddingInline="400">
+<Heading>Mobile number: 07891123456</Heading>
           <Flex gap="300" align="center">
-            <Heading>Mobile number: 07891123456</Heading>
             <BodyText>Unlimited Tariff</BodyText>
             <Divider decorative orientation="vertical" />
             <BodyText>
