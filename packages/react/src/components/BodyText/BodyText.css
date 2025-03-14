@@ -1,5 +1,5 @@
 .hearth-BodyText {
-  font-family: var(--h-font-family-body-text);
+  font-family: var(--h-font-family-body);
   color: var(--h-text-color);
 
   &:where([data-inverted]) {

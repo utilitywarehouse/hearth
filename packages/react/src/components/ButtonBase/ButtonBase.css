@@ -101,7 +101,7 @@
       --h-outline-background-color-active: var(
         --h-button-outline-grey-inverted-background-color-active
       );
-      --outline-background-color-hover: var(
+      --h-outline-background-color-hover: var(
         --h-button-outline-grey-inverted-background-color-hover
       );
       --h-outline-foreground-color: var(--h-button-outline-grey-inverted-foreground-color);
