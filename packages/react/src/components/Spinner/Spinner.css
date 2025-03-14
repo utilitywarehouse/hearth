@@ -23,21 +23,25 @@
     &:where(.hearth-r-size-xs) {
       --h-spinner-size: var(--h-spinner-xs-size);
       --h-spinner-stroke-width: var(--h-spinner-xs-stroke-width);
+      --h-multiplier: 1.7;
     }
 
     &:where(.hearth-r-size-sm) {
       --h-spinner-size: var(--h-spinner-sm-size);
       --h-spinner-stroke-width: var(--h-spinner-sm-stroke-width);
+      --h-multiplier: 1.8;
     }
 
     &:where(.hearth-r-size-md) {
       --h-spinner-size: var(--h-spinner-md-size);
       --h-spinner-stroke-width: var(--h-spinner-md-stroke-width);
+      --h-multiplier: 1.9;
     }
 
     &:where(.hearth-r-size-lg) {
       --h-spinner-size: var(--h-spinner-lg-size);
       --h-spinner-stroke-width: var(--h-spinner-lg-stroke-width);
+      --h-multiplier: 2;
     }
   }
 
@@ -55,6 +59,10 @@
       stroke-dashoffset: 0;
       transform-origin: center;
       animation: hearth-dash var(--h-spinner-animation-duration) ease-in-out infinite;
+
+      @media (prefers-reduced-motion: reduce) {
+        stroke-dasharray: calc(var(--h-spinner-size) * var(--h-multiplier));
+      }
     }
   }
 }
