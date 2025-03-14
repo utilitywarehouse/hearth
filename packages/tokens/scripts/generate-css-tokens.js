@@ -120,14 +120,6 @@ StyleDictionary.registerTransform({
   },
 });
 
-StyleDictionary.registerTransform({
-  name: 'css/global-prefix',
-  type: 'name',
-  transform: token => {
-    return `${PREFIX}-${token.name}`;
-  },
-});
-
 StyleDictionary.registerTransformGroup({
   name: 'css-transforms',
   transforms: [
@@ -143,7 +135,6 @@ StyleDictionary.registerTransformGroup({
     'line-height/px-to-rem',
     'opacity/value',
     'letter-spacing/normalize-value',
-    'css/global-prefix',
   ],
 });
 
@@ -184,7 +175,6 @@ export function generateCssTokens() {
           transformGroup: 'css-transforms',
           prefix: PREFIX,
           buildPath: BUILD_PATH,
-          prefix: '-h',
           files: [
             {
               destination: 'color.css',
