@@ -1,15 +1,8 @@
-import * as React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { colors } from '@utilitywarehouse/colour-system';
 
-import { Divider } from './Divider';
-import { Flex } from '../Flex/Flex';
-import { Heading } from '../Heading/Heading';
-import { Strong } from '../Strong/Strong';
-import { Box } from '../Box/Box';
-import { BodyText } from '../BodyText/BodyText';
+import { BodyText, Box, Divider, Flex, Heading, Strong } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Divider> = {
   title: 'Stories / Divider',
@@ -22,7 +15,7 @@ const meta: Meta<typeof Divider> = {
   args: {
     orientation: 'horizontal',
     decorative: true,
-    color: '',
+    color: undefined,
   },
 };
 
@@ -34,10 +27,10 @@ export const Workshop: Story = {};
 export const KitchenSink: Story = {
   render: () => {
     return (
-      <Flex direction="column" gap="32px" width="100%" maxWidth="800px" padding="16px">
-        <Flex direction="column" gap="8px" paddingInline="32px">
+      <Flex direction="column" gap="400" width="100%" maxWidth="800px" padding="200">
+        <Flex direction="column" gap="100" paddingInline="400">
           <Heading>Mobile number: 07891123456</Heading>
-          <Flex gap="24px" align="center">
+          <Flex gap="300" align="center">
             <BodyText>Unlimited Tariff</BodyText>
             <Divider decorative orientation="vertical" />
             <BodyText>
@@ -50,9 +43,9 @@ export const KitchenSink: Story = {
           </Flex>
         </Flex>
         <Divider />
-        <Flex direction="column" gap="8px" paddingInline="32px">
+        <Flex direction="column" gap="100" paddingInline="400">
           <Heading>Mobile number: 07875123456</Heading>
-          <Flex gap="24px" align="center">
+          <Flex gap="300" align="center">
             <BodyText>Value Tariff</BodyText>
             <Divider decorative orientation="vertical" />
             <BodyText>
@@ -65,9 +58,9 @@ export const KitchenSink: Story = {
           </Flex>
         </Flex>
         <Divider />
-        <Flex direction="column" gap="8px" paddingInline="32px">
+        <Flex direction="column" gap="100" paddingInline="400">
           <Heading>Mobile number: 07929123456</Heading>
-          <Flex gap="24px" align="center">
+          <Flex gap="300" align="center">
             <BodyText>Unlimited Tariff</BodyText>
             <Divider decorative orientation="vertical" />
             <BodyText>
@@ -87,7 +80,7 @@ export const KitchenSink: Story = {
 export const CustomColor: Story = {
   render: () => {
     return (
-      <Flex direction="column" gap="32px" width="800px" padding="16px">
+      <Flex direction="column" gap="400" width="800px" padding="200">
         <Divider color={colors.pink500} />
         <BodyText>First item </BodyText>
         <Divider color={colors.pink500} />
@@ -102,7 +95,7 @@ export const CustomColor: Story = {
 
 export const UsageOutsideFlexbox: Story = {
   render: () => (
-    <Box width="100%" padding="32px">
+    <Box width="100%" padding="300">
       <Divider decorative />
       <Box height="100px">
         <Divider orientation="vertical" decorative />
