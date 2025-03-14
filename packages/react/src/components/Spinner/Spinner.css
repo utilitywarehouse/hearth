@@ -55,6 +55,10 @@
       stroke-dashoffset: 0;
       transform-origin: center;
       animation: hearth-dash var(--h-spinner-animation-duration) ease-in-out infinite;
+
+      @media (prefers-reduced-motion: reduce) {
+        stroke-dasharray: calc(var(--h-circumference) / 3);
+      }
     }
   }
 }
