@@ -3,7 +3,6 @@ import { Slot } from '@radix-ui/react-slot';
 
 import clsx from 'clsx';
 import { buttonBasePropDefs, ButtonBaseProps } from './ButtonBase.props';
-import { DATA_ATTRIBUTES } from '../../helpers/data-attributes';
 import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
@@ -28,8 +27,8 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
 
   const defaultColorScheme = variant === 'emphasis' || variant === 'solid' ? 'yellow' : 'grey';
   const dataAttributeProps = {
-    [DATA_ATTRIBUTES.colorscheme]: colorScheme || defaultColorScheme,
-    [DATA_ATTRIBUTES.inverted]: inverted ? '' : undefined,
+    'data-colorscheme': colorScheme || defaultColorScheme,
+    'data-inverted': inverted ? '' : undefined,
   };
 
   const Component = asChild ? Slot : 'button';
