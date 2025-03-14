@@ -8,15 +8,11 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 
 <DocsHeader
   componentName="Divider"
-  figmaLink="https://www.figma.com/design/4FFYTLWJ2hQpj36JplQQUw/UW-Web-UI?node-id=8185-13154"
+  figmaLink="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components-%26-Tokens?node-id=1-151&m=dev"
   stories={Stories}
 />
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
-
-- [Accessibility](#accessibility)
-- [Custom colour](#custom-colour)
-- [API](#api)
 
 ## Accessibility
 
@@ -33,22 +29,6 @@ use CSS styling, such as `border-color`, instead of this component.
 ```tsx
 <Divider decorative />
 ```
-
-## Custom colour
-
-If necessary you can override the default colour using the `color` prop. We
-recommend you use the `@utilitywarehouse/colour-system` library for this.
-
-```tsx
-import { Divider } from "@utilitywarehouse/web-ui";
-import { colors } from "@utilitywarehouse/colour-system";
-
-[...]
-
-<Divider color={colors.pink500} />
-```
-
-<Canvas of={Stories.CustomColor} />
 
 ## API
 

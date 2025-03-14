@@ -5,10 +5,6 @@
   flex-shrink: 0;
   background-color: var(--h-divider-border-color);
 
-  &:where(.hearth-divider-color) {
-    background-color: var(--h-divider-color);
-  }
-
   &:where([data-orientation='horizontal']) {
     height: var(--h-divider-border-width);
     width: auto;
