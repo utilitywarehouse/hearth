@@ -2,6 +2,10 @@
   border-radius: var(--h-card-border-radius);
   box-shadow: inset 0 0 0 var(--h-card-border-width) var(--h-card-border-color);
   padding: var(--h-card-padding-mobile);
+  /* we're setting this as the default so that non-white cards continue to have */
+  /* the emphasis appearance even if the subtle variant is accidentally applied */
+  --h-card-border-color: var(--h-card-emphasis-border-color);
+  --h-card-border-width: var(--h-card-emphasis-border-width);
 
   @media (--h-tablet) {
     padding: var(--h-card-padding-tablet);
@@ -25,40 +29,41 @@
     --h-card-border-width: var(--h-card-emphasis-border-width);
   }
 
-  &:where(.hearth-variant-subtle) {
+  /* the subtle variant should only be used with the white color schemes */
+  &:where(.hearth-variant-subtle):where([data-colorscheme$='white']) {
     --h-card-border-color: var(--h-card-subtle-border-color);
     --h-card-border-width: var(--h-card-subtle-border-width);
   }
 
-  &:where(.hearth-color-scheme-white) {
+  &:where([data-colorscheme='white']) {
     background-color: var(--h-card-white-background-color);
   }
 
-  &:where(.hearth-color-scheme-warm-white) {
+  &:where([data-colorscheme='warm-white']) {
     background-color: var(--h-card-warm-white-background-color);
   }
 
-  &:where(.hearth-color-scheme-purple) {
+  &:where([data-colorscheme='purple']) {
     background-color: var(--h-card-purple-background-color);
   }
 
-  &:where(.hearth-color-scheme-energy-green) {
+  &:where([data-colorscheme='energy-green']) {
     background-color: var(--h-card-energy-green-background-color);
   }
 
-  &:where(.hearth-color-scheme-broadband-blue) {
+  &:where([data-colorscheme='broadband-blue']) {
     background-color: var(--h-card-broadband-blue-background-color);
   }
 
-  &:where(.hearth-color-scheme-mobile-rose) {
+  &:where([data-colorscheme='mobile-rose']) {
     background-color: var(--h-card-mobile-rose-background-color);
   }
 
-  &:where(.hearth-color-scheme-insurance-orange) {
+  &:where([data-colorscheme='insurance-orange']) {
     background-color: var(--h-card-insurance-orange-background-color);
   }
 
-  &:where(.hearth-color-scheme-cashback-lilac) {
+  &:where([data-colorscheme='cashback-lilac']) {
     background-color: var(--h-card-cashback-lilac-background-color);
   }
 

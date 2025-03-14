@@ -4,29 +4,12 @@ import { PaddingProps } from '../../props/padding.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
 const variants = ['emphasis', 'subtle'] as const;
-const whiteColorSchemes = ['white', 'warmWhite'];
-const nonWhiteColorSchemes = [
-  'purple',
-  'energyGreen',
-  'broadbandBlue',
-  'mobileRose',
-  'insuranceOrange',
-  'cashbackLilac',
-] as const;
-const colorSchemes = [...whiteColorSchemes, ...nonWhiteColorSchemes] as const;
 
 export const cardPropDefs = {
   variant: { className: 'variant', tokens: variants, responsive: false, default: 'emphasis' },
-  colorScheme: {
-    className: 'color-scheme',
-    tokens: colorSchemes,
-    responsive: false,
-    default: 'white',
-  },
   paddingNone: { className: 'padding-none', responsive: false },
 } satisfies {
   variant: PropDef<(typeof variants)[number]>;
-  colorScheme: PropDef<(typeof colorSchemes)[number]>;
   paddingNone: PropDef<boolean>;
 };
 
@@ -43,7 +26,13 @@ type CommonCardProps = Omit<
         /**
          * Sets the card's colour scheme
          */
-        colorScheme?: (typeof nonWhiteColorSchemes)[number];
+        colorScheme?:
+          | 'purple'
+          | 'energyGreen'
+          | 'broadbandBlue'
+          | 'mobileRose'
+          | 'insuranceOrange'
+          | 'cashbackLilac';
       }
     | {
         /**
@@ -53,7 +42,7 @@ type CommonCardProps = Omit<
         /**
          * Sets the card's colour scheme
          */
-        colorScheme?: (typeof whiteColorSchemes)[number];
+        colorScheme?: 'white' | 'warmWhite';
       }
   ) & {
     /**
