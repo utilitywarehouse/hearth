@@ -1,8 +1,8 @@
 .hearth-IconButton {
-  height: var(--icon-button-size);
-  width: var(--icon-button-size);
-  padding-inline: var(--icon-button-padding-inline);
-  padding-block: var(--icon-button-padding-block);
+  height: var(--h-icon-button-size);
+  width: var(--h-icon-button-size);
+  padding-inline: var(--h-icon-button-padding-inline);
+  padding-block: var(--h-icon-button-padding-block);
 
   &:where(.hearth-variant-emphasis) {
     min-width: 0;
@@ -10,23 +10,23 @@
   }
 
   &:where(.hearth-variant-emphasis) > .hearth-front {
-    height: var(--icon-button-size);
-    width: var(--icon-button-size);
-    padding-inline: var(--icon-button-padding-inline);
-    padding-block: var(--icon-button-padding-block);
+    height: var(--h-icon-button-size);
+    width: var(--h-icon-button-size);
+    padding-inline: var(--h-icon-button-padding-inline);
+    padding-block: var(--h-icon-button-padding-block);
   }
 
   @breakpoints {
     &:where(.hearth-r-size-md) {
-      --icon-button-size: 3rem;
-      --icon-button-padding-inline: var(--icon-button-md-padding-horizontal);
-      --icon-button-padding-block: var(--icon-button-md-padding-vertical);
+      --h-icon-button-size: 3rem;
+      --h-icon-button-padding-inline: var(--h-icon-button-md-padding-horizontal);
+      --h-icon-button-padding-block: var(--h-icon-button-md-padding-vertical);
     }
 
     &:where(.hearth-r-size-sm) {
-      --icon-button-size: 2rem;
-      --icon-button-padding-inline: var(--icon-button-sm-padding-horizontal);
-      --icon-button-padding-block: var(--icon-button-sm-padding-vertical);
+      --h-icon-button-size: 2rem;
+      --h-icon-button-padding-inline: var(--h-icon-button-sm-padding-horizontal);
+      --h-icon-button-padding-block: var(--h-icon-button-sm-padding-vertical);
     }
   }
 }

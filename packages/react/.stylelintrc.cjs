@@ -6,7 +6,7 @@ module.exports = {
     'at-rule-no-unknown': [true, { ignoreAtRules: ['breakpoints'] }],
     // Enforce prefixes on classnames and keyframes
     'selector-class-pattern': /^((mobile|tablet|desktop|wide):)?-?hearth-([a-zA-Z\d]|-)+$/,
-    'custom-property-pattern': /([a-zA-Z\d]|-)+$/,
+    'custom-property-pattern': /^h-([a-zA-Z\d]|-)+$/,
     'keyframes-name-pattern': /^hearth-([a-z]|-)+$/,
   },
 };

@@ -1,27 +1,27 @@
 .hearth-spacing-xs {
-  gap: var(--spacing-xs-mobile);
+  gap: var(--h-spacing-xs-mobile);
 }
 
 .hearth-spacing-sm {
-  gap: var(--spacing-sm-mobile);
+  gap: var(--h-spacing-sm-mobile);
 }
 
 .hearth-spacing-md {
-  gap: var(--spacing-md-mobile);
+  gap: var(--h-spacing-md-mobile);
 }
 
 .hearth-spacing-lg {
-  gap: var(--spacing-lg-mobile);
+  gap: var(--h-spacing-lg-mobile);
 
-  @media (--tablet) {
-    gap: var(--spacing-lg-tablet);
+  @media (--h-tablet) {
+    gap: var(--h-spacing-lg-tablet);
   }
 }
 
 .hearth-spacing-xl {
-  gap: var(--spacing-xl-mobile);
+  gap: var(--h-spacing-xl-mobile);
 
-  @media (--desktop) {
-    gap: var(--spacing-xl-desktop);
+  @media (--h-desktop) {
+    gap: var(--h-spacing-xl-desktop);
   }
 }

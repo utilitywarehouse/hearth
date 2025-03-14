@@ -10,43 +10,43 @@
 
   cursor: pointer;
   display: inline;
-  font-family: var(--font-family-detail);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-500);
-  color: var(--link-color);
+  font-family: var(--h-font-family-detail);
+  font-weight: var(--h-font-weight-medium);
+  line-height: var(--h-line-height-500);
+  color: var(--h-link-color);
   text-decoration-line: underline;
   text-decoration-color: currentcolor;
-  border-radius: var(--border-radius-xs);
+  border-radius: var(--h-border-radius-xs);
 
   &:where([data-inverted]) {
-    color: var(--link-inverted-color);
+    color: var(--h-link-inverted-color);
   }
 
   @media (hover: hover) {
     &:where(:hover) {
-      color: var(--link-color-hover);
+      color: var(--h-link-color-hover);
       text-decoration: none;
 
       &:where([data-inverted]) {
-        color: var(--link-inverted-color-hover);
+        color: var(--h-link-inverted-color-hover);
       }
     }
   }
 
   &:where(:active) {
-    color: var(--link-color-active);
+    color: var(--h-link-color-active);
 
     &:where([data-inverted]) {
-      color: var(--link-inverted-color-active);
+      color: var(--h-link-inverted-color-active);
     }
   }
 
   &:where(:focus-visible) {
-    outline: 2px solid var(--focus-border);
+    outline: 2px solid var(--h-focus-border);
     outline-offset: 1px;
 
     &:where([data-inverted]) {
-      outline: 2px solid var(--focus-border-inverted);
+      outline: 2px solid var(--h-focus-border-inverted);
     }
   }
 
@@ -54,6 +54,6 @@
     display: inline-flex;
     align-items: center;
     flex-shrink: 0;
-    gap: var(--link-gap);
+    gap: var(--h-link-gap);
   }
 }
