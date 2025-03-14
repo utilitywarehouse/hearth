@@ -11,19 +11,18 @@ import { SelectableCardProps } from './SelectableCard.props';
 const componentName = 'SelectableCard';
 const componentClassName = withGlobalPrefix(componentName);
 
-type SelectableCardElement = ElementRef<'button'>;
+type SelectableCardElement = ElementRef<'div'>;
 
 export const SelectableCard = React.forwardRef<SelectableCardElement, SelectableCardProps>(
-  ({ className, children, selected, ...selectableCardProps }) => {
-    const dataAttributeProps = { 'data-selected': selected ? '' : undefined };
+  ({ className, children, selected, ...selectableCardProps }, ref) => {
     return (
       <Card
-        // ref={ref} TODO: I think we'll have to make this available via context?
+        ref={ref}
         className={clsx(componentClassName, className)}
+        data-selected={selected ? '' : undefined}
+        {...(selectableCardProps as CardProps)}
         variant="subtle"
         colorScheme="white"
-        {...(selectableCardProps as CardProps)}
-        {...dataAttributeProps}
       >
         {children}
       </Card>

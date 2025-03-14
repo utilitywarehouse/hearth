@@ -12,6 +12,7 @@ import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
 import { Flex } from '../Flex/Flex';
 import { FlexProps } from '../Flex/Flex.props';
+import { kebabCase } from '../../helpers/kebab-case';
 
 const componentName = 'Card';
 const componentClassName = withGlobalPrefix(componentName);
@@ -23,6 +24,7 @@ export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
     className,
     as: Tag = 'div',
     children,
+    colorScheme = 'white',
     ...cardProps
   } = extractProps(
     props,
@@ -38,6 +40,7 @@ export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
       ref={ref}
       asChild
       className={clsx(componentClassName, className)}
+      data-colorscheme={kebabCase(colorScheme)}
       {...(cardProps as FlexProps)}
     >
       <Tag>{children}</Tag>
