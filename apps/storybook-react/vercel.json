@@ -1,6 +1,6 @@
 {
   "installCommand": "cd ../.. && pnpm install",
-  "buildCommand": "cd ../.. && pnpm build && cd apps/storybook-react && pnpm build:storybook:ci",
+  "buildCommand": "cd ../.. && pnpm build && cd apps/storybook-react && pnpm build:storybook",
   "outputDirectory": "storybook-static",
   "headers": [
     {
