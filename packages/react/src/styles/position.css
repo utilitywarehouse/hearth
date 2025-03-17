@@ -1,0 +1,51 @@
+@breakpoints {
+  .hearth-r-position-static {
+    position: static;
+  }
+
+  .hearth-r-position-absolute {
+    position: absolute;
+  }
+
+  .hearth-r-position-relative {
+    position: relative;
+  }
+
+  .hearth-r-position-fixed {
+    position: fixed;
+  }
+
+  .hearth-r-position-sticky {
+    position: sticky;
+  }
+}
+
+@breakpoints {
+  .hearth-r-inset {
+    inset: var(--h-r-inset);
+  }
+}
+
+@breakpoints {
+  .hearth-r-top {
+    top: var(--h-r-top);
+  }
+}
+
+@breakpoints {
+  .hearth-r-right {
+    right: var(--h-r-right);
+  }
+}
+
+@breakpoints {
+  .hearth-r-bottom {
+    bottom: var(--h-r-bottom);
+  }
+}
+
+@breakpoints {
+  .hearth-r-left {
+    left: var(--h-r-left);
+  }
+}

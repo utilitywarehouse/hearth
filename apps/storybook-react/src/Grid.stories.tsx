@@ -21,6 +21,15 @@ const meta: Meta<typeof Grid> = {
     gap: { options: spaceTokens, control: { type: 'select' } },
     color: { options: colorTokens, control: { type: 'select' } },
     backgroundColor: { control: { type: 'text' } },
+    position: {
+      options: ['static', 'relative', 'absolute', 'fixed', 'sticky'],
+      control: { type: 'select' },
+    },
+    inset: { control: { type: 'number' } },
+    top: { control: { type: 'number' } },
+    right: { control: { type: 'number' } },
+    bottom: { control: { type: 'number' } },
+    left: { control: { type: 'number' } },
   },
 } satisfies Meta<typeof Grid>;
 
