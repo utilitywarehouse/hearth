@@ -4,6 +4,7 @@ import { FlexItemProps } from '../../props/flex-item.props';
 import { GridItemProps } from '../../props/grid-item.props';
 import { MarginProps } from '../../props/margin.props';
 import { PaddingProps } from '../../props/padding.props';
+import { PositionProps } from '../../props/position.props';
 import { PropDef } from '../../props/prop-def';
 import { SizeProps } from '../../props/size.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
@@ -18,7 +19,8 @@ export const boxPropDefs = {
 };
 
 interface CommonBoxProps
-  extends ColorProps,
+  extends PositionProps,
+    ColorProps,
     BackgroundColorProps,
     PaddingProps,
     MarginProps,

@@ -31,6 +31,15 @@ const meta: Meta<typeof Box> = {
     height: { control: { type: 'text' } },
     minHeight: { control: { type: 'text' } },
     maxHeight: { control: { type: 'text' } },
+    position: {
+      options: ['static', 'relative', 'absolute', 'fixed', 'sticky'],
+      control: { type: 'select' },
+    },
+    inset: { control: { type: 'number' } },
+    top: { control: { type: 'number' } },
+    right: { control: { type: 'number' } },
+    bottom: { control: { type: 'number' } },
+    left: { control: { type: 'number' } },
   },
 } satisfies Meta<typeof Box>;
 
