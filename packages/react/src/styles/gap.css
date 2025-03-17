@@ -1,8 +1,4 @@
 @breakpoints {
-  .hearth-r-gap {
-    gap: var(--h-r-gap);
-  }
-
   .hearth-r-gap-0 {
     gap: 0;
   }

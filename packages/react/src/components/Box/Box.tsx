@@ -15,6 +15,7 @@ import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
 import { backgroundColorPropDefs } from '../../props/background-color.props';
 import { positionPropDefs } from '../../props/position.props';
+import { borderPropDefs } from '../../props/border.props';
 
 const componentName = 'Box';
 const componentClassName = withGlobalPrefix(componentName);
@@ -36,6 +37,7 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
     backgroundColorPropDefs,
     marginPropDefs,
     sizePropDefs,
+    borderPropDefs,
     gridItemPropDefs,
     flexItemPropDefs
   );

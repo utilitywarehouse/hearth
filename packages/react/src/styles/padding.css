@@ -1,8 +1,4 @@
 @breakpoints {
-  .hearth-r-padding {
-    padding: var(--h-r-padding);
-  }
-
   .hearth-r-padding-0 {
     padding: 0;
   }
@@ -77,10 +73,6 @@
 }
 
 @breakpoints {
-  .hearth-r-padding-inline {
-    padding-inline: var(--h-r-padding-inline);
-  }
-
   .hearth-r-padding-inline-0 {
     padding-inline: 0;
   }
@@ -155,10 +147,6 @@
 }
 
 @breakpoints {
-  .hearth-r-padding-block {
-    padding-block: var(--h-r-padding-block);
-  }
-
   .hearth-r-padding-block-0 {
     padding-block: 0;
   }
@@ -233,10 +221,6 @@
 }
 
 @breakpoints {
-  .hearth-r-padding-top {
-    padding-top: var(--h-r-padding-top);
-  }
-
   .hearth-r-padding-top-0 {
     padding-top: 0;
   }
@@ -311,10 +295,6 @@
 }
 
 @breakpoints {
-  .hearth-r-padding-right {
-    padding-right: var(--h-r-padding-right);
-  }
-
   .hearth-r-padding-right-0 {
     padding-right: 0;
   }
@@ -389,10 +369,6 @@
 }
 
 @breakpoints {
-  .hearth-r-padding-bottom {
-    padding-bottom: var(--h-r-padding-bottom);
-  }
-
   .hearth-r-padding-bottom-0 {
     padding-bottom: 0;
   }
@@ -467,10 +443,6 @@
 }
 
 @breakpoints {
-  .hearth-r-padding-left {
-    padding-left: var(--h-r-padding-left);
-  }
-
   .hearth-r-padding-left-0 {
     padding-left: 0;
   }
