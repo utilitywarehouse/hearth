@@ -49,15 +49,20 @@ const MyComponent = () => (
 
 ## Props
 
-| Property           | Type                                                                                                                                   | Description                                       | Default    |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- | ---------- |
-| variant            | `'subtle' \| 'emphasis' `                                                                                                              | The variant of the card.                          | `'subtle'` |
-| colorScheme        | `'white' \| 'warmWhite' \| 'purple' \| 'energyGreen'` <br /> `'broadbandBlue' \| 'mobileRose' \| 'insuranceOrange' \| 'cashbackLilac'` | The color scheme of the card.                     | `'white'`  |
-| noPadding          | `boolean`                                                                                                                              | Wether or not the card has padding.               | `false`    |
-| selected           | `boolean`                                                                                                                              | Whether the card is selected.                     | `false`    |
-| onPress            | `() => void`                                                                                                                           | Callback function to be called.                   | -          |
-| disabled           | `boolean`                                                                                                                              | Whether the card is disabled.                     | `false`    |
-| inheritChildAction | `boolean`                                                                                                                              | Whether the card should inherit the child action. | `false`    |
+| Property    | Type                                                                                                                                   | Description                         | Default    |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | ---------- |
+| variant     | `'subtle' \| 'emphasis' `                                                                                                              | The variant of the card.            | `'subtle'` |
+| colorScheme | `'white' \| 'warmWhite' \| 'purple' \| 'energyGreen'` <br /> `'broadbandBlue' \| 'mobileRose' \| 'insuranceOrange' \| 'cashbackLilac'` | The color scheme of the card.       | `'white'`  |
+| noPadding   | `boolean`                                                                                                                              | Wether or not the card has padding. | `false`    |
+| selected    | `boolean`                                                                                                                              | Whether the card is selected.       | `false`    |
+| onPress     | `() => void`                                                                                                                           | Callback function to be called.     | -          |
+| disabled    | `boolean`                                                                                                                              | Whether the card is disabled.       | `false`    |
+
+### `CardAction`
+
+| Property        | Type     | Description                                                                | Default   |
+| --------------- | -------- | -------------------------------------------------------------------------- | --------- |
+| actionToInherit | `string` | The action to inherit from the child component when the `Card` is pressed. | `onPress` |
 
 ## Variants
 
@@ -68,4 +73,27 @@ const MyComponent = () => (
 You can make the card interactive by adding an `onPress` prop. You can also toggle the `selected` prop
 to change the card's appearance.
 
+Alternatively to make the card inherit an action from a child component, you can use the `CardAction` component.
+This will by default inherit the `onPress` action from the child component. You can specify a different action
+by passing the `actionToInherit` prop e.g `onChange`. Wrapping a component in a `CardAction` component will
+make the card interactive and also show the `active` state of the child component when the `Card` is pressed.
+
 <Canvas of={Stories.Interactive} />
+
+See example below for how to use the `CardAction` component:
+
+```jsx
+import { Card, CardAction, BodyText, Heading, Felx, Button } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <Card variant="emphasis" colorScheme="warmWhite">
+    <Flex space="md" direction="column" align="stretch">
+      <Heading size="md">Heading</Heading>
+      <BodyText>{children as string}</BodyText>
+      <CardAction>
+        <Button onPress={() => console.log('pressed')}>Press me</Button>
+      </CardAction>
+    </Flex>
+  </Card>
+);
+```

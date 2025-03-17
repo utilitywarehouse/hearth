@@ -14,7 +14,6 @@ interface CardProps extends PressableProps {
   noPadding?: boolean;
   selected?: boolean;
   disabled?: boolean;
-  inheritChildAction?: boolean;
 }
 
 export default CardProps;

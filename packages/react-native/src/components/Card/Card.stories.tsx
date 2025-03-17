@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from '.';
+import { Card, CardAction } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { VariantTitle } from '../../../docs/components';
 import { BodyText } from '../BodyText';
@@ -180,31 +180,29 @@ export const Interactive: Story = {
           </Card>
         </VariantTitle>
         <VariantTitle title="Pressable - Emphasis - Warm White">
-          <Card {...props} inheritChildAction variant="emphasis" colorScheme="warmWhite">
+          <Card {...props} variant="emphasis" colorScheme="warmWhite">
             <Flex space="md" direction="column" align="stretch">
               <Heading size="md">Heading</Heading>
               <BodyText>{children as string}</BodyText>
-              <Button onPress={() => console.log('pressed')}>Press me</Button>
+              <CardAction>
+                <Button onPress={() => console.log('pressed')}>Press me</Button>
+              </CardAction>
             </Flex>
           </Card>
         </VariantTitle>
         <VariantTitle title="Selectable - Subtle - White">
-          <Card
-            {...props}
-            selected={selectedSubtleWhite}
-            inheritChildAction
-            variant="subtle"
-            colorScheme="white"
-          >
+          <Card {...props} selected={selectedSubtleWhite} variant="subtle" colorScheme="white">
             <Flex space="md" direction="column" align="stretch">
               <Heading size="md">Heading</Heading>
               <BodyText>{children as string}</BodyText>
-              <Button
-                colorScheme="green"
-                onPress={() => setSelectedSubtleWhite(!selectedSubtleWhite)}
-              >
-                Select me
-              </Button>
+              <CardAction>
+                <Button
+                  colorScheme="green"
+                  onPress={() => setSelectedSubtleWhite(!selectedSubtleWhite)}
+                >
+                  Select me
+                </Button>
+              </CardAction>
             </Flex>
           </Card>
         </VariantTitle>
@@ -212,19 +210,20 @@ export const Interactive: Story = {
           <Card
             {...props}
             selected={selectedSubtleWarmWhite}
-            inheritChildAction
             variant="subtle"
             colorScheme="warmWhite"
           >
             <Flex space="md" direction="column" align="stretch">
               <Heading size="md">Heading</Heading>
               <BodyText>{children as string}</BodyText>
-              <Button
-                colorScheme="green"
-                onPress={() => setSelectedSubtleWarmWhite(!selectedSubtleWarmWhite)}
-              >
-                Select me
-              </Button>
+              <CardAction>
+                <Button
+                  colorScheme="green"
+                  onPress={() => setSelectedSubtleWarmWhite(!selectedSubtleWarmWhite)}
+                >
+                  Select me
+                </Button>
+              </CardAction>
             </Flex>
           </Card>
         </VariantTitle>

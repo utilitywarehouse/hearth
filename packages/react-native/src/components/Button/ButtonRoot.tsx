@@ -5,7 +5,7 @@ import { Pressable, ViewStyle, GestureResponderEvent } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { ButtonContext } from './Button.context';
 import { PressableRef } from '../../types';
-import { useCardContext } from '../Card';
+import { useCardActionContext, useCardContext } from '../Card';
 
 const ButtonRoot = forwardRef<
   PressableRef,
@@ -25,7 +25,7 @@ const ButtonRoot = forwardRef<
     ref
   ) => {
     const { active, disabled = false } = states || {};
-    const { pressed } = useCardContext();
+    const { pressed } = useCardActionContext();
 
     styles.useVariants({
       variant,
