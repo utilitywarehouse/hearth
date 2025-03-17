@@ -1,8 +1,38 @@
-import React, { forwardRef } from 'react';
-import { Pressable, ViewStyle } from 'react-native';
+import React, { forwardRef, ReactNode, useMemo } from 'react';
+import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import CardProps from './Card.props';
 import { PressableRef } from '../../types';
+import { CardContext } from './Card.context';
+
+// Helper that recursively collects onPress or other defined handlers from descendants
+const collectChildActionHandlers = (
+  children: React.ReactNode
+): Array<(e: GestureResponderEvent) => void> => {
+  return React.Children.toArray(children).reduce(
+    (handlers, child) => {
+      if (React.isValidElement(child)) {
+        // @ts-ignore
+        if (child.type.displayName === 'CardAction') {
+          const actionChildren = React.Children.toArray(child.props.children);
+          const actionToInherit = child.props['actionToInherit'] || 'onPress';
+          const firstChild = actionChildren[0];
+          if (
+            React.isValidElement(firstChild) &&
+            typeof firstChild.props[actionToInherit] === 'function'
+          ) {
+            handlers.push(firstChild.props[actionToInherit]);
+          }
+        }
+        if (child.props.children) {
+          handlers.push(...collectChildActionHandlers(child.props.children));
+        }
+      }
+      return handlers;
+    },
+    [] as Array<(e: GestureResponderEvent) => void>
+  );
+};
 
 const Card = forwardRef<
   PressableRef,
@@ -13,33 +43,58 @@ const Card = forwardRef<
       children,
       variant = 'subtle',
       colorScheme = 'white',
-      padding = 'lg',
+      noPadding = false,
       selected,
-      onSelect,
       style,
       states,
       disabled = false,
+      onPress,
       ...props
     },
     ref
   ) => {
-    const { onPress } = props;
     const { active } = states || { active: false };
-    const showPressed = !!onPress;
+    const childActionHandlers = collectChildActionHandlers(children as ReactNode);
+
+    const handlePress = (e: GestureResponderEvent) => {
+      if (onPress) {
+        onPress(e);
+      }
+
+      childActionHandlers.forEach(fn => fn(e));
+    };
+
+    const inheritChildAction = childActionHandlers.length > 0;
+    const showPressed = inheritChildAction || !!onPress;
 
     styles.useVariants({
       variant,
       colorScheme,
-      padding,
+      noPadding,
       selected,
       active,
       showPressed,
       disabled,
     });
+
+    const context = useMemo(
+      () => ({
+        pressed: showPressed && active,
+      }),
+      [showPressed, active]
+    );
     return (
-      <Pressable ref={ref} {...props} disabled={disabled} style={[styles.card, style as ViewStyle]}>
-        {children}
-      </Pressable>
+      <CardContext.Provider value={context}>
+        <Pressable
+          ref={ref}
+          {...props}
+          disabled={disabled}
+          style={[styles.card, style as ViewStyle]}
+          onPress={handlePress}
+        >
+          {children}
+        </Pressable>
+      </CardContext.Provider>
     );
   }
 );
@@ -99,53 +154,15 @@ const styles = StyleSheet.create(theme => ({
           borderColor: theme.components.card.emphasis.borderColor,
         },
       },
-      padding: {
-        lg: {
-          paddingHorizontal: {
-            // base: theme.components.card.mobile.lg.paddingHorizontal,
-            // md: theme.components.card.tablet.lg.paddingHorizontal,
-            // lg: theme.components.card.desktop.lg.paddingHorizontal,
-          },
-          paddingVertical: {
-            // base: theme.components.card.mobile.lg.paddingVertical,
-            // md: theme.components.card.tablet.lg.paddingVertical,
-            // lg: theme.components.card.desktop.lg.paddingVertical,
-          },
+      noPadding: {
+        true: {
+          padding: theme.components.card.mobile.paddingNone,
         },
-        md: {
-          paddingHorizontal: {
-            // base: theme.components.card.mobile.md.paddingHorizontal,
-            // md: theme.components.card.tablet.md.paddingHorizontal,
-            // lg: theme.components.card.desktop.md.paddingHorizontal,
-          },
-          paddingVertical: {
-            // base: theme.components.card.mobile.md.paddingVertical,
-            // md: theme.components.card.tablet.md.paddingVertical,
-            // lg: theme.components.card.desktop.md.paddingVertical,
-          },
-        },
-        sm: {
-          paddingHorizontal: {
-            // base: theme.components.card.mobile.sm.paddingHorizontal,
-            // md: theme.components.card.tablet.sm.paddingHorizontal,
-            // lg: theme.components.card.desktop.sm.paddingHorizontal,
-          },
-          paddingVertical: {
-            // base: theme.components.card.mobile.sm.paddingVertical,
-            // md: theme.components.card.tablet.sm.paddingVertical,
-            // lg: theme.components.card.desktop.sm.paddingVertical,
-          },
-        },
-        none: {
-          paddingHorizontal: {
-            // base: theme.components.card.mobile.none.paddingHorizontal,
-            // md: theme.components.card.tablet.none.paddingHorizontal,
-            // lg: theme.components.card.desktop.none.paddingHorizontal,
-          },
-          paddingVertical: {
-            // base: theme.components.card.mobile.none.paddingVertical,
-            // md: theme.components.card.tablet.none.paddingVertical,
-            // lg: theme.components.card.desktop.none.paddingVertical,
+        false: {
+          padding: {
+            base: theme.components.card.mobile.padding,
+            md: theme.components.card.tablet.padding,
+            lg: theme.components.card.desktop.padding,
           },
         },
       },
@@ -171,58 +188,6 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     },
-    compoundVariants: [
-      {
-        showPressed: true,
-        colorScheme: 'white',
-        styles: {
-          _web: {
-            _hover: {
-              backgroundColor: theme.components.card.white.backgroundColorHover,
-            },
-            _active: {
-              backgroundColor: theme.components.card.white.backgroundColorActive,
-            },
-            '_focus-visible': {
-              ...theme.helpers.focuseVisible,
-            },
-          },
-        },
-      },
-      {
-        showPressed: true,
-        active: true,
-        colorScheme: 'white',
-        styles: {
-          backgroundColor: theme.components.card.white.backgroundColorActive,
-        },
-      },
-      {
-        showPressed: true,
-        colorScheme: 'warmWhite',
-        styles: {
-          _web: {
-            _hover: {
-              backgroundColor: theme.components.card.warmWhite.backgroundColorHover,
-            },
-            _active: {
-              backgroundColor: theme.components.card.warmWhite.backgroundColorActive,
-            },
-            '_focus-visible': {
-              ...theme.helpers.focuseVisible,
-            },
-          },
-        },
-      },
-      {
-        showPressed: true,
-        active: true,
-        colorScheme: 'warmWhite',
-        styles: {
-          backgroundColor: theme.components.card.warmWhite.backgroundColorActive,
-        },
-      },
-    ],
   },
 }));
 
