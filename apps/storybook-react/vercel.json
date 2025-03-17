@@ -1,4 +1,7 @@
 {
+  "installCommand": "cd ../.. && pnpm install",
+  "buildCommand": "cd ../.. && pnpm build && cd apps/storybook-react && pnpm build:storybook:ci",
+  "outputDirectory": "storybook-static",
   "headers": [
     {
       "source": "/(stories|metadata).json",
