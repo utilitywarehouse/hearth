@@ -1,4 +1,5 @@
 {
+  "framework": "storybook",
   "installCommand": "cd ../.. && pnpm install",
   "buildCommand": "cd ../.. && pnpm build && cd apps/storybook-react && pnpm build:storybook",
   "outputDirectory": "storybook-static",
