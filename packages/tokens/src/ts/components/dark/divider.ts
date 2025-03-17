@@ -3,6 +3,6 @@
  */
 
 export default {
-  borderColor: '#d4d2c0',
   borderWidth: 1,
+  color: '#d4d2c0',
 } as const;

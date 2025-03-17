@@ -21,6 +21,7 @@ export { default as link } from './link';
 export { default as list } from './list';
 export { default as menu } from './menu';
 export { default as modal } from './modal';
+export { default as overlay } from './overlay';
 export { default as radio } from './radio';
 export { default as select } from './select';
 export { default as skeleton } from './skeleton';
