@@ -1,7 +1,7 @@
 .hearth-color {
-  color: var(--color);
+  color: var(--h-color);
 }
 
 .hearth-background-color {
-  background-color: var(--background-color);
+  background-color: var(--h-background-color);
 }

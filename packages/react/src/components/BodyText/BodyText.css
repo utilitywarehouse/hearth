@@ -1,6 +1,10 @@
 .hearth-BodyText {
-  font-family: var(--font-family-body-text);
-  color: var(--color-grey-1000);
+  font-family: var(--h-font-family-body);
+  color: var(--h-text-color);
+
+  &:where([data-inverted]) {
+    color: var(--h-text-color-inverted);
+  }
 
   &:where(.hearth-paragraph-spacing) {
     margin-bottom: 1em;
@@ -8,18 +12,18 @@
 
   @breakpoints {
     &:where(.hearth-r-size-sm) {
-      font-size: var(--body-text-sm-font-size);
-      line-height: var(--body-text-sm-line-height);
+      font-size: var(--h-body-text-sm-font-size);
+      line-height: var(--h-body-text-sm-line-height);
     }
 
     &:where(.hearth-r-size-md) {
-      font-size: var(--body-text-md-font-size);
-      line-height: var(--body-text-md-line-height);
+      font-size: var(--h-body-text-md-font-size);
+      line-height: var(--h-body-text-md-line-height);
     }
 
     &:where(.hearth-r-size-lg) {
-      font-size: var(--body-text-lg-font-size);
-      line-height: var(--body-text-lg-line-height);
+      font-size: var(--h-body-text-lg-font-size);
+      line-height: var(--h-body-text-lg-line-height);
     }
   }
 }

@@ -2,13 +2,9 @@ name: Code Checks
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    paths-ignore:
-      - 'packages/tokens/**'
   push:
     branches:
       - main
-    paths-ignore:
-      - 'packages/tokens/**'
 
 jobs:
   checks:

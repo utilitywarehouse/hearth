@@ -1,5 +1,6 @@
 import type { Breakpoints, Responsive } from '../types/responsive';
 import { isResponsiveObject } from './is-responsive-object';
+import { kebabCase } from './kebab-case';
 import { GLOBAL_PREFIX } from './with-global-prefix';
 
 type GetClassNameStylesOptions = {
@@ -36,14 +37,16 @@ export const getClassNameStyles = ({
       if (typeof value === 'string' && isSingleClassNameTokens && transformValue !== undefined) {
         return {
           className: `${GLOBAL_PREFIX}${responsivePrefix}-${prefix}`,
-          style: { [`-${responsivePrefix}-${prefix}`]: transformValue(value) },
+          style: { [`--h${responsivePrefix}-${prefix}`]: transformValue(value) },
         };
       }
-      return { className: `${GLOBAL_PREFIX}${responsivePrefix}-${prefix}-${value}` };
+      return {
+        className: `${GLOBAL_PREFIX}${responsivePrefix}-${prefix}-${kebabCase(String(value))}`,
+      };
     }
     return {
       className: `${GLOBAL_PREFIX}${responsivePrefix}-${prefix}`,
-      style: { [`-${responsivePrefix}-${prefix}`]: value || defaultValue },
+      style: { [`--h${responsivePrefix}-${prefix}`]: value || defaultValue },
     };
   }
 
@@ -76,7 +79,7 @@ export const getClassNameStyles = ({
         const breakpointValue = value[bp];
         const isTokenValue = tokens?.includes(breakpointValue);
         if (breakpointValue !== undefined && !isTokenValue) {
-          const baseStyleName = `-${responsivePrefix}-${prefix}`;
+          const baseStyleName = `--h${responsivePrefix}-${prefix}`;
           const styleName = bp === initialBreakpoint ? baseStyleName : `${baseStyleName}-${bp}`;
           acc[styleName] = breakpointValue;
           return acc;

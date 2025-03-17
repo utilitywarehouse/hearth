@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Link, Flex } from '@utilitywarehouse/hearth-react';
-import { DownloadSmallIcon } from '@utilitywarehouse/react-icons';
-import { OpenSmallIcon } from '@utilitywarehouse/react-icons';
-
-import { ChevronLeftSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/react-icons';
+import {
+  DownloadSmallIcon,
+  OpenSmallIcon,
+  ChevronLeftSmallIcon,
+  ChevronRightSmallIcon,
+} from '@utilitywarehouse/react-icons';
 
 const meta: Meta<typeof Link> = {
   title: 'Stories / Link',
@@ -16,13 +18,13 @@ const meta: Meta<typeof Link> = {
       },
     },
   },
-  args: {
-    children: 'Link',
-    href: '#',
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     href: { control: { type: 'text' } },
+  },
+  args: {
+    children: 'Link',
+    href: '#',
   },
 };
 

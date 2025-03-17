@@ -1,15 +1,15 @@
 export const modal = {
   action: {
-    gap: 'var(--modal-action-gap)',
+    gap: 'var(--h-modal-action-gap)',
   },
-  backgroundColor: 'var(--modal-background-color)',
-  borderRadius: 'var(--modal-border-radius)',
-  containerMaxWidth: 'var(--modal-container-max-width)',
+  backgroundColor: 'var(--h-modal-background-color)',
+  borderRadius: 'var(--h-modal-border-radius)',
+  containerMaxWidth: 'var(--h-modal-container-max-width)',
   content: {
-    gap: 'var(--modal-content-gap)',
+    gap: 'var(--h-modal-content-gap)',
   },
-  gap: 'var(--modal-gap)',
-  minWidth: 'var(--modal-min-width)',
-  padding: 'var(--modal-padding)',
-  width: 'var(--modal-width)',
+  gap: 'var(--h-modal-gap)',
+  minWidth: 'var(--h-modal-min-width)',
+  padding: 'var(--h-modal-padding)',
+  width: 'var(--h-modal-width)',
 } as const;

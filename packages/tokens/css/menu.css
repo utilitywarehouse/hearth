@@ -3,26 +3,26 @@
  */
 
 :root {
-  --menu-background-color: var(--color-white);
-  --menu-border-color: var(--color-warm-white-300);
-  --menu-border-width: var(--border-width-1);
-  --menu-gap: var(--space-50);
-  --menu-item-active-background-color: var(--color-grey-200);
-  --menu-item-active-red-background-color: var(--color-red-100);
-  --menu-item-border-radius: var(--border-radius-xs);
-  --menu-item-default-red-color: var(--color-dark-red-200);
-  --menu-item-default-red-icon-color: var(--color-dark-red-200);
-  --menu-item-disabled-red-color: var(--color-dark-red-200);
-  --menu-item-disabled-red-icon-color: var(--color-dark-red-200);
-  --menu-item-focus-border-color: var(--color-grey-1000);
-  --menu-item-focus-border-width: var(--border-width-2);
-  --menu-item-focus-red-color: var(--color-dark-red-200);
-  --menu-item-focus-red-icon-color: var(--color-dark-red-200);
-  --menu-item-gap: var(--space-75);
-  --menu-item-hover-background-color: var(--color-grey-100);
-  --menu-item-hover-red-background-color: var(--color-red-50);
-  --menu-item-hover-red-color: var(--color-dark-red-200);
-  --menu-item-hover-red-icon-color: var(--color-dark-red-200);
-  --menu-item-padding: var(--space-150);
-  --menu-padding: var(--space-50);
+  --h-menu-background-color: var(--h-color-white);
+  --h-menu-border-color: var(--h-color-warm-white-300);
+  --h-menu-border-width: var(--h-border-width-1);
+  --h-menu-gap: var(--h-space-50);
+  --h-menu-item-active-background-color: var(--h-color-grey-200);
+  --h-menu-item-active-red-background-color: var(--h-color-red-100);
+  --h-menu-item-border-radius: var(--h-border-radius-xs);
+  --h-menu-item-default-red-color: var(--h-color-dark-red-200);
+  --h-menu-item-default-red-icon-color: var(--h-color-dark-red-200);
+  --h-menu-item-disabled-red-color: var(--h-color-dark-red-200);
+  --h-menu-item-disabled-red-icon-color: var(--h-color-dark-red-200);
+  --h-menu-item-focus-border-color: var(--h-color-grey-1000);
+  --h-menu-item-focus-border-width: var(--h-border-width-2);
+  --h-menu-item-focus-red-color: var(--h-color-dark-red-200);
+  --h-menu-item-focus-red-icon-color: var(--h-color-dark-red-200);
+  --h-menu-item-gap: var(--h-space-75);
+  --h-menu-item-hover-background-color: var(--h-color-grey-100);
+  --h-menu-item-hover-red-background-color: var(--h-color-red-50);
+  --h-menu-item-hover-red-color: var(--h-color-dark-red-200);
+  --h-menu-item-hover-red-icon-color: var(--h-color-dark-red-200);
+  --h-menu-item-padding: var(--h-space-150);
+  --h-menu-padding: var(--h-space-50);
 }

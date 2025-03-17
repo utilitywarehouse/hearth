@@ -3,11 +3,11 @@
  */
 
 :root {
-  --link-color: var(--color-grey-1000);
-  --link-color-active: var(--color-grey-800);
-  --link-color-hover: var(--color-grey-900);
-  --link-gap: var(--space-25);
-  --link-inverted-color: var(--color-warm-white-50);
-  --link-inverted-color-active: var(--color-warm-white-200);
-  --link-inverted-color-hover: var(--color-warm-white-50);
+  --h-link-color: var(--h-color-grey-1000);
+  --h-link-color-active: var(--h-color-grey-800);
+  --h-link-color-hover: var(--h-color-grey-900);
+  --h-link-gap: var(--h-space-25);
+  --h-link-inverted-color: var(--h-color-warm-white-50);
+  --h-link-inverted-color-active: var(--h-color-warm-white-200);
+  --h-link-inverted-color-hover: var(--h-color-warm-white-50);
 }

@@ -3,7 +3,7 @@
  */
 
 :root {
-  --bottom-sheet-background-color: var(--color-white);
-  --bottom-sheet-border-radius: var(--border-radius-xl);
-  --bottom-sheet-padding: var(--space-200);
+  --h-bottom-sheet-background-color: var(--h-color-white);
+  --h-bottom-sheet-border-radius: var(--h-border-radius-xl);
+  --h-bottom-sheet-padding: var(--h-space-200);
 }

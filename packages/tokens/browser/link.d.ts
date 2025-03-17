@@ -1,11 +1,11 @@
 export declare const link: {
-  readonly color: 'var(--link-color)';
-  readonly colorActive: 'var(--link-color-active)';
-  readonly colorHover: 'var(--link-color-hover)';
-  readonly gap: 'var(--link-gap)';
+  readonly color: 'var(--h-link-color)';
+  readonly colorActive: 'var(--h-link-color-active)';
+  readonly colorHover: 'var(--h-link-color-hover)';
+  readonly gap: 'var(--h-link-gap)';
   readonly inverted: {
-    readonly color: 'var(--link-inverted-color)';
-    readonly colorActive: 'var(--link-inverted-color-active)';
-    readonly colorHover: 'var(--link-inverted-color-hover)';
+    readonly color: 'var(--h-link-inverted-color)';
+    readonly colorActive: 'var(--h-link-inverted-color-active)';
+    readonly colorHover: 'var(--h-link-inverted-color-hover)';
   };
 };

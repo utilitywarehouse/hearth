@@ -1,3 +1,3 @@
 export declare const skeleton: {
-  readonly loadingColor: 'var(--skeleton-loading-color)';
+  readonly loadingColor: 'var(--h-skeleton-loading-color)';
 };

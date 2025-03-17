@@ -1,41 +1,45 @@
 .hearth-Heading {
-  font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-grey-1000);
+  font-family: var(--h-font-family-heading);
+  font-weight: var(--h-font-weight-semibold);
+  color: var(--h-text-color);
+
+  &:where([data-inverted]) {
+    color: var(--h-text-color-inverted);
+  }
 
   &:where(.hearth-size-sm) {
-    font-size: var(--heading-sm-font-size-mobile);
-    line-height: var(--heading-sm-line-height-mobile);
+    font-size: var(--h-heading-sm-font-size-mobile);
+    line-height: var(--h-heading-sm-line-height-mobile);
   }
 
   &:where(.hearth-size-md) {
-    font-size: var(--heading-md-font-size-mobile);
-    line-height: var(--heading-md-line-height-mobile);
+    font-size: var(--h-heading-md-font-size-mobile);
+    line-height: var(--h-heading-md-line-height-mobile);
 
-    @media (--desktop) {
-      font-size: var(--heading-md-font-size-desktop);
-      line-height: var(--heading-md-line-height-desktop);
+    @media (--h-desktop) {
+      font-size: var(--h-heading-md-font-size-desktop);
+      line-height: var(--h-heading-md-line-height-desktop);
     }
   }
 
   &:where(.hearth-size-lg) {
-    font-size: var(--heading-lg-font-size-mobile);
-    line-height: var(--heading-lg-line-height-mobile);
+    font-size: var(--h-heading-lg-font-size-mobile);
+    line-height: var(--h-heading-lg-line-height-mobile);
 
-    @media (--desktop) {
-      font-size: var(--heading-lg-font-size-desktop);
-      line-height: var(--heading-lg-line-height-desktop);
+    @media (--h-desktop) {
+      font-size: var(--h-heading-lg-font-size-desktop);
+      line-height: var(--h-heading-lg-line-height-desktop);
     }
   }
 
   &:where(.hearth-size-xl) {
-    font-size: var(--heading-xl-font-size-mobile);
-    line-height: var(--heading-xl-line-height-mobile);
-    font-weight: var(--font-weight-bold);
+    font-size: var(--h-heading-xl-font-size-mobile);
+    line-height: var(--h-heading-xl-line-height-mobile);
+    font-weight: var(--h-font-weight-bold);
 
-    @media (--desktop) {
-      font-size: var(--heading-xl-font-size-desktop);
-      line-height: var(--heading-xl-line-height-desktop);
+    @media (--h-desktop) {
+      font-size: var(--h-heading-xl-font-size-desktop);
+      line-height: var(--h-heading-xl-line-height-desktop);
     }
   }
 }

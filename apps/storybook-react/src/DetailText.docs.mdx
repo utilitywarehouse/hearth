@@ -32,6 +32,18 @@ The size prop is responsive, so you can render different sizes at different brea
 
 <Canvas of={Stories.TextSizes} />
 
+## Color
+
+The text color of `DetailText` can be set to either `text`, `valid` or
+`invalid`. These colours will be overridden by the `inverted` prop.
+
+## Inverted
+
+When using `BodyText` on a darker background, specifically `uwPurple` &
+`darkPurple`, use the `inverted` prop to ensure colour contrast.
+
+<Canvas of={Stories.InvertedText} />
+
 ## API
 
 This component is based on the `span` element.

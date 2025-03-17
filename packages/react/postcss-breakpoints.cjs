@@ -15,7 +15,7 @@ const breakpoints = postcss
   .parse(breakpointsCss)
   .nodes.map(node => {
     if (node.type === 'atrule' && node.name === 'custom-media') {
-      const [_match, name, params] = node.params.match(/--(\w+)\s+(.+)/);
+      const [_match, name, params] = node.params.match(/--h-(\w+)\s+(.+)/);
       return { name, params };
     }
 
@@ -120,12 +120,12 @@ function updateClass(node, prefix) {
 function addPropertySuffixes(propertyNode, suffix) {
   propertyNode.nodes.map(node => {
     /**
-     * Should match custom properties with responsive --r prefix:
+     * Should match custom properties with responsive --h-r prefix:
      * ```
-     * --r-padding
+     * --h-r-padding
      * ```
      */
-    const propertyNameRegexp = /(--r-[a-z0-9-]+)/g;
+    const propertyNameRegexp = /(--h-r-[a-z0-9-]+)/g;
     if (propertyNameRegexp.test(node.value)) {
       node.value = node.value.replace(propertyNameRegexp, `$1-${suffix}`);
     }

@@ -1,11 +1,11 @@
 export const link = {
-  color: 'var(--link-color)',
-  colorActive: 'var(--link-color-active)',
-  colorHover: 'var(--link-color-hover)',
-  gap: 'var(--link-gap)',
+  color: 'var(--h-link-color)',
+  colorActive: 'var(--h-link-color-active)',
+  colorHover: 'var(--h-link-color-hover)',
+  gap: 'var(--h-link-gap)',
   inverted: {
-    color: 'var(--link-inverted-color)',
-    colorActive: 'var(--link-inverted-color-active)',
-    colorHover: 'var(--link-inverted-color-hover)',
+    color: 'var(--h-link-inverted-color)',
+    colorActive: 'var(--h-link-inverted-color-active)',
+    colorHover: 'var(--h-link-inverted-color-hover)',
   },
 };

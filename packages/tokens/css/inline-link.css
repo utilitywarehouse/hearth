@@ -3,10 +3,10 @@
  */
 
 :root {
-  --inline-link-color: var(--color-blue-700);
-  --inline-link-color-visited: var(--color-uw-purple);
-  --inline-link-inverted-color: var(--color-warm-white-50);
-  --inline-link-inverted-color-active: var(--color-warm-white-200);
-  --inline-link-inverted-color-hover: var(--color-warm-white-50);
-  --inline-link-inverted-color-visited: var(--color-warm-white-200);
+  --h-inline-link-color: var(--h-color-blue-700);
+  --h-inline-link-color-visited: var(--h-color-uw-purple);
+  --h-inline-link-inverted-color: var(--h-color-warm-white-50);
+  --h-inline-link-inverted-color-active: var(--h-color-warm-white-200);
+  --h-inline-link-inverted-color-hover: var(--h-color-warm-white-50);
+  --h-inline-link-inverted-color-visited: var(--h-color-warm-white-200);
 }
