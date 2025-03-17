@@ -20,8 +20,9 @@
     "changeset": "changeset",
     "ci:version": "changeset version && pnpm install --no-frozen-lockfile",
     "ci:publish": "pnpm run build && changeset publish",
-    "checks": "turbo run format lint:fix build --filter='./packages/*'",
-    "checks:ci": "turbo run format:ci lint build --filter='./packages/*'"
+    "checks": "turbo run format lint:fix --filter='./packages/*'",
+    "checks:build": "turbo run format lint:fix build --filter='./packages/*'",
+    "checks:ci": "turbo run format:ci lint --filter='./packages/*'"
   },
   "workspaces": [
     "packages/*",
