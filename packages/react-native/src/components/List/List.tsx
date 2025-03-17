@@ -88,7 +88,7 @@ const List = forwardRef<View, ListProps>(
           {container === 'none' ? (
             <View>{updatedChildren}</View>
           ) : (
-            <Card {...containerToCard} padding="none">
+            <Card {...containerToCard} noPadding>
               {updatedChildren}
             </Card>
           )}
