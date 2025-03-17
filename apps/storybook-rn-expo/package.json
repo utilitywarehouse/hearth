@@ -17,8 +17,7 @@
     "storybook": "cross-env STORYBOOK_ENABLED='true' expo start ",
     "storybook:ios": "cross-env STORYBOOK_ENABLED='true' expo start --ios",
     "storybook:android": "cross-env STORYBOOK_ENABLED='true' expo start --android",
-    "clean": "rm -rf node_modules storybook-static .turbo",
-    "postinstall": "if [ -d ./scripts ]; then cd ./scripts && npx turbo build; else echo 'Directory ./scripts does not exist'; fi"
+    "clean": "rm -rf node_modules storybook-static .turbo"
   },
   "dependencies": {
     "@expo/metro-runtime": "~4.0.1",
