@@ -1,8 +1,8 @@
 {
   "framework": "storybook",
-  "installCommand": "cd ../.. && pnpm install",
-  "buildCommand": "cd ../.. && pnpm build && cd apps/storybook-react && pnpm build:storybook",
-  "outputDirectory": "storybook-static",
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm build && pnpm build:storybook",
+  "outputDirectory": "apps/storybook-react/storybook-static",
   "headers": [
     {
       "source": "/(stories|metadata).json",
