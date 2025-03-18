@@ -1,4 +1,5 @@
 import { BackgroundColorProps } from '../../props/background-color.props';
+import { BorderProps } from '../../props/border.props';
 import { ColorProps } from '../../props/color.props';
 import { FlexItemProps } from '../../props/flex-item.props';
 import { GapProps } from '../../props/gap.props';
@@ -53,6 +54,7 @@ interface CommonGridProps
     GapProps,
     SpacingProps,
     SizeProps,
+    BorderProps,
     GridItemProps,
     FlexItemProps {
   as?: 'div' | 'span';

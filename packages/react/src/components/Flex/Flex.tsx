@@ -17,6 +17,7 @@ import { flexItemPropDefs } from '../../props/flex-item.props';
 import { spacingPropDefs } from '../../props/spacing.props';
 import { backgroundColorPropDefs } from '../../props/background-color.props';
 import { positionPropDefs } from '../../props/position.props';
+import { borderPropDefs } from '../../props/border.props';
 
 const componentName = 'Flex';
 const componentClassName = withGlobalPrefix(componentName);
@@ -39,6 +40,7 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
     backgroundColorPropDefs,
     sizePropDefs,
     gapPropDefs,
+    borderPropDefs,
     gridItemPropDefs,
     flexItemPropDefs,
     spacingPropDefs
