@@ -27,7 +27,7 @@ Divider.displayName = 'Divider';
 
 const styles = StyleSheet.create(theme => ({
   divider: {
-    backgroundColor: theme.components.divider.borderColor,
+    backgroundColor: theme.components.divider.color,
     variants: {
       orientation: {
         horizontal: {

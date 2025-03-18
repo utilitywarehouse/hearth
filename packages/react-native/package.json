@@ -11,6 +11,7 @@
   "scripts": {
     "clean": "rm -rf node_modules rm -rf build .turbo",
     "generateColours": "node ./scripts/generateColours.js",
+    "copyTokens": "node ./scripts/copyTokens.js",
     "lint:fix": "TIMING=1 eslint --fix --max-warnings 0",
     "lint": "TIMING=1 eslint --max-warnings 0",
     "build": "tsc",
@@ -35,8 +36,6 @@
     "@gluestack-ui/spinner": "0.1.14",
     "@gluestack-ui/switch": "0.1.22",
     "@gluestack-ui/textarea": "0.1.23",
-    "@utilitywarehouse/hearth-fonts": "workspace:^",
-    "@utilitywarehouse/hearth-tokens": "workspace:^",
     "nanoid": "^5.0.8"
   },
   "devDependencies": {
@@ -60,6 +59,8 @@
     "@storybook/react-vite": "^8.5.3",
     "@storybook/test": "^8.5.3",
     "@storybook/theming": "^8.5.3",
+    "@utilitywarehouse/hearth-fonts": "workspace:^",
+    "@utilitywarehouse/hearth-tokens": "workspace:^",
     "@vitejs/plugin-react": "^4.3.4",
     "metro-react-native-babel-preset": "^0.77.0",
     "prettier": "^3.3.3",

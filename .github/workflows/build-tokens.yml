@@ -15,12 +15,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🏗 Setup repo
+      - name: 🏗 Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 9.15.2
 
-      - name: 🏗 Checkout
+      - name: 🏗 Checkout code
         uses: actions/checkout@v4
         with:
           # Check out the PR's head branch with full history
