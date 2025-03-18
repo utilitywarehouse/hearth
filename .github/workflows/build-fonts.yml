@@ -1,4 +1,4 @@
-name: Build React
+name: Build Fonts
 on:
   pull_request:
     types: [opened, synchronize, reopened]
