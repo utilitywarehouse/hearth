@@ -1,21 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { colors } from '@utilitywarehouse/colour-system';
-
 import { BodyText, Box, Divider, Flex, Heading, Strong } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Divider> = {
   title: 'Stories / Divider',
   component: Divider,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Used to provide a visual break and semantically divide content. Supports vertical and horizontal orientations. Vertical dividers will only be visible when contained inside an element with display set to `flex` or `grid`.',
+      },
+    },
+  },
   argTypes: {
     orientation: { options: ['horizontal', 'vertical'], control: { type: 'radio' } },
     decorative: { control: { type: 'boolean' } },
-    color: { control: { type: 'text' } },
   },
   args: {
     orientation: 'horizontal',
     decorative: true,
-    color: undefined,
   },
 };
 
@@ -72,22 +76,6 @@ export const KitchenSink: Story = {
             </BodyText>
           </Flex>
         </Flex>
-      </Flex>
-    );
-  },
-};
-
-export const CustomColor: Story = {
-  render: () => {
-    return (
-      <Flex direction="column" gap="400" width="800px" padding="200">
-        <Divider color={colors.pink500} />
-        <BodyText>First item </BodyText>
-        <Divider color={colors.pink500} />
-        <BodyText>Second item </BodyText>
-        <Divider color={colors.pink500} />
-        <BodyText>Third item </BodyText>
-        <Divider color={colors.pink500} />
       </Flex>
     );
   },
