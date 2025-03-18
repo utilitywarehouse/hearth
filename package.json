@@ -9,6 +9,8 @@
     "setup": "corepack enable && corepack prepare pnpm@9.15.2 --activate",
     "build": "turbo build",
     "build:react": "turbo run @utilitywarehouse/hearth-react#build @utilitywarehouse/hearth-css-reset#build storybook-react#build:storybook",
+    "build:fonts": "turbo run @utilitywarehouse/hearth-fonts#build storybook-fonts#build:storybook",
+    "build:css-reset": "turbo run @utilitywarehouse/hearth-css-reset#build",
     "build:storybook": "turbo build build:storybook",
     "preinstall": "npx only-allow pnpm",
     "dev:react": "turbo run @utilitywarehouse/hearth-react#dev storybook-react#dev",
