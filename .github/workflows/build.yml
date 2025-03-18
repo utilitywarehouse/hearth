@@ -1,14 +1,16 @@
-name: Build everything
+name: Build React
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    paths-ignore:
-      - 'packages/tokens/**'
+    paths:
+      - 'packages/react/**'
+      - 'apps/storybook-react/**'
   push:
     branches:
       - main
-    paths-ignore:
-      - 'packages/tokens/**'
+    paths:
+      - 'packages/react/**'
+      - 'apps/storybook-react/**'
 
 jobs:
   checks:
@@ -27,9 +29,6 @@ jobs:
       - run: pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_PUBLISH_TOKEN }}
-      - run: pnpm build
-        env:
-          NODE_OPTIONS: '--max_old_space_size=4096'
-      - run: pnpm build:storybook
+      - run: pnpm build:react
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
