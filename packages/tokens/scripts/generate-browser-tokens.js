@@ -5,6 +5,7 @@ import { DELIMITER, normalizeTokenPath } from './helpers/normalize-token.js';
 import { camelCase } from './helpers/camel-case.js';
 import { kebabCase } from './helpers/kebab-case.js';
 import merge from 'lodash.merge';
+import { logWarningLevels } from 'style-dictionary/enums';
 
 const BUILD_PATH = './src/browser/';
 const PREFIX = 'h';
@@ -41,7 +42,6 @@ StyleDictionary.registerFormat({
     let tokensName = file.destination.split('.')[0];
     // we assume that these tokens are filtered before they get here
     dictionary.allTokens.forEach(token => {
-      // console.log({ token });
       // normalize the tokens in the same way they are for the CSS
       const normalizedPath = normalizeTokenPath(token);
       // this will give us the generated CSS variable
@@ -68,7 +68,6 @@ StyleDictionary.registerFormat({
       // deep merge the token into the tokens object
       merge(tokens, tokenObject);
     });
-    // console.log({ tokens });
     // write the tokens to file
 
     if (tokensName === 'switch') {
@@ -92,6 +91,9 @@ export function generateBrowserTokens() {
   console.log('Generating Browser tokens...');
   return [
     new StyleDictionary({
+      // disabled logging warnings as there is lot of noise from token clashes
+      // which we can safely ignore
+      log: { warnings: logWarningLevels.disabled }, // 'warn' | 'error' | 'disabled'
       source: ['./raw/*.json'],
       platforms: {
         browser: {
