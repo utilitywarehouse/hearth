@@ -10,6 +10,7 @@ export const modal = {
   },
   gap: 'var(--h-modal-gap)',
   minWidth: 'var(--h-modal-min-width)',
-  padding: 'var(--h-modal-padding)',
+  paddingDesktop: 'var(--h-modal-padding-desktop)',
+  paddingMobile: 'var(--h-modal-padding-mobile)',
   width: 'var(--h-modal-width)',
 } as const;

@@ -10,6 +10,7 @@ export declare const modal: {
   };
   readonly gap: 'var(--h-modal-gap)';
   readonly minWidth: 'var(--h-modal-min-width)';
-  readonly padding: 'var(--h-modal-padding)';
+  readonly paddingDesktop: 'var(--h-modal-padding-desktop)';
+  readonly paddingMobile: 'var(--h-modal-padding-mobile)';
   readonly width: 'var(--h-modal-width)';
 };

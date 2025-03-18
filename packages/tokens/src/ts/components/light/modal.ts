@@ -14,6 +14,7 @@ export default {
   },
   gap: 24,
   minWidth: 375,
-  padding: 16,
+  paddingDesktop: 24,
+  paddingMobile: 16,
   width: 600,
 } as const;

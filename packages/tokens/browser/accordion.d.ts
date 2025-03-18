@@ -1,10 +1,10 @@
 export declare const accordion: {
-  readonly borderColor: 'var(--h-accordion-border-color)';
   readonly gap: 'var(--h-accordion-gap)';
   readonly heading: {
     readonly gap: 'var(--h-accordion-heading-gap)';
   };
   readonly item: {
+    readonly backgroundColorActive: 'var(--h-accordion-item-background-color-active)';
     readonly backgroundColorHover: 'var(--h-accordion-item-background-color-hover)';
     readonly content: {
       readonly gap: 'var(--h-accordion-item-content-gap)';
@@ -19,5 +19,7 @@ export declare const accordion: {
       readonly paddingVertical: 'var(--h-accordion-item-heading-padding-vertical)';
     };
   };
+  readonly maxWidth: 'var(--h-accordion-max-width)';
+  readonly minWidth: 'var(--h-accordion-min-width)';
   readonly padding: 'var(--h-accordion-padding)';
 };

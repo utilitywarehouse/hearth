@@ -1,10 +1,11 @@
 /* eslint-disable  @typescript-eslint/no-unsafe-assignment */
-import React, { forwardRef, PropsWithChildren, useMemo } from 'react';
+import React, { forwardRef, PropsWithChildren, useMemo, useEffect } from 'react';
 import type { BaseButtonProps } from './Button.props';
-import { Pressable, ViewStyle } from 'react-native';
+import { Pressable, ViewStyle, GestureResponderEvent } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { ButtonContext } from './Button.context';
 import { PressableRef } from '../../types';
+import { useCardActionContext, useCardContext } from '../Card';
 
 const ButtonRoot = forwardRef<
   PressableRef,
@@ -18,19 +19,35 @@ const ButtonRoot = forwardRef<
       size = 'md',
       inverted = false,
       states,
+      onPress,
       ...props
     },
     ref
   ) => {
     const { active, disabled = false } = states || {};
-    styles.useVariants({ variant, size, colorScheme, disabled, inverted, active });
+    const { pressed } = useCardActionContext();
+
+    styles.useVariants({
+      variant,
+      size,
+      colorScheme,
+      disabled,
+      inverted,
+      active: active || pressed,
+    });
+
     const value = useMemo(
       () => ({ colorScheme, variant, size, inverted, disabled, active }),
       [colorScheme, variant, size, inverted, disabled, active]
     );
     return (
       <ButtonContext.Provider value={value}>
-        <Pressable ref={ref} {...props} style={[styles.container, props.style as ViewStyle]}>
+        <Pressable
+          ref={ref}
+          {...props}
+          style={[styles.container, props.style as ViewStyle]}
+          onPress={onPress}
+        >
           {children}
         </Pressable>
       </ButtonContext.Provider>

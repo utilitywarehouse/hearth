@@ -33,6 +33,8 @@ export const select = {
   gap: 'var(--h-select-gap)',
   gapContainer: 'var(--h-select-gap-container)',
   height: 'var(--h-select-height)',
+  maxWidth: 'var(--h-select-max-width)',
+  minWidth: 'var(--h-select-min-width)',
   paddingHorizontal: 'var(--h-select-padding-horizontal)',
   paddingVertical: 'var(--h-select-padding-vertical)',
   validation: {

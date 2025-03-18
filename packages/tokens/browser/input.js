@@ -14,6 +14,8 @@ export const input = {
   },
   gap: 'var(--h-input-gap)',
   height: 'var(--h-input-height)',
+  maxWidth: 'var(--h-input-max-width)',
+  minWidth: 'var(--h-input-min-width)',
   paddingHorizontal: 'var(--h-input-padding-horizontal)',
   paddingVertical: 'var(--h-input-padding-vertical)',
   textArea: {

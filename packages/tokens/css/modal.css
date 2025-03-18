@@ -10,6 +10,7 @@
   --h-modal-content-gap: var(--h-space-150);
   --h-modal-gap: var(--h-space-300);
   --h-modal-min-width: 375;
-  --h-modal-padding: var(--h-space-200);
+  --h-modal-padding-desktop: var(--h-space-300);
+  --h-modal-padding-mobile: var(--h-space-200);
   --h-modal-width: 600;
 }

@@ -4,7 +4,7 @@
 export default {
   checked: {
     backgroundColor: '#7a42c8',
-    backgroundColorActive: '#4b2475',
+    backgroundColorActive: '#3f2475',
     backgroundColorHover: '#572e9e',
     iconColor: '#7a42c8',
   },

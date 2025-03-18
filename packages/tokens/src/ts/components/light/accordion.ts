@@ -3,25 +3,27 @@
  */
 
 export default {
-  borderColor: '#d4d2c0',
   gap: 12,
   heading: {
     gap: 2,
   },
   item: {
+    backgroundColorActive: '#f1efe4',
     backgroundColorHover: '#f7f6eb',
     content: {
       gap: 16,
       paddingBottom: 16,
-      paddingHorizontal: 0,
+      paddingHorizontal: 4,
       paddingTop: 4,
     },
     gap: 0,
     heading: {
       gap: 16,
-      paddingHorizontal: 0,
+      paddingHorizontal: 4,
       paddingVertical: 16,
     },
   },
+  maxWidth: 680,
+  minWidth: 288,
   padding: 0,
 } as const;

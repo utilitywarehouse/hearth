@@ -3,6 +3,6 @@
  */
 
 :root {
-  --h-divider-border-color: var(--h-color-warm-white-300);
   --h-divider-border-width: var(--h-border-width-1);
+  --h-divider-color: var(--h-color-warm-white-300);
 }

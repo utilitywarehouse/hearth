@@ -5,6 +5,7 @@ import { GapProps } from '../../props/gap.props';
 import { GridItemProps } from '../../props/grid-item.props';
 import { MarginProps } from '../../props/margin.props';
 import { PaddingProps } from '../../props/padding.props';
+import { PositionProps } from '../../props/position.props';
 import { PropDef } from '../../props/prop-def';
 import { SizeProps } from '../../props/size.props';
 import { SpacingProps } from '../../props/spacing.props';
@@ -53,7 +54,8 @@ export const flexPropDefs = {
 };
 
 interface CommonFlexProps
-  extends ColorProps,
+  extends PositionProps,
+    ColorProps,
     BackgroundColorProps,
     PaddingProps,
     MarginProps,
