@@ -2,6 +2,9 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Box, colorTokens, Grid, spaceTokens } from '@utilitywarehouse/hearth-react';
 
 const columnsValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'] as const;
+const borderStyleValues = ['none', 'solid'] as const;
+const borderWidthValues = ['0', '1', '2'] as const;
+const borderRadiusValues = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'] as const;
 
 const meta: Meta<typeof Grid> = {
   title: 'Stories / Grid',
@@ -21,6 +24,26 @@ const meta: Meta<typeof Grid> = {
     gap: { options: spaceTokens, control: { type: 'select' } },
     color: { options: colorTokens, control: { type: 'select' } },
     backgroundColor: { control: { type: 'text' } },
+    borderColor: { options: colorTokens, control: { type: 'select' } },
+    borderStyle: { options: borderStyleValues, control: { type: 'select' } },
+    borderWidth: { options: borderWidthValues, control: { type: 'select' } },
+    borderTopColor: { options: colorTokens, control: { type: 'select' } },
+    borderTopStyle: { options: borderStyleValues, control: { type: 'select' } },
+    borderTopWidth: { options: borderWidthValues, control: { type: 'select' } },
+    borderRightColor: { options: colorTokens, control: { type: 'select' } },
+    borderRightStyle: { options: borderStyleValues, control: { type: 'select' } },
+    borderRightWidth: { options: borderWidthValues, control: { type: 'select' } },
+    borderBottomColor: { options: colorTokens, control: { type: 'select' } },
+    borderBottomStyle: { options: borderStyleValues, control: { type: 'select' } },
+    borderBottomWidth: { options: borderWidthValues, control: { type: 'select' } },
+    borderLeftColor: { options: colorTokens, control: { type: 'select' } },
+    borderLeftStyle: { options: borderStyleValues, control: { type: 'select' } },
+    borderLeftWidth: { options: borderWidthValues, control: { type: 'select' } },
+    borderRadius: { options: borderRadiusValues, control: { type: 'select' } },
+    borderTopLeftRadius: { options: borderRadiusValues, control: { type: 'select' } },
+    borderTopRightRadius: { options: borderRadiusValues, control: { type: 'select' } },
+    borderBottomRightRadius: { options: borderRadiusValues, control: { type: 'select' } },
+    borderBottomLeftRadius: { options: borderRadiusValues, control: { type: 'select' } },
     position: {
       options: ['static', 'relative', 'absolute', 'fixed', 'sticky'],
       control: { type: 'select' },
