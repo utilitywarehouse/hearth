@@ -17,18 +17,23 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - uses: pnpm/action-setup@v4
+      - name: Setup pnpm 🛠️
+        uses: pnpm/action-setup@v4
         with:
           version: 9.15.2
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout code 📥
+        uses: actions/checkout@v4
+      - name: Setup Node.js environment 🌐
+        uses: actions/setup-node@v4
         with:
           node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
-      - run: pnpm install
+      - name: Install dependencies 📦
+        run: pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_PUBLISH_TOKEN }}
-      - run: pnpm build:react
+      - name: Build React project ⚛️
+        run: pnpm build:react
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
