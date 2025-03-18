@@ -667,12 +667,6 @@ importers:
       '@gluestack-ui/textarea':
         specifier: 0.1.23
         version: 0.1.23(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
-      '@utilitywarehouse/hearth-fonts':
-        specifier: workspace:^
-        version: link:../fonts
-      '@utilitywarehouse/hearth-tokens':
-        specifier: workspace:^
-        version: link:../tokens
       nanoid:
         specifier: ^5.0.8
         version: 5.0.9
@@ -740,6 +734,9 @@ importers:
       '@storybook/theming':
         specifier: ^8.5.3
         version: 8.5.3(storybook@8.5.3(prettier@3.4.2))
+      '@utilitywarehouse/hearth-fonts':
+        specifier: workspace:^
+        version: link:../fonts
       '@vitejs/plugin-react':
         specifier: ^4.3.4
         version: 4.3.4(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0))
@@ -19438,7 +19435,7 @@ snapshots:
   metro-source-map@0.81.0:
     dependencies:
       '@babel/traverse': 7.26.7
-      '@babel/traverse--for-generate-function-map': '@babel/traverse@7.26.7'
+      '@babel/traverse--for-generate-function-map': '@babel/traverse@7.26.10'
       '@babel/types': 7.26.7
       flow-enums-runtime: 0.0.6
       invariant: 2.2.4
