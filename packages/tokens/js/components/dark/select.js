@@ -36,6 +36,8 @@ export default {
   gap: 6,
   gapContainer: 2,
   height: 48,
+  maxWidth: 504,
+  minWidth: 288,
   paddingHorizontal: 16,
   paddingVertical: 12,
   validation: {

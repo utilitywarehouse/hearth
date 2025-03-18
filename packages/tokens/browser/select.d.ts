@@ -33,6 +33,8 @@ export declare const select: {
   readonly gap: 'var(--h-select-gap)';
   readonly gapContainer: 'var(--h-select-gap-container)';
   readonly height: 'var(--h-select-height)';
+  readonly maxWidth: 'var(--h-select-max-width)';
+  readonly minWidth: 'var(--h-select-min-width)';
   readonly paddingHorizontal: 'var(--h-select-padding-horizontal)';
   readonly paddingVertical: 'var(--h-select-padding-vertical)';
   readonly validation: {

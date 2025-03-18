@@ -17,6 +17,8 @@ export default {
   },
   gap: 6,
   height: 48,
+  maxWidth: 504,
+  minWidth: 200,
   paddingHorizontal: 16,
   paddingVertical: 12,
   textArea: {

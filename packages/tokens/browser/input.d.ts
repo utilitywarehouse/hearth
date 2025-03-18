@@ -14,6 +14,8 @@ export declare const input: {
   };
   readonly gap: 'var(--h-input-gap)';
   readonly height: 'var(--h-input-height)';
+  readonly maxWidth: 'var(--h-input-max-width)';
+  readonly minWidth: 'var(--h-input-min-width)';
   readonly paddingHorizontal: 'var(--h-input-padding-horizontal)';
   readonly paddingVertical: 'var(--h-input-padding-vertical)';
   readonly textArea: {

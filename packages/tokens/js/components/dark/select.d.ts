@@ -36,6 +36,8 @@ declare const _default: {
   readonly gap: 6;
   readonly gapContainer: 2;
   readonly height: 48;
+  readonly maxWidth: 504;
+  readonly minWidth: 288;
   readonly paddingHorizontal: 16;
   readonly paddingVertical: 12;
   readonly validation: {

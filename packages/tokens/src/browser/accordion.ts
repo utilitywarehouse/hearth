@@ -1,10 +1,10 @@
 export const accordion = {
-  borderColor: 'var(--h-accordion-border-color)',
   gap: 'var(--h-accordion-gap)',
   heading: {
     gap: 'var(--h-accordion-heading-gap)',
   },
   item: {
+    backgroundColorActive: 'var(--h-accordion-item-background-color-active)',
     backgroundColorHover: 'var(--h-accordion-item-background-color-hover)',
     content: {
       gap: 'var(--h-accordion-item-content-gap)',
@@ -19,5 +19,7 @@ export const accordion = {
       paddingVertical: 'var(--h-accordion-item-heading-padding-vertical)',
     },
   },
+  maxWidth: 'var(--h-accordion-max-width)',
+  minWidth: 'var(--h-accordion-min-width)',
   padding: 'var(--h-accordion-padding)',
 } as const;
