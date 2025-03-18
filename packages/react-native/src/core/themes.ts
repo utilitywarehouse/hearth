@@ -12,7 +12,7 @@ import {
   letterSpacing,
   lineHeight,
   space,
-} from '@utilitywarehouse/hearth-tokens/js';
+} from '../tokens';
 
 const shared = {
   platform: Platform.OS,
