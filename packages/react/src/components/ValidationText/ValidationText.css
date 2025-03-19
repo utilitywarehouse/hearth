@@ -1,0 +1,18 @@
+.hearth-ValidationText {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--h-space-50);
+
+  & :where(svg) {
+    height: 20px;
+    width: 20px;
+  }
+
+  &:where([data-status='valid']) {
+    color: var(--h-text-color-valid);
+  }
+
+  &:where([data-status='invalid']) {
+    color: var(--h-text-color-invalid);
+  }
+}
