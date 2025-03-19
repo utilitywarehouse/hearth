@@ -24,7 +24,7 @@ interface CommonBodyTextProps extends TextAlignProps, TextTransformProps, TextWr
    * Cannot be used in combination with `asChild`.
    * @default p
    */
-  as?: 'p' | 'div' | 'span';
+  as?: 'p' | 'div' | 'span' | 'label';
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    */
@@ -54,5 +54,6 @@ interface CommonBodyTextProps extends TextAlignProps, TextTransformProps, TextWr
 type BodyTextDivProps = { as: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
 type BodyTextSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
 type BodyTextPProps = { as?: 'p' } & ComponentPropsWithout<'p', RemovedProps>;
+type BodyTextLabelProps = { as: 'label' } & ComponentPropsWithout<'label', RemovedProps>;
 export type BodyTextProps = CommonBodyTextProps &
-  (BodyTextSpanProps | BodyTextDivProps | BodyTextPProps);
+  (BodyTextSpanProps | BodyTextDivProps | BodyTextPProps | BodyTextLabelProps);
