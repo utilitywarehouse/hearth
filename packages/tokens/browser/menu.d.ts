@@ -2,6 +2,7 @@ export declare const menu: {
   readonly backgroundColor: 'var(--h-menu-background-color)';
   readonly borderColor: 'var(--h-menu-border-color)';
   readonly borderWidth: 'var(--h-menu-border-width)';
+  readonly contentGap: 'var(--h-menu-content-gap)';
   readonly gap: 'var(--h-menu-gap)';
   readonly item: {
     readonly active: {
@@ -42,5 +43,4 @@ export declare const menu: {
     };
     readonly padding: 'var(--h-menu-item-padding)';
   };
-  readonly padding: 'var(--h-menu-padding)';
 };

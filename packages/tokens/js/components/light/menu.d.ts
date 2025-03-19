@@ -5,6 +5,7 @@ declare const _default: {
   readonly backgroundColor: '#ffffff';
   readonly borderColor: '#d4d2c0';
   readonly borderWidth: 1;
+  readonly contentGap: 8;
   readonly gap: 4;
   readonly item: {
     readonly active: {
@@ -43,8 +44,7 @@ declare const _default: {
         readonly iconColor: '#a4281e';
       };
     };
-    readonly padding: 12;
+    readonly padding: 4;
   };
-  readonly padding: 4;
 };
 export default _default;

@@ -11,7 +11,6 @@
   --h-input-border-radius: var(--h-border-radius-md);
   --h-input-border-width: var(--h-border-width-1);
   --h-input-border-width-focused: var(--h-border-width-2);
-  --h-input-color-placeholder: var(--h-color-grey-500);
   --h-input-currency-gap: var(--h-space-25);
   --h-input-currency-height: 60;
   --h-input-gap: var(--h-space-75);
@@ -20,6 +19,7 @@
   --h-input-min-width: 200;
   --h-input-padding-horizontal: var(--h-space-200);
   --h-input-padding-vertical: var(--h-space-150);
+  --h-input-placeholder-color: var(--h-color-grey-500);
   --h-input-text-area-height: 96;
   --h-input-text-area-resize-icon-color: var(--h-color-grey-500);
   --h-input-validation-gap: var(--h-space-25);

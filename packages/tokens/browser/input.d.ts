@@ -7,7 +7,6 @@ export declare const input: {
   readonly borderRadius: 'var(--h-input-border-radius)';
   readonly borderWidth: 'var(--h-input-border-width)';
   readonly borderWidthFocused: 'var(--h-input-border-width-focused)';
-  readonly colorPlaceholder: 'var(--h-input-color-placeholder)';
   readonly currency: {
     readonly gap: 'var(--h-input-currency-gap)';
     readonly height: 'var(--h-input-currency-height)';
@@ -18,6 +17,7 @@ export declare const input: {
   readonly minWidth: 'var(--h-input-min-width)';
   readonly paddingHorizontal: 'var(--h-input-padding-horizontal)';
   readonly paddingVertical: 'var(--h-input-padding-vertical)';
+  readonly placeholderColor: 'var(--h-input-placeholder-color)';
   readonly textArea: {
     readonly height: 'var(--h-input-text-area-height)';
     readonly resizeIconColor: 'var(--h-input-text-area-resize-icon-color)';
