@@ -68,3 +68,6 @@ export type { SelectableCardProps } from './components/SelectableCard/Selectable
 
 export { Divider } from './components/Divider/Divider';
 export type { DividerProps } from './components/Divider/Divider.props';
+
+export { Label } from './components/Label/Label';
+export type { LabelProps } from './components/Label/Label.props';

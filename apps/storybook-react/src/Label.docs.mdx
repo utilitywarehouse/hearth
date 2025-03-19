@@ -1,0 +1,24 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+
+import * as Stories from './Label.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Typography / Label" />
+
+<DocsHeader componentName="Label" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## API
+
+This component is based on the `label` element.
+
+| Prop                | Type                |
+| ------------------- | ------------------- |
+| `as`                | `"label" \| "span"` |
+| `disabled`          | `boolean`           |
+| `disableUserSelect` | `boolean`           |
