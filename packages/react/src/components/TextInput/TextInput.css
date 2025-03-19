@@ -18,15 +18,18 @@
   border-color: var(--h-input-border-color);
   border-width: var(--h-input-border-width);
   border-style: solid;
+
   --h-input-border-color-focus: var(--h-input-border-color);
 
   &:where([data-validation-status='valid']) {
     border-color: var(--h-input-border-color-valid);
+
     --h-input-border-color-focus: var(--h-input-border-color-valid);
   }
 
   &:where([data-validation-status='invalid']) {
     border-color: var(--h-input-border-color-invalid);
+
     --h-input-border-color-focus: var(--h-input-border-color-invalid);
   }
 

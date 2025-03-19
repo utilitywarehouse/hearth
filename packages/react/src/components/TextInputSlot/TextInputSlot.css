@@ -10,10 +10,13 @@
   &:where([data-placement='prefix']),
   &:where(:not([data-placement='suffix'])) {
     order: -1;
+
     /* margin-right: 0; */
   }
+
   &:where([data-placement='suffix']) {
     order: 1;
+
     /* margin-left: 0; */
   }
 }
