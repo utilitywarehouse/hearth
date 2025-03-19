@@ -17,7 +17,7 @@ type LabelElement = ElementRef<'label'>;
 export const Label = React.forwardRef<LabelElement, LabelProps>((props, ref) => {
   const {
     children,
-    as: Tag = 'label',
+    as: tag = 'label',
     disabled,
     disableUserSelect,
     className,
@@ -26,15 +26,15 @@ export const Label = React.forwardRef<LabelElement, LabelProps>((props, ref) => 
 
   return (
     <BodyText
-      asChild
+      as={tag}
+      ref={ref}
       size="md"
       className={clsx(componentClassName, className)}
       data-disabled={disabled ? '' : undefined}
       data-disable-user-select={disableUserSelect ? '' : undefined}
+      {...labelProps}
     >
-      <Tag ref={ref} {...labelProps}>
-        {children}
-      </Tag>
+      {children}
     </BodyText>
   );
 });

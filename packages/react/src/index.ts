@@ -71,3 +71,6 @@ export type { DividerProps } from './components/Divider/Divider.props';
 
 export { Label } from './components/Label/Label';
 export type { LabelProps } from './components/Label/Label.props';
+
+export { SupportingText } from './components/SupportingText/SupportingText';
+export type { SupportingTextProps } from './components/SupportingText/SupportingText.props';

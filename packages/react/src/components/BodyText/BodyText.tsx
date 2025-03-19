@@ -14,7 +14,7 @@ import { textWrapPropDefs } from '../../props/text-wrap.props';
 const componentName = 'BodyText';
 const componentClassName = withGlobalPrefix(componentName);
 
-type BodyTextElement = ElementRef<'p'>;
+type BodyTextElement = ElementRef<'span'>;
 
 export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props, ref) => {
   const {

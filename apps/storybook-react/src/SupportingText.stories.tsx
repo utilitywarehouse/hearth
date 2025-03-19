@@ -1,13 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Label } from '@utilitywarehouse/hearth-react';
+import { SupportingText } from '@utilitywarehouse/hearth-react';
 
-const meta: Meta<typeof Label> = {
-  title: 'Stories / Label',
-  component: Label,
+const meta: Meta<typeof SupportingText> = {
+  title: 'Stories / SupportingText',
+  component: SupportingText,
   parameters: {
     docs: {
       description: {
-        component: '`Label` is used for labelling form elements, such as inputs.',
+        component:
+          '`SupportingText` should be used with form field components to display supporting text.',
       },
     },
   },
@@ -15,16 +16,14 @@ const meta: Meta<typeof Label> = {
     children: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
     disableUserSelect: { control: { type: 'boolean' } },
-    as: { control: { type: 'radio' }, options: ['label', 'span'] },
   },
   args: {
-    children: 'Hearth Label',
+    children: 'Hearth supporting text',
     disabled: false,
-    disableUserSelect: false,
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof Label>;
+type Story = StoryObj<typeof SupportingText>;
 
 export const Playground: Story = {};

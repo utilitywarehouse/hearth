@@ -1,0 +1,23 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+
+import * as Stories from './SupportingText.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Typography / SupportingText" />
+
+<DocsHeader componentName="SupportingText" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## API
+
+This component is based on the `span` element.
+
+| Prop                | Type      |
+| ------------------- | --------- |
+| `disabled`          | `boolean` |
+| `disableUserSelect` | `boolean` |
