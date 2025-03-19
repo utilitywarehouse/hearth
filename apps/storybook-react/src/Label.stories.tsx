@@ -1,22 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
-import { Label } from './Label';
+import { Label } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Label> = {
   title: 'Stories / Label',
   component: Label,
   parameters: {
-    layout: 'centered',
+    docs: {
+      description: {
+        component: '`Label` is used for labelling form elements, such as inputs.',
+      },
+    },
   },
   argTypes: {
     children: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
-    nested: { control: { type: 'boolean' } },
     disableUserSelect: { control: { type: 'boolean' } },
   },
   args: {
     children: 'Hearth Label',
-    nested: false,
     disabled: false,
     disableUserSelect: false,
   },
@@ -25,4 +26,4 @@ const meta: Meta<typeof Label> = {
 export default meta;
 type Story = StoryObj<typeof Label>;
 
-export const Workshop: Story = {};
+export const Playground: Story = {};
