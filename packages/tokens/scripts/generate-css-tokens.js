@@ -25,6 +25,7 @@ StyleDictionary.registerFormat({
 @import '../css/font.css';
 @import '../css/icon-button.css';
 @import '../css/inline-link.css';
+@import '../css/input.css';
 @import '../css/layout.css';
 @import '../css/letter-spacing.css';
 @import '../css/line-height.css';

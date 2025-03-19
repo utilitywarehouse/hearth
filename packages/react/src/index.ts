@@ -80,3 +80,6 @@ export type { SupportingTextProps } from './components/SupportingText/Supporting
 
 export { ValidationText } from './components/ValidationText/ValidationText';
 export type { ValidationTextProps } from './components/ValidationText/ValidationText.props';
+
+export { TextField } from './components/TextField/TextField';
+export type { TextFieldProps } from './components/TextField/TextField.props';
