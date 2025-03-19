@@ -6,6 +6,7 @@
   --h-menu-background-color: var(--h-color-white);
   --h-menu-border-color: var(--h-color-warm-white-300);
   --h-menu-border-width: var(--h-border-width-1);
+  --h-menu-content-gap: var(--h-space-100);
   --h-menu-gap: var(--h-space-50);
   --h-menu-item-active-background-color: var(--h-color-grey-200);
   --h-menu-item-active-red-background-color: var(--h-color-red-100);
@@ -23,6 +24,5 @@
   --h-menu-item-hover-red-background-color: var(--h-color-red-50);
   --h-menu-item-hover-red-color: var(--h-color-dark-red-200);
   --h-menu-item-hover-red-icon-color: var(--h-color-dark-red-200);
-  --h-menu-item-padding: var(--h-space-150);
-  --h-menu-padding: var(--h-space-50);
+  --h-menu-item-padding: var(--h-space-50);
 }

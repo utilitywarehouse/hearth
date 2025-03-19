@@ -8,13 +8,12 @@ export default {
   },
   backgroundColor: '#ffffff',
   borderRadius: 16,
-  containerMaxWidth: 500,
   content: {
     gap: 12,
   },
   gap: 24,
-  minWidth: 375,
-  paddingDesktop: 24,
-  paddingMobile: 16,
-  width: 600,
+  maxWidth: 680,
+  minWidth: 504,
+  padding: 48,
+  width: 680,
 } as const;

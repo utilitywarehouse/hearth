@@ -8,6 +8,8 @@
   --h-dialog-border-radius: var(--h-border-radius-xl);
   --h-dialog-content-gap: var(--h-space-150);
   --h-dialog-gap: var(--h-space-300);
+  --h-dialog-max-width: 680;
+  --h-dialog-min-width: 504;
   --h-dialog-padding: var(--h-space-300);
-  --h-dialog-width: 600;
+  --h-dialog-width: 680;
 }

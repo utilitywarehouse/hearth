@@ -4,13 +4,12 @@ export declare const modal: {
   };
   readonly backgroundColor: 'var(--h-modal-background-color)';
   readonly borderRadius: 'var(--h-modal-border-radius)';
-  readonly containerMaxWidth: 'var(--h-modal-container-max-width)';
   readonly content: {
     readonly gap: 'var(--h-modal-content-gap)';
   };
   readonly gap: 'var(--h-modal-gap)';
+  readonly maxWidth: 'var(--h-modal-max-width)';
   readonly minWidth: 'var(--h-modal-min-width)';
-  readonly paddingDesktop: 'var(--h-modal-padding-desktop)';
-  readonly paddingMobile: 'var(--h-modal-padding-mobile)';
+  readonly padding: 'var(--h-modal-padding)';
   readonly width: 'var(--h-modal-width)';
 };

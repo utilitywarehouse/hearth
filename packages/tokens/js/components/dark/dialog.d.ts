@@ -11,7 +11,9 @@ declare const _default: {
     readonly gap: 12;
   };
   readonly gap: 24;
+  readonly maxWidth: 680;
+  readonly minWidth: 504;
   readonly padding: 24;
-  readonly width: 600;
+  readonly width: 680;
 };
 export default _default;

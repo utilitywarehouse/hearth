@@ -2,6 +2,7 @@ export const menu = {
   backgroundColor: 'var(--h-menu-background-color)',
   borderColor: 'var(--h-menu-border-color)',
   borderWidth: 'var(--h-menu-border-width)',
+  contentGap: 'var(--h-menu-content-gap)',
   gap: 'var(--h-menu-gap)',
   item: {
     active: {
@@ -42,5 +43,4 @@ export const menu = {
     },
     padding: 'var(--h-menu-item-padding)',
   },
-  padding: 'var(--h-menu-padding)',
 };
