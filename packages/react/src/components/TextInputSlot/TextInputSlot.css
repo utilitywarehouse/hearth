@@ -1,0 +1,19 @@
+.hearth-TextInputSlot {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  cursor: text;
+  gap: var(--h-input-gap);
+
+  /* A slot that is not a right-side slot goes on the left */
+  &:where([data-placement='prefix']),
+  &:where(:not([data-placement='suffix'])) {
+    order: -1;
+    /* margin-right: 0; */
+  }
+  &:where([data-placement='suffix']) {
+    order: 1;
+    /* margin-left: 0; */
+  }
+}

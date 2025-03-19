@@ -20,4 +20,5 @@
 @import url('./Label/Label.css');
 @import url('./SupportingText/SupportingText.css');
 @import url('./ValidationText/ValidationText.css');
-@import url('./TextField/TextField.css');
+@import url('./TextInput/TextInput.css');
+@import url('./TextInputSlot/TextInputSlot.css');

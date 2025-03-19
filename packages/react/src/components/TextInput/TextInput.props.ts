@@ -1,7 +1,7 @@
 import { NotInputTextualAttributes } from '../../helpers/input-attributes';
 import { ComponentPropsWithout } from '../../types/component-props';
 
-type TextFieldOwnProps = {
+type TextInputOwnProps = {
   defaultValue?: string | number;
   value?: string | number;
   type?:
@@ -18,11 +18,11 @@ type TextFieldOwnProps = {
     | 'week';
 };
 
-type TextFieldInputProps = ComponentPropsWithout<
-  'input',
-  NotInputTextualAttributes | 'color' | 'defaultValue' | 'size' | 'type' | 'value'
->;
-
-export interface TextFieldProps extends TextFieldInputProps, TextFieldOwnProps {
+export interface TextInputProps
+  extends TextInputOwnProps,
+    ComponentPropsWithout<
+      'input',
+      NotInputTextualAttributes | 'color' | 'defaultValue' | 'size' | 'type' | 'value'
+    > {
   validationStatus?: 'valid' | 'invalid';
 }

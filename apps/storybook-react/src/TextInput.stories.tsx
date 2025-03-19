@@ -1,16 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TextField } from '@utilitywarehouse/hearth-react';
+import { TextInput, TextInputSlot } from '@utilitywarehouse/hearth-react';
+import { EmailMediumIcon } from '@utilitywarehouse/react-icons';
 
-const meta: Meta<typeof TextField> = {
-  title: 'Stories / TextField',
-  component: TextField,
-  parameters: {
-    docs: {
-      description: {
-        component: '`Textfield`',
-      },
-    },
-  },
+const meta: Meta<typeof TextInput> = {
+  title: 'Stories / TextInput',
+  component: TextInput,
   argTypes: {
     placeholder: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
@@ -25,6 +19,16 @@ const meta: Meta<typeof TextField> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof TextField>;
+type Story = StoryObj<typeof TextInput>;
 
 export const Playground: Story = {};
+
+export const WithIcons: Story = {
+  render: () => (
+    <TextInput>
+      <TextInputSlot placement="prefix">
+        <EmailMediumIcon />
+      </TextInputSlot>
+    </TextInput>
+  ),
+};

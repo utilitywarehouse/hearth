@@ -1,4 +1,4 @@
-.hearth-TextField {
+.hearth-TextInput {
   display: flex;
   align-items: stretch;
   gap: var(--h-input-gap);
