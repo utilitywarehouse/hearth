@@ -29,6 +29,7 @@ export const Label = React.forwardRef<LabelElement, LabelProps>((props, ref) => 
       as={tag}
       ref={ref}
       size="md"
+      weight="semibold"
       className={clsx(componentClassName, className)}
       data-disabled={disabled ? '' : undefined}
       data-disable-user-select={disableUserSelect ? '' : undefined}

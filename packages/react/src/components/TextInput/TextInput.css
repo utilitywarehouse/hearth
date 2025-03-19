@@ -1,74 +1,79 @@
 .hearth-TextInput {
   display: flex;
-  align-items: stretch;
+  flex-direction: column;
   gap: var(--h-input-gap);
-  cursor: text;
-  font-family: var(--h-font-family-body);
-  font-weight: var(--h-font-weight-regular);
-  font-size: var(--h-font-size-100);
-  line-height: var(--h-line-height-500);
-  font-style: normal;
-  text-align: start;
-  height: 48px;
-  min-width: var(--h-input-min-width);
-  max-width: var(--h-input-max-width);
-  padding-inline: var(--h-input-padding-horizontal);
-  padding-block: var(--h-input-padding-vertical);
-  border-radius: var(--h-input-border-radius);
-  border-color: var(--h-input-border-color);
-  border-width: var(--h-input-border-width);
-  border-style: solid;
 
-  --h-input-border-color-focus: var(--h-input-border-color);
-
-  &:where([data-validation-status='valid']) {
-    border-color: var(--h-input-border-color-valid);
-
-    --h-input-border-color-focus: var(--h-input-border-color-valid);
-  }
-
-  &:where([data-validation-status='invalid']) {
-    border-color: var(--h-input-border-color-invalid);
-
-    --h-input-border-color-focus: var(--h-input-border-color-invalid);
-  }
-
-  &:where(:has(input[readonly])) {
-    border-color: var(--h-input-border-color-read-only);
-  }
-
-  &:where(:has(input:focus:not([readonly])), :has(input:focus:disabled)) {
-    outline: var(--h-input-border-width-focused) solid var(--h-input-border-color-focus);
-    outline-offset: -1px;
-  }
-
-  &:where(:has(input:disabled)) {
-    cursor: not-allowed;
-    opacity: var(--h-opacity-disabled);
-  }
-
-  & :where(input) {
-    all: unset;
-    display: block;
-    width: 100%;
-    font-weight: normal;
+  & :where(.hearth-input-container) {
+    display: flex;
+    align-items: stretch;
+    gap: var(--h-input-gap);
+    cursor: text;
+    font-family: var(--h-font-family-body);
+    font-weight: var(--h-font-weight-regular);
+    font-size: var(--h-font-size-100);
+    line-height: var(--h-line-height-500);
     font-style: normal;
     text-align: start;
-    text-indent: initial;
-    -webkit-tap-highlight-color: transparent;
+    height: 48px;
+    min-width: var(--h-input-min-width);
+    max-width: var(--h-input-max-width);
+    padding-inline: var(--h-input-padding-horizontal);
+    padding-block: var(--h-input-padding-vertical);
+    border-radius: var(--h-input-border-radius);
+    border-color: var(--h-input-border-color);
+    border-width: var(--h-input-border-width);
+    border-style: solid;
 
-    /* Make sure parent <label> doesn't change the text cursor */
-    cursor: text;
+    --h-input-border-color-focus: var(--h-input-border-color);
 
-    /* Recover textarea pre-wrap in Firefox */
-    white-space: pre-wrap;
-
-    &:where(:disabled) {
-      cursor: not-allowed;
+    :where([data-validation-status='valid']) & {
+      border-color: var(--h-input-border-color-valid);
+      --h-input-border-color-focus: var(--h-input-border-color-valid);
     }
 
-    &::placeholder {
-      color: var(--h-input-color-placeholder);
+    :where([data-validation-status='invalid']) & {
+      border-color: var(--h-input-border-color-invalid);
+
+      --h-input-border-color-focus: var(--h-input-border-color-invalid);
+    }
+
+    &:where(:has(input[readonly])) {
+      border-color: var(--h-input-border-color-read-only);
+    }
+
+    &:where(:has(input:focus:not([readonly])), :has(input:focus:disabled)) {
+      outline: var(--h-input-border-width-focused) solid var(--h-input-border-color-focus);
+      outline-offset: -1px;
+    }
+
+    &:where(:has(input:disabled)) {
+      cursor: not-allowed;
+      opacity: var(--h-opacity-disabled);
+    }
+
+    & :where(input) {
+      all: unset;
+      display: block;
+      width: 100%;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      text-indent: initial;
+      -webkit-tap-highlight-color: transparent;
+
+      /* Make sure parent <label> doesn't change the text cursor */
+      cursor: text;
+
+      /* Recover textarea pre-wrap in Firefox */
+      white-space: pre-wrap;
+
+      &:where(:disabled) {
+        cursor: not-allowed;
+      }
+
+      &::placeholder {
+        color: var(--h-input-color-placeholder);
+      }
     }
   }
 }

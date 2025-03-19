@@ -4,18 +4,7 @@ import { ComponentPropsWithout } from '../../types/component-props';
 type TextInputOwnProps = {
   defaultValue?: string | number;
   value?: string | number;
-  type?:
-    | 'email'
-    | 'hidden'
-    | 'month'
-    | 'number'
-    | 'password'
-    | 'search'
-    | 'tel'
-    | 'text'
-    | 'time'
-    | 'url'
-    | 'week';
+  type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
 };
 
 export interface TextInputProps
@@ -24,5 +13,8 @@ export interface TextInputProps
       'input',
       NotInputTextualAttributes | 'color' | 'defaultValue' | 'size' | 'type' | 'value'
     > {
+  label: string;
+  supportingText?: string;
   validationStatus?: 'valid' | 'invalid';
+  validationMessage?: string;
 }
