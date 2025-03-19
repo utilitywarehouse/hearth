@@ -74,3 +74,6 @@ export type { LabelProps } from './components/Label/Label.props';
 
 export { SupportingText } from './components/SupportingText/SupportingText';
 export type { SupportingTextProps } from './components/SupportingText/SupportingText.props';
+
+export { ValidationText } from './components/ValidationText/ValidationText';
+export type { ValidationTextProps } from './components/ValidationText/ValidationText.props';
