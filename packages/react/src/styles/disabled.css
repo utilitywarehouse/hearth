@@ -1,0 +1,3 @@
+:where([data-disabled], [data-disabled] &) {
+  opacity: var(--h-opacity-disabled);
+}

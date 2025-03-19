@@ -1,20 +1,15 @@
+import { MarginProps } from '../../props/margin.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
-interface CommonLabelProps {
+interface CommonLabelProps extends MarginProps {
   /**
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   * Cannot be used in combination with `asChild`.
    * @default label
    */
   as?: 'label' | 'span';
-  /** Change the default rendered element for the one passed as a child, merging their props and behavior. */
-  asChild?: boolean;
-  /** Sets the disabled prop, when true sets the label colour to grey */
+  /** Set the label appearance to disabled */
   disabled?: boolean;
-  /**
-   * Sets the nested prop, when true will set the font-weight to regular. Use
-   * this when nesting the labelled element inside a Fieldset, for instance if
-   * labelling a Radio inside a RadioGroup.
-   */
-  nested?: boolean;
   /** Make the text unselectable, for use when associated with input elements. */
   disableUserSelect?: boolean;
 }
