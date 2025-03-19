@@ -4,13 +4,12 @@ export const modal = {
   },
   backgroundColor: 'var(--h-modal-background-color)',
   borderRadius: 'var(--h-modal-border-radius)',
-  containerMaxWidth: 'var(--h-modal-container-max-width)',
   content: {
     gap: 'var(--h-modal-content-gap)',
   },
   gap: 'var(--h-modal-gap)',
+  maxWidth: 'var(--h-modal-max-width)',
   minWidth: 'var(--h-modal-min-width)',
-  paddingDesktop: 'var(--h-modal-padding-desktop)',
-  paddingMobile: 'var(--h-modal-padding-mobile)',
+  padding: 'var(--h-modal-padding)',
   width: 'var(--h-modal-width)',
 } as const;

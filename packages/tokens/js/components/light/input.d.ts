@@ -10,7 +10,6 @@ declare const _default: {
   readonly borderRadius: 8;
   readonly borderWidth: 1;
   readonly borderWidthFocused: 2;
-  readonly colorPlaceholder: '#6f6c6b';
   readonly currency: {
     readonly gap: 2;
     readonly height: 60;
@@ -21,6 +20,7 @@ declare const _default: {
   readonly minWidth: 200;
   readonly paddingHorizontal: 16;
   readonly paddingVertical: 12;
+  readonly placeholderColor: '#6f6c6b';
   readonly textArea: {
     readonly height: 96;
     readonly resizeIconColor: '#6f6c6b';

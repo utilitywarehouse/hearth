@@ -7,7 +7,6 @@ export const input = {
   borderRadius: 'var(--h-input-border-radius)',
   borderWidth: 'var(--h-input-border-width)',
   borderWidthFocused: 'var(--h-input-border-width-focused)',
-  colorPlaceholder: 'var(--h-input-color-placeholder)',
   currency: {
     gap: 'var(--h-input-currency-gap)',
     height: 'var(--h-input-currency-height)',
@@ -18,6 +17,7 @@ export const input = {
   minWidth: 'var(--h-input-min-width)',
   paddingHorizontal: 'var(--h-input-padding-horizontal)',
   paddingVertical: 'var(--h-input-padding-vertical)',
+  placeholderColor: 'var(--h-input-placeholder-color)',
   textArea: {
     height: 'var(--h-input-text-area-height)',
     resizeIconColor: 'var(--h-input-text-area-resize-icon-color)',

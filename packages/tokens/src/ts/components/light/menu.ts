@@ -6,6 +6,7 @@ export default {
   backgroundColor: '#ffffff',
   borderColor: '#d4d2c0',
   borderWidth: 1,
+  contentGap: 8,
   gap: 4,
   item: {
     active: {
@@ -44,7 +45,6 @@ export default {
         iconColor: '#a4281e',
       },
     },
-    padding: 12,
+    padding: 4,
   },
-  padding: 4,
 } as const;

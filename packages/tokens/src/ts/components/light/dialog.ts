@@ -12,6 +12,8 @@ export default {
     gap: 12,
   },
   gap: 24,
+  maxWidth: 680,
+  minWidth: 504,
   padding: 24,
-  width: 600,
+  width: 680,
 } as const;

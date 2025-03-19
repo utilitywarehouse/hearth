@@ -10,7 +10,6 @@ export default {
   borderRadius: 8,
   borderWidth: 1,
   borderWidthFocused: 2,
-  colorPlaceholder: '#6f6c6b',
   currency: {
     gap: 2,
     height: 60,
@@ -21,6 +20,7 @@ export default {
   minWidth: 200,
   paddingHorizontal: 16,
   paddingVertical: 12,
+  placeholderColor: '#6f6c6b',
   textArea: {
     height: 96,
     resizeIconColor: '#6f6c6b',
