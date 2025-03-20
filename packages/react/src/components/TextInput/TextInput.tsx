@@ -25,6 +25,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((pro
     children,
     id: providedId,
     disabled,
+    hideLabel,
     ...textInputProps
   } = extractProps(props);
   const { id, labelId, supportingTextId } = useIds({ providedId, prefix: 'input' });
@@ -32,6 +33,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((pro
     <div
       data-validation-status={validationStatus ? validationStatus : undefined}
       data-disabled={disabled ? '' : undefined}
+      data-hide-label={hideLabel ? '' : undefined}
       className={clsx(componentClassName, className)}
     >
       <Flex direction="column">

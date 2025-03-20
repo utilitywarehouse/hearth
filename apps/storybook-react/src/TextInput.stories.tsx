@@ -11,6 +11,7 @@ const meta: Meta<typeof TextInput> = {
     supportingText: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
+    hideLabel: { control: { type: 'boolean' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
     type: {
       control: { type: 'select' },

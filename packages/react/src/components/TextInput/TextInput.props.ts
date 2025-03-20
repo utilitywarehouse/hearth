@@ -17,4 +17,5 @@ export interface TextInputProps
   supportingText?: string;
   validationStatus?: 'valid' | 'invalid';
   validationText?: string;
+  hideLabel?: boolean;
 }
