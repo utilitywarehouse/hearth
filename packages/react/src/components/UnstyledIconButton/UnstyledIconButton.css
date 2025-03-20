@@ -1,0 +1,52 @@
+.hearth-UnstyledIconButton {
+  all: unset;
+  outline: transparent;
+  appearance: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-shrink: 0;
+  user-select: none; /* make inner text unselectable */
+  vertical-align: top;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  touch-action: manipulation; /* make clicks not need to wait and observe a potential double click, making the buttons feel faster */
+  transition: background-color 200ms ease-out;
+  color: var(--h-icon-button-unstyled-foreground-color);
+  border-radius: var(--h-border-radius-xs);
+  height: var(--h-icon-button-size);
+  width: var(--h-icon-button-size);
+
+  &:where([aria-disabled]) {
+    cursor: not-allowed;
+    opacity: var(--h-opacity-disabled);
+  }
+
+  @media (hover: hover) {
+    &:where(:hover):not([aria-disabled]) {
+      color: var(--h-icon-button-unstyled-foreground-color-hover);
+    }
+  }
+
+  &:where(:focus-visible) {
+    outline: 2px solid var(--h-focus-border);
+    outline-offset: 1px;
+  }
+
+  &:where(:active):not([aria-disabled]) {
+    color: var(--h-icon-button-unstyled-foreground-color-active);
+  }
+
+  @breakpoints {
+    &:where(.hearth-r-size-md) {
+      --h-icon-button-size: 1.5rem;
+    }
+
+    &:where(.hearth-r-size-sm) {
+      --h-icon-button-size: 1.25rem;
+    }
+  }
+}

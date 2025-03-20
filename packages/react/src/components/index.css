@@ -10,6 +10,7 @@
 @import url('./ButtonBase/ButtonBase.css');
 @import url('./Button/Button.css');
 @import url('./IconButton/IconButton.css');
+@import url('./UnstyledIconButton/UnstyledIconButton.css');
 @import url('./Spinner/Spinner.css');
 @import url('./Link/Link.css');
 @import url('./InlineLink/InlineLink.css');
