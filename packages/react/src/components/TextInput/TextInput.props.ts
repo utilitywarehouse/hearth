@@ -16,5 +16,5 @@ export interface TextInputProps
   label: string;
   supportingText?: string;
   validationStatus?: 'valid' | 'invalid';
-  validationMessage?: string;
+  validationText?: string;
 }

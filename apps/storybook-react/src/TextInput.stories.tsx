@@ -21,6 +21,7 @@ const meta: Meta<typeof TextInput> = {
     placeholder: 'Placeholder',
     label: 'Label',
     supportingText: 'Supporting text',
+    validationText: 'Validation text',
     disabled: false,
     readOnly: false,
   },

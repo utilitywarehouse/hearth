@@ -8,6 +8,7 @@ import { Label } from '../Label/Label';
 import { SupportingText } from '../SupportingText/SupportingText';
 import { Flex } from '../Flex/Flex';
 import { useIds } from '../../hooks/use-ids';
+import { ValidationText } from '../ValidationText/ValidationText';
 
 const componentName = 'TextInput';
 const componentClassName = withGlobalPrefix(componentName);
@@ -18,6 +19,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((pro
   const {
     className,
     validationStatus,
+    validationText,
     label,
     supportingText,
     children,
@@ -49,6 +51,9 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((pro
           {...textInputProps}
         />
       </div>
+      {validationStatus !== undefined && validationText !== undefined ? (
+        <ValidationText status={validationStatus}>{validationText}</ValidationText>
+      ) : null}
     </div>
   );
 });
