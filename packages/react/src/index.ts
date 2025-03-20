@@ -86,3 +86,6 @@ export type { TextInputProps } from './components/TextInput/TextInput.props';
 
 export { TextInputSlot } from './components/TextInputSlot/TextInputSlot';
 export type { TextInputSlotProps } from './components/TextInputSlot/TextInputSlot.props';
+
+export { PasswordInput } from './components/PasswordInput/PasswordInput';
+export type { PasswordInputProps } from './components/PasswordInput/PasswordInput.props';

@@ -1,6 +1,7 @@
 .hearth-ValidationText {
   display: inline-flex;
   align-items: center;
+  cursor: default;
   gap: var(--h-space-50);
 
   & :where(svg) {

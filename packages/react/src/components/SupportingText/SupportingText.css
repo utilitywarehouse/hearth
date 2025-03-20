@@ -1,3 +1,4 @@
 .hearth-SupportingText {
+  cursor: default;
   color: var(--h-text-supporting-text-color);
 }

@@ -3,6 +3,10 @@
   flex-direction: column;
   gap: var(--h-input-gap);
 
+  &:where([data-disabled]) {
+    opacity: var(--h-opacity-disabled);
+  }
+
   & :where(.hearth-input-container) {
     display: flex;
     align-items: stretch;
@@ -26,6 +30,15 @@
 
     --h-input-border-color-focus: var(--h-input-border-color);
 
+    &:where(:has(input:disabled)) {
+      cursor: not-allowed;
+    }
+
+    &:where(:has(input[readonly])) {
+      border-color: var(--h-input-border-color-read-only);
+      --h-input-border-color-focus: var(--h-input-border-color-read-only);
+    }
+
     :where([data-validation-status='valid']) & {
       border-color: var(--h-input-border-color-valid);
 
@@ -38,18 +51,14 @@
       --h-input-border-color-focus: var(--h-input-border-color-invalid);
     }
 
-    &:where(:has(input[readonly])) {
-      border-color: var(--h-input-border-color-read-only);
-    }
-
-    &:where(:has(input:focus:not([readonly])), :has(input:focus:disabled)) {
+    &:where(
+        :has(input:focus),
+        :has(input:focus:disabled),
+        :has(input:focus[readonly]),
+        :has(button:focus) /* don't lose visual focus border when any internal button is clicked */
+      ) {
       outline: var(--h-input-border-width-focused) solid var(--h-input-border-color-focus);
       outline-offset: -1px;
-    }
-
-    &:where(:has(input:disabled)) {
-      cursor: not-allowed;
-      opacity: var(--h-opacity-disabled);
     }
 
     & :where(input) {

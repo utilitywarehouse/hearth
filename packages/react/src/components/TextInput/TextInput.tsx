@@ -24,35 +24,42 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((pro
     supportingText,
     children,
     id: providedId,
+    disabled,
     ...textInputProps
   } = extractProps(props);
-  const { id, labelId, supportingTextId } = useIds({ providedId, componentPrefix: componentName });
+  const { id, labelId, supportingTextId } = useIds({ providedId, prefix: 'input' });
   return (
     <div
-      ref={ref}
       data-validation-status={validationStatus ? validationStatus : undefined}
+      data-disabled={disabled ? '' : undefined}
       className={clsx(componentClassName, className)}
     >
       <Flex direction="column">
-        <Label htmlFor={id} id={labelId}>
+        <Label htmlFor={id} id={labelId} disableUserSelect>
           {label}
         </Label>
         {supportingText ? (
-          <SupportingText id={supportingTextId}>{supportingText}</SupportingText>
+          <SupportingText id={supportingTextId} disableUserSelect>
+            {supportingText}
+          </SupportingText>
         ) : null}
       </Flex>
       <div className="hearth-input-container">
         {children}
         <input
+          ref={ref}
           spellCheck="false"
           id={id}
           aria-labelledby={labelId}
           aria-describedby={supportingTextId}
+          disabled={disabled}
           {...textInputProps}
         />
       </div>
       {validationStatus !== undefined && validationText !== undefined ? (
-        <ValidationText status={validationStatus}>{validationText}</ValidationText>
+        <ValidationText status={validationStatus} disableUserSelect>
+          {validationText}
+        </ValidationText>
       ) : null}
     </div>
   );

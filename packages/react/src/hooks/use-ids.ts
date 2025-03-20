@@ -7,7 +7,7 @@ interface UseIdsProps {
   providedLabelId?: string;
   providedSupportingTextId?: string;
   providedValidationTextId?: string;
-  componentPrefix?: string;
+  prefix?: string;
 }
 
 export const useIds = ({
@@ -15,12 +15,10 @@ export const useIds = ({
   providedLabelId,
   providedSupportingTextId,
   providedValidationTextId,
-  componentPrefix,
+  prefix,
 }: UseIdsProps) => {
   const generatedId = useId();
-  const defaultId = withGlobalPrefix(
-    componentPrefix ? `${componentPrefix}-${generatedId}` : generatedId
-  );
+  const defaultId = withGlobalPrefix(prefix ? `${prefix}-${generatedId}` : generatedId);
   const id = providedId || defaultId;
   const labelId = providedLabelId || `${defaultId}-label`;
   const supportingTextId = providedSupportingTextId || `${defaultId}-supporting-text`;
