@@ -20,7 +20,6 @@ const meta: Meta<typeof IconButton> = {
     },
   },
   argTypes: {
-    children: { control: { type: 'text' } },
     variant: { control: { type: 'radio' }, options: ['emphasis', ...variants] },
     colorScheme: { options: ['yellow', ...otherColorSchemes], control: { type: 'radio' } },
     size: { control: { type: 'radio' }, options: sizes },
