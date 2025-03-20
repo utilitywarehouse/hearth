@@ -9,6 +9,7 @@
 
   &:where([data-hide-label]) {
     gap: 0;
+
     & :where(label) {
       border: 0;
       clip: rect(0 0 0 0);
@@ -52,6 +53,7 @@
 
     &:where(:has(input[readonly])) {
       border-color: var(--h-input-border-color-read-only);
+
       --h-input-border-color-focus: var(--h-input-border-color-read-only);
     }
 

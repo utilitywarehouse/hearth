@@ -2,7 +2,6 @@ import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import clsx from 'clsx';
 import React from 'react';
-import type { MouseEvent } from 'react';
 import { PasswordInputProps } from './PasswordInput.props';
 import { TextInput } from '../TextInput/TextInput';
 import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
