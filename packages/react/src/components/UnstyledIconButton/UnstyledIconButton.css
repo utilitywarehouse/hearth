@@ -20,6 +20,11 @@
   height: var(--h-icon-button-size);
   width: var(--h-icon-button-size);
 
+  &:where([aria-disabled]) {
+    cursor: not-allowed;
+    opacity: var(--h-opacity-disabled);
+  }
+
   @media (hover: hover) {
     &:where(:hover):not([aria-disabled]) {
       color: var(--h-icon-button-unstyled-foreground-color-hover);

@@ -17,8 +17,9 @@ const meta: Meta<typeof UnstyledIconButton> = {
   component: UnstyledIconButton,
   argTypes: {
     children: { control: { type: 'text' } },
-    disabled: { control: { type: 'boolean' } },
     size: { control: { type: 'radio' }, options: sizes },
+    disabled: { control: { type: 'boolean' } },
+    loading: { control: { type: 'boolean' } },
   },
   args: {
     onClick: fn(),
