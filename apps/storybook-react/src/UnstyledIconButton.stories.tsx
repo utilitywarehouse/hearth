@@ -10,12 +10,15 @@ import {
 } from '@utilitywarehouse/hearth-react';
 import { CloseMediumIcon, CloseSmallIcon } from '@utilitywarehouse/react-icons';
 
+const sizes = ['md', 'sm'] as const;
+
 const meta: Meta<typeof UnstyledIconButton> = {
   title: 'Stories / UnstyledIconButton',
   component: UnstyledIconButton,
   argTypes: {
     children: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
+    size: { control: { type: 'radio' }, options: sizes },
   },
   args: {
     onClick: fn(),
@@ -28,7 +31,7 @@ type Story = StoryObj<typeof UnstyledIconButton>;
 export const Playground: Story = {
   render: args => (
     <UnstyledIconButton {...args}>
-      <CloseSmallIcon />
+      {args.size === 'sm' ? <CloseSmallIcon /> : <CloseMediumIcon />}
     </UnstyledIconButton>
   ),
 };
@@ -40,7 +43,7 @@ export const WithCard: Story = {
         <Flex direction="column" gap="150">
           <Flex justify="space-between" align="center">
             <Heading>This is a dismissable card</Heading>
-            <UnstyledIconButton label="close">
+            <UnstyledIconButton label="close" size="md">
               <CloseMediumIcon />
             </UnstyledIconButton>
           </Flex>

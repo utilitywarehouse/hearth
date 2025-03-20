@@ -9,8 +9,6 @@
   justify-content: center;
   text-align: center;
   flex-shrink: 0;
-  width: fit-content;
-  height: fit-content;
   user-select: none; /* make inner text unselectable */
   vertical-align: top;
   -webkit-tap-highlight-color: transparent;
@@ -18,7 +16,9 @@
   touch-action: manipulation; /* make clicks not need to wait and observe a potential double click, making the buttons feel faster */
   transition: background-color 200ms ease-out;
   color: var(--h-icon-button-unstyled-foreground-color);
-  border-radius: var(--h-icon-button-border-radius);
+  border-radius: var(--h-border-radius-xs);
+  height: var(--h-icon-button-size);
+  width: var(--h-icon-button-size);
 
   @media (hover: hover) {
     &:where(:hover):not([aria-disabled]) {
@@ -33,5 +33,15 @@
 
   &:where(:active):not([aria-disabled]) {
     color: var(--h-icon-button-unstyled-foreground-color-active);
+  }
+
+  @breakpoints {
+    &:where(.hearth-r-size-md) {
+      --h-icon-button-size: 1.5rem;
+    }
+
+    &:where(.hearth-r-size-sm) {
+      --h-icon-button-size: 1.25rem;
+    }
   }
 }
