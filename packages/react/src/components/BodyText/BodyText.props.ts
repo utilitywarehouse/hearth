@@ -1,3 +1,4 @@
+import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
@@ -18,7 +19,11 @@ export const bodyTextPropDefs = {
   paragraphSpacing: PropDef<boolean>;
 };
 
-interface CommonBodyTextProps extends TextAlignProps, TextTransformProps, TextWrapProps {
+interface CommonBodyTextProps
+  extends TextAlignProps,
+    TextTransformProps,
+    TextWrapProps,
+    MarginProps {
   /**
    * Shorthand for changing the default rendered element into a semantically appropriate alternative.
    * Cannot be used in combination with `asChild`.

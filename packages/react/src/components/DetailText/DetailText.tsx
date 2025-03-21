@@ -11,6 +11,7 @@ import { textAlignPropDefs } from '../../props/text-align.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { textWrapPropDefs } from '../../props/text-wrap.props';
+import { marginPropDefs } from '../../props/margin.props';
 
 const componentName = 'DetailText';
 const componentClassName = withGlobalPrefix(componentName);
@@ -30,7 +31,8 @@ export const DetailText = React.forwardRef<DetailTextElement, DetailTextProps>((
     detailTextPropDefs,
     textAlignPropDefs,
     textTransformPropDefs,
-    textWrapPropDefs
+    textWrapPropDefs,
+    marginPropDefs
   );
 
   return (
