@@ -1,3 +1,4 @@
+import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
@@ -16,7 +17,11 @@ export const detailTextPropDefs = {
   color: PropDef<(typeof colorValues)[number]>;
 };
 
-interface CommonDetailTextProps extends TextAlignProps, TextTransformProps, TextWrapProps {
+interface CommonDetailTextProps
+  extends TextAlignProps,
+    TextTransformProps,
+    TextWrapProps,
+    MarginProps {
   /**
    * @default span
    */

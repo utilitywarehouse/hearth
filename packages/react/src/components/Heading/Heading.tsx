@@ -10,6 +10,7 @@ import { Slot } from '@radix-ui/react-slot';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { textWrapPropDefs } from '../../props/text-wrap.props';
+import { marginPropDefs } from '../../props/margin.props';
 
 const componentName = 'Heading';
 const componentClassName = withGlobalPrefix(componentName);
@@ -22,7 +23,8 @@ export const Heading = React.forwardRef<HeadingElement, HeadingProps>(({ size, .
     headingPropDefs,
     textAlignPropDefs,
     textTransformPropDefs,
-    textWrapPropDefs
+    textWrapPropDefs,
+    marginPropDefs
   );
   const defaultElement = 'h2';
   const Tag = as ? as : defaultElement;

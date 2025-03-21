@@ -1,3 +1,4 @@
+import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
@@ -14,10 +15,11 @@ export const headingPropDefs = {
 };
 
 export interface HeadingProps
-  extends TextAlignProps,
+  extends ComponentPropsWithout<'h2', RemovedProps>,
+    TextAlignProps,
     TextTransformProps,
     TextWrapProps,
-    ComponentPropsWithout<'h2', RemovedProps> {
+    MarginProps {
   /**
    * @default h2
    */
