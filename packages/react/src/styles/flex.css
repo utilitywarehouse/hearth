@@ -44,9 +44,11 @@
   .hearth-r-flex-wrap-nowrap {
     flex-wrap: nowrap;
   }
+
   .hearth-r-flex-wrap-wrap {
     flex-wrap: wrap;
   }
+
   .hearth-r-flex-wrap-wrap-reverse {
     flex-wrap: wrap-reverse;
   }
