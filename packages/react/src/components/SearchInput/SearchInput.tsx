@@ -4,12 +4,7 @@ import clsx from 'clsx';
 import React from 'react';
 import { TextInput } from '../TextInput/TextInput';
 import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
-import {
-  CloseMediumIcon,
-  CloseSmallIcon,
-  SearchMediumIcon,
-  SearchSmallIcon,
-} from '@utilitywarehouse/react-icons';
+import { CloseSmallIcon, SearchSmallIcon } from '@utilitywarehouse/react-icons';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { SearchInputProps } from './SearchInput.props';
 import { Spinner } from '../Spinner/Spinner';
