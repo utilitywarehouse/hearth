@@ -29,6 +29,7 @@ const meta: Meta<typeof Flex> = {
     paddingRight: { options: spaceTokens, control: { type: 'select' } },
     paddingBottom: { options: spaceTokens, control: { type: 'select' } },
     paddingLeft: { options: spaceTokens, control: { type: 'select' } },
+    wrap: { control: { type: 'radio' }, options: ['nowrap', 'wrap', 'wrap-reverse'] },
     gap: { options: spaceTokens, control: { type: 'select' } },
     spacing: { options: ['xs', 'sm', 'md', 'lg', 'xl'], control: { type: 'select' } },
     width: { control: { type: 'text' } },
