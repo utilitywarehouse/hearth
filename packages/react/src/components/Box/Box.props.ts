@@ -8,6 +8,7 @@ import { PaddingProps } from '../../props/padding.props';
 import { PositionProps } from '../../props/position.props';
 import { PropDef } from '../../props/prop-def';
 import { SizeProps } from '../../props/size.props';
+import { TextAlignProps } from '../../props/text-align.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive } from '../../types/responsive';
 
@@ -28,7 +29,8 @@ interface CommonBoxProps
     SizeProps,
     BorderProps,
     GridItemProps,
-    FlexItemProps {
+    FlexItemProps,
+    TextAlignProps {
   /**
    * Shorthand for changing the default rendered element into a semantically appropriate alternative.
    * Cannot be used in combination with `asChild`.
