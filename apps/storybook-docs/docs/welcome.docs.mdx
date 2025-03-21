@@ -6,6 +6,7 @@ import {
   Grid,
   CardAction,
   Box,
+  Flex,
 } from '@utilitywarehouse/hearth-react';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/react-icons';
 import { Meta } from '@storybook/blocks';
@@ -14,7 +15,7 @@ import pig from './assets/pig.png';
 <Meta title="Welcome" />
 
 <div className="sb-unstyled">
-  <Box gap="300" marginBottom="300" textAlign="center">
+  <Flex direction="column" gap="300" marginBottom="300" align="center">
     <img
       src={pig}
       alt="A pig with a heart"
@@ -25,7 +26,7 @@ import pig from './assets/pig.png';
       }}
     />
     <Heading size="xl">{'Welcome to Hearth'}</Heading>
-  </Box>
+  </Flex>
 </div>
 
 Hearth is the unified design system powering coherent, accessible, and beautiful user interfaces across all our platforms. Built with scalability and flexibility in mind, Hearth brings together our shared visual language, component libraries, iconography, and design tokens — so teams can build faster with confidence and consistency.
@@ -41,13 +42,12 @@ Hearth is made up of several modular libraries, each focused on a specific aspec
     <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
       <Heading size="sm">🧩 Hearth React</Heading>
       <BodyText size="md">
-        {
-          'A robust library of accessible and composable React components designed for speed and flexibility. Perfect for product teams building scalable, accessible web experiences.'
-        }
+        A robust library of accessible and composable React components designed for speed and
+        flexibility. Perfect for product teams building scalable, accessible web experiences.
       </BodyText>
       <CardAction asChild>
         <Link href="/?path=/docs/react_primitives-overview--docs">
-          {'Learn more'}
+          Learn more
           <ChevronRightSmallIcon />
         </Link>
       </CardAction>
@@ -55,13 +55,13 @@ Hearth is made up of several modular libraries, each focused on a specific aspec
     <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
       <Heading size="sm">📱 Hearth React Native</Heading>
       <BodyText size="md">
-        {
-          'UI components tailored for React Native development. Built with accessibility in mind, and optimised for performance and consistency across iOS and Android. Perfect for product teams building native experiences.'
-        }
+        UI components tailored for React Native development. Built with accessibility in mind, and
+        optimised for performance and consistency across iOS and Android. Perfect for product teams
+        building native experiences.
       </BodyText>
       <CardAction asChild>
         <Link href="/?path=/docs/react-native_introduction--docs">
-          {'Learn more'}
+          Learn more
           <ChevronRightSmallIcon />
         </Link>
       </CardAction>
