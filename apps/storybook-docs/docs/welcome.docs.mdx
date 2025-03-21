@@ -1,0 +1,130 @@
+import {
+  Heading,
+  BodyText,
+  Link,
+  Card,
+  Grid,
+  CardAction,
+  Box,
+} from '@utilitywarehouse/hearth-react';
+import { ChevronRightSmallIcon } from '@utilitywarehouse/react-icons';
+import { Meta } from '@storybook/blocks';
+import pig from './assets/pig.png';
+
+<Meta title="Welcome" />
+
+<div className="sb-unstyled">
+  <Box gap="300" marginBottom="300" textAlign="center">
+    <img
+      src={pig}
+      alt="A pig with a heart"
+      style={{
+        width: '100%',
+        maxWidth: '180px',
+        margin: '0 auto',
+      }}
+    />
+    <Heading size="xl">{'Welcome to Hearth'}</Heading>
+  </Box>
+</div>
+
+Hearth is the unified design system powering coherent, accessible, and beautiful user interfaces across all our platforms. Built with scalability and flexibility in mind, Hearth brings together our shared visual language, component libraries, iconography, and design tokens — so teams can build faster with confidence and consistency.
+
+Whether you're working on web, mobile, or crafting brand assets, Hearth is your central source of truth for all things design and UI implementation. And it's all built with accessibility at its core.
+
+## 🔥 What's in Hearth?
+
+Hearth is made up of several modular libraries, each focused on a specific aspect of our design system. Explore them below:
+
+<div className="sb-unstyled">
+  <Grid gap="200" as="ul" role="list" columns={{ mobile: '1', tablet: '2' }}>
+    <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
+      <Heading size="sm">🧩 Hearth React</Heading>
+      <BodyText size="md">
+        {
+          'A robust library of accessible and composable React components designed for speed and flexibility. Perfect for product teams building scalable, accessible web experiences.'
+        }
+      </BodyText>
+      <CardAction asChild>
+        <Link href="/?path=/docs/react_primitives-overview--docs">
+          {'Learn more'}
+          <ChevronRightSmallIcon />
+        </Link>
+      </CardAction>
+    </Card>
+    <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
+      <Heading size="sm">📱 Hearth React Native</Heading>
+      <BodyText size="md">
+        {
+          'UI components tailored for React Native development. Built with accessibility in mind, and optimised for performance and consistency across iOS and Android. Perfect for product teams building native experiences.'
+        }
+      </BodyText>
+      <CardAction asChild>
+        <Link href="/?path=/docs/react-native_introduction--docs">
+          {'Learn more'}
+          <ChevronRightSmallIcon />
+        </Link>
+      </CardAction>
+    </Card>
+    <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
+      <Heading size="sm">🔡 Hearth Fonts</Heading>
+      <BodyText size="md">
+        {
+          'A curated set of brand-approved typefaces for implementing typography across platforms. Includes font files, usage guidelines, and accessibility best practices.'
+        }
+      </BodyText>
+      <CardAction asChild>
+        <Link href="/?path=/story/fonts_all-fonts--kitchen-sink">
+          {'Learn more'}
+          <ChevronRightSmallIcon />
+        </Link>
+      </CardAction>
+    </Card>
+    <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
+      <Heading size="sm">🎨 Hearth Tokens</Heading>
+      <BodyText size="md">
+        {
+          'Platform-agnostic design tokens covering spacing, colors, typography, shadows, radii, and more. Delivered in multiple formats for seamless integration.'
+        }
+      </BodyText>
+      <CardAction asChild>
+        <Link href="/tokens">
+          {'Learn more'}
+          <ChevronRightSmallIcon />
+        </Link>
+      </CardAction>
+    </Card>
+    <Card
+      as="li"
+      variant="emphasis"
+      colorScheme="white"
+      direction="column"
+      gap="150"
+      gridColumnSpan={{ mobile: '1', tablet: '2' }}
+    >
+      <Heading size="sm">🖼️ Hearth Icons</Heading>
+      <BodyText size="md">
+        {
+          'A scalable, consistent, and pixel-perfect icon library made for Hearth. Includes SVGs, usage docs, and accessible components for both web and mobile platforms.'
+        }
+      </BodyText>
+      <CardAction asChild>
+        <Link href="/icons">
+          {'Learn more'}
+          <ChevronRightSmallIcon />
+        </Link>
+      </CardAction>
+    </Card>
+  </Grid>
+</div>
+
+## 🚀 Getting Started
+
+To start using Hearth in your project:
+
+1. **Pick your platform** – Choose the relevant library (React, React Native, etc.)
+2. **Install the package** – Each library includes setup instructions and usage examples
+3. **Follow the guidelines** – Use our accessible tokens, components, and styles as documented
+4. **Stay up to date** – We ship updates regularly to improve consistency and expand functionality, follow us on slack [#help-design-systems](https://utilitywarehouse.slack.com/archives/C04MKBQ34PJ)
+
+Whether you're a designer, developer, or both — Hearth is here to make your workflow smoother and your UI more delightful.

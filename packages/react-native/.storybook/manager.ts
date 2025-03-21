@@ -1,7 +1,8 @@
 import { addons } from '@storybook/manager-api';
-import theme from './theme';
 import '@utilitywarehouse/hearth-fonts';
+import theme from '../../../shared/storybook/theme';
+import '../../../shared/storybook/styles/manager.css';
 
 addons.setConfig({
-  theme: theme,
+  theme,
 });
