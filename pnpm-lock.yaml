@@ -222,6 +222,15 @@ importers:
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:*
         version: link:../../packages/fonts
+      '@utilitywarehouse/hearth-react':
+        specifier: workspace:*
+        version: link:../../packages/react
+      '@utilitywarehouse/hearth-tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
+      '@utilitywarehouse/react-icons':
+        specifier: 1.14.0
+        version: 1.14.0(react@18.3.1)
       '@vitejs/plugin-react':
         specifier: ^4.3.4
         version: 4.3.4(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0))
@@ -4176,6 +4185,11 @@ packages:
 
   '@utilitywarehouse/react-icons@1.12.0':
     resolution: {integrity: sha512-oLuawtObgU1N9g3dL5n+DS1A9LjxxEsOCNpbS4DvuYMOTKm/t6VFzZkkFh2mt14YhFouP78pcmjGjBIynkRDmg==}
+    peerDependencies:
+      react: ^18.2.0
+
+  '@utilitywarehouse/react-icons@1.14.0':
+    resolution: {integrity: sha512-xpoXPMlsB2pX2mTwgB/qa1UPeOhAnYAmVgnQHq6ErbMDnZXONT2TT7MnNtN/2w0y0SujgWKd3c4/P7uLHvN1PA==}
     peerDependencies:
       react: ^18.2.0
 
@@ -15648,6 +15662,10 @@ snapshots:
     dependencies:
       react: 18.3.1
 
+  '@utilitywarehouse/react-icons@1.14.0(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+
   '@utilitywarehouse/web-ui@1.1.0(@mui/material@5.14.15(@emotion/react@11.14.0(@types/react@18.3.18)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.18)(react@18.3.1))(@types/react@18.3.18)(react@18.3.1))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@types/react-dom@18.3.5(@types/react@18.3.18))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@emotion/babel-plugin': 11.13.5
@@ -15661,7 +15679,7 @@ snapshots:
       '@radix-ui/react-slot': 1.1.1(@types/react@18.3.18)(react@18.3.1)
       '@radix-ui/react-use-controllable-state': 1.1.0(@types/react@18.3.18)(react@18.3.1)
       '@utilitywarehouse/colour-system': 0.5.0
-      '@utilitywarehouse/react-icons': 1.12.0(react@18.3.1)
+      '@utilitywarehouse/react-icons': 1.14.0(react@18.3.1)
       clsx: 2.1.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -15683,7 +15701,7 @@ snapshots:
       '@radix-ui/react-slot': 1.1.1(@types/react@18.3.18)(react@18.3.1)
       '@radix-ui/react-use-controllable-state': 1.1.0(@types/react@18.3.18)(react@18.3.1)
       '@utilitywarehouse/colour-system': 0.5.0
-      '@utilitywarehouse/react-icons': 1.12.0(react@18.3.1)
+      '@utilitywarehouse/react-icons': 1.14.0(react@18.3.1)
       clsx: 2.1.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
