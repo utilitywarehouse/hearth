@@ -3,7 +3,7 @@ import {
   BodyText,
   Link,
   Card,
-  Flex,
+  Grid,
   CardAction,
   Box,
 } from '@utilitywarehouse/hearth-react';
@@ -39,110 +39,85 @@ Whether you're working on web, mobile, or crafting brand assets, Hearth is your 
 Hearth is made up of several modular libraries, each focused on a specific aspect of our design system. Explore them below:
 
 <div className="sb-unstyled">
-  <Flex gap="400" direction="column">
-    <Flex gap="300" width="100%" wrap="wrap" style={{ flexWrap: 'wrap' }} asChild>
-      <ul role="list">
-        <Card
-          as="li"
-          variant="emphasis"
-          colorScheme="white"
-          flexBasis="calc(50% - 12px)"
-          direction="column"
-          gap="150"
-        >
-          <Heading size="sm">🧩 Hearth React</Heading>
-          <BodyText size="md">
-            {
-              'A robust library of accessible and composable React components designed for speed and flexibility. Perfect for product teams building scalable, accessible web experiences.'
-            }
-          </BodyText>
-          <CardAction asChild>
-            <Link href="/?path=/docs/react_primitives-overview--docs">
-              {'Learn more'}
-              <ChevronRightSmallIcon />
-            </Link>
-          </CardAction>
-        </Card>
-        <Card
-          as="li"
-          variant="emphasis"
-          colorScheme="white"
-          flexBasis="calc(50% - 12px)"
-          direction="column"
-          gap="150"
-        >
-          <Heading size="sm">📱 Hearth React Native</Heading>
-          <BodyText size="md">
-            {
-              'UI components tailored for React Native development. Built with accessibility in mind, and optimised for performance and consistency across iOS and Android. Perfect for product teams building native experiences.'
-            }
-          </BodyText>
-          <CardAction asChild>
-            <Link href="/?path=/docs/react-native_introduction--docs">
-              {'Learn more'}
-              <ChevronRightSmallIcon />
-            </Link>
-          </CardAction>
-        </Card>
-        <Card
-          as="li"
-          variant="emphasis"
-          colorScheme="white"
-          flexBasis="calc(50% - 12px)"
-          direction="column"
-          gap="150"
-        >
-          <Heading size="sm">🔡 Hearth Fonts</Heading>
-          <BodyText size="md">
-            {
-              'A curated set of brand-approved typefaces for implementing typography across platforms. Includes font files, usage guidelines, and accessibility best practices.'
-            }
-          </BodyText>
-          <CardAction asChild>
-            <Link href="/?path=/story/fonts_all-fonts--kitchen-sink">
-              {'Learn more'}
-              <ChevronRightSmallIcon />
-            </Link>
-          </CardAction>
-        </Card>
-        <Card
-          as="li"
-          variant="emphasis"
-          colorScheme="white"
-          flexBasis="calc(50% - 12px)"
-          direction="column"
-          gap="150"
-        >
-          <Heading size="sm">🎨 Hearth Tokens</Heading>
-          <BodyText size="md">
-            {
-              'Platform-agnostic design tokens covering spacing, colors, typography, shadows, radii, and more. Delivered in multiple formats for seamless integration.'
-            }
-          </BodyText>
-          <CardAction asChild>
-            <Link href="/tokens">
-              {'Learn more'}
-              <ChevronRightSmallIcon />
-            </Link>
-          </CardAction>
-        </Card>
-        <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
-          <Heading size="sm">🖼️ Hearth Icons</Heading>
-          <BodyText size="md">
-            {
-              'A scalable, consistent, and pixel-perfect icon library made for Hearth. Includes SVGs, usage docs, and accessible components for both web and mobile platforms.'
-            }
-          </BodyText>
-          <CardAction asChild>
-            <Link href="/icons">
-              {'Learn more'}
-              <ChevronRightSmallIcon />
-            </Link>
-          </CardAction>
-        </Card>
-      </ul>
-    </Flex>
-  </Flex>
+  <Grid gap="200" as="ul" role="list" columns={{ mobile: '1', tablet: '2' }}>
+    <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
+      <Heading size="sm">🧩 Hearth React</Heading>
+      <BodyText size="md">
+        {
+          'A robust library of accessible and composable React components designed for speed and flexibility. Perfect for product teams building scalable, accessible web experiences.'
+        }
+      </BodyText>
+      <CardAction asChild>
+        <Link href="/?path=/docs/react_primitives-overview--docs">
+          {'Learn more'}
+          <ChevronRightSmallIcon />
+        </Link>
+      </CardAction>
+    </Card>
+    <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
+      <Heading size="sm">📱 Hearth React Native</Heading>
+      <BodyText size="md">
+        {
+          'UI components tailored for React Native development. Built with accessibility in mind, and optimised for performance and consistency across iOS and Android. Perfect for product teams building native experiences.'
+        }
+      </BodyText>
+      <CardAction asChild>
+        <Link href="/?path=/docs/react-native_introduction--docs">
+          {'Learn more'}
+          <ChevronRightSmallIcon />
+        </Link>
+      </CardAction>
+    </Card>
+    <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
+      <Heading size="sm">🔡 Hearth Fonts</Heading>
+      <BodyText size="md">
+        {
+          'A curated set of brand-approved typefaces for implementing typography across platforms. Includes font files, usage guidelines, and accessibility best practices.'
+        }
+      </BodyText>
+      <CardAction asChild>
+        <Link href="/?path=/story/fonts_all-fonts--kitchen-sink">
+          {'Learn more'}
+          <ChevronRightSmallIcon />
+        </Link>
+      </CardAction>
+    </Card>
+    <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
+      <Heading size="sm">🎨 Hearth Tokens</Heading>
+      <BodyText size="md">
+        {
+          'Platform-agnostic design tokens covering spacing, colors, typography, shadows, radii, and more. Delivered in multiple formats for seamless integration.'
+        }
+      </BodyText>
+      <CardAction asChild>
+        <Link href="/tokens">
+          {'Learn more'}
+          <ChevronRightSmallIcon />
+        </Link>
+      </CardAction>
+    </Card>
+    <Card
+      as="li"
+      variant="emphasis"
+      colorScheme="white"
+      direction="column"
+      gap="150"
+      gridColumnSpan={{ mobile: '1', tablet: '2' }}
+    >
+      <Heading size="sm">🖼️ Hearth Icons</Heading>
+      <BodyText size="md">
+        {
+          'A scalable, consistent, and pixel-perfect icon library made for Hearth. Includes SVGs, usage docs, and accessible components for both web and mobile platforms.'
+        }
+      </BodyText>
+      <CardAction asChild>
+        <Link href="/icons">
+          {'Learn more'}
+          <ChevronRightSmallIcon />
+        </Link>
+      </CardAction>
+    </Card>
+  </Grid>
 </div>
 
 ## 🚀 Getting Started
