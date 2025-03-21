@@ -39,11 +39,11 @@ div:where([role='main']) > div {
 }
 
 div#panel-tab-content > div > div > div {
-  background-color: var(--color-warm-white-50) !important;
+  background-color: #fcfbf2 !important;
 }
 
 #storybook-panel-root div[data-radix-scroll-area-content]:not(.sidebar-container div) > div > div {
-  background-color: var(--color-warm-white-50) !important;
+  background-color: #fcfbf2 !important;
 }
 
 /* selector for data-test-id="sb-preview-toolbar" - brave browser fix */
