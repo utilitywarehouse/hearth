@@ -255,6 +255,9 @@ importers:
 
   apps/storybook-fonts:
     dependencies:
+      '@utilitywarehouse/hearth-css-reset':
+        specifier: workspace:*
+        version: link:../../packages/css-reset
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:*
         version: link:../../packages/fonts
