@@ -16,6 +16,7 @@ import { flexItemPropDefs } from '../../props/flex-item.props';
 import { backgroundColorPropDefs } from '../../props/background-color.props';
 import { positionPropDefs } from '../../props/position.props';
 import { borderPropDefs } from '../../props/border.props';
+import { textAlignPropDefs } from '../../props/text-align.props';
 
 const componentName = 'Box';
 const componentClassName = withGlobalPrefix(componentName);
@@ -39,7 +40,8 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
     sizePropDefs,
     borderPropDefs,
     gridItemPropDefs,
-    flexItemPropDefs
+    flexItemPropDefs,
+    textAlignPropDefs
   );
 
   const Component = asChild ? Slot : Tag;

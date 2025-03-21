@@ -18,6 +18,7 @@ import { spacingPropDefs } from '../../props/spacing.props';
 import { backgroundColorPropDefs } from '../../props/background-color.props';
 import { positionPropDefs } from '../../props/position.props';
 import { borderPropDefs } from '../../props/border.props';
+import { textAlignPropDefs } from '../../props/text-align.props';
 
 const componentName = 'Grid';
 const componentClassName = withGlobalPrefix(componentName);
@@ -44,7 +45,8 @@ export const Grid = React.forwardRef<GridElement, GridProps>((props, ref) => {
     borderPropDefs,
     gridItemPropDefs,
     flexItemPropDefs,
-    spacingPropDefs
+    spacingPropDefs,
+    textAlignPropDefs
   );
 
   const dataAttributeProps = {

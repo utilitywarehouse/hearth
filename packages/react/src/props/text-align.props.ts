@@ -4,16 +4,16 @@ import { PropDef } from './prop-def';
 const textAlignValues = ['left', 'center', 'right'] as const;
 
 const textAlignPropDefs = {
-  align: { className: 'text-align', tokens: textAlignValues, responsive: true },
+  textAlign: { className: 'text-align', tokens: textAlignValues, responsive: true },
 } satisfies {
-  align: PropDef<(typeof textAlignValues)[number]>;
+  textAlign: PropDef<(typeof textAlignValues)[number]>;
 };
 
 interface TextAlignProps {
   /**
    * Set the text-align on the component.
    */
-  align?: Responsive<(typeof textAlignValues)[number]>;
+  textAlign?: Responsive<(typeof textAlignValues)[number]>;
 }
 
 export { textAlignPropDefs };

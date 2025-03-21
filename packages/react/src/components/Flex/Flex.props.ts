@@ -10,6 +10,7 @@ import { PositionProps } from '../../props/position.props';
 import { PropDef } from '../../props/prop-def';
 import { SizeProps } from '../../props/size.props';
 import { SpacingProps } from '../../props/spacing.props';
+import { TextAlignProps } from '../../props/text-align.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive } from '../../types/responsive';
 
@@ -65,7 +66,8 @@ interface CommonFlexProps
     SpacingProps,
     BorderProps,
     GridItemProps,
-    FlexItemProps {
+    FlexItemProps,
+    TextAlignProps {
   as?: 'div' | 'span';
   /** Change the default rendered element for the one passed as a child, merging their props and behavior. */
   asChild?: boolean;
