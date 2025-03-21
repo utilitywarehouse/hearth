@@ -6,6 +6,8 @@ import '@utilitywarehouse/hearth-tokens/index.css';
 import '@utilitywarehouse/hearth-react/styles.css';
 import '../src/storybook-components/styles.css';
 import { breakpoints } from '@utilitywarehouse/hearth-react';
+import '../../../shared/storybook/styles/preview.css';
+import theme from '../../../shared/storybook/theme';
 
 const customViewports = {
   mobile: {
@@ -43,6 +45,9 @@ const preview: Preview = {
   parameters: {
     viewport: {
       viewports: customViewports,
+    },
+    docs: {
+      theme,
     },
     options: {
       storySort: {

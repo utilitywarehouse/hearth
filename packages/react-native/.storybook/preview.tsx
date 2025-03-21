@@ -3,9 +3,10 @@ import type { Preview } from '@storybook/react';
 import { useArgs } from 'storybook/internal/preview-api';
 import { themes, breakpoints, StyleSheet } from '../src/core';
 import '@utilitywarehouse/hearth-fonts';
+import '../../../shared/storybook/styles/preview.css';
 
-import theme from './theme';
 import { color } from '@utilitywarehouse/hearth-tokens';
+import theme from '../../../shared/storybook/theme';
 
 StyleSheet.configure({
   breakpoints,
