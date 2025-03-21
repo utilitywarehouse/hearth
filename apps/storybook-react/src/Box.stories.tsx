@@ -83,9 +83,9 @@ export const ResponsiveProps: Story = {
     className: 'hearth-sb-Placeholder',
     children: 'Responsive props',
     padding: {
-      mobile: '40px',
+      mobile: '400',
       tablet: '200',
-      desktop: '8rem',
+      desktop: '800',
       wide: '400',
     },
     width: {
@@ -95,7 +95,7 @@ export const ResponsiveProps: Story = {
       wide: '200px',
     },
     margin: {
-      mobile: '16px',
+      mobile: '600',
       tablet: '0',
       desktop: '300',
       wide: '500',
