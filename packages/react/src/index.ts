@@ -89,3 +89,6 @@ export type { TextInputSlotProps } from './components/TextInputSlot/TextInputSlo
 
 export { PasswordInput } from './components/PasswordInput/PasswordInput';
 export type { PasswordInputProps } from './components/PasswordInput/PasswordInput.props';
+
+export { SearchInput } from './components/SearchInput/SearchInput';
+export type { SearchInputProps } from './components/SearchInput/SearchInput.props';

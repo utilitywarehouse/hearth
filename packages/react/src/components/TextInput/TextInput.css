@@ -5,22 +5,10 @@
 
   &:where([data-disabled]) {
     opacity: var(--h-opacity-disabled);
-  }
 
-  &:where([data-hide-label]) {
-    gap: 0;
-
-    & :where(label) {
-      border: 0;
-      clip: rect(0 0 0 0);
-      clip-path: inset(50%);
-      height: 1px;
-      margin: 0 -1px -1px 0;
-      overflow: hidden;
-      padding: 0;
-      position: absolute;
-      white-space: nowrap;
-      width: 1px;
+    /* don't add extra opacity to any disabled buttons within the component, they will handle this themselves */
+    & :where(button) {
+      opacity: 1;
     }
   }
 
