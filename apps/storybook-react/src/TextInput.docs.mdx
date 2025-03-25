@@ -1,0 +1,74 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+
+import * as Stories from './TextInput.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Components / TextInput" />
+
+<DocsHeader componentName="TextInput" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Alternatives
+
+- [PasswordInput](?path=/docs/components-passwordinput--docs) - For entering passwords
+- [SearchInput](?path=/docs/components-searchinput--docs) - For search
+
+## Label
+
+A label is required, this should be clear and descriptive to guide the user.
+
+The `hideLabel` prop will visually hide the label but keep it available for screen readers.
+
+## Disabled and Read-only
+
+The component uses the `aria-disabled` and `read-only` attributes together to
+indicate a disabled input, rather than `disabled`, so that they are still
+focusable when using the keyboard. This means that screen readers are still
+able to find the input, with the insight that it is disabled and that there is
+perhaps an action which needs to be taken, rather than not knowing there is an
+input there at all.
+
+Read-only inputs can not be edited, but reamin focusable, and should only be
+used readonly when presenting already submitted information.. They differ from
+disabled inputs, as there may be actions a user can take to activate a disabled
+input, but read-only fields should stay undeditable in the same view.
+
+<Canvas of={Stories.DisabledAndReadOnly} />
+
+## Validation
+
+The input `validationStatus` can be set to either `"valid"` or `"invalid"` to
+indicate the status. This status must be accompanied by a validation text to
+explain the reason for the status.
+
+<Canvas of={Stories.Validation} />
+
+## Prefix and Suffix
+
+To include a prefix or suffix in the `TextInput` you need to wrap the content
+in the `TextInputSlot` component. You can then set the `placement` prop on the
+`TextInputSlot` component to display it as either a `prefix` or a `suffix`.
+
+<Canvas of={Stories.PrefixAndSuffix} sourceState="shown" />
+
+You can do the same with icons.
+
+<Canvas of={Stories.WithIcons} />
+
+## API
+
+This component is based on the `input` element.
+
+| Prop               | Type                                                                        |
+| ------------------ | --------------------------------------------------------------------------- |
+| `type`             | `"email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url"` |
+| `label`            | `string`                                                                    |
+| `supportingText`   | `string`                                                                    |
+| `validationStatus` | `"valid" \| "invalid"`                                                      |
+| `validationText`   | `string`                                                                    |
+| `hideLabel`        | `boolean`                                                                   |

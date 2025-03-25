@@ -5,6 +5,13 @@ import { EmailMediumIcon } from '@utilitywarehouse/react-icons';
 const meta: Meta<typeof TextInput> = {
   title: 'Stories / TextInput',
   component: TextInput,
+  parameters: {
+    docs: {
+      description: {
+        component: '`TextInput` is an interactive field that allows users to enter text and data.',
+      },
+    },
+  },
   argTypes: {
     placeholder: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
@@ -32,6 +39,50 @@ export default meta;
 type Story = StoryObj<typeof TextInput>;
 
 export const Playground: Story = {};
+
+export const DisabledAndReadOnly: Story = {
+  render: args => (
+    <Flex direction="column" gap="400">
+      <TextInput
+        {...args}
+        label="Disabled"
+        disabled
+        supportingText="Please do something before this"
+      />
+      <TextInput
+        {...args}
+        label="Read only"
+        readOnly
+        value="Uneditable previously provided information"
+      />
+    </Flex>
+  ),
+  args: { supportingText: undefined },
+};
+
+export const Validation: Story = {
+  render: args => (
+    <Flex direction="column" gap="400">
+      <TextInput
+        {...args}
+        label="Email"
+        type="email"
+        value="rphoenix@uw.co.uk"
+        validationStatus="valid"
+        validationText="Valid email address"
+      />
+      <TextInput
+        {...args}
+        label="Email"
+        type="email"
+        value="rphoenix@geemail."
+        validationStatus="invalid"
+        validationText="Please enter a valid email address"
+      />
+    </Flex>
+  ),
+  args: { supportingText: undefined },
+};
 
 export const PrefixAndSuffix: Story = {
   render: args => (
