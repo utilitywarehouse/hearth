@@ -5,5 +5,6 @@
 export default {
   backgroundColor: '#ffffff',
   borderRadius: 16,
+  gap: 6,
   padding: 16,
 } as const;

@@ -12,6 +12,8 @@ export default {
       backgroundColor: '#d1d0d0',
       red: {
         backgroundColor: '#ffe3df',
+        color: '#a4281e',
+        iconColor: '#a4281e',
       },
     },
     borderRadius: 4,
@@ -41,10 +43,17 @@ export default {
       red: {
         backgroundColor: '#fff3f1',
         color: '#a4281e',
+        color2: '#a4281e',
         iconColor: '#a4281e',
+        iconColor2: '#a4281e',
       },
     },
     padding: 12,
   },
+  list: {
+    gap: 8,
+  },
+  maxWidth: 504,
+  minWidth: 288,
   padding: 4,
 } as const;

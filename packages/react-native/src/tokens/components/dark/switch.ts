@@ -9,9 +9,25 @@ export default {
     backgroundColorHover: '#572e9e',
     iconColor: '#7a42c8',
   },
-  circleBackgroundColor: '#ffffff',
+  circle: {
+    backgroundColor: '#ffffff',
+  },
+  md: {
+    circle: {
+      size: 28,
+    },
+    height: 32,
+    width: 60,
+  },
   padding: 2,
   radius: 9999,
+  sm: {
+    circle: {
+      size: 20,
+    },
+    height: 24,
+    width: 44,
+  },
   unchecked: {
     backgroundColor: '#8a8686',
     backgroundColorActive: '#5f5c5b',

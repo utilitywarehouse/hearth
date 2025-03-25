@@ -18,8 +18,7 @@ export default {
     backgroundColor: '#ffcca8',
     borderColor: '#cf5d00',
   },
-  paddingHorizontal: 12,
-  paddingVertical: 12,
+  padding: 14,
   red: {
     backgroundColor: '#ffccc5',
     borderColor: '#de2612',
