@@ -1,0 +1,44 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-date-picker-background-color: var(--h-color-white);
+  --h-date-picker-border-color: var(--h-color-grey-1000);
+  --h-date-picker-border-color-invalid: var(--h-color-red-700);
+  --h-date-picker-border-color-read-only: var(--h-color-grey-200);
+  --h-date-picker-border-color-valid: var(--h-color-green-700);
+  --h-date-picker-border-radius: var(--h-border-radius-md);
+  --h-date-picker-border-width: var(--h-border-width-1);
+  --h-date-picker-border-width-focused: var(--h-border-width-2);
+  --h-date-picker-calendar-background-color: var(--h-color-white);
+  --h-date-picker-calendar-border-color: var(--h-color-warm-white-300);
+  --h-date-picker-calendar-border-radius: var(--h-border-radius-md);
+  --h-date-picker-calendar-border-width: var(--h-border-width-1);
+  --h-date-picker-calendar-column-gap: var(--h-space-50);
+  --h-date-picker-calendar-footer-gap: var(--h-space-100);
+  --h-date-picker-calendar-gap: var(--h-space-200);
+  --h-date-picker-calendar-header-control-gap: var(--h-space-350);
+  --h-date-picker-calendar-header-date-gap: var(--h-space-100);
+  --h-date-picker-calendar-item-background-color-active: var(--h-color-grey-200);
+  --h-date-picker-calendar-item-background-color-hover: var(--h-color-grey-100);
+  --h-date-picker-calendar-item-background-color-range: var(--h-color-grey-50);
+  --h-date-picker-calendar-item-background-color-selected: var(--h-color-uw-purple);
+  --h-date-picker-calendar-item-border-radius: var(--h-border-radius-md);
+  --h-date-picker-calendar-item-roundel-background-color: var(--h-color-uw-purple);
+  --h-date-picker-calendar-item-roundel-background-color-inverted: var(--h-color-warm-white-50);
+  --h-date-picker-calendar-item-roundel-height: var(--h-space-75);
+  --h-date-picker-calendar-item-roundel-width: var(--h-space-75);
+  --h-date-picker-calendar-max-width: 420;
+  --h-date-picker-calendar-min-width: 332;
+  --h-date-picker-calendar-padding: var(--h-space-200);
+  --h-date-picker-calendar-row-gap: var(--h-space-25);
+  --h-date-picker-gap: var(--h-space-75);
+  --h-date-picker-gap-container: var(--h-space-50);
+  --h-date-picker-header-control-gap-2: var(--h-space-350);
+  --h-date-picker-height: var(--h-space-600);
+  --h-date-picker-max-width: 504;
+  --h-date-picker-min-width: 288;
+  --h-date-picker-padding-horizontal: var(--h-space-200);
+  --h-date-picker-padding-vertical: var(--h-space-150);
+}

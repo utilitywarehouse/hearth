@@ -12,8 +12,7 @@
   --h-alert-green-border-color: var(--h-color-green-700);
   --h-alert-orange-background-color: var(--h-color-orange-200);
   --h-alert-orange-border-color: var(--h-color-orange-700);
-  --h-alert-padding-horizontal: var(--h-space-150);
-  --h-alert-padding-vertical: var(--h-space-150);
+  --h-alert-padding: var(--h-space-175);
   --h-alert-red-background-color: var(--h-color-red-200);
   --h-alert-red-border-color: var(--h-color-red-700);
 }

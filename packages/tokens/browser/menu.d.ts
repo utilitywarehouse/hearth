@@ -2,13 +2,14 @@ export declare const menu: {
   readonly backgroundColor: 'var(--h-menu-background-color)';
   readonly borderColor: 'var(--h-menu-border-color)';
   readonly borderWidth: 'var(--h-menu-border-width)';
-  readonly contentGap: 'var(--h-menu-content-gap)';
   readonly gap: 'var(--h-menu-gap)';
   readonly item: {
     readonly active: {
       readonly backgroundColor: 'var(--h-menu-item-active-background-color)';
       readonly red: {
         readonly backgroundColor: 'var(--h-menu-item-active-red-background-color)';
+        readonly color: 'var(--h-menu-item-active-red-color)';
+        readonly iconColor: 'var(--h-menu-item-active-red-icon-color)';
       };
     };
     readonly borderRadius: 'var(--h-menu-item-border-radius)';
@@ -38,9 +39,17 @@ export declare const menu: {
       readonly red: {
         readonly backgroundColor: 'var(--h-menu-item-hover-red-background-color)';
         readonly color: 'var(--h-menu-item-hover-red-color)';
+        readonly color2: 'var(--h-menu-item-hover-red-color-2)';
         readonly iconColor: 'var(--h-menu-item-hover-red-icon-color)';
+        readonly iconColor2: 'var(--h-menu-item-hover-red-icon-color-2)';
       };
     };
     readonly padding: 'var(--h-menu-item-padding)';
   };
+  readonly list: {
+    readonly gap: 'var(--h-menu-list-gap)';
+  };
+  readonly maxWidth: 'var(--h-menu-max-width)';
+  readonly minWidth: 'var(--h-menu-min-width)';
+  readonly padding: 'var(--h-menu-padding)';
 };

@@ -11,11 +11,11 @@
   --h-select-border-radius: var(--h-border-radius-md);
   --h-select-border-width: var(--h-border-width-1);
   --h-select-border-width-focused: var(--h-border-width-2);
-  --h-select-color-placeholder: var(--h-color-grey-500);
   --h-select-dropdown-background-color: var(--h-color-white);
   --h-select-dropdown-border-color: var(--h-color-warm-white-300);
   --h-select-dropdown-border-width: var(--h-border-width-1);
   --h-select-dropdown-gap: var(--h-space-50);
+  --h-select-dropdown-gap-content: var(--h-space-100);
   --h-select-dropdown-item-active-background-color: var(--h-color-grey-200);
   --h-select-dropdown-item-border-radius: var(--h-border-radius-xs);
   --h-select-dropdown-item-focus-border-color: var(--h-color-grey-1000);
@@ -25,8 +25,9 @@
   --h-select-dropdown-item-padding: var(--h-space-150);
   --h-select-dropdown-padding: var(--h-space-50);
   --h-select-gap: var(--h-space-75);
-  --h-select-gap-container: var(--h-space-25);
+  --h-select-gap-container: var(--h-space-50);
   --h-select-height: 48;
+  --h-select-list-gap: var(--h-space-100);
   --h-select-max-width: 504;
   --h-select-min-width: 288;
   --h-select-padding-horizontal: var(--h-space-200);

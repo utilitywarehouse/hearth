@@ -11,6 +11,9 @@ export const input = {
     gap: 'var(--h-input-currency-gap)',
     height: 'var(--h-input-currency-height)',
   },
+  date: {
+    gap: 'var(--h-input-date-gap)',
+  },
   gap: 'var(--h-input-gap)',
   height: 'var(--h-input-height)',
   maxWidth: 'var(--h-input-max-width)',

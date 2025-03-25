@@ -7,12 +7,12 @@ export const select = {
   borderRadius: 'var(--h-select-border-radius)',
   borderWidth: 'var(--h-select-border-width)',
   borderWidthFocused: 'var(--h-select-border-width-focused)',
-  colorPlaceholder: 'var(--h-select-color-placeholder)',
   dropdown: {
     backgroundColor: 'var(--h-select-dropdown-background-color)',
     borderColor: 'var(--h-select-dropdown-border-color)',
     borderWidth: 'var(--h-select-dropdown-border-width)',
     gap: 'var(--h-select-dropdown-gap)',
+    gapContent: 'var(--h-select-dropdown-gap-content)',
     item: {
       active: {
         backgroundColor: 'var(--h-select-dropdown-item-active-background-color)',
@@ -33,6 +33,9 @@ export const select = {
   gap: 'var(--h-select-gap)',
   gapContainer: 'var(--h-select-gap-container)',
   height: 'var(--h-select-height)',
+  list: {
+    gap: 'var(--h-select-list-gap)',
+  },
   maxWidth: 'var(--h-select-max-width)',
   minWidth: 'var(--h-select-min-width)',
   paddingHorizontal: 'var(--h-select-padding-horizontal)',

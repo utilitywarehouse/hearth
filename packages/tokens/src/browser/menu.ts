@@ -2,13 +2,14 @@ export const menu = {
   backgroundColor: 'var(--h-menu-background-color)',
   borderColor: 'var(--h-menu-border-color)',
   borderWidth: 'var(--h-menu-border-width)',
-  contentGap: 'var(--h-menu-content-gap)',
   gap: 'var(--h-menu-gap)',
   item: {
     active: {
       backgroundColor: 'var(--h-menu-item-active-background-color)',
       red: {
         backgroundColor: 'var(--h-menu-item-active-red-background-color)',
+        color: 'var(--h-menu-item-active-red-color)',
+        iconColor: 'var(--h-menu-item-active-red-icon-color)',
       },
     },
     borderRadius: 'var(--h-menu-item-border-radius)',
@@ -38,9 +39,17 @@ export const menu = {
       red: {
         backgroundColor: 'var(--h-menu-item-hover-red-background-color)',
         color: 'var(--h-menu-item-hover-red-color)',
+        color2: 'var(--h-menu-item-hover-red-color-2)',
         iconColor: 'var(--h-menu-item-hover-red-icon-color)',
+        iconColor2: 'var(--h-menu-item-hover-red-icon-color-2)',
       },
     },
     padding: 'var(--h-menu-item-padding)',
   },
+  list: {
+    gap: 'var(--h-menu-list-gap)',
+  },
+  maxWidth: 'var(--h-menu-max-width)',
+  minWidth: 'var(--h-menu-min-width)',
+  padding: 'var(--h-menu-padding)',
 } as const;

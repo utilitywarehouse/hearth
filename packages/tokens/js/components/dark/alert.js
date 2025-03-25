@@ -11,14 +11,13 @@ export default {
   gap: 8,
   green: {
     backgroundColor: '#08683a',
-    borderColor: '#7bd5aa',
+    borderColor: '#74d6a0',
   },
   orange: {
     backgroundColor: '#ad4b00',
     borderColor: '#ffab70',
   },
-  paddingHorizontal: 12,
-  paddingVertical: 12,
+  padding: 14,
   red: {
     backgroundColor: '#a4281e',
     borderColor: '#ffa89d',

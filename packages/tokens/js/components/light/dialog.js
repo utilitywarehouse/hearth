@@ -7,12 +7,10 @@ export default {
   },
   backgroundColor: '#ffffff',
   borderRadius: 16,
+  color: '#101010',
   content: {
     gap: 12,
   },
   gap: 24,
-  maxWidth: 680,
-  minWidth: 504,
   padding: 24,
-  width: 680,
 };

@@ -8,6 +8,7 @@ export { default as bottomSheet } from './bottom-sheet';
 export { default as button } from './button';
 export { default as card } from './card';
 export { default as checkbox } from './checkbox';
+export { default as datePicker } from './date-picker';
 export { default as dialog } from './dialog';
 export { default as divider } from './divider';
 export { default as focus } from './focus';

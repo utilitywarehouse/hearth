@@ -5,13 +5,14 @@ declare const _default: {
   readonly backgroundColor: '#ffffff';
   readonly borderColor: '#d4d2c0';
   readonly borderWidth: 1;
-  readonly contentGap: 4;
   readonly gap: 4;
   readonly item: {
     readonly active: {
       readonly backgroundColor: '#d1d0d0';
       readonly red: {
         readonly backgroundColor: '#ffe3df';
+        readonly color: '#a4281e';
+        readonly iconColor: '#a4281e';
       };
     };
     readonly borderRadius: 8;
@@ -41,10 +42,18 @@ declare const _default: {
       readonly red: {
         readonly backgroundColor: '#fff3f1';
         readonly color: '#a4281e';
+        readonly color2: '#a4281e';
         readonly iconColor: '#a4281e';
+        readonly iconColor2: '#a4281e';
       };
     };
-    readonly padding: 4;
+    readonly padding: 12;
   };
+  readonly list: {
+    readonly gap: 4;
+  };
+  readonly maxWidth: 504;
+  readonly minWidth: 288;
+  readonly padding: 4;
 };
 export default _default;

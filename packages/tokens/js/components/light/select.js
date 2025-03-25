@@ -10,12 +10,12 @@ export default {
   borderRadius: 8,
   borderWidth: 1,
   borderWidthFocused: 2,
-  colorPlaceholder: '#6f6c6b',
   dropdown: {
     backgroundColor: '#ffffff',
     borderColor: '#d4d2c0',
     borderWidth: 1,
     gap: 4,
+    gapContent: 8,
     item: {
       active: {
         backgroundColor: '#d1d0d0',
@@ -34,8 +34,11 @@ export default {
     padding: 4,
   },
   gap: 6,
-  gapContainer: 2,
+  gapContainer: 4,
   height: 48,
+  list: {
+    gap: 8,
+  },
   maxWidth: 504,
   minWidth: 288,
   paddingHorizontal: 16,

@@ -6,13 +6,16 @@ declare const _default: {
   readonly borderColor: '#f6f5f5';
   readonly borderColorInvalid: '#ffa89d';
   readonly borderColorReadOnly: '#464444';
-  readonly borderColorValid: '#7bd5aa';
+  readonly borderColorValid: '#74d6a0';
   readonly borderRadius: 8;
   readonly borderWidth: 1;
   readonly borderWidthFocused: 2;
   readonly currency: {
     readonly gap: 2;
     readonly height: 60;
+  };
+  readonly date: {
+    readonly gap: 8;
   };
   readonly gap: 6;
   readonly height: 48;

@@ -6,10 +6,8 @@
   --h-dialog-action-gap: var(--h-space-150);
   --h-dialog-background-color: var(--h-color-white);
   --h-dialog-border-radius: var(--h-border-radius-xl);
+  --h-dialog-color: var(--h-color-grey-1000);
   --h-dialog-content-gap: var(--h-space-150);
   --h-dialog-gap: var(--h-space-300);
-  --h-dialog-max-width: 680;
-  --h-dialog-min-width: 504;
   --h-dialog-padding: var(--h-space-300);
-  --h-dialog-width: 680;
 }

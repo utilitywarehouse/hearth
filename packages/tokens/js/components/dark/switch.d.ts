@@ -8,9 +8,25 @@ declare const _default: {
     readonly backgroundColorHover: '#572e9e';
     readonly iconColor: '#7a42c8';
   };
-  readonly circleBackgroundColor: '#ffffff';
+  readonly circle: {
+    readonly backgroundColor: '#ffffff';
+  };
+  readonly md: {
+    readonly circle: {
+      readonly size: 28;
+    };
+    readonly height: 32;
+    readonly width: 60;
+  };
   readonly padding: 2;
   readonly radius: 9999;
+  readonly sm: {
+    readonly circle: {
+      readonly size: 20;
+    };
+    readonly height: 24;
+    readonly width: 44;
+  };
   readonly unchecked: {
     readonly backgroundColor: '#8a8686';
     readonly backgroundColorActive: '#5f5c5b';

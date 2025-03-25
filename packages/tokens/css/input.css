@@ -13,6 +13,7 @@
   --h-input-border-width-focused: var(--h-border-width-2);
   --h-input-currency-gap: var(--h-space-25);
   --h-input-currency-height: 60;
+  --h-input-date-gap: var(--h-space-100);
   --h-input-gap: var(--h-space-75);
   --h-input-height: 48;
   --h-input-max-width: 504;

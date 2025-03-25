@@ -22,5 +22,8 @@ declare const _default: {
       readonly borderColor: '#d4d2c0';
     };
   };
+  readonly list: {
+    readonly gap: 8;
+  };
 };
 export default _default;

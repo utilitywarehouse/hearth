@@ -17,8 +17,7 @@ declare const _default: {
     readonly backgroundColor: '#ffcca8';
     readonly borderColor: '#cf5d00';
   };
-  readonly paddingHorizontal: 12;
-  readonly paddingVertical: 12;
+  readonly padding: 14;
   readonly red: {
     readonly backgroundColor: '#ffccc5';
     readonly borderColor: '#de2612';

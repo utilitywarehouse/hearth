@@ -14,6 +14,9 @@ export default {
     gap: 2,
     height: 60,
   },
+  date: {
+    gap: 8,
+  },
   gap: 6,
   height: 48,
   maxWidth: 504,

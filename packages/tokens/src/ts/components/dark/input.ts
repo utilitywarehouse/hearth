@@ -7,13 +7,16 @@ export default {
   borderColor: '#f6f5f5',
   borderColorInvalid: '#ffa89d',
   borderColorReadOnly: '#464444',
-  borderColorValid: '#7bd5aa',
+  borderColorValid: '#74d6a0',
   borderRadius: 8,
   borderWidth: 1,
   borderWidthFocused: 2,
   currency: {
     gap: 2,
     height: 60,
+  },
+  date: {
+    gap: 8,
   },
   gap: 6,
   height: 48,
