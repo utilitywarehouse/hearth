@@ -25,7 +25,7 @@ Label.displayName = 'Label';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.components.text.labelColor,
+    color: theme.components.text.color,
     variants: {
       disabled: {
         true: {

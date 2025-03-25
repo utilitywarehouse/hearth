@@ -5,3 +5,5 @@ export { default as ViewFigmaButton } from './ViewFigmaButton';
 export { default as DocComponentWrap } from './DocComponentWrap';
 export { default as BadgeList } from './BadgeList';
 export { default as AdvancedInputExample } from './AdvancedInputExample';
+export { default as SwitchExample } from './SwitchExample';
+export { default as SwitchList } from './SwitchList';

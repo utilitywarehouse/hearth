@@ -25,7 +25,7 @@ HelperText.displayName = 'HelperText';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.components.text.supportingTextColor,
+    color: theme.components.text.colorSecondary,
     variants: {
       validationStatus: {
         valid: {
