@@ -15,59 +15,75 @@ const componentClassName = withGlobalPrefix(componentName);
 
 type TextInputElement = ElementRef<'input'>;
 
-export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((props, ref) => {
-  const {
-    className,
-    validationStatus,
-    validationText,
-    label,
-    supportingText,
-    children,
-    id: providedId,
-    disabled,
-    readOnly,
-    hideLabel,
-    role,
-    ...textInputProps
-  } = extractProps(props);
-  const { id, labelId, supportingTextId } = useIds({ providedId, prefix: 'input' });
-  return (
-    <div
-      className={clsx(componentClassName, className)}
-      role={role}
-      data-validation-status={validationStatus ? validationStatus : undefined}
-      data-disabled={disabled || readOnly ? '' : undefined}
-    >
-      <Flex direction="column" data-visually-hidden={hideLabel ? '' : undefined}>
-        <Label htmlFor={id} id={labelId} disableUserSelect>
-          {label}
-        </Label>
-        {supportingText ? (
-          <SupportingText id={supportingTextId} disableUserSelect>
-            {supportingText}
-          </SupportingText>
+export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
+  (props, forwardedRef) => {
+    const {
+      className,
+      validationStatus,
+      validationText,
+      label,
+      supportingText,
+      children,
+      id: providedId,
+      disabled,
+      readOnly,
+      hideLabel,
+      role,
+      ...textInputProps
+    } = extractProps(props);
+    const { id, labelId, supportingTextId } = useIds({ providedId, prefix: 'input' });
+    const defaultRef = React.useRef<HTMLInputElement>(null);
+    const inputRef = forwardedRef || defaultRef;
+    return (
+      <div
+        className={clsx(componentClassName, className)}
+        role={role}
+        data-validation-status={validationStatus ? validationStatus : undefined}
+        data-disabled={disabled || readOnly ? '' : undefined}
+        onPointerDown={event => {
+          // avoid losing focus when users click on non-interactive slot elements, such as icons
+          const target = event.target as HTMLElement;
+          if (target.closest('input, button, a')) return;
+
+          if (inputRef && typeof inputRef === 'object' && inputRef.current) {
+            const input = inputRef.current;
+            requestAnimationFrame(() => {
+              input.focus();
+            });
+          }
+        }}
+      >
+        <Flex direction="column" data-visually-hidden={hideLabel ? '' : undefined}>
+          <Label htmlFor={id} id={labelId} disableUserSelect>
+            {label}
+          </Label>
+          {supportingText ? (
+            <SupportingText id={supportingTextId} disableUserSelect>
+              {supportingText}
+            </SupportingText>
+          ) : null}
+        </Flex>
+        <div className="hearth-input-container">
+          {children}
+          <input
+            ref={inputRef}
+            spellCheck="false"
+            id={id}
+            aria-labelledby={labelId}
+            aria-describedby={supportingTextId}
+            aria-disabled={disabled}
+            readOnly={readOnly || disabled}
+            {...textInputProps}
+          />
+        </div>
+        {validationStatus !== undefined && validationText !== undefined ? (
+          <ValidationText status={validationStatus} disableUserSelect>
+            {validationText}
+          </ValidationText>
         ) : null}
-      </Flex>
-      <div className="hearth-input-container">
-        {children}
-        <input
-          ref={ref}
-          spellCheck="false"
-          id={id}
-          aria-labelledby={labelId}
-          aria-describedby={supportingTextId}
-          aria-disabled={disabled}
-          readOnly={readOnly || disabled}
-          {...textInputProps}
-        />
       </div>
-      {validationStatus !== undefined && validationText !== undefined ? (
-        <ValidationText status={validationStatus} disableUserSelect>
-          {validationText}
-        </ValidationText>
-      ) : null}
-    </div>
-  );
-});
+    );
+  }
+);
 
 TextInput.displayName = componentName;

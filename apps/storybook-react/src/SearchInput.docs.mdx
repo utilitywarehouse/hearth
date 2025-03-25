@@ -1,0 +1,46 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+
+import * as Stories from './SearchInput.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Components / SearchInput" />
+
+<DocsHeader componentName="SearchInput" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Alternatives
+
+- [TextInput](?path=/docs/components-textinput--docs) - For text
+- [PasswordInput](?path=/docs/components-passwordinput--docs) - For passwords
+
+## Label
+
+A label is required, it will be visually hidden, but still available to screen readers.
+
+## Clear
+
+You can pass a function to the `onClear` prop to clear the input. When there is
+a value the `clear` button will be present, and clicking it will call the
+`onClear` function. This should be used only to clear the value of the input.
+
+## Loading
+
+You can set the `SearchInput` into a loading state, where it will disable the
+input and display a loading spinner.
+
+<Canvas of={Stories.Loading} sourceState="shown" />
+
+## API
+
+This component is based on the `input` element.
+
+| Prop      | Type         |
+| --------- | ------------ |
+| `label`   | `string`     |
+| `onClear` | `() => void` |
+| `loading` | `boolean`    |
