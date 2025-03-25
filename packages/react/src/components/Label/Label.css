@@ -1,3 +1,4 @@
 .hearth-Label {
   color: var(--h-text-label-color);
+  cursor: default;
 }

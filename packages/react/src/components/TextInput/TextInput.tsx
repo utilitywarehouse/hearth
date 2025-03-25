@@ -25,6 +25,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((pro
     children,
     id: providedId,
     disabled,
+    readOnly,
     hideLabel,
     role,
     ...textInputProps
@@ -35,7 +36,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((pro
       className={clsx(componentClassName, className)}
       role={role}
       data-validation-status={validationStatus ? validationStatus : undefined}
-      data-disabled={disabled ? '' : undefined}
+      data-disabled={disabled || readOnly ? '' : undefined}
     >
       <Flex direction="column" data-visually-hidden={hideLabel ? '' : undefined}>
         <Label htmlFor={id} id={labelId} disableUserSelect>
@@ -55,7 +56,8 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((pro
           id={id}
           aria-labelledby={labelId}
           aria-describedby={supportingTextId}
-          disabled={disabled}
+          aria-disabled={disabled}
+          readOnly={readOnly || disabled}
           {...textInputProps}
         />
       </div>

@@ -20,13 +20,13 @@
   height: var(--h-icon-button-size);
   width: var(--h-icon-button-size);
 
-  &:where([aria-disabled]) {
+  &:where([aria-disabled='true']) {
     cursor: not-allowed;
     opacity: var(--h-opacity-disabled);
   }
 
   @media (hover: hover) {
-    &:where(:hover):not([aria-disabled]) {
+    &:where(:hover):not([aria-disabled='true']) {
       color: var(--h-icon-button-unstyled-foreground-color-hover);
     }
   }
@@ -36,7 +36,7 @@
     outline-offset: 1px;
   }
 
-  &:where(:active):not([aria-disabled]) {
+  &:where(:active):not([aria-disabled='true']) {
     color: var(--h-icon-button-unstyled-foreground-color-active);
   }
 
