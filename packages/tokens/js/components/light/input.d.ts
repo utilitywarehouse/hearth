@@ -14,6 +14,9 @@ declare const _default: {
     readonly gap: 2;
     readonly height: 60;
   };
+  readonly date: {
+    readonly gap: 8;
+  };
   readonly gap: 6;
   readonly height: 48;
   readonly maxWidth: 504;

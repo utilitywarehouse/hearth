@@ -8,8 +8,5 @@ export declare const modal: {
     readonly gap: 'var(--h-modal-content-gap)';
   };
   readonly gap: 'var(--h-modal-gap)';
-  readonly maxWidth: 'var(--h-modal-max-width)';
-  readonly minWidth: 'var(--h-modal-min-width)';
   readonly padding: 'var(--h-modal-padding)';
-  readonly width: 'var(--h-modal-width)';
 };

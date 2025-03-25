@@ -8,8 +8,5 @@
   --h-modal-border-radius: var(--h-border-radius-xl);
   --h-modal-content-gap: var(--h-space-150);
   --h-modal-gap: var(--h-space-300);
-  --h-modal-max-width: 680;
-  --h-modal-min-width: 504;
   --h-modal-padding: var(--h-space-200);
-  --h-modal-width: 680;
 }

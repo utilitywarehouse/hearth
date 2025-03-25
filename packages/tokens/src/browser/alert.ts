@@ -14,8 +14,7 @@ export const alert = {
     backgroundColor: 'var(--h-alert-orange-background-color)',
     borderColor: 'var(--h-alert-orange-border-color)',
   },
-  paddingHorizontal: 'var(--h-alert-padding-horizontal)',
-  paddingVertical: 'var(--h-alert-padding-vertical)',
+  padding: 'var(--h-alert-padding)',
   red: {
     backgroundColor: 'var(--h-alert-red-background-color)',
     borderColor: 'var(--h-alert-red-border-color)',

@@ -19,4 +19,14 @@ export declare const list: {
       readonly borderColor: 'var(--h-list-item-subtle-border-color)';
     };
   };
+  readonly menu: {
+    readonly list: {
+      readonly gap: 'var(--h-menu-list-gap)';
+    };
+  };
+  readonly select: {
+    readonly list: {
+      readonly gap: 'var(--h-select-list-gap)';
+    };
+  };
 };

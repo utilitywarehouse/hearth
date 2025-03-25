@@ -16,7 +16,7 @@ export default {
     borderColor: '#fcfbf2',
     borderWidth: 1,
     green: {
-      color: '#7bd5aa',
+      color: '#74d6a0',
     },
     grey: {
       color: '#8a8686',
@@ -36,7 +36,7 @@ export default {
     },
     color: '#fcfbf2',
     green: {
-      backgroundColor: '#7bd5aa',
+      backgroundColor: '#74d6a0',
     },
     grey: {
       backgroundColor: '#8a8686',

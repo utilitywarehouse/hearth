@@ -6,16 +6,16 @@ declare const _default: {
   readonly borderColor: '#f6f5f5';
   readonly borderColorInvalid: '#ffa89d';
   readonly borderColorReadOnly: '#464444';
-  readonly borderColorValid: '#7bd5aa';
+  readonly borderColorValid: '#74d6a0';
   readonly borderRadius: 8;
   readonly borderWidth: 1;
   readonly borderWidthFocused: 2;
-  readonly colorPlaceholder: '#6f6c6b';
   readonly dropdown: {
     readonly backgroundColor: '#ffffff';
     readonly borderColor: '#d4d2c0';
     readonly borderWidth: 1;
     readonly gap: 4;
+    readonly gapContent: 8;
     readonly item: {
       readonly active: {
         readonly backgroundColor: '#d1d0d0';
@@ -34,8 +34,11 @@ declare const _default: {
     readonly padding: 4;
   };
   readonly gap: 6;
-  readonly gapContainer: 2;
+  readonly gapContainer: 4;
   readonly height: 48;
+  readonly list: {
+    readonly gap: 4;
+  };
   readonly maxWidth: 504;
   readonly minWidth: 288;
   readonly paddingHorizontal: 16;

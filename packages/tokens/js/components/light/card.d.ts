@@ -5,13 +5,13 @@ declare const _default: {
   readonly borderColorSelected: '#101010';
   readonly borderRadius: 16;
   readonly borderWidthSelected: 2;
-  readonly broadbandBlueBackgroundColor: '#84b9c3';
+  readonly broadbandBlueBackgroundColor: '#6db5c3';
   readonly cashbackLilacBackgroundColor: '#be7aeb';
   readonly emphasis: {
     readonly borderColor: '#101010';
     readonly borderWidth: 2;
   };
-  readonly energyGreenBackgroundColor: '#96b850';
+  readonly energyGreenBackgroundColor: '#8cba3b';
   readonly insuranceOrangeBackgroundColor: '#ff7b00';
   readonly mobileRoseBackgroundColor: '#ee6dbb';
   readonly purpleBackgroundColor: '#7a42c8';

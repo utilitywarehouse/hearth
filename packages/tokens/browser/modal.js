@@ -8,8 +8,5 @@ export const modal = {
     gap: 'var(--h-modal-content-gap)',
   },
   gap: 'var(--h-modal-gap)',
-  maxWidth: 'var(--h-modal-max-width)',
-  minWidth: 'var(--h-modal-min-width)',
   padding: 'var(--h-modal-padding)',
-  width: 'var(--h-modal-width)',
 };

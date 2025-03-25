@@ -11,6 +11,9 @@ export declare const input: {
     readonly gap: 'var(--h-input-currency-gap)';
     readonly height: 'var(--h-input-currency-height)';
   };
+  readonly date: {
+    readonly gap: 'var(--h-input-date-gap)';
+  };
   readonly gap: 'var(--h-input-gap)';
   readonly height: 'var(--h-input-height)';
   readonly maxWidth: 'var(--h-input-max-width)';

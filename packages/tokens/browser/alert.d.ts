@@ -14,8 +14,7 @@ export declare const alert: {
     readonly backgroundColor: 'var(--h-alert-orange-background-color)';
     readonly borderColor: 'var(--h-alert-orange-border-color)';
   };
-  readonly paddingHorizontal: 'var(--h-alert-padding-horizontal)';
-  readonly paddingVertical: 'var(--h-alert-padding-vertical)';
+  readonly padding: 'var(--h-alert-padding)';
   readonly red: {
     readonly backgroundColor: 'var(--h-alert-red-background-color)';
     readonly borderColor: 'var(--h-alert-red-border-color)';

@@ -15,4 +15,6 @@
   --h-list-item-padding-horizontal: var(--h-space-150);
   --h-list-item-padding-vertical: var(--h-space-200);
   --h-list-item-subtle-border-color: var(--h-color-warm-white-300);
+  --h-menu-list-gap: var(--h-space-100);
+  --h-select-list-gap: var(--h-space-100);
 }

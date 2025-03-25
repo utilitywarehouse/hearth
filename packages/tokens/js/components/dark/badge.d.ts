@@ -15,7 +15,7 @@ declare const _default: {
     readonly borderColor: '#fcfbf2';
     readonly borderWidth: 1;
     readonly green: {
-      readonly color: '#7bd5aa';
+      readonly color: '#74d6a0';
     };
     readonly grey: {
       readonly color: '#8a8686';
@@ -35,7 +35,7 @@ declare const _default: {
     };
     readonly color: '#fcfbf2';
     readonly green: {
-      readonly backgroundColor: '#7bd5aa';
+      readonly backgroundColor: '#74d6a0';
     };
     readonly grey: {
       readonly backgroundColor: '#8a8686';

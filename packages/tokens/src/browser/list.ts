@@ -19,4 +19,14 @@ export const list = {
       borderColor: 'var(--h-list-item-subtle-border-color)',
     },
   },
+  menu: {
+    list: {
+      gap: 'var(--h-menu-list-gap)',
+    },
+  },
+  select: {
+    list: {
+      gap: 'var(--h-select-list-gap)',
+    },
+  },
 } as const;

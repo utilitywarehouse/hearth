@@ -6,8 +6,6 @@
   --h-text-color: var(--h-color-grey-1000);
   --h-text-color-invalid: var(--h-color-red-700);
   --h-text-color-inverted: var(--h-color-grey-50);
+  --h-text-color-secondary: var(--h-color-grey-500);
   --h-text-color-valid: var(--h-color-green-700);
-  --h-text-heading-color: var(--h-color-grey-1000);
-  --h-text-label-color: var(--h-color-grey-1000);
-  --h-text-supporting-text-color: var(--h-color-grey-500);
 }
