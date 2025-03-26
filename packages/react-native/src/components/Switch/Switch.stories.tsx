@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { VariantTitle } from '../../../docs/components';
@@ -35,7 +35,18 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  render: ({ value, ...args }) => {
+    const [toggled, setToggled] = React.useState(value);
+    const handleToggle = () => {
+      setToggled(prev => !prev);
+    };
+    useEffect(() => {
+      setToggled(value);
+    }, [value]);
+    return <Switch {...args} value={toggled} onValueChange={handleToggle} />;
+  },
+};
 
 export const Variants: Story = {
   render: () => (
