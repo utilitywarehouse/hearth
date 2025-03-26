@@ -119,27 +119,23 @@ const CustomSwitch: React.FC<SwitchProps> = ({
       accessibilityHint={accessibilityProps.accessibilityHint}
       {...accessibilityProps}
     >
-      {({ pressed }) => (
-        <AnimatedView
-          style={[
-            styles.switch,
-            disabled && styles.disabledSwitch,
-            animatedSwitchStyle,
-            animatedSwitchBackgroundStyle,
-            pressed && value && styles.pressedChecked,
-            pressed && !value && styles.pressedUnChecked,
-          ]}
-        >
-          <AnimatedView style={[styles.thumb, animatedThumbStyle]}>
-            <AnimatedView style={[styles.iconWrap, animatedTickStyle]}>
-              <Icon as={TickSmallIcon} style={styles.icon} />
-            </AnimatedView>
-            <AnimatedView style={[styles.iconWrap, animatedCrossStyle]}>
-              <Icon as={CloseSmallIcon} style={styles.icon} />
-            </AnimatedView>
+      <AnimatedView
+        style={[
+          styles.switch,
+          disabled && styles.disabledSwitch,
+          animatedSwitchStyle,
+          animatedSwitchBackgroundStyle,
+        ]}
+      >
+        <AnimatedView style={[styles.thumb, animatedThumbStyle]}>
+          <AnimatedView style={[styles.iconWrap, animatedTickStyle]}>
+            <Icon as={TickSmallIcon} style={styles.icon} />
+          </AnimatedView>
+          <AnimatedView style={[styles.iconWrap, animatedCrossStyle]}>
+            <Icon as={CloseSmallIcon} style={styles.icon} />
           </AnimatedView>
         </AnimatedView>
-      )}
+      </AnimatedView>
     </Pressable>
   );
 };
@@ -176,12 +172,6 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     },
-  },
-  pressedChecked: {
-    backgroundColor: theme.components.switch.checked.backgroundColorActive,
-  },
-  pressedUnChecked: {
-    backgroundColor: theme.components.switch.unchecked.backgroundColorActive,
   },
   thumb: {
     backgroundColor: theme.components.switch.circle.backgroundColor,
