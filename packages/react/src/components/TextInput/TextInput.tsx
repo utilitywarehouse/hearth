@@ -9,6 +9,7 @@ import { SupportingText } from '../SupportingText/SupportingText';
 import { Flex } from '../Flex/Flex';
 import { useIds } from '../../hooks/use-ids';
 import { ValidationText } from '../ValidationText/ValidationText';
+import { mergeIds } from '../../helpers/merge-ids';
 
 const componentName = 'TextInput';
 const componentClassName = withGlobalPrefix(componentName);
@@ -31,7 +32,19 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
       role,
       ...textInputProps
     } = extractProps(props);
-    const { id, labelId, supportingTextId } = useIds({ providedId, prefix: 'input' });
+    const { id, labelId, supportingTextId, validationTextId } = useIds({
+      providedId,
+      prefix: 'input',
+    });
+
+    const showValidationText = Boolean(
+      validationStatus !== undefined && validationText !== undefined
+    );
+    const ariaDescribedbyValue = mergeIds(
+      !!supportingText ? supportingTextId : undefined,
+      showValidationText ? validationTextId : undefined
+    );
+
     const defaultRef = React.useRef<HTMLInputElement>(null);
     const inputRef = forwardedRef || defaultRef;
     return (
@@ -70,14 +83,16 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
             spellCheck="false"
             id={id}
             aria-labelledby={labelId}
-            aria-describedby={supportingTextId}
+            aria-describedby={ariaDescribedbyValue}
             aria-disabled={disabled}
+            aria-invalid={validationStatus === 'invalid' ? true : undefined}
+            aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
             readOnly={readOnly || disabled}
             {...textInputProps}
           />
         </div>
-        {validationStatus !== undefined && validationText !== undefined ? (
-          <ValidationText status={validationStatus} disableUserSelect>
+        {showValidationText ? (
+          <ValidationText status={validationStatus} disableUserSelect id={validationTextId}>
             {validationText}
           </ValidationText>
         ) : null}

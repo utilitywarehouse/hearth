@@ -39,6 +39,7 @@ export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps
         className={clsx(componentClassName, className)}
         type="search"
         role="search"
+        enterKeyHint="search"
         disabled={disabled || loading}
         hideLabel
         value={value}
@@ -55,6 +56,7 @@ export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps
         {value !== undefined && String(value).length > 0 ? (
           <TextInputSlot placement="suffix">
             <UnstyledIconButton
+              type="button"
               label="clear search"
               onClick={handleClear}
               disabled={disabled || loading}

@@ -35,6 +35,60 @@ input and display a loading spinner.
 
 <Canvas of={Stories.Loading} sourceState="shown" />
 
+## Form usage
+
+When using the `SearchInput` inside a form, please make sure you add the search
+role to the form element to assist screen readers. Be aware though that too
+many landmark roles such as this can create unnecessary 'noise' for screen
+reader users, and should be used sparingly on a page.
+
+Please take the time to read [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/search_role)
+around this, to fully understand how best to use the `SearchInput` within the
+context of your specific form.
+
+```tsx
+<form role="search">
+  <SearchInput />
+</form>
+```
+
+The `<search>` element is an alternative to this, however it is not supported by
+our [current browser versions](https://wiki.uw.systems/posts/supported-browsers-gi115224).
+
+## Usage with a button
+
+On desktop the `SearchInput` must be followed by a button which triggers the
+containing form's search action. Results should be shown after the user
+triggers the search action.
+
+On mobile, and tablet, no button is required, as the search can be triggered by
+tapping on the search button on the keyboard or dynamically while typing. On
+older mobile browsers, the enter key may not explicitly display the word
+_Search_ but will still trigger the containing form's search action. Results
+should be shown dynamically as the user types or after tapping on the search
+button on the keyboard.
+
+You can achieve this UI using responsive props.
+
+```tsx
+<Flex asChild gap="50" width={{ mobile: '100%', tablet: '500px' }}>
+  <form role="search" action={search}>
+    <SearchInput
+      label="Search"
+      value={value}
+      placeholder="What do you need help with?"
+      onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+      onClear={() => setValue('')}
+    />
+    <Box display={{ mobile: 'none', desktop: 'block' }}>
+      <Button variant="solid" colorScheme="yellow">
+        Search
+      </Button>
+    </Box>
+  </form>
+</Flex>
+```
+
 ## API
 
 This component is based on the `input` element.

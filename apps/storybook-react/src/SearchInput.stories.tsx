@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { SearchInput } from '@utilitywarehouse/hearth-react';
+import { Box, Button, Flex, SearchInput } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta: Meta<typeof SearchInput> = {
@@ -56,6 +56,50 @@ export const Loading: Story = {
         onClear={() => setValue('')}
         loading
       />
+    );
+  },
+};
+
+export const FormUsage: Story = {
+  render: args => {
+    const [value, setValue] = React.useState<string>('');
+    return (
+      <form role="search" action="/search">
+        <SearchInput
+          {...args}
+          value={value}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+          onClear={() => setValue('')}
+        />
+      </form>
+    );
+  },
+};
+
+export const UsageWithButton: Story = {
+  render: () => {
+    const [value, setValue] = React.useState<string>('');
+    return (
+      <Box height="100%" width="100%" backgroundColor="warmWhite50" padding="200">
+        <Flex asChild gap="50" width={{ mobile: '100%', tablet: '500px' }}>
+          <form role="search" action="/search">
+            <SearchInput
+              label="Search"
+              value={value}
+              placeholder="What do you need help with?"
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setValue(event.target.value)
+              }
+              onClear={() => setValue('')}
+            />
+            <Box display={{ mobile: 'none', desktop: 'block' }}>
+              <Button variant="solid" colorScheme="yellow">
+                Search
+              </Button>
+            </Box>
+          </form>
+        </Flex>
+      </Box>
     );
   },
 };
