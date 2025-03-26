@@ -57,11 +57,11 @@ our [current browser versions](https://wiki.uw.systems/posts/supported-browsers-
 
 ## Usage with a button
 
-On desktop the `SearchInput` must be followed by a button which triggers the
+On desktop, and tablet the `SearchInput` must be followed by a button which triggers the
 containing form's search action. Results should be shown after the user
 triggers the search action.
 
-On mobile, and tablet, no button is required, as the search can be triggered by
+On mobile, no button is required, as the search can be triggered by
 tapping on the search button on the keyboard or dynamically while typing. On
 older mobile browsers, the enter key may not explicitly display the word
 _Search_ but will still trigger the containing form's search action. Results
@@ -80,7 +80,7 @@ You can achieve this UI using responsive props.
       onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
       onClear={() => setValue('')}
     />
-    <Box display={{ mobile: 'none', desktop: 'block' }}>
+    <Box display={{ mobile: 'none', tablet: 'block' }}>
       <Button variant="solid" colorScheme="yellow">
         Search
       </Button>

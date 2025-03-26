@@ -92,7 +92,7 @@ export const UsageWithButton: Story = {
               }
               onClear={() => setValue('')}
             />
-            <Box display={{ mobile: 'none', desktop: 'block' }}>
+            <Box display={{ mobile: 'none', tablet: 'block' }}>
               <Button variant="solid" colorScheme="yellow">
                 Search
               </Button>
