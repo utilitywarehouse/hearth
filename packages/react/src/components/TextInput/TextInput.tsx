@@ -40,7 +40,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
     });
 
     const showValidationText = Boolean(
-      validationStatus !== undefined && validationText !== undefined
+      !readOnly && !disabled && validationStatus !== undefined && validationText !== undefined
     );
     const ariaDescribedbyValue = mergeIds(
       !!supportingText ? supportingTextId : undefined,
@@ -70,7 +70,12 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
       >
         <Flex direction="column" data-visually-hidden={hideLabel ? '' : undefined}>
           <Label htmlFor={id} id={labelId} disableUserSelect>
-            {label} {required ? null : <BodyText as="span">(optional)</BodyText>}
+            {label}
+            {required ? null : (
+              <BodyText as="span" marginLeft="50">
+                (optional)
+              </BodyText>
+            )}
           </Label>
           {supportingText ? (
             <SupportingText id={supportingTextId} disableUserSelect>

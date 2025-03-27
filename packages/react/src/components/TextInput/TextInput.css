@@ -37,13 +37,13 @@
       cursor: default;
     }
 
-    :where([data-validation-status='valid']) & {
+    :where([data-validation-status='valid']:not(:has(input[readonly]))) & {
       border-color: var(--h-input-border-color-valid);
 
       --h-input-border-color-focus: var(--h-input-border-color-valid);
     }
 
-    :where([data-validation-status='invalid']) & {
+    :where([data-validation-status='invalid']:not(:has(input[readonly]))) & {
       border-color: var(--h-input-border-color-invalid);
 
       --h-input-border-color-focus: var(--h-input-border-color-invalid);
