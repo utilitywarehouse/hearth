@@ -1,6 +1,0 @@
-:where(.hearth-sb-Placeholder) {
-  border: 1px solid var(--h-color-grey-200);
-  background-color: var(--h-color-grey-100);
-  border-width: 2px;
-  border-radius: 4px;
-}

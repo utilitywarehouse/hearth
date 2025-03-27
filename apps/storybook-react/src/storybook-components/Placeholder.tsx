@@ -1,0 +1,15 @@
+import { Flex, FlexProps } from '@utilitywarehouse/hearth-react';
+
+export const Placeholder = (props: FlexProps) => {
+  return (
+    <Flex
+      backgroundColor="grey100"
+      borderRadius="xs"
+      borderWidth="1"
+      borderStyle="solid"
+      borderColor="grey200"
+      height="100%"
+      {...props}
+    />
+  );
+};

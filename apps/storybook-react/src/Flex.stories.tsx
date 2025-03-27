@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Box, colorTokens, Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { colorTokens, Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { Placeholder } from './storybook-components/Placeholder';
 
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
@@ -76,10 +77,10 @@ type Story = StoryObj<typeof Flex>;
 export const Playground: Story = {
   render: args => (
     <Flex {...args}>
-      <Box className="hearth-sb-Placeholder" padding="600" />
-      <Box className="hearth-sb-Placeholder" padding="600" />
-      <Box className="hearth-sb-Placeholder" padding="600" />
-      <Box className="hearth-sb-Placeholder" padding="600" />
+      <Placeholder padding="600" />
+      <Placeholder padding="600" />
+      <Placeholder padding="600" />
+      <Placeholder padding="600" />
     </Flex>
   ),
   args: {
@@ -90,9 +91,9 @@ export const Playground: Story = {
 export const ResponsiveGap: Story = {
   render: args => (
     <Flex {...args}>
-      <Box className="hearth-sb-Placeholder" padding="600" />
-      <Box className="hearth-sb-Placeholder" padding="600" />
-      <Box className="hearth-sb-Placeholder" padding="600" />
+      <Placeholder padding="600" />
+      <Placeholder padding="600" />
+      <Placeholder padding="600" />
     </Flex>
   ),
   args: {
@@ -109,9 +110,9 @@ export const ResponsiveGap: Story = {
 export const Spacing: Story = {
   render: args => (
     <Flex {...args}>
-      <Box className="hearth-sb-Placeholder" padding="600" />
-      <Box className="hearth-sb-Placeholder" padding="600" />
-      <Box className="hearth-sb-Placeholder" padding="600" />
+      <Placeholder padding="600" />
+      <Placeholder padding="600" />
+      <Placeholder padding="600" />
     </Flex>
   ),
   args: {

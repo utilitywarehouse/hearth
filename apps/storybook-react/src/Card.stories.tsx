@@ -18,9 +18,10 @@ import {
   HeartMediumIcon,
   HeartMediumFilledIcon,
 } from '@utilitywarehouse/react-icons';
+import { Placeholder } from './storybook-components/Placeholder';
 
 const variants = ['emphasis', 'subtle'] as const;
-const whiteColorSchemes = ['white', 'warmWhite'];
+const whiteColorSchemes = ['white', 'warmWhite'] as const;
 const nonWhiteColorSchemes = [
   'purple',
   'energyGreen',
@@ -366,7 +367,7 @@ export const WithoutLink: Story = {
                 </CardAction>
               </Flex>
               <Flex direction="column" align="center" gap="200">
-                <Box className="hearth-sb-Placeholder" width="100px" height="50px" />
+                <Placeholder width="100px" height="50px" />
                 <BodyText size="md" id="title-argos">
                   Argos
                 </BodyText>
@@ -390,7 +391,7 @@ export const WithoutLink: Story = {
                 </CardAction>
               </Flex>
               <Flex direction="column" align="center" gap="200">
-                <Box className="hearth-sb-Placeholder" width="100px" height="50px" />
+                <Placeholder width="100px" height="50px" />
                 <BodyText size="md" id="title-askitalian">
                   Ask Italian
                 </BodyText>
