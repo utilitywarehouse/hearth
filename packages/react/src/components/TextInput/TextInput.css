@@ -29,6 +29,7 @@
 
     &:where(:has(input[readonly]):not([data-disabled] &)) {
       border-color: var(--h-input-border-color-read-only);
+
       --h-input-border-color-focus: var(--h-input-border-color-read-only);
     }
 
