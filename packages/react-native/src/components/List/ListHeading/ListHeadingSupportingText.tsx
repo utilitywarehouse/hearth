@@ -17,7 +17,7 @@ ListHeadingSupportingText.displayName = 'ListHeadingSupportingText';
 
 const styles = StyleSheet.create(theme => ({
   supportingText: {
-    color: theme.components.text.supportingTextColor,
+    color: theme.components.text.colorSecondary,
   },
 }));
 

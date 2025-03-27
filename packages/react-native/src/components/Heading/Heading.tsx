@@ -80,7 +80,7 @@ Heading.displayName = 'Heading';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.components.text.headingColor,
+    color: theme.components.text.color,
     fontFamily: theme.typography.mobile.heading.fontFamily,
     marginVertical: 0,
     fontStyle: 'normal',

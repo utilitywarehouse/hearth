@@ -23,4 +23,7 @@ export default {
       borderColor: '#d4d2c0',
     },
   },
+  list: {
+    gap: 4,
+  },
 } as const;

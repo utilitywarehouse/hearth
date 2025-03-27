@@ -13,7 +13,7 @@ const InputField = forwardRef<ElementRef<typeof TextInput>, TextInputProps>(
     return (
       <TextInput
         ref={ref}
-        placeholderTextColor={components.input.colorPlaceholder}
+        placeholderTextColor={components.input.placeholderColor}
         selectionColor={color.uwPurple}
         cursorColor={color.uwPurple}
         verticalAlign="middle"
