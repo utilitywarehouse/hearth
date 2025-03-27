@@ -27,9 +27,9 @@
 
     --h-input-border-color-focus: var(--h-input-border-color);
 
-    &:where(:has(input[readonly])) {
-      border-color: var(--h-input-border-color-read-only);
-    }
+    /* &:where(:has(input[readonly])) { */
+    /*   border-color: var(--h-input-border-color-read-only); */
+    /* } */
 
     &:where(:has(input[aria-disabled='true'], input[readonly])) {
       cursor: default;

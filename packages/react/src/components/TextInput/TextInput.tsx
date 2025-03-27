@@ -54,7 +54,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
         className={clsx(componentClassName, className)}
         role={role}
         data-validation-status={validationStatus ? validationStatus : undefined}
-        data-disabled={disabled || readOnly ? '' : undefined}
+        data-disabled={disabled ? '' : undefined}
         onPointerDown={event => {
           // avoid losing focus when users click on non-interactive slot elements, such as icons
           const target = event.target as HTMLElement;
