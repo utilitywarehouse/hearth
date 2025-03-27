@@ -24,22 +24,20 @@ const CustomSwitch: React.FC<SwitchProps> = ({
   size = 'medium',
   ...accessibilityProps
 }) => {
-  const SWITCH_WIDTH = size === 'medium' ? 60 : 44;
-  const THUMB_SIZE = size === 'medium' ? 28 : 20;
-  const PADDING = 2;
+  const { components } = useTheme();
+  const SWITCH_WIDTH = size === 'medium' ? components.switch.md.width : components.switch.sm.width;
+  const THUMB_SIZE =
+    size === 'medium' ? components.switch.md.circle.size : components.switch.sm.circle.size;
+  const PADDING = components.switch.padding;
 
-  const { components, colorMode } = useTheme();
   styles.useVariants({ size, disabled, value });
 
   const offset = useSharedValue(value ? SWITCH_WIDTH - THUMB_SIZE - PADDING * 2 : 0);
   const progress = useSharedValue(value ? 1 : 0);
 
-  const animatedThumbStyle = useAnimatedStyle(
-    () => ({
-      transform: [{ translateX: offset.value }],
-    }),
-    [offset]
-  );
+  const animatedThumbStyle = useAnimatedStyle(() => ({
+    transform: [{ translateX: offset.value }],
+  }));
 
   const animatedSwitchBackgroundStyle = useAnimatedStyle(() => {
     const backgroundColor = interpolateColor(
@@ -48,49 +46,41 @@ const CustomSwitch: React.FC<SwitchProps> = ({
       [components.switch.unchecked.backgroundColor, components.switch.checked.backgroundColor]
     );
     return { backgroundColor };
-  }, [progress, disabled, colorMode]);
+  });
 
   // Icon animations
   const tickScale = useSharedValue(value ? 1 : 0);
   const crossScale = useSharedValue(value ? 0 : 1);
 
-  const animatedTickStyle = useAnimatedStyle(
-    () => ({
-      transform: [{ scale: tickScale.value }],
-    }),
-    [tickScale]
-  );
+  const animatedTickStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: tickScale.value }],
+  }));
 
-  const animatedCrossStyle = useAnimatedStyle(
-    () => ({
-      transform: [{ scale: crossScale.value }],
-    }),
-    [crossScale]
-  );
+  const animatedCrossStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: crossScale.value }],
+  }));
 
   // Press feedback animation
   const scale = useSharedValue(1);
 
-  const animatedSwitchStyle = useAnimatedStyle(
-    () => ({
-      transform: [{ scale: scale.value }],
-    }),
-    [scale]
-  );
+  const animatedSwitchStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
+  }));
 
   React.useEffect(() => {
-    // Animate the thumb position
-    offset.value = withTiming(value ? SWITCH_WIDTH - THUMB_SIZE - PADDING * 2 : 0);
-
-    // Animate the icons
-    tickScale.value = withTiming(value ? 1 : 0);
-    crossScale.value = withTiming(value ? 0 : 1);
-
-    // Animate the background color with ease-in-out easing
-    progress.value = withTiming(value ? 1 : 0, {
+    const userConfig = {
       duration: 300,
       easing: Easing.inOut(Easing.ease),
-    });
+    };
+    // Animate the thumb position
+    offset.value = withTiming(value ? SWITCH_WIDTH - THUMB_SIZE - PADDING * 2 : 0, userConfig);
+
+    // Animate the icons
+    tickScale.value = withTiming(value ? 1 : 0, userConfig);
+    crossScale.value = withTiming(value ? 0 : 1, userConfig);
+
+    // Animate the background color with ease-in-out easing
+    progress.value = withTiming(value ? 1 : 0, userConfig);
   }, [value, disabled]);
 
   const toggleSwitch = () => {
@@ -119,14 +109,7 @@ const CustomSwitch: React.FC<SwitchProps> = ({
       accessibilityHint={accessibilityProps.accessibilityHint}
       {...accessibilityProps}
     >
-      <AnimatedView
-        style={[
-          styles.switch,
-          disabled && styles.disabledSwitch,
-          animatedSwitchStyle,
-          animatedSwitchBackgroundStyle,
-        ]}
-      >
+      <AnimatedView style={[styles.switch, animatedSwitchBackgroundStyle, animatedSwitchStyle]}>
         <AnimatedView style={[styles.thumb, animatedThumbStyle]}>
           <AnimatedView style={[styles.iconWrap, animatedTickStyle]}>
             <Icon as={TickSmallIcon} style={styles.icon} />
@@ -206,9 +189,6 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     },
-  },
-  disabledSwitch: {
-    opacity: 0.5,
   },
 }));
 
