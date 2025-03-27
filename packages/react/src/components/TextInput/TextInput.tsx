@@ -87,7 +87,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
             required={required}
             aria-labelledby={labelId}
             aria-describedby={ariaDescribedbyValue}
-            aria-disabled={disabled}
+            aria-disabled={disabled || readOnly}
             aria-invalid={validationStatus === 'invalid' ? true : undefined}
             aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
             readOnly={readOnly || disabled}
