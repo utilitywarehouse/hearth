@@ -47,6 +47,8 @@ xcuserdata
 DerivedData
 *.hmap
 *.ipa
+*.tar.gz
+*.app
 *.xcuserstate
 project.xcworkspace
 
