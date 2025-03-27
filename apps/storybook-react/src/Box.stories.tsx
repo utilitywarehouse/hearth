@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Box, BoxProps, Flex, spaceTokens, colorTokens } from '@utilitywarehouse/hearth-react';
 import { useRef } from 'react';
+import { Placeholder } from './storybook-components/Placeholder';
 
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
@@ -29,6 +30,13 @@ const meta: Meta<typeof Box> = {
     paddingRight: { options: spaceTokens, control: { type: 'select' } },
     paddingBottom: { options: spaceTokens, control: { type: 'select' } },
     paddingLeft: { options: spaceTokens, control: { type: 'select' } },
+    margin: { options: spaceTokens, control: { type: 'select' } },
+    marginInline: { options: spaceTokens, control: { type: 'select' } },
+    marginBlock: { options: spaceTokens, control: { type: 'select' } },
+    marginTop: { options: spaceTokens, control: { type: 'select' } },
+    marginRight: { options: spaceTokens, control: { type: 'select' } },
+    marginBottom: { options: spaceTokens, control: { type: 'select' } },
+    marginLeft: { options: spaceTokens, control: { type: 'select' } },
     width: { control: { type: 'text' } },
     minWidth: { control: { type: 'text' } },
     maxWidth: { control: { type: 'text' } },
@@ -71,16 +79,25 @@ export default meta;
 type Story = StoryObj<typeof Box>;
 
 export const Playground: Story = {
+  render: args => (
+    <Box {...args}>
+      <Placeholder />
+    </Box>
+  ),
   args: {
-    className: 'hearth-sb-Placeholder',
-    padding: '600',
-    width: 'fit-content',
+    height: '128px',
+    width: '128px',
   },
 };
 
 export const ResponsiveProps: Story = {
+  render: args => (
+    <Box {...args}>
+      <Placeholder />
+    </Box>
+  ),
   args: {
-    className: 'hearth-sb-Placeholder',
+    asChild: true,
     children: 'Responsive props',
     padding: {
       mobile: '400',
@@ -108,21 +125,27 @@ export const HideContent: Story = {
   render: () => (
     <Flex gap="300" direction="column">
       <Box
-        className="hearth-sb-Placeholder"
+        borderColor="grey1000"
+        borderStyle="solid"
+        borderWidth="1"
         display={{ mobile: 'none', tablet: 'block' }}
         padding="300"
       >
         hidden on mobile screens
       </Box>
       <Box
-        className="hearth-sb-Placeholder"
+        borderColor="grey1000"
+        borderStyle="solid"
+        borderWidth="1"
         display={{ mobile: 'block', tablet: 'none', desktop: 'block' }}
         padding="300"
       >
         hidden on tablet screens
       </Box>
       <Box
-        className="hearth-sb-Placeholder"
+        borderColor="grey1000"
+        borderStyle="solid"
+        borderWidth="1"
         display={{ mobile: 'block', desktop: 'none' }}
         padding="300"
       >

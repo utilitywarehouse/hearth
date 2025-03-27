@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Box, colorTokens, Grid, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { colorTokens, Grid, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { Placeholder } from './storybook-components/Placeholder';
 
 const columnsValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'] as const;
 const borderStyleValues = ['none', 'solid'] as const;
@@ -62,12 +63,12 @@ type Story = StoryObj<typeof Grid>;
 export const Playground: Story = {
   render: args => (
     <Grid {...args}>
-      <Box className="hearth-sb-Placeholder" padding="400" />
-      <Box className="hearth-sb-Placeholder" padding="400" />
-      <Box className="hearth-sb-Placeholder" padding="400" />
-      <Box className="hearth-sb-Placeholder" padding="400" />
-      <Box className="hearth-sb-Placeholder" padding="400" />
-      <Box className="hearth-sb-Placeholder" padding="400" />
+      <Placeholder padding="400" />
+      <Placeholder padding="400" />
+      <Placeholder padding="400" />
+      <Placeholder padding="400" />
+      <Placeholder padding="400" />
+      <Placeholder padding="400" />
     </Grid>
   ),
   args: {
@@ -85,13 +86,9 @@ export const ResponsiveGrid: Story = {
       padding={{ mobile: '200', tablet: '400' }}
       gap="200"
     >
-      <Box className="hearth-sb-Placeholder" gridColumnSpan="4" padding="400" />
-      <Box className="hearth-sb-Placeholder" gridColumnSpan="4" padding="400" />
-      <Box
-        className="hearth-sb-Placeholder"
-        gridColumnSpan={{ mobile: '4', tablet: '8', desktop: '4' }}
-        padding="400"
-      />
+      <Placeholder gridColumnSpan="4" padding="400" />
+      <Placeholder gridColumnSpan="4" padding="400" />
+      <Placeholder gridColumnSpan={{ mobile: '4', tablet: '8', desktop: '4' }} padding="400" />
     </Grid>
   ),
 };
@@ -99,9 +96,9 @@ export const ResponsiveGrid: Story = {
 export const Spacing: Story = {
   render: args => (
     <Grid {...args}>
-      <Box className="hearth-sb-Placeholder" padding="600" />
-      <Box className="hearth-sb-Placeholder" padding="600" />
-      <Box className="hearth-sb-Placeholder" padding="600" />
+      <Placeholder padding="600" />
+      <Placeholder padding="600" />
+      <Placeholder padding="600" />
     </Grid>
   ),
   args: {
