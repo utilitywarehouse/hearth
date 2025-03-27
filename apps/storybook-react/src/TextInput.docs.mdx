@@ -24,6 +24,16 @@ A label is required, this should be clear and descriptive to guide the user.
 
 The `hideLabel` prop will visually hide the label but keep it available for screen readers.
 
+## Required
+
+In it's default state the `TextInput` is optional, and is indicated as such
+with the `(optional)` text following the label.
+
+When using online forms, most users assume all fields are required by default,
+so the `TextInput` draws attention to when it is optional. Please make sure
+that when the input field is required for successful completion of the form,
+that you apply the `required` prop and appropriate validation is included.
+
 ## Disabled and Read-only
 
 The component uses the `aria-disabled` and `read-only` attributes together to

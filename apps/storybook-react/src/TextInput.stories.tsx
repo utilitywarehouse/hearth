@@ -32,6 +32,7 @@ const meta: Meta<typeof TextInput> = {
     validationText: 'Validation text',
     disabled: false,
     readOnly: false,
+    required: false,
   },
 };
 

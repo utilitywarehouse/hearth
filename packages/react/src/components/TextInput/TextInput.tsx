@@ -10,6 +10,7 @@ import { Flex } from '../Flex/Flex';
 import { useIds } from '../../hooks/use-ids';
 import { ValidationText } from '../ValidationText/ValidationText';
 import { mergeIds } from '../../helpers/merge-ids';
+import { BodyText } from '../BodyText/BodyText';
 
 const componentName = 'TextInput';
 const componentClassName = withGlobalPrefix(componentName);
@@ -30,6 +31,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
       readOnly,
       hideLabel,
       role,
+      required,
       ...textInputProps
     } = extractProps(props);
     const { id, labelId, supportingTextId, validationTextId } = useIds({
@@ -68,7 +70,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
       >
         <Flex direction="column" data-visually-hidden={hideLabel ? '' : undefined}>
           <Label htmlFor={id} id={labelId} disableUserSelect>
-            {label}
+            {label} {required ? null : <BodyText as="span">(optional)</BodyText>}
           </Label>
           {supportingText ? (
             <SupportingText id={supportingTextId} disableUserSelect>
@@ -82,6 +84,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
             ref={inputRef}
             spellCheck="false"
             id={id}
+            required={required}
             aria-labelledby={labelId}
             aria-describedby={ariaDescribedbyValue}
             aria-disabled={disabled}
