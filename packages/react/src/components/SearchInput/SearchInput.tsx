@@ -40,7 +40,7 @@ export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps
         type="search"
         role="search"
         enterKeyHint="search"
-        disabled={disabled || loading}
+        disabled={disabled}
         hideLabel
         value={value}
         {...props}
@@ -59,7 +59,7 @@ export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps
               type="button"
               label="clear search"
               onClick={handleClear}
-              disabled={disabled || loading}
+              disabled={disabled}
             >
               <CloseSmallIcon />
             </UnstyledIconButton>

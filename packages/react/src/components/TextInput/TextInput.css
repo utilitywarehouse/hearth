@@ -82,4 +82,9 @@
       }
     }
   }
+
+  /* Remove default search input cancel button */
+  input[type='search']::-webkit-search-cancel-button {
+    appearance: none;
+  }
 }
