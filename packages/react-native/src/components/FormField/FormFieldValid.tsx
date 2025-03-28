@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useFormFieldContext } from './FormField.context';
 import { Helper } from '../Helper';
 import HelperProps from '../Helper/Helper.props';
-import { TickMediumContainedIcon } from '../../../docs/components/icons';
+import { TickMediumContainedIcon } from '@utilitywarehouse/react-native-icons';
 
 const FormFieldValid: FC<Omit<HelperProps, 'validationStatus'>> = ({
   children,

@@ -13,7 +13,7 @@ import {
   EyeMediumIcon,
   EyeOffMediumIcon,
   SearchMediumIcon,
-} from '../../../docs/components/icons';
+} from '@utilitywarehouse/react-native-icons';
 import { InputWithoutChildrenProps } from './Input.props';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import { Spinner } from '../Spinner';

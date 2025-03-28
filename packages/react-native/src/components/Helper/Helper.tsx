@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import {
   WarningMediumContainedIcon,
   TickMediumContainedIcon,
-} from '../../../docs/components/icons';
+} from '@utilitywarehouse/react-native-icons';
 import HelperProps from './Helper.props';
 import { HelperContext } from './HelperContext';
 import HelperIcon from './HelperIcon';

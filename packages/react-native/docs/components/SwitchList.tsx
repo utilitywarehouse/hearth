@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { List, ListItem, ListItemIcon, Switch } from '../../src';
-import { BellMediumIcon, LockMediumIcon, LocationMediumIcon, EyeMediumIcon } from './icons';
+import {
+  BellMediumIcon,
+  LockMediumIcon,
+  LocationMediumIcon,
+  EyeMediumIcon,
+} from '@utilitywarehouse/react-native-icons';
 
 const SwitchList = () => {
   const [notifications, setNotifications] = useState(false);
