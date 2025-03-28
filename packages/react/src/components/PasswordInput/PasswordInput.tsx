@@ -18,19 +18,17 @@ export const PasswordInput = React.forwardRef<PasswordInputElement, PasswordInpu
     const defaultRef = React.useRef<HTMLInputElement | null>(null);
     const inputRef = forwardedRef || defaultRef;
     const [visible, setVisible] = React.useState(false);
-    const [showPasswordVisibilityMessage, setShowPasswordVisibilityMessage] = React.useState(false);
+    const [showVisibilityMessage, setShowVisibilityMessage] = React.useState(false);
 
     const handleVisibility = React.useCallback(() => {
       const newVisibilityState = !visible;
-      const newPasswordVisibilityState = !showPasswordVisibilityMessage;
+      const newVisibilityMessageState = !showVisibilityMessage;
       setVisible(newVisibilityState);
-      setShowPasswordVisibilityMessage(newPasswordVisibilityState);
+      setShowVisibilityMessage(newVisibilityMessageState);
+    }, [visible, showVisibilityMessage]);
 
-      if (inputRef && typeof inputRef === 'object' && inputRef.current) {
-        inputRef.current.focus();
-      }
-    }, [inputRef, visible, showPasswordVisibilityMessage]);
-
+    // If the PasswordInput is inside a form we should switch the input type
+    // back to password when its parent form is submitted
     React.useEffect(() => {
       if (
         inputRef &&
@@ -46,13 +44,13 @@ export const PasswordInput = React.forwardRef<PasswordInputElement, PasswordInpu
       }
     }, [inputRef]);
 
-    const passwordVisibilityMessage = `Your password is ${visible ? 'shown' : 'hidden'}!`;
+    const visibilityMessage = `Your password is ${visible ? 'shown' : 'hidden'}!`;
 
     React.useEffect(() => {
       setTimeout(() => {
-        setShowPasswordVisibilityMessage(false);
+        setShowVisibilityMessage(false);
       }, 1500);
-    }, [showPasswordVisibilityMessage]);
+    }, [showVisibilityMessage]);
 
     return (
       <>
@@ -76,7 +74,7 @@ export const PasswordInput = React.forwardRef<PasswordInputElement, PasswordInpu
           </TextInputSlot>
         </TextInput>
         <div data-visually-hidden aria-live="assertive" role="status">
-          {showPasswordVisibilityMessage ? passwordVisibilityMessage : ''}
+          {showVisibilityMessage ? visibilityMessage : ''}
         </div>
       </>
     );
