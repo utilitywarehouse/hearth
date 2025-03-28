@@ -24,4 +24,5 @@
   --h-input-text-area-height: 96;
   --h-input-text-area-resize-icon-color: var(--h-color-grey-500);
   --h-input-validation-gap: var(--h-space-25);
+  --h-input-verification-gap: var(--h-space-100);
 }

@@ -1331,6 +1331,13 @@
           "type": "number",
           "value": 2
         }
+      },
+      "verification": {
+        "gap": {
+          "alias": "{space.100}",
+          "type": "number",
+          "value": 8
+        }
       }
     },
     "link": {
@@ -1665,21 +1672,30 @@
         "value": 2
       },
       "checked": {
-        "border-color-active": {
-          "alias": "{color.dark.warm-white.700}",
-          "type": "color",
-          "value": "#d4d2c0"
-        },
-        "border-color-hover": {
-          "alias": "{color.dark.warm-white.800}",
-          "type": "color",
-          "value": "#f1efe4"
-        },
         "color": {
           "alias": "{color.dark.grey.1000}",
           "type": "color",
           "value": "#f6f5f5"
         }
+      },
+      "gap": {
+        "alias": "{space.100}",
+        "type": "number",
+        "value": 8
+      },
+      "outline-color-active": {
+        "alias": "{color.dark.warm-white.700}",
+        "type": "color",
+        "value": "#d4d2c0"
+      },
+      "outline-color-hover": {
+        "alias": "{color.dark.warm-white.800}",
+        "type": "color",
+        "value": "#f1efe4"
+      },
+      "outline-width": {
+        "type": "number",
+        "value": 3
       },
       "radius": {
         "alias": "{border-radius.full}",
@@ -1696,16 +1712,6 @@
           "alias": "{color.dark.grey.400}",
           "type": "color",
           "value": "#5f5c5b"
-        },
-        "border-color-active": {
-          "alias": "{color.dark.warm-white.700}",
-          "type": "color",
-          "value": "#d4d2c0"
-        },
-        "border-color-hover": {
-          "alias": "{color.dark.warm-white.800}",
-          "type": "color",
-          "value": "#f1efe4"
         }
       }
     },
@@ -1938,11 +1944,6 @@
           "type": "color",
           "value": "#7a42c8"
         },
-        "background-color-active": {
-          "alias": "{color.dark.purple.100}",
-          "type": "color",
-          "value": "#3f2475"
-        },
         "background-color-hover": {
           "alias": "{color.dark.purple.200}",
           "type": "color",
@@ -2008,11 +2009,6 @@
           "alias": "{color.dark.grey.600}",
           "type": "color",
           "value": "#8a8686"
-        },
-        "background-color-active": {
-          "alias": "{color.dark.grey.400}",
-          "type": "color",
-          "value": "#5f5c5b"
         },
         "background-color-hover": {
           "alias": "{color.dark.grey.500}",
@@ -3386,6 +3382,13 @@
           "type": "number",
           "value": 2
         }
+      },
+      "verification": {
+        "gap": {
+          "alias": "{space.100}",
+          "type": "number",
+          "value": 8
+        }
       }
     },
     "link": {
@@ -3720,21 +3723,30 @@
         "value": 2
       },
       "checked": {
-        "border-color-active": {
-          "alias": "{color.light.warm-white.300}",
-          "type": "color",
-          "value": "#d4d2c0"
-        },
-        "border-color-hover": {
-          "alias": "{color.light.warm-white.200}",
-          "type": "color",
-          "value": "#f1efe4"
-        },
         "color": {
           "alias": "{color.light.grey.1000}",
           "type": "color",
           "value": "#101010"
         }
+      },
+      "gap": {
+        "alias": "{space.100}",
+        "type": "number",
+        "value": 8
+      },
+      "outline-color-active": {
+        "alias": "{color.light.warm-white.300}",
+        "type": "color",
+        "value": "#d4d2c0"
+      },
+      "outline-color-hover": {
+        "alias": "{color.light.warm-white.200}",
+        "type": "color",
+        "value": "#f1efe4"
+      },
+      "outline-width": {
+        "type": "number",
+        "value": 3
       },
       "radius": {
         "alias": "{border-radius.full}",
@@ -3751,16 +3763,6 @@
           "alias": "{color.light.grey.400}",
           "type": "color",
           "value": "#8a8686"
-        },
-        "border-color-active": {
-          "alias": "{color.light.warm-white.300}",
-          "type": "color",
-          "value": "#d4d2c0"
-        },
-        "border-color-hover": {
-          "alias": "{color.light.warm-white.200}",
-          "type": "color",
-          "value": "#f1efe4"
         }
       }
     },
@@ -3993,11 +3995,6 @@
           "type": "color",
           "value": "#7a42c8"
         },
-        "background-color-active": {
-          "alias": "{color.light.purple.900}",
-          "type": "color",
-          "value": "#3f2475"
-        },
         "background-color-hover": {
           "alias": "{color.light.purple.800}",
           "type": "color",
@@ -4063,11 +4060,6 @@
           "alias": "{color.light.grey.400}",
           "type": "color",
           "value": "#8a8686"
-        },
-        "background-color-active": {
-          "alias": "{color.light.grey.600}",
-          "type": "color",
-          "value": "#5f5c5b"
         },
         "background-color-hover": {
           "alias": "{color.light.grey.500}",
