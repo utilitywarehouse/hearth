@@ -7,6 +7,7 @@ export * from './focus.js';
 export * from './font.js';
 export * from './icon-button.js';
 export * from './inline-link.js';
+export * from './input.js';
 export * from './layout.js';
 export * from './line-height.js';
 export * from './link.js';

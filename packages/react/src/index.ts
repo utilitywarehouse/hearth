@@ -80,3 +80,15 @@ export type { SupportingTextProps } from './components/SupportingText/Supporting
 
 export { ValidationText } from './components/ValidationText/ValidationText';
 export type { ValidationTextProps } from './components/ValidationText/ValidationText.props';
+
+export { TextInput } from './components/TextInput/TextInput';
+export type { TextInputProps } from './components/TextInput/TextInput.props';
+
+export { TextInputSlot } from './components/TextInputSlot/TextInputSlot';
+export type { TextInputSlotProps } from './components/TextInputSlot/TextInputSlot.props';
+
+export { PasswordInput } from './components/PasswordInput/PasswordInput';
+export type { PasswordInputProps } from './components/PasswordInput/PasswordInput.props';
+
+export { SearchInput } from './components/SearchInput/SearchInput';
+export type { SearchInputProps } from './components/SearchInput/SearchInput.props';

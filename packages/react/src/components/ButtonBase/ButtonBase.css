@@ -180,7 +180,7 @@
       --h-button-base-background-color-active: var(--h-emphasis-background-color-active);
 
       @media (hover: hover) {
-        &:where(:hover):not([aria-disabled]) {
+        &:where(:hover):not([aria-disabled='true']) {
           --h-button-base-background-color: var(--h-button-base-background-color-hover);
         }
       }
@@ -201,17 +201,17 @@
   }
 
   @media (hover: hover) {
-    &:where(:hover):not([aria-disabled]) {
+    &:where(:hover):not([aria-disabled='true']) {
       --h-button-base-background-color: var(--h-button-base-background-color-hover);
     }
   }
 
-  &:where([aria-disabled]) {
+  &:where([aria-disabled='true']) {
     cursor: not-allowed;
     opacity: var(--h-opacity-disabled);
   }
 
-  &:where(:active):not([aria-disabled]) {
+  &:where(:active):not([aria-disabled='true']) {
     transition-duration: 0s;
 
     --h-button-base-background-color: var(--h-button-base-background-color-active);

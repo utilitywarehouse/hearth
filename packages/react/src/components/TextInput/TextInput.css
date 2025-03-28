@@ -1,0 +1,90 @@
+.hearth-TextInput {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-input-gap);
+
+  & :where(.hearth-input-container) {
+    display: flex;
+    align-items: stretch;
+    gap: var(--h-input-gap);
+    cursor: text;
+    font-family: var(--h-font-family-body);
+    font-weight: var(--h-font-weight-regular);
+    font-size: var(--h-font-size-100);
+    line-height: var(--h-line-height-500);
+    font-style: normal;
+    text-align: start;
+    height: 48px;
+    min-width: var(--h-input-min-width);
+    max-width: var(--h-input-max-width);
+    padding-inline: var(--h-input-padding-horizontal);
+    padding-block: var(--h-input-padding-vertical);
+    border-radius: var(--h-input-border-radius);
+    border-color: var(--h-input-border-color);
+    border-width: var(--h-input-border-width);
+    border-style: solid;
+
+    --h-input-border-color-focus: var(--h-input-border-color);
+
+    &:where(:has(input[readonly]):not([data-disabled] &)) {
+      border-color: var(--h-input-border-color-read-only);
+
+      --h-input-border-color-focus: var(--h-input-border-color-read-only);
+    }
+
+    &:where(:has(input:disabled, input[readonly])) {
+      cursor: default;
+    }
+
+    :where([data-validation-status='valid']:not(:has(input[readonly], input:disabled))) & {
+      border-color: var(--h-input-border-color-valid);
+
+      --h-input-border-color-focus: var(--h-input-border-color-valid);
+    }
+
+    :where([data-validation-status='invalid']:not(:has(input[readonly], input:disabled))) & {
+      border-color: var(--h-input-border-color-invalid);
+
+      --h-input-border-color-focus: var(--h-input-border-color-invalid);
+    }
+
+    &:where(
+        :has(input:focus),
+        :has(button:focus) /* don't lose visual focus border when any internal button is clicked */
+      ) {
+      outline: var(--h-input-border-width-focused) solid var(--h-input-border-color-focus);
+      outline-offset: -1px;
+    }
+
+    & :where(input) {
+      all: unset;
+      display: block;
+      width: 100%;
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      text-indent: initial;
+      -webkit-tap-highlight-color: transparent;
+
+      /* Make sure parent <label> doesn't change the text cursor */
+      cursor: text;
+
+      &:where(:disabled, [readonly]) {
+        cursor: default;
+      }
+
+      /* Recover textarea pre-wrap in Firefox */
+      white-space: pre-wrap;
+
+      &::placeholder {
+        color: var(--h-input-placeholder-color);
+      }
+    }
+  }
+
+  /* Remove default search input cancel button */
+  input[type='search']::-webkit-search-cancel-button {
+    appearance: none;
+  }
+}
