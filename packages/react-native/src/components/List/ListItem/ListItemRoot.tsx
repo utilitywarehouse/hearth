@@ -1,6 +1,6 @@
 import React, { forwardRef, useEffect, useMemo } from 'react';
 import type ListItemProps from './ListItem.props';
-import { ChevronRight01MediumIcon } from '../../../../docs/components/icons';
+import { ChevronRight01MediumIcon } from '@utilitywarehouse/react-native-icons';
 import { Skeleton } from '../../Skeleton';
 import { useListContext } from '../List.context';
 import { StyleSheet } from 'react-native-unistyles';

@@ -4,13 +4,23 @@ import { Icon } from '../Icon';
 import { SvgRef } from '../../types';
 import IconProps from '../Icon/Icon.props';
 import { useHelperContext } from './HelperContext';
-import { StyleProp, ViewStyle } from 'react-native';
+import { Platform, StyleProp, ViewStyle } from 'react-native';
 
 const HelperIcon = forwardRef<SvgRef, IconProps>(({ style, ...props }, ref) => {
   const { validationStatus } = useHelperContext();
   styles.useVariants({ validationStatus });
 
-  return <Icon ref={ref} style={[styles.icon as StyleProp<ViewStyle>, style]} {...props} />;
+  return (
+    <Icon
+      ref={ref}
+      style={
+        Platform.OS === 'web'
+          ? StyleSheet.compose(styles.icon as StyleProp<ViewStyle>, style)
+          : [styles.icon as StyleProp<ViewStyle>, style]
+      }
+      {...props}
+    />
+  );
 });
 
 HelperIcon.displayName = 'HelperIcon';

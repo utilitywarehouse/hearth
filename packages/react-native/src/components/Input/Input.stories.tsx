@@ -2,9 +2,9 @@ import React from 'react';
 import { Input } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { VariantTitle } from '../../../docs/components';
-import * as Icons from '../../../docs/components/icons';
+import * as Icons from '@utilitywarehouse/react-native-icons';
 import { Flex } from '../Flex';
-import { EmailMediumIcon } from '../../../docs/components/icons';
+import { EmailMediumIcon } from '@utilitywarehouse/react-native-icons';
 import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
 
 const meta = {
