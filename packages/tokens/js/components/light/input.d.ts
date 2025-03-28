@@ -31,5 +31,8 @@ declare const _default: {
   readonly validation: {
     readonly gap: 2;
   };
+  readonly verification: {
+    readonly gap: 8;
+  };
 };
 export default _default;

@@ -28,4 +28,7 @@ export const input = {
   validation: {
     gap: 'var(--h-input-validation-gap)',
   },
+  verification: {
+    gap: 'var(--h-input-verification-gap)',
+  },
 };

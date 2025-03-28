@@ -5,15 +5,15 @@
 export default {
   borderWidth: 2,
   checked: {
-    borderColorActive: '#d4d2c0',
-    borderColorHover: '#f1efe4',
     color: '#101010',
   },
+  gap: 8,
+  outlineColorActive: '#d4d2c0',
+  outlineColorHover: '#f1efe4',
+  outlineWidth: 3,
   radius: 9999,
   unchecked: {
     backgroundColor: '#ffffff',
     borderColor: '#8a8686',
-    borderColorActive: '#d4d2c0',
-    borderColorHover: '#f1efe4',
   },
 } as const;

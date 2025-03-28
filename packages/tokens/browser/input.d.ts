@@ -28,4 +28,7 @@ export declare const input: {
   readonly validation: {
     readonly gap: 'var(--h-input-validation-gap)';
   };
+  readonly verification: {
+    readonly gap: 'var(--h-input-verification-gap)';
+  };
 };

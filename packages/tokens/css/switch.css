@@ -4,7 +4,6 @@
 
 :root {
   --h-switch-checked-background-color: var(--h-color-purple-700);
-  --h-switch-checked-background-color-active: var(--h-color-purple-900);
   --h-switch-checked-background-color-hover: var(--h-color-purple-800);
   --h-switch-checked-icon-color: var(--h-color-purple-700);
   --h-switch-circle-background-color: var(--h-color-white);
@@ -17,7 +16,6 @@
   --h-switch-sm-height: 24;
   --h-switch-sm-width: 44;
   --h-switch-unchecked-background-color: var(--h-color-grey-400);
-  --h-switch-unchecked-background-color-active: var(--h-color-grey-600);
   --h-switch-unchecked-background-color-hover: var(--h-color-grey-500);
   --h-switch-unchecked-icon-color: var(--h-color-grey-400);
 }

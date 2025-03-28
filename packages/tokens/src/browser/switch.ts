@@ -1,7 +1,6 @@
 export const switchComponent = {
   checked: {
     backgroundColor: 'var(--h-switch-checked-background-color)',
-    backgroundColorActive: 'var(--h-switch-checked-background-color-active)',
     backgroundColorHover: 'var(--h-switch-checked-background-color-hover)',
     iconColor: 'var(--h-switch-checked-icon-color)',
   },
@@ -26,7 +25,6 @@ export const switchComponent = {
   },
   unchecked: {
     backgroundColor: 'var(--h-switch-unchecked-background-color)',
-    backgroundColorActive: 'var(--h-switch-unchecked-background-color-active)',
     backgroundColorHover: 'var(--h-switch-unchecked-background-color-hover)',
     iconColor: 'var(--h-switch-unchecked-icon-color)',
   },
