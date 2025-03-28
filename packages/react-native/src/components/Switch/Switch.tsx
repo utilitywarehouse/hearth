@@ -13,7 +13,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import SwitchProps from './Switch.props';
 import { useTheme } from '../../hooks';
-import { CloseSmallIcon, TickSmallIcon } from '../../../docs/components/icons';
+import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/react-native-icons';
 
 const AnimatedView = Animated.createAnimatedComponent(View);
 

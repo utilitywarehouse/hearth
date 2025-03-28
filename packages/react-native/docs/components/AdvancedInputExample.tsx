@@ -1,6 +1,10 @@
 import React from 'react';
 import { Input, InputField, InputIcon, InputSlot, Pressable } from '../../src';
-import { EmailMediumIcon, EyeMediumIcon, EyeOffMediumIcon } from './icons';
+import {
+  EmailMediumIcon,
+  EyeMediumIcon,
+  EyeOffMediumIcon,
+} from '@utilitywarehouse/react-native-icons';
 import { useState } from 'react';
 import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
 

@@ -15,7 +15,11 @@ import {
   Box,
 } from '../../src';
 
-import { ChevronRight01MediumIcon, ElectricityMediumIcon, GasMediumIcon } from './icons';
+import {
+  ChevronRight01MediumIcon,
+  ElectricityMediumIcon,
+  GasMediumIcon,
+} from '@utilitywarehouse/react-native-icons';
 
 const BadgeList = () => {
   return (

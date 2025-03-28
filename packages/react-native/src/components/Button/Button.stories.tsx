@@ -3,10 +3,10 @@ import { Button, ButtonGroup } from '.';
 import type { ButtonProps } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { VariantTitle } from '../../../docs/components';
-import * as Icons from '../../../docs/components/icons';
+import * as Icons from '@utilitywarehouse/react-native-icons';
 import { Flex } from '../Flex';
 import { Box } from '../Box';
-import { AddSmallIcon, ChevronRight01SmallIcon } from '../../../docs/components/icons';
+import { AddSmallIcon, ChevronRight01SmallIcon } from '@utilitywarehouse/react-native-icons';
 import { DetailText } from '../DetailText';
 import { Platform } from 'react-native';
 
