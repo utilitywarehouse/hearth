@@ -32,6 +32,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
       hideLabel,
       role,
       required,
+      placeholder,
       ...textInputProps
     } = extractProps(props);
     const { id, labelId, supportingTextId, validationTextId } = useIds({
@@ -84,7 +85,6 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
           ) : null}
         </Flex>
         <div className="hearth-input-container">
-          {children}
           <input
             ref={inputRef}
             spellCheck="false"
@@ -92,12 +92,14 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
             required={required}
             disabled={disabled}
             readOnly={readOnly}
+            placeholder={!disabled ? placeholder : undefined}
             aria-labelledby={labelId}
             aria-describedby={ariaDescribedbyValue}
             aria-invalid={validationStatus === 'invalid' ? true : undefined}
             aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
             {...textInputProps}
           />
+          {children}
         </div>
         {showValidationText ? (
           <ValidationText status={validationStatus} disableUserSelect id={validationTextId}>

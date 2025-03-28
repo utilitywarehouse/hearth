@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Flex, PasswordInput } from '@utilitywarehouse/hearth-react';
+import { Button, Flex, PasswordInput } from '@utilitywarehouse/hearth-react';
+import React from 'react';
 
 const meta: Meta<typeof PasswordInput> = {
   title: 'Stories / PasswordInput',
@@ -68,4 +69,34 @@ export const Validation: Story = {
     </Flex>
   ),
   args: { supportingText: undefined },
+};
+
+export const FormUsage: Story = {
+  render: args => {
+    const [value, setValue] = React.useState<string>('password123');
+    return (
+      <Flex direction="column" gap="400">
+        <Flex gap="100" align="end">
+          <PasswordInput
+            {...args}
+            label="Not inside form"
+            value={value}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+          />
+        </Flex>
+        <Flex asChild gap="100" align="end">
+          <form onSubmit={() => false}>
+            <PasswordInput
+              {...args}
+              label="Inside form"
+              value={value}
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                setValue(event.target.value)
+              }
+            />
+          </form>
+        </Flex>
+      </Flex>
+    );
+  },
 };

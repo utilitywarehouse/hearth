@@ -6,7 +6,7 @@
   cursor: inherit;
   gap: var(--h-input-gap);
 
-  /* A slot that is not a right-side slot goes on the left */
+  /* A slot that is not a suffix slot is a prefix */
   &:where([data-placement='prefix']),
   &:where(:not([data-placement='suffix'])) {
     order: -1;
