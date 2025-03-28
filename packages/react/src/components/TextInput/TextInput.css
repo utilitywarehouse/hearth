@@ -33,17 +33,17 @@
       --h-input-border-color-focus: var(--h-input-border-color-read-only);
     }
 
-    &:where(:has(input[aria-disabled='true'], input[readonly])) {
+    &:where(:has(input:disabled, input[readonly])) {
       cursor: default;
     }
 
-    :where([data-validation-status='valid']:not(:has(input[readonly]))) & {
+    :where([data-validation-status='valid']:not(:has(input[readonly], input:disabled))) & {
       border-color: var(--h-input-border-color-valid);
 
       --h-input-border-color-focus: var(--h-input-border-color-valid);
     }
 
-    :where([data-validation-status='invalid']:not(:has(input[readonly]))) & {
+    :where([data-validation-status='invalid']:not(:has(input[readonly], input:disabled))) & {
       border-color: var(--h-input-border-color-invalid);
 
       --h-input-border-color-focus: var(--h-input-border-color-invalid);
@@ -70,7 +70,7 @@
       /* Make sure parent <label> doesn't change the text cursor */
       cursor: text;
 
-      &:where([aria-disabled='true'], [readonly]) {
+      &:where(:disabled, [readonly]) {
         cursor: default;
       }
 
