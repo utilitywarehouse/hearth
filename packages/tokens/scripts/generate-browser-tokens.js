@@ -127,6 +127,16 @@ export function generateBrowserTokens() {
               filter: filters.isPrimitiveLineHeight,
             },
             {
+              destination: 'letter-spacing.ts',
+              format: 'browser/variables',
+              filter: filters.isPrimitiveLetterSpacing,
+            },
+            {
+              destination: 'opacity.ts',
+              format: 'browser/variables',
+              filter: filters.isOpacity,
+            },
+            {
               destination: 'typography.ts',
               format: 'browser/variables',
               filter: filters.isTypography,

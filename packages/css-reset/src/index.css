@@ -33,24 +33,15 @@
     }
   }
 
-  /* Typography variables */
-  :root {
-    --font-family-heading: Comic hams;
-    --font-family-heading-fallback: Georgia, serif;
-    --font-family-body-text: DM Sans;
-    --font-family-body-text-fallback: Helvetica, Arial, sans-serif;
-    --font-family-detail-text: DM Mono;
-    --font-family-detail-text-fallback: Courier New, Courier, monospace;
-  }
-
   /* Core body defaults & typography adjustments */
   :where(body) {
     min-height: 100vh;
-    line-height: 1.5;
+    line-height: var(--h-line-height-500);
     text-rendering: optimizeSpeed;
     -moz-osx-font-smoothing: grayscale; /* Firefox */
     -webkit-font-smoothing: antialiased; /* WebKit  */
-    font-family: var(--font-family-body-text), var(--font-family-body-text-fallback);
+    font-family: var(--h-font-family-body), Helvetica, Arial, sans-serif;
+    color: var(--h-text-color);
   }
 
   /* Prevent font size inflation */
@@ -61,7 +52,7 @@
   }
 
   :where(h1, h2, h3, h4) {
-    font-family: var(--font-family-heading), var(--font-family-heading-fallback);
+    font-family: var(--h-font-family-heading), Georgia, serif;
     /* don't remove heading element kerning */
     text-rendering: optimizeLegibility;
   }
@@ -93,7 +84,11 @@
   }
 
   :where(button, a) {
-    font-family: var(--font-family-detail-text), var(--font-family-detail-text-fallback);
+    font-family:
+      var(--h-font-family-detail),
+      Courier New,
+      Courier,
+      monospace;
   }
 
   :where(textarea) {
