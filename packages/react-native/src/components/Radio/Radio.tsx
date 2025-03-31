@@ -12,6 +12,7 @@ import { Helper } from '../Helper';
 import { useRadioGroupContext } from './RadioGroup.context';
 import { useFormFieldContext } from '../FormField';
 import { Flex } from '../Flex';
+import RadioCardRoot from './RadioCardRoot';
 
 const RadioComponent = createRadio({
   Root: StyledRadio,
@@ -43,53 +44,61 @@ const Radio = forwardRef<ElementRef<typeof Pressable>, RadioProps>(
       validText,
       validationStatus: validation,
       showValidationIcon,
+      type = 'radio',
       ...props
     },
     ref
   ) => {
     const { validationStatus: fieldValidationStatus } = useFormFieldContext();
-    const { validationStatus: groupValidationStatus } = useRadioGroupContext();
+    const { validationStatus: groupValidationStatus, type: groupType } = useRadioGroupContext();
     const validationStatus =
       fieldValidationStatus ?? groupValidationStatus ?? validation ?? 'initial';
+    const radioType = groupType ?? type;
+    const radioChildren = children ? (
+      children
+    ) : (
+      <>
+        <RadioIndicator>
+          <RadioIcon />
+        </RadioIndicator>
+        <Flex direction="column" space="none">
+          {!!label && <RadioLabel>{label}</RadioLabel>}
+          {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
+          {validationStatus === 'invalid' && !!invalidText && (
+            <Helper
+              showIcon={showValidationIcon}
+              disabled={disabled}
+              validationStatus="invalid"
+              text={invalidText}
+            />
+          )}
+          {validationStatus === 'valid' && !!validText && (
+            <Helper
+              disabled={disabled}
+              showIcon={showValidationIcon}
+              validationStatus="valid"
+              text={validText}
+            />
+          )}
+        </Flex>
+      </>
+    );
     return (
       // @ts-expect-error - ref is not a valid prop for Pressable
       <RadioComponent ref={ref} {...props} isDisabled={disabled}>
-        {children ? (
-          children
-        ) : (
-          <>
-            <RadioIndicator>
-              <RadioIcon />
-            </RadioIndicator>
-            <Flex direction="column" space="none">
-              {!!label && <RadioLabel>{label}</RadioLabel>}
-              {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
-              {validationStatus === 'invalid' && !!invalidText && (
-                <Helper
-                  showIcon={showValidationIcon}
-                  disabled={disabled}
-                  validationStatus="invalid"
-                  text={invalidText}
-                />
-              )}
-              {validationStatus === 'valid' && !!validText && (
-                <Helper
-                  disabled={disabled}
-                  showIcon={showValidationIcon}
-                  validationStatus="valid"
-                  text={validText}
-                />
-              )}
-            </Flex>
-          </>
-        )}
+        {radioType === 'card' ? <RadioCardRoot>{radioChildren}</RadioCardRoot> : radioChildren}
       </RadioComponent>
     );
   }
 );
 
+const RadioCard = forwardRef<ElementRef<typeof Pressable>, RadioProps>((props, ref) => {
+  return <Radio {...props} ref={ref} type="card" />;
+});
+
+RadioCard.displayName = 'RadioCard';
 Radio.displayName = 'Radio';
 
-export { Radio, RadioGroup, RadioIndicator, RadioIcon, RadioLabel };
+export { Radio, RadioGroup, RadioIndicator, RadioIcon, RadioLabel, RadioCard };
 
 export default Radio;

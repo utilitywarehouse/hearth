@@ -2,7 +2,6 @@ import React, { forwardRef } from 'react';
 import { View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useRadioContext } from './Radio.context';
-import { useTheme } from '../../hooks';
 
 const RadioIndicator = forwardRef<View, ViewProps>((props, ref) => {
   const { checked, active } = useRadioContext();
@@ -10,10 +9,6 @@ const RadioIndicator = forwardRef<View, ViewProps>((props, ref) => {
     checked,
     active,
   });
-
-  const { components } = useTheme();
-  console.log(components.radio);
-
   return (
     <View ref={ref} {...props} style={[styles.container, props.style]}>
       {props.children}

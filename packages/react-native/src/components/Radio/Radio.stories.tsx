@@ -43,6 +43,12 @@ const meta = {
       description: 'The invalid text of the checkbox component',
       defaultValue: 'Invalid text',
     },
+    type: {
+      control: 'select',
+      options: ['radio', 'card'],
+      description: 'The type of the checkbox component',
+      defaultValue: 'radio',
+    },
   },
   args: {
     disabled: false,
@@ -52,6 +58,7 @@ const meta = {
     showValidationIcon: true,
     invalidText: 'Invalid text',
     validText: 'Valid text',
+    type: 'radio',
   },
 } satisfies Meta<typeof Radio>;
 
@@ -61,6 +68,7 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: {
     value: 'Option 1',
+    label: 'Label',
   },
   render: args => (
     <RadioGroup>
@@ -77,10 +85,13 @@ export const Playground: Story = {
 };
 
 export const Variants: Story = {
+  parameters: {
+    controls: { exclude: ['value', 'label', 'disabled'] },
+  },
   args: {
     value: 'Option 1',
   },
-  render: () => {
+  render: ({ value: _, children: __, label: ___, disabled: _____, onChange: ______, ...args }) => {
     const [value, setValue] = React.useState('Option 1');
     return (
       <Flex space="lg">
@@ -99,6 +110,7 @@ export const Variants: Story = {
               }}
               nativeID="Radio-1"
               label="Option 1"
+              {...args}
             />
             <Radio
               value="Option 2"
@@ -108,6 +120,7 @@ export const Variants: Story = {
               }}
               nativeID="Radio-2"
               label="Option 2"
+              {...args}
             />
           </RadioGroup>
         </VariantTitle>
@@ -125,6 +138,7 @@ export const Variants: Story = {
               onChange={(checked: boolean) => console.log(checked, '###')}
               nativeID="Radio-3"
               label="Option 1"
+              {...args}
             />
             <Radio
               aria-label="Option 4"
@@ -132,6 +146,7 @@ export const Variants: Story = {
               onChange={(checked: boolean) => console.log(checked, '###')}
               nativeID="Radio-4"
               label="Option 2"
+              {...args}
             />
           </RadioGroup>
         </VariantTitle>

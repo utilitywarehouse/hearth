@@ -3,20 +3,32 @@ import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
 import RadioGroupProps from './RadioGroup.props';
 
-const RadioGroup = forwardRef<View, RadioGroupProps>(({ children, style, ...props }, ref) => {
-  return (
-    <View ref={ref} {...props} style={[styles.container, style]}>
-      {children}
-    </View>
-  );
-});
+const RadioGroupRoot = forwardRef<View, RadioGroupProps & { isCard?: boolean }>(
+  ({ children, style, isCard = false, ...props }, ref) => {
+    styles.useVariants({ type: isCard ? 'card' : 'radio' });
+    return (
+      <View ref={ref} {...props} style={[styles.container, style]}>
+        {children}
+      </View>
+    );
+  }
+);
 
-RadioGroup.displayName = 'RadioGroup';
+RadioGroupRoot.displayName = 'RadioGroupRoot';
 
 const styles = StyleSheet.create(theme => ({
   container: {
-    gap: theme.space['400'],
+    variants: {
+      type: {
+        radio: {
+          gap: theme.space['200'],
+        },
+        card: {
+          gap: theme.space['100'],
+        },
+      },
+    },
   },
 }));
 
-export default RadioGroup;
+export default RadioGroupRoot;

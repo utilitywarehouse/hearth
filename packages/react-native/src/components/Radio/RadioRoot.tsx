@@ -40,7 +40,6 @@ RadioRoot.displayName = 'RadioRoot';
 const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
-    justifyContent: 'flex-start',
     gap: theme.components.radio.gap,
     variants: {
       disabled: {
