@@ -92,9 +92,11 @@ const Radio = forwardRef<ElementRef<typeof Pressable>, RadioProps>(
   }
 );
 
-const RadioCard = forwardRef<ElementRef<typeof Pressable>, RadioProps>((props, ref) => {
-  return <Radio {...props} ref={ref} type="card" />;
-});
+const RadioCard = forwardRef<ElementRef<typeof Pressable>, RadioProps>(
+  ({ type = 'card', ...props }, ref) => {
+    return <Radio {...props} ref={ref} type={type} />;
+  }
+);
 
 RadioCard.displayName = 'RadioCard';
 Radio.displayName = 'Radio';

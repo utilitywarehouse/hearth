@@ -19,7 +19,7 @@ const RadioGroup = forwardRef<View, RadioGroupProps>(
       helperText,
       invalidText,
       validText,
-      showValidationIcon,
+      showValidationIcon = true,
       helperIcon,
       type,
       direction = 'column',
@@ -35,7 +35,12 @@ const RadioGroup = forwardRef<View, RadioGroupProps>(
     const childrenArray = React.Children.toArray(children);
     const childIsCard =
       type === 'card' ||
-      childrenArray.some(child => React.isValidElement(child) && child.props.type === 'card');
+      childrenArray.some(
+        child =>
+          React.isValidElement(child) &&
+          // @ts-expect-error - child.type is not typed
+          (child.props.type === 'card' || child.type.displayName === 'RadioCard')
+      );
     styles.useVariants({ type: childIsCard ? 'card' : 'radio', direction });
     return (
       <RadioGroupContext.Provider value={value}>

@@ -41,6 +41,7 @@ const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
     gap: theme.components.radio.gap,
+    alignSelf: 'stretch',
     variants: {
       disabled: {
         true: {

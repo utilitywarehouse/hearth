@@ -5,9 +5,21 @@ import { Icon } from '../Icon';
 import { CircleIcon } from '../Icons';
 import type { SvgRef } from '../../types';
 import IconProps from '../Icon/Icon.props';
+import { Platform } from 'react-native';
 
 const RadioIcon = forwardRef<SvgRef, IconProps>(({ style, ...props }, ref) => {
-  return <Icon ref={ref} as={CircleIcon} {...props} style={[styles.container, style]} />;
+  return (
+    <Icon
+      ref={ref}
+      as={CircleIcon}
+      {...props}
+      style={
+        Platform.OS === 'web'
+          ? StyleSheet.compose(styles.container, style)
+          : [styles.container, style]
+      }
+    />
+  );
 });
 
 RadioIcon.displayName = 'RadioIcon';
