@@ -1,6 +1,10 @@
 import Head from 'next/head';
 import '@utilitywarehouse/hearth-fonts';
-import '@utilitywarehouse/hearth-tokens/index.css';
+// import '@utilitywarehouse/hearth-tokens/index.css';
+import '@utilitywarehouse/hearth-tokens/css/font.css';
+import '@utilitywarehouse/hearth-tokens/css/text.css';
+import '@utilitywarehouse/hearth-tokens/css/color.css';
+import '@utilitywarehouse/hearth-tokens/css/line-height.css';
 
 import { Box as HearthBox } from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';
@@ -21,6 +25,7 @@ export default function Home() {
       </StyledBox>
       <div>
         <h1>CSS Reset</h1>
+        <p>Checking the tokens work with the CSS Reset package.</p>
         <button>button</button>
         <button data-disabled>button</button>
         <button aria-disabled>button</button>
