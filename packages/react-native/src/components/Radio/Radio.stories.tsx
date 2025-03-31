@@ -14,23 +14,23 @@ const meta = {
     disabled: {
       type: 'boolean',
       control: 'boolean',
-      description: 'To manually set disable to the checkbox.',
+      description: 'To manually set disable to the radio.',
     },
     label: {
       type: 'string',
       control: 'text',
-      description: 'The label component for the checkbox.',
+      description: 'The label component for the radio.',
     },
     helperText: {
       type: 'string',
       control: 'text',
-      description: 'The helper text of the checkbox component',
+      description: 'The helper text of the radio component',
       defaultValue: 'Helper text',
     },
     validationStatus: {
       control: 'select',
       options: ['initial', 'valid', 'invalid'],
-      description: 'The validation status of the checkbox component',
+      description: 'The validation status of the radio component',
       defaultValue: 'initial',
     },
     showValidationIcon: {
@@ -40,13 +40,13 @@ const meta = {
     },
     invalidText: {
       control: 'text',
-      description: 'The invalid text of the checkbox component',
+      description: 'The invalid text of the radio component',
       defaultValue: 'Invalid text',
     },
     type: {
       control: 'select',
       options: ['radio', 'card'],
-      description: 'The type of the checkbox component',
+      description: 'The type of the radio component',
       defaultValue: 'radio',
     },
   },

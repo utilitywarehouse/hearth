@@ -1,8 +1,6 @@
 import React from 'react';
 import { Radio, RadioGroup } from '.';
 import { Meta, StoryObj } from '@storybook/react';
-import { VariantTitle } from '../../../docs/components';
-import { Flex } from '../Flex';
 
 const meta = {
   title: 'Stories / RadioGroup',
@@ -14,23 +12,23 @@ const meta = {
     disabled: {
       type: 'boolean',
       control: 'boolean',
-      description: 'To manually set disable to the checkbox.',
+      description: 'To manually set disable to the radio group.',
     },
     label: {
       type: 'string',
       control: 'text',
-      description: 'The label component for the checkbox.',
+      description: 'The label component for the radio group.',
     },
     helperText: {
       type: 'string',
       control: 'text',
-      description: 'The helper text of the checkbox component',
+      description: 'The helper text of the radio group component',
       defaultValue: 'Helper text',
     },
     validationStatus: {
       control: 'select',
       options: ['initial', 'valid', 'invalid'],
-      description: 'The validation status of the checkbox component',
+      description: 'The validation status of the radio group component',
       defaultValue: 'initial',
     },
     showValidationIcon: {
@@ -40,13 +38,13 @@ const meta = {
     },
     invalidText: {
       control: 'text',
-      description: 'The invalid text of the checkbox component',
+      description: 'The invalid text of the radio group component',
       defaultValue: 'Invalid text',
     },
     type: {
       control: 'select',
       options: ['radio', 'card'],
-      description: 'The type of the checkbox component',
+      description: 'The type of the radio group component',
       defaultValue: 'radio',
     },
   },

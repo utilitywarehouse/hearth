@@ -11,8 +11,6 @@ const TextareaRoot = forwardRef<
   const { focus = false, disabled = false, readonly = false } = states || {};
   styles.useVariants({ validationStatus, focus, disabled, readonly });
 
-  console.log(states);
-
   const value = useMemo(
     () => ({ focused: focus, disabled, readonly, validationStatus }),
     [focus, disabled, readonly, validationStatus]
