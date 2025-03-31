@@ -32,4 +32,7 @@ export default {
   validation: {
     gap: 2,
   },
+  verification: {
+    gap: 8,
+  },
 } as const;

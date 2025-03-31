@@ -7,3 +7,4 @@ export { default as BadgeList } from './BadgeList';
 export { default as AdvancedInputExample } from './AdvancedInputExample';
 export { default as SwitchExample } from './SwitchExample';
 export { default as SwitchList } from './SwitchList';
+export { default as AdvancedRadioExample } from './AdvancedRadioExample';
