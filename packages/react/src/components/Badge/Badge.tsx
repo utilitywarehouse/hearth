@@ -5,28 +5,24 @@ import clsx from 'clsx';
 
 import { badgePropDefs, BadgeProps } from './Badge.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { DATA_ATTRIBUTES } from '../../helpers/data-attributes';
 import { extractProps } from '../../helpers/extract-props';
+import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const componentName = 'Badge';
 const componentClassName = withGlobalPrefix(componentName);
 
 type BadgeElement = ElementRef<'span'>;
 
-/**
- * Provide additional context (such as status), or to draw attention to another
- * interface element.
- */
 export const Badge = React.forwardRef<BadgeElement, BadgeProps>((props, ref) => {
   const {
     className,
-    colorScheme = 'cyan',
-    bottomRadiusZero,
+    colorScheme = 'blue',
+    flatBase,
     ...badgeProps
-  } = extractProps(props, badgePropDefs);
+  } = extractProps(props, badgePropDefs, textTransformPropDefs);
   const dataAttributeProps = {
-    [DATA_ATTRIBUTES.colorscheme]: colorScheme,
-    'data-bottom-radius-zero': bottomRadiusZero ? '' : undefined,
+    'data-colorscheme': colorScheme,
+    'data-bottom-radius-zero': flatBase ? '' : undefined,
   };
   return (
     <span

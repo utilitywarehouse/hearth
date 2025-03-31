@@ -92,3 +92,6 @@ export type { PasswordInputProps } from './components/PasswordInput/PasswordInpu
 
 export { SearchInput } from './components/SearchInput/SearchInput';
 export type { SearchInputProps } from './components/SearchInput/SearchInput.props';
+
+export { Badge } from './components/Badge/Badge';
+export type { BadgeProps } from './components/Badge/Badge.props';

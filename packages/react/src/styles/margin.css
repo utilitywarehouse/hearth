@@ -1,4 +1,8 @@
 @breakpoints {
+  .hearth-r-margin-auto {
+    margin: auto;
+  }
+
   .hearth-r-margin-0 {
     margin: 0;
   }
@@ -73,6 +77,10 @@
 }
 
 @breakpoints {
+  .hearth-r-margin-inline-auto {
+    margin-inline: auto;
+  }
+
   .hearth-r-margin-inline-0 {
     margin-inline: 0;
   }
@@ -147,6 +155,10 @@
 }
 
 @breakpoints {
+  .hearth-r-margin-block-auto {
+    margin-block: auto;
+  }
+
   .hearth-r-margin-block-0 {
     margin-block: 0;
   }
@@ -221,6 +233,10 @@
 }
 
 @breakpoints {
+  .hearth-r-margin-top-auto {
+    margin-top: auto;
+  }
+
   .hearth-r-margin-top-0 {
     margin-top: 0;
   }
@@ -295,6 +311,10 @@
 }
 
 @breakpoints {
+  .hearth-r-margin-right-auto {
+    margin-right: auto;
+  }
+
   .hearth-r-margin-right-0 {
     margin-right: 0;
   }
@@ -369,6 +389,10 @@
 }
 
 @breakpoints {
+  .hearth-r-margin-bottom-auto {
+    margin-bottom: auto;
+  }
+
   .hearth-r-margin-bottom-0 {
     margin-bottom: 0;
   }
@@ -443,6 +467,10 @@
 }
 
 @breakpoints {
+  .hearth-r-margin-left-auto {
+    margin-left: auto;
+  }
+
   .hearth-r-margin-left-0 {
     margin-left: 0;
   }

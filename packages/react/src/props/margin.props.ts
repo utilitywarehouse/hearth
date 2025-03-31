@@ -2,32 +2,34 @@ import { spaceTokens } from '../tokens/space';
 import { Responsive } from '../types/responsive';
 import { PropDef } from './prop-def';
 
+const marginValues = ['auto', ...spaceTokens] as const;
+
 const marginPropDefs = {
-  margin: { className: 'margin', tokens: spaceTokens, responsive: true },
-  marginTop: { className: 'margin-top', tokens: spaceTokens, responsive: true },
-  marginRight: { className: 'margin-right', tokens: spaceTokens, responsive: true },
-  marginBottom: { className: 'margin-bottom', tokens: spaceTokens, responsive: true },
-  marginLeft: { className: 'margin-left', tokens: spaceTokens, responsive: true },
-  marginInline: { className: 'margin-inline', tokens: spaceTokens, responsive: true },
-  marginBlock: { className: 'margin-block', tokens: spaceTokens, responsive: true },
+  margin: { className: 'margin', tokens: marginValues, responsive: true },
+  marginTop: { className: 'margin-top', tokens: marginValues, responsive: true },
+  marginRight: { className: 'margin-right', tokens: marginValues, responsive: true },
+  marginBottom: { className: 'margin-bottom', tokens: marginValues, responsive: true },
+  marginLeft: { className: 'margin-left', tokens: marginValues, responsive: true },
+  marginInline: { className: 'margin-inline', tokens: marginValues, responsive: true },
+  marginBlock: { className: 'margin-block', tokens: marginValues, responsive: true },
 } satisfies {
-  margin: PropDef<(typeof spaceTokens)[number]>;
-  marginTop: PropDef<(typeof spaceTokens)[number]>;
-  marginRight: PropDef<(typeof spaceTokens)[number]>;
-  marginBottom: PropDef<(typeof spaceTokens)[number]>;
-  marginLeft: PropDef<(typeof spaceTokens)[number]>;
-  marginInline: PropDef<(typeof spaceTokens)[number]>;
-  marginBlock: PropDef<(typeof spaceTokens)[number]>;
+  margin: PropDef<(typeof marginValues)[number]>;
+  marginTop: PropDef<(typeof marginValues)[number]>;
+  marginRight: PropDef<(typeof marginValues)[number]>;
+  marginBottom: PropDef<(typeof marginValues)[number]>;
+  marginLeft: PropDef<(typeof marginValues)[number]>;
+  marginInline: PropDef<(typeof marginValues)[number]>;
+  marginBlock: PropDef<(typeof marginValues)[number]>;
 };
 
 interface MarginProps {
-  margin?: Responsive<(typeof spaceTokens)[number]>;
-  marginTop?: Responsive<(typeof spaceTokens)[number]>;
-  marginRight?: Responsive<(typeof spaceTokens)[number]>;
-  marginBottom?: Responsive<(typeof spaceTokens)[number]>;
-  marginLeft?: Responsive<(typeof spaceTokens)[number]>;
-  marginInline?: Responsive<(typeof spaceTokens)[number]>;
-  marginBlock?: Responsive<(typeof spaceTokens)[number]>;
+  margin?: Responsive<(typeof marginValues)[number]>;
+  marginTop?: Responsive<(typeof marginValues)[number]>;
+  marginRight?: Responsive<(typeof marginValues)[number]>;
+  marginBottom?: Responsive<(typeof marginValues)[number]>;
+  marginLeft?: Responsive<(typeof marginValues)[number]>;
+  marginInline?: Responsive<(typeof marginValues)[number]>;
+  marginBlock?: Responsive<(typeof marginValues)[number]>;
 }
 
 export { marginPropDefs };
