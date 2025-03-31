@@ -1,0 +1,67 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+
+import * as Stories from './Badge.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Components / Badge" />
+
+<DocsHeader
+  componentName="Badge"
+  figmaLink="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components-%26-Tokens?node-id=1-148&m=dev"
+  stories={Stories}
+/>
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Variants
+
+The variant prop controls the visual appearance of the Badge.
+
+<Canvas of={Stories.Variants} sourceState="none" />
+
+## Color schemes
+
+The `colorScheme` prop will change the Badge colours.
+
+<Canvas of={Stories.ColorSchemes} sourceState="none" />
+
+## Flat Base
+
+The `flatBase` will remove the `border-bottom-right-radius` and `border-bottom-left-radius`, for use when the badge is positioned on top of another element.
+
+```tsx
+<Badge flatBase>Multi SIM offer</Badge>
+```
+
+<Canvas of={Stories.FlatBase} sourceState="none" />
+
+## Icons
+
+You can enhance the your badge's meaning by adding a small icon to the
+left. This icon is not an interactive icon button; its purpose is to reinforce
+the meaning of the text.
+
+```tsx
+<Badge colorScheme="green">
+  <TickSmallIcon />
+  Success
+</Badge>
+```
+
+<Canvas of={Stories.Icons} sourceState="none" />
+
+## API
+
+This component is based on the `span` element.
+
+| Prop          | Type                                            |
+| ------------- | ----------------------------------------------- |
+| `variant`     | `solid` \| `outline`                            |
+| `colorScheme` | `blue` \|`green` \| `red` \| `orange` \| `grey` |
+| `flatBase`    | `boolean`                                       |

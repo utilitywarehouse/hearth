@@ -1,0 +1,60 @@
+.hearth-Badge {
+  display: inline-flex;
+  gap: var(--h-badge-gap);
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  font-family: var(--h-font-family-detail);
+  font-size: var(--h-font-size-90);
+  font-weight: var(--h-font-weight-regular);
+  font-style: normal;
+  flex-shrink: 0;
+  line-height: var(--h-line-height-200);
+
+  /* Make sure that the height is not stretched in a Flex/Grid layout */
+  height: fit-content;
+  border-radius: var(--h-badge-border-radius);
+  padding-block: var(--h-badge-padding-vertical);
+  padding-inline: var(--h-badge-padding-horizontal);
+
+  &:where([data-bottom-radius-zero]) {
+    border-bottom-left-radius: var(--h-badge-flat-base-border-bottom-left-radius);
+    border-bottom-right-radius: var(--h-badge-flat-base-border-bottom-right-radius);
+  }
+
+  &:where(.hearth-variant-solid) {
+    color: var(--h-badge-solid-color);
+    background-color: var(--h-badge-solid-background-color);
+  }
+
+  &:where(.hearth-variant-outline) {
+    color: var(--h-badge-outline-color);
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px var(--h-badge-outline-border-color);
+  }
+
+  &:where([data-colorscheme='blue']) {
+    --h-badge-solid-background-color: var(--h-badge-solid-blue-background-color);
+    --h-badge-outline-color: var(--h-badge-outline-blue-color);
+  }
+
+  &:where([data-colorscheme='green']) {
+    --h-badge-solid-background-color: var(--h-badge-solid-green-background-color);
+    --h-badge-outline-color: var(--h-badge-outline-green-color);
+  }
+
+  &:where([data-colorscheme='red']) {
+    --h-badge-solid-background-color: var(--h-badge-solid-red-background-color);
+    --h-badge-outline-color: var(--h-badge-outline-red-color);
+  }
+
+  &:where([data-colorscheme='orange']) {
+    --h-badge-solid-background-color: var(--h-badge-solid-orange-background-color);
+    --h-badge-outline-color: var(--h-badge-outline-orange-color);
+  }
+
+  &:where([data-colorscheme='grey']) {
+    --h-badge-solid-background-color: var(--h-badge-solid-grey-background-color);
+    --h-badge-outline-color: var(--h-badge-outline-grey-color);
+  }
+}
