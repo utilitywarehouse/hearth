@@ -30,7 +30,7 @@
     "generate:svg": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
     "generate:react": "pnpm --filter \"@utilitywarehouse/react-*\" generate",
     "generate:storybook": "pnpm --filter \"icons-storybook\" generate",
-    "generate:icons": "pnpm run generate:svg && pnpm run generate:react && pnpm run generate:storybook && pnpm run format && cat ./updated-icons.md && rm ./updated-icons.md"
+    "generate:icons": "pnpm run generate:svg && pnpm run format && cat ./updated-icons.md && rm ./updated-icons.md"
   },
   "workspaces": [
     "packages/*",
