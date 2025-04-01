@@ -90,7 +90,7 @@ const AdvancedRadioExample: React.FC = () => {
   const handleChange = (val: string) => setValue(val);
 
   return (
-    <RadioGroup onChange={handleChange} value={value}>
+    <RadioGroup onChange={handleChange} value={value} gap="200">
       <Box>
         <Badge colorScheme={value === 'Option 1' ? 'green' : 'grey'} flatBase style={styles.badge}>
           Recommended

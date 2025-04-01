@@ -4,9 +4,9 @@ import RadioGroupProps from './RadioGroup.props';
 import { RadioGroupContext } from './RadioGroup.context';
 import { View } from 'react-native';
 import { Label } from '../Label';
-import { Flex } from '../Flex';
 import { Helper } from '../Helper';
 import { StyleSheet } from 'react-native-unistyles';
+import RadioGroupTextContent from './RadioGroupTextContent';
 
 const RadioGroup = forwardRef<View, RadioGroupProps>(
   (
@@ -23,6 +23,7 @@ const RadioGroup = forwardRef<View, RadioGroupProps>(
       helperIcon,
       type,
       direction = 'column',
+      gap,
       ...props
     },
     ref
@@ -53,7 +54,7 @@ const RadioGroup = forwardRef<View, RadioGroupProps>(
           isCard={childIsCard}
         >
           {showHeader && (
-            <Flex direction="column" space="none">
+            <RadioGroupTextContent>
               {!!label && <Label disabled={disabled}>{label}</Label>}
               {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
               {validationStatus === 'invalid' && !!invalidText && (
@@ -72,9 +73,9 @@ const RadioGroup = forwardRef<View, RadioGroupProps>(
                   text={validText}
                 />
               )}
-            </Flex>
+            </RadioGroupTextContent>
           )}
-          <View style={styles.container}>{children}</View>
+          <View style={[styles.container, styles.containerGap(gap)]}>{children}</View>
         </RadioGroupComponent>
       </RadioGroupContext.Provider>
     );
@@ -104,6 +105,9 @@ const styles = StyleSheet.create(theme => ({
       },
     },
   },
+  containerGap: (gap: RadioGroupProps['gap']) => ({
+    ...(gap ? { gap: theme.space[gap] } : {}),
+  }),
 }));
 
 RadioGroup.displayName = 'RadioGroup';
