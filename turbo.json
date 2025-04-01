@@ -42,6 +42,21 @@
     "build:storybook": {
       "outputs": ["storybook-static/**"],
       "dependsOn": ["^build"]
+    },
+    "generate": {
+      "cache": false
+    },
+    "generate:icons": {
+      "cache": false
+    },
+    "generate:svg": {
+      "cache": false
+    },
+    "generate:react": {
+      "cache": false
+    },
+    "generate:storybook": {
+      "cache": false
     }
   }
 }

@@ -71,6 +71,7 @@ export const Validation: Story = {
         value="rphoenix@uw.co.uk"
         validationStatus="valid"
         validationText="Valid email address"
+        required
       />
       <TextInput
         {...args}
@@ -79,6 +80,7 @@ export const Validation: Story = {
         value="rphoenix@geemail."
         validationStatus="invalid"
         validationText="Please enter a valid email address"
+        required
       />
     </Flex>
   ),
