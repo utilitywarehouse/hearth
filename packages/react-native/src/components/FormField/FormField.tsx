@@ -9,7 +9,6 @@ import FormFieldLabelComponent from './FormFieldLabel';
 import { HelperIcon, HelperText } from '../Helper';
 import { View } from 'react-native';
 import FormFieldValid from './FormFieldValid';
-import FormFieldValidIcon from './FormFieldValidIcon';
 import FormFieldInvalid from './FormFieldInvalid';
 import FormFieldInvalidIcon from './FormFielInvalidIcon';
 
