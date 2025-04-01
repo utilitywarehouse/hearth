@@ -1,0 +1,27 @@
+import { forwardRef } from 'react';
+import { IconProps } from './types';
+export const MoneyMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={24}
+        height={24}
+        fill="none"
+        viewBox="0 0 24 24"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M1 20V7h2v11h17v2zm4-4V4h18v12zm4-2q0-.825-.588-1.412A1.93 1.93 0 0 0 7 12v2zm10 0h2v-2q-.824 0-1.413.588A1.93 1.93 0 0 0 19 14m-5-1q1.25 0 2.125-.875A2.9 2.9 0 0 0 17 10q0-1.25-.875-2.125A2.9 2.9 0 0 0 14 7q-1.25 0-2.125.875A2.9 2.9 0 0 0 11 10q0 1.25.875 2.125A2.9 2.9 0 0 0 14 13M7 8q.824 0 1.412-.588Q9 6.826 9 6H7zm14 0V6h-2q0 .824.587 1.412Q20.176 8 21 8"
+        />
+      </svg>
+    );
+  }
+);

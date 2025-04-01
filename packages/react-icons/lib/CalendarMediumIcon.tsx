@@ -1,0 +1,27 @@
+import { forwardRef } from 'react';
+import { IconProps } from './types';
+export const CalendarMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={24}
+        height={24}
+        fill="none"
+        viewBox="0 0 24 24"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M10.91 14.031v-2.179h2.164v2.18zm-3.708 0v-2.179h2.164v2.18zm7.417 0v-2.179h2.163v2.18zm-3.708 3.736v-2.18h2.163v2.18zm-3.709 0v-2.18h2.164v2.18zm7.417 0v-2.18h2.163v2.18zM3 22V3.556h3.512V2H8.57v1.556h6.845V2h2.064v1.556H21V22zm2.426-2.444h13.133V9.984H5.426z"
+        />
+      </svg>
+    );
+  }
+);

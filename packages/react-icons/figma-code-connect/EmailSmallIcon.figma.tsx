@@ -1,0 +1,16 @@
+import React from 'react';
+import { EmailSmallIcon } from '../lib/EmailSmallIcon';
+import figma from '@figma/code-connect';
+
+/**
+ * -- This file was auto-generated --
+ */
+
+figma.connect(
+  EmailSmallIcon,
+  'https://www.figma.com/design/WDFaQF9EMtS7MjuIpjDVpf/UW-Icons?node-id=46:25&m=dev',
+  {
+    props: {},
+    example: () => <EmailSmallIcon />,
+  }
+);

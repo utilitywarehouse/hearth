@@ -1,0 +1,16 @@
+import React from 'react';
+import { ChevronUpMediumIcon } from '../lib/ChevronUpMediumIcon';
+import figma from '@figma/code-connect';
+
+/**
+ * -- This file was auto-generated --
+ */
+
+figma.connect(
+  ChevronUpMediumIcon,
+  'https://www.figma.com/design/WDFaQF9EMtS7MjuIpjDVpf/UW-Icons?node-id=68:134&m=dev',
+  {
+    props: {},
+    example: () => <ChevronUpMediumIcon />,
+  }
+);
