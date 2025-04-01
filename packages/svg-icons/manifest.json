@@ -1,0 +1,552 @@
+{
+  "svgIcons": [
+    {
+      "name": "CloseSmallIcon",
+      "path": "close-small-icon.svg"
+    },
+    {
+      "name": "AddSmallIcon",
+      "path": "add-small-icon.svg"
+    },
+    {
+      "name": "MinusSmallIcon",
+      "path": "minus-small-icon.svg"
+    },
+    {
+      "name": "TickSmallIcon",
+      "path": "tick-small-icon.svg"
+    },
+    {
+      "name": "ArrowUpSmallIcon",
+      "path": "arrow-up-small-icon.svg"
+    },
+    {
+      "name": "ArrowDownSmallIcon",
+      "path": "arrow-down-small-icon.svg"
+    },
+    {
+      "name": "ChevronRightSmallIcon",
+      "path": "chevron-right-small-icon.svg"
+    },
+    {
+      "name": "ChevronLeftSmallIcon",
+      "path": "chevron-left-small-icon.svg"
+    },
+    {
+      "name": "ChevronDownSmallIcon",
+      "path": "chevron-down-small-icon.svg"
+    },
+    {
+      "name": "ChevronUpSmallIcon",
+      "path": "chevron-up-small-icon.svg"
+    },
+    {
+      "name": "IncreaseSmallIcon",
+      "path": "increase-small-icon.svg"
+    },
+    {
+      "name": "DecreaseSmallIcon",
+      "path": "decrease-small-icon.svg"
+    },
+    {
+      "name": "ExpandSmallIcon",
+      "path": "expand-small-icon.svg"
+    },
+    {
+      "name": "DownloadSmallIcon",
+      "path": "download-small-icon.svg"
+    },
+    {
+      "name": "UploadSmallIcon",
+      "path": "upload-small-icon.svg"
+    },
+    {
+      "name": "ShareSmallIcon",
+      "path": "share-small-icon.svg"
+    },
+    {
+      "name": "TickCircleSmallIcon",
+      "path": "tick-circle-small-icon.svg"
+    },
+    {
+      "name": "ErrorCircleSmallIcon",
+      "path": "error-circle-small-icon.svg"
+    },
+    {
+      "name": "EyeSmallIcon",
+      "path": "eye-small-icon.svg"
+    },
+    {
+      "name": "EyeOffSmallIcon",
+      "path": "eye-off-small-icon.svg"
+    },
+    {
+      "name": "PlaceholderSmallIcon",
+      "path": "placeholder-small-icon.svg"
+    },
+    {
+      "name": "MoreSmallIcon",
+      "path": "more-small-icon.svg"
+    },
+    {
+      "name": "CopySmallIcon",
+      "path": "copy-small-icon.svg"
+    },
+    {
+      "name": "FullscreenSmallIcon",
+      "path": "fullscreen-small-icon.svg"
+    },
+    {
+      "name": "EditSmallIcon",
+      "path": "edit-small-icon.svg"
+    },
+    {
+      "name": "UserSmallIcon",
+      "path": "user-small-icon.svg"
+    },
+    {
+      "name": "SettingsSmallIcon",
+      "path": "settings-small-icon.svg"
+    },
+    {
+      "name": "EmailSmallIcon",
+      "path": "email-small-icon.svg"
+    },
+    {
+      "name": "PhoneSmallIcon",
+      "path": "phone-small-icon.svg"
+    },
+    {
+      "name": "LinkSmallIcon",
+      "path": "link-small-icon.svg"
+    },
+    {
+      "name": "LoginSmallIcon",
+      "path": "login-small-icon.svg"
+    },
+    {
+      "name": "LogoutSmallIcon",
+      "path": "logout-small-icon.svg"
+    },
+    {
+      "name": "TrashSmallIcon",
+      "path": "trash-small-icon.svg"
+    },
+    {
+      "name": "FilterSmallIcon",
+      "path": "filter-small-icon.svg"
+    },
+    {
+      "name": "OpenSmallIcon",
+      "path": "open-small-icon.svg"
+    },
+    {
+      "name": "SearchSmallIcon",
+      "path": "search-small-icon.svg"
+    },
+    {
+      "name": "CalendarSmallIcon",
+      "path": "calendar-small-icon.svg"
+    },
+    {
+      "name": "WhatsAppSmallIcon",
+      "path": "whats-app-small-icon.svg"
+    },
+    {
+      "name": "AddMediumIcon",
+      "path": "add-medium-icon.svg"
+    },
+    {
+      "name": "CloseMediumIcon",
+      "path": "close-medium-icon.svg"
+    },
+    {
+      "name": "MinusMediumIcon",
+      "path": "minus-medium-icon.svg"
+    },
+    {
+      "name": "TickMediumIcon",
+      "path": "tick-medium-icon.svg"
+    },
+    {
+      "name": "ChevronRightMediumIcon",
+      "path": "chevron-right-medium-icon.svg"
+    },
+    {
+      "name": "ChevronLeftMediumIcon",
+      "path": "chevron-left-medium-icon.svg"
+    },
+    {
+      "name": "ChevronDownMediumIcon",
+      "path": "chevron-down-medium-icon.svg"
+    },
+    {
+      "name": "ChevronUpMediumIcon",
+      "path": "chevron-up-medium-icon.svg"
+    },
+    {
+      "name": "ExpandMediumIcon",
+      "path": "expand-medium-icon.svg"
+    },
+    {
+      "name": "ArrowDownMediumIcon",
+      "path": "arrow-down-medium-icon.svg"
+    },
+    {
+      "name": "ArrowUpMediumIcon",
+      "path": "arrow-up-medium-icon.svg"
+    },
+    {
+      "name": "IncreaseMediumIcon",
+      "path": "increase-medium-icon.svg"
+    },
+    {
+      "name": "DecreaseMediumIcon",
+      "path": "decrease-medium-icon.svg"
+    },
+    {
+      "name": "InsightsMediumIcon",
+      "path": "insights-medium-icon.svg"
+    },
+    {
+      "name": "BroadbandMediumIcon",
+      "path": "broadband-medium-icon.svg"
+    },
+    {
+      "name": "InsuranceMediumIcon",
+      "path": "insurance-medium-icon.svg"
+    },
+    {
+      "name": "ElectricityMediumIcon",
+      "path": "electricity-medium-icon.svg"
+    },
+    {
+      "name": "GasMediumIcon",
+      "path": "gas-medium-icon.svg"
+    },
+    {
+      "name": "CashbackCardMediumIcon",
+      "path": "cashback-card-medium-icon.svg"
+    },
+    {
+      "name": "GreenDealElectricityMediumIcon",
+      "path": "green-deal-electricity-medium-icon.svg"
+    },
+    {
+      "name": "CreditsAndDebitsMediumIcon",
+      "path": "credits-and-debits-medium-icon.svg"
+    },
+    {
+      "name": "MobileMediumIcon",
+      "path": "mobile-medium-icon.svg"
+    },
+    {
+      "name": "WarningMediumIcon",
+      "path": "warning-medium-icon.svg"
+    },
+    {
+      "name": "InfoMediumIcon",
+      "path": "info-medium-icon.svg"
+    },
+    {
+      "name": "TickCircleMediumIcon",
+      "path": "tick-circle-medium-icon.svg"
+    },
+    {
+      "name": "QuestionMarkMediumIcon",
+      "path": "question-mark-medium-icon.svg"
+    },
+    {
+      "name": "LoginMediumIcon",
+      "path": "login-medium-icon.svg"
+    },
+    {
+      "name": "LogoutMediumIcon",
+      "path": "logout-medium-icon.svg"
+    },
+    {
+      "name": "DownloadMediumIcon",
+      "path": "download-medium-icon.svg"
+    },
+    {
+      "name": "UploadMediumIcon",
+      "path": "upload-medium-icon.svg"
+    },
+    {
+      "name": "MenuMediumIcon",
+      "path": "menu-medium-icon.svg"
+    },
+    {
+      "name": "MoreMediumIcon",
+      "path": "more-medium-icon.svg"
+    },
+    {
+      "name": "CopyMediumIcon",
+      "path": "copy-medium-icon.svg"
+    },
+    {
+      "name": "EyeMediumIcon",
+      "path": "eye-medium-icon.svg"
+    },
+    {
+      "name": "EyeOffMediumIcon",
+      "path": "eye-off-medium-icon.svg"
+    },
+    {
+      "name": "FullscreenMediumIcon",
+      "path": "fullscreen-medium-icon.svg"
+    },
+    {
+      "name": "OpenMediumIcon",
+      "path": "open-medium-icon.svg"
+    },
+    {
+      "name": "SettingsMediumIcon",
+      "path": "settings-medium-icon.svg"
+    },
+    {
+      "name": "TorchOffMediumIcon",
+      "path": "torch-off-medium-icon.svg"
+    },
+    {
+      "name": "TorchOnMediumIcon",
+      "path": "torch-on-medium-icon.svg"
+    },
+    {
+      "name": "ContactlessMediumIcon",
+      "path": "contactless-medium-icon.svg"
+    },
+    {
+      "name": "LinkMediumIcon",
+      "path": "link-medium-icon.svg"
+    },
+    {
+      "name": "EmailMediumIcon",
+      "path": "email-medium-icon.svg"
+    },
+    {
+      "name": "BookmarkMediumIcon",
+      "path": "bookmark-medium-icon.svg"
+    },
+    {
+      "name": "SkipRightMediumIcon",
+      "path": "skip-right-medium-icon.svg"
+    },
+    {
+      "name": "SkipLeftMediumIcon",
+      "path": "skip-left-medium-icon.svg"
+    },
+    {
+      "name": "SendMediumIcon",
+      "path": "send-medium-icon.svg"
+    },
+    {
+      "name": "PaymentMediumIcon",
+      "path": "payment-medium-icon.svg"
+    },
+    {
+      "name": "RefundMediumIcon",
+      "path": "refund-medium-icon.svg"
+    },
+    {
+      "name": "RestartMediumIcon",
+      "path": "restart-medium-icon.svg"
+    },
+    {
+      "name": "ShareMediumIcon",
+      "path": "share-medium-icon.svg"
+    },
+    {
+      "name": "PhoneMediumIcon",
+      "path": "phone-medium-icon.svg"
+    },
+    {
+      "name": "TrashMediumIcon",
+      "path": "trash-medium-icon.svg"
+    },
+    {
+      "name": "FilterMediumIcon",
+      "path": "filter-medium-icon.svg"
+    },
+    {
+      "name": "CalendarAddMediumIcon",
+      "path": "calendar-add-medium-icon.svg"
+    },
+    {
+      "name": "MoneyMediumIcon",
+      "path": "money-medium-icon.svg"
+    },
+    {
+      "name": "BillMediumIcon",
+      "path": "bill-medium-icon.svg"
+    },
+    {
+      "name": "ConfettiMediumIcon",
+      "path": "confetti-medium-icon.svg"
+    },
+    {
+      "name": "EditMediumIcon",
+      "path": "edit-medium-icon.svg"
+    },
+    {
+      "name": "DocumentMediumIcon",
+      "path": "document-medium-icon.svg"
+    },
+    {
+      "name": "UserMediumIcon",
+      "path": "user-medium-icon.svg"
+    },
+    {
+      "name": "CameraMediumIcon",
+      "path": "camera-medium-icon.svg"
+    },
+    {
+      "name": "SearchMediumIcon",
+      "path": "search-medium-icon.svg"
+    },
+    {
+      "name": "GiftMediumIcon",
+      "path": "gift-medium-icon.svg"
+    },
+    {
+      "name": "ShoppingMediumIcon",
+      "path": "shopping-medium-icon.svg"
+    },
+    {
+      "name": "ClockMediumIcon",
+      "path": "clock-medium-icon.svg"
+    },
+    {
+      "name": "CalendarMediumIcon",
+      "path": "calendar-medium-icon.svg"
+    },
+    {
+      "name": "LaunchMediumIcon",
+      "path": "launch-medium-icon.svg"
+    },
+    {
+      "name": "EnvironmentMediumIcon",
+      "path": "environment-medium-icon.svg"
+    },
+    {
+      "name": "BankMediumIcon",
+      "path": "bank-medium-icon.svg"
+    },
+    {
+      "name": "TransferMediumIcon",
+      "path": "transfer-medium-icon.svg"
+    },
+    {
+      "name": "TeamMediumIcon",
+      "path": "team-medium-icon.svg"
+    },
+    {
+      "name": "BulbMediumIcon",
+      "path": "bulb-medium-icon.svg"
+    },
+    {
+      "name": "LocationMediumIcon",
+      "path": "location-medium-icon.svg"
+    },
+    {
+      "name": "BasketMediumIcon",
+      "path": "basket-medium-icon.svg"
+    },
+    {
+      "name": "HistoryMediumIcon",
+      "path": "history-medium-icon.svg"
+    },
+    {
+      "name": "MeterMediumIcon",
+      "path": "meter-medium-icon.svg"
+    },
+    {
+      "name": "StarMediumIcon",
+      "path": "star-medium-icon.svg"
+    },
+    {
+      "name": "StarOutlineMediumIcon",
+      "path": "star-outline-medium-icon.svg"
+    },
+    {
+      "name": "HeartMediumIcon",
+      "path": "heart-medium-icon.svg"
+    },
+    {
+      "name": "HeartMediumIcon",
+      "path": "heart-medium-icon.svg"
+    },
+    {
+      "name": "ExtraHelpMediumIcon",
+      "path": "extra-help-medium-icon.svg"
+    },
+    {
+      "name": "InstagramMediumIcon",
+      "path": "instagram-medium-icon.svg"
+    },
+    {
+      "name": "FacebookMediumIcon",
+      "path": "facebook-medium-icon.svg"
+    },
+    {
+      "name": "LinkedInMediumIcon",
+      "path": "linked-in-medium-icon.svg"
+    },
+    {
+      "name": "YoutubeMediumIcon",
+      "path": "youtube-medium-icon.svg"
+    },
+    {
+      "name": "TwitterMediumIcon",
+      "path": "twitter-medium-icon.svg"
+    },
+    {
+      "name": "TikTokMediumIcon",
+      "path": "tik-tok-medium-icon.svg"
+    },
+    {
+      "name": "WhatsAppMediumIcon",
+      "path": "whats-app-medium-icon.svg"
+    },
+    {
+      "name": "HomeFilledMediumIcon",
+      "path": "home-filled-medium-icon.svg"
+    },
+    {
+      "name": "HomeOutlineMediumIcon",
+      "path": "home-outline-medium-icon.svg"
+    },
+    {
+      "name": "BellMediumIcon",
+      "path": "bell-medium-icon.svg"
+    },
+    {
+      "name": "MoonMediumIcon",
+      "path": "moon-medium-icon.svg"
+    },
+    {
+      "name": "SunMediumIcon",
+      "path": "sun-medium-icon.svg"
+    },
+    {
+      "name": "FitEnergyMediumIcon",
+      "path": "fit-energy-medium-icon.svg"
+    },
+    {
+      "name": "FingerprintMediumIcon",
+      "path": "fingerprint-medium-icon.svg"
+    },
+    {
+      "name": "LockMediumIcon",
+      "path": "lock-medium-icon.svg"
+    },
+    {
+      "name": "UnlockMediumIcon",
+      "path": "unlock-medium-icon.svg"
+    },
+    {
+      "name": "PlaceholderMediumIcon",
+      "path": "placeholder-medium-icon.svg"
+    }
+  ]
+}

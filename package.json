@@ -26,7 +26,11 @@
     "ci:publish": "pnpm run build && changeset publish",
     "checks": "turbo run format lint:fix --filter='./packages/*'",
     "checks:build": "turbo run format lint:fix build --filter='./packages/*'",
-    "checks:ci": "turbo run format:ci lint --filter='./packages/*'"
+    "checks:ci": "turbo run format:ci lint --filter='./packages/*'",
+    "generate:svg": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
+    "generate:react": "pnpm --filter \"@utilitywarehouse/react-*\" generate",
+    "generate:storybook": "pnpm --filter \"icons-storybook\" generate",
+    "generate:icons": "pnpm run generate:svg && pnpm run format && cat ./updated-icons.md && rm ./updated-icons.md"
   },
   "workspaces": [
     "packages/*",

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button, Flex, PasswordInput } from '@utilitywarehouse/hearth-react';
+import { Flex, PasswordInput } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta: Meta<typeof PasswordInput> = {
@@ -24,6 +24,8 @@ const meta: Meta<typeof PasswordInput> = {
   },
   args: {
     label: 'Password',
+    required: true,
+    autoComplete: 'new-password',
     disabled: false,
     readOnly: false,
   },
