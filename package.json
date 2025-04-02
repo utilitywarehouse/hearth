@@ -28,7 +28,7 @@
     "checks:build": "turbo run format lint:fix build --filter='./packages/*'",
     "checks:ci": "turbo run format:ci lint --filter='./packages/*'",
     "generate:svg": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
-    "generate:react": "pnpm --filter \"@utilitywarehouse/react-*\" generate",
+    "generate:react": "turbo run @utilitywarehouse/hearth-react-icons#generate @utilitywarehouse/hearth-react-native-icons#generate",
     "generate:storybook": "pnpm --filter \"icons-storybook\" generate",
     "generate:icons": "pnpm run generate:svg && pnpm run generate:react && pnpm run format && cat ./updated-icons.md && rm ./updated-icons.md"
   },

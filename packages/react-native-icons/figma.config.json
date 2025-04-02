@@ -1,0 +1,11 @@
+{
+  "codeConnect": {
+    "include": ["figma-code-connect/**", "lib/**"],
+    "parser": "react",
+    "exclude": [],
+    "importPaths": {
+      "packages/react-native-icons/lib/*": "@utilitywarehouse/hearth-react-native-icons"
+    },
+    "label": "Hearth React Native"
+  }
+}

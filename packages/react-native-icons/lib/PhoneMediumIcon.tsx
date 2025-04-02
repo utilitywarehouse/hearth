@@ -1,0 +1,12 @@
+import * as React from 'react';
+import Svg, { Path } from 'react-native-svg';
+import { IconProps } from './types';
+const SvgPhoneMediumIcon = ({ color = 'currentColor', ...props }: IconProps) => (
+  <Svg width={24} height={24} fill="none" viewBox="0 0 24 24" {...props}>
+    <Path
+      fill={color}
+      d="M19.007 21q-2.634 0-5.516-1.36-2.881-1.36-5.338-3.8-2.473-2.434-3.813-5.25T3 5.016V3h6.613l1.19 5.37-3.23 2.904q.503.796 1.063 1.495t1.193 1.34q.68.672 1.398 1.236.72.564 1.491.997l3.175-3.175L21 14.34V21z"
+    />
+  </Svg>
+);
+export default SvgPhoneMediumIcon;

@@ -8,7 +8,7 @@ import figma from '@figma/code-connect';
 
 figma.connect(
   ChevronDownSmallIcon,
-  'https://www.figma.com/design/WDFaQF9EMtS7MjuIpjDVpf/UW-Icons?node-id=2074:37&m=dev',
+  'https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2074:37&m=dev',
   {
     props: {},
     example: () => <ChevronDownSmallIcon />,

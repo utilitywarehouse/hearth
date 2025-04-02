@@ -1,0 +1,12 @@
+import * as React from 'react';
+import Svg, { Path } from 'react-native-svg';
+import { IconProps } from './types';
+const SvgOpenSmallIcon = ({ color = 'currentColor', ...props }: IconProps) => (
+  <Svg width={20} height={20} fill="none" viewBox="0 0 20 20" {...props}>
+    <Path
+      fill={color}
+      d="M2.35 17.15V2.35h7.4v2.04H4.391v10.72H15.11V9.75h2.041v7.4zm5.828-4.4L6.75 11.322l6.931-6.93H11.75V2.35h5.4v5.4h-2.04V5.819z"
+    />
+  </Svg>
+);
+export default SvgOpenSmallIcon;

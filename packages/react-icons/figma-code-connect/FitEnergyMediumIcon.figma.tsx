@@ -8,7 +8,7 @@ import figma from '@figma/code-connect';
 
 figma.connect(
   FitEnergyMediumIcon,
-  'https://www.figma.com/design/WDFaQF9EMtS7MjuIpjDVpf/UW-Icons?node-id=15:259&m=dev',
+  'https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=15:259&m=dev',
   {
     props: {},
     example: () => <FitEnergyMediumIcon />,
