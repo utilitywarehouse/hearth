@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "storybook dev --quiet -p 6006",
-    "build:storybook": "storybook build --quiet",
     "format": "prettier --log-level=silent --write --parser=typescript \"utils/*.ts*\"",
-    "generate": "node './scripts/generate-icons-utils.js'"
+    "generate": "node './scripts/generate-icons-utils.js'",
+    "dev:vite": "vite",
+    "build:vite": "tsc -b && vite build",
+    "lint": "eslint .",
+    "clean": "rm -rf node_modules storybook-static .turbo",
+    "build:storybook": "storybook build"
   },
   "dependencies": {
     "@utilitywarehouse/hearth-css-reset": "workspace:*",
