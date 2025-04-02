@@ -153,6 +153,10 @@
       "path": "whats-app-small-icon.svg"
     },
     {
+      "name": "HeartSmallIcon",
+      "path": "heart-small-icon.svg"
+    },
+    {
       "name": "AddMediumIcon",
       "path": "add-medium-icon.svg"
     },

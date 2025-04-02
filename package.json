@@ -28,9 +28,9 @@
     "checks:build": "turbo run format lint:fix build --filter='./packages/*'",
     "checks:ci": "turbo run format:ci lint --filter='./packages/*'",
     "generate:svg": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
-    "generate:react": "pnpm --filter \"@utilitywarehouse/react-*\" generate",
+    "generate:react": "turbo run @utilitywarehouse/hearth-react-icons#generate @utilitywarehouse/hearth-react-native-icons#generate",
     "generate:storybook": "pnpm --filter \"icons-storybook\" generate",
-    "generate:icons": "pnpm run generate:svg && pnpm run format && cat ./updated-icons.md && rm ./updated-icons.md"
+    "generate:icons": "pnpm run generate:svg && pnpm run generate:react && pnpm run format && cat ./updated-icons.md && rm ./updated-icons.md"
   },
   "workspaces": [
     "packages/*",
@@ -48,6 +48,7 @@
     "@typescript-eslint/parser": "^8.14.0",
     "@utilitywarehouse/prettier-config": "^0.1.1",
     "eslint": "8",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.0.0",

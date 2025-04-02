@@ -1,0 +1,28 @@
+import { forwardRef } from 'react';
+import { IconProps } from './types';
+export const MobileMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={24}
+        height={24}
+        fill="none"
+        viewBox="0 0 24 24"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M6 22V2h12v20zm6-2.273a.8.8 0 0 0 .61-.261.9.9 0 0 0 .247-.648.9.9 0 0 0-.246-.648.8.8 0 0 0-.611-.26.8.8 0 0 0-.61.26.9.9 0 0 0-.247.648q0 .387.246.648a.8.8 0 0 0 .611.261m-4.286-4.09h8.572V6.544H7.714z"
+        />
+      </svg>
+    );
+  }
+);
+MobileMediumIcon.displayName = 'MobileMediumIcon';

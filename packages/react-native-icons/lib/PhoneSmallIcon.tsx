@@ -1,0 +1,12 @@
+import * as React from 'react';
+import Svg, { Path } from 'react-native-svg';
+import { IconProps } from './types';
+const SvgPhoneSmallIcon = ({ color = 'currentColor', ...props }: IconProps) => (
+  <Svg width={20} height={20} fill="none" viewBox="0 0 20 20" {...props}>
+    <Path
+      fill={color}
+      d="M15.5 17.188q-2.292 0-4.625-1.063t-4.292-3.02-3.02-4.293T2.5 4.167v-1h4.604l.792 3.541-2.438 2.459q.48.812 1.032 1.541t1.156 1.334q.583.583 1.27 1.114.689.531 1.542 1.052l2.5-2.437 3.542.75v4.666z"
+    />
+  </Svg>
+);
+export default SvgPhoneSmallIcon;
