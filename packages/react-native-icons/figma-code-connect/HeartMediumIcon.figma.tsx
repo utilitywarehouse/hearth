@@ -8,7 +8,7 @@ import figma from '@figma/code-connect';
 
 figma.connect(
   HeartMediumIcon,
-  'https://www.figma.com/design/WDFaQF9EMtS7MjuIpjDVpf/UW-Icons?node-id=15:149&m=dev',
+  'https://www.figma.com/design/WDFaQF9EMtS7MjuIpjDVpf/UW-Icons?node-id=6:459&m=dev',
   {
     props: {},
     example: () => <HeartMediumIcon />,

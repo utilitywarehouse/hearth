@@ -157,6 +157,10 @@
       "path": "heart-small-icon.svg"
     },
     {
+      "name": "StarSmallIcon",
+      "path": "star-small-icon.svg"
+    },
+    {
       "name": "AddMediumIcon",
       "path": "add-medium-icon.svg"
     },
@@ -477,8 +481,8 @@
       "path": "heart-medium-icon.svg"
     },
     {
-      "name": "HeartMediumIcon",
-      "path": "heart-medium-icon.svg"
+      "name": "HeartOutlineMediumIcon",
+      "path": "heart-outline-medium-icon.svg"
     },
     {
       "name": "ExtraHelpMediumIcon",

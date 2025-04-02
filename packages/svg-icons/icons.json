@@ -156,6 +156,10 @@
     "name": "HeartSmallIcon"
   },
   {
+    "id": "2165:55",
+    "name": "StarSmallIcon"
+  },
+  {
     "id": "6:275",
     "name": "AddMediumIcon"
   },
@@ -477,7 +481,7 @@
   },
   {
     "id": "15:149",
-    "name": "HeartMediumIcon"
+    "name": "HeartOutlineMediumIcon"
   },
   {
     "id": "9:1046",
