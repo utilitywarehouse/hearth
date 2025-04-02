@@ -25,3 +25,4 @@ export const DownloadMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+DownloadMediumIcon.displayName = 'DownloadMediumIcon';

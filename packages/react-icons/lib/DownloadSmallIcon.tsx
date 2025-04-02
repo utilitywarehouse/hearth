@@ -25,3 +25,4 @@ export const DownloadSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+DownloadSmallIcon.displayName = 'DownloadSmallIcon';

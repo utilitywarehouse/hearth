@@ -22,3 +22,4 @@ export const DecreaseMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+DecreaseMediumIcon.displayName = 'DecreaseMediumIcon';

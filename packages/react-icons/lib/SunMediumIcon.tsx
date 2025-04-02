@@ -25,3 +25,4 @@ export const SunMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+SunMediumIcon.displayName = 'SunMediumIcon';

@@ -25,3 +25,4 @@ export const LaunchMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+LaunchMediumIcon.displayName = 'LaunchMediumIcon';

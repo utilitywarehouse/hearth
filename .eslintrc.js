@@ -8,6 +8,8 @@ module.exports = {
     module: 'readonly',
   },
   extends: [
+    'plugin:import/recommended',
+    'plugin:import/typescript',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',

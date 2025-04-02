@@ -25,3 +25,4 @@ export const BulbMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+BulbMediumIcon.displayName = 'BulbMediumIcon';

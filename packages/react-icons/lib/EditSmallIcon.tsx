@@ -25,3 +25,4 @@ export const EditSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+EditSmallIcon.displayName = 'EditSmallIcon';

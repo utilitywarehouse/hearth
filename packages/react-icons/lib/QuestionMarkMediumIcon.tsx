@@ -25,3 +25,4 @@ export const QuestionMarkMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+QuestionMarkMediumIcon.displayName = 'QuestionMarkMediumIcon';

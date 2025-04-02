@@ -25,3 +25,4 @@ export const ShoppingMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ShoppingMediumIcon.displayName = 'ShoppingMediumIcon';

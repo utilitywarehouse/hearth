@@ -22,3 +22,4 @@ export const ElectricityMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ElectricityMediumIcon.displayName = 'ElectricityMediumIcon';

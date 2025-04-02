@@ -25,3 +25,4 @@ export const ContactlessMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ContactlessMediumIcon.displayName = 'ContactlessMediumIcon';

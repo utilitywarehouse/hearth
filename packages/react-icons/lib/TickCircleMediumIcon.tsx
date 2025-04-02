@@ -25,3 +25,4 @@ export const TickCircleMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+TickCircleMediumIcon.displayName = 'TickCircleMediumIcon';

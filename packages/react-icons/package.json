@@ -14,7 +14,7 @@
     "clean:lib": "rm -rf lib",
     "transform": "svgr --config-file ./svgr.config.cjs --template templates/icon.cjs --index-template templates/index.cjs ../svg-icons/lib",
     "copy-types": "cp ./templates/props.tsx ./lib/types.tsx",
-    "format": "prettier --loglevel=silent --write --parser=typescript \"lib/*.ts*\"",
+    "format": "prettier --log-level=silent --write --parser=typescript \"lib/*.ts*\"",
     "generate": "pnpm clean:lib && pnpm transform && pnpm copy-types && node ./scripts/generate-manifest.cjs && node ./scripts/generate-figma-code-connect.cjs",
     "build": "tsup",
     "ts-types": "tsc",
@@ -38,7 +38,7 @@
     "fs-extra": "^11.1.1",
     "lodash.template": "^4.5.0",
     "tsup": "^6.7.0",
-    "typescript": "^5.0.2"
+    "typescript": "^5.5.3"
   },
   "files": [
     "dist"

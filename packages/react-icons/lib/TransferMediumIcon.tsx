@@ -25,3 +25,4 @@ export const TransferMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+TransferMediumIcon.displayName = 'TransferMediumIcon';

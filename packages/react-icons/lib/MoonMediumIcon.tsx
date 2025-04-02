@@ -25,3 +25,4 @@ export const MoonMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+MoonMediumIcon.displayName = 'MoonMediumIcon';

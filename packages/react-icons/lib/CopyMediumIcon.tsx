@@ -25,3 +25,4 @@ export const CopyMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+CopyMediumIcon.displayName = 'CopyMediumIcon';

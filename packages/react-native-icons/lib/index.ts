@@ -62,6 +62,7 @@ export { default as GasMediumIcon } from './GasMediumIcon';
 export { default as GiftMediumIcon } from './GiftMediumIcon';
 export { default as GreenDealElectricityMediumIcon } from './GreenDealElectricityMediumIcon';
 export { default as HeartMediumIcon } from './HeartMediumIcon';
+export { default as HeartSmallIcon } from './HeartSmallIcon';
 export { default as HistoryMediumIcon } from './HistoryMediumIcon';
 export { default as HomeFilledMediumIcon } from './HomeFilledMediumIcon';
 export { default as HomeOutlineMediumIcon } from './HomeOutlineMediumIcon';

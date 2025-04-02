@@ -25,3 +25,4 @@ export const PaymentMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+PaymentMediumIcon.displayName = 'PaymentMediumIcon';

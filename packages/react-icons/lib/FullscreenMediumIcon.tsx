@@ -25,3 +25,4 @@ export const FullscreenMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+FullscreenMediumIcon.displayName = 'FullscreenMediumIcon';

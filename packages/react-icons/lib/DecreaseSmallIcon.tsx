@@ -22,3 +22,4 @@ export const DecreaseSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+DecreaseSmallIcon.displayName = 'DecreaseSmallIcon';

@@ -25,3 +25,4 @@ export const SettingsSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+SettingsSmallIcon.displayName = 'SettingsSmallIcon';

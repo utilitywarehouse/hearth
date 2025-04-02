@@ -25,3 +25,4 @@ export const InsightsMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+InsightsMediumIcon.displayName = 'InsightsMediumIcon';

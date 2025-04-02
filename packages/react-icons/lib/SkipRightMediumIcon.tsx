@@ -22,3 +22,4 @@ export const SkipRightMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+SkipRightMediumIcon.displayName = 'SkipRightMediumIcon';

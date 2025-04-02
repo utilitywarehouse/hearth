@@ -62,6 +62,7 @@ export { GasMediumIcon } from './GasMediumIcon';
 export { GiftMediumIcon } from './GiftMediumIcon';
 export { GreenDealElectricityMediumIcon } from './GreenDealElectricityMediumIcon';
 export { HeartMediumIcon } from './HeartMediumIcon';
+export { HeartSmallIcon } from './HeartSmallIcon';
 export { HistoryMediumIcon } from './HistoryMediumIcon';
 export { HomeFilledMediumIcon } from './HomeFilledMediumIcon';
 export { HomeOutlineMediumIcon } from './HomeOutlineMediumIcon';

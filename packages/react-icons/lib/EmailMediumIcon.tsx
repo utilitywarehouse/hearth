@@ -25,3 +25,4 @@ export const EmailMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+EmailMediumIcon.displayName = 'EmailMediumIcon';

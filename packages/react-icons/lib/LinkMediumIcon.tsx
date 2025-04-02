@@ -25,3 +25,4 @@ export const LinkMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+LinkMediumIcon.displayName = 'LinkMediumIcon';

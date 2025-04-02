@@ -25,3 +25,4 @@ export const EditMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+EditMediumIcon.displayName = 'EditMediumIcon';

@@ -25,3 +25,4 @@ export const LinkedInMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+LinkedInMediumIcon.displayName = 'LinkedInMediumIcon';

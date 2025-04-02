@@ -27,3 +27,4 @@ export const BillMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+BillMediumIcon.displayName = 'BillMediumIcon';

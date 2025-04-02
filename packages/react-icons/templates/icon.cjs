@@ -10,6 +10,7 @@ export const ${componentName.replace('Svg', '')} = forwardRef<SVGSVGElement, Ico
     )
   }
 );
+${componentName.replace('Svg', '')}.displayName = '${componentName.replace('Svg', '')}';
 `;
 }
 

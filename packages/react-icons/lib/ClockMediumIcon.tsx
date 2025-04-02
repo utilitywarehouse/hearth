@@ -25,3 +25,4 @@ export const ClockMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ClockMediumIcon.displayName = 'ClockMediumIcon';

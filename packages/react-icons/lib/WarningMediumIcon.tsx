@@ -25,3 +25,4 @@ export const WarningMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+WarningMediumIcon.displayName = 'WarningMediumIcon';

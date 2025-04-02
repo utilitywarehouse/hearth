@@ -25,3 +25,4 @@ export const PhoneSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+PhoneSmallIcon.displayName = 'PhoneSmallIcon';

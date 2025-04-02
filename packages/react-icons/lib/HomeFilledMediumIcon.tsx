@@ -25,3 +25,4 @@ export const HomeFilledMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+HomeFilledMediumIcon.displayName = 'HomeFilledMediumIcon';

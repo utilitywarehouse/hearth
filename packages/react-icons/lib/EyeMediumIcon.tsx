@@ -25,3 +25,4 @@ export const EyeMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+EyeMediumIcon.displayName = 'EyeMediumIcon';

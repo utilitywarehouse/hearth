@@ -29,3 +29,4 @@ export const GiftMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+GiftMediumIcon.displayName = 'GiftMediumIcon';

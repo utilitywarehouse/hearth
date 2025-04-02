@@ -25,3 +25,4 @@ export const OpenMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+OpenMediumIcon.displayName = 'OpenMediumIcon';

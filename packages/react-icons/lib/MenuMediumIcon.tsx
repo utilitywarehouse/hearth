@@ -24,3 +24,4 @@ export const MenuMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+MenuMediumIcon.displayName = 'MenuMediumIcon';

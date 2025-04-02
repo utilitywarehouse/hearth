@@ -25,3 +25,4 @@ export const ErrorCircleSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ErrorCircleSmallIcon.displayName = 'ErrorCircleSmallIcon';

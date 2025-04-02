@@ -22,3 +22,4 @@ export const BookmarkMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+BookmarkMediumIcon.displayName = 'BookmarkMediumIcon';

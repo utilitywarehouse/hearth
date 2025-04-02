@@ -25,3 +25,4 @@ export const LinkSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+LinkSmallIcon.displayName = 'LinkSmallIcon';

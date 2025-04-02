@@ -25,3 +25,4 @@ export const BellMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+BellMediumIcon.displayName = 'BellMediumIcon';

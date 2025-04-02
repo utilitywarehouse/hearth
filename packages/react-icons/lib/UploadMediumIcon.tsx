@@ -25,3 +25,4 @@ export const UploadMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+UploadMediumIcon.displayName = 'UploadMediumIcon';

@@ -25,3 +25,4 @@ export const MoneyMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+MoneyMediumIcon.displayName = 'MoneyMediumIcon';

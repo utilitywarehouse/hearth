@@ -25,3 +25,4 @@ export const BankMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+BankMediumIcon.displayName = 'BankMediumIcon';

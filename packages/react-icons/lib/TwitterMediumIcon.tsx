@@ -25,3 +25,4 @@ export const TwitterMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+TwitterMediumIcon.displayName = 'TwitterMediumIcon';

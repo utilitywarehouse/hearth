@@ -25,3 +25,4 @@ export const PlaceholderMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+PlaceholderMediumIcon.displayName = 'PlaceholderMediumIcon';

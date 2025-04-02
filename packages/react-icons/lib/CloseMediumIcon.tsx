@@ -25,3 +25,4 @@ export const CloseMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+CloseMediumIcon.displayName = 'CloseMediumIcon';

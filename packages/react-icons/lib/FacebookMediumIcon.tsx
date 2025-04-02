@@ -27,3 +27,4 @@ export const FacebookMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+FacebookMediumIcon.displayName = 'FacebookMediumIcon';

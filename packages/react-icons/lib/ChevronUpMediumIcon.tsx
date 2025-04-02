@@ -22,3 +22,4 @@ export const ChevronUpMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ChevronUpMediumIcon.displayName = 'ChevronUpMediumIcon';

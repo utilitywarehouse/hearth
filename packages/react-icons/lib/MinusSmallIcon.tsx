@@ -22,3 +22,4 @@ export const MinusSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+MinusSmallIcon.displayName = 'MinusSmallIcon';

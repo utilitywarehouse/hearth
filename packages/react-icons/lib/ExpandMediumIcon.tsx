@@ -25,3 +25,4 @@ export const ExpandMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ExpandMediumIcon.displayName = 'ExpandMediumIcon';

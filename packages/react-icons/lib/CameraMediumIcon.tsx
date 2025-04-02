@@ -25,3 +25,4 @@ export const CameraMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+CameraMediumIcon.displayName = 'CameraMediumIcon';

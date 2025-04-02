@@ -25,3 +25,4 @@ export const EnvironmentMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+EnvironmentMediumIcon.displayName = 'EnvironmentMediumIcon';

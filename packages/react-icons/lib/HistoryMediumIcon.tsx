@@ -25,3 +25,4 @@ export const HistoryMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+HistoryMediumIcon.displayName = 'HistoryMediumIcon';

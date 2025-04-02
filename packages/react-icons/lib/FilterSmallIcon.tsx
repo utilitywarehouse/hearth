@@ -25,3 +25,4 @@ export const FilterSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+FilterSmallIcon.displayName = 'FilterSmallIcon';

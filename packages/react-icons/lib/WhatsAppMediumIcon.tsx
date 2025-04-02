@@ -27,3 +27,4 @@ export const WhatsAppMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+WhatsAppMediumIcon.displayName = 'WhatsAppMediumIcon';

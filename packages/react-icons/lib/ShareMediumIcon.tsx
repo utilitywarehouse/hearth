@@ -25,3 +25,4 @@ export const ShareMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ShareMediumIcon.displayName = 'ShareMediumIcon';

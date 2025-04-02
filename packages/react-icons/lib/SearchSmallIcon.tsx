@@ -25,3 +25,4 @@ export const SearchSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+SearchSmallIcon.displayName = 'SearchSmallIcon';

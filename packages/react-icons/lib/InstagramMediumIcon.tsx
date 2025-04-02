@@ -25,3 +25,4 @@ export const InstagramMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+InstagramMediumIcon.displayName = 'InstagramMediumIcon';

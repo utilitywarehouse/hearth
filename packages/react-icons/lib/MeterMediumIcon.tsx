@@ -25,3 +25,4 @@ export const MeterMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+MeterMediumIcon.displayName = 'MeterMediumIcon';

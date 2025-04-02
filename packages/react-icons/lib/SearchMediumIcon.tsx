@@ -25,3 +25,4 @@ export const SearchMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+SearchMediumIcon.displayName = 'SearchMediumIcon';

@@ -22,3 +22,4 @@ export const TickMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+TickMediumIcon.displayName = 'TickMediumIcon';

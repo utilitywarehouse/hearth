@@ -25,3 +25,4 @@ export const PhoneMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+PhoneMediumIcon.displayName = 'PhoneMediumIcon';

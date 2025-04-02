@@ -25,3 +25,4 @@ export const RestartMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+RestartMediumIcon.displayName = 'RestartMediumIcon';

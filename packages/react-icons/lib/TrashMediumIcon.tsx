@@ -25,3 +25,4 @@ export const TrashMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+TrashMediumIcon.displayName = 'TrashMediumIcon';

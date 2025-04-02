@@ -25,3 +25,4 @@ export const ArrowUpMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ArrowUpMediumIcon.displayName = 'ArrowUpMediumIcon';

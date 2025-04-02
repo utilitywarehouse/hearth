@@ -25,3 +25,4 @@ export const HeartMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+HeartMediumIcon.displayName = 'HeartMediumIcon';

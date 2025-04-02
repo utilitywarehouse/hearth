@@ -25,3 +25,4 @@ export const TrashSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+TrashSmallIcon.displayName = 'TrashSmallIcon';

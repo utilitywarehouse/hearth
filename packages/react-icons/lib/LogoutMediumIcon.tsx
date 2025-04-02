@@ -25,3 +25,4 @@ export const LogoutMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+LogoutMediumIcon.displayName = 'LogoutMediumIcon';

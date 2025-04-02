@@ -25,3 +25,4 @@ export const RefundMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+RefundMediumIcon.displayName = 'RefundMediumIcon';

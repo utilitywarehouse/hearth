@@ -25,3 +25,4 @@ export const BasketMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+BasketMediumIcon.displayName = 'BasketMediumIcon';

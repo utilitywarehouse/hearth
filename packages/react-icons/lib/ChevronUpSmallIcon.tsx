@@ -25,3 +25,4 @@ export const ChevronUpSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ChevronUpSmallIcon.displayName = 'ChevronUpSmallIcon';

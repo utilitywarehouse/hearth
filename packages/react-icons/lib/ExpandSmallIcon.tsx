@@ -25,3 +25,4 @@ export const ExpandSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ExpandSmallIcon.displayName = 'ExpandSmallIcon';

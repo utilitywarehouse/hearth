@@ -25,3 +25,4 @@ export const ExtraHelpMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ExtraHelpMediumIcon.displayName = 'ExtraHelpMediumIcon';

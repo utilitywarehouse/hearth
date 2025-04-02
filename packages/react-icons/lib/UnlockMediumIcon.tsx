@@ -25,3 +25,4 @@ export const UnlockMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+UnlockMediumIcon.displayName = 'UnlockMediumIcon';

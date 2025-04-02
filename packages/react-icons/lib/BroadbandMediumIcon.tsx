@@ -25,3 +25,4 @@ export const BroadbandMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+BroadbandMediumIcon.displayName = 'BroadbandMediumIcon';

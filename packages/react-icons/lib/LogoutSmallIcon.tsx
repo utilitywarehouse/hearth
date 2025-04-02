@@ -25,3 +25,4 @@ export const LogoutSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+LogoutSmallIcon.displayName = 'LogoutSmallIcon';

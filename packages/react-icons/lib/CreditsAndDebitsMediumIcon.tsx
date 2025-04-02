@@ -31,3 +31,4 @@ export const CreditsAndDebitsMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+CreditsAndDebitsMediumIcon.displayName = 'CreditsAndDebitsMediumIcon';

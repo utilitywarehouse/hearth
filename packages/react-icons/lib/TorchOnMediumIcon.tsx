@@ -25,3 +25,4 @@ export const TorchOnMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+TorchOnMediumIcon.displayName = 'TorchOnMediumIcon';

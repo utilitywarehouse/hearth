@@ -25,3 +25,4 @@ export const FingerprintMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+FingerprintMediumIcon.displayName = 'FingerprintMediumIcon';

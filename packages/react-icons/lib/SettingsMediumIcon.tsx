@@ -25,3 +25,4 @@ export const SettingsMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+SettingsMediumIcon.displayName = 'SettingsMediumIcon';

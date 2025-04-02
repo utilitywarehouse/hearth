@@ -25,3 +25,4 @@ export const GasMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+GasMediumIcon.displayName = 'GasMediumIcon';

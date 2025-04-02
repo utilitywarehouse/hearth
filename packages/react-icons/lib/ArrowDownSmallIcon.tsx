@@ -25,3 +25,4 @@ export const ArrowDownSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ArrowDownSmallIcon.displayName = 'ArrowDownSmallIcon';

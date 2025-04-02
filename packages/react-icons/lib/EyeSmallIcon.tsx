@@ -25,3 +25,4 @@ export const EyeSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+EyeSmallIcon.displayName = 'EyeSmallIcon';

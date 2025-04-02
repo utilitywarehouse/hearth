@@ -22,3 +22,4 @@ export const TickSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+TickSmallIcon.displayName = 'TickSmallIcon';

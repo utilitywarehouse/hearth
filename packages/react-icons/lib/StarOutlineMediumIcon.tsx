@@ -25,3 +25,4 @@ export const StarOutlineMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+StarOutlineMediumIcon.displayName = 'StarOutlineMediumIcon';

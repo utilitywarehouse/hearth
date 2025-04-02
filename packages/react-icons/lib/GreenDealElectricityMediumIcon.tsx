@@ -26,3 +26,4 @@ export const GreenDealElectricityMediumIcon = forwardRef<SVGSVGElement, IconProp
     );
   }
 );
+GreenDealElectricityMediumIcon.displayName = 'GreenDealElectricityMediumIcon';

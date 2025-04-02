@@ -25,3 +25,4 @@ export const CalendarSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+CalendarSmallIcon.displayName = 'CalendarSmallIcon';

@@ -25,3 +25,4 @@ export const UploadSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+UploadSmallIcon.displayName = 'UploadSmallIcon';

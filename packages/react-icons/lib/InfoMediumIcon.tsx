@@ -25,3 +25,4 @@ export const InfoMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+InfoMediumIcon.displayName = 'InfoMediumIcon';

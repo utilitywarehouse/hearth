@@ -25,3 +25,4 @@ export const CashbackCardMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+CashbackCardMediumIcon.displayName = 'CashbackCardMediumIcon';

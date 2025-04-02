@@ -25,3 +25,4 @@ export const CalendarAddMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+CalendarAddMediumIcon.displayName = 'CalendarAddMediumIcon';

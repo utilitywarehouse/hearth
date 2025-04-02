@@ -25,3 +25,4 @@ export const HomeOutlineMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+HomeOutlineMediumIcon.displayName = 'HomeOutlineMediumIcon';

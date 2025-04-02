@@ -25,3 +25,4 @@ export const CopySmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+CopySmallIcon.displayName = 'CopySmallIcon';

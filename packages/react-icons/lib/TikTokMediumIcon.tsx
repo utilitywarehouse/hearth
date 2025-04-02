@@ -27,3 +27,4 @@ export const TikTokMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+TikTokMediumIcon.displayName = 'TikTokMediumIcon';

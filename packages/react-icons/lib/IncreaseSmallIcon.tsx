@@ -22,3 +22,4 @@ export const IncreaseSmallIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+IncreaseSmallIcon.displayName = 'IncreaseSmallIcon';

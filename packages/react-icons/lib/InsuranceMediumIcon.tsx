@@ -25,3 +25,4 @@ export const InsuranceMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+InsuranceMediumIcon.displayName = 'InsuranceMediumIcon';

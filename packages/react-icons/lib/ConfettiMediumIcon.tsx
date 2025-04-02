@@ -25,3 +25,4 @@ export const ConfettiMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+ConfettiMediumIcon.displayName = 'ConfettiMediumIcon';

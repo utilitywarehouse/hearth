@@ -25,3 +25,4 @@ export const MoreMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+MoreMediumIcon.displayName = 'MoreMediumIcon';

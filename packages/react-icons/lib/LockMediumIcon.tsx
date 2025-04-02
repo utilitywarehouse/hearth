@@ -25,3 +25,4 @@ export const LockMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+LockMediumIcon.displayName = 'LockMediumIcon';

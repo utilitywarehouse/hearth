@@ -25,3 +25,4 @@ export const LocationMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+LocationMediumIcon.displayName = 'LocationMediumIcon';

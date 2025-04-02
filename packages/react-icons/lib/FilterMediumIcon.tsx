@@ -25,3 +25,4 @@ export const FilterMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+FilterMediumIcon.displayName = 'FilterMediumIcon';

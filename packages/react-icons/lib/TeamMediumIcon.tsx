@@ -25,3 +25,4 @@ export const TeamMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+TeamMediumIcon.displayName = 'TeamMediumIcon';

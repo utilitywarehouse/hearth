@@ -26,3 +26,4 @@ export const FitEnergyMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
+FitEnergyMediumIcon.displayName = 'FitEnergyMediumIcon';
