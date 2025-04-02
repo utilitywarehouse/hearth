@@ -16,6 +16,7 @@
     "@utilitywarehouse/hearth-css-reset": "workspace:*",
     "@utilitywarehouse/hearth-fonts": "workspace:*",
     "@utilitywarehouse/hearth-react": "workspace:*",
+    "@utilitywarehouse/hearth-react-icons": "workspace:*",
     "@utilitywarehouse/hearth-tokens": "workspace:*",
     "@utilitywarehouse/web-ui": "^1.1.0",
     "ejs": "^3.1.9",
