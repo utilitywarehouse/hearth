@@ -1,33 +1,37 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import FlexProps from './Flex.props';
 
-const Flex: React.FC<FlexProps> = ({
-  style,
-  children,
-  direction = 'column',
-  align = 'flex-start',
-  justify = 'flex-start',
-  wrap = 'nowrap',
-  space = 'md',
-  ...rest
-}) => {
-  const propStyle: ViewStyle = {
-    flexDirection: direction,
-    alignItems: align,
-    justifyContent: justify,
-    flexWrap: wrap,
-  };
+const Flex = forwardRef<View, FlexProps>(
+  ({
+    style,
+    children,
+    direction = 'column',
+    align = 'flex-start',
+    justify = 'flex-start',
+    wrap = 'nowrap',
+    space = 'md',
+    ...rest
+  }) => {
+    const propStyle: ViewStyle = {
+      flexDirection: direction,
+      alignItems: align,
+      justifyContent: justify,
+      flexWrap: wrap,
+    };
 
-  styles.useVariants({ space });
+    styles.useVariants({ space });
 
-  return (
-    <View style={[propStyle, styles.flex, style]} {...rest}>
-      {children}
-    </View>
-  );
-};
+    return (
+      <View style={[propStyle, styles.flex, style]} {...rest}>
+        {children}
+      </View>
+    );
+  }
+);
+
+Flex.displayName = 'Flex';
 
 const styles = StyleSheet.create(theme => ({
   flex: {

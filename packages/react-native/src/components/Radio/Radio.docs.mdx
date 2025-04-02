@@ -145,6 +145,7 @@ Contains all Group related layout style props and actions. It inherits all the p
 | `showValidationIcon` | `boolean`                           | `true`   | Whether to show the validation icon.                                |
 | `type`               | `'radio' \| 'card'`                 | `radio`  | The type of the radio group.                                        |
 | `direction`          | `'row' \| 'column'`                 | `column` | The direction of the radio group.                                   |
+| `gap`                | `string`                            | -        | The gap between the radio group items.                              |
 
 ## Variants
 
@@ -254,7 +255,7 @@ const AdvancedRadioExample: React.FC = () => {
   const handleChange = (val: string) => setValue(val);
 
   return (
-    <RadioGroup onChange={handleChange} value={value}>
+    <RadioGroup onChange={handleChange} value={value} gap="200">
       <Box>
         <Badge colorScheme={value === 'Option 1' ? 'green' : 'grey'} flatBase style={styles.badge}>
           Recommended

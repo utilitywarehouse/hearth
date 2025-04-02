@@ -11,8 +11,8 @@ import { Pressable } from 'react-native';
 import { Helper } from '../Helper';
 import { useRadioGroupContext } from './RadioGroup.context';
 import { useFormFieldContext } from '../FormField';
-import { Flex } from '../Flex';
 import RadioCardRoot from './RadioCardRoot';
+import RadioTextContent from './RadioTextContent';
 
 const RadioComponent = createRadio({
   Root: StyledRadio,
@@ -61,7 +61,7 @@ const Radio = forwardRef<ElementRef<typeof Pressable>, RadioProps>(
         <RadioIndicator>
           <RadioIcon />
         </RadioIndicator>
-        <Flex direction="column" space="none">
+        <RadioTextContent>
           {!!label && <RadioLabel>{label}</RadioLabel>}
           {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
           {validationStatus === 'invalid' && !!invalidText && (
@@ -80,7 +80,7 @@ const Radio = forwardRef<ElementRef<typeof Pressable>, RadioProps>(
               text={validText}
             />
           )}
-        </Flex>
+        </RadioTextContent>
       </>
     );
     return (
