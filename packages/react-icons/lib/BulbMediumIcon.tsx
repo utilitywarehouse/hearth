@@ -1,28 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const BulbMediumIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={24}
-        height={24}
-        fill="none"
-        viewBox="0 0 24 24"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M12 22q-.65 0-1.175-.312A2.3 2.3 0 0 1 10 20.85q-.825 0-1.412-.588A1.93 1.93 0 0 1 8 18.85V15.3a7.24 7.24 0 0 1-2.362-2.575A7.05 7.05 0 0 1 4.75 9.25q0-3.026 2.113-5.137Q8.974 2 12 2t5.137 2.113Q19.25 6.225 19.25 9.25q0 1.925-.887 3.5A7.3 7.3 0 0 1 16 15.3v3.55q0 .825-.588 1.412A1.93 1.93 0 0 1 14 20.85 2.27 2.27 0 0 1 12 22m-2-3.15h4v-.9h-4zm0-1.9h4V16h-4zM12.75 14v-2.7l1.675-1.675a.72.72 0 0 0 .225-.525.72.72 0 0 0-.225-.525.72.72 0 0 0-.525-.225.72.72 0 0 0-.525.225L12 9.95l-1.375-1.375a.72.72 0 0 0-.525-.225.72.72 0 0 0-.525.225.72.72 0 0 0-.225.525q0 .3.225.525L11.25 11.3V14z"
-        />
-      </svg>
-    );
-  }
-);
-BulbMediumIcon.displayName = 'BulbMediumIcon';
+export const BulbMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M12 22q-.65 0-1.175-.312A2.3 2.3 0 0 1 10 20.85q-.825 0-1.412-.588A1.93 1.93 0 0 1 8 18.85V15.3a7.24 7.24 0 0 1-2.362-2.575A7.05 7.05 0 0 1 4.75 9.25q0-3.026 2.113-5.137Q8.974 2 12 2t5.137 2.113Q19.25 6.225 19.25 9.25q0 1.925-.887 3.5A7.3 7.3 0 0 1 16 15.3v3.55q0 .825-.588 1.412A1.93 1.93 0 0 1 14 20.85 2.27 2.27 0 0 1 12 22m-2-3.15h4v-.9h-4zm0-1.9h4V16h-4zM12.75 14v-2.7l1.675-1.675a.72.72 0 0 0 .225-.525.72.72 0 0 0-.225-.525.72.72 0 0 0-.525-.225.72.72 0 0 0-.525.225L12 9.95l-1.375-1.375a.72.72 0 0 0-.525-.225.72.72 0 0 0-.525.225.72.72 0 0 0-.225.525q0 .3.225.525L11.25 11.3V14z" /></svg>;
+});
+BulbMediumIcon.displayName = "BulbMediumIcon";

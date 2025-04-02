@@ -12,6 +12,7 @@
     "build:react-native": "turbo run @utilitywarehouse/hearth-react-native#build @utilitywarehouse/hearth-react-native#build:storybook",
     "build:fonts": "turbo run @utilitywarehouse/hearth-fonts#build storybook-fonts#build:storybook",
     "build:css-reset": "turbo run @utilitywarehouse/hearth-css-reset#build",
+    "build:icons": "turbo run @utilitywarehouse/hearth-react#build @utilitywarehouse/hearth-css-reset#build storybook-icons#build:storybook",
     "build:storybook": "turbo build build:storybook",
     "preinstall": "npx only-allow pnpm",
     "dev:react": "turbo run @utilitywarehouse/hearth-react#dev storybook-react#dev",
@@ -29,8 +30,8 @@
     "checks:ci": "turbo run format:ci lint --filter='./packages/*'",
     "generate:svg": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
     "generate:react": "turbo run @utilitywarehouse/hearth-react-icons#generate @utilitywarehouse/hearth-react-native-icons#generate",
-    "generate:storybook": "pnpm --filter \"icons-storybook\" generate",
-    "generate:icons": "pnpm run generate:svg && pnpm run generate:react && pnpm run format && cat ./updated-icons.md && rm ./updated-icons.md"
+    "generate:storybook": "turbo run storybook-icons#generate",
+    "generate:icons": "pnpm run generate:svg && pnpm run generate:react && pnpm run generate:storybook && pnpm run format && cat ./updated-icons.md && rm ./updated-icons.md"
   },
   "workspaces": [
     "packages/*",

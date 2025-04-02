@@ -1,0 +1,11 @@
+import { forwardRef } from 'react';
+import { IconProps } from './types';
+export const HeartOutlineMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="m11.979 20.5-1.378-1.253q-2.255-2.084-3.722-3.598-1.466-1.514-2.33-2.718t-1.206-2.209A6.4 6.4 0 0 1 3 8.66q0-2.205 1.455-3.682Q5.91 3.5 8.063 3.5q1.143 0 2.134.467.992.468 1.782 1.381.874-.956 1.84-1.402a4.9 4.9 0 0 1 2.076-.446q2.183 0 3.644 1.478T21 8.662a6.3 6.3 0 0 1-.34 2.046q-.338.998-1.206 2.198t-2.342 2.727-3.741 3.614zm-.007-2.953a119 119 0 0 0 3.39-3.264q1.324-1.337 2.089-2.336.766-.999 1.06-1.768a4.2 4.2 0 0 0 .293-1.515q0-1.277-.816-2.109t-2.08-.832q-.99 0-1.847.641a4.1 4.1 0 0 0-.996 1.08c-.24.375-.631.644-1.076.644-.451 0-.847-.278-1.089-.659a3.9 3.9 0 0 0-.992-1.065q-.875-.64-1.844-.64-1.238 0-2.042.822-.805.823-.805 2.12 0 .774.303 1.563t1.07 1.791 2.07 2.33 3.312 3.198" /></svg>;
+});
+HeartOutlineMediumIcon.displayName = "HeartOutlineMediumIcon";
