@@ -1,35 +1,20 @@
 import { icons } from '../utils/icons';
 import { Meta, ArgTypes } from '@storybook/blocks';
 import { version } from '../../../packages/react-native-icons/package.json';
-import * as Stories from './Icons.stories';
+import * as Stories from './AllIcons.stories';
 
 <Meta title="React Native Icons" />
 
-# React Native Icons
+# Hearth React Native Icons
 
 Current version: v{version}
 
-This package provides the UW Icons as optimized React Native components, generated
-from the `svg-icons` package.
-
-## Contents
-
-- [Contents](#contents)
-- [Installation](#installation)
-- [Props](#props)
-- [Icon sizes](#icon-sizes)
-- [Icon colours](#icon-colours)
-- [Icon naming](#icon-naming)
-- [Usage](#usage)
-- [Available Icons](#available-icons)
-  - [Small](#small)
-  - [Medium](#medium)
-  - [Large](#large)
+Hearth Icons as optimized React Native components, generated from the `hearth-svg-icons` package.
 
 ## Installation
 
 ```console
-yarn add @utilitywarehouse/react-native-icons
+yarn add @utilitywarehouse/hearth-react-native-icons
 ```
 
 ## Props
@@ -42,7 +27,7 @@ Each icon component supports the full range of [SVG attributes](https://develope
 
 There are 3 sizes of icons:
 
-- Small: 16px
+- Small: 20px
 - Medium: 24px
 - Large: 48px
 
@@ -50,28 +35,26 @@ There are 3 sizes of icons:
 
 The icon components don't have any predefined colours. The rendered SVG fill
 colour is `currentColor` by default. You can change the icon colour using the
-`color` prop, passing in any valid colour string. We recommend using the colour values from the UW
-`colour-system` package.
+`color` prop, passing in any valid colour string. We recommend using the colour
+values from the `hearth-design-tokens` package.
 
 ## Icon naming
 
 The icon names are structured as:
 
-> `[Name][Size][Variant]Icon.svg`
+> `[Name][Size]Icon.svg`
 
 - `name` - Name of the icon from [Figma]('https://www.figma.com/file/WDFaQF9EMtS7MjuIpjDVpf/UW-Icons?node-id=27-230&t=PKen5tLHUHUzchVS-0') that is all lowercased and hyphen separated.
 - `size` - Size of the icon that is one of small (16)/medium (24)/large (48). Note that some icons do not have all sizes available yet. Our designers are working to add missing ones to complete the collection.
-- `variant` - Optional variant of the icon that is one of `outlined` or `filled`. Not all icons will have variants.
 
 ## Usage
 
 ```tsx
-import { AddMediumIcon } from '@utilitywarehouse/react-native-icons';
-import { colors } from '@utilitywarehouse/colour-system';
+import { AddMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 [...]
 
-<AddMediumIcon color={colors.green700}>
+<AddMediumIcon />
 ```
 
 ## Available Icons

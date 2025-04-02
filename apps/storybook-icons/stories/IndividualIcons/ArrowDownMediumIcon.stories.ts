@@ -1,4 +1,4 @@
-/* HEY, DON'T EDIT THIS FILE DIRECTLY, IT WAS MAGICALLY GENERATED! */
+/* Don't edit this file directly, it was auto generated */
 import type { Meta, StoryObj } from '@storybook/react';
 import { ArrowDownMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ArrowDownMediumIcon';
 
@@ -13,8 +13,7 @@ type Story = StoryObj<typeof ArrowDownMediumIcon>;
 export const ArrowDownMediumIconStory: Story = {
   name: 'ArrowDownMediumIcon',
   argTypes: {
+    children: { table: { disable: true } },
     color: { table: { disable: true } },
-    title: { table: { disable: true } },
-    titleId: { table: { disable: true } },
   },
 };

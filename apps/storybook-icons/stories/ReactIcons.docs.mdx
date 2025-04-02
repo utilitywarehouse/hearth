@@ -1,48 +1,30 @@
 import { icons } from '../utils/icons';
 import { Meta, ArgTypes } from '@storybook/blocks';
-import * as Stories from './Icons.stories';
+import * as Stories from './AllIcons.stories';
 import { version } from '../../../packages/react-icons/package.json';
 
 <Meta title="React Icons" />
 
-# React Icons
+# Hearth React Icons
 
 Current version: v{version}
 
-This package provides the UW Icons as optimized React components, generated
-from the `svg-icons` package.
-
-## Contents
-
-- [Contents](#contents)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Webpack](#webpack)
-- [Props](#props)
-- [Accessibility](#accessibility)
-- [Icon sizes](#icon-sizes)
-- [Icon colours](#icon-colours)
-- [Icon naming](#icon-naming)
-- [Available Icons](#available-icons)
-  - [Small](#small)
-  - [Medium](#medium)
-  - [Large](#large)
+Hearth Icons as optimized React components, generated from the `hearth-svg-icons` package.
 
 ## Installation
 
 ```console
-yarn add @utilitywarehouse/react-icons
+yarn add @utilitywarehouse/hearth-react-icons
 ```
 
 ## Usage
 
 ```tsx
-import { AddMediumIcon } from '@utilitywarehouse/react-icons';
-import { colors } from '@utilitywarehouse/colour-system';
+import { AddMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 [...]
 
-<AddMediumIcon color={colors.green700} title="add new address" titleId="add-new-address">
+<AddMediumIcon title="add new address" titleId="add-new-address">
 ```
 
 ### Webpack
@@ -50,7 +32,7 @@ import { colors } from '@utilitywarehouse/colour-system';
 When using Webpack you may see the following error:
 
 ```console
-Module not found: Error: Can't resolve 'react/jsx-runtime' in '[...]/node_modules/@utilitywarehouse/react-icons/dist'
+Module not found: Error: Can't resolve 'react/jsx-runtime' in '[...]/node_modules/@utilitywarehouse/hearth-react-icons/dist'
 Did you mean 'jsx-runtime.js'?
 BREAKING CHANGE: The request 'react/jsx-runtime' failed to resolve only because it was resolved as fully specified
 (probably because the origin is strict EcmaScript Module, e. g. a module with javascript mimetype, a '*.mjs' file, or a '*.js' file where the package.json contains '"type": "module"').
@@ -74,12 +56,6 @@ Further information
 - [https://github.com/webpack/webpack/issues/11467#issuecomment-691873586]()
 - [https://github.com/facebook/create-react-app/issues/11865#issuecomment-1059714419]()
 
-## Props
-
-Each icon component supports the full range of [SVG attributes](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg#attributes) as well as the following props.
-
-<ArgTypes of={Stories} />
-
 ## Accessibility
 
 By default all Icon svg's have the following attributes set:
@@ -89,6 +65,7 @@ By default all Icon svg's have the following attributes set:
 - `aria-hidden="true"`
 
 If an icon is purely decorative then it doesn't need to include a `title`.
+
 However, if you do need to add meaningful descriptive text, then you can pass
 it in via the `title` prop. This will set `aria-hidden` to `"false"`, and
 render a `<title>` element inside the svg. To support older browsers we also
@@ -99,11 +76,17 @@ will be referenced properly by the svg element.
 If you intend to accompany the icon with a visible text label then please make
 use of the `aria-labelledby` prop on the icon component.
 
+## Props
+
+Each icon component supports the full range of [SVG attributes](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/svg#attributes) as well as the following props.
+
+<ArgTypes of={Stories} />
+
 ## Icon sizes
 
 There are 3 sizes of icons:
 
-- Small: 16px
+- Small: 20px
 - Medium: 24px
 - Large: 48px
 
@@ -111,18 +94,17 @@ There are 3 sizes of icons:
 
 The icon components don't have any predefined colours. The rendered SVG fill
 colour is `currentColor` by default. You can change the icon colour using the
-`color` prop, passing in any valid colour string. We recommend using the colour values from the UW
-`colour-system` package.
+`color` prop, passing in any valid colour string. We recommend using the colour
+values from the `hearth-design-tokens` package.
 
 ## Icon naming
 
 The icon names are structured as:
 
-> `[Name][Size][Variant]Icon.svg`
+> `[Name][Size]Icon.svg`
 
 - `name` - Name of the icon from [Figma]('https://www.figma.com/file/WDFaQF9EMtS7MjuIpjDVpf/UW-Icons?node-id=27-230&t=PKen5tLHUHUzchVS-0') that is all lowercased and hyphen separated.
 - `size` - Size of the icon that is one of small (16)/medium (24)/large (48). Note that some icons do not have all sizes available yet. Our designers are working to add missing ones to complete the collection.
-- `variant` - Optional variant of the icon that is one of `outlined` or `filled`. Not all icons will have variants.
 
 ## Available Icons
 

@@ -1,4 +1,4 @@
-/* HEY, DON'T EDIT THIS FILE DIRECTLY, IT WAS MAGICALLY GENERATED! */
+/* Don't edit this file directly, it was auto generated */
 import type { Meta, StoryObj } from '@storybook/react';
 import { HeartSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/HeartSmallIcon';
 
@@ -13,8 +13,7 @@ type Story = StoryObj<typeof HeartSmallIcon>;
 export const HeartSmallIconStory: Story = {
   name: 'HeartSmallIcon',
   argTypes: {
+    children: { table: { disable: true } },
     color: { table: { disable: true } },
-    title: { table: { disable: true } },
-    titleId: { table: { disable: true } },
   },
 };

@@ -1,4 +1,4 @@
-/* HEY, DON'T EDIT THIS FILE DIRECTLY, IT WAS MAGICALLY GENERATED! */
+/* Don't edit this file directly, it was auto generated */
 import { AddMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/AddMediumIcon';
 import { AddSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/AddSmallIcon';
 import { ArrowDownMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ArrowDownMediumIcon';

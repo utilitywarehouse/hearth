@@ -1,4 +1,4 @@
-/* HEY, DON'T EDIT THIS FILE DIRECTLY, IT WAS MAGICALLY GENERATED! */
+/* Don't edit this file directly, it was auto generated */
 export const icons = [
   { reactName: 'CloseSmallIcon', svgName: 'close-small-icon.svg' },
   { reactName: 'AddSmallIcon', svgName: 'add-small-icon.svg' },

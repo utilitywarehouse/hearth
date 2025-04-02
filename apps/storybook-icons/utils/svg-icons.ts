@@ -1,4 +1,4 @@
-/* HEY, DON'T EDIT THIS FILE DIRECTLY, IT WAS MAGICALLY GENERATED! */
+/* Don't edit this file directly, it was auto generated */
 // @ts-nocheck
 import CloseSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/close-small-icon.svg';
 import AddSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/add-small-icon.svg';

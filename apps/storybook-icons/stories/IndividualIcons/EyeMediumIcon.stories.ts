@@ -1,4 +1,4 @@
-/* HEY, DON'T EDIT THIS FILE DIRECTLY, IT WAS MAGICALLY GENERATED! */
+/* Don't edit this file directly, it was auto generated */
 import type { Meta, StoryObj } from '@storybook/react';
 import { EyeMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/EyeMediumIcon';
 
@@ -13,8 +13,7 @@ type Story = StoryObj<typeof EyeMediumIcon>;
 export const EyeMediumIconStory: Story = {
   name: 'EyeMediumIcon',
   argTypes: {
+    children: { table: { disable: true } },
     color: { table: { disable: true } },
-    title: { table: { disable: true } },
-    titleId: { table: { disable: true } },
   },
 };

@@ -1,29 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const GreenDealElectricityMediumIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={24}
-        height={24}
-        fill="none"
-        viewBox="0 0 24 24"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M18.036 13.42q-1.954 0-3.31 1.357t-1.356 3.31a4.64 4.64 0 0 0 .977 2.873l-1.21 1.21.819.82.754-.754.468-.459q.597.467 1.32.722.721.255 1.538.255 1.954 0 3.31-1.356t1.357-3.31V13.42zm1.167 4.091q0 .241-.175.416l-2.29 2.29a.6.6 0 0 1-.423.182.49.49 0 0 1-.408-.182.6.6 0 0 1-.16-.416q0-.24.16-.401l2.304-2.304a.55.55 0 0 1 .409-.16q.247 0 .408.16a.57.57 0 0 1 .175.415"
-        />
-        <path fill={color} d="M7.7 21v-7.5H1.5L10.3 1v7.5h6.2z" />
-      </svg>
-    );
-  }
-);
-GreenDealElectricityMediumIcon.displayName = 'GreenDealElectricityMediumIcon';
+export const GreenDealElectricityMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M18.036 13.42q-1.954 0-3.31 1.357t-1.356 3.31a4.64 4.64 0 0 0 .977 2.873l-1.21 1.21.819.82.754-.754.468-.459q.597.467 1.32.722.721.255 1.538.255 1.954 0 3.31-1.356t1.357-3.31V13.42zm1.167 4.091q0 .241-.175.416l-2.29 2.29a.6.6 0 0 1-.423.182.49.49 0 0 1-.408-.182.6.6 0 0 1-.16-.416q0-.24.16-.401l2.304-2.304a.55.55 0 0 1 .409-.16q.247 0 .408.16a.57.57 0 0 1 .175.415" /><path fill={color} d="M7.7 21v-7.5H1.5L10.3 1v7.5h6.2z" /></svg>;
+});
+GreenDealElectricityMediumIcon.displayName = "GreenDealElectricityMediumIcon";
