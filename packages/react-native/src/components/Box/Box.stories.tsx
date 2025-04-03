@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Box } from '.';
 import { BodyText } from '../BodyText';
@@ -60,9 +60,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-  render: args => (
-    <Box {...args}>
-      <BodyText>{args.children}</BodyText>
-    </Box>
-  ),
+  render: ({ as: _, ...args }) => {
+    return (
+      <Box {...args}>
+        <BodyText>{args.children}</BodyText>
+      </Box>
+    );
+  },
 };

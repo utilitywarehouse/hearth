@@ -1,10 +1,21 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { forwardRef, memo, useMemo } from 'react';
 import { View, ViewStyle } from 'react-native';
-import { UnistylesThemes, useUnistyles } from 'react-native-unistyles';
+import { withUnistyles } from 'react-native-unistyles';
 import type BoxProps from './Box.props';
+
+// Helper types for polymorphic components
+type PolymorphicRef<T extends React.ElementType> = React.ComponentPropsWithRef<T>['ref'];
+
+type PolymorphicComponentProps<T extends React.ElementType, Props = {}> = Props &
+  Omit<React.ComponentPropsWithoutRef<T>, keyof Props | 'as'> & {
+    as?: T;
+  };
+
+interface WithThemeProps {
+  theme?: any;
+}
+
+// --- Mapping definitions and helper function ---
 
 const propStyleMapping: { [key: string]: keyof ViewStyle } = {
   p: 'padding',
@@ -28,7 +39,7 @@ const propStyleMapping: { [key: string]: keyof ViewStyle } = {
   rounded: 'borderRadius',
 };
 
-const themeStyleMapping: { [key in keyof ViewStyle]?: keyof UnistylesThemes['light'] } = {
+const themeStyleMapping: { [key in keyof ViewStyle]?: string } = {
   top: 'space',
   bottom: 'space',
   left: 'space',
@@ -96,9 +107,7 @@ const themeStyleMapping: { [key in keyof ViewStyle]?: keyof UnistylesThemes['lig
   borderWidth: 'borderWidth',
 };
 
-// Create a single set for all view style properties
 const viewStyleProps = new Set<string>([
-  // Style props that don't need theme resolution
   'alignContent',
   'alignItems',
   'alignSelf',
@@ -126,7 +135,6 @@ const viewStyleProps = new Set<string>([
   'transform',
   'transformOrigin',
   'zIndex',
-  // Theme-resolvable style props
   'backgroundColor',
   'borderBlockColor',
   'borderBlockEndColor',
@@ -195,15 +203,10 @@ const viewStyleProps = new Set<string>([
   'width',
 ]);
 
-/**
- * Resolves a value against the theme if applicable
- */
 const resolveThemeValue = (value: any, themeMapping: any): any => {
   if (typeof value !== 'string' || !themeMapping || typeof themeMapping !== 'object') {
     return value;
   }
-
-  // Look for colour values by detecting the last number in the string
   const shadeMatch = value.match(/\d+$/);
   if (shadeMatch) {
     const shade = shadeMatch[0];
@@ -213,75 +216,71 @@ const resolveThemeValue = (value: any, themeMapping: any): any => {
       return nested[shade] ?? value;
     }
   }
-
-  // Otherwise if themeMapping has a direct mapping
   return themeMapping[value] ?? value;
 };
 
-const BoxComponent = <T extends React.ElementType = typeof View>(
-  { as, style, children, ...props }: BoxProps<T>,
-  ref: React.Ref<any>
-) => {
-  const { theme } = useUnistyles();
+// --- Box component definition ---
 
-  // Memoize styles processing to prevent unnecessary recalculations
-  const { styles, componentProps } = useMemo(() => {
+function BoxComponent<T extends React.ElementType = typeof View>(
+  {
+    as,
+    style,
+    children,
+    theme,
+    ...props
+  }: PolymorphicComponentProps<T, BoxProps<T> & WithThemeProps>,
+  ref: PolymorphicRef<T>
+) {
+  const resolvedTheme = theme!;
+
+  const { computedStyles, computedProps } = useMemo(() => {
     const computedStyles: Partial<ViewStyle> = {};
     const computedProps: Record<string, any> = {};
-
-    // Process all props in a single pass
     for (const propName in props) {
       const propValue = props[propName as keyof typeof props];
-
-      // Skip undefined values
       if (propValue === undefined) continue;
-
-      // Check if it's a mapped shorthand prop
       if (propStyleMapping[propName]) {
         const stylePropName = propStyleMapping[propName];
         const themeKey = themeStyleMapping[stylePropName];
-
         if (themeKey) {
-          const themeMapping = theme[themeKey];
+          const themeMapping = resolvedTheme[themeKey];
           computedStyles[stylePropName] = resolveThemeValue(propValue, themeMapping);
         } else {
           computedStyles[stylePropName] = propValue;
         }
         continue;
       }
-
-      // Check if it's a direct style property
       if (viewStyleProps.has(propName)) {
         const stylePropName = propName as keyof ViewStyle;
         const themeKey = themeStyleMapping[stylePropName];
-
         if (themeKey) {
-          const themeMapping = theme[themeKey];
+          const themeMapping = resolvedTheme[themeKey];
           computedStyles[stylePropName] = resolveThemeValue(propValue, themeMapping);
         } else {
           computedStyles[stylePropName] = propValue;
         }
         continue;
       }
-
-      // If not a style prop, it's a component prop
       computedProps[propName] = propValue;
     }
+    return { computedStyles, computedProps };
+  }, [props, resolvedTheme]);
 
-    return { styles: computedStyles, componentProps: computedProps };
-  }, [props, theme]);
-
-  const Component = as || View;
-
+  const Component: React.ElementType = as || View;
   return (
-    <Component ref={ref} style={[styles, style]} {...componentProps}>
+    <Component ref={ref} style={[computedStyles, style]} {...computedProps}>
       {children}
     </Component>
   );
-};
+}
 
-const ForwardedBox = forwardRef<View, BoxProps>(BoxComponent);
+type BoxComponentType = <T extends React.ElementType = typeof View>(
+  props: PolymorphicComponentProps<T, BoxProps<T>> & { ref?: PolymorphicRef<T> }
+) => React.ReactElement | null;
 
-ForwardedBox.displayName = 'Box';
+const ForwardedBox = forwardRef(BoxComponent as any) as BoxComponentType & { displayName?: string };
+ForwardedBox.displayName = 'ForwardedBox';
 
-export default memo(ForwardedBox);
+const BoxWithTheme = withUnistyles(ForwardedBox, theme => ({ theme })) as BoxComponentType;
+
+export default memo(BoxWithTheme) as BoxComponentType;
