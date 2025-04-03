@@ -7,7 +7,7 @@
   "scripts": {
     "clean:lib": "rm -rf lib",
     "format": "prettier --log-level=silent --write --parser=html \"lib/*.svg\"",
-    "generate": "pnpm clean:lib && echo \"FIGMA_ACCESS_TOKEN=${FIGMA_ACCESS_TOKEN}\" && node ./scripts/generate-svg-icons.js"
+    "generate": "pnpm clean:lib && node ./scripts/generate-svg-icons.js"
   },
   "devDependencies": {
     "cheerio": "1.0.0-rc.12",
