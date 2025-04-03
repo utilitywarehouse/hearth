@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const MoreMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M3.92 14q-.788 0-1.354-.587A1.96 1.96 0 0 1 2 12q0-.84.565-1.42T3.924 10q.785 0 1.36.58.575.582.575 1.412t-.576 1.419T3.92 14m8.083 0q-.797 0-1.364-.587A1.96 1.96 0 0 1 10.073 12q0-.84.565-1.42.564-.58 1.356-.58.806 0 1.364.58.558.582.558 1.412a2 2 0 0 1-.558 1.419Q12.8 14 12.003 14m8.064 0q-.8 0-1.369-.587A1.96 1.96 0 0 1 18.13 12q0-.84.57-1.42.571-.58 1.372-.58t1.365.58q.563.582.563 1.412t-.566 1.419-1.367.589" /></svg>;
-});
-MoreMediumIcon.displayName = "MoreMediumIcon";
+export const MoreMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={24}
+        height={24}
+        fill="none"
+        viewBox="0 0 24 24"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M3.92 14q-.788 0-1.354-.587A1.96 1.96 0 0 1 2 12q0-.84.565-1.42T3.924 10q.785 0 1.36.58.575.582.575 1.412t-.576 1.419T3.92 14m8.083 0q-.797 0-1.364-.587A1.96 1.96 0 0 1 10.073 12q0-.84.565-1.42.564-.58 1.356-.58.806 0 1.364.58.558.582.558 1.412a2 2 0 0 1-.558 1.419Q12.8 14 12.003 14m8.064 0q-.8 0-1.369-.587A1.96 1.96 0 0 1 18.13 12q0-.84.57-1.42.571-.58 1.372-.58t1.365.58q.563.582.563 1.412t-.566 1.419-1.367.589"
+        />
+      </svg>
+    );
+  }
+);
+MoreMediumIcon.displayName = 'MoreMediumIcon';

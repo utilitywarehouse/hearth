@@ -80,6 +80,14 @@
     "name": "EyeOffSmallIcon"
   },
   {
+    "id": "2173:22",
+    "name": "GasSmallIcon"
+  },
+  {
+    "id": "2173:34",
+    "name": "ElectricitySmallIcon"
+  },
+  {
     "id": "1:1227",
     "name": "PlaceholderSmallIcon"
   },

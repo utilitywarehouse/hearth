@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const BellMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M4 19v-2h2v-7q0-2.074 1.25-3.687T10.5 4.2V2h3v2.2q2 .5 3.25 2.113T18 10v7h2v2zm8 3q-.825 0-1.412-.587A1.93 1.93 0 0 1 10 20h4q0 .824-.588 1.413A1.93 1.93 0 0 1 12 22" /></svg>;
-});
-BellMediumIcon.displayName = "BellMediumIcon";
+export const BellMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={24}
+        height={24}
+        fill="none"
+        viewBox="0 0 24 24"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M4 19v-2h2v-7q0-2.074 1.25-3.687T10.5 4.2V2h3v2.2q2 .5 3.25 2.113T18 10v7h2v2zm8 3q-.825 0-1.412-.587A1.93 1.93 0 0 1 10 20h4q0 .824-.588 1.413A1.93 1.93 0 0 1 12 22"
+        />
+      </svg>
+    );
+  }
+);
+BellMediumIcon.displayName = 'BellMediumIcon';
