@@ -45,8 +45,8 @@ jobs:
 
       - name: create env file
         run: |
-          touch .env
-          echo FIGMA_ACCESS_TOKEN=${{ secrets.FIGMA_ACCESS_TOKEN }} >> .env
+          touch ./packages/svg-icons/.env
+          echo FIGMA_ACCESS_TOKEN=${{ secrets.FIGMA_ACCESS_TOKEN }} >> ./packages/svg-icons/.env
 
       - name: 🪄 Generate SVG icons
         run: pnpm generate:svg
