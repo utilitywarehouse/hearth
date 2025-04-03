@@ -8,6 +8,8 @@ const { optimize, loadConfig } = require('svgo');
 const cheerio = require('cheerio');
 const fetch = require('node-fetch');
 
+require('dotenv').config();
+
 if (!process.env.FIGMA_ACCESS_TOKEN) {
   throw new Error("❌ FIGMA_ACCESS_TOKEN is missing! Make sure it's set.");
 }
