@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { IconProps, SearchMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import {
@@ -19,7 +20,7 @@ export const IconsGrid = ({ icons, ...props }: IconsGridProps) => {
   useEffect(() => {
     setTimeout(() => {
       setCopied('');
-    }, 1000);
+    }, 1400);
   }, [copied]);
 
   return (
@@ -45,7 +46,7 @@ export const IconsGrid = ({ icons, ...props }: IconsGridProps) => {
                 <UnstyledIconButton
                   label={`${icon.displayName}`}
                   onClick={() => {
-                    copyToClipboard(`<${icon.displayName} title="" titleId="" />`);
+                    copyToClipboard(`<${icon.displayName} />`);
                     setCopied(`${icon.displayName}`);
                   }}
                 >
