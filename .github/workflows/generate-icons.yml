@@ -45,15 +45,10 @@ jobs:
 
       - name: 🪄 Generate SVG icons (Test)
         env:
-          FIGMA_ACCESS_TOKEN: 'figd_0fdclwcG5hyP7SXJMTNLDq0Ou2tgvaLI7s3O9IQu'
+          FIGMA_ACCESS_TOKEN: 'TEST_TOKEN'
         run: |
           echo "Checking FIGMA_ACCESS_TOKEN before running script..."
           echo "FIGMA_ACCESS_TOKEN=${FIGMA_ACCESS_TOKEN}"
-          pnpm generate:svg
-
-      - name: 🪄 Generate SVG icons (Test)
-        run: |
-          export FIGMA_ACCESS_TOKEN="figd_0fdclwcG5hyP7SXJMTNLDq0Ou2tgvaLI7s3O9IQu"
           pnpm generate:svg
 
       - name: 🪄 Generate SVG icons
