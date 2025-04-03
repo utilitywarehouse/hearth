@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const EditMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M3 21.413v-4.25L17.625 2.588 21.8 6.863 7.25 21.413zm13.9-13.9a.99.99 0 1 0 1.4-1.4.99.99 0 0 0-1.4 1.4" /></svg>;
-});
-EditMediumIcon.displayName = "EditMediumIcon";
+export const EditMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={24}
+        height={24}
+        fill="none"
+        viewBox="0 0 24 24"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M3 21.413v-4.25L17.625 2.588 21.8 6.863 7.25 21.413zm13.9-13.9a.99.99 0 1 0 1.4-1.4.99.99 0 0 0-1.4 1.4"
+        />
+      </svg>
+    );
+  }
+);
+EditMediumIcon.displayName = 'EditMediumIcon';

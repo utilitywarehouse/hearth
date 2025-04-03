@@ -8,7 +8,7 @@ import figma from '@figma/code-connect';
 
 figma.connect(
   StarMediumIcon,
-  'https://www.figma.com/design/WDFaQF9EMtS7MjuIpjDVpf/UW-Icons?node-id=6:448&m=dev',
+  'https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=6:448&m=dev',
   {
     props: {},
     example: () => <StarMediumIcon />,

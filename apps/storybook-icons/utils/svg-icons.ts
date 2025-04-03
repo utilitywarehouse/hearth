@@ -20,6 +20,8 @@ import TickCircleSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/tick-cir
 import ErrorCircleSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/error-circle-small-icon.svg';
 import EyeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/eye-small-icon.svg';
 import EyeOffSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/eye-off-small-icon.svg';
+import GasSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/gas-small-icon.svg';
+import ElectricitySmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/electricity-small-icon.svg';
 import PlaceholderSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/placeholder-small-icon.svg';
 import MoreSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/more-small-icon.svg';
 import CopySmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/copy-small-icon.svg';
@@ -161,6 +163,8 @@ export const svgIcons = [
   ErrorCircleSmallIcon,
   EyeSmallIcon,
   EyeOffSmallIcon,
+  GasSmallIcon,
+  ElectricitySmallIcon,
   PlaceholderSmallIcon,
   MoreSmallIcon,
   CopySmallIcon,
