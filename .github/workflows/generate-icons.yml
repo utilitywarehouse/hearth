@@ -43,16 +43,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_PUBLISH_TOKEN }}
 
-      - name: 🪄 Generate SVG icons (Test)
-        env:
-          FIGMA_ACCESS_TOKEN: 'TEST_TOKEN'
-        run: |
-          echo "Checking FIGMA_ACCESS_TOKEN before running script..."
-          echo "FIGMA_ACCESS_TOKEN=${FIGMA_ACCESS_TOKEN}"
-          pnpm generate:svg
-
       - name: 🪄 Generate SVG icons
-        run: FIGMA_ACCESS_TOKEN=${{ secrets.FIGMA_ACCESS_TOKEN }} pnpm generate:svg
+        run: pnpm exec --shell-mode generate:svg
         env:
           FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
 
