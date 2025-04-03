@@ -10,6 +10,10 @@ const fetch = require('node-fetch');
 
 require('dotenv').config();
 
+if (!process.env.FIGMA_ACCESS_TOKEN) {
+  throw new Error("❌ FIGMA_ACCESS_TOKEN is missing! Make sure it's set.");
+}
+
 const figmaConfig = {
   /** The base Figma API url */
   baseUrl: 'https://api.figma.com',
