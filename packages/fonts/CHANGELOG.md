@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-fonts
 
+## 0.0.3
+
+### Patch Changes
+
+- [#96](https://github.com/utilitywarehouse/hearth/pull/96) [`1d68319`](https://github.com/utilitywarehouse/hearth/commit/1d6831988098e09f8f902a24f3f08a13392b1575) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds DM Sans SemiBold
+
 ## 0.0.2
 
 ### Patch Changes
