@@ -43,10 +43,10 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_PUBLISH_TOKEN }}
 
-    - name: create env file
-      run: |
-        touch .env
-        echo FIGMA_ACCESS_TOKEN=${{ secrets.FIGMA_ACCESS_TOKEN }} >> .env
+      - name: create env file
+        run: |
+          touch ./packages/svg-icons/.env
+          echo FIGMA_ACCESS_TOKEN=${{ secrets.FIGMA_ACCESS_TOKEN }} >> ./packages/svg-icons/.env
 
       - name: 🪄 Generate SVG icons
         run: pnpm generate:svg
