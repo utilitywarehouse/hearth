@@ -32,6 +32,11 @@ const config: StorybookConfig = {
       url: 'https://uw-hearth-react-native.vercel.app',
       expanded: false,
     },
+    icons: {
+      title: 'Hearth Icons',
+      url: 'https://uw-hearth-icons.vercel.app',
+      expanded: false,
+    },
     fonts: {
       title: 'Hearth Fonts',
       url: 'https://uw-hearth-fonts.vercel.app',
