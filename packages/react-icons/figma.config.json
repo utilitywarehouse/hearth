@@ -6,6 +6,6 @@
     "importPaths": {
       "packages/react-icons/lib/*": "@utilitywarehouse/hearth-react-icons"
     },
-    "label": "Hearth React Icons"
+    "label": "React"
   }
 }
