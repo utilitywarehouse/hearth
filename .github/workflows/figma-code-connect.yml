@@ -1,0 +1,34 @@
+name: Figma Code Connect publish
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  code-connect:
+    name: Code Connect
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏗 Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.2
+      - name: 🏗 Checkout code
+        uses: actions/checkout@v4
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+      - name: 📦 Install dependencies
+        run: pnpm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_PUBLISH_TOKEN }}
+
+      - name: 🌝 Publish React Icons Figma Code Connect
+        working-directory: ./packages/react-icons
+        run: pnpm run figma:publish --token=${{ secrets.FIGMA_ACCESS_TOKEN }}
+      - name: 🌝 Publish React Native Icons Figma Code Connect
+        working-directory: ./packages/react-native-icons
+        run: pnpm run figma:publish --token=${{ secrets.FIGMA_ACCESS_TOKEN }}
