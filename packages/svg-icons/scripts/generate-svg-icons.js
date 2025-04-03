@@ -19,8 +19,6 @@ const figmaConfig = {
   headers: new fetch.Headers({ 'X-Figma-Token': process.env.FIGMA_ACCESS_TOKEN }),
 };
 
-console.log('figma token: ', process.env.FIGMA_ACCESS_TOKEN);
-
 const transformers = {
   /** Build the svg & jsx names of the icon */
   buildIconNames(icon, metadata) {

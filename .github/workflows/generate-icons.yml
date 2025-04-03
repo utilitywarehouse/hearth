@@ -43,16 +43,10 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_PUBLISH_TOKEN }}
 
-      - name: Debug Figma Token
-        run: echo "FIGMA_ACCESS_TOKEN=${FIGMA_ACCESS_TOKEN}"
+      - name: 🪄 Generate SVG icons
+        run: pnpm generate:svg
         env:
           FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
-
-      - name: 🪄 Generate SVG icons
-        run: |
-          export FIGMA_ACCESS_TOKEN=${{ secrets.FIGMA_ACCESS_TOKEN }}
-          echo "FIGMA_ACCESS_TOKEN=${FIGMA_ACCESS_TOKEN}"
-          pnpm generate:svg
 
       - name: 🪄 Generate React & React Native icons
         run: pnpm generate:react
