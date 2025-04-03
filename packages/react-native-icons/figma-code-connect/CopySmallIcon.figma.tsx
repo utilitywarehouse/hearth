@@ -8,7 +8,7 @@ import figma from '@figma/code-connect';
 
 figma.connect(
   CopySmallIcon,
-  'https://www.figma.com/design/WDFaQF9EMtS7MjuIpjDVpf/UW-Icons?node-id=1:1249&m=dev',
+  'https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=1:1249&m=dev',
   {
     props: {},
     example: () => <CopySmallIcon />,

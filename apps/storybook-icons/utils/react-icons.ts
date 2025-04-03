@@ -41,6 +41,7 @@ import { DownloadSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/Down
 import { EditMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/EditMediumIcon';
 import { EditSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/EditSmallIcon';
 import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ElectricityMediumIcon';
+import { ElectricitySmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ElectricitySmallIcon';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/EmailMediumIcon';
 import { EmailSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/EmailSmallIcon';
 import { EnvironmentMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/EnvironmentMediumIcon';
@@ -60,6 +61,7 @@ import { FitEnergyMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/Fi
 import { FullscreenMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/FullscreenMediumIcon';
 import { FullscreenSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/FullscreenSmallIcon';
 import { GasMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GasMediumIcon';
+import { GasSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/GasSmallIcon';
 import { GiftMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GiftMediumIcon';
 import { GreenDealElectricityMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GreenDealElectricityMediumIcon';
 import { HeartMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HeartMediumIcon';
@@ -182,6 +184,7 @@ export const reactIcons = [
   EditMediumIcon,
   EditSmallIcon,
   ElectricityMediumIcon,
+  ElectricitySmallIcon,
   EmailMediumIcon,
   EmailSmallIcon,
   EnvironmentMediumIcon,
@@ -201,6 +204,7 @@ export const reactIcons = [
   FullscreenMediumIcon,
   FullscreenSmallIcon,
   GasMediumIcon,
+  GasSmallIcon,
   GiftMediumIcon,
   GreenDealElectricityMediumIcon,
   HeartMediumIcon,

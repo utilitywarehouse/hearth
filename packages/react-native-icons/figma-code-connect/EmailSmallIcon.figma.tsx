@@ -8,7 +8,7 @@ import figma from '@figma/code-connect';
 
 figma.connect(
   EmailSmallIcon,
-  'https://www.figma.com/design/WDFaQF9EMtS7MjuIpjDVpf/UW-Icons?node-id=46:25&m=dev',
+  'https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=46:25&m=dev',
   {
     props: {},
     example: () => <EmailSmallIcon />,

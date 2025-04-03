@@ -20,6 +20,8 @@ export const icons = [
   { reactName: 'ErrorCircleSmallIcon', svgName: 'error-circle-small-icon.svg' },
   { reactName: 'EyeSmallIcon', svgName: 'eye-small-icon.svg' },
   { reactName: 'EyeOffSmallIcon', svgName: 'eye-off-small-icon.svg' },
+  { reactName: 'GasSmallIcon', svgName: 'gas-small-icon.svg' },
+  { reactName: 'ElectricitySmallIcon', svgName: 'electricity-small-icon.svg' },
   { reactName: 'PlaceholderSmallIcon', svgName: 'placeholder-small-icon.svg' },
   { reactName: 'MoreSmallIcon', svgName: 'more-small-icon.svg' },
   { reactName: 'CopySmallIcon', svgName: 'copy-small-icon.svg' },

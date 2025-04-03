@@ -8,7 +8,7 @@ import figma from '@figma/code-connect';
 
 figma.connect(
   PhoneSmallIcon,
-  'https://www.figma.com/design/WDFaQF9EMtS7MjuIpjDVpf/UW-Icons?node-id=46:27&m=dev',
+  'https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=46:27&m=dev',
   {
     props: {},
     example: () => <PhoneSmallIcon />,

@@ -81,6 +81,14 @@
       "path": "eye-off-small-icon.svg"
     },
     {
+      "name": "GasSmallIcon",
+      "path": "gas-small-icon.svg"
+    },
+    {
+      "name": "ElectricitySmallIcon",
+      "path": "electricity-small-icon.svg"
+    },
+    {
       "name": "PlaceholderSmallIcon",
       "path": "placeholder-small-icon.svg"
     },
