@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Button, Flex, Heading, BodyText } from '@utilitywarehouse/hearth-react';
 import {
-  ChevronRight01SmallIcon,
+  ChevronRightSmallIcon,
   SettingsSmallIcon,
   TrashSmallIcon,
   UserSmallIcon,
-} from '@utilitywarehouse/react-icons';
+} from '@utilitywarehouse/hearth-react-icons';
 
 const sizes = ['md', 'sm'] as const;
 const variants = ['solid', 'outline', 'ghost'] as const;
@@ -249,7 +249,7 @@ export const FullWidth: Story = {
       <BodyText>This Button is full width for screen widths below the desktop breakpoint.</BodyText>
       <Button {...args}>
         {args.children}
-        <ChevronRight01SmallIcon />
+        <ChevronRightSmallIcon />
       </Button>
     </Flex>
   ),

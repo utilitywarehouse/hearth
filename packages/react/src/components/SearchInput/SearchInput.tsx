@@ -4,10 +4,10 @@ import clsx from 'clsx';
 import React from 'react';
 import { TextInput } from '../TextInput/TextInput';
 import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
-import { CloseSmallIcon, SearchSmallIcon } from '@utilitywarehouse/react-icons';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { SearchInputProps } from './SearchInput.props';
 import { Spinner } from '../Spinner/Spinner';
+import { CloseSmallIcon, SearchMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const componentName = 'SearchInput';
 const componentClassName = withGlobalPrefix(componentName);
@@ -46,7 +46,7 @@ export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps
         {...props}
       >
         <TextInputSlot placement="prefix">
-          <SearchSmallIcon />
+          <SearchMediumIcon />
         </TextInputSlot>
         {loading ? (
           <TextInputSlot placement="suffix">

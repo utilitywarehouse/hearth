@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { BodyText, Flex, TextInput, TextInputSlot } from '@utilitywarehouse/hearth-react';
-import { EmailMediumIcon } from '@utilitywarehouse/react-icons';
+import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof TextInput> = {
   title: 'Stories / TextInput',

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Box, Flex, Heading, IconButton } from '@utilitywarehouse/hearth-react';
-import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/react-icons';
+import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const sizes = ['md', 'sm'] as const;
 const variants = ['solid', 'outline', 'ghost'] as const;

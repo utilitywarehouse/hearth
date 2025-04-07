@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Badge, Box, Flex } from '@utilitywarehouse/hearth-react';
-import { CloseSmallIcon, StarSmallIcon, TickSmallIcon } from '@utilitywarehouse/react-icons';
+import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const variants = ['solid', 'outline'] as const;
 const colorSchemes = ['blue', 'green', 'red', 'orange', 'grey'] as const;
@@ -37,23 +37,15 @@ export const KitchenSink: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => {
     return (
-      <Flex direction="column">
+      <Flex direction="row" gap="400">
         {variants.map(variant => (
-          <Flex key={variant} gap="400" justify="center" padding="400" direction="column">
+          <Flex key={variant} gap="400" justify="center" direction="column">
             {colorSchemes.map(colorScheme => (
               <Flex key={colorScheme} direction="row" gap="200">
                 <Badge variant={variant} colorScheme={colorScheme}>
                   Badge
                 </Badge>
-                <Badge variant={variant} colorScheme={colorScheme}>
-                  <StarSmallIcon />
-                  Badge
-                </Badge>
                 <Badge variant={variant} colorScheme={colorScheme} flatBase>
-                  Badge
-                </Badge>
-                <Badge variant={variant} colorScheme={colorScheme} flatBase>
-                  <StarSmallIcon />
                   Badge
                 </Badge>
               </Flex>

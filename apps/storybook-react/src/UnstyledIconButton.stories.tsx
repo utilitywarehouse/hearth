@@ -8,7 +8,7 @@ import {
   Flex,
   BodyText,
 } from '@utilitywarehouse/hearth-react';
-import { CloseMediumIcon, CloseSmallIcon } from '@utilitywarehouse/react-icons';
+import { CloseMediumIcon, CloseSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const sizes = ['md', 'sm'] as const;
 
