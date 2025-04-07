@@ -50,7 +50,6 @@ const Button = forwardRef<PressableRef, ButtonProps>(
           {isLoading ? (
             <View style={styles.loadingWrapper}>
               <ButtonSpinner />
-              <ButtonText>Loading</ButtonText>
             </View>
           ) : null}
           <ButtonText style={styles.textLoading}>{children ?? text}</ButtonText>

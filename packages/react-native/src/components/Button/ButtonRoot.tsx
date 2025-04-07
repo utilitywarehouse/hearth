@@ -67,7 +67,7 @@ const styles = StyleSheet.create(theme => ({
     borderWidth: theme.components.button.borderWidth,
     borderRadius: theme.components.button.borderRadius,
     gap: theme.components.button.gap,
-    minWidth: 124,
+    minWidth: theme.components.button.minWidth,
     _web: {
       '_focus-visible': {
         outlineStyle: 'solid',
