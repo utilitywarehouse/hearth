@@ -3,10 +3,10 @@ import { Button, ButtonGroup } from '.';
 import type { ButtonProps } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { VariantTitle } from '../../../docs/components';
-import * as Icons from '@utilitywarehouse/react-native-icons';
+import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { Flex } from '../Flex';
 import { Box } from '../Box';
-import { AddSmallIcon, ChevronRight01SmallIcon } from '@utilitywarehouse/react-native-icons';
+import { AddSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { DetailText } from '../DetailText';
 import { Platform } from 'react-native';
 
@@ -221,7 +221,7 @@ export const KitchenSink: Story = {
                       {/* @ts-expect-error - story loop types don't match */}
                       <Button
                         text={text}
-                        icon={ChevronRight01SmallIcon}
+                        icon={ChevronRightSmallIcon}
                         iconPosition="right"
                         variant={variant}
                         colorScheme={scheme}

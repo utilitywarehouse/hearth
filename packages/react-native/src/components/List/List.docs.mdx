@@ -25,13 +25,13 @@ import {
 } from '../../';
 import {
   BillMediumIcon,
-  ChevronRight01MediumIcon,
+  ChevronRightSmallIcon,
   PaymentMediumIcon,
-  HomeMediumIcon,
+  HomeFilledMediumIcon,
   UserMediumIcon,
   ElectricityMediumIcon,
   GasMediumIcon,
-} from '@utilitywarehouse/react-native-icons';
+} from '@utilitywarehouse/hearth-react-native-icons';
 
 <Meta title="Components / List" />
 
@@ -181,7 +181,7 @@ If you need to use the List component in a more advanced way, you can use the pa
         <ListItemSupportingText>View your bills</ListItemSupportingText>
       </ListItemContent>
       <ListItemTrailingContent>
-        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+        <ListItemTrailingIcon as={ChevronRightSmallIcon} />
       </ListItemTrailingContent>
     </ListItem>
     <ListItem onPress={() => console.log('pressed')}>
@@ -193,19 +193,19 @@ If you need to use the List component in a more advanced way, you can use the pa
         <ListItemSupportingText>Make a payment</ListItemSupportingText>
       </ListItemContent>
       <ListItemTrailingContent>
-        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+        <ListItemTrailingIcon as={ChevronRightSmallIcon} />
       </ListItemTrailingContent>
     </ListItem>
     <ListItem onPress={() => console.log('pressed')}>
       <ListItemLeadingContent>
-        <ListItemIcon as={HomeMediumIcon} />
+        <ListItemIcon as={HomeFilledMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
         <ListItemText>Moving home</ListItemText>
         <ListItemSupportingText>Tell us if your moving</ListItemSupportingText>
       </ListItemContent>
       <ListItemTrailingContent>
-        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+        <ListItemTrailingIcon as={ChevronRightSmallIcon} />
       </ListItemTrailingContent>
     </ListItem>
     <ListItem onPress={() => console.log('pressed')}>
@@ -217,7 +217,7 @@ If you need to use the List component in a more advanced way, you can use the pa
         <ListItemSupportingText>Get rewarded with a friend</ListItemSupportingText>
       </ListItemContent>
       <ListItemTrailingContent>
-        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+        <ListItemTrailingIcon as={ChevronRightSmallIcon} />
       </ListItemTrailingContent>
     </ListItem>
   </List>
@@ -238,11 +238,11 @@ import {
 } from '@utilitywarehouse/hearth-react-native';
 import {
   BillMediumIcon,
-  ChevronRight01MediumIcon,
+  ChevronRightSmallIcon,
   PaymentMediumIcon,
-  HomeMediumIcon,
+  HomeFilledMediumIcon,
   UserMediumIcon,
-} from '@utilitywarehouse/react-native-icons';
+} from '@utilitywarehouse/hearth-react-native-icons';
 
 const MyComponent = () => (
   <List>
@@ -256,7 +256,7 @@ const MyComponent = () => (
         <ListItemSupportingText>View your bills</ListItemSupportingText>
       </ListItemContent>
       <ListItemTrailingContent>
-        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+        <ListItemTrailingIcon as={ChevronRightSmallIcon} />
       </ListItemTrailingContent>
     </ListItem>
     <ListItem onPress={() => console.log('pressed')}>
@@ -268,19 +268,19 @@ const MyComponent = () => (
         <ListItemSupportingText>Make a payment</ListItemSupportingText>
       </ListItemContent>
       <ListItemTrailingContent>
-        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+        <ListItemTrailingIcon as={ChevronRightSmallIcon} />
       </ListItemTrailingContent>
     </ListItem>
     <ListItem onPress={() => console.log('pressed')}>
       <ListItemLeadingContent>
-        <ListItemIcon as={HomeMediumIcon} />
+        <ListItemIcon as={HomeFilledMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
         <ListItemText>Moving home</ListItemText>
         <ListItemSupportingText>Tell us if your moving</ListItemSupportingText>
       </ListItemContent>
       <ListItemTrailingContent>
-        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+        <ListItemTrailingIcon as={ChevronRightSmallIcon} />
       </ListItemTrailingContent>
     </ListItem>
     <ListItem onPress={() => console.log('pressed')}>
@@ -292,7 +292,7 @@ const MyComponent = () => (
         <ListItemSupportingText>Get rewarded with a friend</ListItemSupportingText>
       </ListItemContent>
       <ListItemTrailingContent>
-        <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+        <ListItemTrailingIcon as={ChevronRightSmallIcon} />
       </ListItemTrailingContent>
     </ListItem>
   </List>
@@ -328,7 +328,7 @@ the `Card` and child `ListItem` components.
       onPress={() => console.log('item pressed')}
     />
     <ListItem
-      leadingContent={<HomeMediumIcon />}
+      leadingContent={<HomeFilledMediumIcon />}
       text="Moving Home"
       onPress={() => console.log('item pressed')}
     />
@@ -340,8 +340,8 @@ import { List, ListItem, Card } from '@utilitywarehouse/hearth-react-native';
 import {
   BillMediumIcon,
   PaymentMediumIcon,
-  HomeMediumIcon,
-} from '@utilitywarehouse/react-native-icons';
+  HomeFilledMediumIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
 
 const MyComponent = () => (
   <List container="subtleWhite">
@@ -358,7 +358,7 @@ const MyComponent = () => (
       onPress={() => console.log('item pressed')}
     />
     <ListItem
-      leadingContent={<HomeMediumIcon />}
+      leadingContent={<HomeFilledMediumIcon />}
       text="Moving Home"
       onPress={() => console.log('item pressed')}
     />
@@ -394,10 +394,10 @@ import {
 } from '@utilitywarehouse/hearth-react-native';
 
 import {
-  ChevronRight01MediumIcon,
+  ChevronRightSmallIcon,
   ElectricityMediumIcon,
   GasMediumIcon,
-} from '@utilitywarehouse/react-native-icons';
+} from '@utilitywarehouse/hearth-react-native-icons';
 
 const BadgeList = () => {
   return (
@@ -416,7 +416,7 @@ const BadgeList = () => {
           <ListItemSupportingText>Last reading 23/03/24</ListItemSupportingText>
         </ListItemContent>
         <ListItemTrailingContent>
-          <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+          <ListItemTrailingIcon as={ChevronRightSmallIcon} />
         </ListItemTrailingContent>
       </ListItem>
       <ListItem onPress={() => console.log('pressed')} divider={false}>
@@ -435,7 +435,7 @@ const BadgeList = () => {
           <ListItemSupportingText>Last reading 23/03/24</ListItemSupportingText>
         </ListItemContent>
         <ListItemTrailingContent>
-          <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+          <ListItemTrailingIcon as={ChevronRightSmallIcon} />
         </ListItemTrailingContent>
       </ListItem>
     </List>

@@ -2,8 +2,8 @@ import React from 'react';
 import { Badge } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { VariantTitle } from '../../../docs/components';
-import { TickSmallIcon } from '@utilitywarehouse/react-native-icons';
-import * as Icons from '@utilitywarehouse/react-native-icons';
+import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { Box } from '../Box';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

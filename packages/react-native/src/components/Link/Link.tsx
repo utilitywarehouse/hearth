@@ -5,7 +5,7 @@ import LinkRoot from './LinkRoot';
 import LinkTextComponent from './LinkText';
 import { PressableRef } from '../../types';
 import LinkIcon from './LinkIcon';
-import { ChevronRightSmallIcon } from '@utilitywarehouse/react-native-icons';
+import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 const LinkComponent = createLink({
   Root: LinkRoot,

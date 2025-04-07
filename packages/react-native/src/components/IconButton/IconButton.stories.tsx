@@ -2,7 +2,7 @@ import React, { ComponentType } from 'react';
 import { IconButton, IconButtonProps } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { VariantTitle } from '../../../docs/components';
-import * as Icons from '@utilitywarehouse/react-native-icons';
+import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { Box } from '../Box';
 import { ButtonGroup } from '../Button';
 import { Flex } from '../Flex';

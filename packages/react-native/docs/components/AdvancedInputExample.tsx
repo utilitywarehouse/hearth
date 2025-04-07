@@ -4,7 +4,7 @@ import {
   EmailMediumIcon,
   EyeMediumIcon,
   EyeOffMediumIcon,
-} from '@utilitywarehouse/react-native-icons';
+} from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
 import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
 
