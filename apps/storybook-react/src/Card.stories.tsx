@@ -16,8 +16,8 @@ import {
   ChevronRightSmallIcon,
   CloseSmallIcon,
   HeartMediumIcon,
-  HeartMediumFilledIcon,
-} from '@utilitywarehouse/react-icons';
+  HeartOutlineMediumIcon,
+} from '@utilitywarehouse/hearth-react-icons';
 import { Placeholder } from './storybook-components/Placeholder';
 
 const variants = ['emphasis', 'subtle'] as const;
@@ -362,7 +362,7 @@ export const WithoutLink: Story = {
                     colorScheme="red"
                     onClick={() => setLikedArgos(likedArgos => !likedArgos)}
                   >
-                    {likedArgos ? <HeartMediumFilledIcon /> : <HeartMediumIcon />}
+                    {likedArgos ? <HeartMediumIcon /> : <HeartOutlineMediumIcon />}
                   </IconButton>
                 </CardAction>
               </Flex>
@@ -386,7 +386,7 @@ export const WithoutLink: Story = {
                     colorScheme="red"
                     onClick={() => setLikedAskItalian(likedAskItalian => !likedAskItalian)}
                   >
-                    {likedAskItalian ? <HeartMediumFilledIcon /> : <HeartMediumIcon />}
+                    {likedAskItalian ? <HeartMediumIcon /> : <HeartOutlineMediumIcon />}
                   </IconButton>
                 </CardAction>
               </Flex>

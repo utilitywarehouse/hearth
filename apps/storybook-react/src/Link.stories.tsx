@@ -5,7 +5,7 @@ import {
   OpenSmallIcon,
   ChevronLeftSmallIcon,
   ChevronRightSmallIcon,
-} from '@utilitywarehouse/react-icons';
+} from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof Link> = {
   title: 'Stories / Link',
