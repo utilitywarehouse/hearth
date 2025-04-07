@@ -6,6 +6,6 @@
     "importPaths": {
       "packages/react-native-icons/lib/*": "@utilitywarehouse/hearth-react-native-icons"
     },
-    "label": "Hearth React Native Icons"
+    "label": "React Native"
   }
 }
