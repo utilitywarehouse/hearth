@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Box } from '.';
 import { BodyText } from '../BodyText';
 import { coloursAsArray } from '../../utils';
 import { primitive } from '@utilitywarehouse/hearth-tokens/js';
 import { InputType } from 'storybook/internal/types';
+import { UnistylesRuntime } from 'react-native-unistyles';
+import { View } from 'react-native';
 
 const backgroundColor: InputType = {
   options: coloursAsArray(),
@@ -49,7 +51,7 @@ const meta = {
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {
     children: "Hello there, I'm in a box!",
-    backgroundColor: 'orange400',
+    // backgroundColor: 'orange400',
     padding: '200',
     width: 300,
     height: 200,
@@ -61,10 +63,31 @@ type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
   render: ({ as: _, ...args }) => {
+    const [bgColor, setBgColor] = React.useState<'green100' | 'green600'>('green600');
+    const [other, setOther] = React.useState(false);
+    useEffect(() => {
+      setTimeout(() => {
+        UnistylesRuntime.setTheme('dark');
+        setTimeout(() => {
+          setBgColor('green100');
+
+          setTimeout(() => {
+            setOther(true);
+          }, 2000);
+        }, 2000);
+      }, 4000);
+    }, []);
+
     return (
-      <Box {...args}>
-        <BodyText>{args.children}</BodyText>
-      </Box>
+      <View
+        style={
+          other ? { backgroundColor: 'black', height: '100%', width: '100%', padding: 10 } : {}
+        }
+      >
+        <Box {...args} bg={bgColor} padding={ ? '100' : '200'}>
+          <BodyText>{args.children}</BodyText>
+        </Box>
+      </View>
     );
   },
 };

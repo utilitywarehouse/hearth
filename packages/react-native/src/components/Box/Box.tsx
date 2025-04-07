@@ -1,6 +1,6 @@
 import React, { forwardRef, memo, useMemo } from 'react';
 import { View, ViewStyle } from 'react-native';
-import { withUnistyles } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import type BoxProps from './Box.props';
 
 // Helper types for polymorphic components
@@ -10,10 +10,6 @@ type PolymorphicComponentProps<T extends React.ElementType, Props = {}> = Props 
   Omit<React.ComponentPropsWithoutRef<T>, keyof Props | 'as'> & {
     as?: T;
   };
-
-interface WithThemeProps {
-  theme?: any;
-}
 
 // --- Mapping definitions and helper function ---
 
@@ -220,67 +216,77 @@ const resolveThemeValue = (value: any, themeMapping: any): any => {
 };
 
 // --- Box component definition ---
-
-function BoxComponent<T extends React.ElementType = typeof View>(
-  {
-    as,
-    style,
-    children,
-    theme,
-    ...props
-  }: PolymorphicComponentProps<T, BoxProps<T> & WithThemeProps>,
+const BoxComponent = <T extends React.ElementType = typeof View>(
+  { as, style, children, ...props }: PolymorphicComponentProps<T, BoxProps<T>>,
   ref: PolymorphicRef<T>
-) {
-  const resolvedTheme = theme!;
-
-  const { computedStyles, computedProps } = useMemo(() => {
-    const computedStyles: Partial<ViewStyle> = {};
+) => {
+  const { computedProps } = useMemo(() => {
     const computedProps: Record<string, any> = {};
-    for (const propName in props) {
-      const propValue = props[propName as keyof typeof props];
-      if (propValue === undefined) continue;
-      if (propStyleMapping[propName]) {
-        const stylePropName = propStyleMapping[propName];
-        const themeKey = themeStyleMapping[stylePropName];
-        if (themeKey) {
-          const themeMapping = resolvedTheme[themeKey];
-          computedStyles[stylePropName] = resolveThemeValue(propValue, themeMapping);
-        } else {
-          computedStyles[stylePropName] = propValue;
-        }
-        continue;
+
+    Object.entries(props).forEach(([propName, propValue]) => {
+      if (propValue === undefined) return;
+
+      if (propStyleMapping[propName] || viewStyleProps.has(propName)) {
+        return;
       }
-      if (viewStyleProps.has(propName)) {
-        const stylePropName = propName as keyof ViewStyle;
-        const themeKey = themeStyleMapping[stylePropName];
-        if (themeKey) {
-          const themeMapping = resolvedTheme[themeKey];
-          computedStyles[stylePropName] = resolveThemeValue(propValue, themeMapping);
-        } else {
-          computedStyles[stylePropName] = propValue;
-        }
-        continue;
-      }
+
       computedProps[propName] = propValue;
-    }
-    return { computedStyles, computedProps };
-  }, [props, resolvedTheme]);
+    });
+
+    return { computedProps };
+  }, [props]);
 
   const Component: React.ElementType = as || View;
+
+  console.log('render');
+
   return (
-    <Component ref={ref} style={[computedStyles, style]} {...computedProps}>
+    <Component ref={ref} style={[styles.computedStyles(props), style]} {...computedProps}>
       {children}
     </Component>
   );
-}
+};
+
+const styles = StyleSheet.create(theme => ({
+  computedStyles: (props: Record<string, any>) => {
+    const computedStyles: Record<string, any> = {};
+
+    Object.entries(props).forEach(([propName, propValue]) => {
+      if (propValue === undefined) return;
+
+      let stylePropName: keyof ViewStyle | undefined;
+      let themeKey: keyof typeof theme | undefined;
+
+      // Handle shorthand props
+      if (propStyleMapping[propName]) {
+        stylePropName = propStyleMapping[propName];
+      }
+      // Handle direct style props
+      else if (viewStyleProps.has(propName)) {
+        stylePropName = propName as keyof ViewStyle;
+      }
+
+      if (!stylePropName) return;
+
+      // Resolve theme value if needed
+      themeKey = themeStyleMapping[stylePropName] as keyof typeof theme;
+
+      if (themeKey && theme[themeKey]) {
+        computedStyles[stylePropName] = resolveThemeValue(propValue, theme[themeKey]);
+      } else {
+        computedStyles[stylePropName] = propValue;
+      }
+    });
+
+    return computedStyles;
+  },
+}));
 
 type BoxComponentType = <T extends React.ElementType = typeof View>(
   props: PolymorphicComponentProps<T, BoxProps<T>> & { ref?: PolymorphicRef<T> }
 ) => React.ReactElement | null;
 
-const ForwardedBox = forwardRef(BoxComponent as any) as BoxComponentType & { displayName?: string };
-ForwardedBox.displayName = 'ForwardedBox';
+const Box = forwardRef(BoxComponent as any) as BoxComponentType & { displayName?: string };
+Box.displayName = 'Box';
 
-const BoxWithTheme = withUnistyles(ForwardedBox, theme => ({ theme })) as BoxComponentType;
-
-export default memo(BoxWithTheme) as BoxComponentType;
+export default memo(Box);
