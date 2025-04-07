@@ -1,6 +1,6 @@
-import React, { forwardRef, useEffect, useMemo } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import type ListItemProps from './ListItem.props';
-import { ChevronRight01MediumIcon } from '@utilitywarehouse/react-native-icons';
+import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Skeleton } from '../../Skeleton';
 import { useListContext } from '../List.context';
 import { StyleSheet } from 'react-native-unistyles';
@@ -118,7 +118,7 @@ const ListItemRoot = forwardRef<
                 <ListItemTrailingContent>{trailingContent}</ListItemTrailingContent>
               ) : !!onPress ? (
                 <ListItemTrailingContent>
-                  <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+                  <ListItemTrailingIcon as={ChevronRightSmallIcon} />
                 </ListItemTrailingContent>
               ) : null}
             </>

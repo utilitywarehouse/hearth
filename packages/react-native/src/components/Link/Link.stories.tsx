@@ -1,7 +1,7 @@
 import React, { ComponentType } from 'react';
 import { Link } from '.';
 import { Meta, StoryObj } from '@storybook/react';
-import * as Icons from '@utilitywarehouse/react-native-icons';
+import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 
 const meta = {
   title: 'Stories / Link',

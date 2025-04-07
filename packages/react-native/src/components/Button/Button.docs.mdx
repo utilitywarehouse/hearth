@@ -1,11 +1,7 @@
 import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
 import * as Stories from './Button.stories';
 import { ButtonGroup, Button, ButtonIcon, ButtonSpinner, ButtonText, Box, Center } from '../../';
-import {
-  AddSmallIcon,
-  ChevronLeft01SmallIcon,
-  ChevronRight01SmallIcon,
-} from '@utilitywarehouse/react-native-icons';
+import { AddSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
 
 <Meta title="Components / Button" />
@@ -97,7 +93,7 @@ import {
   ButtonText,
   ButtonSpinner,
 } from '@utilitywarehouse/hearth-react-native';
-import { AddSmallIcon } from '@utilitywarehouse/react-native-icons';
+import { AddSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 const MyComponent = ({ doSomething }) => {
   const [loading, setLoading] = useState(false);
@@ -190,7 +186,7 @@ We recommend using the `icon` prop on the `Button` component for simpler usage.
 
 ```tsx
 import { Button, ButtonIcon, ButtonText } from '@utilitywarehouse/hearth-react-native';
-import { AddSmallIcon } from '@utilitywarehouse/react-native-icons';
+import { AddSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 const MyComponent = () => {
   return (

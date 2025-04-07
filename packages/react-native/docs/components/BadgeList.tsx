@@ -16,10 +16,10 @@ import {
 } from '../../src';
 
 import {
-  ChevronRight01MediumIcon,
+  ChevronRightMediumIcon,
   ElectricityMediumIcon,
   GasMediumIcon,
-} from '@utilitywarehouse/react-native-icons';
+} from '@utilitywarehouse/hearth-react-native-icons';
 
 const BadgeList = () => {
   return (
@@ -38,7 +38,7 @@ const BadgeList = () => {
           <ListItemSupportingText>Last reading 23/03/24</ListItemSupportingText>
         </ListItemContent>
         <ListItemTrailingContent>
-          <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+          <ListItemTrailingIcon as={ChevronRightMediumIcon} />
         </ListItemTrailingContent>
       </ListItem>
       <ListItem onPress={() => console.log('pressed')} divider={false}>
@@ -57,7 +57,7 @@ const BadgeList = () => {
           <ListItemSupportingText>Last reading 23/03/24</ListItemSupportingText>
         </ListItemContent>
         <ListItemTrailingContent>
-          <ListItemTrailingIcon as={ChevronRight01MediumIcon} />
+          <ListItemTrailingIcon as={ChevronRightMediumIcon} />
         </ListItemTrailingContent>
       </ListItem>
     </List>

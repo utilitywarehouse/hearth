@@ -9,7 +9,7 @@ import {
   FormFieldValidText,
 } from '.';
 import { Meta, StoryObj } from '@storybook/react';
-import * as Icons from '@utilitywarehouse/react-native-icons';
+import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { VariantTitle } from '../../../docs/components';
 import { Input } from '../Input';
 import { Flex } from '../Flex';
