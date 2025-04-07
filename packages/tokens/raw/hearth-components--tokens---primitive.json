@@ -42,7 +42,7 @@
   "color": {
     "broadband-blue": {
       "type": "color",
-      "value": "#84b9c3"
+      "value": "#6db5c3"
     },
     "cashback-lilac": {
       "type": "color",
@@ -126,7 +126,7 @@
         },
         "700": {
           "type": "color",
-          "value": "#7bd5aa"
+          "value": "#74d6a0"
         },
         "800": {
           "type": "color",
@@ -240,7 +240,7 @@
         },
         "100": {
           "type": "color",
-          "value": "#4b2475"
+          "value": "#3f2475"
         },
         "200": {
           "type": "color",
@@ -368,7 +368,7 @@
     },
     "energy-green": {
       "type": "color",
-      "value": "#96b850"
+      "value": "#8cba3b"
     },
     "insurance-orange": {
       "type": "color",
@@ -436,7 +436,7 @@
         },
         "300": {
           "type": "color",
-          "value": "#7bd5aa"
+          "value": "#74d6a0"
         },
         "400": {
           "type": "color",
@@ -570,7 +570,7 @@
         },
         "900": {
           "type": "color",
-          "value": "#4b2475"
+          "value": "#3f2475"
         },
         "1000": {
           "type": "color",
@@ -694,7 +694,7 @@
     },
     "piggy-pink": {
       "type": "color",
-      "value": "#e8a3ff"
+      "value": "#f295ff"
     },
     "uw-purple": {
       "type": "color",
