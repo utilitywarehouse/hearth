@@ -5,8 +5,8 @@ import React from 'react';
 import { PasswordInputProps } from './PasswordInput.props';
 import { TextInput } from '../TextInput/TextInput';
 import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
-import { EyeMediumIcon, EyeOffMediumIcon } from '@utilitywarehouse/react-icons';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
+import { EyeOffSmallIcon, EyeSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const componentName = 'PasswordInput';
 const componentClassName = withGlobalPrefix(componentName);
@@ -69,7 +69,7 @@ export const PasswordInput = React.forwardRef<PasswordInputElement, PasswordInpu
               disabled={disabled}
               aria-pressed={visible}
             >
-              {visible ? <EyeMediumIcon /> : <EyeOffMediumIcon />}
+              {visible ? <EyeSmallIcon /> : <EyeOffSmallIcon />}
             </UnstyledIconButton>
           </TextInputSlot>
         </TextInput>
