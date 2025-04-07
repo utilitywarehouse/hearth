@@ -41,13 +41,19 @@ StyleDictionary.registerFormat({
     const tokens = {};
     // get the group name of the current set of tokens
     let tokensName = file.destination.split('.')[0];
+
     // we assume that these tokens are filtered before they get here
     dictionary.allTokens.forEach(token => {
       // normalize the tokens in the same way they are for the CSS
       const normalizedPath = normalizeTokenPath(token);
       // this will give us the generated CSS variable
       const cssCustomProperty = `var(--${kebabCase([platform.prefix, ...normalizedPath].join(DELIMITER))})`;
-      var tokenObject = {};
+      let tokenObject = {};
+      // we need to account for orphaned common colours, otherwise we can override the scales
+      // ie. common.yellow and the yellow colour scale
+      if (tokensName === 'color') {
+        tokenObject.common = {};
+      }
       // we need to build the JS object from the path, this will give us the
       // dot notation path to the token
       // ie. color.blue.200
@@ -60,6 +66,10 @@ StyleDictionary.registerFormat({
         }
         // the last element of the path should point to the CSS variable
         if (i === normalizedPath.length - 1) {
+          // we know that the common colours path has only 2 elements, whereas the scales will have 3
+          if (tokensName === 'color' && normalizedPath.length === 2) {
+            return (acc.common[camelCase(curr)] = cssCustomProperty);
+          }
           return (acc[camelCase(curr)] = cssCustomProperty);
         }
         // again to avoid stuttering (specifically for border properties, ie. border.borderRadius)
