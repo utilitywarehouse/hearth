@@ -24,9 +24,4 @@ export declare const list: {
       readonly gap: 'var(--h-menu-list-gap)';
     };
   };
-  readonly select: {
-    readonly list: {
-      readonly gap: 'var(--h-select-list-gap)';
-    };
-  };
 };

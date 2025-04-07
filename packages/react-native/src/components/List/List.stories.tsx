@@ -2,7 +2,7 @@ import React, { FC, PropsWithChildren } from 'react';
 import { List, ListItem, ListItemIcon, ListItemTrailingIcon } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { VariantTitle } from '../../../docs/components';
-import { SettingsMediumIcon } from '@utilitywarehouse/react-native-icons';
+import { SettingsMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Flex } from '../Flex';
 // import { Card } from '../Card';
 

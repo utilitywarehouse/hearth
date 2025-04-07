@@ -46,6 +46,7 @@ export declare const button: {
     readonly paddingHorizontal: 'var(--h-button-md-padding-horizontal)';
     readonly paddingVertical: 'var(--h-button-md-padding-vertical)';
   };
+  readonly minWidth: 'var(--h-button-min-width)';
   readonly outline: {
     readonly green: {
       readonly backgroundColorActive: 'var(--h-button-outline-green-background-color-active)';

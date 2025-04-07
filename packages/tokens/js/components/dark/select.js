@@ -17,18 +17,11 @@ export default {
     gap: 4,
     gapContent: 8,
     item: {
-      active: {
-        backgroundColor: '#d1d0d0',
-      },
+      backgroundColorActive: '#d1d0d0',
+      backgroundColorHover: '#e7e6e6',
       borderRadius: 8,
-      focus: {
-        borderColor: '#f6f5f5',
-        borderWidthFocused: 2,
-      },
+      foregroundColor: '#f6f5f5',
       gap: 6,
-      hover: {
-        backgroundColor: '#e7e6e6',
-      },
       padding: 12,
     },
     padding: 4,
@@ -36,14 +29,26 @@ export default {
   gap: 6,
   gapContainer: 4,
   height: 48,
-  list: {
-    gap: 4,
-  },
   maxWidth: 504,
   minWidth: 288,
   paddingHorizontal: 16,
   paddingVertical: 12,
   validation: {
     gap: 2,
+  },
+  mobile: {
+    item: {
+      padding: 4,
+    },
+  },
+  tablet: {
+    item: {
+      padding: 12,
+    },
+  },
+  desktop: {
+    item: {
+      padding: 12,
+    },
   },
 };

@@ -1,5 +1,5 @@
 import { Button, ButtonIcon, ButtonText, createIcon } from '../../src';
-import { ChevronRightSmallIcon } from '@utilitywarehouse/react-native-icons';
+import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import React from 'react';
 import { Platform } from 'react-native';
 import { Svg, Path } from 'react-native-svg';

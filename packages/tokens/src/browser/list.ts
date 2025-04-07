@@ -24,9 +24,4 @@ export const list = {
       gap: 'var(--h-menu-list-gap)',
     },
   },
-  select: {
-    list: {
-      gap: 'var(--h-select-list-gap)',
-    },
-  },
 } as const;

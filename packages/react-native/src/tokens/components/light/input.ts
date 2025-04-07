@@ -20,6 +20,9 @@ export default {
   },
   gap: 6,
   height: 48,
+  label: {
+    gap: 2,
+  },
   maxWidth: 504,
   minWidth: 200,
   paddingHorizontal: 16,

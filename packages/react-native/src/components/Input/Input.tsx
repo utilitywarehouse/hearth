@@ -9,11 +9,11 @@ import InputFieldComponent from './InputField';
 import { useFormFieldContext } from '../FormField';
 import {
   CalendarMediumIcon,
-  CloseMediumIcon,
-  EyeMediumIcon,
-  EyeOffMediumIcon,
+  CloseSmallIcon,
+  EyeSmallIcon,
+  EyeOffSmallIcon,
   SearchMediumIcon,
-} from '@utilitywarehouse/react-native-icons';
+} from '@utilitywarehouse/hearth-react-native-icons';
 import { InputWithoutChildrenProps } from './Input.props';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import { Spinner } from '../Spinner';
@@ -147,7 +147,7 @@ const Input: React.FC<InputProps> = ({
           />
           {shouldShowClear && (
             <InputSlot>
-              <UnstyledIconButton onPress={onClear} icon={CloseMediumIcon} />
+              <UnstyledIconButton onPress={onClear} icon={CloseSmallIcon} />
             </InputSlot>
           )}
           {loading && (
@@ -159,7 +159,7 @@ const Input: React.FC<InputProps> = ({
             <InputSlot>
               <UnstyledIconButton
                 onPress={toggleFieldType}
-                icon={fieldType === 'password' ? EyeMediumIcon : EyeOffMediumIcon}
+                icon={fieldType === 'password' ? EyeSmallIcon : EyeOffSmallIcon}
               />
             </InputSlot>
           )}

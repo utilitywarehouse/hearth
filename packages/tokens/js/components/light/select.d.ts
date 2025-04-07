@@ -17,18 +17,11 @@ declare const _default: {
     readonly gap: 4;
     readonly gapContent: 8;
     readonly item: {
-      readonly active: {
-        readonly backgroundColor: '#d1d0d0';
-      };
+      readonly backgroundColorActive: '#d1d0d0';
+      readonly backgroundColorHover: '#e7e6e6';
       readonly borderRadius: 4;
-      readonly focus: {
-        readonly borderColor: '#101010';
-        readonly borderWidthFocused: 2;
-      };
+      readonly foregroundColor: '#101010';
       readonly gap: 6;
-      readonly hover: {
-        readonly backgroundColor: '#e7e6e6';
-      };
       readonly padding: 12;
     };
     readonly padding: 4;
@@ -36,15 +29,27 @@ declare const _default: {
   readonly gap: 6;
   readonly gapContainer: 4;
   readonly height: 48;
-  readonly list: {
-    readonly gap: 8;
-  };
   readonly maxWidth: 504;
   readonly minWidth: 288;
   readonly paddingHorizontal: 16;
   readonly paddingVertical: 12;
   readonly validation: {
     readonly gap: 2;
+  };
+  readonly mobile: {
+    readonly item: {
+      readonly padding: 4;
+    };
+  };
+  readonly tablet: {
+    readonly item: {
+      readonly padding: 12;
+    };
+  };
+  readonly desktop: {
+    readonly item: {
+      readonly padding: 12;
+    };
   };
 };
 export default _default;

@@ -70,7 +70,12 @@ export const Playground: Story = {
   render: ({ value: _, ...args }) => (
     <RadioGroup {...args}>
       <Radio aria-label="Label 1" label="Option 1" value="Option 1" nativeID="Radio-1" />
-      <Radio aria-label="Label 2" label="Option 2" value="Option 2" nativeID="Radio-2" />
+      <Radio
+        aria-label="Label 2"
+        label="Option 2 (with added option)"
+        value="Option 2"
+        nativeID="Radio-2"
+      />
       <Radio aria-label="Label 3" label="Option 3" value="Option 3" nativeID="Radio-3" />
     </RadioGroup>
   ),
