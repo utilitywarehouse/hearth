@@ -2,9 +2,9 @@ import React, { forwardRef, useMemo } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
 import {
-  WarningMediumContainedIcon,
-  TickMediumContainedIcon,
-} from '@utilitywarehouse/react-native-icons';
+  ErrorCircleSmallIcon,
+  TickCircleSmallIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
 import HelperProps from './Helper.props';
 import { HelperContext } from './HelperContext';
 import HelperIcon from './HelperIcon';
@@ -18,10 +18,10 @@ const Helper = forwardRef<View, HelperProps>(
     styles.useVariants({ disabled });
     let Icon = icon;
     if (validationStatus === 'valid' && !icon) {
-      Icon = TickMediumContainedIcon;
+      Icon = TickCircleSmallIcon;
     }
     if (validationStatus === 'invalid' && !icon) {
-      Icon = WarningMediumContainedIcon;
+      Icon = ErrorCircleSmallIcon;
     }
 
     const value = useMemo(() => ({ validationStatus, disabled }), [validationStatus, disabled]);

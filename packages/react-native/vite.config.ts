@@ -69,7 +69,7 @@ export default defineConfig({
     extensions,
     alias: {
       'react-native': 'react-native-web',
-      '@utilitywarehouse/react-native-icons': '@utilitywarehouse/react-icons',
+      '@utilitywarehouse/hearth-react-native-icons': '@utilitywarehouse/hearth-react-icons',
     },
   },
   optimizeDeps: {

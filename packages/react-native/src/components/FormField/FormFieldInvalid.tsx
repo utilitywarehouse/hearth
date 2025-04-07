@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 import { useFormFieldContext } from './FormField.context';
 import { Helper } from '../Helper';
 import HelperProps from '../Helper/Helper.props';
-import { WarningMediumContainedIcon } from '@utilitywarehouse/react-native-icons';
+import { ErrorCircleSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 const FormFieldInvalid: FC<Omit<HelperProps, 'validationStatus'>> = ({
   children,
-  icon = WarningMediumContainedIcon,
+  icon = ErrorCircleSmallIcon,
   text,
   ...props
 }) => {
