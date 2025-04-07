@@ -49,14 +49,14 @@
   ],
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0",
-    "@utilitywarehouse/hearth-react-icons": "workspace:*"
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-radio-group": "^1.2.1",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-use-controllable-state": "^1.0.1",
+    "@utilitywarehouse/hearth-react-icons": "workspace:*",
     "clsx": "^2.1.1"
   },
   "devDependencies": {
@@ -65,7 +65,6 @@
     "@utilitywarehouse/css-reset": "^0.1.0",
     "@utilitywarehouse/hearth-fonts": "workspace:*",
     "@utilitywarehouse/hearth-tokens": "workspace:*",
-    "@utilitywarehouse/hearth-react-icons": "workspace:*",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
     "ejs": "^3.1.10",
