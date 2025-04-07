@@ -1,6 +1,6 @@
 import { Meta, Controls, Story, Canvas } from '@storybook/blocks';
 import * as Stories from './Input.stories';
-import { Input, InputField, InputIcon, InputSlot, Center, Pressable } from '../../';
+import { Input, InputField, InputIcon, InputSlot, Center, Pressable, FormField } from '../../';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import {
   ViewFigmaButton,
@@ -28,6 +28,8 @@ The input component is a text field that allows users to enter text, numbers, or
   - [`InputSlot`](#inputslot)
 - [Advanced Usage](#advanced-usage)
 - [Variants](#variants)
+- [Examples](#examples)
+  - [With `FormField`](#with-formfield)
 - [Accessibility](#accessibility)
 
 ## Playground
@@ -91,6 +93,7 @@ all of the React Native [`View` props](https://reactnative.dev/docs/view).
 | onBlur           | function                           | `-`         | Callback function that is triggered when the input loses focus. **(Only to be used if the input has no children)**                                                      |
 | onFocus          | function                           | `-`         | Callback function that is triggered when the input gains focus. **(Only to be used if the input has no children)**                                                      |
 | placeholder      | string                             | `-`         | The placeholder text for the input. **(Only to be used if the input has no children)**                                                                                  |
+| required         | boolean                            | `true`      | Indicates that the input is required. **(Only to be used if the input has no children)**                                                                                |
 
 If the `leadingIcon` or `trailingIcon` props are used, the `Input` component should not have any children.
 
@@ -106,6 +109,7 @@ The `InputField` inherits all of the React Native [`TextInput` props](https://re
 | onBlur      | function               | `-`      | Callback function that is triggered when the input loses focus.   |
 | onFocus     | function               | `-`      | Callback function that is triggered when the input gains focus.   |
 | placeholder | string                 | `-`      | The placeholder text for the input.                               |
+| required    | boolean                | `true`   | Indicates that the input is required.                             |
 
 ### `InputIcon`
 
@@ -182,6 +186,37 @@ export default AdvancedExample;
 The `Input` component has the following variants:
 
 <Canvas of={Stories.Variants} />
+
+## Examples
+
+### With `FormField`
+
+The `Input` component can be used with the `FormField` component to create a custom input field.
+For more information on the `FormField` componment view the [docs here](/docs/components-form-field--docs).
+
+<UsageWrap>
+  <Center>
+    <FormField label="Label" helperText="Helper text" helperPosition="bottom">
+      <Input onChange={() => console.log('###')} placeholder="Placeholder" />
+    </FormField>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { FormField, Input } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [value, setValue] = useState('');
+  const handleChange = e => {
+    setValue(e.target.value);
+  };
+  return (
+    <FormField label="Label" helperText="Helper text" helperPosition="bottom">
+      <Input onChange={handleChange} value={value} placeholder="Placeholder" />
+    </FormField>
+  );
+};
+```
 
 ## Accessibility
 

@@ -16,10 +16,10 @@ import {
   FormFieldValidText,
   FormFieldTextContent,
   Center,
-  // RadioGroup,
-  // Radio,
-  // RadioIndicator,
-  // RadioLabel,
+  RadioGroup,
+  Radio,
+  RadioIndicator,
+  RadioLabel,
   // Checkbox,
   // CheckboxIndicator,
   // CheckboxIcon,
@@ -46,6 +46,7 @@ The `FormField` component is a container for form elements such as input fields.
 - [Variants](#variants)
 - [Advanced Usage](#advanced-usage)
 - [Examples](#examples)
+  - [Otional `FormField` Component](#optional-formfield-components)
   - [With `RadioGroup`](#with-radiogroup)
   - [With `Checkbox`](#with-checkbox)
 
@@ -127,6 +128,7 @@ const MyComponent = () => {
 | `validText`          | `string`                            | `-`         | The valid text for the field.                                    |
 | `invalidText`        | `string`                            | `-`         | The invalid text for the field.                                  |
 | `showValidationIcon` | `boolean`                           | `false`     | Whether to show the validation icon next to the validation text. |
+| `required`           | `boolean`                           | `true`      | Whether the field is required.                                   |
 
 ## Components
 
@@ -220,9 +222,52 @@ const MyComponent = () => {
 
 ## Examples
 
+### Optional `FormField` Components
+
+The `FormField` component can be used to wrap any component to provide additional context to the user.
+The `FormField` component can be marked as optional by setting the `required` prop to `false`.
+This will add the "optional" text to the label.
+
+<UsageWrap>
+  <Center>
+    <FormField label="Label" helperText="Helper text" required={false}>
+      <Input onChange={() => console.log('###')} placeholder="Placeholder" />
+    </FormField>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Input, FormField } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  return (
+    <FormField label="Label" helperText="Helper text" required={false}>
+      <Input onChange={() => console.log('###')} placeholder="Placeholder" />
+    </FormField>
+  );
+};
+```
+
 ### With `RadioGroup`
 
 The `FormField` component can be used to wrap a `RadioGroup` component to provide additional context to the user.
+
+<UsageWrap>
+  <Center>
+    <FormField
+      label="What is your favourite fruit?"
+      helperText="Choose the fruit you like the most"
+      helperPosition="bottom"
+    >
+      <RadioGroup aria-label="Radio Group">
+        <Radio value="mango" label="Mango" />
+        <Radio value="apple" label="Apple" />
+        <Radio value="orange" label="Orange" />
+        <Radio value="banana" label="Banana" />
+      </RadioGroup>
+    </FormField>
+  </Center>
+</UsageWrap>
 
 ```tsx
 import { RadioGroup, Radio, FormField } from '@utilitywarehouse/hearth-react-native';

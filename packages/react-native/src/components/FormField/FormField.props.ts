@@ -10,6 +10,7 @@ export interface FormFieldBaseProps {
   helperIcon?: ComponentType;
   validText?: string;
   invalidText?: string;
+  required?: boolean;
 }
 
 interface FormFieldProps extends FormFieldBaseProps, ViewProps {}
