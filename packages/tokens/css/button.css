@@ -32,6 +32,7 @@
   --h-button-ghost-red-foreground-color: var(--h-color-red-800);
   --h-button-md-padding-horizontal: var(--h-space-200);
   --h-button-md-padding-vertical: var(--h-space-150);
+  --h-button-min-width: 80;
   --h-button-outline-green-background-color-active: var(--h-color-green-100);
   --h-button-outline-green-background-color-hover: var(--h-color-green-50);
   --h-button-outline-green-border-color: var(--h-color-green-800);

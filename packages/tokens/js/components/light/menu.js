@@ -7,47 +7,19 @@ export default {
   borderWidth: 1,
   gap: 4,
   item: {
-    active: {
-      backgroundColor: '#d1d0d0',
-      red: {
-        backgroundColor: '#ffe3df',
-        color: '#a4281e',
-        iconColor: '#a4281e',
-      },
-    },
     borderRadius: 4,
-    default: {
-      red: {
-        color: '#a4281e',
-        iconColor: '#a4281e',
-      },
-    },
-    disabled: {
-      red: {
-        color: '#a4281e',
-        iconColor: '#a4281e',
-      },
-    },
-    focus: {
-      borderColor: '#101010',
-      borderWidth: 2,
-      red: {
-        color: '#a4281e',
-        iconColor: '#a4281e',
-      },
-    },
     gap: 6,
-    hover: {
-      backgroundColor: '#e7e6e6',
-      red: {
-        backgroundColor: '#fff3f1',
-        color: '#a4281e',
-        color2: '#a4281e',
-        iconColor: '#a4281e',
-        iconColor2: '#a4281e',
-      },
+    grey: {
+      backgroundColorActive: '#d1d0d0',
+      backgroundColorHover: '#e7e6e6',
+      foregroundColor: '#101010',
     },
     padding: 12,
+    red: {
+      backgroundColorActive: '#ffe3df',
+      backgroundColorHover: '#fff3f1',
+      foregroundColor: '#a4281e',
+    },
   },
   list: {
     gap: 8,
@@ -55,4 +27,19 @@ export default {
   maxWidth: 504,
   minWidth: 288,
   padding: 4,
+  mobile: {
+    item: {
+      padding: 4,
+    },
+  },
+  tablet: {
+    item: {
+      padding: 12,
+    },
+  },
+  desktop: {
+    item: {
+      padding: 12,
+    },
+  },
 };

@@ -2,13 +2,13 @@
  * Do not edit directly, this file was auto-generated.
  */
 export declare const common: {
-  readonly broadbandBlue: '#84b9c3';
+  readonly broadbandBlue: '#6db5c3';
   readonly cashbackLilac: '#be7aeb';
   readonly darkPurple: '#26164f';
-  readonly energyGreen: '#96b850';
+  readonly energyGreen: '#8cba3b';
   readonly insuranceOrange: '#ff7b00';
   readonly mobileRose: '#ee6dbb';
-  readonly piggyPink: '#e8a3ff';
+  readonly piggyPink: '#f295ff';
   readonly uwPurple: '#7a42c8';
   readonly white: '#ffffff';
   readonly yellow: '#ffb921';
@@ -31,7 +31,7 @@ export declare const light: {
     readonly '50': '#e7f9f0';
     readonly '100': '#c5edda';
     readonly '200': '#a2e2c3';
-    readonly '300': '#7bd5aa';
+    readonly '300': '#74d6a0';
     readonly '400': '#58ca93';
     readonly '500': '#36bf7d';
     readonly '600': '#19a660';
@@ -69,7 +69,7 @@ export declare const light: {
   readonly purple: {
     readonly '700': '#7a42c8';
     readonly '800': '#572e9e';
-    readonly '900': '#4b2475';
+    readonly '900': '#3f2475';
     readonly '1000': '#26164f';
   };
   readonly red: {
@@ -127,7 +127,7 @@ export declare const dark: {
     readonly '400': '#17ab62';
     readonly '500': '#36bf7d';
     readonly '600': '#58ca93';
-    readonly '700': '#7bd5aa';
+    readonly '700': '#74d6a0';
     readonly '800': '#a2e2c3';
     readonly '900': '#c5edda';
     readonly '1000': '#e7f9f0';
@@ -160,7 +160,7 @@ export declare const dark: {
   };
   readonly purple: {
     readonly '50': '#26164f';
-    readonly '100': '#4b2475';
+    readonly '100': '#3f2475';
     readonly '200': '#572e9e';
     readonly '300': '#7a42c8';
   };
@@ -199,13 +199,13 @@ export declare const dark: {
 };
 declare const color: {
   readonly common: {
-    readonly broadbandBlue: '#84b9c3';
+    readonly broadbandBlue: '#6db5c3';
     readonly cashbackLilac: '#be7aeb';
     readonly darkPurple: '#26164f';
-    readonly energyGreen: '#96b850';
+    readonly energyGreen: '#8cba3b';
     readonly insuranceOrange: '#ff7b00';
     readonly mobileRose: '#ee6dbb';
-    readonly piggyPink: '#e8a3ff';
+    readonly piggyPink: '#f295ff';
     readonly uwPurple: '#7a42c8';
     readonly white: '#ffffff';
     readonly yellow: '#ffb921';
@@ -228,7 +228,7 @@ declare const color: {
       readonly '50': '#e7f9f0';
       readonly '100': '#c5edda';
       readonly '200': '#a2e2c3';
-      readonly '300': '#7bd5aa';
+      readonly '300': '#74d6a0';
       readonly '400': '#58ca93';
       readonly '500': '#36bf7d';
       readonly '600': '#19a660';
@@ -266,7 +266,7 @@ declare const color: {
     readonly purple: {
       readonly '700': '#7a42c8';
       readonly '800': '#572e9e';
-      readonly '900': '#4b2475';
+      readonly '900': '#3f2475';
       readonly '1000': '#26164f';
     };
     readonly red: {
@@ -324,7 +324,7 @@ declare const color: {
       readonly '400': '#17ab62';
       readonly '500': '#36bf7d';
       readonly '600': '#58ca93';
-      readonly '700': '#7bd5aa';
+      readonly '700': '#74d6a0';
       readonly '800': '#a2e2c3';
       readonly '900': '#c5edda';
       readonly '1000': '#e7f9f0';
@@ -357,7 +357,7 @@ declare const color: {
     };
     readonly purple: {
       readonly '50': '#26164f';
-      readonly '100': '#4b2475';
+      readonly '100': '#3f2475';
       readonly '200': '#572e9e';
       readonly '300': '#7a42c8';
     };
