@@ -16,6 +16,7 @@
   --h-input-date-gap: var(--h-space-100);
   --h-input-gap: var(--h-space-75);
   --h-input-height: 48;
+  --h-input-label-gap: var(--h-space-25);
   --h-input-max-width: 504;
   --h-input-min-width: 200;
   --h-input-padding-horizontal: var(--h-space-200);

@@ -14,18 +14,11 @@ export declare const select: {
     readonly gap: 'var(--h-select-dropdown-gap)';
     readonly gapContent: 'var(--h-select-dropdown-gap-content)';
     readonly item: {
-      readonly active: {
-        readonly backgroundColor: 'var(--h-select-dropdown-item-active-background-color)';
-      };
+      readonly backgroundColorActive: 'var(--h-select-dropdown-item-background-color-active)';
+      readonly backgroundColorHover: 'var(--h-select-dropdown-item-background-color-hover)';
       readonly borderRadius: 'var(--h-select-dropdown-item-border-radius)';
-      readonly focus: {
-        readonly borderColor: 'var(--h-select-dropdown-item-focus-border-color)';
-        readonly borderWidthFocused: 'var(--h-select-dropdown-item-focus-border-width-focused)';
-      };
+      readonly foregroundColor: 'var(--h-select-dropdown-item-foreground-color)';
       readonly gap: 'var(--h-select-dropdown-item-gap)';
-      readonly hover: {
-        readonly backgroundColor: 'var(--h-select-dropdown-item-hover-background-color)';
-      };
       readonly padding: 'var(--h-select-dropdown-item-padding)';
     };
     readonly padding: 'var(--h-select-dropdown-padding)';
@@ -33,9 +26,6 @@ export declare const select: {
   readonly gap: 'var(--h-select-gap)';
   readonly gapContainer: 'var(--h-select-gap-container)';
   readonly height: 'var(--h-select-height)';
-  readonly list: {
-    readonly gap: 'var(--h-select-list-gap)';
-  };
   readonly maxWidth: 'var(--h-select-max-width)';
   readonly minWidth: 'var(--h-select-min-width)';
   readonly paddingHorizontal: 'var(--h-select-padding-horizontal)';

@@ -16,6 +16,9 @@ export const input = {
   },
   gap: 'var(--h-input-gap)',
   height: 'var(--h-input-height)',
+  label: {
+    gap: 'var(--h-input-label-gap)',
+  },
   maxWidth: 'var(--h-input-max-width)',
   minWidth: 'var(--h-input-min-width)',
   paddingHorizontal: 'var(--h-input-padding-horizontal)',

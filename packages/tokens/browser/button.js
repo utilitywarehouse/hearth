@@ -46,6 +46,7 @@ export const button = {
     paddingHorizontal: 'var(--h-button-md-padding-horizontal)',
     paddingVertical: 'var(--h-button-md-padding-vertical)',
   },
+  minWidth: 'var(--h-button-min-width)',
   outline: {
     green: {
       backgroundColorActive: 'var(--h-button-outline-green-background-color-active)',
