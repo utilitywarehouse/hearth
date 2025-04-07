@@ -89,6 +89,22 @@
       "path": "electricity-small-icon.svg"
     },
     {
+      "name": "BroadbandSmallIcon",
+      "path": "broadband-small-icon.svg"
+    },
+    {
+      "name": "InsuranceSmallIcon",
+      "path": "insurance-small-icon.svg"
+    },
+    {
+      "name": "CashbackCardSmallIcon",
+      "path": "cashback-card-small-icon.svg"
+    },
+    {
+      "name": "MobileSmallIcon",
+      "path": "mobile-small-icon.svg"
+    },
+    {
       "name": "PlaceholderSmallIcon",
       "path": "placeholder-small-icon.svg"
     },
