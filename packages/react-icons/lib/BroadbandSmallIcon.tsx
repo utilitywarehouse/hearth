@@ -1,0 +1,28 @@
+import { forwardRef } from 'react';
+import { IconProps } from './types';
+export const BroadbandSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M11.059 16.031A1.4 1.4 0 0 1 10 16.5q-.623 0-1.059-.469a1.6 1.6 0 0 1-.437-1.136q0-.669.437-1.137A1.4 1.4 0 0 1 10 13.289q.623 0 1.059.469.437.469.437 1.137t-.437 1.136m6.353-6.82q-1.549-1.662-3.474-2.479A10 10 0 0 0 10 5.915a10 10 0 0 0-3.937.817q-1.926.817-3.475 2.48L1 7.506q1.88-2.018 4.209-3.012A12.1 12.1 0 0 1 10 3.5q2.462 0 4.791.995 2.33.994 4.209 3.012zm-3.177 3.41q-.886-.952-1.978-1.413a5.74 5.74 0 0 0-4.514 0q-1.091.461-1.978 1.413l-1.588-1.705Q5.394 9.61 6.903 8.97A7.9 7.9 0 0 1 10 8.33q1.588 0 3.097.64t2.727 1.946z"
+        />
+      </svg>
+    );
+  }
+);
+BroadbandSmallIcon.displayName = 'BroadbandSmallIcon';
