@@ -4,47 +4,19 @@ export declare const menu: {
   readonly borderWidth: 'var(--h-menu-border-width)';
   readonly gap: 'var(--h-menu-gap)';
   readonly item: {
-    readonly active: {
-      readonly backgroundColor: 'var(--h-menu-item-active-background-color)';
-      readonly red: {
-        readonly backgroundColor: 'var(--h-menu-item-active-red-background-color)';
-        readonly color: 'var(--h-menu-item-active-red-color)';
-        readonly iconColor: 'var(--h-menu-item-active-red-icon-color)';
-      };
-    };
     readonly borderRadius: 'var(--h-menu-item-border-radius)';
-    readonly default: {
-      readonly red: {
-        readonly color: 'var(--h-menu-item-default-red-color)';
-        readonly iconColor: 'var(--h-menu-item-default-red-icon-color)';
-      };
-    };
-    readonly disabled: {
-      readonly red: {
-        readonly color: 'var(--h-menu-item-disabled-red-color)';
-        readonly iconColor: 'var(--h-menu-item-disabled-red-icon-color)';
-      };
-    };
-    readonly focus: {
-      readonly borderColor: 'var(--h-menu-item-focus-border-color)';
-      readonly borderWidth: 'var(--h-menu-item-focus-border-width)';
-      readonly red: {
-        readonly color: 'var(--h-menu-item-focus-red-color)';
-        readonly iconColor: 'var(--h-menu-item-focus-red-icon-color)';
-      };
-    };
     readonly gap: 'var(--h-menu-item-gap)';
-    readonly hover: {
-      readonly backgroundColor: 'var(--h-menu-item-hover-background-color)';
-      readonly red: {
-        readonly backgroundColor: 'var(--h-menu-item-hover-red-background-color)';
-        readonly color: 'var(--h-menu-item-hover-red-color)';
-        readonly color2: 'var(--h-menu-item-hover-red-color-2)';
-        readonly iconColor: 'var(--h-menu-item-hover-red-icon-color)';
-        readonly iconColor2: 'var(--h-menu-item-hover-red-icon-color-2)';
-      };
+    readonly grey: {
+      readonly backgroundColorActive: 'var(--h-menu-item-grey-background-color-active)';
+      readonly backgroundColorHover: 'var(--h-menu-item-grey-background-color-hover)';
+      readonly foregroundColor: 'var(--h-menu-item-grey-foreground-color)';
     };
     readonly padding: 'var(--h-menu-item-padding)';
+    readonly red: {
+      readonly backgroundColorActive: 'var(--h-menu-item-red-background-color-active)';
+      readonly backgroundColorHover: 'var(--h-menu-item-red-background-color-hover)';
+      readonly foregroundColor: 'var(--h-menu-item-red-foreground-color)';
+    };
   };
   readonly list: {
     readonly gap: 'var(--h-menu-list-gap)';

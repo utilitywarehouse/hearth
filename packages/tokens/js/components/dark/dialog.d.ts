@@ -13,5 +13,14 @@ declare const _default: {
   };
   readonly gap: 24;
   readonly padding: 24;
+  readonly mobile: {
+    readonly width: 360;
+  };
+  readonly tablet: {
+    readonly width: 504;
+  };
+  readonly desktop: {
+    readonly width: 680;
+  };
 };
 export default _default;

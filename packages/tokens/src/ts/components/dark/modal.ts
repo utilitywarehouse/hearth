@@ -13,4 +13,16 @@ export default {
   },
   gap: 24,
   padding: 48,
+  mobile: {
+    padding: 16,
+    width: 360,
+  },
+  tablet: {
+    padding: 48,
+    width: 504,
+  },
+  desktop: {
+    padding: 48,
+    width: 680,
+  },
 } as const;
