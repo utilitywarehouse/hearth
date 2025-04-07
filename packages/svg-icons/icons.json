@@ -88,6 +88,22 @@
     "name": "ElectricitySmallIcon"
   },
   {
+    "id": "2192:61",
+    "name": "BroadbandSmallIcon"
+  },
+  {
+    "id": "2192:75",
+    "name": "InsuranceSmallIcon"
+  },
+  {
+    "id": "2192:89",
+    "name": "CashbackCardSmallIcon"
+  },
+  {
+    "id": "2192:103",
+    "name": "MobileSmallIcon"
+  },
+  {
     "id": "1:1227",
     "name": "PlaceholderSmallIcon"
   },

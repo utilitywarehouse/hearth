@@ -11,12 +11,14 @@ import { BellMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BellMed
 import { BillMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BillMediumIcon';
 import { BookmarkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BookmarkMediumIcon';
 import { BroadbandMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BroadbandMediumIcon';
+import { BroadbandSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/BroadbandSmallIcon';
 import { BulbMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BulbMediumIcon';
 import { CalendarAddMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CalendarAddMediumIcon';
 import { CalendarMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CalendarMediumIcon';
 import { CalendarSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CalendarSmallIcon';
 import { CameraMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CameraMediumIcon';
 import { CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CashbackCardMediumIcon';
+import { CashbackCardSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CashbackCardSmallIcon';
 import { ChevronDownMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronDownMediumIcon';
 import { ChevronDownSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronDownSmallIcon';
 import { ChevronLeftMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronLeftMediumIcon';
@@ -76,6 +78,7 @@ import { InfoMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InfoMed
 import { InsightsMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InsightsMediumIcon';
 import { InstagramMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InstagramMediumIcon';
 import { InsuranceMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InsuranceMediumIcon';
+import { InsuranceSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/InsuranceSmallIcon';
 import { LaunchMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LaunchMediumIcon';
 import { LinkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LinkMediumIcon';
 import { LinkSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LinkSmallIcon';
@@ -91,6 +94,7 @@ import { MeterMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MeterM
 import { MinusMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MinusMediumIcon';
 import { MinusSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MinusSmallIcon';
 import { MobileMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MobileMediumIcon';
+import { MobileSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MobileSmallIcon';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoneyMediumIcon';
 import { MoonMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoonMediumIcon';
 import { MoreMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoreMediumIcon';
@@ -154,12 +158,14 @@ export const reactIcons = [
   BillMediumIcon,
   BookmarkMediumIcon,
   BroadbandMediumIcon,
+  BroadbandSmallIcon,
   BulbMediumIcon,
   CalendarAddMediumIcon,
   CalendarMediumIcon,
   CalendarSmallIcon,
   CameraMediumIcon,
   CashbackCardMediumIcon,
+  CashbackCardSmallIcon,
   ChevronDownMediumIcon,
   ChevronDownSmallIcon,
   ChevronLeftMediumIcon,
@@ -219,6 +225,7 @@ export const reactIcons = [
   InsightsMediumIcon,
   InstagramMediumIcon,
   InsuranceMediumIcon,
+  InsuranceSmallIcon,
   LaunchMediumIcon,
   LinkMediumIcon,
   LinkSmallIcon,
@@ -234,6 +241,7 @@ export const reactIcons = [
   MinusMediumIcon,
   MinusSmallIcon,
   MobileMediumIcon,
+  MobileSmallIcon,
   MoneyMediumIcon,
   MoonMediumIcon,
   MoreMediumIcon,

@@ -22,6 +22,10 @@ import EyeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/eye-small-icon.
 import EyeOffSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/eye-off-small-icon.svg';
 import GasSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/gas-small-icon.svg';
 import ElectricitySmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/electricity-small-icon.svg';
+import BroadbandSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/broadband-small-icon.svg';
+import InsuranceSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/insurance-small-icon.svg';
+import CashbackCardSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/cashback-card-small-icon.svg';
+import MobileSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/mobile-small-icon.svg';
 import PlaceholderSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/placeholder-small-icon.svg';
 import MoreSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/more-small-icon.svg';
 import CopySmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/copy-small-icon.svg';
@@ -165,6 +169,10 @@ export const svgIcons = [
   EyeOffSmallIcon,
   GasSmallIcon,
   ElectricitySmallIcon,
+  BroadbandSmallIcon,
+  InsuranceSmallIcon,
+  CashbackCardSmallIcon,
+  MobileSmallIcon,
   PlaceholderSmallIcon,
   MoreSmallIcon,
   CopySmallIcon,
