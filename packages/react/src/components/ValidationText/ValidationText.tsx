@@ -1,13 +1,12 @@
 import * as React from 'react';
 import type { ElementRef } from 'react';
-
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { BodyText } from '../BodyText/BodyText';
 import { ValidationTextProps } from './ValidationText.props';
-import { TickMediumContainedIcon, WarningMediumContainedIcon } from '@utilitywarehouse/react-icons';
+import { TickCircleSmallIcon, ErrorCircleSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const componentName = 'ValidationText';
 const componentClassName = withGlobalPrefix(componentName);
@@ -23,11 +22,6 @@ export const ValidationText = React.forwardRef<ValidationTextElement, Validation
       className,
       ...validationTextProps
     } = extractProps(props, marginPropDefs);
-    const icons: { [key: string]: typeof TickMediumContainedIcon } = {
-      valid: TickMediumContainedIcon,
-      invalid: WarningMediumContainedIcon,
-    };
-    const Icon = icons[status] as JSX.ElementType;
 
     return (
       <BodyText
@@ -39,7 +33,11 @@ export const ValidationText = React.forwardRef<ValidationTextElement, Validation
         data-status={status}
         {...validationTextProps}
       >
-        <Icon />
+        {status === 'valid' ? (
+          <TickCircleSmallIcon />
+        ) : status === 'invalid' ? (
+          <ErrorCircleSmallIcon />
+        ) : null}
         {children}
       </BodyText>
     );
