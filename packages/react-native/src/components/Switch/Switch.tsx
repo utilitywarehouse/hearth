@@ -8,6 +8,7 @@ import Animated, {
   withSpring,
   interpolateColor,
   Easing,
+  useReducedMotion,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
@@ -29,6 +30,7 @@ const CustomSwitch: React.FC<SwitchProps> = ({
   const THUMB_SIZE =
     size === 'medium' ? components.switch.md.circle.size : components.switch.sm.circle.size;
   const PADDING = components.switch.padding;
+  const isReducedMotion = useReducedMotion();
 
   styles.useVariants({ size, disabled, value });
 
@@ -69,7 +71,7 @@ const CustomSwitch: React.FC<SwitchProps> = ({
 
   React.useEffect(() => {
     const userConfig = {
-      duration: 300,
+      duration: isReducedMotion ? 0 : 300,
       easing: Easing.inOut(Easing.ease),
     };
     // Animate the thumb position

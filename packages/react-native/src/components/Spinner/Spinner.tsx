@@ -8,6 +8,7 @@ import Animated, {
   Easing,
   withSequence,
   withRepeat,
+  useReducedMotion,
 } from 'react-native-reanimated';
 import { Circle, G, Svg } from 'react-native-svg';
 import type SpinnerProps from './Spinner.props';
@@ -30,11 +31,18 @@ const SpinnerRoot: React.FC<SpinnerProps> = forwardRef<View, SpinnerProps>(
     const STROKE_WIDTH = components.spinner[size].strokeWidth;
     const HALF_CIRCLE = R + STROKE_WIDTH;
     const DIAMETER = 2 * HALF_CIRCLE;
+    const isReducedMotion = useReducedMotion();
 
     const progress = useSharedValue(1);
     const rotation = useSharedValue(0);
 
     const startAnimation = useCallback(() => {
+      if (isReducedMotion) {
+        progress.value = withTiming(0.75, { duration: 0 });
+
+        return;
+      }
+
       progress.value = withRepeat(withTiming(0.6, { duration: 1000 }), -1, true);
 
       progress.value = withRepeat(
@@ -48,7 +56,7 @@ const SpinnerRoot: React.FC<SpinnerProps> = forwardRef<View, SpinnerProps>(
         -1,
         false
       );
-    }, [progress, rotation]);
+    }, [progress, rotation, isReducedMotion]);
 
     useEffect(() => {
       startAnimation();
