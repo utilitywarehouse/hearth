@@ -40,6 +40,7 @@ RadioRoot.displayName = 'RadioRoot';
 const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
+    alignItems: 'stretch',
     gap: theme.components.radio.gap,
     alignSelf: 'stretch',
     variants: {

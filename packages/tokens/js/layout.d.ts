@@ -2,6 +2,10 @@
  * Do not edit directly, this file was auto-generated.
  */
 export declare const mobile: {
+  readonly breakpoints: {
+    readonly maxWidth: 740;
+    readonly minWidth: 320;
+  };
   readonly container: {
     readonly paddingBottom: 32;
     readonly paddingHorizontal: 16;
@@ -24,6 +28,10 @@ export declare const mobile: {
   };
 };
 export declare const tablet: {
+  readonly breakpoints: {
+    readonly maxWidth: 992;
+    readonly minWidth: 740;
+  };
   readonly container: {
     readonly paddingBottom: 32;
     readonly paddingHorizontal: 32;
@@ -46,6 +54,10 @@ export declare const tablet: {
   };
 };
 export declare const desktop: {
+  readonly breakpoints: {
+    readonly maxWidth: 3840;
+    readonly minWidth: 992;
+  };
   readonly container: {
     readonly paddingBottom: 48;
     readonly paddingHorizontal: 32;
@@ -69,6 +81,10 @@ export declare const desktop: {
 };
 declare const layout: {
   readonly mobile: {
+    readonly breakpoints: {
+      readonly maxWidth: 740;
+      readonly minWidth: 320;
+    };
     readonly container: {
       readonly paddingBottom: 32;
       readonly paddingHorizontal: 16;
@@ -91,6 +107,10 @@ declare const layout: {
     };
   };
   readonly tablet: {
+    readonly breakpoints: {
+      readonly maxWidth: 992;
+      readonly minWidth: 740;
+    };
     readonly container: {
       readonly paddingBottom: 32;
       readonly paddingHorizontal: 32;
@@ -113,6 +133,10 @@ declare const layout: {
     };
   };
   readonly desktop: {
+    readonly breakpoints: {
+      readonly maxWidth: 3840;
+      readonly minWidth: 992;
+    };
     readonly container: {
       readonly paddingBottom: 48;
       readonly paddingHorizontal: 32;

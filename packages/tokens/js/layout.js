@@ -2,6 +2,10 @@
  * Do not edit directly, this file was auto-generated.
  */
 export const mobile = {
+  breakpoints: {
+    maxWidth: 740,
+    minWidth: 320,
+  },
   container: {
     paddingBottom: 32,
     paddingHorizontal: 16,
@@ -24,6 +28,10 @@ export const mobile = {
   },
 };
 export const tablet = {
+  breakpoints: {
+    maxWidth: 992,
+    minWidth: 740,
+  },
   container: {
     paddingBottom: 32,
     paddingHorizontal: 32,
@@ -46,6 +54,10 @@ export const tablet = {
   },
 };
 export const desktop = {
+  breakpoints: {
+    maxWidth: 3840,
+    minWidth: 992,
+  },
   container: {
     paddingBottom: 48,
     paddingHorizontal: 32,

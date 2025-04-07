@@ -49,6 +49,7 @@ declare const _default: {
     readonly paddingHorizontal: 16;
     readonly paddingVertical: 12;
   };
+  readonly minWidth: 80;
   readonly outline: {
     readonly green: {
       readonly backgroundColorActive: '#c5edda';

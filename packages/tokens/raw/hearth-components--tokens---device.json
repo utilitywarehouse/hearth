@@ -12,6 +12,41 @@
           "type": "number",
           "value": 0
         }
+      },
+      "dialog": {
+        "width": {
+          "type": "number",
+          "value": 680
+        }
+      },
+      "menu": {
+        "item": {
+          "padding": {
+            "alias": "{space.150}",
+            "type": "number",
+            "value": 12
+          }
+        }
+      },
+      "modal": {
+        "padding": {
+          "alias": "{space.600}",
+          "type": "number",
+          "value": 48
+        },
+        "width": {
+          "type": "number",
+          "value": 680
+        }
+      },
+      "select": {
+        "item": {
+          "padding": {
+            "alias": "{space.150}",
+            "type": "number",
+            "value": 12
+          }
+        }
       }
     },
     "device-width": {
@@ -19,6 +54,16 @@
       "value": 1400
     },
     "layout": {
+      "breakpoints": {
+        "max-width": {
+          "type": "number",
+          "value": 3840
+        },
+        "min-width": {
+          "type": "number",
+          "value": 992
+        }
+      },
       "container": {
         "padding-bottom": {
           "alias": "{space.600}",
@@ -426,6 +471,41 @@
           "type": "number",
           "value": 0
         }
+      },
+      "dialog": {
+        "width": {
+          "type": "number",
+          "value": 360
+        }
+      },
+      "menu": {
+        "item": {
+          "padding": {
+            "alias": "{space.50}",
+            "type": "number",
+            "value": 4
+          }
+        }
+      },
+      "modal": {
+        "padding": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        },
+        "width": {
+          "type": "number",
+          "value": 360
+        }
+      },
+      "select": {
+        "item": {
+          "padding": {
+            "alias": "{space.50}",
+            "type": "number",
+            "value": 4
+          }
+        }
       }
     },
     "device-width": {
@@ -433,6 +513,16 @@
       "value": 360
     },
     "layout": {
+      "breakpoints": {
+        "max-width": {
+          "type": "number",
+          "value": 740
+        },
+        "min-width": {
+          "type": "number",
+          "value": 320
+        }
+      },
       "container": {
         "padding-bottom": {
           "alias": "{space.400}",
@@ -840,6 +930,41 @@
           "type": "number",
           "value": 0
         }
+      },
+      "dialog": {
+        "width": {
+          "type": "number",
+          "value": 504
+        }
+      },
+      "menu": {
+        "item": {
+          "padding": {
+            "alias": "{space.150}",
+            "type": "number",
+            "value": 12
+          }
+        }
+      },
+      "modal": {
+        "padding": {
+          "alias": "{space.600}",
+          "type": "number",
+          "value": 48
+        },
+        "width": {
+          "type": "number",
+          "value": 504
+        }
+      },
+      "select": {
+        "item": {
+          "padding": {
+            "alias": "{space.150}",
+            "type": "number",
+            "value": 12
+          }
+        }
       }
     },
     "device-width": {
@@ -847,6 +972,16 @@
       "value": 744
     },
     "layout": {
+      "breakpoints": {
+        "max-width": {
+          "type": "number",
+          "value": 992
+        },
+        "min-width": {
+          "type": "number",
+          "value": 740
+        }
+      },
       "container": {
         "padding-bottom": {
           "alias": "{space.400}",

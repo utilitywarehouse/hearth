@@ -19,6 +19,9 @@ declare const _default: {
   };
   readonly gap: 6;
   readonly height: 48;
+  readonly label: {
+    readonly gap: 2;
+  };
   readonly maxWidth: 504;
   readonly minWidth: 200;
   readonly paddingHorizontal: 16;

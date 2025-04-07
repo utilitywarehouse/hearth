@@ -50,6 +50,7 @@ export default {
     paddingHorizontal: 16,
     paddingVertical: 12,
   },
+  minWidth: 80,
   outline: {
     green: {
       backgroundColorActive: '#c5edda',

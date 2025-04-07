@@ -3,13 +3,13 @@
  */
 
 export const common = {
-  broadbandBlue: '#84b9c3',
+  broadbandBlue: '#6db5c3',
   cashbackLilac: '#be7aeb',
   darkPurple: '#26164f',
-  energyGreen: '#96b850',
+  energyGreen: '#8cba3b',
   insuranceOrange: '#ff7b00',
   mobileRose: '#ee6dbb',
-  piggyPink: '#e8a3ff',
+  piggyPink: '#f295ff',
   uwPurple: '#7a42c8',
   white: '#ffffff',
   yellow: '#ffb921',
@@ -33,7 +33,7 @@ export const light = {
     '50': '#e7f9f0',
     '100': '#c5edda',
     '200': '#a2e2c3',
-    '300': '#7bd5aa',
+    '300': '#74d6a0',
     '400': '#58ca93',
     '500': '#36bf7d',
     '600': '#19a660',
@@ -71,7 +71,7 @@ export const light = {
   purple: {
     '700': '#7a42c8',
     '800': '#572e9e',
-    '900': '#4b2475',
+    '900': '#3f2475',
     '1000': '#26164f',
   },
   red: {
@@ -130,7 +130,7 @@ export const dark = {
     '400': '#17ab62',
     '500': '#36bf7d',
     '600': '#58ca93',
-    '700': '#7bd5aa',
+    '700': '#74d6a0',
     '800': '#a2e2c3',
     '900': '#c5edda',
     '1000': '#e7f9f0',
@@ -163,7 +163,7 @@ export const dark = {
   },
   purple: {
     '50': '#26164f',
-    '100': '#4b2475',
+    '100': '#3f2475',
     '200': '#572e9e',
     '300': '#7a42c8',
   },
