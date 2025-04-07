@@ -85,6 +85,7 @@ const RadioGroup = forwardRef<View, RadioGroupProps>(
 const styles = StyleSheet.create(theme => ({
   container: {
     alignItems: 'stretch',
+
     variants: {
       type: {
         radio: {

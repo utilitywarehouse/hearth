@@ -15,6 +15,7 @@ const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
+    flex: 1,
     alignSelf: 'stretch',
     gap: theme.components.radio.gap,
     padding: theme.components.card.mobile.padding,
