@@ -29,6 +29,14 @@ export default {
     backgroundColorActive: '#f7f6eb',
     backgroundColorHover: '#fcfbf2',
   },
+  card: {
+    group: {
+      gap: 8,
+      stack: {
+        gap: 8,
+      },
+    },
+  },
   mobile: {
     padding: 16,
     paddingNone: 0,

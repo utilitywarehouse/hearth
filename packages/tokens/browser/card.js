@@ -26,4 +26,24 @@ export const card = {
     backgroundColorActive: 'var(--h-card-white-background-color-active)',
     backgroundColorHover: 'var(--h-card-white-background-color-hover)',
   },
+  checkbox: {
+    card: {
+      group: {
+        gap: 'var(--h-checkbox-card-group-gap)',
+        stack: {
+          gap: 'var(--h-checkbox-card-group-stack-gap)',
+        },
+      },
+    },
+  },
+  radio: {
+    card: {
+      group: {
+        gap: 'var(--h-radio-card-group-gap)',
+        stack: {
+          gap: 'var(--h-radio-card-group-stack-gap)',
+        },
+      },
+    },
+  },
 };
