@@ -31,7 +31,7 @@ export const Playground: Story = {};
 
 export const KitchenSink: Story = {
   render: () => (
-    <Flex gap="400">
+    <Flex gap="600">
       {sizes.map(size => (
         <Spinner key={size} size={size} />
       ))}
