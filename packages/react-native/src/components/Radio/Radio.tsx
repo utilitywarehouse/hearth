@@ -99,7 +99,7 @@ const RadioCard = forwardRef<ElementRef<typeof Pressable>, RadioProps>(
 );
 
 RadioCard.displayName = 'RadioCard';
-Radio.displayName = 'default';
+Radio.displayName = 'Radio';
 
 export { Radio, RadioGroup, RadioIndicator, RadioIcon, RadioLabel, RadioCard };
 

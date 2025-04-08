@@ -105,7 +105,7 @@ const CheckboxCard = forwardRef<ElementRef<typeof Pressable>, CheckboxProps>(
 
 CheckboxCard.displayName = 'CheckboxCard';
 
-Checkbox.displayName = 'default';
+Checkbox.displayName = 'Checkbox';
 
 export { Checkbox, CheckboxGroup, CheckboxIndicator, CheckboxIcon, CheckboxLabel, CheckboxCard };
 
