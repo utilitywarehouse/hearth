@@ -46,11 +46,13 @@ const Input: React.FC<InputProps> = ({
   format,
   loading,
   clearable = false,
+  required,
   ...props
 }) => {
   const formFieldContext = useFormFieldContext();
   const { disabled: formFieldDisabled } = formFieldContext;
   const validationStatusFromContext = formFieldContext?.validationStatus ?? validationStatus;
+  const isRequired = formFieldContext?.required ?? required;
   const [fieldType, setFieldType] = useState<'password' | 'text'>(
     type === 'password' ? 'password' : 'text'
   );
@@ -116,6 +118,7 @@ const Input: React.FC<InputProps> = ({
       isDisabled={formFieldDisabled ?? disabled}
       isFocused={focused}
       type={type as undefined}
+      isRequired={isRequired}
     >
       {children ? (
         <>{children}</>

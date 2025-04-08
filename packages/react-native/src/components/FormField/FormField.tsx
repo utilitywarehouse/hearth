@@ -43,6 +43,7 @@ const FormField: FC<FormFieldProps> = ({
   helperIcon,
   validText,
   invalidText,
+  required = true,
   ...props
 }) => {
   const value = useMemo(
@@ -50,8 +51,9 @@ const FormField: FC<FormFieldProps> = ({
       validationStatus,
       disabled,
       readonly,
+      required,
     }),
-    [validationStatus, disabled, readonly]
+    [validationStatus, disabled, readonly, required]
   );
 
   return (
@@ -59,7 +61,12 @@ const FormField: FC<FormFieldProps> = ({
       <FormFieldComponent {...props} isDisabled={disabled} isReadOnly={readonly}>
         {(!!label || !!helperText) && (
           <FormFieldTextContent>
-            {!!label && <FormFieldLabelText>{label}</FormFieldLabelText>}
+            {!!label && (
+              <FormFieldLabelText>
+                {label}
+                {!required ? ` (Optional)` : ''}
+              </FormFieldLabelText>
+            )}
             {!!helperText && (
               <FormFieldHelper text={helperText} icon={helperIcon} showIcon={!!helperIcon} />
             )}
