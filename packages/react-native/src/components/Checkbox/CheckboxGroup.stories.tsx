@@ -1,10 +1,10 @@
 import React from 'react';
-import { Radio, RadioGroup } from '.';
+import { Checkbox, CheckboxGroup } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 
 const meta = {
-  title: 'Stories / RadioGroup',
-  component: RadioGroup,
+  title: 'Stories / CheckboxGroup',
+  component: CheckboxGroup,
   parameters: {
     layout: 'centered',
   },
@@ -12,23 +12,23 @@ const meta = {
     disabled: {
       type: 'boolean',
       control: 'boolean',
-      description: 'To manually set disable to the radio group.',
+      description: 'To manually set disable to the checkbox group.',
     },
     label: {
       type: 'string',
       control: 'text',
-      description: 'The label component for the radio group.',
+      description: 'The label component for the checkbox group.',
     },
     helperText: {
       type: 'string',
       control: 'text',
-      description: 'The helper text of the radio group component',
+      description: 'The helper text of the checkbox group component',
       defaultValue: 'Helper text',
     },
     validationStatus: {
       control: 'select',
       options: ['initial', 'valid', 'invalid'],
-      description: 'The validation status of the radio group component',
+      description: 'The validation status of the checkbox group component',
       defaultValue: 'initial',
     },
     showValidationIcon: {
@@ -38,13 +38,13 @@ const meta = {
     },
     invalidText: {
       control: 'text',
-      description: 'The invalid text of the radio group component',
+      description: 'The invalid text of the checkbox group component',
       defaultValue: 'Invalid text',
     },
     type: {
       control: 'select',
       options: ['default', 'card'],
-      description: 'The type of the radio group component',
+      description: 'The type of the checkbox group component',
       defaultValue: 'default',
     },
   },
@@ -58,25 +58,25 @@ const meta = {
     validText: 'Valid text',
     type: 'default',
   },
-} satisfies Meta<typeof RadioGroup>;
+} satisfies Meta<typeof CheckboxGroup>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
   args: {
-    value: 'Option 1',
+    value: ['Option 1'],
   },
   render: ({ value: _, ...args }) => (
-    <RadioGroup {...args}>
-      <Radio aria-label="Label 1" label="Option 1" value="Option 1" nativeID="Radio-1" />
-      <Radio
+    <CheckboxGroup {...args}>
+      <Checkbox aria-label="Label 1" label="Option 1" value="Option 1" nativeID="Checkbox-1" />
+      <Checkbox
         aria-label="Label 2"
         label="Option 2 (with added option)"
         value="Option 2"
-        nativeID="Radio-2"
+        nativeID="Checkbox-2"
       />
-      <Radio aria-label="Label 3" label="Option 3" value="Option 3" nativeID="Radio-3" />
-    </RadioGroup>
+      <Checkbox aria-label="Label 3" label="Option 3" value="Option 3" nativeID="Checkbox-3" />
+    </CheckboxGroup>
   ),
 };

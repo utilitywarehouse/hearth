@@ -26,7 +26,7 @@ const styles = StyleSheet.create(theme => ({
     backgroundColor: theme.components.radio.unchecked.backgroundColor,
     borderColor: theme.components.radio.unchecked.borderColor,
     borderWidth: theme.components.radio.borderWidth,
-    borderRadius: theme.borderRadius.full,
+    borderRadius: theme.components.radio.borderRadius,
     width: 24,
     height: 24,
     outlineWidth: theme.components.radio.outlineWidth,

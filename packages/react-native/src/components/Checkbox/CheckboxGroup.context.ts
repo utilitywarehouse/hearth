@@ -1,9 +1,9 @@
 import { createContext, useContext } from 'react';
 
-export const RadioGroupContext = createContext<{
+export const CheckboxGroupContext = createContext<{
   disabled?: boolean;
   validationStatus?: 'valid' | 'invalid' | 'initial';
   type?: 'default' | 'card';
 }>({});
 
-export const useRadioGroupContext = () => useContext(RadioGroupContext);
+export const useCheckboxGroupContext = () => useContext(CheckboxGroupContext);

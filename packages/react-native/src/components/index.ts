@@ -4,6 +4,7 @@ export * from './BodyText';
 export * from './Box';
 export * from './Button';
 export * from './Card';
+export * from './Checkbox';
 export * from './Center';
 export * from './DetailText';
 export * from './Divider';

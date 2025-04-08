@@ -28,7 +28,7 @@ const styles = StyleSheet.create(theme => ({
   container: {
     width: 14,
     height: 14,
-    borderRadius: theme.borderRadius.full,
+    borderRadius: theme.components.radio.borderRadius,
     color: theme.components.radio.checked.color,
   },
 }));

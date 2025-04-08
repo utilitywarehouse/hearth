@@ -44,7 +44,7 @@ const Radio = forwardRef<ElementRef<typeof Pressable>, RadioProps>(
       validText,
       validationStatus: validation,
       showValidationIcon,
-      type = 'radio',
+      type = 'default',
       ...props
     },
     ref

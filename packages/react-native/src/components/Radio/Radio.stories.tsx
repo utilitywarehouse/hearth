@@ -45,9 +45,9 @@ const meta = {
     },
     type: {
       control: 'select',
-      options: ['radio', 'card'],
+      options: ['default', 'card'],
       description: 'The type of the radio component',
-      defaultValue: 'radio',
+      defaultValue: 'default',
     },
   },
   args: {
@@ -58,7 +58,7 @@ const meta = {
     showValidationIcon: true,
     invalidText: 'Invalid text',
     validText: 'Valid text',
-    type: 'radio',
+    type: 'default',
   },
 } satisfies Meta<typeof Radio>;
 
