@@ -5,8 +5,6 @@ import { BodyText } from '../BodyText';
 import { coloursAsArray } from '../../utils';
 import { primitive } from '@utilitywarehouse/hearth-tokens/js';
 import { InputType } from 'storybook/internal/types';
-import { UnistylesRuntime } from 'react-native-unistyles';
-import { View } from 'react-native';
 
 const backgroundColor: InputType = {
   options: coloursAsArray(),
