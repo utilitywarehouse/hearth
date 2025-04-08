@@ -3,15 +3,29 @@
  */
 
 export default {
+  borderRadius: 9999,
   borderWidth: 2,
+  card: {
+    group: {
+      gap: 8,
+      stack: {
+        gap: 8,
+      },
+    },
+  },
   checked: {
     color: '#101010',
   },
   gap: 8,
+  group: {
+    gap: 16,
+    stack: {
+      gap: 32,
+    },
+  },
   outlineColorActive: '#d4d2c0',
   outlineColorHover: '#f1efe4',
   outlineWidth: 3,
-  radius: 9999,
   unchecked: {
     backgroundColor: '#ffffff',
     borderColor: '#8a8686',
