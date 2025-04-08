@@ -5,6 +5,8 @@ import { BodyText } from '../BodyText';
 import { coloursAsArray } from '../../utils';
 import { primitive } from '@utilitywarehouse/hearth-tokens/js';
 import { InputType } from 'storybook/internal/types';
+import { UnistylesRuntime } from 'react-native-unistyles';
+import { View } from 'react-native';
 
 const backgroundColor: InputType = {
   options: coloursAsArray(),
@@ -60,9 +62,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-  render: args => (
-    <Box {...args}>
-      <BodyText>{args.children}</BodyText>
-    </Box>
-  ),
+  render: ({ as: _, ...args }) => {
+    return (
+      <Box {...args}>
+        <BodyText>{args.children}</BodyText>
+      </Box>
+    );
+  },
 };
