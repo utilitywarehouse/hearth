@@ -244,8 +244,6 @@ const BoxComponent = <T extends React.ElementType = typeof View>(
 
   const Component: React.ElementType = as || View;
 
-  console.log('render');
-
   return (
     <Component ref={ref} style={[styles.computedStyles(props), style]} {...computedProps}>
       {children}
