@@ -1,0 +1,371 @@
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
+import * as Stories from './Checkbox.stories';
+import {
+  Checkbox,
+  CheckboxGroup,
+  CheckboxCard,
+  CheckboxIndicator,
+  CheckboxLabel,
+  Center,
+  Box,
+  FormField,
+} from '../../';
+import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
+
+<Meta title="Forms / Checkbox" />
+
+<ViewFigmaButton url="https://www.figma.com/design/3RY3OvLA88yZksRjOfjQJm/UW-App-UI?node-id=4454-2156" />
+
+<BackToTopButton />
+
+# Checkbox
+
+Whether you're building a simple form or a complex data collection system, the Checkbox component offers a user-friendly way for users to select multiple options from a list.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Components](#components)
+  - [`Checkbox`](#checkbox)
+  - [`CheckboxCard`](#checkboxcard)
+  - [`CheckboxIndicator`](#checkboxindicator)
+  - [`CheckboxIcon`](#checkboxicon)
+  - [`CheckboxLabel`](#checkboxlabel)
+  - [`CheckboxGroup`](#checkboxgroup)
+- [Variants](#variants)
+- [Advanced Usage](#advanced-usage)
+- [Examples](#examples)
+  - [`CheckboxCard` component](#checkboxcard-component)
+  - [`CheckboxGroup` component](#checkboxgroup-component)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <Checkbox
+      value="Label"
+      onChange={checked => console.log(checked, '###')}
+      label="I accept the terms and conditions"
+    />
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Checkbox } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [accepted, setAccepted] = React.useState(false);
+  return (
+    <Checkbox
+      value="accepted"
+      onChange={(checked: boolean) => setAccepted(checked)}
+      label="I accept the terms and conditions"
+    />
+  );
+};
+```
+
+## Props
+
+| Property             | Type                                | Default   | Description                                                                                                          |
+| -------------------- | ----------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------- |
+| `value`              | `string`                            | -         | The value to be used in the checkbox input. This is the value that will be returned on form submission.              |
+| `onChange`           | `(value: boolean) => void`          | -         | Function called when the state of the checkbox changes.                                                              |
+| `defaultchecked`     | `bool`                              | `false`   | If true, the checkbox will be initially checked.                                                                     |
+| `checked`            | `bool`                              | `false`   | When true, the checkbox will be checked. You'll need to pass onChange update it's value (since it's now controlled). |
+| `validationStatus`   | `'valid' \| 'invalid' \| 'initial'` | -         | The validation status of the checkbox.                                                                               |
+| `disabled`           | `bool`                              | `false`   | To manually set disable to the checkbox.                                                                             |
+| `label`              | `string`                            | -         | The label to be displayed next to the checkbox.                                                                      |
+| `helperText`         | `string`                            | -         | The helper text to be displayed below the checkbox.                                                                  |
+| `helperIcon`         | `React.ComponentType`               | -         | The icon to be displayed next to the helper text.                                                                    |
+| `invalidText`        | `string`                            | -         | The invalid text to be displayed below the checkbox.                                                                 |
+| `validText`          | `string`                            | -         | The valid text to be displayed below the checkbox.                                                                   |
+| `showValidationIcon` | `boolean`                           | `true`    | Whether to show the validation icon.                                                                                 |
+| `type`               | `'default' \| 'card'`               | `default` | The type of the checkbox.                                                                                            |
+
+## Components
+
+### `Checkbox`
+
+The `Checkbox` component is the wrapper for the checkbox input. It is used to handle the state of the checkbox input.
+
+### `CheckboxCard`
+
+The `CheckboxCard` component is used to create a card-style checkbox input. It inherits all the properties of React Native's `View` component and the `Checkbox` props above.
+
+### `CheckboxIndicator`
+
+The `CheckboxIndicator` component is used to create the visual representation of the checkbox input. It inherits all the properties of React Native's `View` component.
+
+- Use checkboxes (instead of Toggle Switch or Radio) if multiple options can be selected from a list
+- On table rows
+- On multiple selection components, such as a Multi Select Component.
+
+### `CheckboxIcon`
+
+The `CheckboxIcon` component is used to create the icon for the checkbox input. It inherits all the properties of React Native SVG's `SVG` component.
+
+### `CheckboxLabel`
+
+The `CheckboxLabel` component is used to create the label for the checkbox input. It inherits all the properties of React Native's `Text` component.
+
+### `CheckboxGroup`
+
+The `CheckboxGroup` component is used to group multiple checkbox inputs together. It inherits all the properties of React Native's `View` component.
+
+| Property             | Type                                | Default   | Description                                                            |
+| -------------------- | ----------------------------------- | --------- | ---------------------------------------------------------------------- |
+| `value`              | string                              | -         | The value of the checkbox group.                                       |
+| `onChange`           | function                            | -         | The callback fired when any children Checkbox is checked or unchecked. |
+| `disabled`           | bool                                | -         | To manually set disable to the checkbox group.                         |
+| `validationStatus`   | `'valid' \| 'invalid' \| 'initial'` | -         | The validation status of the checkbox group.                           |
+| `label`              | `string`                            | -         | The label to be displayed above the checkbox group.                    |
+| `helperText`         | `string`                            | -         | The helper text to be displayed below the checkbox group.              |
+| `helperIcon`         | `React.ComponentType`               | -         | The icon to be displayed next to the helper text.                      |
+| `invalidText`        | `string`                            | -         | The invalid text to be displayed below the checkbox group.             |
+| `validText`          | `string`                            | -         | The valid text to be displayed below the checkbox group.               |
+| `showValidationIcon` | `boolean`                           | `true`    | Whether to show the validation icon.                                   |
+| `type`               | `'default' \| 'card'`               | `default` | The type of the checkbox group.                                        |
+| `direction`          | `'row' \| 'column'`                 | `column`  | The direction of the checkbox group.                                   |
+| `gap`                | `string`                            | -         | The gap between the checkbox group items.                              |
+
+<UsageWrap>
+    <Center>
+      <CheckboxGroup
+        aria-label="Checkbox Group"
+        value={['Label 1']}
+        nativeID="checkbox-group"
+      >
+        <Checkbox
+          value="Label 1"
+          aria-label="Label 1"
+          onChange={(checked) =>
+            console.log(checked, '###')
+          }
+        label="Label 1" />
+        <Checkbox
+          value="Label 2"
+          aria-label="Label 2"
+          onChange={(checked) =>
+            console.log(checked, '###')
+          }
+         label="Label 2" />
+      </CheckboxGroup>
+    </Center>
+
+  </UsageWrap>
+
+```jsx
+import {
+  Checkbox,
+  CheckboxGroup,
+  CheckboxIndicator,
+  CheckboxLabel,
+} from '@utilitywarehouse/hearth-react-native';
+
+import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => {
+  const [values, setValues] = React.useState(['option1']);
+  return (
+    <CheckboxGroup
+      aria-label="Checkbox Group"
+      value={values}
+      onChange={setValues}
+      nativeID="checkbox-group"
+    >
+      <Checkbox
+        value="option1"
+        aria-label="Label 1"
+        onChange={(checked: boolean) => console.log(checked, '###')}
+        label="Label 1"
+      />
+      <Checkbox
+        value="option2"
+        aria-label="Label 2"
+        onChange={(checked: boolean) => console.log(checked, '###')}
+        label="Label 2"
+      />
+    </CheckboxGroup>
+  );
+};
+```
+
+| Property           | Type                                | Default | Description                                                            |
+| ------------------ | ----------------------------------- | ------- | ---------------------------------------------------------------------- |
+| `value`            | `string[]`                          | -       | The value of the checkbox group.                                       |
+| `onChange`         | `(values: Array<string>) => void`   | -       | The callback fired when any children Checkbox is checked or unchecked. |
+| `disabled`         | `bool`                              | `false` | To manually set disable to the checkbox.                               |
+| `validationStatus` | `'valid' \| 'invalid' \| 'initial'` | -       | The validation status of the checkbox group.                           |
+
+## Variants
+
+<Canvas of={Stories.Variants} />
+
+## Advanced Usage
+
+You can create a custom checkbox by using the `CheckboxIndicator`, `CheckboxIcon` and `CheckboxLabel` components.
+
+<UsageWrap>
+  <Center>
+    <CheckboxGroup label="Which fruit do you enjoy?">
+      <Checkbox
+        value="Apple"
+        aria-label="Apple"
+        onChange={checked => console.log(checked, '###')}
+        label="Apple"
+      />
+      <Checkbox
+        value="Banana"
+        aria-label="Banana"
+        onChange={checked => console.log(checked, '###')}
+        label="Banana"
+      />
+      <Checkbox
+        value="Orange"
+        aria-label="Orange"
+        onChange={checked => console.log(checked, '###')}
+        label="Orange"
+      />
+      <Checkbox
+        value="Grapes"
+        aria-label="Grapes"
+        onChange={checked => console.log(checked, '###')}
+        label="Grapes"
+      />
+    </CheckboxGroup>
+  </Center>
+</UsageWrap>
+
+```tsx
+import {
+  CheckboxGroup,
+  Checkbox,
+  CheckboxIndicator,
+  CheckboxLabel,
+  FormField,
+} from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [values, setValues] = React.useState([]);
+  return (
+    <CheckboxGroup
+      aria-label="Checkbox Group"
+      label="Which fruit do you enjoy?"
+      value={values}
+      onChange={setValues}
+      nativeID="checkbox-group"
+    >
+      <Checkbox value="Apple" aria-label="Apple">
+        <CheckboxIndicator>
+          <CheckboxIcon />
+        </CheckboxIndicator>
+        <CheckboxLabel>Apple</CheckboxLabel>
+      </Checkbox>
+      <Checkbox value="Banana" aria-label="Banana">
+        <CheckboxIndicator>
+          <CheckboxIcon />
+        </CheckboxIndicator>
+        <CheckboxLabel>Banana</CheckboxLabel>
+      </Checkbox>
+      <Checkbox value="Orange" aria-label="Orange">
+        <CheckboxIndicator>
+          <CheckboxIcon />
+        </CheckboxIndicator>
+        <CheckboxLabel>Orange</CheckboxLabel>
+      </Checkbox>
+      <Checkbox value="Grapes" aria-label="Grapes">
+        <CheckboxIndicator>
+          <CheckboxIcon />
+        </CheckboxIndicator>
+        <CheckboxLabel>Grapes</CheckboxLabel>
+      </Checkbox>
+    </CheckboxGroup>
+  );
+};
+```
+
+## Examples
+
+### `CheckboxCard` component
+
+The `CheckboxCard` component is a variant of the `Checkbox` component that displays the radio button as a card.
+It is used to present options in a more visually appealing way.
+
+<UsageWrap>
+  <Center>
+    <CheckboxGroup>
+      <CheckboxCard value="option-1" aria-label="Label 1" label="Option 1" />
+      <CheckboxCard value="option-2" aria-label="Label 2" label="Option 2" />
+    </CheckboxGroup>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { CheckboxCard, CheckboxGroup } from '@utilitywarehouse/native-ui';
+
+const MyComponent = () => {
+  const [value, setValue] = React.useState(['option-1']);
+  return (
+    <CheckboxGroup value={value} onChange={setValue}>
+      <CheckboxCard value="option-1" aria-label="Label 1" label="Option 1" />
+      <CheckboxCard value="option-2" aria-label="Label 2" label="Option 2" />
+    </CheckboxGroup>
+  );
+};
+```
+
+### `CheckboxGroup` component
+
+The `CheckboxGroup` component is used to group multiple `Checkbox` components together.
+You can pass props like `label` and `helperText` to the `CheckboxGroup` component to provide context for the group of radios.
+
+<UsageWrap>
+  <Center>
+    <CheckboxGroup
+      aria-label="Checkbox Group"
+      label="Checkbox Group Label"
+      helperText="This is the supporting text"
+      invalidText="This is an invalid text"
+      validText="This is a valid text"
+      validationStatus="invalid"
+    >
+      <Checkbox value="option-1" aria-label="Label 1" label="Option 1" />
+      <Checkbox value="option-2" aria-label="Label 2" label="Option 2" />
+      <Checkbox value="option-3" aria-label="Label 3" label="Option 3" />
+      <Checkbox value="option-4" aria-label="Label 4" label="Option 4" />
+    </CheckboxGroup>
+
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Checkbox, CheckboxGroup } from '@utilitywarehouse/native-ui';
+
+const MyComponent = () => {
+  const [value, setValue] = React.useState(['option-1']);
+  return (
+    <CheckboxGroup
+      aria-label="Checkbox Group"
+      value={value}
+      onChange={setValue}
+      label="Checkbox Group Label"
+      helperText="This is the supporting text"
+      invalidText="This is an invalid text"
+      validText="This is a valid text"
+    >
+      <Checkbox value="option-1" aria-label="Label 1" label="Option 1" />
+      <Checkbox value="option-2" aria-label="Label 2" label="Option 2" />
+      <Checkbox value="option-3" aria-label="Label 3" label="Option 3" />
+      <Checkbox value="option-4" aria-label="Label 4" label="Option 4" />
+    </CheckboxGroup>
+  );
+};
+```

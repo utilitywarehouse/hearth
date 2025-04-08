@@ -44,7 +44,7 @@ const Radio = forwardRef<ElementRef<typeof Pressable>, RadioProps>(
       validText,
       validationStatus: validation,
       showValidationIcon,
-      type = 'radio',
+      type = 'default',
       ...props
     },
     ref
@@ -99,7 +99,7 @@ const RadioCard = forwardRef<ElementRef<typeof Pressable>, RadioProps>(
 );
 
 RadioCard.displayName = 'RadioCard';
-Radio.displayName = 'Radio';
+Radio.displayName = 'default';
 
 export { Radio, RadioGroup, RadioIndicator, RadioIcon, RadioLabel, RadioCard };
 

@@ -20,11 +20,11 @@ const styles = StyleSheet.create(theme => ({
   container: {
     variants: {
       type: {
-        radio: {
-          gap: theme.space['200'],
-        },
         card: {
-          gap: theme.space['100'],
+          gap: theme.components.radio.card.group.gap,
+        },
+        radio: {
+          gap: theme.components.radio.group.gap,
         },
       },
     },

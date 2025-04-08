@@ -1,11 +1,11 @@
 import { ComponentType } from 'react';
-import { ViewProps } from 'react-native';
 import { space } from '../../tokens';
+import { ViewProps } from 'react-native';
 
-interface RadioGroupProps extends ViewProps {
+interface CheckboxGroupProps extends ViewProps {
   disabled?: boolean;
-  value?: string;
-  onChange?: (value: string) => void;
+  value?: Array<string>;
+  onChange?: (value: Array<string>) => void;
   readonly?: boolean;
   validationStatus?: 'valid' | 'invalid' | 'initial';
   label?: string;
@@ -19,4 +19,4 @@ interface RadioGroupProps extends ViewProps {
   gap?: keyof typeof space;
 }
 
-export default RadioGroupProps;
+export default CheckboxGroupProps;

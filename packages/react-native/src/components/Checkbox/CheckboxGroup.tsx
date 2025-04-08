@@ -1,14 +1,14 @@
 import React, { forwardRef, useMemo } from 'react';
-import { RadioGroup as RadioGroupComponent } from './Radio';
-import RadioGroupProps from './RadioGroup.props';
-import { RadioGroupContext } from './RadioGroup.context';
+import { CheckboxGroup as CheckboxGroupComponent } from './Checkbox';
+import CheckboxGroupProps from './CheckboxGroup.props';
+import { CheckboxGroupContext } from './CheckboxGroup.context';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import CheckboxGroupTextContent from './CheckboxGroupTextContent';
 import { Label } from '../Label';
 import { Helper } from '../Helper';
-import { StyleSheet } from 'react-native-unistyles';
-import RadioGroupTextContent from './RadioGroupTextContent';
 
-const RadioGroup = forwardRef<View, RadioGroupProps>(
+const CheckboxGroup = forwardRef<View, CheckboxGroupProps>(
   (
     {
       children,
@@ -40,12 +40,12 @@ const RadioGroup = forwardRef<View, RadioGroupProps>(
         child =>
           React.isValidElement(child) &&
           // @ts-expect-error - child.type is not typed
-          (child.props.type === 'card' || child.type.displayName === 'RadioCard')
+          (child.props.type === 'card' || child.type.displayName === 'CheckboxCard')
       );
-    styles.useVariants({ type: childIsCard ? 'card' : 'radio', direction });
+    styles.useVariants({ type: childIsCard ? 'card' : 'checkbox', direction });
     return (
-      <RadioGroupContext.Provider value={value}>
-        <RadioGroupComponent
+      <CheckboxGroupContext.Provider value={value}>
+        <CheckboxGroupComponent
           // @ts-ignore
           ref={ref}
           {...props}
@@ -54,7 +54,7 @@ const RadioGroup = forwardRef<View, RadioGroupProps>(
           isCard={childIsCard}
         >
           {showHeader && (
-            <RadioGroupTextContent>
+            <CheckboxGroupTextContent>
               {!!label && <Label disabled={disabled}>{label}</Label>}
               {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
               {validationStatus === 'invalid' && !!invalidText && (
@@ -73,11 +73,11 @@ const RadioGroup = forwardRef<View, RadioGroupProps>(
                   text={validText}
                 />
               )}
-            </RadioGroupTextContent>
+            </CheckboxGroupTextContent>
           )}
           <View style={[styles.container, styles.containerGap(gap)]}>{children}</View>
-        </RadioGroupComponent>
-      </RadioGroupContext.Provider>
+        </CheckboxGroupComponent>
+      </CheckboxGroupContext.Provider>
     );
   }
 );
@@ -85,14 +85,13 @@ const RadioGroup = forwardRef<View, RadioGroupProps>(
 const styles = StyleSheet.create(theme => ({
   container: {
     alignItems: 'stretch',
-
     variants: {
       type: {
-        radio: {
-          gap: theme.components.radio.group.stack.gap,
+        checkbox: {
+          gap: theme.components.checkbox.group.stack.gap,
         },
         card: {
-          gap: theme.components.radio.card.group.stack.gap,
+          gap: theme.components.checkbox.card.group.stack.gap,
         },
       },
       direction: {
@@ -106,11 +105,11 @@ const styles = StyleSheet.create(theme => ({
       },
     },
   },
-  containerGap: (gap: RadioGroupProps['gap']) => ({
+  containerGap: (gap: CheckboxGroupProps['gap']) => ({
     ...(gap ? { gap: theme.space[gap] } : {}),
   }),
 }));
 
-RadioGroup.displayName = 'RadioGroup';
+CheckboxGroup.displayName = 'CheckboxGroup';
 
-export default RadioGroup;
+export default CheckboxGroup;

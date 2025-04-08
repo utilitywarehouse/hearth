@@ -1,15 +1,24 @@
 import type { ComponentType } from 'react';
 import type { PressableProps } from 'react-native';
 
-interface RadioBaseProps extends Omit<PressableProps, 'children'> {
-  value: string;
+type CheckboxBaseProps = {
   onChange?: (isSelected: boolean) => void;
   disabled?: boolean;
   validationStatus?: 'valid' | 'invalid' | 'initial';
   type?: 'default' | 'card';
-}
+} & (
+  | {
+      value?: string | number | boolean;
+      checked: boolean;
+    }
+  | {
+      value: string | number | boolean;
+      checked?: boolean;
+    }
+) &
+  Omit<PressableProps, 'children'>;
 
-interface RadioWithChildrenProps extends RadioBaseProps {
+type CheckboxWithChildrenProps = {
   children: React.ReactNode;
   label?: never;
   helperText?: never;
@@ -17,9 +26,9 @@ interface RadioWithChildrenProps extends RadioBaseProps {
   invalidText?: never;
   validText?: never;
   showValidationIcon?: never;
-}
+} & CheckboxBaseProps;
 
-interface RadioWithoutChildrenProps extends RadioBaseProps {
+type CheckboxWithoutChildrenProps = {
   children?: never;
   label?: string;
   helperText?: string;
@@ -27,8 +36,8 @@ interface RadioWithoutChildrenProps extends RadioBaseProps {
   invalidText?: string;
   validText?: string;
   showValidationIcon?: boolean;
-}
+} & CheckboxBaseProps;
 
-type RadioProps = RadioWithChildrenProps | RadioWithoutChildrenProps;
+type CheckboxProps = CheckboxWithChildrenProps | CheckboxWithoutChildrenProps;
 
-export default RadioProps;
+export default CheckboxProps;
