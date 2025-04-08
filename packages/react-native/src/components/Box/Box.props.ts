@@ -12,7 +12,6 @@ type ComponentPropsWithRef<T extends React.ElementType> = React.ComponentPropsWi
 
 export type OmittedStyles = Omit<
   ViewStyle,
-  // List of styles to omit (same as your original list)
   | 'backgroundColor'
   | 'borderBlockColor'
   | 'borderBlockEndColor'
@@ -64,6 +63,7 @@ export type OmittedStyles = Omit<
   | 'minHeight'
   | 'minWidth'
   | 'opacity'
+  | 'outlineColor'
   | 'padding'
   | 'paddingBottom'
   | 'paddingEnd'
@@ -109,6 +109,10 @@ export type OtherBoxViewStyles = Pick<
   | 'flexShrink'
   | 'flexWrap'
   | 'justifyContent'
+  | 'boxShadow'
+  | 'outlineOffset'
+  | 'outlineStyle'
+  | 'outlineWidth'
   | 'overflow'
   | 'pointerEvents'
   | 'position'
@@ -193,6 +197,7 @@ export interface ThemedBoxViewStyleProps {
   borderBlockStartColor?: ColorValue;
   borderEndColor?: ColorValue;
   borderStartColor?: ColorValue;
+  outlineColor?: ColorValue;
   shadowColor?: ColorValue;
   // - Radii
   borderRadius?: BorderRadiusValue;
