@@ -2,8 +2,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: var(--h-spinner-size);
-  width: var(--h-spinner-size);
+  width: fit-content;
+  height: fit-content;
   color: var(--h-spinner-default-fill);
   padding: var(--h-spinner-padding);
 
@@ -17,37 +17,13 @@
 
   --h-spinner-animation-duration: 1.4s;
   --h-pi: 3.14;
-  --h-circumference: calc(var(--h-pi) * var(--h-spinner-size));
-
-  @breakpoints {
-    &:where(.hearth-r-size-xs) {
-      --h-spinner-size: var(--h-spinner-xs-size);
-      --h-spinner-stroke-width: var(--h-spinner-xs-stroke-width);
-      --h-multiplier: 1.7;
-    }
-
-    &:where(.hearth-r-size-sm) {
-      --h-spinner-size: var(--h-spinner-sm-size);
-      --h-spinner-stroke-width: var(--h-spinner-sm-stroke-width);
-      --h-multiplier: 1.8;
-    }
-
-    &:where(.hearth-r-size-md) {
-      --h-spinner-size: var(--h-spinner-md-size);
-      --h-spinner-stroke-width: var(--h-spinner-md-stroke-width);
-      --h-multiplier: 1.9;
-    }
-
-    &:where(.hearth-r-size-lg) {
-      --h-spinner-size: var(--h-spinner-lg-size);
-      --h-spinner-stroke-width: var(--h-spinner-lg-stroke-width);
-      --h-multiplier: 2;
-    }
-  }
+  --h-circumference: calc(
+    var(--h-pi) * calc(var(--h-spinner-size) + calc(var(--h-spinner-padding) * 2))
+  );
 
   & > svg {
-    width: 100%;
-    height: 100%;
+    height: var(--h-spinner-size);
+    width: var(--h-spinner-size);
     stroke: currentcolor;
     animation: hearth-rotator var(--h-spinner-animation-duration) linear infinite;
 
@@ -61,8 +37,30 @@
       animation: hearth-dash var(--h-spinner-animation-duration) ease-in-out infinite;
 
       @media (prefers-reduced-motion: reduce) {
-        stroke-dasharray: calc(var(--h-spinner-size) * var(--h-multiplier));
+        stroke-dasharray: calc(var(--h-spinner-size) * 2.3);
       }
+    }
+  }
+
+  @breakpoints {
+    &:where(.hearth-r-size-xs) {
+      --h-spinner-size: var(--h-spinner-xs-size);
+      --h-spinner-stroke-width: var(--h-spinner-xs-stroke-width);
+    }
+
+    &:where(.hearth-r-size-sm) {
+      --h-spinner-size: var(--h-spinner-sm-size);
+      --h-spinner-stroke-width: var(--h-spinner-sm-stroke-width);
+    }
+
+    &:where(.hearth-r-size-md) {
+      --h-spinner-size: var(--h-spinner-md-size);
+      --h-spinner-stroke-width: var(--h-spinner-md-stroke-width);
+    }
+
+    &:where(.hearth-r-size-lg) {
+      --h-spinner-size: var(--h-spinner-lg-size);
+      --h-spinner-stroke-width: var(--h-spinner-lg-stroke-width);
     }
   }
 }
