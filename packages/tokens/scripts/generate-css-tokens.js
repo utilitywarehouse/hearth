@@ -96,6 +96,13 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
+  name: 'button/px',
+  type: 'value',
+  filter: filters.isButtonMinWidth,
+  transform: px,
+});
+
+StyleDictionary.registerTransform({
   name: 'alias/remove-light-color-prefix',
   type: 'value',
   filter: filters.isColor,
@@ -133,6 +140,7 @@ StyleDictionary.registerTransformGroup({
     'space/px',
     'border/px',
     'spinner/px',
+    'button/px',
     'font-size/px-to-rem',
     'line-height/px-to-rem',
     'opacity/value',

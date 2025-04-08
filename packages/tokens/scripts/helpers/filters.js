@@ -57,4 +57,11 @@ export const filters = {
       token.path.includes('size')
     );
   },
+  isButtonMinWidth: token => {
+    return (
+      token.filePath.includes('component') &&
+      token.path.includes('button') &&
+      token.path.includes('min-width')
+    );
+  },
 };
