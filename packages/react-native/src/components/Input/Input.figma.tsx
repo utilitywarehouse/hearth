@@ -11,106 +11,106 @@ import { EyeMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
  * code example you'd like to see in Figma
  */
 
-figma.connect(
-  Input,
-  'https://www.figma.com/design/3RY3OvLA88yZksRjOfjQJm/UW-App-UI?node-id=6990-3022&m=dev',
-  {
-    props: {
-      state: figma.enum('state', {
-        initial: 'initial',
-        focus: 'focus',
-        filled: 'filled',
-      }),
-      placeholder: figma.boolean('placeholder', {
-        true: figma.nestedProps('.Parts/Input value', {
-          text: figma.string('Text'),
-        }),
-        false: { text: undefined },
-      }),
-      validationStatus: figma.enum('validationStatus', {
-        initial: undefined,
-        invalid: 'invalid',
-        valid: 'valid',
-      }),
-      disabled: figma.boolean('disabled'),
-      readOnly: figma.boolean('readOnly'),
-      iconLeft: figma.boolean('Icon Left?', {
-        true: figma.nestedProps('.Parts/Content Left', {
-          icon: figma.instance('Icon'),
-        }),
-        false: {
-          icon: undefined,
-        },
-      }),
-      value: figma.nestedProps('.Parts/Input value', {
-        text: figma.boolean('placeholder', {
-          true: undefined,
-          false: figma.string('Text'),
-        }),
-      }),
-    },
-    example: props => (
-      <Input
-        validationStatus={props.validationStatus}
-        placeholder={props.placeholder.text}
-        readonly={props.readOnly}
-        value={props.value.text}
-        disabled={props.disabled}
-        leadingIcon={props.iconLeft.icon}
-      />
-    ),
-  }
-);
+// figma.connect(
+//   Input,
+//   'https://www.figma.com/design/3RY3OvLA88yZksRjOfjQJm/UW-App-UI?node-id=6990-3022&m=dev',
+//   {
+//     props: {
+//       state: figma.enum('state', {
+//         initial: 'initial',
+//         focus: 'focus',
+//         filled: 'filled',
+//       }),
+//       placeholder: figma.boolean('placeholder', {
+//         true: figma.nestedProps('.Parts/Input value', {
+//           text: figma.string('Text'),
+//         }),
+//         false: { text: undefined },
+//       }),
+//       validationStatus: figma.enum('validationStatus', {
+//         initial: undefined,
+//         invalid: 'invalid',
+//         valid: 'valid',
+//       }),
+//       disabled: figma.boolean('disabled'),
+//       readOnly: figma.boolean('readOnly'),
+//       iconLeft: figma.boolean('Icon Left?', {
+//         true: figma.nestedProps('.Parts/Content Left', {
+//           icon: figma.instance('Icon'),
+//         }),
+//         false: {
+//           icon: undefined,
+//         },
+//       }),
+//       value: figma.nestedProps('.Parts/Input value', {
+//         text: figma.boolean('placeholder', {
+//           true: undefined,
+//           false: figma.string('Text'),
+//         }),
+//       }),
+//     },
+//     example: props => (
+//       <Input
+//         validationStatus={props.validationStatus}
+//         placeholder={props.placeholder.text}
+//         readonly={props.readOnly}
+//         value={props.value.text}
+//         disabled={props.disabled}
+//         leadingIcon={props.iconLeft.icon}
+//       />
+//     ),
+//   }
+// );
 
-// Password Input
-figma.connect(
-  Input,
-  'https://www.figma.com/design/3RY3OvLA88yZksRjOfjQJm/UW-App-UI?node-id=7928-5958&m=dev',
-  {
-    props: {
-      state: figma.enum('state', {
-        initial: 'initial',
-        focus: 'focus',
-        filled: 'filled',
-      }),
-      placeholder: figma.boolean('placeholder', {
-        true: figma.nestedProps('.Parts/Input value', {
-          text: figma.string('Text'),
-        }),
-        false: { text: undefined },
-      }),
-      validationStatus: figma.enum('validationStatus', {
-        initial: undefined,
-        invalid: 'invalid',
-        valid: 'valid',
-      }),
-      disabled: figma.boolean('disabled'),
-      readOnly: figma.boolean('readOnly'),
-      iconLeft: figma.boolean('Icon Left?', {
-        true: figma.nestedProps('.Parts/Content Left', {
-          icon: figma.instance('Icon'),
-        }),
-        false: {
-          icon: undefined,
-        },
-      }),
-      value: figma.nestedProps('.Parts/Input value', {
-        text: figma.boolean('placeholder', {
-          true: undefined,
-          false: figma.string('Text'),
-        }),
-      }),
-    },
-    example: props => (
-      <Input
-        validationStatus={props.validationStatus}
-        placeholder={props.placeholder.text}
-        readonly={props.readOnly}
-        value={props.value.text}
-        disabled={props.disabled}
-        leadingIcon={props.iconLeft.icon}
-        trailingIcon={EyeMediumIcon}
-      />
-    ),
-  }
-);
+// // Password Input
+// figma.connect(
+//   Input,
+//   'https://www.figma.com/design/3RY3OvLA88yZksRjOfjQJm/UW-App-UI?node-id=7928-5958&m=dev',
+//   {
+//     props: {
+//       state: figma.enum('state', {
+//         initial: 'initial',
+//         focus: 'focus',
+//         filled: 'filled',
+//       }),
+//       placeholder: figma.boolean('placeholder', {
+//         true: figma.nestedProps('.Parts/Input value', {
+//           text: figma.string('Text'),
+//         }),
+//         false: { text: undefined },
+//       }),
+//       validationStatus: figma.enum('validationStatus', {
+//         initial: undefined,
+//         invalid: 'invalid',
+//         valid: 'valid',
+//       }),
+//       disabled: figma.boolean('disabled'),
+//       readOnly: figma.boolean('readOnly'),
+//       iconLeft: figma.boolean('Icon Left?', {
+//         true: figma.nestedProps('.Parts/Content Left', {
+//           icon: figma.instance('Icon'),
+//         }),
+//         false: {
+//           icon: undefined,
+//         },
+//       }),
+//       value: figma.nestedProps('.Parts/Input value', {
+//         text: figma.boolean('placeholder', {
+//           true: undefined,
+//           false: figma.string('Text'),
+//         }),
+//       }),
+//     },
+//     example: props => (
+//       <Input
+//         validationStatus={props.validationStatus}
+//         placeholder={props.placeholder.text}
+//         readonly={props.readOnly}
+//         value={props.value.text}
+//         disabled={props.disabled}
+//         leadingIcon={props.iconLeft.icon}
+//         trailingIcon={EyeMediumIcon}
+//       />
+//     ),
+//   }
+// );

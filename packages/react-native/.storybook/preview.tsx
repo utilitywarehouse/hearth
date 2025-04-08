@@ -28,6 +28,11 @@ const preview: Preview = {
     docs: {
       theme: theme,
     },
+    options: {
+      storySort: {
+        order: ['Primitives', 'Typography', 'Forms', 'Components'],
+      },
+    },
   },
   decorators: [
     Story => {
