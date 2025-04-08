@@ -31,7 +31,8 @@
     "generate:svg": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
     "generate:react": "turbo run @utilitywarehouse/hearth-react-icons#generate @utilitywarehouse/hearth-react-native-icons#generate",
     "generate:storybook": "turbo run storybook-icons#generate",
-    "generate:icons": "pnpm run generate:svg && pnpm run generate:react && pnpm run generate:storybook && pnpm run format && cat ./updated-icons.md && rm ./updated-icons.md"
+    "generate:icons": "pnpm run generate:svg && pnpm run generate:react && pnpm run generate:storybook && pnpm run format && cat ./updated-icons.md && rm ./updated-icons.md",
+    "generate:tokens": "turbo run @utilitywarehouse/hearth-tokens#build"
   },
   "workspaces": [
     "packages/*",
