@@ -29,6 +29,14 @@ declare const _default: {
     readonly backgroundColorActive: '#f7f6eb';
     readonly backgroundColorHover: '#fcfbf2';
   };
+  readonly card: {
+    readonly group: {
+      readonly gap: 8;
+      readonly stack: {
+        readonly gap: 8;
+      };
+    };
+  };
   readonly mobile: {
     readonly padding: 16;
     readonly paddingNone: 0;

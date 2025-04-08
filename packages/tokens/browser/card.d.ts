@@ -26,4 +26,24 @@ export declare const card: {
     readonly backgroundColorActive: 'var(--h-card-white-background-color-active)';
     readonly backgroundColorHover: 'var(--h-card-white-background-color-hover)';
   };
+  readonly checkbox: {
+    readonly card: {
+      readonly group: {
+        readonly gap: 'var(--h-checkbox-card-group-gap)';
+        readonly stack: {
+          readonly gap: 'var(--h-checkbox-card-group-stack-gap)';
+        };
+      };
+    };
+  };
+  readonly radio: {
+    readonly card: {
+      readonly group: {
+        readonly gap: 'var(--h-radio-card-group-gap)';
+        readonly stack: {
+          readonly gap: 'var(--h-radio-card-group-stack-gap)';
+        };
+      };
+    };
+  };
 };
