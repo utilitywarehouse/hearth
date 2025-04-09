@@ -10,7 +10,7 @@ export interface TextInputProps
   defaultValue?: string | number;
   value?: string | number;
   label: string;
-  supportingText?: string;
+  helperText?: string;
   validationStatus?: 'valid' | 'invalid';
   validationText?: string;
   hideLabel?: boolean;

@@ -15,7 +15,7 @@ const meta: Meta<typeof TextInput> = {
   argTypes: {
     placeholder: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
-    supportingText: { control: { type: 'text' } },
+    helperText: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
     hideLabel: { control: { type: 'boolean' } },
@@ -28,7 +28,7 @@ const meta: Meta<typeof TextInput> = {
   args: {
     placeholder: 'Placeholder',
     label: 'Label',
-    supportingText: 'Supporting text',
+    helperText: 'Helper text',
     validationText: 'Validation text',
     disabled: false,
     readOnly: false,
@@ -44,12 +44,7 @@ export const Playground: Story = {};
 export const DisabledAndReadOnly: Story = {
   render: args => (
     <Flex direction="column" gap="400">
-      <TextInput
-        {...args}
-        label="Disabled"
-        disabled
-        supportingText="Please do something before this"
-      />
+      <TextInput {...args} label="Disabled" disabled helperText="Please do something before this" />
       <TextInput
         {...args}
         label="Read only"
@@ -58,7 +53,7 @@ export const DisabledAndReadOnly: Story = {
       />
     </Flex>
   ),
-  args: { supportingText: undefined },
+  args: { helperText: undefined },
 };
 
 export const Validation: Story = {
@@ -84,7 +79,7 @@ export const Validation: Story = {
       />
     </Flex>
   ),
-  args: { supportingText: undefined },
+  args: { helperText: undefined },
 };
 
 export const PrefixAndSuffix: Story = {

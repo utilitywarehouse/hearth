@@ -75,8 +75,8 @@ export type { DividerProps } from './components/Divider/Divider.props';
 export { Label } from './components/Label/Label';
 export type { LabelProps } from './components/Label/Label.props';
 
-export { SupportingText } from './components/SupportingText/SupportingText';
-export type { SupportingTextProps } from './components/SupportingText/SupportingText.props';
+export { HelperText } from './components/HelperText/HelperText';
+export type { HelperTextProps } from './components/HelperText/HelperText.props';
 
 export { ValidationText } from './components/ValidationText/ValidationText';
 export type { ValidationTextProps } from './components/ValidationText/ValidationText.props';

@@ -1,14 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { SupportingText } from '@utilitywarehouse/hearth-react';
+import { HelperText } from '@utilitywarehouse/hearth-react';
 
-const meta: Meta<typeof SupportingText> = {
-  title: 'Stories / SupportingText',
-  component: SupportingText,
+const meta: Meta<typeof HelperText> = {
+  title: 'Stories / HelperText',
+  component: HelperText,
   parameters: {
     docs: {
       description: {
-        component:
-          '`SupportingText` should be used with form field components to display supporting text.',
+        component: '`HelperText` should be used with form field components to display helper text.',
       },
     },
   },
@@ -18,12 +17,12 @@ const meta: Meta<typeof SupportingText> = {
     disableUserSelect: { control: { type: 'boolean' } },
   },
   args: {
-    children: 'Hearth supporting text',
+    children: 'Hearth helper text',
     disabled: false,
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof SupportingText>;
+type Story = StoryObj<typeof HelperText>;
 
 export const Playground: Story = {};

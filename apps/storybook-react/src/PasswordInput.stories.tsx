@@ -16,7 +16,7 @@ const meta: Meta<typeof PasswordInput> = {
   argTypes: {
     placeholder: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
-    supportingText: { control: { type: 'text' } },
+    helperText: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
@@ -43,12 +43,12 @@ export const DisabledAndReadOnly: Story = {
         {...args}
         label="Disabled"
         disabled
-        supportingText="Please enter you username first"
+        helperText="Please enter you username first"
       />
       <PasswordInput {...args} label="Read only" readOnly value="password123" />
     </Flex>
   ),
-  args: { supportingText: undefined },
+  args: { helperText: undefined },
 };
 
 export const Validation: Story = {
@@ -70,7 +70,7 @@ export const Validation: Story = {
       />
     </Flex>
   ),
-  args: { supportingText: undefined },
+  args: { helperText: undefined },
 };
 
 export const FormUsage: Story = {
