@@ -3,6 +3,6 @@
  */
 
 export default {
-  color: '#101010',
+  backgroundColor: '#101010',
   opacity: 75,
 } as const;

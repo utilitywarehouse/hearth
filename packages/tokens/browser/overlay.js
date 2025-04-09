@@ -1,4 +1,4 @@
 export const overlay = {
-  color: 'var(--h-overlay-color)',
+  backgroundColor: 'var(--h-overlay-background-color)',
   opacity: 'var(--h-overlay-opacity)',
 };

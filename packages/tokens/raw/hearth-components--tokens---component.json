@@ -282,7 +282,12 @@
         "type": "color",
         "value": "#ffffff"
       },
-      "border-radius": {
+      "border-top-left-radius": {
+        "alias": "{border-radius.xl}",
+        "type": "number",
+        "value": 16
+      },
+      "border-top-right-radius": {
         "alias": "{border-radius.xl}",
         "type": "number",
         "value": 16
@@ -291,6 +296,26 @@
         "alias": "{space.75}",
         "type": "number",
         "value": 6
+      },
+      "handle": {
+        "background-color": {
+          "alias": "{color.dark.grey.200}",
+          "type": "color",
+          "value": "#464444"
+        },
+        "border-radius": {
+          "alias": "{border-radius.sm}",
+          "type": "number",
+          "value": 6
+        },
+        "height": {
+          "type": "number",
+          "value": 5
+        },
+        "width": {
+          "type": "number",
+          "value": 36
+        }
       },
       "padding": {
         "alias": "{space.200}",
@@ -1624,7 +1649,7 @@
       }
     },
     "overlay": {
-      "color": {
+      "background-color": {
         "alias": "{color.dark.grey.50}",
         "type": "color",
         "value": "#101010"
@@ -2572,7 +2597,12 @@
         "type": "color",
         "value": "#ffffff"
       },
-      "border-radius": {
+      "border-top-left-radius": {
+        "alias": "{border-radius.xl}",
+        "type": "number",
+        "value": 16
+      },
+      "border-top-right-radius": {
         "alias": "{border-radius.xl}",
         "type": "number",
         "value": 16
@@ -2581,6 +2611,26 @@
         "alias": "{space.75}",
         "type": "number",
         "value": 6
+      },
+      "handle": {
+        "background-color": {
+          "alias": "{color.light.grey.200}",
+          "type": "color",
+          "value": "#d1d0d0"
+        },
+        "border-radius": {
+          "alias": "{border-radius.sm}",
+          "type": "number",
+          "value": 6
+        },
+        "height": {
+          "type": "number",
+          "value": 5
+        },
+        "width": {
+          "type": "number",
+          "value": 36
+        }
       },
       "padding": {
         "alias": "{space.200}",
@@ -3914,7 +3964,7 @@
       }
     },
     "overlay": {
-      "color": {
+      "background-color": {
         "alias": "{color.light.grey.1000}",
         "type": "color",
         "value": "#101010"
