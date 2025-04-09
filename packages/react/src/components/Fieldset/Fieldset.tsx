@@ -12,10 +12,6 @@ const componentClassName = withGlobalPrefix(componentName);
 
 type FieldsetElement = ElementRef<'fieldset'>;
 
-/**
- * The `Fieldset` component should be used to group related form inputs, and
- * should be used with the `FieldsetLegend` component
- */
 export const Fieldset = React.forwardRef<FieldsetElement, FieldsetProps>(
   ({ children, className, ...props }, ref) => {
     return (

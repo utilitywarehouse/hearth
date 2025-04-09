@@ -96,5 +96,8 @@ export type { SearchInputProps } from './components/SearchInput/SearchInput.prop
 export { Badge } from './components/Badge/Badge';
 export type { BadgeProps } from './components/Badge/Badge.props';
 
+export { Fieldset } from './components/Fieldset/Fieldset';
+export type { FieldsetProps } from './components/Fieldset/Fieldset.props';
+
 export { FieldsetLegend } from './components/FieldsetLegend/FieldsetLegend';
 export type { FieldsetLegendProps } from './components/FieldsetLegend/FieldsetLegend.props';
