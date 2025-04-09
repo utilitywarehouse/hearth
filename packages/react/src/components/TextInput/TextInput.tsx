@@ -5,7 +5,7 @@ import { extractProps } from '../../helpers/extract-props';
 import clsx from 'clsx';
 import React from 'react';
 import { Label } from '../Label/Label';
-import { SupportingText } from '../SupportingText/SupportingText';
+import { HelperText } from '../HelperText/HelperText';
 import { Flex } from '../Flex/Flex';
 import { useIds } from '../../hooks/use-ids';
 import { ValidationText } from '../ValidationText/ValidationText';
@@ -24,7 +24,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
       validationStatus,
       validationText,
       label,
-      supportingText,
+      helperText,
       children,
       id: providedId,
       disabled,
@@ -35,7 +35,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
       placeholder,
       ...textInputProps
     } = extractProps(props);
-    const { id, labelId, supportingTextId, validationTextId } = useIds({
+    const { id, labelId, helperTextId, validationTextId } = useIds({
       providedId,
       prefix: 'input',
     });
@@ -44,7 +44,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
       !readOnly && !disabled && validationStatus !== undefined && validationText !== undefined
     );
     const ariaDescribedbyValue = mergeIds(
-      !!supportingText ? supportingTextId : undefined,
+      !!helperText ? helperTextId : undefined,
       showValidationText ? validationTextId : undefined
     );
 
@@ -78,10 +78,10 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
               </BodyText>
             )}
           </Label>
-          {supportingText ? (
-            <SupportingText id={supportingTextId} disableUserSelect>
-              {supportingText}
-            </SupportingText>
+          {helperText ? (
+            <HelperText id={helperTextId} disableUserSelect>
+              {helperText}
+            </HelperText>
           ) : null}
         </Flex>
         <div className="hearth-input-container">

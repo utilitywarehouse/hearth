@@ -5,7 +5,7 @@ import { withGlobalPrefix } from '../helpers/with-global-prefix';
 interface UseIdsProps {
   providedId?: string;
   providedLabelId?: string;
-  providedSupportingTextId?: string;
+  providedHelperTextId?: string;
   providedValidationTextId?: string;
   prefix?: string;
 }
@@ -13,7 +13,7 @@ interface UseIdsProps {
 export const useIds = ({
   providedId,
   providedLabelId,
-  providedSupportingTextId,
+  providedHelperTextId,
   providedValidationTextId,
   prefix,
 }: UseIdsProps) => {
@@ -21,7 +21,7 @@ export const useIds = ({
   const defaultId = withGlobalPrefix(prefix ? `${prefix}-${generatedId}` : generatedId);
   const id = providedId || defaultId;
   const labelId = providedLabelId || `${defaultId}-label`;
-  const supportingTextId = providedSupportingTextId || `${defaultId}-supporting-text`;
+  const helperTextId = providedHelperTextId || `${defaultId}-helper-text`;
   const validationTextId = providedValidationTextId || `${defaultId}-validation-text`;
-  return { id, labelId, supportingTextId, validationTextId };
+  return { id, labelId, helperTextId, validationTextId };
 };
