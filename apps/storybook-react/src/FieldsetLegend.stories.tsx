@@ -1,18 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react';
-
-import { FieldsetLegend } from './FieldsetLegend';
+import { FieldsetLegend } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof FieldsetLegend> = {
   title: 'Stories / FieldsetLegend',
   component: FieldsetLegend,
-  parameters: { layout: 'centered' },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'The `FieldsetLegend` should be used with the `Fieldset` component to label grouped form inputs.',
+      },
+    },
+  },
   argTypes: {
     children: { control: { type: 'text' } },
-    disabled: { control: { type: 'boolean' } },
   },
   args: {
     children: 'Hearth fieldset legend',
-    disabled: false,
   },
 };
 
