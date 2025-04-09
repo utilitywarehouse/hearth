@@ -1,4 +1,4 @@
 export declare const overlay: {
-  readonly color: 'var(--h-overlay-color)';
+  readonly backgroundColor: 'var(--h-overlay-background-color)';
   readonly opacity: 'var(--h-overlay-opacity)';
 };
