@@ -71,7 +71,7 @@ const preview = {
             flex: 1,
             backgroundColor: bg,
           }}
-          contentContainerStyle={{ padding: 8 }}
+          contentContainerStyle={{ padding: 8, flex: 1 }}
         >
           <Story />
         </ScrollView>
