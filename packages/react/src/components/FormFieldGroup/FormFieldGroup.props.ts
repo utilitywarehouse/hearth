@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { FieldsetProps } from '../Fieldset/Fieldset.props';
+import { ValidationTextProps } from '../ValidationText/ValidationText.props';
 
 export interface FormFieldGroupProps extends FieldsetProps {
   /**
@@ -17,17 +18,6 @@ export interface FormFieldGroupProps extends FieldsetProps {
    * components should not display their own `helperText`.
    */
   helperText?: ReactNode;
-  /**
-   * Position of the helper text.
-   * @default 'top'
-   */
-  helperTextPosition?: 'top' | 'bottom';
-  /** Set whether to display the helper text icon. */
-  showHelperTextIcon?: boolean;
-  /** Controls whether the error message is displayed. */
-  error?: boolean;
-  /** The error message to be displayed. */
-  errorMessage?: ReactNode;
-  /** Set whether to display the error message icon. */
-  showErrorMessageIcon?: boolean;
+  validationText?: ReactNode;
+  validationStatus?: ValidationTextProps['status'];
 }

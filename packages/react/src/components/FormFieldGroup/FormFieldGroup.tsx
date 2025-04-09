@@ -2,13 +2,14 @@ import * as React from 'react';
 import type { ElementRef } from 'react';
 
 import { FormFieldGroupProvider } from './FormFieldGroup.context';
-import { FormFieldGroupProps } from './FormFieldGroup.props';
+import type { FormFieldGroupProps } from './FormFieldGroup.props';
 import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
 import { Fieldset } from '../Fieldset/Fieldset';
 import { Flex } from '../Flex/Flex';
 import { FieldsetLegend } from '../FieldsetLegend/FieldsetLegend';
 import { HelperText } from '../HelperText/HelperText';
+import { ValidationText } from '../ValidationText/ValidationText';
 
 const componentName = 'FormFieldGroup';
 
@@ -26,11 +27,8 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
       children,
       label,
       helperText,
-      helperTextPosition = 'top',
-      showHelperTextIcon,
-      error,
-      errorMessage,
-      showErrorMessageIcon,
+      validationText,
+      validationStatus,
       disabled,
       'aria-labelledby': ariaLabelledby,
       'aria-describedby': ariaDescribedby,
@@ -39,17 +37,14 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
     },
     ref
   ) => {
-    const { id, labelId, helperTextId, errorMessageId } = useIds({
+    const { id, labelId, helperTextId, validationTextId } = useIds({
       providedId,
-      componentPrefix: 'radiogroup',
+      prefix: 'radiogroup',
     });
-    const showErrorMessage = Boolean(error && errorMessage);
-    const showTopHelperText = helperText && helperTextPosition === 'top';
-    const showBottomHelperText = helperText && helperTextPosition === 'bottom';
-
+    const showValidationText = Boolean(validationStatus && validationText);
     const ariaDescribedbyValue = mergeIds(
       ariaDescribedby || !!helperText ? helperTextId : undefined,
-      ariaErrorMessage || showErrorMessage ? errorMessageId : undefined
+      ariaErrorMessage || showValidationText ? validationTextId : undefined
     );
     const value = {
       hasGroupHelperText: !!helperText,
@@ -62,46 +57,32 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
         {...props}
         disabled={disabled}
         id={id}
-        aria-errormessage={ariaErrorMessage || showErrorMessage ? errorMessageId : undefined}
+        aria-errormessage={ariaErrorMessage || showValidationText ? validationTextId : undefined}
         aria-labelledby={ariaLabelledby || !!label ? labelId : undefined}
-        aria-invalid={showErrorMessage}
+        aria-invalid={showValidationText}
         aria-describedby={ariaDescribedbyValue}
       >
-        {label || showTopHelperText ? (
-          <Flex direction="column" gap="50">
+        {label ? (
+          <Flex direction="column" align="start">
             {label ? (
               <FieldsetLegend id={labelId} disabled={disabled}>
                 {label}
               </FieldsetLegend>
             ) : null}
-            {showTopHelperText ? (
-              <HelperText id={helperTextId} disabled={disabled} showIcon={showHelperTextIcon}>
+            {helperText ? (
+              <HelperText id={helperTextId} disabled={disabled}>
                 {helperText}
               </HelperText>
+            ) : null}
+            {showValidationText ? (
+              <ValidationText id={validationTextId} status={validationStatus}>
+                {validationText}
+              </ValidationText>
             ) : null}
           </Flex>
         ) : null}
 
         <FormFieldGroupProvider value={value}>{children}</FormFieldGroupProvider>
-
-        {showBottomHelperText || showErrorMessage ? (
-          <Flex direction="column" gap="100">
-            {showBottomHelperText ? (
-              <HelperText id={helperTextId} disabled={disabled} showIcon={showHelperTextIcon}>
-                {helperText}
-              </HelperText>
-            ) : null}
-            {showErrorMessage ? (
-              <HelperText
-                validationStatus="invalid"
-                showIcon={showErrorMessageIcon}
-                id={errorMessageId}
-              >
-                {errorMessage}
-              </HelperText>
-            ) : null}
-          </Flex>
-        ) : null}
       </Fieldset>
     );
   }

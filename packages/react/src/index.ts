@@ -101,3 +101,6 @@ export type { FieldsetProps } from './components/Fieldset/Fieldset.props';
 
 export { FieldsetLegend } from './components/FieldsetLegend/FieldsetLegend';
 export type { FieldsetLegendProps } from './components/FieldsetLegend/FieldsetLegend.props';
+
+export { FormFieldGroup } from './components/FormFieldGroup/FormFieldGroup';
+export type { FormFieldGroupProps } from './components/FormFieldGroup/FormFieldGroup.props';

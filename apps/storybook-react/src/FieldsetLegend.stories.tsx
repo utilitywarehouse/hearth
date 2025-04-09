@@ -23,4 +23,4 @@ const meta: Meta<typeof FieldsetLegend> = {
 export default meta;
 type Story = StoryObj<typeof FieldsetLegend>;
 
-export const Workshop: Story = {};
+export const Playground: Story = {};
