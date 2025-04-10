@@ -17,7 +17,6 @@
 @import url('./Card/Card.css');
 @import url('./Card/CardAction.css');
 @import url('./SelectableCard/SelectableCard.css');
-@import url('./Label/Label.css');
 @import url('./HelperText/HelperText.css');
 @import url('./ValidationText/ValidationText.css');
 @import url('./TextInput/TextInput.css');
@@ -25,3 +24,4 @@
 @import url('./Badge/Badge.css');
 @import url('./Fieldset/Fieldset.css');
 @import url('./FieldsetLegend/FieldsetLegend.css');
+@import url('./Radio/Radio.css');

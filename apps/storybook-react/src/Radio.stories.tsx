@@ -1,30 +1,33 @@
-import * as React from 'react';
-
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Radio } from './Radio';
-import { Flex } from '../Flex/Flex';
-import { RadioGroup } from '../RadioGroup/RadioGroup';
+import { Radio, Flex, RadioGroup } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Radio> = {
   title: 'Stories / Radio',
   component: Radio,
-  parameters: { layout: 'centered' },
 };
 
 export default meta;
 type Story = StoryObj<typeof Radio>;
 
-export const Workshop: Story = {
+export const Playground: Story = {
   render: args => {
     return (
-      <Flex gap="32px">
-        <RadioGroup value="2" label="Unchecked Radio">
+      <Flex gap="500" direction="column">
+        <RadioGroup value="2" label="Unchecked radio">
           <Radio {...args} />
         </RadioGroup>
 
-        <RadioGroup defaultValue={args.value} label="Checked Radio">
+        <RadioGroup defaultValue={args.value} label="Checked radio">
           <Radio {...args} />
+        </RadioGroup>
+
+        <RadioGroup value="2" label="Disabled unchecked radio">
+          <Radio {...args} disabled />
+        </RadioGroup>
+
+        <RadioGroup defaultValue={args.value} label="Disabled checked radio">
+          <Radio {...args} disabled />
         </RadioGroup>
       </Flex>
     );

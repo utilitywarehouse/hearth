@@ -104,3 +104,9 @@ export type { FieldsetLegendProps } from './components/FieldsetLegend/FieldsetLe
 
 export { FormFieldGroup } from './components/FormFieldGroup/FormFieldGroup';
 export type { FormFieldGroupProps } from './components/FormFieldGroup/FormFieldGroup.props';
+
+export { Radio } from './components/Radio/Radio';
+export type { RadioProps } from './components/Radio/Radio.props';
+
+export { RadioGroup } from './components/RadioGroup/RadioGroup';
+export type { RadioGroupProps } from './components/RadioGroup/RadioGroup.props';

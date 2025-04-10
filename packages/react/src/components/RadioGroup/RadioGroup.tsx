@@ -26,7 +26,7 @@ export const RadioGroupRoot = React.forwardRef<RadioGroupRootElement, RadioGroup
         orientation={direction === 'column' ? 'vertical' : 'horizontal'}
         className={clsx(rootComponentClassName, className)}
       >
-        <Flex width={width} gap="16px">
+        <Flex width={width} gap="200">
           {children}
         </Flex>
       </Root>
@@ -59,11 +59,8 @@ export const RadioGroup = React.forwardRef<RadioGroupElement, RadioGroupProps>(
       className,
       label,
       helperText,
-      helperTextPosition,
-      showHelperTextIcon,
-      error,
-      errorMessage,
-      showErrorMessageIcon,
+      validationText,
+      validationStatus,
       required,
       disabled,
       loop,
@@ -81,11 +78,8 @@ export const RadioGroup = React.forwardRef<RadioGroupElement, RadioGroupProps>(
       required,
       label,
       helperText,
-      helperTextPosition,
-      showHelperTextIcon,
-      error,
-      errorMessage,
-      showErrorMessageIcon,
+      validationText,
+      validationStatus,
     };
     const radioGroupRootProps = {
       width: contentWidth,

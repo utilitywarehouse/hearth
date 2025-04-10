@@ -47,18 +47,18 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
     },
     ref
   ) => {
-    const { id, labelId, helperTextId } = useIds({ providedId, componentPrefix: 'radio' });
+    const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
     const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormFieldGroup();
     const showHelperText = !hasGroupHelperText && !!helperText;
     const showLabel = !!label;
 
     return (
       <Flex
-        gap="8px"
+        gap="100"
         className={clsx(componentClassName, className)}
         data-disabled={disabled ? '' : undefined}
       >
-        <Flex align="center" justify="center" className="uw-RadioContainer">
+        <Flex align="center" justify="center" className="hearth-RadioContainer">
           <RadixRadioItem
             ref={ref}
             {...props}
@@ -66,14 +66,14 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
             disabled={disabled}
             aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
             aria-labelledby={ariaLabelledby || !!label ? labelId : undefined}
-            className="uw-RadioItem"
+            className="hearth-RadioItem"
           >
-            <RadixRadioIndicator className="uw-RadioIndicator" />
+            <RadixRadioIndicator className="hearth-RadioIndicator" />
           </RadixRadioItem>
         </Flex>
         {showLabel ? (
-          <Flex direction="column" gap="4px">
-            <Label id={labelId} htmlFor={id} nested disableUserSelect className="uw-RadioLabel">
+          <Flex direction="column" gap="50">
+            <Label id={labelId} htmlFor={id} disableUserSelect className="hearth-RadioLabel">
               {label}
             </Label>
             {showHelperText ? (

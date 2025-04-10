@@ -13,6 +13,7 @@ export * from './letter-spacing.js';
 export * from './line-height.js';
 export * from './link.js';
 export * from './opacity.js';
+export * from './radio.js';
 export * from './space.js';
 export * from './spinner.js';
 export * from './typography.js';
