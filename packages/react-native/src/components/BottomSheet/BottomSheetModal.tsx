@@ -47,6 +47,7 @@ const BottomSheetModal = forwardRef<BottomSheetModal, BottomSheetProps>(
         handleComponent={renderHandle}
         style={[styles.container, containerStyle]}
         backgroundStyle={styles.background}
+        index={-1}
         {...rest}
       >
         <BottomSheetContext.Provider value={value}>{wrappedChildren}</BottomSheetContext.Provider>

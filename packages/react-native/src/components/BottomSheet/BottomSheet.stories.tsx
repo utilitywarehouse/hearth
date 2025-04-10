@@ -32,11 +32,36 @@ const meta = {
       control: 'object',
       description: 'An array of snap points for the bottom sheet',
     },
+    index: {
+      control: 'number',
+      description: 'The initial index of the bottom sheet',
+    },
+    enableContentPanningGesture: {
+      control: 'boolean',
+      description: 'Whether to allow panning gestures on the content',
+    },
+    enableHandlePanningGesture: {
+      control: 'boolean',
+      description: 'Whether to allow panning gestures on the handle',
+    },
+    enableOverDrag: {
+      control: 'boolean',
+      description: 'Whether to allow over-dragging the bottom sheet',
+    },
+    animateOnMount: {
+      control: 'boolean',
+      description: 'Whether to animate the bottom sheet on mount',
+    },
   },
   args: {
     backdrop: true,
     showHandle: true,
     enablePanDownToClose: true,
+    index: -1,
+    enableContentPanningGesture: true,
+    enableHandlePanningGesture: true,
+    enableOverDrag: true,
+    animateOnMount: true,
   },
 } satisfies Meta<typeof BottomSheet>;
 
@@ -54,6 +79,7 @@ const ViewWrap = ({ children }: { children: React.ReactNode }) => (
             UnistylesRuntime.insets.top -
             UnistylesRuntime.insets.bottom -
             33,
+
       position: 'absolute',
       top: 0,
       left: 0,
@@ -78,17 +104,19 @@ export const Playground: Story = {
     }, []);
 
     return (
-      <ViewWrap>
-        <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
+      <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
+        <ViewWrap>
+          <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
-        <BottomSheet ref={bottomSheetRef} {...args}>
-          <Box gap="200">
-            <BodyText>This is a bottom sheet with content.</BodyText>
-            <BodyText>You can swipe it up and down to close.</BodyText>
-            <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
-          </Box>
-        </BottomSheet>
-      </ViewWrap>
+          <BottomSheet ref={bottomSheetRef} {...args} e>
+            <Box gap="200">
+              <BodyText>This is a bottom sheet with content.</BodyText>
+              <BodyText>You can swipe it up and down to close.</BodyText>
+              <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
+            </Box>
+          </BottomSheet>
+        </ViewWrap>
+      </View>
     );
   },
 };

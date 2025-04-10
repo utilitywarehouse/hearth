@@ -41,6 +41,7 @@ const BottomSheet = forwardRef<BottomSheet, BottomSheetProps>(
     return (
       <StyledBottomSheetCore
         ref={bottomSheetRef}
+        index={-1}
         backdropComponent={renderBackdrop}
         handleComponent={renderHandle}
         style={[styles.container, containerStyle]}
