@@ -108,7 +108,7 @@ export const Playground: Story = {
         <ViewWrap>
           <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
-          <BottomSheet ref={bottomSheetRef} {...args} e>
+          <BottomSheet ref={bottomSheetRef} {...args}>
             <Box gap="200">
               <BodyText>This is a bottom sheet with content.</BodyText>
               <BodyText>You can swipe it up and down to close.</BodyText>
