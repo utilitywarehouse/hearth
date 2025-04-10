@@ -1,23 +1,69 @@
-import React, { ElementRef, forwardRef } from 'react';
+import React, { ElementRef, forwardRef, useEffect, useCallback } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
-import { TextInputProps, TextInput, Platform } from 'react-native';
+import {
+  TextInputProps,
+  TextInput as RNTextInput,
+  NativeSyntheticEvent,
+  TextInputFocusEventData,
+} from 'react-native';
 import { useInputContext } from './Input.context';
 import { useTheme } from '../../hooks';
+import { BottomSheetTextInput, useBottomSheetInternal } from '@gorhom/bottom-sheet';
 
-const InputField = forwardRef<ElementRef<typeof TextInput>, TextInputProps>(
-  ({ style, ...props }, ref) => {
+export type InputRef = ElementRef<typeof RNTextInput> | ElementRef<typeof BottomSheetTextInput>;
+
+const InputField = forwardRef<InputRef, TextInputProps>(
+  ({ style, onFocus, onBlur, ...props }, ref) => {
     const { disabled, focused = false, type } = useInputContext();
     styles.useVariants({ focused, type });
     const { components, color } = useTheme();
 
+    // Copied from @gorhom/bottom-sheet BottomSheetTextInput
+    const bottomSheetContext = useBottomSheetInternal(true);
+
+    const handleOnFocus = useCallback(
+      (args: NativeSyntheticEvent<TextInputFocusEventData>) => {
+        if (bottomSheetContext) {
+          bottomSheetContext.shouldHandleKeyboardEvents.value = true;
+        }
+        if (onFocus) {
+          onFocus(args);
+        }
+      },
+      [onFocus, bottomSheetContext?.shouldHandleKeyboardEvents]
+    );
+    const handleOnBlur = useCallback(
+      (args: NativeSyntheticEvent<TextInputFocusEventData>) => {
+        if (bottomSheetContext) {
+          bottomSheetContext.shouldHandleKeyboardEvents.value = false;
+        }
+        if (onBlur) {
+          onBlur(args);
+        }
+      },
+      [onBlur, bottomSheetContext?.shouldHandleKeyboardEvents]
+    );
+
+    useEffect(() => {
+      return () => {
+        // Reset the flag on unmount
+        if (bottomSheetContext) {
+          bottomSheetContext.shouldHandleKeyboardEvents.value = false;
+        }
+      };
+    }, [bottomSheetContext?.shouldHandleKeyboardEvents]);
+    // End of copied code
+
     return (
-      <TextInput
-        ref={ref}
+      <RNTextInput
+        ref={ref as React.Ref<ElementRef<typeof RNTextInput>>}
         placeholderTextColor={components.input.placeholderColor}
         selectionColor={color.uwPurple}
         cursorColor={color.uwPurple}
         verticalAlign="middle"
         aria-disabled={disabled}
+        onFocus={handleOnFocus}
+        onBlur={handleOnBlur}
         {...props}
         style={[styles.input, style]}
       />

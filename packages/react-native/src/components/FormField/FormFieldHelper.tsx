@@ -19,4 +19,6 @@ const FormFieldHelper: FC<Omit<HelperProps, 'validationStatus'>> = ({
   );
 };
 
+FormFieldHelper.displayName = 'FormFieldHelper';
+
 export default FormFieldHelper;

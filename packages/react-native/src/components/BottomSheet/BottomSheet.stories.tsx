@@ -1,12 +1,13 @@
 import React, { useCallback, useRef } from 'react';
-import { BottomSheet } from '.';
+import { BottomSheet, BottomSheetModal, BottomSheetScrollView } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { BodyText } from '../BodyText';
+import { Heading } from '../Heading';
+import { Divider } from '../Divider';
 import { Dimensions, Platform, View } from 'react-native';
 import { UnistylesRuntime } from 'react-native-unistyles';
-import { BottomSheetMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 
 const meta = {
   title: 'Stories / BottomSheet',
@@ -36,7 +37,6 @@ const meta = {
     backdrop: true,
     showHandle: true,
     enablePanDownToClose: true,
-    // snapPoints: ['25%', '50%', '75%'],
   },
 } satisfies Meta<typeof BottomSheet>;
 
@@ -71,8 +71,8 @@ const ViewWrap = ({ children }: { children: React.ReactNode }) => (
 );
 
 export const Playground: Story = {
-  render: args => {
-    const bottomSheetRef = useRef<BottomSheetMethods>(null);
+  render: ({ ...args }) => {
+    const bottomSheetRef = useRef<BottomSheet>(null);
     const handleOpenPress = useCallback(() => {
       bottomSheetRef.current?.expand();
     }, []);
@@ -93,133 +93,135 @@ export const Playground: Story = {
   },
 };
 
-// export const WithSnapPoints: Story = {
-//   render: () => {
-//     const bottomSheetRef = useRef(null);
-//     const handleOpenPress = useCallback(() => {
-//       bottomSheetRef.current?.expand();
-//     }, []);
+export const WithSnapPoints: Story = {
+  render: () => {
+    const bottomSheetRef = useRef<BottomSheetModal>(null);
+    const handleOpenPress = useCallback(() => {
+      bottomSheetRef.current?.present();
+    }, []);
 
-//     return (
-//       <View style={{ width: '100%', height: '100%', paddingTop: 50 }}>
-//         <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
+    return (
+      <ViewWrap>
+        <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
-//         <BottomSheet ref={bottomSheetRef} snapPoints={['25%', '50%', '75%']}>
-//           <Box gap="200">
-//             <BodyText>This bottom sheet has multiple snap points.</BodyText>
-//             <BodyText>Try swiping to see 25%, 50% and 75% heights.</BodyText>
-//             <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
-//           </Box>
-//         </BottomSheet>
-//       </View>
-//     );
-//   },
-// };
+        <BottomSheetModal ref={bottomSheetRef} snapPoints={['25%', '50%', '75%']}>
+          <Box gap="200">
+            <BodyText>This bottom sheet has multiple snap points.</BodyText>
+            <BodyText>Try swiping to see 25%, 50% and 75% heights.</BodyText>
+            <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
+          </Box>
+        </BottomSheetModal>
+      </ViewWrap>
+    );
+  },
+};
 
-// export const DynamicHeight: Story = {
-//   render: () => {
-//     const bottomSheetRef = useRef(null);
-//     const handleOpenPress = useCallback(() => {
-//       bottomSheetRef.current?.expand();
-//     }, []);
+export const DynamicHeight: Story = {
+  render: () => {
+    const bottomSheetRef = useRef<BottomSheetModal>(null);
+    const handleOpenPress = useCallback(() => {
+      bottomSheetRef.current?.present();
+    }, []);
 
-//     return (
-//       <View style={{ width: '100%', height: '100%', paddingTop: 50 }}>
-//         <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
+    return (
+      <ViewWrap>
+        <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
-//         <BottomSheet ref={bottomSheetRef} snapPoints={['CONTENT_HEIGHT']}>
-//           <Box gap="200" padding="100">
-//             <BodyText>This bottom sheet will resize based on its content height.</BodyText>
-//             <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
-//           </Box>
-//         </BottomSheet>
-//       </View>
-//     );
-//   },
-// };
+        <BottomSheetModal ref={bottomSheetRef}>
+          <Box gap="200" padding="100">
+            <BodyText>This bottom sheet will resize based on its content height.</BodyText>
+            <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
+          </Box>
+        </BottomSheetModal>
+      </ViewWrap>
+    );
+  },
+};
 
-// export const WithoutHandle: Story = {
-//   render: () => {
-//     const bottomSheetRef = useRef(null);
-//     const handleOpenPress = useCallback(() => {
-//       bottomSheetRef.current?.expand();
-//     }, []);
+export const WithoutHandle: Story = {
+  render: () => {
+    const bottomSheetRef = useRef<BottomSheetModal>(null);
+    const handleOpenPress = useCallback(() => {
+      bottomSheetRef.current?.present();
+    }, []);
 
-//     return (
-//       <View style={{ width: '100%', height: '100%', paddingTop: 50 }}>
-//         <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
+    return (
+      <ViewWrap>
+        <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
-//         <BottomSheet ref={bottomSheetRef} showHandle={false} snapPoints={['25%', '50%']}>
-//           <Box gap="200">
-//             <BodyText>This bottom sheet doesn't show the handle at the top.</BodyText>
-//             <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
-//           </Box>
-//         </BottomSheet>
-//       </View>
-//     );
-//   },
-// };
+        <BottomSheetModal ref={bottomSheetRef} showHandle={false} snapPoints={['25%', '50%']}>
+          <Box gap="200">
+            <BodyText>This bottom sheet doesn't show the handle at the top.</BodyText>
+            <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
+          </Box>
+        </BottomSheetModal>
+      </ViewWrap>
+    );
+  },
+};
 
-// export const WithoutBackdrop: Story = {
-//   render: () => {
-//     const bottomSheetRef = useRef(null);
-//     const handleOpenPress = useCallback(() => {
-//       bottomSheetRef.current?.expand();
-//     }, []);
+export const WithoutBackdrop: Story = {
+  render: () => {
+    const bottomSheetRef = useRef<BottomSheetModal>(null);
+    const handleOpenPress = useCallback(() => {
+      bottomSheetRef.current?.present();
+    }, []);
 
-//     return (
-//       <View style={{ width: '100%', height: '100%', paddingTop: 50 }}>
-//         <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
+    return (
+      <ViewWrap>
+        <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
-//         <BottomSheet ref={bottomSheetRef} backdrop={false} snapPoints={['25%', '50%']}>
-//           <Box gap="200">
-//             <BodyText>This bottom sheet doesn't show a backdrop overlay.</BodyText>
-//             <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
-//           </Box>
-//         </BottomSheet>
-//       </View>
-//     );
-//   },
-// };
+        <BottomSheetModal ref={bottomSheetRef} backdrop={false} snapPoints={['25%', '50%']}>
+          <Box gap="200">
+            <BodyText>This bottom sheet doesn't show a backdrop overlay.</BodyText>
+            <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
+          </Box>
+        </BottomSheetModal>
+      </ViewWrap>
+    );
+  },
+};
 
-// export const ComplexContent: Story = {
-//   render: () => {
-//     const bottomSheetRef = useRef(null);
-//     const handleOpenPress = useCallback(() => {
-//       bottomSheetRef.current?.expand();
-//     }, []);
+export const ComplexContent: Story = {
+  render: () => {
+    const bottomSheetRef = useRef<BottomSheetModal>(null);
+    const handleOpenPress = useCallback(() => {
+      bottomSheetRef.current?.present();
+    }, []);
 
-//     return (
-//       <View style={{ width: '100%', height: '100%', paddingTop: 50 }}>
-//         <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
+    return (
+      <ViewWrap>
+        <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
-//         <BottomSheet ref={bottomSheetRef} snapPoints={['50%', '90%']}>
-//           <Box gap="200">
-//             <BodyText weight="semiBold" size="lg">
-//               Bottom Sheet with Complex Content
-//             </BodyText>
-//             <Divider />
-//             <BodyText>This is a more complex bottom sheet with various content sections.</BodyText>
+        <BottomSheetModal ref={bottomSheetRef} snapPoints={['50%', '90%']}>
+          <Box gap="200">
+            <Heading size="lg">Bottom Sheet with Complex Content</Heading>
+            <Divider />
+            <BodyText>This is a more complex bottom sheet with various content sections.</BodyText>
 
-//             <Box gap="100">
-//               <BodyText weight="semiBold">Features:</BodyText>
-//               <BodyText>• Multiple snap points</BodyText>
-//               <BodyText>• Custom styling</BodyText>
-//               <BodyText>• Complex layout</BodyText>
-//               <BodyText>• Custom handle and backdrop</BodyText>
-//             </Box>
+            <Box gap="100">
+              <BodyText weight="semibold">Features:</BodyText>
+              <BodyText>• Multiple snap points</BodyText>
+              <BodyText>• Custom styling</BodyText>
+              <BodyText>• Complex layout</BodyText>
+              <BodyText>• Custom handle and backdrop</BodyText>
+            </Box>
 
-//             <Divider />
+            <Divider />
 
-//             <Box flexDirection="row" justifyContent="space-between">
-//               <Button variant="outline" onPress={() => bottomSheetRef.current?.close()}>
-//                 Cancel
-//               </Button>
-//               <Button onPress={() => bottomSheetRef.current?.close()}>Confirm</Button>
-//             </Box>
-//           </Box>
-//         </BottomSheet>
-//       </View>
-//     );
-//   },
-// };
+            <Box flexDirection="row" justifyContent="space-between">
+              <Button
+                colorScheme="grey"
+                variant="outline"
+                onPress={() => bottomSheetRef.current?.close()}
+              >
+                Cancel
+              </Button>
+              <Button onPress={() => bottomSheetRef.current?.close()}>Confirm</Button>
+            </Box>
+          </Box>
+        </BottomSheetModal>
+      </ViewWrap>
+    );
+  },
+};

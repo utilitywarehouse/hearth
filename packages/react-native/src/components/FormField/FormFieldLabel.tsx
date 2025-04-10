@@ -8,4 +8,6 @@ const FormFieldLabel: FC<Omit<LabelProps, 'disabled'>> = ({ children }) => {
   return <Label disabled={disabled}>{children}</Label>;
 };
 
+FormFieldLabel.displayName = 'FormFieldLabel';
+
 export default FormFieldLabel;

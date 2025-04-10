@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import type { Preview } from '@storybook/react';
 import { useArgs } from 'storybook/internal/preview-api';
-import { themes, breakpoints, StyleSheet } from '../src/core';
+import { themes, breakpoints, StyleSheet, HearthUIProvider } from '../src/core';
 import '@utilitywarehouse/hearth-fonts';
 import '../../../shared/storybook/styles/preview.css';
 
@@ -51,7 +51,11 @@ const preview: Preview = {
         }
       }, [args.darkMode, args.surface, args.inverted]);
 
-      return <Story />;
+      return (
+        <HearthUIProvider>
+          <Story />
+        </HearthUIProvider>
+      );
     },
   ],
 };

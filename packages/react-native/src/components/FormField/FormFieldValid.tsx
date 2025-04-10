@@ -29,4 +29,6 @@ const FormFieldValid: FC<Omit<HelperProps, 'validationStatus'>> = ({
   ) : null;
 };
 
+FormFieldValid.displayName = 'FormFieldValid';
+
 export default FormFieldValid;

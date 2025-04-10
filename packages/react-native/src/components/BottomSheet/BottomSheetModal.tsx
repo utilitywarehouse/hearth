@@ -1,16 +1,16 @@
 import React, { forwardRef, useMemo } from 'react';
-import BottomSheetCore from '@gorhom/bottom-sheet';
+import { BottomSheetModal as BottomSheetModalCore } from '@gorhom/bottom-sheet';
 import type BottomSheetProps from './BottomSheet.props';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import useBottomSheetLogic from './useBottomSheetLogic';
-import { BottomSheetMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
+import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import { BottomSheetContext } from './BottomSheet.context';
 
-const StyledBottomSheetCore = withUnistyles(BottomSheetCore);
+const StyledBottomSheetModalCore = withUnistyles(BottomSheetModalCore);
 
-type BottomSheet = BottomSheetMethods;
+type BottomSheetModal<T = any> = BottomSheetModalMethods<T>;
 
-const BottomSheet = forwardRef<BottomSheet, BottomSheetProps>(
+const BottomSheetModal = forwardRef<BottomSheetModal, BottomSheetProps>(
   (
     {
       children,
@@ -23,23 +23,27 @@ const BottomSheet = forwardRef<BottomSheet, BottomSheetProps>(
     },
     ref
   ) => {
-    const bottomSheetRef = React.useRef<BottomSheet>(null);
+    const bottomSheetRef = React.useRef<BottomSheetModal>(null);
 
-    const { renderBackdrop, renderHandle, wrappedChildren } = useBottomSheetLogic<BottomSheet>({
-      ref,
-      bottomSheetRef,
-      children,
-      backdrop,
-      showHandle,
-      handleStyle,
-      contentStyle,
-      isModal: false,
-    });
+    const { renderBackdrop, renderHandle, wrappedChildren } = useBottomSheetLogic<BottomSheetModal>(
+      {
+        ref,
+        bottomSheetRef,
+        children,
+        backdrop,
+        showHandle,
+        handleStyle,
+        contentStyle,
+        isModal: true,
+      }
+    );
+
+    console.log('BottomSheetModal', { backdrop, showHandle });
 
     const value = useMemo(() => ({ handle: showHandle }), [showHandle]);
 
     return (
-      <StyledBottomSheetCore
+      <StyledBottomSheetModalCore
         ref={bottomSheetRef}
         backdropComponent={renderBackdrop}
         handleComponent={renderHandle}
@@ -48,7 +52,7 @@ const BottomSheet = forwardRef<BottomSheet, BottomSheetProps>(
         {...rest}
       >
         <BottomSheetContext.Provider value={value}>{wrappedChildren}</BottomSheetContext.Provider>
-      </StyledBottomSheetCore>
+      </StyledBottomSheetModalCore>
     );
   }
 );
@@ -64,6 +68,6 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-BottomSheet.displayName = 'BottomSheet';
+BottomSheetModal.displayName = 'BottomSheetModal';
 
-export default BottomSheet;
+export default BottomSheetModal;

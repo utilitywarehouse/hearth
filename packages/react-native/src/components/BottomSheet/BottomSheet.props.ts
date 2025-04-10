@@ -1,4 +1,4 @@
-import { ReactNode, RefObject } from 'react';
+import { ReactNode } from 'react';
 import { ViewStyle } from 'react-native';
 import {
   BottomSheetProps as GorhomBottomSheetProps,
@@ -35,6 +35,8 @@ interface BottomSheetProps extends Omit<GorhomBottomSheetProps, 'handleComponent
    * @default true
    */
   showHandle?: boolean;
+
+  contentStyle?: ViewStyle;
 }
 
 export default BottomSheetProps;
