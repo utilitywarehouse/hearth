@@ -13,7 +13,6 @@ const BottomSheetView = forwardRef<typeof View, BottomSheetViewProps & { isModal
       isModal,
       handle,
     });
-    console.log(handle);
     return (
       <StyledBottomSheetView ref={ref} style={[styles.contentContainer, style]} {...props}>
         {children}

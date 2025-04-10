@@ -1,8 +1,8 @@
-import React, { forwardRef, useContext } from 'react';
+import React, { forwardRef } from 'react';
 import { BottomSheetScrollView as ScrollView } from '@gorhom/bottom-sheet';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { BottomSheetScrollViewProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetScrollable/types';
-import { BottomSheetContext } from './BottomSheet.context';
+import { useBottomSheetContext } from './BottomSheet.context';
 
 const StyledBottomSheetScrollView = withUnistyles(ScrollView);
 
@@ -10,7 +10,7 @@ const BottomSheetScrollView = forwardRef<
   typeof ScrollView,
   BottomSheetScrollViewProps & { isModal?: boolean }
 >(({ children, style, contentContainerStyle, isModal, ...props }, ref) => {
-  const { handle } = useContext(BottomSheetContext);
+  const { handle } = useBottomSheetContext();
   styles.useVariants({
     isModal,
     handle,

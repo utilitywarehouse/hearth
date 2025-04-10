@@ -38,8 +38,6 @@ const BottomSheetModal = forwardRef<BottomSheetModal, BottomSheetProps>(
       }
     );
 
-    console.log('BottomSheetModal', { backdrop, showHandle });
-
     const value = useMemo(() => ({ handle: showHandle }), [showHandle]);
 
     return (
