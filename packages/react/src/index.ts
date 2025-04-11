@@ -111,5 +111,8 @@ export type { RadioProps } from './components/Radio/Radio.props';
 export { RadioTile } from './components/RadioTile/RadioTile';
 export type { RadioTileProps } from './components/RadioTile/RadioTile.props';
 
+export { RadioCard } from './components/RadioCard/RadioCard';
+export type { RadioCardProps } from './components/RadioCard/RadioCard.props';
+
 export { RadioGroup } from './components/RadioGroup/RadioGroup';
 export type { RadioGroupProps } from './components/RadioGroup/RadioGroup.props';

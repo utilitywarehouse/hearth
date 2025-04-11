@@ -27,5 +27,6 @@
 @import url('./FieldsetLegend/FieldsetLegend.css');
 @import url('./Radio/Radio.css');
 @import url('./RadioTile/RadioTile.css');
+@import url('./RadioCard/RadioCard.css');
 @import url('./RadioGroup/RadioGroup.css');
 @import url('./SelectableCard/SelectableCard.css');

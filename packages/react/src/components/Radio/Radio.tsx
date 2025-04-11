@@ -42,6 +42,7 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
       helperText,
       disabled,
       className,
+      labelFontWeight,
       'aria-labelledby': ariaLabelledby,
       ...props
     },
@@ -51,7 +52,6 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
     const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormFieldGroup();
     const showHelperText = !hasGroupHelperText && !!helperText;
     const showLabel = !!label;
-
     return (
       <Flex
         gap="100"
@@ -73,7 +73,13 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
         </Flex>
         {showLabel ? (
           <Flex direction="column" gap="50">
-            <Label id={labelId} htmlFor={id} disableUserSelect className="hearth-RadioLabel">
+            <Label
+              id={labelId}
+              htmlFor={id}
+              disableUserSelect
+              fontWeight={labelFontWeight}
+              className="hearth-RadioLabel"
+            >
               {label}
             </Label>
             {showHelperText ? (
