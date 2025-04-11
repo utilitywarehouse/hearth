@@ -108,5 +108,8 @@ export type { FormFieldGroupProps } from './components/FormFieldGroup/FormFieldG
 export { Radio } from './components/Radio/Radio';
 export type { RadioProps } from './components/Radio/Radio.props';
 
+export { RadioTile } from './components/RadioTile/RadioTile';
+export type { RadioTileProps } from './components/RadioTile/RadioTile.props';
+
 export { RadioGroup } from './components/RadioGroup/RadioGroup';
 export type { RadioGroupProps } from './components/RadioGroup/RadioGroup.props';

@@ -8,6 +8,7 @@ interface CommonLabelProps extends MarginProps {
    * @default label
    */
   as?: 'label' | 'span';
+  fontWeight?: 'regular' | 'semibold';
   /** Set the label appearance to disabled */
   disabled?: boolean;
   /** Make the text unselectable, for use when associated with input elements. */

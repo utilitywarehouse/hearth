@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { SelectableCard, Flex, BodyText } from '@utilitywarehouse/hearth-react';
-import { Radio, RadioGroup } from '@utilitywarehouse/web-ui';
+import {
+  SelectableCard,
+  Flex,
+  Box,
+  Radio,
+  RadioGroup,
+  Badge,
+} from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof SelectableCard> = {
   title: 'Stories / SelectableCard',
@@ -16,6 +22,8 @@ const meta: Meta<typeof SelectableCard> = {
   argTypes: {
     children: { control: { type: 'text' } },
     selected: { control: { type: 'boolean' } },
+    borderRadius: { control: { type: 'radio' }, options: ['md', 'xl'] },
+    padding: { control: { type: 'radio' }, options: ['static', 'responsive'] },
   },
   args: {
     children:
@@ -32,20 +40,48 @@ export const Playground: Story = {};
 export const SelectRadioExample: Story = {
   render: () => {
     return (
-      <RadioGroup defaultValue="1" direction="row" contentWidth="800px">
-        <SelectableCard flex="1">
-          <Flex direction="row" justify="space-between" width="100%">
-            <BodyText size="md">Debit card payment</BodyText>
-            <Radio value="1" sx={{ flex: 'none' }} />
+      <Flex>
+        <RadioGroup defaultValue="1" direction="column" contentWidth="350px">
+          <Flex direction="column">
+            <Flex right="24px" position="relative" justify="end">
+              <Badge flatBase colorScheme="green">
+                Recommended
+              </Badge>
+            </Flex>
+
+            <SelectableCard gap="150" direction="column">
+              <Radio value="1" label="Debit card payment" />
+              <Flex asChild gap="100" direction="column">
+                <ul role="list">
+                  <Box asChild marginLeft="100">
+                    <li>• Unlimited free top-ups</li>
+                  </Box>
+                  <Box asChild marginLeft="100">
+                    <li>• Instant withdrawals</li>
+                  </Box>
+                  <Box asChild marginLeft="100">
+                    <li>• Extra layer of security</li>
+                  </Box>
+                </ul>
+              </Flex>
+            </SelectableCard>
           </Flex>
-        </SelectableCard>
-        <SelectableCard flex="1">
-          <Flex direction="row" justify="space-between" width="100%">
-            <BodyText size="md">Instant bank transfer</BodyText>
-            <Radio value="2" sx={{ flex: 'none' }} />
-          </Flex>
-        </SelectableCard>
-      </RadioGroup>
+
+          <SelectableCard gap="150" direction="column">
+            <Radio value="2" label="Instant bank transfer" />
+            <Flex asChild gap="100" direction="column">
+              <ul role="list">
+                <Box asChild marginLeft="100">
+                  <li>• 5 free top-ups per month</li>
+                </Box>
+                <Box asChild marginLeft="100">
+                  <li>• £0.35 per additional top-up</li>
+                </Box>
+              </ul>
+            </Flex>
+          </SelectableCard>
+        </RadioGroup>
+      </Flex>
     );
   },
 };

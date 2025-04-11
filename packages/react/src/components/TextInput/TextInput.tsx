@@ -70,7 +70,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
         }}
       >
         <Flex direction="column" data-visually-hidden={hideLabel ? '' : undefined}>
-          <Label htmlFor={id} id={labelId} disableUserSelect>
+          <Label htmlFor={id} id={labelId} disableUserSelect fontWeight="semibold">
             {label}
             {required ? null : (
               <BodyText as="span" marginLeft="50">

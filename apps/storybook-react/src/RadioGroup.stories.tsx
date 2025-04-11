@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { RadioGroup, Flex, Radio, Box } from '@utilitywarehouse/hearth-react';
+import { RadioGroup, Flex, Radio, RadioTile } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof RadioGroup> = {
   title: 'Stories / RadioGroup',
@@ -24,7 +24,6 @@ const meta: Meta<typeof RadioGroup> = {
     contentWidth: { control: { type: 'text' } },
   },
   args: {
-    defaultValue: '1',
     label: 'Label',
     disabled: false,
     helperText: 'Helper text',
@@ -42,11 +41,16 @@ type Story = StoryObj<typeof RadioGroup>;
 export const Playground: Story = {
   render: args => {
     return (
-      <Flex gap="80px">
+      <Flex gap="400">
         <RadioGroup {...args} name="with-radio">
           <Radio value="1" label="One" />
           <Radio value="2" label="Two" />
           <Radio value="3" label="Three" />
+        </RadioGroup>
+        <RadioGroup {...args} name="with-radio-tile">
+          <RadioTile value="1" label="One" />
+          <RadioTile value="2" label="Two" />
+          <RadioTile value="3" label="Three" />
         </RadioGroup>
       </Flex>
     );

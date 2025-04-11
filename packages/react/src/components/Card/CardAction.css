@@ -16,10 +16,12 @@
 
       &::after {
         z-index: 0;
-        cursor: pointer;
         content: '';
         position: absolute;
         inset: 0;
+        &:where(:not([data-disabled], [data-disabled] &)) {
+          cursor: pointer;
+        }
       }
     }
   }
