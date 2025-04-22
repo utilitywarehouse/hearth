@@ -1,14 +1,6 @@
 export const checkbox = {
   borderRadius: 'var(--h-checkbox-border-radius)',
   borderWidth: 'var(--h-checkbox-border-width)',
-  card: {
-    group: {
-      gap: 'var(--h-checkbox-card-group-gap)',
-      stack: {
-        gap: 'var(--h-checkbox-card-group-stack-gap)',
-      },
-    },
-  },
   checked: {
     backgroundColor: 'var(--h-checkbox-checked-background-color)',
     borderColor: 'var(--h-checkbox-checked-border-color)',
@@ -24,6 +16,25 @@ export const checkbox = {
   outlineColorActive: 'var(--h-checkbox-outline-color-active)',
   outlineColorHover: 'var(--h-checkbox-outline-color-hover)',
   outlineWidth: 'var(--h-checkbox-outline-width)',
+  tile: {
+    backgroundColor: 'var(--h-checkbox-tile-background-color)',
+    borderColor: 'var(--h-checkbox-tile-border-color)',
+    borderColorSelected: 'var(--h-checkbox-tile-border-color-selected)',
+    borderRadius: 'var(--h-checkbox-tile-border-radius)',
+    borderWidth: 'var(--h-checkbox-tile-border-width)',
+    borderWidthSelected: 'var(--h-checkbox-tile-border-width-selected)',
+    gap: 'var(--h-checkbox-tile-gap)',
+    group: {
+      gap: 'var(--h-checkbox-tile-group-gap)',
+      stack: {
+        gap: 'var(--h-checkbox-tile-group-stack-gap)',
+      },
+    },
+    maxWidth: 'var(--h-checkbox-tile-max-width)',
+    minWidth: 'var(--h-checkbox-tile-min-width)',
+    paddingHorizontal: 'var(--h-checkbox-tile-padding-horizontal)',
+    paddingVertical: 'var(--h-checkbox-tile-padding-vertical)',
+  },
   unchecked: {
     backgroundColor: 'var(--h-checkbox-unchecked-background-color)',
     borderColor: 'var(--h-checkbox-unchecked-border-color)',

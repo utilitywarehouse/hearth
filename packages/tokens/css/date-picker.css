@@ -23,9 +23,9 @@
   --h-date-picker-calendar-item-background-color-active: var(--h-color-grey-200);
   --h-date-picker-calendar-item-background-color-hover: var(--h-color-grey-100);
   --h-date-picker-calendar-item-background-color-range: var(--h-color-grey-50);
-  --h-date-picker-calendar-item-background-color-selected: var(--h-color-uw-purple);
+  --h-date-picker-calendar-item-background-color-selected: var(--h-color-purple-700);
   --h-date-picker-calendar-item-border-radius: var(--h-border-radius-md);
-  --h-date-picker-calendar-item-roundel-background-color: var(--h-color-uw-purple);
+  --h-date-picker-calendar-item-roundel-background-color: var(--h-color-purple-700);
   --h-date-picker-calendar-item-roundel-background-color-inverted: var(--h-color-warm-white-50);
   --h-date-picker-calendar-item-roundel-height: var(--h-space-75);
   --h-date-picker-calendar-item-roundel-width: var(--h-space-75);

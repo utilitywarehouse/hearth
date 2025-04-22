@@ -1,15 +1,6 @@
 export const color = {
   common: {
-    broadbandBlue: 'var(--h-color-broadband-blue)',
-    cashbackLilac: 'var(--h-color-cashback-lilac)',
-    darkPurple: 'var(--h-color-dark-purple)',
-    energyGreen: 'var(--h-color-energy-green)',
-    insuranceOrange: 'var(--h-color-insurance-orange)',
-    mobileRose: 'var(--h-color-mobile-rose)',
-    piggyPink: 'var(--h-color-piggy-pink)',
-    uwPurple: 'var(--h-color-uw-purple)',
     white: 'var(--h-color-white)',
-    yellow: 'var(--h-color-yellow)',
   },
   blue: {
     '50': 'var(--h-color-blue-50)',
@@ -23,6 +14,21 @@ export const color = {
     '800': 'var(--h-color-blue-800)',
     '900': 'var(--h-color-blue-900)',
     '1000': 'var(--h-color-blue-1000)',
+  },
+  broadbandGreen: {
+    '200': 'var(--h-color-broadband-green-200)',
+    '300': 'var(--h-color-broadband-green-300)',
+    '600': 'var(--h-color-broadband-green-600)',
+  },
+  cashbackLilac: {
+    '300': 'var(--h-color-cashback-lilac-300)',
+    '500': 'var(--h-color-cashback-lilac-500)',
+    '600': 'var(--h-color-cashback-lilac-600)',
+  },
+  energyBlue: {
+    '200': 'var(--h-color-energy-blue-200)',
+    '300': 'var(--h-color-energy-blue-300)',
+    '600': 'var(--h-color-energy-blue-600)',
   },
   green: {
     '50': 'var(--h-color-green-50)',
@@ -50,6 +56,16 @@ export const color = {
     '900': 'var(--h-color-grey-900)',
     '1000': 'var(--h-color-grey-1000)',
   },
+  insuranceOrange: {
+    '300': 'var(--h-color-insurance-orange-300)',
+    '400': 'var(--h-color-insurance-orange-400)',
+    '700': 'var(--h-color-insurance-orange-700)',
+  },
+  mobileRose: {
+    '200': 'var(--h-color-mobile-rose-200)',
+    '400': 'var(--h-color-mobile-rose-400)',
+    '600': 'var(--h-color-mobile-rose-600)',
+  },
   orange: {
     '50': 'var(--h-color-orange-50)',
     '100': 'var(--h-color-orange-100)',
@@ -63,7 +79,13 @@ export const color = {
     '900': 'var(--h-color-orange-900)',
     '1000': 'var(--h-color-orange-1000)',
   },
+  piggyPink: {
+    '200': 'var(--h-color-piggy-pink-200)',
+    '300': 'var(--h-color-piggy-pink-300)',
+    '500': 'var(--h-color-piggy-pink-500)',
+  },
   purple: {
+    '300': 'var(--h-color-purple-300)',
     '700': 'var(--h-color-purple-700)',
     '800': 'var(--h-color-purple-800)',
     '900': 'var(--h-color-purple-900)',

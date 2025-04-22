@@ -5,14 +5,6 @@
 export default {
   borderRadius: 4,
   borderWidth: 2,
-  card: {
-    group: {
-      gap: 8,
-      stack: {
-        gap: 8,
-      },
-    },
-  },
   checked: {
     backgroundColor: '#f6f5f5',
     borderColor: '#f6f5f5',
@@ -28,6 +20,25 @@ export default {
   outlineColorActive: '#d4d2c0',
   outlineColorHover: '#f1efe4',
   outlineWidth: 3,
+  tile: {
+    backgroundColor: '#ffffff',
+    borderColor: '#d4d2c0',
+    borderColorSelected: '#f6f5f5',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderWidthSelected: 2,
+    gap: 8,
+    group: {
+      gap: 12,
+      stack: {
+        gap: 8,
+      },
+    },
+    maxWidth: 504,
+    minWidth: 200,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+  },
   unchecked: {
     backgroundColor: '#ffffff',
     borderColor: '#5f5c5b',

@@ -1,49 +1,33 @@
 export declare const card: {
-  readonly borderColorSelected: 'var(--h-card-border-color-selected)';
   readonly borderRadius: 'var(--h-card-border-radius)';
-  readonly borderWidthSelected: 'var(--h-card-border-width-selected)';
-  readonly broadbandBlueBackgroundColor: 'var(--h-card-broadband-blue-background-color)';
-  readonly cashbackLilacBackgroundColor: 'var(--h-card-cashback-lilac-background-color)';
   readonly emphasis: {
     readonly borderColor: 'var(--h-card-emphasis-border-color)';
     readonly borderWidth: 'var(--h-card-emphasis-border-width)';
+    readonly broadbandGreenBackgroundColor: 'var(--h-card-emphasis-broadband-green-background-color)';
+    readonly cashbackLilacBackgroundColor: 'var(--h-card-emphasis-cashback-lilac-background-color)';
+    readonly energyBlueBackgroundColor: 'var(--h-card-emphasis-energy-blue-background-color)';
+    readonly insuranceOrangeBackgroundColor: 'var(--h-card-emphasis-insurance-orange-background-color)';
+    readonly mobileRoseBackgroundColor: 'var(--h-card-emphasis-mobile-rose-background-color)';
+    readonly purpleBackgroundColor: 'var(--h-card-emphasis-purple-background-color)';
   };
-  readonly energyGreenBackgroundColor: 'var(--h-card-energy-green-background-color)';
-  readonly insuranceOrangeBackgroundColor: 'var(--h-card-insurance-orange-background-color)';
-  readonly mobileRoseBackgroundColor: 'var(--h-card-mobile-rose-background-color)';
-  readonly purpleBackgroundColor: 'var(--h-card-purple-background-color)';
+  readonly selectable: {
+    readonly borderColor: 'var(--h-card-selectable-border-color)';
+    readonly borderColorSelected: 'var(--h-card-selectable-border-color-selected)';
+    readonly borderWidth: 'var(--h-card-selectable-border-width)';
+    readonly borderWidthSelected: 'var(--h-card-selectable-border-width-selected)';
+    readonly gap: 'var(--h-card-selectable-gap)';
+  };
   readonly subtle: {
     readonly borderColor: 'var(--h-card-subtle-border-color)';
     readonly borderWidth: 'var(--h-card-subtle-border-width)';
+    readonly broadbandGreenBackgroundColor: 'var(--h-card-subtle-broadband-green-background-color)';
+    readonly cashbackLilacBackgroundColor: 'var(--h-card-subtle-cashback-lilac-background-color)';
+    readonly energyBlueBackgroundColor: 'var(--h-card-subtle-energy-blue-background-color)';
+    readonly insuranceOrangeBackgroundColor: 'var(--h-card-subtle-insurance-orange-background-color)';
+    readonly mobileRoseBackgroundColor: 'var(--h-card-subtle-mobile-rose-background-color)';
+    readonly purpleBackgroundColor: 'var(--h-card-subtle-purple-background-color)';
+    readonly yellowBackgroundColor: 'var(--h-card-subtle-yellow-background-color)';
   };
-  readonly warmWhite: {
-    readonly backgroundColor: 'var(--h-card-warm-white-background-color)';
-    readonly backgroundColorActive: 'var(--h-card-warm-white-background-color-active)';
-    readonly backgroundColorHover: 'var(--h-card-warm-white-background-color-hover)';
-  };
-  readonly white: {
-    readonly backgroundColor: 'var(--h-card-white-background-color)';
-    readonly backgroundColorActive: 'var(--h-card-white-background-color-active)';
-    readonly backgroundColorHover: 'var(--h-card-white-background-color-hover)';
-  };
-  readonly checkbox: {
-    readonly card: {
-      readonly group: {
-        readonly gap: 'var(--h-checkbox-card-group-gap)';
-        readonly stack: {
-          readonly gap: 'var(--h-checkbox-card-group-stack-gap)';
-        };
-      };
-    };
-  };
-  readonly radio: {
-    readonly card: {
-      readonly group: {
-        readonly gap: 'var(--h-radio-card-group-gap)';
-        readonly stack: {
-          readonly gap: 'var(--h-radio-card-group-stack-gap)';
-        };
-      };
-    };
-  };
+  readonly warmWhiteBackgroundColor: 'var(--h-card-warm-white-background-color)';
+  readonly whiteBackgroundColor: 'var(--h-card-white-background-color)';
 };

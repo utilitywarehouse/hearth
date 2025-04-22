@@ -16,8 +16,7 @@ declare const _default: {
       readonly borderColor: '#f6f5f5';
     };
     readonly gap: 12;
-    readonly paddingHorizontal: 12;
-    readonly paddingVertical: 16;
+    readonly padding: 16;
     readonly subtle: {
       readonly borderColor: '#d4d2c0';
     };

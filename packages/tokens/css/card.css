@@ -3,27 +3,29 @@
  */
 
 :root {
-  --h-card-border-color-selected: var(--h-color-grey-1000);
   --h-card-border-radius: var(--h-border-radius-xl);
-  --h-card-border-width-selected: var(--h-border-width-2);
-  --h-card-broadband-blue-background-color: var(--h-color-broadband-blue);
-  --h-card-cashback-lilac-background-color: var(--h-color-cashback-lilac);
   --h-card-emphasis-border-color: var(--h-color-grey-1000);
   --h-card-emphasis-border-width: var(--h-border-width-2);
-  --h-card-energy-green-background-color: var(--h-color-energy-green);
-  --h-card-insurance-orange-background-color: var(--h-color-insurance-orange);
-  --h-card-mobile-rose-background-color: var(--h-color-mobile-rose);
-  --h-card-purple-background-color: var(--h-color-uw-purple);
+  --h-card-emphasis-broadband-green-background-color: var(--h-color-broadband-green-300);
+  --h-card-emphasis-cashback-lilac-background-color: var(--h-color-cashback-lilac-500);
+  --h-card-emphasis-energy-blue-background-color: var(--h-color-energy-blue-300);
+  --h-card-emphasis-insurance-orange-background-color: var(--h-color-insurance-orange-400);
+  --h-card-emphasis-mobile-rose-background-color: var(--h-color-mobile-rose-400);
+  --h-card-emphasis-purple-background-color: var(--h-color-purple-700);
+  --h-card-selectable-border-color: var(--h-color-warm-white-300);
+  --h-card-selectable-border-color-selected: var(--h-color-grey-1000);
+  --h-card-selectable-border-width: var(--h-border-width-1);
+  --h-card-selectable-border-width-selected: var(--h-border-width-2);
+  --h-card-selectable-gap: var(--h-space-200);
   --h-card-subtle-border-color: var(--h-color-warm-white-300);
   --h-card-subtle-border-width: var(--h-border-width-1);
+  --h-card-subtle-broadband-green-background-color: var(--h-color-broadband-green-200);
+  --h-card-subtle-cashback-lilac-background-color: var(--h-color-cashback-lilac-300);
+  --h-card-subtle-energy-blue-background-color: var(--h-color-energy-blue-200);
+  --h-card-subtle-insurance-orange-background-color: var(--h-color-insurance-orange-300);
+  --h-card-subtle-mobile-rose-background-color: var(--h-color-mobile-rose-200);
+  --h-card-subtle-purple-background-color: var(--h-color-purple-300);
+  --h-card-subtle-yellow-background-color: var(--h-color-yellow-200);
   --h-card-warm-white-background-color: var(--h-color-warm-white-50);
-  --h-card-warm-white-background-color-active: var(--h-color-warm-white-200);
-  --h-card-warm-white-background-color-hover: var(--h-color-warm-white-100);
   --h-card-white-background-color: var(--h-color-white);
-  --h-card-white-background-color-active: var(--h-color-warm-white-100);
-  --h-card-white-background-color-hover: var(--h-color-warm-white-50);
-  --h-checkbox-card-group-gap: var(--h-space-100);
-  --h-checkbox-card-group-stack-gap: var(--h-space-100);
-  --h-radio-card-group-gap: var(--h-space-100);
-  --h-radio-card-group-stack-gap: var(--h-space-100);
 }

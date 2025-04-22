@@ -2,41 +2,37 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly borderColorSelected: '#101010';
   readonly borderRadius: 16;
-  readonly borderWidthSelected: 2;
-  readonly broadbandBlueBackgroundColor: '#6db5c3';
-  readonly cashbackLilacBackgroundColor: '#be7aeb';
   readonly emphasis: {
     readonly borderColor: '#101010';
     readonly borderWidth: 2;
+    readonly broadbandGreenBackgroundColor: '#8cba3b';
+    readonly cashbackLilacBackgroundColor: '#be7aeb';
+    readonly energyBlueBackgroundColor: '#6db5c3';
+    readonly insuranceOrangeBackgroundColor: '#ff7b00';
+    readonly mobileRoseBackgroundColor: '#ee6dbb';
+    readonly purpleBackgroundColor: '#7a42c8';
   };
-  readonly energyGreenBackgroundColor: '#8cba3b';
-  readonly insuranceOrangeBackgroundColor: '#ff7b00';
-  readonly mobileRoseBackgroundColor: '#ee6dbb';
-  readonly purpleBackgroundColor: '#7a42c8';
+  readonly selectable: {
+    readonly borderColor: '#d4d2c0';
+    readonly borderColorSelected: '#101010';
+    readonly borderWidth: 1;
+    readonly borderWidthSelected: 2;
+    readonly gap: 16;
+  };
   readonly subtle: {
     readonly borderColor: '#d4d2c0';
     readonly borderWidth: 1;
+    readonly broadbandGreenBackgroundColor: '#d2e6b0';
+    readonly cashbackLilacBackgroundColor: '#dfbdf5';
+    readonly energyBlueBackgroundColor: '#bddee4';
+    readonly insuranceOrangeBackgroundColor: '#ffb46d';
+    readonly mobileRoseBackgroundColor: '#fad0e9';
+    readonly purpleBackgroundColor: '#d5c3ee';
+    readonly yellowBackgroundColor: '#ffd885';
   };
-  readonly warmWhite: {
-    readonly backgroundColor: '#fcfbf2';
-    readonly backgroundColorActive: '#f1efe4';
-    readonly backgroundColorHover: '#f7f6eb';
-  };
-  readonly white: {
-    readonly backgroundColor: '#ffffff';
-    readonly backgroundColorActive: '#f7f6eb';
-    readonly backgroundColorHover: '#fcfbf2';
-  };
-  readonly card: {
-    readonly group: {
-      readonly gap: 8;
-      readonly stack: {
-        readonly gap: 8;
-      };
-    };
-  };
+  readonly warmWhiteBackgroundColor: '#fcfbf2';
+  readonly whiteBackgroundColor: '#ffffff';
   readonly mobile: {
     readonly padding: 16;
     readonly paddingNone: 0;
