@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react';
-import { BottomSheet, BottomSheetModal, BottomSheetScrollView } from '.';
+import { BottomSheet, BottomSheetModal } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { Box } from '../Box';
 import { Button } from '../Button';
@@ -96,6 +96,7 @@ const ViewWrap = ({ children }: { children: React.ReactNode }) => (
   </View>
 );
 
+// @ts-expect-error - Doesn't include all props
 export const Playground: Story = {
   render: ({ ...args }) => {
     const bottomSheetRef = useRef<BottomSheet>(null);
@@ -121,6 +122,7 @@ export const Playground: Story = {
   },
 };
 
+// @ts-expect-error - Doesn't include all props
 export const WithSnapPoints: Story = {
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
@@ -144,6 +146,7 @@ export const WithSnapPoints: Story = {
   },
 };
 
+// @ts-expect-error - Doesn't include all props
 export const DynamicHeight: Story = {
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
@@ -166,6 +169,7 @@ export const DynamicHeight: Story = {
   },
 };
 
+// @ts-expect-error - Doesn't include all props
 export const WithoutHandle: Story = {
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
@@ -188,6 +192,7 @@ export const WithoutHandle: Story = {
   },
 };
 
+// @ts-expect-error - Doesn't include all props
 export const WithoutBackdrop: Story = {
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
@@ -210,6 +215,7 @@ export const WithoutBackdrop: Story = {
   },
 };
 
+// @ts-expect-error - Doesn't include all props
 export const ComplexContent: Story = {
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
