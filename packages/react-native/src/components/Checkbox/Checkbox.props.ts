@@ -5,7 +5,7 @@ type CheckboxBaseProps = {
   onChange?: (isSelected: boolean) => void;
   disabled?: boolean;
   validationStatus?: 'valid' | 'invalid' | 'initial';
-  type?: 'default' | 'card';
+  type?: 'default' | 'tile';
 } & (
   | {
       value?: string | number | boolean;

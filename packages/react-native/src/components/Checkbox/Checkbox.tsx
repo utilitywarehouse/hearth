@@ -11,7 +11,7 @@ import { Pressable } from 'react-native';
 import { Helper } from '../Helper';
 import { useCheckboxGroupContext } from './CheckboxGroup.context';
 import { useFormFieldContext } from '../FormField';
-import CheckboxCardRoot from './CheckboxCardRoot';
+import CheckboxTileRoot from './CheckboxTileRoot';
 import CheckboxTextContent from './CheckboxTextContent';
 
 const CheckboxComponent = createCheckbox({
@@ -87,8 +87,8 @@ const Checkbox = forwardRef<ElementRef<typeof Pressable>, CheckboxProps>(
     return (
       // @ts-expect-error - ref is not a valid prop for Pressable
       <CheckboxComponent ref={ref} {...props} isDisabled={disabled} isChecked={checked}>
-        {checkboxType === 'card' ? (
-          <CheckboxCardRoot>{checkboxChildren}</CheckboxCardRoot>
+        {checkboxType === 'tile' ? (
+          <CheckboxTileRoot>{checkboxChildren}</CheckboxTileRoot>
         ) : (
           checkboxChildren
         )}
@@ -97,16 +97,16 @@ const Checkbox = forwardRef<ElementRef<typeof Pressable>, CheckboxProps>(
   }
 );
 
-const CheckboxCard = forwardRef<ElementRef<typeof Pressable>, CheckboxProps>(
-  ({ type = 'card', ...props }, ref) => {
+const CheckboxTile = forwardRef<ElementRef<typeof Pressable>, CheckboxProps>(
+  ({ type = 'tile', ...props }, ref) => {
     return <Checkbox {...props} ref={ref} type={type} />;
   }
 );
 
-CheckboxCard.displayName = 'CheckboxCard';
+CheckboxTile.displayName = 'CheckboxTile';
 
 Checkbox.displayName = 'Checkbox';
 
-export { Checkbox, CheckboxGroup, CheckboxIndicator, CheckboxIcon, CheckboxLabel, CheckboxCard };
+export { Checkbox, CheckboxGroup, CheckboxIndicator, CheckboxIcon, CheckboxLabel, CheckboxTile };
 
 export default Checkbox;

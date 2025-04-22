@@ -67,7 +67,7 @@
 //   {
 //     props,
 //     variant: {
-//       container: 'card',
+//       container: 'tile',
 //       'Heading?': true,
 //     },
 //     example: ({ heading, listItems, cardProps }) => (
@@ -88,7 +88,7 @@
 //   {
 //     props,
 //     variant: {
-//       container: 'card',
+//       container: 'tile',
 //       'Heading?': false,
 //     },
 //     example: ({ listItems, cardProps }) => (
