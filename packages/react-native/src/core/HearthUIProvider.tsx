@@ -2,6 +2,7 @@ import React, { PropsWithChildren, useEffect } from 'react';
 import { breakpoints } from './breakpoints';
 import { themes } from './themes';
 import { StyleSheet, UnistylesRuntime, UnistylesThemes } from 'react-native-unistyles';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
 StyleSheet.configure({
   breakpoints,
@@ -19,7 +20,7 @@ const HearthUIProvider: React.FC<PropsWithChildren<{ colorMode?: keyof Unistyles
   useEffect(() => {
     UnistylesRuntime.setTheme(colorMode === 'dark' ? 'dark' : 'light');
   }, [colorMode]);
-  return children;
+  return <BottomSheetModalProvider>{children}</BottomSheetModalProvider>;
 };
 
 export default HearthUIProvider;

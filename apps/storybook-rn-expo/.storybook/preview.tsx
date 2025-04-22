@@ -3,8 +3,8 @@ import { ScrollView, useColorScheme } from 'react-native';
 import { useArgs } from '@storybook/preview-api';
 import { Linking } from 'react-native';
 import { navigate } from './utils';
-import { UnistylesRuntime } from 'react-native-unistyles';
 import { color } from '@utilitywarehouse/hearth-tokens';
+import { BottomSheetModalProvider } from '@utilitywarehouse/hearth-react-native';
 
 /** @type{import("@storybook/react").Preview} */
 const preview = {
@@ -71,7 +71,7 @@ const preview = {
             flex: 1,
             backgroundColor: bg,
           }}
-          contentContainerStyle={{ padding: 8 }}
+          contentContainerStyle={{ padding: 8, flex: 1 }}
         >
           <Story />
         </ScrollView>

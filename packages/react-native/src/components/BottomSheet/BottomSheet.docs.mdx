@@ -1,0 +1,163 @@
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
+import * as Stories from './BottomSheet.stories';
+import {
+  Box,
+  BottomSheet,
+  BottomSheetModal,
+  BottomSheetScrollView,
+  Button,
+  Center,
+  BodyText,
+} from '../../';
+import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+
+<Meta title="Components / Bottom Sheet" />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=4084-33370" />
+
+<BackToTopButton />
+
+# Bottom Sheet
+
+The `BottomSheet` component provides a drawer-like interface that slides up from the bottom of the screen. It's commonly used for displaying additional content or actions without navigating away from the current screen.
+
+> **Important:** For most use cases, we recommend using the `BottomSheetModal` component instead of `BottomSheet`. The modal version appears over the page content, whereas the standard `BottomSheet` is rendered inline with other page content.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Components](#components)
+  - [`BottomSheetModal`](#bottomsheetmodal)
+  - [`BottomSheetScrollView`](#bottomsheetscrollview)
+  - [`BottomSheetModalProvider`](#bottomsheetmodalprovider)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+### Basic Usage
+
+<UsageWrap>
+  <Center>
+    <Button onPress={() => {}}>Open Bottom Sheet</Button>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { useRef, useCallback } from 'react';
+import { BottomSheetModal, Button, Box, BodyText } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const bottomSheetRef = useRef(null);
+
+  const handleOpenPress = useCallback(() => {
+    bottomSheetRef.current?.present();
+  }, []);
+
+  return (
+    <>
+      <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
+
+      <BottomSheetModal ref={bottomSheetRef} snapPoints={['25%', '50%']}>
+        <Box gap="200" padding="100">
+          <BodyText>This is a bottom sheet modal that appears over your content.</BodyText>
+          <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
+        </Box>
+      </BottomSheetModal>
+    </>
+  );
+};
+```
+
+## Props
+
+The BottomSheet component is built on top of [react-native-bottom-sheet](https://gorhom.dev/react-native-bottom-sheet/), and accepts all of its props, plus the following additional props:
+
+| Property                    | Type                                            | Description                                                                                                    | Default         |
+| --------------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | --------------- |
+| children                    | `ReactNode`                                     | The content to display within the bottom sheet                                                                 | -               |
+| backdrop                    | `boolean \| React.FC<BottomSheetBackdropProps>` | Whether to show a backdrop overlay when the sheet is open or provide a custom backdrop component               | `true`          |
+| showHandle                  | `boolea`                                        | Whether to show the handle at the top of the sheet                                                             | `true`          |
+| containerStyle              | `ViewStyle`                                     | Style for the bottom sheet container                                                                           | -               |
+| handleStyle                 | `ViewStyle`                                     | Style for the bottom sheet handle                                                                              | -               |
+| contentStyle                | `ViewStyle`                                     | Style for the bottom sheet content container                                                                   | -               |
+| snapPoints                  | `(string \| number)[]`                          | Points for the bottom sheet to snap to, specified as an array of percentages (e.g., ['25%', '50%']) or numbers | `[]`            |
+| index                       | `number`                                        | The initial snap point index                                                                                   | `-1` (closed)   |
+| enablePanDownToClose        | `boolean`                                       | Whether to allow swiping down to close the sheet                                                               | `true`          |
+| onChange                    | `(index: number) => void`                       | Callback when the sheet changes position                                                                       | -               |
+| enableContentPanningGesture | `boolean`                                       | Whether to allow panning gestures on the content                                                               | `true`          |
+| enableHandlePanningGesture  | `boolean`                                       | Whether to allow panning gestures on the handle                                                                | `true`          |
+| keyboardBehavior            | `'interactive' \| 'extend' \| 'fillParent'`     | Defines how the bottom sheet interacts with the keyboard                                                       | `'interactive'` |
+| animateOnMount              | `boolean`                                       | Whether to animate on mounting                                                                                 | `false`         |
+
+For a comprehensive list of props, refer to the [official documentation](https://gorhom.github.io/react-native-bottom-sheet/props).
+
+## Components
+
+### `BottomSheetModal`
+
+The `BottomSheetModal` component is the recommended way to use bottom sheets in most applications. It appears over the current content rather than being rendered inline.
+
+```tsx
+import { BottomSheetModal } from '@utilitywarehouse/hearth-react-native';
+
+// See usage example above
+```
+
+**Important:** When using `BottomSheetModal`, you need to wrap your app with `BottomSheetModalProvider`:
+
+```tsx
+import { BottomSheetModalProvider } from '@utilitywarehouse/hearth-react-native';
+
+const App = () => {
+  return <BottomSheetModalProvider>{/* Your app content */}</BottomSheetModalProvider>;
+};
+```
+
+### `BottomSheetScrollView`
+
+For scrollable content within a bottom sheet, use the `BottomSheetScrollView` component instead of the standard ScrollView:
+
+```tsx
+import {
+  BottomSheetModal,
+  BottomSheetScrollView,
+  Box,
+  BodyText,
+} from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const bottomSheetRef = useRef(null);
+
+  return (
+    <BottomSheetModal ref={bottomSheetRef} snapPoints={['50%', '90%']}>
+      <BottomSheetScrollView>
+        <Box gap="200" padding="100">
+          <BodyText>This is scrollable content inside the bottom sheet.</BodyText>
+          {/* Add more content here */}
+        </Box>
+      </BottomSheetScrollView>
+    </BottomSheetModal>
+  );
+};
+```
+
+### `BottomSheetModalProvider`
+
+As mentioned above, when using `BottomSheetModal`, you need to wrap your app with `BottomSheetModalProvider`:
+
+```tsx
+import { BottomSheetModalProvider } from '@utilitywarehouse/hearth-react-native';
+
+const App = () => {
+  return <BottomSheetModalProvider>{/* Your app content */}</BottomSheetModalProvider>;
+};
+```
+
+## External Resources
+
+This component is built on top of [@gorhom/bottom-sheet](https://gorhom.github.io/react-native-bottom-sheet/) (v5). For more information about advanced usage and additional features, please refer to the [official documentation](https://gorhom.dev/react-native-bottom-sheet/).
