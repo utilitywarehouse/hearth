@@ -8,6 +8,7 @@ export {
   BottomSheetSectionList,
   BottomSheetVirtualizedList,
   useBottomSheet,
+  useBottomSheetModal,
   type BottomSheetBackdropProps,
   type BottomSheetBackgroundProps,
   type BottomSheetHandleProps,
