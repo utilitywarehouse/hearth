@@ -42,7 +42,7 @@ const preview: Preview = {
         const storybookContainer = document.getElementsByTagName('body')[0];
         if (storybookContainer) {
           if (args.inverted) {
-            storybookContainer.style.backgroundColor = color.common.uwPurple;
+            storybookContainer.style.backgroundColor = color.light.purple['300'];
           } else {
             storybookContainer.style.backgroundColor = !args.darkMode
               ? color.light.warmWhite['50']

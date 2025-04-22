@@ -59,7 +59,7 @@ const preview = {
           return undefined;
         }
         if (args.inverted) {
-          return color.common.uwPurple;
+          return color.light.purple['300'];
         }
         // return themeColourMode === 'dark' ? '#1D1D1D' : color.light.warmWhite['50'];
         return color.light.warmWhite['50'];
