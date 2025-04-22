@@ -58,17 +58,6 @@ const useBottomSheetLogic = <T = any,>(props: UseBottomSheetLogicProps<T>) => {
   // Forward ref methods to parent component
   useImperativeHandle(ref, () => bottomSheetRef.current as T);
 
-  // Find any Input components in the children and add the isBottomSheet prop
-  const hasInputChildren = hasChildrenByDisplayName(children, 'Input', true);
-
-  if (hasInputChildren) {
-    React.Children.forEach(children, child => {
-      if (React.isValidElement(child) && child.type === 'Input') {
-        child.props.isBottomSheet = true;
-      }
-    });
-  }
-
   const childrenContainsBottomSheetView = hasChildrenByDisplayName(children, [
     'BottomSheetView',
     'BottomSheetScrollView',

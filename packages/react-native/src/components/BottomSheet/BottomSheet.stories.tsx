@@ -8,6 +8,8 @@ import { Heading } from '../Heading';
 import { Divider } from '../Divider';
 import { Dimensions, Platform, View } from 'react-native';
 import { UnistylesRuntime } from 'react-native-unistyles';
+import { Input } from '../Input';
+import { FormField, FormFieldLabel } from '../FormField';
 
 const meta = {
   title: 'Stories / BottomSheet',
@@ -252,6 +254,47 @@ export const ComplexContent: Story = {
                 Cancel
               </Button>
               <Button onPress={() => bottomSheetRef.current?.close()}>Confirm</Button>
+            </Box>
+          </Box>
+        </BottomSheetModal>
+      </ViewWrap>
+    );
+  },
+};
+
+// @ts-expect-error - Doesn't include all props
+export const WithInput: Story = {
+  render: () => {
+    const bottomSheetRef = useRef<BottomSheetModal>(null);
+    const handleOpenPress = useCallback(() => {
+      bottomSheetRef.current?.present();
+    }, []);
+
+    return (
+      <ViewWrap>
+        <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
+
+        <BottomSheetModal ref={bottomSheetRef}>
+          <Box gap="200">
+            <Heading size="lg">Bottom Sheet with Input</Heading>
+            <Divider />
+            <BodyText>This bottom sheet contains an input field.</BodyText>
+
+            <FormField label="Input Field">
+              <Input placeholder="Type something..." />
+            </FormField>
+
+            <Divider />
+
+            <Box flexDirection="row" justifyContent="space-between">
+              <Button
+                colorScheme="grey"
+                variant="outline"
+                onPress={() => bottomSheetRef.current?.close()}
+              >
+                Cancel
+              </Button>
+              <Button onPress={() => bottomSheetRef.current?.close()}>Submit</Button>
             </Box>
           </Box>
         </BottomSheetModal>
