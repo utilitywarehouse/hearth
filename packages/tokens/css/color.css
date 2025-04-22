@@ -3,11 +3,6 @@
  */
 
 :root {
-  --h-color-broadband-blue: #6db5c3;
-  --h-color-cashback-lilac: #be7aeb;
-  --h-color-dark-purple: #26164f;
-  --h-color-energy-green: #8cba3b;
-  --h-color-insurance-orange: #ff7b00;
   --h-color-blue-50: #eef7ff;
   --h-color-blue-100: #d9ecff;
   --h-color-blue-200: #bcddff;
@@ -19,6 +14,15 @@
   --h-color-blue-800: #2354a4;
   --h-color-blue-900: #0b3375;
   --h-color-blue-1000: #001433;
+  --h-color-broadband-green-200: #d2e6b0;
+  --h-color-broadband-green-300: #8cba3b;
+  --h-color-broadband-green-600: #64862a;
+  --h-color-cashback-lilac-300: #dfbdf5;
+  --h-color-cashback-lilac-500: #be7aeb;
+  --h-color-cashback-lilac-600: #9f3be2;
+  --h-color-energy-blue-200: #bddee4;
+  --h-color-energy-blue-300: #6db5c3;
+  --h-color-energy-blue-600: #367683;
   --h-color-green-50: #e7f9f0;
   --h-color-green-100: #c5edda;
   --h-color-green-200: #a2e2c3;
@@ -41,6 +45,12 @@
   --h-color-grey-800: #464444;
   --h-color-grey-900: #3e3c3b;
   --h-color-grey-1000: #101010;
+  --h-color-insurance-orange-300: #ffb46d;
+  --h-color-insurance-orange-400: #ff7b00;
+  --h-color-insurance-orange-700: #cf6400;
+  --h-color-mobile-rose-200: #fad0e9;
+  --h-color-mobile-rose-400: #ee6dbb;
+  --h-color-mobile-rose-600: #e51d95;
   --h-color-orange-50: #fff5ed;
   --h-color-orange-100: #ffe6d4;
   --h-color-orange-200: #ffcca8;
@@ -52,6 +62,10 @@
   --h-color-orange-800: #ad4b00;
   --h-color-orange-900: #893900;
   --h-color-orange-1000: #4a1f00;
+  --h-color-piggy-pink-200: #f9ceff;
+  --h-color-piggy-pink-300: #f295ff;
+  --h-color-piggy-pink-500: #e837ff;
+  --h-color-purple-300: #d5c3ee;
   --h-color-purple-700: #7a42c8;
   --h-color-purple-800: #572e9e;
   --h-color-purple-900: #3f2475;
@@ -82,9 +96,5 @@
   --h-color-yellow-800: #8f6200;
   --h-color-yellow-900: #6b4900;
   --h-color-yellow-1000: #473100;
-  --h-color-mobile-rose: #ee6dbb;
-  --h-color-piggy-pink: #f295ff;
-  --h-color-uw-purple: #7a42c8;
   --h-color-white: #fff;
-  --h-color-yellow: #ffb921;
 }

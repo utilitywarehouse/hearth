@@ -13,8 +13,7 @@ export const list = {
       borderColor: 'var(--h-list-item-emphasis-border-color)',
     },
     gap: 'var(--h-list-item-gap)',
-    paddingHorizontal: 'var(--h-list-item-padding-horizontal)',
-    paddingVertical: 'var(--h-list-item-padding-vertical)',
+    padding: 'var(--h-list-item-padding)',
     subtle: {
       borderColor: 'var(--h-list-item-subtle-border-color)',
     },

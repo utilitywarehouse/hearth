@@ -1,15 +1,6 @@
 export declare const color: {
   readonly common: {
-    readonly broadbandBlue: 'var(--h-color-broadband-blue)';
-    readonly cashbackLilac: 'var(--h-color-cashback-lilac)';
-    readonly darkPurple: 'var(--h-color-dark-purple)';
-    readonly energyGreen: 'var(--h-color-energy-green)';
-    readonly insuranceOrange: 'var(--h-color-insurance-orange)';
-    readonly mobileRose: 'var(--h-color-mobile-rose)';
-    readonly piggyPink: 'var(--h-color-piggy-pink)';
-    readonly uwPurple: 'var(--h-color-uw-purple)';
     readonly white: 'var(--h-color-white)';
-    readonly yellow: 'var(--h-color-yellow)';
   };
   readonly blue: {
     readonly '50': 'var(--h-color-blue-50)';
@@ -23,6 +14,21 @@ export declare const color: {
     readonly '800': 'var(--h-color-blue-800)';
     readonly '900': 'var(--h-color-blue-900)';
     readonly '1000': 'var(--h-color-blue-1000)';
+  };
+  readonly broadbandGreen: {
+    readonly '200': 'var(--h-color-broadband-green-200)';
+    readonly '300': 'var(--h-color-broadband-green-300)';
+    readonly '600': 'var(--h-color-broadband-green-600)';
+  };
+  readonly cashbackLilac: {
+    readonly '300': 'var(--h-color-cashback-lilac-300)';
+    readonly '500': 'var(--h-color-cashback-lilac-500)';
+    readonly '600': 'var(--h-color-cashback-lilac-600)';
+  };
+  readonly energyBlue: {
+    readonly '200': 'var(--h-color-energy-blue-200)';
+    readonly '300': 'var(--h-color-energy-blue-300)';
+    readonly '600': 'var(--h-color-energy-blue-600)';
   };
   readonly green: {
     readonly '50': 'var(--h-color-green-50)';
@@ -50,6 +56,16 @@ export declare const color: {
     readonly '900': 'var(--h-color-grey-900)';
     readonly '1000': 'var(--h-color-grey-1000)';
   };
+  readonly insuranceOrange: {
+    readonly '300': 'var(--h-color-insurance-orange-300)';
+    readonly '400': 'var(--h-color-insurance-orange-400)';
+    readonly '700': 'var(--h-color-insurance-orange-700)';
+  };
+  readonly mobileRose: {
+    readonly '200': 'var(--h-color-mobile-rose-200)';
+    readonly '400': 'var(--h-color-mobile-rose-400)';
+    readonly '600': 'var(--h-color-mobile-rose-600)';
+  };
   readonly orange: {
     readonly '50': 'var(--h-color-orange-50)';
     readonly '100': 'var(--h-color-orange-100)';
@@ -63,7 +79,13 @@ export declare const color: {
     readonly '900': 'var(--h-color-orange-900)';
     readonly '1000': 'var(--h-color-orange-1000)';
   };
+  readonly piggyPink: {
+    readonly '200': 'var(--h-color-piggy-pink-200)';
+    readonly '300': 'var(--h-color-piggy-pink-300)';
+    readonly '500': 'var(--h-color-piggy-pink-500)';
+  };
   readonly purple: {
+    readonly '300': 'var(--h-color-purple-300)';
     readonly '700': 'var(--h-color-purple-700)';
     readonly '800': 'var(--h-color-purple-800)';
     readonly '900': 'var(--h-color-purple-900)';
