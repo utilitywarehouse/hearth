@@ -35,14 +35,14 @@ const CheckboxGroup = forwardRef<View, CheckboxGroupProps>(
     const showHeader = !!label || !!helperText || !!invalidText || !!validText;
     const childrenArray = React.Children.toArray(children);
     const childIsCard =
-      type === 'card' ||
+      type === 'tile' ||
       childrenArray.some(
         child =>
           React.isValidElement(child) &&
           // @ts-expect-error - child.type is not typed
-          (child.props.type === 'card' || child.type.displayName === 'CheckboxCard')
+          (child.props.type === 'tile' || child.type.displayName === 'CheckboxTile')
       );
-    styles.useVariants({ type: childIsCard ? 'card' : 'checkbox', direction });
+    styles.useVariants({ type: childIsCard ? 'tile' : 'checkbox', direction });
     return (
       <CheckboxGroupContext.Provider value={value}>
         <CheckboxGroupComponent
@@ -90,8 +90,8 @@ const styles = StyleSheet.create(theme => ({
         checkbox: {
           gap: theme.components.checkbox.group.stack.gap,
         },
-        card: {
-          gap: theme.components.checkbox.card.group.stack.gap,
+        tile: {
+          gap: theme.components.checkbox.tile.group.stack.gap,
         },
       },
       direction: {

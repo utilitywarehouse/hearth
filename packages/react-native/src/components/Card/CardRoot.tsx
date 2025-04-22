@@ -118,38 +118,32 @@ const styles = StyleSheet.create(theme => ({
       },
       colorScheme: {
         white: {
-          backgroundColor: theme.components.card.white.backgroundColor,
+          backgroundColor: theme.components.card.whiteBackgroundColor,
         },
         warmWhite: {
-          backgroundColor: theme.components.card.warmWhite.backgroundColor,
+          backgroundColor: theme.components.card.warmWhiteBackgroundColor,
         },
         purple: {
-          backgroundColor: theme.components.card.purpleBackgroundColor,
           borderWidth: theme.components.card.emphasis.borderWidth,
           borderColor: theme.components.card.emphasis.borderColor,
         },
-        energyGreen: {
-          backgroundColor: theme.components.card.energyGreenBackgroundColor,
+        energyBlue: {
           borderWidth: theme.components.card.emphasis.borderWidth,
           borderColor: theme.components.card.emphasis.borderColor,
         },
-        broadbandBlue: {
-          backgroundColor: theme.components.card.broadbandBlueBackgroundColor,
+        broadbandGreen: {
           borderWidth: theme.components.card.emphasis.borderWidth,
           borderColor: theme.components.card.emphasis.borderColor,
         },
         mobileRose: {
-          backgroundColor: theme.components.card.mobileRoseBackgroundColor,
           borderWidth: theme.components.card.emphasis.borderWidth,
           borderColor: theme.components.card.emphasis.borderColor,
         },
         insuranceOrange: {
-          backgroundColor: theme.components.card.insuranceOrangeBackgroundColor,
           borderWidth: theme.components.card.emphasis.borderWidth,
           borderColor: theme.components.card.emphasis.borderColor,
         },
         cashbackLilac: {
-          backgroundColor: theme.components.card.cashbackLilacBackgroundColor,
           borderWidth: theme.components.card.emphasis.borderWidth,
           borderColor: theme.components.card.emphasis.borderColor,
         },
@@ -168,9 +162,9 @@ const styles = StyleSheet.create(theme => ({
       },
       selected: {
         true: {
-          borderWidth: theme.components.card.borderWidthSelected,
-          borderColor: theme.components.card.borderColorSelected,
-          margin: -theme.components.card.borderWidthSelected / 2,
+          borderWidth: theme.components.card.selectable.borderWidthSelected,
+          borderColor: theme.components.card.selectable.borderColor,
+          margin: -theme.components.card.selectable.borderWidthSelected / 2,
         },
       },
       active: {
@@ -188,6 +182,92 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     },
+    compoundVariants: [
+      {
+        variant: 'subtle',
+        colorScheme: 'purple',
+        styles: {
+          backgroundColor: theme.components.card.subtle.purpleBackgroundColor,
+        },
+      },
+      {
+        variant: 'emphasis',
+        colorScheme: 'purple',
+        styles: {
+          backgroundColor: theme.components.card.emphasis.purpleBackgroundColor,
+        },
+      },
+      {
+        variant: 'subtle',
+        colorScheme: 'energyBlue',
+        styles: {
+          backgroundColor: theme.components.card.subtle.energyBlueBackgroundColor,
+        },
+      },
+      {
+        variant: 'emphasis',
+        colorScheme: 'energyBlue',
+        styles: {
+          backgroundColor: theme.components.card.emphasis.energyBlueBackgroundColor,
+        },
+      },
+      {
+        variant: 'subtle',
+        colorScheme: 'broadbandGreen',
+        styles: {
+          backgroundColor: theme.components.card.subtle.broadbandGreenBackgroundColor,
+        },
+      },
+      {
+        variant: 'emphasis',
+        colorScheme: 'broadbandGreen',
+        styles: {
+          backgroundColor: theme.components.card.emphasis.broadbandGreenBackgroundColor,
+        },
+      },
+      {
+        variant: 'subtle',
+        colorScheme: 'mobileRose',
+        styles: {
+          backgroundColor: theme.components.card.subtle.mobileRoseBackgroundColor,
+        },
+      },
+      {
+        variant: 'emphasis',
+        colorScheme: 'mobileRose',
+        styles: {
+          backgroundColor: theme.components.card.emphasis.mobileRoseBackgroundColor,
+        },
+      },
+      {
+        variant: 'subtle',
+        colorScheme: 'insuranceOrange',
+        styles: {
+          backgroundColor: theme.components.card.subtle.insuranceOrangeBackgroundColor,
+        },
+      },
+      {
+        variant: 'emphasis',
+        colorScheme: 'insuranceOrange',
+        styles: {
+          backgroundColor: theme.components.card.emphasis.insuranceOrangeBackgroundColor,
+        },
+      },
+      {
+        variant: 'subtle',
+        colorScheme: 'cashbackLilac',
+        styles: {
+          backgroundColor: theme.components.card.subtle.cashbackLilacBackgroundColor,
+        },
+      },
+      {
+        variant: 'emphasis',
+        colorScheme: 'cashbackLilac',
+        styles: {
+          backgroundColor: theme.components.card.emphasis.cashbackLilacBackgroundColor,
+        },
+      },
+    ],
   },
 }));
 

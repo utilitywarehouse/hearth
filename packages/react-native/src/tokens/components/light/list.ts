@@ -17,8 +17,7 @@ export default {
       borderColor: '#101010',
     },
     gap: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 16,
+    padding: 16,
     subtle: {
       borderColor: '#d4d2c0',
     },

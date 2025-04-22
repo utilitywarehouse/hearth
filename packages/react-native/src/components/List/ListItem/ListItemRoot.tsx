@@ -133,8 +133,7 @@ ListItemRoot.displayName = 'ListItemRoot';
 
 const styles = StyleSheet.create(theme => ({
   container: {
-    paddingVertical: theme.components.list.item.paddingVertical,
-    paddingHorizontal: theme.components.list.item.paddingHorizontal,
+    padding: theme.components.list.item.padding,
     flexDirection: 'row',
     gap: theme.components.list.item.gap,
     variants: {

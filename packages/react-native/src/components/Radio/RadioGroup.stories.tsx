@@ -43,7 +43,7 @@ const meta = {
     },
     type: {
       control: 'select',
-      options: ['default', 'card'],
+      options: ['default', 'tile'],
       description: 'The type of the radio group component',
       defaultValue: 'default',
     },

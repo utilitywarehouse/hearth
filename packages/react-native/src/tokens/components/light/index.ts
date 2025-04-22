@@ -5,6 +5,7 @@
 export { default as accordion } from './accordion';
 export { default as alert } from './alert';
 export { default as badge } from './badge';
+export { default as banner } from './banner';
 export { default as bottomSheet } from './bottom-sheet';
 export { default as button } from './button';
 export { default as card } from './card';

@@ -35,14 +35,14 @@ const RadioGroup = forwardRef<View, RadioGroupProps>(
     const showHeader = !!label || !!helperText || !!invalidText || !!validText;
     const childrenArray = React.Children.toArray(children);
     const childIsCard =
-      type === 'card' ||
+      type === 'tile' ||
       childrenArray.some(
         child =>
           React.isValidElement(child) &&
           // @ts-expect-error - child.type is not typed
-          (child.props.type === 'card' || child.type.displayName === 'RadioCard')
+          (child.props.type === 'tile' || child.type.displayName === 'RadioTile')
       );
-    styles.useVariants({ type: childIsCard ? 'card' : 'radio', direction });
+    styles.useVariants({ type: childIsCard ? 'tile' : 'radio', direction });
     return (
       <RadioGroupContext.Provider value={value}>
         <RadioGroupComponent
@@ -91,8 +91,8 @@ const styles = StyleSheet.create(theme => ({
         radio: {
           gap: theme.components.radio.group.stack.gap,
         },
-        card: {
-          gap: theme.components.radio.card.group.stack.gap,
+        tile: {
+          gap: theme.components.radio.tile.group.stack.gap,
         },
       },
       direction: {
