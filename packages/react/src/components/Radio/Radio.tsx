@@ -16,7 +16,6 @@ import { useIds } from '../../hooks/use-ids';
 import { HelperText } from '../HelperText/HelperText';
 import type { ElementRef } from 'react';
 import { useFormFieldGroup } from '../FormFieldGroup/FormFieldGroup.context';
-import { ValidationText } from '../ValidationText/ValidationText';
 
 const componentName = 'Radio';
 const componentClassName = withGlobalPrefix(componentName);
@@ -41,8 +40,6 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
       id: providedId,
       label,
       helperText,
-      invalid,
-      validationText,
       disabled,
       className,
       labelFontWeight,
@@ -52,16 +49,9 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
     ref
   ) => {
     const { id, labelId, helperTextId, validationTextId } = useIds({ providedId, prefix: 'radio' });
-    const {
-      hasGroupHelperText,
-      hasGroupValidationText,
-      'aria-describedby': ariaDescribedby,
-    } = useFormFieldGroup();
+    const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormFieldGroup();
     const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
     const showLabel = !!label;
-    const showValidationText = Boolean(
-      !disabled && !hasGroupValidationText && invalid && validationText !== undefined
-    );
     return (
       <Flex
         gap="100"
@@ -96,11 +86,6 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
               <HelperText id={helperTextId} disableUserSelect>
                 {helperText}
               </HelperText>
-            ) : null}
-            {showValidationText ? (
-              <ValidationText status="invalid" disableUserSelect id={validationTextId}>
-                {validationText}
-              </ValidationText>
             ) : null}
           </Flex>
         ) : null}

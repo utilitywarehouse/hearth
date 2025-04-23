@@ -8,8 +8,6 @@ const meta: Meta<typeof Radio> = {
   argTypes: {
     value: { control: { type: 'text' } },
     helperText: { control: { type: 'text' } },
-    validationText: { control: { type: 'text' } },
-    invalid: { control: { type: 'boolean' } },
     label: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
   },
@@ -30,10 +28,6 @@ export const Playground: Story = {
           <Radio {...args} />
         </RadioGroup>
 
-        <RadioGroup defaultValue={args.value} label="Invalid checked radio">
-          <Radio {...args} invalid helperText="" />
-        </RadioGroup>
-
         <RadioGroup value="2" label="Disabled unchecked radio">
           <Radio {...args} disabled />
         </RadioGroup>
@@ -49,7 +43,5 @@ export const Playground: Story = {
     disabled: false,
     label: 'Radio label',
     helperText: 'Radio helper text',
-    validationText: 'Radio validation text',
-    invalid: false,
   },
 };

@@ -12,6 +12,4 @@ export interface RadioProps extends RadioGroupItemProps {
   labelFontWeight?: LabelProps['fontWeight'];
   /** Helper text for the Radio. Will not display if the radio group has `helperText` set. */
   helperText?: ReactNode;
-  invalid?: boolean;
-  validationText?: string;
 }
