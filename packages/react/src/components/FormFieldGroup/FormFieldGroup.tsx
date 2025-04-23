@@ -47,7 +47,10 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
       ariaErrorMessage || showValidationText ? validationTextId : undefined
     );
     const value = {
-      hasGroupHelperText: !!helperText,
+      hasGroupHelperText: Boolean(helperText !== undefined),
+      hasGroupValidationText: Boolean(
+        validationStatus !== undefined && validationText !== undefined
+      ),
       'aria-describedby': ariaDescribedbyValue,
     };
 
@@ -64,11 +67,7 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
       >
         {label ? (
           <Flex direction="column" align="start">
-            {label ? (
-              <FieldsetLegend id={labelId} disabled={disabled}>
-                {label}
-              </FieldsetLegend>
-            ) : null}
+            {label ? <FieldsetLegend id={labelId}>{label}</FieldsetLegend> : null}
             {helperText ? (
               <HelperText id={helperTextId} disabled={disabled}>
                 {helperText}

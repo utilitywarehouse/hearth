@@ -13,13 +13,10 @@ const meta: Meta<typeof RadioGroup> = {
       control: { type: 'radio' },
     },
     defaultValue: { control: { type: 'text' } },
-    helperText: { control: { type: 'text' } },
-    helperTextPosition: { options: ['top', 'bottom'], control: { type: 'radio' } },
-    showHelperTextIcon: { control: { type: 'boolean' } },
     label: { control: { type: 'text' } },
-    error: { control: { type: 'boolean' } },
-    errorMessage: { control: { type: 'text' } },
-    showErrorMessageIcon: { control: { type: 'boolean' } },
+    helperText: { control: { type: 'text' } },
+    validationText: { control: { type: 'text' } },
+    validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
     disabled: { control: { type: 'boolean' } },
     contentWidth: { control: { type: 'text' } },
   },
@@ -27,10 +24,7 @@ const meta: Meta<typeof RadioGroup> = {
     label: 'Label',
     disabled: false,
     helperText: 'Helper text',
-    showHelperTextIcon: false,
-    error: false,
-    errorMessage: 'There is an error',
-    showErrorMessageIcon: true,
+    validationText: 'Helper text',
     contentWidth: undefined,
   },
 };
@@ -57,19 +51,28 @@ export const Playground: Story = {
   },
 };
 
-export const RadioHelperText: Story = {
-  name: 'Radio HelperText',
+export const RadioHelperAndValidationText: Story = {
+  name: 'Radio HelperText and ValidationText',
   render: args => {
     return (
       <RadioGroup {...args}>
         <Radio value="1" label="One" helperText="One helper text" />
         <Radio value="2" label="Two" helperText="Two helper text" />
-        <Radio value="3" label="Three" helperText="Three helper text" />
+        <Radio
+          value="3"
+          label="Three"
+          helperText="Three helper text"
+          invalid
+          validationText="Invalid"
+        />
       </RadioGroup>
     );
   },
   args: {
+    defaultValue: '3',
     helperText: '',
+    validationText: 'Validation text',
+    validationStatus: undefined,
   },
 };
 

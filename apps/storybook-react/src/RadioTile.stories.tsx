@@ -8,6 +8,8 @@ const meta: Meta<typeof RadioTile> = {
   argTypes: {
     value: { control: { type: 'text' } },
     helperText: { control: { type: 'text' } },
+    validationText: { control: { type: 'text' } },
+    invalid: { control: { type: 'boolean' } },
     label: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
   },
@@ -16,6 +18,8 @@ const meta: Meta<typeof RadioTile> = {
     disabled: false,
     label: 'Label',
     helperText: 'Helper text',
+    validationText: 'Validation text',
+    invalid: false,
   },
 };
 
