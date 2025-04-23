@@ -13,8 +13,8 @@ const TextareaField = forwardRef<ElementRef<typeof TextInput>, TextInputProps>(
       <TextInput
         ref={ref}
         placeholderTextColor={components.input.placeholderColor}
-        selectionColor={color.uwPurple}
-        cursorColor={color.uwPurple}
+        selectionColor={color.purple[300]}
+        cursorColor={color.purple[300]}
         verticalAlign="top"
         aria-disabled={disabled}
         {...props}

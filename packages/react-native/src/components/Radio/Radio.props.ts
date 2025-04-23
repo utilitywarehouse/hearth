@@ -6,7 +6,7 @@ interface RadioBaseProps extends Omit<PressableProps, 'children'> {
   onChange?: (isSelected: boolean) => void;
   disabled?: boolean;
   validationStatus?: 'valid' | 'invalid' | 'initial';
-  type?: 'default' | 'card';
+  type?: 'default' | 'tile';
 }
 
 interface RadioWithChildrenProps extends RadioBaseProps {

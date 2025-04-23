@@ -11,7 +11,7 @@ import { Pressable } from 'react-native';
 import { Helper } from '../Helper';
 import { useRadioGroupContext } from './RadioGroup.context';
 import { useFormFieldContext } from '../FormField';
-import RadioCardRoot from './RadioCardRoot';
+import RadioTileRoot from './RadioTileRoot';
 import RadioTextContent from './RadioTextContent';
 
 const RadioComponent = createRadio({
@@ -86,21 +86,21 @@ const Radio = forwardRef<ElementRef<typeof Pressable>, RadioProps>(
     return (
       // @ts-expect-error - ref is not a valid prop for Pressable
       <RadioComponent ref={ref} {...props} isDisabled={disabled}>
-        {radioType === 'card' ? <RadioCardRoot>{radioChildren}</RadioCardRoot> : radioChildren}
+        {radioType === 'tile' ? <RadioTileRoot>{radioChildren}</RadioTileRoot> : radioChildren}
       </RadioComponent>
     );
   }
 );
 
-const RadioCard = forwardRef<ElementRef<typeof Pressable>, RadioProps>(
-  ({ type = 'card', ...props }, ref) => {
+const RadioTile = forwardRef<ElementRef<typeof Pressable>, RadioProps>(
+  ({ type = 'tile', ...props }, ref) => {
     return <Radio {...props} ref={ref} type={type} />;
   }
 );
 
-RadioCard.displayName = 'RadioCard';
+RadioTile.displayName = 'RadioTile';
 Radio.displayName = 'Radio';
 
-export { Radio, RadioGroup, RadioIndicator, RadioIcon, RadioLabel, RadioCard };
+export { Radio, RadioGroup, RadioIndicator, RadioIcon, RadioLabel, RadioTile };
 
 export default Radio;

@@ -26,8 +26,8 @@ const BadgeList = () => {
     <List>
       <ListItem onPress={() => console.log('pressed')} divider>
         <ListItemLeadingContent>
-          <Box padding="300" borderRadius="lg" bg={'energyGreen'}>
-            <ListItemIcon as={ElectricityMediumIcon} color="green900" />
+          <Box padding="300" borderRadius="lg" bg="energyBlue300">
+            <ListItemIcon as={ElectricityMediumIcon} color="energyBlue600" />
           </Box>
         </ListItemLeadingContent>
         <ListItemContent>
@@ -43,8 +43,8 @@ const BadgeList = () => {
       </ListItem>
       <ListItem onPress={() => console.log('pressed')} divider={false}>
         <ListItemLeadingContent>
-          <Box padding="300" borderRadius="lg" bg={'energyGreen'}>
-            <ListItemIcon as={GasMediumIcon} color="green900" />
+          <Box padding="300" borderRadius="lg" bg="energyBlue300">
+            <ListItemIcon as={GasMediumIcon} color="energyBlue600" />
           </Box>
         </ListItemLeadingContent>
         <ListItemContent>

@@ -15,7 +15,7 @@
   --h-pill-min-width: 66;
   --h-pill-padding-horizontal: var(--h-space-250);
   --h-pill-padding-vertical: var(--h-space-150);
-  --h-pill-selected-background-color: var(--h-color-uw-purple);
+  --h-pill-selected-background-color: var(--h-color-purple-700);
   --h-pill-selected-background-color-active: var(--h-color-purple-900);
   --h-pill-selected-background-color-hover: var(--h-color-purple-800);
   --h-pill-selected-foreground-color: var(--h-color-warm-white-50);

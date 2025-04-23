@@ -14,7 +14,7 @@ interface RadioGroupProps extends ViewProps {
   invalidText?: string;
   validText?: string;
   helperIcon?: ComponentType;
-  type?: 'default' | 'card';
+  type?: 'default' | 'tile';
   direction?: 'row' | 'column';
   gap?: keyof typeof space;
 }

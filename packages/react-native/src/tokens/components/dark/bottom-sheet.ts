@@ -4,7 +4,14 @@
 
 export default {
   backgroundColor: '#ffffff',
-  borderRadius: 16,
+  borderTopLeftRadius: 16,
+  borderTopRightRadius: 16,
   gap: 6,
+  handle: {
+    backgroundColor: '#464444',
+    borderRadius: 6,
+    height: 5,
+    width: 36,
+  },
   padding: 16,
 } as const;

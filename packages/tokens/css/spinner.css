@@ -3,7 +3,7 @@
  */
 
 :root {
-  --h-spinner-default-fill: var(--h-color-uw-purple);
+  --h-spinner-default-fill: var(--h-color-purple-700);
   --h-spinner-lg-size: 40px;
   --h-spinner-lg-stroke-width: 3;
   --h-spinner-md-size: 28px;

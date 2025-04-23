@@ -2,16 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 export const common = {
-  broadbandBlue: '#6db5c3',
-  cashbackLilac: '#be7aeb',
-  darkPurple: '#26164f',
-  energyGreen: '#8cba3b',
-  insuranceOrange: '#ff7b00',
-  mobileRose: '#ee6dbb',
-  piggyPink: '#f295ff',
-  uwPurple: '#7a42c8',
   white: '#ffffff',
-  yellow: '#ffb921',
 };
 export const light = {
   blue: {
@@ -26,6 +17,21 @@ export const light = {
     800: '#2354a4',
     900: '#0b3375',
     1000: '#001433',
+  },
+  broadbandGreen: {
+    200: '#d2e6b0',
+    300: '#8cba3b',
+    600: '#64862a',
+  },
+  cashbackLilac: {
+    300: '#dfbdf5',
+    500: '#be7aeb',
+    600: '#9f3be2',
+  },
+  energyBlue: {
+    200: '#bddee4',
+    300: '#6db5c3',
+    600: '#367683',
   },
   green: {
     50: '#e7f9f0',
@@ -53,6 +59,16 @@ export const light = {
     900: '#3e3c3b',
     1000: '#101010',
   },
+  insuranceOrange: {
+    300: '#ffb46d',
+    400: '#ff7b00',
+    700: '#cf6400',
+  },
+  mobileRose: {
+    200: '#fad0e9',
+    400: '#ee6dbb',
+    600: '#e51d95',
+  },
   orange: {
     50: '#fff5ed',
     100: '#ffe6d4',
@@ -66,7 +82,13 @@ export const light = {
     900: '#893900',
     1000: '#4a1f00',
   },
+  piggyPink: {
+    200: '#f9ceff',
+    300: '#f295ff',
+    500: '#e837ff',
+  },
   purple: {
+    300: '#d5c3ee',
     700: '#7a42c8',
     800: '#572e9e',
     900: '#3f2475',
@@ -119,6 +141,21 @@ export const dark = {
     900: '#d9ecff',
     1000: '#eef7ff',
   },
+  broadbandGreen: {
+    400: '#64862a',
+    700: '#8cba3b',
+    800: '#d2e6b0',
+  },
+  cashbackLilac: {
+    400: '#9f3be2',
+    500: '#be7aeb',
+    700: '#dfbdf5',
+  },
+  energyBlue: {
+    400: '#367683',
+    700: '#6db5c3',
+    800: '#bddee4',
+  },
   green: {
     50: '#002e18',
     100: '#074b2a',
@@ -145,6 +182,16 @@ export const dark = {
     900: '#e7e6e6',
     1000: '#f6f5f5',
   },
+  insuranceOrange: {
+    300: '#cf6400',
+    600: '#ff7b00',
+    700: '#ffb46d',
+  },
+  mobileRose: {
+    400: '#e51d95',
+    600: '#ee6dbb',
+    800: '#fad0e9',
+  },
   orange: {
     50: '#4a1f00',
     100: '#893900',
@@ -158,11 +205,17 @@ export const dark = {
     900: '#ffe6d4',
     1000: '#fff5ed',
   },
+  piggyPink: {
+    500: '#e837ff',
+    700: '#f295ff',
+    800: '#f9ceff',
+  },
   purple: {
     50: '#26164f',
     100: '#3f2475',
     200: '#572e9e',
     300: '#7a42c8',
+    700: '#d5c3ee',
   },
   red: {
     50: '#3b1512',

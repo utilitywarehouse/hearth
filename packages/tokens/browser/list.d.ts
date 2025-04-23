@@ -13,8 +13,7 @@ export declare const list: {
       readonly borderColor: 'var(--h-list-item-emphasis-border-color)';
     };
     readonly gap: 'var(--h-list-item-gap)';
-    readonly paddingHorizontal: 'var(--h-list-item-padding-horizontal)';
-    readonly paddingVertical: 'var(--h-list-item-padding-vertical)';
+    readonly padding: 'var(--h-list-item-padding)';
     readonly subtle: {
       readonly borderColor: 'var(--h-list-item-subtle-border-color)';
     };

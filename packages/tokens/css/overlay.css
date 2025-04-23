@@ -3,6 +3,6 @@
  */
 
 :root {
-  --h-overlay-color: var(--h-color-grey-1000);
+  --h-overlay-background-color: var(--h-color-grey-1000);
   --h-overlay-opacity: 75;
 }

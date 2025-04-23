@@ -3,7 +3,7 @@ export {
   CheckboxIndicator,
   CheckboxLabel,
   CheckboxIcon,
-  CheckboxCard,
+  CheckboxTile,
 } from './Checkbox';
 export { default as CheckboxGroup } from './CheckboxGroup';
 export { default as CheckboxGroupTextContent } from './CheckboxGroupTextContent';

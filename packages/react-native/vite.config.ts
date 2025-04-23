@@ -29,6 +29,7 @@ export default defineConfig({
   plugins: [
     react({
       babel: {
+        presets: ['@babel/preset-react'],
         plugins: [
           ['react-native-unistyles/plugin', unistylesPluginOptions],
           '@babel/plugin-proposal-export-namespace-from',

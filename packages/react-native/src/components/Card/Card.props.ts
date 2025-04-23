@@ -6,8 +6,8 @@ interface CardProps extends PressableProps {
     | 'white'
     | 'warmWhite'
     | 'purple'
-    | 'energyGreen'
-    | 'broadbandBlue'
+    | 'energyBlue'
+    | 'broadbandGreen'
     | 'mobileRose'
     | 'insuranceOrange'
     | 'cashbackLilac';

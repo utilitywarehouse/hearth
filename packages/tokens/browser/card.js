@@ -1,49 +1,33 @@
 export const card = {
-  borderColorSelected: 'var(--h-card-border-color-selected)',
   borderRadius: 'var(--h-card-border-radius)',
-  borderWidthSelected: 'var(--h-card-border-width-selected)',
-  broadbandBlueBackgroundColor: 'var(--h-card-broadband-blue-background-color)',
-  cashbackLilacBackgroundColor: 'var(--h-card-cashback-lilac-background-color)',
   emphasis: {
     borderColor: 'var(--h-card-emphasis-border-color)',
     borderWidth: 'var(--h-card-emphasis-border-width)',
+    broadbandGreenBackgroundColor: 'var(--h-card-emphasis-broadband-green-background-color)',
+    cashbackLilacBackgroundColor: 'var(--h-card-emphasis-cashback-lilac-background-color)',
+    energyBlueBackgroundColor: 'var(--h-card-emphasis-energy-blue-background-color)',
+    insuranceOrangeBackgroundColor: 'var(--h-card-emphasis-insurance-orange-background-color)',
+    mobileRoseBackgroundColor: 'var(--h-card-emphasis-mobile-rose-background-color)',
+    purpleBackgroundColor: 'var(--h-card-emphasis-purple-background-color)',
   },
-  energyGreenBackgroundColor: 'var(--h-card-energy-green-background-color)',
-  insuranceOrangeBackgroundColor: 'var(--h-card-insurance-orange-background-color)',
-  mobileRoseBackgroundColor: 'var(--h-card-mobile-rose-background-color)',
-  purpleBackgroundColor: 'var(--h-card-purple-background-color)',
+  selectable: {
+    borderColor: 'var(--h-card-selectable-border-color)',
+    borderColorSelected: 'var(--h-card-selectable-border-color-selected)',
+    borderWidth: 'var(--h-card-selectable-border-width)',
+    borderWidthSelected: 'var(--h-card-selectable-border-width-selected)',
+    gap: 'var(--h-card-selectable-gap)',
+  },
   subtle: {
     borderColor: 'var(--h-card-subtle-border-color)',
     borderWidth: 'var(--h-card-subtle-border-width)',
+    broadbandGreenBackgroundColor: 'var(--h-card-subtle-broadband-green-background-color)',
+    cashbackLilacBackgroundColor: 'var(--h-card-subtle-cashback-lilac-background-color)',
+    energyBlueBackgroundColor: 'var(--h-card-subtle-energy-blue-background-color)',
+    insuranceOrangeBackgroundColor: 'var(--h-card-subtle-insurance-orange-background-color)',
+    mobileRoseBackgroundColor: 'var(--h-card-subtle-mobile-rose-background-color)',
+    purpleBackgroundColor: 'var(--h-card-subtle-purple-background-color)',
+    yellowBackgroundColor: 'var(--h-card-subtle-yellow-background-color)',
   },
-  warmWhite: {
-    backgroundColor: 'var(--h-card-warm-white-background-color)',
-    backgroundColorActive: 'var(--h-card-warm-white-background-color-active)',
-    backgroundColorHover: 'var(--h-card-warm-white-background-color-hover)',
-  },
-  white: {
-    backgroundColor: 'var(--h-card-white-background-color)',
-    backgroundColorActive: 'var(--h-card-white-background-color-active)',
-    backgroundColorHover: 'var(--h-card-white-background-color-hover)',
-  },
-  checkbox: {
-    card: {
-      group: {
-        gap: 'var(--h-checkbox-card-group-gap)',
-        stack: {
-          gap: 'var(--h-checkbox-card-group-stack-gap)',
-        },
-      },
-    },
-  },
-  radio: {
-    card: {
-      group: {
-        gap: 'var(--h-radio-card-group-gap)',
-        stack: {
-          gap: 'var(--h-radio-card-group-stack-gap)',
-        },
-      },
-    },
-  },
+  warmWhiteBackgroundColor: 'var(--h-card-warm-white-background-color)',
+  whiteBackgroundColor: 'var(--h-card-white-background-color)',
 };

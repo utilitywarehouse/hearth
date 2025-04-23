@@ -29,4 +29,6 @@ const FormFieldInvalid: FC<Omit<HelperProps, 'validationStatus'>> = ({
   ) : null;
 };
 
+FormFieldInvalid.displayName = 'FormFieldInvalid';
+
 export default FormFieldInvalid;

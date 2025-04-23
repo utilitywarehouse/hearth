@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import type { Preview } from '@storybook/react';
 import { useArgs } from 'storybook/internal/preview-api';
-import { themes, breakpoints, StyleSheet } from '../src/core';
+import { themes, breakpoints, StyleSheet, HearthUIProvider } from '../src/core';
 import '@utilitywarehouse/hearth-fonts';
 import '../../../shared/storybook/styles/preview.css';
 
@@ -42,7 +42,7 @@ const preview: Preview = {
         const storybookContainer = document.getElementsByTagName('body')[0];
         if (storybookContainer) {
           if (args.inverted) {
-            storybookContainer.style.backgroundColor = color.common.uwPurple;
+            storybookContainer.style.backgroundColor = color.light.purple['300'];
           } else {
             storybookContainer.style.backgroundColor = !args.darkMode
               ? color.light.warmWhite['50']
@@ -51,7 +51,11 @@ const preview: Preview = {
         }
       }, [args.darkMode, args.surface, args.inverted]);
 
-      return <Story />;
+      return (
+        <HearthUIProvider>
+          <Story />
+        </HearthUIProvider>
+      );
     },
   ],
 };

@@ -1,14 +1,6 @@
 export const radio = {
   borderRadius: 'var(--h-radio-border-radius)',
   borderWidth: 'var(--h-radio-border-width)',
-  card: {
-    group: {
-      gap: 'var(--h-radio-card-group-gap)',
-      stack: {
-        gap: 'var(--h-radio-card-group-stack-gap)',
-      },
-    },
-  },
   checked: {
     color: 'var(--h-radio-checked-color)',
   },
@@ -22,6 +14,25 @@ export const radio = {
   outlineColorActive: 'var(--h-radio-outline-color-active)',
   outlineColorHover: 'var(--h-radio-outline-color-hover)',
   outlineWidth: 'var(--h-radio-outline-width)',
+  tile: {
+    backgroundColor: 'var(--h-radio-tile-background-color)',
+    borderColor: 'var(--h-radio-tile-border-color)',
+    borderColorSelected: 'var(--h-radio-tile-border-color-selected)',
+    borderRadius: 'var(--h-radio-tile-border-radius)',
+    borderWidth: 'var(--h-radio-tile-border-width)',
+    borderWidthSelected: 'var(--h-radio-tile-border-width-selected)',
+    gap: 'var(--h-radio-tile-gap)',
+    group: {
+      gap: 'var(--h-radio-tile-group-gap)',
+      stack: {
+        gap: 'var(--h-radio-tile-group-stack-gap)',
+      },
+    },
+    maxWidth: 'var(--h-radio-tile-max-width)',
+    minWidth: 'var(--h-radio-tile-min-width)',
+    paddingHorizontal: 'var(--h-radio-tile-padding-horizontal)',
+    paddingVertical: 'var(--h-radio-tile-padding-vertical)',
+  },
   unchecked: {
     backgroundColor: 'var(--h-radio-unchecked-background-color)',
     borderColor: 'var(--h-radio-unchecked-border-color)',

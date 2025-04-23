@@ -5,7 +5,7 @@ import RadioGroupProps from './RadioGroup.props';
 
 const RadioGroupRoot = forwardRef<View, RadioGroupProps & { isCard?: boolean }>(
   ({ children, style, isCard = false, ...props }, ref) => {
-    styles.useVariants({ type: isCard ? 'card' : 'radio' });
+    styles.useVariants({ type: isCard ? 'tile' : 'radio' });
     return (
       <View ref={ref} {...props} style={[styles.container, style]}>
         {children}
@@ -20,8 +20,8 @@ const styles = StyleSheet.create(theme => ({
   container: {
     variants: {
       type: {
-        card: {
-          gap: theme.components.radio.card.group.gap,
+        tile: {
+          gap: theme.components.radio.tile.group.gap,
         },
         radio: {
           gap: theme.components.radio.group.gap,

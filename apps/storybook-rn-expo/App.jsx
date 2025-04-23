@@ -3,7 +3,12 @@ import { useFonts } from 'expo-font';
 import StorybookUIRoot from './.storybook';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import { StyleSheet, breakpoints, themes } from '@utilitywarehouse/hearth-react-native';
+import {
+  HearthUIProvider,
+  StyleSheet,
+  breakpoints,
+  themes,
+} from '@utilitywarehouse/hearth-react-native';
 
 LogBox.ignoreAllLogs();
 
@@ -35,7 +40,9 @@ const App = () => {
   if (!loaded) return null;
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <StorybookUIRoot />
+      <HearthUIProvider>
+        <StorybookUIRoot />
+      </HearthUIProvider>
     </GestureHandlerRootView>
   );
 };

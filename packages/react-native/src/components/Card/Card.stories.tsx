@@ -29,8 +29,8 @@ const meta = {
         'white',
         'warmWhite',
         'purple',
-        'energyGreen',
-        'broadbandBlue',
+        'energyBlue',
+        'broadbandGreen',
         'mobileRose',
         'insuranceOrange',
         'cashbackLilac',
@@ -77,13 +77,13 @@ export const Variants: Story = {
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Subtle - Warm White">
-          <Card {...props} selected={selected} variant="subtle" colorScheme="warmWhite">
+        <VariantTitle title="Emphasis - White">
+          <Card {...props} variant="emphasis" colorScheme="white">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Emphasis - White">
-          <Card {...props} variant="emphasis" colorScheme="white">
+        <VariantTitle title="Subtle - Warm White">
+          <Card {...props} selected={selected} variant="subtle" colorScheme="warmWhite">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
@@ -92,33 +92,63 @@ export const Variants: Story = {
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Purple">
-          <Card {...props} colorScheme="purple">
+        <VariantTitle title="Purple - Subtle">
+          <Card {...props} colorScheme="purple" variant="subtle">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Purple - Emphasis">
+          <Card {...props} colorScheme="purple" variant="emphasis">
             <BodyText inverted>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Energy Green">
-          <Card {...props} colorScheme="energyGreen">
+        <VariantTitle title="Energy Blue - Subtle">
+          <Card {...props} colorScheme="energyBlue" variant="subtle">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Broadband Blue">
-          <Card {...props} colorScheme="broadbandBlue">
+        <VariantTitle title="Energy Blue - Emphasis">
+          <Card {...props} colorScheme="energyBlue" variant="emphasis">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Mobile Rose">
-          <Card {...props} colorScheme="mobileRose">
+        <VariantTitle title="Broadband Green - Subtle">
+          <Card {...props} colorScheme="broadbandGreen" variant="subtle">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Insurance Orange">
-          <Card {...props} colorScheme="insuranceOrange">
+        <VariantTitle title="Broadband Green - Emphasis">
+          <Card {...props} colorScheme="broadbandGreen" variant="emphasis">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
-        <VariantTitle title="Cashback Lilac">
-          <Card {...props} colorScheme="cashbackLilac">
+        <VariantTitle title="Mobile Rose - Subtle">
+          <Card {...props} colorScheme="mobileRose" variant="subtle">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Mobile Rose - Emphasis">
+          <Card {...props} colorScheme="mobileRose" variant="emphasis">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Insurance Orange - Subtle">
+          <Card {...props} colorScheme="insuranceOrange" variant="subtle">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Insurance Orange - Emphasis">
+          <Card {...props} colorScheme="insuranceOrange" variant="emphasis">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Cashback Lilac - Subtle">
+          <Card {...props} colorScheme="cashbackLilac" variant="subtle">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Cashback Lilac - Emphasis">
+          <Card {...props} colorScheme="cashbackLilac" variant="emphasis">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
