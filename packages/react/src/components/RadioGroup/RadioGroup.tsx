@@ -26,7 +26,7 @@ export const RadioGroupRoot = React.forwardRef<RadioGroupRootElement, RadioGroup
         orientation={direction === 'column' ? 'vertical' : 'horizontal'}
         className={clsx(rootComponentClassName, className)}
       >
-        <Flex width={width} gap="200">
+        <Flex width={width} >
           {children}
         </Flex>
       </Root>

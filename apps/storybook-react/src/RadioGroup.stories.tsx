@@ -76,19 +76,19 @@ export const RadioHelperAndValidationText: Story = {
   },
 };
 
-// export const ContentWidth: Story = {
-//   name: 'Content Width',
-//   render: args => {
-//     return (
-//       <RadioGroup {...args} helperText="Setting the width of the children elements">
-//         <RadioTile value="1" label="One" />
-//         <RadioTile value="2" label="Two" />
-//         <RadioTile value="3" label="Three" />
-//       </RadioGroup>
-//     );
-//   },
-//   args: { contentWidth: '200px' },
-// };
+export const ContentWidth: Story = {
+  name: 'Content Width',
+  render: args => {
+    return (
+      <RadioGroup {...args} helperText="Setting the width of the children elements">
+        <RadioTile value="1" label="One" />
+        <RadioTile value="2" label="Two" />
+        <RadioTile value="3" label="Three" />
+      </RadioGroup>
+    );
+  },
+  args: { contentWidth: '200px' },
+};
 
 export const Controlled: Story = {
   render: args => {

@@ -7,7 +7,6 @@ const meta: Meta<typeof RadioCard> = {
   component: RadioCard,
   argTypes: {
     value: { control: { type: 'text' } },
-    helperText: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
   },
@@ -15,48 +14,11 @@ const meta: Meta<typeof RadioCard> = {
     value: '1',
     disabled: false,
     label: 'Label',
-    helperText: 'Helper text',
   },
 };
 
 export default meta;
 type Story = StoryObj<typeof RadioCard>;
-
-// export const Playground: Story = {
-//   render: args => {
-//     return (
-//       <Flex gap="500" direction="column">
-//         <RadioGroup value="2" label="Unchecked radio">
-//           <RadioCard {...args} />
-//         </RadioGroup>
-//
-//         <RadioGroup defaultValue={args.value} label="Checked radio">
-//           <RadioCard {...args} />
-//         </RadioGroup>
-//
-//         <RadioGroup value="2" label="Disabled unchecked radio">
-//           <RadioCard {...args} disabled />
-//         </RadioGroup>
-//
-//         <RadioGroup defaultValue={args.value} label="Disabled checked radio">
-//           <RadioCard {...args} disabled />
-//         </RadioGroup>
-//       </Flex>
-//     );
-//   },
-//   argTypes: {
-//     value: { control: { type: 'text' } },
-//     helperText: { control: { type: 'text' } },
-//     label: { control: { type: 'text' } },
-//     disabled: { control: { type: 'boolean' } },
-//   },
-//   args: {
-//     value: '1',
-//     disabled: false,
-//     label: 'Radio label',
-//     helperText: 'Radio helper text',
-//   },
-// };
 
 export const Playground: Story = {
   render: () => {
@@ -104,33 +66,3 @@ export const Playground: Story = {
     );
   },
 };
-
-export const RadioCardStoryWithOneLongLabel: Story = {
-  name: 'RadioCard with one long label',
-  render: () => {
-    return (
-      <RadioGroup label="Radio group">
-        <RadioCard value="1" label="One" />
-        <RadioCard value="2" label="Twit Twoooooooooooooo" />
-        <RadioCard value="3" label="Three" />
-      </RadioGroup>
-    );
-  },
-};
-
-// export const RadioCardWidth: Story = {
-//   render: () => {
-//     return (
-//       <Flex width={300}>
-//         <RadioGroup
-//           label="Would you like to keep an existing mobile number for this SIM?"
-//           direction="row"
-//           contentWidth="100%"
-//         >
-//           <RadioCard value="yes" label="Yes" />
-//           <RadioCard value="no" label="No" />
-//         </RadioGroup>
-//       </Flex>
-//     );
-//   },
-// };
