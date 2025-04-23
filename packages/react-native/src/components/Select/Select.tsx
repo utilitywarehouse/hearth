@@ -2,7 +2,12 @@ import React, { forwardRef, useCallback, useRef, useState } from 'react';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import SelectProps, { SelectItemProps } from './Select.props';
-import { BottomSheetModal, BottomSheetFlatList } from '../BottomSheet';
+import {
+  BottomSheetModal,
+  BottomSheetFlatList,
+  BottomSheetScrollView,
+  BottomSheetView,
+} from '../BottomSheet';
 import { SelectContext } from './Select.context';
 import { useFormFieldContext } from '../FormField';
 import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
@@ -11,6 +16,7 @@ import { DetailText } from '../DetailText';
 import SelectOption from './SelectOption';
 import { Label } from '../Label';
 import { Input } from '../Input';
+import { Icon } from '../Icon';
 
 const Select = forwardRef<View, SelectProps>(
   (
@@ -43,6 +49,7 @@ const Select = forwardRef<View, SelectProps>(
 
     const bottomSheetModalRef = useRef<BottomSheetModal>(null);
     const [search, setSearch] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
     const [selectedLabel, setSelectedLabel] = useState<string | undefined>(undefined);
 
     // Find selected item from items prop
@@ -73,13 +80,24 @@ const Select = forwardRef<View, SelectProps>(
       ? items.filter(item => item.label.toLowerCase().includes(search.toLowerCase()))
       : items;
 
+    const handleClose = useCallback((index: number) => {
+      if (index === -1) {
+        setSearch('');
+        setIsOpen(false);
+        return;
+      }
+    }, []);
+
     const openBottomSheet = useCallback(() => {
       if (isDisabled) return;
       bottomSheetModalRef.current?.present();
+      setIsOpen(true);
     }, [isDisabled]);
 
     const closeBottomSheet = useCallback(() => {
       bottomSheetModalRef.current?.dismiss();
+      setIsOpen(false);
+      setSearch('');
     }, []);
 
     const renderSelectItem = useCallback(
@@ -96,9 +114,9 @@ const Select = forwardRef<View, SelectProps>(
 
     const renderEmptyComponent = useCallback(
       () => (
-        <View style={styles.emptyContainer}>
+        <BottomSheetView style={styles.emptyContainer}>
           <DetailText>{emptyText}</DetailText>
-        </View>
+        </BottomSheetView>
       ),
       [emptyText]
     );
@@ -117,11 +135,14 @@ const Select = forwardRef<View, SelectProps>(
         <Pressable
           onPress={openBottomSheet}
           disabled={isDisabled}
-          style={({ pressed }) => [styles.selectContainer, styles.pressedContainer(pressed)]}
+          style={({ pressed }) => [
+            styles.selectContainer,
+            styles.pressedContainer(pressed || isOpen),
+          ]}
         >
           {!!LeadingIcon && (
             <View>
-              <LeadingIcon />
+              <Icon as={LeadingIcon} style={styles.icon} />
             </View>
           )}
 
@@ -132,14 +153,16 @@ const Select = forwardRef<View, SelectProps>(
           </View>
 
           <View>
-            <ExpandSmallIcon style={styles.expandIcon} />
+            <ExpandSmallIcon style={styles.icon} />
           </View>
         </Pressable>
 
         <BottomSheetModal
           ref={bottomSheetModalRef}
-          snapPoints={['60%']}
+          snapPoints={['25%', '40%', '80%']}
           index={0}
+          onChange={handleClose}
+          enableDynamicSizing={false}
           {...bottomSheetProps}
         >
           <SelectContext.Provider
@@ -149,32 +172,28 @@ const Select = forwardRef<View, SelectProps>(
               close: closeBottomSheet,
             }}
           >
-            <View style={styles.bottomSheetContainer}>
-              {searchable && (
-                <View>
-                  <Input
-                    placeholder={searchPlaceholder}
-                    value={search}
-                    onChangeText={setSearch}
-                    type="search"
-                  />
-                </View>
-              )}
-
-              {children ? (
-                <View>{children}</View>
-              ) : (
-                <BottomSheetFlatList
-                  data={filteredItems}
-                  keyExtractor={item => item.value}
-                  renderItem={renderSelectItem}
-                  style={{ height: 200 }}
-                  contentContainerStyle={{ height: 200 }}
-                  ListEmptyComponent={renderEmptyComponent}
-                  {...listProps}
+            {searchable && (
+              <View style={{ paddingTop: 2 }}>
+                <Input
+                  placeholder={searchPlaceholder}
+                  value={search}
+                  onChangeText={setSearch}
+                  type="search"
                 />
-              )}
-            </View>
+              </View>
+            )}
+
+            {children ? (
+              <BottomSheetScrollView>{children}</BottomSheetScrollView>
+            ) : (
+              <BottomSheetFlatList
+                data={filteredItems}
+                keyExtractor={item => item.value}
+                renderItem={renderSelectItem}
+                ListEmptyComponent={renderEmptyComponent}
+                {...listProps}
+              />
+            )}
           </SelectContext.Provider>
         </BottomSheetModal>
       </View>
@@ -228,9 +247,20 @@ const styles = StyleSheet.create(theme => ({
     outlineWidth: pressed ? theme.components.select.borderWidth : 0,
     outlineStyle: 'solid',
     outlineColor: pressed ? theme.components.select.borderColor : 'transparent',
+    variants: {
+      validationStatus: {
+        initial: {},
+        valid: {
+          outlineColor: theme.components.select.borderColorValid,
+        },
+        invalid: {
+          outlineColor: theme.components.select.borderColorInvalid,
+        },
+      },
+    },
   }),
-  expandIcon: {
-    color: theme.components.select.dropdown.item.foregroundColor,
+  icon: {
+    color: theme.components.icon.color,
   },
   placeholderText: {
     variants: {
@@ -241,9 +271,7 @@ const styles = StyleSheet.create(theme => ({
       },
     },
   },
-  bottomSheetContainer: {
-    flex: 1,
-  },
+
   emptyContainer: {
     alignItems: 'center',
     justifyContent: 'center',

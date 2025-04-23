@@ -32,11 +32,10 @@ export const Basic = () => {
     <Select
       label="Choose an option"
       placeholder="Select an option"
-      items={[
-        { label: 'Option 1', value: '1' },
-        { label: 'Option 2', value: '2' },
-        { label: 'Option 3', value: '3' },
-      ]}
+      items={Array.from({ length: 100 }, (_, i) => ({
+        label: `Option ${i + 1}`,
+        value: `${i + 1}`,
+      }))}
       value={value}
       onValueChange={handleValueChange}
     />

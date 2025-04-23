@@ -25,18 +25,13 @@ const BottomSheetModal = forwardRef<BottomSheetModal, BottomSheetProps>(
   ) => {
     const bottomSheetRef = React.useRef<BottomSheetModal>(null);
 
-    const { renderBackdrop, renderHandle, wrappedChildren } = useBottomSheetLogic<BottomSheetModal>(
-      {
-        ref,
-        bottomSheetRef,
-        children,
-        backdrop,
-        showHandle,
-        handleStyle,
-        contentStyle,
-        isModal: true,
-      }
-    );
+    const { renderBackdrop, renderHandle } = useBottomSheetLogic<BottomSheetModal>({
+      ref,
+      bottomSheetRef,
+      backdrop,
+      showHandle,
+      handleStyle,
+    });
 
     const value = useMemo(() => ({ handle: showHandle }), [showHandle]);
 
@@ -49,7 +44,7 @@ const BottomSheetModal = forwardRef<BottomSheetModal, BottomSheetProps>(
         backgroundStyle={styles.background}
         {...rest}
       >
-        <BottomSheetContext.Provider value={value}>{wrappedChildren}</BottomSheetContext.Provider>
+        <BottomSheetContext.Provider value={value}>{children}</BottomSheetContext.Provider>
       </StyledBottomSheetModalCore>
     );
   }

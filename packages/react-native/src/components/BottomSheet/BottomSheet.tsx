@@ -25,15 +25,12 @@ const BottomSheet = forwardRef<BottomSheet, BottomSheetProps>(
   ) => {
     const bottomSheetRef = React.useRef<BottomSheet>(null);
 
-    const { renderBackdrop, renderHandle, wrappedChildren } = useBottomSheetLogic<BottomSheet>({
+    const { renderBackdrop, renderHandle } = useBottomSheetLogic<BottomSheet>({
       ref,
       bottomSheetRef,
-      children,
       backdrop,
       showHandle,
       handleStyle,
-      contentStyle,
-      isModal: false,
     });
 
     const value = useMemo(() => ({ handle: showHandle }), [showHandle]);
@@ -48,7 +45,7 @@ const BottomSheet = forwardRef<BottomSheet, BottomSheetProps>(
         backgroundStyle={styles.background}
         {...rest}
       >
-        <BottomSheetContext.Provider value={value}>{wrappedChildren}</BottomSheetContext.Provider>
+        <BottomSheetContext.Provider value={value}>{children}</BottomSheetContext.Provider>
       </StyledBottomSheetCore>
     );
   }

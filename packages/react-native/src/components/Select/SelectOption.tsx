@@ -74,7 +74,8 @@ const styles = StyleSheet.create(theme => ({
     alignItems: 'center',
     gap: theme.components.select.dropdown.item.gap,
     borderRadius: theme.components.select.dropdown.item.borderRadius,
-    padding: theme.components.select.dropdown.item.padding,
+    paddingVertical: theme.components.select.dropdown.item.padding,
+    paddingHorizontal: theme.components.select.dropdown.padding,
     variants: {
       disabled: {
         true: {
