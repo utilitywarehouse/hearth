@@ -19,6 +19,7 @@
         content: '';
         position: absolute;
         inset: 0;
+
         &:where(:not([data-disabled], [data-disabled] &)) {
           cursor: pointer;
         }

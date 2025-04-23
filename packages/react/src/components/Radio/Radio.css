@@ -8,6 +8,7 @@
   }
 
   /* https://github.com/utilitywarehouse/design-systems/commit/a1e58f1fa7b863b816ee43ab567d1a7db5741d23 */
+
   /* flex: 1; */
 
   .hearth-RadioContainer {
@@ -40,6 +41,7 @@
         box-shadow: 0 0 0 var(--h-radio-outline-width) var(--h-radio-outline-color-hover);
       }
     }
+
     &:where(:active):not([data-disabled][data-state='unchecked']) {
       box-shadow: 0 0 0 var(--h-radio-outline-width) var(--h-radio-outline-color-active);
     }
