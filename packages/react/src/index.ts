@@ -116,3 +116,6 @@ export type { RadioCardProps } from './components/RadioCard/RadioCard.props';
 
 export { RadioGroup } from './components/RadioGroup/RadioGroup';
 export type { RadioGroupProps } from './components/RadioGroup/RadioGroup.props';
+
+export { RadioGridGroup } from './components/RadioGridGroup/RadioGridGroup';
+export type { RadioGridGroupProps } from './components/RadioGridGroup/RadioGridGroup.props';

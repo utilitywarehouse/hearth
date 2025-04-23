@@ -15,14 +15,12 @@ const rootComponentClassName = withGlobalPrefix(rootComponentName);
 type RadioGroupRootElement = ElementRef<'div'>;
 
 export const RadioGroupRoot = React.forwardRef<RadioGroupRootElement, RadioGroupRootProps>(
-  ({ id, disabled, children, direction = 'column', width, className, ...props }, ref) => {
+  ({ children, direction = 'column', width, className, ...props }, ref) => {
     return (
       <Root
         ref={ref}
         asChild
         {...props}
-        disabled={disabled}
-        id={id}
         orientation={direction === 'column' ? 'vertical' : 'horizontal'}
         className={clsx(rootComponentClassName, className)}
       >

@@ -24,7 +24,7 @@ const meta: Meta<typeof RadioGroup> = {
     label: 'Label',
     disabled: false,
     helperText: 'Helper text',
-    validationText: 'Helper text',
+    validationText: 'Validation text',
     contentWidth: undefined,
   },
 };

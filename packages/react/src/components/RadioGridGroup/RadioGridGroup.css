@@ -1,0 +1,14 @@
+.hearth-RadioGridGroup {
+  .hearth-RadioGridGroupRoot {
+    display: grid;
+    min-width: fit-content;
+
+    /* TODO: update with radio gap vars */
+    gap: var(--h-space-400);
+
+    &:has(.hearth-RadioTile) {
+      /* TODO: update with radio gap vars */
+      gap: var(--h-space-150);
+    }
+  }
+}

@@ -60,6 +60,7 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
         {...props}
         disabled={disabled}
         id={id}
+        data-disabled={disabled ? '' : undefined}
         aria-errormessage={ariaErrorMessage || showValidationText ? validationTextId : undefined}
         aria-labelledby={ariaLabelledby || !!label ? labelId : undefined}
         aria-invalid={showValidationText}
