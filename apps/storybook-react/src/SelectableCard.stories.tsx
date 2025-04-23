@@ -23,12 +23,13 @@ const meta: Meta<typeof SelectableCard> = {
     children: { control: { type: 'text' } },
     selected: { control: { type: 'boolean' } },
     borderRadius: { control: { type: 'radio' }, options: ['md', 'xl'] },
-    padding: { control: { type: 'radio' }, options: ['static', 'responsive'] },
+    compact: { control: { type: 'boolean' } },
   },
   args: {
     children:
       'Agnes Bernice Martin was an American abstract painter known for her minimalist style.',
     selected: false,
+    compact: false,
   },
 };
 
