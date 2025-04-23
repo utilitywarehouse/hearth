@@ -656,8 +656,8 @@ importers:
         specifier: ^1.0.1
         version: 1.1.0(@types/react@18.3.18)(react@18.3.1)
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:*
-        version: link:../react-icons
+        specifier: 0.1.0
+        version: 0.1.0(react@18.3.1)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
