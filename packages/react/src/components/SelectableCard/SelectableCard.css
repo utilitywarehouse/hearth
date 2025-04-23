@@ -40,12 +40,6 @@
     outline-offset: 1px;
   }
 
-  @media (hover: hover) {
-    &:where(:hover):not([data-disabled], [data-disabled] &) {
-      background-color: var(--h-card-white-background-color-hover);
-    }
-  }
-
   &:where(
       [data-selected],
       :has([data-selected]),
@@ -53,9 +47,5 @@
       :has([data-state='checked'])
     ) {
     box-shadow: inset 0 0 0 var(--h-card-emphasis-border-width) var(--h-card-emphasis-border-color);
-  }
-
-  &:where(:active):not([data-disabled], [data-disabled] &) {
-    background-color: var(--h-card-white-background-color-active);
   }
 }
