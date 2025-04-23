@@ -23,6 +23,8 @@ const SelectOption = ({
   const handlePress = () => {
     if (disabled) return;
 
+    console.log('SelectOption pressed', value, onValueChange, close);
+
     if (onPress) {
       onPress(value);
     } else if (onValueChange) {
@@ -33,6 +35,8 @@ const SelectOption = ({
       close();
     }
   };
+
+  console.log('SelectOption', label, value, isSelected);
 
   return (
     <Pressable
@@ -70,7 +74,7 @@ const styles = StyleSheet.create(theme => ({
     alignItems: 'center',
     gap: theme.components.select.dropdown.item.gap,
     borderRadius: theme.components.select.dropdown.item.borderRadius,
-    padding: theme.components.select.dropdown.item.padding,,
+    padding: theme.components.select.dropdown.item.padding,
     variants: {
       disabled: {
         true: {

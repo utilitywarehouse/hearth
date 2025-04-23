@@ -43,14 +43,30 @@ const Select = forwardRef<View, SelectProps>(
 
     const bottomSheetModalRef = useRef<BottomSheetModal>(null);
     const [search, setSearch] = useState('');
+    const [selectedLabel, setSelectedLabel] = useState<string | undefined>(undefined);
 
+    // Find selected item from items prop
     const selectedItem = items.find(item => item.value === value);
+
+    // Extract selected label from children if not using items prop
+    React.useEffect(() => {
+      if (!selectedItem && children && value) {
+        // Find the selected child component's label
+        React.Children.forEach(children, child => {
+          if (React.isValidElement(child) && child.props.value === value) {
+            setSelectedLabel(child.props.label);
+          }
+        });
+      } else {
+        setSelectedLabel(undefined);
+      }
+    }, [children, value, selectedItem]);
 
     styles.useVariants({
       disabled: isDisabled,
       validationStatus: validationStatusFromContext,
       readonly: isReadonly,
-      hasValue: !!selectedItem?.label,
+      hasValue: !!selectedLabel || !!selectedItem?.label,
     });
 
     const filteredItems = searchable
@@ -109,27 +125,29 @@ const Select = forwardRef<View, SelectProps>(
             </View>
           )}
 
-          <BodyText numberOfLines={1} style={styles.placeholderText}>
-            {selectedItem?.label || placeholder}
-          </BodyText>
+          <View style={styles.optionContainer}>
+            <BodyText numberOfLines={1} style={styles.placeholderText}>
+              {selectedItem?.label || selectedLabel || placeholder}
+            </BodyText>
+          </View>
 
           <View>
-            <ExpandSmallIcon />
+            <ExpandSmallIcon style={styles.expandIcon} />
           </View>
         </Pressable>
 
-        <SelectContext.Provider
-          value={{
-            selectedValue: value,
-            onValueChange,
-            close: closeBottomSheet,
-          }}
+        <BottomSheetModal
+          ref={bottomSheetModalRef}
+          snapPoints={['60%']}
+          index={0}
+          {...bottomSheetProps}
         >
-          <BottomSheetModal
-            ref={bottomSheetModalRef}
-            snapPoints={['60%']}
-            index={0}
-            {...bottomSheetProps}
+          <SelectContext.Provider
+            value={{
+              selectedValue: value,
+              onValueChange,
+              close: closeBottomSheet,
+            }}
           >
             <View style={styles.bottomSheetContainer}>
               {searchable && (
@@ -150,13 +168,15 @@ const Select = forwardRef<View, SelectProps>(
                   data={filteredItems}
                   keyExtractor={item => item.value}
                   renderItem={renderSelectItem}
+                  style={{ height: 200 }}
+                  contentContainerStyle={{ height: 200 }}
                   ListEmptyComponent={renderEmptyComponent}
                   {...listProps}
                 />
               )}
             </View>
-          </BottomSheetModal>
-        </SelectContext.Provider>
+          </SelectContext.Provider>
+        </BottomSheetModal>
       </View>
     );
   }
@@ -201,15 +221,21 @@ const styles = StyleSheet.create(theme => ({
   disabledContainer: {
     opacity: 0.5,
   },
+  optionContainer: {
+    flex: 1,
+  },
   pressedContainer: pressed => ({
     outlineWidth: pressed ? theme.components.select.borderWidth : 0,
     outlineStyle: 'solid',
     outlineColor: pressed ? theme.components.select.borderColor : 'transparent',
   }),
+  expandIcon: {
+    color: theme.components.select.dropdown.item.foregroundColor,
+  },
   placeholderText: {
     variants: {
       hasValue: {
-        true: {
+        false: {
           color: theme.components.text.colorSecondary,
         },
       },
