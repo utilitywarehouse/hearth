@@ -48,7 +48,7 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
     },
     ref
   ) => {
-    const { id, labelId, helperTextId, validationTextId } = useIds({ providedId, prefix: 'radio' });
+    const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
     const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormFieldGroup();
     const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
     const showLabel = !!label;
