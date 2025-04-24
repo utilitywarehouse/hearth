@@ -1,16 +1,17 @@
 import React from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, View, ViewStyle } from 'react-native';
 import { SelectOptionProps } from './Select.props';
 import { useSelectContext } from './Select.context';
 import { BodyText } from '../BodyText';
 import { StyleSheet } from 'react-native-unistyles';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { Icon } from '../Icon';
 
 const SelectOption = ({
   label,
   value,
-  leftIcon: LeftIcon,
-  rightIcon: RightIcon,
+  leadingIcon: LeftIcon,
+  trailingIcon: RightIcon,
   selected,
   disabled,
   onPress,
@@ -23,8 +24,6 @@ const SelectOption = ({
   const handlePress = () => {
     if (disabled) return;
 
-    console.log('SelectOption pressed', value, onValueChange, close);
-
     if (onPress) {
       onPress(value);
     } else if (onValueChange) {
@@ -36,8 +35,6 @@ const SelectOption = ({
     }
   };
 
-  console.log('SelectOption', label, value, isSelected);
-
   return (
     <Pressable
       onPress={handlePress}
@@ -46,7 +43,7 @@ const SelectOption = ({
     >
       {!!LeftIcon && (
         <View>
-          <LeftIcon />
+          <Icon style={styles.icon as ViewStyle} as={LeftIcon} />
         </View>
       )}
 
@@ -56,12 +53,12 @@ const SelectOption = ({
 
       {isSelected && (
         <View>
-          <TickSmallIcon style={styles.icon} />
+          <TickSmallIcon style={styles.icon as ViewStyle} />
         </View>
       )}
       {!!RightIcon && !isSelected && (
         <View>
-          <RightIcon />
+          <Icon style={styles.icon as ViewStyle} as={RightIcon} />
         </View>
       )}
     </Pressable>

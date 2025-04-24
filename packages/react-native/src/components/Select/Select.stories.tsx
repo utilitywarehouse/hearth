@@ -3,12 +3,13 @@ import React, { useState } from 'react';
 import Select from './Select';
 import SelectOption from './SelectOption';
 import { FormField } from '../FormField';
-import { View } from 'react-native';
 import {
   UserSmallIcon,
   HeartSmallIcon,
   StarSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
+import { Box } from '../Box';
+import { Button } from '../Button';
 
 const meta = {
   title: 'Stories / Select',
@@ -18,11 +19,79 @@ const meta = {
       type: 'stable',
     },
   },
+  argTypes: {
+    label: {
+      control: 'text',
+      description: 'Label for the select',
+      defaultValue: 'Choose an option',
+    },
+    placeholder: {
+      control: 'text',
+      description: 'Placeholder text to show when no value is selected',
+      defaultValue: 'Select an option',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Whether the select is disabled',
+      defaultValue: false,
+    },
+    readonly: {
+      control: 'boolean',
+      description: 'Whether the select is readonly',
+      defaultValue: false,
+    },
+    validationStatus: {
+      control: 'select',
+      options: ['initial', 'valid', 'invalid'],
+      description: 'The validation status of the select',
+      defaultValue: 'initial',
+    },
+    required: {
+      control: 'boolean',
+      description: 'Whether the select is required',
+      defaultValue: true,
+    },
+    menuHeading: {
+      control: 'text',
+      description: 'The heading to display in the bottom sheet',
+    },
+    emptyText: {
+      control: 'text',
+      description: 'Text to display when no options are available',
+      defaultValue: 'No options available',
+    },
+    searchable: {
+      control: 'boolean',
+      description: 'Whether to enable search functionality',
+      defaultValue: false,
+    },
+    searchPlaceholder: {
+      control: 'text',
+      description: 'Search placeholder text',
+      defaultValue: 'Search',
+    },
+  },
+  args: {
+    label: 'Choose an option',
+    placeholder: 'Select an option',
+    disabled: false,
+    readonly: false,
+    validationStatus: 'initial',
+    required: true,
+    emptyText: 'No options available',
+    searchable: false,
+    searchPlaceholder: 'Search',
+    options: [
+      { label: 'Option 1', value: '1' },
+      { label: 'Option 2', value: '2' },
+      { label: 'Option 3', value: '3' },
+    ],
+  },
 } satisfies Meta<typeof Select>;
 
 export default meta;
 
-export const Basic = () => {
+export const Playground = ({ ...args }) => {
   const [value, setValue] = useState<string | null>(null);
   const handleValueChange = (newValue: string | null) => {
     setValue(newValue);
@@ -30,48 +99,29 @@ export const Basic = () => {
   };
   return (
     <Select
-      label="Choose an option"
-      placeholder="Select an option"
-      items={Array.from({ length: 100 }, (_, i) => ({
+      options={Array.from({ length: 100 }, (_, i) => ({
         label: `Option ${i + 1}`,
         value: `${i + 1}`,
       }))}
       value={value}
       onValueChange={handleValueChange}
+      {...args}
     />
   );
 };
 
-export const WithIcon = () => {
+export const WithMenuHeading = () => {
   const [value, setValue] = useState<string | null>(null);
 
   return (
     <Select
       label="Choose an option"
       placeholder="Select an option"
-      leadingIcon={UserSmallIcon}
-      items={[
+      menuHeading="This is a menu heading"
+      options={[
         { label: 'Option 1', value: '1' },
         { label: 'Option 2', value: '2' },
         { label: 'Option 3', value: '3' },
-      ]}
-      value={value}
-      onValueChange={setValue}
-    />
-  );
-};
-
-export const WithItemIcons = () => {
-  const [value, setValue] = useState<string | null>(null);
-
-  return (
-    <Select
-      label="Choose an option"
-      placeholder="Select an option"
-      items={[
-        { label: 'Home', value: 'home', leftIcon: UserSmallIcon },
-        { label: 'Car', value: 'car', leftIcon: HeartSmallIcon },
-        { label: 'World', value: 'world', leftIcon: StarSmallIcon },
       ]}
       value={value}
       onValueChange={setValue}
@@ -87,7 +137,7 @@ export const Disabled = () => {
       label="Choose an option"
       placeholder="Select an option"
       disabled
-      items={[
+      options={[
         { label: 'Option 1', value: '1' },
         { label: 'Option 2', value: '2' },
         { label: 'Option 3', value: '3' },
@@ -100,17 +150,18 @@ export const Disabled = () => {
 
 export const WithValidationStatus = () => {
   const [value, setValue] = useState<string | null>(null);
+  const [value2, setValue2] = useState<string | null>('2');
 
   return (
-    <View style={{ gap: 16 }}>
+    <Box gap="200">
       <FormField
-        validationStatus="invalid"
+        validationStatus={value ? 'initial' : 'invalid'}
         label="Invalid select"
         invalidText="Please select a value"
       >
         <Select
           placeholder="Select an option"
-          items={[
+          options={[
             { label: 'Option 1', value: '1' },
             { label: 'Option 2', value: '2' },
             { label: 'Option 3', value: '3' },
@@ -119,31 +170,32 @@ export const WithValidationStatus = () => {
           onValueChange={setValue}
         />
       </FormField>
-
+      {!!value && <Button text="Clear value" onPress={() => setValue(null)} />}
       <FormField validationStatus="valid" label="Valid select">
         <Select
           placeholder="Select an option"
-          items={[
+          options={[
             { label: 'Option 1', value: '1' },
             { label: 'Option 2', value: '2' },
             { label: 'Option 3', value: '3' },
           ]}
-          value="2"
-          onValueChange={setValue}
+          value={value2}
+          onValueChange={setValue2}
         />
       </FormField>
-    </View>
+    </Box>
   );
 };
 
-export const Required = () => {
+export const Optional = () => {
   const [value, setValue] = useState<string | null>(null);
 
   return (
-    <FormField label="Required field" required>
+    <FormField label="Field label" required={false}>
       <Select
         placeholder="Select an option"
-        items={[
+        menuHeading="Optionally select an option"
+        options={[
           { label: 'Option 1', value: '1' },
           { label: 'Option 2', value: '2' },
           { label: 'Option 3', value: '3' },
@@ -164,7 +216,7 @@ export const Searchable = () => {
       placeholder="Select a country"
       searchable
       searchPlaceholder="Search countries..."
-      items={[
+      options={[
         { label: 'United Kingdom', value: 'uk' },
         { label: 'United States', value: 'us' },
         { label: 'Canada', value: 'ca' },
@@ -182,7 +234,7 @@ export const Searchable = () => {
   );
 };
 
-export const WithCustomChildren = () => {
+export const WithInlineOptions = () => {
   const [value, setValue] = useState<string | null>(null);
   const handleValueChange = (newValue: string | null) => {
     setValue(newValue);
@@ -209,7 +261,7 @@ export const Empty = () => {
     <Select
       label="Empty select"
       placeholder="No options available"
-      items={[]}
+      options={[]}
       value={value}
       onValueChange={setValue}
       emptyText="No options available at the moment"

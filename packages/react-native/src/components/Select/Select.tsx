@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useRef, useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import SelectProps, { SelectItemProps } from './Select.props';
+import SelectProps, { SelectOptionProps } from './Select.props';
 import {
   BottomSheetModal,
   BottomSheetFlatList,
@@ -21,7 +21,7 @@ import { Icon } from '../Icon';
 const Select = forwardRef<View, SelectProps>(
   (
     {
-      items = [],
+      options = [],
       value,
       onValueChange,
       label,
@@ -32,6 +32,7 @@ const Select = forwardRef<View, SelectProps>(
       required = true,
       children,
       bottomSheetProps,
+      menuHeading,
       readonly = false,
       emptyText = 'No options available',
       listProps,
@@ -52,12 +53,12 @@ const Select = forwardRef<View, SelectProps>(
     const [isOpen, setIsOpen] = useState(false);
     const [selectedLabel, setSelectedLabel] = useState<string | undefined>(undefined);
 
-    // Find selected item from items prop
-    const selectedItem = items.find(item => item.value === value);
+    // Find selected option from options prop
+    const selectedOption = options.find(option => option.value === value);
 
-    // Extract selected label from children if not using items prop
+    // Extract selected label from children if not using options prop
     React.useEffect(() => {
-      if (!selectedItem && children && value) {
+      if (!selectedOption && children && value) {
         // Find the selected child component's label
         React.Children.forEach(children, child => {
           if (React.isValidElement(child) && child.props.value === value) {
@@ -67,18 +68,18 @@ const Select = forwardRef<View, SelectProps>(
       } else {
         setSelectedLabel(undefined);
       }
-    }, [children, value, selectedItem]);
+    }, [children, value, selectedOption]);
 
     styles.useVariants({
       disabled: isDisabled,
       validationStatus: validationStatusFromContext,
       readonly: isReadonly,
-      hasValue: !!selectedLabel || !!selectedItem?.label,
+      hasValue: !!selectedLabel || !!selectedOption?.label,
     });
 
-    const filteredItems = searchable
-      ? items.filter(item => item.label.toLowerCase().includes(search.toLowerCase()))
-      : items;
+    const filteredOptions = searchable
+      ? options.filter(option => option.label.toLowerCase().includes(search.toLowerCase()))
+      : options;
 
     const handleClose = useCallback((index: number) => {
       if (index === -1) {
@@ -100,8 +101,8 @@ const Select = forwardRef<View, SelectProps>(
       setSearch('');
     }, []);
 
-    const renderSelectItem = useCallback(
-      ({ item }: { item: SelectItemProps }) => (
+    const renderSelectOption = useCallback(
+      ({ item }: { item: SelectOptionProps }) => (
         <SelectOption
           label={item.label}
           value={item.value}
@@ -134,7 +135,7 @@ const Select = forwardRef<View, SelectProps>(
 
         <Pressable
           onPress={openBottomSheet}
-          disabled={isDisabled}
+          disabled={isDisabled || isReadonly}
           style={({ pressed }) => [
             styles.selectContainer,
             styles.pressedContainer(pressed || isOpen),
@@ -148,19 +149,18 @@ const Select = forwardRef<View, SelectProps>(
 
           <View style={styles.optionContainer}>
             <BodyText numberOfLines={1} style={styles.placeholderText}>
-              {selectedItem?.label || selectedLabel || placeholder}
+              {selectedOption?.label || selectedLabel || placeholder}
             </BodyText>
           </View>
 
           <View>
-            <ExpandSmallIcon style={styles.icon} />
+            <ExpandSmallIcon style={styles.icon as ViewStyle} />
           </View>
         </Pressable>
 
         <BottomSheetModal
           ref={bottomSheetModalRef}
           snapPoints={['25%', '40%', '80%']}
-          index={0}
           onChange={handleClose}
           enableDynamicSizing={false}
           {...bottomSheetProps}
@@ -172,8 +172,13 @@ const Select = forwardRef<View, SelectProps>(
               close: closeBottomSheet,
             }}
           >
+            {menuHeading && (
+              <View style={styles.headingContainer}>
+                <DetailText size="lg">{menuHeading}</DetailText>
+              </View>
+            )}
             {searchable && (
-              <View style={{ paddingTop: 2 }}>
+              <View style={styles.searchContainer}>
                 <Input
                   placeholder={searchPlaceholder}
                   value={search}
@@ -187,9 +192,9 @@ const Select = forwardRef<View, SelectProps>(
               <BottomSheetScrollView>{children}</BottomSheetScrollView>
             ) : (
               <BottomSheetFlatList
-                data={filteredItems}
-                keyExtractor={item => item.value}
-                renderItem={renderSelectItem}
+                data={filteredOptions}
+                keyExtractor={option => option.value}
+                renderItem={renderSelectOption}
                 ListEmptyComponent={renderEmptyComponent}
                 {...listProps}
               />
@@ -242,6 +247,15 @@ const styles = StyleSheet.create(theme => ({
   },
   optionContainer: {
     flex: 1,
+  },
+  headingContainer: {
+    paddingHorizontal: theme.components.bottomSheet.padding,
+    marginBottom: theme.components.select.gap,
+  },
+  searchContainer: {
+    paddingTop: 1,
+    paddingHorizontal: theme.components.bottomSheet.padding,
+    paddingBottom: theme.components.select.gap,
   },
   pressedContainer: pressed => ({
     outlineWidth: pressed ? theme.components.select.borderWidth : 0,

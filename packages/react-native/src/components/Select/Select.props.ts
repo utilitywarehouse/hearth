@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 
 type ValidationStatus = 'initial' | 'valid' | 'invalid';
 
-export interface SelectItemProps {
+export interface SelectOptionProps {
   /**
    * Label to display for this option
    */
@@ -25,9 +25,9 @@ export interface SelectItemProps {
 
 interface SelectProps extends ViewProps {
   /**
-   * Array of items to display in the select
+   * Array of options to display in the select
    */
-  items?: SelectItemProps[];
+  options?: SelectOptionProps[];
   /**
    * Currently selected value
    */
@@ -60,6 +60,10 @@ interface SelectProps extends ViewProps {
    * Whether the select is required
    */
   required?: boolean;
+  /**
+   * The heading to display in the bottom sheet
+   */
+  menuHeading?: string;
   /**
    * Children to render inside the select (for custom options)
    */
@@ -102,11 +106,11 @@ export interface SelectOptionProps {
   /**
    * Optional left icon
    */
-  leftIcon?: React.ComponentType;
+  leadingIcon?: React.ComponentType;
   /**
    * Optional right icon
    */
-  rightIcon?: React.ComponentType;
+  trailingIcon?: React.ComponentType;
   /**
    * Whether this option is selected
    */
