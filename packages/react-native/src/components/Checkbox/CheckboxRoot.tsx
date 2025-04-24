@@ -55,7 +55,7 @@ const styles = StyleSheet.create(theme => ({
         outline: 'none',
       },
       '_focus-visible > div:nth-child(2)': {
-        ...theme.helpers.focuseVisible,
+        ...theme.helpers.focusVisible,
       },
     },
   },

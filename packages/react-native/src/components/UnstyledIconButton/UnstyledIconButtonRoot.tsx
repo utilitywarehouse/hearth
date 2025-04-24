@@ -33,7 +33,7 @@ const styles = StyleSheet.create(theme => ({
     height: 24,
     borderRadius: theme.borderRadius.sm,
     _web: {
-      '_focus-visible': theme.helpers.focuseVisible,
+      '_focus-visible': theme.helpers.focusVisible,
     },
     variants: {
       disabled: {
