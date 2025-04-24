@@ -1,7 +1,7 @@
 import React, { forwardRef, useCallback, useRef, useState } from 'react';
 import { Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import SelectProps, { SelectOptionProps } from './Select.props';
+import SelectProps, { SelectOptionItemProps } from './Select.props';
 import {
   BottomSheetModal,
   BottomSheetFlatList,
@@ -102,12 +102,12 @@ const Select = forwardRef<View, SelectProps>(
     }, []);
 
     const renderSelectOption = useCallback(
-      ({ item }: { item: SelectOptionProps }) => (
+      ({ item }: { item: SelectOptionItemProps }) => (
         <SelectOption
           label={item.label}
           value={item.value}
-          leftIcon={item.leftIcon}
-          rightIcon={item.rightIcon}
+          leadingIcon={item.leadingIcon}
+          trailingIcon={item.trailingIcon}
         />
       ),
       []

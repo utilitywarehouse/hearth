@@ -247,9 +247,9 @@ export const WithInlineOptions = () => {
       value={value}
       onValueChange={handleValueChange}
     >
-      <SelectOption label="Home option" value="home" leftIcon={UserSmallIcon} />
-      <SelectOption label="Car option" value="car" leftIcon={HeartSmallIcon} />
-      <SelectOption label="World option" value="world" leftIcon={StarSmallIcon} />
+      <SelectOption label="Home option" value="home" leadingIcon={UserSmallIcon} />
+      <SelectOption label="Car option" value="car" leadingIcon={HeartSmallIcon} />
+      <SelectOption label="World option" value="world" leadingIcon={StarSmallIcon} />
     </Select>
   );
 };

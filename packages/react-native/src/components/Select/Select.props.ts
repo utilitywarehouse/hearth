@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 
 type ValidationStatus = 'initial' | 'valid' | 'invalid';
 
-export interface SelectOptionProps {
+export interface SelectOptionItemProps {
   /**
    * Label to display for this option
    */
@@ -16,11 +16,11 @@ export interface SelectOptionProps {
   /**
    * Optional left icon for this option
    */
-  leftIcon?: React.ComponentType;
+  leadingIcon?: React.ComponentType;
   /**
    * Optional right icon for this option
    */
-  rightIcon?: React.ComponentType;
+  trailingIcon?: React.ComponentType;
 }
 
 interface SelectProps extends ViewProps {
