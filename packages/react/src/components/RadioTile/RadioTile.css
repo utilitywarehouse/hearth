@@ -1,9 +1,7 @@
 .hearth-RadioTile {
-  &:where(:not([data-disabled], [data-disabled] &)) {
-    cursor: pointer;
+  cursor: pointer;
 
-    * {
-      cursor: pointer;
-    }
+  * {
+    cursor: pointer;
   }
 }

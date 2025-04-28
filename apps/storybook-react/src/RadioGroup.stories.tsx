@@ -17,12 +17,10 @@ const meta: Meta<typeof RadioGroup> = {
     helperText: { control: { type: 'text' } },
     validationText: { control: { type: 'text' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
-    disabled: { control: { type: 'boolean' } },
     contentWidth: { control: { type: 'text' } },
   },
   args: {
     label: 'Label',
-    disabled: false,
     helperText: 'Helper text',
     validationText: 'Validation text',
     contentWidth: undefined,

@@ -1,15 +1,9 @@
 .hearth-Radio {
-  &:where(:not([data-disabled], [data-disabled] &)) {
+  cursor: pointer;
+
+  * {
     cursor: pointer;
-
-    * {
-      cursor: pointer;
-    }
   }
-
-  /* https://github.com/utilitywarehouse/design-systems/commit/a1e58f1fa7b863b816ee43ab567d1a7db5741d23 */
-
-  /* flex: 1; */
 
   .hearth-RadioContainer {
     width: 40px;
@@ -42,7 +36,7 @@
       }
     }
 
-    &:where(:active):not([data-disabled][data-state='unchecked']) {
+    &:where(:active):not([data-state='unchecked']) {
       box-shadow: 0 0 0 var(--h-radio-outline-width) var(--h-radio-outline-color-active);
     }
   }

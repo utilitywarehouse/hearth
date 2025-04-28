@@ -40,7 +40,6 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
       id: providedId,
       label,
       helperText,
-      disabled,
       className,
       labelFontWeight,
       'aria-labelledby': ariaLabelledby,
@@ -53,17 +52,12 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
     const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
     const showLabel = !!label;
     return (
-      <Flex
-        gap="100"
-        className={clsx(componentClassName, className)}
-        data-disabled={disabled ? '' : undefined}
-      >
+      <Flex gap="100" className={clsx(componentClassName, className)}>
         <Flex align="center" justify="center" className="hearth-RadioContainer">
           <RadixRadioItem
             ref={ref}
             {...props}
             id={id}
-            disabled={disabled}
             aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
             aria-labelledby={ariaLabelledby || !!label ? labelId : undefined}
             className="hearth-RadioItem"

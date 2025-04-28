@@ -23,15 +23,11 @@ type RadioTileElement = ElementRef<'button'>;
  * `aria-label` or `aria-labelledby` for accessibility.
  */
 export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
-  ({ className, disabled, ...props }, ref) => {
+  ({ className, ...props }, ref) => {
     return (
-      <SelectableCard
-        className={clsx(componentClassName, className)}
-        data-disabled={disabled ? '' : undefined}
-        compact
-      >
+      <SelectableCard className={clsx(componentClassName, className)} compact>
         <CardAction>
-          <Radio ref={ref} {...props} disabled={disabled} />
+          <Radio ref={ref} {...props} />
         </CardAction>
       </SelectableCard>
     );

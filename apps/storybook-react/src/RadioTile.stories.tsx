@@ -8,18 +8,12 @@ const meta: Meta<typeof RadioTile> = {
   argTypes: {
     value: { control: { type: 'text' } },
     helperText: { control: { type: 'text' } },
-    validationText: { control: { type: 'text' } },
-    invalid: { control: { type: 'boolean' } },
     label: { control: { type: 'text' } },
-    disabled: { control: { type: 'boolean' } },
   },
   args: {
     value: '1',
-    disabled: false,
     label: 'Label',
     helperText: 'Helper text',
-    validationText: 'Validation text',
-    invalid: false,
   },
 };
 
@@ -37,14 +31,6 @@ export const Playground: Story = {
         <RadioGroup defaultValue={args.value} label="Checked radio">
           <RadioTile {...args} />
         </RadioGroup>
-
-        <RadioGroup value="2" label="Disabled unchecked radio">
-          <RadioTile {...args} disabled />
-        </RadioGroup>
-
-        <RadioGroup defaultValue={args.value} label="Disabled checked radio">
-          <RadioTile {...args} disabled />
-        </RadioGroup>
       </Flex>
     );
   },
@@ -52,11 +38,9 @@ export const Playground: Story = {
     value: { control: { type: 'text' } },
     helperText: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
-    disabled: { control: { type: 'boolean' } },
   },
   args: {
     value: '1',
-    disabled: false,
     label: 'Radio label',
     helperText: 'Radio helper text',
   },

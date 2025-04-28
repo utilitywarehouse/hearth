@@ -2,7 +2,8 @@ import type { RadioGroupProps as RadixRadioGroupProps } from '@radix-ui/react-ra
 import type { FormFieldGroupProps } from '../FormFieldGroup/FormFieldGroup.props';
 import { SizeProps } from '../../props/size.props';
 
-export interface RadioGroupRootProps extends Omit<RadixRadioGroupProps, 'dir' | 'orientation'> {
+export interface RadioGroupRootProps
+  extends Omit<RadixRadioGroupProps, 'dir' | 'orientation' | 'disabled'> {
   /** The direction of the radios, will also set the aria-orientation value. */
   direction?: 'column' | 'row';
   /**
