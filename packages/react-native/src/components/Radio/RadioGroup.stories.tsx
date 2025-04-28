@@ -82,7 +82,7 @@ export const Playground: Story = {
   ),
 };
 
-export const WhithGrid: Story = {
+export const WithGrid: Story = {
   args: {
     value: 'Option 1',
     type: 'tile',
