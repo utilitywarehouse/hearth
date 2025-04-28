@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from 'react';
-import { BottomSheet, BottomSheetModal } from '.';
+import { BottomSheet, BottomSheetModal, BottomSheetView } from '.';
 import { Meta, StoryObj } from '@storybook/react';
 import { Box } from '../Box';
 import { Button } from '../Button';
@@ -9,7 +9,7 @@ import { Divider } from '../Divider';
 import { Dimensions, Platform, View } from 'react-native';
 import { UnistylesRuntime } from 'react-native-unistyles';
 import { Input } from '../Input';
-import { FormField, FormFieldLabel } from '../FormField';
+import { FormField } from '../FormField';
 
 const meta = {
   title: 'Stories / BottomSheet',
@@ -98,7 +98,6 @@ const ViewWrap = ({ children }: { children: React.ReactNode }) => (
   </View>
 );
 
-// @ts-expect-error - Doesn't include all props
 export const Playground: Story = {
   render: ({ ...args }) => {
     const bottomSheetRef = useRef<BottomSheet>(null);
@@ -112,11 +111,13 @@ export const Playground: Story = {
           <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
           <BottomSheet ref={bottomSheetRef} {...args}>
-            <Box gap="200">
-              <BodyText>This is a bottom sheet with content.</BodyText>
-              <BodyText>You can swipe it up and down to close.</BodyText>
-              <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
-            </Box>
+            <BottomSheetView>
+              <Box gap="200">
+                <BodyText>This is a bottom sheet with content.</BodyText>
+                <BodyText>You can swipe it up and down to close.</BodyText>
+                <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
+              </Box>
+            </BottomSheetView>
           </BottomSheet>
         </ViewWrap>
       </View>
@@ -124,7 +125,6 @@ export const Playground: Story = {
   },
 };
 
-// @ts-expect-error - Doesn't include all props
 export const WithSnapPoints: Story = {
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
@@ -137,18 +137,19 @@ export const WithSnapPoints: Story = {
         <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
         <BottomSheetModal ref={bottomSheetRef} snapPoints={['25%', '50%', '75%']}>
-          <Box gap="200">
-            <BodyText>This bottom sheet has multiple snap points.</BodyText>
-            <BodyText>Try swiping to see 25%, 50% and 75% heights.</BodyText>
-            <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
-          </Box>
+          <BottomSheetView>
+            <Box gap="200">
+              <BodyText>This bottom sheet has multiple snap points.</BodyText>
+              <BodyText>Try swiping to see 25%, 50% and 75% heights.</BodyText>
+              <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
+            </Box>
+          </BottomSheetView>
         </BottomSheetModal>
       </ViewWrap>
     );
   },
 };
 
-// @ts-expect-error - Doesn't include all props
 export const DynamicHeight: Story = {
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
@@ -161,17 +162,18 @@ export const DynamicHeight: Story = {
         <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
         <BottomSheetModal ref={bottomSheetRef}>
-          <Box gap="200" padding="100">
-            <BodyText>This bottom sheet will resize based on its content height.</BodyText>
-            <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
-          </Box>
+          <BottomSheetView>
+            <Box gap="200" padding="100">
+              <BodyText>This bottom sheet will resize based on its content height.</BodyText>
+              <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
+            </Box>
+          </BottomSheetView>
         </BottomSheetModal>
       </ViewWrap>
     );
   },
 };
 
-// @ts-expect-error - Doesn't include all props
 export const WithoutHandle: Story = {
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
@@ -184,17 +186,18 @@ export const WithoutHandle: Story = {
         <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
         <BottomSheetModal ref={bottomSheetRef} showHandle={false} snapPoints={['25%', '50%']}>
-          <Box gap="200">
-            <BodyText>This bottom sheet doesn't show the handle at the top.</BodyText>
-            <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
-          </Box>
+          <BottomSheetView>
+            <Box gap="200">
+              <BodyText>This bottom sheet doesn't show the handle at the top.</BodyText>
+              <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
+            </Box>
+          </BottomSheetView>
         </BottomSheetModal>
       </ViewWrap>
     );
   },
 };
 
-// @ts-expect-error - Doesn't include all props
 export const WithoutBackdrop: Story = {
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
@@ -207,17 +210,18 @@ export const WithoutBackdrop: Story = {
         <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
         <BottomSheetModal ref={bottomSheetRef} backdrop={false} snapPoints={['25%', '50%']}>
-          <Box gap="200">
-            <BodyText>This bottom sheet doesn't show a backdrop overlay.</BodyText>
-            <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
-          </Box>
+          <BottomSheetView>
+            <Box gap="200">
+              <BodyText>This bottom sheet doesn't show a backdrop overlay.</BodyText>
+              <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
+            </Box>
+          </BottomSheetView>
         </BottomSheetModal>
       </ViewWrap>
     );
   },
 };
 
-// @ts-expect-error - Doesn't include all props
 export const ComplexContent: Story = {
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
@@ -230,39 +234,42 @@ export const ComplexContent: Story = {
         <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
         <BottomSheetModal ref={bottomSheetRef} snapPoints={['50%', '90%']}>
-          <Box gap="200">
-            <Heading size="lg">Bottom Sheet with Complex Content</Heading>
-            <Divider />
-            <BodyText>This is a more complex bottom sheet with various content sections.</BodyText>
+          <BottomSheetView>
+            <Box gap="200">
+              <Heading size="lg">Bottom Sheet with Complex Content</Heading>
+              <Divider />
+              <BodyText>
+                This is a more complex bottom sheet with various content sections.
+              </BodyText>
 
-            <Box gap="100">
-              <BodyText weight="semibold">Features:</BodyText>
-              <BodyText>• Multiple snap points</BodyText>
-              <BodyText>• Custom styling</BodyText>
-              <BodyText>• Complex layout</BodyText>
-              <BodyText>• Custom handle and backdrop</BodyText>
+              <Box gap="100">
+                <BodyText weight="semibold">Features:</BodyText>
+                <BodyText>• Multiple snap points</BodyText>
+                <BodyText>• Custom styling</BodyText>
+                <BodyText>• Complex layout</BodyText>
+                <BodyText>• Custom handle and backdrop</BodyText>
+              </Box>
+
+              <Divider />
+
+              <Box flexDirection="row" justifyContent="space-between">
+                <Button
+                  colorScheme="grey"
+                  variant="outline"
+                  onPress={() => bottomSheetRef.current?.close()}
+                >
+                  Cancel
+                </Button>
+                <Button onPress={() => bottomSheetRef.current?.close()}>Confirm</Button>
+              </Box>
             </Box>
-
-            <Divider />
-
-            <Box flexDirection="row" justifyContent="space-between">
-              <Button
-                colorScheme="grey"
-                variant="outline"
-                onPress={() => bottomSheetRef.current?.close()}
-              >
-                Cancel
-              </Button>
-              <Button onPress={() => bottomSheetRef.current?.close()}>Confirm</Button>
-            </Box>
-          </Box>
+          </BottomSheetView>
         </BottomSheetModal>
       </ViewWrap>
     );
   },
 };
 
-// @ts-expect-error - Doesn't include all props
 export const WithInput: Story = {
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
@@ -275,28 +282,30 @@ export const WithInput: Story = {
         <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
         <BottomSheetModal ref={bottomSheetRef}>
-          <Box gap="200">
-            <Heading size="lg">Bottom Sheet with Input</Heading>
-            <Divider />
-            <BodyText>This bottom sheet contains an input field.</BodyText>
+          <BottomSheetView>
+            <Box gap="200">
+              <Heading size="lg">Bottom Sheet with Input</Heading>
+              <Divider />
+              <BodyText>This bottom sheet contains an input field.</BodyText>
 
-            <FormField label="Input Field">
-              <Input placeholder="Type something..." />
-            </FormField>
+              <FormField label="Input Field">
+                <Input placeholder="Type something..." />
+              </FormField>
 
-            <Divider />
+              <Divider />
 
-            <Box flexDirection="row" justifyContent="space-between">
-              <Button
-                colorScheme="grey"
-                variant="outline"
-                onPress={() => bottomSheetRef.current?.close()}
-              >
-                Cancel
-              </Button>
-              <Button onPress={() => bottomSheetRef.current?.close()}>Submit</Button>
+              <Box flexDirection="row" justifyContent="space-between">
+                <Button
+                  colorScheme="grey"
+                  variant="outline"
+                  onPress={() => bottomSheetRef.current?.close()}
+                >
+                  Cancel
+                </Button>
+                <Button onPress={() => bottomSheetRef.current?.close()}>Submit</Button>
+              </Box>
             </Box>
-          </Box>
+          </BottomSheetView>
         </BottomSheetModal>
       </ViewWrap>
     );

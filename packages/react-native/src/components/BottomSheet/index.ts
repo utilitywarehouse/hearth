@@ -2,9 +2,9 @@ export { default as BottomSheet } from './BottomSheet';
 export { default as BottomSheetView } from './BottomSheetView';
 export { default as BottomSheetScrollView } from './BottomSheetScrollView';
 export { default as BottomSheetModal } from './BottomSheetModal';
+export { default as BottomSheetFlatList } from './BottomSheetFlatList';
 export {
   BottomSheetModalProvider,
-  BottomSheetFlatList,
   BottomSheetSectionList,
   BottomSheetVirtualizedList,
   useBottomSheet,

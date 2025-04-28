@@ -50,6 +50,14 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     },
+    _web: {
+      '_focus-visible': {
+        outline: 'none',
+      },
+      '_focus-visible > div:nth-child(2)': {
+        ...theme.helpers.focusVisible,
+      },
+    },
   },
 }));
 

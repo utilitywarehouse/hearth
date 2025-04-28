@@ -37,7 +37,7 @@ const styles = StyleSheet.create(theme => ({
         outlineColor: theme.components.radio.outlineColorHover,
       },
       '_focus-within': {
-        ...theme.helpers.focuseVisible,
+        ...theme.helpers.focusVisible,
       },
       _active: {
         outlineColor: theme.components.radio.outlineColorActive,

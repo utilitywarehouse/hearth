@@ -5,6 +5,7 @@ import {
   BottomSheet,
   BottomSheetModal,
   BottomSheetScrollView,
+  BottomSheetView,
   Button,
   Center,
   BodyText,
@@ -49,7 +50,13 @@ The `BottomSheet` component provides a drawer-like interface that slides up from
 
 ```tsx
 import { useRef, useCallback } from 'react';
-import { BottomSheetModal, Button, Box, BodyText } from '@utilitywarehouse/hearth-react-native';
+import {
+  BottomSheetModal,
+  BottomSheetView,
+  Button,
+  Box,
+  BodyText,
+} from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const bottomSheetRef = useRef(null);
@@ -63,10 +70,12 @@ const MyComponent = () => {
       <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
 
       <BottomSheetModal ref={bottomSheetRef} snapPoints={['25%', '50%']}>
-        <Box gap="200" padding="100">
-          <BodyText>This is a bottom sheet modal that appears over your content.</BodyText>
-          <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
-        </Box>
+        <BottomSheetView>
+          <Box gap="200" padding="100">
+            <BodyText>This is a bottom sheet modal that appears over your content.</BodyText>
+            <Button onPress={() => bottomSheetRef.current?.close()}>Close Bottom Sheet</Button>
+          </Box>
+        </BottomSheetView>
       </BottomSheetModal>
     </>
   );

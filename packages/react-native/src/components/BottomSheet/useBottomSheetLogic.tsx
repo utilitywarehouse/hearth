@@ -10,25 +10,13 @@ import { ViewStyle } from 'react-native';
 interface UseBottomSheetLogicProps<T = any> {
   ref: React.Ref<T>;
   bottomSheetRef: RefObject<T>;
-  children: ReactNode;
   backdrop: boolean | ((props: BottomSheetBackdropProps) => ReactNode);
   showHandle: boolean;
   handleStyle?: ViewStyle;
-  contentStyle?: ViewStyle;
-  isModal?: boolean;
 }
 
 const useBottomSheetLogic = <T = any,>(props: UseBottomSheetLogicProps<T>) => {
-  const {
-    ref,
-    bottomSheetRef,
-    children,
-    backdrop,
-    showHandle,
-    handleStyle,
-    contentStyle,
-    isModal,
-  } = props;
+  const { ref, bottomSheetRef, backdrop, showHandle, handleStyle } = props;
 
   // Backdrop component
   const renderBackdrop = useCallback(
@@ -58,23 +46,9 @@ const useBottomSheetLogic = <T = any,>(props: UseBottomSheetLogicProps<T>) => {
   // Forward ref methods to parent component
   useImperativeHandle(ref, () => bottomSheetRef.current as T);
 
-  const childrenContainsBottomSheetView = hasChildrenByDisplayName(children, [
-    'BottomSheetView',
-    'BottomSheetScrollView',
-  ]);
-
-  const wrappedChildren = childrenContainsBottomSheetView ? (
-    children
-  ) : (
-    <BottomSheetView style={contentStyle} isModal={isModal}>
-      {children}
-    </BottomSheetView>
-  );
-
   return {
     renderBackdrop,
     renderHandle,
-    wrappedChildren,
   };
 };
 

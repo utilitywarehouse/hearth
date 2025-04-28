@@ -156,7 +156,7 @@ const shared = {
 
 const lightHelpers = {
   ...shared.helpers,
-  focuseVisible: {
+  focusVisible: {
     outlineStyle: 'solid',
     outlineWidth: 2,
     outlineColor: components.light.focus.border,
@@ -180,7 +180,7 @@ export const lightTheme = {
 
 const darkHelpers = {
   ...shared.helpers,
-  focuseVisible: {
+  focusVisible: {
     outlineStyle: 'solid',
     outlineWidth: 2,
     outlineColor: components.dark.focus.border,

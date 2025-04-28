@@ -7,7 +7,7 @@ import { useBottomSheetContext } from './BottomSheet.context';
 const StyledBottomSheetView = withUnistyles(View);
 
 const BottomSheetView = forwardRef<typeof View, BottomSheetViewProps & { isModal?: boolean }>(
-  ({ children, style, isModal, ...props }, ref) => {
+  ({ children, style, isModal = true, ...props }, ref) => {
     const { handle } = useBottomSheetContext();
     styles.useVariants({
       isModal,
