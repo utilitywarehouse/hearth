@@ -61,6 +61,19 @@ const GridItem = ({
 );
 
 export const Playground: Story = {
+  parameters: {
+    controls: {
+      include: [
+        'columns',
+        'spacing',
+        'columnGap',
+        'rowGap',
+        'style',
+        'containerStyle',
+        'itemStyle',
+      ],
+    },
+  },
   args: {
     columns: 2,
     spacing: 16,

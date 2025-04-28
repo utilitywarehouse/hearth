@@ -40,6 +40,11 @@ export interface GridProps extends BoxProps {
   itemStyle?: StyleProp<ViewStyle>;
 
   /**
+   * Style for each row
+   */
+  rowStyle?: StyleProp<ViewStyle>;
+
+  /**
    * Grid items
    */
   children?: React.ReactNode;

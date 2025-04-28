@@ -12,6 +12,7 @@ const Grid: React.FC<GridProps> = ({
   rowGap,
   containerStyle,
   itemStyle,
+  rowStyle,
   children,
   ...boxProps
 }) => {
@@ -86,7 +87,10 @@ const Grid: React.FC<GridProps> = ({
     <Box {...boxProps} style={[styles.container, containerStyle]}>
       <View style={[styles.rowsContainer, { gap: computedRowGap as number }]}>
         {rows.map((rowItems, rowIndex) => (
-          <View key={`row-${rowIndex}`} style={[styles.row, { gap: computedColumnGap as number }]}>
+          <View
+            key={`row-${rowIndex}`}
+            style={[styles.row, { gap: computedColumnGap as number }, rowStyle]}
+          >
             {rowItems.map((child, colIndex) => {
               return (
                 <View key={`item-${rowIndex}-${colIndex}`} style={[styles.item, itemStyle]}>

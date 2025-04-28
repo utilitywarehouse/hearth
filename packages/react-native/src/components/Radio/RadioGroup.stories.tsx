@@ -1,7 +1,7 @@
 import React from 'react';
 import { Radio, RadioGroup } from '.';
 import { Meta, StoryObj } from '@storybook/react';
-import Grid from '../Grid';
+import { Grid } from '../Grid';
 
 const meta = {
   title: 'Stories / RadioGroup',
