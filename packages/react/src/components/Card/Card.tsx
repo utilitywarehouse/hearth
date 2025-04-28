@@ -11,8 +11,9 @@ import { sizePropDefs } from '../../props/size.props';
 import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
 import { Flex } from '../Flex/Flex';
-import { FlexProps } from '../Flex/Flex.props';
+import { flexPropDefs, FlexProps } from '../Flex/Flex.props';
 import { kebabCase } from '../../helpers/kebab-case';
+import { gapPropDefs } from '../../props/gap.props';
 
 const componentName = 'Card';
 const componentClassName = withGlobalPrefix(componentName);
@@ -28,6 +29,8 @@ export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
     ...cardProps
   } = extractProps(
     props,
+    flexPropDefs,
+    gapPropDefs,
     cardPropDefs,
     marginPropDefs,
     sizePropDefs,

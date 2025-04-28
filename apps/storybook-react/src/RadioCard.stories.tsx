@@ -1,44 +1,26 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import {
-  SelectableCard,
-  Flex,
-  Box,
-  Radio,
-  RadioGroup,
-  Badge,
-} from '@utilitywarehouse/hearth-react';
 
-const meta: Meta<typeof SelectableCard> = {
-  title: 'Stories / SelectableCard',
-  component: SelectableCard,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Links are used to navigate a user to another page or website, another place on the same page, or to open a link in a new tab.',
-      },
-    },
-  },
+import { RadioCard, Flex, RadioGroup, Badge, Box } from '@utilitywarehouse/hearth-react';
+
+const meta: Meta<typeof RadioCard> = {
+  title: 'Stories / RadioCard',
+  component: RadioCard,
   argTypes: {
-    children: { control: { type: 'text' } },
-    selected: { control: { type: 'boolean' } },
-    borderRadius: { control: { type: 'radio' }, options: ['md', 'xl'] },
-    compact: { control: { type: 'boolean' } },
+    value: { control: { type: 'text' } },
+    label: { control: { type: 'text' } },
+    disabled: { control: { type: 'boolean' } },
   },
   args: {
-    children:
-      'Agnes Bernice Martin was an American abstract painter known for her minimalist style.',
-    selected: false,
-    compact: false,
+    value: '1',
+    disabled: false,
+    label: 'Label',
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof SelectableCard>;
+type Story = StoryObj<typeof RadioCard>;
 
-export const Playground: Story = {};
-
-export const SelectRadioExample: Story = {
+export const Playground: Story = {
   render: () => {
     return (
       <Flex>
@@ -50,8 +32,7 @@ export const SelectRadioExample: Story = {
               </Badge>
             </Flex>
 
-            <SelectableCard gap="150" direction="column">
-              <Radio value="1" label="Debit card payment" />
+            <RadioCard value="1" label="Debit card payment">
               <Flex asChild gap="100" direction="column">
                 <ul role="list">
                   <Box asChild marginLeft="100">
@@ -65,11 +46,10 @@ export const SelectRadioExample: Story = {
                   </Box>
                 </ul>
               </Flex>
-            </SelectableCard>
+            </RadioCard>
           </Flex>
 
-          <SelectableCard gap="150" direction="column">
-            <Radio value="2" label="Instant bank transfer" />
+          <RadioCard value="2" label="Instant bank transfer">
             <Flex asChild gap="100" direction="column">
               <ul role="list">
                 <Box asChild marginLeft="100">
@@ -80,7 +60,7 @@ export const SelectRadioExample: Story = {
                 </Box>
               </ul>
             </Flex>
-          </SelectableCard>
+          </RadioCard>
         </RadioGroup>
       </Flex>
     );

@@ -1,3 +1,6 @@
-:where([data-disabled], [data-disabled] &) {
+/* elements with aria-disabled, or data-disabled and their children, unless the children also have data-disabled */
+:where([data-disabled], [data-disabled] &, [aria-disabled='true']):not(
+    [data-disabled] [data-disabled]
+  ) {
   opacity: var(--h-opacity-disabled);
 }

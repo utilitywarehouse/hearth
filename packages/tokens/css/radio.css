@@ -11,7 +11,7 @@
   --h-radio-group-stack-gap: var(--h-space-400);
   --h-radio-outline-color-active: var(--h-color-warm-white-300);
   --h-radio-outline-color-hover: var(--h-color-warm-white-200);
-  --h-radio-outline-width: 3;
+  --h-radio-outline-width: 3px;
   --h-radio-tile-background-color: var(--h-color-white);
   --h-radio-tile-border-color: var(--h-color-warm-white-300);
   --h-radio-tile-border-color-selected: var(--h-color-grey-1000);

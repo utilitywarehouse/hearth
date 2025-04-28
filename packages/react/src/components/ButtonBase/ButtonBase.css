@@ -208,7 +208,6 @@
 
   &:where([aria-disabled='true']) {
     cursor: not-allowed;
-    opacity: var(--h-opacity-disabled);
   }
 
   &:where(:active):not([aria-disabled='true']) {
