@@ -22,7 +22,6 @@
 
   &:where([aria-disabled='true']) {
     cursor: not-allowed;
-    opacity: var(--h-opacity-disabled);
   }
 
   @media (hover: hover) {

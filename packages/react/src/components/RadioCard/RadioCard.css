@@ -1,0 +1,9 @@
+.hearth-RadioCard {
+  &:where(:not([data-disabled], [data-disabled] &)) {
+    cursor: pointer;
+
+    * {
+      cursor: pointer;
+    }
+  }
+}

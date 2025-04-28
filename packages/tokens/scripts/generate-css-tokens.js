@@ -31,6 +31,7 @@ StyleDictionary.registerFormat({
 @import '../css/line-height.css';
 @import '../css/link.css';
 @import '../css/opacity.css';
+@import '../css/radio.css';
 @import '../css/space.css';
 @import '../css/spinner.css';
 @import '../css/text.css';
@@ -89,16 +90,9 @@ StyleDictionary.registerTransform({
 });
 
 StyleDictionary.registerTransform({
-  name: 'spinner/px',
+  name: 'component/px',
   type: 'value',
-  filter: filters.isSpinnerComponentSize,
-  transform: px,
-});
-
-StyleDictionary.registerTransform({
-  name: 'button/px',
-  type: 'value',
-  filter: filters.isButtonMinWidth,
+  filter: filters.isComponentPxValue,
   transform: px,
 });
 
@@ -139,8 +133,7 @@ StyleDictionary.registerTransformGroup({
     'css/normalize-name',
     'space/px',
     'border/px',
-    'spinner/px',
-    'button/px',
+    'component/px',
     'font-size/px-to-rem',
     'line-height/px-to-rem',
     'opacity/value',
