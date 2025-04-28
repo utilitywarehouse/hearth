@@ -11,6 +11,7 @@ export * from './DetailText';
 export * from './Divider';
 export * from './Flex';
 export * from './FormField';
+export * from './Grid';
 export * from './Heading';
 export * from './Helper';
 export * from './Icon';

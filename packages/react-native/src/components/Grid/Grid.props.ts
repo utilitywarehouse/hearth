@@ -1,52 +1,46 @@
-import React from 'react';
+import { BoxProps } from '../Box/Box.props';
 import { StyleProp, ViewStyle } from 'react-native';
-import type { BoxProps } from '../Box/Box.props';
-import { SpaceValue } from '../../types';
+import { UnistylesBreakpoints } from 'react-native-unistyles';
 
-export interface GridProps extends BoxProps<'div'> {
+// Create a type that uses the keys from our breakpoints object
+export type GridColumns = {
+  [key in keyof UnistylesBreakpoints]?: number;
+};
+
+export interface GridProps extends BoxProps {
   /**
-   * Number of columns to display
-   * Can be a fixed number or an object with breakpoints
+   * Number of columns or responsive object defining columns at different breakpoints
+   * @default 2
    */
-  columns?:
-    | number
-    | {
-        xs?: number;
-        sm?: number;
-        md?: number;
-        lg?: number;
-        xl?: number;
-      };
+  columns?: number | GridColumns;
 
   /**
-   * Spacing between grid items (applied to both rows and columns)
+   * Spacing between grid items (applies to both rows and columns)
    */
-  spacing?: number | string;
+  spacing?: number;
 
   /**
-   * Column gap between items
+   * Gap between columns (overrides spacing if provided)
    */
-  columnGap?: SpaceValue;
+  columnGap?: number;
 
   /**
-   * Row gap between items
+   * Gap between rows (overrides spacing if provided)
    */
-  rowGap?: SpaceValue;
+  rowGap?: number;
 
   /**
-   * Additional style for the grid container
+   * Style for the grid container
    */
   containerStyle?: StyleProp<ViewStyle>;
 
   /**
-   * Style applied to each item's container
+   * Style for each grid item
    */
   itemStyle?: StyleProp<ViewStyle>;
 
   /**
-   * Children to be rendered in the grid
+   * Grid items
    */
   children?: React.ReactNode;
 }
-
-export default GridProps;

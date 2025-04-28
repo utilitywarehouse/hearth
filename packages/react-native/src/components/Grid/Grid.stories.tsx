@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { View, Text } from 'react-native';
-import Grid from '.';
+import { Grid } from '.';
 
 const meta = {
   title: 'Stories / Grid',
@@ -60,7 +60,7 @@ const GridItem = ({
   </View>
 );
 
-export const Default: Story = {
+export const Playground: Story = {
   args: {
     columns: 2,
     spacing: 16,

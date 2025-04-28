@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
-import { View, useWindowDimensions } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
+import { useWindowDimensions, View } from 'react-native';
+import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles';
 import Box from '../Box/Box';
 import type { GridProps } from './Grid.props';
+import { useTheme } from '../../hooks';
 
 const Grid: React.FC<GridProps> = ({
   columns = 2,
@@ -14,9 +15,9 @@ const Grid: React.FC<GridProps> = ({
   children,
   ...boxProps
 }) => {
-  const { width } = useWindowDimensions();
-
+  const { breakpoints } = useTheme();
   const childrenArray = React.Children.toArray(children).filter(Boolean);
+  const { width } = useWindowDimensions();
 
   const getColumnsForWidth = useMemo(() => {
     // If columns is a number, use that number
@@ -24,18 +25,35 @@ const Grid: React.FC<GridProps> = ({
       return columns;
     }
 
-    // If columns is an object, determine the number of columns based on screen width
+    // If columns is an object, determine columns based on current breakpoint
     if (typeof columns === 'object') {
-      if (width < 576 && columns.xs !== undefined) {
-        return columns.xs;
-      } else if (width < 768 && columns.sm !== undefined) {
-        return columns.sm;
-      } else if (width < 992 && columns.md !== undefined) {
-        return columns.md;
-      } else if (width < 1200 && columns.lg !== undefined) {
-        return columns.lg;
-      } else if (columns.xl !== undefined) {
-        return columns.xl;
+      const currentBreakpoint = UnistylesRuntime.breakpoint ?? 'base';
+
+      // Try to get the value for the current breakpoint
+      if (columns[currentBreakpoint] !== undefined) {
+        return columns[currentBreakpoint];
+      }
+
+      // If not found, find the nearest smaller breakpoint that has a defined column value
+      const breakpointKeys = Object.keys(breakpoints) as Array<keyof typeof breakpoints>;
+      const sortedBreakpoints = breakpointKeys.sort((a, b) => breakpoints[a] - breakpoints[b]);
+      // @ts-ignore
+      const currentBreakpointIndex = sortedBreakpoints.indexOf(currentBreakpoint);
+
+      // Look for the closest smaller breakpoint with a defined value
+      for (let i = currentBreakpointIndex - 1; i >= 0; i--) {
+        const breakpoint = sortedBreakpoints[i];
+        if (columns[breakpoint] !== undefined) {
+          return columns[breakpoint];
+        }
+      }
+
+      // If no smaller breakpoint has a defined value, look for larger ones
+      for (let i = currentBreakpointIndex + 1; i < sortedBreakpoints.length; i++) {
+        const breakpoint = sortedBreakpoints[i];
+        if (columns[breakpoint] !== undefined) {
+          return columns[breakpoint];
+        }
       }
     }
 
