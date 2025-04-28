@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import CardProps from './Card.props';
 import { PressableRef } from '../../types';
 import { CardContext } from './Card.context';
+import { useStyleProps } from '../../hooks';
 
 // Helper that recursively collects onPress or other defined handlers from descendants
 const collectChildActionHandlers = (
@@ -47,14 +48,17 @@ const Card = forwardRef<
       selected,
       style,
       states,
+      space,
       disabled = false,
       onPress,
-      ...props
+      ...rest
     },
     ref
   ) => {
     const { active } = states || { active: false };
     const childActionHandlers = collectChildActionHandlers(children as ReactNode);
+    // Extract style props using our custom hook
+    const { computedStyles, remainingProps } = useStyleProps(rest);
 
     const handlePress = (e: GestureResponderEvent) => {
       if (onPress) {
@@ -75,6 +79,7 @@ const Card = forwardRef<
       active,
       showPressed,
       disabled,
+      space,
     });
 
     const context = useMemo(
@@ -87,9 +92,9 @@ const Card = forwardRef<
       <CardContext.Provider value={context}>
         <Pressable
           ref={ref}
-          {...props}
+          {...remainingProps}
           disabled={disabled}
-          style={[styles.card, style as ViewStyle]}
+          style={[styles.card, computedStyles, style as ViewStyle]}
           onPress={handlePress}
         >
           {children}
@@ -106,6 +111,7 @@ const styles = StyleSheet.create(theme => ({
     overflow: 'hidden',
     borderRadius: theme.components.card.borderRadius,
     variants: {
+      space: theme.globalStyle.variants.space,
       variant: {
         subtle: {
           borderWidth: theme.components.card.subtle.borderWidth,
