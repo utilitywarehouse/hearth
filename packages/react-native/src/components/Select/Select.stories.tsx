@@ -99,13 +99,13 @@ export const Playground = ({ ...args }) => {
   };
   return (
     <Select
+      value={value}
+      onValueChange={handleValueChange}
+      {...args}
       options={Array.from({ length: 100 }, (_, i) => ({
         label: `Option ${i + 1}`,
         value: `${i + 1}`,
       }))}
-      value={value}
-      onValueChange={handleValueChange}
-      {...args}
     />
   );
 };
@@ -207,6 +207,25 @@ export const Optional = () => {
   );
 };
 
+export const WithDisabledOption = () => {
+  const [value, setValue] = useState<string | null>(null);
+
+  return (
+    <FormField label="Field label">
+      <Select
+        placeholder="Select an option"
+        options={[
+          { label: 'Option 1', value: '1', disabled: true },
+          { label: 'Option 2', value: '2' },
+          { label: 'Option 3', value: '3' },
+        ]}
+        value={value}
+        onValueChange={setValue}
+      />
+    </FormField>
+  );
+};
+
 export const Searchable = () => {
   const [value, setValue] = useState<string | null>(null);
 
@@ -214,6 +233,7 @@ export const Searchable = () => {
     <Select
       label="Searchable select"
       placeholder="Select a country"
+      menuHeading="Searchable countries"
       searchable
       searchPlaceholder="Search countries..."
       options={[

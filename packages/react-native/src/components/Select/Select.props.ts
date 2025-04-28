@@ -21,6 +21,10 @@ export interface SelectOptionItemProps {
    * Optional right icon for this option
    */
   trailingIcon?: React.ComponentType;
+  /**
+   * Whether this option is disabled
+   */
+  disabled?: boolean;
 }
 
 interface SelectProps extends ViewProps {

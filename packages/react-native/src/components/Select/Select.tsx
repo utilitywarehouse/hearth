@@ -106,6 +106,7 @@ const Select = forwardRef<View, SelectProps>(
         <SelectOption
           label={item.label}
           value={item.value}
+          disabled={item.disabled}
           leadingIcon={item.leadingIcon}
           trailingIcon={item.trailingIcon}
         />
