@@ -27,7 +27,6 @@ export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>(
     return (
       <SelectableCard
         className={clsx(componentClassName, className)}
-        data-disabled={disabled ? '' : undefined}
         borderRadius="xl"
         direction="column"
         gap="150"
