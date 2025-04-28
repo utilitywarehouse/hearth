@@ -150,6 +150,44 @@ const shared = {
           },
         },
       },
+      space: {
+        none: {},
+        xs: {
+          gap: {
+            base: layout.mobile.spacing.xs,
+            md: layout.tablet.spacing.xs,
+            lg: layout.desktop.spacing.xs,
+          },
+        },
+        sm: {
+          gap: {
+            base: layout.mobile.spacing.sm,
+            md: layout.tablet.spacing.sm,
+            lg: layout.desktop.spacing.sm,
+          },
+        },
+        md: {
+          gap: {
+            base: layout.mobile.spacing.md,
+            md: layout.tablet.spacing.md,
+            lg: layout.desktop.spacing.md,
+          },
+        },
+        lg: {
+          gap: {
+            base: layout.mobile.spacing.lg,
+            md: layout.tablet.spacing.lg,
+            lg: layout.desktop.spacing.lg,
+          },
+        },
+        xl: {
+          gap: {
+            base: layout.mobile.spacing.xl,
+            md: layout.tablet.spacing.xl,
+            lg: layout.desktop.spacing.xl,
+          },
+        },
+      },
     },
   },
 } as const;

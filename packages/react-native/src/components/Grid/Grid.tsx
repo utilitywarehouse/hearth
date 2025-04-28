@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { useWindowDimensions, View } from 'react-native';
 import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles';
-import Box from '../Box/Box';
 import type { GridProps } from './Grid.props';
 import { useTheme, useStyleProps } from '../../hooks';
 
@@ -10,6 +9,7 @@ const Grid: React.FC<GridProps> = ({
   containerStyle,
   itemStyle,
   rowStyle,
+  space,
   children,
   ...props
 }) => {
@@ -17,7 +17,9 @@ const Grid: React.FC<GridProps> = ({
   const { computedStyles, remainingProps } = useStyleProps(props);
   const childrenArray = React.Children.toArray(children).filter(Boolean);
   const { width } = useWindowDimensions();
-  const { gap, spacing, columnGap, rowGap } = { ...remainingProps, ...computedStyles };
+  const { gap, columnGap, rowGap } = { ...remainingProps, ...computedStyles };
+
+  styles.useVariants({ space });
 
   const getColumnsForWidth = useMemo(() => {
     // If columns is a number, use that number
@@ -61,8 +63,8 @@ const Grid: React.FC<GridProps> = ({
     return 2;
   }, [columns, width]);
 
-  const computedColumnGap = columnGap ?? spacing ?? gap;
-  const computedRowGap = rowGap ?? spacing ?? gap;
+  const computedColumnGap = columnGap ?? gap;
+  const computedRowGap = rowGap ?? gap;
 
   // Create rows and columns structure for better control over layout
   const rows = useMemo(() => {
@@ -83,12 +85,16 @@ const Grid: React.FC<GridProps> = ({
   }, [childrenArray, getColumnsForWidth]);
 
   return (
-    <Box {...remainingProps} style={[styles.container, containerStyle]}>
-      <View style={[styles.rowsContainer, { gap: computedRowGap as number }]}>
+    <View {...remainingProps} style={[styles.container, containerStyle, computedStyles]}>
+      <View style={[styles.rowsContainer, computedRowGap ? { gap: computedRowGap as number } : {}]}>
         {rows.map((rowItems, rowIndex) => (
           <View
             key={`row-${rowIndex}`}
-            style={[styles.row, { gap: computedColumnGap as number }, rowStyle]}
+            style={[
+              styles.row,
+              computedColumnGap ? { gap: computedColumnGap as number } : {},
+              rowStyle,
+            ]}
           >
             {rowItems.map((child, colIndex) => {
               return (
@@ -106,20 +112,26 @@ const Grid: React.FC<GridProps> = ({
           </View>
         ))}
       </View>
-    </Box>
+    </View>
   );
 };
 
-const styles = StyleSheet.create(() => ({
+const styles = StyleSheet.create(theme => ({
   container: {
     width: '100%',
   },
   rowsContainer: {
     width: '100%',
+    variants: {
+      space: theme.globalStyle.variants.space,
+    },
   },
   row: {
     flexDirection: 'row',
     width: '100%',
+    variants: {
+      space: theme.globalStyle.variants.space,
+    },
   },
   item: {
     alignSelf: 'stretch',

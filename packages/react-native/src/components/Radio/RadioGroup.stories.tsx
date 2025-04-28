@@ -89,7 +89,7 @@ export const WhithGrid: Story = {
   },
   render: ({ value: _, ...args }) => (
     <RadioGroup {...args}>
-      <Grid columns={2} spacing={8}>
+      <Grid columns={2} space="md">
         <Radio aria-label="Label 1" label="Option 1" value="Option 1" nativeID="Radio-1" />
         <Radio
           aria-label="Label 2 (with added option)"

@@ -173,12 +173,13 @@ export const Interactive: Story = {
             onPress={() => console.log('pressed')}
             variant="subtle"
             colorScheme="white"
+            space="md"
+            flexDirection="column"
+            alignItems="stretch"
           >
-            <Flex space="md" direction="column" align="stretch">
-              <Heading size="md">Heading</Heading>
-              <BodyText>{children as string}</BodyText>
-              <Button onPress={() => console.log('pressed')}>Press me</Button>
-            </Flex>
+            <Heading size="md">Heading</Heading>
+            <BodyText>{children as string}</BodyText>
+            <Button onPress={() => console.log('pressed')}>Press me</Button>
           </Card>
         </VariantTitle>
         <VariantTitle title="Pressable - Emphasis - White">
@@ -187,12 +188,13 @@ export const Interactive: Story = {
             onPress={() => console.log('pressed')}
             variant="emphasis"
             colorScheme="white"
+            space="md"
+            flexDirection="column"
+            alignItems="stretch"
           >
-            <Flex space="md" direction="column" align="stretch">
-              <Heading size="md">Heading</Heading>
-              <BodyText>{children as string}</BodyText>
-              <Button onPress={() => console.log('pressed')}>Press me</Button>
-            </Flex>
+            <Heading size="md">Heading</Heading>
+            <BodyText>{children as string}</BodyText>
+            <Button onPress={() => console.log('pressed')}>Press me</Button>
           </Card>
         </VariantTitle>
         <VariantTitle title="Pressable - Subtle - Warm White">
@@ -201,39 +203,51 @@ export const Interactive: Story = {
             onPress={() => console.log('pressed')}
             variant="subtle"
             colorScheme="warmWhite"
+            space="md"
+            flexDirection="column"
+            alignItems="stretch"
           >
-            <Flex space="md" direction="column" align="stretch">
-              <Heading size="md">Heading</Heading>
-              <BodyText>{children as string}</BodyText>
-              <Button onPress={() => console.log('pressed')}>Press me</Button>
-            </Flex>
+            <Heading size="md">Heading</Heading>
+            <BodyText>{children as string}</BodyText>
+            <Button onPress={() => console.log('pressed')}>Press me</Button>
           </Card>
         </VariantTitle>
         <VariantTitle title="Pressable - Emphasis - Warm White">
-          <Card {...props} variant="emphasis" colorScheme="warmWhite">
-            <Flex space="md" direction="column" align="stretch">
-              <Heading size="md">Heading</Heading>
-              <BodyText>{children as string}</BodyText>
-              <CardAction>
-                <Button onPress={() => console.log('pressed')}>Press me</Button>
-              </CardAction>
-            </Flex>
+          <Card
+            {...props}
+            variant="emphasis"
+            colorScheme="warmWhite"
+            space="md"
+            flexDirection="column"
+            alignItems="stretch"
+          >
+            <Heading size="md">Heading</Heading>
+            <BodyText>{children as string}</BodyText>
+            <CardAction>
+              <Button onPress={() => console.log('pressed')}>Press me</Button>
+            </CardAction>
           </Card>
         </VariantTitle>
         <VariantTitle title="Selectable - Subtle - White">
-          <Card {...props} selected={selectedSubtleWhite} variant="subtle" colorScheme="white">
-            <Flex space="md" direction="column" align="stretch">
-              <Heading size="md">Heading</Heading>
-              <BodyText>{children as string}</BodyText>
-              <CardAction>
-                <Button
-                  colorScheme="green"
-                  onPress={() => setSelectedSubtleWhite(!selectedSubtleWhite)}
-                >
-                  Select me
-                </Button>
-              </CardAction>
-            </Flex>
+          <Card
+            {...props}
+            selected={selectedSubtleWhite}
+            variant="subtle"
+            colorScheme="white"
+            space="md"
+            flexDirection="column"
+            alignItems="stretch"
+          >
+            <Heading size="md">Heading</Heading>
+            <BodyText>{children as string}</BodyText>
+            <CardAction>
+              <Button
+                colorScheme="green"
+                onPress={() => setSelectedSubtleWhite(!selectedSubtleWhite)}
+              >
+                Select me
+              </Button>
+            </CardAction>
           </Card>
         </VariantTitle>
         <VariantTitle title="Selectable - Subtle - Warm White">
@@ -242,19 +256,20 @@ export const Interactive: Story = {
             selected={selectedSubtleWarmWhite}
             variant="subtle"
             colorScheme="warmWhite"
+            space="md"
+            flexDirection="column"
+            alignItems="stretch"
           >
-            <Flex space="md" direction="column" align="stretch">
-              <Heading size="md">Heading</Heading>
-              <BodyText>{children as string}</BodyText>
-              <CardAction>
-                <Button
-                  colorScheme="green"
-                  onPress={() => setSelectedSubtleWarmWhite(!selectedSubtleWarmWhite)}
-                >
-                  Select me
-                </Button>
-              </CardAction>
-            </Flex>
+            <Heading size="md">Heading</Heading>
+            <BodyText>{children as string}</BodyText>
+            <CardAction>
+              <Button
+                colorScheme="green"
+                onPress={() => setSelectedSubtleWarmWhite(!selectedSubtleWarmWhite)}
+              >
+                Select me
+              </Button>
+            </CardAction>
           </Card>
         </VariantTitle>
       </Flex>
