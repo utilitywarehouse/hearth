@@ -1,7 +1,8 @@
-import { Meta, Description, Canvas, } from '@storybook/blocks';
+import { Meta, Description, Canvas } from '@storybook/blocks';
 import * as Stories from './RadioGroup.stories';
+import * as RadioCardStories from './RadioCard.stories';
 import { DocsHeader } from './storybook-components/DocsHeader';
-import {Box, Flex, BodyText, Divider} from '@utilitywarehouse/hearth-react';
+import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 
 <Meta title="Components / RadioGroup" />
 
@@ -13,6 +14,14 @@ import {Box, Flex, BodyText, Divider} from '@utilitywarehouse/hearth-react';
 
 - CheckboxGroup: For multi-select.
 
+## Usage
+
+`RadioGroup` is intended for use with the `RadioTile`, `RadioCard` and `Radio` components.
+
+- `RadioTile` is the most common radio button used within the `RadioGroup`, and offers a simple way to present grouped options.
+- `RadioCard` is for instances when you have options that are either the main focus of your UI or would benefit from additional explanation.
+- `Radio` will not often be used, as `RadioTile` is preferred.
+
 ## Accessibility
 
 The necessary aria props, such as `aria-labelledby`, `aria-describedby` and
@@ -20,14 +29,22 @@ The necessary aria props, such as `aria-labelledby`, `aria-describedby` and
 other aria props, such as `aria-label`, to `RadioGroup` and child
 components if you need to.
 
+The `Radio` and `RadioTile` are, by default, appropriately labelled when using
+the `label` props, if you do not provide a label, you must specify an
+`aria-label` or `aria-labelledby` for accessibility.
+
 ## Keyboard interactions
 
-<Flex direction="column" gap='200' className='sb-unstyled'>
-  <Flex >
-      <Box width='300px'>
-      <BodyText as="span" weight="bold">Key</BodyText>
+<Flex direction="column" gap="200" className="sb-unstyled">
+  <Flex>
+    <Box width="300px">
+      <BodyText as="span" weight="bold">
+        Key
+      </BodyText>
     </Box>
-    <BodyText as="span" weight="bold">Description</BodyText>
+    <BodyText as="span" weight="bold">
+      Description
+    </BodyText>
   </Flex>
   <Divider />
   {[
@@ -56,12 +73,10 @@ components if you need to.
   ].map((kbi, i) => (
     <>
       <Flex>
-        <Box width='300px'>
+        <Box width="300px">
           <kbd>{kbi.key}</kbd>
         </Box>
-        <BodyText as='span'>
-          {kbi.description}
-        </BodyText>
+        <BodyText as="span">{kbi.description}</BodyText>
       </Flex>
       {i < 4 ? <Divider /> : null}
     </>
@@ -112,21 +127,53 @@ const [selected, setSelected] = useState(options[0]);
   helperText={`Your favourite animal is a ${selected}`}
 >
   {options.map(animal => (
-    <Radio key={animal} value={animal} label={animal} />
+    <RadioTile key={animal} value={animal} label={animal} />
   ))}
 </RadioGroup>
 ```
 
 <Canvas of={Stories.Controlled} />
 
+## RadioCard
+
+You can use the `RadioCard` component to present additional content in a more
+card-like visual style. Unlike `RadioTile`, this component will accept
+children.
+
+```tsx
+<RadioCard value="1" label="Debit card payment">
+  <Flex asChild gap="100" direction="column">
+    <ul role="list">
+      <li>• Unlimited free top-ups</li>
+      <li>• Instant withdrawals</li>
+      <li>• Extra layer of security</li>
+    </ul>
+  </Flex>
+</RadioCard>
+```
+
+<Canvas of={RadioCardStories.Playground} />
+
 ## RadioGroup API
 
-## Radio & RadioTile API
+This component is based on the `Fieldset` component.
 
-The `Radio` & `RadioTile` components should be used within a `RadioGroup` component.
+| Prop           | Type                 |
+| -------------- | -------------------- |
+| `direction`    | `"column" \| "row"`  |
+| `width`        | `Responsive<string>` |
+| `contentWidth` | `Responsive<string>` |
 
-### Accessibility
+## RadioTile API
 
-The `Radio` and `RadioTile` are, by default, appropriately labelled when using
-the `label` props, if you do not provide a label, you must specify an
-`aria-label` or `aria-labelledby` for accessibility.
+| Prop         | Type     |
+| ------------ | -------- |
+| `label`      | `string` |
+| `helperText` | `string` |
+
+## RadioCard API
+
+| Prop       | Type        |
+| ---------- | ----------- |
+| `label`    | `string`    |
+| `children` | `ReactNode` |

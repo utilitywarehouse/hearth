@@ -57,9 +57,9 @@ export const RadioHelperText: Story = {
   render: args => {
     return (
       <RadioGroup {...args}>
-        <Radio value="1" label="One" helperText="One helper text" />
-        <Radio value="2" label="Two" helperText="Two helper text" />
-        <Radio value="3" label="Three" helperText="Three helper text" />
+        <RadioTile value="1" label="One" helperText="One helper text" />
+        <RadioTile value="2" label="Two" helperText="Two helper text" />
+        <RadioTile value="3" label="Three" helperText="Three helper text" />
       </RadioGroup>
     );
   },
@@ -95,7 +95,7 @@ export const Controlled: Story = {
         helperText={`Your favourite animal is a ${selected}`}
       >
         {options.map(animal => (
-          <Radio key={animal} value={animal} label={animal} />
+          <RadioTile key={animal} value={animal} label={animal} />
         ))}
       </RadioGroup>
     );
@@ -116,10 +116,10 @@ export const Validation: Story = {
         onValueChange={setSelected}
         validationStatus={selected ? undefined : 'invalid'}
       >
-        <Radio value="1" label="Bear" />
-        <Radio value="2" label="Koala" />
-        <Radio value="3" label="Wolf" />
-        <Radio value="4" label="Horse" />
+        <RadioTile value="1" label="Bear" />
+        <RadioTile value="2" label="Koala" />
+        <RadioTile value="3" label="Wolf" />
+        <RadioTile value="4" label="Horse" />
       </RadioGroup>
     );
   },
