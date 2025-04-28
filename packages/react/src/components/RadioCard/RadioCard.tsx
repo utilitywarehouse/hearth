@@ -23,7 +23,7 @@ type RadioCardElement = ElementRef<'button'>;
  * `aria-label` or `aria-labelledby` for accessibility.
  */
 export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>(
-  ({ className, disabled, children, ...props }, ref) => {
+  ({ className, children, ...props }, ref) => {
     return (
       <SelectableCard
         className={clsx(componentClassName, className)}
@@ -33,7 +33,7 @@ export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>(
         gap="150"
       >
         <CardAction>
-          <Radio ref={ref} {...props} disabled={disabled} labelFontWeight="semibold" />
+          <Radio ref={ref} {...props} labelFontWeight="semibold" />
         </CardAction>
         {children}
       </SelectableCard>
