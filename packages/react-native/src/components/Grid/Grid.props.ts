@@ -1,6 +1,7 @@
 import { BoxProps } from '../Box/Box.props';
 import { StyleProp, ViewStyle } from 'react-native';
 import { UnistylesBreakpoints } from 'react-native-unistyles';
+import { SpaceValue } from '../../types';
 
 // Create a type that uses the keys from our breakpoints object
 export type GridColumns = {
@@ -17,17 +18,17 @@ export interface GridProps extends BoxProps {
   /**
    * Spacing between grid items (applies to both rows and columns)
    */
-  spacing?: number;
+  spacing?: SpaceValue;
 
   /**
    * Gap between columns (overrides spacing if provided)
    */
-  columnGap?: number;
+  columnGap?: SpaceValue;
 
   /**
    * Gap between rows (overrides spacing if provided)
    */
-  rowGap?: number;
+  rowGap?: SpaceValue;
 
   /**
    * Style for the grid container

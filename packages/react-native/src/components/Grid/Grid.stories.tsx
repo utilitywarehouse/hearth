@@ -19,11 +19,11 @@ const meta = {
       description: 'Spacing between grid items (applied to both rows and columns)',
     },
     columnGap: {
-      control: 'text',
+      control: 'number',
       description: 'Column gap between items',
     },
     rowGap: {
-      control: 'text',
+      control: 'number',
       description: 'Row gap between items',
     },
   },

@@ -3,22 +3,21 @@ import { useWindowDimensions, View } from 'react-native';
 import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles';
 import Box from '../Box/Box';
 import type { GridProps } from './Grid.props';
-import { useTheme } from '../../hooks';
+import { useTheme, useStyleProps } from '../../hooks';
 
 const Grid: React.FC<GridProps> = ({
   columns = 2,
-  spacing,
-  columnGap,
-  rowGap,
   containerStyle,
   itemStyle,
   rowStyle,
   children,
-  ...boxProps
+  ...props
 }) => {
   const { breakpoints } = useTheme();
+  const { computedStyles, remainingProps } = useStyleProps(props);
   const childrenArray = React.Children.toArray(children).filter(Boolean);
   const { width } = useWindowDimensions();
+  const { gap, spacing, columnGap, rowGap } = { ...remainingProps, ...computedStyles };
 
   const getColumnsForWidth = useMemo(() => {
     // If columns is a number, use that number
@@ -62,8 +61,8 @@ const Grid: React.FC<GridProps> = ({
     return 2;
   }, [columns, width]);
 
-  const computedColumnGap = columnGap ?? spacing;
-  const computedRowGap = rowGap ?? spacing;
+  const computedColumnGap = columnGap ?? spacing ?? gap;
+  const computedRowGap = rowGap ?? spacing ?? gap;
 
   // Create rows and columns structure for better control over layout
   const rows = useMemo(() => {
@@ -84,7 +83,7 @@ const Grid: React.FC<GridProps> = ({
   }, [childrenArray, getColumnsForWidth]);
 
   return (
-    <Box {...boxProps} style={[styles.container, containerStyle]}>
+    <Box {...remainingProps} style={[styles.container, containerStyle]}>
       <View style={[styles.rowsContainer, { gap: computedRowGap as number }]}>
         {rows.map((rowItems, rowIndex) => (
           <View
