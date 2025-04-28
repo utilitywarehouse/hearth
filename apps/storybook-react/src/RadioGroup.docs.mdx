@@ -1,0 +1,132 @@
+import { Meta, Description, Canvas, } from '@storybook/blocks';
+import * as Stories from './RadioGroup.stories';
+import { DocsHeader } from './storybook-components/DocsHeader';
+import {Box, Flex, BodyText, Divider} from '@utilitywarehouse/hearth-react';
+
+<Meta title="Components / RadioGroup" />
+
+<DocsHeader componentName="RadioGroup" stories={Stories} />
+
+<Canvas of={Stories.Playground} sourceState="none" />
+
+## Alternatives
+
+- CheckboxGroup: For multi-select.
+
+## Accessibility
+
+The necessary aria props, such as `aria-labelledby`, `aria-describedby` and
+`aria-errormessage` are handled internally, however you can pass these and
+other aria props, such as `aria-label`, to `RadioGroup` and child
+components if you need to.
+
+## Keyboard interactions
+
+<Flex direction="column" gap='200' className='sb-unstyled'>
+  <Flex >
+      <Box width='300px'>
+      <BodyText as="span" weight="bold">Key</BodyText>
+    </Box>
+    <BodyText as="span" weight="bold">Description</BodyText>
+  </Flex>
+  <Divider />
+  {[
+    {
+      key: 'Tab',
+      description:
+        'Moves focus to either the checked radio item or the first radio item in the group.',
+    },
+    {
+      key: 'Shift+Tab',
+      description:
+        'Moves focus to either the checked radio item or the last radio item in the group.',
+    },
+    {
+      key: 'Space',
+      description: 'When focus is on an unchecked radio item, checks it.',
+    },
+    {
+      key: 'Arrow Down / Arrow Right',
+      description: 'Moves focus and checks the next radio item in the group.',
+    },
+    {
+      key: 'Arrow Up / Arrow Left',
+      description: 'Moves focus and checks the previous radio item in the group.',
+    },
+  ].map((kbi, i) => (
+    <>
+      <Flex>
+        <Box width='300px'>
+          <kbd>{kbi.key}</kbd>
+        </Box>
+        <BodyText as='span'>
+          {kbi.description}
+        </BodyText>
+      </Flex>
+      {i < 4 ? <Divider /> : null}
+    </>
+  ))}
+</Flex>
+
+## Helper text
+
+`RadioGroup` can display a secondary message as a helper text. If displayed then
+child radio items will not be display their own helper text.
+
+## Validation
+
+In general, radio buttons should have a value selected by default. If this is
+not the case, you can display an error if no value is selected when the form is
+submitted.
+
+## Content width
+
+The width of the `RadioGroup` should be set by the parent layout, however it is
+possible to independently set the width of the children using `contentWidth`
+prop. This property is most useful when using the `RadioGroup` with the
+`RadioTile` component.
+
+By default it will set the width of the children to fit their content, however
+you can set it to a specific width, or to `100%` to take up the full width of
+the `RadioGroup`.
+
+This is a responsive property, so you are able to set different widths for
+different breakpoints.
+
+## Controlled
+
+A controlled value can be provided using the value prop, which accepts a value
+corresponding with the value prop of each `Radio`. The onChange event is fired
+when the user selects a `Radio`.
+
+```
+const options = ['Bear', 'Koala', 'Wolf', 'Horse'];
+const [selected, setSelected] = useState(options[0]);
+
+[...]
+
+<RadioGroup
+  {...args}
+  value={selected}
+  onValueChange={setSelected}
+  helperText={`Your favourite animal is a ${selected}`}
+>
+  {options.map(animal => (
+    <Radio key={animal} value={animal} label={animal} />
+  ))}
+</RadioGroup>
+```
+
+<Canvas of={Stories.Controlled} />
+
+## RadioGroup API
+
+## Radio & RadioTile API
+
+The `Radio` & `RadioTile` components should be used within a `RadioGroup` component.
+
+### Accessibility
+
+The `Radio` and `RadioTile` are, by default, appropriately labelled when using
+the `label` props, if you do not provide a label, you must specify an
+`aria-label` or `aria-labelledby` for accessibility.

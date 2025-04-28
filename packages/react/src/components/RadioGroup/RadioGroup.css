@@ -1,5 +1,4 @@
 .hearth-RadioGroupRoot {
-  min-width: fit-content;
   flex-wrap: wrap;
 
   &:where([data-orientation='horizontal']) {
@@ -8,6 +7,7 @@
 
   &:where([data-orientation='vertical']) {
     flex-direction: column;
+    width: fit-content;
   }
 
   /* TODO: update with radio gap vars */

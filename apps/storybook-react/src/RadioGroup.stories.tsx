@@ -7,6 +7,14 @@ import { RadioGroup, Flex, Radio, RadioTile, Box } from '@utilitywarehouse/heart
 const meta: Meta<typeof RadioGroup> = {
   title: 'Stories / RadioGroup',
   component: RadioGroup,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '`RadioGroup` provides an accessible way to group and control a set of `Radio`, `RadioTile` or `RadioCard` components, allowing the user to select one option from a set. The `RadioGroup` is responsible for handling the value, helper text, validation status and text, as well as determining the presentation and selection of the items in the list. Follows the [WAI-ARIA Radio Group Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/radio/) for radio groups not contained in a toolbar.',
+      },
+    },
+  },
   argTypes: {
     direction: {
       options: ['column', 'row'],
@@ -33,11 +41,13 @@ type Story = StoryObj<typeof RadioGroup>;
 export const Playground: Story = {
   render: args => {
     return (
-      <RadioGroup {...args} name="radio-group-example">
-        <RadioTile value="1" label="One" />
-        <RadioTile value="2" label="Two" />
-        <RadioTile value="3" label="Three" />
-      </RadioGroup>
+      <Box width="400px">
+        <RadioGroup {...args} name="radio-group-example">
+          <RadioTile value="1" label="One" />
+          <RadioTile value="2" label="Two" />
+          <RadioTile value="3" label="Three" />
+        </RadioGroup>
+      </Box>
     );
   },
 };
@@ -95,8 +105,8 @@ export const Controlled: Story = {
   },
 };
 
-export const ShowingError: Story = {
-  name: 'Error message',
+export const Validation: Story = {
+  name: 'Validation',
   render: args => {
     const [selected, setSelected] = useState('');
     return (

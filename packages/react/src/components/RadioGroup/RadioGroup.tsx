@@ -50,7 +50,7 @@ export const RadioGroup = React.forwardRef<RadioGroupElement, RadioGroupProps>(
   (
     {
       children,
-      contentWidth = 'fit-content',
+      contentWidth,
       direction = 'column',
       className,
       label,
