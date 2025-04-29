@@ -51,7 +51,7 @@ export const Playground: Story = {
           <RadioTile value="1" label="One" />
           <RadioTile value="2" label="Two" />
           <RadioTile value="3" label="Three" />
-          <RadioTile value="4" label="Three" />
+          <RadioTile value="4" label="Four" />
         </RadioGroup>
       </Flex>
     );
