@@ -18,10 +18,20 @@ StyleSheet.configure({
 
 const preview: Preview = {
   beforeAll: () => {
-    const storiesMenuItem = window.parent.document.getElementById('stories');
-    const storiesMenuItemButton = storiesMenuItem?.querySelector('button');
-    if (storiesMenuItemButton?.getAttribute('aria-expanded') === 'true') {
-      storiesMenuItemButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    let canAccessParent = false;
+    try {
+      canAccessParent = window.parent.location.hostname === window.location.hostname;
+    } catch (error) {
+      // CORS error, can't access parent domain
+      canAccessParent = false;
+    }
+
+    if (canAccessParent) {
+      const storiesMenuItem = window.parent.document.getElementById('stories');
+      const storiesMenuItemButton = storiesMenuItem?.querySelector('button');
+      if (storiesMenuItemButton?.getAttribute('aria-expanded') === 'true') {
+        storiesMenuItemButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      }
     }
   },
   parameters: {
