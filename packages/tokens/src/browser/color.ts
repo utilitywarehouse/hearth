@@ -1,7 +1,4 @@
 export const color = {
-  common: {
-    white: 'var(--h-color-white)',
-  },
   blue: {
     '50': 'var(--h-color-blue-50)',
     '100': 'var(--h-color-blue-100)',
@@ -123,4 +120,5 @@ export const color = {
     '900': 'var(--h-color-yellow-900)',
     '1000': 'var(--h-color-yellow-1000)',
   },
+  white: 'var(--h-color-white)',
 } as const;
