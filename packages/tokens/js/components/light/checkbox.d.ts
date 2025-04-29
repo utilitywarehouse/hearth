@@ -28,13 +28,13 @@ declare const _default: {
     readonly borderWidthSelected: 2;
     readonly gap: 8;
     readonly group: {
-      readonly gap: 12;
+      readonly gap: 6;
       readonly stack: {
-        readonly gap: 8;
+        readonly gap: 12;
       };
     };
-    readonly maxWidth: 504;
-    readonly minWidth: 200;
+    readonly maxWidth: 680;
+    readonly minWidth: 80;
     readonly paddingHorizontal: 16;
     readonly paddingVertical: 12;
   };

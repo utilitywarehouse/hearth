@@ -15,9 +15,9 @@ declare const _default: {
       readonly maxWidth: 680;
       readonly minWidth: 288;
     };
+    readonly imageHeight: 160;
     readonly padding: 16;
     readonly vertical: {
-      readonly imageHeight: 200;
       readonly maxWidth: 504;
       readonly minWidth: 288;
     };

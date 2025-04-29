@@ -8,6 +8,7 @@ export const card = {
     energyBlueBackgroundColor: 'var(--h-card-emphasis-energy-blue-background-color)',
     insuranceOrangeBackgroundColor: 'var(--h-card-emphasis-insurance-orange-background-color)',
     mobileRoseBackgroundColor: 'var(--h-card-emphasis-mobile-rose-background-color)',
+    piggyPinkBackgroundColor: 'var(--h-card-emphasis-piggy-pink-background-color)',
     purpleBackgroundColor: 'var(--h-card-emphasis-purple-background-color)',
   },
   selectable: {
@@ -25,6 +26,7 @@ export const card = {
     energyBlueBackgroundColor: 'var(--h-card-subtle-energy-blue-background-color)',
     insuranceOrangeBackgroundColor: 'var(--h-card-subtle-insurance-orange-background-color)',
     mobileRoseBackgroundColor: 'var(--h-card-subtle-mobile-rose-background-color)',
+    piggyPinkBackgroundColor: 'var(--h-card-subtle-piggy-pink-background-color)',
     purpleBackgroundColor: 'var(--h-card-subtle-purple-background-color)',
     yellowBackgroundColor: 'var(--h-card-subtle-yellow-background-color)',
   },

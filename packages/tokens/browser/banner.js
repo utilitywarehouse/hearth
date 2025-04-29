@@ -12,9 +12,9 @@ export const banner = {
       maxWidth: 'var(--h-banner-default-horizontal-max-width)',
       minWidth: 'var(--h-banner-default-horizontal-min-width)',
     },
+    imageHeight: 'var(--h-banner-default-image-height)',
     padding: 'var(--h-banner-default-padding)',
     vertical: {
-      imageHeight: 'var(--h-banner-default-vertical-image-height)',
       maxWidth: 'var(--h-banner-default-vertical-max-width)',
       minWidth: 'var(--h-banner-default-vertical-min-width)',
     },

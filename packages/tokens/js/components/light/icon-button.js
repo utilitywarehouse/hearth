@@ -19,6 +19,11 @@ export default {
     foregroundColor: '#101010',
     foregroundColorActive: '#464444',
     foregroundColorHover: '#3e3c3b',
+    inverted: {
+      foregroundColor: '#fcfbf2',
+      foregroundColorActive: '#f1efe4',
+      foregroundColorHover: '#f7f6eb',
+    },
     paddingHorizontal: 0,
     paddingVertical: 0,
   },

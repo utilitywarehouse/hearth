@@ -30,7 +30,7 @@ declare const _default: {
     readonly group: {
       readonly gap: 12;
       readonly stack: {
-        readonly gap: 8;
+        readonly gap: 12;
       };
     };
     readonly maxWidth: 504;

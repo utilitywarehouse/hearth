@@ -36,7 +36,7 @@ declare const _default: {
       readonly roundelWidth: 6;
     };
     readonly maxWidth: 420;
-    readonly minWidth: 332;
+    readonly minWidth: 320;
     readonly padding: 16;
     readonly rowGap: 2;
   };

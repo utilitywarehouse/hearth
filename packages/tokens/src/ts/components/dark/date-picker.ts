@@ -37,7 +37,7 @@ export default {
       roundelWidth: 6,
     },
     maxWidth: 420,
-    minWidth: 332,
+    minWidth: 320,
     padding: 16,
     rowGap: 2,
   },

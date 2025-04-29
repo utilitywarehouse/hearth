@@ -16,6 +16,11 @@ export const iconButton = {
     foregroundColor: 'var(--h-icon-button-unstyled-foreground-color)',
     foregroundColorActive: 'var(--h-icon-button-unstyled-foreground-color-active)',
     foregroundColorHover: 'var(--h-icon-button-unstyled-foreground-color-hover)',
+    inverted: {
+      foregroundColor: 'var(--h-icon-button-unstyled-inverted-foreground-color)',
+      foregroundColorActive: 'var(--h-icon-button-unstyled-inverted-foreground-color-active)',
+      foregroundColorHover: 'var(--h-icon-button-unstyled-inverted-foreground-color-hover)',
+    },
     paddingHorizontal: 'var(--h-icon-button-unstyled-padding-horizontal)',
     paddingVertical: 'var(--h-icon-button-unstyled-padding-vertical)',
   },

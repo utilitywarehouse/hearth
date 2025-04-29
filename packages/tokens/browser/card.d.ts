@@ -8,6 +8,7 @@ export declare const card: {
     readonly energyBlueBackgroundColor: 'var(--h-card-emphasis-energy-blue-background-color)';
     readonly insuranceOrangeBackgroundColor: 'var(--h-card-emphasis-insurance-orange-background-color)';
     readonly mobileRoseBackgroundColor: 'var(--h-card-emphasis-mobile-rose-background-color)';
+    readonly piggyPinkBackgroundColor: 'var(--h-card-emphasis-piggy-pink-background-color)';
     readonly purpleBackgroundColor: 'var(--h-card-emphasis-purple-background-color)';
   };
   readonly selectable: {
@@ -25,6 +26,7 @@ export declare const card: {
     readonly energyBlueBackgroundColor: 'var(--h-card-subtle-energy-blue-background-color)';
     readonly insuranceOrangeBackgroundColor: 'var(--h-card-subtle-insurance-orange-background-color)';
     readonly mobileRoseBackgroundColor: 'var(--h-card-subtle-mobile-rose-background-color)';
+    readonly piggyPinkBackgroundColor: 'var(--h-card-subtle-piggy-pink-background-color)';
     readonly purpleBackgroundColor: 'var(--h-card-subtle-purple-background-color)';
     readonly yellowBackgroundColor: 'var(--h-card-subtle-yellow-background-color)';
   };
