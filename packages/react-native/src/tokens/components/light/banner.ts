@@ -16,9 +16,9 @@ export default {
       maxWidth: 680,
       minWidth: 288,
     },
+    imageHeight: 160,
     padding: 16,
     vertical: {
-      imageHeight: 200,
       maxWidth: 504,
       minWidth: 288,
     },
@@ -29,7 +29,7 @@ export default {
     },
     gap: 0,
     heading: {
-      broadbandGreenBackgroundColor: '#8cba3b',
+      broadbandBlueBackgroundColor: '#8cba3b',
       cashbackLilacBackgroundColor: '#be7aeb',
       energyBlueBackgroundColor: '#6db5c3',
       insuranceOrangeBackgroundColor: '#ff7b00',

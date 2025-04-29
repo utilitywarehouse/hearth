@@ -12,6 +12,7 @@ export default {
     energyBlueBackgroundColor: '#6db5c3',
     insuranceOrangeBackgroundColor: '#ff7b00',
     mobileRoseBackgroundColor: '#ee6dbb',
+    piggyPinkBackgroundColor: '#f295ff',
     purpleBackgroundColor: '#7a42c8',
   },
   selectable: {
@@ -29,6 +30,7 @@ export default {
     energyBlueBackgroundColor: '#bddee4',
     insuranceOrangeBackgroundColor: '#ffb46d',
     mobileRoseBackgroundColor: '#fad0e9',
+    piggyPinkBackgroundColor: '#f9ceff',
     purpleBackgroundColor: '#d5c3ee',
     yellowBackgroundColor: '#ffd885',
   },
