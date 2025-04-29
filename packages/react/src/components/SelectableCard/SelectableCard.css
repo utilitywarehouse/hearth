@@ -21,7 +21,8 @@
   }
 
   &:where([data-compact]) {
-    padding: var(--h-space-150);
+    padding-block: var(--h-space-150);
+    padding-inline: var(--h-space-200);
   }
 
   & :where(button):focus-visible {

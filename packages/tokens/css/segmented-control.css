@@ -15,7 +15,7 @@
   --h-segmented-control-group-height: var(--h-space-600);
   --h-segmented-control-group-padding: var(--h-space-50);
   --h-segmented-control-height: var(--h-space-500);
-  --h-segmented-control-min-width: 66;
+  --h-segmented-control-min-width: 66px;
   --h-segmented-control-padding-horizontal: var(--h-space-200);
   --h-segmented-control-padding-vertical: var(--h-space-100);
   --h-segmented-control-selected-background-color: var(--h-color-purple-700);

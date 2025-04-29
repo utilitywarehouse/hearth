@@ -9,12 +9,12 @@
   --h-banner-default-horizontal-illustration-width: 100;
   --h-banner-default-horizontal-image-max-width: 240;
   --h-banner-default-horizontal-image-min-width: 160;
-  --h-banner-default-horizontal-max-width: 680;
-  --h-banner-default-horizontal-min-width: 288;
+  --h-banner-default-horizontal-max-width: 680px;
+  --h-banner-default-horizontal-min-width: 288px;
   --h-banner-default-padding: var(--h-space-200);
   --h-banner-default-vertical-image-height: 200;
-  --h-banner-default-vertical-max-width: 504;
-  --h-banner-default-vertical-min-width: 288;
+  --h-banner-default-vertical-max-width: 504px;
+  --h-banner-default-vertical-min-width: 288px;
   --h-banner-highlight-content-gap: var(--h-space-150);
   --h-banner-highlight-gap: 0;
   --h-banner-highlight-heading-broadband-blue-background-color: var(--h-color-broadband-green-300);

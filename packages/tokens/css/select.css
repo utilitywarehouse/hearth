@@ -26,8 +26,8 @@
   --h-select-gap: var(--h-space-75);
   --h-select-gap-container: var(--h-space-50);
   --h-select-height: 48;
-  --h-select-max-width: 504;
-  --h-select-min-width: 288;
+  --h-select-max-width: 504px;
+  --h-select-min-width: 288px;
   --h-select-padding-horizontal: var(--h-space-200);
   --h-select-padding-vertical: var(--h-space-150);
   --h-select-validation-gap: var(--h-space-25);

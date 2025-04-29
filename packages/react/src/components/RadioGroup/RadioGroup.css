@@ -1,6 +1,5 @@
 .hearth-RadioGroupRoot {
   flex-wrap: wrap;
-
   &:where([data-orientation='horizontal']) {
     flex-direction: row;
   }
@@ -10,11 +9,9 @@
     width: fit-content;
   }
 
-  /* TODO: update with radio gap vars */
-  gap: var(--h-space-400);
+  gap: var(--h-radio-group-stack-gap);
 
   &:has(.hearth-RadioTile) {
-    /* TODO: update with radio gap vars */
-    gap: var(--h-space-150);
+    gap: var(--h-radio-tile-group-stack-gap);
   }
 }
