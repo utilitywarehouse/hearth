@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/blocks';
-import { BackToTopButton } from './components';
+import { BackToTopButton, NextPrevPage } from './components';
 
 <Meta title="Getting Started" />
 <BackToTopButton />
@@ -54,3 +54,9 @@ const RootApp: React.FC = () => {
   return <App />;
 };
 ```
+
+<NextPrevPage
+  prevLink="/?path=/docs/introduction--docs"
+  prevTitle="Introduction"
+
+/>
