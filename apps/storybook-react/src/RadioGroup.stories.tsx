@@ -2,7 +2,8 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { RadioGroup, Flex, Radio, RadioTile, Box } from '@utilitywarehouse/hearth-react';
+import { RadioGroup, RadioTile, Box } from '@utilitywarehouse/hearth-react';
+import { Flex } from '@utilitywarehouse/hearth-react/src/index.js';
 
 const meta: Meta<typeof RadioGroup> = {
   title: 'Stories / RadioGroup',
@@ -41,13 +42,18 @@ type Story = StoryObj<typeof RadioGroup>;
 export const Playground: Story = {
   render: args => {
     return (
-      <Box width="400px">
+      <Flex width="500px" direction="column" gap="400">
+        <RadioGroup {...args} name="radio-group-example">
+          <RadioTile value="y" label="Yes" />
+          <RadioTile value="n" label="No" />
+        </RadioGroup>
         <RadioGroup {...args} name="radio-group-example">
           <RadioTile value="1" label="One" />
           <RadioTile value="2" label="Two" />
           <RadioTile value="3" label="Three" />
+          <RadioTile value="4" label="Four" />
         </RadioGroup>
-      </Box>
+      </Flex>
     );
   },
 };

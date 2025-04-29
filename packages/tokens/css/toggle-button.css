@@ -11,7 +11,7 @@
   --h-toggle-button-foreground-color: var(--h-color-grey-1000);
   --h-toggle-button-gap: var(--h-space-75);
   --h-toggle-button-height: var(--h-space-600);
-  --h-toggle-button-min-width: 80;
+  --h-toggle-button-min-width: 80px;
   --h-toggle-button-padding-horizontal: var(--h-space-250);
   --h-toggle-button-padding-vertical: var(--h-space-150);
   --h-toggle-button-selected-background-color: var(--h-color-purple-700);

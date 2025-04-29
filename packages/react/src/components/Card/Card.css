@@ -1,11 +1,12 @@
 .hearth-Card {
+  background-color: var(--h-card-background-color);
   border-radius: var(--h-card-border-radius);
   box-shadow: inset 0 0 0 var(--h-card-border-width) var(--h-card-border-color);
   padding: var(--h-card-padding-mobile);
 
-  /* we're setting this as the default so that non-white cards continue to have */
-
-  /* the emphasis appearance even if the subtle variant is accidentally applied */
+  /* we're setting this as the default so that non-white cards continue to have
+   the emphasis appearance even if the subtle variant is accidentally applied */
+  --h-card-background-color: var(--h-card-emphasis-background-color);
   --h-card-border-color: var(--h-card-emphasis-border-color);
   --h-card-border-width: var(--h-card-emphasis-border-width);
 
@@ -27,14 +28,21 @@
   }
 
   &:where(.hearth-variant-emphasis) {
+    --h-card-background-color: var(--h-card-emphasis-background-color);
     --h-card-border-color: var(--h-card-emphasis-border-color);
     --h-card-border-width: var(--h-card-emphasis-border-width);
   }
 
-  /* the subtle variant should only be used with the white color schemes */
-  &:where(.hearth-variant-subtle):where([data-colorscheme$='white']) {
+  &:where(.hearth-variant-subtle):where(
+      [data-colorscheme='white'],
+      [data-colorscheme='warm-white']
+    ) {
     --h-card-border-color: var(--h-card-subtle-border-color);
     --h-card-border-width: var(--h-card-subtle-border-width);
+  }
+
+  &:where(.hearth-variant-subtle) {
+    --h-card-background-color: var(--h-card-subtle-background-color);
   }
 
   &:where([data-colorscheme='white']) {
@@ -46,27 +54,33 @@
   }
 
   &:where([data-colorscheme='purple']) {
-    background-color: var(--h-card-purple-background-color);
+    --h-card-emphasis-background-color: var(--h-card-emphasis-purple-background-color);
+    --h-card-subtle-background-color: var(--h-card-subtle-purple-background-color);
   }
 
-  &:where([data-colorscheme='energy-green']) {
-    background-color: var(--h-card-energy-green-background-color);
+  &:where([data-colorscheme='energy-blue']) {
+    --h-card-emphasis-background-color: var(--h-card-emphasis-energy-blue-background-color);
+    --h-card-subtle-background-color: var(--h-card-subtle-energy-blue-background-color);
   }
 
-  &:where([data-colorscheme='broadband-blue']) {
-    background-color: var(--h-card-broadband-blue-background-color);
+  &:where([data-colorscheme='broadband-green']) {
+    --h-card-emphasis-background-color: var(--h-card-emphasis-broadband-green-background-color);
+    --h-card-subtle-background-color: var(--h-card-subtle-broadband-green-background-color);
   }
 
   &:where([data-colorscheme='mobile-rose']) {
-    background-color: var(--h-card-mobile-rose-background-color);
+    --h-card-emphasis-background-color: var(--h-card-emphasis-mobile-rose-background-color);
+    --h-card-subtle-background-color: var(--h-card-subtle-mobile-rose-background-color);
   }
 
   &:where([data-colorscheme='insurance-orange']) {
-    background-color: var(--h-card-insurance-orange-background-color);
+    --h-card-emphasis-background-color: var(--h-card-emphasis-insurance-orange-background-color);
+    --h-card-subtle-background-color: var(--h-card-subtle-insurance-orange-background-color);
   }
 
   &:where([data-colorscheme='cashback-lilac']) {
-    background-color: var(--h-card-cashback-lilac-background-color);
+    --h-card-emphasis-background-color: var(--h-card-emphasis-cashback-lilac-background-color);
+    --h-card-subtle-background-color: var(--h-card-subtle-cashback-lilac-background-color);
   }
 
   &:where([data-selectable]) {

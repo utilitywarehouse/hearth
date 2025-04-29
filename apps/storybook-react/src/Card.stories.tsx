@@ -24,8 +24,8 @@ const variants = ['emphasis', 'subtle'] as const;
 const whiteColorSchemes = ['white', 'warmWhite'] as const;
 const nonWhiteColorSchemes = [
   'purple',
-  'energyGreen',
-  'broadbandBlue',
+  'energyBlue',
+  'broadbandGreen',
   'mobileRose',
   'insuranceOrange',
   'cashbackLilac',
@@ -81,26 +81,30 @@ export const KitchenSink: Story = {
           </ul>
         </Flex>
       ))}
-      <Flex gap="300" asChild>
-        <ul role="list">
-          {nonWhiteColorSchemes.map(colorScheme => (
-            <Card
-              key={`${colorScheme}`}
-              as="li"
-              variant="emphasis"
-              colorScheme={colorScheme}
-              justify="center"
-              align="center"
-            >
-              <DetailText
-                size="sm"
-                style={{ color: colorScheme === 'purple' ? 'white' : undefined }}
-              >
-                {children}
-              </DetailText>
-            </Card>
-          ))}
-        </ul>
+      <Flex direction="column" gap="300">
+        {variants.map(variant => (
+          <Flex gap="300" asChild>
+            <ul role="list">
+              {nonWhiteColorSchemes.map(colorScheme => (
+                <Card
+                  key={`${colorScheme}`}
+                  as="li"
+                  variant={variant}
+                  colorScheme={colorScheme}
+                  justify="center"
+                  align="center"
+                >
+                  <DetailText
+                    size="sm"
+                    inverted={colorScheme === 'purple' && variant === 'emphasis'}
+                  >
+                    {children}
+                  </DetailText>
+                </Card>
+              ))}
+            </ul>
+          </Flex>
+        ))}
       </Flex>
     </Flex>
   ),
@@ -182,9 +186,9 @@ export const InteractiveCards: Story = {
 
         <Flex asChild gap="300" width="800px">
           <ul role="list">
-            <Card as="li" variant="emphasis" colorScheme="energyGreen" flex="1">
+            <Card as="li" variant="emphasis" colorScheme="energyBlue" flex="1">
               <Flex direction="column" gap="150">
-                <Heading size="sm">Energy Green Card</Heading>
+                <Heading size="sm">Energy Blue Card</Heading>
                 <BodyText size="md">Content...</BodyText>
                 <CardAction asChild>
                   <Link href="#">
@@ -206,9 +210,9 @@ export const InteractiveCards: Story = {
                 </CardAction>
               </Flex>
             </Card>
-            <Card as="li" variant="emphasis" colorScheme="broadbandBlue" flex="1">
+            <Card as="li" variant="emphasis" colorScheme="broadbandGreen" flex="1">
               <Flex direction="column" gap="150">
-                <Heading size="sm">Broadband Blue Card</Heading>
+                <Heading size="sm">Broadband Green Card</Heading>
                 <BodyText size="md">Content...</BodyText>
                 <CardAction asChild>
                   <Link href="#">

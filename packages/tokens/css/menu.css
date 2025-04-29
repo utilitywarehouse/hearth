@@ -17,7 +17,7 @@
   --h-menu-item-red-background-color-hover: var(--h-color-red-50);
   --h-menu-item-red-foreground-color: var(--h-color-red-800);
   --h-menu-list-gap: var(--h-space-100);
-  --h-menu-max-width: 504;
-  --h-menu-min-width: 288;
+  --h-menu-max-width: 504px;
+  --h-menu-min-width: 288px;
   --h-menu-padding: var(--h-space-50);
 }

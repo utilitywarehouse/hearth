@@ -15,7 +15,7 @@
   --h-accordion-item-heading-gap: var(--h-space-200);
   --h-accordion-item-heading-padding-horizontal: var(--h-space-50);
   --h-accordion-item-heading-padding-vertical: var(--h-space-200);
-  --h-accordion-max-width: 680;
-  --h-accordion-min-width: 288;
+  --h-accordion-max-width: 680px;
+  --h-accordion-min-width: 288px;
   --h-accordion-padding: 0;
 }

@@ -12,7 +12,7 @@
   --h-pill-gap: var(--h-space-75);
   --h-pill-group-gap: var(--h-space-100);
   --h-pill-height: var(--h-space-600);
-  --h-pill-min-width: 66;
+  --h-pill-min-width: 66px;
   --h-pill-padding-horizontal: var(--h-space-250);
   --h-pill-padding-vertical: var(--h-space-150);
   --h-pill-selected-background-color: var(--h-color-purple-700);

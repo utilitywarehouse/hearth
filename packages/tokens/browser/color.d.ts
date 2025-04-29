@@ -1,7 +1,4 @@
 export declare const color: {
-  readonly common: {
-    readonly white: 'var(--h-color-white)';
-  };
   readonly blue: {
     readonly '50': 'var(--h-color-blue-50)';
     readonly '100': 'var(--h-color-blue-100)';
@@ -123,4 +120,5 @@ export declare const color: {
     readonly '900': 'var(--h-color-yellow-900)';
     readonly '1000': 'var(--h-color-yellow-1000)';
   };
+  readonly white: 'var(--h-color-white)';
 };
