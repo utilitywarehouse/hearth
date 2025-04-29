@@ -5,6 +5,7 @@
   * {
     cursor: pointer;
   }
+
   min-width: var(--h-radio-tile-min-width);
   max-width: var(--h-radio-tile-max-width);
 }
