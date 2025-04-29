@@ -16,45 +16,33 @@ export const cardPropDefs = {
 type CommonCardProps = Omit<
   FlexProps,
   'color' | 'backgroundColor' | 'as' | 'asChild' | keyof PaddingProps
-> &
-  (
-    | {
-        /**
-         * Sets the card's visual variant
-         */
-        variant?: 'emphasis';
-        /**
-         * Sets the card's colour scheme
-         */
-        colorScheme?:
-          | 'purple'
-          | 'energyGreen'
-          | 'broadbandBlue'
-          | 'mobileRose'
-          | 'insuranceOrange'
-          | 'cashbackLilac';
-      }
-    | {
-        /**
-         * Sets the card's visual variant
-         */
-        variant?: (typeof variants)[number];
-        /**
-         * Sets the card's colour scheme
-         */
-        colorScheme?: 'white' | 'warmWhite';
-      }
-  ) & {
-    /**
-     * Shorthand for changing the default rendered element into a semantically appropriate alternative.
-     * @default div
-     */
-    as?: 'div' | 'li';
-    /**
-     * Remove padding
-     */
-    paddingNone?: boolean;
-  };
+> & {
+  /**
+   * Sets the card's visual variant
+   */
+  variant?: (typeof variants)[number];
+  /**
+   * Sets the card's colour scheme
+   */
+  colorScheme?:
+    | 'white'
+    | 'warmWhite'
+    | 'purple'
+    | 'energyBlue'
+    | 'broadbandGreen'
+    | 'mobileRose'
+    | 'insuranceOrange'
+    | 'cashbackLilac';
+  /**
+   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+   * @default div
+   */
+  as?: 'div' | 'li';
+  /**
+   * Remove padding
+   */
+  paddingNone?: boolean;
+};
 
 type CardDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
 type CardLiProps = { as: 'li' } & ComponentPropsWithout<'li', RemovedProps>;
