@@ -154,6 +154,10 @@ const styles = StyleSheet.create(theme => ({
           borderWidth: theme.components.card.emphasis.borderWidth,
           borderColor: theme.components.card.emphasis.borderColor,
         },
+        piggyPink: {
+          borderWidth: theme.components.card.emphasis.borderWidth,
+          borderColor: theme.components.card.emphasis.borderColor,
+        },
       },
       noPadding: {
         true: {
@@ -272,6 +276,20 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'cashbackLilac',
         styles: {
           backgroundColor: theme.components.card.emphasis.cashbackLilacBackgroundColor,
+        },
+      },
+      {
+        variant: 'subtle',
+        colorScheme: 'piggyPink',
+        styles: {
+          backgroundColor: theme.components.card.subtle.piggyPinkBackgroundColor,
+        },
+      },
+      {
+        variant: 'emphasis',
+        colorScheme: 'piggyPink',
+        styles: {
+          backgroundColor: theme.components.card.emphasis.piggyPinkBackgroundColor,
         },
       },
     ],

@@ -11,7 +11,8 @@ interface CardProps extends PressableProps {
     | 'broadbandGreen'
     | 'mobileRose'
     | 'insuranceOrange'
-    | 'cashbackLilac';
+    | 'cashbackLilac'
+    | 'piggyPink';
   noPadding?: boolean;
   selected?: boolean;
   disabled?: boolean;

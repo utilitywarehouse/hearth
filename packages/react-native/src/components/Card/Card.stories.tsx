@@ -34,6 +34,7 @@ const meta = {
         'mobileRose',
         'insuranceOrange',
         'cashbackLilac',
+        'piggyPink',
       ],
       description: 'Use this value to set the Card color scheme.',
     },
@@ -149,6 +150,16 @@ export const Variants: Story = {
         </VariantTitle>
         <VariantTitle title="Cashback Lilac - Emphasis">
           <Card {...props} colorScheme="cashbackLilac" variant="emphasis">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Piggy Pink - Subtle">
+          <Card {...props} colorScheme="piggyPink" variant="subtle">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Piggy Pink - Emphasis">
+          <Card {...props} colorScheme="piggyPink" variant="emphasis">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>

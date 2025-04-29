@@ -31,7 +31,7 @@ export default {
     group: {
       gap: 12,
       stack: {
-        gap: 8,
+        gap: 12,
       },
     },
     maxWidth: 504,
