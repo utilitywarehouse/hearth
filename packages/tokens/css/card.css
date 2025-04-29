@@ -11,6 +11,7 @@
   --h-card-emphasis-energy-blue-background-color: var(--h-color-energy-blue-300);
   --h-card-emphasis-insurance-orange-background-color: var(--h-color-insurance-orange-400);
   --h-card-emphasis-mobile-rose-background-color: var(--h-color-mobile-rose-400);
+  --h-card-emphasis-piggy-pink-background-color: var(--h-color-piggy-pink-300);
   --h-card-emphasis-purple-background-color: var(--h-color-purple-700);
   --h-card-selectable-border-color: var(--h-color-warm-white-300);
   --h-card-selectable-border-color-selected: var(--h-color-grey-1000);
@@ -24,6 +25,7 @@
   --h-card-subtle-energy-blue-background-color: var(--h-color-energy-blue-200);
   --h-card-subtle-insurance-orange-background-color: var(--h-color-insurance-orange-300);
   --h-card-subtle-mobile-rose-background-color: var(--h-color-mobile-rose-200);
+  --h-card-subtle-piggy-pink-background-color: var(--h-color-piggy-pink-200);
   --h-card-subtle-purple-background-color: var(--h-color-purple-300);
   --h-card-subtle-yellow-background-color: var(--h-color-yellow-200);
   --h-card-warm-white-background-color: var(--h-color-warm-white-50);

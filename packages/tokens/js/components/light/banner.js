@@ -15,9 +15,9 @@ export default {
       maxWidth: 680,
       minWidth: 288,
     },
+    imageHeight: 160,
     padding: 16,
     vertical: {
-      imageHeight: 200,
       maxWidth: 504,
       minWidth: 288,
     },

@@ -11,8 +11,8 @@
   --h-banner-default-horizontal-image-min-width: 160;
   --h-banner-default-horizontal-max-width: 680px;
   --h-banner-default-horizontal-min-width: 288px;
+  --h-banner-default-image-height: 160;
   --h-banner-default-padding: var(--h-space-200);
-  --h-banner-default-vertical-image-height: 200;
   --h-banner-default-vertical-max-width: 504px;
   --h-banner-default-vertical-min-width: 288px;
   --h-banner-highlight-content-gap: var(--h-space-150);

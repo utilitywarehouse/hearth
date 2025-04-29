@@ -19,10 +19,10 @@
   --h-radio-tile-border-width: var(--h-border-width-1);
   --h-radio-tile-border-width-selected: var(--h-border-width-2);
   --h-radio-tile-gap: var(--h-space-100);
-  --h-radio-tile-group-gap: var(--h-space-100);
+  --h-radio-tile-group-gap: var(--h-space-75);
   --h-radio-tile-group-stack-gap: var(--h-space-150);
-  --h-radio-tile-max-width: 504px;
-  --h-radio-tile-min-width: 200px;
+  --h-radio-tile-max-width: 680px;
+  --h-radio-tile-min-width: 80px;
   --h-radio-tile-padding-horizontal: var(--h-space-200);
   --h-radio-tile-padding-vertical: var(--h-space-150);
   --h-radio-unchecked-background-color: var(--h-color-white);

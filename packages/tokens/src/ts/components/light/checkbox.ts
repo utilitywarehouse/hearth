@@ -29,13 +29,13 @@ export default {
     borderWidthSelected: 2,
     gap: 8,
     group: {
-      gap: 12,
+      gap: 6,
       stack: {
-        gap: 8,
+        gap: 12,
       },
     },
-    maxWidth: 504,
-    minWidth: 200,
+    maxWidth: 680,
+    minWidth: 80,
     paddingHorizontal: 16,
     paddingVertical: 12,
   },

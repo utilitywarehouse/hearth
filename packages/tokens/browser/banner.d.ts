@@ -12,9 +12,9 @@ export declare const banner: {
       readonly maxWidth: 'var(--h-banner-default-horizontal-max-width)';
       readonly minWidth: 'var(--h-banner-default-horizontal-min-width)';
     };
+    readonly imageHeight: 'var(--h-banner-default-image-height)';
     readonly padding: 'var(--h-banner-default-padding)';
     readonly vertical: {
-      readonly imageHeight: 'var(--h-banner-default-vertical-image-height)';
       readonly maxWidth: 'var(--h-banner-default-vertical-max-width)';
       readonly minWidth: 'var(--h-banner-default-vertical-min-width)';
     };

@@ -11,6 +11,7 @@ declare const _default: {
     readonly energyBlueBackgroundColor: '#6db5c3';
     readonly insuranceOrangeBackgroundColor: '#ff7b00';
     readonly mobileRoseBackgroundColor: '#ee6dbb';
+    readonly piggyPinkBackgroundColor: '#f295ff';
     readonly purpleBackgroundColor: '#7a42c8';
   };
   readonly selectable: {
@@ -28,6 +29,7 @@ declare const _default: {
     readonly energyBlueBackgroundColor: '#bddee4';
     readonly insuranceOrangeBackgroundColor: '#ffb46d';
     readonly mobileRoseBackgroundColor: '#fad0e9';
+    readonly piggyPinkBackgroundColor: '#f9ceff';
     readonly purpleBackgroundColor: '#d5c3ee';
     readonly yellowBackgroundColor: '#d5c3ee';
   };
