@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/blocks';
 import { version } from '../package.json';
 import { Box } from '../src';
-import { BackToTopButton } from './components';
+import { BackToTopButton, NextPrevPage } from './components';
 import pig from './assets/react-native-pig.png';
 
 <Meta title="Introduction" />
@@ -61,7 +61,7 @@ The `@utilitywarehouse/hearth-react-native` library uses a few packages under th
 as well as fonts and icons. Feel free to additionally install these packages if you need to use them in your project.
 
 ```console
-npm install @utilitywarehouse/hearth-tokens @utilitywarehouse/hearth-hearth-react-native-icons
+npm install @utilitywarehouse/hearth-tokens @utilitywarehouse/hearth-react-native-icons
 ```
 
 You will need to include the **Comic Hams**, **DM Mono** and **DM Sans** fonts.
@@ -122,4 +122,4 @@ export default () => {
 
 Follow the [expo-xml-font](https://github.com/Armster15/expo-xml-font) documentation to learn how to use the `expo-xml-font` package.
 
-Continue reading our Getting Started guide to learn how to use the Hearth library in your project by clicking [here](/docs/getting-started--docs).
+<NextPrevPage nextLink="/?path=/docs/getting-started--docs" nextTitle="Getting Started" />
