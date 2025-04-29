@@ -2,11 +2,10 @@ import React, { useEffect } from 'react';
 import type { Preview } from '@storybook/react';
 import { useArgs } from 'storybook/internal/preview-api';
 import { themes, breakpoints, StyleSheet, HearthUIProvider } from '../src/core';
+import theme from '../../../shared/storybook/theme';
+import { color } from '@utilitywarehouse/hearth-tokens';
 import '@utilitywarehouse/hearth-fonts';
 import '../../../shared/storybook/styles/preview.css';
-
-import { color } from '@utilitywarehouse/hearth-tokens';
-import theme from '../../../shared/storybook/theme';
 
 StyleSheet.configure({
   breakpoints,
@@ -18,6 +17,13 @@ StyleSheet.configure({
 });
 
 const preview: Preview = {
+  beforeAll: () => {
+    const storiesMenuItem = window.parent.document.getElementById('stories');
+    const storiesMenuItemButton = storiesMenuItem?.querySelector('button');
+    if (storiesMenuItemButton?.getAttribute('aria-expanded') === 'true') {
+      storiesMenuItemButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    }
+  },
   parameters: {
     controls: {
       matchers: {
@@ -26,17 +32,24 @@ const preview: Preview = {
       },
     },
     docs: {
-      theme: theme,
+      theme,
     },
     options: {
       storySort: {
-        order: ['Primitives', 'Typography', 'Forms', 'Components'],
+        order: [
+          'Introduction',
+          'Getting Started',
+          'Primitives',
+          'Typography',
+          'Forms',
+          'Components',
+        ],
       },
     },
   },
   decorators: [
     Story => {
-      const [args, setArgs] = useArgs();
+      const [args] = useArgs();
 
       useEffect(() => {
         const storybookContainer = document.getElementsByTagName('body')[0];
