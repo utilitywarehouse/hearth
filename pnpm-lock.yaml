@@ -636,6 +636,9 @@ importers:
       '@utilitywarehouse/hearth-css-reset':
         specifier: workspace:*
         version: link:../../packages/css-reset
+      '@utilitywarehouse/hearth-fonts':
+        specifier: workspace:*
+        version: link:../../packages/fonts
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:*
         version: link:../../packages/tokens

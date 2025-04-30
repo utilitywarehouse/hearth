@@ -11,7 +11,7 @@
     "build:react": "turbo run @utilitywarehouse/hearth-react#build @utilitywarehouse/hearth-css-reset#build @utilitywarehouse/hearth-tokens#build @utilitywarehouse/hearth-react-icons#build storybook-react#build:storybook",
     "build:react-native": "turbo run @utilitywarehouse/hearth-react-native#build @utilitywarehouse/hearth-react-native#build:storybook",
     "build:fonts": "turbo run @utilitywarehouse/hearth-fonts#build storybook-fonts#build:storybook",
-    "build:tokens": "turbo run storybook-tokens#build:storybook",
+    "build:tokens": "turbo run  storybook-tokens#build:storybook",
     "build:css-reset": "turbo run @utilitywarehouse/hearth-css-reset#build",
     "build:icons": "turbo run @utilitywarehouse/hearth-react#build @utilitywarehouse/hearth-css-reset#build storybook-icons#build:storybook",
     "build:storybook": "turbo build build:storybook",
