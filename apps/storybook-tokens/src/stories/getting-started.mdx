@@ -38,7 +38,8 @@ Hearth Tokens are distributed in several formats to accommodate various developm
 
 Hearth provides tokens for various design attributes. Here's a brief overview:
 
-- **Color:** Defines the color palette, including brand colors and common colors.
+- **Color:** Defines the color palette, including brand colors and common colors, light and dark modes.
+- **Color - Semantic:** Defines semantic colors for specific use cases (e.g., success, error, warning). _**Coming Soon!**_
 - **Space:** Provides consistent spacing values for margins, paddings, and layout gaps.
 - **Font:** Includes font families, sizes, and weights for typography.
 - **Line Height:** Defines line heights corresponding to font sizes for optimal readability.
@@ -46,7 +47,7 @@ Hearth provides tokens for various design attributes. Here's a brief overview:
 - **Border:** Contains tokens for border radius and border width.
 - **Shadow:** Defines elevation levels using box shadows.
 - **Layout:** Tokens related to layout structures, like container widths (may be less commonly used directly).
-- **Primitive:** A single export containing _all_ core token types (Color, Space, Font, Border, etc.) nested within it. Primarily used internally or for advanced use cases where accessing multiple token types from a single object is beneficial.
+- **Primitive:** A single export containing _all_ core token types (Color, Space, Font, Border, etc.) nested within it.
 - **Typography:** **(Internal Use)** Responsive, pre-composed typography styles (combining font family, size, weight, line height, etc.) tailored for different breakpoints (mobile, tablet, desktop). These are primarily used internally within Hearth component libraries (React, React Native) and are generally **not intended for direct consumption** in product applications.
 - **Components:** **(Internal Use)** These tokens are specifically tailored for building Hearth's internal component libraries (React, React Native). While available, they are generally **not intended for direct consumption** in product applications. Use the core tokens (Color, Space, Font, etc.) instead.
 
