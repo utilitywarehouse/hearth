@@ -1,0 +1,47 @@
+import { Meta } from '@storybook/blocks';
+import { version } from '../../../../packages/tokens/package.json';
+import pig from './assets/tokens-pig.png';
+
+<Meta title="Introduction" />
+
+<div style={{ display: 'flex', flexDirection:'column', alignItems: 'center', textAlign: 'center'}}>
+
+<img src={pig} alt="React Native Package" width={240} height={240} />
+
+# Hearth - Tokens
+
+Tokens library for UI development at Utility Warehouse.<br/>
+Current version: v{version}
+
+</div>
+
+Hearth Tokens is a platform-agnostic design tokens library covering spacing, colors, typography, shadows, radii, and
+more. Delivered in multiple formats for seamless integration.
+
+- [Formats](#formats)
+- [Installation](#installation)
+- [Next Steps](#next-steps)
+
+## Formats
+
+Hearth Tokens are available in multiple formats to suit different platforms and use cases.
+
+- **Browser JS** - JS tokens which reference the CSS variables.
+- **JS** - JS tokens with raw values for use in React, React Native or any other JS/TS projects.
+- **CSS** - CSS variables for use in web projects.
+
+If your platform is not listed or you need a different format, please reach out to the Hearth team for support on the [#help-design-systems](https://utilitywarehouse.slack.com/archives/C04MKBQ34PJ) Slack channel.
+
+## Installation
+
+```bash
+yarn add @utilitywarehouse/hearth-tokens
+# or
+pnpm add @utilitywarehouse/hearth-tokens
+# or
+npm install --save @utilitywarehouse/hearth-tokens
+```
+
+## Next Steps
+
+Now that you have an overview of the available formats, head over to the [Getting Started](/docs/getting-started--docs) guide to see detailed usage examples for each format and learn about the different types of tokens available.
