@@ -65,6 +65,9 @@ importers:
       '@utilitywarehouse/css-reset':
         specifier: latest
         version: 0.1.0
+      '@utilitywarehouse/hearth-css-reset':
+        specifier: ^0.0.1
+        version: 0.0.1
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:^
         version: link:../../packages/fonts
@@ -4565,6 +4568,9 @@ packages:
 
   '@utilitywarehouse/css-reset@0.1.0':
     resolution: {integrity: sha512-kiEd8gnFKPgBQgM46n4kFKlAZd9UQ6W4coFzZhf22OKS7p5ElzxzmM/rAQYDXGdN9h2jS+pd72fvJyp9SxMDxQ==}
+
+  '@utilitywarehouse/hearth-css-reset@0.0.1':
+    resolution: {integrity: sha512-UeGBos4JILHC/0pdx6nl6TYHPMEdFcjkOwbe03i93bTPojkqm4EDY6+taLeyrydkaPgBD5GpCAEAwyWw4CKN2w==}
 
   '@utilitywarehouse/hearth-react-icons@0.1.0':
     resolution: {integrity: sha512-hw3YKy7OwAwfLAwcNM0XcRZ0DXU8wMEn8DIgNxKGFnj3pxngGImMD9Q24oJh/CwXbSM2iZX0/r88y3ckghv2Rg==}
@@ -16701,6 +16707,8 @@ snapshots:
       dotenv: 16.4.7
 
   '@utilitywarehouse/css-reset@0.1.0': {}
+
+  '@utilitywarehouse/hearth-css-reset@0.0.1': {}
 
   '@utilitywarehouse/hearth-react-icons@0.1.0(react@18.3.1)':
     dependencies:

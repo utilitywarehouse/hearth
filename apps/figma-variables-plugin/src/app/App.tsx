@@ -4,21 +4,15 @@
 import React, { useEffect } from 'react';
 // @ts-expect-error - No type definitions available
 import logo from './assets/logo.png';
-import '@utilitywarehouse/css-reset';
 import './styles/ui.css';
-import { color } from '@utilitywarehouse/hearth-tokens/js';
+import '@utilitywarehouse/hearth-css-reset';
+// import '@utilitywarehouse/hearth-fonts';
+import '@utilitywarehouse/hearth-tokens/index.css';
+import '@utilitywarehouse/hearth-react/styles.css';
 import { encodeContent, kebabCase } from './utils';
-import {
-  Heading,
-  Button,
-  CheckboxGroup,
-  Checkbox,
-  Box,
-  Flex,
-  Alert,
-  TextField,
-} from '@utilitywarehouse/web-ui';
+import { CheckboxGroup, Checkbox, Alert } from '@utilitywarehouse/web-ui';
 import LoadingSpinner from './components/LoadingSpinner';
+import { Button, Heading, TextInput, Card, Box, Flex } from '@utilitywarehouse/hearth-react';
 
 function App() {
   const [githubToken, setGithubToken] = React.useState('');
@@ -309,25 +303,23 @@ function App() {
   }
 
   return (
-    <Box bgcolor={color.light.warmWhite[50]} height="100%">
-      <Box bgcolor={color.light.purple['300']} p={2} sx={{ position: 'relative' }}>
+    <Box backgroundColor="warmWhite50" height="100%">
+      <Box backgroundColor="purple700" padding="200" position="relative">
         {tokenLoaded && !showTokenInput && (
           <Button
             onClick={editToken}
             className="edit-token-button"
-            size="small"
-            sx={{ position: 'absolute', top: 16, right: 16 }}
+            size="sm"
+            style={{ position: 'absolute', top: 16, right: 16 }}
           >
             Edit Token
           </Button>
         )}
         <img src={logo} />
       </Box>
-      <Box p={2}>
-        <Box sx={{ mb: 2 }}>
-          <Heading variant="h3" color="black">
-            Export Figma Variables
-          </Heading>
+      <Box padding="200">
+        <Box marginBottom="200">
+          <Heading size="md">Export Figma Variables</Heading>
         </Box>
         {!githubToken && (
           <Alert
@@ -340,8 +332,8 @@ function App() {
           <Alert colorScheme="cyan" text="Importing variables, please wait..." sx={{ mb: 3 }} />
         )}
         {((tokenLoaded && showTokenInput) || !tokenLoaded) && (
-          <Box sx={{ padding: 3, backgroundColor: '#fff', borderRadius: '14px', mb: 3 }}>
-            <TextField
+          <Card style={{ marginBottom: 3 }}>
+            <TextInput
               id="github-token"
               type="password"
               label="GitHub Token"
@@ -349,21 +341,12 @@ function App() {
               onChange={e => setGithubToken(e.target.value)}
             />
             <Button onClick={saveToken}>Save Token</Button>
-          </Box>
+          </Card>
         )}
         {statusMessage && <Alert colorScheme={statusType} text={statusMessage} sx={{ mb: 3 }} />}
         {githubToken && (
-          <Box
-            sx={{
-              padding: 3,
-              backgroundColor: '#fff',
-              borderRadius: '14px',
-              borderWidth: 2,
-              borderColor: color.light.grey[1000],
-              borderStyle: 'solid',
-            }}
-          >
-            <Box mb={2}>
+          <Card variant="emphasis" colorScheme="white">
+            <Box marginBottom="300">
               <CheckboxGroup
                 direction="column"
                 label="Select Collections to Export:"
@@ -418,7 +401,7 @@ function App() {
                 {exporting ? 'Exporting...' : 'Export Variables'}
               </Button>
             </Flex>
-          </Box>
+          </Card>
         )}
         {(exporting || loadingImport) && <LoadingSpinner text={loadingText} overlay />}
 
