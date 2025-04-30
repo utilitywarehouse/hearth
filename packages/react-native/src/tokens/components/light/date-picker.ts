@@ -31,6 +31,7 @@ export default {
       backgroundColorRange: '#f6f5f5',
       backgroundColorSelected: '#7a42c8',
       borderRadius: 8,
+      minWidth: 32,
       roundelBackgroundColor: '#7a42c8',
       roundelBackgroundColorInverted: '#fcfbf2',
       roundelHeight: 6,
@@ -44,7 +45,7 @@ export default {
   gap: 6,
   gapContainer: 4,
   header: {
-    controlGap2: 28,
+    controlGap: 28,
   },
   height: 48,
   maxWidth: 504,

@@ -18,10 +18,10 @@
   --h-icon-button-unstyled-inverted-foreground-color: var(--h-color-warm-white-50);
   --h-icon-button-unstyled-inverted-foreground-color-active: var(--h-color-warm-white-200);
   --h-icon-button-unstyled-inverted-foreground-color-hover: var(--h-color-warm-white-100);
-  --h-icon-button-unstyled-md-height: 0;
-  --h-icon-button-unstyled-md-width: 0;
+  --h-icon-button-unstyled-md-height: 24;
+  --h-icon-button-unstyled-md-width: 24;
   --h-icon-button-unstyled-padding-horizontal: 0;
   --h-icon-button-unstyled-padding-vertical: 0;
-  --h-icon-button-unstyled-sm-height: 0;
-  --h-icon-button-unstyled-sm-width: 0;
+  --h-icon-button-unstyled-sm-height: 20;
+  --h-icon-button-unstyled-sm-width: 20;
 }

@@ -25,7 +25,15 @@ export default {
       foregroundColorActive: '#f1efe4',
       foregroundColorHover: '#f7f6eb',
     },
+    md: {
+      height: 24,
+      width: 24,
+    },
     paddingHorizontal: 0,
     paddingVertical: 0,
+    sm: {
+      height: 20,
+      width: 20,
+    },
   },
 } as const;

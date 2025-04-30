@@ -26,14 +26,14 @@ export default {
       foregroundColorHover: '#f7f6eb',
     },
     md: {
-      height: 0,
-      width: 0,
+      height: 24,
+      width: 24,
     },
     paddingHorizontal: 0,
     paddingVertical: 0,
     sm: {
-      height: 0,
-      width: 0,
+      height: 20,
+      width: 20,
     },
   },
 } as const;
