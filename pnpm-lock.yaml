@@ -69,13 +69,13 @@ importers:
         specifier: ^0.0.1
         version: 0.0.1
       '@utilitywarehouse/hearth-fonts':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/fonts
       '@utilitywarehouse/hearth-react':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/react
       '@utilitywarehouse/hearth-tokens':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/tokens
       '@utilitywarehouse/web-ui':
         specifier: latest
