@@ -1,4 +1,3 @@
-/* eslint-disable  @typescript-eslint/no-unsafe-assignment */
 import React, { forwardRef, PropsWithChildren, useMemo } from 'react';
 import type { UnstyledIconButtonProps } from './UnstyledIconButton.props';
 import { Pressable, ViewStyle } from 'react-native';
@@ -9,10 +8,13 @@ import { PressableRef } from '../../types';
 const UnstyledIconButtonRoot = forwardRef<
   PressableRef,
   PropsWithChildren<UnstyledIconButtonProps & { states?: { active?: boolean; disabled?: boolean } }>
->(({ children, states, ...props }, ref) => {
+>(({ children, size, inverted, states, ...props }, ref) => {
   const { active, disabled } = states || {};
-  styles.useVariants({ disabled });
-  const value = useMemo(() => ({ disabled, active }), [disabled, active]);
+  styles.useVariants({ disabled, size });
+  const value = useMemo(
+    () => ({ disabled, active, inverted, size }),
+    [disabled, active, inverted, size]
+  );
   return (
     <UnstyledIconButtonContext.Provider value={value}>
       <Pressable ref={ref} {...props} style={[styles.container, props.style as ViewStyle]}>
@@ -29,8 +31,6 @@ const styles = StyleSheet.create(theme => ({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    width: 24,
-    height: 24,
     borderRadius: theme.borderRadius.sm,
     _web: {
       '_focus-visible': theme.helpers.focusVisible,
@@ -39,6 +39,16 @@ const styles = StyleSheet.create(theme => ({
       disabled: {
         true: {
           opacity: theme.opacity.disabled,
+        },
+      },
+      size: {
+        sm: {
+          width: theme.components.iconButton.unstyled.sm.width,
+          height: theme.components.iconButton.unstyled.sm.height,
+        },
+        md: {
+          width: theme.components.iconButton.unstyled.md.width,
+          height: theme.components.iconButton.unstyled.md.height,
         },
       },
     },

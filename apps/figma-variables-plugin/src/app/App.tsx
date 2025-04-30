@@ -310,7 +310,7 @@ function App() {
 
   return (
     <Box bgcolor={color.light.warmWhite[50]} height="100%">
-      <Box bgcolor={color.light.purple['300']} p={2} sx={{ position: 'relative' }}>
+      <Box bgcolor={color.light.purple['700']} p={2} sx={{ position: 'relative' }}>
         {tokenLoaded && !showTokenInput && (
           <Button
             onClick={editToken}

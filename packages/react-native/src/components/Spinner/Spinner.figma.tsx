@@ -15,6 +15,6 @@ figma.connect(
         'LG-44': 'lg',
       }),
     },
-    example: ({ size }) => <Spinner size={size} color={color.light.purple['300']} />,
+    example: ({ size }) => <Spinner size={size} color={color.light.purple['700']} />,
   }
 );
