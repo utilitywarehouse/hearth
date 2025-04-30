@@ -21,7 +21,15 @@ export const iconButton = {
       foregroundColorActive: 'var(--h-icon-button-unstyled-inverted-foreground-color-active)',
       foregroundColorHover: 'var(--h-icon-button-unstyled-inverted-foreground-color-hover)',
     },
+    md: {
+      height: 'var(--h-icon-button-unstyled-md-height)',
+      width: 'var(--h-icon-button-unstyled-md-width)',
+    },
     paddingHorizontal: 'var(--h-icon-button-unstyled-padding-horizontal)',
     paddingVertical: 'var(--h-icon-button-unstyled-padding-vertical)',
+    sm: {
+      height: 'var(--h-icon-button-unstyled-sm-height)',
+      width: 'var(--h-icon-button-unstyled-sm-width)',
+    },
   },
 } as const;

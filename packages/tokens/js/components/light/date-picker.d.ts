@@ -30,6 +30,7 @@ declare const _default: {
       readonly backgroundColorRange: '#f6f5f5';
       readonly backgroundColorSelected: '#7a42c8';
       readonly borderRadius: 8;
+      readonly minWidth: 32;
       readonly roundelBackgroundColor: '#7a42c8';
       readonly roundelBackgroundColorInverted: '#fcfbf2';
       readonly roundelHeight: 6;
@@ -43,7 +44,7 @@ declare const _default: {
   readonly gap: 6;
   readonly gapContainer: 4;
   readonly header: {
-    readonly controlGap2: 28;
+    readonly controlGap: 28;
   };
   readonly height: 48;
   readonly maxWidth: 504;

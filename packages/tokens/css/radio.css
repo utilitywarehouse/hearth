@@ -23,8 +23,7 @@
   --h-radio-tile-group-stack-gap: var(--h-space-150);
   --h-radio-tile-max-width: 680px;
   --h-radio-tile-min-width: 80px;
-  --h-radio-tile-padding-horizontal: var(--h-space-200);
-  --h-radio-tile-padding-vertical: var(--h-space-150);
+  --h-radio-tile-padding: var(--h-space-150);
   --h-radio-unchecked-background-color: var(--h-color-white);
   --h-radio-unchecked-border-color: var(--h-color-grey-400);
 }

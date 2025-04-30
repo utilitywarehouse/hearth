@@ -32,8 +32,7 @@ export const checkbox = {
     },
     maxWidth: 'var(--h-checkbox-tile-max-width)',
     minWidth: 'var(--h-checkbox-tile-min-width)',
-    paddingHorizontal: 'var(--h-checkbox-tile-padding-horizontal)',
-    paddingVertical: 'var(--h-checkbox-tile-padding-vertical)',
+    padding: 'var(--h-checkbox-tile-padding)',
   },
   unchecked: {
     backgroundColor: 'var(--h-checkbox-unchecked-background-color)',
