@@ -1069,12 +1069,7 @@
           "type": "number",
           "value": 200
         },
-        "padding-horizontal": {
-          "alias": "{space.200}",
-          "type": "number",
-          "value": 16
-        },
-        "padding-vertical": {
+        "padding": {
           "alias": "{space.150}",
           "type": "number",
           "value": 12
@@ -1210,6 +1205,11 @@
             "type": "number",
             "value": 8
           },
+          "min-width": {
+            "alias": "{space.400}",
+            "type": "number",
+            "value": 32
+          },
           "roundel-background-color": {
             "alias": "{color.light.purple.700}",
             "type": "color",
@@ -1261,7 +1261,7 @@
         "value": 4
       },
       "header": {
-        "control-gap-2": {
+        "control-gap": {
           "alias": "{space.350}",
           "type": "number",
           "value": 28
@@ -1466,6 +1466,16 @@
             "value": "#f7f6eb"
           }
         },
+        "md": {
+          "height": {
+            "type": "number",
+            "value": 0
+          },
+          "width": {
+            "type": "number",
+            "value": 0
+          }
+        },
         "padding-horizontal": {
           "alias": "{space.0}",
           "type": "number",
@@ -1475,6 +1485,16 @@
           "alias": "{space.0}",
           "type": "number",
           "value": 0
+        },
+        "sm": {
+          "height": {
+            "type": "number",
+            "value": 0
+          },
+          "width": {
+            "type": "number",
+            "value": 0
+          }
         }
       }
     },
@@ -2074,12 +2094,7 @@
           "type": "number",
           "value": 200
         },
-        "padding-horizontal": {
-          "alias": "{space.200}",
-          "type": "number",
-          "value": 16
-        },
-        "padding-vertical": {
+        "padding": {
           "alias": "{space.150}",
           "type": "number",
           "value": 12
@@ -3658,12 +3673,7 @@
           "type": "number",
           "value": 80
         },
-        "padding-horizontal": {
-          "alias": "{space.200}",
-          "type": "number",
-          "value": 16
-        },
-        "padding-vertical": {
+        "padding": {
           "alias": "{space.150}",
           "type": "number",
           "value": 12
@@ -3799,6 +3809,11 @@
             "type": "number",
             "value": 8
           },
+          "min-width": {
+            "alias": "{space.400}",
+            "type": "number",
+            "value": 32
+          },
           "roundel-background-color": {
             "alias": "{color.light.purple.700}",
             "type": "color",
@@ -3850,7 +3865,7 @@
         "value": 4
       },
       "header": {
-        "control-gap-2": {
+        "control-gap": {
           "alias": "{space.350}",
           "type": "number",
           "value": 28
@@ -4055,6 +4070,16 @@
             "value": "#f7f6eb"
           }
         },
+        "md": {
+          "height": {
+            "type": "number",
+            "value": 0
+          },
+          "width": {
+            "type": "number",
+            "value": 0
+          }
+        },
         "padding-horizontal": {
           "alias": "{space.0}",
           "type": "number",
@@ -4064,6 +4089,16 @@
           "alias": "{space.0}",
           "type": "number",
           "value": 0
+        },
+        "sm": {
+          "height": {
+            "type": "number",
+            "value": 0
+          },
+          "width": {
+            "type": "number",
+            "value": 0
+          }
         }
       }
     },
@@ -4663,12 +4698,7 @@
           "type": "number",
           "value": 80
         },
-        "padding-horizontal": {
-          "alias": "{space.200}",
-          "type": "number",
-          "value": 16
-        },
-        "padding-vertical": {
+        "padding": {
           "alias": "{space.150}",
           "type": "number",
           "value": 12

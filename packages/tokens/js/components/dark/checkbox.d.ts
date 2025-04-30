@@ -35,8 +35,7 @@ declare const _default: {
     };
     readonly maxWidth: 504;
     readonly minWidth: 200;
-    readonly paddingHorizontal: 16;
-    readonly paddingVertical: 12;
+    readonly padding: 12;
   };
   readonly unchecked: {
     readonly backgroundColor: '#ffffff';

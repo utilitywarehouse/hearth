@@ -32,8 +32,7 @@ export declare const checkbox: {
     };
     readonly maxWidth: 'var(--h-checkbox-tile-max-width)';
     readonly minWidth: 'var(--h-checkbox-tile-min-width)';
-    readonly paddingHorizontal: 'var(--h-checkbox-tile-padding-horizontal)';
-    readonly paddingVertical: 'var(--h-checkbox-tile-padding-vertical)';
+    readonly padding: 'var(--h-checkbox-tile-padding)';
   };
   readonly unchecked: {
     readonly backgroundColor: 'var(--h-checkbox-unchecked-background-color)';

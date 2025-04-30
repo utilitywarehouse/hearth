@@ -30,8 +30,7 @@ export const radio = {
     },
     maxWidth: 'var(--h-radio-tile-max-width)',
     minWidth: 'var(--h-radio-tile-min-width)',
-    paddingHorizontal: 'var(--h-radio-tile-padding-horizontal)',
-    paddingVertical: 'var(--h-radio-tile-padding-vertical)',
+    padding: 'var(--h-radio-tile-padding)',
   },
   unchecked: {
     backgroundColor: 'var(--h-radio-unchecked-background-color)',

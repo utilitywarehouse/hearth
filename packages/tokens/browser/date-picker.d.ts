@@ -27,6 +27,7 @@ export declare const datePicker: {
       readonly backgroundColorRange: 'var(--h-date-picker-calendar-item-background-color-range)';
       readonly backgroundColorSelected: 'var(--h-date-picker-calendar-item-background-color-selected)';
       readonly borderRadius: 'var(--h-date-picker-calendar-item-border-radius)';
+      readonly minWidth: 'var(--h-date-picker-calendar-item-min-width)';
       readonly roundelBackgroundColor: 'var(--h-date-picker-calendar-item-roundel-background-color)';
       readonly roundelBackgroundColorInverted: 'var(--h-date-picker-calendar-item-roundel-background-color-inverted)';
       readonly roundelHeight: 'var(--h-date-picker-calendar-item-roundel-height)';
@@ -40,7 +41,7 @@ export declare const datePicker: {
   readonly gap: 'var(--h-date-picker-gap)';
   readonly gapContainer: 'var(--h-date-picker-gap-container)';
   readonly header: {
-    readonly controlGap2: 'var(--h-date-picker-header-control-gap-2)';
+    readonly controlGap: 'var(--h-date-picker-header-control-gap)';
   };
   readonly height: 'var(--h-date-picker-height)';
   readonly maxWidth: 'var(--h-date-picker-max-width)';

@@ -27,6 +27,7 @@ export const datePicker = {
       backgroundColorRange: 'var(--h-date-picker-calendar-item-background-color-range)',
       backgroundColorSelected: 'var(--h-date-picker-calendar-item-background-color-selected)',
       borderRadius: 'var(--h-date-picker-calendar-item-border-radius)',
+      minWidth: 'var(--h-date-picker-calendar-item-min-width)',
       roundelBackgroundColor: 'var(--h-date-picker-calendar-item-roundel-background-color)',
       roundelBackgroundColorInverted:
         'var(--h-date-picker-calendar-item-roundel-background-color-inverted)',
@@ -41,7 +42,7 @@ export const datePicker = {
   gap: 'var(--h-date-picker-gap)',
   gapContainer: 'var(--h-date-picker-gap-container)',
   header: {
-    controlGap2: 'var(--h-date-picker-header-control-gap-2)',
+    controlGap: 'var(--h-date-picker-header-control-gap)',
   },
   height: 'var(--h-date-picker-height)',
   maxWidth: 'var(--h-date-picker-max-width)',

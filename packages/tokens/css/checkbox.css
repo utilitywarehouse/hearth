@@ -25,8 +25,7 @@
   --h-checkbox-tile-group-stack-gap: var(--h-space-150);
   --h-checkbox-tile-max-width: 680px;
   --h-checkbox-tile-min-width: 80px;
-  --h-checkbox-tile-padding-horizontal: var(--h-space-200);
-  --h-checkbox-tile-padding-vertical: var(--h-space-150);
+  --h-checkbox-tile-padding: var(--h-space-150);
   --h-checkbox-unchecked-background-color: var(--h-color-white);
   --h-checkbox-unchecked-border-color: var(--h-color-grey-400);
 }
