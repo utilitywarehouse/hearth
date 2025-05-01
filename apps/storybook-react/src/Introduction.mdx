@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/blocks';
+import { version } from '../../../packages/react/package.json';
+import pig from './assets/react-pig.png';
+
+<Meta title="Introduction" />
+
+<div style={{ display: 'flex', flexDirection:'column', alignItems: 'center', textAlign: 'center'}}>
+
+<img src={pig} alt="Icons Package" width={240} height={240} />
+
+# Hearth React
+
+React component library for UI development at Utility Warehouse.<br/>
+Current version: v{version}
+
+</div>
+
+Hearth React is a comprehensive component library for web applications,
+providing reusable components, consistent styling, and utilities to support UI
+development. It is built to enhance productivity and maintain coherent design
+across projects.
+
+## Getting started
+
+Assuming you already have React installed and your project set up, to get started install the library and it's peer dependencies.
+
+```console
+yarn add @utilitywarehouse/hearth-react @utilitywarehouse/hearth-tokens @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react-icons
+```
+
+We also advise you install the Hearth baseline CSS styles
+
+```console
+yarn add @utilitywarehouse/hearth-css-reset
+```
+
+You should then add these imports in the root of your application, along with the Hearth React styles.
+
+```tsx
+import '@utilitywarehouse/hearth-css-reset';
+import '@utilitywarehouse/hearth-fonts';
+import '@utilitywarehouse/hearth-tokens/index.css';
+import '@utilitywarehouse/hearth-react/styles.css';
+```
