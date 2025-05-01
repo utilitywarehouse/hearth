@@ -18,8 +18,16 @@ export const UnstyledIconButton = React.forwardRef<
   UnstyledIconButtonElement,
   UnstyledIconButtonProps
 >((props, forwardedRef) => {
-  const { className, children, label, disabled, loading, onClick, ...unstyledIconButtonProps } =
-    extractProps(props, unstyledIconButtonPropDefs);
+  const {
+    className,
+    children,
+    label,
+    disabled,
+    inverted,
+    loading,
+    onClick,
+    ...unstyledIconButtonProps
+  } = extractProps(props, unstyledIconButtonPropDefs);
   const { size } = props;
   const spinnerSize = translateResponsiveButtonSize(size || 'md');
   return (
@@ -28,6 +36,7 @@ export const UnstyledIconButton = React.forwardRef<
       className={clsx(componentClassName, className)}
       aria-label={label}
       aria-disabled={disabled || loading}
+      data-inverted={inverted ? '' : undefined}
       onClick={disabled ? undefined : onClick}
       {...unstyledIconButtonProps}
     >

@@ -31,9 +31,18 @@ type Story = StoryObj<typeof UnstyledIconButton>;
 
 export const Playground: Story = {
   render: args => (
-    <UnstyledIconButton {...args}>
-      {args.size === 'sm' ? <CloseSmallIcon /> : <CloseMediumIcon />}
-    </UnstyledIconButton>
+    <Flex direction="column">
+      <Box padding="200">
+        <UnstyledIconButton {...args}>
+          {args.size === 'sm' ? <CloseSmallIcon /> : <CloseMediumIcon />}
+        </UnstyledIconButton>
+      </Box>
+      <Box padding="200" backgroundColor="purple700">
+        <UnstyledIconButton {...args} inverted>
+          {args.size === 'sm' ? <CloseSmallIcon /> : <CloseMediumIcon />}
+        </UnstyledIconButton>
+      </Box>
+    </Flex>
   ),
 };
 
