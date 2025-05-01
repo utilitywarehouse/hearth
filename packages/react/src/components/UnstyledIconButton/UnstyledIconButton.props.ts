@@ -18,4 +18,6 @@ export type UnstyledIconButtonProps = ComponentPropsWithout<'button', RemovedPro
      * @default md
      */
     size?: Responsive<(typeof sizes)[number]>;
+    /** Inverts the component colours, for use on darker surface colours. */
+    inverted?: boolean;
   };
