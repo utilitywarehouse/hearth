@@ -19,6 +19,7 @@
   height: var(--h-icon-button-size);
   width: var(--h-icon-button-size);
   color: var(--h-icon-button-unstyled-foreground-color);
+
   &:where([data-inverted]) {
     color: var(--h-icon-button-unstyled-inverted-foreground-color);
   }
@@ -30,6 +31,7 @@
   @media (hover: hover) {
     &:where(:hover):not([aria-disabled='true']) {
       color: var(--h-icon-button-unstyled-foreground-color-hover);
+
       &:where([data-inverted]) {
         color: var(--h-icon-button-unstyled-inverted-foreground-color-hover);
       }
@@ -39,6 +41,7 @@
   &:where(:focus-visible) {
     outline: 2px solid var(--h-focus-border);
     outline-offset: 1px;
+
     &:where([data-inverted]) {
       outline: 2px solid var(--h-focus-border-inverted);
     }
@@ -46,6 +49,7 @@
 
   &:where(:active):not([aria-disabled='true']) {
     color: var(--h-icon-button-unstyled-foreground-color-active);
+
     &:where([data-inverted]) {
       color: var(--h-icon-button-unstyled-inverted-foreground-color-active);
     }
