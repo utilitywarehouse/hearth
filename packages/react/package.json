@@ -6,7 +6,7 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "style": "./styles.css",
+  "style": "./index.css",
   "exports": {
     ".": {
       "require": {
@@ -48,6 +48,8 @@
     "*.css"
   ],
   "peerDependencies": {
+    "@utilitywarehouse/hearth-fonts": "workspace:*",
+    "@utilitywarehouse/hearth-react-icons": "0.1.0",
     "@utilitywarehouse/hearth-tokens": "workspace:*",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
@@ -57,14 +59,14 @@
     "@radix-ui/react-radio-group": "^1.2.2",
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-use-controllable-state": "^1.0.1",
-    "@utilitywarehouse/hearth-react-icons": "0.1.0",
     "clsx": "^2.1.1"
   },
   "devDependencies": {
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
-    "@utilitywarehouse/css-reset": "^0.1.0",
+    "@utilitywarehouse/hearth-css-reset": "workspace:*",
     "@utilitywarehouse/hearth-fonts": "workspace:*",
+    "@utilitywarehouse/hearth-react-icons": "0.1.0",
     "@utilitywarehouse/hearth-tokens": "workspace:*",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",

@@ -757,9 +757,6 @@ importers:
       '@radix-ui/react-use-controllable-state':
         specifier: ^1.0.1
         version: 1.1.0(@types/react@18.3.18)(react@18.3.1)
-      '@utilitywarehouse/hearth-react-icons':
-        specifier: 0.1.0
-        version: 0.1.0(react@18.3.1)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -770,12 +767,15 @@ importers:
       '@types/react':
         specifier: ^18.3.12
         version: 18.3.18
-      '@utilitywarehouse/css-reset':
-        specifier: ^0.1.0
-        version: 0.1.0
+      '@utilitywarehouse/hearth-css-reset':
+        specifier: workspace:*
+        version: link:../css-reset
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:*
         version: link:../fonts
+      '@utilitywarehouse/hearth-react-icons':
+        specifier: 0.1.0
+        version: 0.1.0(react@18.3.1)
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:*
         version: link:../tokens
@@ -866,7 +866,7 @@ importers:
     dependencies:
       '@expo/html-elements':
         specifier: latest
-        version: 0.11.2
+        version: 0.12.5
       '@gluestack-ui/alert':
         specifier: 0.1.15
         version: 0.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2535,8 +2535,8 @@ packages:
     resolution: {integrity: sha512-gNyn1KnAOpEa8gSNsYqXMTcq0fSwqU/vit6fP5863vLSKxHm/dNt/gm/uZJxrRZxKq71KUJWF6I7d3z8qIfq5g==}
     hasBin: true
 
-  '@expo/html-elements@0.11.2':
-    resolution: {integrity: sha512-OC98eZ4mMzpFQq/KF9t+CGC4Vcg4RnoOxWAzSmNVd3VZ2dFFi64QCoHlT719wDmuccemn1VPXu1/rFvOGmJgOg==}
+  '@expo/html-elements@0.12.5':
+    resolution: {integrity: sha512-28KWO88YKykKU7ke5sEQs5TivFRMs1Aktz13xxgqAf5rTgb+lka0VKVt3W2fG7ksbUQ407rtUqz7SEAq298NvQ==}
 
   '@expo/image-utils@0.6.5':
     resolution: {integrity: sha512-RsS/1CwJYzccvlprYktD42KjyfWZECH6PPIEowvoSmXfGLfdViwcUEI4RvBfKX5Jli6P67H+6YmHvPTbGOboew==}
@@ -13731,7 +13731,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@expo/html-elements@0.11.2': {}
+  '@expo/html-elements@0.12.5': {}
 
   '@expo/image-utils@0.6.5':
     dependencies:
