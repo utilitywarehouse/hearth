@@ -64,9 +64,9 @@
   "devDependencies": {
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
-    "@utilitywarehouse/css-reset": "workspace:*",
+    "@utilitywarehouse/hearth-css-reset": "workspace:*",
     "@utilitywarehouse/hearth-fonts": "workspace:*",
-    "@utilitywarehouse/hearth-react-icons": "workspace:*",
+    "@utilitywarehouse/hearth-react-icons": "0.1.0",
     "@utilitywarehouse/hearth-tokens": "workspace:*",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
