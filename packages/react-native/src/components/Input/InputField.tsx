@@ -58,8 +58,8 @@ const InputField = forwardRef<InputRef, TextInputProps>(
       <RNTextInput
         ref={ref as React.Ref<ElementRef<typeof RNTextInput>>}
         placeholderTextColor={components.input.placeholderColor}
-        selectionColor={color.purple[300]}
-        cursorColor={color.purple[300]}
+        selectionColor={color.purple[700]}
+        cursorColor={color.purple[700]}
         verticalAlign="middle"
         aria-disabled={disabled}
         onFocus={handleOnFocus}

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import React, { forwardRef } from 'react';
 import { Platform, StyleProp, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
@@ -8,8 +7,8 @@ import IconProps from '../Icon/Icon.props';
 import { useUnstyledIconButtonContext } from './UnstyledIconButton.context';
 
 const UnstyledIconButtonIcon = forwardRef<IconRef, IconProps>(({ children, ...props }, ref) => {
-  const { active } = useUnstyledIconButtonContext();
-  styles.useVariants({ active });
+  const { active, inverted, size } = useUnstyledIconButtonContext();
+  styles.useVariants({ active, inverted, size });
   return (
     <Icon
       ref={ref}
@@ -41,7 +40,36 @@ const styles = StyleSheet.create(theme => ({
           color: theme.components.iconButton.unstyled.foregroundColorActive,
         },
       },
+      inverted: {
+        true: {
+          color: theme.components.iconButton.unstyled.inverted.foregroundColor,
+          _web: {
+            _hover: {
+              color: theme.components.iconButton.unstyled.inverted.foregroundColorHover,
+            },
+          },
+        },
+      },
+      size: {
+        sm: {
+          width: theme.components.iconButton.unstyled.sm.width,
+          height: theme.components.iconButton.unstyled.sm.height,
+        },
+        md: {
+          width: theme.components.iconButton.unstyled.md.width,
+          height: theme.components.iconButton.unstyled.md.height,
+        },
+      },
     },
+    compoundVariants: [
+      {
+        active: true,
+        inverted: true,
+        styles: {
+          color: theme.components.iconButton.unstyled.inverted.foregroundColorActive,
+        },
+      },
+    ],
   },
 }));
 

@@ -1469,11 +1469,11 @@
         "md": {
           "height": {
             "type": "number",
-            "value": 0
+            "value": 24
           },
           "width": {
             "type": "number",
-            "value": 0
+            "value": 24
           }
         },
         "padding-horizontal": {
@@ -1489,11 +1489,11 @@
         "sm": {
           "height": {
             "type": "number",
-            "value": 0
+            "value": 20
           },
           "width": {
             "type": "number",
-            "value": 0
+            "value": 20
           }
         }
       }
@@ -4073,11 +4073,11 @@
         "md": {
           "height": {
             "type": "number",
-            "value": 0
+            "value": 24
           },
           "width": {
             "type": "number",
-            "value": 0
+            "value": 24
           }
         },
         "padding-horizontal": {
@@ -4093,11 +4093,11 @@
         "sm": {
           "height": {
             "type": "number",
-            "value": 0
+            "value": 20
           },
           "width": {
             "type": "number",
-            "value": 0
+            "value": 20
           }
         }
       }

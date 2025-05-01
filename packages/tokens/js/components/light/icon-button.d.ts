@@ -25,14 +25,14 @@ declare const _default: {
       readonly foregroundColorHover: '#f7f6eb';
     };
     readonly md: {
-      readonly height: 0;
-      readonly width: 0;
+      readonly height: 24;
+      readonly width: 24;
     };
     readonly paddingHorizontal: 0;
     readonly paddingVertical: 0;
     readonly sm: {
-      readonly height: 0;
-      readonly width: 0;
+      readonly height: 20;
+      readonly width: 20;
     };
   };
 };

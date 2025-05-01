@@ -22,7 +22,7 @@ UnstyledIconButtonSpinner.displayName = 'UnstyledIconButtonSpinner';
 UnstyledIconButtonIcon.displayName = 'UnstyledIconButtonIcon';
 
 const UnstyledIconButton = forwardRef<PressableRef, UnstyledIconButtonProps>(
-  ({ icon, disabled = false, pressed, ...props }, ref) => {
+  ({ icon, disabled = false, pressed, size = 'md', inverted = false, ...props }, ref) => {
     const { disabled: groupDisabled, loading: groupLoading } = useButtonGroupContext();
     const { loading } = props;
     const isLoading = loading ?? groupLoading;
@@ -33,6 +33,8 @@ const UnstyledIconButton = forwardRef<PressableRef, UnstyledIconButtonProps>(
         // @ts-expect-error - ref
         ref={ref}
         {...props}
+        size={size}
+        inverted={inverted}
         isDisabled={buttonDisabled}
         isPressed={pressed}
       >
