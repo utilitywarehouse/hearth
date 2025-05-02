@@ -21,10 +21,37 @@ module.exports = (env, argv) => ({
       { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/ },
 
       // Enables including CSS by doing "import './file.css'" in your TypeScript code
-      { test: /\.css$/, use: ['style-loader', { loader: 'css-loader' }] },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              url: {
+                filter: url => {
+                  // Don't handle font files through css-loader url resolution
+                  return !url.includes('.woff2');
+                },
+              },
+            },
+          },
+        ],
+      },
 
       // Allows you to use "<%= require('./file.svg') %>" in your HTML code to get a data URI
       { test: /\.(png|jpg|gif|webp|svg)$/, loader: 'url-loader' },
+      // Handle fonts
+      {
+        test: /\.(woff2)$/,
+        use: {
+          loader: 'url-loader', // Switch back to url-loader
+          options: {
+            limit: 10000000, // Inline everything
+            encoding: 'base64',
+          },
+        },
+      },
     ],
   },
 
@@ -34,6 +61,7 @@ module.exports = (env, argv) => ({
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'), // Compile into a folder called "dist"
+    // publicPath: 'fonts/',
   },
 
   // Tells Webpack to generate "ui.html" and to inline "ui.ts" into it

@@ -1,10 +1,4 @@
-:root {
-  --rem: 16;
-}
-
 body {
-  font-family: 'Work Sans', sans-serif;
-  font-size: 16px;
   background-color: #f4f3f6;
 }
 img {
