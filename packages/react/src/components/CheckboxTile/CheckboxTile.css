@@ -1,0 +1,12 @@
+.hearth-CheckboxTile {
+  flex: 1 1 0%;
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
+
+  /* TODO: update tokens */
+  min-width: var(--h-radio-tile-min-width);
+  max-width: var(--h-radio-tile-max-width);
+}
