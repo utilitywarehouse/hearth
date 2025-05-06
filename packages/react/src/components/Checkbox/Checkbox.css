@@ -43,11 +43,13 @@
 
   &:where([data-state='unchecked']) {
     background-color: white;
+
     --h-checkbox-box-shadow-color: var(--h-checkbox-unchecked-border-color);
   }
 
   &:where([data-state='checked']) {
     background-color: var(--h-checkbox-checked-background-color);
+
     --h-checkbox-box-shadow-color: var(--h-checkbox-checked-border-color);
   }
 

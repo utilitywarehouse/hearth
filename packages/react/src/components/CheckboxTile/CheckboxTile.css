@@ -1,6 +1,5 @@
 .hearth-CheckboxTile {
   flex: 1 1 0%;
-
   min-width: var(--h-checkbox-tile-min-width);
   max-width: var(--h-checkbox-tile-max-width);
 }
