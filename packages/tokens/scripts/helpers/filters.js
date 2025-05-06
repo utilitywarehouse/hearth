@@ -58,9 +58,7 @@ export const filters = {
       (token.filePath.includes('component') &&
         token.path.includes('button') &&
         token.path.includes('min-width')) ||
-      (token.filePath.includes('component') &&
-        token.path.includes('radio') &&
-        token.path.includes('outline-width')) ||
+      (token.filePath.includes('component') && token.path.includes('outline-width')) ||
       token.path.includes('max-width') ||
       token.path.includes('min-width')
     );

@@ -5,12 +5,6 @@
     cursor: pointer;
   }
 
-  .hearth-CheckboxBase {
-    &:where(:focus-visible) {
-      --checkbox-outline-color: var(--color-cyan700);
-    }
-  }
-
   /* we do this so that the gap between the checkbox & label is clickable */
   .hearth-Label {
     position: relative;
@@ -26,9 +20,6 @@
 }
 
 .hearth-CheckboxRoot {
-  --checkbox-box-shadow-color: var(--color-grey500);
-
-  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -38,55 +29,50 @@
   height: 24px;
   width: 24px;
   border: none;
-  border-radius: 50%;
-  color: var(--color-cyan1000);
-  background-color: white;
+  border-radius: var(--h-checkbox-border-radius);
+  background-color: var(--h-checkbox-unchecked-background-color);
   outline: none;
+  box-shadow: 0 0 0 var(--h-checkbox-outline-width) var(--h-checkbox-outline-color);
+  color: var(--h-checkbox-checked-icon-color);
 
   &::before {
     content: '';
     display: block;
     height: 24px;
     width: 24px;
-    border-radius: 3px;
+    border-radius: var(--h-checkbox-border-radius);
     background-color: inherit;
-    box-shadow: inset 0 0 0 2px var(--checkbox-box-shadow-color);
+    box-shadow: inset 0 0 0 var(--h-checkbox-border-width)
+      var(--h-checkbox-box-shadow-color, transparent);
     outline: 2px solid transparent;
   }
 
   &:where([data-state='unchecked']) {
     background-color: white;
-
-    --checkbox-box-shadow-color-disabled: var(--color-grey300);
+    --h-checkbox-box-shadow-color: var(--h-checkbox-unchecked-border-color);
   }
 
   &:where([data-state='checked']) {
-    background-color: var(--color-cyan500);
-
-    --checkbox-box-shadow-color: var(--color-cyan500);
-    --checkbox-box-shadow-color-disabled: var(--color-grey150);
-    --checkbox-background-color-disabled: var(--color-grey150);
+    background-color: var(--h-checkbox-checked-background-color);
+    --h-checkbox-box-shadow-color: var(--h-checkbox-checked-border-color);
   }
 
   @media (hover: hover) {
     &:where(:hover:enabled) {
-      border-color: var(--color-cyan500);
-      box-shadow: 0 0 0 8px var(--color-cyan75);
+      --h-checkbox-outline-color: var(--h-checkbox-outline-color-hover);
     }
   }
 
-  &:where([data-disabled], [data-disabled] &) {
-    --checkbox-box-shadow-color: var(--checkbox-box-shadow-color-disabled);
-
-    color: var(--color-grey400);
-    background-color: var(--checkbox-background-color-disabled);
+  &:where(:active:enabled) {
+    --h-checkbox-outline-color: var(--h-checkbox-outline-color-active);
   }
 
   &:where(:focus-visible) {
-    border-color: var(--color-cyan500);
+    outline: 2px solid var(--h-focus-border);
+    outline-offset: 1px;
   }
 
-  .hearth-CheckboxBaseIndicator {
+  .hearth-CheckboxIndicator {
     position: absolute;
   }
 }

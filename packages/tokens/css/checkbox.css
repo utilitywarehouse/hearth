@@ -13,7 +13,7 @@
   --h-checkbox-group-stack-gap: var(--h-space-400);
   --h-checkbox-outline-color-active: var(--h-color-warm-white-300);
   --h-checkbox-outline-color-hover: var(--h-color-warm-white-200);
-  --h-checkbox-outline-width: 3;
+  --h-checkbox-outline-width: 3px;
   --h-checkbox-tile-background-color: var(--h-color-white);
   --h-checkbox-tile-border-color: var(--h-color-warm-white-300);
   --h-checkbox-tile-border-color-selected: var(--h-color-grey-1000);

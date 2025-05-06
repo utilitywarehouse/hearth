@@ -117,5 +117,11 @@ export type { RadioCardProps } from './components/RadioCard/RadioCard.props';
 export { RadioGroup } from './components/RadioGroup/RadioGroup';
 export type { RadioGroupProps } from './components/RadioGroup/RadioGroup.props';
 
-// export { RadioGridGroup } from './components/RadioGridGroup/RadioGridGroup';
-// export type { RadioGridGroupProps } from './components/RadioGridGroup/RadioGridGroup.props';
+export { Checkbox } from './components/Checkbox/Checkbox';
+export type { CheckboxProps } from './components/Checkbox/Checkbox.props';
+
+export { CheckboxTile } from './components/CheckboxTile/CheckboxTile';
+export type { CheckboxTileProps } from './components/CheckboxTile/CheckboxTile.props';
+
+export { CheckboxGroup } from './components/CheckboxGroup/CheckboxGroup';
+export type { CheckboxGroupProps } from './components/CheckboxGroup/CheckboxGroup.props';

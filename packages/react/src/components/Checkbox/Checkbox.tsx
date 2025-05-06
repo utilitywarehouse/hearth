@@ -45,9 +45,9 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>(
 
     return (
       <Flex
+        gap="100"
         className={clsx(componentClassName, className)}
         data-disabled={disabled ? '' : undefined}
-        gap="100"
       >
         <RadixCheckbox.Root
           ref={ref}
@@ -79,7 +79,7 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>(
         </RadixCheckbox.Root>
         {showLabel ? (
           <Flex direction="column" gap="50">
-            <Label id={labelId} htmlFor={id} nested disableUserSelect>
+            <Label id={labelId} htmlFor={id} disableUserSelect>
               {label}
             </Label>
             {showHelperText ? (

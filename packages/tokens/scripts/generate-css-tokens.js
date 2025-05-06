@@ -19,6 +19,7 @@ StyleDictionary.registerFormat({
 @import '../css/border.css';
 @import '../css/button.css';
 @import '../css/card.css';
+@import '../css/checkbox.css';
 @import '../css/color.css';
 @import '../css/divider.css';
 @import '../css/focus.css';

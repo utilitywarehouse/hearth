@@ -1,10 +1,7 @@
 import * as React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
-
-import { Checkbox } from './Checkbox';
-import { Flex } from '../Flex/Flex';
-import { BodyText } from '../BodyText/BodyText';
+import { Checkbox, Flex, BodyText } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Stories / Checkbox',
