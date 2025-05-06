@@ -1,14 +1,19 @@
 import * as React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
-
-import { Checkbox } from './Checkbox';
-import { Flex } from '../Flex/Flex';
-import { BodyText } from '../BodyText/BodyText';
+import { Checkbox, Flex, BodyText } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Stories / Checkbox',
   component: Checkbox,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'The `Checkbox` component is a dual-state checkbox allowing users to toggle between checked and not checked. `Checkbox` can be used independently, however multiple checkboxes should be used within a `CheckboxGroup` to handle the state control and layout.',
+      },
+    },
+  },
   argTypes: {
     helperText: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
@@ -26,7 +31,7 @@ const meta: Meta<typeof Checkbox> = {
 export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
-export const Workshop: Story = {};
+export const Playground: Story = {};
 
 export const KitchenSink: Story = {
   render: () => (

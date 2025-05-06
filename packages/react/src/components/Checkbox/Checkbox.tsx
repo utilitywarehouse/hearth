@@ -3,29 +3,22 @@ import * as React from 'react';
 import clsx from 'clsx';
 
 import type { CheckboxProps } from './Checkbox.props';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Flex } from '../Flex/Flex';
 import { Label } from '../Label/Label';
 import { useFormFieldGroup } from '../FormFieldGroup/FormFieldGroup.context';
 import { HelperText } from '../HelperText/HelperText';
-import { useIds } from '../../hooks/use-ids';
-import { CheckboxBase } from '../CheckboxBase/CheckboxBase';
 import type { ElementRef } from 'react';
+import * as RadixCheckbox from '@radix-ui/react-checkbox';
+import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { useCheckboxGroupBase } from '../CheckboxGroupBase/CheckboxGroupBase.context';
+import { useIds } from '../../hooks/use-ids';
 
 const componentName = 'Checkbox';
 const componentClassName = withGlobalPrefix(componentName);
 
 export type CheckboxElement = ElementRef<'button'>;
 
-/**
- * The `Checkbox` component is a dual-state checkbox allowing users to toggle
- * between checked and not checked. `Checkbox` can be used independently,
- * however multiple checkboxes should be used with a `CheckboxGroup` or
- * `CheckboxGridGroup` to handle the state control and layout. `Checkbox` is,
- * by default, appropriately labelled when using the `label` prop, if you do
- * not provide a label, you must specify an `aria-label` or `aria-labelledby`
- * for accessibility.
- */
 export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>(
   (
     {
@@ -34,13 +27,17 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>(
       helperText,
       className,
       disabled,
+      onCheckedChange,
+      value = 'on',
       'aria-labelledby': ariaLabelledby,
       ...props
     },
     ref
   ) => {
-    const { id, labelId, helperTextId } = useIds({ providedId, componentPrefix: 'checkbox' });
+    const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'checkbox' });
     const context = useFormFieldGroup();
+    const checkboxContext = useCheckboxGroupBase();
+    const checked = checkboxContext?.value?.includes(value);
     const hasGroupHelperText = context?.hasGroupHelperText;
     const ariaDescribedby = context ? context['aria-describedby'] : '';
     const showHelperText = !hasGroupHelperText && !!helperText;
@@ -48,21 +45,41 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>(
 
     return (
       <Flex
+        gap="100"
         className={clsx(componentClassName, className)}
         data-disabled={disabled ? '' : undefined}
-        gap="100"
       >
-        <CheckboxBase
+        <RadixCheckbox.Root
           ref={ref}
+          className="hearth-CheckboxRoot"
+          name={checkboxContext?.name}
+          checked={checked}
+          value={value}
           {...props}
           id={id}
           disabled={disabled}
           aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
           aria-labelledby={ariaLabelledby || showLabel ? labelId : undefined}
-        />
+          onCheckedChange={(checked: boolean) => {
+            if (context) {
+              if (checked) {
+                checkboxContext?.onItemCheck(value);
+              } else {
+                checkboxContext?.onItemUncheck(value);
+              }
+            }
+            if (onCheckedChange) {
+              onCheckedChange(checked);
+            }
+          }}
+        >
+          <RadixCheckbox.Indicator asChild className="hearth-CheckboxIndicator">
+            <TickSmallIcon />
+          </RadixCheckbox.Indicator>
+        </RadixCheckbox.Root>
         {showLabel ? (
           <Flex direction="column" gap="50">
-            <Label id={labelId} htmlFor={id} nested disableUserSelect>
+            <Label id={labelId} htmlFor={id} disableUserSelect>
               {label}
             </Label>
             {showHelperText ? (
