@@ -1,10 +1,4 @@
 .hearth-Checkbox {
-  cursor: pointer;
-
-  * {
-    cursor: pointer;
-  }
-
   /* we do this so that the gap between the checkbox & label is clickable */
   .hearth-Label {
     position: relative;

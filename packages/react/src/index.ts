@@ -123,5 +123,8 @@ export type { CheckboxProps } from './components/Checkbox/Checkbox.props';
 export { CheckboxTile } from './components/CheckboxTile/CheckboxTile';
 export type { CheckboxTileProps } from './components/CheckboxTile/CheckboxTile.props';
 
-export { CheckboxGroup } from './components/CheckboxGroup/CheckboxGroup';
-export type { CheckboxGroupProps } from './components/CheckboxGroup/CheckboxGroup.props';
+export { CheckboxGroup, CheckboxGroupRoot } from './components/CheckboxGroup/CheckboxGroup';
+export type {
+  CheckboxGroupProps,
+  CheckboxGroupRootProps,
+} from './components/CheckboxGroup/CheckboxGroup.props';

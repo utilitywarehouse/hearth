@@ -8,6 +8,14 @@ import { CheckboxGroup, Flex, CheckboxTile, Box, BodyText } from '@utilitywareho
 const meta: Meta<typeof CheckboxGroup> = {
   title: 'Stories / CheckboxGroup',
   component: CheckboxGroup,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '`CheckboxGroup` provides a set of interactive buttons where multiple options can be selected at a time. The `CheckboxGroup` uses a fieldset to group related `Checkbox` controls. The `CheckboxGroup` is responsible for handling the value, label, helper text, validation, and disabled state, as well as determining the presentation and selection of the items in the list.',
+      },
+    },
+  },
   argTypes: {
     direction: {
       options: ['column', 'row'],
@@ -34,7 +42,7 @@ const meta: Meta<typeof CheckboxGroup> = {
 export default meta;
 type Story = StoryObj<typeof CheckboxGroup>;
 
-export const Workshop: Story = {
+export const Playground: Story = {
   render: args => (
     <Flex asChild gap="800">
       <form>
