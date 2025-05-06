@@ -51,7 +51,8 @@ const styles = StyleSheet.create(theme => ({
     gap: theme.components.toggleButton.gap,
     minWidth: theme.components.toggleButton.minWidth,
     paddingHorizontal: theme.components.toggleButton.paddingHorizontal,
-    paddingVertical: theme.components.toggleButton.paddingVertical,
+    paddingVertical:
+      theme.components.toggleButton.paddingVertical - theme.components.toggleButton.borderWidth,
     borderColor: theme.components.toggleButton.borderColor,
     height: theme.components.toggleButton.height,
     _web: {
