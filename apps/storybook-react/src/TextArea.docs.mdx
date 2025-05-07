@@ -1,0 +1,63 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+
+import * as Stories from './TextArea.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Components / TextArea" />
+
+<DocsHeader componentName="TextArea" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Label
+
+A label is required for the `TextArea` component. It should clearly describe the purpose of the field.
+
+## Helper Text
+
+You can provide additional context or instructions using the `helperText` prop.
+
+## Validation
+
+The `validationStatus` prop can be set to either `"valid"` or `"invalid"` to indicate the validation state. This must be accompanied by a `validationText` to explain the reason for the status.
+
+<Canvas of={Stories.Validation} />
+
+## Disabled and Read-only
+
+- **Disabled**: The `disabled` prop prevents user interaction with the `TextArea`.
+- **Read-only**: The `readOnly` prop allows the field to be focusable but not editable.
+
+<Canvas of={Stories.DisabledAndReadOnly} />
+
+## Custom Rows
+
+You can control the number of visible rows using the `rows` prop.
+
+<Canvas of={Stories.CustomRows} />
+
+## Controlled Usage
+
+The `TextArea` can be used as a controlled component by managing its `value` and `onChange` props.
+
+<Canvas of={Stories.Controlled} />
+
+## API
+
+This component is based on the `textarea` element.
+
+| Prop               | Type                   |
+| ------------------ | ---------------------- |
+| `label`            | `string`               |
+| `helperText`       | `string`               |
+| `validationStatus` | `"valid" \| "invalid"` |
+| `validationText`   | `string`               |
+| `placeholder`      | `string`               |
+| `rows`             | `number`               |
+| `disabled`         | `boolean`              |
+| `readOnly`         | `boolean`              |
+| `required`         | `boolean`              |
