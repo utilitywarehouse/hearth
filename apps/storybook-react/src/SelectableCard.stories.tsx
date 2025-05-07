@@ -41,32 +41,29 @@ export const Playground: Story = {};
 export const SelectRadioExample: Story = {
   render: () => {
     return (
-      <Flex>
+      <Flex paddingTop="400">
         <RadioGroup defaultValue="1" direction="column" contentWidth="350px">
-          <Flex direction="column">
-            <Flex right="24px" position="relative" justify="end">
+          <SelectableCard gap="150" direction="column" position="relative">
+            <Radio value="1" label="Debit card payment" />
+            <Flex position="absolute" justify="end" top="-22px" right="24px">
               <Badge flatBase colorScheme="green">
                 Recommended
               </Badge>
             </Flex>
-
-            <SelectableCard gap="150" direction="column">
-              <Radio value="1" label="Debit card payment" />
-              <Flex asChild gap="100" direction="column">
-                <ul role="list">
-                  <Box asChild marginLeft="100">
-                    <li>• Unlimited free top-ups</li>
-                  </Box>
-                  <Box asChild marginLeft="100">
-                    <li>• Instant withdrawals</li>
-                  </Box>
-                  <Box asChild marginLeft="100">
-                    <li>• Extra layer of security</li>
-                  </Box>
-                </ul>
-              </Flex>
-            </SelectableCard>
-          </Flex>
+            <Flex asChild gap="100" direction="column">
+              <ul role="list">
+                <Box asChild marginLeft="100">
+                  <li>• Unlimited free top-ups</li>
+                </Box>
+                <Box asChild marginLeft="100">
+                  <li>• Instant withdrawals</li>
+                </Box>
+                <Box asChild marginLeft="100">
+                  <li>• Extra layer of security</li>
+                </Box>
+              </ul>
+            </Flex>
+          </SelectableCard>
 
           <SelectableCard gap="150" direction="column">
             <Radio value="2" label="Instant bank transfer" />

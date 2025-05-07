@@ -261,7 +261,7 @@ export const InteractiveCards: Story = {
             <Card
               as="li"
               variant="emphasis"
-              colorScheme="broadbandBlue"
+              colorScheme="broadbandGreen"
               flex="1"
               direction="column"
               gap="150"
@@ -314,7 +314,7 @@ export const InteractiveCards: Story = {
             <Card
               as="li"
               variant="emphasis"
-              colorScheme="broadbandBlue"
+              colorScheme="broadbandGreen"
               flex="1"
               direction="column"
               gap="150"

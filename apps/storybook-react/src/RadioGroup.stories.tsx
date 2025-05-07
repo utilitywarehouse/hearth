@@ -139,13 +139,14 @@ export const Validation: Story = {
 export const Wrap: Story = {
   render: args => {
     return (
-      <Box height="800px" width="400px" padding="200">
+      <Box height="800px" width="350px" padding="200">
         <RadioGroup {...args} direction="row" helperText="Child elements will wrap by default">
           <RadioTile value="1" label="One" />
           <RadioTile value="2" label="Two" />
           <RadioTile value="3" label="Three" />
           <RadioTile value="4" label="Four" />
           <RadioTile value="5" label="Five" />
+          <RadioTile value="6" label="Six" />
         </RadioGroup>
       </Box>
     );

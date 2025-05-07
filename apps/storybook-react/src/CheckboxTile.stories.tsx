@@ -1,14 +1,19 @@
 import * as React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
-
-import { CheckboxTile } from './CheckboxTile';
-import { Flex } from '../Flex/Flex';
-import { BodyText } from '../BodyText/BodyText';
+import { CheckboxTile, Flex, BodyText } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof CheckboxTile> = {
   title: 'Stories / CheckboxTile',
   component: CheckboxTile,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'The `CheckboxTile` component is a dual-state checkbox allowing users to toggle between checked and not checked. `CheckboxTile` can be used independently, however multiple checkboxes should be used within a `CheckboxGroup` to handle the state control and layout.',
+      },
+    },
+  },
   argTypes: {
     helperText: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
@@ -24,9 +29,9 @@ const meta: Meta<typeof CheckboxTile> = {
 export default meta;
 type Story = StoryObj<typeof CheckboxTile>;
 
-export const Workshop: Story = {
+export const Playground: Story = {
   render: args => (
-    <Flex>
+    <Flex width="fit-content">
       <CheckboxTile {...args} />
     </Flex>
   ),
@@ -36,7 +41,7 @@ export const Controlled: Story = {
   render: () => {
     const [checked, setChecked] = React.useState(false);
     return (
-      <Flex direction="column" gap="400">
+      <Flex direction="column" gap="400" width="fit-content">
         <BodyText>Checked: {checked ? 'true' : 'false'}</BodyText>
         <CheckboxTile
           value="1"
