@@ -86,7 +86,8 @@ type BoxComponentType = <T extends React.ElementType = typeof View>(
   props: PolymorphicComponentProps<T, BoxProps<T>> & { ref?: PolymorphicRef<T> }
 ) => React.ReactElement | null;
 
-const Box = forwardRef(BoxComponent as any) as BoxComponentType & { displayName?: string };
+const Box = memo(forwardRef(BoxComponent as any) as BoxComponentType & { displayName?: string });
+
 Box.displayName = 'Box';
 
-export default memo(Box);
+export default Box;

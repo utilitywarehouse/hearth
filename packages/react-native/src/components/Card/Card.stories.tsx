@@ -38,18 +38,12 @@ const meta = {
       ],
       description: 'Use this value to set the Card color scheme.',
     },
-    selected: {
-      type: 'boolean',
-      control: 'boolean',
-      description: 'Use this value to set the Card selected state.',
-    },
   },
   args: {
     children: 'This is a card',
     variant: 'subtle',
     noPadding: false,
     colorScheme: 'white',
-    selected: false,
   },
 } satisfies Meta<typeof Card>;
 
@@ -70,11 +64,11 @@ export const Variants: Story = {
   parameters: {
     controls: { exclude: ['variant', 'colorScheme'] },
   },
-  render: ({ children, selected, ...props }) => {
+  render: ({ children, ...props }) => {
     return (
       <Flex space="lg">
         <VariantTitle title="Subtle - White">
-          <Card {...props} selected={selected} variant="subtle" colorScheme="white">
+          <Card {...props} variant="subtle" colorScheme="white">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
@@ -84,7 +78,7 @@ export const Variants: Story = {
           </Card>
         </VariantTitle>
         <VariantTitle title="Subtle - Warm White">
-          <Card {...props} selected={selected} variant="subtle" colorScheme="warmWhite">
+          <Card {...props} variant="subtle" colorScheme="warmWhite">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
@@ -170,12 +164,9 @@ export const Variants: Story = {
 
 export const Interactive: Story = {
   parameters: {
-    controls: { exclude: ['variant', 'colorScheme', 'selected'] },
+    controls: { exclude: ['variant', 'colorScheme'] },
   },
   render: ({ children, ...props }) => {
-    const [selectedSubtleWhite, setSelectedSubtleWhite] = React.useState(false);
-    const [selectedSubtleWarmWhite, setSelectedSubtleWarmWhite] = React.useState(false);
-
     return (
       <Flex space="lg">
         <VariantTitle title="Pressable - Subtle - White">
@@ -236,50 +227,6 @@ export const Interactive: Story = {
             <BodyText>{children as string}</BodyText>
             <CardAction>
               <Button onPress={() => console.log('pressed')}>Press me</Button>
-            </CardAction>
-          </Card>
-        </VariantTitle>
-        <VariantTitle title="Selectable - Subtle - White">
-          <Card
-            {...props}
-            selected={selectedSubtleWhite}
-            variant="subtle"
-            colorScheme="white"
-            space="md"
-            flexDirection="column"
-            alignItems="stretch"
-          >
-            <Heading size="md">Heading</Heading>
-            <BodyText>{children as string}</BodyText>
-            <CardAction>
-              <Button
-                colorScheme="green"
-                onPress={() => setSelectedSubtleWhite(!selectedSubtleWhite)}
-              >
-                Select me
-              </Button>
-            </CardAction>
-          </Card>
-        </VariantTitle>
-        <VariantTitle title="Selectable - Subtle - Warm White">
-          <Card
-            {...props}
-            selected={selectedSubtleWarmWhite}
-            variant="subtle"
-            colorScheme="warmWhite"
-            space="md"
-            flexDirection="column"
-            alignItems="stretch"
-          >
-            <Heading size="md">Heading</Heading>
-            <BodyText>{children as string}</BodyText>
-            <CardAction>
-              <Button
-                colorScheme="green"
-                onPress={() => setSelectedSubtleWarmWhite(!selectedSubtleWarmWhite)}
-              >
-                Select me
-              </Button>
             </CardAction>
           </Card>
         </VariantTitle>

@@ -18,7 +18,17 @@ const ButtonComponent = createButton({
   Icon: ButtonIconComponent,
   Spinner: ButtonSpinnerComponent,
   Text: ButtonTextComponent,
-});
+}) as React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof ButtonRoot> & {
+    isDisabled?: boolean;
+    isPressed?: boolean;
+  } & React.RefAttributes<View>
+> & {
+  Text: typeof ButtonTextComponent;
+  Icon: typeof ButtonIconComponent;
+  Spinner: typeof ButtonSpinnerComponent;
+  Group: typeof ButtonGroupRoot;
+};
 
 export const ButtonText = ButtonComponent.Text;
 export const ButtonSpinner = ButtonComponent.Spinner;
@@ -39,13 +49,7 @@ const Button = forwardRef<PressableRef, ButtonProps>(
     if (typeof children === 'string' || typeof children === 'number' || !children) {
       const { icon, iconPosition = 'left' } = props as ButtonWithStringChildrenProps;
       return (
-        <ButtonComponent
-          // @ts-expect-error - ref
-          ref={ref}
-          {...props}
-          isDisabled={buttonDisabled}
-          isPressed={pressed}
-        >
+        <ButtonComponent ref={ref} {...props} isDisabled={buttonDisabled} isPressed={pressed}>
           {!!icon && !isLoading && iconPosition === 'left' ? <ButtonIcon as={icon} /> : null}
           {isLoading ? (
             <View style={styles.loadingWrapper}>

@@ -14,7 +14,6 @@ interface CardProps extends PressableProps {
     | 'cashbackLilac'
     | 'piggyPink';
   noPadding?: boolean;
-  selected?: boolean;
   disabled?: boolean;
   space?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   alignItems?: ViewStyle['alignItems'];
