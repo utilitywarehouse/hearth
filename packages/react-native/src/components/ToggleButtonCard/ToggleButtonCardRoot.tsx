@@ -11,7 +11,7 @@ import ToggleButton from '../ToggleButton/ToggleButton';
 const ToggleButtonCardRoot = forwardRef<
   PressableRef,
   ToggleButtonCardProps & { states?: { disabled?: boolean; checked?: boolean; active?: boolean } }
->(({ children, style, label, states, onPress, onChange, ...props }, ref) => {
+>(({ children, style, label, states, onPress, ...props }, ref) => {
   const { checked, active } = states ?? {};
 
   const value = useMemo(
@@ -28,9 +28,7 @@ const ToggleButtonCardRoot = forwardRef<
 
   const handlePress = (e: GestureResponderEvent) => {
     onPress?.(e);
-    if (onChange) {
-      onChange(!checked);
-    }
+    props.onChange?.(!checked);
   };
 
   return (

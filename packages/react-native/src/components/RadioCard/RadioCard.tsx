@@ -9,6 +9,7 @@ import { forwardRef } from 'react';
 import RadioCardProps from './RadioCard.props';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { useStyleProps } from '../../hooks';
 
 const RadioCardComponent = createRadio({
   Root: StyledRadioCard,
@@ -16,7 +17,14 @@ const RadioCardComponent = createRadio({
   Indicator: StyledRadioCardIndicator,
   Icon: StyledRadioCardIcon,
   Label: StyledRadioCardLabel,
-});
+}) as React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof StyledRadioCard> & React.RefAttributes<View>
+> & {
+  Group: typeof StyledRadioCardGroup;
+  Indicator: typeof StyledRadioCardIndicator;
+  Icon: typeof StyledRadioCardIcon;
+  Label: typeof StyledRadioCardLabel;
+};
 
 const RadioCardGroup = RadioCardComponent.Group;
 const RadioCardIndicator = RadioCardComponent.Indicator;
@@ -29,9 +37,9 @@ RadioCardIcon.displayName = 'RadioCardIcon';
 RadioCardLabel.displayName = 'RadioCardLabel';
 
 const RadioCard = forwardRef<ElementRef<typeof Pressable>, RadioCardProps>(
-  ({ children, label, ...props }, ref) => {
+  ({ children, label, contentStyle, ...props }, ref) => {
+    const { computedStyles } = useStyleProps(props);
     return (
-      // @ts-expect-error - ref is not a valid prop for Pressable
       <RadioCardComponent ref={ref} {...props}>
         <View style={styles.radioContainer}>
           <RadioCardIndicator>
@@ -39,7 +47,7 @@ const RadioCard = forwardRef<ElementRef<typeof Pressable>, RadioCardProps>(
           </RadioCardIndicator>
           {!!label && <RadioCardLabel>{label}</RadioCardLabel>}
         </View>
-        {!!children && <View>{children}</View>}
+        {!!children && <View style={[computedStyles, contentStyle]}>{children}</View>}
       </RadioCardComponent>
     );
   }

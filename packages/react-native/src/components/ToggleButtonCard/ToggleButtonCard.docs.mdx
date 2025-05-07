@@ -1,26 +1,28 @@
 import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
-import * as Stories from './ToggleButtonCardCard.stories';
+import * as Stories from './ToggleButtonCardGroup.stories';
 import {
   ToggleButtonCard,
   ToggleButtonCardGroup,
-  ToggleButtonCardIndicator,
-  ToggleButtonCardIcon,
-  ToggleButtonCardLabel,
   Center,
   Box,
+  Heading,
+  BodyText,
+  DetailText,
 } from '../..';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
 
-<Meta title="Components / ToggleButtonCard" />
+<Meta title="Components / Toggle Button Card" />
 
 <BackToTopButton />
 
-<ViewFigmaButton url="https://www.figma.com/design/3RY3OvLA88yZksRjOfjQJm/UW-App-UI?node-id=4454-2232" />
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=1-161" />
 
-# ToggleButtonCard
+# Toggle Button Card
 
-The ToggleButtonCard component presents users with predefined choices and enables them to select only one option. It is commonly used for providing a single-choice selection in forms or surveys.
+The `ToggleButtonCard` component is a UI element that allows users to select one option from a set of predefined choices.
+It is commonly used in forms or surveys where only one selection is allowed. The `ToggleButtonCard` can be grouped together
+with other `ToggleButtonCard`s to create a `ToggleButtonCardGroup`, providing a cohesive and organised way to present multiple options.
 
 - [Playground](#playground)
 - [Usage](#usage)
@@ -34,25 +36,31 @@ The ToggleButtonCard component presents users with predefined choices and enable
 
 ## Usage
 
-- A `ToggleButtonCard` component is composed of a `ToggleButtonCardGroup`, `ToggleButtonCardIndicator`, `ToggleButtonCardLabel`.
-- `ToggleButtonCard` is used for a single selection
-- `ToggleButtonCardGroup` is the building block for `ToggleButtonCard`
-
 <UsageWrap>
   <Center>
     <ToggleButtonCardGroup aria-label="ToggleButtonCard Group" nativeID="ToggleButtonCard-group">
+      <ToggleButtonCard value="fixed" aria-label="Fixed Tariff" label="Select tariff" gap="200">
+        <Heading size="md">Fixed</Heading>
+        <Box flexDirection="row" alignItems="center" gap="100">
+          <DetailText size="3xl">£163.00</DetailText>
+          <BodyText color="grey500"> monthly estimate</BodyText>
+        </Box>
+        <BodyText>Your energy rates will stay the same until December 2025</BodyText>
+      </ToggleButtonCard>
       <ToggleButtonCard
-        value="Label 1"
-        aria-label="Label 1"
-        label="Option 1"
-      />
-      <ToggleButtonCard
-        value="Label 2"
-        aria-label="Label 2"
-        label="Option 2"
-      />
+        value="variable"
+        aria-label="Variable Tariff"
+        label="Select tariff"
+        gap="200"
+      >
+        <Heading size="md">Variable</Heading>
+        <Box flexDirection="row" alignItems="center" gap="100">
+          <DetailText size="3xl">£153.00</DetailText>
+          <BodyText color="grey500"> monthly estimate</BodyText>
+        </Box>
+        <BodyText>Your energy rates will stay the same until December 2025</BodyText>
+      </ToggleButtonCard>
     </ToggleButtonCardGroup>
-
   </Center>
 </UsageWrap>
 
@@ -60,21 +68,42 @@ The ToggleButtonCard component presents users with predefined choices and enable
 import {
   ToggleButtonCard,
   ToggleButtonCardGroup,
-  ToggleButtonCardLabel,
-  ToggleButtonCardIndicator,
+  Box,
+  Heading,
+  BodyText,
+  DetailText,
 } from '@utilitywarehouse/native-ui';
 
 const MyComponent = () => {
   const [value, setValue] = React.useState('Option 1');
   return (
     <ToggleButtonCardGroup
-      aria-label="ToggleButtonCard Group"
+      aria-label="Select Tariff"
       value={value}
       onChange={setValue}
       nativeID="ToggleButtonCard-group"
     >
-      <ToggleButtonCard value="Option 1" aria-label="Option 1" label="Option 1" />
-      <ToggleButtonCard value="Option 2" aria-label="Option 2" label="Option 2" />
+      <ToggleButtonCard value="fixed" aria-label="Fixed Tariff" label="Select tariff" gap="200">
+        <Heading size="md">Fixed</Heading>
+        <Box flexDirection="row" alignItems="center" gap="100">
+          <DetailText size="3xl">£163.00</DetailText>
+          <BodyText color="grey500"> monthly estimate</BodyText>
+        </Box>
+        <BodyText>Your energy rates will stay the same until December 2025</BodyText>
+      </ToggleButtonCard>
+      <ToggleButtonCard
+        value="variable"
+        aria-label="Variable Tariff"
+        label="Select tariff"
+        gap="200"
+      >
+        <Heading size="md">Variable</Heading>
+        <Box flexDirection="row" alignItems="center" gap="100">
+          <DetailText size="3xl">£153.00</DetailText>
+          <BodyText color="grey500"> monthly estimate</BodyText>
+        </Box>
+        <BodyText>Your energy rates will stay the same until December 2025</BodyText>
+      </ToggleButtonCard>
     </ToggleButtonCardGroup>
   );
 };
@@ -82,113 +111,36 @@ const MyComponent = () => {
 
 ## Props
 
-| Property             | Type                                | Default   | Description                                                                                          |
-| -------------------- | ----------------------------------- | --------- | ---------------------------------------------------------------------------------------------------- |
-| `value`              | string                              | -         | The value to be used in the radio input. This is the value that will be returned on form submission. |
-| `onChange`           | function                            | -         | Function called when the state of the radio changes.                                                 |
-| `disabled`           | bool                                | false     | To manually set disable to the radio.                                                                |
-| `validationStatus`   | `'valid' \| 'invalid' \| 'initial'` | -         | The validation status of the radio.                                                                  |
-| `disabled`           | `bool`                              | `false`   | To manually set disable to the radio.                                                                |
-| `label`              | `string`                            | -         | The label to be displayed next to the radio.                                                         |
-| `helperText`         | `string`                            | -         | The helper text to be displayed below the radio.                                                     |
-| `helperIcon`         | `React.ComponentType`               | -         | The icon to be displayed next to the helper text.                                                    |
-| `invalidText`        | `string`                            | -         | The invalid text to be displayed below the radio.                                                    |
-| `validText`          | `string`                            | -         | The valid text to be displayed below the radio.                                                      |
-| `showValidationIcon` | `boolean`                           | `true`    | Whether to show the validation icon.                                                                 |
-| `type`               | `'default' \| 'tile'`               | `default` | The type of the radio.                                                                               |
+The `ToggleButtonCard` component accepts the following props:
+
+| Property         | Type                                                                                                    | Default | Description                                                                                                  |
+| ---------------- | ------------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------------------------------------------------------------------ |
+| `value`          | string                                                                                                  | -       | The value to be used in the toggle button input. This is the value that will be returned on form submission. |
+| `onChange`       | `(isSelected: boolean) => void`                                                                         | -       | Function called when the state of the toggle button changes.                                                 |
+| `children`       | `React.ReactNode`                                                                                       | -       | The content to be displayed inside the toggle button.                                                        |
+| `label`          | `string`                                                                                                | -       | The label to be displayed next to the toggle button.                                                         |
+| `flexDirection`  | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'`                                                | -       | Sets the direction of the flex items.                                                                        |
+| `flexWrap`       | `'wrap' \| 'nowrap' \| 'wrap-reverse'`                                                                  | -       | Sets whether flex items are forced onto one line or can wrap.                                                |
+| `alignItems`     | `'flex-start' \| 'flex-end' \| 'center' \|`<br />` 'stretch' \| 'baseline'`                             | -       | Sets the alignment of flex items on the cross axis.                                                          |
+| `justifyContent` | `'flex-start' \| 'flex-end' \| 'center' \|`<br />` 'space-between' \| 'space-around' \| 'space-evenly'` | -       | Sets the alignment of flex items on the main axis.                                                           |
 
 ## Components
 
 ### `ToggleButtonCard`
 
-Contains all ToggleButtonCard related layout style props and actions. It inherits all the properties of React Native's [View component](https://reactnative.dev/docs/view).
-
-### `ToggleButtonCardTile`
-
-Contains all ToggleButtonCard related layout style props and actions. It inherits all the properties of React Native's [View component](https://reactnative.dev/docs/view).
-
-### `ToggleButtonCardIndicator`
-
-Contains all Indicator related layout style props and actions. It inherits all the properties of React Native's [View component](https://reactnative.dev/docs/view).
-
-### `ToggleButtonCardIcon`
-
-Contains all Icon related layout style props and actions.
-
-### `ToggleButtonCardLabel`
-
-Contains all Label related layout style props and actions. It inherits all the properties of React Native's [Text component](https://reactnative.dev/docs/text).
+Contains all ToggleButtonCard related layout style props and actions. It inherits all the properties of React Native's [`Pressable` component](https://reactnative.dev/docs/pressable) and [`View` component](https://reactnative.dev/docs/view) styles for layout.
 
 ### `ToggleButtonCardGroup`
 
 Contains all Group related layout style props and actions. It inherits all the properties of React Native's [View component](https://reactnative.dev/docs/view).
 
-| Property             | Type                                | Default   | Description                                                                    |
-| -------------------- | ----------------------------------- | --------- | ------------------------------------------------------------------------------ |
-| `value`              | string                              | -         | The value of the radio group.                                                  |
-| `onChange`           | function                            | -         | The callback fired when any children ToggleButtonCard is checked or unchecked. |
-| `disabled`           | bool                                | -         | To manually set disable to the radio group.                                    |
-| `validationStatus`   | `'valid' \| 'invalid' \| 'initial'` | -         | The validation status of the radio group.                                      |
-| `label`              | `string`                            | -         | The label to be displayed above the radio group.                               |
-| `helperText`         | `string`                            | -         | The helper text to be displayed below the radio group.                         |
-| `helperIcon`         | `React.ComponentType`               | -         | The icon to be displayed next to the helper text.                              |
-| `invalidText`        | `string`                            | -         | The invalid text to be displayed below the radio group.                        |
-| `validText`          | `string`                            | -         | The valid text to be displayed below the radio group.                          |
-| `showValidationIcon` | `boolean`                           | `true`    | Whether to show the validation icon.                                           |
-| `type`               | `'default' \| 'tile'`               | `default` | The type of the radio group.                                                   |
-| `direction`          | `'row' \| 'column'`                 | `column`  | The direction of the radio group.                                              |
-| `gap`                | `string`                            | -         | The gap between the radio group items.                                         |
-
-## Variants
-
-<Canvas of={Stories.Variants} />
-
-## Examples
-
-### `ToggleButtonCardGroup` component
-
-The `ToggleButtonCardGroup` component is used to group multiple `ToggleButtonCard` components together.
-You can pass props like `label` and `helperText` to the `ToggleButtonCardGroup` component to provide context for the group of radios.
-
-<UsageWrap>
-  <Center>
-    <ToggleButtonCardGroup
-      aria-label="ToggleButtonCard Group"
-      label="ToggleButtonCard Group Label"
-      helperText="This is the supporting text"
-      invalidText="This is an invalid text"
-      validText="This is a valid text"
-      validationStatus="invalid"
-    >
-      <ToggleButtonCard value="option-1" aria-label="Label 1" label="Option 1" />
-      <ToggleButtonCard value="option-2" aria-label="Label 2" label="Option 2" />
-      <ToggleButtonCard value="option-3" aria-label="Label 3" label="Option 3" />
-      <ToggleButtonCard value="option-4" aria-label="Label 4" label="Option 4" />
-    </ToggleButtonCardGroup>
-
-  </Center>
-</UsageWrap>
-
-```tsx
-import { ToggleButtonCard, ToggleButtonCardGroup } from '@utilitywarehouse/native-ui';
-
-const MyComponent = () => {
-  const [value, setValue] = React.useState('option-1');
-  return (
-    <ToggleButtonCardGroup
-      aria-label="ToggleButtonCard Group"
-      value={value}
-      onChange={setValue}
-      label="ToggleButtonCard Group Label"
-      helperText="This is the supporting text"
-      invalidText="This is an invalid text"
-      validText="This is a valid text"
-    >
-      <ToggleButtonCard value="option-1" aria-label="Label 1" label="Option 1" />
-      <ToggleButtonCard value="option-2" aria-label="Label 2" label="Option 2" />
-      <ToggleButtonCard value="option-3" aria-label="Label 3" label="Option 3" />
-      <ToggleButtonCard value="option-4" aria-label="Label 4" label="Option 4" />
-    </ToggleButtonCardGroup>
-  );
-};
-```
+| Property         | Type                                                                                                     | Default | Description                                                                                                |
+| ---------------- | -------------------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------- |
+| `value`          | `string`                                                                                                 | -       | The value of the currently selected `ToggleButtonCard`.                                                    |
+| `onChange`       | `(value: string) => void`                                                                                | -       | Callback fired when the selected `ToggleButtonCard` changes.                                               |
+| `gap`            | `keyof typeof space`                                                                                     | -       | The gap between the `ToggleButtonCard` items.                                                              |
+| `columns`        | `GridProps['columns']`                                                                                   | -       | If set, the group will use a grid layout with the specified number of columns. Otherwise, it uses flexbox. |
+| `flexDirection`  | `'row' \| 'column' \| 'row-reverse' \| 'column-reverse'`                                                 | `row`   | (Flexbox only) Sets the direction of the flex items.                                                       |
+| `flexWrap`       | `'wrap' \| 'nowrap' \| 'wrap-reverse'`                                                                   | `wrap`  | (Flexbox only) Sets whether flex items are forced onto one line or can wrap.                               |
+| `alignItems`     | `'flex-start' \| 'flex-end' \| 'center' \| `<br />`'stretch' \| 'baseline'`                              | -       | (Flexbox only) Sets the alignment of flex items on the cross axis.                                         |
+| `justifyContent` | `'flex-start' \| 'flex-end' \| 'center' \| `<br /> `'space-between' \| 'space-around' \| 'space-evenly'` | -       | (Flexbox only) Sets the alignment of flex items on the main axis.                                          |
