@@ -59,7 +59,7 @@ export const Playground: Story = {
       <RadioCard aria-label="Label 1" label="Option 1" value="Option 1" nativeID="RadioCard-1">
         <BodyText>Additional content</BodyText>
       </RadioCard>
-      <RadioCard aria-label="Label 2" label="Option 2 " value="Option 2" nativeID="RadioCard-2">
+      <RadioCard aria-label="Label 2" label="Option 2" value="Option 2" nativeID="RadioCard-2">
         <BodyText>Additional content</BodyText>
       </RadioCard>
       <RadioCard aria-label="Label 3" label="Option 3" value="Option 3" nativeID="RadioCard-3">
