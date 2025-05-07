@@ -17,11 +17,7 @@ const ButtonGroup = forwardRef<View, ButtonGroupProps>(
     const value = useMemo(() => ({ disabled, loading }), [disabled, loading]);
     return (
       <ButtonGroupContext.Provider value={value}>
-        <ButtonGroupComponent
-          // @ts-expect-error - ref
-          ref={ref}
-          {...props}
-        >
+        <ButtonGroupComponent ref={ref} {...props}>
           {children}
         </ButtonGroupComponent>
       </ButtonGroupContext.Provider>
