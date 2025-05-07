@@ -128,3 +128,6 @@ export type {
   CheckboxGroupProps,
   CheckboxGroupRootProps,
 } from './components/CheckboxGroup/CheckboxGroup.props';
+
+export { TextArea } from './components/TextArea/TextArea';
+export type { TextAreaProps } from './components/TextArea/TextArea.props';

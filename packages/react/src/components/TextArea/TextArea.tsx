@@ -3,7 +3,6 @@ import type { ElementRef } from 'react';
 
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { extractProps } from '../../helpers/extract-props';
 import { mergeIds } from '../../helpers/merge-ids';
 import { useIds } from '../../hooks/use-ids';
 import { TextAreaProps } from './TextArea.props';
@@ -11,82 +10,94 @@ import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
 import { ValidationText } from '../ValidationText/ValidationText';
 import { Flex } from '../Flex/Flex';
+import { BodyText } from '../BodyText/BodyText';
 
 const componentName = 'TextArea';
 const componentClassName = withGlobalPrefix(componentName);
 
 type TextAreaElement = ElementRef<'textarea'>;
 
-export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, forwardedRef) => {
-  const {
-    className,
-    validationStatus,
-    validationText,
-    label,
-    helperText,
-    id: providedId,
-    disabled,
-    readOnly,
-    required,
-    placeholder,
-    rows = 3,
-    ...textAreaProps
-  } = extractProps(props);
+export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>(
+  (
+    {
+      className,
+      validationStatus,
+      validationText,
+      label,
+      helperText,
+      id: providedId,
+      disabled,
+      readOnly,
+      required,
+      placeholder,
+      resize,
+      rows = 3,
+      ...props
+    },
+    forwardedRef
+  ) => {
+    const { id, labelId, helperTextId, validationTextId } = useIds({
+      providedId,
+      prefix: 'textarea',
+    });
 
-  const { id, labelId, helperTextId, validationTextId } = useIds({
-    providedId,
-    prefix: 'textarea',
-  });
+    const showValidationText = Boolean(
+      !readOnly && !disabled && validationStatus !== undefined && validationText !== undefined
+    );
 
-  const showValidationText = Boolean(
-    !readOnly && !disabled && validationStatus !== undefined && validationText !== undefined
-  );
+    const ariaDescribedbyValue = mergeIds(
+      !!helperText ? helperTextId : undefined,
+      showValidationText ? validationTextId : undefined
+    );
 
-  const ariaDescribedbyValue = mergeIds(
-    !!helperText ? helperTextId : undefined,
-    showValidationText ? validationTextId : undefined
-  );
-
-  return (
-    <div
-      className={clsx(componentClassName, className)}
-      data-validation-status={validationStatus ? validationStatus : undefined}
-      data-disabled={disabled ? '' : undefined}
-    >
-      <Flex direction="column">
-        <Label htmlFor={id} id={labelId} disableUserSelect fontWeight="semibold">
-          {label}
-          {required ? null : (
-            <span style={{ marginLeft: '0.25rem', fontWeight: 'normal' }}>(optional)</span>
-          )}
-        </Label>
-        {helperText ? (
-          <HelperText id={helperTextId} disableUserSelect>
-            {helperText}
-          </HelperText>
+    return (
+      <Flex
+        direction="column"
+        gap="75"
+        className={clsx(componentClassName, className)}
+        data-validation-status={validationStatus ? validationStatus : undefined}
+        data-disabled={disabled ? '' : undefined}
+      >
+        <Flex direction="column">
+          <Label htmlFor={id} id={labelId} disableUserSelect fontWeight="semibold">
+            {label}
+            {required ? null : (
+              <BodyText as="span" marginLeft="50">
+                (optional)
+              </BodyText>
+            )}
+          </Label>
+          {helperText ? (
+            <HelperText id={helperTextId} disableUserSelect>
+              {helperText}
+            </HelperText>
+          ) : null}
+        </Flex>
+        <Flex direction="column" className="hearth-TextAreaRoot">
+          <textarea
+            ref={forwardedRef}
+            id={id}
+            rows={rows}
+            required={required}
+            disabled={disabled}
+            readOnly={readOnly}
+            placeholder={!disabled ? placeholder : undefined}
+            aria-labelledby={labelId}
+            aria-describedby={ariaDescribedbyValue}
+            aria-invalid={validationStatus === 'invalid' ? true : undefined}
+            aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
+            data-resize={resize}
+            {...props}
+          />
+        </Flex>
+        {showValidationText ? (
+          <ValidationText status={validationStatus} disableUserSelect id={validationTextId}>
+            {validationText}
+          </ValidationText>
         ) : null}
       </Flex>
-      <textarea
-        ref={forwardedRef}
-        id={id}
-        rows={rows}
-        required={required}
-        disabled={disabled}
-        readOnly={readOnly}
-        placeholder={!disabled ? placeholder : undefined}
-        aria-labelledby={labelId}
-        aria-describedby={ariaDescribedbyValue}
-        aria-invalid={validationStatus === 'invalid' ? true : undefined}
-        aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
-        {...textAreaProps}
-      />
-      {showValidationText ? (
-        <ValidationText status={validationStatus} disableUserSelect id={validationTextId}>
-          {validationText}
-        </ValidationText>
-      ) : null}
-    </div>
-  );
-});
+    );
+  }
+);
 
 TextArea.displayName = componentName;

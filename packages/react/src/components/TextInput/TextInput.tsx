@@ -30,7 +30,6 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
       disabled,
       readOnly,
       hideLabel,
-      role,
       required,
       placeholder,
       ...textInputProps
@@ -51,9 +50,10 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
     const defaultRef = React.useRef<HTMLInputElement>(null);
     const inputRef = forwardedRef || defaultRef;
     return (
-      <div
+      <Flex
         className={clsx(componentClassName, className)}
-        role={role}
+        direction="column"
+        gap="75"
         data-validation-status={validationStatus ? validationStatus : undefined}
         data-disabled={disabled ? '' : undefined}
         onPointerDown={event => {
@@ -84,7 +84,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
             </HelperText>
           ) : null}
         </Flex>
-        <div className="hearth-input-container">
+        <div className="hearth-TextInputRoot">
           <input
             ref={inputRef}
             spellCheck="false"
@@ -106,7 +106,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
             {validationText}
           </ValidationText>
         ) : null}
-      </div>
+      </Flex>
     );
   }
 );

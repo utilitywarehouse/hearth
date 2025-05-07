@@ -1,66 +1,59 @@
-.hearth-TextInput {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: var(--h-input-gap);
-
-  & :where(.hearth-TextInputRoot) {
-    display: flex;
-    align-items: stretch;
-    gap: var(--h-input-gap);
-    cursor: text;
+.hearth-TextArea {
+  & :where(.hearth-TextAreaRoot) {
     font-family: var(--h-font-family-body);
     font-weight: var(--h-font-weight-regular);
     font-size: var(--h-font-size-100);
     line-height: var(--h-line-height-500);
     font-style: normal;
+    cursor: text;
     text-align: start;
-    height: 48px;
-    min-width: var(--h-input-min-width);
-    max-width: var(--h-input-max-width);
     padding-inline: var(--h-input-padding-horizontal);
     padding-block: var(--h-input-padding-vertical);
     border-radius: var(--h-input-border-radius);
     border-color: var(--h-input-border-color);
     border-width: var(--h-input-border-width);
     border-style: solid;
+    /* Allows the `resize` property to work on the div */
+    overflow: hidden;
+    width: fit-content;
 
     --h-input-border-color-focus: var(--h-input-border-color);
 
-    &:where(:has(input[readonly]):not([data-disabled] &)) {
+    &:where(:has(textarea[readonly]):not([data-disabled] &)) {
       border-color: var(--h-input-border-color-read-only);
 
       --h-input-border-color-focus: var(--h-input-border-color-read-only);
     }
 
-    &:where(:has(input:disabled, input[readonly])) {
+    &:where(:has(textarea:disabled, textarea[readonly])) {
       cursor: default;
     }
 
-    :where([data-validation-status='valid']:not(:has(input[readonly], input:disabled))) & {
+    :where([data-validation-status='valid']:not(:has(textarea[readonly], textarea:disabled))) & {
       border-color: var(--h-input-border-color-valid);
 
       --h-input-border-color-focus: var(--h-input-border-color-valid);
     }
 
-    :where([data-validation-status='invalid']:not(:has(input[readonly], input:disabled))) & {
+    :where([data-validation-status='invalid']:not(:has(textarea[readonly], textarea:disabled))) & {
       border-color: var(--h-input-border-color-invalid);
 
       --h-input-border-color-focus: var(--h-input-border-color-invalid);
     }
 
-    &:where(
-        :has(input:focus),
-        :has(button:focus) /* don't lose visual focus border when any internal button is clicked */
-      ) {
+    &:where(:has(textarea:focus), ) {
       outline: var(--h-input-border-width-focused) solid var(--h-input-border-color-focus);
       outline-offset: -1px;
     }
 
-    & :where(input) {
+    & :where(textarea) {
       all: unset;
+      border: none;
       display: block;
       width: 100%;
+      min-width: var(--h-input-min-width);
+      max-width: var(--h-input-max-width);
+      flex-grow: 1;
       font-weight: normal;
       font-style: normal;
       text-align: start;
@@ -74,14 +67,25 @@
         cursor: default;
       }
 
+
       &::placeholder {
         color: var(--h-input-placeholder-color);
       }
-    }
-  }
 
-  /* Remove default search input cancel button */
-  input[type='search']::-webkit-search-cancel-button {
-    appearance: none;
+      @breakpoints {
+        &:where([data-resize='none']) {
+          resize: none;
+        }
+        &:where([data-resize='vertical']) {
+          resize: vertical;
+        }
+        &:where([data-resize='horizontal']) {
+          resize: horizontal;
+        }
+        &:where([data-resize='both']) {
+          resize: both;
+        }
+      }
+    }
   }
 }

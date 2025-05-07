@@ -113,11 +113,6 @@
       monospace;
   }
 
-  :where(textarea) {
-    resize: vertical;
-    resize: block;
-  }
-
   :where(input:is([type='checkbox'], [type='radio']), button, select) {
     cursor: pointer;
   }
