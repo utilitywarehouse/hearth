@@ -9,7 +9,8 @@
     font-style: normal;
     cursor: text;
     text-align: start;
-    padding: var(--h-input-padding-vertical) var(--h-space-100) var(--h-space-100) var(--h-input-padding-horizontal);
+    padding: var(--h-input-padding-vertical) var(--h-space-100) var(--h-space-100)
+      var(--h-input-padding-horizontal);
     border-radius: var(--h-input-border-radius);
     border-color: var(--h-input-border-color);
     border-width: var(--h-input-border-width);
@@ -67,8 +68,12 @@
       border: none;
       display: block;
       width: auto;
-      min-width: calc(var(--h-input-min-width) - calc(var(--h-input-padding-horizontal) + var(--h-space-100)));
-      max-width: calc(var(--h-input-max-width) - calc(var(--h-input-padding-horizontal) + var(--h-space-100)));
+      min-width: calc(
+        var(--h-input-min-width) - calc(var(--h-input-padding-horizontal) + var(--h-space-100))
+      );
+      max-width: calc(
+        var(--h-input-max-width) - calc(var(--h-input-padding-horizontal) + var(--h-space-100))
+      );
       padding-right: calc(var(--h-input-padding-horizontal) - var(--h-space-100));
       padding-bottom: calc(var(--h-input-padding-vertical) - var(--h-space-100));
       font-weight: normal;
