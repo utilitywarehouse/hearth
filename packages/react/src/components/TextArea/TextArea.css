@@ -9,15 +9,13 @@
     font-style: normal;
     cursor: text;
     text-align: start;
-    padding-top: var(--h-input-padding-horizontal);
-    padding-left: var(--h-input-padding-vertical);
-    padding-right: var(--h-space-100);
-    padding-bottom: var(--h-space-100);
+    padding: var(--h-input-padding-vertical) var(--h-space-100) var(--h-space-100) var(--h-input-padding-horizontal);
     border-radius: var(--h-input-border-radius);
     border-color: var(--h-input-border-color);
     border-width: var(--h-input-border-width);
     border-style: solid;
     background-color: var(--h-input-background-color);
+
     /* Allows the `resize` property to work on the div */
     overflow: hidden;
     width: fit-content;
@@ -52,6 +50,7 @@
       outline: var(--h-input-border-width-focused) solid var(--h-input-border-color-focus);
       outline-offset: -1px;
     }
+
     &::after {
       content: '';
       display: block;
@@ -68,12 +67,8 @@
       border: none;
       display: block;
       width: auto;
-      /* min-width: calc( */
-      /*   var(--h-input-min-width) - calc(var(--h-input-padding-horizontal)+var(--h-space-100)) */
-      /* ); */
-      min-width: 176px;
-      max-width: 464px;
-      /* max-width: calc(var(--h-input-max-width) - var(--h-input-padding-horizontal)); */
+      min-width: calc(var(--h-input-min-width) - calc(var(--h-input-padding-horizontal) + var(--h-space-100)));
+      max-width: calc(var(--h-input-max-width) - calc(var(--h-input-padding-horizontal) + var(--h-space-100)));
       padding-right: calc(var(--h-input-padding-horizontal) - var(--h-space-100));
       padding-bottom: calc(var(--h-input-padding-vertical) - var(--h-space-100));
       font-weight: normal;
@@ -83,8 +78,6 @@
       -webkit-tap-highlight-color: transparent;
       overflow-wrap: break-word;
       white-space: pre-wrap;
-      width: 50%;
-      height: 100px;
 
       /* Make sure parent <label> doesn't change the text cursor */
       cursor: text;
@@ -100,12 +93,15 @@
       &:where([data-resize='none']) {
         resize: none;
       }
+
       &:where([data-resize='vertical']) {
         resize: vertical;
       }
+
       &:where([data-resize='horizontal']) {
         resize: horizontal;
       }
+
       &:where([data-resize='both']) {
         resize: both;
       }
