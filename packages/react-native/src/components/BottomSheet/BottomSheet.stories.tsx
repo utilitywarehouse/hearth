@@ -16,6 +16,7 @@ const meta = {
   component: BottomSheet,
   parameters: {
     layout: 'centered',
+    noScroll: true,
   },
   argTypes: {
     backdrop: {
@@ -99,6 +100,9 @@ const ViewWrap = ({ children }: { children: React.ReactNode }) => (
 );
 
 export const Playground: Story = {
+  args: {
+    children: [],
+  },
   render: ({ ...args }) => {
     const bottomSheetRef = useRef<BottomSheet>(null);
     const handleOpenPress = useCallback(() => {
@@ -126,6 +130,9 @@ export const Playground: Story = {
 };
 
 export const WithSnapPoints: Story = {
+  args: {
+    children: [],
+  },
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
     const handleOpenPress = useCallback(() => {
@@ -151,6 +158,9 @@ export const WithSnapPoints: Story = {
 };
 
 export const DynamicHeight: Story = {
+  args: {
+    children: [],
+  },
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
     const handleOpenPress = useCallback(() => {
@@ -175,6 +185,9 @@ export const DynamicHeight: Story = {
 };
 
 export const WithoutHandle: Story = {
+  args: {
+    children: [],
+  },
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
     const handleOpenPress = useCallback(() => {
@@ -199,6 +212,9 @@ export const WithoutHandle: Story = {
 };
 
 export const WithoutBackdrop: Story = {
+  args: {
+    children: [],
+  },
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
     const handleOpenPress = useCallback(() => {
@@ -223,6 +239,9 @@ export const WithoutBackdrop: Story = {
 };
 
 export const ComplexContent: Story = {
+  args: {
+    children: [],
+  },
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
     const handleOpenPress = useCallback(() => {
@@ -271,6 +290,9 @@ export const ComplexContent: Story = {
 };
 
 export const WithInput: Story = {
+  args: {
+    children: [],
+  },
   render: () => {
     const bottomSheetRef = useRef<BottomSheetModal>(null);
     const handleOpenPress = useCallback(() => {
