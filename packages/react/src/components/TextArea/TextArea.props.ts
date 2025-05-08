@@ -1,5 +1,4 @@
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
-import { Responsive } from '../../types/responsive';
 
 export interface TextAreaProps extends ComponentPropsWithout<'textarea', RemovedProps | 'value'> {
   /**
@@ -32,5 +31,5 @@ export interface TextAreaProps extends ComponentPropsWithout<'textarea', Removed
    * Controls the resize behavior of the TextArea.
    * @default "both"
    */
-  resize?: Responsive<'none' | 'vertical' | 'horizontal' | 'both'>;
+  resize?: 'none' | 'vertical' | 'horizontal' | 'both';
 }

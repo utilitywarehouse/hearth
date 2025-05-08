@@ -49,6 +49,7 @@ export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>(
       !!helperText ? helperTextId : undefined,
       showValidationText ? validationTextId : undefined
     );
+    console.log({ resize });
 
     return (
       <Flex
