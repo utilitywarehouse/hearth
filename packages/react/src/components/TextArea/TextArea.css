@@ -1,0 +1,115 @@
+.hearth-TextArea {
+  & :where(.hearth-TextAreaRoot) {
+    box-sizing: border-box;
+    position: relative;
+    font-family: var(--h-font-family-body);
+    font-weight: var(--h-font-weight-regular);
+    font-size: var(--h-font-size-100);
+    line-height: var(--h-line-height-500);
+    font-style: normal;
+    cursor: text;
+    text-align: start;
+    padding: var(--h-input-padding-vertical) var(--h-space-100) var(--h-space-100)
+      var(--h-input-padding-horizontal);
+    border-radius: var(--h-input-border-radius);
+    border-color: var(--h-input-border-color);
+    border-width: var(--h-input-border-width);
+    border-style: solid;
+    background-color: var(--h-input-background-color);
+
+    /* Allows the `resize` property to work on the div */
+    overflow: hidden;
+    width: fit-content;
+    min-width: var(--h-input-min-width);
+    max-width: var(--h-input-max-width);
+
+    --h-input-border-color-focus: var(--h-input-border-color);
+
+    &:where(:has(textarea[readonly]):not([data-disabled] &)) {
+      border-color: var(--h-input-border-color-read-only);
+
+      --h-input-border-color-focus: var(--h-input-border-color-read-only);
+    }
+
+    &:where(:has(textarea:disabled, textarea[readonly])) {
+      cursor: default;
+    }
+
+    :where([data-validation-status='valid']:not(:has(textarea[readonly], textarea:disabled))) & {
+      border-color: var(--h-input-border-color-valid);
+
+      --h-input-border-color-focus: var(--h-input-border-color-valid);
+    }
+
+    :where([data-validation-status='invalid']:not(:has(textarea[readonly], textarea:disabled))) & {
+      border-color: var(--h-input-border-color-invalid);
+
+      --h-input-border-color-focus: var(--h-input-border-color-invalid);
+    }
+
+    &:where(:has(textarea:focus), ) {
+      outline: var(--h-input-border-width-focused) solid var(--h-input-border-color-focus);
+      outline-offset: -1px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 12px;
+      right: 16px;
+      bottom: 8px;
+      height: 4px;
+      background-color: inherit;
+    }
+
+    & :where(textarea) {
+      all: unset;
+      border: none;
+      display: block;
+      width: auto;
+      min-width: calc(
+        var(--h-input-min-width) - calc(var(--h-input-padding-horizontal) + var(--h-space-100))
+      );
+      max-width: calc(
+        var(--h-input-max-width) - calc(var(--h-input-padding-horizontal) + var(--h-space-100))
+      );
+      padding-right: calc(var(--h-input-padding-horizontal) - var(--h-space-100));
+      padding-bottom: calc(var(--h-input-padding-vertical) - var(--h-space-100));
+      font-weight: normal;
+      font-style: normal;
+      text-align: start;
+      text-indent: initial;
+      -webkit-tap-highlight-color: transparent;
+      overflow-wrap: break-word;
+      white-space: pre-wrap;
+
+      /* Make sure parent <label> doesn't change the text cursor */
+      cursor: text;
+
+      &:where(:disabled, [readonly]) {
+        cursor: default;
+      }
+
+      &::placeholder {
+        color: var(--h-input-placeholder-color);
+      }
+
+      &:where([data-resize='none']) {
+        resize: none;
+      }
+
+      &:where([data-resize='vertical']) {
+        resize: vertical;
+      }
+
+      &:where([data-resize='horizontal']) {
+        resize: horizontal;
+      }
+
+      &:where([data-resize='both']) {
+        resize: both;
+      }
+    }
+  }
+}
