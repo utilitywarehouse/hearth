@@ -131,3 +131,6 @@ export type {
 
 export { TextArea } from './components/TextArea/TextArea';
 export type { TextAreaProps } from './components/TextArea/TextArea.props';
+
+export { List } from './components/List/List';
+export type { ListProps } from './components/List/List.props';

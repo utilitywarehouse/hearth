@@ -1,5 +1,6 @@
 .hearth-DetailText {
   font-family: var(--h-font-family-detail);
+  font-weight: var(--h-detail-text-font-weight);
 
   &:where(.hearth-text-color-text) {
     color: var(--h-text-color);

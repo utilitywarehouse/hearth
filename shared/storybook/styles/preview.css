@@ -58,10 +58,10 @@ thead th {
   border-right: 1px solid #101010 !important;
 }
 
-:where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1)),
-:where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2)),
-:where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3)),
-:where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4)),
+:where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, .hearth-DetailText)),
+:where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2, .hearth-DetailText)),
+:where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3, .hearth-DetailText)),
+:where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4, .hearth-DetailText)),
 :where(h5:not(.sb-anchor, .sb-unstyled, .sb-unstyled h5)),
 :where(h6:not(.sb-anchor, .sb-unstyled, .sb-unstyled h6)) {
   font-family: 'Comic Hams', serif !important;

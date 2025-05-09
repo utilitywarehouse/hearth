@@ -1,0 +1,9 @@
+.hearth-List {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-list-gap);
+
+  & :where(.hearth-ListContainer) {
+    width: fit-content;
+  }
+}
