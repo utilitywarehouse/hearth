@@ -9,6 +9,7 @@ declare const _default: {
   readonly borderRadius: 8;
   readonly borderWidth: 2;
   readonly gap: 8;
+  readonly contentGap: 4;
   readonly green: {
     readonly backgroundColor: '#a2e2c3';
     readonly borderColor: '#0f834a';
