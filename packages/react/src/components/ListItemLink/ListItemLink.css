@@ -1,11 +1,8 @@
-.hearth-ListItemButton {
-  all: unset;
-  outline: transparent;
-  appearance: none;
-  box-sizing: border-box;
+.hearth-ListItemLink {
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
 
   &::after {
     z-index: 0;

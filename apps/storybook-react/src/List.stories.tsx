@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { List, ListItem, ListItemButton } from '@utilitywarehouse/hearth-react';
-import { SettingsMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import { List, ListItem, ListItemButton, ListItemLink } from '@utilitywarehouse/hearth-react';
+import { ChevronRightMediumIcon, SettingsMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof List> = {
   title: 'Stories / List',
@@ -42,6 +42,9 @@ export const Playground: Story = {
         <ListItemButton onClick={() => console.log('clickety click')}>
           List item as button
         </ListItemButton>
+      </ListItem>
+      <ListItem helperText="Helper text" leadingIcon={<SettingsMediumIcon />}>
+        <ListItemLink href="#">List item as link</ListItemLink>
       </ListItem>
     </List>
   ),

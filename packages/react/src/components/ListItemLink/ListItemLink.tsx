@@ -1,26 +1,26 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import type { ListItemButtonProps } from './ListItemButton.props';
+import type { ListItemLinkProps } from './ListItemLink.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
-const componentName = 'ListItemButton';
+const componentName = 'ListItemLink';
 const componentClassName = withGlobalPrefix(componentName);
 
-type ListItemButtonElement = ElementRef<'button'>;
+type ListItemLinkElement = ElementRef<'a'>;
 
-export const ListItemButton = React.forwardRef<ListItemButtonElement, ListItemButtonProps>(
+export const ListItemLink = React.forwardRef<ListItemLinkElement, ListItemLinkProps>(
   ({ className, children, trailingIcon, ...props }, ref) => {
     return (
-      <button ref={ref} className={clsx(componentClassName, className)} {...props}>
+      <a ref={ref} className={clsx(componentClassName, className)} {...props}>
         {children}
         <div className="hearth-trailing-icon">
           {trailingIcon ? trailingIcon : <ChevronRightSmallIcon />}
         </div>
-      </button>
+      </a>
     );
   }
 );
 
-ListItemButton.displayName = componentName;
+ListItemLink.displayName = componentName;

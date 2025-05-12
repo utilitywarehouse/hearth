@@ -4,7 +4,7 @@
   padding: var(--h-list-item-padding);
   position: relative;
 
-  &:has(.hearth-ListItemButton) {
+  &:has(.hearth-ListItemButton, .hearth-ListItemLink) {
     @media (hover: hover) {
       &:where(:hover) {
         background-color: var(--h-list-item-background-color-hover);
