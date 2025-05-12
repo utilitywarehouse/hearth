@@ -1,14 +1,6 @@
-import { PropDef } from '../../props/prop-def';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+import { CardProps } from '../Card/Card.props';
 import { LinkProps } from '../Link/Link.props';
-
-const variants = ['subtle', 'emphasis'] as const;
-
-export const listPropDefs = {
-  variant: { className: 'variant', tokens: variants, responsive: false },
-} satisfies {
-  variant: PropDef<(typeof variants)[number]>;
-};
 
 export type ListProps = ComponentPropsWithout<'ul', RemovedProps> &
   (
@@ -21,7 +13,7 @@ export type ListProps = ComponentPropsWithout<'ul', RemovedProps> &
         colorScheme: undefined;
       }
     | {
-        variant: (typeof variants)[number];
+        variant?: CardProps['variant'];
         /**
          * Sets the color scheme of the list.
          */
@@ -31,12 +23,12 @@ export type ListProps = ComponentPropsWithout<'ul', RemovedProps> &
     /**
      * The heading for the list, describing its purpose.
      */
-    heading: string;
-    headingElement: 'div' | 'h1' | 'h2' | 'h3' | 'h4';
+    heading?: string;
+    headingElement?: 'div' | 'h1' | 'h2' | 'h3' | 'h4';
     /**
      * Optional helper text to provide additional context or instructions.
      */
     helperText?: string;
     linkText?: string;
-    href: LinkProps['href'];
+    linkHref?: LinkProps['href'];
   };

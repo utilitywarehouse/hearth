@@ -14,7 +14,7 @@ input:focus-visible {
 }
 
 :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
-:where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
+:where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li, .hearth-ListItem)) {
   font-size: max(1em, 16px) !important;
 }
 

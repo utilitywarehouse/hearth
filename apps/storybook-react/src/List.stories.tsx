@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { List } from '@utilitywarehouse/hearth-react';
+import { List, ListItem, ListItemButton } from '@utilitywarehouse/hearth-react';
+import { SettingsMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof List> = {
   title: 'Stories / List',
@@ -15,7 +16,7 @@ const meta: Meta<typeof List> = {
     },
     headingElement: {
       control: { type: 'radio' },
-      options: ['div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
+      options: ['div', 'h1', 'h2', 'h3', 'h4'],
     },
   },
   args: {
@@ -32,9 +33,16 @@ type Story = StoryObj<typeof List>;
 export const Playground: Story = {
   render: args => (
     <List {...args}>
-      <li>Item 1</li>
-      <li>Item 2</li>
-      <li>Item 3</li>
+      <ListItem leadingIcon={<SettingsMediumIcon />} helperText="Helper text">
+        List item
+      </ListItem>
+      <ListItem helperText="Helper text">List item</ListItem>
+      <ListItem helperText="Helper text">List item</ListItem>
+      <ListItem helperText="Helper text" leadingIcon={<SettingsMediumIcon />}>
+        <ListItemButton onClick={() => console.log('clickety click')}>
+          List item as button
+        </ListItemButton>
+      </ListItem>
     </List>
   ),
 };

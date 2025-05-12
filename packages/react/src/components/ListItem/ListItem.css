@@ -1,0 +1,38 @@
+.hearth-ListItem {
+  display: flex;
+  flex-direction: column;
+  padding: var(--h-list-item-padding);
+  position: relative;
+
+  &:has(.hearth-ListItemButton) {
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(--h-list-item-background-color-hover);
+      }
+    }
+
+    &:where(:active) {
+      background-color: var(--h-list-item-background-color-active);
+    }
+  }
+
+  &:where(:first-child) {
+    border-top-left-radius: var(--h-card-border-radius);
+    border-top-right-radius: var(--h-card-border-radius);
+  }
+  &:where(:last-child) {
+    border-bottom-left-radius: var(--h-card-border-radius);
+    border-bottom-right-radius: var(--h-card-border-radius);
+  }
+
+  &:where(:not(:first-child)) {
+    border-top: var(--h-list-item-border-width) solid transparent;
+  }
+
+  :where(.hearth-variant-subtle) & {
+    border-color: var(--h-list-item-subtle-border-color);
+  }
+  :where(.hearth-variant-emphasis) & {
+    border-color: var(--h-list-item-emphasis-border-color);
+  }
+}
