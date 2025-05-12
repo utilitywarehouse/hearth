@@ -4,7 +4,7 @@
   flex-direction: column;
   gap: var(--h-input-gap);
 
-  & :where(.hearth-input-container) {
+  & :where(.hearth-TextInputRoot) {
     display: flex;
     align-items: stretch;
     gap: var(--h-input-gap);
@@ -73,9 +73,6 @@
       &:where(:disabled, [readonly]) {
         cursor: default;
       }
-
-      /* Recover textarea pre-wrap in Firefox */
-      white-space: pre-wrap;
 
       &::placeholder {
         color: var(--h-input-placeholder-color);

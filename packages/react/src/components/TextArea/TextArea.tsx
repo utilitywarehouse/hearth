@@ -1,75 +1,65 @@
+import * as React from 'react';
 import type { ElementRef } from 'react';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { TextInputProps } from './TextInput.props';
-import { extractProps } from '../../helpers/extract-props';
+
 import clsx from 'clsx';
-import React from 'react';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { mergeIds } from '../../helpers/merge-ids';
+import { useIds } from '../../hooks/use-ids';
+import { TextAreaProps } from './TextArea.props';
 import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
-import { Flex } from '../Flex/Flex';
-import { useIds } from '../../hooks/use-ids';
 import { ValidationText } from '../ValidationText/ValidationText';
-import { mergeIds } from '../../helpers/merge-ids';
+import { Flex } from '../Flex/Flex';
 import { BodyText } from '../BodyText/BodyText';
 
-const componentName = 'TextInput';
+const componentName = 'TextArea';
 const componentClassName = withGlobalPrefix(componentName);
 
-type TextInputElement = ElementRef<'input'>;
+type TextAreaElement = ElementRef<'textarea'>;
 
-export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
-  (props, forwardedRef) => {
-    const {
+export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>(
+  (
+    {
       className,
       validationStatus,
       validationText,
       label,
       helperText,
-      children,
       id: providedId,
       disabled,
       readOnly,
-      hideLabel,
       required,
       placeholder,
-      ...textInputProps
-    } = extractProps(props);
+      resize,
+      rows = 3,
+      ...props
+    },
+    forwardedRef
+  ) => {
     const { id, labelId, helperTextId, validationTextId } = useIds({
       providedId,
-      prefix: 'input',
+      prefix: 'textarea',
     });
 
     const showValidationText = Boolean(
       !readOnly && !disabled && validationStatus !== undefined && validationText !== undefined
     );
+
     const ariaDescribedbyValue = mergeIds(
       !!helperText ? helperTextId : undefined,
       showValidationText ? validationTextId : undefined
     );
+    console.log({ resize });
 
-    const defaultRef = React.useRef<HTMLInputElement>(null);
-    const inputRef = forwardedRef || defaultRef;
     return (
       <Flex
-        className={clsx(componentClassName, className)}
         direction="column"
         gap="75"
+        className={clsx(componentClassName, className)}
         data-validation-status={validationStatus ? validationStatus : undefined}
         data-disabled={disabled ? '' : undefined}
-        onPointerDown={event => {
-          // avoid losing focus when users click on non-interactive slot elements, such as icons
-          const target = event.target as HTMLElement;
-          if (target.closest('input, button, a')) return;
-
-          if (inputRef && typeof inputRef === 'object' && inputRef.current) {
-            const input = inputRef.current;
-            requestAnimationFrame(() => {
-              input.focus();
-            });
-          }
-        }}
       >
-        <Flex direction="column" data-visually-hidden={hideLabel ? '' : undefined}>
+        <Flex direction="column">
           <Label htmlFor={id} id={labelId} disableUserSelect fontWeight="semibold">
             {label}
             {required ? null : (
@@ -84,11 +74,11 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
             </HelperText>
           ) : null}
         </Flex>
-        <div className="hearth-TextInputRoot">
-          <input
-            ref={inputRef}
-            spellCheck="false"
+        <Flex direction="column" className="hearth-TextAreaRoot">
+          <textarea
+            ref={forwardedRef}
             id={id}
+            rows={rows}
             required={required}
             disabled={disabled}
             readOnly={readOnly}
@@ -97,10 +87,10 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
             aria-describedby={ariaDescribedbyValue}
             aria-invalid={validationStatus === 'invalid' ? true : undefined}
             aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
-            {...textInputProps}
+            data-resize={resize}
+            {...props}
           />
-          {children}
-        </div>
+        </Flex>
         {showValidationText ? (
           <ValidationText status={validationStatus} disableUserSelect id={validationTextId}>
             {validationText}
@@ -111,4 +101,4 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
   }
 );
 
-TextInput.displayName = componentName;
+TextArea.displayName = componentName;
