@@ -111,6 +111,11 @@
         "type": "number",
         "value": 8
       },
+      "content-gap": {
+        "alias": "{space.50}",
+        "type": "number",
+        "value": 4
+      },
       "green": {
         "background-color": {
           "alias": "{color.dark.green.200}",
@@ -2714,6 +2719,11 @@
         "alias": "{space.100}",
         "type": "number",
         "value": 8
+      },
+      "content-gap": {
+        "alias": "{space.50}",
+        "type": "number",
+        "value": 4
       },
       "green": {
         "background-color": {
