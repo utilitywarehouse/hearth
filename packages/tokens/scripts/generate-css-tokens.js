@@ -67,7 +67,9 @@ StyleDictionary.registerTransform({
   name: 'font-size/px-to-rem',
   type: 'value',
   filter: filters.isFontSize,
-  transform: token => `${token.value / 16}rem`,
+  transform: token => {
+    return `${token.value / 16}rem`;
+  },
 });
 
 StyleDictionary.registerTransform({

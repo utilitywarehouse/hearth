@@ -52,11 +52,13 @@ export const filters = {
   isComponentPxValue: token => {
     return (
       (token.filePath.includes('component') && token.path.includes('outline-width')) ||
-      token.path.includes('max-width') ||
-      token.path.includes('min-width') ||
-      token.path.includes('width') ||
-      token.path.includes('height') ||
-      token.path.includes('size')
+      (token.filePath.includes('component') && token.path.includes('max-width')) ||
+      (token.filePath.includes('component') && token.path.includes('min-width')) ||
+      (token.filePath.includes('component') && token.path.includes('width')) ||
+      (token.filePath.includes('component') && token.path.includes('height')) ||
+      (token.filePath.includes('component') &&
+        token.path.includes('size') &&
+        !token.path.includes('font'))
     );
   },
 };
