@@ -12,4 +12,8 @@ export const switchPropDefs = {
 
 export interface SwitchProps extends RadixSwitchProps {
   size?: Responsive<(typeof sizes)[number]>;
+  /**
+   * The label for the Switch, describing its purpose.
+   */
+  label: string;
 }

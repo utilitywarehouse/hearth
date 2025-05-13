@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Flex, Switch } from '@utilitywarehouse/hearth-react';
+import { BodyText, Flex, Switch } from '@utilitywarehouse/hearth-react';
 
 const sizes = ['sm', 'md'] as const;
 
@@ -18,10 +18,12 @@ const meta: Meta<typeof Switch> = {
     size: { options: sizes, control: { type: 'radio' } },
     checked: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
+    label: { control: { type: 'text' } },
   },
   args: {
     size: 'md',
     disabled: false,
+    label: 'Switch label',
   },
 };
 
@@ -49,6 +51,24 @@ export const Disabled: Story = {
   ),
   args: {
     disabled: true,
+  },
+};
+
+export const Labelled: Story = {
+  render: args => (
+    <Flex direction="column" gap="600">
+      <Flex direction="row" gap="200" align="center">
+        <BodyText as="label" htmlFor="airplane-mode">
+          Airplane mode
+        </BodyText>
+        <Switch id="airplane-mode" {...args} />
+      </Flex>
+      <Switch aria-label="airplane-mode" {...args} />
+    </Flex>
+  ),
+  args: {
+    label: undefined,
+    size: 'sm',
   },
 };
 

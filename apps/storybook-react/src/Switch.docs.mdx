@@ -52,6 +52,13 @@ The `Switch` component is built with accessibility in mind. It uses appropriate 
 - **Space**: Toggles the state of the `Switch`.
 - **Tab**: Moves focus to the `Switch`.
 
+### Label
+
+Do not use `Switch` without a label. If you do not use the `label` prop, then
+please make sure you properly label the component for screen reader users.
+
+<Canvas of={Stories.Labelled} sourceState="shown" />
+
 ## API
 
 This component is based on the `button` element.
