@@ -15,5 +15,5 @@ export interface SwitchProps extends RadixSwitchProps {
   /**
    * The label for the Switch, describing its purpose.
    */
-  label: string;
+  label?: string;
 }
