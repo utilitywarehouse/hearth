@@ -35,7 +35,7 @@ export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, ref) 
         ref={ref}
         className={clsx('hearth-SwitchRoot', className)}
         id={id}
-        aria-labelledby={ariaLabelledby || showLabel ? labelId : undefined}
+        aria-labelledby={ariaLabelledby ?? (showLabel ? labelId : undefined)}
         {...switchProps}
       >
         <RadixSwitchThumb className="hearth-SwitchThumb">
