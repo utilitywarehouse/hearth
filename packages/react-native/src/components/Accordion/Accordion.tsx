@@ -121,10 +121,19 @@ export const AccordionItem = forwardRef<View, AccordionItemProps>(
       child => React.isValidElement(child) && child.type.displayName === 'AccordionContent'
     );
 
+    const itemValue = React.useMemo(() => {
+      if (value !== undefined) {
+        return value;
+      }
+      const newId = `accordion-item-${accordionItemCounter}`;
+      accordionItemCounter += 1;
+      return newId;
+    }, [value]);
+
     return (
       <AccordionItemComponent
         ref={ref}
-        value={value ?? `accordion-item-${accordionItemCounter++}`}
+        value={itemValue}
         title={title}
         isDisabled={props.disabled}
         {...props}

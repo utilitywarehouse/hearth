@@ -61,7 +61,7 @@ export const Playground: Story = {
   render: args => {
     return (
       <Accordion {...args}>
-        <AccordionItem value="a" title="How do I place an order?">
+        <AccordionItem title="How do I place an order?">
           <AccordionHeader>
             <AccordionTrigger>
               {({ isExpanded }: { isExpanded: boolean }) => {
@@ -85,7 +85,7 @@ export const Playground: Story = {
           </AccordionContent>
         </AccordionItem>
 
-        <AccordionItem value="b">
+        <AccordionItem>
           <AccordionHeader>
             <AccordionTrigger>
               {({ isExpanded }: { isExpanded: boolean }) => {
