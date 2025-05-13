@@ -1,9 +1,9 @@
 import { ComponentType } from 'react';
 import type { ViewProps } from 'react-native';
 
-interface ListHeadingBaseProps extends Omit<ViewProps, 'children'> {}
+interface AccordionHeadingBaseProps extends Omit<ViewProps, 'children'> {}
 
-export interface ListHeadingWithChildren extends ListHeadingBaseProps {
+export interface AccordionHeadingWithChildren extends AccordionHeadingBaseProps {
   children: ViewProps['children'];
   text?: never;
   helperText?: never;
@@ -17,7 +17,7 @@ export interface ListHeadingWithChildren extends ListHeadingBaseProps {
   linkShowIcon?: never;
 }
 
-export interface ListHeadingWithoutChildren extends ListHeadingBaseProps {
+export interface AccordionHeadingWithoutChildren extends AccordionHeadingBaseProps {
   children?: never;
   text: string;
   helperText?: string;
@@ -31,6 +31,6 @@ export interface ListHeadingWithoutChildren extends ListHeadingBaseProps {
   linkShowIcon?: boolean;
 }
 
-type ListHeadingProps = ListHeadingWithChildren | ListHeadingWithoutChildren;
+type AccordionHeadingProps = AccordionHeadingWithChildren | AccordionHeadingWithoutChildren;
 
-export default ListHeadingProps;
+export default AccordionHeadingProps;

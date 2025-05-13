@@ -1,4 +1,5 @@
 // Custom
+export * from './Accordion';
 export * from './Alert';
 export * from './Badge';
 export * from './BodyText';

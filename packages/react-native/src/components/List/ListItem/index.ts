@@ -5,5 +5,5 @@ export type { default as ListItemProps } from './ListItem.props';
 export { default as ListItemLeadingContent } from './ListItemLeadingContent';
 export { default as ListItemTrailingContent } from './ListItemTrailingContent';
 export { default as ListItemTrailingIcon } from './ListItemTrailingIcon';
-export { default as ListItemSupportingText } from './ListItemSupportingText';
+export { default as ListItemHelperText } from './ListItemHelperText';
 export { default as ListItemText } from './ListItemText';

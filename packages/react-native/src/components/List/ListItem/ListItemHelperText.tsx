@@ -3,7 +3,7 @@ import { Text as RNText, TextProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../../BodyText';
 
-const ListItemSupportingText = forwardRef<RNText, TextProps>(({ children, ...props }, ref) => {
+const ListItemHelperText = forwardRef<RNText, TextProps>(({ children, ...props }, ref) => {
   return (
     <BodyText size="md" ref={ref} {...props} style={[styles.text, props.style]}>
       {children}
@@ -11,7 +11,7 @@ const ListItemSupportingText = forwardRef<RNText, TextProps>(({ children, ...pro
   );
 });
 
-ListItemSupportingText.displayName = 'ListItemSupportingText';
+ListItemHelperText.displayName = 'ListItemHelperText';
 
 const styles = StyleSheet.create(theme => ({
   text: {
@@ -19,4 +19,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-export default ListItemSupportingText;
+export default ListItemHelperText;

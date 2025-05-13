@@ -7,7 +7,7 @@
 // const props = {
 //   heading: figma.nestedProps('List Heading', {
 //     text: figma.string('heading'),
-//     supportingText: figma.string('Supporting text'),
+//     helperText: figma.string('Supporting text'),
 //   }),
 //   listItem: figma.children('List Item'),
 //   listItems: figma.children('List Items'),
@@ -54,7 +54,7 @@
 //       'Heading?': true,
 //     },
 //     example: ({ heading, listItems }) => (
-//       <List headingText={heading.text} headingSupportingText={heading.supportingText}>
+//       <List headingText={heading.text} headingHelperText={heading.helperText}>
 //         {listItems}
 //       </List>
 //     ),
@@ -74,7 +74,7 @@
 //       <List
 //         container="card"
 //         headingText={heading.text}
-//         headingSupportingText={heading.supportingText}
+//         headingHelperText={heading.helperText}
 //       >
 //         <Card {...cardProps}>{listItems}</Card>
 //       </List>

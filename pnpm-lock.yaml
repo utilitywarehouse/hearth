@@ -867,6 +867,9 @@ importers:
       '@expo/html-elements':
         specifier: latest
         version: 0.12.5
+      '@gluestack-ui/accordion':
+        specifier: 1.0.7
+        version: 1.0.7(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
       '@gluestack-ui/alert':
         specifier: 0.1.15
         version: 0.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2678,6 +2681,12 @@ packages:
   '@formatjs/intl-localematcher@0.5.10':
     resolution: {integrity: sha512-af3qATX+m4Rnd9+wHcjJ4w2ijq+rAVP3CCinJQvFv1kgSu1W6jypUmvleJxcewdxmutM8dmIRZFxO/IQBZmP2Q==}
 
+  '@gluestack-ui/accordion@1.0.7':
+    resolution: {integrity: sha512-pvEjAL343p/npQfmNFmKDy+p/POUua0/hog8weFRZ7E0CzI00VHDxIsbmkBEREjhzekRXry/wg8se6lGlKOpCA==}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+
   '@gluestack-ui/alert@0.1.15':
     resolution: {integrity: sha512-Jlaz8awVHznQixVfc1WmO9C1Em7DuF23N44PVOiGe2fCotOOB68ru2cGggaqGlHDzqhPRVpP5Fls+gn8CRDf0Q==}
     peerDependencies:
@@ -3540,6 +3549,12 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
       react-dom: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
+
+  '@react-native-aria/accordion@0.0.2':
+    resolution: {integrity: sha512-2Wa/YDBc2aCunTLpqwxTfCwn1t63KSAIoXd0hqrUGJJF+N2bEs2Hqs9ZgyKJ/hzFxCknVPMqo0fEVE1H23Z5+g==}
+    peerDependencies:
+      react: '*'
+      react-native: '*'
 
   '@react-native-aria/checkbox@0.2.9':
     resolution: {integrity: sha512-REycBw1DKbw2r9LbynrB+egWOnJXo1YPoMkAQOv6wiKgIzRZ69l4GpmAwkwqUmKit+DJM9Van6/cGl9kOKTAeA==}
@@ -14065,6 +14080,17 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
+  '@gluestack-ui/accordion@1.0.7(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      '@gluestack-ui/utils': 0.1.14(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+      '@react-native-aria/accordion': 0.0.2(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+      '@react-native-aria/focus': 0.2.9(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+      '@react-native-aria/interactions': 0.2.13(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    transitivePeerDependencies:
+      - react-native
+
   '@gluestack-ui/alert@0.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       react: 18.3.1
@@ -15078,6 +15104,11 @@ snapshots:
       '@swc/helpers': 0.5.15
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+
+  '@react-native-aria/accordion@0.0.2(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-native: 0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1)
 
   '@react-native-aria/checkbox@0.2.9(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)':
     dependencies:
