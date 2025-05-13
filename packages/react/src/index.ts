@@ -131,3 +131,6 @@ export type {
 
 export { TextArea } from './components/TextArea/TextArea';
 export type { TextAreaProps } from './components/TextArea/TextArea.props';
+
+export { Switch } from './components/Switch/Switch';
+export type { SwitchProps } from './components/Switch/Switch.props';

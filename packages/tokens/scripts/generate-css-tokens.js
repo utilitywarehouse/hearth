@@ -35,6 +35,7 @@ StyleDictionary.registerFormat({
 @import '../css/radio.css';
 @import '../css/space.css';
 @import '../css/spinner.css';
+@import '../css/switch.css';
 @import '../css/text.css';
 @import '../css/typography.css';
 @import '../css/mobile.css';
@@ -66,7 +67,9 @@ StyleDictionary.registerTransform({
   name: 'font-size/px-to-rem',
   type: 'value',
   filter: filters.isFontSize,
-  transform: token => `${token.value / 16}rem`,
+  transform: token => {
+    return `${token.value / 16}rem`;
+  },
 });
 
 StyleDictionary.registerTransform({
