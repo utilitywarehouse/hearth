@@ -6,7 +6,7 @@ interface ListHeadingBaseProps extends Omit<ViewProps, 'children'> {}
 export interface ListHeadingWithChildren extends ListHeadingBaseProps {
   children: ViewProps['children'];
   text?: never;
-  supportingText?: never;
+  helperText?: never;
   linkText?: never;
   linkHref?: never;
   linkOnPress?: never;
@@ -20,7 +20,7 @@ export interface ListHeadingWithChildren extends ListHeadingBaseProps {
 export interface ListHeadingWithoutChildren extends ListHeadingBaseProps {
   children?: never;
   text: string;
-  supportingText?: string;
+  helperText?: string;
   linkText?: string;
   linkHref?: string;
   linkOnPress?: () => void;

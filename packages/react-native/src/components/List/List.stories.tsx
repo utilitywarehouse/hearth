@@ -22,10 +22,10 @@ const meta = {
       description:
         'The heading text to be displayed on the list. \n _Note: This is a playground prop, use title on the ListHeading component._',
     },
-    headingSupportingText: {
+    headingHelperText: {
       control: 'text',
       description:
-        'The heading supporting text to be displayed on the list. \n _Note: This is a playground prop, use _listItemSupportingText on the ListHeading component._',
+        'The heading supporting text to be displayed on the list. \n _Note: This is a playground prop, use _listItemHelperText on the ListHeading component._',
     },
     divider: {
       control: 'boolean',
@@ -44,7 +44,7 @@ const meta = {
   args: {
     container: 'none',
     headingText: 'This is the list heading',
-    headingSupportingText: 'Supporting text',
+    headingHelperText: 'Supporting text',
     divider: true,
     disabled: false,
     loading: false,
@@ -60,7 +60,7 @@ export const Playground: Story = {
       <ListItem
         key={index}
         text="List item text"
-        supportingText="Supporting text"
+        helperText="Supporting text"
         divider={container === 'none' ? divider : divider && index !== 3}
       />
     ));
@@ -79,16 +79,16 @@ export const KitchenSink: Story = {
   },
   render: () => {
     const list = [
-      { text: 'List Item 1', supportingText: 'Supporting Text 1' },
-      { text: 'List Item 2', supportingText: 'Supporting Text 2' },
-      { text: 'List Item 3', supportingText: 'Supporting Text 3' },
+      { text: 'List Item 1', helperText: 'Supporting Text 1' },
+      { text: 'List Item 2', helperText: 'Supporting Text 2' },
+      { text: 'List Item 3', helperText: 'Supporting Text 3' },
     ];
     return (
       <Flex space="sm" direction="column" style={{ width: '100%' }}>
         <VariantTitle title="List with title and supporting text">
-          <List headingText="List Heading" headingSupportingText="Supporting Text">
+          <List headingText="List Heading" headingHelperText="Supporting Text">
             {list.map((item, index) => (
-              <ListItem key={index} text={item.text} supportingText={item.supportingText} />
+              <ListItem key={index} text={item.text} helperText={item.helperText} />
             ))}
           </List>
         </VariantTitle>
@@ -98,7 +98,7 @@ export const KitchenSink: Story = {
               <ListItem
                 key={index}
                 text={item.text}
-                supportingText={item.supportingText}
+                helperText={item.helperText}
                 leadingContent={<ListItemIcon as={SettingsMediumIcon} />}
               />
             ))}
@@ -110,7 +110,7 @@ export const KitchenSink: Story = {
               <ListItem
                 key={index}
                 text={item.text}
-                supportingText={item.supportingText}
+                helperText={item.helperText}
                 trailingContent={<ListItemTrailingIcon as={SettingsMediumIcon} />}
               />
             ))}
@@ -144,7 +144,7 @@ export const KitchenSink: Story = {
               <ListItem
                 key={index}
                 text={item.text}
-                supportingText={item.supportingText}
+                helperText={item.helperText}
                 leadingContent={<ListItemIcon as={SettingsMediumIcon} />}
                 onPress={() => console.log('List Item Pressed')}
               />
@@ -157,7 +157,7 @@ export const KitchenSink: Story = {
               <ListItem
                 key={index}
                 text={item.text}
-                supportingText={item.supportingText}
+                helperText={item.helperText}
                 leadingContent={<ListItemIcon as={SettingsMediumIcon} />}
                 onPress={() => console.log('List Item Pressed')}
               />
@@ -170,7 +170,7 @@ export const KitchenSink: Story = {
               <ListItem
                 key={index}
                 text={item.text}
-                supportingText={item.supportingText}
+                helperText={item.helperText}
                 leadingContent={<ListItemIcon as={SettingsMediumIcon} />}
                 onPress={() => console.log('List Item Pressed')}
               />
