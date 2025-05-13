@@ -29,6 +29,7 @@
 
     &:where([data-state='checked']) {
       background-color: var(--h-switch-checked-background-color);
+
       @media (hover: hover) {
         &:where(:hover) {
           background-color: var(--h-switch-checked-background-color-hover);
@@ -40,6 +41,7 @@
       &:where(.hearth-r-size-md) {
         width: var(--h-switch-md-width);
         height: var(--h-switch-md-height);
+
         --h-switch-thumb-translate-x: calc(
           calc(var(--h-switch-md-width) / 2) - var(--h-switch-padding)
         );
@@ -48,6 +50,7 @@
       &:where(.hearth-r-size-sm) {
         width: var(--h-switch-sm-width);
         height: var(--h-switch-sm-height);
+
         --h-switch-thumb-translate-x: calc(
           calc(var(--h-switch-sm-width) / 2) - var(--h-switch-padding)
         );
@@ -74,9 +77,7 @@
       &:where([data-state='checked']) {
         transform: translateX(var(--h-switch-thumb-translate-x));
         color: var(--h-switch-checked-icon-color);
-      }
 
-      &:where([data-state='checked']) {
         & :where(.hearth-CloseIcon) {
           display: none;
         }
