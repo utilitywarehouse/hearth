@@ -107,6 +107,8 @@ const Accordion = forwardRef<View, AccordionProps>(
   }
 );
 
+let accordionItemCounter = 0;
+
 export const AccordionItem = forwardRef<View, AccordionItemProps>(
   ({ children, value, title, expanded, triggerContent, ...props }, ref) => {
     if (!children) {
@@ -122,7 +124,7 @@ export const AccordionItem = forwardRef<View, AccordionItemProps>(
     return (
       <AccordionItemComponent
         ref={ref}
-        value={value ?? Math.random().toString()}
+        value={value ?? `accordion-item-${accordionItemCounter++}`}
         title={title}
         isDisabled={props.disabled}
         {...props}
