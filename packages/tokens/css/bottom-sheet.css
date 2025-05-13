@@ -9,7 +9,7 @@
   --h-bottom-sheet-gap: var(--h-space-75);
   --h-bottom-sheet-handle-background-color: var(--h-color-grey-200);
   --h-bottom-sheet-handle-border-radius: var(--h-border-radius-sm);
-  --h-bottom-sheet-handle-height: 5;
+  --h-bottom-sheet-handle-height: 5px;
   --h-bottom-sheet-handle-width: 36;
   --h-bottom-sheet-padding: var(--h-space-200);
 }

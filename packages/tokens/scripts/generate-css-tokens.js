@@ -35,6 +35,7 @@ StyleDictionary.registerFormat({
 @import '../css/radio.css';
 @import '../css/space.css';
 @import '../css/spinner.css';
+@import '../css/switch.css';
 @import '../css/text.css';
 @import '../css/typography.css';
 @import '../css/mobile.css';
