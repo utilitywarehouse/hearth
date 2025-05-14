@@ -33,13 +33,21 @@ export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwa
   // still be focused with a keyboard. Therefore we need to prevent the
   // internal button from being clickable when the component is disabled.
   React.useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
     if (switchRef && typeof switchRef === 'object' && switchRef.current) {
       if (Boolean(disabled)) {
-        switchRef.current.addEventListener('click', e => {
-          e.preventDefault();
-        });
+        switchRef.current.addEventListener('click', handleClick);
       }
     }
+
+    return () => {
+      if (switchRef && typeof switchRef === 'object' && switchRef.current) {
+        switchRef.current.removeEventListener('click', handleClick);
+      }
+    };
   }, [switchRef, disabled]);
 
   return (
