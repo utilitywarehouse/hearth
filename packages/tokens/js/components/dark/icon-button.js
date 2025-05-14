@@ -31,7 +31,7 @@ export default {
     paddingHorizontal: 0,
     paddingVertical: 0,
     sm: {
-      height: 20,
+      height: 0,
       width: 20,
     },
   },

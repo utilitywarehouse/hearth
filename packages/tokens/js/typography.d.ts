@@ -40,7 +40,7 @@ export declare const mobile: {
       readonly lineHeight: 36;
     };
     readonly fontFamily: 'DM Mono';
-    readonly fontWeight: 600;
+    readonly fontWeight: 500;
     readonly lg: {
       readonly fontSize: 18;
       readonly letterSpacing: -0.5400000214576721;
@@ -296,7 +296,7 @@ declare const typography: {
         readonly lineHeight: 36;
       };
       readonly fontFamily: 'DM Mono';
-      readonly fontWeight: 600;
+      readonly fontWeight: 500;
       readonly lg: {
         readonly fontSize: 18;
         readonly letterSpacing: -0.5400000214576721;
