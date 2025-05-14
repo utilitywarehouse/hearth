@@ -72,7 +72,8 @@
         var(--h-input-min-width) - calc(var(--h-input-padding-horizontal) + var(--h-space-100))
       );
       max-width: calc(
-        var(--h-input-max-width) - calc(var(--h-input-padding-horizontal) + var(--h-space-100))
+        var(--h-input-max-width) -
+          calc(var(--h-input-padding-horizontal) + var(--h-space-100) + var(--h-space-100))
       );
       padding-right: calc(var(--h-input-padding-horizontal) - var(--h-space-100));
       padding-bottom: calc(var(--h-input-padding-vertical) - var(--h-space-100));
