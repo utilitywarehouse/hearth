@@ -26,7 +26,8 @@ The `Switch` component supports two sizes: `sm` (small) and `md` (medium). You c
 
 ## Disabled State
 
-The `Switch` can be disabled using the `disabled` prop. When disabled, the `Switch` is non-interactive and visually indicates its disabled state.
+The `Switch` can be disabled using the `disabled` prop. When disabled, the
+`Switch` is non-interactive and visually indicates its disabled state.
 
 ```tsx
 <Switch disabled />
@@ -34,6 +35,14 @@ The `Switch` can be disabled using the `disabled` prop. When disabled, the `Swit
 ```
 
 <Canvas of={Stories.Disabled} />
+
+The disabled `Switch` uses `aria-disabled`, rather than the `disabled`
+attribute, so that they are still focusable when using the keyboard. This means
+that screen readers are still able to find the button, with the insight that it
+is disabled and that there is perhaps an action which needs to be taken, rather
+than not knowing there is a button there at all. The `onClick` handler will be
+disabled, however you will need to make sure you disable any other expected
+actions.
 
 ## Responsive Sizes
 
@@ -58,6 +67,44 @@ Do not use `Switch` without a label. If you do not use the `label` prop, then
 please make sure you properly label the component for screen reader users.
 
 <Canvas of={Stories.Labelled} sourceState="shown" />
+
+### Grouping Switches
+
+Grouped, related, `Switch` components should be contained within a `fieldset`
+element. You can use the `FormFieldGroup` component for this.
+
+<Canvas of={Stories.SwitchGroup} sourceState="none" />
+
+```tsx
+[...]
+const [value = [], setValue] = useState<Array<string>>(['1']);
+[...]
+<FormFieldGroup
+  label="Switch group"
+  id="switch-group-story"
+  helperText={`Switches: ${value.join(', ')}`}
+>
+  {['1', '2', '3', '4'].map(num => (
+    <Switch
+      label={`Switch ${num}`}
+      value={num}
+      defaultChecked={num === '1'}
+      onCheckedChange={React.useCallback(
+        (checked: boolean) => {
+          if (checked) {
+            setValue((prevValue = []) => [...prevValue, num]);
+          }
+          if (!checked) {
+            setValue((prevValue = []) => prevValue.filter(value => value !== num));
+          }
+        },
+        [setValue]
+      )}
+      {...args}
+    />
+  ))}
+</FormFieldGroup>
+```
 
 ## API
 

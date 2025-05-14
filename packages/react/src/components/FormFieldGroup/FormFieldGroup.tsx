@@ -34,7 +34,7 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
   ) => {
     const { id, labelId, helperTextId, validationTextId } = useIds({
       providedId,
-      prefix: 'radiogroup',
+      prefix: 'formfieldgroup',
     });
     const showValidationText = Boolean(validationStatus && validationText);
     const ariaDescribedbyValue = mergeIds(

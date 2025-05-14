@@ -15,13 +15,14 @@ export const useIds = ({
   providedLabelId,
   providedHelperTextId,
   providedValidationTextId,
-  prefix,
+  prefix: providedPrefix,
 }: UseIdsProps) => {
+  const prefix = providedId || providedPrefix;
   const generatedId = useId();
   const defaultId = withGlobalPrefix(prefix ? `${prefix}-${generatedId}` : generatedId);
   const id = providedId || defaultId;
-  const labelId = providedLabelId || `${defaultId}-label`;
-  const helperTextId = providedHelperTextId || `${defaultId}-helper-text`;
-  const validationTextId = providedValidationTextId || `${defaultId}-validation-text`;
+  const labelId = providedLabelId || `${id}-label`;
+  const helperTextId = providedHelperTextId || `${id}-helper-text`;
+  const validationTextId = providedValidationTextId || `${id}-validation-text`;
   return { id, labelId, helperTextId, validationTextId };
 };
