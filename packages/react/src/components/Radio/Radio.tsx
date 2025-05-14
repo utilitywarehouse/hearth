@@ -52,8 +52,8 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
     const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
     const showLabel = !!label;
     return (
-      <Flex gap="100" className={clsx(componentClassName, className)}>
-        <Flex align="center" justify="center" className="hearth-RadioContainer">
+      <div className={clsx(componentClassName, className)}>
+        <div className="hearth-RadioContainer">
           <RadixRadioItem
             ref={ref}
             {...props}
@@ -64,7 +64,7 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
           >
             <RadixRadioIndicator className="hearth-RadioIndicator" />
           </RadixRadioItem>
-        </Flex>
+        </div>
         {showLabel ? (
           <Flex direction="column" gap="50">
             <Label
@@ -83,7 +83,7 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
             ) : null}
           </Flex>
         ) : null}
-      </Flex>
+      </div>
     );
   }
 );
