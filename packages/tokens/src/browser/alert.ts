@@ -5,8 +5,8 @@ export const alert = {
   },
   borderRadius: 'var(--h-alert-border-radius)',
   borderWidth: 'var(--h-alert-border-width)',
-  gap: 'var(--h-alert-gap)',
   contentGap: 'var(--h-alert-content-gap)',
+  gap: 'var(--h-alert-gap)',
   green: {
     backgroundColor: 'var(--h-alert-green-background-color)',
     borderColor: 'var(--h-alert-green-border-color)',

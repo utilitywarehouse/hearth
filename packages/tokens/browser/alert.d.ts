@@ -5,8 +5,8 @@ export declare const alert: {
   };
   readonly borderRadius: 'var(--h-alert-border-radius)';
   readonly borderWidth: 'var(--h-alert-border-width)';
-  readonly gap: 'var(--h-alert-gap)';
   readonly contentGap: 'var(--h-alert-content-gap)';
+  readonly gap: 'var(--h-alert-gap)';
   readonly green: {
     readonly backgroundColor: 'var(--h-alert-green-background-color)';
     readonly borderColor: 'var(--h-alert-green-border-color)';

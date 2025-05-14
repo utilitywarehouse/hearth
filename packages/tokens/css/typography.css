@@ -32,7 +32,7 @@
   --h-detail-text-4xl-font-size: var(--h-font-size-500);
   --h-detail-text-4xl-letter-spacing: var(--h-letter-spacing-500);
   --h-detail-text-4xl-line-height: var(--h-line-height-800);
-  --h-detail-text-font-weight: var(--h-font-weight-semibold);
+  --h-detail-text-font-weight: var(--h-font-weight-medium);
   --h-detail-text-lg-font-size: var(--h-font-size-150);
   --h-detail-text-lg-letter-spacing: var(--h-letter-spacing-150);
   --h-detail-text-lg-line-height: var(--h-line-height-400);

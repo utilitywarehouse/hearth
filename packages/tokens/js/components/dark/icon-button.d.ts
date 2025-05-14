@@ -31,7 +31,7 @@ declare const _default: {
     readonly paddingHorizontal: 0;
     readonly paddingVertical: 0;
     readonly sm: {
-      readonly height: 20;
+      readonly height: 0;
       readonly width: 20;
     };
   };
