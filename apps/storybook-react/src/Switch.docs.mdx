@@ -68,6 +68,44 @@ please make sure you properly label the component for screen reader users.
 
 <Canvas of={Stories.Labelled} sourceState="shown" />
 
+### Grouping Switches
+
+Grouped, related, `Switch` components should be contained within a `fieldset`
+element. You can use the `FormFieldGroup` component for this.
+
+<Canvas of={Stories.SwitchGroup} sourceState="none" />
+
+```tsx
+[...]
+const [value = [], setValue] = useState<Array<string>>(['1']);
+[...]
+<FormFieldGroup
+  label="Switch group"
+  id="switch-group-story"
+  helperText={`Switches: ${value.join(', ')}`}
+>
+  {['1', '2', '3', '4'].map(num => (
+    <Switch
+      label={`Switch ${num}`}
+      value={num}
+      defaultChecked={num === '1'}
+      onCheckedChange={React.useCallback(
+        (checked: boolean) => {
+          if (checked) {
+            setValue((prevValue = []) => [...prevValue, num]);
+          }
+          if (!checked) {
+            setValue((prevValue = []) => prevValue.filter(value => value !== num));
+          }
+        },
+        [setValue]
+      )}
+      {...args}
+    />
+  ))}
+</FormFieldGroup>
+```
+
 ## API
 
 This component is based on the `button` element.
