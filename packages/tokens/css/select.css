@@ -25,7 +25,7 @@
   --h-select-dropdown-padding: var(--h-space-50);
   --h-select-gap: var(--h-space-75);
   --h-select-gap-container: var(--h-space-50);
-  --h-select-height: 48;
+  --h-select-height: 48px;
   --h-select-max-width: 504px;
   --h-select-min-width: 288px;
   --h-select-padding-horizontal: var(--h-space-200);

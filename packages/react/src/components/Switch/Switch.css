@@ -1,0 +1,105 @@
+.hearth-Switch {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--h-space-200);
+
+  .hearth-SwitchRoot {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    vertical-align: top;
+    flex-shrink: 0;
+    padding: var(--h-switch-padding);
+    background-color: var(--h-switch-unchecked-background-color);
+    border: none;
+    border-radius: var(--h-switch-radius);
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 200ms ease-in-out;
+
+    &:where([aria-disabled]) {
+      cursor: not-allowed;
+    }
+
+    @media (hover: hover) {
+      &:where(:hover):not([aria-disabled]) {
+        background-color: var(--h-switch-unchecked-background-color-hover);
+      }
+    }
+
+    &:where([data-state='checked']) {
+      background-color: var(--h-switch-checked-background-color);
+
+      @media (hover: hover) {
+        &:where(:hover):not([aria-disabled]) {
+          background-color: var(--h-switch-checked-background-color-hover);
+        }
+      }
+    }
+
+    @breakpoints {
+      &:where(.hearth-r-size-md) {
+        width: var(--h-switch-md-width);
+        height: var(--h-switch-md-height);
+
+        --h-switch-thumb-translate-x: calc(
+          calc(var(--h-switch-md-width) / 2) - var(--h-switch-padding)
+        );
+      }
+
+      &:where(.hearth-r-size-sm) {
+        width: var(--h-switch-sm-width);
+        height: var(--h-switch-sm-height);
+
+        --h-switch-thumb-translate-x: calc(
+          calc(var(--h-switch-sm-width) / 2) - var(--h-switch-padding)
+        );
+      }
+    }
+
+    &:where(:focus-visible) {
+      outline: 2px solid var(--h-focus-border);
+      outline-offset: 1px;
+    }
+
+    .hearth-SwitchThumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--h-switch-circle-background-color);
+      border-radius: var(--h-switch-radius);
+      color: var(--h-switch-unchecked-icon-color);
+      position: absolute;
+      left: var(--h-switch-padding);
+      transition: transform 200ms ease-in-out;
+      will-change: transform;
+
+      &:where([data-state='checked']) {
+        transform: translateX(var(--h-switch-thumb-translate-x));
+        color: var(--h-switch-checked-icon-color);
+
+        & :where(.hearth-CloseIcon) {
+          display: none;
+        }
+      }
+
+      &:where([data-state='unchecked']) {
+        & :where(.hearth-TickIcon) {
+          display: none;
+        }
+      }
+
+      @breakpoints {
+        :where(.hearth-r-size-md &) {
+          width: var(--h-switch-md-circle-size);
+          height: var(--h-switch-md-circle-size);
+        }
+
+        :where(.hearth-r-size-sm &) {
+          width: var(--h-switch-sm-circle-size);
+          height: var(--h-switch-sm-circle-size);
+        }
+      }
+    }
+  }
+}

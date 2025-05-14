@@ -143,3 +143,6 @@ export type { ListItemButtonProps } from './components/ListItemButton/ListItemBu
 
 export { ListItemLink } from './components/ListItemLink/ListItemLink';
 export type { ListItemLinkProps } from './components/ListItemLink/ListItemLink.props';
+
+export { Switch } from './components/Switch/Switch';
+export type { SwitchProps } from './components/Switch/Switch.props';

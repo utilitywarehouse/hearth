@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import ListHeadingTitle from './ListHeadingTitle';
-import ListHeadingSupportingText from './ListHeadingSupportingText';
+import ListHeadingHelperText from './ListHeadingHelperText';
 import ListHeadingProps from './ListHeading.props';
 import ListHeadingTextContent from './ListHeadingTextContent';
 import { Link } from '../../Link';
@@ -12,7 +12,7 @@ const ListHeading = forwardRef<View, ListHeadingProps>(
   (
     {
       text,
-      supportingText,
+      helperText,
       children,
       style,
       linkDisabled,
@@ -36,9 +36,7 @@ const ListHeading = forwardRef<View, ListHeadingProps>(
           <>
             <ListHeadingTextContent>
               <ListHeadingTitle>{text}</ListHeadingTitle>
-              {!!supportingText && (
-                <ListHeadingSupportingText>{supportingText}</ListHeadingSupportingText>
-              )}
+              {!!helperText && <ListHeadingHelperText>{helperText}</ListHeadingHelperText>}
             </ListHeadingTextContent>
             {!!linkText && (
               <Link

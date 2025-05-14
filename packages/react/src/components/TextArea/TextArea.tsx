@@ -34,7 +34,7 @@ export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>(
       rows = 3,
       ...props
     },
-    forwardedRef
+    ref
   ) => {
     const { id, labelId, helperTextId, validationTextId } = useIds({
       providedId,
@@ -49,7 +49,6 @@ export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>(
       !!helperText ? helperTextId : undefined,
       showValidationText ? validationTextId : undefined
     );
-    console.log({ resize });
 
     return (
       <Flex
@@ -76,7 +75,7 @@ export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>(
         </Flex>
         <Flex direction="column" className="hearth-TextAreaRoot">
           <textarea
-            ref={forwardedRef}
+            ref={ref}
             id={id}
             rows={rows}
             required={required}
