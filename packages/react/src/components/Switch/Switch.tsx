@@ -14,28 +14,63 @@ const componentClassName = withGlobalPrefix(componentName);
 
 type SwitchElement = ElementRef<'button'>;
 
-export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, ref) => {
+export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwardedRef) => {
   const {
     className,
     label,
     id: providedId,
     'aria-labelledby': ariaLabelledby,
+    disabled,
+    onCheckedChange,
     ...switchProps
   } = extractProps(props, switchPropDefs);
   const { id, labelId } = useIds({ providedId, prefix: 'switch' });
   const showLabel = !!label;
+  const defaultRef = React.useRef<HTMLButtonElement | null>(null);
+  const switchRef = forwardedRef || defaultRef;
+
+  // We're using aria-disabled rather than disabled, so that the element can
+  // still be focused with a keyboard. Therefore we need to prevent the
+  // internal button from being clickable when the component is disabled.
+  React.useEffect(() => {
+    const handleClick = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
+    // Get the ref value and ensure proper typing
+    let currentElement: HTMLButtonElement | null = null;
+    if (switchRef && typeof switchRef === 'object' && switchRef.current) {
+      // Type assertion to ensure TypeScript understands this is a valid ref object
+      const refObject = switchRef as React.RefObject<HTMLButtonElement>;
+      currentElement = refObject.current;
+    }
+
+    if (currentElement && disabled) {
+      currentElement.addEventListener('click', handleClick);
+    }
+
+    return () => {
+      if (currentElement) {
+        currentElement.removeEventListener('click', handleClick);
+      }
+    };
+  }, [switchRef, disabled]);
+
   return (
-    <div className={componentClassName}>
+    <div aria-disabled={disabled || undefined} className={componentClassName}>
       {showLabel ? (
         <BodyText as="label" size="lg" id={labelId} htmlFor={id}>
           {label}
         </BodyText>
       ) : null}
       <RadixSwitchRoot
-        ref={ref}
+        ref={switchRef}
         className={clsx('hearth-SwitchRoot', className)}
         id={id}
         aria-labelledby={ariaLabelledby ?? (showLabel ? labelId : undefined)}
+        aria-disabled={disabled || undefined}
+        data-disabled={disabled || undefined}
+        onCheckedChange={disabled ? undefined : onCheckedChange}
         {...switchProps}
       >
         <RadixSwitchThumb className="hearth-SwitchThumb">

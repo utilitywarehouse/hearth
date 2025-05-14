@@ -17,12 +17,12 @@
     -webkit-tap-highlight-color: transparent;
     transition: background-color 200ms ease-in-out;
 
-    &:where([data-disabled]) {
+    &:where([aria-disabled]) {
       cursor: not-allowed;
     }
 
     @media (hover: hover) {
-      &:where(:hover) {
+      &:where(:hover):not([aria-disabled]) {
         background-color: var(--h-switch-unchecked-background-color-hover);
       }
     }
@@ -31,7 +31,7 @@
       background-color: var(--h-switch-checked-background-color);
 
       @media (hover: hover) {
-        &:where(:hover) {
+        &:where(:hover):not([aria-disabled]) {
           background-color: var(--h-switch-checked-background-color-hover);
         }
       }
