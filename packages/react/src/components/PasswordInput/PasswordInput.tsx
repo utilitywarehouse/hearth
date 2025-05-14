@@ -30,18 +30,28 @@ export const PasswordInput = React.forwardRef<PasswordInputElement, PasswordInpu
     // If the PasswordInput is inside a form we should switch the input type
     // back to password when its parent form is submitted
     React.useEffect(() => {
-      if (
-        inputRef &&
-        typeof inputRef === 'object' &&
-        inputRef.current &&
-        inputRef.current.form !== null
-      ) {
-        inputRef.current.form.addEventListener('submit', () => {
-          if (inputRef.current?.type) {
-            inputRef.current.type = 'password';
-          }
-        });
+      // Get the ref value and ensure proper typing
+      let currentElement: HTMLInputElement | null = null;
+      if (inputRef && typeof inputRef === 'object' && inputRef.current) {
+        // Type assertion to ensure TypeScript understands this is a valid ref object
+        const refObject = inputRef as React.RefObject<HTMLInputElement>;
+        currentElement = refObject.current;
       }
+
+      const handleSubmit = () => {
+        if (currentElement?.type) {
+          currentElement.type = 'password';
+        }
+      };
+
+      if (currentElement && currentElement.form !== null) {
+        currentElement.form.addEventListener('submit', handleSubmit);
+      }
+      return () => {
+        if (currentElement) {
+          currentElement.removeEventListener('submit', handleSubmit);
+        }
+      };
     }, [inputRef]);
 
     const visibilityMessage = `Your password is ${visible ? 'shown' : 'hidden'}!`;
