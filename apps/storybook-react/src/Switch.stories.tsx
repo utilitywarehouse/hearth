@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { BodyText, Flex, Switch } from '@utilitywarehouse/hearth-react';
+import { BodyText, Flex, FormFieldGroup, Switch } from '@utilitywarehouse/hearth-react';
+import React, { useState } from 'react';
 
 const sizes = ['sm', 'md'] as const;
 
@@ -75,5 +76,38 @@ export const Labelled: Story = {
 export const ResponsiveSize: Story = {
   args: {
     size: { mobile: 'sm', desktop: 'md' },
+  },
+};
+
+export const SwitchGroup: Story = {
+  render: args => {
+    const [value = [], setValue] = useState<Array<string>>(['1']);
+    return (
+      <FormFieldGroup
+        label="Switch group"
+        id="switch-group-story"
+        helperText={`Switches: ${value.join(', ')}`}
+      >
+        {['1', '2', '3', '4'].map(num => (
+          <Switch
+            label={`Switch ${num}`}
+            value={num}
+            defaultChecked={num === '1'}
+            onCheckedChange={React.useCallback(
+              (checked: boolean) => {
+                if (checked) {
+                  setValue((prevValue = []) => [...prevValue, num]);
+                }
+                if (!checked) {
+                  setValue((prevValue = []) => prevValue.filter(value => value !== num));
+                }
+              },
+              [setValue]
+            )}
+            {...args}
+          />
+        ))}
+      </FormFieldGroup>
+    );
   },
 };
