@@ -71,6 +71,7 @@
       min-width: calc(
         var(--h-input-min-width) - calc(var(--h-input-padding-horizontal) + var(--h-space-100))
       );
+
       /* to get the max-width of the internal text-area:
        * from the container max-width we need to subtract the internal padding,
        * the gap between the handle and the container, and the width of the
