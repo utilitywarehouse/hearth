@@ -81,7 +81,7 @@ export const ResponsiveSize: Story = {
 
 export const SwitchGroup: Story = {
   render: args => {
-    const [value = [], setValue] = useState<Array<string>>(['1']);
+    const [value, setValue] = useState<Array<string>>(['1']);
     return (
       <FormFieldGroup
         label="Switch group"
