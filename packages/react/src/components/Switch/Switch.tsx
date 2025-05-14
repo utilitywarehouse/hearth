@@ -37,15 +37,21 @@ export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwa
       e.preventDefault();
     };
 
+    // Get the ref value and ensure proper typing
+    let currentElement: HTMLButtonElement | null = null;
     if (switchRef && typeof switchRef === 'object' && switchRef.current) {
-      if (Boolean(disabled)) {
-        switchRef.current.addEventListener('click', handleClick);
-      }
+      // Type assertion to ensure TypeScript understands this is a valid ref object
+      const refObject = switchRef as React.RefObject<HTMLButtonElement>;
+      currentElement = refObject.current;
+    }
+
+    if (currentElement && disabled) {
+      currentElement.addEventListener('click', handleClick);
     }
 
     return () => {
-      if (switchRef && typeof switchRef === 'object' && switchRef.current) {
-        switchRef.current.removeEventListener('click', handleClick);
+      if (currentElement) {
+        currentElement.removeEventListener('click', handleClick);
       }
     };
   }, [switchRef, disabled]);
