@@ -48,8 +48,8 @@ export const PasswordInput = React.forwardRef<PasswordInputElement, PasswordInpu
         currentElement.form.addEventListener('submit', handleSubmit);
       }
       return () => {
-        if (currentElement) {
-          currentElement.removeEventListener('submit', handleSubmit);
+        if (currentElement?.form) {
+          currentElement.form.removeEventListener('submit', handleSubmit);
         }
       };
     }, [inputRef]);
