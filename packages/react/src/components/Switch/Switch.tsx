@@ -1,6 +1,6 @@
 import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import React, { useImperativeHandle } from 'react';
+import React from 'react';
 import { switchPropDefs, SwitchProps } from './Switch.props';
 import { Root as RadixSwitchRoot, Thumb as RadixSwitchThumb } from '@radix-ui/react-switch';
 import clsx from 'clsx';
