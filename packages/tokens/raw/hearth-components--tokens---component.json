@@ -106,15 +106,15 @@
         "type": "number",
         "value": 2
       },
-      "gap": {
-        "alias": "{space.100}",
-        "type": "number",
-        "value": 8
-      },
       "content-gap": {
         "alias": "{space.50}",
         "type": "number",
         "value": 4
+      },
+      "gap": {
+        "alias": "{space.100}",
+        "type": "number",
+        "value": 8
       },
       "green": {
         "background-color": {
@@ -444,6 +444,18 @@
         "alias": "{space.200}",
         "type": "number",
         "value": 16
+      }
+    },
+    "breadcrumb": {
+      "color": {
+        "alias": "{color.dark.grey.1000}",
+        "type": "color",
+        "value": "#f6f5f5"
+      },
+      "gap": {
+        "alias": "{space.100}",
+        "type": "number",
+        "value": 8
       }
     },
     "button": {
@@ -953,6 +965,57 @@
         "alias": "{color.white}",
         "type": "color",
         "value": "#ffffff"
+      }
+    },
+    "carousel-control": {
+      "gap": {
+        "alias": "{space.100}",
+        "type": "number",
+        "value": 8
+      },
+      "item": {
+        "background-color-active": {
+          "alias": "{color.dark.grey.1000}",
+          "type": "color",
+          "value": "#f6f5f5"
+        },
+        "border-color": {
+          "alias": "{color.dark.grey.1000}",
+          "type": "color",
+          "value": "#f6f5f5"
+        },
+        "border-color-hover": {
+          "alias": "{color.dark.grey.900}",
+          "type": "color",
+          "value": "#e7e6e6"
+        },
+        "border-width": {
+          "alias": "{border-width.2}",
+          "type": "number",
+          "value": 2
+        },
+        "inverted": {
+          "background-color-active": {
+            "alias": "{color.dark.warm-white.1000}",
+            "type": "color",
+            "value": "#fcfbf2"
+          },
+          "border-color": {
+            "alias": "{color.dark.warm-white.1000}",
+            "type": "color",
+            "value": "#fcfbf2"
+          },
+          "border-color-hover": {
+            "alias": "{color.dark.warm-white.800}",
+            "type": "color",
+            "value": "#f1efe4"
+          }
+        }
+      },
+      "size": {
+        "alias": "{space.150}",
+        "type": "number",
+        "value": 12
       }
     },
     "checkbox": {
@@ -1494,7 +1557,7 @@
         "sm": {
           "height": {
             "type": "number",
-            "value": 20
+            "value": 0
           },
           "width": {
             "type": "number",
@@ -2715,15 +2778,15 @@
         "type": "number",
         "value": 2
       },
-      "gap": {
-        "alias": "{space.100}",
-        "type": "number",
-        "value": 8
-      },
       "content-gap": {
         "alias": "{space.50}",
         "type": "number",
         "value": 4
+      },
+      "gap": {
+        "alias": "{space.100}",
+        "type": "number",
+        "value": 8
       },
       "green": {
         "background-color": {
@@ -3053,6 +3116,18 @@
         "alias": "{space.200}",
         "type": "number",
         "value": 16
+      }
+    },
+    "breadcrumb": {
+      "color": {
+        "alias": "{color.light.grey.1000}",
+        "type": "color",
+        "value": "#101010"
+      },
+      "gap": {
+        "alias": "{space.100}",
+        "type": "number",
+        "value": 8
       }
     },
     "button": {
@@ -3562,6 +3637,57 @@
         "alias": "{color.white}",
         "type": "color",
         "value": "#ffffff"
+      }
+    },
+    "carousel-control": {
+      "gap": {
+        "alias": "{space.100}",
+        "type": "number",
+        "value": 8
+      },
+      "item": {
+        "background-color-active": {
+          "alias": "{color.light.grey.1000}",
+          "type": "color",
+          "value": "#101010"
+        },
+        "border-color": {
+          "alias": "{color.light.grey.1000}",
+          "type": "color",
+          "value": "#101010"
+        },
+        "border-color-hover": {
+          "alias": "{color.light.grey.900}",
+          "type": "color",
+          "value": "#3e3c3b"
+        },
+        "border-width": {
+          "alias": "{border-width.2}",
+          "type": "number",
+          "value": 2
+        },
+        "inverted": {
+          "background-color-active": {
+            "alias": "{color.light.warm-white.50}",
+            "type": "color",
+            "value": "#fcfbf2"
+          },
+          "border-color": {
+            "alias": "{color.light.warm-white.50}",
+            "type": "color",
+            "value": "#fcfbf2"
+          },
+          "border-color-hover": {
+            "alias": "{color.light.warm-white.200}",
+            "type": "color",
+            "value": "#f1efe4"
+          }
+        }
+      },
+      "size": {
+        "alias": "{space.150}",
+        "type": "number",
+        "value": 12
       }
     },
     "checkbox": {

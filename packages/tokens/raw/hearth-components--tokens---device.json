@@ -1,5 +1,9 @@
 {
   "desktop": {
+    "Mobile": {
+      "type": "string",
+      "value": "String value"
+    },
     "components": {
       "card": {
         "padding": {
@@ -459,6 +463,10 @@
     }
   },
   "mobile": {
+    "Mobile": {
+      "type": "string",
+      "value": "String value"
+    },
     "components": {
       "card": {
         "padding": {
@@ -767,9 +775,9 @@
           "value": "DM Mono"
         },
         "font-weight": {
-          "alias": "{font.weight.semibold}",
+          "alias": "{font.weight.medium}",
           "type": "number",
-          "value": 600
+          "value": 500
         },
         "lg": {
           "font-size": {
@@ -918,6 +926,10 @@
     }
   },
   "tablet": {
+    "Mobile": {
+      "type": "string",
+      "value": "String value"
+    },
     "components": {
       "card": {
         "padding": {
