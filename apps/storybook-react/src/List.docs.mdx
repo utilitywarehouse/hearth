@@ -1,0 +1,155 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import * as Stories from './List.stories';
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Components / List" />
+
+<DocsHeader componentName="List" stories={Stories} />
+
+- [Appearance](#appearance)
+  - [Variant](#variant)
+  - [ColorScheme](#colorscheme)
+- [Heading](#heading)
+  - [Link](#link)
+  - [Helper text](#helper-text)
+- [API](#api)
+- [ListItem](#listitem)
+- [ListItemButton](#listitembutton)
+- [ListItemLink](#listitemlink)
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+- The `List` component can be customized with different variants and color schemes.
+- Use `ListItemButton` and `ListItemLink` for interactive list items like buttons and links.
+- The `helperText` prop is available for both `List` and `ListItem` to provide additional context or instructions.
+
+## Appearance
+
+**Important:** The `variant` prop must be used together with the `colorScheme`
+prop. If either `variant` or `colorScheme` is `undefined`, the list will fall
+back to its default appearance.
+
+<Canvas of={Stories.KitchenSink} />
+
+### Variant
+
+The `variant` prop controls the overall style of the list. It can be used to
+adjust the visual prominence of the list.
+
+- **`undefined`**: Default appearance with no special styling.
+- **`'subtle'`**: A minimal style with subtle borders and background.
+- **`'emphasis'`**: A more pronounced style with stronger borders and background.
+
+### ColorScheme
+
+The `colorScheme` prop adjusts the background color of the list. It works in
+conjunction with the `variant` prop.
+
+- **`undefined`**: Default color scheme.
+- **`'white'`**: A clean, neutral white background.
+- **`'warmWhite'`**: A softer, warmer white background.
+
+## Heading
+
+The `heading` prop specifies the title of the list. This is useful for
+providing context or describing the purpose of the list.
+
+The `headingElement` prop allows you to specify the HTML element used for the
+heading. This is important for maintaining semantic structure in your document.
+
+- Use `'h1'`, `'h2'`, etc., for headings that are part of your page's hierarchy.
+- Use `'div'` if the heading is purely decorative or doesn't fit into the semantic structure.
+
+```tsx
+<List heading="My List" headingElement="h2">
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+</List>
+```
+
+### Link
+
+The `linkText` and `linkHref` props work together to render a link in
+the list header. Use them to provide a call-to-action or navigation link.
+
+- **`linkText`**: The text to display for the link.
+- **`linkHref`**: The URL the link should navigate to.
+
+```tsx
+<List heading="My Bills" linkText="View All" linkHref="https://uw.co.uk/bills">
+  <ListItem>January 2025</ListItem>
+  <ListItem>February 2025</ListItem>
+</List>
+```
+
+### Helper text
+
+The `helperText` prop provides additional context or instructions for the list.
+It is displayed below the heading.
+
+## API
+
+This component is based on the `ul` element.
+
+| Name             | Type                                             |
+| ---------------- | ------------------------------------------------ |
+| `variant`        | `"subtle" \| "emphasis" \| "undefined"`          |
+| `colorScheme`    | `"white" \| "warmWhite" \| "undefined"`          |
+| `heading`        | `string`                                         |
+| `headingElement` | `"div" \| "h1" \| "h2" \| "h3" \| "h4" \| "div"` |
+| `helperText`     | `string`                                         |
+| `linkText`       | `string`                                         |
+| `linkHref`       | `string`                                         |
+
+## ListItem
+
+The `ListItem` component represents an individual item in the `List`.
+
+```tsx
+<List heading="Example List">
+  <ListItem leadingIcon={<SettingsMediumIcon />} helperText="Helper text for item 1">
+    Item 1
+  </ListItem>
+  <ListItem helperText="Helper text for item 2">Item 2</ListItem>
+</List>
+```
+
+### API
+
+This component is base on the `li` element.
+
+| Name          | Type        |
+| ------------- | ----------- |
+| `helperText`  | `string`    |
+| `leadingIcon` | `ReactNode` |
+
+## ListItemButton
+
+The `ListItemButton` component is used to render a list item as a button.
+
+<Canvas of={Stories.ListItemButtons} />
+
+### API
+
+This component is base on the `button` element.
+
+| Name           | Type        |
+| -------------- | ----------- |
+| `trailingIcon` | `ReactNode` |
+
+## ListItemLink
+
+The `ListItemLink` component is used to render a list item as a link.
+
+<Canvas of={Stories.ListItemLinks} />
+
+### API
+
+This component is base on the `a` element.
+
+| Name           | Type        |
+| -------------- | ----------- |
+| `trailingIcon` | `ReactNode` |
