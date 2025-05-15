@@ -24,6 +24,7 @@ StyleDictionary.registerFormat({
 @import '../css/divider.css';
 @import '../css/focus.css';
 @import '../css/font.css';
+@import '../css/list.css';
 @import '../css/icon-button.css';
 @import '../css/inline-link.css';
 @import '../css/input.css';

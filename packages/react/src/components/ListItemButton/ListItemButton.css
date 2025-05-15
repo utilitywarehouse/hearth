@@ -1,0 +1,33 @@
+.hearth-ListItemButton {
+  all: unset;
+  outline: transparent;
+  appearance: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+
+  &::after {
+    z-index: 0;
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  &:has(.hearth-trailing-icon > svg[width='24']) {
+    padding-right: calc(var(--h-space-300) + var(--h-list-item-gap));
+  }
+
+  &:has(.hearth-trailing-icon > svg[width='20']) {
+    padding-right: calc(var(--h-space-250) + var(--h-list-item-gap));
+  }
+
+  & :where(.hearth-trailing-icon) {
+    position: absolute;
+    right: var(--h-list-item-padding);
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
