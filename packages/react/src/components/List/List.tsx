@@ -33,7 +33,6 @@ export const List = React.forwardRef<ListElement, ListProps>(
     ref
   ) => {
     const showLink = linkHref && linkText;
-    console.log({ linkHref, linkText });
     return (
       <div className={clsx(componentClassName, className)}>
         <div className="hearth-ListHeader">
