@@ -59,7 +59,7 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
             {...props}
             id={id}
             aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
-            aria-labelledby={ariaLabelledby || !!label ? labelId : undefined}
+            aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}
             className="hearth-RadioItem"
           >
             <RadixRadioIndicator className="hearth-RadioIndicator" />
