@@ -42,7 +42,7 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
         {...props}
         id={id}
         aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
-        aria-labelledby={ariaLabelledby || !!label ? labelId : undefined}
+        aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}
       >
         <div className="hearth-RadioContainer">
           <div className="hearth-RadioItem">
