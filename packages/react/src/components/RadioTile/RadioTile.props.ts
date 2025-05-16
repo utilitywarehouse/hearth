@@ -1,3 +1,5 @@
 import { RadioProps } from '../Radio/Radio.props';
 
-export type RadioTileProps = RadioProps;
+export interface RadioTileProps extends Omit<RadioProps, 'label'> {
+  label: RadioProps['label'];
+}

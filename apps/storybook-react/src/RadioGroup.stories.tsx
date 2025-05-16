@@ -42,19 +42,29 @@ type Story = StoryObj<typeof RadioGroup>;
 export const Playground: Story = {
   render: args => {
     return (
-      <Flex width="500px" direction="column" gap="400">
-        <RadioGroup {...args} name="radio-group-example">
+      <Flex direction="column" gap="400">
+        <RadioGroup {...args}>
+          <RadioTile value="england" label="England" />
+          <RadioTile value="wales" label="Wales" />
+          <RadioTile value="scotland" label="Scotland" />
+          <RadioTile value="northern-ireland" label="Northern Ireland" />
+        </RadioGroup>
+        <RadioGroup
+          {...args}
+          label="Do you like living here?"
+          name="do-you-like-living-here"
+          direction="row"
+        >
           <RadioTile value="y" label="Yes" />
           <RadioTile value="n" label="No" />
         </RadioGroup>
-        <RadioGroup {...args} name="radio-group-example">
-          <RadioTile value="1" label="One" />
-          <RadioTile value="2" label="Two" />
-          <RadioTile value="3" label="Three" />
-          <RadioTile value="4" label="Four" />
-        </RadioGroup>
       </Flex>
     );
+  },
+  args: {
+    name: 'where-do-you-live',
+    label: 'Where do you live?',
+    helperText: undefined,
   },
 };
 
@@ -72,6 +82,7 @@ export const RadioHelperText: Story = {
   args: {
     defaultValue: '3',
     helperText: undefined,
+    name: 'helper-text',
   },
 };
 
@@ -86,7 +97,7 @@ export const ContentWidth: Story = {
       </RadioGroup>
     );
   },
-  args: { contentWidth: '200px' },
+  args: { contentWidth: '200px', name: 'content-width' },
 };
 
 export const Controlled: Story = {
@@ -108,6 +119,7 @@ export const Controlled: Story = {
   },
   args: {
     label: 'What is your favourite animal?',
+    name: 'favourite-animal',
   },
 };
 
@@ -132,6 +144,7 @@ export const Validation: Story = {
   args: {
     validationText: 'Please tell us what your favourite animal is.',
     label: 'What is your favourite animal?',
+    name: 'favourite-animal',
     helperText: 'These are the best animals.',
   },
 };
@@ -140,7 +153,12 @@ export const Wrap: Story = {
   render: args => {
     return (
       <Box height="800px" width="350px" padding="200">
-        <RadioGroup {...args} direction="row" helperText="Child elements will wrap by default">
+        <RadioGroup
+          {...args}
+          direction="row"
+          helperText="Child elements will wrap by default"
+          name="wrap"
+        >
           <RadioTile value="1" label="One" />
           <RadioTile value="2" label="Two" />
           <RadioTile value="3" label="Three" />
