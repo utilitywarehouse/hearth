@@ -14,11 +14,12 @@ import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 const componentName = 'List';
 const componentClassName = withGlobalPrefix(componentName);
 
-type ListElement = ElementRef<'ul'>;
+type ListElement = ElementRef<'ol'>;
 
 export const List = React.forwardRef<ListElement, ListProps>(
   (
     {
+      as: Tag = 'ul',
       className,
       colorScheme = undefined,
       heading,
@@ -51,9 +52,9 @@ export const List = React.forwardRef<ListElement, ListProps>(
         </div>
         {variant === undefined || colorScheme === undefined ? (
           <Box asChild className="hearth-ListContainer">
-            <ul role="list" ref={ref} {...props}>
+            <Tag role="list" ref={ref} {...props}>
               {children}
-            </ul>
+            </Tag>
           </Box>
         ) : (
           <Card
@@ -62,9 +63,9 @@ export const List = React.forwardRef<ListElement, ListProps>(
             variant={variant}
             colorScheme={colorScheme}
           >
-            <ul role="list" ref={ref} {...props}>
+            <Tag role="list" ref={ref} {...props}>
               {children}
-            </ul>
+            </Tag>
           </Card>
         )}
       </div>
