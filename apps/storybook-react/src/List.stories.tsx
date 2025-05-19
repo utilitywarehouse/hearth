@@ -25,6 +25,10 @@ const meta: Meta<typeof List> = {
       control: { type: 'radio' },
       options: [undefined, 'subtle', 'emphasis'],
     },
+    as: {
+      control: { type: 'radio' },
+      options: ['ul', 'ol'],
+    },
     colorScheme: {
       control: { type: 'radio' },
       options: [undefined, 'white', 'warmWhite'],

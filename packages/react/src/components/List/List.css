@@ -11,7 +11,7 @@
   }
 
   & :where(.hearth-ListContainer) {
-    & :where(ul) {
+    & :where(ul, ol) {
       width: 100%;
     }
   }
