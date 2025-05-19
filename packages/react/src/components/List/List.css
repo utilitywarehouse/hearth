@@ -11,6 +11,9 @@
   }
 
   & :where(.hearth-ListContainer) {
+    &:where(:has(:focus-visible)) {
+      outline: none;
+    }
     & :where(ul, ol) {
       width: 100%;
     }

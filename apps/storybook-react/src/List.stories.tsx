@@ -4,6 +4,7 @@ import {
   Flex,
   List,
   ListItem,
+  ListItemText,
   ListItemButton,
   ListItemLink,
 } from '@utilitywarehouse/hearth-react';
@@ -55,17 +56,45 @@ export const Playground: Story = {
   render: args => (
     <Box width="300px">
       <List {...args}>
-        <ListItem helperText="Helper text">List item</ListItem>
-        <ListItem helperText="Helper text">List item</ListItem>
-        <ListItem leadingIcon={<InfoMediumIcon />} helperText="Helper text">
-          List item
+        <ListItem>List item</ListItem>
+        <ListItem>
+          <ListItemText helperText="Helper text">List item</ListItemText>
         </ListItem>
-        <ListItem helperText="Helper text" leadingIcon={<SettingsMediumIcon />}>
+        <ListItem>
+          <ListItemText leadingIcon={<InfoMediumIcon />} helperText="Helper text">
+            List item
+          </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemButton
+            helperText="Helper text"
+            leadingIcon={<SettingsMediumIcon />}
+            onClick={() => console.log('clickety click')}
+          >
+            List item as button
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton helperText="Helper text" onClick={() => console.log('clickety click')}>
+            List item as button
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
           <ListItemButton onClick={() => console.log('clickety click')}>
             List item as button
           </ListItemButton>
         </ListItem>
-        <ListItem helperText="Helper text" leadingIcon={<SettingsMediumIcon />}>
+        <ListItem>
+          <ListItemLink helperText="Helper text" leadingIcon={<SettingsMediumIcon />} href="#">
+            List item as link
+          </ListItemLink>
+        </ListItem>
+        <ListItem>
+          <ListItemLink helperText="Helper text" href="#">
+            List item as link
+          </ListItemLink>
+        </ListItem>
+        <ListItem>
           <ListItemLink href="#">List item as link</ListItemLink>
         </ListItem>
       </List>
