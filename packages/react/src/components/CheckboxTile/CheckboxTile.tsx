@@ -76,7 +76,8 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
           </RadixCheckbox.Indicator>
         </RadixCheckbox.Root>
         <Flex direction="column">
-          <Label id={labelId} htmlFor={id} disableUserSelect            {label}
+          <Label id={labelId} htmlFor={id} disableUserSelect>
+            {label}
           </Label>
           {showHelperText ? (
             <HelperText id={helperTextId} disableUserSelect>

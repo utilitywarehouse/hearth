@@ -9,7 +9,6 @@
   background-color: var(--h-checkbox-tile-background-color);
   border-radius: var(--h-checkbox-tile-border-radius);
   box-shadow: inset 0 0 0 var(--h-checkbox-tile-border-width) var(--h-checkbox-tile-border-color);
-
   cursor: pointer;
 
   * {
@@ -18,6 +17,7 @@
 
   &:where([data-disabled]) {
     cursor: not-allowed;
+
     * {
       cursor: not-allowed;
     }
