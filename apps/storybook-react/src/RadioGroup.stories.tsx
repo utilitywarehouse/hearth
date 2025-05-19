@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { RadioGroup, RadioTile, Box } from '@utilitywarehouse/hearth-react';
+import { RadioGroup, RadioTile, Box, Heading } from '@utilitywarehouse/hearth-react';
 import { Flex } from '@utilitywarehouse/hearth-react/src/index.js';
 
 const meta: Meta<typeof RadioGroup> = {
@@ -168,5 +168,29 @@ export const Wrap: Story = {
         </RadioGroup>
       </Box>
     );
+  },
+};
+
+export const CustomLabel: Story = {
+  render: args => {
+    return (
+      <Flex direction="column" gap="200">
+        <Heading as="h2" id="where-do-you-live">
+          Custom label
+        </Heading>
+        <RadioGroup {...args}>
+          <RadioTile value="england" label="England" />
+          <RadioTile value="wales" label="Wales" />
+          <RadioTile value="scotland" label="Scotland" />
+          <RadioTile value="northern-ireland" label="Northern Ireland" />
+        </RadioGroup>
+      </Flex>
+    );
+  },
+  args: {
+    label: undefined,
+    name: 'where-do-you-live',
+    helperText: 'The label for this fieldset is the Heading element before it.',
+    ['aria-labelledby']: 'where-do-you-live',
   },
 };
