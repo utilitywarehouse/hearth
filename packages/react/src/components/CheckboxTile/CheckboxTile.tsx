@@ -5,9 +5,6 @@ import clsx from 'clsx';
 import { CheckboxTileProps } from './CheckboxTile.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
-import { SelectableCard } from '../SelectableCard/SelectableCard';
-import { CardAction } from '../Card/CardAction';
-import { Checkbox } from '../Checkbox/Checkbox';
 import * as RadixCheckbox from '@radix-ui/react-checkbox';
 import { useIds } from '../../hooks/use-ids';
 import { useFormFieldGroup } from '../FormFieldGroup/FormFieldGroup.context';
@@ -79,8 +76,7 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
           </RadixCheckbox.Indicator>
         </RadixCheckbox.Root>
         <Flex direction="column">
-          <Label id={labelId} htmlFor={id} disableUserSelect>
-            {label}
+          <Label id={labelId} htmlFor={id} disableUserSelect            {label}
           </Label>
           {showHelperText ? (
             <HelperText id={helperTextId} disableUserSelect>
