@@ -8,7 +8,7 @@ import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 
 <DocsHeader componentName="RadioGroup" stories={Stories} />
 
-<Canvas of={Stories.Playground} sourceState="none" />
+<Canvas of={Stories.Playground} />
 
 ## Alternatives
 
@@ -25,9 +25,11 @@ import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 ## Accessibility
 
 The necessary aria props, such as `aria-labelledby`, `aria-describedby` and
-`aria-errormessage` are handled internally, however you can pass these and
-other aria props, such as `aria-label`, to `RadioGroup` and child
-components if you need to.
+`aria-errormessage` are handled internally, however when it is necessary for
+the `RadioGroup` to be labelled by another element or even not to have a visual
+label, either aria-label or aria-labelledby can be provided.
+
+<Canvas of={Stories.CustomLabel} />
 
 The `Radio` and `RadioTile` are, by default, appropriately labelled when using
 the `label` props, if you do not provide a label, you must specify an

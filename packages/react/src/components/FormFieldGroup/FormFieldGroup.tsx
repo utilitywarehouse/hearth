@@ -57,11 +57,11 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
         id={id}
         data-disabled={disabled ? '' : undefined}
         aria-errormessage={ariaErrorMessage || showValidationText ? validationTextId : undefined}
-        aria-labelledby={ariaLabelledby || !!label ? labelId : undefined}
+        aria-labelledby={ariaLabelledby ?? (Boolean(label) ? labelId : undefined)}
         aria-invalid={showValidationText}
         aria-describedby={ariaDescribedbyValue}
       >
-        {label ? (
+        {label || helperText || validationText ? (
           <Flex direction="column" align="start">
             {label ? <FieldsetLegend id={labelId}>{label}</FieldsetLegend> : null}
             {helperText ? (

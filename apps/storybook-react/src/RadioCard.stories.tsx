@@ -8,11 +8,9 @@ const meta: Meta<typeof RadioCard> = {
   argTypes: {
     value: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
-    disabled: { control: { type: 'boolean' } },
   },
   args: {
     value: '1',
-    disabled: false,
     label: 'Label',
   },
 };
