@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import type { FieldsetProps } from './Fieldset.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
-import { Flex } from '../Flex/Flex';
 
 const componentName = 'Fieldset';
 const componentClassName = withGlobalPrefix(componentName);
@@ -16,9 +15,7 @@ export const Fieldset = React.forwardRef<FieldsetElement, FieldsetProps>(
   ({ children, className, ...props }, ref) => {
     return (
       <fieldset className={clsx(componentClassName, className)} ref={ref} {...props}>
-        <Flex direction="column" gap="200">
-          {children}
-        </Flex>
+        {children}
       </fieldset>
     );
   }

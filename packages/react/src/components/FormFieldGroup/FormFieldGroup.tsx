@@ -10,14 +10,18 @@ import { Flex } from '../Flex/Flex';
 import { FieldsetLegend } from '../FieldsetLegend/FieldsetLegend';
 import { HelperText } from '../HelperText/HelperText';
 import { ValidationText } from '../ValidationText/ValidationText';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import clsx from 'clsx';
 
 const componentName = 'FormFieldGroup';
+const componentClassName = withGlobalPrefix(componentName);
 
 type FormFieldGroupElement = ElementRef<'fieldset'>;
 
 export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldGroupProps>(
   (
     {
+      className,
       id: providedId,
       children,
       label,
@@ -52,6 +56,7 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
     return (
       <Fieldset
         ref={ref}
+        className={clsx(componentClassName, className)}
         {...props}
         disabled={disabled}
         id={id}
@@ -61,9 +66,9 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
         aria-invalid={showValidationText}
         aria-describedby={ariaDescribedbyValue}
       >
-        {label || helperText || validationText ? (
+        {label ? <FieldsetLegend id={labelId}>{label}</FieldsetLegend> : null}
+        {helperText || validationText ? (
           <Flex direction="column" align="start">
-            {label ? <FieldsetLegend id={labelId}>{label}</FieldsetLegend> : null}
             {helperText ? (
               <HelperText id={helperTextId} disabled={disabled}>
                 {helperText}
@@ -77,7 +82,9 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
           </Flex>
         ) : null}
 
-        <FormFieldGroupProvider value={value}>{children}</FormFieldGroupProvider>
+        <FormFieldGroupProvider value={value}>
+          <div className="hearth-FormFieldGroupContent">{children}</div>
+        </FormFieldGroupProvider>
       </Fieldset>
     );
   }

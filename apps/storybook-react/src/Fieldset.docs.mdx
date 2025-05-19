@@ -8,7 +8,18 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 
 <DocsHeader componentName="Fieldset" stories={Stories} />
 
-<Canvas of={Stories.Workshop} sourceState="none" />
+<Canvas of={Stories.Playground} />
+
+## Alternatives
+
+- [FormFieldGroup](?path=/docs/components-formfieldgroup--docs) - For default form field groups
+
+## Grouping inputs
+
+The `Fieldset` and `FieldsetLegend` components can be used together to group form inputs.
+The `FieldsetLegend` should be the first child of the `Fieldset` for accessibility.
+
+<Canvas of={Stories.GroupingInputs} />
 
 ## API
 

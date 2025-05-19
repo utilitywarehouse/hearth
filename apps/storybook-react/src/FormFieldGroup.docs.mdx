@@ -1,0 +1,36 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
+
+import * as Stories from './FormFieldGroup.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Components / FormFieldGroup" />
+
+<DocsHeader componentName="FormFieldGroup" stories={Stories} />
+
+<Canvas of={Stories.Playground} />
+
+## Alternatives
+
+- [Fieldset](?path=/docs/components-fieldset--docs) - For custom fieldset form groups
+
+## Custom label
+
+If you need to have a custom label you can pass a component to the `label`
+prop, render it separately, or use the underlying `Fieldset` & `FieldsetLegend`
+components directly.
+
+The necessary aria props, such as `aria-labelledby`, `aria-describedby` and
+`aria-errormessage` are handled internally, so if you do choose to render a
+separate label, or even not to have a visual label, either `aria-label` or
+`aria-labelledby` should be provided.
+
+## API
+
+This component is based on the `Fieldset` component.
+
+| Prop             | Type     |
+| ---------------- | -------- |
+| `label`          | `string` |
+| `helperText`     | `string` |
+| `validationText` | `string` |
