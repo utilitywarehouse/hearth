@@ -11,22 +11,13 @@ import { useIds } from '../../hooks/use-ids';
 import { useFormFieldGroup } from '../FormFieldGroup/FormFieldGroup.context';
 import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
+import { Flex } from '../Flex/Flex';
 
 const componentName = 'RadioTile';
 const componentClassName = withGlobalPrefix(componentName);
 
 type RadioTileElement = ElementRef<'button'>;
 
-/**
- * `RadioTile` can be used to choose between a set of more than two options.
- *
- * `RadioTile` should always be used with a `RadioGroup` or `RadioGridGroup` to
- * handle the state control and layout.
- *
- * `RadioTile` is, by default, appropriately labelled when using
- * the `label` prop, if you do not provide a label, you must specify an
- * `aria-label` or `aria-labelledby` for accessibility.
- */
 export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
   (
     { className, id: providedId, label, helperText, 'aria-labelledby': ariaLabelledby, ...props },
@@ -48,8 +39,8 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
           <div className="hearth-RadioItem">
             <RadixRadioIndicator className="hearth-RadioIndicator" />
           </div>
-          <div>
-            <Label id={labelId} htmlFor={id} disableUserSelect className="hearth-RadioLabel">
+          <Flex direction="column">
+            <Label id={labelId} htmlFor={id} disableUserSelect>
               {label}
             </Label>
             {showHelperText ? (
@@ -57,7 +48,7 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
                 {helperText}
               </HelperText>
             ) : null}
-          </div>
+          </Flex>
         </div>
       </RadixRadioItem>
     );

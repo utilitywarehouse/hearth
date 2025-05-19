@@ -5,6 +5,14 @@ import { RadioTile, Flex, RadioGroup } from '@utilitywarehouse/hearth-react';
 const meta: Meta<typeof RadioTile> = {
   title: 'Stories / RadioTile',
   component: RadioTile,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          '`RadioTile` can be used to choose between a set of more than two options. `RadioTile` should be used with `RadioGroup` to handle the state control and layout.',
+      },
+    },
+  },
   argTypes: {
     value: { control: { type: 'text' } },
     helperText: { control: { type: 'text' } },
