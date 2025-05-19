@@ -138,6 +138,9 @@ export type { ListProps } from './components/List/List.props';
 export { ListItem } from './components/ListItem/ListItem';
 export type { ListItemProps } from './components/ListItem/ListItem.props';
 
+export { ListItemText } from './components/ListItemText/ListItemText';
+export type { ListItemTextProps } from './components/ListItemText/ListItemText.props';
+
 export { ListItemButton } from './components/ListItemButton/ListItemButton';
 export type { ListItemButtonProps } from './components/ListItemButton/ListItemButton.props';
 

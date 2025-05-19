@@ -23,8 +23,10 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 <Controls of={Stories.Playground} />
 
 - The `List` component can be customized with different variants and color schemes.
-- Use `ListItemButton` and `ListItemLink` for interactive list items like buttons and links.
-- The `helperText` prop is available for both `List` and `ListItem` to provide additional context or instructions.
+- Use `ListItem` by itself for basic text content.
+- Use `ListItemText` as a child of `ListItem` to include `helperText` or a `leadingIcon`.
+- Use `ListItemButton` as a child of `ListItem` when you need the list item to perform an action.
+- Use `ListItemLink` as a child of `ListItem` when you need the list item to navigate somewhere.
 
 ## Appearance
 
@@ -107,20 +109,30 @@ This component is based on the `ul` element.
 
 ## ListItem
 
-The `ListItem` component represents an individual item in the `List`.
+The `ListItem` component represents an individual item in the `List`. It can be
+used by itself to present simple text content. It also works as a wrapper when
+you need to present advanced content or interactive list items.
 
 ```tsx
 <List heading="Example List">
-  <ListItem leadingIcon={<SettingsMediumIcon />} helperText="Helper text for item 1">
-    Item 1
-  </ListItem>
-  <ListItem helperText="Helper text for item 2">Item 2</ListItem>
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
 </List>
 ```
 
 ### API
 
 This component is base on the `li` element.
+
+## ListItemText
+
+The `ListItemText` component is used to render more advanced text content.
+
+<Canvas of={Stories.ListItemTexts} />
+
+### API
+
+This component is base on the `div` element.
 
 | Name          | Type        |
 | ------------- | ----------- |
@@ -139,6 +151,8 @@ This component is base on the `button` element.
 
 | Name           | Type        |
 | -------------- | ----------- |
+| `helperText`   | `string`    |
+| `leadingIcon`  | `ReactNode` |
 | `trailingIcon` | `ReactNode` |
 
 ## ListItemLink
@@ -153,4 +167,6 @@ This component is base on the `a` element.
 
 | Name           | Type        |
 | -------------- | ----------- |
+| `helperText`   | `string`    |
+| `leadingIcon`  | `ReactNode` |
 | `trailingIcon` | `ReactNode` |
