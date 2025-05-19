@@ -1,8 +1,11 @@
 .hearth-FieldsetLegend {
   padding: 0;
-  font-family: var(--h-font-family-body);
-  font-weight: var(--h-font-weight-semibold);
-  font-size: var(--h-font-size-100);
-  line-height: var(--h-line-height-500);
   color: var(--h-text-color);
+
+  &:where(:not(:has(*))) {
+    font-family: var(--h-font-family-body);
+    font-weight: var(--h-font-weight-semibold);
+    font-size: var(--h-font-size-100);
+    line-height: var(--h-line-height-500);
+  }
 }

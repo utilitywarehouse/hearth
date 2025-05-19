@@ -6,6 +6,14 @@ import { Placeholder } from './storybook-components/Placeholder';
 const meta: Meta<typeof FormFieldGroup> = {
   title: 'Stories / FormFieldGroup',
   component: FormFieldGroup,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'The `FormFieldGroup` component can be used to group related form inputs, it builds on the `Fieldset` component, and handles layout, labelling, helper and validation text.',
+      },
+    },
+  },
   argTypes: {
     helperText: { control: { type: 'text' } },
     validationText: { control: { type: 'text' } },
