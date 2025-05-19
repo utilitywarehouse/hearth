@@ -4,6 +4,10 @@
   position: relative;
   padding: var(--h-list-item-padding);
 
+  &:where(:has(:focus-visible)) {
+    outline: 2px solid var(--h-focus-border);
+  }
+
   &:where(:first-child) {
     border-top-left-radius: var(--h-card-border-radius);
     border-top-right-radius: var(--h-card-border-radius);
@@ -38,9 +42,5 @@
     &:where(:active) {
       background-color: var(--h-list-item-background-color-active);
     }
-  }
-
-  &:where(:has(:focus-visible)) {
-    outline: 2px solid var(--h-focus-border);
   }
 }
