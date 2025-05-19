@@ -21,6 +21,11 @@ export type ListProps = ComponentPropsWithout<'ul', RemovedProps> &
       }
   ) & {
     /**
+     * Shorthand for changing the default rendered element into a semantically appropriate alternative.
+     * @default ul
+     */
+    as?: 'ul' | 'ol';
+    /**
      * The heading for the list, describing its purpose.
      */
     heading?: string;
