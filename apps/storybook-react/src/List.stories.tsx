@@ -144,6 +144,31 @@ export const KitchenSink: Story = {
   ),
 };
 
+export const ListItemTexts: Story = {
+  render: args => (
+    <Box width="300px">
+      <List {...args}>
+        <ListItem>
+          <ListItemText leadingIcon={<SettingsMediumIcon />} helperText="Helper text">
+            List item text
+          </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemText leadingIcon={<SettingsMediumIcon />} helperText="Helper text">
+            List item text
+          </ListItemText>
+        </ListItem>
+        <ListItem>
+          <ListItemText leadingIcon={<SettingsMediumIcon />} helperText="Helper text">
+            List item text
+          </ListItemText>
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: { variant: 'emphasis', colorScheme: 'warmWhite' },
+};
+
 export const ListItemButtons: Story = {
   render: args => (
     <Box width="300px">
