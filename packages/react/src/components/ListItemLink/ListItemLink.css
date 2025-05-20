@@ -7,6 +7,7 @@
   flex-direction: row;
   gap: var(--h-space-150);
   align-items: center;
+  border-radius: var(--h-border-radius-xs);
 
   &::after {
     z-index: 0;
@@ -15,7 +16,8 @@
     inset: 0;
   }
 
-  &:where(a:focus-visible) {
-    outline: none;
+  &:where(:focus-visible) {
+    outline: 2px solid var(--h-focus-border);
+    outline-offset: 1px;
   }
 }

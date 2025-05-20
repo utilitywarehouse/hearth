@@ -55,7 +55,7 @@ type Story = StoryObj<typeof List>;
 export const Playground: Story = {
   render: args => (
     <Box width="300px">
-      <List {...args}>
+      <List {...args} headingElement="h1">
         <ListItem>List item</ListItem>
         <ListItem>
           <ListItemText helperText="Helper text">List item</ListItemText>
