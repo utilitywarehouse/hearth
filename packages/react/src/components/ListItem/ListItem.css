@@ -4,10 +4,6 @@
   position: relative;
   padding: var(--h-list-item-padding);
 
-  &:where(:has(:focus-visible)) {
-    outline: 2px solid var(--h-focus-border);
-  }
-
   &:where(:first-child) {
     border-top-left-radius: var(--h-card-border-radius);
     border-top-right-radius: var(--h-card-border-radius);
@@ -24,12 +20,10 @@
 
   :where(.hearth-variant-subtle) & {
     border-color: var(--h-list-item-subtle-border-color);
-    outline-offset: 2px;
   }
 
   :where(.hearth-variant-emphasis) & {
     border-color: var(--h-list-item-emphasis-border-color);
-    outline-offset: 3px;
   }
 
   &:has(button, a) {
