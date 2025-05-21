@@ -1,14 +1,13 @@
 import { Meta, Unstyled } from '@storybook/blocks';
 
-import { BodyText, Flex, media } from '@utilitywarehouse/hearth-react';
+import { BodyText, Flex, Divider, media } from '@utilitywarehouse/hearth-react';
 
-<Meta title="Utilities / Media Queries" />
+<Meta title="Media Queries" />
 
 # Media Queries
 
 While you should be able to do most things using the responsive style props, if
-you need to you can use the `media` object to help create responsive
-styles.
+you need to you can use the `media` object to help create responsive styles.
 
 ```tsx
 import { media } from '@utilitywarehouse/hearth-react';
@@ -28,7 +27,7 @@ import { media } from '@utilitywarehouse/hearth-react';
 ```
 
 <Unstyled>
-  <Flex direction="column" gap="100" width="500px">
+  <Flex direction="column" gap="100" width="500px" marginBottom="600">
     <Flex justify="space-between" align="center">
       <BodyText variant="body" as="span">
         {`media.mobile`}
@@ -37,6 +36,7 @@ import { media } from '@utilitywarehouse/hearth-react';
         {media.mobile}
       </BodyText>
     </Flex>
+    <Divider decorative />
     <Flex justify="space-between" align="center">
       <BodyText variant="body" as="span">
         {`media.tablet`}
@@ -45,6 +45,7 @@ import { media } from '@utilitywarehouse/hearth-react';
         {media.tablet}
       </BodyText>
     </Flex>
+    <Divider decorative />
     <Flex justify="space-between" align="center">
       <BodyText variant="body" as="span">
         {`media.desktop`}
@@ -53,6 +54,7 @@ import { media } from '@utilitywarehouse/hearth-react';
         {media.desktop}
       </BodyText>
     </Flex>
+    <Divider decorative />
     <Flex justify="space-between" align="center">
       <BodyText variant="body" as="span">
         {`media.wide`}
@@ -63,8 +65,6 @@ import { media } from '@utilitywarehouse/hearth-react';
     </Flex>
   </Flex>
 </Unstyled>
-
-<Flex padding="300" />
 
 ## Media query helpers
 
