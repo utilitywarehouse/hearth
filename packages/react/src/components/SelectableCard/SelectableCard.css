@@ -1,5 +1,6 @@
 .hearth-SelectableCard {
   cursor: pointer;
+  border: none;
 
   &:where([data-disabled], [data-disabled] &) {
     cursor: default;
