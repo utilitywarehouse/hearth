@@ -65,6 +65,7 @@ export const Playground: Story = {
     name: 'where-do-you-live',
     label: 'Where do you live?',
     helperText: undefined,
+    validationText: undefined,
   },
 };
 
