@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { RadioCard, Flex, RadioGroup, Badge, Box } from '@utilitywarehouse/hearth-react';
+import { RadioCard, Flex, RadioGroup, Badge, Box, Heading } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof RadioCard> = {
   title: 'Stories / RadioCard',
@@ -22,10 +22,15 @@ export const Playground: Story = {
   render: () => {
     return (
       <Flex>
-        <RadioGroup defaultValue="1" direction="column" contentWidth="350px">
+        <RadioGroup
+          defaultValue="1"
+          direction="column"
+          contentWidth="350px"
+          label={<Heading>Payment options</Heading>}
+        >
           <Flex direction="column">
             <Flex right="24px" position="relative" justify="end">
-              <Badge flatBase colorScheme="green">
+              <Badge flatBase colorScheme="green" style={{ zIndex: 2 }}>
                 Recommended
               </Badge>
             </Flex>
