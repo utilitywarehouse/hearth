@@ -167,16 +167,76 @@ specifically only the light theme colour values are available on the web.
 <Box color="cashbackLilac600" />
 ```
 
-| Prop    | Type                      |
-| ------- | ------------------------- |
-| `color` | `Responsive<colorTokens>` |
+| Prop    | Type          |
+| ------- | ------------- |
+| `color` | `colorTokens` |
 
 ## Background colour
 
+The background color prop accepts any valid token value from the [design token colours](https://uw-hearth-tokens.vercel.app/?path=/docs/colours--docs#available-colour-tokens),
+specifically only the light theme colour values are available on the web.
+
+```tsx
+<Box backgroundColor="blue500" />
+<Box backgroundColor="grey100" />
+<Box backgroundColor="cashbackLilac300" />
+```
+
+| Prop              | Type          |
+| ----------------- | ------------- |
+| `backgroundColor` | `colorTokens` |
+
 ## Border
 
-## Text align
+The border props can be used to control the appearance of component borders, for either the entire component or only individual sides.
+The colour specific props make use of the token values from the [design token colours](https://uw-hearth-tokens.vercel.app/?path=/docs/colours--docs#available-colour-tokens),
+while the other props, which are responsive, use their own relevant sets of values.
 
-## Text transform
+```tsx
+<Box borderColor="grey500" borderStyle="solid" borderWidth="1" />
+<Box borderColor="grey500" borderStyle={{ mobile: 'none', desktop: 'solid' }} borderWidth="2" />
+<Box borderTopColor="grey500" borderTopStyle="solid" borderTopWidth={{ mobile: 1, desktop: 2}}/>
+```
 
-## Text wrap
+| Prop                      | Type                                                       |
+| ------------------------- | ---------------------------------------------------------- |
+| `borderColor`             | `colorTokens`                                              |
+| `borderStyle`             | `Responsive<'none'\|'solid'>`                              |
+| `borderWidth`             | `Responsive<'0'\|'1'\|'2'>`                                |
+| `borderRadius`            | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderTopColor`          | `colorTokens`                                              |
+| `borderTopStyle`          | `Responsive<'none'\|'solid'>`                              |
+| `borderTopWidth`          | `Responsive<'0'\|'1'\|'2'>`                                |
+| `borderTopLeftRadius`     | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderTopRightRadius`    | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderRightColor`        | `colorTokens`                                              |
+| `borderRightStyle`        | `Responsive<'none'\|'solid'>`                              |
+| `borderRightWidth`        | `Responsive<'0'\|'1'\|'2'>`                                |
+| `borderBottomColor`       | `colorTokens`                                              |
+| `borderBottomStyle`       | `Responsive<'none'\|'solid'>`                              |
+| `borderBottomWidth`       | `Responsive<'0'\|'1'\|'2'>`                                |
+| `borderBottomLeftRadius`  | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderBottomRightRadius` | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderLeftColor`         | `colorTokens`                                              |
+| `borderLeftStyle`         | `Responsive<'none'\|'solid'>`                              |
+| `borderLeftWidth`         | `Responsive<'0'\|'1'\|'2'>`                                |
+
+## Text props
+
+The text props can exist on components independently of each other, and each reflect their own relevant CSS usage.
+
+```tsx
+<BodyText textAlign="left" />
+<BodyText textAlign={{ mobile: 'center', desktop: 'left' }}/>
+
+<BodyText textTransform="capitalize" />
+
+<BodyText textWrap="pretty" />
+<BodyText textWrap={{ mobile: 'wrap', desktop: 'nowrap' }}/>
+```
+
+| Prop            | Type                                                         |
+| --------------- | ------------------------------------------------------------ |
+| `textAlign`     | `Responsive<'left'\|'center'\|'right'>`                      |
+| `textTransform` | `Responsive<'none'\|'uppercase'\|'lowercase'\|'capitalize'>` |
+| `textWrap`      | `Responsive<'wrap'\|'nowrap'\|'balance'\|'pretty'>`          |
