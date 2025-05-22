@@ -51,11 +51,15 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
+          'Introduction',
+          'Breakpoints',
+          'Media Queries',
+          'Layout',
+          'Common Props',
+          'Responsive Props',
           'Primitives',
-          ['Overview', 'Box', 'Flex', 'Grid'],
           'Typography',
           'Components',
-          'Utilities',
           'Stories',
         ],
       },

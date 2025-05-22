@@ -7,6 +7,19 @@ import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
 Components have their own set of specialized props. They can also include a shared
 set of common props, including for layout, colour and typography.
 
+- [Padding](#padding)
+- [Margin](#margin)
+- [Gap](#gap)
+- [Spacing](#spacing)
+- [Size](#size)
+- [Flex items](#flex-items)
+- [Grid items](#grid-items)
+- [Position](#position)
+- [Color](#color)
+- [Background colour](#background-colour)
+- [Border](#border)
+- [Text](#text)
+
 ## Padding
 
 All the padding props use the [space design tokens](https://uw-hearth-tokens.vercel.app/?path=/docs/space--docs#available-space-tokens) only.
@@ -76,7 +89,7 @@ any usage of the gap props.
 
 ## Size
 
-The size props are responsive but do not use any token values, instead they accept any valid CSS [height](https://developer.mozilla.org/en-US/docs/Web/CSS/height) or [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width) value.
+The size props cover height and width styles, they are responsive but do not use any token values, instead they accept any valid CSS [height](https://developer.mozilla.org/en-US/docs/Web/CSS/height) or [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width) value.
 
 ```tsx
 <Box width="200px" />
@@ -221,7 +234,7 @@ while the other props, which are responsive, use their own relevant sets of valu
 | `borderLeftStyle`         | `Responsive<'none'\|'solid'>`                              |
 | `borderLeftWidth`         | `Responsive<'0'\|'1'\|'2'>`                                |
 
-## Text props
+## Text
 
 The text props can exist on components independently of each other, and each reflect their own relevant CSS usage.
 
