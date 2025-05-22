@@ -19,6 +19,7 @@ import { backgroundColorPropDefs } from '../../props/background-color.props';
 import { positionPropDefs } from '../../props/position.props';
 import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
+import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const componentName = 'Flex';
 const componentClassName = withGlobalPrefix(componentName);
@@ -45,7 +46,8 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
     gridItemPropDefs,
     flexItemPropDefs,
     spacingPropDefs,
-    textAlignPropDefs
+    textAlignPropDefs,
+    textTransformPropDefs
   );
 
   const Component = asChild ? Slot : Tag;

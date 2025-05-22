@@ -11,6 +11,7 @@ import { useIds } from '../../hooks/use-ids';
 import { ValidationText } from '../ValidationText/ValidationText';
 import { mergeIds } from '../../helpers/merge-ids';
 import { BodyText } from '../BodyText/BodyText';
+import { marginPropDefs } from '../../props/margin.props';
 
 const componentName = 'TextInput';
 const componentClassName = withGlobalPrefix(componentName);
@@ -33,7 +34,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
       required,
       placeholder,
       ...textInputProps
-    } = extractProps(props);
+    } = extractProps(props, marginPropDefs);
     const { id, labelId, helperTextId, validationTextId } = useIds({
       providedId,
       prefix: 'input',

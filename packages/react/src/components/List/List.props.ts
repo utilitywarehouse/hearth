@@ -1,8 +1,10 @@
+import { MarginProps } from '../../props/margin.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { CardProps } from '../Card/Card.props';
 import { LinkProps } from '../Link/Link.props';
 
 export type ListProps = ComponentPropsWithout<'ul', RemovedProps> &
+  MarginProps &
   (
     | {
         /**

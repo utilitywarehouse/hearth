@@ -7,6 +7,8 @@ import { marginPropDefs } from '../../props/margin.props';
 import { BodyText } from '../BodyText/BodyText';
 import { ValidationTextProps } from './ValidationText.props';
 import { TickCircleSmallIcon, ErrorCircleSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { textAlignPropDefs } from '../../props/text-align.props';
+import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const componentName = 'ValidationText';
 const componentClassName = withGlobalPrefix(componentName);
@@ -21,7 +23,7 @@ export const ValidationText = React.forwardRef<ValidationTextElement, Validation
       disableUserSelect,
       className,
       ...validationTextProps
-    } = extractProps(props, marginPropDefs);
+    } = extractProps(props, marginPropDefs, textAlignPropDefs, textTransformPropDefs);
 
     return (
       <BodyText

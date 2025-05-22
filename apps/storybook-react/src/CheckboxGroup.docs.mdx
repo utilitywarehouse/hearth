@@ -5,10 +5,7 @@ import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 
 <Meta title="Components / CheckboxGroup" />
 
-<DocsHeader
-  componentName="CheckboxGroup"
-  stories={Stories}
-/>
+<DocsHeader componentName="CheckboxGroup" stories={Stories} />
 
 <Canvas of={Stories.Playground} sourceState="none" />
 
@@ -41,17 +38,17 @@ other aria props, such as `aria-label`, to the `CheckboxGroup`, `Checkbox` &
   {[
     { key: 'Tab', description: 'Moves keyboard focus to the checkbox.' },
     { key: 'Space', description: 'Toggles checkbox between checked and unchecked states.' },
-    ].map((kbi, i) => (
-  <>
-    <Flex>
-      <Box width="300px">
-        <kbd>{kbi.key}</kbd>
-      </Box>
-      <BodyText as="span">{kbi.description}</BodyText>
-    </Flex>
-    {i < 4 ? <Divider /> : null}
-  </>
-))}
+  ].map((kbi, i) => (
+    <>
+      <Flex>
+        <Box width="300px">
+          <kbd>{kbi.key}</kbd>
+        </Box>
+        <BodyText as="span">{kbi.description}</BodyText>
+      </Flex>
+      {i < 4 ? <Divider /> : null}
+    </>
+  ))}
 </Flex>
 
 ## Helper text
@@ -123,11 +120,15 @@ If you choose to do this, please make sure you properly label your components fo
 
 ## API
 
-| Prop           | Type                 |
-| -------------- | -------------------- |
-| `contentWidth`    | `Responsive<string>`  |
-| `width`    | `Responsive<string>`  |
-| `direction`    | `"column" \| "row"`  |
-| `value`        | `Array<string>` |
-| `defaultValue`        | `Array<string>` |
+This component is based on the `FormFieldGroup` component and supports the following common props:
+
+- Margin
+
+| Prop              | Type                             |
+| ----------------- | -------------------------------- |
+| `contentWidth`    | `Responsive<string>`             |
+| `width`           | `Responsive<string>`             |
+| `direction`       | `"column" \| "row"`              |
+| `value`           | `Array<string>`                  |
+| `defaultValue`    | `Array<string>`                  |
 | `onCheckedChange` | `(value: Array<string>) => void` |
