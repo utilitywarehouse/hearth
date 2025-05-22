@@ -2,6 +2,7 @@ import { PropDef } from '../../props/prop-def';
 import { FlexProps } from '../Flex/Flex.props';
 import { PaddingProps } from '../../props/padding.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+import { BorderProps } from '../../props/border.props';
 
 const variants = ['emphasis', 'subtle'] as const;
 
@@ -15,7 +16,13 @@ export const cardPropDefs = {
 
 type CommonCardProps = Omit<
   FlexProps,
-  'color' | 'backgroundColor' | 'as' | 'asChild' | keyof PaddingProps
+  | 'as'
+  | 'asChild'
+  | 'color'
+  | 'backgroundColor'
+  | 'spacing'
+  | keyof PaddingProps
+  | keyof BorderProps
 > & {
   /**
    * Sets the card's visual variant

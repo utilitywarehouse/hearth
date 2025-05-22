@@ -4,10 +4,7 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 
 <Meta title="Components / CheckboxTile" />
 
-<DocsHeader
-  componentName="CheckboxTile"
-  stories={Stories}
-/>
+<DocsHeader componentName="CheckboxTile" stories={Stories} />
 
 <Canvas of={Stories.Playground} sourceState="none" />
 
@@ -43,12 +40,16 @@ the `label` prop, if you do not provide a label, you must specify an
 
 ## API
 
-| Prop           | Type                 |
-| -------------- | -------------------- |
-| `value`    | `string`  |
-| `defaultValue`        | `string` |
-| `label` | `ReactNode` |
-| `helperText` | `ReactNode` |
-| `checked` | `boolean` |
-| `defaultChecked` | `boolean` |
+This component is based on the `button` element and supports the following common props:
+
+- Margin
+
+| Prop              | Type                         |
+| ----------------- | ---------------------------- |
+| `value`           | `string`                     |
+| `defaultValue`    | `string`                     |
+| `label`           | `ReactNode`                  |
+| `helperText`      | `ReactNode`                  |
+| `checked`         | `boolean`                    |
+| `defaultChecked`  | `boolean`                    |
 | `onCheckedChange` | `(checked: boolean) => void` |

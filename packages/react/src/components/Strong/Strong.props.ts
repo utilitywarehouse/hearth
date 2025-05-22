@@ -1,3 +1,4 @@
+import { MarginProps } from '../../props/margin.props';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
 import { TextWrapProps } from '../../props/text-wrap.props';
@@ -7,6 +8,7 @@ export interface StrongProps
   extends TextAlignProps,
     TextTransformProps,
     TextWrapProps,
+    MarginProps,
     ComponentPropsWithout<'strong', RemovedProps> {
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.

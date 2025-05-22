@@ -1,11 +1,13 @@
 import { NotInputTextualAttributes } from '../../helpers/input-attributes';
+import { MarginProps } from '../../props/margin.props';
 import { ComponentPropsWithout } from '../../types/component-props';
 
 export interface TextInputProps
   extends ComponentPropsWithout<
-    'input',
-    NotInputTextualAttributes | 'color' | 'defaultValue' | 'size' | 'type' | 'value'
-  > {
+      'input',
+      NotInputTextualAttributes | 'color' | 'defaultValue' | 'size' | 'type' | 'value'
+    >,
+    MarginProps {
   type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
   /**
    * The initial value of the TextInput when rendered.

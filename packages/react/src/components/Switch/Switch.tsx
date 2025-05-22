@@ -8,6 +8,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
 import { useIds } from '../../hooks/use-ids';
+import { marginPropDefs } from '../../props/margin.props';
 
 const componentName = 'Switch';
 const componentClassName = withGlobalPrefix(componentName);
@@ -23,7 +24,7 @@ export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwa
     disabled,
     onCheckedChange,
     ...switchProps
-  } = extractProps(props, switchPropDefs);
+  } = extractProps(props, switchPropDefs, marginPropDefs);
   const { id, labelId } = useIds({ providedId, prefix: 'switch' });
   const showLabel = !!label;
   const defaultRef = React.useRef<HTMLButtonElement | null>(null);

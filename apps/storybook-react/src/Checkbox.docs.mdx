@@ -4,10 +4,7 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 
 <Meta title="Components / Checkbox" />
 
-<DocsHeader
-  componentName="Checkbox"
-  stories={Stories}
-/>
+<DocsHeader componentName="Checkbox" stories={Stories} />
 
 <Canvas of={Stories.Playground} sourceState="none" />
 
@@ -36,18 +33,22 @@ const [checked, setChecked] = React.useState(false);
 
 ## Accessibility
 
-`Checkbox` is, by default, appropriately labelled when using
-the `label` prop, if you do not provide a label, you must specify an
-`aria-label` or `aria-labelledby` for accessibility.
+`Checkbox` is, by default, appropriately labelled when using the `label` prop,
+if you do not provide a label, you must specify an `aria-label` or
+`aria-labelledby` for accessibility.
 
 ## API
 
-| Prop           | Type                 |
-| -------------- | -------------------- |
-| `value`    | `string`  |
-| `defaultValue`        | `string` |
-| `label` | `ReactNode` |
-| `helperText` | `ReactNode` |
-| `checked` | `boolean` |
-| `defaultChecked` | `boolean` |
+This component is based on the `button` element and supports the following common props:
+
+- Margin
+
+| Prop              | Type                         |
+| ----------------- | ---------------------------- |
+| `value`           | `string`                     |
+| `defaultValue`    | `string`                     |
+| `label`           | `ReactNode`                  |
+| `helperText`      | `ReactNode`                  |
+| `checked`         | `boolean`                    |
+| `defaultChecked`  | `boolean`                    |
 | `onCheckedChange` | `(checked: boolean) => void` |
