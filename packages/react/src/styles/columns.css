@@ -1,5 +1,0 @@
-@breakpoints {
-  .hearth-r-columns {
-    grid-template-columns: repeat(var(--h-r-columns), minmax(10px, 1fr));
-  }
-}
