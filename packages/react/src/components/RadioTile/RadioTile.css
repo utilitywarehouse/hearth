@@ -14,7 +14,8 @@
   }
 
   &:where([data-state='checked']) {
-    box-shadow: inset 0 0 0 var(--h-card-emphasis-border-width) var(--h-card-emphasis-border-color);
+    box-shadow: inset 0 0 0 var(--h-radio-tile-border-width-selected)
+      var(--h-radio-tile-border-color-selected);
   }
 
   &:where(:focus-visible) {
