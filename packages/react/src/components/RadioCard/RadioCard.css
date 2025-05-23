@@ -12,6 +12,7 @@
   @media (--h-tablet) {
     padding: var(--h-card-padding-tablet);
   }
+
   @media (--h-desktop) {
     padding: var(--h-card-padding-desktop);
   }
