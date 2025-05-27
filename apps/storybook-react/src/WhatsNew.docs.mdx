@@ -1,0 +1,188 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="What's New" />
+
+# What's new
+
+**Hearth React** is a complete rewrite of the
+[@utilitywarehouse/web-ui](https://uw-web-ui.vercel.app/) component library,
+based heavily on work by [Radix UI](https://github.com/radix-ui/themes),
+and replacing the previous Material UI & CSS-in-JS approach with CSS.
+
+There are some fundamental changes between the new and old libraries, due to
+both visual rebrand requirements, and changes in technical implementation. The
+significance of the rebrand changes mean that there isn't an easy migration
+path betwwen the libraries, however it'll be useful to go over what differences
+you can expect when using the new **Hearth React** library.
+
+## Styling API
+
+One of the main aims of the new approach taken with **Heath React** was to not
+prescribe the CSS-in-JS styling solution that was used with Material UI. We
+want the components to _"get out of the way"_, and for teams to be able to
+decide their own styling solution.
+
+Components do still have styling props available on them, mostly based on the
+new, more extensive, design tokens. However these are implemented using CSS and
+do not require any additional dependencies. The `style` and `className` props
+are available by default, but beyond these, and the common style props, it is up to
+consumers to choose how to implement any custom CSS they may require.
+
+### Interoperability
+
+The CSS only approach we have taken means that there shouldn't be any
+interoperability problems with any additional styling solution you choose to
+implement. Please reach out if you do run into any issues.
+
+### ThemeProvider
+
+The new styling approach does not require any `ThemeProvider` component.
+
+### The sx prop and styled method
+
+The `sx` prop and `styled` method you are familiar with from Web UI, and
+Material UI, are not available in **Hearth React**. You can, however, install
+and use these from Material UI, or any other library which offers a similar
+API.
+
+```tsx
+import { Box as HearthBox } from '@utilitywarehouse/hearth-react';
+import { styled } from '@mui/material';
+
+export const StyledBox = styled(HearthBox)({});
+
+[...]
+
+<StyledBox padding="200" sx={{ ... }} />
+```
+
+In this example, we're wrapping the `Box` component from **Hearth React** with
+the Material UI `styled` method. This means that on the new `StyledBox`
+component we can make use of the **Hearth React** style props, and also have
+access to Material UI's custom `sx` prop. We could also pass in additional
+styles with the `styled` method.
+
+### Responsive props
+
+The new **Hearth React** styling props are still responsive where it makes
+sense, for instance on `padding` and `margin` props. However, it is only with
+the object syntax, the array syntax that you may have used previously is no
+longer used.
+
+```tsx
+<Box padding={{ mobile: '100', tablet: '200', desktop: '300', wide: '400' }} />
+```
+
+### Common props
+
+There are a number of style props common to multiple components, though not all
+components share all of these props. Individual component documentation will
+indicate which common props are available.
+
+These common props are intended to resolve the majority of styling needs,
+including padding, margin, border, colours, width, and height, as well as
+flexbox and grid layouts. You can learn more about these props on the Common
+Props documentation page.
+
+<!-- TODO: include docs about changes to prop values; ie. numbers to strings -->
+
+### Contextual colours
+
+Previously some component colours, mainly typography, have changed depending on
+the context of the background; ie. white text on darker brand backgrounds.
+
+We are not currently taking this approach in **Hearth React**, instead
+including an `inverted` prop where necessary.
+
+This may change as we get a deeper understanding of real world usage of the new
+UI. In the meantime, please reach out to us if you are experiencing issues with
+this approach, or have a valid use case for including contextual colours.
+
+## Media Queries
+
+Media queries are handled in much the same way as before, although the
+`mediaQueries` object from Web UI is now named `media`. Please see the specific
+Media queries documentation page for further details.
+
+Internally we make use of `@custom-media` CSS, which we hope to export and
+document it's usage in your own CSS.
+
+The breakpoint values are the same as before, and can be found on the
+Breakpoints documentation page.
+
+## Components
+
+### Stack
+
+This component from Web UI has not been implemented in **Hearth React**. We
+felt it was now redundant with what is available in modern CSS, and that the
+`Flex` component meets all the needs we have for stacked and inline layouts.
+
+```tsx
+<Flex direction="column" gap="400" align="start">
+  {...}
+</Flex>
+```
+
+### Grid
+
+This component is not the same as the `Grid` component in Web UI. The previous
+version of this built on the Material UI `Grid` component, which used `flexbox`
+under the hood. The **Hearth React** `Grid` component is based on CSS Grid,
+providing useful shortcuts to building grid layouts.
+
+Please see the `Grid` component docs for further details about it's usage.
+
+```tsx
+<Grid
+  defaultResponsiveColumns // columns={{ mobile: '4', tablet: '8', desktop: '12' }}
+  width={{ mobile: '360px', tablet: '744px', desktop: '1096px' }}
+  padding={{ mobile: '200', tablet: '400' }}
+  gap="200"
+>
+  <Placeholder gridColumnSpan="4" padding="400" />
+  <Placeholder gridColumnSpan="4" padding="400" />
+  <Placeholder gridColumnSpan={{ mobile: '4', tablet: '8', desktop: '4' }} padding="400" />
+</Grid>
+```
+
+### Spacer
+
+This component has not been brought over from Web UI. There was concern that it
+was being unnecessarily overused. If you really need to implement something
+similar you could do so using the `Box` component, however we recommend using
+the `Flex` and `Grid` layout primitives instead.
+
+### CheckboxGridGroup and RadioGridGroup
+
+These components are not currently available in **Hearth React**. At this time
+we don't believe the new designs require any layout beyond what you can achieve
+with the `CheckboxGroup` and `RadioGroup` components. If you need to you can
+compose the `RadioGroup` and `CheckboxGroup` components with the `Grid`
+component.
+
+Please discuss this with your designer, or reach out to us, so that we can
+ensure this is the correct usage for the UI.
+
+```tsx
+<RadioGroup label="Grid layout">
+  <Grid columns="3" gap="150">
+    <RadioTile value="1" label="One" />
+    <RadioTile value="2" label="Two" />
+    <RadioTile value="3" label="Three" />
+    <RadioTile value="4" label="Four" />
+    <RadioTile value="5" label="Five" />
+    <RadioTile value="6" label="Six" />
+  </Grid>
+</RadioGroup>
+```
+
+### Typography
+
+### Button
+
+### Link
+
+### Badge
+
+### Inputs

@@ -52,6 +52,7 @@ const preview: Preview = {
       storySort: {
         order: [
           'Introduction',
+          "What's New",
           'Breakpoints',
           'Media Queries',
           'Layout',
