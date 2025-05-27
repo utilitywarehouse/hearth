@@ -15,6 +15,27 @@ significance of the rebrand changes mean that there isn't an easy migration
 path betwwen the libraries, however it'll be useful to go over what differences
 you can expect when using the new **Hearth React** library.
 
+- [Styling API](#styling-api)
+  - [Interoperability](#interoperability)
+  - [ThemeProvider](#themeprovider)
+  - [The sx prop and styled method](#the-sx-prop-and-styled-method)
+  - [Tokens](#tokens)
+  - [Responsive props](#responsive-props)
+  - [Common props](#common-props)
+  - [Contextual colours](#contextual-colours)
+- [Polymorphism](#polymorphism)
+- [Media Queries](#media-queries)
+- [Components](#components)
+  - [Stack](#stack)
+  - [Grid](#grid)
+  - [Spacer](#spacer)
+  - [CheckboxGridGroup and RadioGridGroup](#checkboxgridgroup-and-radiogridgroup)
+  - [Typography](#typography)
+  - [Button](#button)
+  - [Link](#link)
+  - [Badge](#badge)
+  - [Inputs](#inputs)
+
 ## Styling API
 
 One of the main aims of the new approach taken with **Heath React** was to not
@@ -62,6 +83,11 @@ component we can make use of the **Hearth React** style props, and also have
 access to Material UI's custom `sx` prop. We could also pass in additional
 styles with the `styled` method.
 
+### Tokens
+
+We no longer export any tokens from the component libraries, you should access
+these from the **Hearth Tokens** package instead.
+
 ### Responsive props
 
 The new **Hearth React** styling props are still responsive where it makes
@@ -79,12 +105,25 @@ There are a number of style props common to multiple components, though not all
 components share all of these props. Individual component documentation will
 indicate which common props are available.
 
-These common props are intended to resolve the majority of styling needs,
+The common props are intended to resolve the majority of styling needs,
 including padding, margin, border, colours, width, and height, as well as
-flexbox and grid layouts. You can learn more about these props on the Common
-Props documentation page.
+flexbox and grid layouts. These common props do not mirror the system props
+from Material UI that we used in Web UI.
 
-<!-- TODO: include docs about changes to prop values; ie. numbers to strings -->
+The values of these common props are based on the design tokens where possible and
+will differ from what you will be used to in Web UI. For example in Web UI the
+padding was based on multiple of 8px, whereas in **Hearth React** it is a scale
+of string values which correspond to the tokens space scale.
+
+```tsx
+// Web UI
+<Box padding={2} />
+
+// Hearth React
+<Box padding="200" />
+```
+
+You can learn more about these props on the Common Props documentation page.
 
 ### Contextual colours
 
@@ -97,6 +136,37 @@ including an `inverted` prop where necessary.
 This may change as we get a deeper understanding of real world usage of the new
 UI. In the meantime, please reach out to us if you are experiencing issues with
 this approach, or have a valid use case for including contextual colours.
+
+## Polymorphism
+
+We are not attempting to recreate the polymorphism of the Material UI
+`component` prop. This is tricky, and comes with unnecessary overhead.
+
+Some components will have an `as` prop, which works similarly to the
+`component` prop, but with a very specific set of elements it can be set to.
+
+We also include the `asChild` prop where it makes sense, so that you can render
+other elements and have the ability to pass appropriate props without the
+problems inherent in the previous aprroach.
+
+```tsx
+// render a span element instead of a div
+<Box as="span" />
+
+[...]
+
+// render a section element, with token based padding applied
+<Flex asChild padding="400">
+  <section>{...}</section>
+</Flex>
+
+[...]
+
+// render a link that is visually a button, applying element specific props to each element
+<Button asChild onClick={handleClick}>
+  <a href="https://uw.co.uk/services">View UW services</a>
+</Button>
+```
 
 ## Media Queries
 
@@ -179,10 +249,48 @@ ensure this is the correct usage for the UI.
 
 ### Typography
 
+We still have the `Heading` component, however the props have significantly changed.
+There is no longer a `variant` prop, instead we have a `size` prop which
+determines the font size of the text. This prop is not responsive as any needed
+responsiveness is handled internally. There is also no `color` prop as this
+shouldn't be needed.
+
+The `Text` component has been replaced with the `BodyText` component. Again the
+previous `variant` prop has been replaced with a `size` prop.
+
+There is also an additional `DetailText` component, which renders the monospace font.
+
+The other typography components; `Em`, `Strong`, `Label` and `HelperText` are
+mostly the same, with an additional `ValidationText` component.
+
+Please see individual component documentation for details.
+
 ### Button
+
+The `Button` component has the same variants as before; `solid`, `outline` &
+`ghost`, with an additional `emphasis` variant. The `colorSchemes` are more
+restricted than before.
 
 ### Link
 
+There is no longer a `size` prop on the `Link` component, and the `TextLink`
+component has been replaced with the `InlineLink` component.
+
 ### Badge
 
+The `Badge` variants have changed from `soft`, `strong` & `outline` to `solid`
+& `outline`, and the `colorScheme` values have changed to reflect the new
+brand. The `bottomRadiusZero` prop is now called `flatBase`.
+
 ### Inputs
+
+There is no longer a `TextField` component, and it's replacements have a completely updated API. We currently have the following inputs:
+
+- `TextInput`
+- `TextArea`
+- `PasswordInput`
+- `SearchInput`
+
+There are plans to add further inputs, such as a `DateInput`, `CurrencyInput`
+and `ValidationInput`. Please refer to the specific component documentation
+pages for more in depth usage and API information.

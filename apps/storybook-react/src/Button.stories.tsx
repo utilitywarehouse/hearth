@@ -381,7 +381,7 @@ export const WithIcons: Story = {
 
 export const Inverted: Story = {
   render: () => (
-    <Flex gap="400" backgroundColor="uwPurple" padding="400">
+    <Flex gap="400" backgroundColor="purple700" padding="400">
       <Button variant="emphasis" inverted>
         Emphasis
       </Button>
