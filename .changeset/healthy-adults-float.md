@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react': patch
 ---
 
-Exploring release options
+Initial alpha release
