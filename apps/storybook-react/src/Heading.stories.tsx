@@ -47,10 +47,10 @@ export const InvertedText: Story = {
   render: args => {
     return (
       <Flex direction="column">
-        <Box backgroundColor="uwPurple" padding="400">
+        <Box backgroundColor="purple700" padding="400">
           <Heading {...args}>Inverted text</Heading>
         </Box>
-        <Box backgroundColor="darkPurple" padding="400">
+        <Box backgroundColor="purple1000" padding="400">
           <Heading {...args}>Inverted text</Heading>
         </Box>
       </Flex>
