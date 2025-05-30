@@ -777,8 +777,8 @@ importers:
         specifier: workspace:*
         version: link:../fonts
       '@utilitywarehouse/hearth-react-icons':
-        specifier: 0.1.0
-        version: 0.1.0(react@18.3.1)
+        specifier: workspace:*
+        version: link:../react-icons
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:*
         version: link:../tokens
