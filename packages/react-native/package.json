@@ -64,7 +64,7 @@
     "@storybook/test": "^8.6.12",
     "@storybook/theming": "^8.6.12",
     "@utilitywarehouse/hearth-fonts": "workspace:^",
-    "@utilitywarehouse/hearth-react-icons": "^0.1.0",
+    "@utilitywarehouse/hearth-react-icons": "workspace:^",
     "@utilitywarehouse/hearth-tokens": "workspace:^",
     "@vitejs/plugin-react": "^4.3.4",
     "metro-react-native-babel-preset": "^0.77.0",
