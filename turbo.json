@@ -13,8 +13,7 @@
       "outputs": []
     },
     "checks:ci": {
-      "outputs": [],
-      "dependsOn": ["^build:icons"]
+      "outputs": []
     },
     "checks:build": {
       "outputs": ["dist/**"]

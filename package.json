@@ -28,7 +28,7 @@
     "ci:publish": "pnpm run build && changeset publish",
     "checks": "turbo run format lint:fix --filter='./packages/*'",
     "checks:build": "turbo run format lint:fix build --filter='./packages/*'",
-    "checks:ci": "turbo run build:icons format:ci lint --filter='./packages/*'",
+    "checks:ci": "turbo run format:ci lint --filter='./packages/*'",
     "generate:svg": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
     "generate:react": "turbo run @utilitywarehouse/hearth-react-icons#generate @utilitywarehouse/hearth-react-native-icons#generate",
     "generate:storybook": "turbo run storybook-icons#generate",
