@@ -1,10 +1,5 @@
 name: Code Checks
-on:
-  pull_request:
-    types: [opened, synchronize, reopened]
-  push:
-    branches:
-      - main
+on: push
 
 jobs:
   checks:
