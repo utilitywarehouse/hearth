@@ -21,19 +21,33 @@ web experiences.
 
 ## Getting started
 
-Assuming you already have React installed and your project set up, to get started install the library and it's peer dependencies.
+You should already have your project set up, with React, either v18 or v19.
+
+You can then install the necessary Hearth libraries:
+
+- Hearth React
+- Hearth CSS Reset
+- Hearth Tokens
+- Hearth React Icons
+- Hearth Fonts
 
 ```console
-yarn add @utilitywarehouse/hearth-react @utilitywarehouse/hearth-tokens @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react-icons
+yarn add @utilitywarehouse/hearth-react @utilitywarehouse/hearth-css-reset @utilitywarehouse/hearth-tokens @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react-icons
 ```
 
-We also advise you install the Hearth baseline CSS styles
+or
 
 ```console
-yarn add @utilitywarehouse/hearth-css-reset
+npm install @utilitywarehouse/hearth-react @utilitywarehouse/hearth-css-reset @utilitywarehouse/hearth-tokens @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react-icons
 ```
 
-You should then add these imports in the root of your application, along with the Hearth React styles.
+or
+
+```console
+pnpm add @utilitywarehouse/hearth-react @utilitywarehouse/hearth-css-reset @utilitywarehouse/hearth-tokens @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react-icons
+```
+
+You should then add the following imports in the root of your application:
 
 ```tsx
 import '@utilitywarehouse/hearth-css-reset';
