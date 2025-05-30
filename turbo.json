@@ -6,11 +6,15 @@
       "outputs": ["dist/**", "build/**", "storybook-static/**", "*.css"],
       "dependsOn": ["^build"]
     },
+    "build:icons": {
+      "outputs": ["dist/**"]
+    },
     "checks": {
       "outputs": []
     },
     "checks:ci": {
-      "outputs": []
+      "outputs": [],
+      "dependsOn": ["^build:icons"]
     },
     "checks:build": {
       "outputs": ["dist/**"]
