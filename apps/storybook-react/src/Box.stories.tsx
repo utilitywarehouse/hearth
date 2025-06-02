@@ -20,7 +20,6 @@ const meta: Meta<typeof Box> = {
   },
   argTypes: {
     children: { control: { type: 'text' } },
-    as: { options: ['div', 'span'], control: { type: 'radio' } },
     color: { options: colorTokens, control: { type: 'select' } },
     backgroundColor: { options: colorTokens, control: { type: 'select' } },
     padding: { options: spaceTokens, control: { type: 'select' } },
@@ -80,7 +79,7 @@ type Story = StoryObj<typeof Box>;
 
 export const Playground: Story = {
   render: args => (
-    <Box {...args}>
+    <Box {...args} render={<section />}>
       <Placeholder />
     </Box>
   ),
@@ -91,13 +90,9 @@ export const Playground: Story = {
 };
 
 export const ResponsiveProps: Story = {
-  render: args => (
-    <Box {...args}>
-      <Placeholder />
-    </Box>
-  ),
+  render: args => <Box {...args} render={<Placeholder />} />,
   args: {
-    asChild: true,
+    // asChild: true,
     children: 'Responsive props',
     padding: {
       mobile: '400',
@@ -159,10 +154,14 @@ type Props = React.ComponentPropsWithoutRef<'a'> & BoxProps;
 const CustomAnchor = ({ onClick, href, ...props }: Props) => {
   const ref = useRef<HTMLAnchorElement>(null);
   return (
-    <Box asChild {...props} padding="100" color="uwPurple" style={{ textDecoration: 'underline' }}>
-      <a onClick={onClick} href={href} ref={ref}>
-        Custom Component
-      </a>
+    <Box
+      {...props}
+      padding="100"
+      color="purple700"
+      style={{ textDecoration: 'underline' }}
+      render={<a onClick={onClick} href={href} ref={ref} />}
+    >
+      Custom Component
     </Box>
   );
 };

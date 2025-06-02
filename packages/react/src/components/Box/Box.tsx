@@ -4,7 +4,6 @@ import clsx from 'clsx';
 import { boxPropDefs, type BoxProps } from './Box.props';
 
 import type { ElementRef } from 'react';
-import { Slot } from '@radix-ui/react-slot';
 import { extractProps } from '../../helpers/extract-props';
 import { paddingPropDefs } from '../../props/padding.props';
 import { colorPropDefs } from '../../props/color.props';
@@ -18,6 +17,8 @@ import { positionPropDefs } from '../../props/position.props';
 import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
+import { useRender } from '@base-ui-components/react/use-render';
+import { mergeProps } from '@base-ui-components/react/merge-props';
 
 const componentName = 'Box';
 const componentClassName = withGlobalPrefix(componentName);
@@ -25,12 +26,7 @@ const componentClassName = withGlobalPrefix(componentName);
 type BoxElement = ElementRef<'div'>;
 
 export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
-  const {
-    className,
-    asChild,
-    as: Tag = 'div',
-    ...boxProps
-  } = extractProps(
+  const { render = <div />, ...boxProps } = extractProps(
     props,
     boxPropDefs,
     positionPropDefs,
@@ -46,9 +42,13 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
     textTransformPropDefs
   );
 
-  const Component = asChild ? Slot : Tag;
+  const element = useRender({
+    render,
+    props: mergeProps<'p'>({ className: componentClassName }, boxProps),
+    ref,
+  });
 
-  return <Component ref={ref} className={clsx(componentClassName, className)} {...boxProps} />;
+  return element;
 });
 
 Box.displayName = componentName;

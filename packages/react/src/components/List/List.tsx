@@ -68,10 +68,11 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
         ) : null}
       </div>
       {variant === undefined || colorScheme === undefined ? (
-        <Box asChild className="hearth-ListContainer">
-          <Tag role="list" ref={ref} {...listProps} {...listAriaProps}>
-            {children}
-          </Tag>
+        <Box
+          className="hearth-ListContainer"
+          render={<Tag role="list" ref={ref} {...listProps} {...listAriaProps} />}
+        >
+          {children}
         </Box>
       ) : (
         <Card
