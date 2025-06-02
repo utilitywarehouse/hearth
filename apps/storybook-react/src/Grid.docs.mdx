@@ -18,20 +18,6 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 - [Box](?path=/docs/primitives-box--docs) - For primitive styling and layouts
 - [Flex](?path=/docs/primitives-flex--docs) - For stacked, inline or flexbox based layouts
 
-## Shorthand props
-
-`Grid` supports a set of shorthand, CSS grid specific, props.
-
-- `template` is `grid-template`
-- `templateColumns` is `grid-template-columns`
-- `templateRows` is `grid-template-rows`
-- `templateAreas` is `grid-template-areas`
-- `autoFlow` is `grid-auto-flow`
-- `autoColumns` is `grid-auto-columns`
-- `autoRows` is `grid-auto-rows`
-- `align` is `align-items`
-- `justify` is `justify-content`
-
 ## Gap
 
 `Grid` supports the `gap`, `columnGap` and `rowGap` properties, which use the
@@ -141,19 +127,21 @@ This component is based on the `div` element and supports the following common s
 - Text align
 - Text transform
 
-| Prop              | Type                                                                                                                         |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `as`              | `"div" \| "span"`                                                                                                            |
-| `asChild`         | `boolean`                                                                                                                    |
-| `display`         | `Responsive<"none" \| "grid" \| "inline-grid">`                                                                              |
-| `columns`         | `Responsive<"1" \| "2" \| "3" \| "4" \| "5" \| "6" \| "7" \| "8" \| "9" \| "10" \| "11" \| "12">`                            |
-| `template`        | `Responsive<string>`                                                                                                         |
-| `templateColumns` | `Responsive<string>`                                                                                                         |
-| `templateRows`    | `Responsive<string>`                                                                                                         |
-| `templateAreas`   | `Responsive<string>`                                                                                                         |
-| `autoflow`        | `Responsive<"row" \| "column" \| "dense" \| "row-dense" \| "column-dense">`                                                  |
-| `autoColumns`     | `Responsive<string>`                                                                                                         |
-| `autoRows`        | `Responsive<string>`                                                                                                         |
-| `align`           | `Responsive<"start" \| "center" \| "end" \| "baseline" \| "stretch" \| "space-around" \| "space-between" \| "space-evenly">` |
-| `justify`         | `Responsive<"start" \| "center" \| "end" \| "between" \| "space-around" \| "space-between" \| "space-evenly">`               |
-| `spacing`         | `"xs" \| "sm" \| "md" \| "lg" \| "xl">`                                                                                      |
+| Prop              | Type                                                                                              |
+| ----------------- | ------------------------------------------------------------------------------------------------- |
+| `as`              | `"div" \| "span"`                                                                                 |
+| `asChild`         | `boolean`                                                                                         |
+| `display`         | `Responsive<"none" \| "grid" \| "inline-grid">`                                                   |
+| `columns`         | `Responsive<"1" \| "2" \| "3" \| "4" \| "5" \| "6" \| "7" \| "8" \| "9" \| "10" \| "11" \| "12">` |
+| `template`        | `Responsive<string>`                                                                              |
+| `templateColumns` | `Responsive<string>`                                                                              |
+| `templateRows`    | `Responsive<string>`                                                                              |
+| `templateAreas`   | `Responsive<string>`                                                                              |
+| `autoflow`        | `Responsive<"row" \| "column" \| "dense" \| "row-dense" \| "column-dense">`                       |
+| `autoColumns`     | `Responsive<string>`                                                                              |
+| `autoRows`        | `Responsive<string>`                                                                              |
+| `alignItems`      | `Responsive<"start" \| "center" \| "end" \| "baseline" \| "stretch" >`                            |
+| `alignContent`    | `Responsive<"start" \| "center" \| "end" \| "stretch" \| "around" \| "between" \| "evenly">`      |
+| `justifyItems`    | `Responsive<"start" \| "center" \| "end" \| "stretch">`                                           |
+| `justifyContent`  | `Responsive<"start" \| "center" \| "end" \| "stretch" \| "around" \| "between" \| "evenly">`      |
+| `spacing`         | `"xs" \| "sm" \| "md" \| "lg" \| "xl">`                                                           |

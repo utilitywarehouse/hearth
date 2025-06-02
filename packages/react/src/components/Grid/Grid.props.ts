@@ -18,8 +18,26 @@ import { Responsive, Union } from '../../types/responsive';
 const displayValues = ['none', 'inline-grid', 'grid'] as const;
 const columnsValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'] as const;
 const flowValues = ['row', 'column', 'dense', 'row-dense', 'column-dense'] as const;
-const alignValues = ['start', 'center', 'end', 'baseline', 'stretch'] as const;
-const justifyValues = ['start', 'center', 'end', 'between'] as const;
+const alignItemsValues = ['start', 'center', 'end', 'baseline', 'stretch'] as const;
+const alignContentValues = [
+  'start',
+  'center',
+  'end',
+  'stretch',
+  'around',
+  'between',
+  'evenly',
+] as const;
+const justifyContentValues = [
+  'start',
+  'center',
+  'end',
+  'stretch',
+  'between',
+  'around',
+  'evenly',
+] as const;
+const justifyItemsValues = ['start', 'center', 'end', 'stretch'] as const;
 
 export const gridPropDefs = {
   display: { className: 'display', tokens: displayValues, responsive: true },
@@ -31,8 +49,10 @@ export const gridPropDefs = {
   autoFlow: { className: 'grid-auto-flow', tokens: flowValues, responsive: true },
   autoColumns: { className: 'grid-auto-columns', responsive: true },
   autoRows: { className: 'grid-auto-rows', responsive: true },
-  align: { className: 'align-items', tokens: alignValues, responsive: true },
-  justify: { className: 'justify-content', tokens: justifyValues, responsive: true },
+  alignItems: { className: 'align-items', tokens: alignItemsValues, responsive: true },
+  alignContent: { className: 'align-content', tokens: alignContentValues, responsive: true },
+  justifyContent: { className: 'justify-content', tokens: justifyContentValues, responsive: true },
+  justifyItems: { className: 'justify-items', tokens: justifyItemsValues, responsive: true },
 } satisfies {
   display: PropDef<(typeof displayValues)[number]>;
   columns: PropDef<(typeof columnsValues)[number]>;
@@ -43,8 +63,10 @@ export const gridPropDefs = {
   autoFlow: PropDef<(typeof flowValues)[number]>;
   autoColumns: PropDef<string>;
   autoRows: PropDef<string>;
-  align: PropDef<(typeof alignValues)[number]>;
-  justify: PropDef<(typeof justifyValues)[number]>;
+  alignItems: PropDef<(typeof alignItemsValues)[number]>;
+  alignContent: PropDef<(typeof alignContentValues)[number]>;
+  justifyContent: PropDef<(typeof justifyContentValues)[number]>;
+  justifyItems: PropDef<(typeof justifyItemsValues)[number]>;
 };
 
 interface CommonGridProps
@@ -76,8 +98,10 @@ interface CommonGridProps
   autoFlow?: Responsive<(typeof flowValues)[number]>;
   autoRows?: Responsive<string>;
   autoColumns?: Responsive<string>;
-  align?: Responsive<(typeof alignValues)[number]>;
-  justify?: Responsive<(typeof justifyValues)[number]>;
+  alignItems?: Responsive<(typeof alignItemsValues)[number]>;
+  alignContent?: Responsive<(typeof alignContentValues)[number]>;
+  justifyItems?: Responsive<(typeof justifyItemsValues)[number]>;
+  justifyContent?: Responsive<(typeof justifyContentValues)[number]>;
 }
 type GridDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
 type GridSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
