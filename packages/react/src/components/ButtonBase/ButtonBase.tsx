@@ -59,8 +59,6 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
       ref={ref}
       aria-disabled={disabled || undefined}
       className={clsx(componentClassName, className)}
-      // as we're using aria-disabled instead of disabled then we need to
-      // disable the onClick event
       onClick={disabled ? undefined : onClick}
       {...dataAttributeProps}
       {...buttonBaseProps}

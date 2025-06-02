@@ -22,6 +22,7 @@ export type ButtonBaseProps = ComponentPropsWithout<'button', RemovedProps> &
          * Sets the button's colour scheme
          */
         colorScheme?: 'yellow';
+        asChild?: never;
       }
     | {
         /**
