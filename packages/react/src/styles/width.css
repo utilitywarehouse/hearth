@@ -2,15 +2,11 @@
   .hearth-r-width {
     width: var(--h-r-width);
   }
-}
 
-@breakpoints {
   .hearth-r-min-width {
     min-width: var(--h-r-min-width);
   }
-}
 
-@breakpoints {
   .hearth-r-max-width {
     max-width: var(--h-r-max-width);
   }
