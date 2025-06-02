@@ -202,7 +202,7 @@ export const ResponsiveSize: Story = {
 export const AsLink: Story = {
   render: args => {
     return (
-      <Button {...args} asChild>
+      <Button asChild>
         <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>View UW services</a>
       </Button>
     );

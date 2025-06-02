@@ -22,6 +22,7 @@ export type ButtonBaseProps = ComponentPropsWithout<'button', RemovedProps> &
          * Sets the button's colour scheme
          */
         colorScheme?: 'yellow';
+        asChild?: never;
       }
     | {
         /**
@@ -32,20 +33,16 @@ export type ButtonBaseProps = ComponentPropsWithout<'button', RemovedProps> &
          * Sets the button's colour scheme
          */
         colorScheme?: 'yellow' | 'green' | 'red';
-        /**
-         * Change the default rendered element for the one passed as a child, merging their props and behavior.
-         */
-        asChild?: boolean;
       }
     | {
         variant?: 'outline' | 'ghost';
         colorScheme?: 'grey' | 'green' | 'red';
-        /**
-         * Change the default rendered element for the one passed as a child, merging their props and behavior.
-         */
-        asChild?: boolean;
       }
   ) & {
+    /**
+     * Change the default rendered element for the one passed as a child, merging their props and behavior.
+     */
+    asChild?: boolean;
     /**
      * Indicate when the button is in a loading state, will also disable the button.
      */
