@@ -68,7 +68,7 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
       >
         {label ? <FieldsetLegend id={labelId}>{label}</FieldsetLegend> : null}
         {helperText || validationText ? (
-          <Flex direction="column" align="start">
+          <Flex direction="column" alignItems="start">
             {helperText ? (
               <HelperText id={helperTextId} disabled={disabled}>
                 {helperText}

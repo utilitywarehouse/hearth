@@ -18,19 +18,10 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 - [Box](?path=/docs/primitives-box--docs) - For primitive styling and layouts
 - [Flex](?path=/docs/primitives-flex--docs) - For stacked, inline or flexbox based layouts
 
-## Shorthand props
-
-`Flex` supports a set of shorthand, flexbox specific, props.
-
-- `direction` is `flex-direction`
-- `wrap` is `flex-wrap`
-- `align` is `align-items`
-- `justify` is `justify-content`
-
 ## Gap
 
 `Flex` supports the `gap`, `columnGap` and `rowGap` properties, which use the
-design token spacing scale. All gap properties are repsonsive.
+design token spacing scale. All gap properties are responsive.
 
 ```tsx
 <Flex columnGap="400" rowGap={{ mobile: "100", desktop: "300" }}>
@@ -113,12 +104,13 @@ This component is based on the `div` element and supports the following common p
 - Text align
 - Text transform
 
-| Prop        | Type                                                                                                                         |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `as`        | `"div" \| "span"`                                                                                                            |
-| `asChild`   | `boolean`                                                                                                                    |
-| `display`   | `Responsive<"none" \| "flex" \| "inline-flex">`                                                                              |
-| `direction` | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">`                                                         |
-| `align`     | `Responsive<"start" \| "center" \| "end" \| "baseline" \| "stretch" \| "space-around" \| "space-between" \| "space-evenly">` |
-| `justify`   | `Responsive<"start" \| "center" \| "end" \| "between" \| "space-around" \| "space-between" \| "space-evenly">`               |
-| `wrap`      | `Responsive<"wrap" \| "nowrap" \| "wrap-reverse">`                                                                           |
+| Prop             | Type                                                                                         |
+| ---------------- | -------------------------------------------------------------------------------------------- |
+| `as`             | `"div" \| "span"`                                                                            |
+| `asChild`        | `boolean`                                                                                    |
+| `display`        | `Responsive<"none" \| "flex" \| "inline-flex">`                                              |
+| `direction`      | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">`                         |
+| `alignItems`     | `Responsive<"start" \| "center" \| "end" \| "baseline" \| "stretch">`                        |
+| `alignContent`   | `Responsive<"start" \| "center" \| "end" \| "stretch" \| "around" \| "between" \| "evenly">` |
+| `justifyContent` | `Responsive<"start" \| "center" \| "end" \| "between" \| "around" \| "evenly">`              |
+| `wrap`           | `Responsive<"wrap" \| "nowrap" \| "wrap-reverse">`                                           |
