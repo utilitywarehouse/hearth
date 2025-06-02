@@ -66,13 +66,34 @@ This component is intended to be used with the Hearth Icons packages.
 Icons from the UW icons packages have `aria-hidden="true"` set by default. If
 you are using an icon, in the `Link` component, from outside these
 packages, and for purely decorative reasons, please ensure it has this
-attribute set so that the icon is hidden from screen readers. You should also
-add the `data-icon` attribute to your icon so that it renders the appropriate
-styles.
+attribute set so that the icon is hidden from screen readers.
+
+When using anything other than an icon from the Hearth Icons library, you
+should add the `data-icon` attribute to your icon so that it renders the
+appropriate styles.
 
 ```tsx
 <Link>
   <MyFontIcon aria-hidden="true" data-icon />
+  Edit account
+</Link>
+```
+
+```tsx
+import { Link } from "@utilitywarehouse/heart-react";
+import Image from 'next/image';
+
+[...]
+
+<Link>
+  <Image
+    aria-hidden
+    data-icon
+    src="/globe.svg"
+    alt="Globe icon"
+    width={16}
+    height={16}
+  />
   Edit account
 </Link>
 ```
