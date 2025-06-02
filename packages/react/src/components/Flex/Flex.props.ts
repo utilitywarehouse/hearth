@@ -18,7 +18,15 @@ import { Responsive } from '../../types/responsive';
 const displayValues = ['none', 'inline-flex', 'flex'] as const;
 const directionValues = ['row', 'column', 'row-reverse', 'column-reverse'] as const;
 const alignItemsValues = ['start', 'center', 'end', 'baseline', 'stretch'] as const;
-const alignContentValues = ['start', 'center', 'end', 'stretch', 'around', 'between'] as const;
+const alignContentValues = [
+  'start',
+  'center',
+  'end',
+  'stretch',
+  'around',
+  'between',
+  'evenly',
+] as const;
 const justifyContentValues = ['start', 'center', 'end', 'between', 'around', 'evenly'] as const;
 const wrapValues = ['nowrap', 'wrap', 'wrap-reverse'] as const;
 
