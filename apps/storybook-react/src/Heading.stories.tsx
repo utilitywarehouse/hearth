@@ -15,6 +15,7 @@ const meta: Meta<typeof Heading> = {
   },
   argTypes: {
     children: { control: { type: 'text' } },
+    as: { options: ['h1', 'h2', 'h3', 'h4'], control: { type: 'radio' } },
     size: { options: sizes, control: { type: 'radio' } },
     inverted: { control: { type: 'boolean' } },
   },

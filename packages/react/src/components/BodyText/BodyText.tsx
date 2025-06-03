@@ -1,10 +1,8 @@
 import * as React from 'react';
 import type { ElementRef } from 'react';
-
 import clsx from 'clsx';
-
 import { bodyTextPropDefs, BodyTextProps } from './BodyText.props';
-import { Slot } from '@radix-ui/react-slot';
+import { Slot } from 'radix-ui';
 import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -36,7 +34,7 @@ export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props,
   );
 
   return (
-    <Slot
+    <Slot.Root
       ref={ref}
       className={clsx(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
@@ -44,7 +42,7 @@ export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props,
       {...bodyTextProps}
     >
       {asChild ? children : <Tag>{children}</Tag>}
-    </Slot>
+    </Slot.Root>
   );
 });
 

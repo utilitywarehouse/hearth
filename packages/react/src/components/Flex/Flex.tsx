@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { flexPropDefs, type FlexProps } from './Flex.props';
 
 import type { ElementRef } from 'react';
-import { Slot } from '@radix-ui/react-slot';
+import { Slot } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { paddingPropDefs } from '../../props/padding.props';
@@ -50,7 +50,7 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
     textTransformPropDefs
   );
 
-  const Component = asChild ? Slot : Tag;
+  const Component = asChild ? Slot.Root : Tag;
 
   return <Component ref={ref} className={clsx(componentClassName, className)} {...flexProps} />;
 });
