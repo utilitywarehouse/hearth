@@ -51,7 +51,7 @@ export const KitchenSink: Story = {
       <Flex direction="column" gap="600">
         <Flex gap="200" direction="column">
           <Heading>Emphasis</Heading>
-          <Flex gap="400" align="center">
+          <Flex gap="400" alignItems="center">
             {sizes.map(size => (
               <Flex key={size} gap="100">
                 <Button variant="emphasis" colorScheme="yellow" size={size}>
@@ -60,7 +60,7 @@ export const KitchenSink: Story = {
               </Flex>
             ))}
           </Flex>
-          <Flex gap="400" align="center">
+          <Flex gap="400" alignItems="center">
             {sizes.map(size => (
               <Flex key={size} gap="100">
                 <Button disabled variant="emphasis" colorScheme="yellow" size={size}>
@@ -69,7 +69,7 @@ export const KitchenSink: Story = {
               </Flex>
             ))}
           </Flex>
-          <Flex gap="400" align="center">
+          <Flex gap="400" alignItems="center">
             {sizes.map(size => (
               <Flex key={size} gap="100">
                 <Button loading variant="emphasis" colorScheme="yellow" size={size}>
@@ -81,7 +81,7 @@ export const KitchenSink: Story = {
         </Flex>
         <Flex gap="200" direction="column">
           <Heading>Solid</Heading>
-          <Flex gap="400" align="center">
+          <Flex gap="400" alignItems="center">
             {sizes.map(size => (
               <Flex key={size} gap="100">
                 {solidColorSchemes.map(colorScheme => (
@@ -92,7 +92,7 @@ export const KitchenSink: Story = {
               </Flex>
             ))}
           </Flex>
-          <Flex gap="400" align="center">
+          <Flex gap="400" alignItems="center">
             {sizes.map(size => (
               <Flex key={size} gap="100">
                 {solidColorSchemes.map(colorScheme => (
@@ -109,7 +109,7 @@ export const KitchenSink: Story = {
               </Flex>
             ))}
           </Flex>
-          <Flex gap="400" align="center">
+          <Flex gap="400" alignItems="center">
             {sizes.map(size => (
               <Flex key={size} gap="100">
                 {solidColorSchemes.map(colorScheme => (
@@ -130,7 +130,7 @@ export const KitchenSink: Story = {
         {(['outline', 'ghost'] as const).map(variant => (
           <Flex key={variant} gap="200" direction="column">
             <Heading style={{ textTransform: 'capitalize' }}>{variant}</Heading>
-            <Flex gap="400" align="center">
+            <Flex gap="400" alignItems="center">
               {sizes.map(size => (
                 <Flex key={size} gap="100">
                   {otherColorSchemes.map(colorScheme => (
@@ -146,7 +146,7 @@ export const KitchenSink: Story = {
                 </Flex>
               ))}
             </Flex>
-            <Flex gap="400" align="center">
+            <Flex gap="400" alignItems="center">
               {sizes.map(size => (
                 <Flex key={size} gap="100">
                   {otherColorSchemes.map(colorScheme => (
@@ -163,7 +163,7 @@ export const KitchenSink: Story = {
                 </Flex>
               ))}
             </Flex>
-            <Flex gap="400" align="center">
+            <Flex gap="400" alignItems="center">
               {sizes.map(size => (
                 <Flex key={size} gap="100">
                   {otherColorSchemes.map(colorScheme => (
@@ -202,7 +202,7 @@ export const ResponsiveSize: Story = {
 export const AsLink: Story = {
   render: args => {
     return (
-      <Button {...args} asChild>
+      <Button asChild>
         <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>View UW services</a>
       </Button>
     );
@@ -245,7 +245,7 @@ export const ButtonVariants: Story = {
 
 export const FullWidth: Story = {
   render: args => (
-    <Flex direction="column" align={{ mobile: 'stretch', desktop: 'start' }} gap="200">
+    <Flex direction="column" alignItems={{ mobile: 'stretch', desktop: 'start' }} gap="200">
       <BodyText>This Button is full width for screen widths below the desktop breakpoint.</BodyText>
       <Button {...args}>
         {args.children}
@@ -381,7 +381,7 @@ export const WithIcons: Story = {
 
 export const Inverted: Story = {
   render: () => (
-    <Flex gap="400" backgroundColor="uwPurple" padding="400">
+    <Flex gap="400" backgroundColor="purple700" padding="400">
       <Button variant="emphasis" inverted>
         Emphasis
       </Button>

@@ -39,6 +39,11 @@ const config: StorybookConfig = {
       url: isDev ? 'http://localhost:6002' : 'https://uw-hearth-icons.vercel.app',
       expanded: false,
     },
+    tokens: {
+      title: 'Hearth Tokens',
+      url: isDev ? 'http://localhost:6005' : 'https://uw-hearth-tokens.vercel.app',
+      expanded: false,
+    },
     fonts: {
       title: 'Hearth Fonts',
       url: isDev ? 'http://localhost:6001' : 'https://uw-hearth-fonts.vercel.app',

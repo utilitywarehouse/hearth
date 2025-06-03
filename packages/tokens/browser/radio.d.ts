@@ -30,8 +30,7 @@ export declare const radio: {
     };
     readonly maxWidth: 'var(--h-radio-tile-max-width)';
     readonly minWidth: 'var(--h-radio-tile-min-width)';
-    readonly paddingHorizontal: 'var(--h-radio-tile-padding-horizontal)';
-    readonly paddingVertical: 'var(--h-radio-tile-padding-vertical)';
+    readonly padding: 'var(--h-radio-tile-padding)';
   };
   readonly unchecked: {
     readonly backgroundColor: 'var(--h-radio-unchecked-background-color)';

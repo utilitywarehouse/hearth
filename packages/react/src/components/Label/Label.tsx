@@ -8,6 +8,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { BodyText } from '../BodyText/BodyText';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
+import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const componentName = 'Label';
 const componentClassName = withGlobalPrefix(componentName);
@@ -23,7 +24,7 @@ export const Label = React.forwardRef<LabelElement, LabelProps>((props, ref) => 
     className,
     fontWeight = 'regular',
     ...labelProps
-  } = extractProps(props, marginPropDefs);
+  } = extractProps(props, marginPropDefs, textTransformPropDefs);
 
   return (
     <BodyText

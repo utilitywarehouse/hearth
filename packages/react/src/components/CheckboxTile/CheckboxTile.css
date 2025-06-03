@@ -1,0 +1,38 @@
+.hearth-CheckboxTile {
+  display: flex;
+  flex-direction: row;
+  gap: var(--h-checkbox-tile-gap);
+  padding: var(--h-checkbox-tile-padding);
+  flex: 1 1 0%;
+  min-width: var(--h-checkbox-tile-min-width);
+  max-width: var(--h-checkbox-tile-max-width);
+  background-color: var(--h-checkbox-tile-background-color);
+  border-radius: var(--h-checkbox-tile-border-radius);
+  box-shadow: inset 0 0 0 var(--h-checkbox-tile-border-width) var(--h-checkbox-tile-border-color);
+  cursor: pointer;
+
+  * {
+    cursor: pointer;
+  }
+
+  &:where([data-disabled]) {
+    cursor: not-allowed;
+
+    * {
+      cursor: not-allowed;
+    }
+  }
+
+  &:where(:has([data-state='checked'])) {
+    box-shadow: inset 0 0 0 var(--h-card-emphasis-border-width) var(--h-card-emphasis-border-color);
+  }
+
+  &:where(:has(:focus-visible)) {
+    outline: 2px solid var(--h-focus-border);
+    outline-offset: 1px;
+  }
+
+  & :where(.hearth-CheckboxRoot):focus-visible {
+    outline: none;
+  }
+}

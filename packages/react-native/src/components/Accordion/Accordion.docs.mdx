@@ -1,0 +1,322 @@
+import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
+import * as Stories from './Accordion.stories';
+import { Center, BodyText, Alert, Box, Card, List, ListItem, Flex } from '../../';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionContentText,
+  AccordionHeader,
+  AccordionIcon,
+  AccordionItem,
+  AccordionTitleText,
+  AccordionTrigger,
+  Badge,
+} from '../';
+import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
+
+<Meta title="Components / Accordion" />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=1-140" />
+
+<BackToTopButton />
+
+# Accordion
+
+The Accordion component is a vertically stacked set of interactive headers that each reveal a section of content.
+It is commonly used to condense large amounts of information into a more manageable format.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Advanced Usage](#advanced-usage)
+- [Examples](#examples)
+  - [With heading text and helper text](#with-heading-text-and-helper-text)
+  - [With custom trigger content](#with-custom-trigger-content)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+# Usage
+
+<UsageWrap>
+  <Center>
+    <Accordion>
+      <AccordionItem title="Item 1">
+        <BodyText>Content for Item 1</BodyText>
+      </AccordionItem>
+      <AccordionItem title="Item 2">
+        <BodyText>Content for Item 2</BodyText>
+      </AccordionItem>
+      <AccordionItem title="Item 3">
+        <BodyText>Content for Item 3</BodyText>
+      </AccordionItem>
+    </Accordion>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { BodyText, Accordion, AccordionItem } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  return (
+    <Accordion>
+      <AccordionItem title="Item 1">
+        <BodyText>Content for Item 1</BodyText>
+      </AccordionItem>
+      <AccordionItem title="Item 2">
+        <BodyText>Content for Item 2</BodyText>
+      </AccordionItem>
+      <AccordionItem title="Item 3">
+        <BodyText>Content for Item 3</BodyText>
+      </AccordionItem>
+    </Accordion>
+  );
+};
+```
+
+## Props
+
+| Property                  | Type                                         | Description                                                                                                                                                | Default    |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `defaultValue`            | `Array<string>`                              | The default value of the accordion.                                                                                                                        | `-`        |
+| `value`                   | `Array<string>`                              | The controlled value of the accordion.                                                                                                                     | `-`        |
+| `onValueChange`           | `(value: string[]) => void`                  | Callback function that is called when the value of the accordion changes.                                                                                  | `-`        |
+| `type`                    | `'single' \| 'multiple'`                     | The type of accordion. If set to 'single', only one item can be expanded at a time. If set to 'multiple', multiple items can be expanded at the same time. | `'single'` |
+| `collapsible`             | `boolean`                                    | If true, the accordion can be collapsed.                                                                                                                   | `false`    |
+| `disabled`                | `boolean`                                    | If true, the accordion is disabled.                                                                                                                        | `false`    |
+| `noPadding`               | `boolean`                                    | If true, no horizontal padding is applied to the accordion items.                                                                                          | `false`    |
+| `contentNoPadding`        | `boolean`                                    | If true, no horizontal padding is applied to the accordion content.                                                                                        | `false`    |
+| `headingText`             | `string`                                     | The text to display in the heading of the list.                                                                                                            | `-`        |
+| `headingHelperText`       | `string`                                     | The supporting text to display in the heading of the list.                                                                                                 | `-`        |
+| `headingLinkText`         | `string`                                     | The text for the link in the heading.                                                                                                                      | `-`        |
+| `headingLinkHref`         | `string`                                     | The href for the link in the heading.                                                                                                                      | `-`        |
+| `headingLinkOnPress`      | `() => void`                                 | Callback function when the heading link is pressed.                                                                                                        | `-`        |
+| `headingLinkTarget`       | `'_blank' \| '_self' \| '_parent' \| '_top'` | Target for the link in the heading.                                                                                                                        | `-`        |
+| `headingLinkDisabled`     | `boolean`                                    | Whether the heading link is disabled.                                                                                                                      | `false`    |
+| `headingLinkIcon`         | `ComponentType`                              | Icon for the heading link.                                                                                                                                 | `-`        |
+| `headingLinkIconPosition` | `'left' \| 'right'`                          | Position of the icon in the heading link.                                                                                                                  | `'right'`  |
+| `headingLinkShowIcon`     | `boolean`                                    | Whether to show the icon in the heading link.                                                                                                              | `true`     |
+
+### `AccordionHeading`
+
+| Name               | Type                                         | Description                                                | Default    |
+| ------------------ | -------------------------------------------- | ---------------------------------------------------------- | ---------- |
+| `text`             | `string`                                     | The text to display in the heading of the list.            | `-`        |
+| `helperText`       | `string`                                     | The supporting text to display in the heading of the list. | `-`        |
+| `linkText`         | `string`                                     | The text for the link in the heading.                      | `-`        |
+| `linkHref`         | `string`                                     | The href for the link in the heading.                      | `-`        |
+| `linkOnPress`      | `() => void`                                 | Callback function when the link is pressed.                | `-`        |
+| `linkTarget`       | `'_blank' \| '_self' \| '_parent' \| '_top'` | Target for the link in the heading.                        | `'_blank'` |
+| `linkDisabled`     | `boolean`                                    | Whether the link is disabled.                              | `false`    |
+| `linkIcon`         | `ComponentType`                              | Icon for the link.                                         | `-`        |
+| `linkIconPosition` | `'left' \| 'right'`                          | Position of the icon in the link.                          | `'right'`  |
+| `linkShowIcon`     | `boolean`                                    | Whether to show the icon in the link.                      | `true`     |
+
+### `AccordionItem`
+
+| Property     | Type         | Description                                                          | Default |
+| ------------ | ------------ | -------------------------------------------------------------------- | ------- |
+| `title`      | `string`     | The title of the accordion item.                                     | `-`     |
+| `value`      | `string`     | The value of the accordion item.                                     | `-`     |
+| `disabled`   | `boolean`    | If true, the accordion item is disabled.                             | `-`     |
+| `expanded`   | `boolean`    | If true, the accordion item is expanded.                             | `-`     |
+| `toggleItem` | `() => void` | Callback function that is called when the accordion item is toggled. | `-`     |
+| `noPadding`  | `boolean`    | If true, no horizontal padding is applied to the accordion items.    | `-`     |
+
+## Advanced Usage
+
+The Accordion component can be used in more complex scenarios, such as when you need to control the expanded
+state of the items or when you want to customise the header and content.
+
+<UsageWrap>
+  <Center>
+    <Accordion
+      type="multiple"
+      defaultValue={['item-1']}
+      headingText="Frequently Asked Questions"
+      headingHelperText="Click to expand"
+    >
+      <AccordionItem title="How do I place an order?" value="item-1">
+        <BodyText> Lorem ipsum dolor sit amet consectetur, adipisicing elit.</BodyText>
+      </AccordionItem>
+      <AccordionItem title="What payment methods do you accept?" value="item-2">
+        <BodyText>We accept all major credit cards, PayPal, and bank transfers.</BodyText>
+      </AccordionItem>
+    </Accordion>
+  </Center>
+</UsageWrap>
+
+```tsx
+import {
+  Accordion,
+  AccordionContent,
+  AccordionContentText,
+  AccordionHeader,
+  AccordionIcon,
+  AccordionItem,
+  AccordionTitleText,
+  AccordionTrigger,
+  AccordionHeading,
+  AccordionHeadingText,
+  AccordionHeadingHelperText,
+} from '@utilitywarehouse/native-ui/lab';
+import {
+  ChevronDownSmallIcon,
+  ChevronUpSmallIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => {
+  return (
+    <Accordion type="multiple" defaultValue={['item-1']}>
+      <AccordionHeading>
+        <AccordionHeadingTextContent>
+          <AccordionHeadingText>Frequently Asked Questions</AccordionHeadingText>
+          <AccordionHeadingHelperText>Click to expand</AccordionHeadingHelperText>
+        </AccordionHeadingTextContent>
+      </AccordionHeading>
+      <AccordionItem value="a">
+        <AccordionHeader>
+          <AccordionTrigger>
+            {({ isExpanded }: { isExpanded: boolean }) => {
+              return (
+                <>
+                  <AccordionTitleText>How do I place an order?</AccordionTitleText>
+                  {isExpanded ? (
+                    <AccordionIcon as={ChevronUpSmallIcon} />
+                  ) : (
+                    <AccordionIcon as={ChevronDowSmallIcon} />
+                  )}
+                </>
+              );
+            }}
+          </AccordionTrigger>
+        </AccordionHeader>
+        <AccordionContent>
+          <AccordionContentText>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+          </AccordionContentText>
+        </AccordionContent>
+      </AccordionItem>
+
+      <AccordionItem value="b">
+        <AccordionHeader>
+          <AccordionTrigger>
+            {({ isExpanded }: { isExpanded: boolean }) => {
+              return (
+                <>
+                  <AccordionTitleText>What payment methods do you accept?</AccordionTitleText>
+                  {isExpanded ? (
+                    <AccordionIcon as={ChevronUpMediumIcon} />
+                  ) : (
+                    <AccordionIcon as={ChevronDownMediumIcon} />
+                  )}
+                </>
+              );
+            }}
+          </AccordionTrigger>
+        </AccordionHeader>
+        <AccordionContent>
+          <AccordionContentText>
+            We accept all major credit cards, PayPal, and bank transfers.
+          </AccordionContentText>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+};
+```
+
+## Examples
+
+### With heading text and helper text
+
+You can add a heading and helper text to the accordion to provide context for the user.
+
+<UsageWrap>
+  <Center>
+    <Accordion
+      type="multiple"
+      defaultValue={['item-1']}
+      headingText="Frequently Asked Questions"
+      headingHelperText="Click to expand"
+    >
+      <AccordionItem title="How do I place an order?" value="item-1">
+        <BodyText> Lorem ipsum dolor sit amet consectetur, adipisicing elit.</BodyText>
+      </AccordionItem>
+      <AccordionItem title="What payment methods do you accept?" value="item-2">
+        <BodyText>We accept all major credit cards, PayPal, and bank transfers.</BodyText>
+      </AccordionItem>
+    </Accordion>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Accordion, AccordionItem, BodyText } from '@utilitywarehouse/hearth-react-native';
+import {
+  ChevronDownSmallIcon,
+  ChevronUpSmallIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => {
+  return (
+    <Accordion
+      type="multiple"
+      defaultValue={['item-1']}
+      headingText="Frequently Asked Questions"
+      headingHelperText="Click to expand"
+    >
+      <AccordionItem title="How do I place an order?" value="item-1">
+        <BodyText> Lorem ipsum dolor sit amet consectetur, adipisicing elit.</BodyText>
+      </AccordionItem>
+      <AccordionItem title="What payment methods do you accept?" value="item-2">
+        <BodyText>We accept all major credit cards, PayPal, and bank transfers.</BodyText>
+      </AccordionItem>
+    </Accordion>
+  );
+};
+```
+
+### With custom trigger content
+
+You can use custom content for the trigger of the accordion item, such as an icon or badge.
+
+<UsageWrap>
+  <Center>
+    <Accordion type="multiple" defaultValue={['item-1']}>
+      <AccordionItem
+        title="How do I place an order?"
+        value="item-1"
+        triggerContent={<Badge>New Content</Badge>}
+      >
+        <BodyText> Lorem ipsum dolor sit amet consectetur, adipisicing elit.</BodyText>
+      </AccordionItem>
+      <AccordionItem title="What payment methods do you accept?" value="item-2">
+        <BodyText>We accept all major credit cards, PayPal, and bank transfers.</BodyText>
+      </AccordionItem>
+    </Accordion>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Accordion, AccordionItem, Badge, BodyText } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  return (
+    <Accordion type="multiple" defaultValue={['item-1']}>
+      <AccordionItem
+        title="How do I place an order?"
+        value="item-1"
+        triggerContent={<Badge>New Content</Badge>}
+      >
+        <BodyText> Lorem ipsum dolor sit amet consectetur, adipisicing elit.</BodyText>
+      </AccordionItem>
+      <AccordionItem title="What payment methods do you accept?" value="item-2">
+        <BodyText>We accept all major credit cards, PayPal, and bank transfers.</BodyText>
+      </AccordionItem>
+    </Accordion>
+  );
+};
+```

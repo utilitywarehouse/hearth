@@ -8,7 +8,21 @@ import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 
 <DocsHeader componentName="RadioGroup" stories={Stories} />
 
-<Canvas of={Stories.Playground} sourceState="none" />
+<Canvas of={Stories.Playground} />
+
+- [Usage](#usage)
+- [Accessibility](#accessibility)
+- [Keyboard interactions](#keyboard-interactions)
+- [Custom label](#custom-label)
+- [Helper text](#helper-text)
+- [Validation](#validation)
+- [Content width](#content-width)
+- [Grid layout](#grid-layout)
+- [Controlled](#controlled)
+- [RadioCard](#radiocard)
+- [RadioGroup API](#radiogroup-api)
+- [RadioTile API](#radiotile-api)
+- [RadioCard API](#radiocard-api)
 
 ## Alternatives
 
@@ -25,9 +39,9 @@ import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 ## Accessibility
 
 The necessary aria props, such as `aria-labelledby`, `aria-describedby` and
-`aria-errormessage` are handled internally, however you can pass these and
-other aria props, such as `aria-label`, to `RadioGroup` and child
-components if you need to.
+`aria-errormessage` are handled internally, however when it is necessary for
+the `RadioGroup` to be labelled by another element or even not to have a visual
+label, either `aria-label` or `aria-labelledby` can be provided.
 
 The `Radio` and `RadioTile` are, by default, appropriately labelled when using
 the `label` props, if you do not provide a label, you must specify an
@@ -83,6 +97,13 @@ the `label` props, if you do not provide a label, you must specify an
   ))}
 </Flex>
 
+## Custom label
+
+You can set a custom label either by passing in a component to the label prop,
+or by properly labelling the `RadioGroup` with the relevant text element.
+
+<Canvas of={Stories.CustomLabel} />
+
 ## Helper text
 
 `RadioGroup` can display a secondary message as a helper text. If displayed then
@@ -107,6 +128,13 @@ the `RadioGroup`.
 
 This is a responsive property, so you are able to set different widths for
 different breakpoints.
+
+## Grid layout
+
+You can compose the `RadioGroup` with the `Grid` component if you need to
+present a specific grid layout.
+
+<Canvas of={Stories.WithGrid} />
 
 ## Controlled
 
@@ -161,6 +189,7 @@ This component is based on the `Fieldset` component.
 | Prop           | Type                 |
 | -------------- | -------------------- |
 | `direction`    | `"column" \| "row"`  |
+| `columns`      | `Responsive<number>` |
 | `width`        | `Responsive<string>` |
 | `contentWidth` | `Responsive<string>` |
 
@@ -172,6 +201,10 @@ This component is based on the `Fieldset` component.
 | `helperText` | `string` |
 
 ## RadioCard API
+
+This component is based on the `button` element and supports the following common props:
+
+- Margin
 
 | Prop       | Type        |
 | ---------- | ----------- |

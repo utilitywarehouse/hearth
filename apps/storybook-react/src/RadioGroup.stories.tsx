@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { RadioGroup, RadioTile, Box } from '@utilitywarehouse/hearth-react';
+import { RadioGroup, RadioTile, Box, Heading, Grid } from '@utilitywarehouse/hearth-react';
 import { Flex } from '@utilitywarehouse/hearth-react/src/index.js';
 
 const meta: Meta<typeof RadioGroup> = {
@@ -42,19 +42,30 @@ type Story = StoryObj<typeof RadioGroup>;
 export const Playground: Story = {
   render: args => {
     return (
-      <Flex width="500px" direction="column" gap="400">
-        <RadioGroup {...args} name="radio-group-example">
+      <Flex direction="column" gap="400">
+        <RadioGroup {...args}>
+          <RadioTile value="england" label="England" />
+          <RadioTile value="wales" label="Wales" />
+          <RadioTile value="scotland" label="Scotland" />
+          <RadioTile value="northern-ireland" label="Northern Ireland" />
+        </RadioGroup>
+        <RadioGroup
+          {...args}
+          label="Do you like living here?"
+          name="do-you-like-living-here"
+          direction="row"
+        >
           <RadioTile value="y" label="Yes" />
           <RadioTile value="n" label="No" />
         </RadioGroup>
-        <RadioGroup {...args} name="radio-group-example">
-          <RadioTile value="1" label="One" />
-          <RadioTile value="2" label="Two" />
-          <RadioTile value="3" label="Three" />
-          <RadioTile value="4" label="Four" />
-        </RadioGroup>
       </Flex>
     );
+  },
+  args: {
+    name: 'where-do-you-live',
+    label: 'Where do you live?',
+    helperText: undefined,
+    validationText: undefined,
   },
 };
 
@@ -72,6 +83,7 @@ export const RadioHelperText: Story = {
   args: {
     defaultValue: '3',
     helperText: undefined,
+    name: 'helper-text',
   },
 };
 
@@ -86,7 +98,7 @@ export const ContentWidth: Story = {
       </RadioGroup>
     );
   },
-  args: { contentWidth: '200px' },
+  args: { contentWidth: '200px', name: 'content-width' },
 };
 
 export const Controlled: Story = {
@@ -108,6 +120,7 @@ export const Controlled: Story = {
   },
   args: {
     label: 'What is your favourite animal?',
+    name: 'favourite-animal',
   },
 };
 
@@ -132,6 +145,7 @@ export const Validation: Story = {
   args: {
     validationText: 'Please tell us what your favourite animal is.',
     label: 'What is your favourite animal?',
+    name: 'favourite-animal',
     helperText: 'These are the best animals.',
   },
 };
@@ -139,15 +153,75 @@ export const Validation: Story = {
 export const Wrap: Story = {
   render: args => {
     return (
-      <Box height="800px" width="400px" padding="200">
-        <RadioGroup {...args} direction="row" helperText="Child elements will wrap by default">
+      <Box height="800px" width="350px" padding="200">
+        <RadioGroup
+          {...args}
+          direction="row"
+          helperText="Child elements will wrap by default"
+          name="wrap"
+        >
           <RadioTile value="1" label="One" />
           <RadioTile value="2" label="Two" />
           <RadioTile value="3" label="Three" />
           <RadioTile value="4" label="Four" />
           <RadioTile value="5" label="Five" />
+          <RadioTile value="6" label="Six" />
         </RadioGroup>
       </Box>
     );
   },
+};
+
+export const CustomLabel: Story = {
+  render: args => {
+    return (
+      <Flex gap="600">
+        <RadioGroup
+          {...args}
+          label={<Heading as="h2">Where do you live?</Heading>}
+          name="where-do-you-live"
+        >
+          <RadioTile value="england" label="England" />
+          <RadioTile value="wales" label="Wales" />
+          <RadioTile value="scotland" label="Scotland" />
+          <RadioTile value="northern-ireland" label="Northern Ireland" />
+        </RadioGroup>
+        <Flex direction="column" gap="100">
+          <Heading as="h2" id="where-do-you-live">
+            Where do you live?
+          </Heading>
+          <RadioGroup
+            {...args}
+            aria-labelledby="where-do-you-live"
+            helperText="The label for this fieldset is the Heading element before it"
+            name="where-do-you-live-custom-label"
+          >
+            <RadioTile value="england" label="England" />
+            <RadioTile value="wales" label="Wales" />
+            <RadioTile value="scotland" label="Scotland" />
+            <RadioTile value="northern-ireland" label="Northern Ireland" />
+          </RadioGroup>
+        </Flex>
+      </Flex>
+    );
+  },
+  args: { label: undefined, helperText: undefined, validationText: undefined },
+};
+
+export const WithGrid: Story = {
+  render: args => {
+    return (
+      <RadioGroup {...args}>
+        <Grid columns="3" gap="150">
+          <RadioTile value="1" label="One" />
+          <RadioTile value="2" label="Two" />
+          <RadioTile value="3" label="Three" />
+          <RadioTile value="4" label="Four" />
+          <RadioTile value="5" label="Five" />
+          <RadioTile value="6" label="Six" />
+        </Grid>
+      </RadioGroup>
+    );
+  },
+  args: { label: 'Using grid', helperText: undefined, validationText: undefined },
 };

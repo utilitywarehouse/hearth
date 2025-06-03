@@ -1,0 +1,255 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
+
+<Meta title="Common Props" />
+
+# Common props
+
+Components have their own set of specialized props. They can also include a shared
+set of common props, including for layout, colour and typography.
+
+- [Padding](#padding)
+- [Margin](#margin)
+- [Gap](#gap)
+- [Spacing](#spacing)
+- [Size](#size)
+- [Flex items](#flex-items)
+- [Grid items](#grid-items)
+- [Position](#position)
+- [Color](#color)
+- [Background colour](#background-colour)
+- [Border](#border)
+- [Text](#text)
+
+## Padding
+
+All the padding props use the [space design tokens](https://uw-hearth-tokens.vercel.app/?path=/docs/space--docs#available-space-tokens) only.
+
+```tsx
+<Box padding="100" />
+<Box padding={{ mobile: "100", desktop: "300" }}/>
+```
+
+| Prop            | Type                                                                                                                                   |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `padding`       | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `paddingTop`    | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `paddingRight`  | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `paddingBottom` | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `paddingLeft`   | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `paddingInline` | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `paddingBlock`  | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+
+## Margin
+
+All the margin props use the [space design tokens](https://uw-hearth-tokens.vercel.app/?path=/docs/space--docs#available-space-tokens) only.
+
+```tsx
+<Box margin="100" />
+<Box margin={{ mobile: "100", desktop: "300" }}/>
+```
+
+| Prop           | Type                                                                                                                                   |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `margin`       | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `marginTop`    | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `marginRight`  | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `marginBottom` | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `marginLeft`   | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `marginInline` | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `marginBlock`  | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+
+## Gap
+
+The gap props use only the [space design tokens](https://uw-hearth-tokens.vercel.app/?path=/docs/space--docs#available-space-tokens).
+
+```tsx
+<Flex gap="100" />
+<Flex gap={{ mobile: "100", desktop: "300" }}/>
+```
+
+| Prop        | Type                                                                                                                                   |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `gap`       | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `rowGap`    | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+| `columnGap` | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
+
+## Spacing
+
+The spacing props do not take responsive values, instead they provide a
+predetermined set of responsive gap spacing steps. These will be overridden by
+any usage of the gap props.
+
+```tsx
+<Flex spacing="lg" />
+```
+
+| Prop      | Type                           |
+| --------- | ------------------------------ |
+| `spacing` | `'xs'\|'sm'\|'md'\|'lg'\|'xl'` |
+
+## Size
+
+The size props cover height and width styles, they are responsive but do not use any token values, instead they accept any valid CSS [height](https://developer.mozilla.org/en-US/docs/Web/CSS/height) or [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width) value.
+
+```tsx
+<Box width="200px" />
+<Box width={{ mobile: "100%", desktop: "600px" }}/>
+```
+
+| Prop        | Type                 |
+| ----------- | -------------------- |
+| `width`     | `Responsive<string>` |
+| `maxWidth`  | `Responsive<string>` |
+| `minWidth`  | `Responsive<string>` |
+| `height`    | `Responsive<string>` |
+| `maxHeight` | `Responsive<string>` |
+| `minHeight` | `Responsive<string>` |
+
+## Flex items
+
+Flex item props enable styling on components when they are children of a flexbox container.
+
+```tsx
+<Flex>
+  <Box flex="1 1 0%" />
+  <Box flexBasis="0" />
+  <Box flexShrink="3" />
+  <Box flexGrow={{ mobile: 0, desktop: 1 }} />
+</Flex>
+```
+
+| Prop         | Type                 |
+| ------------ | -------------------- |
+| `flex`       | `Responsive<string>` |
+| `flexBasis`  | `Responsive<string>` |
+| `flexShrink` | `Responsive<string>` |
+| `flexGrow`   | `Responsive<string>` |
+
+## Grid items
+
+Grid item props enable styling on components when they are children of a grid
+container. The `gridColumnSpan` prop accepts one of a predefined set of grid
+column span steps, the other grid item props accept any valid CSS grid value
+for the relevant prop.
+
+```tsx
+<Grid>
+  <Box gridColumnSpan="4" />
+  <Box gridColumn="1 / 3" />
+  <Box gridRowStart="2" />
+  <Box gridColumnEnd={{ mobile: '-1', tablet: '3', desktop: 'auto' }} />
+</Grid>
+```
+
+| Prop              | Type                                                                        |
+| ----------------- | --------------------------------------------------------------------------- |
+| `gridColumnSpan`  | `Responsive<'1'\|'2'\|'3'\|'4'\|'5'\|'6'\|'7'\|'8'\|'9'\|'10'\|'11'\|'12'>` |
+| `gridArea`        | `Responsive<string>`                                                        |
+| `gridColumn`      | `Responsive<string>`                                                        |
+| `gridColumnStart` | `Responsive<string>`                                                        |
+| `gridColumnEnd`   | `Responsive<string>`                                                        |
+| `gridRow`         | `Responsive<string>`                                                        |
+| `gridRowStart`    | `Responsive<string>`                                                        |
+| `gridRowEnd`      | `Responsive<string>`                                                        |
+
+## Position
+
+```tsx
+<Box position="relative" />
+<Box position={{ mobile: "relative", desktop: "sticky"}} />
+<Box position="absolute" inset="16px" />
+```
+
+| Prop       | Type                                                              |
+| ---------- | ----------------------------------------------------------------- |
+| `position` | `Responsive<'static'\|'relative'\|'absolute'\|'fixed'\|'sticky'>` |
+| `inset`    | `Responsive<string>`                                              |
+| `top`      | `Responsive<string>`                                              |
+| `right`    | `Responsive<string>`                                              |
+| `bottom`   | `Responsive<string>`                                              |
+| `left`     | `Responsive<string>`                                              |
+
+## Color
+
+The color prop accepts any valid token value from the [design token colours](https://uw-hearth-tokens.vercel.app/?path=/docs/colours--docs#available-colour-tokens),
+specifically only the light theme colour values are available on the web.
+
+```tsx
+<Box color="blue500" />
+<Box color="grey1000" />
+<Box color="cashbackLilac600" />
+```
+
+| Prop    | Type          |
+| ------- | ------------- |
+| `color` | `colorTokens` |
+
+## Background colour
+
+The background color prop accepts any valid token value from the [design token colours](https://uw-hearth-tokens.vercel.app/?path=/docs/colours--docs#available-colour-tokens),
+specifically only the light theme colour values are available on the web.
+
+```tsx
+<Box backgroundColor="blue500" />
+<Box backgroundColor="grey100" />
+<Box backgroundColor="cashbackLilac300" />
+```
+
+| Prop              | Type          |
+| ----------------- | ------------- |
+| `backgroundColor` | `colorTokens` |
+
+## Border
+
+The border props can be used to control the appearance of component borders, for either the entire component or only individual sides.
+The colour specific props make use of the token values from the [design token colours](https://uw-hearth-tokens.vercel.app/?path=/docs/colours--docs#available-colour-tokens),
+while the other props, which are responsive, use their own relevant sets of values.
+
+```tsx
+<Box borderColor="grey500" borderStyle="solid" borderWidth="1" />
+<Box borderColor="grey500" borderStyle={{ mobile: 'none', desktop: 'solid' }} borderWidth="2" />
+<Box borderTopColor="grey500" borderTopStyle="solid" borderTopWidth={{ mobile: 1, desktop: 2}}/>
+```
+
+| Prop                      | Type                                                       |
+| ------------------------- | ---------------------------------------------------------- |
+| `borderColor`             | `colorTokens`                                              |
+| `borderStyle`             | `Responsive<'none'\|'solid'>`                              |
+| `borderWidth`             | `Responsive<'0'\|'1'\|'2'>`                                |
+| `borderRadius`            | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderTopColor`          | `colorTokens`                                              |
+| `borderTopStyle`          | `Responsive<'none'\|'solid'>`                              |
+| `borderTopWidth`          | `Responsive<'0'\|'1'\|'2'>`                                |
+| `borderTopLeftRadius`     | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderTopRightRadius`    | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderRightColor`        | `colorTokens`                                              |
+| `borderRightStyle`        | `Responsive<'none'\|'solid'>`                              |
+| `borderRightWidth`        | `Responsive<'0'\|'1'\|'2'>`                                |
+| `borderBottomColor`       | `colorTokens`                                              |
+| `borderBottomStyle`       | `Responsive<'none'\|'solid'>`                              |
+| `borderBottomWidth`       | `Responsive<'0'\|'1'\|'2'>`                                |
+| `borderBottomLeftRadius`  | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderBottomRightRadius` | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderLeftColor`         | `colorTokens`                                              |
+| `borderLeftStyle`         | `Responsive<'none'\|'solid'>`                              |
+| `borderLeftWidth`         | `Responsive<'0'\|'1'\|'2'>`                                |
+
+## Text
+
+The text props can exist on components independently of each other, and each reflect their own relevant CSS usage.
+
+```tsx
+<BodyText textAlign="left" />
+<BodyText textAlign={{ mobile: 'center', desktop: 'left' }}/>
+
+<BodyText textTransform="capitalize" />
+
+<BodyText textWrap="pretty" />
+<BodyText textWrap={{ mobile: 'wrap', desktop: 'nowrap' }}/>
+```
+
+| Prop            | Type                                                |
+| --------------- | --------------------------------------------------- |
+| `textAlign`     | `Responsive<'left'\|'center'\|'right'>`             |
+| `textTransform` | `'none'\|'uppercase'\|'lowercase'\|'capitalize'`    |
+| `textWrap`      | `Responsive<'wrap'\|'nowrap'\|'balance'\|'pretty'>` |

@@ -4,7 +4,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemLeadingContent,
-  ListItemSupportingText,
+  ListItemHelperText,
   ListItemText,
   ListItemTrailingContent,
   ListItemTrailingIcon,
@@ -35,7 +35,7 @@ const BadgeList = () => {
           <Badge colorScheme="blue">
             <BadgeText>Text</BadgeText>
           </Badge>
-          <ListItemSupportingText>Last reading 23/03/24</ListItemSupportingText>
+          <ListItemHelperText>Last reading 23/03/24</ListItemHelperText>
         </ListItemContent>
         <ListItemTrailingContent>
           <ListItemTrailingIcon as={ChevronRightMediumIcon} />
@@ -54,7 +54,7 @@ const BadgeList = () => {
               <BadgeText>Smart meter</BadgeText>
             </Badge>
           </Flex>
-          <ListItemSupportingText>Last reading 23/03/24</ListItemSupportingText>
+          <ListItemHelperText>Last reading 23/03/24</ListItemHelperText>
         </ListItemContent>
         <ListItemTrailingContent>
           <ListItemTrailingIcon as={ChevronRightMediumIcon} />

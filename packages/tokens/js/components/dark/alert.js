@@ -8,6 +8,7 @@ export default {
   },
   borderRadius: 8,
   borderWidth: 2,
+  contentGap: 4,
   gap: 8,
   green: {
     backgroundColor: '#08683a',

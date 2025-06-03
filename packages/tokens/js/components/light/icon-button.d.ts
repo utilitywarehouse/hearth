@@ -24,8 +24,16 @@ declare const _default: {
       readonly foregroundColorActive: '#f1efe4';
       readonly foregroundColorHover: '#f7f6eb';
     };
+    readonly md: {
+      readonly height: 24;
+      readonly width: 24;
+    };
     readonly paddingHorizontal: 0;
     readonly paddingVertical: 0;
+    readonly sm: {
+      readonly height: 20;
+      readonly width: 20;
+    };
   };
 };
 export default _default;

@@ -11,6 +11,7 @@ import { useIds } from '../../hooks/use-ids';
 import { ValidationText } from '../ValidationText/ValidationText';
 import { mergeIds } from '../../helpers/merge-ids';
 import { BodyText } from '../BodyText/BodyText';
+import { marginPropDefs } from '../../props/margin.props';
 
 const componentName = 'TextInput';
 const componentClassName = withGlobalPrefix(componentName);
@@ -30,11 +31,10 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
       disabled,
       readOnly,
       hideLabel,
-      role,
       required,
       placeholder,
       ...textInputProps
-    } = extractProps(props);
+    } = extractProps(props, marginPropDefs);
     const { id, labelId, helperTextId, validationTextId } = useIds({
       providedId,
       prefix: 'input',
@@ -51,9 +51,10 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
     const defaultRef = React.useRef<HTMLInputElement>(null);
     const inputRef = forwardedRef || defaultRef;
     return (
-      <div
+      <Flex
         className={clsx(componentClassName, className)}
-        role={role}
+        direction="column"
+        gap="75"
         data-validation-status={validationStatus ? validationStatus : undefined}
         data-disabled={disabled ? '' : undefined}
         onPointerDown={event => {
@@ -84,7 +85,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
             </HelperText>
           ) : null}
         </Flex>
-        <div className="hearth-input-container">
+        <div className="hearth-TextInputRoot">
           <input
             ref={inputRef}
             spellCheck="false"
@@ -106,7 +107,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
             {validationText}
           </ValidationText>
         ) : null}
-      </div>
+      </Flex>
     );
   }
 );

@@ -54,6 +54,12 @@ const meta: Meta<typeof Grid> = {
     right: { control: { type: 'number' } },
     bottom: { control: { type: 'number' } },
     left: { control: { type: 'number' } },
+    width: { control: { type: 'text' } },
+    minWidth: { control: { type: 'text' } },
+    maxWidth: { control: { type: 'text' } },
+    height: { control: { type: 'text' } },
+    minHeight: { control: { type: 'text' } },
+    maxHeight: { control: { type: 'text' } },
   },
 } satisfies Meta<typeof Grid>;
 

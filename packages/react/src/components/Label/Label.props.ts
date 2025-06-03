@@ -1,7 +1,8 @@
 import { MarginProps } from '../../props/margin.props';
+import { TextTransformProps } from '../../props/text-transform.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
-interface CommonLabelProps extends MarginProps {
+interface CommonLabelProps extends MarginProps, TextTransformProps {
   /**
    * Shorthand for changing the default rendered element into a semantically appropriate alternative.
    * Cannot be used in combination with `asChild`.

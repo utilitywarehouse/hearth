@@ -1,0 +1,378 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+import { color } from '@utilitywarehouse/hearth-tokens/js'; // For displaying palettes
+
+<Meta title="Colours" />
+
+# Colours
+
+Hearth Tokens provides a comprehensive set of colours for use in your projects. The colours are divided into light and dark themes, with common colours shared between both themes.
+
+- [Getting Started](#getting-started)
+  - [JS/TS Usage (`/js`)](#jsts-usage-js)
+  - [JS/TS CSS Variable String Usage (Browser JS - `/browser`)](#jsts-css-variable-string-usage-browser-js--browser)
+  - [CSS Usage (`/css`)](#css-usage-css)
+- [Common Colours](#common-colours)
+- [Light Theme Colours](#light-theme-colours)
+- [Dark Theme Colours](#dark-theme-colours)
+- [Available Colour Tokens](#available-colour-tokens)
+
+## Getting Started
+
+To use the colours in your project, you can import them from the `@utilitywarehouse/hearth-tokens` package. The colours are available in multiple formats depending on your needs:
+
+1.  **Raw Hex Values (JS):** Provides raw hex color strings (e.g., `'#ffffff'`). Use this in any JavaScript environment (Node.js, React Native, Browser) when you need the direct color value.
+2.  **CSS Variable Strings (Browser JS):** Provides strings formatted as CSS variables (`var(--h-color-...)`). Use this in browser JavaScript (React, Vue, etc.) when applying styles directly that leverage CSS variables.
+3.  **CSS Definitions:** Provides the actual CSS custom property definitions (e.g., `--h-color-blue-500: #41a0ff;`). This must be imported for the CSS Variable Strings (Browser JS) format to work correctly.
+
+### JS/TS Usage (`/js`)
+
+Import the `color` object from `@utilitywarehouse/hearth-tokens/js` to access the raw hex values directly. This format is universally applicable in any JavaScript environment.
+
+```js
+import { color } from '@utilitywarehouse/hearth-tokens/js';
+
+const primaryColor = color.light.blue[500]; // '#41a0ff'
+const white = color.common.white; // '#ffffff'
+
+// Example usage in React Native
+import { StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: color.light.purple[700], // '#7a42c8'
+    color: white,
+  },
+});
+
+// Example usage in browser JS for non-CSS contexts (e.g., canvas)
+// ctx.fillStyle = color.light.red[500];
+```
+
+### JS/TS CSS Variable String Usage (Browser JS - `/browser`)
+
+Import the `color` object from `@utilitywarehouse/hearth-tokens/browser/color` to access CSS variable strings. This format is specifically designed for browser environments where you intend to use CSS variables within your JavaScript code (e.g., inline styles, CSS-in-JS libraries). **Requires the CSS definitions to be imported separately (see next section).**
+
+```js
+import { color } from '@utilitywarehouse/hearth-tokens/browser';
+
+const primaryColorVar = color.blue[500]; // 'var(--h-color-blue-500)'
+const textColorVar = color.grey[900]; // 'var(--h-color-grey-900)'
+
+// Example usage in a React component's style prop
+const MyComponent = () => (
+  <div style={{ backgroundColor: color.warmWhite[50], color: textColorVar }}>Hello World</div>
+);
+
+// Example usage with styled-components
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
+  background-color: ${color.purple[700]}; /* Resolves to var(--h-color-purple-700) */
+  color: ${color.white}; /* Resolves to var(--h-color-common-white) */
+  border: 1px solid ${color.grey[300]}; /* Resolves to var(--h-color-grey-300) */
+`;
+```
+
+_Note: The browser JS object structure might differ slightly (e.g., common colors might be top-level). Refer to the actual export._
+
+### CSS Usage (`/css`)
+
+Import the `color.css` file in your application's entry point (e.g., main JS/TS file or global CSS file). This file defines the actual CSS custom properties (e.g., `--h-color-blue-500: #41a0ff;`). **This step is necessary for the CSS Variable String (Browser JS) format to function correctly.** It also allows you to use the variables directly in your standard CSS files.
+
+```js
+// Import in your main JS/TS file or CSS entry point
+import '@utilitywarehouse/hearth-tokens/css/color.css';
+```
+
+```css
+/* Example usage directly in a CSS file */
+.my-element {
+  background-color: var(--h-color-warm-white-50);
+  color: var(--h-color-grey-900);
+  border-color: var(--h-color-blue-500);
+}
+
+/* Defining semantic variables */
+:root {
+  --color-primary-background: var(--h-color-purple-700);
+  --color-primary-text: var(--h-color-common-white);
+}
+
+.button-primary {
+  background-color: var(--color-primary-background);
+  color: var(--color-primary-text);
+}
+```
+
+## Common Colours
+
+<ColorPalette>
+  <ColorItem title="common" subtitle="Common shared colours" colors={color.common} />
+</ColorPalette>
+
+## Light Theme Colours
+
+<ColorPalette>
+  {Object.keys(color.light).map(key => (
+    <>
+      <ColorItem
+        key={`light-${key}-1`}
+        title={key}
+        subtitle={`light.${key}`}
+        colors={Object.keys(color.light[key])
+          .slice(0, 6)
+          .reduce((acc, subKey) => {
+            acc[subKey] = color.light[key][subKey];
+            return acc;
+          }, {})}
+      />
+      {Object.keys(color.light[key]).length > 6 && (
+        <ColorItem
+          key={`light-${key}-2`}
+          title=""
+          subtitle=""
+          colors={Object.keys(color.light[key])
+            .slice(6, 12)
+            .reduce((acc, subKey) => {
+              acc[subKey] = color.light[key][subKey];
+              return acc;
+            }, {})}
+        />
+      )}
+      {Object.keys(color.light[key]).length > 12 && (
+        <ColorItem
+          key={`light-${key}-3`}
+          title=""
+          subtitle=""
+          colors={Object.keys(color.light[key])
+            .slice(12, 18)
+            .reduce((acc, subKey) => {
+              acc[subKey] = color.light[key][subKey];
+              return acc;
+            }, {})}
+        />
+      )}
+    </>
+  ))}
+</ColorPalette>
+
+## Dark Theme Colours
+
+<ColorPalette>
+  {Object.keys(color.dark).map(key => (
+    <>
+      <ColorItem
+        key={`dark-${key}-1`}
+        title={key}
+        subtitle={`dark.${key}`}
+        colors={Object.keys(color.dark[key])
+          .slice(0, 6)
+          .reduce((acc, subKey) => {
+            acc[subKey] = color.dark[key][subKey];
+            return acc;
+          }, {})}
+      />
+      {Object.keys(color.dark[key]).length > 6 && (
+        <ColorItem
+          key={`dark-${key}-2`}
+          title=""
+          subtitle=""
+          colors={Object.keys(color.dark[key])
+            .slice(6, 12)
+            .reduce((acc, subKey) => {
+              acc[subKey] = color.dark[key][subKey];
+              return acc;
+            }, {})}
+        />
+      )}
+      {Object.keys(color.dark[key]).length > 12 && (
+        <ColorItem
+          key={`dark-${key}-3`}
+          title=""
+          subtitle=""
+          colors={Object.keys(color.dark[key])
+            .slice(12, 18)
+            .reduce((acc, subKey) => {
+              acc[subKey] = color.dark[key][subKey];
+              return acc;
+            }, {})}
+        />
+      )}
+    </>
+  ))}
+</ColorPalette>
+
+## Available Colour Tokens
+
+This section lists the available colour tokens, their raw hex values (from the JS export), and the associated CSS variable names. The CSS variables listed correspond to the **light theme** definitions. Dark theme values are available via the JS export (`color.dark...`).
+
+### Common Colours
+
+| Token Path     | Hex Value              | CSS Variable      |
+| :------------- | :--------------------- | :---------------- |
+| `common.white` | `{color.common.white}` | `--h-color-white` |
+
+### Light Theme Colours
+
+#### Blue
+
+| Token Path         | Hex Value                  | CSS Variable          |
+| :----------------- | :------------------------- | :-------------------- |
+| `light.blue[50]`   | `{color.light.blue[50]}`   | `--h-color-blue-50`   |
+| `light.blue[100]`  | `{color.light.blue[100]}`  | `--h-color-blue-100`  |
+| `light.blue[200]`  | `{color.light.blue[200]}`  | `--h-color-blue-200`  |
+| `light.blue[300]`  | `{color.light.blue[300]}`  | `--h-color-blue-300`  |
+| `light.blue[400]`  | `{color.light.blue[400]}`  | `--h-color-blue-400`  |
+| `light.blue[500]`  | `{color.light.blue[500]}`  | `--h-color-blue-500`  |
+| `light.blue[600]`  | `{color.light.blue[600]}`  | `--h-color-blue-600`  |
+| `light.blue[700]`  | `{color.light.blue[700]}`  | `--h-color-blue-700`  |
+| `light.blue[800]`  | `{color.light.blue[800]}`  | `--h-color-blue-800`  |
+| `light.blue[900]`  | `{color.light.blue[900]}`  | `--h-color-blue-900`  |
+| `light.blue[1000]` | `{color.light.blue[1000]}` | `--h-color-blue-1000` |
+
+#### Broadband Green
+
+| Token Path                  | Hex Value                           | CSS Variable                    |
+| :-------------------------- | :---------------------------------- | :------------------------------ |
+| `light.broadbandGreen[200]` | `{color.light.broadbandGreen[200]}` | `--h-color-broadband-green-200` |
+| `light.broadbandGreen[300]` | `{color.light.broadbandGreen[300]}` | `--h-color-broadband-green-300` |
+| `light.broadbandGreen[600]` | `{color.light.broadbandGreen[600]}` | `--h-color-broadband-green-600` |
+
+#### Cashback Lilac
+
+| Token Path                 | Hex Value                          | CSS Variable                   |
+| :------------------------- | :--------------------------------- | :----------------------------- |
+| `light.cashbackLilac[300]` | `{color.light.cashbackLilac[300]}` | `--h-color-cashback-lilac-300` |
+| `light.cashbackLilac[500]` | `{color.light.cashbackLilac[500]}` | `--h-color-cashback-lilac-500` |
+| `light.cashbackLilac[600]` | `{color.light.cashbackLilac[600]}` | `--h-color-cashback-lilac-600` |
+
+#### Energy Blue
+
+| Token Path              | Hex Value                       | CSS Variable                |
+| :---------------------- | :------------------------------ | :-------------------------- |
+| `light.energyBlue[200]` | `{color.light.energyBlue[200]}` | `--h-color-energy-blue-200` |
+| `light.energyBlue[300]` | `{color.light.energyBlue[300]}` | `--h-color-energy-blue-300` |
+| `light.energyBlue[600]` | `{color.light.energyBlue[600]}` | `--h-color-energy-blue-600` |
+
+#### Green
+
+| Token Path          | Hex Value                   | CSS Variable           |
+| :------------------ | :-------------------------- | :--------------------- |
+| `light.green[50]`   | `{color.light.green[50]}`   | `--h-color-green-50`   |
+| `light.green[100]`  | `{color.light.green[100]}`  | `--h-color-green-100`  |
+| `light.green[200]`  | `{color.light.green[200]}`  | `--h-color-green-200`  |
+| `light.green[300]`  | `{color.light.green[300]}`  | `--h-color-green-300`  |
+| `light.green[400]`  | `{color.light.green[400]}`  | `--h-color-green-400`  |
+| `light.green[500]`  | `{color.light.green[500]}`  | `--h-color-green-500`  |
+| `light.green[600]`  | `{color.light.green[600]}`  | `--h-color-green-600`  |
+| `light.green[700]`  | `{color.light.green[700]}`  | `--h-color-green-700`  |
+| `light.green[800]`  | `{color.light.green[800]}`  | `--h-color-green-800`  |
+| `light.green[900]`  | `{color.light.green[900]}`  | `--h-color-green-900`  |
+| `light.green[1000]` | `{color.light.green[1000]}` | `--h-color-green-1000` |
+
+#### Grey
+
+| Token Path         | Hex Value                  | CSS Variable          |
+| :----------------- | :------------------------- | :-------------------- |
+| `light.grey[50]`   | `{color.light.grey[50]}`   | `--h-color-grey-50`   |
+| `light.grey[100]`  | `{color.light.grey[100]}`  | `--h-color-grey-100`  |
+| `light.grey[200]`  | `{color.light.grey[200]}`  | `--h-color-grey-200`  |
+| `light.grey[300]`  | `{color.light.grey[300]}`  | `--h-color-grey-300`  |
+| `light.grey[400]`  | `{color.light.grey[400]}`  | `--h-color-grey-400`  |
+| `light.grey[500]`  | `{color.light.grey[500]}`  | `--h-color-grey-500`  |
+| `light.grey[600]`  | `{color.light.grey[600]}`  | `--h-color-grey-600`  |
+| `light.grey[700]`  | `{color.light.grey[700]}`  | `--h-color-grey-700`  |
+| `light.grey[800]`  | `{color.light.grey[800]}`  | `--h-color-grey-800`  |
+| `light.grey[900]`  | `{color.light.grey[900]}`  | `--h-color-grey-900`  |
+| `light.grey[1000]` | `{color.light.grey[1000]}` | `--h-color-grey-1000` |
+
+#### Insurance Orange
+
+| Token Path                   | Hex Value                            | CSS Variable                     |
+| :--------------------------- | :----------------------------------- | :------------------------------- |
+| `light.insuranceOrange[300]` | `{color.light.insuranceOrange[300]}` | `--h-color-insurance-orange-300` |
+| `light.insuranceOrange[400]` | `{color.light.insuranceOrange[400]}` | `--h-color-insurance-orange-400` |
+| `light.insuranceOrange[700]` | `{color.light.insuranceOrange[700]}` | `--h-color-insurance-orange-700` |
+
+#### Mobile Rose
+
+| Token Path              | Hex Value                       | CSS Variable                |
+| :---------------------- | :------------------------------ | :-------------------------- |
+| `light.mobileRose[200]` | `{color.light.mobileRose[200]}` | `--h-color-mobile-rose-200` |
+| `light.mobileRose[400]` | `{color.light.mobileRose[400]}` | `--h-color-mobile-rose-400` |
+| `light.mobileRose[600]` | `{color.light.mobileRose[600]}` | `--h-color-mobile-rose-600` |
+
+#### Orange
+
+| Token Path           | Hex Value                    | CSS Variable            |
+| :------------------- | :--------------------------- | :---------------------- |
+| `light.orange[50]`   | `{color.light.orange[50]}`   | `--h-color-orange-50`   |
+| `light.orange[100]`  | `{color.light.orange[100]}`  | `--h-color-orange-100`  |
+| `light.orange[200]`  | `{color.light.orange[200]}`  | `--h-color-orange-200`  |
+| `light.orange[300]`  | `{color.light.orange[300]}`  | `--h-color-orange-300`  |
+| `light.orange[400]`  | `{color.light.orange[400]}`  | `--h-color-orange-400`  |
+| `light.orange[500]`  | `{color.light.orange[500]}`  | `--h-color-orange-500`  |
+| `light.orange[600]`  | `{color.light.orange[600]}`  | `--h-color-orange-600`  |
+| `light.orange[700]`  | `{color.light.orange[700]}`  | `--h-color-orange-700`  |
+| `light.orange[800]`  | `{color.light.orange[800]}`  | `--h-color-orange-800`  |
+| `light.orange[900]`  | `{color.light.orange[900]}`  | `--h-color-orange-900`  |
+| `light.orange[1000]` | `{color.light.orange[1000]}` | `--h-color-orange-1000` |
+
+#### Piggy Pink
+
+| Token Path             | Hex Value                      | CSS Variable               |
+| :--------------------- | :----------------------------- | :------------------------- |
+| `light.piggyPink[200]` | `{color.light.piggyPink[200]}` | `--h-color-piggy-pink-200` |
+| `light.piggyPink[300]` | `{color.light.piggyPink[300]}` | `--h-color-piggy-pink-300` |
+| `light.piggyPink[500]` | `{color.light.piggyPink[500]}` | `--h-color-piggy-pink-500` |
+
+#### Purple
+
+| Token Path           | Hex Value                    | CSS Variable            |
+| :------------------- | :--------------------------- | :---------------------- |
+| `light.purple[300]`  | `{color.light.purple[300]}`  | `--h-color-purple-300`  |
+| `light.purple[700]`  | `{color.light.purple[700]}`  | `--h-color-purple-700`  |
+| `light.purple[800]`  | `{color.light.purple[800]}`  | `--h-color-purple-800`  |
+| `light.purple[900]`  | `{color.light.purple[900]}`  | `--h-color-purple-900`  |
+| `light.purple[1000]` | `{color.light.purple[1000]}` | `--h-color-purple-1000` |
+
+#### Red
+
+| Token Path        | Hex Value                 | CSS Variable         |
+| :---------------- | :------------------------ | :------------------- |
+| `light.red[50]`   | `{color.light.red[50]}`   | `--h-color-red-50`   |
+| `light.red[100]`  | `{color.light.red[100]}`  | `--h-color-red-100`  |
+| `light.red[200]`  | `{color.light.red[200]}`  | `--h-color-red-200`  |
+| `light.red[300]`  | `{color.light.red[300]}`  | `--h-color-red-300`  |
+| `light.red[400]`  | `{color.light.red[400]}`  | `--h-color-red-400`  |
+| `light.red[500]`  | `{color.light.red[500]}`  | `--h-color-red-500`  |
+| `light.red[600]`  | `{color.light.red[600]}`  | `--h-color-red-600`  |
+| `light.red[700]`  | `{color.light.red[700]}`  | `--h-color-red-700`  |
+| `light.red[800]`  | `{color.light.red[800]}`  | `--h-color-red-800`  |
+| `light.red[900]`  | `{color.light.red[900]}`  | `--h-color-red-900`  |
+| `light.red[1000]` | `{color.light.red[1000]}` | `--h-color-red-1000` |
+
+#### Warm White
+
+| Token Path             | Hex Value                      | CSS Variable               |
+| :--------------------- | :----------------------------- | :------------------------- |
+| `light.warmWhite[50]`  | `{color.light.warmWhite[50]}`  | `--h-color-warm-white-50`  |
+| `light.warmWhite[100]` | `{color.light.warmWhite[100]}` | `--h-color-warm-white-100` |
+| `light.warmWhite[200]` | `{color.light.warmWhite[200]}` | `--h-color-warm-white-200` |
+| `light.warmWhite[300]` | `{color.light.warmWhite[300]}` | `--h-color-warm-white-300` |
+
+#### Yellow
+
+| Token Path           | Hex Value                    | CSS Variable            |
+| :------------------- | :--------------------------- | :---------------------- |
+| `light.yellow[50]`   | `{color.light.yellow[50]}`   | `--h-color-yellow-50`   |
+| `light.yellow[100]`  | `{color.light.yellow[100]}`  | `--h-color-yellow-100`  |
+| `light.yellow[200]`  | `{color.light.yellow[200]}`  | `--h-color-yellow-200`  |
+| `light.yellow[300]`  | `{color.light.yellow[300]}`  | `--h-color-yellow-300`  |
+| `light.yellow[400]`  | `{color.light.yellow[400]}`  | `--h-color-yellow-400`  |
+| `light.yellow[500]`  | `{color.light.yellow[500]}`  | `--h-color-yellow-500`  |
+| `light.yellow[600]`  | `{color.light.yellow[600]}`  | `--h-color-yellow-600`  |
+| `light.yellow[700]`  | `{color.light.yellow[700]}`  | `--h-color-yellow-700`  |
+| `light.yellow[800]`  | `{color.light.yellow[800]}`  | `--h-color-yellow-800`  |
+| `light.yellow[900]`  | `{color.light.yellow[900]}`  | `--h-color-yellow-900`  |
+| `light.yellow[1000]` | `{color.light.yellow[1000]}` | `--h-color-yellow-1000` |

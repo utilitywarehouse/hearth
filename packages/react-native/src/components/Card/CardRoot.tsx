@@ -45,7 +45,6 @@ const Card = forwardRef<
       variant = 'subtle',
       colorScheme = 'white',
       noPadding = false,
-      selected,
       style,
       states,
       space,
@@ -75,7 +74,6 @@ const Card = forwardRef<
       variant,
       colorScheme,
       noPadding,
-      selected,
       active,
       showPressed,
       disabled,
@@ -171,13 +169,7 @@ const styles = StyleSheet.create(theme => ({
           },
         },
       },
-      selected: {
-        true: {
-          borderWidth: theme.components.card.selectable.borderWidthSelected,
-          borderColor: theme.components.card.selectable.borderColor,
-          margin: -theme.components.card.selectable.borderWidthSelected / 2,
-        },
-      },
+
       active: {
         true: {},
       },

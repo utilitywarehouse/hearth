@@ -1,7 +1,13 @@
 import { MarginProps } from '../../props/margin.props';
+import { TextAlignProps } from '../../props/text-align.props';
+import { TextTransformProps } from '../../props/text-transform.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
-export interface HelperTextProps extends ComponentPropsWithout<'span', RemovedProps>, MarginProps {
+export interface HelperTextProps
+  extends ComponentPropsWithout<'span', RemovedProps>,
+    MarginProps,
+    TextAlignProps,
+    TextTransformProps {
   /**
    * Set the helper text appearance to disabled.
    * This will be overriden by the validation status.

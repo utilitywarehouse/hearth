@@ -18,16 +18,4 @@
   .hearth-r-align-items-stretch {
     align-items: stretch;
   }
-
-  .hearth-r-align-items-space-between {
-    align-items: space-between;
-  }
-
-  .hearth-r-align-items-space-around {
-    align-items: space-between;
-  }
-
-  .hearth-r-align-items-space-evenly {
-    align-items: space-between;
-  }
 }

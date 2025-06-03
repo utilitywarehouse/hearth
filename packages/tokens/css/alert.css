@@ -7,6 +7,7 @@
   --h-alert-blue-border-color: var(--h-color-blue-700);
   --h-alert-border-radius: var(--h-border-radius-md);
   --h-alert-border-width: var(--h-border-width-2);
+  --h-alert-content-gap: var(--h-space-50);
   --h-alert-gap: var(--h-space-100);
   --h-alert-green-background-color: var(--h-color-green-200);
   --h-alert-green-border-color: var(--h-color-green-700);

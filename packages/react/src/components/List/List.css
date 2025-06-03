@@ -1,0 +1,22 @@
+.hearth-List {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-list-gap);
+
+  & :where(.hearth-ListHeader) {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--h-list-heading-gap);
+  }
+
+  & :where(.hearth-ListContainer) {
+    &:where(:has(:focus-visible)) {
+      outline: none;
+    }
+
+    & :where(ul, ol) {
+      width: 100%;
+    }
+  }
+}

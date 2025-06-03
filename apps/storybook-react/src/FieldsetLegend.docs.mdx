@@ -8,8 +8,16 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 
 <DocsHeader componentName="FieldsetLegend" stories={Stories} />
 
-<Canvas of={Stories.Workshop} sourceState="none" />
+<Canvas of={Stories.Playground} />
+
+## Custom label
+
+If necessary, perhaps for accessibility reasons, you can render a different element as a child.
+
+<Canvas of={Stories.CustomElement} />
 
 ## API
 
-This component is based on the `legend` element.
+This component is based on the `legend` element, and supports the following common props:
+
+- Margin

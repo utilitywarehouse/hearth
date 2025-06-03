@@ -215,6 +215,8 @@ const MyComponent = () => (
 A semantic HTML button is rendered by default, however you can change the
 underlying HTML element by using the `asChild` prop.
 
+**NOTE:** Be aware that you cannot currently use `asChild` with the `emphasis` variant.
+
 When `asChild` is set to true, the button will not render a default DOM element,
 instead cloning the child and passing it the props and behaviour required to
 make it functional.
@@ -233,7 +235,9 @@ Read more about this idea in the [Radix UI composition docs](https://www.radix-u
 
 ## API
 
-This component is based on the `button` element.
+This component is based on the `button` element and supports the following common props:
+
+- Margin
 
 | Prop          | Type                                            |
 | ------------- | ----------------------------------------------- |

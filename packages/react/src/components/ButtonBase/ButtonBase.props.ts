@@ -1,3 +1,4 @@
+import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
@@ -10,6 +11,7 @@ export const buttonBasePropDefs = {
 };
 
 export type ButtonBaseProps = ComponentPropsWithout<'button', RemovedProps> &
+  MarginProps &
   (
     | {
         /**
@@ -20,6 +22,7 @@ export type ButtonBaseProps = ComponentPropsWithout<'button', RemovedProps> &
          * Sets the button's colour scheme
          */
         colorScheme?: 'yellow';
+        asChild?: never;
       }
     | {
         /**

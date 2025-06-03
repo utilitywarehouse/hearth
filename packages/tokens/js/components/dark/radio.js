@@ -33,8 +33,7 @@ export default {
     },
     maxWidth: 504,
     minWidth: 200,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    padding: 12,
   },
   unchecked: {
     backgroundColor: '#ffffff',

@@ -7,6 +7,8 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { BodyText } from '../BodyText/BodyText';
 import { HelperTextProps } from './HelperText.props';
+import { textAlignPropDefs } from '../../props/text-align.props';
+import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const componentName = 'HelperText';
 const componentClassName = withGlobalPrefix(componentName);
@@ -16,7 +18,9 @@ type HelperTextElement = ElementRef<'span'>;
 export const HelperText = React.forwardRef<HelperTextElement, HelperTextProps>((props, ref) => {
   const { children, disabled, disableUserSelect, className, ...helperTextProps } = extractProps(
     props,
-    marginPropDefs
+    marginPropDefs,
+    textAlignPropDefs,
+    textTransformPropDefs
   );
   return (
     <BodyText

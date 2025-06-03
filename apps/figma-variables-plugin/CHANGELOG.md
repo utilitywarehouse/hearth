@@ -1,5 +1,12 @@
 # @utilitywarehouse/figma-variables-plugin
 
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies [[`5810141`](https://github.com/utilitywarehouse/hearth/commit/5810141353f0f96c4d651c0679edabd9b7e027d2), [`5810141`](https://github.com/utilitywarehouse/hearth/commit/5810141353f0f96c4d651c0679edabd9b7e027d2), [`7ad972a`](https://github.com/utilitywarehouse/hearth/commit/7ad972a504a6b6354fdd24f040031eb6251533c1)]:
+  - @utilitywarehouse/hearth-react@0.0.1
+
 ## 0.1.1
 
 ### Patch Changes

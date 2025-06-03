@@ -1,11 +1,31 @@
 .hearth-RadioTile {
   flex: 1 1 0%;
+  all: unset;
+  background-color: var(--h-radio-tile-background-color);
+  padding: var(--h-radio-tile-padding);
+  border-radius: var(--h-radio-tile-border-radius);
+  box-shadow: inset 0 0 0 var(--h-radio-tile-border-width) var(--h-radio-tile-border-color);
+  min-width: var(--h-radio-tile-min-width);
+  max-width: var(--h-radio-tile-max-width);
   cursor: pointer;
 
   * {
     cursor: pointer;
   }
 
-  min-width: var(--h-radio-tile-min-width);
-  max-width: var(--h-radio-tile-max-width);
+  &:where([data-state='checked']) {
+    box-shadow: inset 0 0 0 var(--h-radio-tile-border-width-selected)
+      var(--h-radio-tile-border-color-selected);
+  }
+
+  &:where(:focus-visible) {
+    outline: 2px solid var(--h-focus-border);
+    outline-offset: 1px;
+  }
+
+  .hearth-RadioContainer {
+    display: flex;
+    flex-direction: row;
+    gap: var(--h-radio-tile-gap);
+  }
 }

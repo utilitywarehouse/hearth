@@ -1,17 +1,15 @@
-@breakpoints {
-  :where(.hearth-r-text-transform-none) {
-    text-transform: none;
-  }
+:where(.hearth-r-text-transform-none) {
+  text-transform: none;
+}
 
-  :where(.hearth-r-text-transform-capitalize) {
-    text-transform: capitalize;
-  }
+:where(.hearth-r-text-transform-capitalize) {
+  text-transform: capitalize;
+}
 
-  :where(.hearth-r-text-transform-uppercase) {
-    text-transform: uppercase;
-  }
+:where(.hearth-r-text-transform-uppercase) {
+  text-transform: uppercase;
+}
 
-  :where(.hearth-r-text-transform-lowercase) {
-    text-transform: lowercase;
-  }
+:where(.hearth-r-text-transform-lowercase) {
+  text-transform: lowercase;
 }

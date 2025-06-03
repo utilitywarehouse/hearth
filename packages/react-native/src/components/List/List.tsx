@@ -39,7 +39,7 @@ const List = forwardRef<View, ListProps>(
     {
       children,
       headingText,
-      headingSupportingText,
+      headingHelperText,
       headingLinkText,
       headingLinkHref,
       headingLinkOnPress,
@@ -74,7 +74,7 @@ const List = forwardRef<View, ListProps>(
           {headingText ? (
             <ListHeading
               text={headingText}
-              supportingText={headingSupportingText}
+              helperText={headingHelperText}
               linkText={headingLinkText}
               linkHref={headingLinkHref}
               linkOnPress={headingLinkOnPress}

@@ -4,7 +4,7 @@ import { ComponentType } from 'react';
 interface ListProps extends ViewProps {
   container?: 'none' | 'subtleWhite' | 'emphasisWhite' | 'subtleWarmWhite' | 'emphasisWarmWhite';
   headingText?: string;
-  headingSupportingText?: string;
+  headingHelperText?: string;
   headingLinkText?: string;
   headingLinkHref?: string;
   headingLinkOnPress?: () => void;

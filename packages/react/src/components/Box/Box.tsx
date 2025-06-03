@@ -17,6 +17,7 @@ import { backgroundColorPropDefs } from '../../props/background-color.props';
 import { positionPropDefs } from '../../props/position.props';
 import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
+import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const componentName = 'Box';
 const componentClassName = withGlobalPrefix(componentName);
@@ -41,7 +42,8 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
     borderPropDefs,
     gridItemPropDefs,
     flexItemPropDefs,
-    textAlignPropDefs
+    textAlignPropDefs,
+    textTransformPropDefs
   );
 
   const Component = asChild ? Slot : Tag;

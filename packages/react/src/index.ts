@@ -66,9 +66,6 @@ export type { CardProps } from './components/Card/Card.props';
 export { CardAction } from './components/Card/CardAction';
 export type { CardActionProps } from './components/Card/CardAction.props';
 
-export { SelectableCard } from './components/SelectableCard/SelectableCard';
-export type { SelectableCardProps } from './components/SelectableCard/SelectableCard.props';
-
 export { Divider } from './components/Divider/Divider';
 export type { DividerProps } from './components/Divider/Divider.props';
 
@@ -117,5 +114,35 @@ export type { RadioCardProps } from './components/RadioCard/RadioCard.props';
 export { RadioGroup } from './components/RadioGroup/RadioGroup';
 export type { RadioGroupProps } from './components/RadioGroup/RadioGroup.props';
 
-// export { RadioGridGroup } from './components/RadioGridGroup/RadioGridGroup';
-// export type { RadioGridGroupProps } from './components/RadioGridGroup/RadioGridGroup.props';
+export { Checkbox } from './components/Checkbox/Checkbox';
+export type { CheckboxProps } from './components/Checkbox/Checkbox.props';
+
+export { CheckboxTile } from './components/CheckboxTile/CheckboxTile';
+export type { CheckboxTileProps } from './components/CheckboxTile/CheckboxTile.props';
+
+export { CheckboxGroup, CheckboxGroupRoot } from './components/CheckboxGroup/CheckboxGroup';
+export type {
+  CheckboxGroupProps,
+  CheckboxGroupRootProps,
+} from './components/CheckboxGroup/CheckboxGroup.props';
+
+export { TextArea } from './components/TextArea/TextArea';
+export type { TextAreaProps } from './components/TextArea/TextArea.props';
+
+export { List } from './components/List/List';
+export type { ListProps } from './components/List/List.props';
+
+export { ListItem } from './components/ListItem/ListItem';
+export type { ListItemProps } from './components/ListItem/ListItem.props';
+
+export { ListItemText } from './components/ListItemText/ListItemText';
+export type { ListItemTextProps } from './components/ListItemText/ListItemText.props';
+
+export { ListItemButton } from './components/ListItemButton/ListItemButton';
+export type { ListItemButtonProps } from './components/ListItemButton/ListItemButton.props';
+
+export { ListItemLink } from './components/ListItemLink/ListItemLink';
+export type { ListItemLinkProps } from './components/ListItemLink/ListItemLink.props';
+
+export { Switch } from './components/Switch/Switch';
+export type { SwitchProps } from './components/Switch/Switch.props';

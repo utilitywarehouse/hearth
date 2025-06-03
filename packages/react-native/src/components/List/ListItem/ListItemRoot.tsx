@@ -10,7 +10,7 @@ import type { PressableRef } from '../../../types';
 import ListItemContent from './ListItemContent';
 import ListItemLeadingContent from './ListItemLeadingContent';
 import ListItemText from './ListItemText';
-import ListItemSupportingText from './ListItemSupportingText';
+import ListItemHelperText from './ListItemHelperText';
 import ListItemTrailingContent from './ListItemTrailingContent';
 import ListItemTrailingIcon from './ListItemTrailingIcon';
 
@@ -21,7 +21,7 @@ const ListItemRoot = forwardRef<
   (
     {
       text,
-      supportingText,
+      helperText,
       leadingContent,
       trailingContent,
       disabled,
@@ -110,9 +110,7 @@ const ListItemRoot = forwardRef<
               ) : null}
               <ListItemContent>
                 <ListItemText>{text}</ListItemText>
-                {supportingText ? (
-                  <ListItemSupportingText>{supportingText}</ListItemSupportingText>
-                ) : null}
+                {helperText ? <ListItemHelperText>{helperText}</ListItemHelperText> : null}
               </ListItemContent>
               {trailingContent ? (
                 <ListItemTrailingContent>{trailingContent}</ListItemTrailingContent>

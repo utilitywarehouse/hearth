@@ -4,7 +4,6 @@ import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
 import { TextWrapProps } from '../../props/text-wrap.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
-import type { Responsive } from '../../types/responsive';
 
 const sizes = ['sm', 'md', 'lg', 'xl'] as const;
 
@@ -31,10 +30,6 @@ export interface HeadingProps
    * @default md
    */
   size?: (typeof sizes)[number];
-  /**
-   * Set the text-align on the component.
-   */
-  align?: Responsive<'left' | 'center' | 'right'>;
   /** Inverts the component colours, for use on darker surface colours. */
   inverted?: boolean;
 }

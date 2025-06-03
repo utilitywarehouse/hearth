@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, useColorScheme } from 'react-native';
+import { ScrollView, useColorScheme, View } from 'react-native';
 import { useArgs } from '@storybook/preview-api';
 import { Linking } from 'react-native';
 import { navigate } from './utils';
@@ -21,6 +21,7 @@ const preview = {
       const theme = useColorScheme() === 'dark' ? 'dark' : 'light';
       const [args, updateArgs] = useArgs();
       const [themeColourMode, setColourMode] = useState<'dark' | 'light'>(theme);
+
       useEffect(() => {
         Linking.addEventListener('url', event => {
           const url = new URL(event.url ?? '');
@@ -64,7 +65,16 @@ const preview = {
         return color.light.warmWhite['50'];
       })();
 
-      return (
+      return parameters.noScroll ? (
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: bg,
+          }}
+        >
+          <Story />
+        </View>
+      ) : (
         <ScrollView
           style={{
             flex: 1,

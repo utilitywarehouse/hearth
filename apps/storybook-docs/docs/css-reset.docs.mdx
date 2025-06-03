@@ -1,29 +1,49 @@
 import { Meta } from '@storybook/blocks';
 import { version } from '../../../packages/css-reset/package.json';
+import pig from './assets/css-reset-pig.png';
 
 <Meta title="CSS Reset" />
 
-# Hearth CSS Reset
+<div style={{ display: 'flex', flexDirection:'column', alignItems: 'center', textAlign: 'center'}}>
 
-A bare-bones CSS reset for UW web development.
+<img src={pig} alt="Icons Package" width={240} height={240} />
 
+# Hearth - CSS Reset
+
+Baseline CSS styles for Utility Warehouse web development.<br/>
 Current version: v{version}
 
-[View source](https://github.com/utilitywarehouse/hearth/tree/main/packages)
+</div>
+
+[View source](https://github.com/utilitywarehouse/hearth/blob/main/packages/css-reset/src/index.css)
 
 These styles are derived from the following CSS resets:
 
 - [joshwcomeau.com](https://www.joshwcomeau.com/css/custom-css-reset/)
 - [andy-bell.co.uk](https://andy-bell.co.uk/a-modern-css-reset/)
+- [mayank99](https://github.com/mayank99/reset.css)
+- [UA+](https://fokus.dev/tools/uaplus/)
 
 ## Installation
 
-```
+```console
 yarn add @utilitywarehouse/hearth-css-reset
+```
+
+This package uses [Hearth Tokens](/docs/tokens_introduction--docs) for some styles, and assumes you're probably using them too. If not you should install the package as well.
+
+```console
+yarn add @utilitywarehouse/hearth-tokens
 ```
 
 ## Usage
 
 ```js
 import '@utilitywarehouse/hearth-css-reset';
+// optionally import Hearth Tokens CSS
+import '@utilitywarehouse/hearth-tokens/index.css';
+// or just the CSS used in the reset
+import '@utilitywarehouse/hearth-tokens/css/line-height.css';
+import '@utilitywarehouse/hearth-tokens/css/font.css';
+import '@utilitywarehouse/hearth-tokens/css/text.css';
 ```

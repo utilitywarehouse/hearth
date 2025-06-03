@@ -25,8 +25,8 @@ export const Playground: Story = {
       width="500px"
       padding="400"
       backgroundColor="warmWhite50"
-      align="center"
-      justify="center"
+      alignItems="center"
+      justifyContent="center"
     >
       <BodyText>
         <InlineLink {...args} />

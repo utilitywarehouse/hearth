@@ -1,4 +1,7 @@
 .hearth-Radio {
+  display: flex;
+  flex-direction: row;
+  gap: var(--h-space-150);
   cursor: pointer;
 
   * {
@@ -6,52 +9,57 @@
   }
 
   .hearth-RadioContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     margin: -8px;
   }
+}
 
-  .hearth-RadioItem {
-    all: unset;
-    height: 20px;
-    width: 20px;
-    background-color: var(--h-radio-unchecked-background-color);
-    border-radius: var(--h-radio-border-radius);
-    border-style: solid;
-    border-width: var(--h-radio-border-width);
-    border-color: var(--h-radio-unchecked-border-color);
+.hearth-RadioItem {
+  all: unset;
+  display: block;
+  height: 20px;
+  width: 20px;
+  background-color: var(--h-radio-unchecked-background-color);
+  border-radius: var(--h-radio-border-radius);
+  border-style: solid;
+  border-width: var(--h-radio-border-width);
+  border-color: var(--h-radio-unchecked-border-color);
 
-    &:where(:focus-visible) {
-      outline: 2px solid var(--h-focus-border);
-      outline-offset: 1px;
-    }
+  &:where(:focus-visible) {
+    outline: 2px solid var(--h-focus-border);
+    outline-offset: 1px;
+  }
 
-    &:where([data-state='checked']) {
-      border-color: var(--h-radio-checked-color);
-    }
+  &:where([data-state='checked'], [data-state='checked'] &) {
+    border-color: var(--h-radio-checked-color);
+  }
 
-    @media (hover: hover) {
-      &:where(:hover:enabled) {
-        box-shadow: 0 0 0 var(--h-radio-outline-width) var(--h-radio-outline-color-hover);
-      }
-    }
-
-    &:where(:active):not([data-state='unchecked']) {
-      box-shadow: 0 0 0 var(--h-radio-outline-width) var(--h-radio-outline-color-active);
+  @media (hover: hover) {
+    &:where(:hover:enabled) {
+      box-shadow: 0 0 0 var(--h-radio-outline-width) var(--h-radio-outline-color-hover);
     }
   }
 
-  /* ensure the gap between the checkbox & label is clickable */
-  .hearth-RadioLabel {
-    position: relative;
+  &:where(:active):not([data-state='unchecked']) {
+    box-shadow: 0 0 0 var(--h-radio-outline-width) var(--h-radio-outline-color-active);
+  }
+}
 
-    &::before {
-      content: '';
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      left: -8px;
-    }
+/* ensure the gap between the checkbox & label is clickable */
+.hearth-RadioLabel {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: -8px;
   }
 }
 

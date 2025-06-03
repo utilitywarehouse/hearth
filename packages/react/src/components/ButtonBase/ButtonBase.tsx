@@ -6,6 +6,7 @@ import { buttonBasePropDefs, ButtonBaseProps } from './ButtonBase.props';
 import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
+import { marginPropDefs } from '../../props/margin.props';
 
 const componentName = 'ButtonBase';
 const componentClassName = withGlobalPrefix(componentName);
@@ -22,7 +23,7 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
     asChild,
     children,
     ...buttonBaseProps
-  } = extractProps(props, buttonBasePropDefs);
+  } = extractProps(props, buttonBasePropDefs, marginPropDefs);
   const { variant = 'solid' } = props;
 
   const defaultColorScheme = variant === 'emphasis' || variant === 'solid' ? 'yellow' : 'grey';
@@ -58,8 +59,6 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
       ref={ref}
       aria-disabled={disabled || undefined}
       className={clsx(componentClassName, className)}
-      // as we're using aria-disabled instead of disabled then we need to
-      // disable the onClick event
       onClick={disabled ? undefined : onClick}
       {...dataAttributeProps}
       {...buttonBaseProps}

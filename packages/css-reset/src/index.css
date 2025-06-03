@@ -17,16 +17,6 @@
     padding: 0;
   }
 
-  :where(ul, ol) {
-    padding: revert;
-  }
-
-  /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-  :where(ul[role='list'], ol[role='list']) {
-    list-style: none;
-    padding: 0;
-  }
-
   /* Core root defaults */
   @media (prefers-reduced-motion: no-preference) {
     :where(html:focus-within) {
@@ -66,6 +56,12 @@
   /* a elements that don't have a class get default styles */
   :where(a:not([class])) {
     text-decoration-skip-ink: auto;
+  }
+
+  /* sensible list defaults */
+  :where(ul, ol) {
+    padding: 0;
+    list-style: none;
   }
 
   /* Improve media defaults */
@@ -111,11 +107,6 @@
       Courier New,
       Courier,
       monospace;
-  }
-
-  :where(textarea) {
-    resize: vertical;
-    resize: block;
   }
 
   :where(input:is([type='checkbox'], [type='radio']), button, select) {

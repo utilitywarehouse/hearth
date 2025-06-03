@@ -13,7 +13,7 @@ interface ListItemBaseProps extends Omit<PressableProps, 'children'> {
 export interface ListItemWithChildren extends ListItemBaseProps {
   children: PressableProps['children'];
   text?: never;
-  supportingText?: never;
+  helperText?: never;
   leadingContent?: never;
   trailingContent?: never;
 }
@@ -21,7 +21,7 @@ export interface ListItemWithChildren extends ListItemBaseProps {
 export interface ListItemWithoutChildren extends ListItemBaseProps {
   children?: never;
   text: string;
-  supportingText?: string;
+  helperText?: string;
   leadingContent?: React.ReactNode;
   trailingContent?: React.ReactNode;
 }

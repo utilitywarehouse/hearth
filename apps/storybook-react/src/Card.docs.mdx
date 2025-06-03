@@ -62,7 +62,7 @@ clickable, but do not overlay the primary action.
 
 ```tsx
 <Card variant="emphasis" colorScheme="white" flex="1" direction="column" gap="150">
-  <Flex align="start">
+  <Flex alignItems="start">
     <Heading size="sm">This is a card with multiple interactions</Heading>
     <CardAction secondary>
       <IconButton variant="ghost" size="sm" label="close" onClick={() => console.log('close')}>
@@ -83,10 +83,14 @@ clickable, but do not overlay the primary action.
 
 ## API
 
-This component is based on the `Flex` component and supports the following common style props:
+This component is based on the `Flex` component and supports the following common props:
 
-- margin
-- size
+- Margin
+- Size
+- Position
+- Flex item
+- Grid item
+- Text align
 
 | Prop          | Type                                                                                                                             |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------- |

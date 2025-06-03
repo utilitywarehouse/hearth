@@ -18,4 +18,14 @@ export type UnstyledIconButtonProps = {
    * @default  false
    */
   loading?: boolean;
+  /*
+   * The size of the button.
+   * @default  'md'
+   */
+  size?: 'sm' | 'md';
+  /*
+   * If `true`, the button colours will be inverted.
+   * @default  false
+   */
+  inverted?: boolean;
 } & Omit<PressableProps, 'children'>;

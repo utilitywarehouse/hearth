@@ -1,0 +1,18 @@
+.hearth-CheckboxGroupRoot {
+  flex-wrap: wrap;
+
+  &:where([data-orientation='horizontal']) {
+    flex-direction: row;
+  }
+
+  &:where([data-orientation='vertical']) {
+    flex-direction: column;
+    width: fit-content;
+  }
+
+  gap: var(--h-checkbox-group-stack-gap);
+
+  &:has(.hearth-CheckboxTile) {
+    gap: var(--h-checkbox-tile-group-stack-gap);
+  }
+}

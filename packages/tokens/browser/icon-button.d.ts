@@ -21,7 +21,15 @@ export declare const iconButton: {
       readonly foregroundColorActive: 'var(--h-icon-button-unstyled-inverted-foreground-color-active)';
       readonly foregroundColorHover: 'var(--h-icon-button-unstyled-inverted-foreground-color-hover)';
     };
+    readonly md: {
+      readonly height: 'var(--h-icon-button-unstyled-md-height)';
+      readonly width: 'var(--h-icon-button-unstyled-md-width)';
+    };
     readonly paddingHorizontal: 'var(--h-icon-button-unstyled-padding-horizontal)';
     readonly paddingVertical: 'var(--h-icon-button-unstyled-padding-vertical)';
+    readonly sm: {
+      readonly height: 'var(--h-icon-button-unstyled-sm-height)';
+      readonly width: 'var(--h-icon-button-unstyled-sm-width)';
+    };
   };
 };

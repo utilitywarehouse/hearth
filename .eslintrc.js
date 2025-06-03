@@ -37,6 +37,7 @@ module.exports = {
     'no-sequences': 'error',
     'react/prop-types': 'off',
     '@typescript-eslint/array-type': ['error', { default: 'generic' }],
+    '@typescript-eslint/unbound-method': 'off',
   },
   overrides: [
     {

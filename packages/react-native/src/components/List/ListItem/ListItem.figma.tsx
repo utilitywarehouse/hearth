@@ -15,7 +15,7 @@
 //   leadingIcon: figma.instance('Leading Icon'),
 //   text: figma.nestedProps('.Parts/List Item Text', {
 //     text: figma.string('list item text'),
-//     supportingText: figma.string('Supporting Text'),
+//     helperText: figma.string('Supporting Text'),
 //   }),
 // };
 
@@ -27,7 +27,7 @@
 //     example: ({ disabled, divider, loading, text }) => (
 //       <ListItem
 //         text={text.text}
-//         supportingText={text.supportingText}
+//         helperText={text.helperText}
 //         disabled={disabled}
 //         divider={divider}
 //         loading={loading}
@@ -48,7 +48,7 @@
 //     example: ({ disabled, divider, loading, text }) => (
 //       <ListItem
 //         text={text.text}
-//         supportingText={text.supportingText}
+//         helperText={text.helperText}
 //         disabled={disabled}
 //         divider={divider}
 //         loading={loading}
@@ -69,7 +69,7 @@
 //     example: ({ disabled, divider, loading, text, trailingIcon }) => (
 //       <ListItem
 //         text={text.text}
-//         supportingText={text.supportingText}
+//         helperText={text.helperText}
 //         disabled={disabled}
 //         divider={divider}
 //         loading={loading}
@@ -92,7 +92,7 @@
 //     example: ({ disabled, divider, loading, text, leadingIcon }) => (
 //       <ListItem
 //         text={text.text}
-//         supportingText={text.supportingText}
+//         helperText={text.helperText}
 //         disabled={disabled}
 //         divider={divider}
 //         loading={loading}
@@ -115,7 +115,7 @@
 //     example: ({ disabled, divider, loading, text, trailingIcon, leadingIcon }) => (
 //       <ListItem
 //         text={text.text}
-//         supportingText={text.supportingText}
+//         helperText={text.helperText}
 //         disabled={disabled}
 //         divider={divider}
 //         loading={loading}
@@ -137,7 +137,7 @@
 //     example: ({ disabled, divider, loading, text, leadingIcon }) => (
 //       <ListItem
 //         text={text.text}
-//         supportingText={text.supportingText}
+//         helperText={text.helperText}
 //         disabled={disabled}
 //         divider={divider}
 //         loading={loading}
@@ -161,7 +161,7 @@
 //       // Toggle doesn't exist in native-ui yet
 //       <ListItem
 //         text={text.text}
-//         supportingText={text.supportingText}
+//         helperText={text.helperText}
 //         disabled={disabled}
 //         divider={divider}
 //         loading={loading}
@@ -185,7 +185,7 @@
 //       // Toggle doesn't exist in native-ui yet
 //       <ListItem
 //         text={text.text}
-//         supportingText={text.supportingText}
+//         helperText={text.helperText}
 //         disabled={disabled}
 //         divider={divider}
 //         loading={loading}
@@ -209,7 +209,7 @@
 //       // Toggle doesn't exist in native-ui yet
 //       <ListItem
 //         text={text.text}
-//         supportingText={text.supportingText}
+//         helperText={text.helperText}
 //         disabled={disabled}
 //         divider={divider}
 //         loading={loading}
