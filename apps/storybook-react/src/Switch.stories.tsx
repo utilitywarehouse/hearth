@@ -58,7 +58,7 @@ export const Disabled: Story = {
 export const Labelled: Story = {
   render: args => (
     <Flex direction="column" gap="600">
-      <Flex direction="row" gap="200" align="center">
+      <Flex direction="row" gap="200" alignItems="center">
         <BodyText as="label" htmlFor="airplane-mode">
           Airplane mode
         </BodyText>

@@ -72,8 +72,8 @@ export const KitchenSink: Story = {
                 as="li"
                 variant={variant}
                 colorScheme={colorScheme}
-                justify="center"
-                align="center"
+                justifyContent="center"
+                alignItems="center"
               >
                 <DetailText size="sm">{children}</DetailText>
               </Card>
@@ -91,8 +91,8 @@ export const KitchenSink: Story = {
                   as="li"
                   variant={variant}
                   colorScheme={colorScheme}
-                  justify="center"
-                  align="center"
+                  justifyContent="center"
+                  alignItems="center"
                 >
                   <DetailText
                     size="sm"
@@ -112,7 +112,7 @@ export const KitchenSink: Story = {
 
 export const Playground: Story = {
   render: ({ children, ...args }) => (
-    <Flex padding="600" backgroundColor="warmWhite50" justify="center">
+    <Flex padding="600" backgroundColor="warmWhite50" justifyContent="center">
       <Box width="300px">
         <Card {...args}>
           <DetailText size="sm">{children}</DetailText>
@@ -289,7 +289,7 @@ export const InteractiveCards: Story = {
               direction="column"
               gap="150"
             >
-              <Flex align="start">
+              <Flex alignItems="start">
                 <Heading size="sm">This is a card with multiple interactions</Heading>
                 <CardAction secondary>
                   <IconButton
@@ -319,7 +319,7 @@ export const InteractiveCards: Story = {
               direction="column"
               gap="150"
             >
-              <Flex align="start">
+              <Flex alignItems="start">
                 <Heading size="sm">This is a card with multiple interactions</Heading>
                 <CardAction secondary>
                   <IconButton
@@ -353,11 +353,11 @@ export const WithoutLink: Story = {
     const [likedArgos, setLikedArgos] = React.useState(false);
     const [likedAskItalian, setLikedAskItalian] = React.useState(false);
     return (
-      <Flex padding="600" backgroundColor="warmWhite50" justify="center" gap="400">
+      <Flex padding="600" backgroundColor="warmWhite50" justifyContent="center" gap="400">
         <Flex asChild gap="400" width="400px">
           <ul role="list">
-            <Card as="li" direction="column" flex="1" justify="center" gap="300">
-              <Flex justify="space-between" align="center">
+            <Card as="li" direction="column" flex="1" justifyContent="center" gap="300">
+              <Flex justifyContent="between" alignItems="center">
                 <DetailText>5%</DetailText>
                 <CardAction secondary>
                   <IconButton
@@ -370,7 +370,7 @@ export const WithoutLink: Story = {
                   </IconButton>
                 </CardAction>
               </Flex>
-              <Flex direction="column" align="center" gap="200">
+              <Flex direction="column" alignItems="center" gap="200">
                 <Placeholder width="100px" height="50px" />
                 <BodyText size="md" id="title-argos">
                   Argos
@@ -380,8 +380,8 @@ export const WithoutLink: Story = {
                 </CardAction>
               </Flex>
             </Card>
-            <Card as="li" direction="column" flex="1" justify="center" gap="300">
-              <Flex justify="space-between" align="center">
+            <Card as="li" direction="column" flex="1" justifyContent="center" gap="300">
+              <Flex justifyContent="between" alignItems="center">
                 <DetailText>5%</DetailText>
                 <CardAction secondary>
                   <IconButton
@@ -394,7 +394,7 @@ export const WithoutLink: Story = {
                   </IconButton>
                 </CardAction>
               </Flex>
-              <Flex direction="column" align="center" gap="200">
+              <Flex direction="column" alignItems="center" gap="200">
                 <Placeholder width="100px" height="50px" />
                 <BodyText size="md" id="title-askitalian">
                   Ask Italian

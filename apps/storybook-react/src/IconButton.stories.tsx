@@ -48,10 +48,10 @@ export const KitchenSink: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => {
     return (
-      <Flex direction="column" gap="48px">
+      <Flex direction="column" gap="600">
         <Flex gap="200" direction="column">
           <Heading>Emphasis</Heading>
-          <Flex gap="400" align="center">
+          <Flex gap="400" alignItems="center">
             {sizes.map(size => (
               <Flex key={size} gap="100">
                 <IconButton variant="emphasis" colorScheme="yellow" size={size} label="add">
@@ -60,7 +60,7 @@ export const KitchenSink: Story = {
               </Flex>
             ))}
           </Flex>
-          <Flex gap="400" align="center">
+          <Flex gap="400" alignItems="center">
             {sizes.map(size => (
               <Flex key={size} gap="100">
                 <IconButton
@@ -75,7 +75,7 @@ export const KitchenSink: Story = {
               </Flex>
             ))}
           </Flex>
-          <Flex gap="400" align="center">
+          <Flex gap="400" alignItems="center">
             {sizes.map(size => (
               <Flex key={size} gap="100">
                 <IconButton loading variant="emphasis" colorScheme="yellow" size={size} label="add">

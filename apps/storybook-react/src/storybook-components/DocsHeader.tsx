@@ -13,7 +13,7 @@ interface DocsHeaderProps {
 export const DocsHeader = ({ componentName, figmaLink, stories }: DocsHeaderProps) => {
   return (
     <div>
-      <Flex width="100%" align="center" justify="space-between">
+      <Flex width="100%" alignItems="center" justifyContent="between">
         <h1>{componentName}</h1>
         <Flex gap="300">
           <a href={`/?path=/story/stories-${componentName}`}>Stories</a>
