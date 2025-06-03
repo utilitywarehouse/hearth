@@ -4,8 +4,7 @@ import clsx from 'clsx';
 
 import { EmProps } from './Em.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { Slot } from '@radix-ui/react-slot';
-
+import { Slot } from 'radix-ui';
 import type { ElementRef } from 'react';
 import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
@@ -27,14 +26,14 @@ export const Em = React.forwardRef<EmElement, EmProps>((props, ref) => {
     marginPropDefs
   );
   return (
-    <Slot
+    <Slot.Root
       ref={ref}
       className={clsx(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
       {...emProps}
     >
       {asChild ? children : <em>{children}</em>}
-    </Slot>
+    </Slot.Root>
   );
 });
 

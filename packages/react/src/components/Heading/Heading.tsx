@@ -6,7 +6,7 @@ import { headingPropDefs, HeadingProps } from './Heading.props';
 import type { ElementRef } from 'react';
 import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
-import { Slot } from '@radix-ui/react-slot';
+import { Slot } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { textWrapPropDefs } from '../../props/text-wrap.props';
@@ -29,14 +29,14 @@ export const Heading = React.forwardRef<HeadingElement, HeadingProps>(({ size, .
   const defaultElement = 'h2';
   const Tag = as ? as : defaultElement;
   return (
-    <Slot
+    <Slot.Root
       ref={ref}
       className={clsx(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
       {...headingProps}
     >
       {asChild ? children : <Tag>{children}</Tag>}
-    </Slot>
+    </Slot.Root>
   );
 });
 

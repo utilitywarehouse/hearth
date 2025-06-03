@@ -2,8 +2,8 @@ import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import React from 'react';
 import { switchPropDefs, SwitchProps } from './Switch.props';
-import { Root as RadixSwitchRoot, Thumb as RadixSwitchThumb } from '@radix-ui/react-switch';
 import clsx from 'clsx';
+import { Switch as RadixSwitch } from 'radix-ui';
 import { extractProps } from '../../helpers/extract-props';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
@@ -64,7 +64,7 @@ export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwa
           {label}
         </BodyText>
       ) : null}
-      <RadixSwitchRoot
+      <RadixSwitch.Root
         ref={switchRef}
         className={clsx('hearth-SwitchRoot', className)}
         id={id}
@@ -74,11 +74,11 @@ export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwa
         onCheckedChange={disabled ? undefined : onCheckedChange}
         {...switchProps}
       >
-        <RadixSwitchThumb className="hearth-SwitchThumb">
+        <RadixSwitch.Thumb className="hearth-SwitchThumb">
           <CloseSmallIcon className="hearth-CloseIcon" />
           <TickSmallIcon className="hearth-TickIcon" />
-        </RadixSwitchThumb>
-      </RadixSwitchRoot>
+        </RadixSwitch.Thumb>
+      </RadixSwitch.Root>
     </div>
   );
 });
