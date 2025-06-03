@@ -244,16 +244,19 @@ export const ButtonVariants: Story = {
 };
 
 export const FullWidth: Story = {
-  render: args => (
-    <Flex direction="column" alignItems={{ mobile: 'stretch', desktop: 'start' }} gap="200">
-      <BodyText>This Button is full width for screen widths below the desktop breakpoint.</BodyText>
-      <Button {...args}>
-        {args.children}
-        <ChevronRightSmallIcon />
-      </Button>
+  render: () => (
+    <Flex direction="column" gap="200">
+      <Flex direction="column">
+        <Button>
+          Full width button with icon
+          <ChevronRightSmallIcon />
+        </Button>
+      </Flex>
+      <Flex direction="column" alignItems={{ mobile: 'stretch', desktop: 'start' }}>
+        <Button>Responsive full width button</Button>
+      </Flex>
     </Flex>
   ),
-  args: { children: 'Full width button with icon' },
 };
 
 export const YellowColorScheme: Story = {
