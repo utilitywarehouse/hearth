@@ -216,11 +216,11 @@ Use layout components, like `Flex`, to define your UI layouts, which can also be
 
 ```tsx
 <Flex direction="column">
-  <Button>Button</Button>
+  <Button>Full width button</Button>
 </Flex>
 
-<Flex direction="column" align={{ mobile: 'stretch', desktop: 'start' }}>
-  <Button>Responsive Button</Button>
+<Flex direction="column" alignItems={{ mobile: 'stretch', desktop: 'start' }}>
+  <Button>Responsive full width button</Button>
 </Flex>
 ```
 
