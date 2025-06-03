@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { boxPropDefs, type BoxProps } from './Box.props';
 
 import type { ElementRef } from 'react';
-import { Slot } from '@radix-ui/react-slot';
+import { Slot } from 'radix-ui';
 import { extractProps } from '../../helpers/extract-props';
 import { paddingPropDefs } from '../../props/padding.props';
 import { colorPropDefs } from '../../props/color.props';
@@ -46,7 +46,7 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
     textTransformPropDefs
   );
 
-  const Component = asChild ? Slot : Tag;
+  const Component = asChild ? Slot.Root : Tag;
 
   return <Component ref={ref} className={clsx(componentClassName, className)} {...boxProps} />;
 });
