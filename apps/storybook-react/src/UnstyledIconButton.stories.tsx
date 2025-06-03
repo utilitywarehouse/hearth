@@ -51,7 +51,7 @@ export const WithCard: Story = {
     <Box width="365px">
       <Card>
         <Flex direction="column" gap="150">
-          <Flex justify="space-between" align="center">
+          <Flex justifyContent="between" alignItems="center">
             <Heading>This is a dismissable card</Heading>
             <UnstyledIconButton label="close" size="md">
               <CloseMediumIcon />

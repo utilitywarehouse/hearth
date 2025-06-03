@@ -34,7 +34,7 @@ export const KitchenSink: Story = {
       <Flex direction="column" gap="400" width="100%" maxWidth="800px" padding="200">
         <Flex direction="column" gap="100" paddingInline="400">
           <Heading>Mobile number: 07891123456</Heading>
-          <Flex gap="300" align="center">
+          <Flex gap="300" alignItems="center">
             <BodyText>Unlimited Tariff</BodyText>
             <Divider decorative orientation="vertical" />
             <BodyText>
@@ -49,7 +49,7 @@ export const KitchenSink: Story = {
         <Divider />
         <Flex direction="column" gap="100" paddingInline="400">
           <Heading>Mobile number: 07875123456</Heading>
-          <Flex gap="300" align="center">
+          <Flex gap="300" alignItems="center">
             <BodyText>Value Tariff</BodyText>
             <Divider decorative orientation="vertical" />
             <BodyText>
@@ -64,7 +64,7 @@ export const KitchenSink: Story = {
         <Divider />
         <Flex direction="column" gap="100" paddingInline="400">
           <Heading>Mobile number: 07929123456</Heading>
-          <Flex gap="300" align="center">
+          <Flex gap="300" alignItems="center">
             <BodyText>Unlimited Tariff</BodyText>
             <Divider decorative orientation="vertical" />
             <BodyText>

@@ -78,7 +78,7 @@ export const FormUsage: Story = {
     const [value, setValue] = React.useState<string>('password123');
     return (
       <Flex direction="column" gap="400">
-        <Flex gap="100" align="end">
+        <Flex gap="100" alignItems="end">
           <PasswordInput
             {...args}
             label="Not inside form"
@@ -86,7 +86,7 @@ export const FormUsage: Story = {
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
           />
         </Flex>
-        <Flex asChild gap="100" align="end">
+        <Flex asChild gap="100" alignItems="end">
           <form onSubmit={() => false}>
             <PasswordInput
               {...args}
