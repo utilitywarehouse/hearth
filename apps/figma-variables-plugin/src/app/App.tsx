@@ -11,7 +11,6 @@ import '@utilitywarehouse/hearth-tokens/index.css';
 import '@utilitywarehouse/hearth-react/styles.css';
 import { encodeContent, kebabCase } from './utils';
 import { Alert } from '@utilitywarehouse/web-ui';
-import LoadingSpinner from './components/LoadingSpinner';
 import {
   Button,
   Heading,
@@ -22,6 +21,7 @@ import {
   CheckboxGroup,
   Checkbox,
   Divider,
+  Spinner,
 } from '@utilitywarehouse/hearth-react';
 
 function App() {
@@ -364,7 +364,7 @@ function App() {
             <Divider decorative />
             {
               // Show loading spinner while fetching collections
-              loadingCollections && <LoadingSpinner text="Loading collections..." />
+              loadingCollections && <Spinner />
             }
             {!loadingCollections && collections.length === 0 && (
               <Alert
@@ -388,18 +388,17 @@ function App() {
               </CheckboxGroup>
             )}
 
-            <Flex direction="column" alignItems="stretch">
+            <Flex direction="column">
               <Button
                 onClick={exportVariables}
                 disabled={exporting || loadingImport || loadingCollections}
-                style={{ width: '100%' }}
               >
                 {exporting ? 'Exporting...' : 'Export Variables'}
               </Button>
             </Flex>
           </Card>
         )}
-        {(exporting || loadingImport) && <LoadingSpinner text={loadingText} overlay />}
+        {(exporting || loadingImport) && <Spinner />}
 
         <svg
           id="corner"

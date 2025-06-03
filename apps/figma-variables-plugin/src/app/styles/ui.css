@@ -5,6 +5,15 @@ img {
   height: 50px;
 }
 
+html {
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
 #corner {
   position: fixed;
   right: 1px;
@@ -37,6 +46,7 @@ img {
   border-left-color: #18a0fb;
   animation: spin 1s linear infinite;
 }
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
