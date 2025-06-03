@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import clsx from 'clsx';
 
-import { Root } from '@radix-ui/react-radio-group';
+import { RadioGroup as RadixRadioGroup } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { RadioGroupProps, RadioGroupRootProps } from './RadioGroup.props';
@@ -17,7 +17,7 @@ type RadioGroupRootElement = ElementRef<'div'>;
 export const RadioGroupRoot = React.forwardRef<RadioGroupRootElement, RadioGroupRootProps>(
   ({ children, direction = 'column', width, className, ...props }, ref) => {
     return (
-      <Root
+      <RadixRadioGroup.Root
         ref={ref}
         asChild
         {...props}
@@ -25,7 +25,7 @@ export const RadioGroupRoot = React.forwardRef<RadioGroupRootElement, RadioGroup
         className={clsx(rootComponentClassName, className)}
       >
         <Flex width={width}>{children}</Flex>
-      </Root>
+      </RadixRadioGroup.Root>
     );
   }
 );

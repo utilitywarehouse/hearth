@@ -8,13 +8,13 @@ import { Label } from '../Label/Label';
 import { useFormFieldGroup } from '../FormFieldGroup/FormFieldGroup.context';
 import { HelperText } from '../HelperText/HelperText';
 import type { ElementRef } from 'react';
-import * as RadixCheckbox from '@radix-ui/react-checkbox';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { useCheckboxGroupBase } from '../CheckboxGroupBase/CheckboxGroupBase.context';
 import { useIds } from '../../hooks/use-ids';
 import { marginPropDefs } from '../../props/margin.props';
 import { extractProps } from '../../helpers/extract-props';
+import { Checkbox as RadixCheckbox } from 'radix-ui';
 
 const componentName = 'Checkbox';
 const componentClassName = withGlobalPrefix(componentName);
