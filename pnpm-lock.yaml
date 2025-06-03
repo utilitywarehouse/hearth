@@ -62,18 +62,9 @@ importers:
       '@mui/material':
         specifier: 5.14.15
         version: 5.14.15(@emotion/react@11.14.0(@types/react@18.3.18)(react@18.3.1))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@18.3.18)(react@18.3.1))(@types/react@18.3.18)(react@18.3.1))(@types/react@18.3.18)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@utilitywarehouse/css-reset':
-        specifier: latest
-<<<<<<< HEAD
-        version: 0.1.0
       '@utilitywarehouse/hearth-css-reset':
-        specifier: ^0.0.1
-        version: 0.0.1
-||||||| 447b81a
-        version: 0.1.0
-=======
-        version: 0.1.1
->>>>>>> main
+        specifier: workspace:*
+        version: link:../../packages/css-reset
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:*
         version: link:../../packages/fonts
@@ -878,16 +869,10 @@ importers:
     dependencies:
       '@expo/html-elements':
         specifier: latest
-<<<<<<< HEAD
-        version: 0.12.5
-||||||| 447b81a
-        version: 0.11.2
-=======
         version: 0.12.5
       '@gluestack-ui/accordion':
         specifier: 1.0.7
         version: 1.0.7(react-dom@18.3.1(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)
->>>>>>> main
       '@gluestack-ui/alert':
         specifier: 0.1.15
         version: 0.1.15(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -4781,30 +4766,6 @@ packages:
 
   '@utilitywarehouse/colour-system@0.5.0':
     resolution: {integrity: sha512-vH/IShwnnk3s6mn8MCo7ifMydjsTm2smbfyC7ITaNNjlPTDws54vvF8rhkOIRY/XLu4EuGr7qgHURhP1oPYhYA==}
-
-<<<<<<< HEAD
-  '@utilitywarehouse/css-reset@0.1.0':
-    resolution: {integrity: sha512-kiEd8gnFKPgBQgM46n4kFKlAZd9UQ6W4coFzZhf22OKS7p5ElzxzmM/rAQYDXGdN9h2jS+pd72fvJyp9SxMDxQ==}
-
-  '@utilitywarehouse/hearth-css-reset@0.0.1':
-    resolution: {integrity: sha512-UeGBos4JILHC/0pdx6nl6TYHPMEdFcjkOwbe03i93bTPojkqm4EDY6+taLeyrydkaPgBD5GpCAEAwyWw4CKN2w==}
-
-  '@utilitywarehouse/hearth-react-icons@0.1.0':
-    resolution: {integrity: sha512-hw3YKy7OwAwfLAwcNM0XcRZ0DXU8wMEn8DIgNxKGFnj3pxngGImMD9Q24oJh/CwXbSM2iZX0/r88y3ckghv2Rg==}
-    peerDependencies:
-      react: ^18.2.0
-||||||| 447b81a
-  '@utilitywarehouse/css-reset@0.1.0':
-    resolution: {integrity: sha512-kiEd8gnFKPgBQgM46n4kFKlAZd9UQ6W4coFzZhf22OKS7p5ElzxzmM/rAQYDXGdN9h2jS+pd72fvJyp9SxMDxQ==}
-
-  '@utilitywarehouse/hearth-react-icons@0.1.0':
-    resolution: {integrity: sha512-hw3YKy7OwAwfLAwcNM0XcRZ0DXU8wMEn8DIgNxKGFnj3pxngGImMD9Q24oJh/CwXbSM2iZX0/r88y3ckghv2Rg==}
-    peerDependencies:
-      react: ^18.2.0
-=======
-  '@utilitywarehouse/css-reset@0.1.1':
-    resolution: {integrity: sha512-AokButCQAdyHjZi6DAwWsFK2KpzcdVZNLK5hKUFzWdPIHMATKIFF4vbivrWWZoZRRRI8prd0iMDg8B5Gtp574w==}
->>>>>>> main
 
   '@utilitywarehouse/hearth-react-native-icons@0.1.0':
     resolution: {integrity: sha512-x2jNj+po9MNPbuMto4VZJDgjWy2SjRbwu+3D5Ybyzqvy9RdG+PcDIA8X1vYocqOGSuMddgW470V0uHlDWPRjJQ==}
@@ -17035,24 +16996,6 @@ snapshots:
   '@utilitywarehouse/colour-system@0.5.0':
     dependencies:
       dotenv: 16.4.7
-
-<<<<<<< HEAD
-  '@utilitywarehouse/css-reset@0.1.0': {}
-
-  '@utilitywarehouse/hearth-css-reset@0.0.1': {}
-
-  '@utilitywarehouse/hearth-react-icons@0.1.0(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-||||||| 447b81a
-  '@utilitywarehouse/css-reset@0.1.0': {}
-
-  '@utilitywarehouse/hearth-react-icons@0.1.0(react@18.3.1)':
-    dependencies:
-      react: 18.3.1
-=======
-  '@utilitywarehouse/css-reset@0.1.1': {}
->>>>>>> main
 
   '@utilitywarehouse/hearth-react-native-icons@0.1.0(react-native-svg@15.11.1(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1))(react-native@0.77.0(@babel/core@7.26.0)(@babel/preset-env@7.26.0(@babel/core@7.26.0))(@types/react@18.3.18)(react@18.3.1))(react@18.3.1)':
     dependencies:
