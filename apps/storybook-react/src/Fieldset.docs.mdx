@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
 
 import * as Stories from './Fieldset.stories';
+import * as FieldsetLegendStories from './FieldsetLegend.stories';
 
 import { DocsHeader } from './storybook-components/DocsHeader';
 
@@ -9,6 +10,13 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 <DocsHeader componentName="Fieldset" stories={Stories} />
 
 <Canvas of={Stories.Playground} />
+
+- [Alternatives](#alternatives)
+- [Grouping inputs](#grouping-inputs)
+- [API](#api)
+- [Fieldset legend](#fieldset-legend)
+  - [Custom label](#custom-label)
+  - [API](#api)
 
 ## Alternatives
 
@@ -24,5 +32,21 @@ The `FieldsetLegend` should be the first child of the `Fieldset` for accessibili
 ## API
 
 This component is based on the `fieldset` element and supports the following common props:
+
+- Margin
+
+## Fieldset legend
+
+<Canvas of={FieldsetLegendStories.Playground} />
+
+### Custom label
+
+If necessary, perhaps for accessibility reasons, you can render a different element as a child.
+
+<Canvas of={FieldsetLegendStories.CustomElement} />
+
+### API
+
+This component is based on the `legend` element, and supports the following common props:
 
 - Margin

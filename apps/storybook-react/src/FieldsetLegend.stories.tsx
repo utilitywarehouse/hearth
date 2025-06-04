@@ -4,14 +4,6 @@ import { FieldsetLegend, Heading } from '@utilitywarehouse/hearth-react';
 const meta: Meta<typeof FieldsetLegend> = {
   title: 'Stories / FieldsetLegend',
   component: FieldsetLegend,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'The `FieldsetLegend` should be used with the `Fieldset` component, as the first child, to label grouped form inputs.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
   },
