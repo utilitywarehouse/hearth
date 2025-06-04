@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react
 
+## 0.0.5
+
+### Patch Changes
+
+- [#329](https://github.com/utilitywarehouse/hearth/pull/329) [`7095cb5`](https://github.com/utilitywarehouse/hearth/commit/7095cb58d56a2013d44695900601381832e33a81) Thanks [@robphoenix](https://github.com/robphoenix)! - Update `Button` width
+
+- [#328](https://github.com/utilitywarehouse/hearth/pull/328) [`93d4c42`](https://github.com/utilitywarehouse/hearth/commit/93d4c4255c5c65c301ffe5c6c51e4421536f5ad9) Thanks [@robphoenix](https://github.com/robphoenix)! - Update Radix UI dependencies
+
 ## 0.0.4
 
 ### Patch Changes
