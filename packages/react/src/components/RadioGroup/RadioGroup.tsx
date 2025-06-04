@@ -7,7 +7,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { RadioGroupProps, RadioGroupRootProps } from './RadioGroup.props';
 import { Flex } from '../Flex/Flex';
-import { FormFieldGroup } from '../FormFieldGroup/FormFieldGroup';
+import { Fieldset } from '../Fieldset/Fieldset';
 
 const rootComponentName = 'RadioGroupRoot';
 const rootComponentClassName = withGlobalPrefix(rootComponentName);
@@ -59,7 +59,7 @@ export const RadioGroup = React.forwardRef<RadioGroupElement, RadioGroupProps>(
     },
     ref
   ) => {
-    const formFieldGroupProps = {
+    const fieldsetProps = {
       ...props,
       disabled,
       required,
@@ -81,13 +81,9 @@ export const RadioGroup = React.forwardRef<RadioGroupElement, RadioGroupProps>(
     };
 
     return (
-      <FormFieldGroup
-        ref={ref}
-        className={clsx(componentClassName, className)}
-        {...formFieldGroupProps}
-      >
+      <Fieldset ref={ref} className={clsx(componentClassName, className)} {...fieldsetProps}>
         <RadioGroupRoot {...radioGroupRootProps}>{children}</RadioGroupRoot>
-      </FormFieldGroup>
+      </Fieldset>
     );
   }
 );

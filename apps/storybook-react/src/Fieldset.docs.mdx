@@ -27,7 +27,32 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 The `Fieldset` and `FieldsetLegend` components can be used together to group form inputs.
 The `FieldsetLegend` should be the first child of the `Fieldset` for accessibility.
 
-<Canvas of={Stories.GroupingInputs} />
+```tsx
+<Fieldset>
+  <FieldsetLegend>
+    <Heading as="h2">Personal details</Heading>
+  </FieldsetLegend>
+  <TextInput label="First name" required />
+  <TextInput label="Middle name(s)" />
+  <TextInput label="Last name" required />
+</Fieldset>
+```
+
+If your label for the group has to be outside the fieldset then you should use
+an aria label to associate it to the fieldset group.
+
+```tsx
+<Flex direction="column" gap="300">
+  <Heading as="h2" id="personal-details">
+    Personal details
+  </Heading>
+  <Fieldset aria-labelledby="personal-details">
+    <TextInput label="First name" required />
+    <TextInput label="Middle name(s)" />
+    <TextInput label="Last name" required />
+  </Fieldset>
+</Flex>
+```
 
 ## API
 

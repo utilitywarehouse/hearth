@@ -9,9 +9,22 @@ const meta: Meta<typeof Fieldset> = {
     docs: {
       description: {
         component:
-          'The `Fieldset` component can be used to group related form inputs, and should be used with the `FieldsetLegend` component.',
+          'The `Fieldset` component can be used to group related form inputs, and should be used with the `FieldsetLegend` component, and handles layout, labelling, helper and validation text.',
       },
     },
+  },
+  argTypes: {
+    helperText: { control: { type: 'text' } },
+    validationText: { control: { type: 'text' } },
+    validationStatus: { control: { type: 'radio' }, options: ['valid', 'invalid', undefined] },
+    label: { control: { type: 'text' } },
+    disabled: { control: { type: 'boolean' } },
+  },
+  args: {
+    label: 'Label',
+    disabled: false,
+    helperText: 'Helper text',
+    validationText: 'Validation text',
   },
 };
 
@@ -22,7 +35,6 @@ export const Playground: Story = {
   render: args => {
     return (
       <Fieldset {...args}>
-        <FieldsetLegend>Fieldset legend</FieldsetLegend>
         <Placeholder height="100px" width="300px" />
       </Fieldset>
     );
@@ -32,16 +44,36 @@ export const Playground: Story = {
 export const GroupingInputs: Story = {
   render: args => {
     return (
-      <Fieldset {...args}>
-        <FieldsetLegend marginBottom="200">
-          <Heading as="h2">Personal details</Heading>
-        </FieldsetLegend>
-        <Flex direction="column" gap="200">
+      <Flex direction="column" gap="800">
+        <Fieldset {...args}>
+          <FieldsetLegend>
+            <Heading as="h2">Personal details</Heading>
+          </FieldsetLegend>
           <TextInput label="First name" required />
           <TextInput label="Middle name(s)" />
           <TextInput label="Last name" required />
+        </Fieldset>
+        <Fieldset {...args} label={<Heading as="h2">Personal details</Heading>}>
+          <TextInput label="First name" required />
+          <TextInput label="Middle name(s)" />
+          <TextInput label="Last name" required />
+        </Fieldset>
+        <Flex direction="column" gap="300">
+          <Heading as="h2" id="personal-details">
+            Personal details
+          </Heading>
+          <Fieldset {...args} aria-labelledby="personal-details">
+            <TextInput label="First name" required />
+            <TextInput label="Middle name(s)" />
+            <TextInput label="Last name" required />
+          </Fieldset>
         </Flex>
-      </Fieldset>
+      </Flex>
     );
+  },
+  args: {
+    label: undefined,
+    helperText: undefined,
+    validationText: undefined,
   },
 };

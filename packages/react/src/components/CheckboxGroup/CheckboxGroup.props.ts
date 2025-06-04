@@ -1,7 +1,7 @@
 import { SizeProps } from '../../props/size.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { CheckboxGroupBaseProps } from '../CheckboxGroupBase/CheckboxGroupBase.props';
-import { FormFieldGroupProps } from '../FormFieldGroup/FormFieldGroup.props';
+import { FieldsetProps } from '../Fieldset/Fieldset.props';
 
 export interface CheckboxGroupRootOwnProps {
   name?: string;
@@ -25,7 +25,7 @@ export interface CheckboxGroupRootProps
 export interface CheckboxGroupProps
   extends Omit<CheckboxGroupRootOwnProps, 'width'>,
     CheckboxGroupBaseProps,
-    Omit<FormFieldGroupProps, keyof CheckboxGroupRootOwnProps> {
+    Omit<FieldsetProps, keyof CheckboxGroupRootOwnProps> {
   /**
    * Set the container width of the CheckboxGroup children, independent to the
    * width of the  parent CheckboxGroup.

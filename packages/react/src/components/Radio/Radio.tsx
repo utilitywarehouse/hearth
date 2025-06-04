@@ -15,7 +15,7 @@ import { Label } from '../Label/Label';
 import { useIds } from '../../hooks/use-ids';
 import { HelperText } from '../HelperText/HelperText';
 import type { ElementRef } from 'react';
-import { useFormFieldGroup } from '../FormFieldGroup/FormFieldGroup.context';
+import { useFieldset } from '../Fieldset/Fieldset.context';
 
 const componentName = 'Radio';
 const componentClassName = withGlobalPrefix(componentName);
@@ -48,7 +48,7 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
     ref
   ) => {
     const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
-    const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormFieldGroup();
+    const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFieldset();
     const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
     const showLabel = !!label;
     return (
