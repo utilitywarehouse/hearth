@@ -11,7 +11,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { FieldsetProvider } from './Fieldset.context';
-import {Legend} from '../Legend/Legend';
+import { Legend } from '../Legend/Legend';
 
 const componentName = 'Fieldset';
 const componentClassName = withGlobalPrefix(componentName);
@@ -37,13 +37,15 @@ export const Fieldset = React.forwardRef<FieldsetElement, FieldsetProps>((props,
     providedId,
     prefix: 'formfieldgroup',
   });
+  const hasLabel = Boolean(label);
+  const hasHelperText = Boolean(helperText);
   const showValidationText = Boolean(validationStatus && validationText);
   const ariaDescribedbyValue = mergeIds(
     ariaDescribedby || !!helperText ? helperTextId : undefined,
     ariaErrorMessage || showValidationText ? validationTextId : undefined
   );
   const value = {
-    hasGroupHelperText: Boolean(helperText !== undefined),
+    hasGroupHelperText: hasHelperText,
     hasGroupValidationText: Boolean(validationStatus !== undefined && validationText !== undefined),
     'aria-describedby': ariaDescribedbyValue,
   };
@@ -61,22 +63,25 @@ export const Fieldset = React.forwardRef<FieldsetElement, FieldsetProps>((props,
       aria-invalid={showValidationText}
       aria-describedby={ariaDescribedbyValue}
     >
-      {label ? <Legend id={labelId}>{label}</Legend> : null}
-      {helperText || (validationText && !!validationStatus) ? (
-        <Flex direction="column" alignItems="start" className="hearth-HelperTextContainer">
-          {helperText ? (
-            <HelperText id={helperTextId} disabled={disabled}>
-              {helperText}
-            </HelperText>
+      {hasLabel ? (
+        <>
+          <Legend id={labelId}>{label}</Legend>
+          {hasHelperText || showValidationText ? (
+            <Flex direction="column" alignItems="start" className="hearth-HelperTextContainer">
+              {helperText ? (
+                <HelperText id={helperTextId} disabled={disabled}>
+                  {helperText}
+                </HelperText>
+              ) : null}
+              {showValidationText ? (
+                <ValidationText id={validationTextId} status={validationStatus}>
+                  {validationText}
+                </ValidationText>
+              ) : null}
+            </Flex>
           ) : null}
-          {showValidationText ? (
-            <ValidationText id={validationTextId} status={validationStatus}>
-              {validationText}
-            </ValidationText>
-          ) : null}
-        </Flex>
+        </>
       ) : null}
-
       <FieldsetProvider value={value}>{children}</FieldsetProvider>
     </fieldset>
   );

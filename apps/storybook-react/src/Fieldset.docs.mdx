@@ -16,41 +16,16 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 
 The `Fieldset` component should be used to group related form inputs.
 
-```tsx
-<Fieldset label="Personal details">
-  <TextInput label="First name" required />
-  <TextInput label="Middle name(s)" />
-  <TextInput label="Last name" required />
-</Fieldset>
-```
+<Canvas of={Stories.GroupingInputs} />
 
 ## Custom label
 
 You can render a custom label by passing a React node to the label prop.
 
-```tsx
-<Fieldset label={<Heading as="h2">Personal details</Heading>}>
-  <TextInput label="First name" required />
-  <TextInput label="Middle name(s)" />
-  <TextInput label="Last name" required />
-</Fieldset>
-```
-
 If your label for the group has to be outside the fieldset then you should use
 an aria label to associate it with the fieldset group.
 
-```tsx
-<Flex direction="column" gap="300">
-  <Heading as="h2" id="personal-details">
-    Personal details
-  </Heading>
-  <Fieldset {...args} aria-labelledby="personal-details">
-    <TextInput label="First name" required />
-    <TextInput label="Middle name(s)" />
-    <TextInput label="Last name" required />
-  </Fieldset>
-</Flex>
-```
+<Canvas of={Stories.CustomLabel} />
 
 ## Accessibility
 

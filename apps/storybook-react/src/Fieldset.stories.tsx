@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Fieldset, Legend, Flex, Heading, TextInput } from '@utilitywarehouse/hearth-react';
+import { Fieldset, Flex, Heading, TextInput } from '@utilitywarehouse/hearth-react';
 import { Placeholder } from './storybook-components/Placeholder';
 
 const meta: Meta<typeof Fieldset> = {
@@ -39,6 +39,19 @@ export const Playground: Story = {
       </Fieldset>
     );
   },
+};
+
+export const GroupingInputs: Story = {
+  render: args => {
+    return (
+      <Fieldset {...args}>
+        <TextInput label="First name" required />
+        <TextInput label="Middle name(s)" />
+        <TextInput label="Last name" required />
+      </Fieldset>
+    );
+  },
+  args: { label: 'Personal details' },
 };
 
 export const CustomLabel: Story = {
