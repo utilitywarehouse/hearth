@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Fieldset, FieldsetLegend, Flex, Heading, TextInput } from '@utilitywarehouse/hearth-react';
+import { Fieldset, Legend, Flex, Heading, TextInput } from '@utilitywarehouse/hearth-react';
 import { Placeholder } from './storybook-components/Placeholder';
 
 const meta: Meta<typeof Fieldset> = {
@@ -9,7 +9,7 @@ const meta: Meta<typeof Fieldset> = {
     docs: {
       description: {
         component:
-          'The `Fieldset` component can be used to group related form inputs, and should be used with the `FieldsetLegend` component, and handles layout, labelling, helper and validation text.',
+          'The `Fieldset` component should be used to group related form inputs, and handles layout, labelling, helper and validation text.',
       },
     },
   },
@@ -41,18 +41,10 @@ export const Playground: Story = {
   },
 };
 
-export const GroupingInputs: Story = {
+export const CustomLabel: Story = {
   render: args => {
     return (
       <Flex direction="column" gap="800">
-        <Fieldset {...args}>
-          <FieldsetLegend>
-            <Heading as="h2">Personal details</Heading>
-          </FieldsetLegend>
-          <TextInput label="First name" required />
-          <TextInput label="Middle name(s)" />
-          <TextInput label="Last name" required />
-        </Fieldset>
         <Fieldset {...args} label={<Heading as="h2">Personal details</Heading>}>
           <TextInput label="First name" required />
           <TextInput label="Middle name(s)" />
