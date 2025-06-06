@@ -1,7 +1,7 @@
-import type { SwitchProps as RadixSwitchProps } from '@radix-ui/react-switch';
 import { PropDef } from '../../props/prop-def';
 import { Responsive } from '../../types/responsive';
 import { MarginProps } from '../../props/margin.props';
+import { Switch as RadixSwitch } from 'radix-ui';
 
 const sizes = ['sm', 'md'] as const;
 
@@ -11,7 +11,8 @@ export const switchPropDefs = {
   size: PropDef<(typeof sizes)[number]>;
 };
 
-export interface SwitchProps extends RadixSwitchProps, MarginProps {
+// eslint-disable-next-line import/namespace
+export interface SwitchProps extends RadixSwitch.SwitchProps, MarginProps {
   size?: Responsive<(typeof sizes)[number]>;
   /**
    * The label for the Switch, describing its purpose.

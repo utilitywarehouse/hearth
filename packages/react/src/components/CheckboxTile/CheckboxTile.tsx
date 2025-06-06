@@ -5,7 +5,6 @@ import clsx from 'clsx';
 import { CheckboxTileProps } from './CheckboxTile.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
-import * as RadixCheckbox from '@radix-ui/react-checkbox';
 import { useIds } from '../../hooks/use-ids';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useCheckboxGroupBase } from '../CheckboxGroupBase/CheckboxGroupBase.context';
@@ -13,6 +12,7 @@ import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
 import { Flex } from '../Flex/Flex';
 import { useFieldset } from '../Fieldset/Fieldset.context';
+import { Checkbox as RadixCheckbox } from 'radix-ui';
 
 const componentName = 'CheckboxTile';
 const componentClassName = withGlobalPrefix(componentName);

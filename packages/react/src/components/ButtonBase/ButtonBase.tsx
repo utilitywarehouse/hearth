@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { Slot } from '@radix-ui/react-slot';
-
+import { Slot } from 'radix-ui';
 import clsx from 'clsx';
 import { buttonBasePropDefs, ButtonBaseProps } from './ButtonBase.props';
 import type { ElementRef } from 'react';
@@ -32,7 +31,7 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
     'data-inverted': inverted ? '' : undefined,
   };
 
-  const Component = asChild ? Slot : 'button';
+  const Component = asChild ? Slot.Root : 'button';
 
   // We're rendering a different component here so that we don't have to apply
   // transitions to box-shadow, which causes re-paints on every frame, heavily

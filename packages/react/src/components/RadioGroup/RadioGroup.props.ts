@@ -1,9 +1,9 @@
-import type { RadioGroupProps as RadixRadioGroupProps } from '@radix-ui/react-radio-group';
 import { SizeProps } from '../../props/size.props';
 import { FieldsetProps } from '../Fieldset/Fieldset.props';
+import { RadioGroup as RadixRadioGroup } from 'radix-ui';
 
 export interface RadioGroupRootProps
-  extends Omit<RadixRadioGroupProps, 'dir' | 'orientation' | 'disabled'> {
+  extends Omit<RadixRadioGroup.RadioGroupProps, 'dir' | 'orientation' | 'disabled'> {
   /** The direction of the radios, will also set the aria-orientation value. */
   direction?: 'column' | 'row';
   /**
