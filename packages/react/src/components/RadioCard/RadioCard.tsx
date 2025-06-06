@@ -3,14 +3,11 @@ import clsx from 'clsx';
 import type { ElementRef } from 'react';
 import type { RadioCardProps } from './RadioCard.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import {
-  Indicator as RadixRadioIndicator,
-  Item as RadixRadioItem,
-} from '@radix-ui/react-radio-group';
 import { useIds } from '../../hooks/use-ids';
 import { Label } from '../Label/Label';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
+import { RadioGroup as RadixRadioGroup } from 'radix-ui';
 
 const componentName = 'RadioCard';
 const componentClassName = withGlobalPrefix(componentName);
@@ -28,7 +25,7 @@ export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>((pro
   } = extractProps(props, marginPropDefs);
   const { id, labelId } = useIds({ providedId, prefix: 'radio' });
   return (
-    <RadixRadioItem
+    <RadixRadioGroup.Item
       ref={ref}
       className={clsx(componentClassName, className)}
       {...radioCardProps}
@@ -37,14 +34,14 @@ export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>((pro
     >
       <div className="hearth-RadioContainer">
         <div className="hearth-RadioItem">
-          <RadixRadioIndicator className="hearth-RadioIndicator" />
+          <RadixRadioGroup.Indicator className="hearth-RadioIndicator" />
         </div>
         <Label id={labelId} htmlFor={id} disableUserSelect fontWeight="semibold">
           {label}
         </Label>
       </div>
       {children}
-    </RadixRadioItem>
+    </RadixRadioGroup.Item>
   );
 });
 
