@@ -11,6 +11,7 @@ export const switchPropDefs = {
   size: PropDef<(typeof sizes)[number]>;
 };
 
+// eslint-disable-next-line import/namespace
 export interface SwitchProps extends RadixSwitch.SwitchProps, MarginProps {
   size?: Responsive<(typeof sizes)[number]>;
   /**
