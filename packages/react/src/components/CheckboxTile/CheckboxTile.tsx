@@ -7,12 +7,12 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import * as RadixCheckbox from '@radix-ui/react-checkbox';
 import { useIds } from '../../hooks/use-ids';
-import { useFormFieldGroup } from '../FormFieldGroup/FormFieldGroup.context';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useCheckboxGroupBase } from '../CheckboxGroupBase/CheckboxGroupBase.context';
 import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
 import { Flex } from '../Flex/Flex';
+import { useFieldset } from '../Fieldset/Fieldset.context';
 
 const componentName = 'CheckboxTile';
 const componentClassName = withGlobalPrefix(componentName);
@@ -35,7 +35,7 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
     ref
   ) => {
     const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
-    const context = useFormFieldGroup();
+    const context = useFieldset();
     const checkboxContext = useCheckboxGroupBase();
     const checked = checkboxContext?.value?.includes(value);
     const hasGroupHelperText = context?.hasGroupHelperText;

@@ -3,15 +3,12 @@ import clsx from 'clsx';
 import type { ElementRef } from 'react';
 import type { RadioTileProps } from './RadioTile.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import {
-  Indicator as RadixRadioIndicator,
-  Item as RadixRadioItem,
-} from '@radix-ui/react-radio-group';
+import { RadioGroup as RadixRadioGroup } from 'radix-ui';
 import { useIds } from '../../hooks/use-ids';
-import { useFormFieldGroup } from '../FormFieldGroup/FormFieldGroup.context';
 import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
 import { Flex } from '../Flex/Flex';
+import { useFieldset } from '../Fieldset/Fieldset.context';
 
 const componentName = 'RadioTile';
 const componentClassName = withGlobalPrefix(componentName);
@@ -24,10 +21,10 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
     ref
   ) => {
     const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
-    const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormFieldGroup();
+    const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFieldset();
     const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
     return (
-      <RadixRadioItem
+      <RadixRadioGroup.Item
         ref={ref}
         className={clsx(componentClassName, className)}
         {...props}
@@ -37,7 +34,7 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
       >
         <div className="hearth-RadioContainer">
           <div className="hearth-RadioItem">
-            <RadixRadioIndicator className="hearth-RadioIndicator" />
+            <RadixRadioGroup.Indicator className="hearth-RadioIndicator" />
           </div>
           <Flex direction="column">
             <Label id={labelId} htmlFor={id} disableUserSelect>
@@ -50,7 +47,7 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
             ) : null}
           </Flex>
         </div>
-      </RadixRadioItem>
+      </RadixRadioGroup.Item>
     );
   }
 );

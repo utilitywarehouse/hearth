@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { FieldsetLegend, Heading } from '@utilitywarehouse/hearth-react';
+import { Legend, Heading } from '@utilitywarehouse/hearth-react';
 
-const meta: Meta<typeof FieldsetLegend> = {
-  title: 'Stories / FieldsetLegend',
-  component: FieldsetLegend,
+const meta: Meta<typeof Legend> = {
+  title: 'Stories / Legend',
+  component: Legend,
   argTypes: {
     children: { control: { type: 'text' } },
   },
@@ -13,14 +13,14 @@ const meta: Meta<typeof FieldsetLegend> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof FieldsetLegend>;
+type Story = StoryObj<typeof Legend>;
 
 export const Playground: Story = {};
 
 export const CustomElement: Story = {
   render: () => (
-    <FieldsetLegend>
+    <Legend>
       <Heading as="h1">Custom label</Heading>
-    </FieldsetLegend>
+    </Legend>
   ),
 };

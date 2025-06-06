@@ -1,6 +1,6 @@
 import type { RadioGroupProps as RadixRadioGroupProps } from '@radix-ui/react-radio-group';
-import type { FormFieldGroupProps } from '../FormFieldGroup/FormFieldGroup.props';
 import { SizeProps } from '../../props/size.props';
+import { FieldsetProps } from '../Fieldset/Fieldset.props';
 
 export interface RadioGroupRootProps
   extends Omit<RadixRadioGroupProps, 'dir' | 'orientation' | 'disabled'> {
@@ -13,8 +13,8 @@ export interface RadioGroupRootProps
 }
 
 export interface RadioGroupProps
-  extends Omit<RadioGroupRootProps, 'width' | keyof FormFieldGroupProps>,
-    FormFieldGroupProps,
+  extends Omit<RadioGroupRootProps, 'width' | keyof FieldsetProps>,
+    FieldsetProps,
     Pick<RadioGroupRootProps, 'defaultValue'> {
   /**
    * Set the container width of the RadioGroup children, independent to the width of the

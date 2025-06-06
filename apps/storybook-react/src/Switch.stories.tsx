@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { BodyText, Flex, FormFieldGroup, Switch } from '@utilitywarehouse/hearth-react';
+import { BodyText, Flex, Fieldset, Switch } from '@utilitywarehouse/hearth-react';
 import React, { useState } from 'react';
 
 const sizes = ['sm', 'md'] as const;
@@ -22,7 +22,7 @@ const meta: Meta<typeof Switch> = {
     label: { control: { type: 'text' } },
   },
   args: {
-    size: 'md',
+    size: 'sm',
     disabled: false,
     label: 'Switch label',
   },
@@ -83,7 +83,7 @@ export const SwitchGroup: Story = {
   render: args => {
     const [value, setValue] = useState<Array<string>>(['1']);
     return (
-      <FormFieldGroup
+      <Fieldset
         label="Switch group"
         id="switch-group-story"
         helperText={`Switches: ${value.join(', ')}`}
@@ -107,7 +107,7 @@ export const SwitchGroup: Story = {
             {...args}
           />
         ))}
-      </FormFieldGroup>
+      </Fieldset>
     );
   },
 };
