@@ -1,11 +1,8 @@
 import * as React from 'react';
-
 import clsx from 'clsx';
-
 import type { CheckboxProps } from './Checkbox.props';
 import { Flex } from '../Flex/Flex';
 import { Label } from '../Label/Label';
-import { useFormFieldGroup } from '../FormFieldGroup/FormFieldGroup.context';
 import { HelperText } from '../HelperText/HelperText';
 import type { ElementRef } from 'react';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
@@ -15,6 +12,7 @@ import { useIds } from '../../hooks/use-ids';
 import { marginPropDefs } from '../../props/margin.props';
 import { extractProps } from '../../helpers/extract-props';
 import { Checkbox as RadixCheckbox } from 'radix-ui';
+import { useFieldset } from '../Fieldset/Fieldset.context';
 
 const componentName = 'Checkbox';
 const componentClassName = withGlobalPrefix(componentName);
@@ -34,7 +32,7 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props,
     ...checkboxProps
   } = extractProps(props, marginPropDefs);
   const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'checkbox' });
-  const context = useFormFieldGroup();
+  const context = useFieldset();
   const checkboxContext = useCheckboxGroupBase();
   const checked = checkboxContext?.value?.includes(value);
   const hasGroupHelperText = context?.hasGroupHelperText;

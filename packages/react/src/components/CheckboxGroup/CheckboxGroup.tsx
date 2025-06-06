@@ -5,9 +5,9 @@ import clsx from 'clsx';
 import { CheckboxGroupProps, CheckboxGroupRootProps } from './CheckboxGroup.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
-import { FormFieldGroup } from '../FormFieldGroup/FormFieldGroup';
 import { Flex } from '../Flex/Flex';
 import { CheckboxGroupBase } from '../CheckboxGroupBase/CheckboxGroupBase';
+import { Fieldset } from '../Fieldset/Fieldset';
 
 const rootComponentName = 'CheckboxGroupRoot';
 const rootComponentClassName = withGlobalPrefix(rootComponentName);
@@ -74,7 +74,7 @@ export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGrou
     },
     ref
   ) => {
-    const formFieldGroupProps = {
+    const fieldsetProps = {
       ...props,
       disabled,
       required,
@@ -95,13 +95,9 @@ export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGrou
       children,
     };
     return (
-      <FormFieldGroup
-        ref={ref}
-        className={clsx(componentClassName, className)}
-        {...formFieldGroupProps}
-      >
+      <Fieldset ref={ref} className={clsx(componentClassName, className)} {...fieldsetProps}>
         <CheckboxGroupRoot {...checkboxGroupRootProps} />
-      </FormFieldGroup>
+      </Fieldset>
     );
   }
 );

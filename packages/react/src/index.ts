@@ -96,11 +96,8 @@ export type { BadgeProps } from './components/Badge/Badge.props';
 export { Fieldset } from './components/Fieldset/Fieldset';
 export type { FieldsetProps } from './components/Fieldset/Fieldset.props';
 
-export { FieldsetLegend } from './components/FieldsetLegend/FieldsetLegend';
-export type { FieldsetLegendProps } from './components/FieldsetLegend/FieldsetLegend.props';
-
-export { FormFieldGroup } from './components/FormFieldGroup/FormFieldGroup';
-export type { FormFieldGroupProps } from './components/FormFieldGroup/FormFieldGroup.props';
+export { Legend } from './components/Legend/Legend';
+export type { LegendProps } from './components/Legend/Legend.props';
 
 export { Radio } from './components/Radio/Radio';
 export type { RadioProps } from './components/Radio/Radio.props';

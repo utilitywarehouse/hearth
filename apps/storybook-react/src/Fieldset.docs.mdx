@@ -1,7 +1,7 @@
-import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
+import { Meta, Canvas, ArgTypes, Controls } from '@storybook/blocks';
 
 import * as Stories from './Fieldset.stories';
-import * as FieldsetLegendStories from './FieldsetLegend.stories';
+import * as LegendStories from './Legend.stories';
 
 import { DocsHeader } from './storybook-components/DocsHeader';
 
@@ -10,24 +10,41 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 <DocsHeader componentName="Fieldset" stories={Stories} />
 
 <Canvas of={Stories.Playground} />
-
-- [Alternatives](#alternatives)
-- [Grouping inputs](#grouping-inputs)
-- [API](#api)
-- [Fieldset legend](#fieldset-legend)
-  - [Custom label](#custom-label)
-  - [API](#api)
-
-## Alternatives
-
-- [FormFieldGroup](?path=/docs/components-formfieldgroup--docs) - For default form field groups
+<Controls of={Stories.Playground} />
 
 ## Grouping inputs
 
-The `Fieldset` and `FieldsetLegend` components can be used together to group form inputs.
-The `FieldsetLegend` should be the first child of the `Fieldset` for accessibility.
+The `Fieldset` component should be used to group related form inputs.
 
 <Canvas of={Stories.GroupingInputs} />
+
+## Custom label
+
+You can render a custom label by passing a React node to the label prop.
+
+If your label for the group has to be outside the fieldset then you should use
+an aria label to associate it with the fieldset group.
+
+<Canvas of={Stories.CustomLabel} />
+
+## Accessibility
+
+If the `Fieldset` API doesn't meet your needs, please use it with the `Legend`
+component where possible, ensuring the `Legend` is the first child of the
+`Fieldset`, otherwise the association between the two elements will be broken.
+
+When doing this you should not use the supplementary text props, such as `helperText`.
+
+```tsx
+<Fieldset>
+  <Legend>
+    <Heading as="h2">Personal details</Heading>
+  </Legend>
+  <TextInput label="First name" required />
+  <TextInput label="Middle name(s)" />
+  <TextInput label="Last name" required />
+</Fieldset>
+```
 
 ## API
 
@@ -35,15 +52,22 @@ This component is based on the `fieldset` element and supports the following com
 
 - Margin
 
+| Prop               | Type                   |
+| ------------------ | ---------------------- |
+| `label`            | `string`               |
+| `helperText`       | `string`               |
+| `validationText`   | `string`               |
+| `validationStatus` | `"valid" \| "invalid"` |
+
 ## Fieldset legend
 
-<Canvas of={FieldsetLegendStories.Playground} />
+<Canvas of={LegendStories.Playground} />
 
 ### Custom label
 
 If necessary, perhaps for accessibility reasons, you can render a different element as a child.
 
-<Canvas of={FieldsetLegendStories.CustomElement} />
+<Canvas of={LegendStories.CustomElement} />
 
 ### API
 
