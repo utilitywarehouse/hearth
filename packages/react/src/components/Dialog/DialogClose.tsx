@@ -4,17 +4,17 @@ import { Dialog as RadixDialog } from 'radix-ui';
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 
-const componentName = 'DialogTrigger';
+const componentName = 'DialogClose';
 const componentClassName = withGlobalPrefix(componentName);
 
-type DialogTriggerElement = ElementRef<'button'>;
+type DialogCloseElement = ElementRef<'button'>;
 
-export const DialogTrigger = React.forwardRef<
-  DialogTriggerElement,
-  Omit<RadixDialog.DialogTriggerProps, 'asChild'>
+export const DialogClose = React.forwardRef<
+  DialogCloseElement,
+  Omit<RadixDialog.DialogCloseProps, 'asChild'>
 >(({ className, ...props }, ref) => {
   return (
-    <RadixDialog.Trigger
+    <RadixDialog.Close
       ref={ref}
       className={clsx(componentClassName, className)}
       asChild
@@ -23,4 +23,4 @@ export const DialogTrigger = React.forwardRef<
   );
 });
 
-DialogTrigger.displayName = componentName;
+DialogClose.displayName = componentName;

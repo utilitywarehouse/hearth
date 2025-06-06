@@ -7,7 +7,7 @@ import { filters } from './helpers/filters.js';
 import { kebabCase } from './helpers/kebab-case.js';
 
 const BUILD_PATH = './css/';
-const VALID_DEVICE_COMPONENTS = ['card'];
+const VALID_DEVICE_COMPONENTS = ['card', 'dialog'];
 const PREFIX = 'h';
 
 // I tried to get this working with fs.readdirSync but I couldn't
@@ -17,10 +17,12 @@ StyleDictionary.registerFormat({
   format: () => {
     return `@import '../css/badge.css';
 @import '../css/border.css';
+@import '../css/bottom-sheet.css';
 @import '../css/button.css';
 @import '../css/card.css';
 @import '../css/checkbox.css';
 @import '../css/color.css';
+@import '../css/dialog.css';
 @import '../css/divider.css';
 @import '../css/focus.css';
 @import '../css/font.css';
