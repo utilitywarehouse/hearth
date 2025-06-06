@@ -3,6 +3,4 @@ dist/
 .eslintrc.js
 ./.vscode/
 tsconfig.json
-*.md*
-!/decisions/*.md*
 **/__testfixtures__

@@ -16,49 +16,47 @@ Decisions here may have an impact on the following components:
 
 - [Radix UI Dialog primitive](https://www.radix-ui.com/primitives/docs/components/dialog)
 
-
 ## API
 
 ```tsx
 <Dialog>
-   <!-- I'm assuming this can be left out if the component is controlled? -->
-	<DialogTrigger> <!--  apply asChild internally -->
-		<Button>Edit profile</Button>
-	</DialogTrigger>
+  <DialogTrigger>
+    <Button>Edit profile</Button>
+  </DialogTrigger>
 
-	<DialogContent
+  <DialogContent
     heading="Edit profile"
     description="Make changes to your profile."
-    close/closeable/dissmissable
   >
-		{...}
-		<Flex gap="300" justifyContent="end">
-			<DialogClose> <!--  apply asChild internally -->
-				<Button>
-					Cancel
-				</Button>
-			</DialogClose>
-      <!--  or -->
-			<DialogButton primary>Save</DialogButton>
-		</Flex>
-      <!--  or -->
-    <DialogActions> <!--  this is probably clearer, we're going to need to know which button has been clicked -->
-      <DialogButton>Cancel</DialogButton>
-      <DialogButton primary>Save</DialogButton>
-    </DialogActions>
-	</DialogContent>
+    {...}
+    <DialogFooter>
+      <DialogClose>
+        <Button>Cancel</Button>
+      </DialogClose>
+      <DialogClose>
+        <Button>Save</Button>
+      </DialogClose>
+    </DialogFooter>
+  </DialogContent>
 </Dialog>
 ```
 
 **Notes**
 
+- I'm assuming the `DialogTrigger` can be left out if the component is controlled?
+- Same with the `DialogClose` components
+- We can apply `asChild` internally on both of the above
 - a controlled component (which is possibly going to be more likely?) will require less sub-components, as the open/close can be controlled via state.
 - we don't need an onClose, this can be handled with onOpenChange
+- I'm not sure we need an onClose prop that hooks up to the close button icon,
+  this should be handled with the onOpenChange prop
+- We can have a `hideClose` prop which hides the close icon button but keeps it
+  available to screenreaders
 
 ```tsx
 <Dialog.Root
   open={open}
-  onOpenChange={(open) => {
+  onOpenChange={open => {
     // Do stuff when the dialog is closed
     if (!open) {
       doStuff();
@@ -66,7 +64,7 @@ Decisions here may have an impact on the following components:
     // Set the new state
     setOpen(open);
   }}
->
+/>
 ```
 
 **Uncontrolled**
@@ -79,19 +77,20 @@ Decisions here may have an impact on the following components:
   <DialogContent
     heading="Edit profile"
     description="Make changes to your profile."
-    // hideClose
-    onClose={handleClose}
+    hideClose
   >
+
     <BodyText>{...}</BodyText>
+
     <DialogFooter>
-      <DialogButton>
+      <DialogClose>
         <Button>Cancel</Button>
-      </DialogButton>
-      <DialogButton>
+      </DialogClose>
+      <DialogClose>
         <Button>Save</Button>
-      </DialogButton>
+      </DialogClose>
     </DialogFooter>
-	</DialogContent>
+  </DialogContent>
 </Dialog>
 ```
 
@@ -104,20 +103,14 @@ const [open, setOpen] = React.useState(false);
 
 <Dialog>
   <DialogContent
-    maxWidth="450px"
     heading="Edit profile"
     description="Make changes to your profile."
-    // hideClose
-    onClose={handleClose}
+    hideClose
   >
     <DialogFooter>
       <Button onClick={()=>setOpen(false)}>Cancel</Button>
       <Button onClick={()=>setOpen(false)}>Save</Button>
     </DialogFooter>
-	</DialogContent>
+  </DialogContent>
 </Dialog>
 ```
-
-
-
-
