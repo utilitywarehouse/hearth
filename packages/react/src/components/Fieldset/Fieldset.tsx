@@ -35,7 +35,7 @@ export const Fieldset = React.forwardRef<FieldsetElement, FieldsetProps>((props,
   } = extractProps(props, marginPropDefs);
   const { id, labelId, helperTextId, validationTextId } = useIds({
     providedId,
-    prefix: 'formfieldgroup',
+    prefix: 'fieldset',
   });
   const hasLabel = Boolean(label);
   const hasHelperText = Boolean(helperText);
