@@ -1,21 +1,39 @@
 .hearth-DialogOverlay {
-  background-color: var(--h-color-grey-800);
-  opacity: 0.7;
+  background-color: var(--h-overlay-background-color);
+  opacity: var(--h-overlay-opacity);
   position: fixed;
   inset: 0;
-  animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  animation: overlayShowBottomSheet 200ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  @media (--h-tablet) {
+    animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
 }
 
 @keyframes overlayShow {
   from {
     opacity: 0;
   }
+
   to {
-    opacity: 1;
+    opacity: var(--h-overlay-opacity);
+  }
+}
+
+@keyframes overlayShowBottomSheet {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: var(--h-overlay-opacity);
   }
 }
 
 .hearth-Dialog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-dialog-gap);
   background-color: var(--h-dialog-background-color);
   position: fixed;
   left: 0;
@@ -25,9 +43,16 @@
   border-top-right-radius: var(--h-dialog-border-radius);
   height: fit-content;
   padding: var(--h-bottom-sheet-padding);
-  animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  display: flex;
-  flex-direction: column;
+  animation: contentShowBottomSheet1 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: fit-content;
+
+  @media (width >= 375px) {
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: var(--h-dialog-width-mobile);
+    max-width: var(--h-dialog-width-mobile);
+    animation: contentShowBottomSheet2 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
 
   @media (--h-tablet) {
     top: 50%;
@@ -37,15 +62,28 @@
     border-bottom-left-radius: var(--h-dialog-border-radius);
     border-bottom-right-radius: var(--h-dialog-border-radius);
     width: var(--h-dialog-width-tablet);
+    max-width: var(--h-dialog-width-tablet);
+    animation: contentShow 200ms cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   @media (--h-desktop) {
     width: var(--h-dialog-width-desktop);
+    max-width: var(--h-dialog-width-desktop);
   }
 
   & :where(.hearth-DialogHeader) {
-    column-gap: var(--h-dialog-gap);
-    row-gap: var(--h-dialog-content-gap);
+    gap: var(--h-dialog-content-gap) var(--h-dialog-gap);
+  }
+
+  & :where(.hearth-DialogFooter) {
+    display: flex;
+    gap: var(--h-dialog-action-gap);
+    flex-direction: column-reverse;
+
+    @media (--h-tablet) {
+      flex-direction: row;
+      justify-content: end;
+    }
   }
 }
 
@@ -54,8 +92,33 @@
     opacity: 0;
     transform: translate(-50%, -48%) scale(0.96);
   }
+
   to {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes contentShowBottomSheet1 {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contentShowBottomSheet2 {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
   }
 }

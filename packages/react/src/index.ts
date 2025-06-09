@@ -139,4 +139,5 @@ export { Dialog } from './components/Dialog/Dialog';
 export { DialogRoot } from './components/Dialog/DialogRoot';
 export { DialogTrigger } from './components/Dialog/DialogTrigger';
 export { DialogClose } from './components/Dialog/DialogClose';
+export { DialogFooter } from './components/Dialog/DialogFooter';
 export type { DialogProps } from './components/Dialog/Dialog.props';

@@ -35,6 +35,7 @@ StyleDictionary.registerFormat({
 @import '../css/line-height.css';
 @import '../css/link.css';
 @import '../css/opacity.css';
+@import '../css/overlay.css';
 @import '../css/radio.css';
 @import '../css/space.css';
 @import '../css/spinner.css';

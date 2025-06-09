@@ -10,6 +10,7 @@ import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
 import { DialogClose } from './DialogClose';
+import { Box } from '../Box/Box';
 
 const componentName = 'Dialog';
 const componentClassName = withGlobalPrefix(componentName);
@@ -22,13 +23,14 @@ export const Dialog = React.forwardRef<DialogElement, DialogProps>(
     ref
   ) => {
     const portalProps = { forceMount, container };
-    console.log('dialog');
     return (
       <RadixDialog.Portal {...portalProps}>
         <RadixDialog.Overlay className="hearth-DialogOverlay" />
         <RadixDialog.Content ref={ref} className={clsx(componentClassName, className)} {...props}>
           <Grid className="hearth-DialogHeader" templateColumns="1fr 24px">
-            <Heading size="lg">{heading}</Heading>
+            <Box asChild gridColumn="1 / 2" gridRow="1 / 2">
+              <Heading size="lg">{heading}</Heading>
+            </Box>
             <DialogClose>
               <UnstyledIconButton
                 label="Close dialog"
@@ -37,9 +39,10 @@ export const Dialog = React.forwardRef<DialogElement, DialogProps>(
                 <CloseMediumIcon />
               </UnstyledIconButton>
             </DialogClose>
-            <BodyText size="md">{description}</BodyText>
+            <Box asChild gridColumn="1 / 3" gridRow="2 / 3">
+              <BodyText size="md">{description}</BodyText>
+            </Box>
           </Grid>
-
           {children}
         </RadixDialog.Content>
       </RadixDialog.Portal>

@@ -48,7 +48,7 @@ export const filters = {
     }
     return token.filePath.includes('primitive') && token.type === 'color';
   },
-  isOpacity: token => token.filePath.includes('semantic') && token.path.includes('opacity'),
+  isOpacity: token => token.path.includes('opacity'),
   isComponentPxValue: token => {
     return (
       (token.filePath.includes('component') && token.path.includes('outline-width')) ||

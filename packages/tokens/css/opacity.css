@@ -3,5 +3,7 @@
  */
 
 :root {
+  --h-dark-overlay-opacity: 0.75;
+  --h-overlay-opacity: 0.75;
   --h-opacity-disabled: 0.5;
 }
