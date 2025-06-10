@@ -24,6 +24,8 @@ The `Button` component is used to trigger an action or event, such as submitting
   - [`ButtonIcon`](#buttonicon)
   - [`ButtonText`](#buttontext)
   - [`ButtonSpinner`](#buttonspinner)
+- [Examples](#examples)
+- [Padding None](#padding-none)
 
 ## Playground
 
@@ -56,18 +58,19 @@ const MyComponent = () => {
 
 ## Props
 
-| Property       | Type                                      | Description                                                                                       | Default  |
-| -------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------- | -------- |
-| `onPress`      | `() => void`                              | Callback function to be called when the button is pressed.                                        | -        |
-| `variant`      | `'solid' \| 'outline' \| 'ghost'`         | The variant of the button.                                                                        | 'solid'  |
-| `size`         | `'sm' \| 'md'`                            | The size of the button.                                                                           | 'medium' |
-| `colorScheme`  | `'yellow' \| 'green' \| 'red' \| 'grey' ` | The colour scheme of the button.                                                                  | 'yellow' |
-| `icon`         | `ReactNode`                               | The icon to be displayed in the button. _Note: Can't use with advanced usage._                    | -        |
-| `iconPosition` | `'left' \| 'right'`                       | The position of the icon in the button. _Note: Can't use with advanced usage._                    | 'left'   |
-| `inverted`     | `boolean`                                 | Changes the button to an inverted state. (To only be used on `midnight` or `purple` backgrounds). | `false`  |
-| `loading`      | `boolean`                                 | Shows a loading spinner in the button. _Note: Can't use with advanced usage._                     | `false`  |
-| `disabled`     | `boolean`                                 | Disables the button.                                                                              | `false`  |
-| `pressed`      | `boolean`                                 | Changes the button to a pressed state.                                                            | `false`  |
+| Property       | Type                                      | Description                                                                                         | Default  |
+| -------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------- | -------- |
+| `onPress`      | `() => void`                              | Callback function to be called when the button is pressed.                                          | -        |
+| `variant`      | `'solid' \| 'outline' \| 'ghost'`         | The variant of the button.                                                                          | 'solid'  |
+| `size`         | `'sm' \| 'md'`                            | The size of the button.                                                                             | 'medium' |
+| `colorScheme`  | `'yellow' \| 'green' \| 'red' \| 'grey' ` | The colour scheme of the button.                                                                    | 'yellow' |
+| `icon`         | `ReactNode`                               | The icon to be displayed in the button. _Note: Can't use with advanced usage._                      | -        |
+| `iconPosition` | `'left' \| 'right'`                       | The position of the icon in the button. _Note: Can't use with advanced usage._                      | 'left'   |
+| `inverted`     | `boolean`                                 | Changes the button to an inverted state. (To only be used on `midnight` or `purple` backgrounds).   | `false`  |
+| `loading`      | `boolean`                                 | Shows a loading spinner in the button. _Note: Can't use with advanced usage._                       | `false`  |
+| `disabled`     | `boolean`                                 | Disables the button.                                                                                | `false`  |
+| `paddingNone`  | `boolean`                                 | Removes the horizontal padding from the button (only applies to `sm` size `ghost` variant buttons). | `false`  |
+| `pressed`      | `boolean`                                 | Changes the button to a pressed state.                                                              | `false`  |
 
 ## Variants
 
@@ -252,6 +255,33 @@ const MyComponent = ({ loading }) => {
     <Button colorScheme="yellow" disabled>
       {loading ? <ButtonSpinner /> : null}
       <ButtonText>Button</ButtonText>
+    </Button>
+  );
+};
+```
+
+## Examples
+
+## Padding None
+
+Similar to the `UnstyledIconButton`, the `paddingNone` prop can be used to remove the horizontal padding from the `sm` size `ghost` variant button.
+This is useful when you want to create a button that looks like a link or a text button without any padding around it.
+
+<UsageWrap>
+  <Center>
+    <Button variant="ghost" colorScheme="grey" size="sm" paddingNone>
+      Button
+    </Button>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Button } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  return (
+    <Button variant="ghost" colorScheme="grey" size="sm" paddingNone>
+      Button
     </Button>
   );
 };
