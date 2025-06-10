@@ -114,7 +114,6 @@ export const Validation: Story = {
   args: {
     validationText: 'Please pick two.',
     label: 'What are your two favourite animals?',
-    helperTextPosition: 'bottom',
   },
 };
 
