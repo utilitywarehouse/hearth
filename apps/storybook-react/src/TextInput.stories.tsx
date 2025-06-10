@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { BodyText, Flex, TextInput, TextInputSlot } from '@utilitywarehouse/hearth-react';
+import {
+  BodyText,
+  Card,
+  Flex,
+  Heading,
+  TextInput,
+  TextInputSlot,
+} from '@utilitywarehouse/hearth-react';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof TextInput> = {
@@ -110,5 +117,35 @@ export const WithIcons: Story = {
         <EmailMediumIcon />
       </TextInputSlot>
     </TextInput>
+  ),
+};
+
+export const GroupingInputs: Story = {
+  render: () => (
+    <Flex asChild direction="column">
+      <fieldset>
+        <legend>
+          <Heading as="h3" size="lg" marginBottom="200">
+            Grouping Inputs
+          </Heading>
+        </legend>
+        <BodyText size="md" marginBottom="250" id="supporting-info">
+          Supporting information
+        </BodyText>
+        <Card variant="subtle" direction="column" gap="250">
+          <TextInput label="First name" required aria-describedby="supporting-info" />
+          <TextInput label="Last name" required aria-describedby="supporting-info" />
+          <TextInput
+            label="Email"
+            helperText="this is the helper text"
+            aria-describedby="supporting-info"
+          >
+            <TextInputSlot placement="prefix">
+              <EmailMediumIcon />
+            </TextInputSlot>
+          </TextInput>
+        </Card>
+      </fieldset>
+    </Flex>
   ),
 };
