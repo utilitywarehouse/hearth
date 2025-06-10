@@ -16,7 +16,6 @@
   }
 
   .hearth-Legend {
-    padding: 0;
     color: var(--h-text-color);
 
     /* only apply text styles if the legend doesn't have another element as a child, ie. a Heading component */
