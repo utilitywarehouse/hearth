@@ -165,6 +165,7 @@
       color: var(--h-button-base-foreground-color);
       background-color: var(--h-button-base-background-color);
       position: relative;
+      width: 100%;
 
       /* we can add a transition here when required */
 

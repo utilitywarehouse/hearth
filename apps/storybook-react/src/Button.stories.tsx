@@ -213,7 +213,7 @@ export const ButtonVariants: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => {
     return (
-      <Flex direction="column" gap="200">
+      <Flex direction="column" gap="200" alignItems="start">
         <Button variant="emphasis">Emphasis Button</Button>
 
         <Flex gap="100">
@@ -246,11 +246,12 @@ export const ButtonVariants: Story = {
 export const FullWidth: Story = {
   render: () => (
     <Flex direction="column" gap="200">
-      <Flex direction="column">
+      <Flex direction="column" gap="100">
         <Button>
           Full width button with icon
           <ChevronRightSmallIcon />
         </Button>
+        <Button variant="emphasis">Full width emphasis button</Button>
       </Flex>
       <Flex direction="column" alignItems={{ mobile: 'stretch', desktop: 'start' }}>
         <Button>Responsive full width button</Button>
