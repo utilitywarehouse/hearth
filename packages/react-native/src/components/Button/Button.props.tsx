@@ -18,6 +18,7 @@ export type BaseButtonProps = Omit<PressableProps, 'children'> & {
   disabled?: boolean;
   size?: 'sm' | 'md';
   pressed?: boolean;
+  paddingNone?: boolean;
 } & ButtonVariants;
 
 export type ButtonWithoutChildrenProps = BaseButtonProps & {

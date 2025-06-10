@@ -20,6 +20,7 @@ const ButtonRoot = forwardRef<
       inverted = false,
       states,
       onPress,
+      paddingNone = false,
       ...props
     },
     ref
@@ -34,6 +35,7 @@ const ButtonRoot = forwardRef<
       disabled,
       inverted,
       active: active || pressed,
+      paddingNone,
     });
 
     const value = useMemo(
@@ -130,8 +132,24 @@ const styles = StyleSheet.create(theme => ({
           minHeight: 48,
         },
       },
+      paddingNone: {
+        true: {},
+        false: {},
+      },
     },
     compoundVariants: [
+      // Padding None
+      {
+        size: 'sm',
+        paddingNone: true,
+        variant: 'ghost',
+        styles: {
+          paddingHorizontal: 0,
+        },
+      },
+      // Variant Color Schemes
+      // Emphasis
+      // Emphasis Yellow
       {
         variant: 'emphasis',
         active: true,
@@ -167,6 +185,8 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.components.button.emphasis.yellow.backgroundColorActive,
         },
       },
+      // Solid
+      // Solid Yellow
       {
         variant: 'solid',
         colorScheme: 'yellow',
@@ -215,6 +235,7 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.components.button.solid.yellow.inverted.backgroundColorActive,
         },
       },
+      // Solid Green
       {
         variant: 'solid',
         colorScheme: 'green',
@@ -238,6 +259,7 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.components.button.solid.green.backgroundColorActive,
         },
       },
+      // Solid Red
       {
         variant: 'solid',
         colorScheme: 'red',
@@ -261,6 +283,8 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.components.button.solid.red.backgroundColorActive,
         },
       },
+      // Outline
+      // Outline Grey
       {
         variant: 'outline',
         colorScheme: 'grey',
@@ -318,6 +342,8 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.components.button.outline.grey.inverted.backgroundColorActive,
         },
       },
+      // Outline Green
+
       {
         variant: 'outline',
         colorScheme: 'green',
@@ -341,6 +367,7 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.components.button.outline.green.backgroundColorActive,
         },
       },
+      // Outline Red
       {
         variant: 'outline',
         colorScheme: 'red',
@@ -364,6 +391,8 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.components.button.outline.red.backgroundColorActive,
         },
       },
+      // Ghost
+      // Ghost Grey
       {
         variant: 'ghost',
         colorScheme: 'grey',
@@ -410,6 +439,7 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.components.button.ghost.grey.inverted.backgroundColorActive,
         },
       },
+      // Ghost Green
       {
         variant: 'ghost',
         colorScheme: 'green',
@@ -432,6 +462,7 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.components.button.ghost.green.backgroundColorActive,
         },
       },
+      // Ghost Red
       {
         variant: 'ghost',
         colorScheme: 'red',
