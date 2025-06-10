@@ -6,7 +6,7 @@ import { CheckboxGroupProps } from './CheckboxGroup.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { Flex } from '../Flex/Flex';
-import { Fieldset } from '../Fieldset/Fieldset';
+import { FormGroupBase } from '../FormGroupBase/FormGroupBase';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { CheckboxGroupProvider } from './CheckboxGroup.context';
 
@@ -36,7 +36,7 @@ export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGrou
     },
     ref
   ) => {
-    const fieldsetProps = {
+    const formGroupBaseProps = {
       ...props,
       disabled,
       required,
@@ -45,7 +45,7 @@ export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGrou
       validationText,
       validationStatus,
     };
-    const checkboxGroupRootProps = {
+    const checkboxGroupProps = {
       width: contentWidth,
       direction,
       name,
@@ -81,9 +81,13 @@ export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGrou
       onItemUncheck: handleItemUncheck,
     };
     return (
-      <Fieldset ref={ref} className={clsx(componentClassName, className)} {...fieldsetProps}>
+      <FormGroupBase
+        ref={ref}
+        className={clsx(componentClassName, className)}
+        {...formGroupBaseProps}
+      >
         <Flex
-          {...checkboxGroupRootProps}
+          {...checkboxGroupProps}
           className="hearth-CheckboxGroupContent"
           data-orientation={direction === 'column' ? 'vertical' : 'horizontal'}
           data-disabled={disabled ? '' : undefined}
@@ -91,7 +95,7 @@ export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGrou
         >
           <CheckboxGroupProvider value={providerValue}>{children}</CheckboxGroupProvider>
         </Flex>
-      </Fieldset>
+      </FormGroupBase>
     );
   }
 );

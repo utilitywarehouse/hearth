@@ -119,8 +119,7 @@ submitted.
 
 The width of the `RadioGroup` should be set by the parent layout, however it is
 possible to independently set the width of the children using `contentWidth`
-prop. This property is most useful when using the `RadioGroup` with the
-`RadioTile` component.
+prop.
 
 By default it will set the width of the children to fit their content, however
 you can set it to a specific width, or to `100%` to take up the full width of
@@ -184,14 +183,19 @@ children.
 
 ## RadioGroup API
 
-This component is based on the `Fieldset` component.
+This component is based on the `fieldset` element and supports the following common props:
 
-| Prop           | Type                 |
-| -------------- | -------------------- |
-| `direction`    | `"column" \| "row"`  |
-| `columns`      | `Responsive<number>` |
-| `width`        | `Responsive<string>` |
-| `contentWidth` | `Responsive<string>` |
+- Margin
+
+| Prop               | Type                   |
+| ------------------ | ---------------------- |
+| `label`            | `string`               |
+| `helperText`       | `string`               |
+| `validationText`   | `string`               |
+| `validationStatus` | `"valid" \| "invalid"` |
+| `direction`        | `"column" \| "row"`    |
+| `columns`          | `Responsive<number>`   |
+| `contentWidth`     | `Responsive<string>`   |
 
 ## RadioTile API
 

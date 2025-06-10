@@ -10,9 +10,9 @@ import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
 import { Flex } from '../Flex/Flex';
-import { useFieldset } from '../Fieldset/Fieldset.context';
 import { Checkbox as RadixCheckbox } from 'radix-ui';
 import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
+import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
 const componentName = 'CheckboxTile';
 const componentClassName = withGlobalPrefix(componentName);
@@ -35,7 +35,7 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
     ref
   ) => {
     const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
-    const context = useFieldset();
+    const context = useFormGroupBase();
     const checkboxContext = useCheckboxGroup();
     const checked = checkboxContext?.value?.includes(value);
     const hasGroupHelperText = context?.hasGroupHelperText;

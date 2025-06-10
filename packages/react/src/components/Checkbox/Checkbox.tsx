@@ -11,8 +11,8 @@ import { useIds } from '../../hooks/use-ids';
 import { marginPropDefs } from '../../props/margin.props';
 import { extractProps } from '../../helpers/extract-props';
 import { Checkbox as RadixCheckbox } from 'radix-ui';
-import { useFieldset } from '../Fieldset/Fieldset.context';
 import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
+import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
 const componentName = 'Checkbox';
 const componentClassName = withGlobalPrefix(componentName);
@@ -32,7 +32,7 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props,
     ...checkboxProps
   } = extractProps(props, marginPropDefs);
   const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'checkbox' });
-  const context = useFieldset();
+  const context = useFormGroupBase();
   const checkboxContext = useCheckboxGroup();
   const checked = checkboxContext?.value?.includes(value);
   const hasGroupHelperText = context?.hasGroupHelperText;

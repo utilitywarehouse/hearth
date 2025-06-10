@@ -1,11 +1,8 @@
 import { SizeProps } from '../../props/size.props';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
-import { FieldsetProps } from '../Fieldset/Fieldset.props';
+import { FormGroupBaseProps } from '../FormGroupBase/FormGroupBase.props';
 import { CheckboxGroupContextValue } from './CheckboxGroup.context';
 
-export interface CheckboxGroupProps
-  extends ComponentPropsWithout<'div', keyof FieldsetProps | RemovedProps>,
-    FieldsetProps {
+export interface CheckboxGroupProps extends FormGroupBaseProps {
   name?: string;
   required?: boolean;
   disabled?: boolean;
