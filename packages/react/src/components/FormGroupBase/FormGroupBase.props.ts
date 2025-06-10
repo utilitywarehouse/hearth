@@ -1,8 +1,11 @@
+import { MarginProps } from '../../props/margin.props';
+import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { ReactNode } from 'react';
-import { FieldsetProps } from '../Fieldset/Fieldset.props';
 import { ValidationTextProps } from '../ValidationText/ValidationText.props';
 
-export interface FormFieldGroupProps extends FieldsetProps {
+export interface FormGroupBaseProps
+  extends ComponentPropsWithout<'fieldset', RemovedProps>,
+    MarginProps {
   /**
    * The label for the formfield group. This should contain the question being
    * answered by the formfield group.

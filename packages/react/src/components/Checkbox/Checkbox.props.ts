@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react';
 
-import type { CheckboxProps as RadixCheckboxProps } from '@radix-ui/react-checkbox';
+import { Checkbox as RadixCheckbox } from 'radix-ui';
 import { MarginProps } from '../../props/margin.props';
 
 export interface CheckboxProps
   extends Omit<
-      RadixCheckboxProps,
+      RadixCheckbox.CheckboxProps,
       'asChild' | 'value' | 'onCheckedChange' | 'defaultChecked' | 'defaultValue'
     >,
     MarginProps {

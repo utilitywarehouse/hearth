@@ -1,29 +1,28 @@
 import * as React from 'react';
 import type { ElementRef } from 'react';
-
-import { FormFieldGroupProvider } from './FormFieldGroup.context';
-import type { FormFieldGroupProps } from './FormFieldGroup.props';
 import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
-import { Fieldset } from '../Fieldset/Fieldset';
 import { Flex } from '../Flex/Flex';
-import { FieldsetLegend } from '../FieldsetLegend/FieldsetLegend';
 import { HelperText } from '../HelperText/HelperText';
 import { ValidationText } from '../ValidationText/ValidationText';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import clsx from 'clsx';
+import type { FormGroupBaseProps } from './FormGroupBase.props';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { extractProps } from '../../helpers/extract-props';
+import { marginPropDefs } from '../../props/margin.props';
+import { FormGroupBaseProvider } from './FormGroupBase.context';
 
-const componentName = 'FormFieldGroup';
+const componentName = 'FormGroupBase';
 const componentClassName = withGlobalPrefix(componentName);
 
-type FormFieldGroupElement = ElementRef<'fieldset'>;
+type FormGroupBaseElement = ElementRef<'fieldset'>;
 
-export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldGroupProps>(
-  (
-    {
+export const FormGroupBase = React.forwardRef<FormGroupBaseElement, FormGroupBaseProps>(
+  (props, ref) => {
+    const {
+      children,
       className,
       id: providedId,
-      children,
       label,
       helperText,
       validationText,
@@ -32,21 +31,21 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
       'aria-labelledby': ariaLabelledby,
       'aria-describedby': ariaDescribedby,
       'aria-errormessage': ariaErrorMessage,
-      ...props
-    },
-    ref
-  ) => {
+      ...fieldsetProps
+    } = extractProps(props, marginPropDefs);
     const { id, labelId, helperTextId, validationTextId } = useIds({
       providedId,
-      prefix: 'formfieldgroup',
+      prefix: 'fieldset',
     });
+    const hasLabel = Boolean(label);
+    const hasHelperText = Boolean(helperText);
     const showValidationText = Boolean(validationStatus && validationText);
     const ariaDescribedbyValue = mergeIds(
       ariaDescribedby || !!helperText ? helperTextId : undefined,
       ariaErrorMessage || showValidationText ? validationTextId : undefined
     );
     const value = {
-      hasGroupHelperText: Boolean(helperText !== undefined),
+      hasGroupHelperText: hasHelperText,
       hasGroupValidationText: Boolean(
         validationStatus !== undefined && validationText !== undefined
       ),
@@ -54,10 +53,10 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
     };
 
     return (
-      <Fieldset
-        ref={ref}
+      <fieldset
         className={clsx(componentClassName, className)}
-        {...props}
+        ref={ref}
+        {...fieldsetProps}
         disabled={disabled}
         id={id}
         data-disabled={disabled ? '' : undefined}
@@ -66,28 +65,31 @@ export const FormFieldGroup = React.forwardRef<FormFieldGroupElement, FormFieldG
         aria-invalid={showValidationText}
         aria-describedby={ariaDescribedbyValue}
       >
-        {label ? <FieldsetLegend id={labelId}>{label}</FieldsetLegend> : null}
-        {helperText || validationText ? (
-          <Flex direction="column" alignItems="start">
-            {helperText ? (
-              <HelperText id={helperTextId} disabled={disabled}>
-                {helperText}
-              </HelperText>
+        {hasLabel ? (
+          <>
+            <legend id={labelId} className="hearth-Legend">
+              {label}
+            </legend>
+            {hasHelperText || showValidationText ? (
+              <Flex direction="column" alignItems="start" className="hearth-HelperTextContainer">
+                {helperText ? (
+                  <HelperText id={helperTextId} disabled={disabled}>
+                    {helperText}
+                  </HelperText>
+                ) : null}
+                {showValidationText ? (
+                  <ValidationText id={validationTextId} status={validationStatus}>
+                    {validationText}
+                  </ValidationText>
+                ) : null}
+              </Flex>
             ) : null}
-            {showValidationText ? (
-              <ValidationText id={validationTextId} status={validationStatus}>
-                {validationText}
-              </ValidationText>
-            ) : null}
-          </Flex>
+          </>
         ) : null}
-
-        <FormFieldGroupProvider value={value}>
-          <div className="hearth-FormFieldGroupContent">{children}</div>
-        </FormFieldGroupProvider>
-      </Fieldset>
+        <FormGroupBaseProvider value={value}>{children}</FormGroupBaseProvider>
+      </fieldset>
     );
   }
 );
 
-FormFieldGroup.displayName = componentName;
+FormGroupBase.displayName = componentName;

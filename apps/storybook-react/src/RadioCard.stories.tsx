@@ -29,8 +29,8 @@ export const Playground: Story = {
           label={<Heading>Payment options</Heading>}
         >
           <Flex direction="column">
-            <Flex right="24px" position="relative" justify="end">
-              <Badge flatBase colorScheme="green" style={{ zIndex: 2 }}>
+            <Flex right="24px" position="relative" justifyContent="end">
+              <Badge flatBase colorScheme="green">
                 Recommended
               </Badge>
             </Flex>

@@ -86,7 +86,8 @@ type BoxComponentType = <T extends React.ElementType = typeof View>(
   props: PolymorphicComponentProps<T, BoxProps<T>> & { ref?: PolymorphicRef<T> }
 ) => React.ReactElement | null;
 
-const Box = memo(forwardRef(BoxComponent as any) as BoxComponentType & { displayName?: string });
+// @ts-expect-error - TypeScript doesn't infer the type correctly here
+const Box = memo(forwardRef(BoxComponent)) as BoxComponentType & { displayName?: string };
 
 Box.displayName = 'Box';
 

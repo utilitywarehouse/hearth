@@ -26,18 +26,6 @@
     --h-solid-background-color-hover: var(--h-button-solid-yellow-background-color-hover);
     --h-solid-foreground-color: var(--h-button-solid-yellow-foreground-color);
     --h-solid-border-color: var(--h-button-solid-border-color);
-
-    &:where([data-inverted]) {
-      --h-solid-background-color: var(--h-button-solid-yellow-inverted-background-color);
-      --h-solid-background-color-active: var(
-        --h-button-solid-yellow-inverted-background-color-active
-      );
-      --h-solid-background-color-hover: var(
-        --h-button-solid-yellow-inverted-background-color-hover
-      );
-      --h-solid-foreground-color: var(--h-button-solid-yellow-inverted-foreground-color);
-    }
-
     --h-outline-border-color: transparent;
     --h-emphasis-background-color: var(--h-button-emphasis-yellow-background-color);
     --h-emphasis-background-color-active: var(--h-button-emphasis-yellow-background-color-active);
@@ -165,6 +153,7 @@
       color: var(--h-button-base-foreground-color);
       background-color: var(--h-button-base-background-color);
       position: relative;
+      width: 100%;
 
       /* we can add a transition here when required */
 

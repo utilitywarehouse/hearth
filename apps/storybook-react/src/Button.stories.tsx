@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { Button, Flex, Heading, BodyText } from '@utilitywarehouse/hearth-react';
+import { Button, Flex, Heading, TextInput } from '@utilitywarehouse/hearth-react';
 import {
   ChevronRightSmallIcon,
   SettingsSmallIcon,
@@ -34,15 +34,19 @@ const meta: Meta<typeof Button> = {
   args: {
     children: 'Button',
     onClick: fn(),
-    variant: 'solid',
-    colorScheme: 'yellow',
+    paddingNone: false,
   },
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof Button>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  args: {
+    variant: 'solid',
+    colorScheme: 'yellow',
+  },
+};
 
 export const KitchenSink: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
@@ -213,7 +217,7 @@ export const ButtonVariants: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => {
     return (
-      <Flex direction="column" gap="200">
+      <Flex direction="column" gap="200" alignItems="start">
         <Button variant="emphasis">Emphasis Button</Button>
 
         <Flex gap="100">
@@ -246,11 +250,12 @@ export const ButtonVariants: Story = {
 export const FullWidth: Story = {
   render: () => (
     <Flex direction="column" gap="200">
-      <Flex direction="column">
+      <Flex direction="column" gap="100">
         <Button>
           Full width button with icon
           <ChevronRightSmallIcon />
         </Button>
+        <Button variant="emphasis">Full width emphasis button</Button>
       </Flex>
       <Flex direction="column" alignItems={{ mobile: 'stretch', desktop: 'start' }}>
         <Button>Responsive full width button</Button>
@@ -402,23 +407,38 @@ export const Inverted: Story = {
 };
 
 export const Loading: Story = {
-  render: args => (
-    <Flex gap="400" direction="column">
-      <Button {...args} variant="emphasis" colorScheme="yellow">
-        This is a long button label
-      </Button>
-      <Button {...args} variant="solid" colorScheme="yellow">
-        This is a long button label
-      </Button>
-      <Button {...args} variant="outline" colorScheme="grey">
-        This is a long button label
-      </Button>
-      <Button {...args} variant="ghost" colorScheme="grey">
-        This is a long button label
-      </Button>
-    </Flex>
-  ),
+  render: args => {
+    return (
+      <Flex gap="400" direction="column" alignItems="start">
+        <Button loading={args.loading} variant="emphasis" colorScheme="yellow">
+          This is a long button label
+        </Button>
+        <Button {...args} variant="solid" colorScheme="yellow">
+          This is a long button label
+        </Button>
+        <Button {...args} variant="outline" colorScheme="grey">
+          This is a long button label
+        </Button>
+        <Button {...args} variant="ghost" colorScheme="grey">
+          This is a long button label
+        </Button>
+      </Flex>
+    );
+  },
   args: {
-    loading: false,
+    loading: true,
+  },
+};
+
+export const PaddingNone: Story = {
+  render: () => {
+    return (
+      <Flex direction="column" alignItems="start" gap="100" padding="200">
+        <TextInput label="Postcode" required />
+        <Button variant="ghost" colorScheme="grey" size="sm" paddingNone>
+          Add address manually
+        </Button>
+      </Flex>
+    );
   },
 };

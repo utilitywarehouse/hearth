@@ -24,7 +24,8 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 - [Dead prop combinations](#dead-prop-combinations)
 - [With icons](#with-icons)
 - [Semantic HTML](#semantic-html)
-- [Full Width Button](#full-width-button)
+- [Full width button](#full-width-button)
+- [Padding none](#padding-none)
 - [Usage with Next.js](#usage-with-next.js)
 - [API](#api)
 
@@ -208,7 +209,7 @@ Read more about this idea in the [Radix UI composition docs](https://www.radix-u
 </Button>
 ```
 
-## Full Width Button
+## Full width button
 
 Use layout components, like `Flex`, to define your UI layouts, which can also be responsive.
 
@@ -224,17 +225,25 @@ Use layout components, like `Flex`, to define your UI layouts, which can also be
 </Flex>
 ```
 
+## Padding none
+
+If you need to better align a button with another element you can use the
+`paddingNone` prop to remove the horizontal padding. This only affects the
+`ghost` variant button.
+
+<Canvas of={Stories.PaddingNone} />
+
 ## Usage with Next.js
 
 ### Next.js v13
 
 The Next.js `Link` component behaviour has changed in v13, so that an `<a>` is
-no longer required as a child. You can render the Heart React `Button` component as a
+no longer required as a child. You can render the Hearth React `Button` component as a
 Next.js `Link` component using `asChild`:
 
 ```tsx
 import NextLink from 'next/link';
-import { Button } from '@utilitywarehouse/web-ui';
+import { Button } from '@utilitywarehouse/hearth-react';
 
 [...]
 
@@ -247,7 +256,7 @@ You can also use the `legacyBehavior` prop directly on the Next.js Link componen
 
 ```tsx
 import NextLink from 'next/link';
-import { Button } from '@utilitywarehouse/web-ui';
+import { Button } from '@utilitywarehouse/hearth-react';
 
 [...]
 
@@ -298,3 +307,4 @@ This component is based on the `button` element and supports the following commo
 | `colorScheme` | `"yellow" \| "grey" \| "green" \| "red"`        |
 | `inverted`    | `boolean`                                       |
 | `loading`     | `boolean`                                       |
+| `paddingNone` | `boolean`                                       |

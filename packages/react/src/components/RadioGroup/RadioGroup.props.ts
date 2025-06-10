@@ -1,21 +1,15 @@
-import type { RadioGroupProps as RadixRadioGroupProps } from '@radix-ui/react-radio-group';
-import type { FormFieldGroupProps } from '../FormFieldGroup/FormFieldGroup.props';
 import { SizeProps } from '../../props/size.props';
-
-export interface RadioGroupRootProps
-  extends Omit<RadixRadioGroupProps, 'dir' | 'orientation' | 'disabled'> {
-  /** The direction of the radios, will also set the aria-orientation value. */
-  direction?: 'column' | 'row';
-  /**
-   * Set the width of the RadioGroup.
-   */
-  width?: SizeProps['width'];
-}
+import { RadioGroup as RadixRadioGroup } from 'radix-ui';
+import { FormGroupBaseProps } from '../FormGroupBase/FormGroupBase.props';
 
 export interface RadioGroupProps
-  extends Omit<RadioGroupRootProps, 'width' | keyof FormFieldGroupProps>,
-    FormFieldGroupProps,
-    Pick<RadioGroupRootProps, 'defaultValue'> {
+  extends Omit<
+      RadixRadioGroup.RadioGroupProps,
+      'dir' | 'orientation' | 'disabled' | keyof FormGroupBaseProps
+    >,
+    FormGroupBaseProps {
+  /** The direction of the radios, will also set the aria-orientation value. */
+  direction?: 'column' | 'row';
   /**
    * Set the container width of the RadioGroup children, independent to the width of the
    * parent RadioGroup.

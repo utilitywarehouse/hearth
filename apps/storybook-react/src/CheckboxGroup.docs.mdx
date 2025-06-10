@@ -69,8 +69,7 @@ You can display validation status using the `validationStatus` & `validationText
 
 The width of the `CheckboxGroup` should be set by the parent layout, however it is
 possible to independently set the width of the children using `contentWidth`
-prop. This property is most useful when using the `CheckboxGroup` with the
-`CheckboxTile` component.
+prop.
 
 By default it will set the width of the children to fit their content, however
 you can set it to a specific width, or to `100%` to take up the full width of
@@ -90,34 +89,6 @@ child of the group.
 
 <Canvas of={Stories.Controlled} />
 
-## Advanced Usage
-
-For advanced usage you can compose the `CheckboxGroupRoot` component.
-
-If you choose to do this, please make sure you properly label your components for accessibility. See [MagentaA11y](https://www.magentaa11y.com/checklist-web/checkbox/) for more info.
-
-```tsx
-<FormFieldGroup label="Label">
-  <CheckboxGroupRoot>
-    <Checkbox value="1" label="One" />
-    <Checkbox value="2" label="Two" />
-    <Checkbox value="3" label="Three" />
-  </CheckboxGroupRoot>
-</FormFieldGroup>
-
-
-<Fieldset>
-  <FieldsetLegend>
-    <Heading variant="h1">Label</Heading>
-  </FieldsetLegend>
-  <CheckboxGroupRoot>
-    <Checkbox value="1" label="One" />
-    <Checkbox value="2" label="Two" />
-    <Checkbox value="3" label="Three" />
-  </CheckboxGroupRoot>
-</Fieldset>
-```
-
 ## API
 
 This component is based on the `FormFieldGroup` component and supports the following common props:
@@ -127,7 +98,6 @@ This component is based on the `FormFieldGroup` component and supports the follo
 | Prop              | Type                             |
 | ----------------- | -------------------------------- |
 | `contentWidth`    | `Responsive<string>`             |
-| `width`           | `Responsive<string>`             |
 | `direction`       | `"column" \| "row"`              |
 | `value`           | `Array<string>`                  |
 | `defaultValue`    | `Array<string>`                  |

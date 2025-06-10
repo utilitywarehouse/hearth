@@ -2,51 +2,13 @@ import * as React from 'react';
 
 import clsx from 'clsx';
 
-import { CheckboxGroupProps, CheckboxGroupRootProps } from './CheckboxGroup.props';
+import { CheckboxGroupProps } from './CheckboxGroup.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
-import { FormFieldGroup } from '../FormFieldGroup/FormFieldGroup';
 import { Flex } from '../Flex/Flex';
-import { CheckboxGroupBase } from '../CheckboxGroupBase/CheckboxGroupBase';
-
-const rootComponentName = 'CheckboxGroupRoot';
-const rootComponentClassName = withGlobalPrefix(rootComponentName);
-
-type CheckboxGroupRootElement = ElementRef<'div'>;
-
-export const CheckboxGroupRoot = React.forwardRef<CheckboxGroupRootElement, CheckboxGroupRootProps>(
-  (
-    {
-      name,
-      disabled,
-      value,
-      defaultValue,
-      onValueChange,
-      width = 'fit-content',
-      direction = 'column',
-      children,
-      className,
-      ...props
-    },
-    ref
-  ) => {
-    const checkboxGroupBaseProps = { name, value, defaultValue, onValueChange, children };
-    return (
-      <Flex
-        ref={ref}
-        {...props}
-        className={clsx(rootComponentClassName, className)}
-        data-orientation={direction === 'column' ? 'vertical' : 'horizontal'}
-        data-disabled={disabled ? '' : undefined}
-        width={width}
-      >
-        <CheckboxGroupBase {...checkboxGroupBaseProps} />
-      </Flex>
-    );
-  }
-);
-
-CheckboxGroupRoot.displayName = rootComponentName;
+import { FormGroupBase } from '../FormGroupBase/FormGroupBase';
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
+import { CheckboxGroupProvider } from './CheckboxGroup.context';
 
 const componentName = 'CheckboxGroup';
 const componentClassName = withGlobalPrefix(componentName);
@@ -56,15 +18,15 @@ type CheckboxGroupElement = ElementRef<'fieldset'>;
 export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGroupProps>(
   (
     {
-      contentWidth,
       disabled,
       required,
       label,
       helperText,
       validationText,
       validationStatus,
-      direction,
-      value,
+      value: valueProp,
+      contentWidth = 'fit-content',
+      direction = 'column',
       defaultValue,
       onValueChange,
       children,
@@ -74,7 +36,7 @@ export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGrou
     },
     ref
   ) => {
-    const formFieldGroupProps = {
+    const formGroupBaseProps = {
       ...props,
       disabled,
       required,
@@ -83,25 +45,57 @@ export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGrou
       validationText,
       validationStatus,
     };
-    const checkboxGroupRootProps = {
+    const checkboxGroupProps = {
       width: contentWidth,
       direction,
       name,
       required,
       disabled,
       defaultValue,
-      value,
+      value: valueProp,
       onValueChange,
       children,
     };
+    // useControllableState will handle whether controlled or uncontrolled
+    const [value = [], setValue] = useControllableState({
+      prop: valueProp,
+      defaultProp: defaultValue,
+      onChange: onValueChange,
+    });
+
+    const handleItemCheck = React.useCallback(
+      (itemValue: string) => setValue((prevValue = []) => [...prevValue, itemValue]),
+      [setValue]
+    );
+
+    const handleItemUncheck = React.useCallback(
+      (itemValue: string) =>
+        setValue((prevValue = []) => prevValue.filter(value => value !== itemValue)),
+      [setValue]
+    );
+
+    const providerValue = {
+      name,
+      value,
+      onItemCheck: handleItemCheck,
+      onItemUncheck: handleItemUncheck,
+    };
     return (
-      <FormFieldGroup
+      <FormGroupBase
         ref={ref}
         className={clsx(componentClassName, className)}
-        {...formFieldGroupProps}
+        {...formGroupBaseProps}
       >
-        <CheckboxGroupRoot {...checkboxGroupRootProps} />
-      </FormFieldGroup>
+        <Flex
+          {...checkboxGroupProps}
+          className="hearth-CheckboxGroupContent"
+          data-orientation={direction === 'column' ? 'vertical' : 'horizontal'}
+          data-disabled={disabled ? '' : undefined}
+          width={contentWidth}
+        >
+          <CheckboxGroupProvider value={providerValue}>{children}</CheckboxGroupProvider>
+        </Flex>
+      </FormGroupBase>
     );
   }
 );

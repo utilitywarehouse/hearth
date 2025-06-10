@@ -1,4 +1,3 @@
-import { BoxProps } from '../Box/Box.props';
 import { StyleProp, ViewProps, ViewStyle } from 'react-native';
 import { UnistylesBreakpoints } from 'react-native-unistyles';
 import { SpaceValue } from '../../types';

@@ -2,20 +2,16 @@ import * as React from 'react';
 
 import clsx from 'clsx';
 
-import {
-  Indicator as RadixRadioIndicator,
-  Item as RadixRadioItem,
-} from '@radix-ui/react-radio-group';
-
 import type { RadioProps } from './Radio.props';
 
+import { RadioGroup as RadixRadioGroup } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Flex } from '../Flex/Flex';
 import { Label } from '../Label/Label';
 import { useIds } from '../../hooks/use-ids';
 import { HelperText } from '../HelperText/HelperText';
 import type { ElementRef } from 'react';
-import { useFormFieldGroup } from '../FormFieldGroup/FormFieldGroup.context';
+import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
 const componentName = 'Radio';
 const componentClassName = withGlobalPrefix(componentName);
@@ -48,13 +44,13 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
     ref
   ) => {
     const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
-    const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormFieldGroup();
+    const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormGroupBase();
     const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
     const showLabel = !!label;
     return (
       <div className={clsx(componentClassName, className)}>
         <div className="hearth-RadioContainer">
-          <RadixRadioItem
+          <RadixRadioGroup.Item
             ref={ref}
             {...props}
             id={id}
@@ -62,8 +58,8 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
             aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}
             className="hearth-RadioItem"
           >
-            <RadixRadioIndicator className="hearth-RadioIndicator" />
-          </RadixRadioItem>
+            <RadixRadioGroup.Indicator className="hearth-RadioIndicator" />
+          </RadixRadioGroup.Item>
         </div>
         {showLabel ? (
           <Flex direction="column" gap="50">

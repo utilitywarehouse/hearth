@@ -1,4 +1,4 @@
-.hearth-RadioGroupRoot {
+.hearth-RadioGroup {
   flex-wrap: wrap;
 
   &:where([data-orientation='horizontal']) {

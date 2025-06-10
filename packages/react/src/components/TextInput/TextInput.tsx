@@ -33,6 +33,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
       hideLabel,
       required,
       placeholder,
+      'aria-describedby': ariaDescribedby,
       ...textInputProps
     } = extractProps(props, marginPropDefs);
     const { id, labelId, helperTextId, validationTextId } = useIds({
@@ -44,6 +45,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
       !readOnly && !disabled && validationStatus !== undefined && validationText !== undefined
     );
     const ariaDescribedbyValue = mergeIds(
+      ariaDescribedby,
       !!helperText ? helperTextId : undefined,
       showValidationText ? validationTextId : undefined
     );

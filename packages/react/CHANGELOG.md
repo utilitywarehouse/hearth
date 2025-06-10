@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react
 
+## 0.1.0
+
+### Minor Changes
+
+- [#332](https://github.com/utilitywarehouse/hearth/pull/332) [`84fc288`](https://github.com/utilitywarehouse/hearth/commit/84fc2881c8145b3996d8b777bb10f89d3894aca6) Thanks [@robphoenix](https://github.com/robphoenix)! - Remove `FormFieldGroup`, moving functionality into `Fieldset`
+
+### Patch Changes
+
+- [#335](https://github.com/utilitywarehouse/hearth/pull/335) [`3760552`](https://github.com/utilitywarehouse/hearth/commit/376055238111998b98ceacee8a5188bb0b854604) Thanks [@robphoenix](https://github.com/robphoenix)! - Update radix-ui deps
+
 ## 0.0.5
 
 ### Patch Changes
