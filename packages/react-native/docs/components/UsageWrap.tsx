@@ -1,5 +1,4 @@
 import React, { FC, PropsWithChildren } from 'react';
-import '../src/core';
 import { Box } from '../../src';
 
 const UsageWrap: FC<PropsWithChildren> = ({ children }) => {
