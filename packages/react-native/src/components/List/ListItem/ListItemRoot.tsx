@@ -55,6 +55,9 @@ const ListItemRoot = forwardRef<
     const isDisabled = disabled || listContext?.disabled || false;
     const listItemVariant = getListContainer() || variant;
 
+    const testID = props.testID || 'list-item';
+    const loadingTestID = isLoading ? `${testID}-loading` : testID;
+
     styles.useVariants({
       divider: showDivider,
       variant: listItemVariant,
@@ -80,6 +83,7 @@ const ListItemRoot = forwardRef<
         <Pressable
           ref={ref}
           {...props}
+          testID={loadingTestID}
           style={[styles.container, props.style as ViewStyle]}
           disabled={isDisabled}
         >
@@ -98,6 +102,7 @@ const ListItemRoot = forwardRef<
         <Pressable
           ref={ref}
           {...props}
+          testID={testID}
           style={[styles.container, props.style as ViewStyle]}
           disabled={isDisabled}
         >

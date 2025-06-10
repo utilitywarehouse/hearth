@@ -1,20 +1,11 @@
 import React, { useEffect } from 'react';
 import type { Preview } from '@storybook/react';
 import { useArgs } from 'storybook/internal/preview-api';
-import { themes, breakpoints, StyleSheet, HearthUIProvider } from '../src/core';
+import '../src/core';
 import theme from '../../../shared/storybook/theme';
 import { color } from '@utilitywarehouse/hearth-tokens';
 import '@utilitywarehouse/hearth-fonts';
 import '../../../shared/storybook/styles/preview.css';
-
-StyleSheet.configure({
-  breakpoints,
-  themes: themes,
-  settings: {
-    initialTheme: 'light',
-    adaptiveThemes: false,
-  },
-});
 
 const preview: Preview = {
   beforeAll: () => {
@@ -74,11 +65,7 @@ const preview: Preview = {
         }
       }, [args.darkMode, args.surface, args.inverted]);
 
-      return (
-        <HearthUIProvider>
-          <Story />
-        </HearthUIProvider>
-      );
+      return <Story />;
     },
   ],
 };

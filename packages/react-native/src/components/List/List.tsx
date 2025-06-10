@@ -88,7 +88,7 @@ const List = forwardRef<View, ListProps>(
           {container === 'none' ? (
             <View>{updatedChildren}</View>
           ) : (
-            <Card {...containerToCard} noPadding>
+            <Card {...containerToCard} noPadding style={styles.card}>
               {updatedChildren}
             </Card>
           )}
@@ -111,6 +111,9 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     },
+  },
+  card: {
+    alignItems: 'stretch',
   },
 }));
 

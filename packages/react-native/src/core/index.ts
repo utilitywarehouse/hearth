@@ -1,3 +1,8 @@
+import { StyleSheet } from 'react-native-unistyles';
+import { themes } from './themes';
+import { breakpoints } from './breakpoints';
+export * from './themes';
+export * from './breakpoints';
 export {
   StyleSheet,
   UnistylesRuntime,
@@ -18,9 +23,13 @@ export type {
   UnistylesVariants,
 } from 'react-native-unistyles';
 
-export * from './themes';
-export * from './breakpoints';
-
-export { default as HearthUIProvider } from './HearthUIProvider';
+StyleSheet.configure({
+  breakpoints,
+  themes,
+  settings: {
+    initialTheme: 'light',
+    adaptiveThemes: false,
+  },
+});
 
 export type * from '../types/unistyles';
