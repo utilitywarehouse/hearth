@@ -1,8 +1,32 @@
 {
-  "opacity": {
-    "disabled": {
-      "type": "number",
-      "value": 50
+  "Dark": {
+    "color": {
+      "background": {
+        "alias": "{color.light.grey.900}",
+        "type": "color",
+        "value": "#3e3c3b"
+      }
+    },
+    "opacity": {
+      "disabled": {
+        "type": "number",
+        "value": 50
+      }
+    }
+  },
+  "Light": {
+    "color": {
+      "background": {
+        "alias": "{color.light.warm-white.50}",
+        "type": "color",
+        "value": "#fcfbf2"
+      }
+    },
+    "opacity": {
+      "disabled": {
+        "type": "number",
+        "value": 50
+      }
     }
   }
 }
