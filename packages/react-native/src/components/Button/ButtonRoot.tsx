@@ -138,7 +138,7 @@ const styles = StyleSheet.create(theme => ({
       },
     },
     compoundVariants: [
-      // Pading None
+      // Padding None
       {
         size: 'sm',
         paddingNone: true,
