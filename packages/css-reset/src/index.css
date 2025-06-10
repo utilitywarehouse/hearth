@@ -81,8 +81,12 @@
     overflow: visible;
   }
 
-  /* Prevent children from stretching fieldsets. */
+  /* fieldset defaults */
   :where(fieldset) {
+    border: none;
+    padding: 0;
+    margin: 0;
+    /* Prevent children from stretching fieldsets. */
     min-inline-size: 0;
   }
 

@@ -8,7 +8,7 @@ import { useIds } from '../../hooks/use-ids';
 import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
 import { Flex } from '../Flex/Flex';
-import { useFieldset } from '../Fieldset/Fieldset.context';
+import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
 const componentName = 'RadioTile';
 const componentClassName = withGlobalPrefix(componentName);
@@ -21,7 +21,7 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
     ref
   ) => {
     const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
-    const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFieldset();
+    const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormGroupBase();
     const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
     return (
       <RadixRadioGroup.Item

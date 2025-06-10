@@ -5,32 +5,9 @@ import clsx from 'clsx';
 import { RadioGroup as RadixRadioGroup } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
-import { RadioGroupProps, RadioGroupRootProps } from './RadioGroup.props';
+import { RadioGroupProps } from './RadioGroup.props';
 import { Flex } from '../Flex/Flex';
-import { Fieldset } from '../Fieldset/Fieldset';
-
-const rootComponentName = 'RadioGroupRoot';
-const rootComponentClassName = withGlobalPrefix(rootComponentName);
-
-type RadioGroupRootElement = ElementRef<'div'>;
-
-export const RadioGroupRoot = React.forwardRef<RadioGroupRootElement, RadioGroupRootProps>(
-  ({ children, direction = 'column', width, className, ...props }, ref) => {
-    return (
-      <RadixRadioGroup.Root
-        ref={ref}
-        asChild
-        {...props}
-        orientation={direction === 'column' ? 'vertical' : 'horizontal'}
-        className={clsx(rootComponentClassName, className)}
-      >
-        <Flex width={width}>{children}</Flex>
-      </RadixRadioGroup.Root>
-    );
-  }
-);
-
-RadioGroupRoot.displayName = rootComponentName;
+import { FormGroupBase } from '../FormGroupBase/FormGroupBase';
 
 const componentName = 'RadioGroup';
 const componentClassName = withGlobalPrefix(componentName);
@@ -81,9 +58,16 @@ export const RadioGroup = React.forwardRef<RadioGroupElement, RadioGroupProps>(
     };
 
     return (
-      <Fieldset ref={ref} className={clsx(componentClassName, className)} {...fieldsetProps}>
-        <RadioGroupRoot {...radioGroupRootProps}>{children}</RadioGroupRoot>
-      </Fieldset>
+      <FormGroupBase ref={ref} {...fieldsetProps}>
+        <RadixRadioGroup.Root
+          asChild
+          className={clsx(componentClassName, className)}
+          {...radioGroupRootProps}
+          orientation={direction === 'column' ? 'vertical' : 'horizontal'}
+        >
+          <Flex width={contentWidth}>{children}</Flex>
+        </RadixRadioGroup.Root>
+      </FormGroupBase>
     );
   }
 );

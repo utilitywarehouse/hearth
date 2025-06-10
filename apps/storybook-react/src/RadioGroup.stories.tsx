@@ -176,26 +176,23 @@ export const CustomLabel: Story = {
   render: args => {
     return (
       <Flex gap="600">
-        <RadioGroup
-          {...args}
-          label={<Heading as="h2">Where do you live?</Heading>}
-          name="where-do-you-live"
-        >
-          <RadioTile value="england" label="England" />
-          <RadioTile value="wales" label="Wales" />
-          <RadioTile value="scotland" label="Scotland" />
-          <RadioTile value="northern-ireland" label="Northern Ireland" />
-        </RadioGroup>
+        <Flex width="fit-content">
+          <RadioGroup
+            {...args}
+            label={<Heading as="h2">Where do you live?</Heading>}
+            name="where-do-you-live"
+          >
+            <RadioTile value="england" label="England" />
+            <RadioTile value="wales" label="Wales" />
+            <RadioTile value="scotland" label="Scotland" />
+            <RadioTile value="northern-ireland" label="Northern Ireland" />
+          </RadioGroup>
+        </Flex>
         <Flex direction="column" gap="100">
           <Heading as="h2" id="where-do-you-live">
             Where do you live?
           </Heading>
-          <RadioGroup
-            {...args}
-            aria-labelledby="where-do-you-live"
-            helperText="The label for this fieldset is the Heading element before it"
-            name="where-do-you-live-custom-label"
-          >
+          <RadioGroup {...args} aria-labelledby="where-do-you-live">
             <RadioTile value="england" label="England" />
             <RadioTile value="wales" label="Wales" />
             <RadioTile value="scotland" label="Scotland" />

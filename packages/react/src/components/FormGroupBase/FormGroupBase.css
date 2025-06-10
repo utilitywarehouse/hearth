@@ -1,0 +1,29 @@
+.hearth-FormGroupBase {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-space-250);
+
+  & :where(legend):not(:has(+ .hearth-HelperTextContainer)) {
+    margin-bottom: var(--h-space-75);
+  }
+
+  & :where(.hearth-HelperTextContainer) {
+    margin-bottom: calc(-1 * calc(var(--h-space-250) - var(--h-space-75)));
+  }
+
+  .hearth-Legend {
+    color: var(--h-text-color);
+
+    /* only apply text styles if the legend doesn't have another element as a child, ie. a Heading component */
+    &:where(:not(:has(*))) {
+      font-family: var(--h-font-family-body);
+      font-weight: var(--h-font-weight-semibold);
+      font-size: var(--h-font-size-100);
+      line-height: var(--h-line-height-500);
+    }
+  }
+}

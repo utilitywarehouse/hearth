@@ -3,7 +3,7 @@ import { ComponentPropsWithout, RemovedProps } from '../../types/component-props
 import type { ReactNode } from 'react';
 import { ValidationTextProps } from '../ValidationText/ValidationText.props';
 
-export interface FieldsetProps
+export interface FormGroupBaseProps
   extends ComponentPropsWithout<'fieldset', RemovedProps>,
     MarginProps {
   /**
