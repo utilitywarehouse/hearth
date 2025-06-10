@@ -1,14 +1,15 @@
 import Head from 'next/head';
 import '@utilitywarehouse/hearth-fonts';
-// import '@utilitywarehouse/hearth-tokens/index.css';
-import '@utilitywarehouse/hearth-tokens/css/font.css';
-import '@utilitywarehouse/hearth-tokens/css/text.css';
-import '@utilitywarehouse/hearth-tokens/css/color.css';
-import '@utilitywarehouse/hearth-tokens/css/line-height.css';
+import '@utilitywarehouse/hearth-tokens/index.css';
+// import '@utilitywarehouse/hearth-tokens/css/font.css';
+// import '@utilitywarehouse/hearth-tokens/css/text.css';
+// import '@utilitywarehouse/hearth-tokens/css/color.css';
+// import '@utilitywarehouse/hearth-tokens/css/line-height.css';
 
-import { Box as HearthBox } from '@utilitywarehouse/hearth-react';
+import { Button, Flex, Box as HearthBox, Link } from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';
 import { space, color } from '@utilitywarehouse/hearth-tokens/browser';
+import NextLink from 'next/link';
 
 export default function Home() {
   return (
@@ -23,6 +24,23 @@ export default function Home() {
       <StyledBox sx={{ border: '1px solid red', padding: '32px', display: 'flex' }}>
         Hearth styled with sx
       </StyledBox>
+
+      <Flex padding="200" gap="300">
+        <Button asChild onClick={() => console.log('Hearth React Button + Next.js')}>
+          <NextLink href="https://uw-hearth-react.vercel.app/?path=/docs/components-button--docs">
+            Hearth React + Next.js
+          </NextLink>
+        </Button>
+        <Link asChild>
+          <NextLink
+            href="https://uw-hearth-react.vercel.app/?path=/docs/components-link--docs"
+            onClick={() => console.log('Hearth React Link + Next.js')}
+          >
+            Hearth React + Next.js
+          </NextLink>
+        </Link>
+      </Flex>
+
       <div>
         <h1>CSS Reset</h1>
         <p>Checking the tokens work with the CSS Reset package.</p>
