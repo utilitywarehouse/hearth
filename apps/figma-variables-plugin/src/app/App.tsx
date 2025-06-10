@@ -447,45 +447,69 @@ function App() {
         )}
         {statusMessage && <Alert colorScheme={statusType} text={statusMessage} />}
         {githubToken && (
-          <Card variant="subtle" colorScheme="white" direction="column" gap="300">
-            <CheckboxGroup
-              label="Select Collections to Export:"
-              helperText="Published library collections in this file"
-            >
-              {!loadingCollections && collections.length > 0 && (
-                <Checkbox
-                  id="select-all"
-                  value="select-all"
-                  label="Select All"
-                  checked={selectAll}
-                  onCheckedChange={handleSelectAll}
+          <Card
+            variant="subtle"
+            colorScheme="white"
+            direction="column"
+            position="relative"
+            gap="300"
+          >
+            <Flex gap="300" position="relative" direction="column">
+              {(exporting || loadingImport) && (
+                <Flex
+                  position="absolute"
+                  width="100%"
+                  bottom="0"
+                  left="0"
+                  padding="200"
+                  justify="center"
+                  align="center"
+                  height="100%"
+                  backgroundColor="white"
+                  style={{ zIndex: 1 }}
+                >
+                  <Spinner />
+                </Flex>
+              )}
+              <CheckboxGroup
+                label="Select Collections to Export:"
+                helperText="Published library collections in this file"
+              >
+                {!loadingCollections && collections.length > 0 && (
+                  <Checkbox
+                    id="select-all"
+                    value="select-all"
+                    label="Select All"
+                    checked={selectAll}
+                    onCheckedChange={handleSelectAll}
+                  />
+                )}
+              </CheckboxGroup>
+              <Divider decorative />
+              {loadingCollections && <Spinner />}
+              {!loadingCollections && collections.length === 0 && (
+                <Alert
+                  colorScheme="cyan"
+                  text="No collections found in this file. Please create a collection in the library."
                 />
               )}
-            </CheckboxGroup>
-            <Divider decorative />
-            {loadingCollections && <Spinner />}
-            {!loadingCollections && collections.length === 0 && (
-              <Alert
-                colorScheme="cyan"
-                text="No collections found in this file. Please create a collection in the library."
-              />
-            )}
-            {!loadingCollections && collections.length > 0 && (
-              <CheckboxGroup
-                value={selectedCollections}
-                onValueChange={val => setSelectedCollections(val)}
-              >
-                {collections.map(collection => (
-                  <Checkbox
-                    key={collection.id}
-                    id={`checkbox-${collection.id}`}
-                    value={collection.id}
-                    label={collection.name}
-                    helperText={collection.libraryName}
-                  />
-                ))}
-              </CheckboxGroup>
-            )}
+              {!loadingCollections && collections.length > 0 && (
+                <CheckboxGroup
+                  value={selectedCollections}
+                  onValueChange={val => setSelectedCollections(val)}
+                >
+                  {collections.map(collection => (
+                    <Checkbox
+                      key={collection.id}
+                      id={`checkbox-${collection.id}`}
+                      value={collection.id}
+                      label={collection.name}
+                      helperText={collection.libraryName}
+                    />
+                  ))}
+                </CheckboxGroup>
+              )}
+            </Flex>
 
             <Flex direction="column">
               <Button
@@ -498,7 +522,6 @@ function App() {
             </Flex>
           </Card>
         )}
-        {(exporting || loadingImport) && <Spinner />}
 
         <svg
           id="corner"
