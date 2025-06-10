@@ -6,8 +6,10 @@ const sizes = ['sm', 'md'] as const;
 
 export const buttonPropDefs = {
   size: { className: 'size', tokens: sizes, responsive: true, default: 'md' },
+  paddingNone: { className: 'padding-none', responsive: false },
 } satisfies {
   size: PropDef<(typeof sizes)[number]>;
+  paddingNone: PropDef<boolean>;
 };
 
 export type ButtonProps = ButtonBaseProps & {
@@ -16,4 +18,9 @@ export type ButtonProps = ButtonBaseProps & {
    * @default md
    */
   size?: Responsive<(typeof sizes)[number]>;
+  /**
+   * Remove the inline padding for better alignment with other elements.
+   * Only affects the `ghost` variant.
+   */
+  paddingNone?: boolean;
 };

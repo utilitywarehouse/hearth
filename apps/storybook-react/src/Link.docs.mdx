@@ -13,6 +13,13 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
+- [Semantic HTML](#semantic-html)
+- [Guidelines](#guidelines)
+- [Icons](#icons)
+- [Inverted colours](#inverted-colours)
+- [Usage with Next.js](#usage-with-next.js)
+- [API](#api)
+
 ## Semantic HTML
 
 > If it goes somewhere it's a link, if it does something it's a button.
@@ -110,12 +117,12 @@ colours, specifically the UW Purple and Dark Purple colours.
 ### Next.js v13
 
 The Next.js `Link` component behaviour has changed in v13, so that an `<a>` is
-no longer required as a child. You can render the Web UI `Link` component as a
-Next.js `Link` component using `asChild`:
+no longer required as a child. You can render the Hearth React `Link` component
+as a Next.js `Link` component using `asChild`:
 
 ```tsx
 import NextLink from 'next/link';
-import { Link } from '@utilitywarehouse/web-ui';
+import { Link } from '@utilitywarehouse/hearth-react';
 
 [...]
 
@@ -131,7 +138,7 @@ You can also use the `legacyBehavior` prop directly on the Next.js Link componen
 
 ```tsx
 import NextLink from 'next/link';
-import { Link } from '@utilitywarehouse/web-ui';
+import { Link } from '@utilitywarehouse/hearth-react';
 
 [...]
 
