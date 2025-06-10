@@ -20,7 +20,7 @@
   }
 
   &:where(.hearth-padding-none) {
-    padding: var(--h-card-padding-none-mobile);
+    padding: 0;
   }
 
   &:where(:has(:focus-visible)) {
