@@ -4,9 +4,33 @@
 import React, { useEffect } from 'react';
 // @ts-expect-error - No type definitions available
 import logo from './assets/logo.png';
+
+// Import font files directly so webpack processes them
+// @ts-expect-error - No type definitions for font files
+import dmSansRegular from '../../../../packages/fonts/files/woff2/DMSans-Regular.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmSansItalic from '../../../../packages/fonts/files/woff2/DMSans-Italic.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmSansSemiBold from '../../../../packages/fonts/files/woff2/DMSans-SemiBold.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmSansSemiBoldItalic from '../../../../packages/fonts/files/woff2/DMSans-SemiBoldItalic.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmSansBold from '../../../../packages/fonts/files/woff2/DMSans-Bold.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmSansBoldItalic from '../../../../packages/fonts/files/woff2/DMSans-BoldItalic.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmMonoMedium from '../../../../packages/fonts/files/woff2/DMMono-Medium.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmMonoMediumItalic from '../../../../packages/fonts/files/woff2/DMMono-MediumItalic.woff2';
+// @ts-expect-error - No type definitions for font files
+import comicHamsSemiBold from '../../../../packages/fonts/files/woff2/ComicHams-SemiBoldFlare.woff2';
+// @ts-expect-error - No type definitions for font files
+import comicHamsBold from '../../../../packages/fonts/files/woff2/ComicHams-BoldFlare.woff2';
+// @ts-expect-error - No type definitions for font files
+import comicHamsHeavy from '../../../../packages/fonts/files/woff2/ComicHams-HeavyFlare.woff2';
+
 import './styles/ui.css';
 import '@utilitywarehouse/hearth-css-reset';
-import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-tokens/index.css';
 import '@utilitywarehouse/hearth-react/styles.css';
 import { encodeContent, kebabCase } from './utils';
@@ -25,6 +49,83 @@ import {
 } from '@utilitywarehouse/hearth-react';
 
 function App() {
+  // Add console log to see if component is rendering
+  console.log('App component rendering');
+
+  // Create font faces dynamically
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @font-face {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: url('${dmSansRegular}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Sans';
+        font-style: italic;
+        font-weight: 400;
+        src: url('${dmSansItalic}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 600;
+        src: url('${dmSansSemiBold}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Sans';
+        font-style: italic;
+        font-weight: 600;
+        src: url('${dmSansSemiBoldItalic}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 700;
+        src: url('${dmSansBold}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Sans';
+        font-style: italic;
+        font-weight: 700;
+        src: url('${dmSansBoldItalic}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Mono';
+        font-style: normal;
+        font-weight: 500;
+        src: url('${dmMonoMedium}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Mono';
+        font-style: italic;
+        font-weight: 500;
+        src: url('${dmMonoMediumItalic}') format('woff2');
+      }
+      @font-face {
+        font-family: 'Comic Hams';
+        font-style: normal;
+        font-weight: 600;
+        src: url('${comicHamsSemiBold}') format('woff2');
+      }
+      @font-face {
+        font-family: 'Comic Hams';
+        font-style: normal;
+        font-weight: 700;
+        src: url('${comicHamsBold}') format('woff2');
+      }
+      @font-face {
+        font-family: 'Comic Hams';
+        font-style: normal;
+        font-weight: 900;
+        src: url('${comicHamsHeavy}') format('woff2');
+      }
+    `;
+    document.head.appendChild(style);
+  }, []);
+
   const [githubToken, setGithubToken] = React.useState('');
   const [tokenLoaded, setTokenLoaded] = React.useState(false);
   const [showTokenInput, setShowTokenInput] = React.useState(false);
@@ -313,8 +414,8 @@ function App() {
   }
 
   return (
-    <Box backgroundColor="warmWhite50" height="100%">
-      <Flex backgroundColor="purple700" padding="200" alignItems="center" justifyContent="between">
+    <Box backgroundColor="warmWhite50">
+      <Flex backgroundColor="purple700" padding="200" align="center" justify="space-between">
         <img src={logo} />
         {tokenLoaded && !showTokenInput && (
           <Button onClick={editToken} size="sm">
@@ -333,7 +434,7 @@ function App() {
         )}
         {loadingImport && <Alert colorScheme="cyan" text="Importing variables, please wait..." />}
         {((tokenLoaded && showTokenInput) || !tokenLoaded) && (
-          <Card alignItems="end" gap="100">
+          <Card align="end" gap="100" variant="subtle">
             <PasswordInput
               id="github-token"
               label="GitHub Token"
@@ -346,7 +447,7 @@ function App() {
         )}
         {statusMessage && <Alert colorScheme={statusType} text={statusMessage} />}
         {githubToken && (
-          <Card variant="emphasis" colorScheme="white" direction="column" gap="300">
+          <Card variant="subtle" colorScheme="white" direction="column" gap="300">
             <CheckboxGroup
               label="Select Collections to Export:"
               helperText="Published library collections in this file"
@@ -362,10 +463,7 @@ function App() {
               )}
             </CheckboxGroup>
             <Divider decorative />
-            {
-              // Show loading spinner while fetching collections
-              loadingCollections && <Spinner />
-            }
+            {loadingCollections && <Spinner />}
             {!loadingCollections && collections.length === 0 && (
               <Alert
                 colorScheme="cyan"
@@ -383,6 +481,7 @@ function App() {
                     id={`checkbox-${collection.id}`}
                     value={collection.id}
                     label={collection.name}
+                    helperText={collection.libraryName}
                   />
                 ))}
               </CheckboxGroup>
@@ -392,6 +491,7 @@ function App() {
               <Button
                 onClick={exportVariables}
                 disabled={exporting || loadingImport || loadingCollections}
+                style={{ width: '100%' }}
               >
                 {exporting ? 'Exporting...' : 'Export Variables'}
               </Button>

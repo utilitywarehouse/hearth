@@ -20,7 +20,6 @@ module.exports = (env, argv) => ({
       // Converts TypeScript code to JavaScript
       { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/ },
 
-      // Enables including CSS by doing "import './file.css'" in your TypeScript code
       {
         test: /\.css$/,
         use: [
@@ -28,12 +27,7 @@ module.exports = (env, argv) => ({
           {
             loader: 'css-loader',
             options: {
-              url: {
-                filter: url => {
-                  // Don't handle font files through css-loader url resolution
-                  return !url.includes('.woff2');
-                },
-              },
+              url: false, // Disable URL processing to prevent URL construction errors
             },
           },
         ],
@@ -41,14 +35,15 @@ module.exports = (env, argv) => ({
 
       // Allows you to use "<%= require('./file.svg') %>" in your HTML code to get a data URI
       { test: /\.(png|jpg|gif|webp|svg)$/, loader: 'url-loader' },
-      // Handle fonts
+
+      // Handle fonts - inline all fonts as base64
       {
-        test: /\.(woff2)$/,
+        test: /\.(woff|woff2|ttf|eot)$/,
         use: {
-          loader: 'url-loader', // Switch back to url-loader
+          loader: 'url-loader',
           options: {
-            limit: 10000000, // Inline everything
-            encoding: 'base64',
+            limit: 50000, // Inline files smaller than 50kb
+            publicPath: './', // Use empty string for publicPath
           },
         },
       },
@@ -56,12 +51,14 @@ module.exports = (env, argv) => ({
   },
 
   // Webpack tries these extensions for you if you omit the extension like "import './file'"
-  resolve: { extensions: ['.tsx', '.ts', '.jsx', '.js'] },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+  },
 
   output: {
     filename: '[name].js',
-    path: path.resolve(__dirname, 'dist'), // Compile into a folder called "dist"
-    // publicPath: 'fonts/',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: './', // Set empty string to prevent automatic publicPath
   },
 
   // Tells Webpack to generate "ui.html" and to inline "ui.ts" into it
