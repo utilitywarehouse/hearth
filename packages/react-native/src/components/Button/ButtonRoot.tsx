@@ -210,31 +210,6 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.components.button.solid.yellow.backgroundColorActive,
         },
       },
-      {
-        variant: 'solid',
-        colorScheme: 'yellow',
-        inverted: true,
-        styles: {
-          backgroundColor: theme.components.button.solid.yellow.inverted.backgroundColor,
-          _web: {
-            _hover: {
-              backgroundColor: theme.components.button.solid.yellow.inverted.backgroundColorHover,
-            },
-            _active: {
-              backgroundColor: theme.components.button.solid.yellow.inverted.backgroundColorActive,
-            },
-          },
-        },
-      },
-      {
-        variant: 'solid',
-        colorScheme: 'yellow',
-        inverted: true,
-        active: true,
-        styles: {
-          backgroundColor: theme.components.button.solid.yellow.inverted.backgroundColorActive,
-        },
-      },
       // Solid Green
       {
         variant: 'solid',
