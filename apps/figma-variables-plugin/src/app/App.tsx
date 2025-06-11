@@ -434,7 +434,7 @@ function App() {
         )}
         {loadingImport && <Alert colorScheme="cyan" text="Importing variables, please wait..." />}
         {((tokenLoaded && showTokenInput) || !tokenLoaded) && (
-          <Card align="end" gap="100" variant="subtle">
+          <Card align="end" gap="100" variant="subtle" wrap="wrap" direction="row">
             <PasswordInput
               id="github-token"
               label="GitHub Token"
