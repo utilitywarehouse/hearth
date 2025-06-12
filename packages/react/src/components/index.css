@@ -23,8 +23,7 @@
 @import url('./TextInput/TextInput.css');
 @import url('./TextInputSlot/TextInputSlot.css');
 @import url('./Badge/Badge.css');
-@import url('./Fieldset/Fieldset.css');
-@import url('./Legend/Legend.css');
+@import url('./FormGroupBase/FormGroupBase.css');
 @import url('./Radio/Radio.css');
 @import url('./RadioTile/RadioTile.css');
 @import url('./RadioCard/RadioCard.css');

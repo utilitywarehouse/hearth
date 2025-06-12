@@ -1,31 +1,16 @@
 import { SizeProps } from '../../props/size.props';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
-import { CheckboxGroupBaseProps } from '../CheckboxGroupBase/CheckboxGroupBase.props';
-import { FieldsetProps } from '../Fieldset/Fieldset.props';
+import { FormGroupBaseProps } from '../FormGroupBase/FormGroupBase.props';
+import { CheckboxGroupContextValue } from './CheckboxGroup.context';
 
-export interface CheckboxGroupRootOwnProps {
+export interface CheckboxGroupProps extends FormGroupBaseProps {
   name?: string;
   required?: boolean;
   disabled?: boolean;
   defaultValue?: Array<string>;
-  value?: Array<string>;
+  value?: CheckboxGroupContextValue['value'];
   onValueChange?: (value: Array<string>) => void;
   /** The direction of the checkboxes, will also set the aria-orientation value. */
   direction?: 'column' | 'row';
-  /**
-   * Set the width of the RadioGroup.
-   */
-  width?: SizeProps['width'];
-}
-
-export interface CheckboxGroupRootProps
-  extends CheckboxGroupRootOwnProps,
-    ComponentPropsWithout<'div', keyof CheckboxGroupRootOwnProps | RemovedProps> {}
-
-export interface CheckboxGroupProps
-  extends Omit<CheckboxGroupRootOwnProps, 'width'>,
-    CheckboxGroupBaseProps,
-    Omit<FieldsetProps, keyof CheckboxGroupRootOwnProps> {
   /**
    * Set the container width of the CheckboxGroup children, independent to the
    * width of the  parent CheckboxGroup.

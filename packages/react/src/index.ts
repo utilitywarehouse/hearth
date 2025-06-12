@@ -93,12 +93,6 @@ export type { SearchInputProps } from './components/SearchInput/SearchInput.prop
 export { Badge } from './components/Badge/Badge';
 export type { BadgeProps } from './components/Badge/Badge.props';
 
-export { Fieldset } from './components/Fieldset/Fieldset';
-export type { FieldsetProps } from './components/Fieldset/Fieldset.props';
-
-export { Legend } from './components/Legend/Legend';
-export type { LegendProps } from './components/Legend/Legend.props';
-
 export { Radio } from './components/Radio/Radio';
 export type { RadioProps } from './components/Radio/Radio.props';
 
@@ -117,11 +111,8 @@ export type { CheckboxProps } from './components/Checkbox/Checkbox.props';
 export { CheckboxTile } from './components/CheckboxTile/CheckboxTile';
 export type { CheckboxTileProps } from './components/CheckboxTile/CheckboxTile.props';
 
-export { CheckboxGroup, CheckboxGroupRoot } from './components/CheckboxGroup/CheckboxGroup';
-export type {
-  CheckboxGroupProps,
-  CheckboxGroupRootProps,
-} from './components/CheckboxGroup/CheckboxGroup.props';
+export { CheckboxGroup } from './components/CheckboxGroup/CheckboxGroup';
+export type { CheckboxGroupProps } from './components/CheckboxGroup/CheckboxGroup.props';
 
 export { TextArea } from './components/TextArea/TextArea';
 export type { TextAreaProps } from './components/TextArea/TextArea.props';

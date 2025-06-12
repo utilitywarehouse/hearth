@@ -62,6 +62,11 @@ const meta = {
       control: 'boolean',
       description: 'To show or hide the loading spinner component for the button.',
     },
+    paddingNone: {
+      type: 'boolean',
+      control: 'boolean',
+      description: 'To remove the padding from the button.',
+    },
     pressed: {
       type: 'boolean',
       control: 'boolean',
@@ -78,6 +83,7 @@ const meta = {
     loading: false,
     icon: undefined,
     iconPosition: 'left',
+    paddingNone: false,
     pressed: false,
   },
 } satisfies Meta<typeof Button>;

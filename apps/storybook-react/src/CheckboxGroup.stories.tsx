@@ -61,14 +61,16 @@ export const Controlled: Story = {
   render: () => {
     const [value, setValue] = React.useState(['1']);
     return (
-      <Flex direction="column" gap="400">
-        <BodyText>Checked: {value.join(', ')}</BodyText>
-        <CheckboxGroup defaultValue={value} onValueChange={v => setValue(v)}>
-          <CheckboxTile value="1" label="One" />
-          <CheckboxTile value="2" label="Two" />
-          <CheckboxTile value="3" label="Three" />
-        </CheckboxGroup>
-      </Flex>
+      <CheckboxGroup
+        label="Controlled"
+        helperText={`Checked: ${value.join(', ')}`}
+        defaultValue={value}
+        onValueChange={v => setValue(v)}
+      >
+        <CheckboxTile value="1" label="One" />
+        <CheckboxTile value="2" label="Two" />
+        <CheckboxTile value="3" label="Three" />
+      </CheckboxGroup>
     );
   },
 };
@@ -114,7 +116,6 @@ export const Validation: Story = {
   args: {
     validationText: 'Please pick two.',
     label: 'What are your two favourite animals?',
-    helperTextPosition: 'bottom',
   },
 };
 
