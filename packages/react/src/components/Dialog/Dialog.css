@@ -20,15 +20,7 @@
   height: fit-content;
   padding: var(--h-bottom-sheet-padding);
   min-width: fit-content;
-  animation: hearth-slide-up-full-width 125ms ease;
-
-  @media (width >= 375px) {
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: var(--h-dialog-width-mobile);
-    max-width: var(--h-dialog-width-mobile);
-    animation: hearth-slide-up 150ms ease-out;
-  }
+  animation: hearth-slide-up 125ms ease;
 
   @media (--h-tablet) {
     top: 50%;
@@ -75,22 +67,12 @@
   }
 }
 
-@keyframes hearth-slide-up-full-width {
+@keyframes hearth-slide-up {
   from {
     transform: translateY(50%);
   }
 
   to {
     transform: translateY(0);
-  }
-}
-
-@keyframes hearth-slide-up {
-  from {
-    transform: translate(-50%, 50%);
-  }
-
-  to {
-    transform: translate(-50%, 0);
   }
 }
