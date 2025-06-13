@@ -1,0 +1,59 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks';
+import * as Stories from './Dialog.stories';
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Components / Dialog" />
+
+<DocsHeader componentName="Dialog" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Alternatives
+
+Add Modal when we've built it
+
+## Usage Guidelines
+
+Add usage guidelines
+
+## Accessibility
+
+Add accessibility information
+
+## API
+
+This component is based on Radix UI's Dialog primitive and supports the following common props:
+
+- Margin
+
+| Prop              | Type      |
+| ----------------- | --------- |
+| `heading`         | `string`  |
+| `description`     | `string`  |
+| `hideCloseButton` | `boolean` |
+
+### DialogRoot
+
+The root component that manages the state and accessibility of the dialog.
+
+| Prop           | Type                      | Description                                                                |
+| -------------- | ------------------------- | -------------------------------------------------------------------------- |
+| `open`         | `boolean`                 | Controls the open state of the dialog                                      |
+| `defaultOpen`  | `boolean`                 | Whether the dialog is open by default                                      |
+| `onOpenChange` | `(open: boolean) => void` | Callback that fires when the open state changes                            |
+| `modal`        | `boolean`                 | Whether the dialog is modal (blocks interaction with the rest of the page) |
+
+### DialogTrigger
+
+A component that triggers the dialog to open when clicked.
+
+### DialogClose
+
+A component that closes the dialog when clicked.
+
+### DialogFooter
+
+A component for dialog actions, typically containing buttons.

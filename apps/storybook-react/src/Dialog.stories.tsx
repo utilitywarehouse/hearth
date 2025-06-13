@@ -5,7 +5,6 @@ import {
   DialogTrigger,
   DialogClose,
   DialogFooter,
-  Flex,
   Button,
 } from '@utilitywarehouse/hearth-react';
 
@@ -15,7 +14,8 @@ const meta: Meta<typeof Dialog> = {
   parameters: {
     docs: {
       description: {
-        component: '`Dialog`',
+        component:
+          'A `Dialog` overlays content to request a decision or inform users of important information. When users need to interact with the application without navigating to a new page or disrupting their workflow, a Dialog creates a floating layer over the current page to gather feedback or display information. A scrim (a semi-transparent background) is used to dim the underlying content, drawing focus to the dialog.',
       },
     },
   },

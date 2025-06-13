@@ -8,19 +8,19 @@ const componentName = 'DialogClose';
 const componentClassName = withGlobalPrefix(componentName);
 
 type DialogCloseElement = ElementRef<'button'>;
+type DialogCloseProps = Omit<RadixDialog.DialogCloseProps, 'asChild'>;
 
-export const DialogClose = React.forwardRef<
-  DialogCloseElement,
-  Omit<RadixDialog.DialogCloseProps, 'asChild'>
->(({ className, ...props }, ref) => {
-  return (
-    <RadixDialog.Close
-      ref={ref}
-      className={clsx(componentClassName, className)}
-      asChild
-      {...props}
-    />
-  );
-});
+export const DialogClose = React.forwardRef<DialogCloseElement, DialogCloseProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <RadixDialog.Close
+        ref={ref}
+        className={clsx(componentClassName, className)}
+        asChild
+        {...props}
+      />
+    );
+  }
+);
 
 DialogClose.displayName = componentName;
