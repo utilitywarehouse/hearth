@@ -1,9 +1,22 @@
 .hearth-DialogOverlay {
   background-color: var(--h-overlay-background-color);
-  opacity: var(--h-overlay-opacity);
   position: fixed;
   inset: 0;
-  transition: opacity 125ms ease;
+  opacity: 0;
+  transition: opacity 150ms ease-out;
+  /* display 150ms allow-discrete, */
+  /* overlay 150ms allow-discrete; */
+
+  &:where([data-state='closed']) {
+    opacity: 0;
+  }
+  &:where([data-state='open']) {
+    opacity: var(--h-overlay-opacity);
+  }
+
+  @starting-style {
+    opacity: 0;
+  }
 }
 
 .hearth-Dialog {
@@ -30,13 +43,30 @@
     border-bottom-left-radius: var(--h-dialog-border-radius);
     border-bottom-right-radius: var(--h-dialog-border-radius);
     width: var(--h-dialog-width-tablet);
-    max-width: var(--h-dialog-width-tablet);
-    animation: hearth-show-dialog 175ms ease-out;
+    animation: hearth-show-dialog 150ms ease-out;
+
+    opacity: 0;
+    transition: opacity 150ms ease-out;
+    /* display 150ms allow-discrete, */
+    /* overlay 150ms allow-discrete; */
+
+    /* transition: opacity 175ms ease; */
+    &:where([data-state='closed']) {
+      opacity: 0;
+    }
+    &:where([data-state='open']) {
+      opacity: 1;
+    }
+
+    @starting-style {
+      &:where([data-state='open']) {
+        opacity: 0;
+      }
+    }
   }
 
   @media (--h-desktop) {
     width: var(--h-dialog-width-desktop);
-    max-width: var(--h-dialog-width-desktop);
   }
 
   & :where(.hearth-DialogHeader) {
@@ -57,12 +87,10 @@
 
 @keyframes hearth-show-dialog {
   from {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.9);
   }
 
   to {
-    opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
 }
