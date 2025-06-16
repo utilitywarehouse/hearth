@@ -2,8 +2,6 @@
 '@utilitywarehouse/hearth-tokens': patch
 ---
 
-Here's an overview of the changes made to automate the generation of `index.css` and `index.js` files:
-
 - **Automated Index File Generation**:
 
   - **CSS Index**: The `create_css_index` action was implemented to automatically generate an `index.css` file. This action reads all CSS files in the build directory, filters out `index.css` itself, and creates `@import` statements for each CSS file, ensuring that all styles are included in the main CSS file.
