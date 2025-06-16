@@ -6,36 +6,38 @@ import { camelCase } from './helpers/camel-case.js';
 import { kebabCase } from './helpers/kebab-case.js';
 import merge from 'lodash.merge';
 import { logWarningLevels } from 'style-dictionary/enums';
+import fs from 'fs';
+import path from 'path';
 
 const BUILD_PATH = './src/browser/';
 const PREFIX = 'h';
 
-StyleDictionary.registerFormat({
-  name: 'browser/index',
-  format: () => {
-    return `export * from './badge.js'
-export * from './border.js';
-export * from './button.js';
-export * from './card.js';
-export * from './color.js';
-export * from './focus.js';
-export * from './font.js';
-export * from './icon-button.js';
-export * from './inline-link.js';
-export * from './input.js';
-export * from './layout.js';
-export * from './letter-spacing.js';
-export * from './line-height.js';
-export * from './link.js';
-export * from './opacity.js';
-export * from './radio.js';
-export * from './space.js';
-export * from './spinner.js';
-export * from './typography.js';
-`;
+/**
+ * Creates an index.js file that imports all generated JS files for browser tokens.
+ * This action:
+ * 1. Reads all JS files in the build directory
+ * 2. Filters out index.js itself and non-JS files
+ * 3. Creates export statements with the correct relative path
+ * 4. Writes the exports to index.js
+ */
+StyleDictionary.registerAction({
+  name: 'create_browser_index',
+  do: () => {
+    const jsFiles = fs
+      .readdirSync(path.resolve(BUILD_PATH))
+      .filter(file => file.endsWith('.ts') && file !== 'index.ts')
+      .map(file => `export * from './${file.replace('.ts', '.js')}';`)
+      .join('\n');
+
+    const indexFilePath = path.resolve(path.join(BUILD_PATH, 'index.js'));
+    fs.writeFileSync(indexFilePath, jsFiles);
   },
 });
 
+/**
+ * Registers a format for browser tokens that converts token values to CSS custom properties.
+ * This format is used to generate JavaScript files that export token values as CSS variables.
+ */
 StyleDictionary.registerFormat({
   name: 'browser/variables',
   format: ({ dictionary, file, platform }) => {
@@ -80,6 +82,11 @@ StyleDictionary.registerFormat({
   },
 });
 
+/**
+ * Generates browser tokens for each component in the design system.
+ * Each component gets its own JavaScript file containing its specific design tokens.
+ * The files are filtered to only include light theme tokens from the component category.
+ */
 const componentJson = loadJSON('./raw/hearth-components--tokens---component.json');
 const componentFiles = Object.keys(componentJson.light).map(componentName => ({
   destination: `${componentName}.ts`,
@@ -90,6 +97,10 @@ const componentFiles = Object.keys(componentJson.light).map(componentName => ({
     token.path.includes('light'),
 }));
 
+/**
+ * Generates browser tokens for the design system.
+ * This function sets up the StyleDictionary configuration and runs the build process.
+ */
 export function generateBrowserTokens() {
   console.log('Generating Browser tokens...');
   return [
@@ -148,22 +159,9 @@ export function generateBrowserTokens() {
               format: 'browser/variables',
               filter: filters.isPrimitiveBorder,
             },
+            ...componentFiles,
           ],
-        },
-        'browser-components': {
-          buildPath: BUILD_PATH,
-          prefix: PREFIX,
-          files: componentFiles,
-        },
-        'browser-index': {
-          buildPath: BUILD_PATH,
-          prefix: PREFIX,
-          files: [
-            {
-              destination: 'index.js',
-              format: 'browser/index',
-            },
-          ],
+          actions: ['create_browser_index'],
         },
       },
     }),
