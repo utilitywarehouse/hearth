@@ -6,6 +6,12 @@ export const filters = {
   isFont: token => token.path.includes('font'),
   isFontSize: token => token.attributes.category === 'font' && token.attributes.type === 'size',
   isLayoutSpacing: token => token.path.includes('layout') && token.path.includes('spacing'),
+
+  // Identifies typography-related tokens with specific exclusions:
+  // - Excludes font-family tokens (uses primitive tokens instead)
+  // - Only includes mobile font-weight tokens (as they don't change across devices)
+  // - Only includes mobile body-text tokens (as they don't change across devices)
+  // - Only includes mobile detail-text tokens (as they don't change across devices)
   isTypography: token => {
     if (token.path.includes('typography')) {
       if (token.path.includes('font-family')) {
@@ -34,7 +40,11 @@ export const filters = {
     }
   },
   isColor: token => token.type === 'color',
+
+  // Identifies primitive space tokens (spacing values from primitive tokens)
   isPrimitiveSpace: token => token.filePath.includes('primitive') && token.path.includes('space'),
+
+  // Identifies primitive border tokens (border width and radius from primitive tokens)
   isPrimitiveBorder: token =>
     token.filePath.includes('primitive') &&
     (token.path.includes('border-width') || token.path.includes('border-radius')),
@@ -42,6 +52,8 @@ export const filters = {
     token.filePath.includes('primitive') && token.path.includes('line-height'),
   isPrimitiveLetterSpacing: token =>
     token.filePath.includes('primitive') && token.path.includes('letter-spacing'),
+
+  // Identifies primitive light color tokens (excludes dark theme colors)
   isPrimitiveLightColor: token => {
     if (token.type === 'color' && token.path[1] === 'dark') {
       return false;
@@ -49,6 +61,13 @@ export const filters = {
     return token.filePath.includes('primitive') && token.type === 'color';
   },
   isOpacity: token => token.path.includes('opacity'),
+
+  // Identifies component-specific pixel values for:
+  // - Outline width
+  // - Max/min width
+  // - Width
+  // - Height
+  // - Size (excluding font size)
   isComponentPxValue: token => {
     return (
       (token.filePath.includes('component') && token.path.includes('outline-width')) ||
