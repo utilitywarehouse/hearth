@@ -1,5 +1,11 @@
 # @utilitywarehouse/css-reset
 
+## 0.0.3
+
+### Patch Changes
+
+- [#344](https://github.com/utilitywarehouse/hearth/pull/344) [`2b00d31`](https://github.com/utilitywarehouse/hearth/commit/2b00d3121bbc8ecd42e1d14fc4bedeb6e8cacd22) Thanks [@robphoenix](https://github.com/robphoenix)! - Add default `fieldset` styles
+
 ## 0.0.2
 
 ### Patch Changes
