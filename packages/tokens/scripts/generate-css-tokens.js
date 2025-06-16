@@ -164,9 +164,7 @@ StyleDictionary.registerTransform({
   name: 'letter-spacing/normalize-value',
   type: 'value',
   filter: filters.isPrimitiveLetterSpacing,
-  transform: token => {
-    return px(token.value.toFixed(2));
-  },
+  transform: token => `${token.value.toFixed(2)}px`,
 });
 
 /**
