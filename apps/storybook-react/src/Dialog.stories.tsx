@@ -39,7 +39,32 @@ export const Playground: Story = {
       <Dialog {...args}>
         <DialogFooter>
           <DialogClose>
-            <Button variant="outline" colorScheme="grey">
+            <Button variant="ghost" colorScheme="grey">
+              Cancel
+            </Button>
+          </DialogClose>
+          <DialogClose>
+            <Button variant="solid" colorScheme="yellow">
+              Primary
+            </Button>
+          </DialogClose>
+        </DialogFooter>
+      </Dialog>
+    </DialogRoot>
+  ),
+};
+
+export const OnMobile: Story = {
+  parameters: { viewport: { defaultViewport: 'mobile' } },
+  render: args => (
+    <DialogRoot>
+      <DialogTrigger>
+        <Button>Open dialog</Button>
+      </DialogTrigger>
+      <Dialog {...args}>
+        <DialogFooter>
+          <DialogClose>
+            <Button variant="ghost" colorScheme="grey">
               Cancel
             </Button>
           </DialogClose>

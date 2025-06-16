@@ -1,21 +1,14 @@
 .hearth-DialogOverlay {
-  background-color: var(--h-overlay-background-color);
   position: fixed;
   inset: 0;
-  opacity: 0;
-  transition: opacity 200ms ease-out;
-  /* display 150ms allow-discrete, */
-  /* overlay 150ms allow-discrete; */
+  background-color: var(--h-overlay-background-color);
+  opacity: var(--h-overlay-opacity);
 
-  &:where([data-state='closed']) {
-    opacity: 0;
-  }
   &:where([data-state='open']) {
-    opacity: var(--h-overlay-opacity);
+    animation: hearth-dialog-overlay-fade-in 200ms ease-out;
   }
-
-  @starting-style {
-    opacity: 0;
+  &:where([data-state='closed']) {
+    animation: hearth-dialog-overlay-fade-out 160ms ease-out;
   }
 }
 
@@ -24,6 +17,7 @@
   flex-direction: column;
   gap: var(--h-dialog-gap);
   background-color: var(--h-dialog-background-color);
+  overflow: auto;
   position: fixed;
   left: 0;
   right: 0;
@@ -33,7 +27,13 @@
   height: fit-content;
   padding: var(--h-bottom-sheet-padding);
   min-width: fit-content;
-  animation: hearth-slide-up 125ms ease;
+
+  &:where([data-state='open']) {
+    animation: hearth-dialog-slide-up 125ms ease-out;
+  }
+  &:where([data-state='closed']) {
+    animation: hearth-dialog-slide-down 150ms ease-out;
+  }
 
   @media (--h-tablet) {
     top: 50%;
@@ -43,25 +43,12 @@
     border-bottom-left-radius: var(--h-dialog-border-radius);
     border-bottom-right-radius: var(--h-dialog-border-radius);
     width: var(--h-dialog-width-tablet);
-    animation: hearth-show-dialog 150ms ease-out;
 
-    opacity: 0;
-    transition: opacity 150ms ease-out;
-    /* display 150ms allow-discrete, */
-    /* overlay 150ms allow-discrete; */
-
-    /* transition: opacity 175ms ease; */
-    &:where([data-state='closed']) {
-      opacity: 0;
-    }
     &:where([data-state='open']) {
-      opacity: 1;
+      animation: hearth-dialog-show 125ms ease-out;
     }
-
-    @starting-style {
-      &:where([data-state='open']) {
-        opacity: 0;
-      }
+    &:where([data-state='closed']) {
+      animation: hearth-dialog-hide 125ms ease-out;
     }
   }
 
@@ -85,22 +72,68 @@
   }
 }
 
-@keyframes hearth-show-dialog {
-  from {
-    transform: translate(-50%, -50%) scale(0.9);
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes hearth-dialog-overlay-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: var(--h-overlay-opacity);
+    }
   }
 
-  to {
-    transform: translate(-50%, -50%) scale(1);
+  @keyframes hearth-dialog-overlay-fade-out {
+    from {
+      opacity: var(--h-overlay-opacity);
+    }
+    to {
+      opacity: 0;
+    }
   }
-}
 
-@keyframes hearth-slide-up {
-  from {
-    transform: translateY(50%);
+  @keyframes hearth-dialog-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  to {
-    transform: translateY(0);
+  @keyframes hearth-dialog-slide-down {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    to {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+  }
+
+  @keyframes hearth-dialog-show {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @keyframes hearth-dialog-hide {
+    from {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.99);
+    }
   }
 }

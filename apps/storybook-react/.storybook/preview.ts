@@ -37,14 +37,11 @@ const customViewports = {
       height: '100vh',
     },
   },
-  ...INITIAL_VIEWPORTS,
 };
 
 const preview: Preview = {
   parameters: {
-    viewport: {
-      viewports: customViewports,
-    },
+    viewport: { viewports: customViewports },
     docs: {
       theme,
     },

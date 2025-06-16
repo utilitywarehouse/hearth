@@ -26,6 +26,7 @@ export const Dialog = React.forwardRef<DialogElement, DialogProps>(
     return (
       <RadixDialog.Portal {...portalProps}>
         <RadixDialog.Overlay className="hearth-DialogOverlay" />
+
         <RadixDialog.Content ref={ref} className={clsx(componentClassName, className)} {...props}>
           <Grid className="hearth-DialogHeader" templateColumns="1fr 24px">
             <Box asChild gridColumn="1 / 2" gridRow="1 / 2">
