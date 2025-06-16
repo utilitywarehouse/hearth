@@ -33,7 +33,11 @@ StyleDictionary.registerAction({
       .join('\n');
 
     const indexFilePath = path.resolve(path.join(BUILD_PATH, 'index.css'));
-    fs.writeFileSync(indexFilePath, cssFiles);
+    try {
+      fs.writeFileSync(indexFilePath, cssFiles);
+    } catch (error) {
+      console.error(`Failed to write to file: ${indexFilePath}. Error: ${error.message}`);
+    }
   },
 });
 
