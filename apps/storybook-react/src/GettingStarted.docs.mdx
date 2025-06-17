@@ -2,7 +2,7 @@ import { Meta } from '@storybook/blocks';
 import { version } from '../../../packages/react/package.json';
 import pig from './assets/react-pig.png';
 
-<Meta title="Introduction" />
+<Meta title="Getting Started" />
 
 <div style={{ display: 'flex', flexDirection:'column', alignItems: 'center', textAlign: 'center'}}>
 
@@ -15,11 +15,13 @@ Current version: v{version}
 
 </div>
 
-A robust library of accessible and composable React components designed for
+## Getting started
+
+Hearth React is a robust library of accessible and composable React components designed for
 speed and flexibility. Perfect for product teams building scalable, accessible
 web experiences.
 
-## Getting started
+### Installation
 
 You should already have your project set up, with React, either v18 or v19.
 
@@ -47,6 +49,8 @@ or
 pnpm add @utilitywarehouse/hearth-react @utilitywarehouse/hearth-css-reset @utilitywarehouse/hearth-tokens @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react-icons
 ```
 
+### Import CSS
+
 You should then add the following imports in the root of your application:
 
 ```tsx
@@ -55,3 +59,25 @@ import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-tokens/index.css';
 import '@utilitywarehouse/hearth-react/styles.css';
 ```
+
+### Portals
+
+Hearth React uses portals for components that render popups, such as `Dialog`.
+To make portalled components always appear on top of the entire page, add the
+following style to your application layout root.
+
+```html
+<body>
+  <div className="root">{children}</div>
+</body>
+```
+
+```css
+.root {
+  isolation: isolate;
+}
+```
+
+This style creates a separate stacking context for your application’s `.root`
+element. This way, popups will always appear above the page contents, and any
+`z-index` property in your styles won’t interfere with them.

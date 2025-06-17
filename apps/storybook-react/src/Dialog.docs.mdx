@@ -11,9 +11,13 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
-## Alternatives
-
-Add Modal when we've built it
+- [Usage Guidelines](#usage-guidelines)
+  - [Uncontrolled usage](#uncontrolled-usage)
+  - [Controlled usage](#controlled-usage)
+- [Accessibility](#accessibility)
+- [API](#api)
+  - [DialogRoot](#dialogroot)
+  - [Dialog](#dialog)
 
 ## Usage Guidelines
 
@@ -21,12 +25,19 @@ Add Modal when we've built it
 uses as either a controlled or uncontrolled component.
 
 - `DialogRoot` contains all parts of a dialog, providing context to it's children. You must wrap your Dialog with this component.
-- `DialogTrigger` wraps a `Button` component and is used to open the dialog. This is not needed for a state controlled dialog.
+- `DialogTrigger` wraps a `Button` component and is used to open the dialog.
 - `Dialog` is the main component where you should place your content.
-- `DialogFooter` is a container for any actions, such as buttons.
-- `DialogClose` wraps a `Button` component and is used to close the dialog. This is not needed for a state controlled dialog.
+- `DialogFooter` is a container for any actions, typically buttons.
+- `DialogClose` wraps a `Button` component and is used to close the dialog.
+
+`Dialog` uses portals to render a popup. Please make sure you have portals
+setup properly in the root of your application. See the **Getting Started**
+guide for more details.
 
 ### Uncontrolled usage
+
+This is the recommended approach. You can use the `open` & `onOpenChange` props
+on the `DialogRoot` component with your event handlers.
 
 ```tsx
 <DialogRoot>
@@ -55,13 +66,41 @@ uses as either a controlled or uncontrolled component.
 
 ### Controlled usage
 
+If you need more control over elements of the dialog, then you can combine
+state with the `open` and `onOpenChange` props, and control the opening and
+closing of the dialog outside the `DialogRoot` context.
+
 <Canvas of={Stories.ControlledUsage} sourceState="shown" />
 
 ## Accessibility
 
-Add accessibility information
+Follows the [WAI-ARIA Dialog (Modal)](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) Pattern.
+
+Due to the size of the Dialog, all entrance and exit animations adhere to the users [reduce motion](https://www.w3.org/WAI/WCAG21/Techniques/css/C39) preference.
+
+It is strongly recommended the dialog includes a visible element which closes
+the dialog. By default the `Dialog` has a close icon button. You can hide this
+button using the `hideCloseButton` prop, so that there will always be a button
+that closes the dialog available to keyboard users. However we do recommend
+that you only do this when providing a visible alternative, such as a `Cancel`
+button.
+
+<Canvas of={Stories.HideCloseButton} />
 
 ## API
+
+### DialogRoot
+
+This component is based on [Radix UI's Dialog primitive](https://www.radix-ui.com/primitives/docs/components/dialog).
+
+| Prop           | Type                      | Description                                                                |
+| -------------- | ------------------------- | -------------------------------------------------------------------------- |
+| `open`         | `boolean`                 | Controls the open state of the dialog                                      |
+| `defaultOpen`  | `boolean`                 | Whether the dialog is open by default                                      |
+| `onOpenChange` | `(open: boolean) => void` | Callback that fires when the open state changes                            |
+| `modal`        | `boolean`                 | Whether the dialog is modal (blocks interaction with the rest of the page) |
+
+### Dialog
 
 This component is based on Radix UI's Dialog primitive and supports the following common props:
 
@@ -72,26 +111,3 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 | `heading`         | `string`  |
 | `description`     | `string`  |
 | `hideCloseButton` | `boolean` |
-
-### DialogRoot
-
-The root component that manages the state and accessibility of the dialog.
-
-| Prop           | Type                      | Description                                                                |
-| -------------- | ------------------------- | -------------------------------------------------------------------------- |
-| `open`         | `boolean`                 | Controls the open state of the dialog                                      |
-| `defaultOpen`  | `boolean`                 | Whether the dialog is open by default                                      |
-| `onOpenChange` | `(open: boolean) => void` | Callback that fires when the open state changes                            |
-| `modal`        | `boolean`                 | Whether the dialog is modal (blocks interaction with the rest of the page) |
-
-### DialogTrigger
-
-A component that triggers the dialog to open when clicked.
-
-### DialogClose
-
-A component that closes the dialog when clicked.
-
-### DialogFooter
-
-A component for dialog actions, typically containing buttons.

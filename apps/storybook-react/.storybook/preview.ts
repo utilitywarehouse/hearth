@@ -1,5 +1,4 @@
 import { Preview } from '@storybook/react';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import '@utilitywarehouse/hearth-css-reset';
 import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-tokens/index.css';
@@ -48,7 +47,7 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          'Introduction',
+          'Getting Started',
           "What's New",
           'Breakpoints',
           'Media Queries',

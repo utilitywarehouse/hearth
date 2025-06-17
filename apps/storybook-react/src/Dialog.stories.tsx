@@ -6,6 +6,7 @@ import {
   DialogClose,
   DialogFooter,
   Button,
+  Box,
 } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
@@ -16,7 +17,7 @@ const meta: Meta<typeof Dialog> = {
     docs: {
       description: {
         component:
-          'A `Dialog` overlays content to request a decision or inform users of important information. When users need to interact with the application without navigating to a new page or disrupting their workflow, a Dialog creates a floating layer over the current page to gather feedback or display information. A scrim (a semi-transparent background) is used to dim the underlying content, drawing focus to the dialog.',
+          'A `Dialog` overlays content to request a decision or inform users of important information. When users need to interact with the application without navigating to a new page or disrupting their workflow, a `Dialog` creates a floating layer over the current page to gather feedback or display information.',
       },
     },
   },
@@ -81,7 +82,7 @@ export const OnMobile: Story = {
 };
 
 export const ControlledUsage: Story = {
-  render: args => {
+  render: () => {
     const [open, setOpen] = React.useState(false);
     return (
       <div>
@@ -101,4 +102,29 @@ export const ControlledUsage: Story = {
       </div>
     );
   },
+};
+
+export const HideCloseButton: Story = {
+  render: args => (
+    <DialogRoot>
+      <DialogTrigger>
+        <Button>Open dialog</Button>
+      </DialogTrigger>
+      <Dialog {...args}>
+        <DialogFooter>
+          <DialogClose>
+            <Button variant="ghost" colorScheme="grey">
+              Cancel
+            </Button>
+          </DialogClose>
+          <DialogClose>
+            <Button variant="solid" colorScheme="yellow">
+              Primary
+            </Button>
+          </DialogClose>
+        </DialogFooter>
+      </Dialog>
+    </DialogRoot>
+  ),
+  args: { hideCloseButton: true },
 };

@@ -13,3 +13,5 @@ export type DialogProps = RadixDialog.DialogPortalProps &
     description?: string;
     hideCloseButton?: boolean;
   };
+
+export type DialogFooterProps = ComponentPropsWithout<'div', RemovedProps>;
