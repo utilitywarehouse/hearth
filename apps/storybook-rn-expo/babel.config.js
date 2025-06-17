@@ -1,7 +1,8 @@
 /** @type {import('react-native-unistyles/plugin').UnistylesPluginOptions} */
 const unistylesPluginOptions = {
   autoProcessImports: ['@utilitywarehouse/hearth-react-native'],
-  // autoProcessPaths: ['external-library/components'],
+  autoProcessPaths: ['@utilitywarehouse/hearth-react-native'],
+  root: './',
   debug: false,
 };
 

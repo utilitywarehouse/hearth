@@ -1,25 +1,22 @@
-import React, { forwardRef } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import { CircleIcon } from '../Icons';
-import type { SvgRef } from '../../types';
 import IconProps from '../Icon/Icon.props';
 import { Platform } from 'react-native';
 
-const RadioCardIcon = forwardRef<SvgRef, IconProps>(({ style, ...props }, ref) => {
+const RadioCardIcon = ({ style, ...props }: IconProps) => {
   return (
     <Icon
-      ref={ref}
       as={CircleIcon}
       {...props}
       style={
         Platform.OS === 'web'
           ? StyleSheet.compose(styles.container, style)
-          : [styles.container, style]
+          : ([styles.container, style] as any)
       }
     />
   );
-});
+};
 
 RadioCardIcon.displayName = 'RadioCardIcon';
 

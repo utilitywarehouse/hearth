@@ -10,7 +10,7 @@ export interface OrderedListProps extends ViewProps {
   bulletStyle?: ViewStyle;
 }
 
-const OrderedList: React.FC<OrderedListProps> = ({ children, gap = '100', style, ...rest }) => {
+const OrderedList = ({ children, gap = '100', style, ...rest }: OrderedListProps) => {
   const { computedStyles } = useStyleProps({ gap });
   let itemNumber = 0;
   return (
@@ -30,6 +30,8 @@ const OrderedList: React.FC<OrderedListProps> = ({ children, gap = '100', style,
     </View>
   );
 };
+
+OrderedList.displayName = 'OrderedList';
 
 const styles = StyleSheet.create({
   listItemContainer: {

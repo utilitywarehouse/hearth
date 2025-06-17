@@ -1,4 +1,3 @@
-import React, { forwardRef } from 'react';
 import { BottomSheetFlatList as FlatList } from '@gorhom/bottom-sheet';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { useBottomSheetContext } from './BottomSheet.context';
@@ -6,10 +5,13 @@ import { BottomSheetFlatListProps } from '@gorhom/bottom-sheet/lib/typescript/co
 
 const StyledBottomSheetFlatList = withUnistyles(FlatList);
 
-const BottomSheetFlatList = forwardRef<
-  typeof FlatList,
-  BottomSheetFlatListProps<any> & { isModal?: boolean }
->(({ children, style, contentContainerStyle, isModal = true, ...props }, ref) => {
+const BottomSheetFlatList = ({
+  children,
+  style,
+  contentContainerStyle,
+  isModal = true,
+  ...props
+}: BottomSheetFlatListProps<any> & { isModal?: boolean }) => {
   const { handle } = useBottomSheetContext();
   styles.useVariants({
     isModal,
@@ -18,14 +20,13 @@ const BottomSheetFlatList = forwardRef<
 
   return (
     <StyledBottomSheetFlatList
-      // @ts-ignore - ref
-      ref={ref}
+      // @ts-expect-error - style
       style={[styles.container, style]}
       contentContainerStyle={[styles.contentContainer, contentContainerStyle]}
       {...props}
     />
   );
-});
+};
 
 const styles = StyleSheet.create((theme, rt) => ({
   container: {},

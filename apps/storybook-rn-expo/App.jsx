@@ -1,6 +1,6 @@
 import { LogBox } from 'react-native';
 import { useFonts } from 'expo-font';
-import StorybookUIRoot from './.storybook';
+import StorybookUIRoot from './.rnstorybook';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import '@utilitywarehouse/hearth-react-native';
 

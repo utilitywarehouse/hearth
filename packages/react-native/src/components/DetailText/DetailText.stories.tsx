@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { DetailText } from '.';
 import { coloursAsArray } from '../../utils';
 import { VariantTitle } from '../../../docs/components';

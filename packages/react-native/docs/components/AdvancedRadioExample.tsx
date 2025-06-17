@@ -10,7 +10,7 @@ import {
   type RadioProps as NativeUIRadioProps,
 } from '../../src';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import React from 'react';
+
 import { StyleSheet } from 'react-native-unistyles';
 
 interface RadioProps {

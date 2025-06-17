@@ -1,4 +1,4 @@
-// import React from 'react';
+//
 // import { ListHeading } from './';
 // import figma from '@figma/code-connect';
 

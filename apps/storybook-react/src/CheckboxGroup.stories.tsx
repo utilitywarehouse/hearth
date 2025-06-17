@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { CheckboxGroup, Flex, CheckboxTile, Box, BodyText } from '@utilitywarehouse/hearth-react';
 

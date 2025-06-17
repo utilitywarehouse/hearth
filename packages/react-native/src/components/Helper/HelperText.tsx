@@ -1,25 +1,22 @@
-import React, { forwardRef } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
-import { Text } from 'react-native';
 import TextProps from '../BodyText/BodyText.props';
 import { useHelperContext } from './HelperContext';
 import { BodyText } from '../BodyText';
 
-const HelperText = forwardRef<Text, TextProps>(({ children, style, ...props }, ref) => {
+const HelperText = (props: TextProps) => {
   const { validationStatus, disabled } = useHelperContext();
   styles.useVariants({ validationStatus, disabled });
 
   return (
     <BodyText
       size={validationStatus !== 'initial' ? 'sm' : 'md'}
-      ref={ref}
-      style={[styles.text, style]}
+      style={[styles.text, props.style]}
       {...props}
     >
-      {children}
+      {props.children}
     </BodyText>
   );
-});
+};
 
 HelperText.displayName = 'HelperText';
 

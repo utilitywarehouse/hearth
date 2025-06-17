@@ -1,4 +1,4 @@
-import { Meta, Canvas, Story, Controls } from '@storybook/blocks';
+import { Meta, Canvas, Story, Controls } from '@storybook/addon-docs/blocks';
 import * as Stories from './Accordion.stories';
 import { Center, BodyText, Alert, Box, Card, List, ListItem, Flex } from '../../';
 import {
@@ -79,41 +79,25 @@ const MyComponent = () => {
 
 ## Props
 
-| Property                  | Type                                         | Description                                                                                                                                                | Default    |
-| ------------------------- | -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| `defaultValue`            | `Array<string>`                              | The default value of the accordion.                                                                                                                        | `-`        |
-| `value`                   | `Array<string>`                              | The controlled value of the accordion.                                                                                                                     | `-`        |
-| `onValueChange`           | `(value: string[]) => void`                  | Callback function that is called when the value of the accordion changes.                                                                                  | `-`        |
-| `type`                    | `'single' \| 'multiple'`                     | The type of accordion. If set to 'single', only one item can be expanded at a time. If set to 'multiple', multiple items can be expanded at the same time. | `'single'` |
-| `collapsible`             | `boolean`                                    | If true, the accordion can be collapsed.                                                                                                                   | `false`    |
-| `disabled`                | `boolean`                                    | If true, the accordion is disabled.                                                                                                                        | `false`    |
-| `noPadding`               | `boolean`                                    | If true, no horizontal padding is applied to the accordion items.                                                                                          | `false`    |
-| `contentNoPadding`        | `boolean`                                    | If true, no horizontal padding is applied to the accordion content.                                                                                        | `false`    |
-| `headingText`             | `string`                                     | The text to display in the heading of the list.                                                                                                            | `-`        |
-| `headingHelperText`       | `string`                                     | The supporting text to display in the heading of the list.                                                                                                 | `-`        |
-| `headingLinkText`         | `string`                                     | The text for the link in the heading.                                                                                                                      | `-`        |
-| `headingLinkHref`         | `string`                                     | The href for the link in the heading.                                                                                                                      | `-`        |
-| `headingLinkOnPress`      | `() => void`                                 | Callback function when the heading link is pressed.                                                                                                        | `-`        |
-| `headingLinkTarget`       | `'_blank' \| '_self' \| '_parent' \| '_top'` | Target for the link in the heading.                                                                                                                        | `-`        |
-| `headingLinkDisabled`     | `boolean`                                    | Whether the heading link is disabled.                                                                                                                      | `false`    |
-| `headingLinkIcon`         | `ComponentType`                              | Icon for the heading link.                                                                                                                                 | `-`        |
-| `headingLinkIconPosition` | `'left' \| 'right'`                          | Position of the icon in the heading link.                                                                                                                  | `'right'`  |
-| `headingLinkShowIcon`     | `boolean`                                    | Whether to show the icon in the heading link.                                                                                                              | `true`     |
+| Property            | Type                        | Description                                                                                                                                                | Default    |
+| ------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `defaultValue`      | `Array<string>`             | The default value of the accordion.                                                                                                                        | `-`        |
+| `value`             | `Array<string>`             | The controlled value of the accordion.                                                                                                                     | `-`        |
+| `onValueChange`     | `(value: string[]) => void` | Callback function that is called when the value of the accordion changes.                                                                                  | `-`        |
+| `type`              | `'single' \| 'multiple'`    | The type of accordion. If set to 'single', only one item can be expanded at a time. If set to 'multiple', multiple items can be expanded at the same time. | `'single'` |
+| `collapsible`       | `boolean`                   | If true, the accordion can be collapsed.                                                                                                                   | `false`    |
+| `disabled`          | `boolean`                   | If true, the accordion is disabled.                                                                                                                        | `false`    |
+| `noPadding`         | `boolean`                   | If true, no horizontal padding is applied to the accordion items.                                                                                          | `false`    |
+| `contentNoPadding`  | `boolean`                   | If true, no horizontal padding is applied to the accordion content.                                                                                        | `false`    |
+| `headingText`       | `string`                    | The text to display in the heading of the list.                                                                                                            | `-`        |
+| `headingHelperText` | `string`                    | The supporting text to display in the heading of the list.                                                                                                 | `-`        |
 
 ### `AccordionHeading`
 
-| Name               | Type                                         | Description                                                | Default    |
-| ------------------ | -------------------------------------------- | ---------------------------------------------------------- | ---------- |
-| `text`             | `string`                                     | The text to display in the heading of the list.            | `-`        |
-| `helperText`       | `string`                                     | The supporting text to display in the heading of the list. | `-`        |
-| `linkText`         | `string`                                     | The text for the link in the heading.                      | `-`        |
-| `linkHref`         | `string`                                     | The href for the link in the heading.                      | `-`        |
-| `linkOnPress`      | `() => void`                                 | Callback function when the link is pressed.                | `-`        |
-| `linkTarget`       | `'_blank' \| '_self' \| '_parent' \| '_top'` | Target for the link in the heading.                        | `'_blank'` |
-| `linkDisabled`     | `boolean`                                    | Whether the link is disabled.                              | `false`    |
-| `linkIcon`         | `ComponentType`                              | Icon for the link.                                         | `-`        |
-| `linkIconPosition` | `'left' \| 'right'`                          | Position of the icon in the link.                          | `'right'`  |
-| `linkShowIcon`     | `boolean`                                    | Whether to show the icon in the link.                      | `true`     |
+| Name         | Type     | Description                                                | Default |
+| ------------ | -------- | ---------------------------------------------------------- | ------- |
+| `text`       | `string` | The text to display in the heading of the list.            | `-`     |
+| `helperText` | `string` | The supporting text to display in the heading of the list. | `-`     |
 
 ### `AccordionItem`
 

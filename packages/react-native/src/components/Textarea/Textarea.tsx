@@ -1,4 +1,3 @@
-import React from 'react';
 import { createTextarea } from '@gluestack-ui/textarea';
 import type TextareaProps from './Textarea.props';
 
@@ -13,14 +12,14 @@ export const TextareaComponent = createTextarea({
 
 export const TextareaField = TextareaComponent.Input;
 
-const Textarea: React.FC<TextareaProps> = ({
+const Textarea = ({
   validationStatus = 'initial',
   children,
   disabled,
   focused,
   readonly,
   ...props
-}) => {
+}: TextareaProps) => {
   const formFieldContext = useFormFieldContext();
   const { disabled: formFieldDisabled } = formFieldContext;
   const validationStatusFromContext = formFieldContext?.validationStatus ?? validationStatus;

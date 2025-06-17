@@ -1,4 +1,4 @@
-import React, { FC, useMemo, forwardRef, Ref } from 'react';
+import { useMemo } from 'react';
 import { createFormControl } from '@gluestack-ui/form-control';
 import { FormFieldContext } from './FormField.context';
 import FormFieldProps from './FormField.props';
@@ -33,64 +33,53 @@ export const FormFieldValidText = HelperText;
 export const FormFieldInvalidText = HelperText;
 export const FormFieldTextContent = View;
 
-const FormField = forwardRef<View, FormFieldProps>(
-  (
-    {
-      children,
+const FormField = ({
+  children,
+  disabled,
+  validationStatus = 'initial',
+  readonly,
+  label,
+  helperText,
+  helperIcon,
+  validText,
+  invalidText,
+  required = true,
+  ...props
+}: FormFieldProps) => {
+  const value = useMemo(
+    () => ({
+      validationStatus,
       disabled,
-      validationStatus = 'initial',
       readonly,
-      label,
-      helperText,
-      helperIcon,
-      validText,
-      invalidText,
-      required = true,
-      ...props
-    },
-    ref
-  ) => {
-    const value = useMemo(
-      () => ({
-        validationStatus,
-        disabled,
-        readonly,
-        required,
-      }),
-      [validationStatus, disabled, readonly, required]
-    );
+      required,
+    }),
+    [validationStatus, disabled, readonly, required]
+  );
 
-    return (
-      <FormFieldContext.Provider value={value}>
-        <FormFieldComponent
-          // @ts-expect-error - ref
-          ref={ref}
-          {...props}
-          isDisabled={disabled}
-          isReadOnly={readonly}
-        >
-          {(!!label || !!helperText) && (
-            <FormFieldTextContent>
-              {!!label && (
-                <FormFieldLabelText>
-                  {label}
-                  {!required ? ` (Optional)` : ''}
-                </FormFieldLabelText>
-              )}
-              {!!helperText && (
-                <FormFieldHelper text={helperText} icon={helperIcon} showIcon={!!helperIcon} />
-              )}
-            </FormFieldTextContent>
-          )}
-          {children}
+  return (
+    <FormFieldContext.Provider value={value}>
+      <FormFieldComponent {...props} isDisabled={disabled} isReadOnly={readonly}>
+        {(!!label || !!helperText) && (
+          <FormFieldTextContent>
+            {!!label && (
+              <FormFieldLabelText>
+                {label}
+                {!required ? ` (Optional)` : ''}
+              </FormFieldLabelText>
+            )}
+            {!!helperText && (
+              <FormFieldHelper text={helperText} icon={helperIcon} showIcon={!!helperIcon} />
+            )}
+          </FormFieldTextContent>
+        )}
+        {children}
 
-          {!!validText && <FormFieldValid text={validText} />}
-          {!!invalidText && <FormFieldInvalidComponent text={invalidText} />}
-        </FormFieldComponent>
-      </FormFieldContext.Provider>
-    );
-  }
-);
+        {!!validText && <FormFieldValid text={validText} />}
+        {!!invalidText && <FormFieldInvalidComponent text={invalidText} />}
+      </FormFieldComponent>
+    </FormFieldContext.Provider>
+  );
+};
 
 FormField.displayName = 'FormField';
 

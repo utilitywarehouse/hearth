@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex, PasswordInput } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 

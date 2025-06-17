@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo } from 'react';
+import { useMemo } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
 import {
@@ -10,40 +10,42 @@ import { HelperContext } from './HelperContext';
 import HelperIcon from './HelperIcon';
 import HelperText from './HelperText';
 
-const Helper = forwardRef<View, HelperProps>(
-  (
-    { children, validationStatus = 'initial', showIcon, style, disabled, icon, text, ...props },
-    ref
-  ) => {
-    styles.useVariants({ disabled });
-    let Icon = icon;
-    if (validationStatus === 'valid' && !icon) {
-      Icon = TickCircleSmallIcon;
-    }
-    if (validationStatus === 'invalid' && !icon) {
-      Icon = ErrorCircleSmallIcon;
-    }
-
-    const value = useMemo(() => ({ validationStatus, disabled }), [validationStatus, disabled]);
-
-    return (
-      <HelperContext.Provider value={value}>
-        <View ref={ref} style={styles.container}>
-          {children ? (
-            children
-          ) : (
-            <>
-              {showIcon && <HelperIcon as={Icon} />}
-              <HelperText ref={ref} {...props}>
-                {text}
-              </HelperText>
-            </>
-          )}
-        </View>
-      </HelperContext.Provider>
-    );
+const Helper = ({
+  children,
+  validationStatus = 'initial',
+  showIcon,
+  style,
+  disabled,
+  icon,
+  text,
+  ...props
+}: HelperProps) => {
+  styles.useVariants({ disabled });
+  let Icon = icon;
+  if (validationStatus === 'valid' && !icon) {
+    Icon = TickCircleSmallIcon;
   }
-);
+  if (validationStatus === 'invalid' && !icon) {
+    Icon = ErrorCircleSmallIcon;
+  }
+
+  const value = useMemo(() => ({ validationStatus, disabled }), [validationStatus, disabled]);
+
+  return (
+    <HelperContext.Provider value={value}>
+      <View style={styles.container}>
+        {children ? (
+          children
+        ) : (
+          <>
+            {showIcon && <HelperIcon as={Icon} />}
+            <HelperText {...props}>{text}</HelperText>
+          </>
+        )}
+      </View>
+    </HelperContext.Provider>
+  );
+};
 
 Helper.displayName = 'Helper';
 

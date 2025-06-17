@@ -1,13 +1,17 @@
-import React, { forwardRef, useMemo } from 'react';
+import { useMemo } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
 import InputProps from './Input.props';
 import { InputContext } from './Input.context';
 
-const InputRoot = forwardRef<
-  View,
-  InputProps & { states?: { focus?: boolean; disabled?: boolean; readonly?: boolean } }
->(({ children, style, states, validationStatus, type, ...props }, ref) => {
+const InputRoot = ({
+  children,
+  style,
+  states,
+  validationStatus,
+  type,
+  ...props
+}: InputProps & { states?: { focus?: boolean; disabled?: boolean; readonly?: boolean } }) => {
   const { focus = false, disabled = false, readonly = false } = states || {};
   styles.useVariants({ validationStatus, focus, disabled, readonly, type });
 
@@ -18,12 +22,12 @@ const InputRoot = forwardRef<
 
   return (
     <InputContext.Provider value={value}>
-      <View ref={ref} {...props} style={[styles.container, style]}>
+      <View {...props} style={[styles.container, style]}>
         {children}
       </View>
     </InputContext.Provider>
   );
-});
+};
 
 InputRoot.displayName = 'InputRoot';
 
@@ -36,7 +40,6 @@ const styles = StyleSheet.create(theme => ({
     overflow: 'hidden',
     alignContent: 'center',
     paddingHorizontal: theme.components.input.paddingHorizontal,
-    // paddingVertical: theme.components.input.paddingVertical,
     backgroundColor: theme.components.input.backgroundColor,
     gap: theme.components.input.gap,
     outlineStyle: 'solid',

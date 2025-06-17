@@ -21,7 +21,7 @@ import { ColorValue } from '../../types';
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
-const SpinnerRoot: React.FC<SpinnerProps> = ({ size = 'md', color, ...props }) => {
+const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
   const { components } = useTheme();
   const width = components.spinner[size].size;
   const CIRCUMFERENCE = (width - 4) * Math.PI;

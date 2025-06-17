@@ -1,6 +1,5 @@
-import React from 'react';
 import { RadioCard, RadioCardGroup } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { BodyText } from '../BodyText';
 
 const meta = {

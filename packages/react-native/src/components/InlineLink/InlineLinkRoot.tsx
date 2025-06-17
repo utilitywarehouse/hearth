@@ -1,25 +1,26 @@
-/* eslint-disable  @typescript-eslint/no-unsafe-assignment */
-import React, { forwardRef, PropsWithChildren, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Text } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { InlineLinkContext } from './InlineLink.context';
 import InlineLinkProps from './InlineLink.props';
 
-const InlineLinkRoot = forwardRef<
-  Text,
-  PropsWithChildren<InlineLinkProps & { states?: { active?: boolean; disabled?: boolean } }>
->(({ children, inverted = false, states, ...props }, ref) => {
+const InlineLinkRoot = ({
+  children,
+  inverted = false,
+  states,
+  ...props
+}: InlineLinkProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active, disabled = false } = states || {};
   styles.useVariants({ disabled, inverted, active });
   const value = useMemo(() => ({ inverted, disabled, active }), [inverted, disabled, active]);
   return (
     <InlineLinkContext.Provider value={value}>
-      <Text ref={ref} {...props} style={[styles.container, props.style]}>
+      <Text {...props} style={[styles.container, props.style]}>
         {children}
       </Text>
     </InlineLinkContext.Provider>
   );
-});
+};
 
 InlineLinkRoot.displayName = 'InlineLinkRoot';
 

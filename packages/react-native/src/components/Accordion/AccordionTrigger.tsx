@@ -1,26 +1,20 @@
-import React, { forwardRef } from 'react';
 import { Pressable, PressableProps } from 'react-native';
-import { PressableRef } from '../../types';
 import { useAccordionContext } from './Accordion.context';
 import { useAccordionItemContext } from './AccordionItem.context';
 import { StyleSheet } from 'react-native-unistyles';
 
-export const AccordionTrigger = forwardRef<
-  PressableRef,
-  PressableProps & { states?: { active?: boolean } }
->(({ children, ...props }, ref) => {
-  const { active } = props.states || { active: false };
+const AccordionTrigger = ({
+  states,
+  ...props
+}: PressableProps & { states?: { active?: boolean } }) => {
+  const { active } = states || { active: false };
   const { noPadding: contextMoPadding } = useAccordionContext();
   const { noPadding } = useAccordionItemContext();
   const noPaddingValue = noPadding ?? contextMoPadding;
   styles.useVariants({ noPadding: noPaddingValue, active });
 
-  return (
-    <Pressable ref={ref} style={styles.trigger} {...props}>
-      {children}
-    </Pressable>
-  );
-});
+  return <Pressable style={styles.trigger} {...props} />;
+};
 
 AccordionTrigger.displayName = 'AccordionTrigger';
 

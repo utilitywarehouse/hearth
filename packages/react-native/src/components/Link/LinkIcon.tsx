@@ -1,19 +1,15 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import React, { forwardRef } from 'react';
 import { Platform, type StyleProp, type ViewStyle } from 'react-native';
 import { useLinkContext } from './Link.context';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
-import { IconRef } from '../../types';
 import IconProps from '../Icon/Icon.props';
 
-const LinkIcon = forwardRef<IconRef, IconProps>(({ children, ...props }, ref) => {
+const LinkIcon = ({ children, ...props }: IconProps) => {
   const { active, inverted, disabled } = useLinkContext();
   styles.useVariants({ active, inverted, disabled });
 
   return (
     <Icon
-      ref={ref}
       {...props}
       style={
         Platform.OS === 'web'
@@ -24,7 +20,7 @@ const LinkIcon = forwardRef<IconRef, IconProps>(({ children, ...props }, ref) =>
       {children}
     </Icon>
   );
-});
+};
 
 LinkIcon.displayName = 'LinkIcon';
 

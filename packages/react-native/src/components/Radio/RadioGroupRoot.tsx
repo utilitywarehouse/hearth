@@ -1,18 +1,20 @@
-import React, { forwardRef } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
 import RadioGroupProps from './RadioGroup.props';
 
-const RadioGroupRoot = forwardRef<View, RadioGroupProps & { isCard?: boolean }>(
-  ({ children, style, isCard = false, ...props }, ref) => {
-    styles.useVariants({ type: isCard ? 'tile' : 'radio' });
-    return (
-      <View ref={ref} {...props} style={[styles.container, style]}>
-        {children}
-      </View>
-    );
-  }
-);
+const RadioGroupRoot = ({
+  children,
+  style,
+  isCard = false,
+  ...props
+}: RadioGroupProps & { isCard?: boolean }) => {
+  styles.useVariants({ type: isCard ? 'tile' : 'radio' });
+  return (
+    <View {...props} style={[styles.container, style]}>
+      {children}
+    </View>
+  );
+};
 
 RadioGroupRoot.displayName = 'RadioGroupRoot';
 

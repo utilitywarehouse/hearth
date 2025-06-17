@@ -1,14 +1,11 @@
-import React, { forwardRef } from 'react';
-import { Text, TextProps } from 'react-native';
-import { BodyText } from '../../components';
+import { TextProps } from 'react-native';
+import { BodyText } from '../../components/BodyText';
 import { StyleSheet } from 'react-native-unistyles';
 
-export const AccordionTitleText = forwardRef<Text, TextProps>(
-  ({ children, style, ...props }, ref) => (
-    <BodyText ref={ref} weight="semibold" style={[styles.title, style]} {...props}>
-      {children}
-    </BodyText>
-  )
+const AccordionTitleText = ({ children, style, ...props }: TextProps) => (
+  <BodyText weight="semibold" style={[styles.title, style]} {...props}>
+    {children}
+  </BodyText>
 );
 
 const styles = StyleSheet.create({

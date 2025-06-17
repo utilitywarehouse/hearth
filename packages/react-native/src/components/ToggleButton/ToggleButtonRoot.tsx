@@ -1,15 +1,16 @@
-/* eslint-disable  @typescript-eslint/no-unsafe-assignment */
-import React, { forwardRef, PropsWithChildren } from 'react';
 import type { ToggleButtonProps } from './ToggleButton.props';
 import { Pressable, ViewStyle, GestureResponderEvent } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { PressableRef } from '../../types';
 import { useCardActionContext } from '../Card';
 
-const ButtonRoot = forwardRef<
-  PressableRef,
-  PropsWithChildren<ToggleButtonProps & { states?: { active?: boolean; disabled?: boolean } }>
->(({ children, onToggle, toggled, states, onPress, ...props }, ref) => {
+const ButtonRoot = ({
+  children,
+  onToggle,
+  toggled,
+  states,
+  onPress,
+  ...props
+}: ToggleButtonProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active } = states || {};
   const { pressed } = useCardActionContext();
 
@@ -27,7 +28,6 @@ const ButtonRoot = forwardRef<
 
   return (
     <Pressable
-      ref={ref}
       {...props}
       style={[styles.container, props.style as ViewStyle]}
       onPress={handlePress}
@@ -35,7 +35,7 @@ const ButtonRoot = forwardRef<
       {children}
     </Pressable>
   );
-});
+};
 
 ButtonRoot.displayName = 'ButtonRoot';
 

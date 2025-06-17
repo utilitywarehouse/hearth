@@ -1,42 +1,32 @@
-/* eslint-disable  @typescript-eslint/no-unsafe-assignment */
-import React, { forwardRef, PropsWithChildren, useMemo } from 'react';
+import { PropsWithChildren, useMemo } from 'react';
 import type { IconButtonProps } from './IconButton.props';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { IconButtonContext } from './IconButton.context';
-import { PressableRef } from '../../types';
 
-const IconButtonRoot = forwardRef<
-  PressableRef,
-  PropsWithChildren<IconButtonProps & { states?: { active?: boolean; disabled?: boolean } }>
->(
-  (
-    {
-      children,
-      colorScheme = 'yellow',
-      variant = 'solid',
-      size = 'md',
-      inverted = false,
-      states,
-      ...props
-    },
-    ref
-  ) => {
-    const { active, disabled } = states || {};
-    styles.useVariants({ colorScheme, variant, size, inverted, disabled, active });
-    const value = useMemo(
-      () => ({ colorScheme, variant, size, inverted, disabled, active }),
-      [colorScheme, variant, size, inverted, disabled, active]
-    );
-    return (
-      <IconButtonContext.Provider value={value}>
-        <Pressable ref={ref} {...props} style={[styles.container, props.style as ViewStyle]}>
-          {children}
-        </Pressable>
-      </IconButtonContext.Provider>
-    );
-  }
-);
+const IconButtonRoot = ({
+  children,
+  colorScheme = 'yellow',
+  variant = 'solid',
+  size = 'md',
+  inverted = false,
+  states,
+  ...props
+}: PropsWithChildren<IconButtonProps & { states?: { active?: boolean; disabled?: boolean } }>) => {
+  const { active, disabled } = states || {};
+  styles.useVariants({ colorScheme, variant, size, inverted, disabled, active });
+  const value = useMemo(
+    () => ({ colorScheme, variant, size, inverted, disabled, active }),
+    [colorScheme, variant, size, inverted, disabled, active]
+  );
+  return (
+    <IconButtonContext.Provider value={value}>
+      <Pressable {...props} style={[styles.container, props.style as ViewStyle]}>
+        {children}
+      </Pressable>
+    </IconButtonContext.Provider>
+  );
+};
 
 IconButtonRoot.displayName = 'IconButtonRoot';
 

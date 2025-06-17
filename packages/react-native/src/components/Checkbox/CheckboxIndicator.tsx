@@ -1,20 +1,19 @@
-import React, { forwardRef } from 'react';
 import { View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useCheckboxContext } from './Checkbox.context';
 
-const CheckboxIndicator = forwardRef<View, ViewProps>((props, ref) => {
+const CheckboxIndicator = (props: ViewProps) => {
   const { checked, active } = useCheckboxContext();
   styles.useVariants({
     checked,
     active,
   });
   return (
-    <View ref={ref} {...props} style={[styles.container, props.style]}>
+    <View {...props} style={[styles.container, props.style]}>
       {props.children}
     </View>
   );
-});
+};
 
 const styles = StyleSheet.create(theme => ({
   outline: {

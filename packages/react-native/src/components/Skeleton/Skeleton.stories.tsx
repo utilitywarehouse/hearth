@@ -1,6 +1,5 @@
-import React from 'react';
 import { Skeleton } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { coloursAsArray } from '../../utils';
 
 const meta = {

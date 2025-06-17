@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Box } from '.';
 import { BodyText } from '../BodyText';
 import { coloursAsArray } from '../../utils';

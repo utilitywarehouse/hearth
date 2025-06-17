@@ -1,15 +1,19 @@
-import React, { forwardRef } from 'react';
 import { BottomSheetScrollView as ScrollView } from '@gorhom/bottom-sheet';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { BottomSheetScrollViewProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetScrollable/types';
 import { useBottomSheetContext } from './BottomSheet.context';
 
-const StyledBottomSheetScrollView = withUnistyles(ScrollView);
+const StyledBottomSheetScrollView = withUnistyles(
+  ScrollView
+) as React.ForwardRefExoticComponent<BottomSheetScrollViewProps>;
 
-const BottomSheetScrollView = forwardRef<
-  typeof ScrollView,
-  BottomSheetScrollViewProps & { isModal?: boolean }
->(({ children, style, contentContainerStyle, isModal = true, ...props }, ref) => {
+const BottomSheetScrollView = ({
+  children,
+  style,
+  contentContainerStyle,
+  isModal = true,
+  ...props
+}: BottomSheetScrollViewProps & { isModal?: boolean }) => {
   const { handle } = useBottomSheetContext();
   styles.useVariants({
     isModal,
@@ -18,8 +22,6 @@ const BottomSheetScrollView = forwardRef<
 
   return (
     <StyledBottomSheetScrollView
-      // @ts-ignore - ref
-      ref={ref}
       style={[styles.container, style]}
       contentContainerStyle={[styles.contentContainer, contentContainerStyle]}
       {...props}
@@ -27,7 +29,7 @@ const BottomSheetScrollView = forwardRef<
       {children}
     </StyledBottomSheetScrollView>
   );
-});
+};
 
 const styles = StyleSheet.create((theme, rt) => ({
   container: {},

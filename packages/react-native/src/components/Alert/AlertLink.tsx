@@ -1,14 +1,8 @@
-import React, { forwardRef } from 'react';
-import { PressableRef } from '../../types';
 import { Link, LinkProps } from '../Link';
 
-const AlertLink = forwardRef<PressableRef, LinkProps>(({ children, ...props }, ref) => {
-  return (
-    <Link ref={ref} {...props}>
-      {children}
-    </Link>
-  );
-});
+const AlertLink = ({ children, ...props }: LinkProps) => {
+  return <Link {...props}>{children}</Link>;
+};
 
 AlertLink.displayName = 'AlertLink';
 

@@ -1,11 +1,9 @@
-import React, { forwardRef } from 'react';
 import { createButton } from '@gluestack-ui/button';
 import { UnstyledIconButtonProps } from './UnstyledIconButton.props';
 import UnstyledIconButtonRootComponent from './UnstyledIconButtonRoot';
 import UnstyledIconButtonIconComponent from './UnstyledIconButtonIcon';
 import UnstyledIconButtonSpinerComponent from './UnstyledIconButtonSpinner';
 import { useButtonGroupContext } from '../Button/ButtonGroup.context';
-import { PressableRef } from '../../types';
 
 const UnstyledIconButtonComponent = createButton({
   Root: UnstyledIconButtonRootComponent,
@@ -21,29 +19,32 @@ const UnstyledIconButtonIcon = UnstyledIconButtonComponent.Icon;
 UnstyledIconButtonSpinner.displayName = 'UnstyledIconButtonSpinner';
 UnstyledIconButtonIcon.displayName = 'UnstyledIconButtonIcon';
 
-const UnstyledIconButton = forwardRef<PressableRef, UnstyledIconButtonProps>(
-  ({ icon, disabled = false, pressed, size = 'md', inverted = false, ...props }, ref) => {
-    const { disabled: groupDisabled, loading: groupLoading } = useButtonGroupContext();
-    const { loading } = props;
-    const isLoading = loading ?? groupLoading;
-    const buttonDisabled = isLoading || (disabled ?? groupDisabled);
+const UnstyledIconButton = ({
+  icon,
+  disabled = false,
+  pressed,
+  size = 'md',
+  inverted = false,
+  ...props
+}: UnstyledIconButtonProps) => {
+  const { disabled: groupDisabled, loading: groupLoading } = useButtonGroupContext();
+  const { loading } = props;
+  const isLoading = loading ?? groupLoading;
+  const buttonDisabled = isLoading || (disabled ?? groupDisabled);
 
-    return (
-      <UnstyledIconButtonComponent
-        // @ts-expect-error - ref
-        ref={ref}
-        {...props}
-        size={size}
-        inverted={inverted}
-        isDisabled={buttonDisabled}
-        isPressed={pressed}
-      >
-        {loading ? <UnstyledIconButtonSpinner /> : <UnstyledIconButtonIcon as={icon} />}
-      </UnstyledIconButtonComponent>
-    );
-  }
-);
-
+  return (
+    <UnstyledIconButtonComponent
+      {...props}
+      size={size}
+      inverted={inverted}
+      isDisabled={buttonDisabled}
+      isPressed={pressed}
+      icon={icon}
+    >
+      {loading ? <UnstyledIconButtonSpinner /> : <UnstyledIconButtonIcon as={icon} />}
+    </UnstyledIconButtonComponent>
+  );
+};
 UnstyledIconButton.displayName = 'UnstyledIconButton';
 
 export default UnstyledIconButton;
