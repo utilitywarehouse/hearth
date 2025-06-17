@@ -1,6 +1,6 @@
 import React, { ComponentType } from 'react';
 import { Link } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 
 const meta = {

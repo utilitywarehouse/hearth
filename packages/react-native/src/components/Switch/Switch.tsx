@@ -1,4 +1,3 @@
-import React from 'react';
 import { Pressable } from 'react-native';
 import Animated, {
   useSharedValue,
@@ -14,6 +13,7 @@ import { Icon } from '../Icon';
 import SwitchProps from './Switch.props';
 import { useTheme } from '../../hooks';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { useEffect } from 'react';
 
 const CustomSwitch = ({
   value = false,
@@ -66,7 +66,7 @@ const CustomSwitch = ({
     transform: [{ scale: scale.value }],
   }));
 
-  React.useEffect(() => {
+  useEffect(() => {
     const userConfig = {
       duration: isReducedMotion ? 0 : 300,
       easing: Easing.inOut(Easing.ease),
@@ -96,7 +96,6 @@ const CustomSwitch = ({
   };
 
   return (
-    // @ts-expect-error -  Pressable children
     <Pressable
       onPress={toggleSwitch}
       onPressIn={onPressIn}

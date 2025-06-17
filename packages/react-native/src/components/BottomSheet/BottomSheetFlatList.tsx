@@ -1,4 +1,3 @@
-import React from 'react';
 import { BottomSheetFlatList as FlatList } from '@gorhom/bottom-sheet';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { useBottomSheetContext } from './BottomSheet.context';

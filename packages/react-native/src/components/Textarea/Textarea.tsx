@@ -1,4 +1,3 @@
-import React from 'react';
 import { createTextarea } from '@gluestack-ui/textarea';
 import type TextareaProps from './Textarea.props';
 

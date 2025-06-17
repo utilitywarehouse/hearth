@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BodyText, Flex, Switch } from '@utilitywarehouse/hearth-react';
 import React, { useState } from 'react';
 

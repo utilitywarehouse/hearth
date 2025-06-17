@@ -1,4 +1,3 @@
-import React from 'react';
 import { Platform, type StyleProp, type ViewStyle } from 'react-native';
 import { useButtonContext } from './Button.context';
 import { StyleSheet } from 'react-native-unistyles';

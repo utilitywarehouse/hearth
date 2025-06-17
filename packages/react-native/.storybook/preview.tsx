@@ -1,18 +1,18 @@
-import React, { useEffect } from 'react';
-import type { Preview } from '@storybook/react';
-import { useArgs } from 'storybook/internal/preview-api';
+import { useEffect } from 'react';
 import '../src/core';
 import theme from '../../../shared/storybook/theme';
 import { color } from '@utilitywarehouse/hearth-tokens';
+import { useArgs } from 'storybook/preview-api';
 import '@utilitywarehouse/hearth-fonts';
 import '../../../shared/storybook/styles/preview.css';
 
-const preview: Preview = {
+/** @type { import('@storybook/react-native-web-vite').Preview } */
+const preview = {
   beforeAll: () => {
     let canAccessParent = false;
     try {
       canAccessParent = window.parent.location.hostname === window.location.hostname;
-    } catch (error) {
+    } catch {
       // CORS error, can't access parent domain
       canAccessParent = false;
     }
@@ -32,9 +32,6 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    docs: {
-      theme,
-    },
     options: {
       storySort: {
         order: [
@@ -46,6 +43,15 @@ const preview: Preview = {
           'Components',
         ],
       },
+    },
+    docs: {
+      theme,
+    },
+    a11y: {
+      // 'todo' - show a11y violations in the test UI only
+      // 'error' - fail CI on a11y violations
+      // 'off' - skip a11y checks entirely
+      test: 'todo',
     },
   },
   decorators: [

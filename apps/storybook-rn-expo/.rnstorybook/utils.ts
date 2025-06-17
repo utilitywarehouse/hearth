@@ -1,6 +1,6 @@
-import { addons } from '@storybook/preview-api';
-import { SET_CURRENT_STORY } from '@storybook/core-events';
-import type { StoryId, StoryName, ComponentTitle, StoryKind } from '@storybook/types';
+import { addons } from 'storybook/preview-api';
+import { SET_CURRENT_STORY } from 'storybook/internal/core-events';
+import type { StoryId, StoryName, ComponentTitle, StoryKind } from 'storybook/internal/types';
 import { toId } from '@storybook/csf';
 
 interface ParamsId {

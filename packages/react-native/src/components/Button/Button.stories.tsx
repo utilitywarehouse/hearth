@@ -1,7 +1,6 @@
-import React from 'react';
 import { Button, ButtonGroup } from '.';
 import type { ButtonProps } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { VariantTitle } from '../../../docs/components';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { Flex } from '../Flex';

@@ -1,4 +1,4 @@
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { ComicHams } from './ComicHams';
 import { DMSans } from './DMSans';
 import { DMMono } from './DMMono';

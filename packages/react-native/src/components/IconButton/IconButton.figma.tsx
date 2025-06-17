@@ -1,4 +1,4 @@
-// import React from 'react';
+//
 // import { IconButton } from './';
 // import figma from '@figma/code-connect';
 

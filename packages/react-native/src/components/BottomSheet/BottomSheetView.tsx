@@ -2,7 +2,6 @@ import { BottomSheetView as View } from '@gorhom/bottom-sheet';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { BottomSheetViewProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetView/types';
 import { useBottomSheetContext } from './BottomSheet.context';
-import React from 'react';
 
 const StyledBottomSheetView = withUnistyles(View) as React.ForwardRefExoticComponent<
   BottomSheetViewProps & React.RefAttributes<typeof View>

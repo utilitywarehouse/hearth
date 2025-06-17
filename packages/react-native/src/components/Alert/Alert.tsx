@@ -42,7 +42,6 @@ const Alert = ({
 
   return (
     <AlertContext.Provider value={value}>
-      {/* @ts-expect-error - pressable children */}
       <Pressable
         {...props}
         style={[styles.container, style as ViewProps['style']]}

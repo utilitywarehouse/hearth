@@ -1,4 +1,3 @@
-import React, { ElementRef } from 'react';
 import { createRadio } from '@gluestack-ui/radio';
 import StyledRadioCard from './RadioCardRoot';
 import StyledRadioCardIndicator from './RadioCardIndicator';

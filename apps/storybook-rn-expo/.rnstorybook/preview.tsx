@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { ScrollView, useColorScheme, View } from 'react-native';
-import { useArgs } from '@storybook/preview-api';
+import { useArgs } from 'storybook/preview-api';
 import { Linking } from 'react-native';
 import { navigate } from './utils';
 import { color } from '@utilitywarehouse/hearth-tokens';
 
-/** @type{import("@storybook/react").Preview} */
+/** @type{import("@storybook/react-vite").Preview} */
 const preview = {
   parameters: {
     controls: {

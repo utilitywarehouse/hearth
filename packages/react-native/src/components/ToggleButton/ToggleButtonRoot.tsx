@@ -27,7 +27,6 @@ const ButtonRoot = ({
   };
 
   return (
-    // @ts-expect-error - Pressable children
     <Pressable
       {...props}
       style={[styles.container, props.style as ViewStyle]}
