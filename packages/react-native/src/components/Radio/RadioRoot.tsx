@@ -29,7 +29,6 @@ const RadioRoot = ({
 
   return (
     <RadioContext.Provider value={value}>
-      {/* @ts-expect-error - Pressable children */}
       <Pressable {...props} style={[styles.container, style as ViewStyle]}>
         {children}
       </Pressable>

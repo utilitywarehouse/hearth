@@ -1,5 +1,4 @@
-import type { Preview } from '@storybook/react';
-import * as React from 'react';
+import type { Preview } from '@storybook/react-vite';
 import '../src/stories/styles.css';
 import '@utilitywarehouse/hearth-fonts';
 import '../../../shared/storybook/styles/preview.css';

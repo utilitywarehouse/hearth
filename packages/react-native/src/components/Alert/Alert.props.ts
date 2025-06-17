@@ -56,8 +56,7 @@ interface AlertWithoutChildrenProps extends PressableProps {
 
 interface AlertWithChildrenProps
   extends PressableProps,
-    Omit<AlertWithoutChildrenProps, 'text' | 'children'>,
-    PropsWithChildren {
+    Omit<AlertWithoutChildrenProps, 'text' | 'children'> {
   text?: never;
   onPressLink?: never;
   onPressIconButton?: never;

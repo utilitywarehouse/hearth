@@ -1,6 +1,5 @@
-import React from 'react';
 import { Badge } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { VariantTitle } from '../../../docs/components';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';

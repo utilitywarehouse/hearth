@@ -1,4 +1,3 @@
-import React from 'react';
 import type { ButtonProps, ButtonWithStringChildrenProps } from './Button.props';
 import ButtonTextComponent from './ButtonText';
 import ButtonSpinnerComponent from './ButtonSpinner';

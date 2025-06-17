@@ -37,7 +37,6 @@ const ToggleButtonCardRoot = ({
 
   return (
     <ToggleButtonCardContext.Provider value={value}>
-      {/* @ts-expect-error - Pressable children */}
       <Pressable {...props} onPress={onPress} style={[styles.container, style as ViewStyle]}>
         {children}
         <View style={styles.buttonContainer}>

@@ -72,7 +72,6 @@ const ListItemRoot = ({
 
   if (loading || listContext?.loading) {
     return (
-      // @ts-expect-error - pressable children
       <Pressable
         {...props}
         testID={loadingTestID}
@@ -91,7 +90,6 @@ const ListItemRoot = ({
 
   return (
     <ListItemContext.Provider value={value}>
-      {/* @ts-expect-error - pressable children */}
       <Pressable
         {...props}
         testID={testID}

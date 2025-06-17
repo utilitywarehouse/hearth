@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Checkbox, CheckboxGroup } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { VariantTitle } from '../../../docs/components';
 
 const meta = {

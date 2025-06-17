@@ -1,4 +1,3 @@
-import React from 'react';
 import { BottomSheetHandle as Handle } from '@gorhom/bottom-sheet';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { BottomSheetDefaultHandleProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetHandle/types';

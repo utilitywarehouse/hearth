@@ -129,7 +129,6 @@ const Select = ({
           </Label>
         </View>
       )}
-      {/* @ts-expect-error - pressable children */}
       <Pressable
         onPress={openBottomSheet}
         disabled={isDisabled || isReadonly}

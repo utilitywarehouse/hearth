@@ -1,6 +1,5 @@
-import React from 'react';
 import { Card, CardAction } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { VariantTitle } from '../../../docs/components';
 import { BodyText } from '../BodyText';
 import { Flex } from '../Flex';

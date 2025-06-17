@@ -27,7 +27,6 @@ const RadioCardRoot = ({
 
   return (
     <RadioCardContext.Provider value={value}>
-      {/* @ts-expect-error -  */}
       <Pressable {...props} style={[styles.container, style as ViewStyle]}>
         {children}
       </Pressable>

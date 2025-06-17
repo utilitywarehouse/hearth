@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { BodyText, Box, Divider, Flex, Heading, Strong } from '@utilitywarehouse/hearth-react';
 

@@ -21,7 +21,6 @@ const IconButtonRoot = ({
   );
   return (
     <IconButtonContext.Provider value={value}>
-      {/* @ts-expect-error - pressable children */}
       <Pressable {...props} style={[styles.container, props.style as ViewStyle]}>
         {children}
       </Pressable>

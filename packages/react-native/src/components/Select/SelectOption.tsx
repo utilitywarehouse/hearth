@@ -1,4 +1,3 @@
-import React from 'react';
 import { Pressable, View, ViewStyle } from 'react-native';
 import { SelectOptionProps } from './Select.props';
 import { useSelectContext } from './Select.context';
@@ -36,7 +35,6 @@ const SelectOption = ({
   };
 
   return (
-    // @ts-expect-error - Pressable children
     <Pressable
       onPress={handlePress}
       disabled={disabled}

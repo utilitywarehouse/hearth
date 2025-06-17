@@ -15,7 +15,6 @@ const LinkRoot = ({
   const value = useMemo(() => ({ inverted, disabled, active }), [inverted, disabled, active]);
   return (
     <LinkContext.Provider value={value}>
-      {/* @ts-expect-error - button children */}
       <Pressable {...props} style={[styles.container, props.style as ViewStyle]}>
         {children}
       </Pressable>

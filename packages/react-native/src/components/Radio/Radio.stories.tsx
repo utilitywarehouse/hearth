@@ -1,6 +1,5 @@
-import React from 'react';
 import { Radio, RadioGroup } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
 

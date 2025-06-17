@@ -1,3 +1,4 @@
+import { Children, isValidElement, useMemo } from 'react';
 import { createAccordion } from '@gluestack-ui/accordion';
 import AccordionRoot from './AccordionRoot';
 import AccordionContentTextComponent from './AccordionContentText';
@@ -14,7 +15,6 @@ import {
   ChevronUpSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { AccordionHeading } from './AccordionHeading';
-import React from 'react';
 
 const AccordionComponent = createAccordion({
   Root: AccordionRoot,
@@ -70,13 +70,13 @@ export const AccordionItem = ({
     return null;
   }
 
-  const processedChildren = React.Children.toArray(children);
+  const processedChildren = Children.toArray(children);
   const hasContentComponent = processedChildren.some(
     // @ts-expect-error - type
-    child => React.isValidElement(child) && child.type.displayName === 'AccordionContent'
+    child => isValidElement(child) && child.type.displayName === 'AccordionContent'
   );
 
-  const itemValue = React.useMemo(() => {
+  const itemValue = useMemo(() => {
     if (value !== undefined) {
       return value;
     }

@@ -28,7 +28,6 @@ const CheckboxRoot = ({
 
   return (
     <CheckboxContext.Provider value={value}>
-      {/* @ts-expect-error - pressable children */}
       <Pressable {...props} style={[styles.container, style as ViewStyle]}>
         {children}
       </Pressable>
