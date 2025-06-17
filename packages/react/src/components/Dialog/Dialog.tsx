@@ -23,6 +23,7 @@ export const Dialog = React.forwardRef<DialogElement, DialogProps>(
     ref
   ) => {
     const portalProps = { forceMount, container };
+
     return (
       <RadixDialog.Portal {...portalProps}>
         <RadixDialog.Overlay className="hearth-DialogOverlay" />
@@ -30,18 +31,24 @@ export const Dialog = React.forwardRef<DialogElement, DialogProps>(
         <RadixDialog.Content ref={ref} className={clsx(componentClassName, className)} {...props}>
           <Grid className="hearth-DialogHeader" templateColumns="1fr 24px">
             <Box asChild gridColumn="1 / 2" gridRow="1 / 2">
-              <Heading size="lg">{heading}</Heading>
+              <RadixDialog.Title asChild>
+                <Heading size="lg">{heading}</Heading>
+              </RadixDialog.Title>
             </Box>
             <DialogClose>
               <UnstyledIconButton
-                label="Close dialog"
+                label="Close"
                 data-visually-hidden={hideCloseButton ? '' : undefined}
               >
                 <CloseMediumIcon />
               </UnstyledIconButton>
             </DialogClose>
             <Box asChild gridColumn="1 / 3" gridRow="2 / 3">
-              <BodyText size="md">{description}</BodyText>
+              <RadixDialog.Description asChild>
+                <BodyText size="md" as="span">
+                  {description}
+                </BodyText>
+              </RadixDialog.Description>
             </Box>
           </Grid>
           {children}

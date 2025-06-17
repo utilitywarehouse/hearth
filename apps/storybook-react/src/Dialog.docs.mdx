@@ -17,7 +17,45 @@ Add Modal when we've built it
 
 ## Usage Guidelines
 
-Add usage guidelines
+`Dialog` comprises a number of components you can compose together, and can be
+uses as either a controlled or uncontrolled component.
+
+- `DialogRoot` contains all parts of a dialog, providing context to it's children. You must wrap your Dialog with this component.
+- `DialogTrigger` wraps a `Button` component and is used to open the dialog. This is not needed for a state controlled dialog.
+- `Dialog` is the main component where you should place your content.
+- `DialogFooter` is a container for any actions, such as buttons.
+- `DialogClose` wraps a `Button` component and is used to close the dialog. This is not needed for a state controlled dialog.
+
+### Uncontrolled usage
+
+```tsx
+<DialogRoot>
+  <DialogTrigger>
+    <Button>Open dialog</Button>
+  </DialogTrigger>
+  <Dialog
+    heading="Hearth dialog"
+    description="Overlays content to request a decision or inform users of important information"
+  >
+    <DialogFooter>
+      <DialogClose>
+        <Button variant="ghost" colorScheme="grey">
+          Cancel
+        </Button>
+      </DialogClose>
+      <DialogClose>
+        <Button variant="solid" colorScheme="yellow">
+          Primary
+        </Button>
+      </DialogClose>
+    </DialogFooter>
+  </Dialog>
+</DialogRoot>
+```
+
+### Controlled usage
+
+<Canvas of={Stories.ControlledUsage} sourceState="shown" />
 
 ## Accessibility
 

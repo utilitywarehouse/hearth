@@ -7,6 +7,7 @@ import {
   DialogFooter,
   Button,
 } from '@utilitywarehouse/hearth-react';
+import React from 'react';
 
 const meta: Meta<typeof Dialog> = {
   title: 'Stories / Dialog',
@@ -77,4 +78,27 @@ export const OnMobile: Story = {
       </Dialog>
     </DialogRoot>
   ),
+};
+
+export const ControlledUsage: Story = {
+  render: args => {
+    const [open, setOpen] = React.useState(false);
+    return (
+      <div>
+        <Button onClick={() => setOpen(true)}>Open dialog</Button>
+        <DialogRoot open={open} onOpenChange={(o: boolean) => setOpen(o)}>
+          <Dialog heading="Controlled dialog">
+            <DialogFooter>
+              <Button variant="ghost" colorScheme="grey" onClick={() => setOpen(false)}>
+                Cancel
+              </Button>
+              <Button variant="solid" colorScheme="yellow" onClick={() => setOpen(false)}>
+                Primary
+              </Button>
+            </DialogFooter>
+          </Dialog>
+        </DialogRoot>
+      </div>
+    );
+  },
 };

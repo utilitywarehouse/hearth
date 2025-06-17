@@ -3,13 +3,6 @@
   inset: 0;
   background-color: var(--h-overlay-background-color);
   opacity: var(--h-overlay-opacity);
-
-  &:where([data-state='open']) {
-    animation: hearth-dialog-overlay-fade-in 200ms ease-out;
-  }
-  &:where([data-state='closed']) {
-    animation: hearth-dialog-overlay-fade-out 160ms ease-out;
-  }
 }
 
 .hearth-Dialog {
@@ -28,13 +21,6 @@
   padding: var(--h-bottom-sheet-padding);
   min-width: fit-content;
 
-  &:where([data-state='open']) {
-    animation: hearth-dialog-slide-up 125ms ease-out;
-  }
-  &:where([data-state='closed']) {
-    animation: hearth-dialog-slide-down 150ms ease-out;
-  }
-
   @media (--h-tablet) {
     top: 50%;
     left: 50%;
@@ -43,13 +29,6 @@
     border-bottom-left-radius: var(--h-dialog-border-radius);
     border-bottom-right-radius: var(--h-dialog-border-radius);
     width: var(--h-dialog-width-tablet);
-
-    &:where([data-state='open']) {
-      animation: hearth-dialog-show 125ms ease-out;
-    }
-    &:where([data-state='closed']) {
-      animation: hearth-dialog-hide 125ms ease-out;
-    }
   }
 
   @media (--h-desktop) {
@@ -134,6 +113,31 @@
     to {
       opacity: 0;
       transform: translate(-50%, -50%) scale(0.99);
+    }
+  }
+
+  .hearth-DialogOverlay {
+    &:where([data-state='open']) {
+      animation: hearth-dialog-overlay-fade-in 200ms ease-out;
+    }
+    &:where([data-state='closed']) {
+      animation: hearth-dialog-overlay-fade-out 160ms ease-out;
+    }
+  }
+  .hearth-Dialog {
+    &:where([data-state='open']) {
+      animation: hearth-dialog-slide-up 125ms ease-out;
+    }
+    &:where([data-state='closed']) {
+      animation: hearth-dialog-slide-down 150ms ease-out;
+    }
+    @media (--h-tablet) {
+      &:where([data-state='open']) {
+        animation: hearth-dialog-show 125ms ease-out;
+      }
+      &:where([data-state='closed']) {
+        animation: hearth-dialog-hide 125ms ease-out;
+      }
     }
   }
 }
