@@ -62,6 +62,7 @@
     "@storybook/react-vite": "^8.6.12",
     "@storybook/test": "^8.6.12",
     "@storybook/theming": "^8.6.12",
+    "@types/react": "19.0.12",
     "@utilitywarehouse/hearth-fonts": "workspace:^",
     "@utilitywarehouse/hearth-react-icons": "workspace:^",
     "@utilitywarehouse/hearth-tokens": "workspace:^",
