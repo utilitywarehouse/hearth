@@ -1,25 +1,30 @@
-import React, { forwardRef } from 'react';
 import { BottomSheetView as View } from '@gorhom/bottom-sheet';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { BottomSheetViewProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetView/types';
 import { useBottomSheetContext } from './BottomSheet.context';
+import React from 'react';
 
-const StyledBottomSheetView = withUnistyles(View);
+const StyledBottomSheetView = withUnistyles(View) as React.ForwardRefExoticComponent<
+  BottomSheetViewProps & React.RefAttributes<typeof View>
+>;
 
-const BottomSheetView = forwardRef<typeof View, BottomSheetViewProps & { isModal?: boolean }>(
-  ({ children, style, isModal = true, ...props }, ref) => {
-    const { handle } = useBottomSheetContext();
-    styles.useVariants({
-      isModal,
-      handle,
-    });
-    return (
-      <StyledBottomSheetView ref={ref} style={[styles.contentContainer, style]} {...props}>
-        {children}
-      </StyledBottomSheetView>
-    );
-  }
-);
+const BottomSheetView = ({
+  children,
+  style,
+  isModal = true,
+  ...props
+}: BottomSheetViewProps & { isModal?: boolean }) => {
+  const { handle } = useBottomSheetContext();
+  styles.useVariants({
+    isModal,
+    handle,
+  });
+  return (
+    <StyledBottomSheetView style={[styles.contentContainer, style]} {...props}>
+      {children}
+    </StyledBottomSheetView>
+  );
+};
 
 const styles = StyleSheet.create((theme, rt) => ({
   contentContainer: {

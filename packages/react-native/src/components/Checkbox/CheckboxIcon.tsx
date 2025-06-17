@@ -1,25 +1,22 @@
-import React, { forwardRef } from 'react';
 import { Icon } from '../Icon';
-import type { SvgRef } from '../../types';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import IconProps from '../Icon/Icon.props';
 import { StyleSheet } from 'react-native-unistyles';
 import { Platform, ViewStyle } from 'react-native';
 
-const CheckboxIcon = forwardRef<SvgRef, IconProps>(({ style, ...props }, ref) => {
+const CheckboxIcon = ({ style, ...props }: IconProps) => {
   return (
     <Icon
-      ref={ref}
       as={TickSmallIcon}
       {...props}
       style={
         Platform.OS === 'web'
-          ? StyleSheet.compose(styles.icon, style)
-          : [styles.icon as ViewStyle, style]
+          ? StyleSheet.compose(styles.icon as any, style)
+          : ([styles.icon as ViewStyle, style] as any)
       }
     />
   );
-});
+};
 
 const styles = StyleSheet.create(theme => ({
   icon: {

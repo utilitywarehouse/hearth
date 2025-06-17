@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo } from 'react';
+import { useMemo } from 'react';
 import type ListItemProps from './ListItem.props';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Skeleton } from '../../Skeleton';
@@ -6,7 +6,6 @@ import { useListContext } from '../List.context';
 import { StyleSheet } from 'react-native-unistyles';
 import { Pressable, ViewStyle } from 'react-native';
 import { IListItemContext, ListItemContext } from './ListItem.context';
-import type { PressableRef } from '../../../types';
 import ListItemContent from './ListItemContent';
 import ListItemLeadingContent from './ListItemLeadingContent';
 import ListItemText from './ListItemText';
@@ -14,123 +13,115 @@ import ListItemHelperText from './ListItemHelperText';
 import ListItemTrailingContent from './ListItemTrailingContent';
 import ListItemTrailingIcon from './ListItemTrailingIcon';
 
-const ListItemRoot = forwardRef<
-  PressableRef,
-  ListItemProps & { states?: { active?: boolean; disabled?: boolean } }
->(
-  (
-    {
-      text,
-      helperText,
-      leadingContent,
-      trailingContent,
-      disabled,
-      divider,
-      dividerColor,
-      loading,
-      children,
-      states,
-      variant = 'subtle',
-      ...props
-    },
-    ref
-  ) => {
-    const { onPress } = props;
-    const listContext = useListContext();
-    const { active } = states || { active: false };
+const ListItemRoot = ({
+  text,
+  helperText,
+  leadingContent,
+  trailingContent,
+  disabled,
+  divider,
+  dividerColor,
+  loading,
+  children,
+  states,
+  variant = 'subtle',
+  ...props
+}: ListItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
+  const { onPress } = props;
+  const listContext = useListContext();
+  const { active } = states || { active: false };
 
-    const getListContainer = (): ListItemProps['variant'] => {
-      if (listContext?.container?.includes('subtle')) {
-        return 'subtle';
-      }
-      if (listContext?.container?.includes('emphasis')) {
-        return 'emphasis';
-      }
-      return undefined;
-    };
-
-    const isLoading = loading || listContext?.loading;
-    const showPressed = isLoading ? false : !!onPress;
-    const showDivider = listContext?.divider ?? divider;
-    const isDisabled = disabled || listContext?.disabled || false;
-    const listItemVariant = getListContainer() || variant;
-
-    const testID = props.testID || 'list-item';
-    const loadingTestID = isLoading ? `${testID}-loading` : testID;
-
-    styles.useVariants({
-      divider: showDivider,
-      variant: listItemVariant,
-      showPressed,
-      active,
-      disabled: isDisabled || isLoading,
-      showDisabled: !listContext?.disabled && disabled,
-      isFirstChild: props.isFirst,
-    });
-
-    const value: IListItemContext = useMemo(() => {
-      return {
-        showPressed,
-        divider: showDivider,
-        active,
-        loading: isLoading,
-        disabled: isDisabled,
-      };
-    }, [active, showPressed, showDivider, isLoading, isDisabled]);
-
-    if (loading || listContext?.loading) {
-      return (
-        <Pressable
-          ref={ref}
-          {...props}
-          testID={loadingTestID}
-          style={[styles.container, props.style as ViewStyle]}
-          disabled={isDisabled}
-        >
-          {leadingContent ? <Skeleton width={24} height={24} /> : null}
-          <ListItemContent>
-            <Skeleton width="80%" height={20} />
-            <Skeleton width="100%" height={16} />
-          </ListItemContent>
-          {onPress || trailingContent ? <Skeleton width={24} height={24} /> : null}
-        </Pressable>
-      );
+  const getListContainer = (): ListItemProps['variant'] => {
+    if (listContext?.container?.includes('subtle')) {
+      return 'subtle';
     }
+    if (listContext?.container?.includes('emphasis')) {
+      return 'emphasis';
+    }
+    return undefined;
+  };
 
+  const isLoading = loading || listContext?.loading;
+  const showPressed = isLoading ? false : !!onPress;
+  const showDivider = listContext?.divider ?? divider;
+  const isDisabled = disabled || listContext?.disabled || false;
+  const listItemVariant = getListContainer() || variant;
+
+  const testID = props.testID || 'list-item';
+  const loadingTestID = isLoading ? `${testID}-loading` : testID;
+
+  styles.useVariants({
+    divider: showDivider,
+    variant: listItemVariant,
+    showPressed,
+    active,
+    disabled: isDisabled || isLoading,
+    showDisabled: !listContext?.disabled && disabled,
+    isFirstChild: props.isFirst,
+  });
+
+  const value: IListItemContext = useMemo(() => {
+    return {
+      showPressed,
+      divider: showDivider,
+      active,
+      loading: isLoading,
+      disabled: isDisabled,
+    };
+  }, [active, showPressed, showDivider, isLoading, isDisabled]);
+
+  if (loading || listContext?.loading) {
     return (
-      <ListItemContext.Provider value={value}>
-        <Pressable
-          ref={ref}
-          {...props}
-          testID={testID}
-          style={[styles.container, props.style as ViewStyle]}
-          disabled={isDisabled}
-        >
-          {children ? (
-            children
-          ) : (
-            <>
-              {leadingContent ? (
-                <ListItemLeadingContent>{leadingContent}</ListItemLeadingContent>
-              ) : null}
-              <ListItemContent>
-                <ListItemText>{text}</ListItemText>
-                {helperText ? <ListItemHelperText>{helperText}</ListItemHelperText> : null}
-              </ListItemContent>
-              {trailingContent ? (
-                <ListItemTrailingContent>{trailingContent}</ListItemTrailingContent>
-              ) : !!onPress ? (
-                <ListItemTrailingContent>
-                  <ListItemTrailingIcon as={ChevronRightSmallIcon} />
-                </ListItemTrailingContent>
-              ) : null}
-            </>
-          )}
-        </Pressable>
-      </ListItemContext.Provider>
+      // @ts-expect-error - pressable children
+      <Pressable
+        {...props}
+        testID={loadingTestID}
+        style={[styles.container, props.style as ViewStyle]}
+        disabled={isDisabled}
+      >
+        {leadingContent ? <Skeleton width={24} height={24} /> : null}
+        <ListItemContent>
+          <Skeleton width="80%" height={20} />
+          <Skeleton width="100%" height={16} />
+        </ListItemContent>
+        {onPress || trailingContent ? <Skeleton width={24} height={24} /> : null}
+      </Pressable>
     );
   }
-);
+
+  return (
+    <ListItemContext.Provider value={value}>
+      {/* @ts-expect-error - pressable children */}
+      <Pressable
+        {...props}
+        testID={testID}
+        style={[styles.container, props.style as ViewStyle]}
+        disabled={isDisabled}
+      >
+        {children ? (
+          children
+        ) : (
+          <>
+            {leadingContent ? (
+              <ListItemLeadingContent>{leadingContent}</ListItemLeadingContent>
+            ) : null}
+            <ListItemContent>
+              <ListItemText>{text}</ListItemText>
+              {helperText ? <ListItemHelperText>{helperText}</ListItemHelperText> : null}
+            </ListItemContent>
+            {trailingContent ? (
+              <ListItemTrailingContent>{trailingContent}</ListItemTrailingContent>
+            ) : !!onPress ? (
+              <ListItemTrailingContent>
+                <ListItemTrailingIcon as={ChevronRightSmallIcon} />
+              </ListItemTrailingContent>
+            ) : null}
+          </>
+        )}
+      </Pressable>
+    </ListItemContext.Provider>
+  );
+};
 
 ListItemRoot.displayName = 'ListItemRoot';
 

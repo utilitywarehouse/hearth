@@ -1,3 +1,4 @@
+import { PropsWithChildren } from 'react';
 import type { PressableProps } from 'react-native';
 
 /**
@@ -55,7 +56,8 @@ interface AlertWithoutChildrenProps extends PressableProps {
 
 interface AlertWithChildrenProps
   extends PressableProps,
-    Omit<AlertWithoutChildrenProps, 'text' | 'children'> {
+    Omit<AlertWithoutChildrenProps, 'text' | 'children'>,
+    PropsWithChildren {
   text?: never;
   onPressLink?: never;
   onPressIconButton?: never;

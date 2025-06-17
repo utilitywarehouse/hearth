@@ -4,7 +4,8 @@ import { defineConfig } from 'vite';
 
 const unistylesPluginOptions = {
   autoProcessImports: ['@utilitywarehouse/hearth-react-native'],
-  // autoProcessPaths: ['../../src'],
+  autoProcessPaths: ['@utilitywarehouse/hearth-react-native'],
+  root: './src',
   debug: false,
 };
 

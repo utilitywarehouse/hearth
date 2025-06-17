@@ -1,22 +1,20 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import { BottomSheetHandle as Handle } from '@gorhom/bottom-sheet';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { BottomSheetDefaultHandleProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetHandle/types';
 
 const StyledBottomSheetHandle = withUnistyles(Handle);
 
-const BottomSheetHandle = forwardRef<typeof Handle, BottomSheetDefaultHandleProps>(
-  ({ style, indicatorStyle, ...props }, ref) => {
-    return (
-      <StyledBottomSheetHandle
-        ref={ref}
-        style={[styles.handle, style]}
-        indicatorStyle={[styles.indicator, indicatorStyle]}
-        {...props}
-      />
-    );
-  }
-);
+const BottomSheetHandle = ({ style, indicatorStyle, ...props }: BottomSheetDefaultHandleProps) => {
+  return (
+    <StyledBottomSheetHandle
+      // @ts-ignore - style
+      style={[styles.handle, style]}
+      indicatorStyle={[styles.indicator, indicatorStyle]}
+      {...props}
+    />
+  );
+};
 
 const styles = StyleSheet.create(theme => ({
   handle: {

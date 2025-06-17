@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { useMemo } from 'react';
 import type BadgeProps from './Badge.props';
 import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
@@ -6,10 +6,10 @@ import { BadgeContext } from './Badge.context';
 import BadgeText from './BadgeText';
 import BadgeIcon from './BadgeIcon';
 
-const Badge = forwardRef<View, BadgeProps>(({ children, ...props }, ref) => {
+const Badge = ({ children, ...props }: BadgeProps) => {
   const { variant = 'solid', icon, colorScheme = 'blue', flatBase = false, style, ...rest } = props;
 
-  const value = React.useMemo(
+  const value = useMemo(
     () => ({ colorScheme, flatBase, variant }),
     [colorScheme, flatBase, variant]
   );
@@ -20,13 +20,13 @@ const Badge = forwardRef<View, BadgeProps>(({ children, ...props }, ref) => {
 
   return (
     <BadgeContext.Provider value={value}>
-      <View ref={ref} {...rest} style={[styles.container, style]}>
+      <View {...rest} style={[styles.container, style]}>
         {!!icon && <BadgeIcon as={icon} />}
         {childIsText ? <BadgeText>{children}</BadgeText> : children}
       </View>
     </BadgeContext.Provider>
   );
-});
+};
 
 Badge.displayName = 'Badge';
 

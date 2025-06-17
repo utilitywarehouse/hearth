@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { forwardRef, useMemo } from 'react';
+import { useMemo } from 'react';
 import { Text, TextStyle } from 'react-native';
 import type HeadingProps from './Heading.props';
 import { StyleSheet } from 'react-native-unistyles';
@@ -9,72 +6,66 @@ import type { ColorValue } from '../../types';
 import { useTheme } from '../../hooks';
 import { getFlattenedColorValue } from '../../utils';
 
-const Heading = forwardRef<Text, HeadingProps>(
-  (
-    {
-      children,
-      color,
-      size = 'lg',
-      truncated,
-      underline,
-      strikeThrough,
-      textTransform,
-      textAlign,
-      textAlignVertical,
-      textDecorationColor,
-      textDecorationLine,
-      textDecorationStyle,
-      userSelect,
-      inverted,
-      ...props
-    },
-    ref
-  ) => {
-    styles.useVariants({
-      size,
-      underline,
-      strikeThrough,
-      inverted,
-    });
-    const { color: themeColor, colorMode } = useTheme();
-    const colorValue: ColorValue = useMemo(
-      () => getFlattenedColorValue(color, themeColor),
-      [color, colorMode]
-    );
-    const decorationColor = useMemo(
-      () => getFlattenedColorValue(textDecorationColor, themeColor),
-      [textDecorationColor, colorMode]
-    );
-    return (
-      <Text
-        ref={ref}
-        {...props}
-        {...(truncated
-          ? {
-              numberOfLines: 1,
-              ellipsizeMode: 'tail',
-            }
-          : {})}
-        style={[
-          styles.text,
-          {
-            ...(colorValue ? { color: colorValue } : {}),
-            ...(textTransform ? { textTransform } : {}),
-            ...(textAlign ? { textAlign } : {}),
-            ...(textAlignVertical ? { textAlignVertical } : {}),
-            ...(decorationColor && { textDecorationColor: decorationColor }),
-            ...(textDecorationLine && { textDecorationLine }),
-            ...(textDecorationStyle && { textDecorationStyle }),
-            ...(userSelect && { userSelect }),
-          },
-          props.style,
-        ]}
-      >
-        {children}
-      </Text>
-    );
-  }
-);
+const Heading = ({
+  children,
+  color,
+  size = 'lg',
+  truncated,
+  underline,
+  strikeThrough,
+  textTransform,
+  textAlign,
+  textAlignVertical,
+  textDecorationColor,
+  textDecorationLine,
+  textDecorationStyle,
+  userSelect,
+  inverted,
+  ...props
+}: HeadingProps) => {
+  styles.useVariants({
+    size,
+    underline,
+    strikeThrough,
+    inverted,
+  });
+  const { color: themeColor, colorMode } = useTheme();
+  const colorValue: ColorValue = useMemo(
+    () => getFlattenedColorValue(color, themeColor),
+    [color, colorMode]
+  );
+  const decorationColor = useMemo(
+    () => getFlattenedColorValue(textDecorationColor, themeColor),
+    [textDecorationColor, colorMode]
+  );
+  return (
+    <Text
+      {...props}
+      {...(truncated
+        ? {
+            numberOfLines: 1,
+            ellipsizeMode: 'tail',
+          }
+        : {})}
+      style={[
+        styles.text,
+        {
+          ...(colorValue ? { color: colorValue } : {}),
+          ...(textTransform ? { textTransform } : {}),
+          ...(textAlign ? { textAlign } : {}),
+          ...(textAlignVertical ? { textAlignVertical } : {}),
+          ...(decorationColor && { textDecorationColor: decorationColor }),
+          ...(textDecorationLine && { textDecorationLine }),
+          ...(textDecorationStyle && { textDecorationStyle }),
+          ...(userSelect && { userSelect }),
+        },
+        props.style,
+      ]}
+    >
+      {children}
+    </Text>
+  );
+};
 
 Heading.displayName = 'Heading';
 

@@ -1,55 +1,53 @@
-import React, { forwardRef, useMemo } from 'react';
-import BottomSheetCore from '@gorhom/bottom-sheet';
+import React, { useMemo } from 'react';
+import BottomSheetCore, { BottomSheetProps as RootBottomSheetProps } from '@gorhom/bottom-sheet';
 import type BottomSheetProps from './BottomSheet.props';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import useBottomSheetLogic from './useBottomSheetLogic';
 import { BottomSheetMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import { BottomSheetContext } from './BottomSheet.context';
 
-const StyledBottomSheetCore = withUnistyles(BottomSheetCore);
+const StyledBottomSheetCore = withUnistyles(BottomSheetCore) as React.ForwardRefExoticComponent<
+  RootBottomSheetProps & React.RefAttributes<BottomSheetMethods>
+>;
 
 type BottomSheet = BottomSheetMethods;
 
-const BottomSheet = forwardRef<BottomSheet, BottomSheetProps>(
-  (
-    {
-      children,
-      containerStyle,
-      handleStyle,
-      backdrop = true,
-      showHandle = true,
-      contentStyle,
-      ...rest
-    },
-    ref
-  ) => {
-    const bottomSheetRef = React.useRef<BottomSheet>(null);
+const BottomSheet = ({
+  children,
+  containerStyle,
+  handleStyle,
+  backdrop = true,
+  showHandle = true,
+  contentStyle,
+  ref,
+  ...rest
+}: BottomSheetProps) => {
+  const bottomSheetRef = React.useRef<BottomSheet>(null);
 
-    const { renderBackdrop, renderHandle } = useBottomSheetLogic<BottomSheet>({
-      ref,
-      bottomSheetRef,
-      backdrop,
-      showHandle,
-      handleStyle,
-    });
+  const { renderBackdrop, renderHandle } = useBottomSheetLogic<BottomSheet>({
+    ref,
+    bottomSheetRef,
+    backdrop,
+    showHandle,
+    handleStyle,
+  });
 
-    const value = useMemo(() => ({ handle: showHandle }), [showHandle]);
+  const value = useMemo(() => ({ handle: showHandle }), [showHandle]);
 
-    return (
-      <StyledBottomSheetCore
-        ref={bottomSheetRef}
-        index={-1}
-        backdropComponent={renderBackdrop}
-        handleComponent={renderHandle}
-        style={[styles.container, containerStyle]}
-        backgroundStyle={styles.background}
-        {...rest}
-      >
-        <BottomSheetContext.Provider value={value}>{children}</BottomSheetContext.Provider>
-      </StyledBottomSheetCore>
-    );
-  }
-);
+  return (
+    <StyledBottomSheetCore
+      ref={bottomSheetRef}
+      index={-1}
+      backdropComponent={renderBackdrop}
+      handleComponent={renderHandle}
+      style={[styles.container, containerStyle]}
+      backgroundStyle={styles.background}
+      {...rest}
+    >
+      <BottomSheetContext.Provider value={value}>{children}</BottomSheetContext.Provider>
+    </StyledBottomSheetCore>
+  );
+};
 
 const styles = StyleSheet.create(theme => ({
   container: {

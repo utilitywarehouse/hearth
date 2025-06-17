@@ -10,7 +10,7 @@ export interface UnorderedListProps extends ViewProps {
   bulletStyle?: ViewStyle;
 }
 
-const UnorderedList: React.FC<UnorderedListProps> = ({ children, gap = '100', style, ...rest }) => {
+const UnorderedList = ({ children, gap = '100', style, ...rest }: UnorderedListProps) => {
   const { computedStyles } = useStyleProps({ gap });
   return (
     <View style={[computedStyles, style]} {...rest}>
@@ -28,6 +28,8 @@ const UnorderedList: React.FC<UnorderedListProps> = ({ children, gap = '100', st
     </View>
   );
 };
+
+UnorderedList.displayName = 'UnorderedList';
 
 const styles = StyleSheet.create({
   listItemContainer: {

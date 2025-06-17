@@ -1,5 +1,5 @@
 import { ComponentType } from 'react';
-import { ViewProps } from 'react-native';
+import { ViewProps, View } from 'react-native';
 
 export interface AccordionProps extends ViewProps {
   /**
@@ -41,12 +41,4 @@ export interface AccordionProps extends ViewProps {
   contentNoPadding?: boolean;
   headingText?: string;
   headingHelperText?: string;
-  headingLinkText?: string;
-  headingLinkHref?: string;
-  headingLinkOnPress?: () => void;
-  headingLinkTarget?: '_blank' | '_self' | '_parent' | '_top';
-  headingLinkDisabled?: boolean;
-  headingLinkIcon?: ComponentType;
-  headingLinkIconPosition?: 'left' | 'right';
-  headingLinkShowIcon?: boolean;
 }

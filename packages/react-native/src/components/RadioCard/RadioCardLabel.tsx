@@ -1,15 +1,7 @@
-import React, { forwardRef } from 'react';
-import { Text } from 'react-native';
 import { Label } from '../Label';
 import LabelProps from '../Label/Label.props';
 
-const RadioCardLabel = forwardRef<Text, LabelProps>(({ children, ...props }, ref) => {
-  return (
-    <Label ref={ref} {...props}>
-      {children}
-    </Label>
-  );
-});
+const RadioCardLabel = ({ children, ...props }: LabelProps) => <Label {...props}>{children}</Label>;
 
 RadioCardLabel.displayName = 'RadioCardLabel';
 

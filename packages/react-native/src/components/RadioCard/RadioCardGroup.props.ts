@@ -1,12 +1,14 @@
-import { ViewProps, ViewStyle } from 'react-native';
+import { View, ViewProps, ViewStyle } from 'react-native';
 import { space } from '../../tokens';
 import { GridProps } from '../Grid';
+import { Ref } from 'react';
 
 // Base props shared by both layout modes
 type RadioCardGroupBaseProps = {
   value?: string;
   onChange?: (value: string) => void;
   gap?: keyof typeof space;
+  ref?: Ref<View>;
 } & ViewProps;
 
 // Props specific to flexbox layout (when columns is not set)

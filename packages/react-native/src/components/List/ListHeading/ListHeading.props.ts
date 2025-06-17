@@ -1,7 +1,9 @@
-import { ComponentType } from 'react';
-import type { ViewProps } from 'react-native';
+import { ComponentType, Ref } from 'react';
+import type { ViewProps, View } from 'react-native';
 
-interface ListHeadingBaseProps extends Omit<ViewProps, 'children'> {}
+interface ListHeadingBaseProps extends Omit<ViewProps, 'children'> {
+  ref?: Ref<View>;
+}
 
 export interface ListHeadingWithChildren extends ListHeadingBaseProps {
   children: ViewProps['children'];

@@ -1,20 +1,19 @@
-import React, { forwardRef } from 'react';
 import { View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useRadioCardContext } from './RadioCard.context';
 
-const RadioCardIndicator = forwardRef<View, ViewProps>((props, ref) => {
+const RadioCardIndicator = (props: ViewProps) => {
   const { checked, active } = useRadioCardContext();
   styles.useVariants({
     checked,
     active,
   });
   return (
-    <View ref={ref} {...props} style={[styles.container, props.style]}>
+    <View {...props} style={[styles.container, props.style]}>
       {props.children}
     </View>
   );
-});
+};
 
 const styles = StyleSheet.create(theme => ({
   outline: {

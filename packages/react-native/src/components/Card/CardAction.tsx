@@ -1,8 +1,8 @@
-import React, { FC, PropsWithChildren, useMemo } from 'react';
+import { PropsWithChildren, useMemo } from 'react';
 import { CardActionContext } from './CardAction.context';
 import { useCardContext } from './Card.context';
 
-const CardAction: FC<PropsWithChildren<{ actionToInherit?: string }>> = ({ children }) => {
+const CardAction = ({ children }: PropsWithChildren<{ actionToInherit?: string }>) => {
   const { pressed } = useCardContext();
   const context = useMemo(
     () => ({

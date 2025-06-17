@@ -1,14 +1,13 @@
-import React, { forwardRef } from 'react';
-import type { Text, TextProps } from 'react-native';
+import type { TextProps } from 'react-native';
 import { DetailText } from '../DetailText';
 
-const AlertTitle = forwardRef<Text, TextProps>(({ children, ...props }, ref) => {
+const AlertTitle = ({ children, ...props }: TextProps) => {
   return (
-    <DetailText size="md" ref={ref} {...props}>
+    <DetailText size="md" {...props}>
       {children}
     </DetailText>
   );
-});
+};
 
 AlertTitle.displayName = 'AlertTitle';
 

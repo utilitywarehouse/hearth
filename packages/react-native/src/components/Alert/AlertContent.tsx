@@ -1,14 +1,13 @@
-import React, { forwardRef } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 import { View, ViewProps } from 'react-native';
 
-const AlertContent = forwardRef<View, ViewProps>(({ children, style, ...props }, ref) => {
+const AlertContent = ({ children, style, ...props }: ViewProps) => {
   return (
-    <View ref={ref} {...props} style={[styles.content, style]}>
+    <View {...props} style={[styles.content, style]}>
       {children}
     </View>
   );
-});
+};
 
 AlertContent.displayName = 'AlertContent';
 

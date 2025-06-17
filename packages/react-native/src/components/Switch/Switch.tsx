@@ -1,6 +1,5 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -16,15 +15,13 @@ import SwitchProps from './Switch.props';
 import { useTheme } from '../../hooks';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
-const AnimatedView = Animated.createAnimatedComponent(View);
-
-const CustomSwitch: React.FC<SwitchProps> = ({
+const CustomSwitch = ({
   value = false,
   onValueChange,
   disabled = false,
   size = 'medium',
   ...accessibilityProps
-}) => {
+}: SwitchProps) => {
   const { components } = useTheme();
   const SWITCH_WIDTH = size === 'medium' ? components.switch.md.width : components.switch.sm.width;
   const THUMB_SIZE =
@@ -99,6 +96,7 @@ const CustomSwitch: React.FC<SwitchProps> = ({
   };
 
   return (
+    // @ts-expect-error -  Pressable children
     <Pressable
       onPress={toggleSwitch}
       onPressIn={onPressIn}
@@ -111,16 +109,22 @@ const CustomSwitch: React.FC<SwitchProps> = ({
       accessibilityHint={accessibilityProps.accessibilityHint}
       {...accessibilityProps}
     >
-      <AnimatedView style={[styles.switch, animatedSwitchBackgroundStyle, animatedSwitchStyle]}>
-        <AnimatedView style={[styles.thumb, animatedThumbStyle]}>
-          <AnimatedView style={[styles.iconWrap, animatedTickStyle]}>
-            <Icon as={TickSmallIcon} style={styles.icon} />
-          </AnimatedView>
-          <AnimatedView style={[styles.iconWrap, animatedCrossStyle]}>
-            <Icon as={CloseSmallIcon} style={styles.icon} />
-          </AnimatedView>
-        </AnimatedView>
-      </AnimatedView>
+      <Animated.View style={[styles.switch, animatedSwitchBackgroundStyle, animatedSwitchStyle]}>
+        <Animated.View style={[styles.thumb, animatedThumbStyle]}>
+          <Animated.View style={[styles.iconWrap, animatedTickStyle]}>
+            {(() => {
+              const IconAny = Icon as any;
+              return <IconAny as={TickSmallIcon} style={styles.icon as any} />;
+            })()}
+          </Animated.View>
+          <Animated.View style={[styles.iconWrap, animatedCrossStyle]}>
+            {(() => {
+              const IconAny = Icon as any;
+              return <IconAny as={CloseSmallIcon} style={styles.icon as any} />;
+            })()}
+          </Animated.View>
+        </Animated.View>
+      </Animated.View>
     </Pressable>
   );
 };

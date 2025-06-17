@@ -1,4 +1,5 @@
-import type { TextProps as RNTextProps, TextStyle } from 'react-native';
+import { Ref } from 'react';
+import type { TextProps as RNTextProps, Text, TextStyle } from 'react-native';
 import type { ColorValue } from '../../types';
 
 interface TextProps extends RNTextProps {
@@ -17,6 +18,7 @@ interface TextProps extends RNTextProps {
   textDecorationColor?: ColorValue;
   userSelect?: TextStyle['userSelect'];
   inverted?: boolean;
+  ref?: Ref<Text>;
 }
 
 export default TextProps;

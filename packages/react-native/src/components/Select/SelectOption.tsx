@@ -36,6 +36,7 @@ const SelectOption = ({
   };
 
   return (
+    // @ts-expect-error - Pressable children
     <Pressable
       onPress={handlePress}
       disabled={disabled}
@@ -43,7 +44,10 @@ const SelectOption = ({
     >
       {!!LeftIcon && (
         <View>
-          <Icon style={styles.icon as ViewStyle} as={LeftIcon} />
+          {(() => {
+            const IconAny = Icon as any;
+            return <IconAny style={styles.icon as ViewStyle} as={LeftIcon} />;
+          })()}
         </View>
       )}
 
@@ -58,7 +62,10 @@ const SelectOption = ({
       )}
       {!!RightIcon && !isSelected && (
         <View>
-          <Icon style={styles.icon as ViewStyle} as={RightIcon} />
+          {(() => {
+            const IconAny = Icon as any;
+            return <IconAny style={styles.icon as ViewStyle} as={RightIcon} />;
+          })()}
         </View>
       )}
     </Pressable>
