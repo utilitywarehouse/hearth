@@ -7,7 +7,7 @@ import { breakpoints } from '@utilitywarehouse/hearth-react';
 import '../../../shared/storybook/styles/preview.css';
 import theme from '../../../shared/storybook/theme';
 
-const customViewports = {
+const hearthViewports = {
   mobile: {
     name: 'mobile',
     styles: {
@@ -40,7 +40,9 @@ const customViewports = {
 
 const preview: Preview = {
   parameters: {
-    viewport: { viewports: customViewports },
+    viewport: {
+      options: hearthViewports,
+    },
     docs: {
       theme,
     },

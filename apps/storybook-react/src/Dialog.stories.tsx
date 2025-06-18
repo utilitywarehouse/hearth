@@ -57,7 +57,9 @@ export const Playground: Story = {
 };
 
 export const OnMobile: Story = {
-  parameters: { viewport: { defaultViewport: 'mobile' } },
+  globals: {
+    viewport: { value: 'mobile' },
+  },
   render: args => (
     <DialogRoot>
       <DialogTrigger>
