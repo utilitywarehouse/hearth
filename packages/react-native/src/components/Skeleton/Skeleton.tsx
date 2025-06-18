@@ -1,18 +1,18 @@
 import React, { useMemo } from 'react';
+import { AnimatableNumericValue } from 'react-native';
 import Animated, {
-  useSharedValue,
+  Easing,
   useAnimatedStyle,
+  useSharedValue,
   withRepeat,
   withTiming,
-  Easing,
 } from 'react-native-reanimated';
-import type SkeletonProps from './Skeleton.props';
-import { AnimatableNumericValue, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import type { ColorValue } from '../../types';
-import getStyleValue from '../../utils/getStyleValue';
 import { useTheme } from '../../hooks';
+import type { ColorValue } from '../../types';
 import { getFlattenedColorValue } from '../../utils';
+import getStyleValue from '../../utils/getStyleValue';
+import type SkeletonProps from './Skeleton.props';
 
 const Skeleton = ({
   width,
@@ -27,11 +27,13 @@ const Skeleton = ({
   const { color: themeColor, colorMode, borderRadius: themeBorderRadius } = useTheme();
   const backgroundColorValue: ColorValue = useMemo(
     () => getFlattenedColorValue(backgroundColor, themeColor),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [backgroundColor, colorMode]
   );
 
   const borderRadiusValue: AnimatableNumericValue = useMemo(
     () => getStyleValue(borderRadius, themeBorderRadius),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [borderRadius]
   );
 

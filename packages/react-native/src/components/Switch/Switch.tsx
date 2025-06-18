@@ -1,19 +1,19 @@
-import { Pressable } from 'react-native';
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withTiming,
-  withSpring,
-  interpolateColor,
-  Easing,
-  useReducedMotion,
-} from 'react-native-reanimated';
-import { StyleSheet } from 'react-native-unistyles';
-import { Icon } from '../Icon';
-import SwitchProps from './Switch.props';
-import { useTheme } from '../../hooks';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useEffect } from 'react';
+import { Pressable } from 'react-native';
+import Animated, {
+  Easing,
+  interpolateColor,
+  useAnimatedStyle,
+  useReducedMotion,
+  useSharedValue,
+  withSpring,
+  withTiming,
+} from 'react-native-reanimated';
+import { StyleSheet } from 'react-native-unistyles';
+import { useTheme } from '../../hooks';
+import { Icon } from '../Icon';
+import SwitchProps from './Switch.props';
 
 const CustomSwitch = ({
   value = false,
@@ -80,6 +80,7 @@ const CustomSwitch = ({
 
     // Animate the background color with ease-in-out easing
     progress.value = withTiming(value ? 1 : 0, userConfig);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, disabled]);
 
   const toggleSwitch = () => {

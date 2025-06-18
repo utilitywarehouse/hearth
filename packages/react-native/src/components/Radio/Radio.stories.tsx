@@ -1,5 +1,6 @@
-import { Radio, RadioGroup } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { useState } from 'react';
+import { Radio, RadioGroup } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
 
@@ -90,8 +91,9 @@ export const Variants: Story = {
   args: {
     value: 'Option 1',
   },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: ({ value: _, children: __, label: ___, disabled: _____, onChange: ______, ...args }) => {
-    const [value, setValue] = React.useState('Option 1');
+    const [value, setValue] = useState('Option 1');
     return (
       <Flex space="lg">
         <VariantTitle title="Default">

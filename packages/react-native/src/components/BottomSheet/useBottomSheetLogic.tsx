@@ -1,3 +1,4 @@
+ 
 import React, { useCallback, useImperativeHandle, RefObject, FC } from 'react';
 import { BottomSheetBackdropProps, BottomSheetHandleProps } from '@gorhom/bottom-sheet';
 import BottomSheetBackdrop from './BottomSheetBackdrop';
@@ -13,7 +14,7 @@ interface UseBottomSheetLogicProps<T = any> {
 }
 
 const useBottomSheetLogic = <T = any,>(props: UseBottomSheetLogicProps<T>) => {
-  const { ref, bottomSheetRef, backdrop, showHandle, handleStyle } = props;
+  const { ref, bottomSheetRef, backdrop, showHandle } = props;
 
   // Backdrop component
   const renderBackdrop = useCallback(
@@ -37,7 +38,7 @@ const useBottomSheetLogic = <T = any,>(props: UseBottomSheetLogicProps<T>) => {
 
       return <BottomSheetHandle {...handleProps} />;
     },
-    [showHandle, handleStyle]
+    [showHandle]
   );
 
   // Forward ref methods to parent component

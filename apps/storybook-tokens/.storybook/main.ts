@@ -13,11 +13,9 @@ const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     getAbsolutePath('@storybook/addon-onboarding'),
-    getAbsolutePath('@storybook/addon-essentials'),
     getAbsolutePath('@chromatic-com/storybook'),
-    getAbsolutePath('@storybook/addon-interactions'),
     {
-      name: '@storybook/addon-docs',
+      name: getAbsolutePath("@storybook/addon-docs"),
       options: {
         mdxPluginOptions: {
           mdxCompileOptions: {
@@ -25,7 +23,7 @@ const config: StorybookConfig = {
           },
         },
       },
-    },
+    }
   ],
   framework: {
     name: getAbsolutePath('@storybook/react-vite'),

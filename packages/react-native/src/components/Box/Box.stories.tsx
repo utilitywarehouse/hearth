@@ -59,7 +59,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-  render: ({ as: _, ...args }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: ({ as, ...args }) => {
     return (
       <Box {...args}>
         <BodyText>{args.children}</BodyText>

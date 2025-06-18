@@ -1,3 +1,4 @@
+ 
 import React, { useMemo } from 'react';
 import { CheckboxGroup as CheckboxGroupComponent } from './Checkbox';
 import CheckboxGroupProps from './CheckboxGroup.props';
@@ -43,6 +44,7 @@ const CheckboxGroup = ({
     <CheckboxGroupContext.Provider value={value}>
       <CheckboxGroupComponent
         {...props}
+        value={props.value as Array<string>}
         isDisabled={disabled}
         isReadOnly={readonly}
         isCard={childIsCard}

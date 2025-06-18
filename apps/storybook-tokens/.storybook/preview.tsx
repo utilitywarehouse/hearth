@@ -1,10 +1,10 @@
-import type { Preview } from '@storybook/react-vite';
 import '../src/stories/styles.css';
 import '@utilitywarehouse/hearth-fonts';
 import '../../../shared/storybook/styles/preview.css';
 import theme from '../../../shared/storybook/theme';
 
-const preview: Preview = {
+/** @type { import('@storybook/react-vite').Preview } */
+const preview = {
   decorators: [
     Story => (
       <div style={{ margin: '3em' }}>

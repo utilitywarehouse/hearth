@@ -66,6 +66,15 @@ export const AccordionItem = ({
   testID,
   ...props
 }: AccordionItemProps) => {
+  const itemValue = useMemo(() => {
+    if (value !== undefined) {
+      return value;
+    }
+    const newId = `accordion-item-${accordionItemCounter}`;
+    accordionItemCounter += 1;
+    return newId;
+  }, [value]);
+
   if (!children) {
     return null;
   }
@@ -75,15 +84,6 @@ export const AccordionItem = ({
     // @ts-expect-error - type
     child => isValidElement(child) && child.type.displayName === 'AccordionContent'
   );
-
-  const itemValue = useMemo(() => {
-    if (value !== undefined) {
-      return value;
-    }
-    const newId = `accordion-item-${accordionItemCounter}`;
-    accordionItemCounter += 1;
-    return newId;
-  }, [value]);
 
   return (
     <AccordionItemComponent value={itemValue} title={title} isDisabled={props.disabled} {...props}>

@@ -1,3 +1,4 @@
+ 
 import React, { useMemo } from 'react';
 import { BottomSheetModal as BottomSheetModalCore } from '@gorhom/bottom-sheet';
 import type BottomSheetProps from './BottomSheet.props';
@@ -16,14 +17,13 @@ const BottomSheetModal = ({
   handleStyle,
   backdrop = true,
   showHandle = true,
-  contentStyle,
   ref,
   ...rest
 }: BottomSheetProps) => {
   const bottomSheetRef = React.useRef<BottomSheetModalMethods<any>>(null);
 
   const { renderBackdrop, renderHandle } = useBottomSheetLogic<BottomSheetModal>({
-    // @ts-ignore
+    // @ts-expect-error - ref
     ref,
     bottomSheetRef,
     backdrop,

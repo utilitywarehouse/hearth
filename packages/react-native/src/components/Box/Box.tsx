@@ -1,4 +1,5 @@
-import React, { memo, useMemo } from 'react';
+ 
+import React, { useMemo } from 'react';
 import { View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import type BoxProps from './Box.props';
@@ -8,13 +9,6 @@ import {
   themeStyleMapping,
   viewStyleProps,
 } from '../../utils';
-import { Box } from 'src';
-
-// Helper types for polymorphic components
-type PolymorphicComponentProps<T extends React.ElementType, Props = {}> = Props &
-  Omit<React.ComponentPropsWithoutRef<T>, keyof Props | 'as'> & {
-    as?: T;
-  };
 
 // --- Box component definition ---
 const BoxComponent = ({ as, style, children, ...props }: BoxProps) => {
@@ -51,7 +45,6 @@ const styles = StyleSheet.create(theme => ({
       if (propValue === undefined) return;
 
       let stylePropName: keyof ViewStyle | undefined;
-      let themeKey: keyof typeof theme | undefined;
 
       // Handle shorthand props
       if (propStyleMapping[propName]) {
@@ -65,7 +58,9 @@ const styles = StyleSheet.create(theme => ({
       if (!stylePropName) return;
 
       // Resolve theme value if needed
-      themeKey = themeStyleMapping[stylePropName] as keyof typeof theme;
+      const themeKey: keyof typeof theme | undefined = themeStyleMapping[
+        stylePropName
+      ] as keyof typeof theme;
 
       if (themeKey && theme[themeKey]) {
         computedStyles[stylePropName] = resolveThemeValue(propValue, theme[themeKey]);

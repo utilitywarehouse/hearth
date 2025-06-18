@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
-import '../src/core';
+import { StyleSheet } from '../src/core';
 import theme from '../../../shared/storybook/theme';
 import { color } from '@utilitywarehouse/hearth-tokens';
-import { useArgs } from 'storybook/preview-api';
 import '@utilitywarehouse/hearth-fonts';
 import '../../../shared/storybook/styles/preview.css';
+
+console.log(StyleSheet.hairlineWidth);
 
 /** @type { import('@storybook/react-native-web-vite').Preview } */
 const preview = {
@@ -55,9 +56,7 @@ const preview = {
     },
   },
   decorators: [
-    Story => {
-      const [args] = useArgs();
-
+    (Story, { args }) => {
       useEffect(() => {
         const storybookContainer = document.getElementsByTagName('body')[0];
         if (storybookContainer) {

@@ -1,3 +1,4 @@
+ 
 import { BottomSheetFlatList as FlatList } from '@gorhom/bottom-sheet';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { useBottomSheetContext } from './BottomSheet.context';
@@ -6,7 +7,6 @@ import { BottomSheetFlatListProps } from '@gorhom/bottom-sheet/lib/typescript/co
 const StyledBottomSheetFlatList = withUnistyles(FlatList);
 
 const BottomSheetFlatList = ({
-  children,
   style,
   contentContainerStyle,
   isModal = true,

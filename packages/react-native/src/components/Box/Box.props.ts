@@ -1,4 +1,4 @@
-import type { ViewStyle, StyleProp, ViewProps } from 'react-native';
+import type { ViewStyle, ViewProps } from 'react-native';
 import type {
   BordeWidthValue,
   ColorValue,

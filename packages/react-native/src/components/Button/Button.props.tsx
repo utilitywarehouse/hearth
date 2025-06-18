@@ -69,7 +69,7 @@ type ReactNodeWithoutStringOrNumber = Exclude<ReactNode, string | number | Itera
 export type ButtonWithOtherChildernProps = BaseButtonProps & {
   children:
     | ReactNodeWithoutStringOrNumber
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     | ReactElement<any, React.JSXElementConstructor<any>>
     | Iterable<ReactNodeWithoutStringOrNumber>;
   icon?: never;
