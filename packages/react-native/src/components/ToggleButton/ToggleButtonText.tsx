@@ -1,18 +1,15 @@
-import React, { forwardRef } from 'react';
-import { Text, type TextProps } from 'react-native';
+import { type TextProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { DetailText } from '../DetailText';
 
-const ToggleButtonText = forwardRef<Text, TextProps & { toggled: boolean }>(
-  ({ children, toggled, ...props }, ref) => {
-    styles.useVariants({ toggled });
-    return (
-      <DetailText size="md" ref={ref} {...props} style={[styles.text, props.style]}>
-        {children}
-      </DetailText>
-    );
-  }
-);
+const ToggleButtonText = ({ children, toggled, ...props }: TextProps & { toggled: boolean }) => {
+  styles.useVariants({ toggled });
+  return (
+    <DetailText size="md" {...props} style={[styles.text, props.style]}>
+      {children}
+    </DetailText>
+  );
+};
 
 ToggleButtonText.displayName = 'ToggleButtonText';
 

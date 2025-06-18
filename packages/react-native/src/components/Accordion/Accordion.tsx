@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import { Children, isValidElement, useMemo } from 'react';
 import { createAccordion } from '@gluestack-ui/accordion';
 import AccordionRoot from './AccordionRoot';
 import AccordionContentTextComponent from './AccordionContentText';
@@ -8,7 +8,6 @@ import AccordionHeaderComponent from './AccordionHeader';
 import AccordionItemRoot from './AccordionItemRoot';
 import AccordionTitleTextComponent from './AccordionTitleText';
 import AccordionTriggerComponent from './AccordionTrigger';
-import { View } from 'react-native';
 import { AccordionProps } from './Accordion.props';
 import { AccordionItemProps } from './AccordionItem.props';
 import {
@@ -26,29 +25,7 @@ const AccordionComponent = createAccordion({
   Item: AccordionItemRoot,
   TitleText: AccordionTitleTextComponent,
   Trigger: AccordionTriggerComponent,
-}) as React.ForwardRefExoticComponent<
-  React.ComponentPropsWithoutRef<typeof AccordionRoot> & {
-    isDisabled?: boolean;
-    isCollapsible?: boolean;
-  } & React.RefAttributes<View>
-> & {
-  ContentText: typeof AccordionContentTextComponent;
-  Header: typeof AccordionHeaderComponent;
-  Item: React.ForwardRefExoticComponent<
-    React.ComponentPropsWithoutRef<typeof AccordionItemRoot> & {
-      isDisabled?: boolean;
-    } & React.RefAttributes<View>
-  >;
-  Trigger: React.ForwardRefExoticComponent<
-    Omit<React.ComponentPropsWithoutRef<typeof AccordionTriggerComponent>, 'children'> & {
-      isExpanded?: boolean;
-      children: JSX.Element | Array<JSX.Element> | ((props: any) => JSX.Element);
-    } & React.RefAttributes<View>
-  >;
-  TitleText: typeof AccordionTitleTextComponent;
-  Content: typeof AccordionContentComponent;
-  Icon: typeof AccordionIconComponent;
-};
+});
 
 const AccordionItemComponent = AccordionComponent.Item;
 export const AccordionHeader = AccordionComponent.Header;
@@ -58,114 +35,85 @@ export const AccordionContentText = AccordionComponent.ContentText;
 export const AccordionIcon = AccordionComponent.Icon;
 export const AccordionTitleText = AccordionComponent.TitleText;
 
-const Accordion = forwardRef<View, AccordionProps>(
-  (
-    {
-      children,
-      collapsible,
-      type = 'multiple',
-      headingText,
-      headingHelperText,
-      headingLinkText,
-      headingLinkHref,
-      headingLinkOnPress,
-      headingLinkTarget,
-      headingLinkDisabled,
-      headingLinkIcon,
-      headingLinkIconPosition,
-      headingLinkShowIcon,
-      ...props
-    },
-    ref
-  ) => {
-    return (
-      <AccordionComponent
-        ref={ref}
-        isDisabled={props.disabled}
-        isCollapsible={collapsible}
-        type={type}
-        contentNoPadding={props.contentNoPadding}
-        {...props}
-      >
-        {headingText ? (
-          <AccordionHeading
-            text={headingText}
-            helperText={headingHelperText}
-            linkText={headingLinkText}
-            linkHref={headingLinkHref}
-            linkOnPress={headingLinkOnPress}
-            linkTarget={headingLinkTarget}
-            linkDisabled={headingLinkDisabled}
-            linkIcon={headingLinkIcon}
-            linkIconPosition={headingLinkIconPosition}
-            linkShowIcon={headingLinkShowIcon}
-          />
-        ) : null}
-        {children}
-      </AccordionComponent>
-    );
-  }
+const Accordion = ({
+  children,
+  collapsible,
+  type = 'multiple',
+  headingText,
+  headingHelperText,
+  ...props
+}: AccordionProps) => (
+  <AccordionComponent
+    isDisabled={props.disabled}
+    isCollapsible={collapsible}
+    type={type}
+    contentNoPadding={props.contentNoPadding}
+    {...props}
+  >
+    {headingText ? <AccordionHeading text={headingText} helperText={headingHelperText} /> : null}
+    {children}
+  </AccordionComponent>
 );
 
 let accordionItemCounter = 0;
 
-export const AccordionItem = forwardRef<View, AccordionItemProps>(
-  ({ children, value, title, expanded, triggerContent, testID, ...props }, ref) => {
-    if (!children) {
-      return null;
-    }
-
-    const processedChildren = React.Children.toArray(children);
-    const hasContentComponent = processedChildren.some(
-      // @ts-expect-error - type
-      child => React.isValidElement(child) && child.type.displayName === 'AccordionContent'
-    );
-
-    const itemValue = React.useMemo(() => {
-      if (value !== undefined) {
-        return value;
-      }
-      const newId = `accordion-item-${accordionItemCounter}`;
-      accordionItemCounter += 1;
-      return newId;
-    }, [value]);
-
-    return (
-      <AccordionItemComponent
-        ref={ref}
-        value={itemValue}
-        title={title}
-        isDisabled={props.disabled}
-        {...props}
-      >
-        {hasContentComponent ? (
-          children
-        ) : (
-          <>
-            <AccordionHeader>
-              <AccordionTrigger isExpanded={expanded} testID={testID}>
-                {({ isExpanded }: { isExpanded: boolean }) => {
-                  return (
-                    <>
-                      <AccordionTitleText>{title}</AccordionTitleText>
-                      {triggerContent}
-                      {isExpanded ? (
-                        <AccordionIcon as={ChevronUpSmallIcon} />
-                      ) : (
-                        <AccordionIcon as={ChevronDownSmallIcon} />
-                      )}
-                    </>
-                  );
-                }}
-              </AccordionTrigger>
-            </AccordionHeader>
-            <AccordionContent>{children}</AccordionContent>
-          </>
-        )}
-      </AccordionItemComponent>
-    );
+export const AccordionItem = ({
+  children,
+  value,
+  title,
+  expanded,
+  triggerContent,
+  testID,
+  ...props
+}: AccordionItemProps) => {
+  if (!children) {
+    return null;
   }
-);
+
+  const processedChildren = Children.toArray(children);
+  const hasContentComponent = processedChildren.some(
+    // @ts-expect-error - type
+    child => isValidElement(child) && child.type.displayName === 'AccordionContent'
+  );
+
+  const itemValue = useMemo(() => {
+    if (value !== undefined) {
+      return value;
+    }
+    const newId = `accordion-item-${accordionItemCounter}`;
+    accordionItemCounter += 1;
+    return newId;
+  }, [value]);
+
+  return (
+    <AccordionItemComponent value={itemValue} title={title} isDisabled={props.disabled} {...props}>
+      {hasContentComponent ? (
+        children
+      ) : (
+        <>
+          <AccordionHeader>
+            <AccordionTrigger isExpanded={expanded} testID={testID}>
+              {({ isExpanded }: { isExpanded: boolean }) => {
+                return (
+                  <>
+                    <AccordionTitleText>{title}</AccordionTitleText>
+                    {triggerContent}
+                    {isExpanded ? (
+                      <AccordionIcon as={ChevronUpSmallIcon} />
+                    ) : (
+                      <AccordionIcon as={ChevronDownSmallIcon} />
+                    )}
+                  </>
+                );
+              }}
+            </AccordionTrigger>
+          </AccordionHeader>
+          <AccordionContent>{children}</AccordionContent>
+        </>
+      )}
+    </AccordionItemComponent>
+  );
+};
 
 AccordionItem.displayName = 'AccordionItem';
 Accordion.displayName = 'Accordion';

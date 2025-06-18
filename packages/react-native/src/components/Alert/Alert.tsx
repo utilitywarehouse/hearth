@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import AlertTitle from './AlertTitle';
 import AlertLink from './AlertLink';
 import AlertIconButton from './AlertIconButton';
@@ -6,78 +6,72 @@ import AlertCloseButton from './AlertCloseButton';
 import type { AlertProps } from './Alert.props';
 import { AlertContext } from './Alert.context';
 import { StyleSheet } from 'react-native-unistyles';
-import { View, Pressable, ViewProps } from 'react-native';
+import { Pressable, ViewProps } from 'react-native';
 import AlertText from './AlertText';
 import AlertIcon from './AlertIcon';
 import AlertContent from './AlertContent';
 
-const Alert = forwardRef<View, AlertProps>(
-  (
-    {
-      text,
-      title,
-      link,
-      onPressLink,
-      colorScheme = 'blue',
-      onPressIconButton,
-      onClose,
-      children,
-      onPress,
-      iconButtonTestID,
-      linkTestID,
-      style,
-      ...props
-    },
-    ref
-  ) => {
-    useEffect(() => {
-      if (__DEV__) {
-        if (onPressIconButton && link) {
-          console.warn(
-            'You cannot use both onPressIconButton and link props at the same time. Please choose one or the other.'
-          );
-        }
+const Alert = ({
+  text,
+  title,
+  link,
+  onPressLink,
+  colorScheme = 'blue',
+  onPressIconButton,
+  onClose,
+  children,
+  onPress,
+  iconButtonTestID,
+  linkTestID,
+  style,
+  ...props
+}: AlertProps) => {
+  useEffect(() => {
+    if (__DEV__) {
+      if (onPressIconButton && link) {
+        console.warn(
+          'You cannot use both onPressIconButton and link props at the same time. Please choose one or the other.'
+        );
       }
-    }, [onPressIconButton, link]);
+    }
+  }, [onPressIconButton, link]);
 
-    const value = useMemo(() => ({ colorScheme }), [colorScheme]);
+  const value = useMemo(() => ({ colorScheme }), [colorScheme]);
 
-    styles.useVariants({ colorScheme });
+  styles.useVariants({ colorScheme });
 
-    return (
-      <AlertContext.Provider value={value}>
-        <Pressable
-          ref={ref}
-          {...props}
-          style={[styles.container, style as ViewProps['style']]}
-          onPress={onPress}
-          disabled={!onPress}
-        >
-          {children ? (
-            children
-          ) : (
-            <>
-              <AlertIcon />
-              <AlertContent>
-                {!!title && <AlertTitle>{title}</AlertTitle>}
-                <AlertText>{text}</AlertText>
-                {!!link && (
-                  <AlertLink onPress={onPressLink} testID={linkTestID}>
-                    {link}
-                  </AlertLink>
-                )}
-              </AlertContent>
-              {(!!onPressIconButton || !!onPress) && !link && (
-                <AlertIconButton onPress={onPressIconButton || onPress} testID={iconButtonTestID} />
+  return (
+    <AlertContext.Provider value={value}>
+      <Pressable
+        {...props}
+        style={[styles.container, style as ViewProps['style']]}
+        onPress={onPress}
+        disabled={!onPress}
+      >
+        {children ? (
+          children
+        ) : (
+          <>
+            <AlertIcon />
+            <AlertContent>
+              {!!title && <AlertTitle>{title}</AlertTitle>}
+              <AlertText>{text}</AlertText>
+              {!!link && (
+                <AlertLink onPress={onPressLink} testID={linkTestID}>
+                  {link}
+                </AlertLink>
               )}
-              {!!onClose && <AlertCloseButton onPress={onClose} />}
-            </>
-          )}
-        </Pressable>
-      </AlertContext.Provider>
-    );
-  }
-);
+            </AlertContent>
+            {(!!onPressIconButton || !!onPress) && !link && (
+              <AlertIconButton onPress={onPressIconButton || onPress} testID={iconButtonTestID} />
+            )}
+            {!!onClose && <AlertCloseButton onPress={onClose} />}
+          </>
+        )}
+      </Pressable>
+    </AlertContext.Provider>
+  );
+};
 
 Alert.displayName = 'Alert';
 

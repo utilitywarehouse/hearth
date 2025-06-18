@@ -1,20 +1,17 @@
-/* eslint-disable  @typescript-eslint/no-unsafe-assignment */
-import React, { forwardRef } from 'react';
-import { Text, type TextProps } from 'react-native';
+import { TextProps } from 'react-native';
 import { useLinkContext } from './Link.context';
 import { StyleSheet } from 'react-native-unistyles';
 import { DetailText } from '../DetailText';
-import { BodyText } from '../BodyText';
 
-const LinkText = forwardRef<Text, TextProps>(({ children, ...props }, ref) => {
+const LinkText = ({ children, ...props }: TextProps) => {
   const { inverted, disabled, active } = useLinkContext();
   styles.useVariants({ active, inverted, disabled });
   return (
-    <DetailText size="md" ref={ref} {...props} style={[styles.text, props.style]}>
+    <DetailText size="md" {...props} style={[styles.text, props.style]}>
       {children}
     </DetailText>
   );
-});
+};
 
 LinkText.displayName = 'LinkText';
 

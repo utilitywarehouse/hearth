@@ -1,5 +1,5 @@
 // /* eslint-disable react/jsx-no-undef */
-// import React from 'react';
+//
 // import { List } from './';
 // import figma from '@figma/code-connect';
 // import { Card } from '../Card';

@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   Accordion,
   AccordionItem,
@@ -9,7 +8,7 @@ import {
   AccordionContent,
   AccordionContentText,
 } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { BodyText } from '../../components';
 import {
   ChevronDownSmallIcon,

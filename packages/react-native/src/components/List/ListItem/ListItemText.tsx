@@ -1,14 +1,13 @@
-import React, { forwardRef } from 'react';
-import { Text as RNText, TextProps } from 'react-native';
+import { TextProps } from 'react-native';
 import { BodyText } from '../../BodyText';
 
-const ListItemText = forwardRef<RNText, TextProps>(({ children, ...props }, ref) => {
+const ListItemText = ({ children, ...props }: TextProps) => {
   return (
-    <BodyText size="lg" ref={ref} {...props}>
+    <BodyText size="lg" {...props}>
       {children}
     </BodyText>
   );
-});
+};
 
 ListItemText.displayName = 'ListItemText';
 

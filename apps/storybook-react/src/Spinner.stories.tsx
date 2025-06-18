@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { colorTokens, Flex, Spinner } from '@utilitywarehouse/hearth-react';
 
 const sizes = ['xs', 'sm', 'md', 'lg'] as const;

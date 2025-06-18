@@ -1,13 +1,16 @@
-import React, { forwardRef, useMemo } from 'react';
+import { useMemo } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
 import InputProps from './Textarea.props';
 import { TextareaContext } from './Textarea.context';
 
-const TextareaRoot = forwardRef<
-  View,
-  InputProps & { states?: { focus?: boolean; disabled?: boolean; readonly?: boolean } }
->(({ children, style, states, validationStatus, ...props }, ref) => {
+const TextareaRoot = ({
+  children,
+  style,
+  states,
+  validationStatus,
+  ...props
+}: InputProps & { states?: { focus?: boolean; disabled?: boolean; readonly?: boolean } }) => {
   const { focus = false, disabled = false, readonly = false } = states || {};
   styles.useVariants({ validationStatus, focus, disabled, readonly });
 
@@ -18,12 +21,12 @@ const TextareaRoot = forwardRef<
 
   return (
     <TextareaContext.Provider value={value}>
-      <View ref={ref} {...props} style={[styles.container, style]}>
+      <View {...props} style={[styles.container, style]}>
         {children}
       </View>
     </TextareaContext.Provider>
   );
-});
+};
 
 TextareaRoot.displayName = 'TextareaRoot';
 

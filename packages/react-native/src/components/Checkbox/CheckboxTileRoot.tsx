@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native-unistyles';
-import React, { FC, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import { useCheckboxContext } from './Checkbox.context';
 import { View } from 'react-native';
 
-const CheckboxTileRoot: FC<PropsWithChildren> = ({ children }) => {
+const CheckboxTileRoot = ({ children }: PropsWithChildren) => {
   const { checked } = useCheckboxContext();
   styles.useVariants({
     checked,
@@ -36,4 +36,5 @@ const styles = StyleSheet.create(theme => ({
 }));
 
 CheckboxTileRoot.displayName = 'CheckboxTileRoot';
+
 export default CheckboxTileRoot;

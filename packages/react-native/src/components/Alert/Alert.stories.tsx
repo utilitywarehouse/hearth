@@ -1,7 +1,5 @@
-import React from 'react';
 import { Alert } from '.';
-import { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex } from '../Flex';
 import { VariantTitle } from '../../../docs/components';
 

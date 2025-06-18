@@ -1,6 +1,5 @@
-import React from 'react';
 import { Divider } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { ColorValue } from '../../types';
 import { Box } from '../Box';
 import { coloursAsArray } from '../../utils';

@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import OrderedList from './OrderedList';
 import ListItem from './ListItem';
 import { primitive } from '@utilitywarehouse/hearth-tokens/js';

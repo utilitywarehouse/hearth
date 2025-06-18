@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Description } from '@storybook/blocks';
+import { Description } from '@storybook/addon-docs/blocks';
 import { Flex } from '@utilitywarehouse/hearth-react';
 
 interface DocsHeaderProps {

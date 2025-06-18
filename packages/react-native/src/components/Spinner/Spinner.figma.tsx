@@ -1,4 +1,3 @@
-import React from 'react';
 import { Spinner } from './';
 import figma from '@figma/code-connect';
 import { color } from '@utilitywarehouse/hearth-tokens/js';

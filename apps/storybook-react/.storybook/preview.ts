@@ -1,4 +1,4 @@
-import { Preview } from '@storybook/react';
+import { Preview } from '@storybook/react-vite';
 import '@utilitywarehouse/hearth-css-reset';
 import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-tokens/index.css';

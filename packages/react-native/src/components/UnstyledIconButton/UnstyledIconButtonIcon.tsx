@@ -1,17 +1,14 @@
-import React, { forwardRef } from 'react';
 import { Platform, StyleProp, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
-import { IconRef } from '../../types';
 import IconProps from '../Icon/Icon.props';
 import { useUnstyledIconButtonContext } from './UnstyledIconButton.context';
 
-const UnstyledIconButtonIcon = forwardRef<IconRef, IconProps>(({ children, ...props }, ref) => {
+const UnstyledIconButtonIcon = ({ children, ...props }: IconProps) => {
   const { active, inverted, size } = useUnstyledIconButtonContext();
   styles.useVariants({ active, inverted, size });
   return (
     <Icon
-      ref={ref}
       {...props}
       style={
         Platform.OS === 'web'
@@ -22,7 +19,7 @@ const UnstyledIconButtonIcon = forwardRef<IconRef, IconProps>(({ children, ...pr
       {children}
     </Icon>
   );
-});
+};
 
 UnstyledIconButtonIcon.displayName = 'UnstyledIconButtonIcon';
 

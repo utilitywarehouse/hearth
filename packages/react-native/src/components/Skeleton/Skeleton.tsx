@@ -1,8 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-import React, { forwardRef, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -18,47 +14,50 @@ import getStyleValue from '../../utils/getStyleValue';
 import { useTheme } from '../../hooks';
 import { getFlattenedColorValue } from '../../utils';
 
-const AnimatedView = Animated.createAnimatedComponent(View);
+const Skeleton = ({
+  width,
+  height,
+  backgroundColor,
+  borderRadius,
+  style,
+  ...props
+}: SkeletonProps) => {
+  const opacity = useSharedValue(1);
 
-const Skeleton = forwardRef<View, SkeletonProps>(
-  ({ width, height, backgroundColor, borderRadius, style, ...props }, ref) => {
-    const opacity = useSharedValue(1);
+  const { color: themeColor, colorMode, borderRadius: themeBorderRadius } = useTheme();
+  const backgroundColorValue: ColorValue = useMemo(
+    () => getFlattenedColorValue(backgroundColor, themeColor),
+    [backgroundColor, colorMode]
+  );
 
-    const { color: themeColor, colorMode, borderRadius: themeBorderRadius } = useTheme();
-    const backgroundColorValue: ColorValue = useMemo(
-      () => getFlattenedColorValue(backgroundColor, themeColor),
-      [backgroundColor, colorMode]
+  const borderRadiusValue: AnimatableNumericValue = useMemo(
+    () => getStyleValue(borderRadius, themeBorderRadius),
+    [borderRadius]
+  );
+
+  const animatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: opacity.value,
+      width,
+      height,
+      ...(backgroundColorValue ? { backgroundColor: backgroundColorValue } : {}),
+      ...(borderRadiusValue ? { borderRadius: borderRadiusValue } : {}),
+    };
+  }, [opacity]);
+
+  React.useEffect(() => {
+    opacity.value = withRepeat(
+      withTiming(0.5, {
+        duration: 1000,
+        easing: Easing.inOut(Easing.ease),
+      }),
+      -1,
+      true
     );
+  }, [opacity]);
 
-    const borderRadiusValue: AnimatableNumericValue = useMemo(
-      () => getStyleValue(borderRadius, themeBorderRadius),
-      [borderRadius]
-    );
-
-    const animatedStyle = useAnimatedStyle(() => {
-      return {
-        opacity: opacity.value,
-        width,
-        height,
-        ...(backgroundColorValue ? { backgroundColor: backgroundColorValue } : {}),
-        ...(borderRadiusValue ? { borderRadius: borderRadiusValue } : {}),
-      };
-    }, [opacity]);
-
-    React.useEffect(() => {
-      opacity.value = withRepeat(
-        withTiming(0.5, {
-          duration: 1000,
-          easing: Easing.inOut(Easing.ease),
-        }),
-        -1,
-        true
-      );
-    }, [opacity]);
-
-    return <AnimatedView ref={ref} {...props} style={[styles.skeleton, style, animatedStyle]} />;
-  }
-);
+  return <Animated.View {...props} style={[styles.skeleton, style, animatedStyle]} />;
+};
 
 Skeleton.displayName = 'Skeleton';
 

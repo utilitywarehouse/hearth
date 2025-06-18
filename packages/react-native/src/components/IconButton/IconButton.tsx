@@ -1,11 +1,9 @@
-import React, { forwardRef } from 'react';
 import { createButton } from '@gluestack-ui/button';
 import { IconButtonProps } from './IconButton.props';
 import IconButtonRootComponent from './IconButtonRoot';
 import IconButtonIconComponent from './IconButtonIcon';
 import IconButtonSpinerComponent from './IconButtonSpinner';
 import { useButtonGroupContext } from '../Button/ButtonGroup.context';
-import { PressableRef } from '../../types';
 
 const IconButtonComponent = createButton({
   Root: IconButtonRootComponent,
@@ -21,26 +19,18 @@ const IconButtonIcon = IconButtonComponent.Icon;
 IconButtonSpinner.displayName = 'IconButtonSpinner';
 IconButtonIcon.displayName = 'IconButtonIcon';
 
-const IconButton = forwardRef<PressableRef, IconButtonProps>(
-  ({ icon, disabled = false, pressed, ...props }, ref) => {
-    const { disabled: groupDisabled, loading: groupLoading } = useButtonGroupContext();
-    const { loading } = props;
-    const isLoading = loading ?? groupLoading;
-    const buttonDisabled = isLoading || (disabled ?? groupDisabled);
+const IconButton = ({ icon, disabled = false, pressed, ...props }: IconButtonProps) => {
+  const { disabled: groupDisabled, loading: groupLoading } = useButtonGroupContext();
+  const { loading } = props;
+  const isLoading = loading ?? groupLoading;
+  const buttonDisabled = isLoading || (disabled ?? groupDisabled);
 
-    return (
-      <IconButtonComponent
-        // @ts-expect-error - ref
-        ref={ref}
-        {...props}
-        isDisabled={buttonDisabled}
-        isPressed={pressed}
-      >
-        {loading ? <IconButtonSpinner /> : <IconButtonIcon as={icon} />}
-      </IconButtonComponent>
-    );
-  }
-);
+  return (
+    <IconButtonComponent {...props} icon={icon} isDisabled={buttonDisabled} isPressed={pressed}>
+      {loading ? <IconButtonSpinner /> : <IconButtonIcon as={icon} />}
+    </IconButtonComponent>
+  );
+};
 
 IconButton.displayName = 'IconButton';
 

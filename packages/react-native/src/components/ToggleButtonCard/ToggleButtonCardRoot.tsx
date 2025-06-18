@@ -1,17 +1,21 @@
-import React, { forwardRef, useMemo } from 'react';
+import { useMemo } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
-
 import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import type ToggleButtonCardProps from './ToggleButtonCard.props';
 import { ToggleButtonCardContext } from './ToggleButtonCard.context';
-import { PressableRef } from '../../types';
 import { View } from 'react-native';
 import ToggleButton from '../ToggleButton/ToggleButton';
 
-const ToggleButtonCardRoot = forwardRef<
-  PressableRef,
-  ToggleButtonCardProps & { states?: { disabled?: boolean; checked?: boolean; active?: boolean } }
->(({ children, style, label, states, onPress, ...props }, ref) => {
+const ToggleButtonCardRoot = ({
+  children,
+  style,
+  label,
+  states,
+  onPress,
+  ...props
+}: ToggleButtonCardProps & {
+  states?: { disabled?: boolean; checked?: boolean; active?: boolean };
+}) => {
   const { checked, active } = states ?? {};
 
   const value = useMemo(
@@ -33,12 +37,7 @@ const ToggleButtonCardRoot = forwardRef<
 
   return (
     <ToggleButtonCardContext.Provider value={value}>
-      <Pressable
-        ref={ref}
-        {...props}
-        onPress={onPress}
-        style={[styles.container, style as ViewStyle]}
-      >
+      <Pressable {...props} onPress={onPress} style={[styles.container, style as ViewStyle]}>
         {children}
         <View style={styles.buttonContainer}>
           <ToggleButton
@@ -51,7 +50,7 @@ const ToggleButtonCardRoot = forwardRef<
       </Pressable>
     </ToggleButtonCardContext.Provider>
   );
-});
+};
 
 ToggleButtonCardRoot.displayName = 'ToggleButtonCardRoot';
 

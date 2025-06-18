@@ -1,15 +1,14 @@
-import React, { FC } from 'react';
 import { useFormFieldContext } from './FormField.context';
 import { Helper } from '../Helper';
 import HelperProps from '../Helper/Helper.props';
 import { TickCircleSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
-const FormFieldValid: FC<Omit<HelperProps, 'validationStatus'>> = ({
+const FormFieldValid = ({
   children,
   icon = TickCircleSmallIcon,
   text,
   ...props
-}) => {
+}: Omit<HelperProps, 'validationStatus'>) => {
   const { validationStatus, disabled } = useFormFieldContext();
   return validationStatus === 'valid' ? (
     children ? (

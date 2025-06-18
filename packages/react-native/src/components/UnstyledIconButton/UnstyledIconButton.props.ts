@@ -28,4 +28,5 @@ export type UnstyledIconButtonProps = {
    * @default  false
    */
   inverted?: boolean;
-} & Omit<PressableProps, 'children'>;
+  children?: React.ReactNode;
+} & PressableProps;

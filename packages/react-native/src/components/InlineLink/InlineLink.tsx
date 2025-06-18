@@ -1,8 +1,6 @@
-import React, { forwardRef } from 'react';
 import type { InlineLinkProps } from './InlineLink.props';
 import { createLink } from '@gluestack-ui/link';
 import InlineLinkRoot from './InlineLinkRoot';
-import { PressableRef } from '../../types';
 import { Text } from 'react-native';
 
 const InlineLinkComponent = createLink({
@@ -10,22 +8,19 @@ const InlineLinkComponent = createLink({
   Text: Text,
 });
 
-const InlineLink = forwardRef<PressableRef, InlineLinkProps>(
-  ({ children, disabled = false, target = '_self', ...props }, ref) => {
-    return (
-      <InlineLinkComponent
-        // @ts-expect-error - ref
-        ref={ref}
-        {...props}
-        isDisabled={disabled}
-        isExternal={target === '_blank'}
-      >
-        {children}
-      </InlineLinkComponent>
-    );
-  }
-);
-
+const InlineLink = ({
+  children,
+  disabled = false,
+  target = '_self',
+  ...props
+}: InlineLinkProps) => {
+  const InlineLinkAny = InlineLinkComponent as any;
+  return (
+    <InlineLinkAny {...props} isDisabled={disabled} isExternal={target === '_blank'}>
+      {children as any}
+    </InlineLinkAny>
+  );
+};
 InlineLink.displayName = 'InlineLink';
 
 export default InlineLink;

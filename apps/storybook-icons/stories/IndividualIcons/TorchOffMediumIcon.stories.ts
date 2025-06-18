@@ -1,5 +1,5 @@
 /* Don't edit this file directly, it was auto generated */
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { TorchOffMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TorchOffMediumIcon';
 
 const meta: Meta<typeof TorchOffMediumIcon> = {

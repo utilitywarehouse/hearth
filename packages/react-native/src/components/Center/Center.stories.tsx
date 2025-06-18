@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Center } from '.';
 import { BodyText } from '../BodyText';
 

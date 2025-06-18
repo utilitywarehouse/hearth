@@ -1,18 +1,20 @@
-import React, { forwardRef } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
 import CheckboxGroupProps from './CheckboxGroup.props';
 
-const CheckboxGroup = forwardRef<View, CheckboxGroupProps & { isCard?: boolean }>(
-  ({ children, style, isCard = false, ...props }, ref) => {
-    styles.useVariants({ type: isCard ? 'tile' : 'checkbox' });
-    return (
-      <View ref={ref} {...props} style={[styles.container, style]}>
-        {children}
-      </View>
-    );
-  }
-);
+const CheckboxGroup = ({
+  children,
+  style,
+  isCard = false,
+  ...props
+}: CheckboxGroupProps & { isCard?: boolean }) => {
+  styles.useVariants({ type: isCard ? 'tile' : 'checkbox' });
+  return (
+    <View {...props} style={[styles.container, style]}>
+      {children}
+    </View>
+  );
+};
 
 CheckboxGroup.displayName = 'CheckboxGroup';
 

@@ -1,14 +1,15 @@
-import React, { forwardRef, PropsWithChildren, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import type { UnstyledIconButtonProps } from './UnstyledIconButton.props';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { UnstyledIconButtonContext } from './UnstyledIconButton.context';
-import { PressableRef } from '../../types';
 
-const UnstyledIconButtonRoot = forwardRef<
-  PressableRef,
-  PropsWithChildren<UnstyledIconButtonProps & { states?: { active?: boolean; disabled?: boolean } }>
->(({ children, size, inverted, states, ...props }, ref) => {
+const UnstyledIconButtonRoot = ({
+  size,
+  inverted,
+  states,
+  ...props
+}: UnstyledIconButtonProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active, disabled } = states || {};
   styles.useVariants({ disabled, size });
   const value = useMemo(
@@ -17,12 +18,10 @@ const UnstyledIconButtonRoot = forwardRef<
   );
   return (
     <UnstyledIconButtonContext.Provider value={value}>
-      <Pressable ref={ref} {...props} style={[styles.container, props.style as ViewStyle]}>
-        {children}
-      </Pressable>
+      <Pressable {...props} style={[styles.container, props.style as ViewStyle]} />
     </UnstyledIconButtonContext.Provider>
   );
-});
+};
 
 UnstyledIconButtonRoot.displayName = 'UnstyledIconButtonRoot';
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Box, DetailText } from '../../src';
 import { FC, PropsWithChildren } from 'react';
 import { invert } from 'react-native-svg/lib/typescript/elements/Shape';

@@ -1,20 +1,17 @@
-import type { StorybookConfig } from '@storybook/react-vite';
 import remarkGfm from 'remark-gfm';
 
-import { join, dirname } from 'path';
+const unistylesPluginOptions = {
+  autoProcessImports: ['@utilitywarehouse/hearth-react-native'],
+  autoProcessPaths: ['@utilitywarehouse/hearth-react-native'],
+  root: './src',
+  debug: false,
+};
 
-function getAbsolutePath(value: string) {
-  return dirname(require.resolve(join(value, 'package.json')));
-}
-
-const config: StorybookConfig = {
+/** @type { import('@storybook/react-native-web-vite').StorybookConfig } */
+const config = {
   stories: ['../**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
-    getAbsolutePath('@storybook/addon-essentials'),
-    getAbsolutePath('@storybook/addon-react-native-web'),
-    getAbsolutePath('@chromatic-com/storybook'),
-    getAbsolutePath('@storybook/addon-interactions'),
-    getAbsolutePath('@storybook/addon-a11y'),
+    '@chromatic-com/storybook',
     {
       name: '@storybook/addon-docs',
       options: {
@@ -25,11 +22,34 @@ const config: StorybookConfig = {
         },
       },
     },
+    '@storybook/addon-a11y',
+    '@storybook/addon-vitest',
   ],
   framework: {
-    name: getAbsolutePath('@storybook/react-vite'),
-    options: {},
+    name: '@storybook/react-native-web-vite',
+    options: {
+      pluginReactOptions: {
+        babel: {
+          plugins: [
+            ['react-native-unistyles/plugin', unistylesPluginOptions],
+            '@babel/plugin-proposal-export-namespace-from',
+            'react-native-reanimated/plugin',
+          ],
+        },
+      },
+    },
+  },
+  viteFinal: config => {
+    return {
+      ...config,
+      resolve: {
+        ...config.resolve,
+        alias: {
+          ...config.resolve?.alias,
+          '@utilitywarehouse/hearth-react-native-icons': '@utilitywarehouse/hearth-react-icons',
+        },
+      },
+    };
   },
 };
-
 export default config;

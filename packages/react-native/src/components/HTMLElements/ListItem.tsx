@@ -6,13 +6,15 @@ export interface ListItemProps extends ViewProps {
   children: React.ReactNode;
 }
 
-const ListItem: React.FC<ListItemProps> = ({ children, style, ...rest }) => {
+const ListItem = ({ children, style, ...rest }: ListItemProps) => {
   return (
     <View style={[styles.item, style]} {...rest}>
       {typeof children === 'string' ? <BodyText>{children}</BodyText> : children}
     </View>
   );
 };
+
+ListItem.displayName = 'ListItem';
 
 const styles = StyleSheet.create({
   item: {

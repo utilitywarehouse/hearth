@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { colorTokens, Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
 import { Placeholder } from './storybook-components/Placeholder';
 

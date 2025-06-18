@@ -1,16 +1,13 @@
-import React, { forwardRef } from 'react';
-
 import TextProps from '../../DetailText/DetailText.props';
-import { Text as RNText } from 'react-native';
 import { DetailText } from '../../DetailText';
 
-const ListHeadingTitle = forwardRef<RNText, TextProps>(({ children, ...props }, ref) => {
+const ListHeadingTitle = ({ children, ...props }: TextProps) => {
   return (
-    <DetailText size="lg" ref={ref} {...props}>
+    <DetailText size="lg" {...props}>
       {children}
     </DetailText>
   );
-});
+};
 
 ListHeadingTitle.displayName = 'ListHeadingTitle';
 

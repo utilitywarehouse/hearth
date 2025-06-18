@@ -1,16 +1,13 @@
-import React, { useCallback, useImperativeHandle, RefObject } from 'react';
+import React, { useCallback, useImperativeHandle, RefObject, FC } from 'react';
 import { BottomSheetBackdropProps, BottomSheetHandleProps } from '@gorhom/bottom-sheet';
-import hasChildrenByDisplayName from '../../utils/hasChildrenByDisplayName';
-import BottomSheetView from './BottomSheetView';
 import BottomSheetBackdrop from './BottomSheetBackdrop';
 import BottomSheetHandle from './BottomSheetHandle';
-import { ReactNode } from 'react';
 import { ViewStyle } from 'react-native';
 
 interface UseBottomSheetLogicProps<T = any> {
-  ref: React.Ref<T>;
-  bottomSheetRef: RefObject<T>;
-  backdrop: boolean | ((props: BottomSheetBackdropProps) => ReactNode);
+  ref?: React.Ref<T> | null;
+  bottomSheetRef: RefObject<T | null>;
+  backdrop: boolean | FC<BottomSheetBackdropProps>;
   showHandle: boolean;
   handleStyle?: ViewStyle;
 }

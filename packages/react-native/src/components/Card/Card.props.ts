@@ -1,5 +1,6 @@
 import { PressableProps, ViewStyle } from 'react-native';
 import { SpaceValue } from '../../types';
+import { PropsWithChildren } from 'react';
 
 interface CardProps extends PressableProps {
   variant?: 'emphasis' | 'subtle';

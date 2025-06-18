@@ -1,31 +1,32 @@
-import React, { forwardRef } from 'react';
 import { Platform, type StyleProp, type ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
-import { IconRef } from '../../types';
 import IconProps from '../Icon/Icon.props';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
-const ButtonIcon = forwardRef<IconRef, IconProps & { toggled: boolean }>(
-  ({ children, toggled, as = TickSmallIcon, ...props }, ref) => {
-    styles.useVariants({ toggled });
+const ButtonIcon = ({
+  children,
+  toggled,
+  as = TickSmallIcon,
+  ...props
+}: IconProps & { toggled: boolean }) => {
+  styles.useVariants({ toggled });
 
-    return (
-      <Icon
-        ref={ref}
-        as={as}
-        {...props}
-        style={
-          Platform.OS === 'web'
-            ? StyleSheet.compose(styles.icon as StyleProp<ViewStyle>, props.style)
-            : [styles.icon as StyleProp<ViewStyle>, props.style]
-        }
-      >
-        {children}
-      </Icon>
-    );
-  }
-);
+  const IconAny = Icon as any;
+  return (
+    <IconAny
+      as={as}
+      {...props}
+      style={
+        Platform.OS === 'web'
+          ? StyleSheet.compose(styles.icon as StyleProp<ViewStyle>, props.style)
+          : [styles.icon as StyleProp<ViewStyle>, props.style]
+      }
+    >
+      {children}
+    </IconAny>
+  );
+};
 
 ButtonIcon.displayName = 'ButtonIcon';
 

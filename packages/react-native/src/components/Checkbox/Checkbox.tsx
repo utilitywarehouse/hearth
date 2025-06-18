@@ -1,13 +1,10 @@
-import React, { ElementRef } from 'react';
 import { createCheckbox } from '@gluestack-ui/checkbox';
 import StyledCheckbox from './CheckboxRoot';
 import StyledCheckboxIndicator from './CheckboxIndicator';
 import StyledCheckboxIcon from './CheckboxIcon';
 import StyledCheckboxLabel from './CheckboxLabel';
 import StyledCheckboxGroup from './CheckboxGroupRoot';
-import { forwardRef } from 'react';
 import CheckboxProps from './Checkbox.props';
-import { Pressable } from 'react-native';
 import { Helper } from '../Helper';
 import { useCheckboxGroupContext } from './CheckboxGroup.context';
 import { useFormFieldContext } from '../FormField';
@@ -32,76 +29,68 @@ CheckboxIndicator.displayName = 'CheckboxIndicator';
 CheckboxIcon.displayName = 'CheckboxIcon';
 CheckboxLabel.displayName = 'CheckboxLabel';
 
-const Checkbox = forwardRef<ElementRef<typeof Pressable>, CheckboxProps>(
-  (
-    {
-      children,
-      label,
-      disabled,
-      checked,
-      helperIcon,
-      helperText,
-      invalidText,
-      validText,
-      validationStatus: validation,
-      showValidationIcon,
-      type = 'default',
-      ...props
-    },
-    ref
-  ) => {
-    const { validationStatus: fieldValidationStatus } = useFormFieldContext();
-    const { validationStatus: groupValidationStatus, type: groupType } = useCheckboxGroupContext();
-    const validationStatus =
-      fieldValidationStatus ?? groupValidationStatus ?? validation ?? 'initial';
-    const checkboxType = groupType ?? type;
-    const checkboxChildren = children ? (
-      children
-    ) : (
-      <>
-        <CheckboxIndicator>
-          <CheckboxIcon />
-        </CheckboxIndicator>
-        <CheckboxTextContent>
-          {!!label && <CheckboxLabel>{label}</CheckboxLabel>}
-          {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
-          {validationStatus === 'invalid' && !!invalidText && (
-            <Helper
-              showIcon={showValidationIcon}
-              disabled={disabled}
-              validationStatus="invalid"
-              text={invalidText}
-            />
-          )}
-          {validationStatus === 'valid' && !!validText && (
-            <Helper
-              disabled={disabled}
-              showIcon={showValidationIcon}
-              validationStatus="valid"
-              text={validText}
-            />
-          )}
-        </CheckboxTextContent>
-      </>
-    );
-    return (
-      // @ts-expect-error - ref is not a valid prop for Pressable
-      <CheckboxComponent ref={ref} {...props} isDisabled={disabled} isChecked={checked}>
-        {checkboxType === 'tile' ? (
-          <CheckboxTileRoot>{checkboxChildren}</CheckboxTileRoot>
-        ) : (
-          checkboxChildren
+const Checkbox = ({
+  children,
+  label,
+  disabled,
+  checked,
+  helperIcon,
+  helperText,
+  invalidText,
+  validText,
+  validationStatus: validation,
+  showValidationIcon,
+  type = 'default',
+  ...props
+}: CheckboxProps) => {
+  const { validationStatus: fieldValidationStatus } = useFormFieldContext();
+  const { validationStatus: groupValidationStatus, type: groupType } = useCheckboxGroupContext();
+  const validationStatus =
+    fieldValidationStatus ?? groupValidationStatus ?? validation ?? 'initial';
+  const checkboxType = groupType ?? type;
+  const checkboxChildren = children ? (
+    children
+  ) : (
+    <>
+      <CheckboxIndicator>
+        <CheckboxIcon />
+      </CheckboxIndicator>
+      <CheckboxTextContent>
+        {!!label && <CheckboxLabel>{label}</CheckboxLabel>}
+        {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
+        {validationStatus === 'invalid' && !!invalidText && (
+          <Helper
+            showIcon={showValidationIcon}
+            disabled={disabled}
+            validationStatus="invalid"
+            text={invalidText}
+          />
         )}
-      </CheckboxComponent>
-    );
-  }
-);
-
-const CheckboxTile = forwardRef<ElementRef<typeof Pressable>, CheckboxProps>(
-  ({ type = 'tile', ...props }, ref) => {
-    return <Checkbox {...props} ref={ref} type={type} />;
-  }
-);
+        {validationStatus === 'valid' && !!validText && (
+          <Helper
+            disabled={disabled}
+            showIcon={showValidationIcon}
+            validationStatus="valid"
+            text={validText}
+          />
+        )}
+      </CheckboxTextContent>
+    </>
+  );
+  return (
+    // @ts-expect-error - type
+    <CheckboxComponent {...props} isDisabled={disabled} isChecked={checked}>
+      {checkboxType === 'tile' ? (
+        <CheckboxTileRoot>{checkboxChildren}</CheckboxTileRoot>
+      ) : (
+        checkboxChildren
+      )}
+    </CheckboxComponent>
+  );
+};
+const CheckboxTile = ({ type = 'tile', ...props }: CheckboxProps) => {
+  return <Checkbox {...props} type={type} />;
+};
 
 CheckboxTile.displayName = 'CheckboxTile';
 

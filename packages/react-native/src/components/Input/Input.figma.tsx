@@ -1,4 +1,3 @@
-import React from 'react';
 import { Input } from './';
 import figma from '@figma/code-connect';
 import { EyeMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';

@@ -80,5 +80,7 @@ export default ({ config }) => ({
         },
       },
     ],
+    'expo-font',
+    'react-native-edge-to-edge',
   ],
 });

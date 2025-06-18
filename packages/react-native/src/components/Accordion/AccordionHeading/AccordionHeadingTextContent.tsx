@@ -1,16 +1,13 @@
-import React, { forwardRef } from 'react';
 import { View, type ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-const AccordionHeadingTextContent = forwardRef<View, ViewProps>(({ children, ...props }, ref) => {
+const AccordionHeadingTextContent = ({ children, ...props }: ViewProps) => {
   return (
-    <View ref={ref} {...props} style={[styles.container, props.style]}>
+    <View {...props} style={[styles.container, props.style]}>
       {children}
     </View>
   );
-});
-
-AccordionHeadingTextContent.displayName = 'AccordionHeadingTextContent';
+};
 
 const styles = StyleSheet.create(theme => ({
   container: {
@@ -18,5 +15,7 @@ const styles = StyleSheet.create(theme => ({
     flex: 1,
   },
 }));
+
+AccordionHeadingTextContent.displayName = 'AccordionHeadingTextContent';
 
 export default AccordionHeadingTextContent;

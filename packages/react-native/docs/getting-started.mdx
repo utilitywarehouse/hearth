@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/blocks';
+import { Meta } from '@storybook/addon-docs/blocks';
 import { BackToTopButton, NextPrevPage } from './components';
 
 <Meta title="Getting Started" />
@@ -9,7 +9,6 @@ import { BackToTopButton, NextPrevPage } from './components';
 You can just start using the components from the `@utilitywarehouse/hearth-react-native` package.
 
 ```tsx
-import React from 'react';
 import { Box, Alert, Text } from '@utilitywarehouse/hearth-react-native';
 
 const App: React.FC = () => (
@@ -26,7 +25,6 @@ By default the light colour mode is enabled. If you want to enable dark mode, yo
 use the `useColorMode` hook to toggle between light and dark modes.
 
 ```tsx
-import React from 'react';
 import { useColorMode, Box, Alert, Text, Button } from '@utilitywarehouse/hearth-react-native';
 
 const App: React.FC = () => {
