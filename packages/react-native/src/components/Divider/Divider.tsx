@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { View } from 'react-native';
-import type DividerProps from './Divider.props';
 import { StyleSheet } from 'react-native-unistyles';
-import { getFlattenedColorValue } from '../../utils';
 import { useTheme } from '../../hooks';
+import { getFlattenedColorValue } from '../../utils';
+import type DividerProps from './Divider.props';
 
 const Divider = ({
   orientation = 'horizontal',
@@ -16,6 +16,7 @@ const Divider = ({
 }: DividerProps) => {
   styles.useVariants({ orientation, space, flexItem });
   const { color: themeColor, colorMode } = useTheme();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const colorValue = useMemo(() => getFlattenedColorValue(color, themeColor), [color, colorMode]);
   return (
     <View

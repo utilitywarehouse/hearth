@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import { Text, TextStyle } from 'react-native';
-import type HeadingProps from './Heading.props';
 import { StyleSheet } from 'react-native-unistyles';
-import type { ColorValue } from '../../types';
 import { useTheme } from '../../hooks';
+import type { ColorValue } from '../../types';
 import { getFlattenedColorValue } from '../../utils';
+import type HeadingProps from './Heading.props';
 
 const Heading = ({
   children,
@@ -32,10 +32,12 @@ const Heading = ({
   const { color: themeColor, colorMode } = useTheme();
   const colorValue: ColorValue = useMemo(
     () => getFlattenedColorValue(color, themeColor),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [color, colorMode]
   );
   const decorationColor = useMemo(
     () => getFlattenedColorValue(textDecorationColor, themeColor),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [textDecorationColor, colorMode]
   );
   return (

@@ -18,7 +18,6 @@ const BottomSheet = ({
   handleStyle,
   backdrop = true,
   showHandle = true,
-  contentStyle,
   ref,
   ...rest
 }: BottomSheetProps) => {

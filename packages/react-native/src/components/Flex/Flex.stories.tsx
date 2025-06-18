@@ -64,7 +64,7 @@ export const Playground: Story = {
       {Array.from({ length: 4 }).map((_, index) => (
         <Box
           key={index}
-          // @ts-ignore
+          // @ts-expect-error - This is a playground
           bg={`grey${index + 1}00`}
           w={100 + index * 10}
           h={100 + index * 10}

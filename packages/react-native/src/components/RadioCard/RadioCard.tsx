@@ -1,13 +1,13 @@
 import { createRadio } from '@gluestack-ui/radio';
-import StyledRadioCard from './RadioCardRoot';
-import StyledRadioCardIndicator from './RadioCardIndicator';
-import StyledRadioCardGroup from './RadioCardGroup';
-import StyledRadioCardIcon from './RadioCardIcon';
-import StyledRadioCardLabel from './RadioCardLabel';
-import RadioCardProps from './RadioCard.props';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
+import RadioCardProps from './RadioCard.props';
+import StyledRadioCardGroup from './RadioCardGroup';
+import StyledRadioCardIcon from './RadioCardIcon';
+import StyledRadioCardIndicator from './RadioCardIndicator';
+import StyledRadioCardLabel from './RadioCardLabel';
+import StyledRadioCard from './RadioCardRoot';
 
 const RadioCardComponent = createRadio({
   Root: StyledRadioCard,
@@ -51,6 +51,6 @@ const styles = StyleSheet.create(theme => ({
 
 RadioCard.displayName = 'RadioCard';
 
-export { RadioCard, RadioCardGroup, RadioCardIndicator, RadioCardIcon, RadioCardLabel };
+export { RadioCard, RadioCardGroup, RadioCardIcon, RadioCardIndicator, RadioCardLabel };
 
 export default RadioCard;

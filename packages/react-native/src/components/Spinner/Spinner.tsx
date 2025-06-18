@@ -1,22 +1,22 @@
-import React, { useCallback, useEffect, useMemo } from 'react';
+import { createSpinner } from '@gluestack-ui/spinner';
+import { useCallback, useEffect, useMemo } from 'react';
+import { View } from 'react-native';
 import Animated, {
-  useSharedValue,
-  withTiming,
+  Easing,
   useAnimatedProps,
   useAnimatedStyle,
-  Easing,
-  withSequence,
-  withRepeat,
   useReducedMotion,
+  useSharedValue,
+  withRepeat,
+  withSequence,
+  withTiming,
 } from 'react-native-reanimated';
 import { Circle, G, Svg } from 'react-native-svg';
-import type SpinnerProps from './Spinner.props';
-import { createSpinner } from '@gluestack-ui/spinner';
 import { StyleSheet } from 'react-native-unistyles';
-import { View } from 'react-native';
 import { useTheme } from '../../hooks';
-import { getFlattenedColorValue } from '../../utils';
 import { ColorValue } from '../../types';
+import { getFlattenedColorValue } from '../../utils';
+import type SpinnerProps from './Spinner.props';
 
 const AnimatedSvg = Animated.createAnimatedComponent(Svg);
 const AnimatedCircle = Animated.createAnimatedComponent(Circle);
@@ -80,6 +80,7 @@ const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
   const { color: themeColor, colorMode } = useTheme();
   const colorValue: ColorValue = useMemo(
     () => getFlattenedColorValue(color, themeColor),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [color, colorMode, themeColor]
   );
 

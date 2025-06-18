@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import { Spinner } from '../Spinner';
-import type { SpinnerProps } from '../Spinner';
-import { useIconButtonContext } from './IconButton.context';
 import { useTheme } from '../../hooks';
 import { ColorValue } from '../../types';
+import type { SpinnerProps } from '../Spinner';
+import { Spinner } from '../Spinner';
+import { useIconButtonContext } from './IconButton.context';
 
 const IconButtonSpinner = (props: Omit<SpinnerProps, 'size'>) => {
   const { color = '', ...rest } = props;
@@ -53,6 +53,7 @@ const IconButtonSpinner = (props: Omit<SpinnerProps, 'size'>) => {
       return components.button.ghost.grey.foregroundColor;
     }
     return color;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [color, colorMode, variant, inverted, colorScheme]);
 
   return (

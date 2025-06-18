@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
-import { RadioGroup as RadioGroupComponent } from './Radio';
-import RadioGroupProps from './RadioGroup.props';
-import { RadioGroupContext } from './RadioGroup.context';
 import { View } from 'react-native';
-import { Label } from '../Label';
-import { Helper } from '../Helper';
 import { StyleSheet } from 'react-native-unistyles';
+import { Helper } from '../Helper';
+import { Label } from '../Label';
+import { RadioGroup as RadioGroupComponent } from './Radio';
+import { RadioGroupContext } from './RadioGroup.context';
+import RadioGroupProps from './RadioGroup.props';
 import RadioGroupTextContent from './RadioGroupTextContent';
 
 const RadioGroup = ({
@@ -42,7 +42,6 @@ const RadioGroup = ({
   return (
     <RadioGroupContext.Provider value={value}>
       <RadioGroupComponent
-        // @ts-ignore
         {...props}
         isDisabled={disabled}
         isReadOnly={readonly}

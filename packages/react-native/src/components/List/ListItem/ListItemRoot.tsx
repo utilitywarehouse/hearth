@@ -1,15 +1,15 @@
-import { useMemo } from 'react';
-import type ListItemProps from './ListItem.props';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { useMemo } from 'react';
+import { Pressable, ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Skeleton } from '../../Skeleton';
 import { useListContext } from '../List.context';
-import { StyleSheet } from 'react-native-unistyles';
-import { Pressable, ViewStyle } from 'react-native';
 import { IListItemContext, ListItemContext } from './ListItem.context';
+import type ListItemProps from './ListItem.props';
 import ListItemContent from './ListItemContent';
+import ListItemHelperText from './ListItemHelperText';
 import ListItemLeadingContent from './ListItemLeadingContent';
 import ListItemText from './ListItemText';
-import ListItemHelperText from './ListItemHelperText';
 import ListItemTrailingContent from './ListItemTrailingContent';
 import ListItemTrailingIcon from './ListItemTrailingIcon';
 
@@ -20,7 +20,6 @@ const ListItemRoot = ({
   trailingContent,
   disabled,
   divider,
-  dividerColor,
   loading,
   children,
   states,
@@ -109,7 +108,7 @@ const ListItemRoot = ({
             </ListItemContent>
             {trailingContent ? (
               <ListItemTrailingContent>{trailingContent}</ListItemTrailingContent>
-            ) : !!onPress ? (
+            ) : onPress ? (
               <ListItemTrailingContent>
                 <ListItemTrailingIcon as={ChevronRightSmallIcon} />
               </ListItemTrailingContent>

@@ -1,14 +1,14 @@
-import { useEffect, useCallback } from 'react';
-import { StyleSheet } from 'react-native-unistyles';
-import {
-  TextInputProps,
-  TextInput as RNTextInput,
-  NativeSyntheticEvent,
-  TextInputFocusEventData,
-} from 'react-native';
-import { useInputContext } from './Input.context';
-import { useTheme } from '../../hooks';
 import { useBottomSheetInternal } from '@gorhom/bottom-sheet';
+import { useCallback, useEffect } from 'react';
+import {
+  NativeSyntheticEvent,
+  TextInput as RNTextInput,
+  TextInputFocusEventData,
+  TextInputProps,
+} from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { useTheme } from '../../hooks';
+import { useInputContext } from './Input.context';
 
 const InputField = ({ style, onFocus, onBlur, ...props }: TextInputProps) => {
   const { disabled, focused = false, type } = useInputContext();
@@ -27,6 +27,7 @@ const InputField = ({ style, onFocus, onBlur, ...props }: TextInputProps) => {
         onFocus(args);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [onFocus, bottomSheetContext?.shouldHandleKeyboardEvents]
   );
   const handleOnBlur = useCallback(
@@ -38,6 +39,7 @@ const InputField = ({ style, onFocus, onBlur, ...props }: TextInputProps) => {
         onBlur(args);
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [onBlur, bottomSheetContext?.shouldHandleKeyboardEvents]
   );
 
@@ -48,6 +50,7 @@ const InputField = ({ style, onFocus, onBlur, ...props }: TextInputProps) => {
         bottomSheetContext.shouldHandleKeyboardEvents.value = false;
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bottomSheetContext?.shouldHandleKeyboardEvents]);
   // End of copied code
 

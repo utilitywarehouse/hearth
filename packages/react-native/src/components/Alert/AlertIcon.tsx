@@ -19,8 +19,7 @@ const AlertIcon = (props: IconProps) => {
     }
     return InfoMediumIcon;
   })();
-  const IconAny = Icon as any;
-  return <IconAny {...props} as={props.as ?? asProp} style={styles.icon} />;
+  return <Icon {...props} as={props.as ?? asProp} style={styles.icon} />;
 };
 
 AlertIcon.displayName = 'AlertIcon';

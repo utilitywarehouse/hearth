@@ -53,6 +53,7 @@ const ButtonSpinner = ({ color, ...props }: Omit<SpinnerProps, 'size'>) => {
       return components.button.ghost.grey.foregroundColor;
     }
     return color;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [color, colorMode, variant, inverted, colorScheme]);
 
   return <Spinner {...props} aria-disabled={disabled} size="xs" color={colorProp as ColorValue} />;

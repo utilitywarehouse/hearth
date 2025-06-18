@@ -1,3 +1,4 @@
+ 
 import React, { ReactNode, useMemo } from 'react';
 import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
@@ -13,7 +14,7 @@ const collectChildActionHandlers = (
     (handlers, child) => {
       if (React.isValidElement(child)) {
         const childProps = child.props as any;
-        // @ts-ignore
+        // @ts-expect-error - type
         if (child.type.displayName === 'CardAction') {
           const actionChildren = React.Children.toArray(childProps.children);
           const actionToInherit = childProps['actionToInherit'] || 'onPress';
@@ -80,7 +81,6 @@ const Card = ({
   );
   return (
     <CardContext.Provider value={context}>
-      {/* @ts-ignore - children in pressable */}
       <Pressable
         {...remainingProps}
         disabled={disabled}

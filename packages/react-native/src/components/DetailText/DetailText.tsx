@@ -31,9 +31,14 @@ const DetailText = ({
     italic,
     inverted,
   });
-  const colorValue = useMemo(() => getFlattenedColorValue(color, themeColor), [color, colorMode]);
+  const colorValue = useMemo(
+    () => getFlattenedColorValue(color, themeColor),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [color, colorMode]
+  );
   const decorationColor = useMemo(
     () => getFlattenedColorValue(textDecorationColor, themeColor),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [textDecorationColor, colorMode]
   );
   return (

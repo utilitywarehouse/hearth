@@ -8,9 +8,9 @@ import { useStyleProps } from '../../hooks';
 const ToggleButtonCardComponent = createRadio({
   Root: StyledToggleButtonCard,
   Group: StyledToggleButtonCardGroup,
-  Indicator: View,
-  Icon: View,
-  Label: View,
+  Indicator: () => null,
+  Icon: () => null,
+  Label: () => null,
 });
 
 const ToggleButtonCardGroup = ToggleButtonCardComponent.Group;

@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import { Spinner } from '../Spinner';
-import type { SpinnerProps } from '../Spinner';
-import { useUnstyledIconButtonContext } from './UnstyledIconButton.context';
 import { useTheme } from '../../hooks';
 import { ColorValue } from '../../types';
+import type { SpinnerProps } from '../Spinner';
+import { Spinner } from '../Spinner';
+import { useUnstyledIconButtonContext } from './UnstyledIconButton.context';
 
 const UnstyledIconButtonSpinner = ({ color, ...props }: Omit<SpinnerProps, 'size'>) => {
   const { disabled, inverted, size } = useUnstyledIconButtonContext();
@@ -14,6 +14,7 @@ const UnstyledIconButtonSpinner = ({ color, ...props }: Omit<SpinnerProps, 'size
       return components.iconButton.unstyled.inverted.foregroundColor;
     }
     return components.iconButton.unstyled.foregroundColor;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [inverted, components.iconButton.unstyled.foregroundColor]);
 
   const spinnerSize = useMemo(() => {

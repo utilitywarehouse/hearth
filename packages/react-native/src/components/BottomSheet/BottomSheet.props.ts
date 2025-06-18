@@ -1,9 +1,9 @@
-import { LegacyRef, ReactNode, Ref } from 'react';
+ 
+import { ReactNode, Ref } from 'react';
 import { ViewStyle } from 'react-native';
 import {
   BottomSheetProps as GorhomBottomSheetProps,
   BottomSheetBackdropProps,
-  BottomSheetModal,
 } from '@gorhom/bottom-sheet';
 import {
   BottomSheetMethods,

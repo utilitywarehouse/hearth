@@ -1,7 +1,6 @@
-import { ComponentType } from 'react';
 import type { ViewProps } from 'react-native';
 
-interface AccordionHeadingBaseProps extends Omit<ViewProps, 'children'> {}
+type AccordionHeadingBaseProps = Omit<ViewProps, 'children'>;
 
 export interface AccordionHeadingWithChildren extends AccordionHeadingBaseProps {
   children: ViewProps['children'];

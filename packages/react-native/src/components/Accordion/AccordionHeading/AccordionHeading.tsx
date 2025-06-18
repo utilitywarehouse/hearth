@@ -4,8 +4,6 @@ import AccordionHeadingTitle from './AccordionHeadingTitle';
 import AccordionHeadingHelperText from './AccordionHeadingHelperText';
 import AccordionHeadingProps from './AccordionHeading.props';
 import AccordionHeadingTextContent from './AccordionHeadingTextContent';
-import { Link } from '../../Link';
-import { useAccordionContext } from '../Accordion.context';
 
 const AccordionHeading = ({
   text,
@@ -14,21 +12,18 @@ const AccordionHeading = ({
   style,
 
   ...props
-}: AccordionHeadingProps) => {
-  const { disabled } = useAccordionContext();
-  return (
-    <View {...props} style={[styles.container, style]}>
-      {children ? (
-        children
-      ) : (
-        <AccordionHeadingTextContent>
-          <AccordionHeadingTitle>{text}</AccordionHeadingTitle>
-          {!!helperText && <AccordionHeadingHelperText>{helperText}</AccordionHeadingHelperText>}
-        </AccordionHeadingTextContent>
-      )}
-    </View>
-  );
-};
+}: AccordionHeadingProps) => (
+  <View {...props} style={[styles.container, style]}>
+    {children ? (
+      children
+    ) : (
+      <AccordionHeadingTextContent>
+        <AccordionHeadingTitle>{text}</AccordionHeadingTitle>
+        {!!helperText && <AccordionHeadingHelperText>{helperText}</AccordionHeadingHelperText>}
+      </AccordionHeadingTextContent>
+    )}
+  </View>
+);
 
 const styles = StyleSheet.create(theme => ({
   container: {

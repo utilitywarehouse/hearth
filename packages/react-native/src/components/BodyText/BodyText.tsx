@@ -1,8 +1,7 @@
-import { useMemo } from 'react';
 import { Text } from 'react-native';
 import type BodyTextProps from './BodyText.props';
 import { StyleSheet } from 'react-native-unistyles';
-import { useTheme } from '../../hooks';
+
 import { getFlattenedColorValue } from '../../utils';
 
 const BodyText = ({
@@ -24,7 +23,6 @@ const BodyText = ({
   inverted,
   ...props
 }: BodyTextProps) => {
-  const { color: themeColor, colorMode } = useTheme();
   styles.useVariants({
     size,
     weight,
@@ -33,11 +31,7 @@ const BodyText = ({
     italic,
     inverted,
   });
-  const colorValue = useMemo(() => getFlattenedColorValue(color, themeColor), [color, colorMode]);
-  const decorationColor = useMemo(
-    () => getFlattenedColorValue(textDecorationColor, themeColor),
-    [textDecorationColor, colorMode]
-  );
+
   return (
     <Text
       {...props}
@@ -49,11 +43,11 @@ const BodyText = ({
         : {})}
       style={[
         styles.text,
+        styles.getColours(color, textDecorationColor),
         {
-          ...(colorValue && { color: colorValue }),
           ...(textTransform && { textTransform }),
           ...(textAlign && { textAlign }),
-          ...(decorationColor && { textDecorationColor: decorationColor }),
+
           ...(textDecorationLine && { textDecorationLine }),
           ...(textDecorationStyle && { textDecorationStyle }),
           ...(userSelect && { userSelect }),
@@ -122,6 +116,12 @@ const styles = StyleSheet.create(theme => ({
       },
     },
   },
+  getColours: (color, textDecorationColor) => ({
+    ...(color ? { color: getFlattenedColorValue(color, theme.color) } : {}),
+    ...(textDecorationColor
+      ? { textDecorationColor: getFlattenedColorValue(textDecorationColor, theme.color) }
+      : {}),
+  }),
 }));
 
 BodyText.displayName = 'BodyText';

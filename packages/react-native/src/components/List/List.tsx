@@ -1,8 +1,9 @@
+ 
 import React, { ReactNode, useMemo } from 'react';
 import type ListProps from './List.props';
 import { ListHeading } from './ListHeading';
 import { ListContext } from './List.context';
-import { View } from 'react-native';
+import { View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { ListItem, ListItemProps } from './ListItem';
 import { Card } from '../Card';
@@ -38,7 +39,7 @@ const markFirstListItem = (children: ReactNode): ReactNode => {
     });
   };
 
-  return recursiveClone(children);
+  return recursiveClone(children) as ViewProps['children'];
 };
 
 const List = ({
@@ -64,7 +65,7 @@ const List = ({
     colorScheme:
       container === 'subtleWhite' || container === 'emphasisWhite' ? 'white' : 'warmWhite',
   };
-  const updatedChildren = markFirstListItem(children as any);
+  const updatedChildren = markFirstListItem(children);
   const value = useMemo(
     () => ({ loading, disabled, divider, container }),
     [loading, disabled, divider, container]
@@ -91,7 +92,7 @@ const List = ({
           <View>{updatedChildren}</View>
         ) : (
           <Card {...containerToCard} noPadding style={styles.card}>
-            {updatedChildren}
+            <>{updatedChildren}</>
           </Card>
         )}
       </View>
