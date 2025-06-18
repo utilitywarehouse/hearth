@@ -56,6 +56,7 @@
     from {
       opacity: 0;
     }
+
     to {
       opacity: var(--h-overlay-opacity);
     }
@@ -65,6 +66,7 @@
     from {
       opacity: var(--h-overlay-opacity);
     }
+
     to {
       opacity: 0;
     }
@@ -99,6 +101,7 @@
       opacity: 0;
       transform: translate(-50%, -50%) scale(0.9);
     }
+
     to {
       opacity: 1;
       transform: translate(-50%, -50%) scale(1);
@@ -110,6 +113,7 @@
       opacity: 1;
       transform: translate(-50%, -50%) scale(1);
     }
+
     to {
       opacity: 0;
       transform: translate(-50%, -50%) scale(0.99);
@@ -120,21 +124,26 @@
     &:where([data-state='open']) {
       animation: hearth-dialog-overlay-fade-in 200ms ease-out;
     }
+
     &:where([data-state='closed']) {
       animation: hearth-dialog-overlay-fade-out 160ms ease-out;
     }
   }
+
   .hearth-Dialog {
     &:where([data-state='open']) {
       animation: hearth-dialog-slide-up 125ms ease-out;
     }
+
     &:where([data-state='closed']) {
       animation: hearth-dialog-slide-down 150ms ease-out;
     }
+
     @media (--h-tablet) {
       &:where([data-state='open']) {
         animation: hearth-dialog-show 125ms ease-out;
       }
+
       &:where([data-state='closed']) {
         animation: hearth-dialog-hide 125ms ease-out;
       }
