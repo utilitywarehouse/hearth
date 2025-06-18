@@ -6,7 +6,6 @@ import {
   DialogClose,
   DialogFooter,
   Button,
-  Box,
 } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
