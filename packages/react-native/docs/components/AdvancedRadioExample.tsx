@@ -1,15 +1,16 @@
+import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { useState } from 'react';
 import {
   Badge,
+  BodyText,
+  Box,
   Heading,
   Radio,
   RadioGroup,
   RadioIcon,
   RadioIndicator,
-  BodyText,
-  Box,
   type RadioProps as NativeUIRadioProps,
 } from '../../src';
-import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 import { StyleSheet } from 'react-native-unistyles';
 
@@ -50,13 +51,15 @@ const styles = StyleSheet.create(({ colorMode, color, borderRadius, borderWidth,
   },
 }));
 
-const CustomRadio: React.FC<
-  RadioProps &
-    Omit<
-      NativeUIRadioProps,
-      'label' | 'helperText' | 'helperIcon' | 'invalidText' | 'validText' | 'showValidationIcon'
-    >
-> = ({ children, currentValue, ...props }) => {
+const CustomRadio = ({
+  children,
+  currentValue,
+  ...props
+}: RadioProps &
+  Omit<
+    NativeUIRadioProps,
+    'label' | 'helperText' | 'helperIcon' | 'invalidText' | 'validText' | 'showValidationIcon'
+  >) => {
   styles.useVariants({ checked: currentValue === props.value });
   return (
     <Radio style={styles.radio} {...props}>
@@ -84,8 +87,8 @@ const BulletList = ({ children }: { children: React.ReactNode }) => (
   </Box>
 );
 
-const AdvancedRadioExample: React.FC = () => {
-  const [value, setValue] = React.useState('Option 1');
+const AdvancedRadioExample = () => {
+  const [value, setValue] = useState('Option 1');
 
   const handleChange = (val: string) => setValue(val);
 
