@@ -35,7 +35,6 @@ const ButtonRoot = ({
   );
   return (
     <ButtonContext.Provider value={value}>
-      {/* @ts-ignore */}
       <Pressable {...props} style={[styles.container, props.style as ViewStyle]} onPress={onPress}>
         {children}
       </Pressable>

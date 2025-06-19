@@ -66,7 +66,8 @@ export const Playground: Story = {
   args: {
     value: ['Option 1'],
   },
-  render: ({ value: _, ...args }) => (
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: ({ value, ...args }) => (
     <CheckboxGroup {...args}>
       <Checkbox aria-label="Label 1" label="Option 1" value="Option 1" nativeID="Checkbox-1" />
       <Checkbox

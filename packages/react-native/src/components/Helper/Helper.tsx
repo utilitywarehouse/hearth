@@ -1,10 +1,10 @@
-import { useMemo } from 'react';
-import { StyleSheet } from 'react-native-unistyles';
-import { View } from 'react-native';
 import {
   ErrorCircleSmallIcon,
   TickCircleSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
+import { useMemo } from 'react';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import HelperProps from './Helper.props';
 import { HelperContext } from './HelperContext';
 import HelperIcon from './HelperIcon';
@@ -14,7 +14,6 @@ const Helper = ({
   children,
   validationStatus = 'initial',
   showIcon,
-  style,
   disabled,
   icon,
   text,

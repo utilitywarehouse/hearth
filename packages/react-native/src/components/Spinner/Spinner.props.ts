@@ -1,5 +1,5 @@
 import { RefAttributes } from 'react';
-import { View, type ViewProps } from 'react-native';
+import { type ViewProps } from 'react-native';
 import { ColorValue } from '../../types';
 
 interface SpinnerProps extends ViewProps, RefAttributes<any> {

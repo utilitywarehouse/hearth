@@ -1,11 +1,11 @@
+ 
 import type { InlineLinkProps } from './InlineLink.props';
 import { createLink } from '@gluestack-ui/link';
 import InlineLinkRoot from './InlineLinkRoot';
-import { Text } from 'react-native';
 
 const InlineLinkComponent = createLink({
   Root: InlineLinkRoot,
-  Text: Text,
+  Text: () => null,
 });
 
 const InlineLink = ({

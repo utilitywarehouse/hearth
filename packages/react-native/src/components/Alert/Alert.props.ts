@@ -1,4 +1,3 @@
-import { PropsWithChildren } from 'react';
 import type { PressableProps } from 'react-native';
 
 /**

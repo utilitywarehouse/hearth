@@ -1,5 +1,4 @@
-import { ComponentType } from 'react';
-import { ViewProps, View } from 'react-native';
+import { ViewProps } from 'react-native';
 
 export interface AccordionProps extends ViewProps {
   /**

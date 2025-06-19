@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
 import { useWindowDimensions, View } from 'react-native';
 import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles';
+import { useStyleProps, useTheme } from '../../hooks';
 import type { GridProps } from './Grid.props';
-import { useTheme, useStyleProps } from '../../hooks';
 
 const Grid = ({
   columns = 2,
@@ -39,7 +39,7 @@ const Grid = ({
       // If not found, find the nearest smaller breakpoint that has a defined column value
       const breakpointKeys = Object.keys(breakpoints) as Array<keyof typeof breakpoints>;
       const sortedBreakpoints = breakpointKeys.sort((a, b) => breakpoints[a] - breakpoints[b]);
-      // @ts-ignore
+      // @ts-expect-error - breakpoints are not the same
       const currentBreakpointIndex = sortedBreakpoints.indexOf(currentBreakpoint);
 
       // Look for the closest smaller breakpoint with a defined value
@@ -61,6 +61,7 @@ const Grid = ({
 
     // Default to 2 columns
     return 2;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [columns, width]);
 
   const computedColumnGap = columnGap ?? gap;
