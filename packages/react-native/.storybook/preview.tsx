@@ -1,11 +1,19 @@
-import { useEffect } from 'react';
-import { StyleSheet } from '../src/core';
-import theme from '../../../shared/storybook/theme';
-import { color } from '@utilitywarehouse/hearth-tokens';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import '@utilitywarehouse/hearth-fonts';
+import { color } from '@utilitywarehouse/hearth-tokens';
+import { useEffect } from 'react';
 import '../../../shared/storybook/styles/preview.css';
+import theme from '../../../shared/storybook/theme';
+import { breakpoints, StyleSheet, themes } from '../src/core';
 
-console.log(StyleSheet.hairlineWidth);
+StyleSheet.configure({
+  themes,
+  breakpoints,
+  settings: {
+    initialTheme: 'light',
+    adaptiveThemes: false,
+  },
+});
 
 /** @type { import('@storybook/react-native-web-vite').Preview } */
 const preview = {
@@ -70,7 +78,11 @@ const preview = {
         }
       }, [args.darkMode, args.surface, args.inverted]);
 
-      return <Story />;
+      return (
+        <BottomSheetModalProvider>
+          <Story />
+        </BottomSheetModalProvider>
+      );
     },
   ],
 };
