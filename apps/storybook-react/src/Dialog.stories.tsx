@@ -8,6 +8,7 @@ import {
   Button,
 } from '@utilitywarehouse/hearth-react';
 import React from 'react';
+import { Placeholder } from './storybook-components/Placeholder';
 
 const meta: Meta<typeof Dialog> = {
   title: 'Stories / Dialog',
@@ -41,6 +42,30 @@ export const Playground: Story = {
         <DialogFooter>
           <DialogClose>
             <Button variant="ghost" colorScheme="grey">
+              Cancel
+            </Button>
+          </DialogClose>
+          <DialogClose>
+            <Button variant="solid" colorScheme="yellow">
+              Primary
+            </Button>
+          </DialogClose>
+        </DialogFooter>
+      </Dialog>
+    </DialogRoot>
+  ),
+};
+
+export const WithImage: Story = {
+  render: args => (
+    <DialogRoot>
+      <DialogTrigger>
+        <Button>Open dialog</Button>
+      </DialogTrigger>
+      <Dialog {...args} image={<Placeholder width="280px" height="280px" />}>
+        <DialogFooter>
+          <DialogClose>
+            <Button variant="outline" colorScheme="grey">
               Cancel
             </Button>
           </DialogClose>

@@ -6,6 +6,7 @@
 }
 
 .hearth-Dialog {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--h-dialog-gap);
@@ -21,33 +22,79 @@
   padding: var(--h-bottom-sheet-padding);
   min-width: fit-content;
 
+  &:where([data-contains-image]) {
+    align-items: center;
+    padding: var(--h-modal-padding-mobile);
+    height: 90vh;
+    justify-content: space-between;
+  }
+
+  & :where(.hearth-DialogCloseIconButton) {
+    position: absolute;
+    top: var(--h-dialog-padding);
+    right: var(--h-dialog-padding);
+  }
+
+  & :where(.hearth-DialogImage) {
+    margin-top: calc(var(--h-space-300) + var(--h-dialog-gap));
+    max-height: 200px;
+  }
+
   @media (--h-tablet) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: var(--h-dialog-padding);
+    &:where([data-contains-image]) {
+      padding: var(--h-modal-padding-tablet);
+    }
     border-bottom-left-radius: var(--h-dialog-border-radius);
     border-bottom-right-radius: var(--h-dialog-border-radius);
     width: var(--h-dialog-width-tablet);
+    height: fit-content;
   }
 
   @media (--h-desktop) {
     width: var(--h-dialog-width-desktop);
+    &:where([data-contains-image]) {
+      padding: var(--h-modal-padding-desktop);
+    }
   }
 
   & :where(.hearth-DialogHeader) {
-    gap: var(--h-dialog-content-gap) var(--h-dialog-gap);
+    display: flex;
+    flex-direction: column;
+    gap: var(--h-dialog-content-gap);
+    align-items: start;
+
+    /* add some margin so the heading doesn't collide with the close icon button when there is no image */
+    &:not([data-contains-image] &) :where(.hearth-Heading) {
+      margin-right: var(--h-space-300);
+    }
+
+    &:where([data-contains-image] &) {
+      align-items: center;
+    }
   }
 
   & :where(.hearth-DialogFooter) {
     display: flex;
     gap: var(--h-dialog-action-gap);
     flex-direction: column-reverse;
+    width: 100%;
 
     @media (--h-tablet) {
       flex-direction: row;
       justify-content: end;
+      &:where([data-contains-image] &) {
+        justify-content: center;
+      }
     }
+  }
+
+  & :where(.hearth-DialogImage) {
+    max-height: 280px;
+    max-width: 280px;
   }
 }
 

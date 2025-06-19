@@ -11,6 +11,8 @@ import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
 import { DialogClose } from './DialogClose';
 import { Box } from '../Box/Box';
+import { DialogProvider } from './Dialog.context';
+import { Flex } from '../Flex/Flex';
 
 const componentName = 'Dialog';
 const componentClassName = withGlobalPrefix(componentName);
@@ -19,38 +21,58 @@ type DialogElement = ElementRef<'div'>;
 
 export const Dialog = React.forwardRef<DialogElement, DialogProps>(
   (
-    { className, forceMount, container, heading, description, hideCloseButton, children, ...props },
+    {
+      className,
+      image,
+      forceMount,
+      container,
+      heading,
+      description,
+      hideCloseButton,
+      children,
+      ...props
+    },
     ref
   ) => {
     const portalProps = { forceMount, container };
+    const containsImage = Boolean(image);
 
     return (
       <RadixDialog.Portal {...portalProps}>
         <RadixDialog.Overlay className="hearth-DialogOverlay" />
 
-        <RadixDialog.Content ref={ref} className={clsx(componentClassName, className)} {...props}>
-          <Grid className="hearth-DialogHeader" templateColumns="1fr 24px">
-            <Box asChild gridColumn="1 / 2" gridRow="1 / 2">
+        <RadixDialog.Content
+          ref={ref}
+          className={clsx(componentClassName, className)}
+          data-contains-image={containsImage ? '' : undefined}
+          {...props}
+        >
+          <DialogClose>
+            <UnstyledIconButton
+              type="button"
+              label="Close"
+              data-visually-hidden={hideCloseButton ? '' : undefined}
+              className="hearth-DialogCloseIconButton"
+            >
+              <CloseMediumIcon />
+            </UnstyledIconButton>
+          </DialogClose>
+
+          {containsImage ? <div className="hearth-DialogImage">{image}</div> : null}
+
+          <div className="hearth-DialogHeader">
+            <Box asChild>
               <RadixDialog.Title asChild>
                 <Heading size="lg">{heading}</Heading>
               </RadixDialog.Title>
             </Box>
-            <DialogClose>
-              <UnstyledIconButton
-                label="Close"
-                data-visually-hidden={hideCloseButton ? '' : undefined}
-              >
-                <CloseMediumIcon />
-              </UnstyledIconButton>
-            </DialogClose>
-            <Box asChild gridColumn="1 / 3" gridRow="2 / 3">
-              <RadixDialog.Description asChild>
-                <BodyText size="md" as="span">
-                  {description}
-                </BodyText>
-              </RadixDialog.Description>
-            </Box>
-          </Grid>
+            <RadixDialog.Description asChild>
+              <BodyText size="md" as="span">
+                {description}
+              </BodyText>
+            </RadixDialog.Description>
+          </div>
+
           {children}
         </RadixDialog.Content>
       </RadixDialog.Portal>

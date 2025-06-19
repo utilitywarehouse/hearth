@@ -11,7 +11,7 @@ import path from 'path';
 // Path where CSS files will be generated
 const BUILD_PATH = './css/';
 // Components that have device-specific variants (mobile, tablet, desktop)
-const VALID_DEVICE_COMPONENTS = ['card', 'dialog'];
+const VALID_DEVICE_COMPONENTS = ['card', 'dialog', 'modal'];
 // Prefix used for all CSS custom properties
 const PREFIX = 'h';
 
