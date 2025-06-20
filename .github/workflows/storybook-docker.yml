@@ -43,6 +43,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
+          file: apps/storybook-server/Dockerfile
           context: .
           push: true
           tags: ${{ steps.metadata.outputs.tags }}
