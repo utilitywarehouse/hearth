@@ -1,5 +1,7 @@
+FROM node:22-alpine AS base
+
 # ---- Builder Stage ----
-FROM node:20-alpine AS builder
+FROM base AS builder
 
 # Install git, as turbo can sometimes require it
 RUN apk add --no-cache git
@@ -15,7 +17,8 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json ./
 
 # Install all dependencies (including devDependencies for building)
 # This installs based on pnpm-lock.yaml for the entire workspace
-RUN pnpm install --frozen-lockfile
+RUN --mount=type=secret,id=npm_token,env=NPM_TOKEN \
+    pnpm install --frozen-lockfile
 
 # Copy the rest of the monorepo source code
 # Adjust these COPY commands if your build needs more or fewer directories
@@ -29,12 +32,12 @@ COPY shared ./shared
 RUN pnpm run build
 
 # ---- Final Stage ----
-FROM node:20-alpine
+FROM base AS runner
 
 # Set Node environment to production
 ENV NODE_ENV=production
 
-# Set the port for the application. Default to 7337 as per your recent change.
+# Set the port for the application.
 ARG APP_PORT=7337
 ENV PORT=${APP_PORT}
 
