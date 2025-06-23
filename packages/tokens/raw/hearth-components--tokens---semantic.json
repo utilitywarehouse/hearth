@@ -1,29 +1,25 @@
 {
-  "5835:0": {
-    "color": {
-      "background": {
-        "alias": "{color.grey.900}",
-        "type": "color",
-        "value": "#3e3c3b"
-      }
-    }
-  },
   "dark": {
     "color": {
       "background": {
-        "alias": "{color.warm-white.1000}",
+        "alias": "{Mode 1.color.warm-white.1000}",
         "type": "color",
         "value": "#191917"
       },
       "background-1": {
-        "alias": "{color.grey.950}",
+        "alias": "{Mode 1.color.grey.950}",
         "type": "color",
         "value": "#222222"
       },
       "background-purple": {
-        "alias": "{color.purple.700}",
+        "alias": "{Mode 1.color.purple.700}",
         "type": "color",
         "value": "#7a42c8"
+      },
+      "invalid-text": {
+        "alias": "{Mode 1.color.red.400}",
+        "type": "color",
+        "value": "#ff7964"
       }
     },
     "opacity": {
@@ -34,42 +30,42 @@
     },
     "shadow": {
       "broadband-green-color": {
-        "alias": "{color.broadband-green.800}",
+        "alias": "{Mode 1.color.broadband-green.800}",
         "type": "color",
         "value": "#506c21"
       },
       "cashback-lilac-color": {
-        "alias": "{color.cashback-lilac.700}",
+        "alias": "{Mode 1.color.cashback-lilac.700}",
         "type": "color",
         "value": "#8b2bc9"
       },
       "default-color": {
-        "alias": "{color.grey.100}",
+        "alias": "{Mode 1.color.grey.100}",
         "type": "color",
         "value": "#e7e6e6"
       },
       "energy-blue-color": {
-        "alias": "{color.energy-blue.700}",
+        "alias": "{Mode 1.color.energy-blue.700}",
         "type": "color",
         "value": "#326e7a"
       },
       "insurance-orange-color": {
-        "alias": "{color.insurance-orange.800}",
+        "alias": "{Mode 1.color.insurance-orange.800}",
         "type": "color",
         "value": "#9b4c0e"
       },
       "mobile-rose-color": {
-        "alias": "{color.mobile-rose.800}",
+        "alias": "{Mode 1.color.mobile-rose.800}",
         "type": "color",
         "value": "#a7266d"
       },
       "piggy-pink-color": {
-        "alias": "{color.piggy-pink.800}",
+        "alias": "{Mode 1.color.piggy-pink.800}",
         "type": "color",
         "value": "#8f358f"
       },
       "purple-color": {
-        "alias": "{color.purple.700}",
+        "alias": "{Mode 1.color.purple.700}",
         "type": "color",
         "value": "#7a42c8"
       }
@@ -78,19 +74,24 @@
   "light": {
     "color": {
       "background": {
-        "alias": "{color.warm-white.50}",
+        "alias": "{Mode 1.color.warm-white.50}",
         "type": "color",
         "value": "#fcfbf2"
       },
       "background-1": {
-        "alias": "{color.grey.0}",
+        "alias": "{Mode 1.color.grey.0}",
         "type": "color",
         "value": "#ffffff"
       },
       "background-purple": {
-        "alias": "{color.purple.700}",
+        "alias": "{Mode 1.color.purple.700}",
         "type": "color",
         "value": "#7a42c8"
+      },
+      "invalid-text": {
+        "alias": "{Mode 1.color.red.700}",
+        "type": "color",
+        "value": "#de2612"
       }
     },
     "opacity": {
@@ -101,42 +102,42 @@
     },
     "shadow": {
       "broadband-green-color": {
-        "alias": "{color.broadband-green.300}",
+        "alias": "{Mode 1.color.broadband-green.300}",
         "type": "color",
         "value": "#8cba3b"
       },
       "cashback-lilac-color": {
-        "alias": "{color.cashback-lilac.500}",
+        "alias": "{Mode 1.color.cashback-lilac.500}",
         "type": "color",
         "value": "#be7aeb"
       },
       "default-color": {
-        "alias": "{color.grey.1000}",
+        "alias": "{Mode 1.color.grey.1000}",
         "type": "color",
         "value": "#101010"
       },
       "energy-blue-color": {
-        "alias": "{color.energy-blue.300}",
+        "alias": "{Mode 1.color.energy-blue.300}",
         "type": "color",
         "value": "#6db5c3"
       },
       "insurance-orange-color": {
-        "alias": "{color.insurance-orange.400}",
+        "alias": "{Mode 1.color.insurance-orange.400}",
         "type": "color",
         "value": "#ff7b00"
       },
       "mobile-rose-color": {
-        "alias": "{color.mobile-rose.400}",
+        "alias": "{Mode 1.color.mobile-rose.400}",
         "type": "color",
         "value": "#ee6dbb"
       },
       "piggy-pink-color": {
-        "alias": "{color.piggy-pink.300}",
+        "alias": "{Mode 1.color.piggy-pink.300}",
         "type": "color",
         "value": "#f295ff"
       },
       "purple-color": {
-        "alias": "{color.purple.700}",
+        "alias": "{Mode 1.color.purple.700}",
         "type": "color",
         "value": "#7a42c8"
       }
