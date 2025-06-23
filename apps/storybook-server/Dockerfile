@@ -1,79 +1,48 @@
 FROM node:22-alpine AS base
-
-# ---- Builder Stage ----
-FROM base AS builder
-
-# Install git, as turbo can sometimes require it
-RUN apk add --no-cache git
-
-# Install and activate pnpm
-RUN corepack enable && corepack prepare pnpm@9.15.2 --activate
-
-# Set working directory for the build stage
-WORKDIR /src
-
-# Copy monorepo configuration files that define the workspace and dependencies
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml turbo.json ./
-
-# Install all dependencies (including devDependencies for building)
-# This installs based on pnpm-lock.yaml for the entire workspace
-RUN --mount=type=secret,id=npm_token,env=NPM_TOKEN \
-    pnpm install --frozen-lockfile
-
-# Copy the rest of the monorepo source code
-# Adjust these COPY commands if your build needs more or fewer directories
-COPY apps ./apps
-COPY packages ./packages
-COPY patches ./patches
-COPY shared ./shared
-
-# Run the main build command from the root package.json ("build": "turbo build")
-# This should build all storybook-static outputs and the storybook-server (apps/storybook-server/dist)
-RUN pnpm run build
-
-# ---- Final Stage ----
-FROM base AS runner
-
-# Set Node environment to production
-ENV NODE_ENV=production
-
-# Set the port for the application.
-ARG APP_PORT=7337
-ENV PORT=${APP_PORT}
-
-# Set working directory for the final application
 WORKDIR /app
 
-# Install and activate pnpm (needed for installing server's production dependencies)
+FROM base AS builder-base
+ENV PNPM_HOME=/usr/local/pnpm
+ENV PATH="${PNPM_HOME}:${PATH}"
+RUN apk add --no-cache \
+python3 \
+make \
+&& rm -rf /var/cache/apk/*
 RUN corepack enable && corepack prepare pnpm@9.15.2 --activate
+RUN pnpm install turbo --global
+RUN turbo telemetry disable
+RUN --mount=type=secret,id=npm_token,env=NPM_TOKEN \
+echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > $HOME/.npmrc
+COPY . .
 
-# Copy root configuration files for pnpm workspace context
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+FROM builder-base AS builder
+RUN pnpm install --filter=!"./packages/react-native" --filter=packages/*... --filter=storybook-*... --frozen-lockfile
+RUN pnpm run build --filter=!"./packages/react-native" --filter=packages/*...
+RUN pnpm run build:storybook --filter=storybook-*
 
-# Copy the storybook-server's package.json to its workspace location
-# This is needed for the filtered pnpm install to work correctly
-COPY apps/storybook-server/package.json ./apps/storybook-server/package.json
+# we need to build the react-native packages separately
+# due to dependecy version clashes with other packages
+FROM builder-base AS react-native-builder
+RUN pnpm install --prod=false --filter="./packages/react-native..." --frozen-lockfile
+RUN pnpm run build:storybook --filter="./packages/react-native"
 
-# Install *only* production dependencies for storybook-server and its workspace dependencies.
-# The "..." after the filter is crucial for pnpm to include dependencies of the target package.
-RUN pnpm install --prod --frozen-lockfile --filter=storybook-server...
+FROM builder-base AS prod-deps
+RUN pnpm install --prod --frozen-lockfile --filter=storybook-server
 
-# Copy the built application code for storybook-server from the builder stage
-COPY --from=builder /src/apps/storybook-server/dist ./apps/storybook-server/dist
+FROM base AS runner
+ARG APP_PORT=7337
+ENV PORT=${APP_PORT}
+ENV NODE_ENV=production
 
-# Copy all the necessary storybook-static directories from the builder stage.
-# These paths must match what the server expects relative to the project root (/app in Docker).
-COPY --from=builder /src/apps/storybook-docs/storybook-static ./apps/storybook-docs/storybook-static
-COPY --from=builder /src/apps/storybook-react/storybook-static ./apps/storybook-react/storybook-static
-COPY --from=builder /src/apps/storybook-icons/storybook-static ./apps/storybook-icons/storybook-static
-COPY --from=builder /src/apps/storybook-tokens/storybook-static ./apps/storybook-tokens/storybook-static
-COPY --from=builder /src/apps/storybook-fonts/storybook-static ./apps/storybook-fonts/storybook-static
-COPY --from=builder /src/packages/react-native/storybook-static ./packages/react-native/storybook-static
-# Add any other storybook-static locations here if they are served by the app
+COPY --from=prod-deps /app/node_modules ./node_modules
+COPY --from=builder /app/packages ./packages
+COPY --from=builder /app/apps/storybook-server/dist ./apps/storybook-server/dist
+COPY --from=builder /app/apps/storybook-docs/storybook-static ./apps/storybook-docs/storybook-static
+COPY --from=builder /app/apps/storybook-react/storybook-static ./apps/storybook-react/storybook-static
+COPY --from=builder /app/apps/storybook-icons/storybook-static ./apps/storybook-icons/storybook-static
+COPY --from=builder /app/apps/storybook-tokens/storybook-static ./apps/storybook-tokens/storybook-static
+COPY --from=builder /app/apps/storybook-fonts/storybook-static ./apps/storybook-fonts/storybook-static
+COPY --from=react-native-builder /app/packages/react-native/storybook-static ./packages/react-native/storybook-static
 
-# Expose the port the app runs on
 EXPOSE ${APP_PORT}
-
-# Command to run the server
-# The server's main file is apps/storybook-server/dist/index.js
 CMD ["node", "apps/storybook-server/dist/index.js"]
