@@ -177,6 +177,8 @@ export * as dark from './dark';`;
  * Do not edit directly, this file was auto-generated.
  */
 \nexport { default as color } from './color';
+export { default as semanticLight } from './semantic-light';
+export { default as semanticDark } from './semantic-dark';
 export { default as layout } from './layout';
 export { default as shadow } from './shadow';
 export { default as primitive } from './primitive';
@@ -217,6 +219,33 @@ export * as components from './components';`;
  * Do not edit directly, this file was auto-generated.
  */
 \nexport default ${JSON.stringify(camelOutput, null, 2)} as const;`;
+    },
+  });
+
+  StyleDictionary.registerFormat({
+    name: 'js/semantic-colors',
+    format: ({ dictionary, options }) => {
+      const { mode } = options;
+      const output = {};
+
+      dictionary.allTokens.forEach(token => {
+        // Skip the mode level in the path (e.g., skip 'light' or 'dark')
+        const pathWithoutMode = token.path.slice(1);
+        let current = output;
+        pathWithoutMode.forEach((part, i) => {
+          const camelPart = camelCase(part);
+          if (i === pathWithoutMode.length - 1) current[camelPart] = token.value;
+          else {
+            current[camelPart] = current[camelPart] || {};
+            current = current[camelPart];
+          }
+        });
+      });
+
+      return `/**
+ * Do not edit directly, this file was auto-generated.
+ */
+\nexport default ${JSON.stringify(output, null, 2)} as const;`;
     },
   });
 }

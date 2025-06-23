@@ -120,6 +120,24 @@ export function generateJsTokens() {
             },
           ],
         },
+        'js-semantic-colors': {
+          transformGroup: 'js-device',
+          buildPath: BUILD_PATH,
+          files: [
+            {
+              destination: 'semantic-light.ts',
+              format: 'js/semantic-colors',
+              options: { mode: 'light' },
+              filter: token => token.filePath.includes('semantic') && token.path[0] === 'light',
+            },
+            {
+              destination: 'semantic-dark.ts',
+              format: 'js/semantic-colors',
+              options: { mode: 'dark' },
+              filter: token => token.filePath.includes('semantic') && token.path[0] === 'dark',
+            },
+          ],
+        },
         'js-primitive': {
           transformGroup: 'js-device',
           buildPath: BUILD_PATH,
