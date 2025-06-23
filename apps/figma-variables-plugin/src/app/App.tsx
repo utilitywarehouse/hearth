@@ -29,24 +29,24 @@ import comicHamsBold from '../../../../packages/fonts/files/woff2/ComicHams-Bold
 // @ts-expect-error - No type definitions for font files
 import comicHamsHeavy from '../../../../packages/fonts/files/woff2/ComicHams-HeavyFlare.woff2';
 
-import './styles/ui.css';
 import '@utilitywarehouse/hearth-css-reset';
-import '@utilitywarehouse/hearth-tokens/index.css';
-import '@utilitywarehouse/hearth-react/styles.css';
-import { encodeContent, kebabCase } from './utils';
-import { Alert } from '@utilitywarehouse/web-ui';
 import {
-  Button,
-  Heading,
-  Card,
   Box,
-  Flex,
-  PasswordInput,
-  CheckboxGroup,
+  Button,
+  Card,
   Checkbox,
+  CheckboxGroup,
   Divider,
+  Flex,
+  Heading,
+  PasswordInput,
   Spinner,
 } from '@utilitywarehouse/hearth-react';
+import '@utilitywarehouse/hearth-react/styles.css';
+import '@utilitywarehouse/hearth-tokens/index.css';
+import { Alert } from '@utilitywarehouse/web-ui';
+import './styles/ui.css';
+import { encodeContent, kebabCase } from './utils';
 
 function App() {
   // Add console log to see if component is rendering
@@ -415,7 +415,7 @@ function App() {
 
   return (
     <Box backgroundColor="warmWhite50">
-      <Flex backgroundColor="purple700" padding="200" align="center" justify="space-between">
+      <Flex backgroundColor="purple700" padding="200" alignItems="center" justifyContent="between">
         <img src={logo} />
         {tokenLoaded && !showTokenInput && (
           <Button onClick={editToken} size="sm">
@@ -434,7 +434,7 @@ function App() {
         )}
         {loadingImport && <Alert colorScheme="cyan" text="Importing variables, please wait..." />}
         {((tokenLoaded && showTokenInput) || !tokenLoaded) && (
-          <Card align="end" gap="100" variant="subtle" wrap="wrap" direction="row">
+          <Card alignItems="end" gap="100" variant="subtle" wrap="wrap" direction="row">
             <PasswordInput
               id="github-token"
               label="GitHub Token"
@@ -462,8 +462,8 @@ function App() {
                   bottom="0"
                   left="0"
                   padding="200"
-                  justify="center"
-                  align="center"
+                  justifyContent="center"
+                  alignItems="center"
                   height="100%"
                   backgroundColor="white"
                   style={{ zIndex: 1 }}
