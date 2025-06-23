@@ -116,7 +116,7 @@ export function generateJsTokens() {
             {
               destination: 'color.ts',
               format: 'js/theme-module',
-              filter: token => token.filePath.includes('primitive') && token.type === 'color',
+              filter: token => token.filePath.includes('primitive') && token.path[0] === 'color',
             },
           ],
         },

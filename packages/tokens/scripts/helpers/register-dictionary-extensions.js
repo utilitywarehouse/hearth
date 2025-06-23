@@ -57,34 +57,33 @@ export function registerDictionaryExtensions(StyleDictionary) {
   StyleDictionary.registerFormat({
     name: 'js/theme-module',
     format: ({ dictionary }) => {
-      const common = {},
-        light = {},
-        dark = {};
+      const colorScales = {};
+
       dictionary.allTokens.forEach(token => {
-        const [_, ...rest] = token.path;
-        const [__, ___, ...parts] = token.path;
-        let current = common;
-        const isLight = rest[0] === 'light';
-        const isDark = rest[0] === 'dark';
-        if (isLight) current = light;
-        if (isDark) current = dark;
-        (isLight || isDark ? parts : rest).forEach((part, i) => {
-          const camelPart = camelCase(part);
-          if (i === rest.length - (isLight || isDark ? 2 : 1)) {
-            current[camelPart] = token.value;
-          } else {
-            current[camelPart] = current[camelPart] || {};
-            current = current[camelPart];
-          }
-        });
+        const [_, colorScale, shade] = token.path;
+        if (!colorScales[colorScale]) {
+          colorScales[colorScale] = {};
+        }
+        const camelShade = camelCase(shade);
+        colorScales[colorScale][camelShade] = token.value;
       });
+
+      const exports = Object.keys(colorScales)
+        .map(colorScale => {
+          const camelColorScale = camelCase(colorScale);
+          return `export const ${camelColorScale} = ${JSON.stringify(colorScales[colorScale], null, 2)} as const;`;
+        })
+        .join('\n\n');
+
+      const defaultExport = `const color = { ${Object.keys(colorScales)
+        .map(scale => camelCase(scale))
+        .join(', ')} } as const;`;
+
       return `/**
  * Do not edit directly, this file was auto-generated.
  */
-\nexport const common = ${JSON.stringify(common, null, 2)} as const;
-\nexport const light = ${JSON.stringify(light, null, 2)} as const;
-\nexport const dark = ${JSON.stringify(dark, null, 2)} as const;
-\nconst color = { common, light, dark } as const;
+\n${exports}
+\n${defaultExport}
 \nexport default color;`;
     },
   });
