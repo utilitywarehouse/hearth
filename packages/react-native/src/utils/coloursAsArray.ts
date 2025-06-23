@@ -1,7 +1,7 @@
-import { color } from '@utilitywarehouse/hearth-tokens/js';
+import { color } from '../tokens';
 
 export function extractLightColorValues(): Record<string, string> {
-  return Object.entries(color.light).reduce(
+  return Object.entries(color.light as Record<string, Record<string, string>>).reduce(
     (acc, [colorName, variants]) => {
       Object.entries(variants).forEach(([variantName, hexValue]) => {
         acc[`${colorName}${variantName}`] = hexValue;
