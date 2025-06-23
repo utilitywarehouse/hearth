@@ -1,9 +1,8 @@
-import React from 'react';
-import { View, StyleSheet, ViewProps } from 'react-native';
+import { StyleSheet, View, ViewProps } from 'react-native';
 import { BodyText } from '../BodyText';
 
 export interface ListItemProps extends ViewProps {
-  children: React.ReactNode;
+  children: ViewProps['children'];
 }
 
 const ListItem = ({ children, style, ...rest }: ListItemProps) => {

@@ -1,9 +1,8 @@
+import { View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { PropsWithChildren } from 'react';
 import { useRadioContext } from './Radio.context';
-import { View } from 'react-native';
 
-const RadioTileRoot = ({ children }: PropsWithChildren) => {
+const RadioTileRoot = ({ children }: { children: ViewProps['children'] }) => {
   const { checked } = useRadioContext();
   styles.useVariants({
     checked,

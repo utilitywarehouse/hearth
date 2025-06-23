@@ -1,10 +1,11 @@
 import type { PressableProps, ViewStyle } from 'react-native';
+import { ViewProps } from 'react-native';
 import { SpaceValue } from '../../types';
 
 interface RadioCardProps extends Omit<PressableProps, 'children'> {
   value: string;
   onChange?: (isSelected: boolean) => void;
-  children?: React.ReactNode;
+  children?: ViewProps['children'];
   label?: string;
   flexDirection?: ViewStyle['flexDirection'];
   flexWrap?: ViewStyle['flexWrap'];

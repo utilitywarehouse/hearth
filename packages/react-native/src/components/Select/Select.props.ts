@@ -1,6 +1,5 @@
 import { ViewProps } from 'react-native';
 import { BottomSheetProps } from '../BottomSheet';
-import { ReactNode } from 'react';
 
 type ValidationStatus = 'initial' | 'valid' | 'invalid';
 
@@ -71,7 +70,7 @@ interface SelectProps extends ViewProps {
   /**
    * Children to render inside the select (for custom options)
    */
-  children?: ReactNode;
+  children?: ViewProps['children'];
   /**
    * Props passed to the BottomSheetModal
    */

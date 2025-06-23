@@ -1,12 +1,12 @@
-import type { ViewStyle, ViewProps } from 'react-native';
+import React from 'react';
+import type { ViewProps, ViewStyle } from 'react-native';
 import type {
+  BorderRadiusValue,
   BordeWidthValue,
   ColorValue,
   OpacityValue,
-  BorderRadiusValue,
   SpaceValue,
 } from '../../types';
-import React, { PropsWithChildren } from 'react';
 
 export type OmittedStyles = Omit<
   ViewStyle,
@@ -227,8 +227,7 @@ export interface BoxProps
   extends BoxStyleMappingValues,
     ThemedBoxViewStyleProps,
     OtherBoxViewStyles,
-    ViewProps,
-    PropsWithChildren {
+    ViewProps {
   as?: React.ElementType;
 }
 
