@@ -51,7 +51,8 @@ function variableNameToDotNotation(name: string): string {
 async function fullyResolveValue(
   rawValue: VariableValue | undefined,
   currentModeId: string,
-  visitedIds: Set<string> = new Set()
+  visitedIds: Set<string> = new Set(),
+  currentModeName?: string
 ): Promise<{ alias?: string; value: any }> {
   if (rawValue === undefined) {
     return { value: undefined };
@@ -74,22 +75,45 @@ async function fullyResolveValue(
     // E.g. {Button-Large.Primary.Font-Weight}
     const aliasString = `{${variableNameToDotNotation(aliasVar.name)}}`;
 
-    // Determine correct mode
+    // Determine correct mode - try to match by mode name first
     let aliasModeId = currentModeId;
     const aliasColl = await figma.variables.getVariableCollectionByIdAsync(
       aliasVar.variableCollectionId
     );
-    if (!aliasColl || !(aliasModeId in aliasVar.valuesByMode)) {
+
+    if (aliasColl && currentModeName) {
+      // Try to find a mode with the same name as the current mode
+      const matchingMode = aliasColl.modes.find(mode => mode.name === currentModeName);
+      if (matchingMode && matchingMode.modeId in aliasVar.valuesByMode) {
+        aliasModeId = matchingMode.modeId;
+      } else if (!(aliasModeId in aliasVar.valuesByMode)) {
+        // Fallback to default mode if current mode doesn't exist
+        aliasModeId = aliasColl.defaultModeId;
+      }
+    } else if (!aliasColl || !(aliasModeId in aliasVar.valuesByMode)) {
       aliasModeId = aliasColl ? aliasColl.defaultModeId : undefined;
     }
+
     if (!aliasModeId || !(aliasModeId in aliasVar.valuesByMode)) {
       consoleLog.warn(`No matching mode found for alias variable ${rawValue.id}.`);
       return { alias: aliasString, value: undefined };
     }
 
+    // Get the mode name for the resolved alias mode
+    const resolvedModeName = aliasColl?.modes.find(m => m.modeId === aliasModeId)?.name;
+
     // Recursively resolve
     const nestedVal = aliasVar.valuesByMode[aliasModeId];
-    const { value: nestedValue } = await fullyResolveValue(nestedVal, aliasModeId, visitedIds);
+    const { value: nestedValue } = await fullyResolveValue(
+      nestedVal,
+      aliasModeId,
+      visitedIds,
+      resolvedModeName
+    );
+    if (nestedValue === undefined) {
+      consoleLog.warn(`Resolved value for alias ${aliasString} is undefined.`);
+      return { alias: aliasString, value: undefined };
+    }
     return { alias: aliasString, value: nestedValue };
   }
 
@@ -97,22 +121,28 @@ async function fullyResolveValue(
   return { value: rawValue };
 }
 
-async function resolveVariable(
-  variable: Variable,
-  visitedVariables = new Set<string>()
-): Promise<{
+async function resolveVariable(variable: Variable): Promise<{
   name: string;
   path: Array<string>;
   values: Record<string, { alias?: string; value: any }>;
 }> {
   const resolved: Record<string, { alias?: string; value: any }> = {};
 
+  // Get the variable's collection to access mode names
+  const varColl = await figma.variables.getVariableCollectionByIdAsync(
+    variable.variableCollectionId
+  );
+
   for (const [modeId, rawVal] of Object.entries(variable.valuesByMode)) {
     if (rawVal === undefined) {
       consoleLog.warn(`Variable "${variable.name}" has no value in mode "${modeId}"`);
       continue;
     }
-    const result = await fullyResolveValue(rawVal, modeId, visitedVariables);
+    // Create a fresh visited set for each mode to allow proper alias resolution
+    const modeVisitedIds = new Set<string>();
+    // Get the mode name for better alias resolution
+    const modeName = varColl?.modes.find(m => m.modeId === modeId)?.name;
+    const result = await fullyResolveValue(rawVal, modeId, modeVisitedIds, modeName);
     resolved[modeId] = result;
   }
 
