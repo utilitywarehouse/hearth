@@ -3057,9 +3057,8 @@
         "value": "#e7e6e6"
       },
       "color-invalid": {
-        "alias": "{color.red.400}",
-        "type": "color",
-        "value": "#ff7964"
+        "alias": "{color.invalid-text}",
+        "type": "unknown"
       },
       "color-inverted": {
         "alias": "{color.grey.50}",
@@ -6289,7 +6288,7 @@
         "value": "#101010"
       },
       "color-invalid": {
-        "alias": "{color.red.700}",
+        "alias": "{color.invalid-text}",
         "type": "color",
         "value": "#de2612"
       },
