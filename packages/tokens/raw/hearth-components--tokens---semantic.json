@@ -1,13 +1,4 @@
 {
-  "5835:0": {
-    "color": {
-      "background": {
-        "alias": "{color.grey.900}",
-        "type": "color",
-        "value": "#3e3c3b"
-      }
-    }
-  },
   "dark": {
     "color": {
       "background": {
@@ -24,6 +15,11 @@
         "alias": "{color.purple.700}",
         "type": "color",
         "value": "#7a42c8"
+      },
+      "invalid-text": {
+        "alias": "{color.red.400}",
+        "type": "color",
+        "value": "#ff7964"
       }
     },
     "opacity": {
@@ -91,6 +87,11 @@
         "alias": "{color.purple.700}",
         "type": "color",
         "value": "#7a42c8"
+      },
+      "invalid-text": {
+        "alias": "{color.red.700}",
+        "type": "color",
+        "value": "#de2612"
       }
     },
     "opacity": {
