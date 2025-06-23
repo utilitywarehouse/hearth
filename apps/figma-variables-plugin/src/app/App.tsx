@@ -4,23 +4,128 @@
 import React, { useEffect } from 'react';
 // @ts-expect-error - No type definitions available
 import logo from './assets/logo.png';
-import '@utilitywarehouse/css-reset';
+
+// Import font files directly so webpack processes them
+// @ts-expect-error - No type definitions for font files
+import dmSansRegular from '../../../../packages/fonts/files/woff2/DMSans-Regular.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmSansItalic from '../../../../packages/fonts/files/woff2/DMSans-Italic.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmSansSemiBold from '../../../../packages/fonts/files/woff2/DMSans-SemiBold.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmSansSemiBoldItalic from '../../../../packages/fonts/files/woff2/DMSans-SemiBoldItalic.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmSansBold from '../../../../packages/fonts/files/woff2/DMSans-Bold.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmSansBoldItalic from '../../../../packages/fonts/files/woff2/DMSans-BoldItalic.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmMonoMedium from '../../../../packages/fonts/files/woff2/DMMono-Medium.woff2';
+// @ts-expect-error - No type definitions for font files
+import dmMonoMediumItalic from '../../../../packages/fonts/files/woff2/DMMono-MediumItalic.woff2';
+// @ts-expect-error - No type definitions for font files
+import comicHamsSemiBold from '../../../../packages/fonts/files/woff2/ComicHams-SemiBoldFlare.woff2';
+// @ts-expect-error - No type definitions for font files
+import comicHamsBold from '../../../../packages/fonts/files/woff2/ComicHams-BoldFlare.woff2';
+// @ts-expect-error - No type definitions for font files
+import comicHamsHeavy from '../../../../packages/fonts/files/woff2/ComicHams-HeavyFlare.woff2';
+
 import './styles/ui.css';
-import { color } from '@utilitywarehouse/hearth-tokens/js';
+import '@utilitywarehouse/hearth-css-reset';
+import '@utilitywarehouse/hearth-tokens/index.css';
+import '@utilitywarehouse/hearth-react/styles.css';
 import { encodeContent, kebabCase } from './utils';
+import { Alert } from '@utilitywarehouse/web-ui';
 import {
-  Heading,
   Button,
-  CheckboxGroup,
-  Checkbox,
+  Heading,
+  Card,
   Box,
   Flex,
-  Alert,
-  TextField,
-} from '@utilitywarehouse/web-ui';
-import LoadingSpinner from './components/LoadingSpinner';
+  PasswordInput,
+  CheckboxGroup,
+  Checkbox,
+  Divider,
+  Spinner,
+} from '@utilitywarehouse/hearth-react';
 
 function App() {
+  // Add console log to see if component is rendering
+  console.log('App component rendering');
+
+  // Create font faces dynamically
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @font-face {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 400;
+        src: url('${dmSansRegular}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Sans';
+        font-style: italic;
+        font-weight: 400;
+        src: url('${dmSansItalic}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 600;
+        src: url('${dmSansSemiBold}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Sans';
+        font-style: italic;
+        font-weight: 600;
+        src: url('${dmSansSemiBoldItalic}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 700;
+        src: url('${dmSansBold}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Sans';
+        font-style: italic;
+        font-weight: 700;
+        src: url('${dmSansBoldItalic}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Mono';
+        font-style: normal;
+        font-weight: 500;
+        src: url('${dmMonoMedium}') format('woff2');
+      }
+      @font-face {
+        font-family: 'DM Mono';
+        font-style: italic;
+        font-weight: 500;
+        src: url('${dmMonoMediumItalic}') format('woff2');
+      }
+      @font-face {
+        font-family: 'Comic Hams';
+        font-style: normal;
+        font-weight: 600;
+        src: url('${comicHamsSemiBold}') format('woff2');
+      }
+      @font-face {
+        font-family: 'Comic Hams';
+        font-style: normal;
+        font-weight: 700;
+        src: url('${comicHamsBold}') format('woff2');
+      }
+      @font-face {
+        font-family: 'Comic Hams';
+        font-style: normal;
+        font-weight: 900;
+        src: url('${comicHamsHeavy}') format('woff2');
+      }
+    `;
+    document.head.appendChild(style);
+  }, []);
+
   const [githubToken, setGithubToken] = React.useState('');
   const [tokenLoaded, setTokenLoaded] = React.useState(false);
   const [showTokenInput, setShowTokenInput] = React.useState(false);
@@ -309,66 +414,66 @@ function App() {
   }
 
   return (
-    <Box bgcolor={color.light.warmWhite[50]} height="100%">
-      <Box bgcolor={color.light.purple['700']} p={2} sx={{ position: 'relative' }}>
+    <Box backgroundColor="warmWhite50">
+      <Flex backgroundColor="purple700" padding="200" align="center" justify="space-between">
+        <img src={logo} />
         {tokenLoaded && !showTokenInput && (
-          <Button
-            onClick={editToken}
-            className="edit-token-button"
-            size="small"
-            sx={{ position: 'absolute', top: 16, right: 16 }}
-          >
+          <Button onClick={editToken} size="sm">
             Edit Token
           </Button>
         )}
-        <img src={logo} />
-      </Box>
-      <Box p={2}>
-        <Box sx={{ mb: 2 }}>
-          <Heading variant="h3" color="black">
-            Export Figma Variables
-          </Heading>
-        </Box>
+      </Flex>
+      <Flex direction="column" padding="200" gap="200">
+        <Heading size="md">Export Figma Variables</Heading>
+
         {!githubToken && (
           <Alert
             colorScheme="cyan"
             text="Enter your GitHub token to be able to export the variables and create a PR."
-            sx={{ mb: 3 }}
           />
         )}
-        {loadingImport && (
-          <Alert colorScheme="cyan" text="Importing variables, please wait..." sx={{ mb: 3 }} />
-        )}
+        {loadingImport && <Alert colorScheme="cyan" text="Importing variables, please wait..." />}
         {((tokenLoaded && showTokenInput) || !tokenLoaded) && (
-          <Box sx={{ padding: 3, backgroundColor: '#fff', borderRadius: '14px', mb: 3 }}>
-            <TextField
+          <Card align="end" gap="100" variant="subtle" wrap="wrap" direction="row">
+            <PasswordInput
               id="github-token"
-              type="password"
               label="GitHub Token"
               value={githubToken}
               onChange={e => setGithubToken(e.target.value)}
+              required
             />
             <Button onClick={saveToken}>Save Token</Button>
-          </Box>
+          </Card>
         )}
-        {statusMessage && <Alert colorScheme={statusType} text={statusMessage} sx={{ mb: 3 }} />}
+        {statusMessage && <Alert colorScheme={statusType} text={statusMessage} />}
         {githubToken && (
-          <Box
-            sx={{
-              padding: 3,
-              backgroundColor: '#fff',
-              borderRadius: '14px',
-              borderWidth: 2,
-              borderColor: color.light.grey[1000],
-              borderStyle: 'solid',
-            }}
+          <Card
+            variant="subtle"
+            colorScheme="white"
+            direction="column"
+            position="relative"
+            gap="300"
           >
-            <Box mb={2}>
+            <Flex gap="300" position="relative" direction="column">
+              {(exporting || loadingImport) && (
+                <Flex
+                  position="absolute"
+                  width="100%"
+                  bottom="0"
+                  left="0"
+                  padding="200"
+                  justify="center"
+                  align="center"
+                  height="100%"
+                  backgroundColor="white"
+                  style={{ zIndex: 1 }}
+                >
+                  <Spinner />
+                </Flex>
+              )}
               <CheckboxGroup
-                direction="column"
                 label="Select Collections to Export:"
                 helperText="Published library collections in this file"
-                sx={{ mb: 3 }}
               >
                 {!loadingCollections && collections.length > 0 && (
                   <Checkbox
@@ -380,20 +485,16 @@ function App() {
                   />
                 )}
               </CheckboxGroup>
-              {
-                // Show loading spinner while fetching collections
-                loadingCollections && <LoadingSpinner text="Loading collections..." />
-              }
+              <Divider decorative />
+              {loadingCollections && <Spinner />}
               {!loadingCollections && collections.length === 0 && (
                 <Alert
                   colorScheme="cyan"
                   text="No collections found in this file. Please create a collection in the library."
-                  sx={{ mb: 3 }}
                 />
               )}
               {!loadingCollections && collections.length > 0 && (
                 <CheckboxGroup
-                  direction="row"
                   value={selectedCollections}
                   onValueChange={val => setSelectedCollections(val)}
                 >
@@ -408,19 +509,19 @@ function App() {
                   ))}
                 </CheckboxGroup>
               )}
-            </Box>
+            </Flex>
 
-            <Flex direction="column" align={{ mobile: 'stretch', desktop: 'start' }}>
+            <Flex direction="column">
               <Button
                 onClick={exportVariables}
                 disabled={exporting || loadingImport || loadingCollections}
+                style={{ width: '100%' }}
               >
                 {exporting ? 'Exporting...' : 'Export Variables'}
               </Button>
             </Flex>
-          </Box>
+          </Card>
         )}
-        {(exporting || loadingImport) && <LoadingSpinner text={loadingText} overlay />}
 
         <svg
           id="corner"
@@ -442,7 +543,7 @@ function App() {
           <path d="M6.22577 16H3L16 3V6.22576L6.22577 16Z" fill="#8C8C8C" />
           <path d="M11.8602 16H8.63441L16 8.63441V11.8602L11.8602 16Z" fill="#8C8C8C" />
         </svg>
-      </Box>
+      </Flex>
     </Box>
   );
 }
