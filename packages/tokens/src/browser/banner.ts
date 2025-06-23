@@ -25,8 +25,8 @@ export const banner = {
     },
     gap: 'var(--h-banner-highlight-gap)',
     heading: {
-      broadbandBlueBackgroundColor:
-        'var(--h-banner-highlight-heading-broadband-blue-background-color)',
+      broadbandGreenBackgroundColor:
+        'var(--h-banner-highlight-heading-broadband-green-background-color)',
       cashbackLilacBackgroundColor:
         'var(--h-banner-highlight-heading-cashback-lilac-background-color)',
       energyBlueBackgroundColor: 'var(--h-banner-highlight-heading-energy-blue-background-color)',
@@ -38,4 +38,5 @@ export const banner = {
     },
     padding: 'var(--h-banner-highlight-padding)',
   },
+  imageContainerBorderColor: 'var(--h-banner-image-container-border-color)',
 } as const;

@@ -10,6 +10,7 @@ declare const _default: {
   readonly borderRadius: 8;
   readonly borderWidth: 1;
   readonly borderWidthFocused: 2;
+  readonly color: '#101010';
   readonly currency: {
     readonly gap: 2;
     readonly height: 60;

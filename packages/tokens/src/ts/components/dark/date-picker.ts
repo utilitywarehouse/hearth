@@ -3,17 +3,17 @@
  */
 
 export default {
-  backgroundColor: '#ffffff',
-  borderColor: '#f6f5f5',
-  borderColorInvalid: '#ffa89d',
+  backgroundColor: '#222222',
+  borderColor: '#e7e6e6',
+  borderColorInvalid: '#ff7964',
   borderColorReadOnly: '#464444',
-  borderColorValid: '#74d6a0',
+  borderColorValid: '#58ca93',
   borderRadius: 8,
   borderWidth: 1,
   borderWidthFocused: 2,
   calendar: {
-    backgroundColor: '#ffffff',
-    borderColor: '#d4d2c0',
+    backgroundColor: '#222222',
+    borderColor: '#4c473d',
     borderRadius: 8,
     borderWidth: 1,
     columnGap: 4,
@@ -28,11 +28,11 @@ export default {
     item: {
       backgroundColorActive: '#464444',
       backgroundColorHover: '#3e3c3b',
-      backgroundColorRange: '#101010',
+      backgroundColorRange: '#3e3c3b',
       backgroundColorSelected: '#7a42c8',
       borderRadius: 8,
       minWidth: 32,
-      roundelBackgroundColor: '#7a42c8',
+      roundelBackgroundColor: '#a782db',
       roundelBackgroundColorInverted: '#fcfbf2',
       roundelHeight: 6,
       roundelWidth: 6,

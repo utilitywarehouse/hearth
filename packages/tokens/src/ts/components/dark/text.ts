@@ -3,9 +3,9 @@
  */
 
 export default {
-  color: '#f6f5f5',
-  colorInvalid: '#ffa89d',
-  colorInverted: '#101010',
-  colorSecondary: '#6f6c6b',
-  colorValid: '#74d6a0',
+  color: '#e7e6e6',
+  colorInvalid: '#ff7964',
+  colorInverted: '#f6f5f5',
+  colorSecondary: '#b2afae',
+  colorValid: '#58ca93',
 } as const;

@@ -2,13 +2,13 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly backgroundColorActive: '#f1efe4';
-  readonly backgroundColorHover: '#f7f6eb';
+  readonly backgroundColorActive: '#30302c';
+  readonly backgroundColorHover: '#282825';
   readonly borderRadius: 6;
-  readonly foregroundColor: '#101010';
+  readonly foregroundColor: '#e7e6e6';
   readonly gap: 6;
   readonly group: {
-    readonly borderColor: '#101010';
+    readonly borderColor: '#e7e6e6';
     readonly borderRadius: 8;
     readonly borderWidth: 1;
     readonly gap: 4;

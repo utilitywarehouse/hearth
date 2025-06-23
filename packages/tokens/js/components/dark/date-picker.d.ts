@@ -2,17 +2,17 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly backgroundColor: '#ffffff';
-  readonly borderColor: '#f6f5f5';
-  readonly borderColorInvalid: '#ffa89d';
+  readonly backgroundColor: '#222222';
+  readonly borderColor: '#e7e6e6';
+  readonly borderColorInvalid: '#ff7964';
   readonly borderColorReadOnly: '#464444';
-  readonly borderColorValid: '#74d6a0';
+  readonly borderColorValid: '#58ca93';
   readonly borderRadius: 8;
   readonly borderWidth: 1;
   readonly borderWidthFocused: 2;
   readonly calendar: {
-    readonly backgroundColor: '#ffffff';
-    readonly borderColor: '#d4d2c0';
+    readonly backgroundColor: '#222222';
+    readonly borderColor: '#4c473d';
     readonly borderRadius: 8;
     readonly borderWidth: 1;
     readonly columnGap: 4;
@@ -27,11 +27,11 @@ declare const _default: {
     readonly item: {
       readonly backgroundColorActive: '#464444';
       readonly backgroundColorHover: '#3e3c3b';
-      readonly backgroundColorRange: '#101010';
+      readonly backgroundColorRange: '#3e3c3b';
       readonly backgroundColorSelected: '#7a42c8';
       readonly borderRadius: 8;
       readonly minWidth: 32;
-      readonly roundelBackgroundColor: '#7a42c8';
+      readonly roundelBackgroundColor: '#a782db';
       readonly roundelBackgroundColorInverted: '#fcfbf2';
       readonly roundelHeight: 6;
       readonly roundelWidth: 6;

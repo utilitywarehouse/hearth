@@ -18,6 +18,23 @@ export declare const list: {
       readonly borderColor: 'var(--h-list-item-subtle-border-color)';
     };
   };
+  readonly container: {
+    readonly emphasisWarmWhite: {
+      readonly borderRadius: 'var(--h-list-list-container-emphasis-warm-white-border-radius)';
+    };
+    readonly emphasisWhite: {
+      readonly borderRadius: 'var(--h-list-list-container-emphasis-white-border-radius)';
+    };
+    readonly none: {
+      readonly borderRadius: 'var(--h-list-list-container-none-border-radius)';
+    };
+    readonly subtleWarmWhite: {
+      readonly borderRadius: 'var(--h-list-list-container-subtle-warm-white-border-radius)';
+    };
+    readonly subtleWhite: {
+      readonly borderRadius: 'var(--h-list-list-container-subtle-white-border-radius)';
+    };
+  };
   readonly menu: {
     readonly list: {
       readonly gap: 'var(--h-menu-list-gap)';

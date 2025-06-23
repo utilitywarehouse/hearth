@@ -4,9 +4,9 @@
 declare const _default: {
   readonly gap: 8;
   readonly item: {
-    readonly backgroundColorActive: '#f6f5f5';
-    readonly borderColor: '#f6f5f5';
-    readonly borderColorHover: '#e7e6e6';
+    readonly backgroundColorActive: '#e7e6e6';
+    readonly borderColor: '#e7e6e6';
+    readonly borderColorHover: '#d1d0d0';
     readonly borderWidth: 2;
     readonly inverted: {
       readonly backgroundColorActive: '#fcfbf2';

@@ -3,5 +3,6 @@
  */
 
 :root {
+  --h-dark-opacity-disabled: 0.5;
   --h-opacity-disabled: 0.5;
 }

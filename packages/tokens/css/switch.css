@@ -6,7 +6,7 @@
   --h-switch-checked-background-color: var(--h-color-purple-700);
   --h-switch-checked-background-color-hover: var(--h-color-purple-800);
   --h-switch-checked-icon-color: var(--h-color-purple-700);
-  --h-switch-circle-background-color: var(--h-color-white);
+  --h-switch-circle-background-color: var(--h-color-grey-0);
   --h-switch-md-circle-size: 28px;
   --h-switch-md-height: 32px;
   --h-switch-md-width: 60px;
