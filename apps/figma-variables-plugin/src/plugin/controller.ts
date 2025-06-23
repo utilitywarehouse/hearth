@@ -204,6 +204,14 @@ function renameModesWithMap(tokens: Record<string, any>, modeMap: Record<string,
   const renamed: Record<string, any> = {};
   for (const modeId of Object.keys(tokens)) {
     const newName = modeMap[modeId] ?? modeId;
+    if (renamed[newName]) {
+      consoleLog.warn(`Mode "${newName}" already exists, skipping rename for "${modeId}"`);
+      continue;
+    }
+    if (newName === modeId) {
+      consoleLog.warn(`Mode "${newName}" doesn't map to anything, skipping rename for "${modeId}"`);
+      continue;
+    }
     renamed[newName] = tokens[modeId];
   }
   return renamed;
@@ -310,7 +318,8 @@ async function exportVariables(selectedCollectionIds: Array<string>) {
           for (const m of varColl.modes) {
             modeMap[m.modeId] = m.name;
           }
-          tokens = renameModesWithMap(tokens, modeMap);
+          // if there are multiple modes, rename them otherwise keep as is
+          tokens = varColl.modes.length > 1 ? renameModesWithMap(tokens, modeMap) : tokens;
         }
       }
 
