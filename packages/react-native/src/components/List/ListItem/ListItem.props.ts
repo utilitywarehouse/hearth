@@ -22,8 +22,8 @@ export interface ListItemWithoutChildren extends ListItemBaseProps {
   children?: never;
   text: string;
   helperText?: string;
-  leadingContent?: React.ReactNode;
-  trailingContent?: React.ReactNode;
+  leadingContent?: ViewProps['children'];
+  trailingContent?: ViewProps['children'];
 }
 
 type ListItemProps = ListItemWithChildren | ListItemWithoutChildren;

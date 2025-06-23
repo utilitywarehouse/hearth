@@ -3,6 +3,8 @@
  */
 
 :root {
+  --h-bottom-navigation-item-icon-color-active: var(--h-color-purple-700);
+  --h-bottom-navigation-item-icon-color-default: var(--h-color-grey-1000);
   --h-icon-color: var(--h-color-grey-1000);
   --h-icon-color-invalid: var(--h-color-red-700);
   --h-icon-color-valid: var(--h-color-green-700);

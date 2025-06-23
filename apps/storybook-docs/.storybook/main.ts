@@ -21,27 +21,27 @@ const config: StorybookConfig = {
   refs: {
     react: {
       title: 'Hearth React',
-      url: isDev ? 'http://localhost:6003' : 'https://uw-hearth-react.vercel.app',
+      url: isDev ? 'http://localhost:6003' : '/react',
       expanded: false,
     },
     'react-native': {
       title: 'Hearth React Native',
-      url: isDev ? 'http://localhost:6004' : 'https://uw-hearth-react-native.vercel.app',
+      url: isDev ? 'http://localhost:6004' : '/react-native',
       expanded: false,
     },
     icons: {
       title: 'Hearth Icons',
-      url: isDev ? 'http://localhost:6002' : 'https://uw-hearth-icons.vercel.app',
+      url: isDev ? 'http://localhost:6002' : '/icons',
       expanded: false,
     },
     tokens: {
       title: 'Hearth Tokens',
-      url: isDev ? 'http://localhost:6005' : 'https://uw-hearth-tokens.vercel.app',
+      url: isDev ? 'http://localhost:6005' : '/tokens',
       expanded: false,
     },
     fonts: {
       title: 'Hearth Fonts',
-      url: isDev ? 'http://localhost:6001' : 'https://uw-hearth-fonts.vercel.app',
+      url: isDev ? 'http://localhost:6001' : '/fonts',
       expanded: false,
     },
   },

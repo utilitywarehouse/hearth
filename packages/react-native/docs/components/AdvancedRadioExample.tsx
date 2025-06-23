@@ -12,6 +12,7 @@ import {
   type RadioProps as NativeUIRadioProps,
 } from '../../src';
 
+import { TextProps, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
 interface RadioProps {
@@ -75,13 +76,13 @@ const CustomRadio = ({
   );
 };
 
-const BulletListItem = ({ children }: { children: React.ReactNode }) => (
+const BulletListItem = ({ children }: { children: TextProps['children'] }) => (
   <BodyText>
     {'\u2022'} {children}
   </BodyText>
 );
 
-const BulletList = ({ children }: { children: React.ReactNode }) => (
+const BulletList = ({ children }: { children: ViewProps['children'] }) => (
   <Box pl="200" gap="100">
     {children}
   </Box>

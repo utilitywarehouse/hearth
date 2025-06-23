@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { useWindowDimensions, View } from 'react-native';
+import { useWindowDimensions, View, ViewProps } from 'react-native';
 import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles';
 import { useStyleProps, useTheme } from '../../hooks';
 import type { GridProps } from './Grid.props';
@@ -69,11 +69,11 @@ const Grid = ({
 
   // Create rows and columns structure for better control over layout
   const rows = useMemo(() => {
-    const result: React.ReactNode[][] = [];
-    let currentRow: React.ReactNode[] = [];
+    const result: ViewProps['children'][][] = [];
+    let currentRow: ViewProps['children'][] = [];
 
     childrenArray.forEach((child, index) => {
-      currentRow.push(child);
+      currentRow.push(child as ViewProps['children']);
 
       // When we reach the end of a row or the end of all children
       if ((index + 1) % getColumnsForWidth === 0 || index === childrenArray.length - 1) {
@@ -100,7 +100,7 @@ const Grid = ({
             {rowItems.map((child, colIndex) => {
               return (
                 <View key={`item-${rowIndex}-${colIndex}`} style={[styles.item, itemStyle]}>
-                  {child}
+                  {child as ViewProps['children']}
                 </View>
               );
             })}

@@ -1,14 +1,13 @@
- 
 import React, { ReactNode, useMemo } from 'react';
-import type ListProps from './List.props';
-import { ListHeading } from './ListHeading';
-import { ListContext } from './List.context';
 import { View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { ListItem, ListItemProps } from './ListItem';
 import { Card } from '../Card';
+import { ListContext } from './List.context';
+import type ListProps from './List.props';
+import { ListHeading } from './ListHeading';
+import { ListItem, ListItemProps } from './ListItem';
 
-const markFirstListItem = (children: ReactNode): ReactNode => {
+const markFirstListItem = (children: ReactNode): ViewProps['children'] => {
   let found = false;
 
   const recursiveClone = (children: ReactNode): ReactNode => {

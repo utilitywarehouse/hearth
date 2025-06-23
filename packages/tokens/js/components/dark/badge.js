@@ -10,41 +10,41 @@ export default {
   gap: 4,
   outline: {
     blue: {
-      color: '#93c1ff',
+      color: '#6bb0ff',
     },
-    borderColor: '#fcfbf2',
+    borderColor: '#89816e',
     borderWidth: 1,
     green: {
-      color: '#74d6a0',
+      color: '#58ca93',
     },
     grey: {
-      color: '#8a8686',
+      color: '#b2afae',
     },
     orange: {
-      color: '#ffcca8',
+      color: '#ff9639',
     },
     red: {
-      color: '#ffa89d',
+      color: '#ff7964',
     },
   },
   paddingHorizontal: 6,
   paddingVertical: 2,
   solid: {
     blue: {
-      backgroundColor: '#93c1ff',
+      backgroundColor: '#1c6cd4',
     },
     color: '#fcfbf2',
     green: {
-      backgroundColor: '#74d6a0',
+      backgroundColor: '#0f834a',
     },
     grey: {
-      backgroundColor: '#8a8686',
+      backgroundColor: '#6f6c6b',
     },
     orange: {
-      backgroundColor: '#ffcca8',
+      backgroundColor: '#be5400',
     },
     red: {
-      backgroundColor: '#ffa89d',
+      backgroundColor: '#de2612',
     },
   },
 };

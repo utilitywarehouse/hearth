@@ -4,7 +4,7 @@
 declare const _default: {
   readonly checked: {
     readonly backgroundColor: '#7a42c8';
-    readonly backgroundColorHover: '#572e9e';
+    readonly backgroundColorHover: '#6538b8';
     readonly iconColor: '#7a42c8';
   };
   readonly circle: {

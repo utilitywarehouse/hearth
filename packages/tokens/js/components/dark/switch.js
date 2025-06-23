@@ -3,9 +3,9 @@
  */
 export default {
   checked: {
-    backgroundColor: '#7a42c8',
-    backgroundColorHover: '#572e9e',
-    iconColor: '#7a42c8',
+    backgroundColor: '#8850cf',
+    backgroundColorHover: '#926fd1',
+    iconColor: '#8850cf',
   },
   circle: {
     backgroundColor: '#ffffff',
@@ -27,8 +27,8 @@ export default {
     width: 44,
   },
   unchecked: {
-    backgroundColor: '#8a8686',
-    backgroundColorHover: '#6f6c6b',
-    iconColor: '#8a8686',
+    backgroundColor: '#6f6c6b',
+    backgroundColorHover: '#5f5c5b',
+    iconColor: '#6f6c6b',
   },
 };

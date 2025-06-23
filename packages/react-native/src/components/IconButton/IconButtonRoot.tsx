@@ -1,8 +1,8 @@
-import { PropsWithChildren, useMemo } from 'react';
-import type { IconButtonProps } from './IconButton.props';
+import { useMemo } from 'react';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { IconButtonContext } from './IconButton.context';
+import type { IconButtonProps } from './IconButton.props';
 
 const IconButtonRoot = ({
   children,
@@ -12,7 +12,7 @@ const IconButtonRoot = ({
   inverted = false,
   states,
   ...props
-}: PropsWithChildren<IconButtonProps & { states?: { active?: boolean; disabled?: boolean } }>) => {
+}: IconButtonProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active, disabled } = states || {};
   styles.useVariants({ colorScheme, variant, size, inverted, disabled, active });
   const value = useMemo(

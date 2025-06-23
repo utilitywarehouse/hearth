@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
-  defaultFill: '#7a42c8',
+  defaultFill: '#8850cf',
   lg: {
     size: 40,
     strokeWidth: 3,

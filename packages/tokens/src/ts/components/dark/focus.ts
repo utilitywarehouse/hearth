@@ -3,6 +3,6 @@
  */
 
 export default {
-  border: '#f6f5f5',
+  border: '#e7e6e6',
   borderInverted: '#fcfbf2',
 } as const;

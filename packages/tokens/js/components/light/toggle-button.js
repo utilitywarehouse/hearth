@@ -15,8 +15,8 @@ export default {
   paddingVertical: 12,
   selected: {
     backgroundColor: '#7a42c8',
-    backgroundColorActive: '#3f2475',
-    backgroundColorHover: '#572e9e',
+    backgroundColorActive: '#5a3285',
+    backgroundColorHover: '#6538b8',
     borderColor: '#101010',
     foregroundColor: '#fcfbf2',
   },

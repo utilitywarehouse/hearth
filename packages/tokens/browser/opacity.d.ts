@@ -3,6 +3,9 @@ export declare const opacity: {
     readonly overlay: {
       readonly opacity: 'var(--h-dark-overlay-opacity)';
     };
+    readonly opacity: {
+      readonly disabled: 'var(--h-dark-opacity-disabled)';
+    };
   };
   readonly overlay: {
     readonly opacity: 'var(--h-overlay-opacity)';

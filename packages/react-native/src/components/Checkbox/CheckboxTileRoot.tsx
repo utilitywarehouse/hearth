@@ -1,9 +1,8 @@
+import { View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { PropsWithChildren } from 'react';
 import { useCheckboxContext } from './Checkbox.context';
-import { View } from 'react-native';
 
-const CheckboxTileRoot = ({ children }: PropsWithChildren) => {
+const CheckboxTileRoot = ({ children }: { children: ViewProps['children'] }) => {
   const { checked } = useCheckboxContext();
   styles.useVariants({
     checked,

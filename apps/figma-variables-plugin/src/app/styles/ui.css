@@ -1,10 +1,4 @@
-:root {
-  --rem: 16;
-}
-
 body {
-  font-family: 'Work Sans', sans-serif;
-  font-size: 16px;
   background-color: #f4f3f6;
 }
 img {
@@ -43,6 +37,7 @@ img {
   border-left-color: #18a0fb;
   animation: spin 1s linear infinite;
 }
+
 @keyframes spin {
   to {
     transform: rotate(360deg);

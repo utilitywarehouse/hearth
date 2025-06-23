@@ -7,6 +7,7 @@ export declare const input: {
   readonly borderRadius: 'var(--h-input-border-radius)';
   readonly borderWidth: 'var(--h-input-border-width)';
   readonly borderWidthFocused: 'var(--h-input-border-width-focused)';
+  readonly color: 'var(--h-input-color)';
   readonly currency: {
     readonly gap: 'var(--h-input-currency-gap)';
     readonly height: 'var(--h-input-currency-height)';
