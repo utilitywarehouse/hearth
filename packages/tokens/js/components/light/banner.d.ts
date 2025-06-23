@@ -28,7 +28,7 @@ declare const _default: {
     };
     readonly gap: 0;
     readonly heading: {
-      readonly broadbandBlueBackgroundColor: '#8cba3b';
+      readonly broadbandGreenBackgroundColor: '#8cba3b';
       readonly cashbackLilacBackgroundColor: '#be7aeb';
       readonly energyBlueBackgroundColor: '#6db5c3';
       readonly insuranceOrangeBackgroundColor: '#ff7b00';
@@ -38,5 +38,6 @@ declare const _default: {
     };
     readonly padding: 16;
   };
+  readonly imageContainerBorderColor: '#101010';
 };
 export default _default;

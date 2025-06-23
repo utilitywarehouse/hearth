@@ -14,5 +14,10 @@
   --h-list-item-gap: var(--h-space-150);
   --h-list-item-padding: var(--h-space-200);
   --h-list-item-subtle-border-color: var(--h-color-warm-white-300);
+  --h-list-list-container-emphasis-warm-white-border-radius: var(--h-border-radius-xl);
+  --h-list-list-container-emphasis-white-border-radius: var(--h-border-radius-xl);
+  --h-list-list-container-none-border-radius: 0;
+  --h-list-list-container-subtle-warm-white-border-radius: var(--h-border-radius-xl);
+  --h-list-list-container-subtle-white-border-radius: var(--h-border-radius-xl);
   --h-menu-list-gap: var(--h-space-100);
 }

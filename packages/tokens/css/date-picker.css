@@ -3,7 +3,7 @@
  */
 
 :root {
-  --h-date-picker-background-color: var(--h-color-white);
+  --h-date-picker-background-color: var(--h-color-grey-0);
   --h-date-picker-border-color: var(--h-color-grey-1000);
   --h-date-picker-border-color-invalid: var(--h-color-red-700);
   --h-date-picker-border-color-read-only: var(--h-color-grey-200);
@@ -11,7 +11,7 @@
   --h-date-picker-border-radius: var(--h-border-radius-md);
   --h-date-picker-border-width: var(--h-border-width-1);
   --h-date-picker-border-width-focused: var(--h-border-width-2);
-  --h-date-picker-calendar-background-color: var(--h-color-white);
+  --h-date-picker-calendar-background-color: var(--h-color-grey-0);
   --h-date-picker-calendar-border-color: var(--h-color-warm-white-300);
   --h-date-picker-calendar-border-radius: var(--h-border-radius-md);
   --h-date-picker-calendar-border-width: var(--h-border-width-1);

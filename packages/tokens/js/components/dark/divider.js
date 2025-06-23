@@ -3,5 +3,5 @@
  */
 export default {
   borderWidth: 1,
-  color: '#d4d2c0',
+  color: '#4c473d',
 };

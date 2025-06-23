@@ -5,7 +5,7 @@
 export default {
   checked: {
     backgroundColor: '#7a42c8',
-    backgroundColorHover: '#572e9e',
+    backgroundColorHover: '#6538b8',
     iconColor: '#7a42c8',
   },
   circle: {

@@ -2,8 +2,14 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly color: '#f6f5f5';
-  readonly colorInvalid: '#ffa89d';
-  readonly colorValid: '#7bd5aa';
+  readonly item: {
+    readonly icon: {
+      readonly colorActive: '#7a42c8';
+      readonly colorDefault: '#e7e6e6';
+    };
+  };
+  readonly color: '#e7e6e6';
+  readonly colorInvalid: '#ff7964';
+  readonly colorValid: '#58ca93';
 };
 export default _default;

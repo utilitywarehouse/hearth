@@ -5,7 +5,7 @@ declare const _default: {
   readonly action: {
     readonly gap: 12;
   };
-  readonly backgroundColor: '#ffffff';
+  readonly backgroundColor: '#222222';
   readonly borderRadius: 16;
   readonly content: {
     readonly gap: 12;

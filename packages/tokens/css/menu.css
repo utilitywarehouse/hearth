@@ -3,7 +3,7 @@
  */
 
 :root {
-  --h-menu-background-color: var(--h-color-white);
+  --h-menu-background-color: var(--h-color-grey-0);
   --h-menu-border-color: var(--h-color-warm-white-300);
   --h-menu-border-width: var(--h-border-width-1);
   --h-menu-gap: var(--h-space-50);

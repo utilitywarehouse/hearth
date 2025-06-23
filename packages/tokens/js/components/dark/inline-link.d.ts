@@ -2,12 +2,12 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly color: '#93c1ff';
-  readonly colorVisited: '#7a42c8';
+  readonly color: '#6bb0ff';
+  readonly colorVisited: '#a782db';
   readonly inverted: {
     readonly color: '#fcfbf2';
     readonly colorActive: '#f1efe4';
-    readonly colorHover: '#fcfbf2';
+    readonly colorHover: '#f7f6eb';
     readonly colorVisited: '#f1efe4';
   };
 };
