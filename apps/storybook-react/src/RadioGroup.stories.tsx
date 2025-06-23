@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { RadioGroup, RadioTile, Box, Heading, Grid } from '@utilitywarehouse/hearth-react';
 import { Flex } from '@utilitywarehouse/hearth-react/src/index.js';

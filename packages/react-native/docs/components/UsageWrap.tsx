@@ -1,5 +1,5 @@
-import React, { FC, PropsWithChildren } from 'react';
-import { Box } from '../../src';
+import { FC, PropsWithChildren } from 'react';
+import { BottomSheetModalProvider, Box } from '../../src';
 
 const UsageWrap: FC<PropsWithChildren> = ({ children }) => {
   return (
@@ -12,8 +12,9 @@ const UsageWrap: FC<PropsWithChildren> = ({ children }) => {
         borderWidth="1"
         borderColor="grey1000"
         width="100%"
+        position="relative"
       >
-        {children}
+        <BottomSheetModalProvider>{children}</BottomSheetModalProvider>
       </Box>
     </div>
   );

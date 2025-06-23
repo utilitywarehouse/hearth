@@ -5,47 +5,46 @@ import { normalizeTokenName } from './helpers/normalize-token.js';
 import { px } from './helpers/px.js';
 import { filters } from './helpers/filters.js';
 import { kebabCase } from './helpers/kebab-case.js';
+import fs from 'fs';
+import path from 'path';
 
+// Path where CSS files will be generated
 const BUILD_PATH = './css/';
+// Components that have device-specific variants (mobile, tablet, desktop)
 const VALID_DEVICE_COMPONENTS = ['card'];
+// Prefix used for all CSS custom properties
 const PREFIX = 'h';
 
-// I tried to get this working with fs.readdirSync but I couldn't
-// so this will have to do for now
-StyleDictionary.registerFormat({
-  name: 'css/index',
-  format: () => {
-    return `@import '../css/badge.css';
-@import '../css/border.css';
-@import '../css/button.css';
-@import '../css/card.css';
-@import '../css/checkbox.css';
-@import '../css/color.css';
-@import '../css/divider.css';
-@import '../css/focus.css';
-@import '../css/font.css';
-@import '../css/list.css';
-@import '../css/icon-button.css';
-@import '../css/inline-link.css';
-@import '../css/input.css';
-@import '../css/layout.css';
-@import '../css/letter-spacing.css';
-@import '../css/line-height.css';
-@import '../css/link.css';
-@import '../css/opacity.css';
-@import '../css/radio.css';
-@import '../css/space.css';
-@import '../css/spinner.css';
-@import '../css/switch.css';
-@import '../css/text.css';
-@import '../css/typography.css';
-@import '../css/mobile.css';
-@import '../css/tablet.css';
-@import '../css/desktop.css';
-`;
+/**
+ * Creates an index.css file that imports all generated CSS files.
+ * This action:
+ * 1. Reads all CSS files in the build directory
+ * 2. Filters out index.css itself and non-CSS files
+ * 3. Creates @import statements with the correct relative path
+ * 4. Writes the imports to index.css
+ */
+StyleDictionary.registerAction({
+  name: 'create_css_index',
+  do: () => {
+    const cssFiles = fs
+      .readdirSync(path.resolve(BUILD_PATH))
+      .filter(file => file.endsWith('.css') && file !== 'index.css')
+      .map(file => `@import '../css/${file}';`)
+      .join('\n');
+
+    const indexFilePath = path.resolve(path.join(BUILD_PATH, 'index.css'));
+    try {
+      fs.writeFileSync(indexFilePath, cssFiles);
+    } catch (error) {
+      console.error(`Failed to write to file: ${indexFilePath}. Error: ${error.message}`);
+    }
   },
 });
 
+/**
+ * Normalizes token names to ensure consistent naming across the design system.
+ * This transform is applied to all token names before they are used in CSS.
+ */
 StyleDictionary.registerTransform({
   name: 'css/normalize-name',
   type: 'name',
@@ -54,6 +53,12 @@ StyleDictionary.registerTransform({
   },
 });
 
+/**
+ * Unwraps alias references in token values.
+ * When a token references another token (alias), this transform converts the reference
+ * into a CSS custom property using the kebab-case format.
+ * Example: {color: {alias: "base.primary"}} becomes var(--h-base-primary)
+ */
 StyleDictionary.registerTransform({
   name: 'alias/unwrap',
   type: 'value',
@@ -64,6 +69,11 @@ StyleDictionary.registerTransform({
   },
 });
 
+/**
+ * Converts font size values from pixels to rem units.
+ * This transform is applied to all font size tokens to ensure consistent scaling.
+ * Example: 16px becomes 1rem
+ */
 StyleDictionary.registerTransform({
   name: 'font-size/px-to-rem',
   type: 'value',
@@ -73,6 +83,11 @@ StyleDictionary.registerTransform({
   },
 });
 
+/**
+ * Converts line height values from pixels to rem units.
+ * This transform is applied to primitive line height tokens to ensure consistent scaling.
+ * Example: 24px becomes 1.5rem
+ */
 StyleDictionary.registerTransform({
   name: 'line-height/px-to-rem',
   type: 'value',
@@ -80,6 +95,11 @@ StyleDictionary.registerTransform({
   transform: token => `${token.value / 16}rem`,
 });
 
+/**
+ * Converts space values to pixel units.
+ * This transform is applied to primitive spacing tokens to ensure consistent units.
+ * Example: 4 becomes 4px
+ */
 StyleDictionary.registerTransform({
   name: 'space/px',
   type: 'value',
@@ -87,6 +107,11 @@ StyleDictionary.registerTransform({
   transform: px,
 });
 
+/**
+ * Converts border values to pixel units.
+ * This transform is applied to primitive border tokens to ensure consistent units.
+ * Example: 1 becomes 1px
+ */
 StyleDictionary.registerTransform({
   name: 'border/px',
   type: 'value',
@@ -94,6 +119,11 @@ StyleDictionary.registerTransform({
   transform: px,
 });
 
+/**
+ * Converts component-specific pixel values.
+ * This transform is applied to component tokens that use pixel values.
+ * Example: 16 becomes 16px
+ */
 StyleDictionary.registerTransform({
   name: 'component/px',
   type: 'value',
@@ -101,6 +131,11 @@ StyleDictionary.registerTransform({
   transform: px,
 });
 
+/**
+ * Removes the 'light-' prefix from color tokens.
+ * This transform is applied to color tokens to maintain consistent naming.
+ * Example: 'light-primary' becomes 'primary'
+ */
 StyleDictionary.registerTransform({
   name: 'alias/remove-light-color-prefix',
   type: 'value',
@@ -110,6 +145,11 @@ StyleDictionary.registerTransform({
   },
 });
 
+/**
+ * Converts opacity values from percentage to decimal.
+ * This transform is applied to opacity tokens to ensure correct CSS values.
+ * Example: 50 becomes 0.5
+ */
 StyleDictionary.registerTransform({
   name: 'opacity/value',
   type: 'value',
@@ -119,15 +159,22 @@ StyleDictionary.registerTransform({
   },
 });
 
+/**
+ * Normalizes letter spacing values to pixel units with 2 decimal places.
+ * This transform is applied to primitive letter spacing tokens.
+ * Example: 0.5 becomes 0.50px
+ */
 StyleDictionary.registerTransform({
   name: 'letter-spacing/normalize-value',
   type: 'value',
   filter: filters.isPrimitiveLetterSpacing,
-  transform: token => {
-    return token.value.toFixed(2) + 'px';
-  },
+  transform: token => `${token.value.toFixed(2)}px`,
 });
 
+/**
+ * Defines the sequence of transforms to be applied to CSS tokens.
+ * The transforms are applied in order, from top to bottom.
+ */
 StyleDictionary.registerTransformGroup({
   name: 'css-transforms',
   transforms: [
@@ -146,6 +193,11 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
+/**
+ * Generates CSS files for each component in the design system.
+ * Each component gets its own CSS file containing its specific design tokens.
+ * The files are filtered to only include light theme tokens from the component category.
+ */
 const componentJson = loadJSON('./raw/hearth-components--tokens---component.json');
 const componentFiles = Object.keys(componentJson.light).map(componentName => ({
   destination: `${componentName}.css`,
@@ -158,6 +210,12 @@ const componentFiles = Object.keys(componentJson.light).map(componentName => ({
     );
   },
 }));
+
+/**
+ * Generates CSS files for device-specific component variants.
+ * Currently only supports the 'card' component with mobile, tablet, and desktop variants.
+ * Each device gets its own CSS file containing the responsive design tokens.
+ */
 const deviceJson = loadJSON('./raw/hearth-components--tokens---device.json');
 const deviceFiles = Object.keys(deviceJson).map(device => {
   return {
@@ -229,30 +287,10 @@ export function generateCssTokens() {
               format: 'css/variables',
               filter: filters.isOpacity,
             },
+            ...componentFiles,
+            ...deviceFiles,
           ],
-        },
-        'css-components': {
-          transformGroup: 'css-transforms',
-          prefix: PREFIX,
-          buildPath: BUILD_PATH,
-          files: componentFiles,
-        },
-        'css-device-components': {
-          transformGroup: 'css-transforms',
-          prefix: PREFIX,
-          buildPath: BUILD_PATH,
-          files: deviceFiles,
-        },
-        'css-index': {
-          transformGroup: 'css-transforms',
-          prefix: PREFIX,
-          buildPath: BUILD_PATH,
-          files: [
-            {
-              destination: 'index.css',
-              format: 'css/index',
-            },
-          ],
+          actions: ['create_css_index'],
         },
       },
     }),

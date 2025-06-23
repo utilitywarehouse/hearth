@@ -2,8 +2,8 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly backgroundColor: '#ffffff';
-  readonly borderColor: '#d4d2c0';
+  readonly backgroundColor: '#222222';
+  readonly borderColor: '#4c473d';
   readonly borderWidth: 1;
   readonly gap: 4;
   readonly item: {
@@ -12,13 +12,13 @@ declare const _default: {
     readonly grey: {
       readonly backgroundColorActive: '#464444';
       readonly backgroundColorHover: '#3e3c3b';
-      readonly foregroundColor: '#f6f5f5';
+      readonly foregroundColor: '#e7e6e6';
     };
     readonly padding: 12;
     readonly red: {
-      readonly backgroundColorActive: '#6b1f1a';
-      readonly backgroundColorHover: '#3b1512';
-      readonly foregroundColor: '#ffccc5';
+      readonly backgroundColorActive: '#3b1512';
+      readonly backgroundColorHover: '#521a16';
+      readonly foregroundColor: '#ff7964';
     };
   };
   readonly list: {

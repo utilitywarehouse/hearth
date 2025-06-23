@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { View, Text } from 'react-native';
 import { Grid } from '.';
 

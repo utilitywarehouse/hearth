@@ -2,8 +2,8 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
-  backgroundColor: '#ffffff',
-  borderColor: '#d4d2c0',
+  backgroundColor: '#222222',
+  borderColor: '#4c473d',
   borderWidth: 1,
   gap: 4,
   item: {
@@ -12,13 +12,13 @@ export default {
     grey: {
       backgroundColorActive: '#464444',
       backgroundColorHover: '#3e3c3b',
-      foregroundColor: '#f6f5f5',
+      foregroundColor: '#e7e6e6',
     },
     padding: 12,
     red: {
-      backgroundColorActive: '#6b1f1a',
-      backgroundColorHover: '#3b1512',
-      foregroundColor: '#ffccc5',
+      backgroundColorActive: '#3b1512',
+      backgroundColorHover: '#521a16',
+      foregroundColor: '#ff7964',
     },
   },
   list: {

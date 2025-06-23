@@ -1,86 +1,79 @@
-import React, { forwardRef, useMemo } from 'react';
-import { RadioGroup as RadioGroupComponent } from './Radio';
-import RadioGroupProps from './RadioGroup.props';
-import { RadioGroupContext } from './RadioGroup.context';
+import React, { useMemo } from 'react';
 import { View } from 'react-native';
-import { Label } from '../Label';
-import { Helper } from '../Helper';
 import { StyleSheet } from 'react-native-unistyles';
+import { Helper } from '../Helper';
+import { Label } from '../Label';
+import { RadioGroup as RadioGroupComponent } from './Radio';
+import { RadioGroupContext } from './RadioGroup.context';
+import RadioGroupProps from './RadioGroup.props';
 import RadioGroupTextContent from './RadioGroupTextContent';
 
-const RadioGroup = forwardRef<View, RadioGroupProps>(
-  (
-    {
-      children,
-      disabled,
-      readonly,
-      validationStatus,
-      label,
-      helperText,
-      invalidText,
-      validText,
-      showValidationIcon = true,
-      helperIcon,
-      type,
-      direction = 'column',
-      gap,
-      ...props
-    },
-    ref
-  ) => {
-    const value = useMemo(
-      () => ({ disabled, validationStatus, type }),
-      [disabled, validationStatus, type]
+const RadioGroup = ({
+  children,
+  disabled,
+  readonly,
+  validationStatus,
+  label,
+  helperText,
+  invalidText,
+  validText,
+  showValidationIcon = true,
+  helperIcon,
+  type,
+  direction = 'column',
+  gap,
+  ...props
+}: RadioGroupProps) => {
+  const value = useMemo(
+    () => ({ disabled, validationStatus, type }),
+    [disabled, validationStatus, type]
+  );
+  const showHeader = !!label || !!helperText || !!invalidText || !!validText;
+  const childrenArray = React.Children.toArray(children as any);
+  const childIsCard =
+    type === 'tile' ||
+    childrenArray.some(
+      child =>
+        React.isValidElement(child) &&
+        // @ts-expect-error - child.type is not typed
+        (child.props.type === 'tile' || child.type.displayName === 'RadioTile')
     );
-    const showHeader = !!label || !!helperText || !!invalidText || !!validText;
-    const childrenArray = React.Children.toArray(children);
-    const childIsCard =
-      type === 'tile' ||
-      childrenArray.some(
-        child =>
-          React.isValidElement(child) &&
-          // @ts-expect-error - child.type is not typed
-          (child.props.type === 'tile' || child.type.displayName === 'RadioTile')
-      );
-    styles.useVariants({ type: childIsCard ? 'tile' : 'radio', direction });
-    return (
-      <RadioGroupContext.Provider value={value}>
-        <RadioGroupComponent
-          // @ts-ignore
-          ref={ref}
-          {...props}
-          isDisabled={disabled}
-          isReadOnly={readonly}
-          isCard={childIsCard}
-        >
-          {showHeader && (
-            <RadioGroupTextContent>
-              {!!label && <Label disabled={disabled}>{label}</Label>}
-              {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
-              {validationStatus === 'invalid' && !!invalidText && (
-                <Helper
-                  showIcon={showValidationIcon}
-                  disabled={disabled}
-                  validationStatus="invalid"
-                  text={invalidText}
-                />
-              )}
-              {validationStatus === 'valid' && !!validText && (
-                <Helper
-                  disabled={disabled}
-                  showIcon={showValidationIcon}
-                  validationStatus="valid"
-                  text={validText}
-                />
-              )}
-            </RadioGroupTextContent>
-          )}
-          <View style={[styles.container, styles.containerGap(gap)]}>{children}</View>
-        </RadioGroupComponent>
-      </RadioGroupContext.Provider>
-    );
-  }
-);
+  styles.useVariants({ type: childIsCard ? 'tile' : 'radio', direction });
+  return (
+    <RadioGroupContext.Provider value={value}>
+      <RadioGroupComponent
+        {...props}
+        isDisabled={disabled}
+        isReadOnly={readonly}
+        isCard={childIsCard}
+      >
+        {showHeader && (
+          <RadioGroupTextContent>
+            {!!label && <Label disabled={disabled}>{label}</Label>}
+            {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
+            {validationStatus === 'invalid' && !!invalidText && (
+              <Helper
+                showIcon={showValidationIcon}
+                disabled={disabled}
+                validationStatus="invalid"
+                text={invalidText}
+              />
+            )}
+            {validationStatus === 'valid' && !!validText && (
+              <Helper
+                disabled={disabled}
+                showIcon={showValidationIcon}
+                validationStatus="valid"
+                text={validText}
+              />
+            )}
+          </RadioGroupTextContent>
+        )}
+        <View style={[styles.container, styles.containerGap(gap)]}>{children}</View>
+      </RadioGroupComponent>
+    </RadioGroupContext.Provider>
+  );
+};
 
 const styles = StyleSheet.create(theme => ({
   container: {

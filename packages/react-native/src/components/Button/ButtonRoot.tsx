@@ -1,61 +1,46 @@
-/* eslint-disable  @typescript-eslint/no-unsafe-assignment */
-import React, { forwardRef, PropsWithChildren, useMemo, useEffect } from 'react';
-import type { BaseButtonProps } from './Button.props';
-import { Pressable, ViewStyle, GestureResponderEvent } from 'react-native';
+import { useMemo } from 'react';
+import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { useCardActionContext } from '../Card';
 import { ButtonContext } from './Button.context';
-import { PressableRef } from '../../types';
-import { useCardActionContext, useCardContext } from '../Card';
+import type { BaseButtonProps } from './Button.props';
 
-const ButtonRoot = forwardRef<
-  PressableRef,
-  PropsWithChildren<BaseButtonProps & { states?: { active?: boolean; disabled?: boolean } }>
->(
-  (
-    {
-      children,
-      colorScheme = 'yellow',
-      variant = 'solid',
-      size = 'md',
-      inverted = false,
-      states,
-      onPress,
-      paddingNone = false,
-      ...props
-    },
-    ref
-  ) => {
-    const { active, disabled = false } = states || {};
-    const { pressed } = useCardActionContext();
+const ButtonRoot = ({
+  children,
+  colorScheme = 'yellow',
+  variant = 'solid',
+  size = 'md',
+  inverted = false,
+  states,
+  onPress,
+  paddingNone = false,
+  ...props
+}: BaseButtonProps & { states?: { active?: boolean; disabled?: boolean } }) => {
+  const { active, disabled = false } = states || {};
+  const { pressed } = useCardActionContext();
 
-    styles.useVariants({
-      variant,
-      size,
-      colorScheme,
-      disabled,
-      inverted,
-      active: active || pressed,
-      paddingNone,
-    });
+  styles.useVariants({
+    variant,
+    size,
+    colorScheme,
+    disabled,
+    inverted,
+    active: active || pressed,
+    paddingNone,
+  });
 
-    const value = useMemo(
-      () => ({ colorScheme, variant, size, inverted, disabled, active }),
-      [colorScheme, variant, size, inverted, disabled, active]
-    );
-    return (
-      <ButtonContext.Provider value={value}>
-        <Pressable
-          ref={ref}
-          {...props}
-          style={[styles.container, props.style as ViewStyle]}
-          onPress={onPress}
-        >
-          {children}
-        </Pressable>
-      </ButtonContext.Provider>
-    );
-  }
-);
+  const value = useMemo(
+    () => ({ colorScheme, variant, size, inverted, disabled, active }),
+    [colorScheme, variant, size, inverted, disabled, active]
+  );
+  return (
+    <ButtonContext.Provider value={value}>
+      <Pressable {...props} style={[styles.container, props.style as ViewStyle]} onPress={onPress}>
+        {children}
+      </Pressable>
+    </ButtonContext.Provider>
+  );
+};
 
 ButtonRoot.displayName = 'ButtonRoot';
 

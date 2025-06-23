@@ -5,9 +5,9 @@ declare const _default: {
   readonly borderRadius: 4;
   readonly borderWidth: 2;
   readonly checked: {
-    readonly backgroundColor: '#f6f5f5';
-    readonly borderColor: '#f6f5f5';
-    readonly iconColor: '#fcfbf2';
+    readonly backgroundColor: '#e7e6e6';
+    readonly borderColor: '#e7e6e6';
+    readonly iconColor: '#191917';
   };
   readonly gap: 8;
   readonly group: {
@@ -16,13 +16,13 @@ declare const _default: {
       readonly gap: 32;
     };
   };
-  readonly outlineColorActive: '#d4d2c0';
-  readonly outlineColorHover: '#f1efe4';
+  readonly outlineColorActive: '#4c473d';
+  readonly outlineColorHover: '#30302c';
   readonly outlineWidth: 3;
   readonly tile: {
-    readonly backgroundColor: '#ffffff';
-    readonly borderColor: '#d4d2c0';
-    readonly borderColorSelected: '#f6f5f5';
+    readonly backgroundColor: '#222222';
+    readonly borderColor: '#4c473d';
+    readonly borderColorSelected: '#e7e6e6';
     readonly borderRadius: 8;
     readonly borderWidth: 1;
     readonly borderWidthSelected: 2;
@@ -38,8 +38,8 @@ declare const _default: {
     readonly padding: 12;
   };
   readonly unchecked: {
-    readonly backgroundColor: '#ffffff';
-    readonly borderColor: '#5f5c5b';
+    readonly backgroundColor: '#222222';
+    readonly borderColor: '#8a8686';
   };
 };
 export default _default;

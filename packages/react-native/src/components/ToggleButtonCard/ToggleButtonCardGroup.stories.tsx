@@ -1,6 +1,5 @@
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { ToggleButtonCard, ToggleButtonCardGroup } from '.';
-import { Meta, StoryObj } from '@storybook/react';
 import { BodyText } from '../BodyText';
 
 const meta = {
@@ -54,6 +53,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: ({ value: _, ...args }) => (
     <ToggleButtonCardGroup {...args}>
       <ToggleButtonCard

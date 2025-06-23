@@ -9,5 +9,5 @@
   --h-link-gap: var(--h-space-25);
   --h-link-inverted-color: var(--h-color-warm-white-50);
   --h-link-inverted-color-active: var(--h-color-warm-white-200);
-  --h-link-inverted-color-hover: var(--h-color-warm-white-50);
+  --h-link-inverted-color-hover: var(--h-color-warm-white-100);
 }

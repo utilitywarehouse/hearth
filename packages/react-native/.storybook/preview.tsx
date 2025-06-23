@@ -1,18 +1,27 @@
-import React, { useEffect } from 'react';
-import type { Preview } from '@storybook/react';
-import { useArgs } from 'storybook/internal/preview-api';
-import '../src/core';
-import theme from '../../../shared/storybook/theme';
-import { color } from '@utilitywarehouse/hearth-tokens';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import '@utilitywarehouse/hearth-fonts';
+import { color } from '@utilitywarehouse/hearth-tokens';
+import { useEffect } from 'react';
 import '../../../shared/storybook/styles/preview.css';
+import theme from '../../../shared/storybook/theme';
+import { breakpoints, StyleSheet, themes } from '../src/core';
 
-const preview: Preview = {
+StyleSheet.configure({
+  themes,
+  breakpoints,
+  settings: {
+    initialTheme: 'light',
+    adaptiveThemes: false,
+  },
+});
+
+/** @type { import('@storybook/react-native-web-vite').Preview } */
+const preview = {
   beforeAll: () => {
     let canAccessParent = false;
     try {
       canAccessParent = window.parent.location.hostname === window.location.hostname;
-    } catch (error) {
+    } catch {
       // CORS error, can't access parent domain
       canAccessParent = false;
     }
@@ -32,9 +41,6 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    docs: {
-      theme,
-    },
     options: {
       storySort: {
         order: [
@@ -47,11 +53,18 @@ const preview: Preview = {
         ],
       },
     },
+    docs: {
+      theme,
+    },
+    a11y: {
+      // 'todo' - show a11y violations in the test UI only
+      // 'error' - fail CI on a11y violations
+      // 'off' - skip a11y checks entirely
+      test: 'todo',
+    },
   },
   decorators: [
-    Story => {
-      const [args] = useArgs();
-
+    (Story, { args }) => {
       useEffect(() => {
         const storybookContainer = document.getElementsByTagName('body')[0];
         if (storybookContainer) {
@@ -65,7 +78,11 @@ const preview: Preview = {
         }
       }, [args.darkMode, args.surface, args.inverted]);
 
-      return <Story />;
+      return (
+        <BottomSheetModalProvider>
+          <Story />
+        </BottomSheetModalProvider>
+      );
     },
   ],
 };

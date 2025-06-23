@@ -1,4 +1,5 @@
-import React, { forwardRef, memo, useMemo } from 'react';
+ 
+import React, { useMemo } from 'react';
 import { View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import type BoxProps from './Box.props';
@@ -9,19 +10,8 @@ import {
   viewStyleProps,
 } from '../../utils';
 
-// Helper types for polymorphic components
-type PolymorphicRef<T extends React.ElementType> = React.ComponentPropsWithRef<T>['ref'];
-
-type PolymorphicComponentProps<T extends React.ElementType, Props = {}> = Props &
-  Omit<React.ComponentPropsWithoutRef<T>, keyof Props | 'as'> & {
-    as?: T;
-  };
-
 // --- Box component definition ---
-const BoxComponent = <T extends React.ElementType = typeof View>(
-  { as, style, children, ...props }: PolymorphicComponentProps<T, BoxProps<T>>,
-  ref: PolymorphicRef<T>
-) => {
+const BoxComponent = ({ as, style, children, ...props }: BoxProps) => {
   const { computedProps } = useMemo(() => {
     const computedProps: Record<string, any> = {};
 
@@ -38,10 +28,10 @@ const BoxComponent = <T extends React.ElementType = typeof View>(
     return { computedProps };
   }, [props]);
 
-  const Component: React.ElementType = as || View;
+  const Component: React.ComponentType<any> = (as as React.ComponentType<any>) || View;
 
   return (
-    <Component ref={ref} style={[styles.computedStyles(props), style]} {...computedProps}>
+    <Component style={[styles.computedStyles(props), style]} {...computedProps}>
       {children}
     </Component>
   );
@@ -55,7 +45,6 @@ const styles = StyleSheet.create(theme => ({
       if (propValue === undefined) return;
 
       let stylePropName: keyof ViewStyle | undefined;
-      let themeKey: keyof typeof theme | undefined;
 
       // Handle shorthand props
       if (propStyleMapping[propName]) {
@@ -69,7 +58,9 @@ const styles = StyleSheet.create(theme => ({
       if (!stylePropName) return;
 
       // Resolve theme value if needed
-      themeKey = themeStyleMapping[stylePropName] as keyof typeof theme;
+      const themeKey: keyof typeof theme | undefined = themeStyleMapping[
+        stylePropName
+      ] as keyof typeof theme;
 
       if (themeKey && theme[themeKey]) {
         computedStyles[stylePropName] = resolveThemeValue(propValue, theme[themeKey]);
@@ -82,13 +73,6 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-type BoxComponentType = <T extends React.ElementType = typeof View>(
-  props: PolymorphicComponentProps<T, BoxProps<T>> & { ref?: PolymorphicRef<T> }
-) => React.ReactElement | null;
+BoxComponent.displayName = 'Box';
 
-// @ts-expect-error - TypeScript doesn't infer the type correctly here
-const Box = memo(forwardRef(BoxComponent)) as BoxComponentType & { displayName?: string };
-
-Box.displayName = 'Box';
-
-export default Box;
+export default BoxComponent;

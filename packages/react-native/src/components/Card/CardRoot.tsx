@@ -1,106 +1,97 @@
-import React, { forwardRef, ReactNode, useMemo } from 'react';
+ 
+import React, { ReactNode, useMemo } from 'react';
 import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import CardProps from './Card.props';
-import { PressableRef } from '../../types';
 import { CardContext } from './Card.context';
 import { useStyleProps } from '../../hooks';
 
 // Helper that recursively collects onPress or other defined handlers from descendants
 const collectChildActionHandlers = (
   children: React.ReactNode
-): Array<(e: GestureResponderEvent) => void> => {
-  return React.Children.toArray(children).reduce(
+): Array<(e: GestureResponderEvent) => void> =>
+  React.Children.toArray(children).reduce(
     (handlers, child) => {
       if (React.isValidElement(child)) {
-        // @ts-ignore
+        const childProps = child.props as any;
+        // @ts-expect-error - type
         if (child.type.displayName === 'CardAction') {
-          const actionChildren = React.Children.toArray(child.props.children);
-          const actionToInherit = child.props['actionToInherit'] || 'onPress';
+          const actionChildren = React.Children.toArray(childProps.children);
+          const actionToInherit = childProps['actionToInherit'] || 'onPress';
           const firstChild = actionChildren[0];
           if (
             React.isValidElement(firstChild) &&
-            typeof firstChild.props[actionToInherit] === 'function'
+            typeof (firstChild.props as any)[actionToInherit] === 'function'
           ) {
-            handlers.push(firstChild.props[actionToInherit]);
+            handlers.push((firstChild.props as any)[actionToInherit]);
           }
         }
-        if (child.props.children) {
-          handlers.push(...collectChildActionHandlers(child.props.children));
+        if (childProps.children) {
+          handlers.push(...collectChildActionHandlers(childProps.children));
         }
       }
       return handlers;
     },
     [] as Array<(e: GestureResponderEvent) => void>
   );
+
+const Card = ({
+  children,
+  variant = 'subtle',
+  colorScheme = 'white',
+  noPadding = false,
+  style,
+  states,
+  space,
+  disabled = false,
+  onPress,
+  ...rest
+}: CardProps & { states?: { active?: boolean; disabled?: boolean } }) => {
+  const { active } = states || { active: false };
+  const childActionHandlers = collectChildActionHandlers(children as ReactNode);
+  // Extract style props using our custom hook
+  const { computedStyles, remainingProps } = useStyleProps(rest);
+
+  const handlePress = (e: GestureResponderEvent) => {
+    if (onPress) {
+      onPress(e);
+    }
+
+    childActionHandlers.forEach(fn => fn(e));
+  };
+
+  const inheritChildAction = childActionHandlers.length > 0;
+  const showPressed = inheritChildAction || !!onPress;
+
+  styles.useVariants({
+    variant,
+    colorScheme,
+    noPadding,
+    active,
+    showPressed,
+    disabled,
+    space,
+  });
+
+  const context = useMemo(
+    () => ({
+      pressed: showPressed && active,
+    }),
+    [showPressed, active]
+  );
+  return (
+    <CardContext.Provider value={context}>
+      <Pressable
+        {...remainingProps}
+        disabled={disabled}
+        style={[styles.card, computedStyles, style as ViewStyle]}
+        onPress={handlePress}
+      >
+        {children}
+      </Pressable>
+    </CardContext.Provider>
+  );
 };
-
-const Card = forwardRef<
-  PressableRef,
-  CardProps & { states?: { active?: boolean; disabled?: boolean } }
->(
-  (
-    {
-      children,
-      variant = 'subtle',
-      colorScheme = 'white',
-      noPadding = false,
-      style,
-      states,
-      space,
-      disabled = false,
-      onPress,
-      ...rest
-    },
-    ref
-  ) => {
-    const { active } = states || { active: false };
-    const childActionHandlers = collectChildActionHandlers(children as ReactNode);
-    // Extract style props using our custom hook
-    const { computedStyles, remainingProps } = useStyleProps(rest);
-
-    const handlePress = (e: GestureResponderEvent) => {
-      if (onPress) {
-        onPress(e);
-      }
-
-      childActionHandlers.forEach(fn => fn(e));
-    };
-
-    const inheritChildAction = childActionHandlers.length > 0;
-    const showPressed = inheritChildAction || !!onPress;
-
-    styles.useVariants({
-      variant,
-      colorScheme,
-      noPadding,
-      active,
-      showPressed,
-      disabled,
-      space,
-    });
-
-    const context = useMemo(
-      () => ({
-        pressed: showPressed && active,
-      }),
-      [showPressed, active]
-    );
-    return (
-      <CardContext.Provider value={context}>
-        <Pressable
-          ref={ref}
-          {...remainingProps}
-          disabled={disabled}
-          style={[styles.card, computedStyles, style as ViewStyle]}
-          onPress={handlePress}
-        >
-          {children}
-        </Pressable>
-      </CardContext.Provider>
-    );
-  }
-);
 
 Card.displayName = 'Card';
 

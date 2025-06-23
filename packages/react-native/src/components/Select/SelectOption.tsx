@@ -1,4 +1,3 @@
-import React from 'react';
 import { Pressable, View, ViewStyle } from 'react-native';
 import { SelectOptionProps } from './Select.props';
 import { useSelectContext } from './Select.context';
@@ -43,7 +42,10 @@ const SelectOption = ({
     >
       {!!LeftIcon && (
         <View>
-          <Icon style={styles.icon as ViewStyle} as={LeftIcon} />
+          {(() => {
+            const IconAny = Icon as any;
+            return <IconAny style={styles.icon as ViewStyle} as={LeftIcon} />;
+          })()}
         </View>
       )}
 
@@ -58,7 +60,10 @@ const SelectOption = ({
       )}
       {!!RightIcon && !isSelected && (
         <View>
-          <Icon style={styles.icon as ViewStyle} as={RightIcon} />
+          {(() => {
+            const IconAny = Icon as any;
+            return <IconAny style={styles.icon as ViewStyle} as={RightIcon} />;
+          })()}
         </View>
       )}
     </Pressable>

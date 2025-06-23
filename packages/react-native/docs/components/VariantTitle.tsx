@@ -1,15 +1,17 @@
-import React from 'react';
+import { ViewProps } from 'react-native';
 import { Box, DetailText } from '../../src';
-import { FC, PropsWithChildren } from 'react';
-import { invert } from 'react-native-svg/lib/typescript/elements/Shape';
 
-const VariantTitle: FC<
-  PropsWithChildren<{
-    title: string;
-    upperCase?: boolean;
-    invert?: boolean;
-  }>
-> = ({ title, upperCase = true, invert = false, children }) => (
+const VariantTitle = ({
+  title,
+  upperCase = true,
+  invert = false,
+  children,
+}: {
+  title: string;
+  upperCase?: boolean;
+  invert?: boolean;
+  children: ViewProps['children'];
+}) => (
   <Box gap="100" w="full">
     <DetailText
       textTransform={upperCase ? 'uppercase' : 'none'}

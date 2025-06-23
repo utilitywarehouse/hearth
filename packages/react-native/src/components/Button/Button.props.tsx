@@ -1,5 +1,5 @@
-import type { ReactNode, ComponentType, ReactElement } from 'react';
-import type { PressableProps } from 'react-native';
+import type { ComponentType, ReactElement, ReactNode } from 'react';
+import type { PressableProps, ViewProps } from 'react-native';
 
 export type ButtonVariants =
   | { variant?: 'solid'; colorScheme?: 'green' | 'red'; inverted?: never }
@@ -19,6 +19,7 @@ export type BaseButtonProps = Omit<PressableProps, 'children'> & {
   size?: 'sm' | 'md';
   pressed?: boolean;
   paddingNone?: boolean;
+  children?: ViewProps['children'];
 } & ButtonVariants;
 
 export type ButtonWithoutChildrenProps = BaseButtonProps & {
@@ -69,7 +70,6 @@ type ReactNodeWithoutStringOrNumber = Exclude<ReactNode, string | number | Itera
 export type ButtonWithOtherChildernProps = BaseButtonProps & {
   children:
     | ReactNodeWithoutStringOrNumber
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     | ReactElement<any, React.JSXElementConstructor<any>>
     | Iterable<ReactNodeWithoutStringOrNumber>;
   icon?: never;

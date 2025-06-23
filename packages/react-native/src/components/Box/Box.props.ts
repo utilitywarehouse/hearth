@@ -1,14 +1,12 @@
-import type { ViewStyle, StyleProp, View } from 'react-native';
+import React from 'react';
+import type { ViewProps, ViewStyle } from 'react-native';
 import type {
+  BorderRadiusValue,
   BordeWidthValue,
   ColorValue,
   OpacityValue,
-  BorderRadiusValue,
   SpaceValue,
 } from '../../types';
-import React from 'react';
-
-type ComponentPropsWithRef<T extends React.ElementType> = React.ComponentPropsWithRef<T>;
 
 export type OmittedStyles = Omit<
   ViewStyle,
@@ -225,16 +223,12 @@ export interface ThemedBoxViewStyleProps {
   borderWidth?: BordeWidthValue;
 }
 
-export interface BoxOwnProps
+export interface BoxProps
   extends BoxStyleMappingValues,
     ThemedBoxViewStyleProps,
-    OtherBoxViewStyles {
+    OtherBoxViewStyles,
+    ViewProps {
   as?: React.ElementType;
-  children?: React.ReactNode;
-  style?: StyleProp<ViewStyle>;
 }
-
-export type BoxProps<T extends React.ElementType = typeof View> = BoxOwnProps &
-  Omit<ComponentPropsWithRef<T>, keyof BoxOwnProps>;
 
 export default BoxProps;

@@ -2,12 +2,12 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
-  backgroundColorActive: '#f1efe4',
-  backgroundColorHover: '#f7f6eb',
-  borderColor: '#101010',
+  backgroundColorActive: '#30302c',
+  backgroundColorHover: '#282825',
+  borderColor: '#e7e6e6',
   borderRadius: 8,
   borderWidth: 2,
-  foregroundColor: '#101010',
+  foregroundColor: '#e7e6e6',
   gap: 6,
   height: 48,
   minWidth: 80,
@@ -15,9 +15,9 @@ export default {
   paddingVertical: 12,
   selected: {
     backgroundColor: '#7a42c8',
-    backgroundColorActive: '#26164f',
-    backgroundColorHover: '#572e9e',
-    borderColor: '#101010',
+    backgroundColorActive: '#5a3285',
+    backgroundColorHover: '#6538b8',
+    borderColor: '#e7e6e6',
     foregroundColor: '#fcfbf2',
   },
 };

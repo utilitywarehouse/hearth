@@ -1,4 +1,3 @@
-import React, { forwardRef } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import ListHeadingTitle from './ListHeadingTitle';
@@ -8,55 +7,50 @@ import ListHeadingTextContent from './ListHeadingTextContent';
 import { Link } from '../../Link';
 import { useListContext } from '../List.context';
 
-const ListHeading = forwardRef<View, ListHeadingProps>(
-  (
-    {
-      text,
-      helperText,
-      children,
-      style,
-      linkDisabled,
-      linkHref,
-      linkIcon,
-      linkIconPosition,
-      linkOnPress,
-      linkShowIcon,
-      linkTarget,
-      linkText,
-      ...props
-    },
-    ref
-  ) => {
-    const { disabled } = useListContext();
-    return (
-      <View ref={ref} {...props} style={[styles.container, style]}>
-        {children ? (
-          children
-        ) : (
-          <>
-            <ListHeadingTextContent>
-              <ListHeadingTitle>{text}</ListHeadingTitle>
-              {!!helperText && <ListHeadingHelperText>{helperText}</ListHeadingHelperText>}
-            </ListHeadingTextContent>
-            {!!linkText && (
-              <Link
-                href={linkHref}
-                disabled={disabled ?? linkDisabled}
-                onPress={linkOnPress}
-                icon={linkIcon}
-                showIcon={linkShowIcon}
-                iconPosition={linkIconPosition}
-                target={linkTarget}
-              >
-                {linkText}
-              </Link>
-            )}
-          </>
-        )}
-      </View>
-    );
-  }
-);
+const ListHeading = ({
+  text,
+  helperText,
+  children,
+  style,
+  linkDisabled,
+  linkHref,
+  linkIcon,
+  linkIconPosition,
+  linkOnPress,
+  linkShowIcon,
+  linkTarget,
+  linkText,
+  ...props
+}: ListHeadingProps) => {
+  const { disabled } = useListContext();
+  return (
+    <View {...props} style={[styles.container, style]}>
+      {children ? (
+        children
+      ) : (
+        <>
+          <ListHeadingTextContent>
+            <ListHeadingTitle>{text}</ListHeadingTitle>
+            {!!helperText && <ListHeadingHelperText>{helperText}</ListHeadingHelperText>}
+          </ListHeadingTextContent>
+          {!!linkText && (
+            <Link
+              href={linkHref}
+              disabled={disabled ?? linkDisabled}
+              onPress={linkOnPress}
+              icon={linkIcon}
+              showIcon={linkShowIcon}
+              iconPosition={linkIconPosition}
+              target={linkTarget}
+            >
+              {linkText}
+            </Link>
+          )}
+        </>
+      )}
+    </View>
+  );
+};
 
 ListHeading.displayName = 'ListHeading';
 

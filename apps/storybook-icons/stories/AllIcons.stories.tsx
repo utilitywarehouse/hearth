@@ -1,5 +1,5 @@
 // @ts-nocheck
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { reactIcons } from '../utils/react-icons';
 import { AddMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/AddMediumIcon';
 import { IconsGrid } from './components';

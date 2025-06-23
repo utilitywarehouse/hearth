@@ -1,4 +1,5 @@
-import React, { forwardRef, useMemo } from 'react';
+ 
+import React, { useMemo } from 'react';
 import { CheckboxGroup as CheckboxGroupComponent } from './Checkbox';
 import CheckboxGroupProps from './CheckboxGroup.props';
 import { CheckboxGroupContext } from './CheckboxGroup.context';
@@ -8,79 +9,73 @@ import CheckboxGroupTextContent from './CheckboxGroupTextContent';
 import { Label } from '../Label';
 import { Helper } from '../Helper';
 
-const CheckboxGroup = forwardRef<View, CheckboxGroupProps>(
-  (
-    {
-      children,
-      disabled,
-      readonly,
-      validationStatus,
-      label,
-      helperText,
-      invalidText,
-      validText,
-      showValidationIcon = true,
-      helperIcon,
-      type,
-      direction = 'column',
-      gap,
-      ...props
-    },
-    ref
-  ) => {
-    const value = useMemo(
-      () => ({ disabled, validationStatus, type }),
-      [disabled, validationStatus, type]
+const CheckboxGroup = ({
+  children,
+  disabled,
+  readonly,
+  validationStatus,
+  label,
+  helperText,
+  invalidText,
+  validText,
+  showValidationIcon = true,
+  helperIcon,
+  type,
+  direction = 'column',
+  gap,
+  ...props
+}: CheckboxGroupProps) => {
+  const value = useMemo(
+    () => ({ disabled, validationStatus, type }),
+    [disabled, validationStatus, type]
+  );
+  const showHeader = !!label || !!helperText || !!invalidText || !!validText;
+  const childrenArray = React.Children.toArray(children as any);
+  const childIsCard =
+    type === 'tile' ||
+    childrenArray.some(
+      child =>
+        React.isValidElement(child) &&
+        // @ts-expect-error - child.type is not typed
+        (child.props.type === 'tile' || child.type.displayName === 'CheckboxTile')
     );
-    const showHeader = !!label || !!helperText || !!invalidText || !!validText;
-    const childrenArray = React.Children.toArray(children);
-    const childIsCard =
-      type === 'tile' ||
-      childrenArray.some(
-        child =>
-          React.isValidElement(child) &&
-          // @ts-expect-error - child.type is not typed
-          (child.props.type === 'tile' || child.type.displayName === 'CheckboxTile')
-      );
-    styles.useVariants({ type: childIsCard ? 'tile' : 'checkbox', direction });
-    return (
-      <CheckboxGroupContext.Provider value={value}>
-        <CheckboxGroupComponent
-          // @ts-ignore
-          ref={ref}
-          {...props}
-          isDisabled={disabled}
-          isReadOnly={readonly}
-          isCard={childIsCard}
-        >
-          {showHeader && (
-            <CheckboxGroupTextContent>
-              {!!label && <Label disabled={disabled}>{label}</Label>}
-              {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
-              {validationStatus === 'invalid' && !!invalidText && (
-                <Helper
-                  showIcon={showValidationIcon}
-                  disabled={disabled}
-                  validationStatus="invalid"
-                  text={invalidText}
-                />
-              )}
-              {validationStatus === 'valid' && !!validText && (
-                <Helper
-                  disabled={disabled}
-                  showIcon={showValidationIcon}
-                  validationStatus="valid"
-                  text={validText}
-                />
-              )}
-            </CheckboxGroupTextContent>
-          )}
-          <View style={[styles.container, styles.containerGap(gap)]}>{children}</View>
-        </CheckboxGroupComponent>
-      </CheckboxGroupContext.Provider>
-    );
-  }
-);
+  styles.useVariants({ type: childIsCard ? 'tile' : 'checkbox', direction });
+  return (
+    <CheckboxGroupContext.Provider value={value}>
+      <CheckboxGroupComponent
+        {...props}
+        value={props.value as Array<string>}
+        isDisabled={disabled}
+        isReadOnly={readonly}
+        isCard={childIsCard}
+      >
+        {showHeader && (
+          <CheckboxGroupTextContent>
+            {!!label && <Label disabled={disabled}>{label}</Label>}
+            {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
+            {validationStatus === 'invalid' && !!invalidText && (
+              <Helper
+                showIcon={showValidationIcon}
+                disabled={disabled}
+                validationStatus="invalid"
+                text={invalidText}
+              />
+            )}
+            {validationStatus === 'valid' && !!validText && (
+              <Helper
+                disabled={disabled}
+                showIcon={showValidationIcon}
+                validationStatus="valid"
+                text={validText}
+              />
+            )}
+          </CheckboxGroupTextContent>
+        )}
+        <View style={[styles.container, styles.containerGap(gap)]}>{children}</View>
+      </CheckboxGroupComponent>
+    </CheckboxGroupContext.Provider>
+  );
+};
 
 const styles = StyleSheet.create(theme => ({
   container: {

@@ -26,9 +26,7 @@ export interface TextareaBaseProps {
   placeholder?: string;
 }
 
-export interface TextareaWithChildrenProps extends TextareaBaseProps, ViewProps {
-  children: React.ReactNode;
-}
+export interface TextareaWithChildrenProps extends TextareaBaseProps, ViewProps {}
 
 export interface TextareaWithoutChildrenProps
   extends TextareaBaseProps,

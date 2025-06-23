@@ -1,16 +1,16 @@
 import React from 'react';
-import { View, StyleSheet, ViewProps, ViewStyle } from 'react-native';
-import { BodyText } from '../BodyText';
-import { SpaceValue } from '../../types';
+import { StyleSheet, View, ViewProps, ViewStyle } from 'react-native';
 import { useStyleProps } from '../../hooks';
+import { SpaceValue } from '../../types';
+import { BodyText } from '../BodyText';
 
 export interface UnorderedListProps extends ViewProps {
-  children: React.ReactNode;
+  children: ViewProps['children'];
   gap?: SpaceValue;
   bulletStyle?: ViewStyle;
 }
 
-const UnorderedList: React.FC<UnorderedListProps> = ({ children, gap = '100', style, ...rest }) => {
+const UnorderedList = ({ children, gap = '100', style, ...rest }: UnorderedListProps) => {
   const { computedStyles } = useStyleProps({ gap });
   return (
     <View style={[computedStyles, style]} {...rest}>
@@ -19,7 +19,7 @@ const UnorderedList: React.FC<UnorderedListProps> = ({ children, gap = '100', st
           return (
             <View style={styles.listItemContainer}>
               <BodyText style={styles.bullet}>•</BodyText>
-              {React.cloneElement(child as React.ReactElement<any>, {})}
+              {React.cloneElement(child as React.ReactElement<any>, {}) as ViewProps['children']}
             </View>
           );
         }
@@ -28,6 +28,8 @@ const UnorderedList: React.FC<UnorderedListProps> = ({ children, gap = '100', st
     </View>
   );
 };
+
+UnorderedList.displayName = 'UnorderedList';
 
 const styles = StyleSheet.create({
   listItemContainer: {

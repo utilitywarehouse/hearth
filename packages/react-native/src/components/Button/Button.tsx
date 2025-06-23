@@ -1,4 +1,3 @@
-import React, { forwardRef } from 'react';
 import type { ButtonProps, ButtonWithStringChildrenProps } from './Button.props';
 import ButtonTextComponent from './ButtonText';
 import ButtonSpinnerComponent from './ButtonSpinner';
@@ -8,7 +7,6 @@ import { createButton } from '@gluestack-ui/button';
 import ButtonRoot from './ButtonRoot';
 import ButtonGroupRoot from './ButtonGroupRoot';
 import { useButtonGroupContext } from './ButtonGroup.context';
-import { PressableRef } from '../../types';
 import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
 
@@ -18,17 +16,7 @@ const ButtonComponent = createButton({
   Icon: ButtonIconComponent,
   Spinner: ButtonSpinnerComponent,
   Text: ButtonTextComponent,
-}) as React.ForwardRefExoticComponent<
-  React.ComponentPropsWithoutRef<typeof ButtonRoot> & {
-    isDisabled?: boolean;
-    isPressed?: boolean;
-  } & React.RefAttributes<View>
-> & {
-  Text: typeof ButtonTextComponent;
-  Icon: typeof ButtonIconComponent;
-  Spinner: typeof ButtonSpinnerComponent;
-  Group: typeof ButtonGroupRoot;
-};
+});
 
 export const ButtonText = ButtonComponent.Text;
 export const ButtonSpinner = ButtonComponent.Spinner;
@@ -39,35 +27,33 @@ ButtonText.displayName = 'ButtonText';
 ButtonSpinner.displayName = 'ButtonSpinner';
 ButtonIcon.displayName = 'ButtonIcon';
 
-const Button = forwardRef<PressableRef, ButtonProps>(
-  ({ children, disabled = false, pressed, text, ...props }, ref) => {
-    const { disabled: groupDisabled, loading: groupLoading } = useButtonGroupContext();
-    const { loading } = props;
-    const isLoading = loading ?? groupLoading;
-    const buttonDisabled = isLoading || (disabled ?? groupDisabled);
-    styles.useVariants({ loading: isLoading });
-    if (typeof children === 'string' || typeof children === 'number' || !children) {
-      const { icon, iconPosition = 'left' } = props as ButtonWithStringChildrenProps;
-      return (
-        <ButtonComponent ref={ref} {...props} isDisabled={buttonDisabled} isPressed={pressed}>
-          {!!icon && !isLoading && iconPosition === 'left' ? <ButtonIcon as={icon} /> : null}
-          {isLoading ? (
-            <View style={styles.loadingWrapper}>
-              <ButtonSpinner />
-            </View>
-          ) : null}
-          <ButtonText style={styles.textLoading}>{children ?? text}</ButtonText>
-          {!!icon && !isLoading && iconPosition === 'right' ? <ButtonIcon as={icon} /> : null}
-        </ButtonComponent>
-      );
-    }
+const Button = ({ children, disabled = false, pressed, text, ...props }: ButtonProps) => {
+  const { disabled: groupDisabled, loading: groupLoading } = useButtonGroupContext();
+  const { loading } = props;
+  const isLoading = loading ?? groupLoading;
+  const buttonDisabled = isLoading || (disabled ?? groupDisabled);
+  styles.useVariants({ loading: isLoading });
+  if (typeof children === 'string' || typeof children === 'number' || !children) {
+    const { icon, iconPosition = 'left' } = props as ButtonWithStringChildrenProps;
     return (
-      <ButtonComponent {...props} isDisabled={buttonDisabled}>
-        {children}
+      <ButtonComponent {...props} isDisabled={buttonDisabled} isPressed={pressed}>
+        {!!icon && !isLoading && iconPosition === 'left' ? <ButtonIcon as={icon} /> : null}
+        {isLoading ? (
+          <View style={styles.loadingWrapper}>
+            <ButtonSpinner />
+          </View>
+        ) : null}
+        <ButtonText style={styles.textLoading}>{children ?? text}</ButtonText>
+        {!!icon && !isLoading && iconPosition === 'right' ? <ButtonIcon as={icon} /> : null}
       </ButtonComponent>
     );
   }
-);
+  return (
+    <ButtonComponent {...props} isDisabled={buttonDisabled}>
+      {children}
+    </ButtonComponent>
+  );
+};
 
 const styles = StyleSheet.create(theme => ({
   loadingWrapper: {

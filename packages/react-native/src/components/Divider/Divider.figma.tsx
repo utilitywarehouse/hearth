@@ -1,4 +1,4 @@
-// import React from 'react';
+//
 // import { Divider } from './';
 // import figma from '@figma/code-connect';
 

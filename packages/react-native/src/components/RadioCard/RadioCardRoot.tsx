@@ -1,15 +1,16 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Pressable, ViewStyle } from 'react-native';
 import type RadioCardProps from './RadioCard.props';
 import { RadioCardContext } from './RadioCard.context';
-import { PressableRef } from '../../types';
 
-const RadioCardRoot = forwardRef<
-  PressableRef,
-  RadioCardProps & { states?: { disabled?: boolean; checked?: boolean; active?: boolean } }
->(({ children, style, states, ...props }, ref) => {
+const RadioCardRoot = ({
+  children,
+  style,
+  states,
+  ...props
+}: RadioCardProps & { states?: { disabled?: boolean; checked?: boolean; active?: boolean } }) => {
   const { checked, active } = states ?? {};
 
   const value = useMemo(
@@ -26,12 +27,12 @@ const RadioCardRoot = forwardRef<
 
   return (
     <RadioCardContext.Provider value={value}>
-      <Pressable ref={ref} {...props} style={[styles.container, style as ViewStyle]}>
+      <Pressable {...props} style={[styles.container, style as ViewStyle]}>
         {children}
       </Pressable>
     </RadioCardContext.Provider>
   );
-});
+};
 
 RadioCardRoot.displayName = 'RadioCardRoot';
 

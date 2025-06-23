@@ -1,4 +1,3 @@
-import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Card, CardAction, Heading, Link } from '../../src';
 import { ChevronLeftSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';

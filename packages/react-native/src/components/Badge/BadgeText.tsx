@@ -1,20 +1,17 @@
-import React, { forwardRef } from 'react';
-
-import { Text } from 'react-native';
-import type { TextProps } from 'react-native';
+import { TextProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { useBadgeContext } from './Badge.context';
 
-const BadgeText = forwardRef<Text, TextProps>(({ children, style, ...props }, ref) => {
+const BadgeText = ({ children, style, ...props }: TextProps) => {
   const { variant, colorScheme } = useBadgeContext();
   styles.useVariants({ variant, colorScheme });
   return (
-    <BodyText ref={ref} {...props} size="sm" style={[styles.text, style]}>
+    <BodyText {...props} size="sm" style={[styles.text, style]}>
       {children}
     </BodyText>
   );
-});
+};
 
 BadgeText.displayName = 'BadgeText';
 
@@ -74,5 +71,7 @@ const styles = StyleSheet.create(theme => ({
     ],
   },
 }));
+
+BadgeText.displayName = 'BadgeText';
 
 export default BadgeText;

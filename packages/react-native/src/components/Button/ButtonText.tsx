@@ -1,19 +1,17 @@
-/* eslint-disable  @typescript-eslint/no-unsafe-assignment */
-import React, { forwardRef } from 'react';
-import { Text, type TextProps } from 'react-native';
+import { TextProps } from 'react-native';
 import { useButtonContext } from './Button.context';
 import { StyleSheet } from 'react-native-unistyles';
 import { DetailText } from '../DetailText';
 
-const ButtonText = forwardRef<Text, TextProps>(({ children, ...props }, ref) => {
+const ButtonText = ({ children, ...props }: TextProps) => {
   const { colorScheme, variant, inverted, disabled } = useButtonContext();
   styles.useVariants({ colorScheme, variant, inverted, disabled });
   return (
-    <DetailText size="md" ref={ref} {...props} style={[styles.text, props.style]}>
+    <DetailText size="md" {...props} style={[styles.text, props.style]}>
       {children}
     </DetailText>
   );
-});
+};
 
 ButtonText.displayName = 'ButtonText';
 

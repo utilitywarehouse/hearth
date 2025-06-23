@@ -1,7 +1,7 @@
-import { Button, ButtonIcon, ButtonText } from '../../src';
-import React, { useState } from 'react';
-import { Platform } from 'react-native';
 import { ChevronUpSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { useState } from 'react';
+import { Platform } from 'react-native';
+import { Button, ButtonIcon, ButtonText } from '../../src';
 
 const ScrollButton = () => {
   const [visible, setVisible] = useState(false);

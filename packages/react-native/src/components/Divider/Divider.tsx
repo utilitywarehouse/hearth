@@ -1,27 +1,30 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { forwardRef, useMemo } from 'react';
+import { useMemo } from 'react';
 import { View } from 'react-native';
-import type DividerProps from './Divider.props';
 import { StyleSheet } from 'react-native-unistyles';
-import { getFlattenedColorValue } from '../../utils';
 import { useTheme } from '../../hooks';
+import { getFlattenedColorValue } from '../../utils';
+import type DividerProps from './Divider.props';
 
-const Divider = forwardRef<View, DividerProps>(
-  ({ orientation = 'horizontal', color, space, height, width, flexItem, ...props }, ref) => {
-    styles.useVariants({ orientation, space, flexItem });
-    const { color: themeColor, colorMode } = useTheme();
-    const colorValue = useMemo(() => getFlattenedColorValue(color, themeColor), [color, colorMode]);
-    return (
-      <View
-        ref={ref}
-        {...props}
-        style={[styles.divider, styles.extraStyles(colorValue, width, height), props.style]}
-      />
-    );
-  }
-);
+const Divider = ({
+  orientation = 'horizontal',
+  color,
+  space,
+  height,
+  width,
+  flexItem,
+  ...props
+}: DividerProps) => {
+  styles.useVariants({ orientation, space, flexItem });
+  const { color: themeColor, colorMode } = useTheme();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const colorValue = useMemo(() => getFlattenedColorValue(color, themeColor), [color, colorMode]);
+  return (
+    <View
+      {...props}
+      style={[styles.divider, styles.extraStyles(colorValue, width, height), props.style]}
+    />
+  );
+};
 
 Divider.displayName = 'Divider';
 

@@ -1,14 +1,9 @@
-import React, { forwardRef } from 'react';
-import { Text as RNText, TextProps } from 'react-native';
-import { BodyText } from '../../components';
+import { TextProps } from 'react-native';
+import { BodyText } from '../../components/BodyText';
 
-export const AccordionContentText = forwardRef<RNText, TextProps>(({ children, ...props }, ref) => {
-  return (
-    <BodyText ref={ref} {...props}>
-      {children}
-    </BodyText>
-  );
-});
+const AccordionContentText = ({ children, ...props }: TextProps) => {
+  return <BodyText {...props}>{children}</BodyText>;
+};
 
 AccordionContentText.displayName = 'AccordionContentText';
 

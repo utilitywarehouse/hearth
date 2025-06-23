@@ -1,9 +1,14 @@
-import { ReactNode } from 'react';
+ 
+import { ReactNode, Ref } from 'react';
 import { ViewStyle } from 'react-native';
 import {
   BottomSheetProps as GorhomBottomSheetProps,
   BottomSheetBackdropProps,
 } from '@gorhom/bottom-sheet';
+import {
+  BottomSheetMethods,
+  BottomSheetModalMethods,
+} from '@gorhom/bottom-sheet/lib/typescript/types';
 
 interface BottomSheetProps extends Omit<GorhomBottomSheetProps, 'handleComponent'> {
   /**
@@ -37,6 +42,8 @@ interface BottomSheetProps extends Omit<GorhomBottomSheetProps, 'handleComponent
   showHandle?: boolean;
 
   contentStyle?: ViewStyle;
+
+  ref?: Ref<BottomSheetMethods> | Ref<BottomSheetModalMethods<any>>;
 }
 
 export default BottomSheetProps;

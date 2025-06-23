@@ -4,7 +4,6 @@ export const dialog = {
   },
   backgroundColor: 'var(--h-dialog-background-color)',
   borderRadius: 'var(--h-dialog-border-radius)',
-  color: 'var(--h-dialog-color)',
   content: {
     gap: 'var(--h-dialog-content-gap)',
   },

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { RadioTile, Flex, RadioGroup } from '@utilitywarehouse/hearth-react';
 

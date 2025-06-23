@@ -11,12 +11,6 @@
   --h-button-emphasis-yellow-background-color-active: var(--h-color-yellow-600);
   --h-button-emphasis-yellow-background-color-hover: var(--h-color-yellow-500);
   --h-button-emphasis-yellow-foreground-color: var(--h-color-grey-1000);
-  --h-button-emphasis-yellow-inverted-background-color: var(--h-color-yellow-400);
-  --h-button-emphasis-yellow-inverted-background-color-active: var(--h-color-yellow-600);
-  --h-button-emphasis-yellow-inverted-background-color-hover: var(--h-color-yellow-500);
-  --h-button-emphasis-yellow-inverted-border-color: var(--h-color-grey-1000);
-  --h-button-emphasis-yellow-inverted-foreground-color: var(--h-color-grey-1000);
-  --h-button-emphasis-yellow-inverted-shadow-color: var(--h-color-grey-1000);
   --h-button-gap: var(--h-space-75);
   --h-button-ghost-green-background-color-active: var(--h-color-green-100);
   --h-button-ghost-green-background-color-hover: var(--h-color-green-50);
@@ -43,8 +37,8 @@
   --h-button-outline-grey-foreground-color: var(--h-color-grey-1000);
   --h-button-outline-grey-inverted-background-color-active: var(--h-color-grey-900);
   --h-button-outline-grey-inverted-background-color-hover: var(--h-color-grey-800);
-  --h-button-outline-grey-inverted-border-color: var(--h-color-warm-white-50);
-  --h-button-outline-grey-inverted-foreground-color: var(--h-color-warm-white-50);
+  --h-button-outline-grey-inverted-border-color: var(--h-color-grey-50);
+  --h-button-outline-grey-inverted-foreground-color: var(--h-color-grey-50);
   --h-button-outline-red-background-color-active: var(--h-color-red-100);
   --h-button-outline-red-background-color-hover: var(--h-color-red-50);
   --h-button-outline-red-border-color: var(--h-color-red-800);
@@ -64,8 +58,9 @@
   --h-button-solid-yellow-background-color-active: var(--h-color-yellow-600);
   --h-button-solid-yellow-background-color-hover: var(--h-color-yellow-500);
   --h-button-solid-yellow-foreground-color: var(--h-color-grey-1000);
-  --h-button-solid-yellow-inverted-background-color: var(--h-color-warm-white-50);
-  --h-button-solid-yellow-inverted-background-color-active: var(--h-color-warm-white-300);
-  --h-button-solid-yellow-inverted-background-color-hover: var(--h-color-warm-white-200);
+  --h-button-solid-yellow-inverted-background-color: var(--h-color-yellow-400);
+  --h-button-solid-yellow-inverted-background-color-active: var(--h-color-yellow-600);
+  --h-button-solid-yellow-inverted-background-color-hover: var(--h-color-yellow-500);
+  --h-button-solid-yellow-inverted-border-color: var(--h-color-grey-1000);
   --h-button-solid-yellow-inverted-foreground-color: var(--h-color-grey-1000);
 }

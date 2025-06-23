@@ -1,6 +1,5 @@
-import React from 'react';
 import { Badge } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { VariantTitle } from '../../../docs/components';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
@@ -51,7 +50,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+   
   render: ({ icon: _icon, ...args }) => {
     // @ts-expect-error - This is a playground
     const icon = _icon === 'none' ? undefined : Icons[_icon];

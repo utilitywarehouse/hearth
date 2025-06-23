@@ -2,12 +2,12 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly backgroundColorActive: '#f1efe4';
-  readonly backgroundColorHover: '#f7f6eb';
-  readonly borderColor: '#101010';
+  readonly backgroundColorActive: '#30302c';
+  readonly backgroundColorHover: '#282825';
+  readonly borderColor: '#e7e6e6';
   readonly borderRadius: 9999;
   readonly borderWidth: 1;
-  readonly foregroundColor: '#101010';
+  readonly foregroundColor: '#e7e6e6';
   readonly gap: 6;
   readonly group: {
     readonly gap: 8;
@@ -18,8 +18,8 @@ declare const _default: {
   readonly paddingVertical: 12;
   readonly selected: {
     readonly backgroundColor: '#7a42c8';
-    readonly backgroundColorActive: '#26164f';
-    readonly backgroundColorHover: '#572e9e';
+    readonly backgroundColorActive: '#5a3285';
+    readonly backgroundColorHover: '#6538b8';
     readonly foregroundColor: '#fcfbf2';
   };
 };

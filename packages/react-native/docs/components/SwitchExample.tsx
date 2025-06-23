@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { Switch } from '../../src';
 
 const SwitchExample: FC<{ value: boolean; disabled: boolean; size: 'small' | 'medium' }> = ({

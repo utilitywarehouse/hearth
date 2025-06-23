@@ -1,15 +1,13 @@
-import React, { forwardRef } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 import { useBadgeContext } from './Badge.context';
 import { Icon } from '../Icon';
 import type IconProps from '../Icon/Icon.props';
-import { IconRef } from '../../types';
 
-const BadgeIcon = forwardRef<IconRef, IconProps>(({ ...props }, ref) => {
+const BadgeIcon = (props: IconProps) => {
   const { colorScheme, variant } = useBadgeContext();
   styles.useVariants({ colorScheme, variant });
-  return <Icon ref={ref} {...props} style={styles.icon} />;
-});
+  return <Icon {...props} style={styles.icon} />;
+};
 
 BadgeIcon.displayName = 'BadgeIcon';
 

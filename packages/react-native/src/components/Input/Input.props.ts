@@ -30,7 +30,7 @@ export interface InputBaseProps {
 
 // For inputs that have children
 export interface InputWithChildrenProps extends InputBaseProps, ViewProps {
-  children: React.ReactNode;
+  children: ViewProps['children'];
   type?: undefined;
   showPasswordToggle?: never;
   format?: never;

@@ -1,6 +1,5 @@
-import React from 'react';
 import { Textarea } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 const meta = {
   title: 'Stories / Textarea',

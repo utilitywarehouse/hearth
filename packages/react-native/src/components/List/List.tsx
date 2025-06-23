@@ -1,13 +1,13 @@
-import React, { forwardRef, ReactNode, useMemo } from 'react';
+import React, { ReactNode, useMemo } from 'react';
+import { View, ViewProps } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { Card } from '../Card';
+import { ListContext } from './List.context';
 import type ListProps from './List.props';
 import { ListHeading } from './ListHeading';
-import { ListContext } from './List.context';
-import { View } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
 import { ListItem, ListItemProps } from './ListItem';
-import { Card } from '../Card';
 
-const markFirstListItem = (children: ReactNode): ReactNode => {
+const markFirstListItem = (children: ReactNode): ViewProps['children'] => {
   let found = false;
 
   const recursiveClone = (children: ReactNode): ReactNode => {
@@ -22,81 +22,82 @@ const markFirstListItem = (children: ReactNode): ReactNode => {
       }
 
       // If the child has nested children, process them recursively
-      if (child.props && child.props.children) {
-        const clonedChildren = recursiveClone(child.props.children);
-        return React.cloneElement(child, { children: clonedChildren } as Partial<ListProps>);
+      if (
+        React.isValidElement(child) &&
+        child.props &&
+        typeof child.props === 'object' &&
+        child.props !== null &&
+        'children' in child.props &&
+        child.props.children
+      ) {
+        const clonedChildren = recursiveClone((child.props as any).children);
+        return React.cloneElement(child, { children: clonedChildren } as any);
       }
 
       return child;
     });
   };
 
-  return recursiveClone(children);
+  return recursiveClone(children) as ViewProps['children'];
 };
 
-const List = forwardRef<View, ListProps>(
-  (
-    {
-      children,
-      headingText,
-      headingHelperText,
-      headingLinkText,
-      headingLinkHref,
-      headingLinkOnPress,
-      headingLinkTarget,
-      headingLinkDisabled,
-      headingLinkIcon,
-      headingLinkIconPosition,
-      headingLinkShowIcon,
-      ...props
-    },
-    ref
-  ) => {
-    const { loading, disabled, divider = true, container = 'none' } = props;
-    const containerToCard: {
-      variant: 'subtle' | 'emphasis';
-      colorScheme: 'white' | 'warmWhite';
-    } = {
-      variant:
-        container === 'subtleWhite' || container === 'subtleWarmWhite' ? 'subtle' : 'emphasis',
-      colorScheme:
-        container === 'subtleWhite' || container === 'emphasisWhite' ? 'white' : 'warmWhite',
-    };
-    const updatedChildren = markFirstListItem(children);
-    const value = useMemo(
-      () => ({ loading, disabled, divider, container }),
-      [loading, disabled, divider, container]
-    );
-    styles.useVariants({ disabled });
-    return (
-      <ListContext.Provider value={value}>
-        <View ref={ref} {...props} style={[styles.container, props.style]}>
-          {headingText ? (
-            <ListHeading
-              text={headingText}
-              helperText={headingHelperText}
-              linkText={headingLinkText}
-              linkHref={headingLinkHref}
-              linkOnPress={headingLinkOnPress}
-              linkTarget={headingLinkTarget}
-              linkDisabled={headingLinkDisabled}
-              linkIcon={headingLinkIcon}
-              linkIconPosition={headingLinkIconPosition}
-              linkShowIcon={headingLinkShowIcon}
-            />
-          ) : null}
-          {container === 'none' ? (
-            <View>{updatedChildren}</View>
-          ) : (
-            <Card {...containerToCard} noPadding style={styles.card}>
-              {updatedChildren}
-            </Card>
-          )}
-        </View>
-      </ListContext.Provider>
-    );
-  }
-);
+const List = ({
+  children,
+  headingText,
+  headingHelperText,
+  headingLinkText,
+  headingLinkHref,
+  headingLinkOnPress,
+  headingLinkTarget,
+  headingLinkDisabled,
+  headingLinkIcon,
+  headingLinkIconPosition,
+  headingLinkShowIcon,
+  ...props
+}: ListProps) => {
+  const { loading, disabled, divider = true, container = 'none' } = props;
+  const containerToCard: {
+    variant: 'subtle' | 'emphasis';
+    colorScheme: 'white' | 'warmWhite';
+  } = {
+    variant: container === 'subtleWhite' || container === 'subtleWarmWhite' ? 'subtle' : 'emphasis',
+    colorScheme:
+      container === 'subtleWhite' || container === 'emphasisWhite' ? 'white' : 'warmWhite',
+  };
+  const updatedChildren = markFirstListItem(children);
+  const value = useMemo(
+    () => ({ loading, disabled, divider, container }),
+    [loading, disabled, divider, container]
+  );
+  styles.useVariants({ disabled });
+  return (
+    <ListContext.Provider value={value}>
+      <View {...props} style={[styles.container, props.style]}>
+        {headingText ? (
+          <ListHeading
+            text={headingText}
+            helperText={headingHelperText}
+            linkText={headingLinkText}
+            linkHref={headingLinkHref}
+            linkOnPress={headingLinkOnPress}
+            linkTarget={headingLinkTarget}
+            linkDisabled={headingLinkDisabled}
+            linkIcon={headingLinkIcon}
+            linkIconPosition={headingLinkIconPosition}
+            linkShowIcon={headingLinkShowIcon}
+          />
+        ) : null}
+        {container === 'none' ? (
+          <View>{updatedChildren}</View>
+        ) : (
+          <Card {...containerToCard} noPadding style={styles.card}>
+            <>{updatedChildren}</>
+          </Card>
+        )}
+      </View>
+    </ListContext.Provider>
+  );
+};
 
 List.displayName = 'List';
 

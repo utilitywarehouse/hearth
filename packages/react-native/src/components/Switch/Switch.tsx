@@ -1,30 +1,27 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React from 'react';
-import { Pressable, View } from 'react-native';
+import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { useEffect } from 'react';
+import { Pressable } from 'react-native';
 import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withTiming,
-  withSpring,
-  interpolateColor,
   Easing,
+  interpolateColor,
+  useAnimatedStyle,
   useReducedMotion,
+  useSharedValue,
+  withSpring,
+  withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useTheme } from '../../hooks';
 import { Icon } from '../Icon';
 import SwitchProps from './Switch.props';
-import { useTheme } from '../../hooks';
-import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
-const AnimatedView = Animated.createAnimatedComponent(View);
-
-const CustomSwitch: React.FC<SwitchProps> = ({
+const CustomSwitch = ({
   value = false,
   onValueChange,
   disabled = false,
   size = 'medium',
   ...accessibilityProps
-}) => {
+}: SwitchProps) => {
   const { components } = useTheme();
   const SWITCH_WIDTH = size === 'medium' ? components.switch.md.width : components.switch.sm.width;
   const THUMB_SIZE =
@@ -69,7 +66,7 @@ const CustomSwitch: React.FC<SwitchProps> = ({
     transform: [{ scale: scale.value }],
   }));
 
-  React.useEffect(() => {
+  useEffect(() => {
     const userConfig = {
       duration: isReducedMotion ? 0 : 300,
       easing: Easing.inOut(Easing.ease),
@@ -83,6 +80,7 @@ const CustomSwitch: React.FC<SwitchProps> = ({
 
     // Animate the background color with ease-in-out easing
     progress.value = withTiming(value ? 1 : 0, userConfig);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, disabled]);
 
   const toggleSwitch = () => {
@@ -111,16 +109,22 @@ const CustomSwitch: React.FC<SwitchProps> = ({
       accessibilityHint={accessibilityProps.accessibilityHint}
       {...accessibilityProps}
     >
-      <AnimatedView style={[styles.switch, animatedSwitchBackgroundStyle, animatedSwitchStyle]}>
-        <AnimatedView style={[styles.thumb, animatedThumbStyle]}>
-          <AnimatedView style={[styles.iconWrap, animatedTickStyle]}>
-            <Icon as={TickSmallIcon} style={styles.icon} />
-          </AnimatedView>
-          <AnimatedView style={[styles.iconWrap, animatedCrossStyle]}>
-            <Icon as={CloseSmallIcon} style={styles.icon} />
-          </AnimatedView>
-        </AnimatedView>
-      </AnimatedView>
+      <Animated.View style={[styles.switch, animatedSwitchBackgroundStyle, animatedSwitchStyle]}>
+        <Animated.View style={[styles.thumb, animatedThumbStyle]}>
+          <Animated.View style={[styles.iconWrap, animatedTickStyle]}>
+            {(() => {
+              const IconAny = Icon as any;
+              return <IconAny as={TickSmallIcon} style={styles.icon as any} />;
+            })()}
+          </Animated.View>
+          <Animated.View style={[styles.iconWrap, animatedCrossStyle]}>
+            {(() => {
+              const IconAny = Icon as any;
+              return <IconAny as={CloseSmallIcon} style={styles.icon as any} />;
+            })()}
+          </Animated.View>
+        </Animated.View>
+      </Animated.View>
     </Pressable>
   );
 };

@@ -1,4 +1,4 @@
-import type { PressableProps } from 'react-native';
+import type { PressableProps, ViewProps } from 'react-native';
 import type { ColorValue } from '../../../types';
 
 interface ListItemBaseProps extends Omit<PressableProps, 'children'> {
@@ -11,7 +11,7 @@ interface ListItemBaseProps extends Omit<PressableProps, 'children'> {
 }
 
 export interface ListItemWithChildren extends ListItemBaseProps {
-  children: PressableProps['children'];
+  children: ViewProps['children'];
   text?: never;
   helperText?: never;
   leadingContent?: never;
@@ -22,8 +22,8 @@ export interface ListItemWithoutChildren extends ListItemBaseProps {
   children?: never;
   text: string;
   helperText?: string;
-  leadingContent?: React.ReactNode;
-  trailingContent?: React.ReactNode;
+  leadingContent?: ViewProps['children'];
+  trailingContent?: ViewProps['children'];
 }
 
 type ListItemProps = ListItemWithChildren | ListItemWithoutChildren;

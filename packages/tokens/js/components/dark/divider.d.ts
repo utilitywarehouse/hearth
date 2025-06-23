@@ -3,6 +3,6 @@
  */
 declare const _default: {
   readonly borderWidth: 1;
-  readonly color: '#d4d2c0';
+  readonly color: '#4c473d';
 };
 export default _default;

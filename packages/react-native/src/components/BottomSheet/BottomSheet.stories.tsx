@@ -1,6 +1,6 @@
 import React, { useCallback, useRef } from 'react';
 import { BottomSheet, BottomSheetModal, BottomSheetView } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Box } from '../Box';
 import { Button } from '../Button';
 import { BodyText } from '../BodyText';

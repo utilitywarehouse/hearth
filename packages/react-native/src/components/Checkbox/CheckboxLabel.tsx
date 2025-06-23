@@ -1,15 +1,13 @@
-import React, { forwardRef } from 'react';
-import { Text } from 'react-native';
 import { Label } from '../Label';
 import LabelProps from '../Label/Label.props';
 
-const CheckboxLabel = forwardRef<Text, LabelProps>(({ children, ...props }, ref) => {
+const CheckboxLabel = ({ children, ...props }: LabelProps) => {
   return (
-    <Label ref={ref} nested {...props}>
+    <Label nested {...props}>
       {children}
     </Label>
   );
-});
+};
 
 CheckboxLabel.displayName = 'CheckboxLabel';
 

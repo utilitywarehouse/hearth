@@ -3,7 +3,7 @@
  */
 
 :root {
-  --h-input-background-color: var(--h-color-white);
+  --h-input-background-color: var(--h-color-grey-0);
   --h-input-border-color: var(--h-color-grey-1000);
   --h-input-border-color-invalid: var(--h-color-red-700);
   --h-input-border-color-read-only: var(--h-color-grey-200);
@@ -11,6 +11,7 @@
   --h-input-border-radius: var(--h-border-radius-md);
   --h-input-border-width: var(--h-border-width-1);
   --h-input-border-width-focused: var(--h-border-width-2);
+  --h-input-color: var(--h-color-grey-1000);
   --h-input-currency-gap: var(--h-space-25);
   --h-input-currency-height: 60px;
   --h-input-date-gap: var(--h-space-100);

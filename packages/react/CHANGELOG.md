@@ -1,5 +1,30 @@
 # @utilitywarehouse/hearth-react
 
+## 0.2.1
+
+### Patch Changes
+
+- Updated dependencies [[`f15f6b9`](https://github.com/utilitywarehouse/hearth/commit/f15f6b98f9b679fb3953457d53aad056efbde66a)]:
+  - @utilitywarehouse/hearth-tokens@0.0.3
+
+## 0.2.0
+
+### Minor Changes
+
+- [#344](https://github.com/utilitywarehouse/hearth/pull/344) [`2b00d31`](https://github.com/utilitywarehouse/hearth/commit/2b00d3121bbc8ecd42e1d14fc4bedeb6e8cacd22) Thanks [@robphoenix](https://github.com/robphoenix)! - Remove public `Fieldset` component
+
+### Patch Changes
+
+- [#340](https://github.com/utilitywarehouse/hearth/pull/340) [`37752fd`](https://github.com/utilitywarehouse/hearth/commit/37752fd19150e8f87de3456ab8e6caea6f7bf031) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `paddingNone` prop to Button component
+
+- [#340](https://github.com/utilitywarehouse/hearth/pull/340) [`37752fd`](https://github.com/utilitywarehouse/hearth/commit/37752fd19150e8f87de3456ab8e6caea6f7bf031) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix full width `emphasis` Button
+
+- [#344](https://github.com/utilitywarehouse/hearth/pull/344) [`2b00d31`](https://github.com/utilitywarehouse/hearth/commit/2b00d3121bbc8ecd42e1d14fc4bedeb6e8cacd22) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `TextInput` aria-describedby
+
+- [#344](https://github.com/utilitywarehouse/hearth/pull/344) [`2b00d31`](https://github.com/utilitywarehouse/hearth/commit/2b00d3121bbc8ecd42e1d14fc4bedeb6e8cacd22) Thanks [@robphoenix](https://github.com/robphoenix)! - Remove `width` prop from CheckboxGroup & RadioGroup
+
+- [#340](https://github.com/utilitywarehouse/hearth/pull/340) [`37752fd`](https://github.com/utilitywarehouse/hearth/commit/37752fd19150e8f87de3456ab8e6caea6f7bf031) Thanks [@robphoenix](https://github.com/robphoenix)! - Update Solid yellow inverted button appearance
+
 ## 0.1.0
 
 ### Minor Changes

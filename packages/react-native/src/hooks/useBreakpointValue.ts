@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 import { UnistylesBreakpoints, UnistylesRuntime } from 'react-native-unistyles';
 
 interface InputValueWithIndex<T> {

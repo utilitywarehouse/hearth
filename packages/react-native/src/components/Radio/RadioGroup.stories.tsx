@@ -1,6 +1,5 @@
-import React from 'react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { Radio, RadioGroup } from '.';
-import { Meta, StoryObj } from '@storybook/react';
 import { Grid } from '../Grid';
 
 const meta = {
@@ -68,6 +67,7 @@ export const Playground: Story = {
   args: {
     value: 'Option 1',
   },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: ({ value: _, ...args }) => (
     <RadioGroup {...args}>
       <Radio aria-label="Label 1" label="Option 1" value="Option 1" nativeID="Radio-1" />
@@ -87,6 +87,7 @@ export const WithGrid: Story = {
     value: 'Option 1',
     type: 'tile',
   },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: ({ value: _, ...args }) => (
     <RadioGroup {...args}>
       <Grid columns={2} space="md">

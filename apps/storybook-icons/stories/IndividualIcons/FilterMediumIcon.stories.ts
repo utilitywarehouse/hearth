@@ -1,5 +1,5 @@
 /* Don't edit this file directly, it was auto generated */
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { FilterMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/FilterMediumIcon';
 
 const meta: Meta<typeof FilterMediumIcon> = {

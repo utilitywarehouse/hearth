@@ -1,5 +1,5 @@
 /* Don't edit this file directly, it was auto generated */
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ArrowUpSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ArrowUpSmallIcon';
 
 const meta: Meta<typeof ArrowUpSmallIcon> = {

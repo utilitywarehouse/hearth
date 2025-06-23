@@ -18,6 +18,23 @@ export const list = {
       borderColor: 'var(--h-list-item-subtle-border-color)',
     },
   },
+  container: {
+    emphasisWarmWhite: {
+      borderRadius: 'var(--h-list-list-container-emphasis-warm-white-border-radius)',
+    },
+    emphasisWhite: {
+      borderRadius: 'var(--h-list-list-container-emphasis-white-border-radius)',
+    },
+    none: {
+      borderRadius: 'var(--h-list-list-container-none-border-radius)',
+    },
+    subtleWarmWhite: {
+      borderRadius: 'var(--h-list-list-container-subtle-warm-white-border-radius)',
+    },
+    subtleWhite: {
+      borderRadius: 'var(--h-list-list-container-subtle-white-border-radius)',
+    },
+  },
   menu: {
     list: {
       gap: 'var(--h-menu-list-gap)',

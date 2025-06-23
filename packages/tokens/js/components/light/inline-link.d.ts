@@ -7,7 +7,7 @@ declare const _default: {
   readonly inverted: {
     readonly color: '#fcfbf2';
     readonly colorActive: '#f1efe4';
-    readonly colorHover: '#fcfbf2';
+    readonly colorHover: '#f7f6eb';
     readonly colorVisited: '#f1efe4';
   };
 };

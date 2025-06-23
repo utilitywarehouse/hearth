@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react';
 import type { PressableProps } from 'react-native';
+import { ViewProps } from 'react-native-svg/lib/typescript/fabric/utils';
 import { ButtonVariants } from '../Button/Button.props';
 
 export type IconButtonProps = {
@@ -20,5 +21,6 @@ export type IconButtonProps = {
    * @default  false
    */
   loading?: boolean;
+  children?: ViewProps['children'];
 } & Omit<PressableProps, 'children'> &
   ButtonVariants;

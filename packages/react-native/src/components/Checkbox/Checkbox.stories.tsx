@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Checkbox, CheckboxGroup } from '.';
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import { VariantTitle } from '../../../docs/components';
 
 const meta = {
@@ -72,7 +72,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-  render: ({ checked: checkedArg = false, value: _, children: __, onChange: ______, ...args }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  render: ({ checked: checkedArg = false, value, children, onChange, ...args }) => {
     const [checked, setChecked] = React.useState(checkedArg);
     useEffect(() => {
       setChecked(checkedArg);

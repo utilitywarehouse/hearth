@@ -1,16 +1,16 @@
 import React from 'react';
-import { View, StyleSheet, ViewProps, ViewStyle } from 'react-native';
-import { BodyText } from '../BodyText';
-import { SpaceValue } from '../../types';
+import { StyleSheet, View, ViewProps, ViewStyle } from 'react-native';
 import { useStyleProps } from '../../hooks';
+import { SpaceValue } from '../../types';
+import { BodyText } from '../BodyText';
 
 export interface OrderedListProps extends ViewProps {
-  children: React.ReactNode;
+  children: ViewProps['children'];
   gap?: SpaceValue;
   bulletStyle?: ViewStyle;
 }
 
-const OrderedList: React.FC<OrderedListProps> = ({ children, gap = '100', style, ...rest }) => {
+const OrderedList = ({ children, gap = '100', style, ...rest }: OrderedListProps) => {
   const { computedStyles } = useStyleProps({ gap });
   let itemNumber = 0;
   return (
@@ -21,7 +21,7 @@ const OrderedList: React.FC<OrderedListProps> = ({ children, gap = '100', style,
           return (
             <View style={styles.listItemContainer}>
               <BodyText style={styles.number}>{`${itemNumber}.`}</BodyText>
-              {React.cloneElement(child as React.ReactElement<any>, {})}
+              {React.cloneElement(child as React.ReactElement<any>, {}) as ViewProps['children']}
             </View>
           );
         }
@@ -30,6 +30,8 @@ const OrderedList: React.FC<OrderedListProps> = ({ children, gap = '100', style,
     </View>
   );
 };
+
+OrderedList.displayName = 'OrderedList';
 
 const styles = StyleSheet.create({
   listItemContainer: {

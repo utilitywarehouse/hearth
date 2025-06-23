@@ -7,7 +7,7 @@ export default {
   inverted: {
     color: '#fcfbf2',
     colorActive: '#f1efe4',
-    colorHover: '#fcfbf2',
+    colorHover: '#f7f6eb',
     colorVisited: '#f1efe4',
   },
 };

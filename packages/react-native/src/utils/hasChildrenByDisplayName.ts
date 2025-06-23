@@ -9,7 +9,7 @@ const hasChildrenByDisplayName = (
     return false;
   }
 
-  const checkDisplayName = (element: React.ReactElement): boolean => {
+  const checkDisplayName = (element: React.ReactElement<any>): boolean => {
     // @ts-expect-error - element.type is not typed
     const elementDisplayName = element.type.displayName;
 
