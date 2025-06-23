@@ -10,6 +10,7 @@ export default {
   borderRadius: 8,
   borderWidth: 1,
   borderWidthFocused: 2,
+  color: '#101010',
   currency: {
     gap: 2,
     height: 60,

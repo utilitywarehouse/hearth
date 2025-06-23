@@ -3,9 +3,9 @@
  */
 declare const _default: {
   readonly checked: {
-    readonly backgroundColor: '#7a42c8';
-    readonly backgroundColorHover: '#572e9e';
-    readonly iconColor: '#7a42c8';
+    readonly backgroundColor: '#8850cf';
+    readonly backgroundColorHover: '#926fd1';
+    readonly iconColor: '#8850cf';
   };
   readonly circle: {
     readonly backgroundColor: '#ffffff';
@@ -27,9 +27,9 @@ declare const _default: {
     readonly width: 44;
   };
   readonly unchecked: {
-    readonly backgroundColor: '#8a8686';
-    readonly backgroundColorHover: '#6f6c6b';
-    readonly iconColor: '#8a8686';
+    readonly backgroundColor: '#6f6c6b';
+    readonly backgroundColorHover: '#5f5c5b';
+    readonly iconColor: '#6f6c6b';
   };
 };
 export default _default;

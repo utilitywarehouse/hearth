@@ -28,15 +28,16 @@ declare const _default: {
     };
     readonly gap: 0;
     readonly heading: {
-      readonly broadbandBlueBackgroundColor: '#8cba3b';
-      readonly cashbackLilacBackgroundColor: '#be7aeb';
-      readonly energyBlueBackgroundColor: '#6db5c3';
-      readonly insuranceOrangeBackgroundColor: '#ff7b00';
-      readonly mobileRoseBackgroundColor: '#ee6dbb';
-      readonly piggyPinkBackgroundColor: '#f295ff';
-      readonly yellowBackgroundColor: '#ffb921';
+      readonly broadbandGreenBackgroundColor: '#506c21';
+      readonly cashbackLilacBackgroundColor: '#8b2bc9';
+      readonly energyBlueBackgroundColor: '#326e7a';
+      readonly insuranceOrangeBackgroundColor: '#9b4c0e';
+      readonly mobileRoseBackgroundColor: '#a7266d';
+      readonly piggyPinkBackgroundColor: '#8f358f';
+      readonly yellowBackgroundColor: '#756230';
     };
     readonly padding: 16;
   };
+  readonly imageContainerBorderColor: '#e7e6e6';
 };
 export default _default;

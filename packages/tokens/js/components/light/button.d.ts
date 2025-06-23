@@ -9,17 +9,9 @@ declare const _default: {
     readonly shadowColor: '#101010';
     readonly yellow: {
       readonly backgroundColor: '#ffb921';
-      readonly backgroundColorActive: '#d69200';
+      readonly backgroundColorActive: '#d1950b';
       readonly backgroundColorHover: '#eba400';
       readonly foregroundColor: '#101010';
-      readonly inverted: {
-        readonly backgroundColor: '#ffb921';
-        readonly backgroundColorActive: '#d69200';
-        readonly backgroundColorHover: '#eba400';
-        readonly borderColor: '#101010';
-        readonly foregroundColor: '#101010';
-        readonly shadowColor: '#101010';
-      };
     };
   };
   readonly gap: 6;
@@ -65,8 +57,8 @@ declare const _default: {
       readonly inverted: {
         readonly backgroundColorActive: '#3e3c3b';
         readonly backgroundColorHover: '#464444';
-        readonly borderColor: '#fcfbf2';
-        readonly foregroundColor: '#fcfbf2';
+        readonly borderColor: '#f6f5f5';
+        readonly foregroundColor: '#f6f5f5';
       };
     };
     readonly red: {
@@ -96,13 +88,14 @@ declare const _default: {
     };
     readonly yellow: {
       readonly backgroundColor: '#ffb921';
-      readonly backgroundColorActive: '#d69200';
+      readonly backgroundColorActive: '#d1950b';
       readonly backgroundColorHover: '#eba400';
       readonly foregroundColor: '#101010';
       readonly inverted: {
-        readonly backgroundColor: '#fcfbf2';
-        readonly backgroundColorActive: '#d4d2c0';
-        readonly backgroundColorHover: '#f1efe4';
+        readonly backgroundColor: '#ffb921';
+        readonly backgroundColorActive: '#d1950b';
+        readonly backgroundColorHover: '#eba400';
+        readonly borderColor: '#101010';
         readonly foregroundColor: '#101010';
       };
     };

@@ -2,25 +2,25 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly backgroundColor: '#ffffff';
-  readonly borderColor: '#f6f5f5';
-  readonly borderColorInvalid: '#ffa89d';
+  readonly backgroundColor: '#222222';
+  readonly borderColor: '#e7e6e6';
+  readonly borderColorInvalid: '#ff7964';
   readonly borderColorReadOnly: '#464444';
-  readonly borderColorValid: '#74d6a0';
+  readonly borderColorValid: '#58ca93';
   readonly borderRadius: 8;
   readonly borderWidth: 1;
   readonly borderWidthFocused: 2;
   readonly dropdown: {
-    readonly backgroundColor: '#ffffff';
-    readonly borderColor: '#d4d2c0';
+    readonly backgroundColor: '#222222';
+    readonly borderColor: '#4c473d';
     readonly borderWidth: 1;
     readonly gap: 4;
     readonly gapContent: 8;
     readonly item: {
-      readonly backgroundColorActive: '#d1d0d0';
-      readonly backgroundColorHover: '#e7e6e6';
+      readonly backgroundColorActive: '#464444';
+      readonly backgroundColorHover: '#3e3c3b';
       readonly borderRadius: 8;
-      readonly foregroundColor: '#f6f5f5';
+      readonly foregroundColor: '#e7e6e6';
       readonly gap: 6;
       readonly padding: 12;
     };

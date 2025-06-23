@@ -7,6 +7,7 @@ export const input = {
   borderRadius: 'var(--h-input-border-radius)',
   borderWidth: 'var(--h-input-border-width)',
   borderWidthFocused: 'var(--h-input-border-width-focused)',
+  color: 'var(--h-input-color)',
   currency: {
     gap: 'var(--h-input-currency-gap)',
     height: 'var(--h-input-currency-height)',

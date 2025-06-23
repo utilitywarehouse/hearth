@@ -2,6 +2,6 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
-  border: '#f6f5f5',
+  border: '#e7e6e6',
   borderInverted: '#fcfbf2',
 };

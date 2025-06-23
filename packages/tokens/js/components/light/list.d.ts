@@ -21,6 +21,23 @@ declare const _default: {
       readonly borderColor: '#d4d2c0';
     };
   };
+  readonly listContainer: {
+    readonly emphasisWarmWhite: {
+      readonly borderRadius: 16;
+    };
+    readonly emphasisWhite: {
+      readonly borderRadius: 16;
+    };
+    readonly none: {
+      readonly borderRadius: 0;
+    };
+    readonly subtleWarmWhite: {
+      readonly borderRadius: 16;
+    };
+    readonly subtleWhite: {
+      readonly borderRadius: 16;
+    };
+  };
   readonly list: {
     readonly gap: 8;
   };

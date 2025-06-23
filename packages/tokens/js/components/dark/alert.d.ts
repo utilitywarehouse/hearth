@@ -3,25 +3,25 @@
  */
 declare const _default: {
   readonly blue: {
-    readonly backgroundColor: '#2354a4';
-    readonly borderColor: '#93c1ff';
+    readonly backgroundColor: '#042455';
+    readonly borderColor: '#6bb0ff';
   };
   readonly borderRadius: 8;
   readonly borderWidth: 2;
   readonly contentGap: 4;
   readonly gap: 8;
   readonly green: {
-    readonly backgroundColor: '#08683a';
-    readonly borderColor: '#74d6a0';
+    readonly backgroundColor: '#033d21';
+    readonly borderColor: '#58ca93';
   };
   readonly orange: {
-    readonly backgroundColor: '#ad4b00';
-    readonly borderColor: '#ffab70';
+    readonly backgroundColor: '#6b2d00';
+    readonly borderColor: '#ff9639';
   };
   readonly padding: 14;
   readonly red: {
-    readonly backgroundColor: '#a4281e';
-    readonly borderColor: '#ffa89d';
+    readonly backgroundColor: '#521a16';
+    readonly borderColor: '#ff7964';
   };
 };
 export default _default;

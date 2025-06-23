@@ -2,14 +2,15 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly backgroundColor: '#ffffff';
-  readonly borderColor: '#f6f5f5';
-  readonly borderColorInvalid: '#ffa89d';
-  readonly borderColorReadOnly: '#464444';
-  readonly borderColorValid: '#74d6a0';
+  readonly backgroundColor: '#222222';
+  readonly borderColor: '#e7e6e6';
+  readonly borderColorInvalid: '#ff7964';
+  readonly borderColorReadOnly: '#5f5c5b';
+  readonly borderColorValid: '#58ca93';
   readonly borderRadius: 8;
   readonly borderWidth: 1;
   readonly borderWidthFocused: 2;
+  readonly color: '#e7e6e6';
   readonly currency: {
     readonly gap: 2;
     readonly height: 60;
@@ -29,7 +30,7 @@ declare const _default: {
   readonly placeholderColor: '#6f6c6b';
   readonly textArea: {
     readonly height: 96;
-    readonly resizeIconColor: '#6f6c6b';
+    readonly resizeIconColor: '#d1d0d0';
   };
   readonly validation: {
     readonly gap: 2;

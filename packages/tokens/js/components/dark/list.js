@@ -8,17 +8,34 @@ export default {
     textContentGap: 2,
   },
   item: {
-    backgroundColorActive: '#f1efe4',
-    backgroundColorHover: '#d4d2c0',
+    backgroundColorActive: '#4c473d',
+    backgroundColorHover: '#30302c',
     borderWidth: 1,
     contentGap: 2,
     emphasis: {
-      borderColor: '#f6f5f5',
+      borderColor: '#e7e6e6',
     },
     gap: 12,
     padding: 16,
     subtle: {
-      borderColor: '#d4d2c0',
+      borderColor: '#4c473d',
+    },
+  },
+  listContainer: {
+    emphasisWarmWhite: {
+      borderRadius: 16,
+    },
+    emphasisWhite: {
+      borderRadius: 16,
+    },
+    none: {
+      borderRadius: 0,
+    },
+    subtleWarmWhite: {
+      borderRadius: 16,
+    },
+    subtleWhite: {
+      borderRadius: 16,
     },
   },
   list: {

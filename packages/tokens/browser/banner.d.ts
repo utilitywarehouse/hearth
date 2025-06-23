@@ -25,7 +25,7 @@ export declare const banner: {
     };
     readonly gap: 'var(--h-banner-highlight-gap)';
     readonly heading: {
-      readonly broadbandBlueBackgroundColor: 'var(--h-banner-highlight-heading-broadband-blue-background-color)';
+      readonly broadbandGreenBackgroundColor: 'var(--h-banner-highlight-heading-broadband-green-background-color)';
       readonly cashbackLilacBackgroundColor: 'var(--h-banner-highlight-heading-cashback-lilac-background-color)';
       readonly energyBlueBackgroundColor: 'var(--h-banner-highlight-heading-energy-blue-background-color)';
       readonly insuranceOrangeBackgroundColor: 'var(--h-banner-highlight-heading-insurance-orange-background-color)';
@@ -35,4 +35,5 @@ export declare const banner: {
     };
     readonly padding: 'var(--h-banner-highlight-padding)';
   };
+  readonly imageContainerBorderColor: 'var(--h-banner-image-container-border-color)';
 };
