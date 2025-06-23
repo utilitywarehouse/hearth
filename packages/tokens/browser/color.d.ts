@@ -1,4 +1,18 @@
 export declare const color: {
+  readonly background: 'var(--h-color-background)';
+  readonly background1: 'var(--h-color-background-1)';
+  readonly backgroundPurple: 'var(--h-color-background-purple)';
+  readonly invalidText: 'var(--h-color-invalid-text)';
+  readonly shadow: {
+    readonly broadbandGreenColor: 'var(--h-shadow-broadband-green-color)';
+    readonly cashbackLilacColor: 'var(--h-shadow-cashback-lilac-color)';
+    readonly defaultColor: 'var(--h-shadow-default-color)';
+    readonly energyBlueColor: 'var(--h-shadow-energy-blue-color)';
+    readonly insuranceOrangeColor: 'var(--h-shadow-insurance-orange-color)';
+    readonly mobileRoseColor: 'var(--h-shadow-mobile-rose-color)';
+    readonly piggyPinkColor: 'var(--h-shadow-piggy-pink-color)';
+    readonly purpleColor: 'var(--h-shadow-purple-color)';
+  };
   readonly blue: {
     readonly '0': 'var(--h-color-blue-0)';
     readonly '50': 'var(--h-color-blue-50)';

@@ -43,10 +43,13 @@ export const filters = {
   isPrimitiveLetterSpacing: token =>
     token.filePath.includes('primitive') && token.path.includes('letter-spacing'),
   isPrimitiveLightColor: token => {
-    if (token.type === 'color' && token.path[1] === 'dark') {
+    if (token.type === 'color' && (token.path[1] === 'dark' || token.path[0] === 'dark')) {
       return false;
     }
-    return token.filePath.includes('primitive') && token.type === 'color';
+    return (
+      (token.filePath.includes('primitive') || token.filePath.includes('semantic')) &&
+      token.type === 'color'
+    );
   },
   isOpacity: token => token.filePath.includes('semantic') && token.path.includes('opacity'),
   isComponentPxValue: token => {

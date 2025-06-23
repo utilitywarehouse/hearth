@@ -52,7 +52,8 @@ async function fullyResolveValue(
   rawValue: VariableValue | undefined,
   currentModeId: string,
   visitedIds: Set<string> = new Set(),
-  currentModeName?: string
+  currentModeName?: string,
+  rootModeName?: string
 ): Promise<{ alias?: string; value: any }> {
   if (rawValue === undefined) {
     return { value: undefined };
@@ -71,9 +72,6 @@ async function fullyResolveValue(
       consoleLog.error(`Alias variable not found for ID: ${rawValue.id}`);
       return { value: undefined };
     }
-
-    // E.g. {Button-Large.Primary.Font-Weight}
-    const aliasString = `{${variableNameToDotNotation(aliasVar.name)}}`;
 
     // Determine correct mode - try to match by mode name first
     let aliasModeId = currentModeId;
@@ -96,11 +94,13 @@ async function fullyResolveValue(
 
     if (!aliasModeId || !(aliasModeId in aliasVar.valuesByMode)) {
       consoleLog.warn(`No matching mode found for alias variable ${rawValue.id}.`);
+      const aliasString = `{${variableNameToDotNotation(aliasVar.name)}}`;
       return { alias: aliasString, value: undefined };
     }
 
     // Get the mode name for the resolved alias mode
     const resolvedModeName = aliasColl?.modes.find(m => m.modeId === aliasModeId)?.name;
+    const effectiveRootModeName = rootModeName || resolvedModeName;
 
     // Recursively resolve
     const nestedVal = aliasVar.valuesByMode[aliasModeId];
@@ -108,12 +108,22 @@ async function fullyResolveValue(
       nestedVal,
       aliasModeId,
       visitedIds,
-      resolvedModeName
+      resolvedModeName,
+      effectiveRootModeName
     );
     if (nestedValue === undefined) {
+      const aliasString = `{${variableNameToDotNotation(aliasVar.name)}}`;
       consoleLog.warn(`Resolved value for alias ${aliasString} is undefined.`);
       return { alias: aliasString, value: undefined };
     }
+
+    // Create alias string with mode prefix only if current mode matches alias mode
+    const tokenPath = variableNameToDotNotation(aliasVar.name);
+    const aliasString =
+      currentModeName && resolvedModeName === currentModeName
+        ? `{${currentModeName}.${tokenPath}}`
+        : `{${tokenPath}}`;
+
     return { alias: aliasString, value: nestedValue };
   }
 
