@@ -403,8 +403,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/react-icons
       '@utilitywarehouse/hearth-tokens':
-        specifier: workspace:*
-        version: link:../../packages/tokens
+        specifier: ~0.0.3
+        version: 0.0.3
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -693,7 +693,13 @@ importers:
     dependencies:
       '@radix-ui/react-use-controllable-state':
         specifier: ^1.0.1
-        version: 1.1.0(@types/react@18.3.18)(react@19.1.0)
+        version: 1.2.2(@types/react@18.3.18)(react@19.1.0)
+      '@utilitywarehouse/hearth-fonts':
+        specifier: workspace:*
+        version: link:../fonts
+      '@utilitywarehouse/hearth-tokens':
+        specifier: ~0.0.3
+        version: 0.0.3
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -707,18 +713,9 @@ importers:
       '@types/react':
         specifier: ^18.3.12
         version: 18.3.18
-      '@utilitywarehouse/hearth-css-reset':
-        specifier: workspace:*
-        version: link:../css-reset
-      '@utilitywarehouse/hearth-fonts':
-        specifier: workspace:*
-        version: link:../fonts
       '@utilitywarehouse/hearth-react-icons':
         specifier: workspace:*
         version: link:../react-icons
-      '@utilitywarehouse/hearth-tokens':
-        specifier: workspace:*
-        version: link:../tokens
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.1)
@@ -3956,26 +3953,8 @@ packages:
       '@types/react-dom':
         optional: true
 
-  '@radix-ui/react-use-callback-ref@1.1.0':
-    resolution: {integrity: sha512-CasTfvsy+frcFkbXtSJ2Zu9JHpN8TYKxkgJGWbjiZhFivxaeW7rMeZt7QELGVLaYVfFMsKHjb7Ak0nMEe+2Vfw==}
-    peerDependencies:
-      '@types/react': '*'
-      react: 19.1.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-
   '@radix-ui/react-use-callback-ref@1.1.1':
     resolution: {integrity: sha512-FkBMwD+qbGQeMu1cOHnuGB6x4yzPjho8ap5WtbEJ26umhgqVXbhekKUQO+hZEL1vU92a3wHwdp0HAcqAUF5iDg==}
-    peerDependencies:
-      '@types/react': '*'
-      react: 19.1.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-
-  '@radix-ui/react-use-controllable-state@1.1.0':
-    resolution: {integrity: sha512-MtfMVJiSr2NjzS0Aa90NPTnvTSg6C/JLCV7ma0W6+OMV78vd8OyRpID+Ng9LxzsPbLeuBnWBA1Nq30AtBIDChw==}
     peerDependencies:
       '@types/react': '*'
       react: 19.1.0
@@ -5234,6 +5213,9 @@ packages:
       react: 19.1.0
       react-native: '>=0.70.6'
       react-native-svg: '>=12.3.0'
+
+  '@utilitywarehouse/hearth-tokens@0.0.3':
+    resolution: {integrity: sha512-Ot6R3LFKJSRCVX2NgRl8n979snHNfTHd/NeVYXv72r/iLPHI2ry9S9Ie62VH0EhQYA/8e7T+FIzLYW7Iu2FRow==}
 
   '@utilitywarehouse/prettier-config@0.1.1':
     resolution: {integrity: sha512-Lcs5K0qQSP8eQd82Ug2Q98pLAM41c1WsB1oMeOHKXmAumD7KHR8UsDSIsdv9ILmMb4RPYZLY0A2j3DIRzyVjHg==}
@@ -16033,21 +16015,8 @@ snapshots:
       '@types/react': 18.3.18
       '@types/react-dom': 19.1.6(@types/react@18.3.18)
 
-  '@radix-ui/react-use-callback-ref@1.1.0(@types/react@18.3.18)(react@19.1.0)':
-    dependencies:
-      react: 19.1.0
-    optionalDependencies:
-      '@types/react': 18.3.18
-
   '@radix-ui/react-use-callback-ref@1.1.1(@types/react@18.3.18)(react@19.1.0)':
     dependencies:
-      react: 19.1.0
-    optionalDependencies:
-      '@types/react': 18.3.18
-
-  '@radix-ui/react-use-controllable-state@1.1.0(@types/react@18.3.18)(react@19.1.0)':
-    dependencies:
-      '@radix-ui/react-use-callback-ref': 1.1.0(@types/react@18.3.18)(react@19.1.0)
       react: 19.1.0
     optionalDependencies:
       '@types/react': 18.3.18
@@ -17768,6 +17737,8 @@ snapshots:
       react: 19.1.0
       react-native: 0.79.3(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)
       react-native-svg: 15.11.2(react-native@0.79.3(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+
+  '@utilitywarehouse/hearth-tokens@0.0.3': {}
 
   '@utilitywarehouse/prettier-config@0.1.1': {}
 
