@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.1.0
+
+### Minor Changes
+
+- [#368](https://github.com/utilitywarehouse/hearth/pull/368) [`7b7e6df`](https://github.com/utilitywarehouse/hearth/commit/7b7e6dffa57de884d21676f1b42156e6237139b2) Thanks [@robphoenix](https://github.com/robphoenix)! - This change is to release the updated colour tokens. The light and dark colour scales have been combined into a single scale that can be used across both light and dark themes.
+
 ## 0.0.3
 
 ### Patch Changes

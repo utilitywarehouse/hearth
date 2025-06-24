@@ -1,5 +1,12 @@
 # @utilitywarehouse/hearth-react
 
+## 1.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`7b7e6df`](https://github.com/utilitywarehouse/hearth/commit/7b7e6dffa57de884d21676f1b42156e6237139b2)]:
+  - @utilitywarehouse/hearth-tokens@0.1.0
+
 ## 0.2.2
 
 ### Patch Changes
