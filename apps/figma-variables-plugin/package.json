@@ -18,7 +18,6 @@
     "@utilitywarehouse/hearth-fonts": "workspace:*",
     "@utilitywarehouse/hearth-react": "workspace:*",
     "@utilitywarehouse/hearth-tokens": "workspace:*",
-    "@utilitywarehouse/web-ui": "latest",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

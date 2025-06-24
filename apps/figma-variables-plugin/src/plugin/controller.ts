@@ -242,9 +242,17 @@ function determineValueAndType(val: any): [any, string] {
 
 function renameModesWithMap(tokens: Record<string, any>, modeMap: Record<string, string>) {
   const renamed: Record<string, any> = {};
+  const duplicateNames = new Set<string>();
+  // Validate modeMap for duplicate values
+  const modeMapValues = Object.values(modeMap);
+  const uniqueValues = new Set(modeMapValues);
+  if (uniqueValues.size !== modeMapValues.length) {
+    consoleLog.warn('Duplicate values detected in modeMap. Ensure modeMap is unique.');
+  }
   for (const modeId of Object.keys(tokens)) {
     const newName = modeMap[modeId] ?? modeId;
     if (renamed[newName]) {
+      duplicateNames.add(newName);
       consoleLog.warn(`Mode "${newName}" already exists, skipping rename for "${modeId}"`);
       continue;
     }
