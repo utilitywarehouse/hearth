@@ -3,6 +3,18 @@
  */
 
 :root {
+  --h-color-background: var(--h-color-warm-white-50);
+  --h-color-background-1: var(--h-color-grey-0);
+  --h-color-background-purple: var(--h-color-purple-700);
+  --h-color-invalid-text: var(--h-color-red-700);
+  --h-shadow-broadband-green-color: var(--h-color-broadband-green-300);
+  --h-shadow-cashback-lilac-color: var(--h-color-cashback-lilac-500);
+  --h-shadow-default-color: var(--h-color-grey-1000);
+  --h-shadow-energy-blue-color: var(--h-color-energy-blue-300);
+  --h-shadow-insurance-orange-color: var(--h-color-insurance-orange-400);
+  --h-shadow-mobile-rose-color: var(--h-color-mobile-rose-400);
+  --h-shadow-piggy-pink-color: var(--h-color-piggy-pink-300);
+  --h-shadow-purple-color: var(--h-color-purple-700);
   --h-color-blue-0: #f8fbff;
   --h-color-blue-50: #eef7ff;
   --h-color-blue-100: #d9ecff;
