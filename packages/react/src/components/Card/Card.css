@@ -1,15 +1,9 @@
 .hearth-Card {
+  position: relative;
   background-color: var(--h-card-background-color);
   border-radius: var(--h-card-border-radius);
   border: var(--h-card-border-width) solid var(--h-card-border-color);
   padding: var(--h-card-padding-mobile);
-  position: relative;
-
-  /* we're setting this as the default so that non-white cards continue to have
-   the emphasis appearance even if the subtle variant is accidentally applied */
-  --h-card-background-color: var(--h-card-emphasis-background-color);
-  --h-card-border-color: var(--h-card-emphasis-border-color);
-  --h-card-border-width: var(--h-card-emphasis-border-width);
 
   @media (--h-tablet) {
     padding: var(--h-card-padding-tablet);
@@ -31,6 +25,8 @@
   &:where(.hearth-variant-emphasis) {
     --h-card-border-color: var(--h-card-brand-emphasis-border-color);
     --h-card-border-width: var(--h-card-brand-border-width);
+    --h-card-background-color: var(--h-card-emphasis-background-color);
+
     &:where([data-colorscheme='white'], [data-colorscheme='warm-white']) {
       --h-card-border-color: var(--h-card-neutral-emphasis-border-color);
       --h-card-border-width: var(--h-card-neutral-emphasis-border-width);
