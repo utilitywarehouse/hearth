@@ -44,7 +44,7 @@ import {
 } from '@utilitywarehouse/hearth-react';
 import '@utilitywarehouse/hearth-react/styles.css';
 import '@utilitywarehouse/hearth-tokens/index.css';
-import { Alert } from '@utilitywarehouse/web-ui';
+import { Alert } from './components/Alert';
 import './styles/ui.css';
 import { encodeContent, kebabCase } from './utils';
 
@@ -140,7 +140,7 @@ function App() {
   const repoName = 'hearth';
   const branchName = 'main';
   const [selectAll, setSelectAll] = React.useState(false);
-  const [statusType, setStatusType] = React.useState<'green' | 'red' | 'cyan'>('cyan');
+  const [statusType, setStatusType] = React.useState<'green' | 'red' | 'blue'>('blue');
 
   React.useEffect(() => {
     // Load saved GitHub token from clientStorage
@@ -172,7 +172,7 @@ function App() {
     } else if (pluginMessage.type === 'variables-exported') {
       const tokensData = pluginMessage.data;
       setStatusMessage('Variables exported. Creating PRs...');
-      setStatusType('cyan');
+      setStatusType('blue');
       await createPullRequests(tokensData);
       setExporting(false);
     }
@@ -267,6 +267,16 @@ function App() {
   // Create pull requests for all collections in a single PR
   const createPullRequests = async tokensData => {
     setStatusMessage('Creating a single pull request for all collections...');
+
+    // // Deubgging: log the tokensData
+    // return console.log(
+    //   'Tokens data to be exported:',
+    //   tokensData.map(item => ({
+    //     collectionName: item.collectionName,
+    //     tokensJson: JSON.parse(item.tokensJson),
+    //   }))
+    // );
+
     try {
       const apiBase = 'https://api.github.com';
       const headers = {
@@ -428,13 +438,20 @@ function App() {
 
         {!githubToken && (
           <Alert
-            colorScheme="cyan"
+            colorScheme="blue"
             text="Enter your GitHub token to be able to export the variables and create a PR."
           />
         )}
-        {loadingImport && <Alert colorScheme="cyan" text="Importing variables, please wait..." />}
+        {loadingImport && <Alert colorScheme="blue" text="Importing variables, please wait..." />}
         {((tokenLoaded && showTokenInput) || !tokenLoaded) && (
-          <Card alignItems="end" gap="100" variant="subtle" wrap="wrap" direction="row">
+          <Card
+            alignItems="end"
+            gap="100"
+            variant="subtle"
+            colorScheme="white"
+            wrap="wrap"
+            direction="row"
+          >
             <PasswordInput
               id="github-token"
               label="GitHub Token"
@@ -489,7 +506,7 @@ function App() {
               {loadingCollections && <Spinner />}
               {!loadingCollections && collections.length === 0 && (
                 <Alert
-                  colorScheme="cyan"
+                  colorScheme="blue"
                   text="No collections found in this file. Please create a collection in the library."
                 />
               )}

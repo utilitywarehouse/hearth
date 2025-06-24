@@ -116,7 +116,25 @@ export function generateJsTokens() {
             {
               destination: 'color.ts',
               format: 'js/theme-module',
-              filter: token => token.filePath.includes('primitive') && token.type === 'color',
+              filter: token => token.filePath.includes('primitive') && token.path[0] === 'color',
+            },
+          ],
+        },
+        'js-semantic-colors': {
+          transformGroup: 'js-device',
+          buildPath: BUILD_PATH,
+          files: [
+            {
+              destination: 'semantic-light.ts',
+              format: 'js/semantic-colors',
+              options: { mode: 'light' },
+              filter: token => token.filePath.includes('semantic') && token.path[0] === 'light',
+            },
+            {
+              destination: 'semantic-dark.ts',
+              format: 'js/semantic-colors',
+              options: { mode: 'dark' },
+              filter: token => token.filePath.includes('semantic') && token.path[0] === 'dark',
             },
           ],
         },

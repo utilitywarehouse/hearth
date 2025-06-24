@@ -3057,7 +3057,7 @@
         "value": "#e7e6e6"
       },
       "color-invalid": {
-        "alias": "{color.red.400}",
+        "alias": "{dark.color.invalid-text}",
         "type": "color",
         "value": "#ff7964"
       },
@@ -6289,7 +6289,7 @@
         "value": "#101010"
       },
       "color-invalid": {
-        "alias": "{color.red.700}",
+        "alias": "{light.color.invalid-text}",
         "type": "color",
         "value": "#de2612"
       },

@@ -1,12 +1,12 @@
+import fs from 'fs';
+import path from 'path';
 import StyleDictionary from 'style-dictionary';
-import { unwrapAlias } from './helpers/unwrap-alias.js';
+import { filters } from './helpers/filters.js';
+import { kebabCase } from './helpers/kebab-case.js';
 import { loadJSON } from './helpers/load-json.js';
 import { normalizeTokenName } from './helpers/normalize-token.js';
 import { px } from './helpers/px.js';
-import { filters } from './helpers/filters.js';
-import { kebabCase } from './helpers/kebab-case.js';
-import fs from 'fs';
-import path from 'path';
+import { unwrapAlias } from './helpers/unwrap-alias.js';
 
 // Path where CSS files will be generated
 const BUILD_PATH = './css/';
@@ -236,6 +236,11 @@ export function generateCssTokens() {
   return [
     new StyleDictionary({
       source: ['./raw/*.json'],
+      log: {
+        verbosity: 'verbose',
+        errors: true,
+        warnings: true,
+      },
       platforms: {
         css: {
           transformGroup: 'css-transforms',

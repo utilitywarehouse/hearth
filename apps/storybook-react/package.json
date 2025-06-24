@@ -28,7 +28,6 @@
     "@storybook/react-vite": "^9.0.12",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
-    "@utilitywarehouse/web-ui": "^1.1.0",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint-plugin-storybook": "^9.0.12",
     "globals": "^15.14.0",
