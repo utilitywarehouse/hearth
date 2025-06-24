@@ -698,8 +698,8 @@ importers:
         specifier: workspace:*
         version: link:../fonts
       '@utilitywarehouse/hearth-tokens':
-        specifier: ~0.0.3
-        version: 0.0.3
+        specifier: workspace:*
+        version: link:../tokens
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
