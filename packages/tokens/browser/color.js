@@ -1,4 +1,18 @@
 export const color = {
+  background: 'var(--h-color-background)',
+  background1: 'var(--h-color-background-1)',
+  backgroundPurple: 'var(--h-color-background-purple)',
+  invalidText: 'var(--h-color-invalid-text)',
+  shadow: {
+    broadbandGreenColor: 'var(--h-shadow-broadband-green-color)',
+    cashbackLilacColor: 'var(--h-shadow-cashback-lilac-color)',
+    defaultColor: 'var(--h-shadow-default-color)',
+    energyBlueColor: 'var(--h-shadow-energy-blue-color)',
+    insuranceOrangeColor: 'var(--h-shadow-insurance-orange-color)',
+    mobileRoseColor: 'var(--h-shadow-mobile-rose-color)',
+    piggyPinkColor: 'var(--h-shadow-piggy-pink-color)',
+    purpleColor: 'var(--h-shadow-purple-color)',
+  },
   blue: {
     0: 'var(--h-color-blue-0)',
     50: 'var(--h-color-blue-50)',
