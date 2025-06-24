@@ -24,6 +24,7 @@ function buildDeviceOutput(dictionary, options) {
 
 const primitiveJson = loadJSON('./raw/hearth-components--tokens---primitive.json');
 const deviceJson = loadJSON('./raw/hearth-components--tokens---device.json');
+const semanticJson = loadJSON('./raw/hearth-components--tokens---semantic.json');
 
 // Register transforms, formats, and groups
 export function registerDictionaryExtensions(StyleDictionary) {
@@ -68,6 +69,43 @@ export function registerDictionaryExtensions(StyleDictionary) {
         colorScales[colorScale][camelShade] = token.value;
       });
 
+      // Add semantic tokens under light and dark keys
+      const semanticTokens = { light: {}, dark: {} };
+      if (semanticJson) {
+        ['light', 'dark'].forEach(mode => {
+          if (semanticJson[mode]) {
+            Object.entries(semanticJson[mode]).forEach(([category, tokens]) => {
+              if (category === 'color') {
+                // Flatten color tokens to root level of light/dark
+                Object.entries(tokens).forEach(([key, tokenData]) => {
+                  if (tokenData.type === 'color') {
+                    const camelKey = camelCase(key);
+                    semanticTokens[mode][camelKey] = tokenData.value;
+                  }
+                });
+              } else {
+                // Keep other token types nested under their category, but only if they have color type
+                const camelCategory = camelCase(category);
+                const colorTokensInCategory = {};
+                let hasColorTokens = false;
+
+                Object.entries(tokens).forEach(([key, tokenData]) => {
+                  if (tokenData.type === 'color') {
+                    const camelKey = camelCase(key);
+                    colorTokensInCategory[camelKey] = tokenData.value;
+                    hasColorTokens = true;
+                  }
+                });
+
+                if (hasColorTokens) {
+                  semanticTokens[mode][camelCategory] = colorTokensInCategory;
+                }
+              }
+            });
+          }
+        });
+      }
+
       const exports = Object.keys(colorScales)
         .map(colorScale => {
           const camelColorScale = camelCase(colorScale);
@@ -75,15 +113,22 @@ export function registerDictionaryExtensions(StyleDictionary) {
         })
         .join('\n\n');
 
+      const semanticExports = `export const light = ${JSON.stringify(semanticTokens.light, null, 2)} as const;
+
+export const dark = ${JSON.stringify(semanticTokens.dark, null, 2)} as const;`;
+
       const defaultExport = `const color = { ${Object.keys(colorScales)
         .map(scale => camelCase(scale))
-        .join(', ')} } as const;`;
+        .join(', ')}, light, dark } as const;`;
 
       return `/**
  * Do not edit directly, this file was auto-generated.
  */
 \n${exports}
-\n${defaultExport}
+
+${semanticExports}
+
+${defaultExport}
 \nexport default color;`;
     },
   });

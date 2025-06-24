@@ -214,6 +214,38 @@ export const yellow = {
   950: '#756230',
   1000: '#4c401f',
 };
+export const light = {
+  background: '#fcfbf2',
+  background1: '#ffffff',
+  backgroundPurple: '#7a42c8',
+  invalidText: '#de2612',
+  shadow: {
+    broadbandGreenColor: '#8cba3b',
+    cashbackLilacColor: '#be7aeb',
+    defaultColor: '#101010',
+    energyBlueColor: '#6db5c3',
+    insuranceOrangeColor: '#ff7b00',
+    mobileRoseColor: '#ee6dbb',
+    piggyPinkColor: '#f295ff',
+    purpleColor: '#7a42c8',
+  },
+};
+export const dark = {
+  background: '#191917',
+  background1: '#222222',
+  backgroundPurple: '#7a42c8',
+  invalidText: '#ff7964',
+  shadow: {
+    broadbandGreenColor: '#506c21',
+    cashbackLilacColor: '#8b2bc9',
+    defaultColor: '#e7e6e6',
+    energyBlueColor: '#326e7a',
+    insuranceOrangeColor: '#9b4c0e',
+    mobileRoseColor: '#a7266d',
+    piggyPinkColor: '#8f358f',
+    purpleColor: '#7a42c8',
+  },
+};
 const color = {
   blue,
   broadbandGreen,
@@ -229,5 +261,7 @@ const color = {
   red,
   warmWhite,
   yellow,
+  light,
+  dark,
 };
 export default color;
