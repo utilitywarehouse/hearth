@@ -59,7 +59,7 @@ export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGrou
     // useControllableState will handle whether controlled or uncontrolled
     const [value = [], setValue] = useControllableState({
       prop: valueProp,
-      defaultProp: defaultValue,
+      defaultProp: defaultValue || ([] as Array<string>),
       onChange: onValueChange,
     });
 
