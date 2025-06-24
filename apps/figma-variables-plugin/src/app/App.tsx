@@ -482,7 +482,7 @@ function App() {
                   justifyContent="center"
                   alignItems="center"
                   height="100%"
-                  backgroundColor="white"
+                  backgroundColor="grey0"
                   style={{ zIndex: 1 }}
                 >
                   <Spinner />
