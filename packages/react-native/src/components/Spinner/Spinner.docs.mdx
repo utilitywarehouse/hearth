@@ -1,8 +1,8 @@
-import { Meta, Canvas, Story, Controls, Primary } from '@storybook/addon-docs/blocks';
-import * as Stories from './Spinner.stories';
-import { Center, Pressable, Spinner, Box } from '../..';
-import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+import { Canvas, Controls, Meta, Primary, Story } from '@storybook/addon-docs/blocks';
 import { color } from '@utilitywarehouse/hearth-tokens/js';
+import { Box, Center, Pressable, Spinner } from '../..';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Spinner.stories';
 
 <Meta title="Components / Spinner" />
 
@@ -33,7 +33,7 @@ with text, or directly in a container on the screen when we want the user to wai
 
 <UsageWrap>
   <Center>
-    <Spinner size="lg" color={color.light.blue['400']} />
+    <Spinner size="lg" color={color.blue['400']} />
   </Center>
 </UsageWrap>
 
@@ -43,7 +43,7 @@ import { color } from '@utilitywarehouse/hearth-tokens';
 
 const MyComponent = () => (
   <Center>
-    <Spinner size="lg" color={color.light.blue['400']} />
+    <Spinner size="lg" color={color.blue['400']} />
   </Center>
 );
 ```

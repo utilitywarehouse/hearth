@@ -17,9 +17,9 @@ export default {
     width: 32,
   },
   unstyled: {
-    foregroundColor: '#f6f5f5',
-    foregroundColorActive: '#d1d0d0',
-    foregroundColorHover: '#e7e6e6',
+    foregroundColor: '#e7e6e6',
+    foregroundColorActive: '#b2afae',
+    foregroundColorHover: '#d1d0d0',
     inverted: {
       foregroundColor: '#fcfbf2',
       foregroundColorActive: '#f1efe4',
@@ -32,7 +32,7 @@ export default {
     paddingHorizontal: 0,
     paddingVertical: 0,
     sm: {
-      height: 20,
+      height: 0,
       width: 20,
     },
   },

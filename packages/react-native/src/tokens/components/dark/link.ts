@@ -3,13 +3,13 @@
  */
 
 export default {
-  color: '#f6f5f5',
-  colorActive: '#d1d0d0',
-  colorHover: '#e7e6e6',
+  color: '#e7e6e6',
+  colorActive: '#b2afae',
+  colorHover: '#d1d0d0',
   gap: 2,
   inverted: {
     color: '#fcfbf2',
     colorActive: '#f1efe4',
-    colorHover: '#fcfbf2',
+    colorHover: '#f7f6eb',
   },
 } as const;

@@ -1,10 +1,9 @@
 import { useMemo } from 'react';
+import { GestureResponderEvent, Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
-import type ToggleButtonCardProps from './ToggleButtonCard.props';
-import { ToggleButtonCardContext } from './ToggleButtonCard.context';
-import { View } from 'react-native';
 import ToggleButton from '../ToggleButton/ToggleButton';
+import { ToggleButtonCardContext } from './ToggleButtonCard.context';
+import type ToggleButtonCardProps from './ToggleButtonCard.props';
 
 const ToggleButtonCardRoot = ({
   children,
@@ -59,7 +58,7 @@ const styles = StyleSheet.create(theme => ({
     flexDirection: 'column',
     gap: theme.components.card.selectable.gap,
     borderRadius: theme.components.card.borderRadius,
-    backgroundColor: theme.components.card.whiteBackgroundColor,
+    backgroundColor: theme.components.card.neutral.whiteBackgroundColor,
     borderWidth: theme.components.card.selectable.borderWidth,
     borderColor: theme.components.card.selectable.borderColor,
     alignSelf: 'stretch',

@@ -69,11 +69,11 @@ const preview = {
         const storybookContainer = document.getElementsByTagName('body')[0];
         if (storybookContainer) {
           if (args.inverted) {
-            storybookContainer.style.backgroundColor = color.light.purple['700'];
+            storybookContainer.style.backgroundColor = color.purple['700'];
           } else {
             storybookContainer.style.backgroundColor = !args.darkMode
-              ? color.light.warmWhite['50']
-              : color.dark.grey[900];
+              ? color.warmWhite['50']
+              : color.grey['100'];
           }
         }
       }, [args.darkMode, args.surface, args.inverted]);

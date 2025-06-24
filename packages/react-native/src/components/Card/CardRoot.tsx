@@ -1,10 +1,9 @@
- 
 import React, { ReactNode, useMemo } from 'react';
 import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import CardProps from './Card.props';
-import { CardContext } from './Card.context';
 import { useStyleProps } from '../../hooks';
+import { CardContext } from './Card.context';
+import CardProps from './Card.props';
 
 // Helper that recursively collects onPress or other defined handlers from descendants
 const collectChildActionHandlers = (
@@ -104,48 +103,48 @@ const styles = StyleSheet.create(theme => ({
       space: theme.globalStyle.variants.space,
       variant: {
         subtle: {
-          borderWidth: theme.components.card.subtle.borderWidth,
-          borderColor: theme.components.card.subtle.borderColor,
+          borderWidth: theme.components.card.neutral.subtle.borderWidth,
+          borderColor: theme.components.card.neutral.subtle.borderColor,
         },
         emphasis: {
-          borderWidth: theme.components.card.emphasis.borderWidth,
-          borderColor: theme.components.card.emphasis.borderColor,
+          borderWidth: theme.components.card.neutral.emphasis.borderWidth,
+          borderColor: theme.components.card.neutral.emphasis.borderColor,
         },
       },
       colorScheme: {
         white: {
-          backgroundColor: theme.components.card.whiteBackgroundColor,
+          backgroundColor: theme.components.card.neutral.whiteBackgroundColor,
         },
         warmWhite: {
-          backgroundColor: theme.components.card.warmWhiteBackgroundColor,
+          backgroundColor: theme.components.card.neutral.warmWhiteBackgroundColor,
         },
         purple: {
-          borderWidth: theme.components.card.emphasis.borderWidth,
-          borderColor: theme.components.card.emphasis.borderColor,
+          borderWidth: theme.components.card.brand.borderWidth,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
         energyBlue: {
-          borderWidth: theme.components.card.emphasis.borderWidth,
-          borderColor: theme.components.card.emphasis.borderColor,
+          borderWidth: theme.components.card.brand.borderWidth,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
         broadbandGreen: {
-          borderWidth: theme.components.card.emphasis.borderWidth,
-          borderColor: theme.components.card.emphasis.borderColor,
+          borderWidth: theme.components.card.brand.borderWidth,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
         mobileRose: {
-          borderWidth: theme.components.card.emphasis.borderWidth,
-          borderColor: theme.components.card.emphasis.borderColor,
+          borderWidth: theme.components.card.brand.borderWidth,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
         insuranceOrange: {
-          borderWidth: theme.components.card.emphasis.borderWidth,
-          borderColor: theme.components.card.emphasis.borderColor,
+          borderWidth: theme.components.card.brand.borderWidth,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
         cashbackLilac: {
-          borderWidth: theme.components.card.emphasis.borderWidth,
-          borderColor: theme.components.card.emphasis.borderColor,
+          borderWidth: theme.components.card.brand.borderWidth,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
         piggyPink: {
-          borderWidth: theme.components.card.emphasis.borderWidth,
-          borderColor: theme.components.card.emphasis.borderColor,
+          borderWidth: theme.components.card.brand.borderWidth,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
       },
       noPadding: {
@@ -181,98 +180,98 @@ const styles = StyleSheet.create(theme => ({
         variant: 'subtle',
         colorScheme: 'purple',
         styles: {
-          backgroundColor: theme.components.card.subtle.purpleBackgroundColor,
+          backgroundColor: theme.components.card.brand.subtle.purpleBackgroundColor,
         },
       },
       {
         variant: 'emphasis',
         colorScheme: 'purple',
         styles: {
-          backgroundColor: theme.components.card.emphasis.purpleBackgroundColor,
+          backgroundColor: theme.components.card.brand.emphasis.purpleBackgroundColor,
         },
       },
       {
         variant: 'subtle',
         colorScheme: 'energyBlue',
         styles: {
-          backgroundColor: theme.components.card.subtle.energyBlueBackgroundColor,
+          backgroundColor: theme.components.card.brand.subtle.energyBlueBackgroundColor,
         },
       },
       {
         variant: 'emphasis',
         colorScheme: 'energyBlue',
         styles: {
-          backgroundColor: theme.components.card.emphasis.energyBlueBackgroundColor,
+          backgroundColor: theme.components.card.brand.emphasis.energyBlueBackgroundColor,
         },
       },
       {
         variant: 'subtle',
         colorScheme: 'broadbandGreen',
         styles: {
-          backgroundColor: theme.components.card.subtle.broadbandGreenBackgroundColor,
+          backgroundColor: theme.components.card.brand.subtle.broadbandGreenBackgroundColor,
         },
       },
       {
         variant: 'emphasis',
         colorScheme: 'broadbandGreen',
         styles: {
-          backgroundColor: theme.components.card.emphasis.broadbandGreenBackgroundColor,
+          backgroundColor: theme.components.card.brand.emphasis.broadbandGreenBackgroundColor,
         },
       },
       {
         variant: 'subtle',
         colorScheme: 'mobileRose',
         styles: {
-          backgroundColor: theme.components.card.subtle.mobileRoseBackgroundColor,
+          backgroundColor: theme.components.card.brand.subtle.mobileRoseBackgroundColor,
         },
       },
       {
         variant: 'emphasis',
         colorScheme: 'mobileRose',
         styles: {
-          backgroundColor: theme.components.card.emphasis.mobileRoseBackgroundColor,
+          backgroundColor: theme.components.card.brand.emphasis.mobileRoseBackgroundColor,
         },
       },
       {
         variant: 'subtle',
         colorScheme: 'insuranceOrange',
         styles: {
-          backgroundColor: theme.components.card.subtle.insuranceOrangeBackgroundColor,
+          backgroundColor: theme.components.card.brand.subtle.insuranceOrangeBackgroundColor,
         },
       },
       {
         variant: 'emphasis',
         colorScheme: 'insuranceOrange',
         styles: {
-          backgroundColor: theme.components.card.emphasis.insuranceOrangeBackgroundColor,
+          backgroundColor: theme.components.card.brand.emphasis.insuranceOrangeBackgroundColor,
         },
       },
       {
         variant: 'subtle',
         colorScheme: 'cashbackLilac',
         styles: {
-          backgroundColor: theme.components.card.subtle.cashbackLilacBackgroundColor,
+          backgroundColor: theme.components.card.brand.subtle.cashbackLilacBackgroundColor,
         },
       },
       {
         variant: 'emphasis',
         colorScheme: 'cashbackLilac',
         styles: {
-          backgroundColor: theme.components.card.emphasis.cashbackLilacBackgroundColor,
+          backgroundColor: theme.components.card.brand.emphasis.cashbackLilacBackgroundColor,
         },
       },
       {
         variant: 'subtle',
         colorScheme: 'piggyPink',
         styles: {
-          backgroundColor: theme.components.card.subtle.piggyPinkBackgroundColor,
+          backgroundColor: theme.components.card.brand.subtle.piggyPinkBackgroundColor,
         },
       },
       {
         variant: 'emphasis',
         colorScheme: 'piggyPink',
         styles: {
-          backgroundColor: theme.components.card.emphasis.piggyPinkBackgroundColor,
+          backgroundColor: theme.components.card.brand.emphasis.piggyPinkBackgroundColor,
         },
       },
     ],
