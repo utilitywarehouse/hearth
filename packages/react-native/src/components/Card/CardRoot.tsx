@@ -120,31 +120,24 @@ const styles = StyleSheet.create(theme => ({
         },
         purple: {
           borderWidth: theme.components.card.brand.borderWidth,
-          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
         energyBlue: {
           borderWidth: theme.components.card.brand.borderWidth,
-          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
         broadbandGreen: {
           borderWidth: theme.components.card.brand.borderWidth,
-          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
         mobileRose: {
           borderWidth: theme.components.card.brand.borderWidth,
-          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
         insuranceOrange: {
           borderWidth: theme.components.card.brand.borderWidth,
-          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
         cashbackLilac: {
           borderWidth: theme.components.card.brand.borderWidth,
-          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
         piggyPink: {
           borderWidth: theme.components.card.brand.borderWidth,
-          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
       },
       noPadding: {
@@ -181,6 +174,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'purple',
         styles: {
           backgroundColor: theme.components.card.brand.subtle.purpleBackgroundColor,
+          borderColor: theme.components.card.brand.subtle.borderColor,
         },
       },
       {
@@ -188,6 +182,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'purple',
         styles: {
           backgroundColor: theme.components.card.brand.emphasis.purpleBackgroundColor,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
       },
       {
@@ -195,6 +190,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'energyBlue',
         styles: {
           backgroundColor: theme.components.card.brand.subtle.energyBlueBackgroundColor,
+          borderColor: theme.components.card.brand.subtle.borderColor,
         },
       },
       {
@@ -202,6 +198,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'energyBlue',
         styles: {
           backgroundColor: theme.components.card.brand.emphasis.energyBlueBackgroundColor,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
       },
       {
@@ -209,6 +206,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'broadbandGreen',
         styles: {
           backgroundColor: theme.components.card.brand.subtle.broadbandGreenBackgroundColor,
+          borderColor: theme.components.card.brand.subtle.borderColor,
         },
       },
       {
@@ -216,6 +214,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'broadbandGreen',
         styles: {
           backgroundColor: theme.components.card.brand.emphasis.broadbandGreenBackgroundColor,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
       },
       {
@@ -223,6 +222,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'mobileRose',
         styles: {
           backgroundColor: theme.components.card.brand.subtle.mobileRoseBackgroundColor,
+          borderColor: theme.components.card.brand.subtle.borderColor,
         },
       },
       {
@@ -230,6 +230,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'mobileRose',
         styles: {
           backgroundColor: theme.components.card.brand.emphasis.mobileRoseBackgroundColor,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
       },
       {
@@ -237,6 +238,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'insuranceOrange',
         styles: {
           backgroundColor: theme.components.card.brand.subtle.insuranceOrangeBackgroundColor,
+          borderColor: theme.components.card.brand.subtle.borderColor,
         },
       },
       {
@@ -244,6 +246,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'insuranceOrange',
         styles: {
           backgroundColor: theme.components.card.brand.emphasis.insuranceOrangeBackgroundColor,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
       },
       {
@@ -251,6 +254,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'cashbackLilac',
         styles: {
           backgroundColor: theme.components.card.brand.subtle.cashbackLilacBackgroundColor,
+          borderColor: theme.components.card.brand.subtle.borderColor,
         },
       },
       {
@@ -258,6 +262,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'cashbackLilac',
         styles: {
           backgroundColor: theme.components.card.brand.emphasis.cashbackLilacBackgroundColor,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
       },
       {
@@ -265,6 +270,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'piggyPink',
         styles: {
           backgroundColor: theme.components.card.brand.subtle.piggyPinkBackgroundColor,
+          borderColor: theme.components.card.brand.subtle.borderColor,
         },
       },
       {
@@ -272,6 +278,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'piggyPink',
         styles: {
           backgroundColor: theme.components.card.brand.emphasis.piggyPinkBackgroundColor,
+          borderColor: theme.components.card.brand.emphasis.borderColor,
         },
       },
     ],
