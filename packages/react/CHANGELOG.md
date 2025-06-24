@@ -1,5 +1,14 @@
 # @utilitywarehouse/hearth-react
 
+## 0.2.3
+
+### Patch Changes
+
+- [#364](https://github.com/utilitywarehouse/hearth/pull/364) [`b13601c`](https://github.com/utilitywarehouse/hearth/commit/b13601c2fb5514bed981b8d4c5e953e7d0278d90) Thanks [@robphoenix](https://github.com/robphoenix)! - Implement colour tokens changes in Hearth React
+
+- Updated dependencies [[`9209c2c`](https://github.com/utilitywarehouse/hearth/commit/9209c2ca44723bb34530afa04e27345912de8309)]:
+  - @utilitywarehouse/hearth-tokens@0.0.4
+
 ## 0.2.2
 
 ### Patch Changes
