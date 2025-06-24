@@ -17,7 +17,7 @@
     "@utilitywarehouse/hearth-fonts": "workspace:*",
     "@utilitywarehouse/hearth-react": "workspace:*",
     "@utilitywarehouse/hearth-react-icons": "workspace:*",
-    "@utilitywarehouse/hearth-tokens": "~0.0.3",
+    "@utilitywarehouse/hearth-tokens": "workspace:*",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
