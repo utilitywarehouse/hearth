@@ -1,15 +1,9 @@
 .hearth-Card {
+  position: relative;
   background-color: var(--h-card-background-color);
   border-radius: var(--h-card-border-radius);
   border: var(--h-card-border-width) solid var(--h-card-border-color);
   padding: var(--h-card-padding-mobile);
-  position: relative;
-
-  /* we're setting this as the default so that non-white cards continue to have
-   the emphasis appearance even if the subtle variant is accidentally applied */
-  --h-card-background-color: var(--h-card-emphasis-background-color);
-  --h-card-border-color: var(--h-card-emphasis-border-color);
-  --h-card-border-width: var(--h-card-emphasis-border-width);
 
   @media (--h-tablet) {
     padding: var(--h-card-padding-tablet);
@@ -29,58 +23,69 @@
   }
 
   &:where(.hearth-variant-emphasis) {
-    --h-card-border-color: var(--h-card-emphasis-border-color);
-    --h-card-border-width: var(--h-card-emphasis-border-width);
-  }
+    --h-card-border-color: var(--h-card-brand-emphasis-border-color);
+    --h-card-border-width: var(--h-card-brand-border-width);
+    --h-card-background-color: var(--h-card-emphasis-background-color);
 
-  &:where(.hearth-variant-subtle):where(
-      [data-colorscheme='white'],
-      [data-colorscheme='warm-white']
-    ) {
-    --h-card-border-color: var(--h-card-subtle-border-color);
-    --h-card-border-width: var(--h-card-subtle-border-width);
+    &:where([data-colorscheme='white'], [data-colorscheme='warm-white']) {
+      --h-card-border-color: var(--h-card-neutral-emphasis-border-color);
+      --h-card-border-width: var(--h-card-neutral-emphasis-border-width);
+    }
   }
 
   &:where(.hearth-variant-subtle) {
+    --h-card-border-color: var(--h-card-brand-subtle-border-color);
+    --h-card-border-width: var(--h-card-brand-border-width);
     --h-card-background-color: var(--h-card-subtle-background-color);
+
+    &:where([data-colorscheme='white'], [data-colorscheme='warm-white']) {
+      --h-card-border-color: var(--h-card-neutral-subtle-border-color);
+      --h-card-border-width: var(--h-card-neutral-subtle-border-width);
+    }
   }
 
   &:where([data-colorscheme='white']) {
-    background-color: var(--h-card-white-background-color);
+    background-color: var(--h-card-neutral-white-background-color);
   }
 
   &:where([data-colorscheme='warm-white']) {
-    background-color: var(--h-card-warm-white-background-color);
+    background-color: var(--h-card-neutral-warm-white-background-color);
   }
 
   &:where([data-colorscheme='purple']) {
-    --h-card-emphasis-background-color: var(--h-card-emphasis-purple-background-color);
-    --h-card-subtle-background-color: var(--h-card-subtle-purple-background-color);
+    --h-card-emphasis-background-color: var(--h-card-brand-emphasis-purple-background-color);
+    --h-card-subtle-background-color: var(--h-card-brand-subtle-purple-background-color);
   }
 
   &:where([data-colorscheme='energy-blue']) {
-    --h-card-emphasis-background-color: var(--h-card-emphasis-energy-blue-background-color);
-    --h-card-subtle-background-color: var(--h-card-subtle-energy-blue-background-color);
+    --h-card-emphasis-background-color: var(--h-card-brand-emphasis-energy-blue-background-color);
+    --h-card-subtle-background-color: var(--h-card-brand-subtle-energy-blue-background-color);
   }
 
   &:where([data-colorscheme='broadband-green']) {
-    --h-card-emphasis-background-color: var(--h-card-emphasis-broadband-green-background-color);
-    --h-card-subtle-background-color: var(--h-card-subtle-broadband-green-background-color);
+    --h-card-emphasis-background-color: var(
+      --h-card-brand-emphasis-broadband-green-background-color
+    );
+    --h-card-subtle-background-color: var(--h-card-brand-subtle-broadband-green-background-color);
   }
 
   &:where([data-colorscheme='mobile-rose']) {
-    --h-card-emphasis-background-color: var(--h-card-emphasis-mobile-rose-background-color);
-    --h-card-subtle-background-color: var(--h-card-subtle-mobile-rose-background-color);
+    --h-card-emphasis-background-color: var(--h-card-brand-emphasis-mobile-rose-background-color);
+    --h-card-subtle-background-color: var(--h-card-brand-subtle-mobile-rose-background-color);
   }
 
   &:where([data-colorscheme='insurance-orange']) {
-    --h-card-emphasis-background-color: var(--h-card-emphasis-insurance-orange-background-color);
-    --h-card-subtle-background-color: var(--h-card-subtle-insurance-orange-background-color);
+    --h-card-emphasis-background-color: var(
+      --h-card-brand-emphasis-insurance-orange-background-color
+    );
+    --h-card-subtle-background-color: var(--h-card-brand-subtle-insurance-orange-background-color);
   }
 
   &:where([data-colorscheme='cashback-lilac']) {
-    --h-card-emphasis-background-color: var(--h-card-emphasis-cashback-lilac-background-color);
-    --h-card-subtle-background-color: var(--h-card-subtle-cashback-lilac-background-color);
+    --h-card-emphasis-background-color: var(
+      --h-card-brand-emphasis-cashback-lilac-background-color
+    );
+    --h-card-subtle-background-color: var(--h-card-brand-subtle-cashback-lilac-background-color);
   }
 
   &:where([data-selectable]) {
@@ -89,22 +94,22 @@
 
       &:where(:hover) {
         &:where(.hearth-color-scheme-white) {
-          background-color: var(--h-card-white-background-color-hover);
+          background-color: var(--h-card-neutral-white-background-color-hover);
         }
 
         &:where(.hearth-color-scheme-warm-white) {
-          background-color: var(--h-card-warm-white-background-color-hover);
+          background-color: var(--h-card-neutral-warm-white-background-color-hover);
         }
       }
     }
 
     &:where(:active) {
       &:where(.hearth-color-scheme-white) {
-        background-color: var(--h-card-white-background-color-active);
+        background-color: var(--h-card-neutral-white-background-color-active);
       }
 
       &:where(.hearth-color-scheme-warm-white) {
-        background-color: var(--h-card-warm-white-background-color-active);
+        background-color: var(--h-card-neutral-warm-white-background-color-active);
       }
     }
 
@@ -112,9 +117,5 @@
       outline: 2px solid var(--h-focus-border);
       outline-offset: 1px;
     }
-  }
-
-  &:has(.hearth-CardAction) {
-    position: relative;
   }
 }

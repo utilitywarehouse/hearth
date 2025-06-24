@@ -125,7 +125,7 @@ export const Playground: Story = {
 export const InteractiveCards: Story = {
   render: () => {
     return (
-      <Flex padding="600" gap="400" direction="column">
+      <Flex padding="600" gap="400" direction="column" alignItems="center">
         <Flex gap="300" width="800px" asChild>
           <ul role="list">
             <Card
@@ -237,7 +237,7 @@ export const InteractiveCards: Story = {
           </ul>
         </Flex>
 
-        <Flex asChild gap="300" width="800px">
+        <Flex asChild direction="column" gap="300" width="600px" alignItems="center">
           <ul role="list">
             <Card
               as="li"
@@ -246,8 +246,26 @@ export const InteractiveCards: Story = {
               flex="1"
               direction="column"
               gap="150"
+              alignItems="start"
             >
               <Heading size="sm">This is a card with a single interaction</Heading>
+              <BodyText size="md">
+                The card itself doesn’t need to be clickable and the only interaction is with the
+                interactive component nested within the card
+              </BodyText>
+              <Button variant="solid" colorScheme="yellow" onClick={() => console.log('hello')}>
+                Button
+              </Button>
+            </Card>
+            <Card
+              as="li"
+              variant="emphasis"
+              colorScheme="white"
+              flex="1"
+              direction="column"
+              gap="150"
+            >
+              <Heading size="sm">This whole card is clickable</Heading>
               <BodyText size="md">
                 This whole card is tappable/clickable but the state is applied to the interactive
                 component
@@ -261,35 +279,12 @@ export const InteractiveCards: Story = {
             <Card
               as="li"
               variant="emphasis"
-              colorScheme="broadbandGreen"
-              flex="1"
-              direction="column"
-              gap="150"
-            >
-              <Heading size="sm">This is a card with a single interaction</Heading>
-              <BodyText size="md">
-                This whole card is tappable/clickable but the state is applied to the interactive
-                component
-              </BodyText>
-              <CardAction>
-                <Button variant="outline" colorScheme="grey" onClick={() => console.log('hello')}>
-                  Button
-                </Button>
-              </CardAction>
-            </Card>
-          </ul>
-        </Flex>
-        <Flex asChild gap="300" width="800px">
-          <ul role="list">
-            <Card
-              as="li"
-              variant="emphasis"
               colorScheme="white"
               flex="1"
               direction="column"
               gap="150"
             >
-              <Flex alignItems="start">
+              <Flex alignItems="center" justifyContent="between">
                 <Heading size="sm">This is a card with multiple interactions</Heading>
                 <CardAction secondary>
                   <IconButton
@@ -307,36 +302,6 @@ export const InteractiveCards: Story = {
               </BodyText>
               <CardAction>
                 <Button variant="solid" colorScheme="yellow" onClick={() => console.log('action')}>
-                  Button
-                </Button>
-              </CardAction>
-            </Card>
-            <Card
-              as="li"
-              variant="emphasis"
-              colorScheme="broadbandGreen"
-              flex="1"
-              direction="column"
-              gap="150"
-            >
-              <Flex alignItems="start">
-                <Heading size="sm">This is a card with multiple interactions</Heading>
-                <CardAction secondary>
-                  <IconButton
-                    variant="ghost"
-                    size="sm"
-                    label="close"
-                    onClick={() => console.log('close')}
-                  >
-                    <CloseSmallIcon />
-                  </IconButton>
-                </CardAction>
-              </Flex>
-              <BodyText size="md">
-                The components within the card are interactive component
-              </BodyText>
-              <CardAction>
-                <Button variant="outline" colorScheme="grey" onClick={() => console.log('action')}>
                   Button
                 </Button>
               </CardAction>

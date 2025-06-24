@@ -42,7 +42,7 @@
   }
 
   &:where([data-state='unchecked']) {
-    background-color: white;
+    background-color: var(--h-checkbox-unchecked-background-color);
 
     --h-checkbox-box-shadow-color: var(--h-checkbox-unchecked-border-color);
   }
