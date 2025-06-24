@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.2.2
+
+### Patch Changes
+
+- [#356](https://github.com/utilitywarehouse/hearth/pull/356) [`9fc957a`](https://github.com/utilitywarehouse/hearth/commit/9fc957ae46165c48cff27b08bfeb9f2384a1d5a1) Thanks [@robphoenix](https://github.com/robphoenix)! - Remove `ListItem` padding when not inside a Card container
+
 ## 0.2.1
 
 ### Patch Changes
