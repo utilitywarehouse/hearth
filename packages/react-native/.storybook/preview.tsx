@@ -92,29 +92,38 @@ const preview = {
           } else {
             storybookContainer.style.backgroundColor = isDarkMode
               ? color.dark.background
-              : color.warmWhite['50'];
+              : color.light.background;
           }
         }
 
-        // Update the Storybook theme class for manager UI
-        const managerRoot = window.parent?.document?.documentElement;
-        if (managerRoot) {
-          if (isDarkMode) {
-            managerRoot.classList.add('dark');
-            managerRoot.setAttribute('data-theme', 'dark');
-          } else {
-            managerRoot.classList.remove('dark');
-            managerRoot.setAttribute('data-theme', 'light');
-          }
-          if (args.inverted) {
-            managerRoot.classList.add('inverted');
-            managerRoot.setAttribute('data-inverted', 'true');
-          } else {
-            managerRoot.classList.remove('inverted');
-            managerRoot.removeAttribute('data-inverted');
-          }
+        let canAccessParent = false;
+        try {
+          canAccessParent = window.parent.location.hostname === window.location.hostname;
+        } catch {
+          // CORS error, can't access parent domain
+          canAccessParent = false;
         }
 
+        if (canAccessParent) {
+          // Update the Storybook theme class for manager UI
+          const managerRoot = window.parent?.document?.documentElement;
+          if (managerRoot) {
+            if (isDarkMode) {
+              managerRoot.classList.add('dark');
+              managerRoot.setAttribute('data-theme', 'dark');
+            } else {
+              managerRoot.classList.remove('dark');
+              managerRoot.setAttribute('data-theme', 'light');
+            }
+            if (args.inverted) {
+              managerRoot.classList.add('inverted');
+              managerRoot.setAttribute('data-inverted', 'true');
+            } else {
+              managerRoot.classList.remove('inverted');
+              managerRoot.removeAttribute('data-inverted');
+            }
+          }
+        }
         // Update the preview iframe theme
         const previewRoot = document.documentElement;
         if (previewRoot) {

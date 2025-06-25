@@ -842,13 +842,10 @@ importers:
         version: 0.1.23(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
       '@gorhom/bottom-sheet':
         specifier: ^5.1.6
-        version: 5.1.6(@types/react-native@0.72.8(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)))(@types/react@19.1.8)(react-native-gesture-handler@2.24.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native-reanimated@3.17.5(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+        version: 5.1.6(@types/react-native@0.72.8(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)))(@types/react@19.1.8)(react-native-gesture-handler@2.26.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native-reanimated@3.18.0(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
       '@utilitywarehouse/hearth-react-native-icons':
         specifier: ^0.1.0
-        version: 0.1.0(react-native-svg@15.11.2(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
-      react-native-svg:
-        specifier: '>=13.4.0'
-        version: 15.11.2(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+        version: 0.1.0(react-native-svg@15.12.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
     devDependencies:
       '@babel/plugin-proposal-export-namespace-from':
         specifier: ^7.18.9
@@ -905,17 +902,20 @@ importers:
         specifier: 1.6.1
         version: 1.6.1(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
       react-native-gesture-handler:
-        specifier: 2.24.0
-        version: 2.24.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+        specifier: 2.26.0
+        version: 2.26.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
       react-native-nitro-modules:
         specifier: ^0.26.2
         version: 0.26.2(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
       react-native-reanimated:
-        specifier: 3.17.5
-        version: 3.17.5(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+        specifier: 3.18.0
+        version: 3.18.0(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+      react-native-svg:
+        specifier: ^15.12.0
+        version: 15.12.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
       react-native-unistyles:
         specifier: 3.0.0-rc.5
-        version: 3.0.0-rc.5(@react-native/normalize-colors@0.80.0)(react-native-edge-to-edge@1.6.1(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.26.2(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native-reanimated@3.17.5(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+        version: 3.0.0-rc.5(@react-native/normalize-colors@0.80.0)(react-native-edge-to-edge@1.6.1(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.26.2(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native-reanimated@3.18.0(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
       react-native-web:
         specifier: ^0.20.0
         version: 0.20.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -10097,12 +10097,6 @@ packages:
   react-native-fit-image@1.5.5:
     resolution: {integrity: sha512-Wl3Vq2DQzxgsWKuW4USfck9zS7YzhvLNPpkwUUCF90bL32e1a0zOVQ3WsJILJOwzmPdHfzZmWasiiAUNBkhNkg==}
 
-  react-native-gesture-handler@2.24.0:
-    resolution: {integrity: sha512-ZdWyOd1C8axKJHIfYxjJKCcxjWEpUtUWgTOVY2wynbiveSQDm8X/PDyAKXSer/GOtIpjudUbACOndZXCN3vHsw==}
-    peerDependencies:
-      react: 19.1.0
-      react-native: '*'
-
   react-native-gesture-handler@2.26.0:
     resolution: {integrity: sha512-pfE1j9Vzu0qpWj/Aq1IK+cYnougN69mCKvWuq1rdNjH2zs1WIszF0Mum9/oGQTemgjyc/JgiqOOTgwcleAMAGg==}
     peerDependencies:
@@ -10133,13 +10127,6 @@ packages:
       react: 19.1.0
       react-native: '*'
 
-  react-native-reanimated@3.17.5:
-    resolution: {integrity: sha512-SxBK7wQfJ4UoWoJqQnmIC7ZjuNgVb9rcY5Xc67upXAFKftWg0rnkknTw6vgwnjRcvYThrjzUVti66XoZdDJGtw==}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-      react: 19.1.0
-      react-native: '*'
-
   react-native-reanimated@3.18.0:
     resolution: {integrity: sha512-eVcNcqeOkMW+BUWAHdtvN3FKgC8J8wiEJkX6bNGGQaLS7m7e4amTfjIcqf/Ta+lerZLurmDaQ0lICI1CKPrb1Q==}
     peerDependencies:
@@ -10158,12 +10145,6 @@ packages:
     peerDependencies:
       react: 19.1.0
       react-native: '>=0.50.0'
-
-  react-native-svg@15.11.2:
-    resolution: {integrity: sha512-+YfF72IbWQUKzCIydlijV1fLuBsQNGMT6Da2kFlo1sh+LE3BIm/2Q7AR1zAAR6L0BFLi1WaQPLfFUC9bNZpOmw==}
-    peerDependencies:
-      react: 19.1.0
-      react-native: '*'
 
   react-native-svg@15.12.0:
     resolution: {integrity: sha512-iE25PxIJ6V0C6krReLquVw6R0QTsRTmEQc4K2Co3P6zsimU/jltcDBKYDy1h/5j9S/fqmMeXnpM+9LEWKJKI6A==}
@@ -14845,14 +14826,14 @@ snapshots:
       '@types/react': 19.0.14
       '@types/react-native': 0.72.8(react-native@0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0))
 
-  '@gorhom/bottom-sheet@5.1.6(@types/react-native@0.72.8(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)))(@types/react@19.1.8)(react-native-gesture-handler@2.24.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native-reanimated@3.17.5(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)':
+  '@gorhom/bottom-sheet@5.1.6(@types/react-native@0.72.8(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)))(@types/react@19.1.8)(react-native-gesture-handler@2.26.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native-reanimated@3.18.0(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)':
     dependencies:
       '@gorhom/portal': 1.0.14(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
       invariant: 2.2.4
       react: 19.1.0
       react-native: 0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)
-      react-native-gesture-handler: 2.24.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
-      react-native-reanimated: 3.17.5(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+      react-native-gesture-handler: 2.26.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+      react-native-reanimated: 3.18.0(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
     optionalDependencies:
       '@types/react': 19.1.8
       '@types/react-native': 0.72.8(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))
@@ -17756,11 +17737,11 @@ snapshots:
     dependencies:
       dotenv: 16.4.7
 
-  '@utilitywarehouse/hearth-react-native-icons@0.1.0(react-native-svg@15.11.2(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)':
+  '@utilitywarehouse/hearth-react-native-icons@0.1.0(react-native-svg@15.12.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)':
     dependencies:
       react: 19.1.0
       react-native: 0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)
-      react-native-svg: 15.11.2(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+      react-native-svg: 15.12.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
 
   '@utilitywarehouse/prettier-config@0.1.1': {}
 
@@ -24042,14 +24023,6 @@ snapshots:
     dependencies:
       prop-types: 15.8.1
 
-  react-native-gesture-handler@2.24.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0):
-    dependencies:
-      '@egjs/hammerjs': 2.0.17
-      hoist-non-react-statics: 3.3.2
-      invariant: 2.2.4
-      react: 19.1.0
-      react-native: 0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)
-
   react-native-gesture-handler@2.26.0(react-native@0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0))(react@19.1.0):
     dependencies:
       '@egjs/hammerjs': 2.0.17
@@ -24057,6 +24030,14 @@ snapshots:
       invariant: 2.2.4
       react: 19.1.0
       react-native: 0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0)
+
+  react-native-gesture-handler@2.26.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0):
+    dependencies:
+      '@egjs/hammerjs': 2.0.17
+      hoist-non-react-statics: 3.3.2
+      invariant: 2.2.4
+      react: 19.1.0
+      react-native: 0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)
 
   react-native-is-edge-to-edge@1.1.7(react-native@0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0))(react@19.1.0):
     dependencies:
@@ -24093,26 +24074,6 @@ snapshots:
       react: 19.1.0
       react-native: 0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)
 
-  react-native-reanimated@3.17.5(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0):
-    dependencies:
-      '@babel/core': 7.27.4
-      '@babel/plugin-transform-arrow-functions': 7.25.9(@babel/core@7.27.4)
-      '@babel/plugin-transform-class-properties': 7.25.9(@babel/core@7.27.4)
-      '@babel/plugin-transform-classes': 7.25.9(@babel/core@7.27.4)
-      '@babel/plugin-transform-nullish-coalescing-operator': 7.26.6(@babel/core@7.27.4)
-      '@babel/plugin-transform-optional-chaining': 7.25.9(@babel/core@7.27.4)
-      '@babel/plugin-transform-shorthand-properties': 7.25.9(@babel/core@7.27.4)
-      '@babel/plugin-transform-template-literals': 7.25.9(@babel/core@7.27.4)
-      '@babel/plugin-transform-unicode-regex': 7.25.9(@babel/core@7.27.4)
-      '@babel/preset-typescript': 7.26.0(@babel/core@7.27.4)
-      convert-source-map: 2.0.0
-      invariant: 2.2.4
-      react: 19.1.0
-      react-native: 0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)
-      react-native-is-edge-to-edge: 1.1.7(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
-    transitivePeerDependencies:
-      - supports-color
-
   react-native-reanimated@3.18.0(@babel/core@7.26.10)(react-native@0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0))(react@19.1.0):
     dependencies:
       '@babel/core': 7.26.10
@@ -24133,6 +24094,26 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  react-native-reanimated@3.18.0(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0):
+    dependencies:
+      '@babel/core': 7.27.4
+      '@babel/plugin-transform-arrow-functions': 7.25.9(@babel/core@7.27.4)
+      '@babel/plugin-transform-class-properties': 7.25.9(@babel/core@7.27.4)
+      '@babel/plugin-transform-classes': 7.25.9(@babel/core@7.27.4)
+      '@babel/plugin-transform-nullish-coalescing-operator': 7.26.6(@babel/core@7.27.4)
+      '@babel/plugin-transform-optional-chaining': 7.25.9(@babel/core@7.27.4)
+      '@babel/plugin-transform-shorthand-properties': 7.25.9(@babel/core@7.27.4)
+      '@babel/plugin-transform-template-literals': 7.25.9(@babel/core@7.27.4)
+      '@babel/plugin-transform-unicode-regex': 7.25.9(@babel/core@7.27.4)
+      '@babel/preset-typescript': 7.26.0(@babel/core@7.27.4)
+      convert-source-map: 2.0.0
+      invariant: 2.2.4
+      react: 19.1.0
+      react-native: 0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)
+      react-native-is-edge-to-edge: 1.1.7(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+    transitivePeerDependencies:
+      - supports-color
+
   react-native-safe-area-context@5.4.0(react-native@0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0))(react@19.1.0):
     dependencies:
       react: 19.1.0
@@ -24145,20 +24126,20 @@ snapshots:
       react: 19.1.0
       react-native: 0.77.1(@babel/core@7.26.10)(@babel/preset-env@7.26.0(@babel/core@7.26.10))(@types/react@18.3.18)(react@19.1.0)
 
-  react-native-svg@15.11.2(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0):
-    dependencies:
-      css-select: 5.1.0
-      css-tree: 1.1.3
-      react: 19.1.0
-      react-native: 0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)
-      warn-once: 0.1.1
-
   react-native-svg@15.12.0(react-native@0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0))(react@19.1.0):
     dependencies:
       css-select: 5.1.0
       css-tree: 1.1.3
       react: 19.1.0
       react-native: 0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0)
+      warn-once: 0.1.1
+
+  react-native-svg@15.12.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0):
+    dependencies:
+      css-select: 5.1.0
+      css-tree: 1.1.3
+      react: 19.1.0
+      react-native: 0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)
       warn-once: 0.1.1
 
   react-native-unistyles@3.0.0-rc.5(@react-native/normalize-colors@0.80.0)(react-native-edge-to-edge@1.6.0(react-native@0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.26.2(react-native@0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0))(react@19.1.0))(react-native-reanimated@3.18.0(@babel/core@7.26.10)(react-native@0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0))(react@19.1.0):
@@ -24171,7 +24152,7 @@ snapshots:
     optionalDependencies:
       react-native-reanimated: 3.18.0(@babel/core@7.26.10)(react-native@0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0))(react@19.1.0)
 
-  react-native-unistyles@3.0.0-rc.5(@react-native/normalize-colors@0.80.0)(react-native-edge-to-edge@1.6.1(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.26.2(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native-reanimated@3.17.5(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0):
+  react-native-unistyles@3.0.0-rc.5(@react-native/normalize-colors@0.80.0)(react-native-edge-to-edge@1.6.1(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.26.2(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native-reanimated@3.18.0(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0):
     dependencies:
       '@react-native/normalize-colors': 0.80.0
       react: 19.1.0
@@ -24179,7 +24160,7 @@ snapshots:
       react-native-edge-to-edge: 1.6.1(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
       react-native-nitro-modules: 0.26.2(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
     optionalDependencies:
-      react-native-reanimated: 3.17.5(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+      react-native-reanimated: 3.18.0(@babel/core@7.27.4)(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
 
   react-native-url-polyfill@2.0.0(react-native@0.80.0(@babel/core@7.26.10)(@types/react@19.0.14)(react@19.1.0)):
     dependencies:
