@@ -1,6 +1,6 @@
-import { Spinner } from './';
 import figma from '@figma/code-connect';
 import { color } from '@utilitywarehouse/hearth-tokens/js';
+import { Spinner } from './';
 
 figma.connect(
   Spinner,
@@ -14,6 +14,6 @@ figma.connect(
         'LG-44': 'lg',
       }),
     },
-    example: ({ size }) => <Spinner size={size} color={color.light.purple['700']} />,
+    example: ({ size }) => <Spinner size={size} color={color.purple['700']} />,
   }
 );

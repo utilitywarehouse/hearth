@@ -3,6 +3,8 @@
  */
 
 export { default as color } from './color';
+export { default as semanticLight } from './semantic-light';
+export { default as semanticDark } from './semantic-dark';
 export { default as layout } from './layout';
 export { default as shadow } from './shadow';
 export { default as primitive } from './primitive';

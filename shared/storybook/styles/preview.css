@@ -67,3 +67,17 @@ thead th {
   font-family: 'Comic Hams', serif !important;
   font-weight: bold !important;
 }
+
+[data-theme='dark'] {
+  .docs-story,
+  .sbdocs-preview {
+    background-color: var(--color-background) !important;
+  }
+}
+
+[data-inverted='true'] {
+  .docs-story,
+  .sbdocs-preview {
+    background-color: #7a42c8 !important;
+  }
+}

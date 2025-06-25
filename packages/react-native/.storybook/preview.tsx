@@ -4,7 +4,7 @@ import { color } from '@utilitywarehouse/hearth-tokens';
 import { useEffect } from 'react';
 import '../../../shared/storybook/styles/preview.css';
 import theme from '../../../shared/storybook/theme';
-import { breakpoints, StyleSheet, themes } from '../src/core';
+import { breakpoints, StyleSheet, themes, UnistylesRuntime } from '../src/core';
 
 StyleSheet.configure({
   themes,
@@ -17,20 +17,37 @@ StyleSheet.configure({
 
 /** @type { import('@storybook/react-native-web-vite').Preview } */
 const preview = {
+  globalTypes: {
+    darkMode: {
+      description: 'Toggle between light and dark mode',
+      defaultValue: false,
+      toolbar: {
+        title: 'Dark Mode',
+        icon: 'moon',
+        items: [
+          { value: false, icon: 'sun', title: 'Light mode' },
+          { value: true, icon: 'moon', title: 'Dark mode' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
   beforeAll: () => {
-    let canAccessParent = false;
-    try {
-      canAccessParent = window.parent.location.hostname === window.location.hostname;
-    } catch {
-      // CORS error, can't access parent domain
-      canAccessParent = false;
-    }
+    if (!__DEV__) {
+      let canAccessParent = false;
+      try {
+        canAccessParent = window.parent.location.hostname === window.location.hostname;
+      } catch {
+        // CORS error, can't access parent domain
+        canAccessParent = false;
+      }
 
-    if (canAccessParent) {
-      const storiesMenuItem = window.parent.document.getElementById('stories');
-      const storiesMenuItemButton = storiesMenuItem?.querySelector('button');
-      if (storiesMenuItemButton?.getAttribute('aria-expanded') === 'true') {
-        storiesMenuItemButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      if (canAccessParent) {
+        const storiesMenuItem = window.parent.document.getElementById('stories');
+        const storiesMenuItemButton = storiesMenuItem?.querySelector('button');
+        if (storiesMenuItemButton?.getAttribute('aria-expanded') === 'true') {
+          storiesMenuItemButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+        }
       }
     }
   },
@@ -64,23 +81,74 @@ const preview = {
     },
   },
   decorators: [
-    (Story, { args }) => {
+    (Story, { args, globals }) => {
+      const isDarkMode = globals.darkMode;
+
       useEffect(() => {
         const storybookContainer = document.getElementsByTagName('body')[0];
         if (storybookContainer) {
           if (args.inverted) {
-            storybookContainer.style.backgroundColor = color.light.purple['700'];
+            storybookContainer.style.backgroundColor = color.purple['700'];
           } else {
-            storybookContainer.style.backgroundColor = !args.darkMode
-              ? color.light.warmWhite['50']
-              : color.dark.grey[900];
+            storybookContainer.style.backgroundColor = isDarkMode
+              ? color.dark.background
+              : color.light.background;
           }
         }
-      }, [args.darkMode, args.surface, args.inverted]);
+
+        let canAccessParent = false;
+        try {
+          canAccessParent = window.parent.location.hostname === window.location.hostname;
+        } catch {
+          // CORS error, can't access parent domain
+          canAccessParent = false;
+        }
+
+        if (canAccessParent) {
+          // Update the Storybook theme class for manager UI
+          const managerRoot = window.parent?.document?.documentElement;
+          if (managerRoot) {
+            if (isDarkMode) {
+              managerRoot.classList.add('dark');
+              managerRoot.setAttribute('data-theme', 'dark');
+            } else {
+              managerRoot.classList.remove('dark');
+              managerRoot.setAttribute('data-theme', 'light');
+            }
+            if (args.inverted) {
+              managerRoot.classList.add('inverted');
+              managerRoot.setAttribute('data-inverted', 'true');
+            } else {
+              managerRoot.classList.remove('inverted');
+              managerRoot.removeAttribute('data-inverted');
+            }
+          }
+        }
+        // Update the preview iframe theme
+        const previewRoot = document.documentElement;
+        if (previewRoot) {
+          if (isDarkMode) {
+            previewRoot.classList.add('dark');
+            previewRoot.setAttribute('data-theme', 'dark');
+          } else {
+            previewRoot.classList.remove('dark');
+            previewRoot.setAttribute('data-theme', 'light');
+          }
+          if (args.inverted) {
+            previewRoot.classList.add('inverted');
+            previewRoot.setAttribute('data-inverted', 'true');
+          } else {
+            previewRoot.classList.remove('inverted');
+            previewRoot.removeAttribute('data-inverted');
+          }
+        }
+
+        UnistylesRuntime.setTheme(isDarkMode ? 'dark' : 'light');
+      }, [isDarkMode, args.darkMode, args.surface, args.inverted]);
 
       return (
         <BottomSheetModalProvider>
-          <Story />
+          <Story args={{ ...args, darkMode: isDarkMode }} />
         </BottomSheetModalProvider>
       );
     },

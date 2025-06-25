@@ -8,7 +8,6 @@ export default {
   },
   backgroundColor: '#ffffff',
   borderRadius: 16,
-  color: '#101010',
   content: {
     gap: 12,
   },

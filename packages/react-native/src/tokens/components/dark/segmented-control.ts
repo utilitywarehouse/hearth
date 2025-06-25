@@ -3,13 +3,13 @@
  */
 
 export default {
-  backgroundColorActive: '#f1efe4',
-  backgroundColorHover: '#f7f6eb',
+  backgroundColorActive: '#30302c',
+  backgroundColorHover: '#282825',
   borderRadius: 6,
-  foregroundColor: '#101010',
+  foregroundColor: '#e7e6e6',
   gap: 6,
   group: {
-    borderColor: '#101010',
+    borderColor: '#e7e6e6',
     borderRadius: 8,
     borderWidth: 1,
     gap: 4,

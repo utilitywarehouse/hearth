@@ -1,5 +1,5 @@
-import { Skeleton } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { Skeleton } from '.';
 import { coloursAsArray } from '../../utils';
 
 const meta = {
@@ -19,7 +19,7 @@ const meta = {
     borderRadius: { control: 'number' },
   },
   args: {
-    backgroundColor: 'warmWhite100',
+    backgroundColor: undefined,
     width: 200,
     height: 16,
   },
