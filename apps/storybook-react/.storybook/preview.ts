@@ -1,6 +1,5 @@
 import { Preview } from '@storybook/react-vite';
 import { INITIAL_VIEWPORTS } from 'storybook/viewport';
-import '@utilitywarehouse/hearth-css-reset';
 import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-react/styles.css';
 import { breakpoints } from '@utilitywarehouse/hearth-react';

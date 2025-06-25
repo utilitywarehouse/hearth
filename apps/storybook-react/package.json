@@ -13,7 +13,6 @@
     "build:storybook": "storybook build"
   },
   "dependencies": {
-    "@utilitywarehouse/hearth-css-reset": "workspace:*",
     "@utilitywarehouse/hearth-fonts": "workspace:*",
     "@utilitywarehouse/hearth-react": "workspace:*",
     "@utilitywarehouse/hearth-react-icons": "workspace:*",
