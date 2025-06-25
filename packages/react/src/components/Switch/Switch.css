@@ -1,4 +1,4 @@
-@import '@utilitywarehouse/hearth-tokens/css/switch.css';
+@import url('@utilitywarehouse/hearth-tokens/css/switch.css');
 
 .hearth-Switch {
   display: flex;

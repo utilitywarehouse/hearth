@@ -1,4 +1,4 @@
-@import '@utilitywarehouse/hearth-tokens/css/card.css';
+@import url('@utilitywarehouse/hearth-tokens/css/card.css');
 
 .hearth-Card {
   position: relative;

@@ -1,4 +1,4 @@
-@import '@utilitywarehouse/hearth-tokens/css/spinner.css';
+@import url('@utilitywarehouse/hearth-tokens/css/spinner.css');
 
 .hearth-Spinner {
   display: inline-flex;

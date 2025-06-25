@@ -1,4 +1,4 @@
-@import '@utilitywarehouse/hearth-tokens/css/list.css';
+@import url('@utilitywarehouse/hearth-tokens/css/list.css');
 
 .hearth-List {
   display: flex;

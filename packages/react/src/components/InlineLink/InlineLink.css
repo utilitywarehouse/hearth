@@ -1,4 +1,4 @@
-@import '@utilitywarehouse/hearth-tokens/css/inline-link.css';
+@import url('@utilitywarehouse/hearth-tokens/css/inline-link.css');
 
 .hearth-InlineLink {
   cursor: pointer;

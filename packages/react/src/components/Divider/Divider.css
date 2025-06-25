@@ -1,4 +1,4 @@
-@import '@utilitywarehouse/hearth-tokens/css/divider.css';
+@import url('@utilitywarehouse/hearth-tokens/css/divider.css');
 
 .hearth-Divider {
   all: unset;

@@ -1,4 +1,4 @@
-@import '@utilitywarehouse/hearth-tokens/css/checkbox.css';
+@import url('@utilitywarehouse/hearth-tokens/css/checkbox.css');
 
 .hearth-CheckboxTile {
   display: flex;

@@ -1,4 +1,4 @@
-@import '@utilitywarehouse/hearth-tokens/css/icon-button.css';
+@import url('@utilitywarehouse/hearth-tokens/css/icon-button.css');
 
 .hearth-UnstyledIconButton {
   all: unset;

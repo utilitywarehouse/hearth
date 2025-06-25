@@ -1,4 +1,4 @@
-@import '@utilitywarehouse/hearth-tokens/css/radio.css';
+@import url('@utilitywarehouse/hearth-tokens/css/radio.css');
 
 .hearth-RadioGroup {
   flex-wrap: wrap;
