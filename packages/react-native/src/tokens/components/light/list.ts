@@ -22,6 +22,23 @@ export default {
       borderColor: '#d4d2c0',
     },
   },
+  listContainer: {
+    emphasisWarmWhite: {
+      borderRadius: 16,
+    },
+    emphasisWhite: {
+      borderRadius: 16,
+    },
+    none: {
+      borderRadius: 0,
+    },
+    subtleWarmWhite: {
+      borderRadius: 16,
+    },
+    subtleWhite: {
+      borderRadius: 16,
+    },
+  },
   list: {
     gap: 8,
   },

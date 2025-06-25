@@ -10,17 +10,9 @@ export default {
     shadowColor: '#101010',
     yellow: {
       backgroundColor: '#ffb921',
-      backgroundColorActive: '#d69200',
+      backgroundColorActive: '#d1950b',
       backgroundColorHover: '#eba400',
       foregroundColor: '#101010',
-      inverted: {
-        backgroundColor: '#ffb921',
-        backgroundColorActive: '#d69200',
-        backgroundColorHover: '#eba400',
-        borderColor: '#101010',
-        foregroundColor: '#101010',
-        shadowColor: '#101010',
-      },
     },
   },
   gap: 6,
@@ -66,8 +58,8 @@ export default {
       inverted: {
         backgroundColorActive: '#3e3c3b',
         backgroundColorHover: '#464444',
-        borderColor: '#fcfbf2',
-        foregroundColor: '#fcfbf2',
+        borderColor: '#f6f5f5',
+        foregroundColor: '#f6f5f5',
       },
     },
     red: {
@@ -97,13 +89,14 @@ export default {
     },
     yellow: {
       backgroundColor: '#ffb921',
-      backgroundColorActive: '#d69200',
+      backgroundColorActive: '#d1950b',
       backgroundColorHover: '#eba400',
       foregroundColor: '#101010',
       inverted: {
-        backgroundColor: '#fcfbf2',
-        backgroundColorActive: '#d4d2c0',
-        backgroundColorHover: '#f1efe4',
+        backgroundColor: '#ffb921',
+        backgroundColorActive: '#d1950b',
+        backgroundColorHover: '#eba400',
+        borderColor: '#101010',
         foregroundColor: '#101010',
       },
     },

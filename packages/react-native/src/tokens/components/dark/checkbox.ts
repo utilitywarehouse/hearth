@@ -6,9 +6,9 @@ export default {
   borderRadius: 4,
   borderWidth: 2,
   checked: {
-    backgroundColor: '#f6f5f5',
-    borderColor: '#f6f5f5',
-    iconColor: '#fcfbf2',
+    backgroundColor: '#e7e6e6',
+    borderColor: '#e7e6e6',
+    iconColor: '#191917',
   },
   gap: 8,
   group: {
@@ -17,13 +17,13 @@ export default {
       gap: 32,
     },
   },
-  outlineColorActive: '#d4d2c0',
-  outlineColorHover: '#f1efe4',
+  outlineColorActive: '#4c473d',
+  outlineColorHover: '#30302c',
   outlineWidth: 3,
   tile: {
-    backgroundColor: '#ffffff',
-    borderColor: '#d4d2c0',
-    borderColorSelected: '#f6f5f5',
+    backgroundColor: '#222222',
+    borderColor: '#4c473d',
+    borderColorSelected: '#e7e6e6',
     borderRadius: 8,
     borderWidth: 1,
     borderWidthSelected: 2,
@@ -39,7 +39,7 @@ export default {
     padding: 12,
   },
   unchecked: {
-    backgroundColor: '#ffffff',
-    borderColor: '#5f5c5b',
+    backgroundColor: '#222222',
+    borderColor: '#8a8686',
   },
 } as const;

@@ -1,22 +1,22 @@
+import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import React, { useCallback, useRef, useState } from 'react';
-import { Pressable, View, ViewStyle } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import SelectProps, { SelectOptionItemProps } from './Select.props';
+import { BodyText } from '../BodyText';
 import {
-  BottomSheetModal,
   BottomSheetFlatList,
+  BottomSheetModal,
   BottomSheetScrollView,
   BottomSheetView,
 } from '../BottomSheet';
-import { SelectContext } from './Select.context';
-import { useFormFieldContext } from '../FormField';
-import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { BodyText } from '../BodyText';
 import { DetailText } from '../DetailText';
-import SelectOption from './SelectOption';
-import { Label } from '../Label';
-import { Input } from '../Input';
+import { useFormFieldContext } from '../FormField';
 import { Icon } from '../Icon';
+import { Input } from '../Input';
+import { Label } from '../Label';
+import { SelectContext } from './Select.context';
+import SelectProps, { SelectOptionItemProps } from './Select.props';
+import SelectOption from './SelectOption';
 
 const Select = ({
   options = [],
@@ -153,7 +153,7 @@ const Select = ({
         </View>
 
         <View>
-          <ExpandSmallIcon style={styles.icon as ViewStyle} />
+          <Icon as={ExpandSmallIcon} style={styles.icon} />
         </View>
       </Pressable>
 
