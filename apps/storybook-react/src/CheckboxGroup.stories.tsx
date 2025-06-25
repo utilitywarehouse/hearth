@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { CheckboxGroup, Flex, CheckboxTile, Box, BodyText } from '@utilitywarehouse/hearth-react';
+import { CheckboxGroup, Flex, CheckboxTile, Box } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof CheckboxGroup> = {
   title: 'Stories / CheckboxGroup',
@@ -44,7 +44,7 @@ type Story = StoryObj<typeof CheckboxGroup>;
 
 export const Playground: Story = {
   render: args => (
-    <Flex asChild gap="800">
+    <Flex asChild>
       <form>
         <CheckboxGroup {...args} name="checkbox-story">
           <CheckboxTile value="1" label="Energy" />

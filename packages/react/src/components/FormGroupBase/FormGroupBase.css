@@ -5,14 +5,11 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: var(--h-space-250);
+  gap: var(--h-space-75);
 
-  & :where(legend):not(:has(+ .hearth-HelperTextContainer)) {
-    margin-bottom: var(--h-space-75);
-  }
-
-  & :where(.hearth-HelperTextContainer) {
-    margin-bottom: calc(-1 * calc(var(--h-space-250) - var(--h-space-75)));
+  & :where(.hearth-Legend):not(:has(+ .hearth-HelperTextContainer)) {
+    /* enable flex gap when there is no additional text */
+    display: contents;
   }
 
   .hearth-Legend {

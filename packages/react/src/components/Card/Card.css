@@ -1,3 +1,5 @@
+@import url('@utilitywarehouse/hearth-tokens/css/card.css');
+
 .hearth-Card {
   position: relative;
   background-color: var(--h-card-background-color);
