@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { DetailText } from '.';
-import { coloursAsArray } from '../../utils';
 import { VariantTitle } from '../../../docs/components';
+import { coloursAsArray } from '../../utils';
 import { Box } from '../Box';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -89,7 +89,7 @@ const meta = {
     italic: false,
     underline: false,
     strikeThrough: false,
-    color: 'grey1000',
+    color: undefined,
     textDecorationColor: 'grey1000',
   },
 } satisfies Meta<typeof DetailText>;

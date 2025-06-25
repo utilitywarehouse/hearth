@@ -1,5 +1,5 @@
 import { ViewProps } from 'react-native';
-import { Box, DetailText } from '../../src';
+import { Box, DetailText, useColorMode } from '../../src';
 
 const VariantTitle = ({
   title,
@@ -11,17 +11,20 @@ const VariantTitle = ({
   upperCase?: boolean;
   invert?: boolean;
   children: ViewProps['children'];
-}) => (
-  <Box gap="100" w="full">
-    <DetailText
-      textTransform={upperCase ? 'uppercase' : 'none'}
-      size="sm"
-      color={invert ? 'warmWhite50' : 'grey600'}
-    >
-      {title}
-    </DetailText>
-    {children}
-  </Box>
-);
+}) => {
+  const [colorMode] = useColorMode();
+  return (
+    <Box gap="100" w="full">
+      <DetailText
+        textTransform={upperCase ? 'uppercase' : 'none'}
+        size="sm"
+        color={invert ? 'warmWhite50' : colorMode === 'light' ? 'grey600' : 'grey200'}
+      >
+        {title}
+      </DetailText>
+      {children}
+    </Box>
+  );
+};
 
 export default VariantTitle;
