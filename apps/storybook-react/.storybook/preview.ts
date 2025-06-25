@@ -49,7 +49,7 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          'Introduction',
+          'Getting Started',
           "What's New",
           'Breakpoints',
           'Media Queries',
