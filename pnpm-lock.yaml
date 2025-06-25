@@ -402,9 +402,6 @@ importers:
       '@utilitywarehouse/hearth-react-icons':
         specifier: workspace:*
         version: link:../../packages/react-icons
-      '@utilitywarehouse/hearth-tokens':
-        specifier: workspace:*
-        version: link:../../packages/tokens
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -698,8 +695,8 @@ importers:
         specifier: workspace:*
         version: link:../fonts
       '@utilitywarehouse/hearth-tokens':
-        specifier: workspace:*
-        version: link:../tokens
+        specifier: 0.0.4
+        version: 0.0.4
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -5213,6 +5210,9 @@ packages:
       react: 19.1.0
       react-native: '>=0.70.6'
       react-native-svg: '>=12.3.0'
+
+  '@utilitywarehouse/hearth-tokens@0.0.4':
+    resolution: {integrity: sha512-MDgrcfQw8njc4SkBLpuXBbH5Ev2XYk/7RIIlQuncOHLFusChDo5dptDzXPL3KVwUN+sgbC0A5r4gDGR277pXDg==}
 
   '@utilitywarehouse/prettier-config@0.1.1':
     resolution: {integrity: sha512-Lcs5K0qQSP8eQd82Ug2Q98pLAM41c1WsB1oMeOHKXmAumD7KHR8UsDSIsdv9ILmMb4RPYZLY0A2j3DIRzyVjHg==}
@@ -17734,6 +17734,8 @@ snapshots:
       react: 19.1.0
       react-native: 0.79.3(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)
       react-native-svg: 15.11.2(react-native@0.79.3(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+
+  '@utilitywarehouse/hearth-tokens@0.0.4': {}
 
   '@utilitywarehouse/prettier-config@0.1.1': {}
 

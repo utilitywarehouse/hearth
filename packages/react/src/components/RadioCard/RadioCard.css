@@ -1,12 +1,15 @@
+@import '@utilitywarehouse/hearth-tokens/css/card.css';
+
 .hearth-RadioCard {
   all: unset;
   display: flex;
   flex-direction: column;
   gap: var(--h-card-selectable-gap);
   flex: 1 1 0%;
-  background-color: var(--h-card-white-background-color);
+  background-color: var(--h-card-neutral-white-background-color);
   border-radius: var(--h-card-border-radius);
-  box-shadow: inset 0 0 0 var(--h-card-subtle-border-width) var(--h-card-subtle-border-color);
+  box-shadow: inset 0 0 0 var(--h-card-neutral-subtle-border-width)
+    var(--h-card-neutral-subtle-border-color);
   padding: var(--h-card-padding-mobile);
 
   @media (--h-tablet) {
@@ -24,7 +27,8 @@
   }
 
   &:where([data-state='checked']) {
-    box-shadow: inset 0 0 0 var(--h-card-emphasis-border-width) var(--h-card-emphasis-border-color);
+    box-shadow: inset 0 0 0 var(--h-card-neutral-emphasis-border-width)
+      var(--h-card-neutral-emphasis-border-color);
   }
 
   &:where(:focus-visible) {

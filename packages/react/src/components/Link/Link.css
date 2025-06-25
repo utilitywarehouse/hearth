@@ -1,3 +1,5 @@
+@import '@utilitywarehouse/hearth-tokens/css/link.css';
+
 .hearth-Link {
   /*  unset button styles when asChild is used */
   &:where(button) {

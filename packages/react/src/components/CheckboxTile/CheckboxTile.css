@@ -1,3 +1,5 @@
+@import '@utilitywarehouse/hearth-tokens/css/checkbox.css';
+
 .hearth-CheckboxTile {
   display: flex;
   flex-direction: row;
@@ -24,7 +26,8 @@
   }
 
   &:where(:has([data-state='checked'])) {
-    box-shadow: inset 0 0 0 var(--h-card-emphasis-border-width) var(--h-card-emphasis-border-color);
+    box-shadow: inset 0 0 0 var(--h-checkbox-tile-border-width-selected)
+      var(--h-checkbox-tile-border-color-selected);
   }
 
   &:where(:has(:focus-visible)) {
