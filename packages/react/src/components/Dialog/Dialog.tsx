@@ -4,15 +4,12 @@ import { Dialog as RadixDialog } from 'radix-ui';
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { DialogProps } from './Dialog.props';
-import { Grid } from '../Grid/Grid';
 import { Heading } from '../Heading/Heading';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
 import { DialogClose } from './DialogClose';
 import { Box } from '../Box/Box';
-import { DialogProvider } from './Dialog.context';
-import { Flex } from '../Flex/Flex';
 
 const componentName = 'Dialog';
 const componentClassName = withGlobalPrefix(componentName);
