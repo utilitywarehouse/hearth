@@ -6,7 +6,6 @@
 }
 
 .hearth-Dialog {
-  position: relative;
   display: flex;
   flex-direction: column;
   gap: var(--h-dialog-gap);
@@ -37,25 +36,28 @@
 
   & :where(.hearth-DialogImage) {
     margin-top: calc(var(--h-space-300) + var(--h-dialog-gap));
-    max-height: 200px;
+    max-height: 280px;
+    max-width: 280px;
   }
 
   @media (--h-tablet) {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: var(--h-dialog-padding);
-    &:where([data-contains-image]) {
-      padding: var(--h-modal-padding-tablet);
-    }
     border-bottom-left-radius: var(--h-dialog-border-radius);
     border-bottom-right-radius: var(--h-dialog-border-radius);
     width: var(--h-dialog-width-tablet);
     height: fit-content;
+    padding: var(--h-dialog-padding);
+
+    &:where([data-contains-image]) {
+      padding: var(--h-modal-padding-tablet);
+    }
   }
 
   @media (--h-desktop) {
     width: var(--h-dialog-width-desktop);
+
     &:where([data-contains-image]) {
       padding: var(--h-modal-padding-desktop);
     }
@@ -86,15 +88,11 @@
     @media (--h-tablet) {
       flex-direction: row;
       justify-content: end;
+
       &:where([data-contains-image] &) {
         justify-content: center;
       }
     }
-  }
-
-  & :where(.hearth-DialogImage) {
-    max-height: 280px;
-    max-width: 280px;
   }
 }
 
