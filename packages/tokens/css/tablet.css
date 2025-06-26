@@ -5,4 +5,5 @@
 :root {
   --h-card-padding-tablet: var(--h-space-300);
   --h-card-padding-none-tablet: 0;
+  --h-dialog-width-tablet: 504px;
 }

@@ -134,3 +134,10 @@ export type { ListItemLinkProps } from './components/ListItemLink/ListItemLink.p
 
 export { Switch } from './components/Switch/Switch';
 export type { SwitchProps } from './components/Switch/Switch.props';
+
+export { Dialog } from './components/Dialog/Dialog';
+export { DialogRoot } from './components/Dialog/DialogRoot';
+export { DialogTrigger } from './components/Dialog/DialogTrigger';
+export { DialogClose } from './components/Dialog/DialogClose';
+export { DialogFooter } from './components/Dialog/DialogFooter';
+export type { DialogProps } from './components/Dialog/Dialog.props';

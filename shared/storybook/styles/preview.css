@@ -1,3 +1,8 @@
+#storybook-docs {
+  /* create a new stacking context so portals such as dialog work */
+  isolation: isolate;
+}
+
 html {
   font-size: 16px;
 }

@@ -5,4 +5,5 @@
 :root {
   --h-card-padding-mobile: var(--h-space-200);
   --h-card-padding-none-mobile: 0;
+  --h-dialog-width-mobile: 360px;
 }

@@ -6,7 +6,17 @@ import '@utilitywarehouse/hearth-tokens/index.css';
 // import '@utilitywarehouse/hearth-tokens/css/color.css';
 // import '@utilitywarehouse/hearth-tokens/css/line-height.css';
 
-import { Button, Flex, Box as HearthBox, Link } from '@utilitywarehouse/hearth-react';
+import {
+  Button,
+  Flex,
+  Box as HearthBox,
+  Link,
+  Dialog,
+  DialogRoot,
+  DialogTrigger,
+  DialogFooter,
+  DialogClose,
+} from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';
 import { space, color } from '@utilitywarehouse/hearth-tokens/browser';
 import NextLink from 'next/link';
@@ -41,6 +51,29 @@ export default function Home() {
         </Link>
       </Flex>
 
+      <HearthBox>
+        <HearthBox
+          padding="200"
+          backgroundColor="warmWhite50"
+          position="relative"
+          style={{ zIndex: 10 }}
+        >
+          Element with a z-index
+        </HearthBox>
+        <DialogRoot>
+          <DialogTrigger>
+            <Button>Open dialog</Button>
+          </DialogTrigger>
+          <Dialog heading="Dialog">
+            <DialogFooter>
+              <DialogClose>
+                <Button>Cancel</Button>
+              </DialogClose>
+            </DialogFooter>
+          </Dialog>
+        </DialogRoot>
+      </HearthBox>
+
       <div>
         <h1>CSS Reset</h1>
         <p>Checking the tokens work with the CSS Reset package.</p>
@@ -63,7 +96,7 @@ export default function Home() {
         <StyledBox
           sx={{
             padding: space[200],
-            color: color.broadbandBlue,
+            color: color.broadbandGreen,
           }}
         >
           Hearth Tokens

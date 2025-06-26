@@ -1,12 +1,11 @@
 import { Preview } from '@storybook/react-vite';
-import { INITIAL_VIEWPORTS } from 'storybook/viewport';
 import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-react/styles.css';
 import { breakpoints } from '@utilitywarehouse/hearth-react';
 import '../../../shared/storybook/styles/preview.css';
 import theme from '../../../shared/storybook/theme';
 
-const customViewports = {
+const hearthViewports = {
   mobile: {
     name: 'mobile',
     styles: {
@@ -35,13 +34,12 @@ const customViewports = {
       height: '100vh',
     },
   },
-  ...INITIAL_VIEWPORTS,
 };
 
 const preview: Preview = {
   parameters: {
     viewport: {
-      viewports: customViewports,
+      options: hearthViewports,
     },
     docs: {
       theme,

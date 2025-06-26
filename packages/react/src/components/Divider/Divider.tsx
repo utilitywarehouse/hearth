@@ -19,11 +19,6 @@ function isValidOrientation(orientation?: Orientation) {
   return ORIENTATIONS.includes(orientation);
 }
 
-/**
- * Used to provide a visual break and semantically divide content. Supports
- * vertical and horizontal orientations. Vertical dividers will only be visible
- * when contained inside an element with display set to `flexbox` or `grid`.
- */
 export const Divider = React.forwardRef<DividerElement, DividerProps>((props, ref) => {
   const {
     decorative,

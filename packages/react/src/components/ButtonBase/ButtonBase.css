@@ -154,12 +154,9 @@
       background-color: var(--h-button-base-background-color);
       position: relative;
       width: 100%;
+      will-change: transform;
+      transition: transform 120ms ease;
 
-      /* we can add a transition here when required */
-
-      /* will-change: transform; */
-
-      /* transition: transform 200ms ease-out; */
       --h-button-base-foreground-color: var(--h-emphasis-foreground-color);
       --h-button-base-border-color: var(--h-emphasis-border-color);
       --h-button-base-background-color: var(--h-emphasis-background-color);

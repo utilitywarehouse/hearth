@@ -1,0 +1,212 @@
+@import url('@utilitywarehouse/hearth-tokens/css/overlay.css');
+@import url('@utilitywarehouse/hearth-tokens/css/bottom-sheet.css');
+@import url('@utilitywarehouse/hearth-tokens/css/dialog.css');
+
+.hearth-DialogOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--h-overlay-background-color);
+  opacity: var(--h-overlay-opacity);
+}
+
+.hearth-Dialog {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-dialog-gap);
+  background-color: var(--h-dialog-background-color);
+  overflow: auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-top-left-radius: var(--h-dialog-border-radius);
+  border-top-right-radius: var(--h-dialog-border-radius);
+  height: fit-content;
+  padding: var(--h-bottom-sheet-padding);
+  min-width: fit-content;
+
+  &:where([data-contains-image]) {
+    align-items: center;
+    padding: var(--h-modal-padding-mobile);
+    height: 90vh;
+    justify-content: space-between;
+  }
+
+  & :where(.hearth-DialogCloseIconButton) {
+    position: absolute;
+    top: var(--h-dialog-padding);
+    right: var(--h-dialog-padding);
+  }
+
+  & :where(.hearth-DialogImage) {
+    margin-top: calc(var(--h-space-300) + var(--h-dialog-gap));
+    max-height: 280px;
+    max-width: 280px;
+  }
+
+  @media (--h-tablet) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-bottom-left-radius: var(--h-dialog-border-radius);
+    border-bottom-right-radius: var(--h-dialog-border-radius);
+    width: var(--h-dialog-width-tablet);
+    height: fit-content;
+    max-height: 80vh;
+    padding: var(--h-dialog-padding);
+
+    &:where([data-contains-image]) {
+      padding: var(--h-modal-padding-tablet);
+    }
+  }
+
+  @media (--h-desktop) {
+    width: var(--h-dialog-width-desktop);
+
+    &:where([data-contains-image]) {
+      padding: var(--h-modal-padding-desktop);
+    }
+  }
+
+  & :where(.hearth-DialogHeader) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--h-dialog-content-gap);
+    align-items: start;
+    text-wrap: pretty;
+    text-align: center;
+
+    @media (--h-tablet) {
+      text-align: left;
+    }
+
+    /* add some margin so the heading doesn't collide with the close icon button when there is no image */
+    &:not([data-contains-image] &) :where(.hearth-Heading) {
+      margin-right: var(--h-space-300);
+    }
+
+    &:where([data-contains-image] &) {
+      align-items: center;
+    }
+  }
+
+  & :where(.hearth-DialogFooter) {
+    display: flex;
+    gap: var(--h-dialog-action-gap);
+    flex-direction: column-reverse;
+    width: 100%;
+
+    @media (--h-tablet) {
+      flex-direction: row;
+      justify-content: end;
+
+      &:where([data-contains-image] &) {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes hearth-dialog-overlay-fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: var(--h-overlay-opacity);
+    }
+  }
+
+  @keyframes hearth-dialog-overlay-fade-out {
+    from {
+      opacity: var(--h-overlay-opacity);
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes hearth-dialog-slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hearth-dialog-slide-down {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    to {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+  }
+
+  @keyframes hearth-dialog-show {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @keyframes hearth-dialog-hide {
+    from {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.99);
+    }
+  }
+
+  .hearth-DialogOverlay {
+    will-change: transform;
+
+    &:where([data-state='open']) {
+      animation: hearth-dialog-overlay-fade-in 150ms ease-out;
+    }
+
+    &:where([data-state='closed']) {
+      animation: hearth-dialog-overlay-fade-out 120ms ease-in;
+    }
+  }
+
+  .hearth-Dialog {
+    will-change: transform;
+
+    &:where([data-state='open']) {
+      animation: hearth-dialog-slide-up 125ms ease-out;
+    }
+
+    &:where([data-state='closed']) {
+      animation: hearth-dialog-slide-down 125ms ease-in;
+    }
+
+    @media (--h-tablet) {
+      &:where([data-state='open']) {
+        animation: hearth-dialog-show 125ms ease-out;
+      }
+
+      &:where([data-state='closed']) {
+        animation: hearth-dialog-hide 100ms ease-in;
+      }
+    }
+  }
+}
