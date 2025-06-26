@@ -8,7 +8,7 @@ import {
   Button,
 } from '@utilitywarehouse/hearth-react';
 import React from 'react';
-import { Placeholder } from './storybook-components/Placeholder';
+import SpotSavings from './assets/spot-savings.svg';
 
 const meta: Meta<typeof Dialog> = {
   title: 'Stories / Dialog',
@@ -62,7 +62,7 @@ export const WithImage: Story = {
       <DialogTrigger>
         <Button>Open dialog</Button>
       </DialogTrigger>
-      <Dialog {...args} image={<Placeholder width="280px" height="280px" />}>
+      <Dialog {...args} image={<img src={SpotSavings} alt="Savings Pig" />}>
         <DialogFooter>
           <DialogClose>
             <Button variant="outline" colorScheme="grey">

@@ -11,10 +11,12 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
+- [Playground](#playground)
 - [Usage Guidelines](#usage-guidelines)
+- [Accessibility](#accessibility)
   - [Uncontrolled usage](#uncontrolled-usage)
   - [Controlled usage](#controlled-usage)
-- [Accessibility](#accessibility)
+  - [With Image](#with-image)
 - [API](#api)
   - [DialogRoot](#dialogroot)
   - [Dialog](#dialog)
@@ -33,6 +35,21 @@ uses as either a controlled or uncontrolled component.
 `Dialog` uses portals to render a popup. Please make sure you have portals
 setup properly in the root of your application. See the **Getting Started**
 guide for more details.
+
+## Accessibility
+
+Follows the [WAI-ARIA Dialog (Modal)](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) Pattern.
+
+Due to the size of the Dialog, all entrance and exit animations adhere to the users [reduce motion](https://www.w3.org/WAI/WCAG21/Techniques/css/C39) preference.
+
+It is strongly recommended the dialog includes a visible element which closes
+the dialog. By default the `Dialog` has a close icon button. You can hide this
+button using the `hideCloseButton` prop, so that there will always be a button
+that closes the dialog available to keyboard users. However we do recommend
+that you only do this when providing a visible alternative, such as a `Cancel`
+button.
+
+<Canvas of={Stories.HideCloseButton} />
 
 ### Uncontrolled usage
 
@@ -72,20 +89,13 @@ closing of the dialog outside the `DialogRoot` context.
 
 <Canvas of={Stories.ControlledUsage} sourceState="shown" />
 
-## Accessibility
+### With Image
 
-Follows the [WAI-ARIA Dialog (Modal)](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) Pattern.
+You can pass an image, such as an SVG illustration, to the `image` prop. The
+`Dialog` layout will automatically adjust to accomodate the image, taking up
+more of the viewport height, and centre aligning the text and actions.
 
-Due to the size of the Dialog, all entrance and exit animations adhere to the users [reduce motion](https://www.w3.org/WAI/WCAG21/Techniques/css/C39) preference.
-
-It is strongly recommended the dialog includes a visible element which closes
-the dialog. By default the `Dialog` has a close icon button. You can hide this
-button using the `hideCloseButton` prop, so that there will always be a button
-that closes the dialog available to keyboard users. However we do recommend
-that you only do this when providing a visible alternative, such as a `Cancel`
-button.
-
-<Canvas of={Stories.HideCloseButton} />
+<Canvas of={Stories.WithImage} />
 
 ## API
 
@@ -106,8 +116,9 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 
 - Margin
 
-| Prop              | Type      |
-| ----------------- | --------- |
-| `heading`         | `string`  |
-| `description`     | `string`  |
-| `hideCloseButton` | `boolean` |
+| Prop              | Type        |
+| ----------------- | ----------- |
+| `heading`         | `string`    |
+| `description`     | `string`    |
+| `hideCloseButton` | `boolean`   |
+| `image`           | `ReactNode` |

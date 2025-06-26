@@ -1,7 +1,3 @@
-.storybook-docs {
-  /* create a new stacking context so portals such as dialog work */
-  isolation: isolate;
-}
 div:where([role='main']) > div {
   box-shadow: none !important;
   border-left: 1px solid #101010;
