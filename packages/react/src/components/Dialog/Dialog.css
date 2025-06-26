@@ -25,10 +25,6 @@
   padding: var(--h-bottom-sheet-padding);
   min-width: fit-content;
 
-  & ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-  }
-
   &:where([data-contains-image]) {
     align-items: center;
     padding: var(--h-modal-padding-mobile);
