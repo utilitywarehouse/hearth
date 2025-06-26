@@ -1,5 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
-
+import remarkGfm from 'remark-gfm';
 import { join, dirname } from 'path';
 
 /**
@@ -9,13 +9,22 @@ import { join, dirname } from 'path';
 function getAbsolutePath(value: string): any {
   return dirname(require.resolve(join(value, 'package.json')));
 }
+
 const config: StorybookConfig = {
   stories: ['../src/**/*.docs.mdx', '../src/**/*.stories.tsx'],
   addons: [
     getAbsolutePath('@storybook/addon-onboarding'),
     getAbsolutePath('@chromatic-com/storybook'),
-    getAbsolutePath("@storybook/addon-docs"),
-    getAbsolutePath('@storybook/addon-mdx-gfm'),
+    {
+      name: getAbsolutePath('@storybook/addon-docs'),
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
   ],
   framework: {
     name: getAbsolutePath('@storybook/react-vite'),
