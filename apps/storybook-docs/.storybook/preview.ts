@@ -1,9 +1,9 @@
 import type { Preview } from '@storybook/react-vite';
 import '@utilitywarehouse/hearth-css-reset';
 import '@utilitywarehouse/hearth-fonts';
-import '../../../shared/storybook/styles/preview.css';
-import '@utilitywarehouse/hearth-tokens/index.css';
 import '@utilitywarehouse/hearth-react/styles.css';
+import '@utilitywarehouse/hearth-tokens/index.css';
+import '../../../shared/storybook/styles/preview.css';
 import theme from '../../../shared/storybook/theme';
 
 const closeStories = (delay: number = 0) => {
@@ -24,6 +24,24 @@ const closeStories = (delay: number = 0) => {
 };
 
 const preview: Preview = {
+  globalTypes: {
+    darkMode: {
+      description: 'Toggle between light and dark mode',
+      defaultValue: false,
+      toolbar: {
+        title: 'Dark Mode',
+        icon: 'moon',
+        items: [
+          { value: false, icon: 'sun', title: 'Light mode' },
+          { value: true, icon: 'moon', title: 'Dark mode' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+  initialGlobals: {
+    darkMode: false,
+  },
   beforeAll: () => {
     closeStories();
     // get all elements by data-action='collapse-ref'

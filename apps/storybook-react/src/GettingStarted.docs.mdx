@@ -15,52 +15,77 @@ Current version: v{version}
 
 </div>
 
-## Getting started
-
-Hearth React is a robust library of accessible and composable React components designed for
+A robust library of accessible and composable React components designed for
 speed and flexibility. Perfect for product teams building scalable, accessible
 web experiences.
 
-### Installation
+- [Getting started](#getting-started)
+  - [Install Hearth](#install-hearth)
+  - [Import CSS](#import-css)
+  - [Start building](#start-building)
+- [CSS reset and tokens](#css-reset-and-tokens)
+- [Portals](#portals)
 
-You should already have your project set up, with React, either v18 or v19.
+## Getting started
 
-You can then install the necessary Hearth libraries:
+### Install Hearth
 
-- Hearth React
-- Hearth CSS Reset
-- Hearth Tokens
-- Hearth React Icons
+There are 3 libraries you'll need to get started:
+
 - Hearth Fonts
+- Hearth React
+- Hearth React Icons
 
 ```console
-yarn add @utilitywarehouse/hearth-react @utilitywarehouse/hearth-css-reset @utilitywarehouse/hearth-tokens @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react-icons
+yarn add @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react @utilitywarehouse/hearth-react-icons
 ```
 
 or
 
 ```console
-npm install @utilitywarehouse/hearth-react @utilitywarehouse/hearth-css-reset @utilitywarehouse/hearth-tokens @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react-icons
+npm install @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react @utilitywarehouse/hearth-react-icons
 ```
 
 or
 
 ```console
-pnpm add @utilitywarehouse/hearth-react @utilitywarehouse/hearth-css-reset @utilitywarehouse/hearth-tokens @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react-icons
+pnpm add @utilitywarehouse/hearth-react @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react-icons
 ```
 
 ### Import CSS
 
-You should then add the following imports in the root of your application:
+Add the following imports in the root of your application:
 
 ```tsx
-import '@utilitywarehouse/hearth-css-reset';
 import '@utilitywarehouse/hearth-fonts';
-import '@utilitywarehouse/hearth-tokens/index.css';
 import '@utilitywarehouse/hearth-react/styles.css';
 ```
 
-### Portals
+### Start building
+
+```tsx
+import { Flex, BodyText, Button } from '@utilitywarehouse/hearth-react';
+import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+
+export default function MyApp() {
+  return (
+    <Flex direction="column" gap="200">
+      <BodyText>Hello from Hearth React</BodyText>
+      <Button variant="emphasis">
+        Let's go
+        <ChevronRightSmallIcon />
+      </Button>
+    </Flex>
+  );
+}
+```
+
+## CSS reset and tokens
+
+The Heart CSS Reset and Hearth Tokens CSS custom properties are now included in
+the Heart React global styles, so you don't need to install them separately.
+
+## Portals
 
 Hearth React uses portals for components that render popups, such as `Dialog`.
 To make portalled components always appear on top of the entire page, add the

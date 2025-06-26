@@ -17,12 +17,16 @@ import type SkeletonProps from './Skeleton.props';
 const Skeleton = ({
   width,
   height,
-  backgroundColor,
+  backgroundColor: bg,
   borderRadius,
   style,
   ...props
 }: SkeletonProps) => {
   const opacity = useSharedValue(1);
+
+  const { components } = useTheme();
+
+  const backgroundColor = bg ?? components.skeleton.loadingColor;
 
   const { color: themeColor, colorMode, borderRadius: themeBorderRadius } = useTheme();
   const backgroundColorValue: ColorValue = useMemo(

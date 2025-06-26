@@ -3,14 +3,15 @@
  */
 
 export default {
-  backgroundColor: '#ffffff',
-  borderColor: '#f6f5f5',
-  borderColorInvalid: '#ffa89d',
-  borderColorReadOnly: '#464444',
-  borderColorValid: '#74d6a0',
+  backgroundColor: '#222222',
+  borderColor: '#e7e6e6',
+  borderColorInvalid: '#ff7964',
+  borderColorReadOnly: '#5f5c5b',
+  borderColorValid: '#58ca93',
   borderRadius: 8,
   borderWidth: 1,
   borderWidthFocused: 2,
+  color: '#e7e6e6',
   currency: {
     gap: 2,
     height: 60,
@@ -30,7 +31,7 @@ export default {
   placeholderColor: '#6f6c6b',
   textArea: {
     height: 96,
-    resizeIconColor: '#6f6c6b',
+    resizeIconColor: '#d1d0d0',
   },
   validation: {
     gap: 2,

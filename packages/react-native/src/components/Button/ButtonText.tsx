@@ -1,7 +1,7 @@
 import { TextProps } from 'react-native';
-import { useButtonContext } from './Button.context';
 import { StyleSheet } from 'react-native-unistyles';
 import { DetailText } from '../DetailText';
+import { useButtonContext } from './Button.context';
 
 const ButtonText = ({ children, ...props }: TextProps) => {
   const { colorScheme, variant, inverted, disabled } = useButtonContext();
@@ -38,6 +38,20 @@ const styles = StyleSheet.create(theme => ({
       },
     },
     compoundVariants: [
+      {
+        variant: 'emphasis',
+        colorScheme: 'yellow',
+        styles: {
+          color: theme.components.button.emphasis.yellow.foregroundColor,
+        },
+      },
+      {
+        variant: 'solid',
+        colorScheme: 'yellow',
+        styles: {
+          color: theme.components.button.solid.yellow.foregroundColor,
+        },
+      },
       {
         variant: 'solid',
         colorScheme: 'red',

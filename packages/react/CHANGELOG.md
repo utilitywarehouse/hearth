@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.2.4
+
+### Patch Changes
+
+- [#376](https://github.com/utilitywarehouse/hearth/pull/376) [`15a44b7`](https://github.com/utilitywarehouse/hearth/commit/15a44b72d44f8c938736d3a36f492d0c5c5e12cd) Thanks [@robphoenix](https://github.com/robphoenix)! - This change eases the getting started process, and the tokens release process, by including the CSS Reset and tokens CSS in the React library, making them dependencies rather than peer dependencies.
+
 ## 0.2.3
 
 ### Patch Changes

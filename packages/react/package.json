@@ -1,12 +1,12 @@
 {
   "name": "@utilitywarehouse/hearth-react",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "React components",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "style": "./index.css",
+  "style": "./styles.css",
   "exports": {
     ".": {
       "require": {
@@ -52,12 +52,13 @@
   "peerDependencies": {
     "@utilitywarehouse/hearth-fonts": "workspace:*",
     "@utilitywarehouse/hearth-react-icons": "workspace:*",
-    "@utilitywarehouse/hearth-tokens": "workspace:*",
     "react": "^18.0.0 || ^19.0.0 ",
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "dependencies": {
     "@radix-ui/react-use-controllable-state": "^1.0.1",
+    "@utilitywarehouse/hearth-css-reset": "workspace:*",
+    "@utilitywarehouse/hearth-tokens": "0.0.4",
     "clsx": "^2.1.1",
     "radix-ui": "^1.4.2"
   },

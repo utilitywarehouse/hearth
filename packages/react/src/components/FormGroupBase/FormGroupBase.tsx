@@ -40,6 +40,7 @@ export const FormGroupBase = React.forwardRef<FormGroupBaseElement, FormGroupBas
     const hasLabel = Boolean(label);
     const hasHelperText = Boolean(helperText);
     const showValidationText = Boolean(validationStatus && validationText);
+    const showInvalid = showValidationText && validationStatus === 'invalid';
     const ariaDescribedbyValue = mergeIds(
       ariaDescribedby || !!helperText ? helperTextId : undefined,
       ariaErrorMessage || showValidationText ? validationTextId : undefined
@@ -60,9 +61,9 @@ export const FormGroupBase = React.forwardRef<FormGroupBaseElement, FormGroupBas
         disabled={disabled}
         id={id}
         data-disabled={disabled ? '' : undefined}
-        aria-errormessage={ariaErrorMessage || showValidationText ? validationTextId : undefined}
+        aria-errormessage={ariaErrorMessage || showInvalid ? validationTextId : undefined}
         aria-labelledby={ariaLabelledby ?? (Boolean(label) ? labelId : undefined)}
-        aria-invalid={showValidationText}
+        aria-invalid={showInvalid}
         aria-describedby={ariaDescribedbyValue}
       >
         {hasLabel ? (

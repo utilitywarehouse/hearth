@@ -1,7 +1,5 @@
 import { Preview } from '@storybook/react-vite';
-import '@utilitywarehouse/hearth-css-reset';
 import '@utilitywarehouse/hearth-fonts';
-import '@utilitywarehouse/hearth-tokens/index.css';
 import '@utilitywarehouse/hearth-react/styles.css';
 import { breakpoints } from '@utilitywarehouse/hearth-react';
 import '../../../shared/storybook/styles/preview.css';

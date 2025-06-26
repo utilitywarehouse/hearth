@@ -1,18 +1,20 @@
 import { DimensionValue, Platform } from 'react-native';
-import { breakpoints } from './breakpoints';
 import {
-  components,
-  color,
-  layout,
-  typography,
-  shadow,
-  borderWidth,
   borderRadius,
+  borderWidth,
+  color,
+  components,
   font,
+  layout,
   letterSpacing,
   lineHeight,
+  shadow,
   space,
+  typography,
 } from '../tokens';
+import { breakpoints } from './breakpoints';
+
+const { light, dark, ...restOfColors } = color;
 
 const shared = {
   platform: Platform.OS,
@@ -55,7 +57,7 @@ const shared = {
     variants: {
       hardShadow: {
         '1': {
-          shadowColor: color.light.grey[900],
+          shadowColor: color.grey[900],
           shadowOffset: {
             width: -2,
             height: 2,
@@ -65,7 +67,7 @@ const shared = {
           elevation: 10,
         },
         '2': {
-          shadowColor: color.light.grey[900],
+          shadowColor: color.grey[900],
           shadowOffset: {
             width: 0,
             height: 3,
@@ -75,7 +77,7 @@ const shared = {
           elevation: 10,
         },
         '3': {
-          shadowColor: color.light.grey[900],
+          shadowColor: color.grey[900],
           shadowOffset: {
             width: 2,
             height: 2,
@@ -85,7 +87,7 @@ const shared = {
           elevation: 10,
         },
         '4': {
-          shadowColor: color.light.grey[900],
+          shadowColor: color.grey[900],
           shadowOffset: {
             width: 0,
             height: -3,
@@ -95,7 +97,7 @@ const shared = {
           elevation: 10,
         },
         '5': {
-          shadowColor: color.light.grey[900],
+          shadowColor: color.grey[900],
           shadowOffset: {
             width: 0,
             height: 3,
@@ -107,7 +109,7 @@ const shared = {
       },
       softShadow: {
         '1': {
-          shadowColor: color.light.grey[900],
+          shadowColor: color.grey[900],
           shadowOffset: {
             width: 0,
             height: 0,
@@ -115,13 +117,13 @@ const shared = {
           shadowRadius: 10,
           shadowOpacity: 0.1,
           _android: {
-            shadowColor: color.light.grey[900],
+            shadowColor: color.grey[900],
             elevation: 5,
             shadowOpacity: 0.05,
           },
         },
         '2': {
-          shadowColor: color.light.grey[900],
+          shadowColor: color.grey[900],
           shadowOffset: {
             width: 0,
             height: 0,
@@ -130,13 +132,13 @@ const shared = {
           elevation: 3,
           shadowOpacity: 0.1,
           _android: {
-            shadowColor: color.light.grey[900],
+            shadowColor: color.grey[900],
             elevation: 10,
             shadowOpacity: 0.1,
           },
         },
         '3': {
-          shadowColor: color.light.grey[900],
+          shadowColor: color.grey[900],
           shadowOffset: {
             width: 0,
             height: 0,
@@ -145,13 +147,13 @@ const shared = {
           shadowOpacity: 0.1,
           elevation: 4,
           _android: {
-            shadowColor: color.light.grey[900],
+            shadowColor: color.grey[900],
             elevation: 15,
             shadowOpacity: 0.15,
           },
         },
         '4': {
-          shadowColor: color.light.grey[900],
+          shadowColor: color.grey[900],
           shadowOffset: {
             width: 0,
             height: 0,
@@ -160,7 +162,7 @@ const shared = {
           shadowOpacity: 0.1,
           elevation: 10,
           _android: {
-            shadowColor: color.light.grey[900],
+            shadowColor: color.grey[900],
             elevation: 20,
             shadowOpacity: 0.2,
           },
@@ -223,8 +225,9 @@ export const lightTheme = {
   isLight: true,
   isDark: false,
   color: {
-    ...color.light,
-    ...color.common,
+    ...restOfColors,
+    ...light,
+    white: '#ffffff',
     black: '#000000',
   } as const,
   components: components.light,
@@ -247,8 +250,9 @@ export const darkTheme = {
   isLight: false,
   isDark: true,
   color: {
-    ...color.dark,
-    ...color.common,
+    ...restOfColors,
+    ...dark,
+    white: '#ffffff',
     black: '#000000',
   },
   components: components.dark,

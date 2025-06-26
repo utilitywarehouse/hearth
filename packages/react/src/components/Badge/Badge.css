@@ -1,3 +1,5 @@
+@import url('@utilitywarehouse/hearth-tokens/css/badge.css');
+
 .hearth-Badge {
   display: inline-flex;
   gap: var(--h-badge-gap);

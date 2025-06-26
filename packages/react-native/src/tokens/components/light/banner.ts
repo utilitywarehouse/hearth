@@ -29,7 +29,7 @@ export default {
     },
     gap: 0,
     heading: {
-      broadbandBlueBackgroundColor: '#8cba3b',
+      broadbandGreenBackgroundColor: '#8cba3b',
       cashbackLilacBackgroundColor: '#be7aeb',
       energyBlueBackgroundColor: '#6db5c3',
       insuranceOrangeBackgroundColor: '#ff7b00',
@@ -39,4 +39,5 @@ export default {
     },
     padding: 16,
   },
+  imageContainerBorderColor: '#101010',
 } as const;
