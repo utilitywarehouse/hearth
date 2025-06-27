@@ -1,4 +1,4 @@
-@import url('@utilitywarehouse/hearth-tokens/css/link.css');
+@import url('../../styles/tokens/link.css');
 
 .hearth-Link {
   /*  unset button styles when asChild is used */

@@ -40,6 +40,7 @@
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
     "format": "prettier --write \"src/**/*.ts*\"",
     "format:ci": "prettier --list-different \"src/**/*.ts*\"",
+    "copy-tokens-index": "cp ./src/styles/tokens.css ./src/styles/tokens/index.css",
     "gen:color-tokens": "node ./scripts/generate-color-tokens.js && prettier --write \"./src/tokens/color.ts\""
   },
   "publishConfig": {
@@ -58,7 +59,6 @@
   "dependencies": {
     "@radix-ui/react-use-controllable-state": "^1.0.1",
     "@utilitywarehouse/hearth-css-reset": "workspace:*",
-    "@utilitywarehouse/hearth-tokens": "0.0.4",
     "clsx": "^2.1.1",
     "radix-ui": "^1.4.2"
   },
