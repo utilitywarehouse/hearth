@@ -1,11 +1,6 @@
 import Head from 'next/head';
 import '@utilitywarehouse/hearth-fonts';
-import '@utilitywarehouse/hearth-tokens/index.css';
-// import '@utilitywarehouse/hearth-tokens/css/font.css';
-// import '@utilitywarehouse/hearth-tokens/css/text.css';
-// import '@utilitywarehouse/hearth-tokens/css/color.css';
-// import '@utilitywarehouse/hearth-tokens/css/line-height.css';
-
+import '@utilitywarehouse/hearth-react/styles.css';
 import {
   Button,
   Flex,
