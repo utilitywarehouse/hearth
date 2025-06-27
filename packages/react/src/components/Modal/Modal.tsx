@@ -55,9 +55,8 @@ export const Modal = React.forwardRef<ModalElement, ModalProps>(
             </UnstyledIconButton>
           </ModalClose>
 
-          {containsImage ? <div className="hearth-ModalImage">{image}</div> : null}
-
           <div className="hearth-ModalHeader">
+            {containsImage ? <div className="hearth-ModalImage">{image}</div> : null}
             <Box asChild>
               <RadixDialog.Title asChild>
                 <Heading size="lg">{heading}</Heading>

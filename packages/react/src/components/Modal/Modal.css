@@ -32,9 +32,9 @@
   }
 
   & :where(.hearth-ModalImage) {
-    margin-top: calc(var(--h-space-300) + var(--h-modal-gap));
-    max-height: 280px;
-    max-width: 280px;
+    /* margin-top: calc(var(--h-space-300) + var(--h-modal-gap)); */
+    max-height: 260px;
+    max-width: 260px;
   }
 
   @media (--h-tablet) {
@@ -65,9 +65,11 @@
     display: flex;
     flex-direction: column;
     gap: var(--h-modal-content-gap);
+    justify-content: center;
     align-items: start;
     text-wrap: pretty;
     text-align: center;
+    height: 100%;
 
     @media (--h-tablet) {
       text-align: left;
