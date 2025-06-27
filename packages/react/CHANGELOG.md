@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react
 
+## 0.3.0
+
+### Minor Changes
+
+- [#380](https://github.com/utilitywarehouse/hearth/pull/380) [`bcd134d`](https://github.com/utilitywarehouse/hearth/commit/bcd134dd0244610fbe620d61521ec80e4da77432) Thanks [@robphoenix](https://github.com/robphoenix)! - Remove hearth-tokens dependency in favour of copying CSS tokens directly into hearth-react
+
+### Patch Changes
+
+- [#336](https://github.com/utilitywarehouse/hearth/pull/336) [`bee5a98`](https://github.com/utilitywarehouse/hearth/commit/bee5a98654407abed24c68d46b0ea8a13d109ff3) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `Dialog` component
+
 ## 0.2.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.0.5
+
+### Patch Changes
+
+- [#336](https://github.com/utilitywarehouse/hearth/pull/336) [`bee5a98`](https://github.com/utilitywarehouse/hearth/commit/bee5a98654407abed24c68d46b0ea8a13d109ff3) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `Dialog` component
+
 ## 0.0.4
 
 ### Patch Changes
