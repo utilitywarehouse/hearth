@@ -1,4 +1,13 @@
 {
+  "5835:0": {
+    "color": {
+      "background": {
+        "alias": "{color.grey.900}",
+        "type": "color",
+        "value": "#3e3c3b"
+      }
+    }
+  },
   "dark": {
     "color": {
       "background": {
