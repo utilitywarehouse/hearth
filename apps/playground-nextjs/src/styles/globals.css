@@ -1,5 +1,3 @@
-@import url('@utilitywarehouse/hearth-css-reset');
-@import url('@utilitywarehouse/hearth-react/styles.css');
 
 .root {
   isolation: isolate;

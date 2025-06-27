@@ -137,18 +137,12 @@ importers:
       '@mui/material':
         specifier: ^6.4.0
         version: 6.4.1(@emotion/react@11.14.0(@types/react@19.1.8)(react@19.1.0))(@emotion/styled@11.14.0(@emotion/react@11.14.0(@types/react@19.1.8)(react@19.1.0))(@types/react@19.1.8)(react@19.1.0))(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@utilitywarehouse/hearth-css-reset':
-        specifier: workspace:*
-        version: link:../../packages/css-reset
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:*
         version: link:../../packages/fonts
       '@utilitywarehouse/hearth-react':
         specifier: workspace:*
         version: link:../../packages/react
-      '@utilitywarehouse/hearth-tokens':
-        specifier: workspace:*
-        version: link:../../packages/tokens
       next:
         specifier: 15.2.4
         version: 15.2.4(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -168,6 +162,9 @@ importers:
       '@types/react-dom':
         specifier: ^19
         version: 19.1.6(@types/react@19.1.8)
+      '@utilitywarehouse/hearth-tokens':
+        specifier: ^0.0.5
+        version: 0.0.5
       typescript:
         specifier: ^5
         version: 5.6.3
@@ -5213,6 +5210,9 @@ packages:
       react: 19.1.0
       react-native: '>=0.70.6'
       react-native-svg: '>=12.3.0'
+
+  '@utilitywarehouse/hearth-tokens@0.0.5':
+    resolution: {integrity: sha512-u/9bfn7rFPW0i4SKZNYsNcQjPfJWIIJfAtKjZuY14ULihUZb02Ue9f0JudAF+cxZwxYZpnvJ7vw/SR5BAjs9HA==}
 
   '@utilitywarehouse/prettier-config@0.1.1':
     resolution: {integrity: sha512-Lcs5K0qQSP8eQd82Ug2Q98pLAM41c1WsB1oMeOHKXmAumD7KHR8UsDSIsdv9ILmMb4RPYZLY0A2j3DIRzyVjHg==}
@@ -17739,6 +17739,8 @@ snapshots:
       react: 19.1.0
       react-native: 0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0)
       react-native-svg: 15.12.0(react-native@0.80.0(@babel/core@7.27.4)(@types/react@19.1.8)(react@19.1.0))(react@19.1.0)
+
+  '@utilitywarehouse/hearth-tokens@0.0.5': {}
 
   '@utilitywarehouse/prettier-config@0.1.1': {}
 
