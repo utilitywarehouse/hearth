@@ -1,0 +1,37 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-card-border-radius: var(--h-border-radius-xl);
+  --h-card-brand-border-width: var(--h-border-width-2);
+  --h-card-brand-emphasis-border-color: var(--h-color-grey-1000);
+  --h-card-brand-emphasis-broadband-green-background-color: var(--h-color-broadband-green-300);
+  --h-card-brand-emphasis-cashback-lilac-background-color: var(--h-color-cashback-lilac-500);
+  --h-card-brand-emphasis-energy-blue-background-color: var(--h-color-energy-blue-300);
+  --h-card-brand-emphasis-insurance-orange-background-color: var(--h-color-insurance-orange-400);
+  --h-card-brand-emphasis-mobile-rose-background-color: var(--h-color-mobile-rose-400);
+  --h-card-brand-emphasis-piggy-pink-background-color: var(--h-color-piggy-pink-300);
+  --h-card-brand-emphasis-purple-background-color: var(--h-color-purple-700);
+  --h-card-brand-subtle-border-color: var(--h-color-grey-1000);
+  --h-card-brand-subtle-broadband-green-background-color: var(--h-color-broadband-green-200);
+  --h-card-brand-subtle-cashback-lilac-background-color: var(--h-color-cashback-lilac-300);
+  --h-card-brand-subtle-energy-blue-background-color: var(--h-color-energy-blue-200);
+  --h-card-brand-subtle-insurance-orange-background-color: var(--h-color-insurance-orange-300);
+  --h-card-brand-subtle-mobile-rose-background-color: var(--h-color-mobile-rose-200);
+  --h-card-brand-subtle-piggy-pink-background-color: var(--h-color-piggy-pink-200);
+  --h-card-brand-subtle-purple-background-color: var(--h-color-purple-300);
+  --h-card-brand-subtle-yellow-background-color: var(--h-color-yellow-200);
+  --h-card-neutral-emphasis-border-color: var(--h-color-grey-1000);
+  --h-card-neutral-emphasis-border-width: var(--h-border-width-2);
+  --h-card-neutral-subtle-border-color: var(--h-color-warm-white-300);
+  --h-card-neutral-subtle-border-width: var(--h-border-width-1);
+  --h-card-neutral-warm-white-background-color: var(--h-color-warm-white-50);
+  --h-card-neutral-white-background-color: var(--h-color-grey-0);
+  --h-card-selectable-background-color: var(--h-color-grey-0);
+  --h-card-selectable-border-color: var(--h-color-warm-white-300);
+  --h-card-selectable-border-color-selected: var(--h-color-grey-1000);
+  --h-card-selectable-border-width: var(--h-border-width-1);
+  --h-card-selectable-border-width-selected: var(--h-border-width-2);
+  --h-card-selectable-gap: var(--h-space-200);
+}

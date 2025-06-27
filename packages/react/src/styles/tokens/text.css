@@ -1,0 +1,11 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-text-color: var(--h-color-grey-1000);
+  --h-text-color-invalid: var(--h-color-invalid-text);
+  --h-text-color-inverted: var(--h-color-grey-50);
+  --h-text-color-secondary: var(--h-color-grey-500);
+  --h-text-color-valid: var(--h-color-green-700);
+}

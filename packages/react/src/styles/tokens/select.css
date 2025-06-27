@@ -1,0 +1,34 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-select-background-color: var(--h-color-grey-0);
+  --h-select-border-color: var(--h-color-grey-1000);
+  --h-select-border-color-invalid: var(--h-color-red-700);
+  --h-select-border-color-read-only: var(--h-color-grey-200);
+  --h-select-border-color-valid: var(--h-color-green-700);
+  --h-select-border-radius: var(--h-border-radius-md);
+  --h-select-border-width: var(--h-border-width-1);
+  --h-select-border-width-focused: var(--h-border-width-2);
+  --h-select-dropdown-background-color: var(--h-color-grey-0);
+  --h-select-dropdown-border-color: var(--h-color-warm-white-300);
+  --h-select-dropdown-border-width: var(--h-border-width-1);
+  --h-select-dropdown-gap: var(--h-space-50);
+  --h-select-dropdown-gap-content: var(--h-space-100);
+  --h-select-dropdown-item-background-color-active: var(--h-color-grey-200);
+  --h-select-dropdown-item-background-color-hover: var(--h-color-grey-100);
+  --h-select-dropdown-item-border-radius: var(--h-border-radius-xs);
+  --h-select-dropdown-item-foreground-color: var(--h-color-grey-1000);
+  --h-select-dropdown-item-gap: var(--h-space-75);
+  --h-select-dropdown-item-padding: var(--h-space-150);
+  --h-select-dropdown-padding: var(--h-space-50);
+  --h-select-gap: var(--h-space-75);
+  --h-select-gap-container: var(--h-space-50);
+  --h-select-height: 48px;
+  --h-select-max-width: 504px;
+  --h-select-min-width: 288px;
+  --h-select-padding-horizontal: var(--h-space-200);
+  --h-select-padding-vertical: var(--h-space-150);
+  --h-select-validation-gap: var(--h-space-25);
+}

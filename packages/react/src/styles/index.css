@@ -1,18 +1,10 @@
+/* reset */
 @import url('@utilitywarehouse/hearth-css-reset');
-@import url('@utilitywarehouse/hearth-tokens/css/border.css');
-@import url('@utilitywarehouse/hearth-tokens/css/color.css');
-@import url('@utilitywarehouse/hearth-tokens/css/focus.css');
-@import url('@utilitywarehouse/hearth-tokens/css/font.css');
-@import url('@utilitywarehouse/hearth-tokens/css/layout.css');
-@import url('@utilitywarehouse/hearth-tokens/css/letter-spacing.css');
-@import url('@utilitywarehouse/hearth-tokens/css/line-height.css');
-@import url('@utilitywarehouse/hearth-tokens/css/opacity.css');
-@import url('@utilitywarehouse/hearth-tokens/css/space.css');
-@import url('@utilitywarehouse/hearth-tokens/css/text.css');
-@import url('@utilitywarehouse/hearth-tokens/css/typography.css');
-@import url('@utilitywarehouse/hearth-tokens/css/mobile.css');
-@import url('@utilitywarehouse/hearth-tokens/css/tablet.css');
-@import url('@utilitywarehouse/hearth-tokens/css/desktop.css');
+
+/* tokens */
+@import url("./tokens/index.css");
+
+/* components */
 @import url('../components/index.css');
 
 /* utilities */

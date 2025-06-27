@@ -1,6 +1,6 @@
-@import url('@utilitywarehouse/hearth-tokens/css/overlay.css');
-@import url('@utilitywarehouse/hearth-tokens/css/bottom-sheet.css');
-@import url('@utilitywarehouse/hearth-tokens/css/dialog.css');
+@import url('../../styles/tokens/overlay.css');
+@import url('../../styles/tokens/bottom-sheet.css');
+@import url('../../styles/tokens/dialog.css');
 
 .hearth-DialogOverlay {
   position: fixed;

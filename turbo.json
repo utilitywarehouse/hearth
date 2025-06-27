@@ -60,6 +60,12 @@
     },
     "generate:storybook": {
       "cache": false
+    },
+    "copy-tokens-index": {
+      "cache": false
+    },
+    "gen:color-tokens": {
+      "cache": false
     }
   }
 }
