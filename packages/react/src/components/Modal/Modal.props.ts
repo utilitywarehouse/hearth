@@ -1,10 +1,10 @@
 import { Dialog as RadixDialog } from 'radix-ui';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
-export type DialogProps = RadixDialog.DialogPortalProps &
+export type ModalProps = RadixDialog.DialogPortalProps &
   ComponentPropsWithout<'div', RemovedProps> & {
     /**
-     * The heading for the dialog, describing its purpose.
+     * The heading for the modal, describing its purpose.
      */
     heading: string;
     /**
@@ -15,4 +15,4 @@ export type DialogProps = RadixDialog.DialogPortalProps &
     image?: React.ReactNode;
   };
 
-export type DialogFooterProps = ComponentPropsWithout<'div', RemovedProps>;
+export type ModalFooterProps = ComponentPropsWithout<'div', RemovedProps>;

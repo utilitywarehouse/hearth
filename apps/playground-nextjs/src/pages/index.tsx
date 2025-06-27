@@ -6,11 +6,11 @@ import {
   Flex,
   Box as HearthBox,
   Link,
-  Dialog,
-  DialogRoot,
-  DialogTrigger,
-  DialogFooter,
-  DialogClose,
+  Modal,
+  ModalRoot,
+  ModalTrigger,
+  ModalFooter,
+  ModalClose,
 } from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';
 import { space, color } from '@utilitywarehouse/hearth-tokens/browser';
@@ -55,18 +55,18 @@ export default function Home() {
         >
           Element with a z-index
         </HearthBox>
-        <DialogRoot>
-          <DialogTrigger>
+        <ModalRoot>
+          <ModalTrigger>
             <Button>Open dialog</Button>
-          </DialogTrigger>
-          <Dialog heading="Dialog">
-            <DialogFooter>
-              <DialogClose>
+          </ModalTrigger>
+          <Modal heading="Dialog">
+            <ModalFooter>
+              <ModalClose>
                 <Button>Cancel</Button>
-              </DialogClose>
-            </DialogFooter>
-          </Dialog>
-        </DialogRoot>
+              </ModalClose>
+            </ModalFooter>
+          </Modal>
+        </ModalRoot>
       </HearthBox>
 
       <div>

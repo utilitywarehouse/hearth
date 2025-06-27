@@ -1,26 +1,27 @@
 @import url('../../styles/tokens/overlay.css');
 @import url('../../styles/tokens/bottom-sheet.css');
+@import url('../../styles/tokens/modal.css');
 @import url('../../styles/tokens/dialog.css');
 
-.hearth-DialogOverlay {
+.hearth-ModalOverlay {
   position: fixed;
   inset: 0;
   background-color: var(--h-overlay-background-color);
   opacity: var(--h-overlay-opacity);
 }
 
-.hearth-Dialog {
+.hearth-Modal {
   display: flex;
   flex-direction: column;
-  gap: var(--h-dialog-gap);
-  background-color: var(--h-dialog-background-color);
+  gap: var(--h-modal-gap);
+  background-color: var(--h-modal-background-color);
   overflow: auto;
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
-  border-top-left-radius: var(--h-dialog-border-radius);
-  border-top-right-radius: var(--h-dialog-border-radius);
+  border-top-left-radius: var(--h-modal-border-radius);
+  border-top-right-radius: var(--h-modal-border-radius);
   height: fit-content;
   padding: var(--h-bottom-sheet-padding);
   min-width: fit-content;
@@ -32,14 +33,14 @@
     justify-content: space-between;
   }
 
-  & :where(.hearth-DialogCloseIconButton) {
+  & :where(.hearth-ModalCloseIconButton) {
     position: absolute;
-    top: var(--h-dialog-padding);
-    right: var(--h-dialog-padding);
+    top: var(--h-modal-padding);
+    right: var(--h-modal-padding);
   }
 
-  & :where(.hearth-DialogImage) {
-    margin-top: calc(var(--h-space-300) + var(--h-dialog-gap));
+  & :where(.hearth-ModalImage) {
+    margin-top: calc(var(--h-space-300) + var(--h-modal-gap));
     max-height: 280px;
     max-width: 280px;
   }
@@ -48,9 +49,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-bottom-left-radius: var(--h-dialog-border-radius);
-    border-bottom-right-radius: var(--h-dialog-border-radius);
-    width: var(--h-dialog-width-tablet);
+    border-bottom-left-radius: var(--h-modal-border-radius);
+    border-bottom-right-radius: var(--h-modal-border-radius);
+    width: var(--h-modal-width-tablet);
     height: fit-content;
     max-height: 80vh;
     padding: var(--h-dialog-padding);
@@ -61,17 +62,17 @@
   }
 
   @media (--h-desktop) {
-    width: var(--h-dialog-width-desktop);
+    width: var(--h-modal-width-desktop);
 
     &:where([data-contains-image]) {
       padding: var(--h-modal-padding-desktop);
     }
   }
 
-  & :where(.hearth-DialogHeader) {
+  & :where(.hearth-ModalHeader) {
     display: flex;
     flex-direction: column;
-    gap: var(--h-dialog-content-gap);
+    gap: var(--h-modal-content-gap);
     align-items: start;
     text-wrap: pretty;
     text-align: center;
@@ -90,9 +91,9 @@
     }
   }
 
-  & :where(.hearth-DialogFooter) {
+  & :where(.hearth-ModalFooter) {
     display: flex;
-    gap: var(--h-dialog-action-gap);
+    gap: var(--h-modal-action-gap);
     flex-direction: column-reverse;
     width: 100%;
 
@@ -108,7 +109,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  @keyframes hearth-dialog-overlay-fade-in {
+  @keyframes hearth-modal-overlay-fade-in {
     from {
       opacity: 0;
     }
@@ -118,7 +119,7 @@
     }
   }
 
-  @keyframes hearth-dialog-overlay-fade-out {
+  @keyframes hearth-modal-overlay-fade-out {
     from {
       opacity: var(--h-overlay-opacity);
     }
@@ -128,7 +129,7 @@
     }
   }
 
-  @keyframes hearth-dialog-slide-up {
+  @keyframes hearth-modal-slide-up {
     from {
       opacity: 0;
       transform: translateY(50%);
@@ -140,7 +141,7 @@
     }
   }
 
-  @keyframes hearth-dialog-slide-down {
+  @keyframes hearth-modal-slide-down {
     from {
       opacity: 1;
       transform: translateY(0);
@@ -152,7 +153,7 @@
     }
   }
 
-  @keyframes hearth-dialog-show {
+  @keyframes hearth-modal-show {
     from {
       opacity: 0;
       transform: translate(-50%, -50%) scale(0.9);
@@ -164,7 +165,7 @@
     }
   }
 
-  @keyframes hearth-dialog-hide {
+  @keyframes hearth-modal-hide {
     from {
       opacity: 1;
       transform: translate(-50%, -50%) scale(1);
@@ -176,36 +177,36 @@
     }
   }
 
-  .hearth-DialogOverlay {
+  .hearth-ModalOverlay {
     will-change: transform;
 
     &:where([data-state='open']) {
-      animation: hearth-dialog-overlay-fade-in 150ms ease-out;
+      animation: hearth-modal-overlay-fade-in 150ms ease-out;
     }
 
     &:where([data-state='closed']) {
-      animation: hearth-dialog-overlay-fade-out 120ms ease-in;
+      animation: hearth-modal-overlay-fade-out 120ms ease-in;
     }
   }
 
-  .hearth-Dialog {
+  .hearth-Modal {
     will-change: transform;
 
     &:where([data-state='open']) {
-      animation: hearth-dialog-slide-up 125ms ease-out;
+      animation: hearth-modal-slide-up 125ms ease-out;
     }
 
     &:where([data-state='closed']) {
-      animation: hearth-dialog-slide-down 125ms ease-in;
+      animation: hearth-modal-slide-down 125ms ease-in;
     }
 
     @media (--h-tablet) {
       &:where([data-state='open']) {
-        animation: hearth-dialog-show 125ms ease-out;
+        animation: hearth-modal-show 125ms ease-out;
       }
 
       &:where([data-state='closed']) {
-        animation: hearth-dialog-hide 100ms ease-in;
+        animation: hearth-modal-hide 100ms ease-in;
       }
     }
   }

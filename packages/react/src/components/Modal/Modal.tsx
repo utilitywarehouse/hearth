@@ -3,20 +3,20 @@ import type { ElementRef } from 'react';
 import { Dialog as RadixDialog } from 'radix-ui';
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { DialogProps } from './Dialog.props';
+import { ModalProps } from './Modal.props';
 import { Heading } from '../Heading/Heading';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
-import { DialogClose } from './DialogClose';
+import { ModalClose } from './ModalClose';
 import { Box } from '../Box/Box';
 
-const componentName = 'Dialog';
+const componentName = 'Modal';
 const componentClassName = withGlobalPrefix(componentName);
 
-type DialogElement = ElementRef<'div'>;
+type ModalElement = ElementRef<'div'>;
 
-export const Dialog = React.forwardRef<DialogElement, DialogProps>(
+export const Modal = React.forwardRef<ModalElement, ModalProps>(
   (
     {
       className,
@@ -36,7 +36,7 @@ export const Dialog = React.forwardRef<DialogElement, DialogProps>(
 
     return (
       <RadixDialog.Portal {...portalProps}>
-        <RadixDialog.Overlay className="hearth-DialogOverlay" />
+        <RadixDialog.Overlay className="hearth-ModalOverlay" />
 
         <RadixDialog.Content
           ref={ref}
@@ -44,20 +44,20 @@ export const Dialog = React.forwardRef<DialogElement, DialogProps>(
           data-contains-image={containsImage ? '' : undefined}
           {...props}
         >
-          <DialogClose>
+          <ModalClose>
             <UnstyledIconButton
               type="button"
               label="Close"
               data-visually-hidden={hideCloseButton ? '' : undefined}
-              className="hearth-DialogCloseIconButton"
+              className="hearth-ModalCloseIconButton"
             >
               <CloseMediumIcon />
             </UnstyledIconButton>
-          </DialogClose>
+          </ModalClose>
 
-          {containsImage ? <div className="hearth-DialogImage">{image}</div> : null}
+          {containsImage ? <div className="hearth-ModalImage">{image}</div> : null}
 
-          <div className="hearth-DialogHeader">
+          <div className="hearth-ModalHeader">
             <Box asChild>
               <RadixDialog.Title asChild>
                 <Heading size="lg">{heading}</Heading>
@@ -77,4 +77,4 @@ export const Dialog = React.forwardRef<DialogElement, DialogProps>(
   }
 );
 
-Dialog.displayName = componentName;
+Modal.displayName = componentName;
