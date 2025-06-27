@@ -1,14 +1,6 @@
-@import url('../../styles/tokens/overlay.css');
 @import url('../../styles/tokens/bottom-sheet.css');
 @import url('../../styles/tokens/modal.css');
 @import url('../../styles/tokens/dialog.css');
-
-.hearth-ModalOverlay {
-  position: fixed;
-  inset: 0;
-  background-color: var(--h-overlay-background-color);
-  opacity: var(--h-overlay-opacity);
-}
 
 .hearth-Modal {
   display: flex;
@@ -109,26 +101,6 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  @keyframes hearth-modal-overlay-fade-in {
-    from {
-      opacity: 0;
-    }
-
-    to {
-      opacity: var(--h-overlay-opacity);
-    }
-  }
-
-  @keyframes hearth-modal-overlay-fade-out {
-    from {
-      opacity: var(--h-overlay-opacity);
-    }
-
-    to {
-      opacity: 0;
-    }
-  }
-
   @keyframes hearth-modal-slide-up {
     from {
       opacity: 0;
@@ -174,18 +146,6 @@
     to {
       opacity: 0;
       transform: translate(-50%, -50%) scale(0.99);
-    }
-  }
-
-  .hearth-ModalOverlay {
-    will-change: transform;
-
-    &:where([data-state='open']) {
-      animation: hearth-modal-overlay-fade-in 150ms ease-out;
-    }
-
-    &:where([data-state='closed']) {
-      animation: hearth-modal-overlay-fade-out 120ms ease-in;
     }
   }
 

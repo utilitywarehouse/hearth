@@ -36,7 +36,7 @@ export const Modal = React.forwardRef<ModalElement, ModalProps>(
 
     return (
       <RadixDialog.Portal {...portalProps}>
-        <RadixDialog.Overlay className="hearth-ModalOverlay" />
+        <RadixDialog.Overlay className="hearth-Overlay" />
 
         <RadixDialog.Content
           ref={ref}

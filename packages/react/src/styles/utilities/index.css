@@ -1,5 +1,6 @@
 @import url('./align-content.css');
 @import url('./align-items.css');
+@import url('./animations.css');
 @import url('./border.css');
 @import url('./color.css');
 @import url('./disable-user-select.css');
@@ -13,6 +14,7 @@
 @import url('./justify-content.css');
 @import url('./justify-items.css');
 @import url('./margin.css');
+@import url('./overlay.css');
 @import url('./padding.css');
 @import url('./position.css');
 @import url('./spacing.css');

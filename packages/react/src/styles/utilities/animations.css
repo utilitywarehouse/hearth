@@ -1,0 +1,21 @@
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes hearth-overlay-fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: var(--h-overlay-opacity);
+    }
+  }
+
+  @keyframes hearth-overlay-fade-out {
+    from {
+      opacity: var(--h-overlay-opacity);
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+}
