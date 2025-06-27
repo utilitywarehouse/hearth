@@ -1,9 +1,12 @@
 /* reset */
 @import url('@utilitywarehouse/hearth-css-reset');
+
 /* tokens */
-@import url(./tokens/index.css);
+@import url("./tokens/index.css");
+
 /* components */
 @import url('../components/index.css');
+
 /* utilities */
 @import url('./breakpoints.css');
 @import url('./utilities/index.css');
