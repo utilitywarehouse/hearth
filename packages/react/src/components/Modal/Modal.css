@@ -8,6 +8,7 @@
   position: absolute;
   inset: 0;
 }
+
 .hearth-ModalScrollPadding {
   flex-grow: 1;
   margin: auto;
@@ -69,6 +70,7 @@
         height: fit-content;
         padding: var(--h-modal-padding-tablet);
       }
+
       @media (--h-desktop) {
         padding: var(--h-modal-padding-desktop);
       }
