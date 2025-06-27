@@ -137,6 +137,7 @@ export type { SwitchProps } from './components/Switch/Switch.props';
 
 export { Modal } from './components/Modal/Modal';
 export { ModalRoot } from './components/Modal/ModalRoot';
+export type { ModalRootProps } from './components/Modal/ModalRoot';
 export { ModalTrigger } from './components/Modal/ModalTrigger';
 export { ModalClose } from './components/Modal/ModalClose';
 export { ModalFooter } from './components/Modal/ModalFooter';

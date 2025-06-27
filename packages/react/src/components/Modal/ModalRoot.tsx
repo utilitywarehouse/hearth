@@ -1,10 +1,7 @@
 import * as React from 'react';
 import { Dialog as RadixDialog } from 'radix-ui';
+import { ComponentPropsWithout } from '../../types/component-props';
 
-const componentName = 'ModalRoot';
-
-export const ModalRoot: React.FC<RadixDialog.DialogProps> = props => (
-  <RadixDialog.Root {...props} />
-);
-
-ModalRoot.displayName = componentName;
+export type ModalRootProps = ComponentPropsWithout<typeof RadixDialog.Root, 'modal'>;
+export const ModalRoot: React.FC<ModalRootProps> = props => <RadixDialog.Root {...props} modal />;
+ModalRoot.displayName = 'ModalRoot';

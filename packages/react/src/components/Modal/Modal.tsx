@@ -36,41 +36,49 @@ export const Modal = React.forwardRef<ModalElement, ModalProps>(
 
     return (
       <RadixDialog.Portal {...portalProps}>
-        <RadixDialog.Overlay className="hearth-Overlay" />
+        <RadixDialog.Overlay className="hearth-Overlay">
+          <div className="hearth-ModalScroll">
+            <div className="hearth-ModalScrollPadding">
+              <RadixDialog.Content
+                ref={ref}
+                className={clsx(componentClassName, className)}
+                data-contains-image={containsImage ? '' : undefined}
+                {...props}
+              >
+                <div className="hearth-ModalOuterContainer">
+                  <ModalClose>
+                    <UnstyledIconButton
+                      type="button"
+                      label="Close"
+                      data-visually-hidden={hideCloseButton ? '' : undefined}
+                      className="hearth-ModalCloseIconButton"
+                    >
+                      <CloseMediumIcon />
+                    </UnstyledIconButton>
+                  </ModalClose>
 
-        <RadixDialog.Content
-          ref={ref}
-          className={clsx(componentClassName, className)}
-          data-contains-image={containsImage ? '' : undefined}
-          {...props}
-        >
-          <ModalClose>
-            <UnstyledIconButton
-              type="button"
-              label="Close"
-              data-visually-hidden={hideCloseButton ? '' : undefined}
-              className="hearth-ModalCloseIconButton"
-            >
-              <CloseMediumIcon />
-            </UnstyledIconButton>
-          </ModalClose>
+                  <div className="hearth-ModalInnerContainer">
+                    {containsImage ? <div className="hearth-ModalImage">{image}</div> : null}
+                    <div className="hearth-ModalHeader">
+                      <Box asChild>
+                        <RadixDialog.Title asChild>
+                          <Heading size="lg">{heading}</Heading>
+                        </RadixDialog.Title>
+                      </Box>
+                      <RadixDialog.Description asChild>
+                        <BodyText size="md" as="span">
+                          {description}
+                        </BodyText>
+                      </RadixDialog.Description>
+                    </div>
+                  </div>
 
-          <div className="hearth-ModalHeader">
-            {containsImage ? <div className="hearth-ModalImage">{image}</div> : null}
-            <Box asChild>
-              <RadixDialog.Title asChild>
-                <Heading size="lg">{heading}</Heading>
-              </RadixDialog.Title>
-            </Box>
-            <RadixDialog.Description asChild>
-              <BodyText size="md" as="span">
-                {description}
-              </BodyText>
-            </RadixDialog.Description>
+                  {children}
+                </div>
+              </RadixDialog.Content>
+            </div>
           </div>
-
-          {children}
-        </RadixDialog.Content>
+        </RadixDialog.Overlay>
       </RadixDialog.Portal>
     );
   }

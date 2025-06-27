@@ -2,12 +2,20 @@
 @import url('../../styles/tokens/modal.css');
 @import url('../../styles/tokens/dialog.css');
 
-.hearth-Modal {
+.hearth-ModalScroll {
   display: flex;
-  flex-direction: column;
-  gap: var(--h-modal-gap);
-  background-color: var(--h-modal-background-color);
   overflow: auto;
+  position: absolute;
+  inset: 0;
+}
+.hearth-ModalScrollPadding {
+  flex-grow: 1;
+  margin: auto;
+  padding: var(--h-space-400) var(--h-space-200);
+}
+
+.hearth-Modal {
+  background-color: var(--h-modal-background-color);
   position: fixed;
   left: 0;
   right: 0;
@@ -15,67 +23,100 @@
   border-top-left-radius: var(--h-modal-border-radius);
   border-top-right-radius: var(--h-modal-border-radius);
   height: fit-content;
-  padding: var(--h-bottom-sheet-padding);
   min-width: fit-content;
-
-  &:where([data-contains-image]) {
-    align-items: center;
-    padding: var(--h-modal-padding-mobile);
-    height: 90vh;
-    justify-content: space-between;
-  }
-
-  & :where(.hearth-ModalCloseIconButton) {
-    position: absolute;
-    top: var(--h-modal-padding);
-    right: var(--h-modal-padding);
-  }
-
-  & :where(.hearth-ModalImage) {
-    /* margin-top: calc(var(--h-space-300) + var(--h-modal-gap)); */
-    max-height: 260px;
-    max-width: 260px;
-  }
+  overflow: hidden;
 
   @media (--h-tablet) {
+    position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     border-bottom-left-radius: var(--h-modal-border-radius);
     border-bottom-right-radius: var(--h-modal-border-radius);
     width: var(--h-modal-width-tablet);
-    height: fit-content;
-    max-height: 80vh;
-    padding: var(--h-dialog-padding);
-
-    &:where([data-contains-image]) {
-      padding: var(--h-modal-padding-tablet);
-    }
   }
 
   @media (--h-desktop) {
     width: var(--h-modal-width-desktop);
+  }
 
-    &:where([data-contains-image]) {
-      padding: var(--h-modal-padding-desktop);
+  &:where([data-contains-image]) {
+    height: 90vh;
+
+    @media (--h-tablet) {
+      height: fit-content;
     }
+  }
+
+  & :where(.hearth-ModalOuterContainer) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--h-modal-gap);
+    overflow: auto;
+    padding: var(--h-bottom-sheet-padding);
+
+    @media (--h-tablet) {
+      padding: var(--h-dialog-padding);
+    }
+
+    &:where([data-contains-image] &) {
+      align-items: center;
+      padding: var(--h-modal-padding-mobile);
+      justify-content: space-between;
+
+      @media (--h-tablet) {
+        height: fit-content;
+        padding: var(--h-modal-padding-tablet);
+      }
+      @media (--h-desktop) {
+        padding: var(--h-modal-padding-desktop);
+      }
+    }
+  }
+
+  & :where(.hearth-ModalCloseIconButton) {
+    position: absolute;
+    top: var(--h-dialog-padding);
+    right: var(--h-dialog-padding);
+  }
+
+  & :where(.hearth-ModalInnerContainer) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--h-modal-content-gap);
+    justify-content: center;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    &:where([data-contains-image] &) {
+      align-items: center;
+    }
+
+    @media (--h-tablet) {
+      gap: var(--h-modal-gap);
+    }
+  }
+
+  & :where(.hearth-ModalImage) {
+    margin-top: calc(var(--h-space-300) + var(--h-modal-gap));
+    max-height: 260px;
+    max-width: 260px;
   }
 
   & :where(.hearth-ModalHeader) {
     display: flex;
     flex-direction: column;
     gap: var(--h-modal-content-gap);
-    justify-content: center;
     align-items: start;
     text-wrap: pretty;
     text-align: center;
-    height: 100%;
 
     @media (--h-tablet) {
       text-align: left;
     }
 
-    /* add some margin so the heading doesn't collide with the close icon button when there is no image */
     &:not([data-contains-image] &) :where(.hearth-Heading) {
       margin-right: var(--h-space-300);
     }
@@ -130,24 +171,24 @@
   @keyframes hearth-modal-show {
     from {
       opacity: 0;
-      transform: translate(-50%, -50%) scale(0.9);
+      transform: translateX(-50%) scale(0.9);
     }
 
     to {
       opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
+      transform: translateX(-50%) scale(1);
     }
   }
 
   @keyframes hearth-modal-hide {
     from {
       opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
+      transform: translateX(-50%) scale(1);
     }
 
     to {
       opacity: 0;
-      transform: translate(-50%, -50%) scale(0.99);
+      transform: translateX(-50%) scale(0.99);
     }
   }
 
