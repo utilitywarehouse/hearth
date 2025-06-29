@@ -1,13 +1,13 @@
 import * as React from 'react';
 import clsx from 'clsx';
+import { ModalFooterProps } from './Modal.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { DialogFooterProps } from './Dialog.props';
 
-const componentName = 'DialogFooter';
+const componentName = 'ModalFooter';
 const componentClassName = withGlobalPrefix(componentName);
 
-export const DialogFooter: React.FC<DialogFooterProps> = ({ className, ...props }) => {
+export const ModalFooter: React.FC<ModalFooterProps> = ({ className, ...props }) => {
   return <div className={clsx(componentClassName, className)} {...props} />;
 };
 
-DialogFooter.displayName = componentName;
+ModalFooter.displayName = componentName;

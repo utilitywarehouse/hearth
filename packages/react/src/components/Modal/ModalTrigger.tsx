@@ -4,13 +4,13 @@ import { Dialog as RadixDialog } from 'radix-ui';
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 
-const componentName = 'DialogTrigger';
+const componentName = 'ModalTrigger';
 const componentClassName = withGlobalPrefix(componentName);
 
-type DialogTriggerElement = ElementRef<'button'>;
+type ModalTriggerElement = ElementRef<'button'>;
 
-export const DialogTrigger = React.forwardRef<
-  DialogTriggerElement,
+export const ModalTrigger = React.forwardRef<
+  ModalTriggerElement,
   Omit<RadixDialog.DialogTriggerProps, 'asChild'>
 >(({ className, ...props }, ref) => {
   return (
@@ -23,4 +23,4 @@ export const DialogTrigger = React.forwardRef<
   );
 });
 
-DialogTrigger.displayName = componentName;
+ModalTrigger.displayName = componentName;

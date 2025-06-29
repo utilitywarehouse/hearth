@@ -1,10 +1,10 @@
 import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
-import * as Stories from './Dialog.stories';
+import * as Stories from './Modal.stories';
 import { DocsHeader } from './storybook-components/DocsHeader';
 
-<Meta title="Components / Dialog" />
+<Meta title="Components / Modal" />
 
-<DocsHeader componentName="Dialog" stories={Stories} />
+<DocsHeader componentName="Modal" stories={Stories} />
 
 ## Playground
 
@@ -18,21 +18,21 @@ import { DocsHeader } from './storybook-components/DocsHeader';
   - [Controlled usage](#controlled-usage)
   - [With Image](#with-image)
 - [API](#api)
-  - [DialogRoot](#dialogroot)
-  - [Dialog](#dialog)
+  - [ModalRoot](#modalroot)
+  - [Modal](#modal)
 
 ## Usage Guidelines
 
-`Dialog` comprises a number of components you can compose together, and can be
-uses as either a controlled or uncontrolled component.
+`Modal` comprises a number of components you can compose together, and can be
+used as either a controlled or uncontrolled component.
 
-- `DialogRoot` contains all parts of a dialog, providing context to it's children. You must wrap your Dialog with this component.
-- `DialogTrigger` wraps a `Button` component and is used to open the dialog.
-- `Dialog` is the main component where you should place your content.
-- `DialogFooter` is a container for any actions, typically buttons.
-- `DialogClose` wraps a `Button` component and is used to close the dialog.
+- `ModalRoot` contains all parts of a modal, providing context to its children. You must wrap your Modal with this component.
+- `ModalTrigger` wraps a `Button` component and is used to open the modal.
+- `Modal` is the main component where you should place your content.
+- `ModalFooter` is a container for any actions, typically buttons.
+- `ModalClose` wraps a `Button` component and is used to close the modal.
 
-`Dialog` uses portals to render a popup. Please make sure you have portals
+`Modal` uses portals to render a popup. Please make sure you have portals
 setup properly in the root of your application. See the **Getting Started**
 guide for more details.
 
@@ -40,12 +40,12 @@ guide for more details.
 
 Follows the [WAI-ARIA Dialog (Modal)](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/) Pattern.
 
-Due to the size of the Dialog, all entrance and exit animations adhere to the users [reduce motion](https://www.w3.org/WAI/WCAG21/Techniques/css/C39) preference.
+Due to the size of the Modal, all entrance and exit animations adhere to the users [reduce motion](https://www.w3.org/WAI/WCAG21/Techniques/css/C39) preference.
 
-It is strongly recommended the dialog includes a visible element which closes
-the dialog. By default the `Dialog` has a close icon button. You can hide this
+It is strongly recommended the modal includes a visible element which closes
+the modal. By default the `Modal` has a close icon button. You can hide this
 button using the `hideCloseButton` prop, so that there will always be a button
-that closes the dialog available to keyboard users. However we do recommend
+that closes the modal available to keyboard users. However we do recommend
 that you only do this when providing a visible alternative, such as a `Cancel`
 button.
 
@@ -54,63 +54,63 @@ button.
 ### Uncontrolled usage
 
 This is the recommended approach. You can use the `open` & `onOpenChange` props
-on the `DialogRoot` component with your event handlers.
+on the `ModalRoot` component with your event handlers.
 
 ```tsx
-<DialogRoot>
-  <DialogTrigger>
-    <Button>Open dialog</Button>
-  </DialogTrigger>
-  <Dialog
-    heading="Hearth dialog"
+<ModalRoot>
+  <ModalTrigger>
+    <Button>Open modal</Button>
+  </ModalTrigger>
+  <Modal
+    heading="Hearth modal"
     description="Overlays content to request a decision or inform users of important information"
   >
-    <DialogFooter>
-      <DialogClose>
+    <ModalFooter>
+      <ModalClose>
         <Button variant="ghost" colorScheme="grey">
           Cancel
         </Button>
-      </DialogClose>
-      <DialogClose>
+      </ModalClose>
+      <ModalClose>
         <Button variant="solid" colorScheme="yellow">
           Primary
         </Button>
-      </DialogClose>
-    </DialogFooter>
-  </Dialog>
-</DialogRoot>
+      </ModalClose>
+    </ModalFooter>
+  </Modal>
+</ModalRoot>
 ```
 
 ### Controlled usage
 
-If you need more control over elements of the dialog, then you can combine
+If you need more control over elements of the modal, then you can combine
 state with the `open` and `onOpenChange` props, and control the opening and
-closing of the dialog outside the `DialogRoot` context.
+closing of the modal outside the `ModalRoot` context.
 
 <Canvas of={Stories.ControlledUsage} sourceState="shown" />
 
 ### With Image
 
 You can pass an image, such as an SVG illustration, to the `image` prop. The
-`Dialog` layout will automatically adjust to accomodate the image, taking up
+`Modal` layout will automatically adjust to accomodate the image, taking up
 more of the viewport height, and centre aligning the text and actions.
 
 <Canvas of={Stories.WithImage} />
 
 ## API
 
-### DialogRoot
+### ModalRoot
 
 This component is based on [Radix UI's Dialog primitive](https://www.radix-ui.com/primitives/docs/components/dialog).
 
 | Prop           | Type                      | Description                                                                |
 | -------------- | ------------------------- | -------------------------------------------------------------------------- |
-| `open`         | `boolean`                 | Controls the open state of the dialog                                      |
-| `defaultOpen`  | `boolean`                 | Whether the dialog is open by default                                      |
+| `open`         | `boolean`                 | Controls the open state of the modal                                       |
+| `defaultOpen`  | `boolean`                 | Whether the modal is open by default                                       |
 | `onOpenChange` | `(open: boolean) => void` | Callback that fires when the open state changes                            |
-| `modal`        | `boolean`                 | Whether the dialog is modal (blocks interaction with the rest of the page) |
+| `modal`        | `boolean`                 | Whether the modal is modal (blocks interaction with the rest of the page)  |
 
-### Dialog
+### Modal
 
 This component is based on Radix UI's Dialog primitive and supports the following common props:
 
