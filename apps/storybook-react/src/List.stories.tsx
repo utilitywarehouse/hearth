@@ -4,9 +4,12 @@ import {
   Flex,
   List,
   ListItem,
-  ListItemText,
+  ListItemContent,
   ListItemButton,
   ListItemLink,
+  Badge,
+  BodyText,
+  DetailText,
 } from '@utilitywarehouse/hearth-react';
 import { InfoMediumIcon, SettingsMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
@@ -54,48 +57,53 @@ type Story = StoryObj<typeof List>;
 
 export const Playground: Story = {
   render: args => (
-    <Box width="300px">
+    <Box width="400px">
       <List {...args} headingElement="h1">
         <ListItem>List item</ListItem>
-        <ListItem>
-          <ListItemText helperText="Helper text">List item</ListItemText>
+        <ListItem aria-label="list item">
+          <ListItemContent heading="List item" helperText="Helper text" />
         </ListItem>
-        <ListItem>
-          <ListItemText leadingIcon={<InfoMediumIcon />} helperText="Helper text">
-            List item
-          </ListItemText>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="List item"
+            helperText="Helper text"
+            leadingIcon={<InfoMediumIcon />}
+          />
         </ListItem>
-        <ListItem>
+        <ListItem aria-label="list item button">
           <ListItemButton
+            heading="List item as button"
             helperText="Helper text"
             leadingIcon={<SettingsMediumIcon />}
             onClick={() => console.log('clickety click')}
-          >
-            List item as button
-          </ListItemButton>
+          />
         </ListItem>
-        <ListItem>
-          <ListItemButton helperText="Helper text" onClick={() => console.log('clickety click')}>
-            List item as button
-          </ListItemButton>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item as button"
+            helperText="Helper text"
+            onClick={() => console.log('clickety click')}
+          />
         </ListItem>
-        <ListItem>
-          <ListItemButton onClick={() => console.log('clickety click')}>
-            List item as button
-          </ListItemButton>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item as button"
+            onClick={() => console.log('clickety click')}
+          />
         </ListItem>
-        <ListItem>
-          <ListItemLink helperText="Helper text" leadingIcon={<SettingsMediumIcon />} href="#">
-            List item as link
-          </ListItemLink>
+        <ListItem aria-label="list item link">
+          <ListItemLink
+            heading="List item as link"
+            helperText="Helper text"
+            leadingIcon={<SettingsMediumIcon />}
+            href="#"
+          />
         </ListItem>
-        <ListItem>
-          <ListItemLink helperText="Helper text" href="#">
-            List item as link
-          </ListItemLink>
+        <ListItem aria-label="list item link">
+          <ListItemLink heading="List item as link" helperText="Helper text" href="#" />
         </ListItem>
-        <ListItem>
-          <ListItemLink href="#">List item as link</ListItemLink>
+        <ListItem aria-label="list item link">
+          <ListItemLink heading="List item as link" href="#" />
         </ListItem>
       </List>
     </Box>
@@ -144,24 +152,30 @@ export const KitchenSink: Story = {
   ),
 };
 
-export const ListItemTexts: Story = {
+export const ListItemContents: Story = {
   render: args => (
     <Box width="300px">
       <List {...args}>
         <ListItem>
-          <ListItemText leadingIcon={<SettingsMediumIcon />} helperText="Helper text">
-            List item text
-          </ListItemText>
+          <ListItemContent
+            heading="List item content"
+            leadingIcon={<SettingsMediumIcon />}
+            helperText="Helper text"
+          />
         </ListItem>
         <ListItem>
-          <ListItemText leadingIcon={<SettingsMediumIcon />} helperText="Helper text">
-            List item text
-          </ListItemText>
+          <ListItemContent
+            heading="List item content"
+            leadingIcon={<SettingsMediumIcon />}
+            helperText="Helper text"
+          />
         </ListItem>
         <ListItem>
-          <ListItemText leadingIcon={<SettingsMediumIcon />} helperText="Helper text">
-            List item text
-          </ListItemText>
+          <ListItemContent
+            heading="List item content"
+            leadingIcon={<SettingsMediumIcon />}
+            helperText="Helper text"
+          />
         </ListItem>
       </List>
     </Box>
@@ -174,19 +188,19 @@ export const ListItemButtons: Story = {
     <Box width="300px">
       <List {...args}>
         <ListItem>
-          <ListItemButton>List item button</ListItemButton>
+          <ListItemButton heading="List item button" />
         </ListItem>
         <ListItem>
-          <ListItemButton>List item button</ListItemButton>
+          <ListItemButton heading="List item button" />
         </ListItem>
         <ListItem>
-          <ListItemButton>List item button</ListItemButton>
+          <ListItemButton heading="List item button" />
         </ListItem>
         <ListItem>
-          <ListItemButton>List item button</ListItemButton>
+          <ListItemButton heading="List item button" />
         </ListItem>
         <ListItem>
-          <ListItemButton>List item button</ListItemButton>
+          <ListItemButton heading="List item button" />
         </ListItem>
       </List>
     </Box>
@@ -199,22 +213,76 @@ export const ListItemLinks: Story = {
     <Box width="300px">
       <List {...args}>
         <ListItem>
-          <ListItemLink>List item link</ListItemLink>
+          <ListItemLink heading="List item link" />
         </ListItem>
         <ListItem>
-          <ListItemLink>List item link</ListItemLink>
+          <ListItemLink heading="List item link" />
         </ListItem>
         <ListItem>
-          <ListItemLink>List item link</ListItemLink>
+          <ListItemLink heading="List item link" />
         </ListItem>
         <ListItem>
-          <ListItemLink>List item link</ListItemLink>
+          <ListItemLink heading="List item link" />
         </ListItem>
         <ListItem>
-          <ListItemLink>List item link</ListItemLink>
+          <ListItemLink heading="List item link" />
         </ListItem>
       </List>
     </Box>
   ),
   args: { variant: 'emphasis', colorScheme: 'warmWhite' },
+};
+
+export const CustomContent: Story = {
+  render: args => {
+    const events = [
+      {
+        date: { month: 'Nov', day: '27' },
+        type: 'Buzz Event',
+        title: 'Newcastle Buzz Event',
+        location: 'Newcastle Upon Tyne',
+      },
+      {
+        date: { month: 'Nov', day: '27' },
+        type: 'Buzz Event',
+        title: 'Barnsley Buzz Event',
+        location: 'Barnsley',
+      },
+      {
+        date: { month: 'Nov', day: '28' },
+        type: 'Training & Insights',
+        title: 'Networking Masterclass',
+        location: 'Virtual',
+      },
+      {
+        date: { month: 'Nov', day: '30' },
+        type: 'Training & Insights',
+        title: 'Leading with Cashback Webinar',
+        location: 'Virtual',
+      },
+    ];
+    return (
+      <List {...args} aria-label="Partner events">
+        {events.map(event => (
+          <ListItem
+            gap="300"
+            alignItems="center"
+            aria-label={`${event.date.month} ${event.date.day} - ${event.title} - ${event.location}`}
+          >
+            <Flex direction="column" width="44px" textAlign="center">
+              <BodyText size="md">{event.date.month}</BodyText>
+              <DetailText size="2xl">{event.date.day}</DetailText>
+            </Flex>
+            <Flex direction="column" alignItems="start" gap="100" width="100%">
+              <Badge colorScheme={event.type.includes('Buzz') ? 'green' : 'blue'}>
+                {event.type}
+              </Badge>
+              <ListItemButton heading={event.title} helperText={event.location} />
+            </Flex>
+          </ListItem>
+        ))}
+      </List>
+    );
+  },
+  args: { heading: undefined, helperText: undefined },
 };
