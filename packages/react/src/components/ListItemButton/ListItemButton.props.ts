@@ -1,9 +1,10 @@
-import type { ReactNode } from 'react';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
-import { ListItemTextProps } from '../ListItemText/ListItemText.props';
+import { ListItemContentProps } from '../ListItemContent/ListItemContent.props';
 
-export interface ListItemButtonProps extends ComponentPropsWithout<'button', RemovedProps> {
-  helperText?: ListItemTextProps['helperText'];
-  leadingIcon?: ListItemTextProps['leadingIcon'];
-  trailingIcon?: ReactNode;
+export interface ListItemButtonProps
+  extends ComponentPropsWithout<'button', RemovedProps | 'children'> {
+  heading: ListItemContentProps['heading'];
+  helperText?: ListItemContentProps['helperText'];
+  leadingIcon?: ListItemContentProps['leadingIcon'];
+  trailingIcon?: ListItemContentProps['leadingIcon'];
 }

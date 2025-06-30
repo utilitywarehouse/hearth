@@ -2,12 +2,12 @@
   color: inherit;
   font: inherit;
   text-decoration: none;
+  width: 100%;
   cursor: pointer;
   display: flex;
   flex-direction: row;
   gap: var(--h-space-150);
   align-items: center;
-  border-radius: var(--h-border-radius-xs);
 
   &::after {
     z-index: 0;
@@ -19,5 +19,9 @@
   &:where(:focus-visible) {
     outline: 2px solid var(--h-focus-border);
     outline-offset: 1px;
+  }
+
+  & :where(.hearth-ListItemContent) {
+    margin-right: calc(48px + var(--h-space-300));
   }
 }

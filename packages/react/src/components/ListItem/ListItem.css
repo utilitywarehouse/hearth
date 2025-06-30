@@ -3,7 +3,7 @@
 
 .hearth-ListItem {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   position: relative;
   padding: var(--h-list-item-padding);
 
@@ -12,14 +12,16 @@
     padding-right: 0;
   }
 
-  &:where(:first-child) {
-    border-top-left-radius: var(--h-card-border-radius);
-    border-top-right-radius: var(--h-card-border-radius);
-  }
+  :where(.hearth-variant-subtle, .hearth-variant-emphasis) & {
+    &:where(:first-child) {
+      border-top-left-radius: var(--h-card-border-radius);
+      border-top-right-radius: var(--h-card-border-radius);
+    }
 
-  &:where(:last-child) {
-    border-bottom-left-radius: var(--h-card-border-radius);
-    border-bottom-right-radius: var(--h-card-border-radius);
+    &:where(:last-child) {
+      border-bottom-left-radius: var(--h-card-border-radius);
+      border-bottom-right-radius: var(--h-card-border-radius);
+    }
   }
 
   &:where(:not(:first-child)) {
@@ -44,6 +46,19 @@
 
     &:where(:active) {
       background-color: var(--h-list-item-background-color-active);
+    }
+  }
+
+  & :where(.hearth-ListItemTrailingIcon) {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: var(--h-list-item-padding);
+    top: calc(50% - 24px);
+
+    &:where(:not(.hearth-Card &)) {
+      right: 0;
     }
   }
 }

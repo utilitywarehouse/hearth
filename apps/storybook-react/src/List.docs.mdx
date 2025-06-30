@@ -6,27 +6,32 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 
 <DocsHeader componentName="List" stories={Stories} />
 
+- [Accessibility](#accessibility)
 - [Appearance](#appearance)
-  - [Variant](#variant)
-  - [ColorScheme](#colorscheme)
 - [Heading](#heading)
-  - [Link](#link)
-  - [Helper text](#helper-text)
+- [Advanced Content](#advanced-content)
 - [API](#api)
 - [ListItem](#listitem)
+- [ListItemContent](#listitemcontent)
 - [ListItemButton](#listitembutton)
 - [ListItemLink](#listitemlink)
 
 ## Playground
 
-<Canvas of={Stories.Playground} sourceState="shown" />
+<Canvas of={Stories.Playground} />
 <Controls of={Stories.Playground} />
 
 - The `List` component can be customized with different variants and color schemes.
-- Use `ListItem` by itself for basic text content.
-- Use `ListItemText` as a child of `ListItem` to include `helperText` or a `leadingIcon`.
+- Use `ListItem` by itself for simple text content, or as a container for more complex, or interactive, content.
+- Use `ListItemContent` as a child of `ListItem` to include `helperText` or a `leadingIcon`.
 - Use `ListItemButton` as a child of `ListItem` when you need the list item to perform an action.
 - Use `ListItemLink` as a child of `ListItem` when you need the list item to navigate somewhere.
+
+## Accessibility
+
+If you are doing anything more complex than rendering simple text within the
+`ListItem` component, please include an `aria-label` prop, which accurately
+reflects the content of the list item.
 
 ## Appearance
 
@@ -92,6 +97,15 @@ the list header. Use them to provide a call-to-action or navigation link.
 The `helperText` prop provides additional context or instructions for the list.
 It is displayed below the heading.
 
+## Advanced Content
+
+You can compose more complex content within the `ListItem` component. The
+`ListItemButton` and `ListItemLink` components will continue to make the entire
+list item interactive. Remember to include an accurate `aria-label` which
+reflects the contents of the list item.
+
+<Canvas of={Stories.CustomContent} />
+
 ## API
 
 This component is based on the `ul` element and supports the following common props:
@@ -124,13 +138,16 @@ you need to present advanced content or interactive list items.
 
 ### API
 
-This component is base on the `li` element.
+This component is base on the `li` element, and supports the following common props:
 
-## ListItemText
+- Flex
+- Gap
 
-The `ListItemText` component is used to render more advanced text content.
+## ListItemContent
 
-<Canvas of={Stories.ListItemTexts} />
+The `ListItemContent` component is used to render more advanced text content.
+
+<Canvas of={Stories.ListItemContents} />
 
 ### API
 
@@ -138,12 +155,13 @@ This component is base on the `div` element.
 
 | Name          | Type        |
 | ------------- | ----------- |
+| `heading`     | `string`    |
 | `helperText`  | `string`    |
 | `leadingIcon` | `ReactNode` |
 
 ## ListItemButton
 
-The `ListItemButton` component is used to render a list item as a button.
+The `ListItemButton` component is used to render a list item as a button, and should be wrapped in a `ListItem` component.
 
 <Canvas of={Stories.ListItemButtons} />
 
@@ -153,13 +171,14 @@ This component is base on the `button` element.
 
 | Name           | Type        |
 | -------------- | ----------- |
+| `heading`      | `string`    |
 | `helperText`   | `string`    |
 | `leadingIcon`  | `ReactNode` |
 | `trailingIcon` | `ReactNode` |
 
 ## ListItemLink
 
-The `ListItemLink` component is used to render a list item as a link.
+The `ListItemLink` component is used to render a list item as a link, and should be wrapped in a `ListItem` component.
 
 <Canvas of={Stories.ListItemLinks} />
 
@@ -169,6 +188,7 @@ This component is base on the `a` element.
 
 | Name           | Type        |
 | -------------- | ----------- |
+| `heading`      | `string`    |
 | `helperText`   | `string`    |
 | `leadingIcon`  | `ReactNode` |
 | `trailingIcon` | `ReactNode` |

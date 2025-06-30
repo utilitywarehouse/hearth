@@ -3,21 +3,21 @@ import { HelperText } from '../HelperText/HelperText';
 import { Flex } from '../Flex/Flex';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
-import type { ListItemTextProps } from './ListItemText.props';
+import type { ListItemContentProps } from './ListItemContent.props';
 import clsx from 'clsx';
 
-const componentName = 'ListItemText';
+const componentName = 'ListItemContent';
 const componentClassName = withGlobalPrefix(componentName);
 
-type ListItemTextElement = ElementRef<'div'>;
+type ListItemContentElement = ElementRef<'div'>;
 
-export const ListItemText = React.forwardRef<ListItemTextElement, ListItemTextProps>(
-  ({ children, leadingIcon, helperText, className }) => {
+export const ListItemContent = React.forwardRef<ListItemContentElement, ListItemContentProps>(
+  ({ heading, leadingIcon, helperText, className }) => {
     return (
-      <Flex gap="150" className={clsx(componentClassName, className)} flexGrow="1">
+      <Flex gap="150" className={clsx(componentClassName, className)}>
         {leadingIcon ? leadingIcon : null}
         <Flex direction="column">
-          <span>{children}</span>
+          <p>{heading}</p>
           {helperText ? <HelperText>{helperText}</HelperText> : null}
         </Flex>
       </Flex>
@@ -25,4 +25,4 @@ export const ListItemText = React.forwardRef<ListItemTextElement, ListItemTextPr
   }
 );
 
-ListItemText.displayName = componentName;
+ListItemContent.displayName = componentName;
