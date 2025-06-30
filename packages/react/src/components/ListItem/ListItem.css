@@ -49,13 +49,14 @@
     }
   }
 
-  & :where(.ListItemTrailingIcon) {
+  & :where(.hearth-ListItemTrailingIcon) {
     height: 48px;
     display: flex;
     align-items: center;
     position: absolute;
     right: var(--h-list-item-padding);
     top: calc(50% - 24px);
+
     &:where(:not(.hearth-Card &)) {
       right: 0;
     }

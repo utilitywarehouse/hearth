@@ -16,7 +16,7 @@ export const ListItemButton = React.forwardRef<ListItemButtonElement, ListItemBu
     return (
       <button ref={ref} className={clsx(componentClassName, className)} {...props}>
         <ListItemContent heading={heading} helperText={helperText} leadingIcon={leadingIcon} />
-        <div className="ListItemTrailingIcon">
+        <div className="hearth-ListItemTrailingIcon">
           {trailingIcon ? trailingIcon : <ChevronRightSmallIcon />}
         </div>
       </button>

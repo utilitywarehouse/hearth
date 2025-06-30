@@ -16,7 +16,7 @@ export const ListItemLink = React.forwardRef<ListItemLinkElement, ListItemLinkPr
     return (
       <a ref={ref} className={clsx(componentClassName, className)} {...props}>
         <ListItemContent heading={heading} helperText={helperText} leadingIcon={leadingIcon} />
-        <div className="ListItemTrailingIcon">
+        <div className="hearth-ListItemTrailingIcon">
           {trailingIcon ? trailingIcon : <ChevronRightSmallIcon />}
         </div>
       </a>

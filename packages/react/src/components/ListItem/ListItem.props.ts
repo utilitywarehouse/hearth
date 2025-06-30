@@ -1,4 +1,4 @@
-import {GapProps} from '../../props/gap.props';
+import { GapProps } from '../../props/gap.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { FlexProps } from '../Flex/Flex.props';
 
