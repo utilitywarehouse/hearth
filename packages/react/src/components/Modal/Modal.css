@@ -172,25 +172,21 @@
 
   @keyframes hearth-modal-show {
     from {
-      opacity: 0;
-      transform: translateX(-50%) scale(0.9);
+      transform: translateX(-50%);
     }
 
     to {
-      opacity: 1;
-      transform: translateX(-50%) scale(1);
+      transform: translateX(-50%);
     }
   }
 
   @keyframes hearth-modal-hide {
     from {
-      opacity: 1;
-      transform: translateX(-50%) scale(1);
+      transform: translateX(-50%);
     }
 
     to {
-      opacity: 0;
-      transform: translateX(-50%) scale(0.99);
+      transform: translateX(-50%);
     }
   }
 
@@ -198,16 +194,16 @@
     will-change: transform;
 
     &:where([data-state='open']) {
-      animation: hearth-modal-slide-up 125ms ease-out;
+      animation: hearth-modal-slide-up 100ms ease-out;
     }
 
     &:where([data-state='closed']) {
-      animation: hearth-modal-slide-down 125ms ease-in;
+      animation: hearth-modal-slide-down 100ms ease-in;
     }
 
     @media (--h-tablet) {
       &:where([data-state='open']) {
-        animation: hearth-modal-show 125ms ease-out;
+        animation: hearth-modal-show 200ms ease-out;
       }
 
       &:where([data-state='closed']) {
