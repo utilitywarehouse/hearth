@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.0.6
+
+### Patch Changes
+
+- [#384](https://github.com/utilitywarehouse/hearth/pull/384) [`f245ac6`](https://github.com/utilitywarehouse/hearth/commit/f245ac6bf973bea29c75e05ef497b350342ac446) Thanks [@robphoenix](https://github.com/robphoenix)! - Rename `Dialog` to `Modal`
+
 ## 0.0.5
 
 ### Patch Changes

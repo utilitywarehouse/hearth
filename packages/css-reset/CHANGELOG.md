@@ -1,5 +1,11 @@
 # @utilitywarehouse/css-reset
 
+## 0.0.4
+
+### Patch Changes
+
+- [#385](https://github.com/utilitywarehouse/hearth/pull/385) [`a299b84`](https://github.com/utilitywarehouse/hearth/commit/a299b8497c1359397d66440101df4079f212aedc) Thanks [@robphoenix](https://github.com/robphoenix)! - Remove `scrollbar-gutter` as it's causing layout shift when using `Modal`
+
 ## 0.0.3
 
 ### Patch Changes
