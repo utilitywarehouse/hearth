@@ -23,7 +23,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@utilitywarehouse/hearth-tokens": "^0.0.5",
+    "@utilitywarehouse/hearth-tokens": "workspace:*",
     "typescript": "^5"
   }
 }
