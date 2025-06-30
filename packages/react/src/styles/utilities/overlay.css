@@ -3,20 +3,12 @@
 .hearth-Overlay {
   position: fixed;
   inset: 0;
-  background-color: var(--h-overlay-background-color);
-  opacity: var(--h-overlay-opacity);
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .hearth-Overlay {
-    will-change: transform;
-
-    &:where([data-state='open']) {
-      animation: hearth-overlay-fade-in 150ms ease-out;
-    }
-
-    &:where([data-state='closed']) {
-      animation: hearth-overlay-fade-out 120ms ease-in;
-    }
+  &::before {
+    position: fixed;
+    content: '';
+    inset: 0;
+    background-color: var(--h-overlay-background-color);
+    opacity: var(--h-overlay-opacity);
   }
 }
