@@ -265,8 +265,6 @@ export const CustomContent: Story = {
       <List {...args} aria-label="Partner events">
         {events.map(event => (
           <ListItem
-            gap="300"
-            alignItems="center"
             aria-label={`${event.date.month} ${event.date.day} - ${event.title} - ${event.location}`}
           >
             <Flex direction="column" width="44px" textAlign="center">
