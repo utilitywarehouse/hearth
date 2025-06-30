@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-react
 
+## 0.4.0
+
+### Minor Changes
+
+- [#384](https://github.com/utilitywarehouse/hearth/pull/384) [`f245ac6`](https://github.com/utilitywarehouse/hearth/commit/f245ac6bf973bea29c75e05ef497b350342ac446) Thanks [@robphoenix](https://github.com/robphoenix)! - Rename `Dialog` to `Modal`
+
+### Patch Changes
+
+- [#385](https://github.com/utilitywarehouse/hearth/pull/385) [`a299b84`](https://github.com/utilitywarehouse/hearth/commit/a299b8497c1359397d66440101df4079f212aedc) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix opacity on `Modal`
+
+- [#386](https://github.com/utilitywarehouse/hearth/pull/386) [`536c180`](https://github.com/utilitywarehouse/hearth/commit/536c180c4ec9dd258b35c5ab6450493153f84ac3) Thanks [@robphoenix](https://github.com/robphoenix)! - Refactor `ListItem` API to be more ergonomic
+
+- Updated dependencies [[`a299b84`](https://github.com/utilitywarehouse/hearth/commit/a299b8497c1359397d66440101df4079f212aedc)]:
+  - @utilitywarehouse/hearth-css-reset@0.0.4
+
 ## 0.3.0
 
 ### Minor Changes
