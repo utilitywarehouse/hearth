@@ -4,6 +4,8 @@
 .hearth-ListItem {
   display: flex;
   flex-direction: row;
+  gap: var(--h-space-300);
+  align-items: center;
   position: relative;
   padding: var(--h-list-item-padding);
 
