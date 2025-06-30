@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.4.1
+
+### Patch Changes
+
+- [#389](https://github.com/utilitywarehouse/hearth/pull/389) [`7bfe96e`](https://github.com/utilitywarehouse/hearth/commit/7bfe96e2725e0cf28b1dd000113b7b9a8a719ee4) Thanks [@robphoenix](https://github.com/robphoenix)! - Minor `ListItem` updates
+
 ## 0.4.0
 
 ### Minor Changes
