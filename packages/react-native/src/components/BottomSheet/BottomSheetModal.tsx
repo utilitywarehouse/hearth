@@ -1,11 +1,10 @@
- 
-import React, { useMemo } from 'react';
 import { BottomSheetModal as BottomSheetModalCore } from '@gorhom/bottom-sheet';
-import type BottomSheetProps from './BottomSheet.props';
-import { StyleSheet, withUnistyles } from 'react-native-unistyles';
-import useBottomSheetLogic from './useBottomSheetLogic';
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
+import React, { useMemo } from 'react';
+import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { BottomSheetContext } from './BottomSheet.context';
+import type BottomSheetProps from './BottomSheet.props';
+import useBottomSheetLogic from './useBottomSheetLogic';
 
 const StyledBottomSheetModalCore = withUnistyles(BottomSheetModalCore);
 

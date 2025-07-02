@@ -1,6 +1,6 @@
 import { BottomSheetHandle as Handle } from '@gorhom/bottom-sheet';
-import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { BottomSheetDefaultHandleProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetHandle/types';
+import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 
 const StyledBottomSheetHandle = withUnistyles(Handle);
 
@@ -17,6 +17,9 @@ const BottomSheetHandle = ({ style, indicatorStyle, ...props }: BottomSheetDefau
 
 const styles = StyleSheet.create(theme => ({
   handle: {
+    backgroundColor: theme.components.bottomSheet.backgroundColor,
+    borderTopLeftRadius: theme.components.bottomSheet.borderTopLeftRadius,
+    borderTopRightRadius: theme.components.bottomSheet.borderTopRightRadius,
     paddingTop: theme.components.bottomSheet.padding,
     paddingHorizontal: theme.components.bottomSheet.padding,
     paddingBottom: theme.components.bottomSheet.gap,
