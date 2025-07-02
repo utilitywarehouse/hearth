@@ -57,6 +57,7 @@ const ListItemRoot = ({
     disabled: isDisabled || isLoading,
     showDisabled: !listContext?.disabled && disabled,
     isFirstChild: props.isFirst,
+    container: listContext?.container,
   });
 
   const value: IListItemContext = useMemo(() => {
@@ -124,7 +125,8 @@ ListItemRoot.displayName = 'ListItemRoot';
 
 const styles = StyleSheet.create(theme => ({
   container: {
-    padding: theme.components.list.item.padding,
+    paddingVertical: theme.components.list.item.padding,
+    paddingHorizontal: theme.components.list.item.padding,
     flexDirection: 'row',
     gap: theme.components.list.item.gap,
     variants: {
@@ -165,6 +167,15 @@ const styles = StyleSheet.create(theme => ({
       },
       active: {
         true: {},
+      },
+      container: {
+        none: {
+          paddingHorizontal: 0,
+        },
+        subtleWhite: {},
+        emphasisWhite: {},
+        subtleWarmWhite: {},
+        emphasisWarmWhite: {},
       },
     },
     compoundVariants: [
