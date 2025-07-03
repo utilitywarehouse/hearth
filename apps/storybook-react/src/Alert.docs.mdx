@@ -1,0 +1,93 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './Alert.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Components / Alert" />
+
+<DocsHeader
+  componentName="Alert"
+  figmaLink="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=1-141"
+  stories={Stories}
+/>
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Color schemes
+
+The `colorScheme` prop controls the visual appearance and semantic meaning of the Alert.
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+## Pressable
+
+Alerts can be made interactive by providing an `onClick` handler. This makes the entire alert clickable and adds appropriate keyboard navigation.
+
+```tsx
+<Alert
+  colorScheme="blue"
+  title="Information"
+  text="Click me for more details"
+  onClick={() => alert('Alert clicked')}
+/>
+```
+
+<Canvas of={Stories.Pressable} sourceState="none" />
+
+## With Link
+
+You can add a link to your alert using the `linkText` and `linkHref` props. This is useful for directing users to relevant pages or actions.
+
+```tsx
+<Alert
+  colorScheme="orange"
+  title="Email verification required"
+  text="Please verify your email address."
+  linkHref="#"
+  linkText="Verify Email"
+/>
+```
+
+<Canvas of={Stories.WithLink} sourceState="none" />
+
+## Dismissable
+
+Alerts can be made dismissable by providing an `onClose` handler. This adds a close button that users can click to dismiss the alert.
+
+```tsx
+<Alert
+  colorScheme="green"
+  title="Success"
+  text="Your action was completed successfully."
+  onClose={() => console.log('Alert dismissed')}
+/>
+```
+
+<Canvas of={Stories.Dismissable} sourceState="none" />
+
+## API
+
+This component is based on the `div` element and supports the following props:
+
+| Prop          | Type                                   | Description                              |
+| ------------- | -------------------------------------- | ---------------------------------------- |
+| `colorScheme` | `blue` \| `green` \| `red` \| `orange` | Sets the colour scheme (default: `blue`) |
+| `title`       | `string`                               | Sets the title of the alert              |
+| `text`        | `string` \| `React.ReactNode`          | Sets the text content of the alert       |
+| `linkText`    | `string`                               | Sets the link text of the alert          |
+| `linkHref`    | `string`                               | Sets the link href of the alert          |
+| `onClick`     | `() => void`                           | Makes the alert clickable                |
+| `onClose`     | `() => void`                           | Adds a close button to dismiss the alert |
+
+### Accessibility
+
+- Alerts use the `alert` role by default for screen readers
+- Clickable alerts use the `button` role and support keyboard navigation
+- Icons are marked as `aria-hidden="true"` to avoid redundant announcements
+- Proper ARIA attributes are applied for live regions
