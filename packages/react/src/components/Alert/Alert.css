@@ -10,7 +10,7 @@
   gap: var(--h-alert-gap);
   border-radius: var(--h-alert-border-radius);
 
-  .hearth-Alert__content {
+  .hearth-Alert-Content {
     gap: var(--h-alert-content-gap);
   }
 
@@ -34,7 +34,7 @@
     --h-alert-border-color: var(--h-alert-orange-border-color);
   }
 
-  .hearth-Alert__action-button {
+  .hearth-Alert-ActionButton {
     align-self: center;
   }
 
@@ -43,7 +43,7 @@
 
     @media (hover: hover) {
       &:where(:hover) {
-        .hearth-Alert__action-button {
+        .hearth-Alert-ActionButton {
           color: var(--h-icon-button-unstyled-foreground-color-hover);
 
           &:where([data-inverted]) {

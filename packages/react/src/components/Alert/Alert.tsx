@@ -76,7 +76,7 @@ export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => 
       {...alertProps}
     >
       <AlertIcon aria-hidden="true" />
-      <Flex direction="column" className={clsx(`${componentClassName}__content`)}>
+      <Flex direction="column" className={clsx(`${componentClassName}-Content`)}>
         {children ?? (
           <>
             {title ? <DetailText>{title}</DetailText> : null}
@@ -93,7 +93,7 @@ export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => 
       {!linkHref && !linkText && onClick ? (
         <UnstyledIconButton
           onClick={onClick}
-          className={clsx(`${componentClassName}__action-button`)}
+          className={clsx(`${componentClassName}-ActionButton`)}
           title="Alert action"
           label="Alert action"
         >
@@ -103,7 +103,7 @@ export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => 
       {onClose ? (
         <UnstyledIconButton
           onClick={onClose}
-          className={clsx(`${componentClassName}__close-button`)}
+          className={clsx(`${componentClassName}-CloseButton`)}
           title="Close"
           label="Close alert"
         >
