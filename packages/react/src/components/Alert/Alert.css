@@ -9,6 +9,7 @@
   padding: var(--h-alert-padding);
   gap: var(--h-alert-gap);
   border-radius: var(--h-alert-border-radius);
+  isolation: isolate;
 
   .hearth-AlertContent {
     gap: var(--h-alert-content-gap);
@@ -47,15 +48,10 @@
     &:where([data-no-children='true']) {
       align-self: center;
 
-      &:after {
+      &::after {
         content: ' ';
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
+        inset: 0;
         background: transparent;
         border: none;
         border-radius: inherit;
@@ -71,12 +67,7 @@
     .hearth-AlertIconButton::after {
       content: ' ';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
+      inset: 0;
       background: transparent;
       border: none;
       border-radius: inherit;
