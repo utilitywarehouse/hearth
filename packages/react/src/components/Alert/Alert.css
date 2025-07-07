@@ -10,7 +10,7 @@
   gap: var(--h-alert-gap);
   border-radius: var(--h-alert-border-radius);
 
-  .hearth-Alert-Content {
+  .hearth-AlertContent {
     gap: var(--h-alert-content-gap);
   }
 
@@ -34,32 +34,53 @@
     --h-alert-border-color: var(--h-alert-orange-border-color);
   }
 
-  .hearth-Alert-ActionButton {
+  .hearth-AlertIconButton {
     align-self: center;
   }
 
-  &:where([data-clickable='true']) {
-    cursor: pointer;
+  .hearth-Alert-CloseButton {
+    align-self: flex-start;
+    z-index: 1;
+  }
 
-    @media (hover: hover) {
-      &:where(:hover) {
-        .hearth-Alert-ActionButton {
-          color: var(--h-icon-button-unstyled-foreground-color-hover);
+  .hearth-AlertLink {
+    &:where([data-no-children='true']) {
+      align-self: center;
 
-          &:where([data-inverted]) {
-            color: var(--h-icon-button-unstyled-inverted-foreground-color-hover);
-          }
-        }
+      &:after {
+        content: ' ';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        border-radius: inherit;
+        z-index: 1;
       }
     }
+  }
 
-    &:where(:focus-visible) {
-      outline: 2px solid var(--h-focus-border);
-      outline-offset: 1px;
+  /* When AlertButton is used, it should cover the whole alert */
+  &:where([data-has-alert-button='true']) {
+    position: relative;
 
-      &:where([data-inverted]) {
-        outline: 2px solid var(--h-focus-border-inverted);
-      }
+    .hearth-AlertIconButton::after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      border-radius: inherit;
+      z-index: 1;
     }
   }
 }

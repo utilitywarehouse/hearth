@@ -145,3 +145,9 @@ export { ModalTrigger } from './components/Modal/ModalTrigger';
 
 export { Alert } from './components/Alert/Alert';
 export type { AlertProps } from './components/Alert/Alert.props';
+
+export { AlertLink } from './components/Alert/AlertLink';
+export type { AlertLinkProps } from './components/Alert/AlertLink';
+
+export { AlertIconButton } from './components/Alert/AlertIconButton';
+export type { AlertIconButtonProps } from './components/Alert/AlertIconButton';

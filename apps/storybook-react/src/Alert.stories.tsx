@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Alert, Flex } from '@utilitywarehouse/hearth-react';
+import { Alert, AlertIconButton, AlertLink, Flex } from '@utilitywarehouse/hearth-react';
 import { useEffect, useState } from 'react';
 
 const colorSchemes = ['blue', 'green', 'red', 'orange'] as const;
@@ -62,29 +62,6 @@ export const Playground: Story = {
   },
 };
 
-export const Clickable: Story = {
-  render: () => (
-    <Alert
-      colorScheme="blue"
-      title="Information"
-      text="Unlock the power of knowledge with the following information."
-      onClick={() => alert('Information clicked')}
-    />
-  ),
-};
-
-export const WithLink: Story = {
-  render: () => (
-    <Alert
-      colorScheme="orange"
-      title="You're email has not been verified"
-      text="Please verify your email address by clicking the link below."
-      linkHref="#"
-      linkText="Verify Email"
-    />
-  ),
-};
-
 export const Dismissable: Story = {
   render: () => {
     const [visible, setVisible] = useState(true);
@@ -112,4 +89,55 @@ export const Dismissable: Story = {
       />
     );
   },
+};
+
+export const WithAlertLink: Story = {
+  render: () => (
+    <Flex direction="column" gap="400" alignItems="start">
+      <Alert
+        colorScheme="blue"
+        title="Information"
+        text="This alert contains additional information that might be helpful."
+      >
+        <AlertLink href="#example">Learn more</AlertLink>
+      </Alert>
+      <Alert
+        colorScheme="orange"
+        title="Warning"
+        text="This is a warning message with just an icon link."
+      >
+        <AlertLink href="#action" />
+      </Alert>
+    </Flex>
+  ),
+};
+
+export const WithAlertButton: Story = {
+  render: () => (
+    <Flex direction="column" gap="400" alignItems="start">
+      <Alert
+        colorScheme="blue"
+        title="Clickable Alert"
+        text="This entire alert is clickable because it contains an AlertButton."
+      >
+        <AlertIconButton label="Click me" onClick={() => alert('Alert button clicked!')} />
+      </Alert>
+      <Alert
+        colorScheme="green"
+        title="Custom Button Text"
+        text="This alert has a button and a close button."
+        onClose={() => alert('Closed')}
+      >
+        <AlertIconButton label="Click me" onClick={() => alert('Alert button clicked!')} />
+      </Alert>
+    </Flex>
+  ),
+};
+
+export const StaticAlert: Story = {
+  render: () => (
+    <Alert colorScheme="blue" title="Static Alert">
+      This alert is completely static with no interactive elements.
+    </Alert>
+  ),
 };

@@ -8,15 +8,18 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { AlertProps } from './Alert.props';
 
 import {
-  ChevronRightSmallIcon,
   CloseSmallIcon,
   InfoMediumIcon,
   TickCircleMediumIcon,
   WarningMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
-import { BodyText, Link, UnstyledIconButton } from '../..';
+
+import { BodyText } from '../BodyText/BodyText';
 import { DetailText } from '../DetailText/DetailText';
 import { Flex } from '../Flex/Flex';
+import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
+import { AlertIconButton } from './AlertIconButton';
+import { AlertLink } from './AlertLink';
 
 const componentName = 'Alert';
 const componentClassName = withGlobalPrefix(componentName);
@@ -34,72 +37,68 @@ export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => 
     children,
     className,
     colorScheme = 'blue',
-    linkHref,
-    linkText,
     onClose,
-    onClick,
     text,
     title,
     ...alertProps
   } = extractProps(props);
   const AlertIcon = icons[colorScheme];
+
+  // Analyse children to separate AlertLink, AlertIconButton, and other content
+  const childrenArray = React.Children.toArray(children);
+  let alertLink: React.ReactNode = null;
+  let alertButton: React.ReactNode = null;
+  const otherChildren: Array<React.ReactNode> = [];
+
+  childrenArray.forEach(child => {
+    if (React.isValidElement(child)) {
+      if (child.type === AlertLink) {
+        /* eslint-disable-next-line @typescript-eslint/no-unsafe-member-access */
+        if (React.Children.count(child?.props?.children ?? null) > 0) {
+          alertLink = child;
+        } else {
+          alertButton = child;
+        }
+      } else if (child.type === AlertIconButton) {
+        alertButton = child;
+      } else {
+        otherChildren.push(child);
+      }
+    } else {
+      otherChildren.push(child);
+    }
+  });
+
+  // Determine if Alert should be static (no clickable behavior on the Alert itself)
+  const hasAlertIconButton = !!alertButton;
+
   const dataAttributeProps = {
     'data-colorscheme': colorScheme,
-    'data-clickable': !!onClick,
+    'data-has-alert-button': hasAlertIconButton,
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent) => {
-    if (onClick && (event.key === 'Enter' || event.key === ' ')) {
-      event.preventDefault();
-      onClick();
-    }
-  };
-
-  const alertContent = title || (typeof text === 'string' ? text : '');
-  const isClickable = !!onClick;
-  const hasStaticContent = !isClickable && !onClose;
+  const hasStaticContent = !onClose;
 
   return (
     <Flex
       ref={ref}
       className={clsx(componentClassName, className)}
-      role={isClickable ? 'button' : 'alert'}
+      role="alert"
       aria-live={hasStaticContent ? 'polite' : 'assertive'}
       aria-atomic="true"
-      aria-label={isClickable ? `${alertContent} - clickable alert` : undefined}
-      onClick={onClick}
-      onKeyDown={onClick ? handleKeyDown : undefined}
-      tabIndex={onClick ? 0 : undefined}
       alignItems="start"
       direction="row"
       {...dataAttributeProps}
       {...alertProps}
     >
       <AlertIcon aria-hidden="true" />
-      <Flex direction="column" className={clsx(`${componentClassName}-Content`)}>
-        {children ?? (
-          <>
-            {title ? <DetailText>{title}</DetailText> : null}
-            {text ? <BodyText>{text}</BodyText> : null}
-            {linkText ? (
-              <Link href={linkHref}>
-                {linkText}
-                <ChevronRightSmallIcon />
-              </Link>
-            ) : null}
-          </>
-        )}
+      <Flex direction="column" className={clsx(`${componentClassName}Content`)}>
+        {title ? <DetailText>{title}</DetailText> : null}
+        {text ? <BodyText>{text}</BodyText> : null}
+        {otherChildren}
+        {alertLink}
       </Flex>
-      {!linkHref && !linkText && onClick ? (
-        <UnstyledIconButton
-          onClick={onClick}
-          className={clsx(`${componentClassName}-ActionButton`)}
-          title="Alert action"
-          label="Alert action"
-        >
-          <ChevronRightSmallIcon />
-        </UnstyledIconButton>
-      ) : null}
+      {alertButton}
       {onClose ? (
         <UnstyledIconButton
           onClick={onClose}

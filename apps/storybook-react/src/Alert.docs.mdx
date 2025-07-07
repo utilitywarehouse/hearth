@@ -25,36 +25,33 @@ The `colorScheme` prop controls the visual appearance and semantic meaning of th
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 
-## Clickable
+## With `AlertIconButton`
 
-Alerts can be made interactive by providing an `onClick` handler. This makes the entire alert clickable and adds appropriate keyboard navigation.
+Alerts can be made interactive by using the `AlertIconButton` component. This adds a clickable button to the alert with appropriate keyboard navigation.
+
+```tsx
+<Alert colorScheme="blue" title="Clickable Alert" text="This alert has an interactive button.">
+  <AlertIconButton label="Click me" onClick={() => alert('Alert button clicked!')} />
+</Alert>
+```
+
+<Canvas of={Stories.WithAlertButton} sourceState="none" />
+
+## With `AlertLink`
+
+You can add a link to your alert using the `AlertLink` component. This is useful for directing users to relevant pages or actions.
 
 ```tsx
 <Alert
   colorScheme="blue"
   title="Information"
-  text="Click me for more details"
-  onClick={() => alert('Alert clicked')}
-/>
+  text="This alert contains additional information that might be helpful."
+>
+  <AlertLink href="#example">Learn more</AlertLink>
+</Alert>
 ```
 
-<Canvas of={Stories.Clickable} sourceState="none" />
-
-## With Link
-
-You can add a link to your alert using the `linkText` and `linkHref` props. This is useful for directing users to relevant pages or actions.
-
-```tsx
-<Alert
-  colorScheme="orange"
-  title="Email verification required"
-  text="Please verify your email address."
-  linkHref="#"
-  linkText="Verify Email"
-/>
-```
-
-<Canvas of={Stories.WithLink} sourceState="none" />
+<Canvas of={Stories.WithAlertLink} sourceState="none" />
 
 ## Dismissable
 
@@ -71,23 +68,45 @@ Alerts can be made dismissable by providing an `onClose` handler. This adds a cl
 
 <Canvas of={Stories.Dismissable} sourceState="none" />
 
-### Accessibility
+## Accessibility
 
 - Alerts use the `alert` role by default for screen readers
-- Clickable alerts use the `button` role and support keyboard navigation
+- `AlertIconButton` components support keyboard navigation
 - Icons are marked as `aria-hidden="true"` to avoid redundant announcements
 - Proper ARIA attributes are applied for live regions
+
+## Child Components
+
+### AlertLink
+
+Use `AlertLink` to add navigational links within alerts.
+
+```tsx
+<Alert title="Information">
+  <BodyText>This alert provides important information.</BodyText>
+  <BodyText>The guide is helpful, you can read it below.</BodyText>
+  <AlertLink href="/guide">Read Guide</AlertLink>
+</Alert>
+```
+
+### AlertIconButton
+
+Use `AlertIconButton` to add interactive buttons to alerts.
+
+```tsx
+<Alert title="Action Required" text="Click the button to continue.">
+  <AlertIconButton label="Continue" onClick={() => handleAction()} />
+</Alert>
+```
 
 ## API
 
 This component is based on the `div` element and supports the following props:
 
-| Prop          | Type                                   | Description                              |
-| ------------- | -------------------------------------- | ---------------------------------------- |
-| `colorScheme` | `blue` \| `green` \| `red` \| `orange` | Sets the colour scheme (default: `blue`) |
-| `title`       | `string`                               | Sets the title of the alert              |
-| `text`        | `string` \| `React.ReactNode`          | Sets the text content of the alert       |
-| `linkText`    | `string`                               | Sets the link text of the alert          |
-| `linkHref`    | `string`                               | Sets the link href of the alert          |
-| `onClick`     | `() => void`                           | Makes the alert clickable                |
-| `onClose`     | `() => void`                           | Adds a close button to dismiss the alert |
+| Prop          | Type                                   | Description                                          |
+| ------------- | -------------------------------------- | ---------------------------------------------------- |
+| `colorScheme` | `blue` \| `green` \| `red` \| `orange` | Sets the colour scheme (default: `blue`)             |
+| `title`       | `string`                               | Sets the title of the alert                          |
+| `text`        | `string` \| `React.ReactNode`          | Sets the text content of the alert                   |
+| `onClose`     | `() => void`                           | Adds a close button to dismiss the alert             |
+| `children`    | `React.ReactNode`                      | Additional content like AlertLink or AlertIconButton |
