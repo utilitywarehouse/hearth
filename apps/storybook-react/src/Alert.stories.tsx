@@ -11,7 +11,7 @@ const meta: Meta<typeof Alert> = {
     docs: {
       description: {
         component:
-          'A `Alert` is a visual label or indicator used to convey status or highlight content. Alerts are read-only status indicators or labels and are not interactive.',
+          'An `Alert` is a visual label or indicator used to convey status or highlight content. Alerts are read-only status indicators or labels and are not interactive.',
       },
     },
   },
