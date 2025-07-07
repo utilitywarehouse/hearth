@@ -62,7 +62,7 @@ export const Playground: Story = {
   },
 };
 
-export const Pressable: Story = {
+export const Clickable: Story = {
   render: () => (
     <Alert
       colorScheme="blue"
