@@ -1,7 +1,8 @@
 import React from 'react';
+import { MarginProps } from '../../props/margin.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
-export interface AlertProps extends ComponentPropsWithout<'div', RemovedProps> {
+export interface AlertProps extends ComponentPropsWithout<'div', RemovedProps>, MarginProps {
   /**
    * Sets the colour scheme.
    * @default blue
