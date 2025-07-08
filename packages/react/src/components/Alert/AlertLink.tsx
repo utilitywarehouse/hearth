@@ -20,13 +20,13 @@ const componentClassName = withGlobalPrefix(componentName);
 
 export const AlertLink = React.forwardRef<AlertLinkElement, AlertLinkProps>((props, ref) => {
   const { children, ...linkProps } = props;
-
-  const dataAttributeProps = {
-    'data-no-children': !children,
-  };
-
   return (
-    <Link ref={ref} className={clsx(componentClassName)} {...linkProps} {...dataAttributeProps}>
+    <Link
+      ref={ref}
+      className={clsx(componentClassName)}
+      data-icon-only={children ? undefined : ''}
+      {...linkProps}
+    >
       {children}
       <ChevronRightSmallIcon />
     </Link>

@@ -6,27 +6,22 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import type { UnstyledIconButtonProps } from '../UnstyledIconButton/UnstyledIconButton.props';
 
+const componentName = 'AlertIconButton';
+const componentClassName = withGlobalPrefix(componentName);
+
 export type AlertIconButtonProps = UnstyledIconButtonProps;
 
 type AlertIconButtonElement = ElementRef<'button'>;
 
 export const AlertIconButton = React.forwardRef<AlertIconButtonElement, AlertIconButtonProps>(
-  (props, ref) => {
-    const {
-      children,
-      label = 'Alert action',
-      title = 'Alert action',
-      className,
-      ...buttonProps
-    } = props;
-
+  ({ children, label = 'Alert action', title = 'Alert action', className, ...props }, ref) => {
     return (
       <UnstyledIconButton
         ref={ref}
-        className={clsx(withGlobalPrefix('AlertIconButton'), className)}
+        className={clsx(componentClassName, className)}
         label={label}
         title={title}
-        {...buttonProps}
+        {...props}
       >
         {children || <ChevronRightSmallIcon />}
       </UnstyledIconButton>
@@ -34,4 +29,4 @@ export const AlertIconButton = React.forwardRef<AlertIconButtonElement, AlertIco
   }
 );
 
-AlertIconButton.displayName = 'AlertIconButton';
+AlertIconButton.displayName = componentName;
