@@ -42,6 +42,7 @@ export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => 
     title,
     ...alertProps
   } = extractProps(props);
+
   const AlertIcon = icons[colorScheme];
 
   // Analyse children to separate AlertLink, AlertIconButton, and other content
@@ -69,15 +70,13 @@ export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => 
     }
   });
 
-  // Determine if Alert should be static (no clickable behavior on the Alert itself)
   const hasAlertIconButton = !!alertButton;
+  const hasStaticContent = !onClose;
 
   const dataAttributeProps = {
     'data-colorscheme': colorScheme,
     'data-has-alert-button': hasAlertIconButton,
   };
-
-  const hasStaticContent = !onClose;
 
   return (
     <Flex

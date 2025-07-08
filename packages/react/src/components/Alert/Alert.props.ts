@@ -15,7 +15,6 @@ export interface AlertProps extends ComponentPropsWithout<'div', RemovedProps> {
    * Sets the text of the alert.
    */
   text?: string | React.ReactNode;
-
   /**
    * Sets the onClose handler of the alert.
    */
