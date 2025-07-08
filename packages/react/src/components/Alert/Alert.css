@@ -2,6 +2,8 @@
 
 .hearth-Alert {
   display: inline-flex;
+  flex-direction: row;
+  align-items: start;
   background-color: var(--h-alert-background-color);
   border-color: var(--h-alert-border-color);
   border-style: solid;
@@ -9,34 +11,41 @@
   padding: var(--h-alert-padding);
   gap: var(--h-alert-gap);
   border-radius: var(--h-alert-border-radius);
-  isolation: isolate;
+  position: relative;
 
-  .hearth-AlertContent {
+  & :where(.hearth-AlertContent) {
+    display: flex;
+    flex-direction: column;
     gap: var(--h-alert-content-gap);
+
+    & :where(div) {
+      gap: var(--h-alert-content-gap);
+    }
+
+    &:has(.hearth-AlertLink) {
+      flex-direction: column;
+    }
+
+    &:has(.hearth-AlertIconButton, .hearth-AlertLink[data-icon-only]) {
+      flex-direction: row;
+      align-items: center;
+      gap: var(--h-alert-gap);
+    }
   }
 
-  .hearth-AlertIconButton {
-    align-self: center;
-  }
-
-  .hearth-Alert-CloseButton {
-    align-self: flex-start;
+  .hearth-AlertCloseButton {
     z-index: 1;
   }
 
-  .hearth-AlertLink {
-    &:where([data-no-children='true']) {
-      align-self: center;
-
-      &::after {
-        content: ' ';
-        position: absolute;
-        inset: 0;
-        background: transparent;
-        border: none;
-        border-radius: inherit;
-        z-index: 1;
-      }
+  .hearth-AlertLink[data-icon-only] {
+    &::after {
+      content: ' ';
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      border: none;
+      border-radius: inherit;
+      z-index: 1;
     }
   }
 
@@ -60,17 +69,13 @@
     --h-alert-border-color: var(--h-alert-orange-border-color);
   }
 
-  &:where([data-has-alert-button='true']) {
-    position: relative;
-
-    .hearth-AlertIconButton::after {
-      content: ' ';
-      position: absolute;
-      inset: 0;
-      background: transparent;
-      border: none;
-      border-radius: inherit;
-      z-index: 1;
-    }
+  & :where(.hearth-AlertIconButton)::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: transparent;
+    border: none;
+    border-radius: inherit;
+    z-index: 1;
   }
 }
