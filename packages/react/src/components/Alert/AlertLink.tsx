@@ -26,13 +26,7 @@ export const AlertLink = React.forwardRef<AlertLinkElement, AlertLinkProps>((pro
   };
 
   return (
-    <Link
-      ref={ref}
-      {...linkProps}
-      className={clsx(componentClassName)}
-      {...dataAttributeProps}
-      {...props}
-    >
+    <Link ref={ref} className={clsx(componentClassName)} {...linkProps} {...dataAttributeProps}>
       {children}
       <ChevronRightSmallIcon />
     </Link>
