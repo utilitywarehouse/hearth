@@ -4,8 +4,8 @@
  *
  ********************/
 export { breakpoints } from './tokens/breakpoints';
-export { spaceTokens } from './tokens/space';
 export { colorTokens } from './tokens/color';
+export { spaceTokens } from './tokens/space';
 
 /********************
  *
@@ -136,9 +136,18 @@ export { Switch } from './components/Switch/Switch';
 export type { SwitchProps } from './components/Switch/Switch.props';
 
 export { Modal } from './components/Modal/Modal';
+export type { ModalProps } from './components/Modal/Modal.props';
+export { ModalClose } from './components/Modal/ModalClose';
+export { ModalFooter } from './components/Modal/ModalFooter';
 export { ModalRoot } from './components/Modal/ModalRoot';
 export type { ModalRootProps } from './components/Modal/ModalRoot';
 export { ModalTrigger } from './components/Modal/ModalTrigger';
-export { ModalClose } from './components/Modal/ModalClose';
-export { ModalFooter } from './components/Modal/ModalFooter';
-export type { ModalProps } from './components/Modal/Modal.props';
+
+export { Alert } from './components/Alert/Alert';
+export type { AlertProps } from './components/Alert/Alert.props';
+
+export { AlertLink } from './components/Alert/AlertLink';
+export type { AlertLinkProps } from './components/Alert/AlertLink';
+
+export { AlertIconButton } from './components/Alert/AlertIconButton';
+export type { AlertIconButtonProps } from './components/Alert/AlertIconButton';
