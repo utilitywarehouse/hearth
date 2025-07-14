@@ -49,7 +49,7 @@
       --h-input-border-color-focus: var(--h-input-border-color-invalid);
     }
 
-    &:where(:has(textarea:focus), ) {
+    &:where(:has(textarea:focus)) {
       outline: var(--h-input-border-width-focused) solid var(--h-input-border-color-focus);
       outline-offset: -1px;
     }
