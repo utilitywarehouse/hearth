@@ -4,4 +4,7 @@ export const text = {
   colorInverted: 'var(--h-text-color-inverted)',
   colorSecondary: 'var(--h-text-color-secondary)',
   colorValid: 'var(--h-text-color-valid)',
+  inverted: 'var(--h-text-inverted)',
+  primary: 'var(--h-text-primary)',
+  secondary: 'var(--h-text-secondary)',
 };

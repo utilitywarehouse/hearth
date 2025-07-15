@@ -1,0 +1,25 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-table-background-color: var(--h-color-grey-0);
+  --h-table-border-radius: var(--h-border-radius-xl);
+  --h-table-cell-background-color-active: var(--h-color-warm-white-200);
+  --h-table-cell-background-color-hover: var(--h-color-warm-white-100);
+  --h-table-cell-border-width: var(--h-border-width-1);
+  --h-table-cell-divider-color: var(--h-color-warm-white-300);
+  --h-table-cell-padding: var(--h-space-150);
+  --h-table-emphasis-border-width: var(--h-border-width-2);
+  --h-table-emphasis-divider-color: var(--h-color-grey-1000);
+  --h-table-header-cell-border-width: var(--h-border-width-2);
+  --h-table-header-cell-gap: var(--h-space-100);
+  --h-table-header-cell-padding-horizontal: var(--h-space-150);
+  --h-table-header-cell-padding-vertical: var(--h-space-200);
+  --h-table-header-cell-purple-background-color: var(--h-color-purple-700);
+  --h-table-header-cell-purple-divider-color: var(--h-color-grey-1000);
+  --h-table-header-cell-white-background-color: var(--h-color-grey-0);
+  --h-table-header-cell-white-divider-color: var(--h-color-warm-white-300);
+  --h-table-subtle-border-width: var(--h-border-width-1);
+  --h-table-subtle-divider-color: var(--h-color-warm-white-300);
+}

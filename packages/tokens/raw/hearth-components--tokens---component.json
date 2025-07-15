@@ -3443,7 +3443,7 @@
         "value": "#e7e6e6"
       },
       "color-invalid": {
-        "alias": "{dark.color.invalid-text}",
+        "alias": "{light.feedback.danger.default.color}",
         "type": "color",
         "value": "#ff7964"
       },
@@ -7062,7 +7062,7 @@
         "value": "#101010"
       },
       "color-invalid": {
-        "alias": "{light.color.invalid-text}",
+        "alias": "{light.feedback.danger.default.color}",
         "type": "color",
         "value": "#de2612"
       },

@@ -1,17 +1,296 @@
 export declare const color: {
-  readonly background: 'var(--h-color-background)';
-  readonly background1: 'var(--h-color-background-1)';
-  readonly backgroundPurple: 'var(--h-color-background-purple)';
-  readonly invalidText: 'var(--h-color-invalid-text)';
+  readonly focus: {
+    readonly focus: 'var(--h-focus-focus)';
+    readonly focusInverted: 'var(--h-focus-focus-inverted)';
+  };
+  readonly text: {
+    readonly inverted: 'var(--h-text-inverted)';
+    readonly primary: 'var(--h-text-primary)';
+    readonly secondary: 'var(--h-text-secondary)';
+  };
+  readonly background: {
+    readonly brand: 'var(--h-background-brand)';
+    readonly primary: 'var(--h-background-primary)';
+    readonly secondary: 'var(--h-background-secondary)';
+  };
+  readonly border: {
+    readonly strong: {
+      readonly color: 'var(--h-border-strong-color)';
+    };
+    readonly subtle: {
+      readonly color: 'var(--h-border-subtle-color)';
+    };
+  };
+  readonly feedback: {
+    readonly danger: {
+      readonly default: {
+        readonly color: 'var(--h-feedback-danger-default-color)';
+      };
+      readonly subtle: {
+        readonly color: 'var(--h-feedback-danger-subtle-color)';
+      };
+    };
+    readonly functional: {
+      readonly default: {
+        readonly color: 'var(--h-feedback-functional-default-color)';
+      };
+      readonly subtle: {
+        readonly color: 'var(--h-feedback-functional-subtle-color)';
+      };
+    };
+    readonly info: {
+      readonly default: {
+        readonly color: 'var(--h-feedback-info-default-color)';
+      };
+      readonly subtle: {
+        readonly color: 'var(--h-feedback-info-subtle-color)';
+      };
+    };
+    readonly positive: {
+      readonly default: {
+        readonly color: 'var(--h-feedback-positive-default-color)';
+      };
+      readonly subtle: {
+        readonly color: 'var(--h-feedback-positive-subtle-color)';
+      };
+    };
+    readonly warning: {
+      readonly default: {
+        readonly color: 'var(--h-feedback-warning-default-color)';
+      };
+      readonly subtle: {
+        readonly color: 'var(--h-feedback-warning-subtle-color)';
+      };
+    };
+  };
+  readonly interactive: {
+    readonly affirmative: {
+      readonly border: {
+        readonly strong: {
+          readonly color: 'var(--h-interactive-affirmative-border-strong-color)';
+        };
+        readonly subtle: {
+          readonly color: 'var(--h-interactive-affirmative-border-subtle-color)';
+        };
+      };
+      readonly foreground: {
+        readonly strong: {
+          readonly color: 'var(--h-interactive-affirmative-foreground-strong-color)';
+        };
+        readonly subtle: {
+          readonly color: 'var(--h-interactive-affirmative-foreground-subtle-color)';
+        };
+      };
+      readonly surface: {
+        readonly strong: {
+          readonly activeColor: 'var(--h-interactive-affirmative-surface-strong-active-color)';
+          readonly defaultColor: 'var(--h-interactive-affirmative-surface-strong-default-color)';
+          readonly hoverColor: 'var(--h-interactive-affirmative-surface-strong-hover-color)';
+        };
+        readonly subtle: {
+          readonly activeColor: 'var(--h-interactive-affirmative-surface-subtle-active-color)';
+          readonly hoverColor: 'var(--h-interactive-affirmative-surface-subtle-hover-color)';
+        };
+      };
+    };
+    readonly brand: {
+      readonly border: {
+        readonly strong: {
+          readonly color: 'var(--h-interactive-brand-border-strong-color)';
+        };
+      };
+      readonly foreground: {
+        readonly strong: {
+          readonly color: 'var(--h-interactive-brand-foreground-strong-color)';
+        };
+      };
+      readonly surface: {
+        readonly strong: {
+          readonly activeColor: 'var(--h-interactive-brand-surface-strong-active-color)';
+          readonly defaultColor: 'var(--h-interactive-brand-surface-strong-default-color)';
+          readonly hoverColor: 'var(--h-interactive-brand-surface-strong-hover-color)';
+        };
+      };
+    };
+    readonly destructive: {
+      readonly border: {
+        readonly strong: {
+          readonly color: 'var(--h-interactive-destructive-border-strong-color)';
+        };
+        readonly subtle: {
+          readonly color: 'var(--h-interactive-destructive-border-subtle-color)';
+        };
+      };
+      readonly foreground: {
+        readonly strong: {
+          readonly color: 'var(--h-interactive-destructive-foreground-strong-color)';
+        };
+        readonly subtle: {
+          readonly color: 'var(--h-interactive-destructive-foreground-subtle-color)';
+        };
+      };
+      readonly surface: {
+        readonly strong: {
+          readonly activeColor: 'var(--h-interactive-destructive-surface-strong-active-color)';
+          readonly defaultColor: 'var(--h-interactive-destructive-surface-strong-default-color)';
+          readonly hoverColor: 'var(--h-interactive-destructive-surface-strong-hover-color)';
+        };
+        readonly subtle: {
+          readonly activeColor: 'var(--h-interactive-destructive-surface-subtle-active-color)';
+          readonly hoverColor: 'var(--h-interactive-destructive-surface-subtle-hover-color)';
+        };
+      };
+    };
+    readonly functional: {
+      readonly border: {
+        readonly subtle: {
+          readonly color: 'var(--h-interactive-functional-border-subtle-color)';
+        };
+      };
+      readonly foreground: {
+        readonly subtle: {
+          readonly subtle: 'var(--h-interactive-functional-foreground-subtle-subtle)';
+        };
+      };
+      readonly surface: {
+        readonly subtle: {
+          readonly activeColor: 'var(--h-interactive-functional-surface-subtle-active-color)';
+          readonly hoverColor: 'var(--h-interactive-functional-surface-subtle-hover-color)';
+        };
+      };
+    };
+    readonly highlight: {
+      readonly border: {
+        readonly strong: {
+          readonly color: 'var(--h-interactive-highlight-border-strong-color)';
+        };
+      };
+      readonly foreground: {
+        readonly strong: {
+          readonly color: 'var(--h-interactive-highlight-foreground-strong-color)';
+        };
+      };
+      readonly surface: {
+        readonly strong: {
+          readonly activeColor: 'var(--h-interactive-highlight-surface-strong-active-color)';
+          readonly defaultColor: 'var(--h-interactive-highlight-surface-strong-default-color)';
+          readonly hoverColor: 'var(--h-interactive-highlight-surface-strong-hover-color)';
+        };
+      };
+    };
+    readonly neutral: {
+      readonly border: {
+        readonly strong: {
+          readonly color: 'var(--h-interactive-neutral-border-strong-color)';
+        };
+      };
+      readonly foreground: {
+        readonly strong: {
+          readonly color: 'var(--h-interactive-neutral-foreground-strong-color)';
+        };
+      };
+      readonly surface: {
+        readonly strong: {
+          readonly activeColor: 'var(--h-interactive-neutral-surface-strong-active-color)';
+          readonly hoverColor: 'var(--h-interactive-neutral-surface-strong-hover-color)';
+        };
+      };
+    };
+  };
   readonly shadow: {
-    readonly broadbandGreenColor: 'var(--h-shadow-broadband-green-color)';
-    readonly cashbackLilacColor: 'var(--h-shadow-cashback-lilac-color)';
-    readonly defaultColor: 'var(--h-shadow-default-color)';
-    readonly energyBlueColor: 'var(--h-shadow-energy-blue-color)';
-    readonly insuranceOrangeColor: 'var(--h-shadow-insurance-orange-color)';
-    readonly mobileRoseColor: 'var(--h-shadow-mobile-rose-color)';
-    readonly piggyPinkColor: 'var(--h-shadow-piggy-pink-color)';
-    readonly purpleColor: 'var(--h-shadow-purple-color)';
+    readonly brand: {
+      readonly color: 'var(--h-shadow-brand-color)';
+    };
+    readonly broadband: {
+      readonly color: 'var(--h-shadow-broadband-color)';
+    };
+    readonly cashback: {
+      readonly color: 'var(--h-shadow-cashback-color)';
+    };
+    readonly default: {
+      readonly color: 'var(--h-shadow-default-color)';
+    };
+    readonly energy: {
+      readonly color: 'var(--h-shadow-energy-color)';
+    };
+    readonly insurance: {
+      readonly color: 'var(--h-shadow-insurance-color)';
+    };
+    readonly mobile: {
+      readonly color: 'var(--h-shadow-mobile-color)';
+    };
+    readonly pig: {
+      readonly color: 'var(--h-shadow-pig-color)';
+    };
+  };
+  readonly surface: {
+    readonly brand: {
+      readonly default: {
+        readonly color: 'var(--h-surface-brand-default-color)';
+      };
+      readonly strong: {
+        readonly color: 'var(--h-surface-brand-strong-color)';
+      };
+      readonly subtle: {
+        readonly color: 'var(--h-surface-brand-subtle-color)';
+      };
+    };
+    readonly broadband: {
+      readonly default: {
+        readonly color: 'var(--h-surface-broadband-default-color)';
+      };
+      readonly subtle: {
+        readonly color: 'var(--h-surface-broadband-subtle-color)';
+      };
+    };
+    readonly cashback: {
+      readonly default: {
+        readonly color: 'var(--h-surface-cashback-default-color)';
+      };
+      readonly subtle: {
+        readonly color: 'var(--h-surface-cashback-subtle-color)';
+      };
+    };
+    readonly energy: {
+      readonly default: {
+        readonly color: 'var(--h-surface-energy-default-color)';
+      };
+      readonly subtle: {
+        readonly color: 'var(--h-surface-energy-subtle-color)';
+      };
+    };
+    readonly highlight: {
+      readonly default: {
+        readonly color: 'var(--h-surface-highlight-default-color)';
+      };
+      readonly subtle: {
+        readonly color: 'var(--h-surface-highlight-subtle-color)';
+      };
+    };
+    readonly insurance: {
+      readonly default: {
+        readonly color: 'var(--h-surface-insurance-default-color)';
+      };
+      readonly subtle: {
+        readonly color: 'var(--h-surface-insurance-subtle-color)';
+      };
+    };
+    readonly mobile: {
+      readonly default: {
+        readonly color: 'var(--h-surface-mobile-default-color)';
+      };
+      readonly subtle: {
+        readonly color: 'var(--h-surface-mobile-subtle-color)';
+      };
+    };
+    readonly pig: {
+      readonly default: {
+        readonly color: 'var(--h-surface-pig-default-color)';
+      };
+      readonly subtle: {
+        readonly color: 'var(--h-surface-pig-subtle-color)';
+      };
+    };
   };
   readonly blue: {
     readonly '0': 'var(--h-color-blue-0)';
