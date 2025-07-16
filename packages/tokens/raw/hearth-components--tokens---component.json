@@ -2429,7 +2429,6 @@
           "value": "#6538b8"
         },
         "height": {
-          "alias": "{space.800}",
           "type": "number",
           "value": 64
         }
@@ -6048,7 +6047,6 @@
           "value": "#6538b8"
         },
         "height": {
-          "alias": "{space.800}",
           "type": "number",
           "value": 64
         }

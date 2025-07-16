@@ -14,5 +14,5 @@
   --h-navigation-foreground-color: var(--h-color-warm-white-50);
   --h-navigation-gap: var(--h-space-50);
   --h-navigation-mobile-divider-border-color: var(--h-color-purple-800);
-  --h-navigation-mobile-height: var(--h-space-800);
+  --h-navigation-mobile-height: 64px;
 }

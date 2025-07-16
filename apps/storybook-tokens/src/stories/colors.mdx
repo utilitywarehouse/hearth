@@ -1,20 +1,25 @@
-import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
-import { color } from '@utilitywarehouse/hearth-tokens/js'; // For displaying palettes
+import { ColorItem, ColorPalette, Meta } from '@storybook/addon-docs/blocks';
+import { color } from '@utilitywarehouse/hearth-tokens/js';
+import BackToTopButton from '../components/BackToTopButton';
 
 <Meta title="Colours" />
+<BackToTopButton />
 
 # Colours
 
-Hearth Tokens provides a comprehensive set of colours for use in your projects. The colours are divided into light and dark themes, with common colours shared between both themes.
+Hearth Tokens provides a comprehensive set of colours for use in your projects. The colours are organized as unified scales with semantic light and dark theme tokens for specific use cases.
 
 - [Getting Started](#getting-started)
   - [JS/TS Usage (`/js`)](#jsts-usage-js)
   - [JS/TS CSS Variable String Usage (Browser JS - `/browser`)](#jsts-css-variable-string-usage-browser-js--browser)
   - [CSS Usage (`/css`)](#css-usage-css)
-- [Common Colours](#common-colours)
-- [Light Theme Colours](#light-theme-colours)
-- [Dark Theme Colours](#dark-theme-colours)
+- [Semantic Theme Colors](#semantic-theme-colors)
+  - [What are Semantic Tokens?](#what-are-semantic-tokens)
+  - [Using Semantic Tokens](#using-semantic-tokens)
+  - [Theme Switching](#theme-switching)
 - [Available Colour Tokens](#available-colour-tokens)
+  - [Color Scales](#color-scales)
+  - [Semantic Theme Colors](#semantic-theme-colors-1)
 
 ## Getting Started
 
@@ -31,21 +36,35 @@ Import the `color` object from `@utilitywarehouse/hearth-tokens/js` to access th
 ```js
 import { color } from '@utilitywarehouse/hearth-tokens/js';
 
-const primaryColor = color.light.blue[500]; // '#41a0ff'
-const white = color.common.white; // '#ffffff'
+// Color scales
+const primaryColor = color.blue[500]; // '#41a0ff'
+const backgroundGrey = color.grey[50]; // '#f6f5f5'
+
+// Semantic theme colors
+const brandBackground = color.light.background.brand; // '#7a42c8'
+const primaryText = color.light.text.primary; // '#101010'
+const dangerColor = color.light.feedback.danger.default.color; // '#de2612'
+
+// Dark theme equivalents
+const darkBrandBackground = color.dark.background.brand; // '#7a42c8'
+const darkPrimaryText = color.dark.text.primary; // '#e7e6e6'
+const darkDangerColor = color.dark.feedback.danger.default.color; // '#ff7964'
 
 // Example usage in React Native
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: color.light.purple[700], // '#7a42c8'
-    color: white,
+    backgroundColor: color.light.surface.brand.default.color,
+    color: color.light.text.inverted,
+  },
+  errorText: {
+    color: color.light.feedback.danger.default.color,
   },
 });
 
 // Example usage in browser JS for non-CSS contexts (e.g., canvas)
-// ctx.fillStyle = color.light.red[500];
+// ctx.fillStyle = color.red[500];
 ```
 
 ### JS/TS CSS Variable String Usage (Browser JS - `/browser`)
@@ -55,25 +74,51 @@ Import the `color` object from `@utilitywarehouse/hearth-tokens/browser/color` t
 ```js
 import { color } from '@utilitywarehouse/hearth-tokens/browser';
 
+// Color scales
 const primaryColorVar = color.blue[500]; // 'var(--h-color-blue-500)'
 const textColorVar = color.grey[900]; // 'var(--h-color-grey-900)'
 
+// Semantic theme colors
+const brandBgVar = color.light.background.brand; // 'var(--h-color-light-background-brand)'
+const primaryTextVar = color.light.text.primary; // 'var(--h-color-light-text-primary)'
+const dangerColorVar = color.light.feedback.danger.default.color; // 'var(--h-color-light-feedback-danger-default-color)'
+
 // Example usage in a React component's style prop
 const MyComponent = () => (
-  <div style={{ backgroundColor: color.warmWhite[50], color: textColorVar }}>Hello World</div>
+  <div
+    style={{
+      backgroundColor: color.light.background.primary,
+      color: color.light.text.primary,
+      borderColor: color.light.border.subtle.color,
+    }}
+  >
+    Hello World
+  </div>
 );
 
 // Example usage with styled-components
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
-  background-color: ${color.purple[700]}; /* Resolves to var(--h-color-purple-700) */
-  color: ${color.white}; /* Resolves to var(--h-color-common-white) */
-  border: 1px solid ${color.grey[300]}; /* Resolves to var(--h-color-grey-300) */
+  background-color: ${color.light.surface.brand.default.color};
+  color: ${color.light.text.inverted};
+  border: 1px solid ${color.light.border.subtle.color};
+
+  &:hover {
+    background-color: ${color.light.interactive.brand.surface.strong.hoverColor};
+  }
+
+  &:focus {
+    outline: 2px solid ${color.light.focus.focus};
+  }
+`;
+
+const ErrorMessage = styled.div`
+  background-color: ${color.light.feedback.danger.subtle.color};
+  color: ${color.light.feedback.danger.default.color};
+  border: 1px solid ${color.light.feedback.danger.default.color};
 `;
 ```
-
-_Note: The browser JS object structure might differ slightly (e.g., common colors might be top-level). Refer to the actual export._
 
 ### CSS Usage (`/css`)
 
@@ -86,293 +131,546 @@ import '@utilitywarehouse/hearth-tokens/css/color.css';
 
 ```css
 /* Example usage directly in a CSS file */
+
+/* Using color scales */
 .my-element {
   background-color: var(--h-color-warm-white-50);
   color: var(--h-color-grey-900);
   border-color: var(--h-color-blue-500);
 }
 
-/* Defining semantic variables */
-:root {
-  --color-primary-background: var(--h-color-purple-700);
-  --color-primary-text: var(--h-color-common-white);
+/* Using semantic theme colors */
+.button-primary {
+  background-color: var(--h-color-light-surface-brand-default-color);
+  color: var(--h-color-light-text-inverted);
+  border: 1px solid var(--h-color-light-border-subtle-color);
 }
 
-.button-primary {
-  background-color: var(--color-primary-background);
-  color: var(--color-primary-text);
+.button-primary:hover {
+  background-color: var(--h-color-light-interactive-brand-surface-strong-hover-color);
+}
+
+.button-primary:focus {
+  outline: 2px solid var(--h-color-light-focus-focus);
+}
+
+/* Error states */
+.error-message {
+  background-color: var(--h-color-light-feedback-danger-subtle-color);
+  color: var(--h-color-light-feedback-danger-default-color);
+  border: 1px solid var(--h-color-light-feedback-danger-default-color);
+}
+
+/* Dark theme variant */
+.dark .button-primary {
+  background-color: var(--h-color-dark-surface-brand-default-color);
+  color: var(--h-color-dark-text-inverted);
+  border-color: var(--h-color-dark-border-subtle-color);
+}
+
+.dark .error-message {
+  background-color: var(--h-color-dark-feedback-danger-subtle-color);
+  color: var(--h-color-dark-feedback-danger-default-color);
+  border-color: var(--h-color-dark-feedback-danger-default-color);
 }
 ```
 
-## Common Colours
+## Semantic Theme Colors
 
-<ColorPalette>
-  <ColorItem title="common" subtitle="Common shared colours" colors={color.common} />
-</ColorPalette>
+### What are Semantic Tokens?
 
-## Light Theme Colours
+Semantic tokens provide meaning-based color assignments that adapt to different themes (light/dark). Instead of using specific color values like `blue[500]`, semantic tokens use names that describe their purpose like `background.brand` or `feedback.danger.default.color`.
 
-<ColorPalette>
-  {Object.keys(color.light).map(key => (
-    <>
-      <ColorItem
-        key={`light-${key}-1`}
-        title={key}
-        subtitle={`light.${key}`}
-        colors={Object.keys(color.light[key])
-          .slice(0, 6)
-          .reduce((acc, subKey) => {
-            acc[subKey] = color.light[key][subKey];
-            return acc;
-          }, {})}
-      />
-      {Object.keys(color.light[key]).length > 6 && (
-        <ColorItem
-          key={`light-${key}-2`}
-          title=""
-          subtitle=""
-          colors={Object.keys(color.light[key])
-            .slice(6, 12)
-            .reduce((acc, subKey) => {
-              acc[subKey] = color.light[key][subKey];
-              return acc;
-            }, {})}
-        />
-      )}
-      {Object.keys(color.light[key]).length > 12 && (
-        <ColorItem
-          key={`light-${key}-3`}
-          title=""
-          subtitle=""
-          colors={Object.keys(color.light[key])
-            .slice(12, 18)
-            .reduce((acc, subKey) => {
-              acc[subKey] = color.light[key][subKey];
-              return acc;
-            }, {})}
-        />
-      )}
-    </>
-  ))}
-</ColorPalette>
+**Benefits of semantic tokens:**
 
-## Dark Theme Colours
+- **Theme-aware**: Automatically adapt to light and dark themes
+- **Consistent**: Ensure consistent color usage across your application
+- **Maintainable**: Change themes without updating individual color references
+- **Accessible**: Pre-configured color combinations that meet accessibility standards
 
-<ColorPalette>
-  {Object.keys(color.dark).map(key => (
-    <>
-      <ColorItem
-        key={`dark-${key}-1`}
-        title={key}
-        subtitle={`dark.${key}`}
-        colors={Object.keys(color.dark[key])
-          .slice(0, 6)
-          .reduce((acc, subKey) => {
-            acc[subKey] = color.dark[key][subKey];
-            return acc;
-          }, {})}
-      />
-      {Object.keys(color.dark[key]).length > 6 && (
-        <ColorItem
-          key={`dark-${key}-2`}
-          title=""
-          subtitle=""
-          colors={Object.keys(color.dark[key])
-            .slice(6, 12)
-            .reduce((acc, subKey) => {
-              acc[subKey] = color.dark[key][subKey];
-              return acc;
-            }, {})}
-        />
-      )}
-      {Object.keys(color.dark[key]).length > 12 && (
-        <ColorItem
-          key={`dark-${key}-3`}
-          title=""
-          subtitle=""
-          colors={Object.keys(color.dark[key])
-            .slice(12, 18)
-            .reduce((acc, subKey) => {
-              acc[subKey] = color.dark[key][subKey];
-              return acc;
-            }, {})}
-        />
-      )}
-    </>
-  ))}
-</ColorPalette>
+### Using Semantic Tokens
+
+Semantic tokens are organized into logical categories:
+
+- **Background**: Page and component background colors
+- **Text**: Text colors for different contexts
+- **Border**: Border colors with different emphasis levels
+- **Focus**: Focus indicator colors
+- **Feedback**: Colors for different states (danger, success, warning, info, functional)
+- **Interactive**: Colors for interactive elements (buttons, links) with hover/active states
+- **Surface**: Colored surfaces for different services and contexts
+- **Shadow**: Shadow colors for elevation and depth
+
+```js
+// Instead of using specific colors
+const badButton = {
+  backgroundColor: color.purple[700], // Hard-coded purple
+  color: color.white[0], // Hard-coded white
+};
+
+// Use semantic tokens
+const goodButton = {
+  backgroundColor: color.light.surface.brand.default.color, // Semantic brand color
+  color: color.light.text.inverted, // Semantic inverted text
+};
+```
+
+### Theme Switching
+
+With semantic tokens, switching between light and dark themes is straightforward:
+
+```css
+/* Light theme (default) */
+.button {
+  background-color: var(--h-color-light-surface-brand-default-color);
+  color: var(--h-color-light-text-inverted);
+}
+
+/* Dark theme */
+.dark .button {
+  background-color: var(--h-color-dark-surface-brand-default-color);
+  color: var(--h-color-dark-text-inverted);
+}
+```
+
+```js
+// In JavaScript/React
+const Button = ({ theme = 'light' }) => {
+  const colors = theme === 'light' ? color.light : color.dark;
+
+  return (
+    <button
+      style={{
+        backgroundColor: colors.surface.brand.default.color,
+        color: colors.text.inverted,
+        border: `1px solid ${colors.border.subtle.color}`,
+      }}
+    >
+      Click me
+    </button>
+  );
+};
+```
 
 ## Available Colour Tokens
 
-This section lists the available colour tokens, their raw hex values (from the JS export), and the associated CSS variable names. The CSS variables listed correspond to the **light theme** definitions. Dark theme values are available via the JS export (`color.dark...`).
+This section lists the available colour tokens, their raw hex values (from the JS export), and the associated CSS variable names.
 
-### Common Colours
-
-| Token Path     | Hex Value              | CSS Variable      |
-| :------------- | :--------------------- | :---------------- |
-| `common.white` | `{color.common.white}` | `--h-color-white` |
-
-### Light Theme Colours
+### Color Scales
 
 #### Blue
 
-| Token Path         | Hex Value                  | CSS Variable          |
-| :----------------- | :------------------------- | :-------------------- |
-| `light.blue[50]`   | `{color.light.blue[50]}`   | `--h-color-blue-50`   |
-| `light.blue[100]`  | `{color.light.blue[100]}`  | `--h-color-blue-100`  |
-| `light.blue[200]`  | `{color.light.blue[200]}`  | `--h-color-blue-200`  |
-| `light.blue[300]`  | `{color.light.blue[300]}`  | `--h-color-blue-300`  |
-| `light.blue[400]`  | `{color.light.blue[400]}`  | `--h-color-blue-400`  |
-| `light.blue[500]`  | `{color.light.blue[500]}`  | `--h-color-blue-500`  |
-| `light.blue[600]`  | `{color.light.blue[600]}`  | `--h-color-blue-600`  |
-| `light.blue[700]`  | `{color.light.blue[700]}`  | `--h-color-blue-700`  |
-| `light.blue[800]`  | `{color.light.blue[800]}`  | `--h-color-blue-800`  |
-| `light.blue[900]`  | `{color.light.blue[900]}`  | `--h-color-blue-900`  |
-| `light.blue[1000]` | `{color.light.blue[1000]}` | `--h-color-blue-1000` |
+| Token Path   | Hex Value                                                                                               | CSS Variable          |
+| :----------- | :------------------------------------------------------------------------------------------------------ | :-------------------- |
+| `blue[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#f8fbff', display: 'inline-block'}} /> `#f8fbff` | `--h-color-blue-0`    |
+| `blue[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#eef7ff', display: 'inline-block'}} /> `#eef7ff` | `--h-color-blue-50`   |
+| `blue[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#d9ecff', display: 'inline-block'}} /> `#d9ecff` | `--h-color-blue-100`  |
+| `blue[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#bcddff', display: 'inline-block'}} /> `#bcddff` | `--h-color-blue-200`  |
+| `blue[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#93c1ff', display: 'inline-block'}} /> `#93c1ff` | `--h-color-blue-300`  |
+| `blue[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#6bb0ff', display: 'inline-block'}} /> `#6bb0ff` | `--h-color-blue-400`  |
+| `blue[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#41a0ff', display: 'inline-block'}} /> `#41a0ff` | `--h-color-blue-500`  |
+| `blue[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#2786f1', display: 'inline-block'}} /> `#2786f1` | `--h-color-blue-600`  |
+| `blue[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#1c6cd4', display: 'inline-block'}} /> `#1c6cd4` | `--h-color-blue-700`  |
+| `blue[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#2354a4', display: 'inline-block'}} /> `#2354a4` | `--h-color-blue-800`  |
+| `blue[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#0b3375', display: 'inline-block'}} /> `#0b3375` | `--h-color-blue-900`  |
+| `blue[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#042455', display: 'inline-block'}} /> `#042455` | `--h-color-blue-950`  |
+| `blue[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#001433', display: 'inline-block'}} /> `#001433` | `--h-color-blue-1000` |
 
 #### Broadband Green
 
-| Token Path                  | Hex Value                           | CSS Variable                    |
-| :-------------------------- | :---------------------------------- | :------------------------------ |
-| `light.broadbandGreen[200]` | `{color.light.broadbandGreen[200]}` | `--h-color-broadband-green-200` |
-| `light.broadbandGreen[300]` | `{color.light.broadbandGreen[300]}` | `--h-color-broadband-green-300` |
-| `light.broadbandGreen[600]` | `{color.light.broadbandGreen[600]}` | `--h-color-broadband-green-600` |
+| Token Path             | Hex Value                                                                                               | CSS Variable                     |
+| :--------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------- |
+| `broadbandGreen[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#f8faf6', display: 'inline-block'}} /> `#f8faf6` | `--h-color-broadband-green-0`    |
+| `broadbandGreen[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#f2f6ed', display: 'inline-block'}} /> `#f2f6ed` | `--h-color-broadband-green-50`   |
+| `broadbandGreen[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#e7efdc', display: 'inline-block'}} /> `#e7efdc` | `--h-color-broadband-green-100`  |
+| `broadbandGreen[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#d2e6b0', display: 'inline-block'}} /> `#d2e6b0` | `--h-color-broadband-green-200`  |
+| `broadbandGreen[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#8cba3b', display: 'inline-block'}} /> `#8cba3b` | `--h-color-broadband-green-300`  |
+| `broadbandGreen[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#7aa031', display: 'inline-block'}} /> `#7aa031` | `--h-color-broadband-green-400`  |
+| `broadbandGreen[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#6e932b', display: 'inline-block'}} /> `#6e932b` | `--h-color-broadband-green-500`  |
+| `broadbandGreen[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#64862a', display: 'inline-block'}} /> `#64862a` | `--h-color-broadband-green-600`  |
+| `broadbandGreen[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#5a7926', display: 'inline-block'}} /> `#5a7926` | `--h-color-broadband-green-700`  |
+| `broadbandGreen[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#506c21', display: 'inline-block'}} /> `#506c21` | `--h-color-broadband-green-800`  |
+| `broadbandGreen[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#4f6b20', display: 'inline-block'}} /> `#4f6b20` | `--h-color-broadband-green-900`  |
+| `broadbandGreen[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#35421c', display: 'inline-block'}} /> `#35421c` | `--h-color-broadband-green-950`  |
+| `broadbandGreen[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#252d16', display: 'inline-block'}} /> `#252d16` | `--h-color-broadband-green-1000` |
 
 #### Cashback Lilac
 
-| Token Path                 | Hex Value                          | CSS Variable                   |
-| :------------------------- | :--------------------------------- | :----------------------------- |
-| `light.cashbackLilac[300]` | `{color.light.cashbackLilac[300]}` | `--h-color-cashback-lilac-300` |
-| `light.cashbackLilac[500]` | `{color.light.cashbackLilac[500]}` | `--h-color-cashback-lilac-500` |
-| `light.cashbackLilac[600]` | `{color.light.cashbackLilac[600]}` | `--h-color-cashback-lilac-600` |
+| Token Path            | Hex Value                                                                                               | CSS Variable                    |
+| :-------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------ |
+| `cashbackLilac[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#f7f5f8', display: 'inline-block'}} /> `#f7f5f8` | `--h-color-cashback-lilac-0`    |
+| `cashbackLilac[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#f5f2f6', display: 'inline-block'}} /> `#f5f2f6` | `--h-color-cashback-lilac-50`   |
+| `cashbackLilac[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#ebdef5', display: 'inline-block'}} /> `#ebdef5` | `--h-color-cashback-lilac-100`  |
+| `cashbackLilac[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#e4caf5', display: 'inline-block'}} /> `#e4caf5` | `--h-color-cashback-lilac-200`  |
+| `cashbackLilac[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#dfbdf5', display: 'inline-block'}} /> `#dfbdf5` | `--h-color-cashback-lilac-300`  |
+| `cashbackLilac[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#ce9cf0', display: 'inline-block'}} /> `#ce9cf0` | `--h-color-cashback-lilac-400`  |
+| `cashbackLilac[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#be7aeb', display: 'inline-block'}} /> `#be7aeb` | `--h-color-cashback-lilac-500`  |
+| `cashbackLilac[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#9f3be2', display: 'inline-block'}} /> `#9f3be2` | `--h-color-cashback-lilac-600`  |
+| `cashbackLilac[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#8b2bc9', display: 'inline-block'}} /> `#8b2bc9` | `--h-color-cashback-lilac-700`  |
+| `cashbackLilac[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#7821b8', display: 'inline-block'}} /> `#7821b8` | `--h-color-cashback-lilac-800`  |
+| `cashbackLilac[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#7429b5', display: 'inline-block'}} /> `#7429b5` | `--h-color-cashback-lilac-900`  |
+| `cashbackLilac[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#522270', display: 'inline-block'}} /> `#522270` | `--h-color-cashback-lilac-950`  |
+| `cashbackLilac[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#3a1f52', display: 'inline-block'}} /> `#3a1f52` | `--h-color-cashback-lilac-1000` |
 
 #### Energy Blue
 
-| Token Path              | Hex Value                       | CSS Variable                |
-| :---------------------- | :------------------------------ | :-------------------------- |
-| `light.energyBlue[200]` | `{color.light.energyBlue[200]}` | `--h-color-energy-blue-200` |
-| `light.energyBlue[300]` | `{color.light.energyBlue[300]}` | `--h-color-energy-blue-300` |
-| `light.energyBlue[600]` | `{color.light.energyBlue[600]}` | `--h-color-energy-blue-600` |
+| Token Path         | Hex Value                                                                                               | CSS Variable                 |
+| :----------------- | :------------------------------------------------------------------------------------------------------ | :--------------------------- |
+| `energyBlue[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#f7f9fa', display: 'inline-block'}} /> `#f7f9fa` | `--h-color-energy-blue-0`    |
+| `energyBlue[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#edf4f6', display: 'inline-block'}} /> `#edf4f6` | `--h-color-energy-blue-50`   |
+| `energyBlue[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#d4e5e9', display: 'inline-block'}} /> `#d4e5e9` | `--h-color-energy-blue-100`  |
+| `energyBlue[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#bddee4', display: 'inline-block'}} /> `#bddee4` | `--h-color-energy-blue-200`  |
+| `energyBlue[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#6db5c3', display: 'inline-block'}} /> `#6db5c3` | `--h-color-energy-blue-300`  |
+| `energyBlue[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#579daa', display: 'inline-block'}} /> `#579daa` | `--h-color-energy-blue-400`  |
+| `energyBlue[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#4c8a97', display: 'inline-block'}} /> `#4c8a97` | `--h-color-energy-blue-500`  |
+| `energyBlue[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#367683', display: 'inline-block'}} /> `#367683` | `--h-color-energy-blue-600`  |
+| `energyBlue[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#326e7a', display: 'inline-block'}} /> `#326e7a` | `--h-color-energy-blue-700`  |
+| `energyBlue[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#2d6571', display: 'inline-block'}} /> `#2d6571` | `--h-color-energy-blue-800`  |
+| `energyBlue[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#2c6370', display: 'inline-block'}} /> `#2c6370` | `--h-color-energy-blue-900`  |
+| `energyBlue[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#254348', display: 'inline-block'}} /> `#254348` | `--h-color-energy-blue-950`  |
+| `energyBlue[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#1a2f35', display: 'inline-block'}} /> `#1a2f35` | `--h-color-energy-blue-1000` |
 
 #### Green
 
-| Token Path          | Hex Value                   | CSS Variable           |
-| :------------------ | :-------------------------- | :--------------------- |
-| `light.green[50]`   | `{color.light.green[50]}`   | `--h-color-green-50`   |
-| `light.green[100]`  | `{color.light.green[100]}`  | `--h-color-green-100`  |
-| `light.green[200]`  | `{color.light.green[200]}`  | `--h-color-green-200`  |
-| `light.green[300]`  | `{color.light.green[300]}`  | `--h-color-green-300`  |
-| `light.green[400]`  | `{color.light.green[400]}`  | `--h-color-green-400`  |
-| `light.green[500]`  | `{color.light.green[500]}`  | `--h-color-green-500`  |
-| `light.green[600]`  | `{color.light.green[600]}`  | `--h-color-green-600`  |
-| `light.green[700]`  | `{color.light.green[700]}`  | `--h-color-green-700`  |
-| `light.green[800]`  | `{color.light.green[800]}`  | `--h-color-green-800`  |
-| `light.green[900]`  | `{color.light.green[900]}`  | `--h-color-green-900`  |
-| `light.green[1000]` | `{color.light.green[1000]}` | `--h-color-green-1000` |
+| Token Path    | Hex Value                                                                                               | CSS Variable           |
+| :------------ | :------------------------------------------------------------------------------------------------------ | :--------------------- |
+| `green[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#f8fdf9', display: 'inline-block'}} /> `#f8fdf9` | `--h-color-green-0`    |
+| `green[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#e7f9f0', display: 'inline-block'}} /> `#e7f9f0` | `--h-color-green-50`   |
+| `green[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#c5edda', display: 'inline-block'}} /> `#c5edda` | `--h-color-green-100`  |
+| `green[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#a2e2c3', display: 'inline-block'}} /> `#a2e2c3` | `--h-color-green-200`  |
+| `green[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#74d6a0', display: 'inline-block'}} /> `#74d6a0` | `--h-color-green-300`  |
+| `green[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#58ca93', display: 'inline-block'}} /> `#58ca93` | `--h-color-green-400`  |
+| `green[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#36bf7d', display: 'inline-block'}} /> `#36bf7d` | `--h-color-green-500`  |
+| `green[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#19a660', display: 'inline-block'}} /> `#19a660` | `--h-color-green-600`  |
+| `green[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#0f834a', display: 'inline-block'}} /> `#0f834a` | `--h-color-green-700`  |
+| `green[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#04663a', display: 'inline-block'}} /> `#04663a` | `--h-color-green-800`  |
+| `green[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#074b2a', display: 'inline-block'}} /> `#074b2a` | `--h-color-green-900`  |
+| `green[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#033d21', display: 'inline-block'}} /> `#033d21` | `--h-color-green-950`  |
+| `green[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#002e18', display: 'inline-block'}} /> `#002e18` | `--h-color-green-1000` |
 
 #### Grey
 
-| Token Path         | Hex Value                  | CSS Variable          |
-| :----------------- | :------------------------- | :-------------------- |
-| `light.grey[50]`   | `{color.light.grey[50]}`   | `--h-color-grey-50`   |
-| `light.grey[100]`  | `{color.light.grey[100]}`  | `--h-color-grey-100`  |
-| `light.grey[200]`  | `{color.light.grey[200]}`  | `--h-color-grey-200`  |
-| `light.grey[300]`  | `{color.light.grey[300]}`  | `--h-color-grey-300`  |
-| `light.grey[400]`  | `{color.light.grey[400]}`  | `--h-color-grey-400`  |
-| `light.grey[500]`  | `{color.light.grey[500]}`  | `--h-color-grey-500`  |
-| `light.grey[600]`  | `{color.light.grey[600]}`  | `--h-color-grey-600`  |
-| `light.grey[700]`  | `{color.light.grey[700]}`  | `--h-color-grey-700`  |
-| `light.grey[800]`  | `{color.light.grey[800]}`  | `--h-color-grey-800`  |
-| `light.grey[900]`  | `{color.light.grey[900]}`  | `--h-color-grey-900`  |
-| `light.grey[1000]` | `{color.light.grey[1000]}` | `--h-color-grey-1000` |
+| Token Path   | Hex Value                                                                                               | CSS Variable          |
+| :----------- | :------------------------------------------------------------------------------------------------------ | :-------------------- |
+| `grey[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#ffffff', display: 'inline-block'}} /> `#ffffff` | `--h-color-grey-0`    |
+| `grey[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#f6f5f5', display: 'inline-block'}} /> `#f6f5f5` | `--h-color-grey-50`   |
+| `grey[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#e7e6e6', display: 'inline-block'}} /> `#e7e6e6` | `--h-color-grey-100`  |
+| `grey[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#d1d0d0', display: 'inline-block'}} /> `#d1d0d0` | `--h-color-grey-200`  |
+| `grey[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#b2afae', display: 'inline-block'}} /> `#b2afae` | `--h-color-grey-300`  |
+| `grey[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#8a8686', display: 'inline-block'}} /> `#8a8686` | `--h-color-grey-400`  |
+| `grey[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#6f6c6b', display: 'inline-block'}} /> `#6f6c6b` | `--h-color-grey-500`  |
+| `grey[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#5f5c5b', display: 'inline-block'}} /> `#5f5c5b` | `--h-color-grey-600`  |
+| `grey[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#555352', display: 'inline-block'}} /> `#555352` | `--h-color-grey-700`  |
+| `grey[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#464444', display: 'inline-block'}} /> `#464444` | `--h-color-grey-800`  |
+| `grey[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#3e3c3b', display: 'inline-block'}} /> `#3e3c3b` | `--h-color-grey-900`  |
+| `grey[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#222222', display: 'inline-block'}} /> `#222222` | `--h-color-grey-950`  |
+| `grey[975]`  | <span style={{width: 15, height: 15, backgroundColor: '#191919', display: 'inline-block'}} /> `#191919` | `--h-color-grey-975`  |
+| `grey[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#101010', display: 'inline-block'}} /> `#101010` | `--h-color-grey-1000` |
 
 #### Insurance Orange
 
-| Token Path                   | Hex Value                            | CSS Variable                     |
-| :--------------------------- | :----------------------------------- | :------------------------------- |
-| `light.insuranceOrange[300]` | `{color.light.insuranceOrange[300]}` | `--h-color-insurance-orange-300` |
-| `light.insuranceOrange[400]` | `{color.light.insuranceOrange[400]}` | `--h-color-insurance-orange-400` |
-| `light.insuranceOrange[700]` | `{color.light.insuranceOrange[700]}` | `--h-color-insurance-orange-700` |
+| Token Path              | Hex Value                                                                                               | CSS Variable                      |
+| :---------------------- | :------------------------------------------------------------------------------------------------------ | :-------------------------------- |
+| `insuranceOrange[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#fefcf9', display: 'inline-block'}} /> `#fefcf9` | `--h-color-insurance-orange-0`    |
+| `insuranceOrange[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#fdf5eb', display: 'inline-block'}} /> `#fdf5eb` | `--h-color-insurance-orange-50`   |
+| `insuranceOrange[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#fcecd6', display: 'inline-block'}} /> `#fcecd6` | `--h-color-insurance-orange-100`  |
+| `insuranceOrange[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#ffcda0', display: 'inline-block'}} /> `#ffcda0` | `--h-color-insurance-orange-200`  |
+| `insuranceOrange[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#ffb46d', display: 'inline-block'}} /> `#ffb46d` | `--h-color-insurance-orange-300`  |
+| `insuranceOrange[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#ff7b00', display: 'inline-block'}} /> `#ff7b00` | `--h-color-insurance-orange-400`  |
+| `insuranceOrange[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#f06b00', display: 'inline-block'}} /> `#f06b00` | `--h-color-insurance-orange-500`  |
+| `insuranceOrange[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#e26400', display: 'inline-block'}} /> `#e26400` | `--h-color-insurance-orange-600`  |
+| `insuranceOrange[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#cb5b00', display: 'inline-block'}} /> `#cb5b00` | `--h-color-insurance-orange-700`  |
+| `insuranceOrange[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#9b4c0e', display: 'inline-block'}} /> `#9b4c0e` | `--h-color-insurance-orange-800`  |
+| `insuranceOrange[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#7f4518', display: 'inline-block'}} /> `#7f4518` | `--h-color-insurance-orange-900`  |
+| `insuranceOrange[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#5a3213', display: 'inline-block'}} /> `#5a3213` | `--h-color-insurance-orange-950`  |
+| `insuranceOrange[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#3f2616', display: 'inline-block'}} /> `#3f2616` | `--h-color-insurance-orange-1000` |
 
 #### Mobile Rose
 
-| Token Path              | Hex Value                       | CSS Variable                |
-| :---------------------- | :------------------------------ | :-------------------------- |
-| `light.mobileRose[200]` | `{color.light.mobileRose[200]}` | `--h-color-mobile-rose-200` |
-| `light.mobileRose[400]` | `{color.light.mobileRose[400]}` | `--h-color-mobile-rose-400` |
-| `light.mobileRose[600]` | `{color.light.mobileRose[600]}` | `--h-color-mobile-rose-600` |
+| Token Path         | Hex Value                                                                                               | CSS Variable                 |
+| :----------------- | :------------------------------------------------------------------------------------------------------ | :--------------------------- |
+| `mobileRose[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#fffaf9', display: 'inline-block'}} /> `#fffaf9` | `--h-color-mobile-rose-0`    |
+| `mobileRose[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#fdf2f6', display: 'inline-block'}} /> `#fdf2f6` | `--h-color-mobile-rose-50`   |
+| `mobileRose[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#faeaf2', display: 'inline-block'}} /> `#faeaf2` | `--h-color-mobile-rose-100`  |
+| `mobileRose[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#fad0e9', display: 'inline-block'}} /> `#fad0e9` | `--h-color-mobile-rose-200`  |
+| `mobileRose[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#f49fd2', display: 'inline-block'}} /> `#f49fd2` | `--h-color-mobile-rose-300`  |
+| `mobileRose[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#ee6dbb', display: 'inline-block'}} /> `#ee6dbb` | `--h-color-mobile-rose-400`  |
+| `mobileRose[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#e652aa', display: 'inline-block'}} /> `#e652aa` | `--h-color-mobile-rose-500`  |
+| `mobileRose[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#de379a', display: 'inline-block'}} /> `#de379a` | `--h-color-mobile-rose-600`  |
+| `mobileRose[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#d61c89', display: 'inline-block'}} /> `#d61c89` | `--h-color-mobile-rose-700`  |
+| `mobileRose[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#a7266d', display: 'inline-block'}} /> `#a7266d` | `--h-color-mobile-rose-800`  |
+| `mobileRose[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#8a3260', display: 'inline-block'}} /> `#8a3260` | `--h-color-mobile-rose-900`  |
+| `mobileRose[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#601f42', display: 'inline-block'}} /> `#601f42` | `--h-color-mobile-rose-950`  |
+| `mobileRose[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#421a32', display: 'inline-block'}} /> `#421a32` | `--h-color-mobile-rose-1000` |
 
 #### Orange
 
-| Token Path           | Hex Value                    | CSS Variable            |
-| :------------------- | :--------------------------- | :---------------------- |
-| `light.orange[50]`   | `{color.light.orange[50]}`   | `--h-color-orange-50`   |
-| `light.orange[100]`  | `{color.light.orange[100]}`  | `--h-color-orange-100`  |
-| `light.orange[200]`  | `{color.light.orange[200]}`  | `--h-color-orange-200`  |
-| `light.orange[300]`  | `{color.light.orange[300]}`  | `--h-color-orange-300`  |
-| `light.orange[400]`  | `{color.light.orange[400]}`  | `--h-color-orange-400`  |
-| `light.orange[500]`  | `{color.light.orange[500]}`  | `--h-color-orange-500`  |
-| `light.orange[600]`  | `{color.light.orange[600]}`  | `--h-color-orange-600`  |
-| `light.orange[700]`  | `{color.light.orange[700]}`  | `--h-color-orange-700`  |
-| `light.orange[800]`  | `{color.light.orange[800]}`  | `--h-color-orange-800`  |
-| `light.orange[900]`  | `{color.light.orange[900]}`  | `--h-color-orange-900`  |
-| `light.orange[1000]` | `{color.light.orange[1000]}` | `--h-color-orange-1000` |
+| Token Path     | Hex Value                                                                                               | CSS Variable            |
+| :------------- | :------------------------------------------------------------------------------------------------------ | :---------------------- |
+| `orange[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#fffdf8', display: 'inline-block'}} /> `#fffdf8` | `--h-color-orange-0`    |
+| `orange[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#fff5ed', display: 'inline-block'}} /> `#fff5ed` | `--h-color-orange-50`   |
+| `orange[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#ffe6d4', display: 'inline-block'}} /> `#ffe6d4` | `--h-color-orange-100`  |
+| `orange[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#ffcca8', display: 'inline-block'}} /> `#ffcca8` | `--h-color-orange-200`  |
+| `orange[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#ffab70', display: 'inline-block'}} /> `#ffab70` | `--h-color-orange-300`  |
+| `orange[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#ff9639', display: 'inline-block'}} /> `#ff9639` | `--h-color-orange-400`  |
+| `orange[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#ff8010', display: 'inline-block'}} /> `#ff8010` | `--h-color-orange-500`  |
+| `orange[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#f56e00', display: 'inline-block'}} /> `#f56e00` | `--h-color-orange-600`  |
+| `orange[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#cf5d00', display: 'inline-block'}} /> `#cf5d00` | `--h-color-orange-700`  |
+| `orange[750]`  | <span style={{width: 15, height: 15, backgroundColor: '#be5400', display: 'inline-block'}} /> `#be5400` | `--h-color-orange-750`  |
+| `orange[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#ad4b00', display: 'inline-block'}} /> `#ad4b00` | `--h-color-orange-800`  |
+| `orange[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#893900', display: 'inline-block'}} /> `#893900` | `--h-color-orange-900`  |
+| `orange[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#6b2d00', display: 'inline-block'}} /> `#6b2d00` | `--h-color-orange-950`  |
+| `orange[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#4a1f00', display: 'inline-block'}} /> `#4a1f00` | `--h-color-orange-1000` |
 
 #### Piggy Pink
 
-| Token Path             | Hex Value                      | CSS Variable               |
-| :--------------------- | :----------------------------- | :------------------------- |
-| `light.piggyPink[200]` | `{color.light.piggyPink[200]}` | `--h-color-piggy-pink-200` |
-| `light.piggyPink[300]` | `{color.light.piggyPink[300]}` | `--h-color-piggy-pink-300` |
-| `light.piggyPink[500]` | `{color.light.piggyPink[500]}` | `--h-color-piggy-pink-500` |
+| Token Path        | Hex Value                                                                                               | CSS Variable                |
+| :---------------- | :------------------------------------------------------------------------------------------------------ | :-------------------------- |
+| `piggyPink[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#faf5fa', display: 'inline-block'}} /> `#faf5fa` | `--h-color-piggy-pink-0`    |
+| `piggyPink[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#f6f1f7', display: 'inline-block'}} /> `#f6f1f7` | `--h-color-piggy-pink-50`   |
+| `piggyPink[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#f9eafa', display: 'inline-block'}} /> `#f9eafa` | `--h-color-piggy-pink-100`  |
+| `piggyPink[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#f9ceff', display: 'inline-block'}} /> `#f9ceff` | `--h-color-piggy-pink-200`  |
+| `piggyPink[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#f295ff', display: 'inline-block'}} /> `#f295ff` | `--h-color-piggy-pink-300`  |
+| `piggyPink[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#ed66ff', display: 'inline-block'}} /> `#ed66ff` | `--h-color-piggy-pink-400`  |
+| `piggyPink[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#d052c8', display: 'inline-block'}} /> `#d052c8` | `--h-color-piggy-pink-500`  |
+| `piggyPink[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#bc48b4', display: 'inline-block'}} /> `#bc48b4` | `--h-color-piggy-pink-600`  |
+| `piggyPink[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#a53fa5', display: 'inline-block'}} /> `#a53fa5` | `--h-color-piggy-pink-700`  |
+| `piggyPink[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#8f358f', display: 'inline-block'}} /> `#8f358f` | `--h-color-piggy-pink-800`  |
+| `piggyPink[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#7a1f7e', display: 'inline-block'}} /> `#7a1f7e` | `--h-color-piggy-pink-900`  |
+| `piggyPink[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#5d2167', display: 'inline-block'}} /> `#5d2167` | `--h-color-piggy-pink-950`  |
+| `piggyPink[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#3f1448', display: 'inline-block'}} /> `#3f1448` | `--h-color-piggy-pink-1000` |
 
 #### Purple
 
-| Token Path           | Hex Value                    | CSS Variable            |
-| :------------------- | :--------------------------- | :---------------------- |
-| `light.purple[300]`  | `{color.light.purple[300]}`  | `--h-color-purple-300`  |
-| `light.purple[700]`  | `{color.light.purple[700]}`  | `--h-color-purple-700`  |
-| `light.purple[800]`  | `{color.light.purple[800]}`  | `--h-color-purple-800`  |
-| `light.purple[900]`  | `{color.light.purple[900]}`  | `--h-color-purple-900`  |
-| `light.purple[1000]` | `{color.light.purple[1000]}` | `--h-color-purple-1000` |
+| Token Path     | Hex Value                                                                                               | CSS Variable            |
+| :------------- | :------------------------------------------------------------------------------------------------------ | :---------------------- |
+| `purple[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#f7f6f9', display: 'inline-block'}} /> `#f7f6f9` | `--h-color-purple-0`    |
+| `purple[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#eeebf4', display: 'inline-block'}} /> `#eeebf4` | `--h-color-purple-50`   |
+| `purple[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#e6dff1', display: 'inline-block'}} /> `#e6dff1` | `--h-color-purple-100`  |
+| `purple[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#ddd2ef', display: 'inline-block'}} /> `#ddd2ef` | `--h-color-purple-200`  |
+| `purple[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#d5c3ee', display: 'inline-block'}} /> `#d5c3ee` | `--h-color-purple-300`  |
+| `purple[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#a782db', display: 'inline-block'}} /> `#a782db` | `--h-color-purple-400`  |
+| `purple[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#926fd1', display: 'inline-block'}} /> `#926fd1` | `--h-color-purple-500`  |
+| `purple[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#8850cf', display: 'inline-block'}} /> `#8850cf` | `--h-color-purple-600`  |
+| `purple[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#7a42c8', display: 'inline-block'}} /> `#7a42c8` | `--h-color-purple-700`  |
+| `purple[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#6538b8', display: 'inline-block'}} /> `#6538b8` | `--h-color-purple-800`  |
+| `purple[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#5a3285', display: 'inline-block'}} /> `#5a3285` | `--h-color-purple-900`  |
+| `purple[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#492d6f', display: 'inline-block'}} /> `#492d6f` | `--h-color-purple-950`  |
+| `purple[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#26164f', display: 'inline-block'}} /> `#26164f` | `--h-color-purple-1000` |
 
 #### Red
 
-| Token Path        | Hex Value                 | CSS Variable         |
-| :---------------- | :------------------------ | :------------------- |
-| `light.red[50]`   | `{color.light.red[50]}`   | `--h-color-red-50`   |
-| `light.red[100]`  | `{color.light.red[100]}`  | `--h-color-red-100`  |
-| `light.red[200]`  | `{color.light.red[200]}`  | `--h-color-red-200`  |
-| `light.red[300]`  | `{color.light.red[300]}`  | `--h-color-red-300`  |
-| `light.red[400]`  | `{color.light.red[400]}`  | `--h-color-red-400`  |
-| `light.red[500]`  | `{color.light.red[500]}`  | `--h-color-red-500`  |
-| `light.red[600]`  | `{color.light.red[600]}`  | `--h-color-red-600`  |
-| `light.red[700]`  | `{color.light.red[700]}`  | `--h-color-red-700`  |
-| `light.red[800]`  | `{color.light.red[800]}`  | `--h-color-red-800`  |
-| `light.red[900]`  | `{color.light.red[900]}`  | `--h-color-red-900`  |
-| `light.red[1000]` | `{color.light.red[1000]}` | `--h-color-red-1000` |
+| Token Path  | Hex Value                                                                                               | CSS Variable         |
+| :---------- | :------------------------------------------------------------------------------------------------------ | :------------------- |
+| `red[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#fffaf9', display: 'inline-block'}} /> `#fffaf9` | `--h-color-red-0`    |
+| `red[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#fff3f1', display: 'inline-block'}} /> `#fff3f1` | `--h-color-red-50`   |
+| `red[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#ffe3df', display: 'inline-block'}} /> `#ffe3df` | `--h-color-red-100`  |
+| `red[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#ffccc5', display: 'inline-block'}} /> `#ffccc5` | `--h-color-red-200`  |
+| `red[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#ffa89d', display: 'inline-block'}} /> `#ffa89d` | `--h-color-red-300`  |
+| `red[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#ff7964', display: 'inline-block'}} /> `#ff7964` | `--h-color-red-400`  |
+| `red[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#ff634a', display: 'inline-block'}} /> `#ff634a` | `--h-color-red-500`  |
+| `red[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#f4412a', display: 'inline-block'}} /> `#f4412a` | `--h-color-red-600`  |
+| `red[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#de2612', display: 'inline-block'}} /> `#de2612` | `--h-color-red-700`  |
+| `red[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#a4281e', display: 'inline-block'}} /> `#a4281e` | `--h-color-red-800`  |
+| `red[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#6b1f1a', display: 'inline-block'}} /> `#6b1f1a` | `--h-color-red-900`  |
+| `red[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#521a16', display: 'inline-block'}} /> `#521a16` | `--h-color-red-950`  |
+| `red[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#3b1512', display: 'inline-block'}} /> `#3b1512` | `--h-color-red-1000` |
 
 #### Warm White
 
-| Token Path             | Hex Value                      | CSS Variable               |
-| :--------------------- | :----------------------------- | :------------------------- |
-| `light.warmWhite[50]`  | `{color.light.warmWhite[50]}`  | `--h-color-warm-white-50`  |
-| `light.warmWhite[100]` | `{color.light.warmWhite[100]}` | `--h-color-warm-white-100` |
-| `light.warmWhite[200]` | `{color.light.warmWhite[200]}` | `--h-color-warm-white-200` |
-| `light.warmWhite[300]` | `{color.light.warmWhite[300]}` | `--h-color-warm-white-300` |
+| Token Path        | Hex Value                                                                                               | CSS Variable                |
+| :---------------- | :------------------------------------------------------------------------------------------------------ | :-------------------------- |
+| `warmWhite[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#fdfcfa', display: 'inline-block'}} /> `#fdfcfa` | `--h-color-warm-white-0`    |
+| `warmWhite[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#fcfbf2', display: 'inline-block'}} /> `#fcfbf2` | `--h-color-warm-white-50`   |
+| `warmWhite[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#f7f6eb', display: 'inline-block'}} /> `#f7f6eb` | `--h-color-warm-white-100`  |
+| `warmWhite[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#f1efe4', display: 'inline-block'}} /> `#f1efe4` | `--h-color-warm-white-200`  |
+| `warmWhite[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#d4d2c0', display: 'inline-block'}} /> `#d4d2c0` | `--h-color-warm-white-300`  |
+| `warmWhite[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#bfb9a9', display: 'inline-block'}} /> `#bfb9a9` | `--h-color-warm-white-400`  |
+| `warmWhite[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#a99f8b', display: 'inline-block'}} /> `#a99f8b` | `--h-color-warm-white-500`  |
+| `warmWhite[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#89816e', display: 'inline-block'}} /> `#89816e` | `--h-color-warm-white-600`  |
+| `warmWhite[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#6a6354', display: 'inline-block'}} /> `#6a6354` | `--h-color-warm-white-700`  |
+| `warmWhite[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#4c473d', display: 'inline-block'}} /> `#4c473d` | `--h-color-warm-white-800`  |
+| `warmWhite[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#30302c', display: 'inline-block'}} /> `#30302c` | `--h-color-warm-white-900`  |
+| `warmWhite[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#282825', display: 'inline-block'}} /> `#282825` | `--h-color-warm-white-950`  |
+| `warmWhite[975]`  | <span style={{width: 15, height: 15, backgroundColor: '#20201d', display: 'inline-block'}} /> `#20201d` | `--h-color-warm-white-975`  |
+| `warmWhite[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#191917', display: 'inline-block'}} /> `#191917` | `--h-color-warm-white-1000` |
 
 #### Yellow
 
-| Token Path           | Hex Value                    | CSS Variable            |
-| :------------------- | :--------------------------- | :---------------------- |
-| `light.yellow[50]`   | `{color.light.yellow[50]}`   | `--h-color-yellow-50`   |
-| `light.yellow[100]`  | `{color.light.yellow[100]}`  | `--h-color-yellow-100`  |
-| `light.yellow[200]`  | `{color.light.yellow[200]}`  | `--h-color-yellow-200`  |
-| `light.yellow[300]`  | `{color.light.yellow[300]}`  | `--h-color-yellow-300`  |
-| `light.yellow[400]`  | `{color.light.yellow[400]}`  | `--h-color-yellow-400`  |
-| `light.yellow[500]`  | `{color.light.yellow[500]}`  | `--h-color-yellow-500`  |
-| `light.yellow[600]`  | `{color.light.yellow[600]}`  | `--h-color-yellow-600`  |
-| `light.yellow[700]`  | `{color.light.yellow[700]}`  | `--h-color-yellow-700`  |
-| `light.yellow[800]`  | `{color.light.yellow[800]}`  | `--h-color-yellow-800`  |
-| `light.yellow[900]`  | `{color.light.yellow[900]}`  | `--h-color-yellow-900`  |
-| `light.yellow[1000]` | `{color.light.yellow[1000]}` | `--h-color-yellow-1000` |
+| Token Path     | Hex Value                                                                                               | CSS Variable            |
+| :------------- | :------------------------------------------------------------------------------------------------------ | :---------------------- |
+| `yellow[0]`    | <span style={{width: 15, height: 15, backgroundColor: '#fffef9', display: 'inline-block'}} /> `#fffef9` | `--h-color-yellow-0`    |
+| `yellow[50]`   | <span style={{width: 15, height: 15, backgroundColor: '#fff8ea', display: 'inline-block'}} /> `#fff8ea` | `--h-color-yellow-50`   |
+| `yellow[100]`  | <span style={{width: 15, height: 15, backgroundColor: '#ffe8b8', display: 'inline-block'}} /> `#ffe8b8` | `--h-color-yellow-100`  |
+| `yellow[200]`  | <span style={{width: 15, height: 15, backgroundColor: '#ffd885', display: 'inline-block'}} /> `#ffd885` | `--h-color-yellow-200`  |
+| `yellow[300]`  | <span style={{width: 15, height: 15, backgroundColor: '#ffc852', display: 'inline-block'}} /> `#ffc852` | `--h-color-yellow-300`  |
+| `yellow[400]`  | <span style={{width: 15, height: 15, backgroundColor: '#ffb921', display: 'inline-block'}} /> `#ffb921` | `--h-color-yellow-400`  |
+| `yellow[500]`  | <span style={{width: 15, height: 15, backgroundColor: '#eba400', display: 'inline-block'}} /> `#eba400` | `--h-color-yellow-500`  |
+| `yellow[600]`  | <span style={{width: 15, height: 15, backgroundColor: '#d1950b', display: 'inline-block'}} /> `#d1950b` | `--h-color-yellow-600`  |
+| `yellow[700]`  | <span style={{width: 15, height: 15, backgroundColor: '#b78715', display: 'inline-block'}} /> `#b78715` | `--h-color-yellow-700`  |
+| `yellow[800]`  | <span style={{width: 15, height: 15, backgroundColor: '#9c7820', display: 'inline-block'}} /> `#9c7820` | `--h-color-yellow-800`  |
+| `yellow[900]`  | <span style={{width: 15, height: 15, backgroundColor: '#82692b', display: 'inline-block'}} /> `#82692b` | `--h-color-yellow-900`  |
+| `yellow[950]`  | <span style={{width: 15, height: 15, backgroundColor: '#756230', display: 'inline-block'}} /> `#756230` | `--h-color-yellow-950`  |
+| `yellow[1000]` | <span style={{width: 15, height: 15, backgroundColor: '#4c401f', display: 'inline-block'}} /> `#4c401f` | `--h-color-yellow-1000` |
+
+### Semantic Theme Colors
+
+#### Light Theme - Background
+
+| Token Path                   | Hex Value                                                                                               | CSS Variable                           |
+| :--------------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------------- |
+| `light.background.brand`     | <span style={{width: 15, height: 15, backgroundColor: '#7a42c8', display: 'inline-block'}} /> `#7a42c8` | `--h-color-light-background-brand`     |
+| `light.background.primary`   | <span style={{width: 15, height: 15, backgroundColor: '#fcfbf2', display: 'inline-block'}} /> `#fcfbf2` | `--h-color-light-background-primary`   |
+| `light.background.secondary` | <span style={{width: 15, height: 15, backgroundColor: '#ffffff', display: 'inline-block'}} /> `#ffffff` | `--h-color-light-background-secondary` |
+
+#### Light Theme - Text
+
+| Token Path             | Hex Value                                                                                               | CSS Variable                     |
+| :--------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------- |
+| `light.text.primary`   | <span style={{width: 15, height: 15, backgroundColor: '#101010', display: 'inline-block'}} /> `#101010` | `--h-color-light-text-primary`   |
+| `light.text.secondary` | <span style={{width: 15, height: 15, backgroundColor: '#6f6c6b', display: 'inline-block'}} /> `#6f6c6b` | `--h-color-light-text-secondary` |
+| `light.text.inverted`  | <span style={{width: 15, height: 15, backgroundColor: '#fcfbf2', display: 'inline-block'}} /> `#fcfbf2` | `--h-color-light-text-inverted`  |
+
+#### Light Theme - Border
+
+| Token Path                  | Hex Value                                                                                               | CSS Variable                          |
+| :-------------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------------ |
+| `light.border.strong.color` | <span style={{width: 15, height: 15, backgroundColor: '#101010', display: 'inline-block'}} /> `#101010` | `--h-color-light-border-strong-color` |
+| `light.border.subtle.color` | <span style={{width: 15, height: 15, backgroundColor: '#d4d2c0', display: 'inline-block'}} /> `#d4d2c0` | `--h-color-light-border-subtle-color` |
+
+#### Light Theme - Focus
+
+| Token Path                  | Hex Value                                                                                               | CSS Variable                           |
+| :-------------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------------- |
+| `light.focus.focus`         | <span style={{width: 15, height: 15, backgroundColor: '#101010', display: 'inline-block'}} /> `#101010` | `--h-color-light-focus-focus`          |
+| `light.focus.focusInverted` | <span style={{width: 15, height: 15, backgroundColor: '#fcfbf2', display: 'inline-block'}} /> `#fcfbf2` | `--h-color-light-focus-focus-inverted` |
+
+#### Light Theme - Feedback
+
+| Token Path                                | Hex Value                                                                                               | CSS Variable                                        |
+| :---------------------------------------- | :------------------------------------------------------------------------------------------------------ | :-------------------------------------------------- |
+| `light.feedback.danger.default.color`     | <span style={{width: 15, height: 15, backgroundColor: '#de2612', display: 'inline-block'}} /> `#de2612` | `--h-color-light-feedback-danger-default-color`     |
+| `light.feedback.danger.subtle.color`      | <span style={{width: 15, height: 15, backgroundColor: '#ffccc5', display: 'inline-block'}} /> `#ffccc5` | `--h-color-light-feedback-danger-subtle-color`      |
+| `light.feedback.functional.default.color` | <span style={{width: 15, height: 15, backgroundColor: '#5f5c5b', display: 'inline-block'}} /> `#5f5c5b` | `--h-color-light-feedback-functional-default-color` |
+| `light.feedback.functional.subtle.color`  | <span style={{width: 15, height: 15, backgroundColor: '#d1d0d0', display: 'inline-block'}} /> `#d1d0d0` | `--h-color-light-feedback-functional-subtle-color`  |
+| `light.feedback.info.default.color`       | <span style={{width: 15, height: 15, backgroundColor: '#1c6cd4', display: 'inline-block'}} /> `#1c6cd4` | `--h-color-light-feedback-info-default-color`       |
+| `light.feedback.info.subtle.color`        | <span style={{width: 15, height: 15, backgroundColor: '#bcddff', display: 'inline-block'}} /> `#bcddff` | `--h-color-light-feedback-info-subtle-color`        |
+| `light.feedback.positive.default.color`   | <span style={{width: 15, height: 15, backgroundColor: '#0f834a', display: 'inline-block'}} /> `#0f834a` | `--h-color-light-feedback-positive-default-color`   |
+| `light.feedback.positive.subtle.color`    | <span style={{width: 15, height: 15, backgroundColor: '#a2e2c3', display: 'inline-block'}} /> `#a2e2c3` | `--h-color-light-feedback-positive-subtle-color`    |
+| `light.feedback.warning.default.color`    | <span style={{width: 15, height: 15, backgroundColor: '#cf5d00', display: 'inline-block'}} /> `#cf5d00` | `--h-color-light-feedback-warning-default-color`    |
+| `light.feedback.warning.subtle.color`     | <span style={{width: 15, height: 15, backgroundColor: '#ffcca8', display: 'inline-block'}} /> `#ffcca8` | `--h-color-light-feedback-warning-subtle-color`     |
+
+#### Light Theme - Surface
+
+| Token Path                              | Hex Value                                                                                               | CSS Variable                                      |
+| :-------------------------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------------------------ |
+| `light.surface.brand.default.color`     | <span style={{width: 15, height: 15, backgroundColor: '#7a42c8', display: 'inline-block'}} /> `#7a42c8` | `--h-color-light-surface-brand-default-color`     |
+| `light.surface.brand.strong.color`      | <span style={{width: 15, height: 15, backgroundColor: '#26164f', display: 'inline-block'}} /> `#26164f` | `--h-color-light-surface-brand-strong-color`      |
+| `light.surface.brand.subtle.color`      | <span style={{width: 15, height: 15, backgroundColor: '#d5c3ee', display: 'inline-block'}} /> `#d5c3ee` | `--h-color-light-surface-brand-subtle-color`      |
+| `light.surface.broadband.default.color` | <span style={{width: 15, height: 15, backgroundColor: '#8cba3b', display: 'inline-block'}} /> `#8cba3b` | `--h-color-light-surface-broadband-default-color` |
+| `light.surface.broadband.subtle.color`  | <span style={{width: 15, height: 15, backgroundColor: '#d2e6b0', display: 'inline-block'}} /> `#d2e6b0` | `--h-color-light-surface-broadband-subtle-color`  |
+| `light.surface.cashback.default.color`  | <span style={{width: 15, height: 15, backgroundColor: '#be7aeb', display: 'inline-block'}} /> `#be7aeb` | `--h-color-light-surface-cashback-default-color`  |
+| `light.surface.cashback.subtle.color`   | <span style={{width: 15, height: 15, backgroundColor: '#dfbdf5', display: 'inline-block'}} /> `#dfbdf5` | `--h-color-light-surface-cashback-subtle-color`   |
+| `light.surface.energy.default.color`    | <span style={{width: 15, height: 15, backgroundColor: '#6db5c3', display: 'inline-block'}} /> `#6db5c3` | `--h-color-light-surface-energy-default-color`    |
+| `light.surface.energy.subtle.color`     | <span style={{width: 15, height: 15, backgroundColor: '#bddee4', display: 'inline-block'}} /> `#bddee4` | `--h-color-light-surface-energy-subtle-color`     |
+| `light.surface.highlight.default.color` | <span style={{width: 15, height: 15, backgroundColor: '#ffb921', display: 'inline-block'}} /> `#ffb921` | `--h-color-light-surface-highlight-default-color` |
+| `light.surface.highlight.subtle.color`  | <span style={{width: 15, height: 15, backgroundColor: '#ffd885', display: 'inline-block'}} /> `#ffd885` | `--h-color-light-surface-highlight-subtle-color`  |
+| `light.surface.insurance.default.color` | <span style={{width: 15, height: 15, backgroundColor: '#ff7b00', display: 'inline-block'}} /> `#ff7b00` | `--h-color-light-surface-insurance-default-color` |
+| `light.surface.insurance.subtle.color`  | <span style={{width: 15, height: 15, backgroundColor: '#ffb46d', display: 'inline-block'}} /> `#ffb46d` | `--h-color-light-surface-insurance-subtle-color`  |
+| `light.surface.mobile.default.color`    | <span style={{width: 15, height: 15, backgroundColor: '#ee6dbb', display: 'inline-block'}} /> `#ee6dbb` | `--h-color-light-surface-mobile-default-color`    |
+| `light.surface.mobile.subtle.color`     | <span style={{width: 15, height: 15, backgroundColor: '#fad0e9', display: 'inline-block'}} /> `#fad0e9` | `--h-color-light-surface-mobile-subtle-color`     |
+| `light.surface.pig.default.color`       | <span style={{width: 15, height: 15, backgroundColor: '#f295ff', display: 'inline-block'}} /> `#f295ff` | `--h-color-light-surface-pig-default-color`       |
+| `light.surface.pig.subtle.color`        | <span style={{width: 15, height: 15, backgroundColor: '#f9ceff', display: 'inline-block'}} /> `#f9ceff` | `--h-color-light-surface-pig-subtle-color`        |
+
+#### Light Theme - Shadow
+
+| Token Path                     | Hex Value                                                                                               | CSS Variable                             |
+| :----------------------------- | :------------------------------------------------------------------------------------------------------ | :--------------------------------------- |
+| `light.shadow.default.color`   | <span style={{width: 15, height: 15, backgroundColor: '#101010', display: 'inline-block'}} /> `#101010` | `--h-color-light-shadow-default-color`   |
+| `light.shadow.brand.color`     | <span style={{width: 15, height: 15, backgroundColor: '#7a42c8', display: 'inline-block'}} /> `#7a42c8` | `--h-color-light-shadow-brand-color`     |
+| `light.shadow.broadband.color` | <span style={{width: 15, height: 15, backgroundColor: '#8cba3b', display: 'inline-block'}} /> `#8cba3b` | `--h-color-light-shadow-broadband-color` |
+| `light.shadow.cashback.color`  | <span style={{width: 15, height: 15, backgroundColor: '#be7aeb', display: 'inline-block'}} /> `#be7aeb` | `--h-color-light-shadow-cashback-color`  |
+| `light.shadow.energy.color`    | <span style={{width: 15, height: 15, backgroundColor: '#6db5c3', display: 'inline-block'}} /> `#6db5c3` | `--h-color-light-shadow-energy-color`    |
+| `light.shadow.insurance.color` | <span style={{width: 15, height: 15, backgroundColor: '#ff7b00', display: 'inline-block'}} /> `#ff7b00` | `--h-color-light-shadow-insurance-color` |
+| `light.shadow.mobile.color`    | <span style={{width: 15, height: 15, backgroundColor: '#ee6dbb', display: 'inline-block'}} /> `#ee6dbb` | `--h-color-light-shadow-mobile-color`    |
+| `light.shadow.pig.color`       | <span style={{width: 15, height: 15, backgroundColor: '#f295ff', display: 'inline-block'}} /> `#f295ff` | `--h-color-light-shadow-pig-color`       |
+
+#### Dark Theme - Background
+
+| Token Path                  | Hex Value                                                                                               | CSS Variable                          |
+| :-------------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------------ |
+| `dark.background.brand`     | <span style={{width: 15, height: 15, backgroundColor: '#7a42c8', display: 'inline-block'}} /> `#7a42c8` | `--h-color-dark-background-brand`     |
+| `dark.background.primary`   | <span style={{width: 15, height: 15, backgroundColor: '#191917', display: 'inline-block'}} /> `#191917` | `--h-color-dark-background-primary`   |
+| `dark.background.secondary` | <span style={{width: 15, height: 15, backgroundColor: '#222222', display: 'inline-block'}} /> `#222222` | `--h-color-dark-background-secondary` |
+
+#### Dark Theme - Text
+
+| Token Path            | Hex Value                                                                                               | CSS Variable                    |
+| :-------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------ |
+| `dark.text.primary`   | <span style={{width: 15, height: 15, backgroundColor: '#e7e6e6', display: 'inline-block'}} /> `#e7e6e6` | `--h-color-dark-text-primary`   |
+| `dark.text.secondary` | <span style={{width: 15, height: 15, backgroundColor: '#b2afae', display: 'inline-block'}} /> `#b2afae` | `--h-color-dark-text-secondary` |
+| `dark.text.inverted`  | <span style={{width: 15, height: 15, backgroundColor: '#fcfbf2', display: 'inline-block'}} /> `#fcfbf2` | `--h-color-dark-text-inverted`  |
+
+#### Dark Theme - Border
+
+| Token Path                 | Hex Value                                                                                               | CSS Variable                         |
+| :------------------------- | :------------------------------------------------------------------------------------------------------ | :----------------------------------- |
+| `dark.border.strong.color` | <span style={{width: 15, height: 15, backgroundColor: '#e7e6e6', display: 'inline-block'}} /> `#e7e6e6` | `--h-color-dark-border-strong-color` |
+| `dark.border.subtle.color` | <span style={{width: 15, height: 15, backgroundColor: '#4c473d', display: 'inline-block'}} /> `#4c473d` | `--h-color-dark-border-subtle-color` |
+
+#### Dark Theme - Focus
+
+| Token Path                 | Hex Value                                                                                               | CSS Variable                          |
+| :------------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------------ |
+| `dark.focus.focus`         | <span style={{width: 15, height: 15, backgroundColor: '#e7e6e6', display: 'inline-block'}} /> `#e7e6e6` | `--h-color-dark-focus-focus`          |
+| `dark.focus.focusInverted` | <span style={{width: 15, height: 15, backgroundColor: '#fcfbf2', display: 'inline-block'}} /> `#fcfbf2` | `--h-color-dark-focus-focus-inverted` |
+
+#### Dark Theme - Feedback
+
+| Token Path                               | Hex Value                                                                                               | CSS Variable                                       |
+| :--------------------------------------- | :------------------------------------------------------------------------------------------------------ | :------------------------------------------------- |
+| `dark.feedback.danger.default.color`     | <span style={{width: 15, height: 15, backgroundColor: '#ff7964', display: 'inline-block'}} /> `#ff7964` | `--h-color-dark-feedback-danger-default-color`     |
+| `dark.feedback.danger.subtle.color`      | <span style={{width: 15, height: 15, backgroundColor: '#521a16', display: 'inline-block'}} /> `#521a16` | `--h-color-dark-feedback-danger-subtle-color`      |
+| `dark.feedback.functional.default.color` | <span style={{width: 15, height: 15, backgroundColor: '#6f6c6b', display: 'inline-block'}} /> `#6f6c6b` | `--h-color-dark-feedback-functional-default-color` |
+| `dark.feedback.functional.subtle.color`  | <span style={{width: 15, height: 15, backgroundColor: '#222222', display: 'inline-block'}} /> `#222222` | `--h-color-dark-feedback-functional-subtle-color`  |
+| `dark.feedback.info.default.color`       | <span style={{width: 15, height: 15, backgroundColor: '#6bb0ff', display: 'inline-block'}} /> `#6bb0ff` | `--h-color-dark-feedback-info-default-color`       |
+| `dark.feedback.info.subtle.color`        | <span style={{width: 15, height: 15, backgroundColor: '#042455', display: 'inline-block'}} /> `#042455` | `--h-color-dark-feedback-info-subtle-color`        |
+| `dark.feedback.positive.default.color`   | <span style={{width: 15, height: 15, backgroundColor: '#58ca93', display: 'inline-block'}} /> `#58ca93` | `--h-color-dark-feedback-positive-default-color`   |
+| `dark.feedback.positive.subtle.color`    | <span style={{width: 15, height: 15, backgroundColor: '#033d21', display: 'inline-block'}} /> `#033d21` | `--h-color-dark-feedback-positive-subtle-color`    |
+| `dark.feedback.warning.default.color`    | <span style={{width: 15, height: 15, backgroundColor: '#ff9639', display: 'inline-block'}} /> `#ff9639` | `--h-color-dark-feedback-warning-default-color`    |
+| `dark.feedback.warning.subtle.color`     | <span style={{width: 15, height: 15, backgroundColor: '#6b2d00', display: 'inline-block'}} /> `#6b2d00` | `--h-color-dark-feedback-warning-subtle-color`     |
+
+#### Dark Theme - Surface
+
+| Token Path                             | Hex Value                                                                                               | CSS Variable                                     |
+| :------------------------------------- | :------------------------------------------------------------------------------------------------------ | :----------------------------------------------- |
+| `dark.surface.brand.default.color`     | <span style={{width: 15, height: 15, backgroundColor: '#7a42c8', display: 'inline-block'}} /> `#7a42c8` | `--h-color-dark-surface-brand-default-color`     |
+| `dark.surface.brand.strong.color`      | <span style={{width: 15, height: 15, backgroundColor: '#26164f', display: 'inline-block'}} /> `#26164f` | `--h-color-dark-surface-brand-strong-color`      |
+| `dark.surface.brand.subtle.color`      | <span style={{width: 15, height: 15, backgroundColor: '#492d6f', display: 'inline-block'}} /> `#492d6f` | `--h-color-dark-surface-brand-subtle-color`      |
+| `dark.surface.broadband.default.color` | <span style={{width: 15, height: 15, backgroundColor: '#506c21', display: 'inline-block'}} /> `#506c21` | `--h-color-dark-surface-broadband-default-color` |
+| `dark.surface.broadband.subtle.color`  | <span style={{width: 15, height: 15, backgroundColor: '#35421c', display: 'inline-block'}} /> `#35421c` | `--h-color-dark-surface-broadband-subtle-color`  |
+| `dark.surface.cashback.default.color`  | <span style={{width: 15, height: 15, backgroundColor: '#8b2bc9', display: 'inline-block'}} /> `#8b2bc9` | `--h-color-dark-surface-cashback-default-color`  |
+| `dark.surface.cashback.subtle.color`   | <span style={{width: 15, height: 15, backgroundColor: '#522270', display: 'inline-block'}} /> `#522270` | `--h-color-dark-surface-cashback-subtle-color`   |
+| `dark.surface.energy.default.color`    | <span style={{width: 15, height: 15, backgroundColor: '#326e7a', display: 'inline-block'}} /> `#326e7a` | `--h-color-dark-surface-energy-default-color`    |
+| `dark.surface.energy.subtle.color`     | <span style={{width: 15, height: 15, backgroundColor: '#254348', display: 'inline-block'}} /> `#254348` | `--h-color-dark-surface-energy-subtle-color`     |
+| `dark.surface.highlight.default.color` | <span style={{width: 15, height: 15, backgroundColor: '#ffb921', display: 'inline-block'}} /> `#ffb921` | `--h-color-dark-surface-highlight-default-color` |
+| `dark.surface.highlight.subtle.color`  | <span style={{width: 15, height: 15, backgroundColor: '#756230', display: 'inline-block'}} /> `#756230` | `--h-color-dark-surface-highlight-subtle-color`  |
+| `dark.surface.insurance.default.color` | <span style={{width: 15, height: 15, backgroundColor: '#9b4c0e', display: 'inline-block'}} /> `#9b4c0e` | `--h-color-dark-surface-insurance-default-color` |
+| `dark.surface.insurance.subtle.color`  | <span style={{width: 15, height: 15, backgroundColor: '#5a3213', display: 'inline-block'}} /> `#5a3213` | `--h-color-dark-surface-insurance-subtle-color`  |
+| `dark.surface.mobile.default.color`    | <span style={{width: 15, height: 15, backgroundColor: '#a7266d', display: 'inline-block'}} /> `#a7266d` | `--h-color-dark-surface-mobile-default-color`    |
+| `dark.surface.mobile.subtle.color`     | <span style={{width: 15, height: 15, backgroundColor: '#601f42', display: 'inline-block'}} /> `#601f42` | `--h-color-dark-surface-mobile-subtle-color`     |
+| `dark.surface.pig.default.color`       | <span style={{width: 15, height: 15, backgroundColor: '#8f358f', display: 'inline-block'}} /> `#8f358f` | `--h-color-dark-surface-pig-default-color`       |
+| `dark.surface.pig.subtle.color`        | <span style={{width: 15, height: 15, backgroundColor: '#5d2167', display: 'inline-block'}} /> `#5d2167` | `--h-color-dark-surface-pig-subtle-color`        |
+
+#### Dark Theme - Shadow
+
+| Token Path                    | Hex Value                                                                                               | CSS Variable                            |
+| :---------------------------- | :------------------------------------------------------------------------------------------------------ | :-------------------------------------- |
+| `dark.shadow.default.color`   | <span style={{width: 15, height: 15, backgroundColor: '#e7e6e6', display: 'inline-block'}} /> `#e7e6e6` | `--h-color-dark-shadow-default-color`   |
+| `dark.shadow.brand.color`     | <span style={{width: 15, height: 15, backgroundColor: '#7a42c8', display: 'inline-block'}} /> `#7a42c8` | `--h-color-dark-shadow-brand-color`     |
+| `dark.shadow.broadband.color` | <span style={{width: 15, height: 15, backgroundColor: '#506c21', display: 'inline-block'}} /> `#506c21` | `--h-color-dark-shadow-broadband-color` |
+| `dark.shadow.cashback.color`  | <span style={{width: 15, height: 15, backgroundColor: '#8b2bc9', display: 'inline-block'}} /> `#8b2bc9` | `--h-color-dark-shadow-cashback-color`  |
+| `dark.shadow.energy.color`    | <span style={{width: 15, height: 15, backgroundColor: '#326e7a', display: 'inline-block'}} /> `#326e7a` | `--h-color-dark-shadow-energy-color`    |
+| `dark.shadow.insurance.color` | <span style={{width: 15, height: 15, backgroundColor: '#9b4c0e', display: 'inline-block'}} /> `#9b4c0e` | `--h-color-dark-shadow-insurance-color` |
+| `dark.shadow.mobile.color`    | <span style={{width: 15, height: 15, backgroundColor: '#a7266d', display: 'inline-block'}} /> `#a7266d` | `--h-color-dark-shadow-mobile-color`    |
+| `dark.shadow.pig.color`       | <span style={{width: 15, height: 15, backgroundColor: '#5d2167', display: 'inline-block'}} /> `#5d2167` | `--h-color-dark-shadow-pig-color`       |

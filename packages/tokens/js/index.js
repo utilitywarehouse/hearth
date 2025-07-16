@@ -2,6 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 export { default as color } from './color';
+export { default as semantic } from './semantic';
 export { default as semanticLight } from './semantic-light';
 export { default as semanticDark } from './semantic-dark';
 export { default as layout } from './layout';

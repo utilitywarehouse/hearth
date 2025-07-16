@@ -591,6 +591,12 @@ importers:
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:*
         version: link:../../packages/fonts
+      '@utilitywarehouse/hearth-react':
+        specifier: workspace:*
+        version: link:../../packages/react
+      '@utilitywarehouse/hearth-react-icons':
+        specifier: workspace:*
+        version: link:../../packages/react-icons
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
