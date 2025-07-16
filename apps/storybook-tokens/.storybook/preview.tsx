@@ -1,7 +1,8 @@
-import '../src/stories/styles.css';
 import '@utilitywarehouse/hearth-fonts';
+import '@utilitywarehouse/hearth-react/styles.css';
 import '../../../shared/storybook/styles/preview.css';
 import theme from '../../../shared/storybook/theme';
+import '../src/stories/styles.css';
 
 /** @type { import('@storybook/react-vite').Preview } */
 const preview = {
@@ -18,7 +19,13 @@ const preview = {
     },
     options: {
       storySort: {
-        order: ['Introduction', 'Getting Started'],
+        order: [
+          'Introduction',
+          'Getting Started',
+          'Border (Radius & Width)',
+          'Colours',
+          '- All Colours',
+        ],
       },
     },
     controls: {
