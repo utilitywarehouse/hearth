@@ -5,4 +5,6 @@
 :root {
   --h-divider-border-width: var(--h-border-width-1);
   --h-divider-color: var(--h-color-warm-white-300);
+  --h-tabs-divider-border-width: var(--h-border-width-2);
+  --h-tabs-divider-color: var(--h-color-grey-1000);
 }

@@ -138,6 +138,21 @@ export function generateJsTokens() {
             },
           ],
         },
+        'js-semantic': {
+          transformGroup: 'js-device',
+          buildPath: BUILD_PATH,
+          files: [
+            {
+              destination: 'semantic.ts',
+              format: 'js/semantic-non-color',
+              options: { mode: 'light' },
+              filter: token =>
+                token.filePath.includes('semantic') &&
+                token.path[0] === 'light' &&
+                token.type !== 'color',
+            },
+          ],
+        },
         'js-primitive': {
           transformGroup: 'js-device',
           buildPath: BUILD_PATH,
