@@ -7,5 +7,8 @@ declare const _default: {
   readonly colorInverted: '#f6f5f5';
   readonly colorSecondary: '#b2afae';
   readonly colorValid: '#58ca93';
+  readonly inverted: '#fcfbf2';
+  readonly primary: '#e7e6e6';
+  readonly secondary: '#b2afae';
 };
 export default _default;

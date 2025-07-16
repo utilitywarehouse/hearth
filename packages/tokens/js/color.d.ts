@@ -215,35 +215,35 @@ export declare const yellow: {
   readonly '1000': '#4c401f';
 };
 export declare const light: {
-  readonly background: '#fcfbf2';
-  readonly background1: '#ffffff';
-  readonly backgroundPurple: '#7a42c8';
-  readonly invalidText: '#de2612';
-  readonly shadow: {
-    readonly broadbandGreenColor: '#8cba3b';
-    readonly cashbackLilacColor: '#be7aeb';
-    readonly defaultColor: '#101010';
-    readonly energyBlueColor: '#6db5c3';
-    readonly insuranceOrangeColor: '#ff7b00';
-    readonly mobileRoseColor: '#ee6dbb';
-    readonly piggyPinkColor: '#f295ff';
-    readonly purpleColor: '#7a42c8';
+  readonly background: {
+    readonly brand: '#7a42c8';
+    readonly primary: '#fcfbf2';
+    readonly secondary: '#ffffff';
+  };
+  readonly focus: {
+    readonly focus: '#101010';
+    readonly focusInverted: '#fcfbf2';
+  };
+  readonly text: {
+    readonly inverted: '#fcfbf2';
+    readonly primary: '#101010';
+    readonly secondary: '#6f6c6b';
   };
 };
 export declare const dark: {
-  readonly background: '#191917';
-  readonly background1: '#222222';
-  readonly backgroundPurple: '#7a42c8';
-  readonly invalidText: '#ff7964';
-  readonly shadow: {
-    readonly broadbandGreenColor: '#506c21';
-    readonly cashbackLilacColor: '#8b2bc9';
-    readonly defaultColor: '#e7e6e6';
-    readonly energyBlueColor: '#326e7a';
-    readonly insuranceOrangeColor: '#9b4c0e';
-    readonly mobileRoseColor: '#a7266d';
-    readonly piggyPinkColor: '#8f358f';
-    readonly purpleColor: '#7a42c8';
+  readonly background: {
+    readonly brand: '#7a42c8';
+    readonly primary: '#191917';
+    readonly secondary: '#222222';
+  };
+  readonly focus: {
+    readonly focus: '#e7e6e6';
+    readonly focusInverted: '#fcfbf2';
+  };
+  readonly text: {
+    readonly inverted: '#fcfbf2';
+    readonly primary: '#e7e6e6';
+    readonly secondary: '#b2afae';
   };
 };
 declare const color: {
@@ -461,35 +461,35 @@ declare const color: {
     readonly '1000': '#4c401f';
   };
   readonly light: {
-    readonly background: '#fcfbf2';
-    readonly background1: '#ffffff';
-    readonly backgroundPurple: '#7a42c8';
-    readonly invalidText: '#de2612';
-    readonly shadow: {
-      readonly broadbandGreenColor: '#8cba3b';
-      readonly cashbackLilacColor: '#be7aeb';
-      readonly defaultColor: '#101010';
-      readonly energyBlueColor: '#6db5c3';
-      readonly insuranceOrangeColor: '#ff7b00';
-      readonly mobileRoseColor: '#ee6dbb';
-      readonly piggyPinkColor: '#f295ff';
-      readonly purpleColor: '#7a42c8';
+    readonly background: {
+      readonly brand: '#7a42c8';
+      readonly primary: '#fcfbf2';
+      readonly secondary: '#ffffff';
+    };
+    readonly focus: {
+      readonly focus: '#101010';
+      readonly focusInverted: '#fcfbf2';
+    };
+    readonly text: {
+      readonly inverted: '#fcfbf2';
+      readonly primary: '#101010';
+      readonly secondary: '#6f6c6b';
     };
   };
   readonly dark: {
-    readonly background: '#191917';
-    readonly background1: '#222222';
-    readonly backgroundPurple: '#7a42c8';
-    readonly invalidText: '#ff7964';
-    readonly shadow: {
-      readonly broadbandGreenColor: '#506c21';
-      readonly cashbackLilacColor: '#8b2bc9';
-      readonly defaultColor: '#e7e6e6';
-      readonly energyBlueColor: '#326e7a';
-      readonly insuranceOrangeColor: '#9b4c0e';
-      readonly mobileRoseColor: '#a7266d';
-      readonly piggyPinkColor: '#8f358f';
-      readonly purpleColor: '#7a42c8';
+    readonly background: {
+      readonly brand: '#7a42c8';
+      readonly primary: '#191917';
+      readonly secondary: '#222222';
+    };
+    readonly focus: {
+      readonly focus: '#e7e6e6';
+      readonly focusInverted: '#fcfbf2';
+    };
+    readonly text: {
+      readonly inverted: '#fcfbf2';
+      readonly primary: '#e7e6e6';
+      readonly secondary: '#b2afae';
     };
   };
 };

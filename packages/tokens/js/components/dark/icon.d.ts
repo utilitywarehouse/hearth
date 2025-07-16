@@ -4,7 +4,7 @@
 declare const _default: {
   readonly item: {
     readonly icon: {
-      readonly colorActive: '#7a42c8';
+      readonly colorActive: '#8850cf';
       readonly colorDefault: '#e7e6e6';
     };
   };
