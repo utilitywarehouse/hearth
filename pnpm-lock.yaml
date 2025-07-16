@@ -994,13 +994,6 @@ importers:
         version: 3.3.2
 
   packages/tokens:
-    dependencies:
-      '@utilitywarehouse/hearth-react':
-        specifier: workspace:*
-        version: link:../react
-      '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:*
-        version: link:../react-icons
     devDependencies:
       '@types/lodash.merge':
         specifier: ^4.6.9
