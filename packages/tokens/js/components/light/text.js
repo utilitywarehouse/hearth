@@ -7,4 +7,7 @@ export default {
   colorInverted: '#f6f5f5',
   colorSecondary: '#6f6c6b',
   colorValid: '#0f834a',
+  inverted: '#fcfbf2',
+  primary: '#101010',
+  secondary: '#6f6c6b',
 };

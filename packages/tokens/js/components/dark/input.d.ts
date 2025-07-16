@@ -24,7 +24,7 @@ declare const _default: {
     readonly gap: 6;
   };
   readonly maxWidth: 504;
-  readonly minWidth: 200;
+  readonly minWidth: 152;
   readonly paddingHorizontal: 16;
   readonly paddingVertical: 12;
   readonly placeholderColor: '#6f6c6b';

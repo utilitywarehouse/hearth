@@ -11,6 +11,23 @@ export const parts = {
   placeholder: {
     borderColor: 'var(--h-parts-placeholder-border-color)',
   },
+  roundel: {
+    borderRadius: 'var(--h-parts-roundel-border-radius)',
+    error: {
+      backgroundColor: 'var(--h-parts-roundel-error-background-color)',
+    },
+    pending: {
+      borderColor: 'var(--h-parts-roundel-pending-border-color)',
+      borderWidth: 'var(--h-parts-roundel-pending-border-width)',
+    },
+    success: {
+      backgroundColor: 'var(--h-parts-roundel-success-background-color)',
+    },
+  },
+  scrollBar: {
+    backgroundColor: 'var(--h-parts-scroll-bar-background-color)',
+    borderRadius: 'var(--h-parts-scroll-bar-border-radius)',
+  },
   statusBar: {
     foregroundColor: 'var(--h-parts-status-bar-foreground-color)',
     foregroundColorInverted: 'var(--h-parts-status-bar-foreground-color-inverted)',

@@ -1,38 +1,47 @@
 export declare const list: {
-  readonly gap: 'var(--h-list-gap)';
-  readonly heading: {
-    readonly gap: 'var(--h-list-heading-gap)';
-    readonly textContentGap: 'var(--h-list-heading-text-content-gap)';
+  readonly container: {
+    readonly emphasisWarmWhite: {
+      readonly borderRadius: 'var(--h-list-container-emphasis-warm-white-border-radius)';
+    };
+    readonly emphasisWhite: {
+      readonly borderRadius: 'var(--h-list-container-emphasis-white-border-radius)';
+    };
+    readonly none: {
+      readonly borderRadius: 'var(--h-list-container-none-border-radius)';
+      readonly item: {
+        readonly paddingHorizontal: 'var(--h-list-container-none-item-padding-horizontal)';
+      };
+    };
+    readonly subtleWarmWhite: {
+      readonly borderRadius: 'var(--h-list-container-subtle-warm-white-border-radius)';
+    };
+    readonly subtleWhite: {
+      readonly borderRadius: 'var(--h-list-container-subtle-white-border-radius)';
+    };
   };
+  readonly gap: 'var(--h-list-gap)';
   readonly item: {
     readonly backgroundColorActive: 'var(--h-list-item-background-color-active)';
     readonly backgroundColorHover: 'var(--h-list-item-background-color-hover)';
-    readonly borderWidth: 'var(--h-list-item-border-width)';
     readonly contentGap: 'var(--h-list-item-content-gap)';
-    readonly emphasis: {
-      readonly borderColor: 'var(--h-list-item-emphasis-border-color)';
+    readonly functional: {
+      readonly borderWidth: 'var(--h-list-item-functional-border-width)';
+      readonly emphasis: {
+        readonly borderColor: 'var(--h-list-item-functional-emphasis-border-color)';
+      };
+      readonly padding: 'var(--h-list-item-functional-padding)';
+      readonly paddingNone: 'var(--h-list-item-functional-padding-none)';
+      readonly subtle: {
+        readonly borderColor: 'var(--h-list-item-functional-subtle-border-color)';
+      };
     };
     readonly gap: 'var(--h-list-item-gap)';
-    readonly padding: 'var(--h-list-item-padding)';
-    readonly subtle: {
-      readonly borderColor: 'var(--h-list-item-subtle-border-color)';
-    };
-  };
-  readonly container: {
-    readonly emphasisWarmWhite: {
-      readonly borderRadius: 'var(--h-list-list-container-emphasis-warm-white-border-radius)';
-    };
-    readonly emphasisWhite: {
-      readonly borderRadius: 'var(--h-list-list-container-emphasis-white-border-radius)';
-    };
-    readonly none: {
-      readonly borderRadius: 'var(--h-list-list-container-none-border-radius)';
-    };
-    readonly subtleWarmWhite: {
-      readonly borderRadius: 'var(--h-list-list-container-subtle-warm-white-border-radius)';
-    };
-    readonly subtleWhite: {
-      readonly borderRadius: 'var(--h-list-list-container-subtle-white-border-radius)';
+    readonly stylised: {
+      readonly borderColor: 'var(--h-list-item-stylised-border-color)';
+      readonly borderWidth: 'var(--h-list-item-stylised-border-width)';
+      readonly height: 'var(--h-list-item-stylised-height)';
+      readonly paddingLeft: 'var(--h-list-item-stylised-padding-left)';
+      readonly paddingRight: 'var(--h-list-item-stylised-padding-right)';
     };
   };
   readonly menu: {

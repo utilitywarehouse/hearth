@@ -5,7 +5,7 @@
 export default {
   item: {
     icon: {
-      colorActive: '#7a42c8',
+      colorActive: '#8850cf',
       colorDefault: '#e7e6e6',
     },
   },

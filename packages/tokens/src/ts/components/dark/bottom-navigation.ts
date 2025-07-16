@@ -8,18 +8,18 @@ export default {
   borderTopWidth: 2,
   gap: 0,
   indicator: {
-    backgroundColor: '#7a42c8',
+    backgroundColor: '#8850cf',
     borderRadius: 4,
     height: 2,
   },
   item: {
     gap: 2,
     icon: {
-      colorActive: '#7a42c8',
+      colorActive: '#8850cf',
       colorDefault: '#e7e6e6',
     },
     label: {
-      colorActive: '#7a42c8',
+      colorActive: '#8850cf',
       colorDefault: '#e7e6e6',
     },
     paddingBottom: 2,
