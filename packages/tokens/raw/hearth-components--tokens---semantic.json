@@ -349,7 +349,7 @@
         },
         "foreground": {
           "subtle": {
-            "subtle": {
+            "color": {
               "alias": "{color.grey.100}",
               "type": "color",
               "value": "#e7e6e6"
