@@ -4,7 +4,7 @@
 
 :root {
   --h-navigation-background-color: var(--h-color-purple-700);
-  --h-navigation-background-color-active: var(--h-color-purple-900);
+  --h-navigation-background-color-active: var(--h-color-purple-600);
   --h-navigation-background-color-hover: var(--h-color-purple-800);
   --h-navigation-bar-background-color-active: var(--h-color-yellow-400);
   --h-navigation-bar-border-radius-none: 0;
@@ -14,5 +14,5 @@
   --h-navigation-foreground-color: var(--h-color-warm-white-50);
   --h-navigation-gap: var(--h-space-50);
   --h-navigation-mobile-divider-border-color: var(--h-color-purple-800);
-  --h-navigation-mobile-height: var(--h-space-800)px;
+  --h-navigation-mobile-height: 64px;
 }
