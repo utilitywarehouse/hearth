@@ -160,7 +160,7 @@ export default {
       },
       foreground: {
         subtle: {
-          subtle: '#e7e6e6',
+          color: '#e7e6e6',
         },
       },
       surface: {

@@ -160,7 +160,7 @@ declare const _default: {
       };
       readonly foreground: {
         readonly subtle: {
-          readonly subtle: '#e7e6e6';
+          readonly color: '#e7e6e6';
         };
       };
       readonly surface: {
