@@ -7,18 +7,18 @@ declare const _default: {
   readonly borderTopWidth: 2;
   readonly gap: 0;
   readonly indicator: {
-    readonly backgroundColor: '#7a42c8';
+    readonly backgroundColor: '#8850cf';
     readonly borderRadius: 4;
     readonly height: 2;
   };
   readonly item: {
     readonly gap: 2;
     readonly icon: {
-      readonly colorActive: '#7a42c8';
+      readonly colorActive: '#8850cf';
       readonly colorDefault: '#e7e6e6';
     };
     readonly label: {
-      readonly colorActive: '#7a42c8';
+      readonly colorActive: '#8850cf';
       readonly colorDefault: '#e7e6e6';
     };
     readonly paddingBottom: 2;

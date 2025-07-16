@@ -1,5 +1,6 @@
 @import '../css/accordion.css';
 @import '../css/alert.css';
+@import '../css/avatar.css';
 @import '../css/badge.css';
 @import '../css/banner.css';
 @import '../css/border.css';
@@ -22,6 +23,7 @@
 @import '../css/icon-button.css';
 @import '../css/icon-container.css';
 @import '../css/icon.css';
+@import '../css/indicator-icon-button.css';
 @import '../css/inline-link.css';
 @import '../css/input.css';
 @import '../css/layout.css';
@@ -35,17 +37,21 @@
 @import '../css/navigation.css';
 @import '../css/opacity.css';
 @import '../css/overlay.css';
+@import '../css/pagination.css';
 @import '../css/parts.css';
 @import '../css/pill.css';
 @import '../css/progress-stepper.css';
 @import '../css/radio.css';
+@import '../css/section-header.css';
 @import '../css/segmented-control.css';
 @import '../css/select.css';
 @import '../css/skeleton.css';
 @import '../css/space.css';
 @import '../css/spinner.css';
 @import '../css/switch.css';
+@import '../css/table.css';
 @import '../css/tablet.css';
+@import '../css/tabs.css';
 @import '../css/text.css';
 @import '../css/toggle-button.css';
 @import '../css/top-navigation.css';

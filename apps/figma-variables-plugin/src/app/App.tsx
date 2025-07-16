@@ -31,6 +31,7 @@ import comicHamsHeavy from '../../../../packages/fonts/files/woff2/ComicHams-Hea
 
 import '@utilitywarehouse/hearth-css-reset';
 import {
+  Alert,
   Box,
   Button,
   Card,
@@ -44,7 +45,6 @@ import {
 } from '@utilitywarehouse/hearth-react';
 import '@utilitywarehouse/hearth-react/styles.css';
 import '@utilitywarehouse/hearth-tokens/index.css';
-import { Alert } from './components/Alert';
 import './styles/ui.css';
 import { encodeContent, kebabCase } from './utils';
 
@@ -477,17 +477,17 @@ function App() {
                   position="absolute"
                   width="100%"
                   bottom="0"
+                  height="100%"
                   left="0"
                   padding="200"
                   justifyContent="center"
                   alignItems="center"
-                  height="100%"
                   backgroundColor="grey0"
                   style={{ zIndex: 1 }}
                 >
                   <Spinner />
                 </Flex>
-              )}
+              )} 
               <CheckboxGroup
                 label="Select Collections to Export:"
                 helperText="Published library collections in this file"

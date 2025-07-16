@@ -4,7 +4,7 @@
 
 export default {
   backgroundColor: '#7a42c8',
-  backgroundColorActive: '#5a3285',
+  backgroundColorActive: '#8850cf',
   backgroundColorHover: '#6538b8',
   bar: {
     backgroundColorActive: '#ffb921',

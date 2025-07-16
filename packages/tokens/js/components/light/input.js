@@ -24,7 +24,7 @@ export default {
     gap: 2,
   },
   maxWidth: 504,
-  minWidth: 200,
+  minWidth: 152,
   paddingHorizontal: 16,
   paddingVertical: 12,
   placeholderColor: '#6f6c6b',
