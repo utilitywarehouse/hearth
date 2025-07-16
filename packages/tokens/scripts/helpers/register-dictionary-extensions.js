@@ -74,34 +74,31 @@ export function registerDictionaryExtensions(StyleDictionary) {
       if (semanticJson) {
         ['light', 'dark'].forEach(mode => {
           if (semanticJson[mode]) {
-            Object.entries(semanticJson[mode]).forEach(([category, tokens]) => {
-              if (category === 'color') {
-                // Flatten color tokens to root level of light/dark
-                Object.entries(tokens).forEach(([key, tokenData]) => {
-                  if (tokenData.type === 'color') {
-                    const camelKey = camelCase(key);
-                    semanticTokens[mode][camelKey] = tokenData.value;
-                  }
-                });
-              } else {
-                // Keep other token types nested under their category, but only if they have color type
-                const camelCategory = camelCase(category);
-                const colorTokensInCategory = {};
-                let hasColorTokens = false;
+            // Recursively extract color tokens from the semantic structure
+            const extractColorTokens = (obj, path = []) => {
+              const result = {};
 
-                Object.entries(tokens).forEach(([key, tokenData]) => {
-                  if (tokenData.type === 'color') {
+              Object.entries(obj).forEach(([key, value]) => {
+                if (value && typeof value === 'object') {
+                  if (value.type === 'color') {
+                    // This is a color token, add it to the result
                     const camelKey = camelCase(key);
-                    colorTokensInCategory[camelKey] = tokenData.value;
-                    hasColorTokens = true;
+                    result[camelKey] = value.value;
+                  } else if (!value.type && !value.value) {
+                    // This is a nested object, recurse into it
+                    const nestedColors = extractColorTokens(value, [...path, key]);
+                    if (Object.keys(nestedColors).length > 0) {
+                      const camelKey = camelCase(key);
+                      result[camelKey] = nestedColors;
+                    }
                   }
-                });
-
-                if (hasColorTokens) {
-                  semanticTokens[mode][camelCategory] = colorTokensInCategory;
                 }
-              }
-            });
+              });
+
+              return result;
+            };
+
+            semanticTokens[mode] = extractColorTokens(semanticJson[mode]);
           }
         });
       }
@@ -222,6 +219,7 @@ export * as dark from './dark';`;
  * Do not edit directly, this file was auto-generated.
  */
 \nexport { default as color } from './color';
+export { default as semantic } from './semantic';
 export { default as semanticLight } from './semantic-light';
 export { default as semanticDark } from './semantic-dark';
 export { default as layout } from './layout';
@@ -269,6 +267,33 @@ export * as components from './components';`;
 
   StyleDictionary.registerFormat({
     name: 'js/semantic-colors',
+    format: ({ dictionary, options }) => {
+      const { mode } = options;
+      const output = {};
+
+      dictionary.allTokens.forEach(token => {
+        // Skip the mode level in the path (e.g., skip 'light' or 'dark')
+        const pathWithoutMode = token.path.slice(1);
+        let current = output;
+        pathWithoutMode.forEach((part, i) => {
+          const camelPart = camelCase(part);
+          if (i === pathWithoutMode.length - 1) current[camelPart] = token.value;
+          else {
+            current[camelPart] = current[camelPart] || {};
+            current = current[camelPart];
+          }
+        });
+      });
+
+      return `/**
+ * Do not edit directly, this file was auto-generated.
+ */
+\nexport default ${JSON.stringify(output, null, 2)} as const;`;
+    },
+  });
+
+  StyleDictionary.registerFormat({
+    name: 'js/semantic-non-color',
     format: ({ dictionary, options }) => {
       const { mode } = options;
       const output = {};
