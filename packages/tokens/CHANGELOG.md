@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.0.7
+
+### Patch Changes
+
+- [#399](https://github.com/utilitywarehouse/hearth/pull/399) [`29e0fad`](https://github.com/utilitywarehouse/hearth/commit/29e0fada11caa73942215e943e27007f252a3510) Thanks [@dorota-uw](https://github.com/dorota-uw)! - Minor CSS fixes
+
+- [#400](https://github.com/utilitywarehouse/hearth/pull/400) [`e24b717`](https://github.com/utilitywarehouse/hearth/commit/e24b717a1ff7b1f82a39d0bf51b53ebfe8c508d0) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds semantic theme tokens
+
 ## 0.0.6
 
 ### Patch Changes

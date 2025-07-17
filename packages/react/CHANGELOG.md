@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react
 
+## 0.5.0
+
+### Minor Changes
+
+- [#392](https://github.com/utilitywarehouse/hearth/pull/392) [`a5799b5`](https://github.com/utilitywarehouse/hearth/commit/a5799b57eabd594bfc36c4dd88beb3d01f840855) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Alert` component
+
+### Patch Changes
+
+- [#399](https://github.com/utilitywarehouse/hearth/pull/399) [`29e0fad`](https://github.com/utilitywarehouse/hearth/commit/29e0fada11caa73942215e943e27007f252a3510) Thanks [@dorota-uw](https://github.com/dorota-uw)! - Minor CSS fixes
+
+- [#400](https://github.com/utilitywarehouse/hearth/pull/400) [`e24b717`](https://github.com/utilitywarehouse/hearth/commit/e24b717a1ff7b1f82a39d0bf51b53ebfe8c508d0) Thanks [@jordmccord](https://github.com/jordmccord)! - Copies fixed tokens to from tokens package
+
 ## 0.4.1
 
 ### Patch Changes
