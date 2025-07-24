@@ -9,6 +9,7 @@ import { BackToTopButton, NextPrevPage } from './components';
 Hearth React Native provides a comprehensive set of design tokens that ensure consistency across your application. These tokens are built on top of the primitive design system and include semantic meanings for colors, typography, spacing, and other design properties.
 
 - [How to Use Tokens](#how-to-use-tokens)
+- [Utility Tokens](#utility-tokens)
 - [Colors](#colors)
   - [Brand and Service Colors](#brand-and-service-colors)
   - [Semantic Colors](#semantic-colors)
@@ -82,6 +83,29 @@ const MyComponent = () => {
   );
 };
 ```
+
+## Utility Tokens
+
+Utility tokens are tokens provide helpful context or helper functions to simplify styling.
+They can be used to create consistent styles across your application.
+
+```tsx
+const styles = StyleSheet.create(theme => ({
+  container: {
+    backgroundColor: theme.isDark ? theme.color.grey[900] : theme.color.grey[100],
+    borderColor: theme.colorMode === 'light' ? theme.color.grey[300] : theme.color.grey[700],
+    padding: theme.space[200],
+    margin: theme.space[2],
+    borderRadius: theme.borderRadius.md,
+  },
+}));
+```
+
+| Token       | Description                                      |
+| ----------- | ------------------------------------------------ |
+| `isDark`    | Boolean indicating if the current theme is dark  |
+| `isLight`   | Boolean indicating if the current theme is light |
+| `colorMode` | Current color mode, either 'light' or 'dark'     |
 
 ## Colors
 
