@@ -2,8 +2,10 @@ import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import * as BoxStories from '../src/components/Box/Box.stories';
 import * as FlexStories from '../src/components/Flex/Flex.stories';
 import * as GridStories from '../src/components/Grid/Grid.stories';
+import { BackToTopButton, NextPrevPage } from './components';
 
 <Meta title="Layout Components" />
+<BackToTopButton />
 
 # Layout Components
 
@@ -11,6 +13,10 @@ These components focus on creating layouts and can be used as base building
 blocks for other components and patterns. These layout primitives are built
 upon our design tokens, and providing styling options which make it easier to
 apply design decisions coherently.
+
+- [Box](#box)
+- [Flex](#flex)
+- [Grid](#grid)
 
 ## Box
 
@@ -66,3 +72,10 @@ You can easily build responsive layouts using Design System defaults.
   <Box>{...}</Box>
 </Grid>
 ```
+
+<NextPrevPage
+  prevLink="/?path=/docs/hooks--docs"
+  prevTitle="Hooks"
+  nextLink="/?path=/docs/all-components--docs"
+  nextTitle="All Components"
+/>
