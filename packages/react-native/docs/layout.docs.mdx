@@ -1,0 +1,68 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import * as BoxStories from '../src/components/Box/Box.stories';
+import * as FlexStories from '../src/components/Flex/Flex.stories';
+import * as GridStories from '../src/components/Grid/Grid.stories';
+
+<Meta title="Layout Components" />
+
+# Layout Components
+
+These components focus on creating layouts and can be used as base building
+blocks for other components and patterns. These layout primitives are built
+upon our design tokens, and providing styling options which make it easier to
+apply design decisions coherently.
+
+## Box
+
+<Canvas of={BoxStories.Playground} sourceState="none" />
+
+`Box` is the most fundamental component, and can be used to provide spacing,
+size and colour to elements. It can be used to control behaviour of child
+elements within `Flex` and `Grid` containers.
+
+```tsx
+<Box
+  padding="400"
+  marginBottom="300"
+  maxWidth={800}
+>
+  {...}
+</Box>
+```
+
+## Flex
+
+<Canvas of={FlexStories.Playground} sourceState="none" />
+
+`Flex` adds a handy set of props for building with flexbox properties. This
+component is useful for defining layouts along an axis, and replaces the `HStack` and `VStack`
+component you may have used in other libraries.
+
+```tsx
+<Flex
+  padding="400"
+  spacing="md"
+  direction="row"
+  alignI="center"
+>
+  {...}
+</Flex>
+```
+
+## Grid
+
+<Canvas of={GridStories.Playground} sourceState="none" />
+
+`Grid` is used to create grid layouts, organizing content in columns and rows.
+Like `Flex` and `Box`, the `Grid` component provides access to a range of
+styling props, and to all the properties needed to build a grid layout.
+
+You can easily build responsive layouts using Design System defaults.
+
+```tsx
+<Grid columns={2} space="md">
+  <Box>{...}</Box>
+  <Box>{...}</Box>
+  <Box>{...}</Box>
+</Grid>
+```

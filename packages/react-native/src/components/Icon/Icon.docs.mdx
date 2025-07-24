@@ -1,0 +1,104 @@
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
+import {
+  BroadbandMediumIcon,
+  ElectricityMediumIcon,
+  InsuranceMediumIcon,
+  MobileMediumIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
+import { Center, createIcon, Flex, Icon, Pressable } from '../../';
+import { BackToTopButton, UsageWrap } from '../../../docs/components';
+import { lightTheme } from '../../core/themes';
+import * as Stories from './Icon.stories';
+
+<BackToTopButton />
+
+<Meta title="Components / Icons" />
+
+# Icons
+
+Icons are often used to enhance the usability and accessibility of digital products by providing users with clear and intuitive visual cues. It serves as an intuitive and easily recognizable way to communicate with users.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [All Icons](#all-icons)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+You can either use the React Native components directy from our `@utilitywarehouse/hearth-react-native-icons` package or use the `Icon`
+component from our `@utilitywarehouse/hearth-react-native` package to render the icons with utility props such as `color`.
+
+The following example shows how to use the icons directly from the `@utilitywarehouse/hearth-react-native-icons` package.
+
+<UsageWrap>
+  <Center>
+    <Flex space="lg" direction="row" alignItems="center">
+      <ElectricityMediumIcon color={lightTheme.color.energyBlue['700']} />
+      <MobileMediumIcon color={lightTheme.color.mobileRose['700']} />
+      <BroadbandMediumIcon color={lightTheme.color.broadbandGreen['700']} />
+      <InsuranceMediumIcon color={lightTheme.color.insuranceOrange['700']} />
+    </Flex>
+  </Center>
+</UsageWrap>
+
+```jsx
+import { Flex, Icon, color } from '@utilitywarehouse/hearth-react-native';
+import {
+  ElectricityMediumIcon,
+  MobileMediumIcon,
+  BroadbandMediumIcon,
+  InsuranceMediumIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => {
+  const { color } = useTheme();
+  return (
+    <Flex space="lg" direction="row" alignItems="center">
+      <ElectricityMediumIcon color={color.energyBlue['700']} />
+      <MobileMediumIcon color={color.mobileRose['700']} />
+      <BroadbandMediumIcon color={color.broadbandGreen['700']} />
+      <InsuranceMediumIcon color={color.insuranceOrange['700']} />
+    </Flex>
+  );
+};
+```
+
+Or you can use the `Icon` component to render the icons.
+
+```jsx
+import { Flex, Icon, color } from '@utilitywarehouse/hearth-react-native';
+import {
+  ElectricityMediumIcon,
+  MobileMediumIcon,
+  BroadbandMediumIcon,
+  InsuranceMediumIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => {
+  return (
+    <Flex space="lg" direction="row" alignItems="center">
+      <Icon as={ElectricityMediumIcon} color="energyBlue700" />
+      <Icon as={MobileMediumIcon} color="mobileRose700" />
+      <Icon as={BroadbandMediumIcon} color="broadbandGreen700" />
+      <Icon as={InsuranceMediumIcon} color="insuranceOrange700" />
+    </Flex>
+  );
+};
+```
+
+## Props
+
+| Name    | Type                  | Description                   | Default |
+| ------- | --------------------- | ----------------------------- | ------- |
+| `as`    | `React.ComponentType` | The icon component to render. | -       |
+| `color` | `string`              | The color of the icon.        | -       |
+
+## All Icons
+
+To view all the icons available in the library, please refer to the [Hearth React Native Icons](https://hearth.prod.uw.systems/?path=/docs/icons_search-icons--docs) documentation.
