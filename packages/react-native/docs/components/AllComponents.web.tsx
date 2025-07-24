@@ -412,7 +412,7 @@ const styles = StyleSheet.create(theme => ({
     borderWidth: theme.borderWidth['1'],
     borderRadius: theme.borderRadius['lg'],
     overflow: 'hidden',
-    glexGrow: 1,
+    flexGrow: 1,
     height: 200,
     flexBasis: {
       xs: '100%',
