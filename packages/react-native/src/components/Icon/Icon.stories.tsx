@@ -15,7 +15,7 @@ const meta = {
     as: {
       control: 'select',
       options: [...Object.keys(Icons)],
-      description: 'The Icon that should render in as the component',
+      description: 'The Icon that should render as the component',
       defaultValue: 'Helper text icon',
     },
     color: {
