@@ -10,9 +10,15 @@ import {
 import { Pressable, ScrollView, View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import {
+  Accordion,
+  AccordionItem,
   Alert,
   Badge,
   BodyText,
+  BottomSheet,
+  BottomSheetModalProvider,
+  BottomSheetView,
+  Box,
   Button,
   Card,
   Center,
@@ -45,14 +51,6 @@ import {
   ToggleButtonCardGroup,
   UL,
   useColorMode,
-} from '../../';
-import {
-  Accordion,
-  AccordionItem,
-  BottomSheet,
-  BottomSheetModalProvider,
-  BottomSheetView,
-  Box,
 } from '../../src';
 
 const ComponentWrapper = ({
