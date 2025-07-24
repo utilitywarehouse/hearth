@@ -63,10 +63,11 @@ const preview = {
         order: [
           'Introduction',
           'Getting Started',
-          'Primitives',
-          'Typography',
-          'Forms',
-          'Components',
+          'Styling',
+          'Theme Tokens',
+          'Hooks',
+          'Layout Components',
+          'All Components',
         ],
       },
     },
@@ -91,8 +92,8 @@ const preview = {
             storybookContainer.style.backgroundColor = color.purple['700'];
           } else {
             storybookContainer.style.backgroundColor = isDarkMode
-              ? color.dark.background
-              : color.light.background;
+              ? color.dark.background.primary
+              : color.light.background.primary;
           }
         }
 
