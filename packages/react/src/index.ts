@@ -13,6 +13,7 @@ export { spaceTokens } from './tokens/space';
  *
  ********************/
 export { media } from './utils/media';
+export { useMediaQuery } from './hooks/use-media-query';
 
 /********************
  *
