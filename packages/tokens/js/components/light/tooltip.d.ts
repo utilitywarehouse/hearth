@@ -1,0 +1,12 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+declare const _default: {
+  readonly backgroundColor: '#101010';
+  readonly borderRadius: 8;
+  readonly gapHorizontal: 8;
+  readonly gapVertical: 2;
+  readonly paddingHorizontal: 12;
+  readonly paddingVertical: 8;
+};
+export default _default;

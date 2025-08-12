@@ -3,8 +3,6 @@
  */
 
 :root {
-  --h-avatar-background-color: var(--h-color-piggy-pink-200);
-  --h-avatar-image-border-color: var(--h-color-warm-white-300);
   --h-avatar-image-border-width: var(--h-border-width-1);
   --h-avatar-md-border-radius: var(--h-border-radius-md);
   --h-avatar-md-height: var(--h-space-600)px;

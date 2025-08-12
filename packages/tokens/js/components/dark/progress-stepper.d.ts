@@ -6,23 +6,15 @@ declare const _default: {
     readonly complete: {
       readonly backgroundColor: '#7a42c8';
     };
-    readonly future: {
-      readonly backgroundColor: '#4c473d';
-    };
     readonly height: 2;
   };
   readonly gapHorizontal: 0;
   readonly gapVertical: 4;
   readonly indicator: {
-    readonly active: {
-      readonly backgroundColorHalo: '#222222';
-    };
     readonly complete: {
-      readonly backgroundColor: '#7a42c8';
       readonly iconColor: '#fcfbf2';
     };
     readonly future: {
-      readonly borderColor: '#4c473d';
       readonly borderWidth: 2;
     };
     readonly height: 28;

@@ -2,24 +2,19 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly backgroundColor: '#191917';
-  readonly borderTopColor: '#4c473d';
   readonly borderTopWidth: 2;
   readonly gap: 0;
   readonly indicator: {
-    readonly backgroundColor: '#8850cf';
     readonly borderRadius: 4;
     readonly height: 2;
   };
   readonly item: {
     readonly gap: 2;
     readonly icon: {
-      readonly colorActive: '#8850cf';
-      readonly colorDefault: '#e7e6e6';
+      readonly colorActive: '#996cda';
     };
     readonly label: {
-      readonly colorActive: '#8850cf';
-      readonly colorDefault: '#e7e6e6';
+      readonly colorActive: '#996cda';
     };
     readonly paddingBottom: 2;
     readonly paddingHorizontal: 0;

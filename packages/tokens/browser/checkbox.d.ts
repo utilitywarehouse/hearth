@@ -3,8 +3,6 @@ export declare const checkbox: {
   readonly borderWidth: 'var(--h-checkbox-border-width)';
   readonly checked: {
     readonly backgroundColor: 'var(--h-checkbox-checked-background-color)';
-    readonly borderColor: 'var(--h-checkbox-checked-border-color)';
-    readonly iconColor: 'var(--h-checkbox-checked-icon-color)';
   };
   readonly gap: 'var(--h-checkbox-gap)';
   readonly group: {
@@ -17,9 +15,6 @@ export declare const checkbox: {
   readonly outlineColorHover: 'var(--h-checkbox-outline-color-hover)';
   readonly outlineWidth: 'var(--h-checkbox-outline-width)';
   readonly tile: {
-    readonly backgroundColor: 'var(--h-checkbox-tile-background-color)';
-    readonly borderColor: 'var(--h-checkbox-tile-border-color)';
-    readonly borderColorSelected: 'var(--h-checkbox-tile-border-color-selected)';
     readonly borderRadius: 'var(--h-checkbox-tile-border-radius)';
     readonly borderWidth: 'var(--h-checkbox-tile-border-width)';
     readonly borderWidthSelected: 'var(--h-checkbox-tile-border-width-selected)';
@@ -33,9 +28,5 @@ export declare const checkbox: {
     readonly maxWidth: 'var(--h-checkbox-tile-max-width)';
     readonly minWidth: 'var(--h-checkbox-tile-min-width)';
     readonly padding: 'var(--h-checkbox-tile-padding)';
-  };
-  readonly unchecked: {
-    readonly backgroundColor: 'var(--h-checkbox-unchecked-background-color)';
-    readonly borderColor: 'var(--h-checkbox-unchecked-border-color)';
   };
 };

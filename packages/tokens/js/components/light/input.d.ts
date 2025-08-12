@@ -2,15 +2,9 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly backgroundColor: '#ffffff';
-  readonly borderColor: '#101010';
-  readonly borderColorInvalid: '#de2612';
-  readonly borderColorReadOnly: '#d1d0d0';
-  readonly borderColorValid: '#0f834a';
   readonly borderRadius: 8;
   readonly borderWidth: 1;
   readonly borderWidthFocused: 2;
-  readonly color: '#101010';
   readonly currency: {
     readonly gap: 2;
     readonly height: 60;
@@ -24,13 +18,11 @@ declare const _default: {
     readonly gap: 2;
   };
   readonly maxWidth: 504;
-  readonly minWidth: 152;
+  readonly minWidth: 120;
   readonly paddingHorizontal: 16;
   readonly paddingVertical: 12;
-  readonly placeholderColor: '#6f6c6b';
   readonly textArea: {
     readonly height: 96;
-    readonly resizeIconColor: '#6f6c6b';
   };
   readonly validation: {
     readonly gap: 2;

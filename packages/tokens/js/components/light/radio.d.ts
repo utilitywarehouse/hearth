@@ -18,9 +18,6 @@ declare const _default: {
   readonly outlineColorHover: '#f1efe4';
   readonly outlineWidth: 3;
   readonly tile: {
-    readonly backgroundColor: '#ffffff';
-    readonly borderColor: '#d4d2c0';
-    readonly borderColorSelected: '#101010';
     readonly borderRadius: 8;
     readonly borderWidth: 1;
     readonly borderWidthSelected: 2;
@@ -34,10 +31,6 @@ declare const _default: {
     readonly maxWidth: 680;
     readonly minWidth: 80;
     readonly padding: 12;
-  };
-  readonly unchecked: {
-    readonly backgroundColor: '#ffffff';
-    readonly borderColor: '#8a8686';
   };
 };
 export default _default;

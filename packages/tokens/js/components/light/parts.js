@@ -9,22 +9,15 @@ export default {
   modalStack: {
     backgroundColor: '#101010',
     backgroundColorCardBottom: '#ffffff',
-    backgroundColorCardTop: '#e7e6e6',
+    backgroundColorCardTop: '#ebebeb',
   },
   placeholder: {
     borderColor: '#101010',
   },
   roundel: {
     borderRadius: 9999,
-    error: {
-      backgroundColor: '#de2612',
-    },
     pending: {
-      borderColor: '#101010',
       borderWidth: 2,
-    },
-    success: {
-      backgroundColor: '#0f834a',
     },
   },
   scrollBar: {

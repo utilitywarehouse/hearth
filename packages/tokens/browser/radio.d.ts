@@ -15,9 +15,6 @@ export declare const radio: {
   readonly outlineColorHover: 'var(--h-radio-outline-color-hover)';
   readonly outlineWidth: 'var(--h-radio-outline-width)';
   readonly tile: {
-    readonly backgroundColor: 'var(--h-radio-tile-background-color)';
-    readonly borderColor: 'var(--h-radio-tile-border-color)';
-    readonly borderColorSelected: 'var(--h-radio-tile-border-color-selected)';
     readonly borderRadius: 'var(--h-radio-tile-border-radius)';
     readonly borderWidth: 'var(--h-radio-tile-border-width)';
     readonly borderWidthSelected: 'var(--h-radio-tile-border-width-selected)';
@@ -31,9 +28,5 @@ export declare const radio: {
     readonly maxWidth: 'var(--h-radio-tile-max-width)';
     readonly minWidth: 'var(--h-radio-tile-min-width)';
     readonly padding: 'var(--h-radio-tile-padding)';
-  };
-  readonly unchecked: {
-    readonly backgroundColor: 'var(--h-radio-unchecked-background-color)';
-    readonly borderColor: 'var(--h-radio-unchecked-border-color)';
   };
 };

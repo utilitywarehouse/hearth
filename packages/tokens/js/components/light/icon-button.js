@@ -17,12 +17,12 @@ export default {
   },
   unstyled: {
     foregroundColor: '#101010',
-    foregroundColorActive: '#464444',
-    foregroundColorHover: '#3e3c3b',
+    foregroundColorActive: '#3f3f3f',
+    foregroundColorHover: '#3a3837',
     inverted: {
-      foregroundColor: '#fcfbf2',
-      foregroundColorActive: '#f1efe4',
-      foregroundColorHover: '#f7f6eb',
+      foregroundColor: '#f7f7f7',
+      foregroundColorActive: '#d4d2c0',
+      foregroundColorHover: '#d3d3d3',
     },
     md: {
       height: 24,

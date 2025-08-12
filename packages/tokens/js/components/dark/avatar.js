@@ -2,9 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
-  backgroundColor: '#5d2167',
   image: {
-    borderColor: '#4c473d',
     borderWidth: 1,
   },
   md: {

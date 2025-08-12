@@ -4,8 +4,6 @@ export declare const accordion: {
     readonly gap: 'var(--h-accordion-heading-gap)';
   };
   readonly item: {
-    readonly backgroundColorActive: 'var(--h-accordion-item-background-color-active)';
-    readonly backgroundColorHover: 'var(--h-accordion-item-background-color-hover)';
     readonly content: {
       readonly gap: 'var(--h-accordion-item-content-gap)';
       readonly paddingBottom: 'var(--h-accordion-item-content-padding-bottom)';

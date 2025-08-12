@@ -16,13 +16,13 @@ declare const _default: {
     readonly width: 32;
   };
   readonly unstyled: {
-    readonly foregroundColor: '#e7e6e6';
+    readonly foregroundColor: '#f7f7f7';
     readonly foregroundColorActive: '#b2afae';
-    readonly foregroundColorHover: '#d1d0d0';
+    readonly foregroundColorHover: '#d3d3d3';
     readonly inverted: {
-      readonly foregroundColor: '#fcfbf2';
-      readonly foregroundColorActive: '#f1efe4';
-      readonly foregroundColorHover: '#f7f6eb';
+      readonly foregroundColor: '#101010';
+      readonly foregroundColorActive: '#3a3837';
+      readonly foregroundColorHover: '#232323';
     };
     readonly md: {
       readonly height: 24;

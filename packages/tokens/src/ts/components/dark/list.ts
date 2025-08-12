@@ -25,23 +25,14 @@ export default {
   },
   gap: 12,
   item: {
-    backgroundColorActive: '#4c473d',
-    backgroundColorHover: '#30302c',
     contentGap: 2,
     functional: {
       borderWidth: 1,
-      emphasis: {
-        borderColor: '#e7e6e6',
-      },
       padding: 16,
       paddingNone: 0,
-      subtle: {
-        borderColor: '#4c473d',
-      },
     },
     gap: 12,
     stylised: {
-      borderColor: '#ffffff',
       borderWidth: 2,
       height: 72,
       paddingLeft: 0,

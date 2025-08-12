@@ -2,14 +2,6 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
-  checked: {
-    backgroundColor: '#7a42c8',
-    backgroundColorHover: '#6538b8',
-    iconColor: '#7a42c8',
-  },
-  circle: {
-    backgroundColor: '#ffffff',
-  },
   md: {
     circle: {
       size: 28,
@@ -27,8 +19,6 @@ export default {
     width: 44,
   },
   unchecked: {
-    backgroundColor: '#8a8686',
-    backgroundColorHover: '#6f6c6b',
-    iconColor: '#8a8686',
+    backgroundColorHover: '#888888',
   },
 };

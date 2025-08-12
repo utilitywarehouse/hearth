@@ -27,16 +27,7 @@ export default {
       gap: 12,
     },
     gap: 0,
-    heading: {
-      broadbandGreenBackgroundColor: '#506c21',
-      cashbackLilacBackgroundColor: '#8b2bc9',
-      energyBlueBackgroundColor: '#326e7a',
-      insuranceOrangeBackgroundColor: '#9b4c0e',
-      mobileRoseBackgroundColor: '#a7266d',
-      piggyPinkBackgroundColor: '#8f358f',
-      yellowBackgroundColor: '#756230',
-    },
     padding: 16,
   },
-  imageContainerBorderColor: '#e7e6e6',
+  imageContainerBorderColor: '#ebebeb',
 };

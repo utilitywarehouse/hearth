@@ -6,17 +6,12 @@
   --h-checkbox-border-radius: var(--h-border-radius-xs);
   --h-checkbox-border-width: var(--h-border-width-2);
   --h-checkbox-checked-background-color: var(--h-color-grey-1000);
-  --h-checkbox-checked-border-color: var(--h-color-grey-1000);
-  --h-checkbox-checked-icon-color: var(--h-color-warm-white-50);
   --h-checkbox-gap: var(--h-space-100);
   --h-checkbox-group-gap: var(--h-space-200);
   --h-checkbox-group-stack-gap: var(--h-space-400);
   --h-checkbox-outline-color-active: var(--h-color-warm-white-300);
   --h-checkbox-outline-color-hover: var(--h-color-warm-white-200);
   --h-checkbox-outline-width: 3px;
-  --h-checkbox-tile-background-color: var(--h-color-grey-0);
-  --h-checkbox-tile-border-color: var(--h-color-warm-white-300);
-  --h-checkbox-tile-border-color-selected: var(--h-color-grey-1000);
   --h-checkbox-tile-border-radius: var(--h-border-radius-md);
   --h-checkbox-tile-border-width: var(--h-border-width-1);
   --h-checkbox-tile-border-width-selected: var(--h-border-width-2);
@@ -26,6 +21,4 @@
   --h-checkbox-tile-max-width: 680px;
   --h-checkbox-tile-min-width: 80px;
   --h-checkbox-tile-padding: var(--h-space-150);
-  --h-checkbox-unchecked-background-color: var(--h-color-grey-0);
-  --h-checkbox-unchecked-border-color: var(--h-color-grey-400);
 }

@@ -9,22 +9,15 @@ declare const _default: {
   readonly modalStack: {
     readonly backgroundColor: '#101010';
     readonly backgroundColorCardBottom: '#ffffff';
-    readonly backgroundColorCardTop: '#e7e6e6';
+    readonly backgroundColorCardTop: '#ebebeb';
   };
   readonly placeholder: {
     readonly borderColor: '#101010';
   };
   readonly roundel: {
     readonly borderRadius: 9999;
-    readonly error: {
-      readonly backgroundColor: '#de2612';
-    };
     readonly pending: {
-      readonly borderColor: '#101010';
       readonly borderWidth: 2;
-    };
-    readonly success: {
-      readonly backgroundColor: '#0f834a';
     };
   };
   readonly scrollBar: {

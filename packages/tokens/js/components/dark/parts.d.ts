@@ -8,23 +8,16 @@ declare const _default: {
   };
   readonly modalStack: {
     readonly backgroundColor: '#101010';
-    readonly backgroundColorCardBottom: '#222222';
-    readonly backgroundColorCardTop: '#3e3c3b';
+    readonly backgroundColorCardBottom: '#232323';
+    readonly backgroundColorCardTop: '#3a3837';
   };
   readonly placeholder: {
-    readonly borderColor: '#e7e6e6';
+    readonly borderColor: '#ebebeb';
   };
   readonly roundel: {
     readonly borderRadius: 9999;
-    readonly error: {
-      readonly backgroundColor: '#ff7964';
-    };
     readonly pending: {
-      readonly borderColor: '#e7e6e6';
       readonly borderWidth: 2;
-    };
-    readonly success: {
-      readonly backgroundColor: '#58ca93';
     };
   };
   readonly scrollBar: {
@@ -33,7 +26,7 @@ declare const _default: {
   };
   readonly statusBar: {
     readonly foregroundColor: '#ffffff';
-    readonly foregroundColorInverted: '#ffffff';
+    readonly foregroundColorInverted: '#000000';
     readonly notch: '#000000';
   };
 };

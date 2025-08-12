@@ -1,12 +1,4 @@
 export declare const switchComponent: {
-  readonly checked: {
-    readonly backgroundColor: 'var(--h-switch-checked-background-color)';
-    readonly backgroundColorHover: 'var(--h-switch-checked-background-color-hover)';
-    readonly iconColor: 'var(--h-switch-checked-icon-color)';
-  };
-  readonly circle: {
-    readonly backgroundColor: 'var(--h-switch-circle-background-color)';
-  };
   readonly md: {
     readonly circle: {
       readonly size: 'var(--h-switch-md-circle-size)';
@@ -24,8 +16,6 @@ export declare const switchComponent: {
     readonly width: 'var(--h-switch-sm-width)';
   };
   readonly unchecked: {
-    readonly backgroundColor: 'var(--h-switch-unchecked-background-color)';
     readonly backgroundColorHover: 'var(--h-switch-unchecked-background-color-hover)';
-    readonly iconColor: 'var(--h-switch-unchecked-icon-color)';
   };
 };

@@ -1,12 +1,4 @@
 export const switchComponent = {
-  checked: {
-    backgroundColor: 'var(--h-switch-checked-background-color)',
-    backgroundColorHover: 'var(--h-switch-checked-background-color-hover)',
-    iconColor: 'var(--h-switch-checked-icon-color)',
-  },
-  circle: {
-    backgroundColor: 'var(--h-switch-circle-background-color)',
-  },
   md: {
     circle: {
       size: 'var(--h-switch-md-circle-size)',
@@ -24,8 +16,6 @@ export const switchComponent = {
     width: 'var(--h-switch-sm-width)',
   },
   unchecked: {
-    backgroundColor: 'var(--h-switch-unchecked-background-color)',
     backgroundColorHover: 'var(--h-switch-unchecked-background-color-hover)',
-    iconColor: 'var(--h-switch-unchecked-icon-color)',
   },
 };

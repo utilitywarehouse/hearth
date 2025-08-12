@@ -4,15 +4,12 @@
 declare const _default: {
   readonly divider: {
     readonly borderWidth: 2;
-    readonly color: '#e7e6e6';
+    readonly color: '#ebebeb';
   };
   readonly gap: 12;
   readonly item: {
-    readonly backgroundColorActive: '#3e3c3b';
-    readonly backgroundColorHover: '#464444';
     readonly gap: 6;
     readonly selected: {
-      readonly backgroundColor: '#8850cf';
       readonly borderBottomRadius: 0;
       readonly borderTopRadius: 4;
     };

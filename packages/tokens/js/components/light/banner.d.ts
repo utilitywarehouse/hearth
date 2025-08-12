@@ -13,13 +13,13 @@ declare const _default: {
       readonly imageMaxWidth: 240;
       readonly imageMinWidth: 160;
       readonly maxWidth: 680;
-      readonly minWidth: 288;
+      readonly minWidth: 240;
     };
     readonly imageHeight: 160;
     readonly padding: 16;
     readonly vertical: {
       readonly maxWidth: 504;
-      readonly minWidth: 288;
+      readonly minWidth: 240;
     };
   };
   readonly highlight: {
@@ -27,15 +27,6 @@ declare const _default: {
       readonly gap: 12;
     };
     readonly gap: 0;
-    readonly heading: {
-      readonly broadbandGreenBackgroundColor: '#8cba3b';
-      readonly cashbackLilacBackgroundColor: '#be7aeb';
-      readonly energyBlueBackgroundColor: '#6db5c3';
-      readonly insuranceOrangeBackgroundColor: '#ff7b00';
-      readonly mobileRoseBackgroundColor: '#ee6dbb';
-      readonly piggyPinkBackgroundColor: '#f295ff';
-      readonly yellowBackgroundColor: '#ffb921';
-    };
     readonly padding: 16;
   };
   readonly imageContainerBorderColor: '#101010';

@@ -3,9 +3,7 @@
  */
 
 export default {
-  backgroundColor: '#f9ceff',
   image: {
-    borderColor: '#d4d2c0',
     borderWidth: 1,
   },
   md: {

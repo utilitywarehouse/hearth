@@ -1,296 +1,244 @@
 export const color = {
-  focus: {
-    focus: 'var(--h-focus-focus)',
-    focusInverted: 'var(--h-focus-focus-inverted)',
-  },
-  text: {
-    inverted: 'var(--h-text-inverted)',
-    primary: 'var(--h-text-primary)',
-    secondary: 'var(--h-text-secondary)',
-  },
   background: {
     brand: 'var(--h-background-brand)',
     primary: 'var(--h-background-primary)',
     secondary: 'var(--h-background-secondary)',
   },
   border: {
-    strong: {
-      color: 'var(--h-border-strong-color)',
-    },
-    subtle: {
-      color: 'var(--h-border-subtle-color)',
-    },
+    strong: 'var(--h-border-strong)',
+    subtle: 'var(--h-border-subtle)',
   },
   feedback: {
     danger: {
-      default: {
-        color: 'var(--h-feedback-danger-default-color)',
+      border: 'var(--h-feedback-danger-border)',
+      foreground: {
+        default: 'var(--h-feedback-danger-foreground-default)',
+        subtle: 'var(--h-feedback-danger-foreground-subtle)',
       },
-      subtle: {
-        color: 'var(--h-feedback-danger-subtle-color)',
+      surface: {
+        default: 'var(--h-feedback-danger-surface-default)',
+        subtle: 'var(--h-feedback-danger-surface-subtle)',
       },
     },
     functional: {
-      default: {
-        color: 'var(--h-feedback-functional-default-color)',
+      border: 'var(--h-feedback-functional-border)',
+      foreground: {
+        default: 'var(--h-feedback-functional-foreground-default)',
+        subtle: 'var(--h-feedback-functional-foreground-subtle)',
       },
-      subtle: {
-        color: 'var(--h-feedback-functional-subtle-color)',
+      surface: {
+        default: 'var(--h-feedback-functional-surface-default)',
+        subtle: 'var(--h-feedback-functional-surface-subtle)',
       },
     },
     info: {
-      default: {
-        color: 'var(--h-feedback-info-default-color)',
+      border: 'var(--h-feedback-info-border)',
+      foreground: {
+        default: 'var(--h-feedback-info-foreground-default)',
+        subtle: 'var(--h-feedback-info-foreground-subtle)',
       },
-      subtle: {
-        color: 'var(--h-feedback-info-subtle-color)',
+      surface: {
+        default: 'var(--h-feedback-info-surface-default)',
+        subtle: 'var(--h-feedback-info-surface-subtle)',
       },
     },
     positive: {
-      default: {
-        color: 'var(--h-feedback-positive-default-color)',
+      border: 'var(--h-feedback-positive-border)',
+      foreground: {
+        default: 'var(--h-feedback-positive-foreground-default)',
+        subtle: 'var(--h-feedback-positive-foreground-subtle)',
       },
-      subtle: {
-        color: 'var(--h-feedback-positive-subtle-color)',
+      surface: {
+        default: 'var(--h-feedback-positive-surface-default)',
+        subtle: 'var(--h-feedback-positive-surface-subtle)',
       },
     },
     warning: {
-      default: {
-        color: 'var(--h-feedback-warning-default-color)',
+      border: 'var(--h-feedback-warning-border)',
+      foreground: {
+        default: 'var(--h-feedback-warning-foreground-default)',
+        subtle: 'var(--h-feedback-warning-foreground-subtle)',
       },
-      subtle: {
-        color: 'var(--h-feedback-warning-subtle-color)',
+      surface: {
+        default: 'var(--h-feedback-warning-surface-default)',
+        subtle: 'var(--h-feedback-warning-surface-subtle)',
       },
     },
+  },
+  focus: {
+    inverted: 'var(--h-focus-inverted)',
+    primary: 'var(--h-focus-primary)',
+  },
+  icon: {
+    inverted: 'var(--h-icon-inverted)',
+    primary: 'var(--h-icon-primary)',
   },
   interactive: {
     affirmative: {
       border: {
-        strong: {
-          color: 'var(--h-interactive-affirmative-border-strong-color)',
-        },
-        subtle: {
-          color: 'var(--h-interactive-affirmative-border-subtle-color)',
-        },
+        strong: 'var(--h-interactive-affirmative-border-strong)',
+        subtle: 'var(--h-interactive-affirmative-border-subtle)',
       },
       foreground: {
-        strong: {
-          color: 'var(--h-interactive-affirmative-foreground-strong-color)',
-        },
-        subtle: {
-          color: 'var(--h-interactive-affirmative-foreground-subtle-color)',
-        },
+        strong: 'var(--h-interactive-affirmative-foreground-strong)',
+        subtle: 'var(--h-interactive-affirmative-foreground-subtle)',
       },
       surface: {
         strong: {
-          activeColor: 'var(--h-interactive-affirmative-surface-strong-active-color)',
-          defaultColor: 'var(--h-interactive-affirmative-surface-strong-default-color)',
-          hoverColor: 'var(--h-interactive-affirmative-surface-strong-hover-color)',
+          active: 'var(--h-interactive-affirmative-surface-strong-active)',
+          default: 'var(--h-interactive-affirmative-surface-strong-default)',
+          hover: 'var(--h-interactive-affirmative-surface-strong-hover)',
         },
         subtle: {
-          activeColor: 'var(--h-interactive-affirmative-surface-subtle-active-color)',
-          hoverColor: 'var(--h-interactive-affirmative-surface-subtle-hover-color)',
+          active: 'var(--h-interactive-affirmative-surface-subtle-active)',
+          hover: 'var(--h-interactive-affirmative-surface-subtle-hover)',
         },
       },
     },
     brand: {
       border: {
-        strong: {
-          color: 'var(--h-interactive-brand-border-strong-color)',
-        },
+        strong: 'var(--h-interactive-brand-border-strong)',
       },
       foreground: {
-        strong: {
-          color: 'var(--h-interactive-brand-foreground-strong-color)',
-        },
+        strong: 'var(--h-interactive-brand-foreground-strong)',
       },
       surface: {
         strong: {
-          activeColor: 'var(--h-interactive-brand-surface-strong-active-color)',
-          defaultColor: 'var(--h-interactive-brand-surface-strong-default-color)',
-          hoverColor: 'var(--h-interactive-brand-surface-strong-hover-color)',
+          active: 'var(--h-interactive-brand-surface-strong-active)',
+          default: 'var(--h-interactive-brand-surface-strong-default)',
+          hover: 'var(--h-interactive-brand-surface-strong-hover)',
         },
       },
     },
     destructive: {
       border: {
-        strong: {
-          color: 'var(--h-interactive-destructive-border-strong-color)',
-        },
-        subtle: {
-          color: 'var(--h-interactive-destructive-border-subtle-color)',
-        },
+        strong: 'var(--h-interactive-destructive-border-strong)',
+        subtle: 'var(--h-interactive-destructive-border-subtle)',
       },
       foreground: {
-        strong: {
-          color: 'var(--h-interactive-destructive-foreground-strong-color)',
-        },
-        subtle: {
-          color: 'var(--h-interactive-destructive-foreground-subtle-color)',
-        },
+        strong: 'var(--h-interactive-destructive-foreground-strong)',
+        subtle: 'var(--h-interactive-destructive-foreground-subtle)',
       },
       surface: {
         strong: {
-          activeColor: 'var(--h-interactive-destructive-surface-strong-active-color)',
-          defaultColor: 'var(--h-interactive-destructive-surface-strong-default-color)',
-          hoverColor: 'var(--h-interactive-destructive-surface-strong-hover-color)',
+          active: 'var(--h-interactive-destructive-surface-strong-active)',
+          default: 'var(--h-interactive-destructive-surface-strong-default)',
+          hover: 'var(--h-interactive-destructive-surface-strong-hover)',
         },
         subtle: {
-          activeColor: 'var(--h-interactive-destructive-surface-subtle-active-color)',
-          hoverColor: 'var(--h-interactive-destructive-surface-subtle-hover-color)',
+          active: 'var(--h-interactive-destructive-surface-subtle-active)',
+          hover: 'var(--h-interactive-destructive-surface-subtle-hover)',
         },
       },
     },
     functional: {
       border: {
-        subtle: {
-          color: 'var(--h-interactive-functional-border-subtle-color)',
-        },
+        strong: 'var(--h-interactive-functional-border-strong)',
+        subtle: 'var(--h-interactive-functional-border-subtle)',
       },
       foreground: {
-        subtle: {
-          subtle: 'var(--h-interactive-functional-foreground-subtle-subtle)',
-        },
+        strong: 'var(--h-interactive-functional-foreground-strong)',
+        subtle: 'var(--h-interactive-functional-foreground-subtle)',
       },
       surface: {
+        strong: {
+          active: 'var(--h-interactive-functional-surface-strong-active)',
+          default: 'var(--h-interactive-functional-surface-strong-default)',
+          hover: 'var(--h-interactive-functional-surface-strong-hover)',
+        },
         subtle: {
-          activeColor: 'var(--h-interactive-functional-surface-subtle-active-color)',
-          hoverColor: 'var(--h-interactive-functional-surface-subtle-hover-color)',
+          active: 'var(--h-interactive-functional-surface-subtle-active)',
+          hover: 'var(--h-interactive-functional-surface-subtle-hover)',
+          inverted: {
+            active: 'var(--h-interactive-functional-surface-subtle-inverted-active)',
+            hover: 'var(--h-interactive-functional-surface-subtle-inverted-hover)',
+          },
         },
       },
     },
     highlight: {
       border: {
-        strong: {
-          color: 'var(--h-interactive-highlight-border-strong-color)',
-        },
+        strong: 'var(--h-interactive-highlight-border-strong)',
       },
       foreground: {
-        strong: {
-          color: 'var(--h-interactive-highlight-foreground-strong-color)',
-        },
+        strong: 'var(--h-interactive-highlight-foreground-strong)',
       },
       surface: {
         strong: {
-          activeColor: 'var(--h-interactive-highlight-surface-strong-active-color)',
-          defaultColor: 'var(--h-interactive-highlight-surface-strong-default-color)',
-          hoverColor: 'var(--h-interactive-highlight-surface-strong-hover-color)',
+          active: 'var(--h-interactive-highlight-surface-strong-active)',
+          default: 'var(--h-interactive-highlight-surface-strong-default)',
+          hover: 'var(--h-interactive-highlight-surface-strong-hover)',
         },
       },
     },
     neutral: {
       border: {
-        strong: {
-          color: 'var(--h-interactive-neutral-border-strong-color)',
-        },
+        subtle: 'var(--h-interactive-neutral-border-subtle)',
       },
       foreground: {
-        strong: {
-          color: 'var(--h-interactive-neutral-foreground-strong-color)',
-        },
+        subtle: 'var(--h-interactive-neutral-foreground-subtle)',
       },
       surface: {
-        strong: {
-          activeColor: 'var(--h-interactive-neutral-surface-strong-active-color)',
-          hoverColor: 'var(--h-interactive-neutral-surface-strong-hover-color)',
+        subtle: {
+          active: 'var(--h-interactive-neutral-surface-subtle-active)',
+          hover: 'var(--h-interactive-neutral-surface-subtle-hover)',
         },
       },
     },
   },
   shadow: {
-    brand: {
-      color: 'var(--h-shadow-brand-color)',
-    },
-    broadband: {
-      color: 'var(--h-shadow-broadband-color)',
-    },
-    cashback: {
-      color: 'var(--h-shadow-cashback-color)',
-    },
-    default: {
-      color: 'var(--h-shadow-default-color)',
-    },
-    energy: {
-      color: 'var(--h-shadow-energy-color)',
-    },
-    insurance: {
-      color: 'var(--h-shadow-insurance-color)',
-    },
-    mobile: {
-      color: 'var(--h-shadow-mobile-color)',
-    },
-    pig: {
-      color: 'var(--h-shadow-pig-color)',
-    },
+    brand: 'var(--h-shadow-brand)',
+    broadband: 'var(--h-shadow-broadband)',
+    cashback: 'var(--h-shadow-cashback)',
+    default: 'var(--h-shadow-default)',
+    energy: 'var(--h-shadow-energy)',
+    insurance: 'var(--h-shadow-insurance)',
+    mobile: 'var(--h-shadow-mobile)',
+    pig: 'var(--h-shadow-pig)',
   },
   surface: {
     brand: {
-      default: {
-        color: 'var(--h-surface-brand-default-color)',
-      },
-      strong: {
-        color: 'var(--h-surface-brand-strong-color)',
-      },
-      subtle: {
-        color: 'var(--h-surface-brand-subtle-color)',
-      },
+      default: 'var(--h-surface-brand-default)',
+      strong: 'var(--h-surface-brand-strong)',
+      subtle: 'var(--h-surface-brand-subtle)',
     },
     broadband: {
-      default: {
-        color: 'var(--h-surface-broadband-default-color)',
-      },
-      subtle: {
-        color: 'var(--h-surface-broadband-subtle-color)',
-      },
+      default: 'var(--h-surface-broadband-default)',
+      subtle: 'var(--h-surface-broadband-subtle)',
     },
     cashback: {
-      default: {
-        color: 'var(--h-surface-cashback-default-color)',
-      },
-      subtle: {
-        color: 'var(--h-surface-cashback-subtle-color)',
-      },
+      default: 'var(--h-surface-cashback-default)',
+      subtle: 'var(--h-surface-cashback-subtle)',
     },
     energy: {
-      default: {
-        color: 'var(--h-surface-energy-default-color)',
-      },
-      subtle: {
-        color: 'var(--h-surface-energy-subtle-color)',
-      },
+      default: 'var(--h-surface-energy-default)',
+      subtle: 'var(--h-surface-energy-subtle)',
     },
     highlight: {
-      default: {
-        color: 'var(--h-surface-highlight-default-color)',
-      },
-      subtle: {
-        color: 'var(--h-surface-highlight-subtle-color)',
-      },
+      default: 'var(--h-surface-highlight-default)',
+      subtle: 'var(--h-surface-highlight-subtle)',
     },
     insurance: {
-      default: {
-        color: 'var(--h-surface-insurance-default-color)',
-      },
-      subtle: {
-        color: 'var(--h-surface-insurance-subtle-color)',
-      },
+      default: 'var(--h-surface-insurance-default)',
+      subtle: 'var(--h-surface-insurance-subtle)',
     },
     mobile: {
-      default: {
-        color: 'var(--h-surface-mobile-default-color)',
-      },
-      subtle: {
-        color: 'var(--h-surface-mobile-subtle-color)',
-      },
+      default: 'var(--h-surface-mobile-default)',
+      subtle: 'var(--h-surface-mobile-subtle)',
+    },
+    neutral: {
+      strong: 'var(--h-surface-neutral-strong)',
+      subtle: 'var(--h-surface-neutral-subtle)',
     },
     pig: {
-      default: {
-        color: 'var(--h-surface-pig-default-color)',
-      },
-      subtle: {
-        color: 'var(--h-surface-pig-subtle-color)',
-      },
+      default: 'var(--h-surface-pig-default)',
+      subtle: 'var(--h-surface-pig-subtle)',
     },
+  },
+  text: {
+    inverted: 'var(--h-text-inverted)',
+    primary: 'var(--h-text-primary)',
+    secondary: 'var(--h-text-secondary)',
   },
   blue: {
     0: 'var(--h-color-blue-0)',

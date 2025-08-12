@@ -24,23 +24,14 @@ declare const _default: {
   };
   readonly gap: 12;
   readonly item: {
-    readonly backgroundColorActive: '#f1efe4';
-    readonly backgroundColorHover: '#f7f6eb';
     readonly contentGap: 2;
     readonly functional: {
       readonly borderWidth: 1;
-      readonly emphasis: {
-        readonly borderColor: '#101010';
-      };
       readonly padding: 16;
       readonly paddingNone: 0;
-      readonly subtle: {
-        readonly borderColor: '#d4d2c0';
-      };
     };
     readonly gap: 12;
     readonly stylised: {
-      readonly borderColor: '#101010';
       readonly borderWidth: 2;
       readonly height: 72;
       readonly paddingLeft: 0;

@@ -13,15 +13,8 @@ export declare const parts: {
   };
   readonly roundel: {
     readonly borderRadius: 'var(--h-parts-roundel-border-radius)';
-    readonly error: {
-      readonly backgroundColor: 'var(--h-parts-roundel-error-background-color)';
-    };
     readonly pending: {
-      readonly borderColor: 'var(--h-parts-roundel-pending-border-color)';
       readonly borderWidth: 'var(--h-parts-roundel-pending-border-width)';
-    };
-    readonly success: {
-      readonly backgroundColor: 'var(--h-parts-roundel-success-background-color)';
     };
   };
   readonly scrollBar: {

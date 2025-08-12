@@ -1,12 +1,4 @@
 export const iconContainer = {
-  emphasis: {
-    broadbandGreenBackground: 'var(--h-icon-container-emphasis-broadband-green-background)',
-    cashbackLilacBackground: 'var(--h-icon-container-emphasis-cashback-lilac-background)',
-    energyBlueBackground: 'var(--h-icon-container-emphasis-energy-blue-background)',
-    insuranceOrangeBackground: 'var(--h-icon-container-emphasis-insurance-orange-background)',
-    mobileRoseBackground: 'var(--h-icon-container-emphasis-mobile-rose-background)',
-    piggyPinkBackground: 'var(--h-icon-container-emphasis-piggy-pink-background)',
-  },
   lg: {
     borderRadiusNone: 'var(--h-icon-container-lg-border-radius-none)',
     borderRadiusRounded: 'var(--h-icon-container-lg-border-radius-rounded)',
@@ -25,14 +17,5 @@ export const iconContainer = {
     height: 'var(--h-icon-container-sm-height)',
     padding: 'var(--h-icon-container-sm-padding)',
     width: 'var(--h-icon-container-sm-width)',
-  },
-  subtle: {
-    broadbandGreenBackground: 'var(--h-icon-container-subtle-broadband-green-background)',
-    cashbackLilacBackground: 'var(--h-icon-container-subtle-cashback-lilac-background)',
-    energyBlueBackground: 'var(--h-icon-container-subtle-energy-blue-background)',
-    insuranceOrangeBackground: 'var(--h-icon-container-subtle-insurance-orange-background)',
-    mobileRoseBackground: 'var(--h-icon-container-subtle-mobile-rose-background)',
-    piggyPinkBackground: 'var(--h-icon-container-subtle-piggy-pink-background)',
-    yellowBackground: 'var(--h-icon-container-subtle-yellow-background)',
   },
 } as const;

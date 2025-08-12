@@ -27,17 +27,8 @@ declare const _default: {
       readonly gap: 12;
     };
     readonly gap: 0;
-    readonly heading: {
-      readonly broadbandGreenBackgroundColor: '#506c21';
-      readonly cashbackLilacBackgroundColor: '#8b2bc9';
-      readonly energyBlueBackgroundColor: '#326e7a';
-      readonly insuranceOrangeBackgroundColor: '#9b4c0e';
-      readonly mobileRoseBackgroundColor: '#a7266d';
-      readonly piggyPinkBackgroundColor: '#8f358f';
-      readonly yellowBackgroundColor: '#756230';
-    };
     readonly padding: 16;
   };
-  readonly imageContainerBorderColor: '#e7e6e6';
+  readonly imageContainerBorderColor: '#ebebeb';
 };
 export default _default;

@@ -2,9 +2,9 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly color: '#e7e6e6';
+  readonly color: '#ebebeb';
   readonly colorActive: '#b2afae';
-  readonly colorHover: '#d1d0d0';
+  readonly colorHover: '#d3d3d3';
   readonly gap: 2;
   readonly inverted: {
     readonly color: '#fcfbf2';

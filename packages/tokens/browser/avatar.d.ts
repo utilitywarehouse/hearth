@@ -1,7 +1,5 @@
 export declare const avatar: {
-  readonly backgroundColor: 'var(--h-avatar-background-color)';
   readonly image: {
-    readonly borderColor: 'var(--h-avatar-image-border-color)';
     readonly borderWidth: 'var(--h-avatar-image-border-width)';
   };
   readonly md: {

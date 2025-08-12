@@ -2,209 +2,189 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly focus: {
-    readonly focus: '#101010';
-    readonly focusInverted: '#fcfbf2';
-  };
-  readonly text: {
-    readonly inverted: '#fcfbf2';
-    readonly primary: '#101010';
-    readonly secondary: '#6f6c6b';
-  };
   readonly background: {
     readonly brand: '#7a42c8';
     readonly primary: '#fcfbf2';
     readonly secondary: '#ffffff';
   };
   readonly border: {
-    readonly strong: {
-      readonly color: '#101010';
-      readonly width: 2;
-    };
-    readonly subtle: {
-      readonly color: '#d4d2c0';
-      readonly width: 1;
-    };
+    readonly strong: '#101010';
+    readonly subtle: '#d4d2c0';
   };
   readonly feedback: {
     readonly danger: {
-      readonly default: {
-        readonly color: '#de2612';
+      readonly border: '#de2612';
+      readonly foreground: {
+        readonly default: '#fcfbf2';
+        readonly subtle: '#de2612';
       };
-      readonly subtle: {
-        readonly color: '#ffccc5';
+      readonly surface: {
+        readonly default: '#de2612';
+        readonly subtle: '#ffccc5';
       };
     };
     readonly functional: {
-      readonly default: {
-        readonly color: '#5f5c5b';
+      readonly border: '#888888';
+      readonly foreground: {
+        readonly default: '#fcfbf2';
+        readonly subtle: '#888888';
       };
-      readonly subtle: {
-        readonly color: '#d1d0d0';
+      readonly surface: {
+        readonly default: '#888888';
+        readonly subtle: '#d3d3d3';
       };
     };
     readonly info: {
-      readonly default: {
-        readonly color: '#1c6cd4';
+      readonly border: '#1c6cd4';
+      readonly foreground: {
+        readonly default: '#fcfbf2';
+        readonly subtle: '#1c6cd4';
       };
-      readonly subtle: {
-        readonly color: '#bcddff';
+      readonly surface: {
+        readonly default: '#1c6cd4';
+        readonly subtle: '#bcddff';
       };
     };
     readonly positive: {
-      readonly default: {
-        readonly color: '#0f834a';
+      readonly border: '#0f834a';
+      readonly foreground: {
+        readonly default: '#fcfbf2';
+        readonly subtle: '#0f834a';
       };
-      readonly subtle: {
-        readonly color: '#a2e2c3';
+      readonly surface: {
+        readonly default: '#0f834a';
+        readonly subtle: '#a2e2c3';
       };
     };
     readonly warning: {
-      readonly default: {
-        readonly color: '#cf5d00';
+      readonly border: '#be5400';
+      readonly foreground: {
+        readonly default: '#fcfbf2';
+        readonly subtle: '#be5400';
       };
-      readonly subtle: {
-        readonly color: '#ffcca8';
+      readonly surface: {
+        readonly default: '#be5400';
+        readonly subtle: '#ffcca8';
       };
     };
+  };
+  readonly focus: {
+    readonly inverted: '#fcfbf2';
+    readonly primary: '#101010';
+  };
+  readonly icon: {
+    readonly inverted: '#fcfbf2';
+    readonly primary: '#101010';
   };
   readonly interactive: {
     readonly affirmative: {
       readonly border: {
-        readonly strong: {
-          readonly borderWidth: 2;
-          readonly color: '#101010';
-        };
-        readonly subtle: {
-          readonly borderWidth: 2;
-          readonly color: '#04663a';
-        };
+        readonly strong: '#101010';
+        readonly subtle: '#04663a';
       };
       readonly foreground: {
-        readonly strong: {
-          readonly color: '#fcfbf2';
-        };
-        readonly subtle: {
-          readonly color: '#04663a';
-        };
+        readonly strong: '#fcfbf2';
+        readonly subtle: '#04663a';
       };
       readonly surface: {
         readonly strong: {
-          readonly activeColor: '#074b2a';
-          readonly defaultColor: '#0f834a';
-          readonly hoverColor: '#04663a';
+          readonly active: '#074b2a';
+          readonly default: '#0f834a';
+          readonly hover: '#04663a';
         };
         readonly subtle: {
-          readonly activeColor: '#c5edda';
-          readonly hoverColor: '#e7f9f0';
+          readonly active: '#c5edda';
+          readonly hover: '#e7f9f0';
         };
       };
     };
     readonly brand: {
       readonly border: {
-        readonly strong: {
-          readonly borderWidth: 2;
-          readonly color: '#101010';
-        };
+        readonly strong: '#101010';
       };
       readonly foreground: {
-        readonly strong: {
-          readonly color: '#fcfbf2';
-        };
+        readonly strong: '#fcfbf2';
       };
       readonly surface: {
         readonly strong: {
-          readonly activeColor: '#5a3285';
-          readonly defaultColor: '#7a42c8';
-          readonly hoverColor: '#6538b8';
+          readonly active: '#442484';
+          readonly default: '#7a42c8';
+          readonly hover: '#5c2ca9';
         };
       };
     };
     readonly destructive: {
       readonly border: {
-        readonly strong: {
-          readonly borderWidth: 2;
-          readonly color: '#101010';
-        };
-        readonly subtle: {
-          readonly borderWidth: 2;
-          readonly color: '#a4281e';
-        };
+        readonly strong: '#101010';
+        readonly subtle: '#a4281e';
       };
       readonly foreground: {
-        readonly strong: {
-          readonly color: '#fcfbf2';
-        };
-        readonly subtle: {
-          readonly color: '#a4281e';
-        };
+        readonly strong: '#fcfbf2';
+        readonly subtle: '#a4281e';
       };
       readonly surface: {
         readonly strong: {
-          readonly activeColor: '#6b1f1a';
-          readonly defaultColor: '#de2612';
-          readonly hoverColor: '#a4281e';
+          readonly active: '#6b1f1a';
+          readonly default: '#de2612';
+          readonly hover: '#a4281e';
         };
         readonly subtle: {
-          readonly activeColor: '#ffe3df';
-          readonly hoverColor: '#fff3f1';
+          readonly active: '#ffe3df';
+          readonly hover: '#fff3f1';
         };
       };
     };
     readonly functional: {
       readonly border: {
-        readonly subtle: {
-          readonly borderWidth: 2;
-          readonly color: '#101010';
-        };
+        readonly strong: '#101010';
+        readonly subtle: '#101010';
       };
       readonly foreground: {
-        readonly subtle: {
-          readonly subtle: '#101010';
-        };
+        readonly strong: '#fcfbf2';
+        readonly subtle: '#101010';
       };
       readonly surface: {
+        readonly strong: {
+          readonly active: '#4c4c4c';
+          readonly default: '#888888';
+          readonly hover: '#5b5b5b';
+        };
         readonly subtle: {
-          readonly activeColor: '#d1d0d0';
-          readonly hoverColor: '#e7e6e6';
+          readonly active: '#d3d3d3';
+          readonly hover: '#ebebeb';
+          readonly inverted: {
+            readonly active: '#3a3837';
+            readonly hover: '#3f3f3f';
+          };
         };
       };
     };
     readonly highlight: {
       readonly border: {
-        readonly strong: {
-          readonly borderWidth: 2;
-          readonly color: '#101010';
-        };
+        readonly strong: '#101010';
       };
       readonly foreground: {
-        readonly strong: {
-          readonly color: '#101010';
-        };
+        readonly strong: '#101010';
       };
       readonly surface: {
         readonly strong: {
-          readonly activeColor: '#d1950b';
-          readonly defaultColor: '#ffb921';
-          readonly hoverColor: '#eba400';
+          readonly active: '#d1950b';
+          readonly default: '#ffb921';
+          readonly hover: '#eba400';
         };
       };
     };
     readonly neutral: {
       readonly border: {
-        readonly strong: {
-          readonly color: '#101010';
-        };
+        readonly subtle: '#101010';
       };
       readonly foreground: {
-        readonly strong: {
-          readonly color: '#101010';
-        };
+        readonly subtle: '#101010';
       };
       readonly surface: {
-        readonly strong: {
-          readonly activeColor: '#f1efe4';
-          readonly hoverColor: '#f7f6eb';
+        readonly subtle: {
+          readonly active: '#f1efe4';
+          readonly hover: '#f7f6eb';
         };
       };
     };
@@ -213,99 +193,58 @@ declare const _default: {
     readonly disabled: 50;
   };
   readonly shadow: {
-    readonly brand: {
-      readonly color: '#7a42c8';
-    };
-    readonly broadband: {
-      readonly color: '#8cba3b';
-    };
-    readonly cashback: {
-      readonly color: '#be7aeb';
-    };
-    readonly default: {
-      readonly color: '#101010';
-    };
-    readonly energy: {
-      readonly color: '#6db5c3';
-    };
-    readonly insurance: {
-      readonly color: '#ff7b00';
-    };
-    readonly mobile: {
-      readonly color: '#ee6dbb';
-    };
-    readonly pig: {
-      readonly color: '#f295ff';
-    };
+    readonly brand: '#7a42c8';
+    readonly broadband: '#8cba3b';
+    readonly cashback: '#be7aeb';
+    readonly default: '#101010';
+    readonly energy: '#6db5c3';
+    readonly insurance: '#ff7b00';
+    readonly mobile: '#ee6dbb';
+    readonly pig: '#f295ff';
   };
   readonly surface: {
     readonly brand: {
-      readonly default: {
-        readonly color: '#7a42c8';
-      };
-      readonly strong: {
-        readonly color: '#26164f';
-      };
-      readonly subtle: {
-        readonly color: '#d5c3ee';
-      };
+      readonly default: '#7a42c8';
+      readonly strong: '#26164f';
+      readonly subtle: '#af90de';
     };
     readonly broadband: {
-      readonly default: {
-        readonly color: '#8cba3b';
-      };
-      readonly subtle: {
-        readonly color: '#d2e6b0';
-      };
+      readonly default: '#8cba3b';
+      readonly subtle: '#d2e6b0';
     };
     readonly cashback: {
-      readonly default: {
-        readonly color: '#be7aeb';
-      };
-      readonly subtle: {
-        readonly color: '#dfbdf5';
-      };
+      readonly default: '#be7aeb';
+      readonly subtle: '#dfbdf5';
     };
     readonly energy: {
-      readonly default: {
-        readonly color: '#6db5c3';
-      };
-      readonly subtle: {
-        readonly color: '#bddee4';
-      };
+      readonly default: '#6db5c3';
+      readonly subtle: '#bddee4';
     };
     readonly highlight: {
-      readonly default: {
-        readonly color: '#ffb921';
-      };
-      readonly subtle: {
-        readonly color: '#ffd885';
-      };
+      readonly default: '#ffb921';
+      readonly subtle: '#ffd885';
     };
     readonly insurance: {
-      readonly default: {
-        readonly color: '#ff7b00';
-      };
-      readonly subtle: {
-        readonly color: '#ffb46d';
-      };
+      readonly default: '#ff7b00';
+      readonly subtle: '#ffb46d';
     };
     readonly mobile: {
-      readonly default: {
-        readonly color: '#ee6dbb';
-      };
-      readonly subtle: {
-        readonly color: '#fad0e9';
-      };
+      readonly default: '#ee6dbb';
+      readonly subtle: '#fad0e9';
+    };
+    readonly neutral: {
+      readonly strong: '#ffffff';
+      readonly subtle: '#fcfbf2';
     };
     readonly pig: {
-      readonly default: {
-        readonly color: '#f295ff';
-      };
-      readonly subtle: {
-        readonly color: '#f9ceff';
-      };
+      readonly default: '#f295ff';
+      readonly subtle: '#f9ceff';
     };
+  };
+  readonly text: {
+    readonly inverted: '#fcfbf2';
+    readonly primary: '#101010';
+    readonly secondary: '#888888';
   };
 };
 export default _default;

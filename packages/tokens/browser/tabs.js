@@ -5,11 +5,8 @@ export const tabs = {
   },
   gap: 'var(--h-tabs-gap)',
   item: {
-    backgroundColorActive: 'var(--h-tabs-item-background-color-active)',
-    backgroundColorHover: 'var(--h-tabs-item-background-color-hover)',
     gap: 'var(--h-tabs-item-gap)',
     selected: {
-      backgroundColor: 'var(--h-tabs-item-selected-background-color)',
       borderBottomRadius: 'var(--h-tabs-item-selected-border-bottom-radius)',
       borderTopRadius: 'var(--h-tabs-item-selected-border-top-radius)',
     },

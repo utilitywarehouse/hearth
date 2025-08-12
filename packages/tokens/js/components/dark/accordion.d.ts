@@ -7,8 +7,6 @@ declare const _default: {
     readonly gap: 2;
   };
   readonly item: {
-    readonly backgroundColorActive: '#30302c';
-    readonly backgroundColorHover: '#282825';
     readonly content: {
       readonly gap: 16;
       readonly paddingBottom: 16;

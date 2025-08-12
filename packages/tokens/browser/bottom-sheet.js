@@ -1,5 +1,4 @@
 export const bottomSheet = {
-  backgroundColor: 'var(--h-bottom-sheet-background-color)',
   borderTopLeftRadius: 'var(--h-bottom-sheet-border-top-left-radius)',
   borderTopRightRadius: 'var(--h-bottom-sheet-border-top-right-radius)',
   gap: 'var(--h-bottom-sheet-gap)',
