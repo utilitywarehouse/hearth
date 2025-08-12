@@ -3,24 +3,19 @@
  */
 
 export default {
-  backgroundColor: '#191917',
-  borderTopColor: '#4c473d',
   borderTopWidth: 2,
   gap: 0,
   indicator: {
-    backgroundColor: '#7a42c8',
     borderRadius: 4,
     height: 2,
   },
   item: {
     gap: 2,
     icon: {
-      colorActive: '#7a42c8',
-      colorDefault: '#e7e6e6',
+      colorActive: '#996cda',
     },
     label: {
-      colorActive: '#7a42c8',
-      colorDefault: '#e7e6e6',
+      colorActive: '#996cda',
     },
     paddingBottom: 2,
     paddingHorizontal: 0,

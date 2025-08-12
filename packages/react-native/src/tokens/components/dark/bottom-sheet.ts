@@ -3,12 +3,11 @@
  */
 
 export default {
-  backgroundColor: '#222222',
   borderTopLeftRadius: 16,
   borderTopRightRadius: 16,
   gap: 6,
   handle: {
-    backgroundColor: '#555352',
+    backgroundColor: '#4c4c4c',
     borderRadius: 6,
     height: 5,
     width: 36,

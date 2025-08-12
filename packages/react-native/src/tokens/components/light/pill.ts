@@ -3,12 +3,8 @@
  */
 
 export default {
-  backgroundColorActive: '#f1efe4',
-  backgroundColorHover: '#f7f6eb',
-  borderColor: '#101010',
   borderRadius: 9999,
   borderWidth: 1,
-  foregroundColor: '#101010',
   gap: 6,
   group: {
     gap: 8,
@@ -17,10 +13,4 @@ export default {
   minWidth: 66,
   paddingHorizontal: 20,
   paddingVertical: 12,
-  selected: {
-    backgroundColor: '#7a42c8',
-    backgroundColorActive: '#5a3285',
-    backgroundColorHover: '#6538b8',
-    foregroundColor: '#fcfbf2',
-  },
 } as const;

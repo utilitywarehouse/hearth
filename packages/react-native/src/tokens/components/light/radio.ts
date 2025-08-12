@@ -19,9 +19,6 @@ export default {
   outlineColorHover: '#f1efe4',
   outlineWidth: 3,
   tile: {
-    backgroundColor: '#ffffff',
-    borderColor: '#d4d2c0',
-    borderColorSelected: '#101010',
     borderRadius: 8,
     borderWidth: 1,
     borderWidthSelected: 2,
@@ -35,9 +32,5 @@ export default {
     maxWidth: 680,
     minWidth: 80,
     padding: 12,
-  },
-  unchecked: {
-    backgroundColor: '#ffffff',
-    borderColor: '#8a8686',
   },
 } as const;

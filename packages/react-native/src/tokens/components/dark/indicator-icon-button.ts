@@ -3,6 +3,9 @@
  */
 
 export default {
-  border: '#e7e6e6',
-  borderInverted: '#fcfbf2',
+  indicator: {
+    height: 8,
+    radius: 9999,
+    width: 8,
+  },
 } as const;
