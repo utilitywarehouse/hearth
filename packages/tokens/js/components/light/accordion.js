@@ -7,8 +7,6 @@ export default {
     gap: 2,
   },
   item: {
-    backgroundColorActive: '#f1efe4',
-    backgroundColorHover: '#f7f6eb',
     content: {
       gap: 16,
       paddingBottom: 16,

@@ -8,11 +8,8 @@ declare const _default: {
   };
   readonly gap: 12;
   readonly item: {
-    readonly backgroundColorActive: '#f1efe4';
-    readonly backgroundColorHover: '#f7f6eb';
     readonly gap: 6;
     readonly selected: {
-      readonly backgroundColor: '#7a42c8';
       readonly borderBottomRadius: 0;
       readonly borderTopRadius: 4;
     };

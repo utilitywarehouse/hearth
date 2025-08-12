@@ -2,7 +2,6 @@ export declare const modal: {
   readonly action: {
     readonly gap: 'var(--h-modal-action-gap)';
   };
-  readonly backgroundColor: 'var(--h-modal-background-color)';
   readonly borderRadius: 'var(--h-modal-border-radius)';
   readonly content: {
     readonly gap: 'var(--h-modal-content-gap)';

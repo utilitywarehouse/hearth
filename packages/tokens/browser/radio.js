@@ -15,9 +15,6 @@ export const radio = {
   outlineColorHover: 'var(--h-radio-outline-color-hover)',
   outlineWidth: 'var(--h-radio-outline-width)',
   tile: {
-    backgroundColor: 'var(--h-radio-tile-background-color)',
-    borderColor: 'var(--h-radio-tile-border-color)',
-    borderColorSelected: 'var(--h-radio-tile-border-color-selected)',
     borderRadius: 'var(--h-radio-tile-border-radius)',
     borderWidth: 'var(--h-radio-tile-border-width)',
     borderWidthSelected: 'var(--h-radio-tile-border-width-selected)',
@@ -31,9 +28,5 @@ export const radio = {
     maxWidth: 'var(--h-radio-tile-max-width)',
     minWidth: 'var(--h-radio-tile-min-width)',
     padding: 'var(--h-radio-tile-padding)',
-  },
-  unchecked: {
-    backgroundColor: 'var(--h-radio-unchecked-background-color)',
-    borderColor: 'var(--h-radio-unchecked-border-color)',
   },
 };

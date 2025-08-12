@@ -21,23 +21,14 @@ export declare const list: {
   };
   readonly gap: 'var(--h-list-gap)';
   readonly item: {
-    readonly backgroundColorActive: 'var(--h-list-item-background-color-active)';
-    readonly backgroundColorHover: 'var(--h-list-item-background-color-hover)';
     readonly contentGap: 'var(--h-list-item-content-gap)';
     readonly functional: {
       readonly borderWidth: 'var(--h-list-item-functional-border-width)';
-      readonly emphasis: {
-        readonly borderColor: 'var(--h-list-item-functional-emphasis-border-color)';
-      };
       readonly padding: 'var(--h-list-item-functional-padding)';
       readonly paddingNone: 'var(--h-list-item-functional-padding-none)';
-      readonly subtle: {
-        readonly borderColor: 'var(--h-list-item-functional-subtle-border-color)';
-      };
     };
     readonly gap: 'var(--h-list-item-gap)';
     readonly stylised: {
-      readonly borderColor: 'var(--h-list-item-stylised-border-color)';
       readonly borderWidth: 'var(--h-list-item-stylised-border-width)';
       readonly height: 'var(--h-list-item-stylised-height)';
       readonly paddingLeft: 'var(--h-list-item-stylised-padding-left)';

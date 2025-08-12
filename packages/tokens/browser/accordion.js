@@ -4,8 +4,6 @@ export const accordion = {
     gap: 'var(--h-accordion-heading-gap)',
   },
   item: {
-    backgroundColorActive: 'var(--h-accordion-item-background-color-active)',
-    backgroundColorHover: 'var(--h-accordion-item-background-color-hover)',
     content: {
       gap: 'var(--h-accordion-item-content-gap)',
       paddingBottom: 'var(--h-accordion-item-content-padding-bottom)',

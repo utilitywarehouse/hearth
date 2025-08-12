@@ -2,12 +2,9 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly backgroundColor: '#fcfbf2';
-  readonly borderTopColor: '#d4d2c0';
   readonly borderTopWidth: 2;
   readonly gap: 0;
   readonly indicator: {
-    readonly backgroundColor: '#7a42c8';
     readonly borderRadius: 4;
     readonly height: 2;
   };
@@ -15,11 +12,9 @@ declare const _default: {
     readonly gap: 2;
     readonly icon: {
       readonly colorActive: '#7a42c8';
-      readonly colorDefault: '#101010';
     };
     readonly label: {
       readonly colorActive: '#7a42c8';
-      readonly colorDefault: '#101010';
     };
     readonly paddingBottom: 2;
     readonly paddingHorizontal: 0;

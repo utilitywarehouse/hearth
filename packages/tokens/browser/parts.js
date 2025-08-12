@@ -13,15 +13,8 @@ export const parts = {
   },
   roundel: {
     borderRadius: 'var(--h-parts-roundel-border-radius)',
-    error: {
-      backgroundColor: 'var(--h-parts-roundel-error-background-color)',
-    },
     pending: {
-      borderColor: 'var(--h-parts-roundel-pending-border-color)',
       borderWidth: 'var(--h-parts-roundel-pending-border-width)',
-    },
-    success: {
-      backgroundColor: 'var(--h-parts-roundel-success-background-color)',
     },
   },
   scrollBar: {

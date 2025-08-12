@@ -3,6 +3,5 @@
  */
 
 export default {
-  color: '#101010',
   gap: 8,
 } as const;

@@ -15,9 +15,9 @@
   --h-icon-button-unstyled-foreground-color: var(--h-color-grey-1000);
   --h-icon-button-unstyled-foreground-color-active: var(--h-color-grey-800);
   --h-icon-button-unstyled-foreground-color-hover: var(--h-color-grey-900);
-  --h-icon-button-unstyled-inverted-foreground-color: var(--h-color-warm-white-50);
-  --h-icon-button-unstyled-inverted-foreground-color-active: var(--h-color-warm-white-200);
-  --h-icon-button-unstyled-inverted-foreground-color-hover: var(--h-color-warm-white-100);
+  --h-icon-button-unstyled-inverted-foreground-color: var(--h-color-grey-50);
+  --h-icon-button-unstyled-inverted-foreground-color-active: var(--h-color-warm-white-300);
+  --h-icon-button-unstyled-inverted-foreground-color-hover: var(--h-color-grey-200);
   --h-icon-button-unstyled-md-height: 24px;
   --h-icon-button-unstyled-md-width: 24px;
   --h-icon-button-unstyled-padding-horizontal: 0;

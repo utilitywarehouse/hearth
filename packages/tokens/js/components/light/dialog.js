@@ -5,7 +5,6 @@ export default {
   action: {
     gap: 12,
   },
-  backgroundColor: '#ffffff',
   borderRadius: 16,
   content: {
     gap: 12,

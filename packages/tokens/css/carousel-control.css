@@ -4,12 +4,6 @@
 
 :root {
   --h-carousel-control-gap: var(--h-space-100);
-  --h-carousel-control-item-background-color-active: var(--h-color-grey-1000);
-  --h-carousel-control-item-border-color: var(--h-color-grey-1000);
-  --h-carousel-control-item-border-color-hover: var(--h-color-grey-900);
   --h-carousel-control-item-border-width: var(--h-border-width-2);
-  --h-carousel-control-item-inverted-background-color-active: var(--h-color-warm-white-50);
-  --h-carousel-control-item-inverted-border-color: var(--h-color-warm-white-50);
-  --h-carousel-control-item-inverted-border-color-hover: var(--h-color-warm-white-200);
   --h-carousel-control-size: var(--h-space-150)px;
 }

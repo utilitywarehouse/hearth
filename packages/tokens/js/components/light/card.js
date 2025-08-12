@@ -3,46 +3,15 @@
  */
 export default {
   borderRadius: 16,
-  brand: {
-    borderWidth: 2,
-    emphasis: {
-      borderColor: '#101010',
-      broadbandGreenBackgroundColor: '#8cba3b',
-      cashbackLilacBackgroundColor: '#be7aeb',
-      energyBlueBackgroundColor: '#6db5c3',
-      insuranceOrangeBackgroundColor: '#ff7b00',
-      mobileRoseBackgroundColor: '#ee6dbb',
-      piggyPinkBackgroundColor: '#f295ff',
-      purpleBackgroundColor: '#7a42c8',
-    },
-    subtle: {
-      borderColor: '#101010',
-      broadbandGreenBackgroundColor: '#d2e6b0',
-      cashbackLilacBackgroundColor: '#dfbdf5',
-      energyBlueBackgroundColor: '#bddee4',
-      insuranceOrangeBackgroundColor: '#ffb46d',
-      mobileRoseBackgroundColor: '#fad0e9',
-      piggyPinkBackgroundColor: '#f9ceff',
-      purpleBackgroundColor: '#d5c3ee',
-      yellowBackgroundColor: '#ffd885',
-    },
-  },
   neutral: {
     emphasis: {
-      borderColor: '#101010',
       borderWidth: 2,
     },
     subtle: {
-      borderColor: '#d4d2c0',
       borderWidth: 1,
     },
-    warmWhiteBackgroundColor: '#fcfbf2',
-    whiteBackgroundColor: '#ffffff',
   },
   selectable: {
-    backgroundColor: '#ffffff',
-    borderColor: '#d4d2c0',
-    borderColorSelected: '#101010',
     borderWidth: 1,
     borderWidthSelected: 2,
     gap: 16,

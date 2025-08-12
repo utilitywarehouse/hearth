@@ -3,9 +3,9 @@
  */
 
 export default {
-  color: '#e7e6e6',
+  color: '#ebebeb',
   colorActive: '#b2afae',
-  colorHover: '#d1d0d0',
+  colorHover: '#d3d3d3',
   gap: 2,
   inverted: {
     color: '#fcfbf2',

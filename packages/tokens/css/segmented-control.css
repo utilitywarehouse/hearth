@@ -3,12 +3,8 @@
  */
 
 :root {
-  --h-segmented-control-background-color-active: var(--h-color-warm-white-200);
-  --h-segmented-control-background-color-hover: var(--h-color-warm-white-100);
   --h-segmented-control-border-radius: var(--h-border-radius-sm);
-  --h-segmented-control-foreground-color: var(--h-color-grey-1000);
   --h-segmented-control-gap: var(--h-space-75);
-  --h-segmented-control-group-border-color: var(--h-color-grey-1000);
   --h-segmented-control-group-border-radius: var(--h-border-radius-md);
   --h-segmented-control-group-border-width: var(--h-border-width-1);
   --h-segmented-control-group-gap: var(--h-space-50);
@@ -18,6 +14,4 @@
   --h-segmented-control-min-width: 66px;
   --h-segmented-control-padding-horizontal: var(--h-space-200);
   --h-segmented-control-padding-vertical: var(--h-space-100);
-  --h-segmented-control-selected-background-color: var(--h-color-purple-700);
-  --h-segmented-control-selected-foreground-color: var(--h-color-warm-white-50);
 }

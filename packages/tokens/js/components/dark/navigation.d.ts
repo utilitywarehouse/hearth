@@ -2,11 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly backgroundColor: '#7a42c8';
-  readonly backgroundColorActive: '#8850cf';
-  readonly backgroundColorHover: '#6538b8';
   readonly bar: {
-    readonly backgroundColorActive: '#ffb921';
     readonly borderRadiusNone: 0;
     readonly borderRadiusRounded: 4;
   };
@@ -14,10 +10,9 @@ declare const _default: {
   readonly desktop: {
     readonly height: 88;
   };
-  readonly foregroundColor: '#fcfbf2';
+  readonly dividerBorderColor: '#5c2ca9';
   readonly gap: 4;
   readonly mobile: {
-    readonly dividerBorderColor: '#6538b8';
     readonly height: 64;
   };
 };

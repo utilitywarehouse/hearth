@@ -8,11 +8,8 @@ export default {
   },
   gap: 12,
   item: {
-    backgroundColorActive: '#f1efe4',
-    backgroundColorHover: '#f7f6eb',
     gap: 6,
     selected: {
-      backgroundColor: '#7a42c8',
       borderBottomRadius: 0,
       borderTopRadius: 4,
     },

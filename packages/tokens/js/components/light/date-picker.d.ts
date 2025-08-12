@@ -2,17 +2,10 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly backgroundColor: '#ffffff';
-  readonly borderColor: '#101010';
-  readonly borderColorInvalid: '#de2612';
-  readonly borderColorReadOnly: '#d1d0d0';
-  readonly borderColorValid: '#0f834a';
   readonly borderRadius: 8;
   readonly borderWidth: 1;
   readonly borderWidthFocused: 2;
   readonly calendar: {
-    readonly backgroundColor: '#ffffff';
-    readonly borderColor: '#d4d2c0';
     readonly borderRadius: 8;
     readonly borderWidth: 1;
     readonly columnGap: 4;
@@ -25,13 +18,8 @@ declare const _default: {
       readonly dateGap: 8;
     };
     readonly item: {
-      readonly backgroundColorActive: '#d1d0d0';
-      readonly backgroundColorHover: '#e7e6e6';
-      readonly backgroundColorRange: '#f6f5f5';
-      readonly backgroundColorSelected: '#7a42c8';
       readonly borderRadius: 8;
       readonly minWidth: 32;
-      readonly roundelBackgroundColor: '#7a42c8';
       readonly roundelBackgroundColorInverted: '#fcfbf2';
       readonly roundelHeight: 6;
       readonly roundelWidth: 6;

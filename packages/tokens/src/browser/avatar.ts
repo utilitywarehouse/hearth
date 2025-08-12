@@ -1,7 +1,5 @@
 export const avatar = {
-  backgroundColor: 'var(--h-avatar-background-color)',
   image: {
-    borderColor: 'var(--h-avatar-image-border-color)',
     borderWidth: 'var(--h-avatar-image-border-width)',
   },
   md: {

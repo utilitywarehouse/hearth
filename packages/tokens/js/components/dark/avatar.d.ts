@@ -2,9 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly backgroundColor: '#5d2167';
   readonly image: {
-    readonly borderColor: '#4c473d';
     readonly borderWidth: 1;
   };
   readonly md: {

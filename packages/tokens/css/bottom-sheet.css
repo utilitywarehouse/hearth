@@ -3,7 +3,6 @@
  */
 
 :root {
-  --h-bottom-sheet-background-color: var(--h-color-grey-0);
   --h-bottom-sheet-border-top-left-radius: var(--h-border-radius-xl);
   --h-bottom-sheet-border-top-right-radius: var(--h-border-radius-xl);
   --h-bottom-sheet-gap: var(--h-space-75);

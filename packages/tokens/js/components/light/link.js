@@ -3,8 +3,8 @@
  */
 export default {
   color: '#101010',
-  colorActive: '#464444',
-  colorHover: '#3e3c3b',
+  colorActive: '#3f3f3f',
+  colorHover: '#3a3837',
   gap: 2,
   inverted: {
     color: '#fcfbf2',

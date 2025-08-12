@@ -4,15 +4,12 @@
 export default {
   divider: {
     borderWidth: 2,
-    color: '#e7e6e6',
+    color: '#ebebeb',
   },
   gap: 12,
   item: {
-    backgroundColorActive: '#3e3c3b',
-    backgroundColorHover: '#464444',
     gap: 6,
     selected: {
-      backgroundColor: '#8850cf',
       borderBottomRadius: 0,
       borderTopRadius: 4,
     },

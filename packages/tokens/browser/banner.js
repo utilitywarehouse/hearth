@@ -24,18 +24,6 @@ export const banner = {
       gap: 'var(--h-banner-highlight-content-gap)',
     },
     gap: 'var(--h-banner-highlight-gap)',
-    heading: {
-      broadbandGreenBackgroundColor:
-        'var(--h-banner-highlight-heading-broadband-green-background-color)',
-      cashbackLilacBackgroundColor:
-        'var(--h-banner-highlight-heading-cashback-lilac-background-color)',
-      energyBlueBackgroundColor: 'var(--h-banner-highlight-heading-energy-blue-background-color)',
-      insuranceOrangeBackgroundColor:
-        'var(--h-banner-highlight-heading-insurance-orange-background-color)',
-      mobileRoseBackgroundColor: 'var(--h-banner-highlight-heading-mobile-rose-background-color)',
-      piggyPinkBackgroundColor: 'var(--h-banner-highlight-heading-piggy-pink-background-color)',
-      yellowBackgroundColor: 'var(--h-banner-highlight-heading-yellow-background-color)',
-    },
     padding: 'var(--h-banner-highlight-padding)',
   },
   imageContainerBorderColor: 'var(--h-banner-image-container-border-color)',

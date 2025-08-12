@@ -1,15 +1,8 @@
 export const datePicker = {
-  backgroundColor: 'var(--h-date-picker-background-color)',
-  borderColor: 'var(--h-date-picker-border-color)',
-  borderColorInvalid: 'var(--h-date-picker-border-color-invalid)',
-  borderColorReadOnly: 'var(--h-date-picker-border-color-read-only)',
-  borderColorValid: 'var(--h-date-picker-border-color-valid)',
   borderRadius: 'var(--h-date-picker-border-radius)',
   borderWidth: 'var(--h-date-picker-border-width)',
   borderWidthFocused: 'var(--h-date-picker-border-width-focused)',
   calendar: {
-    backgroundColor: 'var(--h-date-picker-calendar-background-color)',
-    borderColor: 'var(--h-date-picker-calendar-border-color)',
     borderRadius: 'var(--h-date-picker-calendar-border-radius)',
     borderWidth: 'var(--h-date-picker-calendar-border-width)',
     columnGap: 'var(--h-date-picker-calendar-column-gap)',
@@ -22,13 +15,8 @@ export const datePicker = {
       dateGap: 'var(--h-date-picker-calendar-header-date-gap)',
     },
     item: {
-      backgroundColorActive: 'var(--h-date-picker-calendar-item-background-color-active)',
-      backgroundColorHover: 'var(--h-date-picker-calendar-item-background-color-hover)',
-      backgroundColorRange: 'var(--h-date-picker-calendar-item-background-color-range)',
-      backgroundColorSelected: 'var(--h-date-picker-calendar-item-background-color-selected)',
       borderRadius: 'var(--h-date-picker-calendar-item-border-radius)',
       minWidth: 'var(--h-date-picker-calendar-item-min-width)',
-      roundelBackgroundColor: 'var(--h-date-picker-calendar-item-roundel-background-color)',
       roundelBackgroundColorInverted:
         'var(--h-date-picker-calendar-item-roundel-background-color-inverted)',
       roundelHeight: 'var(--h-date-picker-calendar-item-roundel-height)',

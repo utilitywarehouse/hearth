@@ -3,209 +3,189 @@
  */
 
 export default {
-  focus: {
-    focus: '#101010',
-    focusInverted: '#fcfbf2',
-  },
-  text: {
-    inverted: '#fcfbf2',
-    primary: '#101010',
-    secondary: '#6f6c6b',
-  },
   background: {
     brand: '#7a42c8',
     primary: '#fcfbf2',
     secondary: '#ffffff',
   },
   border: {
-    strong: {
-      color: '#101010',
-      width: 2,
-    },
-    subtle: {
-      color: '#d4d2c0',
-      width: 1,
-    },
+    strong: '#101010',
+    subtle: '#d4d2c0',
   },
   feedback: {
     danger: {
-      default: {
-        color: '#de2612',
+      border: '#de2612',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#de2612',
       },
-      subtle: {
-        color: '#ffccc5',
+      surface: {
+        default: '#de2612',
+        subtle: '#ffccc5',
       },
     },
     functional: {
-      default: {
-        color: '#5f5c5b',
+      border: '#888888',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#888888',
       },
-      subtle: {
-        color: '#d1d0d0',
+      surface: {
+        default: '#888888',
+        subtle: '#d3d3d3',
       },
     },
     info: {
-      default: {
-        color: '#1c6cd4',
+      border: '#1c6cd4',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#1c6cd4',
       },
-      subtle: {
-        color: '#bcddff',
+      surface: {
+        default: '#1c6cd4',
+        subtle: '#bcddff',
       },
     },
     positive: {
-      default: {
-        color: '#0f834a',
+      border: '#0f834a',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#0f834a',
       },
-      subtle: {
-        color: '#a2e2c3',
+      surface: {
+        default: '#0f834a',
+        subtle: '#a2e2c3',
       },
     },
     warning: {
-      default: {
-        color: '#cf5d00',
+      border: '#be5400',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#be5400',
       },
-      subtle: {
-        color: '#ffcca8',
+      surface: {
+        default: '#be5400',
+        subtle: '#ffcca8',
       },
     },
+  },
+  focus: {
+    inverted: '#fcfbf2',
+    primary: '#101010',
+  },
+  icon: {
+    inverted: '#fcfbf2',
+    primary: '#101010',
   },
   interactive: {
     affirmative: {
       border: {
-        strong: {
-          borderWidth: 2,
-          color: '#101010',
-        },
-        subtle: {
-          borderWidth: 2,
-          color: '#04663a',
-        },
+        strong: '#101010',
+        subtle: '#04663a',
       },
       foreground: {
-        strong: {
-          color: '#fcfbf2',
-        },
-        subtle: {
-          color: '#04663a',
-        },
+        strong: '#fcfbf2',
+        subtle: '#04663a',
       },
       surface: {
         strong: {
-          activeColor: '#074b2a',
-          defaultColor: '#0f834a',
-          hoverColor: '#04663a',
+          active: '#074b2a',
+          default: '#0f834a',
+          hover: '#04663a',
         },
         subtle: {
-          activeColor: '#c5edda',
-          hoverColor: '#e7f9f0',
+          active: '#c5edda',
+          hover: '#e7f9f0',
         },
       },
     },
     brand: {
       border: {
-        strong: {
-          borderWidth: 2,
-          color: '#101010',
-        },
+        strong: '#101010',
       },
       foreground: {
-        strong: {
-          color: '#fcfbf2',
-        },
+        strong: '#fcfbf2',
       },
       surface: {
         strong: {
-          activeColor: '#5a3285',
-          defaultColor: '#7a42c8',
-          hoverColor: '#6538b8',
+          active: '#442484',
+          default: '#7a42c8',
+          hover: '#5c2ca9',
         },
       },
     },
     destructive: {
       border: {
-        strong: {
-          borderWidth: 2,
-          color: '#101010',
-        },
-        subtle: {
-          borderWidth: 2,
-          color: '#a4281e',
-        },
+        strong: '#101010',
+        subtle: '#a4281e',
       },
       foreground: {
-        strong: {
-          color: '#fcfbf2',
-        },
-        subtle: {
-          color: '#a4281e',
-        },
+        strong: '#fcfbf2',
+        subtle: '#a4281e',
       },
       surface: {
         strong: {
-          activeColor: '#6b1f1a',
-          defaultColor: '#de2612',
-          hoverColor: '#a4281e',
+          active: '#6b1f1a',
+          default: '#de2612',
+          hover: '#a4281e',
         },
         subtle: {
-          activeColor: '#ffe3df',
-          hoverColor: '#fff3f1',
+          active: '#ffe3df',
+          hover: '#fff3f1',
         },
       },
     },
     functional: {
       border: {
-        subtle: {
-          borderWidth: 2,
-          color: '#101010',
-        },
+        strong: '#101010',
+        subtle: '#101010',
       },
       foreground: {
-        subtle: {
-          subtle: '#101010',
-        },
+        strong: '#fcfbf2',
+        subtle: '#101010',
       },
       surface: {
+        strong: {
+          active: '#4c4c4c',
+          default: '#888888',
+          hover: '#5b5b5b',
+        },
         subtle: {
-          activeColor: '#d1d0d0',
-          hoverColor: '#e7e6e6',
+          active: '#d3d3d3',
+          hover: '#ebebeb',
+          inverted: {
+            active: '#3a3837',
+            hover: '#3f3f3f',
+          },
         },
       },
     },
     highlight: {
       border: {
-        strong: {
-          borderWidth: 2,
-          color: '#101010',
-        },
+        strong: '#101010',
       },
       foreground: {
-        strong: {
-          color: '#101010',
-        },
+        strong: '#101010',
       },
       surface: {
         strong: {
-          activeColor: '#d1950b',
-          defaultColor: '#ffb921',
-          hoverColor: '#eba400',
+          active: '#d1950b',
+          default: '#ffb921',
+          hover: '#eba400',
         },
       },
     },
     neutral: {
       border: {
-        strong: {
-          color: '#101010',
-        },
+        subtle: '#101010',
       },
       foreground: {
-        strong: {
-          color: '#101010',
-        },
+        subtle: '#101010',
       },
       surface: {
-        strong: {
-          activeColor: '#f1efe4',
-          hoverColor: '#f7f6eb',
+        subtle: {
+          active: '#f1efe4',
+          hover: '#f7f6eb',
         },
       },
     },
@@ -214,98 +194,57 @@ export default {
     disabled: 50,
   },
   shadow: {
-    brand: {
-      color: '#7a42c8',
-    },
-    broadband: {
-      color: '#8cba3b',
-    },
-    cashback: {
-      color: '#be7aeb',
-    },
-    default: {
-      color: '#101010',
-    },
-    energy: {
-      color: '#6db5c3',
-    },
-    insurance: {
-      color: '#ff7b00',
-    },
-    mobile: {
-      color: '#ee6dbb',
-    },
-    pig: {
-      color: '#f295ff',
-    },
+    brand: '#7a42c8',
+    broadband: '#8cba3b',
+    cashback: '#be7aeb',
+    default: '#101010',
+    energy: '#6db5c3',
+    insurance: '#ff7b00',
+    mobile: '#ee6dbb',
+    pig: '#f295ff',
   },
   surface: {
     brand: {
-      default: {
-        color: '#7a42c8',
-      },
-      strong: {
-        color: '#26164f',
-      },
-      subtle: {
-        color: '#d5c3ee',
-      },
+      default: '#7a42c8',
+      strong: '#26164f',
+      subtle: '#af90de',
     },
     broadband: {
-      default: {
-        color: '#8cba3b',
-      },
-      subtle: {
-        color: '#d2e6b0',
-      },
+      default: '#8cba3b',
+      subtle: '#d2e6b0',
     },
     cashback: {
-      default: {
-        color: '#be7aeb',
-      },
-      subtle: {
-        color: '#dfbdf5',
-      },
+      default: '#be7aeb',
+      subtle: '#dfbdf5',
     },
     energy: {
-      default: {
-        color: '#6db5c3',
-      },
-      subtle: {
-        color: '#bddee4',
-      },
+      default: '#6db5c3',
+      subtle: '#bddee4',
     },
     highlight: {
-      default: {
-        color: '#ffb921',
-      },
-      subtle: {
-        color: '#ffd885',
-      },
+      default: '#ffb921',
+      subtle: '#ffd885',
     },
     insurance: {
-      default: {
-        color: '#ff7b00',
-      },
-      subtle: {
-        color: '#ffb46d',
-      },
+      default: '#ff7b00',
+      subtle: '#ffb46d',
     },
     mobile: {
-      default: {
-        color: '#ee6dbb',
-      },
-      subtle: {
-        color: '#fad0e9',
-      },
+      default: '#ee6dbb',
+      subtle: '#fad0e9',
+    },
+    neutral: {
+      strong: '#ffffff',
+      subtle: '#fcfbf2',
     },
     pig: {
-      default: {
-        color: '#f295ff',
-      },
-      subtle: {
-        color: '#f9ceff',
-      },
+      default: '#f295ff',
+      subtle: '#f9ceff',
     },
+  },
+  text: {
+    inverted: '#fcfbf2',
+    primary: '#101010',
+    secondary: '#888888',
   },
 } as const;

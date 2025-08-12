@@ -2,7 +2,6 @@ export const dialog = {
   action: {
     gap: 'var(--h-dialog-action-gap)',
   },
-  backgroundColor: 'var(--h-dialog-background-color)',
   borderRadius: 'var(--h-dialog-border-radius)',
   content: {
     gap: 'var(--h-dialog-content-gap)',
