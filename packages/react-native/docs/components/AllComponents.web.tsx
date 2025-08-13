@@ -124,7 +124,7 @@ const AllComponents: React.FC = () => {
                 <Badge>This is a badge</Badge>
               </View>
               <View>
-                <Badge colorScheme="red">This is a red badge</Badge>
+                <Badge colorScheme="danger">This is a red badge</Badge>
               </View>
             </Center>
           </ComponentWrapper>
@@ -159,7 +159,7 @@ const AllComponents: React.FC = () => {
           </ComponentWrapper>
           <ComponentWrapper name="Button" link="/?path=/docs/components-button--docs">
             <Center flex={1}>
-              <Button colorScheme="yellow" variant="emphasis" onPress={() => null}>
+              <Button colorScheme="highlight" variant="emphasis" onPress={() => null}>
                 Press me
               </Button>
             </Center>

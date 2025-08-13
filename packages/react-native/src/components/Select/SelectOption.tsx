@@ -1,10 +1,10 @@
-import { Pressable, View, ViewStyle } from 'react-native';
-import { SelectOptionProps } from './Select.props';
-import { useSelectContext } from './Select.context';
-import { BodyText } from '../BodyText';
-import { StyleSheet } from 'react-native-unistyles';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { Pressable, View, ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { BodyText } from '../BodyText';
 import { Icon } from '../Icon';
+import { useSelectContext } from './Select.context';
+import { SelectOptionProps } from './Select.props';
 
 const SelectOption = ({
   label,
@@ -87,15 +87,15 @@ const styles = StyleSheet.create(theme => ({
     },
     _web: {
       _hover: {
-        backgroundColor: theme.components.select.dropdown.item.backgroundColorHover,
+        backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
       },
     },
   },
   icon: {
-    color: theme.components.select.dropdown.item.foregroundColor,
+    color: theme.color.interactive.functional.foreground.subtle,
   },
   pressed: {
-    backgroundColor: theme.components.select.dropdown.item.backgroundColorActive,
+    backgroundColor: theme.color.interactive.functional.surface.subtle.active,
   },
   labelContainer: {
     flex: 1,

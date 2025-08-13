@@ -1,19 +1,19 @@
-import { Button, ButtonGroup } from '.';
-import type { ButtonProps } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { VariantTitle } from '../../../docs/components';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
-import { Flex } from '../Flex';
-import { Box } from '../Box';
 import { AddSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { DetailText } from '../DetailText';
 import { Platform } from 'react-native';
+import type { ButtonProps } from '.';
+import { Button, ButtonGroup } from '.';
+import { VariantTitle } from '../../../docs/components';
+import { Box } from '../Box';
+import { DetailText } from '../DetailText';
+import { Flex } from '../Flex';
 
 const meta = {
   title: 'Stories / Button',
   component: Button,
   parameters: {
-    layout: 'centered',
+    layout: 'centedestructive',
   },
   argTypes: {
     text: {
@@ -32,7 +32,7 @@ const meta = {
       description: 'The variant of the button.',
     },
     colorScheme: {
-      options: ['yellow', 'red', 'green', 'grey'],
+      options: ['highlight', 'destructive', 'affirmative', 'functional'],
       control: Platform.OS === 'android' ? 'radio' : 'select',
       description: 'The color scheme of the button.',
     },
@@ -76,7 +76,7 @@ const meta = {
     text: 'Press me',
     size: 'md',
     variant: 'solid',
-    colorScheme: 'yellow',
+    colorScheme: 'highlight',
     disabled: false,
     inverted: false,
     loading: false,
@@ -110,17 +110,17 @@ export const Variants: Story = {
     return (
       <ButtonGroup flexDirection="column" space="md">
         <>
-          {args.colorScheme === 'yellow' && (
+          {args.colorScheme === 'highlight' && (
             <VariantTitle title="Emphasis" invert={args.inverted}>
               <Button {...args} variant="emphasis" icon={icon} />
             </VariantTitle>
           )}
-          {args.colorScheme !== 'grey' && (
+          {args.colorScheme !== 'functional' && (
             <VariantTitle title="Solid" invert={args.inverted}>
               <Button {...args} variant="solid" icon={icon} />
             </VariantTitle>
           )}
-          {args.colorScheme !== 'yellow' && (
+          {args.colorScheme !== 'highlight' && (
             <>
               <VariantTitle title="Outline" invert={args.inverted}>
                 {/* @ts-expect-error - story loop types don't match */}
@@ -146,7 +146,7 @@ export const KitchenSink: Story = {
     controls: { include: ['text', 'size', 'inverted'] },
   },
   render: ({ text, inverted, size }) => {
-    const schemes: Array<ColorScheme> = ['yellow', 'red', 'green', 'grey'];
+    const schemes: Array<ColorScheme> = ['highlight', 'destructive', 'affirmative', 'functional'];
     const variants: Array<Variant> = ['emphasis', 'solid', 'outline', 'ghost'];
     return (
       <Flex direction="row" space="lg" wrap="wrap">
@@ -155,17 +155,17 @@ export const KitchenSink: Story = {
             {variants
               .filter(variant => {
                 if (inverted) {
-                  if (scheme === 'yellow') {
+                  if (scheme === 'highlight') {
                     return variant === 'emphasis' || variant === 'solid';
                   }
-                  if (scheme === 'grey') {
+                  if (scheme === 'functional') {
                     return variant === 'outline' || variant === 'ghost';
                   } else return false;
                 }
-                if (scheme === 'yellow') {
+                if (scheme === 'highlight') {
                   return variant === 'emphasis' || variant === 'solid';
                 }
-                if (scheme === 'grey') {
+                if (scheme === 'functional') {
                   return variant === 'outline' || variant === 'ghost';
                 } else {
                   return variant === 'solid' || variant === 'ghost' || variant === 'outline';

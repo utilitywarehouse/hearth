@@ -25,7 +25,7 @@ const CustomSwitch = ({
   size = 'medium',
   ...accessibilityProps
 }: SwitchProps) => {
-  const { components } = useTheme();
+  const { components, color } = useTheme();
   const SWITCH_WIDTH = size === 'medium' ? components.switch.md.width : components.switch.sm.width;
   const THUMB_SIZE =
     size === 'medium' ? components.switch.md.circle.size : components.switch.sm.circle.size;
@@ -45,7 +45,10 @@ const CustomSwitch = ({
     const backgroundColor = interpolateColor(
       progress.value,
       [0, 1],
-      [components.switch.unchecked.backgroundColor, components.switch.checked.backgroundColor]
+      [
+        color.interactive.functional.surface.strong.default,
+        color.interactive.brand.surface.strong.default,
+      ]
     );
     return { backgroundColor };
   });
@@ -156,10 +159,10 @@ const styles = StyleSheet.create(theme => ({
       },
       value: {
         true: {
-          backgroundColor: theme.components.switch.checked.backgroundColor,
+          backgroundColor: theme.color.interactive.brand.surface.strong.default,
         },
         false: {
-          backgroundColor: theme.components.switch.unchecked.backgroundColor,
+          backgroundColor: theme.color.interactive.functional.surface.strong.default,
         },
       },
       disabled: {
@@ -170,7 +173,7 @@ const styles = StyleSheet.create(theme => ({
     },
   },
   thumb: {
-    backgroundColor: theme.components.switch.circle.backgroundColor,
+    backgroundColor: theme.color.surface.neutral.strong,
     alignItems: 'center',
     justifyContent: 'center',
     variants: {
@@ -195,10 +198,10 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       value: {
         true: {
-          color: theme.components.switch.checked.iconColor,
+          color: theme.color.icon.primary,
         },
         false: {
-          color: theme.components.switch.unchecked.iconColor,
+          color: theme.color.icon.primary,
         },
       },
     },

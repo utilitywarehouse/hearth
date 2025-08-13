@@ -22,8 +22,8 @@ const styles = StyleSheet.create(theme => ({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.components.checkbox.unchecked.backgroundColor,
-    borderColor: theme.components.checkbox.unchecked.borderColor,
+    backgroundColor: theme.color.surface.neutral.strong,
+    borderColor: theme.color.border.strong,
     borderWidth: theme.components.checkbox.borderWidth,
     borderRadius: theme.components.checkbox.borderRadius,
     width: 24,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       checked: {
         true: {
-          borderColor: theme.components.checkbox.checked.borderColor,
+          borderColor: theme.color.border.strong,
           backgroundColor: theme.components.checkbox.checked.backgroundColor,
         },
       },

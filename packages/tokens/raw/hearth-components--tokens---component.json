@@ -469,6 +469,13 @@
         "type": "number",
         "value": 16
       },
+      "brand": {
+        "border-width": {
+          "alias": "{border-width.2}",
+          "type": "number",
+          "value": 2
+        }
+      },
       "neutral": {
         "emphasis": {
           "border-width": {
@@ -2759,6 +2766,13 @@
         "alias": "{border-radius.xl}",
         "type": "number",
         "value": 16
+      },
+      "brand": {
+        "border-width": {
+          "alias": "{border-width.2}",
+          "type": "number",
+          "value": 2
+        }
       },
       "neutral": {
         "emphasis": {

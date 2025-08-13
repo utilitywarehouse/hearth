@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native-unistyles';
-import LabelProps from './Label.props';
 import { BodyText } from '../BodyText';
+import LabelProps from './Label.props';
 
 const Label = ({ children, nested, disabled, style, ...props }: LabelProps) => {
   styles.useVariants({ disabled });
@@ -20,7 +20,7 @@ Label.displayName = 'Label';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.components.text.color,
+    color: theme.color.text.primary,
     variants: {
       disabled: {
         true: {

@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native-unistyles';
-import { useBadgeContext } from './Badge.context';
 import { Icon } from '../Icon';
 import type IconProps from '../Icon/Icon.props';
+import { useBadgeContext } from './Badge.context';
 
 const BadgeIcon = (props: IconProps) => {
   const { colorScheme, variant } = useBadgeContext();
@@ -20,53 +20,88 @@ const styles = StyleSheet.create(theme => ({
     alignSelf: 'flex-start',
     variants: {
       colorScheme: {
-        blue: {},
-        red: {},
-        green: {},
-        orange: {},
-        grey: {},
+        info: {},
+        danger: {},
+        positive: {},
+        warning: {},
+        functional: {},
       },
       variant: {
         solid: {
-          color: theme.components.badge.solid.color,
+          color: theme.color.text.primary,
         },
         outline: {},
       },
     },
     compoundVariants: [
       {
-        colorScheme: 'blue',
-        variant: 'outline',
+        colorScheme: 'info',
+        variant: 'solid',
         styles: {
-          color: theme.components.badge.outline.blue.color,
+          color: theme.color.feedback.info.foreground.default,
         },
       },
       {
-        colorScheme: 'red',
-        variant: 'outline',
+        colorScheme: 'danger',
+        variant: 'solid',
         styles: {
-          color: theme.components.badge.outline.red.color,
+          color: theme.color.feedback.danger.foreground.default,
         },
       },
       {
-        colorScheme: 'green',
-        variant: 'outline',
+        colorScheme: 'positive',
+        variant: 'solid',
         styles: {
-          color: theme.components.badge.outline.green.color,
+          color: theme.color.feedback.positive.foreground.default,
         },
       },
       {
-        colorScheme: 'orange',
-        variant: 'outline',
+        colorScheme: 'warning',
+        variant: 'solid',
         styles: {
-          color: theme.components.badge.outline.orange.color,
+          color: theme.color.feedback.warning.foreground.default,
         },
       },
       {
-        colorScheme: 'grey',
+        colorScheme: 'functional',
+        variant: 'solid',
+        styles: {
+          color: theme.color.feedback.functional.foreground.default,
+        },
+      },
+      {
+        colorScheme: 'info',
         variant: 'outline',
         styles: {
-          color: theme.components.badge.outline.grey.color,
+          color: theme.color.feedback.info.foreground.subtle,
+        },
+      },
+      {
+        colorScheme: 'danger',
+        variant: 'outline',
+        styles: {
+          color: theme.color.feedback.danger.foreground.subtle,
+        },
+      },
+      {
+        colorScheme: 'positive',
+        variant: 'outline',
+        styles: {
+          color: theme.color.feedback.positive.foreground.subtle,
+        },
+      },
+      {
+        colorScheme: 'warning',
+        variant: 'outline',
+        styles: {
+          color: theme.color.feedback.warning.foreground.subtle,
+        },
+      },
+      {
+        colorScheme: 'functional',
+        variant: 'outline',
+        styles: {
+          color: theme.color.feedback.functional.foreground.subtle,
         },
       },
     ],

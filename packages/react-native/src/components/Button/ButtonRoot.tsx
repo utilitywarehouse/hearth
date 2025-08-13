@@ -7,7 +7,7 @@ import type { BaseButtonProps } from './Button.props';
 
 const ButtonRoot = ({
   children,
-  colorScheme = 'yellow',
+  colorScheme = 'highlight',
   variant = 'solid',
   size = 'md',
   inverted = false,
@@ -59,17 +59,17 @@ const styles = StyleSheet.create(theme => ({
       '_focus-visible': {
         outlineStyle: 'solid',
         outlineWidth: 2,
-        outlineColor: theme.components.focus.border,
+        outlineColor: theme.color.focus.primary,
         outlineOffset: 1,
         boxShadow: 'none',
       },
     },
     variants: {
       colorScheme: {
-        yellow: {},
-        green: {},
-        red: {},
-        grey: {},
+        highlight: {},
+        affirmative: {},
+        destructive: {},
+        functional: {},
       },
       disabled: {
         true: {
@@ -80,7 +80,7 @@ const styles = StyleSheet.create(theme => ({
         true: {
           _web: {
             '_focus-visible': {
-              outlineColor: theme.components.focus.borderInverted,
+              outlineColor: theme.color.focus.inverted,
             },
           },
         },
@@ -90,11 +90,11 @@ const styles = StyleSheet.create(theme => ({
       },
       variant: {
         emphasis: {
-          borderColor: theme.components.button.emphasis.borderColor,
-          boxShadow: `${theme.shadow.mobile.sm.x}px ${theme.shadow.mobile.sm.y}px ${theme.shadow.mobile.sm.spread}px ${theme.components.button.emphasis.shadowColor}`,
+          borderColor: theme.color.interactive.highlight.border.strong,
+          boxShadow: `${theme.shadow.mobile.sm.x}px ${theme.shadow.mobile.sm.y}px ${theme.shadow.mobile.sm.spread}px ${theme.color.shadow.default}`,
         },
         solid: {
-          borderColor: theme.components.button.solid.borderColor,
+          borderColor: theme.color.interactive.highlight.border.strong,
         },
         outline: {
           backgroundColor: 'transparent',
@@ -148,301 +148,291 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         variant: 'emphasis',
-        colorScheme: 'yellow',
+        colorScheme: 'highlight',
         styles: {
-          backgroundColor: theme.components.button.emphasis.yellow.backgroundColor,
-          borderColor: theme.components.button.emphasis.borderColor,
+          backgroundColor: theme.color.interactive.highlight.surface.strong.default,
+          borderColor: theme.color.interactive.highlight.border.strong,
           _web: {
             _hover: {
-              backgroundColor: theme.components.button.emphasis.yellow.backgroundColorHover,
+              backgroundColor: theme.color.interactive.highlight.surface.strong.hover,
             },
             _active: {
-              backgroundColor: theme.components.button.emphasis.yellow.backgroundColorActive,
+              backgroundColor: theme.color.interactive.highlight.surface.strong.active,
             },
           },
         },
       },
       {
         variant: 'emphasis',
-        colorScheme: 'yellow',
+        colorScheme: 'highlight',
         active: true,
         styles: {
-          backgroundColor: theme.components.button.emphasis.yellow.backgroundColorActive,
+          backgroundColor: theme.color.interactive.highlight.surface.strong.active,
         },
       },
       // Solid
       // Solid Yellow
       {
         variant: 'solid',
-        colorScheme: 'yellow',
+        colorScheme: 'highlight',
         styles: {
-          backgroundColor: theme.components.button.solid.yellow.backgroundColor,
+          backgroundColor: theme.color.interactive.highlight.surface.strong.default,
           _web: {
             _hover: {
-              backgroundColor: theme.components.button.solid.yellow.backgroundColorHover,
+              backgroundColor: theme.color.interactive.highlight.surface.strong.hover,
             },
             _active: {
-              backgroundColor: theme.components.button.solid.yellow.backgroundColorActive,
+              backgroundColor: theme.color.interactive.highlight.surface.strong.active,
             },
           },
         },
       },
       {
         variant: 'solid',
-        colorScheme: 'yellow',
+        colorScheme: 'highlight',
         active: true,
         styles: {
-          backgroundColor: theme.components.button.solid.yellow.backgroundColorActive,
+          backgroundColor: theme.color.interactive.highlight.surface.strong.active,
         },
       },
       // Solid Green
       {
         variant: 'solid',
-        colorScheme: 'green',
+        colorScheme: 'affirmative',
         styles: {
-          backgroundColor: theme.components.button.solid.green.backgroundColor,
+          backgroundColor: theme.color.interactive.affirmative.surface.strong.default,
           _web: {
             _hover: {
-              backgroundColor: theme.components.button.solid.green.backgroundColorHover,
+              backgroundColor: theme.color.interactive.affirmative.surface.strong.hover,
             },
             _active: {
-              backgroundColor: theme.components.button.solid.green.backgroundColorActive,
+              backgroundColor: theme.color.interactive.affirmative.surface.strong.active,
             },
           },
         },
       },
       {
         variant: 'solid',
-        colorScheme: 'green',
+        colorScheme: 'affirmative',
         active: true,
         styles: {
-          backgroundColor: theme.components.button.solid.green.backgroundColorActive,
+          backgroundColor: theme.color.interactive.affirmative.surface.strong.active,
         },
       },
       // Solid Red
       {
         variant: 'solid',
-        colorScheme: 'red',
+        colorScheme: 'destructive',
         styles: {
-          backgroundColor: theme.components.button.solid.red.backgroundColor,
+          backgroundColor: theme.color.interactive.destructive.surface.strong.default,
           _web: {
             _hover: {
-              backgroundColor: theme.components.button.solid.red.backgroundColorHover,
+              backgroundColor: theme.color.interactive.destructive.surface.strong.hover,
             },
             _active: {
-              backgroundColor: theme.components.button.solid.red.backgroundColorActive,
+              backgroundColor: theme.color.interactive.destructive.surface.strong.active,
             },
           },
         },
       },
       {
         variant: 'solid',
-        colorScheme: 'red',
+        colorScheme: 'destructive',
         active: true,
         styles: {
-          backgroundColor: theme.components.button.solid.red.backgroundColorActive,
+          backgroundColor: theme.color.interactive.destructive.surface.strong.active,
         },
       },
       // Outline
       // Outline Grey
       {
         variant: 'outline',
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         styles: {
-          borderColor: theme.components.button.outline.grey.borderColor,
+          borderColor: theme.color.interactive.functional.border.subtle,
           _web: {
             _hover: {
-              backgroundColor: theme.components.button.outline.grey.backgroundColorHover,
+              backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
             },
             _active: {
-              backgroundColor: theme.components.button.outline.grey.backgroundColorActive,
+              backgroundColor: theme.color.interactive.functional.surface.subtle.active,
             },
           },
         },
       },
       {
         variant: 'outline',
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         active: true,
         styles: {
-          backgroundColor: theme.components.button.outline.grey.backgroundColorActive,
+          backgroundColor: theme.color.interactive.functional.surface.subtle.active,
         },
       },
       {
         variant: 'outline',
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         inverted: true,
         styles: {
-          borderColor: theme.components.button.outline.grey.inverted.borderColor,
+          borderColor: theme.color.interactive.functional.border.inverted,
           _web: {
             _hover: {
-              backgroundColor: theme.components.button.outline.grey.inverted.backgroundColorHover,
+              backgroundColor: theme.color.interactive.functional.surface.subtle.inverted.hover,
             },
             _active: {
-              backgroundColor: theme.components.button.outline.grey.inverted.backgroundColorActive,
+              backgroundColor: theme.color.interactive.functional.surface.subtle.inverted.active,
             },
           },
         },
       },
       {
         variant: 'outline',
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         inverted: true,
         active: true,
         styles: {
-          backgroundColor: theme.components.button.outline.grey.inverted.backgroundColorActive,
-        },
-      },
-      {
-        variant: 'outline',
-        colorScheme: 'grey',
-        inverted: true,
-        active: true,
-        styles: {
-          backgroundColor: theme.components.button.outline.grey.inverted.backgroundColorActive,
+          backgroundColor: theme.color.interactive.functional.surface.subtle.inverted.active,
         },
       },
       // Outline Green
-
       {
         variant: 'outline',
-        colorScheme: 'green',
+        colorScheme: 'affirmative',
         styles: {
-          borderColor: theme.components.button.outline.green.borderColor,
+          borderColor: theme.color.interactive.affirmative.border.subtle,
           _web: {
             _hover: {
-              backgroundColor: theme.components.button.outline.green.backgroundColorHover,
+              backgroundColor: theme.color.interactive.affirmative.surface.subtle.hover,
             },
             _active: {
-              backgroundColor: theme.components.button.outline.green.backgroundColorActive,
+              backgroundColor: theme.color.interactive.affirmative.surface.subtle.active,
             },
           },
         },
       },
       {
         variant: 'outline',
-        colorScheme: 'green',
+        colorScheme: 'affirmative',
         active: true,
         styles: {
-          backgroundColor: theme.components.button.outline.green.backgroundColorActive,
+          backgroundColor: theme.color.interactive.affirmative.surface.subtle.active,
         },
       },
       // Outline Red
       {
         variant: 'outline',
-        colorScheme: 'red',
+        colorScheme: 'destructive',
         styles: {
-          borderColor: theme.components.button.outline.red.borderColor,
+          borderColor: theme.color.interactive.destructive.border.subtle,
           _web: {
             _hover: {
-              backgroundColor: theme.components.button.outline.red.backgroundColorHover,
+              backgroundColor: theme.color.interactive.destructive.surface.subtle.hover,
             },
             _active: {
-              backgroundColor: theme.components.button.outline.red.backgroundColorActive,
+              backgroundColor: theme.color.interactive.destructive.surface.subtle.active,
             },
           },
         },
       },
       {
         variant: 'outline',
-        colorScheme: 'red',
+        colorScheme: 'destructive',
         active: true,
         styles: {
-          backgroundColor: theme.components.button.outline.red.backgroundColorActive,
+          backgroundColor: theme.color.interactive.destructive.surface.subtle.active,
         },
       },
       // Ghost
       // Ghost Grey
       {
         variant: 'ghost',
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         styles: {
           _web: {
             _hover: {
-              backgroundColor: theme.components.button.ghost.grey.backgroundColorHover,
+              backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
             },
             _active: {
-              backgroundColor: theme.components.button.ghost.grey.backgroundColorActive,
+              backgroundColor: theme.color.interactive.functional.surface.subtle.active,
             },
           },
         },
       },
       {
         variant: 'ghost',
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         active: true,
         styles: {
-          backgroundColor: theme.components.button.ghost.grey.backgroundColorActive,
+          backgroundColor: theme.color.interactive.functional.surface.subtle.active,
         },
       },
       {
         variant: 'ghost',
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         inverted: true,
         styles: {
           _web: {
             _hover: {
-              backgroundColor: theme.components.button.ghost.grey.inverted.backgroundColorHover,
+              backgroundColor: theme.color.interactive.functional.surface.subtle.inverted.hover,
             },
             _active: {
-              backgroundColor: theme.components.button.ghost.grey.inverted.backgroundColorActive,
+              backgroundColor: theme.color.interactive.functional.surface.subtle.inverted.active,
             },
           },
         },
       },
       {
         variant: 'ghost',
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         inverted: true,
         active: true,
         styles: {
-          backgroundColor: theme.components.button.ghost.grey.inverted.backgroundColorActive,
+          backgroundColor: theme.color.interactive.functional.surface.subtle.inverted.active,
         },
       },
       // Ghost Green
       {
         variant: 'ghost',
-        colorScheme: 'green',
+        colorScheme: 'affirmative',
         styles: {
           _web: {
             _hover: {
-              backgroundColor: theme.components.button.ghost.green.backgroundColorHover,
+              backgroundColor: theme.color.interactive.affirmative.surface.subtle.hover,
             },
             _active: {
-              backgroundColor: theme.components.button.ghost.green.backgroundColorActive,
+              backgroundColor: theme.color.interactive.affirmative.surface.subtle.active,
             },
           },
         },
       },
       {
         variant: 'ghost',
-        colorScheme: 'green',
+        colorScheme: 'affirmative',
         active: true,
         styles: {
-          backgroundColor: theme.components.button.ghost.green.backgroundColorActive,
+          backgroundColor: theme.color.interactive.affirmative.surface.subtle.active,
         },
       },
       // Ghost Red
       {
         variant: 'ghost',
-        colorScheme: 'red',
+        colorScheme: 'destructive',
         styles: {
           _web: {
             _hover: {
-              backgroundColor: theme.components.button.ghost.red.backgroundColorHover,
+              backgroundColor: theme.color.interactive.destructive.surface.subtle.hover,
             },
             _active: {
-              backgroundColor: theme.components.button.ghost.red.backgroundColorActive,
+              backgroundColor: theme.color.interactive.destructive.surface.subtle.active,
             },
           },
         },
       },
       {
         variant: 'ghost',
-        colorScheme: 'red',
+        colorScheme: 'destructive',
         active: true,
         styles: {
-          backgroundColor: theme.components.button.ghost.red.backgroundColorActive,
+          backgroundColor: theme.color.interactive.destructive.surface.subtle.active,
         },
       },
     ],

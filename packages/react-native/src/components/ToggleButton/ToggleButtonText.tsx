@@ -15,11 +15,11 @@ ToggleButtonText.displayName = 'ToggleButtonText';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.components.toggleButton.foregroundColor,
+    color: theme.color.interactive.neutral.foreground.subtle,
     variants: {
       toggled: {
         true: {
-          color: theme.components.toggleButton.selected.foregroundColor,
+          color: theme.color.interactive.brand.foreground.strong,
         },
       },
     },

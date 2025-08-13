@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native-unistyles';
-import TextProps from '../../BodyText/BodyText.props';
 import { BodyText } from '../../BodyText';
+import TextProps from '../../BodyText/BodyText.props';
 
 const ListHeadingHelperText = ({ children, ...props }: TextProps) => {
   return (
@@ -14,7 +14,7 @@ ListHeadingHelperText.displayName = 'ListHeadingHelperText';
 
 const styles = StyleSheet.create(theme => ({
   helperText: {
-    color: theme.components.text.colorSecondary,
+    color: theme.color.text.secondary,
   },
 }));
 

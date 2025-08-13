@@ -1,17 +1,17 @@
 import {
+  Badge,
+  BadgeText,
+  Box,
+  Flex,
   List,
   ListItem,
+  ListItemContent,
+  ListItemHelperText,
   ListItemIcon,
   ListItemLeadingContent,
-  ListItemHelperText,
   ListItemText,
   ListItemTrailingContent,
   ListItemTrailingIcon,
-  ListItemContent,
-  Badge,
-  BadgeText,
-  Flex,
-  Box,
 } from '../../src';
 
 import {
@@ -31,7 +31,7 @@ const BadgeList = () => {
         </ListItemLeadingContent>
         <ListItemContent>
           <ListItemText>Electricity</ListItemText>
-          <Badge colorScheme="blue">
+          <Badge colorScheme="info">
             <BadgeText>Text</BadgeText>
           </Badge>
           <ListItemHelperText>Last reading 23/03/24</ListItemHelperText>
@@ -49,7 +49,7 @@ const BadgeList = () => {
         <ListItemContent>
           <Flex direction="row" style={{ justifyContent: 'space-between' }}>
             <ListItemText>Gas</ListItemText>
-            <Badge colorScheme="green">
+            <Badge colorScheme="positive">
               <BadgeText>Smart meter</BadgeText>
             </Badge>
           </Flex>

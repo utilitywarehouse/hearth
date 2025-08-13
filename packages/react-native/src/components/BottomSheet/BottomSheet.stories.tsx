@@ -1,15 +1,15 @@
-import React, { useCallback, useRef } from 'react';
-import { BottomSheet, BottomSheetModal, BottomSheetView } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { Box } from '../Box';
-import { Button } from '../Button';
-import { BodyText } from '../BodyText';
-import { Heading } from '../Heading';
-import { Divider } from '../Divider';
+import React, { useCallback, useRef } from 'react';
 import { Dimensions, Platform, View } from 'react-native';
 import { UnistylesRuntime } from 'react-native-unistyles';
-import { Input } from '../Input';
+import { BottomSheet, BottomSheetModal, BottomSheetView } from '.';
+import { BodyText } from '../BodyText';
+import { Box } from '../Box';
+import { Button } from '../Button';
+import { Divider } from '../Divider';
 import { FormField } from '../FormField';
+import { Heading } from '../Heading';
+import { Input } from '../Input';
 
 const meta = {
   title: 'Stories / BottomSheet',
@@ -273,7 +273,7 @@ export const ComplexContent: Story = {
 
               <Box flexDirection="row" justifyContent="space-between">
                 <Button
-                  colorScheme="grey"
+                  colorScheme="functional"
                   variant="outline"
                   onPress={() => bottomSheetRef.current?.close()}
                 >
@@ -318,7 +318,7 @@ export const WithInput: Story = {
 
               <Box flexDirection="row" justifyContent="space-between">
                 <Button
-                  colorScheme="grey"
+                  colorScheme="functional"
                   variant="outline"
                   onPress={() => bottomSheetRef.current?.close()}
                 >

@@ -1,12 +1,12 @@
-import { Meta, Canvas, Story, Controls } from '@storybook/addon-docs/blocks';
-import * as Stories from './IconButton.stories';
-import { Button, ButtonText, ButtonIcon, IconButton, Center, Box } from '../../';
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
 import {
   AddSmallIcon,
-  ChevronRightSmallIcon,
   ChevronRightMediumIcon,
+  ChevronRightSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
-import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
+import { Box, Button, ButtonIcon, ButtonText, Center, IconButton } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './IconButton.stories';
 
 <Meta title="Components / Icon Button" />
 
@@ -37,7 +37,7 @@ The `IconButton` component is used to trigger an action or event, such as openin
       icon={ChevronRightMediumIcon}
       size="sm"
       onPress={() => console.log('Button pressed')}
-      colorScheme="green"
+      colorScheme="affirmative"
     />
   </Center>
 </UsageWrap>
@@ -51,22 +51,27 @@ const MyComponent = () => {
     console.log('Button pressed');
   };
   return (
-    <IconButton icon={ChevronRightMediumIcon} size="sm" onPress={handlePress} colorScheme="green" />
+    <IconButton
+      icon={ChevronRightMediumIcon}
+      size="sm"
+      onPress={handlePress}
+      colorScheme="affirmative"
+    />
   );
 };
 ```
 
 ## Props
 
-| Property      | Type                                              | Description                                                | Default  |
-| ------------- | ------------------------------------------------- | ---------------------------------------------------------- | -------- |
-| `onPress`     | `() => void`                                      | Callback function to be called when the button is pressed. | -        |
-| `variant`     | `'emphasis' \| 'solid' \| 'outline' \| 'ghost'`   | The variant of the button.                                 | 'solid'  |
-| `size`        | `'xs' \| 'md' `                                   | The size of the button.                                    | 'md'     |
-| `colorScheme` | `'yellow' \| 'green \| 'red' \| 'grey' \| 'gold'` | The colour scheme of the button.                           | 'yellow' |
-| `loading`     | `boolean`                                         | Changes the button to a loading state.                     | `false`  |
-| `disabled`    | `boolean`                                         | Disables the button.                                       | `false`  |
-| `pressed`     | `boolean`                                         | Changes the button to a pressed state.                     | `false`  |
+| Property      | Type                                                                     | Description                                                | Default     |
+| ------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------- | ----------- |
+| `onPress`     | `() => void`                                                             | Callback function to be called when the button is pressed. | -           |
+| `variant`     | `'emphasis' \| 'solid' \| 'outline' \| 'ghost'`                          | The variant of the button.                                 | 'solid'     |
+| `size`        | `'xs' \| 'md' `                                                          | The size of the button.                                    | 'md'        |
+| `colorScheme` | `'highlight' \| 'affirmative \| 'destructive' \| 'functional' \| 'gold'` | The colour scheme of the button.                           | 'highlight' |
+| `loading`     | `boolean`                                                                | Changes the button to a loading state.                     | `false`     |
+| `disabled`    | `boolean`                                                                | Disables the button.                                       | `false`     |
+| `pressed`     | `boolean`                                                                | Changes the button to a pressed state.                     | `false`     |
 
 ## Variants
 

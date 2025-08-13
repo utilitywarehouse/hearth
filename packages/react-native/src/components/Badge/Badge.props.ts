@@ -3,7 +3,7 @@ import type { ViewProps } from 'react-native';
 
 interface BadgeProps extends ViewProps {
   variant?: 'solid' | 'outline';
-  colorScheme?: 'blue' | 'green' | 'red' | 'orange' | 'grey';
+  colorScheme?: 'info' | 'positive' | 'danger' | 'warning' | 'functional';
   icon?: ComponentType;
   flatBase?: boolean;
 }

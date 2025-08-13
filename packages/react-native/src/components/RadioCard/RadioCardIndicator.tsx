@@ -22,8 +22,8 @@ const styles = StyleSheet.create(theme => ({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.components.radio.unchecked.backgroundColor,
-    borderColor: theme.components.radio.unchecked.borderColor,
+    backgroundColor: theme.color.surface.neutral.strong,
+    borderColor: theme.color.border.strong,
     borderWidth: theme.components.radio.borderWidth,
     borderRadius: theme.components.radio.borderRadius,
     width: 24,

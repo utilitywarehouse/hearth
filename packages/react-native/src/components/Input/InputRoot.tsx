@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
-import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
-import InputProps from './Input.props';
+import { StyleSheet } from 'react-native-unistyles';
 import { InputContext } from './Input.context';
+import InputProps from './Input.props';
 
 const InputRoot = ({
   children,
@@ -33,18 +33,18 @@ InputRoot.displayName = 'InputRoot';
 
 const styles = StyleSheet.create(theme => ({
   container: {
-    borderColor: theme.components.input.borderColor,
+    borderColor: theme.color.border.strong,
     height: theme.components.input.height,
     borderRadius: theme.components.input.borderRadius,
     flexDirection: 'row',
     overflow: 'hidden',
     alignContent: 'center',
     paddingHorizontal: theme.components.input.paddingHorizontal,
-    backgroundColor: theme.components.input.backgroundColor,
+    backgroundColor: theme.color.surface.neutral.strong,
     gap: theme.components.input.gap,
     outlineStyle: 'solid',
     outlineWidth: theme.components.input.borderWidth,
-    outlineColor: theme.components.input.borderColor,
+    outlineColor: theme.color.border.strong,
     variants: {
       focus: {
         true: {
@@ -53,12 +53,12 @@ const styles = StyleSheet.create(theme => ({
       },
       validationStatus: {
         invalid: {
-          borderColor: theme.components.input.borderColorInvalid,
-          outlineColor: theme.components.input.borderColorInvalid,
+          borderColor: theme.color.feedback.danger.border,
+          outlineColor: theme.color.feedback.danger.border,
         },
         valid: {
-          borderColor: theme.components.input.borderColorValid,
-          outlineColor: theme.components.input.borderColorValid,
+          borderColor: theme.color.feedback.positive.border,
+          outlineColor: theme.color.feedback.positive.border,
         },
         initial: {},
       },
@@ -69,7 +69,7 @@ const styles = StyleSheet.create(theme => ({
       },
       readonly: {
         true: {
-          borderColor: theme.components.input.borderColorReadOnly,
+          borderColor: theme.color.border.subtle,
         },
       },
       type: {

@@ -1,5 +1,6 @@
 import { AnimatableNumericValue, DimensionValue } from 'react-native';
 import { lightTheme } from '../core/themes';
+import color from '../tokens/color';
 
 export type addPrefixToObject<T, P extends string> = {
   [K in keyof T as K extends string | number ? `${P}${K}` : never]: T[K];
@@ -39,7 +40,7 @@ type FlattenColorKeys<T> = {
 export type ColorValue =
   | 'currentColor'
   | 'transparent'
-  | FlattenColorKeys<(typeof lightTheme)['color']>
+  | FlattenColorKeys<Omit<typeof color, 'light' | 'dark'> & { white: '#ffffff'; black: '#000000' }>
   | HSLA
   | HSL
   | RGB

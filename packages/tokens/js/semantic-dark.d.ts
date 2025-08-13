@@ -138,10 +138,12 @@ declare const _default: {
       readonly border: {
         readonly strong: '#ebebeb';
         readonly subtle: '#ebebeb';
+        readonly inverted: '#f7f7f7';
       };
       readonly foreground: {
         readonly strong: '#fcfbf2';
         readonly subtle: '#ebebeb';
+        readonly inverted: '#f7f7f7';
       };
       readonly surface: {
         readonly strong: {

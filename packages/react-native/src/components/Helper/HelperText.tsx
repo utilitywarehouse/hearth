@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native-unistyles';
+import { BodyText } from '../BodyText';
 import TextProps from '../BodyText/BodyText.props';
 import { useHelperContext } from './HelperContext';
-import { BodyText } from '../BodyText';
 
 const HelperText = (props: TextProps) => {
   const { validationStatus, disabled } = useHelperContext();
@@ -22,14 +22,14 @@ HelperText.displayName = 'HelperText';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.components.text.colorSecondary,
+    color: theme.color.text.secondary,
     variants: {
       validationStatus: {
         valid: {
-          color: theme.components.text.colorValid,
+          color: theme.color.feedback.positive.foreground.subtle,
         },
         invalid: {
-          color: theme.components.text.colorInvalid,
+          color: theme.color.feedback.danger.foreground.subtle,
         },
         initial: {},
       },

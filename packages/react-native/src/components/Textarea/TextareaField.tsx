@@ -1,15 +1,15 @@
+import { TextInput, TextInputProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { TextInputProps, TextInput } from 'react-native';
-import { useTextareaContext } from './Textarea.context';
 import { useTheme } from '../../hooks';
+import { useTextareaContext } from './Textarea.context';
 
 const TextareaField = ({ style, ...props }: TextInputProps) => {
   const { disabled } = useTextareaContext();
-  const { components, color } = useTheme();
+  const { color } = useTheme();
 
   return (
     <TextInput
-      placeholderTextColor={components.input.placeholderColor}
+      placeholderTextColor={color.text.secondary}
       selectionColor={color.purple[700]}
       cursorColor={color.purple[700]}
       verticalAlign="top"
@@ -30,7 +30,7 @@ const styles = StyleSheet.create(theme => ({
     justifyContent: 'flex-start',
     textAlignVertical: 'top',
     alignItems: 'flex-start',
-    color: theme.components.text.color,
+    color: theme.color.text.primary,
     fontSize: theme.typography.mobile.bodyText.md.fontSize,
     fontFamily: theme.typography.mobile.bodyText.fontFamily,
     fontWeight: theme.typography.mobile.bodyText.fontWeight,

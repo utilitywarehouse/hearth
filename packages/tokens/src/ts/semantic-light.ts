@@ -139,10 +139,12 @@ export default {
       border: {
         strong: '#101010',
         subtle: '#101010',
+        inverted: '#f7f7f7',
       },
       foreground: {
         strong: '#fcfbf2',
         subtle: '#101010',
+        inverted: '#f7f7f7',
       },
       surface: {
         strong: {

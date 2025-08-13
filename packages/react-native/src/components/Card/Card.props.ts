@@ -4,15 +4,15 @@ import { SpaceValue } from '../../types';
 interface CardProps extends PressableProps {
   variant?: 'emphasis' | 'subtle';
   colorScheme?:
-    | 'white'
-    | 'warmWhite'
-    | 'purple'
-    | 'energyBlue'
-    | 'broadbandGreen'
-    | 'mobileRose'
-    | 'insuranceOrange'
-    | 'cashbackLilac'
-    | 'piggyPink';
+    | 'neutralStrong'
+    | 'neutralSubtle'
+    | 'brand'
+    | 'energy'
+    | 'broadband'
+    | 'mobile'
+    | 'insurance'
+    | 'cashback'
+    | 'pig';
   noPadding?: boolean;
   disabled?: boolean;
   space?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
