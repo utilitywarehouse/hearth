@@ -20,7 +20,7 @@ import { useIds } from '../../hooks/use-ids';
 const componentName = 'SectionHeader';
 const componentClassName = withGlobalPrefix(componentName);
 
-type SectionHeaderElement = ElementRef<'h2'>;
+type SectionHeaderElement = ElementRef<'div'>;
 
 export const SectionHeader = React.forwardRef<SectionHeaderElement, SectionHeaderProps>(
   ({ size, ...props }) => {
@@ -28,11 +28,10 @@ export const SectionHeader = React.forwardRef<SectionHeaderElement, SectionHeade
       className,
       heading,
       as: SectionHeaderEl = 'div',
-      asChild,
       helperText,
       linkText,
       linkHref,
-      id: providedId
+      id: providedId,
     } = extractProps(
       { size, ...props },
       sectionHeaderPropDefs,

@@ -27,9 +27,7 @@ export interface SectionHeaderProps
   /**
    * @default h2
    */
-  as?: 'h1' | 'h2' | 'h3' | 'h4';
-  /** Change the default rendered element for the one passed as a child, merging their props and behavior. */
-  asChild?: boolean;
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'div';
   /**
    * Set the text size styles.
    * @default md
@@ -40,7 +38,7 @@ export interface SectionHeaderProps
    */
   helperText?: string;
   /**
-   * Optional configuration of link at the side. 
+   * Optional configuration of link at the side.
    * Both need to be present for the link to appear.
    */
   linkText?: string;
