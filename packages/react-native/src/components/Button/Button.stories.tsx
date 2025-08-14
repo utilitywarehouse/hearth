@@ -13,7 +13,7 @@ const meta = {
   title: 'Stories / Button',
   component: Button,
   parameters: {
-    layout: 'centedestructive',
+    layout: 'centered',
   },
   argTypes: {
     text: {
