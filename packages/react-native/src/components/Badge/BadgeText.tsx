@@ -7,7 +7,7 @@ const BadgeText = ({ children, style, ...props }: TextProps) => {
   const { variant, colorScheme } = useBadgeContext();
   styles.useVariants({ variant, colorScheme });
   return (
-    <BodyText {...props} size="sm" style={[styles.text, style]}>
+    <BodyText {...props} size="md" weight="semibold" style={[styles.text, style]}>
       {children}
     </BodyText>
   );
@@ -24,6 +24,12 @@ const styles = StyleSheet.create(theme => ({
         positive: {},
         warning: {},
         functional: {},
+        energy: {},
+        broadband: {},
+        mobile: {},
+        insurance: {},
+        cashback: {},
+        pig: {},
       },
       variant: {
         solid: {
@@ -33,6 +39,7 @@ const styles = StyleSheet.create(theme => ({
       },
     },
     compoundVariants: [
+      // Solid
       {
         colorScheme: 'info',
         variant: 'solid',
@@ -68,6 +75,49 @@ const styles = StyleSheet.create(theme => ({
           color: theme.color.feedback.functional.foreground.default,
         },
       },
+      {
+        colorScheme: 'energy',
+        variant: 'solid',
+        styles: {
+          color: theme.color.text.primary,
+        },
+      },
+      {
+        colorScheme: 'broadband',
+        variant: 'solid',
+        styles: {
+          color: theme.color.text.primary,
+        },
+      },
+      {
+        colorScheme: 'mobile',
+        variant: 'solid',
+        styles: {
+          color: theme.color.text.primary,
+        },
+      },
+      {
+        colorScheme: 'insurance',
+        variant: 'solid',
+        styles: {
+          color: theme.color.text.primary,
+        },
+      },
+      {
+        colorScheme: 'cashback',
+        variant: 'solid',
+        styles: {
+          color: theme.color.text.primary,
+        },
+      },
+      {
+        colorScheme: 'pig',
+        variant: 'solid',
+        styles: {
+          color: theme.color.text.primary,
+        },
+      },
+      // Outline
       {
         colorScheme: 'info',
         variant: 'outline',

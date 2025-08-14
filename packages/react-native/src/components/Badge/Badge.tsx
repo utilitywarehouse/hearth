@@ -7,7 +7,15 @@ import BadgeIcon from './BadgeIcon';
 import BadgeText from './BadgeText';
 
 const Badge = ({ children, ...props }: BadgeProps) => {
-  const { variant = 'solid', icon, colorScheme = 'info', flatBase = false, style, ...rest } = props;
+  const {
+    variant = 'solid',
+    icon,
+    colorScheme = 'info',
+    flatBase = false,
+    size = 'sm',
+    style,
+    ...rest
+  } = props;
 
   const value = useMemo(
     () => ({ colorScheme, flatBase, variant }),
@@ -16,7 +24,7 @@ const Badge = ({ children, ...props }: BadgeProps) => {
 
   const childIsText = typeof children === 'string' || typeof children === 'number';
 
-  styles.useVariants({ colorScheme, flatBase, variant });
+  styles.useVariants({ colorScheme, flatBase, variant, size });
 
   return (
     <BadgeContext.Provider value={value}>
@@ -37,7 +45,6 @@ const styles = StyleSheet.create(theme => ({
     alignSelf: 'flex-start',
     paddingHorizontal: theme.components.badge.paddingHorizontal,
     borderRadius: theme.components.badge.borderRadius,
-    paddingVertical: theme.components.badge.md.paddingVertical,
     gap: theme.components.badge.gap,
     variants: {
       colorScheme: {
@@ -46,12 +53,28 @@ const styles = StyleSheet.create(theme => ({
         positive: {},
         warning: {},
         functional: {},
+        energy: {},
+        broadband: {},
+        mobile: {},
+        insurance: {},
+        cashback: {},
+        pig: {},
       },
       variant: {
         solid: {},
         outline: {
           borderWidth: theme.components.badge.outline.borderWidth,
           borderColor: theme.color.border.subtle,
+        },
+      },
+      size: {
+        sm: {
+          paddingVertical: theme.components.badge.sm.paddingVertical,
+          height: theme.components.badge.sm.height,
+        },
+        md: {
+          paddingVertical: theme.components.badge.md.paddingVertical,
+          height: theme.components.badge.md.height,
         },
       },
       flatBase: {
@@ -63,6 +86,7 @@ const styles = StyleSheet.create(theme => ({
       },
     },
     compoundVariants: [
+      // Solid
       {
         colorScheme: 'info',
         variant: 'solid',
@@ -98,6 +122,49 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.color.feedback.functional.surface.default,
         },
       },
+      {
+        colorScheme: 'energy',
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.color.surface.energy.default,
+        },
+      },
+      {
+        colorScheme: 'broadband',
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.color.surface.broadband.default,
+        },
+      },
+      {
+        colorScheme: 'mobile',
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.color.surface.mobile.default,
+        },
+      },
+      {
+        colorScheme: 'insurance',
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.color.surface.insurance.default,
+        },
+      },
+      {
+        colorScheme: 'cashback',
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.color.surface.cashback.default,
+        },
+      },
+      {
+        colorScheme: 'pig',
+        variant: 'solid',
+        styles: {
+          backgroundColor: theme.color.surface.pig.default,
+        },
+      },
+      // Outline
       {
         colorScheme: 'info',
         variant: 'outline',
