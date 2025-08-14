@@ -2,6 +2,6 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: var(--h-list-heading-gap);
+  gap: var(--h-section-header-horizontal-gap);
   flex: 1 0 0;
 }
