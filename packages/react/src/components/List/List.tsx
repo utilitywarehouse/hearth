@@ -2,17 +2,13 @@ import * as React from 'react';
 import clsx from 'clsx';
 import { type ListProps } from './List.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { HelperText } from '../HelperText/HelperText';
-import { Flex } from '../Flex/Flex';
 import type { ElementRef } from 'react';
-import { DetailText } from '../DetailText/DetailText';
 import { Card } from '../Card/Card';
 import { Box } from '../Box/Box';
-import { Link } from '../Link/Link';
-import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
+import { SectionHeader } from '../SectionHeader/SectionHeader';
 
 const componentName = 'List';
 const componentClassName = withGlobalPrefix(componentName);
@@ -45,28 +41,16 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
     ['aria-labelledby']: ariaLabelledby ?? (Boolean(heading) ? labelId : undefined),
     ['aria-describedby']: ariaDescribedby ?? (Boolean(helperText) ? helperTextId : undefined),
   };
-  const showLink = linkHref && linkText;
 
   return (
     <div className={clsx(componentClassName, className)}>
-      <div className="hearth-ListHeader">
-        <Flex direction="column" flexGrow="1">
-          <DetailText asChild size="lg" id={labelId}>
-            <HeadingEl>{heading}</HeadingEl>
-          </DetailText>
-          {helperText ? (
-            <HelperText id={helperTextId} disableUserSelect>
-              {helperText}
-            </HelperText>
-          ) : null}
-        </Flex>
-        {showLink ? (
-          <Link href={linkHref}>
-            {linkText}
-            <ChevronRightSmallIcon />
-          </Link>
-        ) : null}
-      </div>
+      <SectionHeader
+        id="listHeader"
+        helperText={helperText}
+        heading={heading}
+        linkHref={linkHref}
+        linkText={linkText}
+      />
       {variant === undefined || colorScheme === undefined ? (
         <Box asChild className="hearth-ListContainer">
           <Tag role="list" ref={ref} {...listProps} {...listAriaProps}>

@@ -38,6 +38,9 @@ export type { DetailTextProps } from './components/DetailText/DetailText.props';
 export { Heading } from './components/Heading/Heading';
 export type { HeadingProps } from './components/Heading/Heading.props';
 
+export { SectionHeader } from './components/SectionHeader/SectionHeader';
+export type { SectionHeaderProps } from './components/SectionHeader/SectionHeader.props';
+
 export { Strong } from './components/Strong/Strong';
 export type { StrongProps } from './components/Strong/Strong.props';
 

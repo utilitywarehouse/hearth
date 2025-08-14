@@ -1,0 +1,7 @@
+.hearth-SectionHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--h-list-heading-gap);
+  flex: 1 0 0;
+}
