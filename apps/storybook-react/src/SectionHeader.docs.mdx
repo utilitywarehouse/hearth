@@ -1,0 +1,50 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './SectionHeader.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Components / SectionHeader" />
+
+<DocsHeader componentName="SectionHeader" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Anatomy
+Section Header consists of: Heading, Helper Text and Link
+### Heading
+Being a header component, the heading element is required. It should clearly describe the content it is grouping.
+
+Headings should be short and meaningful - they should clearly describe the content that follows.
+
+Don’t let titles get too wordy. Simplify the title as much as possible, and add a 1-2 line subtitle if necessary.
+
+### Helper text
+A helper text property is included in the component to be able to add helper text if required.
+
+Use helper text when users need extra clarity or explanation before engaging with the section.
+
+### Link
+The Section Header component includes an optional Link that provides users with a related navigation option.
+
+Use the Link to provide a shortcut to additional details or a more comprehensive view.
+
+Use when users may need to navigate away or view extended content (e.g. view all)
+
+## Custom usage example
+
+Use the Section Header to introduce a new section or grouping of content within a page.
+
+<Canvas of={Stories.CustomContent} />
+
+## API
+
+| Prop         | Type                           |
+| ---------    | ------------------------------ |
+| `heading`    | `string`                       |
+| `helperText` | `string`                       |
+| `linkText`   | `string`                       |
+| `linkHref`   | `string`                       |

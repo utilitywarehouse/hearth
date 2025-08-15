@@ -26,6 +26,18 @@ library in watch mode:
 pnpm dev:react
 ```
 
+### Code formatting
+
+We are running linting checks on every PR. If on your PR `Code Checks / Code Checks (push)` is failing, format code by using this command in your package root:
+
+```console
+pnpm format
+```
+And/or this command in your package:
+ ```console
+pnpm lint:fix
+```
+
 ### Deploying changes
 The libraries are deployed by semi-automatic script that creates the release based on Changesets merged into `main`.
 
