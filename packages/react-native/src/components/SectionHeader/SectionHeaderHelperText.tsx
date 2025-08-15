@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native-unistyles';
-import TextProps from '../../BodyText/BodyText.props';
-import { BodyText } from '../../BodyText';
+import TextProps from '../BodyText/BodyText.props';
+import { BodyText } from '../BodyText';
 
-const ListHeadingHelperText = ({ children, ...props }: TextProps) => {
+const SectionHeaderHelperText = ({ children, ...props }: TextProps) => {
   return (
     <BodyText size="md" {...props} style={[styles.helperText, props.style]}>
       {children}
@@ -10,7 +10,7 @@ const ListHeadingHelperText = ({ children, ...props }: TextProps) => {
   );
 };
 
-ListHeadingHelperText.displayName = 'ListHeadingHelperText';
+SectionHeaderHelperText.displayName = 'SectionHeaderHelperText';
 
 const styles = StyleSheet.create(theme => ({
   helperText: {
@@ -18,4 +18,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-export default ListHeadingHelperText;
+export default SectionHeaderHelperText;

@@ -20,12 +20,12 @@ const meta = {
     headingText: {
       control: 'text',
       description:
-        'The heading text to be displayed on the list. \n _Note: This is a playground prop, use title on the ListHeading component._',
+        'The heading text to be displayed on the list. \n _Note: This is a playground prop, use title on the SectionHeader component._',
     },
     headingHelperText: {
       control: 'text',
       description:
-        'The heading supporting text to be displayed on the list. \n _Note: This is a playground prop, use _listItemHelperText on the ListHeading component._',
+        'The heading supporting text to be displayed on the list. \n _Note: This is a playground prop, use _listItemHelperText on the SectionHeader component._',
     },
     divider: {
       control: 'boolean',

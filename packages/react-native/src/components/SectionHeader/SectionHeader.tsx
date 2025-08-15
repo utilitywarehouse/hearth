@@ -1,13 +1,12 @@
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import ListHeadingTitle from './ListHeadingTitle';
-import ListHeadingHelperText from './ListHeadingHelperText';
-import ListHeadingProps from './ListHeading.props';
-import ListHeadingTextContent from './ListHeadingTextContent';
-import { Link } from '../../Link';
-import { useListContext } from '../List.context';
+import SectionHeaderTitle from './SectionHeaderTitle';
+import SectionHeaderHelperText from './SectionHeaderHelperText';
+import SectionHeaderProps from './SectionHeader.props';
+import SectionHeaderTextContent from './SectionHeaderTextContent';
+import { Link } from '..';
 
-const ListHeading = ({
+const SectionHeader = ({
   text,
   helperText,
   children,
@@ -21,22 +20,21 @@ const ListHeading = ({
   linkTarget,
   linkText,
   ...props
-}: ListHeadingProps) => {
-  const { disabled } = useListContext();
+}: SectionHeaderProps) => {
   return (
     <View {...props} style={[styles.container, style]}>
       {children ? (
         children
       ) : (
         <>
-          <ListHeadingTextContent>
-            <ListHeadingTitle>{text}</ListHeadingTitle>
-            {!!helperText && <ListHeadingHelperText>{helperText}</ListHeadingHelperText>}
-          </ListHeadingTextContent>
+          <SectionHeaderTextContent>
+            <SectionHeaderTitle>{text}</SectionHeaderTitle>
+            {!!helperText && <SectionHeaderHelperText>{helperText}</SectionHeaderHelperText>}
+          </SectionHeaderTextContent>
           {!!linkText && (
             <Link
               href={linkHref}
-              disabled={disabled ?? linkDisabled}
+              disabled={linkDisabled}
               onPress={linkOnPress}
               icon={linkIcon}
               showIcon={linkShowIcon}
@@ -52,7 +50,7 @@ const ListHeading = ({
   );
 };
 
-ListHeading.displayName = 'ListHeading';
+SectionHeader.displayName = 'SectionHeader';
 
 const styles = StyleSheet.create(theme => ({
   container: {
@@ -61,4 +59,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-export default ListHeading;
+export default SectionHeader;

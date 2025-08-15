@@ -1,11 +1,11 @@
 import { ComponentType, Ref } from 'react';
 import type { ViewProps, View } from 'react-native';
 
-interface ListHeadingBaseProps extends Omit<ViewProps, 'children'> {
+interface SectionHeaderBaseProps extends Omit<ViewProps, 'children'> {
   ref?: Ref<View>;
 }
 
-export interface ListHeadingWithChildren extends ListHeadingBaseProps {
+export interface SectionHeaderWithChildren extends SectionHeaderBaseProps {
   children: ViewProps['children'];
   text?: never;
   helperText?: never;
@@ -19,7 +19,7 @@ export interface ListHeadingWithChildren extends ListHeadingBaseProps {
   linkShowIcon?: never;
 }
 
-export interface ListHeadingWithoutChildren extends ListHeadingBaseProps {
+export interface SectionHeaderWithoutChildren extends SectionHeaderBaseProps {
   children?: never;
   text: string;
   helperText?: string;
@@ -33,6 +33,6 @@ export interface ListHeadingWithoutChildren extends ListHeadingBaseProps {
   linkShowIcon?: boolean;
 }
 
-type ListHeadingProps = ListHeadingWithChildren | ListHeadingWithoutChildren;
+type SectionHeaderProps = SectionHeaderWithChildren | SectionHeaderWithoutChildren;
 
-export default ListHeadingProps;
+export default SectionHeaderProps;

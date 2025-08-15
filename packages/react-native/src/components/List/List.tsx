@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Card } from '../Card';
 import { ListContext } from './List.context';
 import type ListProps from './List.props';
-import { ListHeading } from './ListHeading';
+import { SectionHeader } from '../SectionHeader';
 import { ListItem, ListItemProps } from './ListItem';
 
 const markFirstListItem = (children: ReactNode): ViewProps['children'] => {
@@ -74,7 +74,7 @@ const List = ({
     <ListContext.Provider value={value}>
       <View {...props} style={[styles.container, props.style]}>
         {headingText ? (
-          <ListHeading
+          <SectionHeader
             text={headingText}
             helperText={headingHelperText}
             linkText={headingLinkText}

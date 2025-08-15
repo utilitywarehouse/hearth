@@ -26,6 +26,7 @@ export * from './Link';
 export * from './List';
 export * from './Radio';
 export * from './RadioCard';
+export * from './SectionHeader';
 export * from './Select';
 export * from './Skeleton';
 export * from './Spinner';
