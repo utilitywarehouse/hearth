@@ -30,8 +30,12 @@ pnpm dev:react
 
 We are running linting checks on every PR. If on your PR `Code Checks / Code Checks (push)` is failing, format code by using this command in your package root:
 
- ```console
+```console
 pnpm format
+```
+And/or this command in your package:
+ ```console
+pnpm lint:fix
 ```
 
 ### Deploying changes

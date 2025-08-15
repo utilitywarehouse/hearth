@@ -50,6 +50,7 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
         heading={heading}
         linkHref={linkHref}
         linkText={linkText}
+        as={HeadingEl}
       />
       {variant === undefined || colorScheme === undefined ? (
         <Box asChild className="hearth-ListContainer">
