@@ -42,6 +42,7 @@ import {
   RadioCard,
   RadioCardGroup,
   RadioGroup,
+  SectionHeader,
   Select,
   Skeleton,
   Spinner,
@@ -318,6 +319,11 @@ const AllComponents: React.FC = () => {
                   label="I'm a Radio Card"
                 ></RadioCard>
               </RadioCardGroup>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Section Header" link="/?path=/docs/components-section-header--docs">
+            <Center flex={1}>
+              <SectionHeader heading="Heading" helperText="Supporting text" linkText="More"/>
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Select" link="/?path=/docs/forms-select--docs">

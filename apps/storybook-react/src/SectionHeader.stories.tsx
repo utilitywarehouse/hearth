@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, Card, DetailText, Flex, SectionHeader } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof SectionHeader> = {
-  title: 'Stories / SectionHeader',
+  title: 'Stories / Section Header',
   component: SectionHeader,
   parameters: {
     docs: {
