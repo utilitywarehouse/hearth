@@ -105,94 +105,91 @@ export const Icon: Story = {
 export const KitchenSink: Story = {
   render: () => (
     <Flex direction="row" wrap="wrap" space="md">
-      {['sm', 'md'].map(
-        size =>
-          size && (
-            <Box gap="200">
-              <VariantTitle title={`Info - Solid - ${size}`}>
-                <Badge colorScheme="info" size={size as 'sm' | 'md'}>
-                  Info badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Positive - Solid - ${size}`}>
-                <Badge colorScheme="positive" size={size as 'sm' | 'md'}>
-                  Positive badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Danger - Solid - ${size}`}>
-                <Badge colorScheme="danger" size={size as 'sm' | 'md'}>
-                  Danger badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Warning - Solid - ${size}`}>
-                <Badge colorScheme="warning" size={size as 'sm' | 'md'}>
-                  Warning badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Functional - Solid - ${size}`}>
-                <Badge colorScheme="functional" size={size as 'sm' | 'md'}>
-                  Functional badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Energy - Solid - ${size}`}>
-                <Badge colorScheme="energy" size={size as 'sm' | 'md'}>
-                  Energy badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Broadband - Solid - ${size}`}>
-                <Badge colorScheme="broadband" size={size as 'sm' | 'md'}>
-                  Broadband badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Mobile - Solid - ${size}`}>
-                <Badge colorScheme="mobile" size={size as 'sm' | 'md'}>
-                  Mobile badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Insurance - Solid - ${size}`}>
-                <Badge colorScheme="insurance" size={size as 'sm' | 'md'}>
-                  Insurance badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Cashback - Solid - ${size}`}>
-                <Badge colorScheme="cashback" size={size as 'sm' | 'md'}>
-                  Cashback badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Pig - Solid - ${size}`}>
-                <Badge colorScheme="pig" size={size as 'sm' | 'md'}>
-                  Pig badge
-                </Badge>
-              </VariantTitle>
+      {['sm', 'md'].map(size => (
+        <Box gap="200">
+          <VariantTitle title={`Info - Solid - ${size}`}>
+            <Badge colorScheme="info" size={size as 'sm' | 'md'}>
+              Info badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Positive - Solid - ${size}`}>
+            <Badge colorScheme="positive" size={size as 'sm' | 'md'}>
+              Positive badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Danger - Solid - ${size}`}>
+            <Badge colorScheme="danger" size={size as 'sm' | 'md'}>
+              Danger badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Warning - Solid - ${size}`}>
+            <Badge colorScheme="warning" size={size as 'sm' | 'md'}>
+              Warning badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Functional - Solid - ${size}`}>
+            <Badge colorScheme="functional" size={size as 'sm' | 'md'}>
+              Functional badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Energy - Solid - ${size}`}>
+            <Badge colorScheme="energy" size={size as 'sm' | 'md'}>
+              Energy badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Broadband - Solid - ${size}`}>
+            <Badge colorScheme="broadband" size={size as 'sm' | 'md'}>
+              Broadband badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Mobile - Solid - ${size}`}>
+            <Badge colorScheme="mobile" size={size as 'sm' | 'md'}>
+              Mobile badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Insurance - Solid - ${size}`}>
+            <Badge colorScheme="insurance" size={size as 'sm' | 'md'}>
+              Insurance badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Cashback - Solid - ${size}`}>
+            <Badge colorScheme="cashback" size={size as 'sm' | 'md'}>
+              Cashback badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Pig - Solid - ${size}`}>
+            <Badge colorScheme="pig" size={size as 'sm' | 'md'}>
+              Pig badge
+            </Badge>
+          </VariantTitle>
 
-              <VariantTitle title={`Info - Outline - ${size}`}>
-                <Badge colorScheme="info" size={size as 'sm' | 'md'} variant="outline">
-                  Info badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Positive - Outline - ${size}`}>
-                <Badge colorScheme="positive" size={size as 'sm' | 'md'} variant="outline">
-                  Positive badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Danger - Outline - ${size}`}>
-                <Badge colorScheme="danger" size={size as 'sm' | 'md'} variant="outline">
-                  Danger badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Warning - Outline - ${size}`}>
-                <Badge colorScheme="warning" size={size as 'sm' | 'md'} variant="outline">
-                  Warning badge
-                </Badge>
-              </VariantTitle>
-              <VariantTitle title={`Functional - Outline - ${size}`}>
-                <Badge colorScheme="functional" size={size as 'sm' | 'md'} variant="outline">
-                  Functional badge
-                </Badge>
-              </VariantTitle>
-            </Box>
-          )
-      )}
+          <VariantTitle title={`Info - Outline - ${size}`}>
+            <Badge colorScheme="info" size={size as 'sm' | 'md'} variant="outline">
+              Info badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Positive - Outline - ${size}`}>
+            <Badge colorScheme="positive" size={size as 'sm' | 'md'} variant="outline">
+              Positive badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Danger - Outline - ${size}`}>
+            <Badge colorScheme="danger" size={size as 'sm' | 'md'} variant="outline">
+              Danger badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Warning - Outline - ${size}`}>
+            <Badge colorScheme="warning" size={size as 'sm' | 'md'} variant="outline">
+              Warning badge
+            </Badge>
+          </VariantTitle>
+          <VariantTitle title={`Functional - Outline - ${size}`}>
+            <Badge colorScheme="functional" size={size as 'sm' | 'md'} variant="outline">
+              Functional badge
+            </Badge>
+          </VariantTitle>
+        </Box>
+      ))}
     </Flex>
   ),
 };

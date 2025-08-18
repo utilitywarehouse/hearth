@@ -18,8 +18,8 @@ const Badge = ({ children, ...props }: BadgeProps) => {
   } = props;
 
   const value = useMemo(
-    () => ({ colorScheme, flatBase, variant }),
-    [colorScheme, flatBase, variant]
+    () => ({ colorScheme, flatBase, variant, size }),
+    [colorScheme, flatBase, variant, size]
   );
 
   const childIsText = typeof children === 'string' || typeof children === 'number';
