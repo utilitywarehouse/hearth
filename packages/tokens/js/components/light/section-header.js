@@ -2,6 +2,8 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
-  horizontalGap: 12,
-  verticalGap: 2,
+  gap: 12,
+  textContent: {
+    gap: 2,
+  },
 };

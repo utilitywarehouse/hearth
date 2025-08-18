@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 export default {
-  gap: 24,
+  gap: 12,
   item: {
     column: {
       gap: 2,

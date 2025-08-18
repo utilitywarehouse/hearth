@@ -775,9 +775,9 @@
     },
     "description-list": {
       "gap": {
-        "alias": "{space.300}",
+        "alias": "{space.150}",
         "type": "number",
-        "value": 24
+        "value": 12
       },
       "item": {
         "column": {
@@ -1779,15 +1779,17 @@
       }
     },
     "section-header": {
-      "horizontal-gap": {
+      "gap": {
         "alias": "{space.150}",
         "type": "number",
         "value": 12
       },
-      "vertical-gap": {
-        "alias": "{space.25}",
-        "type": "number",
-        "value": 2
+      "text-content": {
+        "gap": {
+          "alias": "{space.25}",
+          "type": "number",
+          "value": 2
+        }
       }
     },
     "segmented-control": {
@@ -3073,9 +3075,9 @@
     },
     "description-list": {
       "gap": {
-        "alias": "{space.300}",
+        "alias": "{space.150}",
         "type": "number",
-        "value": 24
+        "value": 12
       },
       "item": {
         "column": {
@@ -4077,15 +4079,17 @@
       }
     },
     "section-header": {
-      "horizontal-gap": {
+      "gap": {
         "alias": "{space.150}",
         "type": "number",
         "value": 12
       },
-      "vertical-gap": {
-        "alias": "{space.25}",
-        "type": "number",
-        "value": 2
+      "text-content": {
+        "gap": {
+          "alias": "{space.25}",
+          "type": "number",
+          "value": 2
+        }
       }
     },
     "segmented-control": {
