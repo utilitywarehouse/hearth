@@ -47,13 +47,13 @@ export interface SectionHeaderProps
   /**
    * @default Chevron
    */
-  linkIcon?: ComponentType,
+  linkIcon?: ComponentType;
   linkIconPosition?: 'left' | 'right';
-  /** 
+  /**
    * @default true
    */
   linkShowIcon?: boolean;
-  /** 
+  /**
    * @default _self
    */
   linkTarget?: '_blank' | '_self' | '_parent' | '_top';

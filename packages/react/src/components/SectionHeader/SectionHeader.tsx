@@ -63,9 +63,9 @@ export const SectionHeader = React.forwardRef<SectionHeaderElement, SectionHeade
         </Flex>
         {showLink ? (
           <Link href={linkHref} target={linkTarget}>
-            {linkShowIcon && linkIconPosition==='left' && (<SectionHeaderLinkIcon />)}
+            {linkShowIcon && linkIconPosition === 'left' && <SectionHeaderLinkIcon />}
             {linkText}
-            {linkShowIcon && linkIconPosition==='right' && (<SectionHeaderLinkIcon />)}
+            {linkShowIcon && linkIconPosition === 'right' && <SectionHeaderLinkIcon />}
           </Link>
         ) : null}
       </div>
