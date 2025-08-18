@@ -1,8 +1,8 @@
-import { Badge } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { VariantTitle } from '../../../docs/components';
-import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
+import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { Badge } from '.';
+import { VariantTitle } from '../../../docs/components';
 import { Box } from '../Box';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -22,7 +22,7 @@ const meta = {
       description: 'Variant of the badge.',
     },
     colorScheme: {
-      options: ['blue', 'green', 'red', 'orange', 'grey'],
+      options: ['info', 'positive', 'danger', 'warning', 'functional'],
       control: 'select',
       description: 'Color scheme of the badge.',
     },
@@ -41,7 +41,7 @@ const meta = {
   args: {
     children: 'Badge',
     variant: 'solid',
-    colorScheme: 'blue',
+    colorScheme: 'info',
     flatBase: false,
   },
 } satisfies Meta<typeof Badge>;
@@ -50,7 +50,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-   
   render: ({ icon: _icon, ...args }) => {
     // @ts-expect-error - This is a playground
     const icon = _icon === 'none' ? undefined : Icons[_icon];
@@ -92,44 +91,44 @@ export const Icon: Story = {
 export const KitchenSink: Story = {
   render: () => (
     <Box gap="200">
-      <VariantTitle title="Blue - Solid">
-        <Badge colorScheme="blue">Blue badge</Badge>
+      <VariantTitle title="Info - Solid">
+        <Badge colorScheme="info">Info badge</Badge>
       </VariantTitle>
-      <VariantTitle title="Green - Solid">
-        <Badge colorScheme="green">Green badge</Badge>
+      <VariantTitle title="Positive - Solid">
+        <Badge colorScheme="positive">Positive badge</Badge>
       </VariantTitle>
-      <VariantTitle title="Red - Solid">
-        <Badge colorScheme="red">Red badge</Badge>
+      <VariantTitle title="Danger - Solid">
+        <Badge colorScheme="danger">Danger badge</Badge>
       </VariantTitle>
-      <VariantTitle title="Orange - Solid">
-        <Badge colorScheme="orange">Orange badge</Badge>
+      <VariantTitle title="Warning - Solid">
+        <Badge colorScheme="warning">Warning badge</Badge>
       </VariantTitle>
-      <VariantTitle title="Grey - Solid">
-        <Badge colorScheme="grey">Grey badge</Badge>
+      <VariantTitle title="Functional - Solid">
+        <Badge colorScheme="functional">Functional badge</Badge>
       </VariantTitle>
-      <VariantTitle title="Blue - Outline">
-        <Badge colorScheme="blue" variant="outline">
-          Blue badge
+      <VariantTitle title="Info - Outline">
+        <Badge colorScheme="info" variant="outline">
+          Info badge
         </Badge>
       </VariantTitle>
-      <VariantTitle title="Green - Outline">
-        <Badge colorScheme="green" variant="outline">
-          Green badge
+      <VariantTitle title="Positive - Outline">
+        <Badge colorScheme="positive" variant="outline">
+          Positive badge
         </Badge>
       </VariantTitle>
-      <VariantTitle title="Red - Outline">
-        <Badge colorScheme="red" variant="outline">
-          Red badge
+      <VariantTitle title="Danger - Outline">
+        <Badge colorScheme="danger" variant="outline">
+          Danger badge
         </Badge>
       </VariantTitle>
-      <VariantTitle title="Orange - Outline">
-        <Badge colorScheme="orange" variant="outline">
-          Orange badge
+      <VariantTitle title="Warning - Outline">
+        <Badge colorScheme="warning" variant="outline">
+          Warning badge
         </Badge>
       </VariantTitle>
-      <VariantTitle title="Grey - Outline">
-        <Badge colorScheme="grey" variant="outline">
-          Grey badge
+      <VariantTitle title="Functional - Outline">
+        <Badge colorScheme="functional" variant="outline">
+          Functional badge
         </Badge>
       </VariantTitle>
     </Box>

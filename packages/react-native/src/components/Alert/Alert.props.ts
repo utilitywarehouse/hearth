@@ -31,10 +31,10 @@ interface AlertWithoutChildrenProps extends PressableProps {
 
   /**
    * The color scheme of the alert.
-   * Possible values: 'blue', 'green', 'orange', 'red'.
-   * @default 'blue'
+   * Possible values: 'info', 'positive', 'warning', 'danger'.
+   * @default 'info'
    */
-  colorScheme?: 'blue' | 'green' | 'orange' | 'red';
+  colorScheme?: 'info' | 'positive' | 'warning' | 'danger';
 
   /**
    * Callback function for when the icon button is pressed.

@@ -1,8 +1,8 @@
+import { Platform, StyleProp, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import IconProps from '../Icon/Icon.props';
 import { useHelperContext } from './HelperContext';
-import { Platform, StyleProp, ViewStyle } from 'react-native';
 
 const HelperIcon = (props: IconProps) => {
   const { validationStatus } = useHelperContext();
@@ -29,10 +29,10 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       validationStatus: {
         valid: {
-          color: theme.components.text.colorValid,
+          color: theme.color.feedback.positive.foreground.subtle,
         },
         invalid: {
-          color: theme.components.text.colorInvalid,
+          color: theme.color.feedback.danger.foreground.subtle,
         },
         initial: {},
       },

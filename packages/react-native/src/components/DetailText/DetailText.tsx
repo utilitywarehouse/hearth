@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { Text } from 'react-native';
-import type DetailTextProps from './DetailText.props';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import { getFlattenedColorValue } from '../../utils';
+import type DetailTextProps from './DetailText.props';
 
 const DetailText = ({
   children,
@@ -74,7 +74,7 @@ DetailText.displayName = 'DetailText';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.components.text.color,
+    color: theme.color.text.primary,
     fontWeight: theme.fontWeight.regular,
     fontFamily: theme.typography.mobile.detailText.fontFamily,
     fontStyle: 'normal',
@@ -138,7 +138,7 @@ const styles = StyleSheet.create(theme => ({
       },
       inverted: {
         true: {
-          color: theme.components.text.colorInverted,
+          color: theme.color.text.inverted,
         },
       },
     },

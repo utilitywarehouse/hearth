@@ -1,9 +1,9 @@
-import { Card, CardAction } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { Card, CardAction } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { BodyText } from '../BodyText';
-import { Flex } from '../Flex';
 import { Button } from '../Button';
+import { Flex } from '../Flex';
 import { Heading } from '../Heading';
 
 const meta = {
@@ -25,15 +25,15 @@ const meta = {
     colorScheme: {
       control: 'select',
       options: [
-        'white',
-        'warmWhite',
-        'purple',
-        'energyBlue',
-        'broadbandGreen',
-        'mobileRose',
-        'insuranceOrange',
-        'cashbackLilac',
-        'piggyPink',
+        'neutralStrong',
+        'neutralSubtle',
+        'brand',
+        'energy',
+        'broadband',
+        'mobile',
+        'insurance',
+        'cashback',
+        'pig',
       ],
       description: 'Use this value to set the Card color scheme.',
     },
@@ -42,7 +42,7 @@ const meta = {
     children: 'This is a card',
     variant: 'subtle',
     noPadding: false,
-    colorScheme: 'white',
+    colorScheme: 'neutralStrong',
   },
 } satisfies Meta<typeof Card>;
 
@@ -67,92 +67,92 @@ export const Variants: Story = {
     return (
       <Flex space="lg">
         <VariantTitle title="Subtle - White">
-          <Card {...props} variant="subtle" colorScheme="white">
+          <Card {...props} variant="subtle" colorScheme="neutralStrong">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Emphasis - White">
-          <Card {...props} variant="emphasis" colorScheme="white">
+          <Card {...props} variant="emphasis" colorScheme="neutralStrong">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Subtle - Warm White">
-          <Card {...props} variant="subtle" colorScheme="warmWhite">
+          <Card {...props} variant="subtle" colorScheme="neutralSubtle">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Emphasis - Warm White">
-          <Card {...props} variant="emphasis" colorScheme="warmWhite">
+          <Card {...props} variant="emphasis" colorScheme="neutralSubtle">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Purple - Subtle">
-          <Card {...props} colorScheme="purple" variant="subtle">
+          <Card {...props} colorScheme="brand" variant="subtle">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Purple - Emphasis">
-          <Card {...props} colorScheme="purple" variant="emphasis">
+          <Card {...props} colorScheme="brand" variant="emphasis">
             <BodyText inverted>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Energy Blue - Subtle">
-          <Card {...props} colorScheme="energyBlue" variant="subtle">
+          <Card {...props} colorScheme="energy" variant="subtle">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Energy Blue - Emphasis">
-          <Card {...props} colorScheme="energyBlue" variant="emphasis">
+          <Card {...props} colorScheme="energy" variant="emphasis">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Broadband Green - Subtle">
-          <Card {...props} colorScheme="broadbandGreen" variant="subtle">
+          <Card {...props} colorScheme="broadband" variant="subtle">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Broadband Green - Emphasis">
-          <Card {...props} colorScheme="broadbandGreen" variant="emphasis">
+          <Card {...props} colorScheme="broadband" variant="emphasis">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Mobile Rose - Subtle">
-          <Card {...props} colorScheme="mobileRose" variant="subtle">
+          <Card {...props} colorScheme="mobile" variant="subtle">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Mobile Rose - Emphasis">
-          <Card {...props} colorScheme="mobileRose" variant="emphasis">
+          <Card {...props} colorScheme="mobile" variant="emphasis">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Insurance Orange - Subtle">
-          <Card {...props} colorScheme="insuranceOrange" variant="subtle">
+          <Card {...props} colorScheme="insurance" variant="subtle">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Insurance Orange - Emphasis">
-          <Card {...props} colorScheme="insuranceOrange" variant="emphasis">
+          <Card {...props} colorScheme="insurance" variant="emphasis">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Cashback Lilac - Subtle">
-          <Card {...props} colorScheme="cashbackLilac" variant="subtle">
+          <Card {...props} colorScheme="cashback" variant="subtle">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Cashback Lilac - Emphasis">
-          <Card {...props} colorScheme="cashbackLilac" variant="emphasis">
+          <Card {...props} colorScheme="cashback" variant="emphasis">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Piggy Pink - Subtle">
-          <Card {...props} colorScheme="piggyPink" variant="subtle">
+          <Card {...props} colorScheme="pig" variant="subtle">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
         <VariantTitle title="Piggy Pink - Emphasis">
-          <Card {...props} colorScheme="piggyPink" variant="emphasis">
+          <Card {...props} colorScheme="pig" variant="emphasis">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
@@ -173,7 +173,7 @@ export const Interactive: Story = {
             {...props}
             onPress={() => console.log('pressed')}
             variant="subtle"
-            colorScheme="white"
+            colorScheme="neutralStrong"
             space="md"
             flexDirection="column"
             alignItems="stretch"
@@ -188,7 +188,7 @@ export const Interactive: Story = {
             {...props}
             onPress={() => console.log('pressed')}
             variant="emphasis"
-            colorScheme="white"
+            colorScheme="neutralStrong"
             space="md"
             flexDirection="column"
             alignItems="stretch"
@@ -203,7 +203,7 @@ export const Interactive: Story = {
             {...props}
             onPress={() => console.log('pressed')}
             variant="subtle"
-            colorScheme="warmWhite"
+            colorScheme="neutralSubtle"
             space="md"
             flexDirection="column"
             alignItems="stretch"
@@ -217,7 +217,7 @@ export const Interactive: Story = {
           <Card
             {...props}
             variant="emphasis"
-            colorScheme="warmWhite"
+            colorScheme="neutralSubtle"
             space="md"
             flexDirection="column"
             alignItems="stretch"

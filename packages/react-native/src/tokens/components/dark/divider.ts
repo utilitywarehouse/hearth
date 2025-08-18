@@ -4,5 +4,8 @@
 
 export default {
   borderWidth: 1,
-  color: '#4c473d',
+  divider: {
+    borderWidth: 2,
+    color: '#ebebeb',
+  },
 } as const;

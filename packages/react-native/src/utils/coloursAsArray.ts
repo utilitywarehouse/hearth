@@ -1,7 +1,9 @@
 import { color } from '../tokens';
 
+const { light, dark, ...restOfColors } = color;
+
 export function extractLightColorValues(): Record<string, string> {
-  return Object.entries(color).reduce(
+  return Object.entries(restOfColors).reduce(
     (acc, [colorName, variants]) => {
       Object.entries(variants).forEach(([variantName, hexValue]) => {
         acc[`${colorName}${variantName}`] = hexValue;
@@ -13,5 +15,5 @@ export function extractLightColorValues(): Record<string, string> {
 }
 
 export default function coloursAsArray(): Array<string> {
-  return [...Object.keys(color), ...Object.keys(extractLightColorValues())];
+  return [...Object.keys(restOfColors), ...Object.keys(extractLightColorValues())];
 }

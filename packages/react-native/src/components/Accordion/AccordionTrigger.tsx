@@ -1,7 +1,7 @@
 import { Pressable, PressableProps } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { useAccordionContext } from './Accordion.context';
 import { useAccordionItemContext } from './AccordionItem.context';
-import { StyleSheet } from 'react-native-unistyles';
 
 const AccordionTrigger = ({
   states,
@@ -29,11 +29,11 @@ const styles = StyleSheet.create(theme => ({
     width: '100%',
     _web: {
       _hover: {
-        backgroundColor: theme.components.accordion.item.backgroundColorHover,
+        backgroundColor: theme.color.interactive.neutral.surface.subtle.hover,
       },
       '_focus-visible': theme.helpers.focusVisible,
       _active: {
-        backgroundColor: theme.components.accordion.item.backgroundColorActive,
+        backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
       },
     },
     variants: {
@@ -44,7 +44,7 @@ const styles = StyleSheet.create(theme => ({
       },
       active: {
         true: {
-          backgroundColor: theme.components.accordion.item.backgroundColorActive,
+          backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
         },
       },
     },

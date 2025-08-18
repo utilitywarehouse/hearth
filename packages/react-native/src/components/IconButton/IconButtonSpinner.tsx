@@ -8,49 +8,46 @@ import { useIconButtonContext } from './IconButton.context';
 const IconButtonSpinner = (props: Omit<SpinnerProps, 'size'>) => {
   const { color = '', ...rest } = props;
   const { colorScheme, variant, disabled, inverted, size } = useIconButtonContext();
-  const { components, colorMode } = useTheme();
+  const { color: themeColor, colorMode } = useTheme();
   const colorProp = useMemo(() => {
-    if (variant === 'emphasis' && colorScheme === 'yellow' && inverted) {
-      return components.button.emphasis.yellow.foregroundColor;
+    if (variant === 'emphasis' && colorScheme === 'highlight') {
+      return themeColor.interactive.highlight.foreground.strong;
     }
-    if (variant === 'emphasis' && colorScheme === 'yellow') {
-      return components.button.emphasis.yellow.foregroundColor;
+    if (variant === 'solid' && colorScheme === 'highlight') {
+      return themeColor.interactive.highlight.foreground.strong;
     }
-    if (variant === 'solid' && colorScheme === 'yellow' && inverted) {
-      return components.button.solid.yellow.inverted.foregroundColor;
+    if (variant === 'solid' && colorScheme === 'destructive') {
+      return themeColor.interactive.destructive.foreground.strong;
     }
-    if (variant === 'solid' && colorScheme === 'yellow') {
-      return components.button.solid.yellow.foregroundColor;
+    if (variant === 'solid' && colorScheme === 'affirmative') {
+      return themeColor.interactive.affirmative.foreground.strong;
     }
-    if (variant === 'solid' && colorScheme === 'red') {
-      return components.button.solid.red.foregroundColor;
+    if (variant === 'outline' && colorScheme === 'destructive') {
+      return themeColor.interactive.destructive.foreground.subtle;
     }
-    if (variant === 'solid' && colorScheme === 'green') {
-      return components.button.solid.green.foregroundColor;
+    if (variant === 'outline' && colorScheme === 'affirmative') {
+      return themeColor.interactive.affirmative.foreground.subtle;
     }
-    if (variant === 'outline' && colorScheme === 'red') {
-      return components.button.outline.red.foregroundColor;
+    if (variant === 'outline' && colorScheme === 'functional' && inverted) {
+      return themeColor.interactive.functional.foreground.strong;
     }
-    if (variant === 'outline' && colorScheme === 'green') {
-      return components.button.outline.green.foregroundColor;
+    if (variant === 'outline' && colorScheme === 'functional') {
+      return themeColor.interactive.functional.foreground.subtle;
     }
-    if (variant === 'outline' && colorScheme === 'grey' && inverted) {
-      return components.button.outline.grey.inverted.foregroundColor;
+    if (variant === 'ghost' && colorScheme === 'destructive') {
+      return themeColor.interactive.destructive.foreground.subtle;
     }
-    if (variant === 'outline' && colorScheme === 'grey') {
-      return components.button.outline.grey.foregroundColor;
+    if (variant === 'ghost' && colorScheme === 'affirmative') {
+      return themeColor.interactive.affirmative.foreground.subtle;
     }
-    if (variant === 'ghost' && colorScheme === 'red') {
-      return components.button.ghost.red.foregroundColor;
+    if (variant === 'ghost' && colorScheme === 'functional' && inverted) {
+      return themeColor.interactive.functional.foreground.strong;
     }
-    if (variant === 'ghost' && colorScheme === 'green') {
-      return components.button.ghost.green.foregroundColor;
+    if (variant === 'ghost' && colorScheme === 'functional') {
+      return themeColor.interactive.functional.foreground.subtle;
     }
-    if (variant === 'ghost' && colorScheme === 'grey' && inverted) {
-      return components.button.ghost.grey.inverted.foregroundColor;
-    }
-    if (variant === 'ghost' && colorScheme === 'grey') {
-      return components.button.ghost.grey.foregroundColor;
+    if (variant === 'ghost' && colorScheme === 'destructive') {
+      return themeColor.interactive.destructive.foreground.subtle;
     }
     return color;
     // eslint-disable-next-line react-hooks/exhaustive-deps

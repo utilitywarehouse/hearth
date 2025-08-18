@@ -369,13 +369,13 @@
           },
           "subtle": {
             "alias": "{color.grey.100}",
-            "inverted": {
-              "alias": "{color.grey.1000}",
-              "type": "color",
-              "value": "#101010"
-            },
             "type": "color",
             "value": "#ebebeb"
+          },
+          "inverted": {
+            "alias": "{color.grey.50}",
+            "type": "color",
+            "value": "#f7f7f7"
           }
         },
         "foreground": {
@@ -386,13 +386,13 @@
           },
           "subtle": {
             "alias": "{color.grey.100}",
-            "inverted": {
-              "alias": "{color.grey.1000}",
-              "type": "color",
-              "value": "#101010"
-            },
             "type": "color",
             "value": "#ebebeb"
+          },
+          "inverted": {
+            "alias": "{color.grey.50}",
+            "type": "color",
+            "value": "#f7f7f7"
           }
         },
         "surface": {
@@ -1056,13 +1056,13 @@
           },
           "subtle": {
             "alias": "{color.grey.1000}",
-            "inverted": {
-              "alias": "{color.grey.50}",
-              "type": "color",
-              "value": "#f7f7f7"
-            },
             "type": "color",
             "value": "#101010"
+          },
+          "inverted": {
+            "alias": "{color.grey.50}",
+            "type": "color",
+            "value": "#f7f7f7"
           }
         },
         "foreground": {
@@ -1073,13 +1073,13 @@
           },
           "subtle": {
             "alias": "{color.grey.1000}",
-            "inverted": {
-              "alias": "{color.grey.50}",
-              "type": "color",
-              "value": "#f7f7f7"
-            },
             "type": "color",
             "value": "#101010"
+          },
+          "inverted": {
+            "alias": "{color.grey.50}",
+            "type": "color",
+            "value": "#f7f7f7"
           }
         },
         "surface": {

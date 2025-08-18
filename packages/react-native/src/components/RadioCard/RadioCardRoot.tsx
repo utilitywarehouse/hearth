@@ -41,9 +41,9 @@ const styles = StyleSheet.create(theme => ({
     flexDirection: 'column',
     gap: theme.components.card.selectable.gap,
     borderRadius: theme.components.card.borderRadius,
-    backgroundColor: theme.components.card.neutral.whiteBackgroundColor,
+    backgroundColor: theme.color.surface.neutral.strong,
     borderWidth: theme.components.card.selectable.borderWidth,
-    borderColor: theme.components.card.selectable.borderColor,
+    borderColor: theme.color.border.subtle,
     alignSelf: 'stretch',
     padding: {
       base: theme.components.card.mobile.padding,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create(theme => ({
       selected: {
         true: {
           borderWidth: theme.components.card.selectable.borderWidthSelected,
-          borderColor: theme.components.card.selectable.borderColorSelected,
+          borderColor: theme.color.border.strong,
           margin: -theme.components.card.selectable.borderWidthSelected / 2,
         },
       },

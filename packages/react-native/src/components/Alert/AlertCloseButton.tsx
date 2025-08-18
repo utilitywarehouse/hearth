@@ -1,8 +1,8 @@
+import { CloseSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { ComponentType } from 'react';
 import { ViewStyle } from 'react-native';
-import { CloseSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { UnstyledIconButton, UnstyledIconButtonProps } from '../UnstyledIconButton';
 import { StyleSheet } from 'react-native-unistyles';
+import { UnstyledIconButton, UnstyledIconButtonProps } from '../UnstyledIconButton';
 
 const AlertCloseButton = ({
   style,
@@ -15,7 +15,7 @@ const AlertCloseButton = ({
 const styles = StyleSheet.create(theme => ({
   icon: {
     alignSelf: 'flex-start',
-    color: theme.components.icon.color,
+    color: theme.color.icon.primary,
     minWidth: 20,
     minHeight: 20,
   },

@@ -1,13 +1,13 @@
 import { useMemo } from 'react';
-import type BadgeProps from './Badge.props';
-import { StyleSheet } from 'react-native-unistyles';
 import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { BadgeContext } from './Badge.context';
-import BadgeText from './BadgeText';
+import type BadgeProps from './Badge.props';
 import BadgeIcon from './BadgeIcon';
+import BadgeText from './BadgeText';
 
 const Badge = ({ children, ...props }: BadgeProps) => {
-  const { variant = 'solid', icon, colorScheme = 'blue', flatBase = false, style, ...rest } = props;
+  const { variant = 'solid', icon, colorScheme = 'info', flatBase = false, style, ...rest } = props;
 
   const value = useMemo(
     () => ({ colorScheme, flatBase, variant }),
@@ -37,21 +37,21 @@ const styles = StyleSheet.create(theme => ({
     alignSelf: 'flex-start',
     paddingHorizontal: theme.components.badge.paddingHorizontal,
     borderRadius: theme.components.badge.borderRadius,
-    paddingVertical: theme.components.badge.paddingVertical,
+    paddingVertical: theme.components.badge.md.paddingVertical,
     gap: theme.components.badge.gap,
     variants: {
       colorScheme: {
-        blue: {},
-        red: {},
-        green: {},
-        orange: {},
-        grey: {},
+        info: {},
+        danger: {},
+        positive: {},
+        warning: {},
+        functional: {},
       },
       variant: {
         solid: {},
         outline: {
           borderWidth: theme.components.badge.outline.borderWidth,
-          borderColor: theme.components.badge.outline.borderColor,
+          borderColor: theme.color.border.subtle,
         },
       },
       flatBase: {
@@ -64,70 +64,70 @@ const styles = StyleSheet.create(theme => ({
     },
     compoundVariants: [
       {
-        colorScheme: 'blue',
+        colorScheme: 'info',
         variant: 'solid',
         styles: {
-          backgroundColor: theme.components.badge.solid.blue.backgroundColor,
+          backgroundColor: theme.color.feedback.info.surface.default,
         },
       },
       {
-        colorScheme: 'red',
+        colorScheme: 'danger',
         variant: 'solid',
         styles: {
-          backgroundColor: theme.components.badge.solid.red.backgroundColor,
+          backgroundColor: theme.color.feedback.danger.surface.default,
         },
       },
       {
-        colorScheme: 'green',
+        colorScheme: 'positive',
         variant: 'solid',
         styles: {
-          backgroundColor: theme.components.badge.solid.green.backgroundColor,
+          backgroundColor: theme.color.feedback.positive.surface.default,
         },
       },
       {
-        colorScheme: 'orange',
+        colorScheme: 'warning',
         variant: 'solid',
         styles: {
-          backgroundColor: theme.components.badge.solid.orange.backgroundColor,
+          backgroundColor: theme.color.feedback.warning.surface.default,
         },
       },
       {
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         variant: 'solid',
         styles: {
-          backgroundColor: theme.components.badge.solid.grey.backgroundColor,
+          backgroundColor: theme.color.feedback.functional.surface.default,
         },
       },
       {
-        colorScheme: 'blue',
+        colorScheme: 'info',
         variant: 'outline',
         styles: {
           backgroundColor: 'transparent',
         },
       },
       {
-        colorScheme: 'red',
+        colorScheme: 'danger',
         variant: 'outline',
         styles: {
           backgroundColor: 'transparent',
         },
       },
       {
-        colorScheme: 'green',
+        colorScheme: 'positive',
         variant: 'outline',
         styles: {
           backgroundColor: 'transparent',
         },
       },
       {
-        colorScheme: 'orange',
+        colorScheme: 'warning',
         variant: 'outline',
         styles: {
           backgroundColor: 'transparent',
         },
       },
       {
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         variant: 'outline',
         styles: {
           backgroundColor: 'transparent',

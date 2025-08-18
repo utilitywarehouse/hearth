@@ -22,7 +22,7 @@ InputIcon.displayName = 'InputIcon';
 
 const styles = StyleSheet.create(theme => ({
   icon: {
-    color: theme.components.icon.color,
+    color: theme.color.icon.primary,
   },
 }));
 

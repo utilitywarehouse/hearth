@@ -3,6 +3,9 @@
  */
 declare const _default: {
   readonly borderRadius: 16;
+  readonly brand: {
+    readonly borderWidth: 2;
+  };
   readonly neutral: {
     readonly emphasis: {
       readonly borderWidth: 2;

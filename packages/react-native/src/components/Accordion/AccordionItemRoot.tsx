@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { View } from 'react-native';
-import { AccordionItemProps } from './AccordionItem.props';
-import AccordionItemContext from './AccordionItem.context';
 import { StyleSheet } from 'react-native-unistyles';
+import AccordionItemContext from './AccordionItem.context';
+import { AccordionItemProps } from './AccordionItem.props';
 
 const AccordionItem = ({ children, style, noPadding, disabled, ...props }: AccordionItemProps) => {
   const context = useMemo(() => ({ noPadding, disabled }), [noPadding, disabled]);
@@ -20,7 +20,7 @@ AccordionItem.displayName = 'AccordionItemRoot';
 const styles = StyleSheet.create(theme => ({
   item: {
     borderBottomWidth: theme.components.divider.borderWidth,
-    borderBottomColor: theme.components.divider.color,
+    borderBottomColor: theme.color.border.subtle,
   },
 }));
 

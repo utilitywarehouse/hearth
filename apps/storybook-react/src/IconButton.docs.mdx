@@ -1,4 +1,4 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './IconButton.stories';
 
@@ -136,7 +136,7 @@ actions.
 
 The `inverted` prop should be used when using a button on darker surface
 colours, specifically the UW Purple and Dark Purple colours. It only affects
-the following buttons: 
+the following buttons:
 
 - Emphasis/Yellow
 - Solid/Yellow
@@ -176,7 +176,7 @@ size prop, there are a couple of ways you can do this.
 1. Using JS, with the `useMediaQuery` hook.
 
 ```tsx
-import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/react-icons';
+import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { IconButton, useMediaQuery, media } from '@utilitywarehouse/hearth-react';
 
 const MyComponent = () => {
@@ -193,7 +193,7 @@ const MyComponent = () => {
 2. Using CSS, with `Box` and style props.
 
 ```tsx
-import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/react-icons';
+import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/hearthreact-icons';
 import { IconButton, Box } from '@utilitywarehouse/hearth-react';
 
 const MyComponent = () => (

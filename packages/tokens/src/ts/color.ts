@@ -366,10 +366,12 @@ export const light = {
       border: {
         strong: '#101010',
         subtle: '#101010',
+        inverted: '#f7f7f7',
       },
       foreground: {
         strong: '#fcfbf2',
         subtle: '#101010',
+        inverted: '#f7f7f7',
       },
       surface: {
         strong: {
@@ -610,10 +612,12 @@ export const dark = {
       border: {
         strong: '#ebebeb',
         subtle: '#ebebeb',
+        inverted: '#f7f7f7',
       },
       foreground: {
         strong: '#fcfbf2',
         subtle: '#ebebeb',
+        inverted: '#f7f7f7',
       },
       surface: {
         strong: {

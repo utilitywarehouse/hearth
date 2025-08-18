@@ -215,7 +215,7 @@ const lightHelpers = {
   focusVisible: {
     outlineStyle: 'solid',
     outlineWidth: 2,
-    outlineColor: components.light.focus.border,
+    outlineColor: color.light.focus.primary,
     outlineOffset: 1,
   },
 };
@@ -240,7 +240,7 @@ const darkHelpers = {
   focusVisible: {
     outlineStyle: 'solid',
     outlineWidth: 2,
-    outlineColor: components.dark.focus.border,
+    outlineColor: color.dark.focus.primary,
     outlineOffset: 1,
   },
 };

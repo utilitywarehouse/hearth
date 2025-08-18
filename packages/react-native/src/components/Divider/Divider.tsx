@@ -30,7 +30,7 @@ Divider.displayName = 'Divider';
 
 const styles = StyleSheet.create(theme => ({
   divider: {
-    backgroundColor: theme.components.divider.color,
+    backgroundColor: theme.color.border.subtle,
     variants: {
       orientation: {
         horizontal: {

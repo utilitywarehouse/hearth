@@ -135,10 +135,12 @@ export declare const color: {
       readonly border: {
         readonly strong: 'var(--h-interactive-functional-border-strong)';
         readonly subtle: 'var(--h-interactive-functional-border-subtle)';
+        readonly inverted: 'var(--h-interactive-functional-border-inverted)';
       };
       readonly foreground: {
         readonly strong: 'var(--h-interactive-functional-foreground-strong)';
         readonly subtle: 'var(--h-interactive-functional-foreground-subtle)';
+        readonly inverted: 'var(--h-interactive-functional-foreground-inverted)';
       };
       readonly surface: {
         readonly strong: {

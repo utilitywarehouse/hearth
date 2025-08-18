@@ -1,8 +1,8 @@
+import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Platform, type StyleProp, type ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import IconProps from '../Icon/Icon.props';
-import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 const ButtonIcon = ({
   children,
@@ -32,11 +32,11 @@ ButtonIcon.displayName = 'ButtonIcon';
 
 const styles = StyleSheet.create(theme => ({
   icon: {
-    color: theme.components.toggleButton.foregroundColor,
+    color: theme.color.interactive.neutral.foreground.subtle,
     variants: {
       toggled: {
         true: {
-          color: theme.components.toggleButton.selected.foregroundColor,
+          color: theme.color.interactive.brand.foreground.strong,
         },
       },
     },

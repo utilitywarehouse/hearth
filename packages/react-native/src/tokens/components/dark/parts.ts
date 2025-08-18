@@ -9,15 +9,25 @@ export default {
   },
   modalStack: {
     backgroundColor: '#101010',
-    backgroundColorCardBottom: '#222222',
-    backgroundColorCardTop: '#3e3c3b',
+    backgroundColorCardBottom: '#232323',
+    backgroundColorCardTop: '#3a3837',
   },
   placeholder: {
-    borderColor: '#e7e6e6',
+    borderColor: '#ebebeb',
+  },
+  roundel: {
+    borderRadius: 9999,
+    pending: {
+      borderWidth: 2,
+    },
+  },
+  scrollBar: {
+    backgroundColor: '#4c473d',
+    borderRadius: 9999,
   },
   statusBar: {
     foregroundColor: '#ffffff',
-    foregroundColorInverted: '#ffffff',
+    foregroundColorInverted: '#000000',
     notch: '#000000',
   },
 } as const;

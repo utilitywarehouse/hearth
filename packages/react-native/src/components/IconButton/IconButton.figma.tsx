@@ -10,7 +10,7 @@
 //     red: 'red',
 //     green: 'green',
 //     gold: 'gold',
-//     grey: 'grey',
+//     grey: 'functional',
 //   }),
 //   size: figma.enum('size', {
 //     'medium - 48': 'medium',

@@ -1,6 +1,6 @@
 import { ColorValue } from '../types';
 
-type ThemeColor = string | Record<string, string>;
+type ThemeColor = string | { [key: string]: string | ThemeColor };
 
 export default function getFlattenedColorValue(
   value?: string,
