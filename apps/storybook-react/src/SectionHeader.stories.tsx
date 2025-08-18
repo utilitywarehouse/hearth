@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, Card, DetailText, Flex, SectionHeader } from '@utilitywarehouse/hearth-react';
+import { SettingsSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof SectionHeader> = {
   title: 'Stories / SectionHeader',
@@ -22,6 +23,8 @@ const meta: Meta<typeof SectionHeader> = {
     helperText: 'Helper text',
     linkHref: '#',
     linkText: 'Link text',
+    linkIconPosition : 'right',
+    linkShowIcon: true,
   },
 };
 
@@ -31,6 +34,22 @@ type Story = StoryObj<typeof SectionHeader>;
 export const Playground: Story = {
   render: args => {
     return <SectionHeader {...args} />;
+  },
+};
+
+export const KitchenSink: Story = {
+  parameters: {
+    controls: { include: [] },
+
+  },
+  render: () => {
+    return (
+      <Flex spacing="xl" direction="column" style={{ width: '100%' }}>
+          <SectionHeader heading="Default usage" helperText="Identical to List heading" linkText="See more" linkHref='#'/>
+          <SectionHeader heading="Customization of icon" helperText="Custom icon on right" linkText="Settings" linkHref='#' linkIcon={SettingsSmallIcon} linkIconPosition='left'/>
+          <SectionHeader heading="No icon, href target _blank, no helper text" linkText="Call to action" linkShowIcon={false} linkHref='#' linkTarget='_blank'/>
+      </Flex>
+    );
   },
 };
 
@@ -66,7 +85,7 @@ export const CustomContent: Story = {
     );
   },
   args: {
-    helperText: '',
+    helperText: 'Explore the curiosities of the world!',
     heading: 'Latest News',
     linkText: 'View all articles',
   },
