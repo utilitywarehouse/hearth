@@ -53,7 +53,8 @@ SectionHeader.displayName = 'SectionHeader';
 const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
-    gap: theme.components.list.heading.gap,
+    gap: theme.components.sectionHeader.horizontalGap,
+    alignItems: 'flex-start',
   },
 }));
 

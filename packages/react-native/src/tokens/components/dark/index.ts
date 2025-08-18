@@ -34,6 +34,7 @@ export { default as parts } from './parts';
 export { default as pill } from './pill';
 export { default as progressStepper } from './progress-stepper';
 export { default as radio } from './radio';
+export { default as sectionHeader } from './section-header';
 export { default as segmentedControl } from './segmented-control';
 export { default as select } from './select';
 export { default as skeleton } from './skeleton';
