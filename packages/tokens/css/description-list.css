@@ -3,7 +3,7 @@
  */
 
 :root {
-  --h-description-list-gap: var(--h-space-300);
+  --h-description-list-gap: var(--h-space-150);
   --h-description-list-item-column-gap: var(--h-space-25);
   --h-description-list-item-gap: var(--h-space-200);
   --h-description-list-item-row-gap: var(--h-space-100);

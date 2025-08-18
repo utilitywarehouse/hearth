@@ -2,7 +2,7 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly gap: 24;
+  readonly gap: 12;
   readonly item: {
     readonly column: {
       readonly gap: 2;
