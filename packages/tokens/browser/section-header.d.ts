@@ -1,4 +1,6 @@
 export declare const sectionHeader: {
-  readonly horizontalGap: 'var(--h-section-header-horizontal-gap)';
-  readonly verticalGap: 'var(--h-section-header-vertical-gap)';
+  readonly gap: 'var(--h-section-header-gap)';
+  readonly textContent: {
+    readonly gap: 'var(--h-section-header-text-content-gap)';
+  };
 };
