@@ -7,13 +7,12 @@ interface SectionHeaderBaseProps extends Omit<ViewProps, 'children'> {
 
 export interface SectionHeaderWithChildren extends SectionHeaderBaseProps {
   children: ViewProps['children'];
-  text?: never;
+  heading?: never;
   helperText?: never;
   linkText?: never;
   linkHref?: never;
   linkOnPress?: never;
   linkTarget?: never;
-  linkDisabled?: never;
   linkIcon?: never;
   linkIconPosition?: never;
   linkShowIcon?: never;
@@ -21,13 +20,12 @@ export interface SectionHeaderWithChildren extends SectionHeaderBaseProps {
 
 export interface SectionHeaderWithoutChildren extends SectionHeaderBaseProps {
   children?: never;
-  text: string;
+  heading: string;
   helperText?: string;
   linkText?: string;
   linkHref?: string;
   linkOnPress?: () => void;
   linkTarget?: '_blank' | '_self' | '_parent' | '_top';
-  linkDisabled?: boolean;
   linkIcon?: ComponentType;
   linkIconPosition?: 'left' | 'right';
   linkShowIcon?: boolean;

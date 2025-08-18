@@ -3,16 +3,15 @@ import { ComponentType } from 'react';
 
 interface ListProps extends ViewProps {
   container?: 'none' | 'subtleWhite' | 'emphasisWhite' | 'subtleWarmWhite' | 'emphasisWarmWhite';
-  headingText?: string;
-  headingHelperText?: string;
-  headingLinkText?: string;
-  headingLinkHref?: string;
-  headingLinkOnPress?: () => void;
-  headingLinkTarget?: '_blank' | '_self' | '_parent' | '_top';
-  headingLinkDisabled?: boolean;
-  headingLinkIcon?: ComponentType;
-  headingLinkIconPosition?: 'left' | 'right';
-  headingLinkShowIcon?: boolean;
+  heading?: string;
+  helperText?: string;
+  linkText?: string;
+  linkHref?: string;
+  linkIcon?: ComponentType;
+  linkIconPosition?: 'left' | 'right';
+  linkOnPress?: () => void;
+  linkTarget?: '_blank' | '_self' | '_parent' | '_top';
+  linkShowIcon?: boolean;
   disabled?: boolean;
   loading?: boolean;
   divider?: boolean;

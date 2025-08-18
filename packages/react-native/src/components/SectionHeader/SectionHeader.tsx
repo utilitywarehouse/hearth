@@ -7,11 +7,10 @@ import SectionHeaderTextContent from './SectionHeaderTextContent';
 import { Link } from '..';
 
 const SectionHeader = ({
-  text,
+  heading,
   helperText,
   children,
   style,
-  linkDisabled,
   linkHref,
   linkIcon,
   linkIconPosition,
@@ -28,13 +27,12 @@ const SectionHeader = ({
       ) : (
         <>
           <SectionHeaderTextContent>
-            <SectionHeaderTitle>{text}</SectionHeaderTitle>
+            <SectionHeaderTitle>{heading}</SectionHeaderTitle>
             {!!helperText && <SectionHeaderHelperText>{helperText}</SectionHeaderHelperText>}
           </SectionHeaderTextContent>
           {!!linkText && (
             <Link
               href={linkHref}
-              disabled={linkDisabled}
               onPress={linkOnPress}
               icon={linkIcon}
               showIcon={linkShowIcon}

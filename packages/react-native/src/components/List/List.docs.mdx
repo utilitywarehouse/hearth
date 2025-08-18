@@ -44,7 +44,6 @@ List item is the main building block of list. Each item has its own set of prope
 - [Usage](#usage)
 - [Props](#props)
   - [`List`](#list-1)
-  - [`SectionHeader`](#sectionheader)
   - [`ListItem`](#listitem)
 - [Advanced Usage](#advanced-usage)
 - [Variants](#variants)
@@ -65,7 +64,7 @@ List item is the main building block of list. Each item has its own set of prope
 ## Usage
 
 <UsageWrap>
-  <List headingText="Heading" headingHelperText="Supporting text" divider>
+  <List heading="Heading" hhelperText="Supporting text" divider>
     <ListItem text="List Item 1" onPress={() => console.log('item pressed')} />
     <ListItem text="List Item 2" onPress={() => console.log('item pressed')} />
     <ListItem text="List Item 3" onPress={() => console.log('item pressed')} />
@@ -91,38 +90,18 @@ const MyComponent = () => (
 | Name                    | Type                                                                                              | Default   | Description                                                |
 | ----------------------- | ------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------- |
 | container               | `'none' \| 'subtleWhite' \| 'emphasisWhite' \|` <br /> `'subtleWarmWhite' \| 'emphasisWarmWhite'` | `'none'`  | The container style of the list.                           |
-| headingText             | `string`                                                                                          |           | The text to display in the heading of the list.            |
-| headingHelperText       | `string`                                                                                          |           | The supporting text to display in the heading of the list. |
-| headingLinkText         | `string`                                                                                          |           | The text for the link in the heading.                      |
-| headingLinkHref         | `string`                                                                                          |           | The href for the link in the heading.                      |
-| headingLinkOnPress      | `() => void`                                                                                      |           | Callback function when the heading link is pressed.        |
-| headingLinkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'`                                                      |           | Target for the link in the heading.                        |
-| headingLinkDisabled     | `boolean`                                                                                         | `false`   | Whether the heading link is disabled.                      |
-| headingLinkIcon         | `ComponentType`                                                                                   |           | Icon for the heading link.                                 |
-| headingLinkIconPosition | `'left' \| 'right'`                                                                               | `'right'` | Position of the icon in the heading link.                  |
-| headingLinkShowIcon     | `boolean`                                                                                         | `true`    | Whether to show the icon in the heading link.              |
+| heading.                | `string`                                                                                          |           | The text to display in the heading of the list.            |
+| helperText              | `string`                                                                                          |           | The supporting text to display in the heading of the list. |
+| linkText                | `string`                                                                                          |           | The text for the link in the heading.                      |
+| linkHref                | `string`                                                                                          |           | The href for the link in the heading.                      |
+| linkOnPress             | `() => void`                                                                                      |           | Callback function when the heading link is pressed.        |
+| linkTarget              | `'_blank' \| '_self' \| '_parent' \| '_top'`                                                      |           | Target for the link in the heading.                        |                   |
+| linkIcon                | `ComponentType`                                                                                   |           | Icon for the heading link.                                 |
+| linkIconPosition        | `'left' \| 'right'`                                                                               | `'right'` | Position of the icon in the heading link.                  |
+| linkShowIcon            | `boolean`                                                                                         | `true`    | Whether to show the icon in the heading link.              |
 | divider                 | `boolean`                                                                                         | `false`   | Whether to display a divider below the list items.         |
 | loading                 | `boolean`                                                                                         | `false`   | Whether to show the list items in loading state.           |
 | disabled                | `boolean`                                                                                         | `false`   | Whether to disable the list.                               |
-
-### `SectionHeader`
-
-| Name             | Type                                         | Default    | Description                                                |
-| ---------------- | -------------------------------------------- | ---------- | ---------------------------------------------------------- |
-| text             | `string`                                     |            | The text to display in the heading of the list.            |
-| helperText       | `string`                                     |            | The supporting text to display in the heading of the list. |
-| linkText         | `string`                                     |            | The text for the link in the heading.                      |
-| linkHref         | `string`                                     |            | The href for the link in the heading.                      |
-| linkOnPress      | `() => void`                                 |            | Callback function when the link is pressed.                |
-| linkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'` | `'_blank'` | Target for the link in the heading.                        |
-| linkDisabled     | `boolean`                                    | `false`    | Whether the link is disabled.                              |
-| linkIcon         | `ComponentType`                              |            | Icon for the link.                                         |
-| linkIconPosition | `'left' \| 'right'`                          | `'right'`  | Position of the icon in the link.                          |
-| linkShowIcon     | `boolean`                                    | `true`     | Whether to show the icon in the link.                      |
-
-#### - `SectionHeaderText`
-
-#### - `SectionHeaderHelperText`
 
 ### `ListItem`
 
