@@ -1,3 +1,4 @@
+import { ComponentType } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
@@ -39,10 +40,21 @@ export interface SectionHeaderProps
   helperText?: string;
   /**
    * Optional configuration of link at the side.
-   * Both need to be present for the link to appear.
+   * Both linkText and linkHref need to be present for the link to appear.
    */
   linkText?: string;
   linkHref?: LinkProps['href'];
-  /** Inverts the component colours, for use on darker surface colours. */
-  inverted?: boolean;
+  /**
+   * @default Chevron
+   */
+  linkIcon?: ComponentType;
+  linkIconPosition?: 'left' | 'right';
+  /**
+   * @default true
+   */
+  linkShowIcon?: boolean;
+  /**
+   * @default _self
+   */
+  linkTarget?: '_blank' | '_self' | '_parent' | '_top';
 }
