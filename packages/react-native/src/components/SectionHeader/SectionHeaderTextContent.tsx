@@ -1,7 +1,7 @@
 import { View, type ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 
-const ListHeadingTextContent = ({ children, ...props }: ViewProps) => {
+const SectionHeaderTextContent = ({ children, ...props }: ViewProps) => {
   return (
     <View {...props} style={[styles.container, props.style]}>
       {children}
@@ -9,7 +9,7 @@ const ListHeadingTextContent = ({ children, ...props }: ViewProps) => {
   );
 };
 
-ListHeadingTextContent.displayName = 'ListHeadingTextContent';
+SectionHeaderTextContent.displayName = 'SectionHeaderTextContent';
 
 const styles = StyleSheet.create(theme => ({
   container: {
@@ -18,4 +18,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-export default ListHeadingTextContent;
+export default SectionHeaderTextContent;

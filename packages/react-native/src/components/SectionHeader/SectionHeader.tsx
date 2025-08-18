@@ -1,18 +1,16 @@
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Link } from '../../Link';
-import { useListContext } from '../List.context';
-import ListHeadingProps from './ListHeading.props';
-import ListHeadingHelperText from './ListHeadingHelperText';
-import ListHeadingTextContent from './ListHeadingTextContent';
-import ListHeadingTitle from './ListHeadingTitle';
+import SectionHeaderTitle from './SectionHeaderTitle';
+import SectionHeaderHelperText from './SectionHeaderHelperText';
+import SectionHeaderProps from './SectionHeader.props';
+import SectionHeaderTextContent from './SectionHeaderTextContent';
+import { Link } from '..';
 
-const ListHeading = ({
-  text,
+const SectionHeader = ({
+  heading,
   helperText,
   children,
   style,
-  linkDisabled,
   linkHref,
   linkIcon,
   linkIconPosition,
@@ -21,22 +19,20 @@ const ListHeading = ({
   linkTarget,
   linkText,
   ...props
-}: ListHeadingProps) => {
-  const { disabled } = useListContext();
+}: SectionHeaderProps) => {
   return (
     <View {...props} style={[styles.container, style]}>
       {children ? (
         children
       ) : (
         <>
-          <ListHeadingTextContent>
-            <ListHeadingTitle>{text}</ListHeadingTitle>
-            {!!helperText && <ListHeadingHelperText>{helperText}</ListHeadingHelperText>}
-          </ListHeadingTextContent>
+          <SectionHeaderTextContent>
+            <SectionHeaderTitle>{heading}</SectionHeaderTitle>
+            {!!helperText && <SectionHeaderHelperText>{helperText}</SectionHeaderHelperText>}
+          </SectionHeaderTextContent>
           {!!linkText && (
             <Link
               href={linkHref}
-              disabled={disabled ?? linkDisabled}
               onPress={linkOnPress}
               icon={linkIcon}
               showIcon={linkShowIcon}
@@ -52,13 +48,14 @@ const ListHeading = ({
   );
 };
 
-ListHeading.displayName = 'ListHeading';
+SectionHeader.displayName = 'SectionHeader';
 
 const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
     gap: theme.components.sectionHeader.horizontalGap,
+    alignItems: 'flex-start',
   },
 }));
 
-export default ListHeading;
+export default SectionHeader;

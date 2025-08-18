@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Card } from '../Card';
 import { ListContext } from './List.context';
 import type ListProps from './List.props';
-import { ListHeading } from './ListHeading';
+import { SectionHeader } from '../SectionHeader';
 import { ListItem, ListItemProps } from './ListItem';
 
 const markFirstListItem = (children: ReactNode): ViewProps['children'] => {
@@ -43,16 +43,15 @@ const markFirstListItem = (children: ReactNode): ViewProps['children'] => {
 
 const List = ({
   children,
-  headingText,
-  headingHelperText,
-  headingLinkText,
-  headingLinkHref,
-  headingLinkOnPress,
-  headingLinkTarget,
-  headingLinkDisabled,
-  headingLinkIcon,
-  headingLinkIconPosition,
-  headingLinkShowIcon,
+  heading,
+  helperText,
+  linkText,
+  linkHref,
+  linkIcon,
+  linkIconPosition,
+  linkOnPress,
+  linkTarget,
+  linkShowIcon,
   ...props
 }: ListProps) => {
   const { loading, disabled, divider = true, container = 'none' } = props;
@@ -75,18 +74,17 @@ const List = ({
   return (
     <ListContext.Provider value={value}>
       <View {...props} style={[styles.container, props.style]}>
-        {headingText ? (
-          <ListHeading
-            text={headingText}
-            helperText={headingHelperText}
-            linkText={headingLinkText}
-            linkHref={headingLinkHref}
-            linkOnPress={headingLinkOnPress}
-            linkTarget={headingLinkTarget}
-            linkDisabled={headingLinkDisabled}
-            linkIcon={headingLinkIcon}
-            linkIconPosition={headingLinkIconPosition}
-            linkShowIcon={headingLinkShowIcon}
+        {heading ? (
+          <SectionHeader
+            heading={heading}
+            helperText={helperText}
+            linkText={linkText}
+            linkHref={linkHref}
+            linkOnPress={linkOnPress}
+            linkTarget={linkTarget}
+            linkIcon={linkIcon}
+            linkIconPosition={linkIconPosition}
+            linkShowIcon={linkShowIcon}
           />
         ) : null}
         {container === 'none' ? (

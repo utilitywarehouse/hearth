@@ -17,15 +17,15 @@ const meta = {
       control: 'select',
       description: 'The container variant to be displayed on the list.',
     },
-    headingText: {
+    heading: {
       control: 'text',
       description:
-        'The heading text to be displayed on the list. \n _Note: This is a playground prop, use title on the ListHeading component._',
+        'The heading text to be displayed on the list. \n _Note: This is a playground prop, use heading on the SectionHeader component._',
     },
-    headingHelperText: {
+    helperText: {
       control: 'text',
       description:
-        'The heading supporting text to be displayed on the list. \n _Note: This is a playground prop, use _listItemHelperText on the ListHeading component._',
+        'The heading supporting text to be displayed on the list. \n _Note: This is a playground prop, use helperText on the SectionHeader component._',
     },
     divider: {
       control: 'boolean',
@@ -43,8 +43,8 @@ const meta = {
   },
   args: {
     container: 'none',
-    headingText: 'This is the list heading',
-    headingHelperText: 'Supporting text',
+    heading: 'This is the list heading',
+    helperText: 'Supporting text',
     divider: true,
     disabled: false,
     loading: false,
@@ -86,7 +86,7 @@ export const KitchenSink: Story = {
     return (
       <Flex space="sm" direction="column" style={{ width: '100%' }}>
         <VariantTitle title="List with title and supporting text">
-          <List headingText="List Heading" headingHelperText="Supporting Text">
+          <List heading="List Heading" helperText="Supporting Text">
             {list.map((item, index) => (
               <ListItem key={index} text={item.text} helperText={item.helperText} />
             ))}
@@ -165,7 +165,7 @@ export const KitchenSink: Story = {
           </List>
         </VariantTitle>
         <VariantTitle title="List with heading link">
-          <List headingText="Heading" headingLinkText="View all" headingLinkHref="http://uw.co.uk">
+          <List heading="Heading" linkText="View all" linkHref="http://uw.co.uk">
             {list.map((item, index) => (
               <ListItem
                 key={index}

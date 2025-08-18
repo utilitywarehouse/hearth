@@ -3,7 +3,7 @@ import { Box, Card, DetailText, Flex, SectionHeader } from '@utilitywarehouse/he
 import { SettingsSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof SectionHeader> = {
-  title: 'Stories / SectionHeader',
+  title: 'Stories / Section Header',
   component: SectionHeader,
   parameters: {
     docs: {

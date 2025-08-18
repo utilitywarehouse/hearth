@@ -1,0 +1,80 @@
+import { Meta, Canvas, Story, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './SectionHeader.stories';
+import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
+import {
+  SectionHeader,
+} from '../..';
+
+<Meta title="Components / Section Header" />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components-%26-Tokens?node-id=1-163" />
+
+<BackToTopButton />
+
+# Section Header
+
+Use the `Section Header` component to help define and separate content within a screen. It provides structure, clarity, and improves page scannability for users. It is nested within components, such as List, but can be used outside of components too.
+
+- [Playground](#playground)
+- [Anatomy](#anatomy)
+- [Usage](#usage)
+- [Props](#props)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Anatomy
+Section Header consists of: Heading, Helper Text and Link
+### Heading
+Being a header component, the heading element is required. It should clearly describe the content it is grouping.
+
+Headings should be short and meaningful - they should clearly describe the content that follows.
+
+Don’t let titles get too wordy. Simplify the title as much as possible, and add a 1-2 line subtitle if necessary.
+
+### Helper text
+A helper text property is included in the component to be able to add helper text if required.
+
+Use helper text when users need extra clarity or explanation before engaging with the section.
+
+### Link
+The Section Header component includes an optional Link that provides users with a related navigation option.
+
+Use the Link to provide a shortcut to additional details or a more comprehensive view.
+
+Use when users may need to navigate away or view extended content (e.g. view all)
+
+## Usage
+
+<UsageWrap>
+  <SectionHeader heading="Heading" helperText="Supporting text" linkText="See more"/>
+</UsageWrap>
+
+```tsx
+import { SectionHeader } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <SectionHeader heading="Heading" helperText="Supporting text" linkText="See more"/>
+);
+```
+
+## Props
+
+| Name             | Type                                         | Default    | Description                                                |
+| ---------------- | -------------------------------------------- | ---------- | ---------------------------------------------------------- |
+| text             | `string`                                     |            | The text to display in the heading of the list.            |
+| helperText       | `string`                                     |            | The supporting text to display in the heading of the list. |
+| linkText         | `string`                                     |            | The text for the link in the heading.                      |
+| linkHref         | `string`                                     |            | The href for the link in the heading.                      |
+| linkOnPress      | `() => void`                                 |            | Callback function when the link is pressed.                |
+| linkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'` | `'_blank'` | Target for the link in the heading.                        |
+| linkIcon         | `ComponentType`                              |            | Icon for the link.                                         |
+| linkIconPosition | `'left' \| 'right'`                          | `'right'`  | Position of the icon in the link.                          |
+| linkShowIcon     | `boolean`                                    | `true`     | Whether to show the icon in the link.                      |
+
+## Variants
+
+<Canvas of={Stories.KitchenSink} />
