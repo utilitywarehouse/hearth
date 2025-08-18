@@ -1,8 +1,8 @@
-import { Button, ButtonIcon, ButtonText, createIcon } from '../../src';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { Button, ButtonIcon, ButtonText, createIcon } from '../../src';
 
 import { Platform } from 'react-native';
-import { Svg, Path } from 'react-native-svg';
+import { Path, Svg } from 'react-native-svg';
 
 interface Props {
   url: string;
@@ -20,7 +20,7 @@ const ViewFigmaButton: React.FC<Props> = ({ url }) => (
   <div className="sb-unstyled">
     <Button
       variant="ghost"
-      colorScheme="grey"
+      colorScheme="functional"
       size="sm"
       style={{
         zIndex: 1,

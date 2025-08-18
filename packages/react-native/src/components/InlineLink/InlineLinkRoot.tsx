@@ -35,7 +35,7 @@ const styles = StyleSheet.create(theme => ({
         borderRadius: theme.borderRadius.xs,
         outlineStyle: 'solid',
         outlineWidth: 2,
-        outlineColor: theme.components.focus.border,
+        outlineColor: theme.color.focus.primary,
         outlineOffset: 1,
         boxShadow: 'none',
       },
@@ -55,7 +55,7 @@ const styles = StyleSheet.create(theme => ({
           textDecorationColor: theme.components.inlineLink.inverted.color,
           _web: {
             '_focus-visible': {
-              outlineColor: theme.components.focus.borderInverted,
+              outlineColor: theme.color.focus.inverted,
             },
           },
         },

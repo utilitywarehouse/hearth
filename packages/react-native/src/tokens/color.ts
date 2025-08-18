@@ -84,17 +84,17 @@ export const green = {
 
 export const grey = {
   '0': '#ffffff',
-  '50': '#f6f5f5',
-  '100': '#e7e6e6',
-  '200': '#d1d0d0',
+  '50': '#f7f7f7',
+  '100': '#ebebeb',
+  '200': '#d3d3d3',
   '300': '#b2afae',
-  '400': '#8a8686',
-  '500': '#6f6c6b',
-  '600': '#5f5c5b',
-  '700': '#555352',
-  '800': '#464444',
-  '900': '#3e3c3b',
-  '950': '#222222',
+  '400': '#919191',
+  '500': '#888888',
+  '600': '#5b5b5b',
+  '700': '#4c4c4c',
+  '800': '#3f3f3f',
+  '900': '#3a3837',
+  '950': '#232323',
   '975': '#191919',
   '1000': '#101010',
 } as const;
@@ -167,16 +167,16 @@ export const piggyPink = {
 export const purple = {
   '0': '#f7f6f9',
   '50': '#eeebf4',
-  '100': '#e6dff1',
-  '200': '#ddd2ef',
-  '300': '#d5c3ee',
-  '400': '#a782db',
-  '500': '#926fd1',
-  '600': '#8850cf',
+  '100': '#ddd5eb',
+  '200': '#c6b5e2',
+  '300': '#af90de',
+  '400': '#996cda',
+  '500': '#8851d6',
+  '600': '#8149ce',
   '700': '#7a42c8',
-  '800': '#6538b8',
-  '900': '#5a3285',
-  '950': '#492d6f',
+  '800': '#5c2ca9',
+  '900': '#442484',
+  '950': '#331c68',
   '1000': '#26164f',
 } as const;
 
@@ -230,36 +230,494 @@ export const yellow = {
 } as const;
 
 export const light = {
-  background: '#fcfbf2',
-  background1: '#ffffff',
-  backgroundPurple: '#7a42c8',
-  invalidText: '#de2612',
+  background: {
+    brand: '#7a42c8',
+    primary: '#fcfbf2',
+    secondary: '#ffffff',
+  },
+  border: {
+    strong: '#101010',
+    subtle: '#d4d2c0',
+  },
+  feedback: {
+    danger: {
+      border: '#de2612',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#de2612',
+      },
+      surface: {
+        default: '#de2612',
+        subtle: '#ffccc5',
+      },
+    },
+    functional: {
+      border: '#888888',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#888888',
+      },
+      surface: {
+        default: '#888888',
+        subtle: '#d3d3d3',
+      },
+    },
+    info: {
+      border: '#1c6cd4',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#1c6cd4',
+      },
+      surface: {
+        default: '#1c6cd4',
+        subtle: '#bcddff',
+      },
+    },
+    positive: {
+      border: '#0f834a',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#0f834a',
+      },
+      surface: {
+        default: '#0f834a',
+        subtle: '#a2e2c3',
+      },
+    },
+    warning: {
+      border: '#be5400',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#be5400',
+      },
+      surface: {
+        default: '#be5400',
+        subtle: '#ffcca8',
+      },
+    },
+  },
+  focus: {
+    inverted: '#fcfbf2',
+    primary: '#101010',
+  },
+  icon: {
+    inverted: '#fcfbf2',
+    primary: '#101010',
+  },
+  interactive: {
+    affirmative: {
+      border: {
+        strong: '#101010',
+        subtle: '#04663a',
+      },
+      foreground: {
+        strong: '#fcfbf2',
+        subtle: '#04663a',
+      },
+      surface: {
+        strong: {
+          active: '#074b2a',
+          default: '#0f834a',
+          hover: '#04663a',
+        },
+        subtle: {
+          active: '#c5edda',
+          hover: '#e7f9f0',
+        },
+      },
+    },
+    brand: {
+      border: {
+        strong: '#101010',
+      },
+      foreground: {
+        strong: '#fcfbf2',
+      },
+      surface: {
+        strong: {
+          active: '#442484',
+          default: '#7a42c8',
+          hover: '#5c2ca9',
+        },
+      },
+    },
+    destructive: {
+      border: {
+        strong: '#101010',
+        subtle: '#a4281e',
+      },
+      foreground: {
+        strong: '#fcfbf2',
+        subtle: '#a4281e',
+      },
+      surface: {
+        strong: {
+          active: '#6b1f1a',
+          default: '#de2612',
+          hover: '#a4281e',
+        },
+        subtle: {
+          active: '#ffe3df',
+          hover: '#fff3f1',
+        },
+      },
+    },
+    functional: {
+      border: {
+        strong: '#101010',
+        subtle: '#101010',
+        inverted: '#f7f7f7',
+      },
+      foreground: {
+        strong: '#fcfbf2',
+        subtle: '#101010',
+        inverted: '#f7f7f7',
+      },
+      surface: {
+        strong: {
+          active: '#4c4c4c',
+          default: '#888888',
+          hover: '#5b5b5b',
+        },
+        subtle: {
+          active: '#d3d3d3',
+          hover: '#ebebeb',
+          inverted: {
+            active: '#3a3837',
+            hover: '#3f3f3f',
+          },
+        },
+      },
+    },
+    highlight: {
+      border: {
+        strong: '#101010',
+      },
+      foreground: {
+        strong: '#101010',
+      },
+      surface: {
+        strong: {
+          active: '#d1950b',
+          default: '#ffb921',
+          hover: '#eba400',
+        },
+      },
+    },
+    neutral: {
+      border: {
+        subtle: '#101010',
+      },
+      foreground: {
+        subtle: '#101010',
+      },
+      surface: {
+        subtle: {
+          active: '#f1efe4',
+          hover: '#f7f6eb',
+        },
+      },
+    },
+  },
   shadow: {
-    broadbandGreenColor: '#8cba3b',
-    cashbackLilacColor: '#be7aeb',
-    defaultColor: '#101010',
-    energyBlueColor: '#6db5c3',
-    insuranceOrangeColor: '#ff7b00',
-    mobileRoseColor: '#ee6dbb',
-    piggyPinkColor: '#f295ff',
-    purpleColor: '#7a42c8',
+    brand: '#7a42c8',
+    broadband: '#8cba3b',
+    cashback: '#be7aeb',
+    default: '#101010',
+    energy: '#6db5c3',
+    insurance: '#ff7b00',
+    mobile: '#ee6dbb',
+    pig: '#f295ff',
+  },
+  surface: {
+    brand: {
+      default: '#7a42c8',
+      strong: '#26164f',
+      subtle: '#af90de',
+    },
+    broadband: {
+      default: '#8cba3b',
+      subtle: '#d2e6b0',
+    },
+    cashback: {
+      default: '#be7aeb',
+      subtle: '#dfbdf5',
+    },
+    energy: {
+      default: '#6db5c3',
+      subtle: '#bddee4',
+    },
+    highlight: {
+      default: '#ffb921',
+      subtle: '#ffd885',
+    },
+    insurance: {
+      default: '#ff7b00',
+      subtle: '#ffb46d',
+    },
+    mobile: {
+      default: '#ee6dbb',
+      subtle: '#fad0e9',
+    },
+    neutral: {
+      strong: '#ffffff',
+      subtle: '#fcfbf2',
+    },
+    pig: {
+      default: '#f295ff',
+      subtle: '#f9ceff',
+    },
+  },
+  text: {
+    inverted: '#fcfbf2',
+    primary: '#101010',
+    secondary: '#888888',
   },
 } as const;
 
 export const dark = {
-  background: '#191917',
-  background1: '#222222',
-  backgroundPurple: '#7a42c8',
-  invalidText: '#ff7964',
+  background: {
+    brand: '#996cda',
+    primary: '#191917',
+    secondary: '#232323',
+  },
+  border: {
+    strong: '#ebebeb',
+    subtle: '#4c473d',
+  },
+  feedback: {
+    danger: {
+      border: '#ff7964',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#ff7964',
+      },
+      surface: {
+        default: '#de2612',
+        subtle: '#521a16',
+      },
+    },
+    functional: {
+      border: '#b2afae',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#b2afae',
+      },
+      surface: {
+        default: '#888888',
+        subtle: '#232323',
+      },
+    },
+    info: {
+      border: '#6bb0ff',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#6bb0ff',
+      },
+      surface: {
+        default: '#1c6cd4',
+        subtle: '#042455',
+      },
+    },
+    positive: {
+      border: '#58ca93',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#58ca93',
+      },
+      surface: {
+        default: '#0f834a',
+        subtle: '#033d21',
+      },
+    },
+    warning: {
+      border: '#ff9639',
+      foreground: {
+        default: '#fcfbf2',
+        subtle: '#ff9639',
+      },
+      surface: {
+        default: '#cb5b00',
+        subtle: '#6b2d00',
+      },
+    },
+  },
+  focus: {
+    inverted: '#fcfbf2',
+    primary: '#ebebeb',
+  },
+  icon: {
+    inverted: '#fcfbf2',
+    primary: '#ebebeb',
+  },
+  interactive: {
+    affirmative: {
+      border: {
+        strong: '#ebebeb',
+        subtle: '#58ca93',
+      },
+      foreground: {
+        strong: '#191917',
+        subtle: '#58ca93',
+      },
+      surface: {
+        strong: {
+          active: '#58ca93',
+          default: '#19a660',
+          hover: '#36bf7d',
+        },
+        subtle: {
+          active: '#033d21',
+          hover: '#002e18',
+        },
+      },
+    },
+    brand: {
+      border: {
+        strong: '#ebebeb',
+      },
+      foreground: {
+        strong: '#191917',
+      },
+      surface: {
+        strong: {
+          active: '#c6b5e2',
+          default: '#996cda',
+          hover: '#af90de',
+        },
+      },
+    },
+    destructive: {
+      border: {
+        strong: '#ebebeb',
+        subtle: '#ff7964',
+      },
+      foreground: {
+        strong: '#191917',
+        subtle: '#ff7964',
+      },
+      surface: {
+        strong: {
+          active: '#ff7964',
+          default: '#f4412a',
+          hover: '#ff634a',
+        },
+        subtle: {
+          active: '#521a16',
+          hover: '#3b1512',
+        },
+      },
+    },
+    functional: {
+      border: {
+        strong: '#ebebeb',
+        subtle: '#ebebeb',
+        inverted: '#f7f7f7',
+      },
+      foreground: {
+        strong: '#fcfbf2',
+        subtle: '#ebebeb',
+        inverted: '#f7f7f7',
+      },
+      surface: {
+        strong: {
+          active: '#d3d3d3',
+          default: '#919191',
+          hover: '#b2afae',
+        },
+        subtle: {
+          active: '#4c4c4c',
+          hover: '#3a3837',
+          inverted: {
+            active: '#d3d3d3',
+            hover: '#ebebeb',
+          },
+        },
+      },
+    },
+    highlight: {
+      border: {
+        strong: '#f7f7f7',
+      },
+      foreground: {
+        strong: '#101010',
+      },
+      surface: {
+        strong: {
+          active: '#ffd885',
+          default: '#ffb921',
+          hover: '#ffc852',
+        },
+      },
+    },
+    neutral: {
+      border: {
+        subtle: '#ebebeb',
+      },
+      foreground: {
+        subtle: '#ebebeb',
+      },
+      surface: {
+        subtle: {
+          active: '#30302c',
+          hover: '#282825',
+        },
+      },
+    },
+  },
   shadow: {
-    broadbandGreenColor: '#506c21',
-    cashbackLilacColor: '#8b2bc9',
-    defaultColor: '#e7e6e6',
-    energyBlueColor: '#326e7a',
-    insuranceOrangeColor: '#9b4c0e',
-    mobileRoseColor: '#a7266d',
-    piggyPinkColor: '#8f358f',
-    purpleColor: '#7a42c8',
+    brand: '#7a42c8',
+    broadband: '#506c21',
+    cashback: '#8b2bc9',
+    default: '#f7f7f7',
+    energy: '#326e7a',
+    insurance: '#9b4c0e',
+    mobile: '#a7266d',
+    pig: '#8f358f',
+  },
+  surface: {
+    brand: {
+      default: '#996cda',
+      strong: '#26164f',
+      subtle: '#442484',
+    },
+    broadband: {
+      default: '#506c21',
+      subtle: '#35421c',
+    },
+    cashback: {
+      default: '#8b2bc9',
+      subtle: '#522270',
+    },
+    energy: {
+      default: '#326e7a',
+      subtle: '#254348',
+    },
+    highlight: {
+      default: '#ffb921',
+      subtle: '#756230',
+    },
+    insurance: {
+      default: '#9b4c0e',
+      subtle: '#5a3213',
+    },
+    mobile: {
+      default: '#a7266d',
+      subtle: '#601f42',
+    },
+    neutral: {
+      strong: '#232323',
+      subtle: '#191917',
+    },
+    pig: {
+      default: '#8f358f',
+      subtle: '#5d2167',
+    },
+  },
+  text: {
+    inverted: '#191917',
+    primary: '#ebebeb',
+    secondary: '#b2afae',
   },
 } as const;
 

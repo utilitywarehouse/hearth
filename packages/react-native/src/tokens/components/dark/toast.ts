@@ -3,10 +3,8 @@
  */
 
 export default {
-  calendar: {
-    footer: {
-      gap: 8,
-    },
-  },
-  backgroundColor: '#fcfbf2',
+  backgroundColor: '#3f3f3f',
+  borderRadius: 8,
+  gapHorizontal: 8,
+  padding: 14,
 } as const;

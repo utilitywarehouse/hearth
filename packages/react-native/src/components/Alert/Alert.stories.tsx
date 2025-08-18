@@ -1,7 +1,7 @@
-import { Alert } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { Flex } from '../Flex';
+import { Alert } from '.';
 import { VariantTitle } from '../../../docs/components';
+import { Flex } from '../Flex';
 
 const meta = {
   title: 'Stories / Alert',
@@ -12,9 +12,9 @@ const meta = {
   argTypes: {
     colorScheme: {
       control: 'select',
-      options: ['blue', 'green', 'orange', 'red'],
+      options: ['info', 'positive', 'warning', 'danger'],
       description: 'Use this value to change the alert type and colour scheme.',
-      defaultValue: 'blue',
+      defaultValue: 'info',
     },
     title: {
       control: 'text',
@@ -39,7 +39,7 @@ const meta = {
     },
   },
   args: {
-    colorScheme: 'blue',
+    colorScheme: 'info',
     title: 'Information',
     text: 'Unlock the power of knowledge with the following information.',
     link: 'Learn more',
@@ -59,26 +59,26 @@ export const Variants: Story = {
     <Flex space="sm">
       <VariantTitle title="Info - Blue">
         <Alert
-          colorScheme="blue"
+          colorScheme="info"
           text="Unlock the power of knowledge with the following information."
         />
       </VariantTitle>
-      <VariantTitle title="Success - Green">
+      <VariantTitle title="Success - positive">
         <Alert
-          colorScheme="green"
+          colorScheme="positive"
           text="Boom! You did it! Please take a moment to pat yourself on the back. You've earned it!"
         />
       </VariantTitle>
       <VariantTitle title="Error - Red">
         <Alert
-          colorScheme="red"
+          colorScheme="danger"
           text="Uh-oh! It looks like the matrix has glitched. Our team of tech ninjas are already on the
           case. Please hold tight while we fix the issue"
         />
       </VariantTitle>
-      <VariantTitle title="Warning - Orange">
+      <VariantTitle title="Warning - warning">
         <Alert
-          colorScheme="orange"
+          colorScheme="warning"
           text="Warning: Reading the following content may cause spontaneous outbursts of 'aha!' moments"
         />
       </VariantTitle>

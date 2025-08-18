@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native-unistyles';
 
-import TextProps from '../../BodyText/BodyText.props';
 import { BodyText } from '../../BodyText';
+import TextProps from '../../BodyText/BodyText.props';
 
 const AccordionHeadingHelperText = ({ children, ...props }: TextProps) => {
   return (
@@ -13,7 +13,7 @@ const AccordionHeadingHelperText = ({ children, ...props }: TextProps) => {
 
 const styles = StyleSheet.create(theme => ({
   helperText: {
-    color: theme.components.text.colorSecondary,
+    color: theme.color.text.secondary,
   },
 }));
 

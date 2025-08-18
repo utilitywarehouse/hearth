@@ -57,11 +57,13 @@ const List = ({
   const { loading, disabled, divider = true, container = 'none' } = props;
   const containerToCard: {
     variant: 'subtle' | 'emphasis';
-    colorScheme: 'white' | 'warmWhite';
+    colorScheme: 'neutralStrong' | 'neutralSubtle';
   } = {
     variant: container === 'subtleWhite' || container === 'subtleWarmWhite' ? 'subtle' : 'emphasis',
     colorScheme:
-      container === 'subtleWhite' || container === 'emphasisWhite' ? 'white' : 'warmWhite',
+      container === 'subtleWhite' || container === 'emphasisWhite'
+        ? 'neutralStrong'
+        : 'neutralSubtle',
   };
   const updatedChildren = markFirstListItem(children);
   const value = useMemo(

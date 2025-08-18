@@ -1,8 +1,8 @@
 import { Platform, type StyleProp, type ViewStyle } from 'react-native';
-import { useButtonContext } from './Button.context';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import IconProps from '../Icon/Icon.props';
+import { useButtonContext } from './Button.context';
 
 const ButtonIcon = ({ children, ...props }: IconProps) => {
   const { colorScheme, variant, inverted, disabled } = useButtonContext();
@@ -34,10 +34,10 @@ const styles = StyleSheet.create(theme => ({
         ghost: {},
       },
       colorScheme: {
-        yellow: {},
-        red: {},
-        green: {},
-        grey: {},
+        highlight: {},
+        destructive: {},
+        affirmative: {},
+        functional: {},
       },
       inverted: {
         true: {},
@@ -49,88 +49,88 @@ const styles = StyleSheet.create(theme => ({
     compoundVariants: [
       {
         variant: 'emphasis',
-        colorScheme: 'yellow',
+        colorScheme: 'highlight',
         styles: {
-          color: theme.components.button.emphasis.yellow.foregroundColor,
+          color: theme.color.interactive.highlight.foreground.strong,
         },
       },
       {
         variant: 'solid',
-        colorScheme: 'yellow',
+        colorScheme: 'highlight',
         styles: {
-          color: theme.components.button.solid.yellow.foregroundColor,
+          color: theme.color.interactive.highlight.foreground.strong,
         },
       },
       {
         variant: 'solid',
-        colorScheme: 'red',
+        colorScheme: 'destructive',
         styles: {
-          color: theme.components.button.solid.red.foregroundColor,
+          color: theme.color.interactive.destructive.foreground.strong,
         },
       },
       {
         variant: 'solid',
-        colorScheme: 'green',
+        colorScheme: 'affirmative',
         styles: {
-          color: theme.components.button.solid.green.foregroundColor,
+          color: theme.color.interactive.affirmative.foreground.strong,
         },
       },
       {
         variant: 'outline',
-        colorScheme: 'red',
+        colorScheme: 'destructive',
         styles: {
-          color: theme.components.button.outline.red.foregroundColor,
+          color: theme.color.interactive.destructive.foreground.subtle,
         },
       },
       {
         variant: 'outline',
-        colorScheme: 'green',
+        colorScheme: 'affirmative',
         styles: {
-          color: theme.components.button.outline.green.foregroundColor,
+          color: theme.color.interactive.affirmative.foreground.subtle,
         },
       },
       {
         variant: 'outline',
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         styles: {
-          color: theme.components.button.outline.grey.foregroundColor,
+          color: theme.color.interactive.functional.foreground.subtle,
         },
       },
       {
         variant: 'outline',
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         inverted: true,
         styles: {
-          color: theme.components.button.outline.grey.inverted.foregroundColor,
+          color: theme.color.interactive.functional.foreground.strong,
         },
       },
       {
         variant: 'ghost',
-        colorScheme: 'red',
+        colorScheme: 'destructive',
         styles: {
-          color: theme.components.button.ghost.red.foregroundColor,
+          color: theme.color.interactive.destructive.foreground.subtle,
         },
       },
       {
         variant: 'ghost',
-        colorScheme: 'green',
+        colorScheme: 'affirmative',
         styles: {
-          color: theme.components.button.ghost.green.foregroundColor,
+          color: theme.color.interactive.affirmative.foreground.subtle,
         },
       },
       {
         variant: 'ghost',
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         styles: {
-          color: theme.components.button.outline.grey.foregroundColor,
+          color: theme.color.interactive.functional.foreground.subtle,
         },
       },
       {
         variant: 'ghost',
-        colorScheme: 'grey',
+        colorScheme: 'functional',
         inverted: true,
         styles: {
-          color: theme.components.button.outline.grey.inverted.foregroundColor,
+          color: theme.color.interactive.functional.foreground.strong,
         },
       },
     ],

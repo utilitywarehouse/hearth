@@ -1,22 +1,22 @@
 import { useEffect, useMemo } from 'react';
-import AlertTitle from './AlertTitle';
-import AlertLink from './AlertLink';
-import AlertIconButton from './AlertIconButton';
-import AlertCloseButton from './AlertCloseButton';
-import type { AlertProps } from './Alert.props';
-import { AlertContext } from './Alert.context';
-import { StyleSheet } from 'react-native-unistyles';
 import { Pressable, ViewProps } from 'react-native';
-import AlertText from './AlertText';
-import AlertIcon from './AlertIcon';
+import { StyleSheet } from 'react-native-unistyles';
+import { AlertContext } from './Alert.context';
+import type { AlertProps } from './Alert.props';
+import AlertCloseButton from './AlertCloseButton';
 import AlertContent from './AlertContent';
+import AlertIcon from './AlertIcon';
+import AlertIconButton from './AlertIconButton';
+import AlertLink from './AlertLink';
+import AlertText from './AlertText';
+import AlertTitle from './AlertTitle';
 
 const Alert = ({
   text,
   title,
   link,
   onPressLink,
-  colorScheme = 'blue',
+  colorScheme = 'info',
   onPressIconButton,
   onClose,
   children,
@@ -85,21 +85,21 @@ const styles = StyleSheet.create(theme => ({
     borderWidth: theme.components.alert.borderWidth,
     variants: {
       colorScheme: {
-        blue: {
-          borderColor: theme.components.alert.blue.borderColor,
-          backgroundColor: theme.components.alert.blue.backgroundColor,
+        info: {
+          borderColor: theme.color.feedback.info.border,
+          backgroundColor: theme.color.feedback.info.surface.subtle,
         },
-        green: {
-          borderColor: theme.components.alert.green.borderColor,
-          backgroundColor: theme.components.alert.green.backgroundColor,
+        positive: {
+          borderColor: theme.color.feedback.positive.border,
+          backgroundColor: theme.color.feedback.positive.surface.subtle,
         },
-        orange: {
-          borderColor: theme.components.alert.orange.borderColor,
-          backgroundColor: theme.components.alert.orange.backgroundColor,
+        warning: {
+          borderColor: theme.color.feedback.warning.border,
+          backgroundColor: theme.color.feedback.warning.surface.subtle,
         },
-        red: {
-          borderColor: theme.components.alert.red.borderColor,
-          backgroundColor: theme.components.alert.red.backgroundColor,
+        danger: {
+          borderColor: theme.color.feedback.danger.border,
+          backgroundColor: theme.color.feedback.danger.surface.subtle,
         },
       },
     },

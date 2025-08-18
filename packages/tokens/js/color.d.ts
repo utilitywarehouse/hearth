@@ -351,10 +351,12 @@ export declare const light: {
       readonly border: {
         readonly strong: '#101010';
         readonly subtle: '#101010';
+        readonly inverted: '#f7f7f7';
       };
       readonly foreground: {
         readonly strong: '#fcfbf2';
         readonly subtle: '#101010';
+        readonly inverted: '#f7f7f7';
       };
       readonly surface: {
         readonly strong: {
@@ -594,10 +596,12 @@ export declare const dark: {
       readonly border: {
         readonly strong: '#ebebeb';
         readonly subtle: '#ebebeb';
+        readonly inverted: '#f7f7f7';
       };
       readonly foreground: {
         readonly strong: '#fcfbf2';
         readonly subtle: '#ebebeb';
+        readonly inverted: '#f7f7f7';
       };
       readonly surface: {
         readonly strong: {
@@ -1051,10 +1055,12 @@ declare const color: {
         readonly border: {
           readonly strong: '#101010';
           readonly subtle: '#101010';
+          readonly inverted: '#f7f7f7';
         };
         readonly foreground: {
           readonly strong: '#fcfbf2';
           readonly subtle: '#101010';
+          readonly inverted: '#f7f7f7';
         };
         readonly surface: {
           readonly strong: {
@@ -1294,10 +1300,12 @@ declare const color: {
         readonly border: {
           readonly strong: '#ebebeb';
           readonly subtle: '#ebebeb';
+          readonly inverted: '#f7f7f7';
         };
         readonly foreground: {
           readonly strong: '#fcfbf2';
           readonly subtle: '#ebebeb';
+          readonly inverted: '#f7f7f7';
         };
         readonly surface: {
           readonly strong: {

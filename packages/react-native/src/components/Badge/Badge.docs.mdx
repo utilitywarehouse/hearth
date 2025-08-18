@@ -1,9 +1,9 @@
-import { Meta, Canvas, Story, Controls, Primary } from '@storybook/addon-docs/blocks';
-import * as Stories from './Badge.stories';
-import { Center, Pressable, Badge, BadgeText, BadgeIcon, Box } from '../..';
-import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+import { Canvas, Controls, Meta, Primary, Story } from '@storybook/addon-docs/blocks';
+import { AddSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { color } from '@utilitywarehouse/hearth-tokens/js';
-import { TickSmallIcon, AddSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { Badge, BadgeIcon, BadgeText, Box, Center, Pressable } from '../..';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Badge.stories';
 
 <Meta title="Components / Badge" />
 
@@ -38,7 +38,7 @@ Badge is a stateless component, e.g. it has no Pressed, Disabled, Active states.
 <UsageWrap>
   <Center>
     <Box>
-      <Badge colorScheme="red" icon={TickSmallIcon}>
+      <Badge colorScheme="danger" icon={TickSmallIcon}>
         {"I'm a badge"}
       </Badge>
     </Box>
@@ -52,7 +52,7 @@ import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 const MyComponent = () => (
   <Center>
-    <Badge colorScheme="red" icon={TickSmallIcon}>
+    <Badge colorScheme="danger" icon={TickSmallIcon}>
       I'm a badge
     </Badge>
   </Center>
@@ -61,12 +61,12 @@ const MyComponent = () => (
 
 ## Props
 
-| Property      | Type                                               | Description                            | Default |
-| ------------- | -------------------------------------------------- | -------------------------------------- | ------- |
-| `variant`     | `'solid' \| 'outline'`                             | The variant of the badge.              | `solid` |
-| `colorScheme` | `'blue' \| 'green' \| 'red' \| 'orange' \| 'grey'` | The color scheme to use for the badge. | `cyan`  |
-| `flatBase`    | `boolean`                                          | Whether the badge has a flat base.     | `false` |
-| `icon`        | `ReactNode`                                        | The icon to display in the badge.      |         |
+| Property      | Type                                                            | Description                            | Default |
+| ------------- | --------------------------------------------------------------- | -------------------------------------- | ------- |
+| `variant`     | `'solid' \| 'outline'`                                          | The variant of the badge.              | `solid` |
+| `colorScheme` | `'info' \| 'positive' \| 'danger' \| 'warning' \| 'functional'` | The color scheme to use for the badge. | `info`  |
+| `flatBase`    | `boolean`                                                       | Whether the badge has a flat base.     | `false` |
+| `icon`        | `ReactNode`                                                     | The icon to display in the badge.      |         |
 
 ## Color Schemes
 
@@ -81,7 +81,7 @@ Although not recommended, the `Badge` component can be used to create more compl
 <UsageWrap>
   <Center>
     <Box>
-      <Badge colorScheme="green" variant="outline">
+      <Badge colorScheme="positive" variant="outline">
         <BadgeIcon as={AddSmallIcon} />
         <BadgeText>Plus</BadgeText>
       </Badge>
@@ -93,7 +93,7 @@ Although not recommended, the `Badge` component can be used to create more compl
 import { Badge, BadgeText, BadgeIcon } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
-  <Badge colorScheme="green" variant="outline">
+  <Badge colorScheme="positive" variant="outline">
     <BadgeIcon as={AddSmallIcon} />
     <BadgeText>Plus</BadgeText>
   </Badge>

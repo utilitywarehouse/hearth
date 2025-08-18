@@ -3,14 +3,6 @@
  */
 
 export default {
-  checked: {
-    backgroundColor: '#8850cf',
-    backgroundColorHover: '#926fd1',
-    iconColor: '#8850cf',
-  },
-  circle: {
-    backgroundColor: '#ffffff',
-  },
   md: {
     circle: {
       size: 28,
@@ -28,8 +20,6 @@ export default {
     width: 44,
   },
   unchecked: {
-    backgroundColor: '#6f6c6b',
-    backgroundColorHover: '#5f5c5b',
-    iconColor: '#6f6c6b',
+    backgroundColorHover: '#5b5b5b',
   },
 } as const;

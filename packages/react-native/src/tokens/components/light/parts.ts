@@ -10,10 +10,20 @@ export default {
   modalStack: {
     backgroundColor: '#101010',
     backgroundColorCardBottom: '#ffffff',
-    backgroundColorCardTop: '#e7e6e6',
+    backgroundColorCardTop: '#ebebeb',
   },
   placeholder: {
     borderColor: '#101010',
+  },
+  roundel: {
+    borderRadius: 9999,
+    pending: {
+      borderWidth: 2,
+    },
+  },
+  scrollBar: {
+    backgroundColor: '#d4d2c0',
+    borderRadius: 9999,
   },
   statusBar: {
     foregroundColor: '#000000',

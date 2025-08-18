@@ -1,32 +1,32 @@
-import { Meta, Canvas, Story, Controls } from '@storybook/addon-docs/blocks';
-import * as Stories from './List.stories';
-import { ViewFigmaButton, BackToTopButton, UsageWrap, BadgeList } from '../../../docs/components';
-import {
-  List,
-  SectionHeader,
-  ListItem,
-  ListItemIcon,
-  ListItemLeadingContent,
-  ListItemHelperText,
-  ListItemText,
-  ListItemTrailingContent,
-  ListItemTrailingIcon,
-  ListItemContent,
-  Box,
-  Badge,
-  BadgeText,
-  FlatList,
-  Image,
-} from '../../';
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
 import {
   BillMediumIcon,
   ChevronRightSmallIcon,
-  PaymentMediumIcon,
-  HomeFilledMediumIcon,
-  UserMediumIcon,
   ElectricityMediumIcon,
   GasMediumIcon,
+  HomeFilledMediumIcon,
+  PaymentMediumIcon,
+  UserMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
+import {
+  Badge,
+  BadgeText,
+  Box,
+  FlatList,
+  Image,
+  List,
+  SectionHeader,
+  ListItem,
+  ListItemContent,
+  ListItemHelperText,
+  ListItemIcon,
+  ListItemLeadingContent,
+  ListItemText,
+  ListItemTrailingContent,
+  ListItemTrailingIcon,
+} from '../../';
+import { BackToTopButton, BadgeList, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './List.stories';
 
 <Meta title="Components / List" />
 
@@ -383,7 +383,7 @@ const BadgeList = () => {
         </ListItemLeadingContent>
         <ListItemContent>
           <ListItemText>Electricity</ListItemText>
-          <Badge colorScheme="blue">
+          <Badge colorScheme="info">
             <BadgeText>Text</BadgeText>
           </Badge>
           <ListItemHelperText>Last reading 23/03/24</ListItemHelperText>
@@ -401,7 +401,7 @@ const BadgeList = () => {
         <ListItemContent>
           <Flex direction="row" style={{ justifyContent: 'space-between' }}>
             <ListItemText>Gas</ListItemText>
-            <Badge colorScheme="green">
+            <Badge colorScheme="positive">
               <BadgeText>Smart meter</BadgeText>
             </Badge>
           </Flex>

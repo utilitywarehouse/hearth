@@ -13,7 +13,7 @@ import { useInputContext } from './Input.context';
 const InputField = ({ style, onFocus, onBlur, ...props }: TextInputProps) => {
   const { disabled, focused = false, type } = useInputContext();
   styles.useVariants({ focused, type });
-  const { components, color } = useTheme();
+  const { color } = useTheme();
 
   // Copied from @gorhom/bottom-sheet BottomSheetTextInput
   const bottomSheetContext = useBottomSheetInternal(true);
@@ -56,7 +56,7 @@ const InputField = ({ style, onFocus, onBlur, ...props }: TextInputProps) => {
 
   return (
     <RNTextInput
-      placeholderTextColor={components.input.placeholderColor}
+      placeholderTextColor={color.text.secondary}
       selectionColor={color.purple[700]}
       cursorColor={color.purple[700]}
       verticalAlign="middle"
@@ -78,7 +78,7 @@ const styles = StyleSheet.create(theme => ({
     width: 'auto',
     justifyContent: 'center',
     alignItems: 'center',
-    color: theme.components.text.color,
+    color: theme.color.text.primary,
     fontSize: theme.typography.mobile.bodyText.md.fontSize,
     fontFamily: theme.typography.mobile.bodyText.fontFamily,
     fontWeight: theme.typography.mobile.bodyText.fontWeight,

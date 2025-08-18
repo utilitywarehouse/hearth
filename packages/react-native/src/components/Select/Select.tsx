@@ -211,9 +211,9 @@ const styles = StyleSheet.create(theme => ({
   selectContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: theme.components.select.backgroundColor,
+    backgroundColor: theme.color.surface.neutral.strong,
     borderWidth: theme.components.select.borderWidth,
-    borderColor: theme.components.select.borderColor,
+    borderColor: theme.color.border.strong,
     borderRadius: theme.components.select.borderRadius,
     paddingHorizontal: theme.components.select.paddingHorizontal,
     paddingVertical: theme.components.select.paddingVertical,
@@ -226,16 +226,16 @@ const styles = StyleSheet.create(theme => ({
       },
       readonly: {
         true: {
-          borderColor: theme.components.select.borderColorReadOnly,
+          borderColor: theme.color.border.subtle,
         },
       },
       validationStatus: {
         initial: {},
         valid: {
-          borderColor: theme.components.select.borderColorValid,
+          borderColor: theme.color.feedback.positive.border,
         },
         invalid: {
-          borderColor: theme.components.select.borderColorInvalid,
+          borderColor: theme.color.feedback.danger.border,
         },
       },
     },
@@ -258,27 +258,27 @@ const styles = StyleSheet.create(theme => ({
   pressedContainer: pressed => ({
     outlineWidth: pressed ? theme.components.select.borderWidth : 0,
     outlineStyle: 'solid',
-    outlineColor: pressed ? theme.components.select.borderColor : 'transparent',
+    outlineColor: pressed ? theme.color.border.strong : 'transparent',
     variants: {
       validationStatus: {
         initial: {},
         valid: {
-          outlineColor: theme.components.select.borderColorValid,
+          outlineColor: theme.color.feedback.positive.border,
         },
         invalid: {
-          outlineColor: theme.components.select.borderColorInvalid,
+          outlineColor: theme.color.feedback.danger.border,
         },
       },
     },
   }),
   icon: {
-    color: theme.components.icon.color,
+    color: theme.color.icon.primary,
   },
   placeholderText: {
     variants: {
       hasValue: {
         false: {
-          color: theme.components.text.colorSecondary,
+          color: theme.color.text.secondary,
         },
       },
     },

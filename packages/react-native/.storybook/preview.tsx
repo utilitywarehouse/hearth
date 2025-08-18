@@ -3,8 +3,13 @@ import '@utilitywarehouse/hearth-fonts';
 import { color } from '@utilitywarehouse/hearth-tokens';
 import { useEffect } from 'react';
 import '../../../shared/storybook/styles/preview.css';
+import '../../../shared/storybook/styles/diff-highlighting.css';
 import theme from '../../../shared/storybook/theme';
+import { initializePrism } from './prism-setup';
 import { breakpoints, StyleSheet, themes, UnistylesRuntime } from '../src/core';
+
+// Initialize Prism.js for syntax highlighting
+initializePrism();
 
 StyleSheet.configure({
   themes,

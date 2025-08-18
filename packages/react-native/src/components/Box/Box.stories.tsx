@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { Box } from '.';
-import { BodyText } from '../BodyText';
-import { coloursAsArray } from '../../utils';
 import { primitive } from '@utilitywarehouse/hearth-tokens/js';
 import { InputType } from 'storybook/internal/types';
+import { Box } from '.';
+import { coloursAsArray } from '../../utils';
+import { BodyText } from '../BodyText';
 
 const backgroundColor: InputType = {
   options: coloursAsArray(),
