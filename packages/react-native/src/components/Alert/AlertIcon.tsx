@@ -1,20 +1,20 @@
-import { StyleSheet } from 'react-native-unistyles';
 import {
-  WarningMediumIcon,
-  TickCircleMediumIcon,
   InfoMediumIcon,
+  TickCircleMediumIcon,
+  WarningMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
-import { useAlertContext } from './Alert.context';
+import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import type IconProps from '../Icon/Icon.props';
+import { useAlertContext } from './Alert.context';
 
 const AlertIcon = (props: IconProps) => {
   const { colorScheme } = useAlertContext();
   const asProp = (() => {
-    if (colorScheme === 'red' || colorScheme === 'orange') {
+    if (colorScheme === 'danger' || colorScheme === 'warning') {
       return WarningMediumIcon;
     }
-    if (colorScheme === 'green') {
+    if (colorScheme === 'positive') {
       return TickCircleMediumIcon;
     }
     return InfoMediumIcon;
@@ -31,7 +31,7 @@ const styles = StyleSheet.create(theme => ({
     minWidth: 24,
     minHeight: 24,
     alignSelf: 'flex-start',
-    color: theme.components.icon.color,
+    color: theme.color.icon.primary,
   },
 }));
 

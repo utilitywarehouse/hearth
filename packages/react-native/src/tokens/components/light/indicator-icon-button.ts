@@ -3,10 +3,9 @@
  */
 
 export default {
-  calendar: {
-    footer: {
-      gap: 8,
-    },
+  indicator: {
+    height: 8,
+    radius: 9999,
+    width: 8,
   },
-  backgroundColor: '#fcfbf2',
 } as const;

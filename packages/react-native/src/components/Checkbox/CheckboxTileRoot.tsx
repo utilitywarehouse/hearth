@@ -19,14 +19,14 @@ const styles = StyleSheet.create(theme => ({
     gap: theme.components.checkbox.gap,
     padding: theme.components.checkbox.tile.padding,
     borderWidth: theme.components.checkbox.tile.borderWidth,
-    borderColor: theme.components.checkbox.tile.borderColor,
+    borderColor: theme.color.border.subtle,
     borderRadius: theme.components.checkbox.tile.borderRadius,
-    backgroundColor: theme.components.checkbox.tile.backgroundColor,
+    backgroundColor: theme.color.surface.neutral.strong,
     variants: {
       checked: {
         true: {
           borderWidth: theme.components.checkbox.tile.borderWidthSelected,
-          borderColor: theme.components.checkbox.tile.borderColorSelected,
+          borderColor: theme.color.border.strong,
           margin: -theme.components.checkbox.tile.borderWidthSelected / 2,
         },
       },

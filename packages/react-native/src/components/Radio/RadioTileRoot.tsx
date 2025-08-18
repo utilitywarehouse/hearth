@@ -19,14 +19,14 @@ const styles = StyleSheet.create(theme => ({
     gap: theme.components.radio.gap,
     padding: theme.components.radio.tile.padding,
     borderWidth: theme.components.radio.tile.borderWidth,
-    borderColor: theme.components.radio.tile.borderColor,
+    borderColor: theme.color.border.subtle,
     borderRadius: theme.components.radio.tile.borderRadius,
-    backgroundColor: theme.components.radio.tile.backgroundColor,
+    backgroundColor: theme.color.surface.neutral.strong,
     variants: {
       checked: {
         true: {
           borderWidth: theme.components.radio.tile.borderWidthSelected,
-          borderColor: theme.components.radio.tile.borderColorSelected,
+          borderColor: theme.color.border.strong,
           margin: -theme.components.radio.tile.borderWidthSelected / 2,
         },
       },

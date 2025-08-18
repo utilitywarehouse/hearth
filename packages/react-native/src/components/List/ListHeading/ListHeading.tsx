@@ -1,11 +1,11 @@
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import ListHeadingTitle from './ListHeadingTitle';
-import ListHeadingHelperText from './ListHeadingHelperText';
-import ListHeadingProps from './ListHeading.props';
-import ListHeadingTextContent from './ListHeadingTextContent';
 import { Link } from '../../Link';
 import { useListContext } from '../List.context';
+import ListHeadingProps from './ListHeading.props';
+import ListHeadingHelperText from './ListHeadingHelperText';
+import ListHeadingTextContent from './ListHeadingTextContent';
+import ListHeadingTitle from './ListHeadingTitle';
 
 const ListHeading = ({
   text,
@@ -57,7 +57,7 @@ ListHeading.displayName = 'ListHeading';
 const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
-    gap: theme.components.list.heading.gap,
+    gap: theme.components.sectionHeader.horizontalGap,
   },
 }));
 

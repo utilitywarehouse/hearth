@@ -1,8 +1,8 @@
-import { Meta, Canvas, Story, Controls } from '@storybook/addon-docs/blocks';
-import * as Stories from './Button.stories';
-import { ButtonGroup, Button, ButtonIcon, ButtonSpinner, ButtonText, Box, Center } from '../../';
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
 import { AddSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
+import { Box, Button, ButtonGroup, ButtonIcon, ButtonSpinner, ButtonText, Center } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Button.stories';
 
 <Meta title="Components / Button" />
 
@@ -37,7 +37,7 @@ The `Button` component is used to trigger an action or event, such as submitting
 
 <UsageWrap>
   <Center>
-    <Button colorScheme="green" variant="solid" children="Button" />
+    <Button colorScheme="affirmative" variant="solid" children="Button" />
   </Center>
 </UsageWrap>
 
@@ -49,7 +49,7 @@ const MyComponent = () => {
     console.log('Button pressed');
   };
   return (
-    <Button onPress={handlePress} colorScheme="green">
+    <Button onPress={handlePress} colorScheme="affirmative">
       Button
     </Button>
   );
@@ -58,19 +58,19 @@ const MyComponent = () => {
 
 ## Props
 
-| Property       | Type                                      | Description                                                                                         | Default  |
-| -------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------- | -------- |
-| `onPress`      | `() => void`                              | Callback function to be called when the button is pressed.                                          | -        |
-| `variant`      | `'solid' \| 'outline' \| 'ghost'`         | The variant of the button.                                                                          | 'solid'  |
-| `size`         | `'sm' \| 'md'`                            | The size of the button.                                                                             | 'medium' |
-| `colorScheme`  | `'yellow' \| 'green' \| 'red' \| 'grey' ` | The colour scheme of the button.                                                                    | 'yellow' |
-| `icon`         | `ReactNode`                               | The icon to be displayed in the button. _Note: Can't use with advanced usage._                      | -        |
-| `iconPosition` | `'left' \| 'right'`                       | The position of the icon in the button. _Note: Can't use with advanced usage._                      | 'left'   |
-| `inverted`     | `boolean`                                 | Changes the button to an inverted state. (To only be used on `midnight` or `purple` backgrounds).   | `false`  |
-| `loading`      | `boolean`                                 | Shows a loading spinner in the button. _Note: Can't use with advanced usage._                       | `false`  |
-| `disabled`     | `boolean`                                 | Disables the button.                                                                                | `false`  |
-| `paddingNone`  | `boolean`                                 | Removes the horizontal padding from the button (only applies to `sm` size `ghost` variant buttons). | `false`  |
-| `pressed`      | `boolean`                                 | Changes the button to a pressed state.                                                              | `false`  |
+| Property       | Type                                                             | Description                                                                                         | Default     |
+| -------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | ----------- |
+| `onPress`      | `() => void`                                                     | Callback function to be called when the button is pressed.                                          | -           |
+| `variant`      | `'solid' \| 'outline' \| 'ghost'`                                | The variant of the button.                                                                          | 'solid'     |
+| `size`         | `'sm' \| 'md'`                                                   | The size of the button.                                                                             | 'medium'    |
+| `colorScheme`  | `'highlight' \| 'affirmative' \| 'destructive' \| 'functional' ` | The colour scheme of the button.                                                                    | 'highlight' |
+| `icon`         | `ReactNode`                                                      | The icon to be displayed in the button. _Note: Can't use with advanced usage._                      | -           |
+| `iconPosition` | `'left' \| 'right'`                                              | The position of the icon in the button. _Note: Can't use with advanced usage._                      | 'left'      |
+| `inverted`     | `boolean`                                                        | Changes the button to an inverted state. (To only be used on `midnight` or `purple` backgrounds).   | `false`     |
+| `loading`      | `boolean`                                                        | Shows a loading spinner in the button. _Note: Can't use with advanced usage._                       | `false`     |
+| `disabled`     | `boolean`                                                        | Disables the button.                                                                                | `false`     |
+| `paddingNone`  | `boolean`                                                        | Removes the horizontal padding from the button (only applies to `sm` size `ghost` variant buttons). | `false`     |
+| `pressed`      | `boolean`                                                        | Changes the button to a pressed state.                                                              | `false`     |
 
 ## Variants
 
@@ -82,7 +82,7 @@ For more advanced usage, you can use the `ButtonText`, `ButtonIcon` and `ButtonS
 
 <UsageWrap>
   <Center>
-    <Button colorScheme="yellow">
+    <Button colorScheme="highlight">
       <ButtonIcon as={AddSmallIcon} />
       <ButtonText>Button</ButtonText>
     </Button>
@@ -105,7 +105,7 @@ const MyComponent = ({ doSomething }) => {
     doSomething();
   };
   return (
-    <Button colorScheme="yellow" disabled={loading}>
+    <Button colorScheme="highlight" disabled={loading}>
       {loading ? <ButtonSpinner /> : <ButtonIcon as={AddSmallIcon} />}
       <ButtonText onPress={handleClick}>Button</ButtonText>
     </Button>
@@ -129,13 +129,13 @@ The `ButtonGroup` component is used to group multiple buttons together.
 <UsageWrap>
   <Center>
     <ButtonGroup flexDirection="column">
-      <Button colorScheme="yellow">
+      <Button colorScheme="highlight">
         <ButtonText>Button 1</ButtonText>
       </Button>
-      <Button colorScheme="grey" variant="outline">
+      <Button colorScheme="functional" variant="outline">
         <ButtonText>Button 2</ButtonText>
       </Button>
-      <Button colorScheme="red" variant="ghost">
+      <Button colorScheme="destructive" variant="ghost">
         <ButtonText>Button 3</ButtonText>
       </Button>
     </ButtonGroup>
@@ -148,11 +148,11 @@ import { ButtonGroup, Button } from '@utilitywarehouse/hearth-react-native';
 const MyComponent = () => {
   return (
     <ButtonGroup flexDirection="column">
-      <Button colorScheme="yellow">Button 1</Button>
-      <Button colorScheme="grey" variant="outline">
+      <Button colorScheme="highlight">Button 1</Button>
+      <Button colorScheme="functional" variant="outline">
         Button 2
       </Button>
-      <Button colorScheme="red" variant="ghost">
+      <Button colorScheme="destructive" variant="ghost">
         Button 3
       </Button>
     </ButtonGroup>
@@ -180,7 +180,7 @@ We recommend using the `icon` prop on the `Button` component for simpler usage.
 
 <UsageWrap>
   <Center>
-    <Button colorScheme="yellow">
+    <Button colorScheme="highlight">
       <ButtonIcon as={AddSmallIcon} />
       <ButtonText>Button</ButtonText>
     </Button>
@@ -193,7 +193,7 @@ import { AddSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 const MyComponent = () => {
   return (
-    <Button colorScheme="yellow">
+    <Button colorScheme="highlight">
       <ButtonIcon as={AddSmallIcon} />
       <ButtonText>Button</ButtonText>
     </Button>
@@ -210,7 +210,7 @@ We recommend using the children prop on the `Button` component for simpler usage
 
 <UsageWrap>
   <Center>
-    <Button colorScheme="yellow">
+    <Button colorScheme="highlight">
       <ButtonText>Button</ButtonText>
     </Button>
   </Center>
@@ -221,7 +221,7 @@ import { Button, ButtonText } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   return (
-    <Button colorScheme="yellow">
+    <Button colorScheme="highlight">
       <ButtonText>Button</ButtonText>
     </Button>
   );
@@ -240,7 +240,7 @@ should inlude the `disabled` prop. We recommend using the `loading` prop on the 
 
 <UsageWrap>
   <Center>
-    <Button colorScheme="yellow" disabled>
+    <Button colorScheme="highlight" disabled>
       <ButtonSpinner />
       <ButtonText>Button</ButtonText>
     </Button>
@@ -252,7 +252,7 @@ import { Button, ButtonSpinner, ButtonText } from '@utilitywarehouse/hearth-reac
 
 const MyComponent = ({ loading }) => {
   return (
-    <Button colorScheme="yellow" disabled>
+    <Button colorScheme="highlight" disabled>
       {loading ? <ButtonSpinner /> : null}
       <ButtonText>Button</ButtonText>
     </Button>
@@ -269,7 +269,7 @@ This is useful when you want to create a button that looks like a link or a text
 
 <UsageWrap>
   <Center>
-    <Button variant="ghost" colorScheme="grey" size="sm" paddingNone>
+    <Button variant="ghost" colorScheme="functional" size="sm" paddingNone>
       {`No Padding`}
     </Button>
   </Center>
@@ -280,7 +280,7 @@ import { Button } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   return (
-    <Button variant="ghost" colorScheme="grey" size="sm" paddingNone>
+    <Button variant="ghost" colorScheme="functional" size="sm" paddingNone>
       No Padding
     </Button>
   );

@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react';
 import BottomSheetCore, { BottomSheetProps as RootBottomSheetProps } from '@gorhom/bottom-sheet';
-import type BottomSheetProps from './BottomSheet.props';
-import { StyleSheet, withUnistyles } from 'react-native-unistyles';
-import useBottomSheetLogic from './useBottomSheetLogic';
 import { BottomSheetMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
+import React, { useMemo } from 'react';
+import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { BottomSheetContext } from './BottomSheet.context';
+import type BottomSheetProps from './BottomSheet.props';
+import useBottomSheetLogic from './useBottomSheetLogic';
 
 const StyledBottomSheetCore = withUnistyles(BottomSheetCore) as React.ForwardRefExoticComponent<
   RootBottomSheetProps & React.RefAttributes<BottomSheetMethods>
@@ -55,7 +55,7 @@ const styles = StyleSheet.create(theme => ({
   background: {
     borderTopLeftRadius: theme.components.bottomSheet.borderTopLeftRadius,
     borderTopRightRadius: theme.components.bottomSheet.borderTopRightRadius,
-    backgroundColor: theme.components.bottomSheet.backgroundColor,
+    backgroundColor: theme.color.surface.neutral.strong,
   },
 }));
 

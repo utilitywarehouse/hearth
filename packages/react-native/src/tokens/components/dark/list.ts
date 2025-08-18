@@ -3,26 +3,7 @@
  */
 
 export default {
-  gap: 12,
-  heading: {
-    gap: 12,
-    textContentGap: 2,
-  },
-  item: {
-    backgroundColorActive: '#4c473d',
-    backgroundColorHover: '#30302c',
-    borderWidth: 1,
-    contentGap: 2,
-    emphasis: {
-      borderColor: '#e7e6e6',
-    },
-    gap: 12,
-    padding: 16,
-    subtle: {
-      borderColor: '#4c473d',
-    },
-  },
-  listContainer: {
+  container: {
     emphasisWarmWhite: {
       borderRadius: 16,
     },
@@ -31,12 +12,31 @@ export default {
     },
     none: {
       borderRadius: 0,
+      item: {
+        paddingHorizontal: 0,
+      },
     },
     subtleWarmWhite: {
       borderRadius: 16,
     },
     subtleWhite: {
       borderRadius: 16,
+    },
+  },
+  gap: 12,
+  item: {
+    contentGap: 2,
+    functional: {
+      borderWidth: 1,
+      padding: 16,
+      paddingNone: 0,
+    },
+    gap: 12,
+    stylised: {
+      borderWidth: 2,
+      height: 72,
+      paddingLeft: 0,
+      paddingRight: 16,
     },
   },
   list: {

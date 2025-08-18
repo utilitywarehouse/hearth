@@ -135,10 +135,12 @@ export const color = {
       border: {
         strong: 'var(--h-interactive-functional-border-strong)',
         subtle: 'var(--h-interactive-functional-border-subtle)',
+        inverted: 'var(--h-interactive-functional-border-inverted)',
       },
       foreground: {
         strong: 'var(--h-interactive-functional-foreground-strong)',
         subtle: 'var(--h-interactive-functional-foreground-subtle)',
+        inverted: 'var(--h-interactive-functional-foreground-inverted)',
       },
       surface: {
         strong: {

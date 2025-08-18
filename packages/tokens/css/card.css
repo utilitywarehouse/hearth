@@ -4,6 +4,7 @@
 
 :root {
   --h-card-border-radius: var(--h-border-radius-xl);
+  --h-card-brand-border-width: var(--h-border-width-2);
   --h-card-neutral-emphasis-border-width: var(--h-border-width-2);
   --h-card-neutral-subtle-border-width: var(--h-border-width-1);
   --h-card-selectable-border-width: var(--h-border-width-1);

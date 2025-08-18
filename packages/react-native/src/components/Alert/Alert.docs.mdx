@@ -1,18 +1,18 @@
-import { Meta, Primary, Controls, Story, Canvas } from '@storybook/addon-docs/blocks';
-import * as Stories from './Alert.stories';
+import { Canvas, Controls, Meta, Primary, Story } from '@storybook/addon-docs/blocks';
 import {
   Alert,
-  Center,
-  AlertIcon,
-  AlertText,
-  AlertTitle,
-  AlertLink,
-  AlertIconButton,
   AlertCloseButton,
   AlertContent,
+  AlertIcon,
+  AlertIconButton,
+  AlertLink,
+  AlertText,
+  AlertTitle,
+  Center,
 } from '../../';
+import * as Stories from './Alert.stories';
 
-import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 
 <Meta title="Components / Alert" />
 
@@ -42,7 +42,7 @@ The Alert offers different colour schemes, the colour scheme is mapped to an ico
 
 <UsageWrap>
   <Alert
-    colorScheme="blue"
+    colorScheme="info"
     title="Information"
     text="Unlock the power of knowledge with the following information."
   />
@@ -54,7 +54,7 @@ import { Alert } from '@utilitywarehouse/native-ui';
 const MyComponent = () => {
   return (
     <Alert
-      colorScheme="blue"
+      colorScheme="info"
       title="Information"
       text="Unlock the power of knowledge with the following information."
     />
@@ -64,22 +64,22 @@ const MyComponent = () => {
 
 ## Props
 
-| Property            | Type                                     | Description                                                       | Default |
-| ------------------- | ---------------------------------------- | ----------------------------------------------------------------- | ------- |
-| `colorScheme`       | `'blue' \| 'green' \| 'orange' \| 'red'` | The colour scheme of the alert. Mapped to an icon.                | 'blue'  |
-| `title`             | `string`                                 | The title of the alert.                                           |         |
-| `text`              | `string`                                 | The text of the alert.                                            |         |
-| `link`              | `string`                                 | The text of the link.                                             |         |
-| `linkTestID`        | `string`                                 | The testID of the link.                                           |         |
-| `iconButtonTestID`  | `string`                                 | The testID of the icon button.                                    |         |
-| `onPress`           | `() => void`                             | A callback function to be called when the alert is tapped.        |         |
-| `onPressLink`       | `() => void`                             | A callback function to be called when the link is tapped.         |         |
-| `onPressIconButton` | `() => void`                             | A callback function to be called when the icon button is tapped.  |         |
-| `onClose`           | `() => void`                             | A callback function to be called when the close button is tapped. |         |
+| Property            | Type                                            | Description                                                       | Default |
+| ------------------- | ----------------------------------------------- | ----------------------------------------------------------------- | ------- |
+| `colorScheme`       | `'info' \| 'positive' \| 'warning' \| 'danger'` | The colour scheme of the alert. Mapped to an icon.                | 'info'  |
+| `title`             | `string`                                        | The title of the alert.                                           |         |
+| `text`              | `string`                                        | The text of the alert.                                            |         |
+| `link`              | `string`                                        | The text of the link.                                             |         |
+| `linkTestID`        | `string`                                        | The testID of the link.                                           |         |
+| `iconButtonTestID`  | `string`                                        | The testID of the icon button.                                    |         |
+| `onPress`           | `() => void`                                    | A callback function to be called when the alert is tapped.        |         |
+| `onPressLink`       | `() => void`                                    | A callback function to be called when the link is tapped.         |         |
+| `onPressIconButton` | `() => void`                                    | A callback function to be called when the icon button is tapped.  |         |
+| `onClose`           | `() => void`                                    | A callback function to be called when the close button is tapped. |         |
 
 ## Variants
 
-The `Alert` component has four colour schemes: blue, green, orange and red. Each colour scheme is mapped to an icon.
+The `Alert` component has four colour schemes: info, positive, warning and danger. Each colour scheme is mapped to an icon.
 
 <Canvas of={Stories.Variants} />
 
@@ -88,7 +88,7 @@ The `Alert` component has four colour schemes: blue, green, orange and red. Each
 If you need to use the Alert component in a more advanced way, you can use the parts of the component directly.
 
 <UsageWrap>
-  <Alert colorScheme="blue">
+  <Alert colorScheme="info">
     <AlertIcon />
     <AlertContent>
       <AlertTitle>Information</AlertTitle>
@@ -116,7 +116,7 @@ import { InfoMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 const MyComponent = () => {
   return (
-    <Alert colorScheme="blue">
+    <Alert colorScheme="info">
       <AlertIcon as={InfoMediumIcon} />
       <AlertContent>
         <AlertTitle>Information</AlertTitle>

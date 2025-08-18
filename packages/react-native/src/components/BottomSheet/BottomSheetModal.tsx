@@ -53,7 +53,7 @@ const styles = StyleSheet.create(theme => ({
   background: {
     borderTopLeftRadius: theme.components.bottomSheet.borderTopLeftRadius,
     borderTopRightRadius: theme.components.bottomSheet.borderTopRightRadius,
-    backgroundColor: theme.components.bottomSheet.backgroundColor,
+    backgroundColor: theme.color.surface.neutral.strong,
   },
 }));
 

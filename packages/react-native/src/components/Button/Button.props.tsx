@@ -2,13 +2,13 @@ import type { ComponentType, ReactElement, ReactNode } from 'react';
 import type { PressableProps, ViewProps } from 'react-native';
 
 export type ButtonVariants =
-  | { variant?: 'solid'; colorScheme?: 'green' | 'red'; inverted?: never }
-  | { variant?: 'outline'; colorScheme: 'green' | 'red'; inverted?: never }
-  | { variant?: 'ghost'; colorScheme: 'green' | 'red'; inverted?: never }
-  | { variant?: 'emphasis'; colorScheme?: 'yellow'; inverted?: boolean }
-  | { variant?: 'solid'; colorScheme?: 'yellow'; inverted?: boolean }
-  | { variant?: 'outline'; colorScheme: 'grey'; inverted?: boolean }
-  | { variant?: 'ghost'; colorScheme: 'grey'; inverted?: boolean };
+  | { variant?: 'solid'; colorScheme?: 'affirmative' | 'destructive'; inverted?: never }
+  | { variant?: 'outline'; colorScheme: 'affirmative' | 'destructive'; inverted?: never }
+  | { variant?: 'ghost'; colorScheme: 'affirmative' | 'destructive'; inverted?: never }
+  | { variant?: 'emphasis'; colorScheme?: 'highlight'; inverted?: boolean }
+  | { variant?: 'solid'; colorScheme?: 'highlight'; inverted?: boolean }
+  | { variant?: 'outline'; colorScheme: 'functional'; inverted?: boolean }
+  | { variant?: 'ghost'; colorScheme: 'functional'; inverted?: boolean };
 
 export type BaseButtonProps = Omit<PressableProps, 'children'> & {
   /*

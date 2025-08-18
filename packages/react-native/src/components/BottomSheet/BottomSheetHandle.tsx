@@ -17,7 +17,7 @@ const BottomSheetHandle = ({ style, indicatorStyle, ...props }: BottomSheetDefau
 
 const styles = StyleSheet.create(theme => ({
   handle: {
-    backgroundColor: theme.components.bottomSheet.backgroundColor,
+    backgroundColor: theme.color.surface.neutral.strong,
     borderTopLeftRadius: theme.components.bottomSheet.borderTopLeftRadius,
     borderTopRightRadius: theme.components.bottomSheet.borderTopRightRadius,
     paddingTop: theme.components.bottomSheet.padding,

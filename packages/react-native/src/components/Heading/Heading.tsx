@@ -73,7 +73,7 @@ Heading.displayName = 'Heading';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.components.text.color,
+    color: theme.color.text.primary,
     fontFamily: theme.typography.mobile.heading.fontFamily,
     marginVertical: 0,
     fontStyle: 'normal',
@@ -160,7 +160,7 @@ const styles = StyleSheet.create(theme => ({
       },
       inverted: {
         true: {
-          color: theme.components.text.colorInverted,
+          color: theme.color.text.inverted,
         },
       },
     },

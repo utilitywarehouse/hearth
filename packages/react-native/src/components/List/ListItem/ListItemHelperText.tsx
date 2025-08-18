@@ -14,7 +14,7 @@ ListItemHelperText.displayName = 'ListItemHelperText';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.components.text.colorSecondary,
+    color: theme.color.text.secondary,
   },
 }));
 

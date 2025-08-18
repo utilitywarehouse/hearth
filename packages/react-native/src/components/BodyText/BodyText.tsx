@@ -1,6 +1,6 @@
 import { Text } from 'react-native';
-import type BodyTextProps from './BodyText.props';
 import { StyleSheet } from 'react-native-unistyles';
+import type BodyTextProps from './BodyText.props';
 
 import { getFlattenedColorValue } from '../../utils';
 
@@ -65,7 +65,7 @@ BodyText.displayName = 'BodyText';
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.components.text.color,
+    color: theme.color.text.primary,
     fontFamily: theme.typography.mobile.bodyText.fontFamily,
     fontStyle: 'normal',
     variants: {
@@ -111,12 +111,12 @@ const styles = StyleSheet.create(theme => ({
       },
       inverted: {
         true: {
-          color: theme.components.text.colorInverted,
+          color: theme.color.text.inverted,
         },
       },
     },
   },
-  getColours: (color, textDecorationColor) => ({
+  getColours: (color?: string, textDecorationColor?: string) => ({
     ...(color ? { color: getFlattenedColorValue(color, theme.color) } : {}),
     ...(textDecorationColor
       ? { textDecorationColor: getFlattenedColorValue(textDecorationColor, theme.color) }

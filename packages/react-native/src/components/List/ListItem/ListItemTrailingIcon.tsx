@@ -23,7 +23,7 @@ ListItemTrailingIcon.displayName = 'ListItemTrailingIcon';
 
 const styles = StyleSheet.create(theme => ({
   icon: {
-    color: theme.components.icon.color,
+    color: theme.color.icon.primary,
     width: 24,
     height: 24,
   },

@@ -125,8 +125,8 @@ ListItemRoot.displayName = 'ListItemRoot';
 
 const styles = StyleSheet.create(theme => ({
   container: {
-    paddingVertical: theme.components.list.item.padding,
-    paddingHorizontal: theme.components.list.item.padding,
+    paddingVertical: theme.components.list.item.functional.padding,
+    paddingHorizontal: theme.components.list.item.functional.padding,
     flexDirection: 'row',
     gap: theme.components.list.item.gap,
     variants: {
@@ -143,10 +143,10 @@ const styles = StyleSheet.create(theme => ({
       },
       variant: {
         subtle: {
-          borderTopColor: theme.components.list.item.subtle.borderColor,
+          borderTopColor: theme.color.border.subtle,
         },
         emphasis: {
-          borderTopColor: theme.components.list.item.emphasis.borderColor,
+          borderTopColor: theme.color.border.strong,
         },
       },
       disabled: {
@@ -160,7 +160,16 @@ const styles = StyleSheet.create(theme => ({
         },
       },
       showPressed: {
-        true: {},
+        true: {
+          _web: {
+            _hover: {
+              backgroundColor: theme.color.interactive.neutral.surface.subtle.hover,
+            },
+            _active: {
+              backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
+            },
+          },
+        },
         false: {
           cursor: 'auto',
         },
@@ -183,7 +192,7 @@ const styles = StyleSheet.create(theme => ({
         showPressed: true,
         active: true,
         styles: {
-          backgroundColor: theme.components.list.item.backgroundColorActive,
+          backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
         },
       },
     ],

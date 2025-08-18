@@ -120,28 +120,35 @@ These colors represent the core brand identity and various services:
 ```tsx
 const styles = StyleSheet.create(theme => ({
   brandButton: {
-    backgroundColor: theme.color.surface.brand.default.color,
-    borderColor: theme.components.button.border.primary,
+    backgroundColor: theme.color.surface.brand.default,
+    borderColor: theme.color.border.strong,
   },
   energyCard: {
-    backgroundColor: theme.color.surface.energy.default.color,
+    backgroundColor: theme.color.surface.energy.default,
     color: theme.color.text.inverted,
   },
   broadbandAccent: {
-    backgroundColor: theme.color.surface.broadband.subtle.color,
+    backgroundColor: theme.color.surface.broadband.subtle,
+  },
+  highlightElement: {
+    backgroundColor: theme.color.surface.highlight.default,
+  },
+  neutralSurface: {
+    backgroundColor: theme.color.surface.neutral.subtle,
   },
 }));
 ```
 
 Available brand and service colors:
 
-- **Brand**: `purple` - Primary brand color
-- **Energy**: `energyBlue` - Energy service
-- **Broadband**: `broadbandGreen` - Broadband service
-- **Mobile**: `mobileRose` - Mobile service
-- **Insurance**: `insuranceOrange` - Insurance service
-- **Cashback**: `cashbackLilac` - Cashback service
-- **Pig**: `piggyPink` - Savings/Piggy service
+- **Brand**: `brand` - Primary brand color (purple)
+- **Energy**: `energy` - Energy service (blue)
+- **Broadband**: `broadband` - Broadband service (green)
+- **Mobile**: `mobile` - Mobile service (rose/pink)
+- **Insurance**: `insurance` - Insurance service (orange)
+- **Cashback**: `cashback` - Cashback service (lilac)
+- **Pig**: `pig` - Savings/Piggy service (pink)
+- **Highlight**: `highlight` - Attention/highlight color (yellow)
 
 ### Semantic Colors
 
@@ -184,16 +191,24 @@ const styles = StyleSheet.create(theme => ({
 ```tsx
 const styles = StyleSheet.create(theme => ({
   primaryButton: {
-    backgroundColor: theme.color.interactive.brand.surface.strong.defaultColor,
-    color: theme.color.interactive.brand.foreground.strong.color,
+    backgroundColor: theme.color.interactive.brand.surface.strong.default,
+    color: theme.color.interactive.brand.foreground.strong,
   },
   destructiveButton: {
-    backgroundColor: theme.color.interactive.destructive.surface.strong.defaultColor,
-    color: theme.color.interactive.destructive.foreground.strong.color,
+    backgroundColor: theme.color.interactive.destructive.surface.strong.default,
+    color: theme.color.interactive.destructive.foreground.strong,
   },
   affirmativeButton: {
-    backgroundColor: theme.color.interactive.affirmative.surface.strong.defaultColor,
-    color: theme.color.interactive.affirmative.foreground.strong.color,
+    backgroundColor: theme.color.interactive.affirmative.surface.strong.default,
+    color: theme.color.interactive.affirmative.foreground.strong,
+  },
+  functionalButton: {
+    backgroundColor: theme.color.interactive.functional.surface.strong.default,
+    color: theme.color.interactive.functional.foreground.strong,
+  },
+  highlightButton: {
+    backgroundColor: theme.color.interactive.highlight.surface.strong.default,
+    color: theme.color.interactive.highlight.foreground.strong,
   },
 }));
 ```
@@ -203,21 +218,29 @@ const styles = StyleSheet.create(theme => ({
 ```tsx
 const styles = StyleSheet.create(theme => ({
   errorMessage: {
-    backgroundColor: theme.color.feedback.danger.subtle.color,
-    color: theme.color.feedback.danger.default.color,
-    borderColor: theme.color.feedback.danger.default.color,
+    backgroundColor: theme.color.feedback.danger.surface.subtle,
+    color: theme.color.feedback.danger.foreground.subtle,
+    borderColor: theme.color.feedback.danger.border,
   },
   successMessage: {
-    backgroundColor: theme.color.feedback.positive.subtle.color,
-    color: theme.color.feedback.positive.default.color,
+    backgroundColor: theme.color.feedback.positive.surface.subtle,
+    color: theme.color.feedback.positive.foreground.subtle,
+    borderColor: theme.color.feedback.positive.border,
   },
   warningMessage: {
-    backgroundColor: theme.color.feedback.warning.subtle.color,
-    color: theme.color.feedback.warning.default.color,
+    backgroundColor: theme.color.feedback.warning.surface.subtle,
+    color: theme.color.feedback.warning.foreground.subtle,
+    borderColor: theme.color.feedback.warning.border,
   },
   infoMessage: {
-    backgroundColor: theme.color.feedback.info.subtle.color,
-    color: theme.color.feedback.info.default.color,
+    backgroundColor: theme.color.feedback.info.surface.subtle,
+    color: theme.color.feedback.info.foreground.subtle,
+    borderColor: theme.color.feedback.info.border,
+  },
+  functionalMessage: {
+    backgroundColor: theme.color.feedback.functional.surface.subtle,
+    color: theme.color.feedback.functional.foreground.subtle,
+    borderColor: theme.color.feedback.functional.border,
   },
 }));
 ```

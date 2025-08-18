@@ -3,6 +3,9 @@
  */
 
 export default {
-  border: '#101010',
-  borderInverted: '#fcfbf2',
+  gapHorizontal: 12,
+  gapVertical: 2,
+  group: {
+    gap: 12,
+  },
 } as const;

@@ -1,5 +1,8 @@
 export const card = {
   borderRadius: 'var(--h-card-border-radius)',
+  brand: {
+    borderWidth: 'var(--h-card-brand-border-width)',
+  },
   neutral: {
     emphasis: {
       borderWidth: 'var(--h-card-neutral-emphasis-border-width)',

@@ -1,25 +1,25 @@
-import { ComponentType, useState } from 'react';
 import { createInput } from '@gluestack-ui/input';
+import { ComponentType, useState } from 'react';
 import type InputProps from './Input.props';
 
-import InputRoot from './InputRoot';
-import InputSlotComponent from './InputSlot';
-import InputIconComponent from './InputIcon';
-import InputFieldComponent from './InputField';
-import { useFormFieldContext } from '../FormField';
 import {
   CalendarMediumIcon,
   CloseSmallIcon,
-  EyeSmallIcon,
   EyeOffSmallIcon,
+  EyeSmallIcon,
   SearchMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
-import { InputWithoutChildrenProps } from './Input.props';
-import { UnstyledIconButton } from '../UnstyledIconButton';
-import { Spinner } from '../Spinner';
+import { Platform } from 'react-native';
 import { useTheme } from '../../hooks';
 import { DetailText } from '../DetailText';
-import { Platform } from 'react-native';
+import { useFormFieldContext } from '../FormField';
+import { Spinner } from '../Spinner';
+import { UnstyledIconButton } from '../UnstyledIconButton';
+import { InputWithoutChildrenProps } from './Input.props';
+import InputFieldComponent from './InputField';
+import InputIconComponent from './InputIcon';
+import InputRoot from './InputRoot';
+import InputSlotComponent from './InputSlot';
 
 export const InputComponent = createInput({
   Icon: InputIconComponent,
@@ -56,7 +56,7 @@ const Input = ({
   const [fieldType, setFieldType] = useState<'password' | 'text'>(
     type === 'password' ? 'password' : 'text'
   );
-  const { components } = useTheme();
+  const { color } = useTheme();
 
   const defaultFornat = (() => {
     if (type === 'currency') {
@@ -155,7 +155,7 @@ const Input = ({
           )}
           {loading && (
             <InputSlot>
-              <Spinner size="xs" color={components.icon.color} />
+              <Spinner size="xs" color={color.icon.primary} />
             </InputSlot>
           )}
           {shouldShowPasswordToggle && (

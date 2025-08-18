@@ -4,6 +4,9 @@
 
 export default {
   borderRadius: 16,
+  brand: {
+    borderWidth: 2,
+  },
   neutral: {
     emphasis: {
       borderWidth: 2,

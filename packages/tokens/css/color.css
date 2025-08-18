@@ -62,8 +62,10 @@
   --h-interactive-destructive-surface-subtle-hover: var(--h-color-red-50);
   --h-interactive-functional-border-strong: var(--h-color-grey-1000);
   --h-interactive-functional-border-subtle: var(--h-color-grey-1000);
+  --h-interactive-functional-border-inverted: var(--h-color-grey-50);
   --h-interactive-functional-foreground-strong: var(--h-color-warm-white-50);
   --h-interactive-functional-foreground-subtle: var(--h-color-grey-1000);
+  --h-interactive-functional-foreground-inverted: var(--h-color-grey-50);
   --h-interactive-functional-surface-strong-active: var(--h-color-grey-700);
   --h-interactive-functional-surface-strong-default: var(--h-color-grey-500);
   --h-interactive-functional-surface-strong-hover: var(--h-color-grey-600);

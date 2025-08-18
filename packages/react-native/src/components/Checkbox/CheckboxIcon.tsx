@@ -1,8 +1,8 @@
-import { Icon } from '../Icon';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import IconProps from '../Icon/Icon.props';
-import { StyleSheet } from 'react-native-unistyles';
 import { Platform, ViewStyle } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { Icon } from '../Icon';
+import IconProps from '../Icon/Icon.props';
 
 const CheckboxIcon = ({ style, ...props }: IconProps) => {
   return (
@@ -20,7 +20,7 @@ const CheckboxIcon = ({ style, ...props }: IconProps) => {
 
 const styles = StyleSheet.create(theme => ({
   icon: {
-    color: theme.components.checkbox.checked.iconColor,
+    color: theme.color.icon.inverted,
   },
 }));
 
