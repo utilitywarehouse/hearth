@@ -56,5 +56,5 @@ export interface SectionHeaderProps
   /**
    * @default _self
    */
-  linkTarget?: '_blank' | '_self' | '_parent' | '_top';
+  linkTarget?: React.HTMLAttributeAnchorTarget | undefined;
 }

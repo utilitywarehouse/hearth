@@ -1,7 +1,13 @@
+@import url('../../styles/tokens/section-header.css');
+
 .hearth-SectionHeader {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: var(--h-section-header-horizontal-gap);
+  gap: var(--h-section-header-gap);
   flex: 1 0 0;
+
+  .hearth-SectionHeaderTextContent {
+    gap: var(--h-section-header-text-content-gap);
+  }
 }
