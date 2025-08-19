@@ -1,11 +1,10 @@
 export {
   default as Accordion,
-  AccordionItem,
-  AccordionHeader,
-  AccordionTrigger,
   AccordionContent,
   AccordionContentText,
+  AccordionHeader,
   AccordionIcon,
+  AccordionItem,
   AccordionTitleText,
+  AccordionTrigger,
 } from './Accordion';
-export * from './AccordionHeader';
