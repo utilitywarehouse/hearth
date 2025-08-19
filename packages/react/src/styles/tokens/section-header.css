@@ -3,6 +3,6 @@
  */
 
 :root {
-  --h-section-header-horizontal-gap: var(--h-space-150);
-  --h-section-header-vertical-gap: var(--h-space-25);
+  --h-section-header-gap: var(--h-space-150);
+  --h-section-header-text-content-gap: var(--h-space-25);
 }

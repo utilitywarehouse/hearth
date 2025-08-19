@@ -2,20 +2,20 @@ import * as React from 'react';
 
 import clsx from 'clsx';
 
-import { sectionHeaderPropDefs, SectionHeaderProps } from './SectionHeader.props';
+import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import type { ElementRef } from 'react';
 import { extractProps } from '../../helpers/extract-props';
-import { textAlignPropDefs } from '../../props/text-align.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { useIds } from '../../hooks/use-ids';
+import { marginPropDefs } from '../../props/margin.props';
+import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { textWrapPropDefs } from '../../props/text-wrap.props';
-import { marginPropDefs } from '../../props/margin.props';
-import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
-import { DetailText } from '../DetailText/DetailText';
 import { Flex } from '../Flex/Flex';
+import { Heading } from '../Heading/Heading';
 import { HelperText } from '../HelperText/HelperText';
 import { Link } from '../Link/Link';
-import { useIds } from '../../hooks/use-ids';
+import { sectionHeaderPropDefs, SectionHeaderProps } from './SectionHeader.props';
 
 const componentName = 'SectionHeader';
 const componentClassName = withGlobalPrefix(componentName);
@@ -51,10 +51,10 @@ export const SectionHeader = React.forwardRef<SectionHeaderElement, SectionHeade
     const showLink = linkHref && linkText;
     return (
       <div className={clsx(componentClassName, className)}>
-        <Flex direction="column" flexGrow="1">
-          <DetailText asChild size="lg" id={labelId}>
+        <Flex direction="column" flexGrow="1" className={clsx('hearth-SectionHeaderTextContent')}>
+          <Heading asChild size="md" id={labelId}>
             <SectionHeaderEl>{heading}</SectionHeaderEl>
-          </DetailText>
+          </Heading>
           {helperText ? (
             <HelperText id={helperTextId} disableUserSelect>
               {helperText}
