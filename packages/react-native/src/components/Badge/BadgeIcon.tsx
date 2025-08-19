@@ -17,7 +17,6 @@ const styles = StyleSheet.create(theme => ({
     height: 20,
     minWidth: 20,
     minHeight: 20,
-    alignSelf: 'flex-start',
     variants: {
       colorScheme: {
         info: {},
@@ -25,6 +24,12 @@ const styles = StyleSheet.create(theme => ({
         positive: {},
         warning: {},
         functional: {},
+        energy: {},
+        broadband: {},
+        mobile: {},
+        insurance: {},
+        cashback: {},
+        pig: {},
       },
       variant: {
         solid: {
@@ -34,6 +39,7 @@ const styles = StyleSheet.create(theme => ({
       },
     },
     compoundVariants: [
+      // Solid
       {
         colorScheme: 'info',
         variant: 'solid',
@@ -69,6 +75,49 @@ const styles = StyleSheet.create(theme => ({
           color: theme.color.feedback.functional.foreground.default,
         },
       },
+      {
+        colorScheme: 'energy',
+        variant: 'solid',
+        styles: {
+          color: theme.color.icon.primary,
+        },
+      },
+      {
+        colorScheme: 'broadband',
+        variant: 'solid',
+        styles: {
+          color: theme.color.icon.primary,
+        },
+      },
+      {
+        colorScheme: 'mobile',
+        variant: 'solid',
+        styles: {
+          color: theme.color.icon.primary,
+        },
+      },
+      {
+        colorScheme: 'insurance',
+        variant: 'solid',
+        styles: {
+          color: theme.color.icon.primary,
+        },
+      },
+      {
+        colorScheme: 'cashback',
+        variant: 'solid',
+        styles: {
+          color: theme.color.icon.primary,
+        },
+      },
+      {
+        colorScheme: 'pig',
+        variant: 'solid',
+        styles: {
+          color: theme.color.icon.primary,
+        },
+      },
+      // Outline
       {
         colorScheme: 'info',
         variant: 'outline',
