@@ -38,6 +38,6 @@ export interface AccordionProps extends ViewProps {
    * @default false
    */
   contentNoPadding?: boolean;
-  headingText?: string;
-  headingHelperText?: string;
+  heading?: string;
+  helperText?: string;
 }

@@ -1,20 +1,20 @@
-import { Children, isValidElement, useMemo } from 'react';
 import { createAccordion } from '@gluestack-ui/accordion';
-import AccordionRoot from './AccordionRoot';
-import AccordionContentTextComponent from './AccordionContentText';
-import AccordionIconComponent from './AccordionIcon';
-import AccordionContentComponent from './AccordionContent';
-import AccordionHeaderComponent from './AccordionHeader';
-import AccordionItemRoot from './AccordionItemRoot';
-import AccordionTitleTextComponent from './AccordionTitleText';
-import AccordionTriggerComponent from './AccordionTrigger';
-import { AccordionProps } from './Accordion.props';
-import { AccordionItemProps } from './AccordionItem.props';
 import {
   ChevronDownSmallIcon,
   ChevronUpSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
-import { AccordionHeading } from './AccordionHeading';
+import { Children, isValidElement, useMemo } from 'react';
+import { SectionHeader } from '../SectionHeader';
+import { AccordionProps } from './Accordion.props';
+import AccordionContentComponent from './AccordionContent';
+import AccordionContentTextComponent from './AccordionContentText';
+import AccordionHeaderComponent from './AccordionHeader';
+import AccordionIconComponent from './AccordionIcon';
+import { AccordionItemProps } from './AccordionItem.props';
+import AccordionItemRoot from './AccordionItemRoot';
+import AccordionRoot from './AccordionRoot';
+import AccordionTitleTextComponent from './AccordionTitleText';
+import AccordionTriggerComponent from './AccordionTrigger';
 
 const AccordionComponent = createAccordion({
   Root: AccordionRoot,
@@ -39,8 +39,8 @@ const Accordion = ({
   children,
   collapsible,
   type = 'multiple',
-  headingText,
-  headingHelperText,
+  heading,
+  helperText,
   ...props
 }: AccordionProps) => (
   <AccordionComponent
@@ -50,7 +50,7 @@ const Accordion = ({
     contentNoPadding={props.contentNoPadding}
     {...props}
   >
-    {headingText ? <AccordionHeading text={headingText} helperText={headingHelperText} /> : null}
+    {heading ? <SectionHeader heading={heading} helperText={helperText} /> : null}
     {children}
   </AccordionComponent>
 );

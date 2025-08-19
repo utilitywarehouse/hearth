@@ -1,10 +1,10 @@
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import SectionHeaderTitle from './SectionHeaderTitle';
-import SectionHeaderHelperText from './SectionHeaderHelperText';
-import SectionHeaderProps from './SectionHeader.props';
-import SectionHeaderTextContent from './SectionHeaderTextContent';
 import { Link } from '..';
+import SectionHeaderProps from './SectionHeader.props';
+import SectionHeaderTitle from './SectionHeaderHeading';
+import SectionHeaderHelperText from './SectionHeaderHelperText';
+import SectionHeaderTextContent from './SectionHeaderTextContent';
 
 const SectionHeader = ({
   heading,
@@ -53,7 +53,7 @@ SectionHeader.displayName = 'SectionHeader';
 const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
-    gap: theme.components.sectionHeader.horizontalGap,
+    gap: theme.components.sectionHeader.gap,
     alignItems: 'flex-start',
   },
 }));

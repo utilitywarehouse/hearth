@@ -1,6 +1,4 @@
-import { Meta, Canvas, Story, Controls } from '@storybook/addon-docs/blocks';
-import * as Stories from './Accordion.stories';
-import { Center, BodyText, Alert, Box, Card, List, ListItem, Flex } from '../../';
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
 import {
   Accordion,
   AccordionContent,
@@ -12,7 +10,9 @@ import {
   AccordionTrigger,
   Badge,
 } from '../';
-import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
+import { Alert, BodyText, Box, Card, Center, Flex, List, ListItem } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Accordion.stories';
 
 <Meta title="Components / Accordion" />
 
@@ -79,25 +79,18 @@ const MyComponent = () => {
 
 ## Props
 
-| Property            | Type                        | Description                                                                                                                                                | Default    |
-| ------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| `defaultValue`      | `Array<string>`             | The default value of the accordion.                                                                                                                        | `-`        |
-| `value`             | `Array<string>`             | The controlled value of the accordion.                                                                                                                     | `-`        |
-| `onValueChange`     | `(value: string[]) => void` | Callback function that is called when the value of the accordion changes.                                                                                  | `-`        |
-| `type`              | `'single' \| 'multiple'`    | The type of accordion. If set to 'single', only one item can be expanded at a time. If set to 'multiple', multiple items can be expanded at the same time. | `'single'` |
-| `collapsible`       | `boolean`                   | If true, the accordion can be collapsed.                                                                                                                   | `false`    |
-| `disabled`          | `boolean`                   | If true, the accordion is disabled.                                                                                                                        | `false`    |
-| `noPadding`         | `boolean`                   | If true, no horizontal padding is applied to the accordion items.                                                                                          | `false`    |
-| `contentNoPadding`  | `boolean`                   | If true, no horizontal padding is applied to the accordion content.                                                                                        | `false`    |
-| `headingText`       | `string`                    | The text to display in the heading of the list.                                                                                                            | `-`        |
-| `headingHelperText` | `string`                    | The supporting text to display in the heading of the list.                                                                                                 | `-`        |
-
-### `AccordionHeading`
-
-| Name         | Type     | Description                                                | Default |
-| ------------ | -------- | ---------------------------------------------------------- | ------- |
-| `text`       | `string` | The text to display in the heading of the list.            | `-`     |
-| `helperText` | `string` | The supporting text to display in the heading of the list. | `-`     |
+| Property           | Type                        | Description                                                                                                                                                | Default    |
+| ------------------ | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| `defaultValue`     | `Array<string>`             | The default value of the accordion.                                                                                                                        | `-`        |
+| `value`            | `Array<string>`             | The controlled value of the accordion.                                                                                                                     | `-`        |
+| `onValueChange`    | `(value: string[]) => void` | Callback function that is called when the value of the accordion changes.                                                                                  | `-`        |
+| `type`             | `'single' \| 'multiple'`    | The type of accordion. If set to 'single', only one item can be expanded at a time. If set to 'multiple', multiple items can be expanded at the same time. | `'single'` |
+| `collapsible`      | `boolean`                   | If true, the accordion can be collapsed.                                                                                                                   | `false`    |
+| `disabled`         | `boolean`                   | If true, the accordion is disabled.                                                                                                                        | `false`    |
+| `noPadding`        | `boolean`                   | If true, no horizontal padding is applied to the accordion items.                                                                                          | `false`    |
+| `contentNoPadding` | `boolean`                   | If true, no horizontal padding is applied to the accordion content.                                                                                        | `false`    |
+| `heading`          | `string`                    | The text to display in the heading of the list.                                                                                                            | `-`        |
+| `helperText`       | `string`                    | The helper text to display in the heading of the list.                                                                                                     | `-`        |
 
 ### `AccordionItem`
 
@@ -120,8 +113,8 @@ state of the items or when you want to customise the header and content.
     <Accordion
       type="multiple"
       defaultValue={['item-1']}
-      headingText="Frequently Asked Questions"
-      headingHelperText="Click to expand"
+      heading="Frequently Asked Questions"
+      helperText="Click to expand"
     >
       <AccordionItem title="How do I place an order?" value="item-1">
         <BodyText> Lorem ipsum dolor sit amet consectetur, adipisicing elit.</BodyText>
@@ -143,10 +136,8 @@ import {
   AccordionItem,
   AccordionTitleText,
   AccordionTrigger,
-  AccordionHeading,
-  AccordionHeadingText,
-  AccordionHeadingHelperText,
-} from '@utilitywarehouse/native-ui/lab';
+  SectionHeader,
+} from '@utilitywarehouse/native-ui';
 import {
   ChevronDownSmallIcon,
   ChevronUpSmallIcon,
@@ -155,12 +146,7 @@ import {
 const MyComponent = () => {
   return (
     <Accordion type="multiple" defaultValue={['item-1']}>
-      <AccordionHeading>
-        <AccordionHeadingTextContent>
-          <AccordionHeadingText>Frequently Asked Questions</AccordionHeadingText>
-          <AccordionHeadingHelperText>Click to expand</AccordionHeadingHelperText>
-        </AccordionHeadingTextContent>
-      </AccordionHeading>
+      <SectionHeader heading="Frequently Asked Questions" helperText="Click to expand" />
       <AccordionItem value="a">
         <AccordionHeader>
           <AccordionTrigger>
@@ -224,8 +210,8 @@ You can add a heading and helper text to the accordion to provide context for th
     <Accordion
       type="multiple"
       defaultValue={['item-1']}
-      headingText="Frequently Asked Questions"
-      headingHelperText="Click to expand"
+      heading="Frequently Asked Questions"
+      helperText="Click to expand"
     >
       <AccordionItem title="How do I place an order?" value="item-1">
         <BodyText> Lorem ipsum dolor sit amet consectetur, adipisicing elit.</BodyText>
@@ -249,8 +235,8 @@ const MyComponent = () => {
     <Accordion
       type="multiple"
       defaultValue={['item-1']}
-      headingText="Frequently Asked Questions"
-      headingHelperText="Click to expand"
+      heading="Frequently Asked Questions"
+      helperText="Click to expand"
     >
       <AccordionItem title="How do I place an order?" value="item-1">
         <BodyText> Lorem ipsum dolor sit amet consectetur, adipisicing elit.</BodyText>
