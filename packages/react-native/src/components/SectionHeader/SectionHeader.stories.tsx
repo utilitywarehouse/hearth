@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { SettingsMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { SectionHeader } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
+import SectionHeader from './SectionHeader';
 
 const meta = {
   title: 'Stories / SectionHeader',

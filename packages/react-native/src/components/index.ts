@@ -3,12 +3,12 @@ export * from './Accordion';
 export * from './Alert';
 export * from './Badge';
 export * from './BodyText';
-export * from './Box';
 export * from './BottomSheet';
+export * from './Box';
 export * from './Button';
 export * from './Card';
-export * from './Checkbox';
 export * from './Center';
+export * from './Checkbox';
 export * from './DetailText';
 export * from './Divider';
 export * from './Flex';
@@ -24,6 +24,7 @@ export * from './Input';
 export * from './Label';
 export * from './Link';
 export * from './List';
+export * from './Modal';
 export * from './Radio';
 export * from './RadioCard';
 export * from './SectionHeader';
@@ -36,12 +37,12 @@ export * from './ToggleButtonCard';
 
 export {
   FlatList,
-  ScrollView,
+  Image,
   KeyboardAvoidingView,
+  ScrollView,
+  SectionList,
   StatusBar,
   View,
-  SectionList,
-  Image,
 } from 'react-native';
 
 export { Pressable } from 'react-native';
