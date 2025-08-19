@@ -13,7 +13,7 @@ SectionHeaderTextContent.displayName = 'SectionHeaderTextContent';
 
 const styles = StyleSheet.create(theme => ({
   container: {
-    gap: theme.components.sectionHeader.verticalGap,
+    gap: theme.components.sectionHeader.textContent.gap,
     flex: 1,
   },
 }));
