@@ -25,6 +25,9 @@ const Modal = ({
   closeOnSecondaryButtonPress = true,
   loading,
   image,
+  primaryButtonProps,
+  secondaryButtonProps,
+  closeButtonProps,
   ...props
 }: ModalProps) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -64,6 +67,69 @@ const Modal = ({
     }
   };
 
+  const content = (
+    <>
+      {loading ? (
+        <View style={styles.loadingContainer}>
+          <Spinner size="lg" />
+          <Heading size="lg" textAlign="center">
+            Loading...
+          </Heading>
+        </View>
+      ) : (
+        <>
+          <View style={styles.header}>
+            <View style={styles.headerTextContent}>
+              {heading && !image ? <Heading size="lg">{heading}</Heading> : null}
+              {description && !image ? <BodyText>{description}</BodyText> : null}
+            </View>
+            {showCloseButton ? (
+              <UnstyledIconButton
+                icon={CloseMediumIcon}
+                onPress={handleCloseButtonPress}
+                {...closeButtonProps}
+              />
+            ) : null}
+          </View>
+          {image ? (
+            <View style={styles.imageContainer}>
+              <Image style={styles.image} {...image} />
+              <View style={styles.textContent}>
+                {heading ? (
+                  <Heading size="lg" textAlign="center">
+                    {heading}
+                  </Heading>
+                ) : null}
+                {description ? <BodyText textAlign="center">{description}</BodyText> : null}
+              </View>
+            </View>
+          ) : null}
+          {children}
+          <View style={styles.footer}>
+            {onPressPrimaryButton && primaryButtonText ? (
+              <Button
+                onPress={handlePrimaryButtonPress}
+                text={primaryButtonText}
+                {...primaryButtonProps}
+                variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
+                colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
+              />
+            ) : null}
+            {onPressSecondaryButton && secondaryButtonText ? (
+              <Button
+                onPress={handleSecondaryButtonPress}
+                text={secondaryButtonText}
+                {...secondaryButtonProps}
+                variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
+                colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
+              />
+            ) : null}
+          </View>
+        </>
+      )}
+    </>
+  );
+
   return (
     <BottomSheetModal
       ref={bottomSheetModalRef}
@@ -74,54 +140,7 @@ const Modal = ({
       {...props}
     >
       <BottomSheetScrollView contentContainerStyle={styles.container}>
-        {loading ? (
-          <View style={styles.loadingContainer}>
-            <Spinner size="lg" />
-            <Heading size="lg" textAlign="center">
-              Loading...
-            </Heading>
-          </View>
-        ) : (
-          <>
-            <View style={styles.header}>
-              <View style={styles.headerTextContent}>
-                {heading && !image ? <Heading size="lg">{heading}</Heading> : null}
-                {description && !image ? <BodyText>{description}</BodyText> : null}
-              </View>
-              {showCloseButton ? (
-                <UnstyledIconButton icon={CloseMediumIcon} onPress={handleCloseButtonPress} />
-              ) : null}
-            </View>
-            {image ? (
-              <View style={styles.imageContainer}>
-                <Image style={styles.image} {...image} />
-                <View style={styles.textContent}>
-                  {heading ? (
-                    <Heading size="lg" textAlign="center">
-                      {heading}
-                    </Heading>
-                  ) : null}
-                  {description ? <BodyText textAlign="center">{description}</BodyText> : null}
-                </View>
-              </View>
-            ) : null}
-            {children}
-            <View style={styles.footer}>
-              {onPressPrimaryButton && primaryButtonText ? (
-                <Button onPress={handlePrimaryButtonPress}>{primaryButtonText}</Button>
-              ) : null}
-              {onPressSecondaryButton && secondaryButtonText ? (
-                <Button
-                  onPress={handleSecondaryButtonPress}
-                  variant="outline"
-                  colorScheme="functional"
-                >
-                  {secondaryButtonText}
-                </Button>
-              ) : null}
-            </View>
-          </>
-        )}
+        {content}
       </BottomSheetScrollView>
     </BottomSheetModal>
   );

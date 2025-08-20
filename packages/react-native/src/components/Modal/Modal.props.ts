@@ -1,5 +1,7 @@
 import { ImageProps, ViewProps } from 'react-native';
 import { BottomSheetProps } from '../BottomSheet';
+import { ButtonWithoutChildrenProps } from '../Button/Button.props';
+import { UnstyledIconButtonProps } from '../UnstyledIconButton';
 
 interface ModalProps extends Omit<BottomSheetProps, 'children'> {
   loading?: boolean;
@@ -16,6 +18,9 @@ interface ModalProps extends Omit<BottomSheetProps, 'children'> {
   secondaryButtonText?: string;
   onPressCloseButton?: () => void;
   closeOnSecondaryButtonPress?: boolean;
+  primaryButtonProps?: Omit<ButtonWithoutChildrenProps, 'children'>;
+  secondaryButtonProps?: Omit<ButtonWithoutChildrenProps, 'children'>;
+  closeButtonProps?: Omit<UnstyledIconButtonProps, 'children'>;
 }
 
 export default ModalProps;
