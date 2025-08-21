@@ -19,6 +19,7 @@ The Modal component is ideal for displaying important information, collecting us
 - [Usage](#usage)
 - [Props](#props)
 - [Features](#features)
+- [Accessibility](#accessibility)
 - [Examples](#examples)
   - [Basic Modal](#basic-modal)
   - [Modal with Image](#modal-with-image)
@@ -119,6 +120,133 @@ The Modal component extends the `BottomSheetModal` component and accepts all of 
 - **Auto-close**: Configurable auto-close behavior for action buttons
 - **Backdrop**: Inherits backdrop behavior from BottomSheetModal
 - **Scrollable Content**: Uses BottomSheetScrollView for content that may overflow
+- **Screen Reader Support**: Automatically announces modal state changes and manages focus
+- **Focus Management**: Sets accessibility focus to modal content when opened
+- **Keyboard Navigation**: Full keyboard support for interactive elements
+- **ARIA Labels**: Proper labeling for all interactive components
+- **Loading States**: Accessible loading indicators with appropriate announcements
+
+## Accessibility
+
+The Modal component is built with comprehensive accessibility support to ensure a great experience for all users, including those using screen readers and other assistive technologies.
+
+### Screen Reader Support
+
+- **Automatic Announcements**: When the modal opens, screen readers automatically announce "Modal opened"
+- **Content Focus**: Focus is automatically set to the modal content area for immediate access
+- **Loading State Announcements**: Loading states are properly announced with "Loading..." text
+- **Button Labels**: All interactive elements have descriptive accessibility labels
+
+### Focus Management
+
+The Modal component automatically manages focus to provide a seamless experience:
+
+```tsx
+// Focus is automatically set when modal opens
+const MyModal = () => {
+  const modalRef = useRef<BottomSheetModal>(null);
+
+  return (
+    <Modal
+      ref={modalRef}
+      heading="Accessible Modal" // Automatically becomes accessible heading
+      description="This description is accessible to screen readers"
+      primaryButtonText="Confirm" // Button is automatically labeled
+      secondaryButtonText="Cancel"
+      // Focus management is handled automatically
+    />
+  );
+};
+```
+
+### Custom Accessibility Labels
+
+You can enhance accessibility by providing custom labels for buttons and close actions:
+
+```tsx
+<Modal
+  ref={modalRef}
+  heading="Delete Item"
+  description="This action cannot be undone"
+  primaryButtonText="Delete"
+  secondaryButtonText="Cancel"
+  // Custom accessibility labels
+  closeButtonProps={{
+    accessibilityLabel: 'Close delete confirmation dialog',
+  }}
+  primaryButtonProps={{
+    accessibilityLabel: 'Confirm deletion of item',
+  }}
+  secondaryButtonProps={{
+    accessibilityLabel: 'Cancel deletion and return to previous screen',
+  }}
+/>
+```
+
+### Loading State Accessibility
+
+Loading states are fully accessible with proper announcements:
+
+```tsx
+<Modal
+  ref={modalRef}
+  heading="Processing Payment"
+  description="Please wait while we process your payment"
+  loading={isProcessing}
+  // Loading spinner and "Loading..." text are automatically accessible
+  primaryButtonText="Process Payment"
+  onPressPrimaryButton={handlePayment}
+/>
+```
+
+### Best Practices
+
+1. **Descriptive Headings**: Use clear, descriptive headings that explain the modal's purpose
+2. **Actionable Button Text**: Use specific button text that describes the action (e.g., "Save Changes" vs "OK")
+3. **Meaningful Descriptions**: Provide context in the description to help users understand the consequences
+4. **Custom Labels**: Add custom accessibility labels for complex interactions
+5. **Loading Feedback**: Always provide accessible feedback during loading states
+
+### Testing Accessibility
+
+To test accessibility in your Modal implementation:
+
+```tsx
+import { AccessibilityInfo } from 'react-native';
+
+const TestableModal = () => {
+  const modalRef = useRef<BottomSheetModal>(null);
+
+  const handleOpenModal = () => {
+    modalRef.current?.present();
+
+    // Test: Verify screen reader announcement
+    AccessibilityInfo.announceForAccessibility('Opening confirmation dialog');
+  };
+
+  return (
+    <Modal
+      ref={modalRef}
+      heading="Test Modal"
+      description="This modal demonstrates accessibility features"
+      primaryButtonText="Test Action"
+      // Verify these labels work with your screen reader
+      closeButtonProps={{
+        accessibilityLabel: 'Close test modal',
+        accessibilityHint: 'Dismisses the modal without saving changes',
+      }}
+    />
+  );
+};
+```
+
+### Platform Considerations
+
+The Modal component handles platform-specific accessibility differences:
+
+- **iOS**: Uses VoiceOver optimizations for focus management
+- **Android**: Implements TalkBack-specific accessibility patterns
+- **Cross-platform**: Consistent behavior across both platforms
 
 ## Examples
 
