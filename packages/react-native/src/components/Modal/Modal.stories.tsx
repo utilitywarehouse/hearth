@@ -140,6 +140,7 @@ export const WithImage = () => {
           onPressSecondaryButton={closeModal}
           index={1}
           image={{
+            // @ts-ignore
             source: pigs,
             resizeMode: 'contain',
           }}

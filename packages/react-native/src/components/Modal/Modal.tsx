@@ -1,6 +1,7 @@
+import { BottomSheetScrollViewMethods, SNAP_POINT_TYPE } from '@gorhom/bottom-sheet';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useCallback, useImperativeHandle, useRef } from 'react';
-import { Image, View } from 'react-native';
+import { useImperativeHandle, useRef } from 'react';
+import { AccessibilityInfo, Image, Platform, View, findNodeHandle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { BottomSheetModal, BottomSheetScrollView } from '../BottomSheet';
@@ -31,16 +32,33 @@ const Modal = ({
   ...props
 }: ModalProps) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
+  const viewRef = useRef<View>(null);
+  const scrollViewRef = useRef<BottomSheetScrollViewMethods>(null);
 
   useImperativeHandle(ref, () => bottomSheetModalRef.current as BottomSheetModal);
 
-  const handleClose = useCallback((index: number) => {
-    if (index === -1) {
-      // setSearch('');
-      // setIsOpen(false);
-      return;
+  const handleChange = (index: number, position: number, type: SNAP_POINT_TYPE) => {
+    console.log('Modal onChange', index, position, type);
+    if (index > -1) {
+      // Add a small delay to ensure the modal is fully rendered
+      setTimeout(() => {
+        // Announce the modal opening to screen readers
+        AccessibilityInfo.announceForAccessibility('Modal opened.');
+
+        const scrollViewTargetRef = scrollViewRef.current?.getInnerViewNode();
+        const targetRef = viewRef.current;
+        if ((Platform.OS === 'android' && targetRef) || scrollViewTargetRef) {
+          const nodeHandle = findNodeHandle(
+            Platform.OS === 'android' ? targetRef : scrollViewTargetRef
+          );
+          if (nodeHandle) {
+            AccessibilityInfo.setAccessibilityFocus(nodeHandle);
+          }
+        }
+      }, 100);
     }
-  }, []);
+    props.onChange?.(index, position, type);
+  };
 
   const handleCloseButtonPress = () => {
     bottomSheetModalRef.current?.dismiss();
@@ -70,23 +88,40 @@ const Modal = ({
   const content = (
     <>
       {loading ? (
-        <View style={styles.loadingContainer}>
+        <View
+          style={styles.loadingContainer}
+          accessible={Platform.OS === 'android' ? true : undefined}
+          accessibilityLabel={Platform.OS === 'android' ? 'Loading' : undefined}
+          screenReaderFocusable
+          ref={viewRef}
+        >
           <Spinner size="lg" />
           <Heading size="lg" textAlign="center">
             Loading...
           </Heading>
         </View>
       ) : (
-        <>
+        <View
+          style={styles.container}
+          accessible={Platform.OS === 'android' ? true : undefined}
+          accessibilityLabel={Platform.OS === 'android' ? 'Modal content' : undefined}
+          screenReaderFocusable
+          ref={viewRef}
+        >
           <View style={styles.header}>
             <View style={styles.headerTextContent}>
-              {heading && !image ? <Heading size="lg">{heading}</Heading> : null}
-              {description && !image ? <BodyText>{description}</BodyText> : null}
+              {heading && !image ? (
+                <Heading size="lg" accessible>
+                  {heading}
+                </Heading>
+              ) : null}
+              {description && !image ? <BodyText accessible>{description}</BodyText> : null}
             </View>
             {showCloseButton ? (
               <UnstyledIconButton
                 icon={CloseMediumIcon}
                 onPress={handleCloseButtonPress}
+                accessibilityLabel="Close modal"
                 {...closeButtonProps}
               />
             ) : null}
@@ -96,11 +131,15 @@ const Modal = ({
               <Image style={styles.image} {...image} />
               <View style={styles.textContent}>
                 {heading ? (
-                  <Heading size="lg" textAlign="center">
+                  <Heading size="lg" textAlign="center" accessible>
                     {heading}
                   </Heading>
                 ) : null}
-                {description ? <BodyText textAlign="center">{description}</BodyText> : null}
+                {description ? (
+                  <BodyText textAlign="center" accessible>
+                    {description}
+                  </BodyText>
+                ) : null}
               </View>
             </View>
           ) : null}
@@ -125,7 +164,7 @@ const Modal = ({
               />
             ) : null}
           </View>
-        </>
+        </View>
       )}
     </>
   );
@@ -133,13 +172,14 @@ const Modal = ({
   return (
     <BottomSheetModal
       ref={bottomSheetModalRef}
-      onChange={handleClose}
       enableDynamicSizing={true}
       snapPoints={image ? ['90%'] : props.snapPoints}
       showHandle={typeof loading !== 'undefined' && loading ? false : props.showHandle}
+      accessible={false}
       {...props}
+      onChange={handleChange}
     >
-      <BottomSheetScrollView contentContainerStyle={styles.container}>
+      <BottomSheetScrollView contentContainerStyle={styles.container} ref={scrollViewRef}>
         {content}
       </BottomSheetScrollView>
     </BottomSheetModal>

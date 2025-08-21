@@ -1,6 +1,6 @@
 import { BottomSheetScrollView as ScrollView } from '@gorhom/bottom-sheet';
-import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { BottomSheetScrollViewProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetScrollable/types';
+import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { useBottomSheetContext } from './BottomSheet.context';
 
 const StyledBottomSheetScrollView = withUnistyles(
@@ -32,7 +32,9 @@ const BottomSheetScrollView = ({
 };
 
 const styles = StyleSheet.create((theme, rt) => ({
-  container: {},
+  container: {
+    backgroundColor: theme.color.surface.neutral.strong,
+  },
   contentContainer: {
     paddingHorizontal: theme.components.bottomSheet.padding,
     paddingBottom: theme.components.bottomSheet.padding,

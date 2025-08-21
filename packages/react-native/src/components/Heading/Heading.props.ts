@@ -1,4 +1,5 @@
-import type { TextProps, TextStyle } from 'react-native';
+import type { Ref } from 'react';
+import type { Text, TextProps, TextStyle } from 'react-native';
 import type { ColorValue } from '../../types';
 
 interface HeadingProps extends TextProps {
@@ -15,6 +16,7 @@ interface HeadingProps extends TextProps {
   textDecorationColor?: ColorValue;
   userSelect?: TextStyle['userSelect'];
   inverted?: boolean;
+  ref?: Ref<Text>;
 }
 
 export default HeadingProps;
