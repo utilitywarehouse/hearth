@@ -38,7 +38,6 @@ const Modal = ({
   useImperativeHandle(ref, () => bottomSheetModalRef.current as BottomSheetModal);
 
   const handleChange = (index: number, position: number, type: SNAP_POINT_TYPE) => {
-    console.log('Modal onChange', index, position, type);
     if (index > -1) {
       // Add a small delay to ensure the modal is fully rendered
       setTimeout(() => {

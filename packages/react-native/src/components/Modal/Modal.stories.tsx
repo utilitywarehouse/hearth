@@ -1,9 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { useRef } from 'react';
-import { Dimensions, Platform, View, ViewProps } from 'react-native';
+import { Dimensions, ImageSourcePropType, Platform, View, ViewProps } from 'react-native';
 import { UnistylesRuntime } from 'react-native-unistyles';
 import { Modal } from '.';
-// @ts-ignore
 import pigs from '../../../docs/assets/pigs.png';
 import { BodyText } from '../BodyText';
 import { BottomSheetModal } from '../BottomSheet';
@@ -140,8 +139,7 @@ export const WithImage = () => {
           onPressSecondaryButton={closeModal}
           index={1}
           image={{
-            // @ts-ignore
-            source: pigs,
+            source: pigs as ImageSourcePropType,
             resizeMode: 'contain',
           }}
         />

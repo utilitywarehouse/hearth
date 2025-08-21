@@ -101,7 +101,6 @@ const AllComponents: React.FC = () => {
     }
   }, [bottomSheetRef]);
   useEffect(() => {
-    console.log(modalRef.current);
     if (modalRef.current) {
       setTimeout(() => {
         modalRef.current?.present();
