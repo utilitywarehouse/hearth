@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 
+import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import {
   BroadbandMediumIcon,
   ChevronRightMediumIcon,
@@ -37,6 +38,7 @@ import {
   Link,
   List,
   ListItem,
+  Modal,
   OL,
   Radio,
   RadioCard,
@@ -87,6 +89,10 @@ const AllComponents: React.FC = () => {
   const handleOpenPress = useCallback(() => {
     bottomSheetRef.current?.expand();
   }, []);
+  const modalRef = useRef<BottomSheetModalMethods>(null);
+  const handleModalOpenPress = useCallback(() => {
+    modalRef.current?.present();
+  }, []);
   useEffect(() => {
     if (bottomSheetRef.current) {
       setTimeout(() => {
@@ -94,6 +100,13 @@ const AllComponents: React.FC = () => {
       }, 300);
     }
   }, [bottomSheetRef]);
+  useEffect(() => {
+    if (modalRef.current) {
+      setTimeout(() => {
+        modalRef.current?.present();
+      }, 400);
+    }
+  }, [modalRef]);
   const [switchEnabled, setSwitchEnabled] = React.useState(false);
   const toggleSwitch = () => setSwitchEnabled(!switchEnabled);
   const [colorMode] = useColorMode();
@@ -287,6 +300,21 @@ const AllComponents: React.FC = () => {
               </List>
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper name="Modal" link="/?path=/docs/components-modal--docs">
+            <Center flex={1}>
+              <Button onPress={handleModalOpenPress}>Open Modal</Button>
+              <BottomSheetModalProvider>
+                <Modal
+                  ref={modalRef}
+                  heading="This is a Modal"
+                  description="This is a modal description"
+                  primaryButtonText="Primary"
+                  secondaryButtonText="Close"
+                  index={0}
+                />
+              </BottomSheetModalProvider>
+            </Center>
+          </ComponentWrapper>
           <ComponentWrapper
             name="Ordered List"
             link="/?path=/docs/utility-components-ul-ol-lists--docs"
@@ -321,9 +349,12 @@ const AllComponents: React.FC = () => {
               </RadioCardGroup>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Section Header" link="/?path=/docs/components-section-header--docs">
+          <ComponentWrapper
+            name="Section Header"
+            link="/?path=/docs/components-section-header--docs"
+          >
             <Center flex={1}>
-              <SectionHeader heading="Heading" helperText="Supporting text" linkText="More"/>
+              <SectionHeader heading="Heading" helperText="Supporting text" linkText="More" />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Select" link="/?path=/docs/forms-select--docs">

@@ -1,0 +1,450 @@
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
+import { BodyText, BottomSheetModal, Box, Button, Center, Heading, Modal } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Modal.stories';
+
+<Meta title="Components / Modal" />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=6300-2825&t=JmfcCbdIvO3jcjc3-4" />
+
+<BackToTopButton />
+
+# Modal
+
+The `Modal` component provides a versatile dialog interface that slides up from the bottom of the screen. It's built on top of the `BottomSheetModal` component and includes pre-configured layouts for common modal patterns including headers, content areas, and action buttons.
+
+The Modal component is ideal for displaying important information, collecting user input, or presenting choices that require user attention without navigating away from the current screen.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Features](#features)
+- [Accessibility](#accessibility)
+- [Examples](#examples)
+  - [Basic Modal](#basic-modal)
+  - [Modal with Image](#modal-with-image)
+  - [Modal with Custom Content](#modal-with-custom-content)
+  - [Loading State](#loading-state)
+  - [Without Close Button](#without-close-button)
+  - [Single Action Modal](#single-action-modal)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+### Basic Usage
+
+<UsageWrap>
+  <Center>
+    <Button onPress={() => {}}>Open Modal</Button>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { useRef, useCallback } from 'react';
+import { Modal, Button, BottomSheetModal } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const modalRef = useRef<BottomSheetModal>(null);
+
+  const handleOpenModal = useCallback(() => {
+    modalRef.current?.present();
+  }, []);
+
+  const handleCloseModal = useCallback(() => {
+    modalRef.current?.dismiss();
+  }, []);
+
+  return (
+    <>
+      <Button onPress={handleOpenModal}>Open Modal</Button>
+
+      <Modal
+        ref={modalRef}
+        heading="Confirm Action"
+        description="Are you sure you want to proceed with this action?"
+        primaryButtonText="Confirm"
+        secondaryButtonText="Cancel"
+        onPressPrimaryButton={handleCloseModal}
+        onPressSecondaryButton={handleCloseModal}
+      />
+    </>
+  );
+};
+```
+
+## Props
+
+The Modal component extends the `BottomSheetModal` component and accepts all of its props, plus the following additional props:
+
+| Property                      | Type                                           | Description                                                                                                   | Default |
+| ----------------------------- | ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------- |
+| `heading`                     | `string`                                       | The heading text displayed at the top of the modal                                                            | -       |
+| `description`                 | `string`                                       | The description text displayed below the heading                                                              | -       |
+| `showCloseButton`             | `boolean`                                      | Whether to show the close button in the top-right corner                                                      | `true`  |
+| `primaryButtonText`           | `string`                                       | Text for the primary action button                                                                            | -       |
+| `secondaryButtonText`         | `string`                                       | Text for the secondary action button                                                                          | -       |
+| `onPressPrimaryButton`        | `() => void`                                   | Callback function called when the primary button is pressed                                                   | -       |
+| `onPressSecondaryButton`      | `() => void`                                   | Callback function called when the secondary button is pressed                                                 | -       |
+| `onPressCloseButton`          | `() => void`                                   | Callback function called when the close button is pressed                                                     | -       |
+| `closeOnPrimaryButtonPress`   | `boolean`                                      | Whether to automatically close the modal when the primary button is pressed                                   | `true`  |
+| `closeOnSecondaryButtonPress` | `boolean`                                      | Whether to automatically close the modal when the secondary button is pressed                                 | `true`  |
+| `loading`                     | `boolean`                                      | Whether to show a loading state with spinner                                                                  | `false` |
+| `image`                       | `ImageProps`                                   | Image to display in the modal (shows as centered content with text below)                                     | -       |
+| `children`                    | `ReactNode`                                    | Custom content to display in the modal body                                                                   | -       |
+| `primaryButtonProps`          | `Omit<ButtonWithoutChildrenProps, 'children'>` | Additional props to pass to the primary button (colorScheme defaults to 'highlight', variant to 'solid')      | -       |
+| `secondaryButtonProps`        | `Omit<ButtonWithoutChildrenProps, 'children'>` | Additional props to pass to the secondary button (colorScheme defaults to 'functional', variant to 'outline') | -       |
+| `closeButtonProps`            | `Omit<UnstyledIconButtonProps, 'children'>`    | Additional props to pass to the close button                                                                  | -       |
+
+## Features
+
+### Automatic Layout Management
+
+- **Header Section**: Displays heading, description, and close button in a flexible layout
+- **Content Area**: Supports custom children or image content with automatic centering
+- **Footer Section**: Action buttons with consistent spacing and styling
+- **Loading State**: Built-in spinner and loading text with proper layout
+
+### Responsive Behavior
+
+- **Dynamic Sizing**: Automatically adjusts height based on content when `enableDynamicSizing` is enabled
+- **Image Modals**: Automatically sets snapPoints to `['90%']` when an image is provided
+- **Handle Management**: Automatically hides the drag handle during loading states
+
+### Accessibility & UX
+
+- **Auto-close**: Configurable auto-close behavior for action buttons
+- **Backdrop**: Inherits backdrop behavior from BottomSheetModal
+- **Scrollable Content**: Uses BottomSheetScrollView for content that may overflow
+- **Screen Reader Support**: Automatically announces modal state changes and manages focus
+- **Focus Management**: Sets accessibility focus to modal content when opened
+- **Keyboard Navigation**: Full keyboard support for interactive elements
+- **ARIA Labels**: Proper labeling for all interactive components
+- **Loading States**: Accessible loading indicators with appropriate announcements
+
+## Accessibility
+
+The Modal component is built with comprehensive accessibility support to ensure a great experience for all users, including those using screen readers and other assistive technologies.
+
+### Screen Reader Support
+
+- **Automatic Announcements**: When the modal opens, screen readers automatically announce "Modal opened"
+- **Content Focus**: Focus is automatically set to the modal content area for immediate access
+- **Loading State Announcements**: Loading states are properly announced with "Loading..." text
+- **Button Labels**: All interactive elements have descriptive accessibility labels
+
+### Focus Management
+
+The Modal component automatically manages focus to provide a seamless experience:
+
+```tsx
+// Focus is automatically set when modal opens
+const MyModal = () => {
+  const modalRef = useRef<BottomSheetModal>(null);
+
+  return (
+    <Modal
+      ref={modalRef}
+      heading="Accessible Modal" // Automatically becomes accessible heading
+      description="This description is accessible to screen readers"
+      primaryButtonText="Confirm" // Button is automatically labeled
+      secondaryButtonText="Cancel"
+      // Focus management is handled automatically
+    />
+  );
+};
+```
+
+### Custom Accessibility Labels
+
+You can enhance accessibility by providing custom labels for buttons and close actions:
+
+```tsx
+<Modal
+  ref={modalRef}
+  heading="Delete Item"
+  description="This action cannot be undone"
+  primaryButtonText="Delete"
+  secondaryButtonText="Cancel"
+  // Custom accessibility labels
+  closeButtonProps={{
+    accessibilityLabel: 'Close delete confirmation dialog',
+  }}
+  primaryButtonProps={{
+    accessibilityLabel: 'Confirm deletion of item',
+  }}
+  secondaryButtonProps={{
+    accessibilityLabel: 'Cancel deletion and return to previous screen',
+  }}
+/>
+```
+
+### Loading State Accessibility
+
+Loading states are fully accessible with proper announcements:
+
+```tsx
+<Modal
+  ref={modalRef}
+  heading="Processing Payment"
+  description="Please wait while we process your payment"
+  loading={isProcessing}
+  // Loading spinner and "Loading..." text are automatically accessible
+  primaryButtonText="Process Payment"
+  onPressPrimaryButton={handlePayment}
+/>
+```
+
+### Best Practices
+
+1. **Descriptive Headings**: Use clear, descriptive headings that explain the modal's purpose
+2. **Actionable Button Text**: Use specific button text that describes the action (e.g., "Save Changes" vs "OK")
+3. **Meaningful Descriptions**: Provide context in the description to help users understand the consequences
+4. **Custom Labels**: Add custom accessibility labels for complex interactions
+5. **Loading Feedback**: Always provide accessible feedback during loading states
+
+### Testing Accessibility
+
+To test accessibility in your Modal implementation:
+
+```tsx
+import { AccessibilityInfo } from 'react-native';
+
+const TestableModal = () => {
+  const modalRef = useRef<BottomSheetModal>(null);
+
+  const handleOpenModal = () => {
+    modalRef.current?.present();
+
+    // Test: Verify screen reader announcement
+    AccessibilityInfo.announceForAccessibility('Opening confirmation dialog');
+  };
+
+  return (
+    <Modal
+      ref={modalRef}
+      heading="Test Modal"
+      description="This modal demonstrates accessibility features"
+      primaryButtonText="Test Action"
+      // Verify these labels work with your screen reader
+      closeButtonProps={{
+        accessibilityLabel: 'Close test modal',
+        accessibilityHint: 'Dismisses the modal without saving changes',
+      }}
+    />
+  );
+};
+```
+
+### Platform Considerations
+
+The Modal component handles platform-specific accessibility differences:
+
+- **iOS**: Uses VoiceOver optimizations for focus management
+- **Android**: Implements TalkBack-specific accessibility patterns
+- **Cross-platform**: Consistent behavior across both platforms
+
+## Examples
+
+### Basic Modal
+
+<Canvas of={Stories.Playground} />
+
+### Modal with Image
+
+Use the `image` prop to display an image-centric modal with centered content:
+
+<Canvas of={Stories.WithImage} />
+
+```tsx
+const ImageModal = () => {
+  const modalRef = useRef<BottomSheetModal>(null);
+
+  return (
+    <>
+      <Button onPress={() => modalRef.current?.present()}>Show Image Modal</Button>
+
+      <Modal
+        ref={modalRef}
+        heading="Welcome!"
+        description="Thanks for joining our community"
+        primaryButtonText="Get Started"
+        secondaryButtonText="Maybe Later"
+        image={{
+          source: require('./path/to/image.png'),
+          resizeMode: 'contain',
+        }}
+        onPressPrimaryButton={() => modalRef.current?.dismiss()}
+        onPressSecondaryButton={() => modalRef.current?.dismiss()}
+      />
+    </>
+  );
+};
+```
+
+### Modal with Custom Content
+
+Add custom content between the header and footer sections:
+
+<Canvas of={Stories.WithCustomContent} />
+
+```tsx
+const CustomContentModal = () => {
+  const modalRef = useRef<BottomSheetModal>(null);
+
+  return (
+    <>
+      <Button onPress={() => modalRef.current?.present()}>Show Custom Modal</Button>
+
+      <Modal
+        ref={modalRef}
+        heading="Settings"
+        description="Configure your preferences"
+        primaryButtonText="Save"
+        secondaryButtonText="Cancel"
+        onPressPrimaryButton={() => modalRef.current?.dismiss()}
+        onPressSecondaryButton={() => modalRef.current?.dismiss()}
+      >
+        <Box gap="200">
+          <BodyText>Enable notifications</BodyText>
+          <BodyText>Allow location access</BodyText>
+          <BodyText>Share usage data</BodyText>
+        </Box>
+      </Modal>
+    </>
+  );
+};
+```
+
+### Loading State
+
+Show a loading spinner while processing:
+
+<Canvas of={Stories.Loading} />
+
+```tsx
+const LoadingModal = () => {
+  const modalRef = useRef<BottomSheetModal>(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async () => {
+    setIsLoading(true);
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    setIsLoading(false);
+    modalRef.current?.dismiss();
+  };
+
+  return (
+    <>
+      <Button onPress={() => modalRef.current?.present()}>Show Loading Modal</Button>
+
+      <Modal
+        ref={modalRef}
+        heading="Processing"
+        description="Please wait while we process your request"
+        loading={isLoading}
+        primaryButtonText="Submit"
+        onPressPrimaryButton={handleSubmit}
+        closeOnPrimaryButtonPress={false}
+      />
+    </>
+  );
+};
+```
+
+### Without Close Button
+
+Remove the close button for critical actions:
+
+```tsx
+const CriticalModal = () => {
+  const modalRef = useRef<BottomSheetModal>(null);
+
+  return (
+    <>
+      <Button onPress={() => modalRef.current?.present()}>Show Critical Modal</Button>
+
+      <Modal
+        ref={modalRef}
+        heading="Critical Action Required"
+        description="This action cannot be undone"
+        showCloseButton={false}
+        primaryButtonText="Continue"
+        secondaryButtonText="Cancel"
+        onPressPrimaryButton={() => modalRef.current?.dismiss()}
+        onPressSecondaryButton={() => modalRef.current?.dismiss()}
+      />
+    </>
+  );
+};
+```
+
+### Single Action Modal
+
+Create a modal with only one action button:
+
+```tsx
+const AlertModal = () => {
+  const modalRef = useRef<BottomSheetModal>(null);
+
+  return (
+    <>
+      <Button onPress={() => modalRef.current?.present()}>Show Alert</Button>
+
+      <Modal
+        ref={modalRef}
+        heading="Success!"
+        description="Your action was completed successfully"
+        primaryButtonText="OK"
+        onPressPrimaryButton={() => modalRef.current?.dismiss()}
+      />
+    </>
+  );
+};
+```
+
+## Integration Notes
+
+### BottomSheetModalProvider
+
+When using the Modal component, ensure your app is wrapped with `BottomSheetModalProvider`:
+
+```tsx
+import { BottomSheetModalProvider } from '@utilitywarehouse/hearth-react-native';
+
+const App = () => {
+  return <BottomSheetModalProvider>{/* Your app content */}</BottomSheetModalProvider>;
+};
+```
+
+### Ref Usage
+
+The Modal component forwards its ref to the underlying `BottomSheetModal`, giving you access to methods like:
+
+- `present()` - Opens the modal
+- `dismiss()` - Closes the modal
+- `close()` - Alternative to dismiss
+- `snapToIndex(index)` - Snap to a specific index
+- `snapToPosition(position)` - Snap to a specific position
+
+```tsx
+const modalRef = useRef<BottomSheetModal>(null);
+
+// Open modal
+modalRef.current?.present();
+
+// Close modal
+modalRef.current?.dismiss();
+
+// Snap to specific position
+modalRef.current?.snapToIndex(1);
+```
+
+## External Resources
+
+This component is built on top of [@gorhom/bottom-sheet](https://gorhom.github.io/react-native-bottom-sheet/) (v5). For more information about the underlying BottomSheet functionality, please refer to the [BottomSheet documentation](./BottomSheet.docs.mdx) and the [official documentation](https://gorhom.dev/react-native-bottom-sheet/).

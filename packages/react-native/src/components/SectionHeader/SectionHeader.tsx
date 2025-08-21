@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Link } from '..';
+import { Link } from '../Link';
 import SectionHeaderProps from './SectionHeader.props';
 import SectionHeaderTitle from './SectionHeaderHeading';
 import SectionHeaderHelperText from './SectionHeaderHelperText';
