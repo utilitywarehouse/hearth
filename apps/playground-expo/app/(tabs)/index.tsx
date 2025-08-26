@@ -5,6 +5,7 @@ import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import { Button, Heading } from '@utilitywarehouse/hearth-react-native';
 import { Link } from 'expo-router';
 
 export default function HomeScreen() {
@@ -16,11 +17,13 @@ export default function HomeScreen() {
           source={require('@/assets/images/partial-react-logo.png')}
           style={styles.reactLogo}
         />
-      }>
+      }
+    >
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
+        <Heading size="xl">Welcome!</Heading>
         <HelloWave />
       </ThemedView>
+      <Button onPress={() => alert('Hello!')}>Hello</Button>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>

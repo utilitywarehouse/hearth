@@ -9,7 +9,8 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.utilitywarehouse.playgroundexpo"
     },
     "android": {
       "adaptiveIcon": {
@@ -17,7 +18,8 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.utilitywarehouse.playgroundexpo"
     },
     "web": {
       "output": "static",
@@ -31,29 +33,66 @@
             "name": "Comic Hams",
             "folder": "./assets/fonts",
             "variants": [
-              { "fontFile": "comichams_heavyflare", "fontWeight": 900 },
-              { "fontFile": "comichams_boldflare", "fontWeight": 700 },
-              { "fontFile": "comichams_semiboldflare", "fontWeight": 600 }
+              {
+                "fontFile": "comichams_heavyflare",
+                "fontWeight": 900
+              },
+              {
+                "fontFile": "comichams_boldflare",
+                "fontWeight": 700
+              },
+              {
+                "fontFile": "comichams_semiboldflare",
+                "fontWeight": 600
+              }
             ]
           },
           {
             "name": "DM Sans",
             "folder": "./assets/fonts",
             "variants": [
-              { "fontFile": "dmsans_bold", "fontWeight": 700 },
-              { "fontFile": "dmsans_bolditalic", "fontWeight": 700, "italic": true },
-              { "fontFile": "dmsans_semibold", "fontWeight": 600 },
-              { "fontFile": "dmsans_semibolditalic", "fontWeight": 600, "italic": true },
-              { "fontFile": "dmsans_regular", "fontWeight": 400 },
-              { "fontFile": "dmsans_italic", "fontWeight": 400, "italic": true }
+              {
+                "fontFile": "dmsans_bold",
+                "fontWeight": 700
+              },
+              {
+                "fontFile": "dmsans_bolditalic",
+                "fontWeight": 700,
+                "italic": true
+              },
+              {
+                "fontFile": "dmsans_semibold",
+                "fontWeight": 600
+              },
+              {
+                "fontFile": "dmsans_semibolditalic",
+                "fontWeight": 600,
+                "italic": true
+              },
+              {
+                "fontFile": "dmsans_regular",
+                "fontWeight": 400
+              },
+              {
+                "fontFile": "dmsans_italic",
+                "fontWeight": 400,
+                "italic": true
+              }
             ]
           },
           {
             "name": "DM Mono",
             "folder": "./assets/fonts",
             "variants": [
-              { "fontFile": "dmmono_medium", "fontWeight": 500 },
-              { "fontFile": "dmmono_mediumitalic", "fontWeight": 500, "italic": true }
+              {
+                "fontFile": "dmmono_medium",
+                "fontWeight": 500
+              },
+              {
+                "fontFile": "dmmono_mediumitalic",
+                "fontWeight": 500,
+                "italic": true
+              }
             ]
           }
         ]
