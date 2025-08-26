@@ -6,7 +6,7 @@ import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { Button, Heading } from '@utilitywarehouse/hearth-react-native';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 
 export default function HomeScreen() {
   return (
@@ -23,7 +23,7 @@ export default function HomeScreen() {
         <Heading size="xl">Welcome!</Heading>
         <HelloWave />
       </ThemedView>
-      <Button onPress={() => alert('Hello!')}>Hello</Button>
+      <Button onPress={() => router.push('/modal')}>Hello</Button>
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>

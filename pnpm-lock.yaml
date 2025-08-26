@@ -152,6 +152,9 @@ importers:
       expo-constants:
         specifier: ~18.0.4
         version: 18.0.4(expo@54.0.0-preview.8)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0))
+      expo-dev-client:
+        specifier: 6.0.5
+        version: 6.0.5(expo@54.0.0-preview.8)
       expo-font:
         specifier: ~14.0.3
         version: 14.0.3(expo@54.0.0-preview.8)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
@@ -15717,7 +15720,7 @@ snapshots:
       postcss: 8.4.49
       resolve-from: 5.0.0
     optionalDependencies:
-      expo: 54.0.0-preview.8(@babel/core@7.26.10)(@expo/metro-runtime@6.1.0)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.26.10)(@react-native/metro-config@0.81.0(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.0-preview.8(@babel/core@7.27.4)(@expo/metro-runtime@6.1.0)(expo-router@6.0.0-beta.7)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -15861,7 +15864,7 @@ snapshots:
       '@expo/json-file': 10.0.3
       '@react-native/normalize-colors': 0.81.0
       debug: 4.4.1(supports-color@8.1.1)
-      expo: 54.0.0-preview.8(@babel/core@7.26.10)(@expo/metro-runtime@6.1.0)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.26.10)(@react-native/metro-config@0.81.0(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.0-preview.8(@babel/core@7.27.4)(@expo/metro-runtime@6.1.0)(expo-router@6.0.0-beta.7)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       resolve-from: 5.0.0
       semver: 7.7.2
       xml2js: 0.6.0
@@ -22507,7 +22510,7 @@ snapshots:
 
   expo-dev-client@6.0.5(expo@54.0.0-preview.8):
     dependencies:
-      expo: 54.0.0-preview.8(@babel/core@7.26.10)(@expo/metro-runtime@6.1.0)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.26.10)(@react-native/metro-config@0.81.0(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.0-preview.8(@babel/core@7.27.4)(@expo/metro-runtime@6.1.0)(expo-router@6.0.0-beta.7)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       expo-dev-launcher: 6.0.5(expo@54.0.0-preview.8)
       expo-dev-menu: 7.0.4(expo@54.0.0-preview.8)
       expo-dev-menu-interface: 2.0.0(expo@54.0.0-preview.8)
@@ -22518,7 +22521,7 @@ snapshots:
 
   expo-dev-launcher@6.0.5(expo@54.0.0-preview.8):
     dependencies:
-      expo: 54.0.0-preview.8(@babel/core@7.26.10)(@expo/metro-runtime@6.1.0)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.26.10)(@react-native/metro-config@0.81.0(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.0-preview.8(@babel/core@7.27.4)(@expo/metro-runtime@6.1.0)(expo-router@6.0.0-beta.7)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       expo-dev-menu: 7.0.4(expo@54.0.0-preview.8)
       expo-manifests: 1.0.4(expo@54.0.0-preview.8)
     transitivePeerDependencies:
@@ -22526,11 +22529,11 @@ snapshots:
 
   expo-dev-menu-interface@2.0.0(expo@54.0.0-preview.8):
     dependencies:
-      expo: 54.0.0-preview.8(@babel/core@7.26.10)(@expo/metro-runtime@6.1.0)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.26.10)(@react-native/metro-config@0.81.0(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.0-preview.8(@babel/core@7.27.4)(@expo/metro-runtime@6.1.0)(expo-router@6.0.0-beta.7)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
 
   expo-dev-menu@7.0.4(expo@54.0.0-preview.8):
     dependencies:
-      expo: 54.0.0-preview.8(@babel/core@7.26.10)(@expo/metro-runtime@6.1.0)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.26.10)(@react-native/metro-config@0.81.0(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.0-preview.8(@babel/core@7.27.4)(@expo/metro-runtime@6.1.0)(expo-router@6.0.0-beta.7)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       expo-dev-menu-interface: 2.0.0(expo@54.0.0-preview.8)
 
   expo-file-system@19.0.5(expo@54.0.0-preview.8)(react-native@0.81.0(@babel/core@7.26.10)(@react-native/metro-config@0.81.0(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0)):
@@ -22573,7 +22576,7 @@ snapshots:
 
   expo-keep-awake@15.0.3(expo@54.0.0-preview.8)(react@19.1.0):
     dependencies:
-      expo: 54.0.0-preview.8(@babel/core@7.26.10)(@expo/metro-runtime@6.1.0)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.26.10)(@react-native/metro-config@0.81.0(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.0-preview.8(@babel/core@7.27.4)(@expo/metro-runtime@6.1.0)(expo-router@6.0.0-beta.7)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       react: 19.1.0
 
   expo-linking@8.0.3(expo@54.0.0-preview.8)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0):
@@ -22589,7 +22592,7 @@ snapshots:
   expo-manifests@1.0.4(expo@54.0.0-preview.8):
     dependencies:
       '@expo/config': 12.0.4
-      expo: 54.0.0-preview.8(@babel/core@7.26.10)(@expo/metro-runtime@6.1.0)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.26.10)(@react-native/metro-config@0.81.0(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.0-preview.8(@babel/core@7.27.4)(@expo/metro-runtime@6.1.0)(expo-router@6.0.0-beta.7)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       expo-json-utils: 0.15.0
     transitivePeerDependencies:
       - supports-color
@@ -22662,7 +22665,7 @@ snapshots:
   expo-splash-screen@31.0.4(expo@54.0.0-preview.8):
     dependencies:
       '@expo/prebuild-config': 10.0.5(expo@54.0.0-preview.8)
-      expo: 54.0.0-preview.8(@babel/core@7.26.10)(@expo/metro-runtime@6.1.0)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.26.10)(@react-native/metro-config@0.81.0(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.0-preview.8(@babel/core@7.27.4)(@expo/metro-runtime@6.1.0)(expo-router@6.0.0-beta.7)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -22680,7 +22683,7 @@ snapshots:
 
   expo-updates-interface@2.0.0(expo@54.0.0-preview.8):
     dependencies:
-      expo: 54.0.0-preview.8(@babel/core@7.26.10)(@expo/metro-runtime@6.1.0)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.26.10)(@react-native/metro-config@0.81.0(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.0-preview.8(@babel/core@7.27.4)(@expo/metro-runtime@6.1.0)(expo-router@6.0.0-beta.7)(graphql@16.8.1)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
 
   expo-web-browser@15.0.3(expo@54.0.0-preview.8)(react-native@0.81.0(@babel/core@7.27.4)(@react-native/metro-config@0.81.0(@babel/core@7.27.4))(@types/react@19.1.11)(react@19.1.0)):
     dependencies:
