@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { colors } from '@utilitywarehouse/colour-system';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { ComponentType } from 'react';
 import { Icon } from '.';
 import { ColorValue } from '../../types';
+import { coloursAsArray } from '../../utils';
 
 const meta = {
   title: 'Stories / Icon',
@@ -19,7 +19,7 @@ const meta = {
       defaultValue: 'Helper text icon',
     },
     color: {
-      options: [...Object.keys(colors)],
+      options: coloursAsArray(),
       control: 'select',
       description: 'Background color of the Icon. Use the color name from the theme.',
     },
