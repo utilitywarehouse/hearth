@@ -1,19 +1,19 @@
-import {
-  Accordion,
-  AccordionItem,
-  AccordionHeader,
-  AccordionTrigger,
-  AccordionTitleText,
-  AccordionIcon,
-  AccordionContent,
-  AccordionContentText,
-} from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { BodyText } from '../../components';
 import {
   ChevronDownSmallIcon,
   ChevronUpSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionContentText,
+  AccordionHeader,
+  AccordionIcon,
+  AccordionItem,
+  AccordionTitleText,
+  AccordionTrigger,
+} from '.';
+import { BodyText } from '../../components';
 
 const meta = {
   title: 'Stories / Accordion',
