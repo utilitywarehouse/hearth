@@ -1,17 +1,19 @@
-import { Link, router, useNavigation } from 'expo-router';
+import { useNavigation } from 'expo-router';
 import { useCallback, useEffect, useRef } from 'react';
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Modal } from '@utilitywarehouse/hearth-react-native';
+import { BodyText, Heading, InlineLink, Modal } from '@utilitywarehouse/hearth-react-native';
 
 export default function ModalScreen() {
-  const modalRef = useRef<any>(null);
+  const modalRef = useRef<Modal>(null);
   const navigation = useNavigation();
   const isClosingRef = useRef(false);
 
   const handleClose = useCallback(() => {
+    if (Platform.OS === 'ios') {
+      navigation.goBack();
+      return;
+    }
     if (isClosingRef.current) return;
 
     isClosingRef.current = true;
@@ -20,20 +22,22 @@ export default function ModalScreen() {
 
     // Delay the actual navigation to allow our animation to play
     setTimeout(() => {
-      router.back();
-    }, 100); // Match animation duration
-  }, []);
+      navigation.goBack();
+    }, 100); // Match Modal animation duration
+  }, [navigation]);
 
   useEffect(() => {
-    const unsubscribe = navigation.addListener('beforeRemove', e => {
-      if (!isClosingRef.current) {
-        // Prevent default behavior
-        e.preventDefault();
-        handleClose();
-      }
-    });
+    if (Platform.OS === 'android') {
+      const unsubscribe = navigation.addListener('beforeRemove', e => {
+        if (!isClosingRef.current) {
+          // Prevent default behavior
+          e.preventDefault();
+          handleClose();
+        }
+      });
 
-    return unsubscribe;
+      return unsubscribe;
+    }
   }, [navigation, handleClose]);
 
   return (
@@ -46,12 +50,14 @@ export default function ModalScreen() {
       secondaryButtonText="Cancel"
       onPressSecondaryButton={handleClose}
     >
-      <ThemedView style={styles.container}>
-        <ThemedText type="title">This is a modal</ThemedText>
-        <Link href="/" dismissTo style={styles.link}>
-          <ThemedText type="link">Go to home screen</ThemedText>
-        </Link>
-      </ThemedView>
+      <View style={styles.container}>
+        <Heading size="xl">This is a modal</Heading>
+        <BodyText>
+          <InlineLink onPress={handleClose} style={styles.link}>
+            Go to home screen
+          </InlineLink>
+        </BodyText>
+      </View>
     </Modal>
   );
 }

@@ -21,7 +21,6 @@ import { UnstyledIconButton } from '../UnstyledIconButton';
 import ModalProps from './Modal.props';
 
 const hexWithOpacity = (hex: string, opacity: number): string => {
-  'worklet';
   // Remove # if present
   const cleanHex = hex.replace('#', '');
 

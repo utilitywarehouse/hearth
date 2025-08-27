@@ -33,13 +33,14 @@ const config = {
           plugins: [
             ['react-native-unistyles/plugin', unistylesPluginOptions],
             '@babel/plugin-proposal-export-namespace-from',
-            'react-native-reanimated/plugin',
+            'react-native-worklets/plugin',
           ],
         },
       },
     },
   },
   viteFinal: config => {
+    console.log('Vite config before modification:', config);
     return {
       ...config,
       resolve: {
