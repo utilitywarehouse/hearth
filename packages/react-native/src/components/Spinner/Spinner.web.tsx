@@ -1,25 +1,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { createSpinner } from '@gluestack-ui/spinner';
 import React, { useCallback, useEffect, useMemo } from 'react';
+import { View } from 'react-native';
 import Animated, {
-  useSharedValue,
-  withTiming,
-  useAnimatedProps,
   Easing,
-  withSequence,
-  withRepeat,
+  useAnimatedProps,
   useReducedMotion,
+  useSharedValue,
+  withRepeat,
+  withSequence,
+  withTiming,
 } from 'react-native-reanimated';
 import { Circle, G, Svg } from 'react-native-svg';
-import type SpinnerProps from './Spinner.props';
-import { createSpinner } from '@gluestack-ui/spinner';
 import { StyleSheet } from 'react-native-unistyles';
-import { View } from 'react-native';
 import { useTheme } from '../../hooks';
-import { getFlattenedColorValue } from '../../utils';
 import { ColorValue } from '../../types';
+import { getFlattenedColorValue } from '../../utils';
+import type SpinnerProps from './Spinner.props';
 
-const AnimatedSvg = Animated.createAnimatedComponent(Svg);
-const AnimatedCircle = Animated.createAnimatedComponent(Circle);
+const AnimatedSvg = Animated.createAnimatedComponent(Svg as React.ComponentType<any>);
+const AnimatedCircle = Animated.createAnimatedComponent(Circle as React.ComponentType<any>);
 
 const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
   const { components } = useTheme();
@@ -63,7 +63,7 @@ const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
   const animatedCircleProps = useAnimatedProps(() => {
     return {
       strokeDashoffset: CIRCUMFERENCE * (1 - progress.value),
-    };
+    } as any;
   }, [progress]);
 
   const animatedSvgProps = useAnimatedProps(() => {

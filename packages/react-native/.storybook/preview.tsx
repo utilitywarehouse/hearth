@@ -1,4 +1,3 @@
-import 'react-native-reanimated';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import '@utilitywarehouse/hearth-fonts';
 import { color } from '@utilitywarehouse/hearth-tokens';

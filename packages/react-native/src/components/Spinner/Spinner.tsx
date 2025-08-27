@@ -18,8 +18,8 @@ import { ColorValue } from '../../types';
 import { getFlattenedColorValue } from '../../utils';
 import type SpinnerProps from './Spinner.props';
 
-const AnimatedSvg = Animated.createAnimatedComponent(Svg);
-const AnimatedCircle = Animated.createAnimatedComponent(Circle);
+const AnimatedSvg = Animated.createAnimatedComponent(Svg as React.ComponentType<any>);
+const AnimatedCircle = Animated.createAnimatedComponent(Circle as React.ComponentType<any>);
 
 const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
   const { components } = useTheme();
@@ -63,7 +63,7 @@ const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
   const animatedCircleProps = useAnimatedProps(() => {
     return {
       strokeDashoffset: CIRCUMFERENCE * (1 - progress.value),
-    };
+    } as any;
   }, [progress]);
 
   const animatedSvgStyle = useAnimatedStyle(

@@ -9,7 +9,7 @@ const unistylesPluginOptions = {
 
 /** @type { import('@storybook/react-native-web-vite').StorybookConfig } */
 const config = {
-  stories: ['../**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)', '../diff-example.mdx'],
+  stories: ['../**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     '@chromatic-com/storybook',
     {
@@ -33,14 +33,13 @@ const config = {
           plugins: [
             ['react-native-unistyles/plugin', unistylesPluginOptions],
             '@babel/plugin-proposal-export-namespace-from',
-            'react-native-worklets/plugin',
+            'react-native-reanimated/plugin',
           ],
         },
       },
     },
   },
   viteFinal: config => {
-    console.log('Vite config before modification:', config);
     return {
       ...config,
       resolve: {
