@@ -4,7 +4,6 @@ import { start, updateView } from '@storybook/react-native';
 import "/Users/jordmccord/Repos/hearth/node_modules/@storybook/addon-ondevice-controls/register";
 import "/Users/jordmccord/Repos/hearth/node_modules/@storybook/addon-ondevice-actions/register";
 
-
 const normalizedStories = [
   {
     titlePrefix: "",
@@ -12,7 +11,11 @@ const normalizedStories = [
     files: "**/*.stories.?(ts|tsx|js|jsx)",
     importPathMatcher: /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
     
-    req: require.context('../components', true, /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/)
+    req: require.context(
+      '../components',
+      true,
+      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/
+    ),
   },
   {
     titlePrefix: "",
@@ -20,7 +23,11 @@ const normalizedStories = [
     files: "**/*.stories.?(ts|tsx|js|jsx)",
     importPathMatcher: /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
     
-    req: require.context('../../../packages/react-native', true, /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/)
+    req: require.context(
+      '../../../packages/react-native',
+      true,
+      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/
+    ),
   }
 ];
 
@@ -42,10 +49,10 @@ if (!global.view) {
   global.view = start({
     annotations,
     storyEntries: normalizedStories,
-    
+
   });
 } else {
-  updateView(global.view, annotations, normalizedStories, );
+  updateView(global.view, annotations, normalizedStories);
 }
 
 export const view = global.view;

@@ -1,16 +1,16 @@
-import { Meta, Canvas, Story, Controls } from '@storybook/addon-docs/blocks';
-import * as Stories from './BottomSheet.stories';
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
 import {
-  Box,
+  BodyText,
   BottomSheet,
   BottomSheetModal,
   BottomSheetScrollView,
   BottomSheetView,
+  Box,
   Button,
   Center,
-  BodyText,
 } from '../../';
-import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './BottomSheet.stories';
 
 <Meta title="Components / Bottom Sheet" />
 
@@ -31,6 +31,8 @@ The `BottomSheet` component provides a drawer-like interface that slides up from
   - [`BottomSheetModal`](#bottomsheetmodal)
   - [`BottomSheetScrollView`](#bottomsheetscrollview)
   - [`BottomSheetModalProvider`](#bottomsheetmodalprovider)
+  - [`Input` in Bottom Sheets](#input-in-bottom-sheets)
+- [External Resources](#external-resources)
 
 ## Playground
 
@@ -164,6 +166,22 @@ import { BottomSheetModalProvider } from '@utilitywarehouse/hearth-react-native'
 
 const App = () => {
   return <BottomSheetModalProvider>{/* Your app content */}</BottomSheetModalProvider>;
+};
+```
+
+### `Input` in Bottom Sheets
+
+When using the `Input` component inside a `BottomSheet` or `BottomSheetModal`, you need to pass the `inBottomSheet` prop to ensure proper behavior with the keyboard and focus management.
+
+```tsx
+import { Input } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  return (
+    <BottomSheetModal>
+      <Input placeholder="Type something..." inBottomSheet />
+    </BottomSheetModal>
+  );
 };
 ```
 
