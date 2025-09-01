@@ -1,10 +1,11 @@
-import { Input } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { VariantTitle } from '../../../docs/components';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
-import { Flex } from '../Flex';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { useState } from 'react';
 import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
+import { Input } from '.';
+import { VariantTitle } from '../../../docs/components';
+import { Flex } from '../Flex';
 
 const meta = {
   title: 'Stories / Input',
@@ -86,7 +87,7 @@ export const Variants: Story = {
     controls: { include: [] },
   },
   render: () => {
-    const [clearableSearchValue, setClearableSearchValue] = React.useState('clearble search');
+    const [clearableSearchValue, setClearableSearchValue] = useState('clearble search');
     const handleClearableSearchChange = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
       setClearableSearchValue(e.nativeEvent.text);
     };
