@@ -2,11 +2,11 @@ import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import '@utilitywarehouse/hearth-fonts';
 import { color } from '@utilitywarehouse/hearth-tokens';
 import { useEffect } from 'react';
-import '../../../shared/storybook/styles/preview.css';
 import '../../../shared/storybook/styles/diff-highlighting.css';
+import '../../../shared/storybook/styles/preview.css';
 import theme from '../../../shared/storybook/theme';
-import { initializePrism } from './prism-setup';
 import { breakpoints, StyleSheet, themes, UnistylesRuntime } from '../src/core';
+import { initializePrism } from './prism-setup';
 
 // Initialize Prism.js for syntax highlighting
 initializePrism();

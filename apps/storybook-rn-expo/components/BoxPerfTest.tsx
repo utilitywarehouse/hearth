@@ -1,16 +1,16 @@
 import { StoryFn } from '@storybook/react-vite';
 import {
-  Button,
-  ScrollView,
   BodyText,
-  View,
   Box,
+  Button,
   ButtonGroup,
+  ScrollView,
   StyleSheet,
+  View,
 } from '@utilitywarehouse/hearth-react-native';
+import { color } from '@utilitywarehouse/hearth-tokens';
 import React, { useState } from 'react';
 import TimedRender from './TimedRender';
-import { colors } from '@utilitywarehouse/colour-system';
 
 const COUNT = 250;
 
@@ -151,10 +151,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   blueBackground: {
-    backgroundColor: colors.cyan500,
+    backgroundColor: color.blue[500],
   },
   grayBackground: {
-    backgroundColor: colors.grey500,
+    backgroundColor: color.grey[500],
   },
 });
 

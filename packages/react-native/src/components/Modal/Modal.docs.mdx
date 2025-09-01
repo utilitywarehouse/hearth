@@ -1,5 +1,7 @@
 import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
 import { BodyText, BottomSheetModal, Box, Button, Center, Heading, Modal } from '../../';
+import modalAndroidVideo from '../../../docs/assets/modal-android.mp4';
+import modaliOSVideo from '../../../docs/assets/modal-ios.mp4';
 import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Modal.stories';
 
@@ -27,6 +29,9 @@ The Modal component is ideal for displaying important information, collecting us
   - [Loading State](#loading-state)
   - [Without Close Button](#without-close-button)
   - [Single Action Modal](#single-action-modal)
+  - [Fullscreen Modal (Usage with navigation modal)](#fullscreen-modal-usage-with-navigation-modal)
+- [Integration Notes](#integration-notes)
+- [External Resources](#external-resources)
 
 ## Playground
 
@@ -99,6 +104,7 @@ The Modal component extends the `BottomSheetModal` component and accepts all of 
 | `primaryButtonProps`          | `Omit<ButtonWithoutChildrenProps, 'children'>` | Additional props to pass to the primary button (colorScheme defaults to 'highlight', variant to 'solid')      | -       |
 | `secondaryButtonProps`        | `Omit<ButtonWithoutChildrenProps, 'children'>` | Additional props to pass to the secondary button (colorScheme defaults to 'functional', variant to 'outline') | -       |
 | `closeButtonProps`            | `Omit<UnstyledIconButtonProps, 'children'>`    | Additional props to pass to the close button                                                                  | -       |
+| `fullscreen`                  | `boolean`                                      | Whether the modal should take up the full screen height (useful for navigation modals)                        | `false` |
 
 ## Features
 
@@ -407,6 +413,97 @@ const AlertModal = () => {
   );
 };
 ```
+
+### Fullscreen Modal (Usage with navigation modal)
+
+When using the Modal component in a navigation context, you can set it to fullscreen mode, this will make it behave like a standard modal screen.
+Here's an example of how to implement this with custom close animations for Android:
+
+```tsx
+import { useNavigation } from 'react-navigation/native';
+import { useCallback, useEffect, useRef } from 'react';
+import { Platform, StyleSheet, View } from 'react-native';
+
+import { BodyText, Heading, InlineLink, Modal } from '@utilitywarehouse/hearth-react-native';
+
+export default function ModalScreen() {
+  const modalRef = useRef<Modal>(null);
+  const navigation = useNavigation();
+  const isClosingRef = useRef(false);
+
+  const handleClose = useCallback(() => {
+    if (Platform.OS === 'ios') {
+      navigation.goBack();
+      return;
+    }
+    if (isClosingRef.current) return;
+
+    isClosingRef.current = true;
+    // Trigger our custom animation first
+    modalRef.current?.triggerCloseAnimation?.();
+
+    // Delay the actual navigation to allow our animation to play
+    setTimeout(() => {
+      navigation.goBack();
+    }, 100); // Match Modal animation duration
+  }, [navigation]);
+
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      const unsubscribe = navigation.addListener('beforeRemove', e => {
+        if (!isClosingRef.current) {
+          // Prevent default behavior
+          e.preventDefault();
+          handleClose();
+        }
+      });
+
+      return unsubscribe;
+    }
+  }, [navigation, handleClose]);
+
+  return (
+    <Modal
+      ref={modalRef}
+      fullscreen
+      onPressCloseButton={handleClose}
+      primaryButtonText="Action"
+      onPressPrimaryButton={handleClose}
+      secondaryButtonText="Cancel"
+      onPressSecondaryButton={handleClose}
+    >
+      <View style={styles.container}>
+        <Heading size="xl">This is a modal</Heading>
+        <BodyText>
+          <InlineLink onPress={handleClose} style={styles.link}>
+            Go to home screen
+          </InlineLink>
+        </BodyText>
+      </View>
+    </Modal>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+  },
+  link: {
+    marginTop: 15,
+    paddingVertical: 15,
+  },
+});
+```
+
+The above example demonstrates how to create a fullscreen modal that integrates with navigation.
+It includes custom close animations for Android to enhance the user experience. See the videos below for platform-specific behavior:
+
+| ios                                                                            | android                                                                            |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| <video src={modaliOSVideo} width={300} height="auto" controls loop autoPlay /> | <video src={modalAndroidVideo} width={300} height="auto" controls loop autoPlay /> |
 
 ## Integration Notes
 

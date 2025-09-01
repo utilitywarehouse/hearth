@@ -1,0 +1,118 @@
+{
+  "expo": {
+    "name": "playground-expo",
+    "slug": "playground-expo",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "playgroundexpo",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.utilitywarehouse.playgroundexpo"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "package": "com.utilitywarehouse.playgroundexpo"
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-xml-font",
+        [
+          {
+            "name": "Comic Hams",
+            "folder": "./assets/fonts",
+            "variants": [
+              {
+                "fontFile": "comichams_heavyflare",
+                "fontWeight": 900
+              },
+              {
+                "fontFile": "comichams_boldflare",
+                "fontWeight": 700
+              },
+              {
+                "fontFile": "comichams_semiboldflare",
+                "fontWeight": 600
+              }
+            ]
+          },
+          {
+            "name": "DM Sans",
+            "folder": "./assets/fonts",
+            "variants": [
+              {
+                "fontFile": "dmsans_bold",
+                "fontWeight": 700
+              },
+              {
+                "fontFile": "dmsans_bolditalic",
+                "fontWeight": 700,
+                "italic": true
+              },
+              {
+                "fontFile": "dmsans_semibold",
+                "fontWeight": 600
+              },
+              {
+                "fontFile": "dmsans_semibolditalic",
+                "fontWeight": 600,
+                "italic": true
+              },
+              {
+                "fontFile": "dmsans_regular",
+                "fontWeight": 400
+              },
+              {
+                "fontFile": "dmsans_italic",
+                "fontWeight": 400,
+                "italic": true
+              }
+            ]
+          },
+          {
+            "name": "DM Mono",
+            "folder": "./assets/fonts",
+            "variants": [
+              {
+                "fontFile": "dmmono_medium",
+                "fontWeight": 500
+              },
+              {
+                "fontFile": "dmmono_mediumitalic",
+                "fontWeight": 500,
+                "italic": true
+              }
+            ]
+          }
+        ]
+      ],
+      "expo-router",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      "expo-web-browser"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

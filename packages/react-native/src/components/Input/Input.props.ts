@@ -26,6 +26,7 @@ export interface InputBaseProps {
   readonly?: boolean;
   focused?: boolean;
   placeholder?: string;
+  inBottomSheet?: boolean;
 }
 
 // For inputs that have children

@@ -1,13 +1,13 @@
-import { Meta, Controls, Story, Canvas } from '@storybook/addon-docs/blocks';
-import * as Stories from './Input.stories';
-import { Input, InputField, InputIcon, InputSlot, Center, Pressable, FormField } from '../../';
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { Center, FormField, Input, InputField, InputIcon, InputSlot, Pressable } from '../../';
 import {
-  ViewFigmaButton,
+  AdvancedInputExample,
   BackToTopButton,
   UsageWrap,
-  AdvancedInputExample,
+  ViewFigmaButton,
 } from '../../../docs/components';
+import * as Stories from './Input.stories';
 
 <Meta title="Forms / Input" />
 
@@ -94,6 +94,7 @@ all of the React Native [`View` props](https://reactnative.dev/docs/view).
 | onFocus          | function                           | `-`         | Callback function that is triggered when the input gains focus. **(Only to be used if the input has no children)**                                                      |
 | placeholder      | string                             | `-`         | The placeholder text for the input. **(Only to be used if the input has no children)**                                                                                  |
 | required         | boolean                            | `true`      | Indicates that the input is required. **(Only to be used if the input has no children)**                                                                                |
+| inBottomSheet    | boolean                            | `false`     | Indicates if the input is within a bottom sheet.                                                                                                                        |
 
 If the `leadingIcon` or `trailingIcon` props are used, the `Input` component should not have any children.
 
@@ -101,15 +102,16 @@ If the `leadingIcon` or `trailingIcon` props are used, the `Input` component sho
 
 The `InputField` inherits all of the React Native [`TextInput` props](https://reactnative.dev/docs/textinput).
 
-| Prop        | Type                   | Default  | Description                                                       |
-| ----------- | ---------------------- | -------- | ----------------------------------------------------------------- |
-| type        | `'text' \| 'password'` | `'text'` | The type of the input.                                            |
-| value       | string                 | `-`      | The value of the input.                                           |
-| onChange    | function               | `-`      | Callback function that is triggered when the input value changes. |
-| onBlur      | function               | `-`      | Callback function that is triggered when the input loses focus.   |
-| onFocus     | function               | `-`      | Callback function that is triggered when the input gains focus.   |
-| placeholder | string                 | `-`      | The placeholder text for the input.                               |
-| required    | boolean                | `true`   | Indicates that the input is required.                             |
+| Prop          | Type                   | Default  | Description                                                       |
+| ------------- | ---------------------- | -------- | ----------------------------------------------------------------- |
+| type          | `'text' \| 'password'` | `'text'` | The type of the input.                                            |
+| value         | string                 | `-`      | The value of the input.                                           |
+| onChange      | function               | `-`      | Callback function that is triggered when the input value changes. |
+| onBlur        | function               | `-`      | Callback function that is triggered when the input loses focus.   |
+| onFocus       | function               | `-`      | Callback function that is triggered when the input gains focus.   |
+| placeholder   | string                 | `-`      | The placeholder text for the input.                               |
+| required      | boolean                | `true`   | Indicates that the input is required.                             |
+| inBottomSheet | boolean                | `false`  | Indicates if the input is within a bottom sheet.                  |
 
 ### `InputIcon`
 

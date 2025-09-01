@@ -311,7 +311,7 @@ export const WithInput: Story = {
               <BodyText>This bottom sheet contains an input field.</BodyText>
 
               <FormField label="Input Field">
-                <Input placeholder="Type something..." />
+                <Input placeholder="Type something..." inBottomSheet />
               </FormField>
 
               <Divider />

@@ -9,7 +9,7 @@ const unistylesPluginOptions = {
 
 /** @type { import('@storybook/react-native-web-vite').StorybookConfig } */
 const config = {
-  stories: ['../**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)', '../diff-example.mdx'],
+  stories: ['../**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     '@chromatic-com/storybook',
     {

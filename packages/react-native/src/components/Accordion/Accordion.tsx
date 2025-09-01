@@ -4,7 +4,7 @@ import {
   ChevronUpSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { Children, isValidElement, useMemo } from 'react';
-import SectionHeader from '../SectionHeader/SectionHeader';
+import { SectionHeader } from '../SectionHeader';
 import { AccordionProps } from './Accordion.props';
 import AccordionContentComponent from './AccordionContent';
 import AccordionContentTextComponent from './AccordionContentText';

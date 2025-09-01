@@ -47,6 +47,7 @@ const Input = ({
   loading,
   clearable = false,
   required,
+  inBottomSheet = false,
   ...props
 }: InputProps) => {
   const formFieldContext = useFormFieldContext();
@@ -145,6 +146,7 @@ const Input = ({
           <InputField
             type={fieldType}
             inputMode={getInputMode}
+            inBottomSheet={inBottomSheet}
             {...props}
             placeholder={getPlaceholder}
           />
