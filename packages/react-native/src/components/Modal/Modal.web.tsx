@@ -12,6 +12,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
+import { hexWithOpacity } from '../../utils';
 import { BodyText } from '../BodyText';
 import { BottomSheetModal, BottomSheetScrollView } from '../BottomSheet';
 import { Button } from '../Button';
@@ -19,18 +20,6 @@ import { Heading } from '../Heading';
 import { Spinner } from '../Spinner';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import ModalProps from './Modal.props';
-
-const hexWithOpacity = (hex: string, opacity: number): string => {
-  // Remove # if present
-  const cleanHex = hex.replace('#', '');
-
-  // Convert hex to RGB
-  const r = parseInt(cleanHex.substring(0, 2), 16);
-  const g = parseInt(cleanHex.substring(2, 4), 16);
-  const b = parseInt(cleanHex.substring(4, 6), 16);
-
-  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-};
 
 type Modal<T = any> = BottomSheetModalMethods<T> & { triggerCloseAnimation?: () => void };
 

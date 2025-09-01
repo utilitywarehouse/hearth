@@ -10,12 +10,10 @@ const InputField = ({
   onBlur,
   inBottomSheet = false,
   ...props
-}: TextInputProps & { inBottomSheet: boolean }) => {
+}: TextInputProps & { inBottomSheet?: boolean }) => {
   const { disabled, focused = false, type } = useInputContext();
   styles.useVariants({ focused, type });
   const { color } = useTheme();
-
-  // TODO: Make input work in bottom sheet when focused
 
   if (inBottomSheet) {
     return (
