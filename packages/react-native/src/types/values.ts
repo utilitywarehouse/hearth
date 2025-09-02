@@ -31,16 +31,37 @@ export type HSL =
   | `hsl(${string})`
   | `hsl(${OptionalSpace}${number}${OptionalSpace},${OptionalSpace}${number}${OptionalSpace},${OptionalSpace}${number}${OptionalSpace})`;
 
-type FlattenColorKeys<T> = {
-  [K in keyof T]: T[K] extends Record<string, unknown>
-    ? { [K2 in keyof T[K]]: `${K & string}${K2 & string}` }[keyof T[K]]
-    : K;
-}[keyof T];
+// Helper type to convert string to camel case
+type ToCamelCase<S extends string> = S extends `${infer P1}-${infer P2}${infer P3}`
+  ? `${P1}${Uppercase<P2>}${ToCamelCase<P3>}`
+  : S;
+
+// Helper to capitalise first letter
+type Capitalise<S extends string> = S extends `${infer First}${infer Rest}`
+  ? `${Uppercase<First>}${Rest}`
+  : S;
+
+// Recursive function to flatten and camel case color keys
+export type FlattenColorKeys<T> =
+  T extends Record<string, unknown>
+    ? {
+        [K in keyof T]: T[K] extends string
+          ? ToCamelCase<K & string>
+          : T[K] extends Record<string, unknown>
+            ? FlattenColorKeys<T[K]> extends infer Nested
+              ? Nested extends string
+                ? ToCamelCase<`${K & string}${Capitalise<Nested>}`>
+                : never
+              : never
+            : never;
+      }[keyof T]
+    : never;
 
 export type ColorValue =
   | 'currentColor'
   | 'transparent'
   | FlattenColorKeys<Omit<typeof color, 'light' | 'dark'> & { white: '#ffffff'; black: '#000000' }>
+  | FlattenColorKeys<(typeof color)['light']>
   | HSLA
   | HSL
   | RGB
