@@ -9,9 +9,7 @@ import {
   EyeSmallIcon,
   SearchMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
-import { Platform } from 'react-native';
 import { useTheme } from '../../hooks';
-import { DetailText } from '../DetailText';
 import { useFormFieldContext } from '../FormField';
 import { Spinner } from '../Spinner';
 import { UnstyledIconButton } from '../UnstyledIconButton';
@@ -60,9 +58,6 @@ const Input = ({
   const { color } = useTheme();
 
   const defaultFornat = (() => {
-    if (type === 'currency') {
-      return '0.00';
-    }
     if (type === 'date') {
       return 'DD/MM/YYYY';
     }
@@ -70,9 +65,6 @@ const Input = ({
   })();
 
   const getPlaceholder = (() => {
-    if (type === 'currency') {
-      return props.placeholder ?? format ?? defaultFornat;
-    }
     if (type === 'date') {
       return props.placeholder ?? format ?? defaultFornat;
     }
@@ -101,9 +93,6 @@ const Input = ({
   })();
 
   const getInputMode = (() => {
-    if (type === 'currency') {
-      return 'decimal';
-    }
     if (type === 'search') {
       return 'search';
     }
@@ -128,19 +117,6 @@ const Input = ({
           {!!leadingIconComponent && (
             <InputSlot>
               <InputIcon as={leadingIconComponent} />
-            </InputSlot>
-          )}
-          {type === 'currency' && (
-            <InputSlot>
-              <DetailText
-                size="4xl"
-                style={{
-                  // todo: fix this
-                  ...(Platform.OS === 'ios' && { lineHeight: 46 }),
-                }}
-              >
-                £
-              </DetailText>
             </InputSlot>
           )}
           <InputField
