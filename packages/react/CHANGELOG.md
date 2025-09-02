@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react
 
+## 0.6.0
+
+### Minor Changes
+
+- [#409](https://github.com/utilitywarehouse/hearth/pull/409) [`705fabd`](https://github.com/utilitywarehouse/hearth/commit/705fabd5f2eb4e3d810e31b7b0dbd95acf6abc92) Thanks [@dorota-uw](https://github.com/dorota-uw)! - New component: SectionHeader
+
+### Patch Changes
+
+- [#405](https://github.com/utilitywarehouse/hearth/pull/405) [`53348d8`](https://github.com/utilitywarehouse/hearth/commit/53348d85f7c1761e25608075f1302cdee75f7636) Thanks [@dorota-uw](https://github.com/dorota-uw)! - Aded useMediaQuery to exports
+
+- [#413](https://github.com/utilitywarehouse/hearth/pull/413) [`bb2ec8d`](https://github.com/utilitywarehouse/hearth/commit/bb2ec8d2c959440b765fb15c5563313a4d9194bf) Thanks [@dorota-uw](https://github.com/dorota-uw)! - Additional parameters for SectionHeader
+
 ## 0.5.0
 
 ### Minor Changes
