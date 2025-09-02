@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.0.8
+
+### Patch Changes
+
+- [#410](https://github.com/utilitywarehouse/hearth/pull/410) [`22cf96c`](https://github.com/utilitywarehouse/hearth/commit/22cf96c17d8ebf4f3c90264b1345a2a2131d7722) Thanks [@jordmccord](https://github.com/jordmccord)! - Updated semantic tokens and removes obsolete component tokens
+
 ## 0.0.7
 
 ### Patch Changes
