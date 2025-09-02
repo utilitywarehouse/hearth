@@ -3,7 +3,6 @@ import { ComponentType, useState } from 'react';
 import type InputProps from './Input.props';
 
 import {
-  CalendarMediumIcon,
   CloseSmallIcon,
   EyeOffSmallIcon,
   EyeSmallIcon,
@@ -57,20 +56,6 @@ const Input = ({
   );
   const { color } = useTheme();
 
-  const defaultFornat = (() => {
-    if (type === 'date') {
-      return 'DD/MM/YYYY';
-    }
-    return;
-  })();
-
-  const getPlaceholder = (() => {
-    if (type === 'date') {
-      return props.placeholder ?? format ?? defaultFornat;
-    }
-    return props.placeholder;
-  })();
-
   const shouldShowPasswordToggle = type === 'password' && showPasswordToggle;
   const shouldShowClear = clearable && !!(props as InputWithoutChildrenProps)?.value;
 
@@ -83,13 +68,6 @@ const Input = ({
       return SearchMediumIcon;
     }
     return leadingIcon;
-  })();
-
-  const trailingIconComponent = ((): ComponentType | undefined => {
-    if (type === 'date') {
-      return CalendarMediumIcon;
-    }
-    return trailingIcon;
   })();
 
   const getInputMode = (() => {
@@ -124,7 +102,6 @@ const Input = ({
             inputMode={getInputMode}
             inBottomSheet={inBottomSheet}
             {...props}
-            placeholder={getPlaceholder}
           />
           {shouldShowClear && (
             <InputSlot>
@@ -144,9 +121,9 @@ const Input = ({
               />
             </InputSlot>
           )}
-          {!!trailingIconComponent && (
+          {!!trailingIcon && (
             <InputSlot>
-              <InputIcon as={trailingIconComponent} />
+              <InputIcon as={trailingIcon} />
             </InputSlot>
           )}
         </>

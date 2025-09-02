@@ -130,9 +130,6 @@ export const Variants: Story = {
         <VariantTitle title="Type search - loading">
           <Input placeholder="Input placeholder" type="search" loading />
         </VariantTitle>
-        <VariantTitle title="Type date">
-          <Input type="date" />
-        </VariantTitle>
         <VariantTitle title="Valid">
           <Input validationStatus="valid" placeholder="Input placeholder" />
         </VariantTitle>
