@@ -27,9 +27,9 @@ const DescriptionList = ({
   return (
     <DescriptionListContext.Provider value={value}>
       <View accessibilityRole="list" {...props} style={[styles.container, style]}>
-        {heading || linkText ? (
+        {heading ? (
           <SectionHeader
-            heading={heading as string}
+            heading={heading}
             helperText={helperText}
             linkText={linkText}
             linkHref={linkHref}

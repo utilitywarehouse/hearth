@@ -41,12 +41,7 @@ const DescriptionListItem = ({
         importantForAccessibility={hideDescendants ? 'no-hide-descendants' : undefined}
         accessibilityElementsHidden={hideDescendants || undefined}
       >
-        <View
-          style={[
-            styles.headingWrapper,
-            direction === 'row' && { width: headingWidth || itemHeadingWidth },
-          ]}
-        >
+        <View style={[direction === 'row' && { width: headingWidth || itemHeadingWidth }]}>
           {headingIsText ? <BodyText style={styles.headingText}>{heading}</BodyText> : heading}
         </View>
         <View style={styles.descriptionWrapper}>
@@ -94,10 +89,6 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     },
-  },
-  headingWrapper: {
-    // width applied dynamically for row via headingWidth or token
-    variants: {},
   },
   headingText: {
     color: theme.color.text.secondary,
