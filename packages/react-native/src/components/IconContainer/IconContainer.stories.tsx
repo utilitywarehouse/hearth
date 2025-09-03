@@ -109,15 +109,18 @@ export const KitchenSink: Story = {
             </Flex>
             <VariantTitle title={`Size: ${size.toUpperCase()} / Emphasis`}> </VariantTitle>
             <Flex direction="row" wrap="wrap" space="md">
-              {colors.map(color => (
-                <IconContainer
-                  key={`${size}-emphasis-${color}`}
-                  icon={icon}
-                  size={size}
-                  variant="emphasis"
-                  color={color}
-                />
-              ))}
+              {colors.map(
+                color =>
+                  color !== 'highlight' && (
+                    <IconContainer
+                      key={`${size}-emphasis-${color}`}
+                      icon={icon}
+                      size={size}
+                      variant="emphasis"
+                      color={color}
+                    />
+                  )
+              )}
             </Flex>
           </Box>
         ))}
