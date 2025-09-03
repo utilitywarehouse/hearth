@@ -15,11 +15,10 @@
     "lint": "TIMING=1 eslint --max-warnings 0",
     "build": "tsc",
     "watch": "tsc --watch",
-    "watch:lab": "tsc --p tsconfig.lab.json  --watch",
     "figma:create": "figma connect create",
     "figma:publish": "figma connect publish",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "storybook dev -p 6006",
+    "dev": "storybook dev -p 6006",
     "build:storybook": "storybook build"
   },
   "dependencies": {
