@@ -77,7 +77,7 @@ export const States: Story = {
           <CurrencyInput disabled />
         </VariantTitle>
         <VariantTitle title="Readonly">
-          <CurrencyInput readonly readOnly />
+          <CurrencyInput readonly />
         </VariantTitle>
       </Flex>
     );
