@@ -8,10 +8,10 @@ const UsageWrap: FC<PropsWithChildren> = ({ children }) => {
       <Box
         mt="300"
         p="200"
-        bg={colorMode === 'dark' ? 'background' : 'white'}
+        bg="backgroundPrimary"
         borderRadius="md"
         borderWidth="1"
-        borderColor="grey1000"
+        borderColor="borderSubtle"
         width="100%"
         position="relative"
       >

@@ -154,6 +154,8 @@ const Modal = ({
     }
   };
 
+  styles.useVariants({ loading });
+
   const content = (
     <>
       {loading ? (
@@ -261,6 +263,7 @@ const Modal = ({
       {...props}
       onChange={handleChange}
     >
+      {loading ? <View style={styles.loadingTop} /> : null}
       <BottomSheetScrollView contentContainerStyle={styles.container} ref={scrollViewRef}>
         {content}
       </BottomSheetScrollView>
@@ -272,6 +275,13 @@ const styles = StyleSheet.create((theme, rt) => ({
   container: {
     flex: 1,
     gap: theme.components.dialog.gap,
+    variants: {
+      loading: {
+        true: {
+          paddingTop: 0,
+        },
+      },
+    },
   },
   header: {
     flexDirection: 'row',
@@ -293,7 +303,15 @@ const styles = StyleSheet.create((theme, rt) => ({
   textContent: {
     gap: theme.components.dialog.content.gap,
   },
+  loadingTop: {
+    borderTopLeftRadius: theme.components.dialog.borderRadius,
+    borderTopRightRadius: theme.components.dialog.borderRadius,
+    height: 16,
+    backgroundColor: theme.color.surface.neutral.strong,
+  },
   loadingContainer: {
+    borderTopLeftRadius: theme.components.dialog.borderRadius,
+    borderTopRightRadius: theme.components.dialog.borderRadius,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',

@@ -9,6 +9,7 @@ export * from './Button';
 export * from './Card';
 export * from './Center';
 export * from './Checkbox';
+export * from './CurrencyInput';
 export * from './DetailText';
 export * from './Divider';
 export * from './Flex';

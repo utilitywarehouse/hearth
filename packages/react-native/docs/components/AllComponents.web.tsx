@@ -24,6 +24,7 @@ import {
   Card,
   Center,
   Checkbox,
+  CurrencyInput,
   DetailText,
   Divider,
   Flex,
@@ -55,6 +56,7 @@ import {
   UL,
   useColorMode,
 } from '../../src';
+import { addReactNativePrefix } from '../heplers';
 
 const ComponentWrapper = ({
   name,
@@ -66,8 +68,15 @@ const ComponentWrapper = ({
   children?: ViewProps['children'];
 }) => {
   const navigate = () => {
+    let target = link;
+    if (
+      typeof window !== 'undefined' &&
+      window.top?.location.href.includes('hearth.prod.uw.systems/?path=')
+    ) {
+      target = addReactNativePrefix(link);
+    }
     if (window.top) {
-      window.top.location.href = link;
+      window.top.location.href = target;
     }
   };
   return (
@@ -201,6 +210,11 @@ const AllComponents: React.FC = () => {
               <View>
                 <Checkbox label="I'm a Checkbox" value="" />
               </View>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Currency Input" link="/?path=/docs/forms-currency-input--docs">
+            <Center flex={1} padding="200">
+              <CurrencyInput />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Detail Text" link="/?path=/docs/typography-detail-text--docs">

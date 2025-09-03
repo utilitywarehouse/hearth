@@ -3,15 +3,12 @@ import { ComponentType, useState } from 'react';
 import type InputProps from './Input.props';
 
 import {
-  CalendarMediumIcon,
   CloseSmallIcon,
   EyeOffSmallIcon,
   EyeSmallIcon,
   SearchMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
-import { Platform } from 'react-native';
 import { useTheme } from '../../hooks';
-import { DetailText } from '../DetailText';
 import { useFormFieldContext } from '../FormField';
 import { Spinner } from '../Spinner';
 import { UnstyledIconButton } from '../UnstyledIconButton';
@@ -59,26 +56,6 @@ const Input = ({
   );
   const { color } = useTheme();
 
-  const defaultFornat = (() => {
-    if (type === 'currency') {
-      return '0.00';
-    }
-    if (type === 'date') {
-      return 'DD/MM/YYYY';
-    }
-    return;
-  })();
-
-  const getPlaceholder = (() => {
-    if (type === 'currency') {
-      return props.placeholder ?? format ?? defaultFornat;
-    }
-    if (type === 'date') {
-      return props.placeholder ?? format ?? defaultFornat;
-    }
-    return props.placeholder;
-  })();
-
   const shouldShowPasswordToggle = type === 'password' && showPasswordToggle;
   const shouldShowClear = clearable && !!(props as InputWithoutChildrenProps)?.value;
 
@@ -93,17 +70,7 @@ const Input = ({
     return leadingIcon;
   })();
 
-  const trailingIconComponent = ((): ComponentType | undefined => {
-    if (type === 'date') {
-      return CalendarMediumIcon;
-    }
-    return trailingIcon;
-  })();
-
   const getInputMode = (() => {
-    if (type === 'currency') {
-      return 'decimal';
-    }
     if (type === 'search') {
       return 'search';
     }
@@ -130,25 +97,11 @@ const Input = ({
               <InputIcon as={leadingIconComponent} />
             </InputSlot>
           )}
-          {type === 'currency' && (
-            <InputSlot>
-              <DetailText
-                size="4xl"
-                style={{
-                  // todo: fix this
-                  ...(Platform.OS === 'ios' && { lineHeight: 46 }),
-                }}
-              >
-                £
-              </DetailText>
-            </InputSlot>
-          )}
           <InputField
             type={fieldType}
             inputMode={getInputMode}
             inBottomSheet={inBottomSheet}
             {...props}
-            placeholder={getPlaceholder}
           />
           {shouldShowClear && (
             <InputSlot>
@@ -168,9 +121,9 @@ const Input = ({
               />
             </InputSlot>
           )}
-          {!!trailingIconComponent && (
+          {!!trailingIcon && (
             <InputSlot>
-              <InputIcon as={trailingIconComponent} />
+              <InputIcon as={trailingIcon} />
             </InputSlot>
           )}
         </>

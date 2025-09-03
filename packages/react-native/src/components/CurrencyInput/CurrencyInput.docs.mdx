@@ -1,0 +1,101 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Center, CurrencyInput, FormField } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './CurrencyInput.stories';
+
+<Meta title="Forms / Currency Input" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/pjuYVErQWaAvs8rCAVgPKX/Motion-Tokens?node-id=2161-1336" />
+
+# Currency Input
+
+An input specialised for monetary amounts. It shows a currency symbol prefix and uses a decimal keypad where supported.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [States](#states)
+- [Accessibility](#accessibility)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <CurrencyInput placeholder="0.00" />
+  </Center>
+</UsageWrap>
+
+```tsx
+import { CurrencyInput } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [value, setValue] = useState('');
+  return (
+    <CurrencyInput value={value} onChange={e => setValue(e.nativeEvent.text)} placeholder="0.00" />
+  );
+};
+```
+
+## Props
+
+When using `CurrencyInput`, the component inherits React Native TextInput props (except `children`). In addition, it supports:
+
+| Prop             | Type                                | Default     | Description                        |
+| ---------------- | ----------------------------------- | ----------- | ---------------------------------- |
+| validationStatus | `'initial' \| 'valid' \| 'invalid'` | `'initial'` | Validation styling state           |
+| disabled         | boolean                             | `false`     | Disables the input                 |
+| readonly         | boolean                             | `false`     | Makes the input read-only          |
+| focused          | boolean                             | `false`     | Forces the focused visual state    |
+| inBottomSheet    | boolean                             | `false`     | Use BottomSheetTextInput when true |
+| placeholder      | string                              | `'0.00'`    | Placeholder text                   |
+
+Note: When used inside `FormField`, `validationStatus` and `disabled` are read from the context unless explicitly overridden.
+
+## Examples
+
+### With `FormField`
+
+The `CurrencyInput` component can be used with the `FormField` component to create a custom input field.
+For more information on the `FormField` component view the [docs here](/docs/components-form-field--docs).
+
+<UsageWrap>
+  <Center>
+    <FormField label="Label" helperText="Helper text" helperPosition="bottom">
+      <CurrencyInput onChange={() => console.log('###')} />
+    </FormField>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { FormField, CurrencyInput } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [value, setValue] = useState('');
+  const handleChange = e => {
+    setValue(e.target.value);
+  };
+  return (
+    <FormField label="Label" helperText="Helper text" helperPosition="bottom">
+      <CurrencyInput onChange={handleChange} value={value} />
+    </FormField>
+  );
+};
+```
+
+## States
+
+<Canvas of={Stories.States} />
+
+## Accessibility
+
+The component uses a standard TextInput field and supports:
+
+- Screen readers (VoiceOver/TalkBack)
+- `aria-disabled`, `aria-required`, `aria-invalid` via underlying Input
+- Decimal keypad and selection/cursor colors aligned with theme

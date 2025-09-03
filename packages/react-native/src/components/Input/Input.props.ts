@@ -70,24 +70,6 @@ interface PasswordInputSpecificProps extends InputWithoutChildrenBaseProps {
   onClear?: never;
 }
 
-interface DateInputSpecificProps extends InputWithoutChildrenBaseProps {
-  type: 'date';
-  format?: string;
-  showPasswordToggle?: never;
-  loading?: never;
-  clearable?: never;
-  onClear?: never;
-}
-
-interface CurrencyInputSpecificProps extends InputWithoutChildrenBaseProps {
-  type: 'currency';
-  format?: string;
-  showPasswordToggle?: never;
-  loading?: never;
-  clearable?: never;
-  onClear?: never;
-}
-
 interface SearchInputSpecificProps extends InputWithoutChildrenBaseProps {
   type: 'search';
   loading?: boolean;
@@ -101,8 +83,6 @@ interface SearchInputSpecificProps extends InputWithoutChildrenBaseProps {
 export type InputWithoutChildrenProps =
   | TextInputSpecificProps
   | PasswordInputSpecificProps
-  | DateInputSpecificProps
-  | CurrencyInputSpecificProps
   | SearchInputSpecificProps;
 
 /**

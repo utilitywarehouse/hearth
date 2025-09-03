@@ -1,4 +1,8 @@
-# hearth
+# Hearth - Utility Warehouse Design Systems
+
+Hearth is the unified design system powering coherent, accessible user interfaces across all our platforms. Built with scalability and flexibility in mind, Hearth brings together our shared visual language, component libraries, iconography, and design tokens — so teams can build faster with confidence and consistency.
+
+Whether you're working on web, mobile, or crafting brand assets, Hearth is your central source of truth for all things design and UI implementation. And it's all built with accessibility at its core.
 
 ## Prerequisites
 
@@ -25,6 +29,43 @@ library in watch mode:
 ```console
 pnpm dev:react
 ```
+
+## Developing React Native library
+
+Install everything in the root of the repo:
+
+```console
+pnpm install
+```
+
+You then need to build all the libraries so that internal dependencies will be
+found:
+
+```console
+pnpm build
+```
+
+The following command will then run the React Native Storybook:
+
+```console
+pnpm dev:react-native
+```
+
+If you want to run the Storybook app on a native device, you need to run the following command:
+
+```console
+pnpm dev:react-native:prebuild
+```
+
+For iOS:
+```console
+pnpm dev:react-native:ios
+```
+
+For Android:
+```console
+pnpm dev:react-native:android
+``` 
 
 ### Code formatting
 

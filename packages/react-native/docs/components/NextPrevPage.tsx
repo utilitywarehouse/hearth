@@ -1,6 +1,7 @@
-import { View, StyleSheet } from 'react-native';
-import { Card, CardAction, Heading, Link } from '../../src';
 import { ChevronLeftSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { StyleSheet, View } from 'react-native';
+import { Card, CardAction, Heading, Link } from '../../src';
+import { addReactNativePrefix } from '../heplers';
 
 type NextPrevPageProps = {
   nextLink?: string;
@@ -16,8 +17,15 @@ const NextPrevPage: React.FC<NextPrevPageProps> = ({
   prevTitle,
 }) => {
   const openLink = (link: string) => {
+    let target = link;
+    if (
+      typeof window !== 'undefined' &&
+      window.top?.location.href.includes('hearth.prod.uw.systems/?path=')
+    ) {
+      target = addReactNativePrefix(link);
+    }
     if (window.top) {
-      window.top.location.href = link;
+      window.top.location.href = target;
     }
   };
   return (
