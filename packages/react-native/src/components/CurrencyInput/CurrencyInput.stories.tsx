@@ -4,7 +4,7 @@ import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
 
 const meta = {
-  title: 'Stories / CurrencyInput',
+  title: 'Stories / Currency Input',
   component: CurrencyInput,
   parameters: {
     layout: 'centered',
