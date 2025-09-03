@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react-native': minor
 ---
 
-[BREAKING] Removes data type from the `Input` component
+[BREAKING] Removes `date` and `currency` type from the `Input` component
