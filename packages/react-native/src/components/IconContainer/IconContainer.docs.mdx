@@ -1,0 +1,90 @@
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
+import {
+  BroadbandMediumIcon,
+  CashbackCardMediumIcon,
+  ConfettiMediumIcon,
+  ElectricityMediumIcon,
+  InsuranceMediumIcon,
+  MobileMediumIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
+import { Center, Flex, IconContainer } from '../../';
+import { BackToTopButton, UsageWrap } from '../../../docs/components';
+import * as Stories from './IconContainer.stories';
+
+<BackToTopButton />
+
+<Meta title="Components / Icon Container" />
+
+# Icon Container
+
+The `IconContainer` component provides a consistent background and sizing (via component tokens) for any standalone icon, with semantic colour families and subtle/emphasis variants.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+Wrap an icon with the `IconContainer` to apply sizing + background styles without repeating layout code.
+
+<UsageWrap>
+  <Center>
+    <Flex direction="row" space="lg" alignItems="center">
+      <IconContainer icon={ElectricityMediumIcon} size="md" variant="emphasis" color="energy" />
+      <IconContainer icon={BroadbandMediumIcon} size="md" variant="emphasis" color="broadband" />
+      <IconContainer icon={MobileMediumIcon} size="md" variant="emphasis" color="mobile" />
+      <IconContainer icon={InsuranceMediumIcon} size="md" variant="emphasis" color="insurance" />
+      <IconContainer icon={CashbackCardMediumIcon} size="md" variant="emphasis" color="cashback" />
+      <IconContainer icon={ConfettiMediumIcon} size="md" variant="emphasis" color="pig" />
+    </Flex>
+  </Center>
+</UsageWrap>
+
+```jsx
+import { IconContainer } from '@utilitywarehouse/hearth-react-native';
+import {
+  ElectricityMediumIcon,
+  BroadbandMediumIcon,
+  MobileMediumIcon,
+  InsuranceMediumIcon,
+  CashbackCardMediumIcon,
+  ConfettiMediumIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => (
+  <>
+    <IconContainer icon={ElectricityMediumIcon} size="md" variant="emphasis" color="energy" />
+    <IconContainer icon={BroadbandMediumIcon} size="md" variant="emphasis" color="broadband" />
+    <IconContainer icon={MobileMediumIcon} size="md" variant="emphasis" color="mobile" />
+    <IconContainer icon={InsuranceMediumIcon} size="md" variant="emphasis" color="insurance" />
+    <IconContainer icon={CashbackCardMediumIcon} size="md" variant="emphasis" color="cashback" />
+    <IconContainer icon={ConfettiMediumIcon} size="md" variant="emphasis" color="pig" />
+  </>
+);
+```
+
+## Props
+
+| Name         | Type                                                                                               | Description                                     | Default    |
+| ------------ | -------------------------------------------------------------------------------------------------- | ----------------------------------------------- | ---------- |
+| `icon`       | `React.ComponentType`                                                                              | Icon component rendered inside the container    | (required) |
+| `size`       | `'sm' \| 'md' \| 'lg'`                                                                             | Size variant (token-based width/height/padding) | `md`       |
+| `radiusNone` | `boolean`                                                                                          | Remove border radius (square container)         | `false`    |
+| `variant`    | `'subtle' \| 'emphasis'`                                                                           | Background emphasis level                       | `subtle`   |
+| `color`      | `'pig' \| 'energy' \| 'broadband' \| 'mobile' \|` <br />`'insurance' \| 'cashback' \| 'highlight'` | Semantic colour family for surface tokens       | `pig`      |
+| `...View`    | React Native `ViewProps`                                                                           | Any additional View props                       | -          |
+
+> Colours resolve to `theme.color.surface.<family>.{subtle|default}` depending on variant.
+
+## Variants
+
+Use the matrix below to compare every combination of size, variant, and color.
+
+<Canvas of={Stories.KitchenSink} />

@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useRef } from 'react';
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import {
   BroadbandMediumIcon,
+  CashbackCardMediumIcon,
   ChevronRightMediumIcon,
   ElectricityMediumIcon,
   InsuranceMediumIcon,
@@ -33,6 +34,7 @@ import {
   Heading,
   Icon,
   IconButton,
+  IconContainer,
   InlineLink,
   Input,
   LI,
@@ -269,11 +271,51 @@ const AllComponents: React.FC = () => {
               <Heading>This is a Heading</Heading>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Icon Button" link="/?path=/docs/components-iconbutton--docs">
+          <ComponentWrapper name="Icon Button" link="/?path=/docs/components-icon-button--docs">
             <Center flex={1}>
               <IconButton icon={ChevronRightMediumIcon} size="md" onPress={() => null} />
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper
+            name="Icon Container"
+            link="/?path=/docs/components-icon-container--docs"
+          >
+            <Center flex={1}>
+              <Flex direction="row" space="sm">
+                <IconContainer
+                  icon={ElectricityMediumIcon}
+                  size="sm"
+                  variant="emphasis"
+                  color="energy"
+                />
+                <IconContainer
+                  icon={BroadbandMediumIcon}
+                  size="sm"
+                  variant="emphasis"
+                  color="broadband"
+                />
+                <IconContainer
+                  icon={MobileMediumIcon}
+                  size="sm"
+                  variant="emphasis"
+                  color="mobile"
+                />
+                <IconContainer
+                  icon={InsuranceMediumIcon}
+                  size="sm"
+                  variant="emphasis"
+                  color="insurance"
+                />
+                <IconContainer
+                  icon={CashbackCardMediumIcon}
+                  size="sm"
+                  variant="emphasis"
+                  color="cashback"
+                />
+              </Flex>
+            </Center>
+          </ComponentWrapper>
+
           <ComponentWrapper name="Icons" link="/?path=/docs/components-icons--docs">
             <Center flex={1}>
               <Flex direction="row" space="lg">
