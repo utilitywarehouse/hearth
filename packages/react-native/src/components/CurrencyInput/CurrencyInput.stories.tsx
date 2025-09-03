@@ -51,7 +51,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {};
 
-export const Variants: Story = {
+export const States: Story = {
   parameters: {
     controls: { include: [] },
   },
