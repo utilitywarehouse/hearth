@@ -17,7 +17,7 @@ const IconContainer = withUnistyles(
 
     return (
       <View style={[styles.container, style]} {...props}>
-        {IconComp ? <Icon as={IconComp} /> : null}
+        {IconComp ? <Icon as={IconComp} style={styles.icon} /> : null}
       </View>
     );
   }
@@ -171,6 +171,9 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     ],
+  },
+  icon: {
+    color: theme.color.icon.primary,
   },
 }));
 

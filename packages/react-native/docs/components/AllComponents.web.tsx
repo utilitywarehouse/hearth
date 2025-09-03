@@ -26,6 +26,8 @@ import {
   Center,
   Checkbox,
   CurrencyInput,
+  DescriptionList,
+  DescriptionListItem,
   DetailText,
   Divider,
   Flex,
@@ -217,6 +219,17 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Currency Input" link="/?path=/docs/forms-currency-input--docs">
             <Center flex={1} padding="200">
               <CurrencyInput />
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
+            name="Description List"
+            link="/?path=/docs/components-description-list--docs"
+          >
+            <Center flex={1} padding="200">
+              <DescriptionList>
+                <DescriptionListItem heading="This is a" description="Description list" />
+                <DescriptionListItem heading="So is this" description="12-34-56" />
+              </DescriptionList>
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Detail Text" link="/?path=/docs/typography-detail-text--docs">

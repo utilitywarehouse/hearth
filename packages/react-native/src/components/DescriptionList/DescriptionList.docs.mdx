@@ -1,0 +1,98 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { DescriptionList, DescriptionListItem } from '../../';
+import { BackToTopButton, UsageWrap } from '../../../docs/components';
+import * as Stories from './DescriptionList.stories';
+
+<BackToTopButton />
+
+<Meta title="Components / Description List" />
+
+# Description List
+
+Display pairs of related metadata (heading + description). Supports column (stacked) and row (two-column) layouts, optional SectionHeader (heading + helper text), and per-item action links.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Accessibility](#accessibility)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <DescriptionList
+    direction="column"
+    heading="Account details"
+    helperText="Static account metadata"
+  >
+    <DescriptionListItem heading="Account Number" description="123456789" />
+    <DescriptionListItem heading="Sort Code" description="12-34-56" />
+    <DescriptionListItem heading="Status" description="Active" />
+  </DescriptionList>
+</UsageWrap>
+
+```tsx
+import { DescriptionList, DescriptionListItem } from '@utilitywarehouse/hearth-react-native';
+
+<DescriptionList direction="column" heading="Account details" helperText="Static account metadata">
+  <DescriptionListItem heading="Account Number" description="123456789" />
+  <DescriptionListItem heading="Sort Code" description="12-34-56" />
+  <DescriptionListItem heading="Status" description="Active" />
+</DescriptionList>;
+```
+
+## Props
+
+### DescriptionList
+
+| Prop               | Type                                         | Description                                      | Default     |
+| ------------------ | -------------------------------------------- | ------------------------------------------------ | ----------- |
+| `direction`        | `'row' \| 'column'`                          | Layout orientation                               | `column`    |
+| `itemHeadingWidth` | `number`                                     | Override heading column width in row layout      | token value |
+| `heading`          | `string`                                     | Optional overall heading (renders SectionHeader) | -           |
+| `helperText`       | `string`                                     | Supporting text under heading                    | -           |
+| `linkText`         | `string`                                     | Section header link text                         | -           |
+| `linkHref`         | `string`                                     | Header link URL (web)                            | -           |
+| `linkIcon`         | `ComponentType`                              | Header link icon                                 | -           |
+| `linkIconPosition` | `'left' \| 'right'`                          | Header link icon position                        | `right`     |
+| `linkOnPress`      | `() => void`                                 | Header link press handler                        | -           |
+| `linkTarget`       | `'_blank' \| '_self' \| '_parent' \| '_top'` | Header link target                               | `_self`     |
+| `linkShowIcon`     | `boolean`                                    | Whether header link icon is shown                | `false`     |
+
+### DescriptionListItem
+
+| Prop               | Type                                         | Description                                  | Default    |
+| ------------------ | -------------------------------------------- | -------------------------------------------- | ---------- |
+| `heading`          | `ReactNode`                                  | Heading (label) content                      | (required) |
+| `description`      | `ReactNode`                                  | Description (value) content                  | (required) |
+| `headingWidth`     | `number`                                     | Per-item heading width override (row layout) | inherits   |
+| `linkText`         | `string`                                     | Inline action link text                      | -          |
+| `linkHref`         | `string`                                     | Inline action link URL (web)                 | -          |
+| `linkIcon`         | `ComponentType`                              | Inline action link icon                      | -          |
+| `linkIconPosition` | `'left' \| 'right'`                          | Inline link icon position                    | `right`    |
+| `linkOnPress`      | `() => void`                                 | Inline link press handler                    | -          |
+| `linkTarget`       | `'_blank' \| '_self' \| '_parent' \| '_top'` | Inline link target                           | `_self`    |
+| `linkShowIcon`     | `boolean`                                    | Show inline link icon                        | `false`    |
+
+> Uses `theme.components.descriptionList` tokens for spacing & column width.
+
+## Variants
+
+<Canvas of={Stories.KitchenSink} />
+<Canvas of={Stories.WithLinks} />
+
+## Accessibility
+
+The component applies the following roles:
+
+| Element                       | Role                                  |
+| ----------------------------- | ------------------------------------- |
+| `DescriptionList` root        | `list`                                |
+| `DescriptionListItem` wrapper | `text` (combined label when possible) |
+
+When both heading and description are plain text they are merged into one accessibility node (e.g. “Account Number: 123456789”) and the child elements are hidden from the a11y tree to avoid duplicate reading (TalkBack / VoiceOver). If either part is non‑text the children remain individually exposed.
