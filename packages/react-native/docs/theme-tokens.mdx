@@ -429,6 +429,48 @@ Available spacing values:
 | `900` | 72px | Maximum spacing |
 | `1000` | 80px | Hero spacing |
 
+There is also responsive layout spacing for different screen sizes:
+
+| Token  | Mobile (base) | Tablet (md) | Desktop (lg) | Usage (guideline)                     |
+| ------ | ------------- | ----------- | ------------ | ------------------------------------- |
+| `none` | 0px           | 0px         | 0px          | Reset / collapse spacing              |
+| `2xs`  | 2px           | 2px         | 2px          | Hairline gaps, separators             |
+| `xs`   | 4px           | 4px         | 4px          | Tight padding, icon nudge             |
+| `sm`   | 8px           | 8px         | 8px          | Compact component gap                 |
+| `md`   | 12px          | 12px        | 12px         | Dense layouts, inline stacks          |
+| `lg`   | 16px          | 16px        | 16px         | Base section spacing                  |
+| `xl`   | 20px          | 24px        | 24px         | Larger grouping / outer padding       |
+| `2xl`  | 28px          | 28px        | 40px         | Major vertical rhythm / page sections |
+
+There are built in responsive layout spacings for mobile, tablet and desktop. They live under `theme.space.xs` etc,
+which are responsive values that adapt based on screen size. For example, `theme.space.xl` is `20px` on mobile, and `24px` on tablet and desktop.
+
+These responsive layout spacings live under `theme.layout.[mobile|tablet|desktop].spacing` and are intended for macro
+layout structure (page/frame scaffolding) rather than component-level internal spacing (which should prefer the core `space` scale).
+
+```tsx
+const styles = StyleSheet.create(theme => ({
+  pageSection: {
+    padding: theme.space.xl, // 20px on mobile, 24px on tablet/desktop
+  },
+}));
+
+// or using the layout tokens directly:
+const styles = StyleSheet.create(theme => ({
+  pageSection: {
+    // Example: use responsive spacing tokens
+    paddingHorizontal: theme.layout.mobile.spacing.lg,
+    paddingTop: theme.layout.mobile.spacing.xl,
+    // Or use responsive object syntax
+    gap: {
+      base: theme.layout.mobile.spacing.md,
+      md: theme.layout.tablet.spacing.lg,
+      lg: theme.layout.desktop.spacing.xl,
+    },
+  },
+}));
+```
+
 Percentage-based spacing is also available:
 
 - `1/2`, `1/3`, `2/3`, `1/4`, `3/4`
