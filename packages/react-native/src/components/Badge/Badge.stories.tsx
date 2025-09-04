@@ -73,12 +73,21 @@ export const Playground: Story = {
   },
 };
 
-export const Emphasis: Story = {
+export const Subtle: Story = {
   parameters: {
     controls: { exclude: ['variant'] },
   },
   args: {
     variant: 'subtle',
+  },
+};
+
+export const Emphasis: Story = {
+  parameters: {
+    controls: { exclude: ['variant'] },
+  },
+  args: {
+    variant: 'emphasis',
   },
 };
 
