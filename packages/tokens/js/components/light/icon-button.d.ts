@@ -21,7 +21,7 @@ declare const _default: {
     readonly foregroundColorHover: '#3a3837';
     readonly inverted: {
       readonly foregroundColor: '#f7f7f7';
-      readonly foregroundColorActive: '#d4d2c0';
+      readonly foregroundColorActive: '#b2afae';
       readonly foregroundColorHover: '#d3d3d3';
     };
     readonly md: {

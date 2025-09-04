@@ -10,6 +10,7 @@ declare const _default: {
     readonly paddingVertical: 12;
   };
   readonly minWidth: 80;
+  readonly shadowColor: '#101010';
   readonly sm: {
     readonly paddingHorizontal: 16;
     readonly paddingVertical: 4;

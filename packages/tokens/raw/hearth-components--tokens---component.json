@@ -450,6 +450,11 @@
         "type": "number",
         "value": 80
       },
+      "shadow-color": {
+        "alias": "{color.grey.1000}",
+        "type": "color",
+        "value": "#101010"
+      },
       "sm": {
         "padding-horizontal": {
           "alias": "{space.200}",
@@ -947,19 +952,19 @@
         },
         "inverted": {
           "foreground-color": {
-            "alias": "{color.grey.1000}",
+            "alias": "{color.grey.50}",
             "type": "color",
-            "value": "#101010"
+            "value": "#f7f7f7"
           },
           "foreground-color-active": {
-            "alias": "{color.grey.900}",
+            "alias": "{color.grey.300}",
             "type": "color",
-            "value": "#3a3837"
+            "value": "#b2afae"
           },
           "foreground-color-hover": {
-            "alias": "{color.grey.950}",
+            "alias": "{color.grey.200}",
             "type": "color",
-            "value": "#232323"
+            "value": "#d3d3d3"
           }
         },
         "md": {
@@ -2134,6 +2139,16 @@
           "type": "number",
           "value": 6
         },
+        "padding-horizontal": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
+        },
+        "padding-vertical": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        },
         "selected": {
           "border-bottom-radius": {
             "alias": "{border-radius.none}",
@@ -2750,6 +2765,11 @@
         "type": "number",
         "value": 80
       },
+      "shadow-color": {
+        "alias": "{color.grey.1000}",
+        "type": "color",
+        "value": "#101010"
+      },
       "sm": {
         "padding-horizontal": {
           "alias": "{space.200}",
@@ -3252,9 +3272,9 @@
             "value": "#f7f7f7"
           },
           "foreground-color-active": {
-            "alias": "{color.warm-white.300}",
+            "alias": "{color.grey.300}",
             "type": "color",
-            "value": "#d4d2c0"
+            "value": "#b2afae"
           },
           "foreground-color-hover": {
             "alias": "{color.grey.200}",
@@ -4433,6 +4453,16 @@
           "alias": "{space.75}",
           "type": "number",
           "value": 6
+        },
+        "padding-horizontal": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
+        },
+        "padding-vertical": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
         },
         "selected": {
           "border-bottom-radius": {

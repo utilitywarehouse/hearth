@@ -7,6 +7,8 @@
   --h-tabs-divider-color: var(--h-color-grey-1000);
   --h-tabs-gap: var(--h-space-150);
   --h-tabs-item-gap: var(--h-space-75);
+  --h-tabs-item-padding-horizontal: var(--h-space-150);
+  --h-tabs-item-padding-vertical: var(--h-space-200);
   --h-tabs-item-selected-border-bottom-radius: 0;
   --h-tabs-item-selected-border-top-radius: var(--h-border-radius-xs);
   --h-tabs-lg-height: var(--h-space-800)px;

@@ -6,6 +6,8 @@ export declare const tabs: {
   readonly gap: 'var(--h-tabs-gap)';
   readonly item: {
     readonly gap: 'var(--h-tabs-item-gap)';
+    readonly paddingHorizontal: 'var(--h-tabs-item-padding-horizontal)';
+    readonly paddingVertical: 'var(--h-tabs-item-padding-vertical)';
     readonly selected: {
       readonly borderBottomRadius: 'var(--h-tabs-item-selected-border-bottom-radius)';
       readonly borderTopRadius: 'var(--h-tabs-item-selected-border-top-radius)';

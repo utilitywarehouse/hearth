@@ -9,6 +9,8 @@ declare const _default: {
   readonly gap: 12;
   readonly item: {
     readonly gap: 6;
+    readonly paddingHorizontal: 12;
+    readonly paddingVertical: 16;
     readonly selected: {
       readonly borderBottomRadius: 0;
       readonly borderTopRadius: 4;

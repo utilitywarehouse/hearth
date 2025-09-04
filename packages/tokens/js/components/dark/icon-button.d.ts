@@ -20,9 +20,9 @@ declare const _default: {
     readonly foregroundColorActive: '#b2afae';
     readonly foregroundColorHover: '#d3d3d3';
     readonly inverted: {
-      readonly foregroundColor: '#101010';
-      readonly foregroundColorActive: '#3a3837';
-      readonly foregroundColorHover: '#232323';
+      readonly foregroundColor: '#f7f7f7';
+      readonly foregroundColorActive: '#b2afae';
+      readonly foregroundColorHover: '#d3d3d3';
     };
     readonly md: {
       readonly height: 24;
