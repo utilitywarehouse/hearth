@@ -35,6 +35,7 @@ export * from './Select';
 export * from './Skeleton';
 export * from './Spinner';
 export * from './Switch';
+export * from './Tabs';
 export * from './Textarea';
 export * from './ToggleButtonCard';
 

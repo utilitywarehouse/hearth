@@ -1,0 +1,141 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Badge, Tab, TabPanel, Tabs, TabsList } from '../../';
+import { BackToTopButton, UsageWrap } from '../../../docs/components';
+import * as Stories from './Tabs.stories';
+
+<BackToTopButton />
+
+<Meta title="Components / Tabs" />
+
+# Tabs
+
+Tabbed navigation component for grouping related content sections. Provides keyboard & accessibility semantics with `tablist` / `tab` roles and supports controlled & uncontrolled usage, size variants, badges and disabled state.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Accessibility](#accessibility)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Tabs defaultValue="account">
+    <TabsList>
+      <Tab value="account">Account</Tab>
+      <Tab value="billing">Billing</Tab>
+      <Tab
+        value="usage"
+        badge={
+          <Badge size="sm" variant="subtle" colorScheme="info">
+            3
+          </Badge>
+        }
+      >
+        Usage
+      </Tab>
+    </TabsList>
+    <TabPanel value="account">Account content</TabPanel>
+    <TabPanel value="billing">Billing content</TabPanel>
+    <TabPanel value="usage">Usage metrics content</TabPanel>
+  </Tabs>
+</UsageWrap>
+
+```tsx
+import { Tabs, TabsList, Tab, TabPanel, Badge } from '@utilitywarehouse/hearth-react-native';
+
+<Tabs defaultValue="account">
+  <TabsList>
+    <Tab value="account">Account</Tab>
+    <Tab value="billing">Billing</Tab>
+    <Tab
+      value="usage"
+      badge={
+        <Badge size="sm" variant="subtle" colorScheme="info">
+          3
+        </Badge>
+      }
+    >
+      Usage
+    </Tab>
+  </TabsList>
+  <TabPanel value="account">Account content</TabPanel>
+  <TabPanel value="billing">Billing content</TabPanel>
+  <TabPanel value="usage">Usage metrics content</TabPanel>
+</Tabs>;
+```
+
+### Controlled
+
+```tsx
+const [tab, setTab] = useState('account');
+<Tabs value={tab} onValueChange={setTab}>
+  <TabsList>
+    <Tab value="account">Account</Tab>
+    <Tab value="billing">Billing</Tab>
+    <Tab value="usage">Usage</Tab>
+  </TabsList>
+  <TabPanel value="account">Account content</TabPanel>
+  <TabPanel value="billing">Billing content</TabPanel>
+  <TabPanel value="usage">Usage metrics content</TabPanel>
+</Tabs>;
+```
+
+## Props
+
+### Tabs
+
+| Prop            | Type                      | Description                    | Default    |
+| --------------- | ------------------------- | ------------------------------ | ---------- |
+| `value`         | `string`                  | Controlled active tab value    | -          |
+| `defaultValue`  | `string`                  | Uncontrolled initial tab value | first Tab  |
+| `onValueChange` | `(value: string) => void` | Change handler                 | -          |
+| `size`          | `'sm' \| 'md'`            | Size variant                   | `md`       |
+| `disabled`      | `boolean`                 | Disables all interaction       | `false`    |
+| `children`      | `ReactNode`               | Composition (list + panels)    | (required) |
+
+### TabsList / Tab / TabPanel
+
+### TabsList
+
+| Prop       | Type        | Description                | Default    |
+| ---------- | ----------- | -------------------------- | ---------- |
+| `children` | `ReactNode` | One or more `Tab` elements | (required) |
+
+| Prop                 | Type            | Description                 | Default    |
+| -------------------- | --------------- | --------------------------- | ---------- |
+| `value`              | `string`        | Unique tab value            | (required) |
+| `children`           | `ReactNode`     | Label content               | (required) |
+| `icon`               | `ComponentType` | Optional leading icon       | -          |
+| `disabled`           | `boolean`       | Disabled state              | `false`    |
+| `badge`              | `ReactNode`     | Optional badge (e.g. count) | -          |
+| `accessibilityLabel` | `string`        | Override accessible label   | derived    |
+
+### TabPanel
+
+| Prop          | Type        | Description                                 | Default    |
+| ------------- | ----------- | ------------------------------------------- | ---------- |
+| `value`       | `string`    | Matches a `Tab` value                       | (required) |
+| `children`    | `ReactNode` | Panel content                               | (required) |
+| `keepMounted` | `boolean`   | Keep hidden panels in tree (preserve state) | `false`    |
+
+## Variants
+
+<Canvas of={Stories.Sizes} />
+{/* Vertical variant removed */}
+<Canvas of={Stories.Disabled} />
+
+## Accessibility
+
+| Element     | Role                                    | Notes                                           |
+| ----------- | --------------------------------------- | ----------------------------------------------- |
+| `Tabs` root | `tablist`                               | Container for related `tab` elements            |
+| `Tab`       | `tab`                                   | Uses `accessibilityState.selected` & `disabled` |
+| `TabPanel`  | `tabpanel` (web) / hidden view (native) | Inactive panels removed from a11y tree          |
+
+Selection state is communicated through `accessibilityState`. Provide concise labels (children text) for best screen reader clarity. Badge content is included in the tab's accessibility tree automatically. Indicator animates (with reduced motion support). Hidden panels are removed from the accessibility tree (or marked hidden on web). Keyboard navigation (web): Arrow keys move focus between tabs, Home/End jump to first/last.
