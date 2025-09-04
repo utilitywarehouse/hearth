@@ -32,7 +32,7 @@ const TabPanel = ({ value, children, keepMounted, style, ...rest }: TabPanelProp
 const styles = StyleSheet.create(theme => ({
   panel: {
     width: '100%',
-    paddingTop: theme.space[100], // ensures theme is referenced
+    paddingTop: theme.space[100],
     variants: {
       active: {
         true: { display: 'flex' },

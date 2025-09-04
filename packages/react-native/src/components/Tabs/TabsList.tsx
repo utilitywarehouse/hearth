@@ -21,7 +21,7 @@ const TabsList = ({ children, style, ...rest }: TabsListProps) => {
       <Indicator
         accessibilityElementsHidden
         importantForAccessibility="no-hide-descendants"
-        style={[styles.indicatorBase, styles.indicatorHorizontal, indicatorStyle]}
+        style={[styles.indicator, indicatorStyle]}
       />
     </View>
   );
@@ -42,12 +42,8 @@ const styles = StyleSheet.create(theme => ({
       },
     },
   },
-  indicatorBase: {
+  indicator: {
     position: 'absolute',
-    backgroundColor: theme.color.text.primary,
-    borderRadius: theme.borderRadius.full,
-  },
-  indicatorHorizontal: {
     height: 6,
     borderTopLeftRadius: theme.components.tabs.item.selected.borderTopRadius,
     borderTopRightRadius: theme.components.tabs.item.selected.borderTopRadius,

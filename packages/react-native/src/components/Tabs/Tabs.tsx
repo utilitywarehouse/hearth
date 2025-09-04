@@ -92,8 +92,6 @@ const Tabs = ({
   );
   const getTabLayout = useCallback((v: string) => layoutsRef.current.get(v), []);
 
-  // (moved indicator shared values above)
-
   const contextValue = useMemo(
     () => ({
       value: currentValue,

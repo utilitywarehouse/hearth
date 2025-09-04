@@ -78,8 +78,6 @@ const styles = StyleSheet.create(theme => ({
       _active: {
         backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
       },
-      cursor: 'pointer',
-      userSelect: 'none',
     },
     variants: {
       size: {
@@ -102,7 +100,6 @@ const styles = StyleSheet.create(theme => ({
   badge: {
     marginLeft: theme.space[25],
   },
-  // Indicator handled by parent
 }));
 
 const PressableTab = createPressable({ Root: Tab });
