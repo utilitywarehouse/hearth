@@ -8,7 +8,7 @@ import BadgeText from './BadgeText';
 
 const Badge = ({ children, ...props }: BadgeProps) => {
   const {
-    variant = 'solid',
+    variant = 'subtle',
     icon,
     colorScheme = 'info',
     flatBase = false,
@@ -59,9 +59,11 @@ const styles = StyleSheet.create(theme => ({
         insurance: {},
         cashback: {},
         pig: {},
+        highlight: {},
       },
       variant: {
-        solid: {},
+        subtle: {},
+        emphasis: {},
         outline: {
           borderWidth: theme.components.badge.outline.borderWidth,
           borderColor: theme.color.border.subtle,
@@ -86,82 +88,167 @@ const styles = StyleSheet.create(theme => ({
       },
     },
     compoundVariants: [
-      // Solid
+      // Emphasis
       {
         colorScheme: 'info',
-        variant: 'solid',
+        variant: 'emphasis',
         styles: {
           backgroundColor: theme.color.feedback.info.surface.default,
         },
       },
       {
         colorScheme: 'danger',
-        variant: 'solid',
+        variant: 'emphasis',
         styles: {
           backgroundColor: theme.color.feedback.danger.surface.default,
         },
       },
       {
         colorScheme: 'positive',
-        variant: 'solid',
+        variant: 'emphasis',
         styles: {
           backgroundColor: theme.color.feedback.positive.surface.default,
         },
       },
       {
         colorScheme: 'warning',
-        variant: 'solid',
+        variant: 'emphasis',
         styles: {
           backgroundColor: theme.color.feedback.warning.surface.default,
         },
       },
       {
         colorScheme: 'functional',
-        variant: 'solid',
+        variant: 'emphasis',
         styles: {
           backgroundColor: theme.color.feedback.functional.surface.default,
         },
       },
       {
         colorScheme: 'energy',
-        variant: 'solid',
+        variant: 'emphasis',
         styles: {
           backgroundColor: theme.color.surface.energy.default,
         },
       },
       {
         colorScheme: 'broadband',
-        variant: 'solid',
+        variant: 'emphasis',
         styles: {
           backgroundColor: theme.color.surface.broadband.default,
         },
       },
       {
         colorScheme: 'mobile',
-        variant: 'solid',
+        variant: 'emphasis',
         styles: {
           backgroundColor: theme.color.surface.mobile.default,
         },
       },
       {
         colorScheme: 'insurance',
-        variant: 'solid',
+        variant: 'emphasis',
         styles: {
           backgroundColor: theme.color.surface.insurance.default,
         },
       },
       {
         colorScheme: 'cashback',
-        variant: 'solid',
+        variant: 'emphasis',
         styles: {
           backgroundColor: theme.color.surface.cashback.default,
         },
       },
       {
         colorScheme: 'pig',
-        variant: 'solid',
+        variant: 'emphasis',
         styles: {
           backgroundColor: theme.color.surface.pig.default,
+        },
+      },
+      // Subtle
+      {
+        colorScheme: 'info',
+        variant: 'subtle',
+        styles: {
+          backgroundColor: theme.color.feedback.info.surface.subtle,
+        },
+      },
+      {
+        colorScheme: 'danger',
+        variant: 'subtle',
+        styles: {
+          backgroundColor: theme.color.feedback.danger.surface.subtle,
+        },
+      },
+      {
+        colorScheme: 'positive',
+        variant: 'subtle',
+        styles: {
+          backgroundColor: theme.color.feedback.positive.surface.subtle,
+        },
+      },
+      {
+        colorScheme: 'warning',
+        variant: 'subtle',
+        styles: {
+          backgroundColor: theme.color.feedback.warning.surface.subtle,
+        },
+      },
+      {
+        colorScheme: 'functional',
+        variant: 'subtle',
+        styles: {
+          backgroundColor: theme.color.feedback.functional.surface.subtle,
+        },
+      },
+      {
+        colorScheme: 'energy',
+        variant: 'subtle',
+        styles: {
+          backgroundColor: theme.color.surface.energy.subtle,
+        },
+      },
+      {
+        colorScheme: 'broadband',
+        variant: 'subtle',
+        styles: {
+          backgroundColor: theme.color.surface.broadband.subtle,
+        },
+      },
+      {
+        colorScheme: 'mobile',
+        variant: 'subtle',
+        styles: {
+          backgroundColor: theme.color.surface.mobile.subtle,
+        },
+      },
+      {
+        colorScheme: 'insurance',
+        variant: 'subtle',
+        styles: {
+          backgroundColor: theme.color.surface.insurance.subtle,
+        },
+      },
+      {
+        colorScheme: 'cashback',
+        variant: 'subtle',
+        styles: {
+          backgroundColor: theme.color.surface.cashback.subtle,
+        },
+      },
+      {
+        colorScheme: 'pig',
+        variant: 'subtle',
+        styles: {
+          backgroundColor: theme.color.surface.pig.subtle,
+        },
+      },
+      {
+        colorScheme: 'highlight',
+        variant: 'subtle',
+        styles: {
+          backgroundColor: theme.color.surface.highlight.subtle,
         },
       },
       // Outline

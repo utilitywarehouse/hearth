@@ -2,7 +2,7 @@ import type { ComponentType } from 'react';
 import type { ViewProps } from 'react-native';
 
 interface BadgeProps extends ViewProps {
-  variant?: 'solid' | 'outline';
+  variant?: 'subtle' | 'emphasis' | 'outline';
   colorScheme?:
     | 'info'
     | 'positive'
@@ -14,7 +14,8 @@ interface BadgeProps extends ViewProps {
     | 'mobile'
     | 'insurance'
     | 'cashback'
-    | 'pig';
+    | 'pig'
+    | 'highlight';
   size?: 'sm' | 'md';
   icon?: ComponentType;
   flatBase?: boolean;
