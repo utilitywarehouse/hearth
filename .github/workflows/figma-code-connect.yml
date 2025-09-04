@@ -2,7 +2,7 @@ name: Figma Code Connect publish
 on:
   push:
     branches:
-      - main
+      - none # temp disbale until we get this working
 
 jobs:
   code-connect:
