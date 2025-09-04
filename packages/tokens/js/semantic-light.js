@@ -15,55 +15,55 @@ export default {
     danger: {
       border: '#de2612',
       foreground: {
-        default: '#fcfbf2',
+        default: '#101010',
         subtle: '#de2612',
       },
       surface: {
-        default: '#de2612',
-        subtle: '#ffccc5',
+        default: '#ff634a',
+        subtle: '#ffa89d',
       },
     },
     functional: {
-      border: '#888888',
+      border: '#5b5b5b',
       foreground: {
-        default: '#fcfbf2',
-        subtle: '#888888',
+        default: '#101010',
+        subtle: '#5b5b5b',
       },
       surface: {
-        default: '#888888',
+        default: '#919191',
         subtle: '#d3d3d3',
       },
     },
     info: {
       border: '#1c6cd4',
       foreground: {
-        default: '#fcfbf2',
+        default: '#101010',
         subtle: '#1c6cd4',
       },
       surface: {
-        default: '#1c6cd4',
+        default: '#6bb0ff',
         subtle: '#bcddff',
       },
     },
     positive: {
       border: '#0f834a',
       foreground: {
-        default: '#fcfbf2',
+        default: '#101010',
         subtle: '#0f834a',
       },
       surface: {
-        default: '#0f834a',
+        default: '#36bf7d',
         subtle: '#a2e2c3',
       },
     },
     warning: {
       border: '#be5400',
       foreground: {
-        default: '#fcfbf2',
+        default: '#101010',
         subtle: '#be5400',
       },
       surface: {
-        default: '#be5400',
+        default: '#ff8010',
         subtle: '#ffcca8',
       },
     },
@@ -136,14 +136,14 @@ export default {
     },
     functional: {
       border: {
+        inverted: '#f7f7f7',
         strong: '#101010',
         subtle: '#101010',
-        inverted: '#f7f7f7',
       },
       foreground: {
+        inverted: '#f7f7f7',
         strong: '#fcfbf2',
         subtle: '#101010',
-        inverted: '#f7f7f7',
       },
       surface: {
         strong: {
@@ -244,6 +244,8 @@ export default {
     },
   },
   text: {
+    affirmative: '#0f834a',
+    brand: '#7a42c8',
     inverted: '#fcfbf2',
     primary: '#101010',
     secondary: '#888888',

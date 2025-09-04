@@ -133,14 +133,14 @@ export declare const color: {
     };
     readonly functional: {
       readonly border: {
+        readonly inverted: 'var(--h-interactive-functional-border-inverted)';
         readonly strong: 'var(--h-interactive-functional-border-strong)';
         readonly subtle: 'var(--h-interactive-functional-border-subtle)';
-        readonly inverted: 'var(--h-interactive-functional-border-inverted)';
       };
       readonly foreground: {
+        readonly inverted: 'var(--h-interactive-functional-foreground-inverted)';
         readonly strong: 'var(--h-interactive-functional-foreground-strong)';
         readonly subtle: 'var(--h-interactive-functional-foreground-subtle)';
-        readonly inverted: 'var(--h-interactive-functional-foreground-inverted)';
       };
       readonly surface: {
         readonly strong: {
@@ -238,6 +238,8 @@ export declare const color: {
     };
   };
   readonly text: {
+    readonly affirmative: 'var(--h-text-affirmative)';
+    readonly brand: 'var(--h-text-brand)';
     readonly inverted: 'var(--h-text-inverted)';
     readonly primary: 'var(--h-text-primary)';
     readonly secondary: 'var(--h-text-secondary)';

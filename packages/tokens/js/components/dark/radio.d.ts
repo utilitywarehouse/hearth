@@ -11,7 +11,7 @@ declare const _default: {
   readonly group: {
     readonly gap: 16;
     readonly stack: {
-      readonly gap: 32;
+      readonly gap: 20;
     };
   };
   readonly outlineColorActive: '#4c473d';

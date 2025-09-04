@@ -18,6 +18,6 @@ export default {
   paddingHorizontal: 6,
   sm: {
     height: 24,
-    paddingVertical: 0,
+    paddingVertical: 2,
   },
 };

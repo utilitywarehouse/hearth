@@ -7,11 +7,11 @@ declare const _default: {
   readonly checked: {
     readonly backgroundColor: '#101010';
   };
-  readonly gap: 8;
+  readonly gap: 12;
   readonly group: {
     readonly gap: 16;
     readonly stack: {
-      readonly gap: 32;
+      readonly gap: 20;
     };
   };
   readonly outlineColorActive: '#d4d2c0';
@@ -21,7 +21,7 @@ declare const _default: {
     readonly borderRadius: 8;
     readonly borderWidth: 1;
     readonly borderWidthSelected: 2;
-    readonly gap: 8;
+    readonly gap: 12;
     readonly group: {
       readonly gap: 6;
       readonly stack: {

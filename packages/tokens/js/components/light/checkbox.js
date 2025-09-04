@@ -7,11 +7,11 @@ export default {
   checked: {
     backgroundColor: '#101010',
   },
-  gap: 8,
+  gap: 12,
   group: {
     gap: 16,
     stack: {
-      gap: 32,
+      gap: 20,
     },
   },
   outlineColorActive: '#d4d2c0',
@@ -21,7 +21,7 @@ export default {
     borderRadius: 8,
     borderWidth: 1,
     borderWidthSelected: 2,
-    gap: 8,
+    gap: 12,
     group: {
       gap: 6,
       stack: {

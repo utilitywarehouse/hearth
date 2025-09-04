@@ -12,5 +12,5 @@
   --h-badge-outline-border-width: var(--h-border-width-1);
   --h-badge-padding-horizontal: var(--h-space-75);
   --h-badge-sm-height: var(--h-space-300)px;
-  --h-badge-sm-padding-vertical: 0;
+  --h-badge-sm-padding-vertical: var(--h-space-25);
 }

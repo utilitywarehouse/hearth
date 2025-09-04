@@ -11,7 +11,7 @@ export default {
   group: {
     gap: 16,
     stack: {
-      gap: 32,
+      gap: 20,
     },
   },
   outlineColorActive: '#4c473d',

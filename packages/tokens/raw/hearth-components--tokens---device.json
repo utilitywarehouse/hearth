@@ -115,30 +115,45 @@
         }
       },
       "spacing": {
-        "lg": {
-          "alias": "{space.300}",
-          "type": "number",
-          "value": 24
-        },
-        "md": {
-          "alias": "{space.200}",
-          "type": "number",
-          "value": 16
-        },
-        "sm": {
-          "alias": "{space.150}",
-          "type": "number",
-          "value": 12
-        },
-        "xl": {
+        "2xl": {
           "alias": "{space.500}",
           "type": "number",
           "value": 40
         },
-        "xs": {
+        "2xs": {
+          "alias": "{space.25}",
+          "type": "number",
+          "value": 2
+        },
+        "lg": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        },
+        "md": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
+        },
+        "none": {
+          "alias": "{space.0}",
+          "type": "number",
+          "value": 0
+        },
+        "sm": {
           "alias": "{space.100}",
           "type": "number",
           "value": 8
+        },
+        "xl": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
+        },
+        "xs": {
+          "alias": "{space.50}",
+          "type": "number",
+          "value": 4
         }
       }
     },
@@ -578,30 +593,45 @@
         }
       },
       "spacing": {
-        "lg": {
-          "alias": "{space.250}",
-          "type": "number",
-          "value": 20
-        },
-        "md": {
-          "alias": "{space.200}",
-          "type": "number",
-          "value": 16
-        },
-        "sm": {
-          "alias": "{space.150}",
-          "type": "number",
-          "value": 12
-        },
-        "xl": {
+        "2xl": {
           "alias": "{space.350}",
           "type": "number",
           "value": 28
         },
-        "xs": {
+        "2xs": {
+          "alias": "{space.25}",
+          "type": "number",
+          "value": 2
+        },
+        "lg": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        },
+        "md": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
+        },
+        "none": {
+          "alias": "{space.0}",
+          "type": "number",
+          "value": 0
+        },
+        "sm": {
           "alias": "{space.100}",
           "type": "number",
           "value": 8
+        },
+        "xl": {
+          "alias": "{space.250}",
+          "type": "number",
+          "value": 20
+        },
+        "xs": {
+          "alias": "{space.50}",
+          "type": "number",
+          "value": 4
         }
       }
     },
@@ -1041,30 +1071,45 @@
         }
       },
       "spacing": {
-        "lg": {
-          "alias": "{space.300}",
-          "type": "number",
-          "value": 24
-        },
-        "md": {
-          "alias": "{space.200}",
-          "type": "number",
-          "value": 16
-        },
-        "sm": {
-          "alias": "{space.150}",
-          "type": "number",
-          "value": 12
-        },
-        "xl": {
+        "2xl": {
           "alias": "{space.350}",
           "type": "number",
           "value": 28
         },
-        "xs": {
+        "2xs": {
+          "alias": "{space.25}",
+          "type": "number",
+          "value": 2
+        },
+        "lg": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        },
+        "md": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
+        },
+        "none": {
+          "alias": "{space.0}",
+          "type": "number",
+          "value": 0
+        },
+        "sm": {
           "alias": "{space.100}",
           "type": "number",
           "value": 8
+        },
+        "xl": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
+        },
+        "xs": {
+          "alias": "{space.50}",
+          "type": "number",
+          "value": 4
         }
       }
     },
