@@ -560,9 +560,9 @@
         },
         "stack": {
           "gap": {
-            "alias": "{space.400}",
+            "alias": "{space.250}",
             "type": "number",
-            "value": 32
+            "value": 20
           }
         }
       },
@@ -1708,9 +1708,9 @@
         },
         "stack": {
           "gap": {
-            "alias": "{space.400}",
+            "alias": "{space.250}",
             "type": "number",
-            "value": 32
+            "value": 20
           }
         }
       },
@@ -2497,9 +2497,9 @@
           "value": 24
         },
         "padding-vertical": {
-          "alias": "{space.0}",
+          "alias": "{space.25}",
           "type": "number",
-          "value": 0
+          "value": 2
         }
       }
     },
@@ -2848,9 +2848,9 @@
         }
       },
       "gap": {
-        "alias": "{space.100}",
+        "alias": "{space.150}",
         "type": "number",
-        "value": 8
+        "value": 12
       },
       "group": {
         "gap": {
@@ -2860,9 +2860,9 @@
         },
         "stack": {
           "gap": {
-            "alias": "{space.400}",
+            "alias": "{space.250}",
             "type": "number",
-            "value": 32
+            "value": 20
           }
         }
       },
@@ -2897,9 +2897,9 @@
           "value": 2
         },
         "gap": {
-          "alias": "{space.100}",
+          "alias": "{space.150}",
           "type": "number",
-          "value": 8
+          "value": 12
         },
         "group": {
           "gap": {
@@ -3996,9 +3996,9 @@
         }
       },
       "gap": {
-        "alias": "{space.100}",
+        "alias": "{space.150}",
         "type": "number",
-        "value": 8
+        "value": 12
       },
       "group": {
         "gap": {
@@ -4008,9 +4008,9 @@
         },
         "stack": {
           "gap": {
-            "alias": "{space.400}",
+            "alias": "{space.250}",
             "type": "number",
-            "value": 32
+            "value": 20
           }
         }
       },
@@ -4051,9 +4051,9 @@
         },
         "group": {
           "gap": {
-            "alias": "{space.75}",
+            "alias": "{space.150}",
             "type": "number",
-            "value": 6
+            "value": 12
           },
           "stack": {
             "gap": {
