@@ -5,6 +5,7 @@ import { Badge } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
+import type BadgeProps from './Badge.props';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -18,7 +19,7 @@ const meta = {
   argTypes: {
     children: { control: 'text' },
     variant: {
-      options: ['solid', 'outline'],
+      options: ['subtle', 'emphasis', 'outline'],
       control: 'radio',
       description: 'Variant of the badge.',
     },
@@ -35,6 +36,7 @@ const meta = {
         'insurance',
         'cashback',
         'pig',
+        'highlight',
       ],
       control: 'select',
       description: 'Color scheme of the badge.',
@@ -53,7 +55,7 @@ const meta = {
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
   args: {
     children: 'Badge',
-    variant: 'solid',
+    variant: 'subtle',
     colorScheme: 'info',
     flatBase: false,
     size: 'sm',
@@ -71,12 +73,21 @@ export const Playground: Story = {
   },
 };
 
-export const Solid: Story = {
+export const Subtle: Story = {
   parameters: {
     controls: { exclude: ['variant'] },
   },
   args: {
-    variant: 'solid',
+    variant: 'subtle',
+  },
+};
+
+export const Emphasis: Story = {
+  parameters: {
+    controls: { exclude: ['variant'] },
+  },
+  args: {
+    variant: 'emphasis',
   },
 };
 
@@ -103,93 +114,71 @@ export const Icon: Story = {
 };
 
 export const KitchenSink: Story = {
-  render: () => (
-    <Flex direction="row" wrap="wrap" space="md">
-      {['sm', 'md'].map(size => (
-        <Box gap="200">
-          <VariantTitle title={`Info - Solid - ${size}`}>
-            <Badge colorScheme="info" size={size as 'sm' | 'md'}>
-              Info badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Positive - Solid - ${size}`}>
-            <Badge colorScheme="positive" size={size as 'sm' | 'md'}>
-              Positive badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Danger - Solid - ${size}`}>
-            <Badge colorScheme="danger" size={size as 'sm' | 'md'}>
-              Danger badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Warning - Solid - ${size}`}>
-            <Badge colorScheme="warning" size={size as 'sm' | 'md'}>
-              Warning badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Functional - Solid - ${size}`}>
-            <Badge colorScheme="functional" size={size as 'sm' | 'md'}>
-              Functional badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Energy - Solid - ${size}`}>
-            <Badge colorScheme="energy" size={size as 'sm' | 'md'}>
-              Energy badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Broadband - Solid - ${size}`}>
-            <Badge colorScheme="broadband" size={size as 'sm' | 'md'}>
-              Broadband badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Mobile - Solid - ${size}`}>
-            <Badge colorScheme="mobile" size={size as 'sm' | 'md'}>
-              Mobile badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Insurance - Solid - ${size}`}>
-            <Badge colorScheme="insurance" size={size as 'sm' | 'md'}>
-              Insurance badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Cashback - Solid - ${size}`}>
-            <Badge colorScheme="cashback" size={size as 'sm' | 'md'}>
-              Cashback badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Pig - Solid - ${size}`}>
-            <Badge colorScheme="pig" size={size as 'sm' | 'md'}>
-              Pig badge
-            </Badge>
-          </VariantTitle>
+  render: () => {
+    const colorSchemes: NonNullable<BadgeProps['colorScheme']>[] = [
+      'info',
+      'positive',
+      'danger',
+      'warning',
+      'functional',
+      'energy',
+      'broadband',
+      'mobile',
+      'insurance',
+      'cashback',
+      'pig',
+      'highlight',
+    ];
+    const sizes: Array<BadgeProps['size']> = ['sm', 'md'];
 
-          <VariantTitle title={`Info - Outline - ${size}`}>
-            <Badge colorScheme="info" size={size as 'sm' | 'md'} variant="outline">
-              Info badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Positive - Outline - ${size}`}>
-            <Badge colorScheme="positive" size={size as 'sm' | 'md'} variant="outline">
-              Positive badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Danger - Outline - ${size}`}>
-            <Badge colorScheme="danger" size={size as 'sm' | 'md'} variant="outline">
-              Danger badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Warning - Outline - ${size}`}>
-            <Badge colorScheme="warning" size={size as 'sm' | 'md'} variant="outline">
-              Warning badge
-            </Badge>
-          </VariantTitle>
-          <VariantTitle title={`Functional - Outline - ${size}`}>
-            <Badge colorScheme="functional" size={size as 'sm' | 'md'} variant="outline">
-              Functional badge
-            </Badge>
-          </VariantTitle>
-        </Box>
-      ))}
-    </Flex>
-  ),
+    return (
+      <Flex direction="column" space="lg" style={{ width: '100%' }}>
+        {colorSchemes.map(cs => {
+          // Determine allowed variants per color scheme based on design constraints:
+          // - Remove 'outline' for energy, broadband, mobile, insurance, cashback, pig, highlight
+          // - For highlight only show 'subtle'
+          const noOutlineSchemes: Array<BadgeProps['colorScheme']> = [
+            'energy',
+            'broadband',
+            'mobile',
+            'insurance',
+            'cashback',
+            'pig',
+            'highlight',
+          ];
+          let variantsForScheme: Array<BadgeProps['variant']> = ['subtle', 'emphasis', 'outline'];
+
+          if (noOutlineSchemes.includes(cs)) {
+            variantsForScheme = ['subtle', 'emphasis'];
+          }
+          if (cs === 'highlight') {
+            variantsForScheme = ['subtle'];
+          }
+
+          return (
+            <Box key={cs} gap="200">
+              <VariantTitle title={cs.charAt(0).toUpperCase() + cs.slice(1)}>
+                <Flex direction="column" space="sm">
+                  {sizes.map(sz => (
+                    <Flex key={sz} direction="row" align="center" space="md">
+                      {variantsForScheme.map(variant => (
+                        <Badge
+                          key={`${cs}-${sz}-${variant}`}
+                          colorScheme={cs}
+                          size={sz}
+                          variant={variant}
+                        >
+                          {`${variant} ${sz}`}
+                        </Badge>
+                      ))}
+                    </Flex>
+                  ))}
+                </Flex>
+              </VariantTitle>
+            </Box>
+          );
+        })}
+      </Flex>
+    );
+  },
 };

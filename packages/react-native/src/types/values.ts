@@ -1,5 +1,5 @@
 import { AnimatableNumericValue, DimensionValue } from 'react-native';
-import { lightTheme } from '../core/themes';
+import { lightTheme, themes } from '../core/themes';
 import color from '../tokens/color';
 
 export type addPrefixToObject<T, P extends string> = {
@@ -80,3 +80,5 @@ export type BordeWidthValue =
   | undefined;
 
 export type OpacityValue = AnimatableNumericValue | undefined;
+
+export type SpacingValues = keyof (typeof themes)['light']['globalStyle']['variants']['space'];

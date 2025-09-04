@@ -36,6 +36,42 @@ const shared = {
     '4/6': '66.666%',
     '5/6': '83.333%',
     full: '100%' as DimensionValue,
+    none: 0,
+    '2xs': {
+      base: layout.mobile.spacing['2xs'],
+      md: layout.tablet.spacing['2xs'],
+      lg: layout.desktop.spacing['2xs'],
+    },
+    xs: {
+      base: layout.mobile.spacing.xs,
+      md: layout.tablet.spacing.xs,
+      lg: layout.desktop.spacing.xs,
+    },
+    sm: {
+      base: layout.mobile.spacing.sm,
+      md: layout.tablet.spacing.sm,
+      lg: layout.desktop.spacing.sm,
+    },
+    md: {
+      base: layout.mobile.spacing.md,
+      md: layout.tablet.spacing.md,
+      lg: layout.desktop.spacing.md,
+    },
+    lg: {
+      base: layout.mobile.spacing.lg,
+      md: layout.tablet.spacing.lg,
+      lg: layout.desktop.spacing.lg,
+    },
+    xl: {
+      base: layout.mobile.spacing.xl,
+      md: layout.tablet.spacing.xl,
+      lg: layout.desktop.spacing.xl,
+    },
+    '2xl': {
+      base: layout.mobile.spacing['2xl'],
+      md: layout.tablet.spacing['2xl'],
+      lg: layout.desktop.spacing['2xl'],
+    },
   },
   borderWidth,
   borderRadius,
@@ -169,7 +205,20 @@ const shared = {
         },
       },
       space: {
-        none: {},
+        none: {
+          gap: {
+            base: layout.mobile.spacing.none,
+            md: layout.tablet.spacing.none,
+            lg: layout.desktop.spacing.none,
+          },
+        },
+        '2xs': {
+          gap: {
+            base: layout.mobile.spacing['2xs'],
+            md: layout.tablet.spacing['2xs'],
+            lg: layout.desktop.spacing['2xs'],
+          },
+        },
         xs: {
           gap: {
             base: layout.mobile.spacing.xs,
@@ -203,6 +252,13 @@ const shared = {
             base: layout.mobile.spacing.xl,
             md: layout.tablet.spacing.xl,
             lg: layout.desktop.spacing.xl,
+          },
+        },
+        '2xl': {
+          gap: {
+            base: layout.mobile.spacing['2xl'],
+            md: layout.tablet.spacing['2xl'],
+            lg: layout.desktop.spacing['2xl'],
           },
         },
       },

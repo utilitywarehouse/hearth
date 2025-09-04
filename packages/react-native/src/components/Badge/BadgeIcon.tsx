@@ -30,93 +30,19 @@ const styles = StyleSheet.create(theme => ({
         insurance: {},
         cashback: {},
         pig: {},
+        highlight: {},
       },
       variant: {
-        solid: {
+        emphasis: {
+          color: theme.color.text.primary,
+        },
+        subtle: {
           color: theme.color.text.primary,
         },
         outline: {},
       },
     },
     compoundVariants: [
-      // Solid
-      {
-        colorScheme: 'info',
-        variant: 'solid',
-        styles: {
-          color: theme.color.feedback.info.foreground.default,
-        },
-      },
-      {
-        colorScheme: 'danger',
-        variant: 'solid',
-        styles: {
-          color: theme.color.feedback.danger.foreground.default,
-        },
-      },
-      {
-        colorScheme: 'positive',
-        variant: 'solid',
-        styles: {
-          color: theme.color.feedback.positive.foreground.default,
-        },
-      },
-      {
-        colorScheme: 'warning',
-        variant: 'solid',
-        styles: {
-          color: theme.color.feedback.warning.foreground.default,
-        },
-      },
-      {
-        colorScheme: 'functional',
-        variant: 'solid',
-        styles: {
-          color: theme.color.feedback.functional.foreground.default,
-        },
-      },
-      {
-        colorScheme: 'energy',
-        variant: 'solid',
-        styles: {
-          color: theme.color.icon.primary,
-        },
-      },
-      {
-        colorScheme: 'broadband',
-        variant: 'solid',
-        styles: {
-          color: theme.color.icon.primary,
-        },
-      },
-      {
-        colorScheme: 'mobile',
-        variant: 'solid',
-        styles: {
-          color: theme.color.icon.primary,
-        },
-      },
-      {
-        colorScheme: 'insurance',
-        variant: 'solid',
-        styles: {
-          color: theme.color.icon.primary,
-        },
-      },
-      {
-        colorScheme: 'cashback',
-        variant: 'solid',
-        styles: {
-          color: theme.color.icon.primary,
-        },
-      },
-      {
-        colorScheme: 'pig',
-        variant: 'solid',
-        styles: {
-          color: theme.color.icon.primary,
-        },
-      },
       // Outline
       {
         colorScheme: 'info',

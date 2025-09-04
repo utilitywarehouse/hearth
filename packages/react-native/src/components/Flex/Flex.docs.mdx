@@ -1,7 +1,7 @@
-import { Meta, Canvas, Story, Controls, Primary } from '@storybook/addon-docs/blocks';
+import { Canvas, Controls, Meta, Primary, Story } from '@storybook/addon-docs/blocks';
+import { BodyText, Center, Flex, Pressable } from '../..';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Flex.stories';
-import { Center, Pressable, Flex, BodyText } from '../..';
-import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
 
 <Meta title="Primitives / Flex" />
 
@@ -57,4 +57,4 @@ const MyComponent = () => (
 | `wrap`      | `'wrap' \| 'nowrap' \| 'wrap-reverse'`                                                                  | `nowrap`     | The wrap of the flex container.            |
 | `justify`   | `'flex-start' \| 'flex-end' \| 'center' \| `<br />`'space-between' \| 'space-around' \| 'space-evenly'` | `flex-start` | The justify content of the flex container. |
 | `align`     | `'flex-start' \| 'flex-end' \| 'center' \| 'stretch' \| 'baseline'`                                     | `flex-start` | The align items of the flex container.     |
-| `space`     | `'none' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'`                                                        | `md`         | The space between the content.             |
+| `space`     | `'none' \| '2xs' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'`                                      | `md`         | The space between the content.             |
