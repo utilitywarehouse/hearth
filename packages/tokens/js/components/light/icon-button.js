@@ -21,7 +21,7 @@ export default {
     foregroundColorHover: '#3a3837',
     inverted: {
       foregroundColor: '#f7f7f7',
-      foregroundColorActive: '#d4d2c0',
+      foregroundColorActive: '#b2afae',
       foregroundColorHover: '#d3d3d3',
     },
     md: {

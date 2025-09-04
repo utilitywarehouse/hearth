@@ -11,6 +11,7 @@ export default {
     paddingVertical: 12,
   },
   minWidth: 80,
+  shadowColor: '#101010',
   sm: {
     paddingHorizontal: 16,
     paddingVertical: 4,

@@ -10,6 +10,8 @@ export default {
   gap: 12,
   item: {
     gap: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 16,
     selected: {
       borderBottomRadius: 0,
       borderTopRadius: 4,

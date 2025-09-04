@@ -7,6 +7,7 @@ export const button = {
     paddingVertical: 'var(--h-button-md-padding-vertical)',
   },
   minWidth: 'var(--h-button-min-width)',
+  shadowColor: 'var(--h-button-shadow-color)',
   sm: {
     paddingHorizontal: 'var(--h-button-sm-padding-horizontal)',
     paddingVertical: 'var(--h-button-sm-padding-vertical)',

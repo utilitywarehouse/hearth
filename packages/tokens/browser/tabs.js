@@ -6,6 +6,8 @@ export const tabs = {
   gap: 'var(--h-tabs-gap)',
   item: {
     gap: 'var(--h-tabs-item-gap)',
+    paddingHorizontal: 'var(--h-tabs-item-padding-horizontal)',
+    paddingVertical: 'var(--h-tabs-item-padding-vertical)',
     selected: {
       borderBottomRadius: 'var(--h-tabs-item-selected-border-bottom-radius)',
       borderTopRadius: 'var(--h-tabs-item-selected-border-top-radius)',
