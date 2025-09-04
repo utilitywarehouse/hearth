@@ -20,11 +20,14 @@ export declare const mobile: {
     readonly margin: 16;
   };
   readonly spacing: {
-    readonly lg: 20;
-    readonly md: 16;
-    readonly sm: 12;
-    readonly xl: 28;
-    readonly xs: 8;
+    readonly '2xl': 28;
+    readonly '2xs': 2;
+    readonly lg: 16;
+    readonly md: 12;
+    readonly none: 0;
+    readonly sm: 8;
+    readonly xl: 20;
+    readonly xs: 4;
   };
 };
 export declare const tablet: {
@@ -46,11 +49,14 @@ export declare const tablet: {
     readonly margin: 32;
   };
   readonly spacing: {
-    readonly lg: 24;
-    readonly md: 16;
-    readonly sm: 12;
-    readonly xl: 28;
-    readonly xs: 8;
+    readonly '2xl': 28;
+    readonly '2xs': 2;
+    readonly lg: 16;
+    readonly md: 12;
+    readonly none: 0;
+    readonly sm: 8;
+    readonly xl: 24;
+    readonly xs: 4;
   };
 };
 export declare const desktop: {
@@ -72,11 +78,14 @@ export declare const desktop: {
     readonly margin: 32;
   };
   readonly spacing: {
-    readonly lg: 24;
-    readonly md: 16;
-    readonly sm: 12;
-    readonly xl: 40;
-    readonly xs: 8;
+    readonly '2xl': 40;
+    readonly '2xs': 2;
+    readonly lg: 16;
+    readonly md: 12;
+    readonly none: 0;
+    readonly sm: 8;
+    readonly xl: 24;
+    readonly xs: 4;
   };
 };
 declare const layout: {
@@ -99,11 +108,14 @@ declare const layout: {
       readonly margin: 16;
     };
     readonly spacing: {
-      readonly lg: 20;
-      readonly md: 16;
-      readonly sm: 12;
-      readonly xl: 28;
-      readonly xs: 8;
+      readonly '2xl': 28;
+      readonly '2xs': 2;
+      readonly lg: 16;
+      readonly md: 12;
+      readonly none: 0;
+      readonly sm: 8;
+      readonly xl: 20;
+      readonly xs: 4;
     };
   };
   readonly tablet: {
@@ -125,11 +137,14 @@ declare const layout: {
       readonly margin: 32;
     };
     readonly spacing: {
-      readonly lg: 24;
-      readonly md: 16;
-      readonly sm: 12;
-      readonly xl: 28;
-      readonly xs: 8;
+      readonly '2xl': 28;
+      readonly '2xs': 2;
+      readonly lg: 16;
+      readonly md: 12;
+      readonly none: 0;
+      readonly sm: 8;
+      readonly xl: 24;
+      readonly xs: 4;
     };
   };
   readonly desktop: {
@@ -151,11 +166,14 @@ declare const layout: {
       readonly margin: 32;
     };
     readonly spacing: {
-      readonly lg: 24;
-      readonly md: 16;
-      readonly sm: 12;
-      readonly xl: 40;
-      readonly xs: 8;
+      readonly '2xl': 40;
+      readonly '2xs': 2;
+      readonly lg: 16;
+      readonly md: 12;
+      readonly none: 0;
+      readonly sm: 8;
+      readonly xl: 24;
+      readonly xs: 4;
     };
   };
 };

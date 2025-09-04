@@ -18,7 +18,7 @@ declare const _default: {
   readonly paddingHorizontal: 6;
   readonly sm: {
     readonly height: 24;
-    readonly paddingVertical: 0;
+    readonly paddingVertical: 2;
   };
 };
 export default _default;

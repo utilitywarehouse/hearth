@@ -133,14 +133,14 @@ export const color = {
     },
     functional: {
       border: {
+        inverted: 'var(--h-interactive-functional-border-inverted)',
         strong: 'var(--h-interactive-functional-border-strong)',
         subtle: 'var(--h-interactive-functional-border-subtle)',
-        inverted: 'var(--h-interactive-functional-border-inverted)',
       },
       foreground: {
+        inverted: 'var(--h-interactive-functional-foreground-inverted)',
         strong: 'var(--h-interactive-functional-foreground-strong)',
         subtle: 'var(--h-interactive-functional-foreground-subtle)',
-        inverted: 'var(--h-interactive-functional-foreground-inverted)',
       },
       surface: {
         strong: {
@@ -238,6 +238,8 @@ export const color = {
     },
   },
   text: {
+    affirmative: 'var(--h-text-affirmative)',
+    brand: 'var(--h-text-brand)',
     inverted: 'var(--h-text-inverted)',
     primary: 'var(--h-text-primary)',
     secondary: 'var(--h-text-secondary)',

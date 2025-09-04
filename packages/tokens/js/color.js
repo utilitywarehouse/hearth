@@ -228,55 +228,55 @@ export const light = {
     danger: {
       border: '#de2612',
       foreground: {
-        default: '#fcfbf2',
+        default: '#101010',
         subtle: '#de2612',
       },
       surface: {
-        default: '#de2612',
-        subtle: '#ffccc5',
+        default: '#ff634a',
+        subtle: '#ffa89d',
       },
     },
     functional: {
-      border: '#888888',
+      border: '#5b5b5b',
       foreground: {
-        default: '#fcfbf2',
-        subtle: '#888888',
+        default: '#101010',
+        subtle: '#5b5b5b',
       },
       surface: {
-        default: '#888888',
+        default: '#919191',
         subtle: '#d3d3d3',
       },
     },
     info: {
       border: '#1c6cd4',
       foreground: {
-        default: '#fcfbf2',
+        default: '#101010',
         subtle: '#1c6cd4',
       },
       surface: {
-        default: '#1c6cd4',
+        default: '#6bb0ff',
         subtle: '#bcddff',
       },
     },
     positive: {
       border: '#0f834a',
       foreground: {
-        default: '#fcfbf2',
+        default: '#101010',
         subtle: '#0f834a',
       },
       surface: {
-        default: '#0f834a',
+        default: '#36bf7d',
         subtle: '#a2e2c3',
       },
     },
     warning: {
       border: '#be5400',
       foreground: {
-        default: '#fcfbf2',
+        default: '#101010',
         subtle: '#be5400',
       },
       surface: {
-        default: '#be5400',
+        default: '#ff8010',
         subtle: '#ffcca8',
       },
     },
@@ -349,14 +349,14 @@ export const light = {
     },
     functional: {
       border: {
+        inverted: '#f7f7f7',
         strong: '#101010',
         subtle: '#101010',
-        inverted: '#f7f7f7',
       },
       foreground: {
+        inverted: '#f7f7f7',
         strong: '#fcfbf2',
         subtle: '#101010',
-        inverted: '#f7f7f7',
       },
       surface: {
         strong: {
@@ -454,6 +454,8 @@ export const light = {
     },
   },
   text: {
+    affirmative: '#0f834a',
+    brand: '#7a42c8',
     inverted: '#fcfbf2',
     primary: '#101010',
     secondary: '#888888',
@@ -473,56 +475,56 @@ export const dark = {
     danger: {
       border: '#ff7964',
       foreground: {
-        default: '#fcfbf2',
+        default: '#101010',
         subtle: '#ff7964',
       },
       surface: {
-        default: '#de2612',
-        subtle: '#521a16',
+        default: '#ff634a',
+        subtle: '#ffa89d',
       },
     },
     functional: {
       border: '#b2afae',
       foreground: {
-        default: '#fcfbf2',
+        default: '#101010',
         subtle: '#b2afae',
       },
       surface: {
-        default: '#888888',
-        subtle: '#232323',
+        default: '#919191',
+        subtle: '#d3d3d3',
       },
     },
     info: {
       border: '#6bb0ff',
       foreground: {
-        default: '#fcfbf2',
+        default: '#101010',
         subtle: '#6bb0ff',
       },
       surface: {
-        default: '#1c6cd4',
-        subtle: '#042455',
+        default: '#6bb0ff',
+        subtle: '#bcddff',
       },
     },
     positive: {
       border: '#58ca93',
       foreground: {
-        default: '#fcfbf2',
+        default: '#101010',
         subtle: '#58ca93',
       },
       surface: {
-        default: '#0f834a',
-        subtle: '#033d21',
+        default: '#36bf7d',
+        subtle: '#a2e2c3',
       },
     },
     warning: {
       border: '#ff9639',
       foreground: {
-        default: '#fcfbf2',
+        default: '#101010',
         subtle: '#ff9639',
       },
       surface: {
-        default: '#cb5b00',
-        subtle: '#6b2d00',
+        default: '#ff8010',
+        subtle: '#ffcca8',
       },
     },
   },
@@ -594,14 +596,14 @@ export const dark = {
     },
     functional: {
       border: {
+        inverted: '#f7f7f7',
         strong: '#ebebeb',
         subtle: '#ebebeb',
-        inverted: '#f7f7f7',
       },
       foreground: {
+        inverted: '#f7f7f7',
         strong: '#fcfbf2',
         subtle: '#ebebeb',
-        inverted: '#f7f7f7',
       },
       surface: {
         strong: {
@@ -613,8 +615,8 @@ export const dark = {
           active: '#4c4c4c',
           hover: '#3a3837',
           inverted: {
-            active: '#d3d3d3',
-            hover: '#ebebeb',
+            active: '#3a3837',
+            hover: '#3f3f3f',
           },
         },
       },
@@ -699,6 +701,8 @@ export const dark = {
     },
   },
   text: {
+    affirmative: '#58ca93',
+    brand: '#af90de',
     inverted: '#191917',
     primary: '#ebebeb',
     secondary: '#b2afae',

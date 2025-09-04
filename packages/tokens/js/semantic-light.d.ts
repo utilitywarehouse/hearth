@@ -15,55 +15,55 @@ declare const _default: {
     readonly danger: {
       readonly border: '#de2612';
       readonly foreground: {
-        readonly default: '#fcfbf2';
+        readonly default: '#101010';
         readonly subtle: '#de2612';
       };
       readonly surface: {
-        readonly default: '#de2612';
-        readonly subtle: '#ffccc5';
+        readonly default: '#ff634a';
+        readonly subtle: '#ffa89d';
       };
     };
     readonly functional: {
-      readonly border: '#888888';
+      readonly border: '#5b5b5b';
       readonly foreground: {
-        readonly default: '#fcfbf2';
-        readonly subtle: '#888888';
+        readonly default: '#101010';
+        readonly subtle: '#5b5b5b';
       };
       readonly surface: {
-        readonly default: '#888888';
+        readonly default: '#919191';
         readonly subtle: '#d3d3d3';
       };
     };
     readonly info: {
       readonly border: '#1c6cd4';
       readonly foreground: {
-        readonly default: '#fcfbf2';
+        readonly default: '#101010';
         readonly subtle: '#1c6cd4';
       };
       readonly surface: {
-        readonly default: '#1c6cd4';
+        readonly default: '#6bb0ff';
         readonly subtle: '#bcddff';
       };
     };
     readonly positive: {
       readonly border: '#0f834a';
       readonly foreground: {
-        readonly default: '#fcfbf2';
+        readonly default: '#101010';
         readonly subtle: '#0f834a';
       };
       readonly surface: {
-        readonly default: '#0f834a';
+        readonly default: '#36bf7d';
         readonly subtle: '#a2e2c3';
       };
     };
     readonly warning: {
       readonly border: '#be5400';
       readonly foreground: {
-        readonly default: '#fcfbf2';
+        readonly default: '#101010';
         readonly subtle: '#be5400';
       };
       readonly surface: {
-        readonly default: '#be5400';
+        readonly default: '#ff8010';
         readonly subtle: '#ffcca8';
       };
     };
@@ -136,14 +136,14 @@ declare const _default: {
     };
     readonly functional: {
       readonly border: {
+        readonly inverted: '#f7f7f7';
         readonly strong: '#101010';
         readonly subtle: '#101010';
-        readonly inverted: '#f7f7f7';
       };
       readonly foreground: {
+        readonly inverted: '#f7f7f7';
         readonly strong: '#fcfbf2';
         readonly subtle: '#101010';
-        readonly inverted: '#f7f7f7';
       };
       readonly surface: {
         readonly strong: {
@@ -244,6 +244,8 @@ declare const _default: {
     };
   };
   readonly text: {
+    readonly affirmative: '#0f834a';
+    readonly brand: '#7a42c8';
     readonly inverted: '#fcfbf2';
     readonly primary: '#101010';
     readonly secondary: '#888888';
