@@ -1,7 +1,7 @@
-import { Divider } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { Box } from '../Box';
+import { Divider } from '.';
 import { coloursAsArray } from '../../utils';
+import { Box } from '../Box';
 
 const meta = {
   title: 'Stories / Divider',
@@ -21,7 +21,7 @@ const meta = {
       description: 'Color of the divider',
     },
     space: {
-      options: ['none', 'xs', 'sm', 'md', 'lg', 'xl'],
+      options: ['none', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
       control: 'select',
       description: 'Space between the divider',
     },

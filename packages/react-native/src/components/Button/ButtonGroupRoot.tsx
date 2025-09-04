@@ -1,5 +1,6 @@
-import { type StyleProp, type ViewStyle, type ViewProps, View } from 'react-native';
+import { type StyleProp, type ViewProps, type ViewStyle, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { SpacingValues } from '../../types';
 
 const ButtonGroupRoot = ({
   children,
@@ -12,7 +13,7 @@ const ButtonGroupRoot = ({
   flexDirection?: ViewStyle['flexDirection'];
   reversed?: boolean;
   attached?: boolean;
-  space?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  space?: SpacingValues;
 }) => {
   let direction = flexDirection;
   if (reversed) {
@@ -41,6 +42,12 @@ const styles = StyleSheet.create(theme => ({
   text: {
     variants: {
       space: {
+        none: {
+          gap: theme.layout.mobile.spacing.none,
+        },
+        '2xs': {
+          gap: theme.layout.mobile.spacing['2xs'],
+        },
         xs: {
           gap: theme.layout.mobile.spacing.xs,
         },
@@ -55,6 +62,9 @@ const styles = StyleSheet.create(theme => ({
         },
         xl: {
           gap: theme.layout.mobile.spacing.xl,
+        },
+        '2xl': {
+          gap: theme.layout.mobile.spacing['2xl'],
         },
       },
       attached: {

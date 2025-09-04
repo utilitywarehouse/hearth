@@ -169,7 +169,20 @@ const shared = {
         },
       },
       space: {
-        none: {},
+        none: {
+          gap: {
+            base: layout.mobile.spacing.none,
+            md: layout.tablet.spacing.none,
+            lg: layout.desktop.spacing.none,
+          },
+        },
+        '2xs': {
+          gap: {
+            base: layout.mobile.spacing['2xs'],
+            md: layout.tablet.spacing['2xs'],
+            lg: layout.desktop.spacing['2xs'],
+          },
+        },
         xs: {
           gap: {
             base: layout.mobile.spacing.xs,
@@ -203,6 +216,13 @@ const shared = {
             base: layout.mobile.spacing.xl,
             md: layout.tablet.spacing.xl,
             lg: layout.desktop.spacing.xl,
+          },
+        },
+        '2xl': {
+          gap: {
+            base: layout.mobile.spacing['2xl'],
+            md: layout.tablet.spacing['2xl'],
+            lg: layout.desktop.spacing['2xl'],
           },
         },
       },

@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { View, Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { Grid } from '.';
 
 const meta = {
@@ -14,7 +14,7 @@ const meta = {
       description: 'Number of columns or responsive object with breakpoints',
     },
     space: {
-      options: ['none', 'xs', 'sm', 'md', 'lg', 'xl'],
+      options: ['none', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
       control: 'radio',
       description: 'Responsive spacing between grid items (applied to both rows and columns).',
     },

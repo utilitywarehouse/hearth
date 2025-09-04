@@ -1,5 +1,5 @@
 import { PressableProps, ViewStyle } from 'react-native';
-import { SpaceValue } from '../../types';
+import { SpaceValue, SpacingValues } from '../../types';
 
 interface CardProps extends PressableProps {
   variant?: 'emphasis' | 'subtle';
@@ -15,7 +15,7 @@ interface CardProps extends PressableProps {
     | 'pig';
   noPadding?: boolean;
   disabled?: boolean;
-  space?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  space?: SpacingValues;
   alignItems?: ViewStyle['alignItems'];
   justifyContent?: ViewStyle['justifyContent'];
   flexDirection?: ViewStyle['flexDirection'];

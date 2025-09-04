@@ -1,6 +1,6 @@
 import { StyleProp, ViewProps, ViewStyle } from 'react-native';
 import { UnistylesBreakpoints } from 'react-native-unistyles';
-import { SpaceValue } from '../../types';
+import { SpaceValue, SpacingValues } from '../../types';
 
 // Create a type that uses the keys from our breakpoints object
 export type GridColumns = {
@@ -17,7 +17,7 @@ export interface GridProps extends ViewProps {
   /**
    * Spacing between grid items (applies to both rows and columns)
    */
-  space?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  space?: SpacingValues;
 
   /**
    * Gap between items (overrides spacing if provided)

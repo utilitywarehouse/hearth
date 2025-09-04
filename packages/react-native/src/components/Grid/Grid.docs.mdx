@@ -1,7 +1,7 @@
-import { Meta, Canvas, Story, Controls, Primary } from '@storybook/addon-docs/blocks';
+import { Canvas, Controls, Meta, Primary, Story } from '@storybook/addon-docs/blocks';
+import { BodyText, Box, Center, Grid } from '../..';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Grid.stories';
-import { Center, Grid, Box, BodyText } from '../..';
-import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
 
 <Meta title="Primitives / Grid" />
 
@@ -173,15 +173,15 @@ const MyComponent = () => (
 
 The Grid component extends all the props from the [View component](https://reactnative.dev/docs/view), and adds the following:
 
-| Name             | Type                                             | Default | Description                                                   |
-| ---------------- | ------------------------------------------------ | ------- | ------------------------------------------------------------- |
-| `columns`        | `number` or `GridColumns`                        | 2       | Number of columns or responsive object with breakpoint values |
-| `space`          | `'none' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | -       | Spacing between grid items (both rows and columns)            |
-| `columnGap`      | `number`                                         | -       | Gap between columns (overrides spacing if provided)           |
-| `rowGap`         | `number`                                         | -       | Gap between rows (overrides spacing if provided)              |
-| `containerStyle` | `StyleProp\<ViewStyle\>`                         | -       | Style for the grid container                                  |
-| `itemStyle`      | `StyleProp\<ViewStyle\>`                         | -       | Style applied to each grid item                               |
-| `rowStyle`       | `StyleProp\<ViewStyle\>`                         | -       | Style applied to each row                                     |
+| Name             | Type                                                               | Default | Description                                                   |
+| ---------------- | ------------------------------------------------------------------ | ------- | ------------------------------------------------------------- |
+| `columns`        | `number` or `GridColumns`                                          | 2       | Number of columns or responsive object with breakpoint values |
+| `space`          | `'none' \| '2xs' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | -       | Spacing between grid items (both rows and columns)            |
+| `columnGap`      | `number`                                                           | -       | Gap between columns (overrides spacing if provided)           |
+| `rowGap`         | `number`                                                           | -       | Gap between rows (overrides spacing if provided)              |
+| `containerStyle` | `StyleProp\<ViewStyle\>`                                           | -       | Style for the grid container                                  |
+| `itemStyle`      | `StyleProp\<ViewStyle\>`                                           | -       | Style applied to each grid item                               |
+| `rowStyle`       | `StyleProp\<ViewStyle\>`                                           | -       | Style applied to each row                                     |
 
 Where `GridColumns` is defined as:
 

@@ -40,7 +40,7 @@ const meta = {
       description: 'The justify of the flex container.',
     },
     space: {
-      options: ['none', 'xs', 'sm', 'md', 'lg', 'xl'],
+      options: ['none', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
       control: 'radio',
       description: 'The space of the flex container.',
     },

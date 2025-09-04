@@ -44,11 +44,13 @@ const styles = StyleSheet.create(theme => ({
       },
       space: {
         none: {},
+        '2xs': {},
         xs: {},
         sm: {},
         md: {},
         lg: {},
         xl: {},
+        '2xl': {},
       },
       flexItem: {
         true: {
@@ -66,6 +68,17 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'horizontal',
+        space: '2xs',
+        styles: {
+          marginVertical: {
+            base: theme.layout.mobile.spacing['2xs'],
+            md: theme.layout.tablet.spacing['2xs'],
+            lg: theme.layout.desktop.spacing['2xs'],
+          },
+        },
+      },
+      {
+        orientation: 'horizontal',
         space: 'xs',
         styles: {
           marginVertical: {
@@ -116,6 +129,17 @@ const styles = StyleSheet.create(theme => ({
             base: theme.layout.mobile.spacing.xl,
             md: theme.layout.tablet.spacing.xl,
             lg: theme.layout.desktop.spacing.xl,
+          },
+        },
+      },
+      {
+        orientation: 'horizontal',
+        space: '2xl',
+        styles: {
+          marginVertical: {
+            base: theme.layout.mobile.spacing['2xl'],
+            md: theme.layout.tablet.spacing['2xl'],
+            lg: theme.layout.desktop.spacing['2xl'],
           },
         },
       },
@@ -128,6 +152,17 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'vertical',
+        space: '2xs',
+        styles: {
+          marginHorizontal: {
+            base: theme.layout.mobile.spacing['2xs'],
+            md: theme.layout.tablet.spacing['2xs'],
+            lg: theme.layout.desktop.spacing['2xs'],
+          },
+        },
+      },
+      {
+        orientation: 'vertical',
         space: 'xs',
         styles: {
           marginHorizontal: {
@@ -178,6 +213,17 @@ const styles = StyleSheet.create(theme => ({
             base: theme.layout.mobile.spacing.xl,
             md: theme.layout.tablet.spacing.xl,
             lg: theme.layout.desktop.spacing.xl,
+          },
+        },
+      },
+      {
+        orientation: 'vertical',
+        space: '2xl',
+        styles: {
+          marginHorizontal: {
+            base: theme.layout.mobile.spacing['2xl'],
+            md: theme.layout.tablet.spacing['2xl'],
+            lg: theme.layout.desktop.spacing['2xl'],
           },
         },
       },
