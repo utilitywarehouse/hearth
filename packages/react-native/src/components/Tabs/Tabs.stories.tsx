@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { Badge, Tab, TabPanel, Tabs, TabsList } from '../';
+import { BodyText, Tab, TabPanel, Tabs, TabsList } from '../';
 
 const meta = {
   title: 'Stories / Tabs',
@@ -9,7 +9,7 @@ const meta = {
     children: undefined,
   },
   argTypes: {
-    size: { control: 'radio', options: ['sm', 'md'] },
+    size: { control: 'radio', options: ['md', 'lg'] },
   },
 } satisfies Meta<typeof Tabs>;
 
@@ -22,25 +22,24 @@ export const Playground: Story = {
       <>
         <Tab value="account">Account</Tab>
         <Tab value="billing">Billing</Tab>
-        <Tab
-          value="usage"
-          badge={
-            <Badge size="sm" variant="subtle" colorScheme="info">
-              3
-            </Badge>
-          }
-        >
-          Usage
-        </Tab>
+        <Tab value="usage">Usage</Tab>
+        <Tab value="settings">Settings</Tab>
+        <Tab value="security">Security</Tab>
       </>
     ),
   },
   render: ({ children, ...args }) => (
     <Tabs {...args} defaultValue="account">
       <TabsList>{children}</TabsList>
-      <TabPanel value="account">Account content</TabPanel>
-      <TabPanel value="billing">Billing content</TabPanel>
-      <TabPanel value="usage">Usage metrics</TabPanel>
+      <TabPanel value="account">
+        <BodyText>Account content</BodyText>
+      </TabPanel>
+      <TabPanel value="billing">
+        <BodyText>Billing content</BodyText>
+      </TabPanel>
+      <TabPanel value="usage">
+        <BodyText>Usage metrics</BodyText>
+      </TabPanel>
     </Tabs>
   ),
 };
@@ -51,25 +50,37 @@ export const Sizes: Story = {
   args: { children: null },
   render: () => (
     <>
-      <Tabs size="sm" defaultValue="a">
-        <TabsList>
-          <Tab value="a">Small A</Tab>
-          <Tab value="b">Small B</Tab>
-          <Tab value="c">Small C</Tab>
-        </TabsList>
-        <TabPanel value="a">Small A panel</TabPanel>
-        <TabPanel value="b">Small B panel</TabPanel>
-        <TabPanel value="c">Small C panel</TabPanel>
-      </Tabs>
-      <Tabs size="md" defaultValue="a" style={{ marginTop: 24 }}>
+      <Tabs size="md" defaultValue="a">
         <TabsList>
           <Tab value="a">Medium A</Tab>
           <Tab value="b">Medium B</Tab>
           <Tab value="c">Medium C</Tab>
         </TabsList>
-        <TabPanel value="a">Medium A panel</TabPanel>
-        <TabPanel value="b">Medium B panel</TabPanel>
-        <TabPanel value="c">Medium C panel</TabPanel>
+        <TabPanel value="a">
+          <BodyText>Medium A panel</BodyText>
+        </TabPanel>
+        <TabPanel value="b">
+          <BodyText>Medium B panel</BodyText>
+        </TabPanel>
+        <TabPanel value="c">
+          <BodyText>Medium C panel</BodyText>
+        </TabPanel>
+      </Tabs>
+      <Tabs size="lg" defaultValue="a" style={{ marginTop: 24 }}>
+        <TabsList>
+          <Tab value="a">Large A</Tab>
+          <Tab value="b">Large B</Tab>
+          <Tab value="c">Large C</Tab>
+        </TabsList>
+        <TabPanel value="a">
+          <BodyText>Large A panel</BodyText>
+        </TabPanel>
+        <TabPanel value="b">
+          <BodyText>Large B panel</BodyText>
+        </TabPanel>
+        <TabPanel value="c">
+          <BodyText>Large C panel</BodyText>
+        </TabPanel>
       </Tabs>
     </>
   ),

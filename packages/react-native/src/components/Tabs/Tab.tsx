@@ -6,7 +6,18 @@ import { Icon } from '../Icon';
 import type TabProps from './Tab.props';
 import { useTabsContext } from './Tabs.context';
 
-const Tab = ({ value, children, icon, disabled, badge, style, ...props }: TabProps) => {
+import { createPressable } from '@gluestack-ui/pressable';
+
+const Tab = ({
+  value,
+  children,
+  icon,
+  disabled,
+  badge,
+  style,
+  states,
+  ...props
+}: TabProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const {
     value: active,
     select,
@@ -14,8 +25,9 @@ const Tab = ({ value, children, icon, disabled, badge, style, ...props }: TabPro
     disabled: allDisabled,
     registerTabLayout,
   } = useTabsContext();
+  const { active: pressed } = states || { active: false };
   const isActive = active === value;
-  styles.useVariants({ size, active: isActive, disabled: !!(disabled || allDisabled) });
+  styles.useVariants({ size, pressed });
   const ref = useRef<View | null>(null);
   const handlePress = () => {
     if (disabled || allDisabled) return;
@@ -43,7 +55,7 @@ const Tab = ({ value, children, icon, disabled, badge, style, ...props }: TabPro
     >
       <View style={styles.content}>
         {icon ? <Icon as={icon} /> : null}
-        <DetailText style={styles.label}>{children}</DetailText>
+        <DetailText size={size}>{children}</DetailText>
       </View>
     </Pressable>
   );
@@ -57,17 +69,27 @@ const styles = StyleSheet.create(theme => ({
     backgroundColor: 'transparent',
     alignItems: 'center',
     justifyContent: 'center',
-    variants: {
-      orientation: {
-        horizontal: { justifyContent: 'center' },
-        vertical: { justifyContent: 'flex-start' },
+    paddingHorizontal: theme.components.tabs.item.paddingHorizontal,
+    paddingVertical: theme.components.tabs.item.paddingVertical,
+    _web: {
+      _hover: {
+        backgroundColor: theme.color.interactive.neutral.surface.subtle.hover,
       },
+      _active: {
+        backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
+      },
+      cursor: 'pointer',
+      userSelect: 'none',
+    },
+    variants: {
       size: {
         md: { height: theme.components.tabs.md.height },
         lg: { height: theme.components.tabs.lg.height },
       },
-      disabled: {
-        true: { opacity: 0.5 },
+      pressed: {
+        true: {
+          backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
+        },
         false: {},
       },
     },
@@ -77,19 +99,14 @@ const styles = StyleSheet.create(theme => ({
     alignItems: 'center',
     gap: theme.components.tabs.item.gap,
   },
-  label: {
-    color: theme.color.text.secondary,
-    variants: {
-      active: {
-        true: { color: theme.color.text.primary },
-        false: {},
-      },
-    },
-  },
   badge: {
     marginLeft: theme.space[25],
   },
   // Indicator handled by parent
 }));
 
-export default Tab;
+const PressableTab = createPressable({ Root: Tab });
+
+PressableTab.displayName = 'PressableTab';
+
+export default PressableTab;

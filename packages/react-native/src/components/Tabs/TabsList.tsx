@@ -33,8 +33,8 @@ const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
     gap: theme.components.tabs.gap,
-    borderBottomWidth: theme.borderWidth[1],
-    borderColor: theme.color.border.subtle,
+    borderBottomWidth: theme.components.tabs.divider.borderWidth,
+    borderColor: theme.components.tabs.divider.color,
     variants: {
       size: {
         md: { paddingVertical: theme.space[25] },
