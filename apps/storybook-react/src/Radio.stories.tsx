@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Radio, Flex, RadioGroup } from '@utilitywarehouse/hearth-react';
+import { CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof Radio> = {
   title: 'Stories / Radio',
@@ -25,6 +26,10 @@ export const Playground: Story = {
 
         <RadioGroup defaultValue={args.value} label="Checked radio">
           <Radio {...args} />
+        </RadioGroup>
+
+         <RadioGroup defaultValue={args.value} label="With image">
+          <Radio {...args} image={CashbackCardMediumIcon} />
         </RadioGroup>
       </Flex>
     );

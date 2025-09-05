@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { RadioCard, Flex, RadioGroup, Badge, Box, Heading } from '@utilitywarehouse/hearth-react';
+import { CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof RadioCard> = {
   title: 'Stories / RadioCard',
@@ -35,7 +36,7 @@ export const Playground: Story = {
               </Badge>
             </Flex>
 
-            <RadioCard value="1" label="Debit card payment">
+            <RadioCard value="1" label="Debit card payment" image={CashbackCardMediumIcon}>
               <Flex asChild gap="100" direction="column">
                 <ul role="list">
                   <Box asChild marginLeft="100">

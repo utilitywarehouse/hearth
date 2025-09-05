@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CheckboxTile, Flex, BodyText } from '@utilitywarehouse/hearth-react';
+import { CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof CheckboxTile> = {
   title: 'Stories / CheckboxTile',
@@ -31,8 +32,28 @@ type Story = StoryObj<typeof CheckboxTile>;
 
 export const Playground: Story = {
   render: args => (
-    <Flex width="fit-content">
+    <Flex width="fit-content" gap="200">
       <CheckboxTile {...args} />
+      <CheckboxTile {...args} image={CashbackCardMediumIcon}/>
+    </Flex>
+  ),
+};
+
+export const KitchenSink: Story = {
+  render: () => (
+    <Flex gap="400">
+      <Flex direction="column" gap="200">
+        <BodyText>Standalone</BodyText>
+        <CheckboxTile aria-label="standalone" />
+      </Flex>
+      <Flex direction="column" gap="200">
+        <BodyText>With label</BodyText>
+        <CheckboxTile label="Label" />
+      </Flex>
+      <Flex direction="column" gap="200">
+        <BodyText>With image</BodyText>
+        <CheckboxTile label="Label" image={CashbackCardMediumIcon}/>
+      </Flex>
     </Flex>
   ),
 };
@@ -41,7 +62,7 @@ export const Controlled: Story = {
   render: () => {
     const [checked, setChecked] = React.useState(false);
     return (
-      <Flex direction="column" gap="400" width="fit-content">
+      <Flex direction="column" gap="400">
         <BodyText>Checked: {checked ? 'true' : 'false'}</BodyText>
         <CheckboxTile
           value="1"

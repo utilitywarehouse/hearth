@@ -3,7 +3,7 @@
 .hearth-Radio {
   display: flex;
   flex-direction: row;
-  gap: var(--h-space-150);
+  gap: var( --h-radio-gap);
   cursor: pointer;
 
   * {
@@ -55,6 +55,7 @@
 /* ensure the gap between the checkbox & label is clickable */
 .hearth-RadioLabel {
   position: relative;
+  gap: var(--h-radio-gap);
 
   &::before {
     content: '';

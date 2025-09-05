@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { RadioGroup, RadioTile, Box, Heading, Grid } from '@utilitywarehouse/hearth-react';
 import { Flex } from '@utilitywarehouse/hearth-react/src/index.js';
+import { MinusMediumIcon, TickMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof RadioGroup> = {
   title: 'Stories / RadioGroup',
@@ -55,8 +56,8 @@ export const Playground: Story = {
           name="do-you-like-living-here"
           direction="row"
         >
-          <RadioTile value="y" label="Yes" />
-          <RadioTile value="n" label="No" />
+          <RadioTile value="y" label="Yes" image={TickMediumIcon} />
+          <RadioTile value="n" label="No" image={MinusMediumIcon} />
         </RadioGroup>
       </Flex>
     );

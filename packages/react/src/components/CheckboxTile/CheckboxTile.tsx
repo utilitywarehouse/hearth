@@ -29,6 +29,7 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
       onCheckedChange,
       label,
       helperText,
+      image: CheckboxImage,
       'aria-labelledby': ariaLabelledby,
       ...props
     },
@@ -42,6 +43,7 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
     const ariaDescribedby = context ? context['aria-describedby'] : '';
     const showHelperText = !hasGroupHelperText && !!helperText;
     const showLabel = !!label;
+    const showImage = !!CheckboxImage;
     return (
       <label
         className={clsx(componentClassName, className)}
@@ -76,9 +78,14 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
           </RadixCheckbox.Indicator>
         </RadixCheckbox.Root>
         <Flex direction="column">
-          <Label id={labelId} htmlFor={id} disableUserSelect>
-            {label}
-          </Label>
+          <Flex direction="row" className="hearth-CheckboxLabel">
+            {showImage ? (
+              <CheckboxImage />
+            ) : null}
+            <Label id={labelId} htmlFor={id} disableUserSelect>
+              {label}
+            </Label>
+          </Flex>
           {showHelperText ? (
             <HelperText id={helperTextId} disableUserSelect>
               {helperText}

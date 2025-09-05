@@ -36,6 +36,7 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
       id: providedId,
       label,
       helperText,
+      image: RadioImage,
       className,
       labelFontWeight,
       'aria-labelledby': ariaLabelledby,
@@ -47,6 +48,7 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
     const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormGroupBase();
     const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
     const showLabel = !!label;
+    const showImage = !!RadioImage;
     return (
       <div className={clsx(componentClassName, className)}>
         <div className="hearth-RadioContainer">
@@ -63,15 +65,12 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
         </div>
         {showLabel ? (
           <Flex direction="column" gap="50">
-            <Label
-              id={labelId}
-              htmlFor={id}
-              disableUserSelect
-              fontWeight={labelFontWeight}
-              className="hearth-RadioLabel"
-            >
-              {label}
-            </Label>
+            <Flex direction="row" className="hearth-RadioLabel">
+              {showImage ? <RadioImage /> : null}
+              <Label id={labelId} htmlFor={id} disableUserSelect fontWeight={labelFontWeight}>
+                {label}
+              </Label>
+            </Flex>
             {showHelperText ? (
               <HelperText id={helperTextId} disableUserSelect>
                 {helperText}

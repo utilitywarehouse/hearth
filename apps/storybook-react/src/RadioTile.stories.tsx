@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { RadioTile, Flex, RadioGroup } from '@utilitywarehouse/hearth-react';
+import { CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof RadioTile> = {
   title: 'Stories / RadioTile',
@@ -34,6 +35,10 @@ export const Playground: Story = {
       <Flex gap="500" direction="column">
         <RadioGroup value="2" label="Unchecked radio">
           <RadioTile {...args} />
+        </RadioGroup>
+
+        <RadioGroup value="5" label="With image">
+          <RadioTile {...args} image={CashbackCardMediumIcon}/>
         </RadioGroup>
 
         <RadioGroup defaultValue={args.value} label="Checked radio">

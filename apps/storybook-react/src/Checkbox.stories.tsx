@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Checkbox, Flex, BodyText } from '@utilitywarehouse/hearth-react';
+import { CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Stories / Checkbox',
@@ -31,7 +32,14 @@ const meta: Meta<typeof Checkbox> = {
 export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  render: args => (
+    <Flex width="fit-content" gap="200">
+      <Checkbox {...args} />
+      <Checkbox {...args} image={CashbackCardMediumIcon}/>
+    </Flex>
+  ),
+};
 
 export const KitchenSink: Story = {
   render: () => (
@@ -43,6 +51,10 @@ export const KitchenSink: Story = {
       <Flex direction="column" gap="200">
         <BodyText>With label</BodyText>
         <Checkbox label="Label" />
+      </Flex>
+      <Flex direction="column" gap="200">
+        <BodyText>With image</BodyText>
+        <Checkbox label="Label" image={CashbackCardMediumIcon}/>
       </Flex>
     </Flex>
   ),

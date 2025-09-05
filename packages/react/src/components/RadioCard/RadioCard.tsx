@@ -8,6 +8,7 @@ import { Label } from '../Label/Label';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { RadioGroup as RadixRadioGroup } from 'radix-ui';
+import { Flex } from '../Flex/Flex';
 
 const componentName = 'RadioCard';
 const componentClassName = withGlobalPrefix(componentName);
@@ -21,9 +22,11 @@ export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>((pro
     id: providedId,
     label,
     'aria-labelledby': ariaLabelledby,
+    image: RadioImage,
     ...radioCardProps
   } = extractProps(props, marginPropDefs);
   const { id, labelId } = useIds({ providedId, prefix: 'radio' });
+  const showImage = !!RadioImage;
   return (
     <RadixRadioGroup.Item
       ref={ref}
@@ -36,9 +39,13 @@ export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>((pro
         <div className="hearth-RadioItem">
           <RadixRadioGroup.Indicator className="hearth-RadioIndicator" />
         </div>
-        <Label id={labelId} htmlFor={id} disableUserSelect fontWeight="semibold">
-          {label}
-        </Label>
+
+        <Flex direction="row" className="hearth-RadioLabel">
+          {showImage ? <RadioImage /> : null}
+          <Label id={labelId} htmlFor={id} disableUserSelect fontWeight="semibold">
+            {label}
+          </Label>
+        </Flex>
       </div>
       {children}
     </RadixRadioGroup.Item>
