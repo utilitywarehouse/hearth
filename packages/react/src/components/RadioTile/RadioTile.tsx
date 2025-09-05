@@ -47,7 +47,7 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
           </div>
           <Flex direction="column">
             <Flex direction="row" className="hearth-RadioLabel">
-              {showImage ?<RadioImage /> : null}
+              {showImage ? <RadioImage /> : null}
               <Label id={labelId} htmlFor={id} disableUserSelect>
                 {label}
               </Label>

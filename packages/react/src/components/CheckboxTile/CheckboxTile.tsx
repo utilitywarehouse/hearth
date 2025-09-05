@@ -79,9 +79,7 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
         </RadixCheckbox.Root>
         <Flex direction="column">
           <Flex direction="row" className="hearth-CheckboxLabel">
-            {showImage ? (
-              <CheckboxImage />
-            ) : null}
+            {showImage ? <CheckboxImage /> : null}
             <Label id={labelId} htmlFor={id} disableUserSelect>
               {label}
             </Label>
