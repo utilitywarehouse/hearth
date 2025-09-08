@@ -533,9 +533,7 @@ const AllComponents: React.FC = () => {
 };
 
 const styles = StyleSheet.create(theme => ({
-  container: {
-    gap: theme.space['2'],
-  },
+  container: {},
   component: {
     borderColor: theme.color.warmWhite[300],
     borderWidth: theme.borderWidth['1'],
@@ -549,7 +547,6 @@ const styles = StyleSheet.create(theme => ({
     },
   },
   componentWrap: {
-    padding: theme.space['4'],
     flexGrow: 1,
     flex: 1,
   },

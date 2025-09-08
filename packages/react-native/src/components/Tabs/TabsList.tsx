@@ -146,6 +146,9 @@ TabsList.displayName = 'TabsList';
 const styles = StyleSheet.create(theme => ({
   wrapper: {
     position: 'relative',
+    width: '100%',
+    borderBottomWidth: theme.components.tabs.divider.borderWidth,
+    borderColor: theme.components.tabs.divider.color,
   },
   scrollContent: {
     paddingBottom: 0,
@@ -154,8 +157,6 @@ const styles = StyleSheet.create(theme => ({
     position: 'relative',
     flexDirection: 'row',
     gap: theme.components.tabs.gap,
-    borderBottomWidth: theme.components.tabs.divider.borderWidth,
-    borderColor: theme.components.tabs.divider.color,
   },
   indicator: {
     position: 'absolute',
