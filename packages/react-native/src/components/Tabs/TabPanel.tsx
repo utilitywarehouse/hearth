@@ -31,6 +31,7 @@ const TabPanel = ({ value, children, keepMounted, style, ...rest }: TabPanelProp
 
 const styles = StyleSheet.create(theme => ({
   panel: {
+    flex: 1,
     width: '100%',
     paddingTop: theme.space[100],
     variants: {

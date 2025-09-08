@@ -1,3 +1,4 @@
+import { useTheme } from '@utilitywarehouse/hearth-react-native';
 import { color } from '@utilitywarehouse/hearth-tokens';
 import React, { useEffect, useState } from 'react';
 import { Appearance, ScrollView, View } from 'react-native';
@@ -48,6 +49,7 @@ const preview = {
       // }, []);
 
       const [colorMode, setColorMode] = useState<'dark' | 'light'>(Appearance.getColorScheme());
+      const theme = useTheme();
 
       useEffect(() => {
         const colorScheme = Appearance.getColorScheme();
@@ -69,7 +71,7 @@ const preview = {
         if (args.inverted) {
           return color.purple['700'];
         }
-        return colorMode === 'dark' ? color.dark.background : color.light.background;
+        return theme.color.background.primary;
       })();
 
       // console.log(colorMode)

@@ -13,7 +13,6 @@ const Tab = ({
   children,
   icon,
   disabled,
-  badge,
   style,
   states,
   ...props
@@ -104,6 +103,6 @@ const styles = StyleSheet.create(theme => ({
 
 const PressableTab = createPressable({ Root: Tab });
 
-PressableTab.displayName = 'PressableTab';
+PressableTab.displayName = 'Tab';
 
 export default PressableTab;

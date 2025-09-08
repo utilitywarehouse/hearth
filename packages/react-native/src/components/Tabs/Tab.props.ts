@@ -10,8 +10,6 @@ export interface TabProps extends PressableProps {
   icon?: ComponentType<any>;
   /** Whether the tab is disabled */
   disabled?: boolean;
-  /** Optional badge content */
-  badge?: ReactNode;
   style?: ViewProps['style'];
 }
 
