@@ -55,6 +55,7 @@ const styles = StyleSheet.create(theme => ({
     flexDirection: 'row',
     gap: theme.components.sectionHeader.gap,
     alignItems: 'flex-start',
+    width: '100%',
   },
 }));
 

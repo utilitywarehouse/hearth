@@ -54,6 +54,10 @@ import {
   Skeleton,
   Spinner,
   Switch,
+  Tab,
+  TabPanel,
+  Tabs,
+  TabsList,
   Textarea,
   ToggleButtonCard,
   ToggleButtonCardGroup,
@@ -422,7 +426,7 @@ const AllComponents: React.FC = () => {
             name="Section Header"
             link="/?path=/docs/components-section-header--docs"
           >
-            <Center flex={1}>
+            <Center flex={1} p="300">
               <SectionHeader heading="Heading" helperText="Supporting text" linkText="More" />
             </Center>
           </ComponentWrapper>
@@ -464,7 +468,26 @@ const AllComponents: React.FC = () => {
               <Switch value={switchEnabled} onValueChange={toggleSwitch} />
             </Center>
           </ComponentWrapper>
-
+          <ComponentWrapper name="Tabs" link="/?path=/docs/components-tabs--docs">
+            <Center flex={1}>
+              <Tabs defaultValue="tab-1">
+                <TabsList>
+                  <Tab value="tab-1">Tab 1</Tab>
+                  <Tab value="tab-2">Tab 2</Tab>
+                  <Tab value="tab-3">Tab 3</Tab>
+                </TabsList>
+                <TabPanel value="tab-1">
+                  <BodyText>I'm the first tab's content</BodyText>
+                </TabPanel>
+                <TabPanel value="tab-2">
+                  <BodyText>I'm the second tab's content</BodyText>
+                </TabPanel>
+                <TabPanel value="tab-3">
+                  <BodyText>I'm the third tab's content</BodyText>
+                </TabPanel>
+              </Tabs>
+            </Center>
+          </ComponentWrapper>
           <ComponentWrapper name="Textarea" link="/?path=/docs/forms-textarea--docs">
             <Center flex={1}>
               <Textarea numberOfLines={3} placeholder="This is a textarea" />
