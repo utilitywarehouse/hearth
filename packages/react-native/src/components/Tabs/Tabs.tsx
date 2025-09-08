@@ -12,7 +12,6 @@ const Tabs = ({
   disabled,
   children,
   withPanels,
-  style,
   ...props
 }: TabsProps) => {
   // Collect child tab values
@@ -130,9 +129,7 @@ const Tabs = ({
 
   return (
     <TabsContext.Provider value={contextValue}>
-      <View style={style} {...props}>
-        {children}
-      </View>
+      <View {...props}>{children}</View>
     </TabsContext.Provider>
   );
 };
