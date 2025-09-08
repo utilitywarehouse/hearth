@@ -40,7 +40,9 @@ export const Playground: Story = {
 };
 
 export const KitchenSink: Story = {
-  render: () => (
+  render: () => { 
+    const MyImage = () => (<img src="/src/assets/react-pig.png" width={25}/>);
+    return (
     <Flex gap="400">
       <Flex direction="column" gap="200">
         <BodyText>Standalone</BodyText>
@@ -51,11 +53,15 @@ export const KitchenSink: Story = {
         <CheckboxTile label="Label" />
       </Flex>
       <Flex direction="column" gap="200">
-        <BodyText>With image</BodyText>
+        <BodyText>With icon</BodyText>
         <CheckboxTile label="Label" image={CashbackCardMediumIcon}/>
       </Flex>
+      <Flex direction="column" gap="200">
+        <BodyText>With image</BodyText>
+        <CheckboxTile label="Label" image={MyImage}/>
+      </Flex>
     </Flex>
-  ),
+  )},
 };
 
 export const Controlled: Story = {

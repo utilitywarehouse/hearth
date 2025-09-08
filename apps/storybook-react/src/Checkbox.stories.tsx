@@ -36,28 +36,35 @@ export const Playground: Story = {
   render: args => (
     <Flex width="fit-content" gap="200">
       <Checkbox {...args} />
-      <Checkbox {...args} image={CashbackCardMediumIcon}/>
+      <Checkbox {...args} image={CashbackCardMediumIcon} />
     </Flex>
   ),
 };
 
 export const KitchenSink: Story = {
-  render: () => (
-    <Flex gap="400">
-      <Flex direction="column" gap="200">
-        <BodyText>Standalone</BodyText>
-        <Checkbox aria-label="standalone" />
+  render: () => {
+    const MyImage = () => <img src="/src/assets/react-pig.png" width={25} />;
+    return (
+      <Flex gap="400">
+        <Flex direction="column" gap="200">
+          <BodyText>Standalone</BodyText>
+          <Checkbox aria-label="standalone" />
+        </Flex>
+        <Flex direction="column" gap="200">
+          <BodyText>With label</BodyText>
+          <Checkbox label="Label" />
+        </Flex>
+        <Flex direction="column" gap="200">
+          <BodyText>With icon</BodyText>
+          <Checkbox label="Label" image={CashbackCardMediumIcon} />
+        </Flex>
+        <Flex direction="column" gap="200">
+          <BodyText>With image</BodyText>
+          <Checkbox label="Label" image={MyImage} />
+        </Flex>
       </Flex>
-      <Flex direction="column" gap="200">
-        <BodyText>With label</BodyText>
-        <Checkbox label="Label" />
-      </Flex>
-      <Flex direction="column" gap="200">
-        <BodyText>With image</BodyText>
-        <Checkbox label="Label" image={CashbackCardMediumIcon}/>
-      </Flex>
-    </Flex>
-  ),
+    );
+  },
 };
 
 export const Controlled: Story = {

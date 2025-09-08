@@ -18,6 +18,7 @@ type Story = StoryObj<typeof Radio>;
 
 export const Playground: Story = {
   render: args => {
+    const MyImage = () => <img src="/src/assets/react-pig.png" width={25} />;
     return (
       <Flex gap="500" direction="column">
         <RadioGroup value="2" label="Unchecked radio">
@@ -28,8 +29,12 @@ export const Playground: Story = {
           <Radio {...args} />
         </RadioGroup>
 
-         <RadioGroup defaultValue={args.value} label="With image">
+         <RadioGroup defaultValue={args.value} label="With icon">
           <Radio {...args} image={CashbackCardMediumIcon} />
+        </RadioGroup>
+
+        <RadioGroup defaultValue={args.value} label="With image">
+          <Radio {...args} image={MyImage} />
         </RadioGroup>
       </Flex>
     );

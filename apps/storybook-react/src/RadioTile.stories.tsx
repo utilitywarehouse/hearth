@@ -31,14 +31,19 @@ type Story = StoryObj<typeof RadioTile>;
 
 export const Playground: Story = {
   render: args => {
+    const MyImage = () => <img src="/src/assets/react-pig.png" width={25} />;
     return (
       <Flex gap="500" direction="column">
         <RadioGroup value="2" label="Unchecked radio">
           <RadioTile {...args} />
         </RadioGroup>
 
-        <RadioGroup value="5" label="With image">
+        <RadioGroup value="5" label="With icon">
           <RadioTile {...args} image={CashbackCardMediumIcon}/>
+        </RadioGroup>
+
+        <RadioGroup value="5" label="With image">
+          <RadioTile {...args} image={MyImage}/>
         </RadioGroup>
 
         <RadioGroup defaultValue={args.value} label="Checked radio">

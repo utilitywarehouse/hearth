@@ -23,8 +23,14 @@ which also displays a helper text message.
 The `CheckboxTile` can display an image between the indicator and label. 
 
 ```tsx
-<CheckboxTile value="2" label="Two" helperText="The number two" image={CashbackCardSmallIcon} />
+const MyImage = () => <img src="/src/assets/react-pig.png" width={25} />;
+<CheckboxTile value="2" label="Two" helperText="The number two" image={MyImage} />
 ```
+
+You can use predefined icons here too:
+
+```tsx
+<CheckboxTile value="2" label="Two" helperText="The number two" image={CashbackCardMeduimIcon} />
 
 ## Controlled
 
