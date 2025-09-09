@@ -1,0 +1,214 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Badge, BodyText, Tab, TabPanel, Tabs, TabsList } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Tabs.stories';
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=6463-1113" />
+
+<Meta title="Components / Tabs" />
+
+# Tabs
+
+Tabs are a navigational component that allows users to move easily between groups of related content.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Examples](#examples)
+  - [Controlled](#controlled)
+  - [Overflow & Scrolling](#overflow--scrolling)
+  - [With Icons](#with-icons)
+- [Props](#props)
+- [Size Variants](#size-variants)
+- [Accessibility](#accessibility)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Tabs defaultValue="account">
+    <TabsList>
+      <Tab value="account">Account</Tab>
+      <Tab value="billing">Billing</Tab>
+      <Tab value="usage">Usage</Tab>
+    </TabsList>
+    <TabPanel value="account">
+      <BodyText>Account content</BodyText>
+    </TabPanel>
+    <TabPanel value="billing">
+      <BodyText>Billing content</BodyText>
+    </TabPanel>
+    <TabPanel value="usage">
+      <BodyText>Usage metrics content</BodyText>
+    </TabPanel>
+  </Tabs>
+</UsageWrap>
+
+```tsx
+import { Tabs, TabsList, Tab, TabPanel } from '@utilitywarehouse/hearth-react-native';
+
+<Tabs defaultValue="account">
+  <TabsList>
+    <Tab value="account">Account</Tab>
+    <Tab value="billing">Billing</Tab>
+    <Tab value="usage">Usage</Tab>
+  </TabsList>
+  <TabPanel value="account">
+    <BodyText>Account content</BodyText>
+  </TabPanel>
+  <TabPanel value="billing">
+    <BodyText>Billing content</BodyText>
+  </TabPanel>
+  <TabPanel value="usage">
+    <BodyText>Usage metrics content</BodyText>
+  </TabPanel>
+</Tabs>;
+```
+
+## Examples
+
+### Controlled
+
+Tabs can be controlled by passing `value` and `onValueChange` props to the `Tabs` component.
+This allows you to manage the active tab state externally.
+
+```tsx
+const [tab, setTab] = useState('account');
+<Tabs value={tab} onValueChange={setTab}>
+  <TabsList>
+    <Tab value="account">Account</Tab>
+    <Tab value="billing">Billing</Tab>
+    <Tab value="usage">Usage</Tab>
+  </TabsList>
+  <TabPanel value="account">
+    <BodyText>Account content</BodyText>
+  </TabPanel>
+  <TabPanel value="billing">
+    <BodyText>Billing content</BodyText>
+  </TabPanel>
+  <TabPanel value="usage">
+    <BodyText>Usage metrics content</BodyText>
+  </TabPanel>
+</Tabs>;
+```
+
+### Overflow & Scrolling
+
+<Canvas of={Stories.WithScrolling} />
+
+When the combined tab labels exceed the horizontal space, the list becomes horizontally scrollable.
+Contextual navigation buttons (previous / next) appear just outside the scrollable area. They:
+
+- Scroll by ~60% of the visible width per press (for efficient paging)
+- Are hidden from assistive technology (screen readers) - users rely on the tab structure itself
+- Only render when further scrolling in that direction is possible
+- Honor reduced motion: only the indicator animation is affected (system reduced motion will minimise excessive transitions)
+
+### With Icons
+
+You can add icons to each `Tab` by passing an icon component to the `icon` prop. The icon will be placed to the left of the tab label.
+
+<Canvas of={Stories.WithIcons} />
+
+```tsx
+import { Tabs, TabsList, Tab, TabPanel } from '@utilitywarehouse/hearth-react-native';
+import {
+  ElectricityMediumIcon,
+  MobileMediumIcon,
+  InsuranceMediumIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => (
+  <Tabs defaultValue="one">
+    <TabsList>
+      <Tab value="one" icon={ElectricityMediumIcon}>
+        Energy
+      </Tab>
+      <Tab value="two" icon={BroadbandMediumIcon}>
+        Broadband
+      </Tab>
+      <Tab value="three" icon={MobileMediumIcon}>
+        Mobile
+      </Tab>
+      <Tab value="four" icon={InsuranceMediumIcon}>
+        Insurance
+      </Tab>
+    </TabsList>
+    <TabPanel value="one">
+      <BodyText>One panel</BodyText>
+    </TabPanel>
+    <TabPanel value="two">
+      <BodyText>Two panel</BodyText>
+    </TabPanel>
+    <TabPanel value="three">
+      <BodyText>Three panel</BodyText>
+    </TabPanel>
+    <TabPanel value="four">
+      <BodyText>Four panel</BodyText>
+    </TabPanel>
+  </Tabs>
+);
+```
+
+## Props
+
+### Tabs
+
+| Prop            | Type                      | Description                                                         | Default    |
+| --------------- | ------------------------- | ------------------------------------------------------------------- | ---------- |
+| `value`         | `string`                  | Controlled active tab value                                         | -          |
+| `defaultValue`  | `string`                  | Uncontrolled initial tab value                                      | first Tab  |
+| `onValueChange` | `(value: string) => void` | Change handler                                                      | -          |
+| `size`          | `'md' \| 'lg'`            | Size variant (affects tab height & list padding)                    | `md`       |
+| `disabled`      | `boolean`                 | Disables all interaction                                            | `false`    |
+| `withPanels`    | `boolean`                 | If true, expects sibling `TabPanel` elements and wires ARIA linkage | `true`\*   |
+| `children`      | `ReactNode`               | Composition (typically `TabsList` + `TabPanel` children)            | (required) |
+
+\*If omitted you can still compose panels manually, but accessibility linkage (`aria-controls` / `id`) is provided when `withPanels` is true.
+
+### TabsList / Tab / TabPanel
+
+#### TabsList
+
+| Prop       | Type        | Description                | Default    |
+| ---------- | ----------- | -------------------------- | ---------- |
+| `children` | `ReactNode` | One or more `Tab` elements | (required) |
+
+#### Tab
+
+| Prop       | Type            | Description                       | Default    |
+| ---------- | --------------- | --------------------------------- | ---------- |
+| `value`    | `string`        | Unique tab value                  | (required) |
+| `children` | `ReactNode`     | Label content (can include badge) | (required) |
+| `icon`     | `ComponentType` | Optional leading icon             | -          |
+| `disabled` | `boolean`       | Disabled state                    | `false`    |
+
+#### TabPanel
+
+| Prop          | Type        | Description                                 | Default    |
+| ------------- | ----------- | ------------------------------------------- | ---------- |
+| `value`       | `string`    | Matches a `Tab` value                       | (required) |
+| `children`    | `ReactNode` | Panel content                               | (required) |
+| `keepMounted` | `boolean`   | Keep hidden panels in tree (preserve state) | `false`    |
+
+## Size Variants
+
+<Canvas of={Stories.Sizes} />
+
+## Accessibility
+
+| Element     | Role                                    | Notes                                           |
+| ----------- | --------------------------------------- | ----------------------------------------------- |
+| `Tabs` root | `tablist`                               | Container for related `tab` elements            |
+| `Tab`       | `tab`                                   | Uses `accessibilityState.selected` & `disabled` |
+| `TabPanel`  | `tabpanel` (web) / hidden view (native) | Inactive panels removed from a11y tree          |
+
+Selection state is communicated through `accessibilityState`. Provide concise labels (children text) for best screen reader clarity.
+Any extra content you compose is read in order unless you explicitly hide it. The animated indicator reflects the active tab;
+reduced motion preferences are respected. Hidden panels are removed from the accessibility tree.
+Overflow scroll buttons are hidden from assistive tech and only appear visually when scrolling is possible.
