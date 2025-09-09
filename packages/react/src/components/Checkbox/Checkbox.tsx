@@ -43,10 +43,7 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props,
   const showImage = !!CheckboxImage;
 
   return (
-    <Flex
-      className={clsx(componentClassName, className)}
-      data-disabled={disabled ? '' : undefined}
-    >
+    <Flex className={clsx(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
       <RadixCheckbox.Root
         ref={ref}
         className="hearth-CheckboxRoot"
