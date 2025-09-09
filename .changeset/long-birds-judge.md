@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react-native': patch
 ---
 
-Added `autoFormatThousands` prop to `CurrecnyInput` component
+Added `autoFormatThousands` prop to `CurrencyInput` component
