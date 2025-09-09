@@ -55,7 +55,6 @@
 
   /* Sensible list defaults */
   :where(ul, ol) {
-    padding: revert;
     padding-inline-start: var(--h-space-400);
   }
 
