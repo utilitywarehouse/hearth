@@ -1,5 +1,6 @@
 import { Platform } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { formatThousands } from '../../utils';
 import { DetailText } from '../DetailText';
 import { useFormFieldContext } from '../FormField';
 import { Input, InputField, InputSlot } from '../Input';
@@ -13,7 +14,10 @@ const CurrencyInput = ({
   placeholder,
   inBottomSheet = false,
   required,
-  ...props
+  autoFormatThousands = false,
+  value,
+  onChangeText,
+  ...rest
 }: CurrencyInputProps) => {
   const formFieldContext = useFormFieldContext();
   const { disabled: formFieldDisabled } = formFieldContext;
@@ -21,6 +25,18 @@ const CurrencyInput = ({
 
   const defaultFormat = '0.00';
   const getPlaceholder = placeholder ?? defaultFormat;
+
+  const handleChangeText = (text: string) => {
+    if (autoFormatThousands) {
+      const formatted = formatThousands(text);
+      onChangeText?.(formatted);
+    } else {
+      onChangeText?.(text);
+    }
+  };
+
+  const displayValue =
+    autoFormatThousands && typeof value === 'string' ? formatThousands(value) : value;
 
   return (
     <Input
@@ -38,10 +54,12 @@ const CurrencyInput = ({
       <InputField
         inputMode="decimal"
         inBottomSheet={inBottomSheet}
-        {...props}
+        {...rest}
         placeholder={getPlaceholder}
         keyboardType="decimal-pad"
         style={styles.input}
+        value={displayValue as any}
+        onChangeText={handleChangeText}
       />
     </Input>
   );
@@ -56,6 +74,9 @@ const styles = StyleSheet.create(theme => ({
   },
   text: {
     ...(Platform.OS === 'ios' && { lineHeight: 46 }),
+    _web: {
+      marginTop: 1,
+    },
   },
   input: {
     fontSize: theme.typography.mobile.detailText['4xl'].fontSize,
@@ -63,6 +84,7 @@ const styles = StyleSheet.create(theme => ({
     fontWeight: theme.typography.mobile.detailText.fontWeight,
     paddingTop: 0,
     paddingBottom: 0,
+    paddingLeft: 0,
   },
 }));
 
