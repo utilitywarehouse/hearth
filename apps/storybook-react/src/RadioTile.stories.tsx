@@ -31,7 +31,7 @@ type Story = StoryObj<typeof RadioTile>;
 
 export const Playground: Story = {
   render: args => {
-    const MyImage = () => <img src="/src/assets/react-pig.png" width={25} />;
+    const MyImage = () => <img src="https://help.uw.co.uk/images/iPhone.svg" width={25} />;
     return (
       <Flex gap="500" direction="column">
         <RadioGroup value="2" label="Unchecked radio">

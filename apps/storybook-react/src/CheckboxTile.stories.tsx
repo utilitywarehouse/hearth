@@ -41,7 +41,7 @@ export const Playground: Story = {
 
 export const KitchenSink: Story = {
   render: () => { 
-    const MyImage = () => (<img src="/src/assets/react-pig.png" width={25}/>);
+    const MyImage = () => (<img src="https://help.uw.co.uk/images/iPhone.svg" width={25}/>);
     return (
     <Flex gap="400">
       <Flex direction="column" gap="200">

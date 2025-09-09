@@ -44,7 +44,6 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props,
 
   return (
     <Flex
-      gap="100"
       className={clsx(componentClassName, className)}
       data-disabled={disabled ? '' : undefined}
     >
