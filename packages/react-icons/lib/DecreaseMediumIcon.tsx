@@ -17,7 +17,7 @@ export const DecreaseMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {...props}
       >
         {title ? <title id={titleId}>{title}</title> : null}
-        <path fill={color} d="M12 17 3 7h18z" />
+        <path fill={color} d="M10.75 17.219V2h2.5v15.219l7-7L22 12 12 22 2 12l1.75-1.781z" />
       </svg>
     );
   }

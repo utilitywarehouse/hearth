@@ -5,7 +5,7 @@ const SvgLogoutSmallIcon = ({ color = 'currentColor', ...props }: IconProps) => 
   <Svg width={20} height={20} fill="none" viewBox="0 0 20 20" {...props}>
     <Path
       fill={color}
-      d="M2.6 17.4V2.6h7.495v2.042H4.642v10.717h5.453v2.042zm10.747-3.334-1.45-1.428 1.616-1.617H7.906V8.98h5.607l-1.617-1.617 1.451-1.428L17.401 10z"
+      d="m6.25 10 4.688-4.687 1.359 1.312-2.438 2.438H17.5v1.874H9.86l2.437 2.438-1.36 1.313zM2.5 2.5h4.688v1.875H4.374v11.25h2.813V17.5H2.5z"
     />
   </Svg>
 );

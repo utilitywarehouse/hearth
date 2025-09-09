@@ -1,5 +1,5 @@
 /* Don't edit this file directly, it was auto generated */
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react';
 import { ExpandMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ExpandMediumIcon';
 
 const meta: Meta<typeof ExpandMediumIcon> = {

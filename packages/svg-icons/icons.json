@@ -8,20 +8,16 @@
     "name": "AddSmallIcon"
   },
   {
+    "id": "2330:17",
+    "name": "BasketSmallIcon"
+  },
+  {
     "id": "1:790",
     "name": "MinusSmallIcon"
   },
   {
     "id": "1:854",
     "name": "TickSmallIcon"
-  },
-  {
-    "id": "1:865",
-    "name": "ArrowUpSmallIcon"
-  },
-  {
-    "id": "1:876",
-    "name": "ArrowDownSmallIcon"
   },
   {
     "id": "1:1183",
@@ -56,12 +52,16 @@
     "name": "DownloadSmallIcon"
   },
   {
+    "id": "4:102",
+    "name": "LoginSmallIcon"
+  },
+  {
     "id": "1:1216",
     "name": "UploadSmallIcon"
   },
   {
-    "id": "4:1361",
-    "name": "ShareSmallIcon"
+    "id": "4:113",
+    "name": "LogoutSmallIcon"
   },
   {
     "id": "135:136",
@@ -88,6 +88,10 @@
     "name": "ElectricitySmallIcon"
   },
   {
+    "id": "2311:35",
+    "name": "LandlineSmallIcon"
+  },
+  {
     "id": "2192:61",
     "name": "BroadbandSmallIcon"
   },
@@ -96,12 +100,28 @@
     "name": "InsuranceSmallIcon"
   },
   {
+    "id": "2311:38",
+    "name": "HomeAndBoilerSmallIcon"
+  },
+  {
+    "id": "2311:41",
+    "name": "HomeInsuranceSmallIcon"
+  },
+  {
+    "id": "2311:44",
+    "name": "IncomeProtectSmallIcon"
+  },
+  {
     "id": "2192:89",
     "name": "CashbackCardSmallIcon"
   },
   {
     "id": "2192:103",
     "name": "MobileSmallIcon"
+  },
+  {
+    "id": "2311:47",
+    "name": "SimSmallIcon"
   },
   {
     "id": "1:1227",
@@ -144,14 +164,6 @@
     "name": "LinkSmallIcon"
   },
   {
-    "id": "4:102",
-    "name": "LoginSmallIcon"
-  },
-  {
-    "id": "4:113",
-    "name": "LogoutSmallIcon"
-  },
-  {
     "id": "4:124",
     "name": "TrashSmallIcon"
   },
@@ -172,6 +184,14 @@
     "name": "CalendarSmallIcon"
   },
   {
+    "id": "2275:769",
+    "name": "CalendarAddSmallIcon"
+  },
+  {
+    "id": "4:1361",
+    "name": "ShareSmallIcon"
+  },
+  {
     "id": "2076:19",
     "name": "WhatsAppSmallIcon"
   },
@@ -180,8 +200,36 @@
     "name": "HeartSmallIcon"
   },
   {
-    "id": "2165:55",
-    "name": "StarSmallIcon"
+    "id": "2275:784",
+    "name": "SendSmallIcon"
+  },
+  {
+    "id": "2275:794",
+    "name": "AttachSmallIcon"
+  },
+  {
+    "id": "2275:804",
+    "name": "LockSmallIcon"
+  },
+  {
+    "id": "2304:2253",
+    "name": "UnlockSmallIcon"
+  },
+  {
+    "id": "2260:12",
+    "name": "SkipLastSmallIcon"
+  },
+  {
+    "id": "2260:13",
+    "name": "SkipFirstSmallIcon"
+  },
+  {
+    "id": "2341:25",
+    "name": "TopUpSmallIcon"
+  },
+  {
+    "id": "2301:392",
+    "name": "BellSmallIcon"
   },
   {
     "id": "6:275",
@@ -220,32 +268,12 @@
     "name": "ExpandMediumIcon"
   },
   {
-    "id": "6:231",
-    "name": "ArrowDownMediumIcon"
-  },
-  {
-    "id": "6:242",
-    "name": "ArrowUpMediumIcon"
-  },
-  {
     "id": "15:172",
     "name": "IncreaseMediumIcon"
   },
   {
     "id": "15:183",
     "name": "DecreaseMediumIcon"
-  },
-  {
-    "id": "14:164",
-    "name": "InsightsMediumIcon"
-  },
-  {
-    "id": "4:1417",
-    "name": "BroadbandMediumIcon"
-  },
-  {
-    "id": "2060:2",
-    "name": "InsuranceMediumIcon"
   },
   {
     "id": "4:1406",
@@ -256,20 +284,40 @@
     "name": "GasMediumIcon"
   },
   {
-    "id": "6:264",
-    "name": "CashbackCardMediumIcon"
+    "id": "4:1417",
+    "name": "BroadbandMediumIcon"
   },
   {
-    "id": "20:127",
-    "name": "GreenDealElectricityMediumIcon"
+    "id": "2268:1382",
+    "name": "LandlineMediumIcon"
   },
   {
-    "id": "154:177",
-    "name": "CreditsAndDebitsMediumIcon"
+    "id": "2060:2",
+    "name": "InsuranceMediumIcon"
+  },
+  {
+    "id": "2268:1412",
+    "name": "HomeAndBoilerMediumIcon"
+  },
+  {
+    "id": "2268:1421",
+    "name": "HomeInsuranceMediumIcon"
+  },
+  {
+    "id": "2268:1435",
+    "name": "IncomeProtectMediumIcon"
   },
   {
     "id": "174:26",
     "name": "MobileMediumIcon"
+  },
+  {
+    "id": "2268:1392",
+    "name": "SimMediumIcon"
+  },
+  {
+    "id": "6:264",
+    "name": "CashbackCardMediumIcon"
   },
   {
     "id": "6:470",
@@ -352,20 +400,8 @@
     "name": "LinkMediumIcon"
   },
   {
-    "id": "9:212",
-    "name": "EmailMediumIcon"
-  },
-  {
     "id": "9:223",
     "name": "BookmarkMediumIcon"
-  },
-  {
-    "id": "9:1251",
-    "name": "SkipRightMediumIcon"
-  },
-  {
-    "id": "9:1262",
-    "name": "SkipLeftMediumIcon"
   },
   {
     "id": "9:337",
@@ -389,7 +425,7 @@
   },
   {
     "id": "9:359",
-    "name": "PhoneMediumIcon"
+    "name": "CallMediumIcon"
   },
   {
     "id": "9:401",
@@ -404,6 +440,10 @@
     "name": "CalendarAddMediumIcon"
   },
   {
+    "id": "14:164",
+    "name": "InsightsMediumIcon"
+  },
+  {
     "id": "9:434",
     "name": "MoneyMediumIcon"
   },
@@ -413,7 +453,7 @@
   },
   {
     "id": "9:492",
-    "name": "ConfettiMediumIcon"
+    "name": "CelebrationMediumIcon"
   },
   {
     "id": "9:517",
@@ -432,12 +472,8 @@
     "name": "CameraMediumIcon"
   },
   {
-    "id": "9:615",
-    "name": "SearchMediumIcon"
-  },
-  {
-    "id": "153:662",
-    "name": "GiftMediumIcon"
+    "id": "154:177",
+    "name": "CreditsAndDebitsMediumIcon"
   },
   {
     "id": "9:677",
@@ -445,7 +481,7 @@
   },
   {
     "id": "9:688",
-    "name": "ClockMediumIcon"
+    "name": "TimeMediumIcon"
   },
   {
     "id": "9:699",
@@ -492,20 +528,28 @@
     "name": "MeterMediumIcon"
   },
   {
-    "id": "6:448",
-    "name": "StarMediumIcon"
-  },
-  {
-    "id": "15:134",
-    "name": "StarOutlineMediumIcon"
-  },
-  {
     "id": "6:459",
     "name": "HeartMediumIcon"
   },
   {
     "id": "15:149",
     "name": "HeartOutlineMediumIcon"
+  },
+  {
+    "id": "2268:24",
+    "name": "AttachMediumIcon"
+  },
+  {
+    "id": "9:615",
+    "name": "SearchMediumIcon"
+  },
+  {
+    "id": "20:127",
+    "name": "GreenDealElectricityMediumIcon"
+  },
+  {
+    "id": "9:212",
+    "name": "EmailMediumIcon"
   },
   {
     "id": "9:1046",
@@ -541,11 +585,7 @@
   },
   {
     "id": "9:644",
-    "name": "HomeFilledMediumIcon"
-  },
-  {
-    "id": "9:655",
-    "name": "HomeOutlineMediumIcon"
+    "name": "HomeMediumIcon"
   },
   {
     "id": "9:666",
@@ -578,5 +618,21 @@
   {
     "id": "57:116",
     "name": "PlaceholderMediumIcon"
+  },
+  {
+    "id": "2341:13",
+    "name": "TopUpMediumIcon"
+  },
+  {
+    "id": "2194:438",
+    "name": "MoonLargeIcon"
+  },
+  {
+    "id": "2194:451",
+    "name": "SunLargeIcon"
+  },
+  {
+    "id": "2194:464",
+    "name": "PlaceholderLargeIcon"
   }
 ]

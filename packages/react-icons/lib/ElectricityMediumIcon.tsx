@@ -17,7 +17,7 @@ export const ElectricityMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {...props}
       >
         {title ? <title id={titleId}>{title}</title> : null}
-        <path fill={color} d="M10.613 22.5v-7.875H4L13.387 1.5v7.875H20z" />
+        <path fill={color} d="m8 22 1-7H4l9-13h2l-1 8h6L10 22z" />
       </svg>
     );
   }

@@ -19,7 +19,7 @@ export const LoginSmallIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M9.906 17.4v-2.04h5.453V4.641H9.906V2.6h7.495v14.8zm-1.865-3.334L6.59 12.638l1.617-1.617H2.6V8.98h5.607L6.59 7.363l1.451-1.428L12.095 10z"
+          d="m13.75 10-4.687 4.688-1.36-1.313 2.438-2.437H2.5V9.062h7.64L7.704 6.626l1.36-1.312zm3.75 7.5h-4.687v-1.875h2.812V4.375h-2.812V2.5H17.5z"
         />
       </svg>
     );

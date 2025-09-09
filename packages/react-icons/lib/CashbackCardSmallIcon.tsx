@@ -17,10 +17,7 @@ export const CashbackCardSmallIcon = forwardRef<SVGSVGElement, IconProps>(
         {...props}
       >
         {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M2 16.5v-13h16v13zM5.2 10h9.6c.88 0 1.6-.731 1.6-1.625s-.72-1.625-1.6-1.625H5.2c-.88 0-1.6.731-1.6 1.625S4.32 10 5.2 10"
-        />
+        <path fill={color} d="M2 3.5v13h16v-13zM16.4 10H3.6V6.75h12.8z" />
       </svg>
     );
   }

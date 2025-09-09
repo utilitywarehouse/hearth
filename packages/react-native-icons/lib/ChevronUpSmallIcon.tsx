@@ -3,7 +3,7 @@ import Svg, { Path } from 'react-native-svg';
 import { IconProps } from './types';
 const SvgChevronUpSmallIcon = ({ color = 'currentColor', ...props }: IconProps) => (
   <Svg width={20} height={20} fill="none" viewBox="0 0 20 20" {...props}>
-    <Path fill={color} d="m10 8.934-5.449 5.449-1.658-1.658L10 5.617l7.107 7.108-1.658 1.658z" />
+    <Path fill={color} d="M18 13.493 16.58 15 10 8.015 3.42 15 2 13.493 10 5z" />
   </Svg>
 );
 export default SvgChevronUpSmallIcon;

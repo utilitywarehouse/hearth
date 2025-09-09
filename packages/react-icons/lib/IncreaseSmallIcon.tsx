@@ -17,7 +17,7 @@ export const IncreaseSmallIcon = forwardRef<SVGSVGElement, IconProps>(
         {...props}
       >
         {title ? <title id={titleId}>{title}</title> : null}
-        <path fill={color} d="m3 13.5 7-7 7 7z" />
+        <path fill={color} d="M11 5.825V18H9V5.825l-5.6 5.6L2 10l8-8 8 8-1.4 1.425z" />
       </svg>
     );
   }

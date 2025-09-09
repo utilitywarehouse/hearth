@@ -1,5 +1,5 @@
 /* Don't edit this file directly, it was auto generated */
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react';
 import { TransferMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TransferMediumIcon';
 
 const meta: Meta<typeof TransferMediumIcon> = {

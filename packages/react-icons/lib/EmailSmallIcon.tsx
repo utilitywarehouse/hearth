@@ -19,7 +19,7 @@ export const EmailSmallIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M2 16V4h16v12zm7.751-5.143a.5.5 0 0 0 .498 0l5.865-3.365a.768.768 0 0 0-.764-1.332l-5.101 2.926a.5.5 0 0 1-.498 0l-5.1-2.926a.768.768 0 0 0-.765 1.332z"
+          d="M1.6 16.72V3.28h16.8v13.44zm8.4-5.88 6.72-4.2V4.96L10 9.16l-6.72-4.2v1.68z"
         />
       </svg>
     );
