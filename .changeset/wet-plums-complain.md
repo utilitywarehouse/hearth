@@ -2,15 +2,14 @@
 '@utilitywarehouse/hearth-css-reset': minor
 ---
 
-Remove list defaults only when `role='list'` is used.
+This PR modifies CSS reset behaviour for lists to preserve native list styling by
+default and only remove it when an explicit `role="list"` is present. This aligns
+with accessibility best practices where `role="list"` signals intentional removal
+of semantic list styling.
 
-This change updates the CSS reset so that the default styling for `ul` & `ol`
-elements is only removed when the list role is explicitly set. These elements
-implicitly have this list role, however, setting it explicitly better indicates
-that the default appearance will change.
-
-This change means that consumers can render default lists and easily remove the
-default styling when necessary.
+- Updates CSS reset to preserve default padding and list styles for `ul` and `ol` elements.
+- Only removes list styling when `role="list"` is explicitly set.
+- Updates the List component to include `role="list"` in props object rather than inline.
 
 Developers will need to ensure any `ul` & `ol` elements that intend to override
 the default styling have the appropriate role set:
