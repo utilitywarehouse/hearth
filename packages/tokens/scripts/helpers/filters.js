@@ -83,4 +83,9 @@ export const filters = {
         !token.path.includes('font'))
     );
   },
+
+  // Identifies semantic tokens
+  isSemantic: token => {
+    return token.filePath.includes('semantic') && token.attributes.category !== 'dark';
+  },
 };

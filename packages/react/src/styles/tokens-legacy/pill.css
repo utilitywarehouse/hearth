@@ -1,0 +1,22 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-pill-background-color-active: var(--h-color-warm-white-200);
+  --h-pill-background-color-hover: var(--h-color-warm-white-100);
+  --h-pill-border-color: var(--h-color-grey-1000);
+  --h-pill-border-radius: var(--h-border-radius-full);
+  --h-pill-border-width: var(--h-border-width-1);
+  --h-pill-foreground-color: var(--h-color-grey-1000);
+  --h-pill-gap: var(--h-space-75);
+  --h-pill-group-gap: var(--h-space-100);
+  --h-pill-height: var(--h-space-600)px;
+  --h-pill-min-width: 66px;
+  --h-pill-padding-horizontal: var(--h-space-250);
+  --h-pill-padding-vertical: var(--h-space-150);
+  --h-pill-selected-background-color: var(--h-color-purple-700);
+  --h-pill-selected-background-color-active: var(--h-color-purple-900);
+  --h-pill-selected-background-color-hover: var(--h-color-purple-800);
+  --h-pill-selected-foreground-color: var(--h-color-warm-white-50);
+}

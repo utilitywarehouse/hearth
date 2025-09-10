@@ -5,8 +5,6 @@
 :root {
   --h-accordion-gap: var(--h-space-150);
   --h-accordion-heading-gap: var(--h-space-25);
-  --h-accordion-item-background-color-active: var(--h-color-warm-white-200);
-  --h-accordion-item-background-color-hover: var(--h-color-warm-white-100);
   --h-accordion-item-content-gap: var(--h-space-200);
   --h-accordion-item-content-padding-bottom: var(--h-space-200);
   --h-accordion-item-content-padding-horizontal: var(--h-space-50);
