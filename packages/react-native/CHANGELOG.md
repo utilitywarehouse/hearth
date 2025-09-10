@@ -1,5 +1,27 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.3.0
+
+### Minor Changes
+
+- [`ce2b445`](https://github.com/utilitywarehouse/hearth/commit/ce2b445dfdd11a2912b4328d8259a604a77b31cd) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `IconContainer` component
+
+- [#423](https://github.com/utilitywarehouse/hearth/pull/423) [`af2deea`](https://github.com/utilitywarehouse/hearth/commit/af2deea62be55d6e40fe5bbb41700e054082b583) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `DescriptionList` component
+
+- [#421](https://github.com/utilitywarehouse/hearth/pull/421) [`a7974df`](https://github.com/utilitywarehouse/hearth/commit/a7974df554cb0eb499923a140ebea523fa49761c) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] Removes `date` and `currency` type from the `Input` component
+
+- [#426](https://github.com/utilitywarehouse/hearth/pull/426) [`997e7cb`](https://github.com/utilitywarehouse/hearth/commit/997e7cb847e4f70de7b995c00aeeee18f1a0a1cd) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] Adds updated `Badge` colour schemes and variants, replaces `solid` with `emphasis`
+
+- [#429](https://github.com/utilitywarehouse/hearth/pull/429) [`1a818ff`](https://github.com/utilitywarehouse/hearth/commit/1a818ffc97a04f412deac4e892fc2400b8ad8735) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Tabs` component
+
+- [#421](https://github.com/utilitywarehouse/hearth/pull/421) [`a7974df`](https://github.com/utilitywarehouse/hearth/commit/a7974df554cb0eb499923a140ebea523fa49761c) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `CurrencyInput` component
+
+### Patch Changes
+
+- [#430](https://github.com/utilitywarehouse/hearth/pull/430) [`a151f3a`](https://github.com/utilitywarehouse/hearth/commit/a151f3a116b97ce2756b89c07f2ac3f3105c3ff7) Thanks [@jordmccord](https://github.com/jordmccord)! - Added `autoFormatThousands` prop to `CurrencyInput` component
+
+- [#426](https://github.com/utilitywarehouse/hearth/pull/426) [`997e7cb`](https://github.com/utilitywarehouse/hearth/commit/997e7cb847e4f70de7b995c00aeeee18f1a0a1cd) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds 2 new layout spacing sizes, '2xs' and '2xl'
+
 ## 0.2.0
 
 ### Minor Changes
