@@ -75,6 +75,11 @@ export default function Home() {
         <button>button</button>
         <button data-disabled>button</button>
         <button aria-disabled>button</button>
+        <ul>
+          <li>dog</li>
+          <li>cat</li>
+          <li>horse</li>
+        </ul>
         <ul role="list">
           <li>dog</li>
           <li>cat</li>

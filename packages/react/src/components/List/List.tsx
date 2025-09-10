@@ -38,6 +38,7 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
   });
   const listAriaProps = {
     id,
+    role: 'list',
     ['aria-labelledby']: ariaLabelledby ?? (Boolean(heading) ? labelId : undefined),
     ['aria-describedby']: ariaDescribedby ?? (Boolean(helperText) ? helperTextId : undefined),
   };
@@ -54,7 +55,7 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
       />
       {variant === undefined || colorScheme === undefined ? (
         <Box asChild className="hearth-ListContainer">
-          <Tag role="list" ref={ref} {...listProps} {...listAriaProps}>
+          <Tag ref={ref} {...listProps} {...listAriaProps}>
             {children}
           </Tag>
         </Box>
@@ -65,7 +66,7 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
           variant={variant}
           colorScheme={colorScheme}
         >
-          <Tag role="list" ref={ref} {...listProps} {...listAriaProps}>
+          <Tag ref={ref} {...listProps} {...listAriaProps}>
             {children}
           </Tag>
         </Card>
