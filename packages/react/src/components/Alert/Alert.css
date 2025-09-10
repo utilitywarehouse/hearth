@@ -1,4 +1,4 @@
-@import url('../../styles/tokens/alert.css');
+@import url('../../styles/tokens-legacy/alert.css');
 
 .hearth-Alert {
   display: inline-flex;

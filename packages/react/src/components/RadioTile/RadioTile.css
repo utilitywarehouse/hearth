@@ -1,4 +1,4 @@
-@import url('../../styles/tokens/radio.css');
+@import url('../../styles/tokens-legacy/radio.css');
 
 .hearth-RadioTile {
   flex: 1 1 0%;

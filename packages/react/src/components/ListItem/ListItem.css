@@ -1,5 +1,5 @@
-@import url('../../styles/tokens/list.css');
-@import url('../../styles/tokens/card.css');
+@import url('../../styles/tokens-legacy/list.css');
+@import url('../../styles/tokens-legacy/card.css');
 
 .hearth-ListItem {
   display: flex;
