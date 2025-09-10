@@ -1,5 +1,12 @@
 # @utilitywarehouse/hearth-react
 
+## 0.6.1
+
+### Patch Changes
+
+- Updated dependencies [[`4610349`](https://github.com/utilitywarehouse/hearth/commit/4610349c446ad97851327cac4adc75953ff0234b)]:
+  - @utilitywarehouse/hearth-css-reset@0.1.0
+
 ## 0.6.0
 
 ### Minor Changes
