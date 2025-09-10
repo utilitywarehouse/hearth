@@ -57,12 +57,12 @@ import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 const MyComponent = () => {
   const [value, setValue] = useState('');
-  const handleChange = e => {
-    setValue(e.target.value);
+  const handleChange = val => {
+    setValue(val);
   };
   return (
     <Input
-      onChange={handleChange}
+      onChangeText={handleChange}
       value={value}
       placeholder="Placeholder"
       leadingIcon={EmailMediumIcon}

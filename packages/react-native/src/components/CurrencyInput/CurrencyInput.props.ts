@@ -8,6 +8,8 @@ export interface CurrencyInputBaseProps {
   placeholder?: string;
   inBottomSheet?: boolean;
   required?: boolean;
+  /** When true, automatically formats the numeric value with thousand separators (e.g. 1234 -> 1,234). */
+  autoFormatThousands?: boolean;
 }
 
 export type CurrencyInputProps = CurrencyInputBaseProps &
