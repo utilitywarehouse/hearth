@@ -509,8 +509,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/react
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:*
-        version: link:../../packages/react-icons
+        specifier: 0.1.1
+        version: 0.1.1(react@19.1.0)
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -5715,6 +5715,11 @@ packages:
 
   '@utilitywarehouse/hearth-react-icons@0.1.0':
     resolution: {integrity: sha512-hw3YKy7OwAwfLAwcNM0XcRZ0DXU8wMEn8DIgNxKGFnj3pxngGImMD9Q24oJh/CwXbSM2iZX0/r88y3ckghv2Rg==}
+    peerDependencies:
+      react: 19.1.0
+
+  '@utilitywarehouse/hearth-react-icons@0.1.1':
+    resolution: {integrity: sha512-bIY7DssWJpfH4Wp3yZeAtod+4wQMjIOAoD1qe+Ajj6vHtUNxu1ndj9iGaXRUMv1EcWC2YpxLokv0CRlJ87Cxtg==}
     peerDependencies:
       react: 19.1.0
 
@@ -19839,6 +19844,10 @@ snapshots:
       wonka: 6.3.4
 
   '@utilitywarehouse/hearth-react-icons@0.1.0(react@19.1.0)':
+    dependencies:
+      react: 19.1.0
+
+  '@utilitywarehouse/hearth-react-icons@0.1.1(react@19.1.0)':
     dependencies:
       react: 19.1.0
 
