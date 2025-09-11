@@ -20,9 +20,9 @@ export interface BadgeProps
   variant?: (typeof variants)[number];
   /**
    * Sets the colour scheme.
-   * @default blue
+   * @default info
    */
-  colorScheme?: 'blue' | 'green' | 'red' | 'orange' | 'grey';
+  colorScheme?: 'info' | 'positive' | 'danger' | 'warning' | 'functional';
   /**
    * Removes the bottom radius, set when the Badge sits directly above another container
    * @default false
