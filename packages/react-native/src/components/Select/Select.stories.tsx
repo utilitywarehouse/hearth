@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react-vite';
 import {
-  BellSmallIcon,
+  EyeSmallIcon,
   HeartSmallIcon,
   UserSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
@@ -269,7 +269,7 @@ export const WithInlineOptions = () => {
     >
       <SelectOption label="Home option" value="home" leadingIcon={UserSmallIcon} />
       <SelectOption label="Car option" value="car" leadingIcon={HeartSmallIcon} />
-      <SelectOption label="World option" value="world" leadingIcon={BellSmallIcon} />
+      <SelectOption label="World option" value="world" leadingIcon={EyeSmallIcon} />
     </Select>
   );
 };
