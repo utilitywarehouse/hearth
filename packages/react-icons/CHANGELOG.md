@@ -1,5 +1,62 @@
 # @utilitywarehouse/hearth-react-icons
 
+## 0.2.0
+
+- [#432](https://github.com/utilitywarehouse/hearth/pull/432)
+
+## NEW ICONS
+
+- BasketSmallIcon
+- LandlineSmallIcon
+- HomeAndBoilerSmallIcon
+- HomeInsuranceSmallIcon
+- IncomeProtectSmallIcon
+- SimSmallIcon
+- CalendarAddSmallIcon
+- SendSmallIcon
+- AttachSmallIcon
+- LockSmallIcon
+- UnlockSmallIcon
+- SkipLastSmallIcon
+- SkipFirstSmallIcon
+- TopUpSmallIcon
+- BellSmallIcon
+- LandlineMediumIcon
+- HomeAndBoilerMediumIcon
+- HomeInsuranceMediumIcon
+- IncomeProtectMediumIcon
+- SimMediumIcon
+- CallMediumIcon
+- CelebrationMediumIcon
+- TimeMediumIcon
+- AttachMediumIcon
+- HomeMediumIcon
+- TopUpMediumIcon
+- MoonLargeIcon
+- SunLargeIcon
+- PlaceholderLargeIcon
+
+## REMOVED ICONS
+
+- ArrowUpSmallIcon
+- ArrowDownSmallIcon
+- StarSmallIcon
+- ArrowDownMediumIcon
+- ArrowUpMediumIcon
+- SkipRightMediumIcon
+- SkipLeftMediumIcon
+- PhoneMediumIcon
+- ConfettiMediumIcon
+- GiftMediumIcon
+- ClockMediumIcon
+- StarMediumIcon
+- StarOutlineMediumIcon
+- HomeFilledMediumIcon
+- HomeOutlineMediumIcon
+
+
+### Minor Changes
+
 ## 0.1.1
 
 ### Patch Changes
