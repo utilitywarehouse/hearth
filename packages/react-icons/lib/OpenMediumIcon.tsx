@@ -19,7 +19,7 @@ export const OpenMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M3 21V3h7.668v2.441H5.426v13.133h13.133v-5.242H21V21zm7.362-5.67-1.676-1.692 8.196-8.197h-3.67V3H21v7.787h-2.441V7.133z"
+          d="M3 21V3h9v2H5v14h14v-7h2v9zm6.7-5.3-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z"
         />
       </svg>
     );

@@ -5,7 +5,7 @@ const SvgCalendarSmallIcon = ({ color = 'currentColor', ...props }: IconProps) =
   <Svg width={20} height={20} fill="none" viewBox="0 0 20 20" {...props}>
     <Path
       fill={color}
-      d="M9.156 12.095v-1.689h1.689v1.689zm-3.25 0v-1.689h1.689v1.689zm6.5 0v-1.689h1.689v1.689zm-3.25 3v-1.689h1.689v1.689zm-3.25 0v-1.689h1.689v1.689zm6.5 0v-1.689h1.689v1.689zM2.6 18.4V3.6h3.403v-2H7.77v2h4.459v-2h1.768v2H17.4v14.8zm2.042-2.042h10.717V9H4.642z"
+      d="M9.111 11.8V10h1.778v1.8zm-3.555 0V10h1.777v1.8zm7.11 0V10h1.778v1.8zm-3.555 3.6v-1.8h1.778v1.8zm-3.555 0v-1.8h1.777v1.8zm7.11 0v-1.8h1.778v1.8zM2 19V2.8h2.667V1h1.777v1.8h7.112V1h1.777v1.8H18V19zm1.778-1.8h12.444v-9H3.778z"
     />
   </Svg>
 );

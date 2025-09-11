@@ -3,9 +3,7 @@ import Svg, { Path } from 'react-native-svg';
 import { IconProps } from './types';
 const SvgMenuMediumIcon = ({ color = 'currentColor', ...props }: IconProps) => (
   <Svg width={24} height={24} fill="none" viewBox="0 0 24 24" {...props}>
-    <Path fill={color} d="M3 13.25v-2.5h18v2.5z" />
-    <Path fill={color} d="M3 7.25v-2.5h18v2.5z" />
-    <Path fill={color} d="M3 19.25v-2.5h18v2.5z" />
+    <Path fill={color} d="M3 19v-2h18v2zm0-6v-2h18v2zm0-6V5h18v2z" />
   </Svg>
 );
 export default SvgMenuMediumIcon;

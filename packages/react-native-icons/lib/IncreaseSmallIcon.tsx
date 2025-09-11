@@ -3,7 +3,7 @@ import Svg, { Path } from 'react-native-svg';
 import { IconProps } from './types';
 const SvgIncreaseSmallIcon = ({ color = 'currentColor', ...props }: IconProps) => (
   <Svg width={20} height={20} fill="none" viewBox="0 0 20 20" {...props}>
-    <Path fill={color} d="m3 13.5 7-7 7 7z" />
+    <Path fill={color} d="M11 5.825V18H9V5.825l-5.6 5.6L2 10l8-8 8 8-1.4 1.425z" />
   </Svg>
 );
 export default SvgIncreaseSmallIcon;

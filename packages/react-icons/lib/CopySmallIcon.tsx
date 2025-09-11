@@ -17,10 +17,7 @@ export const CopySmallIcon = forwardRef<SVGSVGElement, IconProps>(
         {...props}
       >
         {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M5.62 15.38V1.579h11.801v13.8zm-3.54 3.54V5.12h2.04v11.76h9.76v2.041z"
-        />
+        <path fill={color} d="M6.03 15.4V1H17.5v14.4zM2.5 19V4.6h1.765v12.6h9.706V19z" />
       </svg>
     );
   }

@@ -17,10 +17,7 @@ export const InsightsMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {...props}
       >
         {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M3.735 18 2 16.32l6.209-6.018a2 2 0 0 1 2.786.002l1.753 1.704a1 1 0 0 0 1.397-.002l3.691-3.615h-2.56V6H22v6.53h-2.444v-2.444l-4.73 4.616a2 2 0 0 1-2.79.003l-1.752-1.703a1 1 0 0 0-1.394 0z"
-        />
+        <path fill={color} d="M3.4 18 2 16.6l7.4-7.45 4 4L18.6 8H16V6h6v6h-2V9.4L13.4 16l-4-4z" />
       </svg>
     );
   }

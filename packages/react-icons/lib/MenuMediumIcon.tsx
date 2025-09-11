@@ -17,9 +17,7 @@ export const MenuMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {...props}
       >
         {title ? <title id={titleId}>{title}</title> : null}
-        <path fill={color} d="M3 13.25v-2.5h18v2.5z" />
-        <path fill={color} d="M3 7.25v-2.5h18v2.5z" />
-        <path fill={color} d="M3 19.25v-2.5h18v2.5z" />
+        <path fill={color} d="M3 19v-2h18v2zm0-6v-2h18v2zm0-6V5h18v2z" />
       </svg>
     );
   }

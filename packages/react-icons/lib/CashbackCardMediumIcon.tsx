@@ -17,10 +17,7 @@ export const CashbackCardMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {...props}
       >
         {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M2 20V4h20v16zm4-8h12c1.1 0 2-.9 2-2s-.9-2-2-2H6c-1.1 0-2 .9-2 2s.9 2 2 2"
-        />
+        <path fill={color} d="M2 4v16h20V4zm18 8H4V8h16z" />
       </svg>
     );
   }

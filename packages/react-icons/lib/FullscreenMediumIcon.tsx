@@ -19,7 +19,7 @@ export const FullscreenMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M3 21v-7.988h2.426v3.84l11.41-11.41h-3.84V3H21v8.004h-2.441v-3.84l-11.41 11.41h3.839V21z"
+          d="M2.797 21.203v-8.275h2.275v4.403L17.33 5.071h-4.403V2.798h8.275v8.275h-2.275V6.669L6.67 18.929h4.403v2.274z"
         />
       </svg>
     );

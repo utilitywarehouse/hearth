@@ -1,5 +1,5 @@
 /* Don't edit this file directly, it was auto generated */
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react';
 import { ChevronLeftMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronLeftMediumIcon';
 
 const meta: Meta<typeof ChevronLeftMediumIcon> = {

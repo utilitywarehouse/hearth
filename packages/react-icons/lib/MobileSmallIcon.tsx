@@ -6,9 +6,9 @@ export const MobileSmallIcon = forwardRef<SVGSVGElement, IconProps>(
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={20}
-        height={22}
+        height={20}
         fill="none"
-        viewBox="0 0 20 22"
+        viewBox="0 0 20 20"
         aria-hidden={!title}
         focusable="false"
         role="img"
@@ -19,7 +19,7 @@ export const MobileSmallIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M4.5 20V2h11v18zm5.5-2.046q.335 0 .56-.235a.8.8 0 0 0 .226-.583.8.8 0 0 0-.226-.583.75.75 0 0 0-.56-.235.75.75 0 0 0-.56.235.8.8 0 0 0-.226.583q0 .349.226.583.225.235.56.235m-3.929-3.681h7.858V6.09H6.07z"
+          d="M5 18V2h10v16zm5-1.818q.303 0 .509-.21a.7.7 0 0 0 .205-.518.71.71 0 0 0-.714-.727.71.71 0 0 0-.714.727.71.71 0 0 0 .714.728m-3.571-3.273h7.142V5.636H6.43z"
         />
       </svg>
     );

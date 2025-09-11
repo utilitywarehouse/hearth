@@ -17,10 +17,7 @@ export const ChevronDownSmallIcon = forwardRef<SVGSVGElement, IconProps>(
         {...props}
       >
         {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="m10 11.066 5.449-5.449 1.658 1.658L10 14.383 2.893 7.275 4.55 5.617z"
-        />
+        <path fill={color} d="M2 6.507 3.42 5 10 11.985 16.58 5 18 6.507 10 15z" />
       </svg>
     );
   }

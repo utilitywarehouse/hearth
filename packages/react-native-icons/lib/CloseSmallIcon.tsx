@@ -5,7 +5,7 @@ const SvgCloseSmallIcon = ({ color = 'currentColor', ...props }: IconProps) => (
   <Svg width={20} height={20} fill="none" viewBox="0 0 20 20" {...props}>
     <Path
       fill={color}
-      d="M5.606 16 4 14.394 8.394 10 4 5.606 5.606 4 10 8.394 14.394 4 16 5.606 11.606 10 16 14.394 14.394 16 10 11.606z"
+      d="M5.2 16 4 14.8 8.8 10 4 5.2 5.2 4 10 8.8 14.8 4 16 5.2 11.2 10l4.8 4.8-1.2 1.2-4.8-4.8z"
     />
   </Svg>
 );

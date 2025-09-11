@@ -5,7 +5,7 @@ const SvgCloseMediumIcon = ({ color = 'currentColor', ...props }: IconProps) => 
   <Svg width={24} height={24} fill="none" viewBox="0 0 24 24" {...props}>
     <Path
       fill={color}
-      d="M4.913 21 3 19.087 10.087 12 3 4.913 4.913 3 12 10.087 19.087 3 21 4.913 13.913 12 21 19.087 19.087 21 12 13.913z"
+      d="M5.6 20 4 18.4l6.4-6.4L4 5.6 5.6 4l6.4 6.4L18.4 4 20 5.6 13.6 12l6.4 6.4-1.6 1.6-6.4-6.4z"
     />
   </Svg>
 );

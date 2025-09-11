@@ -19,7 +19,7 @@ export const CalendarMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M10.91 14.031v-2.179h2.164v2.18zm-3.708 0v-2.179h2.164v2.18zm7.417 0v-2.179h2.163v2.18zm-3.708 3.736v-2.18h2.163v2.18zm-3.709 0v-2.18h2.164v2.18zm7.417 0v-2.18h2.163v2.18zM3 22V3.556h3.512V2H8.57v1.556h6.845V2h2.064v1.556H21V22zm2.426-2.444h13.133V9.984H5.426z"
+          d="M11 14v-2h2v2zm-4 0v-2h2v2zm8 0v-2h2v2zm-4 4v-2h2v2zm-4 0v-2h2v2zm8 0v-2h2v2zM3 22V4h3V2h2v2h8V2h2v2h3v18zm2-2h14V10H5z"
         />
       </svg>
     );
