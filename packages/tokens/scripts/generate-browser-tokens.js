@@ -163,6 +163,11 @@ export function generateBrowserTokens() {
               format: 'browser/variables',
               filter: filters.isPrimitiveBorder,
             },
+            {
+              destination: 'semantic.ts',
+              format: 'browser/variables',
+              filter: filters.isSemantic,
+            },
             ...componentFiles,
           ],
           actions: ['create_browser_index'],

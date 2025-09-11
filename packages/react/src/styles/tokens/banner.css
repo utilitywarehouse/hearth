@@ -10,20 +10,13 @@
   --h-banner-default-horizontal-image-max-width: 240;
   --h-banner-default-horizontal-image-min-width: 160;
   --h-banner-default-horizontal-max-width: 680px;
-  --h-banner-default-horizontal-min-width: 288px;
+  --h-banner-default-horizontal-min-width: 240px;
   --h-banner-default-image-height: 160;
   --h-banner-default-padding: var(--h-space-200);
   --h-banner-default-vertical-max-width: 504px;
-  --h-banner-default-vertical-min-width: 288px;
+  --h-banner-default-vertical-min-width: 240px;
   --h-banner-highlight-content-gap: var(--h-space-150);
   --h-banner-highlight-gap: 0;
-  --h-banner-highlight-heading-broadband-green-background-color: var(--h-color-broadband-green-300);
-  --h-banner-highlight-heading-cashback-lilac-background-color: var(--h-color-cashback-lilac-500);
-  --h-banner-highlight-heading-energy-blue-background-color: var(--h-color-energy-blue-300);
-  --h-banner-highlight-heading-insurance-orange-background-color: var(--h-color-insurance-orange-400);
-  --h-banner-highlight-heading-mobile-rose-background-color: var(--h-color-mobile-rose-400);
-  --h-banner-highlight-heading-piggy-pink-background-color: var(--h-color-piggy-pink-300);
-  --h-banner-highlight-heading-yellow-background-color: var(--h-color-yellow-400);
   --h-banner-highlight-padding: var(--h-space-200);
   --h-banner-image-container-border-color: var(--h-color-grey-1000);
 }

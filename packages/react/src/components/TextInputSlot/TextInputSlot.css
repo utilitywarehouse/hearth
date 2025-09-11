@@ -1,4 +1,4 @@
-@import url('../../styles/tokens/input.css');
+@import url('../../styles/tokens-legacy/input.css');
 
 .hearth-TextInputSlot {
   box-sizing: border-box;

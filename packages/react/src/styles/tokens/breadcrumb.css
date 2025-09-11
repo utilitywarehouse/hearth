@@ -3,6 +3,5 @@
  */
 
 :root {
-  --h-breadcrumb-color: var(--h-color-grey-1000);
   --h-breadcrumb-gap: var(--h-space-100);
 }

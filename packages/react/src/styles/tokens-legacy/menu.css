@@ -1,0 +1,23 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-menu-background-color: var(--h-color-grey-0);
+  --h-menu-border-color: var(--h-color-warm-white-300);
+  --h-menu-border-width: var(--h-border-width-1);
+  --h-menu-gap: var(--h-space-50);
+  --h-menu-item-border-radius: var(--h-border-radius-xs);
+  --h-menu-item-gap: var(--h-space-75);
+  --h-menu-item-grey-background-color-active: var(--h-color-grey-200);
+  --h-menu-item-grey-background-color-hover: var(--h-color-grey-100);
+  --h-menu-item-grey-foreground-color: var(--h-color-grey-1000);
+  --h-menu-item-padding: var(--h-space-150);
+  --h-menu-item-red-background-color-active: var(--h-color-red-100);
+  --h-menu-item-red-background-color-hover: var(--h-color-red-50);
+  --h-menu-item-red-foreground-color: var(--h-color-red-800);
+  --h-menu-list-gap: var(--h-space-100);
+  --h-menu-max-width: 504px;
+  --h-menu-min-width: 288px;
+  --h-menu-padding: var(--h-space-50);
+}

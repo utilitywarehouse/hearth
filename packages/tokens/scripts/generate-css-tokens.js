@@ -292,6 +292,11 @@ export function generateCssTokens() {
               format: 'css/variables',
               filter: filters.isOpacity,
             },
+            {
+              destination: 'semantic.css',
+              format: 'css/variables',
+              filter: filters.isSemantic,
+            },
             ...componentFiles,
             ...deviceFiles,
           ],

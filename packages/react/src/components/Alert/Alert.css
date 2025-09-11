@@ -50,23 +50,23 @@
   }
 
   &:where([data-colorscheme='blue']) {
-    --h-alert-background-color: var(--h-alert-blue-background-color);
-    --h-alert-border-color: var(--h-alert-blue-border-color);
+    --h-alert-background-color: var(--h-feedback-info-surface-subtle);
+    --h-alert-border-color: var(--h-feedback-info-border);
   }
 
   &:where([data-colorscheme='green']) {
-    --h-alert-background-color: var(--h-alert-green-background-color);
-    --h-alert-border-color: var(--h-alert-green-border-color);
+    --h-alert-background-color: var(--h-feedback-positive-surface-subtle);
+    --h-alert-border-color: var(--h-feedback-positive-border);
   }
 
   &:where([data-colorscheme='red']) {
-    --h-alert-background-color: var(--h-alert-red-background-color);
-    --h-alert-border-color: var(--h-alert-red-border-color);
+    --h-alert-background-color: var(--h-feedback-danger-surface-subtle);
+    --h-alert-border-color: var(--h-feedback-danger-border);
   }
 
   &:where([data-colorscheme='orange']) {
-    --h-alert-background-color: var(--h-alert-orange-background-color);
-    --h-alert-border-color: var(--h-alert-orange-border-color);
+    --h-alert-background-color: var(--h-feedback-warning-surface-subtle);
+    --h-alert-border-color: var(--h-feedback-warning-border);
   }
 
   & :where(.hearth-AlertIconButton)::after {
