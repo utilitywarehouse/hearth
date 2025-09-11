@@ -1,5 +1,5 @@
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { Pressable, View, ViewStyle } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { Icon } from '../Icon';
@@ -42,10 +42,7 @@ const SelectOption = ({
     >
       {!!LeftIcon && (
         <View>
-          {(() => {
-            const IconAny = Icon as any;
-            return <IconAny style={styles.icon as ViewStyle} as={LeftIcon} />;
-          })()}
+          <Icon as={LeftIcon} style={styles.icon} />
         </View>
       )}
 
@@ -55,15 +52,12 @@ const SelectOption = ({
 
       {isSelected && (
         <View>
-          <TickSmallIcon style={styles.icon as ViewStyle} />
+          <Icon as={TickSmallIcon} style={styles.icon} />
         </View>
       )}
       {!!RightIcon && !isSelected && (
         <View>
-          {(() => {
-            const IconAny = Icon as any;
-            return <IconAny style={styles.icon as ViewStyle} as={RightIcon} />;
-          })()}
+          <Icon as={RightIcon} style={styles.icon} />
         </View>
       )}
     </Pressable>
