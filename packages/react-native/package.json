@@ -34,8 +34,7 @@
     "@gluestack-ui/radio": "0.1.33",
     "@gluestack-ui/spinner": "0.1.14",
     "@gluestack-ui/switch": "0.1.22",
-    "@gluestack-ui/textarea": "0.1.23",
-    "@utilitywarehouse/hearth-react-native-icons": "^0.1.0"
+    "@gluestack-ui/textarea": "0.1.23"
   },
   "devDependencies": {
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
@@ -73,6 +72,7 @@
   },
   "peerDependencies": {
     "@gorhom/bottom-sheet": "^5.0.0",
+    "@utilitywarehouse/hearth-react-native-icons": "workspace:*",
     "react": ">=17 || ^18.0.0 || ^19.0.0",
     "react-native": ">=0.77",
     "react-native-gesture-handler": "^2.22.0",
