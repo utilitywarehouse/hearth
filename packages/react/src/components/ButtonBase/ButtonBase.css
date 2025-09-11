@@ -21,82 +21,78 @@
   background-color: var(--h-button-base-background-color);
 
   &:where([data-colorscheme='yellow']) {
-    --h-solid-background-color: var(--h-button-solid-yellow-background-color);
-    --h-solid-background-color-active: var(--h-button-solid-yellow-background-color-active);
-    --h-solid-background-color-hover: var(--h-button-solid-yellow-background-color-hover);
-    --h-solid-foreground-color: var(--h-button-solid-yellow-foreground-color);
-    --h-solid-border-color: var(--h-button-solid-border-color);
+    --h-solid-background-color: var(--h-interactive-highlight-surface-strong-default);
+    --h-solid-background-color-active: var(--h-interactive-highlight-surface-strong-active);
+    --h-solid-background-color-hover: var(--h-interactive-highlight-surface-strong-hover);
+    --h-solid-foreground-color: var(--h-interactive-highlight-foreground-strong);
+    --h-solid-border-color: var(--h-interactive-highlight-border-strong);
     --h-outline-border-color: transparent;
-    --h-emphasis-background-color: var(--h-button-emphasis-yellow-background-color);
-    --h-emphasis-background-color-active: var(--h-button-emphasis-yellow-background-color-active);
-    --h-emphasis-background-color-hover: var(--h-button-emphasis-yellow-background-color-hover);
-    --h-emphasis-foreground-color: var(--h-button-emphasis-yellow-foreground-color);
-    --h-emphasis-shadow-color: var(--h-button-emphasis-shadow-color);
-    --h-emphasis-border-color: var(--h-button-emphasis-border-color);
+    --h-emphasis-background-color: var(--h-interactive-highlight-surface-strong-default);
+    --h-emphasis-background-color-active: var(--h-interactive-highlight-surface-strong-active);
+    --h-emphasis-background-color-hover: var(--h-interactive-highlight-surface-strong-hover);
+    --h-emphasis-foreground-color: var(--h-interactive-highlight-foreground-strong);
+    --h-emphasis-shadow-color: var(--h-shadow-default);
+    --h-emphasis-border-color: var(--h-interactive-highlight-border-strong);
     --h-emphasis-transform: translateY(4px) translateX(4px);
   }
 
   &:where([data-colorscheme='green']) {
-    --h-solid-background-color: var(--h-button-solid-green-background-color);
-    --h-solid-background-color-active: var(--h-button-solid-green-background-color-active);
-    --h-solid-background-color-hover: var(--h-button-solid-green-background-color-hover);
-    --h-solid-foreground-color: var(--h-button-solid-green-foreground-color);
-    --h-solid-border-color: var(--h-button-solid-border-color);
-    --h-outline-background-color: var(--h-button-outline-green-background-color);
-    --h-outline-background-color-active: var(--h-button-outline-green-background-color-active);
-    --h-outline-background-color-hover: var(--h-button-outline-green-background-color-hover);
-    --h-outline-foreground-color: var(--h-button-outline-green-foreground-color);
-    --h-outline-border-color: var(--h-button-outline-green-border-color);
-    --h-ghost-background-color: var(--h-button-ghost-green-background-color);
-    --h-ghost-background-color-active: var(--h-button-ghost-green-background-color-active);
-    --h-ghost-background-color-hover: var(--h-button-ghost-green-background-color-hover);
-    --h-ghost-foreground-color: var(--h-button-ghost-green-foreground-color);
+    --h-solid-background-color: var(--h-interactive-affirmative-surface-strong-default);
+    --h-solid-background-color-active: var(--h-interactive-affirmative-surface-strong-active);
+    --h-solid-background-color-hover: var(--h-interactive-affirmative-surface-strong-hover);
+    --h-solid-foreground-color: var(--h-interactive-affirmative-foreground-strong);
+    --h-solid-border-color: var(--h-interactive-affirmative-border-strong);
+    --h-outline-background-color-active: var(--h-interactive-affirmative-surface-subtle-active);
+    --h-outline-background-color-hover: var(--h-interactive-affirmative-surface-subtle-hover);
+    --h-outline-foreground-color: var(--h-interactive-affirmative-foreground-subtle);
+    --h-outline-border-color: var(--h-interactive-affirmative-border-subtle);
+    --h-ghost-background-color-active: var(--h-interactive-affirmative-surface-subtle-active);
+    --h-ghost-background-color-hover: var(--h-interactive-affirmative-surface-subtle-hover);
+    --h-ghost-foreground-color: var(--h-interactive-affirmative-foreground-subtle);
     --h-emphasis-border-color: transparent;
   }
 
   &:where([data-colorscheme='red']) {
-    --h-solid-background-color: var(--h-button-solid-red-background-color);
-    --h-solid-background-color-active: var(--h-button-solid-red-background-color-active);
-    --h-solid-background-color-hover: var(--h-button-solid-red-background-color-hover);
-    --h-solid-foreground-color: var(--h-button-solid-red-foreground-color);
-    --h-solid-border-color: var(--h-button-solid-border-color);
-    --h-outline-background-color: var(--h-button-outline-red-background-color);
-    --h-outline-background-color-active: var(--h-button-outline-red-background-color-active);
-    --h-outline-background-color-hover: var(--h-button-outline-red-background-color-hover);
-    --h-outline-foreground-color: var(--h-button-outline-red-foreground-color);
-    --h-outline-border-color: var(--h-button-outline-red-border-color);
-    --h-ghost-background-color: var(--h-button-ghost-red-background-color);
-    --h-ghost-background-color-active: var(--h-button-ghost-red-background-color-active);
-    --h-ghost-background-color-hover: var(--h-button-ghost-red-background-color-hover);
-    --h-ghost-foreground-color: var(--h-button-ghost-red-foreground-color);
+    --h-solid-background-color: var(--h-interactive-destructive-surface-strong-default);
+    --h-solid-background-color-active: var(--h-interactive-destructive-surface-strong-active);
+    --h-solid-background-color-hover: var(--h-interactive-destructive-surface-strong-hover);
+    --h-solid-foreground-color: var(--h-interactive-destructive-foreground-strong);
+    --h-solid-border-color: var(--h-interactive-destructive-border-strong);
+    --h-outline-background-color-active: var(--h-interactive-destructive-surface-subtle-active);
+    --h-outline-background-color-hover: var(--h-interactive-destructive-surface-subtle-hover);
+    --h-outline-foreground-color: var(--h-interactive-destructive-foreground-subtle);
+    --h-outline-border-color: var(--h-interactive-destructive-border-subtle);
+    --h-ghost-background-color-active: var(--h-interactive-destructive-surface-subtle-active);
+    --h-ghost-background-color-hover: var(--h-interactive-destructive-surface-subtle-hover);
+    --h-ghost-foreground-color: var(--h-interactive-destructive-foreground-subtle);
     --h-emphasis-border-color: transparent;
   }
 
   &:where([data-colorscheme='grey']) {
-    --h-outline-background-color: var(--h-button-outline-grey-background-color);
-    --h-outline-background-color-active: var(--h-button-outline-grey-background-color-active);
-    --h-outline-background-color-hover: var(--h-button-outline-grey-background-color-hover);
-    --h-outline-foreground-color: var(--h-button-outline-grey-foreground-color);
-    --h-outline-border-color: var(--h-button-outline-grey-border-color);
-    --h-ghost-background-color: var(--h-button-ghost-grey-background-color);
-    --h-ghost-background-color-active: var(--h-button-ghost-grey-background-color-active);
-    --h-ghost-background-color-hover: var(--h-button-ghost-grey-background-color-hover);
-    --h-ghost-foreground-color: var(--h-button-ghost-grey-foreground-color);
+    --h-outline-background-color-active: var(--h-interactive-functional-surface-subtle-active);
+    --h-outline-background-color-hover: var(--h-interactive-functional-surface-subtle-hover);
+    --h-outline-foreground-color: var(--h-interactive-functional-foreground-subtle);
+    --h-outline-border-color: var(--h-interactive-functional-border-subtle);
+    --h-ghost-background-color-active: var(--h-interactive-functional-surface-subtle-active);
+    --h-ghost-background-color-hover: var(--h-interactive-functional-surface-subtle-hover);
+    --h-ghost-foreground-color: var(--h-interactive-functional-foreground-subtle);
 
     &:where([data-inverted]) {
       --h-outline-background-color-active: var(
-        --h-button-outline-grey-inverted-background-color-active
+        --h-interactive-functional-surface-subtle-inverted-active
       );
       --h-outline-background-color-hover: var(
-        --h-button-outline-grey-inverted-background-color-hover
+        --h-interactive-functional-surface-subtle-inverted-hover
       );
-      --h-outline-foreground-color: var(--h-button-outline-grey-inverted-foreground-color);
-      --h-outline-border-color: var(--h-button-outline-grey-inverted-border-color);
+      --h-outline-foreground-color: var(--h-interactive-functional-foreground-inverted);
+      --h-outline-border-color: var(--h-interactive-functional-border-inverted);
       --h-ghost-background-color-active: var(
-        --h-button-ghost-grey-inverted-background-color-active
+        --h-interactive-functional-surface-subtle-inverted-active
       );
-      --h-ghost-background-color-hover: var(--h-button-ghost-grey-inverted-background-color-hover);
-      --h-ghost-foreground-color: var(--h-button-ghost-grey-inverted-foreground-color);
+      --h-ghost-background-color-hover: var(
+        --h-interactive-functional-surface-subtle-inverted-hover
+      );
+      --h-ghost-foreground-color: var(--h-interactive-functional-foreground-inverted);
     }
 
     --h-solid-border-color: transparent;
@@ -172,11 +168,11 @@
   }
 
   &:where(:focus-visible) {
-    outline: 2px solid var(--h-focus-border);
+    outline: 2px solid var(--h-focus-primary);
     outline-offset: 1px;
 
     &:where([data-inverted]) {
-      outline: 2px solid var(--h-focus-border-inverted);
+      outline: 2px solid var(--h-focus-inverted);
     }
 
     & > .hearth-shadow {
