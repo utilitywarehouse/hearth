@@ -955,9 +955,6 @@ importers:
       '@gluestack-ui/textarea':
         specifier: 0.1.23
         version: 0.1.23(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
-      '@utilitywarehouse/hearth-react-native-icons':
-        specifier: workspace:*
-        version: link:../react-native-icons
     devDependencies:
       '@babel/plugin-proposal-export-namespace-from':
         specifier: ^7.18.9
@@ -995,6 +992,9 @@ importers:
       '@utilitywarehouse/hearth-react-icons':
         specifier: workspace:^
         version: link:../react-icons
+      '@utilitywarehouse/hearth-react-native-icons':
+        specifier: workspace:^
+        version: link:../react-native-icons
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:^
         version: link:../tokens
