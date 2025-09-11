@@ -56,7 +56,7 @@
     --h-solid-background-color: var(--h-interactive-destructive-surface-strong-default);
     --h-solid-background-color-active: var(--h-interactive-destructive-surface-strong-active);
     --h-solid-background-color-hover: var(--h-interactive-destructive-surface-strong-hover);
-    --h-solid-foreground-color: var(--h-interactive-affirmative-foreground-strong);
+    --h-solid-foreground-color: var(--h-interactive-destructive-foreground-strong);
     --h-solid-border-color: var(--h-interactive-destructive-border-strong);
     --h-outline-background-color-active: var(--h-interactive-destructive-surface-subtle-active);
     --h-outline-background-color-hover: var(--h-interactive-destructive-surface-subtle-hover);
