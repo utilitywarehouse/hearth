@@ -17,11 +17,13 @@ An input specialised for monetary amounts. It shows a currency symbol prefix and
 - [Usage](#usage)
 - [Props](#props)
 - [States](#states)
+- [Formatting](#formatting)
 - [Accessibility](#accessibility)
 
 ## Playground
 
 <Canvas of={Stories.Playground} />
+<Controls of={Stories.Playground} />
 
 ## Usage
 
@@ -46,14 +48,15 @@ const MyComponent = () => {
 
 When using `CurrencyInput`, the component inherits React Native TextInput props (except `children`). In addition, it supports:
 
-| Prop             | Type                                | Default     | Description                        |
-| ---------------- | ----------------------------------- | ----------- | ---------------------------------- |
-| validationStatus | `'initial' \| 'valid' \| 'invalid'` | `'initial'` | Validation styling state           |
-| disabled         | boolean                             | `false`     | Disables the input                 |
-| readonly         | boolean                             | `false`     | Makes the input read-only          |
-| focused          | boolean                             | `false`     | Forces the focused visual state    |
-| inBottomSheet    | boolean                             | `false`     | Use BottomSheetTextInput when true |
-| placeholder      | string                              | `'0.00'`    | Placeholder text                   |
+| Prop                | Type                                | Default     | Description                                                                                                               |
+| ------------------- | ----------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------- |
+| validationStatus    | `'initial' \| 'valid' \| 'invalid'` | `'initial'` | Validation styling state                                                                                                  |
+| disabled            | boolean                             | `false`     | Disables the input                                                                                                        |
+| readonly            | boolean                             | `false`     | Makes the input read-only                                                                                                 |
+| focused             | boolean                             | `false`     | Forces the focused visual state                                                                                           |
+| inBottomSheet       | boolean                             | `false`     | Use BottomSheetTextInput when true                                                                                        |
+| placeholder         | string                              | `'0.00'`    | Placeholder text                                                                                                          |
+| autoFormatThousands | boolean                             | `false`     | Automatically inserts thousand separators while the user types _(Only works with controlled components via onTextChange)_ |
 
 Note: When used inside `FormField`, `validationStatus` and `disabled` are read from the context unless explicitly overridden.
 
@@ -91,6 +94,22 @@ const MyComponent = () => {
 ## States
 
 <Canvas of={Stories.States} />
+
+## Formatting
+
+Enable automatic thousand separator formatting by setting `autoFormatThousands`.
+
+<Canvas of={Stories.AutoFormatThousands} />
+
+```tsx
+<CurrencyInput autoFormatThousands value="1234567.89" /> // displays 1,234,567.89
+```
+
+Notes:
+
+- Only digits, an optional leading minus and a single decimal point are formatted.
+- Formatting is applied as you type; caret will move to the end (standard RN behaviour when programmatically updating value).
+- Provide a controlled `value` if you need to manipulate or strip commas before persisting.
 
 ## Accessibility
 

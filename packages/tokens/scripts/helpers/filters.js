@@ -83,4 +83,17 @@ export const filters = {
         !token.path.includes('font'))
     );
   },
+
+  // Identifies semantic tokens
+  // Excludes dark theme tokens by checking both attributes and path.
+  isSemantic: token => {
+    // Exclude tokens where category is 'dark' or path includes 'dark'
+    if (token.attributes && token.attributes.category === 'dark') {
+      return false;
+    }
+    if (token.path && token.path.includes('dark')) {
+      return false;
+    }
+    return token.filePath.includes('semantic');
+  },
 };

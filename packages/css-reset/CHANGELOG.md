@@ -1,5 +1,26 @@
 # @utilitywarehouse/css-reset
 
+## 0.1.0
+
+### Minor Changes
+
+- [#431](https://github.com/utilitywarehouse/hearth/pull/431) [`4610349`](https://github.com/utilitywarehouse/hearth/commit/4610349c446ad97851327cac4adc75953ff0234b) Thanks [@robphoenix](https://github.com/robphoenix)! - This PR modifies CSS reset behaviour for lists to preserve native list styling by
+  default and only remove it when an explicit `role="list"` is present. This aligns
+  with accessibility best practices where `role="list"` signals intentional removal
+  of semantic list styling.
+
+  - Updates CSS reset to preserve default padding and list styles for `ul` and `ol` elements.
+  - Only removes list styling when `role="list"` is explicitly set.
+  - Updates the List component to include `role="list"` in props object rather than inline.
+
+  Developers will need to ensure any `ul` & `ol` elements that intend to override
+  the default styling have the appropriate role set:
+
+  ```
+  <ul role="list">
+  <ol role="list">
+  ```
+
 ## 0.0.4
 
 ### Patch Changes

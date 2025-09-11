@@ -1,0 +1,11 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-indicator-icon-button-indicator-height: var(--h-space-100)px;
+  --h-indicator-icon-button-indicator-notification-background-color: var(--h-color-red-700);
+  --h-indicator-icon-button-indicator-radius: var(--h-border-radius-full);
+  --h-indicator-icon-button-indicator-unread-background-color: var(--h-color-purple-700);
+  --h-indicator-icon-button-indicator-width: var(--h-space-100)px;
+}

@@ -3,16 +3,12 @@
  */
 
 :root {
-  --h-top-navigation-emphasis-background-color: var(--h-color-purple-700);
   --h-top-navigation-gap: 0;
-  --h-top-navigation-large-title-gap: var(--h-space-25);
   --h-top-navigation-large-title-padding-bottom: var(--h-space-200);
-  --h-top-navigation-large-title-padding-horizontal: var(--h-space-200);
   --h-top-navigation-large-title-padding-top: 0;
   --h-top-navigation-navigation-bar-gap: var(--h-space-200);
   --h-top-navigation-navigation-bar-padding-horizontal: var(--h-space-100);
   --h-top-navigation-navigation-bar-padding-vertical: var(--h-space-150);
   --h-top-navigation-padding-horizontal: 0;
   --h-top-navigation-padding-vertical: 0;
-  --h-top-navigation-subtle-background-color: var(--h-color-warm-white-50);
 }

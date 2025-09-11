@@ -7,19 +7,10 @@
   --h-badge-flat-base-border-bottom-left-radius: 0;
   --h-badge-flat-base-border-bottom-right-radius: 0;
   --h-badge-gap: var(--h-space-50);
-  --h-badge-outline-blue-color: var(--h-color-blue-700);
-  --h-badge-outline-border-color: var(--h-color-warm-white-300);
+  --h-badge-md-height: var(--h-space-400)px;
+  --h-badge-md-padding-vertical: var(--h-space-50);
   --h-badge-outline-border-width: var(--h-border-width-1);
-  --h-badge-outline-green-color: var(--h-color-green-700);
-  --h-badge-outline-grey-color: var(--h-color-grey-600);
-  --h-badge-outline-orange-color: var(--h-color-orange-800);
-  --h-badge-outline-red-color: var(--h-color-red-700);
   --h-badge-padding-horizontal: var(--h-space-75);
-  --h-badge-padding-vertical: var(--h-space-25);
-  --h-badge-solid-blue-background-color: var(--h-color-blue-700);
-  --h-badge-solid-color: var(--h-color-warm-white-50);
-  --h-badge-solid-green-background-color: var(--h-color-green-700);
-  --h-badge-solid-grey-background-color: var(--h-color-grey-600);
-  --h-badge-solid-orange-background-color: var(--h-color-orange-800);
-  --h-badge-solid-red-background-color: var(--h-color-red-700);
+  --h-badge-sm-height: var(--h-space-300)px;
+  --h-badge-sm-padding-vertical: var(--h-space-25);
 }

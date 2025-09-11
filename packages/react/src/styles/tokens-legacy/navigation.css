@@ -1,0 +1,18 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-navigation-background-color: var(--h-color-purple-700);
+  --h-navigation-background-color-active: var(--h-color-purple-600);
+  --h-navigation-background-color-hover: var(--h-color-purple-800);
+  --h-navigation-bar-background-color-active: var(--h-color-yellow-400);
+  --h-navigation-bar-border-radius-none: 0;
+  --h-navigation-bar-border-radius-rounded: var(--h-border-radius-xs);
+  --h-navigation-border-radius: var(--h-border-radius-sm);
+  --h-navigation-desktop-height: 88px;
+  --h-navigation-foreground-color: var(--h-color-warm-white-50);
+  --h-navigation-gap: var(--h-space-50);
+  --h-navigation-mobile-divider-border-color: var(--h-color-purple-800);
+  --h-navigation-mobile-height: 64px;
+}

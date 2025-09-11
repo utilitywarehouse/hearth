@@ -1,0 +1,10 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-toast-background-color: var(--h-color-grey-1000);
+  --h-toast-border-radius: var(--h-border-radius-md);
+  --h-toast-gap-horizontal: var(--h-space-100);
+  --h-toast-padding: var(--h-space-175);
+}
