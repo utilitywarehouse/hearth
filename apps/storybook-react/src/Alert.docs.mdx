@@ -43,7 +43,7 @@ You can add a link to your alert using the `AlertLink` component. This is useful
 
 ```tsx
 <Alert
-  colorScheme="blue"
+  colorScheme="info"
   title="Information"
   text="This alert contains additional information that might be helpful."
 >
@@ -59,7 +59,7 @@ Alerts can be made dismissable by providing an `onClose` handler. This adds a cl
 
 ```tsx
 <Alert
-  colorScheme="green"
+  colorScheme="positive"
   title="Success"
   text="Your action was completed successfully."
   onClose={() => console.log('Alert dismissed')}
@@ -105,10 +105,10 @@ This component supports the following common props:
 
 - Margin
 
-| Prop          | Type                                   | Description                                          |
-| ------------- | -------------------------------------- | ---------------------------------------------------- |
-| `colorScheme` | `blue` \| `green` \| `red` \| `orange` | Sets the colour scheme (default: `blue`)             |
-| `title`       | `string`                               | Sets the title of the alert                          |
-| `text`        | `string` \| `React.ReactNode`          | Sets the text content of the alert                   |
-| `onClose`     | `() => void`                           | Adds a close button to dismiss the alert             |
-| `children`    | `React.ReactNode`                      | Additional content like AlertLink or AlertIconButton |
+| Prop          | Type                                          | Description                                          |
+| ------------- | --------------------------------------------- | ---------------------------------------------------- |
+| `colorScheme` | `info` \| `positive` \| `danger` \| `warning` | Sets the colour scheme                               |
+| `title`       | `string`                                      | Sets the title of the alert                          |
+| `text`        | `string` \| `React.ReactNode`                 | Sets the text content of the alert                   |
+| `onClose`     | `() => void`                                  | Adds a close button to dismiss the alert             |
+| `children`    | `React.ReactNode`                             | Additional content like AlertLink or AlertIconButton |
