@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.0.9
+
+### Patch Changes
+
+- [#434](https://github.com/utilitywarehouse/hearth/pull/434) [`9e845f3`](https://github.com/utilitywarehouse/hearth/commit/9e845f3d428ce052547b9aa33e553a2a45abe4a6) Thanks [@robphoenix](https://github.com/robphoenix)! - Include Semantic tokens
+
 ## 0.0.8
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.6.2
+
+### Patch Changes
+
+- [#434](https://github.com/utilitywarehouse/hearth/pull/434) [`9e845f3`](https://github.com/utilitywarehouse/hearth/commit/9e845f3d428ce052547b9aa33e553a2a45abe4a6) Thanks [@robphoenix](https://github.com/robphoenix)! - Update `Alert` component to use semantic tokens.
+
 ## 0.6.1
 
 ### Patch Changes
