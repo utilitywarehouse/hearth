@@ -1,4 +1,4 @@
-@import url('../../styles/tokens-legacy/button.css');
+@import url('../../styles/tokens/button.css');
 
 .hearth-Button {
   font-family: var(--h-font-family-detail);

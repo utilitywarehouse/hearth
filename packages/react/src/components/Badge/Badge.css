@@ -1,4 +1,4 @@
-@import url('../../styles/tokens-legacy/badge.css');
+@import url('../../styles/tokens/badge.css');
 
 .hearth-Badge {
   display: inline-flex;
