@@ -993,8 +993,8 @@ importers:
         specifier: workspace:^
         version: link:../fonts
       '@utilitywarehouse/hearth-react-icons':
-        specifier: 0.1.0
-        version: 0.1.0(react@19.1.0)
+        specifier: 0.1.1
+        version: 0.1.1(react@19.1.0)
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:^
         version: link:../tokens
@@ -5712,11 +5712,6 @@ packages:
     resolution: {integrity: sha512-FLt+d81gP4oiHah4hWFDApimc+/xABWMU1AMYsZ1PVB0L0YPtrMCjbOp9WMM7hBzy4gbTDrG24sio0dCfSh/HQ==}
     peerDependencies:
       '@urql/core': ^5.0.0
-
-  '@utilitywarehouse/hearth-react-icons@0.1.0':
-    resolution: {integrity: sha512-hw3YKy7OwAwfLAwcNM0XcRZ0DXU8wMEn8DIgNxKGFnj3pxngGImMD9Q24oJh/CwXbSM2iZX0/r88y3ckghv2Rg==}
-    peerDependencies:
-      react: 19.1.0
 
   '@utilitywarehouse/hearth-react-icons@0.1.1':
     resolution: {integrity: sha512-bIY7DssWJpfH4Wp3yZeAtod+4wQMjIOAoD1qe+Ajj6vHtUNxu1ndj9iGaXRUMv1EcWC2YpxLokv0CRlJ87Cxtg==}
@@ -18351,7 +18346,9 @@ snapshots:
       metro-runtime: 0.83.1
     transitivePeerDependencies:
       - '@babel/core'
+      - bufferutil
       - supports-color
+      - utf-8-validate
     optional: true
 
   '@react-native/metro-config@0.81.1(@babel/core@7.28.3)':
@@ -18362,7 +18359,9 @@ snapshots:
       metro-runtime: 0.83.1
     transitivePeerDependencies:
       - '@babel/core'
+      - bufferutil
       - supports-color
+      - utf-8-validate
     optional: true
 
   '@react-native/normalize-colors@0.74.88': {}
@@ -19842,10 +19841,6 @@ snapshots:
     dependencies:
       '@urql/core': 5.1.0(graphql@16.8.1)
       wonka: 6.3.4
-
-  '@utilitywarehouse/hearth-react-icons@0.1.0(react@19.1.0)':
-    dependencies:
-      react: 19.1.0
 
   '@utilitywarehouse/hearth-react-icons@0.1.1(react@19.1.0)':
     dependencies:
