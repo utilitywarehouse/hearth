@@ -10,8 +10,8 @@ import {
 
 const sizes = ['md', 'sm'] as const;
 const variants = ['solid', 'outline', 'ghost'] as const;
-const solidColorSchemes = ['yellow', 'green', 'red'] as const;
-const otherColorSchemes = ['grey', 'green', 'red'] as const;
+const solidColorSchemes = ['highlight', 'affirmative', 'destructive'] as const;
+const otherColorSchemes = ['functional', 'affirmative', 'destructive'] as const;
 
 const meta: Meta<typeof Button> = {
   title: 'Stories / Button',
@@ -26,7 +26,7 @@ const meta: Meta<typeof Button> = {
   argTypes: {
     children: { control: { type: 'text' } },
     variant: { control: { type: 'radio' }, options: ['emphasis', ...variants] },
-    colorScheme: { options: ['yellow', ...otherColorSchemes], control: { type: 'radio' } },
+    colorScheme: { options: ['highlight', ...otherColorSchemes], control: { type: 'radio' } },
     size: { control: { type: 'radio' }, options: sizes },
     loading: { control: { type: 'boolean' } },
     disabled: { control: { type: 'boolean' } },
@@ -44,7 +44,7 @@ type Story = StoryObj<typeof Button>;
 export const Playground: Story = {
   args: {
     variant: 'solid',
-    colorScheme: 'yellow',
+    colorScheme: 'highlight',
   },
 };
 
@@ -58,7 +58,7 @@ export const KitchenSink: Story = {
           <Flex gap="400" alignItems="center">
             {sizes.map(size => (
               <Flex key={size} gap="100">
-                <Button variant="emphasis" colorScheme="yellow" size={size}>
+                <Button variant="emphasis" colorScheme="highlight" size={size}>
                   Button
                 </Button>
               </Flex>
@@ -67,7 +67,7 @@ export const KitchenSink: Story = {
           <Flex gap="400" alignItems="center">
             {sizes.map(size => (
               <Flex key={size} gap="100">
-                <Button disabled variant="emphasis" colorScheme="yellow" size={size}>
+                <Button disabled variant="emphasis" colorScheme="highlight" size={size}>
                   Button
                 </Button>
               </Flex>
@@ -76,7 +76,7 @@ export const KitchenSink: Story = {
           <Flex gap="400" alignItems="center">
             {sizes.map(size => (
               <Flex key={size} gap="100">
-                <Button loading variant="emphasis" colorScheme="yellow" size={size}>
+                <Button loading variant="emphasis" colorScheme="highlight" size={size}>
                   Button
                 </Button>
               </Flex>
@@ -264,58 +264,58 @@ export const FullWidth: Story = {
   ),
 };
 
-export const YellowColorScheme: Story = {
+export const HighlightColorScheme: Story = {
   render: () => (
     <Flex gap="400">
-      <Button variant="emphasis" colorScheme="yellow">
+      <Button variant="emphasis" colorScheme="highlight">
         Emphasis
       </Button>
-      <Button variant="solid" colorScheme="yellow">
+      <Button variant="solid" colorScheme="highlight">
         Solid
       </Button>
     </Flex>
   ),
 };
 
-export const GreyColorScheme: Story = {
+export const FunctionalColorScheme: Story = {
   render: () => (
     <Flex gap="400">
-      <Button variant="outline" colorScheme="grey">
+      <Button variant="outline" colorScheme="functional">
         Outline
       </Button>
-      <Button variant="ghost" colorScheme="grey">
+      <Button variant="ghost" colorScheme="functional">
         Ghost
       </Button>
     </Flex>
   ),
 };
 
-export const RedColorScheme: Story = {
+export const DestructiveColorScheme: Story = {
   render: () => (
     <Flex gap="400">
-      <Button variant="solid" colorScheme="red">
+      <Button variant="solid" colorScheme="destructive">
         Solid
       </Button>
-      <Button variant="outline" colorScheme="red">
+      <Button variant="outline" colorScheme="destructive">
         Outline
       </Button>
-      <Button variant="ghost" colorScheme="red">
+      <Button variant="ghost" colorScheme="destructive">
         Ghost
       </Button>
     </Flex>
   ),
 };
 
-export const GreenColorScheme: Story = {
+export const AffirmativeColorScheme: Story = {
   render: () => (
     <Flex gap="400">
-      <Button variant="solid" colorScheme="green">
+      <Button variant="solid" colorScheme="affirmative">
         Solid
       </Button>
-      <Button variant="outline" colorScheme="green">
+      <Button variant="outline" colorScheme="affirmative">
         Outline
       </Button>
-      <Button variant="ghost" colorScheme="green">
+      <Button variant="ghost" colorScheme="affirmative">
         Ghost
       </Button>
     </Flex>
@@ -370,15 +370,15 @@ export const WithIcons: Story = {
   render: args => {
     return (
       <Flex gap="200">
-        <Button {...args} variant="solid" colorScheme="red">
+        <Button {...args} variant="solid" colorScheme="destructive">
           <TrashSmallIcon />
           Delete
         </Button>
-        <Button {...args} variant="solid" colorScheme="yellow">
+        <Button {...args} variant="solid" colorScheme="highlight">
           Account
           <UserSmallIcon />
         </Button>
-        <Button {...args} variant="outline" colorScheme="grey">
+        <Button {...args} variant="outline" colorScheme="functional">
           <SettingsSmallIcon />
           Settings
         </Button>
@@ -393,13 +393,13 @@ export const Inverted: Story = {
       <Button variant="emphasis" inverted>
         Emphasis
       </Button>
-      <Button variant="solid" colorScheme="yellow" inverted>
+      <Button variant="solid" colorScheme="highlight" inverted>
         Solid
       </Button>
-      <Button variant="outline" colorScheme="grey" inverted>
+      <Button variant="outline" colorScheme="functional" inverted>
         Outline
       </Button>
-      <Button variant="ghost" colorScheme="grey" inverted>
+      <Button variant="ghost" colorScheme="functional" inverted>
         Ghost
       </Button>
     </Flex>
@@ -410,16 +410,16 @@ export const Loading: Story = {
   render: args => {
     return (
       <Flex gap="400" direction="column" alignItems="start">
-        <Button loading={args.loading} variant="emphasis" colorScheme="yellow">
+        <Button loading={args.loading} variant="emphasis" colorScheme="highlight">
           This is a long button label
         </Button>
-        <Button {...args} variant="solid" colorScheme="yellow">
+        <Button {...args} variant="solid" colorScheme="highlight">
           This is a long button label
         </Button>
-        <Button {...args} variant="outline" colorScheme="grey">
+        <Button {...args} variant="outline" colorScheme="functional">
           This is a long button label
         </Button>
-        <Button {...args} variant="ghost" colorScheme="grey">
+        <Button {...args} variant="ghost" colorScheme="functional">
           This is a long button label
         </Button>
       </Flex>
@@ -435,7 +435,7 @@ export const PaddingNone: Story = {
     return (
       <Flex direction="column" alignItems="start" gap="100" padding="200">
         <TextInput label="Postcode" required />
-        <Button variant="ghost" colorScheme="grey" size="sm" paddingNone>
+        <Button variant="ghost" colorScheme="functional" size="sm" paddingNone>
           Add address manually
         </Button>
       </Flex>

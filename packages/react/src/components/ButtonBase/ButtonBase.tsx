@@ -25,7 +25,8 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
   } = extractProps(props, buttonBasePropDefs, marginPropDefs);
   const { variant = 'solid' } = props;
 
-  const defaultColorScheme = variant === 'emphasis' || variant === 'solid' ? 'yellow' : 'grey';
+  const defaultColorScheme =
+    variant === 'emphasis' || variant === 'solid' ? 'highlight' : 'functional';
   const dataAttributeProps = {
     'data-colorscheme': colorScheme || defaultColorScheme,
     'data-inverted': inverted ? '' : undefined,

@@ -20,7 +20,7 @@
   color: var(--h-button-base-foreground-color);
   background-color: var(--h-button-base-background-color);
 
-  &:where([data-colorscheme='yellow']) {
+  &:where([data-colorscheme='highlight']) {
     --h-solid-background-color: var(--h-interactive-highlight-surface-strong-default);
     --h-solid-background-color-active: var(--h-interactive-highlight-surface-strong-active);
     --h-solid-background-color-hover: var(--h-interactive-highlight-surface-strong-hover);
@@ -36,7 +36,7 @@
     --h-emphasis-transform: translateY(4px) translateX(4px);
   }
 
-  &:where([data-colorscheme='green']) {
+  &:where([data-colorscheme='affirmative']) {
     --h-solid-background-color: var(--h-interactive-affirmative-surface-strong-default);
     --h-solid-background-color-active: var(--h-interactive-affirmative-surface-strong-active);
     --h-solid-background-color-hover: var(--h-interactive-affirmative-surface-strong-hover);
@@ -52,7 +52,7 @@
     --h-emphasis-border-color: transparent;
   }
 
-  &:where([data-colorscheme='red']) {
+  &:where([data-colorscheme='destructive']) {
     --h-solid-background-color: var(--h-interactive-destructive-surface-strong-default);
     --h-solid-background-color-active: var(--h-interactive-destructive-surface-strong-active);
     --h-solid-background-color-hover: var(--h-interactive-destructive-surface-strong-hover);
@@ -68,7 +68,7 @@
     --h-emphasis-border-color: transparent;
   }
 
-  &:where([data-colorscheme='grey']) {
+  &:where([data-colorscheme='functional']) {
     --h-outline-background-color-active: var(--h-interactive-functional-surface-subtle-active);
     --h-outline-background-color-hover: var(--h-interactive-functional-surface-subtle-hover);
     --h-outline-foreground-color: var(--h-interactive-functional-foreground-subtle);
