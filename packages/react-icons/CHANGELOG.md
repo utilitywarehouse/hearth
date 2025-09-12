@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-icons
 
+## 0.3.0
+
+### Minor Changes
+
+- [#451](https://github.com/utilitywarehouse/hearth/pull/451) [`dd94711`](https://github.com/utilitywarehouse/hearth/commit/dd947112fe436be77fb1b08cfaa8a4b3e5dde388) Thanks [@robphoenix](https://github.com/robphoenix)! - Investigation
+
 ## 0.2.0
 
 ### Minor Changes
