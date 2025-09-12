@@ -1,11 +1,11 @@
-@import url('../../styles/tokens-legacy/divider.css');
+@import url('../../styles/tokens/divider.css');
 
 .hearth-Divider {
   all: unset;
   display: block; /* explicitly set this so horizontal dividers show inside block elements */
   align-self: stretch;
   flex-shrink: 0;
-  background-color: var(--h-divider-color);
+  background-color: var(--h-border-subtle);
 
   &:where([data-orientation='horizontal']) {
     height: var(--h-divider-border-width);
