@@ -78,5 +78,6 @@
 }
 
 .hearth-CheckboxLabel {
+  display:flex;
   gap: var(--h-checkbox-tile-gap);
 }

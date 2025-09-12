@@ -56,8 +56,8 @@ export const Playground: Story = {
           name="do-you-like-living-here"
           direction="row"
         >
-          <RadioTile value="y" label="Yes" image={TickMediumIcon} />
-          <RadioTile value="n" label="No" image={MinusMediumIcon} />
+          <RadioTile value="y" label="Yes" image={<TickMediumIcon />} />
+          <RadioTile value="n" label="No" image={<MinusMediumIcon />} />
         </RadioGroup>
       </Flex>
     );

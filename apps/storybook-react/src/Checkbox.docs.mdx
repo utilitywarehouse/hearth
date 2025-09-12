@@ -19,17 +19,17 @@ show if the `Checkbox` is a child of a `CheckboxGroup` which also displays a hel
 
 ## Image
 
-The `Checkbox` can display an image between the indicator and label. 
+The `Checkbox` can display an image between the indicator and label. Important! Remember to add `alt=""` to the image tag for accessibility.
 
 ```tsx
-const MyImage = () => <img src="https://help.uw.co.uk/images/iPhone.svg" width={25} />;
+const MyImage = <img src="https://help.uw.co.uk/images/iPhone.svg" width={25} alt=""/>;
 <Checkbox value="2" label="Two" helperText="The number two" image={MyImage} />
 ```
 
 You can use predefined icons here too:
 
 ```tsx
-<Checkbox value="2" label="Two" helperText="The number two" image={CashbackCardMediumIcon} />
+<Checkbox value="2" label="Two" helperText="The number two" image={<CashbackCardMediumIcon/>} />
 ```
 
 ## Controlled

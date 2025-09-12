@@ -36,14 +36,14 @@ export const Playground: Story = {
   render: args => (
     <Flex width="fit-content" gap="200">
       <Checkbox {...args} />
-      <Checkbox {...args} image={CashbackCardMediumIcon} />
+      <Checkbox {...args} image={<CashbackCardMediumIcon />} />
     </Flex>
   ),
 };
 
 export const KitchenSink: Story = {
   render: () => {
-    const MyImage = () => <img src="https://help.uw.co.uk/images/iPhone.svg" width={25} />;
+    const MyImage = <img src="https://help.uw.co.uk/images/iPhone.svg" width={25} />
     return (
       <Flex gap="400">
         <Flex direction="column" gap="200">
@@ -56,7 +56,7 @@ export const KitchenSink: Story = {
         </Flex>
         <Flex direction="column" gap="200">
           <BodyText>With icon</BodyText>
-          <Checkbox label="Label" image={CashbackCardMediumIcon} />
+          <Checkbox label="Label" image={<CashbackCardMediumIcon />} />
         </Flex>
         <Flex direction="column" gap="200">
           <BodyText>With image</BodyText>

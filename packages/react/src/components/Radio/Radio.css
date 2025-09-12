@@ -55,6 +55,7 @@
 /* ensure the gap between the checkbox & label is clickable */
 .hearth-RadioLabel {
   position: relative;
+  display:flex;
   gap: var(--h-radio-gap);
 
   &::before {

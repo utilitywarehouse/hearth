@@ -36,7 +36,7 @@ export const Playground: Story = {
               </Badge>
             </Flex>
 
-            <RadioCard value="1" label="Debit card payment" image={CashbackCardMediumIcon}>
+            <RadioCard value="1" label="Debit card payment" image={<CashbackCardMediumIcon/>}>
               <Flex asChild gap="100" direction="column">
                 <ul role="list">
                   <Box asChild marginLeft="100">

@@ -20,17 +20,17 @@ which also displays a helper text message.
 
 ## Image
 
-The `CheckboxTile` can display an image between the indicator and label. 
+The `CheckboxTile` can display an image between the indicator and label. Important! Remember to add `alt=""` to the image tag for accessibility.
 
 ```tsx
-const MyImage = () => <img src="https://help.uw.co.uk/images/iPhone.svg" width={25} />;
+const MyImage = <img src="https://help.uw.co.uk/images/iPhone.svg" width={25} alt="" />;
 <CheckboxTile value="2" label="Two" helperText="The number two" image={MyImage} />
 ```
 
 You can use predefined icons here too:
 
 ```tsx
-<CheckboxTile value="2" label="Two" helperText="The number two" image={CashbackCardMeduimIcon} />
+<CheckboxTile value="2" label="Two" helperText="The number two" image={<CashbackCardMeduimIcon/>} />
 ```
 
 ## Controlled

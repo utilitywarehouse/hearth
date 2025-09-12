@@ -22,7 +22,7 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
       id: providedId,
       label,
       helperText,
-      image: RadioImage,
+      image,
       'aria-labelledby': ariaLabelledby,
       ...props
     },
@@ -31,7 +31,6 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
     const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
     const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormGroupBase();
     const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
-    const showImage = !!RadioImage;
     return (
       <RadixRadioGroup.Item
         ref={ref}
@@ -46,12 +45,10 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
             <RadixRadioGroup.Indicator className="hearth-RadioIndicator" />
           </div>
           <Flex direction="column">
-            <Flex direction="row" className="hearth-RadioLabel">
-              {showImage ? <RadioImage /> : null}
-              <Label id={labelId} htmlFor={id} disableUserSelect>
-                {label}
-              </Label>
-            </Flex>
+            <Label id={labelId} htmlFor={id} disableUserSelect className="hearth-RadioLabel">
+              {image}
+              {label}
+            </Label>
             {showHelperText ? (
               <HelperText id={helperTextId} disableUserSelect>
                 {helperText}

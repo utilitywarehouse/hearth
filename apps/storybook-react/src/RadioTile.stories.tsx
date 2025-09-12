@@ -31,7 +31,7 @@ type Story = StoryObj<typeof RadioTile>;
 
 export const Playground: Story = {
   render: args => {
-    const MyImage = () => <img src="https://help.uw.co.uk/images/iPhone.svg" width={25} />;
+    const MyImage = <img src="https://help.uw.co.uk/images/iPhone.svg" width={25} />;
     return (
       <Flex gap="500" direction="column">
         <RadioGroup value="2" label="Unchecked radio">
@@ -39,7 +39,7 @@ export const Playground: Story = {
         </RadioGroup>
 
         <RadioGroup value="5" label="With icon">
-          <RadioTile {...args} image={CashbackCardMediumIcon}/>
+          <RadioTile {...args} image={<CashbackCardMediumIcon />}/>
         </RadioGroup>
 
         <RadioGroup value="5" label="With image">
