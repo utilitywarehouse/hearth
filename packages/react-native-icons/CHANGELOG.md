@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native-icons
 
+## 0.4.0
+
+### Minor Changes
+
+- [#452](https://github.com/utilitywarehouse/hearth/pull/452) [`dd94711`](https://github.com/utilitywarehouse/hearth/commit/dd947112fe436be77fb1b08cfaa8a4b3e5dde388) Thanks [@robphoenix](https://github.com/robphoenix)! - Investigation
+
 ## 0.2.0
 
 ### Minor Changes

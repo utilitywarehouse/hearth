@@ -1,5 +1,12 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies [[`dd94711`](https://github.com/utilitywarehouse/hearth/commit/dd947112fe436be77fb1b08cfaa8a4b3e5dde388)]:
+  - @utilitywarehouse/hearth-react-native-icons@0.4.0
+
 ## 0.3.0
 
 ### Minor Changes
