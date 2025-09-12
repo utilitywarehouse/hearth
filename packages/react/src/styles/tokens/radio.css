@@ -12,9 +12,6 @@
   --h-radio-outline-color-active: var(--h-color-warm-white-300);
   --h-radio-outline-color-hover: var(--h-color-warm-white-200);
   --h-radio-outline-width: 3px;
-  --h-radio-tile-background-color: var(--h-color-grey-0);
-  --h-radio-tile-border-color: var(--h-color-warm-white-300);
-  --h-radio-tile-border-color-selected: var(--h-color-grey-1000);
   --h-radio-tile-border-radius: var(--h-border-radius-md);
   --h-radio-tile-border-width: var(--h-border-width-1);
   --h-radio-tile-border-width-selected: var(--h-border-width-2);
@@ -24,6 +21,4 @@
   --h-radio-tile-max-width: 680px;
   --h-radio-tile-min-width: 80px;
   --h-radio-tile-padding: var(--h-space-150);
-  --h-radio-unchecked-background-color: var(--h-color-grey-0);
-  --h-radio-unchecked-border-color: var(--h-color-grey-400);
 }

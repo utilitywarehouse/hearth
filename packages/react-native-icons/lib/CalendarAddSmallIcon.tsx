@@ -1,0 +1,12 @@
+import * as React from 'react';
+import Svg, { Path } from 'react-native-svg';
+import { IconProps } from './types';
+const SvgCalendarAddSmallIcon = ({ color = 'currentColor', ...props }: IconProps) => (
+  <Svg width={20} height={20} fill="none" viewBox="0 0 20 20" {...props}>
+    <Path
+      fill={color}
+      d="M13.79 19v-2.571h-2.527v-1.715h2.527v-2.571h1.684v2.571H18v1.715h-2.526V19zM2 16.429V2.714h2.526V1h1.685v1.714h5.052V1h1.684v1.714h2.527v7.715H13.79V7.857H3.684v6.857H9.58v1.715z"
+    />
+  </Svg>
+);
+export default SvgCalendarAddSmallIcon;

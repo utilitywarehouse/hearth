@@ -42,6 +42,7 @@ export * from './radio.js';
 export * from './section-header.js';
 export * from './segmented-control.js';
 export * from './select.js';
+export * from './semantic.js';
 export * from './skeleton.js';
 export * from './space.js';
 export * from './spinner.js';

@@ -1,0 +1,29 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-radio-border-radius: var(--h-border-radius-full);
+  --h-radio-border-width: var(--h-border-width-2);
+  --h-radio-checked-color: var(--h-color-grey-1000);
+  --h-radio-gap: var(--h-space-100);
+  --h-radio-group-gap: var(--h-space-200);
+  --h-radio-group-stack-gap: var(--h-space-400);
+  --h-radio-outline-color-active: var(--h-color-warm-white-300);
+  --h-radio-outline-color-hover: var(--h-color-warm-white-200);
+  --h-radio-outline-width: 3px;
+  --h-radio-tile-background-color: var(--h-color-grey-0);
+  --h-radio-tile-border-color: var(--h-color-warm-white-300);
+  --h-radio-tile-border-color-selected: var(--h-color-grey-1000);
+  --h-radio-tile-border-radius: var(--h-border-radius-md);
+  --h-radio-tile-border-width: var(--h-border-width-1);
+  --h-radio-tile-border-width-selected: var(--h-border-width-2);
+  --h-radio-tile-gap: var(--h-space-100);
+  --h-radio-tile-group-gap: var(--h-space-75);
+  --h-radio-tile-group-stack-gap: var(--h-space-150);
+  --h-radio-tile-max-width: 680px;
+  --h-radio-tile-min-width: 80px;
+  --h-radio-tile-padding: var(--h-space-150);
+  --h-radio-unchecked-background-color: var(--h-color-grey-0);
+  --h-radio-unchecked-border-color: var(--h-color-grey-400);
+}

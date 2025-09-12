@@ -1,8 +1,8 @@
-import { Meta, Controls, Story, Canvas } from '@storybook/addon-docs/blocks';
-import * as Stories from './Select.stories';
-import { Select, SelectOption, FormField, Center } from '../../';
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
 import { UserSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
+import { Center, FormField, Select, SelectOption } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Select.stories';
 
 <Meta title="Forms / Select" />
 
@@ -195,7 +195,7 @@ import { Select, SelectOption } from '@utilitywarehouse/hearth-react-native';
 import {
   UserSmallIcon,
   HeartSmallIcon,
-  StarSmallIcon,
+  EyeSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
 
@@ -211,7 +211,7 @@ const MyComponent = () => {
     >
       <SelectOption label="Home option" value="home" leadingIcon={UserSmallIcon} />
       <SelectOption label="Car option" value="car" leadingIcon={HeartSmallIcon} />
-      <SelectOption label="World option" value="world" leadingIcon={StarSmallIcon} />
+      <SelectOption label="World option" value="world" leadingIcon={EyeSmallIcon} />
     </Select>
   );
 };

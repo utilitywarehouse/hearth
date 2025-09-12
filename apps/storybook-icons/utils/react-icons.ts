@@ -1,24 +1,27 @@
 /* Don't edit this file directly, it was auto generated */
 import { AddMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/AddMediumIcon';
 import { AddSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/AddSmallIcon';
-import { ArrowDownMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ArrowDownMediumIcon';
-import { ArrowDownSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ArrowDownSmallIcon';
-import { ArrowUpMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ArrowUpMediumIcon';
-import { ArrowUpSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ArrowUpSmallIcon';
+import { AttachMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/AttachMediumIcon';
+import { AttachSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/AttachSmallIcon';
 import { BankMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BankMediumIcon';
 import { BasketMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BasketMediumIcon';
+import { BasketSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/BasketSmallIcon';
 import { BellMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BellMediumIcon';
+import { BellSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/BellSmallIcon';
 import { BillMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BillMediumIcon';
 import { BookmarkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BookmarkMediumIcon';
 import { BroadbandMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BroadbandMediumIcon';
 import { BroadbandSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/BroadbandSmallIcon';
 import { BulbMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BulbMediumIcon';
 import { CalendarAddMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CalendarAddMediumIcon';
+import { CalendarAddSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CalendarAddSmallIcon';
 import { CalendarMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CalendarMediumIcon';
 import { CalendarSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CalendarSmallIcon';
+import { CallMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CallMediumIcon';
 import { CameraMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CameraMediumIcon';
 import { CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CashbackCardMediumIcon';
 import { CashbackCardSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CashbackCardSmallIcon';
+import { CelebrationMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CelebrationMediumIcon';
 import { ChevronDownMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronDownMediumIcon';
 import { ChevronDownSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronDownSmallIcon';
 import { ChevronLeftMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronLeftMediumIcon';
@@ -27,10 +30,8 @@ import { ChevronRightMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronRightSmallIcon';
 import { ChevronUpMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronUpMediumIcon';
 import { ChevronUpSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronUpSmallIcon';
-import { ClockMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ClockMediumIcon';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CloseMediumIcon';
 import { CloseSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CloseSmallIcon';
-import { ConfettiMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ConfettiMediumIcon';
 import { ContactlessMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ContactlessMediumIcon';
 import { CopyMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CopyMediumIcon';
 import { CopySmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CopySmallIcon';
@@ -64,14 +65,18 @@ import { FullscreenMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/F
 import { FullscreenSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/FullscreenSmallIcon';
 import { GasMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GasMediumIcon';
 import { GasSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/GasSmallIcon';
-import { GiftMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GiftMediumIcon';
 import { GreenDealElectricityMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/GreenDealElectricityMediumIcon';
 import { HeartMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HeartMediumIcon';
 import { HeartOutlineMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HeartOutlineMediumIcon';
 import { HeartSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/HeartSmallIcon';
 import { HistoryMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HistoryMediumIcon';
-import { HomeFilledMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HomeFilledMediumIcon';
-import { HomeOutlineMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HomeOutlineMediumIcon';
+import { HomeAndBoilerMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HomeAndBoilerMediumIcon';
+import { HomeAndBoilerSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/HomeAndBoilerSmallIcon';
+import { HomeInsuranceMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HomeInsuranceMediumIcon';
+import { HomeInsuranceSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/HomeInsuranceSmallIcon';
+import { HomeMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/HomeMediumIcon';
+import { IncomeProtectMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/IncomeProtectMediumIcon';
+import { IncomeProtectSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/IncomeProtectSmallIcon';
 import { IncreaseMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/IncreaseMediumIcon';
 import { IncreaseSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/IncreaseSmallIcon';
 import { InfoMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InfoMediumIcon';
@@ -79,12 +84,15 @@ import { InsightsMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/Ins
 import { InstagramMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InstagramMediumIcon';
 import { InsuranceMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InsuranceMediumIcon';
 import { InsuranceSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/InsuranceSmallIcon';
+import { LandlineMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LandlineMediumIcon';
+import { LandlineSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LandlineSmallIcon';
 import { LaunchMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LaunchMediumIcon';
 import { LinkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LinkMediumIcon';
 import { LinkSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LinkSmallIcon';
 import { LinkedInMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LinkedInMediumIcon';
 import { LocationMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LocationMediumIcon';
 import { LockMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LockMediumIcon';
+import { LockSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LockSmallIcon';
 import { LoginMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LoginMediumIcon';
 import { LoginSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LoginSmallIcon';
 import { LogoutMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LogoutMediumIcon';
@@ -96,14 +104,15 @@ import { MinusSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MinusSm
 import { MobileMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MobileMediumIcon';
 import { MobileSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MobileSmallIcon';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoneyMediumIcon';
+import { MoonLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoonLargeIcon';
 import { MoonMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoonMediumIcon';
 import { MoreMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoreMediumIcon';
 import { MoreSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoreSmallIcon';
 import { OpenMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/OpenMediumIcon';
 import { OpenSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/OpenSmallIcon';
 import { PaymentMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PaymentMediumIcon';
-import { PhoneMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PhoneMediumIcon';
 import { PhoneSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PhoneSmallIcon';
+import { PlaceholderLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaceholderLargeIcon';
 import { PlaceholderMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaceholderMediumIcon';
 import { PlaceholderSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaceholderSmallIcon';
 import { QuestionMarkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/QuestionMarkMediumIcon';
@@ -112,16 +121,17 @@ import { RestartMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/Rest
 import { SearchMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SearchMediumIcon';
 import { SearchSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SearchSmallIcon';
 import { SendMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SendMediumIcon';
+import { SendSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SendSmallIcon';
 import { SettingsMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SettingsMediumIcon';
 import { SettingsSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SettingsSmallIcon';
 import { ShareMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ShareMediumIcon';
 import { ShareSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ShareSmallIcon';
 import { ShoppingMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ShoppingMediumIcon';
-import { SkipLeftMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SkipLeftMediumIcon';
-import { SkipRightMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SkipRightMediumIcon';
-import { StarMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/StarMediumIcon';
-import { StarOutlineMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/StarOutlineMediumIcon';
-import { StarSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/StarSmallIcon';
+import { SimMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SimMediumIcon';
+import { SimSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SimSmallIcon';
+import { SkipFirstSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SkipFirstSmallIcon';
+import { SkipLastSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SkipLastSmallIcon';
+import { SunLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/SunLargeIcon';
 import { SunMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SunMediumIcon';
 import { TeamMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TeamMediumIcon';
 import { TickCircleMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickCircleMediumIcon';
@@ -129,6 +139,9 @@ import { TickCircleSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/Ti
 import { TickMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickMediumIcon';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickSmallIcon';
 import { TikTokMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TikTokMediumIcon';
+import { TimeMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TimeMediumIcon';
+import { TopUpMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TopUpMediumIcon';
+import { TopUpSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/TopUpSmallIcon';
 import { TorchOffMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TorchOffMediumIcon';
 import { TorchOnMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TorchOnMediumIcon';
 import { TransferMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TransferMediumIcon';
@@ -136,6 +149,7 @@ import { TrashMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TrashM
 import { TrashSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/TrashSmallIcon';
 import { TwitterMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TwitterMediumIcon';
 import { UnlockMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/UnlockMediumIcon';
+import { UnlockSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/UnlockSmallIcon';
 import { UploadMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/UploadMediumIcon';
 import { UploadSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/UploadSmallIcon';
 import { UserMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/UserMediumIcon';
@@ -148,24 +162,27 @@ import { YoutubeMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/Yout
 export const reactIcons = [
   AddMediumIcon,
   AddSmallIcon,
-  ArrowDownMediumIcon,
-  ArrowDownSmallIcon,
-  ArrowUpMediumIcon,
-  ArrowUpSmallIcon,
+  AttachMediumIcon,
+  AttachSmallIcon,
   BankMediumIcon,
   BasketMediumIcon,
+  BasketSmallIcon,
   BellMediumIcon,
+  BellSmallIcon,
   BillMediumIcon,
   BookmarkMediumIcon,
   BroadbandMediumIcon,
   BroadbandSmallIcon,
   BulbMediumIcon,
   CalendarAddMediumIcon,
+  CalendarAddSmallIcon,
   CalendarMediumIcon,
   CalendarSmallIcon,
+  CallMediumIcon,
   CameraMediumIcon,
   CashbackCardMediumIcon,
   CashbackCardSmallIcon,
+  CelebrationMediumIcon,
   ChevronDownMediumIcon,
   ChevronDownSmallIcon,
   ChevronLeftMediumIcon,
@@ -174,10 +191,8 @@ export const reactIcons = [
   ChevronRightSmallIcon,
   ChevronUpMediumIcon,
   ChevronUpSmallIcon,
-  ClockMediumIcon,
   CloseMediumIcon,
   CloseSmallIcon,
-  ConfettiMediumIcon,
   ContactlessMediumIcon,
   CopyMediumIcon,
   CopySmallIcon,
@@ -211,14 +226,18 @@ export const reactIcons = [
   FullscreenSmallIcon,
   GasMediumIcon,
   GasSmallIcon,
-  GiftMediumIcon,
   GreenDealElectricityMediumIcon,
   HeartMediumIcon,
   HeartOutlineMediumIcon,
   HeartSmallIcon,
   HistoryMediumIcon,
-  HomeFilledMediumIcon,
-  HomeOutlineMediumIcon,
+  HomeAndBoilerMediumIcon,
+  HomeAndBoilerSmallIcon,
+  HomeInsuranceMediumIcon,
+  HomeInsuranceSmallIcon,
+  HomeMediumIcon,
+  IncomeProtectMediumIcon,
+  IncomeProtectSmallIcon,
   IncreaseMediumIcon,
   IncreaseSmallIcon,
   InfoMediumIcon,
@@ -226,12 +245,15 @@ export const reactIcons = [
   InstagramMediumIcon,
   InsuranceMediumIcon,
   InsuranceSmallIcon,
+  LandlineMediumIcon,
+  LandlineSmallIcon,
   LaunchMediumIcon,
   LinkMediumIcon,
   LinkSmallIcon,
   LinkedInMediumIcon,
   LocationMediumIcon,
   LockMediumIcon,
+  LockSmallIcon,
   LoginMediumIcon,
   LoginSmallIcon,
   LogoutMediumIcon,
@@ -243,14 +265,15 @@ export const reactIcons = [
   MobileMediumIcon,
   MobileSmallIcon,
   MoneyMediumIcon,
+  MoonLargeIcon,
   MoonMediumIcon,
   MoreMediumIcon,
   MoreSmallIcon,
   OpenMediumIcon,
   OpenSmallIcon,
   PaymentMediumIcon,
-  PhoneMediumIcon,
   PhoneSmallIcon,
+  PlaceholderLargeIcon,
   PlaceholderMediumIcon,
   PlaceholderSmallIcon,
   QuestionMarkMediumIcon,
@@ -259,16 +282,17 @@ export const reactIcons = [
   SearchMediumIcon,
   SearchSmallIcon,
   SendMediumIcon,
+  SendSmallIcon,
   SettingsMediumIcon,
   SettingsSmallIcon,
   ShareMediumIcon,
   ShareSmallIcon,
   ShoppingMediumIcon,
-  SkipLeftMediumIcon,
-  SkipRightMediumIcon,
-  StarMediumIcon,
-  StarOutlineMediumIcon,
-  StarSmallIcon,
+  SimMediumIcon,
+  SimSmallIcon,
+  SkipFirstSmallIcon,
+  SkipLastSmallIcon,
+  SunLargeIcon,
   SunMediumIcon,
   TeamMediumIcon,
   TickCircleMediumIcon,
@@ -276,6 +300,9 @@ export const reactIcons = [
   TickMediumIcon,
   TickSmallIcon,
   TikTokMediumIcon,
+  TimeMediumIcon,
+  TopUpMediumIcon,
+  TopUpSmallIcon,
   TorchOffMediumIcon,
   TorchOnMediumIcon,
   TransferMediumIcon,
@@ -283,6 +310,7 @@ export const reactIcons = [
   TrashSmallIcon,
   TwitterMediumIcon,
   UnlockMediumIcon,
+  UnlockSmallIcon,
   UploadMediumIcon,
   UploadSmallIcon,
   UserMediumIcon,

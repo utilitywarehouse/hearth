@@ -17,7 +17,7 @@ export const ChevronUpMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {...props}
       >
         {title ? <title id={titleId}>{title}</title> : null}
-        <path fill={color} d="M22.283 16.141 20.408 18 12.14 9.734 3.875 18 2 16.141 12.141 6z" />
+        <path fill={color} d="m22 16.113-1.775 1.774L12 9.664l-8.225 8.224L2 16.113l10-10z" />
       </svg>
     );
   }

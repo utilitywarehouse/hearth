@@ -1,4 +1,4 @@
-@import url('../../styles/tokens/switch.css');
+@import url('../../styles/tokens-legacy/switch.css');
 
 .hearth-Switch {
   display: flex;

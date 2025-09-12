@@ -1,4 +1,4 @@
-@import url('../../styles/tokens/spinner.css');
+@import url('../../styles/tokens-legacy/spinner.css');
 
 .hearth-Spinner {
   display: inline-flex;

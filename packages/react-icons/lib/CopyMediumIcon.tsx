@@ -17,10 +17,7 @@ export const CopyMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {...props}
       >
         {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M7.563 17.89V3.346h12.45v14.542zm-3.55 3.457V6.805h2.175v12.424h10.276v2.118z"
-        />
+        <path fill={color} d="M7.5 18V2h13v16zm-4 4V6h2v14h11v2z" />
       </svg>
     );
   }

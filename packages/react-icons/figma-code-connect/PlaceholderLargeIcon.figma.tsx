@@ -1,0 +1,16 @@
+import React from 'react';
+import { PlaceholderLargeIcon } from '../lib/PlaceholderLargeIcon';
+import figma from '@figma/code-connect';
+
+/**
+ * -- This file was auto-generated --
+ */
+
+figma.connect(
+  PlaceholderLargeIcon,
+  'https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2194:464&m=dev',
+  {
+    props: {},
+    example: () => <PlaceholderLargeIcon />,
+  }
+);

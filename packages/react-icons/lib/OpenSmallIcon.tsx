@@ -19,7 +19,7 @@ export const OpenSmallIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M2.35 17.15V2.35h7.4v2.04H4.391v10.72H15.11V9.75h2.041v7.4zm5.828-4.4L6.75 11.322l6.931-6.93H11.75V2.35h5.4v5.4h-2.04V5.819z"
+          d="M2 18V2h8v1.778H3.778v12.444h12.444V10H18v8zm5.956-4.711L6.71 12.044l8.267-8.266h-3.2V2H18v6.222h-1.778v-3.2z"
         />
       </svg>
     );

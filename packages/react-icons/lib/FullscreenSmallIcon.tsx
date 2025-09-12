@@ -19,7 +19,7 @@ export const FullscreenSmallIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M2.6 17.4v-6.54h2.042v3.048l9.266-9.266h-3.049V2.6h6.542v6.542h-2.042v-3.05L6.093 15.36h3.049v2.042z"
+          d="M2 18v-7.193h1.978v3.827L14.634 3.978h-3.827V2H18v7.193h-1.978V5.366L5.366 16.022h3.827V18z"
         />
       </svg>
     );

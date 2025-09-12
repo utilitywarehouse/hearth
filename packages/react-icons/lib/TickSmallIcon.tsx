@@ -17,7 +17,7 @@ export const TickSmallIcon = forwardRef<SVGSVGElement, IconProps>(
         {...props}
       >
         {title ? <title id={titleId}>{title}</title> : null}
-        <path fill={color} d="M7.898 15 3 10.438l1.609-1.527 3.29 3.079L15.39 5 17 6.505z" />
+        <path fill={color} d="M7.595 15.5 2 10.286l1.399-1.304 4.196 3.91L16.601 4.5 18 5.804z" />
       </svg>
     );
   }

@@ -4,7 +4,8 @@ import {
   ChevronRightSmallIcon,
   ElectricityMediumIcon,
   GasMediumIcon,
-  HomeFilledMediumIcon,
+  InfoMediumIcon as HomeMediumIcon,
+  // HomeMediumIcon,
   PaymentMediumIcon,
   UserMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
@@ -15,7 +16,6 @@ import {
   FlatList,
   Image,
   List,
-  SectionHeader,
   ListItem,
   ListItemContent,
   ListItemHelperText,
@@ -24,6 +24,7 @@ import {
   ListItemText,
   ListItemTrailingContent,
   ListItemTrailingIcon,
+  SectionHeader,
 } from '../../';
 import { BackToTopButton, BadgeList, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './List.stories';
@@ -87,21 +88,21 @@ const MyComponent = () => (
 
 ### `List`
 
-| Name                    | Type                                                                                              | Default   | Description                                                |
-| ----------------------- | ------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------- |
-| container               | `'none' \| 'subtleWhite' \| 'emphasisWhite' \|` <br /> `'subtleWarmWhite' \| 'emphasisWarmWhite'` | `'none'`  | The container style of the list.                           |
-| heading                 | `string`                                                                                          |           | The text to display in the heading of the list.            |
-| helperText              | `string`                                                                                          |           | The supporting text to display in the heading of the list. |
-| linkText                | `string`                                                                                          |           | The text for the link in the heading.                      |
-| linkHref                | `string`                                                                                          |           | The href for the link in the heading.                      |
-| linkOnPress             | `() => void`                                                                                      |           | Callback function when the heading link is pressed.        |
-| linkTarget              | `'_blank' \| '_self' \| '_parent' \| '_top'`                                                      |           | Target for the link in the heading.                        |                   |
-| linkIcon                | `ComponentType`                                                                                   |           | Icon for the heading link.                                 |
-| linkIconPosition        | `'left' \| 'right'`                                                                               | `'right'` | Position of the icon in the heading link.                  |
-| linkShowIcon            | `boolean`                                                                                         | `true`    | Whether to show the icon in the heading link.              |
-| divider                 | `boolean`                                                                                         | `false`   | Whether to display a divider below the list items.         |
-| loading                 | `boolean`                                                                                         | `false`   | Whether to show the list items in loading state.           |
-| disabled                | `boolean`                                                                                         | `false`   | Whether to disable the list.                               |
+| Name             | Type                                                                                              | Default   | Description                                                |
+| ---------------- | ------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------- | --- |
+| container        | `'none' \| 'subtleWhite' \| 'emphasisWhite' \|` <br /> `'subtleWarmWhite' \| 'emphasisWarmWhite'` | `'none'`  | The container style of the list.                           |
+| heading          | `string`                                                                                          |           | The text to display in the heading of the list.            |
+| helperText       | `string`                                                                                          |           | The supporting text to display in the heading of the list. |
+| linkText         | `string`                                                                                          |           | The text for the link in the heading.                      |
+| linkHref         | `string`                                                                                          |           | The href for the link in the heading.                      |
+| linkOnPress      | `() => void`                                                                                      |           | Callback function when the heading link is pressed.        |
+| linkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'`                                                      |           | Target for the link in the heading.                        |     |
+| linkIcon         | `ComponentType`                                                                                   |           | Icon for the heading link.                                 |
+| linkIconPosition | `'left' \| 'right'`                                                                               | `'right'` | Position of the icon in the heading link.                  |
+| linkShowIcon     | `boolean`                                                                                         | `true`    | Whether to show the icon in the heading link.              |
+| divider          | `boolean`                                                                                         | `false`   | Whether to display a divider below the list items.         |
+| loading          | `boolean`                                                                                         | `false`   | Whether to show the list items in loading state.           |
+| disabled         | `boolean`                                                                                         | `false`   | Whether to disable the list.                               |
 
 ### `ListItem`
 
@@ -172,7 +173,7 @@ If you need to use the List component in a more advanced way, you can use the pa
     </ListItem>
     <ListItem onPress={() => console.log('pressed')}>
       <ListItemLeadingContent>
-        <ListItemIcon as={HomeFilledMediumIcon} />
+        <ListItemIcon as={HomeMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
         <ListItemText>Moving home</ListItemText>
@@ -214,7 +215,7 @@ import {
   BillMediumIcon,
   ChevronRightSmallIcon,
   PaymentMediumIcon,
-  HomeFilledMediumIcon,
+  HomeMediumIcon,
   UserMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -247,7 +248,7 @@ const MyComponent = () => (
     </ListItem>
     <ListItem onPress={() => console.log('pressed')}>
       <ListItemLeadingContent>
-        <ListItemIcon as={HomeFilledMediumIcon} />
+        <ListItemIcon as={HomeMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
         <ListItemText>Moving home</ListItemText>
@@ -302,7 +303,7 @@ the `Card` and child `ListItem` components.
       onPress={() => console.log('item pressed')}
     />
     <ListItem
-      leadingContent={<HomeFilledMediumIcon />}
+      leadingContent={<HomeMediumIcon />}
       text="Moving Home"
       onPress={() => console.log('item pressed')}
     />
@@ -314,7 +315,7 @@ import { List, ListItem, Card } from '@utilitywarehouse/hearth-react-native';
 import {
   BillMediumIcon,
   PaymentMediumIcon,
-  HomeFilledMediumIcon,
+  HomeMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 
 const MyComponent = () => (
@@ -332,7 +333,7 @@ const MyComponent = () => (
       onPress={() => console.log('item pressed')}
     />
     <ListItem
-      leadingContent={<HomeFilledMediumIcon />}
+      leadingContent={<HomeMediumIcon />}
       text="Moving Home"
       onPress={() => console.log('item pressed')}
     />

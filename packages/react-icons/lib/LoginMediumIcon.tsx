@@ -19,7 +19,7 @@ export const LoginMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M11.853 21v-2.426h6.706V5.441h-6.706V3H21v18zm-2.062-3.816L8.06 15.476l2.256-2.255H3v-2.426h7.285L8.029 8.539l1.73-1.707 5.169 5.191z"
+          d="m16.5 12-5.625 5.625-1.631-1.575 2.925-2.925H3v-2.25h9.169L9.244 7.95l1.631-1.575zm4.5 9h-5.625v-2.25h3.375V5.25h-3.375V3H21z"
         />
       </svg>
     );

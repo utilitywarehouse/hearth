@@ -1,0 +1,12 @@
+import * as React from 'react';
+import Svg, { Path } from 'react-native-svg';
+import { IconProps } from './types';
+const SvgBasketSmallIcon = ({ color = 'currentColor', ...props }: IconProps) => (
+  <Svg width={20} height={20} fill="none" viewBox="0 0 20 20" {...props}>
+    <Path
+      fill={color}
+      d="m3.725 17.778-2.792-10h5.062l4.355-6.48 4.354 6.48h5.104l-2.792 10zm6.645-3.333q.688 0 1.178-.49t.49-1.177-.49-1.177a1.6 1.6 0 0 0-1.178-.49q-.687 0-1.177.49-.49.489-.49 1.177 0 .687.49 1.177.491.49 1.177.49M8.016 7.778h4.688l-2.354-3.5z"
+    />
+  </Svg>
+);
+export default SvgBasketSmallIcon;

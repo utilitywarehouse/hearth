@@ -1,15 +1,15 @@
 import type { Meta } from '@storybook/react-vite';
-import React, { useState } from 'react';
-import Select from './Select';
-import SelectOption from './SelectOption';
-import { FormField } from '../FormField';
 import {
-  UserSmallIcon,
+  EyeSmallIcon,
   HeartSmallIcon,
-  StarSmallIcon,
+  UserSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
+import { useState } from 'react';
 import { Box } from '../Box';
 import { Button } from '../Button';
+import { FormField } from '../FormField';
+import Select from './Select';
+import SelectOption from './SelectOption';
 
 const meta = {
   title: 'Stories / Select',
@@ -269,7 +269,7 @@ export const WithInlineOptions = () => {
     >
       <SelectOption label="Home option" value="home" leadingIcon={UserSmallIcon} />
       <SelectOption label="Car option" value="car" leadingIcon={HeartSmallIcon} />
-      <SelectOption label="World option" value="world" leadingIcon={StarSmallIcon} />
+      <SelectOption label="World option" value="world" leadingIcon={EyeSmallIcon} />
     </Select>
   );
 };

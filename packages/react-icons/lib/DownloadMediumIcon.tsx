@@ -19,7 +19,7 @@ export const DownloadMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="m11.991 16.005-6.08-6.08L7.85 8.02l2.79 2.8V3h2.704v7.82l2.79-2.799 1.939 1.903zM3 21v-6.2h2.704v3.496h12.574v-3.497H21V21z"
+          d="m12 16.5-5.625-5.625L7.95 9.244l2.925 2.925V3h2.25v9.169l2.925-2.925 1.575 1.631zM3 21v-5.625h2.25v3.375h13.5v-3.375H21V21z"
         />
       </svg>
     );

@@ -3,17 +3,9 @@
  */
 
 :root {
-  --h-alert-blue-background-color: var(--h-color-blue-200);
-  --h-alert-blue-border-color: var(--h-color-blue-700);
   --h-alert-border-radius: var(--h-border-radius-md);
   --h-alert-border-width: var(--h-border-width-2);
   --h-alert-content-gap: var(--h-space-50);
   --h-alert-gap: var(--h-space-100);
-  --h-alert-green-background-color: var(--h-color-green-200);
-  --h-alert-green-border-color: var(--h-color-green-700);
-  --h-alert-orange-background-color: var(--h-color-orange-200);
-  --h-alert-orange-border-color: var(--h-color-orange-700);
   --h-alert-padding: var(--h-space-175);
-  --h-alert-red-background-color: var(--h-color-red-200);
-  --h-alert-red-border-color: var(--h-color-red-700);
 }

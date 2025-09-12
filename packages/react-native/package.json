@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react-native",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Utility Warehouse React Native UI library",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -35,7 +35,7 @@
     "@gluestack-ui/spinner": "0.1.14",
     "@gluestack-ui/switch": "0.1.22",
     "@gluestack-ui/textarea": "0.1.23",
-    "@utilitywarehouse/hearth-react-native-icons": "^0.1.0"
+    "@utilitywarehouse/hearth-react-native-icons": "0.1.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",

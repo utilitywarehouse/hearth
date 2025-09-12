@@ -1,0 +1,23 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-list-gap: var(--h-space-150);
+  --h-list-heading-gap: var(--h-space-150);
+  --h-list-heading-text-content-gap: var(--h-space-25);
+  --h-list-item-background-color-active: var(--h-color-warm-white-200);
+  --h-list-item-background-color-hover: var(--h-color-warm-white-100);
+  --h-list-item-border-width: var(--h-border-width-1);
+  --h-list-item-content-gap: var(--h-space-25);
+  --h-list-item-emphasis-border-color: var(--h-color-grey-1000);
+  --h-list-item-gap: var(--h-space-150);
+  --h-list-item-padding: var(--h-space-200);
+  --h-list-item-subtle-border-color: var(--h-color-warm-white-300);
+  --h-list-list-container-emphasis-warm-white-border-radius: var(--h-border-radius-xl);
+  --h-list-list-container-emphasis-white-border-radius: var(--h-border-radius-xl);
+  --h-list-list-container-none-border-radius: 0;
+  --h-list-list-container-subtle-warm-white-border-radius: var(--h-border-radius-xl);
+  --h-list-list-container-subtle-white-border-radius: var(--h-border-radius-xl);
+  --h-menu-list-gap: var(--h-space-100);
+}

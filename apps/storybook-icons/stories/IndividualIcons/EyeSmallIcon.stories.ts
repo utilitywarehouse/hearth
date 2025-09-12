@@ -1,5 +1,5 @@
 /* Don't edit this file directly, it was auto generated */
-import type { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react';
 import { EyeSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/EyeSmallIcon';
 
 const meta: Meta<typeof EyeSmallIcon> = {

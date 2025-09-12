@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 20 20">
   <path
     fill="currentColor"
-    d="M10 14 5 9l1.4-1.45 2.6 2.6V2h2v8.15l2.6-2.6L15 9zm-8 4v-5h2v3h12v-3h2v5z"
+    d="M10 13.75 5.313 9.063l1.312-1.36 2.438 2.438V2.5h1.874v7.64l2.438-2.437 1.313 1.36zM2.5 17.5v-4.687h1.875v2.812h11.25v-2.812H17.5V17.5z"
   />
 </svg>
