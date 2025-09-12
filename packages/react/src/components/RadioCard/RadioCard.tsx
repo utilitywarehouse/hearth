@@ -8,7 +8,6 @@ import { Label } from '../Label/Label';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { RadioGroup as RadixRadioGroup } from 'radix-ui';
-import { Flex } from '../Flex/Flex';
 
 const componentName = 'RadioCard';
 const componentClassName = withGlobalPrefix(componentName);

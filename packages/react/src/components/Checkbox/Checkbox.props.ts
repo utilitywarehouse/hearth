@@ -1,4 +1,4 @@
-import type { ComponentType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { Checkbox as RadixCheckbox } from 'radix-ui';
 import { MarginProps } from '../../props/margin.props';
