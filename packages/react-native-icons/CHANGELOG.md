@@ -2,7 +2,9 @@
 
 ## 0.2.0
 
-- [#432](https://github.com/utilitywarehouse/hearth/pull/432)
+### Minor Changes
+
+- [#432](https://github.com/utilitywarehouse/hearth/pull/432) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)!
 
 ## NEW ICONS
 
@@ -53,7 +55,6 @@
 - StarOutlineMediumIcon
 - HomeFilledMediumIcon
 - HomeOutlineMediumIcon
-
 
 ## 0.1.0
 
