@@ -4,6 +4,9 @@
   "commit": false,
   "access": "restricted",
   "baseBranch": "main",
-  "updateInternalDependencies": "minor",
-  "privatePackages": false
+  "updateInternalDependencies": "patch",
+  "privatePackages": false,
+  "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
+    "onlyUpdatePeerDependentsWhenOutOfRange": true
+  }
 }
