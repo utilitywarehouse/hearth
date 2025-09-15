@@ -1,4 +1,4 @@
-@import url('../../styles/tokens-legacy/section-header.css');
+@import url('../../styles/tokens/section-header.css');
 
 .hearth-SectionHeader {
   display: flex;
