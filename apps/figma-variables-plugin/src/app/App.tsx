@@ -448,7 +448,7 @@ function App() {
             alignItems="end"
             gap="100"
             variant="subtle"
-            colorScheme="white"
+            colorScheme="neutralStrong"
             wrap="wrap"
             direction="row"
           >
@@ -466,7 +466,7 @@ function App() {
         {githubToken && (
           <Card
             variant="subtle"
-            colorScheme="white"
+            colorScheme="neutralStrong"
             direction="column"
             position="relative"
             gap="300"
