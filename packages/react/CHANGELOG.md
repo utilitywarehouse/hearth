@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.6.3
+
+### Patch Changes
+
+- [#453](https://github.com/utilitywarehouse/hearth/pull/453) [`4450350`](https://github.com/utilitywarehouse/hearth/commit/445035075c4797de2d7dba942312fea9b6a70850) Thanks [@robphoenix](https://github.com/robphoenix)! - Hearth React Icons has been moved from a peer dependency to a direct dependency.
+
 ## 0.6.2
 
 ### Patch Changes
