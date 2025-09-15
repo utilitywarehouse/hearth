@@ -1630,6 +1630,110 @@
         "value": 12
       }
     },
+    "progress-bar": {
+      "bar-color": {
+        "alias": "{color.warm-white.800}",
+        "type": "color",
+        "value": "#4c473d"
+      },
+      "circular": {
+        "md": {
+          "bar": {
+            "width": {
+              "alias": "{space.150}",
+              "type": "number",
+              "value": 12
+            }
+          },
+          "gap": {
+            "alias": "{space.0}",
+            "type": "number",
+            "value": 0
+          },
+          "height": {
+            "type": "number",
+            "value": 140
+          },
+          "label": {
+            "font-family": {
+              "alias": "{typography.body-text.font-family}",
+              "type": "string",
+              "value": "DM Sans"
+            },
+            "font-size": {
+              "alias": "{font.size.300}",
+              "type": "number",
+              "value": 24
+            },
+            "font-weight": {
+              "alias": "{typography.body-text.font-weight}",
+              "type": "number",
+              "value": 400
+            },
+            "line-height": {
+              "alias": "{line-height.500}",
+              "type": "number",
+              "value": 24
+            }
+          }
+        },
+        "sm": {
+          "bar-width": {
+            "alias": "{space.100}",
+            "type": "number",
+            "value": 8
+          },
+          "height": {
+            "alias": "{space.1000}",
+            "type": "number",
+            "value": 80
+          }
+        }
+      },
+      "linear": {
+        "bar": {
+          "border-radius": {
+            "alias": "{border-radius.full}",
+            "type": "number",
+            "value": 9999
+          },
+          "height": {
+            "alias": "{space.150}",
+            "type": "number",
+            "value": 12
+          }
+        },
+        "gap": {
+          "alias": "{space.100}",
+          "type": "number",
+          "value": 8
+        },
+        "lablel": {
+          "gap": {
+            "alias": "{space.100}",
+            "type": "number",
+            "value": 8
+          }
+        }
+      },
+      "progress": {
+        "danger-color": {
+          "alias": "{color.red.500}",
+          "type": "color",
+          "value": "#ff634a"
+        },
+        "default-color": {
+          "alias": "{color.purple.200}",
+          "type": "color",
+          "value": "#c6b5e2"
+        },
+        "success-color": {
+          "alias": "{color.green.500}",
+          "type": "color",
+          "value": "#36bf7d"
+        }
+      }
+    },
     "progress-stepper": {
       "bar": {
         "complete": {
@@ -3943,6 +4047,110 @@
         "alias": "{space.150}",
         "type": "number",
         "value": 12
+      }
+    },
+    "progress-bar": {
+      "bar-color": {
+        "alias": "{color.warm-white.200}",
+        "type": "color",
+        "value": "#f1efe4"
+      },
+      "circular": {
+        "md": {
+          "bar": {
+            "width": {
+              "alias": "{space.150}",
+              "type": "number",
+              "value": 12
+            }
+          },
+          "gap": {
+            "alias": "{space.0}",
+            "type": "number",
+            "value": 0
+          },
+          "height": {
+            "type": "number",
+            "value": 140
+          },
+          "label": {
+            "font-family": {
+              "alias": "{typography.body-text.font-family}",
+              "type": "string",
+              "value": "DM Sans"
+            },
+            "font-size": {
+              "alias": "{font.size.300}",
+              "type": "number",
+              "value": 24
+            },
+            "font-weight": {
+              "alias": "{typography.body-text.font-weight}",
+              "type": "number",
+              "value": 400
+            },
+            "line-height": {
+              "alias": "{line-height.500}",
+              "type": "number",
+              "value": 24
+            }
+          }
+        },
+        "sm": {
+          "bar-width": {
+            "alias": "{space.100}",
+            "type": "number",
+            "value": 8
+          },
+          "height": {
+            "alias": "{space.1000}",
+            "type": "number",
+            "value": 80
+          }
+        }
+      },
+      "linear": {
+        "bar": {
+          "border-radius": {
+            "alias": "{border-radius.full}",
+            "type": "number",
+            "value": 9999
+          },
+          "height": {
+            "alias": "{space.150}",
+            "type": "number",
+            "value": 12
+          }
+        },
+        "gap": {
+          "alias": "{space.100}",
+          "type": "number",
+          "value": 8
+        },
+        "lablel": {
+          "gap": {
+            "alias": "{space.100}",
+            "type": "number",
+            "value": 8
+          }
+        }
+      },
+      "progress": {
+        "danger-color": {
+          "alias": "{color.red.600}",
+          "type": "color",
+          "value": "#f4412a"
+        },
+        "default-color": {
+          "alias": "{color.purple.1000}",
+          "type": "color",
+          "value": "#26164f"
+        },
+        "success-color": {
+          "alias": "{color.green.600}",
+          "type": "color",
+          "value": "#19a660"
+        }
       }
     },
     "progress-stepper": {
