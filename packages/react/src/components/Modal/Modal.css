@@ -1,6 +1,6 @@
-@import url('../../styles/tokens-legacy/bottom-sheet.css');
-@import url('../../styles/tokens-legacy/modal.css');
-@import url('../../styles/tokens-legacy/dialog.css');
+@import url('../../styles/tokens/bottom-sheet.css');
+@import url('../../styles/tokens/modal.css');
+@import url('../../styles/tokens/dialog.css');
 
 .hearth-ModalScroll {
   display: flex;
@@ -16,7 +16,7 @@
 }
 
 .hearth-Modal {
-  background-color: var(--h-modal-background-color);
+  background-color: var(--h-surface-neutral-strong);
   position: fixed;
   left: 0;
   right: 0;

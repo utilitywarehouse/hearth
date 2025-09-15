@@ -1,5 +1,5 @@
-@import url('../../styles/tokens-legacy/list.css');
-@import url('../../styles/tokens-legacy/card.css');
+@import url('../../styles/tokens/list.css');
+@import url('../../styles/tokens/card.css');
 
 .hearth-ListItem {
   display: flex;
@@ -7,7 +7,7 @@
   gap: var(--h-space-300);
   align-items: center;
   position: relative;
-  padding: var(--h-list-item-padding);
+  padding: var(--h-list-item-functional-padding);
 
   &:where(:not(.hearth-Card &)) {
     padding-left: 0;
@@ -27,27 +27,27 @@
   }
 
   &:where(:not(:first-child)) {
-    border-top: var(--h-list-item-border-width) solid;
-    border-color: var(--h-list-item-subtle-border-color);
+    border-top: var(--h-list-item-functional-border-width) solid;
+    border-color: var(--h-border-subtle);
   }
 
   :where(.hearth-variant-subtle) & {
-    border-color: var(--h-list-item-subtle-border-color);
+    border-color: var(--h-border-subtle);
   }
 
   :where(.hearth-variant-emphasis) & {
-    border-color: var(--h-list-item-emphasis-border-color);
+    border-color: var(--h-border-strong);
   }
 
   &:has(button, a) {
     @media (hover: hover) {
       &:where(:hover) {
-        background-color: var(--h-list-item-background-color-hover);
+        background-color: var(--h-interactive-neutral-surface-subtle-hover);
       }
     }
 
     &:where(:active) {
-      background-color: var(--h-list-item-background-color-active);
+      background-color: var(--h-interactive-neutral-surface-subtle-active);
     }
   }
 
@@ -56,7 +56,7 @@
     display: flex;
     align-items: center;
     position: absolute;
-    right: var(--h-list-item-padding);
+    right: var(--h-list-item-functional-padding);
     top: calc(50% - 24px);
 
     &:where(:not(.hearth-Card &)) {
