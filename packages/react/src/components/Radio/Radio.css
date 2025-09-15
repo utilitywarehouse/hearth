@@ -1,4 +1,4 @@
-@import url('../../styles/tokens-legacy/radio.css');
+@import url('../../styles/tokens/radio.css');
 
 .hearth-Radio {
   display: flex;
@@ -26,14 +26,14 @@
   display: block;
   height: 20px;
   width: 20px;
-  background-color: var(--h-radio-unchecked-background-color);
+  background-color: var(--h-surface-neutral-strong);
   border-radius: var(--h-radio-border-radius);
   border-style: solid;
   border-width: var(--h-radio-border-width);
-  border-color: var(--h-radio-unchecked-border-color);
+  border-color: var(--h-border-strong);
 
   &:where(:focus-visible) {
-    outline: 2px solid var(--h-focus-border);
+    outline: 2px solid var(--h-focus-primary);
     outline-offset: 1px;
   }
 
