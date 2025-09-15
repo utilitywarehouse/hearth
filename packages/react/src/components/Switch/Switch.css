@@ -1,4 +1,4 @@
-@import url('../../styles/tokens-legacy/switch.css');
+@import url('../../styles/tokens/switch.css');
 
 .hearth-Switch {
   display: flex;
@@ -13,7 +13,7 @@
     vertical-align: top;
     flex-shrink: 0;
     padding: var(--h-switch-padding);
-    background-color: var(--h-switch-unchecked-background-color);
+    background-color: var(--h-interactive-functional-surface-strong-default);
     border: none;
     border-radius: var(--h-switch-radius);
     -webkit-tap-highlight-color: transparent;
@@ -25,16 +25,16 @@
 
     @media (hover: hover) {
       &:where(:hover):not([aria-disabled]) {
-        background-color: var(--h-switch-unchecked-background-color-hover);
+        background-color: var(--h-interactive-functional-surface-strong-hover);
       }
     }
 
     &:where([data-state='checked']) {
-      background-color: var(--h-switch-checked-background-color);
+      background-color: var(--h-interactive-brand-surface-strong-default);
 
       @media (hover: hover) {
         &:where(:hover):not([aria-disabled]) {
-          background-color: var(--h-switch-checked-background-color-hover);
+          background-color: var(--h-interactive-brand-surface-strong-hover);
         }
       }
     }
@@ -60,7 +60,7 @@
     }
 
     &:where(:focus-visible) {
-      outline: 2px solid var(--h-focus-border);
+      outline: 2px solid var(--h-focus-primary);
       outline-offset: 1px;
     }
 
@@ -68,9 +68,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: var(--h-switch-circle-background-color);
+      background-color: var(--h-surface-neutral-strong);
       border-radius: var(--h-switch-radius);
-      color: var(--h-switch-unchecked-icon-color);
+      color: var(--h-icon-primary);
       position: absolute;
       left: var(--h-switch-padding);
       transition: transform 200ms ease-in-out;
@@ -78,7 +78,6 @@
 
       &:where([data-state='checked']) {
         transform: translateX(var(--h-switch-thumb-translate-x));
-        color: var(--h-switch-checked-icon-color);
 
         & :where(.hearth-CloseIcon) {
           display: none;
