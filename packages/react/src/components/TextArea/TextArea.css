@@ -1,4 +1,4 @@
-@import url('../../styles/tokens-legacy/input.css');
+@import url('../../styles/tokens/input.css');
 
 .hearth-TextArea {
   & :where(.hearth-TextAreaRoot) {
@@ -14,10 +14,10 @@
     padding: var(--h-input-padding-vertical) var(--h-space-100) var(--h-space-100)
       var(--h-input-padding-horizontal);
     border-radius: var(--h-input-border-radius);
-    border-color: var(--h-input-border-color);
+    border-color: var(--h-border-strong);
     border-width: var(--h-input-border-width);
     border-style: solid;
-    background-color: var(--h-input-background-color);
+    background-color: var(--h-surface-neutral-strong);
 
     /* Allows the `resize` property to work on the div */
     overflow: hidden;
@@ -28,9 +28,9 @@
     --h-input-border-color-focus: var(--h-input-border-color);
 
     &:where(:has(textarea[readonly]):not([data-disabled] &)) {
-      border-color: var(--h-input-border-color-read-only);
+      border-color: var(--h-border-subtle);
 
-      --h-input-border-color-focus: var(--h-input-border-color-read-only);
+      --h-input-border-color-focus: var(--h-border-subtle);
     }
 
     &:where(:has(textarea:disabled, textarea[readonly])) {
@@ -38,15 +38,15 @@
     }
 
     :where([data-validation-status='valid']:not(:has(textarea[readonly], textarea:disabled))) & {
-      border-color: var(--h-input-border-color-valid);
+      border-color: var(--h-feedback-positive-border);
 
-      --h-input-border-color-focus: var(--h-input-border-color-valid);
+      --h-input-border-color-focus: var(--h-feedback-positive-border);
     }
 
     :where([data-validation-status='invalid']:not(:has(textarea[readonly], textarea:disabled))) & {
-      border-color: var(--h-input-border-color-invalid);
+      border-color: var(--h-feedback-danger-border);
 
-      --h-input-border-color-focus: var(--h-input-border-color-invalid);
+      --h-input-border-color-focus: var(--h-feedback-danger-border);
     }
 
     &:where(:has(textarea:focus)) {
@@ -100,7 +100,7 @@
       }
 
       &::placeholder {
-        color: var(--h-input-placeholder-color);
+        color: var(--h-text-secondary);
       }
 
       &:where([data-resize='none']) {
