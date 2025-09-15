@@ -1,4 +1,4 @@
-@import url('../../styles/tokens-legacy/checkbox.css');
+@import url('../../styles/tokens/checkbox.css');
 
 .hearth-Checkbox {
   /* we do this so that the gap between the checkbox & label is clickable */
@@ -26,10 +26,9 @@
   width: 24px;
   border: none;
   border-radius: var(--h-checkbox-border-radius);
-  background-color: var(--h-checkbox-unchecked-background-color);
   outline: none;
-  box-shadow: 0 0 0 var(--h-checkbox-outline-width) var(--h-checkbox-outline-color);
-  color: var(--h-checkbox-checked-icon-color);
+  box-shadow: 0 0 0 var(--h-checkbox-outline-width) var(--h-checkbox-outline-color, transparent);
+  color: var(--h-icon-inverted);
 
   &::before {
     content: '';
@@ -38,21 +37,16 @@
     width: 24px;
     border-radius: var(--h-checkbox-border-radius);
     background-color: inherit;
-    box-shadow: inset 0 0 0 var(--h-checkbox-border-width)
-      var(--h-checkbox-box-shadow-color, transparent);
+    box-shadow: inset 0 0 0 var(--h-checkbox-border-width) var(--h-border-strong);
     outline: 2px solid transparent;
   }
 
   &:where([data-state='unchecked']) {
-    background-color: var(--h-checkbox-unchecked-background-color);
-
-    --h-checkbox-box-shadow-color: var(--h-checkbox-unchecked-border-color);
+    background-color: var(--h-surface-neutral-strong);
   }
 
   &:where([data-state='checked']) {
     background-color: var(--h-checkbox-checked-background-color);
-
-    --h-checkbox-box-shadow-color: var(--h-checkbox-checked-border-color);
   }
 
   @media (hover: hover) {
@@ -66,7 +60,7 @@
   }
 
   &:where(:focus-visible) {
-    outline: 2px solid var(--h-focus-border);
+    outline: 2px solid var(--h-focus-primary);
     outline-offset: 1px;
   }
 
