@@ -956,8 +956,8 @@ importers:
         specifier: 0.1.23
         version: 0.1.23(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       '@utilitywarehouse/hearth-react-native-icons':
-        specifier: 0.1.0
-        version: 0.1.0(react-native-svg@15.12.1(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+        specifier: 0.2.0
+        version: 0.2.0(react-native-svg@15.12.1(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
     devDependencies:
       '@babel/plugin-proposal-export-namespace-from':
         specifier: ^7.18.9
@@ -993,8 +993,8 @@ importers:
         specifier: workspace:^
         version: link:../fonts
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:^
-        version: link:../react-icons
+        specifier: 0.2.0
+        version: 0.2.0(react@19.1.0)
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:^
         version: link:../tokens
@@ -5718,8 +5718,8 @@ packages:
     peerDependencies:
       react: 19.1.0
 
-  '@utilitywarehouse/hearth-react-native-icons@0.1.0':
-    resolution: {integrity: sha512-x2jNj+po9MNPbuMto4VZJDgjWy2SjRbwu+3D5Ybyzqvy9RdG+PcDIA8X1vYocqOGSuMddgW470V0uHlDWPRjJQ==}
+  '@utilitywarehouse/hearth-react-native-icons@0.2.0':
+    resolution: {integrity: sha512-/XURAtQbWhE1VseisImbyTw/ox/p5UyaMb4X5ao1csQikeQ6MG+cQSx6gog2wi7E3kSwtkUddqab5CADcKzeQw==}
     peerDependencies:
       react: 19.1.0
       react-native: '>=0.70.6'
@@ -19846,7 +19846,7 @@ snapshots:
     dependencies:
       react: 19.1.0
 
-  '@utilitywarehouse/hearth-react-native-icons@0.1.0(react-native-svg@15.12.1(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)':
+  '@utilitywarehouse/hearth-react-native-icons@0.2.0(react-native-svg@15.12.1(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)':
     dependencies:
       react: 19.1.0
       react-native: 0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0)
