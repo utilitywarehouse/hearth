@@ -33,6 +33,7 @@ export { default as overlay } from './overlay';
 export { default as pagination } from './pagination';
 export { default as parts } from './parts';
 export { default as pill } from './pill';
+export { default as progressBar } from './progress-bar';
 export { default as progressStepper } from './progress-stepper';
 export { default as radio } from './radio';
 export { default as sectionHeader } from './section-header';

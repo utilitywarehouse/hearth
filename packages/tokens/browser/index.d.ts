@@ -37,6 +37,7 @@ export * from './overlay.js';
 export * from './pagination.js';
 export * from './parts.js';
 export * from './pill.js';
+export * from './progress-bar.js';
 export * from './progress-stepper.js';
 export * from './radio.js';
 export * from './section-header.js';
