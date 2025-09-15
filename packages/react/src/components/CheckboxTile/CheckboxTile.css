@@ -1,4 +1,4 @@
-@import url('../../styles/tokens-legacy/checkbox.css');
+@import url('../../styles/tokens/checkbox.css');
 
 .hearth-CheckboxTile {
   display: flex;
@@ -8,9 +8,9 @@
   flex: 1 1 0%;
   min-width: var(--h-checkbox-tile-min-width);
   max-width: var(--h-checkbox-tile-max-width);
-  background-color: var(--h-checkbox-tile-background-color);
+  background-color: var(--h-surface-neutral-strong);
   border-radius: var(--h-checkbox-tile-border-radius);
-  box-shadow: inset 0 0 0 var(--h-checkbox-tile-border-width) var(--h-checkbox-tile-border-color);
+  box-shadow: inset 0 0 0 var(--h-checkbox-tile-border-width) var(--h-border-subtle);
   cursor: pointer;
 
   * {
@@ -26,8 +26,7 @@
   }
 
   &:where(:has([data-state='checked'])) {
-    box-shadow: inset 0 0 0 var(--h-checkbox-tile-border-width-selected)
-      var(--h-checkbox-tile-border-color-selected);
+    box-shadow: inset 0 0 0 var(--h-checkbox-tile-border-width-selected) var(--h-border-strong);
   }
 
   &:where(:has(:focus-visible)) {
