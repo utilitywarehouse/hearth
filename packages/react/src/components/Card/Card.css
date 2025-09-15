@@ -1,10 +1,11 @@
-@import url('../../styles/tokens-legacy/card.css');
+@import url('../../styles/tokens/card.css');
 
 .hearth-Card {
   position: relative;
   background-color: var(--h-card-background-color);
   border-radius: var(--h-card-border-radius);
-  border: var(--h-card-border-width) solid var(--h-card-border-color);
+  border: var(--h-card-border-width, var(--h-card-brand-border-width)) solid
+    var(--h-card-border-color, var(--h-border-strong));
   padding: var(--h-card-padding-mobile);
 
   @media (--h-tablet) {
@@ -25,99 +26,55 @@
   }
 
   &:where(.hearth-variant-emphasis) {
-    --h-card-border-color: var(--h-card-brand-emphasis-border-color);
-    --h-card-border-width: var(--h-card-brand-border-width);
     --h-card-background-color: var(--h-card-emphasis-background-color);
-
-    &:where([data-colorscheme='white'], [data-colorscheme='warm-white']) {
-      --h-card-border-color: var(--h-card-neutral-emphasis-border-color);
-      --h-card-border-width: var(--h-card-neutral-emphasis-border-width);
-    }
   }
 
   &:where(.hearth-variant-subtle) {
-    --h-card-border-color: var(--h-card-brand-subtle-border-color);
-    --h-card-border-width: var(--h-card-brand-border-width);
     --h-card-background-color: var(--h-card-subtle-background-color);
 
     &:where([data-colorscheme='white'], [data-colorscheme='warm-white']) {
-      --h-card-border-color: var(--h-card-neutral-subtle-border-color);
+      --h-card-border-color: var(--h-border-subtle);
       --h-card-border-width: var(--h-card-neutral-subtle-border-width);
     }
   }
 
   &:where([data-colorscheme='white']) {
-    background-color: var(--h-card-neutral-white-background-color);
+    --h-card-emphasis-background-color: var(--h-surface-neutral-strong);
+    --h-card-subtle-background-color: var(--h-surface-neutral-strong);
   }
 
   &:where([data-colorscheme='warm-white']) {
-    background-color: var(--h-card-neutral-warm-white-background-color);
+    --h-card-emphasis-background-color: var(--h-surface-neutral-subtle);
+    --h-card-subtle-background-color: var(--h-surface-neutral-subtle);
   }
 
   &:where([data-colorscheme='purple']) {
-    --h-card-emphasis-background-color: var(--h-card-brand-emphasis-purple-background-color);
-    --h-card-subtle-background-color: var(--h-card-brand-subtle-purple-background-color);
+    --h-card-emphasis-background-color: var(--h-surface-brand-default);
+    --h-card-subtle-background-color: var(--h-surface-brand-subtle);
   }
 
   &:where([data-colorscheme='energy-blue']) {
-    --h-card-emphasis-background-color: var(--h-card-brand-emphasis-energy-blue-background-color);
-    --h-card-subtle-background-color: var(--h-card-brand-subtle-energy-blue-background-color);
+    --h-card-emphasis-background-color: var(--h-surface-energy-default);
+    --h-card-subtle-background-color: var(--h-surface-energy-subtle);
   }
 
   &:where([data-colorscheme='broadband-green']) {
-    --h-card-emphasis-background-color: var(
-      --h-card-brand-emphasis-broadband-green-background-color
-    );
-    --h-card-subtle-background-color: var(--h-card-brand-subtle-broadband-green-background-color);
+    --h-card-emphasis-background-color: var(--h-surface-broadband-default);
+    --h-card-subtle-background-color: var(--h-surface-broadband-subtle);
   }
 
   &:where([data-colorscheme='mobile-rose']) {
-    --h-card-emphasis-background-color: var(--h-card-brand-emphasis-mobile-rose-background-color);
-    --h-card-subtle-background-color: var(--h-card-brand-subtle-mobile-rose-background-color);
+    --h-card-emphasis-background-color: var(--h-surface-mobile-default);
+    --h-card-subtle-background-color: var(--h-surface-mobile-subtle);
   }
 
   &:where([data-colorscheme='insurance-orange']) {
-    --h-card-emphasis-background-color: var(
-      --h-card-brand-emphasis-insurance-orange-background-color
-    );
-    --h-card-subtle-background-color: var(--h-card-brand-subtle-insurance-orange-background-color);
+    --h-card-emphasis-background-color: var(--h-surface-insurance-default);
+    --h-card-subtle-background-color: var(--h-surface-insurance-subtle);
   }
 
   &:where([data-colorscheme='cashback-lilac']) {
-    --h-card-emphasis-background-color: var(
-      --h-card-brand-emphasis-cashback-lilac-background-color
-    );
-    --h-card-subtle-background-color: var(--h-card-brand-subtle-cashback-lilac-background-color);
-  }
-
-  &:where([data-selectable]) {
-    @media (hover: hover) {
-      cursor: pointer;
-
-      &:where(:hover) {
-        &:where(.hearth-color-scheme-white) {
-          background-color: var(--h-card-neutral-white-background-color-hover);
-        }
-
-        &:where(.hearth-color-scheme-warm-white) {
-          background-color: var(--h-card-neutral-warm-white-background-color-hover);
-        }
-      }
-    }
-
-    &:where(:active) {
-      &:where(.hearth-color-scheme-white) {
-        background-color: var(--h-card-neutral-white-background-color-active);
-      }
-
-      &:where(.hearth-color-scheme-warm-white) {
-        background-color: var(--h-card-neutral-warm-white-background-color-active);
-      }
-    }
-
-    &:where(:has(:focus-visible)) {
-      outline: 2px solid var(--h-focus-border);
-      outline-offset: 1px;
-    }
+    --h-card-emphasis-background-color: var(--h-surface-cashback-default);
+    --h-card-subtle-background-color: var(--h-surface-cashback-subtle);
   }
 }
