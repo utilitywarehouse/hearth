@@ -24,32 +24,32 @@ web experiences.
   - [Import CSS](#import-css)
   - [Start building](#start-building)
 - [CSS reset and tokens](#css-reset-and-tokens)
+- [Hearth Icons](#hearth-icons)
 - [Portals](#portals)
 
 ## Getting started
 
 ### Install Hearth
 
-There are 3 libraries you'll need to get started:
+There are 2 libraries you'll need to get started:
 
-- Hearth Fonts
 - Hearth React
-- Hearth React Icons
+- Hearth Fonts
 
 ```console
-yarn add @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react @utilitywarehouse/hearth-react-icons
+yarn add @utilitywarehouse/hearth-react @utilitywarehouse/hearth-fonts
 ```
 
 or
 
 ```console
-npm install @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react @utilitywarehouse/hearth-react-icons
+npm install @utilitywarehouse/hearth-react @utilitywarehouse/hearth-fonts
 ```
 
 or
 
 ```console
-pnpm add @utilitywarehouse/hearth-react @utilitywarehouse/hearth-fonts @utilitywarehouse/hearth-react-icons
+pnpm add @utilitywarehouse/hearth-react @utilitywarehouse/hearth-fonts
 ```
 
 ### Import CSS
@@ -84,6 +84,14 @@ export default function MyApp() {
 
 The Heart CSS Reset and Hearth Tokens CSS custom properties are now included in
 the Heart React global styles, so you don't need to install them separately.
+
+## Hearth Icons
+
+The Hearth React Icons library is a dependency of Hearth React. If you need
+direct access to Hearth Icons you will need to install it yourself. The Hearth
+React package will always attempt to keep up to date with the latest release,
+so it's a good idea to update your own Hearth Icons dependency anytime you
+update your Hearth React dependency.
 
 ## Portals
 
