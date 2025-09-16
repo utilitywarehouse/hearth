@@ -8,7 +8,10 @@ const NATIVE_ONLY_COMPONENTS = ['bottom-navigation', 'top-navigation', 'indicato
 // available. Use `token.path` instead.
 export const filters = {
   isStringToken: token => token.value && typeof token.alias === 'string',
-  isFont: token => token.path.includes('font'),
+  isFont: token =>
+    token.path.includes('font') ||
+    (token.filePath.includes('primitive') && token.path.includes('line-height')) ||
+    (token.filePath.includes('primitive') && token.path.includes('letter-spacing')),
   isFontSize: token => token.attributes.category === 'font' && token.attributes.type === 'size',
   isLayoutSpacing: token => token.path.includes('layout') && token.path.includes('spacing'),
 
@@ -100,6 +103,32 @@ export const filters = {
     return token.filePath.includes('semantic');
   },
   isComponentToken: token => {
+    // Include typography components
+    if (token.path.includes('typography')) {
+      if (token.path.includes('font-family')) {
+        // this is one alias too far, we can use primitive tokens for this
+        return false;
+      }
+      // font-weight does not change across devices, so we only need one
+      // instance of the font-weight per variant/size, in this case we'll use
+      // the initial mobile value
+      if (token.path.includes('font-weight') && !token.path.includes('mobile')) {
+        return false;
+      }
+      // body-text values do not change across devices, so we only need one
+      // instance of the font-weight per variant/size, in this case we'll use
+      // the initial mobile value
+      if (token.path.includes('body-text') && !token.path.includes('mobile')) {
+        return false;
+      }
+      // detail-text values do not change across devices, so we only need one
+      // instance of the font-weight per variant/size, in this case we'll use
+      // the initial mobile value
+      if (token.path.includes('detail-text') && !token.path.includes('mobile')) {
+        return false;
+      }
+      return token;
+    }
     // Exclude native only component tokens
     if (token.path.some(el => NATIVE_ONLY_COMPONENTS.includes(el))) {
       return false;

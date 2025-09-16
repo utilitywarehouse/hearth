@@ -227,29 +227,9 @@ export function generateCssTokens() {
               filter: filters.isFont,
             },
             {
-              destination: 'line-height.css',
-              format: 'css/variables',
-              filter: filters.isPrimitiveLineHeight,
-            },
-            {
-              destination: 'letter-spacing.css',
-              format: 'css/variables',
-              filter: filters.isPrimitiveLetterSpacing,
-            },
-            {
-              destination: 'typography.css',
-              format: 'css/variables',
-              filter: filters.isTypography,
-            },
-            {
               destination: 'border.css',
               format: 'css/variables',
               filter: filters.isPrimitiveBorder,
-            },
-            {
-              destination: 'opacity.css',
-              format: 'css/variables',
-              filter: filters.isOpacity,
             },
             {
               destination: 'semantic.css',
