@@ -1,15 +1,15 @@
-:where(.hearth-r-text-transform-none) {
+:where(.hearth-text-transform-none) {
   text-transform: none;
 }
 
-:where(.hearth-r-text-transform-capitalize) {
+:where(.hearth-text-transform-capitalize) {
   text-transform: capitalize;
 }
 
-:where(.hearth-r-text-transform-uppercase) {
+:where(.hearth-text-transform-uppercase) {
   text-transform: uppercase;
 }
 
-:where(.hearth-r-text-transform-lowercase) {
+:where(.hearth-text-transform-lowercase) {
   text-transform: lowercase;
 }
