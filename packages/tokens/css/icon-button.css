@@ -3,6 +3,9 @@
  */
 
 :root {
+  --h-alert-icon-button-unstyled-foreground-color: var(--h-color-grey-1000);
+  --h-alert-icon-button-unstyled-foreground-color-active: var(--h-color-grey-800);
+  --h-alert-icon-button-unstyled-foreground-color-hover: var(--h-color-grey-900);
   --h-icon-button-border-radius: var(--h-border-radius-md);
   --h-icon-button-md-height: 48px;
   --h-icon-button-md-padding-horizontal: var(--h-space-150);

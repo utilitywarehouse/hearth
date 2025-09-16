@@ -7,6 +7,9 @@ export default {
   borderWidth: 2,
   checked: {
     backgroundColor: '#101010',
+    icon: {
+      color: '#fcfbf2',
+    },
   },
   gap: 12,
   group: {

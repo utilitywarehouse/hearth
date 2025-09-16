@@ -6,6 +6,7 @@
   --h-checkbox-border-radius: var(--h-border-radius-xs);
   --h-checkbox-border-width: var(--h-border-width-2);
   --h-checkbox-checked-background-color: var(--h-color-grey-1000);
+  --h-checkbox-checked-icon-color: var(--h-color-warm-white-50);
   --h-checkbox-gap: var(--h-space-150);
   --h-checkbox-group-gap: var(--h-space-200);
   --h-checkbox-group-stack-gap: var(--h-space-250);

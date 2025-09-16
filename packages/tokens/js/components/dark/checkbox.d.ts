@@ -6,6 +6,9 @@ declare const _default: {
   readonly borderWidth: 2;
   readonly checked: {
     readonly backgroundColor: '#ebebeb';
+    readonly icon: {
+      readonly color: '#101010';
+    };
   };
   readonly gap: 8;
   readonly group: {

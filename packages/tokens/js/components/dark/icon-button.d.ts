@@ -2,6 +2,13 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
+  readonly iconButton: {
+    readonly unstyled: {
+      readonly foregroundColor: '#101010';
+      readonly foregroundColorActive: '#3f3f3f';
+      readonly foregroundColorHover: '#3a3837';
+    };
+  };
   readonly borderRadius: 8;
   readonly md: {
     readonly height: 48;
