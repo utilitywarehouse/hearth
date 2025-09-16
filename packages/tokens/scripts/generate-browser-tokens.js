@@ -1,5 +1,4 @@
 import StyleDictionary from 'style-dictionary';
-import { loadJSON } from './helpers/load-json.js';
 import { filters } from './helpers/filters.js';
 import { DELIMITER, normalizeTokenPath } from './helpers/normalize-token.js';
 import { camelCase } from './helpers/camel-case.js';
@@ -87,21 +86,6 @@ StyleDictionary.registerFormat({
 });
 
 /**
- * Generates browser tokens for each component in the design system.
- * Each component gets its own JavaScript file containing its specific design tokens.
- * The files are filtered to only include light theme tokens from the component category.
- */
-const componentJson = loadJSON('./raw/hearth-components--tokens---component.json');
-const componentFiles = Object.keys(componentJson.light).map(componentName => ({
-  destination: `${componentName}.ts`,
-  format: 'browser/variables',
-  filter: token =>
-    token.filePath.includes('component') &&
-    token.path.includes(componentName) &&
-    token.path.includes('light'),
-}));
-
-/**
  * Generates browser tokens for the design system.
  * This function sets up the StyleDictionary configuration and runs the build process.
  */
@@ -126,37 +110,12 @@ export function generateBrowserTokens() {
             {
               destination: 'space.ts',
               format: 'browser/variables',
-              filter: filters.isPrimitiveSpace,
-            },
-            {
-              destination: 'layout.ts',
-              format: 'browser/variables',
-              filter: filters.isLayoutSpacing,
+              filter: filters.isSpace,
             },
             {
               destination: 'font.ts',
               format: 'browser/variables',
               filter: filters.isFont,
-            },
-            {
-              destination: 'line-height.ts',
-              format: 'browser/variables',
-              filter: filters.isPrimitiveLineHeight,
-            },
-            {
-              destination: 'letter-spacing.ts',
-              format: 'browser/variables',
-              filter: filters.isPrimitiveLetterSpacing,
-            },
-            {
-              destination: 'opacity.ts',
-              format: 'browser/variables',
-              filter: filters.isOpacity,
-            },
-            {
-              destination: 'typography.ts',
-              format: 'browser/variables',
-              filter: filters.isTypography,
             },
             {
               destination: 'border.ts',
@@ -168,7 +127,11 @@ export function generateBrowserTokens() {
               format: 'browser/variables',
               filter: filters.isSemantic,
             },
-            ...componentFiles,
+            {
+              destination: 'components.ts',
+              format: 'browser/variables',
+              filter: filters.isComponentToken,
+            },
           ],
           actions: ['create_browser_index'],
         },
