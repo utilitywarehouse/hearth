@@ -22,7 +22,7 @@ const styles = StyleSheet.create(theme => ({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.components.checkbox.checked.backgroundColor,
+    backgroundColor: theme.color.surface.neutral.strong,
     borderColor: theme.color.border.strong,
     borderWidth: theme.components.checkbox.borderWidth,
     borderRadius: theme.components.checkbox.borderRadius,
