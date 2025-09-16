@@ -39,6 +39,7 @@ export const filters = {
       return token;
     }
   },
+  // Identifies colour tokens
   isColor: token => token.type === 'color',
 
   // Identifies primitive space tokens (spacing values from primitive tokens)
@@ -58,10 +59,7 @@ export const filters = {
     if (token.type === 'color' && (token.path[1] === 'dark' || token.path[0] === 'dark')) {
       return false;
     }
-    return (
-      (token.filePath.includes('primitive') || token.filePath.includes('semantic')) &&
-      token.type === 'color'
-    );
+    return token.filePath.includes('primitive') && token.type === 'color';
   },
   isOpacity: token => token.path.includes('opacity'),
 
