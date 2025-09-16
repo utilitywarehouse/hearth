@@ -1,5 +1,3 @@
-@import url('../../styles/tokens/icon-button.css');
-
 .hearth-IconButton {
   height: var(--h-icon-button-size);
   width: var(--h-icon-button-size);

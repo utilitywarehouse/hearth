@@ -1,5 +1,3 @@
-@import url('../../styles/tokens/checkbox.css');
-
 .hearth-Checkbox {
   /* we do this so that the gap between the checkbox & label is clickable */
   .hearth-Label {

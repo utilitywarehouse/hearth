@@ -114,5 +114,5 @@
   --h-text-brand: var(--h-color-purple-700);
   --h-text-inverted: var(--h-color-warm-white-50);
   --h-text-primary: var(--h-color-grey-1000);
-  --h-text-secondary: var(--h-color-grey-500);
+  --h-text-secondary: var(--h-color-grey-600);
 }

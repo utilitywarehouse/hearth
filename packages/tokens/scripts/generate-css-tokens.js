@@ -3,15 +3,12 @@ import path from 'path';
 import StyleDictionary from 'style-dictionary';
 import { filters } from './helpers/filters.js';
 import { kebabCase } from './helpers/kebab-case.js';
-import { loadJSON } from './helpers/load-json.js';
 import { normalizeTokenName } from './helpers/normalize-token.js';
 import { px } from './helpers/px.js';
 import { unwrapAlias } from './helpers/unwrap-alias.js';
 
 // Path where CSS files will be generated
 const BUILD_PATH = './css/';
-// Components that have device-specific variants (mobile, tablet, desktop)
-const VALID_DEVICE_COMPONENTS = ['card', 'dialog', 'modal'];
 // Prefix used for all CSS custom properties
 const PREFIX = 'h';
 
@@ -193,44 +190,6 @@ StyleDictionary.registerTransformGroup({
   ],
 });
 
-/**
- * Generates CSS files for each component in the design system.
- * Each component gets its own CSS file containing its specific design tokens.
- * The files are filtered to only include light theme tokens from the component category.
- */
-const componentJson = loadJSON('./raw/hearth-components--tokens---component.json');
-const componentFiles = Object.keys(componentJson.light).map(componentName => ({
-  destination: `${componentName}.css`,
-  format: 'css/variables',
-  filter: token => {
-    return (
-      token.filePath.includes('component') &&
-      token.path.includes(componentName) &&
-      token.attributes.category === 'light'
-    );
-  },
-}));
-
-/**
- * Generates CSS files for device-specific component variants.
- * Currently only supports the 'card' component with mobile, tablet, and desktop variants.
- * Each device gets its own CSS file containing the responsive design tokens.
- */
-const deviceJson = loadJSON('./raw/hearth-components--tokens---device.json');
-const deviceFiles = Object.keys(deviceJson).map(device => {
-  return {
-    destination: `${device}.css`,
-    format: 'css/variables',
-    filter: token => {
-      return (
-        token.filePath.includes('device') &&
-        token.path.includes(device) &&
-        token.path.some(el => VALID_DEVICE_COMPONENTS.includes(el))
-      );
-    },
-  };
-});
-
 export function generateCssTokens() {
   console.log('Generating CSS tokens...');
   return [
@@ -255,12 +214,7 @@ export function generateCssTokens() {
             {
               destination: 'space.css',
               format: 'css/variables',
-              filter: filters.isPrimitiveSpace,
-            },
-            {
-              destination: 'layout.css',
-              format: 'css/variables',
-              filter: filters.isLayoutSpacing,
+              filter: filters.isSpace,
             },
             {
               destination: 'font.css',
@@ -268,37 +222,20 @@ export function generateCssTokens() {
               filter: filters.isFont,
             },
             {
-              destination: 'line-height.css',
-              format: 'css/variables',
-              filter: filters.isPrimitiveLineHeight,
-            },
-            {
-              destination: 'letter-spacing.css',
-              format: 'css/variables',
-              filter: filters.isPrimitiveLetterSpacing,
-            },
-            {
-              destination: 'typography.css',
-              format: 'css/variables',
-              filter: filters.isTypography,
-            },
-            {
               destination: 'border.css',
               format: 'css/variables',
               filter: filters.isPrimitiveBorder,
-            },
-            {
-              destination: 'opacity.css',
-              format: 'css/variables',
-              filter: filters.isOpacity,
             },
             {
               destination: 'semantic.css',
               format: 'css/variables',
               filter: filters.isSemantic,
             },
-            ...componentFiles,
-            ...deviceFiles,
+            {
+              destination: 'components.css',
+              format: 'css/variables',
+              filter: filters.isComponentToken,
+            },
           ],
           actions: ['create_css_index'],
         },
