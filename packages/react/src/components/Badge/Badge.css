@@ -6,12 +6,12 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  font-family: var(--h-font-family-detail);
-  font-size: var(--h-font-size-90);
-  font-weight: var(--h-font-weight-regular);
+  font-family: var(--h-font-family-body);
+  font-size: var(--h-badge-font-size);
+  font-weight: var(--h-font-weight-semibold);
+  line-height: var(--h-badge-line-height);
   font-style: normal;
   flex-shrink: 0;
-  line-height: var(--h-badge-line-height);
 
   /* Make sure that the height is not stretched in a Flex/Grid layout */
   height: fit-content;
@@ -39,11 +39,13 @@
     &:where(.hearth-r-size-md) {
       --h-badge-padding-block: var(--h-badge-md-padding-vertical);
       --h-badge-line-height: var(--h-body-text-md-line-height);
+      --h-badge-font-size: var(--h-body-text-md-font-size);
     }
 
     &:where(.hearth-r-size-sm) {
       --h-badge-padding-block: var(--h-badge-sm-padding-vertical);
       --h-badge-line-height: var(--h-body-text-sm-line-height);
+      --h-badge-font-size: var(--h-body-text-sm-font-size);
     }
   }
 
