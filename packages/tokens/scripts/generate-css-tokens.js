@@ -214,12 +214,7 @@ export function generateCssTokens() {
             {
               destination: 'space.css',
               format: 'css/variables',
-              filter: filters.isPrimitiveSpace,
-            },
-            {
-              destination: 'layout.css',
-              format: 'css/variables',
-              filter: filters.isLayoutSpacing,
+              filter: filters.isSpace,
             },
             {
               destination: 'font.css',

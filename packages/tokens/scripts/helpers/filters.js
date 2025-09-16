@@ -13,45 +13,18 @@ export const filters = {
     (token.filePath.includes('primitive') && token.path.includes('line-height')) ||
     (token.filePath.includes('primitive') && token.path.includes('letter-spacing')),
   isFontSize: token => token.attributes.category === 'font' && token.attributes.type === 'size',
-  isLayoutSpacing: token => token.path.includes('layout') && token.path.includes('spacing'),
 
-  // Identifies typography-related tokens with specific exclusions:
-  // - Excludes font-family tokens (uses primitive tokens instead)
-  // - Only includes mobile font-weight tokens (as they don't change across devices)
-  // - Only includes mobile body-text tokens (as they don't change across devices)
-  // - Only includes mobile detail-text tokens (as they don't change across devices)
-  isTypography: token => {
-    if (token.path.includes('typography')) {
-      if (token.path.includes('font-family')) {
-        // this is one alias too far, we can use primitive tokens for this
-        return false;
-      }
-      // font-weight does not change across devices, so we only need one
-      // instance of the font-weight per variant/size, in this case we'll use
-      // the initial mobile value
-      if (token.path.includes('font-weight') && !token.path.includes('mobile')) {
-        return false;
-      }
-      // body-text values do not change across devices, so we only need one
-      // instance of the font-weight per variant/size, in this case we'll use
-      // the initial mobile value
-      if (token.path.includes('body-text') && !token.path.includes('mobile')) {
-        return false;
-      }
-      // detail-text values do not change across devices, so we only need one
-      // instance of the font-weight per variant/size, in this case we'll use
-      // the initial mobile value
-      if (token.path.includes('detail-text') && !token.path.includes('mobile')) {
-        return false;
-      }
-      return token;
-    }
-  },
   // Identifies colour tokens
   isColor: token => token.type === 'color',
 
   // Identifies primitive space tokens (spacing values from primitive tokens)
   isPrimitiveSpace: token => token.filePath.includes('primitive') && token.path.includes('space'),
+  // Identifies layout space tokens
+  isLayoutSpacing: token => token.path.includes('layout') && token.path.includes('spacing'),
+  // Identifies combined spacing tokens
+  isSpace: token =>
+    (token.filePath.includes('primitive') && token.path.includes('space')) ||
+    (token.path.includes('layout') && token.path.includes('spacing')),
 
   // Identifies primitive border tokens (border width and radius from primitive tokens)
   isPrimitiveBorder: token =>
@@ -104,6 +77,11 @@ export const filters = {
   },
   isComponentToken: token => {
     // Include typography components
+    // Identifies typography-related tokens with specific exclusions:
+    // - Excludes font-family tokens (uses primitive tokens instead)
+    // - Only includes mobile font-weight tokens (as they don't change across devices)
+    // - Only includes mobile body-text tokens (as they don't change across devices)
+    // - Only includes mobile detail-text tokens (as they don't change across devices)
     if (token.path.includes('typography')) {
       if (token.path.includes('font-family')) {
         // this is one alias too far, we can use primitive tokens for this
