@@ -3,6 +3,9 @@ export const checkbox = {
   borderWidth: 'var(--h-checkbox-border-width)',
   checked: {
     backgroundColor: 'var(--h-checkbox-checked-background-color)',
+    icon: {
+      color: 'var(--h-checkbox-checked-icon-color)',
+    },
   },
   gap: 'var(--h-checkbox-gap)',
   group: {

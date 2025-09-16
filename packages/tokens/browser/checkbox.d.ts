@@ -3,6 +3,9 @@ export declare const checkbox: {
   readonly borderWidth: 'var(--h-checkbox-border-width)';
   readonly checked: {
     readonly backgroundColor: 'var(--h-checkbox-checked-background-color)';
+    readonly icon: {
+      readonly color: 'var(--h-checkbox-checked-icon-color)';
+    };
   };
   readonly gap: 'var(--h-checkbox-gap)';
   readonly group: {
