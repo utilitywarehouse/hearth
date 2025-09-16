@@ -10,10 +10,10 @@
   }
 
   &:where([data-status='valid']) {
-    color: var(--h-text-color-valid);
+    color: var(--h-feedback-positive-foreground-subtle);
   }
 
   &:where([data-status='invalid']) {
-    color: var(--h-text-color-invalid);
+    color: var(--h-feedback-danger-foreground-subtle);
   }
 }

@@ -2,20 +2,20 @@
   font-family: var(--h-font-family-detail);
   font-weight: var(--h-detail-text-font-weight);
 
-  &:where(.hearth-text-color-text) {
-    color: var(--h-text-color);
+  &:where(.hearth-color-text) {
+    color: var(--h-text-primary);
   }
 
-  &:where(.hearth-text-color-valid) {
-    color: var(--h-text-color-valid);
+  &:where(.hearth-color-valid) {
+    color: var(--h-feedback-positive-foreground-subtle);
   }
 
-  &:where(.hearth-text-color-invalid) {
-    color: var(--h-text-color-invalid);
+  &:where(.hearth-color-invalid) {
+    color: var(--h-feedback-danger-foreground-subtle);
   }
 
   &:where([data-inverted]) {
-    color: var(--h-text-color-inverted);
+    color: var(--h-text-inverted);
   }
 
   @breakpoints {

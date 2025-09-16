@@ -1,4 +1,4 @@
-@import url('../../styles/tokens-legacy/inline-link.css');
+@import url('../../styles/tokens/inline-link.css');
 
 .hearth-InlineLink {
   cursor: pointer;
@@ -31,11 +31,11 @@
   }
 
   &:where(:focus-visible) {
-    outline: 2px solid var(--h-focus-border);
+    outline: 2px solid var(--h-focus-primary);
     outline-offset: 1px;
 
     &:where([data-inverted]) {
-      outline: 2px solid var(--h-focus-border-inverted);
+      outline: 2px solid var(--h-focus-inverted);
     }
   }
 }

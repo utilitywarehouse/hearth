@@ -3,7 +3,6 @@
 
 /* tokens */
 @import url('./tokens/index.css');
-@import url('./tokens-legacy/index.css');
 
 /* components */
 @import url('../components/index.css');
