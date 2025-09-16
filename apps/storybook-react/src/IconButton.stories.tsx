@@ -241,7 +241,7 @@ export const Variants: Story = {
   ),
 };
 
-export const YellowColorScheme: Story = {
+export const HighlightColorScheme: Story = {
   render: () => (
     <Flex gap="400">
       <IconButton variant="emphasis" colorScheme="highlight" label="add">
@@ -254,7 +254,7 @@ export const YellowColorScheme: Story = {
   ),
 };
 
-export const GreyColorScheme: Story = {
+export const FunctionalColorScheme: Story = {
   render: () => (
     <Flex gap="400">
       <IconButton variant="outline" colorScheme="functional" label="add">
