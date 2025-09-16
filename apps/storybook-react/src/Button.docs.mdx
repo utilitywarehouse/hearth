@@ -73,36 +73,36 @@ The variant prop controls the visual appearance of the Button.
 The `colorScheme` prop will change the button colours.
 
 ```tsx
-<Button colorScheme="yellow">
+<Button colorScheme="highlight">
 ```
 
-### Yellow
+### Highlight
 
-The Yellow color scheme serves as the default color scheme for primary actions,
+The Highlight colour scheme serves as the default color scheme for primary actions,
 therefore is only available for Emphasis and Solid Buttons variants.
 
-<Canvas of={Stories.YellowColorScheme} sourceState="none" />
+<Canvas of={Stories.HighlightColorScheme} sourceState="none" />
 
-### Grey
+### Functional
 
-The Grey color scheme is best suited for situations that have lower prominence,
+The Functional colour scheme is best suited for situations that have lower prominence,
 which is why it is only available for Outline and Ghost Button variants.
 
-<Canvas of={Stories.GreyColorScheme} sourceState="none" />
+<Canvas of={Stories.FunctionalColorScheme} sourceState="none" />
 
-### Red
+### Destructive
 
-The Red color scheme is suitable for destructive actions that are irreversible,
+The Destructive colour scheme is suitable for destructive actions that are irreversible,
 or will have significant and negative consequences for the user.
 
-<Canvas of={Stories.RedColorScheme} sourceState="none" />
+<Canvas of={Stories.DestructiveColorScheme} sourceState="none" />
 
-### Green
+### Affirmative
 
-The green button color scheme is ideal for indicating positive or affirmative
+The Affirmative colour scheme is ideal for indicating positive or affirmative
 actions.
 
-<Canvas of={Stories.GreenColorScheme} sourceState="none" />
+<Canvas of={Stories.AffirmativeColorScheme} sourceState="none" />
 
 ## Inverted
 
@@ -110,10 +110,10 @@ The `inverted` prop should be used when using a `Button` on darker surface
 colours, specifically the UW Purple and Dark Purple colours. It only affects
 the following buttons: 
 
-- Emphasis/Yellow
-- Solid/Yellow
-- Outline/Grey
-- Ghost/grey.
+- Emphasis/Highlight
+- Solid/Highlight
+- Outline/Functional
+- Ghost/Functional
 
 **It is very important to remember to use the `inverted` prop when using the
 Emphasis button on darker backgrounds. While the button itself doesn't change
@@ -143,18 +143,18 @@ can be used to display different sizes at different breakpoints.
 ## Dead prop combinations
 
 Be aware there are some combinations of `colorScheme` & `variant` that do not work together (ie. `emphasis` &
-`grey`), and if used will render a button with no colours at all.
+`functional`), and if used will render a button with no colours at all.
 
 <Canvas of={Stories.DeadPropCombinations} sourceState="none" />
 
 You will also see a TypeScript error:
 
 ```console
-Type '{ children: string; variant: "emphasis"; colorScheme: "grey"; }' is not
+Type '{ children: string; variant: "emphasis"; colorScheme: "functional"; }' is not
 assignable to type 'IntrinsicAttributes & (ButtonProps &
 RefAttributes<HTMLButtonElement>)'.
   Types of property 'colorScheme' are incompatible.
-    Type '"grey"' is not assignable to type '"yellow"'. (tsserver 2322)
+    Type '"functional"' is not assignable to type '"highlight"'. (tsserver 2322)
 ```
 
 ## With icons
@@ -299,12 +299,12 @@ This component is based on the `button` element and supports the following commo
 
 - Margin
 
-| Prop          | Type                                            |
-| ------------- | ----------------------------------------------- |
-| `asChild`     | `boolean`                                       |
-| `size`        | `Responsive<"sm" \| "md">`                      |
-| `variant`     | `"emphasis" \| "solid" \| "outline" \| "ghost"` |
-| `colorScheme` | `"yellow" \| "grey" \| "green" \| "red"`        |
-| `inverted`    | `boolean`                                       |
-| `loading`     | `boolean`                                       |
-| `paddingNone` | `boolean`                                       |
+| Prop          | Type                                                            |
+| ------------- | --------------------------------------------------------------- |
+| `asChild`     | `boolean`                                                       |
+| `size`        | `Responsive<"sm" \| "md">`                                      |
+| `variant`     | `"emphasis" \| "solid" \| "outline" \| "ghost"`                 |
+| `colorScheme` | `"highlight" \| "functional" \| "affirmative" \| "destructive"` |
+| `inverted`    | `boolean`                                                       |
+| `loading`     | `boolean`                                                       |
+| `paddingNone` | `boolean`                                                       |

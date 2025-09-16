@@ -61,7 +61,7 @@ the `CardAction` component. This will ensure any secondary actions are
 clickable, but do not overlay the primary action.
 
 ```tsx
-<Card variant="emphasis" colorScheme="white" flex="1" direction="column" gap="150">
+<Card variant="emphasis" colorScheme="neutralStrong" flex="1" direction="column" gap="150">
   <Flex alignItems="start">
     <Heading size="sm">This is a card with multiple interactions</Heading>
     <CardAction secondary>
@@ -92,9 +92,9 @@ This component is based on the `Flex` component and supports the following commo
 - Grid item
 - Text align
 
-| Prop          | Type                                                                                                                             |
-| ------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `as`          | `"div" \| "li"`                                                                                                                  |
-| `variant`     | `"emphasis" \| "subtle"`                                                                                                         |
-| `colorScheme` | `"white" \| "warmWhite" \| "purple" \| "energyGreen" \| "broadbandBlue" \| "mobileRose" \| "insuranceOrange" \| "cashbackLilac"` |
-| `paddingNone` | `boolean`                                                                                                                        |
+| Prop          | Type                                                                                                                |
+| ------------- | ------------------------------------------------------------------------------------------------------------------- |
+| `as`          | `"div" \| "li"`                                                                                                     |
+| `variant`     | `"emphasis" \| "subtle"`                                                                                            |
+| `colorScheme` | `"neutralStrong" \| "neutralSubtle" \| "brand" \| "energy" \| "broadband" \| "mobile" \| "insurance" \| "cashback"` |
+| `paddingNone` | `boolean`                                                                                                           |

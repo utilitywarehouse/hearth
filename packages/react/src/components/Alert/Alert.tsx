@@ -23,15 +23,15 @@ type AlertElement = ElementRef<'div'>;
 
 export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => {
   const icons = {
-    blue: InfoMediumIcon,
-    green: TickCircleMediumIcon,
-    orange: WarningMediumIcon,
-    red: WarningMediumIcon,
+    info: InfoMediumIcon,
+    positive: TickCircleMediumIcon,
+    warning: WarningMediumIcon,
+    danger: WarningMediumIcon,
   };
   const {
     children,
     className,
-    colorScheme = 'blue',
+    colorScheme = 'info',
     onClose,
     text,
     title,

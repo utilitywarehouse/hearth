@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Alert, AlertIconButton, AlertLink, Flex } from '@utilitywarehouse/hearth-react';
 import { useEffect, useState } from 'react';
 
-const colorSchemes = ['blue', 'green', 'red', 'orange'] as const;
+const colorSchemes = ['info', 'positive', 'danger', 'warning'] as const;
 
 const meta: Meta<typeof Alert> = {
   title: 'Stories / Alert',
@@ -26,26 +26,10 @@ export const KitchenSink: Story = {
   render: () => {
     return (
       <Flex direction="column" gap="400">
-        <Alert
-          colorScheme="blue"
-          title="Information"
-          text="Unlock the power of knowledge with the following information."
-        />
-        <Alert
-          colorScheme="green"
-          title="Success"
-          text="Boom! You did it! Please take a moment to pat yourself on the back. You've earned it!"
-        />
-        <Alert
-          colorScheme="red"
-          title="Error"
-          text="Uh-oh! It looks like the matrix has glitched. Our team of tech ninjas are already on the case. Please hold tight while we fix the issue"
-        />
-        <Alert
-          colorScheme="orange"
-          title="Warning"
-          text="Warning: Reading the following content may cause spontaneous outbursts of 'aha!' moments"
-        />
+        <Alert colorScheme="info" title="Information" text="Learn more about our rates." />
+        <Alert colorScheme="positive" title="Success" text="Mobile number updated." />
+        <Alert colorScheme="danger" title="Error" text="Email address already exists." />
+        <Alert colorScheme="warning" title="Warning" text="Payment details needed." />
       </Flex>
     );
   },
@@ -56,7 +40,7 @@ export const Playground: Story = {
     colorScheme: { options: colorSchemes, control: { type: 'radio' } },
   },
   args: {
-    colorScheme: 'blue',
+    colorScheme: 'info',
     title: 'Alert Title',
     text: 'This is an example of alert text which can wrap',
   },
@@ -82,7 +66,7 @@ export const Dismissable: Story = {
     if (!visible) return <>Alert closed</>;
     return (
       <Alert
-        colorScheme="green"
+        colorScheme="positive"
         title="Success"
         text="Your email address has been verified successfully."
         onClose={handleClose}
@@ -95,14 +79,14 @@ export const WithAlertLink: Story = {
   render: () => (
     <Flex direction="column" gap="400" alignItems="start">
       <Alert
-        colorScheme="blue"
+        colorScheme="info"
         title="Information"
         text="This alert contains additional information that might be helpful."
       >
         <AlertLink href="#example">Learn more</AlertLink>
       </Alert>
       <Alert
-        colorScheme="orange"
+        colorScheme="warning"
         title="Warning"
         text="This is a warning message with just an icon link."
       >
@@ -116,14 +100,14 @@ export const WithAlertButton: Story = {
   render: () => (
     <Flex direction="column" gap="400" alignItems="start">
       <Alert
-        colorScheme="blue"
+        colorScheme="info"
         title="Clickable Alert"
         text="This entire alert is clickable because it contains an AlertButton."
       >
         <AlertIconButton label="Click me" onClick={() => alert('Alert button clicked!')} />
       </Alert>
       <Alert
-        colorScheme="green"
+        colorScheme="positive"
         title="Custom Button Text"
         text="This alert has a button and a close button."
         onClose={() => alert('Closed')}
@@ -136,7 +120,7 @@ export const WithAlertButton: Story = {
 
 export const StaticAlert: Story = {
   render: () => (
-    <Alert colorScheme="blue" title="Static Alert">
+    <Alert colorScheme="info" title="Static Alert">
       This alert is completely static with no interactive elements.
     </Alert>
   ),

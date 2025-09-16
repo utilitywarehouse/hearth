@@ -16,7 +16,7 @@ type BadgeElement = ElementRef<'span'>;
 export const Badge = React.forwardRef<BadgeElement, BadgeProps>((props, ref) => {
   const {
     className,
-    colorScheme = 'blue',
+    colorScheme = 'info',
     flatBase,
     ...badgeProps
   } = extractProps(props, badgePropDefs, textTransformPropDefs);

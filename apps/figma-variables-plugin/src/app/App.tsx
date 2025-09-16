@@ -140,7 +140,7 @@ function App() {
   const repoName = 'hearth';
   const branchName = 'main';
   const [selectAll, setSelectAll] = React.useState(false);
-  const [statusType, setStatusType] = React.useState<'green' | 'red' | 'blue'>('blue');
+  const [statusType, setStatusType] = React.useState<'positive' | 'danger' | 'info'>('info');
 
   React.useEffect(() => {
     // Load saved GitHub token from clientStorage
@@ -167,12 +167,12 @@ function App() {
       if (pluginMessage?.token) {
         setTokenLoaded(true);
         setStatusMessage('GitHub token loaded.');
-        setStatusType('green');
+        setStatusType('positive');
       }
     } else if (pluginMessage.type === 'variables-exported') {
       const tokensData = pluginMessage.data;
       setStatusMessage('Variables exported. Creating PRs...');
-      setStatusType('blue');
+      setStatusType('info');
       await createPullRequests(tokensData);
       setExporting(false);
     }
@@ -212,7 +212,7 @@ function App() {
       setTokenLoaded(true);
     }
     setStatusMessage('GitHub token saved.');
-    setStatusType('green');
+    setStatusType('positive');
   };
 
   const handleSelectAll = () => {
@@ -399,11 +399,11 @@ function App() {
       if (!prResponse.ok) throw new Error('Failed to create pull request.');
 
       setStatusMessage('Pull request created successfully.');
-      setStatusType('green');
+      setStatusType('positive');
     } catch (error) {
       console.error(error);
       setStatusMessage(`Error: ${error.message}`);
-      setStatusType('red');
+      setStatusType('danger');
     } finally {
       setExporting(false);
       setLoadingImport(false);
@@ -438,17 +438,17 @@ function App() {
 
         {!githubToken && (
           <Alert
-            colorScheme="blue"
+            colorScheme="info"
             text="Enter your GitHub token to be able to export the variables and create a PR."
           />
         )}
-        {loadingImport && <Alert colorScheme="blue" text="Importing variables, please wait..." />}
+        {loadingImport && <Alert colorScheme="info" text="Importing variables, please wait..." />}
         {((tokenLoaded && showTokenInput) || !tokenLoaded) && (
           <Card
             alignItems="end"
             gap="100"
             variant="subtle"
-            colorScheme="white"
+            colorScheme="neutralStrong"
             wrap="wrap"
             direction="row"
           >
@@ -466,7 +466,7 @@ function App() {
         {githubToken && (
           <Card
             variant="subtle"
-            colorScheme="white"
+            colorScheme="neutralStrong"
             direction="column"
             position="relative"
             gap="300"
@@ -487,7 +487,7 @@ function App() {
                 >
                   <Spinner />
                 </Flex>
-              )} 
+              )}
               <CheckboxGroup
                 label="Select Collections to Export:"
                 helperText="Published library collections in this file"
@@ -506,7 +506,7 @@ function App() {
               {loadingCollections && <Spinner />}
               {!loadingCollections && collections.length === 0 && (
                 <Alert
-                  colorScheme="blue"
+                  colorScheme="info"
                   text="No collections found in this file. Please create a collection in the library."
                 />
               )}

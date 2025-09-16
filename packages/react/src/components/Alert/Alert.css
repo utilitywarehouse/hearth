@@ -49,22 +49,22 @@
     }
   }
 
-  &:where([data-colorscheme='blue']) {
+  &:where([data-colorscheme='info']) {
     --h-alert-background-color: var(--h-feedback-info-surface-subtle);
     --h-alert-border-color: var(--h-feedback-info-border);
   }
 
-  &:where([data-colorscheme='green']) {
+  &:where([data-colorscheme='positive']) {
     --h-alert-background-color: var(--h-feedback-positive-surface-subtle);
     --h-alert-border-color: var(--h-feedback-positive-border);
   }
 
-  &:where([data-colorscheme='red']) {
+  &:where([data-colorscheme='danger']) {
     --h-alert-background-color: var(--h-feedback-danger-surface-subtle);
     --h-alert-border-color: var(--h-feedback-danger-border);
   }
 
-  &:where([data-colorscheme='orange']) {
+  &:where([data-colorscheme='warning']) {
     --h-alert-background-color: var(--h-feedback-warning-surface-subtle);
     --h-alert-border-color: var(--h-feedback-warning-border);
   }

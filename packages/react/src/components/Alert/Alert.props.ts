@@ -5,9 +5,9 @@ import { ComponentPropsWithout, RemovedProps } from '../../types/component-props
 export interface AlertProps extends ComponentPropsWithout<'div', RemovedProps>, MarginProps {
   /**
    * Sets the colour scheme.
-   * @default blue
+   * @default info
    */
-  colorScheme?: 'blue' | 'green' | 'red' | 'orange';
+  colorScheme?: 'info' | 'positive' | 'danger' | 'warning';
   /**
    * Sets the title of the alert.
    */

@@ -21,7 +21,7 @@ export type ButtonBaseProps = ComponentPropsWithout<'button', RemovedProps> &
         /**
          * Sets the button's colour scheme
          */
-        colorScheme?: 'yellow';
+        colorScheme?: 'highlight';
         asChild?: never;
       }
     | {
@@ -32,11 +32,11 @@ export type ButtonBaseProps = ComponentPropsWithout<'button', RemovedProps> &
         /**
          * Sets the button's colour scheme
          */
-        colorScheme?: 'yellow' | 'green' | 'red';
+        colorScheme?: 'highlight' | 'affirmative' | 'destructive';
       }
     | {
         variant?: 'outline' | 'ghost';
-        colorScheme?: 'grey' | 'green' | 'red';
+        colorScheme?: 'functional' | 'affirmative' | 'destructive';
       }
   ) & {
     /**
