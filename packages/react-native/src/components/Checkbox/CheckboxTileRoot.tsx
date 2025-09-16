@@ -19,7 +19,7 @@ const styles = StyleSheet.create(theme => ({
     gap: theme.components.checkbox.gap,
     padding: theme.components.checkbox.tile.padding,
     borderWidth: theme.components.checkbox.tile.borderWidth,
-    borderColor: theme.color.border.subtle,
+    borderColor: theme.color.border.strong,
     borderRadius: theme.components.checkbox.tile.borderRadius,
     backgroundColor: theme.color.surface.neutral.strong,
     variants: {
