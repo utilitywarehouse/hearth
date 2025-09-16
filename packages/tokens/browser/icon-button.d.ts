@@ -1,4 +1,13 @@
 export declare const iconButton: {
+  readonly alert: {
+    readonly iconButton: {
+      readonly unstyled: {
+        readonly foregroundColor: 'var(--h-alert-icon-button-unstyled-foreground-color)';
+        readonly foregroundColorActive: 'var(--h-alert-icon-button-unstyled-foreground-color-active)';
+        readonly foregroundColorHover: 'var(--h-alert-icon-button-unstyled-foreground-color-hover)';
+      };
+    };
+  };
   readonly borderRadius: 'var(--h-icon-button-border-radius)';
   readonly md: {
     readonly height: 'var(--h-icon-button-md-height)';

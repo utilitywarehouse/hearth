@@ -1,4 +1,13 @@
 export const iconButton = {
+  alert: {
+    iconButton: {
+      unstyled: {
+        foregroundColor: 'var(--h-alert-icon-button-unstyled-foreground-color)',
+        foregroundColorActive: 'var(--h-alert-icon-button-unstyled-foreground-color-active)',
+        foregroundColorHover: 'var(--h-alert-icon-button-unstyled-foreground-color-hover)',
+      },
+    },
+  },
   borderRadius: 'var(--h-icon-button-border-radius)',
   md: {
     height: 'var(--h-icon-button-md-height)',
