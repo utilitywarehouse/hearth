@@ -248,7 +248,7 @@ declare const _default: {
     readonly brand: '#7a42c8';
     readonly inverted: '#fcfbf2';
     readonly primary: '#101010';
-    readonly secondary: '#888888';
+    readonly secondary: '#5b5b5b';
   };
 };
 export default _default;

@@ -458,12 +458,12 @@ export declare const light: {
     readonly brand: '#7a42c8';
     readonly inverted: '#fcfbf2';
     readonly primary: '#101010';
-    readonly secondary: '#888888';
+    readonly secondary: '#5b5b5b';
   };
 };
 export declare const dark: {
   readonly background: {
-    readonly brand: '#996cda';
+    readonly brand: '#7a42c8';
     readonly primary: '#191917';
     readonly secondary: '#232323';
   };
@@ -539,7 +539,7 @@ export declare const dark: {
   readonly interactive: {
     readonly affirmative: {
       readonly border: {
-        readonly strong: '#ebebeb';
+        readonly strong: '#101010';
         readonly subtle: '#58ca93';
       };
       readonly foreground: {
@@ -575,7 +575,7 @@ export declare const dark: {
     };
     readonly destructive: {
       readonly border: {
-        readonly strong: '#ebebeb';
+        readonly strong: '#101010';
         readonly subtle: '#ff7964';
       };
       readonly foreground: {
@@ -623,7 +623,7 @@ export declare const dark: {
     };
     readonly highlight: {
       readonly border: {
-        readonly strong: '#f7f7f7';
+        readonly strong: '#101010';
       };
       readonly foreground: {
         readonly strong: '#101010';
@@ -703,7 +703,7 @@ export declare const dark: {
   readonly text: {
     readonly affirmative: '#58ca93';
     readonly brand: '#af90de';
-    readonly inverted: '#191917';
+    readonly inverted: '#fcfbf2';
     readonly primary: '#ebebeb';
     readonly secondary: '#b2afae';
   };
@@ -1166,12 +1166,12 @@ declare const color: {
       readonly brand: '#7a42c8';
       readonly inverted: '#fcfbf2';
       readonly primary: '#101010';
-      readonly secondary: '#888888';
+      readonly secondary: '#5b5b5b';
     };
   };
   readonly dark: {
     readonly background: {
-      readonly brand: '#996cda';
+      readonly brand: '#7a42c8';
       readonly primary: '#191917';
       readonly secondary: '#232323';
     };
@@ -1247,7 +1247,7 @@ declare const color: {
     readonly interactive: {
       readonly affirmative: {
         readonly border: {
-          readonly strong: '#ebebeb';
+          readonly strong: '#101010';
           readonly subtle: '#58ca93';
         };
         readonly foreground: {
@@ -1283,7 +1283,7 @@ declare const color: {
       };
       readonly destructive: {
         readonly border: {
-          readonly strong: '#ebebeb';
+          readonly strong: '#101010';
           readonly subtle: '#ff7964';
         };
         readonly foreground: {
@@ -1331,7 +1331,7 @@ declare const color: {
       };
       readonly highlight: {
         readonly border: {
-          readonly strong: '#f7f7f7';
+          readonly strong: '#101010';
         };
         readonly foreground: {
           readonly strong: '#101010';
@@ -1411,7 +1411,7 @@ declare const color: {
     readonly text: {
       readonly affirmative: '#58ca93';
       readonly brand: '#af90de';
-      readonly inverted: '#191917';
+      readonly inverted: '#fcfbf2';
       readonly primary: '#ebebeb';
       readonly secondary: '#b2afae';
     };

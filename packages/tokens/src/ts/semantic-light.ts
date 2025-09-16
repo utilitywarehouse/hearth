@@ -249,6 +249,6 @@ export default {
     brand: '#7a42c8',
     inverted: '#fcfbf2',
     primary: '#101010',
-    secondary: '#888888',
+    secondary: '#5b5b5b',
   },
 } as const;
