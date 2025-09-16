@@ -81,17 +81,50 @@ function logPrimaryColor() {
 }
 ```
 
+### CSS Definitions (`/css`)
+
+**Step 1: Import CSS Definitions (do this once in your app)**
+
+```javascript
+// Import all CSS definitions
+import '@utilitywarehouse/hearth-tokens/css';
+```
+
+**Step 2: Use CSS Variables in your CSS/SCSS/CSS Modules**
+
+```css
+/* styles.css */
+.alert {
+  padding: var(--h-space-200);
+  background-color: var(--h-color-red-100);
+  color: var(--h-color-red-900);
+  border: 1px solid var(--h-color-red-300);
+  border-radius: var(--h-space-50);
+}
+
+.page-title {
+  color: var(--h-color-purple-700);
+  margin-bottom: var(--h-space-400);
+}
+```
+
+```css
+/* component.module.css */
+.container {
+  padding: var(--h-space-300);
+}
+
+.text {
+  color: var(--h-color-grey-700);
+}
+```
+
 ### Browser JS - CSS Variable Strings (`/browser`)
 
 **Step 1: Import CSS Definitions (do this once in your app)**
 
 ```javascript
-// In your main application entry point (e.g., index.js, App.jsx)
-import '@utilitywarehouse/hearth-tokens/css/color.css';
-import '@utilitywarehouse/hearth-tokens/css/space.css';
-// ... import other necessary token CSS files
-
-// or Import all CSS definitions
+// Import all CSS definitions
 import '@utilitywarehouse/hearth-tokens/css';
 ```
 
@@ -128,47 +161,7 @@ const StyledCard = styled.div`
 `;
 ```
 
-### CSS Definitions (`/css`)
-
-**Step 1: Import CSS Definitions (do this once in your app)**
-
-```javascript
-// In your main application entry point (e.g., index.js, App.jsx)
-import '@utilitywarehouse/hearth-tokens/css/color.css';
-import '@utilitywarehouse/hearth-tokens/css/space.css';
-// ... import other necessary token CSS files
-
-// or Import all CSS definitions
-import '@utilitywarehouse/hearth-tokens/css';
-```
-
-**Step 2: Use CSS Variables in your CSS/SCSS/CSS Modules**
-
-```css
-/* styles.css */
-.alert {
-  padding: var(--h-space-200);
-  background-color: var(--h-color-red-100);
-  color: var(--h-color-red-900);
-  border: 1px solid var(--h-color-red-300);
-  border-radius: var(--h-space-50);
-}
-
-.page-title {
-  color: var(--h-color-purple-700);
-  margin-bottom: var(--h-space-400);
-}
-```
-
-```css
-/* component.module.css */
-.container {
-  padding: var(--h-space-300);
-}
-
-.text {
-  color: var(--h-color-grey-700);
-}
-```
-
-Choose the format that best suits your project's architecture and the specific task at hand. Remember to consult the individual token documentation pages for the complete list of available tokens and their specific values or variable names.
+Choose the format that best suits your project's architecture and the specific
+task at hand. Remember to consult the individual token documentation pages for
+the complete list of available tokens and their specific values or variable
+names.

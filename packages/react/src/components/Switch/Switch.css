@@ -1,5 +1,3 @@
-@import url('../../styles/tokens/switch.css');
-
 .hearth-Switch {
   display: flex;
   flex-direction: row;

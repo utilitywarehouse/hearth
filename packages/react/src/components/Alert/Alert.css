@@ -1,5 +1,3 @@
-@import url('../../styles/tokens/alert.css');
-
 .hearth-Alert {
   display: inline-flex;
   flex-direction: row;
