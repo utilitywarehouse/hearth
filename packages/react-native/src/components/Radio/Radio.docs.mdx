@@ -1,22 +1,22 @@
-import { Meta, Canvas, Story, Controls } from '@storybook/addon-docs/blocks';
-import * as Stories from './Radio.stories';
-import {
-  Radio,
-  RadioGroup,
-  RadioIndicator,
-  RadioIcon,
-  RadioLabel,
-  Center,
-  Box,
-  RadioTile,
-} from '../../';
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import {
-  ViewFigmaButton,
+  Box,
+  Center,
+  Radio,
+  RadioGroup,
+  RadioIcon,
+  RadioIndicator,
+  RadioLabel,
+  RadioTile,
+} from '../../';
+import {
+  AdvancedRadioExample,
   BackToTopButton,
   UsageWrap,
-  AdvancedRadioExample,
+  ViewFigmaButton,
 } from '../../../docs/components';
+import * as Stories from './Radio.stories';
 
 <Meta title="Forms / Radio" />
 
@@ -38,10 +38,12 @@ The Radio component presents users with predefined choices and enables them to s
   - [`RadioIcon`](#radioicon)
   - [`RadioLabel`](#radiolabel)
   - [`RadioGroup`](#radiogroup)
+  - [`RadioImage`](#radioimage)
 - [Variants](#variants)
 - [Advanced Usage](#advanced-usage)
 - [Examples](#examples)
   - [`RadioTile` component](#radiotile-component)
+  - [`RadioImage` component](#radioimage-component)
   - [`RadioGroup` component](#radiogroup-component)
 
 ## Playground
@@ -104,6 +106,7 @@ const MyComponent = () => {
 | `validText`          | `string`                            | -         | The valid text to be displayed below the radio.                                                      |
 | `showValidationIcon` | `boolean`                           | `true`    | Whether to show the validation icon.                                                                 |
 | `type`               | `'default' \| 'tile'`               | `default` | The type of the radio.                                                                               |
+| `image`              | `ImageProps`                        | -         | The image to be displayed next to the label.                                                         |
 
 ## Components
 
@@ -146,6 +149,10 @@ Contains all Group related layout style props and actions. It inherits all the p
 | `type`               | `'default' \| 'tile'`               | `default` | The type of the radio group.                                        |
 | `direction`          | `'row' \| 'column'`                 | `column`  | The direction of the radio group.                                   |
 | `gap`                | `string`                            | -         | The gap between the radio group items.                              |
+
+### `RadioImage`
+
+Contains all Image related layout style props and actions. It inherits all the properties of React Native's [Image component](https://reactnative.dev/docs/image).
 
 ## Variants
 
@@ -312,6 +319,41 @@ const MyComponent = () => {
     <RadioGroup value={value} onChange={setValue}>
       <RadioTile value="option-1" aria-label="Label 1" label="Option 1" />
       <RadioTile value="option-2" aria-label="Label 2" label="Option 2" />
+    </RadioGroup>
+  );
+};
+```
+
+### `RadioImage` component
+
+The `RadioImage` component is used to display an image next to the radio button.
+
+<Canvas of={Stories.WithImage} />
+
+```tsx
+import { Radio, RadioGroup } from '@utilitywarehouse/native-ui';
+import visaLogo from './visa-logo.png';
+import mastarcardLogo from './mastercard-logo.png';
+
+const MyComponent = () => {
+  const [value, setValue] = React.useState('Option 1');
+  return (
+    <RadioGroup value={value} onChange={setValue} aria-label="Radio Group" nativeID="Radio-group">
+      <Radio
+        value="visa"
+        aria-label="Visa"
+        label="Visa"
+        image={{ source: visaLogo, style: { width: 40, height: 24, resizeMode: 'contain' } }}
+      />
+      <Radio
+        value="mastercard"
+        aria-label="Mastercard"
+        label="Mastercard"
+        image={{
+          source: mastarcardLogo,
+          style: { width: 40, height: 24, resizeMode: 'contain' },
+        }}
+      />
     </RadioGroup>
   );
 };
