@@ -32,14 +32,14 @@ type CommonCardProps = Omit<
    * Sets the card's colour scheme
    */
   colorScheme?:
-    | 'white'
-    | 'warmWhite'
-    | 'purple'
-    | 'energyBlue'
-    | 'broadbandGreen'
-    | 'mobileRose'
-    | 'insuranceOrange'
-    | 'cashbackLilac';
+    | 'neutralStrong'
+    | 'neutralSubtle'
+    | 'brand'
+    | 'energy'
+    | 'broadband'
+    | 'mobile'
+    | 'insurance'
+    | 'cashback';
   /**
    * Shorthand for changing the default rendered element into a semantically appropriate alternative.
    * @default div

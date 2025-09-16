@@ -19,7 +19,7 @@ export type ListProps = ComponentPropsWithout<'ul', RemovedProps> &
         /**
          * Sets the color scheme of the list.
          */
-        colorScheme?: 'white' | 'warmWhite';
+        colorScheme?: 'neutralStrong' | 'neutralSubtle';
       }
   ) & {
     /**

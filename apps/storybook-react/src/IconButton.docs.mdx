@@ -76,16 +76,16 @@ The variant prop controls the visual appearance of the button.
 
 ```tsx
 <Flex gap="400">
-  <IconButton variant="emphasis" colorScheme="yellow" label="add">
+  <IconButton variant="emphasis" colorScheme="highlight" label="add">
     <AddMediumIcon />
   </IconButton>
-  <IconButton variant="solid" colorScheme="yellow" label="add">
+  <IconButton variant="solid" colorScheme="highlight" label="add">
     <AddMediumIcon />
   </IconButton>
-  <IconButton variant="outline" colorScheme="grey" label="add">
+  <IconButton variant="outline" colorScheme="functional" label="add">
     <AddMediumIcon />
   </IconButton>
-  <IconButton variant="ghost" colorScheme="grey" label="add">
+  <IconButton variant="ghost" colorScheme="functional" label="add">
     <AddMediumIcon />
   </IconButton>
 </Flex>
@@ -101,36 +101,36 @@ The variant prop controls the visual appearance of the button.
 The `colorScheme` prop will change the button colours.
 
 ```tsx
-<IconButton colorScheme="yellow">
+<IconButton colorScheme="highlight">
 ```
 
-### Yellow
+### Highlight
 
-The Yellow color scheme serves as the default color scheme for primary actions,
+The Highlight colour scheme serves as the default color scheme for primary actions,
 therefore is only available for Emphasis and Solid Buttons variants.
 
-<Canvas of={Stories.YellowColorScheme} sourceState="none" />
+<Canvas of={Stories.HighlightColorScheme} sourceState="none" />
 
-### Grey
+### Functional
 
-The Grey color scheme is best suited for situations that have lower prominence,
+The Functional colour scheme is best suited for situations that have lower prominence,
 which is why it is only available for Outline and Ghost Button variants.
 
-<Canvas of={Stories.GreyColorScheme} sourceState="none" />
+<Canvas of={Stories.FunctionalColorScheme} sourceState="none" />
 
-### Red
+### Destructive
 
-The Red color scheme is suitable for destructive actions that are irreversible,
+The Destructive colour scheme is suitable for destructive actions that are irreversible,
 or will have significant and negative consequences for the user.
 
-<Canvas of={Stories.RedColorScheme} sourceState="none" />
+<Canvas of={Stories.DestructiveColorScheme} sourceState="none" />
 
-### Green
+### Affirmative
 
-The green button color scheme is ideal for indicating positive or affirmative
+The Affirmative colour scheme is ideal for indicating positive or affirmative
 actions.
 
-<Canvas of={Stories.GreenColorScheme} sourceState="none" />
+<Canvas of={Stories.AffirmativeColorScheme} sourceState="none" />
 
 ## Inverted
 
@@ -239,11 +239,11 @@ This component is based on the `button` element and supports the following commo
 
 - Margin
 
-| Prop          | Type                                            |
-| ------------- | ----------------------------------------------- |
-| `asChild`     | `boolean`                                       |
-| `size`        | `Responsive<"sm" \| "md">`                      |
-| `variant`     | `"emphasis" \| "solid" \| "outline" \| "ghost"` |
-| `colorScheme` | `"yellow" \| "grey" \| "green" \| "red"`        |
-| `inverted`    | `boolean`                                       |
-| `loading`     | `boolean`                                       |
+| Prop          | Type                                                            |
+| ------------- | --------------------------------------------------------------- |
+| `asChild`     | `boolean`                                                       |
+| `size`        | `Responsive<"sm" \| "md">`                                      |
+| `variant`     | `"emphasis" \| "solid" \| "outline" \| "ghost"`                 |
+| `colorScheme` | `"highlight" \| "functional" \| "affirmative" \| "destructive"` |
+| `inverted`    | `boolean`                                                       |
+| `loading`     | `boolean`                                                       |

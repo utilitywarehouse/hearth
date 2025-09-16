@@ -36,31 +36,31 @@
     box-shadow: inset 0 0 0 1px var(--h-border-subtle);
   }
 
-  &:where([data-colorscheme='blue']) {
+  &:where([data-colorscheme='info']) {
     --h-badge-solid-color: var(--h-feedback-info-foreground-default);
     --h-badge-solid-background-color: var(--h-feedback-info-surface-default);
     --h-badge-outline-color: var(--h-feedback-info-foreground-subtle);
   }
 
-  &:where([data-colorscheme='green']) {
+  &:where([data-colorscheme='positive']) {
     --h-badge-solid-color: var(--h-feedback-positive-foreground-default);
     --h-badge-solid-background-color: var(--h-feedback-positive-surface-default);
     --h-badge-outline-color: var(--h-feedback-positive-foreground-subtle);
   }
 
-  &:where([data-colorscheme='red']) {
+  &:where([data-colorscheme='danger']) {
     --h-badge-solid-color: var(--h-feedback-danger-foreground-default);
     --h-badge-solid-background-color: var(--h-feedback-danger-surface-default);
     --h-badge-outline-color: var(--h-feedback-danger-foreground-subtle);
   }
 
-  &:where([data-colorscheme='orange']) {
+  &:where([data-colorscheme='warning']) {
     --h-badge-solid-color: var(--h-feedback-warning-foreground-default);
     --h-badge-solid-background-color: var(--h-feedback-warning-surface-default);
     --h-badge-outline-color: var(--h-feedback-warning-foreground-subtle);
   }
 
-  &:where([data-colorscheme='grey']) {
+  &:where([data-colorscheme='functional']) {
     --h-badge-solid-color: var(--h-feedback-functional-foreground-default);
     --h-badge-solid-background-color: var(--h-feedback-functional-surface-default);
     --h-badge-outline-color: var(--h-feedback-functional-foreground-subtle);

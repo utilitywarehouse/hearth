@@ -25,7 +25,7 @@ export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
     className,
     as: Tag = 'div',
     children,
-    colorScheme = 'white',
+    colorScheme = 'neutralStrong',
     ...cardProps
   } = extractProps(
     props,

@@ -32,48 +32,48 @@
   &:where(.hearth-variant-subtle) {
     --h-card-background-color: var(--h-card-subtle-background-color);
 
-    &:where([data-colorscheme='white'], [data-colorscheme='warm-white']) {
+    &:where([data-colorscheme='neutral-strong'], [data-colorscheme='neutral-subtle']) {
       --h-card-border-color: var(--h-border-subtle);
       --h-card-border-width: var(--h-card-neutral-subtle-border-width);
     }
   }
 
-  &:where([data-colorscheme='white']) {
+  &:where([data-colorscheme='neutral-strong']) {
     --h-card-emphasis-background-color: var(--h-surface-neutral-strong);
     --h-card-subtle-background-color: var(--h-surface-neutral-strong);
   }
 
-  &:where([data-colorscheme='warm-white']) {
+  &:where([data-colorscheme='neutral-subtle']) {
     --h-card-emphasis-background-color: var(--h-surface-neutral-subtle);
     --h-card-subtle-background-color: var(--h-surface-neutral-subtle);
   }
 
-  &:where([data-colorscheme='purple']) {
+  &:where([data-colorscheme='brand']) {
     --h-card-emphasis-background-color: var(--h-surface-brand-default);
     --h-card-subtle-background-color: var(--h-surface-brand-subtle);
   }
 
-  &:where([data-colorscheme='energy-blue']) {
+  &:where([data-colorscheme='energy']) {
     --h-card-emphasis-background-color: var(--h-surface-energy-default);
     --h-card-subtle-background-color: var(--h-surface-energy-subtle);
   }
 
-  &:where([data-colorscheme='broadband-green']) {
+  &:where([data-colorscheme='broadband']) {
     --h-card-emphasis-background-color: var(--h-surface-broadband-default);
     --h-card-subtle-background-color: var(--h-surface-broadband-subtle);
   }
 
-  &:where([data-colorscheme='mobile-rose']) {
+  &:where([data-colorscheme='mobile']) {
     --h-card-emphasis-background-color: var(--h-surface-mobile-default);
     --h-card-subtle-background-color: var(--h-surface-mobile-subtle);
   }
 
-  &:where([data-colorscheme='insurance-orange']) {
+  &:where([data-colorscheme='insurance']) {
     --h-card-emphasis-background-color: var(--h-surface-insurance-default);
     --h-card-subtle-background-color: var(--h-surface-insurance-subtle);
   }
 
-  &:where([data-colorscheme='cashback-lilac']) {
+  &:where([data-colorscheme='cashback']) {
     --h-card-emphasis-background-color: var(--h-surface-cashback-default);
     --h-card-subtle-background-color: var(--h-surface-cashback-subtle);
   }

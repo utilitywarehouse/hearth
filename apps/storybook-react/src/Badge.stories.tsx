@@ -3,7 +3,7 @@ import { Badge, Box, Flex } from '@utilitywarehouse/hearth-react';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const variants = ['solid', 'outline'] as const;
-const colorSchemes = ['blue', 'green', 'red', 'orange', 'grey'] as const;
+const colorSchemes = ['info', 'positive', 'danger', 'warning', 'functional'] as const;
 
 const meta: Meta<typeof Badge> = {
   title: 'Stories / Badge',
@@ -25,7 +25,7 @@ const meta: Meta<typeof Badge> = {
   args: {
     children: 'Badge',
     variant: 'solid',
-    colorScheme: 'blue',
+    colorScheme: 'info',
     flatBase: false,
   },
 };
@@ -39,7 +39,7 @@ export const KitchenSink: Story = {
     return (
       <Flex direction="row" gap="400">
         {variants.map(variant => (
-          <Flex key={variant} gap="400" justify="center" direction="column">
+          <Flex key={variant} gap="400" justifyContent="center" direction="column">
             {colorSchemes.map(colorScheme => (
               <Flex key={colorScheme} direction="row" gap="200">
                 <Badge variant={variant} colorScheme={colorScheme}>
@@ -87,15 +87,15 @@ export const FlatBase: Story = {
   render: () => {
     return (
       <Box>
-        <Flex justify="end" paddingRight="300" width="400px">
-          <Badge colorScheme="green" variant="solid" flatBase>
+        <Flex justifyContent="end" paddingRight="300" width="400px">
+          <Badge colorScheme="positive" variant="solid" flatBase>
             Multi SIM offer
           </Badge>
         </Flex>
         <Box
           width="400px"
           height="200px"
-          backgroundColor="white"
+          backgroundColor="grey0"
           borderColor="green700"
           borderStyle="solid"
           borderWidth="2"
@@ -109,7 +109,7 @@ export const FlatBase: Story = {
 export const SurfaceColours: Story = {
   render: () => (
     <Flex width="600px">
-      <Flex gap="200" direction="column" padding="200" backgroundColor="white">
+      <Flex gap="200" direction="column" padding="200" backgroundColor="grey0">
         {colorSchemes.map(colorScheme => (
           <Badge
             key={colorScheme}
@@ -121,7 +121,7 @@ export const SurfaceColours: Story = {
           </Badge>
         ))}
       </Flex>
-      <Flex gap="200" direction="column" padding="200" backgroundColor="darkPurple">
+      <Flex gap="200" direction="column" padding="200" backgroundColor="purple1000">
         {colorSchemes.map(colorScheme => (
           <Badge
             key={colorScheme}
@@ -133,7 +133,7 @@ export const SurfaceColours: Story = {
           </Badge>
         ))}
       </Flex>
-      <Flex gap="200" direction="column" padding="200" backgroundColor="white">
+      <Flex gap="200" direction="column" padding="200" backgroundColor="grey0">
         {colorSchemes.map(colorScheme => (
           <Badge
             key={colorScheme}
@@ -152,11 +152,11 @@ export const SurfaceColours: Story = {
 export const Icons: Story = {
   render: () => (
     <Flex gap="200">
-      <Badge colorScheme="green">
+      <Badge colorScheme="positive">
         <TickSmallIcon />
         Success
       </Badge>
-      <Badge colorScheme="red">
+      <Badge colorScheme="danger">
         <CloseSmallIcon />
         Unsuccessful
       </Badge>
