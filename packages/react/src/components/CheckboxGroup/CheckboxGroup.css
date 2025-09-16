@@ -1,5 +1,3 @@
-@import url('../../styles/tokens/checkbox.css');
-
 .hearth-CheckboxGroup {
   & :where(.hearth-CheckboxGroupContent) {
     flex-wrap: wrap;

@@ -1,5 +1,3 @@
-@import url('../../styles/tokens/button.css');
-
 .hearth-Button {
   font-family: var(--h-font-family-detail);
   font-size: var(--h-font-size-100);

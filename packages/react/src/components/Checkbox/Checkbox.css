@@ -1,5 +1,3 @@
-@import url('../../styles/tokens/checkbox.css');
-
 .hearth-Checkbox {
   gap: var(--h-checkbox-gap);
 

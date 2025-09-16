@@ -1,5 +1,3 @@
-@import url('../../styles/tokens/section-header.css');
-
 .hearth-SectionHeader {
   display: flex;
   flex-direction: row;

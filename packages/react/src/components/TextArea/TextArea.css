@@ -1,5 +1,3 @@
-@import url('../../styles/tokens/input.css');
-
 .hearth-TextArea {
   & :where(.hearth-TextAreaRoot) {
     box-sizing: border-box;

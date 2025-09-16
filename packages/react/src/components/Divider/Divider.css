@@ -1,5 +1,3 @@
-@import url('../../styles/tokens/divider.css');
-
 .hearth-Divider {
   all: unset;
   display: block; /* explicitly set this so horizontal dividers show inside block elements */

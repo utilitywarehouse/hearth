@@ -1,6 +1,3 @@
-@import url('../../styles/tokens/list.css');
-@import url('../../styles/tokens/card.css');
-
 .hearth-ListItem {
   display: flex;
   flex-direction: row;

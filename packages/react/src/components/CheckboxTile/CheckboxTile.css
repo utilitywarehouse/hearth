@@ -1,5 +1,3 @@
-@import url('../../styles/tokens/checkbox.css');
-
 .hearth-CheckboxTile {
   display: flex;
   flex-direction: row;
