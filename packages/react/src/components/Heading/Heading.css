@@ -1,10 +1,10 @@
 .hearth-Heading {
   font-family: var(--h-font-family-heading);
   font-weight: var(--h-font-weight-semibold);
-  color: var(--h-text-color);
+  color: var(--h-text-primary);
 
   &:where([data-inverted]) {
-    color: var(--h-text-color-inverted);
+    color: var(--h-text-inverted);
   }
 
   &:where(.hearth-size-sm) {
