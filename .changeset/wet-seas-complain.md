@@ -26,4 +26,4 @@ There is now a more concise set of individual tokens files:
 This change will only affect you if you are importing tokens via specific file
 imports. This change does not affect you if you are importing the complete set
 of design tokens from an index impyou if you are importing the complete set of
-design tokens from an index import..
+design tokens from an index import.
