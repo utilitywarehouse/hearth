@@ -3,6 +3,9 @@
  */
 
 :root {
+  --h-alert-link-color: var(--h-color-grey-1000);
+  --h-alert-link-color-active: var(--h-color-grey-800);
+  --h-alert-link-color-hover: var(--h-color-grey-900);
   --h-link-color: var(--h-color-grey-1000);
   --h-link-color-active: var(--h-color-grey-800);
   --h-link-color-hover: var(--h-color-grey-900);

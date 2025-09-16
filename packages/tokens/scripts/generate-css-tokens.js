@@ -12,6 +12,8 @@ import { unwrapAlias } from './helpers/unwrap-alias.js';
 const BUILD_PATH = './css/';
 // Components that have device-specific variants (mobile, tablet, desktop)
 const VALID_DEVICE_COMPONENTS = ['card', 'dialog', 'modal'];
+// Component tokens to ignore because they are native only implmentations
+const NATIVE_ONLY_COMPONENTS = ['bottom-navigation', 'top-navigation', 'indicator-icon-button'];
 // Prefix used for all CSS custom properties
 const PREFIX = 'h';
 
@@ -199,17 +201,19 @@ StyleDictionary.registerTransformGroup({
  * The files are filtered to only include light theme tokens from the component category.
  */
 const componentJson = loadJSON('./raw/hearth-components--tokens---component.json');
-const componentFiles = Object.keys(componentJson.light).map(componentName => ({
-  destination: `${componentName}.css`,
-  format: 'css/variables',
-  filter: token => {
-    return (
-      token.filePath.includes('component') &&
-      token.path.includes(componentName) &&
-      token.attributes.category === 'light'
-    );
-  },
-}));
+const componentFiles = Object.keys(componentJson.light)
+  .filter(componentName => !NATIVE_ONLY_COMPONENTS.includes(componentName))
+  .map(componentName => ({
+    destination: `${componentName}.css`,
+    format: 'css/variables',
+    filter: token => {
+      return (
+        token.filePath.includes('component') &&
+        token.path.includes(componentName) &&
+        token.attributes.category === 'light'
+      );
+    },
+  }));
 
 /**
  * Generates CSS files for device-specific component variants.
