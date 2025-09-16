@@ -3,7 +3,7 @@
   font-weight: var(--h-detail-text-font-weight);
 
   &:where(.hearth-color-text) {
-    color: var(--h-text-color);
+    color: var(--h-text-primary);
   }
 
   &:where(.hearth-color-valid) {
