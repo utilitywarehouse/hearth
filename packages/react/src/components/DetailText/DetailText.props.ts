@@ -11,7 +11,7 @@ const colorValues = ['text', 'valid', 'invalid'] as const;
 
 export const detailTextPropDefs = {
   size: { className: 'size', tokens: sizes, responsive: true, default: 'md' },
-  color: { className: 'text-color', tokens: colorValues, responsive: false, default: 'text' },
+  color: { className: 'color', tokens: colorValues, responsive: false, default: 'text' },
 } satisfies {
   size: PropDef<(typeof sizes)[number]>;
   color: PropDef<(typeof colorValues)[number]>;
