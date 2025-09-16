@@ -6,16 +6,14 @@ import {
   Radio,
   RadioGroup,
   RadioIcon,
+  RadioImage,
   RadioIndicator,
   RadioLabel,
   RadioTile,
 } from '../../';
-import {
-  AdvancedRadioExample,
-  BackToTopButton,
-  UsageWrap,
-  ViewFigmaButton,
-} from '../../../docs/components';
+import mastercardLogo from '../../../docs/assets/bank-logo.png';
+import visaLogo from '../../../docs/assets/bank-logo1.png';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Radio.stories';
 
 <Meta title="Forms / Radio" />
@@ -165,133 +163,65 @@ In this example, we will create a custom Radio component with a badge and bullet
 
 <UsageWrap>
   <Center>
-    <AdvancedRadioExample />
+    <RadioGroup type="tile" aria-label="Radio Group" nativeID="Radio-group">
+      <Radio value="option-1" aria-label="Label 1">
+        <RadioIndicator>
+          <RadioIcon />
+        </RadioIndicator>
+        <RadioImage source={visaLogo} style={{ width: 40, height: 24, resizeMode: 'contain' }} />
+        <RadioLabel>Visa</RadioLabel>
+      </Radio>
+      <Radio value="option-2" aria-label="Label 2">
+        <RadioIndicator>
+          <RadioIcon />
+        </RadioIndicator>
+        <RadioImage
+          source={mastercardLogo}
+          style={{ width: 40, height: 24, resizeMode: 'contain' }}
+        />
+        <RadioLabel>Mastercard</RadioLabel>
+      </Radio>
+    </RadioGroup>
   </Center>
 </UsageWrap>
 
 ```tsx
 import {
-  Badge,
-  Heading,
   Radio,
   RadioGroup,
-  RadioIcon,
+  RadioLabel,
   RadioIndicator,
-  BodyText,
-  Box,
-  type RadioProps as NativeUIRadioProps,
-} from '../../src';
+  RadioIcon,
+  RadioImage,
+} from '@utilitywarehouse/native-ui';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import visaLogo from '../../assets/bank-logo1.png';
+import mastercardLogo from '../../assets/bank-logo.png';
 
-import { StyleSheet } from 'react-native-unistyles';
-
-interface RadioProps {
-  currentValue: string;
-}
-
-const styles = StyleSheet.create(({ colorMode, color, borderRadius, borderWidth, space }) => ({
-  radio: {
-    borderWidth: borderWidth[2],
-    borderColor: colorMode === 'light' ? color.grey[500] : color.grey[700],
-    borderRadius: borderRadius.xl,
-    padding: space[200],
-    variants: {
-      checked: {
-        true: {
-          borderColor: colorMode === 'light' ? color.green[500] : color.green[700],
-        },
-      },
-    },
-  },
-  indicator: {
-    variants: {
-      checked: {
-        true: {
-          backgroundColor: colorMode === 'light' ? color.green[500] : color.green[700],
-          borderColor: colorMode === 'light' ? color.green[500] : color.green[700],
-        },
-      },
-    },
-  },
-  heading: {
-    marginBottom: space[100],
-  },
-  badge: {
-    marginRight: space[200],
-    alignSelf: 'flex-end',
-  },
-}));
-
-const CustomRadio: React.FC<
-  RadioProps &
-    Omit<
-      NativeUIRadioProps,
-      'label' | 'helperText' | 'helperIcon' | 'invalidText' | 'validText' | 'showValidationIcon'
-    >
-> = ({ children, currentValue, ...props }) => {
-  styles.useVariants({ checked: currentValue === props.value });
+const AdvancedExample = () => {
+  const [value, setValue] = React.useState('option-1');
   return (
-    <Radio style={styles.radio} {...props}>
-      <Box flexDirection="row" flex={1}>
-        <Box pr="200" flex={1}>
-          {children}
-        </Box>
-        <RadioIndicator style={styles.indicator}>
-          <RadioIcon as={TickSmallIcon} color="white" />
+    <RadioGroup value={value} onChange={setValue} aria-label="Card type" type="tile">
+      <Radio value="option-1" aria-label="Visa">
+        <RadioIndicator>
+          <RadioIcon />
         </RadioIndicator>
-      </Box>
-    </Radio>
-  );
-};
-
-const BulletListItem = ({ children }: { children: React.ReactNode }) => (
-  <BodyText>
-    {'\u2022'} {children}
-  </BodyText>
-);
-
-const BulletList = ({ children }: { children: React.ReactNode }) => (
-  <Box pl="200" gap="100">
-    {children}
-  </Box>
-);
-
-const AdvancedRadioExample: React.FC = () => {
-  const [value, setValue] = React.useState('Option 1');
-
-  const handleChange = (val: string) => setValue(val);
-
-  return (
-    <RadioGroup onChange={handleChange} value={value} gap="200">
-      <Box>
-        <Badge colorScheme={value === 'Option 1' ? 'green' : 'grey'} flatBase style={styles.badge}>
-          Recommended
-        </Badge>
-        <CustomRadio value="Option 1" currentValue={value}>
-          <Heading size="md" style={styles.heading}>
-            Instant bank transfer
-          </Heading>
-          <BulletList>
-            <BulletListItem>Receive your money instantly</BulletListItem>
-            <BulletListItem>No fees</BulletListItem>
-            <BulletListItem>Available 24/7</BulletListItem>
-          </BulletList>
-        </CustomRadio>
-      </Box>
-      <CustomRadio value="Option 2" currentValue={value}>
-        <Heading size="md" style={styles.heading}>
-          Debit card payment
-        </Heading>
-        <BulletList>
-          <BulletListItem>£0.35 fee</BulletListItem>
-          <BulletListItem>Available 24/7</BulletListItem>
-        </BulletList>
-      </CustomRadio>
+        <RadioImage source={visaLogo} style={{ width: 40, height: 24, resizeMode: 'contain' }} />
+        <RadioLabel>Visa</RadioLabel>
+      </Radio>
+      <Radio value="option-2" aria-label="Mastercard">
+        <RadioIndicator>
+          <RadioIcon />
+        </RadioIndicator>
+        <RadioImage
+          source={mastercardLogo}
+          style={{ width: 40, height: 24, resizeMode: 'contain' }}
+        />
+        <RadioLabel>Mastercard</RadioLabel>
+      </Radio>
     </RadioGroup>
   );
 };
-
-export default AdvancedRadioExample;
 ```
 
 ## Examples
