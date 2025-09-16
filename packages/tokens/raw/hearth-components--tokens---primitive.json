@@ -1037,6 +1037,64 @@
       "value": 90
     }
   },
+  "motion": {
+    "duration": {
+      "100": {
+        "type": "number",
+        "value": 130
+      },
+      "200": {
+        "type": "number",
+        "value": 160
+      },
+      "300": {
+        "type": "number",
+        "value": 190
+      },
+      "400": {
+        "type": "number",
+        "value": 220
+      },
+      "500": {
+        "type": "number",
+        "value": 250
+      },
+      "600": {
+        "type": "number",
+        "value": 300
+      },
+      "700": {
+        "type": "number",
+        "value": 350
+      },
+      "800": {
+        "type": "number",
+        "value": 400
+      },
+      "900": {
+        "type": "number",
+        "value": 450
+      },
+      "1000": {
+        "type": "number",
+        "value": 500
+      }
+    },
+    "ease": {
+      "in": {
+        "type": "string",
+        "value": "cubic-bezier(0.42, 0, 1, 1)"
+      },
+      "in-out": {
+        "type": "string",
+        "value": "cubic-bezier(0, 0, 1, 1)"
+      },
+      "out": {
+        "type": "string",
+        "value": "cubic-bezier(0.19, 0.91, 0.38, 1)"
+      }
+    }
+  },
   "space": {
     "0": {
       "type": "number",

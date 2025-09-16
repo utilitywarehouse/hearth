@@ -1,0 +1,23 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-progress-bar-bar-color: var(--h-color-warm-white-200);
+  --h-progress-bar-circular-md-bar-width: var(--h-space-150)px;
+  --h-progress-bar-circular-md-gap: 0;
+  --h-progress-bar-circular-md-height: 140px;
+  --h-progress-bar-circular-md-label-font-family: var(--h-font-family-body);
+  --h-progress-bar-circular-md-label-font-size: var(--h-font-size-300);
+  --h-progress-bar-circular-md-label-font-weight: var(--h-font-weight-regular);
+  --h-progress-bar-circular-md-label-line-height: var(--h-line-height-500);
+  --h-progress-bar-circular-sm-bar-width: var(--h-space-100);
+  --h-progress-bar-circular-sm-height: var(--h-space-1000)px;
+  --h-progress-bar-linear-bar-border-radius: var(--h-border-radius-full);
+  --h-progress-bar-linear-bar-height: var(--h-space-150)px;
+  --h-progress-bar-linear-gap: var(--h-space-100);
+  --h-progress-bar-linear-label-gap: var(--h-space-100);
+  --h-progress-bar-progress-danger-color: var(--h-color-red-600);
+  --h-progress-bar-progress-default-color: var(--h-color-purple-1000);
+  --h-progress-bar-progress-success-color: var(--h-color-green-600);
+}

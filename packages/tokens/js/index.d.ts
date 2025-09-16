@@ -13,6 +13,7 @@ export { default as borderWidth } from './border-width';
 export { default as font } from './font';
 export { default as letterSpacing } from './letter-spacing';
 export { default as lineHeight } from './line-height';
+export { default as motion } from './motion';
 export { default as space } from './space';
 export { default as typography } from './typography';
 export * as components from './components';
