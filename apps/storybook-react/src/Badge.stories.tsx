@@ -4,6 +4,7 @@ import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-ic
 
 const variants = ['solid', 'outline'] as const;
 const colorSchemes = ['info', 'positive', 'danger', 'warning', 'functional'] as const;
+const sizes = ['sm', 'md'] as const;
 
 const meta: Meta<typeof Badge> = {
   title: 'Stories / Badge',
@@ -19,12 +20,14 @@ const meta: Meta<typeof Badge> = {
   argTypes: {
     children: { control: { type: 'text' } },
     variant: { options: variants, control: { type: 'radio' } },
+    size: { control: { type: 'radio' }, options: sizes },
     colorScheme: { options: colorSchemes, control: { type: 'radio' } },
     flatBase: { control: { type: 'boolean' } },
   },
   args: {
     children: 'Badge',
     variant: 'solid',
+    size: 'md',
     colorScheme: 'info',
     flatBase: false,
   },
@@ -37,17 +40,21 @@ export const KitchenSink: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => {
     return (
-      <Flex direction="row" gap="400">
-        {variants.map(variant => (
-          <Flex key={variant} gap="400" justifyContent="center" direction="column">
-            {colorSchemes.map(colorScheme => (
-              <Flex key={colorScheme} direction="row" gap="200">
-                <Badge variant={variant} colorScheme={colorScheme}>
-                  Badge
-                </Badge>
-                <Badge variant={variant} colorScheme={colorScheme} flatBase>
-                  Badge
-                </Badge>
+      <Flex direction="row" gap="600">
+        {sizes.map(size => (
+          <Flex direction="row" gap="400">
+            {variants.map(variant => (
+              <Flex key={variant} gap="400" justifyContent="center" direction="column">
+                {colorSchemes.map(colorScheme => (
+                  <Flex key={colorScheme} direction="row" gap="200">
+                    <Badge variant={variant} colorScheme={colorScheme} size={size}>
+                      Badge
+                    </Badge>
+                    <Badge variant={variant} colorScheme={colorScheme} size={size} flatBase>
+                      Badge
+                    </Badge>
+                  </Flex>
+                ))}
               </Flex>
             ))}
           </Flex>
@@ -64,7 +71,19 @@ export const Variants: Story = {
     <Flex gap="200">
       {variants.map(variant => (
         <Badge key={variant} variant={variant} textTransform="capitalize">
-          {variant} badge
+          {variant}
+        </Badge>
+      ))}
+    </Flex>
+  ),
+};
+
+export const Sizes: Story = {
+  render: () => (
+    <Flex gap="200">
+      {sizes.map(size => (
+        <Badge key={size} size={size}>
+          {size} badge
         </Badge>
       ))}
     </Flex>
@@ -76,7 +95,7 @@ export const ColorSchemes: Story = {
     <Flex gap="200">
       {colorSchemes.map(colorScheme => (
         <Badge key={colorScheme} colorScheme={colorScheme} textTransform="capitalize">
-          {colorScheme} badge
+          {colorScheme}
         </Badge>
       ))}
     </Flex>
