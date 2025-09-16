@@ -1,3 +1,8 @@
+// Components that have device-specific variants (mobile, tablet, desktop)
+const VALID_DEVICE_COMPONENTS = ['card', 'dialog', 'modal'];
+// Component tokens to ignore because they are native only implmentations
+const NATIVE_ONLY_COMPONENTS = ['bottom-navigation', 'top-navigation', 'indicator-icon-button'];
+
 // Shared filters for gathering specific sets of tokens.
 // These avoid using `token.attributes` as we can't rely that they'll always be
 // available. Use `token.path` instead.
@@ -93,5 +98,18 @@ export const filters = {
       return false;
     }
     return token.filePath.includes('semantic');
+  },
+  isComponentToken: token => {
+    // Exclude native only component tokens
+    if (token.path.some(el => NATIVE_ONLY_COMPONENTS.includes(el))) {
+      return false;
+    }
+    return (
+      (!token.filePath.includes('semantic') &&
+        token.filePath.includes('component') &&
+        token.attributes.category === 'light') ||
+      (token.filePath.includes('device') &&
+        token.path.some(el => VALID_DEVICE_COMPONENTS.includes(el)))
+    );
   },
 };
