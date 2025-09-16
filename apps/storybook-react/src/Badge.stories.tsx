@@ -2,8 +2,22 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Badge, Box, Flex } from '@utilitywarehouse/hearth-react';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
-const variants = ['solid', 'outline'] as const;
-const colorSchemes = ['info', 'positive', 'danger', 'warning', 'functional'] as const;
+const variants = ['subtle', 'emphasis', 'outline'] as const;
+const subtleOnlyColorSchemes = ['highlight'] as const;
+const nonOutlineColorSchemes = [
+  'energy',
+  'mobile',
+  'broadband',
+  'insurance',
+  'cashback',
+  'pig',
+] as const;
+const allVariantColorSchemes = ['info', 'positive', 'danger', 'warning', 'functional'] as const;
+const colorSchemes = [
+  ...allVariantColorSchemes,
+  ...nonOutlineColorSchemes,
+  ...subtleOnlyColorSchemes,
+] as const;
 const sizes = ['sm', 'md'] as const;
 
 const meta: Meta<typeof Badge> = {
@@ -21,12 +35,12 @@ const meta: Meta<typeof Badge> = {
     children: { control: { type: 'text' } },
     variant: { options: variants, control: { type: 'radio' } },
     size: { control: { type: 'radio' }, options: sizes },
-    colorScheme: { options: colorSchemes, control: { type: 'radio' } },
+    colorScheme: { options: colorSchemes, control: { type: 'select' } },
     flatBase: { control: { type: 'boolean' } },
   },
   args: {
     children: 'Badge',
-    variant: 'solid',
+    variant: 'subtle',
     size: 'md',
     colorScheme: 'info',
     flatBase: false,
@@ -40,21 +54,45 @@ export const KitchenSink: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => {
     return (
-      <Flex direction="row" gap="600">
+      <Flex direction="column" gap="500">
         {sizes.map(size => (
-          <Flex direction="row" gap="400">
+          <Flex direction="column" gap="200" alignItems="start">
             {variants.map(variant => (
-              <Flex key={variant} gap="400" justifyContent="center" direction="column">
-                {colorSchemes.map(colorScheme => (
-                  <Flex key={colorScheme} direction="row" gap="200">
-                    <Badge variant={variant} colorScheme={colorScheme} size={size}>
-                      Badge
-                    </Badge>
-                    <Badge variant={variant} colorScheme={colorScheme} size={size} flatBase>
-                      Badge
-                    </Badge>
-                  </Flex>
+              <Flex key={variant} gap="200" justifyContent="center" direction="row">
+                {allVariantColorSchemes.map(colorScheme => (
+                  <Badge
+                    key={`${size}${variant}${colorScheme}`}
+                    variant={variant}
+                    colorScheme={colorScheme}
+                    size={size}
+                  >
+                    Badge
+                  </Badge>
                 ))}
+                {variant !== 'outline'
+                  ? nonOutlineColorSchemes.map(colorScheme => (
+                      <Badge
+                        key={`${size}${variant}${colorScheme}`}
+                        variant={variant}
+                        colorScheme={colorScheme}
+                        size={size}
+                      >
+                        Badge
+                      </Badge>
+                    ))
+                  : null}
+                {variant === 'subtle'
+                  ? subtleOnlyColorSchemes.map(colorScheme => (
+                      <Badge
+                        key={`${size}${variant}${colorScheme}`}
+                        variant={variant}
+                        colorScheme={colorScheme}
+                        size={size}
+                      >
+                        Badge
+                      </Badge>
+                    ))
+                  : null}
               </Flex>
             ))}
           </Flex>
@@ -107,7 +145,7 @@ export const FlatBase: Story = {
     return (
       <Box>
         <Flex justifyContent="end" paddingRight="300" width="400px">
-          <Badge colorScheme="positive" variant="solid" flatBase>
+          <Badge colorScheme="positive" variant="emphasis" flatBase>
             Multi SIM offer
           </Badge>
         </Flex>
@@ -132,7 +170,7 @@ export const SurfaceColours: Story = {
         {colorSchemes.map(colorScheme => (
           <Badge
             key={colorScheme}
-            variant="solid"
+            variant="emphasis"
             colorScheme={colorScheme}
             textTransform="capitalize"
           >
@@ -144,7 +182,7 @@ export const SurfaceColours: Story = {
         {colorSchemes.map(colorScheme => (
           <Badge
             key={colorScheme}
-            variant="solid"
+            variant="emphasis"
             colorScheme={colorScheme}
             textTransform="capitalize"
           >

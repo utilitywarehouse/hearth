@@ -37,6 +37,11 @@ The `colorScheme` prop will change the Badge colours.
 
 <Canvas of={Stories.ColorSchemes} sourceState="none" />
 
+## Dead prop combinations
+
+Be aware there are some combinations of `colorScheme` & `variant` that do not work together (ie. `emphasis` &
+`highlight`), and if used will render a button with no colours at all. You will also see a TypeScript error.
+
 ## Flat Base
 
 The `flatBase` will remove the `border-bottom-right-radius` and `border-bottom-left-radius`, for use when the badge is positioned on top of another element.
@@ -68,8 +73,9 @@ This component is based on the `span` element and supports the following common 
 
 - Text transform
 
-| Prop          | Type                                                         |
-| ------------- | ------------------------------------------------------------ |
-| `variant`     | `solid` \| `outline`                                         |
-| `colorScheme` | `info` \|`positive` \| `danger` \| `warning` \| `functional` |
-| `flatBase`    | `boolean`                                                    |
+| Prop          | Type                                                                                                                                                |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `variant`     | `emphasis` \| `subtle` \| `outline`                                                                                                                 |
+| `size`        | `sm` \| `md`                                                                                                                                        |
+| `colorScheme` | `info` \|`positive` \| `danger` \| `warning` \| `functional`\|`pig` \|`highlight` \| `energy` \| `mobile` \| `broadband`\| `cashback`\| `insurance` |
+| `flatBase`    | `boolean`                                                                                                                                           |
