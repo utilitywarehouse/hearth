@@ -49,7 +49,7 @@ jobs:
           echo FIGMA_ACCESS_TOKEN=${{ secrets.FIGMA_ACCESS_TOKEN }} >> ./packages/svg-icons/.env
 
       - name: 🪄 Generate SVG icons
-        run: pnpm generate:svg
+        run: pnpm generate:svg-icons
 
       - name: 🪄 Generate React & React Native icons
         run: pnpm generate:react

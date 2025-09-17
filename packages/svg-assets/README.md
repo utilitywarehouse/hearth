@@ -12,11 +12,11 @@ yarn add @utilitywarehouse/hearth-svg-assets
 ## Usage
 
 ```tsx
-import AddMediumIcon from '@utilitywarehouse/hearth-svg-assets/lib/add-medium-icon.svg'
+import LogoFullPurple from '@utilitywarehouse/hearth-svg-assets/lib/logo-full-purple.svg'
 
 [...]
 
-<img src={AddMediumIcon} alt="add">
+<img src={LogoFullPurple} alt="Utility Warehouse Logo" />
 ```
 
 ## Generate

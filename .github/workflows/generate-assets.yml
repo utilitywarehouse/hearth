@@ -49,7 +49,7 @@ jobs:
           echo FIGMA_ACCESS_TOKEN=${{ secrets.FIGMA_ACCESS_TOKEN }} >> ./packages/svg-assets/.env
 
       - name: 🪄 Generate SVG assets
-        run: pnpm generate:svg
+        run: pnpm generate:svg-assets
 
       - name: 🪄 Generate Storybook docs
         run: pnpm generate:storybook
