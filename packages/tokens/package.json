@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-tokens",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "",
   "style": "./index.css",
   "main": "./js/index.js",
