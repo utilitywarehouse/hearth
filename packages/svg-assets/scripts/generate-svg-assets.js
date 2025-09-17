@@ -24,34 +24,37 @@ const figmaConfig = {
 };
 
 const transformers = {
-  /** Build the svg & jsx names of the asset */
-  buildAssetNames(asset, metadata) {
-    // represents assets with the naming convention - `{name}{size}{variant}`
-    const baseName = `${asset.name.split(' - ')[0]}${metadata.size}`.replace(/[0-9]/g, '');
-    // SVG naming convention = `{name}-{size}-{variant}`
-    const svgName = `${_.kebabCase(baseName)}`;
-    // JSX naming convention = `{Name}{Size}{Variant}`
-    const jsxName = `${_.upperFirst(_.camelCase(baseName))}`;
-    return {
-      id: asset.id,
-      svgName,
-      jsxName,
-    };
+  /** Extract variant values from a component variant name, ignoring keys like Variant/Color. */
+  parseVariantValues(name) {
+    if (!name || typeof name !== 'string') return [];
+    const parts = name
+      .split(/[,/]/)
+      .map(s => s.trim())
+      .filter(Boolean);
+    return parts
+      .map(p => {
+        const kv = p.split(/[:=]/);
+        let value = kv.length > 1 ? kv.slice(1).join(':') : p;
+        value = value.trim();
+        return value
+          .replace(/^Variant$/i, '')
+          .replace(/^Color$/i, '')
+          .trim();
+      })
+      .filter(Boolean);
   },
-  /** Swaps out all colors (except for "none") for stroke and fill to "currentColor". */
-  injectCurrentColor(svgRaw) {
-    const $ = cheerio.load(svgRaw, { xmlMode: true });
-    $('*').each((_i, el) => {
-      Object.keys(el.attribs).forEach(attrKey => {
-        if (['fill', 'stroke'].includes(attrKey)) {
-          const val = $(el).attr(attrKey);
-          if (val !== 'none') {
-            $(el).attr(attrKey, 'currentColor');
-          }
-        }
-      });
-    });
-    return $.xml();
+
+  /** Build the svg & jsx names of the asset (variant-aware). */
+  buildAssetNames(asset, metadata = {}) {
+    const { componentSetName } = metadata;
+    // Prefer set name when present (indicates variants); otherwise use the component name.
+    const base = (componentSetName || `${asset.name.split(' - ')[0]}`).replace(/[0-9]/g, '');
+    const variantValues = componentSetName ? transformers.parseVariantValues(asset.name) : [];
+    const combined = [base, ...variantValues].join(' ').replace(/\s+/g, ' ').trim();
+
+    const svgName = `${_.kebabCase(combined)}`;
+    const jsxName = `${_.upperFirst(_.camelCase(combined))}`;
+    return { id: asset.id, svgName, jsxName };
   },
   /** Pass SVG through SVGO to reduce size. */
   async passSVGO(svgRaw, svgPath, config) {
@@ -80,11 +83,6 @@ async function getAssetsFigmaDocument() {
       'An invalid token was used. Follow the Auth Guide (https://git.io/Je87i), and try again.'
     );
   }
-  await fs.outputFile(
-    path.resolve(__dirname, '..', 'document.json'),
-    JSON.stringify(data.document, null, 2),
-    { encoding: 'utf8' }
-  );
   return data.document;
 }
 
@@ -94,8 +92,8 @@ async function getSizeCanvases(document) {
     const [size] = name.split(' - ');
 
     if (
-      // size.includes('Logo') ||
-      (size.includes('Spots') || size.includes('Scenes') || size.includes('Mascots')) &&
+      // Include these canvases only, and ensure they have content
+      ['Logo', 'Spots', 'Scenes', 'Mascots'].some(s => size.includes(s)) &&
       children.length > 0
     ) {
       canvases = [...canvases, { size, children }];
@@ -103,41 +101,32 @@ async function getSizeCanvases(document) {
     return canvases;
   }, []);
 
-  await fs.outputFile(
-    path.resolve(__dirname, '..', `canvases.json`),
-    JSON.stringify(canvas, null, 2),
-    { encoding: 'utf8' }
-  );
-
   return canvas;
 }
 
 /** Gets all the assets from the contents of the Variant frames */
 function getAssets(data) {
-  return data.reduce((assets, size) => {
-    size.children.forEach(columns => {
-      columns.children.forEach(nameAssetPair => {
-        if (!nameAssetPair.children) {
-          return;
-        }
-        nameAssetPair.children.forEach(item => {
-          // we need to pull out the component from the name/asset pair
-          if (item.type === 'COMPONENT') {
-            assets[item.id] = transformers.buildAssetNames(item, size);
-          }
-          // when there are multiple columns of assets then the name/asset pairs
-          // will be nested inside another column frame
-          if (item.type === 'FRAME') {
-            item.children.forEach(child => {
-              if (child.type === 'COMPONENT') {
-                assets[child.id] = transformers.buildAssetNames(child, size);
-              }
-            });
-          }
+  // Recursively traverse canvas nodes to collect all COMPONENTs (and components inside COMPONENT_SETs)
+  return data.reduce((assets, canvas) => {
+    const visit = (node, ctx = {}) => {
+      if (!node) return;
+      if (node.type === 'COMPONENT') {
+        assets[node.id] = transformers.buildAssetNames(node, {
+          canvas: canvas.size,
+          componentSetName: ctx.componentSetName,
         });
-      });
-    });
+      }
+      // If this is a COMPONENT_SET, capture its name to pass to children
+      const nextCtx = { ...ctx };
+      if (node.type === 'COMPONENT_SET') {
+        nextCtx.componentSetName = `${node.name.split(' - ')[0]}`;
+      }
+      if (node.children && node.children.length) {
+        node.children.forEach(child => visit(child, nextCtx));
+      }
+    };
 
+    canvas.children.forEach(child => visit(child));
     return assets;
   }, {});
 }
@@ -207,13 +196,9 @@ async function downloadSvgsToFs(urls, assets) {
       const asset = assets[assetId];
       const fileName = `${asset.svgName}.svg`;
 
-      const processedSvg = await (
-        await fetch(urls[assetId])
-      )
+      const processedSvg = await (await fetch(urls[assetId]))
         .text()
-        .then(async svgRaw => transformers.passSVGO(svgRaw, fileName, svgoConfig))
-        .then(svgRaw => transformers.injectCurrentColor(svgRaw));
-
+        .then(async svgRaw => transformers.passSVGO(svgRaw, fileName, svgoConfig));
       await fs.outputFile(path.resolve(__dirname, '..', 'lib', fileName), processedSvg, {
         encoding: 'utf8',
       });
@@ -236,11 +221,16 @@ async function generateManifest(assets) {
 
 /** Get a list of assets from the manifest file */
 async function getAssetsList() {
-  const raw = await fs.readFileSync(path.resolve(__dirname, '..', 'manifest.json'), {
-    encoding: 'utf8',
-  });
-  const { svgAssets } = JSON.parse(raw);
-  return svgAssets.map(i => i.name);
+  try {
+    const raw = await fs.readFileSync(path.resolve(__dirname, '..', 'manifest.json'), {
+      encoding: 'utf8',
+    });
+    const { svgAssets } = JSON.parse(raw);
+    return svgAssets.map(i => i.name);
+  } catch (e) {
+    // If manifest doesn't exist yet, treat as no existing assets
+    return [];
+  }
 }
 
 /**

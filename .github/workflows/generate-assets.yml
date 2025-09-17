@@ -1,0 +1,88 @@
+name: Generate Assets
+on:
+  workflow_dispatch:
+    inputs:
+      branchName:
+        description: 'Branch name'
+        required: true
+        default: 'assets-release'
+        type: string
+      type:
+        description: |
+          The semver type <major|minor|patch> to bump the packages.
+        required: true
+        default: minor
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+env:
+  CI: true
+
+jobs:
+  generate:
+    name: Generate assets packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🏗 Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.2
+      - name: 🏗 Checkout code
+        uses: actions/checkout@v4
+      - name: 🏗 Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+      - name: 📦 Install dependencies
+        run: pnpm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_PUBLISH_TOKEN }}
+
+      - name: create env file
+        run: |
+          touch ./packages/svg-assets/.env
+          echo FIGMA_ACCESS_TOKEN=${{ secrets.FIGMA_ACCESS_TOKEN }} >> ./packages/svg-assets/.env
+
+      - name: 🪄 Generate SVG assets
+        run: pnpm generate:svg
+
+      - name: 🪄 Generate Storybook docs
+        run: pnpm generate:storybook
+
+      - name: Format files
+        run: pnpm format
+
+      - name: Set output variables
+        id: vars
+        run: |
+          echo 'pr_body<<EOF' >> $GITHUB_OUTPUT
+          echo "$(cat updated-assets.md)" >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
+
+      - name: Add changeset
+        run: |
+          touch ./.changeset/${{ github.sha }}.md
+          cat > ./.changeset/${{ github.sha }}.md << EOF
+          ---
+          "@utilitywarehouse/hearth-svg-assets": ${{ inputs.type }}
+          ---
+
+          EOF
+          cat updated-assets.md >> ./.changeset/${{ github.sha }}.md
+          rm updated-assets.md
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.PAT }}
+          branch: ${{ inputs.branchName }}
+          title: 'Generate updated assets packages'
+          commit-message: 'Generate updated assets packages'
+          delete-branch: true
+          base: main
+          body: ${{ steps.vars.outputs.pr_body }}
