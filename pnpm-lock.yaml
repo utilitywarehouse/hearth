@@ -829,8 +829,11 @@ importers:
         specifier: ^18.3.12
         version: 18.3.18
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:*
+        specifier: workspace:^
         version: link:../react-icons
+      '@utilitywarehouse/hearth-react-native-icons':
+        specifier: workspace:^
+        version: link:../react-native-icons
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.1)
