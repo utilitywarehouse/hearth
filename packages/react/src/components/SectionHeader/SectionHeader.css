@@ -1,11 +1,22 @@
 .hearth-SectionHeader {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: var(--h-section-header-gap);
-  flex: 1 0 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto max-content;
+  column-gap: var(--h-section-header-gap);
+  row-gap: var(--h-section-header-text-content-gap);
 
-  .hearth-SectionHeaderTextContent {
-    gap: var(--h-section-header-text-content-gap);
+  & :where(.hearth-Heading) {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  & :where(.hearth-HelperText) {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+
+  & :where(.hearth-Link) {
+    grid-column: 2/3;
+    grid-row: 1/2;
   }
 }
