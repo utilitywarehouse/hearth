@@ -9,7 +9,7 @@ addons.setConfig({
 });
 
 addons.register('darkmode-refresh', api => {
-  let previousDarkMode = null;
+  let previousDarkMode: boolean | null = null;
 
   api.on('globalsUpdated', ({ globals }) => {
     const currentDarkMode = globals.darkMode;
