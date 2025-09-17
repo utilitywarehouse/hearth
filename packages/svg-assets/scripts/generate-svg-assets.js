@@ -1,0 +1,323 @@
+// This is all copied and updated to our needs from
+// https://github.com/radix-ui/assets/tree/master/packages/generate-asset-lib
+const path = require('path');
+const fs = require('fs-extra');
+// eslint-disable-next-line @typescript-eslint/naming-convention
+const _ = require('lodash');
+const { optimize, loadConfig } = require('svgo');
+const cheerio = require('cheerio');
+const fetch = require('node-fetch');
+
+require('dotenv').config();
+
+if (!process.env.FIGMA_ACCESS_TOKEN) {
+  throw new Error("❌ FIGMA_ACCESS_TOKEN is missing! Make sure it's set.");
+}
+
+const figmaConfig = {
+  /** The base Figma API url */
+  baseUrl: 'https://api.figma.com',
+  /** The UW Assets Figma library fileKey */
+  fileKey: 'bZWlxN5ZzRTlDmnR1EGZun',
+  /** The headers pass the Figma personal access key to the API, authenticating this script. */
+  headers: new fetch.Headers({ 'X-Figma-Token': process.env.FIGMA_ACCESS_TOKEN }),
+};
+
+const transformers = {
+  /** Build the svg & jsx names of the asset */
+  buildAssetNames(asset, metadata) {
+    // represents assets with the naming convention - `{name}{size}{variant}`
+    const baseName = `${asset.name.split(' - ')[0]}${metadata.size}`.replace(/[0-9]/g, '');
+    // SVG naming convention = `{name}-{size}-{variant}`
+    const svgName = `${_.kebabCase(baseName)}`;
+    // JSX naming convention = `{Name}{Size}{Variant}`
+    const jsxName = `${_.upperFirst(_.camelCase(baseName))}`;
+    return {
+      id: asset.id,
+      svgName,
+      jsxName,
+    };
+  },
+  /** Swaps out all colors (except for "none") for stroke and fill to "currentColor". */
+  injectCurrentColor(svgRaw) {
+    const $ = cheerio.load(svgRaw, { xmlMode: true });
+    $('*').each((_i, el) => {
+      Object.keys(el.attribs).forEach(attrKey => {
+        if (['fill', 'stroke'].includes(attrKey)) {
+          const val = $(el).attr(attrKey);
+          if (val !== 'none') {
+            $(el).attr(attrKey, 'currentColor');
+          }
+        }
+      });
+    });
+    return $.xml();
+  },
+  /** Pass SVG through SVGO to reduce size. */
+  async passSVGO(svgRaw, svgPath, config) {
+    const { data } = optimize(svgRaw, {
+      ...config,
+      path: svgPath,
+    });
+    return data;
+  },
+};
+
+/**
+ * Gets the contents of the UW Assets Figma library.
+ *
+ * https://www.figma.com/file/WDFaQF9EMtS7MjuIpjDVpf
+ *
+ * This is the document we will need to pull all the assets out of.
+ */
+async function getAssetsFigmaDocument() {
+  const resp = await fetch(`${figmaConfig.baseUrl}/v1/files/${figmaConfig.fileKey}`, {
+    headers: figmaConfig.headers,
+  });
+  const data = await resp.json();
+  if (data.status === 403 && data.err === 'Invalid token') {
+    throw new Error(
+      'An invalid token was used. Follow the Auth Guide (https://git.io/Je87i), and try again.'
+    );
+  }
+  await fs.outputFile(
+    path.resolve(__dirname, '..', 'document.json'),
+    JSON.stringify(data.document, null, 2),
+    { encoding: 'utf8' }
+  );
+  return data.document;
+}
+
+/** Get only the small, medium & large asset canvases from the Figma document. */
+async function getSizeCanvases(document) {
+  const canvas = document.children.reduce((canvases, { name, children }) => {
+    const [size] = name.split(' - ');
+
+    if (
+      // size.includes('Logo') ||
+      (size.includes('Spots') || size.includes('Scenes') || size.includes('Mascots')) &&
+      children.length > 0
+    ) {
+      canvases = [...canvases, { size, children }];
+    }
+    return canvases;
+  }, []);
+
+  await fs.outputFile(
+    path.resolve(__dirname, '..', `canvases.json`),
+    JSON.stringify(canvas, null, 2),
+    { encoding: 'utf8' }
+  );
+
+  return canvas;
+}
+
+/** Gets all the assets from the contents of the Variant frames */
+function getAssets(data) {
+  return data.reduce((assets, size) => {
+    size.children.forEach(columns => {
+      columns.children.forEach(nameAssetPair => {
+        if (!nameAssetPair.children) {
+          return;
+        }
+        nameAssetPair.children.forEach(item => {
+          // we need to pull out the component from the name/asset pair
+          if (item.type === 'COMPONENT') {
+            assets[item.id] = transformers.buildAssetNames(item, size);
+          }
+          // when there are multiple columns of assets then the name/asset pairs
+          // will be nested inside another column frame
+          if (item.type === 'FRAME') {
+            item.children.forEach(child => {
+              if (child.type === 'COMPONENT') {
+                assets[child.id] = transformers.buildAssetNames(child, size);
+              }
+            });
+          }
+        });
+      });
+    });
+
+    return assets;
+  }, {});
+}
+
+async function writeAssetsToFile(assets) {
+  const formatted = Object.values(assets).map(({ id, jsxName }) => ({ id, name: jsxName }));
+  await fs.outputFile(
+    path.resolve(__dirname, '..', 'assets.json'),
+    JSON.stringify(formatted, undefined, 2),
+    {
+      encoding: 'utf8',
+    }
+  );
+}
+
+/** Gets Figma urls for each asset SVG, using the asset id. */
+async function renderIdsToSvgUrls(ids) {
+  const resp = await fetch(
+    `${figmaConfig.baseUrl}/v1/images/${figmaConfig.fileKey}?ids=${ids}&format=svg`,
+    { headers: figmaConfig.headers }
+  );
+
+  // We can't be sure of the response, when an error, will have a body that can be streamed to JSON.
+  let data = {
+    err: null,
+    images: {},
+  };
+  if (resp.headers.get('content-type').includes('application/json')) {
+    data = await resp.json();
+  }
+  const error = typeof data.err === 'object' ? JSON.stringify(data.err, null, 2) : data.err;
+  if (!resp.ok) {
+    switch (resp.status) {
+      case 400:
+        throw new Error(`Unexpected error encountered from Figma API\n${error}`);
+      case 404:
+        throw new Error(
+          "One or more of the assets couldn't be found in Figma. Check to see if they still exist, and try again."
+        );
+      case 500:
+        throw new Error('Figma could not render the assets. ಠ_ಠ');
+      default:
+        throw new Error(
+          `An error occured while rendering assets to SVG.\n${resp.status}\n${error}`
+        );
+    }
+  }
+
+  if (!data.images || !Object.keys(data.images).length) {
+    throw new Error(
+      `An error occured after rendering assets in Figma. Render response:\n${JSON.stringify(
+        data,
+        null,
+        2
+      )}`
+    );
+  }
+
+  return data.images;
+}
+
+/** Download SVGs and create .svg files in the lib directory. */
+async function downloadSvgsToFs(urls, assets) {
+  const svgoConfig = await loadConfig();
+  await Promise.all(
+    Object.keys(urls).map(async assetId => {
+      const asset = assets[assetId];
+      const fileName = `${asset.svgName}.svg`;
+
+      const processedSvg = await (
+        await fetch(urls[assetId])
+      )
+        .text()
+        .then(async svgRaw => transformers.passSVGO(svgRaw, fileName, svgoConfig))
+        .then(svgRaw => transformers.injectCurrentColor(svgRaw));
+
+      await fs.outputFile(path.resolve(__dirname, '..', 'lib', fileName), processedSvg, {
+        encoding: 'utf8',
+      });
+    })
+  );
+}
+
+/** Generates a manifest.json file for use by storybook to generate docs. */
+async function generateManifest(assets) {
+  const svgAssets = Object.values(assets).reduce((manifest, asset) => {
+    const { svgName, jsxName } = asset;
+    return [...manifest, { name: jsxName, path: `${svgName}.svg` }];
+  }, []);
+  await fs.outputFile(
+    path.resolve(__dirname, '../manifest.json'),
+    JSON.stringify({ svgAssets }, null, 2),
+    { encoding: 'utf8' }
+  );
+}
+
+/** Get a list of assets from the manifest file */
+async function getAssetsList() {
+  const raw = await fs.readFileSync(path.resolve(__dirname, '..', 'manifest.json'), {
+    encoding: 'utf8',
+  });
+  const { svgAssets } = JSON.parse(raw);
+  return svgAssets.map(i => i.name);
+}
+
+/**
+ * Create a temporary list of added and removed assets. This will be deleted
+ * after it has been ourputted to the console when running the generate
+ * script.
+ * Currently this won't list any assets taht have changed. So we'll have to
+ * check this manually to see if the change warrants inclusion in the
+ * changeset.
+ */
+async function createTempListOfAddedAndRemovedAssets(previous, updated) {
+  const addedAssets = updated.reduce((added, asset) => {
+    if (!previous.includes(asset)) {
+      added.push(asset);
+    }
+    return added;
+  }, []);
+
+  const removedAssets = previous.reduce((removed, asset) => {
+    if (!updated.includes(asset)) {
+      removed.push(asset);
+    }
+    return removed;
+  }, []);
+
+  const added = addedAssets.length > 0 ? `- ${addedAssets.join('\n- ')}` : 'No new assets.';
+  const removed =
+    removedAssets.length > 0 ? `- ${removedAssets.join('\n- ')}` : 'No removed assets.';
+  const content = `
+## NEW ASSETS
+
+${added}
+
+## REMOVED ASSETS
+
+${removed}
+
+`;
+  await fs.outputFile(path.resolve(__dirname, '../../../', 'updated-assets.md'), content);
+  return { added, removed };
+}
+
+async function main() {
+  // First get a list of the currently available assets.
+  const currentAssetsList = await getAssetsList();
+
+  // Get the document from Figma
+  console.log('getting figma document');
+  const document = await getAssetsFigmaDocument();
+  // Pull out the relevant canvases
+  const data = await getSizeCanvases(document);
+  // Get all the assets
+  console.log('getting assets');
+  const assets = getAssets(data);
+  // write to file for reference & generating figma code connect files
+  await writeAssetsToFile(assets);
+  // List all the assets ids and use them to get the URLs for each SVG
+  const assetIds = Object.keys(assets);
+  const assetSvgUrls = await renderIdsToSvgUrls(assetIds);
+
+  // Download those SVGs to file
+  console.log('creating svg files');
+  await downloadSvgsToFs(assetSvgUrls, assets);
+  // generate the manifest for the storybook docs
+  await generateManifest(assets);
+
+  // Let's see what assets we have now, and what has been added and removed, so
+  // we can add it to the release changeset.
+  const updatedAssetsList = await getAssetsList();
+  await createTempListOfAddedAndRemovedAssets(currentAssetsList, updatedAssetsList);
+}
+
+main()
+  .then(() => {
+    console.log('Thanks, see ya 👋');
+  })
+  .catch(err => {
+    console.error(err);
+    return process.exit(1);
+  });
