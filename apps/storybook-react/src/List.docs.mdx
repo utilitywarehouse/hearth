@@ -6,6 +6,11 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 
 <DocsHeader componentName="List" stories={Stories} />
 
+## Playground
+
+<Canvas of={Stories.Playground} />
+<Controls of={Stories.Playground} />
+
 - [Accessibility](#accessibility)
 - [Appearance](#appearance)
 - [Heading](#heading)
@@ -15,11 +20,6 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 - [ListItemContent](#listitemcontent)
 - [ListItemButton](#listitembutton)
 - [ListItemLink](#listitemlink)
-
-## Playground
-
-<Canvas of={Stories.Playground} />
-<Controls of={Stories.Playground} />
 
 - The `List` component can be customized with different variants and color schemes.
 - Use `ListItem` by itself for simple text content, or as a container for more complex, or interactive, content.
@@ -79,14 +79,18 @@ heading. This is important for maintaining semantic structure in your document.
 
 ### Link
 
-The `linkText` and `linkHref` props work together to render a link in
-the list header. Use them to provide a call-to-action or navigation link.
-
-- **`linkText`**: The text to display for the link.
-- **`linkHref`**: The URL the link should navigate to.
+Use the `link` prop to provide a call-to-action or navigation link.
 
 ```tsx
-<List heading="My Bills" linkText="View All" linkHref="https://uw.co.uk/bills">
+<List
+  heading="My Bills"
+  link={
+    <Link href="https://uw.co.uk/bills">
+      View all
+      <ChevronRightSmallIcon />
+    </Link>
+  }
+>
   <ListItem>January 2025</ListItem>
   <ListItem>February 2025</ListItem>
 </List>
@@ -120,8 +124,7 @@ This component is based on the `ul` element and supports the following common pr
 | `heading`        | `string`                                            |
 | `headingElement` | `"div" \| "h1" \| "h2" \| "h3" \| "h4" \| "div"`    |
 | `helperText`     | `string`                                            |
-| `linkText`       | `string`                                            |
-| `linkHref`       | `string`                                            |
+| `link`           | `ReactNode`                                         |
 
 ## ListItem
 

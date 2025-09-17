@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CheckboxTile, Flex, BodyText } from '@utilitywarehouse/hearth-react';
-import { CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import { BillMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof CheckboxTile> = {
   title: 'Stories / CheckboxTile',
@@ -34,34 +34,37 @@ export const Playground: Story = {
   render: args => (
     <Flex width="fit-content" gap="200">
       <CheckboxTile {...args} />
-      <CheckboxTile {...args} image={<CashbackCardMediumIcon />}/>
+      <CheckboxTile {...args} image={<BillMediumIcon />} />
     </Flex>
   ),
 };
 
 export const KitchenSink: Story = {
-  render: () => { 
-    const MyImage = <img src="https://help.uw.co.uk/images/iPhone.svg" width={25}/>;
+  render: () => {
     return (
-    <Flex gap="400">
-      <Flex direction="column" gap="200">
-        <BodyText>Standalone</BodyText>
-        <CheckboxTile aria-label="standalone" />
+      <Flex gap="400">
+        <Flex direction="column" gap="200">
+          <BodyText>Standalone</BodyText>
+          <CheckboxTile aria-label="standalone" />
+        </Flex>
+        <Flex direction="column" gap="200">
+          <BodyText>With label</BodyText>
+          <CheckboxTile label="Label" />
+        </Flex>
+        <Flex direction="column" gap="200">
+          <BodyText>With icon</BodyText>
+          <CheckboxTile label="Label" image={<BillMediumIcon />} />
+        </Flex>
+        <Flex direction="column" gap="200">
+          <BodyText>With image</BodyText>
+          <CheckboxTile
+            label="Label"
+            image={<img src="https://help.uw.co.uk/images/iPhone.svg" width={25} alt="" />}
+          />
+        </Flex>
       </Flex>
-      <Flex direction="column" gap="200">
-        <BodyText>With label</BodyText>
-        <CheckboxTile label="Label" />
-      </Flex>
-      <Flex direction="column" gap="200">
-        <BodyText>With icon</BodyText>
-        <CheckboxTile label="Label" image={<CashbackCardMediumIcon />}/>
-      </Flex>
-      <Flex direction="column" gap="200">
-        <BodyText>With image</BodyText>
-        <CheckboxTile label="Label" image={MyImage}/>
-      </Flex>
-    </Flex>
-  )},
+    );
+  },
 };
 
 export const Controlled: Story = {

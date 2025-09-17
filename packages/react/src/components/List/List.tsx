@@ -5,7 +5,6 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { Card } from '../Card/Card';
 import { Box } from '../Box/Box';
-import { useIds } from '../../hooks/use-ids';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
@@ -20,42 +19,28 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
     as: Tag = 'ul',
     className,
     colorScheme = undefined,
-    heading,
-    headingElement: HeadingEl = 'div',
-    helperText,
-    linkText,
-    linkHref,
-    children,
     variant,
-    id: providedId,
-    'aria-labelledby': ariaLabelledby,
-    'aria-describedby': ariaDescribedby,
+    heading,
+    headingElement,
+    helperText,
+    link,
+    children,
     ...listProps
   } = extractProps(props, marginPropDefs);
-  const { id, labelId, helperTextId } = useIds({
-    providedId,
-    prefix: 'list',
-  });
-  const listAriaProps = {
-    id,
-    role: 'list',
-    ['aria-labelledby']: ariaLabelledby ?? (Boolean(heading) ? labelId : undefined),
-    ['aria-describedby']: ariaDescribedby ?? (Boolean(helperText) ? helperTextId : undefined),
+
+  const headerProps = {
+    heading,
+    headingElement,
+    helperText,
+    link,
   };
 
   return (
     <div className={clsx(componentClassName, className)}>
-      <SectionHeader
-        id="listHeader"
-        helperText={helperText}
-        heading={heading}
-        linkHref={linkHref}
-        linkText={linkText}
-        as={HeadingEl}
-      />
+      {heading !== undefined ? <SectionHeader {...headerProps} /> : null}
       {variant === undefined || colorScheme === undefined ? (
-        <Box asChild className="hearth-ListContainer">
-          <Tag ref={ref} {...listProps} {...listAriaProps}>
+        <Box asChild className="hearth-ListContainer" role="list">
+          <Tag ref={ref} {...listProps}>
             {children}
           </Tag>
         </Box>
@@ -66,7 +51,7 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
           variant={variant}
           colorScheme={colorScheme}
         >
-          <Tag ref={ref} {...listProps} {...listAriaProps}>
+          <Tag ref={ref} role="list" {...listProps}>
             {children}
           </Tag>
         </Card>

@@ -509,8 +509,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/react
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:*
-        version: link:../../packages/react-icons
+        specifier: 0.2.0
+        version: 0.2.0(react@19.1.0)
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -816,7 +816,7 @@ importers:
         specifier: workspace:*
         version: link:../fonts
       '@utilitywarehouse/hearth-react-icons':
-        specifier: ~0.2.0
+        specifier: 0.2.0
         version: 0.2.0(react@19.1.0)
       clsx:
         specifier: ^2.1.1

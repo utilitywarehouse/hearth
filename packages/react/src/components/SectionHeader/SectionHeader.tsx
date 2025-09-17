@@ -21,7 +21,7 @@ export const SectionHeader = React.forwardRef<SectionHeaderElement, SectionHeade
     headingElement: HeadingEl = 'div',
     helperText,
     helperTextId,
-    children,
+    link,
     ...props
   }) => {
     return (
@@ -34,7 +34,7 @@ export const SectionHeader = React.forwardRef<SectionHeaderElement, SectionHeade
             {helperText}
           </HelperText>
         ) : null}
-        {children}
+        {link !== undefined ? link : null}
       </div>
     );
   }

@@ -30,12 +30,15 @@ export const Playground: Story = {
   render: args => {
     return (
       <Flex width="600px">
-        <SectionHeader {...args}>
-          <Link>
-            Link text
-            <ChevronRightSmallIcon />
-          </Link>
-        </SectionHeader>
+        <SectionHeader
+          {...args}
+          link={
+            <Link>
+              Link text
+              <ChevronRightSmallIcon />
+            </Link>
+          }
+        />
       </Flex>
     );
   },
@@ -45,23 +48,34 @@ export const CustomLink: Story = {
   render: () => {
     return (
       <Flex gap="600" direction="column" width="600px">
-        <SectionHeader heading="Default usage" helperText="Identical to List heading">
-          <Link href="#">
-            See more
-            <ChevronRightSmallIcon />
-          </Link>
-        </SectionHeader>
-        <SectionHeader heading="Customization of icon" helperText="Custom icon on right">
-          <Link href="#">
-            <SettingsSmallIcon />
-            Settings
-          </Link>
-        </SectionHeader>
-        <SectionHeader heading="No icon, href target _blank, no helper text">
-          <Link href="#" target="_blank">
-            Call to action
-          </Link>
-        </SectionHeader>
+        <SectionHeader
+          heading="Default usage"
+          helperText="Identical to List heading"
+          link={
+            <Link href="#">
+              See more
+              <ChevronRightSmallIcon />
+            </Link>
+          }
+        />
+        <SectionHeader
+          heading="Customization of icon"
+          helperText="Custom icon on right"
+          link={
+            <Link href="#">
+              <SettingsSmallIcon />
+              Settings
+            </Link>
+          }
+        />
+        <SectionHeader
+          heading="No icon, href target _blank, no helper text"
+          link={
+            <Link href="#" target="_blank">
+              Call to action
+            </Link>
+          }
+        />
       </Flex>
     );
   },
