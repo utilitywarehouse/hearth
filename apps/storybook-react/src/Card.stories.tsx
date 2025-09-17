@@ -29,8 +29,9 @@ const brandColorSchemes = [
   'mobile',
   'insurance',
   'cashback',
+  'pig',
 ] as const;
-const colorSchemes = [...neutralColorSchemes, ...brandColorSchemes] as const;
+const colorSchemes = [...neutralColorSchemes, 'highlight', ...brandColorSchemes] as const;
 
 const meta: Meta<typeof Card> = {
   title: 'Stories / Card',
@@ -62,28 +63,42 @@ type Story = StoryObj<typeof Card>;
 
 export const KitchenSink: Story = {
   render: ({ children }) => (
-    <Flex padding="600" backgroundColor="warmWhite50" direction="column" gap="300">
-      {variants.map(variant => (
-        <Flex gap="300" width="600px" asChild>
-          <ul role="list">
-            {neutralColorSchemes.map(colorScheme => (
-              <Card
-                key={`${variant}${colorScheme}`}
-                as="li"
-                variant={variant}
-                colorScheme={colorScheme}
-                justifyContent="center"
-                alignItems="center"
-              >
-                <DetailText size="sm">{children}</DetailText>
-              </Card>
-            ))}
-          </ul>
-        </Flex>
-      ))}
-      <Flex direction="column" gap="300">
+    <Flex padding="600" direction="column" gap="300" width="600px">
+      <Flex direction="row" gap="300">
         {variants.map(variant => (
-          <Flex gap="300" asChild>
+          <Flex gap="300" asChild direction="column">
+            <ul role="list">
+              {neutralColorSchemes.map(colorScheme => (
+                <Card
+                  key={`${variant}${colorScheme}`}
+                  as="li"
+                  variant={variant}
+                  colorScheme={colorScheme}
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <DetailText size="sm">{children}</DetailText>
+                </Card>
+              ))}
+            </ul>
+          </Flex>
+        ))}
+      </Flex>
+      <Flex justifyContent="center">
+        <Card
+          as="li"
+          variant="subtle"
+          colorScheme="highlight"
+          justifyContent="center"
+          alignItems="center"
+          width="50%"
+        >
+          <DetailText size="sm">{children}</DetailText>
+        </Card>
+      </Flex>
+      <Flex direction="row" gap="300">
+        {variants.map(variant => (
+          <Flex gap="300" asChild direction="column">
             <ul role="list">
               {brandColorSchemes.map(colorScheme => (
                 <Card
@@ -115,7 +130,12 @@ export const Playground: Story = {
     <Flex padding="600" backgroundColor="warmWhite50" justifyContent="center">
       <Box width="300px">
         <Card {...args}>
-          <DetailText size="sm">{children}</DetailText>
+          <DetailText
+            size="sm"
+            inverted={args.colorScheme === 'brand' && args.variant === 'emphasis'}
+          >
+            {children}
+          </DetailText>
         </Card>
       </Box>
     </Flex>
@@ -136,8 +156,8 @@ export const InteractiveCards: Story = {
               direction="column"
               gap="150"
             >
-              <Heading size="sm">Card</Heading>
-              <BodyText size="md">Content</BodyText>
+              <Heading size="sm">Neutral Card</Heading>
+              <BodyText size="md">neutralStrong & emphasis</BodyText>
               <CardAction asChild>
                 <Link href="#">
                   Link
@@ -147,8 +167,8 @@ export const InteractiveCards: Story = {
             </Card>
             <Card as="li" variant="subtle" colorScheme="neutralStrong" flex="1">
               <Flex direction="column" gap="150">
-                <Heading size="sm">Card</Heading>
-                <BodyText size="md">Content</BodyText>
+                <Heading size="sm">Neutral Card</Heading>
+                <BodyText size="md">neutralStrong & subtle</BodyText>
                 <CardAction asChild>
                   <Link href="#">
                     Link
@@ -159,8 +179,8 @@ export const InteractiveCards: Story = {
             </Card>
             <Card as="li" variant="emphasis" colorScheme="neutralSubtle" flex="1">
               <Flex direction="column" gap="150">
-                <Heading size="sm">Card</Heading>
-                <BodyText size="md">Content</BodyText>
+                <Heading size="sm">Neutral Card</Heading>
+                <BodyText size="md">neutralSubtle & emphasis</BodyText>
                 <CardAction asChild>
                   <Link href="#">
                     Link
@@ -171,7 +191,48 @@ export const InteractiveCards: Story = {
             </Card>
             <Card as="li" variant="subtle" colorScheme="neutralSubtle" flex="1">
               <Flex direction="column" gap="150">
-                <Heading size="sm">Card</Heading>
+                <Heading size="sm">Neutral Card</Heading>
+                <BodyText size="md">neutralSubtle & subtle</BodyText>
+                <CardAction asChild>
+                  <Link href="#">
+                    Link
+                    <ChevronRightSmallIcon />
+                  </Link>
+                </CardAction>
+              </Flex>
+            </Card>
+          </ul>
+        </Flex>
+
+        <Flex asChild gap="300" width="700px">
+          <ul role="list">
+            <Card as="li" variant="subtle" colorScheme="brand" flex="1">
+              <Flex direction="column" gap="150" justifyContent="between">
+                <Heading size="sm">Brand Card</Heading>
+                <BodyText size="md">Content</BodyText>
+                <CardAction asChild>
+                  <Link href="#">
+                    Link
+                    <ChevronRightSmallIcon />
+                  </Link>
+                </CardAction>
+              </Flex>
+            </Card>
+            <Card as="li" variant="subtle" colorScheme="pig" flex="1">
+              <Flex direction="column" gap="150" justifyContent="between">
+                <Heading size="sm">Pig Card</Heading>
+                <BodyText size="md">Content</BodyText>
+                <CardAction asChild>
+                  <Link href="#">
+                    Link
+                    <ChevronRightSmallIcon />
+                  </Link>
+                </CardAction>
+              </Flex>
+            </Card>
+            <Card as="li" variant="subtle" colorScheme="highlight" flex="1">
+              <Flex direction="column" gap="150" justifyContent="between">
+                <Heading size="sm">Highlight Card</Heading>
                 <BodyText size="md">Content</BodyText>
                 <CardAction asChild>
                   <Link href="#">
@@ -184,9 +245,9 @@ export const InteractiveCards: Story = {
           </ul>
         </Flex>
 
-        <Flex asChild gap="300" width="800px">
+        <Flex asChild gap="300" width="1000px">
           <ul role="list">
-            <Card as="li" variant="emphasis" colorScheme="energy" flex="1">
+            <Card as="li" variant="subtle" colorScheme="energy" flex="1">
               <Flex direction="column" gap="150" justifyContent="between">
                 <Heading size="sm">Energy Card</Heading>
                 <BodyText size="md">Content</BodyText>
@@ -198,7 +259,7 @@ export const InteractiveCards: Story = {
                 </CardAction>
               </Flex>
             </Card>
-            <Card as="li" variant="emphasis" colorScheme="mobile" flex="1">
+            <Card as="li" variant="subtle" colorScheme="mobile" flex="1">
               <Flex direction="column" gap="150" justifyContent="between">
                 <Heading size="sm">Mobile Card</Heading>
                 <BodyText size="md">Content</BodyText>
@@ -210,7 +271,7 @@ export const InteractiveCards: Story = {
                 </CardAction>
               </Flex>
             </Card>
-            <Card as="li" variant="emphasis" colorScheme="broadband" flex="1">
+            <Card as="li" variant="subtle" colorScheme="broadband" flex="1">
               <Flex direction="column" gap="150" justifyContent="between">
                 <Heading size="sm">Broadband Card</Heading>
                 <BodyText size="md">Content</BodyText>
@@ -222,9 +283,21 @@ export const InteractiveCards: Story = {
                 </CardAction>
               </Flex>
             </Card>
-            <Card as="li" variant="emphasis" colorScheme="insurance" flex="1">
+            <Card as="li" variant="subtle" colorScheme="insurance" flex="1">
               <Flex direction="column" gap="150" justifyContent="between">
                 <Heading size="sm">Insurance Card</Heading>
+                <BodyText size="md">Content</BodyText>
+                <CardAction asChild>
+                  <Link href="#">
+                    Link
+                    <ChevronRightSmallIcon />
+                  </Link>
+                </CardAction>
+              </Flex>
+            </Card>
+            <Card as="li" variant="subtle" colorScheme="cashback" flex="1">
+              <Flex direction="column" gap="150" justifyContent="between">
+                <Heading size="sm">Cashback Card</Heading>
                 <BodyText size="md">Content</BodyText>
                 <CardAction asChild>
                   <Link href="#">
@@ -237,7 +310,7 @@ export const InteractiveCards: Story = {
           </ul>
         </Flex>
 
-        <Flex asChild direction="column" gap="300" width="600px" alignItems="center">
+        <Flex asChild direction="row" gap="200" width="1000px" alignItems="start">
           <ul role="list">
             <Card
               as="li"
