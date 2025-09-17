@@ -39,7 +39,9 @@ type CommonCardProps = Omit<
     | 'broadband'
     | 'mobile'
     | 'insurance'
-    | 'cashback';
+    | 'cashback'
+    | 'pig'
+    | 'highlight';
   /**
    * Shorthand for changing the default rendered element into a semantically appropriate alternative.
    * @default div
