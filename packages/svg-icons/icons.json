@@ -232,6 +232,14 @@
     "name": "BellSmallIcon"
   },
   {
+    "id": "2360:22",
+    "name": "ThumbsUpSmallIcon"
+  },
+  {
+    "id": "2360:30",
+    "name": "ThumbsDownSmallIcon"
+  },
+  {
     "id": "6:275",
     "name": "AddMediumIcon"
   },
@@ -476,6 +484,10 @@
     "name": "CreditsAndDebitsMediumIcon"
   },
   {
+    "id": "2365:13",
+    "name": "BookOpenMediumIcon"
+  },
+  {
     "id": "9:677",
     "name": "ShoppingMediumIcon"
   },
@@ -634,5 +646,9 @@
   {
     "id": "2194:464",
     "name": "PlaceholderLargeIcon"
+  },
+  {
+    "id": "2365:21",
+    "name": "BookOpenLargeIcon"
   }
 ]
