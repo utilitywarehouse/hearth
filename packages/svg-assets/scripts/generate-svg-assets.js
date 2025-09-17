@@ -170,14 +170,14 @@ async function renderIdsToSvgUrls(ids) {
         throw new Error('Figma could not render the assets. ಠ_ಠ');
       default:
         throw new Error(
-          `An error occured while rendering assets to SVG.\n${resp.status}\n${error}`
+          `An error occurred while rendering assets to SVG.\n${resp.status}\n${error}`
         );
     }
   }
 
   if (!data.images || !Object.keys(data.images).length) {
     throw new Error(
-      `An error occured after rendering assets in Figma. Render response:\n${JSON.stringify(
+      `An error occurred after rendering assets in Figma. Render response:\n${JSON.stringify(
         data,
         null,
         2
@@ -237,7 +237,7 @@ async function getAssetsList() {
  * Create a temporary list of added and removed assets. This will be deleted
  * after it has been ourputted to the console when running the generate
  * script.
- * Currently this won't list any assets taht have changed. So we'll have to
+ * Currently this won't list any assets that have changed. So we'll have to
  * check this manually to see if the change warrants inclusion in the
  * changeset.
  */
