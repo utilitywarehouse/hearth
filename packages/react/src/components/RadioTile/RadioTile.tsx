@@ -17,7 +17,15 @@ type RadioTileElement = ElementRef<'button'>;
 
 export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
   (
-    { className, id: providedId, label, helperText, 'aria-labelledby': ariaLabelledby, ...props },
+    {
+      className,
+      id: providedId,
+      label,
+      helperText,
+      image,
+      'aria-labelledby': ariaLabelledby,
+      ...props
+    },
     ref
   ) => {
     const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
@@ -37,7 +45,8 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
             <RadixRadioGroup.Indicator className="hearth-RadioIndicator" />
           </div>
           <Flex direction="column">
-            <Label id={labelId} htmlFor={id} disableUserSelect>
+            <Label id={labelId} htmlFor={id} disableUserSelect className="hearth-RadioLabel">
+              {image}
               {label}
             </Label>
             {showHelperText ? (

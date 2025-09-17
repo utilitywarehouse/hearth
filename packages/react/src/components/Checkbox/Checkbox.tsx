@@ -29,6 +29,7 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props,
     onCheckedChange,
     value = 'on',
     'aria-labelledby': ariaLabelledby,
+    image,
     ...checkboxProps
   } = extractProps(props, marginPropDefs);
   const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'checkbox' });
@@ -41,11 +42,7 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props,
   const showLabel = !!label;
 
   return (
-    <Flex
-      gap="100"
-      className={clsx(componentClassName, className)}
-      data-disabled={disabled ? '' : undefined}
-    >
+    <Flex className={clsx(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
       <RadixCheckbox.Root
         ref={ref}
         className="hearth-CheckboxRoot"
@@ -76,7 +73,8 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props,
       </RadixCheckbox.Root>
       {showLabel ? (
         <Flex direction="column" gap="50">
-          <Label id={labelId} htmlFor={id} disableUserSelect>
+          <Label id={labelId} htmlFor={id} disableUserSelect className="hearth-CheckboxLabel">
+            {image}
             {label}
           </Label>
           {showHelperText ? (

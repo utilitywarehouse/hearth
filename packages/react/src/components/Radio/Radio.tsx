@@ -36,6 +36,7 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
       id: providedId,
       label,
       helperText,
+      image,
       className,
       labelFontWeight,
       'aria-labelledby': ariaLabelledby,
@@ -70,6 +71,7 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
               fontWeight={labelFontWeight}
               className="hearth-RadioLabel"
             >
+              {image}
               {label}
             </Label>
             {showHelperText ? (

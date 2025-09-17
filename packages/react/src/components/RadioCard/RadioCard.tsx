@@ -21,6 +21,7 @@ export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>((pro
     id: providedId,
     label,
     'aria-labelledby': ariaLabelledby,
+    image,
     ...radioCardProps
   } = extractProps(props, marginPropDefs);
   const { id, labelId } = useIds({ providedId, prefix: 'radio' });
@@ -36,7 +37,14 @@ export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>((pro
         <div className="hearth-RadioItem">
           <RadixRadioGroup.Indicator className="hearth-RadioIndicator" />
         </div>
-        <Label id={labelId} htmlFor={id} disableUserSelect fontWeight="semibold">
+        <Label
+          id={labelId}
+          htmlFor={id}
+          disableUserSelect
+          fontWeight="semibold"
+          className="hearth-RadioLabel"
+        >
+          {image}
           {label}
         </Label>
       </div>

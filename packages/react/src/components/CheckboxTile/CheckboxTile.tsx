@@ -29,6 +29,7 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
       onCheckedChange,
       label,
       helperText,
+      image,
       'aria-labelledby': ariaLabelledby,
       ...props
     },
@@ -76,7 +77,8 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
           </RadixCheckbox.Indicator>
         </RadixCheckbox.Root>
         <Flex direction="column">
-          <Label id={labelId} htmlFor={id} disableUserSelect>
+          <Label id={labelId} htmlFor={id} disableUserSelect className="hearth-CheckboxLabel">
+            {image}
             {label}
           </Label>
           {showHelperText ? (

@@ -1,4 +1,6 @@
 .hearth-Checkbox {
+  gap: var(--h-checkbox-gap);
+
   /* we do this so that the gap between the checkbox & label is clickable */
   .hearth-Label {
     position: relative;
@@ -65,4 +67,9 @@
   .hearth-CheckboxIndicator {
     position: absolute;
   }
+}
+
+.hearth-CheckboxLabel {
+  display:flex;
+  gap: var(--h-checkbox-tile-gap);
 }

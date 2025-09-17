@@ -19,6 +19,8 @@ export interface CheckboxProps
   label?: ReactNode;
   /** Helper text for the Checkbox. Will not display if the checkbox group has `helperText` set. */
   helperText?: ReactNode;
+  /** Optional image to show between the check indicator and label. */
+  image?: ReactNode;
   /** The controlled checked state of the checkbox. Must be used in conjunction with onCheckedChange. */
   checked?: boolean;
   /** Event handler called when the checked state of the checkbox changes. */

@@ -12,4 +12,6 @@ export interface RadioProps extends Omit<RadixRadioGroup.RadioGroupItemProps, 'd
   labelFontWeight?: LabelProps['fontWeight'];
   /** Helper text for the Radio. Will not display if the radio group has `helperText` set. */
   helperText?: ReactNode;
+  /** Optional image to show between the radio indicator and label. */
+  image?: ReactNode;
 }

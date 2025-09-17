@@ -27,4 +27,8 @@
     flex-direction: row;
     gap: var(--h-radio-tile-gap);
   }
+  
+  .hearth-RadioLabel {
+    gap: var(--h-radio-tile-gap);
+  }
 }
