@@ -2,8 +2,7 @@
   width: 100%;
   display: grid;
   grid-template-columns: auto max-content;
-  column-gap: var(--h-section-header-gap);
-  row-gap: var(--h-section-header-text-content-gap);
+  gap: var(--h-section-header-text-content-gap) var(--h-section-header-gap);
 
   & :where(.hearth-Heading) {
     grid-column: 1/2;
