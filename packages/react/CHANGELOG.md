@@ -1,5 +1,77 @@
 # @utilitywarehouse/hearth-react
 
+## 0.7.0
+
+### Minor Changes
+
+- [#428](https://github.com/utilitywarehouse/hearth/pull/428) [`8486120`](https://github.com/utilitywarehouse/hearth/commit/848612059721f1b524a0c659907b2994c85079ef) Thanks [@dorota-uw](https://github.com/dorota-uw)! - Added image prop to radio/checkbox
+
+- [#470](https://github.com/utilitywarehouse/hearth/pull/470) [`6a27b8b`](https://github.com/utilitywarehouse/hearth/commit/6a27b8b8c6c8b97255801963815f8bbbd015a835) Thanks [@robphoenix](https://github.com/robphoenix)! - Badge updates. This is a breaking change.
+
+  - Add `size` prop
+  - Change font family, font size & line-height
+  - Rename `solid` variant to `emphasis`
+  - Add `subtle` variant
+  - Add colorSchemes: `pig`, `highlight`, `energy`, `mobile`, `broadband`,
+    `insurance`, `cashback`
+
+- [#438](https://github.com/utilitywarehouse/hearth/pull/438) [`53327a6`](https://github.com/utilitywarehouse/hearth/commit/53327a6011799fb681569c42fc1fcd03bcfb481b) Thanks [@robphoenix](https://github.com/robphoenix)! - Rename `colorScheme` prop values. This is a breaking change.
+
+  The values for the `colorScheme` prop have been updated to reflect the
+  introduction of semantic design tokens. The values have been renamed as below:
+
+  - `white` -> `neutralStrong`
+  - `warmWhite` -> `neutralSubtle`
+  - `blue` -> `info`
+  - `green` -> `positive`
+  - `green` -> `affirmative`
+  - `red` -> `danger`
+  - `red` -> `destructive`
+  - `orange` -> `warning`
+  - `yellow` -> `highlight`
+  - `grey` -> `functional`
+
+  The changes will be dependent on the intent and usage of specific components.
+  The following components are included in this change:
+
+  - `Alert`
+  - `Badge`
+  - `Button`
+  - `IconButton`
+  - `Card`
+  - `List`
+
+  You will need to update all usages of the above components.
+
+- [#473](https://github.com/utilitywarehouse/hearth/pull/473) [`dcd34d0`](https://github.com/utilitywarehouse/hearth/commit/dcd34d0b4c1e8223b2b07667cb81407ba2f197eb) Thanks [@robphoenix](https://github.com/robphoenix)! - Refactor token CSS & Browser files. This is a breaking change, only affecting
+  usage of CSS and browser JS tokens.
+
+  - Individual component files have been combined into a single components tokens
+    file.
+  - Typography and Device tokens (mobile, tablet & desktop) have been included in
+    the components tokens file.
+  - Layout spacing tokens have been included in the space tokens file.
+  - Line-height & letter-spacing tokens have been included in the font tokens
+    file.
+
+  There is now a more concise set of individual tokens files:
+
+  - border.{css,ts}
+  - color.{css,ts}
+  - components.{css,ts}
+  - font.{css,ts}
+  - semantic.{css,ts}
+  - space.{css,ts}
+
+  This change will only affect you if you are importing tokens via specific file
+  imports. This change does not affect you if you are importing the complete set
+  of design tokens from an index impyou if you are importing the complete set of
+  design tokens from an index import.
+
+### Patch Changes
+
+- [#474](https://github.com/utilitywarehouse/hearth/pull/474) [`e04cb1a`](https://github.com/utilitywarehouse/hearth/commit/e04cb1a8cac1e341f63d116602626accbfbe3778) Thanks [@robphoenix](https://github.com/robphoenix)! - Add 'highlight' & 'pig' colorSchemes to `Card` component.
+
 ## 0.6.3
 
 ### Patch Changes
