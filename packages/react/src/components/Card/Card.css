@@ -75,4 +75,13 @@
     --h-card-emphasis-background-color: var(--h-surface-cashback-default);
     --h-card-subtle-background-color: var(--h-surface-cashback-subtle);
   }
+
+  &:where([data-colorscheme='pig']) {
+    --h-card-emphasis-background-color: var(--h-surface-pig-default);
+    --h-card-subtle-background-color: var(--h-surface-pig-subtle);
+  }
+
+  &:where([data-colorscheme='highlight']) {
+    --h-card-subtle-background-color: var(--h-surface-highlight-subtle);
+  }
 }
