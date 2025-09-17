@@ -58,6 +58,8 @@ import SkipLastSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/skip-last-
 import SkipFirstSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/skip-first-small-icon.svg';
 import TopUpSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/top-up-small-icon.svg';
 import BellSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/bell-small-icon.svg';
+import ThumbsUpSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/thumbs-up-small-icon.svg';
+import ThumbsDownSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/thumbs-down-small-icon.svg';
 import AddMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/add-medium-icon.svg';
 import CloseMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/close-medium-icon.svg';
 import MinusMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/minus-medium-icon.svg';
@@ -119,6 +121,7 @@ import DocumentMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/document-
 import UserMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/user-medium-icon.svg';
 import CameraMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/camera-medium-icon.svg';
 import CreditsAndDebitsMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/credits-and-debits-medium-icon.svg';
+import BookOpenMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/book-open-medium-icon.svg';
 import ShoppingMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/shopping-medium-icon.svg';
 import TimeMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/time-medium-icon.svg';
 import CalendarMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/calendar-medium-icon.svg';
@@ -159,6 +162,7 @@ import TopUpMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/top-up-mediu
 import MoonLargeIcon from '@utilitywarehouse/hearth-svg-icons/lib/moon-large-icon.svg';
 import SunLargeIcon from '@utilitywarehouse/hearth-svg-icons/lib/sun-large-icon.svg';
 import PlaceholderLargeIcon from '@utilitywarehouse/hearth-svg-icons/lib/placeholder-large-icon.svg';
+import BookOpenLargeIcon from '@utilitywarehouse/hearth-svg-icons/lib/book-open-large-icon.svg';
 
 export const svgIcons = [
   CloseSmallIcon,
@@ -219,6 +223,8 @@ export const svgIcons = [
   SkipFirstSmallIcon,
   TopUpSmallIcon,
   BellSmallIcon,
+  ThumbsUpSmallIcon,
+  ThumbsDownSmallIcon,
   AddMediumIcon,
   CloseMediumIcon,
   MinusMediumIcon,
@@ -280,6 +286,7 @@ export const svgIcons = [
   UserMediumIcon,
   CameraMediumIcon,
   CreditsAndDebitsMediumIcon,
+  BookOpenMediumIcon,
   ShoppingMediumIcon,
   TimeMediumIcon,
   CalendarMediumIcon,
@@ -320,4 +327,5 @@ export const svgIcons = [
   MoonLargeIcon,
   SunLargeIcon,
   PlaceholderLargeIcon,
+  BookOpenLargeIcon,
 ];

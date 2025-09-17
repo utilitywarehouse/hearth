@@ -233,6 +233,14 @@
       "path": "bell-small-icon.svg"
     },
     {
+      "name": "ThumbsUpSmallIcon",
+      "path": "thumbs-up-small-icon.svg"
+    },
+    {
+      "name": "ThumbsDownSmallIcon",
+      "path": "thumbs-down-small-icon.svg"
+    },
+    {
       "name": "AddMediumIcon",
       "path": "add-medium-icon.svg"
     },
@@ -477,6 +485,10 @@
       "path": "credits-and-debits-medium-icon.svg"
     },
     {
+      "name": "BookOpenMediumIcon",
+      "path": "book-open-medium-icon.svg"
+    },
+    {
       "name": "ShoppingMediumIcon",
       "path": "shopping-medium-icon.svg"
     },
@@ -635,6 +647,10 @@
     {
       "name": "PlaceholderLargeIcon",
       "path": "placeholder-large-icon.svg"
+    },
+    {
+      "name": "BookOpenLargeIcon",
+      "path": "book-open-large-icon.svg"
     }
   ]
 }

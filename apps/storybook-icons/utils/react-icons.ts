@@ -9,6 +9,8 @@ import { BasketSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/Basket
 import { BellMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BellMediumIcon';
 import { BellSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/BellSmallIcon';
 import { BillMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BillMediumIcon';
+import { BookOpenLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/BookOpenLargeIcon';
+import { BookOpenMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BookOpenMediumIcon';
 import { BookmarkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BookmarkMediumIcon';
 import { BroadbandMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/BroadbandMediumIcon';
 import { BroadbandSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/BroadbandSmallIcon';
@@ -134,6 +136,8 @@ import { SkipLastSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/Skip
 import { SunLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/SunLargeIcon';
 import { SunMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SunMediumIcon';
 import { TeamMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TeamMediumIcon';
+import { ThumbsDownSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ThumbsDownSmallIcon';
+import { ThumbsUpSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ThumbsUpSmallIcon';
 import { TickCircleMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickCircleMediumIcon';
 import { TickCircleSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickCircleSmallIcon';
 import { TickMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickMediumIcon';
@@ -170,6 +174,8 @@ export const reactIcons = [
   BellMediumIcon,
   BellSmallIcon,
   BillMediumIcon,
+  BookOpenLargeIcon,
+  BookOpenMediumIcon,
   BookmarkMediumIcon,
   BroadbandMediumIcon,
   BroadbandSmallIcon,
@@ -295,6 +301,8 @@ export const reactIcons = [
   SunLargeIcon,
   SunMediumIcon,
   TeamMediumIcon,
+  ThumbsDownSmallIcon,
+  ThumbsUpSmallIcon,
   TickCircleMediumIcon,
   TickCircleSmallIcon,
   TickMediumIcon,

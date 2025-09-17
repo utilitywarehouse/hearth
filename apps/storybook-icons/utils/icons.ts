@@ -58,6 +58,8 @@ export const icons = [
   { reactName: 'SkipFirstSmallIcon', svgName: 'skip-first-small-icon.svg' },
   { reactName: 'TopUpSmallIcon', svgName: 'top-up-small-icon.svg' },
   { reactName: 'BellSmallIcon', svgName: 'bell-small-icon.svg' },
+  { reactName: 'ThumbsUpSmallIcon', svgName: 'thumbs-up-small-icon.svg' },
+  { reactName: 'ThumbsDownSmallIcon', svgName: 'thumbs-down-small-icon.svg' },
   { reactName: 'AddMediumIcon', svgName: 'add-medium-icon.svg' },
   { reactName: 'CloseMediumIcon', svgName: 'close-medium-icon.svg' },
   { reactName: 'MinusMediumIcon', svgName: 'minus-medium-icon.svg' },
@@ -119,6 +121,7 @@ export const icons = [
   { reactName: 'UserMediumIcon', svgName: 'user-medium-icon.svg' },
   { reactName: 'CameraMediumIcon', svgName: 'camera-medium-icon.svg' },
   { reactName: 'CreditsAndDebitsMediumIcon', svgName: 'credits-and-debits-medium-icon.svg' },
+  { reactName: 'BookOpenMediumIcon', svgName: 'book-open-medium-icon.svg' },
   { reactName: 'ShoppingMediumIcon', svgName: 'shopping-medium-icon.svg' },
   { reactName: 'TimeMediumIcon', svgName: 'time-medium-icon.svg' },
   { reactName: 'CalendarMediumIcon', svgName: 'calendar-medium-icon.svg' },
@@ -162,4 +165,5 @@ export const icons = [
   { reactName: 'MoonLargeIcon', svgName: 'moon-large-icon.svg' },
   { reactName: 'SunLargeIcon', svgName: 'sun-large-icon.svg' },
   { reactName: 'PlaceholderLargeIcon', svgName: 'placeholder-large-icon.svg' },
+  { reactName: 'BookOpenLargeIcon', svgName: 'book-open-large-icon.svg' },
 ];
