@@ -21,7 +21,7 @@ export const SectionHeader = React.forwardRef<SectionHeaderElement, SectionHeade
           <HeadingEl>{heading}</HeadingEl>
         </Heading>
         {helperText ? <HelperText disableUserSelect>{helperText}</HelperText> : null}
-        {link !== undefined ? link : null}
+        {link}
       </div>
     );
   }
