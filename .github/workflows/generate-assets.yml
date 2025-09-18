@@ -1,11 +1,11 @@
-name: Generate Icons
+name: Generate Assets
 on:
   workflow_dispatch:
     inputs:
       branchName:
         description: 'Branch name'
         required: true
-        default: 'icons-release'
+        default: 'assets-release'
         type: string
       type:
         description: |
@@ -23,7 +23,7 @@ env:
 
 jobs:
   generate:
-    name: Generate icons packages
+    name: Generate assets packages
     runs-on: ubuntu-latest
     steps:
       - name: 🏗 Setup pnpm
@@ -45,14 +45,11 @@ jobs:
 
       - name: create env file
         run: |
-          touch ./packages/svg-icons/.env
-          echo FIGMA_ACCESS_TOKEN=${{ secrets.FIGMA_ACCESS_TOKEN }} >> ./packages/svg-icons/.env
+          touch ./packages/svg-assets/.env
+          echo FIGMA_ACCESS_TOKEN=${{ secrets.FIGMA_ACCESS_TOKEN }} >> ./packages/svg-assets/.env
 
-      - name: 🪄 Generate SVG icons
-        run: pnpm generate:svg-icons
-
-      - name: 🪄 Generate React & React Native icons
-        run: pnpm generate:react
+      - name: 🪄 Generate SVG assets
+        run: pnpm generate:svg-assets
 
       - name: 🪄 Generate Storybook docs
         run: pnpm generate:storybook
@@ -64,7 +61,7 @@ jobs:
         id: vars
         run: |
           echo 'pr_body<<EOF' >> $GITHUB_OUTPUT
-          echo "$(cat updated-icons.md)" >> $GITHUB_OUTPUT
+          echo "$(cat updated-assets.md)" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
       - name: Add changeset
@@ -72,22 +69,20 @@ jobs:
           touch ./.changeset/${{ github.sha }}.md
           cat > ./.changeset/${{ github.sha }}.md << EOF
           ---
-          "@utilitywarehouse/hearth-svg-icons": ${{ inputs.type }}
-          "@utilitywarehouse/hearth-react-icons": ${{ inputs.type }}
-          "@utilitywarehouse/hearth-react-native-icons": ${{ inputs.type }}
+          "@utilitywarehouse/hearth-svg-assets": ${{ inputs.type }}
           ---
 
           EOF
-          cat updated-icons.md >> ./.changeset/${{ github.sha }}.md
-          rm updated-icons.md
+          cat updated-assets.md >> ./.changeset/${{ github.sha }}.md
+          rm updated-assets.md
 
       - name: Open pull request
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.PAT }}
           branch: ${{ inputs.branchName }}
-          title: 'Generate updated icons packages'
-          commit-message: 'Generate updated icons packages'
+          title: 'Generate updated assets packages'
+          commit-message: 'Generate updated assets packages'
           delete-branch: true
           base: main
           body: ${{ steps.vars.outputs.pr_body }}

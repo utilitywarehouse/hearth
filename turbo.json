@@ -68,7 +68,10 @@
     "generate:icons": {
       "cache": false
     },
-    "generate:svg": {
+    "generate:svg-icons": {
+      "cache": false
+    },
+    "generate:svg-assets": {
       "cache": false
     },
     "generate:react": {
