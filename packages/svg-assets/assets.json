@@ -1,1 +1,134 @@
-[]
+[
+  {
+    "id": "1:8",
+    "name": "LogoFullPurple"
+  },
+  {
+    "id": "1:10",
+    "name": "LogoFullWarmWhite"
+  },
+  {
+    "id": "1:18",
+    "name": "LogoCondensedPurple"
+  },
+  {
+    "id": "1:25",
+    "name": "LogoCondensedWarmWhite"
+  },
+  {
+    "id": "11:1270",
+    "name": "SpotRecognition"
+  },
+  {
+    "id": "11:1211",
+    "name": "SpotBilling"
+  },
+  {
+    "id": "11:1164",
+    "name": "SpotCelebratory"
+  },
+  {
+    "id": "11:1086",
+    "name": "SpotEv"
+  },
+  {
+    "id": "11:1044",
+    "name": "SpotSavings"
+  },
+  {
+    "id": "11:1016",
+    "name": "SpotError"
+  },
+  {
+    "id": "11:980",
+    "name": "SpotSecurity"
+  },
+  {
+    "id": "11:910",
+    "name": "SpotSmartMeter"
+  },
+  {
+    "id": "11:873",
+    "name": "SpotSuccess"
+  },
+  {
+    "id": "11:824",
+    "name": "SpotOnlineAccount"
+  },
+  {
+    "id": "11:762",
+    "name": "SpotHelp"
+  },
+  {
+    "id": "11:732",
+    "name": "SpotInnovation"
+  },
+  {
+    "id": "11:649",
+    "name": "SpotMovingHouse"
+  },
+  {
+    "id": "11:603",
+    "name": "SpotNotification"
+  },
+  {
+    "id": "11:538",
+    "name": "SpotNeighbours"
+  },
+  {
+    "id": "102:250",
+    "name": "SpotNeighboursLight"
+  },
+  {
+    "id": "102:252",
+    "name": "SpotNeighboursDark"
+  },
+  {
+    "id": "11:3199",
+    "name": "SceneBundle"
+  },
+  {
+    "id": "11:2968",
+    "name": "SceneCashback"
+  },
+  {
+    "id": "11:2753",
+    "name": "SceneInsurance"
+  },
+  {
+    "id": "11:2550",
+    "name": "SceneBroadband"
+  },
+  {
+    "id": "11:2379",
+    "name": "SceneMobile"
+  },
+  {
+    "id": "11:2107",
+    "name": "SceneEnergy"
+  },
+  {
+    "id": "11:4842",
+    "name": "MascotBroadband"
+  },
+  {
+    "id": "11:4899",
+    "name": "MascotBundle"
+  },
+  {
+    "id": "11:4845",
+    "name": "MascotCashback"
+  },
+  {
+    "id": "11:4844",
+    "name": "MascotInsurance"
+  },
+  {
+    "id": "11:4843",
+    "name": "MascotMobile"
+  },
+  {
+    "id": "11:4132",
+    "name": "MascotEnergy"
+  }
+]
