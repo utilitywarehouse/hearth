@@ -1,6 +1,6 @@
 import express from 'express';
-import path from 'path';
 import fs from 'fs';
+import path from 'path';
 
 const app = express();
 const PORT = process.env.PORT || 7337;
@@ -17,6 +17,7 @@ const storybookAppsToServe = [
   { name: 'react', dirName: 'storybook-react' },
   { name: 'react-native', dirName: '../packages/react-native' },
   { name: 'icons', dirName: 'storybook-icons' },
+  { name: 'assets', dirName: 'storybook-assets' },
   { name: 'tokens', dirName: 'storybook-tokens' },
   { name: 'fonts', dirName: 'storybook-fonts' },
 ];

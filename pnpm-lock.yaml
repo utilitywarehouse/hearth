@@ -284,6 +284,73 @@ importers:
         specifier: ^5
         version: 5.6.3
 
+  apps/storybook-assets:
+    dependencies:
+      '@utilitywarehouse/hearth-css-reset':
+        specifier: workspace:*
+        version: link:../../packages/css-reset
+      '@utilitywarehouse/hearth-fonts':
+        specifier: workspace:*
+        version: link:../../packages/fonts
+      '@utilitywarehouse/hearth-react':
+        specifier: workspace:*
+        version: link:../../packages/react
+      '@utilitywarehouse/hearth-svg-assets':
+        specifier: workspace:*
+        version: link:../../packages/svg-assets
+      '@utilitywarehouse/hearth-tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
+      ejs:
+        specifier: ^3.1.9
+        version: 3.1.10
+      fs-extra:
+        specifier: ^11.1.1
+        version: 11.3.0
+      react:
+        specifier: 19.1.0
+        version: 19.1.0
+      react-dom:
+        specifier: 19.1.0
+        version: 19.1.0(react@19.1.0)
+    devDependencies:
+      '@chromatic-com/storybook':
+        specifier: ^4.1.1
+        version: 4.1.1(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0)))
+      '@storybook/addon-docs':
+        specifier: ^9.1.3
+        version: 9.1.3(@types/react@19.1.11)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0)))
+      '@storybook/addon-onboarding':
+        specifier: ^9.1.3
+        version: 9.1.3(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0)))
+      '@storybook/react-vite':
+        specifier: ^9.1.3
+        version: 9.1.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.43.0)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0)))(typescript@5.6.3)(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0))
+      '@types/react':
+        specifier: ^19.1.8
+        version: 19.1.11
+      '@types/react-dom':
+        specifier: ^19.1.6
+        version: 19.1.6(@types/react@19.1.11)
+      '@vitejs/plugin-react':
+        specifier: ^4.3.4
+        version: 4.3.4(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0))
+      eslint-plugin-storybook:
+        specifier: ^9.1.3
+        version: 9.1.3(eslint@9.34.0)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0)))(typescript@5.6.3)
+      globals:
+        specifier: ^15.14.0
+        version: 15.14.0
+      storybook:
+        specifier: ^9.1.3
+        version: 9.1.3(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0))
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.3
+      vite:
+        specifier: ^6.0.5
+        version: 6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0)
+
   apps/storybook-docs:
     dependencies:
       react:
@@ -815,9 +882,6 @@ importers:
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:*
         version: link:../fonts
-      '@utilitywarehouse/hearth-react-icons':
-        specifier: 0.2.0
-        version: 0.2.0(react@19.1.0)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -831,6 +895,9 @@ importers:
       '@types/react':
         specifier: ^18.3.12
         version: 18.3.18
+      '@utilitywarehouse/hearth-react-icons':
+        specifier: workspace:*
+        version: link:../react-icons
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.1)
@@ -955,9 +1022,6 @@ importers:
       '@gluestack-ui/textarea':
         specifier: 0.1.23
         version: 0.1.23(react-dom@19.1.0(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
-      '@utilitywarehouse/hearth-react-native-icons':
-        specifier: 0.2.0
-        version: 0.2.0(react-native-svg@15.12.1(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
     devDependencies:
       '@babel/plugin-proposal-export-namespace-from':
         specifier: ^7.18.9
@@ -993,8 +1057,11 @@ importers:
         specifier: workspace:^
         version: link:../fonts
       '@utilitywarehouse/hearth-react-icons':
-        specifier: 0.2.0
-        version: 0.2.0(react@19.1.0)
+        specifier: workspace:^
+        version: link:../react-icons
+      '@utilitywarehouse/hearth-react-native-icons':
+        specifier: workspace:^
+        version: link:../react-native-icons
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:^
         version: link:../tokens
@@ -1095,6 +1162,24 @@ importers:
       typescript:
         specifier: ^5.5.3
         version: 5.6.3
+
+  packages/svg-assets:
+    devDependencies:
+      cheerio:
+        specifier: 1.0.0-rc.12
+        version: 1.0.0-rc.12
+      dotenv:
+        specifier: ^16.3.1
+        version: 16.4.7
+      fs-extra:
+        specifier: ^11.1.1
+        version: 11.3.0
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
+      svgo:
+        specifier: ^3.0.2
+        version: 3.3.2
 
   packages/svg-icons:
     devDependencies:
@@ -1810,20 +1895,8 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
-  '@babel/plugin-transform-react-jsx-self@7.25.9':
-    resolution: {integrity: sha512-y8quW6p0WHkEhmErnfe58r7x0A70uKphQm8Sp8cV7tjNQwK56sNVK0M73LK3WuYmsuyrftut4xAkjjgU0twaMg==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-
   '@babel/plugin-transform-react-jsx-self@7.27.1':
     resolution: {integrity: sha512-6UzkCs+ejGdZ5mFFC/OCUrv028ab2fp1znZmCZjAOBKiBK2jXD1O+BPSfX8X2qjJ75fZBMSnQn3Rq2mrBJK2mw==}
-    engines: {node: '>=6.9.0'}
-    peerDependencies:
-      '@babel/core': ^7.0.0-0
-
-  '@babel/plugin-transform-react-jsx-source@7.25.9':
-    resolution: {integrity: sha512-+iqjT8xmXhhYv4/uiYd8FNQsraMFZIfxVSqxxVSZP0WbbSAWvBXAul0m/zu+7Vv4O/3WtApy9pmaTMiumEZgfg==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -5712,18 +5785,6 @@ packages:
     resolution: {integrity: sha512-FLt+d81gP4oiHah4hWFDApimc+/xABWMU1AMYsZ1PVB0L0YPtrMCjbOp9WMM7hBzy4gbTDrG24sio0dCfSh/HQ==}
     peerDependencies:
       '@urql/core': ^5.0.0
-
-  '@utilitywarehouse/hearth-react-icons@0.2.0':
-    resolution: {integrity: sha512-tB7SwAHjDtJo5JKXsDyuolhlmdLcF4yXoPCA3Khs+nTrV1j/APwDMdHFONSc1TPwYnEjrmYPZDKGFAPVx0EQ7Q==}
-    peerDependencies:
-      react: 19.1.0
-
-  '@utilitywarehouse/hearth-react-native-icons@0.2.0':
-    resolution: {integrity: sha512-/XURAtQbWhE1VseisImbyTw/ox/p5UyaMb4X5ao1csQikeQ6MG+cQSx6gog2wi7E3kSwtkUddqab5CADcKzeQw==}
-    peerDependencies:
-      react: 19.1.0
-      react-native: '>=0.70.6'
-      react-native-svg: '>=12.3.0'
 
   '@utilitywarehouse/prettier-config@0.1.1':
     resolution: {integrity: sha512-Lcs5K0qQSP8eQd82Ug2Q98pLAM41c1WsB1oMeOHKXmAumD7KHR8UsDSIsdv9ILmMb4RPYZLY0A2j3DIRzyVjHg==}
@@ -14049,11 +14110,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/plugin-transform-react-jsx-self@7.25.9(@babel/core@7.26.10)':
-    dependencies:
-      '@babel/core': 7.26.10
-      '@babel/helper-plugin-utils': 7.26.5
-
   '@babel/plugin-transform-react-jsx-self@7.27.1(@babel/core@7.26.10)':
     dependencies:
       '@babel/core': 7.26.10
@@ -14063,11 +14119,6 @@ snapshots:
     dependencies:
       '@babel/core': 7.28.3
       '@babel/helper-plugin-utils': 7.27.1
-
-  '@babel/plugin-transform-react-jsx-source@7.25.9(@babel/core@7.26.10)':
-    dependencies:
-      '@babel/core': 7.26.10
-      '@babel/helper-plugin-utils': 7.26.5
 
   '@babel/plugin-transform-react-jsx-source@7.27.1(@babel/core@7.26.10)':
     dependencies:
@@ -18346,7 +18397,9 @@ snapshots:
       metro-runtime: 0.83.1
     transitivePeerDependencies:
       - '@babel/core'
+      - bufferutil
       - supports-color
+      - utf-8-validate
     optional: true
 
   '@react-native/metro-config@0.81.1(@babel/core@7.28.3)':
@@ -18357,7 +18410,9 @@ snapshots:
       metro-runtime: 0.83.1
     transitivePeerDependencies:
       - '@babel/core'
+      - bufferutil
       - supports-color
+      - utf-8-validate
     optional: true
 
   '@react-native/normalize-colors@0.74.88': {}
@@ -18706,6 +18761,19 @@ snapshots:
       '@storybook/global': 5.0.0
       axe-core: 4.10.2
       storybook: 9.1.3(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0))
+
+  '@storybook/addon-docs@9.1.3(@types/react@19.1.11)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0)))':
+    dependencies:
+      '@mdx-js/react': 3.1.0(@types/react@19.1.11)(react@19.1.0)
+      '@storybook/csf-plugin': 9.1.3(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0)))
+      '@storybook/icons': 1.4.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@storybook/react-dom-shim': 9.1.3(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0)))
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+      storybook: 9.1.3(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0))
+      ts-dedent: 2.2.0
+    transitivePeerDependencies:
+      - '@types/react'
 
   '@storybook/addon-docs@9.1.3(@types/react@19.1.11)(storybook@9.1.3(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0)))':
     dependencies:
@@ -19189,20 +19257,20 @@ snapshots:
 
   '@types/babel__core@7.20.5':
     dependencies:
-      '@babel/parser': 7.26.10
-      '@babel/types': 7.26.10
+      '@babel/parser': 7.28.3
+      '@babel/types': 7.28.2
       '@types/babel__generator': 7.6.8
       '@types/babel__template': 7.4.4
       '@types/babel__traverse': 7.20.6
 
   '@types/babel__generator@7.6.8':
     dependencies:
-      '@babel/types': 7.27.6
+      '@babel/types': 7.28.2
 
   '@types/babel__template@7.4.4':
     dependencies:
-      '@babel/parser': 7.27.5
-      '@babel/types': 7.27.6
+      '@babel/parser': 7.28.3
+      '@babel/types': 7.28.2
 
   '@types/babel__traverse@7.20.6':
     dependencies:
@@ -19344,7 +19412,6 @@ snapshots:
   '@types/react-dom@19.1.6(@types/react@19.1.11)':
     dependencies:
       '@types/react': 19.1.11
-    optional: true
 
   '@types/react-dom@19.1.6(@types/react@19.1.8)':
     dependencies:
@@ -19838,23 +19905,13 @@ snapshots:
       '@urql/core': 5.1.0(graphql@16.8.1)
       wonka: 6.3.4
 
-  '@utilitywarehouse/hearth-react-icons@0.2.0(react@19.1.0)':
-    dependencies:
-      react: 19.1.0
-
-  '@utilitywarehouse/hearth-react-native-icons@0.2.0(react-native-svg@15.12.1(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      react: 19.1.0
-      react-native: 0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0)
-      react-native-svg: 15.12.1(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
-
   '@utilitywarehouse/prettier-config@0.1.1': {}
 
   '@vitejs/plugin-react@4.3.4(vite@6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0))':
     dependencies:
       '@babel/core': 7.26.10
-      '@babel/plugin-transform-react-jsx-self': 7.25.9(@babel/core@7.26.10)
-      '@babel/plugin-transform-react-jsx-source': 7.25.9(@babel/core@7.26.10)
+      '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.26.10)
+      '@babel/plugin-transform-react-jsx-source': 7.27.1(@babel/core@7.26.10)
       '@types/babel__core': 7.20.5
       react-refresh: 0.14.2
       vite: 6.0.11(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.37.0)(yaml@2.7.0)

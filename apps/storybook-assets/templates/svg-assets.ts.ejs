@@ -1,0 +1,7 @@
+/* Don't edit this file directly, it was auto generated */
+// @ts-nocheck <%assets.forEach(function({name, path}) {%>
+import <%-name%> from '@utilitywarehouse/hearth-svg-assets/lib/<%-path%>'<%})%>
+
+export const svgAssets = [
+<%assets.forEach(function({name, path}) {%>  { name: '<%-name%>', src: <%-name%>, path: '<%-path%>' },
+<% })%>];
