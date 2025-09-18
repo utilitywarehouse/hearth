@@ -45,7 +45,7 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
             <RadixRadioGroup.Indicator className="hearth-RadioIndicator" />
           </div>
           <Flex direction="column">
-            <Label id={labelId} htmlFor={id} disableUserSelect className="hearth-RadioLabel">
+            <Label id={labelId} htmlFor={id} disableUserSelect>
               {image}
               {label}
             </Label>

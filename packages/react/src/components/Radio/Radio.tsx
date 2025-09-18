@@ -69,7 +69,6 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
               htmlFor={id}
               disableUserSelect
               fontWeight={labelFontWeight}
-              className="hearth-RadioLabel"
             >
               {image}
               {label}
