@@ -13,6 +13,7 @@
     "build:fonts": "turbo run @utilitywarehouse/hearth-fonts#build storybook-fonts#build:storybook",
     "build:tokens": "turbo run  storybook-tokens#build:storybook",
     "build:css-reset": "turbo run @utilitywarehouse/hearth-css-reset#build",
+    "build:assets": "turbo run @utilitywarehouse/hearth-react#build @utilitywarehouse/hearth-fonts#build @utilitywarehouse/hearth-css-reset#build storybook-assets#build:storybook",
     "build:icons": "turbo run @utilitywarehouse/hearth-react#build @utilitywarehouse/hearth-fonts#build @utilitywarehouse/hearth-css-reset#build storybook-icons#build:storybook",
     "build:storybook": "turbo build build:storybook",
     "preinstall": "npx only-allow pnpm",
