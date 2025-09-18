@@ -576,7 +576,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/react
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:*
+        specifier: workspace:^0
         version: link:../../packages/react-icons
       react:
         specifier: 19.1.0
@@ -896,7 +896,7 @@ importers:
         specifier: ^18.3.12
         version: 18.3.18
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:*
+        specifier: workspace:^0
         version: link:../react-icons
       autoprefixer:
         specifier: ^10.4.20

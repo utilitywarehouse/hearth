@@ -10,8 +10,13 @@ import {
   Badge,
   BodyText,
   DetailText,
+  Link,
 } from '@utilitywarehouse/hearth-react';
-import { InfoMediumIcon, SettingsMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import {
+  ChevronRightSmallIcon,
+  InfoMediumIcon,
+  SettingsMediumIcon,
+} from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof List> = {
   title: 'Stories / List',
@@ -35,17 +40,16 @@ const meta: Meta<typeof List> = {
     },
     colorScheme: {
       control: { type: 'radio' },
-      options: [undefined, 'white', 'warmWhite'],
+      options: [undefined, 'neutralStrong', 'neutralSubtle'],
     },
     headingElement: {
       control: { type: 'radio' },
       options: ['div', 'h1', 'h2', 'h3', 'h4'],
     },
-    linkText: { control: { type: 'text' } },
-    linkHref: { control: { type: 'text' } },
   },
   args: {
     heading: 'List',
+    headingElement: 'h1',
     helperText: 'Helper text',
     variant: undefined,
     colorScheme: undefined,
@@ -58,7 +62,15 @@ type Story = StoryObj<typeof List>;
 export const Playground: Story = {
   render: args => (
     <Box width="400px">
-      <List {...args} headingElement="h1">
+      <List
+        {...args}
+        link={
+          <Link href="#">
+            Link
+            <ChevronRightSmallIcon />
+          </Link>
+        }
+      >
         <ListItem>List item</ListItem>
         <ListItem aria-label="list item">
           <ListItemContent heading="List item" helperText="Helper text" />
@@ -111,8 +123,6 @@ export const Playground: Story = {
   args: {
     variant: 'subtle',
     colorScheme: 'warmWhite',
-    linkText: 'View all',
-    linkHref: '#',
   },
 };
 
@@ -130,7 +140,7 @@ export const KitchenSink: Story = {
       </Box>
       {(['subtle', 'emphasis'] as const).map(variant => (
         <Flex gap="400">
-          {(['white', 'warmWhite'] as const).map(colorScheme => (
+          {(['neutralStrong', 'neutralSubtle'] as const).map(colorScheme => (
             <Box width="300px">
               <List
                 {...args}
@@ -272,7 +282,7 @@ export const CustomContent: Story = {
               <DetailText size="2xl">{event.date.day}</DetailText>
             </Flex>
             <Flex direction="column" alignItems="start" gap="100" width="100%">
-              <Badge colorScheme={event.type.includes('Buzz') ? 'green' : 'blue'}>
+              <Badge colorScheme={event.type.includes('Buzz') ? 'positive' : 'info'} size="sm">
                 {event.type}
               </Badge>
               <ListItemButton heading={event.title} helperText={event.location} />

@@ -1,7 +1,5 @@
 import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
-
 import * as Stories from './SectionHeader.stories';
-
 import { DocsHeader } from './storybook-components/DocsHeader';
 
 <Meta title="Components / Section Header" />
@@ -13,46 +11,32 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
-## Anatomy
-Section Header consists of: Heading, Helper Text and Link
-### Heading
-Being a header component, the heading element is required. It should clearly describe the content it is grouping.
+## Link
 
-Headings should be short and meaningful - they should clearly describe the content that follows.
+Use the `link` prop to provide a call-to-action or navigation link.
 
-Don’t let titles get too wordy. Simplify the title as much as possible, and add a 1-2 line subtitle if necessary.
+```tsx
+import { Link, SectionHeader } from '@utilitywarehouse/hearth-react';
+import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
-### Helper text
-A helper text property is included in the component to be able to add helper text if required.
+[...]
 
-Use helper text when users need extra clarity or explanation before engaging with the section.
-
-### Link
-The Section Header component includes an optional Link that provides users with a related navigation option.
-
-Use the Link to provide a shortcut to additional details or a more comprehensive view.
-
-Use when users may need to navigate away or view extended content (e.g. view all)
-
-## Variants
-
-<Canvas of={Stories.KitchenSink} />
-
-## Custom usage example
-
-Use the Section Header to introduce a new section or grouping of content within a page.
-
-<Canvas of={Stories.CustomContent} />
+<SectionHeader
+  {...args}
+  link={
+    <Link>
+      Link text
+      <ChevronRightSmallIcon />
+    </Link>
+  }
+/>
+```
 
 ## API
 
-| Prop               | Type                           |
-| ---------          | ------------------------------ |
-| `heading`          | `string`                       |
-| `helperText`       | `string`                       |
-| `linkText`         | `string`                       |
-| `linkHref`         | `string`                       |
-| `linkIconPosition` | `right`&vert;`left`            |
-| `linkShowIcon`     | `boolean`                      |
-| `linkTarget`       | `_blank`&vert;`_self`&vert;`_parent`&vert;`_top` |
-| `linkIcon`         | `ComponentType`                |
+| Prop             | Type                                    |
+| ---------------- | --------------------------------------- |
+| `heading`        | `string`                                |
+| `headingElement` | `"div" \| "h1" \| "h2" \| "h3" \| "h4"` |
+| `helperText`     | `string`                                |
+| `link`           | `ReactNode`                             |

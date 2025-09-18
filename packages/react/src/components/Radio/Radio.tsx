@@ -64,13 +64,7 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
         </div>
         {showLabel ? (
           <Flex direction="column" gap="50">
-            <Label
-              id={labelId}
-              htmlFor={id}
-              disableUserSelect
-              fontWeight={labelFontWeight}
-              className="hearth-RadioLabel"
-            >
+            <Label id={labelId} htmlFor={id} disableUserSelect fontWeight={labelFontWeight}>
               {image}
               {label}
             </Label>

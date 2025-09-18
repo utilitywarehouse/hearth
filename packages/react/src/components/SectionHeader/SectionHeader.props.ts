@@ -1,25 +1,9 @@
-import { ComponentType } from 'react';
 import { MarginProps } from '../../props/margin.props';
-import { PropDef } from '../../props/prop-def';
-import { TextAlignProps } from '../../props/text-align.props';
-import { TextTransformProps } from '../../props/text-transform.props';
-import { TextWrapProps } from '../../props/text-wrap.props';
 import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
-import { LinkProps } from '../Link/Link.props';
-
-const sizes = ['sm', 'md', 'lg', 'xl'] as const;
-
-export const sectionHeaderPropDefs = {
-  size: { className: 'size', tokens: sizes, responsive: false, default: 'md' },
-} satisfies {
-  size: PropDef<(typeof sizes)[number]>;
-};
+import type { ReactNode } from 'react';
 
 export interface SectionHeaderProps
-  extends ComponentPropsWithout<'h2', RemovedProps>,
-    TextAlignProps,
-    TextTransformProps,
-    TextWrapProps,
+  extends ComponentPropsWithout<'div', RemovedProps>,
     MarginProps {
   /**
    * Actual string to display as section header
@@ -28,33 +12,13 @@ export interface SectionHeaderProps
   /**
    * @default h2
    */
-  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'div';
-  /**
-   * Set the text size styles.
-   * @default md
-   */
-  size?: (typeof sizes)[number];
+  headingElement?: 'h1' | 'h2' | 'h3' | 'h4' | 'div';
   /**
    * Optional helper text to provide additional context or instructions.
    */
   helperText?: string;
   /**
-   * Optional configuration of link at the side.
-   * Both linkText and linkHref need to be present for the link to appear.
+   * Optional link element
    */
-  linkText?: string;
-  linkHref?: LinkProps['href'];
-  /**
-   * @default Chevron
-   */
-  linkIcon?: ComponentType;
-  linkIconPosition?: 'left' | 'right';
-  /**
-   * @default true
-   */
-  linkShowIcon?: boolean;
-  /**
-   * @default _self
-   */
-  linkTarget?: React.HTMLAttributeAnchorTarget | undefined;
+  link?: ReactNode;
 }

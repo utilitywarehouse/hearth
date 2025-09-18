@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Checkbox, Flex, BodyText } from '@utilitywarehouse/hearth-react';
-import { CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import { BillMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Stories / Checkbox',
@@ -36,14 +36,13 @@ export const Playground: Story = {
   render: args => (
     <Flex width="fit-content" gap="200">
       <Checkbox {...args} />
-      <Checkbox {...args} image={<CashbackCardMediumIcon />} />
+      <Checkbox {...args} image={<BillMediumIcon />} />
     </Flex>
   ),
 };
 
 export const KitchenSink: Story = {
   render: () => {
-    const MyImage = <img src="https://help.uw.co.uk/images/iPhone.svg" width={25} />
     return (
       <Flex gap="400">
         <Flex direction="column" gap="200">
@@ -56,11 +55,14 @@ export const KitchenSink: Story = {
         </Flex>
         <Flex direction="column" gap="200">
           <BodyText>With icon</BodyText>
-          <Checkbox label="Label" image={<CashbackCardMediumIcon />} />
+          <Checkbox label="Label" image={<BillMediumIcon />} />
         </Flex>
         <Flex direction="column" gap="200">
           <BodyText>With image</BodyText>
-          <Checkbox label="Label" image={MyImage} />
+          <Checkbox
+            label="Label"
+            image={<img src="https://help.uw.co.uk/images/iPhone.svg" width={25} alt="" />}
+          />
         </Flex>
       </Flex>
     );
