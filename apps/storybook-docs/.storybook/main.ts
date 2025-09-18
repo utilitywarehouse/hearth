@@ -1,6 +1,6 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
-import { join, dirname } from 'path';
+import { dirname, join } from 'path';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -32,6 +32,11 @@ const config: StorybookConfig = {
     icons: {
       title: 'Hearth Icons',
       url: isDev ? 'http://localhost:6002' : '/icons',
+      expanded: false,
+    },
+    assets: {
+      title: 'Hearth Assets',
+      url: isDev ? 'http://localhost:6007' : '/assets',
       expanded: false,
     },
     tokens: {
