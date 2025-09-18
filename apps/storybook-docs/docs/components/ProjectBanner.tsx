@@ -18,7 +18,7 @@ interface ProjectBannerProps {
 
 const ProjectBanner = ({ image, link, title, description }: ProjectBannerProps) => {
   return (
-    <Card as="li" variant="emphasis" colorScheme="white" gap="200">
+    <Card as="li" variant="emphasis" colorScheme="neutralStrong" gap="200">
       <Box
         backgroundColor="warmWhite200"
         borderRadius="sm"
