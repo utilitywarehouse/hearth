@@ -14,11 +14,6 @@ addons.register('darkmode-refresh', api => {
   api.on('globalsUpdated', ({ globals }) => {
     const currentDarkMode = globals.darkMode;
 
-    if (previousDarkMode !== null && previousDarkMode !== currentDarkMode) {
-      // Refresh the entire page when dark mode changes
-      window.location.reload();
-    }
-
     previousDarkMode = currentDarkMode;
   });
 });

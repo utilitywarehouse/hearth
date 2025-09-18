@@ -9,8 +9,14 @@ import {
   Heading,
   Link,
 } from '@utilitywarehouse/hearth-react';
-import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
-import pig from './assets/ds-pig.png';
+import assetPig from '../../../shared/storybook/assets/images/asset-pig.png';
+import pig from '../../../shared/storybook/assets/images/ds-pig.png';
+import fontsPig from '../../../shared/storybook/assets/images/fonts-pig.png';
+import iconsPig from '../../../shared/storybook/assets/images/icons-pig.png';
+import reactNativePig from '../../../shared/storybook/assets/images/react-native-pig.png';
+import reactPig from '../../../shared/storybook/assets/images/react-pig.png';
+import tokensPig from '../../../shared/storybook/assets/images/tokens-pig.png';
+import { ProjectBanner } from './components';
 
 <Meta title="Welcome" />
 
@@ -45,93 +51,44 @@ Hearth is made up of several modular libraries, each focused on a specific
 aspect of our design system. Explore them below:
 
 <div className="sb-unstyled">
-  <Grid gap="200" as="ul" role="list" columns={{ mobile: '1', tablet: '2' }}>
-    <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
-      <Heading size="sm">🧩 Hearth React</Heading>
-      <BodyText size="md">
-        A robust library of accessible and composable React components designed for speed and
-        flexibility. Perfect for product teams building scalable, accessible web experiences.
-      </BodyText>
-      <CardAction asChild>
-        <Link href="/?path=/docs/react_introduction--docs">
-          Learn more
-          <ChevronRightSmallIcon />
-        </Link>
-      </CardAction>
-    </Card>
-    <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
-      <Heading size="sm">📱 Hearth React Native</Heading>
-      <BodyText size="md">
-        UI components tailored for React Native development. Built with accessibility in mind, and
-        optimised for performance and consistency across iOS and Android. Perfect for product teams
-        building native experiences.
-      </BodyText>
-      <CardAction asChild>
-        <Link href="/?path=/docs/react-native_introduction--docs">
-          Learn more
-          <ChevronRightSmallIcon />
-        </Link>
-      </CardAction>
-    </Card>
-    <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
-      <Heading size="sm">🔡 Hearth Fonts</Heading>
-      <BodyText size="md">
-        A curated set of brand-approved typefaces for implementing typography across platforms.
-        Includes font files, usage guidelines, and accessibility best practices.
-      </BodyText>
-      <CardAction asChild>
-        <Link href="/?path=/docs/fonts_introduction--docs">
-          Learn more
-          <ChevronRightSmallIcon />
-        </Link>
-      </CardAction>
-    </Card>
-    <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
-      <Heading size="sm">🎨 Hearth Tokens</Heading>
-      <BodyText size="md">
-        Platform-agnostic design tokens covering spacing, colors, typography, shadows, radii, and
-        more. Delivered in multiple formats for seamless integration.
-      </BodyText>
-      <CardAction asChild>
-        <Link href="/?path=/docs/tokens_introduction--docs">
-          Learn more
-          <ChevronRightSmallIcon />
-        </Link>
-      </CardAction>
-    </Card>
-    <Card
-      as="li"
-      variant="emphasis"
-      colorScheme="white"
-      direction="column"
-      gap="150"
-      gridColumnSpan={{ mobile: '1', tablet: '2' }}
-    >
-      <Heading size="sm">🖼️ Hearth Icons</Heading>
-      <BodyText size="md">
-        A scalable, consistent, and pixel-perfect icon library made for Hearth. Includes SVGs, usage
-        docs, and accessible components for both web and mobile platforms.
-      </BodyText>
-      <CardAction asChild>
-        <Link href="/?path=/docs/icons_introduction--docs">
-          Learn more
-          <ChevronRightSmallIcon />
-        </Link>
-      </CardAction>
-    </Card>
-    <Card as="li" variant="emphasis" colorScheme="white" direction="column" gap="150">
-      <Heading size="sm">🌠 Hearth SVG Assets</Heading>
-      <BodyText size="md">
-        A collection of static SVG assets for illustrations, scenes, mascots, and logos used across
-        UW products. Browse and download assets via Storybook.
-      </BodyText>
-      <CardAction asChild>
-        <Link href="/?path=/docs/assets_introduction--docs">
-          Learn more
-          <ChevronRightSmallIcon />
-        </Link>
-      </CardAction>
-    </Card>
+  <Grid gap="200" as="ul" role="list" columns={{ mobile: '1', tablet: '1', desktop: '2' }}>
+    <ProjectBanner
+      title="Hearth React"
+      description="A robust library of accessible and composable React components designed for speed and flexibility. Perfect for product teams building scalable, accessible web experiences."
+      link="/?path=/docs/react_introduction--docs"
+      image={reactPig}
+    />
+    <ProjectBanner
+      title="Hearth React Native"
+      description="UI components tailored for React Native development. Built with accessibility in mind, and optim
+ised for performance and consistency across iOS and Android. Perfect for native experiences."
+      link="/?path=/docs/react-native_introduction--docs"
+      image={reactNativePig}
+    />
+    <ProjectBanner
+      title="Hearth Fonts"
+      description="A curated set of brand-approved typefaces for implementing typography across platforms. Includes font files, usage guidelines, and accessibility best practices."
+      link="/?path=/docs/fonts_introduction--docs"
+      image={fontsPig}
+    />
+    <ProjectBanner
+      title="Hearth Tokens"
+      description="Platform-agnostic design tokens covering spacing, colors, typography, shadows, radii, and more. Delivered in multiple formats for seamless integration."
+      link="/?path=/docs/tokens_introduction--docs"
+      image={tokensPig}
+    />
+    <ProjectBanner
+      title="Hearth Icons"
+      description="A scalable, consistent, and pixel-perfect icon library made for Hearth. Includes SVGs, usage docs, and accessible components for both web and mobile platforms."
+      link="/?path=/docs/icons_introduction--docs"
+      image={iconsPig}
+    />
+    <ProjectBanner
+      title="Hearth Assets"
+      description="A collection of static SVG assets for illustrations, scenes, mascots, and logos used across UW products. Browse and download assets via Storybook."
+      link="/?path=/docs/assets_introduction--docs"
+      image={assetPig}
+    />
   </Grid>
 </div>
 
