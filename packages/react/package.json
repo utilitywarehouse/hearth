@@ -52,20 +52,20 @@
   ],
   "peerDependencies": {
     "@utilitywarehouse/hearth-fonts": "workspace:*",
+    "@utilitywarehouse/hearth-react-icons": "workspace:^0",
     "react": "^18.0.0 || ^19.0.0 ",
     "react-dom": "^18.0.0 || ^19.0.0"
   },
   "dependencies": {
     "@radix-ui/react-use-controllable-state": "^1.0.1",
     "@utilitywarehouse/hearth-css-reset": "workspace:*",
-    "@utilitywarehouse/hearth-react-icons": "0.2.0",
     "clsx": "^2.1.1",
     "radix-ui": "^1.4.2"
   },
   "devDependencies": {
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
-    "@utilitywarehouse/hearth-react-icons": "0.2.0",
+    "@utilitywarehouse/hearth-react-icons": "workspace:*",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
     "ejs": "^3.1.10",
