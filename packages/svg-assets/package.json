@@ -4,7 +4,6 @@
   "description": "Hearth SVG assets",
   "scripts": {
     "clean:lib": "rm -rf lib",
-    "format": "prettier --log-level=silent --write --parser=html \"lib/*.svg\"",
     "generate": "pnpm clean:lib && node ./scripts/generate-svg-assets.js"
   },
   "devDependencies": {

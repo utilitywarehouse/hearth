@@ -35,7 +35,7 @@
     "lint": "pnpm lint:js && pnpm lint:css",
     "lint:fix": "pnpm lint:js:fix && pnpm lint:css:fix",
     "lint:js": "TIMING=1 eslint --max-warnings 0 \"src/**/*.ts*\" --ignore-pattern '*.ignore.*'",
-    "lint:js:fix": "TIMING=1 eslint --fix --max-warnings 0 \"src/**/*.ts*\" src --ignore-pattern '*.ignore.*'",
+    "lint:js:fix": "TIMING=1 eslint --fix --max-warnings 0 \"src/**/*.ts*\"",
     "lint:css": "stylelint \"src/**/*.css\"",
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
     "format": "prettier --write \"src/**/*.ts*\"",
@@ -65,7 +65,7 @@
   "devDependencies": {
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
-    "@utilitywarehouse/hearth-react-icons": "workspace:*",
+    "@utilitywarehouse/hearth-react-icons": "workspace:^0",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
     "ejs": "^3.1.10",
