@@ -37,7 +37,7 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
 
   return (
     <div className={clsx(componentClassName, className)}>
-      {heading !== undefined ? <SectionHeader {...headerProps} /> : null}
+      {heading ? <SectionHeader {...headerProps} /> : null}
       {variant === undefined || colorScheme === undefined ? (
         <Box asChild className="hearth-ListContainer" role="list">
           <Tag ref={ref} {...listProps}>
