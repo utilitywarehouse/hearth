@@ -71,6 +71,9 @@
     "generate:svg-icons": {
       "cache": false
     },
+    "generate:assets": {
+      "cache": false
+    },
     "generate:svg-assets": {
       "cache": false
     },

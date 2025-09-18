@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-react-native-icons
 
+## 0.3.0
+
+### Minor Changes
+
+- [#475](https://github.com/utilitywarehouse/hearth/pull/475) [`8106f93`](https://github.com/utilitywarehouse/hearth/commit/8106f93f1ba4b127614cef26c237319d5c8ae824) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - ThumbsUpSmallIcon
+  - ThumbsDownSmallIcon
+  - BookOpenMediumIcon
+  - BookOpenLargeIcon
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.2.0
 
 ### Minor Changes
