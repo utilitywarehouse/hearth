@@ -3,6 +3,9 @@
 import CloseSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/close-small-icon.svg';
 import AddSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/add-small-icon.svg';
 import BasketSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/basket-small-icon.svg';
+import CelebrationSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/celebration-small-icon.svg';
+import CreditSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/credit-small-icon.svg';
+import CreditReversalSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/credit-reversal-small-icon.svg';
 import MinusSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/minus-small-icon.svg';
 import TickSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/tick-small-icon.svg';
 import ChevronRightSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/chevron-right-small-icon.svg';
@@ -13,6 +16,7 @@ import IncreaseSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/increase-s
 import DecreaseSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/decrease-small-icon.svg';
 import ExpandSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/expand-small-icon.svg';
 import DownloadSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/download-small-icon.svg';
+import LaunchSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/launch-small-icon.svg';
 import LoginSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/login-small-icon.svg';
 import UploadSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/upload-small-icon.svg';
 import LogoutSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/logout-small-icon.svg';
@@ -54,12 +58,16 @@ import SendSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/send-small-ico
 import AttachSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/attach-small-icon.svg';
 import LockSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/lock-small-icon.svg';
 import UnlockSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/unlock-small-icon.svg';
+import RefundSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/refund-small-icon.svg';
+import ShoppingSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/shopping-small-icon.svg';
 import SkipLastSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/skip-last-small-icon.svg';
 import SkipFirstSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/skip-first-small-icon.svg';
 import TopUpSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/top-up-small-icon.svg';
+import WithdrawSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/withdraw-small-icon.svg';
 import BellSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/bell-small-icon.svg';
 import ThumbsUpSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/thumbs-up-small-icon.svg';
 import ThumbsDownSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/thumbs-down-small-icon.svg';
+import BillSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/bill-small-icon.svg';
 import AddMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/add-medium-icon.svg';
 import CloseMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/close-medium-icon.svg';
 import MinusMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/minus-medium-icon.svg';
@@ -68,6 +76,8 @@ import ChevronRightMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/chevr
 import ChevronLeftMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/chevron-left-medium-icon.svg';
 import ChevronDownMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/chevron-down-medium-icon.svg';
 import ChevronUpMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/chevron-up-medium-icon.svg';
+import CreditMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/credit-medium-icon.svg';
+import CreditReversalMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/credit-reversal-medium-icon.svg';
 import ExpandMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/expand-medium-icon.svg';
 import IncreaseMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/increase-medium-icon.svg';
 import DecreaseMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/decrease-medium-icon.svg';
@@ -168,6 +178,9 @@ export const svgIcons = [
   CloseSmallIcon,
   AddSmallIcon,
   BasketSmallIcon,
+  CelebrationSmallIcon,
+  CreditSmallIcon,
+  CreditReversalSmallIcon,
   MinusSmallIcon,
   TickSmallIcon,
   ChevronRightSmallIcon,
@@ -178,6 +191,7 @@ export const svgIcons = [
   DecreaseSmallIcon,
   ExpandSmallIcon,
   DownloadSmallIcon,
+  LaunchSmallIcon,
   LoginSmallIcon,
   UploadSmallIcon,
   LogoutSmallIcon,
@@ -219,12 +233,16 @@ export const svgIcons = [
   AttachSmallIcon,
   LockSmallIcon,
   UnlockSmallIcon,
+  RefundSmallIcon,
+  ShoppingSmallIcon,
   SkipLastSmallIcon,
   SkipFirstSmallIcon,
   TopUpSmallIcon,
+  WithdrawSmallIcon,
   BellSmallIcon,
   ThumbsUpSmallIcon,
   ThumbsDownSmallIcon,
+  BillSmallIcon,
   AddMediumIcon,
   CloseMediumIcon,
   MinusMediumIcon,
@@ -233,6 +251,8 @@ export const svgIcons = [
   ChevronLeftMediumIcon,
   ChevronDownMediumIcon,
   ChevronUpMediumIcon,
+  CreditMediumIcon,
+  CreditReversalMediumIcon,
   ExpandMediumIcon,
   IncreaseMediumIcon,
   DecreaseMediumIcon,

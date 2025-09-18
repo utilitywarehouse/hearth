@@ -13,6 +13,18 @@
       "path": "basket-small-icon.svg"
     },
     {
+      "name": "CelebrationSmallIcon",
+      "path": "celebration-small-icon.svg"
+    },
+    {
+      "name": "CreditSmallIcon",
+      "path": "credit-small-icon.svg"
+    },
+    {
+      "name": "CreditReversalSmallIcon",
+      "path": "credit-reversal-small-icon.svg"
+    },
+    {
       "name": "MinusSmallIcon",
       "path": "minus-small-icon.svg"
     },
@@ -51,6 +63,10 @@
     {
       "name": "DownloadSmallIcon",
       "path": "download-small-icon.svg"
+    },
+    {
+      "name": "LaunchSmallIcon",
+      "path": "launch-small-icon.svg"
     },
     {
       "name": "LoginSmallIcon",
@@ -217,6 +233,14 @@
       "path": "unlock-small-icon.svg"
     },
     {
+      "name": "RefundSmallIcon",
+      "path": "refund-small-icon.svg"
+    },
+    {
+      "name": "ShoppingSmallIcon",
+      "path": "shopping-small-icon.svg"
+    },
+    {
       "name": "SkipLastSmallIcon",
       "path": "skip-last-small-icon.svg"
     },
@@ -229,6 +253,10 @@
       "path": "top-up-small-icon.svg"
     },
     {
+      "name": "WithdrawSmallIcon",
+      "path": "withdraw-small-icon.svg"
+    },
+    {
       "name": "BellSmallIcon",
       "path": "bell-small-icon.svg"
     },
@@ -239,6 +267,10 @@
     {
       "name": "ThumbsDownSmallIcon",
       "path": "thumbs-down-small-icon.svg"
+    },
+    {
+      "name": "BillSmallIcon",
+      "path": "bill-small-icon.svg"
     },
     {
       "name": "AddMediumIcon",
@@ -271,6 +303,14 @@
     {
       "name": "ChevronUpMediumIcon",
       "path": "chevron-up-medium-icon.svg"
+    },
+    {
+      "name": "CreditMediumIcon",
+      "path": "credit-medium-icon.svg"
+    },
+    {
+      "name": "CreditReversalMediumIcon",
+      "path": "credit-reversal-medium-icon.svg"
     },
     {
       "name": "ExpandMediumIcon",
