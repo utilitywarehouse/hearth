@@ -13,6 +13,10 @@
       "path": "basket-small-icon.svg"
     },
     {
+      "name": "CelebrationSmallIcon",
+      "path": "celebration-small-icon.svg"
+    },
+    {
       "name": "MinusSmallIcon",
       "path": "minus-small-icon.svg"
     },
@@ -51,6 +55,10 @@
     {
       "name": "DownloadSmallIcon",
       "path": "download-small-icon.svg"
+    },
+    {
+      "name": "LaunchSmallIcon",
+      "path": "launch-small-icon.svg"
     },
     {
       "name": "LoginSmallIcon",
@@ -231,14 +239,6 @@
     {
       "name": "BellSmallIcon",
       "path": "bell-small-icon.svg"
-    },
-    {
-      "name": "ThumbsUpSmallIcon",
-      "path": "thumbs-up-small-icon.svg"
-    },
-    {
-      "name": "ThumbsDownSmallIcon",
-      "path": "thumbs-down-small-icon.svg"
     },
     {
       "name": "AddMediumIcon",

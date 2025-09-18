@@ -24,6 +24,7 @@ import { CameraMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/Camer
 import { CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CashbackCardMediumIcon';
 import { CashbackCardSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CashbackCardSmallIcon';
 import { CelebrationMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CelebrationMediumIcon';
+import { CelebrationSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CelebrationSmallIcon';
 import { ChevronDownMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronDownMediumIcon';
 import { ChevronDownSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronDownSmallIcon';
 import { ChevronLeftMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/ChevronLeftMediumIcon';
@@ -89,6 +90,7 @@ import { InsuranceSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/Ins
 import { LandlineMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LandlineMediumIcon';
 import { LandlineSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LandlineSmallIcon';
 import { LaunchMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LaunchMediumIcon';
+import { LaunchSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LaunchSmallIcon';
 import { LinkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LinkMediumIcon';
 import { LinkSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LinkSmallIcon';
 import { LinkedInMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LinkedInMediumIcon';
@@ -136,8 +138,6 @@ import { SkipLastSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/Skip
 import { SunLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/SunLargeIcon';
 import { SunMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SunMediumIcon';
 import { TeamMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TeamMediumIcon';
-import { ThumbsDownSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ThumbsDownSmallIcon';
-import { ThumbsUpSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ThumbsUpSmallIcon';
 import { TickCircleMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickCircleMediumIcon';
 import { TickCircleSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickCircleSmallIcon';
 import { TickMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickMediumIcon';
@@ -189,6 +189,7 @@ export const reactIcons = [
   CashbackCardMediumIcon,
   CashbackCardSmallIcon,
   CelebrationMediumIcon,
+  CelebrationSmallIcon,
   ChevronDownMediumIcon,
   ChevronDownSmallIcon,
   ChevronLeftMediumIcon,
@@ -254,6 +255,7 @@ export const reactIcons = [
   LandlineMediumIcon,
   LandlineSmallIcon,
   LaunchMediumIcon,
+  LaunchSmallIcon,
   LinkMediumIcon,
   LinkSmallIcon,
   LinkedInMediumIcon,
@@ -301,8 +303,6 @@ export const reactIcons = [
   SunLargeIcon,
   SunMediumIcon,
   TeamMediumIcon,
-  ThumbsDownSmallIcon,
-  ThumbsUpSmallIcon,
   TickCircleMediumIcon,
   TickCircleSmallIcon,
   TickMediumIcon,

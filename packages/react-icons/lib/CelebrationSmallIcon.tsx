@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const ThumbsDownSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+export const CelebrationSmallIcon = forwardRef<SVGSVGElement, IconProps>(
   ({ color = 'currentColor', title, titleId, ...props }, ref) => {
     return (
       <svg
@@ -19,10 +19,10 @@ export const ThumbsDownSmallIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M6.625 5v9.75l5.25 5.25 1.387-1.387-.975-3.863h5.588v-3.3L15.137 5zm-4.5 0v9.75h3V5z"
+          d="M1.62 18.333 5.787 6.667l7.5 7.5zm10.459-7.875-.875-.875 6.27-6.27 2.105 2.104-.875.875-1.23-1.23zM8.745 7.125 7.87 6.25l1.21-1.208-1.25-1.25.875-.875 2.125 2.125zm1.667 1.667-.875-.875 3.73-3.73-2.063-2.062.875-.875 2.937 2.938zm3.333 3.333-.875-.875 2.938-2.937 2.937 2.937-.875.875-2.062-2.062z"
         />
       </svg>
     );
   }
 );
-ThumbsDownSmallIcon.displayName = 'ThumbsDownSmallIcon';
+CelebrationSmallIcon.displayName = 'CelebrationSmallIcon';
