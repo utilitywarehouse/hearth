@@ -13,14 +13,14 @@ async function getAssets() {
 
 async function generateAssetsUtils({ svgAssets }) {
   const svgAssetsTemplateSrc = fs.readFileSync(
-    path.resolve(__dirname, '../templates', 'svg-assets.ts.ejs.txt'),
+    path.resolve(__dirname, '../templates', 'svg-assets.ts.ejs'),
     { encoding: 'utf8' }
   );
   const svgAssetsRendered = render(svgAssetsTemplateSrc, { assets: svgAssets });
   await fs.outputFile(path.resolve(__dirname, '../utils', 'svg-assets.ts'), svgAssetsRendered);
 
   const assetsTemplateSrc = fs.readFileSync(
-    path.resolve(__dirname, '../templates', 'assets.ts.ejs.txt'),
+    path.resolve(__dirname, '../templates', 'assets.ts.ejs'),
     { encoding: 'utf8' }
   );
   const assetsRendered = render(assetsTemplateSrc, { assets: svgAssets });
@@ -36,7 +36,7 @@ async function generateAssetStories({ svgAssets }) {
 
   svgAssets.forEach(async asset => {
     const templateSrc = fs.readFileSync(
-      path.resolve(__dirname, '../templates', 'asset-story.ts.ejs.txt'),
+      path.resolve(__dirname, '../templates', 'asset-story.ts.ejs'),
       { encoding: 'utf8' }
     );
     const rendered = render(templateSrc, { asset });
