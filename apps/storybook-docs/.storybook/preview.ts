@@ -2,12 +2,11 @@ import type { Preview } from '@storybook/react-vite';
 import '@utilitywarehouse/hearth-css-reset';
 import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-react/styles.css';
-import '@utilitywarehouse/hearth-tokens/index.css';
 import '../../../shared/storybook/styles/preview.css';
 import theme from '../../../shared/storybook/theme';
 
 const closeStories = (delay: number = 0) => {
-  // Clsoe Stories menu if open
+  // Close Stories menu if open
   setTimeout(() => {
     const reactNativeStoriesMenuItem =
       window.parent.document.getElementById('react-native_stories');

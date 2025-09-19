@@ -5,6 +5,13 @@ import path from 'path';
 const app = express();
 const PORT = process.env.PORT || 7337;
 
+// If set, log detailed fallback decisions
+const DEBUG_FALLBACK = process.env.DEBUG_FALLBACK === 'true';
+
+// Detect requests that are almost certainly for static assets (should NOT hit SPA fallback)
+const ASSET_EXT_REGEX =
+  /\.(?:js|mjs|cjs|css|map|json|txt|woff2?|ttf|eot|otf|svg|png|jpe?g|gif|webp)$/i;
+
 const projectRoot = path.resolve(__dirname, '..', '..', '..');
 const appsDir = path.join(projectRoot, 'apps');
 
@@ -36,7 +43,19 @@ storybookAppsToServe.forEach(sbApp => {
 
     // SPA fallback for this app: any route under /app-name/* not caught by static should serve its index.html
     if (fs.existsSync(appIndex)) {
-      app.get(`${routePath}/*`, (req, res) => {
+      app.get(`${routePath}/*`, (req, res, next) => {
+        // If the request looks like a static asset (e.g. chunk .js) but wasn't found, let it 404 naturally
+        if (ASSET_EXT_REGEX.test(req.path)) {
+          if (DEBUG_FALLBACK) {
+            console.warn(
+              `[fallback-skip][sub-app ${sbApp.name}] asset-like request not intercepted: ${req.path}`
+            );
+          }
+          return next();
+        }
+        if (DEBUG_FALLBACK) {
+          console.log(`[fallback][sub-app ${sbApp.name}] serving index.html for: ${req.path}`);
+        }
         res.sendFile(appIndex);
       });
     } else {
@@ -73,13 +92,27 @@ if (fs.existsSync(storybookDocsStaticDir)) {
         return req.path === appBasePath || req.path.startsWith(appBasePath + '/');
       });
 
-      if (isSubAppPath) {
-        // If it's a path that should have been handled by a sub-app, let it proceed to 404 or other error handling.
-        next();
-      } else {
-        // Not a sub-app path, so assume it's for the root SPA.
-        res.sendFile(storybookDocsIndex);
+      // Avoid hijacking asset-like requests; let them 404 so we see real missing chunks
+      if (ASSET_EXT_REGEX.test(req.path)) {
+        if (DEBUG_FALLBACK) {
+          console.warn(`[fallback-skip][root] asset-like request: ${req.path}`);
+        }
+        return next();
       }
+
+      if (isSubAppPath) {
+        if (DEBUG_FALLBACK) {
+          console.warn(
+            `[fallback-skip][root] looks like sub-app path without static match: ${req.path}`
+          );
+        }
+        return next();
+      }
+
+      if (DEBUG_FALLBACK) {
+        console.log(`[fallback][root] serving docs index.html for: ${req.path}`);
+      }
+      res.sendFile(storybookDocsIndex);
     });
   } else {
     console.warn(
