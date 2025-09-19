@@ -1,12 +1,12 @@
 import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
-import * as Stories from './PasswordInput.stories';
+import * as Stories from './CurrencyInput.stories';
 
 import { DocsHeader } from './storybook-components/DocsHeader';
 
-<Meta title="Components / PasswordInput" />
+<Meta title="Components / CurrencyInput" />
 
-<DocsHeader componentName="PasswordInput" stories={Stories} />
+<DocsHeader componentName="CurrencyInput" stories={Stories} />
 
 ## Playground
 
@@ -16,40 +16,20 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 ## Alternatives
 
 - [TextInput](?path=/docs/components-textinput--docs) - For text
+- [PasswordInput](?path=/docs/components-passwordinput--docs) - For passwords
 - [SearchInput](?path=/docs/components-searchinput--docs) - For search
-- [CurrencyInput](?path=/docs/components-currencyinput--docs) - For money
 
 ## Label
 
 A label is required, this should be clear and descriptive to guide the user.
 
-## Disabled and Read-only
-
-Read-only inputs can not be edited, but remain focusable, and should only be
-used readonly when presenting already submitted information. They differ from
-disabled inputs, as there may be actions a user can take to activate a disabled
-input, but read-only fields should stay undeditable in the same view.
-
-<Canvas of={Stories.DisabledAndReadOnly} />
+The `hideLabel` prop will visually hide the label but keep it available for screen readers.
 
 ## Validation
 
 The input `validationStatus` can be set to either `"valid"` or `"invalid"` to
 indicate the status. This status must be accompanied by a validation text to
 explain the reason for the status.
-
-<Canvas of={Stories.Validation} />
-
-## Autocomplete
-
-Use the `autocomplete` attribute on password inputs to help users complete forms
-faster.
-
-Autocomplete indicates to browsers and password managers what kind of password
-is needed so it can be entered for the user.
-
-Set the autocomplete attribute to `new-password` if the user is creating a
-password. Otherwise, use `current-password`.
 
 ## API
 

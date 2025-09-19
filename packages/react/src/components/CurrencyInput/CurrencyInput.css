@@ -1,0 +1,9 @@
+.hearth-CurrencyInput {
+  & :where(.hearth-TextInputRoot) {
+    font-family: var(--h-font-family-detail);
+    font-weight: var(--h-font-weight-regular);
+    font-size: var(--h-detail-text-3xl-font-size);
+    line-height: var(--h-detail-text-3xl-line-height);
+    letter-spacing: var(--h-detail-text-3xl-letter-spacing);
+  }
+}

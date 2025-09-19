@@ -155,3 +155,6 @@ export type { AlertLinkProps } from './components/Alert/AlertLink';
 
 export { AlertIconButton } from './components/Alert/AlertIconButton';
 export type { AlertIconButtonProps } from './components/Alert/AlertIconButton';
+
+export { CurrencyInput } from './components/CurrencyInput/CurrencyInput';
+export type { CurrencyInputProps } from './components/CurrencyInput/CurrencyInput.props';
