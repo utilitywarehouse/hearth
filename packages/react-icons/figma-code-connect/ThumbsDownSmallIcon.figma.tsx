@@ -8,7 +8,7 @@ import figma from '@figma/code-connect';
 
 figma.connect(
   ThumbsDownSmallIcon,
-  'https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2360:30&m=dev',
+  'https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2392:32&m=dev',
   {
     props: {},
     example: () => <ThumbsDownSmallIcon />,

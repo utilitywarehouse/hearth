@@ -19,7 +19,7 @@ export const ThumbsDownSmallIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M6.625 5v9.75l5.25 5.25 1.387-1.387-.975-3.863h5.588v-3.3L15.137 5zm-4.5 0v9.75h3V5z"
+          d="M6.571 5v9.75L11.905 20l1.41-1.387-.991-3.863H18v-3.3L15.219 5zM2 5v9.75h3.048V5z"
         />
       </svg>
     );
