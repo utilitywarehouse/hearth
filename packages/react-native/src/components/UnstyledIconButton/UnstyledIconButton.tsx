@@ -1,9 +1,10 @@
 import { createButton } from '@gluestack-ui/button';
-import { UnstyledIconButtonProps } from './UnstyledIconButton.props';
-import UnstyledIconButtonRootComponent from './UnstyledIconButtonRoot';
-import UnstyledIconButtonIconComponent from './UnstyledIconButtonIcon';
-import UnstyledIconButtonSpinerComponent from './UnstyledIconButtonSpinner';
+import { ViewStyle } from 'react-native';
 import { useButtonGroupContext } from '../Button/ButtonGroup.context';
+import { UnstyledIconButtonProps } from './UnstyledIconButton.props';
+import UnstyledIconButtonIconComponent from './UnstyledIconButtonIcon';
+import UnstyledIconButtonRootComponent from './UnstyledIconButtonRoot';
+import UnstyledIconButtonSpinerComponent from './UnstyledIconButtonSpinner';
 
 const UnstyledIconButtonComponent = createButton({
   Root: UnstyledIconButtonRootComponent,
@@ -25,6 +26,7 @@ const UnstyledIconButton = ({
   pressed,
   size = 'md',
   inverted = false,
+  iconStyle,
   ...props
 }: UnstyledIconButtonProps) => {
   const { disabled: groupDisabled, loading: groupLoading } = useButtonGroupContext();
@@ -41,7 +43,11 @@ const UnstyledIconButton = ({
       isPressed={pressed}
       icon={icon}
     >
-      {loading ? <UnstyledIconButtonSpinner /> : <UnstyledIconButtonIcon as={icon} />}
+      {loading ? (
+        <UnstyledIconButtonSpinner />
+      ) : (
+        <UnstyledIconButtonIcon as={icon} style={iconStyle as ViewStyle} />
+      )}
     </UnstyledIconButtonComponent>
   );
 };

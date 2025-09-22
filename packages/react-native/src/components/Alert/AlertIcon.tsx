@@ -19,6 +19,7 @@ const AlertIcon = (props: IconProps) => {
     }
     return InfoMediumIcon;
   })();
+  styles.useVariants({ colorScheme });
   return <Icon {...props} as={props.as ?? asProp} style={styles.icon} />;
 };
 
@@ -31,7 +32,22 @@ const styles = StyleSheet.create(theme => ({
     minWidth: 24,
     minHeight: 24,
     alignSelf: 'flex-start',
-    color: theme.color.icon.primary,
+    variants: {
+      colorScheme: {
+        info: {
+          color: theme.color.feedback.info.foreground.default,
+        },
+        positive: {
+          color: theme.color.feedback.positive.foreground.default,
+        },
+        danger: {
+          color: theme.color.feedback.danger.foreground.default,
+        },
+        warning: {
+          color: theme.color.feedback.warning.foreground.default,
+        },
+      },
+    },
   },
 }));
 

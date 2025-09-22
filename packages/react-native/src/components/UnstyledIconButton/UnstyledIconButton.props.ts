@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react';
-import type { PressableProps } from 'react-native';
+import type { PressableProps, ViewProps } from 'react-native';
 
 export type UnstyledIconButtonProps = {
   /*
@@ -29,4 +29,5 @@ export type UnstyledIconButtonProps = {
    */
   inverted?: boolean;
   children?: React.ReactNode;
+  iconStyle?: ViewProps['style'];
 } & PressableProps;

@@ -1,5 +1,6 @@
 import { ComponentType } from 'react';
 import { PressableProps, TextProps } from 'react-native';
+import { IconProps } from '../Icon';
 
 export interface LinkProps extends Omit<PressableProps, 'children'> {
   children: TextProps['children'];
@@ -10,6 +11,8 @@ export interface LinkProps extends Omit<PressableProps, 'children'> {
   icon?: ComponentType;
   iconPosition?: 'left' | 'right';
   showIcon?: boolean;
+  textStyle?: TextProps['style'];
+  iconStyle?: IconProps['style'];
 }
 
 export default LinkProps;

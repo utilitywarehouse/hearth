@@ -201,6 +201,7 @@ const styles = StyleSheet.create(theme => ({
         colorScheme: 'affirmative',
         styles: {
           backgroundColor: theme.color.interactive.affirmative.surface.strong.default,
+          borderColor: theme.color.interactive.affirmative.border.strong,
           _web: {
             _hover: {
               backgroundColor: theme.color.interactive.affirmative.surface.strong.hover,
