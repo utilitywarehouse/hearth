@@ -43,6 +43,78 @@ const styles = StyleSheet.create(theme => ({
       },
     },
     compoundVariants: [
+      // Emphasis
+      {
+        colorScheme: 'info',
+        variant: 'emphasis',
+        styles: {
+          color: theme.color.feedback.info.foreground.default,
+        },
+      },
+      {
+        colorScheme: 'danger',
+        variant: 'emphasis',
+        styles: {
+          color: theme.color.feedback.danger.foreground.default,
+        },
+      },
+      {
+        colorScheme: 'positive',
+        variant: 'emphasis',
+        styles: {
+          color: theme.color.feedback.positive.foreground.default,
+        },
+      },
+      {
+        colorScheme: 'warning',
+        variant: 'emphasis',
+        styles: {
+          color: theme.color.feedback.warning.foreground.default,
+        },
+      },
+      {
+        colorScheme: 'functional',
+        variant: 'emphasis',
+        styles: {
+          color: theme.color.feedback.functional.foreground.default,
+        },
+      },
+      // Subtle
+      {
+        colorScheme: 'info',
+        variant: 'subtle',
+        styles: {
+          color: theme.color.feedback.info.foreground.default,
+        },
+      },
+      {
+        colorScheme: 'danger',
+        variant: 'subtle',
+        styles: {
+          color: theme.color.feedback.danger.foreground.default,
+        },
+      },
+      {
+        colorScheme: 'positive',
+        variant: 'subtle',
+        styles: {
+          color: theme.color.feedback.positive.foreground.default,
+        },
+      },
+      {
+        colorScheme: 'warning',
+        variant: 'subtle',
+        styles: {
+          color: theme.color.feedback.warning.foreground.default,
+        },
+      },
+      {
+        colorScheme: 'functional',
+        variant: 'subtle',
+        styles: {
+          color: theme.color.feedback.functional.foreground.default,
+        },
+      },
       // Outline
       {
         colorScheme: 'info',

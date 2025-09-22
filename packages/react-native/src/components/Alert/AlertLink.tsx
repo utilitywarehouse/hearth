@@ -6,14 +6,36 @@ const AlertLink = ({ children, ...props }: LinkProps) => {
   const { colorScheme } = useAlertContext();
   styles.useVariants({ colorScheme });
   return (
-    <Link {...props} textStyle={styles.link} iconStyle={styles.link}>
+    <Link {...props} textStyle={styles.text} iconStyle={styles.icon}>
       {children}
     </Link>
   );
 };
 
 const styles = StyleSheet.create(theme => ({
-  link: {
+  text: {
+    variants: {
+      colorScheme: {
+        info: {
+          color: theme.color.feedback.info.foreground.default,
+          textDecorationColor: theme.color.feedback.info.foreground.default,
+        },
+        positive: {
+          color: theme.color.feedback.positive.foreground.default,
+          textDecorationColor: theme.color.feedback.positive.foreground.default,
+        },
+        danger: {
+          color: theme.color.feedback.danger.foreground.default,
+          textDecorationColor: theme.color.feedback.danger.foreground.default,
+        },
+        warning: {
+          color: theme.color.feedback.warning.foreground.default,
+          textDecorationColor: theme.color.feedback.warning.foreground.default,
+        },
+      },
+    },
+  },
+  icon: {
     variants: {
       colorScheme: {
         info: {
