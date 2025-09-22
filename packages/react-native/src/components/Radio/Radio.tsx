@@ -1,16 +1,17 @@
 import { createRadio } from '@gluestack-ui/radio';
-import StyledRadio from './RadioRoot';
-import StyledRadioIndicator from './RadioIndicator';
-import StyledRadioIcon from './RadioIcon';
-import StyledRadioLabel from './RadioLabel';
-import StyledRadioGroup from './RadioGroupRoot';
 import RadioProps from './Radio.props';
+import StyledRadioGroup from './RadioGroupRoot';
+import StyledRadioIcon from './RadioIcon';
+import StyledRadioIndicator from './RadioIndicator';
+import StyledRadioLabel from './RadioLabel';
+import StyledRadio from './RadioRoot';
 
+import { useFormFieldContext } from '../FormField';
 import { Helper } from '../Helper';
 import { useRadioGroupContext } from './RadioGroup.context';
-import { useFormFieldContext } from '../FormField';
-import RadioTileRoot from './RadioTileRoot';
+import RadioImage from './RadioImage';
 import RadioTextContent from './RadioTextContent';
+import RadioTileRoot from './RadioTileRoot';
 
 const RadioComponent = createRadio({
   Root: StyledRadio,
@@ -41,6 +42,7 @@ const Radio = ({
   validationStatus: validation,
   showValidationIcon,
   type = 'default',
+  image,
   ...props
 }: RadioProps) => {
   const { validationStatus: fieldValidationStatus } = useFormFieldContext();
@@ -55,6 +57,7 @@ const Radio = ({
       <RadioIndicator>
         <RadioIcon />
       </RadioIndicator>
+      {image ? <RadioImage {...image} /> : null}
       <RadioTextContent>
         {!!label && <RadioLabel>{label}</RadioLabel>}
         {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
@@ -89,6 +92,6 @@ const RadioTile = ({ type = 'tile', ...props }: RadioProps) => <Radio {...props}
 RadioTile.displayName = 'RadioTile';
 Radio.displayName = 'Radio';
 
-export { Radio, RadioGroup, RadioIndicator, RadioIcon, RadioLabel, RadioTile };
+export { Radio, RadioGroup, RadioIcon, RadioIndicator, RadioLabel, RadioTile };
 
 export default Radio;

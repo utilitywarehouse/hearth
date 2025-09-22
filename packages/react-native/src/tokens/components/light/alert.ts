@@ -6,6 +6,19 @@ export default {
   borderRadius: 8,
   borderWidth: 2,
   contentGap: 4,
+  focus: '#101010',
   gap: 8,
+  iconButton: {
+    unstyled: {
+      foregroundColor: '#101010',
+      foregroundColorActive: '#3f3f3f',
+      foregroundColorHover: '#3a3837',
+    },
+  },
+  link: {
+    color: '#101010',
+    colorActive: '#3f3f3f',
+    colorHover: '#3a3837',
+  },
   padding: 14,
 } as const;

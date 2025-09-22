@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react';
-import type { PressableProps, ViewProps } from 'react-native';
+import type { ImageProps, PressableProps, ViewProps } from 'react-native';
 
 type CheckboxBaseProps = {
   onChange?: (isSelected: boolean) => void;
@@ -26,6 +26,7 @@ type CheckboxWithChildrenProps = {
   invalidText?: never;
   validText?: never;
   showValidationIcon?: never;
+  image?: never;
 } & CheckboxBaseProps;
 
 type CheckboxWithoutChildrenProps = {
@@ -36,6 +37,7 @@ type CheckboxWithoutChildrenProps = {
   invalidText?: string;
   validText?: string;
   showValidationIcon?: boolean;
+  image?: ImageProps;
 } & CheckboxBaseProps;
 
 type CheckboxProps = CheckboxWithChildrenProps | CheckboxWithoutChildrenProps;

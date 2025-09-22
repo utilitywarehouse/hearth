@@ -1,6 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
+import { ImageSourcePropType } from 'react-native';
 import { Radio, RadioGroup } from '.';
+import bankLogo from '../../../docs/assets/bank-logo.png';
+import bankLogo1 from '../../../docs/assets/bank-logo1.png';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
 
@@ -79,6 +82,50 @@ export const Playground: Story = {
         }}
         nativeID="Radio-1"
         {...args}
+      />
+    </RadioGroup>
+  ),
+};
+
+export const WithImage: Story = {
+  parameters: {
+    controls: { exclude: ['image'] },
+  },
+  args: {
+    value: 'Option 1',
+    label: 'Label',
+  },
+  render: ({ children, ...args }) => (
+    <RadioGroup>
+      <Radio
+        aria-label="Label 1"
+        onChange={(checked: boolean) => {
+          console.log(checked, '###');
+        }}
+        nativeID="Radio-1"
+        {...args}
+        label="Visa"
+        value="Option 1"
+        image={{
+          source: bankLogo1 as ImageSourcePropType,
+          style: { width: 48, height: 32 },
+          resizeMode: 'cover',
+        }}
+      />
+      <Radio
+        aria-label="Label 2"
+        onChange={(checked: boolean) => {
+          console.log(checked, '###');
+        }}
+        nativeID="Radio-2"
+        {...args}
+        label="Mastercard"
+        value="Option 2"
+        image={{
+          source: bankLogo as ImageSourcePropType,
+          style: { width: 48, height: 32 },
+          resizeMode: 'cover',
+        }}
       />
     </RadioGroup>
   ),

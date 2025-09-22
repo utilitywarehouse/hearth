@@ -19,7 +19,7 @@ const styles = StyleSheet.create(theme => ({
     gap: theme.components.radio.gap,
     padding: theme.components.radio.tile.padding,
     borderWidth: theme.components.radio.tile.borderWidth,
-    borderColor: theme.color.border.subtle,
+    borderColor: theme.color.border.strong,
     borderRadius: theme.components.radio.tile.borderRadius,
     backgroundColor: theme.color.surface.neutral.strong,
     variants: {

@@ -20,7 +20,7 @@ const CheckboxIcon = ({ style, ...props }: IconProps) => {
 
 const styles = StyleSheet.create(theme => ({
   icon: {
-    color: theme.color.icon.inverted,
+    color: theme.components.checkbox.checked.icon.color,
   },
 }));
 

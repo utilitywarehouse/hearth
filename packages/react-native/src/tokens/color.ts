@@ -473,13 +473,13 @@ export const light = {
     brand: '#7a42c8',
     inverted: '#fcfbf2',
     primary: '#101010',
-    secondary: '#888888',
+    secondary: '#5b5b5b',
   },
 } as const;
 
 export const dark = {
   background: {
-    brand: '#996cda',
+    brand: '#7a42c8',
     primary: '#191917',
     secondary: '#232323',
   },
@@ -555,7 +555,7 @@ export const dark = {
   interactive: {
     affirmative: {
       border: {
-        strong: '#ebebeb',
+        strong: '#101010',
         subtle: '#58ca93',
       },
       foreground: {
@@ -591,7 +591,7 @@ export const dark = {
     },
     destructive: {
       border: {
-        strong: '#ebebeb',
+        strong: '#101010',
         subtle: '#ff7964',
       },
       foreground: {
@@ -639,7 +639,7 @@ export const dark = {
     },
     highlight: {
       border: {
-        strong: '#f7f7f7',
+        strong: '#101010',
       },
       foreground: {
         strong: '#101010',
@@ -719,7 +719,7 @@ export const dark = {
   text: {
     affirmative: '#58ca93',
     brand: '#af90de',
-    inverted: '#191917',
+    inverted: '#fcfbf2',
     primary: '#ebebeb',
     secondary: '#b2afae',
   },
