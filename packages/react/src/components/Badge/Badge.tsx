@@ -7,6 +7,7 @@ import { badgePropDefs, BadgeProps } from './Badge.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
+import { marginPropDefs } from '../../props/margin.props';
 
 const componentName = 'Badge';
 const componentClassName = withGlobalPrefix(componentName);
@@ -19,7 +20,7 @@ export const Badge = React.forwardRef<BadgeElement, BadgeProps>((props, ref) => 
     colorScheme = 'info',
     flatBase,
     ...badgeProps
-  } = extractProps(props, badgePropDefs, textTransformPropDefs);
+  } = extractProps(props, badgePropDefs, marginPropDefs, textTransformPropDefs);
   const dataAttributeProps = {
     'data-colorscheme': colorScheme,
     'data-bottom-radius-zero': flatBase ? '' : undefined,

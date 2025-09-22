@@ -27,7 +27,11 @@ The variant prop controls the visual appearance of the Badge.
 
 ## Sizes
 
-The size prop controls the size of the Badge.
+The size prop controls the size of the Badge. This prop is responsive.
+
+```tsx
+<Badge size={{ mobile: 'sm', desktop: 'md' }}>Responsive badge</Badge>
+```
 
 <Canvas of={Stories.Sizes} sourceState="none" />
 
@@ -76,6 +80,6 @@ This component is based on the `span` element and supports the following common 
 | Prop          | Type                                                                                                                                                |
 | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `variant`     | `emphasis` \| `subtle` \| `outline`                                                                                                                 |
-| `size`        | `sm` \| `md`                                                                                                                                        |
+| `size`        | `Responsive<"sm" \| "md">`                                                                                                                          |
 | `colorScheme` | `info` \|`positive` \| `danger` \| `warning` \| `functional`\|`pig` \|`highlight` \| `energy` \| `mobile` \| `broadband`\| `cashback`\| `insurance` |
 | `flatBase`    | `boolean`                                                                                                                                           |

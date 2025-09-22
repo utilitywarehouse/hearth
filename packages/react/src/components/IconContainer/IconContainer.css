@@ -1,0 +1,89 @@
+.hearth-IconContainer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  /* Make sure that the height is not stretched in a Flex/Grid layout */
+  height: fit-content;
+  border-radius: var(--h-icon-container-border-radius);
+  padding: var(--h-icon-container-padding);
+
+  &:where(.hearth-variant-emphasis) {
+    color: var(--h-badge-emphasis-color);
+    background-color: var(--h-badge-emphasis-background-color);
+  }
+
+  &:where(.hearth-variant-subtle) {
+    color: var(--h-badge-subtle-color);
+    background-color: var(--h-badge-subtle-background-color);
+  }
+
+  @breakpoints {
+    &:where(.hearth-r-size-lg) {
+      --h-icon-container-border-radius: var(--h-icon-container-lg-border-radius-rounded);
+      --h-icon-container-padding: var(--h-icon-container-lg-padding);
+    }
+
+    &:where(.hearth-r-size-md) {
+      --h-icon-container-border-radius: var(--h-icon-container-md-border-radius-rounded);
+      --h-icon-container-padding: var(--h-icon-container-md-padding);
+    }
+
+    &:where(.hearth-r-size-sm) {
+      --h-icon-container-border-radius: var(--h-icon-container-sm-border-radius-rounded);
+      --h-icon-container-padding: var(--h-icon-container-sm-padding);
+    }
+  }
+
+  &:where([data-radius-zero]) {
+    --h-icon-container-border-radius: 0;
+  }
+
+  &:where([data-colorscheme='pig']) {
+    --h-badge-emphasis-color: var(--h-text-primary);
+    --h-badge-emphasis-background-color: var(--h-surface-pig-default);
+    --h-badge-subtle-color: var(--h-text-primary);
+    --h-badge-subtle-background-color: var(--h-surface-pig-subtle);
+  }
+
+  &:where([data-colorscheme='energy']) {
+    --h-badge-emphasis-color: var(--h-text-primary);
+    --h-badge-emphasis-background-color: var(--h-surface-energy-default);
+    --h-badge-subtle-color: var(--h-text-primary);
+    --h-badge-subtle-background-color: var(--h-surface-energy-subtle);
+  }
+
+  &:where([data-colorscheme='broadband']) {
+    --h-badge-emphasis-color: var(--h-text-primary);
+    --h-badge-emphasis-background-color: var(--h-surface-broadband-default);
+    --h-badge-subtle-color: var(--h-text-primary);
+    --h-badge-subtle-background-color: var(--h-surface-broadband-subtle);
+  }
+
+  &:where([data-colorscheme='mobile']) {
+    --h-badge-emphasis-color: var(--h-text-primary);
+    --h-badge-emphasis-background-color: var(--h-surface-mobile-default);
+    --h-badge-subtle-color: var(--h-text-primary);
+    --h-badge-subtle-background-color: var(--h-surface-mobile-subtle);
+  }
+
+  &:where([data-colorscheme='cashback']) {
+    --h-badge-emphasis-color: var(--h-text-primary);
+    --h-badge-emphasis-background-color: var(--h-surface-cashback-default);
+    --h-badge-subtle-color: var(--h-text-primary);
+    --h-badge-subtle-background-color: var(--h-surface-cashback-subtle);
+  }
+
+  &:where([data-colorscheme='insurance']) {
+    --h-badge-emphasis-color: var(--h-text-primary);
+    --h-badge-emphasis-background-color: var(--h-surface-insurance-default);
+    --h-badge-subtle-color: var(--h-text-primary);
+    --h-badge-subtle-background-color: var(--h-surface-insurance-subtle);
+  }
+
+  &:where([data-colorscheme='highlight']) {
+    --h-badge-subtle-color: var(--h-text-primary);
+    --h-badge-subtle-background-color: var(--h-surface-highlight-subtle);
+  }
+}
