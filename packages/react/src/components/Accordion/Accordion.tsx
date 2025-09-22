@@ -12,9 +12,9 @@ const componentClassName = withGlobalPrefix(componentName);
 type AccordionElement = ElementRef<'div'>;
 
 export const Accordion = React.forwardRef<AccordionElement, AccordionProps>(
-  ({ className, type, heading, headingElement, helperText, link, ...props }, ref) => {
-    const singleProps = props as Omit<RadixAccordion.AccordionSingleProps, 'type'>;
-    const multipleProps = props as Omit<RadixAccordion.AccordionMultipleProps, 'type'>;
+  ({ className, heading, headingElement, helperText, link, ...props }, ref) => {
+    // const singleProps = props as Omit<RadixAccordion.AccordionSingleProps, 'type'>;
+    // const multipleProps = props as Omit<RadixAccordion.AccordionMultipleProps, 'type'>;
 
     const headerProps = {
       heading,
@@ -22,15 +22,19 @@ export const Accordion = React.forwardRef<AccordionElement, AccordionProps>(
       helperText,
       link,
     };
+    // {type === 'multiple' ? (
+    //   <RadixAccordion.Root ref={ref} type="multiple" {...multipleProps} />
+    // ) : (
+    //   <RadixAccordion.Root ref={ref} type="single" {...singleProps} />
+    // )}
 
     return (
       <div className={clsx(componentClassName, className)}>
         {heading ? <SectionHeader {...headerProps} /> : null}
-        {type === 'multiple' ? (
-          <RadixAccordion.Root ref={ref} type="multiple" {...multipleProps} />
-        ) : (
-          <RadixAccordion.Root ref={ref} type="single" {...singleProps} />
-        )}
+        <RadixAccordion.Root
+          ref={ref}
+          {...(props as React.ComponentProps<typeof RadixAccordion.Root>)}
+        />
       </div>
     );
   }
