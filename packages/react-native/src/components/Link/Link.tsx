@@ -1,9 +1,9 @@
-import type { LinkProps } from './Link.props';
 import { createLink } from '@gluestack-ui/link';
+import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import type { LinkProps } from './Link.props';
+import LinkIcon from './LinkIcon';
 import LinkRoot from './LinkRoot';
 import LinkTextComponent from './LinkText';
-import LinkIcon from './LinkIcon';
-import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 const LinkComponent = createLink({
   Root: LinkRoot,
@@ -21,14 +21,20 @@ const Link = ({
   target = '_self',
   iconPosition = 'right',
   showIcon = true,
+  textStyle,
+  iconStyle,
   ...props
 }: LinkProps) => {
   const LinkAny = LinkComponent as any;
   return (
     <LinkAny {...props} isDisabled={disabled} isExternal={target === '_blank'}>
-      {showIcon && icon && iconPosition === 'left' ? <LinkIcon as={icon} /> : null}
-      <LinkText>{children}</LinkText>
-      {showIcon && icon && iconPosition === 'right' ? <LinkIcon as={icon} /> : null}
+      {showIcon && icon && iconPosition === 'left' ? (
+        <LinkIcon as={icon} style={iconStyle} />
+      ) : null}
+      <LinkText style={textStyle}>{children}</LinkText>
+      {showIcon && icon && iconPosition === 'right' ? (
+        <LinkIcon as={icon} style={iconStyle} />
+      ) : null}
     </LinkAny>
   );
 };

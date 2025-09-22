@@ -7,6 +7,7 @@ import { useUnstyledIconButtonContext } from './UnstyledIconButton.context';
 const UnstyledIconButtonIcon = ({ children, ...props }: IconProps) => {
   const { active, inverted, size } = useUnstyledIconButtonContext();
   styles.useVariants({ active, inverted, size });
+  console.log(Platform.OS, props.style);
   return (
     <Icon
       {...props}
