@@ -19,7 +19,7 @@ export interface IconContainerProps
     MarginProps {
   /**
    * Sets the container size.
-   * @default sm
+   * @default md
    */
   size?: Responsive<(typeof sizes)[number]>;
   /**
