@@ -29,7 +29,7 @@ export interface IconContainerProps
   variant?: (typeof variants)[number];
   /**
    * Sets the colour scheme.
-   * @default info
+   * @default pig
    */
   colorScheme?: 'energy' | 'mobile' | 'broadband' | 'insurance' | 'cashback' | 'pig' | 'highlight';
   /**
