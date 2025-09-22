@@ -1,0 +1,101 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './IconContainer.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Components / IconContainer" />
+
+<DocsHeader componentName="IconContainer" stories={Stories} />
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Icons
+
+The `IconContainer` component is intended to be used with the `@utilitywarehouse/hearth-react-icons` package.
+
+## Variants
+
+The variant prop controls the visual appearance of the Icon container.
+
+<Canvas of={Stories.Variants} sourceState="none" />
+
+## Sizes
+
+The size prop controls the size of the Icon container. This prop is responsive.
+
+<Canvas of={Stories.Sizes} sourceState="none" />
+
+If you need to render different sized icons in conjunction with the responsive
+size prop, there are a couple of ways you can do this.
+
+1. Using JS, with the `useMediaQuery` hook.
+
+```tsx
+import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { IconContainer, useMediaQuery, media } from '@utilitywarehouse/hearth-react';
+
+const MyComponent = () => {
+  const showSmallIcon = useMediaQuery(media.below('tablet'));
+
+  return (
+    <IconContainer size={{ mobile: 'sm', tablet: 'md', desktop: 'lg' }}>
+      {showSmallIcon ? <AddSmallIcon /> : <AddMediumIcon />}
+    </IconContainer>
+  );
+};
+```
+
+2. Using CSS, with `Box` and style props.
+
+```tsx
+import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/hearthreact-icons';
+import { IconContainer, Box } from '@utilitywarehouse/hearth-react';
+
+const MyComponent = () => (
+  <IconContainer size={{ mobile: 'sm', desktop: 'md' }} >
+    <Box asChild display={{ mobile: 'none', desktop: 'block' }}>
+      <AddMediumIcon />
+    </Box>
+    <Box asChild display={{ desktop: 'none' }}>
+      <AddSmallIcon />
+    </Box>
+  </IconButton>
+);
+```
+
+## Color schemes
+
+The `colorScheme` prop will change the Icon container colours.
+
+<Canvas of={Stories.ColorSchemes} sourceState="none" />
+
+## Dead prop combinations
+
+Be aware there are some combinations of `colorScheme` & `variant` that do not work together (ie. `emphasis` &
+`highlight`), and if used will render an icon container with no colours at all. You will also see a TypeScript error.
+
+## Radius none
+
+The `radiusNone` will remove the `border-radius`, for use when the icon
+container needs to sit flush against the edge of a card.
+
+<Canvas of={Stories.RadiusNone} sourceState="none" />
+
+## API
+
+This component is based on the `span` element and supports the following common props:
+
+- Margin
+
+| Prop          | Type                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------- |
+| `variant`     | `emphasis` \| `subtle`                                                                |
+| `size`        | `Responsive<"sm" \| "md" \| "lg">`                                                    |
+| `colorScheme` | `pig` \|`highlight` \| `energy` \| `mobile` \| `broadband`\| `cashback`\| `insurance` |
+| `radiusNone`  | `boolean`                                                                             |

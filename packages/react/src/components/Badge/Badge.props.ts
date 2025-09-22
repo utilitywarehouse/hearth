@@ -1,3 +1,4 @@
+import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { TextTransformProps } from '../../props/text-transform.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
@@ -16,6 +17,7 @@ export const badgePropDefs = {
 
 export interface BadgeProps
   extends ComponentPropsWithout<'span', RemovedProps>,
+    MarginProps,
     TextTransformProps {
   /**
    * Sets the badges's visual variant
