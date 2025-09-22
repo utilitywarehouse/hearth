@@ -20,7 +20,7 @@
     max-width: var(--h-input-max-width);
     padding-inline: var(--h-input-padding-horizontal);
     padding-block: var(--h-input-padding-vertical);
-    color:var(--h-text-primary);
+    color: var(--h-text-primary);
     background-color: var(--h-surface-neutral-strong);
     border-radius: var(--h-input-border-radius);
     border-color: var(--h-border-strong);
@@ -85,5 +85,17 @@
   /* Remove default search input cancel button */
   input[type='search']::-webkit-search-cancel-button {
     appearance: none;
+  }
+
+  /* Remove default number input step buttons */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  input[type='number'] {
+    appearance: textfield; /* Firefox */
   }
 }
