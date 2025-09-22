@@ -1,15 +1,16 @@
 import { createCheckbox } from '@gluestack-ui/checkbox';
-import StyledCheckbox from './CheckboxRoot';
-import StyledCheckboxIndicator from './CheckboxIndicator';
-import StyledCheckboxIcon from './CheckboxIcon';
-import StyledCheckboxLabel from './CheckboxLabel';
-import StyledCheckboxGroup from './CheckboxGroupRoot';
-import CheckboxProps from './Checkbox.props';
-import { Helper } from '../Helper';
-import { useCheckboxGroupContext } from './CheckboxGroup.context';
 import { useFormFieldContext } from '../FormField';
-import CheckboxTileRoot from './CheckboxTileRoot';
+import { Helper } from '../Helper';
+import CheckboxProps from './Checkbox.props';
+import { useCheckboxGroupContext } from './CheckboxGroup.context';
+import StyledCheckboxGroup from './CheckboxGroupRoot';
+import StyledCheckboxIcon from './CheckboxIcon';
+import CheckboxImage from './CheckboxImage';
+import StyledCheckboxIndicator from './CheckboxIndicator';
+import StyledCheckboxLabel from './CheckboxLabel';
+import StyledCheckbox from './CheckboxRoot';
 import CheckboxTextContent from './CheckboxTextContent';
+import CheckboxTileRoot from './CheckboxTileRoot';
 
 const CheckboxComponent = createCheckbox({
   Root: StyledCheckbox,
@@ -41,6 +42,7 @@ const Checkbox = ({
   validationStatus: validation,
   showValidationIcon,
   type = 'default',
+  image,
   ...props
 }: CheckboxProps) => {
   const { validationStatus: fieldValidationStatus } = useFormFieldContext();
@@ -55,6 +57,7 @@ const Checkbox = ({
       <CheckboxIndicator>
         <CheckboxIcon />
       </CheckboxIndicator>
+      {image ? <CheckboxImage {...image} /> : null}
       <CheckboxTextContent>
         {!!label && <CheckboxLabel>{label}</CheckboxLabel>}
         {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
@@ -96,6 +99,6 @@ CheckboxTile.displayName = 'CheckboxTile';
 
 Checkbox.displayName = 'Checkbox';
 
-export { Checkbox, CheckboxGroup, CheckboxIndicator, CheckboxIcon, CheckboxLabel, CheckboxTile };
+export { Checkbox, CheckboxGroup, CheckboxIcon, CheckboxIndicator, CheckboxLabel, CheckboxTile };
 
 export default Checkbox;

@@ -1,17 +1,17 @@
-import { Meta, Canvas, Story, Controls } from '@storybook/addon-docs/blocks';
-import * as Stories from './Checkbox.stories';
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
+import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import {
+  Box,
+  Center,
   Checkbox,
   CheckboxGroup,
-  CheckboxTile,
   CheckboxIndicator,
   CheckboxLabel,
-  Center,
-  Box,
+  CheckboxTile,
   FormField,
 } from '../../';
-import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Checkbox.stories';
 
 <Meta title="Forms / Checkbox" />
 
@@ -33,10 +33,12 @@ Whether you're building a simple form or a complex data collection system, the C
   - [`CheckboxIcon`](#checkboxicon)
   - [`CheckboxLabel`](#checkboxlabel)
   - [`CheckboxGroup`](#checkboxgroup)
+  - [`CheckboxImage`](#checkboximage)
 - [Variants](#variants)
 - [Advanced Usage](#advanced-usage)
 - [Examples](#examples)
   - [`CheckboxTile` component](#checkboxtile-component)
+  - [`CheckboxImage` component](#checkboximage-component)
   - [`CheckboxGroup` component](#checkboxgroup-component)
 
 ## Playground
@@ -89,6 +91,7 @@ const MyComponent = () => {
 | `validText`          | `string`                            | -         | The valid text to be displayed below the checkbox.                                                                   |
 | `showValidationIcon` | `boolean`                           | `true`    | Whether to show the validation icon.                                                                                 |
 | `type`               | `'default' \| 'tile'`               | `default` | The type of the checkbox.                                                                                            |
+| `image`              | `ImageProps`                        | -         | The image to be displayed next to the label.                                                                         |
 
 ## Components
 
@@ -205,6 +208,10 @@ const MyComponent = () => {
 | `disabled`         | `bool`                              | `false` | To manually set disable to the checkbox.                               |
 | `validationStatus` | `'valid' \| 'invalid' \| 'initial'` | -       | The validation status of the checkbox group.                           |
 
+### `CheckboxImage`
+
+The `CheckboxImage` component is used to display an image next to the checkbox label. It inherits all the properties of React Native's `Image` component.
+
 ## Variants
 
 <Canvas of={Stories.Variants} />
@@ -317,6 +324,37 @@ const MyComponent = () => {
     <CheckboxGroup value={value} onChange={setValue}>
       <CheckboxTile value="option-1" aria-label="Label 1" label="Option 1" />
       <CheckboxTile value="option-2" aria-label="Label 2" label="Option 2" />
+    </CheckboxGroup>
+  );
+};
+```
+
+### `CheckboxImage` component
+
+The `CheckboxImage` component is used to display an image next to the checkbox label. It inherits all the properties of React Native's `Image` component.
+
+<Canvas of={Stories.WithImage} />
+
+```tsx
+import { Checkbox } from '@utilitywarehouse/native-ui';
+import visaLogo from '../../../assets/visa.png';
+import mastercardLogo from '../../../assets/mastercard.png';
+
+const MyComponent = () => {
+  return (
+    <CheckboxGroup>
+      <Checkbox
+        value="visa"
+        aria-label="Visa"
+        label="Visa"
+        image={{ source: visaLogo, style: { width: 40, height: 24, resizeMode: 'contain' } }}
+      />
+      <Checkbox
+        value="mastercard"
+        aria-label="Mastercard"
+        label="Mastercard"
+        image={{ source: mastercardLogo, style: { width: 40, height: 24, resizeMode: 'contain' } }}
+      />
     </CheckboxGroup>
   );
 };
