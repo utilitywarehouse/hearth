@@ -4,8 +4,7 @@ import { CardProps } from '../Card/Card.props';
 import { SectionHeaderProps } from '../SectionHeader/SectionHeader.props';
 
 export type ListProps = ComponentPropsWithout<'ul', RemovedProps> &
-  MarginProps &
-  Omit<SectionHeaderProps, keyof MarginProps> &
+  SectionHeaderProps &
   (
     | {
         /**
