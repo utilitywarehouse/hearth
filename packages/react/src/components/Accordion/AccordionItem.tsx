@@ -6,7 +6,6 @@ import { AccordionItemProps } from './AccordionItem.props';
 import { Accordion as RadixAccordion } from 'radix-ui';
 import { AccordionTrigger } from './AccordionTrigger';
 import { AccordionHeader } from './AccordionHeader';
-import { BodyText } from '../BodyText/BodyText';
 
 const componentName = 'AccordionItem';
 const componentClassName = withGlobalPrefix(componentName);
@@ -18,10 +17,14 @@ export const AccordionItem = React.forwardRef<AccordionItemElement, AccordionIte
     return (
       <RadixAccordion.Item ref={ref} className={clsx(componentClassName, className)} {...props}>
         {title ? (
-          <AccordionHeader>
-            <AccordionTrigger>{title}</AccordionTrigger>
-            {description ? <BodyText size="md">{description}</BodyText> : null}
-          </AccordionHeader>
+          <div className="hearth-AccordionItemHeader">
+            <AccordionHeader>
+              <AccordionTrigger>{title}</AccordionTrigger>
+            </AccordionHeader>
+            {description ? (
+              <span className="hearth-AccordionItemDescription">{description}</span>
+            ) : null}
+          </div>
         ) : null}
 
         {children ? children : null}

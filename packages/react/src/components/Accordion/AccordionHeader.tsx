@@ -2,8 +2,8 @@ import * as React from 'react';
 import clsx from 'clsx';
 import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { AccordionHeaderProps } from './AccordionHeader.props';
 import { Accordion as RadixAccordion } from 'radix-ui';
+import { AccordionHeaderProps } from './AccordionHeader.props';
 
 const componentName = 'AccordionHeader';
 const componentClassName = withGlobalPrefix(componentName);

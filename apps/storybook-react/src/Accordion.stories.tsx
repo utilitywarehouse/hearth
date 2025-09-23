@@ -8,6 +8,7 @@ import {
   AccordionHeader,
   Badge,
   Flex,
+  Box,
 } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Accordion> = {
@@ -20,37 +21,61 @@ const meta: Meta<typeof Accordion> = {
       },
     },
   },
-  args: {},
+  argTypes: {
+    type: { control: { type: 'radio' }, options: ['multiple', 'single'] },
+    heading: { control: { type: 'text' } },
+    helperText: { control: { type: 'text' } },
+    // @ts-ignore
+    collapsible: { control: { type: 'boolean' } },
+  },
+  args: {
+    type: 'multiple',
+    heading: 'Accordion',
+    helperText: 'Not the musical one',
+    // @ts-ignore
+    collapsible: false,
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof Accordion>;
 
 export const Playground: Story = {
+  render: args => {
+    return (
+      <Box width="600px">
+        <Accordion {...args}>
+          {[1, 2, 3, 4, 5, 6].map(n => (
+            <AccordionItem value={`item-${n}`} title={`Item ${n}`}>
+              <AccordionContent>{`Content ${n}`}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Box>
+    );
+  },
+};
+
+export const CustomHeader: Story = {
   render: () => {
     return (
-      <Accordion>
-        {[1, 2, 3].map(n => (
-          <AccordionItem value={`item-${n}`} title={`Item ${n}`} description={`Description ${n}`}>
-            <AccordionContent>
-              <BodyText>{`Content ${n}`}</BodyText>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-        <AccordionItem value="item-custom">
-          <AccordionHeader>
-            <AccordionTrigger>
-              <Flex width="100%" alignItems="center" justifyContent="between">
-                <BodyText>Custom Header</BodyText>
-                <Badge size="sm">Badge</Badge>
-              </Flex>
-            </AccordionTrigger>
-          </AccordionHeader>
-          <AccordionContent>
-            <BodyText>Content custom</BodyText>
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+      <Box width="600px">
+        <Accordion heading="Custom header" helperText="Including a badge for example">
+          {[1, 2, 3].map(n => (
+            <AccordionItem value={`item-${n}`}>
+              <AccordionHeader>
+                <AccordionTrigger>
+                  <Flex width="100%" alignItems="center" justifyContent="between">
+                    <BodyText>Custom Header</BodyText>
+                    <Badge size="sm">Badge</Badge>
+                  </Flex>
+                </AccordionTrigger>
+              </AccordionHeader>
+              <AccordionContent>{`Content ${n}`}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Box>
     );
   },
 };

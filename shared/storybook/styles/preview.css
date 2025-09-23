@@ -73,7 +73,7 @@ thead th {
 :where(h6:not(.sb-anchor, .sb-unstyled, .sb-unstyled h6)) {
   font-family: 'Comic Hams', serif !important;
   font-weight: bold !important;
-  border-bottom-color: var(--color-border-subtle) !important;
+  border-bottom-color: var(--color-border-subtle);
 }
 
 .docs-story,

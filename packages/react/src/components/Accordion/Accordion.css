@@ -1,12 +1,73 @@
 .hearth-Accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-accordion-gap);
+
+  & :where(.hearth-AccordionItem) {
+    border-bottom: var(--h-divider-border-width) solid var(--h-border-subtle);
+
+    & :where(.hearth-AccordionItemHeader) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    & :where(.hearth-AccordionHeader) {
+      display: flex;
+    }
+
+    & :where(.hearth-AccordionItemDescription) {
+      padding-inline: var(--h-accordion-item-heading-padding-horizontal);
+      padding-top: var(--h-accordion-item-content-padding-top);
+      padding-bottom: var(--h-accordion-item-content-padding-bottom);
+      font-family: var(--h-font-family-body);
+      font-size: var(--h-body-text-md-font-size);
+      font-weight: var(--h-font-weight-regular);
+      line-height: var(--h-body-text-md-line-height);
+      color: var(--h-text-primary);
+    }
+  }
+
   & :where(.hearth-AccordionTrigger) {
     all: unset;
-    width: 100%;
+    flex: 1;
     cursor: pointer;
     display: flex;
     gap: var(--h-accordion-item-heading-gap);
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding-block: var(--h-accordion-item-heading-padding-vertical);
+    padding-inline: var(--h-accordion-item-heading-padding-horizontal);
+    font-family: var(--h-font-family-body);
+    font-size: var(--h-body-text-md-font-size);
+    font-weight: var(--h-font-weight-semibold);
+    line-height: var(--h-body-text-md-line-height);
+    color: var(--h-text-primary);
+
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(--h-interactive-neutral-surface-subtle-hover);
+      }
+    }
+
+    &:where(:active) {
+      background-color: var(--h-interactive-neutral-surface-subtle-active);
+    }
+
+    &:where(:focus-visible) {
+      outline: 2px solid var(--h-focus-primary);
+      outline-offset: 1px;
+    }
+  }
+
+  & :where(.hearth-AccordionContent) {
+    padding-inline: var(--h-accordion-item-heading-padding-horizontal);
+    padding-top: var(--h-accordion-item-content-padding-top);
+    padding-bottom: var(--h-accordion-item-content-padding-bottom);
+    font-family: var(--h-font-family-body);
+    font-size: var(--h-body-text-md-font-size);
+    font-weight: var(--h-font-weight-regular);
+    line-height: var(--h-body-text-md-line-height);
+    color: var(--h-text-primary);
   }
 }
