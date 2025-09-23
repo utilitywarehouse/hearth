@@ -1,5 +1,18 @@
 # @utilitywarehouse/hearth-react
 
+## 0.9.0
+
+### Minor Changes
+
+- [#497](https://github.com/utilitywarehouse/hearth/pull/497) [`f109931`](https://github.com/utilitywarehouse/hearth/commit/f1099315f871a0f68c16679ff164978e3f135166) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `IconContainer` component.
+
+- [#495](https://github.com/utilitywarehouse/hearth/pull/495) [`509deb5`](https://github.com/utilitywarehouse/hearth/commit/509deb5e74f54318aaf94a25e6c5d7733d735923) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `CurrencyInput` component
+
+### Patch Changes
+
+- [#500](https://github.com/utilitywarehouse/hearth/pull/500) [`cc49e74`](https://github.com/utilitywarehouse/hearth/commit/cc49e74e3736b9647e8c5576ce45020add258625) Thanks [@jordmccord](https://github.com/jordmccord)! - - Updated dependencies [[`8dac8c1`](https://github.com/utilitywarehouse/hearth/commit/8dac8c1def9083d8e4efa1385e0ee7be23428c46)]:
+  - @utilitywarehouse/hearth-react-icons@0.4.0
+
 ## 0.8.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.3.1
+
+### Patch Changes
+
+- [#472](https://github.com/utilitywarehouse/hearth/pull/472) [`009fe4b`](https://github.com/utilitywarehouse/hearth/commit/009fe4bff4fc54e424f22629040f715d3d4714ea) Thanks [@jordmccord](https://github.com/jordmccord)! - Add `image` prop to `Checkbox` and `Radio` components
+
+- [#500](https://github.com/utilitywarehouse/hearth/pull/500) [`cc49e74`](https://github.com/utilitywarehouse/hearth/commit/cc49e74e3736b9647e8c5576ce45020add258625) Thanks [@jordmccord](https://github.com/jordmccord)! - - Updated dependencies [[`8dac8c1`](https://github.com/utilitywarehouse/hearth/commit/8dac8c1def9083d8e4efa1385e0ee7be23428c46)]:
+
+  - @utilitywarehouse/hearth-react-native-icons@0.4.0
+
+- [#499](https://github.com/utilitywarehouse/hearth/pull/499) [`7b6781c`](https://github.com/utilitywarehouse/hearth/commit/7b6781cc054cf9f1ed4969a2c663abceb526c249) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes dark mode styles for several components
+
 ## 0.3.0
 
 ### Minor Changes
