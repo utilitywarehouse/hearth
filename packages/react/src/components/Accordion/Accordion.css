@@ -1,0 +1,12 @@
+.hearth-Accordion {
+  & :where(.hearth-AccordionTrigger) {
+    all: unset;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    gap: var(--h-accordion-item-heading-gap);
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
