@@ -29,7 +29,7 @@ const YearButton = () => {
       }}
       testID="btn-year"
       accessibilityRole="button"
-      accessibilityLabel={dayjs(currentDate).calendar(calendar).format('YYYY')}
+      accessibilityLabel={dayjs(currentDate).format('YYYY')}
     >
       <View
         style={[defaultStyles.container, styles?.year_selector]}
@@ -38,10 +38,7 @@ const YearButton = () => {
         <BodyText style={styles?.year_selector_label} className={classNames?.year_selector_label}>
           {calendarView === 'year'
             ? `${formatNumber(years[0] || 0, numerals)} - ${formatNumber(years[years.length - 1] || 0, numerals)}`
-            : formatNumber(
-                parseInt(dayjs(currentDate).calendar(calendar).format('YYYY')),
-                numerals
-              )}
+            : formatNumber(parseInt(dayjs(currentDate).format('YYYY')), numerals)}
         </BodyText>
       </View>
     </Pressable>

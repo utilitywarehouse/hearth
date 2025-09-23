@@ -5,7 +5,7 @@ import { CalenderFlag, DayFlag, MonthState, SelectionState, UI, YearState } from
 
 export type DateType = string | number | Dayjs | Date | null | undefined;
 
-export type CalendarType = 'gregory' | 'jalali';
+export type CalendarType = 'gregory';
 
 export type CalendarMode = 'single' | 'range' | 'multiple';
 

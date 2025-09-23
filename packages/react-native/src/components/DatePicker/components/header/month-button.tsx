@@ -3,7 +3,6 @@ import { memo } from 'react';
 import { Pressable, View } from 'react-native';
 import { BodyText } from '../../../BodyText';
 import { useCalendarContext } from '../../Calendar.context';
-import { isValidJalaliLocale } from '../../utils';
 
 const MonthButton = () => {
   const {
@@ -19,8 +18,7 @@ const MonthButton = () => {
   } = useCalendarContext();
 
   const currentMonthText = dayjs(currentDate)
-    .calendar(calendar)
-    .locale(calendar === 'jalali' && !isValidJalaliLocale(locale) ? 'en' : locale)
+    .locale('en')
     .format(monthCaptionFormat === 'full' ? 'MMMM' : 'MMM');
 
   return (
