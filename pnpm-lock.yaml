@@ -899,7 +899,7 @@ importers:
         specifier: ^18.3.12
         version: 18.3.18
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:^0.4.0
+        specifier: workspace:~0.4.0
         version: link:../react-icons
       autoprefixer:
         specifier: ^10.4.20
@@ -18420,9 +18420,7 @@ snapshots:
       metro-runtime: 0.83.1
     transitivePeerDependencies:
       - '@babel/core'
-      - bufferutil
       - supports-color
-      - utf-8-validate
     optional: true
 
   '@react-native/metro-config@0.81.1(@babel/core@7.28.3)':
@@ -18433,9 +18431,7 @@ snapshots:
       metro-runtime: 0.83.1
     transitivePeerDependencies:
       - '@babel/core'
-      - bufferutil
       - supports-color
-      - utf-8-validate
     optional: true
 
   '@react-native/normalize-colors@0.74.88': {}
