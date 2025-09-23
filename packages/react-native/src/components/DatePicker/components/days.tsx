@@ -41,10 +41,9 @@ const Days = () => {
     multiRangeMode,
     hideWeekdays,
     components,
-    isRTL,
   } = useCalendarContext();
 
-  const style = useMemo(() => createDefaultStyles(isRTL), [isRTL]);
+  const style = useMemo(() => createDefaultStyles(), []);
 
   const { year, month, hour, minute } = getParsedDate(currentDate);
 
@@ -220,7 +219,6 @@ const Days = () => {
           weekdaysFormat={weekdaysFormat}
           weekdaysHeight={weekdaysHeight}
           components={components}
-          isRTL={isRTL}
         />
       ) : null}
       <View style={containerStyle} className={classNames?.days} testID="days">
@@ -245,7 +243,7 @@ const Days = () => {
   );
 };
 
-const createDefaultStyles = (isRTL: boolean) =>
+const createDefaultStyles = () =>
   StyleSheet.create({
     container: {
       width: '100%',
@@ -255,7 +253,7 @@ const createDefaultStyles = (isRTL: boolean) =>
       width: '100%',
       height: '100%',
       flexWrap: 'wrap',
-      flexDirection: isRTL ? 'row-reverse' : 'row',
+      flexDirection: 'row',
       alignContent: 'flex-start',
     },
   });

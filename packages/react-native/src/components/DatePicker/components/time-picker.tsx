@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { useCallback, useMemo } from 'react';
-import { I18nManager, ScrollView, StyleSheet, TextStyle, View, ViewStyle } from 'react-native';
+import { ScrollView, StyleSheet, TextStyle, View, ViewStyle } from 'react-native';
 import { BodyText } from '../../BodyText';
 import { useCalendarContext } from '../Calendar.context';
 import { CONTAINER_HEIGHT } from '../enums';
@@ -91,9 +91,9 @@ const TimePicker = () => {
   const timePickerContainerStyle: ViewStyle = useMemo(
     () => ({
       ...defaultStyles.timePickerContainer,
-      flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+      flexDirection: 'row',
     }),
-    [I18nManager.isRTL]
+    []
   );
 
   const timePickerTextStyle: TextStyle = useMemo(

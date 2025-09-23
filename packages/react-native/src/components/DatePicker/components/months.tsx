@@ -18,13 +18,9 @@ const Months = () => {
     maxDate,
     calendar = 'gregory',
     locale,
-    isRTL,
   } = useCalendarContext();
 
-  const style = useMemo(
-    () => createDefaultStyles(containerHeight, isRTL),
-    [containerHeight, isRTL]
-  );
+  const style = useMemo(() => createDefaultStyles(containerHeight), [containerHeight]);
 
   const { month } = getParsedDate(currentDate);
 
@@ -100,7 +96,7 @@ const Months = () => {
   );
 };
 
-const createDefaultStyles = (containerHeight: number, isRTL: boolean) =>
+const createDefaultStyles = (containerHeight: number) =>
   StyleSheet.create({
     container: {
       flex: 1,
@@ -108,7 +104,7 @@ const createDefaultStyles = (containerHeight: number, isRTL: boolean) =>
       justifyContent: 'center',
     },
     months: {
-      flexDirection: isRTL ? 'row-reverse' : 'row',
+      flexDirection: 'row',
       flexWrap: 'wrap',
     },
     month: {

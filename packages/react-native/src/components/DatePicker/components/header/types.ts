@@ -1,5 +1,5 @@
 import React from 'react';
-import { ClassNames, Styles, NavigationPosition } from '../../types';
+import { ClassNames, NavigationPosition, Styles } from '../../types';
 
 export type HeaderProps = {
   PrevIcon?: React.ReactNode;
@@ -7,11 +7,9 @@ export type HeaderProps = {
   navigationPosition?: NavigationPosition;
   styles?: Styles;
   classNames?: ClassNames;
-  isRTL: boolean;
 };
 
 export type NavigationProps = {
   styles?: Styles;
   classNames?: ClassNames;
-  isRTL: boolean;
 };

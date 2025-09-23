@@ -13,7 +13,6 @@ type WeekdaysProps = {
   weekdaysFormat?: WeekdayFormat;
   weekdaysHeight?: number;
   components?: CalendarComponents;
-  isRTL: boolean;
 };
 
 const Weekdays = ({
@@ -24,9 +23,8 @@ const Weekdays = ({
   weekdaysFormat = 'min',
   weekdaysHeight = WEEKDAYS_HEIGHT,
   components = {},
-  isRTL,
 }: WeekdaysProps) => {
-  const style = useMemo(() => createDefaultStyles(weekdaysHeight, isRTL), [weekdaysHeight, isRTL]);
+  const style = useMemo(() => createDefaultStyles(weekdaysHeight), [weekdaysHeight]);
 
   return (
     <View
@@ -51,11 +49,11 @@ const Weekdays = ({
 
 export default memo(Weekdays);
 
-const createDefaultStyles = (weekdaysHeight: number, isRTL: boolean) =>
+const createDefaultStyles = (weekdaysHeight: number) =>
   StyleSheet.create({
     container: {
       height: weekdaysHeight,
-      flexDirection: isRTL ? 'row-reverse' : 'row',
+      flexDirection: 'row',
       alignItems: 'center',
     },
     weekday: {

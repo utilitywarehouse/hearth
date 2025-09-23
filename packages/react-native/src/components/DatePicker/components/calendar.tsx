@@ -25,7 +25,6 @@ const Calendar = () => {
     classNames = {},
     containerHeight,
     navigationPosition,
-    isRTL,
   } = useCalendarContext();
 
   const containerStyle: ViewStyle = useMemo(
@@ -38,12 +37,7 @@ const Calendar = () => {
   return (
     <View style={[style, { backgroundColor: 'white' }]} className={className} testID="calendar">
       {!hideHeader ? (
-        <Header
-          navigationPosition={navigationPosition}
-          styles={styles}
-          classNames={classNames}
-          isRTL={isRTL}
-        />
+        <Header navigationPosition={navigationPosition} styles={styles} classNames={classNames} />
       ) : null}
       <View style={containerStyle}>{CalendarView[calendarView]}</View>
     </View>

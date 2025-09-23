@@ -37,7 +37,6 @@
     "@gluestack-ui/textarea": "0.1.23",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.13",
-    "jalali-plugin-dayjs": "^1.1.4",
     "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {

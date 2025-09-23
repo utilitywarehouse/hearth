@@ -1031,9 +1031,6 @@ importers:
       dayjs:
         specifier: ^1.11.13
         version: 1.11.18
-      jalali-plugin-dayjs:
-        specifier: ^1.1.4
-        version: 1.1.4
       tailwind-merge:
         specifier: ^3.0.1
         version: 3.3.1
@@ -8790,9 +8787,6 @@ packages:
     resolution: {integrity: sha512-2P4SQ0HrLQ+fw6llpLnOaGAvN2Zu6778SJMrCUwns4fOoG9ayrTiZk3VV8sCPkVZF8ab0zksVpS8FDY5pRCNBA==}
     engines: {node: '>=10'}
     hasBin: true
-
-  jalali-plugin-dayjs@1.1.4:
-    resolution: {integrity: sha512-d62QGMTufGQ1TSov4a85gBU58PA8aL6wVQs9BnC3+d/VA+v4Sq0OqM3o6RoY+/VZjliYJroGIPwlSVf7uLnZ3w==}
 
   jest-diff@29.7.0:
     resolution: {integrity: sha512-LMIgiIrhigmPrs03JHpxUh2yISK3vLFPkAodPeo0+BuF7wA2FoQbkEg1u8gBYBThncu7e1oEDUfIXVuTqLRUjw==}
@@ -23954,8 +23948,6 @@ snapshots:
       chalk: 4.1.2
       filelist: 1.0.4
       minimatch: 3.1.2
-
-  jalali-plugin-dayjs@1.1.4: {}
 
   jest-diff@29.7.0:
     dependencies:

@@ -1,14 +1,7 @@
 import type { Dayjs } from 'dayjs';
-import type { CalendarActionKind, CalendarViews } from './enums';
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
-import {
-  UI,
-  SelectionState,
-  DayFlag,
-  MonthState,
-  YearState,
-  CalenderFlag,
-} from './ui';
+import type { CalendarActionKind, CalendarViews } from './enums';
+import { CalenderFlag, DayFlag, MonthState, SelectionState, UI, YearState } from './ui';
 
 export type DateType = string | number | Dayjs | Date | null | undefined;
 
@@ -30,7 +23,6 @@ export type LocalState = {
   calendarView: CalendarViews;
   currentDate: DateType; // used for latest state of calendar based on Month and Year
   currentYear: number;
-  isRTL: boolean; // used for jalali or i18n RTL detection
 };
 
 export type CalendarAction = {
@@ -85,10 +77,7 @@ export type CalendarYear = {
 
 export type SingleChange = (params: { date: DateType }) => void;
 
-export type RangeChange = (params: {
-  startDate: DateType;
-  endDate: DateType;
-}) => void;
+export type RangeChange = (params: { startDate: DateType; endDate: DateType }) => void;
 
 export type MultiChange = (params: {
   dates: DateType[];
@@ -97,23 +86,14 @@ export type MultiChange = (params: {
 }) => void;
 
 export type ClassNames = Partial<{
-  [key in
-    | UI
-    | SelectionState
-    | DayFlag
-    | MonthState
-    | YearState
-    | CalenderFlag]: string;
+  [key in UI | SelectionState | DayFlag | MonthState | YearState | CalenderFlag]: string;
 }>;
 
 export type Styles = Partial<{
-  [key in
-    | UI
-    | SelectionState
-    | DayFlag
-    | MonthState
-    | YearState
-    | CalenderFlag]: ViewStyle | TextStyle | ImageStyle;
+  [key in UI | SelectionState | DayFlag | MonthState | YearState | CalenderFlag]:
+    | ViewStyle
+    | TextStyle
+    | ImageStyle;
 }>;
 
 export type CalendarComponents = Partial<{

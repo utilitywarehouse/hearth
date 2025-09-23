@@ -21,12 +21,11 @@ const NextButton = ({ style, imageStyle }: NextButtonProps) => {
     onChangeYear,
     calendarView,
     components = {},
-    isRTL,
   } = useCalendarContext();
 
   const colorScheme = useColorScheme();
   const theme = colorScheme ?? 'light';
-  const defaultStyles = useMemo(() => createDefaultStyles(isRTL), [isRTL]);
+  const defaultStyles = useMemo(() => createDefaultStyles(), []);
 
   const onPress = useCallback(() => {
     switch (calendarView) {
@@ -73,18 +72,17 @@ const customComparator = (prev: Readonly<NextButtonProps>, next: Readonly<NextBu
 
 export default memo(NextButton, customComparator);
 
-const createDefaultStyles = (isRTL: boolean) =>
+const createDefaultStyles = () =>
   StyleSheet.create({
     iconContainer: {
       padding: 4,
     },
     next: {
-      marginLeft: isRTL ? 0 : 3,
-      marginRight: isRTL ? 3 : 0,
+      marginLeft: 3,
+      marginRight: 0,
     },
     icon: {
       width: 14,
       height: 14,
-      transform: [{ rotate: isRTL ? '180deg' : '0deg' }],
     },
   });

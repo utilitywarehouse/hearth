@@ -20,13 +20,9 @@ const Years = () => {
     containerHeight = CONTAINER_HEIGHT,
     minDate,
     maxDate,
-    isRTL,
   } = useCalendarContext();
 
-  const style = useMemo(
-    () => createDefaultStyles(containerHeight, isRTL),
-    [containerHeight, isRTL]
-  );
+  const style = useMemo(() => createDefaultStyles(containerHeight), [containerHeight]);
 
   const selectedYear = getDateYear(date);
 
@@ -127,7 +123,7 @@ const Years = () => {
   );
 };
 
-const createDefaultStyles = (containerHeight: number, isRTL: boolean) =>
+const createDefaultStyles = (containerHeight: number) =>
   StyleSheet.create({
     container: {
       flex: 1,
@@ -135,7 +131,7 @@ const createDefaultStyles = (containerHeight: number, isRTL: boolean) =>
       justifyContent: 'center',
     },
     years: {
-      flexDirection: isRTL ? 'row-reverse' : 'row',
+      flexDirection: 'row',
       flexWrap: 'wrap',
     },
     year: {

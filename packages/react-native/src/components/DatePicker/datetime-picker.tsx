@@ -5,9 +5,7 @@ import localizedFormat from 'dayjs/plugin/localizedFormat';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
-import jalaliday from 'jalali-plugin-dayjs';
 import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
-import { I18nManager } from 'react-native';
 import { CalendarContext } from './Calendar.context';
 import Calendar from './components/calendar';
 import { CalendarActionKind, CalendarViews, CONTAINER_HEIGHT, WEEKDAYS_HEIGHT } from './enums';
@@ -36,7 +34,6 @@ dayjs.extend(localizedFormat);
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.extend(duration);
-dayjs.extend(jalaliday);
 
 export interface DatePickerSingleProps extends DatePickerBaseProps {
   mode: 'single';
@@ -107,7 +104,6 @@ const DateTimePicker = (
   } = props;
 
   dayjs.tz.setDefault(timeZone);
-  dayjs.calendar(calendar);
   dayjs.locale(locale);
 
   const prevTimezone = usePrevious(timeZone);
@@ -187,7 +183,6 @@ const DateTimePicker = (
       calendarView: initialCalendarView,
       currentDate: initialDate,
       currentYear: initialDate.year(),
-      isRTL: calendar === 'jalali' || I18nManager.isRTL,
     };
   }, [
     mode,
@@ -241,11 +236,6 @@ const DateTimePicker = (
           ...prevState,
           dates: selectedDates,
         };
-      case CalendarActionKind.SET_IS_RTL:
-        return {
-          ...prevState,
-          isRTL: action.payload,
-        };
       case CalendarActionKind.RESET_STATE:
         return action.payload;
       default:
@@ -259,7 +249,6 @@ const DateTimePicker = (
   useEffect(() => {
     const newState = {
       ...initialState,
-      isRTL: calendar === 'jalali' || I18nManager.isRTL,
     };
 
     dispatch({ type: CalendarActionKind.RESET_STATE, payload: newState });

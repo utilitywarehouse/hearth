@@ -6,7 +6,7 @@ import PrevButton from './prev-button';
 import Selectors from './selectors';
 import type { HeaderProps, NavigationProps } from './types';
 
-const createDefaultStyles = (isRTL: boolean) =>
+const createDefaultStyles = () =>
   StyleSheet.create({
     headerContainer: {
       paddingVertical: 3,
@@ -14,17 +14,17 @@ const createDefaultStyles = (isRTL: boolean) =>
     container: {
       padding: 5,
       gap: 20,
-      flexDirection: isRTL ? 'row-reverse' : 'row',
+      flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
     },
     navigation: {
-      flexDirection: isRTL ? 'row-reverse' : 'row',
+      flexDirection: 'row',
     },
   });
 
-const NavigationButtons = ({ styles, classNames, isRTL }: NavigationProps) => {
-  const style = useMemo(() => createDefaultStyles(isRTL), [isRTL]);
+const NavigationButtons = ({ styles, classNames }: NavigationProps) => {
+  const style = useMemo(() => createDefaultStyles(), []);
 
   return (
     <View style={style.navigation}>
@@ -34,26 +34,21 @@ const NavigationButtons = ({ styles, classNames, isRTL }: NavigationProps) => {
   );
 };
 
-const Header = ({
-  navigationPosition = 'around',
-  styles = {},
-  classNames = {},
-  isRTL,
-}: HeaderProps) => {
-  const style = useMemo(() => createDefaultStyles(isRTL), [isRTL]);
+const Header = ({ navigationPosition = 'around', styles = {}, classNames = {} }: HeaderProps) => {
+  const style = useMemo(() => createDefaultStyles(), []);
 
   return (
     <View style={[style.headerContainer, styles?.header]} className={classNames?.header}>
       <View style={style.container}>
         {navigationPosition === 'left' ? (
           <>
-            <NavigationButtons styles={styles} classNames={classNames} isRTL={isRTL} />
+            <NavigationButtons styles={styles} classNames={classNames} />
             <Selectors position="left" />
           </>
         ) : navigationPosition === 'right' ? (
           <>
             <Selectors position="right" />
-            <NavigationButtons styles={styles} classNames={classNames} isRTL={isRTL} />
+            <NavigationButtons styles={styles} classNames={classNames} />
           </>
         ) : (
           <>
@@ -72,7 +67,6 @@ const customComparator = (prev: Readonly<HeaderProps>, next: Readonly<HeaderProp
     prev.PrevIcon === next.PrevIcon &&
     prev.NextIcon === next.NextIcon &&
     prev.navigationPosition === next.navigationPosition &&
-    prev.isRTL === next.isRTL &&
     isEqual(prev.styles, next.styles) &&
     isEqual(prev.classNames, next.classNames);
 
