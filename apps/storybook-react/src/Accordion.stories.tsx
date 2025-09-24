@@ -25,14 +25,12 @@ const meta: Meta<typeof Accordion> = {
     type: { control: { type: 'radio' }, options: ['multiple', 'single'] },
     heading: { control: { type: 'text' } },
     helperText: { control: { type: 'text' } },
-    // @ts-ignore
     collapsible: { control: { type: 'boolean' } },
   },
   args: {
     type: 'multiple',
     heading: 'Accordion',
     helperText: 'Not the musical one',
-    // @ts-ignore
     collapsible: false,
   },
 };
@@ -79,5 +77,89 @@ export const CustomItemHeader: Story = {
         </Accordion>
       </Box>
     );
+  },
+};
+
+export const DefaultExpanded: Story = {
+  render: args => {
+    return (
+      <Box width="600px">
+        <Accordion {...args}>
+          {[1, 2, 3, 4, 5, 6].map(n => (
+            <AccordionItem value={`item-${n}`} title={`Item ${n}`}>
+              <AccordionContent>{`Content ${n}`}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Box>
+    );
+  },
+  args: {
+    heading: 'Default expanded items',
+    helperText: '',
+    defaultValue: ['item-3', 'item-4'],
+  },
+};
+
+export const Multiple: Story = {
+  render: args => {
+    return (
+      <Box width="600px">
+        <Accordion {...args}>
+          {[1, 2, 3, 4, 5, 6].map(n => (
+            <AccordionItem value={`item-${n}`} title={`Item ${n}`}>
+              <AccordionContent>{`Content ${n}`}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Box>
+    );
+  },
+  args: {
+    heading: 'Multiple items open at once',
+    helperText: '',
+  },
+};
+
+export const Single: Story = {
+  render: args => {
+    return (
+      <Box width="600px">
+        <Accordion {...args}>
+          {[1, 2, 3, 4, 5, 6].map(n => (
+            <AccordionItem value={`item-${n}`} title={`Item ${n}`}>
+              <AccordionContent>{`Content ${n}`}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Box>
+    );
+  },
+  args: {
+    heading: 'Only a single item open at once',
+    helperText: '',
+    type: 'single',
+  },
+};
+
+export const Collapsible: Story = {
+  render: args => {
+    return (
+      <Box width="600px">
+        <Accordion {...args}>
+          {[1, 2, 3, 4, 5, 6].map(n => (
+            <AccordionItem value={`item-${n}`} title={`Item ${n}`}>
+              <AccordionContent>{`Content ${n}`}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Box>
+    );
+  },
+  args: {
+    heading: 'Collapse all items',
+    helperText: 'For use with single type accordions',
+    type: 'single',
+    collapsible: true,
   },
 };
