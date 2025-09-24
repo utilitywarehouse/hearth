@@ -1,9 +1,14 @@
 import { Accordion as RadixAccordion } from 'radix-ui';
 import { SectionHeaderProps } from '../SectionHeader/SectionHeader.props';
-import { ComponentProps } from 'react';
+import { MarginProps } from '../../props/margin.props';
+import { ComponentPropsWithout } from '../../types/component-props';
 
-export type AccordionProps = Omit<ComponentProps<typeof RadixAccordion.Root>, 'orientation'> &
-  Omit<SectionHeaderProps, 'headingElement'> & {
+export type AccordionProps = ComponentPropsWithout<
+  typeof RadixAccordion.Root,
+  'orientation' | 'asChild' | 'dir'
+> &
+  Omit<SectionHeaderProps, 'headingElement'> &
+  MarginProps & {
     /**
      * @default h2
      */

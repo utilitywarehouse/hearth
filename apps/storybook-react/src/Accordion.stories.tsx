@@ -17,7 +17,8 @@ const meta: Meta<typeof Accordion> = {
   parameters: {
     docs: {
       description: {
-        component: '',
+        component:
+          'Use `Accordion` to allow users to expand or collapse individual content sections, providing a compact way to present a large amount of information while maintaining a clean and organised interface.',
       },
     },
   },
@@ -26,6 +27,7 @@ const meta: Meta<typeof Accordion> = {
     heading: { control: { type: 'text' } },
     helperText: { control: { type: 'text' } },
     collapsible: { control: { type: 'boolean' } },
+    disabled: { control: { type: 'boolean' } },
   },
   args: {
     type: 'multiple',
@@ -58,7 +60,11 @@ export const CustomItemHeader: Story = {
   render: () => {
     return (
       <Box width="600px">
-        <Accordion heading="Custom item headers" helperText="Including a badge, for example">
+        <Accordion
+          type="multiple"
+          heading="Custom item headers"
+          helperText="Including a badge, for example"
+        >
           {[1, 2, 3].map(n => (
             <AccordionItem value={`item-${n}`}>
               <AccordionHeader>

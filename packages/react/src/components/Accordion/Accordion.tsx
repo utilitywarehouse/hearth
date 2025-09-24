@@ -5,49 +5,46 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { AccordionProps } from './Accordion.props';
 import { Accordion as RadixAccordion } from 'radix-ui';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
+import { extractProps } from '../../helpers/extract-props';
+import { marginPropDefs } from '../../props/margin.props';
 
 const componentName = 'Accordion';
 const componentClassName = withGlobalPrefix(componentName);
 
 type AccordionElement = ElementRef<'div'>;
 
-export const Accordion = React.forwardRef<AccordionElement, AccordionProps>(
-  (
-    {
-      className,
-      type = 'multiple',
-      collapsible,
-      heading,
-      headingElement = 'h2',
-      helperText,
-      link,
-      ...props
-    },
-    ref
-  ) => {
-    const headerProps = {
-      heading,
-      headingElement,
-      helperText,
-      link,
-    };
-    const accordionProps = {
-      type,
-      // collapsible is only valid when the type is 'single'
-      ...(type === 'single' ? { collapsible } : {}),
-      ...props,
-    };
+export const Accordion = React.forwardRef<AccordionElement, AccordionProps>((props, ref) => {
+  const {
+    className,
+    type = 'multiple',
+    heading,
+    headingElement = 'h2',
+    helperText,
+    link,
+    ...restProps
+  } = extractProps(props, marginPropDefs);
 
-    return (
-      <div className={clsx(componentClassName, className)}>
-        {heading ? <SectionHeader {...headerProps} /> : null}
-        <RadixAccordion.Root
-          ref={ref}
-          {...(accordionProps as React.ComponentProps<typeof RadixAccordion.Root>)}
-        />
-      </div>
-    );
-  }
-);
+  const headerProps = {
+    heading,
+    headingElement,
+    helperText,
+    link,
+  };
+
+  const accordionProps = {
+    type,
+    ...restProps,
+  };
+
+  return (
+    <div className={clsx(componentClassName, className)}>
+      {heading ? <SectionHeader {...headerProps} /> : null}
+      <RadixAccordion.Root
+        ref={ref}
+        {...(accordionProps as React.ComponentProps<typeof RadixAccordion.Root>)}
+      />
+    </div>
+  );
+});
 
 Accordion.displayName = componentName;
