@@ -3,7 +3,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 
 import { CheckboxTileProps } from './CheckboxTile.props';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { useIds } from '../../hooks/use-ids';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
@@ -15,7 +15,7 @@ import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
 const componentName = 'CheckboxTile';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type CheckboxTileElement = ElementRef<'button'>;
 

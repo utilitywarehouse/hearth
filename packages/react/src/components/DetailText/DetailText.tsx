@@ -5,13 +5,13 @@ import { detailTextPropDefs, DetailTextProps } from './DetailText.props';
 import { Slot } from 'radix-ui';
 import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { textWrapPropDefs } from '../../props/text-wrap.props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const componentName = 'DetailText';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type DetailTextElement = ElementRef<'span'>;
 

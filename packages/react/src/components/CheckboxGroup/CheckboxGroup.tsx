@@ -3,7 +3,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 
 import { CheckboxGroupProps } from './CheckboxGroup.props';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { Flex } from '../Flex/Flex';
 import { FormGroupBase } from '../FormGroupBase/FormGroupBase';
@@ -11,7 +11,7 @@ import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { CheckboxGroupProvider } from './CheckboxGroup.context';
 
 const componentName = 'CheckboxGroup';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type CheckboxGroupElement = ElementRef<'fieldset'>;
 

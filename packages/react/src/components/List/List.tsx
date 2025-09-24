@@ -1,7 +1,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
 import { type ListProps } from './List.props';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { Card } from '../Card/Card';
 import { Box } from '../Box/Box';
@@ -10,7 +10,7 @@ import { marginPropDefs } from '../../props/margin.props';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
 
 const componentName = 'List';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type ListElement = ElementRef<'ol'>;
 

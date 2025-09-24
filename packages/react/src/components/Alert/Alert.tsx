@@ -2,7 +2,7 @@ import type { ElementRef } from 'react';
 import * as React from 'react';
 import clsx from 'clsx';
 import { extractProps } from '../../helpers/extract-props';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import { AlertProps } from './Alert.props';
 import {
   CloseSmallIcon,
@@ -17,7 +17,7 @@ import { Flex } from '../Flex/Flex';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 
 const componentName = 'Alert';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type AlertElement = ElementRef<'div'>;
 

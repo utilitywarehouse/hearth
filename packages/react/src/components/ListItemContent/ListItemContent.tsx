@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { HelperText } from '../HelperText/HelperText';
 import { Flex } from '../Flex/Flex';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import type { ListItemContentProps } from './ListItemContent.props';
 import clsx from 'clsx';
 
 const componentName = 'ListItemContent';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type ListItemContentElement = ElementRef<'div'>;
 

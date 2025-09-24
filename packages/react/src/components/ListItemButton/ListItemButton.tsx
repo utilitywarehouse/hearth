@@ -1,13 +1,13 @@
 import * as React from 'react';
 import clsx from 'clsx';
 import type { ListItemButtonProps } from './ListItemButton.props';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { ListItemContent } from '../ListItemContent/ListItemContent';
 
 const componentName = 'ListItemButton';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type ListItemButtonElement = ElementRef<'button'>;
 

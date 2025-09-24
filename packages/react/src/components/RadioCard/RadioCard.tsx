@@ -2,7 +2,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 import type { ElementRef } from 'react';
 import type { RadioCardProps } from './RadioCard.props';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import { useIds } from '../../hooks/use-ids';
 import { Label } from '../Label/Label';
 import { extractProps } from '../../helpers/extract-props';
@@ -10,7 +10,7 @@ import { marginPropDefs } from '../../props/margin.props';
 import { RadioGroup as RadixRadioGroup } from 'radix-ui';
 
 const componentName = 'RadioCard';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type RadioCardElement = ElementRef<'button'>;
 

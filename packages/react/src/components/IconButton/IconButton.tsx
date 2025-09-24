@@ -5,12 +5,12 @@ import { iconButtonPropDefs, IconButtonProps } from './IconButton.props';
 import { ButtonBase } from '../ButtonBase/ButtonBase';
 import type { ButtonBaseElement } from '../ButtonBase/ButtonBase';
 import { extractProps } from '../../helpers/extract-props';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Spinner } from '../Spinner/Spinner';
 import { translateResponsiveButtonSize } from '../../helpers/translate-responsive-button-size';
 
 const componentName = 'IconButton';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 export const IconButton = React.forwardRef<ButtonBaseElement, IconButtonProps>(
   (props, forwardedRef) => {

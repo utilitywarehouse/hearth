@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import { cardPropDefs } from './Card.props';
 import { extractProps } from '../../helpers/extract-props';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import { marginPropDefs } from '../../props/margin.props';
 import { sizePropDefs } from '../../props/size.props';
 import { gridItemPropDefs } from '../../props/grid-item.props';
@@ -15,7 +15,7 @@ import { FlexProps } from '../Flex/Flex.props';
 import { CardActionProps } from './CardAction.props';
 
 const componentName = 'CardAction';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type CardActionElement = ElementRef<'div'>;
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 import type { ElementRef } from 'react';
 import type { RadioTileProps } from './RadioTile.props';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import { RadioGroup as RadixRadioGroup } from 'radix-ui';
 import { useIds } from '../../hooks/use-ids';
 import { Label } from '../Label/Label';
@@ -11,7 +11,7 @@ import { Flex } from '../Flex/Flex';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
 const componentName = 'RadioTile';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type RadioTileElement = ElementRef<'button'>;
 

@@ -1,5 +1,5 @@
 import type { ElementRef } from 'react';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import React from 'react';
 import { switchPropDefs, SwitchProps } from './Switch.props';
 import clsx from 'clsx';
@@ -11,7 +11,7 @@ import { useIds } from '../../hooks/use-ids';
 import { marginPropDefs } from '../../props/margin.props';
 
 const componentName = 'Switch';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type SwitchElement = ElementRef<'button'>;
 

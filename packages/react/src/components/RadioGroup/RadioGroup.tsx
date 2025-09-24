@@ -3,14 +3,14 @@ import * as React from 'react';
 import clsx from 'clsx';
 
 import { RadioGroup as RadixRadioGroup } from 'radix-ui';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { RadioGroupProps } from './RadioGroup.props';
 import { Flex } from '../Flex/Flex';
 import { FormGroupBase } from '../FormGroupBase/FormGroupBase';
 
 const componentName = 'RadioGroup';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type RadioGroupElement = ElementRef<'fieldset'>;
 

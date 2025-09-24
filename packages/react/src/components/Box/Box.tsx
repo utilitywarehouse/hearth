@@ -9,7 +9,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { paddingPropDefs } from '../../props/padding.props';
 import { colorPropDefs } from '../../props/color.props';
 import { sizePropDefs } from '../../props/size.props';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import { marginPropDefs } from '../../props/margin.props';
 import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
@@ -20,7 +20,7 @@ import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const componentName = 'Box';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type BoxElement = ElementRef<'div'>;
 

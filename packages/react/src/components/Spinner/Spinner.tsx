@@ -3,7 +3,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 
 import { spinnerPropDefs, SpinnerProps } from './Spinner.props';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 
 import type { ElementRef } from 'react';
 import { extractProps } from '../../helpers/extract-props';
@@ -11,7 +11,7 @@ import { colorPropDefs } from '../../props/color.props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const componentName = 'Spinner';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type SpinnerElement = ElementRef<'div'>;
 

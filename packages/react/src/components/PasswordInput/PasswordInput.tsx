@@ -1,5 +1,5 @@
 import type { ElementRef } from 'react';
-import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
 import clsx from 'clsx';
 import React from 'react';
 import { PasswordInputProps } from './PasswordInput.props';
@@ -9,7 +9,7 @@ import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { EyeOffSmallIcon, EyeSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const componentName = 'PasswordInput';
-const componentClassName = withGlobalPrefix(componentName);
+const componentClassName = withClassnameGlobalPrefix(componentName);
 
 type PasswordInputElement = ElementRef<'input'>;
 
