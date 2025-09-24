@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-react
 
+## 0.10.0
+
+### Minor Changes
+
+- [#498](https://github.com/utilitywarehouse/hearth/pull/498) [`1fa0828`](https://github.com/utilitywarehouse/hearth/commit/1fa0828d0bd6996963c959646f4f2c5c519755c4) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `Accordion` component
+
+### Patch Changes
+
+- [#503](https://github.com/utilitywarehouse/hearth/pull/503) [`e1923f6`](https://github.com/utilitywarehouse/hearth/commit/e1923f63c684dc2b3f7fdc0a27f7a188456600e8) Thanks [@robphoenix](https://github.com/robphoenix)! - Update component display names to include `Hearth` prefix
+
+- [#505](https://github.com/utilitywarehouse/hearth/pull/505) [`21c63d5`](https://github.com/utilitywarehouse/hearth/commit/21c63d5100119cd29e23d9ef093958ba849c9f7d) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix input border colours on focus
+
+- Updated dependencies [[`b0cbecb`](https://github.com/utilitywarehouse/hearth/commit/b0cbecbd19556b088475195be4b030a5ea03677a)]:
+  - @utilitywarehouse/hearth-css-reset@0.1.1
+
 ## 0.9.0
 
 ### Minor Changes
