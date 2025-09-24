@@ -1,5 +1,5 @@
 import type { ElementRef } from 'react';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import React from 'react';
 import { switchPropDefs, SwitchProps } from './Switch.props';
 import clsx from 'clsx';
@@ -10,8 +10,8 @@ import { BodyText } from '../BodyText/BodyText';
 import { useIds } from '../../hooks/use-ids';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'Switch';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Switch';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type SwitchElement = ElementRef<'button'>;
 
@@ -83,4 +83,4 @@ export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwa
   );
 });
 
-Switch.displayName = componentName;
+Switch.displayName = displayName;

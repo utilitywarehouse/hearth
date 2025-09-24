@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { ElementRef } from 'react';
 import { Dialog as RadixDialog } from 'radix-ui';
 import clsx from 'clsx';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { ModalProps } from './Modal.props';
 import { Heading } from '../Heading/Heading';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
@@ -11,8 +11,8 @@ import { BodyText } from '../BodyText/BodyText';
 import { ModalClose } from './ModalClose';
 import { Box } from '../Box/Box';
 
-const componentName = 'Modal';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Modal';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type ModalElement = ElementRef<'div'>;
 
@@ -84,4 +84,4 @@ export const Modal = React.forwardRef<ModalElement, ModalProps>(
   }
 );
 
-Modal.displayName = componentName;
+Modal.displayName = displayName;

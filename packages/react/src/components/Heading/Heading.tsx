@@ -7,13 +7,13 @@ import type { ElementRef } from 'react';
 import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { Slot } from 'radix-ui';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { textWrapPropDefs } from '../../props/text-wrap.props';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'Heading';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Heading';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type HeadingElement = ElementRef<'h2'>;
 
@@ -40,4 +40,4 @@ export const Heading = React.forwardRef<HeadingElement, HeadingProps>(({ size, .
   );
 });
 
-Heading.displayName = componentName;
+Heading.displayName = displayName;

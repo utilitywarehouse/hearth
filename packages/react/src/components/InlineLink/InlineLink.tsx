@@ -2,15 +2,15 @@ import * as React from 'react';
 
 import clsx from 'clsx';
 
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import type { InlineLinkProps } from './InlineLink.props';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
-const componentName = 'InlineLink';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'InlineLink';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type InlineLinkElement = ElementRef<'a'>;
 
@@ -32,4 +32,4 @@ export const InlineLink = React.forwardRef<InlineLinkElement, InlineLinkProps>((
   );
 });
 
-InlineLink.displayName = componentName;
+InlineLink.displayName = displayName;

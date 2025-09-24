@@ -2,10 +2,10 @@ import * as React from 'react';
 import type { ElementRef } from 'react';
 import { Dialog as RadixDialog } from 'radix-ui';
 import clsx from 'clsx';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 
-const componentName = 'ModalTrigger';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'ModalTrigger';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type ModalTriggerElement = ElementRef<'button'>;
 
@@ -23,4 +23,4 @@ export const ModalTrigger = React.forwardRef<
   );
 });
 
-ModalTrigger.displayName = componentName;
+ModalTrigger.displayName = displayName;

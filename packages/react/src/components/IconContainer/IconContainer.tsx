@@ -4,12 +4,12 @@ import type { ElementRef } from 'react';
 import clsx from 'clsx';
 
 import { iconContainerPropDefs, IconContainerProps } from './IconContainer.props';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'IconContainer';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'IconContainer';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type IconContainerElement = ElementRef<'span'>;
 
@@ -36,4 +36,4 @@ export const IconContainer = React.forwardRef<IconContainerElement, IconContaine
   }
 );
 
-IconContainer.displayName = componentName;
+IconContainer.displayName = displayName;

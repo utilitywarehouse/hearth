@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { ElementRef } from 'react';
 
 import clsx from 'clsx';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { BodyText } from '../BodyText/BodyText';
@@ -10,8 +10,8 @@ import { HelperTextProps } from './HelperText.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
-const componentName = 'HelperText';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'HelperText';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type HelperTextElement = ElementRef<'span'>;
 
@@ -37,4 +37,4 @@ export const HelperText = React.forwardRef<HelperTextElement, HelperTextProps>((
   );
 });
 
-HelperText.displayName = componentName;
+HelperText.displayName = displayName;

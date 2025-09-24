@@ -24,6 +24,7 @@ type Story = StoryObj<typeof Alert>;
 export const KitchenSink: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => {
+    console.log(Alert);
     return (
       <Flex direction="column" gap="400">
         <Alert colorScheme="info" title="Information" text="Learn more about our rates." />

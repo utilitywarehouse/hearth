@@ -3,7 +3,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 
 import { CheckboxTileProps } from './CheckboxTile.props';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { useIds } from '../../hooks/use-ids';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
@@ -14,8 +14,8 @@ import { Checkbox as RadixCheckbox } from 'radix-ui';
 import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
-const componentName = 'CheckboxTile';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'CheckboxTile';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type CheckboxTileElement = ElementRef<'button'>;
 
@@ -92,4 +92,4 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
   }
 );
 
-CheckboxTile.displayName = componentName;
+CheckboxTile.displayName = displayName;

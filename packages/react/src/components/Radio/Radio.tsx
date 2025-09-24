@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import type { RadioProps } from './Radio.props';
 
 import { RadioGroup as RadixRadioGroup } from 'radix-ui';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Flex } from '../Flex/Flex';
 import { Label } from '../Label/Label';
 import { useIds } from '../../hooks/use-ids';
@@ -13,8 +13,8 @@ import { HelperText } from '../HelperText/HelperText';
 import type { ElementRef } from 'react';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
-const componentName = 'Radio';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Radio';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioElement = ElementRef<'button'>;
 
@@ -80,4 +80,4 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
   }
 );
 
-Radio.displayName = componentName;
+Radio.displayName = displayName;

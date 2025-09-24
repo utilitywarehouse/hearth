@@ -1,5 +1,5 @@
 import type { ElementRef } from 'react';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import clsx from 'clsx';
 import React from 'react';
 import { PasswordInputProps } from './PasswordInput.props';
@@ -8,8 +8,8 @@ import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { EyeOffSmallIcon, EyeSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
-const componentName = 'PasswordInput';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'PasswordInput';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type PasswordInputElement = ElementRef<'input'>;
 
@@ -91,4 +91,4 @@ export const PasswordInput = React.forwardRef<PasswordInputElement, PasswordInpu
   }
 );
 
-PasswordInput.displayName = componentName;
+PasswordInput.displayName = displayName;

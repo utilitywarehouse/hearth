@@ -9,7 +9,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { paddingPropDefs } from '../../props/padding.props';
 import { colorPropDefs } from '../../props/color.props';
 import { sizePropDefs } from '../../props/size.props';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { marginPropDefs } from '../../props/margin.props';
 import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
@@ -19,8 +19,8 @@ import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
-const componentName = 'Box';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Box';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type BoxElement = ElementRef<'div'>;
 
@@ -51,4 +51,4 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
   return <Component ref={ref} className={clsx(componentClassName, className)} {...boxProps} />;
 });
 
-Box.displayName = componentName;
+Box.displayName = displayName;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import clsx from 'clsx';
 import { type ListProps } from './List.props';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { Card } from '../Card/Card';
 import { Box } from '../Box/Box';
@@ -9,8 +9,8 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
 
-const componentName = 'List';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'List';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type ListElement = ElementRef<'ol'>;
 
@@ -60,4 +60,4 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
   );
 });
 
-List.displayName = componentName;
+List.displayName = displayName;

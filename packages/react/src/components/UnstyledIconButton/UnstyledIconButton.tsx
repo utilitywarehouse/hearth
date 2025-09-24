@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import clsx from 'clsx';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { unstyledIconButtonPropDefs } from './UnstyledIconButton.props';
 import type { UnstyledIconButtonProps } from './UnstyledIconButton.props';
@@ -9,8 +9,8 @@ import { extractProps } from '../../helpers/extract-props';
 import { Spinner } from '../Spinner/Spinner';
 import { translateResponsiveButtonSize } from '../../helpers/translate-responsive-button-size';
 
-const componentName = 'UnstyledIconButton';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'UnstyledIconButton';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 export type UnstyledIconButtonElement = ElementRef<'button'>;
 
@@ -45,4 +45,4 @@ export const UnstyledIconButton = React.forwardRef<
   );
 });
 
-UnstyledIconButton.displayName = componentName;
+UnstyledIconButton.displayName = displayName;

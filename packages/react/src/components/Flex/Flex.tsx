@@ -5,7 +5,7 @@ import { flexPropDefs, type FlexProps } from './Flex.props';
 
 import type { ElementRef } from 'react';
 import { Slot } from 'radix-ui';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { paddingPropDefs } from '../../props/padding.props';
 import { colorPropDefs } from '../../props/color.props';
@@ -21,8 +21,8 @@ import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
-const componentName = 'Flex';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Flex';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type FlexElement = ElementRef<'div'>;
 
@@ -55,4 +55,4 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
   return <Component ref={ref} className={clsx(componentClassName, className)} {...flexProps} />;
 });
 
-Flex.displayName = componentName;
+Flex.displayName = displayName;

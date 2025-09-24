@@ -2,7 +2,7 @@ import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import clsx from 'clsx';
 import type { ElementRef } from 'react';
 import * as React from 'react';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Link } from '../Link/Link';
 import type { LinkProps } from '../Link/Link.props';
 
@@ -15,8 +15,8 @@ export interface AlertLinkProps extends Omit<LinkProps, 'asChild'> {
 
 type AlertLinkElement = ElementRef<'a'>;
 
-const componentName = 'AlertLink';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'AlertLink';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 export const AlertLink = React.forwardRef<AlertLinkElement, AlertLinkProps>((props, ref) => {
   const { children, ...linkProps } = props;
@@ -33,4 +33,4 @@ export const AlertLink = React.forwardRef<AlertLinkElement, AlertLinkProps>((pro
   );
 });
 
-AlertLink.displayName = 'AlertLink';
+AlertLink.displayName = displayName;

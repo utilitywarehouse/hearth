@@ -7,13 +7,13 @@ import { HelperText } from '../HelperText/HelperText';
 import { ValidationText } from '../ValidationText/ValidationText';
 import clsx from 'clsx';
 import type { FormGroupBaseProps } from './FormGroupBase.props';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { FormGroupBaseProvider } from './FormGroupBase.context';
 
-const componentName = 'FormGroupBase';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'FormGroupBase';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type FormGroupBaseElement = ElementRef<'fieldset'>;
 
@@ -93,4 +93,4 @@ export const FormGroupBase = React.forwardRef<FormGroupBaseElement, FormGroupBas
   }
 );
 
-FormGroupBase.displayName = componentName;
+FormGroupBase.displayName = displayName;

@@ -6,7 +6,7 @@ import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
 import type { ElementRef } from 'react';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { useIds } from '../../hooks/use-ids';
 import { marginPropDefs } from '../../props/margin.props';
 import { extractProps } from '../../helpers/extract-props';
@@ -14,8 +14,8 @@ import { Checkbox as RadixCheckbox } from 'radix-ui';
 import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
-const componentName = 'Checkbox';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Checkbox';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 export type CheckboxElement = ElementRef<'button'>;
 
@@ -88,4 +88,4 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props,
   );
 });
 
-Checkbox.displayName = componentName;
+Checkbox.displayName = displayName;

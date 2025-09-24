@@ -5,7 +5,7 @@ import clsx from 'clsx';
 
 import { cardPropDefs, CardProps } from './Card.props';
 import { extractProps } from '../../helpers/extract-props';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { marginPropDefs } from '../../props/margin.props';
 import { sizePropDefs } from '../../props/size.props';
 import { gridItemPropDefs } from '../../props/grid-item.props';
@@ -15,8 +15,8 @@ import { flexPropDefs, FlexProps } from '../Flex/Flex.props';
 import { kebabCase } from '../../helpers/kebab-case';
 import { gapPropDefs } from '../../props/gap.props';
 
-const componentName = 'Card';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Card';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type CardElement = ElementRef<'div'>;
 
@@ -51,4 +51,4 @@ export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
   );
 });
 
-Card.displayName = componentName;
+Card.displayName = displayName;

@@ -1,5 +1,5 @@
 import type { ElementRef } from 'react';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { TextInputProps } from './TextInput.props';
 import { extractProps } from '../../helpers/extract-props';
 import clsx from 'clsx';
@@ -13,8 +13,8 @@ import { mergeIds } from '../../helpers/merge-ids';
 import { BodyText } from '../BodyText/BodyText';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'TextInput';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'TextInput';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type TextInputElement = ElementRef<'input'>;
 
@@ -114,4 +114,4 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
   }
 );
 
-TextInput.displayName = componentName;
+TextInput.displayName = displayName;

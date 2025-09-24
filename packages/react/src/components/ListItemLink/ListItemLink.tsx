@@ -1,13 +1,13 @@
 import * as React from 'react';
 import clsx from 'clsx';
 import type { ListItemLinkProps } from './ListItemLink.props';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { ListItemContent } from '../ListItemContent/ListItemContent';
 
-const componentName = 'ListItemLink';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'ListItemLink';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type ListItemLinkElement = ElementRef<'a'>;
 
@@ -24,4 +24,4 @@ export const ListItemLink = React.forwardRef<ListItemLinkElement, ListItemLinkPr
   }
 );
 
-ListItemLink.displayName = componentName;
+ListItemLink.displayName = displayName;

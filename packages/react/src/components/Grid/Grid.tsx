@@ -8,7 +8,7 @@ import { Slot } from 'radix-ui';
 import { extractProps } from '../../helpers/extract-props';
 import { paddingPropDefs } from '../../props/padding.props';
 import { colorPropDefs } from '../../props/color.props';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { marginPropDefs } from '../../props/margin.props';
 import { gapPropDefs } from '../../props/gap.props';
 import { sizePropDefs } from '../../props/size.props';
@@ -21,8 +21,8 @@ import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
-const componentName = 'Grid';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Grid';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type GridElement = ElementRef<'div'>;
 
@@ -67,4 +67,4 @@ export const Grid = React.forwardRef<GridElement, GridProps>((props, ref) => {
   );
 });
 
-Grid.displayName = componentName;
+Grid.displayName = displayName;

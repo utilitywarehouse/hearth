@@ -1,14 +1,14 @@
 import * as React from 'react';
 
 import clsx from 'clsx';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { ButtonBase, ButtonBaseElement } from '../ButtonBase/ButtonBase';
 import { buttonPropDefs, ButtonProps } from './Button.props';
 import { Spinner } from '../Spinner/Spinner';
 
-const componentName = 'Button';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Button';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 export const Button = React.forwardRef<ButtonBaseElement, ButtonProps>((props, forwardedRef) => {
   const { className, children, disabled, loading, ...buttonProps } = extractProps(
@@ -36,4 +36,4 @@ export const Button = React.forwardRef<ButtonBaseElement, ButtonProps>((props, f
   );
 });
 
-Button.displayName = componentName;
+Button.displayName = displayName;

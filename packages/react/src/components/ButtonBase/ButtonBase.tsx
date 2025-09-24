@@ -3,12 +3,12 @@ import { Slot } from 'radix-ui';
 import clsx from 'clsx';
 import { buttonBasePropDefs, ButtonBaseProps } from './ButtonBase.props';
 import type { ElementRef } from 'react';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'ButtonBase';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Button';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 export type ButtonBaseElement = ElementRef<'button'>;
 
@@ -68,4 +68,4 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
   );
 });
 
-ButtonBase.displayName = componentName;
+ButtonBase.displayName = displayName;

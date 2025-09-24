@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { ElementRef } from 'react';
 
 import clsx from 'clsx';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { mergeIds } from '../../helpers/merge-ids';
 import { useIds } from '../../hooks/use-ids';
 import { TextAreaProps } from './TextArea.props';
@@ -14,8 +14,8 @@ import { BodyText } from '../BodyText/BodyText';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'TextArea';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'TextArea';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type TextAreaElement = ElementRef<'textarea'>;
 
@@ -98,4 +98,4 @@ export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props,
   );
 });
 
-TextArea.displayName = componentName;
+TextArea.displayName = displayName;

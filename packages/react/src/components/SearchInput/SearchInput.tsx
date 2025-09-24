@@ -1,5 +1,5 @@
 import type { ElementRef } from 'react';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import clsx from 'clsx';
 import React from 'react';
 import { TextInput } from '../TextInput/TextInput';
@@ -9,8 +9,8 @@ import { SearchInputProps } from './SearchInput.props';
 import { Spinner } from '../Spinner/Spinner';
 import { CloseSmallIcon, SearchMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
-const componentName = 'SearchInput';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'SearchInput';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type SearchInputElement = ElementRef<'input'>;
 
@@ -70,4 +70,4 @@ export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps
   }
 );
 
-SearchInput.displayName = componentName;
+SearchInput.displayName = displayName;

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { ElementRef } from 'react';
 import clsx from 'clsx';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { BodyText } from '../BodyText/BodyText';
@@ -10,8 +10,8 @@ import { TickCircleSmallIcon, ErrorCircleSmallIcon } from '@utilitywarehouse/hea
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
-const componentName = 'ValidationText';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'ValidationText';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type ValidationTextElement = ElementRef<'span'>;
 
@@ -46,4 +46,4 @@ export const ValidationText = React.forwardRef<ValidationTextElement, Validation
   }
 );
 
-ValidationText.displayName = componentName;
+ValidationText.displayName = displayName;

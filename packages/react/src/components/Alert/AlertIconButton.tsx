@@ -2,12 +2,12 @@ import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import clsx from 'clsx';
 import type { ElementRef } from 'react';
 import * as React from 'react';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import type { UnstyledIconButtonProps } from '../UnstyledIconButton/UnstyledIconButton.props';
 
-const componentName = 'AlertIconButton';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'AlertIconButton';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 export type AlertIconButtonProps = UnstyledIconButtonProps;
 
@@ -29,4 +29,4 @@ export const AlertIconButton = React.forwardRef<AlertIconButtonElement, AlertIco
   }
 );
 
-AlertIconButton.displayName = componentName;
+AlertIconButton.displayName = displayName;

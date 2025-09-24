@@ -4,14 +4,14 @@ import type { ElementRef } from 'react';
 import clsx from 'clsx';
 
 import { LabelProps } from './Label.props';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { BodyText } from '../BodyText/BodyText';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
-const componentName = 'Label';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Label';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type LabelElement = ElementRef<'label'>;
 
@@ -42,4 +42,4 @@ export const Label = React.forwardRef<LabelElement, LabelProps>((props, ref) => 
   );
 });
 
-Label.displayName = componentName;
+Label.displayName = displayName;

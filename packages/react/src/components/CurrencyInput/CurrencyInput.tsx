@@ -1,5 +1,5 @@
 import type { ElementRef } from 'react';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import clsx from 'clsx';
 import React from 'react';
 import { TextInput } from '../TextInput/TextInput';
@@ -7,8 +7,8 @@ import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
 import { CurrencyInputProps } from './CurrencyInput.props';
 import { DetailText } from '../DetailText/DetailText';
 
-const componentName = 'CurrencyInput';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'CurrencyInput';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type CurrencyInputElement = ElementRef<'input'>;
 
@@ -35,4 +35,4 @@ export const CurrencyInput = React.forwardRef<CurrencyInputElement, CurrencyInpu
   }
 );
 
-CurrencyInput.displayName = componentName;
+CurrencyInput.displayName = displayName;

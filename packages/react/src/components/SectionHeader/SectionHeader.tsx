@@ -3,13 +3,13 @@ import * as React from 'react';
 import clsx from 'clsx';
 
 import type { ElementRef } from 'react';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Heading } from '../Heading/Heading';
 import { HelperText } from '../HelperText/HelperText';
 import { SectionHeaderProps } from './SectionHeader.props';
 
-const componentName = 'SectionHeader';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'SectionHeader';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type SectionHeaderElement = ElementRef<'div'>;
 
@@ -27,4 +27,4 @@ export const SectionHeader = React.forwardRef<SectionHeaderElement, SectionHeade
   }
 );
 
-SectionHeader.displayName = componentName;
+SectionHeader.displayName = displayName;

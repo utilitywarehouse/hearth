@@ -2,7 +2,7 @@ import * as React from 'react';
 import clsx from 'clsx';
 import type { ElementRef } from 'react';
 import type { RadioTileProps } from './RadioTile.props';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { RadioGroup as RadixRadioGroup } from 'radix-ui';
 import { useIds } from '../../hooks/use-ids';
 import { Label } from '../Label/Label';
@@ -10,8 +10,8 @@ import { HelperText } from '../HelperText/HelperText';
 import { Flex } from '../Flex/Flex';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
-const componentName = 'RadioTile';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'RadioTile';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioTileElement = ElementRef<'button'>;
 
@@ -61,4 +61,4 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
   }
 );
 
-RadioTile.displayName = componentName;
+RadioTile.displayName = displayName;

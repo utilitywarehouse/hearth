@@ -4,13 +4,13 @@ import type { ElementRef } from 'react';
 import clsx from 'clsx';
 
 import { badgePropDefs, BadgeProps } from './Badge.props';
-import { withClassnameGlobalPrefix } from '../../helpers/with-global-prefix';
+import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'Badge';
-const componentClassName = withClassnameGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Badge';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type BadgeElement = ElementRef<'span'>;
 
@@ -35,4 +35,4 @@ export const Badge = React.forwardRef<BadgeElement, BadgeProps>((props, ref) => 
   );
 });
 
-Badge.displayName = componentName;
+Badge.displayName = displayName;
