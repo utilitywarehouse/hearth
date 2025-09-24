@@ -12,7 +12,10 @@ const componentClassName = withGlobalPrefix(componentName);
 type AccordionElement = ElementRef<'div'>;
 
 export const Accordion = React.forwardRef<AccordionElement, AccordionProps>(
-  ({ className, type = 'multiple', heading, headingElement, helperText, link, ...props }, ref) => {
+  (
+    { className, type = 'multiple', heading, headingElement = 'h2', helperText, link, ...props },
+    ref
+  ) => {
     const headerProps = {
       heading,
       headingElement,

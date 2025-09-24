@@ -11,9 +11,16 @@ const componentClassName = withGlobalPrefix(componentName);
 type AccordionHeaderElement = ElementRef<'h3'>;
 
 export const AccordionHeader = React.forwardRef<AccordionHeaderElement, AccordionHeaderProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, as: Tag = 'h3', children, ...props }, ref) => {
     return (
-      <RadixAccordion.Header ref={ref} className={clsx(componentClassName, className)} {...props} />
+      <RadixAccordion.Header
+        asChild
+        ref={ref}
+        className={clsx(componentClassName, className)}
+        {...props}
+      >
+        <Tag>{children}</Tag>
+      </RadixAccordion.Header>
     );
   }
 );

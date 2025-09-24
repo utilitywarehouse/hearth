@@ -60,14 +60,16 @@ export const CustomHeader: Story = {
   render: () => {
     return (
       <Box width="600px">
-        <Accordion heading="Custom header" helperText="Including a badge for example">
+        <Accordion heading="Custom item headers" helperText="Including a badge, for example">
           {[1, 2, 3].map(n => (
             <AccordionItem value={`item-${n}`}>
               <AccordionHeader>
                 <AccordionTrigger>
                   <Flex width="100%" alignItems="center" justifyContent="between">
-                    <BodyText>Custom Header</BodyText>
-                    <Badge size="sm">Badge</Badge>
+                    <BodyText weight="semibold">Custom Header</BodyText>
+                    <Badge size="sm" colorScheme="positive">
+                      New
+                    </Badge>
                   </Flex>
                 </AccordionTrigger>
               </AccordionHeader>

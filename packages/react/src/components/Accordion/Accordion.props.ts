@@ -7,6 +7,10 @@ export type AccordionProps = ComponentPropsWithout<
   typeof RadixAccordion.Root,
   'orientation' | 'type'
 > &
-  SectionHeaderProps & {
+  Omit<SectionHeaderProps, 'headingElement'> & {
     type?: ComponentProps<typeof RadixAccordion.Root>['type'];
+    /**
+     * @default h2
+     */
+    headingElement?: 'h1' | 'h2' | 'h3' | 'h4';
   };
