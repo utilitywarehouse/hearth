@@ -1,5 +1,11 @@
 # @utilitywarehouse/css-reset
 
+## 0.1.1
+
+### Patch Changes
+
+- [#504](https://github.com/utilitywarehouse/hearth/pull/504) [`b0cbecb`](https://github.com/utilitywarehouse/hearth/commit/b0cbecbd19556b088475195be4b030a5ea03677a) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix usage of semantic color tokens
+
 ## 0.1.0
 
 ### Minor Changes
