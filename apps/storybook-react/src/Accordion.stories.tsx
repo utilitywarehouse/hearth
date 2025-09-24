@@ -169,3 +169,24 @@ export const Collapsible: Story = {
     collapsible: true,
   },
 };
+
+export const HeadingElement: Story = {
+  render: args => {
+    return (
+      <Box width="600px">
+        <Accordion {...args}>
+          {[1, 2, 3, 4, 5, 6].map(n => (
+            <AccordionItem value={`item-${n}`} title={`Item ${n}`} headingElement="h2">
+              <AccordionContent>{`Content ${n}`}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Box>
+    );
+  },
+  args: {
+    heading: 'Heading element',
+    helperText: '',
+    headingElement: 'h1',
+  },
+};

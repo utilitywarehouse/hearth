@@ -13,12 +13,12 @@ const componentClassName = withGlobalPrefix(componentName);
 type AccordionItemElement = ElementRef<'div'>;
 
 export const AccordionItem = React.forwardRef<AccordionItemElement, AccordionItemProps>(
-  ({ className, title, description, children, ...props }, ref) => {
+  ({ className, title, description, children, headingElement, ...props }, ref) => {
     return (
       <RadixAccordion.Item ref={ref} className={clsx(componentClassName, className)} {...props}>
         {title ? (
           <div className="hearth-AccordionItemHeader">
-            <AccordionHeader>
+            <AccordionHeader as={headingElement}>
               <AccordionTrigger>{title}</AccordionTrigger>
             </AccordionHeader>
             {description ? (
@@ -27,7 +27,7 @@ export const AccordionItem = React.forwardRef<AccordionItemElement, AccordionIte
           </div>
         ) : null}
 
-        {children ? children : null}
+        {children}
       </RadixAccordion.Item>
     );
   }
