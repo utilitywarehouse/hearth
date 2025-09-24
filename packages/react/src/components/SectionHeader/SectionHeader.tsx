@@ -8,8 +8,8 @@ import { Heading } from '../Heading/Heading';
 import { HelperText } from '../HelperText/HelperText';
 import { SectionHeaderProps } from './SectionHeader.props';
 
-const componentName = 'SectionHeader';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'SectionHeader';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type SectionHeaderElement = ElementRef<'div'>;
 
@@ -27,4 +27,4 @@ export const SectionHeader = React.forwardRef<SectionHeaderElement, SectionHeade
   }
 );
 
-SectionHeader.displayName = componentName;
+SectionHeader.displayName = displayName;

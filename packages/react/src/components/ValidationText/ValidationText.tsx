@@ -10,8 +10,8 @@ import { TickCircleSmallIcon, ErrorCircleSmallIcon } from '@utilitywarehouse/hea
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
-const componentName = 'ValidationText';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'ValidationText';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type ValidationTextElement = ElementRef<'span'>;
 
@@ -46,4 +46,4 @@ export const ValidationText = React.forwardRef<ValidationTextElement, Validation
   }
 );
 
-ValidationText.displayName = componentName;
+ValidationText.displayName = displayName;

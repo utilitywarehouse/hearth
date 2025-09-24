@@ -1,6 +1,5 @@
 import { useId } from 'react';
-
-import { withGlobalPrefix } from '../helpers/with-global-prefix';
+import { GLOBAL_PREFIX } from '../helpers/with-global-prefix';
 
 interface UseIdsProps {
   providedId?: string;
@@ -19,7 +18,7 @@ export const useIds = ({
 }: UseIdsProps) => {
   const prefix = providedId || providedPrefix;
   const generatedId = useId();
-  const defaultId = withGlobalPrefix(prefix ? `${prefix}-${generatedId}` : generatedId);
+  const defaultId = [GLOBAL_PREFIX, prefix, generatedId].filter(el => !!el).join('-');
   const id = providedId || defaultId;
   const labelId = providedLabelId || `${id}-label`;
   const helperTextId = providedHelperTextId || `${id}-helper-text`;
