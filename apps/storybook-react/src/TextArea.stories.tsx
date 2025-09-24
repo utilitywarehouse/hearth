@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { TextArea, Flex } from '@utilitywarehouse/hearth-react';
+import { TextArea, Flex, TextInput } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta: Meta<typeof TextArea> = {
@@ -20,7 +20,7 @@ const meta: Meta<typeof TextArea> = {
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
     placeholder: { control: { type: 'text' } },
     rows: { control: { type: 'number' } },
-    resize: {control:{type:'radio'}, options:['none', 'horizontal', 'vertical', 'both']},
+    resize: { control: { type: 'radio' }, options: ['none', 'horizontal', 'vertical', 'both'] },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
     required: { control: { type: 'boolean' } },
@@ -31,7 +31,8 @@ const meta: Meta<typeof TextArea> = {
     validationText: 'Validation text',
     placeholder: 'Enter your text here...',
     rows: 3,
-    resize:'none',
+    cols: 40,
+    resize: 'none',
     disabled: false,
     readOnly: false,
     required: false,
@@ -103,4 +104,13 @@ export const Controlled: Story = {
       />
     );
   },
+};
+
+export const FullWidth: Story = {
+  render: () => (
+    <Flex width="600px" direction="column" gap="400">
+      <TextInput label="Text input" />
+      <TextArea label="Text area" rows={3} cols={60} />
+    </Flex>
+  ),
 };
