@@ -9,8 +9,8 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Spinner } from '../Spinner/Spinner';
 import { translateResponsiveButtonSize } from '../../helpers/translate-responsive-button-size';
 
-const componentName = 'IconButton';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'IconButton';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 export const IconButton = React.forwardRef<ButtonBaseElement, IconButtonProps>(
   (props, forwardedRef) => {
@@ -34,4 +34,4 @@ export const IconButton = React.forwardRef<ButtonBaseElement, IconButtonProps>(
   }
 );
 
-IconButton.displayName = componentName;
+IconButton.displayName = displayName;

@@ -9,8 +9,8 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
 
-const componentName = 'List';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'List';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type ListElement = ElementRef<'ol'>;
 
@@ -60,4 +60,4 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
   );
 });
 
-List.displayName = componentName;
+List.displayName = displayName;

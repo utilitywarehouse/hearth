@@ -9,8 +9,8 @@ import { RadioGroupProps } from './RadioGroup.props';
 import { Flex } from '../Flex/Flex';
 import { FormGroupBase } from '../FormGroupBase/FormGroupBase';
 
-const componentName = 'RadioGroup';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'RadioGroup';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioGroupElement = ElementRef<'fieldset'>;
 
@@ -72,4 +72,4 @@ export const RadioGroup = React.forwardRef<RadioGroupElement, RadioGroupProps>(
   }
 );
 
-RadioGroup.displayName = componentName;
+RadioGroup.displayName = displayName;
