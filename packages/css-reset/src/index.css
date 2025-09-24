@@ -32,7 +32,7 @@
     -moz-osx-font-smoothing: grayscale; /* Firefox */
     -webkit-font-smoothing: antialiased; /* WebKit  */
     font-family: var(--h-font-family-body), Helvetica, Arial, sans-serif;
-    color: var(--h-text-color);
+    color: var(--h-text-primary);
   }
 
   /* Prevent font size inflation */
