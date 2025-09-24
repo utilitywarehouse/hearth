@@ -13,8 +13,8 @@ import { mergeIds } from '../../helpers/merge-ids';
 import { BodyText } from '../BodyText/BodyText';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'TextInput';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'TextInput';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type TextInputElement = ElementRef<'input'>;
 
@@ -114,4 +114,4 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
   }
 );
 
-TextInput.displayName = componentName;
+TextInput.displayName = displayName;

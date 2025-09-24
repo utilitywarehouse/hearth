@@ -7,8 +7,8 @@ import { ButtonBase, ButtonBaseElement } from '../ButtonBase/ButtonBase';
 import { buttonPropDefs, ButtonProps } from './Button.props';
 import { Spinner } from '../Spinner/Spinner';
 
-const componentName = 'Button';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Button';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 export const Button = React.forwardRef<ButtonBaseElement, ButtonProps>((props, forwardedRef) => {
   const { className, children, disabled, loading, ...buttonProps } = extractProps(
@@ -36,4 +36,4 @@ export const Button = React.forwardRef<ButtonBaseElement, ButtonProps>((props, f
   );
 });
 
-Button.displayName = componentName;
+Button.displayName = displayName;

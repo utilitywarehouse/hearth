@@ -6,8 +6,8 @@ import type { ElementRef } from 'react';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { ListItemContent } from '../ListItemContent/ListItemContent';
 
-const componentName = 'ListItemLink';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'ListItemLink';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type ListItemLinkElement = ElementRef<'a'>;
 
@@ -24,4 +24,4 @@ export const ListItemLink = React.forwardRef<ListItemLinkElement, ListItemLinkPr
   }
 );
 
-ListItemLink.displayName = componentName;
+ListItemLink.displayName = displayName;
