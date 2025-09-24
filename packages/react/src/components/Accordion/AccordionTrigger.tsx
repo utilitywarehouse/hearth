@@ -16,7 +16,7 @@ export const AccordionTrigger = React.forwardRef<AccordionTriggerElement, Accord
     return (
       <RadixAccordion.Trigger ref={ref} className={clsx(componentClassName, className)} {...props}>
         {children}
-        <ChevronDownSmallIcon className="hearth-AccordionChevron" />
+        <ChevronDownSmallIcon className="hearth-AccordionChevron" aria-hidden />
       </RadixAccordion.Trigger>
     );
   }

@@ -56,7 +56,7 @@ export const Playground: Story = {
   },
 };
 
-export const CustomHeader: Story = {
+export const CustomItemHeader: Story = {
   render: () => {
     return (
       <Box width="600px">
