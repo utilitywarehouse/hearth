@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { memo } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, StyleSheet } from 'react-native';
 import { BodyText } from '../../../BodyText';
 import { useCalendarContext } from '../../Calendar.context';
 import { formatNumber, getDateYear, getYearRange } from '../../utils';
@@ -31,16 +31,11 @@ const YearButton = () => {
       accessibilityRole="button"
       accessibilityLabel={dayjs(currentDate).format('YYYY')}
     >
-      <View
-        style={[defaultStyles.container, styles?.year_selector]}
-        className={classNames?.year_selector}
-      >
-        <BodyText style={styles?.year_selector_label} className={classNames?.year_selector_label}>
-          {calendarView === 'year'
-            ? `${formatNumber(years[0] || 0, numerals)} - ${formatNumber(years[years.length - 1] || 0, numerals)}`
-            : formatNumber(parseInt(dayjs(currentDate).format('YYYY')), numerals)}
-        </BodyText>
-      </View>
+      <BodyText weight="semibold">
+        {calendarView === 'year'
+          ? `${formatNumber(years[0] || 0, numerals)} - ${formatNumber(years[years.length - 1] || 0, numerals)}`
+          : formatNumber(parseInt(dayjs(currentDate).format('YYYY')), numerals)}
+      </BodyText>
     </Pressable>
   );
 };

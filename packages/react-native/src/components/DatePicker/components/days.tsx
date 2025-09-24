@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import { useCallback, useMemo } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { useCalendarContext } from '../Calendar.context';
 import { DateType } from '../types';
 import {
@@ -35,15 +36,10 @@ const Days = () => {
     firstDayOfWeek,
     containerHeight,
     weekdaysHeight,
-    styles,
-    classNames,
     weekdaysFormat,
     multiRangeMode,
     hideWeekdays,
-    components,
   } = useCalendarContext();
-
-  const style = useMemo(() => createDefaultStyles(), []);
 
   const { year, month, hour, minute } = getParsedDate(currentDate);
 
@@ -54,11 +50,6 @@ const Days = () => {
       onSelectDate(newDate);
     },
     [onSelectDate, hour, minute]
-  );
-
-  const containerStyle = useMemo(
-    () => [style.daysContainer, styles?.days],
-    [style.daysContainer, styles?.days]
   );
 
   const daysGrid = useMemo(() => {
@@ -209,19 +200,16 @@ const Days = () => {
   ]);
 
   return (
-    <View style={style.container} testID="day-selector">
+    <View style={styles.container} testID="day-selector">
       {!hideWeekdays ? (
         <Weekdays
           locale={locale}
           firstDayOfWeek={firstDayOfWeek}
-          styles={styles}
-          classNames={classNames}
           weekdaysFormat={weekdaysFormat}
           weekdaysHeight={weekdaysHeight}
-          components={components}
         />
       ) : null}
-      <View style={containerStyle} className={classNames?.days} testID="days">
+      <View style={styles.daysContainer} testID="days">
         {daysGrid?.map((day, index) => {
           return day ? (
             <Day
@@ -230,9 +218,6 @@ const Days = () => {
               onSelectDate={handleSelectDate}
               containerHeight={containerHeight}
               weekdaysHeight={weekdaysHeight}
-              styles={styles}
-              classNames={classNames}
-              components={components}
             />
           ) : (
             <EmptyDay key={index} />
@@ -243,19 +228,18 @@ const Days = () => {
   );
 };
 
-const createDefaultStyles = () =>
-  StyleSheet.create({
-    container: {
-      width: '100%',
-      height: '100%',
-    },
-    daysContainer: {
-      width: '100%',
-      height: '100%',
-      flexWrap: 'wrap',
-      flexDirection: 'row',
-      alignContent: 'flex-start',
-    },
-  });
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: '100%',
+  },
+  daysContainer: {
+    width: '100%',
+    height: '100%',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    alignContent: 'flex-start',
+  },
+});
 
 export default Days;

@@ -1,5 +1,6 @@
-import { memo, useMemo } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { memo } from 'react';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../../BodyText';
 import { WEEKDAYS_HEIGHT } from '../enums';
 import { CalendarComponents, ClassNames, Styles, WeekdayFormat } from '../types';
@@ -18,47 +19,34 @@ type WeekdaysProps = {
 const Weekdays = ({
   locale,
   firstDayOfWeek,
-  styles = {},
-  classNames = {},
   weekdaysFormat = 'min',
   weekdaysHeight = WEEKDAYS_HEIGHT,
-  components = {},
 }: WeekdaysProps) => {
-  const style = useMemo(() => createDefaultStyles(weekdaysHeight), [weekdaysHeight]);
-
   return (
-    <View
-      style={[style.container, styles.weekdays]}
-      className={classNames.weekdays}
-      testID="weekdays"
-    >
+    <View style={[styles.container(weekdaysHeight)]} testID="weekdays">
       {getWeekdays(locale, firstDayOfWeek)?.map((weekday, index) => (
-        <View key={index} style={[style.weekday, styles.weekday]} className={classNames.weekday}>
-          {components.Weekday ? (
-            components.Weekday(weekday)
-          ) : (
-            <BodyText style={styles?.weekday_label} className={classNames.weekday_label}>
-              {weekday.name[weekdaysFormat]}
-            </BodyText>
-          )}
+        <View key={index} style={[styles.weekday]}>
+          <BodyText style={styles.text}>{weekday.name[weekdaysFormat]}</BodyText>
         </View>
       ))}
     </View>
   );
 };
 
-export default memo(Weekdays);
+const styles = StyleSheet.create(theme => ({
+  container: (weekdaysHeight: number) => ({
+    height: weekdaysHeight,
+    flexDirection: 'row',
+    alignItems: 'center',
+  }),
+  text: {
+    color: theme.color.text.secondary,
+  },
+  weekday: {
+    width: `${99.9 / 7}%`,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+}));
 
-const createDefaultStyles = (weekdaysHeight: number) =>
-  StyleSheet.create({
-    container: {
-      height: weekdaysHeight,
-      flexDirection: 'row',
-      alignItems: 'center',
-    },
-    weekday: {
-      width: `${99.9 / 7}%`,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-  });
+export default memo(Weekdays);

@@ -9,12 +9,12 @@ import { BackToTopButton, NextPrevPage } from './components';
 You can just start using the components from the `@utilitywarehouse/hearth-react-native` package.
 
 ```tsx
-import { Box, Alert, Text } from '@utilitywarehouse/hearth-react-native';
+import { Box, Alert, BodyText } from '@utilitywarehouse/hearth-react-native';
 
 const App: React.FC = () => (
-  <Box>
+  <Box p="200">
     <Alert variant="info" text="Welcome to Hearth React Native!" />
-    <Text>Start building your app with Hearth React Native components.</Text>
+    <BodyText>Start building your app with Hearth React Native components.</BodyText>
   </Box>
 );
 ```
@@ -25,15 +25,15 @@ By default the light colour mode is enabled. If you want to enable dark mode, yo
 use the `useColorMode` hook to toggle between light and dark modes.
 
 ```tsx
-import { useColorMode, Box, Alert, Text, Button } from '@utilitywarehouse/hearth-react-native';
+import { useColorMode, Box, Alert, BodyText, Button } from '@utilitywarehouse/hearth-react-native';
 
 const App: React.FC = () => {
   const [colorMode, setColorMode] = useColorMode();
 
   return (
-    <Box>
+    <Box p="200">
       <Alert variant="info" text="Welcome to Hearth React Native!" />
-      <Text>Start building your app with Hearth React Native components.</Text>
+      <BodyText>Start building your app with Hearth React Native components.</BodyText>
       <Button onPress={() => setColorMode(colorMode === 'light' ? 'dark' : 'light')}>
         Toggle Color Mode
       </Button>

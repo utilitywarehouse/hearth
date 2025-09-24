@@ -1,9 +1,10 @@
-import { useCallback, useMemo } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { useCallback } from 'react';
+import { Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../../BodyText';
 import { useCalendarContext } from '../Calendar.context';
 import { CONTAINER_HEIGHT } from '../enums';
-import { cn, formatNumber, getDateYear, getYearRange, isYearDisabled } from '../utils';
+import { formatNumber, getDateYear, getYearRange, isYearDisabled } from '../utils';
 
 const Years = () => {
   const {
@@ -14,15 +15,10 @@ const Years = () => {
     currentYear,
     date,
     onSelectYear,
-    styles = {},
-    classNames = {},
-    components = {},
     containerHeight = CONTAINER_HEIGHT,
     minDate,
     maxDate,
   } = useCalendarContext();
-
-  const style = useMemo(() => createDefaultStyles(containerHeight), [containerHeight]);
 
   const selectedYear = getDateYear(date);
 
@@ -35,66 +31,21 @@ const Years = () => {
 
       const isDisabled = isYearDisabled(year, { minDate, maxDate });
 
-      const containerStyle = StyleSheet.flatten([
-        style.year,
-        styles.year,
-        isActivated && styles.active_year,
-        isSelected && styles.selected_year,
-        isDisabled && styles.disabled,
-      ]);
-
-      const textStyle = StyleSheet.flatten([
-        styles.year_label,
-        isActivated && styles.active_year_label,
-        isSelected && styles.selected_year_label,
-        isDisabled && styles.disabled_label,
-      ]);
-
-      const containerClassName = cn(
-        classNames.year,
-        isActivated && classNames.active_year,
-        isSelected && classNames.selected_year,
-        isDisabled && classNames.disabled
-      );
-
-      const textClassName = cn(
-        classNames.year_label,
-        isActivated && classNames.active_year_label,
-        isSelected && classNames.selected_year_label,
-        isDisabled && classNames.disabled_label
-      );
+      styles.useVariants({ isSelected, isDisabled, isActivated });
 
       return (
-        <View key={year} style={style.yearCell}>
-          {components.Year ? (
-            <Pressable
-              disabled={isDisabled}
-              onPress={() => onSelectYear(year)}
-              accessibilityRole="button"
-              accessibilityLabel={year.toString()}
-              style={style.year}
-            >
-              {components.Year({
-                number: year,
-                text: formatNumber(year, numerals),
-                isSelected,
-                isActivated,
-              })}
-            </Pressable>
-          ) : (
-            <Pressable
-              disabled={isDisabled}
-              onPress={() => onSelectYear(year)}
-              accessibilityRole="button"
-              accessibilityLabel={year.toString()}
-              style={containerStyle}
-              className={containerClassName}
-            >
-              <BodyText key={year} style={textStyle} className={textClassName}>
-                {formatNumber(year, numerals)}
-              </BodyText>
-            </Pressable>
-          )}
+        <View key={year} style={styles.yearCell(containerHeight)}>
+          <Pressable
+            disabled={isDisabled}
+            onPress={() => onSelectYear(year)}
+            accessibilityRole="button"
+            accessibilityLabel={year.toString()}
+            style={styles.year}
+          >
+            <BodyText key={year} style={styles.label}>
+              {formatNumber(year, numerals)}
+            </BodyText>
+          </Pressable>
         </View>
       );
     });
@@ -106,44 +57,65 @@ const Years = () => {
     currentDate,
     styles,
     mode,
-    classNames,
-    components?.Year,
     minDate,
     maxDate,
     numerals,
-    style.year,
-    style.yearCell,
     calendar,
   ]);
 
   return (
-    <View style={[style.container, styles.years]} testID="year-selector">
-      <View style={style.years}>{generateCells()}</View>
+    <View style={[styles.container, styles.years]} testID="year-selector">
+      <View style={styles.years}>{generateCells()}</View>
     </View>
   );
 };
 
-const createDefaultStyles = (containerHeight: number) =>
-  StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
+const styles = StyleSheet.create(theme => ({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  years: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  year: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 8,
+    borderRadius: theme.borderRadius.md,
+    variants: {
+      isActivated: {
+        true: {
+          backgroundColor: theme.color.surface.brand.default,
+        },
+      },
+      isDisabled: {
+        true: {
+          opacity: theme.opacity.disabled,
+        },
+      },
+      isSelected: {
+        true: {},
+      },
     },
-    years: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
+  },
+  yearCell: (containerHeight: number) => ({
+    width: `${99.9 / 3}%`,
+    height: containerHeight / 6,
+    padding: 2,
+  }),
+  label: {
+    variants: {
+      isActivated: {
+        true: {
+          color: theme.color.text.inverted,
+        },
+      },
     },
-    year: {
-      flex: 1,
-      margin: 2,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    yearCell: {
-      width: `${99.9 / 3}%`,
-      height: containerHeight / 6,
-    },
-  });
+  },
+}));
 
 export default Years;

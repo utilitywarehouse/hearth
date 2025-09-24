@@ -6,10 +6,10 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
+import { usePrevious } from '../../hooks/usePrevious';
 import { CalendarContext } from './Calendar.context';
 import Calendar from './components/calendar';
 import { CalendarActionKind, CalendarViews, CONTAINER_HEIGHT, WEEKDAYS_HEIGHT } from './enums';
-import { usePrevious } from './hooks/use-previous';
 import type {
   CalendarAction,
   DatePickerBaseProps,
@@ -65,7 +65,7 @@ const DateTimePicker = (
     timeZone,
     showOutsideDays = true,
     timePicker = false,
-    firstDayOfWeek,
+    firstDayOfWeek = 1,
     // startYear,
     // endYear,
     minDate,
@@ -86,9 +86,9 @@ const DateTimePicker = (
     className = '',
     classNames = {},
     styles = {},
-    navigationPosition,
+    navigationPosition = 'right',
     weekdaysFormat = 'min',
-    monthsFormat = 'full',
+    monthsFormat = 'short',
     monthCaptionFormat = 'full',
     multiRangeMode,
     hideHeader,

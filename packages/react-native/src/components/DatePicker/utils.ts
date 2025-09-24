@@ -54,7 +54,7 @@ export const getWeekdays = (locale: string, firstDayOfWeek: number): CalendarWee
     name: {
       full: name,
       short: weekdayShortNames[index] || '',
-      min: weekdayMinNames[index] || '',
+      min: weekdayMinNames[index][0] || '',
     },
   }));
 

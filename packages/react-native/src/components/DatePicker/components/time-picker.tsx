@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import { useCallback, useMemo } from 'react';
-import { ScrollView, StyleSheet, TextStyle, View, ViewStyle } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../../BodyText';
 import { useCalendarContext } from '../Calendar.context';
 import { CONTAINER_HEIGHT } from '../enums';
@@ -30,8 +31,6 @@ const TimePicker = () => {
     currentDate,
     date,
     onSelectDate,
-    styles,
-    classNames,
     timeZone,
     numerals = 'latn',
     use12Hours,
@@ -88,64 +87,32 @@ const TimePicker = () => {
     [date, currentDate, onSelectDate, timeZone, hour, hour12]
   );
 
-  const timePickerContainerStyle: ViewStyle = useMemo(
-    () => ({
-      ...defaultStyles.timePickerContainer,
-      flexDirection: 'row',
-    }),
-    []
-  );
-
-  const timePickerTextStyle: TextStyle = useMemo(
-    () => ({ ...defaultStyles.timeSeparator, ...styles?.time_label }),
-    [styles?.time_label]
-  );
-
   return (
     <ScrollView
       horizontal={true}
       scrollEnabled={false}
-      contentContainerStyle={defaultStyles.container}
+      contentContainerStyle={styles.container}
       testID="time-selector"
     >
-      <View style={timePickerContainerStyle}>
-        <View style={defaultStyles.wheelContainer}>
-          <Wheel
-            value={use12Hours ? hour12 : hour}
-            items={hours}
-            setValue={handleChangeHour}
-            styles={styles}
-            classNames={classNames}
-          />
+      <View style={styles.timePickerContainer}>
+        <View style={styles.wheelContainer}>
+          <Wheel value={use12Hours ? hour12 : hour} items={hours} setValue={handleChangeHour} />
         </View>
-        <BodyText style={timePickerTextStyle} className={classNames?.time_label}>
-          :
-        </BodyText>
-        <View style={defaultStyles.wheelContainer}>
-          <Wheel
-            value={minute}
-            items={minutes}
-            setValue={handleChangeMinute}
-            styles={styles}
-            classNames={classNames}
-          />
+        <BodyText style={styles.timeSeparator}>:</BodyText>
+        <View style={styles.wheelContainer}>
+          <Wheel value={minute} items={minutes} setValue={handleChangeMinute} />
         </View>
       </View>
       {use12Hours && period ? (
-        <View style={defaultStyles.periodContainer}>
-          <PeriodPicker
-            value={period}
-            setValue={handlePeriodChange}
-            styles={styles}
-            classNames={classNames}
-          />
+        <View style={styles.periodContainer}>
+          <PeriodPicker value={period} setValue={handlePeriodChange} />
         </View>
       ) : null}
     </ScrollView>
   );
 };
 
-const defaultStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
@@ -159,6 +126,7 @@ const defaultStyles = StyleSheet.create({
     justifyContent: 'center',
     width: CONTAINER_HEIGHT / 2,
     height: CONTAINER_HEIGHT / 2,
+    flexDirection: 'row',
   },
   timeSeparator: {
     marginHorizontal: 5,

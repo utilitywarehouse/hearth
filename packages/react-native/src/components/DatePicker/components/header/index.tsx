@@ -1,74 +1,62 @@
-import { memo, useMemo } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { isEqual } from '../../../../utils';
+import { memo } from 'react';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import NextButton from './next-button';
 import PrevButton from './prev-button';
 import Selectors from './selectors';
 import type { HeaderProps, NavigationProps } from './types';
 
-const createDefaultStyles = () =>
-  StyleSheet.create({
-    headerContainer: {
-      paddingVertical: 3,
-    },
-    container: {
-      padding: 5,
-      gap: 20,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-    },
-    navigation: {
-      flexDirection: 'row',
-    },
-  });
+const NavigationButtons = ({}: NavigationProps) => (
+  <View style={styles.navigation}>
+    <PrevButton />
+    <NextButton />
+  </View>
+);
 
-const NavigationButtons = ({ styles, classNames }: NavigationProps) => {
-  const style = useMemo(() => createDefaultStyles(), []);
-
-  return (
-    <View style={style.navigation}>
-      <PrevButton style={styles?.button_prev} imageStyle={styles?.button_prev_image} />
-      <NextButton style={styles?.button_next} imageStyle={styles?.button_next_image} />
+const Header = ({ navigationPosition = 'around' }: HeaderProps) => (
+  <View style={[styles.headerContainer]}>
+    <View style={styles.container}>
+      {navigationPosition === 'left' ? (
+        <>
+          <NavigationButtons />
+          <Selectors position="left" />
+        </>
+      ) : navigationPosition === 'right' ? (
+        <>
+          <Selectors position="right" />
+          <NavigationButtons />
+        </>
+      ) : (
+        <>
+          <PrevButton />
+          <Selectors position="around" />
+          <NextButton />
+        </>
+      )}
     </View>
-  );
-};
+  </View>
+);
 
-const Header = ({ navigationPosition = 'around', styles = {}, classNames = {} }: HeaderProps) => {
-  const style = useMemo(() => createDefaultStyles(), []);
-
-  return (
-    <View style={[style.headerContainer, styles?.header]} className={classNames?.header}>
-      <View style={style.container}>
-        {navigationPosition === 'left' ? (
-          <>
-            <NavigationButtons styles={styles} classNames={classNames} />
-            <Selectors position="left" />
-          </>
-        ) : navigationPosition === 'right' ? (
-          <>
-            <Selectors position="right" />
-            <NavigationButtons styles={styles} classNames={classNames} />
-          </>
-        ) : (
-          <>
-            <PrevButton style={styles?.button_prev} imageStyle={styles?.button_prev_image} />
-            <Selectors position="around" />
-            <NextButton style={styles?.button_next} imageStyle={styles?.button_next_image} />
-          </>
-        )}
-      </View>
-    </View>
-  );
-};
+const styles = StyleSheet.create(theme => ({
+  headerContainer: {
+    paddingVertical: 3,
+  },
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  navigation: {
+    flexDirection: 'row',
+    gap: theme.components.datePicker.header.controlGap,
+  },
+}));
 
 const customComparator = (prev: Readonly<HeaderProps>, next: Readonly<HeaderProps>) => {
   const areEqual =
     prev.PrevIcon === next.PrevIcon &&
     prev.NextIcon === next.NextIcon &&
-    prev.navigationPosition === next.navigationPosition &&
-    isEqual(prev.styles, next.styles) &&
-    isEqual(prev.classNames, next.classNames);
+    prev.navigationPosition === next.navigationPosition;
 
   return areEqual;
 };

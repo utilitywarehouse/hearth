@@ -1,91 +1,46 @@
-import { useMemo } from 'react';
-import { Pressable, StyleSheet, View } from 'react-native';
+import { Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../../BodyText';
 import { useCalendarContext } from '../Calendar.context';
 import { CONTAINER_HEIGHT } from '../enums';
-import { cn, getMonthsArray, getParsedDate, isMonthDisabled } from '../utils';
+import { getMonthsArray, getParsedDate, isMonthDisabled } from '../utils';
 
 const Months = () => {
   const {
     currentDate,
     onSelectMonth,
-    styles = {},
-    classNames = {},
-    components = {},
     containerHeight = CONTAINER_HEIGHT,
-    monthsFormat = 'full',
+    monthsFormat = 'short',
     minDate,
     maxDate,
   } = useCalendarContext();
 
-  const style = useMemo(() => createDefaultStyles(containerHeight), [containerHeight]);
-
   const { month } = getParsedDate(currentDate);
 
-  const containerStyle = StyleSheet.flatten([style.container, styles?.months]);
-
   return (
-    <View style={containerStyle} testID="month-selector">
-      <View style={style.months}>
+    <View style={styles.container} testID="month-selector">
+      <View style={styles.months}>
         {getMonthsArray().map((item, index) => {
           const isSelected = index === month;
-
           const isDisabled = isMonthDisabled(index, currentDate, {
             minDate,
             maxDate,
           });
-
-          const itemStyle = StyleSheet.flatten([
-            style.month,
-            styles.month,
-            isSelected && styles.selected_month,
-            isDisabled && styles.disabled,
-          ]);
-
-          const textStyle = StyleSheet.flatten([
-            styles.month_label,
-            isSelected && styles.selected_month_label,
-            isDisabled && styles.disabled_label,
-          ]);
-
-          const containerClassName = cn(
-            classNames.month,
-            isSelected && classNames.selected_month,
-            isDisabled && classNames.disabled
-          );
-
-          const textClassName = cn(
-            classNames.month_label,
-            isSelected && classNames.selected_month_label,
-            isDisabled && classNames.disabled_label
-          );
+          styles.useVariants({ isSelected, isDisabled });
 
           return (
-            <View key={index} style={style.monthCell}>
-              {components.Month ? (
-                <Pressable
-                  disabled={isDisabled}
-                  onPress={() => onSelectMonth(index)}
-                  accessibilityRole="button"
-                  accessibilityLabel={item.name.full}
-                  style={style.month}
-                >
-                  {components.Month({ ...item, isSelected })}
-                </Pressable>
-              ) : (
-                <Pressable
-                  disabled={isDisabled}
-                  onPress={() => onSelectMonth(index)}
-                  accessibilityRole="button"
-                  accessibilityLabel={item.name.full}
-                  style={itemStyle}
-                  className={containerClassName}
-                >
-                  <BodyText key={index} style={textStyle} className={textClassName}>
-                    {item.name[monthsFormat]}
-                  </BodyText>
-                </Pressable>
-              )}
+            <View key={index} style={styles.monthCell(containerHeight)}>
+              <Pressable
+                disabled={isDisabled}
+                onPress={() => onSelectMonth(index)}
+                accessibilityRole="button"
+                accessibilityLabel={item.name.full}
+                style={styles.item}
+              >
+                <BodyText key={index} style={styles.label}>
+                  {item.name[monthsFormat]}
+                </BodyText>
+              </Pressable>
             </View>
           );
         })}
@@ -94,27 +49,53 @@ const Months = () => {
   );
 };
 
-const createDefaultStyles = (containerHeight: number) =>
-  StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
+const styles = StyleSheet.create(theme => ({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  months: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  month: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  monthCell: (containerHeight: number) => ({
+    width: `${99.9 / 3}%`,
+    height: containerHeight / 6,
+    padding: 2,
+  }),
+  label: {
+    variants: {
+      isSelected: {
+        true: {
+          color: theme.color.text.inverted,
+        },
+      },
     },
-    months: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
+  },
+  item: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 8,
+    borderRadius: theme.borderRadius.md,
+    variants: {
+      isSelected: {
+        true: {
+          backgroundColor: theme.color.surface.brand.default,
+        },
+      },
+      isDisabled: {
+        true: {
+          opacity: theme.opacity.disabled,
+        },
+      },
     },
-    month: {
-      flex: 1,
-      margin: 2,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    monthCell: {
-      width: `${99.9 / 3}%`,
-      height: containerHeight / 6,
-    },
-  });
+  },
+}));
 
 export default Months;

@@ -1,23 +1,29 @@
+import { createPressable } from '@gluestack-ui/pressable';
 import React, { memo, useMemo } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, PressableProps, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { isEqual } from '../../../utils';
 import { BodyText } from '../../BodyText';
 import { CONTAINER_HEIGHT, WEEKDAYS_HEIGHT } from '../enums';
-import { CalendarComponents, CalendarDay, ClassNames, DateType, Styles } from '../types';
+import { CalendarDay, DateType } from '../types';
 
 interface Props {
   day: CalendarDay;
   onSelectDate: (date: DateType) => void;
   containerHeight?: number;
   weekdaysHeight?: number;
-  styles?: Styles;
-  classNames?: ClassNames;
-  components?: CalendarComponents;
 }
 
 export const EmptyDay = React.memo(() => {
   return <View style={styles.dayWrapper} />;
+});
+
+const DayPressable = createPressable({
+  Root: (props: PressableProps & { states?: { active?: boolean; disabled?: boolean } }) => {
+    const { states } = props;
+    styles.useVariants({ isActive: states?.active });
+    return <Pressable {...props} style={[styles.dayContainer]} />;
+  },
 });
 
 const Day = ({
@@ -74,15 +80,15 @@ const Day = ({
       <View style={[styles.dayCell(containerHeight, weekdaysHeight)]}>
         {RangeFill}
         <View style={[styles.indicator]} />
-        <Pressable
+        <DayPressable
           disabled={isDisabled}
           onPress={() => onSelectDate(date)}
           accessibilityRole="button"
           accessibilityLabel={text}
-          style={[styles.dayContainer]}
+          // style={[styles.dayContainer]}
         >
           <BodyText style={[styles.text]}>{text}</BodyText>
-        </Pressable>
+        </DayPressable>
       </View>
     </View>
   );
@@ -130,8 +136,17 @@ const styles = StyleSheet.create(theme => ({
   },
   dayContainer: {
     flex: 1,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: theme.components.datePicker.calendar.item.borderRadius,
+    variants: {
+      isActive: {
+        true: {
+          backgroundColor: theme.color.interactive.functional.surface.subtle.active,
+        },
+      },
+    },
   },
   text: {
     color: theme.color.text.primary,
@@ -176,6 +191,7 @@ const styles = StyleSheet.create(theme => ({
     borderRadius: theme.components.datePicker.calendar.item.borderRadius,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: theme.color.background.secondary,
     variants: {
       isSelected: {
         true: {
@@ -230,10 +246,7 @@ const customComparator = (prev: Readonly<Props>, next: Readonly<Props>) => {
   const areEqual =
     isEqual(prev.day, next.day) &&
     prev.onSelectDate === next.onSelectDate &&
-    prev.containerHeight === next.containerHeight &&
-    isEqual(prev.styles, next.styles) &&
-    isEqual(prev.classNames, next.classNames) &&
-    isEqual(prev.components, next.components);
+    prev.containerHeight === next.containerHeight;
 
   return areEqual;
 };

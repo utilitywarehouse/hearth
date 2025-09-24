@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import { useMemo } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable } from 'react-native';
 import { BodyText } from '../../../BodyText';
 import { useCalendarContext } from '../../Calendar.context';
 import { formatNumber, getParsedDate } from '../../utils';
@@ -11,8 +11,6 @@ export const TimeButton = () => {
     date,
     calendarView,
     setCalendarView,
-    styles,
-    classNames,
     numerals = 'latn',
     use12Hours,
   } = useCalendarContext();
@@ -44,11 +42,7 @@ export const TimeButton = () => {
       accessibilityRole="button"
       accessibilityLabel={dayjs(date || currentDate).format('HH:mm')}
     >
-      <View style={styles?.time_selector} className={classNames?.time_selector}>
-        <BodyText style={styles?.time_selector_label} className={classNames?.time_selector_label}>
-          {labelText}
-        </BodyText>
-      </View>
+      <BodyText weight="semibold">{labelText}</BodyText>
     </Pressable>
   );
 };

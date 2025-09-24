@@ -1,5 +1,6 @@
-import { ReactNode, useMemo } from 'react';
-import { View, ViewStyle } from 'react-native';
+import { ReactNode } from 'react';
+import { View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { useCalendarContext } from '../Calendar.context';
 import type { CalendarViews } from '../enums';
 import Days from './days';
@@ -16,32 +17,22 @@ const CalendarView: Record<CalendarViews, ReactNode> = {
 };
 
 const Calendar = () => {
-  const {
-    hideHeader,
-    calendarView,
-    style = {},
-    className = '',
-    styles = {},
-    classNames = {},
-    containerHeight,
-    navigationPosition,
-  } = useCalendarContext();
-
-  const containerStyle: ViewStyle = useMemo(
-    () => ({
-      height: containerHeight,
-    }),
-    [containerHeight]
-  );
+  const { hideHeader, calendarView, containerHeight, navigationPosition } = useCalendarContext();
 
   return (
-    <View style={[style, { backgroundColor: 'white' }]} className={className} testID="calendar">
-      {!hideHeader ? (
-        <Header navigationPosition={navigationPosition} styles={styles} classNames={classNames} />
-      ) : null}
-      <View style={containerStyle}>{CalendarView[calendarView]}</View>
+    <View style={[styles.container]} testID="calendar">
+      {!hideHeader ? <Header navigationPosition={navigationPosition} /> : null}
+      <View style={styles.containerInner(containerHeight)}>{CalendarView[calendarView]}</View>
     </View>
   );
 };
+
+const styles = StyleSheet.create(theme => ({
+  container: {
+    backgroundColor: theme.color.background.secondary,
+    gap: theme.components.datePicker.calendar.gap,
+  },
+  containerInner: (height?: number) => ({ height }),
+}));
 
 export default Calendar;

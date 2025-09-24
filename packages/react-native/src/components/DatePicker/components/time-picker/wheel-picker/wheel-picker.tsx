@@ -1,20 +1,20 @@
-import React, { useEffect, useMemo, useRef, useState, memo } from 'react';
+import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
 import {
+  Animated,
+  FlatList,
+  FlatListProps,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  Platform,
   StyleProp,
   TextStyle,
-  NativeSyntheticEvent,
-  NativeScrollEvent,
-  Animated,
-  ViewStyle,
   View,
   ViewProps,
-  FlatListProps,
-  FlatList,
-  Platform,
+  ViewStyle,
 } from 'react-native';
-import styles from './wheel-picker.style';
-import WheelPickerItem from './wheel-picker-item';
 import { PickerOption } from '../../../types';
+import WheelPickerItem from './wheel-picker-item';
+import styles from './wheel-picker.style';
 
 interface Props {
   value: number | string;
@@ -33,7 +33,7 @@ interface Props {
   opacityFunction?: (x: number) => number;
   visibleRest?: number;
   decelerationRate?: 'normal' | 'fast' | number;
-  flatListProps?: Omit<FlatListProps<string | null>, 'data' | 'renderItem'>;
+  flatListProps?: Omit<FlatListProps<PickerOption | null>, 'data' | 'renderItem'>;
 }
 
 const WheelPicker: React.FC<Props> = ({
@@ -56,9 +56,9 @@ const WheelPicker: React.FC<Props> = ({
   flatListProps = {},
 }) => {
   const momentumStarted = useRef(false);
-  const selectedIndex = options.findIndex((item) => item.value === value);
+  const selectedIndex = options.findIndex(item => item.value === value);
 
-  const flatListRef = useRef<FlatList>(null);
+  const flatListRef = useRef<FlatList<PickerOption | null>>(null);
   const [scrollY] = useState(new Animated.Value(selectedIndex * itemHeight));
 
   const containerHeight = (1 + visibleRest * 2) * itemHeight;
@@ -102,16 +102,12 @@ const WheelPicker: React.FC<Props> = ({
     momentumStarted.current = true;
   };
 
-  const handleMomentumScrollEnd = (
-    event: NativeSyntheticEvent<NativeScrollEvent>
-  ) => {
+  const handleMomentumScrollEnd = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     momentumStarted.current = false;
     handleScrollEnd(event);
   };
 
-  const handleScrollEndDrag = (
-    event: NativeSyntheticEvent<NativeScrollEvent>
-  ) => {
+  const handleScrollEndDrag = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     // Capture the offset value immediately
     const offsetY = event.nativeEvent.contentOffset?.y;
 
@@ -134,9 +130,7 @@ const WheelPicker: React.FC<Props> = ({
   useEffect(() => {
     if (selectedIndex < 0 || selectedIndex >= options.length) {
       throw new Error(
-        `Selected index ${selectedIndex} is out of bounds [0, ${
-          options.length - 1
-        }]`
+        `Selected index ${selectedIndex} is out of bounds [0, ${options.length - 1}]`
       );
     }
   }, [selectedIndex, options]);
@@ -168,16 +162,15 @@ const WheelPicker: React.FC<Props> = ({
         ]}
         className={selectedIndicatorClassName}
       />
-      <Animated.FlatList
+      <Animated.FlatList<PickerOption | null>
         {...flatListProps}
         ref={flatListRef}
         nestedScrollEnabled
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
-          { useNativeDriver: true }
-        )}
+        onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], {
+          useNativeDriver: true,
+        })}
         onScrollEndDrag={handleScrollEndDrag}
         onMomentumScrollBegin={handleMomentumScrollBegin}
         onMomentumScrollEnd={handleMomentumScrollEnd}
