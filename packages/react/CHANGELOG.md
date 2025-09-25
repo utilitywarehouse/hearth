@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.10.2
+
+### Patch Changes
+
+- [#509](https://github.com/utilitywarehouse/hearth/pull/509) [`f4236b0`](https://github.com/utilitywarehouse/hearth/commit/f4236b02769c6e1b4277e8c23b74537125728d23) Thanks [@robphoenix](https://github.com/robphoenix)! - Revert component displayName change
+
 ## 0.10.1
 
 ### Patch Changes
