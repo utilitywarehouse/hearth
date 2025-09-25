@@ -7,8 +7,8 @@ import { Accordion as RadixAccordion } from 'radix-ui';
 import { AccordionTrigger } from './AccordionTrigger';
 import { AccordionHeader } from './AccordionHeader';
 
-const componentName = 'AccordionItem';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'AccordionItem';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionItemElement = ElementRef<'div'>;
 
@@ -33,4 +33,4 @@ export const AccordionItem = React.forwardRef<AccordionItemElement, AccordionIte
   }
 );
 
-AccordionItem.displayName = componentName;
+AccordionItem.displayName = displayName;
