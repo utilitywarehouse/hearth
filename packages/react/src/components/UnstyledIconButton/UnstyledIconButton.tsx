@@ -7,7 +7,7 @@ import { unstyledIconButtonPropDefs } from './UnstyledIconButton.props';
 import type { UnstyledIconButtonProps } from './UnstyledIconButton.props';
 import { extractProps } from '../../helpers/extract-props';
 import { Spinner } from '../Spinner/Spinner';
-import { getIconButtonSpinnerSize } from '../../helpers/translate-responsive-button-size';
+import { getIconButtonSpinnerSize } from '../../helpers/get-icon-button-spinner-size';
 
 const COMPONENT_NAME = 'UnstyledIconButton';
 const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);

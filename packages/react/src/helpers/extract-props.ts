@@ -70,9 +70,7 @@ export function extractProps<
       style = mergeStyles(style, propStyle);
     }
   }
-  console.log({ className, style });
   extractedProps.className = clsx(className, props.className);
   extractedProps.style = mergeStyles(style, props.style);
-  console.log({ extractedProps });
   return extractedProps;
 }

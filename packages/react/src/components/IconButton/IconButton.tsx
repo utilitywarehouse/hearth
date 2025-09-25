@@ -7,7 +7,7 @@ import type { ButtonBaseElement } from '../ButtonBase/ButtonBase';
 import { extractProps } from '../../helpers/extract-props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Spinner } from '../Spinner/Spinner';
-import { getIconButtonSpinnerSize } from '../../helpers/translate-responsive-button-size';
+import { getIconButtonSpinnerSize } from '../../helpers/get-icon-button-spinner-size';
 
 const COMPONENT_NAME = 'IconButton';
 const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
