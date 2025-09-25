@@ -5,8 +5,8 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Accordion as RadixAccordion } from 'radix-ui';
 import { AccordionHeaderProps } from './AccordionHeader.props';
 
-const componentName = 'AccordionHeader';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'AccordionHeader';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionHeaderElement = ElementRef<'h3'>;
 
@@ -25,4 +25,4 @@ export const AccordionHeader = React.forwardRef<AccordionHeaderElement, Accordio
   }
 );
 
-AccordionHeader.displayName = componentName;
+AccordionHeader.displayName = displayName;

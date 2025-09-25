@@ -6,8 +6,8 @@ import { AccordionContentProps } from './AccordionContent.props';
 import { Accordion as RadixAccordion } from 'radix-ui';
 import { BodyText } from '../BodyText/BodyText';
 
-const componentName = 'AccordionContent';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'AccordionContent';
+const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionContentElement = ElementRef<'div'>;
 
@@ -23,4 +23,4 @@ export const AccordionContent = React.forwardRef<AccordionContentElement, Accord
   }
 );
 
-AccordionContent.displayName = componentName;
+AccordionContent.displayName = displayName;
