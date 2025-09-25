@@ -129,6 +129,10 @@ export const getClassNameStyles = ({
 }: GetClassNameStylesOptions) => {
   const responsivePrefix = isResponsive ? '-r' : '';
 
+  if (value === undefined && defaultValue === undefined) {
+    return;
+  }
+
   // If no explicit value is provided but a default exists, emit the default token class
   if (value === undefined && defaultValue) {
     return { className: `${GLOBAL_PREFIX}${responsivePrefix}-${prefix}-${defaultValue}` };
@@ -213,5 +217,4 @@ export const getClassNameStyles = ({
     );
     return { className: classes.join(' '), style: styles };
   }
-  return { className: '', styles: {} };
 };

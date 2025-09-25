@@ -18,8 +18,6 @@ import { positionPropDefs } from '../../props/position.props';
 import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
-import { getClassNameStyles } from '../../helpers/get-classname-styles';
-import { spaceTokens } from '../../tokens/space';
 
 const COMPONENT_NAME = 'Box';
 const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
@@ -47,22 +45,6 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
     textAlignPropDefs,
     textTransformPropDefs
   );
-
-  const res = getClassNameStyles({
-    value: undefined,
-    defaultValue: 'md',
-    prefix: 'size',
-    tokens: ['sm', 'md', 'lg'],
-    isResponsive: false,
-  });
-  console.log({ res });
-
-  // const res = getClassNameStyles({
-  //   value: 'red-500',
-  //   prefix: 'color',
-  //   tokens: ['red-500', 'blue-500'],
-  //   isResponsive: false,
-  // });
 
   const Component = asChild ? Slot.Root : Tag;
 
