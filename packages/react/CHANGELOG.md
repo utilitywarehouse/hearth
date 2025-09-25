@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react
 
+## 0.10.1
+
+### Patch Changes
+
+- [#506](https://github.com/utilitywarehouse/hearth/pull/506) [`ec0c084`](https://github.com/utilitywarehouse/hearth/commit/ec0c0846fee62fcb05e076b99b39b43ed7843550) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix Button styles
+
+- [#506](https://github.com/utilitywarehouse/hearth/pull/506) [`ec0c084`](https://github.com/utilitywarehouse/hearth/commit/ec0c0846fee62fcb05e076b99b39b43ed7843550) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `Accordion` styles
+
 ## 0.10.0
 
 ### Minor Changes

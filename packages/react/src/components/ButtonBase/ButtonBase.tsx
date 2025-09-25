@@ -7,7 +7,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 
-const COMPONENT_NAME = 'Button';
+const COMPONENT_NAME = 'ButtonBase';
 const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
 
 export type ButtonBaseElement = ElementRef<'button'>;
