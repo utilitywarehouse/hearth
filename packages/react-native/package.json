@@ -35,9 +35,7 @@
     "@gluestack-ui/spinner": "0.1.14",
     "@gluestack-ui/switch": "0.1.22",
     "@gluestack-ui/textarea": "0.1.23",
-    "clsx": "^2.1.1",
-    "dayjs": "^1.11.13",
-    "tailwind-merge": "^3.0.1"
+    "dayjs": "^1.11.13"
   },
   "devDependencies": {
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",

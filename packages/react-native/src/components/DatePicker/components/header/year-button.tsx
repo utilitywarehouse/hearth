@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import { memo } from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { Pressable } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../../../BodyText';
 import { useCalendarContext } from '../../Calendar.context';
 import { formatNumber, getDateYear, getYearRange } from '../../utils';
@@ -12,10 +13,7 @@ const YearButton = () => {
     setCalendarView,
     currentYear,
     onChangeYear,
-    styles,
-    classNames,
     disableYearPicker,
-    calendar = 'gregory',
     numerals = 'latn',
   } = useCalendarContext();
 
@@ -30,6 +28,7 @@ const YearButton = () => {
       testID="btn-year"
       accessibilityRole="button"
       accessibilityLabel={dayjs(currentDate).format('YYYY')}
+      style={[styles.container]}
     >
       <BodyText weight="semibold">
         {calendarView === 'year'
@@ -40,11 +39,11 @@ const YearButton = () => {
   );
 };
 
-export default memo(YearButton);
-
-const defaultStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
   },
 });
+
+export default memo(YearButton);

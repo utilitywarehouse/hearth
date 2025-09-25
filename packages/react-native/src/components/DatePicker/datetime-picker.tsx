@@ -19,14 +19,7 @@ import type {
   RangeChange,
   SingleChange,
 } from './types';
-import {
-  areDatesOnSameDay,
-  dateToUnix,
-  getEndOfDay,
-  getStartOfDay,
-  removeTime,
-  useDeepCompareMemo,
-} from './utils';
+import { areDatesOnSameDay, dateToUnix, getEndOfDay, getStartOfDay, removeTime } from './utils';
 
 dayjs.extend(localeData);
 dayjs.extend(relativeTime);
@@ -82,10 +75,6 @@ const DateTimePicker = (
     initialView = 'day',
     containerHeight = CONTAINER_HEIGHT,
     weekdaysHeight = WEEKDAYS_HEIGHT,
-    style = {},
-    className = '',
-    classNames = {},
-    styles = {},
     navigationPosition = 'right',
     weekdaysFormat = 'min',
     monthsFormat = 'short',
@@ -549,17 +538,6 @@ const DateTimePicker = (
     }
   }, [year]);
 
-  const memoizedStyles = useDeepCompareMemo({ ...styles }, [styles]);
-
-  const memoizedClassNames = useDeepCompareMemo({ ...classNames }, [classNames]);
-
-  const memoizedComponents = useMemo(
-    () => ({
-      ...components,
-    }),
-    [components]
-  );
-
   const baseContextValue = useMemo(
     () => ({
       mode,
@@ -587,8 +565,6 @@ const DateTimePicker = (
       hideWeekdays,
       disableMonthPicker,
       disableYearPicker,
-      style,
-      className,
       use12Hours,
     }),
     [
@@ -617,8 +593,6 @@ const DateTimePicker = (
       hideWeekdays,
       disableMonthPicker,
       disableYearPicker,
-      style,
-      className,
       use12Hours,
     ]
   );
@@ -635,23 +609,13 @@ const DateTimePicker = (
     [setCalendarView, onSelectDate, onSelectMonth, onSelectYear, onChangeMonth, onChangeYear]
   );
 
-  const styleContextValue = useMemo(
-    () => ({
-      classNames: memoizedClassNames,
-      styles: memoizedStyles,
-    }),
-    [memoizedClassNames, memoizedStyles]
-  );
-
   const memoizedValue = useMemo(
     () => ({
       ...state,
       ...baseContextValue,
       ...handlerContextValue,
-      ...styleContextValue,
-      components: memoizedComponents,
     }),
-    [state, baseContextValue, handlerContextValue, styleContextValue, memoizedComponents]
+    [state, baseContextValue, handlerContextValue]
   );
 
   return (

@@ -1,13 +1,10 @@
 import React from 'react';
-import { Animated, StyleProp, TextStyle, ViewStyle } from 'react-native';
-import { isEqual } from '../../../../../utils';
+import { Animated, StyleProp, ViewStyle } from 'react-native';
 import { BodyText } from '../../../../BodyText';
 import { PickerOption } from '../../../types';
 import styles from './wheel-picker.style';
 
 interface ItemProps {
-  textStyle: StyleProp<TextStyle>;
-  textClassName: string;
   style: StyleProp<ViewStyle>;
   option: PickerOption | null;
   height: number;
@@ -20,8 +17,6 @@ interface ItemProps {
 }
 
 const WheelPickerItem: React.FC<ItemProps> = ({
-  textStyle,
-  textClassName,
   style,
   height,
   option,
@@ -129,18 +124,9 @@ const WheelPickerItem: React.FC<ItemProps> = ({
         },
       ]}
     >
-      <BodyText style={textStyle} className={textClassName}>
-        {option?.text}
-      </BodyText>
+      <BodyText>{option?.text}</BodyText>
     </Animated.View>
   );
 };
 
-const customComparator = (prevProps: Readonly<ItemProps>, nextProps: Readonly<ItemProps>) => {
-  return (
-    prevProps.textClassName === nextProps.textClassName &&
-    isEqual(prevProps.textStyle, nextProps.textStyle)
-  );
-};
-
-export default React.memo(WheelPickerItem, customComparator);
+export default React.memo(WheelPickerItem);

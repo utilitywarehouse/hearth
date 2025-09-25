@@ -7,7 +7,6 @@ import {
   NativeSyntheticEvent,
   Platform,
   StyleProp,
-  TextStyle,
   View,
   ViewProps,
   ViewStyle,
@@ -21,10 +20,7 @@ interface Props {
   options: PickerOption[];
   onChange: (index: number | string) => void;
   selectedIndicatorStyle?: StyleProp<ViewStyle>;
-  itemTextStyle?: TextStyle;
-  itemTextClassName?: string;
   itemStyle?: ViewStyle;
-  selectedIndicatorClassName?: string;
   itemHeight?: number;
   containerStyle?: ViewStyle;
   containerProps?: Omit<ViewProps, 'style'>;
@@ -43,9 +39,6 @@ const WheelPicker: React.FC<Props> = ({
   selectedIndicatorStyle = {},
   containerStyle = {},
   itemStyle = {},
-  itemTextStyle = {},
-  selectedIndicatorClassName = '',
-  itemTextClassName = '',
   itemHeight = 40,
   scaleFunction = (x: number) => 1.0 ** x,
   rotationFunction = (x: number) => 1 - Math.pow(1 / 2, x),
@@ -160,7 +153,6 @@ const WheelPicker: React.FC<Props> = ({
             height: itemHeight,
           },
         ]}
-        className={selectedIndicatorClassName}
       />
       <Animated.FlatList<PickerOption | null>
         {...flatListProps}
@@ -192,8 +184,6 @@ const WheelPicker: React.FC<Props> = ({
             index={index}
             option={option}
             style={itemStyle}
-            textStyle={itemTextStyle}
-            textClassName={itemTextClassName}
             height={itemHeight}
             currentScrollIndex={currentScrollIndex}
             scaleFunction={scaleFunction}

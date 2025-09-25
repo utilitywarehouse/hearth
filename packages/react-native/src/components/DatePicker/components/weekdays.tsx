@@ -3,14 +3,12 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../../BodyText';
 import { WEEKDAYS_HEIGHT } from '../enums';
-import { CalendarComponents, ClassNames, Styles, WeekdayFormat } from '../types';
+import { CalendarComponents, WeekdayFormat } from '../types';
 import { getWeekdays } from '../utils';
 
 type WeekdaysProps = {
   locale: string;
   firstDayOfWeek: number;
-  styles?: Styles;
-  classNames?: ClassNames;
   weekdaysFormat?: WeekdayFormat;
   weekdaysHeight?: number;
   components?: CalendarComponents;

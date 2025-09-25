@@ -1,28 +1,21 @@
 import { memo, useMemo, useRef } from 'react';
-import { Animated, PanResponder, Platform, StyleSheet, View } from 'react-native';
+import { Animated, PanResponder, Platform, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { isEqual } from '../../../../utils';
 import { BodyText } from '../../../BodyText';
 import { CONTAINER_HEIGHT } from '../../enums';
-import { ClassNames, PickerOption, Styles } from '../../types';
+import { PickerOption } from '../../types';
 import { sin } from './animated-math';
 
 interface WheelProps {
   value: number | string;
   setValue?: (value: any) => void;
   items: PickerOption[];
-  styles?: Styles;
-  classNames?: ClassNames;
 }
 
 const ITEM_HEIGHT = 44;
 
-const WheelWeb = ({
-  value,
-  setValue = () => {},
-  items,
-  styles = {},
-  classNames = {},
-}: WheelProps) => {
+const WheelWeb = ({ value, setValue = () => {}, items }: WheelProps) => {
   const displayCount = 5;
   const translateY = useRef(new Animated.Value(0)).current;
   const renderCount = displayCount * 2 < items.length ? displayCount * 8 : displayCount * 2 - 1;
@@ -110,17 +103,15 @@ const WheelWeb = ({
   }, [displayValues, radius, value, displayCount, translateY]);
 
   return (
-    <View style={[defaultStyles.container]} {...panResponder.panHandlers}>
+    <View style={[styles.container]} {...panResponder.panHandlers}>
       <View
         style={[
-          styles.time_selected_indicator,
-          defaultStyles.selectedIndicator,
+          styles.selectedIndicator,
           {
             transform: [{ translateY: -ITEM_HEIGHT / 2 }],
             height: ITEM_HEIGHT,
           },
         ]}
-        className={classNames.time_selected_indicator}
       />
       {displayValues?.map((displayValue, index) => {
         const animatedAngle = animatedAngles[index];
@@ -148,9 +139,7 @@ const WheelWeb = ({
               opacity: displayValue?.value !== value ? 0.3 : 1,
             }}
           >
-            <BodyText style={styles?.time_label} className={classNames?.time_label}>
-              {displayValue?.text}
-            </BodyText>
+            <BodyText>{displayValue?.text}</BodyText>
           </Animated.View>
         );
       })}
@@ -158,7 +147,7 @@ const WheelWeb = ({
   );
 };
 
-const defaultStyles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     minWidth: 30,
     overflow: 'hidden',
@@ -172,10 +161,6 @@ const defaultStyles = StyleSheet.create({
       },
     }),
   },
-  contentContainer: {
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
   selectedIndicator: {
     position: 'absolute',
     width: '100%',
@@ -185,11 +170,7 @@ const defaultStyles = StyleSheet.create({
 
 const customComparator = (prev: Readonly<WheelProps>, next: Readonly<WheelProps>) => {
   const areEqual =
-    prev.value === next.value &&
-    prev.setValue === next.setValue &&
-    isEqual(prev.styles, next.styles) &&
-    isEqual(prev.classNames, next.classNames) &&
-    isEqual(prev.items, next.items);
+    prev.value === next.value && prev.setValue === next.setValue && isEqual(prev.items, next.items);
 
   return areEqual;
 };

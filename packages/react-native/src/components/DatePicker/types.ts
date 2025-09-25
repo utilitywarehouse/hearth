@@ -1,7 +1,6 @@
 import type { Dayjs } from 'dayjs';
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 import type { CalendarActionKind, CalendarViews } from './enums';
-import { CalenderFlag, DayFlag, MonthState, SelectionState, UI, YearState } from './ui';
 
 export type DateType = string | number | Dayjs | Date | null | undefined;
 
@@ -85,16 +84,7 @@ export type MultiChange = (params: {
   change: 'added' | 'removed' | 'updated';
 }) => void;
 
-export type ClassNames = Partial<{
-  [key in UI | SelectionState | DayFlag | MonthState | YearState | CalenderFlag]: string;
-}>;
-
-export type Styles = Partial<{
-  [key in UI | SelectionState | DayFlag | MonthState | YearState | CalenderFlag]:
-    | ViewStyle
-    | TextStyle
-    | ImageStyle;
-}>;
+export type Styles = Partial<ViewStyle | TextStyle | ImageStyle>;
 
 export type CalendarComponents = Partial<{
   /** The component containing the day in the days grid */
@@ -138,9 +128,7 @@ export interface DatePickerBaseProps {
   containerHeight?: number;
   weekdaysHeight?: number;
   style?: ViewStyle;
-  className?: string;
   styles?: Styles;
-  classNames?: ClassNames;
   navigationPosition?: NavigationPosition;
   weekdaysFormat?: WeekdayFormat;
   monthsFormat?: MonthFormat;
@@ -158,19 +146,7 @@ export interface DatePickerBaseProps {
   onYearChange?: (year: number) => void;
 }
 
-export type Numerals =
-  | 'latn'
-  | 'arab'
-  | 'arabext'
-  | 'deva'
-  | 'beng'
-  | 'guru'
-  | 'gujr'
-  | 'orya'
-  | 'tamldec'
-  | 'telu'
-  | 'knda'
-  | 'mlym';
+export type Numerals = 'latn';
 
 export type PickerOption = {
   value: number | string;

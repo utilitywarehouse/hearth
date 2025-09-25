@@ -1,13 +1,10 @@
 import { memo } from 'react';
-import { isEqual } from '../../../../utils';
-import { ClassNames, PickerOption, Styles } from '../../types';
+import { PickerOption } from '../../types';
 import WheelPicker from './wheel-picker';
 
 interface PeriodProps {
   value: string;
   setValue?: (value: any) => void;
-  styles?: Styles;
-  classNames?: ClassNames;
 }
 
 const options: PickerOption[] = [
@@ -15,17 +12,13 @@ const options: PickerOption[] = [
   { value: 'PM', text: 'PM' },
 ];
 
-const PeriodNative = ({ value, setValue = () => {}, styles, classNames }: PeriodProps) => {
+const PeriodNative = ({ value, setValue = () => {} }: PeriodProps) => {
   return (
     <WheelPicker
       value={value}
       options={options}
       onChange={setValue}
       //containerStyle={defaultStyles.container}
-      itemTextStyle={styles?.time_label}
-      itemTextClassName={classNames?.time_label}
-      selectedIndicatorClassName={classNames?.time_selected_indicator}
-      selectedIndicatorStyle={styles?.time_selected_indicator}
       itemHeight={44}
       decelerationRate="fast"
     />
@@ -33,11 +26,7 @@ const PeriodNative = ({ value, setValue = () => {}, styles, classNames }: Period
 };
 
 const customComparator = (prev: Readonly<PeriodProps>, next: Readonly<PeriodProps>) => {
-  const areEqual =
-    prev.value === next.value &&
-    prev.setValue === next.setValue &&
-    isEqual(prev.styles, next.styles) &&
-    isEqual(prev.classNames, next.classNames);
+  const areEqual = prev.value === next.value && prev.setValue === next.setValue;
 
   return areEqual;
 };

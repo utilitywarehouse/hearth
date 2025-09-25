@@ -1,7 +1,5 @@
-import { clsx, type ClassValue } from 'clsx';
 import dayjs from 'dayjs';
 import { useRef } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { isEqual } from '../../utils';
 import { numeralSystems } from './numerals';
 import type { CalendarDay, CalendarMonth, CalendarWeek, DateType, Numerals } from './types';
@@ -500,10 +498,6 @@ const generateCalendarDay = (
     isEndOfWeek: date.day() === (firstDayOfWeek + 6) % 7,
   };
 };
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
 
 /**
  * Deep compare memo

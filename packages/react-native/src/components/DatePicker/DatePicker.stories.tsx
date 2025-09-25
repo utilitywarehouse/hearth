@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
-import DateTimePicker, { DateType, useDefaultStyles } from '.';
+import DateTimePicker, { DateType } from '.';
 
 const meta = {
   title: 'Stories / DatePicker',
@@ -20,16 +20,10 @@ export const Playground: Story = {
     mode: 'single',
   },
   render: () => {
-    const defaultStyles = useDefaultStyles();
     const [selected, setSelected] = useState<DateType>();
 
     return (
-      <DateTimePicker
-        mode="single"
-        date={selected}
-        onChange={({ date }) => setSelected(date)}
-        styles={defaultStyles}
-      />
+      <DateTimePicker mode="single" date={selected} onChange={({ date }) => setSelected(date)} />
     );
   },
 };
@@ -49,7 +43,6 @@ export const Range: Story = {
         startDate={range.startDate}
         endDate={range.endDate}
         onChange={params => setRange(params)}
-        styles={useDefaultStyles()}
       />
     );
   },

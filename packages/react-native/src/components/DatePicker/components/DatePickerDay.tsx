@@ -140,6 +140,14 @@ const styles = StyleSheet.create(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: theme.components.datePicker.calendar.item.borderRadius,
+    _web: {
+      '_focus-visible': {
+        ...theme.helpers.focusVisible,
+      },
+      _active: {
+        backgroundColor: theme.color.interactive.functional.surface.subtle.active,
+      },
+    },
     variants: {
       isActive: {
         true: {
