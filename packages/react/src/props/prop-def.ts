@@ -1,3 +1,20 @@
+/**
+ * Definition describing how a prop should be converted into utility classes and/or CSS variables.
+ *
+ * Generic
+ * - `T`: Token value type for the prop (defaults to `string`).
+ *
+ * Example
+ * ```ts
+ * const colorProp: PropDef<string> = {
+ *   className: 'color',
+ *   responsive: false,
+ *   tokens: ['grey-100', 'grey-200', 'blue-500'],
+ *   singleClassNameTokens: true,
+ *   transformValue: token => `var(--h-color-${token})`,
+ * };
+ * ```
+ */
 export type PropDef<T = string> = {
   /**
    * CSS class prefix to use.
