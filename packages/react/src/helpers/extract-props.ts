@@ -14,6 +14,8 @@ export function extractProps<
   let className: string | undefined;
   let style: ReturnType<typeof mergeStyles>;
 
+  // console.log({ allPropDefs });
+
   for (const key in allPropDefs) {
     const value = extractedProps[key];
     delete extractedProps[key];
@@ -30,6 +32,18 @@ export function extractProps<
       isSingleClassNameTokens,
       transformValue,
     });
+    // console.log('----------');
+    // console.log({
+    //   value,
+    //   prefix,
+    //   defaultValue: allPropDefs[key]?.default,
+    //   tokens,
+    //   isResponsive: Boolean(allPropDefs[key]?.responsive),
+    //   isSingleClassNameTokens,
+    //   transformValue,
+    // });
+    // console.log({ propClassName, propStyle });
+    // console.log('----------');
     className = clsx(className, propClassName);
     style = mergeStyles(style, propStyle);
   }

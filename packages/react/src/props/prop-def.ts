@@ -1,13 +1,32 @@
 export type PropDef<T = string> = {
-  tokens?: ReadonlyArray<T>;
+  /**
+   * CSS class prefix to use.
+   */
   className: string;
-  default?: string | number;
+  /**
+   * Whether responsive props are supported.
+   */
   responsive: boolean;
-  // For when we have a set of options that are too big to create CSS classes for every option.
-  //
-  // ie Colours: we can't reasonably create classes for every colour and every colour property, especially when we know many won't be used.
-  // In this case, we will have a single colour class, and set the colour using a custom property in the style attribute.
+  /**
+   * Any token sets that can be used to create styles.
+   */
+  tokens?: ReadonlyArray<T>;
+  /**
+   * A default value if needed.
+   */
+  default?: string | number;
+  /**
+   * When we have a set of options that are too big to create CSS classes for every option.
+   * For example; colours. We can't reasonably create classes for every colour and every colour property,
+   * especially when we know many won't be used. In this case, we will have a single colour class,
+   * and set the colour using a custom property in the style attribute.
+   *
+   * If true and `value` is a string token, emit a single class and provide the value via CSS var
+   * after applying `transformValue`.
+   */
   singleClassNameTokens?: boolean;
-  // Currently only used when singleClassNameTokens is true
+  /**
+   * Transform applied to string token values when `singleClassNameTokens` is true.
+   */
   transformValue?: (value: string) => string;
 };

@@ -80,7 +80,7 @@ type Story = StoryObj<typeof Box>;
 
 export const Playground: Story = {
   render: args => (
-    <Box {...args}>
+    <Box {...args} padding={{ mobile: '100', tablet: '200', desktop: '300' }}>
       <Placeholder />
     </Box>
   ),
