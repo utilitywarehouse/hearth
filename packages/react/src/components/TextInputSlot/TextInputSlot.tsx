@@ -6,7 +6,7 @@ import type { ElementRef } from 'react';
 import { TextInputSlotProps } from './TextInputSlot.props';
 
 const COMPONENT_NAME = 'TextInputSlot';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TextInputSlotElement = ElementRef<'div'>;
 
@@ -25,4 +25,4 @@ export const TextInputSlot = React.forwardRef<TextInputSlotElement, TextInputSlo
   }
 );
 
-TextInputSlot.displayName = displayName;
+TextInputSlot.displayName = COMPONENT_NAME;

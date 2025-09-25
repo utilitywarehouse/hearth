@@ -11,7 +11,7 @@ import { textWrapPropDefs } from '../../props/text-wrap.props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'BodyText';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type BodyTextElement = ElementRef<'span'>;
 
@@ -46,4 +46,4 @@ export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props,
   );
 });
 
-BodyText.displayName = displayName;
+BodyText.displayName = COMPONENT_NAME;

@@ -16,7 +16,7 @@ export interface AlertLinkProps extends Omit<LinkProps, 'asChild'> {
 type AlertLinkElement = ElementRef<'a'>;
 
 const COMPONENT_NAME = 'AlertLink';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const AlertLink = React.forwardRef<AlertLinkElement, AlertLinkProps>((props, ref) => {
   const { children, ...linkProps } = props;
@@ -33,4 +33,4 @@ export const AlertLink = React.forwardRef<AlertLinkElement, AlertLinkProps>((pro
   );
 });
 
-AlertLink.displayName = displayName;
+AlertLink.displayName = COMPONENT_NAME;

@@ -10,7 +10,7 @@ import { marginPropDefs } from '../../props/margin.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const COMPONENT_NAME = 'InlineLink';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type InlineLinkElement = ElementRef<'a'>;
 
@@ -32,4 +32,4 @@ export const InlineLink = React.forwardRef<InlineLinkElement, InlineLinkProps>((
   );
 });
 
-InlineLink.displayName = displayName;
+InlineLink.displayName = COMPONENT_NAME;

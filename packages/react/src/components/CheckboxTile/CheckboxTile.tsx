@@ -15,7 +15,7 @@ import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
 const COMPONENT_NAME = 'CheckboxTile';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CheckboxTileElement = ElementRef<'button'>;
 
@@ -92,4 +92,4 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
   }
 );
 
-CheckboxTile.displayName = displayName;
+CheckboxTile.displayName = COMPONENT_NAME;

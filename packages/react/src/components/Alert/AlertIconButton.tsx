@@ -7,7 +7,7 @@ import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import type { UnstyledIconButtonProps } from '../UnstyledIconButton/UnstyledIconButton.props';
 
 const COMPONENT_NAME = 'AlertIconButton';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export type AlertIconButtonProps = UnstyledIconButtonProps;
 
@@ -29,4 +29,4 @@ export const AlertIconButton = React.forwardRef<AlertIconButtonElement, AlertIco
   }
 );
 
-AlertIconButton.displayName = displayName;
+AlertIconButton.displayName = COMPONENT_NAME;

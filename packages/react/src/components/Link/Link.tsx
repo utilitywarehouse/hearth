@@ -9,7 +9,7 @@ import { marginPropDefs } from '../../props/margin.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const COMPONENT_NAME = 'Link';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type LinkElement = ElementRef<'a'>;
 
@@ -31,4 +31,4 @@ export const Link = React.forwardRef<LinkElement, LinkProps>((props, ref) => {
   );
 });
 
-Link.displayName = displayName;
+Link.displayName = COMPONENT_NAME;

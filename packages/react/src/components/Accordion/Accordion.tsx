@@ -9,7 +9,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'Accordion';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionElement = ElementRef<'div'>;
 
@@ -47,4 +47,4 @@ export const Accordion = React.forwardRef<AccordionElement, AccordionProps>((pro
   );
 });
 
-Accordion.displayName = displayName;
+Accordion.displayName = COMPONENT_NAME;

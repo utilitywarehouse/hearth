@@ -14,7 +14,7 @@ import { BodyText } from '../BodyText/BodyText';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'TextInput';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TextInputElement = ElementRef<'input'>;
 
@@ -114,4 +114,4 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>(
   }
 );
 
-TextInput.displayName = displayName;
+TextInput.displayName = COMPONENT_NAME;

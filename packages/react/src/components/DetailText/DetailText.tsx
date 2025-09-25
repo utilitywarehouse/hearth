@@ -11,7 +11,7 @@ import { textWrapPropDefs } from '../../props/text-wrap.props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'DetailText';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type DetailTextElement = ElementRef<'span'>;
 
@@ -44,4 +44,4 @@ export const DetailText = React.forwardRef<DetailTextElement, DetailTextProps>((
   );
 });
 
-DetailText.displayName = displayName;
+DetailText.displayName = COMPONENT_NAME;

@@ -17,7 +17,7 @@ import { Flex } from '../Flex/Flex';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 
 const COMPONENT_NAME = 'Alert';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AlertElement = ElementRef<'div'>;
 
@@ -72,4 +72,4 @@ export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => 
   );
 });
 
-Alert.displayName = displayName;
+Alert.displayName = COMPONENT_NAME;

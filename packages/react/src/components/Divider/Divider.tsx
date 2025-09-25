@@ -10,7 +10,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'Divider';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type DividerElement = ElementRef<'hr'>;
 
@@ -45,4 +45,4 @@ export const Divider = React.forwardRef<DividerElement, DividerProps>((props, re
   );
 });
 
-Divider.displayName = displayName;
+Divider.displayName = COMPONENT_NAME;

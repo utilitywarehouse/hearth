@@ -10,7 +10,7 @@ import { Spinner } from '../Spinner/Spinner';
 import { CloseSmallIcon, SearchMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const COMPONENT_NAME = 'SearchInput';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type SearchInputElement = ElementRef<'input'>;
 
@@ -70,4 +70,4 @@ export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps
   }
 );
 
-SearchInput.displayName = displayName;
+SearchInput.displayName = COMPONENT_NAME;

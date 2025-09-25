@@ -11,7 +11,7 @@ import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const COMPONENT_NAME = 'ValidationText';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ValidationTextElement = ElementRef<'span'>;
 
@@ -46,4 +46,4 @@ export const ValidationText = React.forwardRef<ValidationTextElement, Validation
   }
 );
 
-ValidationText.displayName = displayName;
+ValidationText.displayName = COMPONENT_NAME;

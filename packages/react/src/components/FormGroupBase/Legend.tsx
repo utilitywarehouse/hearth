@@ -9,7 +9,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'Legend';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type LegendElement = ElementRef<'legend'>;
 
@@ -18,4 +18,4 @@ export const Legend = React.forwardRef<LegendElement, LegendProps>((props, ref) 
   return <legend ref={ref} className={clsx(componentClassName, className)} {...legendProps} />;
 });
 
-Legend.displayName = displayName;
+Legend.displayName = COMPONENT_NAME;

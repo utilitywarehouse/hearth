@@ -16,7 +16,7 @@ import { kebabCase } from '../../helpers/kebab-case';
 import { gapPropDefs } from '../../props/gap.props';
 
 const COMPONENT_NAME = 'Card';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CardElement = ElementRef<'div'>;
 
@@ -51,4 +51,4 @@ export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
   );
 });
 
-Card.displayName = displayName;
+Card.displayName = COMPONENT_NAME;

@@ -13,7 +13,7 @@ import { textWrapPropDefs } from '../../props/text-wrap.props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'Heading';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type HeadingElement = ElementRef<'h2'>;
 
@@ -40,4 +40,4 @@ export const Heading = React.forwardRef<HeadingElement, HeadingProps>(({ size, .
   );
 });
 
-Heading.displayName = displayName;
+Heading.displayName = COMPONENT_NAME;

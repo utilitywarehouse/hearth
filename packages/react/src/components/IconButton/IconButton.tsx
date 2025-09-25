@@ -10,7 +10,7 @@ import { Spinner } from '../Spinner/Spinner';
 import { getIconButtonSpinnerSize } from '../../helpers/get-icon-button-spinner-size';
 
 const COMPONENT_NAME = 'IconButton';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const IconButton = React.forwardRef<ButtonBaseElement, IconButtonProps>(
   (props, forwardedRef) => {
@@ -34,4 +34,4 @@ export const IconButton = React.forwardRef<ButtonBaseElement, IconButtonProps>(
   }
 );
 
-IconButton.displayName = displayName;
+IconButton.displayName = COMPONENT_NAME;

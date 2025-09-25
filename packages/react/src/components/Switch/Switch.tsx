@@ -11,7 +11,7 @@ import { useIds } from '../../hooks/use-ids';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'Switch';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type SwitchElement = ElementRef<'button'>;
 
@@ -83,4 +83,4 @@ export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwa
   );
 });
 
-Switch.displayName = displayName;
+Switch.displayName = COMPONENT_NAME;

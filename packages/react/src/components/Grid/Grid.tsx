@@ -22,7 +22,7 @@ import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const COMPONENT_NAME = 'Grid';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type GridElement = ElementRef<'div'>;
 
@@ -67,4 +67,4 @@ export const Grid = React.forwardRef<GridElement, GridProps>((props, ref) => {
   );
 });
 
-Grid.displayName = displayName;
+Grid.displayName = COMPONENT_NAME;

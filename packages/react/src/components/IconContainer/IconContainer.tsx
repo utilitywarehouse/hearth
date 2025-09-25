@@ -9,7 +9,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'IconContainer';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type IconContainerElement = ElementRef<'span'>;
 
@@ -36,4 +36,4 @@ export const IconContainer = React.forwardRef<IconContainerElement, IconContaine
   }
 );
 
-IconContainer.displayName = displayName;
+IconContainer.displayName = COMPONENT_NAME;
