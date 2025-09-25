@@ -1,17 +1,16 @@
 import { memo } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { BodyText } from '../../BodyText';
-import { WEEKDAYS_HEIGHT } from '../enums';
-import { CalendarComponents, WeekdayFormat } from '../types';
-import { getWeekdays } from '../utils';
+import { BodyText } from '../BodyText';
+import { WeekdayFormat } from './DatePicker.props';
+import { WEEKDAYS_HEIGHT } from './enums';
+import { getWeekdays } from './utils';
 
 type WeekdaysProps = {
   locale: string;
   firstDayOfWeek: number;
   weekdaysFormat?: WeekdayFormat;
   weekdaysHeight?: number;
-  components?: CalendarComponents;
 };
 
 const Weekdays = ({

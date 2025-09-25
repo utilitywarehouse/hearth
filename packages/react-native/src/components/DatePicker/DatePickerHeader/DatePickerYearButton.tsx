@@ -2,9 +2,9 @@ import dayjs from 'dayjs';
 import { memo } from 'react';
 import { Pressable } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { BodyText } from '../../../BodyText';
-import { useCalendarContext } from '../../Calendar.context';
-import { formatNumber, getDateYear, getYearRange } from '../../utils';
+import { BodyText } from '../../BodyText';
+import { useDatePickerContext } from '../DatePicker.context';
+import { formatNumber, getDateYear, getYearRange } from '../utils';
 
 const YearButton = () => {
   const {
@@ -15,7 +15,7 @@ const YearButton = () => {
     onChangeYear,
     disableYearPicker,
     numerals = 'latn',
-  } = useCalendarContext();
+  } = useDatePickerContext();
 
   const years = getYearRange(currentYear);
   return (

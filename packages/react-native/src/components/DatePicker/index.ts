@@ -1,15 +1,14 @@
-import DateTimePicker from './datetime-picker';
-import './locales';
+import 'dayjs/locale/en';
+import DatePicker from './DatePicker';
 import './polyfill';
 
 export type {
-  CalendarComponents,
   CalendarDay,
   CalendarMode,
   CalendarMonth,
   CalendarWeek,
   CalendarYear,
   DateType,
-} from './types';
+} from './DatePicker.props';
 
-export default DateTimePicker;
+export default DatePicker;

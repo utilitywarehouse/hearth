@@ -11,7 +11,7 @@ import {
   ViewProps,
   ViewStyle,
 } from 'react-native';
-import { PickerOption } from '../../../types';
+import { PickerOption } from '../../DatePicker.props';
 import WheelPickerItem from './wheel-picker-item';
 import styles from './wheel-picker.style';
 

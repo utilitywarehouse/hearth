@@ -1,12 +1,12 @@
 import dayjs from 'dayjs';
 import { memo } from 'react';
 import { Pressable } from 'react-native';
-import { BodyText } from '../../../BodyText';
-import { useCalendarContext } from '../../Calendar.context';
+import { BodyText } from '../../BodyText';
+import { useDatePickerContext } from '../DatePicker.context';
 
 const MonthButton = () => {
   const { currentDate, calendarView, setCalendarView, disableMonthPicker, monthCaptionFormat } =
-    useCalendarContext();
+    useDatePickerContext();
 
   const currentMonthText = dayjs(currentDate)
     .locale('en')

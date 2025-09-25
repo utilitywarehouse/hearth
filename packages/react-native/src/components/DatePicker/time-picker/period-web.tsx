@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { BodyText } from '../../../BodyText';
+import { BodyText } from '../../BodyText';
 
 interface PeriodProps {
   value: string;

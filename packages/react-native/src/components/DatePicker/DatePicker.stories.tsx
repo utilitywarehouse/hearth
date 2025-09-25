@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import DateTimePicker, { DateType } from '.';
+import { BottomSheetModal } from '../BottomSheet';
+import { Button } from '../Button';
 
 const meta = {
   title: 'Stories / DatePicker',
@@ -13,6 +15,7 @@ const meta = {
 } satisfies Meta<typeof DateTimePicker>;
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
@@ -21,9 +24,19 @@ export const Playground: Story = {
   },
   render: () => {
     const [selected, setSelected] = useState<DateType>();
+    const modalRef = useRef<BottomSheetModal>(null);
 
     return (
-      <DateTimePicker mode="single" date={selected} onChange={({ date }) => setSelected(date)} />
+      <>
+        <Button onPress={() => modalRef.current?.present()}>Show Date Picker</Button>
+        <DateTimePicker
+          ref={modalRef}
+          mode="single"
+          date={selected}
+          onChange={({ date }) => setSelected(date)}
+          onCancel={() => setSelected(undefined)}
+        />
+      </>
     );
   },
 };
@@ -37,13 +50,19 @@ export const Range: Story = {
       startDate: DateType;
       endDate: DateType;
     }>({ startDate: undefined, endDate: undefined });
+    const modalRef = useRef<BottomSheetModal>(null);
     return (
-      <DateTimePicker
-        mode="range"
-        startDate={range.startDate}
-        endDate={range.endDate}
-        onChange={params => setRange(params)}
-      />
+      <>
+        <Button onPress={() => modalRef.current?.present()}>Show Range Date Picker</Button>
+        <DateTimePicker
+          mode="range"
+          ref={modalRef}
+          startDate={range.startDate}
+          endDate={range.endDate}
+          onChange={params => setRange(params)}
+          onCancel={() => setRange({ startDate: undefined, endDate: undefined })}
+        />
+      </>
     );
   },
 };

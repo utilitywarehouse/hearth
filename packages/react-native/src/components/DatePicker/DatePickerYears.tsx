@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { BodyText } from '../../BodyText';
-import { useCalendarContext } from '../Calendar.context';
-import { CONTAINER_HEIGHT } from '../enums';
-import { formatNumber, getDateYear, getYearRange, isYearDisabled } from '../utils';
+import { BodyText } from '../BodyText';
+import { useDatePickerContext } from './DatePicker.context';
+import { CONTAINER_HEIGHT } from './enums';
+import { formatNumber, getDateYear, getYearRange, isYearDisabled } from './utils';
 
 const Years = () => {
   const {
@@ -18,7 +18,7 @@ const Years = () => {
     containerHeight = CONTAINER_HEIGHT,
     minDate,
     maxDate,
-  } = useCalendarContext();
+  } = useDatePickerContext();
 
   const selectedYear = getDateYear(date);
 

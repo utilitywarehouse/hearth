@@ -1,9 +1,9 @@
 import dayjs from 'dayjs';
 import { useMemo } from 'react';
 import { Pressable } from 'react-native';
-import { BodyText } from '../../../BodyText';
-import { useCalendarContext } from '../../Calendar.context';
-import { formatNumber, getParsedDate } from '../../utils';
+import { BodyText } from '../../BodyText';
+import { useDatePickerContext } from '../DatePicker.context';
+import { formatNumber, getParsedDate } from '../utils';
 
 export const TimeButton = () => {
   const {
@@ -13,7 +13,7 @@ export const TimeButton = () => {
     setCalendarView,
     numerals = 'latn',
     use12Hours,
-  } = useCalendarContext();
+  } = useDatePickerContext();
 
   const { hour, hour12, minute, period } = useMemo(
     () => getParsedDate(date || currentDate),

@@ -1,9 +1,9 @@
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { BodyText } from '../../BodyText';
-import { useCalendarContext } from '../Calendar.context';
-import { CONTAINER_HEIGHT } from '../enums';
-import { getMonthsArray, getParsedDate, isMonthDisabled } from '../utils';
+import { BodyText } from '../BodyText';
+import { useDatePickerContext } from './DatePicker.context';
+import { CONTAINER_HEIGHT } from './enums';
+import { getMonthsArray, getParsedDate, isMonthDisabled } from './utils';
 
 const Months = () => {
   const {
@@ -13,7 +13,7 @@ const Months = () => {
     monthsFormat = 'short',
     minDate,
     maxDate,
-  } = useCalendarContext();
+  } = useDatePickerContext();
 
   const { month } = getParsedDate(currentDate);
 

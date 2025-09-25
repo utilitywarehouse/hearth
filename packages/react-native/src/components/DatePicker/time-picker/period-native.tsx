@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { PickerOption } from '../../types';
+import { PickerOption } from '../DatePicker.props';
 import WheelPicker from './wheel-picker';
 
 interface PeriodProps {

@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import NextButton from './next-button';
-import PrevButton from './prev-button';
-import Selectors from './selectors';
-import type { HeaderProps, NavigationProps } from './types';
+import type { HeaderProps, NavigationProps } from './DatePickerHeader.props';
+import NextButton from './DatePickerNextButton';
+import PrevButton from './DatePickerPrevButton';
+import Selectors from './DatePickerSelectors';
 
 const NavigationButtons = ({}: NavigationProps) => (
   <View style={styles.navigation}>

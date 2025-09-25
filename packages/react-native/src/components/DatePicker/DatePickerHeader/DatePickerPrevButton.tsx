@@ -2,12 +2,12 @@ import { ChevronLeftSmallIcon } from '@utilitywarehouse/hearth-react-native-icon
 import { memo, useCallback } from 'react';
 import { Pressable } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Icon } from '../../../Icon';
-import { useCalendarContext } from '../../Calendar.context';
-import { YEAR_PAGE_SIZE } from '../../utils';
+import { Icon } from '../../Icon';
+import { useDatePickerContext } from '../DatePicker.context';
+import { YEAR_PAGE_SIZE } from '../utils';
 
 const PrevButton = () => {
-  const { currentYear, calendarView, onChangeMonth, onChangeYear } = useCalendarContext();
+  const { currentYear, calendarView, onChangeMonth, onChangeYear } = useDatePickerContext();
 
   const onPress = useCallback(() => {
     switch (calendarView) {

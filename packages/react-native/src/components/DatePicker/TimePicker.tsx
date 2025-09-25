@@ -2,13 +2,13 @@ import dayjs from 'dayjs';
 import { useCallback, useMemo } from 'react';
 import { ScrollView, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { BodyText } from '../../BodyText';
-import { useCalendarContext } from '../Calendar.context';
-import { CONTAINER_HEIGHT } from '../enums';
-import { Numerals, PickerOption } from '../types';
-import { formatNumber, getParsedDate } from '../utils';
+import { BodyText } from '../BodyText';
+import { useDatePickerContext } from './DatePicker.context';
+import { Numerals, PickerOption } from './DatePicker.props';
+import { CONTAINER_HEIGHT } from './enums';
 import PeriodPicker from './time-picker/period-picker';
 import Wheel from './time-picker/wheel';
+import { formatNumber, getParsedDate } from './utils';
 
 export type Period = 'AM' | 'PM';
 
@@ -34,7 +34,7 @@ const TimePicker = () => {
     timeZone,
     numerals = 'latn',
     use12Hours,
-  } = useCalendarContext();
+  } = useDatePickerContext();
 
   const hours = useMemo(
     () => createNumberList(use12Hours ? 12 : 24, numerals, use12Hours ? 1 : 0),

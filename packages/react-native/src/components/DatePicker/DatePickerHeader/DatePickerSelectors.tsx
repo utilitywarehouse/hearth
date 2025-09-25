@@ -2,19 +2,19 @@ import { DecreaseSmallIcon, IncreaseSmallIcon } from '@utilitywarehouse/hearth-r
 import { memo } from 'react';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Icon } from '../../../Icon';
-import { useCalendarContext } from '../../Calendar.context';
-import { NavigationPosition } from '../../types';
-import MonthButton from './month-button';
-import { TimeButton } from './time-button';
-import YearButton from './year-button';
+import { Icon } from '../../Icon';
+import { useDatePickerContext } from '../DatePicker.context';
+import { NavigationPosition } from '../DatePicker.props';
+import MonthButton from './DatePickerMonthButton';
+import { TimeButton } from './DatePickerTimeButton';
+import YearButton from './DatePickerYearButton';
 
 type Props = {
   position: NavigationPosition;
 };
 
 const Selectors = ({ position }: Props) => {
-  const { mode, calendarView, timePicker, setCalendarView } = useCalendarContext();
+  const { mode, calendarView, timePicker, setCalendarView } = useDatePickerContext();
   styles.useVariants({ position });
   const onPress = () => {
     if (calendarView === 'month' || calendarView === 'year') {

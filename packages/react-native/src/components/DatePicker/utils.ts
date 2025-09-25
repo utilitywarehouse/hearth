@@ -1,8 +1,13 @@
 import dayjs from 'dayjs';
 import { useRef } from 'react';
 import { isEqual } from '../../utils';
-import { numeralSystems } from './numerals';
-import type { CalendarDay, CalendarMonth, CalendarWeek, DateType, Numerals } from './types';
+import type {
+  CalendarDay,
+  CalendarMonth,
+  CalendarWeek,
+  DateType,
+  Numerals,
+} from './DatePicker.props';
 
 export const CALENDAR_FORMAT = 'YYYY-MM-DD HH:mm';
 export const DATE_FORMAT = 'YYYY-MM-DD';
@@ -518,6 +523,10 @@ export function useDeepCompareMemo<T>(value: T, deps: any[]): T {
 
   return ref.current as T;
 }
+
+export const numeralSystems: Record<Numerals, readonly string[]> = {
+  latn: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'],
+} as const;
 
 function getDigitMap(numerals: Numerals): Record<string, string> {
   const digitMap: Record<string, string> = {};

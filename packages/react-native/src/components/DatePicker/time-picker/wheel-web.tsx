@@ -1,10 +1,10 @@
 import { memo, useMemo, useRef } from 'react';
 import { Animated, PanResponder, Platform, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { isEqual } from '../../../../utils';
-import { BodyText } from '../../../BodyText';
-import { CONTAINER_HEIGHT } from '../../enums';
-import { PickerOption } from '../../types';
+import { isEqual } from '../../../utils';
+import { BodyText } from '../../BodyText';
+import { PickerOption } from '../DatePicker.props';
+import { CONTAINER_HEIGHT } from '../enums';
 import { sin } from './animated-math';
 
 interface WheelProps {

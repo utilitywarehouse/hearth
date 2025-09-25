@@ -5,11 +5,10 @@ import localizedFormat from 'dayjs/plugin/localizedFormat';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
-import { useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
+import { useCallback, useEffect, useImperativeHandle, useMemo, useReducer, useRef } from 'react';
 import { usePrevious } from '../../hooks/usePrevious';
-import { CalendarContext } from './Calendar.context';
-import Calendar from './components/calendar';
-import { CalendarActionKind, CalendarViews, CONTAINER_HEIGHT, WEEKDAYS_HEIGHT } from './enums';
+import { BottomSheetModal, BottomSheetView } from '../BottomSheet';
+import { DatePickerContext } from './DatePicker.context';
 import type {
   CalendarAction,
   DatePickerBaseProps,
@@ -18,7 +17,9 @@ import type {
   MultiChange,
   RangeChange,
   SingleChange,
-} from './types';
+} from './DatePicker.props';
+import Calendar from './DatePickerCalendar';
+import { CalendarActionKind, CalendarViews, CONTAINER_HEIGHT, WEEKDAYS_HEIGHT } from './enums';
 import { areDatesOnSameDay, dateToUnix, getEndOfDay, getStartOfDay, removeTime } from './utils';
 
 dayjs.extend(localeData);
@@ -81,19 +82,29 @@ const DateTimePicker = (
     monthCaptionFormat = 'full',
     multiRangeMode,
     hideHeader,
+    hideFooter,
     hideWeekdays,
     disableMonthPicker,
     disableYearPicker,
-    components = {},
     month,
     year,
     onMonthChange = () => {},
     onYearChange = () => {},
     use12Hours,
+    ref,
+    onCancel = () => {},
   } = props;
 
   dayjs.tz.setDefault(timeZone);
   dayjs.locale(locale);
+
+  const modalRef = useRef<BottomSheetModal>(null);
+  // Forward ref methods to parent component
+  useImperativeHandle(ref, () => modalRef.current as BottomSheetModal);
+
+  const closeDatePicker = useCallback(() => {
+    modalRef.current?.close();
+  }, [modalRef.current]);
 
   const prevTimezone = usePrevious(timeZone);
 
@@ -562,10 +573,12 @@ const DateTimePicker = (
       monthCaptionFormat,
       multiRangeMode,
       hideHeader,
+      hideFooter,
       hideWeekdays,
       disableMonthPicker,
       disableYearPicker,
       use12Hours,
+      closeDatePicker,
     }),
     [
       mode,
@@ -590,10 +603,12 @@ const DateTimePicker = (
       monthCaptionFormat,
       multiRangeMode,
       hideHeader,
+      hideFooter,
       hideWeekdays,
       disableMonthPicker,
       disableYearPicker,
       use12Hours,
+      closeDatePicker,
     ]
   );
 
@@ -605,8 +620,17 @@ const DateTimePicker = (
       onSelectYear,
       onChangeMonth,
       onChangeYear,
+      onCancel,
     }),
-    [setCalendarView, onSelectDate, onSelectMonth, onSelectYear, onChangeMonth, onChangeYear]
+    [
+      setCalendarView,
+      onSelectDate,
+      onSelectMonth,
+      onSelectYear,
+      onChangeMonth,
+      onChangeYear,
+      onCancel,
+    ]
   );
 
   const memoizedValue = useMemo(
@@ -619,9 +643,13 @@ const DateTimePicker = (
   );
 
   return (
-    <CalendarContext.Provider value={memoizedValue}>
-      <Calendar />
-    </CalendarContext.Provider>
+    <BottomSheetModal ref={modalRef}>
+      <BottomSheetView>
+        <DatePickerContext.Provider value={memoizedValue}>
+          <Calendar />
+        </DatePickerContext.Provider>
+      </BottomSheetView>
+    </BottomSheetModal>
   );
 };
 

@@ -2,10 +2,10 @@ import { createPressable } from '@gluestack-ui/pressable';
 import React, { memo, useMemo } from 'react';
 import { Pressable, PressableProps, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { isEqual } from '../../../utils';
-import { BodyText } from '../../BodyText';
-import { CONTAINER_HEIGHT, WEEKDAYS_HEIGHT } from '../enums';
-import { CalendarDay, DateType } from '../types';
+import { isEqual } from '../../utils';
+import { BodyText } from '../BodyText';
+import { CalendarDay, DateType } from './DatePicker.props';
+import { CONTAINER_HEIGHT, WEEKDAYS_HEIGHT } from './enums';
 
 interface Props {
   day: CalendarDay;

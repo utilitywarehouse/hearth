@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Platform } from 'react-native';
-import { PickerOption } from '../../types';
+import { PickerOption } from '../DatePicker.props';
 import WheelNative from './wheel-native';
 import WheelWeb from './wheel-web';
 

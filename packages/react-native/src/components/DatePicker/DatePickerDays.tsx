@@ -2,8 +2,10 @@ import dayjs from 'dayjs';
 import { useCallback, useMemo } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { useCalendarContext } from '../Calendar.context';
-import { DateType } from '../types';
+import { useDatePickerContext } from './DatePicker.context';
+import { DateType } from './DatePicker.props';
+import Day, { EmptyDay } from './DatePickerDay';
+import Weekdays from './DatePickerWeekdays';
 import {
   areDatesOnSameDay,
   getDate,
@@ -11,9 +13,7 @@ import {
   getMonthDays,
   getParsedDate,
   isDateBetween,
-} from '../utils';
-import Day, { EmptyDay } from './DatePickerDay';
-import Weekdays from './weekdays';
+} from './utils';
 
 const Days = () => {
   const {
@@ -39,7 +39,7 @@ const Days = () => {
     weekdaysFormat,
     multiRangeMode,
     hideWeekdays,
-  } = useCalendarContext();
+  } = useDatePickerContext();
 
   const { year, month, hour, minute } = getParsedDate(currentDate);
 

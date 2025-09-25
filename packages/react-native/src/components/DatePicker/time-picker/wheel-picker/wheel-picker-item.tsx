@@ -1,7 +1,7 @@
 import React from 'react';
 import { Animated, StyleProp, ViewStyle } from 'react-native';
-import { BodyText } from '../../../../BodyText';
-import { PickerOption } from '../../../types';
+import { BodyText } from '../../../BodyText';
+import { PickerOption } from '../../DatePicker.props';
 import styles from './wheel-picker.style';
 
 interface ItemProps {

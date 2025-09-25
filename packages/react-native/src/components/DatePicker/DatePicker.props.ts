@@ -1,4 +1,6 @@
+import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import type { Dayjs } from 'dayjs';
+import { Ref } from 'react';
 import type { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 import type { CalendarActionKind, CalendarViews } from './enums';
 
@@ -86,22 +88,8 @@ export type MultiChange = (params: {
 
 export type Styles = Partial<ViewStyle | TextStyle | ImageStyle>;
 
-export type CalendarComponents = Partial<{
-  /** The component containing the day in the days grid */
-  Day: (day: CalendarDay) => React.ReactNode;
-  /** The component containing the month in the months grid */
-  Month: (month: CalendarMonth) => React.ReactNode;
-  /** The component containing the year in the years grid */
-  Year: (year: CalendarYear) => React.ReactNode;
-  /** The component containing the weekday in the header */
-  Weekday: (weekday: CalendarWeek) => React.ReactNode;
-  /** The previous month/year button icon in the header */
-  IconPrev: React.ReactNode;
-  /** The next month button/year icon in the header */
-  IconNext: React.ReactNode;
-}>;
-
 export interface DatePickerBaseProps {
+  show?: boolean;
   mode?: CalendarMode;
   calendar?: CalendarType;
   locale?: string;
@@ -128,22 +116,23 @@ export interface DatePickerBaseProps {
   containerHeight?: number;
   weekdaysHeight?: number;
   style?: ViewStyle;
-  styles?: Styles;
   navigationPosition?: NavigationPosition;
   weekdaysFormat?: WeekdayFormat;
   monthsFormat?: MonthFormat;
   monthCaptionFormat?: MonthFormat;
   multiRangeMode?: boolean;
   hideHeader?: boolean;
+  hideFooter?: boolean;
   hideWeekdays?: boolean;
   disableMonthPicker?: boolean;
   disableYearPicker?: boolean;
-  components?: CalendarComponents;
   /** use to handle month and year selectors */
   month?: number;
   year?: number;
   onMonthChange?: (month: number) => void;
   onYearChange?: (year: number) => void;
+  ref?: Ref<BottomSheetModalMethods<any>>;
+  onCancel?: () => void;
 }
 
 export type Numerals = 'latn';

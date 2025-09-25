@@ -2,18 +2,12 @@ import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-ico
 import { memo, useCallback } from 'react';
 import { Pressable } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Icon } from '../../../Icon';
-import { useCalendarContext } from '../../Calendar.context';
-import { YEAR_PAGE_SIZE } from '../../utils';
+import { Icon } from '../../Icon';
+import { useDatePickerContext } from '../DatePicker.context';
+import { YEAR_PAGE_SIZE } from '../utils';
 
 const NextButton = () => {
-  const {
-    currentYear,
-    onChangeMonth,
-    onChangeYear,
-    calendarView,
-    components = {},
-  } = useCalendarContext();
+  const { currentYear, onChangeMonth, onChangeYear, calendarView } = useDatePickerContext();
 
   const onPress = useCallback(() => {
     switch (calendarView) {
@@ -36,7 +30,7 @@ const NextButton = () => {
       accessibilityRole="button"
       accessibilityLabel="Next"
     >
-      {components.IconNext || <Icon as={ChevronRightSmallIcon} style={styles.icon} />}
+      <Icon as={ChevronRightSmallIcon} style={styles.icon} />
     </Pressable>
   );
 };

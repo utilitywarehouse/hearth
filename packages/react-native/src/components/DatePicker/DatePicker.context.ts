@@ -1,8 +1,8 @@
 import { createContext, useContext } from 'react';
+import type { DatePickerBaseProps, DateType } from './DatePicker.props';
 import { CalendarViews } from './enums';
-import type { DatePickerBaseProps, DateType } from './types';
 
-export interface CalendarContextType extends DatePickerBaseProps {
+export interface DatePickerContextType extends DatePickerBaseProps {
   locale: string;
   showOutsideDays: boolean;
   firstDayOfWeek: number;
@@ -15,8 +15,9 @@ export interface CalendarContextType extends DatePickerBaseProps {
   onSelectYear: (year: number) => void;
   onChangeMonth: (value: number) => void;
   onChangeYear: (value: number) => void;
+  closeDatePicker: () => void;
 }
 
-export const CalendarContext = createContext({} as CalendarContextType);
+export const DatePickerContext = createContext({} as DatePickerContextType);
 
-export const useCalendarContext = () => useContext(CalendarContext);
+export const useDatePickerContext = () => useContext(DatePickerContext);
