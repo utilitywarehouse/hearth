@@ -1,9 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { useRef } from 'react';
-import { Dimensions, ImageSourcePropType, Platform, View, ViewProps } from 'react-native';
-import { UnistylesRuntime } from 'react-native-unistyles';
+import { ImageSourcePropType, Platform, View } from 'react-native';
 import { Modal } from '.';
 import pigs from '../../../docs/assets/pigs.png';
+import { ViewWrap } from '../../../docs/components';
 import { BodyText } from '../BodyText';
 import { BottomSheetModal } from '../BottomSheet';
 import { Box } from '../Box';
@@ -60,34 +60,6 @@ const meta = {
 
 export default meta;
 type Story = StoryObj<typeof meta>;
-
-const ViewWrap = ({ children }: { children: ViewProps['children'] }) => (
-  <View
-    style={{
-      width: Platform.OS === 'web' ? '100%' : Dimensions.get('window').width,
-      height:
-        Platform.OS === 'web'
-          ? '100%'
-          : Dimensions.get('window').height -
-            UnistylesRuntime.insets.top -
-            UnistylesRuntime.insets.bottom -
-            33,
-
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      flex: 1,
-      marginVertical: Platform.OS === 'web' ? 0 : -8,
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: 16,
-    }}
-  >
-    {children}
-  </View>
-);
 
 export const Playground: Story = {
   args: {

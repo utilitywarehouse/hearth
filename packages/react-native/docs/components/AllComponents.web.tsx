@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import {
@@ -18,6 +18,7 @@ import {
   Badge,
   BodyText,
   BottomSheet,
+  BottomSheetModal,
   BottomSheetModalProvider,
   BottomSheetView,
   Box,
@@ -26,6 +27,8 @@ import {
   Center,
   Checkbox,
   CurrencyInput,
+  DatePicker,
+  DateType,
   DescriptionList,
   DescriptionListItem,
   DetailText,
@@ -110,6 +113,11 @@ const AllComponents: React.FC = () => {
   const handleModalOpenPress = useCallback(() => {
     modalRef.current?.present();
   }, []);
+  const [selected, setSelected] = useState<DateType>();
+  const datePickerRef = useRef<BottomSheetModal>(null);
+  const handleDatePickerOpenPress = useCallback(() => {
+    datePickerRef.current?.present();
+  }, []);
   useEffect(() => {
     if (bottomSheetRef.current) {
       setTimeout(() => {
@@ -124,8 +132,16 @@ const AllComponents: React.FC = () => {
       }, 400);
     }
   }, [modalRef]);
+  useEffect(() => {
+    if (datePickerRef.current) {
+      setTimeout(() => {
+        datePickerRef.current?.present();
+      }, 500);
+    }
+  }, [datePickerRef]);
   const [switchEnabled, setSwitchEnabled] = React.useState(false);
   const toggleSwitch = () => setSwitchEnabled(!switchEnabled);
+
   const [colorMode] = useColorMode();
   const isDark = colorMode === 'dark';
   return (
@@ -225,6 +241,20 @@ const AllComponents: React.FC = () => {
               <CurrencyInput />
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper name="Date Picker" link="/?path=/docs/components-date-picker--docs">
+            <Center flex={1}>
+              <Button onPress={handleDatePickerOpenPress}>Open Date Picker</Button>
+              <BottomSheetModalProvider>
+                <DatePicker
+                  ref={datePickerRef}
+                  mode="single"
+                  date={selected}
+                  onChange={({ date }) => setSelected(date)}
+                  onCancel={() => setSelected(undefined)}
+                />
+              </BottomSheetModalProvider>
+            </Center>
+          </ComponentWrapper>
           <ComponentWrapper
             name="Description List"
             link="/?path=/docs/components-description-list--docs"
@@ -241,6 +271,7 @@ const AllComponents: React.FC = () => {
               <DetailText>This is some Detail Text</DetailText>
             </Center>
           </ComponentWrapper>
+
           <ComponentWrapper name="Divider" link="/?path=/docs/components-divider--docs">
             <Center flex={1} p="300">
               <BodyText>This text is divided</BodyText>

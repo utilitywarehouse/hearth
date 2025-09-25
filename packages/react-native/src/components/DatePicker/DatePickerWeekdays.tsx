@@ -7,21 +7,19 @@ import { WEEKDAYS_HEIGHT } from './enums';
 import { getWeekdays } from './utils';
 
 type WeekdaysProps = {
-  locale: string;
   firstDayOfWeek: number;
   weekdaysFormat?: WeekdayFormat;
   weekdaysHeight?: number;
 };
 
 const Weekdays = ({
-  locale,
   firstDayOfWeek,
   weekdaysFormat = 'min',
   weekdaysHeight = WEEKDAYS_HEIGHT,
 }: WeekdaysProps) => {
   return (
     <View style={[styles.container(weekdaysHeight)]} testID="weekdays">
-      {getWeekdays(locale, firstDayOfWeek)?.map((weekday, index) => (
+      {getWeekdays(firstDayOfWeek)?.map((weekday, index) => (
         <View key={index} style={[styles.weekday]}>
           <BodyText style={styles.text}>{weekday.name[weekdaysFormat]}</BodyText>
         </View>

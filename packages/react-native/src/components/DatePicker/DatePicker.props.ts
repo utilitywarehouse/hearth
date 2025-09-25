@@ -89,11 +89,7 @@ export type MultiChange = (params: {
 export type Styles = Partial<ViewStyle | TextStyle | ImageStyle>;
 
 export interface DatePickerBaseProps {
-  show?: boolean;
   mode?: CalendarMode;
-  calendar?: CalendarType;
-  locale?: string;
-  numerals?: Numerals;
   timeZone?: string;
   date?: DateType;
   startDate?: DateType;

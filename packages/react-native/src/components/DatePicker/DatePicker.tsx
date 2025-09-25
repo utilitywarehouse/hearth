@@ -51,11 +51,9 @@ export interface DatePickerMultipleProps extends DatePickerBaseProps {
 const DateTimePicker = (
   props: DatePickerSingleProps | DatePickerRangeProps | DatePickerMultipleProps
 ) => {
+  const numerals: 'latn' = 'latn';
   const {
     mode = 'single',
-    calendar = 'gregory',
-    locale = 'en',
-    numerals = 'latn',
     timeZone,
     showOutsideDays = true,
     timePicker = false,
@@ -96,7 +94,7 @@ const DateTimePicker = (
   } = props;
 
   dayjs.tz.setDefault(timeZone);
-  dayjs.locale(locale);
+  dayjs.locale('en');
 
   const modalRef = useRef<BottomSheetModal>(null);
   // Forward ref methods to parent component
@@ -186,7 +184,6 @@ const DateTimePicker = (
     };
   }, [
     mode,
-    calendar,
     date,
     startDate,
     endDate,
@@ -252,7 +249,7 @@ const DateTimePicker = (
     };
 
     dispatch({ type: CalendarActionKind.RESET_STATE, payload: newState });
-  }, [calendar]);
+  }, []);
 
   useEffect(() => {
     if (prevTimezone !== timeZone) {
@@ -339,19 +336,7 @@ const DateTimePicker = (
         });
       }
     }
-  }, [
-    mode,
-    date,
-    startDate,
-    endDate,
-    dates,
-    minDate,
-    maxDate,
-    timePicker,
-    prevTimezone,
-    timeZone,
-    calendar,
-  ]);
+  }, [mode, date, startDate, endDate, dates, minDate, maxDate, timePicker, prevTimezone, timeZone]);
 
   const setCalendarView = useCallback((view: CalendarViews) => {
     dispatch({ type: CalendarActionKind.SET_CALENDAR_VIEW, payload: view });
@@ -552,8 +537,6 @@ const DateTimePicker = (
   const baseContextValue = useMemo(
     () => ({
       mode,
-      calendar,
-      locale,
       numerals,
       timeZone,
       showOutsideDays,
@@ -582,8 +565,6 @@ const DateTimePicker = (
     }),
     [
       mode,
-      calendar,
-      locale,
       numerals,
       timeZone,
       showOutsideDays,

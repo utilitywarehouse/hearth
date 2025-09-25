@@ -1,5 +1,4 @@
 import 'dayjs/locale/en';
-import DatePicker from './DatePicker';
 import './polyfill';
 
 export type {
@@ -11,4 +10,4 @@ export type {
   DateType,
 } from './DatePicker.props';
 
-export default DatePicker;
+export { default as DatePicker } from './DatePicker';

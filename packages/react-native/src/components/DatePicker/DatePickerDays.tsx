@@ -18,8 +18,6 @@ import {
 const Days = () => {
   const {
     mode,
-    calendar,
-    locale,
     numerals = 'latn',
     timeZone,
     date,
@@ -180,7 +178,6 @@ const Days = () => {
     });
   }, [
     mode,
-    calendar,
     numerals,
     timeZone,
     month,
@@ -203,7 +200,6 @@ const Days = () => {
     <View style={styles.container} testID="day-selector">
       {!hideWeekdays ? (
         <Weekdays
-          locale={locale}
           firstDayOfWeek={firstDayOfWeek}
           weekdaysFormat={weekdaysFormat}
           weekdaysHeight={weekdaysHeight}

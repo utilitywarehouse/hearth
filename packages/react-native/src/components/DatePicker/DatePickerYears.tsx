@@ -9,7 +9,6 @@ import { formatNumber, getDateYear, getYearRange, isYearDisabled } from './utils
 const Years = () => {
   const {
     mode,
-    calendar = 'gregory',
     numerals = 'latn',
     currentDate,
     currentYear,
@@ -60,7 +59,6 @@ const Years = () => {
     minDate,
     maxDate,
     numerals,
-    calendar,
   ]);
 
   return (

@@ -3,12 +3,12 @@ import type { DatePickerBaseProps, DateType } from './DatePicker.props';
 import { CalendarViews } from './enums';
 
 export interface DatePickerContextType extends DatePickerBaseProps {
-  locale: string;
   showOutsideDays: boolean;
   firstDayOfWeek: number;
   calendarView: CalendarViews;
   currentDate: DateType; // used for latest state of calendar based on Month and Year
   currentYear: number;
+  numerals: 'latn';
   setCalendarView: (value: CalendarViews) => void;
   onSelectDate: (date: DateType) => void;
   onSelectMonth: (month: number) => void;

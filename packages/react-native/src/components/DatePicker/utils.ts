@@ -45,8 +45,8 @@ export const getMonthsArray = (): CalendarMonth[] => {
  *
  * @returns weekdays
  */
-export const getWeekdays = (locale: string, firstDayOfWeek: number): CalendarWeek[] => {
-  dayjs.locale(locale);
+export const getWeekdays = (firstDayOfWeek: number): CalendarWeek[] => {
+  dayjs.locale('en');
 
   const weekdayNames = dayjs.weekdays();
   const weekdayShortNames = dayjs.weekdaysShort();
