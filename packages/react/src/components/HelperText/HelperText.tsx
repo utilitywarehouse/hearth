@@ -11,7 +11,7 @@ import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const COMPONENT_NAME = 'HelperText';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type HelperTextElement = ElementRef<'span'>;
 
@@ -37,4 +37,4 @@ export const HelperText = React.forwardRef<HelperTextElement, HelperTextProps>((
   );
 });
 
-HelperText.displayName = displayName;
+HelperText.displayName = COMPONENT_NAME;

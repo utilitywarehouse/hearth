@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 
 const COMPONENT_NAME = 'ModalClose';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ModalCloseElement = ElementRef<'button'>;
 type ModalCloseProps = Omit<RadixDialog.DialogCloseProps, 'asChild'>;
@@ -23,4 +23,4 @@ export const ModalClose = React.forwardRef<ModalCloseElement, ModalCloseProps>(
   }
 );
 
-ModalClose.displayName = displayName;
+ModalClose.displayName = COMPONENT_NAME;

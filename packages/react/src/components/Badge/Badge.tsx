@@ -10,7 +10,7 @@ import { textTransformPropDefs } from '../../props/text-transform.props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'Badge';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type BadgeElement = ElementRef<'span'>;
 
@@ -35,4 +35,4 @@ export const Badge = React.forwardRef<BadgeElement, BadgeProps>((props, ref) => 
   );
 });
 
-Badge.displayName = displayName;
+Badge.displayName = COMPONENT_NAME;

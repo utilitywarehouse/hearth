@@ -7,7 +7,7 @@ import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { ListItemContent } from '../ListItemContent/ListItemContent';
 
 const COMPONENT_NAME = 'ListItemButton';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ListItemButtonElement = ElementRef<'button'>;
 
@@ -24,4 +24,4 @@ export const ListItemButton = React.forwardRef<ListItemButtonElement, ListItemBu
   }
 );
 
-ListItemButton.displayName = displayName;
+ListItemButton.displayName = COMPONENT_NAME;

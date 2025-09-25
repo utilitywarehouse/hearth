@@ -7,7 +7,7 @@ import { Accordion as RadixAccordion } from 'radix-ui';
 import { ChevronDownSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const COMPONENT_NAME = 'AccordionTrigger';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionTriggerElement = ElementRef<'button'>;
 
@@ -22,4 +22,4 @@ export const AccordionTrigger = React.forwardRef<AccordionTriggerElement, Accord
   }
 );
 
-AccordionTrigger.displayName = displayName;
+AccordionTrigger.displayName = COMPONENT_NAME;

@@ -9,7 +9,7 @@ import { flexPropDefs } from '../Flex/Flex.props';
 import { gapPropDefs } from '../../props/gap.props';
 
 const COMPONENT_NAME = 'ListItem';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ListItemElement = ElementRef<'li'>;
 
@@ -24,4 +24,4 @@ export const ListItem = React.forwardRef<ListItemElement, ListItemProps>((props,
   );
 });
 
-ListItem.displayName = displayName;
+ListItem.displayName = COMPONENT_NAME;

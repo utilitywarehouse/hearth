@@ -9,7 +9,7 @@ import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { EyeOffSmallIcon, EyeSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const COMPONENT_NAME = 'PasswordInput';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type PasswordInputElement = ElementRef<'input'>;
 
@@ -91,4 +91,4 @@ export const PasswordInput = React.forwardRef<PasswordInputElement, PasswordInpu
   }
 );
 
-PasswordInput.displayName = displayName;
+PasswordInput.displayName = COMPONENT_NAME;

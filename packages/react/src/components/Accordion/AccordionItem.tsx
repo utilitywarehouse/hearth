@@ -8,7 +8,7 @@ import { AccordionTrigger } from './AccordionTrigger';
 import { AccordionHeader } from './AccordionHeader';
 
 const COMPONENT_NAME = 'AccordionItem';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionItemElement = ElementRef<'div'>;
 
@@ -33,4 +33,4 @@ export const AccordionItem = React.forwardRef<AccordionItemElement, AccordionIte
   }
 );
 
-AccordionItem.displayName = displayName;
+AccordionItem.displayName = COMPONENT_NAME;

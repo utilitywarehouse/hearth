@@ -10,7 +10,7 @@ import { marginPropDefs } from '../../props/margin.props';
 import { RadioGroup as RadixRadioGroup } from 'radix-ui';
 
 const COMPONENT_NAME = 'RadioCard';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioCardElement = ElementRef<'button'>;
 
@@ -53,4 +53,4 @@ export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>((pro
   );
 });
 
-RadioCard.displayName = displayName;
+RadioCard.displayName = COMPONENT_NAME;

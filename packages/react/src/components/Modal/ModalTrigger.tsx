@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 
 const COMPONENT_NAME = 'ModalTrigger';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ModalTriggerElement = ElementRef<'button'>;
 
@@ -23,4 +23,4 @@ export const ModalTrigger = React.forwardRef<
   );
 });
 
-ModalTrigger.displayName = displayName;
+ModalTrigger.displayName = COMPONENT_NAME;

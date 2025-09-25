@@ -12,7 +12,7 @@ import { ModalClose } from './ModalClose';
 import { Box } from '../Box/Box';
 
 const COMPONENT_NAME = 'Modal';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ModalElement = ElementRef<'div'>;
 
@@ -84,4 +84,4 @@ export const Modal = React.forwardRef<ModalElement, ModalProps>(
   }
 );
 
-Modal.displayName = displayName;
+Modal.displayName = COMPONENT_NAME;

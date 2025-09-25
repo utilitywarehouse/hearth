@@ -14,7 +14,7 @@ import type { ElementRef } from 'react';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
 const COMPONENT_NAME = 'Radio';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioElement = ElementRef<'button'>;
 
@@ -80,4 +80,4 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
   }
 );
 
-Radio.displayName = displayName;
+Radio.displayName = COMPONENT_NAME;

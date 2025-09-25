@@ -9,7 +9,7 @@ import { HelperText } from '../HelperText/HelperText';
 import { SectionHeaderProps } from './SectionHeader.props';
 
 const COMPONENT_NAME = 'SectionHeader';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type SectionHeaderElement = ElementRef<'div'>;
 
@@ -27,4 +27,4 @@ export const SectionHeader = React.forwardRef<SectionHeaderElement, SectionHeade
   }
 );
 
-SectionHeader.displayName = displayName;
+SectionHeader.displayName = COMPONENT_NAME;

@@ -10,7 +10,7 @@ import { Spinner } from '../Spinner/Spinner';
 import { getIconButtonSpinnerSize } from '../../helpers/get-icon-button-spinner-size';
 
 const COMPONENT_NAME = 'UnstyledIconButton';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export type UnstyledIconButtonElement = ElementRef<'button'>;
 
@@ -45,4 +45,4 @@ export const UnstyledIconButton = React.forwardRef<
   );
 });
 
-UnstyledIconButton.displayName = displayName;
+UnstyledIconButton.displayName = COMPONENT_NAME;

@@ -13,7 +13,7 @@ import { textWrapPropDefs } from '../../props/text-wrap.props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'Em';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type EmElement = ElementRef<'em'>;
 
@@ -37,4 +37,4 @@ export const Em = React.forwardRef<EmElement, EmProps>((props, ref) => {
   );
 });
 
-Em.displayName = displayName;
+Em.displayName = COMPONENT_NAME;

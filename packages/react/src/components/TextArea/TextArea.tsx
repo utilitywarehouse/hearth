@@ -15,7 +15,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'TextArea';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TextAreaElement = ElementRef<'textarea'>;
 
@@ -98,4 +98,4 @@ export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props,
   );
 });
 
-TextArea.displayName = displayName;
+TextArea.displayName = COMPONENT_NAME;

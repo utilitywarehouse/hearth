@@ -15,7 +15,7 @@ import { FlexProps } from '../Flex/Flex.props';
 import { CardActionProps } from './CardAction.props';
 
 const COMPONENT_NAME = 'CardAction';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CardActionElement = ElementRef<'div'>;
 
@@ -43,4 +43,4 @@ export const CardAction = React.forwardRef<CardActionElement, CardActionProps>((
   );
 });
 
-CardAction.displayName = displayName;
+CardAction.displayName = COMPONENT_NAME;

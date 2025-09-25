@@ -11,7 +11,7 @@ import { Flex } from '../Flex/Flex';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
 const COMPONENT_NAME = 'RadioTile';
-const { displayName, componentClassName } = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioTileElement = ElementRef<'button'>;
 
@@ -61,4 +61,4 @@ export const RadioTile = React.forwardRef<RadioTileElement, RadioTileProps>(
   }
 );
 
-RadioTile.displayName = displayName;
+RadioTile.displayName = COMPONENT_NAME;
