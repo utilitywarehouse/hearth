@@ -27,7 +27,6 @@ export interface TextInputProps
   helperText?: string;
   /**
    * Indicates the validation state of the TextInput.
-   * @default undefined
    */
   validationStatus?: 'valid' | 'invalid';
   /**

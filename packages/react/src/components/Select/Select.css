@@ -1,0 +1,50 @@
+.hearth-Select {
+  display: inline-flex;
+  min-width: var(--h-select-min-width);
+  max-width: var(--h-select-max-width);
+
+  & :where(.hearth-SelectTrigger) {
+    all: unset;
+    outline: transparent;
+    appearance: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--h-select-gap);
+    text-align: center;
+    flex-shrink: 0;
+    user-select: none; /* make inner text unselectable */
+    background-color: var(--h-surface-neutral-strong);
+    border: var(--h-select-border-width) solid var(--h-select-border, var(--h-border-strong));
+    border-radius: var(--h-select-border-radius);
+    padding-inline: var(--h-select-padding-horizontal);
+    padding-block: var(--h-select-padding-vertical);
+    font-family: var(--h-font-family-body);
+    font-size: var(--h-body-text-md-font-size);
+    font-weight: var(--h-font-weight-regular);
+    line-height: var(--h-body-text-md-line-height);
+    letter-spacing: var(--h-body-text-md-letter-spacing);
+  }
+  & :where(.hearth-SelectTriggerIcon) {
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+.hearth-SelectDropdown {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-select-dropdown-gap);
+  align-items: flex-start;
+  padding: var(--h-select-dropdown-padding);
+  background-color: var(--h-surface-neutral-strong);
+  /* stylelint-disable-next-line custom-property-pattern -- Radix UI specific custom property */
+  width: var(--radix-select-trigger-width);
+  min-width: var(--h-select-min-width);
+  max-width: var(--h-select-max-width);
+  border: var(--h-select-dropdown-border-width) solid var(--h-border-subtle);
+  border-radius: var(--h-select-border-radius);
+}
