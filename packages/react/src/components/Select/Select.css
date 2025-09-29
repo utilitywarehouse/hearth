@@ -50,6 +50,7 @@
       --h-select-border: var(--h-feedback-positive-border);
       --h-select-border-color-focus: var(--h-feedback-positive-border);
     }
+
     &:where([data-validation-status='invalid']) {
       --h-select-border: var(--h-feedback-danger-border);
       --h-select-border-color-focus: var(--h-feedback-danger-border);
