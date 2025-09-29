@@ -1,10 +1,10 @@
 import { Select as RadixSelect } from 'radix-ui';
 import { MarginProps } from '../../props/margin.props';
 
-export type SelectProps = Omit<typeof RadixSelect.Root, 'orientation' | 'asChild' | 'dir'> &
-  Omit<RadixSelect.SelectTriggerProps, 'dir' | 'value' | 'defaultValue'> &
+export type SelectProps = Omit<RadixSelect.SelectTriggerProps, 'dir' | 'value' | 'defaultValue'> &
   Pick<React.ComponentProps<'button'>, 'className'> &
   Pick<RadixSelect.SelectValueProps, 'placeholder'> &
+  Omit<RadixSelect.SelectProps, 'orientation' | 'asChild' | 'dir'> &
   MarginProps & {
     /**
      * The label for the Select, describing its purpose.
