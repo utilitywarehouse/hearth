@@ -12,7 +12,7 @@ const InputSlot = ({
     <View
       {...props}
       accessible={accessible ?? false}
-      importantForAccessibility={importantForAccessibility ?? 'no'}
+      importantForAccessibility={importantForAccessibility ?? 'auto'}
       style={[styles.container, style]}
     >
       {children}

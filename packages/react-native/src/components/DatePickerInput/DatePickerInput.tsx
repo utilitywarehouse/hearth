@@ -3,22 +3,15 @@ import { CalendarSmallIcon, CloseSmallIcon } from '@utilitywarehouse/hearth-reac
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import {
-  InputAccessoryView,
-  Keyboard,
-  Platform,
-  Pressable,
-  TextInputFocusEvent,
-  View,
-} from 'react-native';
+import { Keyboard, Platform, TextInputFocusEvent } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { DatePicker } from '../DatePicker';
 import type { DateType } from '../DatePicker/DatePicker.props';
-import { DetailText } from '../DetailText';
 import { useFormFieldContext } from '../FormField';
 import { Input, InputField, InputSlot } from '../Input';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import type DatePickerInputProps from './DatePickerInput.props';
+import DatePickerInputDoneButton from './DatePickerInputDoneButton';
 
 dayjs.extend(customParseFormat);
 
@@ -214,7 +207,7 @@ const DatePickerInput = ({
           accessible={resolvedAccessible}
           accessibilityRole={resolvedAccessibilityRole}
           importantForAccessibility={resolvedImportantForAccessibility}
-          inputAccessoryViewID={accessoryViewID}
+          inputAccessoryViewID={Platform.OS === 'ios' ? accessoryViewID : undefined}
           {...textInputProps}
           style={[styles.input, inputStyle as any]}
         />
@@ -245,18 +238,10 @@ const DatePickerInput = ({
         {...restDatePickerProps}
       />
       {Platform.OS === 'ios' && accessoryViewID && (
-        <InputAccessoryView nativeID={accessoryViewID}>
-          <View style={styles.accessory}>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Done"
-              onPress={closeKeyboard}
-              style={styles.doneButton}
-            >
-              <DetailText size="lg">Done</DetailText>
-            </Pressable>
-          </View>
-        </InputAccessoryView>
+        <DatePickerInputDoneButton
+          accessoryViewID={accessoryViewID}
+          closeKeyboard={closeKeyboard}
+        />
       )}
     </>
   );
@@ -271,18 +256,6 @@ const styles = StyleSheet.create(theme => ({
   input: {
     paddingLeft: 0,
     paddingRight: 0,
-  },
-  accessory: {
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    alignItems: 'flex-end',
-    backgroundColor: theme.color.surface.neutral.strong,
-    borderTopWidth: theme.borderWidth[1],
-    borderTopColor: theme.color.border.subtle,
-  },
-  doneButton: {
-    paddingHorizontal: 8,
-    paddingVertical: 6,
   },
 }));
 
