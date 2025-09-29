@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Flex, Select, SelectItem } from '@utilitywarehouse/hearth-react';
+import { Select, SelectItem } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Select> = {
   title: 'Stories / Select',
@@ -20,7 +20,9 @@ const meta: Meta<typeof Select> = {
     label: 'Select',
     helperText: 'Helper text',
     placeholder: 'Select',
+    validationText: 'Validation text',
     disabled: false,
+    required: false,
   },
 };
 
