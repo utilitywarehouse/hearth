@@ -209,7 +209,7 @@ const DatePickerInput = ({
           importantForAccessibility={resolvedImportantForAccessibility}
           inputAccessoryViewID={Platform.OS === 'ios' ? accessoryViewID : undefined}
           {...textInputProps}
-          style={[styles.input, inputStyle as any]}
+          style={[styles.input, inputStyle]}
         />
         {!!inputValue && onClear && !isReadonly && !isDisabled && (
           <InputSlot>

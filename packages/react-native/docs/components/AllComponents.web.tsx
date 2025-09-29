@@ -28,6 +28,7 @@ import {
   Checkbox,
   CurrencyInput,
   DatePicker,
+  DatePickerInput,
   DateType,
   DescriptionList,
   DescriptionListItem,
@@ -252,6 +253,16 @@ const AllComponents: React.FC = () => {
                   onChange={({ date }) => setSelected(date)}
                   onCancel={() => setSelected(undefined)}
                 />
+              </BottomSheetModalProvider>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
+            name="Date Picker Input"
+            link="/?path=/docs/forms-date-picker-input--docs"
+          >
+            <Center flex={1} padding="200">
+              <BottomSheetModalProvider>
+                <DatePickerInput placeholder="DD/MM/YYYY" />
               </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
