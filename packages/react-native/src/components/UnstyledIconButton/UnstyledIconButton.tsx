@@ -30,17 +30,29 @@ const UnstyledIconButton = ({
   ...props
 }: UnstyledIconButtonProps) => {
   const { disabled: groupDisabled, loading: groupLoading } = useButtonGroupContext();
-  const { loading } = props;
+  const {
+    loading,
+    accessibilityRole = 'button',
+    accessible = true,
+    focusable = true,
+    importantForAccessibility = 'yes',
+    ...restProps
+  } = props;
+
   const isLoading = loading ?? groupLoading;
   const buttonDisabled = isLoading || (disabled ?? groupDisabled);
 
   return (
     <UnstyledIconButtonComponent
-      {...props}
+      {...restProps}
       size={size}
       inverted={inverted}
       isDisabled={buttonDisabled}
       isPressed={pressed}
+      accessibilityRole={accessibilityRole}
+      accessible={accessible}
+      focusable={focusable}
+      importantForAccessibility={importantForAccessibility}
       icon={icon}
     >
       {loading ? (

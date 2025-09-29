@@ -11,6 +11,7 @@ export * from './Center';
 export * from './Checkbox';
 export * from './CurrencyInput';
 export * from './DatePicker';
+export * from './DatePickerInput';
 export * from './DescriptionList';
 export * from './DetailText';
 export * from './Divider';
