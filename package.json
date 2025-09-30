@@ -3,7 +3,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/utilitywarehouse/hearth"
+    "url": "git+https://github.com/utilitywarehouse/hearth.git"
   },
   "scripts": {
     "setup": "corepack enable && corepack prepare pnpm@9.15.2 --activate",
@@ -16,6 +16,7 @@
     "build:assets": "turbo run @utilitywarehouse/hearth-react#build @utilitywarehouse/hearth-fonts#build @utilitywarehouse/hearth-css-reset#build storybook-assets#build:storybook",
     "build:icons": "turbo run @utilitywarehouse/hearth-react#build @utilitywarehouse/hearth-fonts#build @utilitywarehouse/hearth-css-reset#build storybook-icons#build:storybook",
     "build:storybook": "turbo build build:storybook",
+    "build:storybook:react": "turbo run build:react storybook-react#build:storybook",
     "preinstall": "npx only-allow pnpm",
     "dev:react": "turbo run @utilitywarehouse/hearth-react#dev storybook-react#dev",
     "dev:react-native": "turbo run @utilitywarehouse/hearth-react-native#dev @utilitywarehouse/hearth-react-native#dev",
@@ -65,6 +66,7 @@
     "@typescript-eslint/eslint-plugin": "^8.14.0",
     "@typescript-eslint/parser": "^8.14.0",
     "@utilitywarehouse/prettier-config": "^0.1.1",
+    "chromatic": "^13.3.0",
     "eslint": "8",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
