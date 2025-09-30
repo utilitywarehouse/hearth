@@ -9,7 +9,7 @@ const InputField = ({
   inBottomSheet = false,
   ...props
 }: TextInputProps & { inBottomSheet?: boolean }) => {
-  const { disabled, focused, type } = useInputContext();
+  const { disabled, focused = false, type } = useInputContext();
   styles.useVariants({ focused, type });
   const { color } = useTheme();
 

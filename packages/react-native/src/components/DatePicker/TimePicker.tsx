@@ -50,10 +50,12 @@ const TimePicker = () => {
       let hour24 = value;
 
       if (use12Hours) {
-        if (period === 'PM' && value < 12) {
-          hour24 = value + 12;
-        } else if (period === 'PM' && value === 12) {
+        if (period === 'AM' && value === 12) {
           hour24 = 0;
+        } else if (period === 'PM' && value < 12) {
+          hour24 = value + 12;
+        } else {
+          hour24 = value;
         }
       }
       const newDate = dayjs.tz(date, timeZone).hour(hour24).minute(minute);

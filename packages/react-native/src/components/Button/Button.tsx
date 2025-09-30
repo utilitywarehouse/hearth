@@ -1,22 +1,14 @@
-import { createButton } from '@gluestack-ui/core/button/creator';
-import type { IButtonGroupProps } from '@gluestack-ui/core/lib/esm/button/creator/types';
-import type {
-  ComponentPropsWithoutRef,
-  ComponentRef,
-  ForwardRefExoticComponent,
-  RefAttributes,
-} from 'react';
-import { forwardRef } from 'react';
 import type { ButtonProps, ButtonWithStringChildrenProps } from './Button.props';
-import ButtonIconComponent from './ButtonIcon';
-import ButtonSpinnerComponent from './ButtonSpinner';
 import ButtonTextComponent from './ButtonText';
+import ButtonSpinnerComponent from './ButtonSpinner';
+import ButtonIconComponent from './ButtonIcon';
+import { createButton } from '@gluestack-ui/button';
 
-import { View } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
-import { useButtonGroupContext } from './ButtonGroup.context';
-import ButtonGroupRoot from './ButtonGroupRoot';
 import ButtonRoot from './ButtonRoot';
+import ButtonGroupRoot from './ButtonGroupRoot';
+import { useButtonGroupContext } from './ButtonGroup.context';
+import { StyleSheet } from 'react-native-unistyles';
+import { View } from 'react-native';
 
 const ButtonComponent = createButton({
   Root: ButtonRoot,
@@ -26,52 +18,10 @@ const ButtonComponent = createButton({
   Text: ButtonTextComponent,
 });
 
-type ButtonTextProps = ComponentPropsWithoutRef<typeof ButtonTextComponent>;
-type ButtonTextRef = ComponentRef<typeof ButtonTextComponent>;
-type ButtonTextComponentType = ForwardRefExoticComponent<
-  ButtonTextProps & RefAttributes<ButtonTextRef>
->;
-export const ButtonText: ButtonTextComponentType = forwardRef((props: ButtonTextProps, ref) => (
-  <ButtonComponent.Text {...props} ref={ref} />
-));
-
-type ButtonSpinnerProps = ComponentPropsWithoutRef<typeof ButtonSpinnerComponent>;
-type ButtonSpinnerRef = ComponentRef<typeof ButtonSpinnerComponent>;
-type ButtonSpinnerComponentType = ForwardRefExoticComponent<
-  ButtonSpinnerProps & RefAttributes<ButtonSpinnerRef>
->;
-export const ButtonSpinner: ButtonSpinnerComponentType = forwardRef(
-  (props: ButtonSpinnerProps, ref) => <ButtonComponent.Spinner {...props} ref={ref} />
-);
-
-type ButtonIconProps = ComponentPropsWithoutRef<typeof ButtonIconComponent>;
-type ButtonIconRef = ComponentRef<typeof ButtonIconComponent>;
-type ButtonIconComponentType = ForwardRefExoticComponent<
-  ButtonIconProps & RefAttributes<ButtonIconRef>
->;
-export const ButtonIcon: ButtonIconComponentType = forwardRef((props: ButtonIconProps, ref) => (
-  <ButtonComponent.Icon {...props} ref={ref} />
-));
-
-type ButtonGroupBaseProps = ComponentPropsWithoutRef<typeof ButtonGroupRoot>;
-type ButtonGroupProps = Omit<ButtonGroupBaseProps, 'children'> &
-  Partial<IButtonGroupProps> & {
-    children?: IButtonGroupProps['children'];
-  };
-type ButtonGroupRef = ComponentRef<typeof ButtonGroupRoot>;
-type ButtonGroupComponentType = ForwardRefExoticComponent<
-  ButtonGroupProps & RefAttributes<ButtonGroupRef>
->;
-export const ButtonGroupComponent: ButtonGroupComponentType = forwardRef(
-  ({ children, ...rest }: ButtonGroupProps, ref) => {
-    const groupProps = {
-      ...rest,
-      children: (children ?? null) as IButtonGroupProps['children'],
-    } as IButtonGroupProps & Omit<ButtonGroupBaseProps, 'children'>;
-
-    return <ButtonComponent.Group {...groupProps} ref={ref} />;
-  }
-);
+export const ButtonText = ButtonComponent.Text;
+export const ButtonSpinner = ButtonComponent.Spinner;
+export const ButtonIcon = ButtonComponent.Icon;
+export const ButtonGroupComponent = ButtonComponent.Group;
 
 ButtonText.displayName = 'ButtonText';
 ButtonSpinner.displayName = 'ButtonSpinner';

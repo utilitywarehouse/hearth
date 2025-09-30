@@ -1,4 +1,4 @@
-import { createRadio } from '@gluestack-ui/core/radio/creator';
+import { createRadio } from '@gluestack-ui/radio';
 import RadioProps from './Radio.props';
 import StyledRadioGroup from './RadioGroupRoot';
 import StyledRadioIcon from './RadioIcon';

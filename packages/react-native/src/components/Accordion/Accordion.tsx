@@ -1,16 +1,9 @@
-import { createAccordion } from '@gluestack-ui/core/accordion/creator';
-import type { IAccordionTriggerProps } from '@gluestack-ui/core/lib/esm/accordion/creator/types';
+import { createAccordion } from '@gluestack-ui/accordion';
 import {
   ChevronDownSmallIcon,
   ChevronUpSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
-import type {
-  ComponentPropsWithoutRef,
-  ComponentRef,
-  ForwardRefExoticComponent,
-  RefAttributes,
-} from 'react';
-import { Children, forwardRef, isValidElement, useMemo } from 'react';
+import { Children, isValidElement, useMemo } from 'react';
 import { SectionHeader } from '../SectionHeader';
 import { AccordionProps } from './Accordion.props';
 import AccordionContentComponent from './AccordionContent';
@@ -35,71 +28,12 @@ const AccordionComponent = createAccordion({
 });
 
 const AccordionItemComponent = AccordionComponent.Item;
-
-type AccordionHeaderProps = ComponentPropsWithoutRef<typeof AccordionHeaderComponent>;
-type AccordionHeaderRef = ComponentRef<typeof AccordionHeaderComponent>;
-type AccordionHeaderComponentType = ForwardRefExoticComponent<
-  AccordionHeaderProps & RefAttributes<AccordionHeaderRef>
->;
-export const AccordionHeader: AccordionHeaderComponentType = forwardRef(
-  (props: AccordionHeaderProps, ref) => <AccordionComponent.Header {...props} ref={ref} />
-);
-
-type AccordionTriggerBaseProps = ComponentPropsWithoutRef<typeof AccordionTriggerComponent>;
-type AccordionTriggerProps = Omit<AccordionTriggerBaseProps, 'children'> &
-  Omit<IAccordionTriggerProps, 'children'> & {
-    children?: IAccordionTriggerProps['children'];
-  };
-type AccordionTriggerRef = ComponentRef<typeof AccordionTriggerComponent>;
-type AccordionTriggerComponentType = ForwardRefExoticComponent<
-  AccordionTriggerProps & RefAttributes<AccordionTriggerRef>
->;
-export const AccordionTrigger: AccordionTriggerComponentType = forwardRef(
-  ({ children, ...rest }: AccordionTriggerProps, ref) => {
-    const triggerProps = {
-      ...rest,
-      children: (children ?? null) as IAccordionTriggerProps['children'],
-    } as IAccordionTriggerProps;
-
-    return <AccordionComponent.Trigger {...triggerProps} ref={ref} />;
-  }
-);
-
-type AccordionContentProps = ComponentPropsWithoutRef<typeof AccordionContentComponent>;
-type AccordionContentRef = ComponentRef<typeof AccordionContentComponent>;
-type AccordionContentComponentType = ForwardRefExoticComponent<
-  AccordionContentProps & RefAttributes<AccordionContentRef>
->;
-export const AccordionContent: AccordionContentComponentType = forwardRef(
-  (props: AccordionContentProps, ref) => <AccordionComponent.Content {...props} ref={ref} />
-);
-
-type AccordionContentTextProps = ComponentPropsWithoutRef<typeof AccordionContentTextComponent>;
-type AccordionContentTextRef = ComponentRef<typeof AccordionContentTextComponent>;
-type AccordionContentTextComponentType = ForwardRefExoticComponent<
-  AccordionContentTextProps & RefAttributes<AccordionContentTextRef>
->;
-export const AccordionContentText: AccordionContentTextComponentType = forwardRef(
-  (props: AccordionContentTextProps, ref) => <AccordionComponent.ContentText {...props} ref={ref} />
-);
-
-type AccordionIconProps = ComponentPropsWithoutRef<typeof AccordionIconComponent>;
-type AccordionIconRef = ComponentRef<typeof AccordionIconComponent>;
-type AccordionIconComponentType = ForwardRefExoticComponent<
-  AccordionIconProps & RefAttributes<AccordionIconRef>
->;
-export const AccordionIcon: AccordionIconComponentType = forwardRef(
-  (props: AccordionIconProps, ref) => <AccordionComponent.Icon {...props} ref={ref} />
-);
-
-type AccordionTitleTextProps = ComponentPropsWithoutRef<typeof AccordionTitleTextComponent>;
-type AccordionTitleTextRef = ComponentRef<typeof AccordionTitleTextComponent>;
-type AccordionTitleTextComponentType = ForwardRefExoticComponent<
-  AccordionTitleTextProps & RefAttributes<AccordionTitleTextRef>
->;
-export const AccordionTitleText: AccordionTitleTextComponentType = forwardRef(
-  (props: AccordionTitleTextProps, ref) => <AccordionComponent.TitleText {...props} ref={ref} />
-);
+export const AccordionHeader = AccordionComponent.Header;
+export const AccordionTrigger = AccordionComponent.Trigger;
+export const AccordionContent = AccordionComponent.Content;
+export const AccordionContentText = AccordionComponent.ContentText;
+export const AccordionIcon = AccordionComponent.Icon;
+export const AccordionTitleText = AccordionComponent.TitleText;
 
 const Accordion = ({
   children,

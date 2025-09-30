@@ -24,7 +24,10 @@ const WheelWeb = ({ value, setValue = () => {}, items }: WheelProps) => {
   const radius = height / 2;
 
   const valueIndex = useMemo(() => {
-    return items.findIndex(item => item.value === value) || 0;
+    return Math.max(
+      0,
+      items.findIndex(item => item.value === value)
+    );
   }, [items, value]);
 
   const panResponder = useMemo(() => {

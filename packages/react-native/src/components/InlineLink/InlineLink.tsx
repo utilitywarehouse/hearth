@@ -1,5 +1,6 @@
-import { createLink } from '@gluestack-ui/core/link/creator';
+ 
 import type { InlineLinkProps } from './InlineLink.props';
+import { createLink } from '@gluestack-ui/link';
 import InlineLinkRoot from './InlineLinkRoot';
 
 const InlineLinkComponent = createLink({

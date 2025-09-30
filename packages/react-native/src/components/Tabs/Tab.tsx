@@ -6,7 +6,7 @@ import { Icon } from '../Icon';
 import type TabProps from './Tab.props';
 import { useTabsContext } from './Tabs.context';
 
-import { createPressable } from '@gluestack-ui/core/pressable/creator';
+import { createPressable } from '@gluestack-ui/pressable';
 
 const Tab = ({
   value,

@@ -1,9 +1,9 @@
-import { createTextarea } from '@gluestack-ui/core/textarea/creator';
+import { createTextarea } from '@gluestack-ui/textarea';
 import type TextareaProps from './Textarea.props';
 
-import { useFormFieldContext } from '../FormField';
-import TextareaFieldComponent from './TextareaField';
 import TextareaRoot from './TextareaRoot';
+import TextareaFieldComponent from './TextareaField';
+import { useFormFieldContext } from '../FormField';
 
 export const TextareaComponent = createTextarea({
   Root: TextareaRoot,

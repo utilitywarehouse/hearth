@@ -1,18 +1,11 @@
-import type { ComponentPropsWithoutRef, ComponentRef } from 'react';
-import { forwardRef, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useTheme } from '../../hooks';
 import { ColorValue } from '../../types';
+import type { SpinnerProps } from '../Spinner';
 import { Spinner } from '../Spinner';
 import { useUnstyledIconButtonContext } from './UnstyledIconButton.context';
 
-type SpinnerComponentProps = ComponentPropsWithoutRef<typeof Spinner>;
-type UnstyledIconButtonSpinnerProps = Omit<SpinnerComponentProps, 'size'>;
-type UnstyledIconButtonSpinnerRef = ComponentRef<typeof Spinner>;
-
-const UnstyledIconButtonSpinner = forwardRef<
-  UnstyledIconButtonSpinnerRef,
-  UnstyledIconButtonSpinnerProps
->(({ color, ...props }, ref) => {
+const UnstyledIconButtonSpinner = ({ color, ...props }: Omit<SpinnerProps, 'size'>) => {
   const { disabled, inverted, size } = useUnstyledIconButtonContext();
   const { components } = useTheme();
 
@@ -34,13 +27,12 @@ const UnstyledIconButtonSpinner = forwardRef<
   return (
     <Spinner
       {...props}
-      ref={ref}
       aria-disabled={disabled}
       size={spinnerSize}
       color={(color as ColorValue) || colorValue}
     />
   );
-});
+};
 
 UnstyledIconButtonSpinner.displayName = 'UnstyledIconButtonSpinner';
 

@@ -1,9 +1,9 @@
-import { createRadio } from '@gluestack-ui/core/radio/creator';
+import { createRadio } from '@gluestack-ui/radio';
+import StyledToggleButtonCard from './ToggleButtonCardRoot';
+import StyledToggleButtonCardGroup from './ToggleButtonCardGroup';
+import ToggleButtonCardProps from './ToggleButtonCard.props';
 import { View } from 'react-native';
 import { useStyleProps } from '../../hooks';
-import ToggleButtonCardProps from './ToggleButtonCard.props';
-import StyledToggleButtonCardGroup from './ToggleButtonCardGroup';
-import StyledToggleButtonCard from './ToggleButtonCardRoot';
 
 const ToggleButtonCardComponent = createRadio({
   Root: StyledToggleButtonCard,

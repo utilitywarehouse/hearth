@@ -1,4 +1,4 @@
-import { createIcon } from '@gluestack-ui/core/icon/creator';
+import { createIcon } from '@gluestack-ui/icon';
 import { useMemo } from 'react';
 import { Svg } from 'react-native-svg';
 import { withUnistyles } from 'react-native-unistyles';
