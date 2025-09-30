@@ -1,4 +1,4 @@
-import { createCheckbox } from '@gluestack-ui/checkbox';
+import { createCheckbox } from '@gluestack-ui/core/checkbox/creator';
 import { useFormFieldContext } from '../FormField';
 import { Helper } from '../Helper';
 import CheckboxProps from './Checkbox.props';

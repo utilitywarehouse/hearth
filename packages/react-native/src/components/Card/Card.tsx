@@ -1,4 +1,4 @@
-import { createPressable } from '@gluestack-ui/pressable';
+import { createPressable } from '@gluestack-ui/core/pressable/creator';
 import CardRoot from './CardRoot';
 
 const Card = createPressable({

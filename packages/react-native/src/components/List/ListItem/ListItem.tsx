@@ -1,4 +1,4 @@
-import { createPressable } from '@gluestack-ui/pressable';
+import { createPressable } from '@gluestack-ui/core/pressable/creator';
 import ListItemRoot from './ListItemRoot';
 
 const ListItem = createPressable({

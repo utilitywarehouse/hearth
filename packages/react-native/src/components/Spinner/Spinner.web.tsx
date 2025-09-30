@@ -1,5 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { createSpinner } from '@gluestack-ui/spinner';
+import { createSpinner } from '@gluestack-ui/core/lib/esm/spinner/creator';
+import type {
+  ComponentRef,
+  ForwardRefExoticComponent,
+  PropsWithoutRef,
+  RefAttributes,
+} from 'react';
 import React, { useCallback, useEffect, useMemo } from 'react';
 import { View } from 'react-native';
 import Animated, {
@@ -144,6 +150,13 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-const Spinner = createSpinner({ Root: SpinnerRoot });
+type SpinnerRef = ComponentRef<typeof SpinnerRoot>;
+type SpinnerComponentType = ForwardRefExoticComponent<
+  PropsWithoutRef<SpinnerProps> & RefAttributes<SpinnerRef>
+>;
+
+const Spinner = createSpinner<SpinnerProps>({
+  Root: SpinnerRoot,
+}) as unknown as SpinnerComponentType;
 
 export default Spinner;

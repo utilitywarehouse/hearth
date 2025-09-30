@@ -6,12 +6,10 @@ import { useInputContext } from './Input.context';
 
 const InputField = ({
   style,
-  onFocus,
-  onBlur,
   inBottomSheet = false,
   ...props
 }: TextInputProps & { inBottomSheet?: boolean }) => {
-  const { disabled, focused = false, type } = useInputContext();
+  const { disabled, focused, type } = useInputContext();
   styles.useVariants({ focused, type });
   const { color } = useTheme();
 

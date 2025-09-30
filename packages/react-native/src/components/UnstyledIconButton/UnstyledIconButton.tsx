@@ -1,4 +1,4 @@
-import { createButton } from '@gluestack-ui/button';
+import { createButton } from '@gluestack-ui/core/button/creator';
 import { ViewStyle } from 'react-native';
 import { useButtonGroupContext } from '../Button/ButtonGroup.context';
 import { UnstyledIconButtonProps } from './UnstyledIconButton.props';

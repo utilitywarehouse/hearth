@@ -1,4 +1,4 @@
-import { createPressable } from '@gluestack-ui/pressable';
+import { createPressable } from '@gluestack-ui/core/pressable/creator';
 import React, { memo, useMemo } from 'react';
 import { Pressable, PressableProps, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';

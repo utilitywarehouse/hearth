@@ -1,8 +1,8 @@
+import { createButton } from '@gluestack-ui/core/button/creator';
 import type { ToggleButtonProps } from './ToggleButton.props';
-import ToggleButtonTextComponent from './ToggleButtonText';
 import ToggleButtonIconComponent from './ToggleButtonIcon';
-import { createButton } from '@gluestack-ui/button';
 import ToggleButtonRoot from './ToggleButtonRoot';
+import ToggleButtonTextComponent from './ToggleButtonText';
 
 const ToggleButtonComponent = createButton({
   Root: ToggleButtonRoot,

@@ -22,19 +22,7 @@
     "build:storybook": "storybook build"
   },
   "dependencies": {
-    "@expo/html-elements": "latest",
-    "@gluestack-ui/accordion": "1.0.7",
-    "@gluestack-ui/alert": "0.1.15",
-    "@gluestack-ui/button": "1.0.7",
-    "@gluestack-ui/checkbox": "0.1.32",
-    "@gluestack-ui/icon": "0.1.22",
-    "@gluestack-ui/input": "0.1.31",
-    "@gluestack-ui/link": "0.1.22",
-    "@gluestack-ui/pressable": "0.1.16",
-    "@gluestack-ui/radio": "0.1.33",
-    "@gluestack-ui/spinner": "0.1.14",
-    "@gluestack-ui/switch": "0.1.22",
-    "@gluestack-ui/textarea": "0.1.23",
+    "@gluestack-ui/core": "^3.0.10",
     "dayjs": "^1.11.13"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-import { createFormControl } from '@gluestack-ui/form-control';
+import { createFormControl } from '@gluestack-ui/core/form-control/creator';
 import { useMemo } from 'react';
 import { View } from 'react-native';
 import { HelperIcon, HelperText } from '../Helper';

@@ -1,8 +1,12 @@
-import { createIcon } from '@gluestack-ui/icon';
+import { createIcon } from '@gluestack-ui/core/icon/creator';
+import { forwardRef } from 'react';
+import type { SvgProps } from 'react-native-svg';
 import { Path, Svg } from 'react-native-svg';
 
+const SvgRoot = forwardRef<unknown, SvgProps>((props, ref) => <Svg {...props} ref={ref as any} />);
+
 const CircleIcon = createIcon({
-  Root: Svg,
+  Root: SvgRoot,
   viewBox: '0 0 24 24',
   path: (
     <Path

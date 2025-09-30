@@ -1,9 +1,9 @@
-import { createButton } from '@gluestack-ui/button';
-import { IconButtonProps } from './IconButton.props';
-import IconButtonRootComponent from './IconButtonRoot';
-import IconButtonIconComponent from './IconButtonIcon';
-import IconButtonSpinerComponent from './IconButtonSpinner';
+import { createButton } from '@gluestack-ui/core/button/creator';
 import { useButtonGroupContext } from '../Button/ButtonGroup.context';
+import { IconButtonProps } from './IconButton.props';
+import IconButtonIconComponent from './IconButtonIcon';
+import IconButtonRootComponent from './IconButtonRoot';
+import IconButtonSpinerComponent from './IconButtonSpinner';
 
 const IconButtonComponent = createButton({
   Root: IconButtonRootComponent,

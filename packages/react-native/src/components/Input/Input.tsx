@@ -1,4 +1,4 @@
-import { createInput } from '@gluestack-ui/input';
+import { createInput } from '@gluestack-ui/core/input/creator';
 import { ComponentType, useState } from 'react';
 import type InputProps from './Input.props';
 

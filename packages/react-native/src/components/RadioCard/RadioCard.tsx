@@ -1,4 +1,4 @@
-import { createRadio } from '@gluestack-ui/radio';
+import { createRadio } from '@gluestack-ui/core/radio/creator';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
