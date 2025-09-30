@@ -73,6 +73,7 @@
   background-color: var(--h-surface-neutral-strong);
   /* stylelint-disable-next-line custom-property-pattern -- Radix UI specific custom property */
   width: var(--radix-select-trigger-width);
+  /* stylelint-disable-next-line custom-property-pattern -- Radix UI specific custom property */
   max-height: var(--radix-select-content-available-height);
   border: var(--h-select-dropdown-border-width) solid var(--h-border-subtle);
   border-radius: var(--h-select-border-radius);
