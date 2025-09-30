@@ -49,7 +49,7 @@ export const Dropdown: Story = {
         <SelectItem value="1">Item 1</SelectItem>
         <SelectItem value="2">Item 2</SelectItem>
         <SelectItem value="3">Item 3</SelectItem>
-        <SelectItem value="3" disabled>
+        <SelectItem value="4" disabled>
           Item 4
         </SelectItem>
       </Select>
