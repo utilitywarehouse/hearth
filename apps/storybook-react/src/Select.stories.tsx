@@ -7,7 +7,8 @@ const meta: Meta<typeof Select> = {
   parameters: {
     docs: {
       description: {
-        component: '',
+        component:
+          '`Select` enables users to select an option from a list of choices, and generally requires a final submit action to confirm the selection.',
       },
     },
   },

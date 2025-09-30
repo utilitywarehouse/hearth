@@ -3,8 +3,7 @@ import { MarginProps } from '../../props/margin.props';
 
 export type SelectProps = Omit<RadixSelect.SelectTriggerProps, 'dir' | 'value' | 'defaultValue'> &
   Pick<React.ComponentProps<'button'>, 'className'> &
-  Pick<RadixSelect.SelectValueProps, 'placeholder'> &
-  Omit<RadixSelect.SelectProps, 'orientation' | 'asChild' | 'dir'> &
+  Omit<RadixSelect.SelectProps, 'asChild' | 'dir'> &
   MarginProps & {
     /**
      * The label for the Select, describing its purpose.
@@ -22,4 +21,5 @@ export type SelectProps = Omit<RadixSelect.SelectTriggerProps, 'dir' | 'value' |
      * Text to display when the `validationStatus` is set.
      */
     validationText?: string;
+    placeholder?: string;
   };

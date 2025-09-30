@@ -1,0 +1,70 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './Select.stories';
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Components / Select" />
+
+<DocsHeader componentName="Select" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Usage
+
+Use the root `Select` component to control the label, helper text and
+validation, and to wrap `SelectItem` component's used to display the select
+options. A `label` is required on the `Select`.
+
+```tsx
+<Select label="Choose one">
+  <SelectItem value="1">Item 1</SelectItem>
+  <SelectItem value="2">Item 2</SelectItem>
+  <SelectItem value="3">Item 3</SelectItem>
+</Select>
+```
+
+## Value
+
+By default the selected item's text will be rendered. An optional placeholder
+prop is also available for when the select has no value.
+
+## Required
+
+In it's default state the `TextInput` is optional, and is indicated as such
+with the `(optional)` text following the label.
+
+When using online forms, most users assume all fields are required by default,
+so the `TextInput` draws attention to when it is optional. Please make sure
+that when the input field is required for successful completion of the form,
+that you apply the `required` prop and appropriate validation is included.
+
+## Validation
+
+The input `validationStatus` can be set to either `"valid"` or `"invalid"` to
+indicate the status. This status must be accompanied by a validation text to
+explain the reason for the status.
+
+## API
+
+This component is based on the `button` element and supports the following common props:
+
+- Margin
+
+| Prop               | Type                      |
+| ------------------ | ------------------------- |
+| `label`            | `string`                  |
+| `helperText`       | `string`                  |
+| `validationStatus` | `"valid" \| "invalid"`    |
+| `validationText`   | `string`                  |
+| `defaultValue`     | `string`                  |
+| `value`            | `string`                  |
+| `onValueChange`    | `(value: string) => void` |
+| `defaultOpen`      | `boolean`                 |
+| `open`             | `boolean`                 |
+| `onOpenChange`     | `(open: boolean) => void` |
+| `name`             | `string`                  |
+| `disabled`         | `boolean`                 |
+| `required`         | `boolean`                 |
+| `placeholder`      | `string`                  |
