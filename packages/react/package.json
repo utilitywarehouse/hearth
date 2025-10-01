@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react",
-  "version": "0.10.2",
+  "version": "1.0.0",
   "description": "React components",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -52,7 +52,7 @@
   ],
   "peerDependencies": {
     "@utilitywarehouse/hearth-fonts": "workspace:*",
-    "@utilitywarehouse/hearth-react-icons": "workspace:~0.4.0",
+    "@utilitywarehouse/hearth-react-icons": "workspace:~0.5.0",
     "react": "^18.0.0 || ^19.0.0 ",
     "react-dom": "^18.0.0 || ^19.0.0"
   },
@@ -65,7 +65,7 @@
   "devDependencies": {
     "@types/node": "^22.9.0",
     "@types/react": "^18.3.12",
-    "@utilitywarehouse/hearth-react-icons": "workspace:~0.4.0",
+    "@utilitywarehouse/hearth-react-icons": "workspace:~0.5.0",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",
     "ejs": "^3.1.10",

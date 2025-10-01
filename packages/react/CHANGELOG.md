@@ -1,5 +1,12 @@
 # @utilitywarehouse/hearth-react
 
+## 1.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`bdf76e4`](https://github.com/utilitywarehouse/hearth/commit/bdf76e4ccdbde5ba12aec5970e4b008a28656146)]:
+  - @utilitywarehouse/hearth-react-icons@0.5.0
+
 ## 0.10.2
 
 ### Patch Changes
