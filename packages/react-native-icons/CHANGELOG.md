@@ -1,5 +1,22 @@
 # @utilitywarehouse/hearth-react-native-icons
 
+## 0.5.0
+
+### Minor Changes
+
+- [#514](https://github.com/utilitywarehouse/hearth/pull/514) [`bdf76e4`](https://github.com/utilitywarehouse/hearth/commit/bdf76e4ccdbde5ba12aec5970e4b008a28656146) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - InfoSmallIcon
+  - QuestionMarkSmallIcon
+  - WarningSmallIcon
+  - SnowflakeSmallIcon
+  - MeterSmallIcon
+  - SnowflakeMediumIcon
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.4.0
 
 ### Minor Changes
