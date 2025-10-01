@@ -37,11 +37,13 @@
 
   .hearth-AlertLink {
     color: var(--h-alert-link-color);
+
     @media (hover: hover) {
       &:where(:hover) {
         color: var(--h-alert-link-color-hover);
       }
     }
+
     &:where(:active) {
       color: var(--h-alert-link-color-active);
     }
@@ -91,11 +93,13 @@
 
   .hearth-AlertIconButton {
     color: var(--h-alert-icon-button-unstyled-foreground-color);
+
     @media (hover: hover) {
       &:where(:hover) {
         color: var(--h-alert-icon-button-unstyled-foreground-color-hover);
       }
     }
+
     &:where(:active) {
       color: var(--h-alert-icon-button-unstyled-foreground-color-active);
     }
