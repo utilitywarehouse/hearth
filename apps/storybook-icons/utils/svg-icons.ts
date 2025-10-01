@@ -20,8 +20,11 @@ import LaunchSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/launch-small
 import LoginSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/login-small-icon.svg';
 import UploadSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/upload-small-icon.svg';
 import LogoutSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/logout-small-icon.svg';
+import InfoSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/info-small-icon.svg';
 import TickCircleSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/tick-circle-small-icon.svg';
 import ErrorCircleSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/error-circle-small-icon.svg';
+import QuestionMarkSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/question-mark-small-icon.svg';
+import WarningSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/warning-small-icon.svg';
 import EyeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/eye-small-icon.svg';
 import EyeOffSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/eye-off-small-icon.svg';
 import GasSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/gas-small-icon.svg';
@@ -62,12 +65,14 @@ import RefundSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/refund-small
 import ShoppingSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/shopping-small-icon.svg';
 import SkipLastSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/skip-last-small-icon.svg';
 import SkipFirstSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/skip-first-small-icon.svg';
+import SnowflakeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/snowflake-small-icon.svg';
 import TopUpSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/top-up-small-icon.svg';
 import WithdrawSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/withdraw-small-icon.svg';
 import BellSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/bell-small-icon.svg';
 import ThumbsUpSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/thumbs-up-small-icon.svg';
 import ThumbsDownSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/thumbs-down-small-icon.svg';
 import BillSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/bill-small-icon.svg';
+import MeterSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/meter-small-icon.svg';
 import AddMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/add-medium-icon.svg';
 import CloseMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/close-medium-icon.svg';
 import MinusMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/minus-medium-icon.svg';
@@ -163,6 +168,7 @@ import HomeMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/home-medium-i
 import BellMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/bell-medium-icon.svg';
 import MoonMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/moon-medium-icon.svg';
 import SunMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/sun-medium-icon.svg';
+import SnowflakeMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/snowflake-medium-icon.svg';
 import FitEnergyMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/fit-energy-medium-icon.svg';
 import FingerprintMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/fingerprint-medium-icon.svg';
 import LockMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/lock-medium-icon.svg';
@@ -195,8 +201,11 @@ export const svgIcons = [
   LoginSmallIcon,
   UploadSmallIcon,
   LogoutSmallIcon,
+  InfoSmallIcon,
   TickCircleSmallIcon,
   ErrorCircleSmallIcon,
+  QuestionMarkSmallIcon,
+  WarningSmallIcon,
   EyeSmallIcon,
   EyeOffSmallIcon,
   GasSmallIcon,
@@ -237,12 +246,14 @@ export const svgIcons = [
   ShoppingSmallIcon,
   SkipLastSmallIcon,
   SkipFirstSmallIcon,
+  SnowflakeSmallIcon,
   TopUpSmallIcon,
   WithdrawSmallIcon,
   BellSmallIcon,
   ThumbsUpSmallIcon,
   ThumbsDownSmallIcon,
   BillSmallIcon,
+  MeterSmallIcon,
   AddMediumIcon,
   CloseMediumIcon,
   MinusMediumIcon,
@@ -338,6 +349,7 @@ export const svgIcons = [
   BellMediumIcon,
   MoonMediumIcon,
   SunMediumIcon,
+  SnowflakeMediumIcon,
   FitEnergyMediumIcon,
   FingerprintMediumIcon,
   LockMediumIcon,
