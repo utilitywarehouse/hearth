@@ -88,6 +88,7 @@ import { IncomeProtectSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib
 import { IncreaseMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/IncreaseMediumIcon';
 import { IncreaseSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/IncreaseSmallIcon';
 import { InfoMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InfoMediumIcon';
+import { InfoSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/InfoSmallIcon';
 import { InsightsMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InsightsMediumIcon';
 import { InstagramMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InstagramMediumIcon';
 import { InsuranceMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InsuranceMediumIcon';
@@ -108,6 +109,7 @@ import { LogoutMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/Logou
 import { LogoutSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LogoutSmallIcon';
 import { MenuMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MenuMediumIcon';
 import { MeterMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MeterMediumIcon';
+import { MeterSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MeterSmallIcon';
 import { MinusMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MinusMediumIcon';
 import { MinusSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MinusSmallIcon';
 import { MobileMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/MobileMediumIcon';
@@ -125,6 +127,7 @@ import { PlaceholderLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/P
 import { PlaceholderMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaceholderMediumIcon';
 import { PlaceholderSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaceholderSmallIcon';
 import { QuestionMarkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/QuestionMarkMediumIcon';
+import { QuestionMarkSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/QuestionMarkSmallIcon';
 import { RefundMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/RefundMediumIcon';
 import { RefundSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/RefundSmallIcon';
 import { RestartMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/RestartMediumIcon';
@@ -142,6 +145,8 @@ import { SimMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SimMediu
 import { SimSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SimSmallIcon';
 import { SkipFirstSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SkipFirstSmallIcon';
 import { SkipLastSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SkipLastSmallIcon';
+import { SnowflakeMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SnowflakeMediumIcon';
+import { SnowflakeSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/SnowflakeSmallIcon';
 import { SunLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/SunLargeIcon';
 import { SunMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/SunMediumIcon';
 import { TeamMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TeamMediumIcon';
@@ -168,6 +173,7 @@ import { UploadSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/Upload
 import { UserMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/UserMediumIcon';
 import { UserSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/UserSmallIcon';
 import { WarningMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/WarningMediumIcon';
+import { WarningSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/WarningSmallIcon';
 import { WhatsAppMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/WhatsAppMediumIcon';
 import { WhatsAppSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/WhatsAppSmallIcon';
 import { WithdrawSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/WithdrawSmallIcon';
@@ -263,6 +269,7 @@ export const reactIcons = [
   IncreaseMediumIcon,
   IncreaseSmallIcon,
   InfoMediumIcon,
+  InfoSmallIcon,
   InsightsMediumIcon,
   InstagramMediumIcon,
   InsuranceMediumIcon,
@@ -283,6 +290,7 @@ export const reactIcons = [
   LogoutSmallIcon,
   MenuMediumIcon,
   MeterMediumIcon,
+  MeterSmallIcon,
   MinusMediumIcon,
   MinusSmallIcon,
   MobileMediumIcon,
@@ -300,6 +308,7 @@ export const reactIcons = [
   PlaceholderMediumIcon,
   PlaceholderSmallIcon,
   QuestionMarkMediumIcon,
+  QuestionMarkSmallIcon,
   RefundMediumIcon,
   RefundSmallIcon,
   RestartMediumIcon,
@@ -317,6 +326,8 @@ export const reactIcons = [
   SimSmallIcon,
   SkipFirstSmallIcon,
   SkipLastSmallIcon,
+  SnowflakeMediumIcon,
+  SnowflakeSmallIcon,
   SunLargeIcon,
   SunMediumIcon,
   TeamMediumIcon,
@@ -343,6 +354,7 @@ export const reactIcons = [
   UserMediumIcon,
   UserSmallIcon,
   WarningMediumIcon,
+  WarningSmallIcon,
   WhatsAppMediumIcon,
   WhatsAppSmallIcon,
   WithdrawSmallIcon,
