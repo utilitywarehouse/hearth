@@ -54,7 +54,7 @@ export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => 
       <div className={`${componentClassName}Content`}>
         <Flex direction="column">
           {title ? <DetailText>{title}</DetailText> : null}
-          {text ? <BodyText>{text}</BodyText> : null}
+          {text ? <BodyText as="div">{text}</BodyText> : null}
         </Flex>
         {children}
       </div>
