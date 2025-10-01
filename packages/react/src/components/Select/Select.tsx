@@ -61,6 +61,7 @@ export const Select = React.forwardRef<SelectElement, SelectProps>((props, ref) 
       </Flex>
       <RadixSelect.Root {...selectProps}>
         <RadixSelect.Trigger
+          id={id}
           ref={ref}
           className={`${componentClassName}Trigger`}
           disabled={disabled}

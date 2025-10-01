@@ -46,6 +46,64 @@ The input `validationStatus` can be set to either `"valid"` or `"invalid"` to
 indicate the status. This status must be accompanied by a validation text to
 explain the reason for the status.
 
+## Accessibility
+
+Follows the [ListBox WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/listbox).
+
+See the W3C [Select-Only Combobox](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/examples/combobox-select-only/) example for more information.
+
+### Keyboard interactions
+
+<Flex direction="column" gap="200" className="sb-unstyled">
+  <Flex>
+    <Box width="300px">
+      <BodyText as="span" weight="bold">
+        Key
+      </BodyText>
+    </Box>
+    <BodyText as="span" weight="bold">
+      Description
+    </BodyText>
+  </Flex>
+  <Divider />
+  {[
+    {
+      key: 'Space',
+      description:
+        'When focus is on SelectTrigger, opens the select and focuses the selected item. When focus is on an item, selects the focused item.',
+    },
+    {
+      key: 'Enter',
+      description:
+        'When focus is on SelectTrigger, opens the select and focuses the first item. When focus is on an item, selects the focused item.',
+    },
+    {
+      key: 'ArrowDown',
+      description:
+        'When focus is on SelectTrigger, opens the select. When focus is on an item, moves focus to the next item.',
+    },
+    {
+      key: 'ArrowUp',
+      description:
+        'When focus is on SelectTrigger, opens the select. When focus is on an item, moves focus to the previous item.',
+    },
+    {
+      key: 'Esc',
+      description: 'Closes the select and moves focus to SelectTrigger.',
+    },
+  ].map((kbi, i) => (
+    <>
+      <Flex>
+        <Box width="300px">
+          <kbd>{kbi.key}</kbd>
+        </Box>
+        <BodyText as="span">{kbi.description}</BodyText>
+      </Flex>
+      {i < 4 ? <Divider /> : null}
+    </>
+  ))}
+</Flex>
+
 ## API
 
 This component is based on the `button` element and supports the following common props:
