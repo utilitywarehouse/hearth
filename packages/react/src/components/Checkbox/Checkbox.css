@@ -31,7 +31,7 @@
   border-radius: var(--h-checkbox-border-radius);
   outline: none;
   box-shadow: 0 0 0 var(--h-checkbox-outline-width) var(--h-checkbox-outline-color, transparent);
-  color: var(--h-icon-inverted);
+  color: var(--h-checkbox-checked-icon-color);
 
   &::before {
     content: '';
