@@ -6,6 +6,11 @@
       "outputs": ["dist/**", "build/**", "storybook-static/**", "*.css"],
       "dependsOn": ["^build"]
     },
+    "build:react": {
+      "inputs": ["$TURBO_DEFAULT$", "!**/*.stories.{tsx,jsx,mdx}"],
+      "outputs": ["dist/**", "build/**", "storybook-static/**", "*.css"],
+      "dependsOn": ["^build:react"]
+    },
     "build:icons": {
       "outputs": ["dist/**"]
     },
@@ -61,6 +66,10 @@
     "build:storybook": {
       "outputs": ["storybook-static/**"],
       "dependsOn": ["^build"]
+    },
+    "build:storybook:react": {
+      "outputs": ["storybook-static/**"],
+      "dependsOn": ["^build:react"]
     },
     "generate": {
       "cache": false
