@@ -10,8 +10,8 @@ import { textTransformPropDefs } from '../../props/text-transform.props';
 import { textWrapPropDefs } from '../../props/text-wrap.props';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'Strong';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Strong';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type StrongElement = ElementRef<'strong'>;
 
@@ -35,4 +35,4 @@ export const Strong = React.forwardRef<StrongElement, StrongProps>((props, ref) 
   );
 });
 
-Strong.displayName = componentName;
+Strong.displayName = COMPONENT_NAME;

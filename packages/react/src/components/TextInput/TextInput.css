@@ -27,7 +27,7 @@
     border-width: var(--h-input-border-width);
     border-style: solid;
 
-    --h-input-border-color-focus: var(--h-input-border-color);
+    --h-input-border-color-focus: var(--h-border-strong);
 
     &:where(:has(input[readonly]):not([data-disabled] &)) {
       border-color: var(--h-border-subtle);

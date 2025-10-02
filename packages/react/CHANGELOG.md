@@ -1,5 +1,63 @@
 # @utilitywarehouse/hearth-react
 
+## 0.10.4
+
+### Patch Changes
+
+- [#522](https://github.com/utilitywarehouse/hearth/pull/522) [`3bb77ad`](https://github.com/utilitywarehouse/hearth/commit/3bb77ad8cccc6cf7d42f9dbb5e758813afd07843) Thanks [@robphoenix](https://github.com/robphoenix)! - fix `RadioTile` layout
+
+## 0.10.3
+
+### Patch Changes
+
+- [#518](https://github.com/utilitywarehouse/hearth/pull/518) [`c268f77`](https://github.com/utilitywarehouse/hearth/commit/c268f7711fb409151ac089599bc95dd1fe5ce2f6) Thanks [@robphoenix](https://github.com/robphoenix)! - Bump `hearth-react-icons` dependency
+
+- [#520](https://github.com/utilitywarehouse/hearth/pull/520) [`7485349`](https://github.com/utilitywarehouse/hearth/commit/748534919f0ba0267731ba3136055f17ec019953) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `Checkbox` icon colour
+
+- [#521](https://github.com/utilitywarehouse/hearth/pull/521) [`01c25d4`](https://github.com/utilitywarehouse/hearth/commit/01c25d4c6c77471fd5c3ec9df369810bae45c11f) Thanks [@robphoenix](https://github.com/robphoenix)! - Update `Alert` tokens
+
+## 0.10.2
+
+### Patch Changes
+
+- [#509](https://github.com/utilitywarehouse/hearth/pull/509) [`f4236b0`](https://github.com/utilitywarehouse/hearth/commit/f4236b02769c6e1b4277e8c23b74537125728d23) Thanks [@robphoenix](https://github.com/robphoenix)! - Revert component displayName change
+
+## 0.10.1
+
+### Patch Changes
+
+- [#506](https://github.com/utilitywarehouse/hearth/pull/506) [`ec0c084`](https://github.com/utilitywarehouse/hearth/commit/ec0c0846fee62fcb05e076b99b39b43ed7843550) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix Button styles
+
+- [#506](https://github.com/utilitywarehouse/hearth/pull/506) [`ec0c084`](https://github.com/utilitywarehouse/hearth/commit/ec0c0846fee62fcb05e076b99b39b43ed7843550) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `Accordion` styles
+
+## 0.10.0
+
+### Minor Changes
+
+- [#498](https://github.com/utilitywarehouse/hearth/pull/498) [`1fa0828`](https://github.com/utilitywarehouse/hearth/commit/1fa0828d0bd6996963c959646f4f2c5c519755c4) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `Accordion` component
+
+### Patch Changes
+
+- [#503](https://github.com/utilitywarehouse/hearth/pull/503) [`e1923f6`](https://github.com/utilitywarehouse/hearth/commit/e1923f63c684dc2b3f7fdc0a27f7a188456600e8) Thanks [@robphoenix](https://github.com/robphoenix)! - Update component display names to include `Hearth` prefix
+
+- [#505](https://github.com/utilitywarehouse/hearth/pull/505) [`21c63d5`](https://github.com/utilitywarehouse/hearth/commit/21c63d5100119cd29e23d9ef093958ba849c9f7d) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix input border colours on focus
+
+- Updated dependencies [[`b0cbecb`](https://github.com/utilitywarehouse/hearth/commit/b0cbecbd19556b088475195be4b030a5ea03677a)]:
+  - @utilitywarehouse/hearth-css-reset@0.1.1
+
+## 0.9.0
+
+### Minor Changes
+
+- [#497](https://github.com/utilitywarehouse/hearth/pull/497) [`f109931`](https://github.com/utilitywarehouse/hearth/commit/f1099315f871a0f68c16679ff164978e3f135166) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `IconContainer` component.
+
+- [#495](https://github.com/utilitywarehouse/hearth/pull/495) [`509deb5`](https://github.com/utilitywarehouse/hearth/commit/509deb5e74f54318aaf94a25e6c5d7733d735923) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `CurrencyInput` component
+
+### Patch Changes
+
+- [#500](https://github.com/utilitywarehouse/hearth/pull/500) [`cc49e74`](https://github.com/utilitywarehouse/hearth/commit/cc49e74e3736b9647e8c5576ce45020add258625) Thanks [@jordmccord](https://github.com/jordmccord)! - - Updated dependencies [[`8dac8c1`](https://github.com/utilitywarehouse/hearth/commit/8dac8c1def9083d8e4efa1385e0ee7be23428c46)]:
+  - @utilitywarehouse/hearth-react-icons@0.4.0
+
 ## 0.8.0
 
 ### Minor Changes

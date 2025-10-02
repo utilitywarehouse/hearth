@@ -7,10 +7,10 @@ import { unstyledIconButtonPropDefs } from './UnstyledIconButton.props';
 import type { UnstyledIconButtonProps } from './UnstyledIconButton.props';
 import { extractProps } from '../../helpers/extract-props';
 import { Spinner } from '../Spinner/Spinner';
-import { translateResponsiveButtonSize } from '../../helpers/translate-responsive-button-size';
+import { getIconButtonSpinnerSize } from '../../helpers/get-icon-button-spinner-size';
 
-const componentName = 'UnstyledIconButton';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'UnstyledIconButton';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export type UnstyledIconButtonElement = ElementRef<'button'>;
 
@@ -29,7 +29,7 @@ export const UnstyledIconButton = React.forwardRef<
     ...unstyledIconButtonProps
   } = extractProps(props, unstyledIconButtonPropDefs);
   const { size } = props;
-  const spinnerSize = translateResponsiveButtonSize(size || 'md');
+  const spinnerSize = getIconButtonSpinnerSize(size || 'md');
   return (
     <button
       ref={forwardedRef}
@@ -45,4 +45,4 @@ export const UnstyledIconButton = React.forwardRef<
   );
 });
 
-UnstyledIconButton.displayName = componentName;
+UnstyledIconButton.displayName = COMPONENT_NAME;

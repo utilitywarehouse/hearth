@@ -19,8 +19,8 @@ import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
-const componentName = 'Box';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Box';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type BoxElement = ElementRef<'div'>;
 
@@ -51,4 +51,4 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
   return <Component ref={ref} className={clsx(componentClassName, className)} {...boxProps} />;
 });
 
-Box.displayName = componentName;
+Box.displayName = COMPONENT_NAME;

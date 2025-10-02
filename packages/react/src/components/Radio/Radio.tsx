@@ -13,8 +13,8 @@ import { HelperText } from '../HelperText/HelperText';
 import type { ElementRef } from 'react';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
-const componentName = 'Radio';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Radio';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioElement = ElementRef<'button'>;
 
@@ -80,4 +80,4 @@ export const Radio = React.forwardRef<RadioElement, RadioProps>(
   }
 );
 
-Radio.displayName = componentName;
+Radio.displayName = COMPONENT_NAME;

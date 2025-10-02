@@ -7,8 +7,8 @@ import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
 import { CurrencyInputProps } from './CurrencyInput.props';
 import { DetailText } from '../DetailText/DetailText';
 
-const componentName = 'CurrencyInput';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'CurrencyInput';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CurrencyInputElement = ElementRef<'input'>;
 
@@ -35,4 +35,4 @@ export const CurrencyInput = React.forwardRef<CurrencyInputElement, CurrencyInpu
   }
 );
 
-CurrencyInput.displayName = componentName;
+CurrencyInput.displayName = COMPONENT_NAME;

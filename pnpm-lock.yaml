@@ -31,6 +31,9 @@ importers:
       '@utilitywarehouse/prettier-config':
         specifier: ^0.1.1
         version: 0.1.1
+      chromatic:
+        specifier: ^13.3.0
+        version: 13.3.0
       eslint:
         specifier: '8'
         version: 8.57.1
@@ -576,7 +579,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/react
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:^0.4.0
+        specifier: workspace:^0.5.0
         version: link:../../packages/react-icons
       react:
         specifier: 19.1.0
@@ -899,7 +902,7 @@ importers:
         specifier: ^18.3.12
         version: 18.3.18
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:^0.4.0
+        specifier: workspace:*
         version: link:../react-icons
       autoprefixer:
         specifier: ^10.4.20
@@ -6543,6 +6546,18 @@ packages:
 
   chromatic@12.2.0:
     resolution: {integrity: sha512-GswmBW9ZptAoTns1BMyjbm55Z7EsIJnUvYKdQqXIBZIKbGErmpA+p4c0BYA+nzw5B0M+rb3Iqp1IaH8TFwIQew==}
+    hasBin: true
+    peerDependencies:
+      '@chromatic-com/cypress': ^0.*.* || ^1.0.0
+      '@chromatic-com/playwright': ^0.*.* || ^1.0.0
+    peerDependenciesMeta:
+      '@chromatic-com/cypress':
+        optional: true
+      '@chromatic-com/playwright':
+        optional: true
+
+  chromatic@13.3.0:
+    resolution: {integrity: sha512-OtXVKSFqGS1x6E6xYzmYX2iImSknbvo5CfTxP3ztFvXQhIAwhJzJuA3XpnIewER9gtWUNnV2DDi8/f9JyZJSfg==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -20994,6 +21009,8 @@ snapshots:
   chownr@3.0.0: {}
 
   chromatic@12.2.0: {}
+
+  chromatic@13.3.0: {}
 
   chromatic@7.6.0: {}
 

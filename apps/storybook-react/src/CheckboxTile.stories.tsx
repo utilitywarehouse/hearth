@@ -2,7 +2,9 @@ import * as React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CheckboxTile, Flex, BodyText } from '@utilitywarehouse/hearth-react';
-import { BillMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import mastercard from './assets/mastercard.png';
+import visa from './assets/visa.png';
 
 const meta: Meta<typeof CheckboxTile> = {
   title: 'Stories / CheckboxTile',
@@ -31,12 +33,7 @@ export default meta;
 type Story = StoryObj<typeof CheckboxTile>;
 
 export const Playground: Story = {
-  render: args => (
-    <Flex width="fit-content" gap="200">
-      <CheckboxTile {...args} />
-      <CheckboxTile {...args} image={<BillMediumIcon />} />
-    </Flex>
-  ),
+  render: args => <CheckboxTile {...args} />,
 };
 
 export const KitchenSink: Story = {
@@ -53,18 +50,35 @@ export const KitchenSink: Story = {
         </Flex>
         <Flex direction="column" gap="200">
           <BodyText>With icon</BodyText>
-          <CheckboxTile label="Label" image={<BillMediumIcon />} />
+          <CheckboxTile label="Label" image={<MoneyMediumIcon />} />
         </Flex>
         <Flex direction="column" gap="200">
           <BodyText>With image</BodyText>
-          <CheckboxTile
-            label="Label"
-            image={<img src="https://help.uw.co.uk/images/iPhone.svg" width={25} alt="" />}
-          />
+          <CheckboxTile label="Label" image={<img src={visa} width={40} alt="" />} />
         </Flex>
       </Flex>
     );
   },
+};
+
+export const WithImage: Story = {
+  render: args => (
+    <Flex width="fit-content" gap="200" direction="column">
+      <CheckboxTile
+        {...args}
+        label="Mastercard"
+        helperText=""
+        image={<img src={mastercard} width={40} height={24} alt="" />}
+      />
+      <CheckboxTile
+        {...args}
+        label="Visa"
+        helperText=""
+        image={<img src={visa} width={40} height={24} alt="" />}
+      />
+      <CheckboxTile label="Cash" image={<MoneyMediumIcon />} />
+    </Flex>
+  ),
 };
 
 export const Controlled: Story = {

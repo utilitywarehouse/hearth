@@ -1,0 +1,42 @@
+name: 'Chromatic'
+
+on:
+  push:
+    branches-ignore:
+      - main
+    paths:
+      - 'packages/react/**'
+      - 'apps/storybook-react/**'
+
+jobs:
+  chromatic:
+    name: Run Chromatic
+    runs-on: ubuntu-latest
+    steps:
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
+          cache: 'pnpm'
+      - run: pnpm install
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: pnpm run build:react
+        env:
+          NODE_OPTIONS: '--max_old_space_size=4096'
+
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: build:storybook:react
+          exitOnceUploaded: true
+          onlyChanged: true
+          zip: true
+          storybookBaseDir: apps/storybook-react

@@ -10,8 +10,8 @@ import { extractProps } from '../../helpers/extract-props';
 import { colorPropDefs } from '../../props/color.props';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'Spinner';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Spinner';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type SpinnerElement = ElementRef<'div'>;
 
@@ -38,4 +38,4 @@ export const Spinner = React.forwardRef<SpinnerElement, SpinnerProps>(
   }
 );
 
-Spinner.displayName = componentName;
+Spinner.displayName = COMPONENT_NAME;

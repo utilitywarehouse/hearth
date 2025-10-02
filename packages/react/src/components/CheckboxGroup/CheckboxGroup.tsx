@@ -10,8 +10,8 @@ import { FormGroupBase } from '../FormGroupBase/FormGroupBase';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { CheckboxGroupProvider } from './CheckboxGroup.context';
 
-const componentName = 'CheckboxGroup';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'CheckboxGroup';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CheckboxGroupElement = ElementRef<'fieldset'>;
 
@@ -100,4 +100,4 @@ export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGrou
   }
 );
 
-CheckboxGroup.displayName = componentName;
+CheckboxGroup.displayName = COMPONENT_NAME;

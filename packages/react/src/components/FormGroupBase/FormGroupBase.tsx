@@ -12,8 +12,8 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { FormGroupBaseProvider } from './FormGroupBase.context';
 
-const componentName = 'FormGroupBase';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'FormGroupBase';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type FormGroupBaseElement = ElementRef<'fieldset'>;
 
@@ -93,4 +93,4 @@ export const FormGroupBase = React.forwardRef<FormGroupBaseElement, FormGroupBas
   }
 );
 
-FormGroupBase.displayName = componentName;
+FormGroupBase.displayName = COMPONENT_NAME;

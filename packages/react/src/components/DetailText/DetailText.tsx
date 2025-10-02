@@ -10,8 +10,8 @@ import { textTransformPropDefs } from '../../props/text-transform.props';
 import { textWrapPropDefs } from '../../props/text-wrap.props';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'DetailText';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'DetailText';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type DetailTextElement = ElementRef<'span'>;
 
@@ -44,4 +44,4 @@ export const DetailText = React.forwardRef<DetailTextElement, DetailTextProps>((
   );
 });
 
-DetailText.displayName = componentName;
+DetailText.displayName = COMPONENT_NAME;

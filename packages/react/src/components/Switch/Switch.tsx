@@ -10,8 +10,8 @@ import { BodyText } from '../BodyText/BodyText';
 import { useIds } from '../../hooks/use-ids';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'Switch';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Switch';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type SwitchElement = ElementRef<'button'>;
 
@@ -83,4 +83,4 @@ export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwa
   );
 });
 
-Switch.displayName = componentName;
+Switch.displayName = COMPONENT_NAME;

@@ -97,18 +97,24 @@ more of the viewport height, and centre aligning the text and actions.
 
 <Canvas of={Stories.WithImage} />
 
+### Loading
+
+Use the `Spinner` component if you need to indicate a loading state withing the `Modal`
+
+<Canvas of={Stories.Loading} />
+
 ## API
 
 ### ModalRoot
 
 This component is based on [Radix UI's Dialog primitive](https://www.radix-ui.com/primitives/docs/components/dialog).
 
-| Prop           | Type                      | Description                                                                |
-| -------------- | ------------------------- | -------------------------------------------------------------------------- |
-| `open`         | `boolean`                 | Controls the open state of the modal                                       |
-| `defaultOpen`  | `boolean`                 | Whether the modal is open by default                                       |
-| `onOpenChange` | `(open: boolean) => void` | Callback that fires when the open state changes                            |
-| `modal`        | `boolean`                 | Whether the modal is modal (blocks interaction with the rest of the page)  |
+| Prop           | Type                      | Description                                                               |
+| -------------- | ------------------------- | ------------------------------------------------------------------------- |
+| `open`         | `boolean`                 | Controls the open state of the modal                                      |
+| `defaultOpen`  | `boolean`                 | Whether the modal is open by default                                      |
+| `onOpenChange` | `(open: boolean) => void` | Callback that fires when the open state changes                           |
+| `modal`        | `boolean`                 | Whether the modal is modal (blocks interaction with the rest of the page) |
 
 ### Modal
 

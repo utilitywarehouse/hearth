@@ -21,8 +21,8 @@ import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
-const componentName = 'Flex';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Flex';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type FlexElement = ElementRef<'div'>;
 
@@ -55,4 +55,4 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
   return <Component ref={ref} className={clsx(componentClassName, className)} {...flexProps} />;
 });
 
-Flex.displayName = componentName;
+Flex.displayName = COMPONENT_NAME;

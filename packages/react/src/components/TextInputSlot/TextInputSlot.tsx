@@ -5,8 +5,8 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { TextInputSlotProps } from './TextInputSlot.props';
 
-const componentName = 'TextInputSlot';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'TextInputSlot';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TextInputSlotElement = ElementRef<'div'>;
 
@@ -25,4 +25,4 @@ export const TextInputSlot = React.forwardRef<TextInputSlotElement, TextInputSlo
   }
 );
 
-TextInputSlot.displayName = componentName;
+TextInputSlot.displayName = COMPONENT_NAME;

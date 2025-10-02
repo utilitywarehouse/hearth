@@ -16,8 +16,8 @@ import { DetailText } from '../DetailText/DetailText';
 import { Flex } from '../Flex/Flex';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 
-const componentName = 'Alert';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Alert';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AlertElement = ElementRef<'div'>;
 
@@ -51,17 +51,17 @@ export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => 
       {...alertProps}
     >
       <AlertIcon aria-hidden="true" />
-      <div className={clsx(`${componentClassName}Content`)}>
+      <div className={`${componentClassName}Content`}>
         <Flex direction="column">
           {title ? <DetailText>{title}</DetailText> : null}
-          {text ? <BodyText>{text}</BodyText> : null}
+          {text ? <BodyText as="div">{text}</BodyText> : null}
         </Flex>
         {children}
       </div>
       {onClose ? (
         <UnstyledIconButton
           onClick={onClose}
-          className={clsx(`${componentClassName}CloseButton`)}
+          className={`${componentClassName}CloseButton`}
           title="Close"
           label="Close alert"
         >
@@ -72,4 +72,4 @@ export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => 
   );
 });
 
-Alert.displayName = componentName;
+Alert.displayName = COMPONENT_NAME;

@@ -2,7 +2,9 @@ import * as React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Checkbox, Flex, BodyText } from '@utilitywarehouse/hearth-react';
-import { BillMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import mastercard from './assets/mastercard.png';
+import visa from './assets/visa.png';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Stories / Checkbox',
@@ -33,12 +35,7 @@ export default meta;
 type Story = StoryObj<typeof Checkbox>;
 
 export const Playground: Story = {
-  render: args => (
-    <Flex width="fit-content" gap="200">
-      <Checkbox {...args} />
-      <Checkbox {...args} image={<BillMediumIcon />} />
-    </Flex>
-  ),
+  render: args => <Checkbox {...args} />,
 };
 
 export const KitchenSink: Story = {
@@ -55,18 +52,30 @@ export const KitchenSink: Story = {
         </Flex>
         <Flex direction="column" gap="200">
           <BodyText>With icon</BodyText>
-          <Checkbox label="Label" image={<BillMediumIcon />} />
+          <Checkbox label="Label" image={<MoneyMediumIcon />} />
         </Flex>
         <Flex direction="column" gap="200">
           <BodyText>With image</BodyText>
-          <Checkbox
-            label="Label"
-            image={<img src="https://help.uw.co.uk/images/iPhone.svg" width={25} alt="" />}
-          />
+          <Checkbox label="Label" image={<img src={visa} width={40} alt="" />} />
         </Flex>
       </Flex>
     );
   },
+};
+
+export const WithImage: Story = {
+  render: args => (
+    <Flex width="fit-content" gap="200" direction="column">
+      <Checkbox
+        {...args}
+        label="Mastercard"
+        helperText=""
+        image={<img src={mastercard} width={40} alt="" />}
+      />
+      <Checkbox {...args} label="Visa" helperText="" image={<img src={visa} width={40} alt="" />} />
+      <Checkbox label="Cash" image={<MoneyMediumIcon />} />
+    </Flex>
+  ),
 };
 
 export const Controlled: Story = {

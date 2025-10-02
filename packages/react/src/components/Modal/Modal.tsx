@@ -11,8 +11,8 @@ import { BodyText } from '../BodyText/BodyText';
 import { ModalClose } from './ModalClose';
 import { Box } from '../Box/Box';
 
-const componentName = 'Modal';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Modal';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ModalElement = ElementRef<'div'>;
 
@@ -84,4 +84,4 @@ export const Modal = React.forwardRef<ModalElement, ModalProps>(
   }
 );
 
-Modal.displayName = componentName;
+Modal.displayName = COMPONENT_NAME;

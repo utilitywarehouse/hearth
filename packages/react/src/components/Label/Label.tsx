@@ -10,8 +10,8 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
-const componentName = 'Label';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Label';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type LabelElement = ElementRef<'label'>;
 
@@ -42,4 +42,4 @@ export const Label = React.forwardRef<LabelElement, LabelProps>((props, ref) => 
   );
 });
 
-Label.displayName = componentName;
+Label.displayName = COMPONENT_NAME;

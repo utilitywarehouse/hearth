@@ -20,6 +20,7 @@ declare const _default: {
     readonly item: {
       readonly borderRadius: 8;
       readonly minWidth: 32;
+      readonly rangeBackground: '#191919';
       readonly roundelBackgroundColorInverted: '#fcfbf2';
       readonly roundelHeight: 6;
       readonly roundelWidth: 6;

@@ -8,6 +8,8 @@ import {
   ModalTrigger,
   ModalClose,
   ModalFooter,
+  Spinner,
+  Flex,
 } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Modal> = {
@@ -43,12 +45,12 @@ export const Playground: Story = {
       <Modal {...args}>
         <ModalFooter>
           <ModalClose>
-            <Button variant="ghost" colorScheme="grey">
+            <Button variant="ghost" colorScheme="functional">
               Cancel
             </Button>
           </ModalClose>
           <ModalClose>
-            <Button variant="solid" colorScheme="yellow">
+            <Button variant="solid" colorScheme="highlight">
               Primary
             </Button>
           </ModalClose>
@@ -67,12 +69,12 @@ export const WithImage: Story = {
       <Modal {...args} image={<img src={SpotSavings} alt="Savings Pig" />}>
         <ModalFooter>
           <ModalClose>
-            <Button variant="outline" colorScheme="grey">
+            <Button variant="outline" colorScheme="functional">
               Cancel
             </Button>
           </ModalClose>
           <ModalClose>
-            <Button variant="solid" colorScheme="yellow">
+            <Button variant="solid" colorScheme="highlight">
               Primary
             </Button>
           </ModalClose>
@@ -94,12 +96,12 @@ export const OnMobile: Story = {
       <Modal {...args}>
         <ModalFooter>
           <ModalClose>
-            <Button variant="ghost" colorScheme="grey">
+            <Button variant="ghost" colorScheme="functional">
               Cancel
             </Button>
           </ModalClose>
           <ModalClose>
-            <Button variant="solid" colorScheme="yellow">
+            <Button variant="solid" colorScheme="highlight">
               Primary
             </Button>
           </ModalClose>
@@ -118,10 +120,10 @@ export const ControlledUsage: Story = {
         <ModalRoot open={open} onOpenChange={(o: boolean) => setOpen(o)}>
           <Modal heading="Controlled modal">
             <ModalFooter>
-              <Button variant="ghost" colorScheme="grey" onClick={() => setOpen(false)}>
+              <Button variant="ghost" colorScheme="functional" onClick={() => setOpen(false)}>
                 Cancel
               </Button>
-              <Button variant="solid" colorScheme="yellow" onClick={() => setOpen(false)}>
+              <Button variant="solid" colorScheme="highlight" onClick={() => setOpen(false)}>
                 Primary
               </Button>
             </ModalFooter>
@@ -141,12 +143,12 @@ export const HideCloseButton: Story = {
       <Modal {...args}>
         <ModalFooter>
           <ModalClose>
-            <Button variant="ghost" colorScheme="grey">
+            <Button variant="ghost" colorScheme="functional">
               Cancel
             </Button>
           </ModalClose>
           <ModalClose>
-            <Button variant="solid" colorScheme="yellow">
+            <Button variant="solid" colorScheme="highlight">
               Primary
             </Button>
           </ModalClose>
@@ -155,4 +157,27 @@ export const HideCloseButton: Story = {
     </ModalRoot>
   ),
   args: { hideCloseButton: true },
+};
+
+export const Loading: Story = {
+  render: (args: ModalArgs) => (
+    <ModalRoot>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal {...args}>
+        <Flex justifyContent="center" paddingBlock="200">
+          <Spinner />
+        </Flex>
+        <ModalFooter>
+          <ModalClose>
+            <Button variant="solid" colorScheme="destructive">
+              Cancel
+            </Button>
+          </ModalClose>
+        </ModalFooter>
+      </Modal>
+    </ModalRoot>
+  ),
+  args: { heading: 'Your details', description: '' },
 };

@@ -12,8 +12,8 @@ import { textTransformPropDefs } from '../../props/text-transform.props';
 import { textWrapPropDefs } from '../../props/text-wrap.props';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'Heading';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'Heading';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type HeadingElement = ElementRef<'h2'>;
 
@@ -40,4 +40,4 @@ export const Heading = React.forwardRef<HeadingElement, HeadingProps>(({ size, .
   );
 });
 
-Heading.displayName = componentName;
+Heading.displayName = COMPONENT_NAME;

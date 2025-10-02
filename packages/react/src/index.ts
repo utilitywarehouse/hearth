@@ -161,3 +161,19 @@ export type { CurrencyInputProps } from './components/CurrencyInput/CurrencyInpu
 
 export { IconContainer } from './components/IconContainer/IconContainer';
 export type { IconContainerProps } from './components/IconContainer/IconContainer.props';
+
+export { Accordion } from './components/Accordion/Accordion';
+export type { AccordionProps } from './components/Accordion/Accordion.props';
+export { AccordionItem } from './components/Accordion/AccordionItem';
+export type { AccordionItemProps } from './components/Accordion/AccordionItem.props';
+export { AccordionTrigger } from './components/Accordion/AccordionTrigger';
+export type { AccordionTriggerProps } from './components/Accordion/AccordionTrigger.props';
+export { AccordionHeader } from './components/Accordion/AccordionHeader';
+export type { AccordionHeaderProps } from './components/Accordion/AccordionHeader.props';
+export { AccordionContent } from './components/Accordion/AccordionContent';
+export type { AccordionContentProps } from './components/Accordion/AccordionContent.props';
+
+export { Select } from './components/Select/Select';
+export type { SelectProps } from './components/Select/Select.props';
+export { SelectItem } from './components/Select/SelectItem';
+export type { SelectItemProps } from './components/Select/SelectItem.props';

@@ -7,8 +7,8 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 
-const componentName = 'ButtonBase';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'ButtonBase';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export type ButtonBaseElement = ElementRef<'button'>;
 
@@ -68,4 +68,4 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
   );
 });
 
-ButtonBase.displayName = componentName;
+ButtonBase.displayName = COMPONENT_NAME;

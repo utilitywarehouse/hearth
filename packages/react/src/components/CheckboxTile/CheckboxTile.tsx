@@ -14,8 +14,8 @@ import { Checkbox as RadixCheckbox } from 'radix-ui';
 import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
-const componentName = 'CheckboxTile';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'CheckboxTile';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CheckboxTileElement = ElementRef<'button'>;
 
@@ -77,7 +77,7 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
           </RadixCheckbox.Indicator>
         </RadixCheckbox.Root>
         <Flex direction="column">
-          <Label id={labelId} htmlFor={id} disableUserSelect className="hearth-CheckboxLabel">
+          <Label id={labelId} htmlFor={id} disableUserSelect>
             {image}
             {label}
           </Label>
@@ -92,4 +92,4 @@ export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxTilePr
   }
 );
 
-CheckboxTile.displayName = componentName;
+CheckboxTile.displayName = COMPONENT_NAME;

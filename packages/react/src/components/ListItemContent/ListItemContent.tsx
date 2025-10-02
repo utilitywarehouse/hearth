@@ -6,8 +6,8 @@ import type { ElementRef } from 'react';
 import type { ListItemContentProps } from './ListItemContent.props';
 import clsx from 'clsx';
 
-const componentName = 'ListItemContent';
-const componentClassName = withGlobalPrefix(componentName);
+const COMPONENT_NAME = 'ListItemContent';
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ListItemContentElement = ElementRef<'div'>;
 
@@ -25,4 +25,4 @@ export const ListItemContent = React.forwardRef<ListItemContentElement, ListItem
   }
 );
 
-ListItemContent.displayName = componentName;
+ListItemContent.displayName = COMPONENT_NAME;

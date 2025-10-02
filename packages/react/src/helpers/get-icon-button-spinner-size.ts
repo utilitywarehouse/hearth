@@ -3,7 +3,27 @@ import type { SpinnerProps } from '../components/Spinner/Spinner.props';
 import type { Breakpoint } from '../types/responsive';
 import { isResponsiveObject } from './is-responsive-object';
 
-export function translateResponsiveButtonSize(
+/**
+ * Translate an `IconButton` size into a corresponding `Spinner` size.
+ *
+ * Mapping used:
+ * - `md` → `sm`
+ * - `sm` → `xs`
+ *
+ * If a responsive size object is provided, the translation is applied per
+ * breakpoint and a responsive size object is returned.
+ *
+ * Examples
+ * ```ts
+ * getIconButtonSpinnerSize('md') // => 'sm'
+ * getIconButtonSpinnerSize({ mobile: 'sm', tablet: 'md' })
+ * // => { mobile: 'xs', tablet: 'sm' }
+ * ```
+ *
+ * @param buttonSize - The `IconButton` size (string or responsive object).
+ * @returns The translated `Spinner` size (string or responsive object). May be `undefined` if input is unsupported.
+ */
+export function getIconButtonSpinnerSize(
   buttonSize: IconButtonProps['size']
 ): SpinnerProps['size'] {
   const sizeTranslation: { [key: string]: string } = { md: 'sm', sm: 'xs' };

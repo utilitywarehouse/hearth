@@ -1,7 +1,7 @@
 /* The global prefix, mostly used with component class names */
 export const GLOBAL_PREFIX = 'hearth';
 
-/* returns the given value prefixed with the global prefix */
+/* returns a name with the global prefix */
 export function withGlobalPrefix(name: string) {
   return `${GLOBAL_PREFIX}-${name}`;
 }
