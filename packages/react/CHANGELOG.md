@@ -1,5 +1,21 @@
 # @utilitywarehouse/hearth-react
 
+## 0.10.4
+
+### Patch Changes
+
+- [#522](https://github.com/utilitywarehouse/hearth/pull/522) [`3bb77ad`](https://github.com/utilitywarehouse/hearth/commit/3bb77ad8cccc6cf7d42f9dbb5e758813afd07843) Thanks [@robphoenix](https://github.com/robphoenix)! - fix `RadioTile` layout
+
+## 0.10.3
+
+### Patch Changes
+
+- [#518](https://github.com/utilitywarehouse/hearth/pull/518) [`c268f77`](https://github.com/utilitywarehouse/hearth/commit/c268f7711fb409151ac089599bc95dd1fe5ce2f6) Thanks [@robphoenix](https://github.com/robphoenix)! - Bump `hearth-react-icons` dependency
+
+- [#520](https://github.com/utilitywarehouse/hearth/pull/520) [`7485349`](https://github.com/utilitywarehouse/hearth/commit/748534919f0ba0267731ba3136055f17ec019953) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `Checkbox` icon colour
+
+- [#521](https://github.com/utilitywarehouse/hearth/pull/521) [`01c25d4`](https://github.com/utilitywarehouse/hearth/commit/01c25d4c6c77471fd5c3ec9df369810bae45c11f) Thanks [@robphoenix](https://github.com/robphoenix)! - Update `Alert` tokens
+
 ## 0.10.2
 
 ### Patch Changes

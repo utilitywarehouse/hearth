@@ -1,0 +1,7 @@
+{
+  "onlyChanged": true,
+  "projectId": "Project:68dbda8270df9c2a6568ece8",
+  "storybookBaseDir": "apps/storybook-react",
+  "zip": true,
+  "buildScriptName": "build:storybook"
+}

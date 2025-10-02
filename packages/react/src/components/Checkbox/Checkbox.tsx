@@ -73,7 +73,7 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props,
       </RadixCheckbox.Root>
       {showLabel ? (
         <Flex direction="column" gap="50">
-          <Label id={labelId} htmlFor={id} disableUserSelect className="hearth-CheckboxLabel">
+          <Label id={labelId} htmlFor={id} disableUserSelect>
             {image}
             {label}
           </Label>
