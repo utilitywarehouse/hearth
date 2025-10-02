@@ -1,6 +1,7 @@
 import { Meta, Description, Canvas } from '@storybook/addon-docs/blocks';
 import * as Stories from './RadioGroup.stories';
 import * as RadioCardStories from './RadioCard.stories';
+import * as RadioTileStories from './RadioTile.stories';
 import { DocsHeader } from './storybook-components/DocsHeader';
 import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 
@@ -161,6 +162,28 @@ const [selected, setSelected] = useState(options[0]);
 
 <Canvas of={Stories.Controlled} />
 
+## Radio & RadioTile Image
+
+The `Radio` & `RadioTile` components can display an icon or image between the indicator and label.
+
+```tsx
+<Radio value="2" label="Two" helperText="The number two" image={<CashbackCardMediumIcon />} />
+```
+
+<Canvas of={RadioTileStories.WithImage} />
+
+**If you are using an `img` element, remember to include a null alt tag
+(`alt=""` ) so the image is ignored by assistive technologies.**
+
+```tsx
+<RadioTile
+  value="2"
+  label="Two"
+  helperText="The number two"
+  image={<img src="https://help.uw.co.uk/images/iPhone.svg" width={25} alt="" />}
+/>
+```
+
 ## RadioCard
 
 You can use the `RadioCard` component to present additional content in a more
@@ -196,13 +219,15 @@ This component is based on the `fieldset` element and supports the following com
 | `direction`        | `"column" \| "row"`    |
 | `columns`          | `Responsive<number>`   |
 | `contentWidth`     | `Responsive<string>`   |
+| `image`            | `ReactNode`            |
 
 ## RadioTile API
 
-| Prop         | Type     |
-| ------------ | -------- |
-| `label`      | `string` |
-| `helperText` | `string` |
+| Prop         | Type        |
+| ------------ | ----------- |
+| `label`      | `string`    |
+| `helperText` | `string`    |
+| `image`      | `ReactNode` |
 
 ## RadioCard API
 
