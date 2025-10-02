@@ -2,8 +2,6 @@ name: 'Chromatic'
 
 on:
   push:
-    branches-ignore:
-      - main
     paths:
       - 'packages/react/**'
       - 'apps/storybook-react/**'
