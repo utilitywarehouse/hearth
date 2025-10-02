@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { RadioTile, Flex, RadioGroup } from '@utilitywarehouse/hearth-react';
-import { BillMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import mastercard from './assets/mastercard.png';
+import visa from './assets/visa.png';
 
 const meta: Meta<typeof RadioTile> = {
   title: 'Stories / RadioTile',
@@ -37,17 +39,6 @@ export const Playground: Story = {
           <RadioTile {...args} />
         </RadioGroup>
 
-        <RadioGroup value="5" label="With icon">
-          <RadioTile {...args} image={<BillMediumIcon />} />
-        </RadioGroup>
-
-        <RadioGroup value="5" label="With image">
-          <RadioTile
-            {...args}
-            image={<img src="https://help.uw.co.uk/images/iPhone.svg" width={25} alt="" />}
-          />
-        </RadioGroup>
-
         <RadioGroup defaultValue={args.value} label="Checked radio">
           <RadioTile {...args} />
         </RadioGroup>
@@ -64,6 +55,26 @@ export const Playground: Story = {
     label: 'Radio label',
     helperText: 'Radio helper text',
   },
+};
+
+export const WithImage: Story = {
+  render: () => (
+    <RadioGroup label="How would you like to pay?">
+      <RadioTile
+        value="mastercard"
+        label="Mastercard"
+        helperText=""
+        image={<img src={mastercard} width={40} height={24} alt="" />}
+      />
+      <RadioTile
+        value="visa"
+        label="Visa"
+        helperText=""
+        image={<img src={visa} width={40} height={24} alt="" />}
+      />
+      <RadioTile value="cash" label="Cash" image={<MoneyMediumIcon />} />
+    </RadioGroup>
+  ),
 };
 
 export const RadioTileStoryWithOneLongLabel: Story = {
