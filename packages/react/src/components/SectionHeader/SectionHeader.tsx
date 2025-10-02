@@ -20,7 +20,7 @@ export const SectionHeader = React.forwardRef<SectionHeaderElement, SectionHeade
         <Heading asChild size="md" id={id} {...props}>
           <HeadingEl>{heading}</HeadingEl>
         </Heading>
-        {helperText ? <HelperText disableUserSelect>{helperText}</HelperText> : null}
+        {helperText ? <HelperText>{helperText}</HelperText> : null}
         {link}
       </div>
     );

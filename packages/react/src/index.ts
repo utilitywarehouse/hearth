@@ -172,3 +172,8 @@ export { AccordionHeader } from './components/Accordion/AccordionHeader';
 export type { AccordionHeaderProps } from './components/Accordion/AccordionHeader.props';
 export { AccordionContent } from './components/Accordion/AccordionContent';
 export type { AccordionContentProps } from './components/Accordion/AccordionContent.props';
+
+export { Select } from './components/Select/Select';
+export type { SelectProps } from './components/Select/Select.props';
+export { SelectItem } from './components/Select/SelectItem';
+export type { SelectItemProps } from './components/Select/SelectItem.props';

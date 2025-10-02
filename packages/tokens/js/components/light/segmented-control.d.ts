@@ -2,10 +2,10 @@
  * Do not edit directly, this file was auto-generated.
  */
 declare const _default: {
-  readonly borderRadius: 6;
+  readonly borderRadius: 9999;
   readonly gap: 6;
   readonly group: {
-    readonly borderRadius: 8;
+    readonly borderRadius: 9999;
     readonly borderWidth: 1;
     readonly gap: 4;
     readonly height: 48;
