@@ -171,6 +171,15 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     },
+    compoundVariants: [
+      {
+        isActive: true,
+        inMiddle: true,
+        styles: {
+          backgroundColor: theme.color.interactive.functional.surface.subtle.active,
+        },
+      },
+    ],
     _web: {
       '_focus-visible': {
         ...theme.helpers.focusVisible,
@@ -237,7 +246,7 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       inMiddle: {
         true: {
-          backgroundColor: theme.color.interactive.functional.surface.subtle.active,
+          backgroundColor: theme.components.datePicker.calendar.item.rangeBackground,
           _web: {
             _hover: {
               backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
@@ -255,7 +264,7 @@ const styles = StyleSheet.create(theme => ({
   },
   leftCrop: {
     left: '50%',
-    backgroundColor: theme.color.interactive.functional.surface.subtle.active,
+    backgroundColor: theme.components.datePicker.calendar.item.rangeBackground,
     _web: {
       _hover: {
         backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
@@ -264,7 +273,7 @@ const styles = StyleSheet.create(theme => ({
   },
   rightCrop: {
     right: '50%',
-    backgroundColor: theme.color.interactive.functional.surface.subtle.active,
+    backgroundColor: theme.components.datePicker.calendar.item.rangeBackground,
     _web: {
       _hover: {
         backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
