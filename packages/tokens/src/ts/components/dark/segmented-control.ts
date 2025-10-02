@@ -3,10 +3,10 @@
  */
 
 export default {
-  borderRadius: 6,
+  borderRadius: 9999,
   gap: 6,
   group: {
-    borderRadius: 8,
+    borderRadius: 9999,
     borderWidth: 1,
     gap: 4,
     height: 48,
