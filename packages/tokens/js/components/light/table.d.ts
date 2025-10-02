@@ -13,6 +13,9 @@ declare const _default: {
   readonly headerCell: {
     readonly borderWidth: 2;
     readonly gap: 8;
+    readonly neutral: {
+      readonly backgroundColor: '#f1efe4';
+    };
     readonly paddingHorizontal: 12;
     readonly paddingVertical: 16;
   };
