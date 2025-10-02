@@ -1,6 +1,6 @@
 import { createPressable } from '@gluestack-ui/pressable';
 import React, { memo, useMemo } from 'react';
-import { Pressable, PressableProps, View } from 'react-native';
+import { Pressable, PressableProps, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { isEqual } from '../../utils';
 import { BodyText } from '../BodyText';
@@ -20,9 +20,9 @@ export const EmptyDay = React.memo(() => {
 
 const DayPressable = createPressable({
   Root: (props: PressableProps & { states?: { active?: boolean; disabled?: boolean } }) => {
-    const { states } = props;
+    const { states, style } = props;
     styles.useVariants({ isActive: states?.active });
-    return <Pressable {...props} style={[styles.dayContainer]} />;
+    return <Pressable {...props} style={[styles.dayContainer, style as ViewStyle]} />;
   },
 });
 
@@ -79,16 +79,16 @@ const Day = ({
     <View style={styles.dayWrapper}>
       <View style={[styles.dayCell(containerHeight, weekdaysHeight)]}>
         {RangeFill}
-        <View style={[styles.indicator]} />
         <DayPressable
           disabled={isDisabled}
           onPress={() => onSelectDate(date)}
           accessibilityRole="button"
           accessibilityLabel={text}
-          // style={[styles.dayContainer]}
+          style={styles.dayContainer}
         >
           <BodyText style={[styles.text]}>{text}</BodyText>
         </DayPressable>
+        <View style={[styles.indicator]} />
       </View>
     </View>
   );
@@ -140,19 +140,43 @@ const styles = StyleSheet.create(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: theme.components.datePicker.calendar.item.borderRadius,
+    variants: {
+      isSelected: {
+        true: {
+          backgroundColor: theme.color.surface.brand.default,
+        },
+      },
+      rangeStart: {
+        true: {
+          backgroundColor: theme.color.surface.brand.default,
+        },
+      },
+      inMiddle: {
+        true: {
+          _web: {
+            _hover: {
+              backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
+            },
+          },
+        },
+      },
+      rangeEnd: {
+        true: {
+          backgroundColor: theme.color.surface.brand.default,
+        },
+      },
+      isActive: {
+        true: {
+          backgroundColor: theme.color.interactive.functional.surface.subtle.active,
+        },
+      },
+    },
     _web: {
       '_focus-visible': {
         ...theme.helpers.focusVisible,
       },
       _active: {
         backgroundColor: theme.color.interactive.functional.surface.subtle.active,
-      },
-    },
-    variants: {
-      isActive: {
-        true: {
-          backgroundColor: theme.color.interactive.functional.surface.subtle.active,
-        },
       },
     },
   },
@@ -200,28 +224,6 @@ const styles = StyleSheet.create(theme => ({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: theme.color.background.secondary,
-    variants: {
-      isSelected: {
-        true: {
-          backgroundColor: theme.color.surface.brand.default,
-        },
-      },
-      inMiddle: {
-        true: {
-          backgroundColor: theme.color.surface.brand.default,
-        },
-      },
-      rangeStart: {
-        true: {
-          backgroundColor: theme.color.surface.brand.default,
-        },
-      },
-      rangeEnd: {
-        true: {
-          backgroundColor: theme.color.surface.brand.default,
-        },
-      },
-    },
   }),
   rangeWrapper: {
     flex: 1,
@@ -235,7 +237,12 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       inMiddle: {
         true: {
-          backgroundColor: theme.color.background.primary,
+          backgroundColor: theme.color.interactive.functional.surface.subtle.active,
+          _web: {
+            _hover: {
+              backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
+            },
+          },
         },
       },
       isStartOfWeek: {
@@ -246,8 +253,24 @@ const styles = StyleSheet.create(theme => ({
       },
     },
   },
-  leftCrop: { left: '50%' },
-  rightCrop: { right: '50%' },
+  leftCrop: {
+    left: '50%',
+    backgroundColor: theme.color.interactive.functional.surface.subtle.active,
+    _web: {
+      _hover: {
+        backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
+      },
+    },
+  },
+  rightCrop: {
+    right: '50%',
+    backgroundColor: theme.color.interactive.functional.surface.subtle.active,
+    _web: {
+      _hover: {
+        backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
+      },
+    },
+  },
 }));
 
 const customComparator = (prev: Readonly<Props>, next: Readonly<Props>) => {

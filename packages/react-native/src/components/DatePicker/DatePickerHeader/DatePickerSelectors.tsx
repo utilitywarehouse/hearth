@@ -1,4 +1,7 @@
-import { DecreaseSmallIcon, IncreaseSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import {
+  ChevronDownSmallIcon,
+  ChevronUpSmallIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
 import { memo } from 'react';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
@@ -35,8 +38,8 @@ const Selectors = ({ position }: Props) => {
           <Icon
             as={
               calendarView === 'month' || calendarView === 'year'
-                ? IncreaseSmallIcon
-                : DecreaseSmallIcon
+                ? ChevronUpSmallIcon
+                : ChevronDownSmallIcon
             }
             style={styles.icon}
           />
