@@ -19,7 +19,7 @@
   .hearth-Label {
     display: flex;
     align-items: center;
-    gap: var(--h-checkbox-gap);
+    gap: var(--h-checkbox-tile-gap);
   }
 
   &:where([data-disabled]) {
