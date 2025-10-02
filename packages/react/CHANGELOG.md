@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.10.4
+
+### Patch Changes
+
+- [#522](https://github.com/utilitywarehouse/hearth/pull/522) [`3bb77ad`](https://github.com/utilitywarehouse/hearth/commit/3bb77ad8cccc6cf7d42f9dbb5e758813afd07843) Thanks [@robphoenix](https://github.com/robphoenix)! - fix `RadioTile` layout
+
 ## 0.10.3
 
 ### Patch Changes
