@@ -8,5 +8,6 @@ export interface ListItemContentProps
    * Optional helper text to provide additional context or instructions.
    */
   helperText?: string;
-  leadingIcon?: ReactNode;
+  leadingContent?: ReactNode;
+  trailingContent?: ReactNode;
 }

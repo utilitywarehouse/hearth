@@ -12,12 +12,16 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type ListItemButtonElement = ElementRef<'button'>;
 
 export const ListItemButton = React.forwardRef<ListItemButtonElement, ListItemButtonProps>(
-  ({ className, heading, helperText, leadingIcon, trailingIcon, ...props }, ref) => {
+  ({ className, heading, helperText, leadingContent, trailingContent, ...props }, ref) => {
     return (
       <button ref={ref} className={clsx(componentClassName, className)} {...props}>
-        <ListItemContent heading={heading} helperText={helperText} leadingIcon={leadingIcon} />
+        <ListItemContent
+          heading={heading}
+          helperText={helperText}
+          leadingContent={leadingContent}
+        />
         <div className="hearth-ListItemTrailingIcon">
-          {trailingIcon ? trailingIcon : <ChevronRightSmallIcon />}
+          {trailingContent ? trailingContent : <ChevronRightSmallIcon />}
         </div>
       </button>
     );

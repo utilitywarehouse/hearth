@@ -5,6 +5,6 @@ export interface ListItemButtonProps
   extends ComponentPropsWithout<'button', RemovedProps | 'children'> {
   heading: ListItemContentProps['heading'];
   helperText?: ListItemContentProps['helperText'];
-  leadingIcon?: ListItemContentProps['leadingIcon'];
-  trailingIcon?: ListItemContentProps['leadingIcon'];
+  leadingContent?: ListItemContentProps['leadingContent'];
+  trailingContent?: ListItemContentProps['leadingContent'];
 }

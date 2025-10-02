@@ -11,8 +11,10 @@ import {
   BodyText,
   DetailText,
   Link,
+  IconContainer,
 } from '@utilitywarehouse/hearth-react';
 import {
+  CashbackCardSmallIcon,
   ChevronRightSmallIcon,
   InfoMediumIcon,
   SettingsMediumIcon,
@@ -75,44 +77,28 @@ export const Playground: Story = {
         <ListItem aria-label="list item">
           <ListItemContent heading="List item" helperText="Helper text" />
         </ListItem>
-        <ListItem aria-label="list item">
-          <ListItemContent
-            heading="List item"
-            helperText="Helper text"
-            leadingIcon={<InfoMediumIcon />}
-          />
-        </ListItem>
         <ListItem aria-label="list item button">
           <ListItemButton
-            heading="List item as button"
-            helperText="Helper text"
-            leadingIcon={<SettingsMediumIcon />}
-            onClick={() => console.log('clickety click')}
-          />
-        </ListItem>
-        <ListItem aria-label="list item button">
-          <ListItemButton
-            heading="List item as button"
+            heading="List item button"
             helperText="Helper text"
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
         <ListItem aria-label="list item button">
           <ListItemButton
-            heading="List item as button"
+            heading="List item button"
+            helperText="Helper text"
+            leadingContent={<SettingsMediumIcon />}
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
         <ListItem aria-label="list item link">
           <ListItemLink
-            heading="List item as link"
+            heading="List item link"
             helperText="Helper text"
-            leadingIcon={<SettingsMediumIcon />}
+            leadingContent={<SettingsMediumIcon />}
             href="#"
           />
-        </ListItem>
-        <ListItem aria-label="list item link">
-          <ListItemLink heading="List item as link" helperText="Helper text" href="#" />
         </ListItem>
         <ListItem aria-label="list item link">
           <ListItemLink heading="List item as link" href="#" />
@@ -121,8 +107,8 @@ export const Playground: Story = {
     </Box>
   ),
   args: {
-    variant: 'subtle',
-    colorScheme: 'warmWhite',
+    variant: 'emphasis',
+    colorScheme: 'neutralStrong',
   },
 };
 
@@ -162,6 +148,108 @@ export const KitchenSink: Story = {
   ),
 };
 
+export const AllListItems: Story = {
+  render: args => (
+    <Box width="400px">
+      <List
+        {...args}
+        link={
+          <Link href="#">
+            Link
+            <ChevronRightSmallIcon />
+          </Link>
+        }
+      >
+        <ListItem>List item</ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent heading="List item content" helperText="with helper text" />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="List item content"
+            helperText="with leading icon"
+            leadingContent={<InfoMediumIcon />}
+          />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="List item content"
+            helperText="with leading icon container"
+            leadingContent={
+              <IconContainer variant="subtle" colorScheme="cashback" size="sm">
+                <CashbackCardSmallIcon />
+              </IconContainer>
+            }
+          />
+        </ListItem>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item button"
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item button"
+            helperText="with helper text"
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item button"
+            helperText="with leading icon"
+            leadingContent={<SettingsMediumIcon />}
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item button"
+            helperText="with leading icon container"
+            leadingContent={
+              <IconContainer variant="subtle" colorScheme="cashback" size="sm">
+                <CashbackCardSmallIcon />
+              </IconContainer>
+            }
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem aria-label="list item link">
+          <ListItemLink heading="List item as link" href="#" />
+        </ListItem>
+        <ListItem aria-label="list item link">
+          <ListItemLink heading="List item link" helperText="with helper text" href="#" />
+        </ListItem>
+        <ListItem aria-label="list item link">
+          <ListItemLink
+            heading="List item link"
+            helperText="with with leading icon"
+            leadingContent={<SettingsMediumIcon />}
+            href="#"
+          />
+        </ListItem>
+        <ListItem aria-label="list item link">
+          <ListItemLink
+            heading="List item link"
+            helperText="with with leading icon container"
+            leadingContent={
+              <IconContainer variant="subtle" colorScheme="cashback" size="sm">
+                <CashbackCardSmallIcon />
+              </IconContainer>
+            }
+            href="#"
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: {
+    variant: 'subtle',
+    colorScheme: 'warmWhite',
+  },
+};
+
 export const ListItemContents: Story = {
   render: args => (
     <Box width="300px">
@@ -169,21 +257,21 @@ export const ListItemContents: Story = {
         <ListItem>
           <ListItemContent
             heading="List item content"
-            leadingIcon={<SettingsMediumIcon />}
+            leadingContent={<SettingsMediumIcon />}
             helperText="Helper text"
           />
         </ListItem>
         <ListItem>
           <ListItemContent
             heading="List item content"
-            leadingIcon={<SettingsMediumIcon />}
+            leadingContent={<SettingsMediumIcon />}
             helperText="Helper text"
           />
         </ListItem>
         <ListItem>
           <ListItemContent
             heading="List item content"
-            leadingIcon={<SettingsMediumIcon />}
+            leadingContent={<SettingsMediumIcon />}
             helperText="Helper text"
           />
         </ListItem>

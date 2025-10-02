@@ -12,10 +12,10 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type ListItemContentElement = ElementRef<'div'>;
 
 export const ListItemContent = React.forwardRef<ListItemContentElement, ListItemContentProps>(
-  ({ heading, leadingIcon, helperText, className }) => {
+  ({ heading, leadingContent, helperText, className }) => {
     return (
       <Flex gap="150" className={clsx(componentClassName, className)}>
-        {leadingIcon ? leadingIcon : null}
+        {leadingContent ? leadingContent : null}
         <Flex direction="column">
           <p>{heading}</p>
           {helperText ? <HelperText>{helperText}</HelperText> : null}
