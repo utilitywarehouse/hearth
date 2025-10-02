@@ -21,6 +21,7 @@ export default {
     item: {
       borderRadius: 8,
       minWidth: 32,
+      rangeBackground: '#191919',
       roundelBackgroundColorInverted: '#fcfbf2',
       roundelHeight: 6,
       roundelWidth: 6,
