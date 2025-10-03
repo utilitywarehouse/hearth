@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react
 
+## 0.10.5
+
+### Patch Changes
+
+- [#512](https://github.com/utilitywarehouse/hearth/pull/512) [`59e6167`](https://github.com/utilitywarehouse/hearth/commit/59e6167900ab6750a291ca877967ae0d4db2591e) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `Select` component
+
+- [#526](https://github.com/utilitywarehouse/hearth/pull/526) [`44817ac`](https://github.com/utilitywarehouse/hearth/commit/44817ac80c14f3d38eb7b32f09b63a6831db443e) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `CurrencyInput` height & gap
+
 ## 0.10.4
 
 ### Patch Changes
