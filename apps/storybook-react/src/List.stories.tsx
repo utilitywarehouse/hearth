@@ -20,6 +20,7 @@ import {
   InfoMediumIcon,
   SettingsMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
+import { ListItemContentTransaction } from '@utilitywarehouse/hearth-react/src/index.js';
 
 const meta: Meta<typeof List> = {
   title: 'Stories / List',
@@ -322,6 +323,23 @@ export const ListItemContentWithLink: Story = {
             heading="List item content"
             helperText="Helper text"
             trailingContent={<Link href="#">Link</Link>}
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
+};
+
+export const ListItemContentWithTransaction: Story = {
+  render: args => (
+    <Box width="300px">
+      <List {...args}>
+        <ListItem>
+          <ListItemContent
+            heading="List item content"
+            helperText="Helper text"
+            trailingContent={<ListItemContentTransaction debit="100.00" credit="1.00 CB" />}
           />
         </ListItem>
       </List>
