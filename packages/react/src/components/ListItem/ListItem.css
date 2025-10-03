@@ -36,7 +36,7 @@
     border-color: var(--h-border-strong);
   }
 
-  &:has(button, a) {
+  &:has(button, a):not(:has(.hearth-Switch)):not(:has(.hearth-Link)) {
     @media (hover: hover) {
       &:where(:hover) {
         background-color: var(--h-interactive-neutral-surface-subtle-hover);

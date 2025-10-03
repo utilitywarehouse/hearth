@@ -12,6 +12,7 @@ import {
   DetailText,
   Link,
   IconContainer,
+  Switch,
 } from '@utilitywarehouse/hearth-react';
 import {
   CashbackCardSmallIcon,
@@ -182,6 +183,20 @@ export const AllListItems: Story = {
             }
           />
         </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="List item content"
+            helperText="with trailing switch"
+            trailingContent={<Switch aria-label="list item switch" size="sm" />}
+          />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="List item content"
+            helperText="with trailing link"
+            trailingContent={<Link href="#">Link</Link>}
+          />
+        </ListItem>
         <ListItem aria-label="list item button">
           <ListItemButton
             heading="List item button"
@@ -246,7 +261,7 @@ export const AllListItems: Story = {
   ),
   args: {
     variant: 'subtle',
-    colorScheme: 'warmWhite',
+    colorScheme: 'neutralSubtle',
   },
 };
 
@@ -278,7 +293,41 @@ export const ListItemContents: Story = {
       </List>
     </Box>
   ),
-  args: { variant: 'emphasis', colorScheme: 'warmWhite' },
+  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
+};
+
+export const ListItemContentWithSwitch: Story = {
+  render: args => (
+    <Box width="300px">
+      <List {...args}>
+        <ListItem>
+          <ListItemContent
+            heading="List item content"
+            helperText="Helper text"
+            trailingContent={<Switch aria-label="list item switch" size="sm" />}
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
+};
+
+export const ListItemContentWithLink: Story = {
+  render: args => (
+    <Box width="300px">
+      <List {...args}>
+        <ListItem>
+          <ListItemContent
+            heading="List item content"
+            helperText="Helper text"
+            trailingContent={<Link href="#">Link</Link>}
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
 };
 
 export const ListItemButtons: Story = {
@@ -303,7 +352,7 @@ export const ListItemButtons: Story = {
       </List>
     </Box>
   ),
-  args: { variant: 'emphasis', colorScheme: 'warmWhite' },
+  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
 };
 
 export const ListItemLinks: Story = {
@@ -328,7 +377,7 @@ export const ListItemLinks: Story = {
       </List>
     </Box>
   ),
-  args: { variant: 'emphasis', colorScheme: 'warmWhite' },
+  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
 };
 
 export const CustomContent: Story = {
