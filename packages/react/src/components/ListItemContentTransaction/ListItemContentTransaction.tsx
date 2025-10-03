@@ -8,13 +8,19 @@ import { BodyText } from '../BodyText/BodyText';
 const COMPONENT_NAME = 'ListItemContentTransaction';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
+// component on hold pending further discussion
+
 export const ListItemContentTransaction: React.FC<ListItemContentTransactionProps> = ({
-  debit,
-  credit,
+  debitValue,
+  creditValue,
+  // topUpValue,
+  // declinedValue,
+  // cashbackValue,
   className,
 }) => {
-  const formattedDebit = `-£${debit}`;
-  const formattedCredit = `+£${credit}`;
+  const formattedDebit = `-£${debitValue}`;
+  const formattedCredit = `+£${creditValue}`;
+  // const formattedCashback = `+£${cashbackValue} CB`;
   return (
     <Flex
       height="100%"

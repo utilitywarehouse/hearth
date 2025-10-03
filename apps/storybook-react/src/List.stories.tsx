@@ -20,7 +20,6 @@ import {
   InfoMediumIcon,
   SettingsMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
-import { ListItemContentTransaction } from '@utilitywarehouse/hearth-react/src/index.js';
 
 const meta: Meta<typeof List> = {
   title: 'Stories / List',
@@ -150,6 +149,64 @@ export const KitchenSink: Story = {
   ),
 };
 
+export const LeadingContent: Story = {
+  render: args => (
+    <Box width="400px">
+      <List {...args}>
+        <ListItem aria-label="list item">
+          <ListItemContent heading="Icon leading content" leadingContent={<InfoMediumIcon />} />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="Icon container leading content"
+            leadingContent={
+              <IconContainer variant="subtle" colorScheme="cashback" size="sm">
+                <CashbackCardSmallIcon />
+              </IconContainer>
+            }
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: {
+    heading: 'Leading Content',
+    helperText: '',
+    variant: 'subtle',
+    colorScheme: 'neutralSubtle',
+  },
+};
+
+export const TrailingContent: Story = {
+  render: args => (
+    <Box width="400px">
+      <List {...args}>
+        <ListItem aria-label="list item">
+          <ListItemContent heading="Icon trailing content" trailingContent={<InfoMediumIcon />} />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="Switch trailing content"
+            trailingContent={<Switch aria-label="list item switch" size="sm" />}
+          />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="Link trailing content"
+            trailingContent={<Link href="#">Link</Link>}
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: {
+    heading: 'Trailing Content',
+    helperText: '',
+    variant: 'subtle',
+    colorScheme: 'neutralSubtle',
+  },
+};
+
 export const AllListItems: Story = {
   render: args => (
     <Box width="400px">
@@ -196,6 +253,22 @@ export const AllListItems: Story = {
             heading="List item content"
             helperText="with trailing link"
             trailingContent={<Link href="#">Link</Link>}
+          />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="List item content"
+            helperText="with trailing transaction"
+            trailingContent={
+              <Flex height="100%" direction="column" alignItems="end">
+                <BodyText size="md" as="span">
+                  -£100.00
+                </BodyText>
+                <BodyText size="md" as="span" style={{ color: 'var(--h-text-brand)' }}>
+                  +£1.00 CB
+                </BodyText>
+              </Flex>
+            }
           />
         </ListItem>
         <ListItem aria-label="list item button">
@@ -339,7 +412,16 @@ export const ListItemContentWithTransaction: Story = {
           <ListItemContent
             heading="List item content"
             helperText="Helper text"
-            trailingContent={<ListItemContentTransaction debit="100.00" credit="1.00 CB" />}
+            trailingContent={
+              <Flex height="100%" direction="column" alignItems="end">
+                <BodyText size="md" as="span">
+                  -£100.00
+                </BodyText>
+                <BodyText size="md" as="span" style={{ color: 'var(--h-text-brand)' }}>
+                  +£1.00 CB
+                </BodyText>
+              </Flex>
+            }
           />
         </ListItem>
       </List>
