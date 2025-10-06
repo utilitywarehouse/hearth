@@ -94,15 +94,15 @@ export const Playground: Story = {
           />
         </ListItem>
         <ListItem aria-label="list item link">
+          <ListItemLink heading="List item as link" href="#" />
+        </ListItem>
+        <ListItem aria-label="list item link">
           <ListItemLink
             heading="List item link"
             helperText="Helper text"
             leadingContent={<SettingsMediumIcon />}
             href="#"
           />
-        </ListItem>
-        <ListItem aria-label="list item link">
-          <ListItemLink heading="List item as link" href="#" />
         </ListItem>
       </List>
     </Box>
@@ -196,6 +196,35 @@ export const TrailingContent: Story = {
             trailingContent={<Link href="#">Link</Link>}
           />
         </ListItem>
+        <ListItem>
+          <ListItemContent
+            heading="Transaction trailing content"
+            helperText="With multiple transactions"
+            trailingContent={
+              <>
+                <BodyText size="md" as="span">
+                  -£100.00
+                </BodyText>
+                <BodyText size="md" as="span" style={{ color: 'var(--h-text-brand)' }}>
+                  +£1.00 CB
+                </BodyText>
+              </>
+            }
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemContent
+            heading="Transaction trailing content"
+            helperText="With a single transaction"
+            trailingContent={
+              <>
+                <BodyText size="md" as="span" style={{ color: 'var(--h-text-affirmative)' }}>
+                  +£10.00
+                </BodyText>
+              </>
+            }
+          />
+        </ListItem>
       </List>
     </Box>
   ),
@@ -268,6 +297,19 @@ export const AllListItems: Story = {
                   +£1.00 CB
                 </BodyText>
               </Flex>
+            }
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemContent
+            heading="List item content"
+            helperText="With single trailing transaction"
+            trailingContent={
+              <>
+                <BodyText size="md" as="span" style={{ color: 'var(--h-text-affirmative)' }}>
+                  +£10.00
+                </BodyText>
+              </>
             }
           />
         </ListItem>
@@ -410,17 +452,59 @@ export const ListItemContentWithTransaction: Story = {
       <List {...args}>
         <ListItem>
           <ListItemContent
-            heading="List item content"
-            helperText="Helper text"
+            heading="Boots"
+            helperText="5:30pm"
             trailingContent={
-              <Flex height="100%" direction="column" alignItems="end">
+              <>
                 <BodyText size="md" as="span">
                   -£100.00
                 </BodyText>
                 <BodyText size="md" as="span" style={{ color: 'var(--h-text-brand)' }}>
                   +£1.00 CB
                 </BodyText>
-              </Flex>
+              </>
+            }
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemContent
+            heading="Top-up"
+            helperText="4:00pm"
+            trailingContent={
+              <>
+                <BodyText size="md" as="span" style={{ color: 'var(--h-text-affirmative)' }}>
+                  +£10.00
+                </BodyText>
+              </>
+            }
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
+};
+
+export const ListItemContentWithBadge: Story = {
+  render: args => (
+    <Box width="300px">
+      <List {...args}>
+        <ListItem>
+          <ListItemContent
+            heading="List item content"
+            helperText="Helper text"
+            badge={<Badge size="sm">Badge</Badge>}
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemContent
+            heading="List item content"
+            helperText="Helper text"
+            badgePlacement="top"
+            badge={
+              <Badge size="sm" marginBottom="100">
+                Badge
+              </Badge>
             }
           />
         </ListItem>
@@ -518,12 +602,21 @@ export const CustomContent: Story = {
               <BodyText size="md">{event.date.month}</BodyText>
               <DetailText size="2xl">{event.date.day}</DetailText>
             </Flex>
-            <Flex direction="column" alignItems="start" gap="100" width="100%">
-              <Badge colorScheme={event.type.includes('Buzz') ? 'positive' : 'info'} size="sm">
-                {event.type}
-              </Badge>
-              <ListItemButton heading={event.title} helperText={event.location} />
-            </Flex>
+
+            <ListItemButton
+              heading={event.title}
+              helperText={event.location}
+              badgePlacement="top"
+              badge={
+                <Badge
+                  colorScheme={event.type.includes('Buzz') ? 'positive' : 'info'}
+                  size="sm"
+                  marginBottom="100"
+                >
+                  {event.type}
+                </Badge>
+              }
+            />
           </ListItem>
         ))}
       </List>

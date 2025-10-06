@@ -102,6 +102,14 @@ Use the `link` prop to provide a call-to-action or navigation link.
 The `helperText` prop provides additional context or instructions for the list.
 It is displayed below the heading.
 
+### Badge
+
+You can include a `Badge` component, using the `badge` prop, with the
+`badgePlacement` prop enabling you to change the position between `top` &
+`bottom`.
+
+<Canvas of={Stories.ListItemContentWithBadge} />
+
 ## Leading content
 
 Use the `leadingContent` prop on the `ListItemContent`, `ListItemButton` &
@@ -122,21 +130,23 @@ trailing content with the `ListItemButton` & `ListItemLink` components.
 
 ### Custom trailing content
 
-You can also include custom content, such as a transaction.
+You can also include custom content, such as a transaction. The layout should
+be handled for you, however if necessary you can always wrap your custom
+content in a `Flex` component.
 
 ```tsx
 <ListItem aria-label="cashback">
   <ListItemContent
     heading="Transaction"
     trailingContent={
-      <Flex height="100%" direction="column" alignItems="end">
+      <>
         <BodyText size="md" as="span">
           -£100.00
         </BodyText>
         <BodyText size="md" as="span" style={{ color: 'var(--h-text-brand)' }}>
           +£1.00 CB
         </BodyText>
-      </Flex>
+      </>
     }
   />
 </ListItem>

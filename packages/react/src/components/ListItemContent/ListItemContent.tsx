@@ -15,16 +15,34 @@ export const ListItemContent: React.FC<ListItemContentProps> = ({
   trailingContent,
   helperText,
   className,
+  badge,
+  badgePlacement = 'bottom',
+  children,
 }) => {
   return (
-    <Flex width="100%" gap="150" alignItems="start" className={clsx(componentClassName, className)}>
-      {leadingContent ? leadingContent : null}
-      <Flex direction="column" flexGrow="1">
-        <BodyText size="lg">{heading}</BodyText>
-        {helperText ? <HelperText>{helperText}</HelperText> : null}
-      </Flex>
-      {trailingContent ? trailingContent : null}
-    </Flex>
+    <div className={clsx(componentClassName, className)}>
+      {children ? (
+        children
+      ) : (
+        <>
+          {leadingContent ? leadingContent : null}
+          <Flex
+            direction={badgePlacement === 'top' ? 'column-reverse' : 'column'}
+            flexGrow="1"
+            alignItems="start"
+          >
+            <div>
+              <BodyText size="lg">{heading}</BodyText>
+              {helperText ? <HelperText>{helperText}</HelperText> : null}
+            </div>
+            {badge}
+          </Flex>
+          <div className={`${componentClassName}TrailingContent`}>
+            {trailingContent ? trailingContent : null}
+          </div>
+        </>
+      )}
+    </div>
   );
 };
 
