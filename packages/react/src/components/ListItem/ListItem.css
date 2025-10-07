@@ -6,11 +6,6 @@
   position: relative;
   padding: var(--h-list-item-functional-padding);
 
-  &:where(:not(.hearth-Card &)) {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
   :where(.hearth-variant-subtle, .hearth-variant-emphasis) & {
     &:where(:first-child) {
       border-top-left-radius: var(--h-card-border-radius);
@@ -36,7 +31,7 @@
     border-color: var(--h-border-strong);
   }
 
-  &:has(button, a) {
+  &:has(button, a):not(:has(.hearth-Switch), :has(.hearth-Link)) {
     @media (hover: hover) {
       &:where(:hover) {
         background-color: var(--h-interactive-neutral-surface-subtle-hover);
@@ -45,19 +40,6 @@
 
     &:where(:active) {
       background-color: var(--h-interactive-neutral-surface-subtle-active);
-    }
-  }
-
-  & :where(.hearth-ListItemTrailingIcon) {
-    height: 48px;
-    display: flex;
-    align-items: center;
-    position: absolute;
-    right: var(--h-list-item-functional-padding);
-    top: calc(50% - 24px);
-
-    &:where(:not(.hearth-Card &)) {
-      right: 0;
     }
   }
 }

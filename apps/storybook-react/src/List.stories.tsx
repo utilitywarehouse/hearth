@@ -11,8 +11,11 @@ import {
   BodyText,
   DetailText,
   Link,
+  IconContainer,
+  Switch,
 } from '@utilitywarehouse/hearth-react';
 import {
+  CashbackCardSmallIcon,
   ChevronRightSmallIcon,
   InfoMediumIcon,
   SettingsMediumIcon,
@@ -75,54 +78,38 @@ export const Playground: Story = {
         <ListItem aria-label="list item">
           <ListItemContent heading="List item" helperText="Helper text" />
         </ListItem>
-        <ListItem aria-label="list item">
-          <ListItemContent
-            heading="List item"
-            helperText="Helper text"
-            leadingIcon={<InfoMediumIcon />}
-          />
-        </ListItem>
         <ListItem aria-label="list item button">
           <ListItemButton
-            heading="List item as button"
-            helperText="Helper text"
-            leadingIcon={<SettingsMediumIcon />}
-            onClick={() => console.log('clickety click')}
-          />
-        </ListItem>
-        <ListItem aria-label="list item button">
-          <ListItemButton
-            heading="List item as button"
+            heading="List item button"
             helperText="Helper text"
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
         <ListItem aria-label="list item button">
           <ListItemButton
-            heading="List item as button"
+            heading="List item button"
+            helperText="Helper text"
+            leadingContent={<SettingsMediumIcon />}
             onClick={() => console.log('clickety click')}
           />
-        </ListItem>
-        <ListItem aria-label="list item link">
-          <ListItemLink
-            heading="List item as link"
-            helperText="Helper text"
-            leadingIcon={<SettingsMediumIcon />}
-            href="#"
-          />
-        </ListItem>
-        <ListItem aria-label="list item link">
-          <ListItemLink heading="List item as link" helperText="Helper text" href="#" />
         </ListItem>
         <ListItem aria-label="list item link">
           <ListItemLink heading="List item as link" href="#" />
+        </ListItem>
+        <ListItem aria-label="list item link">
+          <ListItemLink
+            heading="List item link"
+            helperText="Helper text"
+            leadingContent={<SettingsMediumIcon />}
+            href="#"
+          />
         </ListItem>
       </List>
     </Box>
   ),
   args: {
-    variant: 'subtle',
-    colorScheme: 'warmWhite',
+    variant: 'emphasis',
+    colorScheme: 'neutralStrong',
   },
 };
 
@@ -162,6 +149,238 @@ export const KitchenSink: Story = {
   ),
 };
 
+export const LeadingContent: Story = {
+  render: args => (
+    <Box width="400px">
+      <List {...args}>
+        <ListItem aria-label="list item">
+          <ListItemContent heading="Icon leading content" leadingContent={<InfoMediumIcon />} />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="Icon container leading content"
+            leadingContent={
+              <IconContainer variant="subtle" colorScheme="cashback" size="sm">
+                <CashbackCardSmallIcon />
+              </IconContainer>
+            }
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: {
+    heading: 'Leading Content',
+    helperText: '',
+    variant: 'subtle',
+    colorScheme: 'neutralSubtle',
+  },
+};
+
+export const TrailingContent: Story = {
+  render: args => (
+    <Box width="400px">
+      <List {...args}>
+        <ListItem aria-label="list item">
+          <ListItemContent heading="Icon trailing content" trailingContent={<InfoMediumIcon />} />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="Switch trailing content"
+            trailingContent={<Switch aria-label="list item switch" size="sm" />}
+          />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="Link trailing content"
+            trailingContent={<Link href="#">Link</Link>}
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemContent
+            heading="Transaction trailing content"
+            helperText="With multiple transactions"
+            trailingContent={
+              <>
+                <BodyText size="md" as="span">
+                  -£100.00
+                </BodyText>
+                <BodyText size="md" as="span" style={{ color: 'var(--h-text-brand)' }}>
+                  +£1.00 CB
+                </BodyText>
+              </>
+            }
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemContent
+            heading="Transaction trailing content"
+            helperText="With a single transaction"
+            trailingContent={
+              <>
+                <BodyText size="md" as="span" style={{ color: 'var(--h-text-affirmative)' }}>
+                  +£10.00
+                </BodyText>
+              </>
+            }
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: {
+    heading: 'Trailing Content',
+    helperText: '',
+    variant: 'subtle',
+    colorScheme: 'neutralSubtle',
+  },
+};
+
+export const AllListItems: Story = {
+  render: args => (
+    <Box width="400px">
+      <List
+        {...args}
+        link={
+          <Link href="#">
+            Link
+            <ChevronRightSmallIcon />
+          </Link>
+        }
+      >
+        <ListItem>List item</ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent heading="List item content" helperText="with helper text" />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="List item content"
+            helperText="with leading icon"
+            leadingContent={<InfoMediumIcon />}
+          />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="List item content"
+            helperText="with leading icon container"
+            leadingContent={
+              <IconContainer variant="subtle" colorScheme="cashback" size="sm">
+                <CashbackCardSmallIcon />
+              </IconContainer>
+            }
+          />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="List item content"
+            helperText="with trailing switch"
+            trailingContent={<Switch aria-label="list item switch" size="sm" />}
+          />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="List item content"
+            helperText="with trailing link"
+            trailingContent={<Link href="#">Link</Link>}
+          />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="List item content"
+            helperText="with trailing transaction"
+            trailingContent={
+              <Flex height="100%" direction="column" alignItems="end">
+                <BodyText size="md" as="span">
+                  -£100.00
+                </BodyText>
+                <BodyText size="md" as="span" style={{ color: 'var(--h-text-brand)' }}>
+                  +£1.00 CB
+                </BodyText>
+              </Flex>
+            }
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemContent
+            heading="List item content"
+            helperText="With single trailing transaction"
+            trailingContent={
+              <>
+                <BodyText size="md" as="span" style={{ color: 'var(--h-text-affirmative)' }}>
+                  +£10.00
+                </BodyText>
+              </>
+            }
+          />
+        </ListItem>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item button"
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item button"
+            helperText="with helper text"
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item button"
+            helperText="with leading icon"
+            leadingContent={<SettingsMediumIcon />}
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item button"
+            helperText="with leading icon container"
+            leadingContent={
+              <IconContainer variant="subtle" colorScheme="cashback" size="sm">
+                <CashbackCardSmallIcon />
+              </IconContainer>
+            }
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem aria-label="list item link">
+          <ListItemLink heading="List item as link" href="#" />
+        </ListItem>
+        <ListItem aria-label="list item link">
+          <ListItemLink heading="List item link" helperText="with helper text" href="#" />
+        </ListItem>
+        <ListItem aria-label="list item link">
+          <ListItemLink
+            heading="List item link"
+            helperText="with with leading icon"
+            leadingContent={<SettingsMediumIcon />}
+            href="#"
+          />
+        </ListItem>
+        <ListItem aria-label="list item link">
+          <ListItemLink
+            heading="List item link"
+            helperText="with with leading icon container"
+            leadingContent={
+              <IconContainer variant="subtle" colorScheme="cashback" size="sm">
+                <CashbackCardSmallIcon />
+              </IconContainer>
+            }
+            href="#"
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: {
+    variant: 'subtle',
+    colorScheme: 'neutralSubtle',
+  },
+};
+
 export const ListItemContents: Story = {
   render: args => (
     <Box width="300px">
@@ -169,28 +388,130 @@ export const ListItemContents: Story = {
         <ListItem>
           <ListItemContent
             heading="List item content"
-            leadingIcon={<SettingsMediumIcon />}
+            leadingContent={<SettingsMediumIcon />}
             helperText="Helper text"
           />
         </ListItem>
         <ListItem>
           <ListItemContent
             heading="List item content"
-            leadingIcon={<SettingsMediumIcon />}
+            leadingContent={<SettingsMediumIcon />}
             helperText="Helper text"
           />
         </ListItem>
         <ListItem>
           <ListItemContent
             heading="List item content"
-            leadingIcon={<SettingsMediumIcon />}
+            leadingContent={<SettingsMediumIcon />}
             helperText="Helper text"
           />
         </ListItem>
       </List>
     </Box>
   ),
-  args: { variant: 'emphasis', colorScheme: 'warmWhite' },
+  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
+};
+
+export const ListItemContentWithSwitch: Story = {
+  render: args => (
+    <Box width="300px">
+      <List {...args}>
+        <ListItem>
+          <ListItemContent
+            heading="List item content"
+            helperText="Helper text"
+            trailingContent={<Switch aria-label="list item switch" size="sm" />}
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
+};
+
+export const ListItemContentWithLink: Story = {
+  render: args => (
+    <Box width="300px">
+      <List {...args}>
+        <ListItem>
+          <ListItemContent
+            heading="List item content"
+            helperText="Helper text"
+            trailingContent={<Link href="#">Link</Link>}
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
+};
+
+export const ListItemContentWithTransaction: Story = {
+  render: args => (
+    <Box width="300px">
+      <List {...args}>
+        <ListItem>
+          <ListItemContent
+            heading="Boots"
+            helperText="5:30pm"
+            trailingContent={
+              <>
+                <BodyText size="md" as="span">
+                  -£100.00
+                </BodyText>
+                <BodyText size="md" as="span" style={{ color: 'var(--h-text-brand)' }}>
+                  +£1.00 CB
+                </BodyText>
+              </>
+            }
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemContent
+            heading="Top-up"
+            helperText="4:00pm"
+            trailingContent={
+              <>
+                <BodyText size="md" as="span" style={{ color: 'var(--h-text-affirmative)' }}>
+                  +£10.00
+                </BodyText>
+              </>
+            }
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
+};
+
+export const ListItemContentWithBadge: Story = {
+  render: args => (
+    <Box width="300px">
+      <List {...args}>
+        <ListItem>
+          <ListItemContent
+            heading="List item content"
+            helperText="Helper text"
+            badge={<Badge size="sm">Badge</Badge>}
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemContent
+            heading="List item content"
+            helperText="Helper text"
+            badgePlacement="top"
+            badge={
+              <Badge size="sm" marginBottom="100">
+                Badge
+              </Badge>
+            }
+          />
+        </ListItem>
+      </List>
+    </Box>
+  ),
+  args: { variant: 'emphasis', colorScheme: 'neutralStrong', heading: '', helperText: '' },
 };
 
 export const ListItemButtons: Story = {
@@ -215,7 +536,7 @@ export const ListItemButtons: Story = {
       </List>
     </Box>
   ),
-  args: { variant: 'emphasis', colorScheme: 'warmWhite' },
+  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
 };
 
 export const ListItemLinks: Story = {
@@ -240,7 +561,7 @@ export const ListItemLinks: Story = {
       </List>
     </Box>
   ),
-  args: { variant: 'emphasis', colorScheme: 'warmWhite' },
+  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
 };
 
 export const CustomContent: Story = {
@@ -281,12 +602,21 @@ export const CustomContent: Story = {
               <BodyText size="md">{event.date.month}</BodyText>
               <DetailText size="2xl">{event.date.day}</DetailText>
             </Flex>
-            <Flex direction="column" alignItems="start" gap="100" width="100%">
-              <Badge colorScheme={event.type.includes('Buzz') ? 'positive' : 'info'} size="sm">
-                {event.type}
-              </Badge>
-              <ListItemButton heading={event.title} helperText={event.location} />
-            </Flex>
+
+            <ListItemButton
+              heading={event.title}
+              helperText={event.location}
+              badgePlacement="top"
+              badge={
+                <Badge
+                  colorScheme={event.type.includes('Buzz') ? 'positive' : 'info'}
+                  size="sm"
+                  marginBottom="100"
+                >
+                  {event.type}
+                </Badge>
+              }
+            />
           </ListItem>
         ))}
       </List>
