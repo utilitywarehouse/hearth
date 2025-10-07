@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
-import { ComponentType } from 'react';
 import { Icon } from '.';
 import { ColorValue } from '../../types';
 import { coloursAsArray } from '../../utils';
@@ -25,7 +24,8 @@ const meta = {
     },
   },
   args: {
-    as: Object.keys(Icons)[0] as ComponentType,
+    // @ts-expect-error - This is a playground
+    as: Object.keys(Icons)[0],
     color: 'grey1000' as ColorValue,
   },
 } satisfies Meta<typeof Icon>;
@@ -37,7 +37,8 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   // @ts-expect-error - This is a playground
   render: ({ as: icon, color }) => {
+    // @ts-expect-error - This is a playground
     const as = icon === 'none' ? undefined : Icons[icon];
-    return <Icon as={as} color={colors[color]} />;
+    return <Icon as={as} color={color} />;
   },
 };
