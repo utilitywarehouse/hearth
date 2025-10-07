@@ -3,6 +3,7 @@ import { Box, BodyText, Flex } from '@utilitywarehouse/hearth-react';
 
 const sizes = ['sm', 'md', 'lg'] as const;
 const weights = ['regular', 'semibold', 'bold'] as const;
+const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
 
 const meta: Meta<typeof BodyText> = {
   title: 'Stories / BodyText',
@@ -19,6 +20,7 @@ const meta: Meta<typeof BodyText> = {
     as: { options: ['span', 'p', 'div'], control: { type: 'radio' } },
     size: { options: sizes, control: { type: 'radio' } },
     weight: { options: weights, control: { type: 'radio' } },
+    color: { options: colorValues, control: { type: 'select' } },
     truncate: { control: { type: 'boolean' } },
     paragraphSpacing: { control: { type: 'boolean' } },
   },

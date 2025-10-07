@@ -3,6 +3,7 @@ import { Box, BoxProps, Flex, spaceTokens, colorTokens } from '@utilitywarehouse
 import { useRef } from 'react';
 import { Placeholder } from './storybook-components/Placeholder';
 
+const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
 const borderRadiusValues = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'] as const;
@@ -21,7 +22,7 @@ const meta: Meta<typeof Box> = {
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },
-    color: { options: colorTokens, control: { type: 'select' } },
+    color: { options: colorValues, control: { type: 'select' } },
     backgroundColor: { options: colorTokens, control: { type: 'select' } },
     padding: { options: spaceTokens, control: { type: 'select' } },
     paddingInline: { options: spaceTokens, control: { type: 'select' } },
@@ -81,7 +82,7 @@ type Story = StoryObj<typeof Box>;
 export const Playground: Story = {
   render: args => (
     <Box {...args}>
-      <Placeholder />
+      <Placeholder>Box</Placeholder>
     </Box>
   ),
   args: {

@@ -9,6 +9,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { textWrapPropDefs } from '../../props/text-wrap.props';
 import { marginPropDefs } from '../../props/margin.props';
+import { colorPropDefs } from '../../props/color.props';
 
 const COMPONENT_NAME = 'BodyText';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -27,6 +28,7 @@ export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props,
   } = extractProps(
     props,
     bodyTextPropDefs,
+    colorPropDefs,
     textAlignPropDefs,
     textTransformPropDefs,
     textWrapPropDefs,

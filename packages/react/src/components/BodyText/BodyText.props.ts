@@ -1,3 +1,4 @@
+import { ColorProps } from '../../props/color.props';
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
@@ -20,7 +21,8 @@ export const bodyTextPropDefs = {
 };
 
 interface CommonBodyTextProps
-  extends TextAlignProps,
+  extends ColorProps,
+    TextAlignProps,
     TextTransformProps,
     TextWrapProps,
     MarginProps {

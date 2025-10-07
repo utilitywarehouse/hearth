@@ -9,6 +9,8 @@ export const Placeholder = (props: FlexProps) => {
       borderStyle="solid"
       borderColor="grey200"
       height="100%"
+      alignItems="center"
+      justifyContent="center"
       {...props}
     />
   );
