@@ -4,13 +4,13 @@ import {
   BoxProps,
   Flex,
   spaceTokens,
-  colorTokens,
   colorValues,
+  backgroundColorValues,
+  borderColorValues,
 } from '@utilitywarehouse/hearth-react';
 import { useRef } from 'react';
 import { Placeholder } from './storybook-components/Placeholder';
 
-const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
 const borderRadiusValues = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'] as const;
@@ -51,19 +51,19 @@ const meta: Meta<typeof Box> = {
     height: { control: { type: 'text' } },
     minHeight: { control: { type: 'text' } },
     maxHeight: { control: { type: 'text' } },
-    borderColor: { options: colorTokens, control: { type: 'select' } },
+    borderColor: { options: borderColorValues, control: { type: 'select' } },
     borderStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderWidth: { options: borderWidthValues, control: { type: 'select' } },
-    borderTopColor: { options: colorTokens, control: { type: 'select' } },
+    borderTopColor: { options: borderColorValues, control: { type: 'select' } },
     borderTopStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderTopWidth: { options: borderWidthValues, control: { type: 'select' } },
-    borderRightColor: { options: colorTokens, control: { type: 'select' } },
+    borderRightColor: { options: borderColorValues, control: { type: 'select' } },
     borderRightStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderRightWidth: { options: borderWidthValues, control: { type: 'select' } },
-    borderBottomColor: { options: colorTokens, control: { type: 'select' } },
+    borderBottomColor: { options: borderColorValues, control: { type: 'select' } },
     borderBottomStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderBottomWidth: { options: borderWidthValues, control: { type: 'select' } },
-    borderLeftColor: { options: colorTokens, control: { type: 'select' } },
+    borderLeftColor: { options: borderColorValues, control: { type: 'select' } },
     borderLeftStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderLeftWidth: { options: borderWidthValues, control: { type: 'select' } },
     borderRadius: { options: borderRadiusValues, control: { type: 'select' } },
@@ -96,7 +96,7 @@ export const Playground: Story = {
     borderRadius: 'xs',
     borderWidth: '1',
     borderStyle: 'solid',
-    borderColor: 'grey200',
+    borderColor: 'subtle',
   },
 };
 
@@ -135,7 +135,7 @@ export const HideContent: Story = {
   render: () => (
     <Flex gap="300" direction="column">
       <Box
-        borderColor="grey1000"
+        borderColor="strong"
         borderStyle="solid"
         borderWidth="1"
         display={{ mobile: 'none', tablet: 'block' }}
@@ -144,7 +144,7 @@ export const HideContent: Story = {
         hidden on mobile screens
       </Box>
       <Box
-        borderColor="grey1000"
+        borderColor="strong"
         borderStyle="solid"
         borderWidth="1"
         display={{ mobile: 'block', tablet: 'none', desktop: 'block' }}
@@ -153,7 +153,7 @@ export const HideContent: Story = {
         hidden on tablet screens
       </Box>
       <Box
-        borderColor="grey1000"
+        borderColor="strong"
         borderStyle="solid"
         borderWidth="1"
         display={{ mobile: 'block', desktop: 'none' }}
@@ -169,7 +169,7 @@ type Props = React.ComponentPropsWithoutRef<'a'> & BoxProps;
 const CustomAnchor = ({ onClick, href, ...props }: Props) => {
   const ref = useRef<HTMLAnchorElement>(null);
   return (
-    <Box asChild {...props} padding="100" color="uwPurple" style={{ textDecoration: 'underline' }}>
+    <Box asChild {...props} padding="100" color="brand" style={{ textDecoration: 'underline' }}>
       <a onClick={onClick} href={href} ref={ref}>
         Custom Component
       </a>

@@ -15,5 +15,5 @@ interface BackgroundColorProps {
   backgroundColor?: (typeof colorValues)[number];
 }
 
-export { backgroundColorPropDefs };
+export { backgroundColorPropDefs, colorValues as backgroundColorValues };
 export type { BackgroundColorProps };

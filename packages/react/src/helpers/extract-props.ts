@@ -53,16 +53,12 @@ export function extractProps<
     delete extractedProps[key];
     const tokens = allPropDefs[key]?.tokens;
     const prefix = allPropDefs[key]?.className;
-    const isSingleClassNameTokens = allPropDefs[key]?.singleClassNameTokens;
-    const transformValue = allPropDefs[key]?.transformValue;
     const styles = getClassNameStyles({
       value,
       prefix,
       defaultValue: allPropDefs[key]?.default,
       tokens,
       isResponsive: Boolean(allPropDefs[key]?.responsive),
-      isSingleClassNameTokens,
-      transformValue,
     });
     if (styles) {
       const { className: propClassName, style: propStyle } = styles;
