@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { CurrencyInput } from '@utilitywarehouse/hearth-react';
+import { CurrencyInput, Flex } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta: Meta<typeof CurrencyInput> = {
@@ -37,11 +37,18 @@ export const Playground: Story = {
   render: args => {
     const [value, setValue] = React.useState<string>('');
     return (
-      <CurrencyInput
-        value={value}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
-        {...args}
-      />
+      <Flex direction="column" gap="200">
+        <CurrencyInput {...args} label="Uncontrolled" />
+        <CurrencyInput
+          {...args}
+          label="Controlled"
+          value={value}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+            setValue(event.target.value);
+            console.log({ value });
+          }}
+        />
+      </Flex>
     );
   },
 };
