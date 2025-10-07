@@ -1,19 +1,16 @@
-import type { ChangeEvent, ElementRef } from 'react';
-import React, { useEffect, useRef, useState } from 'react';
+import type { ChangeEvent, ElementRef, RefObject } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import clsx from 'clsx';
 import { TextInput } from '../TextInput/TextInput';
 import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
 import { CurrencyInputProps } from './CurrencyInput.props';
 import { DetailText } from '../DetailText/DetailText';
+import React from 'react';
 
 const COMPONENT_NAME = 'CurrencyInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CurrencyInputElement = ElementRef<'input'>;
-
-// const numericValue = formattedValue.replace(/,/g, '');
-// const asNumber = parseFloat(numericValue);
 
 export const CurrencyInput = React.forwardRef<CurrencyInputElement, CurrencyInputProps>(
   (
@@ -29,12 +26,12 @@ export const CurrencyInput = React.forwardRef<CurrencyInputElement, CurrencyInpu
     forwardedRef
   ) => {
     const maxDecimals = 2;
-    const [internalValue, setInternalValue] = useState<string>('');
-    const localRef = useRef<HTMLInputElement>(null);
-    const cursorPositionRef = useRef<number | null>(null);
+    const [internalValue, setInternalValue] = React.useState<string>('');
+    const localRef = React.useRef<HTMLInputElement>(null);
+    const cursorPositionRef = React.useRef<number | null>(null);
 
     // Use forwarded ref if provided, otherwise use internal ref
-    const inputRef = (forwardedRef as React.RefObject<HTMLInputElement>) || localRef;
+    const inputRef = (forwardedRef as RefObject<HTMLInputElement>) || localRef;
 
     const isControlled = controlledValue !== undefined;
     const numericValue = isControlled ? String(controlledValue ?? '') : internalValue;
@@ -109,7 +106,7 @@ export const CurrencyInput = React.forwardRef<CurrencyInputElement, CurrencyInpu
     };
 
     // Restore cursor position after render
-    useEffect(() => {
+    React.useEffect(() => {
       if (inputRef.current && cursorPositionRef.current !== null) {
         inputRef.current.setSelectionRange(cursorPositionRef.current, cursorPositionRef.current);
         cursorPositionRef.current = null;

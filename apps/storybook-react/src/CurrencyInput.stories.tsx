@@ -17,6 +17,7 @@ const meta: Meta<typeof CurrencyInput> = {
     placeholder: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
     value: { control: { type: 'text' } },
+    disableGroupSeparators: { control: { type: 'boolean' } },
     helperText: { control: { type: 'text' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
     validationText: { control: { type: 'text' } },
@@ -38,15 +39,17 @@ export const Playground: Story = {
     const [value, setValue] = React.useState<string>('');
     return (
       <Flex direction="column" gap="200">
-        <CurrencyInput {...args} label="Uncontrolled" />
+        <CurrencyInput
+          {...args}
+          label="Uncontrolled"
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => console.log(event.target.value)}
+        />
         <CurrencyInput
           {...args}
           label="Controlled"
+          helperText={`Value: ${value}`}
           value={value}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            setValue(event.target.value);
-            console.log({ value });
-          }}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
         />
       </Flex>
     );
