@@ -11,15 +11,16 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 <Canvas of={Stories.Playground} />
 <Controls of={Stories.Playground} />
 
+- [Playground](#playground)
 - [Accessibility](#accessibility)
 - [Appearance](#appearance)
 - [Heading](#heading)
+- [Leading content](#leading-content)
+- [Trailing content](#trailing-content)
 - [Advanced Content](#advanced-content)
 - [API](#api)
-- [ListItem](#listitem)
-- [ListItemContent](#listitemcontent)
-- [ListItemButton](#listitembutton)
-- [ListItemLink](#listitemlink)
+
+## Usage
 
 - The `List` component can be customized with different variants and color schemes.
 - Use `ListItem` by itself for simple text content, or as a container for more complex, or interactive, content.
@@ -100,6 +101,58 @@ Use the `link` prop to provide a call-to-action or navigation link.
 
 The `helperText` prop provides additional context or instructions for the list.
 It is displayed below the heading.
+
+### Badge
+
+You can include a `Badge` component, using the `badge` prop, with the
+`badgePlacement` prop enabling you to change the position between `top` &
+`bottom`.
+
+<Canvas of={Stories.ListItemContentWithBadge} />
+
+## Leading content
+
+Use the `leadingContent` prop on the `ListItemContent`, `ListItemButton` &
+`ListItemLink` components to include a visual element at the start of a list
+item. Typically, this would be an icon, `IconContainer`, or `Avatar`.
+
+<Canvas of={Stories.LeadingContent} />
+
+## Trailing content
+
+Use the `trailingContent` prop on the `ListItemContent`, `ListItemButton` &
+`ListItemLink` components to include a visual element at the end of a list
+item. Typically, this would be an icon, `Switch`, `Link` or transaction, though
+interactive elements such as `Switch` & `Link` should **NOT** be used as
+trailing content with the `ListItemButton` & `ListItemLink` components.
+
+<Canvas of={Stories.TrailingContent} />
+
+### Custom trailing content
+
+You can also include custom content, such as a transaction. The layout should
+be handled for you, however if necessary you can always wrap your custom
+content in a `Flex` component.
+
+```tsx
+<ListItem aria-label="cashback">
+  <ListItemContent
+    heading="Transaction"
+    trailingContent={
+      <>
+        <BodyText size="md" as="span">
+          -£100.00
+        </BodyText>
+        <BodyText size="md" as="span" style={{ color: 'var(--h-text-brand)' }}>
+          +£1.00 CB
+        </BodyText>
+      </>
+    }
+  />
+</ListItem>
+```
+
+<Canvas of={Stories.ListItemContentWithTransaction} />
 
 ## Advanced Content
 
