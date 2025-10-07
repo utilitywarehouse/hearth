@@ -6,10 +6,11 @@ export const Placeholder = (props: FlexProps) => {
       borderRadius="xs"
       borderWidth="1"
       borderStyle="solid"
-      borderColor="grey200"
+      borderColor="subtle"
       height="100%"
       alignItems="center"
       justifyContent="center"
+      backgroundColor="secondary"
       {...props}
     />
   );
