@@ -30,95 +30,77 @@ export const CurrencyInput = React.forwardRef<CurrencyInputElement, CurrencyInpu
   ) => {
     const maxDecimals = 2;
     const [internalValue, setInternalValue] = useState<string>('');
-    const internalRef = useRef<HTMLInputElement>(null);
+    const localRef = useRef<HTMLInputElement>(null);
     const cursorPositionRef = useRef<number | null>(null);
 
     // Use forwarded ref if provided, otherwise use internal ref
-    const inputRef = (forwardedRef as React.RefObject<HTMLInputElement>) || internalRef;
+    const inputRef = (forwardedRef as React.RefObject<HTMLInputElement>) || localRef;
 
     const isControlled = controlledValue !== undefined;
-    const displayValue = isControlled ? controlledValue : internalValue;
+    const numericValue = isControlled ? String(controlledValue ?? '') : internalValue;
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-      const input = e.target.value;
-      const cursorPosition = e.target.selectionStart || 0;
-      const previousValue = e.target.value;
+    // Format value for display
+    const formatValue = (value: string): string => {
+      if (!value) return '';
 
-      // Remove all non-digits except decimal
-      const cleaned = input.replace(/[^\d.]/g, '');
-
-      // Handle empty input
-      if (!cleaned) {
-        cursorPositionRef.current = null;
-        if (!isControlled) {
-          setInternalValue('');
-        }
-
-        if (onChange && internalRef.current) {
-          const syntheticEvent = {
-            ...e,
-            target: {
-              ...e.target,
-              value: '',
-            },
-            currentTarget: {
-              ...e.currentTarget,
-              value: '',
-            },
-          } as ChangeEvent<HTMLInputElement>;
-
-          onChange(syntheticEvent);
-        }
-        return;
-      }
-
-      // Split on decimal
-      const parts = cleaned.split('.');
-
-      // Format integer part with commas (only if enabled)
+      const parts = value.split('.');
       let integerPart = parts[0] || '';
+
       if (!disableGroupSeparators) {
         integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       }
 
+      const decimalPart = parts[1];
+      return decimalPart !== undefined ? integerPart + '.' + decimalPart : integerPart;
+    };
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
+      const input = e.target.value;
+      const cursorPosition = e.target.selectionStart || 0;
+      const previousDisplayValue = formatValue(numericValue);
+
+      // Remove all non-digits except decimal
+      const cleaned = input.replace(/[^\d.]/g, '');
+
+      // Ensure only one decimal point
+      const parts = cleaned.split('.');
+      const sanitized = parts.length > 2 ? parts[0] + '.' + parts.slice(1).join('') : cleaned;
+
       // Limit decimal places
-      let decimalPart = parts[1];
-      if (decimalPart !== undefined) {
-        decimalPart = decimalPart.substring(0, maxDecimals);
-      }
+      const finalParts = sanitized.split('.');
+      const limitedValue =
+        finalParts[1] !== undefined
+          ? finalParts[0] + '.' + finalParts[1].substring(0, maxDecimals)
+          : sanitized;
 
-      // Join back
-      const formatted = decimalPart !== undefined ? integerPart + '.' + decimalPart : integerPart;
-
-      // Calculate new cursor position (only matters when formatting is enabled)
+      // Calculate new cursor position
       if (!disableGroupSeparators) {
-        // Count how many commas were added/removed before the cursor
-        const oldCommasBeforeCursor = (previousValue.slice(0, cursorPosition).match(/,/g) || [])
+        const newDisplayValue = formatValue(limitedValue);
+        const oldCommasBeforeCursor = (
+          previousDisplayValue.slice(0, cursorPosition).match(/,/g) || []
+        ).length;
+        const newCommasBeforeCursor = (newDisplayValue.slice(0, cursorPosition).match(/,/g) || [])
           .length;
-        const newCommasBeforeCursor = (formatted.slice(0, cursorPosition).match(/,/g) || []).length;
         const commaDiff = newCommasBeforeCursor - oldCommasBeforeCursor;
-
         cursorPositionRef.current = cursorPosition + commaDiff;
       } else {
-        // No commas, so cursor position doesn't need adjustment
         cursorPositionRef.current = null;
       }
-
       if (!isControlled) {
-        setInternalValue(formatted);
+        setInternalValue(limitedValue);
       }
 
-      // Create a synthetic event with the formatted value
-      if (onChange && inputRef.current) {
+      // Return numeric value WITHOUT commas
+      if (onChange && localRef.current) {
         const syntheticEvent = {
           ...e,
           target: {
             ...e.target,
-            value: formatted,
+            value: limitedValue, // Raw numeric value without commas
           },
           currentTarget: {
             ...e.currentTarget,
-            value: formatted,
+            value: limitedValue,
           },
         } as ChangeEvent<HTMLInputElement>;
 
@@ -141,7 +123,7 @@ export const CurrencyInput = React.forwardRef<CurrencyInputElement, CurrencyInpu
         type="text"
         inputMode="decimal"
         disabled={disabled}
-        value={displayValue}
+        value={formatValue(numericValue)} // Display with commas
         onChange={handleChange}
         placeholder={placeholder}
         {...props}
