@@ -1,7 +1,11 @@
-.hearth-color {
-  color: var(--h-color);
+.hearth-background-color-primary {
+  background-color: var(--h-background-primary);
 }
 
-.hearth-background-color {
-  background-color: var(--h-background-color);
+.hearth-background-color-secondary {
+  background-color: var(--h-background-secondary);
+}
+
+.hearth-background-color-brand {
+  background-color: var(--h-background-brand);
 }

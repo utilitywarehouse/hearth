@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { Placeholder } from './storybook-components/Placeholder';
 
 const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
+const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
 const borderRadiusValues = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'] as const;
@@ -23,7 +24,7 @@ const meta: Meta<typeof Box> = {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },
     color: { options: colorValues, control: { type: 'select' } },
-    backgroundColor: { options: colorTokens, control: { type: 'select' } },
+    backgroundColor: { options: backgroundColorValues, control: { type: 'select' } },
     padding: { options: spaceTokens, control: { type: 'select' } },
     paddingInline: { options: spaceTokens, control: { type: 'select' } },
     paddingBlock: { options: spaceTokens, control: { type: 'select' } },
@@ -80,14 +81,16 @@ export default meta;
 type Story = StoryObj<typeof Box>;
 
 export const Playground: Story = {
-  render: args => (
-    <Box {...args}>
-      <Placeholder>Box</Placeholder>
-    </Box>
-  ),
+  render: args => <Box {...args} />,
   args: {
     height: '128px',
     width: '128px',
+    padding: '400',
+    children: 'Box',
+    borderRadius: 'xs',
+    borderWidth: '1',
+    borderStyle: 'solid',
+    borderColor: 'grey200',
   },
 };
 

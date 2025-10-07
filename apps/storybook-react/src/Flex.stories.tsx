@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { colorTokens, Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
 import { Placeholder } from './storybook-components/Placeholder';
 
+const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
+const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
 const borderRadiusValues = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'] as const;
@@ -21,8 +23,8 @@ const meta: Meta<typeof Flex> = {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },
     display: { options: ['none', 'flex', 'inline-flex'], control: { type: 'radio' } },
-    color: { options: colorTokens, control: { type: 'select' } },
-    backgroundColor: { options: colorTokens, control: { type: 'select' } },
+    color: { options: colorValues, control: { type: 'select' } },
+    backgroundColor: { options: backgroundColorValues, control: { type: 'select' } },
     padding: { options: spaceTokens, control: { type: 'select' } },
     paddingInline: { options: spaceTokens, control: { type: 'select' } },
     paddingBlock: { options: spaceTokens, control: { type: 'select' } },
