@@ -1,3 +1,5 @@
 import { TextInputProps } from '../TextInput/TextInput.props';
 
-export type CurrencyInputProps = Omit<TextInputProps, 'type' | 'hideLabel'>;
+export interface CurrencyInputProps extends Omit<TextInputProps, 'type' | 'hideLabel'> {
+  disableGroupSeparators?: boolean;
+}
