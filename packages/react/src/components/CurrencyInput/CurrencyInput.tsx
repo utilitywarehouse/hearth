@@ -1,11 +1,11 @@
-import type { ChangeEvent, ElementRef, RefObject } from 'react';
+import React from 'react';
+import type { ChangeEvent, ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import clsx from 'clsx';
 import { TextInput } from '../TextInput/TextInput';
 import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
 import { CurrencyInputProps } from './CurrencyInput.props';
 import { DetailText } from '../DetailText/DetailText';
-import React from 'react';
 
 const COMPONENT_NAME = 'CurrencyInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -31,7 +31,7 @@ export const CurrencyInput = React.forwardRef<CurrencyInputElement, CurrencyInpu
     const cursorPositionRef = React.useRef<number | null>(null);
 
     // Use forwarded ref if provided, otherwise use internal ref
-    const inputRef = (forwardedRef as RefObject<HTMLInputElement>) || localRef;
+    const inputRef = forwardedRef || localRef;
 
     const isControlled = controlledValue !== undefined;
     const numericValue = isControlled ? String(controlledValue ?? '') : internalValue;
@@ -74,10 +74,14 @@ export const CurrencyInput = React.forwardRef<CurrencyInputElement, CurrencyInpu
       if (!disableGroupSeparators) {
         const newDisplayValue = formatValue(limitedValue);
         const oldCommasBeforeCursor = (
-          previousDisplayValue.slice(0, cursorPosition).match(/,/g) || []
+          previousDisplayValue
+            .slice(0, Math.min(cursorPosition, previousDisplayValue.length))
+            .match(/,/g) || []
         ).length;
-        const newCommasBeforeCursor = (newDisplayValue.slice(0, cursorPosition).match(/,/g) || [])
-          .length;
+        const newCommasBeforeCursor = (
+          newDisplayValue.slice(0, Math.min(cursorPosition, newDisplayValue.length)).match(/,/g) ||
+          []
+        ).length;
         const commaDiff = newCommasBeforeCursor - oldCommasBeforeCursor;
         cursorPositionRef.current = cursorPosition + commaDiff;
       } else {
@@ -88,7 +92,7 @@ export const CurrencyInput = React.forwardRef<CurrencyInputElement, CurrencyInpu
       }
 
       // Return numeric value WITHOUT commas
-      if (onChange && localRef.current) {
+      if (onChange && inputRef && typeof inputRef === 'object' && inputRef.current) {
         const syntheticEvent = {
           ...e,
           target: {
@@ -107,7 +111,12 @@ export const CurrencyInput = React.forwardRef<CurrencyInputElement, CurrencyInpu
 
     // Restore cursor position after render
     React.useEffect(() => {
-      if (inputRef.current && cursorPositionRef.current !== null) {
+      if (
+        inputRef &&
+        typeof inputRef === 'object' &&
+        inputRef.current &&
+        cursorPositionRef.current !== null
+      ) {
         inputRef.current.setSelectionRange(cursorPositionRef.current, cursorPositionRef.current);
         cursorPositionRef.current = null;
       }
