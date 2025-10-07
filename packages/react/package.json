@@ -40,8 +40,7 @@
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
     "format": "prettier --write \"src/**/*.ts*\"",
     "format:ci": "prettier --list-different \"src/**/*.ts*\"",
-    "copy-tokens-index": "cp ./src/styles/tokens.css ./src/styles/tokens/index.css",
-    "gen:color-tokens": "node ./scripts/generate-color-tokens.js && prettier --write \"./src/tokens/color.ts\""
+    "copy-tokens-index": "cp ./src/styles/tokens.css ./src/styles/tokens/index.css"
   },
   "publishConfig": {
     "access": "restricted"
