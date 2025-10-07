@@ -20,8 +20,4 @@
     outline: 2px solid var(--h-focus-primary);
     outline-offset: 1px;
   }
-
-  & :where(.hearth-ListItemContent) {
-    margin-right: calc(48px + var(--h-space-300));
-  }
 }

@@ -12,13 +12,35 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type ListItemLinkElement = ElementRef<'a'>;
 
 export const ListItemLink = React.forwardRef<ListItemLinkElement, ListItemLinkProps>(
-  ({ className, heading, helperText, leadingIcon, trailingIcon, ...props }, ref) => {
+  (
+    {
+      className,
+      heading,
+      helperText,
+      leadingContent,
+      trailingContent,
+      badge,
+      badgePlacement,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const contentProps = {
+      heading,
+      helperText,
+      leadingContent,
+      badge,
+      badgePlacement,
+    };
     return (
       <a ref={ref} className={clsx(componentClassName, className)} {...props}>
-        <ListItemContent heading={heading} helperText={helperText} leadingIcon={leadingIcon} />
-        <div className="hearth-ListItemTrailingIcon">
-          {trailingIcon ? trailingIcon : <ChevronRightSmallIcon />}
-        </div>
+        <ListItemContent
+          trailingContent={trailingContent ? trailingContent : <ChevronRightSmallIcon />}
+          {...contentProps}
+        >
+          {children}
+        </ListItemContent>
       </a>
     );
   }

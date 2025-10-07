@@ -23,6 +23,8 @@
   }
 
   & :where(.hearth-ListItemContent) {
-    margin-right: calc(48px + var(--h-list-item-gap));
+    width: 100%;
+
+    /* margin-right: calc(48px + var(--h-list-item-gap)); */
   }
 }

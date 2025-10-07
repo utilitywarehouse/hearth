@@ -1,12 +1,19 @@
-import type { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
-export interface ListItemContentProps
-  extends ComponentPropsWithout<'div', RemovedProps | 'children'> {
+export interface ListItemContentProps extends ComponentPropsWithout<'div', RemovedProps> {
   heading: string;
   /**
    * Optional helper text to provide additional context or instructions.
    */
   helperText?: string;
-  leadingIcon?: ReactNode;
+  leadingContent?: ReactNode;
+  trailingContent?: ReactNode;
+  badge?: ReactNode;
+
+  /**
+   * Placement of the badge element
+   * @default 'bottom'
+   */
+  badgePlacement?: 'top' | 'bottom';
 }
