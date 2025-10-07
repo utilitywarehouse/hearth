@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { colorTokens, Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { colorTokens, Flex, spaceTokens, colorValues } from '@utilitywarehouse/hearth-react';
 import { Placeholder } from './storybook-components/Placeholder';
 
-const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
 const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;

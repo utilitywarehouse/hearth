@@ -1,6 +1,29 @@
 import { PropDef } from './prop-def';
 
-const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
+const textColorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
+const foregroundColorValues = [
+  'feedbackDanger',
+  'feedbackDangerSubtle',
+  'feedbackFunctional',
+  'feedbackFunctionalSubtle',
+  'feedbackInfo',
+  'feedbackInfoSubtle',
+  'feedbackPositive',
+  'feedbackPositiveSubtle',
+  'feedbackWarning',
+  'feedbackWarningSubtle',
+  'interactiveAffirmativeStrong',
+  'interactiveAffirmativeSubtle',
+  'interactiveBrandStrong',
+  'interactiveDestructiveStrong',
+  'interactiveDestructiveSubtle',
+  'interactiveFunctionalStrong',
+  'interactiveFunctionalSubtle',
+  'interactiveFunctionalInverted',
+  'interactiveHighlightStrong',
+  'interactiveNeutralSubtle',
+] as const;
+const colorValues = [...textColorValues, ...foregroundColorValues] as const;
 
 const colorPropDefs = {
   color: { className: 'color', tokens: colorValues, responsive: false },
@@ -15,5 +38,5 @@ interface ColorProps {
   color?: (typeof colorValues)[number];
 }
 
-export { colorPropDefs };
+export { colorPropDefs, colorValues };
 export type { ColorProps };

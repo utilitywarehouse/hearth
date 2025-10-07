@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { colorTokens, Flex, Spinner } from '@utilitywarehouse/hearth-react';
+import { Flex, Spinner } from '@utilitywarehouse/hearth-react';
 
 const sizes = ['xs', 'sm', 'md', 'lg'] as const;
+const colors = ['primary', 'secondary', 'brand', 'inverted'] as const;
 
 const meta: Meta<typeof Spinner> = {
   title: 'Stories / Spinner',
@@ -16,7 +17,7 @@ const meta: Meta<typeof Spinner> = {
   },
   argTypes: {
     size: { control: { type: 'radio' }, options: sizes },
-    color: { options: colorTokens, control: { type: 'select' } },
+    color: { options: colors, control: { type: 'select' } },
     currentColor: { control: { type: 'boolean' } },
   },
   args: {

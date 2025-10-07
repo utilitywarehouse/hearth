@@ -11,10 +11,6 @@
     color: currentcolor;
   }
 
-  &:where(.hearth-color):not([data-currentColor]) {
-    color: var(--h-color);
-  }
-
   --h-spinner-animation-duration: 1.4s;
   --h-pi: 3.14;
   --h-circumference: calc(

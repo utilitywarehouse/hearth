@@ -9,6 +9,13 @@ export { spaceTokens } from './tokens/space';
 
 /********************
  *
+ * Prop Values
+ *
+ ********************/
+export { colorValues } from './props/color.props';
+
+/********************
+ *
  * Utilities
  *
  ********************/

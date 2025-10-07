@@ -7,7 +7,6 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 
 import type { ElementRef } from 'react';
 import { extractProps } from '../../helpers/extract-props';
-import { colorPropDefs } from '../../props/color.props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'Spinner';
@@ -17,12 +16,7 @@ type SpinnerElement = ElementRef<'div'>;
 
 export const Spinner = React.forwardRef<SpinnerElement, SpinnerProps>(
   ({ currentColor, ...props }, ref) => {
-    const { className, ...spinnerProps } = extractProps(
-      props,
-      spinnerPropDefs,
-      colorPropDefs,
-      marginPropDefs
-    );
+    const { className, ...spinnerProps } = extractProps(props, spinnerPropDefs, marginPropDefs);
     return (
       <div
         ref={ref}
