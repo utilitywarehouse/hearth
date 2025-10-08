@@ -18,6 +18,7 @@ import { positionPropDefs } from '../../props/position.props';
 import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
+import { borderColorPropDefs } from '../../props/border-color.props';
 
 const COMPONENT_NAME = 'Box';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -40,6 +41,7 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
     marginPropDefs,
     sizePropDefs,
     borderPropDefs,
+    borderColorPropDefs,
     gridItemPropDefs,
     flexItemPropDefs,
     textAlignPropDefs,

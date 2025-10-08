@@ -1,0 +1,39 @@
+.hearth-border-color-strong {
+  border-color: var(--h-border-strong);
+}
+
+.hearth-border-color-subtle {
+  border-color: var(--h-border-subtle);
+}
+
+.hearth-border-top-color-strong {
+  border-top-color: var(--h-border-strong);
+}
+
+.hearth-border-top-color-subtle {
+  border-top-color: var(--h-border-subtle);
+}
+
+.hearth-border-right-color-strong {
+  border-right-color: var(--h-border-strong);
+}
+
+.hearth-border-right-color-subtle {
+  border-right-color: var(--h-border-subtle);
+}
+
+.hearth-border-bottom-color-strong {
+  border-bottom-color: var(--h-border-strong);
+}
+
+.hearth-border-bottom-color-subtle {
+  border-bottom-color: var(--h-border-subtle);
+}
+
+.hearth-border-left-color-strong {
+  border-left-color: var(--h-border-strong);
+}
+
+.hearth-border-left-color-subtle {
+  border-left-color: var(--h-border-subtle);
+}

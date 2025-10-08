@@ -9,6 +9,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { textWrapPropDefs } from '../../props/text-wrap.props';
 import { marginPropDefs } from '../../props/margin.props';
+import { colorPropDefs } from '../../props/color.props';
 
 const COMPONENT_NAME = 'BodyText';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -22,11 +23,11 @@ export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props,
     as: Tag = 'p',
     children,
     truncate,
-    inverted,
     ...bodyTextProps
   } = extractProps(
     props,
     bodyTextPropDefs,
+    colorPropDefs,
     textAlignPropDefs,
     textTransformPropDefs,
     textWrapPropDefs,
@@ -38,7 +39,6 @@ export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props,
       ref={ref}
       className={clsx(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
-      data-inverted={inverted ? '' : undefined}
       {...bodyTextProps}
     >
       {asChild ? children : <Tag>{children}</Tag>}

@@ -62,10 +62,24 @@ The weight prop is responsive, so you can render different weights at different 
 
 <Canvas of={Stories.TextWeights} />
 
+## Colour
+
+You can use the `color` prop to set a semantic text colour.
+
+```tsx
+<BodyText color="primary" />
+<BodyText color="secondary" />
+<BodyText color="brand" />
+<BodyText color="affirmative" />
+<BodyText color="inverted" />
+```
+
+<Canvas of={Stories.Colours} />
+
 ## Inverted
 
-When using `BodyText` on a darker background, specifically `uwPurple` &
-`darkPurple`, use the `inverted` prop to ensure colour contrast.
+When using `BodyText` on a brand background you can set the `color` prop to
+inverted to ensure proper colour contrast.
 
 <Canvas of={Stories.InvertedText} />
 
@@ -95,6 +109,7 @@ gutter.
 This component is based on the `p` element and supports the following common props:
 
 - Margin
+- Color
 - Text align
 - Text wrap
 - Text transform

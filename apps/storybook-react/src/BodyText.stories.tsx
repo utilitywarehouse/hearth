@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Box, BodyText, Flex } from '@utilitywarehouse/hearth-react';
+import { Box, BodyText, Flex, colorValues } from '@utilitywarehouse/hearth-react';
 
 const sizes = ['sm', 'md', 'lg'] as const;
 const weights = ['regular', 'semibold', 'bold'] as const;
@@ -19,6 +19,7 @@ const meta: Meta<typeof BodyText> = {
     as: { options: ['span', 'p', 'div'], control: { type: 'radio' } },
     size: { options: sizes, control: { type: 'radio' } },
     weight: { options: weights, control: { type: 'radio' } },
+    color: { options: colorValues, control: { type: 'select' } },
     truncate: { control: { type: 'boolean' } },
     paragraphSpacing: { control: { type: 'boolean' } },
   },
@@ -84,6 +85,24 @@ export const TextWeights: Story = {
   },
 };
 
+export const Colours: Story = {
+  render: () => {
+    return (
+      <Flex direction="column" width="fit-content">
+        <Flex direction="column" backgroundColor="secondary" padding="400" gap="400">
+          <BodyText color="primary">Primary</BodyText>
+          <BodyText color="secondary">Secondary</BodyText>
+          <BodyText color="brand">Brand</BodyText>
+          <BodyText color="affirmative">Affirmative</BodyText>
+        </Flex>
+        <Box backgroundColor="brand" padding="400">
+          <BodyText color="inverted">Inverted</BodyText>
+        </Box>
+      </Flex>
+    );
+  },
+};
+
 export const TextTruncate: Story = {
   name: 'Truncate',
   render: args => {
@@ -107,17 +126,14 @@ export const InvertedText: Story = {
   render: args => {
     return (
       <Flex direction="column">
-        <Box backgroundColor="uwPurple" padding="400">
-          <BodyText {...args}>Inverted text</BodyText>
-        </Box>
-        <Box backgroundColor="darkPurple" padding="400">
+        <Box backgroundColor="brand" padding="400">
           <BodyText {...args}>Inverted text</BodyText>
         </Box>
       </Flex>
     );
   },
   args: {
-    inverted: true,
+    color: 'inverted',
   },
 };
 

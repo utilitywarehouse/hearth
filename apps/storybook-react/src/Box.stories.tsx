@@ -1,5 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Box, BoxProps, Flex, spaceTokens, colorTokens } from '@utilitywarehouse/hearth-react';
+import {
+  Box,
+  BoxProps,
+  Flex,
+  spaceTokens,
+  colorValues,
+  backgroundColorValues,
+  borderColorValues,
+} from '@utilitywarehouse/hearth-react';
 import { useRef } from 'react';
 import { Placeholder } from './storybook-components/Placeholder';
 
@@ -21,8 +29,8 @@ const meta: Meta<typeof Box> = {
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },
-    color: { options: colorTokens, control: { type: 'select' } },
-    backgroundColor: { options: colorTokens, control: { type: 'select' } },
+    color: { options: colorValues, control: { type: 'select' } },
+    backgroundColor: { options: backgroundColorValues, control: { type: 'select' } },
     padding: { options: spaceTokens, control: { type: 'select' } },
     paddingInline: { options: spaceTokens, control: { type: 'select' } },
     paddingBlock: { options: spaceTokens, control: { type: 'select' } },
@@ -43,19 +51,19 @@ const meta: Meta<typeof Box> = {
     height: { control: { type: 'text' } },
     minHeight: { control: { type: 'text' } },
     maxHeight: { control: { type: 'text' } },
-    borderColor: { options: colorTokens, control: { type: 'select' } },
+    borderColor: { options: borderColorValues, control: { type: 'select' } },
     borderStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderWidth: { options: borderWidthValues, control: { type: 'select' } },
-    borderTopColor: { options: colorTokens, control: { type: 'select' } },
+    borderTopColor: { options: borderColorValues, control: { type: 'select' } },
     borderTopStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderTopWidth: { options: borderWidthValues, control: { type: 'select' } },
-    borderRightColor: { options: colorTokens, control: { type: 'select' } },
+    borderRightColor: { options: borderColorValues, control: { type: 'select' } },
     borderRightStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderRightWidth: { options: borderWidthValues, control: { type: 'select' } },
-    borderBottomColor: { options: colorTokens, control: { type: 'select' } },
+    borderBottomColor: { options: borderColorValues, control: { type: 'select' } },
     borderBottomStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderBottomWidth: { options: borderWidthValues, control: { type: 'select' } },
-    borderLeftColor: { options: colorTokens, control: { type: 'select' } },
+    borderLeftColor: { options: borderColorValues, control: { type: 'select' } },
     borderLeftStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderLeftWidth: { options: borderWidthValues, control: { type: 'select' } },
     borderRadius: { options: borderRadiusValues, control: { type: 'select' } },
@@ -79,14 +87,16 @@ export default meta;
 type Story = StoryObj<typeof Box>;
 
 export const Playground: Story = {
-  render: args => (
-    <Box {...args}>
-      <Placeholder />
-    </Box>
-  ),
+  render: args => <Box {...args} />,
   args: {
     height: '128px',
     width: '128px',
+    padding: '400',
+    children: 'Box',
+    borderRadius: 'xs',
+    borderWidth: '1',
+    borderStyle: 'solid',
+    borderColor: 'subtle',
   },
 };
 
@@ -125,7 +135,7 @@ export const HideContent: Story = {
   render: () => (
     <Flex gap="300" direction="column">
       <Box
-        borderColor="grey1000"
+        borderColor="strong"
         borderStyle="solid"
         borderWidth="1"
         display={{ mobile: 'none', tablet: 'block' }}
@@ -134,7 +144,7 @@ export const HideContent: Story = {
         hidden on mobile screens
       </Box>
       <Box
-        borderColor="grey1000"
+        borderColor="strong"
         borderStyle="solid"
         borderWidth="1"
         display={{ mobile: 'block', tablet: 'none', desktop: 'block' }}
@@ -143,7 +153,7 @@ export const HideContent: Story = {
         hidden on tablet screens
       </Box>
       <Box
-        borderColor="grey1000"
+        borderColor="strong"
         borderStyle="solid"
         borderWidth="1"
         display={{ mobile: 'block', desktop: 'none' }}
@@ -159,7 +169,7 @@ type Props = React.ComponentPropsWithoutRef<'a'> & BoxProps;
 const CustomAnchor = ({ onClick, href, ...props }: Props) => {
   const ref = useRef<HTMLAnchorElement>(null);
   return (
-    <Box asChild {...props} padding="100" color="uwPurple" style={{ textDecoration: 'underline' }}>
+    <Box asChild {...props} padding="100" color="brand" style={{ textDecoration: 'underline' }}>
       <a onClick={onClick} href={href} ref={ref}>
         Custom Component
       </a>

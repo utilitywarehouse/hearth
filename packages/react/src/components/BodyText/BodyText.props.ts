@@ -1,3 +1,4 @@
+import { ColorProps } from '../../props/color.props';
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
@@ -20,7 +21,8 @@ export const bodyTextPropDefs = {
 };
 
 interface CommonBodyTextProps
-  extends TextAlignProps,
+  extends ColorProps,
+    TextAlignProps,
     TextTransformProps,
     TextWrapProps,
     MarginProps {
@@ -53,8 +55,6 @@ interface CommonBodyTextProps
    * If true, the text will have a bottom margin.
    */
   paragraphSpacing?: boolean;
-  /** Inverts the component colours, for use on darker surface colours. */
-  inverted?: boolean;
 }
 type BodyTextDivProps = { as: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
 type BodyTextSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;

@@ -30,15 +30,6 @@ type GetClassNameStylesOptions = {
    * Default token/raw value to use when `value` is `undefined`.
    */
   defaultValue?: string | number;
-  /**
-   * If true and `value` is a string token, emit a single class and provide the value via CSS var
-   * after applying `transformValue`.
-   */
-  isSingleClassNameTokens?: boolean;
-  /**
-   * Transform applied to string token values when `isSingleClassNameTokens` is true.
-   */
-  transformValue?: (value: string) => string;
 };
 
 /**
@@ -54,8 +45,6 @@ type GetClassNameStylesOptions = {
  * - Boolean true: emits a single non-responsive class (e.g. `h-hidden`).
  * - Responsive object: emits breakpoint-scoped classes and, for non-token values, breakpoint-scoped CSS vars.
  * - When `defaultValue` is provided and `value` is `undefined`, a default class is emitted.
- * - When `isSingleClassNameTokens` and `transformValue` are provided for string tokens, a single class is emitted
- *   with the transformed value passed via CSS var.
  *
  * Examples
  * ```ts
@@ -114,8 +103,6 @@ type GetClassNameStylesOptions = {
  * @param tokens List of acceptable token values; used to decide token vs raw handling.
  * @param isResponsive Whether this utility participates in responsive variants (adds the `-r` segment).
  * @param defaultValue Optional default token/raw value used when `value` is `undefined`.
- * @param isSingleClassNameTokens If true and `value` is a string token, emit a single class and pass transformed value via CSS var.
- * @param transformValue Optional transform for string token values when `isSingleClassNameTokens` is true.
  * @returns An object containing `className` and, when needed, a `style` map of CSS custom properties.
  */
 export const getClassNameStyles = ({
@@ -124,8 +111,6 @@ export const getClassNameStyles = ({
   tokens,
   isResponsive,
   defaultValue,
-  isSingleClassNameTokens,
-  transformValue,
 }: GetClassNameStylesOptions) => {
   const responsivePrefix = isResponsive ? '-r' : '';
 
@@ -142,15 +127,6 @@ export const getClassNameStyles = ({
   if (typeof value === 'string' || typeof value === 'number') {
     const isTokenValue = tokens?.includes(value);
     if (isTokenValue) {
-      if (typeof value === 'string' && isSingleClassNameTokens && transformValue !== undefined) {
-        // As we're currently only dealing with the colour tokens here,
-        // we don't need to consider responsive objects because there is,
-        // as yet, no reason to have the colour props responsive.
-        return {
-          className: `${GLOBAL_PREFIX}-${prefix}`,
-          style: { [`--h-${prefix}`]: transformValue(value) },
-        };
-      }
       return {
         className: `${GLOBAL_PREFIX}${responsivePrefix}-${prefix}-${kebabCase(String(value))}`,
       };

@@ -50,7 +50,7 @@ export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps
         </TextInputSlot>
         {loading ? (
           <TextInputSlot placement="suffix">
-            <Spinner size="xs" color="grey1000" />
+            <Spinner size="xs" color="primary" />
           </TextInputSlot>
         ) : null}
         {value !== undefined && String(value).length > 0 ? (

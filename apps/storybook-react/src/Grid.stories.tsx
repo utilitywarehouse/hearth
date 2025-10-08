@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { colorTokens, Grid, spaceTokens } from '@utilitywarehouse/hearth-react';
+import { Grid, spaceTokens, colorValues, borderColorValues } from '@utilitywarehouse/hearth-react';
 import { Placeholder } from './storybook-components/Placeholder';
 
+const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;
 const columnsValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'] as const;
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
@@ -23,21 +24,21 @@ const meta: Meta<typeof Grid> = {
     as: { options: ['div', 'span'], control: { type: 'radio' } },
     columns: { options: columnsValues, control: { type: 'select' } },
     gap: { options: spaceTokens, control: { type: 'select' } },
-    color: { options: colorTokens, control: { type: 'select' } },
-    backgroundColor: { control: { type: 'text' } },
-    borderColor: { options: colorTokens, control: { type: 'select' } },
+    color: { options: colorValues, control: { type: 'select' } },
+    backgroundColor: { options: backgroundColorValues, control: { type: 'select' } },
+    borderColor: { options: borderColorValues, control: { type: 'select' } },
     borderStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderWidth: { options: borderWidthValues, control: { type: 'select' } },
-    borderTopColor: { options: colorTokens, control: { type: 'select' } },
+    borderTopColor: { options: borderColorValues, control: { type: 'select' } },
     borderTopStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderTopWidth: { options: borderWidthValues, control: { type: 'select' } },
-    borderRightColor: { options: colorTokens, control: { type: 'select' } },
+    borderRightColor: { options: borderColorValues, control: { type: 'select' } },
     borderRightStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderRightWidth: { options: borderWidthValues, control: { type: 'select' } },
-    borderBottomColor: { options: colorTokens, control: { type: 'select' } },
+    borderBottomColor: { options: borderColorValues, control: { type: 'select' } },
     borderBottomStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderBottomWidth: { options: borderWidthValues, control: { type: 'select' } },
-    borderLeftColor: { options: colorTokens, control: { type: 'select' } },
+    borderLeftColor: { options: borderColorValues, control: { type: 'select' } },
     borderLeftStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderLeftWidth: { options: borderWidthValues, control: { type: 'select' } },
     borderRadius: { options: borderRadiusValues, control: { type: 'select' } },

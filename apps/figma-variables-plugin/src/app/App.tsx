@@ -424,8 +424,8 @@ function App() {
   }
 
   return (
-    <Box backgroundColor="warmWhite50">
-      <Flex backgroundColor="purple700" padding="200" alignItems="center" justifyContent="between">
+    <Box backgroundColor="primary">
+      <Flex backgroundColor="brand" padding="200" alignItems="center" justifyContent="between">
         <img src={logo} />
         {tokenLoaded && !showTokenInput && (
           <Button onClick={editToken} size="sm">
@@ -482,7 +482,7 @@ function App() {
                   padding="200"
                   justifyContent="center"
                   alignItems="center"
-                  backgroundColor="grey0"
+                  backgroundColor="secondary"
                   style={{ zIndex: 1 }}
                 >
                   <Spinner />

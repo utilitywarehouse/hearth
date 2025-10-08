@@ -38,38 +38,13 @@ To render any other valid HTML element, you can use the `asChild` prop.
 This will render the child element, with all the styles declared on the `Box`
 component passed down to it as well.
 
-### Custom Components
-
-Box can be used to build custom components.
-
-```tsx
-type Props = React.ComponentPropsWithoutRef<'a'> & BoxProps;
-
-const CustomAnchor = ({ onClick, href, ...props }: Props) => {
-  const ref = useRef<HTMLAnchorElement>(null);
-  return (
-    <Box
-      asChild
-      {...props}
-      padding="100"
-      color="rebeccapurple"
-      style={{ textDecoration: 'underline' }}
-    >
-      <a onClick={onClick} href={href} ref={ref}>
-        Custom Component
-      </a>
-    </Box>
-  );
-};
-```
-
 ### Accessibility
 
 The `Box` component is an all purpose component. By default, it has no
 accessibility concerns. If you use the `Box` as a custom element, it is up to
 you to manage the resulting accessibility implications.
 
-## Display
+## Show/hide content
 
 The `display` prop is responsive, you can use this to show or hide content responsively.
 
@@ -87,6 +62,7 @@ This component is based on the `div` element and supports the following common p
 - Size
 - Colour
 - Background colour
+- Border colour
 - Border
 - Flex item
 - Grid item
