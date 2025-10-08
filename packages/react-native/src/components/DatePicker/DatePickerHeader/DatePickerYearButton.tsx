@@ -28,6 +28,7 @@ const YearButton = () => {
       testID="btn-year"
       accessibilityRole="button"
       accessibilityLabel={dayjs(currentDate).format('YYYY')}
+      accessibilityHint={`${calendarView === 'year' ? 'Tap to switch to day view' : 'Tap to switch to year view'}`}
       style={[styles.container]}
     >
       <BodyText weight="semibold">

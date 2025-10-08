@@ -34,7 +34,11 @@ const Selectors = ({ position }: Props) => {
           {calendarView !== 'year' ? <MonthButton /> : null}
           <YearButton />
         </View>
-        <Pressable onPress={onPress} accessibilityRole="button" accessibilityLabel="Change view">
+        <Pressable
+          onPress={onPress}
+          accessibilityRole="button"
+          accessibilityLabel={`Change to ${calendarView === 'month' || calendarView === 'year' ? 'day' : 'month'} view`}
+        >
           <Icon
             as={
               calendarView === 'month' || calendarView === 'year'

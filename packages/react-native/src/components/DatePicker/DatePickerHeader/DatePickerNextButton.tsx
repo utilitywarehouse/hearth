@@ -28,7 +28,7 @@ const NextButton = () => {
       onPress={onPress}
       testID="btn-next"
       accessibilityRole="button"
-      accessibilityLabel="Next"
+      accessibilityLabel={`Next ${calendarView === 'day' ? 'month' : calendarView === 'month' ? 'year' : 'years'}`}
     >
       <Icon as={ChevronRightSmallIcon} style={styles.icon} />
     </Pressable>

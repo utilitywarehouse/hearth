@@ -21,7 +21,9 @@ const Weekdays = ({
     <View style={[styles.container(weekdaysHeight)]} testID="weekdays">
       {getWeekdays(firstDayOfWeek)?.map((weekday, index) => (
         <View key={index} style={[styles.weekday]}>
-          <BodyText style={styles.text}>{weekday.name[weekdaysFormat]}</BodyText>
+          <BodyText style={styles.text} accessible={false}>
+            {weekday.name[weekdaysFormat]}
+          </BodyText>
         </View>
       ))}
     </View>

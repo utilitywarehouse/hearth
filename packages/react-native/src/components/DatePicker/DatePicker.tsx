@@ -6,8 +6,9 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 import { useCallback, useEffect, useImperativeHandle, useMemo, useReducer, useRef } from 'react';
+import { AccessibilityInfo, findNodeHandle, Platform, View as RNView } from 'react-native';
 import { usePrevious } from '../../hooks/usePrevious';
-import { BottomSheetModal, BottomSheetView } from '../BottomSheet';
+import { BottomSheetModal, BottomSheetScrollView } from '../BottomSheet';
 import { DatePickerContext } from './DatePicker.context';
 import type {
   CalendarAction,
@@ -97,6 +98,8 @@ const DateTimePicker = (
   dayjs.locale('en');
 
   const modalRef = useRef<BottomSheetModal>(null);
+  const calendarViewRef = useRef<RNView>(null);
+  const scrollViewRef = useRef<any>(null);
   // Forward ref methods to parent component
   useImperativeHandle(ref, () => modalRef.current as BottomSheetModal);
 
@@ -623,13 +626,42 @@ const DateTimePicker = (
     [state, baseContextValue, handlerContextValue]
   );
 
+  const handleChange = useCallback((index: number) => {
+    if (index > -1) {
+      // Add a small delay to ensure the bottom sheet is fully rendered
+      setTimeout(() => {
+        // Announce to screen readers
+        AccessibilityInfo.announceForAccessibility('Date picker opened.');
+
+        // Set focus for screen readers - different refs for iOS vs Android
+        const scrollViewTargetRef = scrollViewRef.current?.getInnerViewNode();
+        const targetRef = calendarViewRef.current;
+        if ((Platform.OS === 'android' && targetRef) || scrollViewTargetRef) {
+          const nodeHandle = findNodeHandle(
+            Platform.OS === 'android' ? targetRef : scrollViewTargetRef
+          );
+          if (nodeHandle) {
+            AccessibilityInfo.setAccessibilityFocus(nodeHandle);
+          }
+        }
+      }, 50);
+    }
+  }, []);
+
   return (
-    <BottomSheetModal ref={modalRef}>
-      <BottomSheetView>
-        <DatePickerContext.Provider value={memoizedValue}>
-          <Calendar />
-        </DatePickerContext.Provider>
-      </BottomSheetView>
+    <BottomSheetModal ref={modalRef} onChange={handleChange} accessible={false}>
+      <BottomSheetScrollView ref={scrollViewRef}>
+        <RNView
+          ref={calendarViewRef}
+          accessible={Platform.OS === 'android' ? true : undefined}
+          accessibilityLabel={Platform.OS === 'android' ? 'Date picker calendar' : undefined}
+          importantForAccessibility={Platform.OS === 'android' ? 'yes' : 'auto'}
+        >
+          <DatePickerContext.Provider value={memoizedValue}>
+            <Calendar />
+          </DatePickerContext.Provider>
+        </RNView>
+      </BottomSheetScrollView>
     </BottomSheetModal>
   );
 };

@@ -75,6 +75,14 @@ const Day = ({
     );
   }, [inRange, isCrop, leftCrop, rightCrop, styles.rangeRoot]);
 
+  const accessibilityLabel = useMemo(() => {
+    const dayDate = new Date(date);
+    const dayOfWeek = dayDate.toLocaleDateString('en-US', { weekday: 'long' });
+    const dayOfMonth = dayDate.toLocaleDateString('en-US', { day: 'numeric' });
+    const month = dayDate.toLocaleDateString('en-US', { month: 'long' });
+    return `${dayOfWeek}, ${month} ${dayOfMonth}${isSelected ? ', selected' : ''}`;
+  }, [date]);
+
   return (
     <View style={styles.dayWrapper}>
       <View style={[styles.dayCell(containerHeight, weekdaysHeight)]}>
@@ -83,7 +91,7 @@ const Day = ({
           disabled={isDisabled}
           onPress={() => onSelectDate(date)}
           accessibilityRole="button"
-          accessibilityLabel={text}
+          accessibilityLabel={accessibilityLabel}
           style={styles.dayContainer}
         >
           <BodyText style={[styles.text]}>{text}</BodyText>

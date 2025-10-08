@@ -19,6 +19,7 @@ const MonthButton = () => {
       testID="btn-month"
       accessibilityRole="button"
       accessibilityLabel={currentMonthText}
+      accessibilityHint={`${calendarView === 'month' ? 'Tap to switch to day view' : 'Tap to switch to month view'}`}
     >
       <BodyText weight="semibold">{currentMonthText}</BodyText>
     </Pressable>

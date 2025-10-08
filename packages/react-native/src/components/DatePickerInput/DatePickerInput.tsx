@@ -171,7 +171,6 @@ const DatePickerInput = ({
   const resolvedAccessibilityHint = accessibilityHintProp ?? `Enter the date in ${format} format`;
   const resolvedAccessibilityLabel = accessibilityLabelProp ?? 'Date input';
   const resolvedAccessible = accessibleProp ?? true;
-  const resolvedAccessibilityRole = accessibilityRoleProp ?? 'combobox';
   const resolvedImportantForAccessibility = importantForAccessibilityProp ?? 'yes';
 
   const handleCancel = useCallback(() => {
@@ -190,7 +189,6 @@ const DatePickerInput = ({
         focused={focused}
         style={styles.wrap}
         accessible={false}
-        importantForAccessibility="no"
       >
         <InputField
           editable={!isReadonly && !isDisabled}
@@ -203,26 +201,31 @@ const DatePickerInput = ({
           keyboardType={resolvedKeyboardType}
           inputMode={resolvedInputMode}
           accessibilityHint={resolvedAccessibilityHint}
+          aria-label="Date input"
           accessibilityLabel={resolvedAccessibilityLabel}
           accessible={resolvedAccessible}
-          accessibilityRole={resolvedAccessibilityRole}
+          accessibilityState={{
+            disabled: isDisabled || isReadonly,
+          }}
           importantForAccessibility={resolvedImportantForAccessibility}
           inputAccessoryViewID={Platform.OS === 'ios' ? accessoryViewID : undefined}
           {...textInputProps}
           style={[styles.input, inputStyle]}
         />
         {!!inputValue && onClear && !isReadonly && !isDisabled && (
-          <InputSlot>
+          <InputSlot accessibilityElementsHidden={false}>
             <UnstyledIconButton
               accessibilityLabel="Clear date"
+              accessibilityHint="Removes the current date"
               icon={CloseSmallIcon}
               onPress={handleClear}
             />
           </InputSlot>
         )}
-        <InputSlot>
+        <InputSlot accessibilityElementsHidden={false}>
           <UnstyledIconButton
             accessibilityLabel={openButtonLabel}
+            accessibilityHint="Opens the date picker calendar"
             icon={CalendarSmallIcon}
             onPress={openPicker}
             disabled={isDisabled || isReadonly}

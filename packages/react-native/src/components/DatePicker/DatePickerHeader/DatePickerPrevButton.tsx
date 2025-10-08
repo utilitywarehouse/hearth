@@ -28,7 +28,7 @@ const PrevButton = () => {
       onPress={onPress}
       testID="btn-prev"
       accessibilityRole="button"
-      accessibilityLabel="Prev"
+      accessibilityLabel={`Prev ${calendarView === 'day' ? 'month' : calendarView === 'month' ? 'year' : 'years'}`}
     >
       <Icon as={ChevronLeftSmallIcon} style={styles.icon} />
     </Pressable>

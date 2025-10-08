@@ -1,8 +1,8 @@
-import React, { useMemo } from 'react';
-import type { UnstyledIconButtonProps } from './UnstyledIconButton.props';
+import { useMemo } from 'react';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { UnstyledIconButtonContext } from './UnstyledIconButton.context';
+import type { UnstyledIconButtonProps } from './UnstyledIconButton.props';
 
 const UnstyledIconButtonRoot = ({
   size,
@@ -18,7 +18,11 @@ const UnstyledIconButtonRoot = ({
   );
   return (
     <UnstyledIconButtonContext.Provider value={value}>
-      <Pressable {...props} style={[styles.container, props.style as ViewStyle]} />
+      <Pressable
+        {...props}
+        accessibilityState={{ disabled: !!disabled, ...props.accessibilityState }}
+        style={[styles.container, props.style as ViewStyle]}
+      />
     </UnstyledIconButtonContext.Provider>
   );
 };

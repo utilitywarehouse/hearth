@@ -71,16 +71,22 @@ export const Playground: Story = {
   render: args => {
     const [selected, setSelected] = useState<DateType>();
 
+    const picker = (
+      <DatePickerInput
+        {...args}
+        value={selected}
+        onChange={({ date }) => setSelected(date ?? undefined)}
+        onClear={() => setSelected(undefined)}
+      />
+    );
+
+    if (Platform.OS !== 'web') {
+      return picker;
+    }
+
     return (
       <View style={Platform.OS === 'web' ? { width: 400, height: 400 } : {}}>
-        <ViewWrap>
-          <DatePickerInput
-            {...args}
-            value={selected}
-            onChange={({ date }) => setSelected(date ?? undefined)}
-            onClear={() => setSelected(undefined)}
-          />
-        </ViewWrap>
+        <ViewWrap>{picker}</ViewWrap>
       </View>
     );
   },
@@ -97,16 +103,20 @@ export const CustomFormat: Story = {
   render: args => {
     const [selected, setSelected] = useState<DateType>(new Date());
 
-    return (
-      <ViewWrap>
-        <DatePickerInput
-          {...args}
-          value={selected}
-          onChange={({ date }) => setSelected(date ?? undefined)}
-          onClear={() => setSelected(undefined)}
-        />
-      </ViewWrap>
+    const picker = (
+      <DatePickerInput
+        {...args}
+        value={selected}
+        onChange={({ date }) => setSelected(date ?? undefined)}
+        onClear={() => setSelected(undefined)}
+      />
     );
+
+    if (Platform.OS !== 'web') {
+      return picker;
+    }
+
+    return <ViewWrap>{picker}</ViewWrap>;
   },
 };
 

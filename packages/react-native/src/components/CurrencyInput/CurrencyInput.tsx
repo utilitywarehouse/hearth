@@ -47,13 +47,14 @@ const CurrencyInput = ({
       style={styles.wrap}
     >
       <InputSlot>
-        <DetailText size="4xl" style={styles.text}>
+        <DetailText size="4xl" style={styles.text} accessible={false}>
           £
         </DetailText>
       </InputSlot>
       <InputField
         inputMode="decimal"
         inBottomSheet={inBottomSheet}
+        accessibilityHint='Enter the amount in pounds and pence, for example "10.99"'
         {...rest}
         placeholder={getPlaceholder}
         keyboardType="decimal-pad"
