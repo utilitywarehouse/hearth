@@ -22,5 +22,6 @@ The following components are affected by this change:
 - `Flex`
 - `Grid`
 - `BodyText`
+- `Spinner`
 
 
