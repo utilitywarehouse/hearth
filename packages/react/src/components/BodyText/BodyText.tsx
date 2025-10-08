@@ -23,7 +23,6 @@ export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props,
     as: Tag = 'p',
     children,
     truncate,
-    inverted,
     ...bodyTextProps
   } = extractProps(
     props,
@@ -40,7 +39,6 @@ export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props,
       ref={ref}
       className={clsx(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
-      data-inverted={inverted ? '' : undefined}
       {...bodyTextProps}
     >
       {asChild ? children : <Tag>{children}</Tag>}

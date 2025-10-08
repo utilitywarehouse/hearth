@@ -85,6 +85,24 @@ export const TextWeights: Story = {
   },
 };
 
+export const Colours: Story = {
+  render: () => {
+    return (
+      <Flex direction="column" width="fit-content">
+        <Flex direction="column" backgroundColor="secondary" padding="400" gap="400">
+          <BodyText color="primary">Primary</BodyText>
+          <BodyText color="secondary">Secondary</BodyText>
+          <BodyText color="brand">Brand</BodyText>
+          <BodyText color="affirmative">Affirmative</BodyText>
+        </Flex>
+        <Box backgroundColor="brand" padding="400">
+          <BodyText color="inverted">Inverted</BodyText>
+        </Box>
+      </Flex>
+    );
+  },
+};
+
 export const TextTruncate: Story = {
   name: 'Truncate',
   render: args => {
@@ -108,17 +126,14 @@ export const InvertedText: Story = {
   render: args => {
     return (
       <Flex direction="column">
-        <Box backgroundColor="uwPurple" padding="400">
-          <BodyText {...args}>Inverted text</BodyText>
-        </Box>
-        <Box backgroundColor="darkPurple" padding="400">
+        <Box backgroundColor="brand" padding="400">
           <BodyText {...args}>Inverted text</BodyText>
         </Box>
       </Flex>
     );
   },
   args: {
-    inverted: true,
+    color: 'inverted',
   },
 };
 
