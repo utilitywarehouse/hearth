@@ -9,20 +9,21 @@ set of common props, including for layout, colour and typography.
 
 - [Padding](#padding)
 - [Margin](#margin)
+- [Colour](#colour)
+- [Background colour](#background-colour)
+- [Border colour](#border-colour)
+- [Border](#border)
 - [Gap](#gap)
 - [Spacing](#spacing)
 - [Size](#size)
 - [Flex items](#flex-items)
 - [Grid items](#grid-items)
 - [Position](#position)
-- [Color](#color)
-- [Background colour](#background-colour)
-- [Border](#border)
 - [Text](#text)
 
 ## Padding
 
-All the padding props use the [space design tokens](https://uw-hearth-tokens.vercel.app/?path=/docs/space--docs#available-space-tokens) only.
+All the padding props use the [space design tokens](https://hearth.prod.uw.systems/?path=/docs/tokens_space--docs#available-space-tokens) only.
 
 ```tsx
 <Box padding="100" />
@@ -41,7 +42,7 @@ All the padding props use the [space design tokens](https://uw-hearth-tokens.ver
 
 ## Margin
 
-All the margin props use the [space design tokens](https://uw-hearth-tokens.vercel.app/?path=/docs/space--docs#available-space-tokens) only.
+All the margin props use the [space design tokens](https://hearth.prod.uw.systems/?path=/docs/tokens_space--docs#available-space-tokens) only.
 
 ```tsx
 <Box margin="100" />
@@ -58,9 +59,105 @@ All the margin props use the [space design tokens](https://uw-hearth-tokens.verc
 | `marginInline` | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
 | `marginBlock`  | `Responsive<'0'\|'25'\|'50'\|'75'\|'100'\|'150'\|'175'\|'200'\|'250'\|'300'\|'350'\|'400'\|'500'\|'600'\|'700'\|'800'\|'900'\|'1000'>` |
 
+## Colour
+
+The `color` prop accepts the following semantic text colour values: 'primary', 'secondary', 'brand', 'affirmative', 'inverted'.
+
+```tsx
+<Box color="primary" />
+<Box color="secondary" />
+<Box color="brand" />
+<Box color="affirmative" />
+<Box color="inverted" />
+```
+
+You can also access any of the available colour tokens using your preferred styling solution.
+
+```tsx
+<Box style={{ color: 'var(--h-feedback-danger-foreground-default)' }} />
+```
+
+| Prop    | Type                                                                 |
+| ------- | -------------------------------------------------------------------- |
+| `color` | `'primary' \| 'secondary' \| 'brand' \| 'affirmative' \| 'inverted'` |
+
+## Background colour
+
+The `backgroundColor` prop accepts the following semantic text colour values: 'primary', 'secondary', 'brand'.
+
+```tsx
+<Box backgroundColor="primary" />
+<Box backgroundColor="secondary" />
+<Box backgroundColor="brand" />
+```
+
+You can also access any of the available colour tokens using your preferred styling solution.
+
+```tsx
+<Box style={{ backgroundColor: 'var(--h-interactive-affirmative-surface-strong-default)' }} />
+```
+
+| Prop              | Type                                  |
+| ----------------- | ------------------------------------- |
+| `backgroundColor` | `'primary' \| 'secondary' \| 'brand'` |
+
+## Border colour
+
+The `borderColor` prop accepts the following semantic text colour values: 'strong', 'subtle'.
+
+```tsx
+<Box borderColor="strong" />
+<Box borderColor="subtle" />
+```
+
+This also applies to each of the individual sides; `borderTopColor`,
+`borderRightColor`, `borderBottomColor` & `borderLeftColor`.
+
+You can also access any of the available colour tokens using your preferred styling solution.
+
+```tsx
+<Box style={{ borderColor: 'var(--h-interactive-brand-border-strong)' }} />
+```
+
+| Prop                | Type                   |
+| ------------------- | ---------------------- |
+| `borderColor`       | `'strong' \| 'subtle'` |
+| `borderTopColor`    | `'strong' \| 'subtle'` |
+| `borderRightColor`  | `'strong' \| 'subtle'` |
+| `borderBottomColor` | `'strong' \| 'subtle'` |
+| `borderLeftColor`   | `'strong' \| 'subtle'` |
+
+## Border
+
+The border props can be used to control the appearance of component borders, for either the entire component or only individual sides.
+
+```tsx
+<Box borderStyle="solid" borderWidth="1" borderColor="strong" />
+<Box borderStyle={{ mobile: 'none', desktop: 'solid' }} borderWidth="2" borderColor="subtle" />
+<Box borderTopStyle="solid" borderTopWidth={{ mobile: 1, desktop: 2}} borderTopColor="subtle" />
+```
+
+| Prop                      | Type                                                       |
+| ------------------------- | ---------------------------------------------------------- |
+| `borderStyle`             | `Responsive<'none'\|'solid'>`                              |
+| `borderWidth`             | `Responsive<'0'\|'1'\|'2'>`                                |
+| `borderRadius`            | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderTopStyle`          | `Responsive<'none'\|'solid'>`                              |
+| `borderTopWidth`          | `Responsive<'0'\|'1'\|'2'>`                                |
+| `borderTopLeftRadius`     | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderTopRightRadius`    | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderRightStyle`        | `Responsive<'none'\|'solid'>`                              |
+| `borderRightWidth`        | `Responsive<'0'\|'1'\|'2'>`                                |
+| `borderBottomStyle`       | `Responsive<'none'\|'solid'>`                              |
+| `borderBottomWidth`       | `Responsive<'0'\|'1'\|'2'>`                                |
+| `borderBottomLeftRadius`  | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderBottomRightRadius` | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
+| `borderLeftStyle`         | `Responsive<'none'\|'solid'>`                              |
+| `borderLeftWidth`         | `Responsive<'0'\|'1'\|'2'>`                                |
+
 ## Gap
 
-The gap props use only the [space design tokens](https://uw-hearth-tokens.vercel.app/?path=/docs/space--docs#available-space-tokens).
+The gap props use only the [space design tokens](https://hearth.prod.uw.systems/?path=/docs/tokens_space--docs#available-space-tokens).
 
 ```tsx
 <Flex gap="100" />
@@ -168,71 +265,6 @@ for the relevant prop.
 | `right`    | `Responsive<string>`                                              |
 | `bottom`   | `Responsive<string>`                                              |
 | `left`     | `Responsive<string>`                                              |
-
-## Color
-
-The color prop accepts any valid token value from the [design token colours](https://uw-hearth-tokens.vercel.app/?path=/docs/colours--docs#available-colour-tokens),
-specifically only the light theme colour values are available on the web.
-
-```tsx
-<Box color="blue500" />
-<Box color="grey1000" />
-<Box color="cashbackLilac600" />
-```
-
-| Prop    | Type          |
-| ------- | ------------- |
-| `color` | `colorTokens` |
-
-## Background colour
-
-The background color prop accepts any valid token value from the [design token colours](https://uw-hearth-tokens.vercel.app/?path=/docs/colours--docs#available-colour-tokens),
-specifically only the light theme colour values are available on the web.
-
-```tsx
-<Box backgroundColor="blue500" />
-<Box backgroundColor="grey100" />
-<Box backgroundColor="cashbackLilac300" />
-```
-
-| Prop              | Type          |
-| ----------------- | ------------- |
-| `backgroundColor` | `colorTokens` |
-
-## Border
-
-The border props can be used to control the appearance of component borders, for either the entire component or only individual sides.
-The colour specific props make use of the token values from the [design token colours](https://uw-hearth-tokens.vercel.app/?path=/docs/colours--docs#available-colour-tokens),
-while the other props, which are responsive, use their own relevant sets of values.
-
-```tsx
-<Box borderColor="grey500" borderStyle="solid" borderWidth="1" />
-<Box borderColor="grey500" borderStyle={{ mobile: 'none', desktop: 'solid' }} borderWidth="2" />
-<Box borderTopColor="grey500" borderTopStyle="solid" borderTopWidth={{ mobile: 1, desktop: 2}}/>
-```
-
-| Prop                      | Type                                                       |
-| ------------------------- | ---------------------------------------------------------- |
-| `borderColor`             | `colorTokens`                                              |
-| `borderStyle`             | `Responsive<'none'\|'solid'>`                              |
-| `borderWidth`             | `Responsive<'0'\|'1'\|'2'>`                                |
-| `borderRadius`            | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
-| `borderTopColor`          | `colorTokens`                                              |
-| `borderTopStyle`          | `Responsive<'none'\|'solid'>`                              |
-| `borderTopWidth`          | `Responsive<'0'\|'1'\|'2'>`                                |
-| `borderTopLeftRadius`     | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
-| `borderTopRightRadius`    | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
-| `borderRightColor`        | `colorTokens`                                              |
-| `borderRightStyle`        | `Responsive<'none'\|'solid'>`                              |
-| `borderRightWidth`        | `Responsive<'0'\|'1'\|'2'>`                                |
-| `borderBottomColor`       | `colorTokens`                                              |
-| `borderBottomStyle`       | `Responsive<'none'\|'solid'>`                              |
-| `borderBottomWidth`       | `Responsive<'0'\|'1'\|'2'>`                                |
-| `borderBottomLeftRadius`  | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
-| `borderBottomRightRadius` | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
-| `borderLeftColor`         | `colorTokens`                                              |
-| `borderLeftStyle`         | `Responsive<'none'\|'solid'>`                              |
-| `borderLeftWidth`         | `Responsive<'0'\|'1'\|'2'>`                                |
 
 ## Text
 
