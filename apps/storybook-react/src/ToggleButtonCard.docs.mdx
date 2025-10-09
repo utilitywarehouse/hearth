@@ -11,6 +11,16 @@ import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 
 <Canvas of={Stories.Playground} />
 
+- [Playground](#playground)
+- [Usage](#usage)
+- [ToggleGroup type](#togglegroup-type)
+- [ToggleGroup layout](#togglegroup-layout)
+- [Interactive content](#interactive-content)
+- [Accessibility](#accessibility)
+  - [Keyboard interactions](#keyboard-interactions)
+- [ToggleGroup API](#togglegroup-api)
+- [ToggleButtonCard API](#togglebuttoncard-api)
+
 ## Usage
 
 Use the `ToggleGroup` to wrap `ToggleButtonCard` components.
@@ -62,6 +72,31 @@ return (
 ## ToggleGroup layout
 
 The `ToggleGroup` has access to the `Flex` props for controlling layout.
+
+## Interactive content
+
+The entire `ToggleButtonCard` is interactive, so if you need to include
+additional interactive content, such as a link or button, then you will need to
+wrap it in a `CardAction` component.
+
+```tsx
+<ToggleButtonCard>
+  <Flex direction="column" gap="200">
+
+    {...}
+
+    <CardAction secondary>
+      <Button variant="ghost" size="sm" paddingNone>
+        Tariff price breakdown
+        <ChevronRightSmallIcon />
+      </Button>
+    </CardAction>
+
+  </Flex>
+</ToggleButtonCard>
+```
+
+<Canvas of={Stories.InteractiveContent} />
 
 ## Accessibility
 
