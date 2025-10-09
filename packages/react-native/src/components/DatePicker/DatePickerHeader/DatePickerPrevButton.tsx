@@ -1,0 +1,46 @@
+import { ChevronLeftSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { memo, useCallback } from 'react';
+import { Pressable } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { Icon } from '../../Icon';
+import { useDatePickerContext } from '../DatePicker.context';
+import { YEAR_PAGE_SIZE } from '../utils';
+
+const PrevButton = () => {
+  const { currentYear, calendarView, onChangeMonth, onChangeYear } = useDatePickerContext();
+
+  const onPress = useCallback(() => {
+    switch (calendarView) {
+      case 'day':
+        return onChangeMonth(-1);
+      case 'month':
+        return onChangeYear(currentYear - 1);
+      case 'year':
+        return onChangeYear(currentYear - YEAR_PAGE_SIZE);
+      default:
+        return {};
+    }
+  }, [calendarView, currentYear, onChangeMonth, onChangeYear]);
+
+  return (
+    <Pressable
+      disabled={calendarView === 'time'}
+      onPress={onPress}
+      testID="btn-prev"
+      accessibilityRole="button"
+      accessibilityLabel={`Prev ${calendarView === 'day' ? 'month' : calendarView === 'month' ? 'year' : 'years'}`}
+    >
+      <Icon as={ChevronLeftSmallIcon} style={styles.icon} />
+    </Pressable>
+  );
+};
+
+const styles = StyleSheet.create(theme => ({
+  icon: {
+    width: 20,
+    height: 20,
+    color: theme.color.icon.primary,
+  },
+}));
+
+export default memo(PrevButton);

@@ -24,7 +24,6 @@
     "chromatic": "npx chromatic --project-token=chpt_cce0fb1ebd95d2a --build-script-name build:storybook"
   },
   "dependencies": {
-    "@expo/html-elements": "latest",
     "@gluestack-ui/accordion": "1.0.7",
     "@gluestack-ui/alert": "0.1.15",
     "@gluestack-ui/button": "1.0.7",
@@ -36,7 +35,8 @@
     "@gluestack-ui/radio": "0.1.33",
     "@gluestack-ui/spinner": "0.1.14",
     "@gluestack-ui/switch": "0.1.22",
-    "@gluestack-ui/textarea": "0.1.23"
+    "@gluestack-ui/textarea": "0.1.23",
+    "dayjs": "^1.11.13"
   },
   "devDependencies": {
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",

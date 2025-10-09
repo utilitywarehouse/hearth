@@ -6,8 +6,6 @@ import { useInputContext } from './Input.context';
 
 const InputField = ({
   style,
-  onFocus,
-  onBlur,
   inBottomSheet = false,
   ...props
 }: TextInputProps & { inBottomSheet?: boolean }) => {

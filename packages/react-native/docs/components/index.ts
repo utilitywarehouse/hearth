@@ -8,3 +8,4 @@ export { default as SwitchList } from './SwitchList';
 export { default as UsageWrap } from './UsageWrap';
 export { default as VariantTitle } from './VariantTitle';
 export { default as ViewFigmaButton } from './ViewFigmaButton';
+export { default as ViewWrap } from './ViewWrap';

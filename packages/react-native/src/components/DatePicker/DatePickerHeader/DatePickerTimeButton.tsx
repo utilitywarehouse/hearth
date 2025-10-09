@@ -1,0 +1,48 @@
+import dayjs from 'dayjs';
+import { useMemo } from 'react';
+import { Pressable } from 'react-native';
+import { BodyText } from '../../BodyText';
+import { useDatePickerContext } from '../DatePicker.context';
+import { formatNumber, getParsedDate } from '../utils';
+
+export const TimeButton = () => {
+  const {
+    currentDate,
+    date,
+    calendarView,
+    setCalendarView,
+    numerals = 'latn',
+    use12Hours,
+  } = useDatePickerContext();
+
+  const { hour, hour12, minute, period } = useMemo(
+    () => getParsedDate(date || currentDate),
+    [date, currentDate]
+  );
+
+  const labelText = useMemo(() => {
+    const hourValue = use12Hours ? hour12 : hour;
+
+    const hourLabel =
+      hourValue < 10
+        ? `${formatNumber(0, numerals)}${formatNumber(hourValue, numerals)}`
+        : `${formatNumber(hourValue, numerals)}`;
+
+    const minuteLabel =
+      minute < 10
+        ? `${formatNumber(0, numerals)}${formatNumber(minute, numerals)}`
+        : `${formatNumber(minute, numerals)}`;
+
+    return `${hourLabel}:${minuteLabel} ${use12Hours ? period : ''}`.trim();
+  }, [numerals, hour, hour12, minute, use12Hours, period]);
+
+  return (
+    <Pressable
+      onPress={() => setCalendarView(calendarView === 'time' ? 'day' : 'time')}
+      accessibilityRole="button"
+      accessibilityLabel={dayjs(date || currentDate).format('HH:mm')}
+    >
+      <BodyText weight="semibold">{labelText}</BodyText>
+    </Pressable>
+  );
+};
