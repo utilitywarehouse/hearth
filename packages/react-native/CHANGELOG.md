@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.4.0
+
+### Minor Changes
+
+- [#511](https://github.com/utilitywarehouse/hearth/pull/511) [`04f804c`](https://github.com/utilitywarehouse/hearth/commit/04f804ca93d6e8881f649a0374a3b878c3217623) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `DatePicker` and `DatePickerInput` components
+
+### Patch Changes
+
+- [#511](https://github.com/utilitywarehouse/hearth/pull/511) [`04f804c`](https://github.com/utilitywarehouse/hearth/commit/04f804ca93d6e8881f649a0374a3b878c3217623) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `useTheme` typing
+
 ## 0.3.1
 
 ### Patch Changes
