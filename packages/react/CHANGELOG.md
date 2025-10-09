@@ -1,5 +1,34 @@
 # @utilitywarehouse/hearth-react
 
+## 0.11.0
+
+### Minor Changes
+
+- [#532](https://github.com/utilitywarehouse/hearth/pull/532) [`6f87ed8`](https://github.com/utilitywarehouse/hearth/commit/6f87ed8bd9d3874115475880b3e58fca51fd71dd) Thanks [@robphoenix](https://github.com/robphoenix)! - Change colour props to use semantic values. The colour props will no longer use
+  the primitive tokens for values, and will instead use a more specific set of
+  semantic values.
+
+  All colour values are still available via the design tokens, which can be
+  accessed via CSS or JS variables in your preferred styling method.
+
+  The following props are affected by this change:
+
+  - `color`
+  - `backgroundColor`
+  - `borderColor`
+
+  The following components are affected by this change:
+
+  - `Box`
+  - `Flex`
+  - `Grid`
+  - `BodyText`
+  - `Spinner`
+
+### Patch Changes
+
+- [#529](https://github.com/utilitywarehouse/hearth/pull/529) [`51fe838`](https://github.com/utilitywarehouse/hearth/commit/51fe83850e68d7b218fe292b2d72ad5e507569e9) Thanks [@robphoenix](https://github.com/robphoenix)! - add `disableGroupSeparators` prop to `CurrencyInput`
+
 ## 0.10.5
 
 ### Patch Changes
