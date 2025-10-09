@@ -15,4 +15,12 @@ export interface DescriptionListItemProps
    * Optional link element
    */
   link?: ReactNode;
+  /**
+   * Indicates the validation state
+   */
+  validationStatus?: 'invalid';
+  /**
+   * Text to display when the `validationStatus` is set.
+   */
+  validationText?: string;
 }

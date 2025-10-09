@@ -140,7 +140,7 @@
   --h-description-list-item-column-gap: var(--h-space-25);
   --h-description-list-item-gap: var(--h-space-200);
   --h-description-list-item-row-gap: var(--h-space-100);
-  --h-description-list-item-row-heading-width: 180;
+  --h-description-list-item-row-heading-width: 180px;
   --h-description-list-stack-gap: var(--h-space-200);
   --h-dialog-action-gap: var(--h-space-150);
   --h-dialog-border-radius: var(--h-border-radius-xl);
