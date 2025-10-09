@@ -19,6 +19,9 @@ import * as Stories from './DatePickerInput.stories';
 - [Formatting and validation](#formatting-and-validation)
 - [Examples](#examples)
 - [Accessibility](#accessibility)
+  - [Screen reader support](#screen-reader-support)
+  - [Keyboard navigation](#keyboard-navigation)
+  - [Best practices](#best-practices)
 
 ## Playground
 
@@ -183,8 +186,52 @@ Selection through the calendar always returns a JavaScript `Date` that is reform
 
 ## Accessibility
 
-- The trigger button exposes `accessibilityRole="button"` via `UnstyledIconButton` and uses `openButtonLabel` for screen-reader friendly text.
-- Both the text input and trigger button are individually focusable with VoiceOver and TalkBack; update `openButtonLabel` to describe the action.
-- The text field announces `Enter the date in {format} format` unless you supply a custom `accessibilityHint`, helping VoiceOver and TalkBack guide people.
-- Validation state follows the provided `validationStatus` (or the surrounding `FormField`), so update those props when your own validation rules fail.
-- Works with standard input assistive technologies and respects disabled/readonly state propagated from `FormField`.
+`DatePickerInput` is designed to work seamlessly with VoiceOver (iOS), TalkBack (Android), and other assistive technologies:
+
+### Screen reader support
+
+- **Text input field**:
+
+  - Announces as "Date input" by default (customizable via `accessibilityLabel`).
+  - Provides helpful context: "Enter the date in DD/MM/YYYY format" (or your custom format) via `accessibilityHint`.
+  - Announces disabled and readonly states appropriately.
+  - When focused, screen readers identify it as an editable text field.
+
+- **Calendar trigger button**:
+
+  - Announces as "Open date picker" by default (customizable via `openButtonLabel`).
+  - Includes helpful hint: "Opens the date picker calendar".
+  - Clearly identified as a button with `accessibilityRole="button"`.
+  - Respects disabled/readonly state from the input or surrounding `FormField`.
+
+- **Clear button** (when `onClear` is provided):
+  - Announces as "Clear date".
+  - Includes hint: "Removes the current date".
+  - Only appears when there's a value to clear and the input isn't readonly/disabled.
+
+### Keyboard and input management
+
+- Both the text input and action buttons are individually focusable and navigable.
+- The `DD/MM/YYYY` format triggers a numeric keypad on iOS/Android for faster entry.
+- On iOS, a contextual **Done** button appears above the keyboard to dismiss it when finished typing.
+- Custom formats can be specified to match your application's needs while maintaining accessibility.
+
+### Integration with DatePicker
+
+- When the calendar opens, screen readers announce "Date picker opened" and automatically focus on the calendar content.
+- All calendar navigation (days, months, years) is fully accessible with descriptive labels.
+- Selected dates are announced with full context: "Monday, October 8, selected".
+- The underlying `DatePicker` follows platform-specific accessibility patterns for optimal screen reader experience.
+
+### Validation and state
+
+- Validation state is inherited from surrounding `FormField` or controlled via `validationStatus` prop.
+- Invalid states are properly communicated through the `FormField`'s error messaging system.
+- The `importantForAccessibility` prop is set to `'yes'` by default to ensure the input is prioritized by screen readers.
+
+### Best practices
+
+- Always pair with `FormField` for proper label, helper text, and error message announcements.
+- Use `openButtonLabel` to customize the calendar button announcement if the default doesn't fit your use case.
+- Provide clear validation feedback through `FormField` when manual date entry doesn't match the expected format.
+- Test with VoiceOver and TalkBack to ensure the date entry flow works smoothly in your specific context.

@@ -23,6 +23,10 @@ The `DatePicker` component presents a calendar experience in a bottom sheet so p
   - [Range selection](#range-selection)
   - [Multiple selection](#multiple-selection)
 - [Integration notes](#integration-notes)
+- [Accessibility](#accessibility)
+  - [Screen reader support](#screen-reader-support)
+  - [Keyboard navigation](#keyboard-navigation)
+  - [Best practices](#best-practices)
 
 ## Playground
 
@@ -205,6 +209,31 @@ const Example = () => {
 - Because the picker respects locale and time zone information, ensure you pass consistent values throughout your app when working with server-sourced dates.
 - When pairing the picker with inputs like `FormField`, surface the chosen dates in the trigger control so people can review their selection after the sheet closes.
 
-```
+## Accessibility
 
-```
+The `DatePicker` is designed to be fully accessible for VoiceOver (iOS) and TalkBack (Android) users:
+
+### Screen reader support
+
+- **Automatic focus**: When the picker opens, screen readers automatically announce "Date picker opened" and focus on the calendar content.
+- **Platform-optimized navigation**:
+  - On iOS, VoiceOver can freely navigate through all calendar elements.
+  - On Android, TalkBack announces "Date picker calendar" when opened, then allows navigation through child elements.
+- **Descriptive labels**: Each interactive element has clear accessibility labels:
+  - Day buttons announce the full date: "Monday, October 8" (with "selected" appended for chosen dates).
+  - Month/year buttons announce the current month and year.
+  - Navigation buttons specify direction: "Next month", "Prev month", etc.
+  - View switcher announces: "Change to day view" or "Change to month view".
+
+### Keyboard navigation
+
+- All interactive controls (days, months, years, navigation) expose `accessibilityRole="button"` for proper identification.
+- Buttons respond to standard tap/activate gestures with screen readers.
+- The footer cancel button is fully accessible and announced properly.
+
+### Best practices
+
+- The picker works seamlessly within forms when triggered by accessible inputs like `DatePickerInput`.
+- Disabled dates are marked as disabled in the accessibility tree, preventing selection attempts.
+- The bottom sheet modal itself is marked as not accessible (`accessible={false}`) to prevent it from blocking navigation to child elements.
+- All date announcements respect the English locale for consistency with the current implementation.
