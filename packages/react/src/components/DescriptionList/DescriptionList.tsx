@@ -38,7 +38,7 @@ export const DescriptionList = React.forwardRef<DescriptionListElement, Descript
       <div className={clsx(componentClassName, className)}>
         {heading ? <SectionHeader {...headerProps} /> : null}
         <Flex asChild className="hearth-DescriptionListContainer" role="list">
-          <dl ref={ref} {...listProps}>
+          <dl role="list" ref={ref} {...listProps}>
             <DescriptionListContext.Provider value={{ direction }}>
               {children}
             </DescriptionListContext.Provider>
