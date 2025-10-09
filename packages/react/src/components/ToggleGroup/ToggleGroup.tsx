@@ -20,7 +20,6 @@ export const ToggleGroup = React.forwardRef<ToggleGroupElement, ToggleGroupProps
       value,
       defaultValue,
       onValueChange,
-      disabled,
       children,
       ...flexProps
     },
@@ -31,7 +30,6 @@ export const ToggleGroup = React.forwardRef<ToggleGroupElement, ToggleGroupProps
       value,
       defaultValue,
       onValueChange,
-      disabled,
       children,
     };
 

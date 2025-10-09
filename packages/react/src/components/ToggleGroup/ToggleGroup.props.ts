@@ -6,7 +6,7 @@ import { MarginProps } from '../../props/margin.props';
 export interface ToggleGroupProps
   extends ComponentPropsWithout<
       typeof RadixToggleGroup.Root,
-      'asChild' | 'rovingFocus' | 'loop' | 'dir' | 'orientation' | keyof FlexProps
+      'asChild' | 'rovingFocus' | 'loop' | 'dir' | 'orientation' | 'disabled' | keyof FlexProps
     >,
     Omit<FlexProps, 'direction'>,
     MarginProps {

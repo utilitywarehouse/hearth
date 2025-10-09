@@ -41,6 +41,16 @@
     gap: var(--h-toggle-button-gap);
     color: var(--h-interactive-neutral-foreground-subtle);
 
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(--h-interactive-neutral-surface-subtle-hover);
+      }
+    }
+
+    &:where(:active) {
+      background-color: var(--h-interactive-neutral-surface-subtle-active);
+    }
+
     &::after {
       z-index: 0;
       content: '';
@@ -51,6 +61,16 @@
     &[data-state='on'] {
       background-color: var(--h-interactive-brand-surface-strong-default);
       color: var(--h-interactive-brand-foreground-strong);
+
+      @media (hover: hover) {
+        &:where(:hover) {
+          background-color: var(--h-interactive-brand-surface-strong-hover);
+        }
+      }
+
+      &:where(:active) {
+        background-color: var(--h-interactive-brand-surface-strong-active);
+      }
     }
 
     &[data-state='off'] {
