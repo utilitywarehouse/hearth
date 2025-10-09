@@ -4,13 +4,13 @@ export const Placeholder = (props: FlexProps) => {
   return (
     <Flex
       borderRadius="xs"
-      borderWidth="1"
+      borderWidth="2"
       borderStyle="solid"
-      borderColor="subtle"
+      borderColor="strong"
+      backgroundColor="brand"
       height="100%"
       alignItems="center"
       justifyContent="center"
-      backgroundColor="secondary"
       {...props}
     />
   );

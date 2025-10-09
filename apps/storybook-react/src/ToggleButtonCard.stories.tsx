@@ -8,6 +8,8 @@ import {
   BodyText,
   Box,
 } from '@utilitywarehouse/hearth-react';
+import React from 'react';
+import { Placeholder } from './storybook-components/Placeholder';
 
 const meta: Meta<typeof ToggleGroup> = {
   title: 'Stories / ToggleButtonCard',
@@ -32,33 +34,56 @@ type Story = StoryObj<typeof ToggleGroup>;
 
 export const Playground: Story = {
   render: args => {
+    const [value, setValue] = React.useState<string>('fixed');
     return (
       <Box width="750px">
-        <ToggleGroup {...args}>
-          <ToggleButtonCard value="fixed">
+        <ToggleGroup
+          {...args}
+          gap="300"
+          type="single"
+          value={value}
+          onValueChange={(value: string) => {
+            if (value) setValue(value);
+          }}
+        >
+          <ToggleButtonCard
+            value="fixed"
+            label={value === 'fixed' ? 'Selected plan' : 'Select plan'}
+            aria-labelledby="fixed-label fixed-secondary-label"
+            aria-describedby="fixed-description"
+          >
             <Flex direction="column" gap="200">
-              <Heading size="md">Fixed</Heading>
-              <Flex direction="row" gap="100" alignItems="baseline">
+              <Heading id="fixed-label" size="md">
+                Fixed
+              </Heading>
+              <Flex id="fixed-secondary-label" direction="row" gap="100" alignItems="baseline">
                 <DetailText size="3xl">£163.00</DetailText>
                 <BodyText size="md" color="secondary" as="span">
                   monthly estimate
                 </BodyText>
               </Flex>
-              <BodyText as="p" size="md">
+              <BodyText id="fixed-description" as="p" size="md">
                 Your energy rates will stay the same until December 2025
               </BodyText>
             </Flex>
           </ToggleButtonCard>
-          <ToggleButtonCard value="variable">
+          <ToggleButtonCard
+            value="variable"
+            label={value === 'variable' ? 'Selected plan' : 'Select plan'}
+            aria-labelledby="variable-label variable-secondary-label"
+            aria-describedby="variable-description"
+          >
             <Flex direction="column" gap="200">
-              <Heading size="md">Variable</Heading>
-              <Flex direction="row" gap="100" alignItems="baseline">
+              <Heading id="variable-label" size="md">
+                Variable
+              </Heading>
+              <Flex id="variable-secondary-label" direction="row" gap="100" alignItems="baseline">
                 <DetailText size="3xl">£153.00</DetailText>
                 <BodyText size="md" color="secondary" as="span">
                   monthly estimate
                 </BodyText>
               </Flex>
-              <BodyText as="p" size="md">
+              <BodyText id="variable-description" as="p" size="md">
                 Your energy rates will stay the same until December 2025
               </BodyText>
             </Flex>
@@ -67,7 +92,70 @@ export const Playground: Story = {
       </Box>
     );
   },
-  args: {
-    gap: '300',
+};
+
+export const Single: Story = {
+  render: args => {
+    return (
+      <ToggleGroup {...args} type="single" gap="200">
+        {['One', 'Two', 'Three', 'Four'].map((label, value) => (
+          <ToggleButtonCard value={`${value}`} label={label} aria-labelledby="">
+            <Placeholder
+              borderColor="subtle"
+              backgroundColor="primary"
+              width="120px"
+              height="50px"
+            />
+          </ToggleButtonCard>
+        ))}
+      </ToggleGroup>
+    );
+  },
+};
+
+export const Multiple: Story = {
+  render: args => {
+    return (
+      <ToggleGroup {...args} type="multiple" gap="200">
+        {['One', 'Two', 'Three', 'Four'].map((label, value) => (
+          <ToggleButtonCard value={`${value}`} label={label} aria-labelledby="">
+            <Placeholder
+              borderColor="subtle"
+              backgroundColor="primary"
+              width="120px"
+              height="50px"
+            />
+          </ToggleButtonCard>
+        ))}
+      </ToggleGroup>
+    );
+  },
+};
+
+export const SingleWithOneAlwaysSelected: Story = {
+  render: args => {
+    const [value, setValue] = React.useState('2');
+    return (
+      <ToggleGroup
+        {...args}
+        type="single"
+        gap="200"
+        value={value}
+        onValueChange={(value: string) => {
+          if (value) setValue(value);
+        }}
+      >
+        {['One', 'Two', 'Three', 'Four'].map((label, value) => (
+          <ToggleButtonCard value={`${value}`} label={label} aria-labelledby="">
+            <Placeholder
+              borderColor="subtle"
+              backgroundColor="primary"
+              width="120px"
+              height="50px"
+            />
+          </ToggleButtonCard>
+        ))}
+      </ToggleGroup>
+    );
   },
 };
