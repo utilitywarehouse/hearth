@@ -1,0 +1,8 @@
+.hearth-DescriptionListItem {
+  dt {
+    color: var(--h-text-secondary);
+  }
+  dd {
+    color: var(--h-text-primary);
+  }
+}
