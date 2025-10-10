@@ -10,9 +10,10 @@
 
   cursor: pointer;
   display: inline;
-  font-family: var(--h-font-family-detail);
-  font-weight: var(--h-font-weight-medium);
-  line-height: var(--h-line-height-500);
+  font-family: var(--h-font-family-body);
+  font-size: var(--h-body-text-md-font-size);
+  font-weight: var(--h-font-weight-semibold);
+  line-height: var(--h-body-text-md-line-height);
   color: var(--h-link-color);
   text-decoration-line: underline;
   text-decoration-color: currentcolor;
