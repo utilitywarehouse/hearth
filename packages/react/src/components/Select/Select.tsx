@@ -74,7 +74,7 @@ export const Select = React.forwardRef<SelectElement, SelectProps>((props, ref) 
         </RadixSelect.Trigger>
         <RadixSelect.Portal>
           <RadixSelect.Content
-            className={`${componentClassName}Dropdown`}
+            className={`${componentClassName}Content`}
             position="popper"
             side="bottom"
             sideOffset={4}

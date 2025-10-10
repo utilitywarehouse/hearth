@@ -11,11 +11,12 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type MenuItemElement = ElementRef<'div'>;
 
 export const MenuItem = React.forwardRef<MenuItemElement, MenuItemProps>(
-  ({ className, ...props }, ref) => {
+  ({ className, colorScheme = 'functional', ...props }, ref) => {
     return (
       <RadixMenu.DropdownMenuItem
         ref={ref}
         className={clsx(componentClassName, className)}
+        data-colorscheme={colorScheme}
         {...props}
       />
     );

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Button, Menu, MenuTrigger, MenuContent, MenuItem } from '@utilitywarehouse/hearth-react';
-import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { ExpandSmallIcon, TrashSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof Menu> = {
   title: 'Stories / Menu',
@@ -26,7 +26,7 @@ export const Playground: Story = {
       <Menu {...args}>
         <MenuTrigger>
           <Button variant="outline" colorScheme="functional">
-            Menu
+            Menu trigger
             <ExpandSmallIcon />
           </Button>
         </MenuTrigger>
@@ -41,21 +41,30 @@ export const Playground: Story = {
   },
 };
 
-// export const Dropdown: Story = {
-//   render: args => {
-//     return (
-//       <Select {...args}>
-//         <SelectItem value="1">Item 1</SelectItem>
-//         <SelectItem value="2">Item 2</SelectItem>
-//         <SelectItem value="3">Item 3</SelectItem>
-//         <SelectItem value="4" disabled>
-//           Item 4
-//         </SelectItem>
-//       </Select>
-//     );
-//   },
-//   args: {
-//     defaultValue: '2',
-//     open: true,
-//   },
-// };
+export const Dropdown: Story = {
+  render: args => {
+    return (
+      <Menu {...args}>
+        <MenuTrigger>
+          <Button variant="outline" colorScheme="functional">
+            Menu
+            <ExpandSmallIcon />
+          </Button>
+        </MenuTrigger>
+        <MenuContent>
+          <MenuItem>Menu Item</MenuItem>
+          <MenuItem>Menu Item</MenuItem>
+          <MenuItem>Menu Item</MenuItem>
+          <MenuItem colorScheme="destructive">
+            Destructive item
+            <TrashSmallIcon />
+          </MenuItem>
+          <MenuItem disabled>Disabled item</MenuItem>
+        </MenuContent>
+      </Menu>
+    );
+  },
+  args: {
+    open: true,
+  },
+};

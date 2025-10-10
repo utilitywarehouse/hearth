@@ -16,7 +16,13 @@ export const MenuContent: React.FC<MenuContentProps> = ({
   const portalProps = { forceMount, container };
   return (
     <RadixMenu.DropdownMenuPortal {...portalProps}>
-      <RadixMenu.DropdownMenuContent className={clsx(componentClassName, className)} {...props} />
+      <RadixMenu.DropdownMenuContent
+        className={clsx(componentClassName, className)}
+        {...props}
+        side="bottom"
+        sideOffset={4}
+        align="start"
+      />
     </RadixMenu.DropdownMenuPortal>
   );
 };

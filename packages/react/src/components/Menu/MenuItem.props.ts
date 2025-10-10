@@ -1,3 +1,5 @@
 import { DropdownMenu as RadixMenu } from 'radix-ui';
 
-export type MenuItemProps = Omit<RadixMenu.DropdownMenuItemProps, 'asChild'> & {};
+export interface MenuItemProps extends Omit<RadixMenu.DropdownMenuItemProps, 'asChild'> {
+  colorScheme?: 'functional' | 'destructive';
+}
