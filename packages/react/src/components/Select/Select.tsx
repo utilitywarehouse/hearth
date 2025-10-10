@@ -5,7 +5,7 @@ import type { ElementRef } from 'react';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { SelectProps } from './Select.props';
-import { Select as RadixSelect } from 'radix-ui';
+import { Select as RadixSelect, ScrollArea as RadixScrollArea } from 'radix-ui';
 import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
 import { Flex } from '../Flex/Flex';
@@ -79,9 +79,19 @@ export const Select = React.forwardRef<SelectElement, SelectProps>((props, ref) 
             side="bottom"
             sideOffset={4}
           >
-            <RadixSelect.Viewport className={`${componentClassName}Viewport`}>
-              {children}
-            </RadixSelect.Viewport>
+            <RadixScrollArea.Root className="hearth-ScrollAreaRoot" type="auto">
+              <RadixSelect.Viewport className={`${componentClassName}Viewport`}>
+                <RadixScrollArea.Viewport className="hearth-ScrollAreaViewport">
+                  {children}
+                </RadixScrollArea.Viewport>
+              </RadixSelect.Viewport>
+              <RadixScrollArea.Scrollbar
+                className="hearth-ScrollAreaScrollbar"
+                orientation="vertical"
+              >
+                <RadixScrollArea.Thumb className="hearth-ScrollAreaThumb" />
+              </RadixScrollArea.Scrollbar>
+            </RadixScrollArea.Root>
           </RadixSelect.Content>
         </RadixSelect.Portal>
       </RadixSelect.Root>

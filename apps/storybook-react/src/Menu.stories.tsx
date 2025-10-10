@@ -68,3 +68,26 @@ export const Dropdown: Story = {
     open: true,
   },
 };
+
+export const ScrollArea: Story = {
+  render: args => {
+    return (
+      <Menu {...args}>
+        <MenuTrigger>
+          <Button variant="outline" colorScheme="functional">
+            Many menu items
+            <ExpandSmallIcon />
+          </Button>
+        </MenuTrigger>
+        <MenuContent>
+          {[...Array(100).keys()].map(n => (
+            <MenuItem>Item {n + 1}</MenuItem>
+          ))}
+        </MenuContent>
+      </Menu>
+    );
+  },
+  args: {
+    open: true,
+  },
+};
