@@ -37,13 +37,7 @@ export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>((pro
         <div className="hearth-RadioItem">
           <RadixRadioGroup.Indicator className="hearth-RadioIndicator" />
         </div>
-        <Label
-          id={labelId}
-          htmlFor={id}
-          disableUserSelect
-          fontWeight="semibold"
-          className="hearth-RadioLabel"
-        >
+        <Label id={labelId} htmlFor={id} disableUserSelect fontWeight="semibold">
           {image}
           {label}
         </Label>

@@ -37,4 +37,10 @@
     flex-direction: row;
     gap: var(--h-space-150);
   }
+
+  & :where(.hearth-Label) {
+    display: flex;
+    align-items: center;
+    gap: var(--h-radio-tile-gap);
+  }
 }
