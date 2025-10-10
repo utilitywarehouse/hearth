@@ -45,8 +45,12 @@ export const Playground: Story = {
         <MenuContent>
           <MenuItem>Item</MenuItem>
           <MenuItem>Item</MenuItem>
-          <MenuItem>Item</MenuItem>
-          <MenuItem>Item</MenuItem>
+          <MenuItem colorScheme="functional">Item</MenuItem>
+          <MenuItem colorScheme="destructive">
+            Destructive item
+            <TrashSmallIcon />
+          </MenuItem>
+          <MenuItem disabled>Disabled item</MenuItem>
         </MenuContent>
       </Menu>
     );
@@ -70,34 +74,6 @@ export const IconButtonTrigger: Story = {
         </MenuContent>
       </Menu>
     );
-  },
-};
-
-export const Dropdown: Story = {
-  render: args => {
-    return (
-      <Menu {...args}>
-        <MenuTrigger>
-          <Button variant="outline" colorScheme="functional">
-            Menu
-            <ExpandSmallIcon />
-          </Button>
-        </MenuTrigger>
-        <MenuContent>
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem>Menu Item</MenuItem>
-          <MenuItem colorScheme="destructive">
-            Destructive item
-            <TrashSmallIcon />
-          </MenuItem>
-          <MenuItem disabled>Disabled item</MenuItem>
-        </MenuContent>
-      </Menu>
-    );
-  },
-  args: {
-    open: true,
   },
 };
 

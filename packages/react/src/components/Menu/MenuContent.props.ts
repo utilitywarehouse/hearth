@@ -1,6 +1,6 @@
 import { DropdownMenu as RadixMenu } from 'radix-ui';
 
-export type MenuContentProps = RadixMenu.DropdownMenuPortalProps &
+export type MenuContentProps = Omit<RadixMenu.DropdownMenuPortalProps, 'container'> &
   Omit<
     RadixMenu.DropdownMenuContentProps,
     | 'asChild'
@@ -15,6 +15,11 @@ export type MenuContentProps = RadixMenu.DropdownMenuPortalProps &
     | 'arrowPadding'
     | 'sticky'
     | 'hideWhenDetached'
+    | 'onCloseAutoFocus'
+    | 'onEscapeKeyDown'
+    | 'onPointerDownOutside'
+    | 'onFocusOutside'
+    | 'onInteractOutside'
   > & {
     placement?: 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
   };

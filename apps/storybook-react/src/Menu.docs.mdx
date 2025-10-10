@@ -52,7 +52,17 @@ You can adjust the vertical and horizontal placement of the `MenuContent`.
 
 The `MenuItem` can be either `functional` or `destructive`, and can also contain icons.
 
-<Canvas of={Stories.Placement} />
+```tsx
+<MenuContent>
+  <MenuItem>Item</MenuItem>
+  <MenuItem colorScheme="functional">Item</MenuItem>
+  <MenuItem colorScheme="destructive">
+    Destructive item
+    <TrashSmallIcon />
+  </MenuItem>
+  <MenuItem disabled>Disabled item</MenuItem>
+</MenuContent>
+```
 
 ## Accessibility
 
@@ -112,13 +122,20 @@ to manage focus movement among menu items.
   ))}
 </Flex>
 
+## Menu API
+
+| Prop           | Type                      |
+| -------------- | ------------------------- |
+| `defaultOpen`  | `boolean`                 |
+| `open`         | `boolean`                 |
+| `onOpenChange` | `(open: boolean) => void` |
+
 ## MenuContent API
 
-This component is based on the `div` element.
-
-| Prop        | Type                                                       |
-| ----------- | ---------------------------------------------------------- |
-| `placement` | `"bottomLeft" \| "bottomRight" \| "topLeft" \| "topRight"` |
+| Prop         | Type                                                       |
+| ------------ | ---------------------------------------------------------- |
+| `placement`  | `"bottomLeft" \| "bottomRight" \| "topLeft" \| "topRight"` |
+| `forceMount` | `boolean`                                                  |
 
 ### MenuItem API
 
@@ -127,3 +144,6 @@ This component is based on the `div` element.
 | Prop          | Type                            |
 | ------------- | ------------------------------- |
 | `colorScheme` | `"functional" \| "destructive"` |
+| `disabled`    | `boolean`                       |
+| `onSelect`    | `(event: Event) => void`        |
+| `textValue`   | `string`                        |
