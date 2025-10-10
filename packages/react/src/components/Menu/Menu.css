@@ -40,12 +40,14 @@
 
     &:where([data-colorscheme='functional']) {
       color: var(--h-interactive-functional-foreground-subtle);
+
       --h-menu-item-background-colour-hover: var(--h-interactive-functional-surface-subtle-hover);
       --h-menu-item-background-colour-active: var(--h-interactive-functional-surface-subtle-active);
     }
 
     &:where([data-colorscheme='destructive']) {
       color: var(--h-interactive-destructive-foreground-subtle);
+
       --h-menu-item-background-colour-hover: var(--h-interactive-destructive-surface-subtle-hover);
       --h-menu-item-background-colour-active: var(
         --h-interactive-destructive-surface-subtle-active
