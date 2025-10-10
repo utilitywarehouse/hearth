@@ -1,0 +1,10 @@
+.hearth-DescriptionList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-description-list-gap);
+
+  & :where(.hearth-DescriptionListContainer) {
+    flex-direction: column;
+    gap: var(--h-description-list-stack-gap);
+  }
+}

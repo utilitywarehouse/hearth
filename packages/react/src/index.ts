@@ -187,3 +187,8 @@ export { ToggleGroup } from './components/ToggleGroup/ToggleGroup';
 export type { ToggleGroupProps } from './components/ToggleGroup/ToggleGroup.props';
 export { ToggleButtonCard } from './components/ToggleButtonCard/ToggleButtonCard';
 export type { ToggleButtonCardProps } from './components/ToggleButtonCard/ToggleButtonCard.props';
+
+export { DescriptionList } from './components/DescriptionList/DescriptionList';
+export type { DescriptionListProps } from './components/DescriptionList/DescriptionList.props';
+export { DescriptionListItem } from './components/DescriptionListItem/DescriptionListItem';
+export type { DescriptionListItemProps } from './components/DescriptionListItem/DescriptionListItem.props';

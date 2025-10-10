@@ -1,6 +1,6 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { type ListProps } from './List.props';
+import type { ListProps } from './List.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { Card } from '../Card/Card';

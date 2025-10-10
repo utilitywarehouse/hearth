@@ -55,6 +55,7 @@ export const filters = {
       (token.filePath.includes('component') && token.path.includes('outline-width')) ||
       (token.filePath.includes('component') && token.path.includes('max-width')) ||
       (token.filePath.includes('component') && token.path.includes('min-width')) ||
+      (token.filePath.includes('component') && token.path.includes('heading-width')) ||
       (token.filePath.includes('component') && token.path.includes('width')) ||
       (token.filePath.includes('component') && token.path.includes('height')) ||
       (token.filePath.includes('component') &&
