@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { DescriptionList, DescriptionListItem, Box, Link } from '@utilitywarehouse/hearth-react';
-import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import {
+  Flex,
+  DescriptionList,
+  DescriptionListItem,
+  Box,
+  Link,
+} from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof DescriptionList> = {
   title: 'Stories / DescriptionList',
@@ -61,6 +66,66 @@ export const Playground: Story = {
         />
       </DescriptionList>
     </Box>
+  ),
+};
+
+export const Directions: Story = {
+  render: args => (
+    <Flex width="550px" direction="column" gap="800">
+      <DescriptionList {...args} heading="Row" direction="row" link={<Link href="#">Link</Link>}>
+        <DescriptionListItem
+          heading="Heading"
+          description="Description"
+          link={<Link href="#">Link</Link>}
+        />
+        <DescriptionListItem
+          heading="Heading"
+          description="Description"
+          link={<Link href="#">Link</Link>}
+        />
+        <DescriptionListItem
+          heading="Heading"
+          description="Description"
+          link={<Link href="#">Link</Link>}
+        />
+        <DescriptionListItem
+          heading="Heading"
+          description="Description"
+          link={<Link href="#">Link</Link>}
+          validationText="Validation text"
+          validationStatus="invalid"
+        />
+      </DescriptionList>
+      <DescriptionList
+        {...args}
+        heading="Column"
+        direction="column"
+        link={<Link href="#">Link</Link>}
+      >
+        <DescriptionListItem
+          heading="Heading"
+          description="Description"
+          link={<Link href="#">Link</Link>}
+        />
+        <DescriptionListItem
+          heading="Heading"
+          description="Description"
+          link={<Link href="#">Link</Link>}
+        />
+        <DescriptionListItem
+          heading="Heading"
+          description="Description"
+          link={<Link href="#">Link</Link>}
+        />
+        <DescriptionListItem
+          heading="Heading"
+          description="Description"
+          link={<Link href="#">Link</Link>}
+          validationText="Validation text"
+          validationStatus="invalid"
+        />
+      </DescriptionList>
+    </Flex>
   ),
 };
 
