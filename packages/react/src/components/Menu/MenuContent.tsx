@@ -12,17 +12,26 @@ export const MenuContent: React.FC<MenuContentProps> = ({
   children,
   forceMount,
   container,
+  placement = 'bottomLeft',
   ...props
 }) => {
   const portalProps = { forceMount, container };
+  const placementTranslation: {
+    [key: string]: { side: 'bottom' | 'top'; align: 'start' | 'end' };
+  } = {
+    bottomLeft: { side: 'bottom', align: 'start' },
+    bottomRight: { side: 'bottom', align: 'end' },
+    topLeft: { side: 'top', align: 'start' },
+    topRight: { side: 'top', align: 'end' },
+  };
+
   return (
     <RadixMenu.DropdownMenuPortal {...portalProps}>
       <RadixMenu.DropdownMenuContent
         className={clsx(componentClassName, className)}
         {...props}
-        side="bottom"
         sideOffset={4}
-        align="start"
+        {...placementTranslation[placement]}
         collisionPadding={8}
       >
         <RadixScrollArea.Root className="hearth-ScrollAreaRoot" type="auto">

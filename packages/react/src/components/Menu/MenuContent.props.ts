@@ -15,4 +15,6 @@ export type MenuContentProps = RadixMenu.DropdownMenuPortalProps &
     | 'arrowPadding'
     | 'sticky'
     | 'hideWhenDetached'
-  > & {};
+  > & {
+    placement?: 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
+  };
