@@ -1,9 +1,8 @@
 .hearth-Button {
-  font-family: var(--h-font-family-detail);
-  font-size: var(--h-font-size-100);
-  font-weight: var(--h-font-weight-medium);
-  line-height: var(--h-line-height-500);
-  letter-spacing: var(--h-letter-spacing-100);
+  font-family: var(--h-font-family-body);
+  font-size: var(--h-body-text-md-font-size);
+  font-weight: var(--h-font-weight-semibold);
+  line-height: var(--h-body-text-md-line-height);
   gap: var(--h-button-gap);
   min-width: var(--h-button-min-width);
   padding-inline: var(--h-button-padding-inline);

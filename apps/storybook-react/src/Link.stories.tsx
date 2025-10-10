@@ -65,7 +65,7 @@ export const AsButton: Story = {
 
 export const Inverted: Story = {
   render: args => (
-    <Flex gap="400" backgroundColor="purple700" padding="400">
+    <Flex gap="400" backgroundColor="brand" padding="400">
       <Link {...args} inverted>
         Inverted Link
       </Link>

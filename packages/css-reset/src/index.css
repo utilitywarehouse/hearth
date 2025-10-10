@@ -107,7 +107,7 @@
 
   :where(button, a) {
     font-family:
-      var(--h-font-family-detail),
+      var(--h-font-family-body),
       Courier New,
       Courier,
       monospace;
