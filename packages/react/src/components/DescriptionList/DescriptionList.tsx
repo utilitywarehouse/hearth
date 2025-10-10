@@ -5,7 +5,7 @@ import type { ElementRef } from 'react';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
-import { descriptionListPropDefs, DescriptionListProps } from './DescriptionList.props';
+import { DescriptionListProps } from './DescriptionList.props';
 import { DescriptionListContext } from './DescriptionList.context';
 import { Flex } from '../Flex/Flex';
 
