@@ -60,3 +60,18 @@ export const Dropdown: Story = {
     open: true,
   },
 };
+
+export const ScrollArea: Story = {
+  render: args => {
+    return (
+      <Select {...args}>
+        {[...Array(100).keys()].map(n => (
+          <SelectItem key={n + 1} value={`${n + 1}`}>Item {n + 1}</SelectItem>
+        ))}
+      </Select>
+    );
+  },
+  args: {
+    open: true,
+  },
+};

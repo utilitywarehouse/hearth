@@ -192,3 +192,12 @@ export { DescriptionList } from './components/DescriptionList/DescriptionList';
 export type { DescriptionListProps } from './components/DescriptionList/DescriptionList.props';
 export { DescriptionListItem } from './components/DescriptionListItem/DescriptionListItem';
 export type { DescriptionListItemProps } from './components/DescriptionListItem/DescriptionListItem.props';
+
+export { Menu } from './components/Menu/Menu';
+export type { MenuProps } from './components/Menu/Menu.props';
+export { MenuTrigger } from './components/Menu/MenuTrigger';
+export type { MenuTriggerProps } from './components/Menu/MenuTrigger.props';
+export { MenuContent } from './components/Menu/MenuContent';
+export type { MenuContentProps } from './components/Menu/MenuContent.props';
+export { MenuItem } from './components/Menu/MenuItem';
+export type { MenuItemProps } from './components/Menu/MenuItem.props';
