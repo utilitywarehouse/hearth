@@ -53,11 +53,15 @@
     text-decoration-skip-ink: auto;
   }
 
+  /* Sensible default list defaults */
+  :where(ul, ol) {
+    padding-inline-start: var(--h-space-400);
+  }
+
   /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
   :where(ul[role='list'], ol[role='list']) {
     padding: 0;
     list-style: none;
-    padding-inline-start: var(--h-space-400);
   }
 
   /* Improve media defaults */
