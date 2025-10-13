@@ -113,7 +113,7 @@ export const ScrollArea: Story = {
         </MenuTrigger>
         <MenuContent>
           {[...Array(100).keys()].map(n => (
-            <MenuItem>Item {n + 1}</MenuItem>
+            <MenuItem key={n}>Item {n + 1}</MenuItem>
           ))}
         </MenuContent>
       </Menu>
