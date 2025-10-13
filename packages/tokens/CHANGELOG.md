@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.1.1
+
+### Patch Changes
+
+- [#534](https://github.com/utilitywarehouse/hearth/pull/534) [`9860516`](https://github.com/utilitywarehouse/hearth/commit/986051691c3cfec9eded814a2da882dad76dfda4) Thanks [@robphoenix](https://github.com/robphoenix)! - Handle heading width px tokens
+
 ## 0.1.0
 
 ### Minor Changes
