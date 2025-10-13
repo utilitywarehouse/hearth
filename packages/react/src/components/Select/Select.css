@@ -64,7 +64,7 @@
   }
 }
 
-.hearth-SelectDropdown {
+.hearth-SelectContent {
   display: flex;
   flex-direction: column;
   gap: var(--h-select-dropdown-gap);

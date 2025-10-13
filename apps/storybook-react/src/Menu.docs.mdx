@@ -1,0 +1,149 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './Menu.stories';
+import { DocsHeader } from './storybook-components/DocsHeader';
+import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+
+<Meta title="Components / Menu" />
+
+<DocsHeader componentName="Menu" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Usage
+
+The root `Menu` component will wrap the `MenuTrigger` & `MenuContent` components.
+
+The `MenuTrigger` must wrap a `Button` or `IconButton` component, and the
+`MenuContent` component will wrap any number of `MenuItem` components.
+
+```tsx
+<Menu>
+  <MenuTrigger>
+    <Button variant="outline" colorScheme="functional">
+      Menu trigger
+      <ExpandSmallIcon />
+    </Button>
+  </MenuTrigger>
+  <MenuContent>
+    <MenuItem>Menu item</MenuItem>
+    <MenuItem>Menu item</MenuItem>
+    <MenuItem>Menu item</MenuItem>
+    <MenuItem>Menu item</MenuItem>
+  </MenuContent>
+</Menu>
+```
+
+## Menu trigger
+
+You must render either a `Button` or `IconButton` component as a child of the `MenuTrigger`.
+
+<Canvas of={Stories.IconButtonTrigger} />
+
+## Menu content placement
+
+You can adjust the vertical and horizontal placement of the `MenuContent`.
+
+<Canvas of={Stories.Placement} />
+
+## Menu item
+
+The `MenuItem` can be either `functional` or `destructive`, and can also contain icons.
+
+```tsx
+<MenuContent>
+  <MenuItem>Item</MenuItem>
+  <MenuItem colorScheme="functional">Item</MenuItem>
+  <MenuItem colorScheme="destructive">
+    Destructive item
+    <TrashSmallIcon />
+  </MenuItem>
+  <MenuItem disabled>Disabled item</MenuItem>
+</MenuContent>
+```
+
+## Accessibility
+
+Adheres to the [Menu Button WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/) and uses
+[roving tabindex](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/#kbd_roving_tabindex)
+to manage focus movement among menu items.
+
+### Keyboard interactions
+
+<Flex direction="column" gap="200" className="sb-unstyled">
+  <Flex>
+    <Box width="300px">
+      <BodyText as="span" weight="bold">
+        Key
+      </BodyText>
+    </Box>
+    <BodyText as="span" weight="bold">
+      Description
+    </BodyText>
+  </Flex>
+  <Divider />
+  {[
+    {
+      key: 'Space',
+      description:
+        'When focus is on MenuTrigger, opens the menu and focuses the selected item. When focus is on an item, selects the focused item.',
+    },
+    {
+      key: 'Enter',
+      description:
+        'When focus is on MenuTrigger, opens the menu and focuses the first item. When focus is on an item, selects the focused item.',
+    },
+    {
+      key: 'ArrowDown',
+      description:
+        'When focus is on MenuTrigger, opens the menu. When focus is on an item, moves focus to the next item.',
+    },
+    {
+      key: 'ArrowUp',
+      description:
+        'When focus is on MenuTrigger, opens the menu. When focus is on an item, moves focus to the previous item.',
+    },
+    {
+      key: 'Esc',
+      description: 'Closes the menu and moves focus to MenuTrigger.',
+    },
+  ].map((kbi, i) => (
+    <>
+      <Flex>
+        <Box width="300px">
+          <kbd>{kbi.key}</kbd>
+        </Box>
+        <BodyText as="span">{kbi.description}</BodyText>
+      </Flex>
+      {i < 4 ? <Divider /> : null}
+    </>
+  ))}
+</Flex>
+
+## Menu API
+
+| Prop           | Type                      |
+| -------------- | ------------------------- |
+| `defaultOpen`  | `boolean`                 |
+| `open`         | `boolean`                 |
+| `onOpenChange` | `(open: boolean) => void` |
+
+## MenuContent API
+
+| Prop         | Type                                                       |
+| ------------ | ---------------------------------------------------------- |
+| `placement`  | `"bottomLeft" \| "bottomRight" \| "topLeft" \| "topRight"` |
+| `forceMount` | `boolean`                                                  |
+
+### MenuItem API
+
+This component is based on the `div` element.
+
+| Prop          | Type                            |
+| ------------- | ------------------------------- |
+| `colorScheme` | `"functional" \| "destructive"` |
+| `disabled`    | `boolean`                       |
+| `onSelect`    | `(event: Event) => void`        |
+| `textValue`   | `string`                        |
