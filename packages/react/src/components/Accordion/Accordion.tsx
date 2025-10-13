@@ -20,7 +20,7 @@ export const Accordion = React.forwardRef<AccordionElement, AccordionProps>((pro
     heading,
     headingElement = 'h2',
     helperText,
-    link,
+    trailingContent,
     ...restProps
   } = extractProps(props, marginPropDefs);
 
@@ -28,7 +28,7 @@ export const Accordion = React.forwardRef<AccordionElement, AccordionProps>((pro
     heading,
     headingElement,
     helperText,
-    link,
+    trailingContent,
   };
 
   const accordionProps = {
