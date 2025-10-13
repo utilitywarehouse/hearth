@@ -166,7 +166,7 @@ export const FlatBase: Story = {
 export const SurfaceColours: Story = {
   render: () => (
     <Flex width="600px">
-      <Flex gap="200" direction="column" padding="200" backgroundColor="grey0">
+      <Flex gap="200" direction="column" padding="200" backgroundColor="primary">
         {colorSchemes.map(colorScheme => (
           <Badge
             key={colorScheme}
@@ -178,7 +178,7 @@ export const SurfaceColours: Story = {
           </Badge>
         ))}
       </Flex>
-      <Flex gap="200" direction="column" padding="200" backgroundColor="purple1000">
+      <Flex gap="200" direction="column" padding="200" backgroundColor="brand">
         {colorSchemes.map(colorScheme => (
           <Badge
             key={colorScheme}
@@ -190,7 +190,7 @@ export const SurfaceColours: Story = {
           </Badge>
         ))}
       </Flex>
-      <Flex gap="200" direction="column" padding="200" backgroundColor="grey0">
+      <Flex gap="200" direction="column" padding="200" backgroundColor="secondary">
         {colorSchemes.map(colorScheme => (
           <Badge
             key={colorScheme}
