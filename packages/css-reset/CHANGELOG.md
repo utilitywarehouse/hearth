@@ -1,5 +1,11 @@
 # @utilitywarehouse/css-reset
 
+## 0.1.2
+
+### Patch Changes
+
+- [#537](https://github.com/utilitywarehouse/hearth/pull/537) [`86a6726`](https://github.com/utilitywarehouse/hearth/commit/86a6726139c0ced6f323da65ae0270bb1d2a6558) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `Button` & `Link` font-family, from detail to body text.
+
 ## 0.1.1
 
 ### Patch Changes
