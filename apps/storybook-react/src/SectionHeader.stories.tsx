@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Flex, Link, Badge, SectionHeader } from '@utilitywarehouse/hearth-react';
+import { Flex, Link, Badge, SectionHeader, Button } from '@utilitywarehouse/hearth-react';
 import { SettingsSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof SectionHeader> = {
@@ -49,6 +49,23 @@ export const WithBadge: Story = {
     return (
       <Flex width="600px">
         <SectionHeader {...args} trailingContent={<Badge size="sm">Badge</Badge>} />
+      </Flex>
+    );
+  },
+};
+
+export const WithButton: Story = {
+  render: args => {
+    return (
+      <Flex width="600px">
+        <SectionHeader
+          {...args}
+          trailingContent={
+            <Button size="sm" variant="outline" colorScheme="functional">
+              Button
+            </Button>
+          }
+        />
       </Flex>
     );
   },
