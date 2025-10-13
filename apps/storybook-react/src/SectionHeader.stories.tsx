@@ -88,7 +88,7 @@ export const CustomLink: Story = {
         <SectionHeader
           heading="Customization of icon"
           helperText="Custom icon on right"
-          link={
+          trailingContent={
             <Link href="#">
               <SettingsSmallIcon />
               Settings
@@ -97,7 +97,7 @@ export const CustomLink: Story = {
         />
         <SectionHeader
           heading="No icon, href target _blank, no helper text"
-          link={
+          trailingContent={
             <Link href="#" target="_blank">
               Call to action
             </Link>
@@ -105,5 +105,19 @@ export const CustomLink: Story = {
         />
       </Flex>
     );
+  },
+};
+
+export const ValidationText: Story = {
+  render: args => {
+    return (
+      <Flex width="600px">
+        <SectionHeader {...args} />
+      </Flex>
+    );
+  },
+  args: {
+    validationStatus: 'invalid',
+    validationText: 'Validation text',
   },
 };
