@@ -18,7 +18,7 @@ export interface SectionHeaderProps
    */
   helperText?: string;
   /**
-   * Optional link element
+   * Optional trailing content element
    */
-  link?: ReactNode;
+  trailingContent?: ReactNode;
 }

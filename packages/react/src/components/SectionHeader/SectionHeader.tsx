@@ -14,14 +14,25 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type SectionHeaderElement = ElementRef<'div'>;
 
 export const SectionHeader = React.forwardRef<SectionHeaderElement, SectionHeaderProps>(
-  ({ className, heading, id, headingElement: HeadingEl = 'div', helperText, link, ...props }) => {
+  ({
+    className,
+    heading,
+    id,
+    headingElement: HeadingEl = 'div',
+    helperText,
+    trailingContent,
+    ...props
+  }) => {
     return (
       <div className={clsx(componentClassName, className)}>
         <Heading asChild size="md" id={id} {...props}>
           <HeadingEl>{heading}</HeadingEl>
         </Heading>
         {helperText ? <HelperText>{helperText}</HelperText> : null}
-        {link}
+
+        {trailingContent ? (
+          <span className={`${componentClassName}TrailingContent`}>{trailingContent}</span>
+        ) : null}
       </div>
     );
   }
