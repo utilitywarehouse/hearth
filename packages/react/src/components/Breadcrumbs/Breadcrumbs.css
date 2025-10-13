@@ -1,0 +1,12 @@
+.hearth-Breadcrumbs {
+  & :where(ol) {
+    display: flex;
+    flex-direction: row;
+    gap: var(--h-breadcrumb-gap);
+  }
+}
+
+.hearth-BreadcrumbItem > .hearth-BodyText {
+  opacity: 1;
+  cursor: default;
+}
