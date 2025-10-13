@@ -397,8 +397,9 @@
   --h-tabs-md-height: var(--h-space-700)px;
   --h-toast-background-color: var(--h-color-grey-1000);
   --h-toast-border-radius: var(--h-border-radius-md);
-  --h-toast-gap-horizontal: var(--h-space-100);
+  --h-toast-gap-horizontal: var(--h-space-200);
   --h-toast-padding: var(--h-space-175);
+  --h-toast-stack-gap-horizontal: var(--h-space-100);
   --h-toggle-button-border-radius: var(--h-border-radius-md);
   --h-toggle-button-border-width: var(--h-border-width-2);
   --h-toggle-button-gap: var(--h-space-75);
