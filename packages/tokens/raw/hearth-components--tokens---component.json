@@ -2359,14 +2359,21 @@
         "value": 8
       },
       "gap-horizontal": {
-        "alias": "{space.100}",
+        "alias": "{space.200}",
         "type": "number",
-        "value": 8
+        "value": 16
       },
       "padding": {
         "alias": "{space.175}",
         "type": "number",
         "value": 14
+      },
+      "stack": {
+        "gap-horizontal": {
+          "alias": "{space.100}",
+          "type": "number",
+          "value": 8
+        }
       }
     },
     "toggle-button": {
@@ -4844,14 +4851,21 @@
         "value": 8
       },
       "gap-horizontal": {
-        "alias": "{space.100}",
+        "alias": "{space.200}",
         "type": "number",
-        "value": 8
+        "value": 16
       },
       "padding": {
         "alias": "{space.175}",
         "type": "number",
         "value": 14
+      },
+      "stack": {
+        "gap-horizontal": {
+          "alias": "{space.100}",
+          "type": "number",
+          "value": 8
+        }
       }
     },
     "toggle-button": {
