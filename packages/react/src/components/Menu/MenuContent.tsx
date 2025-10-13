@@ -11,11 +11,10 @@ export const MenuContent: React.FC<MenuContentProps> = ({
   className,
   children,
   forceMount,
-  container,
   placement = 'bottomLeft',
   ...props
 }) => {
-  const portalProps = { forceMount, container };
+  const portalProps = { forceMount };
   const placementTranslation: {
     [key: string]: { side: 'bottom' | 'top'; align: 'start' | 'end' };
   } = {
