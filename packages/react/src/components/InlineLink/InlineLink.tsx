@@ -15,16 +15,18 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type InlineLinkElement = ElementRef<'a'>;
 
 export const InlineLink = React.forwardRef<InlineLinkElement, InlineLinkProps>((props, ref) => {
-  const { className, inverted, children, ...inlineLinkProps } = extractProps(
-    props,
-    marginPropDefs,
-    textTransformPropDefs
-  );
+  const {
+    className,
+    color = 'default',
+    children,
+    ...inlineLinkProps
+  } = extractProps(props, marginPropDefs, textTransformPropDefs);
   return (
     <a
       ref={ref}
       className={clsx(componentClassName, className)}
-      data-inverted={inverted ? '' : undefined}
+      data-inverted={color === 'inverted' ? '' : undefined}
+      data-inherit-color={color === 'inherit' ? '' : undefined}
       {...inlineLinkProps}
     >
       {children}

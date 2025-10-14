@@ -6,6 +6,5 @@ export interface InlineLinkProps
   extends ComponentPropsWithout<'a', RemovedProps>,
     MarginProps,
     TextTransformProps {
-  /** Inverts the component colours, for use on darker surface colours. */
-  inverted?: boolean;
+  color?: 'default' | 'inverted' | 'inherit';
 }
