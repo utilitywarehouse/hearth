@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react
 
+## 0.13.0
+
+### Minor Changes
+
+- [#547](https://github.com/utilitywarehouse/hearth/pull/547) [`0a271dc`](https://github.com/utilitywarehouse/hearth/commit/0a271dcc78818eba089a1395c8a52d43503d6ee0) Thanks [@robphoenix](https://github.com/robphoenix)! - Replace `InlineLink` `inverted` prop with `color` prop
+
+### Patch Changes
+
+- [#542](https://github.com/utilitywarehouse/hearth/pull/542) [`83f11ab`](https://github.com/utilitywarehouse/hearth/commit/83f11abdd8a04a44baec251dae31afa82aee861c) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `Breadcrumbs` component
+
 ## 0.12.0
 
 ### Minor Changes
