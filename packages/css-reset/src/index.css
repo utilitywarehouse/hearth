@@ -53,7 +53,7 @@
     text-decoration-skip-ink: auto;
   }
 
-  /* Sensible list defaults */
+  /* Sensible default list defaults */
   :where(ul, ol) {
     padding-inline-start: var(--h-space-400);
   }

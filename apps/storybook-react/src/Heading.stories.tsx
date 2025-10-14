@@ -47,14 +47,9 @@ export const KitchenSink: Story = {
 export const InvertedText: Story = {
   render: args => {
     return (
-      <Flex direction="column">
-        <Box backgroundColor="purple700" padding="400">
-          <Heading {...args}>Inverted text</Heading>
-        </Box>
-        <Box backgroundColor="purple1000" padding="400">
-          <Heading {...args}>Inverted text</Heading>
-        </Box>
-      </Flex>
+      <Box backgroundColor="brand" padding="400">
+        <Heading {...args}>Inverted text</Heading>
+      </Box>
     );
   },
   args: {
