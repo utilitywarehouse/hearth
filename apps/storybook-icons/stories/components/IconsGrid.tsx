@@ -39,8 +39,8 @@ export const IconsGrid = ({ icons, ...props }: IconsGridProps) => {
               as="li"
               direction="column"
               gap="200"
-              align="center"
-              justify="center"
+              alignItems="center"
+              justifyContent="center"
             >
               <CardAction>
                 <UnstyledIconButton
