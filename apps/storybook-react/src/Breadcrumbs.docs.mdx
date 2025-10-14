@@ -1,0 +1,31 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './Breadcrumbs.stories';
+
+import { DocsHeader } from './storybook-components/DocsHeader';
+
+<Meta title="Components / Breadcrumbs" />
+
+<DocsHeader componentName="Breadcrumbs" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Current page
+
+Use the `currentPage` prop to indicate the current page.
+
+## Breadcrumbs API
+
+This component is based on the `nav` element and supports the following common props:
+
+- Margin
+
+## BreadcrumbItem API
+
+This component is based on the `Link` component.
+
+| Prop               | Type                                                               |
+| ------------------ | ------------------------------------------------------------------ |
+| `currentPage`          | `boolean`                                                          |

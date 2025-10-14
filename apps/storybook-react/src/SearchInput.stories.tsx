@@ -80,7 +80,7 @@ export const UsageWithButton: Story = {
   render: () => {
     const [value, setValue] = React.useState<string>('');
     return (
-      <Box height="100%" width="100%" backgroundColor="warmWhite50" padding="200">
+      <Box height="100%" width="100%" backgroundColor="primary" padding="200">
         <Flex asChild gap="50" width={{ mobile: '100%', tablet: '500px' }}>
           <form role="search" action="/search">
             <SearchInput
@@ -93,7 +93,7 @@ export const UsageWithButton: Story = {
               onClear={() => setValue('')}
             />
             <Box display={{ mobile: 'none', tablet: 'block' }}>
-              <Button variant="solid" colorScheme="yellow">
+              <Button variant="solid" colorScheme="highlight">
                 Search
               </Button>
             </Box>
