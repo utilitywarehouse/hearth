@@ -5,9 +5,18 @@ import { BodyText, Flex, InlineLink } from '@utilitywarehouse/hearth-react';
 const meta: Meta<typeof InlineLink> = {
   title: 'Stories / InlineLink',
   component: InlineLink,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'An `InlineLink` is a hyperlink embedded directly within a sentence or paragraph of text.',
+      },
+    },
+  },
   argTypes: {
     children: { control: { type: 'text' } },
     href: { control: { type: 'text' } },
+    color: { control: { type: 'radio' }, options: ['default', 'inverted', 'inherit'] },
   },
 };
 
@@ -24,7 +33,7 @@ export const Playground: Story = {
       gap="400"
       width="500px"
       padding="400"
-      backgroundColor="warmWhite50"
+      backgroundColor="primary"
       alignItems="center"
       justifyContent="center"
     >
@@ -77,33 +86,51 @@ export const LengthyContent: Story = {
   args: { children: 'follow our handy guide to set your International call cap' },
 };
 
-export const Inverted: Story = {
+export const Color: Story = {
   render: args => (
     <Flex
       direction="column"
-      gap="400"
+      gap="600"
       width="500px"
-      padding="400"
-      backgroundColor="uwPurple"
-      align="center"
-      justify="center"
+      backgroundColor="primary"
+      alignItems="center"
+      justifyContent="center"
     >
-      <BodyText>
-        <InlineLink {...args} />
-      </BodyText>
-      <BodyText>
-        Agnes Martin was an American <InlineLink inverted>abstract painter</InlineLink> known for
-        her <InlineLink inverted>minimalist</InlineLink> style. Martin&apos;s art was characterized
-        by serene compositions featuring <InlineLink inverted>grids and lines</InlineLink>.
-        Martin&apos;s minimalist approach conveyed tranquility and{' '}
-        <InlineLink inverted>spirituality</InlineLink>, and her paintings often carried positive
-        names reflective of her <InlineLink inverted>philosophy</InlineLink>.
-      </BodyText>
+      <Flex direction="column" gap="400" backgroundColor="brand" padding="400">
+        <BodyText>
+          <InlineLink {...args} color="inverted">
+            Inverted color
+          </InlineLink>
+        </BodyText>
+        <BodyText color="inverted">
+          Agnes Martin was an American <InlineLink color="inverted">abstract painter</InlineLink>{' '}
+          known for her <InlineLink color="inverted">minimalist</InlineLink> style. Martin&apos;s
+          art was characterized by serene compositions featuring{' '}
+          <InlineLink color="inverted">grids and lines</InlineLink>. Martin&apos;s minimalist
+          approach conveyed tranquility and <InlineLink color="inverted">spirituality</InlineLink>,
+          and her paintings often carried positive names reflective of her{' '}
+          <InlineLink color="inverted">philosophy</InlineLink>.
+        </BodyText>
+      </Flex>
+      <Flex direction="column" gap="400" backgroundColor="secondary" padding="400">
+        <BodyText color="affirmative">
+          <InlineLink {...args} color="inherit">
+            Inherited color
+          </InlineLink>
+        </BodyText>
+        <BodyText color="brand">
+          Agnes Martin was an American <InlineLink color="inherit">abstract painter</InlineLink>{' '}
+          known for her <InlineLink color="inherit">minimalist</InlineLink> style. Martin&apos;s art
+          was characterized by serene compositions featuring{' '}
+          <InlineLink color="inherit">grids and lines</InlineLink>. Martin&apos;s minimalist
+          approach conveyed tranquility and <InlineLink color="inherit">spirituality</InlineLink>,
+          and her paintings often carried positive names reflective of her{' '}
+          <InlineLink color="inherit">philosophy</InlineLink>.
+        </BodyText>
+      </Flex>
     </Flex>
   ),
   args: {
-    children: 'Inverted InlineLink',
     href: '#',
-    inverted: true,
   },
 };

@@ -14,6 +14,10 @@
     color: var(--h-inline-link-inverted-color);
   }
 
+  &:where([data-inherit-color]) {
+    color: inherit;
+  }
+
   &:where(:visited) {
     color: var(--h-inline-link-color-visited);
   }
@@ -24,6 +28,10 @@
 
       &:where([data-inverted]) {
         color: var(--h-inline-link-inverted-color-hover);
+      }
+
+      &:where([data-inherit-color]) {
+        color: inherit;
       }
     }
   }
