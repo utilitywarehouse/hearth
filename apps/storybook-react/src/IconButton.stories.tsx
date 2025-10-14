@@ -349,7 +349,7 @@ export const ResponsiveSize: Story = {
 
 export const Inverted: Story = {
   render: () => (
-    <Flex gap="400" backgroundColor="purple700" padding="400">
+    <Flex gap="400" backgroundColor="brand" padding="400">
       <IconButton variant="emphasis" inverted label="add">
         <AddMediumIcon />
       </IconButton>

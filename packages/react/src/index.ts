@@ -201,3 +201,8 @@ export { MenuContent } from './components/Menu/MenuContent';
 export type { MenuContentProps } from './components/Menu/MenuContent.props';
 export { MenuItem } from './components/Menu/MenuItem';
 export type { MenuItemProps } from './components/Menu/MenuItem.props';
+
+export { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
+export type { BreadcrumbsProps } from './components/Breadcrumbs/Breadcrumbs.props';
+export { BreadcrumbItem } from './components/Breadcrumbs/BreadcrumbItem';
+export type { BreadcrumbItemProps } from './components/Breadcrumbs/BreadcrumbItem.props';
