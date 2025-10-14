@@ -11,9 +11,9 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
-## Link
+## Trailing content
 
-Use the `link` prop to provide a call-to-action or navigation link.
+Use the `trailingContent` prop to include a `Link`, `Button` or `Badge` component.
 
 ```tsx
 import { Link, SectionHeader } from '@utilitywarehouse/hearth-react';
@@ -32,11 +32,14 @@ import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 />
 ```
 
+<Canvas of={Stories.WithBadge} />
+<Canvas of={Stories.WithButton} />
+
 ## API
 
-| Prop             | Type                                    |
-| ---------------- | --------------------------------------- |
-| `heading`        | `string`                                |
-| `headingElement` | `"div" \| "h1" \| "h2" \| "h3" \| "h4"` |
-| `helperText`     | `string`                                |
-| `link`           | `ReactNode`                             |
+| Prop              | Type                                    |
+| ----------------- | --------------------------------------- |
+| `heading`         | `string`                                |
+| `headingElement`  | `"div" \| "h1" \| "h2" \| "h3" \| "h4"` |
+| `helperText`      | `string`                                |
+| `trailingContent` | `ReactNode`                             |

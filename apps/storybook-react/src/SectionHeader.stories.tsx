@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Flex, Link, SectionHeader } from '@utilitywarehouse/hearth-react';
+import { Flex, Link, Badge, SectionHeader, Button } from '@utilitywarehouse/hearth-react';
 import { SettingsSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof SectionHeader> = {
@@ -32,11 +32,38 @@ export const Playground: Story = {
       <Flex width="600px">
         <SectionHeader
           {...args}
-          link={
+          trailingContent={
             <Link>
               Link text
               <ChevronRightSmallIcon />
             </Link>
+          }
+        />
+      </Flex>
+    );
+  },
+};
+
+export const WithBadge: Story = {
+  render: args => {
+    return (
+      <Flex width="600px">
+        <SectionHeader {...args} trailingContent={<Badge size="sm">Badge</Badge>} />
+      </Flex>
+    );
+  },
+};
+
+export const WithButton: Story = {
+  render: args => {
+    return (
+      <Flex width="600px">
+        <SectionHeader
+          {...args}
+          trailingContent={
+            <Button size="sm" variant="outline" colorScheme="functional">
+              Button
+            </Button>
           }
         />
       </Flex>
@@ -51,7 +78,7 @@ export const CustomLink: Story = {
         <SectionHeader
           heading="Default usage"
           helperText="Identical to List heading"
-          link={
+          trailingContent={
             <Link href="#">
               See more
               <ChevronRightSmallIcon />
@@ -61,7 +88,7 @@ export const CustomLink: Story = {
         <SectionHeader
           heading="Customization of icon"
           helperText="Custom icon on right"
-          link={
+          trailingContent={
             <Link href="#">
               <SettingsSmallIcon />
               Settings
@@ -70,7 +97,7 @@ export const CustomLink: Story = {
         />
         <SectionHeader
           heading="No icon, href target _blank, no helper text"
-          link={
+          trailingContent={
             <Link href="#" target="_blank">
               Call to action
             </Link>
@@ -78,5 +105,19 @@ export const CustomLink: Story = {
         />
       </Flex>
     );
+  },
+};
+
+export const ValidationText: Story = {
+  render: args => {
+    return (
+      <Flex width="600px">
+        <SectionHeader {...args} />
+      </Flex>
+    );
+  },
+  args: {
+    validationStatus: 'invalid',
+    validationText: 'Validation text',
   },
 };
