@@ -11,12 +11,14 @@ import {
   ModalTrigger,
   ModalFooter,
   ModalClose,
+  Heading,
 } from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';
-import { space, color } from '@utilitywarehouse/hearth-tokens/browser';
+import { space, color, components } from '@utilitywarehouse/hearth-tokens/browser';
 import NextLink from 'next/link';
 
 export default function Home() {
+  console.log(components.container.width);
   return (
     <>
       <Head>
@@ -102,6 +104,15 @@ export default function Home() {
           Hearth Tokens
         </StyledBox>
       </div>
+
+      <Heading>Partner examples</Heading>
+
+      <Flex
+        maxWidth={components.container.width}
+        paddingBottom={components.container.paddingBottom}
+      >
+        Container
+      </Flex>
     </>
   );
 }

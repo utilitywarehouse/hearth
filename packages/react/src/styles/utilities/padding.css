@@ -1,4 +1,8 @@
 @breakpoints {
+  .hearth-r-padding-bottom {
+    padding-bottom: var(--h-r-padding-bottom);
+  }
+
   .hearth-r-padding-0 {
     padding: 0;
   }

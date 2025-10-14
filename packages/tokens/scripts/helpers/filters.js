@@ -1,5 +1,5 @@
 // Components that have device-specific variants (mobile, tablet, desktop)
-const VALID_DEVICE_COMPONENTS = ['card', 'dialog', 'modal'];
+const VALID_DEVICE_COMPONENTS = ['card', 'dialog', 'modal', 'container'];
 // Component tokens to ignore because they are native only implmentations
 const NATIVE_ONLY_COMPONENTS = ['bottom-navigation', 'top-navigation', 'indicator-icon-button'];
 

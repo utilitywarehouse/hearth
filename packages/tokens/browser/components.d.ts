@@ -797,6 +797,28 @@ export declare const components: {
     readonly paddingHorizontal: 'var(--h-tooltip-padding-horizontal)';
     readonly paddingVertical: 'var(--h-tooltip-padding-vertical)';
   };
+  readonly container: {
+    readonly margin: {
+      readonly desktop: 'var(--h-container-margin-desktop)';
+      readonly mobile: 'var(--h-container-margin-mobile)';
+      readonly tablet: 'var(--h-container-margin-tablet)';
+    };
+    readonly paddingBottom: {
+      readonly desktop: 'var(--h-container-padding-bottom-desktop)';
+      readonly mobile: 'var(--h-container-padding-bottom-mobile)';
+      readonly tablet: 'var(--h-container-padding-bottom-tablet)';
+    };
+    readonly paddingTop: {
+      readonly desktop: 'var(--h-container-padding-top-desktop)';
+      readonly mobile: 'var(--h-container-padding-top-mobile)';
+      readonly tablet: 'var(--h-container-padding-top-tablet)';
+    };
+    readonly width: {
+      readonly desktop: 'var(--h-container-width-desktop)';
+      readonly mobile: 'var(--h-container-width-mobile)';
+      readonly tablet: 'var(--h-container-width-tablet)';
+    };
+  };
   readonly heading: {
     readonly lg: {
       readonly fontSize: {

@@ -418,6 +418,10 @@
   --h-dialog-width-desktop: 680px;
   --h-modal-padding-desktop: var(--h-space-600);
   --h-modal-width-desktop: 680px;
+  --h-container-margin-desktop: var(--h-space-400);
+  --h-container-padding-bottom-desktop: var(--h-space-600);
+  --h-container-padding-top-desktop: var(--h-space-400);
+  --h-container-width-desktop: 1096px;
   --h-heading-lg-font-size-desktop: var(--h-font-size-400);
   --h-heading-lg-line-height-desktop: var(--h-line-height-800);
   --h-heading-md-font-size-desktop: var(--h-font-size-300);
@@ -431,6 +435,10 @@
   --h-dialog-width-mobile: 360px;
   --h-modal-padding-mobile: var(--h-space-200);
   --h-modal-width-mobile: 360px;
+  --h-container-margin-mobile: var(--h-space-200);
+  --h-container-padding-bottom-mobile: var(--h-space-400);
+  --h-container-padding-top-mobile: var(--h-space-300);
+  --h-container-width-mobile: 360px;
   --h-body-text-font-weight: var(--h-font-weight-regular);
   --h-body-text-font-weight-bold: var(--h-font-weight-bold);
   --h-body-text-font-weight-semibold: var(--h-font-weight-semibold);
@@ -482,6 +490,10 @@
   --h-dialog-width-tablet: 504px;
   --h-modal-padding-tablet: var(--h-space-600);
   --h-modal-width-tablet: 504px;
+  --h-container-margin-tablet: var(--h-space-400);
+  --h-container-padding-bottom-tablet: var(--h-space-400);
+  --h-container-padding-top-tablet: var(--h-space-300);
+  --h-container-width-tablet: 744px;
   --h-heading-lg-font-size-tablet: var(--h-font-size-300);
   --h-heading-lg-line-height-tablet: var(--h-line-height-700);
   --h-heading-md-font-size-tablet: var(--h-font-size-200);
