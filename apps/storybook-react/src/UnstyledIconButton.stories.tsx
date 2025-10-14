@@ -37,7 +37,7 @@ export const Playground: Story = {
           {args.size === 'sm' ? <CloseSmallIcon /> : <CloseMediumIcon />}
         </UnstyledIconButton>
       </Box>
-      <Box padding="200" backgroundColor="purple700">
+      <Box padding="200" backgroundColor="brand">
         <UnstyledIconButton {...args} inverted>
           {args.size === 'sm' ? <CloseSmallIcon /> : <CloseMediumIcon />}
         </UnstyledIconButton>
