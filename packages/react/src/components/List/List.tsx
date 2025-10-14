@@ -23,7 +23,7 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
     heading,
     headingElement,
     helperText,
-    link,
+    trailingContent,
     children,
     ...listProps
   } = extractProps(props, marginPropDefs);
@@ -32,7 +32,7 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
     heading,
     headingElement,
     helperText,
-    link,
+    trailingContent,
   };
 
   return (
