@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.4.1
+
+### Patch Changes
+
+- [#544](https://github.com/utilitywarehouse/hearth/pull/544) [`98e6423`](https://github.com/utilitywarehouse/hearth/commit/98e642347a0aca8c23babb15ea6b5c70b6adca0f) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds legacy colour palette for backwards compatibility
+
 ## 0.4.0
 
 ### Minor Changes
