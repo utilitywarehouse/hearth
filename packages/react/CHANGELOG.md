@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.12.0
+
+### Minor Changes
+
+- [#543](https://github.com/utilitywarehouse/hearth/pull/543) [`0e3d236`](https://github.com/utilitywarehouse/hearth/commit/0e3d2368c271327d0fb5d4c2d8c3cac9b42e2f5f) Thanks [@robphoenix](https://github.com/robphoenix)! - Change `SectionHeader` `link` prop to `trailingContent` and add validation
+
 ## 0.11.1
 
 ### Patch Changes
