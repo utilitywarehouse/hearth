@@ -18,7 +18,15 @@ export interface SectionHeaderProps
    */
   helperText?: string;
   /**
-   * Optional link element
+   * Optional trailing content element
    */
-  link?: ReactNode;
+  trailingContent?: ReactNode;
+  /**
+   * Indicates the validation state
+   */
+  validationStatus?: 'invalid';
+  /**
+   * Text to display when the `validationStatus` is set.
+   */
+  validationText?: string;
 }

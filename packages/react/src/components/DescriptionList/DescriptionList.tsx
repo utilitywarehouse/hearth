@@ -21,7 +21,7 @@ export const DescriptionList = React.forwardRef<DescriptionListElement, Descript
       heading,
       headingElement,
       helperText,
-      link,
+      trailingContent,
       children,
       direction,
       ...listProps
@@ -31,7 +31,7 @@ export const DescriptionList = React.forwardRef<DescriptionListElement, Descript
       heading,
       headingElement,
       helperText,
-      link,
+      trailingContent,
     };
 
     return (
