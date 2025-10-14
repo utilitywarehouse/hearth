@@ -8,7 +8,8 @@
     "preview": "vite preview",
     "dev": "storybook dev -p 6006",
     "clean": "rm -rf node_modules storybook-static .turbo",
-    "build:storybook": "storybook build"
+    "build:storybook": "storybook build",
+    "chromatic": "chromatic --config-file 'chromatic.config.json'"
   },
   "dependencies": {
     "@utilitywarehouse/hearth-fonts": "workspace:*",
