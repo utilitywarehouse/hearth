@@ -15,3 +15,4 @@ export interface InlineLinkProps
    * Use 'inherit' to match the surrounding text color.
    */
   color?: 'default' | 'inverted' | 'inherit';
+}
