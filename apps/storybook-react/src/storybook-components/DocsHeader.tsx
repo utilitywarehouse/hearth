@@ -1,7 +1,8 @@
 import * as React from 'react';
 
 import { Description } from '@storybook/addon-docs/blocks';
-import { Flex } from '@utilitywarehouse/hearth-react';
+import { Divider, Flex, Heading, Link } from '@utilitywarehouse/hearth-react';
+import { OpenSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 interface DocsHeaderProps {
   componentName: string;
@@ -12,20 +13,30 @@ interface DocsHeaderProps {
 
 export const DocsHeader = ({ componentName, figmaLink, stories }: DocsHeaderProps) => {
   return (
-    <div>
+    <Flex marginBottom="400" className="sb-unstyled" width="100%" direction="column" gap="400">
       <Flex width="100%" alignItems="center" justifyContent="between">
-        <h1>{componentName}</h1>
+        <Heading as="h1" size="xl">
+          {componentName}
+        </Heading>
         <Flex gap="300">
-          <a href={`/?path=/story/stories-${componentName}`}>Stories</a>
-          <a
+          <Link href={`/?path=/story/stories-${componentName}`}>Stories</Link>
+          <Link
             href={`https://github.com/utilitywarehouse/hearth/blob/main/packages/react/src/components/${componentName}`}
           >
             Source
-          </a>
-          {figmaLink ? <a href={figmaLink}>Design</a> : null}
+            <OpenSmallIcon />
+          </Link>
+          {figmaLink ? (
+            <Link href={figmaLink}>
+              Design
+              <OpenSmallIcon />
+            </Link>
+          ) : null}
         </Flex>
       </Flex>
+      <Divider decorative />
       <Description of={stories} />
-    </div>
+      <Divider decorative />
+    </Flex>
   );
 };
