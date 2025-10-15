@@ -2,24 +2,21 @@ import type { Breakpoint, Responsive } from '../types/responsive';
 import { isResponsiveObject } from './is-responsive-object';
 
 /**
- * Translate an `IconButton` size into a corresponding `Spinner` size.
- *
- * Mapping used:
- * - `md` → `sm`
- * - `sm` → `xs`
+ * Translates a responsive size value according to a provided mapping.
  *
  * If a responsive size object is provided, the translation is applied per
  * breakpoint and a responsive size object is returned.
  *
  * Examples
  * ```ts
- * getIconButtonSpinnerSize('md') // => 'sm'
- * getIconButtonSpinnerSize({ mobile: 'sm', tablet: 'md' })
- * // => { mobile: 'xs', tablet: 'sm' }
+ * getResponsiveSizeTranslation('large', { large: 'medium', medium: 'small' }) // => 'medium'
+ * getResponsiveSizeTranslation({ mobile: 'small', tablet: 'large' }, { large: 'medium', small: 'tiny' })
+ * // => { mobile: 'tiny', tablet: 'medium' }
  * ```
  *
- * @param buttonSize - The `IconButton` size (string or responsive object).
- * @returns The translated `Spinner` size (string or responsive object). May be `undefined` if input is unsupported.
+ * @param size - The size value (string or responsive object) to translate.
+ * @param translation - Mapping object from input size to output size.
+ * @returns The translated size (string or responsive object). May be `undefined` if input is unsupported.
  */
 export function getResponsiveSizeTranslation(
   size: Responsive<string>,
