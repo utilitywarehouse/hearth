@@ -1,6 +1,6 @@
 // Components that have device-specific variants (mobile, tablet, desktop)
-const VALID_DEVICE_COMPONENTS = ['card', 'dialog', 'modal', 'container'];
-// Component tokens to ignore because they are native only implmentations
+const VALID_DEVICE_COMPONENTS = ['card', 'dialog', 'modal', 'container', 'menu', 'select'];
+// React Native only component tokens
 const NATIVE_ONLY_COMPONENTS = ['bottom-navigation', 'top-navigation', 'indicator-icon-button'];
 
 // Shared filters for gathering specific sets of tokens.

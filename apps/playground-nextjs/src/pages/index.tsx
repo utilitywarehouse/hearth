@@ -109,6 +109,7 @@ export default function Home() {
 
       <Flex
         maxWidth={components.container.width}
+        // paddingBottom={{ mobile: '100', tablet: 'var(--h-space-200)', desktop: '32px' }}
         paddingBottom={components.container.paddingBottom}
       >
         Container

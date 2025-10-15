@@ -416,8 +416,10 @@
   --h-card-padding-desktop: var(--h-space-300);
   --h-card-padding-none-desktop: 0;
   --h-dialog-width-desktop: 680px;
+  --h-menu-item-padding-desktop: var(--h-space-150);
   --h-modal-padding-desktop: var(--h-space-600);
   --h-modal-width-desktop: 680px;
+  --h-select-item-padding-desktop: var(--h-space-150);
   --h-container-margin-desktop: var(--h-space-400);
   --h-container-padding-bottom-desktop: var(--h-space-600);
   --h-container-padding-top-desktop: var(--h-space-400);
@@ -433,8 +435,10 @@
   --h-card-padding-mobile: var(--h-space-200);
   --h-card-padding-none-mobile: 0;
   --h-dialog-width-mobile: 360px;
+  --h-menu-item-padding-mobile: var(--h-space-50);
   --h-modal-padding-mobile: var(--h-space-200);
   --h-modal-width-mobile: 360px;
+  --h-select-item-padding-mobile: var(--h-space-50);
   --h-container-margin-mobile: var(--h-space-200);
   --h-container-padding-bottom-mobile: var(--h-space-400);
   --h-container-padding-top-mobile: var(--h-space-300);
@@ -488,8 +492,10 @@
   --h-card-padding-tablet: var(--h-space-300);
   --h-card-padding-none-tablet: 0;
   --h-dialog-width-tablet: 504px;
+  --h-menu-item-padding-tablet: var(--h-space-150);
   --h-modal-padding-tablet: var(--h-space-600);
   --h-modal-width-tablet: 504px;
+  --h-select-item-padding-tablet: var(--h-space-150);
   --h-container-margin-tablet: var(--h-space-400);
   --h-container-padding-bottom-tablet: var(--h-space-400);
   --h-container-padding-top-tablet: var(--h-space-300);

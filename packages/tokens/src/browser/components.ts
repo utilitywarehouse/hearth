@@ -451,7 +451,11 @@ export const components = {
     item: {
       borderRadius: 'var(--h-menu-item-border-radius)',
       gap: 'var(--h-menu-item-gap)',
-      padding: 'var(--h-menu-item-padding)',
+      padding: {
+        desktop: 'var(--h-menu-item-padding-desktop)',
+        mobile: 'var(--h-menu-item-padding-mobile)',
+        tablet: 'var(--h-menu-item-padding-tablet)',
+      },
     },
     list: {
       gap: 'var(--h-menu-list-gap)',
@@ -682,6 +686,13 @@ export const components = {
     paddingVertical: 'var(--h-select-padding-vertical)',
     validation: {
       gap: 'var(--h-select-validation-gap)',
+    },
+    item: {
+      padding: {
+        desktop: 'var(--h-select-item-padding-desktop)',
+        mobile: 'var(--h-select-item-padding-mobile)',
+        tablet: 'var(--h-select-item-padding-tablet)',
+      },
     },
   },
   skeleton: {

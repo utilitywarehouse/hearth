@@ -450,7 +450,11 @@ export declare const components: {
     readonly item: {
       readonly borderRadius: 'var(--h-menu-item-border-radius)';
       readonly gap: 'var(--h-menu-item-gap)';
-      readonly padding: 'var(--h-menu-item-padding)';
+      readonly padding: {
+        readonly desktop: 'var(--h-menu-item-padding-desktop)';
+        readonly mobile: 'var(--h-menu-item-padding-mobile)';
+        readonly tablet: 'var(--h-menu-item-padding-tablet)';
+      };
     };
     readonly list: {
       readonly gap: 'var(--h-menu-list-gap)';
@@ -681,6 +685,13 @@ export declare const components: {
     readonly paddingVertical: 'var(--h-select-padding-vertical)';
     readonly validation: {
       readonly gap: 'var(--h-select-validation-gap)';
+    };
+    readonly item: {
+      readonly padding: {
+        readonly desktop: 'var(--h-select-item-padding-desktop)';
+        readonly mobile: 'var(--h-select-item-padding-mobile)';
+        readonly tablet: 'var(--h-select-item-padding-tablet)';
+      };
     };
   };
   readonly skeleton: {

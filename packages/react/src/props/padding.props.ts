@@ -1,6 +1,8 @@
 import { spaceTokens } from '../tokens/space';
+import { CssTokenVariable } from '../types/css-token-variable';
+import { PropDef } from '../types/prop-def';
 import { Responsive } from '../types/responsive';
-import { PropDef, Union } from './prop-def';
+import { Union } from '../types/union';
 
 const paddingPropDefs = {
   padding: { className: 'padding', tokens: spaceTokens, responsive: true },
@@ -24,7 +26,7 @@ interface PaddingProps {
   padding?: Responsive<(typeof spaceTokens)[number]>;
   paddingTop?: Responsive<(typeof spaceTokens)[number]>;
   paddingRight?: Responsive<(typeof spaceTokens)[number]>;
-  paddingBottom?: Responsive<Union<string, (typeof spaceTokens)[number]>>;
+  paddingBottom?: Responsive<CssTokenVariable | (typeof spaceTokens)[number]>;
   paddingLeft?: Responsive<(typeof spaceTokens)[number]>;
   paddingInline?: Responsive<(typeof spaceTokens)[number]>;
   paddingBlock?: Responsive<(typeof spaceTokens)[number]>;
