@@ -29,7 +29,7 @@ export interface AvatarProps
    */
   name?: RadixAvatar.AvatarImageProps['alt'];
   /**
-   * Sets the badge size.
+   * Sets the avatar size.
    * @default md
    */
   size?: Responsive<(typeof sizes)[number]>;
