@@ -1,5 +1,8 @@
 name: Code Checks
-on: push
+on:
+  push:
+    branches-ignore:
+      - 'changeset-release/main'
 
 jobs:
   checks:
