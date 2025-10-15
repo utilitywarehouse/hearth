@@ -25,7 +25,6 @@ export interface AvatarProps
     MarginProps {
   /**
    * Set the name associated with the avatar, used for creating initials, and an accessible description.
-   * @default md
    */
   name?: RadixAvatar.AvatarImageProps['alt'];
   /**
