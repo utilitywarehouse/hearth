@@ -15,10 +15,13 @@ export const avatarPropDefs = {
 export interface AvatarProps
   extends Omit<
       ComponentPropsWithoutRef<typeof RadixAvatar.Root>,
-      keyof RadixAvatar.AvatarImageProps
+      keyof RadixAvatar.AvatarImageProps | 'asChild'
     >,
     Omit<ComponentProps<typeof RadixAvatar.Image>, 'alt'>,
-    Omit<ComponentPropsWithoutRef<typeof RadixAvatar.Fallback>, keyof RadixAvatar.AvatarImageProps>,
+    Omit<
+      ComponentPropsWithoutRef<typeof RadixAvatar.Fallback>,
+      keyof RadixAvatar.AvatarImageProps | 'asChild'
+    >,
     MarginProps {
   /**
    * Set the name associated with the avatar, used for creating initials, and an accessible description.
