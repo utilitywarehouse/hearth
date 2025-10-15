@@ -38,13 +38,29 @@ export const KitchenSink: Story = {
           />
         </Flex>
         <Flex direction="row" gap="200" alignItems="center">
+          <Avatar size="md" name="Rob Phoenix" />
+          <Avatar size="sm" name="Rob Phoenix" />
+        </Flex>
+        <Flex direction="row" gap="200" alignItems="center">
           <Avatar size="md" />
           <Avatar size="sm" />
         </Flex>
-        <Flex direction="row" gap="200" alignItems="center">
-          <Avatar size="md" name="Agnes Martin" />
-          <Avatar size="sm" name="Agnes Martin" />
-        </Flex>
+      </Flex>
+    );
+  },
+};
+
+export const ResponsiveSize: Story = {
+  render: () => {
+    return (
+      <Flex direction="row" gap="200" alignItems="center">
+        <Avatar
+          size={{ mobile: 'sm', desktop: 'md' }}
+          src="https://ca.slack-edge.com/T0HR00WDA-UN6U78K0R-afda0a8a2fa7-512"
+          name="Rob Phoenix"
+        />
+        <Avatar size={{ mobile: 'sm', desktop: 'md' }} name="Rob Phoenix" />
+        <Avatar size={{ mobile: 'sm', desktop: 'md' }} />
       </Flex>
     );
   },
