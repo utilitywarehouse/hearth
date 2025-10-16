@@ -206,3 +206,6 @@ export { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
 export type { BreadcrumbsProps } from './components/Breadcrumbs/Breadcrumbs.props';
 export { BreadcrumbItem } from './components/Breadcrumbs/BreadcrumbItem';
 export type { BreadcrumbItemProps } from './components/Breadcrumbs/BreadcrumbItem.props';
+
+export { Avatar } from './components/Avatar/Avatar';
+export type { AvatarProps } from './components/Avatar/Avatar.props';
