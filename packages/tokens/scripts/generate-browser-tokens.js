@@ -76,11 +76,13 @@ StyleDictionary.registerFormat({
       // deep merge the token into the tokens object
       merge(tokens, tokenObject);
     });
-    // write the tokens to file
 
+    // the switch token name is a reserved word in JS
     if (tokensName === 'switch') {
-      tokensName = 'switchComponent'; // @robphoenix the switch token is a reserved word in JS
+      tokensName = 'switchComponent';
     }
+
+    // write the tokens to file
     return `export const ${camelCase(tokensName)} = ${JSON.stringify(tokens, null, 2)} as const;\n`;
   },
 });
