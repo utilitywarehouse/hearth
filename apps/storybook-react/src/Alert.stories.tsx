@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Alert, AlertIconButton, AlertLink, Flex } from '@utilitywarehouse/hearth-react';
+import {
+  Alert,
+  AlertIconButton,
+  AlertLink,
+  Flex,
+  InlineLink,
+  Strong,
+} from '@utilitywarehouse/hearth-react';
 import { useEffect, useState } from 'react';
 
 const colorSchemes = ['info', 'positive', 'danger', 'warning'] as const;
@@ -91,6 +98,23 @@ export const WithAlertLink: Story = {
         text="This is a warning message with just an icon link."
       >
         <AlertLink href="#action" />
+      </Alert>
+      <Alert
+        colorScheme="danger"
+        title="Sorry, something went wrong"
+        text={
+          <>
+            If the problem persists, please contact Partner Support on{' '}
+            <InlineLink href="tel:+443337778777" style={{ color: 'inherit' }}>
+              <Strong>0333&nbsp;7778777</Strong>
+            </InlineLink>{' '}
+            (Monday to Friday 09:00-17:30, Saturdays 10:00-13:00).
+          </>
+        }
+      >
+        <AlertLink asChild>
+          <button onClick={() => alert('Custom action')}>Custom action as button</button>
+        </AlertLink>
       </Alert>
     </Flex>
   ),
