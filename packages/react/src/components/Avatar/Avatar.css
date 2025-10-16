@@ -1,0 +1,38 @@
+.hearth-Avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  overflow: hidden;
+  user-select: none;
+  background-color: var(--h-surface-pig-subtle);
+
+  @breakpoints {
+    &:where(.hearth-r-size-md) {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--h-avatar-md-border-radius);
+    }
+
+    &:where(.hearth-r-size-sm) {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--h-avatar-sm-border-radius);
+    }
+  }
+
+  & .hearth-AvatarImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+
+  & .hearth-AvatarFallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

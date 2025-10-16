@@ -2,6 +2,11 @@
   width: 100%;
   display: flex;
   gap: var(--h-list-item-gap);
+  align-items: center;
+
+  &:has(.hearth-HelperText) {
+    align-items: start;
+  }
 
   & :where(.hearth-ListItemContentTrailingContent) {
     display: flex;
