@@ -51,6 +51,14 @@ You can add a link to your alert using the `AlertLink` component. This is useful
 </Alert>
 ```
 
+If you need to you can also render the `AlertLink` as a `button` element using the `asChild` pattern:
+
+```tsx
+<AlertLink asChild>
+  <button onClick={() => alert('Custom action')}>Custom action as button</button>
+</AlertLink>
+```
+
 <Canvas of={Stories.WithAlertLink} sourceState="none" />
 
 ## Dismissable
