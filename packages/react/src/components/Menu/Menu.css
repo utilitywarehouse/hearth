@@ -31,7 +31,7 @@
     font-size: var(--h-body-text-md-font-size);
     font-weight: var(--h-font-weight-regular);
     line-height: var(--h-body-text-md-line-height);
-    border-radius: var(--h-select-dropdown-item-border-radius);
+    border-radius: var(--h-menu-item-border-radius);
     user-select: none;
 
     &:not([data-disabled]) {
