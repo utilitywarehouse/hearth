@@ -69,15 +69,15 @@
         }
       },
       "container": {
+        "margin": {
+          "alias": "{space.400}",
+          "type": "number",
+          "value": 32
+        },
         "padding-bottom": {
           "alias": "{space.600}",
           "type": "number",
           "value": 48
-        },
-        "padding-horizontal": {
-          "alias": "{space.400}",
-          "type": "number",
-          "value": 32
         },
         "padding-top": {
           "alias": "{space.400}",
@@ -107,11 +107,6 @@
           "alias": "{space.300}",
           "type": "number",
           "value": 24
-        },
-        "margin": {
-          "alias": "{space.400}",
-          "type": "number",
-          "value": 32
         }
       },
       "spacing": {
@@ -547,15 +542,15 @@
         }
       },
       "container": {
+        "margin": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        },
         "padding-bottom": {
           "alias": "{space.400}",
           "type": "number",
           "value": 32
-        },
-        "padding-horizontal": {
-          "alias": "{space.200}",
-          "type": "number",
-          "value": 16
         },
         "padding-top": {
           "alias": "{space.300}",
@@ -582,11 +577,6 @@
           "value": 8
         },
         "gutter": {
-          "alias": "{space.200}",
-          "type": "number",
-          "value": 16
-        },
-        "margin": {
           "alias": "{space.200}",
           "type": "number",
           "value": 16
@@ -1025,12 +1015,12 @@
         }
       },
       "container": {
-        "padding-bottom": {
+        "margin": {
           "alias": "{space.400}",
           "type": "number",
           "value": 32
         },
-        "padding-horizontal": {
+        "padding-bottom": {
           "alias": "{space.400}",
           "type": "number",
           "value": 32
@@ -1063,11 +1053,6 @@
           "alias": "{space.300}",
           "type": "number",
           "value": 24
-        },
-        "margin": {
-          "alias": "{space.400}",
-          "type": "number",
-          "value": 32
         }
       },
       "spacing": {
