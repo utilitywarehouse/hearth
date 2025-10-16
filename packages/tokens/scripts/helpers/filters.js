@@ -108,16 +108,32 @@ export const filters = {
       }
       return token;
     }
+    // Exclude primitive tokens
+    if (token.filePath.includes('primitive')) {
+      return false;
+    }
+    // Exclude semantic tokens
+    if (token.filePath.includes('semantic')) {
+      return false;
+    }
+    // Only include valid device tokens
+    if (
+      token.filePath.includes('device') &&
+      !token.path.some(el => VALID_DEVICE_COMPONENTS.includes(el))
+    ) {
+      return false;
+    }
+
+    // Exclude dark mode tokens
+    if (token.path.includes('dark')) {
+      return false;
+    }
+
     // Exclude native only component tokens
     if (token.path.some(el => NATIVE_ONLY_COMPONENTS.includes(el))) {
       return false;
     }
-    return (
-      (!token.filePath.includes('semantic') &&
-        token.filePath.includes('component') &&
-        token.attributes.category === 'light') ||
-      (token.filePath.includes('device') &&
-        token.path.some(el => VALID_DEVICE_COMPONENTS.includes(el)))
-    );
+
+    return token;
   },
 };
