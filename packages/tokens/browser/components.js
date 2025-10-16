@@ -1,5 +1,160 @@
 export const components = {
+  accordion: {
+    gap: 'var(--h-accordion-gap)',
+    heading: {
+      gap: 'var(--h-accordion-heading-gap)',
+    },
+    item: {
+      content: {
+        gap: 'var(--h-accordion-item-content-gap)',
+        paddingBottom: 'var(--h-accordion-item-content-padding-bottom)',
+        paddingHorizontal: 'var(--h-accordion-item-content-padding-horizontal)',
+        paddingTop: 'var(--h-accordion-item-content-padding-top)',
+      },
+      gap: 'var(--h-accordion-item-gap)',
+      heading: {
+        gap: 'var(--h-accordion-item-heading-gap)',
+        paddingHorizontal: 'var(--h-accordion-item-heading-padding-horizontal)',
+        paddingVertical: 'var(--h-accordion-item-heading-padding-vertical)',
+      },
+    },
+    maxWidth: 'var(--h-accordion-max-width)',
+    minWidth: 'var(--h-accordion-min-width)',
+    padding: 'var(--h-accordion-padding)',
+  },
+  alert: {
+    borderRadius: 'var(--h-alert-border-radius)',
+    borderWidth: 'var(--h-alert-border-width)',
+    contentGap: 'var(--h-alert-content-gap)',
+    focus: 'var(--h-alert-focus)',
+    gap: 'var(--h-alert-gap)',
+    iconButton: {
+      unstyled: {
+        foregroundColor: 'var(--h-alert-icon-button-unstyled-foreground-color)',
+        foregroundColorActive: 'var(--h-alert-icon-button-unstyled-foreground-color-active)',
+        foregroundColorHover: 'var(--h-alert-icon-button-unstyled-foreground-color-hover)',
+      },
+    },
+    link: {
+      color: 'var(--h-alert-link-color)',
+      colorActive: 'var(--h-alert-link-color-active)',
+      colorHover: 'var(--h-alert-link-color-hover)',
+    },
+    padding: 'var(--h-alert-padding)',
+  },
+  avatar: {
+    image: {
+      borderWidth: 'var(--h-avatar-image-border-width)',
+    },
+    md: {
+      borderRadius: 'var(--h-avatar-md-border-radius)',
+      height: 'var(--h-avatar-md-height)',
+      width: 'var(--h-avatar-md-width)',
+    },
+    sm: {
+      borderRadius: 'var(--h-avatar-sm-border-radius)',
+      height: 'var(--h-avatar-sm-height)',
+      width: 'var(--h-avatar-sm-width)',
+    },
+  },
+  badge: {
+    borderRadius: 'var(--h-badge-border-radius)',
+    flatBase: {
+      borderBottomLeftRadius: 'var(--h-badge-flat-base-border-bottom-left-radius)',
+      borderBottomRightRadius: 'var(--h-badge-flat-base-border-bottom-right-radius)',
+    },
+    gap: 'var(--h-badge-gap)',
+    md: {
+      height: 'var(--h-badge-md-height)',
+      paddingVertical: 'var(--h-badge-md-padding-vertical)',
+    },
+    outline: {
+      borderWidth: 'var(--h-badge-outline-border-width)',
+    },
+    paddingHorizontal: 'var(--h-badge-padding-horizontal)',
+    sm: {
+      height: 'var(--h-badge-sm-height)',
+      paddingVertical: 'var(--h-badge-sm-padding-vertical)',
+    },
+  },
+  banner: {
+    default: {
+      content: {
+        gap: 'var(--h-banner-default-content-gap)',
+        textGap: 'var(--h-banner-default-content-text-gap)',
+      },
+      gap: 'var(--h-banner-default-gap)',
+      horizontal: {
+        illustrationWidth: 'var(--h-banner-default-horizontal-illustration-width)',
+        imageMaxWidth: 'var(--h-banner-default-horizontal-image-max-width)',
+        imageMinWidth: 'var(--h-banner-default-horizontal-image-min-width)',
+        maxWidth: 'var(--h-banner-default-horizontal-max-width)',
+        minWidth: 'var(--h-banner-default-horizontal-min-width)',
+      },
+      imageHeight: 'var(--h-banner-default-image-height)',
+      padding: 'var(--h-banner-default-padding)',
+      vertical: {
+        maxWidth: 'var(--h-banner-default-vertical-max-width)',
+        minWidth: 'var(--h-banner-default-vertical-min-width)',
+      },
+    },
+    highlight: {
+      content: {
+        gap: 'var(--h-banner-highlight-content-gap)',
+      },
+      gap: 'var(--h-banner-highlight-gap)',
+      padding: 'var(--h-banner-highlight-padding)',
+    },
+    imageContainerBorderColor: 'var(--h-banner-image-container-border-color)',
+  },
+  bottomSheet: {
+    borderTopLeftRadius: 'var(--h-bottom-sheet-border-top-left-radius)',
+    borderTopRightRadius: 'var(--h-bottom-sheet-border-top-right-radius)',
+    gap: 'var(--h-bottom-sheet-gap)',
+    handle: {
+      backgroundColor: 'var(--h-bottom-sheet-handle-background-color)',
+      borderRadius: 'var(--h-bottom-sheet-handle-border-radius)',
+      height: 'var(--h-bottom-sheet-handle-height)',
+      width: 'var(--h-bottom-sheet-handle-width)',
+    },
+    padding: 'var(--h-bottom-sheet-padding)',
+  },
+  breadcrumb: {
+    gap: 'var(--h-breadcrumb-gap)',
+  },
+  button: {
+    borderRadius: 'var(--h-button-border-radius)',
+    borderWidth: 'var(--h-button-border-width)',
+    gap: 'var(--h-button-gap)',
+    md: {
+      paddingHorizontal: 'var(--h-button-md-padding-horizontal)',
+      paddingVertical: 'var(--h-button-md-padding-vertical)',
+    },
+    minWidth: 'var(--h-button-min-width)',
+    shadowColor: 'var(--h-button-shadow-color)',
+    sm: {
+      paddingHorizontal: 'var(--h-button-sm-padding-horizontal)',
+      paddingVertical: 'var(--h-button-sm-padding-vertical)',
+    },
+  },
   card: {
+    borderRadius: 'var(--h-card-border-radius)',
+    brand: {
+      borderWidth: 'var(--h-card-brand-border-width)',
+    },
+    neutral: {
+      emphasis: {
+        borderWidth: 'var(--h-card-neutral-emphasis-border-width)',
+      },
+      subtle: {
+        borderWidth: 'var(--h-card-neutral-subtle-border-width)',
+      },
+    },
+    selectable: {
+      borderWidth: 'var(--h-card-selectable-border-width)',
+      borderWidthSelected: 'var(--h-card-selectable-border-width-selected)',
+      gap: 'var(--h-card-selectable-gap)',
+    },
     padding: {
       desktop: 'var(--h-card-padding-desktop)',
       mobile: 'var(--h-card-padding-mobile)',
@@ -11,14 +166,309 @@ export const components = {
       tablet: 'var(--h-card-padding-none-tablet)',
     },
   },
+  carouselControl: {
+    gap: 'var(--h-carousel-control-gap)',
+    item: {
+      borderWidth: 'var(--h-carousel-control-item-border-width)',
+    },
+    size: 'var(--h-carousel-control-size)',
+  },
+  checkbox: {
+    borderRadius: 'var(--h-checkbox-border-radius)',
+    borderWidth: 'var(--h-checkbox-border-width)',
+    checked: {
+      backgroundColor: 'var(--h-checkbox-checked-background-color)',
+      icon: {
+        color: 'var(--h-checkbox-checked-icon-color)',
+      },
+    },
+    gap: 'var(--h-checkbox-gap)',
+    group: {
+      gap: 'var(--h-checkbox-group-gap)',
+      stack: {
+        gap: 'var(--h-checkbox-group-stack-gap)',
+      },
+    },
+    outlineColorActive: 'var(--h-checkbox-outline-color-active)',
+    outlineColorHover: 'var(--h-checkbox-outline-color-hover)',
+    outlineWidth: 'var(--h-checkbox-outline-width)',
+    tile: {
+      borderRadius: 'var(--h-checkbox-tile-border-radius)',
+      borderWidth: 'var(--h-checkbox-tile-border-width)',
+      borderWidthSelected: 'var(--h-checkbox-tile-border-width-selected)',
+      gap: 'var(--h-checkbox-tile-gap)',
+      group: {
+        gap: 'var(--h-checkbox-tile-group-gap)',
+        stack: {
+          gap: 'var(--h-checkbox-tile-group-stack-gap)',
+        },
+      },
+      maxWidth: 'var(--h-checkbox-tile-max-width)',
+      minWidth: 'var(--h-checkbox-tile-min-width)',
+      padding: 'var(--h-checkbox-tile-padding)',
+    },
+  },
+  datePicker: {
+    borderRadius: 'var(--h-date-picker-border-radius)',
+    borderWidth: 'var(--h-date-picker-border-width)',
+    borderWidthFocused: 'var(--h-date-picker-border-width-focused)',
+    calendar: {
+      borderRadius: 'var(--h-date-picker-calendar-border-radius)',
+      borderWidth: 'var(--h-date-picker-calendar-border-width)',
+      columnGap: 'var(--h-date-picker-calendar-column-gap)',
+      footer: {
+        gap: 'var(--h-date-picker-calendar-footer-gap)',
+      },
+      gap: 'var(--h-date-picker-calendar-gap)',
+      header: {
+        controlGap: 'var(--h-date-picker-calendar-header-control-gap)',
+        dateGap: 'var(--h-date-picker-calendar-header-date-gap)',
+      },
+      item: {
+        borderRadius: 'var(--h-date-picker-calendar-item-border-radius)',
+        minWidth: 'var(--h-date-picker-calendar-item-min-width)',
+        rangeBackground: 'var(--h-date-picker-calendar-item-range-background)',
+        roundelBackgroundColorInverted:
+          'var(--h-date-picker-calendar-item-roundel-background-color-inverted)',
+        roundelHeight: 'var(--h-date-picker-calendar-item-roundel-height)',
+        roundelWidth: 'var(--h-date-picker-calendar-item-roundel-width)',
+      },
+      maxWidth: 'var(--h-date-picker-calendar-max-width)',
+      minWidth: 'var(--h-date-picker-calendar-min-width)',
+      padding: 'var(--h-date-picker-calendar-padding)',
+      rowGap: 'var(--h-date-picker-calendar-row-gap)',
+    },
+    gap: 'var(--h-date-picker-gap)',
+    gapContainer: 'var(--h-date-picker-gap-container)',
+    header: {
+      controlGap: 'var(--h-date-picker-header-control-gap)',
+    },
+    height: 'var(--h-date-picker-height)',
+    maxWidth: 'var(--h-date-picker-max-width)',
+    minWidth: 'var(--h-date-picker-min-width)',
+    paddingHorizontal: 'var(--h-date-picker-padding-horizontal)',
+    paddingVertical: 'var(--h-date-picker-padding-vertical)',
+  },
+  descriptionList: {
+    gap: 'var(--h-description-list-gap)',
+    item: {
+      column: {
+        gap: 'var(--h-description-list-item-column-gap)',
+      },
+      gap: 'var(--h-description-list-item-gap)',
+      row: {
+        gap: 'var(--h-description-list-item-row-gap)',
+        headingWidth: 'var(--h-description-list-item-row-heading-width)',
+      },
+    },
+    stack: {
+      gap: 'var(--h-description-list-stack-gap)',
+    },
+  },
   dialog: {
+    action: {
+      gap: 'var(--h-dialog-action-gap)',
+    },
+    borderRadius: 'var(--h-dialog-border-radius)',
+    content: {
+      gap: 'var(--h-dialog-content-gap)',
+    },
+    gap: 'var(--h-dialog-gap)',
+    padding: 'var(--h-dialog-padding)',
     width: {
       desktop: 'var(--h-dialog-width-desktop)',
       mobile: 'var(--h-dialog-width-mobile)',
       tablet: 'var(--h-dialog-width-tablet)',
     },
   },
+  divider: {
+    borderWidth: 'var(--h-divider-border-width)',
+  },
+  expandableCard: {
+    gapHorizontal: 'var(--h-expandable-card-gap-horizontal)',
+    gapVertical: 'var(--h-expandable-card-gap-vertical)',
+    group: {
+      gap: 'var(--h-expandable-card-group-gap)',
+    },
+  },
+  formField: {
+    gap: 'var(--h-form-field-gap)',
+    helper: {
+      gap: 'var(--h-form-field-helper-gap)',
+    },
+  },
+  iconButton: {
+    borderRadius: 'var(--h-icon-button-border-radius)',
+    md: {
+      height: 'var(--h-icon-button-md-height)',
+      paddingHorizontal: 'var(--h-icon-button-md-padding-horizontal)',
+      paddingVertical: 'var(--h-icon-button-md-padding-vertical)',
+      width: 'var(--h-icon-button-md-width)',
+    },
+    sm: {
+      height: 'var(--h-icon-button-sm-height)',
+      paddingHorizontal: 'var(--h-icon-button-sm-padding-horizontal)',
+      paddingVertical: 'var(--h-icon-button-sm-padding-vertical)',
+      width: 'var(--h-icon-button-sm-width)',
+    },
+    unstyled: {
+      foregroundColor: 'var(--h-icon-button-unstyled-foreground-color)',
+      foregroundColorActive: 'var(--h-icon-button-unstyled-foreground-color-active)',
+      foregroundColorHover: 'var(--h-icon-button-unstyled-foreground-color-hover)',
+      inverted: {
+        foregroundColor: 'var(--h-icon-button-unstyled-inverted-foreground-color)',
+        foregroundColorActive: 'var(--h-icon-button-unstyled-inverted-foreground-color-active)',
+        foregroundColorHover: 'var(--h-icon-button-unstyled-inverted-foreground-color-hover)',
+      },
+      md: {
+        height: 'var(--h-icon-button-unstyled-md-height)',
+        width: 'var(--h-icon-button-unstyled-md-width)',
+      },
+      paddingHorizontal: 'var(--h-icon-button-unstyled-padding-horizontal)',
+      paddingVertical: 'var(--h-icon-button-unstyled-padding-vertical)',
+      sm: {
+        height: 'var(--h-icon-button-unstyled-sm-height)',
+        width: 'var(--h-icon-button-unstyled-sm-width)',
+      },
+    },
+  },
+  iconContainer: {
+    lg: {
+      borderRadiusNone: 'var(--h-icon-container-lg-border-radius-none)',
+      borderRadiusRounded: 'var(--h-icon-container-lg-border-radius-rounded)',
+      height: 'var(--h-icon-container-lg-height)',
+      padding: 'var(--h-icon-container-lg-padding)',
+      width: 'var(--h-icon-container-lg-width)',
+    },
+    md: {
+      borderRadiusRounded: 'var(--h-icon-container-md-border-radius-rounded)',
+      height: 'var(--h-icon-container-md-height)',
+      padding: 'var(--h-icon-container-md-padding)',
+      width: 'var(--h-icon-container-md-width)',
+    },
+    sm: {
+      borderRadiusRounded: 'var(--h-icon-container-sm-border-radius-rounded)',
+      height: 'var(--h-icon-container-sm-height)',
+      padding: 'var(--h-icon-container-sm-padding)',
+      width: 'var(--h-icon-container-sm-width)',
+    },
+  },
+  illustrations: {
+    mode: 'var(--h-illustrations-mode)',
+  },
+  inlineLink: {
+    color: 'var(--h-inline-link-color)',
+    colorVisited: 'var(--h-inline-link-color-visited)',
+    inverted: {
+      color: 'var(--h-inline-link-inverted-color)',
+      colorActive: 'var(--h-inline-link-inverted-color-active)',
+      colorHover: 'var(--h-inline-link-inverted-color-hover)',
+      colorVisited: 'var(--h-inline-link-inverted-color-visited)',
+    },
+  },
+  input: {
+    borderRadius: 'var(--h-input-border-radius)',
+    borderWidth: 'var(--h-input-border-width)',
+    borderWidthFocused: 'var(--h-input-border-width-focused)',
+    currency: {
+      gap: 'var(--h-input-currency-gap)',
+      height: 'var(--h-input-currency-height)',
+    },
+    date: {
+      gap: 'var(--h-input-date-gap)',
+    },
+    gap: 'var(--h-input-gap)',
+    height: 'var(--h-input-height)',
+    label: {
+      gap: 'var(--h-input-label-gap)',
+    },
+    maxWidth: 'var(--h-input-max-width)',
+    minWidth: 'var(--h-input-min-width)',
+    paddingHorizontal: 'var(--h-input-padding-horizontal)',
+    paddingVertical: 'var(--h-input-padding-vertical)',
+    textArea: {
+      height: 'var(--h-input-text-area-height)',
+    },
+    validation: {
+      gap: 'var(--h-input-validation-gap)',
+    },
+    verification: {
+      gap: 'var(--h-input-verification-gap)',
+    },
+  },
+  link: {
+    color: 'var(--h-link-color)',
+    colorActive: 'var(--h-link-color-active)',
+    colorHover: 'var(--h-link-color-hover)',
+    gap: 'var(--h-link-gap)',
+    inverted: {
+      color: 'var(--h-link-inverted-color)',
+      colorActive: 'var(--h-link-inverted-color-active)',
+      colorHover: 'var(--h-link-inverted-color-hover)',
+    },
+  },
+  list: {
+    container: {
+      emphasisWarmWhite: {
+        borderRadius: 'var(--h-list-container-emphasis-warm-white-border-radius)',
+      },
+      emphasisWhite: {
+        borderRadius: 'var(--h-list-container-emphasis-white-border-radius)',
+      },
+      none: {
+        borderRadius: 'var(--h-list-container-none-border-radius)',
+        item: {
+          paddingHorizontal: 'var(--h-list-container-none-item-padding-horizontal)',
+        },
+      },
+      subtleWarmWhite: {
+        borderRadius: 'var(--h-list-container-subtle-warm-white-border-radius)',
+      },
+      subtleWhite: {
+        borderRadius: 'var(--h-list-container-subtle-white-border-radius)',
+      },
+    },
+    gap: 'var(--h-list-gap)',
+    item: {
+      contentGap: 'var(--h-list-item-content-gap)',
+      functional: {
+        borderWidth: 'var(--h-list-item-functional-border-width)',
+        padding: 'var(--h-list-item-functional-padding)',
+        paddingNone: 'var(--h-list-item-functional-padding-none)',
+      },
+      gap: 'var(--h-list-item-gap)',
+      stylised: {
+        borderWidth: 'var(--h-list-item-stylised-border-width)',
+        height: 'var(--h-list-item-stylised-height)',
+        paddingLeft: 'var(--h-list-item-stylised-padding-left)',
+        paddingRight: 'var(--h-list-item-stylised-padding-right)',
+      },
+    },
+  },
+  menu: {
+    borderWidth: 'var(--h-menu-border-width)',
+    gap: 'var(--h-menu-gap)',
+    item: {
+      borderRadius: 'var(--h-menu-item-border-radius)',
+      gap: 'var(--h-menu-item-gap)',
+      padding: 'var(--h-menu-item-padding)',
+    },
+    list: {
+      gap: 'var(--h-menu-list-gap)',
+    },
+    maxWidth: 'var(--h-menu-max-width)',
+    minWidth: 'var(--h-menu-min-width)',
+    padding: 'var(--h-menu-padding)',
+  },
   modal: {
+    action: {
+      gap: 'var(--h-modal-action-gap)',
+    },
+    borderRadius: 'var(--h-modal-border-radius)',
+    content: {
+      gap: 'var(--h-modal-content-gap)',
+    },
+    gap: 'var(--h-modal-gap)',
     padding: {
       desktop: 'var(--h-modal-padding-desktop)',
       mobile: 'var(--h-modal-padding-mobile)',
@@ -29,6 +479,324 @@ export const components = {
       mobile: 'var(--h-modal-width-mobile)',
       tablet: 'var(--h-modal-width-tablet)',
     },
+  },
+  navigation: {
+    bar: {
+      borderRadiusNone: 'var(--h-navigation-bar-border-radius-none)',
+      borderRadiusRounded: 'var(--h-navigation-bar-border-radius-rounded)',
+    },
+    borderRadius: 'var(--h-navigation-border-radius)',
+    desktop: {
+      height: 'var(--h-navigation-desktop-height)',
+    },
+    dividerBorderColor: 'var(--h-navigation-divider-border-color)',
+    gap: 'var(--h-navigation-gap)',
+    mobile: {
+      height: 'var(--h-navigation-mobile-height)',
+    },
+  },
+  overlay: {
+    backgroundColor: 'var(--h-overlay-background-color)',
+    opacity: 'var(--h-overlay-opacity)',
+  },
+  pagination: {
+    gap: 'var(--h-pagination-gap)',
+    item: {
+      height: 'var(--h-pagination-item-height)',
+      radius: 'var(--h-pagination-item-radius)',
+      width: 'var(--h-pagination-item-width)',
+    },
+  },
+  parts: {
+    homeIndicator: {
+      foregroundColor: 'var(--h-parts-home-indicator-foreground-color)',
+      foregroundColorInverted: 'var(--h-parts-home-indicator-foreground-color-inverted)',
+    },
+    modalStack: {
+      backgroundColor: 'var(--h-parts-modal-stack-background-color)',
+      backgroundColorCardBottom: 'var(--h-parts-modal-stack-background-color-card-bottom)',
+      backgroundColorCardTop: 'var(--h-parts-modal-stack-background-color-card-top)',
+    },
+    placeholder: {
+      borderColor: 'var(--h-parts-placeholder-border-color)',
+    },
+    roundel: {
+      borderRadius: 'var(--h-parts-roundel-border-radius)',
+      pending: {
+        borderWidth: 'var(--h-parts-roundel-pending-border-width)',
+      },
+    },
+    scrollBar: {
+      backgroundColor: 'var(--h-parts-scroll-bar-background-color)',
+      borderRadius: 'var(--h-parts-scroll-bar-border-radius)',
+    },
+    statusBar: {
+      foregroundColor: 'var(--h-parts-status-bar-foreground-color)',
+      foregroundColorInverted: 'var(--h-parts-status-bar-foreground-color-inverted)',
+      notch: 'var(--h-parts-status-bar-notch)',
+    },
+  },
+  pill: {
+    borderRadius: 'var(--h-pill-border-radius)',
+    borderWidth: 'var(--h-pill-border-width)',
+    gap: 'var(--h-pill-gap)',
+    group: {
+      gap: 'var(--h-pill-group-gap)',
+    },
+    height: 'var(--h-pill-height)',
+    minWidth: 'var(--h-pill-min-width)',
+    paddingHorizontal: 'var(--h-pill-padding-horizontal)',
+    paddingVertical: 'var(--h-pill-padding-vertical)',
+  },
+  progressBar: {
+    barColor: 'var(--h-progress-bar-bar-color)',
+    circular: {
+      md: {
+        bar: {
+          width: 'var(--h-progress-bar-circular-md-bar-width)',
+        },
+        gap: 'var(--h-progress-bar-circular-md-gap)',
+        height: 'var(--h-progress-bar-circular-md-height)',
+        label: {
+          fontFamily: 'var(--h-progress-bar-circular-md-label-font-family)',
+          fontSize: 'var(--h-progress-bar-circular-md-label-font-size)',
+          fontWeight: 'var(--h-progress-bar-circular-md-label-font-weight)',
+          lineHeight: 'var(--h-progress-bar-circular-md-label-line-height)',
+        },
+      },
+      sm: {
+        barWidth: 'var(--h-progress-bar-circular-sm-bar-width)',
+        height: 'var(--h-progress-bar-circular-sm-height)',
+      },
+    },
+    linear: {
+      bar: {
+        borderRadius: 'var(--h-progress-bar-linear-bar-border-radius)',
+        height: 'var(--h-progress-bar-linear-bar-height)',
+      },
+      gap: 'var(--h-progress-bar-linear-gap)',
+      label: {
+        gap: 'var(--h-progress-bar-linear-label-gap)',
+      },
+    },
+    progress: {
+      dangerColor: 'var(--h-progress-bar-progress-danger-color)',
+      defaultColor: 'var(--h-progress-bar-progress-default-color)',
+      successColor: 'var(--h-progress-bar-progress-success-color)',
+    },
+  },
+  progressStepper: {
+    bar: {
+      complete: {
+        backgroundColor: 'var(--h-progress-stepper-bar-complete-background-color)',
+      },
+      height: 'var(--h-progress-stepper-bar-height)',
+    },
+    gapHorizontal: 'var(--h-progress-stepper-gap-horizontal)',
+    gapVertical: 'var(--h-progress-stepper-gap-vertical)',
+    indicator: {
+      complete: {
+        iconColor: 'var(--h-progress-stepper-indicator-complete-icon-color)',
+      },
+      future: {
+        borderWidth: 'var(--h-progress-stepper-indicator-future-border-width)',
+      },
+      height: 'var(--h-progress-stepper-indicator-height)',
+      width: 'var(--h-progress-stepper-indicator-width)',
+    },
+  },
+  radio: {
+    borderRadius: 'var(--h-radio-border-radius)',
+    borderWidth: 'var(--h-radio-border-width)',
+    checked: {
+      color: 'var(--h-radio-checked-color)',
+    },
+    gap: 'var(--h-radio-gap)',
+    group: {
+      gap: 'var(--h-radio-group-gap)',
+      stack: {
+        gap: 'var(--h-radio-group-stack-gap)',
+      },
+    },
+    outlineColorActive: 'var(--h-radio-outline-color-active)',
+    outlineColorHover: 'var(--h-radio-outline-color-hover)',
+    outlineWidth: 'var(--h-radio-outline-width)',
+    tile: {
+      borderRadius: 'var(--h-radio-tile-border-radius)',
+      borderWidth: 'var(--h-radio-tile-border-width)',
+      borderWidthSelected: 'var(--h-radio-tile-border-width-selected)',
+      gap: 'var(--h-radio-tile-gap)',
+      group: {
+        gap: 'var(--h-radio-tile-group-gap)',
+        stack: {
+          gap: 'var(--h-radio-tile-group-stack-gap)',
+        },
+      },
+      maxWidth: 'var(--h-radio-tile-max-width)',
+      minWidth: 'var(--h-radio-tile-min-width)',
+      padding: 'var(--h-radio-tile-padding)',
+    },
+  },
+  sectionHeader: {
+    gap: 'var(--h-section-header-gap)',
+    textContent: {
+      gap: 'var(--h-section-header-text-content-gap)',
+    },
+  },
+  segmentedControl: {
+    borderRadius: 'var(--h-segmented-control-border-radius)',
+    gap: 'var(--h-segmented-control-gap)',
+    group: {
+      borderRadius: 'var(--h-segmented-control-group-border-radius)',
+      borderWidth: 'var(--h-segmented-control-group-border-width)',
+      gap: 'var(--h-segmented-control-group-gap)',
+      height: 'var(--h-segmented-control-group-height)',
+      padding: 'var(--h-segmented-control-group-padding)',
+    },
+    height: 'var(--h-segmented-control-height)',
+    minWidth: 'var(--h-segmented-control-min-width)',
+    paddingHorizontal: 'var(--h-segmented-control-padding-horizontal)',
+    paddingVertical: 'var(--h-segmented-control-padding-vertical)',
+  },
+  select: {
+    borderRadius: 'var(--h-select-border-radius)',
+    borderWidth: 'var(--h-select-border-width)',
+    borderWidthFocused: 'var(--h-select-border-width-focused)',
+    dropdown: {
+      borderWidth: 'var(--h-select-dropdown-border-width)',
+      gap: 'var(--h-select-dropdown-gap)',
+      gapContent: 'var(--h-select-dropdown-gap-content)',
+      item: {
+        borderRadius: 'var(--h-select-dropdown-item-border-radius)',
+        gap: 'var(--h-select-dropdown-item-gap)',
+        padding: 'var(--h-select-dropdown-item-padding)',
+      },
+      padding: 'var(--h-select-dropdown-padding)',
+    },
+    gap: 'var(--h-select-gap)',
+    gapContainer: 'var(--h-select-gap-container)',
+    height: 'var(--h-select-height)',
+    maxWidth: 'var(--h-select-max-width)',
+    minWidth: 'var(--h-select-min-width)',
+    paddingHorizontal: 'var(--h-select-padding-horizontal)',
+    paddingVertical: 'var(--h-select-padding-vertical)',
+    validation: {
+      gap: 'var(--h-select-validation-gap)',
+    },
+  },
+  skeleton: {
+    loadingColor: 'var(--h-skeleton-loading-color)',
+  },
+  spinner: {
+    defaultFill: 'var(--h-spinner-default-fill)',
+    lg: {
+      size: 'var(--h-spinner-lg-size)',
+      strokeWidth: 'var(--h-spinner-lg-stroke-width)',
+    },
+    md: {
+      size: 'var(--h-spinner-md-size)',
+      strokeWidth: 'var(--h-spinner-md-stroke-width)',
+    },
+    padding: 'var(--h-spinner-padding)',
+    sm: {
+      size: 'var(--h-spinner-sm-size)',
+      strokeWidth: 'var(--h-spinner-sm-stroke-width)',
+    },
+    xs: {
+      size: 'var(--h-spinner-xs-size)',
+      strokeWidth: 'var(--h-spinner-xs-stroke-width)',
+    },
+  },
+  switch: {
+    md: {
+      circle: {
+        size: 'var(--h-switch-md-circle-size)',
+      },
+      height: 'var(--h-switch-md-height)',
+      width: 'var(--h-switch-md-width)',
+    },
+    padding: 'var(--h-switch-padding)',
+    radius: 'var(--h-switch-radius)',
+    sm: {
+      circle: {
+        size: 'var(--h-switch-sm-circle-size)',
+      },
+      height: 'var(--h-switch-sm-height)',
+      width: 'var(--h-switch-sm-width)',
+    },
+    unchecked: {
+      backgroundColorHover: 'var(--h-switch-unchecked-background-color-hover)',
+    },
+  },
+  table: {
+    borderRadius: 'var(--h-table-border-radius)',
+    cell: {
+      borderWidth: 'var(--h-table-cell-border-width)',
+      padding: 'var(--h-table-cell-padding)',
+    },
+    emphasis: {
+      borderWidth: 'var(--h-table-emphasis-border-width)',
+    },
+    headerCell: {
+      borderWidth: 'var(--h-table-header-cell-border-width)',
+      gap: 'var(--h-table-header-cell-gap)',
+      neutral: {
+        backgroundColor: 'var(--h-table-header-cell-neutral-background-color)',
+      },
+      paddingHorizontal: 'var(--h-table-header-cell-padding-horizontal)',
+      paddingVertical: 'var(--h-table-header-cell-padding-vertical)',
+    },
+    subtle: {
+      borderWidth: 'var(--h-table-subtle-border-width)',
+    },
+  },
+  tabs: {
+    divider: {
+      borderWidth: 'var(--h-tabs-divider-border-width)',
+      color: 'var(--h-tabs-divider-color)',
+    },
+    gap: 'var(--h-tabs-gap)',
+    item: {
+      gap: 'var(--h-tabs-item-gap)',
+      paddingHorizontal: 'var(--h-tabs-item-padding-horizontal)',
+      paddingVertical: 'var(--h-tabs-item-padding-vertical)',
+      selected: {
+        borderBottomRadius: 'var(--h-tabs-item-selected-border-bottom-radius)',
+        borderTopRadius: 'var(--h-tabs-item-selected-border-top-radius)',
+      },
+    },
+    lg: {
+      height: 'var(--h-tabs-lg-height)',
+    },
+    md: {
+      height: 'var(--h-tabs-md-height)',
+    },
+  },
+  toast: {
+    backgroundColor: 'var(--h-toast-background-color)',
+    borderRadius: 'var(--h-toast-border-radius)',
+    gapHorizontal: 'var(--h-toast-gap-horizontal)',
+    padding: 'var(--h-toast-padding)',
+    stack: {
+      gapHorizontal: 'var(--h-toast-stack-gap-horizontal)',
+    },
+  },
+  toggleButton: {
+    borderRadius: 'var(--h-toggle-button-border-radius)',
+    borderWidth: 'var(--h-toggle-button-border-width)',
+    gap: 'var(--h-toggle-button-gap)',
+    height: 'var(--h-toggle-button-height)',
+    minWidth: 'var(--h-toggle-button-min-width)',
+    paddingHorizontal: 'var(--h-toggle-button-padding-horizontal)',
+    paddingVertical: 'var(--h-toggle-button-padding-vertical)',
+  },
+  tooltip: {
+    backgroundColor: 'var(--h-tooltip-background-color)',
+    borderRadius: 'var(--h-tooltip-border-radius)',
+    gapHorizontal: 'var(--h-tooltip-gap-horizontal)',
+    gapVertical: 'var(--h-tooltip-gap-vertical)',
+    paddingHorizontal: 'var(--h-tooltip-padding-horizontal)',
+    paddingVertical: 'var(--h-tooltip-padding-vertical)',
   },
   heading: {
     lg: {
