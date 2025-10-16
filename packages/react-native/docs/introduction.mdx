@@ -23,8 +23,11 @@ Hearth React Native is a comprehensive design system library for React Native, p
 
 - [Installation](#installation)
 - [Additional packages](#additional-packages)
+- [Fonts](#fonts)
+  - [iOS Setup](#ios-setup)
   - [Linking the fonts to be used in your project](#linking-the-fonts-to-be-used-in-your-project)
-    - [Using Expo](#using-expo)
+  - [Android Setup](#android-setup)
+  - [Using Expo](#using-expo)
 - [Babel configuration](#babel-configuration)
 - [Jest configuration](#jest-configuration)
 
@@ -66,11 +69,21 @@ as well as fonts and icons. Feel free to additionally install these packages if 
 npm install @utilitywarehouse/hearth-tokens
 ```
 
+## Fonts
+
 You will need to include the **Comic Hams**, **DM Mono** and **DM Sans** fonts.
 The easiest way to do this is to use the `@utilitywarehouse/hearth-fonts` package.
 
 ```console
 npm install @utilitywarehouse/hearth-fonts
+```
+
+### iOS Setup
+
+For iOS, copy the font files to your project's assets folder:
+
+```console
+mkdir -p src/assets/fonts && cp ./node_modules/@utilitywarehouse/hearth-fonts/files/ttf/* src/assets/fonts/
 ```
 
 Next, create or update your `react-native.config.js` file in the root directory and paste the code below inside it:
@@ -81,7 +94,7 @@ module.exports = {
     ios: {},
     android: {},
   },
-  assets: ['./node_modules/@utilitywarehouse/hearth-fornts/files/ttf'],
+  assets: ['./src/assets/fonts/'],
 };
 ```
 
@@ -93,7 +106,36 @@ Now we need to link them so we'll be able to use them in any files inside the pr
 npx react-native-asset
 ```
 
-#### Using Expo
+### Android Setup
+
+For Android, you need to copy the fonts to two locations:
+
+1. Copy TTF files to the assets folder:
+
+```console
+mkdir -p android/app/src/main/assets/fonts && cp ./node_modules/@utilitywarehouse/hearth-fonts/files/ttf/* android/app/src/main/assets/fonts/
+```
+
+2. Copy XML font family definitions to the resources folder:
+
+```console
+mkdir -p android/app/src/main/res/font && cp ./node_modules/@utilitywarehouse/hearth-fonts/files/xml/* android/app/src/main/res/font/
+```
+
+3. Update your `android/app/src/main/java/com/{yourapp}/MainApplication.kt` file to register the custom fonts:
+
+```kotlin
+import com.facebook.react.views.text.ReactFontManager;
+
+// ... inside your onCreate() or initialization method:
+ReactFontManager.getInstance().addCustomFont(this, "DM Sans", R.font.dm_sans)
+ReactFontManager.getInstance().addCustomFont(this, "DM Mono", R.font.dm_mono)
+ReactFontManager.getInstance().addCustomFont(this, "Comic Hams", R.font.comic_hams)
+```
+
+This approach ensures fonts work consistently across platforms with a single canonical name, as described in [this article](https://ospfranco.com/post/2023/08/11/react-native,-how-to-set-up-fonts-with-a-single-canonical-name/).
+
+### Using Expo
 
 If you are using Expo, you can use the `expo-font` and [`expo-xml-font`](https://github.com/Armster15/expo-xml-font) packages to load the fonts.
 Here is an example of how to load the fonts in your `App.tsx` file:
@@ -131,7 +173,7 @@ You will need to add the following Babel plugin to your `babel.config.js` file:
 const unistylesPluginOptions = {
   autoProcessImports: ['@utilitywarehouse/hearth-react-native'],
   autoProcessPaths: ['@utilitywarehouse/hearth-react-native'],
-  autoProcessRoot: 'src', // Adjust this to your project's structure
+  root: 'src', // Adjust this to your project's structure
   debug: false, // Set to true for debugging purposes
 };
 
