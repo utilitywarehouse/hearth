@@ -5,13 +5,9 @@ import * as React from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Link } from '../Link/Link';
 import type { LinkProps } from '../Link/Link.props';
+import { Slot } from 'radix-ui';
 
-export interface AlertLinkProps extends Omit<LinkProps, 'asChild'> {
-  /**
-   * The content of the link.
-   */
-  children?: React.ReactNode;
-}
+export type AlertLinkProps = LinkProps;
 
 type AlertLinkElement = ElementRef<'a'>;
 
@@ -19,15 +15,16 @@ const COMPONENT_NAME = 'AlertLink';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const AlertLink = React.forwardRef<AlertLinkElement, AlertLinkProps>((props, ref) => {
-  const { children, ...linkProps } = props;
+  const { children, asChild, ...linkProps } = props;
   return (
     <Link
       ref={ref}
       className={clsx(componentClassName)}
       data-icon-only={children ? undefined : ''}
+      asChild={asChild}
       {...linkProps}
     >
-      {children}
+      {asChild ? <Slot.Slottable>{children}</Slot.Slottable> : children}
       <ChevronRightSmallIcon />
     </Link>
   );
