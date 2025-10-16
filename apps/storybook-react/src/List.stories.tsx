@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
+  Avatar,
   Box,
   Flex,
   List,
@@ -67,7 +68,7 @@ export const Playground: Story = {
     <Box width="400px">
       <List
         {...args}
-        link={
+        trailingContent={
           <Link href="#">
             Link
             <ChevronRightSmallIcon />
@@ -158,12 +159,40 @@ export const LeadingContent: Story = {
         </ListItem>
         <ListItem aria-label="list item">
           <ListItemContent
+            heading="Icon leading content"
+            helperText="Helper text"
+            leadingContent={<InfoMediumIcon />}
+          />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
             heading="Icon container leading content"
             leadingContent={
               <IconContainer variant="subtle" colorScheme="cashback" size="sm">
                 <CashbackCardSmallIcon />
               </IconContainer>
             }
+          />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="Icon container leading content"
+            helperText="Helper text"
+            leadingContent={
+              <IconContainer variant="subtle" colorScheme="cashback" size="sm">
+                <CashbackCardSmallIcon />
+              </IconContainer>
+            }
+          />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent heading="Avatar leading content" leadingContent={<Avatar size="sm" />} />
+        </ListItem>
+        <ListItem aria-label="list item">
+          <ListItemContent
+            heading="Avatar leading content"
+            helperText="Helper text"
+            leadingContent={<Avatar size="sm" />}
           />
         </ListItem>
       </List>
@@ -241,7 +270,7 @@ export const AllListItems: Story = {
     <Box width="400px">
       <List
         {...args}
-        link={
+        trailingContent={
           <Link href="#">
             Link
             <ChevronRightSmallIcon />
