@@ -7,8 +7,8 @@ export declare const mobile: {
     readonly minWidth: 320;
   };
   readonly container: {
+    readonly margin: 16;
     readonly paddingBottom: 32;
-    readonly paddingHorizontal: 16;
     readonly paddingTop: 24;
     readonly width: 360;
   };
@@ -17,7 +17,6 @@ export declare const mobile: {
     readonly columnWidth: 64;
     readonly gridSize: 8;
     readonly gutter: 16;
-    readonly margin: 16;
   };
   readonly spacing: {
     readonly '2xl': 28;
@@ -36,8 +35,8 @@ export declare const tablet: {
     readonly minWidth: 740;
   };
   readonly container: {
+    readonly margin: 32;
     readonly paddingBottom: 32;
-    readonly paddingHorizontal: 32;
     readonly paddingTop: 24;
     readonly width: 744;
   };
@@ -46,7 +45,6 @@ export declare const tablet: {
     readonly columnWidth: 64;
     readonly gridSize: 8;
     readonly gutter: 24;
-    readonly margin: 32;
   };
   readonly spacing: {
     readonly '2xl': 28;
@@ -65,8 +63,8 @@ export declare const desktop: {
     readonly minWidth: 992;
   };
   readonly container: {
+    readonly margin: 32;
     readonly paddingBottom: 48;
-    readonly paddingHorizontal: 32;
     readonly paddingTop: 32;
     readonly width: 1096;
   };
@@ -75,7 +73,6 @@ export declare const desktop: {
     readonly columnWidth: 64;
     readonly gridSize: 8;
     readonly gutter: 24;
-    readonly margin: 32;
   };
   readonly spacing: {
     readonly '2xl': 40;
@@ -95,8 +92,8 @@ declare const layout: {
       readonly minWidth: 320;
     };
     readonly container: {
+      readonly margin: 16;
       readonly paddingBottom: 32;
-      readonly paddingHorizontal: 16;
       readonly paddingTop: 24;
       readonly width: 360;
     };
@@ -105,7 +102,6 @@ declare const layout: {
       readonly columnWidth: 64;
       readonly gridSize: 8;
       readonly gutter: 16;
-      readonly margin: 16;
     };
     readonly spacing: {
       readonly '2xl': 28;
@@ -124,8 +120,8 @@ declare const layout: {
       readonly minWidth: 740;
     };
     readonly container: {
+      readonly margin: 32;
       readonly paddingBottom: 32;
-      readonly paddingHorizontal: 32;
       readonly paddingTop: 24;
       readonly width: 744;
     };
@@ -134,7 +130,6 @@ declare const layout: {
       readonly columnWidth: 64;
       readonly gridSize: 8;
       readonly gutter: 24;
-      readonly margin: 32;
     };
     readonly spacing: {
       readonly '2xl': 28;
@@ -153,8 +148,8 @@ declare const layout: {
       readonly minWidth: 992;
     };
     readonly container: {
+      readonly margin: 32;
       readonly paddingBottom: 48;
-      readonly paddingHorizontal: 32;
       readonly paddingTop: 32;
       readonly width: 1096;
     };
@@ -163,7 +158,6 @@ declare const layout: {
       readonly columnWidth: 64;
       readonly gridSize: 8;
       readonly gutter: 24;
-      readonly margin: 32;
     };
     readonly spacing: {
       readonly '2xl': 40;

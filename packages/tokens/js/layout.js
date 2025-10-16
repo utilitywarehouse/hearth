@@ -7,8 +7,8 @@ export const mobile = {
     minWidth: 320,
   },
   container: {
+    margin: 16,
     paddingBottom: 32,
-    paddingHorizontal: 16,
     paddingTop: 24,
     width: 360,
   },
@@ -17,7 +17,6 @@ export const mobile = {
     columnWidth: 64,
     gridSize: 8,
     gutter: 16,
-    margin: 16,
   },
   spacing: {
     '2xl': 28,
@@ -36,8 +35,8 @@ export const tablet = {
     minWidth: 740,
   },
   container: {
+    margin: 32,
     paddingBottom: 32,
-    paddingHorizontal: 32,
     paddingTop: 24,
     width: 744,
   },
@@ -46,7 +45,6 @@ export const tablet = {
     columnWidth: 64,
     gridSize: 8,
     gutter: 24,
-    margin: 32,
   },
   spacing: {
     '2xl': 28,
@@ -65,8 +63,8 @@ export const desktop = {
     minWidth: 992,
   },
   container: {
+    margin: 32,
     paddingBottom: 48,
-    paddingHorizontal: 32,
     paddingTop: 32,
     width: 1096,
   },
@@ -75,7 +73,6 @@ export const desktop = {
     columnWidth: 64,
     gridSize: 8,
     gutter: 24,
-    margin: 32,
   },
   spacing: {
     '2xl': 40,
