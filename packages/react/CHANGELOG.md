@@ -1,5 +1,18 @@
 # @utilitywarehouse/hearth-react
 
+## 0.13.1
+
+### Patch Changes
+
+- [#551](https://github.com/utilitywarehouse/hearth/pull/551) [`f3740f5`](https://github.com/utilitywarehouse/hearth/commit/f3740f54f802139909bc94f03907c00773387929) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `Avatar` component
+
+- [#554](https://github.com/utilitywarehouse/hearth/pull/554) [`8afecab`](https://github.com/utilitywarehouse/hearth/commit/8afecabbd2d4df61ee43c9bcad038ff01db43d11) Thanks [@robphoenix](https://github.com/robphoenix)! - Enable rendering of `AlertLink` as `button`
+
+- [#556](https://github.com/utilitywarehouse/hearth/pull/556) [`088f801`](https://github.com/utilitywarehouse/hearth/commit/088f80101013360f6c81d2333281ff6f8dab9779) Thanks [@robphoenix](https://github.com/robphoenix)! - Make all component tokens available for the browser
+
+- Updated dependencies [[`a82a29c`](https://github.com/utilitywarehouse/hearth/commit/a82a29c258a6e93d5dd920c0674f0980f492b79a), [`a82a29c`](https://github.com/utilitywarehouse/hearth/commit/a82a29c258a6e93d5dd920c0674f0980f492b79a)]:
+  - @utilitywarehouse/hearth-fonts@0.0.4
+
 ## 0.13.0
 
 ### Minor Changes
