@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-fonts
 
+## 0.0.4
+
+### Patch Changes
+
+- [#553](https://github.com/utilitywarehouse/hearth/pull/553) [`a82a29c`](https://github.com/utilitywarehouse/hearth/commit/a82a29c258a6e93d5dd920c0674f0980f492b79a) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds xml font format for Android
+
+- [#553](https://github.com/utilitywarehouse/hearth/pull/553) [`a82a29c`](https://github.com/utilitywarehouse/hearth/commit/a82a29c258a6e93d5dd920c0674f0980f492b79a) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes DM Mono ttf family name
+
 ## 0.0.3
 
 ### Patch Changes
