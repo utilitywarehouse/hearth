@@ -57,7 +57,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  render: args => {
+    const [value, setValue] = useState('12345.67');
+    return <CurrencyInput {...args} value={value} onChangeText={setValue} />;
+  },
+};
 
 export const DisableGroupSeparator: Story = {
   parameters: {
@@ -65,11 +70,8 @@ export const DisableGroupSeparator: Story = {
   },
   args: { disableGroupSeparator: true },
   render: args => {
-    const [value, setValue] = useState('1234.56');
-    const handleChange = (val: string) => {
-      setValue(val);
-    };
-    return <CurrencyInput {...args} value={value} onChangeText={handleChange} />;
+    const [value, setValue] = useState('12345.67');
+    return <CurrencyInput {...args} value={value} onChangeText={setValue} />;
   },
 };
 
