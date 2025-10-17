@@ -17,7 +17,7 @@ import { breakpoints } from '@utilitywarehouse/hearth-react';
   <Flex direction="column" gap="100" width="500px" marginBottom="600">
     {Object.keys(breakpoints).map((bp, i) => (
       <>
-        <Flex justifyContent="space-between">
+        <Flex justifyContent="between">
           <BodyText variant="body" as="span">
             {`breakpoints.${bp}`}
           </BodyText>

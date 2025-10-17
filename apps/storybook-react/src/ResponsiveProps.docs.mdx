@@ -27,3 +27,17 @@ greater than or equal to the named breakpoint.
   </BodyText>
 </Box>
 ```
+
+These use **mobile-first** media queries so you only need to include a larger
+breakpoint if it is different from the previous smaller breakpoint.
+
+```tsx
+<Box
+  padding={{
+    mobile: '100',
+    // tablet: '100', This breakpoint is not needed as it is the same as the mobile breakpoint.
+    desktop: '200',
+    // wide: '200', This breakpoint value matches the desktop one, so it is unnecessary, and will be covered by the desktop, mobile first, declaration
+  }}
+/>
+```

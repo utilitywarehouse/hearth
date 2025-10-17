@@ -1,3 +1,23 @@
+.hearth-border-color {
+  border-color: var(--h-border-color);
+}
+
+.hearth-border-top-color {
+  border-top-color: var(--h-border-top-color);
+}
+
+.hearth-border-right-color {
+  border-right-color: var(--h-border-right-color);
+}
+
+.hearth-border-bottom-color {
+  border-bottom-color: var(--h-border-bottom-color);
+}
+
+.hearth-border-left-color {
+  border-left-color: var(--h-border-left-color);
+}
+
 .hearth-border-color-strong {
   border-color: var(--h-border-strong);
 }
