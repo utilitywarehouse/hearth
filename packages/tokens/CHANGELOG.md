@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.1.2
+
+### Patch Changes
+
+- [#556](https://github.com/utilitywarehouse/hearth/pull/556) [`088f801`](https://github.com/utilitywarehouse/hearth/commit/088f80101013360f6c81d2333281ff6f8dab9779) Thanks [@robphoenix](https://github.com/robphoenix)! - Make all component tokens available for the browser
+
 ## 0.1.1
 
 ### Patch Changes
