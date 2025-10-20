@@ -1,4 +1,5 @@
 import { spaceTokens } from '../tokens/space';
+import { CssTokenVariable } from '../types/css-token-variable';
 import { Responsive } from '../types/responsive';
 import { PropDef } from './prop-def';
 
@@ -13,23 +14,23 @@ const marginPropDefs = {
   marginInline: { className: 'margin-inline', tokens: marginValues, responsive: true },
   marginBlock: { className: 'margin-block', tokens: marginValues, responsive: true },
 } satisfies {
-  margin: PropDef<(typeof marginValues)[number]>;
-  marginTop: PropDef<(typeof marginValues)[number]>;
-  marginRight: PropDef<(typeof marginValues)[number]>;
-  marginBottom: PropDef<(typeof marginValues)[number]>;
-  marginLeft: PropDef<(typeof marginValues)[number]>;
-  marginInline: PropDef<(typeof marginValues)[number]>;
-  marginBlock: PropDef<(typeof marginValues)[number]>;
+  margin: PropDef<(typeof marginValues)[number] | CssTokenVariable>;
+  marginTop: PropDef<(typeof marginValues)[number] | CssTokenVariable>;
+  marginRight: PropDef<(typeof marginValues)[number] | CssTokenVariable>;
+  marginBottom: PropDef<(typeof marginValues)[number] | CssTokenVariable>;
+  marginLeft: PropDef<(typeof marginValues)[number] | CssTokenVariable>;
+  marginInline: PropDef<(typeof marginValues)[number] | CssTokenVariable>;
+  marginBlock: PropDef<(typeof marginValues)[number] | CssTokenVariable>;
 };
 
 interface MarginProps {
-  margin?: Responsive<(typeof marginValues)[number]>;
-  marginTop?: Responsive<(typeof marginValues)[number]>;
-  marginRight?: Responsive<(typeof marginValues)[number]>;
-  marginBottom?: Responsive<(typeof marginValues)[number]>;
-  marginLeft?: Responsive<(typeof marginValues)[number]>;
-  marginInline?: Responsive<(typeof marginValues)[number]>;
-  marginBlock?: Responsive<(typeof marginValues)[number]>;
+  margin?: Responsive<(typeof marginValues)[number] | CssTokenVariable>;
+  marginTop?: Responsive<(typeof marginValues)[number] | CssTokenVariable>;
+  marginRight?: Responsive<(typeof marginValues)[number] | CssTokenVariable>;
+  marginBottom?: Responsive<(typeof marginValues)[number] | CssTokenVariable>;
+  marginLeft?: Responsive<(typeof marginValues)[number] | CssTokenVariable>;
+  marginInline?: Responsive<(typeof marginValues)[number] | CssTokenVariable>;
+  marginBlock?: Responsive<(typeof marginValues)[number] | CssTokenVariable>;
 }
 
 export { marginPropDefs };

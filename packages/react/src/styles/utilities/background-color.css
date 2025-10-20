@@ -1,3 +1,7 @@
+.hearth-background-color {
+  background-color: var(--h-background-color);
+}
+
 .hearth-background-color-primary {
   background-color: var(--h-background-primary);
 }

@@ -11,12 +11,15 @@ import {
   ModalTrigger,
   ModalFooter,
   ModalClose,
+  Heading,
+  Box,
 } from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';
-import { space, color } from '@utilitywarehouse/hearth-tokens/browser';
+import { space, color, components, semantic } from '@utilitywarehouse/hearth-tokens/browser';
 import NextLink from 'next/link';
 
 export default function Home() {
+  const { container } = components;
   return (
     <>
       <Head>
@@ -96,12 +99,34 @@ export default function Home() {
         <StyledBox
           sx={{
             padding: space[200],
-            color: color.broadbandGreen,
+            color: color.broadbandGreen[500],
           }}
         >
           Hearth Tokens
         </StyledBox>
       </div>
+
+      <Box position="relative" inset="400" top="100">
+        position
+      </Box>
+
+      <Flex
+        maxWidth={container.width}
+        color={semantic.feedback.positive.foreground.subtle}
+        backgroundColor={semantic.feedback.positive.surface.subtle}
+        borderWidth="1"
+        borderStyle="solid"
+        borderRadius="lg"
+        borderColor={semantic.feedback.positive.border}
+        // paddingBottom={{ mobile: '100', tablet: 'var(--h-space-200)', desktop: '32px' }}
+        // paddingBottom={components.container.paddingBottom}
+        // margin={components.container.margin}
+        {...container}
+        justifyContent="center"
+        textTransform="uppercase"
+      >
+        container
+      </Flex>
     </>
   );
 }
