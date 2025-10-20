@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Breadcrumbs, BreadcrumbItem } from '@utilitywarehouse/hearth-react';
+import { Breadcrumbs, BreadcrumbItem, Flex } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Breadcrumbs> = {
   title: 'Stories / Breadcrumbs',
@@ -33,4 +33,18 @@ export const Playground: Story = {
       </Breadcrumbs>
     );
   },
+};
+
+export const Inverted: Story = {
+  render: () => (
+    <Flex gap="400" backgroundColor="brand" padding="400">
+      <Breadcrumbs inverted>
+        <BreadcrumbItem href="#">Page</BreadcrumbItem>
+        <BreadcrumbItem href="#">Page</BreadcrumbItem>
+        <BreadcrumbItem href="#" currentPage>
+          Current page
+        </BreadcrumbItem>
+      </Breadcrumbs>
+    </Flex>
+  ),
 };

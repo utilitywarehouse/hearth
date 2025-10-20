@@ -5,6 +5,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { Link } from '../Link/Link';
 import { BodyText } from '../BodyText/BodyText';
+import { BreadcrumbsContext } from './Breadcrumbs.context';
 
 const COMPONENT_NAME = 'BreadcrumbItem';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -13,13 +14,13 @@ type BreadcrumbItemElement = ElementRef<'a'>;
 
 export const BreadcrumbItem = React.forwardRef<BreadcrumbItemElement, BreadcrumbItemProps>(
   ({ className, children, currentPage, ...props }, ref) => {
+    const { inverted } = React.useContext(BreadcrumbsContext);
     if (currentPage) {
       return (
         <BodyText
-          as="span"
           aria-current="page"
           size="md"
-          color="primary"
+          color={inverted ? 'inverted' : 'primary'}
           textAlign="center"
           asChild
           {...props}
@@ -32,13 +33,19 @@ export const BreadcrumbItem = React.forwardRef<BreadcrumbItemElement, Breadcrumb
     return (
       <>
         <li className={clsx(componentClassName, className)}>
-          <Link ref={ref} {...props}>
+          <Link ref={ref} {...props} inverted={inverted}>
             {children}
           </Link>
         </li>
-        <li aria-hidden>
-          <span>/</span>
-        </li>
+        <BodyText
+          asChild
+          size="md"
+          color={inverted ? 'inverted' : 'primary'}
+          textAlign="center"
+          {...props}
+        >
+          <li aria-hidden>/</li>
+        </BodyText>
       </>
     );
   }
