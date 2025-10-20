@@ -23,7 +23,6 @@ export const BreadcrumbItem = React.forwardRef<BreadcrumbItemElement, Breadcrumb
           color={inverted ? 'inverted' : 'primary'}
           textAlign="center"
           asChild
-          {...props}
         >
           <li className={clsx(componentClassName, className)}>{children}</li>
         </BodyText>
@@ -37,13 +36,7 @@ export const BreadcrumbItem = React.forwardRef<BreadcrumbItemElement, Breadcrumb
             {children}
           </Link>
         </li>
-        <BodyText
-          asChild
-          size="md"
-          color={inverted ? 'inverted' : 'primary'}
-          textAlign="center"
-          {...props}
-        >
+        <BodyText asChild size="md" color={inverted ? 'inverted' : 'primary'} textAlign="center">
           <li aria-hidden>/</li>
         </BodyText>
       </>
