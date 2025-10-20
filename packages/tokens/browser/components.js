@@ -451,7 +451,11 @@ export const components = {
     item: {
       borderRadius: 'var(--h-menu-item-border-radius)',
       gap: 'var(--h-menu-item-gap)',
-      padding: 'var(--h-menu-item-padding)',
+      padding: {
+        desktop: 'var(--h-menu-item-padding-desktop)',
+        mobile: 'var(--h-menu-item-padding-mobile)',
+        tablet: 'var(--h-menu-item-padding-tablet)',
+      },
     },
     list: {
       gap: 'var(--h-menu-list-gap)',
@@ -683,6 +687,13 @@ export const components = {
     validation: {
       gap: 'var(--h-select-validation-gap)',
     },
+    item: {
+      padding: {
+        desktop: 'var(--h-select-item-padding-desktop)',
+        mobile: 'var(--h-select-item-padding-mobile)',
+        tablet: 'var(--h-select-item-padding-tablet)',
+      },
+    },
   },
   skeleton: {
     loadingColor: 'var(--h-skeleton-loading-color)',
@@ -797,6 +808,28 @@ export const components = {
     gapVertical: 'var(--h-tooltip-gap-vertical)',
     paddingHorizontal: 'var(--h-tooltip-padding-horizontal)',
     paddingVertical: 'var(--h-tooltip-padding-vertical)',
+  },
+  container: {
+    margin: {
+      desktop: 'var(--h-container-margin-desktop)',
+      mobile: 'var(--h-container-margin-mobile)',
+      tablet: 'var(--h-container-margin-tablet)',
+    },
+    paddingBottom: {
+      desktop: 'var(--h-container-padding-bottom-desktop)',
+      mobile: 'var(--h-container-padding-bottom-mobile)',
+      tablet: 'var(--h-container-padding-bottom-tablet)',
+    },
+    paddingTop: {
+      desktop: 'var(--h-container-padding-top-desktop)',
+      mobile: 'var(--h-container-padding-top-mobile)',
+      tablet: 'var(--h-container-padding-top-tablet)',
+    },
+    width: {
+      desktop: 'var(--h-container-width-desktop)',
+      mobile: 'var(--h-container-width-mobile)',
+      tablet: 'var(--h-container-width-tablet)',
+    },
   },
   heading: {
     lg: {

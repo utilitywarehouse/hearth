@@ -1,4 +1,5 @@
 import { spaceTokens } from '../tokens/space';
+import { CssTokenVariable } from '../types/css-token-variable';
 import { Responsive } from '../types/responsive';
 import { PropDef } from './prop-def';
 
@@ -11,23 +12,23 @@ const paddingPropDefs = {
   paddingInline: { className: 'padding-inline', tokens: spaceTokens, responsive: true },
   paddingBlock: { className: 'padding-block', tokens: spaceTokens, responsive: true },
 } satisfies {
-  padding: PropDef<(typeof spaceTokens)[number]>;
-  paddingTop: PropDef<(typeof spaceTokens)[number]>;
-  paddingRight: PropDef<(typeof spaceTokens)[number]>;
-  paddingBottom: PropDef<(typeof spaceTokens)[number]>;
-  paddingLeft: PropDef<(typeof spaceTokens)[number]>;
-  paddingInline: PropDef<(typeof spaceTokens)[number]>;
-  paddingBlock: PropDef<(typeof spaceTokens)[number]>;
+  padding: PropDef<(typeof spaceTokens)[number] | CssTokenVariable>;
+  paddingTop: PropDef<(typeof spaceTokens)[number] | CssTokenVariable>;
+  paddingRight: PropDef<(typeof spaceTokens)[number] | CssTokenVariable>;
+  paddingBottom: PropDef<(typeof spaceTokens)[number] | CssTokenVariable>;
+  paddingLeft: PropDef<(typeof spaceTokens)[number] | CssTokenVariable>;
+  paddingInline: PropDef<(typeof spaceTokens)[number] | CssTokenVariable>;
+  paddingBlock: PropDef<(typeof spaceTokens)[number] | CssTokenVariable>;
 };
 
 interface PaddingProps {
-  padding?: Responsive<(typeof spaceTokens)[number]>;
-  paddingTop?: Responsive<(typeof spaceTokens)[number]>;
-  paddingRight?: Responsive<(typeof spaceTokens)[number]>;
-  paddingBottom?: Responsive<(typeof spaceTokens)[number]>;
-  paddingLeft?: Responsive<(typeof spaceTokens)[number]>;
-  paddingInline?: Responsive<(typeof spaceTokens)[number]>;
-  paddingBlock?: Responsive<(typeof spaceTokens)[number]>;
+  padding?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  paddingTop?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  paddingRight?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  paddingBottom?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  paddingLeft?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  paddingInline?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
+  paddingBlock?: Responsive<(typeof spaceTokens)[number] | CssTokenVariable>;
 }
 
 export { paddingPropDefs };

@@ -1,4 +1,32 @@
 @breakpoints {
+  .hearth-r-margin {
+    margin: var(--h-r-margin);
+  }
+
+  .hearth-r-margin-top {
+    margin-top: var(--h-r-margin-top);
+  }
+
+  .hearth-r-margin-right {
+    margin-right: var(--h-r-margin-right);
+  }
+
+  .hearth-r-margin-bottom {
+    margin-bottom: var(--h-r-margin-bottom);
+  }
+
+  .hearth-r-margin-left {
+    margin-left: var(--h-r-margin-left);
+  }
+
+  .hearth-r-margin-inline {
+    margin-inline: var(--h-r-margin-inline);
+  }
+
+  .hearth-r-margin-block {
+    margin-block: var(--h-r-margin-block);
+  }
+
   .hearth-r-margin-auto {
     margin: auto;
   }

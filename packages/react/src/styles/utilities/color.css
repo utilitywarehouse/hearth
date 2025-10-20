@@ -1,3 +1,7 @@
+.hearth-color {
+  color: var(--h-color);
+}
+
 .hearth-color-primary {
   color: var(--h-text-primary);
 }

@@ -2,7 +2,7 @@ import { Meta, Unstyled } from '@storybook/addon-docs/blocks';
 
 import { BodyText, Flex, Divider, breakpoints } from '@utilitywarehouse/hearth-react';
 
-<Meta title="Breakpoints" />
+<Meta title="Responsive Design / Breakpoints" />
 
 # Breakpoints
 
@@ -17,11 +17,11 @@ import { breakpoints } from '@utilitywarehouse/hearth-react';
   <Flex direction="column" gap="100" width="500px" marginBottom="600">
     {Object.keys(breakpoints).map((bp, i) => (
       <>
-        <Flex justify="space-between">
+        <Flex justifyContent="between">
           <BodyText variant="body" as="span">
             {`breakpoints.${bp}`}
           </BodyText>
-          <BodyText variant="body" component="span">
+          <BodyText variant="body" as="span">
             {breakpoints[bp]}px
           </BodyText>
         </Flex>
