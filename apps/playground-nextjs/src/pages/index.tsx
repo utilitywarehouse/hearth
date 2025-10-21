@@ -11,7 +11,6 @@ import {
   ModalTrigger,
   ModalFooter,
   ModalClose,
-  Heading,
   Box,
 } from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';

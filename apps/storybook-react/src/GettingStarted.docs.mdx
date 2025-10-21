@@ -23,8 +23,8 @@ web experiences.
   - [Install Hearth](#install-hearth)
   - [Import CSS](#import-css)
   - [Start building](#start-building)
-- [CSS reset and tokens](#css-reset-and-tokens)
-- [Hearth Icons](#hearth-icons)
+- [CSS reset](#css-reset)
+- [Hearth Tokens](#hearth-tokens)
 - [Portals](#portals)
 
 ## Getting started
@@ -81,10 +81,52 @@ export default function MyApp() {
 }
 ```
 
-## CSS reset and tokens
+## CSS reset
 
 The Heart CSS Reset and Hearth Tokens CSS custom properties are now included in
 the Heart React global styles, so you don't need to install them separately.
+
+## Hearth Tokens
+
+You can, however, install and import the Hearth browser tokens, for use either
+with JavaScript based styling, or with some styling props.
+
+```console
+npm install @utilitywarehouse/hearth-tokens
+```
+
+When importing the tokens, make sure you specifically import the browser
+tokens, and **not** the JS tokens. These tokens reference the CSS custom
+properties already included with Hearth React, rather than raw values.
+
+```tsx
+import {
+  border,
+  space,
+  color,
+  components,
+  semantic,
+  font,
+} from '@utilitywarehouse/hearth-tokens/browser';
+```
+
+You can then use then reference them in your code.
+
+```tsx
+// Usage in CSS-in-JS
+<Component
+  sx={{
+    color: semantic.feedback.positive.foreground.subtle, // color: var(--h-color); & --h-color: var(--h-feedback-positive-foreground-subtle);
+  }}
+>
+{...}
+</Component>
+
+// Some, but not all, style props will accept the browser tokens as values
+<Box color={semantic.feedback.positive.foreground.subtle}>
+{...}
+</Box>
+```
 
 ## Portals
 
