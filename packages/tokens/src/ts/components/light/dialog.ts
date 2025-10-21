@@ -9,6 +9,7 @@ export default {
   borderRadius: 16,
   content: {
     gap: 12,
+    paddingBottom: 12,
   },
   gap: 24,
   padding: 24,

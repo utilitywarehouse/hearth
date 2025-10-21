@@ -145,6 +145,7 @@
   --h-dialog-action-gap: var(--h-space-150);
   --h-dialog-border-radius: var(--h-border-radius-xl);
   --h-dialog-content-gap: var(--h-space-150);
+  --h-dialog-content-padding-bottom: var(--h-space-150);
   --h-dialog-gap: var(--h-space-300);
   --h-dialog-padding: var(--h-space-300);
   --h-divider-border-width: var(--h-border-width-1);
