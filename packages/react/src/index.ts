@@ -64,6 +64,9 @@ export type { IconButtonProps } from './components/IconButton/IconButton.props';
 export { UnstyledIconButton } from './components/UnstyledIconButton/UnstyledIconButton';
 export type { UnstyledIconButtonProps } from './components/UnstyledIconButton/UnstyledIconButton.props';
 
+export { IndicatorIconButton } from './components/IndicatorIconButton/IndicatorIconButton';
+export type { IndicatorIconButtonProps } from './components/IndicatorIconButton/IndicatorIconButton.props';
+
 export { Spinner } from './components/Spinner/Spinner';
 export type { SpinnerProps } from './components/Spinner/Spinner.props';
 
