@@ -19,8 +19,8 @@ import { DocsHeader } from './storybook-components/DocsHeader';
 
 ## Semantic HTML
 
-By default `Container` renders a `div` element, this can be customised using the
-`asChild` prop.
+By default `Container` renders a `div` element, this can be customised using
+the `asChild` prop.
 
 ```tsx
 <Container asChild>
@@ -30,8 +30,12 @@ By default `Container` renders a `div` element, this can be customised using the
 
 ## Max width
 
-`Container` does not define it's own max-width, however you can apply your
-app-specific max-width, usually only at the `desktop` breakpoint.
+By default `Container` has a max-width of `100%` for screen widths below the
+desktop breakpoint, and for desktop screens, and above, the max-width is
+defined by the container width design token.
+
+If you need to, you can apply your app-specific max-width, usually only at the
+`desktop` breakpoint.
 
 ```tsx
 <Container maxWidth={{ desktop: '1096px' }}>{...}</Container>
@@ -39,7 +43,8 @@ app-specific max-width, usually only at the `desktop` breakpoint.
 
 ## Align
 
-By default `Container` aligns it's content in the center, you can change this with the `align` prop.
+By default `Container` aligns it's content in the center, you can change this
+with the `align` prop.
 
 ```tsx
 <Container align='start'>{...}</Container>

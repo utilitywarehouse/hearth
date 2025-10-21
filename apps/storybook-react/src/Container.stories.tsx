@@ -57,6 +57,5 @@ export const Playground: Story = {
   ),
   args: {
     spacing: 'xl',
-    maxWidth: { desktop: 'var(--h-container-width-desktop)' },
   },
 };

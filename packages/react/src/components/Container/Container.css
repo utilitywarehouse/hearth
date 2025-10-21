@@ -16,6 +16,7 @@
       margin-inline: var(--h-container-margin-desktop);
       padding-top: var(--h-container-padding-top-desktop);
       padding-bottom: var(--h-container-padding-bottom-desktop);
+      max-width: var(--h-container-width-desktop);
     }
   }
 }
