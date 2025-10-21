@@ -5,11 +5,13 @@
     margin-inline: var(--h-container-margin-mobile);
     padding-top: var(--h-container-padding-top-mobile);
     padding-bottom: var(--h-container-padding-bottom-mobile);
+
     @media (--h-tablet) {
       margin-inline: var(--h-container-margin-tablet);
       padding-top: var(--h-container-padding-top-tablet);
       padding-bottom: var(--h-container-padding-bottom-tablet);
     }
+
     @media (--h-desktop) {
       margin-inline: var(--h-container-margin-desktop);
       padding-top: var(--h-container-padding-top-desktop);
