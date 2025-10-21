@@ -2,6 +2,7 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as BoxStories from './Box.stories';
 import * as FlexStories from './Flex.stories';
 import * as GridStories from './Grid.stories';
+import * as ContainerStories from './Container.stories';
 
 <Meta title="Layout / Introduction" />
 
@@ -84,4 +85,17 @@ As well as more complicated grid layouts.
   <Box gridArea="sidebar">Sidebar</Box>
   <Box gridArea="footer">Footer</Box>
 </Grid>
+```
+
+## Container
+
+<Canvas of={ContainerStories.Playground} sourceState="none" />
+
+`Container` provides a page content container, constraining the width, while
+providing responsive padding, gutters and vertical spacing.
+
+```tsx
+<Container spacing='xl'>
+  {...}
+</Container>
 ```

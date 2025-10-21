@@ -1,5 +1,6 @@
 /* The order of these files will have an impact on the cascade so be cautious please */
 @import url('./Box/Box.css');
+@import url('./Container/Container.css');
 @import url('./Flex/Flex.css');
 @import url('./Grid/Grid.css');
 @import url('./BodyText/BodyText.css');
