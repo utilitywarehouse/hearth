@@ -5,9 +5,8 @@
     position: absolute;
     top: -2px;
     right: -2px;
-    /* Use existing, real tokens */
-    height: var(--h-space-100); /* 8px */
-    width: var(--h-space-100); /* 8px */
+    height: var(--h-space-100);
+    width: var(--h-space-100);
     border-radius: var(--h-border-radius-full);
     background-color: var(--h-color-red-500);
     box-shadow: 0 0 0 2px var(--h-color-warm-white-50);
