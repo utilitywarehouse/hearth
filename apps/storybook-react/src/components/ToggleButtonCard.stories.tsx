@@ -11,7 +11,7 @@ import {
   CardAction,
 } from '@utilitywarehouse/hearth-react';
 import React from 'react';
-import { Placeholder } from './storybook-components/Placeholder';
+import { Placeholder } from '../storybook-components/Placeholder';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof ToggleGroup> = {

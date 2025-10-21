@@ -2,8 +2,8 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { RadioTile, Flex, RadioGroup } from '@utilitywarehouse/hearth-react';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
-import mastercard from './assets/mastercard.png';
-import visa from './assets/visa.png';
+import mastercard from '../assets/mastercard.png';
+import visa from '../assets/visa.png';
 
 const meta: Meta<typeof RadioTile> = {
   title: 'Stories / RadioTile',

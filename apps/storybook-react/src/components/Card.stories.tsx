@@ -18,7 +18,7 @@ import {
   HeartMediumIcon,
   HeartOutlineMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
-import { Placeholder } from './storybook-components/Placeholder';
+import { Placeholder } from '../storybook-components/Placeholder';
 
 const variants = ['emphasis', 'subtle'] as const;
 const neutralColorSchemes = ['neutralStrong', 'neutralSubtle'] as const;

@@ -9,7 +9,7 @@ import {
   borderColorValues,
 } from '@utilitywarehouse/hearth-react';
 import { useRef } from 'react';
-import { Placeholder } from './storybook-components/Placeholder';
+import { Placeholder } from '../storybook-components/Placeholder';
 
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;

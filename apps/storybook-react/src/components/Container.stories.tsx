@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Container, spaceTokens } from '@utilitywarehouse/hearth-react';
-import { Placeholder } from './storybook-components/Placeholder';
+import { Placeholder } from '../storybook-components/Placeholder';
 
 const meta: Meta<typeof Container> = {
   title: 'Stories / Container',

@@ -3,8 +3,8 @@ import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Checkbox, Flex, BodyText } from '@utilitywarehouse/hearth-react';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
-import mastercard from './assets/mastercard.png';
-import visa from './assets/visa.png';
+import mastercard from '../assets/mastercard.png';
+import visa from '../assets/visa.png';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Stories / Checkbox',
