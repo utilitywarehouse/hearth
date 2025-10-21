@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react
 
+## 0.13.3
+
+### Patch Changes
+
+- [#561](https://github.com/utilitywarehouse/hearth/pull/561) [`866e1be`](https://github.com/utilitywarehouse/hearth/commit/866e1be2b778f778a234f3eecb295e34166945a1) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `inverted` prop to `Breadcrumbs`
+
+- [#562](https://github.com/utilitywarehouse/hearth/pull/562) [`b059a60`](https://github.com/utilitywarehouse/hearth/commit/b059a60ee6e65a6573f329b98e2e2a6c16be5b40) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `Container` component
+
 ## 0.13.2
 
 ### Patch Changes
