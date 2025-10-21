@@ -1,0 +1,45 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './SectionHeader.stories';
+import { DocsHeader } from '../storybook-components/DocsHeader';
+
+<Meta title="Components / Section Header" />
+
+<DocsHeader componentName="SectionHeader" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Trailing content
+
+Use the `trailingContent` prop to include a `Link`, `Button` or `Badge` component.
+
+```tsx
+import { Link, SectionHeader } from '@utilitywarehouse/hearth-react';
+import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+
+[...]
+
+<SectionHeader
+  {...args}
+  link={
+    <Link>
+      Link text
+      <ChevronRightSmallIcon />
+    </Link>
+  }
+/>
+```
+
+<Canvas of={Stories.WithBadge} />
+<Canvas of={Stories.WithButton} />
+
+## API
+
+| Prop              | Type                                    |
+| ----------------- | --------------------------------------- |
+| `heading`         | `string`                                |
+| `headingElement`  | `"div" \| "h1" \| "h2" \| "h3" \| "h4"` |
+| `helperText`      | `string`                                |
+| `trailingContent` | `ReactNode`                             |

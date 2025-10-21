@@ -1,0 +1,43 @@
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './Divider.stories';
+
+import { DocsHeader } from '../storybook-components/DocsHeader';
+
+<Meta title="Components / Divider" />
+
+<DocsHeader
+  componentName="Divider"
+  figmaLink="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components-%26-Tokens?node-id=1-151&m=dev"
+  stories={Stories}
+/>
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+## Accessibility
+
+Follows the [Separator role requirements](https://www.w3.org/TR/wai-aria-1.2/#separator).
+
+By default the `Divider` component renders an `hr` which has a role of
+`separator` by default. This is a semantically meaningful division between
+elements, and should be used considerately.
+
+If you need a purely visual separation you can use the `decorative` prop, which
+will remove the element from the accessibility tree. Alternatively you could
+use CSS styling, such as `border-color`, instead of this component.
+
+```tsx
+<Divider decorative />
+```
+
+## API
+
+This component is based on the `hr` element, and supports the following common props:
+
+- Margin
+
+| Prop          | Type                         |
+| ------------- | ---------------------------- |
+| `orientation` | `"horizontal" \| "vertical"` |
+| `decorative`  | `boolean`                    |
+| `color`       | `string`                     |

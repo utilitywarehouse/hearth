@@ -65,15 +65,19 @@ thead th {
   border-right: 1px solid #101010 !important;
 }
 
-:where(h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, .hearth-DetailText, .hearth-Heading)),
-:where(h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2, .hearth-DetailText, .hearth-Heading)),
-:where(h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3, .hearth-DetailText, .hearth-Heading)),
-:where(h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4, .hearth-DetailText, .hearth-Heading)),
-:where(h5:not(.sb-anchor, .sb-unstyled, .sb-unstyled h5)),
-:where(h6:not(.sb-anchor, .sb-unstyled, .sb-unstyled h6)) {
+h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, .hearth-DetailText, .hearth-Heading),
+h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2, .hearth-DetailText, .hearth-Heading),
+h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3, .hearth-DetailText, .hearth-Heading),
+h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4, .hearth-DetailText, .hearth-Heading),
+h5:not(.sb-anchor, .sb-unstyled, .sb-unstyled h5),
+h6:not(.sb-anchor, .sb-unstyled, .sb-unstyled h6) {
   font-family: 'Comic Hams', serif !important;
   font-weight: bold !important;
   border-bottom-color: var(--color-border-subtle);
+}
+
+h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, .hearth-DetailText, .hearth-Heading) {
+  margin-bottom: var(--h-space-400);
 }
 
 .docs-story,

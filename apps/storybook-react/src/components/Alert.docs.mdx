@@ -1,0 +1,122 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './Alert.stories';
+
+import { DocsHeader } from '../storybook-components/DocsHeader';
+
+<Meta title="Components / Alert" />
+
+<DocsHeader
+  componentName="Alert"
+  figmaLink="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=1-141"
+  stories={Stories}
+/>
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Color schemes
+
+The `colorScheme` prop controls the visual appearance and semantic meaning of the Alert.
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+## With `AlertIconButton`
+
+Alerts can be made interactive by using the `AlertIconButton` component. This adds a clickable button to the alert with appropriate keyboard navigation.
+
+```tsx
+<Alert colorScheme="blue" title="Clickable Alert" text="This alert has an interactive button.">
+  <AlertIconButton label="Click me" onClick={() => alert('Alert button clicked!')} />
+</Alert>
+```
+
+<Canvas of={Stories.WithAlertButton} sourceState="none" />
+
+## With `AlertLink`
+
+You can add a link to your alert using the `AlertLink` component. This is useful for directing users to relevant pages or actions.
+
+```tsx
+<Alert
+  colorScheme="info"
+  title="Information"
+  text="This alert contains additional information that might be helpful."
+>
+  <AlertLink href="#example">Learn more</AlertLink>
+</Alert>
+```
+
+If you need to you can also render the `AlertLink` as a `button` element using the `asChild` pattern:
+
+```tsx
+<AlertLink asChild>
+  <button onClick={() => alert('Custom action')}>Custom action as button</button>
+</AlertLink>
+```
+
+<Canvas of={Stories.WithAlertLink} sourceState="none" />
+
+## Dismissable
+
+Alerts can be made dismissable by providing an `onClose` handler. This adds a close button that users can click to dismiss the alert.
+
+```tsx
+<Alert
+  colorScheme="positive"
+  title="Success"
+  text="Your action was completed successfully."
+  onClose={() => console.log('Alert dismissed')}
+/>
+```
+
+<Canvas of={Stories.Dismissable} sourceState="none" />
+
+## Accessibility
+
+- Alerts use the `alert` role by default for screen readers
+- `AlertIconButton` components support keyboard navigation
+- Icons are marked as `aria-hidden="true"` to avoid redundant announcements
+- Proper ARIA attributes are applied for live regions
+
+## Child Components
+
+### AlertLink
+
+Use `AlertLink` to add navigational links within alerts.
+
+```tsx
+<Alert title="Information">
+  <BodyText>This alert provides important information.</BodyText>
+  <BodyText>The guide is helpful, you can read it below.</BodyText>
+  <AlertLink href="/guide">Read Guide</AlertLink>
+</Alert>
+```
+
+### AlertIconButton
+
+Use `AlertIconButton` to add interactive buttons to alerts.
+
+```tsx
+<Alert title="Action Required" text="Click the button to continue.">
+  <AlertIconButton label="Continue" onClick={() => handleAction()} />
+</Alert>
+```
+
+## API
+
+This component supports the following common props:
+
+- Margin
+
+| Prop          | Type                                          | Description                                          |
+| ------------- | --------------------------------------------- | ---------------------------------------------------- |
+| `colorScheme` | `info` \| `positive` \| `danger` \| `warning` | Sets the colour scheme                               |
+| `title`       | `string`                                      | Sets the title of the alert                          |
+| `text`        | `string` \| `React.ReactNode`                 | Sets the text content of the alert                   |
+| `onClose`     | `() => void`                                  | Adds a close button to dismiss the alert             |
+| `children`    | `React.ReactNode`                             | Additional content like AlertLink or AlertIconButton |

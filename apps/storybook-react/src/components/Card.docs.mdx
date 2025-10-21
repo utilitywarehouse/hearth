@@ -1,0 +1,100 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './Card.stories';
+
+import { DocsHeader } from '../storybook-components/DocsHeader';
+
+<Meta title="Components / Card" />
+
+<DocsHeader componentName="Card" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Semantic HTML
+
+By default `Card` renders a `div` element, this can be customised using the
+`as` prop, to render a `li`.
+
+### Grouping related cards
+
+When grouping related `Card` components, they should be rendered as list items, as part of a list.
+
+```tsx
+<Flex asChild>
+  <ul>
+    <Card as='li'>{...}</Card>
+    <Card as='li'>{...}</Card>
+    <Card as='li'>{...}</Card>
+  </ul>
+</Flex>
+```
+
+## Interactive Cards
+
+By default the `Card` is static. When adding any interactive actions, such as
+links, or buttons, you should use the `CardAction` component.
+
+The `CardAction` component will make the child element's clickable area extend
+to the bounds of the parent `Card`. You can choose to set the `asChild` prop on
+the `CardAction` component, but it's not essential.
+
+There should only ever be one main card action in each `Card`.
+
+```tsx
+<Card>
+  <Heading size="sm">{title}</Heading>
+  <BodyText size="md">{content}</BodyText>
+  <CardAction asChild>
+    <Link href="http://...">
+      Find out more
+      <ChevronRightSmallIcon />
+    </Link>
+  </CardAction>
+</Card>
+```
+
+If you need to add secondary actions to the card, use the `secondary` prop on
+the `CardAction` component. This will ensure any secondary actions are
+clickable, but do not overlay the primary action.
+
+```tsx
+<Card variant="emphasis" colorScheme="neutralStrong" flex="1" direction="column" gap="150">
+  <Flex alignItems="start">
+    <Heading size="sm">This is a card with multiple interactions</Heading>
+    <CardAction secondary>
+      <IconButton variant="ghost" size="sm" label="close" onClick={() => console.log('close')}>
+        <CloseSmallIcon />
+      </IconButton>
+    </CardAction>
+  </Flex>
+  <BodyText size="md">The components within the card are interactive component</BodyText>
+  <CardAction>
+    <Button variant="solid" colorScheme="yellow" onClick={() => console.log('action')}>
+      Button
+    </Button>
+  </CardAction>
+</Card>
+```
+
+<Canvas of={Stories.InteractiveCards} sourceState="hide" />
+
+## API
+
+This component is based on the `Flex` component and supports the following common props:
+
+- Margin
+- Size
+- Position
+- Flex item
+- Grid item
+- Text align
+
+| Prop          | Type                                                                                                                                       |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `as`          | `"div" \| "li"`                                                                                                                            |
+| `variant`     | `"emphasis" \| "subtle"`                                                                                                                   |
+| `colorScheme` | `"neutralStrong" \| "neutralSubtle" \| "pig" \| "highlight" \| "brand" \| "energy" \| "broadband" \| "mobile" \| "insurance" \| "cashback"` |
+| `paddingNone` | `boolean`                                                                                                                                  |

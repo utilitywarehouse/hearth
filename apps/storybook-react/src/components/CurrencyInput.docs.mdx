@@ -1,0 +1,51 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './CurrencyInput.stories';
+
+import { DocsHeader } from '../storybook-components/DocsHeader';
+
+<Meta title="Components / CurrencyInput" />
+
+<DocsHeader componentName="CurrencyInput" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Alternatives
+
+- [TextInput](?path=/docs/components-textinput--docs) - For text
+- [PasswordInput](?path=/docs/components-passwordinput--docs) - For passwords
+- [SearchInput](?path=/docs/components-searchinput--docs) - For search
+
+## Label
+
+A label is required, this should be clear and descriptive to guide the user.
+
+## Formatting
+
+By default the value will be displayed in a readable format, with comma
+separated groups of thousands (ie. 1000 -> 1,000). The value will still be
+available as a usable numeric format, however you can disable this behaviour
+with the `disableGroupSeparators` prop.
+
+## Validation
+
+The input `validationStatus` can be set to either `"valid"` or `"invalid"` to
+indicate the status. This status must be accompanied by a validation text to
+explain the reason for the status.
+
+## API
+
+This component is based on the `TextInput` component and supports the following common props:
+
+- Margin
+
+| Prop                     | Type                   |
+| ------------------------ | ---------------------- |
+| `label`                  | `string`               |
+| `helperText`             | `string`               |
+| `disableGroupSeparators` | `boolean`              |
+| `validationStatus`       | `"valid" \| "invalid"` |
+| `validationText`         | `string`               |
