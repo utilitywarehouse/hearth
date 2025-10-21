@@ -56,9 +56,9 @@ interface CommonBodyTextProps
    */
   paragraphSpacing?: boolean;
 }
-type BodyTextDivProps = { as: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
-type BodyTextSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
+type BodyTextDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
+type BodyTextSpanProps = { as?: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
 type BodyTextPProps = { as?: 'p' } & ComponentPropsWithout<'p', RemovedProps>;
-type BodyTextLabelProps = { as: 'label' } & ComponentPropsWithout<'label', RemovedProps>;
+type BodyTextLabelProps = { as?: 'label' } & ComponentPropsWithout<'label', RemovedProps>;
 export type BodyTextProps = CommonBodyTextProps &
   (BodyTextSpanProps | BodyTextDivProps | BodyTextPProps | BodyTextLabelProps);
