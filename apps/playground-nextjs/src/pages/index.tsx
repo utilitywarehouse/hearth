@@ -12,6 +12,8 @@ import {
   ModalFooter,
   ModalClose,
 } from '@utilitywarehouse/hearth-react';
+import { IndicatorIconButton } from '@utilitywarehouse/hearth-react';
+import { BellSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { StyledBox } from '@/components/StyledBox';
 import { space, color } from '@utilitywarehouse/hearth-tokens/browser';
 import NextLink from 'next/link';
@@ -69,6 +71,17 @@ export default function Home() {
         </ModalRoot>
       </HearthBox>
 
+      <div>
+        <h1>IndicatorIconButton</h1>
+        <HearthBox padding="200" display="flex" gap="200">
+          <IndicatorIconButton label="Notifications" indicator>
+            <BellSmallIcon />
+          </IndicatorIconButton>
+          <IndicatorIconButton label="Notifications (no indicator)">
+            <BellSmallIcon />
+          </IndicatorIconButton>
+        </HearthBox>
+      </div>
       <div>
         <h1>CSS Reset</h1>
         <p>Checking the tokens work with the CSS Reset package.</p>
