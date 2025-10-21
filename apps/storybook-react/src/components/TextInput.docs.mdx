@@ -1,0 +1,107 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './TextInput.stories';
+
+import { DocsHeader } from '../storybook-components/DocsHeader';
+
+<Meta title="Components / TextInput" />
+
+<DocsHeader componentName="TextInput" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+- [Alternatives](#alternatives)
+- [Label](#label)
+- [Required](#required)
+- [Disabled and Read-only](#disabled-and-read-only)
+- [Validation](#validation)
+- [Prefix and Suffix](#prefix-and-suffix)
+- [Grouping inputs](#grouping-inputs)
+- [API](#api)
+
+## Alternatives
+
+- [PasswordInput](?path=/docs/components-passwordinput--docs) - For entering passwords
+- [SearchInput](?path=/docs/components-searchinput--docs) - For search
+- [CurrencyInput](?path=/docs/components-currencyinput--docs) - For money
+
+## Label
+
+A label is required, this should be clear and descriptive to guide the user.
+
+The `hideLabel` prop will visually hide the label but keep it available for screen readers.
+
+## Required
+
+In it's default state the `TextInput` is optional, and is indicated as such
+with the `(optional)` text following the label.
+
+When using online forms, most users assume all fields are required by default,
+so the `TextInput` draws attention to when it is optional. Please make sure
+that when the input field is required for successful completion of the form,
+that you apply the `required` prop and appropriate validation is included.
+
+You may also need to set the `novalidate` attribute to prevent the browser from
+displaying its own validation errors.
+
+## Disabled and Read-only
+
+Read-only inputs cannot be edited, but remain focusable, and should only be
+used when presenting already submitted information. They differ from
+disabled inputs, as there may be actions a user can take to activate a disabled
+input, but read-only fields should stay undeditable in the same view.
+
+<Canvas of={Stories.DisabledAndReadOnly} />
+
+## Validation
+
+The input `validationStatus` can be set to either `"valid"` or `"invalid"` to
+indicate the status. This status must be accompanied by a validation text to
+explain the reason for the status.
+
+<Canvas of={Stories.Validation} />
+
+## Prefix and Suffix
+
+To include a prefix or suffix in the `TextInput` you need to wrap the content
+in the `TextInputSlot` component. You can then set the `placement` prop on the
+`TextInputSlot` component to display it as either a `prefix` or a `suffix`.
+
+<Canvas of={Stories.PrefixAndSuffix} sourceState="shown" />
+
+You can do the same with icons.
+
+<Canvas of={Stories.WithIcons} />
+
+## Grouping inputs
+
+When grouping inputs you should [use the `fieldset` and `legend` elements](https://accessibility.blog.gov.uk/2016/07/22/using-the-fieldset-and-legend-elements/).
+This will ensure the group title is properly associated with child input
+elements. Make sure you place the `legend` element as the first child of the
+`fieldset` otherwise the relationship is broken. If this is not possible, you
+can use `aria-label` or `aria-labelledby` to create the relationship.
+
+If you are also including supporting text, then this should be associated with
+each individual input, rather than with the grouping fieldset.
+
+Please take the time to test what you build with a screen reader.
+
+<Canvas of={Stories.GroupingInputs} sourceState="shown" />
+
+## API
+
+This component is based on the `input` element and supports the following common props:
+
+- Margin
+
+| Prop               | Type                                                                        |
+| ------------------ | --------------------------------------------------------------------------- |
+| `type`             | `"email" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url"` |
+| `label`            | `string`                                                                    |
+| `helperText`       | `string`                                                                    |
+| `validationStatus` | `"valid" \| "invalid"`                                                      |
+| `validationText`   | `string`                                                                    |
+| `hideLabel`        | `boolean`                                                                   |

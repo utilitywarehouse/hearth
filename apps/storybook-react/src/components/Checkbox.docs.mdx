@@ -1,0 +1,77 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as Stories from './Checkbox.stories';
+import { DocsHeader } from '../storybook-components/DocsHeader';
+
+<Meta title="Components / Checkbox" />
+
+<DocsHeader componentName="Checkbox" stories={Stories} />
+
+<Canvas of={Stories.Playground} sourceState="none" />
+
+## Helper text
+
+The `Checkbox` can display a secondary message as a helper text. This will not
+show if the `Checkbox` is a child of a `CheckboxGroup` which also displays a helper text message.
+
+```tsx
+<Checkbox value="1" label="One" helperText="The number one" />
+```
+
+## Image
+
+The `Checkbox` can display an icon or image between the indicator and label.
+
+```tsx
+<Checkbox value="2" label="Two" helperText="The number two" image={<CashbackCardMediumIcon />} />
+```
+
+<Canvas of={Stories.WithImage} />
+
+**If you are using an `img` element, remember to include a null alt tag
+(`alt=""` ) so the image is ignored by assistive technologies.**
+
+```tsx
+<Checkbox
+  value="2"
+  label="Two"
+  helperText="The number two"
+  image={<img src="https://help.uw.co.uk/images/iPhone.svg" width={25} alt="" />}
+/>
+```
+
+## Controlled
+
+The checked state can be controlled by using the `checked` and `onCheckedChange` props together.
+
+```tsx
+[...]
+
+const [checked, setChecked] = React.useState(false);
+
+[...]
+
+<Checkbox value="1" label="One" checked={checked} onCheckedChange={c => setChecked(c)} />
+```
+
+## Accessibility
+
+`Checkbox` is, by default, appropriately labelled when using the `label` prop,
+if you do not provide a label, you must specify an `aria-label` or
+`aria-labelledby` for accessibility.
+
+## API
+
+This component is based on the `button` element and supports the following common props:
+
+- Margin
+
+| Prop              | Type                         |
+| ----------------- | ---------------------------- |
+| `value`           | `string`                     |
+| `defaultValue`    | `string`                     |
+| `label`           | `ReactNode`                  |
+| `helperText`      | `ReactNode`                  |
+| `image`           | `ReactNode`                  |
+| `checked`         | `boolean`                    |
+| `defaultChecked`  | `boolean`                    |
+| `onCheckedChange` | `(checked: boolean) => void` |
