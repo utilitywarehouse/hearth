@@ -272,6 +272,7 @@ export const components = {
     borderRadius: 'var(--h-dialog-border-radius)',
     content: {
       gap: 'var(--h-dialog-content-gap)',
+      paddingBottom: 'var(--h-dialog-content-padding-bottom)',
     },
     gap: 'var(--h-dialog-gap)',
     padding: 'var(--h-dialog-padding)',
