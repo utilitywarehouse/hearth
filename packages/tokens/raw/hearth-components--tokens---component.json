@@ -888,6 +888,11 @@
           "alias": "{space.150}",
           "type": "number",
           "value": 12
+        },
+        "padding-bottom": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
         }
       },
       "gap": {
@@ -3377,6 +3382,11 @@
       },
       "content": {
         "gap": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
+        },
+        "padding-bottom": {
           "alias": "{space.150}",
           "type": "number",
           "value": 12

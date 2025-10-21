@@ -8,6 +8,7 @@ declare const _default: {
   readonly borderRadius: 16;
   readonly content: {
     readonly gap: 12;
+    readonly paddingBottom: 12;
   };
   readonly gap: 24;
   readonly padding: 24;

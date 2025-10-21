@@ -271,6 +271,7 @@ export declare const components: {
     readonly borderRadius: 'var(--h-dialog-border-radius)';
     readonly content: {
       readonly gap: 'var(--h-dialog-content-gap)';
+      readonly paddingBottom: 'var(--h-dialog-content-padding-bottom)';
     };
     readonly gap: 'var(--h-dialog-gap)';
     readonly padding: 'var(--h-dialog-padding)';
