@@ -2,9 +2,9 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Flex } from '../Flex';
 import FlexProps from '../Flex/Flex.props';
 
-const CheckboxTextContent = ({ children, ...props }: FlexProps) => {
+const CheckboxTextContent = ({ children, style, ...props }: FlexProps) => {
   return (
-    <Flex style={[styles.content, props.style]} direction="column" space="none" {...props}>
+    <Flex style={[styles.content, style]} direction="column" space="none" {...props}>
       {children}
     </Flex>
   );
