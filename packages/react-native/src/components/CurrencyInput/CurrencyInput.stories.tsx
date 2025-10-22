@@ -37,10 +37,10 @@ const meta = {
       description: 'Focused',
       defaultValue: false,
     },
-    autoFormatThousands: {
+    disableGroupSeparator: {
       control: 'boolean',
       description:
-        'Automatically add thousand separators while typing _(Only works with controlled components via onTextChange)_',
+        'Disable automatic adding of thousand separators while typing _(Formatting only works with controlled components via onTextChange)_',
       defaultValue: false,
     },
   },
@@ -50,26 +50,28 @@ const meta = {
     disabled: false,
     readonly: false,
     focused: false,
-    autoFormatThousands: false,
+    disableGroupSeparator: false,
   },
 } satisfies Meta<typeof CurrencyInput>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {};
-
-export const AutoFormatThousands: Story = {
-  parameters: {
-    controls: { include: ['autoFormatThousands'] },
-  },
-  args: { autoFormatThousands: true },
+export const Playground: Story = {
   render: args => {
-    const [value, setValue] = useState('1234.56');
-    const handleChange = (val: string) => {
-      setValue(val);
-    };
-    return <CurrencyInput {...args} value={value} onChangeText={handleChange} />;
+    const [value, setValue] = useState('12345.67');
+    return <CurrencyInput {...args} value={value} onChangeText={setValue} />;
+  },
+};
+
+export const DisableGroupSeparator: Story = {
+  parameters: {
+    controls: { include: ['disableGroupSeparator'] },
+  },
+  args: { disableGroupSeparator: true },
+  render: args => {
+    const [value, setValue] = useState('12345.67');
+    return <CurrencyInput {...args} value={value} onChangeText={setValue} />;
   },
 };
 
@@ -105,10 +107,10 @@ export const States: Story = {
           <CurrencyInput disabled />
         </VariantTitle>
         <VariantTitle title="Readonly">
-          <CurrencyInput readonly />
+          <CurrencyInput readonly value="11666"/>
         </VariantTitle>
-        <VariantTitle title="Auto format thousands">
-          <CurrencyInput autoFormatThousands value="1234.56" />
+        <VariantTitle title="Disable auto format thousands">
+          <CurrencyInput disableGroupSeparator value="1234.56" />
         </VariantTitle>
       </Flex>
     );
