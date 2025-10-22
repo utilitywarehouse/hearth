@@ -1,0 +1,62 @@
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
+import { BellMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { Box, Button, ButtonIcon, ButtonText, Center, IconButton } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import { IndicatorIconButton } from './';
+import * as Stories from './IndicatorIconButton.stories';
+
+<Meta title="Components / Indicator Icon Button" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components?node-id=1-162" />
+
+# Indicator Icon Button
+
+The `IndicatorIconButton` component is used to trigger an action or event, such as opening a dialog or navigating to other screen. It extends the regular `UnstyledIconButton` with an optional red dot indicator in the top-right corner, useful for showing notifications or unread status.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <IndicatorIconButton
+      icon={BellMediumIcon}
+      onPress={() => console.log('Button pressed')}
+      indicator={true}
+    />
+  </Center>
+</UsageWrap>
+
+```tsx
+import { IndicatorIconButton } from '@utilitywarehouse/hearth-react-native';
+import { BellMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => {
+  const handlePress = () => {
+    console.log('Button pressed');
+  };
+  return <IndicatorIconButton icon={BellMediumIcon} onPress={handlePress} indicator={true} />;
+};
+```
+
+## Props
+
+| Property    | Type         | Description                                                | Default |
+| ----------- | ------------ | ---------------------------------------------------------- | ------- |
+| `onPress`   | `() => void` | Callback function to be called when the button is pressed. | -       |
+| `pressed`   | `boolean`    | Changes the button to a pressed state.                     | `false` |
+| `indicator` | `boolean`    | Shows a red dot indicator in the top-right corner.         | `false` |
+
+## Variants
+
+<Canvas of={Stories.Variants} />

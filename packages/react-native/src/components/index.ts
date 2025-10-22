@@ -24,6 +24,7 @@ export * from './HTMLElements';
 export * from './Icon';
 export * from './IconButton';
 export * from './IconContainer';
+export * from './IndicatorIconButton';
 export * from './InlineLink';
 export * from './Input';
 export * from './Label';
