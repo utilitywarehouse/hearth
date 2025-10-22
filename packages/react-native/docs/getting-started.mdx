@@ -7,15 +7,23 @@ import { BackToTopButton, NextPrevPage } from './components';
 # Getting Started
 
 You can just start using the components from the `@utilitywarehouse/hearth-react-native` package.
+Although there are a few components that require a `BottomSheetModalProvider` to be wrapped around your app.
 
 ```tsx
-import { Box, Alert, BodyText } from '@utilitywarehouse/hearth-react-native';
+import {
+  Box,
+  Alert,
+  BodyText,
+  BottomSheetModalProvider,
+} from '@utilitywarehouse/hearth-react-native';
 
 const App: React.FC = () => (
-  <Box p="200">
-    <Alert variant="info" text="Welcome to Hearth React Native!" />
-    <BodyText>Start building your app with Hearth React Native components.</BodyText>
-  </Box>
+  <BottomSheetModalProvider>
+    <Box p="200">
+      <Alert variant="info" text="Welcome to Hearth React Native!" />
+      <BodyText>Start building your app with Hearth React Native components.</BodyText>
+    </Box>
+  </BottomSheetModalProvider>
 );
 ```
 
