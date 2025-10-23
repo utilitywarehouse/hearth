@@ -1,7 +1,7 @@
 import { Canvas, Meta, Story } from '@storybook/addon-docs/blocks';
 import { BodyText, Box, Center } from '../../';
 import { BackToTopButton, DocComponentWrap, UsageWrap } from '../../../docs/components';
-import { Carousel, CarouselControls, CarouselItem, CarouselItems } from './';
+import { Carousel, CarouselControls, CarouselItem } from './';
 import * as Stories from './Carousel.stories';
 
 <Meta title="Components / Carousel" />
@@ -28,30 +28,7 @@ The carousel is a component for presenting information in a manner for customers
 
 <UsageWrap>
   <Center flex={1}>
-    <Carousel>
-      <CarouselItems width={300}>
-        <CarouselItem>
-          <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
-            <BodyText color="white">I'm a Carousel item!</BodyText>
-          </Box>
-        </CarouselItem>
-        <CarouselItem>
-          <Box p="100" aspectRatio={1.6} backgroundColor="red800">
-            <BodyText color="white">I'm another Carousel item!</BodyText>
-          </Box>
-        </CarouselItem>
-      </CarouselItems>
-    </Carousel>
-  </Center>
-</UsageWrap>
-
-```jsx
-import { BodyText } from '@utilitywarehouse/native-ui';
-import { Box, Carousel, CarouselItem, CarouselItems } from '@utilitywarehouse/native-ui/lab';
-
-const MyComponent = () => (
-  <Carousel>
-    <CarouselItems width={300}>
+    <Carousel width={300}>
       <CarouselItem>
         <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
           <BodyText color="white">I'm a Carousel item!</BodyText>
@@ -62,7 +39,25 @@ const MyComponent = () => (
           <BodyText color="white">I'm another Carousel item!</BodyText>
         </Box>
       </CarouselItem>
-    </CarouselItems>
+    </Carousel>
+  </Center>
+</UsageWrap>
+
+```jsx
+import { BodyText, Box, Carousel, CarouselItem } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <Carousel width={300}>
+    <CarouselItem>
+      <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
+        <BodyText color="white">I'm a Carousel item!</BodyText>
+      </Box>
+    </CarouselItem>
+    <CarouselItem>
+      <Box p="100" aspectRatio={1.6} backgroundColor="red800">
+        <BodyText color="white">I'm another Carousel item!</BodyText>
+      </Box>
+    </CarouselItem>
   </Carousel>
 );
 ```
@@ -73,31 +68,7 @@ The `CarouselControls` component is to be used in conjunction with the `Carousel
 
 <UsageWrap>
   <Center flex={1}>
-    <Carousel>
-      <CarouselItems width={300}>
-        <CarouselItem>
-          <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
-            <BodyText color="white">I'm a Carousel item!</BodyText>
-          </Box>
-        </CarouselItem>
-        <CarouselItem>
-          <Box p="100" aspectRatio={1.6} backgroundColor="red800">
-            <BodyText color="white">I'm another Carousel item!</BodyText>
-          </Box>
-        </CarouselItem>
-      </CarouselItems>
-      <CarouselControls style={{ marginTop: 16 }} />
-    </Carousel>
-  </Center>
-</UsageWrap>
-
-```jsx
-import { BodyText } from '@utilitywarehouse/native-ui';
-import { Box, Carousel, CarouselControls } from '@utilitywarehouse/native-ui/lab';
-
-const MyComponent = () => (
-  <Carousel>
-    <CarouselItems width={300}>
+    <Carousel width={300}>
       <CarouselItem>
         <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
           <BodyText color="white">I'm a Carousel item!</BodyText>
@@ -108,7 +79,26 @@ const MyComponent = () => (
           <BodyText color="white">I'm another Carousel item!</BodyText>
         </Box>
       </CarouselItem>
-    </CarouselItems>
+      <CarouselControls style={{ marginTop: 16 }} />
+    </Carousel>
+  </Center>
+</UsageWrap>
+
+```jsx
+import { BodyText, Box, Carousel, CarouselControls } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <Carousel width={300}>
+    <CarouselItem>
+      <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
+        <BodyText color="white">I'm a Carousel item!</BodyText>
+      </Box>
+    </CarouselItem>
+    <CarouselItem>
+      <Box p="100" aspectRatio={1.6} backgroundColor="red800">
+        <BodyText color="white">I'm another Carousel item!</BodyText>
+      </Box>
+    </CarouselItem>
     <CarouselControls style={{ marginTop: 16 }} />
   </Carousel>
 );
@@ -118,17 +108,11 @@ const MyComponent = () => (
 
 ### `Carousel`
 
-This wraps a carousel in dynamic context context, automatically providing all functionality for `CarouselItems`, `CarouselItem`, and `CarouselControls`.
+This wraps a carousel in dynamic context context, automatically providing all functionality for `CarouselItem`, and `CarouselControls`.
 
-| Name      | Type         | Default | Description                                                                                              |
-| --------- | ------------ | ------- | -------------------------------------------------------------------------------------------------------- |
-| children? | ReactElement | -       | Display any content within the carousel context. This may include `CarouselItem` and `CarouselControls`. |
+The `Carousel` component automatically updates the carousel context when interacted with.
 
-### `CarouselItems`
-
-The `CarouselItems` component automatically updates the carousel context when interacted with.
-
-The `CarouselItems` component accepts most props from the React Native `FlatList` component, while other props are predfined and cannot be modified. There are also some additional carousel specific props:
+The `Carousel` component accepts most props from the React Native `FlatList` component, while other props are predfined and cannot be modified. There are also some additional carousel specific props:
 
 | Name                 | Type           | Default | Description                                                                                                                    |
 | -------------------- | -------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------ |

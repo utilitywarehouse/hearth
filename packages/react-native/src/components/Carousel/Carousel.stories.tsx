@@ -1,20 +1,18 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { color } from '@utilitywarehouse/hearth-tokens/js';
 import { useState } from 'react';
-import { LayoutChangeEvent } from 'react-native';
+import { LayoutChangeEvent, Platform } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Carousel, CarouselControls, CarouselItem, CarouselItems, CarouselItemsProps } from '.';
-import { BodyText, Box, Heading } from '../';
+import { Carousel, CarouselControls, CarouselItem, CarouselProps } from '.';
+import { Alert, BodyText, Box } from '../';
 
 const meta = {
   title: 'Stories / Carousel',
-  // @ts-expect-error - Meta type mismatch
-  component: CarouselItems,
+  component: Carousel,
   parameters: {
     layout: 'centered',
   },
   argTypes: {
-    // @ts-expect-error - Meta type mismatch
     enabled: {
       control: 'boolean',
       description: 'Enable or disable the carousel',
@@ -31,6 +29,14 @@ const meta = {
       control: 'boolean',
       description: 'Show overflow items',
     },
+    showControls: {
+      control: 'boolean',
+      description: 'Show carousel controls',
+    },
+    showNavigation: {
+      control: 'boolean',
+      description: 'Show prev/next navigation buttons',
+    },
     style: {
       control: 'object',
       description: 'Style of the carousel',
@@ -41,12 +47,13 @@ const meta = {
     },
   },
   args: {
-    // @ts-expect-error - Meta type mismatch
     enabled: true,
     inactiveItemOpacity: 1,
     showOverflow: false,
+    showControls: true,
+    showNavigation: false,
   },
-} satisfies Meta<typeof CarouselItems>;
+} satisfies Meta<typeof Carousel>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -56,9 +63,8 @@ interface CarouselItemCardProps {
   title: string;
 }
 
-interface CarouselExampleProps extends CarouselItemsProps {
+interface CarouselExampleProps extends Omit<CarouselProps, 'children'> {
   items: Array<any>;
-  title: string;
 }
 
 const styles = StyleSheet.create(theme => ({
@@ -116,25 +122,20 @@ const items = [
   },
 ];
 
-const CarouselExample = ({ items, title, ...props }: CarouselExampleProps) => (
-  <Box>
-    <Heading style={styles.title} size="xl">
-      {title}
-    </Heading>
-    <Carousel style={styles.carousel}>
-      <CarouselItems {...props}>
-        {items.map(({ color, key, title }) => (
-          <CarouselItem key={key}>
-            <CarouselItemCard backgroundColor={color} key={key} title={`•••• •••• •••• ${title}`} />
-          </CarouselItem>
-        ))}
-      </CarouselItems>
-      <CarouselControls style={{ marginVertical: 16 }} />
-    </Carousel>
-  </Box>
+const CarouselExample = ({ items, ...props }: CarouselExampleProps) => (
+  <Carousel style={styles.carousel} {...props}>
+    {items.map(({ color, key, title }) => (
+      <CarouselItem key={key}>
+        <CarouselItemCard backgroundColor={color} title={`•••• •••• •••• ${title}`} />
+      </CarouselItem>
+    ))}
+  </Carousel>
 );
 
 export const Playground: Story = {
+  args: {
+    width: 300,
+  },
   render: args => {
     const [width, setWidth] = useState(0);
 
@@ -142,28 +143,146 @@ export const Playground: Story = {
       setWidth(nativeEvent.layout.width);
     };
 
-    const itemWidth = width * 0.8 + 16;
+    return (
+      <Box width={Platform.OS === 'web' ? 400 : '100%'} overflow="hidden" onLayout={handleLayout}>
+        <CarouselExample {...args} items={items} width={width} />
+      </Box>
+    );
+  },
+};
+
+export const FullWidth: Story = {
+  args: {
+    width: 300,
+  },
+  render: args => {
+    const [width, setWidth] = useState(0);
+
+    const handleLayout = ({ nativeEvent }: LayoutChangeEvent) => {
+      setWidth(nativeEvent.layout.width);
+    };
 
     return (
-      <Box onLayout={handleLayout}>
-        <CarouselExample {...args} items={items} title="Full-width" width={width} />
+      <Box width={Platform.OS === 'web' ? 400 : '100%'} overflow="hidden" onLayout={handleLayout}>
+        <CarouselExample {...args} items={items} width={width} />
+      </Box>
+    );
+  },
+};
+
+export const FixedWidthCentered: Story = {
+  args: {
+    width: 300,
+  },
+  render: args => {
+    const [width, setWidth] = useState(0);
+
+    const handleLayout = ({ nativeEvent }: LayoutChangeEvent) => {
+      setWidth(nativeEvent.layout.width);
+    };
+
+    const itemWidth = width * 0.8;
+
+    return (
+      <Box width={Platform.OS === 'web' ? 400 : '100%'} overflow="hidden" onLayout={handleLayout}>
         <CarouselExample
           {...args}
           centered
           items={items}
           itemWidth={itemWidth}
           showOverflow
-          title="Fixed-width, centered"
           width={width}
         />
-        <CarouselExample
-          {...args}
-          items={items}
-          itemWidth={itemWidth}
-          showOverflow
-          title="Fixed-width, flex-start"
-          width={width}
-        />
+      </Box>
+    );
+  },
+};
+
+export const FixedWidthStart: Story = {
+  args: {
+    width: 300,
+  },
+  render: args => {
+    const [width, setWidth] = useState(0);
+
+    const handleLayout = ({ nativeEvent }: LayoutChangeEvent) => {
+      setWidth(nativeEvent.layout.width);
+    };
+
+    const itemWidth = width * 0.8;
+
+    return (
+      <Box width={Platform.OS === 'web' ? 400 : '100%'} overflow="hidden" onLayout={handleLayout}>
+        <CarouselExample {...args} items={items} itemWidth={itemWidth} showOverflow width={width} />
+      </Box>
+    );
+  },
+};
+
+export const WithNavigation: Story = {
+  args: {
+    width: 300,
+    showNavigation: true,
+  },
+  render: args => {
+    const [width, setWidth] = useState(0);
+
+    const handleLayout = ({ nativeEvent }: LayoutChangeEvent) => {
+      setWidth(nativeEvent.layout.width);
+    };
+
+    return (
+      <Box width={Platform.OS === 'web' ? 400 : '100%'} overflow="hidden" onLayout={handleLayout}>
+        <CarouselExample {...args} items={items} width={width} />
+      </Box>
+    );
+  },
+};
+
+export const WithoutControls: Story = {
+  args: {
+    width: 300,
+    showControls: false,
+  },
+  render: args => {
+    const [width, setWidth] = useState(0);
+
+    const handleLayout = ({ nativeEvent }: LayoutChangeEvent) => {
+      setWidth(nativeEvent.layout.width);
+    };
+
+    return (
+      <Box width={Platform.OS === 'web' ? 400 : '100%'} overflow="hidden" onLayout={handleLayout}>
+        <CarouselExample {...args} items={items} width={width} />
+      </Box>
+    );
+  },
+};
+
+export const CustomControls: Story = {
+  args: {
+    width: 300,
+  },
+  render: args => {
+    const [width, setWidth] = useState(0);
+
+    const handleLayout = ({ nativeEvent }: LayoutChangeEvent) => {
+      setWidth(nativeEvent.layout.width);
+    };
+
+    return (
+      <Box width={Platform.OS === 'web' ? 400 : '100%'} overflow="hidden" onLayout={handleLayout}>
+        <Carousel style={styles.carousel} {...args} width={width}>
+          {items.map(({ color, key, title }) => (
+            <CarouselItem key={key}>
+              <CarouselItemCard backgroundColor={color} title={`•••• •••• •••• ${title}`} />
+            </CarouselItem>
+          ))}
+          <Box gap="200" mt="200">
+            <Alert text="You can swipe to see more items or use the navigation below" />
+            <CarouselControls showNavigation />
+          </Box>
+        </Carousel>
       </Box>
     );
   },
