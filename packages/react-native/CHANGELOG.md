@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.4.2
+
+### Patch Changes
+
+- [#570](https://github.com/utilitywarehouse/hearth/pull/570) [`364e1ac`](https://github.com/utilitywarehouse/hearth/commit/364e1ac1ee6c83327b0614d90bf280e283144ae6) Thanks [@dorota-uw](https://github.com/dorota-uw)! - Switched the logic for enabling/disabling comma separator in CurrencyInput
+
+- [#573](https://github.com/utilitywarehouse/hearth/pull/573) [`2c28614`](https://github.com/utilitywarehouse/hearth/commit/2c28614b5a9335dda15895c90e08774574d82d85) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `Radio` and `Checkbox` helper overflow issue
+
+- [#573](https://github.com/utilitywarehouse/hearth/pull/573) [`2c28614`](https://github.com/utilitywarehouse/hearth/commit/2c28614b5a9335dda15895c90e08774574d82d85) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes semantic text colour issue
+
 ## 0.4.1
 
 ### Patch Changes
