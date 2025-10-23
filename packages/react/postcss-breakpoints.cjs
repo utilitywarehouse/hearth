@@ -83,7 +83,10 @@ module.exports = () => ({
       // React DevTools can interfere with PostCSS AST nodes during development
       // Silently skip processing if this happens
       if (process.env.NODE_ENV === 'development') {
-        console.warn('PostCSS breakpoints plugin skipped due to DevTools interference');
+        console.warn(
+          `PostCSS breakpoints plugin skipped processing rule${rule && rule.selector ? ` "${rule.selector}"` : ""} due to DevTools interference. ` +
+          `Consider disabling React DevTools during development if this persists.`
+        );
         return;
       }
       // Re-throw in production
