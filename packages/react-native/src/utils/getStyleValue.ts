@@ -1,6 +1,3 @@
- 
- 
-
 const getStyleValue = (value: any, type: Record<string, any>) => {
   if (typeof value === 'string') {
     const key = value;

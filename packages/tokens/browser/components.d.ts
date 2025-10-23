@@ -271,6 +271,7 @@ export declare const components: {
     readonly borderRadius: 'var(--h-dialog-border-radius)';
     readonly content: {
       readonly gap: 'var(--h-dialog-content-gap)';
+      readonly paddingBottom: 'var(--h-dialog-content-padding-bottom)';
     };
     readonly gap: 'var(--h-dialog-gap)';
     readonly padding: 'var(--h-dialog-padding)';
@@ -450,7 +451,11 @@ export declare const components: {
     readonly item: {
       readonly borderRadius: 'var(--h-menu-item-border-radius)';
       readonly gap: 'var(--h-menu-item-gap)';
-      readonly padding: 'var(--h-menu-item-padding)';
+      readonly padding: {
+        readonly desktop: 'var(--h-menu-item-padding-desktop)';
+        readonly mobile: 'var(--h-menu-item-padding-mobile)';
+        readonly tablet: 'var(--h-menu-item-padding-tablet)';
+      };
     };
     readonly list: {
       readonly gap: 'var(--h-menu-list-gap)';
@@ -682,6 +687,13 @@ export declare const components: {
     readonly validation: {
       readonly gap: 'var(--h-select-validation-gap)';
     };
+    readonly item: {
+      readonly padding: {
+        readonly desktop: 'var(--h-select-item-padding-desktop)';
+        readonly mobile: 'var(--h-select-item-padding-mobile)';
+        readonly tablet: 'var(--h-select-item-padding-tablet)';
+      };
+    };
   };
   readonly skeleton: {
     readonly loadingColor: 'var(--h-skeleton-loading-color)';
@@ -796,6 +808,28 @@ export declare const components: {
     readonly gapVertical: 'var(--h-tooltip-gap-vertical)';
     readonly paddingHorizontal: 'var(--h-tooltip-padding-horizontal)';
     readonly paddingVertical: 'var(--h-tooltip-padding-vertical)';
+  };
+  readonly container: {
+    readonly margin: {
+      readonly desktop: 'var(--h-container-margin-desktop)';
+      readonly mobile: 'var(--h-container-margin-mobile)';
+      readonly tablet: 'var(--h-container-margin-tablet)';
+    };
+    readonly paddingBottom: {
+      readonly desktop: 'var(--h-container-padding-bottom-desktop)';
+      readonly mobile: 'var(--h-container-padding-bottom-mobile)';
+      readonly tablet: 'var(--h-container-padding-bottom-tablet)';
+    };
+    readonly paddingTop: {
+      readonly desktop: 'var(--h-container-padding-top-desktop)';
+      readonly mobile: 'var(--h-container-padding-top-mobile)';
+      readonly tablet: 'var(--h-container-padding-top-tablet)';
+    };
+    readonly width: {
+      readonly desktop: 'var(--h-container-width-desktop)';
+      readonly mobile: 'var(--h-container-width-mobile)';
+      readonly tablet: 'var(--h-container-width-tablet)';
+    };
   };
   readonly heading: {
     readonly lg: {

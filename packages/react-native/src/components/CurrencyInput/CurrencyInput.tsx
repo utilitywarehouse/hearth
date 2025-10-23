@@ -14,7 +14,7 @@ const CurrencyInput = ({
   placeholder,
   inBottomSheet = false,
   required,
-  autoFormatThousands = false,
+  disableGroupSeparator = false,
   value,
   onChangeText,
   ...rest
@@ -27,7 +27,7 @@ const CurrencyInput = ({
   const getPlaceholder = placeholder ?? defaultFormat;
 
   const handleChangeText = (text: string) => {
-    if (autoFormatThousands) {
+    if (!disableGroupSeparator) {
       const formatted = formatThousands(text);
       onChangeText?.(formatted);
     } else {
@@ -36,7 +36,7 @@ const CurrencyInput = ({
   };
 
   const displayValue =
-    autoFormatThousands && typeof value === 'string' ? formatThousands(value) : value;
+    !disableGroupSeparator && typeof value === 'string' ? formatThousands(value) : value;
 
   return (
     <Input

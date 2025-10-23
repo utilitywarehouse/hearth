@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react-native",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Utility Warehouse React Native UI library",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -57,7 +57,7 @@
     "@vitest/coverage-v8": "^3.2.4",
     "chromatic": "^13.3.0",
     "eslint-plugin-storybook": "9.1.6",
-    "playwright": "^1.53.1",
+    "playwright": "^1.55.1",
     "prismjs": "^1.30.0",
     "react": "^19.1.0",
     "react-native": "0.80.0",

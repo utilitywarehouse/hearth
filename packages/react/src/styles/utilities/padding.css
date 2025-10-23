@@ -1,4 +1,32 @@
 @breakpoints {
+  .hearth-r-padding {
+    padding: var(--h-r-padding);
+  }
+
+  .hearth-r-padding-top {
+    padding-top: var(--h-r-padding-top);
+  }
+
+  .hearth-r-padding-right {
+    padding-right: var(--h-r-padding-right);
+  }
+
+  .hearth-r-padding-bottom {
+    padding-bottom: var(--h-r-padding-bottom);
+  }
+
+  .hearth-r-padding-left {
+    padding-left: var(--h-r-padding-left);
+  }
+
+  .hearth-r-padding-inline {
+    padding-inline: var(--h-r-padding-inline);
+  }
+
+  .hearth-r-padding-block {
+    padding-block: var(--h-r-padding-block);
+  }
+
   .hearth-r-padding-0 {
     padding: 0;
   }

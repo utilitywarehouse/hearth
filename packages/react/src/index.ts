@@ -31,6 +31,9 @@ export { useMediaQuery } from './hooks/use-media-query';
 export { Box } from './components/Box/Box';
 export type { BoxProps } from './components/Box/Box.props';
 
+export { Container } from './components/Container/Container';
+export type { ContainerProps } from './components/Container/Container.props';
+
 export { Flex } from './components/Flex/Flex';
 export type { FlexProps } from './components/Flex/Flex.props';
 

@@ -1,5 +1,25 @@
 # @utilitywarehouse/hearth-react
 
+## 0.13.4
+
+### Patch Changes
+
+- [#575](https://github.com/utilitywarehouse/hearth/pull/575) [`05f9461`](https://github.com/utilitywarehouse/hearth/commit/05f94610704ddecfdcda1ff93c2c2f20ea2e2fd6) Thanks [@robphoenix](https://github.com/robphoenix)! - Update deps
+
+## 0.13.3
+
+### Patch Changes
+
+- [#561](https://github.com/utilitywarehouse/hearth/pull/561) [`866e1be`](https://github.com/utilitywarehouse/hearth/commit/866e1be2b778f778a234f3eecb295e34166945a1) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `inverted` prop to `Breadcrumbs`
+
+- [#562](https://github.com/utilitywarehouse/hearth/pull/562) [`b059a60`](https://github.com/utilitywarehouse/hearth/commit/b059a60ee6e65a6573f329b98e2e2a6c16be5b40) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `Container` component
+
+## 0.13.2
+
+### Patch Changes
+
+- [#549](https://github.com/utilitywarehouse/hearth/pull/549) [`5407963`](https://github.com/utilitywarehouse/hearth/commit/54079632cdb4a9c6175c53e86b53a61f79dc30d8) Thanks [@robphoenix](https://github.com/robphoenix)! - Enable Hearth tokens to be used in some props.
+
 ## 0.13.1
 
 ### Patch Changes

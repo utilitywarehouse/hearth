@@ -1,15 +1,16 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
-import * as BoxStories from './Box.stories';
-import * as FlexStories from './Flex.stories';
-import * as GridStories from './Grid.stories';
+import * as BoxStories from './components/Box.stories';
+import * as FlexStories from './components/Flex.stories';
+import * as GridStories from './components/Grid.stories';
+import * as ContainerStories from './components/Container.stories';
 
-<Meta title="Layout" />
+<Meta title="Layout / Introduction" />
 
 # Layout
 
 These components focus on creating layouts and can be used as base building
 blocks for other components and patterns. These layout primitives are built
-upon our design tokens, and providing styling options which make it easier to
+upon our design tokens, and provide styling options which make it easier to
 apply design decisions coherently.
 
 ## Box
@@ -84,4 +85,17 @@ As well as more complicated grid layouts.
   <Box gridArea="sidebar">Sidebar</Box>
   <Box gridArea="footer">Footer</Box>
 </Grid>
+```
+
+## Container
+
+<Canvas of={ContainerStories.Playground} sourceState="none" />
+
+`Container` provides a page content container, constraining the width, while
+providing responsive padding, gutters and vertical spacing.
+
+```tsx
+<Container spacing='xl'>
+  {...}
+</Container>
 ```

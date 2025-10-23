@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.1.3
+
+### Patch Changes
+
+- [#549](https://github.com/utilitywarehouse/hearth/pull/549) [`5407963`](https://github.com/utilitywarehouse/hearth/commit/54079632cdb4a9c6175c53e86b53a61f79dc30d8) Thanks [@robphoenix](https://github.com/robphoenix)! - Enable Hearth tokens to be used in some props.
+
 ## 0.1.2
 
 ### Patch Changes
