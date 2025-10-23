@@ -26,6 +26,7 @@ web experiences.
 - [CSS reset](#css-reset)
 - [Hearth Tokens](#hearth-tokens)
 - [Portals](#portals)
+- [React DevTools](#react-devtools)
 
 ## Getting started
 
@@ -149,3 +150,11 @@ following style to your application layout root.
 This style creates a separate stacking context for your application’s `.root`
 element. This way, popups will always appear above the page contents, and any
 `z-index` property in your styles won’t interfere with them.
+
+## React DevTools
+
+React DevTools can interfere with PostCSS AST nodes during development, so, as
+we are using PostCSS, you may see an error when debugging your code. This is a
+known limitation of browser DevTools extensions interfering with build-time
+tooling, you can safely ignore it, and turn off React DevTools while debugging
+if you're not using it.
