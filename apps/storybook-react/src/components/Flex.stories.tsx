@@ -33,7 +33,10 @@ const meta: Meta<typeof Flex> = {
     paddingLeft: { options: spaceTokens, control: { type: 'select' } },
     wrap: { control: { type: 'radio' }, options: ['nowrap', 'wrap', 'wrap-reverse'] },
     gap: { options: spaceTokens, control: { type: 'select' } },
-    spacing: { options: ['xs', 'sm', 'md', 'lg', 'xl'], control: { type: 'select' } },
+    spacing: {
+      options: ['none', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
+      control: { type: 'select' },
+    },
     width: { control: { type: 'text' } },
     minWidth: { control: { type: 'text' } },
     maxWidth: { control: { type: 'text' } },

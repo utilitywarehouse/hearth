@@ -59,7 +59,7 @@ interface CommonFlexProps
     MarginProps,
     SizeProps,
     GapProps,
-    SpacingProps,
+    Pick<SpacingProps, 'spacing'>,
     BorderProps,
     BorderColorProps,
     GridItemProps,
