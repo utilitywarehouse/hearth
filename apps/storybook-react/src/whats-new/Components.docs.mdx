@@ -1,0 +1,119 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="What's New / Components" />
+
+# Components
+
+## Stack
+
+This component from Web UI has not been implemented in **Hearth React**. We
+felt it was now redundant with what is available in modern CSS, and that the
+`Flex` component meets all the needs we have for stacked and inline layouts.
+
+```tsx
+<Flex direction="column" gap="400" alignItems="start">
+  {...}
+</Flex>
+```
+
+## Grid
+
+This component is not the same as the `Grid` component in Web UI. The previous
+version of this built on the Material UI `Grid` component, which used `flexbox`
+under the hood. The **Hearth React** `Grid` component is based on CSS Grid,
+providing useful shortcuts to building grid layouts.
+
+Please see the `Grid` component docs for further details about its usage.
+
+```tsx
+<Grid
+  defaultResponsiveColumns // columns={{ mobile: '4', tablet: '8', desktop: '12' }}
+  width={{ mobile: '360px', tablet: '744px', desktop: '1096px' }}
+  padding={{ mobile: '200', tablet: '400' }}
+  gap="200"
+>
+  <Placeholder gridColumnSpan="4" padding="400" />
+  <Placeholder gridColumnSpan="4" padding="400" />
+  <Placeholder gridColumnSpan={{ mobile: '4', tablet: '8', desktop: '4' }} padding="400" />
+</Grid>
+```
+
+## Spacer
+
+This component has not been brought over from Web UI. There was concern that it
+was being unnecessarily overused. If you really need to implement something
+similar you could do so using the `Box` component, however we recommend using
+the `Flex` and `Grid` layout primitives instead.
+
+## CheckboxGridGroup and RadioGridGroup
+
+These components are not currently available in **Hearth React**. At this time
+we don't believe the new designs require any layout beyond what you can achieve
+with the `CheckboxGroup` and `RadioGroup` components. If you need to you can
+compose the `RadioGroup` and `CheckboxGroup` components with the `Grid`
+component.
+
+Please discuss this with your designer, or reach out to us, so that we can
+ensure this is the correct usage for the UI.
+
+```tsx
+<RadioGroup label="Grid layout">
+  <Grid columns="3" gap="150">
+    <RadioTile value="1" label="One" />
+    <RadioTile value="2" label="Two" />
+    <RadioTile value="3" label="Three" />
+    <RadioTile value="4" label="Four" />
+    <RadioTile value="5" label="Five" />
+    <RadioTile value="6" label="Six" />
+  </Grid>
+</RadioGroup>
+```
+
+## Typography
+
+We still have the `Heading` component, however the props have significantly changed.
+There is no longer a `variant` prop, instead we have a `size` prop which
+determines the font size of the text. This prop is not responsive as any needed
+responsiveness is handled internally. There is also no `color` prop as this
+shouldn't be needed.
+
+The `Text` component has been replaced with the `BodyText` component. Again the
+previous `variant` prop has been replaced with a `size` prop.
+
+There is also an additional `DetailText` component, which renders the monospace font.
+
+The other typography components; `Em`, `Strong`, `Label` and `HelperText` are
+mostly the same, with an additional `ValidationText` component.
+
+Please see individual component documentation for details.
+
+## Button
+
+The `Button` component has the same variants as before; `solid`, `outline` &
+`ghost`, with an additional `emphasis` variant. The `colorSchemes` are more
+restricted than before.
+
+## Link
+
+There is no longer a `size` prop on the `Link` component, and the `TextLink`
+component has been replaced with the `InlineLink` component.
+
+## Badge
+
+The `Badge` variants have changed from `soft`, `strong` & `outline` to `solid`
+& `outline`, and the `colorScheme` values have changed to reflect the new
+brand. The `bottomRadiusZero` prop is now called `flatBase`.
+
+## Inputs
+
+There is no longer a `TextField` component, and it's replacements have a completely updated API. We currently have the following inputs:
+
+- `TextInput`
+- `TextArea`
+- `PasswordInput`
+- `SearchInput`
+- `CurrencyInput`
+
+There are plans to add further inputs, such as a `DateInput` and
+`ValidationInput`. Please refer to the specific component documentation pages
+for more in depth usage and API information.

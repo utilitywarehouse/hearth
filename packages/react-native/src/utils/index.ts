@@ -5,3 +5,4 @@ export { default as getStyleValue } from './getStyleValue';
 export { default as hexWithOpacity } from './hexWithOpacity';
 export { default as isEqual } from './isEqual';
 export * from './styleUtils';
+export * from './themeValueHelpers';

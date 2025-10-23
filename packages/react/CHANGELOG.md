@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.13.4
+
+### Patch Changes
+
+- [#575](https://github.com/utilitywarehouse/hearth/pull/575) [`05f9461`](https://github.com/utilitywarehouse/hearth/commit/05f94610704ddecfdcda1ff93c2c2f20ea2e2fd6) Thanks [@robphoenix](https://github.com/robphoenix)! - Update deps
+
 ## 0.13.3
 
 ### Patch Changes

@@ -194,7 +194,10 @@ If you are using Jest for testing, you will need to add the following configurat
 ```js
 module.exports = {
   // other Jest configurations...
-  setupFiles: ['react-native-unistyles/mocks'],
+  setupFiles: [
+    'react-native-unistyles/mocks',
+    './node_modules/react-native-gesture-handler/jestSetup.js',
+  ],
   // other Jest configurations...
 };
 ```
