@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { DropdownMenu as RadixMenu, ScrollArea as RadixScrollArea } from 'radix-ui';
 import { MenuContentProps } from './MenuContent.props';
+import { Flex } from '../Flex/Flex';
 
 const COMPONENT_NAME = 'MenuContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -35,7 +36,7 @@ export const MenuContent: React.FC<MenuContentProps> = ({
       >
         <RadixScrollArea.Root className="hearth-ScrollAreaRoot" type="auto">
           <RadixScrollArea.Viewport className="hearth-ScrollAreaViewport">
-            {children}
+            <div className={`${componentClassName}List`}>{children}</div>
           </RadixScrollArea.Viewport>
           <RadixScrollArea.Scrollbar className="hearth-ScrollAreaScrollbar" orientation="vertical">
             <RadixScrollArea.Thumb className="hearth-ScrollAreaThumb" />
