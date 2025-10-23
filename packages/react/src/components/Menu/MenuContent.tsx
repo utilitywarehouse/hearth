@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { DropdownMenu as RadixMenu, ScrollArea as RadixScrollArea } from 'radix-ui';
 import { MenuContentProps } from './MenuContent.props';
-import { Flex } from '../Flex/Flex';
 
 const COMPONENT_NAME = 'MenuContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
