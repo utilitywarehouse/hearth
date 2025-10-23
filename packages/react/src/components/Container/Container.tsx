@@ -27,6 +27,13 @@ export const Container = React.forwardRef<ContainerElement, ContainerProps>(
       children,
       align = 'center',
       asChild,
+      padding,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft,
+      paddingInline,
+      paddingBlock,
       ...props
     },
     ref
@@ -40,6 +47,13 @@ export const Container = React.forwardRef<ContainerElement, ContainerProps>(
       wrap,
       gap,
       maxWidth,
+      padding,
+      paddingTop,
+      paddingRight,
+      paddingBottom,
+      paddingLeft,
+      paddingInline,
+      paddingBlock,
     };
     const Component = asChild ? Slot.Root : 'div';
 
