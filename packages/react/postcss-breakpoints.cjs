@@ -36,53 +36,48 @@ module.exports = () => ({
 
       const breakpointsRule = rule.parent;
 
-      // Check if cache has the rule AND if the cached value is valid
-      const cachedMedias = cache.has(breakpointsRule) ? cache.get(breakpointsRule) : null;
-
-      if (!cachedMedias) {
-        // when we first meet a given @breakpoints at-rule
-        if (!cache.has(breakpointsRule)) {
-          // create the final media rules for this @breakpoints at-rule
-          const medias = breakpoints.reduce((breakpointsMedias, breakpoint) => {
-            breakpointsMedias[breakpoint.name] = new postcss.AtRule({
-              name: 'media',
-              params: breakpoint.params,
-            });
-            return breakpointsMedias;
-          }, {});
-
-          // add an entry to the cache
-          cache.set(breakpointsRule, medias);
-
-          // add final media rules after the @breakpoints at-rule
-          const mediaRules = Object.values(medias).reverse();
-          mediaRules.forEach(media => {
-            breakpointsRule.after(media);
+      // when we first meet a given @breakpoints at-rule
+      if (!cache.has(breakpointsRule)) {
+        // create the final media rules for this @breakpoints at-rule
+        const medias = breakpoints.reduce((breakpointsMedias, breakpoint) => {
+          breakpointsMedias[breakpoint.name] = new postcss.AtRule({
+            name: 'media',
+            params: breakpoint.params,
           });
-        }
+          return breakpointsMedias;
+        }, {});
 
-        // move the rule itself before @breakpoints at-rule
-        breakpointsRule.before(rule);
+        // add an entry to the cache
+        cache.set(breakpointsRule, medias);
 
-        // save clone of the rule before we modify it
-        const originalRule = rule.clone();
-
-        // clean up the extra indentation
-        rule.selector = rule.selector.replace(/\n\s\s/g, '\n');
-        rule.cleanRaws();
-
-        // add breakpoint-level rules
-        breakpoints.forEach(breakpoint => {
-          const clone = originalRule.clone();
-          updateClass(clone, breakpoint.name);
-          cache.get(breakpointsRule)[breakpoint.name].append(clone);
+        // add final media rules after the @breakpoints at-rule
+        const mediaRules = Object.values(medias).reverse();
+        mediaRules.forEach(media => {
+          breakpointsRule.after(media);
         });
+      }
 
-        // remove @breakpoints at-rule and clear cache if it has no rules
-        if (breakpointsRule.nodes.length === 0) {
-          breakpointsRule.remove();
-          cache.delete(breakpointsRule);
-        }
+      // move the rule itself before @breakpoints at-rule
+      breakpointsRule.before(rule);
+
+      // save clone of the rule before we modify it
+      const originalRule = rule.clone();
+
+      // clean up the extra indentation
+      rule.selector = rule.selector.replace(/\n\s\s/g, '\n');
+      rule.cleanRaws();
+
+      // add breakpoint-level rules
+      breakpoints.forEach(breakpoint => {
+        const clone = originalRule.clone();
+        updateClass(clone, breakpoint.name);
+        cache.get(breakpointsRule)[breakpoint.name].append(clone);
+      });
+
+      // remove @breakpoints at-rule and clear cache if it has no rules
+      if (breakpointsRule.nodes.length === 0) {
+        breakpointsRule.remove();
+        cache.delete(breakpointsRule);
       }
     } catch (error) {
       // React DevTools can interfere with PostCSS AST nodes during development
