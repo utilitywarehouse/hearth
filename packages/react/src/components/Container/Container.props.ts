@@ -1,7 +1,6 @@
 import { BorderColorProps } from '../../props/border-color.props';
 import { BorderProps } from '../../props/border.props';
 import { ColorProps } from '../../props/color.props';
-import { FlexItemProps } from '../../props/flex-item.props';
 import { GridItemProps } from '../../props/grid-item.props';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
@@ -14,7 +13,6 @@ export type ContainerProps = Omit<
   | keyof ColorProps
   | keyof BorderProps
   | keyof BorderColorProps
-  | keyof FlexItemProps
   | keyof GridItemProps
   | keyof TextTransformProps
   | keyof TextAlignProps

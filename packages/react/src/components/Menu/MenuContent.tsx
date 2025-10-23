@@ -35,7 +35,7 @@ export const MenuContent: React.FC<MenuContentProps> = ({
       >
         <RadixScrollArea.Root className="hearth-ScrollAreaRoot" type="auto">
           <RadixScrollArea.Viewport className="hearth-ScrollAreaViewport">
-            {children}
+            <div className={`${componentClassName}List`}>{children}</div>
           </RadixScrollArea.Viewport>
           <RadixScrollArea.Scrollbar className="hearth-ScrollAreaScrollbar" orientation="vertical">
             <RadixScrollArea.Thumb className="hearth-ScrollAreaThumb" />
