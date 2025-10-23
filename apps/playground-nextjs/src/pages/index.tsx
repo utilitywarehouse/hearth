@@ -12,6 +12,10 @@ import {
   ModalFooter,
   ModalClose,
   Box,
+  Tabs,
+  TabsList,
+  Tab,
+  TabContent,
 } from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';
 import { space, color, components, semantic } from '@utilitywarehouse/hearth-tokens/browser';
@@ -104,6 +108,22 @@ export default function Home() {
           Hearth Tokens
         </StyledBox>
       </div>
+
+      <HearthBox padding="200">
+        <h2>Tabs demo</h2>
+        <Tabs defaultValue="tab1" size="md">
+          <TabsList>
+            <Tab value="tab1">Tab One</Tab>
+            <Tab value="tab2">Tab Two</Tab>
+          </TabsList>
+          <TabContent value="tab1">
+            <HearthBox padding="200">Content for tab one</HearthBox>
+          </TabContent>
+          <TabContent value="tab2">
+            <HearthBox padding="200">Content for tab two</HearthBox>
+          </TabContent>
+        </Tabs>
+      </HearthBox>
 
       <Box position="relative" inset="400" top="100">
         position
