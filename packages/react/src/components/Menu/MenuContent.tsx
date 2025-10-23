@@ -32,6 +32,7 @@ export const MenuContent: React.FC<MenuContentProps> = ({
         sideOffset={4}
         {...placementTranslation[placement]}
         collisionPadding={8}
+        onCloseAutoFocus={e => e.preventDefault()}
       >
         <RadixScrollArea.Root className="hearth-ScrollAreaRoot" type="auto">
           <RadixScrollArea.Viewport className="hearth-ScrollAreaViewport">
