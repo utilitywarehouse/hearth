@@ -154,7 +154,7 @@ element. This way, popups will always appear above the page contents, and any
 ## React DevTools
 
 React DevTools can interfere with PostCSS AST nodes during development, so as
-we are using PostCSS, you may see an error when debugging your code. This is a
-known limitation of browser DevTools extensions interfering with build-time
-tooling, you can safely ignore it, and turn off React DevTools while debugging
-if you're not using it.
+we are using PostCSS, you may see an error when debugging your code. This happens because React DevTools may modify object prototypes or add non-standard properties to objects, which can break assumptions made by build-time tools like PostCSS.
+This is a known limitation of browser DevTools extensions interfering with build-time tooling. You can safely ignore these errors, and turn off React DevTools while debugging if you're not using it.
+
+For more details, see [facebook/react-devtools#1667](https://github.com/facebook/react-devtools/issues/1667) and [postcss/postcss#1451](https://github.com/postcss/postcss/issues/1451).
