@@ -30,6 +30,7 @@ export * from './Label';
 export * from './Link';
 export * from './List';
 export * from './Modal';
+export * from './ProgressStepper';
 export * from './Radio';
 export * from './RadioCard';
 export * from './SectionHeader';

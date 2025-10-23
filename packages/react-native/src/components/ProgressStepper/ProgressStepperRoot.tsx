@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { useStyleProps } from '../../hooks';
 import { ProgressStepperRootProps } from './ProgressStepper.props';
 
 const ProgressStepperRoot = ({
@@ -9,13 +8,10 @@ const ProgressStepperRoot = ({
   style,
   ...rest
 }: ProgressStepperRootProps) => {
-  // Extract style props using our custom hook
-  const { computedStyles, remainingProps } = useStyleProps(rest);
-
   return (
     <View
-      {...remainingProps}
-      style={[styles.root, computedStyles, style as ViewStyle]}
+      style={[styles.root, style as ViewStyle]}
+      {...rest}
     >
       {children}
     </View>

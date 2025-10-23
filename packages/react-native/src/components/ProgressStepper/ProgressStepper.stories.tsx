@@ -20,21 +20,22 @@ type Story = StoryObj<typeof meta>;
 export const Playground: Story = {
   args: {
     children: (
-      <Flex space="xl" direction="column" align="center" style={{ flex: 1 }}>
+      <Flex space="xl" direction="column" align="center" style={{ flex: 1, minWidth: 200 }}>
         <ProgressStepper>
           <ProgressStep id={'1'} state="completed" />
           <ProgressStep id={'2'} state="completed" />
           <ProgressStep id={'3'} state="active" />
+          <ProgressStep id={'4'} state="uncompleted" />
         </ProgressStepper>
-        <>
+        <Flex direction="row" space="lg" style={{ width: '100%' }}>
           <ProgressStep id={'1'} state="completed" />
-        </>
-        <>
+        </Flex>
+        <Flex direction="row" space="lg" style={{ width: '100%' }}>
           <ProgressStep id={'3'} state="active" />
-        </>
-        <>
+        </Flex>
+        <Flex direction="row" space="lg" style={{ width: '100%' }}>
           <ProgressStep id={'5'} state="uncompleted" />
-        </>
+        </Flex>
       </Flex>
     ),
   },
@@ -94,11 +95,11 @@ export const BasicExample: Story = {
         <Heading size="md">Progress Stepper</Heading>
         <BodyText>Shows progress through multi-step processes</BodyText>
         <ProgressStepper {...props}>
-          <ProgressStep id="step1" state="completed" />
-          <ProgressStep id="step2" state="completed" />
-          <ProgressStep id="step3" state="active" />
-          <ProgressStep id="step4" state="uncompleted" />
-          <ProgressStep id="step5" state="uncompleted" />
+          <ProgressStep id="services-data" state="completed" />
+          <ProgressStep id="customer-data" state="completed" />
+          <ProgressStep id="shipping-data" state="active" />
+          <ProgressStep id="payment-data" state="uncompleted" />
+          <ProgressStep id="summary" state="uncompleted" />
         </ProgressStepper>
         <BodyText>Step 3 of 5</BodyText>
       </Flex>

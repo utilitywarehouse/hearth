@@ -11,12 +11,7 @@ interface ProgressStepInternalProps extends ProgressStepProps {
   isLast?: boolean;
 }
 
-const ProgressStep = ({
-  state,
-  index = 0,
-  isLast = false,
-  ...rest
-}: ProgressStepInternalProps) => {
+const ProgressStep = ({ state, index = 0, isLast = false, ...rest }: ProgressStepInternalProps) => {
   styles.useVariants({ state, isLast });
 
   const renderStepNumber = () => {
@@ -28,10 +23,15 @@ const ProgressStep = ({
   };
 
   return (
-    <View style={styles.container} {...rest}>
+    <View
+      style={styles.container}
+      accessible
+      aria-label={`Step ${index + 1}, ${rest.id}, ${state}`}
+      {...rest}
+    >
       <View style={styles.step}>
         {state === 'completed' ? (
-          <Icon as={TickSmallIcon} width={20} height={20} style={styles.text}/>
+          <Icon as={TickSmallIcon} width={20} height={20} style={styles.text} />
         ) : state === 'active' ? (
           <View style={styles.inner}>{renderStepNumber()}</View>
         ) : (
@@ -53,6 +53,9 @@ const styles = StyleSheet.create(theme => ({
       isLast: {
         true: {
           flex: 0,
+          _web: {
+            flex: 'none',
+          },
         },
         false: {
           flex: 1,
@@ -115,7 +118,7 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       state: {
         completed: {
-          backgroundColor: theme.components.progressStepper.bar.complete.backgroundColor
+          backgroundColor: theme.components.progressStepper.bar.complete.backgroundColor,
         },
         active: {
           backgroundColor: theme.color.border.subtle,

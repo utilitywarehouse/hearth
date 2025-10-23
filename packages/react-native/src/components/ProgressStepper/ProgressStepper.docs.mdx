@@ -2,19 +2,19 @@ import { Canvas, Meta } from '@storybook/addon-docs/blocks';
 import { BackToTopButton, ViewFigmaButton } from '../../../docs/components';
 import * as ProgressStepperStories from './ProgressStepper.stories';
 
-<Meta of={ProgressStepperStories} />
+<Meta title="Components / Progress Stepper" />
 
 <ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=6056-1987" />
 
 <BackToTopButton />
 
-# ProgressStepper
+# Progress Stepper
 
 A form helper component that displays a series of dots connected by lines, showing the progress through a multi-step process. Each step can be marked as completed, active, or uncompleted.
 
 ## Usage
 
-The ProgressStepper component uses a compound component pattern, making it easy to define steps declaratively. It provides visual feedback about completed steps, the current active step, and remaining uncompleted steps.
+The `ProgressStepper` component uses a compound component pattern, making it easy to define steps declaratively. It provides visual feedback about completed steps, the current active step, and remaining uncompleted steps.
 
 ### Basic Usage
 
@@ -48,13 +48,13 @@ See how different step states are visualized:
 
 ## API
 
-### ProgressStepper Props
+### Progress Stepper Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `children` | `ReactNode` | Required | ProgressStep components |
+| `children` | `ReactNode` | Required | `ProgressStep` components |
 
-### ProgressStep Props
+### Progress Step Props
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
