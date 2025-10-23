@@ -1,7 +1,9 @@
 import { createPressable } from '@gluestack-ui/pressable';
+import { useContext } from 'react';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
+import CarouselContext from './Carousel.context';
 import { CarouselControlsItemProps } from './Carousel.props';
 
 export const CarouselControlItemRoot = ({
@@ -11,11 +13,19 @@ export const CarouselControlItemRoot = ({
   activeStyle,
   onPress,
   states,
+  disabled,
+  ...props
 }: CarouselControlsItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active: pressed } = states || {};
-  styles.useVariants({ active, pressed });
+  const { inverted } = useContext(CarouselContext);
+  styles.useVariants({ active, pressed, inverted });
   return (
-    <Pressable style={[styles.item, active && activeStyle]} onPress={onPress}>
+    <Pressable
+      style={[styles.item, active && activeStyle]}
+      onPress={onPress}
+      disabled={disabled}
+      {...props}
+    >
       <View style={[styles.circle, style]}>
         <BodyText>{index}</BodyText>
       </View>
@@ -57,12 +67,27 @@ const styles = StyleSheet.create(theme => ({
           },
         },
       },
-      pressed: {
+      inverted: {
         true: {
-          opacity: 0.7,
+          borderColor: theme.color.interactive.functional.border.inverted,
+          _hover: {
+            backgroundColor: theme.color.interactive.functional.surface.subtle.inverted.hover,
+          },
         },
       },
+      pressed: {
+        true: {},
+      },
     },
+    compoundVariants: [
+      {
+        active: true,
+        inverted: true,
+        styles: {
+          backgroundColor: theme.color.interactive.functional.foreground.inverted,
+        },
+      },
+    ],
   },
 }));
 

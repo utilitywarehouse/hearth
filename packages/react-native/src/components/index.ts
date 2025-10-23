@@ -7,6 +7,7 @@ export * from './BottomSheet';
 export * from './Box';
 export * from './Button';
 export * from './Card';
+export * from './Carousel';
 export * from './Center';
 export * from './Checkbox';
 export * from './CurrencyInput';

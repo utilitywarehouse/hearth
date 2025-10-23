@@ -29,7 +29,7 @@ import { CarouselItem } from './CarouselItem';
 const Carousel = ({
   centered = false,
   children,
-  enabled = true,
+  disabled = false,
   inactiveItemOpacity = 1,
   itemWidth,
   onSnapToItem,
@@ -44,6 +44,7 @@ const Carousel = ({
   controlsItemStyle,
   controlsActiveItemStyle,
   controlsAccessibilityHidden = true,
+  inverted = false,
   ref,
   ...props
 }: CarouselProps) => {
@@ -157,8 +158,18 @@ const Carousel = ({
       setActiveIndex,
       setNumItems,
       controlsAccessibilityHidden,
+      inverted,
+      disabled,
     }),
-    [activeIndex, carouselItems.length, setActiveIndex, setNumItems, controlsAccessibilityHidden]
+    [
+      activeIndex,
+      carouselItems.length,
+      setActiveIndex,
+      setNumItems,
+      controlsAccessibilityHidden,
+      inverted,
+      disabled,
+    ]
   );
 
   // On web, we need to prevent overflow from expanding the container
@@ -181,6 +192,21 @@ const Carousel = ({
   useEffect(() => {
     setNumItems((carouselItems || []).length);
   }, [carouselItems, setNumItems]);
+
+  // Set initial scroll position on web
+  useEffect(() => {
+    if (isWeb && scrollViewRef.current && initialActiveIndex > 0) {
+      // Use setTimeout to ensure ScrollView is mounted
+      setTimeout(() => {
+        if (scrollViewRef.current) {
+          const itemWidthValue = itemWidth || width;
+          const offset = centered ? innerMargin / 2 : 0;
+          const scrollX = initialActiveIndex * itemWidthValue - offset;
+          scrollViewRef.current.scrollTo({ x: scrollX, animated: false });
+        }
+      }, 0);
+    }
+  }, [isWeb, initialActiveIndex, itemWidth, width, centered, innerMargin]);
 
   // Scroll to active index when it changes (for programmatic navigation)
   useEffect(() => {
@@ -301,7 +327,8 @@ const Carousel = ({
             onMomentumScrollEnd={handleWebScrollEnd}
             onScrollEndDrag={handleWebScrollEnd}
             ref={scrollViewRef as any}
-            scrollEnabled={enabled}
+            scrollEnabled={!disabled}
+            pointerEvents={disabled ? 'none' : 'auto'}
             scrollEventThrottle={16}
             showsHorizontalScrollIndicator={false}
             snapToInterval={itemWidth || width}
@@ -341,6 +368,7 @@ const Carousel = ({
           bounces={false} // Prevents bouncing at the start and end of carousel scrolling (iOS only)
           data={carouselItems}
           decelerationRate="fast"
+          disableIntervalMomentum // Prevents scrolling more than one item at a time
           getItemLayout={(_, index) => ({
             length: itemWidth || width,
             offset: (itemWidth || width) * index,
@@ -360,7 +388,7 @@ const Carousel = ({
               width: itemWidth || width,
             })
           }
-          scrollEnabled={enabled}
+          scrollEnabled={!disabled}
           showsHorizontalScrollIndicator={false}
           snapToInterval={itemWidth || width}
           snapToAlignment="center"

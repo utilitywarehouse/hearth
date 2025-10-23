@@ -24,9 +24,17 @@ export const CarouselControls: FC<CarouselControlsProps> = ({
   ...props
 }) => {
   const context = useContext(CarouselContext);
-  const { activeIndex = 0, numItems = 0, setActiveIndex, controlsAccessibilityHidden } = context;
+  const {
+    activeIndex = 0,
+    numItems = 0,
+    setActiveIndex,
+    controlsAccessibilityHidden,
+    disabled = false,
+  } = context;
 
   const isAccessibilityHidden = accessibilityHidden ?? controlsAccessibilityHidden ?? true;
+
+  styles.useVariants({ showNavigation });
 
   useEffect(() => {
     if (!Object.keys(context).length) {
@@ -76,9 +84,10 @@ export const CarouselControls: FC<CarouselControlsProps> = ({
         <UnstyledIconButton
           icon={ChevronLeftSmallIcon}
           onPress={handlePrev}
-          disabled={activeIndex === 0}
+          disabled={disabled || activeIndex === 0}
           accessibilityLabel="Previous"
           style={styles.button}
+          inverted={context.inverted}
         />
       )}
       <Box style={styles.dotsContainer}>
@@ -90,6 +99,7 @@ export const CarouselControls: FC<CarouselControlsProps> = ({
             style={itemStyle}
             activeStyle={activeItemStyle}
             onPress={() => handleItemPress(index)}
+            disabled={disabled}
           />
         ))}
       </Box>
@@ -97,9 +107,10 @@ export const CarouselControls: FC<CarouselControlsProps> = ({
         <UnstyledIconButton
           icon={ChevronRightSmallIcon}
           onPress={handleNext}
-          disabled={activeIndex === numItems - 1}
+          disabled={disabled || activeIndex === numItems - 1}
           accessibilityLabel="Next"
           style={styles.button}
+          inverted={context.inverted}
         />
       )}
     </Box>
@@ -114,6 +125,16 @@ const styles = StyleSheet.create(theme => ({
     alignItems: 'center',
     gap: theme.components.carouselControl.gap,
     justifyContent: 'space-between',
+    variants: {
+      showNavigation: {
+        true: {
+          justifyContent: 'space-between',
+        },
+        false: {
+          justifyContent: 'center',
+        },
+      },
+    },
   },
   dotsContainer: {
     flexDirection: 'row',

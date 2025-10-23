@@ -12,6 +12,8 @@ export interface CarouselContextValue {
   setActiveIndex: (index: number) => void;
   setNumItems: (count: number) => void;
   controlsAccessibilityHidden?: boolean;
+  inverted?: boolean;
+  disabled?: boolean;
 }
 
 export interface CarouselItemProps extends ViewProps {
@@ -47,7 +49,7 @@ export interface CarouselProps
   > {
   activeIndex?: number;
   centered?: boolean;
-  enabled?: boolean;
+  disabled?: boolean;
   inactiveItemOpacity?: number;
   itemWidth?: number;
   onSnapToItem?: (index: number) => void;
@@ -63,6 +65,7 @@ export interface CarouselProps
   controlsActiveItemStyle?: ViewProps['style'];
   controlsAccessibilityHidden?: boolean;
   ref?: React.Ref<CarouselRef>;
+  inverted?: boolean;
 }
 
 export interface CarouselProviderProps {

@@ -13,7 +13,7 @@ const meta = {
     layout: 'centered',
   },
   argTypes: {
-    enabled: {
+    disabled: {
       control: 'boolean',
       description: 'Enable or disable the carousel',
     },
@@ -33,6 +33,10 @@ const meta = {
       control: 'boolean',
       description: 'Show carousel controls',
     },
+    inverted: {
+      control: 'boolean',
+      description: 'Invert the colors of the carousel controls',
+    },
     showNavigation: {
       control: 'boolean',
       description: 'Show prev/next navigation buttons',
@@ -45,13 +49,18 @@ const meta = {
       control: 'number',
       description: 'Width of the carousel',
     },
+    centered: {
+      control: 'boolean',
+      description: 'Center the carousel items',
+    },
   },
   args: {
-    enabled: true,
+    disabled: false,
     inactiveItemOpacity: 1,
     showOverflow: false,
     showControls: true,
     showNavigation: false,
+    inverted: false,
   },
 } satisfies Meta<typeof Carousel>;
 
@@ -96,7 +105,7 @@ const CarouselItemCard = ({ backgroundColor, title }: CarouselItemCardProps) => 
 
 const items = [
   {
-    color: color.purple['700'],
+    color: color.purple['800'],
     key: 1,
     title: '1111',
   },
@@ -283,6 +292,28 @@ export const CustomControls: Story = {
             <CarouselControls showNavigation />
           </Box>
         </Carousel>
+      </Box>
+    );
+  },
+};
+
+export const InvertedControls: Story = {
+  args: {
+    width: 300,
+    showControls: true,
+    inverted: true,
+    showNavigation: true,
+  },
+  render: args => {
+    const [width, setWidth] = useState(0);
+
+    const handleLayout = ({ nativeEvent }: LayoutChangeEvent) => {
+      setWidth(nativeEvent.layout.width);
+    };
+
+    return (
+      <Box width={Platform.OS === 'web' ? 400 : '100%'} overflow="hidden" onLayout={handleLayout}>
+        <CarouselExample {...args} items={items} width={width} />
       </Box>
     );
   },
