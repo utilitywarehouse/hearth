@@ -73,6 +73,7 @@ import ThumbsUpSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/thumbs-up-
 import ThumbsDownSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/thumbs-down-small-icon.svg';
 import BillSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/bill-small-icon.svg';
 import MeterSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/meter-small-icon.svg';
+import LocateSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/locate-small-icon.svg';
 import AddMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/add-medium-icon.svg';
 import CloseMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/close-medium-icon.svg';
 import MinusMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/minus-medium-icon.svg';
@@ -175,6 +176,9 @@ import LockMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/lock-medium-i
 import UnlockMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/unlock-medium-icon.svg';
 import PlaceholderMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/placeholder-medium-icon.svg';
 import TopUpMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/top-up-medium-icon.svg';
+import WithdrawMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/withdraw-medium-icon.svg';
+import MaintenanceMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/maintenance-medium-icon.svg';
+import BoilerMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/boiler-medium-icon.svg';
 import MoonLargeIcon from '@utilitywarehouse/hearth-svg-icons/lib/moon-large-icon.svg';
 import SunLargeIcon from '@utilitywarehouse/hearth-svg-icons/lib/sun-large-icon.svg';
 import PlaceholderLargeIcon from '@utilitywarehouse/hearth-svg-icons/lib/placeholder-large-icon.svg';
@@ -254,6 +258,7 @@ export const svgIcons = [
   ThumbsDownSmallIcon,
   BillSmallIcon,
   MeterSmallIcon,
+  LocateSmallIcon,
   AddMediumIcon,
   CloseMediumIcon,
   MinusMediumIcon,
@@ -356,6 +361,9 @@ export const svgIcons = [
   UnlockMediumIcon,
   PlaceholderMediumIcon,
   TopUpMediumIcon,
+  WithdrawMediumIcon,
+  MaintenanceMediumIcon,
+  BoilerMediumIcon,
   MoonLargeIcon,
   SunLargeIcon,
   PlaceholderLargeIcon,
