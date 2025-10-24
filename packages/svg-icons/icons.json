@@ -292,6 +292,10 @@
     "name": "MeterSmallIcon"
   },
   {
+    "id": "2447:40",
+    "name": "LocateSmallIcon"
+  },
+  {
     "id": "6:275",
     "name": "AddMediumIcon"
   },
@@ -698,6 +702,18 @@
   {
     "id": "2341:13",
     "name": "TopUpMediumIcon"
+  },
+  {
+    "id": "2447:85",
+    "name": "WithdrawMediumIcon"
+  },
+  {
+    "id": "2447:56",
+    "name": "MaintenanceMediumIcon"
+  },
+  {
+    "id": "2447:68",
+    "name": "BoilerMediumIcon"
   },
   {
     "id": "2194:438",
