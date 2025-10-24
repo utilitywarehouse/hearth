@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react': patch
 ---
 
-Hhost button underline
+Add underline to `Button` `ghost` variant
