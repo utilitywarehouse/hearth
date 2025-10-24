@@ -1,5 +1,14 @@
 # @utilitywarehouse/hearth-react
 
+## 0.13.6
+
+### Patch Changes
+
+- [#584](https://github.com/utilitywarehouse/hearth/pull/584) [`a2a0434`](https://github.com/utilitywarehouse/hearth/commit/a2a0434b53ab25dd05f22600470cba154cf98681) Thanks [@dorota-uw](https://github.com/dorota-uw)! - Add underline to `Button` `ghost` variant
+
+- Updated dependencies [[`8345d8c`](https://github.com/utilitywarehouse/hearth/commit/8345d8c365167d2bea2875c78430e4a89c216798)]:
+  - @utilitywarehouse/hearth-react-icons@0.6.0
+
 ## 0.13.5
 
 ### Patch Changes
