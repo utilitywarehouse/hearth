@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-svg-icons
 
+## 0.6.0
+
+### Minor Changes
+
+- [#587](https://github.com/utilitywarehouse/hearth/pull/587) [`8345d8c`](https://github.com/utilitywarehouse/hearth/commit/8345d8c365167d2bea2875c78430e4a89c216798) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - LocateSmallIcon
+  - WithdrawMediumIcon
+  - MaintenanceMediumIcon
+  - BoilerMediumIcon
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.5.0
 
 ### Minor Changes

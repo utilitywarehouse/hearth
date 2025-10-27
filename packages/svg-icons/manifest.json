@@ -293,6 +293,10 @@
       "path": "meter-small-icon.svg"
     },
     {
+      "name": "LocateSmallIcon",
+      "path": "locate-small-icon.svg"
+    },
+    {
       "name": "AddMediumIcon",
       "path": "add-medium-icon.svg"
     },
@@ -699,6 +703,18 @@
     {
       "name": "TopUpMediumIcon",
       "path": "top-up-medium-icon.svg"
+    },
+    {
+      "name": "WithdrawMediumIcon",
+      "path": "withdraw-medium-icon.svg"
+    },
+    {
+      "name": "MaintenanceMediumIcon",
+      "path": "maintenance-medium-icon.svg"
+    },
+    {
+      "name": "BoilerMediumIcon",
+      "path": "boiler-medium-icon.svg"
     },
     {
       "name": "MoonLargeIcon",

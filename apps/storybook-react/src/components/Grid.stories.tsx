@@ -24,6 +24,18 @@ const meta: Meta<typeof Grid> = {
     as: { options: ['div', 'span'], control: { type: 'radio' } },
     columns: { options: columnsValues, control: { type: 'select' } },
     gap: { options: spaceTokens, control: { type: 'select' } },
+    spacing: {
+      options: ['none', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
+      control: { type: 'select' },
+    },
+    rowSpacing: {
+      options: ['none', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
+      control: { type: 'select' },
+    },
+    columnSpacing: {
+      options: ['none', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
+      control: { type: 'select' },
+    },
     color: { options: colorValues, control: { type: 'select' } },
     backgroundColor: { options: backgroundColorValues, control: { type: 'select' } },
     borderColor: { options: borderColorValues, control: { type: 'select' } },
