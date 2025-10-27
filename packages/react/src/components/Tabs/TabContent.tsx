@@ -9,13 +9,12 @@ const contentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const TabContent = React.forwardRef<HTMLDivElement, TabContentProps>((props, ref) => {
   const { className, keepMounted, ...rest } = props;
-  const RTabsContent = RadixTabs.Content as unknown as React.ComponentType<Record<string, unknown>>;
   return (
-    <RTabsContent
+    <RadixTabs.Content
       ref={ref}
       className={clsx(contentClassName, className)}
       forceMount={keepMounted ? true : undefined}
-      {...(rest as unknown as Record<string, unknown>)}
+      {...(rest as React.ComponentProps<typeof RadixTabs.Content>)}
     />
   );
 });

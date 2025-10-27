@@ -213,7 +213,9 @@ export type { BreadcrumbItemProps } from './components/Breadcrumbs/BreadcrumbIte
 export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar.props';
 
-export { Tabs, TabsList, Tab } from './components/Tabs/Tabs';
+export { Tabs } from './components/Tabs/Tabs';
+export { TabsList } from './components/Tabs/TabsList';
+export { Tab } from './components/Tabs/Tab';
 export { TabContent } from './components/Tabs/TabContent';
 export type { TabsProps } from './components/Tabs/Tabs.props';
 export type { TabsListProps } from './components/Tabs/TabsList.props';
