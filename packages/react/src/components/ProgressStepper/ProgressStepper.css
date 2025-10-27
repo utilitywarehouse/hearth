@@ -1,0 +1,141 @@
+.hearth-ProgressStepper {
+  container-type: inline-size;
+
+  & :where(ol) {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--h-progress-stepper-gap-horizontal);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.hearth-ProgressStep {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1;
+
+  &:last-child {
+    flex: 0;
+
+    .hearth-ProgressStep__connector {
+      display: none;
+    }
+  }
+}
+
+.hearth-ProgressStep__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--h-progress-stepper-gap-horizontal);
+}
+
+.hearth-ProgressStep__indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* TODO: Fix this variable and replace it here */
+  width: 28px;
+  height: 28px;
+  /* width: var(--h-progress-stepper-indicator-width);
+  height: var(--h-progress-stepper-indicator-height); */
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+
+  /* Completed state - purple circle with white checkmark */
+  &[data-state='complete'] {
+    background-color: var(--h-progress-stepper-bar-complete-background-color);
+    border: none;
+
+    & > svg {
+      color: var(--h-progress-stepper-indicator-complete-icon-color);
+    }
+  }
+
+  /* Active state - double circle: outer purple (28x28), inner purple with white border */
+  &[data-state='active'] {
+    background-color: var(--h-progress-stepper-bar-complete-background-color);
+    border: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      /* TODO: Fix this variable and replace it here */
+      width: calc(28px - var(--h-border-width-2) * 2);
+      height: calc(28px - var(--h-border-width-2) * 2);
+      /* width: calc(var(--h-progress-stepper-indicator-width) - var(--h-border-width-2) * 2);
+      height: calc(var(--h-progress-stepper-indicator-height) - var(--h-border-width-2) * 2); */
+      border-radius: 50%;
+      background-color: var(--h-progress-stepper-bar-complete-background-color);
+      border: 2px solid var(--h-color-warm-white-50);
+      z-index: 1;
+    }
+
+    .hearth-ProgressStep__indicator-number {
+      color: var(--h-progress-stepper-indicator-complete-icon-color);
+      position: relative;
+      z-index: 2;
+    }
+  }
+
+  /* Uncompleted (future) state - outlined circle with grey number */
+  &[data-state='incomplete'] {
+    background-color: var(--h-color-warm-white-50);
+    border: var(--h-progress-stepper-indicator-future-border-width) solid var(--h-color-grey-400);
+
+    .hearth-ProgressStep__indicator-number {
+      color: var(--h-color-grey-700);
+    }
+  }
+
+  .hearth-ProgressStep__indicator-number {
+    font-family: var(--h-font-family-body);
+    font-size: var(--h-font-size-100);
+    font-weight: var(--h-font-weight-medium);
+    line-height: 1;
+  }
+}
+
+.hearth-ProgressStep__connector {
+  flex: 1;
+  /* TODO: fix var(--h-progress-stepper-bar-height); */
+  height: 2px;
+  min-width: var(--h-space-200);
+
+  /* Completed connector - purple line */
+  &[data-state='complete'] {
+    background-color: var(--h-progress-stepper-bar-complete-background-color);
+  }
+
+  /* Active or incomplete connector - grey line */
+  &[data-state='active'],
+  &[data-state='incomplete'] {
+    background-color: var(--h-color-grey-400);
+  }
+}
+
+.hearth-ProgressStep__label-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: var(--h-progress-stepper-gap-vertical);
+  padding-left: 0;
+}
+
+.hearth-ProgressStep__label {
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* TODO: Ask Rob about it */
+/* Hide labels when container is too narrow */
+@container (inline-size < 600px) {
+  [data-show-labels] .hearth-ProgressStep__label {
+    display: none;
+  }
+}

@@ -1,0 +1,90 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './ProgressStepper.stories';
+
+import { DocsHeader } from '../storybook-components/DocsHeader';
+
+<Meta title="Components / ProgressStepper" />
+
+<DocsHeader componentName="ProgressStepper" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Interactive steps
+
+Use the `interactive` prop to make complete steps clickable. Only complete steps with an `href` will become interactive links.
+
+<Canvas of={Stories.Interactive} />
+
+## Without labels
+
+Set `showLabels={false}` to hide step labels completely.
+
+<Canvas of={Stories.WithoutLabels} />
+
+## All complete
+
+<Canvas of={Stories.AllComplete} />
+
+## Responsive labels
+
+Labels automatically hide when the container is too narrow (< 600px) to prevent overflow and maintain a clean appearance.
+
+<Canvas of={Stories.ResponsiveLabels} />
+
+## Many steps
+
+<Canvas of={Stories.ManySteps} />
+
+## Step states
+
+Each step can have one of three states:
+
+- **complete** - Shows a purple circle with a white checkmark icon. Can be interactive if `interactive` prop is true and `href` is provided.
+- **active** - Shows a purple circle with a white center dot. This indicates the current step in the process.
+- **incomplete** - Shows an outlined circle. This represents future steps that haven't been reached yet.
+
+## Usage guidelines
+
+### When to use
+
+- Multi-step forms or processes (e.g., checkout, onboarding)
+- When users need to understand where they are in a sequence
+- When steps are completed in a linear order
+
+### When not to use
+
+- For navigation between unrelated pages (use Breadcrumbs instead)
+- For less than 4-step process
+- When steps can be completed in any order (consider using a different pattern)
+
+## Best practices
+
+- Keep step labels concise and clear
+- Use 3-7 steps for optimal user experience
+- Only make complete steps interactive if users can actually return to previous steps
+- Consider hiding labels on smaller screens to maintain readability
+
+## ProgressStepper API
+
+This component is based on the `nav` element and supports the following common props:
+
+- Margin
+
+| Prop          | Type      | Default | Description                                           |
+| ------------- | --------- | ------- | ----------------------------------------------------- |
+| `showLabels`  | `boolean` | `true`  | Whether to show step labels                           |
+| `interactive` | `boolean` | `false` | Whether complete steps should be interactive links    |
+
+## ProgressStep API
+
+| Prop    | Type                                        | Description                                    |
+| ------- | ------------------------------------------- | ---------------------------------------------- |
+| `id`    | `string`                                    | Unique identifier for the step                 |
+| `state` | `'complete' \| 'active' \| 'incomplete'`    | The current state of the step                  |
+| `label` | `string`                                    | The label text to display for the step         |
+| `href`  | `string`                                    | Link URL (only interactive for complete steps) |
+
+**Note:** Only complete steps with `interactive={true}` on the parent and an `href` will be clickable. Active and incomplete steps are never interactive.

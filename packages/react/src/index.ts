@@ -210,5 +210,10 @@ export type { BreadcrumbsProps } from './components/Breadcrumbs/Breadcrumbs.prop
 export { BreadcrumbItem } from './components/Breadcrumbs/BreadcrumbItem';
 export type { BreadcrumbItemProps } from './components/Breadcrumbs/BreadcrumbItem.props';
 
+export { ProgressStepper } from './components/ProgressStepper/ProgressStepper';
+export type { ProgressStepperProps } from './components/ProgressStepper/ProgressStepper.props';
+export { ProgressStep } from './components/ProgressStepper/ProgressStep';
+export type { ProgressStepProps, ProgressStepState } from './components/ProgressStepper/ProgressStep.props';
+
 export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar.props';
