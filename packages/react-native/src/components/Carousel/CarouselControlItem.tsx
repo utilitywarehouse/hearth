@@ -2,7 +2,6 @@ import { createPressable } from '@gluestack-ui/pressable';
 import { useContext } from 'react';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { BodyText } from '../BodyText';
 import CarouselContext from './Carousel.context';
 import { CarouselControlsItemProps } from './Carousel.props';
 
@@ -17,18 +16,17 @@ export const CarouselControlItemRoot = ({
   ...props
 }: CarouselControlsItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active: pressed } = states || {};
-  const { inverted } = useContext(CarouselContext);
+  const { inverted, numItems } = useContext(CarouselContext);
   styles.useVariants({ active, pressed, inverted });
   return (
     <Pressable
       style={[styles.item, active && activeStyle]}
       onPress={onPress}
       disabled={disabled}
+      accessibilityLabel={`Page ${index + 1} of ${numItems}`}
       {...props}
     >
-      <View style={[styles.circle, style]}>
-        <BodyText>{index}</BodyText>
-      </View>
+      <View style={[styles.circle, style]} />
     </Pressable>
   );
 };

@@ -77,9 +77,6 @@ interface CarouselExampleProps extends Omit<CarouselProps, 'children'> {
 }
 
 const styles = StyleSheet.create(theme => ({
-  carousel: {
-    marginBottom: theme.space['200'],
-  },
   carouselItem: {
     aspectRatio: 1.6,
     borderRadius: theme.borderRadius.sm,
@@ -132,7 +129,7 @@ const items = [
 ];
 
 const CarouselExample = ({ items, ...props }: CarouselExampleProps) => (
-  <Carousel style={styles.carousel} {...props}>
+  <Carousel {...props}>
     {items.map(({ color, key, title }) => (
       <CarouselItem key={key}>
         <CarouselItemCard backgroundColor={color} title={`•••• •••• •••• ${title}`} />
@@ -281,7 +278,7 @@ export const CustomControls: Story = {
 
     return (
       <Box width={Platform.OS === 'web' ? 400 : '100%'} overflow="hidden" onLayout={handleLayout}>
-        <Carousel style={styles.carousel} {...args} width={width}>
+        <Carousel {...args} width={width}>
           {items.map(({ color, key, title }) => (
             <CarouselItem key={key}>
               <CarouselItemCard backgroundColor={color} title={`•••• •••• •••• ${title}`} />
