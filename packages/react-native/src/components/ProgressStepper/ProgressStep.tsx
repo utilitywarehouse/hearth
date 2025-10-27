@@ -30,7 +30,7 @@ const ProgressStep = ({ state, index = 0, isLast = false, ...rest }: ProgressSte
       {...rest}
     >
       <View style={styles.step}>
-        {state === 'completed' ? (
+        {state === 'complete' ? (
           <Icon as={TickSmallIcon} width={20} height={20} style={styles.text} />
         ) : state === 'active' ? (
           <View style={styles.inner}>{renderStepNumber()}</View>
@@ -71,14 +71,14 @@ const styles = StyleSheet.create(theme => ({
     justifyContent: 'center',
     variants: {
       state: {
-        completed: {
+        complete: {
           backgroundColor: theme.color.surface.brand.default,
         },
         active: {
           backgroundColor: theme.color.surface.brand.default,
           padding: theme.borderWidth[2],
         },
-        uncompleted: {
+        incomplete: {
           borderWidth: theme.components.progressStepper.indicator.future.borderWidth,
           borderColor: theme.color.border.subtle,
         },
@@ -98,7 +98,7 @@ const styles = StyleSheet.create(theme => ({
   text: {
     variants: {
       state: {
-        completed: {
+        complete: {
           color: theme.color.text.inverted,
         },
         active: {
@@ -106,7 +106,7 @@ const styles = StyleSheet.create(theme => ({
           // NOTE: Adjust lineHeight to vertically center the text within the smaller inner circle
           lineHeight: theme.lineHeight[500] - theme.borderWidth[2] * 2,
         },
-        uncompleted: {
+        incomplete: {
           color: theme.color.text.primary,
         },
       },
@@ -117,13 +117,13 @@ const styles = StyleSheet.create(theme => ({
     height: theme.components.progressStepper.bar.height,
     variants: {
       state: {
-        completed: {
+        complete: {
           backgroundColor: theme.components.progressStepper.bar.complete.backgroundColor,
         },
         active: {
           backgroundColor: theme.color.border.subtle,
         },
-        uncompleted: {
+        incomplete: {
           backgroundColor: theme.color.border.subtle,
         },
       },

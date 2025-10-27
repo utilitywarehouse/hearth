@@ -450,10 +450,10 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Progress Stepper" link="/?path=/docs/components-progress-stepper--docs">
             <Center flex={1}>
               <ProgressStepper>
-                <ProgressStep id='customer-data' state='completed' />
-                <ProgressStep id='shipping-data' state='completed' />
+                <ProgressStep id='customer-data' state='complete' />
+                <ProgressStep id='shipping-data' state='complete' />
                 <ProgressStep id='payment-data' state='active' />
-                <ProgressStep id='summary' state='uncompleted' />
+                <ProgressStep id='summary' state='incomplete' />
               </ProgressStepper>
             </Center>
           </ComponentWrapper>
