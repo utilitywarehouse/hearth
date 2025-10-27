@@ -23,6 +23,13 @@ const meta: Meta<typeof Container> = {
     marginRight: { options: spaceTokens, control: { type: 'select' } },
     marginBottom: { options: spaceTokens, control: { type: 'select' } },
     marginLeft: { options: spaceTokens, control: { type: 'select' } },
+    padding: { options: spaceTokens, control: { type: 'select' } },
+    paddingInline: { options: spaceTokens, control: { type: 'select' } },
+    paddingBlock: { options: spaceTokens, control: { type: 'select' } },
+    paddingTop: { options: spaceTokens, control: { type: 'select' } },
+    paddingRight: { options: spaceTokens, control: { type: 'select' } },
+    paddingBottom: { options: spaceTokens, control: { type: 'select' } },
+    paddingLeft: { options: spaceTokens, control: { type: 'select' } },
   },
 } satisfies Meta<typeof Container>;
 
@@ -56,6 +63,39 @@ export const Playground: Story = {
     </Container>
   ),
   args: {
+    spacing: 'xl',
+  },
+};
+
+export const OverridePadding: Story = {
+  render: args => (
+    <Container {...args}>
+      <Placeholder
+        width="100%"
+        height="84px"
+        backgroundColor="secondary"
+        borderColor="subtle"
+        borderWidth="1"
+      />
+      <Placeholder
+        width="100%"
+        height="100px"
+        backgroundColor="secondary"
+        borderColor="subtle"
+        borderWidth="1"
+      />
+      <Placeholder
+        width="100%"
+        height={{ mobile: '544px', desktop: '383px' }}
+        backgroundColor="secondary"
+        borderColor="subtle"
+        borderWidth="1"
+      />
+    </Container>
+  ),
+  args: {
+    paddingTop: '400',
+    paddingBottom: '200',
     spacing: 'xl',
   },
 };
