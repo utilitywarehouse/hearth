@@ -11,13 +11,11 @@ export const CarouselControlItemRoot = ({
   index,
   activeStyle,
   onPress,
-  states,
   disabled,
   ...props
 }: CarouselControlsItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
-  const { active: pressed } = states || {};
   const { inverted, numItems } = useContext(CarouselContext);
-  styles.useVariants({ active, pressed, inverted });
+  styles.useVariants({ active, inverted });
   return (
     <Pressable
       style={[styles.item, active && activeStyle]}
@@ -72,9 +70,6 @@ const styles = StyleSheet.create(theme => ({
             backgroundColor: theme.color.interactive.functional.surface.subtle.inverted.hover,
           },
         },
-      },
-      pressed: {
-        true: {},
       },
     },
     compoundVariants: [

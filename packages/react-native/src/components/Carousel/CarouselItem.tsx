@@ -5,14 +5,6 @@ import { StyleSheet } from 'react-native-unistyles';
 
 import { CarouselItemProps } from './Carousel.props';
 
-const styles = StyleSheet.create(() => ({
-  container: {
-    _web: {
-      transition: 'opacity 200ms ease-in-out',
-    },
-  },
-}));
-
 export const CarouselItem = ({
   active,
   children,
@@ -64,5 +56,13 @@ export const CarouselItem = ({
 };
 
 CarouselItem.displayName = 'CarouselItem';
+
+const styles = StyleSheet.create(() => ({
+  container: {
+    _web: {
+      transition: 'opacity 200ms ease-in-out',
+    },
+  },
+}));
 
 export default CarouselItem;
