@@ -124,7 +124,7 @@ export const icons = [
   { reactName: 'RefundMediumIcon', svgName: 'refund-medium-icon.svg' },
   { reactName: 'RestartMediumIcon', svgName: 'restart-medium-icon.svg' },
   { reactName: 'ShareMediumIcon', svgName: 'share-medium-icon.svg' },
-  { reactName: 'CallMediumIcon', svgName: 'call-medium-icon.svg' },
+  { reactName: 'PhoneMediumIcon', svgName: 'phone-medium-icon.svg' },
   { reactName: 'TrashMediumIcon', svgName: 'trash-medium-icon.svg' },
   { reactName: 'FilterMediumIcon', svgName: 'filter-medium-icon.svg' },
   { reactName: 'CalendarAddMediumIcon', svgName: 'calendar-add-medium-icon.svg' },
