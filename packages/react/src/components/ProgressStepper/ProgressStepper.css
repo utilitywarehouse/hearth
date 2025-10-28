@@ -98,8 +98,7 @@
 
 .hearth-ProgressStep__connector {
   flex: 1;
-  /* TODO: fix var(--h-progress-stepper-bar-height); */
-  height: 2px;
+  height: var(--h-progress-stepper-bar-height);
   min-width: var(--h-space-200);
 
   /* Completed connector - purple line */
