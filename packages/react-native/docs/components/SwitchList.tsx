@@ -16,9 +16,8 @@ const SwitchList = () => {
   return (
     <List container="subtleWhite">
       <ListItem
-        text="Notifications"
+        heading="Notifications"
         helperText="Allow notifications"
-        divider
         leadingContent={<ListItemIcon as={BellMediumIcon} />}
         trailingContent={
           <Switch value={notifications} onValueChange={setNotifications} size="small" />
@@ -26,25 +25,22 @@ const SwitchList = () => {
         onPress={() => setNotifications(!notifications)}
       />
       <ListItem
-        text="Secure ID"
+        heading="Secure ID"
         helperText="Use secure ID"
-        divider
         leadingContent={<ListItemIcon as={LockMediumIcon} />}
         trailingContent={<Switch value={secureId} onValueChange={setSecureId} size="small" />}
         onPress={() => setSecureId(!secureId)}
       />
       <ListItem
-        text="Location"
+        heading="Location"
         helperText="Allow location"
-        divider
         leadingContent={<ListItemIcon as={LocationMediumIcon} />}
         trailingContent={<Switch value={location} onValueChange={setLocation} size="small" />}
         onPress={() => setLocation(!location)}
       />
       <ListItem
-        text="Dark mode"
+        heading="Dark mode"
         helperText="Enable dark mode"
-        divider
         leadingContent={<ListItemIcon as={EyeMediumIcon} />}
         trailingContent={<Switch value={darkMode} onValueChange={setDarkMode} size="small" />}
         onPress={() => setDarkMode(!darkMode)}

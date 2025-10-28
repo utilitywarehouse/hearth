@@ -25,6 +25,10 @@ import {
   ListItemTrailingContent,
   ListItemTrailingIcon,
   SectionHeader,
+  Switch,
+  Link,
+  ListAction,
+  BodyText,
 } from '../../';
 import { BackToTopButton, BadgeList, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './List.stories';
@@ -46,15 +50,17 @@ List item is the main building block of list. Each item has its own set of prope
 - [Props](#props)
   - [`List`](#list-1)
   - [`ListItem`](#listitem)
-- [Advanced Usage](#advanced-usage)
-- [Variants](#variants)
 - [Examples](#examples)
-  - [List Item with Container](#list-item-with-container)
-  - [List Item with Badge](#list-item-with-badge)
-  - [Checbox List](#checbox-list)
-  - [Radio List](#radio-list)
-  - [Switch List](#switch-list)
-  - [List with FlatList](#list-with-flatlist)
+  - [`ListItem` with container](#listitem-with-container)
+  - [`ListItem` with `Badge`](#listitem-with-badge)
+  - [`ListItem` with `Switch`](#listitem-with-switch)
+  - [`List` with `SectionHeader`](#list-with-sectionheader)
+  - [`List` with `ListAction`](#list-with-listaction)
+  - [`ListItem` with transaction](#listitem-with-transaction)
+  - [`ListItem` with numeric value](#listitem-with-numeric-value)
+  - [`ListItem` with `Link`](#listitem-with-link)
+  - [`List` with `FlatList`](#list-with-flatlist)
+- [Advanced Usage](#advanced-usage)
 
 ## Playground
 
@@ -113,6 +119,14 @@ const MyComponent = () => (
 | badgePosition   | `'top' \| 'bottom'`      | `bottom` | Position of the badge in the list item.                         |
 | numericValue    | `string \| number`       |          | A numeric value to display on the right side of the item.       |
 
+### `ListAction`
+
+| Name     | Type         | Default | Description                                  |
+| -------- | ------------ | ------- | -------------------------------------------- |
+| heading  | `string`     |         | The text to display in the list action item. |
+| onPress  | `() => void` |         | A callback function to be called             |
+| disabled | `boolean`    | `false` | Whether to disable the list action item.     |
+
 #### - `ListItemLeadingContent`
 
 #### - `ListItemIcon`
@@ -135,9 +149,319 @@ const MyComponent = () => (
 | ---- | --------------- | ------- | ----------------------------------------------- |
 | as   | `ComponentType` |         | The icon component to display in the list item. |
 
+## Examples
+
+### `ListItem` with Container
+
+Thie `List` has an inbuilt `Card` component to wrap the list items and setting the `container` prop to one if `subtleWhite`,
+`emphasisWhite`, `subtleWarmWhite`, or `emphasisWarmWhite` will apply the respective background color and border colour to
+the `Card` and child `ListItem` components.
+
+<Canvas of={Stories.WithContainer} />
+
+```tsx
+import { List, ListItem, Card } from '@utilitywarehouse/hearth-react-native';
+import {
+  BillMediumIcon,
+  PaymentMediumIcon,
+  HomeMediumIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => (
+  <List container="subtleWhite">
+    <ListItem
+      leadingContent={<BillMediumIcon />}
+      heading="Bills"
+      onPress={() => console.log('item pressed')}
+    />
+    <ListItem
+      leadingContent={<PaymentMediumIcon />}
+      heading="Payments"
+      onPress={() => console.log('item pressed')}
+    />
+    <ListItem
+      leadingContent={<HomeMediumIcon />}
+      heading="Moving Home"
+      onPress={() => console.log('item pressed')}
+    />
+  </List>
+);
+```
+
+### `ListItem` with `Badge`
+
+You can use the `Badge` component to display additional information in the list item. You can achieve this by using the List Item's
+parts like `ListItemLeadingContent`, `ListItemContent`, and `ListItemTrailingContent` components.
+
+<Canvas of={Stories.WithBadge} />
+
+```tsx
+import { List, ListItem, IconContainer, Flex, Box } from '@utilitywarehouse/hearth-react-native';
+
+import { ElectricityMediumIcon, GasMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+const BadgeList = () => {
+  return (
+    <List>
+      <ListItem
+        heading="Electricity"
+        helperText="Last reading 23/03/24"
+        onPress={() => console.log('pressed')}
+        leadingContent={
+          <IconContainer icon={ElectricityMediumIcon} size="md" variant="emphasis" color="energy" />
+        }
+        badge={{ text: 'Text' }}
+      />
+      <ListItem
+        heading="Gas"
+        helperText="Last reading 23/03/24"
+        onPress={() => console.log('pressed')}
+        leadingContent={
+          <IconContainer icon={GasMediumIcon} size="md" variant="emphasis" color="energy" />
+        }
+        badge={{ text: 'Smart Meter' }}
+      />
+    </List>
+  );
+};
+
+export default BadgeList;
+```
+
+### `ListItem` with `Switch`
+
+You can use a `Switch` component as the trailing content of a `ListItem` to create toggleable list items.
+
+<Canvas of={Stories.WithSwitch} />
+
+```tsx
+import { List, ListItem, Switch } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <List container="subtleWhite">
+    <ListItem
+      heading="Enable notifications"
+      helperText="Receive updates and alerts"
+      onPress={() => console.log('item pressed')}
+      trailingContent={
+        <Switch size="small" value={true} onValueChange={() => console.log('switch toggled')} />
+      }
+    />
+    <ListItem
+      heading="Dark mode"
+      helperText="Use dark theme throughout the app"
+      onPress={() => console.log('item pressed')}
+      trailingContent={
+        <Switch size="small" value={false} onValueChange={() => console.log('switch toggled')} />
+      }
+    />
+  </List>
+);
+```
+
+### `List` with `SectionHeader`
+
+You can use the `SectionHeader` component to add a heading and supporting text to your list.
+
+<Canvas of={Stories.WithSectionHeader} />
+
+```tsx
+import {
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemTrailingIcon,
+} from '@utilitywarehouse/hearth-react-native';
+import {
+  BillMediumIcon,
+  ChevronRightSmallIcon,
+  PaymentMediumIcon,
+  HomeMediumIcon,
+  UserMediumIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = ({ navigate }) => (
+  <List
+    heading="Your account"
+    helperText="Tap the links below to view your account"
+    headerTrailingContent={<Link onPress={navigate('account')}>View all</Link>}
+  >
+    <ListItem
+      heading="Bills"
+      helperText="View your bills"
+      leadingContent={<ListItemIcon as={BillMediumIcon} />}
+      trailingContent={<ListItemTrailingIcon as={ChevronRightSmallIcon} />}
+      onPress={() => console.log('pressed')}
+    />
+    <ListItem
+      heading="Payments"
+      helperText="Make a payment"
+      leadingContent={<ListItemIcon as={PaymentMediumIcon} />}
+      trailingContent={<ListItemTrailingIcon as={ChevronRightSmallIcon} />}
+      onPress={() => console.log('pressed')}
+    />
+    <ListItem
+      heading="Moving home"
+      helperText="Tell us if you're moving"
+      leadingContent={<ListItemIcon as={HomeMediumIcon} />}
+      trailingContent={<ListItemTrailingIcon as={ChevronRightSmallIcon} />}
+      onPress={() => console.log('pressed')}
+    />
+    <ListItem
+      heading="Refer a friend"
+      helperText="Get rewarded with a friend"
+      leadingContent={<ListItemIcon as={UserMediumIcon} />}
+      trailingContent={<ListItemTrailingIcon as={ChevronRightSmallIcon} />}
+      onPress={() => console.log('pressed')}
+    />
+  </List>
+);
+```
+
+### `List` with `ListAction`
+
+You can use the `ListAction` component to add actionable items to your list.
+
+<Canvas of={Stories.WithListAction} />
+
+```tsx
+import {
+  List,
+  ListItem,
+  ListItemTrailingIcon,
+  ListAction,
+} from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <List container="subtleWarmWhite">
+    <ListItem
+      heading="Upgrade your plan"
+      helperText="Get more features with a premium plan"
+      onPress={() => console.log('Upgrade pressed')}
+    />
+    <ListItem
+      heading="Manage payment methods"
+      helperText="Update your credit or debit cards"
+      onPress={() => console.log('Manage pressed')}
+    />
+    <ListAction heading="Contact support" onPress={() => console.log('Contact pressed')} />
+  </List>
+);
+```
+
+### `ListItem` with transaction
+
+You can use the `ListItem` component to display transaction details.
+
+<Canvas of={Stories.WithTransactions} />
+
+```tsx
+import { List, ListItem, BodyText } from '@utilitywarehouse/hearth-react-native';
+const MyComponent = () => (
+  <List container="subtleWhite">
+    <ListItem
+      heading="Coffee Shop"
+      helperText="Apr 5, 2024"
+      trailingContent={
+        <>
+          <BodyText>-£100.00</BodyText>
+          <BodyText color="textBrand">-£100.00</BodyText>
+        </>
+      }
+      onPress={() => console.log('Transaction pressed')}
+    />
+    <ListItem
+      heading="Top up"
+      helperText="Apr 4, 2024"
+      trailingContent={
+        <>
+          <BodyText color="textAffirmative">+£100.00</BodyText>
+        </>
+      }
+      onPress={() => console.log('Transaction pressed')}
+    />
+  </List>
+);
+```
+
+### `ListItem` with numeric value
+
+You can use the `numericValue` prop to display a numeric value on the right side of the `ListItem`.
+
+<Canvas of={Stories.WithNumericValue} />
+
+```tsx
+import { List, ListItem } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <List container="subtleWhite">
+    <ListItem
+      heading="Steps today"
+      numericValue="8,542"
+      onPress={() => console.log('Steps pressed')}
+    />
+    <ListItem
+      heading="Calories burned"
+      numericValue="2,300 kcal"
+      onPress={() => console.log('Calories pressed')}
+    />
+  </List>
+);
+```
+
+### `ListItem` with `Link`
+
+You can use a `Link` component as the trailing content of a `ListItem` to create list items with links.
+
+<Canvas of={Stories.WithLink} />
+
+```tsx
+import { List, ListItem, Link } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <List container="subtleWhite">
+    <ListItem
+      heading="Terms of Service"
+      onPress={() => console.log('item pressed')}
+      trailingContent={<Link onPress={() => console.log('link pressed')}>View</Link>}
+    />
+    <ListItem
+      heading="Privacy Policy"
+      onPress={() => console.log('item pressed')}
+      trailingContent={<Link onPress={() => console.log('link pressed')}>View</Link>}
+    />
+  </List>
+);
+```
+
+### `List` with `FlatList`
+
+You can use the `FlatList` component to render a large list of items efficiently.
+
+```tsx
+import { FlatList } from 'react-native';
+import { List, ListItem } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <List container="subtleWhite">
+    <FlatList
+      data={[
+        { id: '1', heading: 'Item 1' },
+        { id: '2', heading: 'Item 2' },
+        { id: '3', heading: 'Item 3' },
+      ]}
+      renderItem={({ item }) => (
+        <ListItem heading={item.heading} onPress={() => console.log(`${item.heading} pressed`)} />
+      )}
+      keyExtractor={item => item.id}
+    />
+  </List>
+);
+```
+
 ## Advanced Usage
 
-If you need to use the List component in a more advanced way, you can use the parts of the component directly.
+If you need to use the `<List>` component in a more advanced way, you can use the parts of the component directly.
 
 <UsageWrap>
   <List>
@@ -267,145 +591,4 @@ const MyComponent = () => (
     </ListItem>
   </List>
 );
-```
-
-## Variants
-
-The `List` component has different ways to display the list.
-
-<Canvas of={Stories.KitchenSink} />
-
-## Examples
-
-### List Item with Container
-
-Thie `List` has an inbuilt `Card` component to wrap the list items and setting the `container` prop to one if `subtleWhite`,
-`emphasisWhite`, `subtleWarmWhite`, or `emphasisWarmWhite` will apply the respective background color and border colour to
-the `Card` and child `ListItem` components.
-
-<UsageWrap>
-  <List container="subtleWhite">
-    <ListItem
-      leadingContent={<BillMediumIcon />}
-      heading="Bills"
-      onPress={() => console.log('item pressed')}
-    />
-    <ListItem
-      leadingContent={<PaymentMediumIcon />}
-      heading="Payments"
-      onPress={() => console.log('item pressed')}
-    />
-    <ListItem
-      leadingContent={<HomeMediumIcon />}
-      heading="Moving Home"
-      onPress={() => console.log('item pressed')}
-    />
-  </List>
-</UsageWrap>
-
-```tsx
-import { List, ListItem, Card } from '@utilitywarehouse/hearth-react-native';
-import {
-  BillMediumIcon,
-  PaymentMediumIcon,
-  HomeMediumIcon,
-} from '@utilitywarehouse/hearth-react-native-icons';
-
-const MyComponent = () => (
-  <List container="subtleWhite">
-    <ListItem
-      leadingContent={<BillMediumIcon />}
-      heading="Bills"
-      onPress={() => console.log('item pressed')}
-    />
-    <ListItem
-      leadingContent={<PaymentMediumIcon />}
-      heading="Payments"
-      onPress={() => console.log('item pressed')}
-    />
-    <ListItem
-      leadingContent={<HomeMediumIcon />}
-      heading="Moving Home"
-      onPress={() => console.log('item pressed')}
-    />
-  </List>
-);
-```
-
-### List Item with Badge
-
-You can use the `Badge` component to display additional information in the list item. You can achieve this by using the List Item's
-parts like `ListItemLeadingContent`, `ListItemContent`, and `ListItemTrailingContent` components.
-
-<UsageWrap>
-  <BadgeList />
-</UsageWrap>
-
-```tsx
-import {
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemLeadingContent,
-  ListItemHelperText,
-  ListItemText,
-  ListItemTrailingContent,
-  ListItemTrailingIcon,
-  ListItemContent,
-  Badge,
-  BadgeText,
-  Flex,
-  Box,
-} from '@utilitywarehouse/hearth-react-native';
-
-import {
-  ChevronRightSmallIcon,
-  ElectricityMediumIcon,
-  GasMediumIcon,
-} from '@utilitywarehouse/hearth-react-native-icons';
-
-const BadgeList = () => {
-  return (
-    <List>
-      <ListItem onPress={() => console.log('pressed')}>
-        <ListItemLeadingContent>
-          <Box padding="300" borderRadius="lg" bg={'energyBlue'}>
-            <ListItemIcon as={ElectricityMediumIcon} color="green900" />
-          </Box>
-        </ListItemLeadingContent>
-        <ListItemContent>
-          <ListItemText>Electricity</ListItemText>
-          <Badge colorScheme="info">
-            <BadgeText>Text</BadgeText>
-          </Badge>
-          <ListItemHelperText>Last reading 23/03/24</ListItemHelperText>
-        </ListItemContent>
-        <ListItemTrailingContent>
-          <ListItemTrailingIcon as={ChevronRightSmallIcon} />
-        </ListItemTrailingContent>
-      </ListItem>
-      <ListItem onPress={() => console.log('pressed')}>
-        <ListItemLeadingContent>
-          <Box padding="300" borderRadius="lg" bg={'energyBlue'}>
-            <ListItemIcon as={GasMediumIcon} color="green900" />
-          </Box>
-        </ListItemLeadingContent>
-        <ListItemContent>
-          <Flex direction="row" style={{ justifyContent: 'space-between' }}>
-            <ListItemText>Gas</ListItemText>
-            <Badge colorScheme="positive">
-              <BadgeText>Smart meter</BadgeText>
-            </Badge>
-          </Flex>
-          <ListItemHelperText>Last reading 23/03/24</ListItemHelperText>
-        </ListItemContent>
-        <ListItemTrailingContent>
-          <ListItemTrailingIcon as={ChevronRightSmallIcon} />
-        </ListItemTrailingContent>
-      </ListItem>
-    </List>
-  );
-};
-
-export default BadgeList;
 ```
