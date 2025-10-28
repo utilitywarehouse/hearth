@@ -4,6 +4,7 @@ import { FC, PropsWithChildren } from 'react';
 import { List, ListAction, ListItem, ListItemIcon, ListItemTrailingIcon } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
+import { Link } from '../Link';
 // import { Card } from '../Card';
 
 const Card: FC<PropsWithChildren> = ({ children }) => <div>{children}</div>;
@@ -155,7 +156,10 @@ export const KitchenSink: Story = {
           </List>
         </VariantTitle>
         <VariantTitle title="List with heading link">
-          <List heading="Heading" linkText="View all" linkHref="http://uw.co.uk">
+          <List
+            heading="Heading"
+            headerTrailingContent={<Link href="http://uw.co.uk">View all</Link>}
+          >
             {list.map((item, index) => (
               <ListItem
                 key={index}

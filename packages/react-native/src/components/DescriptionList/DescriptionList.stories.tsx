@@ -26,19 +26,6 @@ const meta: Meta<typeof DescriptionList> = {
       control: 'text',
       description: 'Supporting text shown under heading (Playground only).',
     },
-    linkText: { control: 'text', description: 'Header link text (Playground only).' },
-    linkHref: { control: 'text', description: 'Header link href (web).' },
-    linkIconPosition: {
-      control: 'select',
-      options: ['left', 'right'],
-      description: 'Header link icon position.',
-    },
-    linkShowIcon: { control: 'boolean', description: 'Show header link icon.' },
-    linkTarget: {
-      control: 'select',
-      options: ['_blank', '_self', '_parent', '_top'],
-      description: 'Header link target (web).',
-    },
   },
   args: {
     direction: 'column',

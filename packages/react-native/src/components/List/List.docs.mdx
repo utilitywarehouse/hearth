@@ -88,20 +88,14 @@ const MyComponent = () => (
 
 ### `List`
 
-| Name             | Type                                                                                              | Default   | Description                                                |
-| ---------------- | ------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------- |
-| container        | `'none' \| 'subtleWhite' \| 'emphasisWhite' \|` <br /> `'subtleWarmWhite' \| 'emphasisWarmWhite'` | `'none'`  | The container style of the list.                           |
-| heading          | `string`                                                                                          |           | The text to display in the heading of the list.            |
-| helperText       | `string`                                                                                          |           | The supporting text to display in the heading of the list. |
-| linkText         | `string`                                                                                          |           | The text for the link in the heading.                      |
-| linkHref         | `string`                                                                                          |           | The href for the link in the heading.                      |
-| linkOnPress      | `() => void`                                                                                      |           | Callback function when the heading link is pressed.        |
-| linkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'`                                                      |           | Target for the link in the heading.                        |
-| linkIcon         | `ComponentType`                                                                                   |           | Icon for the heading link.                                 |
-| linkIconPosition | `'left' \| 'right'`                                                                               | `'right'` | Position of the icon in the heading link.                  |
-| linkShowIcon     | `boolean`                                                                                         | `true`    | Whether to show the icon in the heading link.              |
-| loading          | `boolean`                                                                                         | `false`   | Whether to show the list items in loading state.           |
-| disabled         | `boolean`                                                                                         | `false`   | Whether to disable the list.                               |
+| Name                  | Type                                                                                              | Default  | Description                                                  |
+| --------------------- | ------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------ |
+| container             | `'none' \| 'subtleWhite' \| 'emphasisWhite' \|` <br /> `'subtleWarmWhite' \| 'emphasisWarmWhite'` | `'none'` | The container style of the list.                             |
+| heading               | `string`                                                                                          |          | The text to display in the heading of the list.              |
+| helperText            | `string`                                                                                          |          | The supporting text to display in the heading of the list.   |
+| headerTrailingContent | `ReactNode`                                                                                       |          | Optional content to display on the right side of the header. |
+| loading               | `boolean`                                                                                         | `false`  | Whether to show the list items in loading state.             |
+| disabled              | `boolean`                                                                                         | `false`  | Whether to disable the list.                                 |
 
 ### `ListItem`
 
