@@ -1,5 +1,6 @@
-import { ComponentType, Ref } from 'react';
-import type { ViewProps, View } from 'react-native';
+import { Ref } from 'react';
+import type { View, ViewProps } from 'react-native';
+import BadgeProps from '../Badge/Badge.props';
 
 interface SectionHeaderBaseProps extends Omit<ViewProps, 'children'> {
   ref?: Ref<View>;
@@ -9,26 +10,16 @@ export interface SectionHeaderWithChildren extends SectionHeaderBaseProps {
   children: ViewProps['children'];
   heading?: never;
   helperText?: never;
-  linkText?: never;
-  linkHref?: never;
-  linkOnPress?: never;
-  linkTarget?: never;
-  linkIcon?: never;
-  linkIconPosition?: never;
-  linkShowIcon?: never;
+  trailingContent?: never;
+  badge?: never;
 }
 
 export interface SectionHeaderWithoutChildren extends SectionHeaderBaseProps {
   children?: never;
   heading: string;
   helperText?: string;
-  linkText?: string;
-  linkHref?: string;
-  linkOnPress?: () => void;
-  linkTarget?: '_blank' | '_self' | '_parent' | '_top';
-  linkIcon?: ComponentType;
-  linkIconPosition?: 'left' | 'right';
-  linkShowIcon?: boolean;
+  trailingContent?: React.ReactNode;
+  badge?: BadgeProps;
 }
 
 type SectionHeaderProps = SectionHeaderWithChildren | SectionHeaderWithoutChildren;

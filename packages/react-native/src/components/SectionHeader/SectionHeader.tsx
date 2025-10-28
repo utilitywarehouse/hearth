@@ -1,23 +1,19 @@
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Link } from '../Link';
+import { Badge } from '../Badge';
 import SectionHeaderProps from './SectionHeader.props';
 import SectionHeaderTitle from './SectionHeaderHeading';
 import SectionHeaderHelperText from './SectionHeaderHelperText';
 import SectionHeaderTextContent from './SectionHeaderTextContent';
+import SectionHeaderTrailingContent from './SectionHeaderTrailingContent';
 
 const SectionHeader = ({
   heading,
   helperText,
   children,
   style,
-  linkHref,
-  linkIcon,
-  linkIconPosition,
-  linkOnPress,
-  linkShowIcon,
-  linkTarget,
-  linkText,
+  trailingContent,
+  badge,
   ...props
 }: SectionHeaderProps) => {
   return (
@@ -30,17 +26,9 @@ const SectionHeader = ({
             <SectionHeaderTitle>{heading}</SectionHeaderTitle>
             {!!helperText && <SectionHeaderHelperText>{helperText}</SectionHeaderHelperText>}
           </SectionHeaderTextContent>
-          {!!linkText && (
-            <Link
-              href={linkHref}
-              onPress={linkOnPress}
-              icon={linkIcon}
-              showIcon={linkShowIcon}
-              iconPosition={linkIconPosition}
-              target={linkTarget}
-            >
-              {linkText}
-            </Link>
+          {!!badge && <Badge {...badge} />}
+          {!!trailingContent && (
+            <SectionHeaderTrailingContent>{trailingContent}</SectionHeaderTrailingContent>
           )}
         </>
       )}

@@ -23,7 +23,7 @@ const Badge = ({ children, ...props }: BadgeProps) => {
     [colorScheme, flatBase, variant, size]
   );
 
-  const childIsText = typeof children === 'string' || typeof children === 'number';
+  const childIsText = typeof children === 'string' || typeof children === 'number' || !!text;
 
   styles.useVariants({ colorScheme, flatBase, variant, size });
 

@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 import { SettingsMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
+import { Link } from '../Link';
 import SectionHeader from './SectionHeader';
 
 const meta = {
@@ -16,15 +17,10 @@ const meta = {
       control: 'text',
       description: 'The heading supporting text to be displayed.',
     },
-    linkText: {
-      control: 'text',
-      description: 'Link text to display',
-    },
   },
   args: {
     heading: 'This is the section heading',
     helperText: 'Helper text',
-    linkText: 'See more',
   },
 } satisfies Meta<typeof SectionHeader>;
 
@@ -33,13 +29,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
   render: () => {
-    return (
-      <SectionHeader
-        heading="This is the section heading"
-        helperText="Helper text"
-        linkText="See more"
-      />
-    );
+    return <SectionHeader heading="This is the section heading" helperText="Helper text" />;
   },
 };
 
@@ -51,23 +41,43 @@ export const KitchenSink: Story = {
     return (
       <Flex space="xl" direction="column" style={{ width: '100%' }}>
         <VariantTitle title="Default SectionHeader with helper text and link">
-          <SectionHeader heading="Heading" helperText="Helper text" linkText="See more" />
+          <SectionHeader
+            heading="Heading"
+            helperText="Helper text"
+            trailingContent={<Link>See more</Link>}
+          />
         </VariantTitle>
         <VariantTitle title="SectionHeader with icon on the left of the link ">
           <SectionHeader
             heading="Heading"
             helperText="Helper text"
-            linkText="Settings"
-            linkIcon={SettingsMediumIcon}
-            linkIconPosition="left"
+            trailingContent={
+              <Link icon={SettingsMediumIcon} iconPosition="left">
+                Settings
+              </Link>
+            }
           />
         </VariantTitle>
         <VariantTitle title="SectionHeader with no icon">
           <SectionHeader
             heading="Heading"
             helperText="Helper text"
-            linkText="Call to action"
-            linkShowIcon={false}
+            trailingContent={<Link showIcon={false}>Call to action</Link>}
+          />
+        </VariantTitle>
+        <VariantTitle title="SectionHeader with badge">
+          <SectionHeader
+            heading="Heading"
+            helperText="Helper text"
+            badge={{ text: "I'm a badged" }}
+          />
+        </VariantTitle>
+        <VariantTitle title="SectionHeader with badge and link">
+          <SectionHeader
+            heading="Heading"
+            helperText="Helper text"
+            trailingContent={<Link>Show more</Link>}
+            badge={{ text: 'New' }}
           />
         </VariantTitle>
       </Flex>
