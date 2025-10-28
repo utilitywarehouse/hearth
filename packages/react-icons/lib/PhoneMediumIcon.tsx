@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const CallMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+export const PhoneMediumIcon = forwardRef<SVGSVGElement, IconProps>(
   ({ color = 'currentColor', title, titleId, ...props }, ref) => {
     return (
       <svg
@@ -25,4 +25,4 @@ export const CallMediumIcon = forwardRef<SVGSVGElement, IconProps>(
     );
   }
 );
-CallMediumIcon.displayName = 'CallMediumIcon';
+PhoneMediumIcon.displayName = 'PhoneMediumIcon';
