@@ -128,7 +128,7 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
   return (
     <RadixTabs.List className={clsx(listClassName, className)} onKeyDown={handleKeyDown} {...rest}>
       {canScrollLeft ? (
-        <div className="hearth-scroll-button left" aria-hidden>
+        <div className="hearth-scroll-button-left" aria-hidden>
           <UnstyledIconButton label="scroll left" tabIndex={-1} onClick={handleScrollLeft}>
             <ChevronLeftSmallIcon />
           </UnstyledIconButton>
@@ -144,7 +144,7 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
         </div>
       </div>
       {canScrollRight ? (
-        <div className="hearth-scroll-button right" aria-hidden>
+        <div className="hearth-scroll-button-right" aria-hidden>
           <UnstyledIconButton label="scroll right" tabIndex={-1} onClick={handleScrollRight}>
             <ChevronRightSmallIcon />
           </UnstyledIconButton>

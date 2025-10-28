@@ -10,8 +10,7 @@
 }
 
 .hearth-TabsList > .hearth-scroll {
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto hidden;
   width: 100%;
 }
 
@@ -69,10 +68,9 @@
   left: 0;
   height: 6px;
   background-color: var(--h-surface-brand-default);
-  border-top-left-radius: var(--h-tabs-item-selected-border-top-radius);
-  border-top-right-radius: var(--h-tabs-item-selected-border-top-radius);
-  border-bottom-left-radius: var(--h-tabs-item-selected-border-bottom-radius);
-  border-bottom-right-radius: var(--h-tabs-item-selected-border-bottom-radius);
+  border-radius: var(--h-tabs-item-selected-border-top-radius)
+    var(--h-tabs-item-selected-border-top-radius) var(--h-tabs-item-selected-border-bottom-radius)
+    var(--h-tabs-item-selected-border-bottom-radius);
   transform: translateX(0);
   width: 0;
   transition:
@@ -86,10 +84,12 @@
   transform: translateY(-50%);
   z-index: 1;
 }
-.hearth-TabsList .hearth-scroll-button.left {
+
+.hearth-TabsList .hearth-scroll-button-left {
   left: 0;
 }
-.hearth-TabsList .hearth-scroll-button.right {
+
+.hearth-TabsList .hearth-scroll-button-right {
   right: 0;
 }
 
