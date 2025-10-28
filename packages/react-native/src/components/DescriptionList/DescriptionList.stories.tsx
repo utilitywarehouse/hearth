@@ -53,7 +53,7 @@ type Story = StoryObj<typeof meta>;
 const sampleData = [
   { heading: 'Account Number', description: '123456789' },
   { heading: 'Sort Code', description: '12-34-56' },
-  { heading: 'Status', description: 'Active' },
+  { heading: 'Status', description: 'Inactive', invalidText: 'Status cannot be inactive' },
 ];
 
 export const Playground: Story = {
@@ -64,6 +64,7 @@ export const Playground: Story = {
           key={item.heading}
           heading={item.heading}
           description={item.description}
+          invalidText={item.invalidText}
         />
       ))}
     </DescriptionList>
@@ -79,6 +80,7 @@ export const Row: Story = {
           key={item.heading}
           heading={item.heading}
           description={item.description}
+          invalidText={item.invalidText}
         />
       ))}
     </DescriptionList>
@@ -94,6 +96,7 @@ export const Column: Story = {
           key={item.heading}
           heading={item.heading}
           description={item.description}
+          invalidText={item.invalidText}
         />
       ))}
     </DescriptionList>
@@ -111,6 +114,7 @@ export const KitchenSink: Story = {
               key={item.heading}
               heading={item.heading}
               description={item.description}
+              invalidText={item.invalidText}
             />
           ))}
         </DescriptionList>
@@ -122,6 +126,7 @@ export const KitchenSink: Story = {
               key={item.heading}
               heading={item.heading}
               description={item.description}
+              invalidText={item.invalidText}
             />
           ))}
         </DescriptionList>
