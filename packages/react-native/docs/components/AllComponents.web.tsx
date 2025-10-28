@@ -24,6 +24,8 @@ import {
   Box,
   Button,
   Card,
+  Carousel,
+  CarouselItem,
   Center,
   Checkbox,
   CurrencyInput,
@@ -49,6 +51,8 @@ import {
   ListItem,
   Modal,
   OL,
+  ProgressStepper,
+  ProgressStep,
   Radio,
   RadioCard,
   RadioCardGroup,
@@ -214,10 +218,61 @@ const AllComponents: React.FC = () => {
           </ComponentWrapper>
           <ComponentWrapper name="Card" link="/?path=/docs/components-card--docs">
             <Center flex={1}>
-              <Card colorScheme="white">
+              <Card colorScheme="neutralStrong">
                 <Heading>I am a card</Heading>
                 <BodyText>And do card stuff.</BodyText>
               </Card>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Carousel" link="/?path=/docs/components-carousel--docs">
+            <Center flex={1}>
+              <Carousel itemWidth={150} centered width={150}>
+                <CarouselItem>
+                  <Box
+                    backgroundColor="blue700"
+                    width={150}
+                    height={100}
+                    px="100"
+                    borderRadius="md"
+                  >
+                    <Center flex={1}>
+                      <BodyText color="white" textAlign="center">
+                        I'm a carousel item
+                      </BodyText>
+                    </Center>
+                  </Box>
+                </CarouselItem>
+                <CarouselItem>
+                  <Box
+                    backgroundColor="purple700"
+                    width={150}
+                    height={100}
+                    px="100"
+                    borderRadius="md"
+                  >
+                    <Center flex={1}>
+                      <BodyText color="white" textAlign="center">
+                        I'm another carousel item
+                      </BodyText>
+                    </Center>
+                  </Box>
+                </CarouselItem>
+                <CarouselItem>
+                  <Box
+                    backgroundColor="green700"
+                    width={150}
+                    height={100}
+                    px="100"
+                    borderRadius="md"
+                  >
+                    <Center flex={1}>
+                      <BodyText color="white" textAlign="center">
+                        I'm also a carousel item
+                      </BodyText>
+                    </Center>
+                  </Box>
+                </CarouselItem>
+              </Carousel>
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Center" link="/?path=/docs/primitives-center--docs">
@@ -443,6 +498,16 @@ const AllComponents: React.FC = () => {
                   <BodyText>List Item 2</BodyText>
                 </LI>
               </OL>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Progress Stepper" link="/?path=/docs/components-progress-stepper--docs">
+            <Center flex={1}>
+              <ProgressStepper>
+                <ProgressStep id='customer-data' state='complete' />
+                <ProgressStep id='shipping-data' state='complete' />
+                <ProgressStep id='payment-data' state='active' />
+                <ProgressStep id='summary' state='incomplete' />
+              </ProgressStepper>
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Radio" link="/?path=/docs/forms-radio--docs">

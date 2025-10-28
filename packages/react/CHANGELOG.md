@@ -1,5 +1,36 @@
 # @utilitywarehouse/hearth-react
 
+## 0.13.6
+
+### Patch Changes
+
+- [#584](https://github.com/utilitywarehouse/hearth/pull/584) [`a2a0434`](https://github.com/utilitywarehouse/hearth/commit/a2a0434b53ab25dd05f22600470cba154cf98681) Thanks [@dorota-uw](https://github.com/dorota-uw)! - Add underline to `Button` `ghost` variant
+
+- Updated dependencies [[`8345d8c`](https://github.com/utilitywarehouse/hearth/commit/8345d8c365167d2bea2875c78430e4a89c216798)]:
+  - @utilitywarehouse/hearth-react-icons@0.6.0
+
+## 0.13.5
+
+### Patch Changes
+
+- [#578](https://github.com/utilitywarehouse/hearth/pull/578) [`a1c4601`](https://github.com/utilitywarehouse/hearth/commit/a1c4601770ac48533876853b9db0105a3c7ced6f) Thanks [@robphoenix](https://github.com/robphoenix)! - Add flex item props to `Container`
+
+- [#582](https://github.com/utilitywarehouse/hearth/pull/582) [`7c9f09f`](https://github.com/utilitywarehouse/hearth/commit/7c9f09f265828f6c8b2191c57cfc45f5e46e9e65) Thanks [@robphoenix](https://github.com/robphoenix)! - Prevent `onCloseAutoFocus` on `Menu`
+
+- [#577](https://github.com/utilitywarehouse/hearth/pull/577) [`78fd9ff`](https://github.com/utilitywarehouse/hearth/commit/78fd9ffb2916fa994b5304c928874bf4b021e2d7) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `padding` props to `Container` component
+
+- [#580](https://github.com/utilitywarehouse/hearth/pull/580) [`405877e`](https://github.com/utilitywarehouse/hearth/commit/405877eec98db0d03c6fc2b0f0408007f28a6057) Thanks [@robphoenix](https://github.com/robphoenix)! - Add missing `spacing` values
+
+- [#580](https://github.com/utilitywarehouse/hearth/pull/580) [`405877e`](https://github.com/utilitywarehouse/hearth/commit/405877eec98db0d03c6fc2b0f0408007f28a6057) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `rowSpacing` & `columnSpacing` props
+
+- [#576](https://github.com/utilitywarehouse/hearth/pull/576) [`bb2851a`](https://github.com/utilitywarehouse/hearth/commit/bb2851a38980bc352bad8ac6a0cabc50ef01bb2a) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `Menu` dropdown content width
+
+## 0.13.4
+
+### Patch Changes
+
+- [#575](https://github.com/utilitywarehouse/hearth/pull/575) [`05f9461`](https://github.com/utilitywarehouse/hearth/commit/05f94610704ddecfdcda1ff93c2c2f20ea2e2fd6) Thanks [@robphoenix](https://github.com/robphoenix)! - Update deps
+
 ## 0.13.3
 
 ### Patch Changes
