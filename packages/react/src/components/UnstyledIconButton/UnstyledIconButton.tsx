@@ -9,6 +9,8 @@ import { extractProps } from '../../helpers/extract-props';
 import { Spinner } from '../Spinner/Spinner';
 import { getResponsiveSizeTranslation } from '../../helpers/get-responsive-size-translation';
 import type { SpinnerProps } from '../Spinner/Spinner.props';
+import { Slot } from 'radix-ui';
+import { getSubtree } from '../../helpers/get-subtree';
 
 const COMPONENT_NAME = 'UnstyledIconButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -27,13 +29,15 @@ export const UnstyledIconButton = React.forwardRef<
     inverted,
     loading,
     onClick,
+    asChild,
     ...unstyledIconButtonProps
   } = extractProps(props, unstyledIconButtonPropDefs);
 
   const spinnerSize = getResponsiveSizeTranslation(props.size || 'md', { md: 'sm', sm: 'xs' });
+  const Component = asChild ? Slot.Root : 'button';
 
   return (
-    <button
+    <Component
       ref={forwardedRef}
       className={clsx(componentClassName, className)}
       aria-label={label}
@@ -42,8 +46,12 @@ export const UnstyledIconButton = React.forwardRef<
       onClick={disabled ? undefined : onClick}
       {...unstyledIconButtonProps}
     >
-      {loading ? <Spinner size={spinnerSize as SpinnerProps['size']} currentColor /> : children}
-    </button>
+      {loading
+        ? getSubtree({ asChild, children }, () => (
+            <Spinner size={spinnerSize as SpinnerProps['size']} currentColor />
+          ))
+        : children}
+    </Component>
   );
 });
 

@@ -8,7 +8,11 @@ import {
   Flex,
   BodyText,
 } from '@utilitywarehouse/hearth-react';
-import { CloseMediumIcon, CloseSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import {
+  AddMediumIcon,
+  CloseMediumIcon,
+  CloseSmallIcon,
+} from '@utilitywarehouse/hearth-react-icons';
 
 const sizes = ['md', 'sm'] as const;
 
@@ -64,4 +68,23 @@ export const WithCard: Story = {
       </Card>
     </Box>
   ),
+};
+
+export const AsLink: Story = {
+  render: args => {
+    return (
+      <Flex gap="200">
+        <UnstyledIconButton {...args} asChild>
+          <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>
+            <AddMediumIcon />
+          </a>
+        </UnstyledIconButton>
+        <UnstyledIconButton {...args} asChild loading>
+          <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>
+            <AddMediumIcon />
+          </a>
+        </UnstyledIconButton>
+      </Flex>
+    );
+  },
 };
