@@ -30,6 +30,7 @@ export const ProgressStep = React.forwardRef<ProgressStepElement, ProgressStepPr
         className={clsx(componentClassName, className)}
         data-state={state}
         aria-current={isActive ? 'step' : undefined}
+        aria-label={`Step ${stepIndex}, ${label}, ${state}`}
       >
         <div className={`${componentClassName}__row`}>
           <span
