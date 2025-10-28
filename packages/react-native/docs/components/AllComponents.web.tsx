@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import {
+  BellMediumIcon,
   BroadbandMediumIcon,
   CashbackCardMediumIcon,
   ChevronRightMediumIcon,
@@ -43,6 +44,7 @@ import {
   Icon,
   IconButton,
   IconContainer,
+  IndicatorIconButton,
   InlineLink,
   Input,
   LI,
@@ -383,6 +385,14 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Heading" link="/?path=/docs/typography-heading--docs">
             <Center flex={1}>
               <Heading>This is a Heading</Heading>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
+            name="Indicator Icon Button"
+            link="/?path=/docs/components-indicator-icon-button--docs"
+          >
+            <Center flex={1}>
+              <IndicatorIconButton icon={BellMediumIcon} onPress={() => null} indicator={true} />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Icon Button" link="/?path=/docs/components-icon-button--docs">
