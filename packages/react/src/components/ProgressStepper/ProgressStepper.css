@@ -38,11 +38,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* TODO: Fix this variable and replace it here */
-  width: 28px;
-  height: 28px;
-  /* width: var(--h-progress-stepper-indicator-width);
-  height: var(--h-progress-stepper-indicator-height); */
+  width: var(--h-progress-stepper-indicator-width);
+  height: var(--h-progress-stepper-indicator-height);
   border-radius: 50%;
   flex-shrink: 0;
   position: relative;
@@ -66,11 +63,8 @@
     &::before {
       content: '';
       position: absolute;
-      /* TODO: Fix this variable and replace it here */
-      width: calc(28px - var(--h-border-width-2) * 2);
-      height: calc(28px - var(--h-border-width-2) * 2);
-      /* width: calc(var(--h-progress-stepper-indicator-width) - var(--h-border-width-2) * 2);
-      height: calc(var(--h-progress-stepper-indicator-height) - var(--h-border-width-2) * 2); */
+      width: calc(var(--h-progress-stepper-indicator-width) - var(--h-border-width-2) * 2);
+      height: calc(var(--h-progress-stepper-indicator-height) - var(--h-border-width-2) * 2);
       border-radius: 50%;
       background-color: var(--h-progress-stepper-bar-complete-background-color);
       border: 2px solid var(--h-color-warm-white-50);
@@ -132,7 +126,7 @@
   white-space: nowrap;
 }
 
-/* TODO: Ask Rob about it */
+/* TODO: Figure out responsive value of `showLabels` */
 /* Hide labels when container is too narrow */
 @container (inline-size < 600px) {
   [data-show-labels] .hearth-ProgressStep__label {
