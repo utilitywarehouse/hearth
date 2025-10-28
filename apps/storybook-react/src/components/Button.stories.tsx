@@ -206,9 +206,14 @@ export const ResponsiveSize: Story = {
 export const AsLink: Story = {
   render: args => {
     return (
-      <Button asChild>
-        <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>View UW services</a>
-      </Button>
+      <Flex gap="200">
+        <Button asChild>
+          <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>View UW services</a>
+        </Button>
+        <Button asChild loading>
+          <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>View UW services</a>
+        </Button>
+      </Flex>
     );
   },
 };
