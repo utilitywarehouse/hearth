@@ -69,7 +69,7 @@ export const KitchenSink: Story = {
           <SectionHeader
             heading="Heading"
             helperText="Helper text"
-            badge={{ text: "I'm a badged" }}
+            badge={{ text: "I'm a badge" }}
           />
         </VariantTitle>
         <VariantTitle title="SectionHeader with badge and link">
