@@ -14,12 +14,15 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
   const containerRef = useRef<HTMLDivElement | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
-  const [indicatorX, setIndicatorX] = useState(0);
-  const [indicatorWidth, setIndicatorWidth] = useState(0);
+  // Underline indicator that animates to match the active tab trigger
+  const [activeTabIndicatorX, setActiveTabIndicatorX] = useState(0);
+  const [activeTabIndicatorWidth, setActiveTabIndicatorWidth] = useState(0);
 
+  // Whether horizontal scroll icons should be shown
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
+  // Sync indicator position/size to the current active tab trigger
   const updateIndicator = useCallback(() => {
     const container = containerRef.current;
     if (!container) return;
@@ -27,10 +30,11 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
     const activeTrigger = container.querySelector<HTMLElement>('.hearth-Tab[data-state="active"]');
     if (!activeTrigger) return;
 
-    setIndicatorX(activeTrigger.offsetLeft);
-    setIndicatorWidth(activeTrigger.offsetWidth);
+    setActiveTabIndicatorX(activeTrigger.offsetLeft);
+    setActiveTabIndicatorWidth(activeTrigger.offsetWidth);
   }, []);
 
+  // Compute overflow and whether we can scroll left/right to show scroll icons
   const checkOverflow = useCallback(() => {
     const el = scrollRef.current;
     if (!el) return;
@@ -43,6 +47,7 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
     setCanScrollRight(canRight);
   }, []);
 
+  // Keep indicator and scroll buttons in sync with DOM/layout changes
   useLayoutEffect(() => {
     updateIndicator();
     checkOverflow();
@@ -51,6 +56,7 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
     const scrollEl = scrollRef.current;
     if (!container && !scrollEl) return;
 
+    // Watch size changes (container and scroll viewport)
     const resizeObserver = new ResizeObserver(() => {
       updateIndicator();
       checkOverflow();
@@ -59,6 +65,7 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
     if (container) resizeObserver.observe(container);
     if (scrollEl) resizeObserver.observe(scrollEl);
 
+    // Watch DOM mutations that can affect which tab is active or present
     const mutationObserver = new MutationObserver(() => {
       updateIndicator();
       checkOverflow();
@@ -73,6 +80,7 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
       });
     }
 
+    // Update scroll icons as the user scrolls
     const onScroll = () => checkOverflow();
     scrollEl?.addEventListener('scroll', onScroll, { passive: true });
 
@@ -83,6 +91,7 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
     };
   }, [updateIndicator, checkOverflow]);
 
+  // Smoothly scroll the tab section by ~60% of the viewport width
   const scrollBy = useCallback((direction: 1 | -1) => {
     const el = scrollRef.current;
     if (!el) return;
@@ -97,36 +106,9 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
 
   const handleScrollLeft = useCallback(() => scrollBy(-1), [scrollBy]);
   const handleScrollRight = useCallback(() => scrollBy(1), [scrollBy]);
-  const handleKeyDown = useCallback((event: React.KeyboardEvent) => {
-    if (event.key !== 'Tab') return;
-
-    const container = containerRef.current;
-    if (!container) return;
-
-    const triggers = Array.from(
-      container.querySelectorAll<HTMLElement>('.hearth-Tab:not([data-disabled])')
-    );
-    if (triggers.length === 0) return;
-
-    const activeElement = document.activeElement as HTMLElement | null;
-    let currentIndex = triggers.findIndex(
-      el => el === activeElement || (activeElement ? el.contains(activeElement) : false)
-    );
-
-    if (currentIndex === -1) currentIndex = event.shiftKey ? 0 : -1;
-
-    const nextIndex = event.shiftKey
-      ? (currentIndex - 1 + triggers.length) % triggers.length
-      : (currentIndex + 1) % triggers.length;
-
-    event.preventDefault();
-    const nextEl = triggers[nextIndex];
-    nextEl?.focus();
-    nextEl?.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
-  }, []);
 
   return (
-    <RadixTabs.List className={clsx(listClassName, className)} onKeyDown={handleKeyDown} {...rest}>
+    <RadixTabs.List className={clsx(listClassName, className)} {...rest}>
       {canScrollLeft ? (
         <div className="hearth-scroll-button hearth-scroll-button-left" aria-hidden>
           <UnstyledIconButton label="scroll left" tabIndex={-1} onClick={handleScrollLeft}>
@@ -139,7 +121,11 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
           {children}
           <div
             className="hearth-TabsIndicator"
-            style={{ transform: `translateX(${indicatorX}px)`, width: `${indicatorWidth}px` }}
+            // Animated underline: position and width driven by active trigger
+            style={{
+              transform: `translateX(${activeTabIndicatorX}px)`,
+              width: `${activeTabIndicatorWidth}px`,
+            }}
           />
         </div>
       </div>
