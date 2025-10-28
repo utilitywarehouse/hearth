@@ -103,6 +103,7 @@ const styles = StyleSheet.create(theme => ({
         ghost: {
           backgroundColor: 'transparent',
           borderWidth: 0,
+          textDecoration: 'underline',
         },
       },
       size: {
@@ -348,6 +349,7 @@ const styles = StyleSheet.create(theme => ({
         variant: 'ghost',
         colorScheme: 'functional',
         styles: {
+          textDecorationColor: theme.color.interactive.functional.foreground.subtle,
           _web: {
             _hover: {
               backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
@@ -395,6 +397,7 @@ const styles = StyleSheet.create(theme => ({
         variant: 'ghost',
         colorScheme: 'affirmative',
         styles: {
+          textDecorationColor: theme.color.interactive.affirmative.foreground.subtle,
           _web: {
             _hover: {
               backgroundColor: theme.color.interactive.affirmative.surface.subtle.hover,
@@ -418,6 +421,7 @@ const styles = StyleSheet.create(theme => ({
         variant: 'ghost',
         colorScheme: 'destructive',
         styles: {
+          textDecorationColor: theme.color.interactive.destructive.foreground.subtle,
           _web: {
             _hover: {
               backgroundColor: theme.color.interactive.destructive.surface.subtle.hover,
