@@ -32,7 +32,11 @@ Display pairs of related metadata (heading + description). Supports column (stac
   >
     <DescriptionListItem heading="Account Number" description="123456789" />
     <DescriptionListItem heading="Sort Code" description="12-34-56" />
-    <DescriptionListItem heading="Status" description="Active" />
+    <DescriptionListItem
+      heading="Status"
+      description="Inactive"
+      invalidText="Status cannot be inactive"
+    />
   </DescriptionList>
 </UsageWrap>
 
@@ -42,7 +46,11 @@ import { DescriptionList, DescriptionListItem } from '@utilitywarehouse/hearth-r
 <DescriptionList direction="column" heading="Account details" helperText="Static account metadata">
   <DescriptionListItem heading="Account Number" description="123456789" />
   <DescriptionListItem heading="Sort Code" description="12-34-56" />
-  <DescriptionListItem heading="Status" description="Active" />
+  <DescriptionListItem
+    heading="Status"
+    description="Inactive"
+    invalidText="Status cannot be inactive"
+  />
 </DescriptionList>;
 ```
 
@@ -60,12 +68,13 @@ import { DescriptionList, DescriptionListItem } from '@utilitywarehouse/hearth-r
 
 ### DescriptionListItem
 
-| Prop              | Type        | Description                                  | Default    |
-| ----------------- | ----------- | -------------------------------------------- | ---------- |
-| `heading`         | `ReactNode` | Heading (label) content                      | (required) |
-| `description`     | `ReactNode` | Description (value) content                  | (required) |
-| `headingWidth`    | `number`    | Per-item heading width override (row layout) | inherits   |
-| `trailingContent` | `ReactNode` | Optional action link or icon                 | -          |
+| Prop              | Type        | Description                                      | Default    |
+| ----------------- | ----------- | ------------------------------------------------ | ---------- |
+| `heading`         | `ReactNode` | Heading (label) content                          | (required) |
+| `description`     | `ReactNode` | Description (value) content                      | (required) |
+| `headingWidth`    | `number`    | Per-item heading width override (row layout)     | inherits   |
+| `trailingContent` | `ReactNode` | Optional action link or icon                     | -          |
+| `invalidText`     | `string`    | Text to show under description for invalid value | -          |
 
 > Uses `theme.components.descriptionList` tokens for spacing & column width.
 

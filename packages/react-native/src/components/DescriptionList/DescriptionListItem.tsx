@@ -5,6 +5,8 @@ import { BodyText } from '../BodyText';
 import { Link } from '../Link';
 import { useDescriptionListContext } from './DescriptionList.context';
 import type DescriptionListItemProps from './DescriptionListItem.props';
+import { ErrorCircleSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import Helper from '../Helper/Helper';
 
 const DescriptionListItem = ({
   heading,
@@ -17,6 +19,7 @@ const DescriptionListItem = ({
   linkOnPress,
   linkTarget,
   linkShowIcon,
+  invalidText,
   style,
   ...props
 }: DescriptionListItemProps) => {
@@ -46,6 +49,14 @@ const DescriptionListItem = ({
         </View>
         <View style={styles.descriptionWrapper}>
           {descIsText ? <BodyText>{description}</BodyText> : description}
+          {invalidText && (
+            <Helper
+              validationStatus="invalid"
+              showIcon
+              icon={ErrorCircleSmallIcon}
+              text={invalidText || ''}
+            />
+          )}
         </View>
       </View>
       {linkText ? (

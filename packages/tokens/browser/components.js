@@ -355,6 +355,7 @@ export const components = {
     },
   },
   illustrations: {
+    colorMode: 'var(--h-illustrations-color-mode)',
     mode: 'var(--h-illustrations-mode)',
   },
   inlineLink: {

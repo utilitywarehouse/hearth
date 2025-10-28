@@ -14,6 +14,7 @@ export interface DescriptionListItemProps extends ViewProps {
   linkOnPress?: () => void;
   linkTarget?: '_blank' | '_self' | '_parent' | '_top';
   linkShowIcon?: boolean;
+  invalidText?: string;
 }
 
 export default DescriptionListItemProps;

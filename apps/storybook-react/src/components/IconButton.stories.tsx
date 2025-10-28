@@ -213,11 +213,18 @@ export const KitchenSink: Story = {
 export const AsLink: Story = {
   render: args => {
     return (
-      <IconButton {...args} asChild>
-        <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>
-          <AddMediumIcon />
-        </a>
-      </IconButton>
+      <Flex gap="200">
+        <IconButton {...args} asChild>
+          <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>
+            <AddMediumIcon />
+          </a>
+        </IconButton>
+        <IconButton {...args} asChild loading>
+          <a href={args.disabled ? undefined : 'https://uw.co.uk/services'}>
+            <AddMediumIcon />
+          </a>
+        </IconButton>
+      </Flex>
     );
   },
 };
