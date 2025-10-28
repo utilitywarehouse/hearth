@@ -354,6 +354,7 @@ export declare const components: {
     };
   };
   readonly illustrations: {
+    readonly colorMode: 'var(--h-illustrations-color-mode)';
     readonly mode: 'var(--h-illustrations-mode)';
   };
   readonly inlineLink: {
