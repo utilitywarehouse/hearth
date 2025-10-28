@@ -13,13 +13,21 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type TabsElement = ElementRef<'div'>;
 
 export const Tabs = React.forwardRef<TabsElement, TabsProps>((props, ref) => {
-  const { className, size = 'md', ...tabsProps } = extractProps(props, marginPropDefs);
+  const {
+    className,
+    size = 'md',
+    activationMode = 'manual',
+    ...tabsProps
+  } = extractProps(props, marginPropDefs) as TabsProps & {
+    activationMode?: 'automatic' | 'manual';
+  };
 
   return (
     <RadixTabs.Root
       ref={ref}
       className={clsx(componentClassName, className)}
       data-size={size}
+      activationMode={activationMode}
       {...(tabsProps as React.ComponentProps<typeof RadixTabs.Root>)}
     />
   );
