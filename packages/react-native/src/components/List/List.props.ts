@@ -1,5 +1,5 @@
-import type { ViewProps } from 'react-native';
 import { ComponentType } from 'react';
+import type { ViewProps } from 'react-native';
 
 interface ListProps extends ViewProps {
   container?: 'none' | 'subtleWhite' | 'emphasisWhite' | 'subtleWarmWhite' | 'emphasisWarmWhite';

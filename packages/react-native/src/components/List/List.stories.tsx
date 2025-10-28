@@ -1,8 +1,8 @@
-import React, { FC, PropsWithChildren } from 'react';
-import { List, ListItem, ListItemIcon, ListItemTrailingIcon } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { VariantTitle } from '../../../docs/components';
 import { SettingsMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { FC, PropsWithChildren } from 'react';
+import { List, ListAction, ListItem, ListItemIcon, ListItemTrailingIcon } from '.';
+import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
 // import { Card } from '../Card';
 
@@ -56,21 +56,38 @@ type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
   render: ({ container, divider, ...args }) => {
-    const listItems = Array.from({ length: 4 }).map((_, index) => (
-      <ListItem
-        key={index}
-        text="List item text"
-        helperText="Supporting text"
-        divider={container === 'none' ? divider : divider && index !== 3}
-      />
-    ));
     return (
       <List {...args} container={container}>
-        {container !== 'none' && <Card>{listItems}</Card>}
-        {container === 'none' && listItems}
+        {Array.from({ length: 4 }).map((_, index) => (
+          <ListItem
+            key={index}
+            heading="List item text"
+            helperText="Supporting text"
+            divider={divider}
+          />
+        ))}
       </List>
     );
   },
+};
+
+export const WithAction: Story = {
+  args: {
+    container: 'subtleWhite',
+  },
+  render: ({ container, divider, ...args }) => (
+    <List {...args} container={container}>
+      {Array.from({ length: 4 }).map((_, index) => (
+        <ListItem
+          key={index}
+          heading="List item text"
+          helperText="Supporting text"
+          divider={divider}
+        />
+      ))}
+      <ListAction heading="List action" onPress={() => console.log('List Action Pressed')} />
+    </List>
+  ),
 };
 
 export const KitchenSink: Story = {
@@ -88,7 +105,7 @@ export const KitchenSink: Story = {
         <VariantTitle title="List with title and supporting text">
           <List heading="List Heading" helperText="Supporting Text">
             {list.map((item, index) => (
-              <ListItem key={index} text={item.text} helperText={item.helperText} />
+              <ListItem key={index} heading={item.text} helperText={item.helperText} />
             ))}
           </List>
         </VariantTitle>
@@ -97,7 +114,7 @@ export const KitchenSink: Story = {
             {list.map((item, index) => (
               <ListItem
                 key={index}
-                text={item.text}
+                heading={item.text}
                 helperText={item.helperText}
                 leadingContent={<ListItemIcon as={SettingsMediumIcon} />}
               />
@@ -109,7 +126,7 @@ export const KitchenSink: Story = {
             {list.map((item, index) => (
               <ListItem
                 key={index}
-                text={item.text}
+                heading={item.text}
                 helperText={item.helperText}
                 trailingContent={<ListItemTrailingIcon as={SettingsMediumIcon} />}
               />
@@ -121,7 +138,7 @@ export const KitchenSink: Story = {
             {list.map((item, index) => (
               <ListItem
                 key={index}
-                text={item.text}
+                heading={item.text}
                 onPress={() => console.log('List Item Pressed')}
               />
             ))}
@@ -132,7 +149,7 @@ export const KitchenSink: Story = {
             {list.map((item, index) => (
               <ListItem
                 key={index}
-                text={item.text}
+                heading={item.text}
                 onPress={() => console.log('List Item Pressed')}
               />
             ))}
@@ -143,7 +160,7 @@ export const KitchenSink: Story = {
             {list.map((item, index) => (
               <ListItem
                 key={index}
-                text={item.text}
+                heading={item.text}
                 helperText={item.helperText}
                 leadingContent={<ListItemIcon as={SettingsMediumIcon} />}
                 onPress={() => console.log('List Item Pressed')}
@@ -156,7 +173,7 @@ export const KitchenSink: Story = {
             {list.map((item, index) => (
               <ListItem
                 key={index}
-                text={item.text}
+                heading={item.text}
                 helperText={item.helperText}
                 leadingContent={<ListItemIcon as={SettingsMediumIcon} />}
                 onPress={() => console.log('List Item Pressed')}
@@ -169,7 +186,7 @@ export const KitchenSink: Story = {
             {list.map((item, index) => (
               <ListItem
                 key={index}
-                text={item.text}
+                heading={item.text}
                 helperText={item.helperText}
                 leadingContent={<ListItemIcon as={SettingsMediumIcon} />}
                 onPress={() => console.log('List Item Pressed')}

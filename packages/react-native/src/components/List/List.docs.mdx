@@ -66,9 +66,9 @@ List item is the main building block of list. Each item has its own set of prope
 
 <UsageWrap>
   <List heading="Heading" helperText="Supporting text" divider>
-    <ListItem text="List Item 1" onPress={() => console.log('item pressed')} />
-    <ListItem text="List Item 2" onPress={() => console.log('item pressed')} />
-    <ListItem text="List Item 3" onPress={() => console.log('item pressed')} />
+    <ListItem heading="List Item 1" onPress={() => console.log('item pressed')} />
+    <ListItem heading="List Item 2" onPress={() => console.log('item pressed')} />
+    <ListItem heading="List Item 3" onPress={() => console.log('item pressed')} />
   </List>
 </UsageWrap>
 
@@ -76,10 +76,10 @@ List item is the main building block of list. Each item has its own set of prope
 import { List, ListItem } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
-  <List headingText="Heading" headingHelperText="Supporting text" divider>
-    <ListItem text="List Item 1" onPress={() => console.log('item pressed')} />
-    <ListItem text="List Item 2" onPress={() => console.log('item pressed')} />
-    <ListItem text="List Item 3" onPress={() => console.log('item pressed')} />
+  <List heading="Heading" helperText="Supporting text" divider>
+    <ListItem heading="List Item 1" onPress={() => console.log('item pressed')} />
+    <ListItem heading="List Item 2" onPress={() => console.log('item pressed')} />
+    <ListItem heading="List Item 3" onPress={() => console.log('item pressed')} />
   </List>
 );
 ```
@@ -89,14 +89,14 @@ const MyComponent = () => (
 ### `List`
 
 | Name             | Type                                                                                              | Default   | Description                                                |
-| ---------------- | ------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------- | --- |
+| ---------------- | ------------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------- |
 | container        | `'none' \| 'subtleWhite' \| 'emphasisWhite' \|` <br /> `'subtleWarmWhite' \| 'emphasisWarmWhite'` | `'none'`  | The container style of the list.                           |
 | heading          | `string`                                                                                          |           | The text to display in the heading of the list.            |
 | helperText       | `string`                                                                                          |           | The supporting text to display in the heading of the list. |
 | linkText         | `string`                                                                                          |           | The text for the link in the heading.                      |
 | linkHref         | `string`                                                                                          |           | The href for the link in the heading.                      |
 | linkOnPress      | `() => void`                                                                                      |           | Callback function when the heading link is pressed.        |
-| linkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'`                                                      |           | Target for the link in the heading.                        |     |
+| linkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'`                                                      |           | Target for the link in the heading.                        |
 | linkIcon         | `ComponentType`                                                                                   |           | Icon for the heading link.                                 |
 | linkIconPosition | `'left' \| 'right'`                                                                               | `'right'` | Position of the icon in the heading link.                  |
 | linkShowIcon     | `boolean`                                                                                         | `true`    | Whether to show the icon in the heading link.              |
@@ -106,17 +106,20 @@ const MyComponent = () => (
 
 ### `ListItem`
 
-| Name            | Type                     | Default | Description                                                     |
-| --------------- | ------------------------ | ------- | --------------------------------------------------------------- |
-| text            | `string`                 |         | The text to display in the list item.                           |
-| onPress         | `() => void`             |         | A callback function to be called when the list item is pressed. |
-| helperText      | `string`                 |         | The supporting text to display in the list item.                |
-| leadingContent  | `ReactNode`              |         | The leading content to display in the list item.                |
-| trailingContent | `ReactNode`              |         | The trailing content to display in the list item.               |
-| variant         | `'subtle' \| 'emphasis'` |         | The variant style of the list item.                             |
-| disabled        | `boolean`                | `false` | Whether to disable the list item.                               |
-| loading         | `boolean`                | `false` | Whether to show the list item in loading state.                 |
-| divider         | `boolean`                | `false` | Whether to display a divider below the list item.               |
+| Name            | Type                     | Default  | Description                                                     |
+| --------------- | ------------------------ | -------- | --------------------------------------------------------------- |
+| heading         | `string`                 |          | The text to display in the list item.                           |
+| onPress         | `() => void`             |          | A callback function to be called when the list item is pressed. |
+| helperText      | `string`                 |          | The supporting text to display in the list item.                |
+| leadingContent  | `ReactNode`              |          | The leading content to display in the list item.                |
+| trailingContent | `ReactNode`              |          | The trailing content to display in the list item.               |
+| variant         | `'subtle' \| 'emphasis'` |          | The variant style of the list item.                             |
+| disabled        | `boolean`                | `false`  | Whether to disable the list item.                               |
+| loading         | `boolean`                | `false`  | Whether to show the list item in loading state.                 |
+| divider         | `boolean`                | `false`  | Whether to display a divider below the list item.               |
+| badge           | `BadgeProps`             |          | Props to pass to the Badge component.                           |
+| badgePosition   | `'top' \| 'bottom'`      | `bottom` | Position of the badge in the list item.                         |
+| numericValue    | `string \| number`       |          | A numeric value to display on the right side of the item.       |
 
 #### - `ListItemLeadingContent`
 
@@ -292,19 +295,19 @@ the `Card` and child `ListItem` components.
   <List container="subtleWhite">
     <ListItem
       leadingContent={<BillMediumIcon />}
-      text="Bills"
+      heading="Bills"
       divider
       onPress={() => console.log('item pressed')}
     />
     <ListItem
       leadingContent={<PaymentMediumIcon />}
-      text="Payments"
+      heading="Payments"
       divider
       onPress={() => console.log('item pressed')}
     />
     <ListItem
       leadingContent={<HomeMediumIcon />}
-      text="Moving Home"
+      heading="Moving Home"
       onPress={() => console.log('item pressed')}
     />
   </List>
@@ -322,19 +325,19 @@ const MyComponent = () => (
   <List container="subtleWhite">
     <ListItem
       leadingContent={<BillMediumIcon />}
-      text="Bills"
+      heading="Bills"
       divider
       onPress={() => console.log('item pressed')}
     />
     <ListItem
       leadingContent={<PaymentMediumIcon />}
-      text="Payments"
+      heading="Payments"
       divider
       onPress={() => console.log('item pressed')}
     />
     <ListItem
       leadingContent={<HomeMediumIcon />}
-      text="Moving Home"
+      heading="Moving Home"
       onPress={() => console.log('item pressed')}
     />
   </List>

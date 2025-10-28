@@ -2,6 +2,8 @@ import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-ico
 import { useMemo } from 'react';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { Badge } from '../../Badge';
+import { DetailText } from '../../DetailText';
 import { Skeleton } from '../../Skeleton';
 import { useListContext } from '../List.context';
 import { IListItemContext, ListItemContext } from './ListItem.context';
@@ -14,7 +16,7 @@ import ListItemTrailingContent from './ListItemTrailingContent';
 import ListItemTrailingIcon from './ListItemTrailingIcon';
 
 const ListItemRoot = ({
-  text,
+  heading,
   helperText,
   leadingContent,
   trailingContent,
@@ -24,6 +26,9 @@ const ListItemRoot = ({
   children,
   states,
   variant = 'subtle',
+  badge,
+  badgePosition = 'bottom',
+  numericValue,
   ...props
 }: ListItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { onPress } = props;
@@ -104,13 +109,16 @@ const ListItemRoot = ({
               <ListItemLeadingContent>{leadingContent}</ListItemLeadingContent>
             ) : null}
             <ListItemContent>
-              <ListItemText>{text}</ListItemText>
+              {badgePosition === 'top' && badge ? <Badge {...badge} /> : null}
+              <ListItemText>{heading}</ListItemText>
               {helperText ? <ListItemHelperText>{helperText}</ListItemHelperText> : null}
+              {badgePosition === 'bottom' && badge ? <Badge {...badge} /> : null}
             </ListItemContent>
+            {!!numericValue && <DetailText size="lg">{numericValue}</DetailText>}
             {trailingContent ? (
               <ListItemTrailingContent>{trailingContent}</ListItemTrailingContent>
             ) : onPress ? (
-              <ListItemTrailingContent>
+              <ListItemTrailingContent style={styles.centeredTrailingIcon}>
                 <ListItemTrailingIcon as={ChevronRightSmallIcon} />
               </ListItemTrailingContent>
             ) : null}
@@ -196,6 +204,9 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     ],
+  },
+  centeredTrailingIcon: {
+    justifyContent: 'center',
   },
 }));
 
