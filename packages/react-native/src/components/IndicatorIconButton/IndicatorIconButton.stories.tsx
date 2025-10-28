@@ -4,6 +4,7 @@ import { ComponentType } from 'react';
 import { VariantTitle } from '../../../docs/components';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
+import { useTheme } from '../../hooks';
 import IndicatorIconButton from './IndicatorIconButton';
 
 const meta = {
@@ -53,9 +54,6 @@ export const Playground: Story = {
 };
 
 export const Variants: Story = {
-  parameters: {
-    controls: { exclude: ['size'] },
-  },
   render: args => {
     const icon = typeof args.icon === 'string' ? Icons[args.icon as keyof typeof Icons] : args.icon;
     return (
@@ -79,6 +77,65 @@ export const Variants: Story = {
             </VariantTitle>
           </Box>
         </Flex>
+      </Flex>
+    );
+  },
+};
+
+export const Colourful: Story = {
+  render: args => {
+    const icon = typeof args.icon === 'string' ? Icons[args.icon as keyof typeof Icons] : args.icon;
+    const theme = useTheme();
+
+    return (
+      <Flex direction="column" space="xl">
+        <Flex direction="row" space="lg">
+          <Box>
+            <IndicatorIconButton {...args} icon={icon} iconStyle={{ color: theme.color.energyBlue[500] }} />
+          </Box>
+          <Box>
+            <IndicatorIconButton {...args} icon={icon} iconStyle={{ color: theme.color.cashbackLilac[500] }} />
+          </Box>
+        </Flex>
+      </Flex>
+    );
+  },
+};
+
+export const WithAccessibilityLabel: Story = {
+  render: args => {
+    return (
+      <Flex direction="column" space="xl">
+        <Box>
+          <VariantTitle title="Notification label" invert={args.inverted}>
+            <IndicatorIconButton
+              {...args}
+              icon={Icons.BellMediumIcon}
+              indicator={true}
+              accessibilityLabel="New notifications available"
+            />
+          </VariantTitle>
+        </Box>
+        <Box>
+          <VariantTitle title="No new actions, cashback section" invert={args.inverted}>
+            <IndicatorIconButton
+              {...args}
+              icon={Icons.CashbackCardMediumIcon}
+              indicator={false}
+              accessibilityLabel="Cashback section"
+            />
+          </VariantTitle>
+        </Box>
+        <Box>
+          <VariantTitle title="New action, cashback section" invert={args.inverted}>
+            <IndicatorIconButton
+              {...args}
+              icon={Icons.CashbackCardMediumIcon}
+              indicator={true}
+              accessibilityLabel="Cashback section, new transactions"
+            />
+          </VariantTitle>
+        </Box>
       </Flex>
     );
   },

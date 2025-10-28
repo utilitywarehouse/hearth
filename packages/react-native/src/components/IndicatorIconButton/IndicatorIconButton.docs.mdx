@@ -18,6 +18,7 @@ The `IndicatorIconButton` component is used to trigger an action or event, such 
 - [Playground](#playground)
 - [Usage](#usage)
 - [Props](#props)
+- [Examples](#examples)
 
 ## Playground
 
@@ -57,6 +58,28 @@ const MyComponent = () => {
 | `pressed`   | `boolean`    | Changes the button to a pressed state.                     | `false` |
 | `indicator` | `boolean`    | Shows a red dot indicator in the top-right corner.         | `false` |
 
-## Variants
+## Examples
+
+### Variants
 
 <Canvas of={Stories.Variants} />
+
+### Colour icons
+
+You can pass color as the iconStyle props:
+
+```javascript
+const { color } = useTheme();
+
+return (
+  <IndicatorIconButton {...props} iconStyle={{ color: color.energyBlue[500] }} />
+)
+```
+
+It does not work on Storybook on web, only mobile.
+
+<Canvas of={Stories.Colourful} />
+
+### Adding accessability label
+
+<Canvas of={Stories.WithAccessibilityLabel} />
