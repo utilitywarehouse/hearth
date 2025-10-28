@@ -32,7 +32,6 @@ const meta: Meta<typeof Tabs> = {
   },
   argTypes: {
     size: { control: { type: 'radio' }, options: sizes },
-    disabled: { control: { type: 'boolean' } },
   },
   args: {
     defaultValue: 'account',
@@ -90,32 +89,16 @@ export const KitchenSink: Story = {
             </Tabs>
           </Flex>
         ))}
-
-        <Flex gap="200" direction="column">
-          <Heading>Disabled</Heading>
-          <Tabs defaultValue="account" disabled>
-            <TabsList>
-              <Tab value="account">Account</Tab>
-              <Tab value="security">Security</Tab>
-              <Tab value="billing">Billing</Tab>
-            </TabsList>
-            <TabContent value="account">
-              <BodyText>Tabs are disabled; selection cannot be changed.</BodyText>
-            </TabContent>
-            <TabContent value="security">
-              <BodyText>Tabs are disabled; selection cannot be changed.</BodyText>
-            </TabContent>
-            <TabContent value="billing">
-              <BodyText>Tabs are disabled; selection cannot be changed.</BodyText>
-            </TabContent>
-          </Tabs>
-        </Flex>
       </Flex>
     );
   },
 };
 
 export const Sizes: Story = {
+  args: {
+    size: 'md',
+  },
+
   render: () => (
     <Flex direction="column" gap="400">
       <Tabs size="md" defaultValue="a">
@@ -273,21 +256,6 @@ export const WithIcons: Story = {
       <TabContent value="four">
         <BodyText>Four panel</BodyText>
       </TabContent>
-    </Tabs>
-  ),
-};
-
-export const Disabled: Story = {
-  render: () => (
-    <Tabs defaultValue="one" disabled>
-      <TabsList>
-        <Tab value="one">One</Tab>
-        <Tab value="two">Two</Tab>
-        <Tab value="three">Three</Tab>
-      </TabsList>
-      <TabContent value="one">One panel</TabContent>
-      <TabContent value="two">Two panel</TabContent>
-      <TabContent value="three">Three panel</TabContent>
     </Tabs>
   ),
 };
