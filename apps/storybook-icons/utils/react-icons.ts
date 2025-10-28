@@ -21,7 +21,6 @@ import { CalendarAddMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/
 import { CalendarAddSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CalendarAddSmallIcon';
 import { CalendarMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CalendarMediumIcon';
 import { CalendarSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CalendarSmallIcon';
-import { CallMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CallMediumIcon';
 import { CameraMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CameraMediumIcon';
 import { CashbackCardMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/CashbackCardMediumIcon';
 import { CashbackCardSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/CashbackCardSmallIcon';
@@ -125,6 +124,7 @@ import { MoreSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/MoreSmal
 import { OpenMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/OpenMediumIcon';
 import { OpenSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/OpenSmallIcon';
 import { PaymentMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PaymentMediumIcon';
+import { PhoneMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PhoneMediumIcon';
 import { PhoneSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PhoneSmallIcon';
 import { PlaceholderLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaceholderLargeIcon';
 import { PlaceholderMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaceholderMediumIcon';
@@ -206,7 +206,6 @@ export const reactIcons = [
   CalendarAddSmallIcon,
   CalendarMediumIcon,
   CalendarSmallIcon,
-  CallMediumIcon,
   CameraMediumIcon,
   CashbackCardMediumIcon,
   CashbackCardSmallIcon,
@@ -310,6 +309,7 @@ export const reactIcons = [
   OpenMediumIcon,
   OpenSmallIcon,
   PaymentMediumIcon,
+  PhoneMediumIcon,
   PhoneSmallIcon,
   PlaceholderLargeIcon,
   PlaceholderMediumIcon,

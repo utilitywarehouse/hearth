@@ -497,8 +497,8 @@
       "path": "share-medium-icon.svg"
     },
     {
-      "name": "CallMediumIcon",
-      "path": "call-medium-icon.svg"
+      "name": "PhoneMediumIcon",
+      "path": "phone-medium-icon.svg"
     },
     {
       "name": "TrashMediumIcon",
