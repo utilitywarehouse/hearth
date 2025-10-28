@@ -65,7 +65,7 @@ List item is the main building block of list. Each item has its own set of prope
 ## Usage
 
 <UsageWrap>
-  <List heading="Heading" helperText="Supporting text" divider>
+  <List heading="Heading" helperText="Supporting text">
     <ListItem heading="List Item 1" onPress={() => console.log('item pressed')} />
     <ListItem heading="List Item 2" onPress={() => console.log('item pressed')} />
     <ListItem heading="List Item 3" onPress={() => console.log('item pressed')} />
@@ -76,7 +76,7 @@ List item is the main building block of list. Each item has its own set of prope
 import { List, ListItem } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
-  <List heading="Heading" helperText="Supporting text" divider>
+  <List heading="Heading" helperText="Supporting text">
     <ListItem heading="List Item 1" onPress={() => console.log('item pressed')} />
     <ListItem heading="List Item 2" onPress={() => console.log('item pressed')} />
     <ListItem heading="List Item 3" onPress={() => console.log('item pressed')} />
@@ -100,7 +100,6 @@ const MyComponent = () => (
 | linkIcon         | `ComponentType`                                                                                   |           | Icon for the heading link.                                 |
 | linkIconPosition | `'left' \| 'right'`                                                                               | `'right'` | Position of the icon in the heading link.                  |
 | linkShowIcon     | `boolean`                                                                                         | `true`    | Whether to show the icon in the heading link.              |
-| divider          | `boolean`                                                                                         | `false`   | Whether to display a divider below the list items.         |
 | loading          | `boolean`                                                                                         | `false`   | Whether to show the list items in loading state.           |
 | disabled         | `boolean`                                                                                         | `false`   | Whether to disable the list.                               |
 
@@ -116,7 +115,6 @@ const MyComponent = () => (
 | variant         | `'subtle' \| 'emphasis'` |          | The variant style of the list item.                             |
 | disabled        | `boolean`                | `false`  | Whether to disable the list item.                               |
 | loading         | `boolean`                | `false`  | Whether to show the list item in loading state.                 |
-| divider         | `boolean`                | `false`  | Whether to display a divider below the list item.               |
 | badge           | `BadgeProps`             |          | Props to pass to the Badge component.                           |
 | badgePosition   | `'top' \| 'bottom'`      | `bottom` | Position of the badge in the list item.                         |
 | numericValue    | `string \| number`       |          | A numeric value to display on the right side of the item.       |
@@ -296,13 +294,11 @@ the `Card` and child `ListItem` components.
     <ListItem
       leadingContent={<BillMediumIcon />}
       heading="Bills"
-      divider
       onPress={() => console.log('item pressed')}
     />
     <ListItem
       leadingContent={<PaymentMediumIcon />}
       heading="Payments"
-      divider
       onPress={() => console.log('item pressed')}
     />
     <ListItem
@@ -326,13 +322,11 @@ const MyComponent = () => (
     <ListItem
       leadingContent={<BillMediumIcon />}
       heading="Bills"
-      divider
       onPress={() => console.log('item pressed')}
     />
     <ListItem
       leadingContent={<PaymentMediumIcon />}
       heading="Payments"
-      divider
       onPress={() => console.log('item pressed')}
     />
     <ListItem
@@ -379,7 +373,7 @@ import {
 const BadgeList = () => {
   return (
     <List>
-      <ListItem onPress={() => console.log('pressed')} divider>
+      <ListItem onPress={() => console.log('pressed')}>
         <ListItemLeadingContent>
           <Box padding="300" borderRadius="lg" bg={'energyBlue'}>
             <ListItemIcon as={ElectricityMediumIcon} color="green900" />
@@ -396,7 +390,7 @@ const BadgeList = () => {
           <ListItemTrailingIcon as={ChevronRightSmallIcon} />
         </ListItemTrailingContent>
       </ListItem>
-      <ListItem onPress={() => console.log('pressed')} divider={false}>
+      <ListItem onPress={() => console.log('pressed')}>
         <ListItemLeadingContent>
           <Box padding="300" borderRadius="lg" bg={'energyBlue'}>
             <ListItemIcon as={GasMediumIcon} color="green900" />

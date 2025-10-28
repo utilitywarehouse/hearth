@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
 import ListItemProps from './ListItem.props';
 
-export interface IListItemContext extends Pick<ListItemProps, 'divider' | 'loading' | 'disabled'> {
+export interface IListItemContext extends Pick<ListItemProps, 'loading' | 'disabled'> {
   showPressed?: boolean;
   active?: boolean;
 }

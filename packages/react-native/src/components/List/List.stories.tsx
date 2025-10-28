@@ -27,11 +27,6 @@ const meta = {
       description:
         'The heading supporting text to be displayed on the list. \n _Note: This is a playground prop, use helperText on the SectionHeader component._',
     },
-    divider: {
-      control: 'boolean',
-      description: 'Whether to display a divider below the list item.',
-    },
-
     disabled: {
       control: 'boolean',
       description: 'Whether the list item is disabled.',
@@ -45,7 +40,6 @@ const meta = {
     container: 'none',
     heading: 'This is the list heading',
     helperText: 'Supporting text',
-    divider: true,
     disabled: false,
     loading: false,
   },
@@ -55,16 +49,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-  render: ({ container, divider, ...args }) => {
+  render: ({ container, ...args }) => {
     return (
       <List {...args} container={container}>
         {Array.from({ length: 4 }).map((_, index) => (
-          <ListItem
-            key={index}
-            heading="List item text"
-            helperText="Supporting text"
-            divider={divider}
-          />
+          <ListItem key={index} heading="List item text" helperText="Supporting text" />
         ))}
       </List>
     );
@@ -75,15 +64,10 @@ export const WithAction: Story = {
   args: {
     container: 'subtleWhite',
   },
-  render: ({ container, divider, ...args }) => (
+  render: ({ container, ...args }) => (
     <List {...args} container={container}>
       {Array.from({ length: 4 }).map((_, index) => (
-        <ListItem
-          key={index}
-          heading="List item text"
-          helperText="Supporting text"
-          divider={divider}
-        />
+        <ListItem key={index} heading="List item text" helperText="Supporting text" />
       ))}
       <ListAction heading="List action" onPress={() => console.log('List Action Pressed')} />
     </List>
@@ -135,17 +119,6 @@ export const KitchenSink: Story = {
         </VariantTitle>
         <VariantTitle title="List with pressable items">
           <List>
-            {list.map((item, index) => (
-              <ListItem
-                key={index}
-                heading={item.text}
-                onPress={() => console.log('List Item Pressed')}
-              />
-            ))}
-          </List>
-        </VariantTitle>
-        <VariantTitle title="List without divider">
-          <List divider={false}>
             {list.map((item, index) => (
               <ListItem
                 key={index}

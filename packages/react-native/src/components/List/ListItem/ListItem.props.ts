@@ -1,10 +1,7 @@
 import type { PressableProps, ViewProps } from 'react-native';
-import type { ColorValue } from '../../../types';
 import BadgeProps from '../../Badge/Badge.props';
 
 interface ListItemBaseProps extends Omit<PressableProps, 'children'> {
-  divider?: boolean;
-  dividerColor?: ColorValue;
   loading?: boolean;
   disabled?: boolean;
   variant?: 'subtle' | 'emphasis';

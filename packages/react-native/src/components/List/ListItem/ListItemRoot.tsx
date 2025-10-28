@@ -21,7 +21,6 @@ const ListItemRoot = ({
   leadingContent,
   trailingContent,
   disabled,
-  divider,
   loading,
   children,
   states,
@@ -47,7 +46,6 @@ const ListItemRoot = ({
 
   const isLoading = loading || listContext?.loading;
   const showPressed = isLoading ? false : !!onPress;
-  const showDivider = listContext?.divider ?? divider;
   const isDisabled = disabled || listContext?.disabled || false;
   const listItemVariant = getListContainer() || variant;
 
@@ -55,7 +53,6 @@ const ListItemRoot = ({
   const loadingTestID = isLoading ? `${testID}-loading` : testID;
 
   styles.useVariants({
-    divider: showDivider,
     variant: listItemVariant,
     showPressed,
     active,
@@ -68,12 +65,11 @@ const ListItemRoot = ({
   const value: IListItemContext = useMemo(() => {
     return {
       showPressed,
-      divider: showDivider,
       active,
       loading: isLoading,
       disabled: isDisabled,
     };
-  }, [active, showPressed, showDivider, isLoading, isDisabled]);
+  }, [active, showPressed, isLoading, isDisabled]);
 
   if (loading || listContext?.loading) {
     return (
@@ -137,13 +133,9 @@ const styles = StyleSheet.create(theme => ({
     paddingHorizontal: theme.components.list.item.functional.padding,
     flexDirection: 'row',
     gap: theme.components.list.item.gap,
+    borderTopWidth: theme.borderWidth['1'],
+    borderStyle: 'solid',
     variants: {
-      divider: {
-        true: {
-          borderTopWidth: theme.borderWidth['1'],
-          borderStyle: 'solid',
-        },
-      },
       isFirstChild: {
         true: {
           borderTopWidth: 0,

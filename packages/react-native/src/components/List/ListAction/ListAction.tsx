@@ -12,7 +12,6 @@ import ListActionTrailingIcon from './ListActionTrailingIcon';
 const ListActionRoot = ({
   heading,
   disabled,
-  divider,
   variant = 'subtle',
   ...props
 }: ListActionProps & { states?: { active?: boolean; disabled?: boolean } }) => {
@@ -31,14 +30,12 @@ const ListActionRoot = ({
     return undefined;
   };
 
-  const showDivider = listContext?.divider ?? divider;
   const isDisabled = disabled || listContext?.disabled || false;
   const listItemVariant = getListContainer() || variant;
 
   const testID = props.testID || 'list-action';
 
   styles.useVariants({
-    divider: showDivider,
     variant: listItemVariant,
     disabled: isDisabled,
     active,
@@ -76,13 +73,9 @@ const styles = StyleSheet.create(theme => ({
     paddingHorizontal: theme.components.list.item.functional.padding,
     flexDirection: 'row',
     gap: theme.components.list.item.gap,
+    borderTopWidth: theme.borderWidth['1'],
+    borderStyle: 'solid',
     variants: {
-      divider: {
-        true: {
-          borderTopWidth: theme.borderWidth['1'],
-          borderStyle: 'solid',
-        },
-      },
       isFirstChild: {
         true: {
           borderTopWidth: 0,

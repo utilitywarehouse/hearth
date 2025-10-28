@@ -7,3 +7,4 @@
 - Added `ListAction` component.
 - Added `badge` prop to `ListItem`.
 - Added `numericValue` prop to `ListItem`.
+- Removes `divider` prop from `List` and `ListItem`; dividers are now handled automatically.

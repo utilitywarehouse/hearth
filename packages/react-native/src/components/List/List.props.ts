@@ -14,7 +14,6 @@ interface ListProps extends ViewProps {
   linkShowIcon?: boolean;
   disabled?: boolean;
   loading?: boolean;
-  divider?: boolean;
 }
 
 export default ListProps;
