@@ -85,6 +85,8 @@ const Card = ({
         disabled={disabled}
         style={[styles.card, computedStyles, style as ViewStyle]}
         onPress={handlePress}
+        accessible={showPressed}
+        importantForAccessibility={showPressed ? 'yes' : 'no'}
       >
         {children}
       </Pressable>

@@ -4,7 +4,7 @@ import {
   ChevronRightSmallIcon,
   ElectricityMediumIcon,
   GasMediumIcon,
-  InfoMediumIcon as HomeMediumIcon,
+  HomeMediumIcon,
   PaymentMediumIcon,
   SettingsMediumIcon,
   UserMediumIcon,
@@ -245,7 +245,7 @@ export const WithTransactions: Story = {
         trailingContent={
           <>
             <BodyText>-£100.00</BodyText>
-            <BodyText color="textBrand">-£100.00</BodyText>
+            <BodyText color="textBrand">+£1.00 CB</BodyText>
           </>
         }
         onPress={() => console.log('Transaction pressed')}

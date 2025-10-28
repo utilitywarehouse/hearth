@@ -61,6 +61,7 @@ List item is the main building block of list. Each item has its own set of prope
   - [`ListItem` with `Link`](#listitem-with-link)
   - [`List` with `FlatList`](#list-with-flatlist)
 - [Advanced Usage](#advanced-usage)
+- [Accessibility](#accessibility)
 
 ## Playground
 
@@ -592,3 +593,25 @@ const MyComponent = () => (
   </List>
 );
 ```
+
+## Accessibility
+
+The List component is designed with accessibility in mind to ensure all users can interact with list items effectively.
+
+### Screen Reader Support
+
+- **List Items with `onPress`**: When a `ListItem` has an `onPress` handler, it is automatically exposed to screen readers (VoiceOver on iOS and TalkBack on Android) as an interactive element. Users can focus on and activate these items using assistive technologies.
+
+- **List Items without `onPress`**: Non-interactive list items are still accessible to screen readers, allowing users to navigate through and read the content. The list structure is preserved for context.
+
+- **List with Container**: When using the `container` prop (e.g., `subtleWhite`, `emphasisWhite`), the List wraps items in a Card component. The Card wrapper itself is hidden from screen readers, but all ListItems remain fully accessible and focusable.
+
+- **ListAction**: The `ListAction` component is always interactive and accessible as a button element with screen readers.
+
+### Best Practices
+
+- Use descriptive `heading` and `helperText` to provide clear context for each list item
+- Ensure `onPress` handlers provide meaningful feedback for interactive items
+- When using custom content with `children`, ensure all interactive elements are properly labeled
+- Test with VoiceOver (iOS) and TalkBack (Android) to verify the experience
+- Avoid nesting too many interactive elements within a single ListItem to prevent confusion
