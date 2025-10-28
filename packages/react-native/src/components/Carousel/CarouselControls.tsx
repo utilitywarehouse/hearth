@@ -1,12 +1,11 @@
 import { nanoid } from 'nanoid/non-secure';
 import { FC, useContext, useEffect, useMemo } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
-
+import { View } from 'react-native';
 import {
   ChevronLeftSmallIcon,
   ChevronRightSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
-import { Box } from '../..';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import CarouselContext from './Carousel.context';
 import { CarouselControlsProps } from './Carousel.props';
@@ -73,7 +72,7 @@ export const CarouselControls: FC<CarouselControlsProps> = ({
   }
 
   return (
-    <Box
+    <View
       style={[styles.root, style]}
       testID={testID}
       importantForAccessibility={isAccessibilityHidden ? 'no-hide-descendants' : 'auto'}
@@ -90,7 +89,7 @@ export const CarouselControls: FC<CarouselControlsProps> = ({
           inverted={context.inverted}
         />
       )}
-      <Box style={styles.dotsContainer}>
+      <View style={styles.dotsContainer}>
         {keys.map((_, index) => (
           <CarouselControlItem
             active={index === activeIndex}
@@ -102,7 +101,7 @@ export const CarouselControls: FC<CarouselControlsProps> = ({
             disabled={disabled}
           />
         ))}
-      </Box>
+      </View>
       {showNavigation && (
         <UnstyledIconButton
           icon={ChevronRightSmallIcon}
@@ -113,7 +112,7 @@ export const CarouselControls: FC<CarouselControlsProps> = ({
           inverted={context.inverted}
         />
       )}
-    </Box>
+    </View>
   );
 };
 

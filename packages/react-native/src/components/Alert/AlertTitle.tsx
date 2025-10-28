@@ -1,15 +1,15 @@
 import type { TextProps, TextStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { DetailText } from '../DetailText';
+import { BodyText } from '../BodyText';
 import { useAlertContext } from './Alert.context';
 
 const AlertTitle = ({ children, style, ...props }: TextProps) => {
   const { colorScheme } = useAlertContext();
   styles.useVariants({ colorScheme });
   return (
-    <DetailText size="md" style={[styles.title as TextStyle, style]} {...props}>
+    <BodyText size="md" weight="semibold" style={[styles.title as TextStyle, style]} {...props}>
       {children}
-    </DetailText>
+    </BodyText>
   );
 };
 
@@ -18,16 +18,16 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       colorScheme: {
         info: {
-          color: theme.color.feedback.info.foreground,
+          color: theme.color.feedback.info.foreground.default,
         },
         positive: {
-          color: theme.color.feedback.positive.foreground,
+          color: theme.color.feedback.positive.foreground.default,
         },
         danger: {
-          color: theme.color.feedback.danger.foreground,
+          color: theme.color.feedback.danger.foreground.default,
         },
         warning: {
-          color: theme.color.feedback.warning.foreground,
+          color: theme.color.feedback.warning.foreground.default,
         },
       },
     },

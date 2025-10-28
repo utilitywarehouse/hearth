@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react';
 import type { PressableProps, ViewProps } from 'react-native';
-import { ColorValue } from 'src/types';
+import { ColorValue } from '../../types';
 
 export type UnstyledIconButtonProps = {
   /*

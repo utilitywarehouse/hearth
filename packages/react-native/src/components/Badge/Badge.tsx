@@ -14,6 +14,7 @@ const Badge = ({ children, ...props }: BadgeProps) => {
     flatBase = false,
     size = 'sm',
     style,
+    text,
     ...rest
   } = props;
 
@@ -22,7 +23,7 @@ const Badge = ({ children, ...props }: BadgeProps) => {
     [colorScheme, flatBase, variant, size]
   );
 
-  const childIsText = typeof children === 'string' || typeof children === 'number';
+  const childIsText = typeof children === 'string' || typeof children === 'number' || !!text;
 
   styles.useVariants({ colorScheme, flatBase, variant, size });
 
@@ -30,7 +31,7 @@ const Badge = ({ children, ...props }: BadgeProps) => {
     <BadgeContext.Provider value={value}>
       <View {...rest} style={[styles.container, style]}>
         {!!icon && <BadgeIcon as={icon} />}
-        {childIsText ? <BadgeText>{children}</BadgeText> : children}
+        {childIsText ? <BadgeText>{text ?? children}</BadgeText> : children}
       </View>
     </BadgeContext.Provider>
   );

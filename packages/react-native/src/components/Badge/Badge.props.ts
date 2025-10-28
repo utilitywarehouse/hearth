@@ -19,6 +19,7 @@ interface BadgeProps extends ViewProps {
   size?: 'sm' | 'md';
   icon?: ComponentType;
   flatBase?: boolean;
+  text?: string | number;
 }
 
 export default BadgeProps;

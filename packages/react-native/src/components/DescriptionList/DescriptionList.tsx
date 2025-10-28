@@ -10,13 +10,7 @@ const DescriptionList = ({
   itemHeadingWidth,
   heading,
   helperText,
-  linkText,
-  linkHref,
-  linkIcon,
-  linkIconPosition,
-  linkOnPress,
-  linkTarget,
-  linkShowIcon,
+  headerTrailingContent,
   children,
   style,
   ...props
@@ -31,13 +25,7 @@ const DescriptionList = ({
           <SectionHeader
             heading={heading}
             helperText={helperText}
-            linkText={linkText}
-            linkHref={linkHref}
-            linkIcon={linkIcon}
-            linkIconPosition={linkIconPosition}
-            linkOnPress={linkOnPress}
-            linkTarget={linkTarget}
-            linkShowIcon={linkShowIcon}
+            trailingContent={headerTrailingContent}
           />
         ) : null}
         {children}
