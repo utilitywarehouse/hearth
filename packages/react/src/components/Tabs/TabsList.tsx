@@ -13,16 +13,20 @@ const listClassName = withGlobalPrefix(COMPONENT_NAME);
 export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
+
   const [indicatorX, setIndicatorX] = useState(0);
   const [indicatorWidth, setIndicatorWidth] = useState(0);
+
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
   const updateIndicator = useCallback(() => {
     const container = containerRef.current;
     if (!container) return;
+
     const activeTrigger = container.querySelector<HTMLElement>('.hearth-Tab[data-state="active"]');
     if (!activeTrigger) return;
+
     setIndicatorX(activeTrigger.offsetLeft);
     setIndicatorWidth(activeTrigger.offsetWidth);
   }, []);
@@ -30,9 +34,11 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
   const checkOverflow = useCallback(() => {
     const el = scrollRef.current;
     if (!el) return;
+
     const overflow = el.scrollWidth > el.clientWidth + 1;
     const canLeft = overflow && el.scrollLeft > 0;
     const canRight = overflow && el.scrollLeft + el.clientWidth < el.scrollWidth - 1;
+
     setCanScrollLeft(canLeft);
     setCanScrollRight(canRight);
   }, []);
@@ -49,6 +55,7 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
       updateIndicator();
       checkOverflow();
     });
+
     if (container) resizeObserver.observe(container);
     if (scrollEl) resizeObserver.observe(scrollEl);
 
@@ -56,6 +63,7 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
       updateIndicator();
       checkOverflow();
     });
+
     if (container) {
       mutationObserver.observe(container, {
         subtree: true,
@@ -78,6 +86,7 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
   const scrollBy = useCallback((direction: 1 | -1) => {
     const el = scrollRef.current;
     if (!el) return;
+
     const step = el.clientWidth * 0.6;
     const target = Math.max(
       0,

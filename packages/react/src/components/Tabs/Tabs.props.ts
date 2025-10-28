@@ -6,6 +6,4 @@ export interface TabsProps
     MarginProps {
   /** Size variant */
   size?: 'md' | 'lg';
-  /** Disable all tabs */
-  disabled?: boolean;
 }
