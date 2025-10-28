@@ -12,11 +12,19 @@ on:
       - 'packages/fonts/**'
       - 'apps/storybook-fonts/**'
 
+permissions:
+  contents: read
+
 jobs:
   checks:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - name: 🏗 Setup pnpm
         uses: pnpm/action-setup@v4
         with:
