@@ -1,5 +1,5 @@
 .hearth-Menu {
-  width: 100%;
+  /* width: 100%; */
   min-width: var(--h-menu-min-width);
   max-width: var(--h-menu-max-width);
   display: flex;
@@ -7,18 +7,20 @@
 }
 
 .hearth-MenuContent {
-  width: 100%;
   min-width: var(--h-menu-min-width);
   max-width: var(--h-menu-max-width);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--h-menu-gap);
   padding: var(--h-menu-padding);
   background-color: var(--h-surface-neutral-strong);
   border: var(--h-select-dropdown-border-width) solid var(--h-border-subtle);
   border-radius: var(--h-select-border-radius);
   color: var(--h-interactive-functional-foreground-subtle);
+
+  & :where(.hearth-MenuContentList) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--h-menu-gap);
+  }
 
   & :where(.hearth-MenuItem) {
     width: 100%;

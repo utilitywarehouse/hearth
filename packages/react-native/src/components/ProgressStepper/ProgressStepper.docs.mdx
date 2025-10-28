@@ -1,0 +1,87 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+import * as ProgressStepperStories from './ProgressStepper.stories';
+
+<Meta title="Components / Progress Stepper" />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=6056-1987" />
+
+<BackToTopButton />
+
+# Progress Stepper
+
+A form helper component that displays a series of dots connected by lines, showing the progress through a multi-step process. Each step can be marked as completed, active, or uncompleted.
+
+- [Usage](#usage)
+- [Examples](#examples)
+- [API](#api)
+- [Step States](#step-states-1)
+- [Accessibility](#accessibility)
+- [Best Practices](#best-practices)
+
+## Usage
+
+The `ProgressStepper` component uses a compound component pattern, making it easy to define steps declaratively. It provides visual feedback about complete steps, the current active step, and remaining incomplete steps.
+
+### Basic Usage
+
+```tsx
+import { ProgressStepper, ProgressStep } from '@hearth/react-native';
+
+<ProgressStepper>
+  <ProgressStep id={"1"} state="complete" />
+  <ProgressStep id={"2"} state="complete" />
+  <ProgressStep id={"3"} state="active" />
+  <ProgressStep id={"4"} state="incomplete" />
+  <ProgressStep id={"5"} state="incomplete" />
+</ProgressStepper>
+```
+
+## Examples
+
+### Default Layout
+
+<Canvas of={ProgressStepperStories.Playground} />
+
+### Step States
+
+See how different step states are visualized:
+
+<Canvas of={ProgressStepperStories.StepStates} />
+
+### Basic
+
+<Canvas of={ProgressStepperStories.BasicExample} />
+
+## API
+
+### Progress Stepper Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | Required | `ProgressStep` components |
+
+### Progress Step Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `id` | `string` | Required | Unique identifier for the step |
+| `state` | `'complete' \| 'active' \| 'incomplete'` | Required | Current state of the step |
+
+## Step States
+
+- **complete**: Step has been finished, shows a checkmark icon
+- **active**: Current step, shows a number with highlighted background
+- **incomplete**: Future step, shows a number with muted styling
+
+## Accessibility
+
+- Each step is properly labeled for screen readers
+- The component follows WCAG guidelines for color contrast
+- Progress indication is communicated through both visual and textual means
+
+## Best Practices
+
+1. **Keep it simple** - The stepper focuses on essential functionality without complexity
+1. **Indicate progress clearly** - Make sure users understand how many steps remain
+1. **Use meaningful IDs** - Choose IDs that make sense for your specific use case (numbers, step names, etc.)

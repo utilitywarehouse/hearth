@@ -18,6 +18,10 @@
     gap: 0;
   }
 
+  &:where(.hearth-variant-ghost) {
+    text-decoration: underline;
+  }
+
   &:where(.hearth-variant-emphasis) > .hearth-front {
     min-width: var(--h-button-min-width);
     gap: var(--h-button-gap);

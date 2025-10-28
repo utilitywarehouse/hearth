@@ -28,7 +28,12 @@ const cache = new WeakMap();
 module.exports = () => ({
   postcssPlugin: 'postcss-breakpoints',
   Rule(rule) {
-    if (rule.parent.name === 'breakpoints') {
+    try {
+      // Early return if parent doesn't exist or isn't a breakpoints rule
+      if (!rule.parent || rule.parent.name !== 'breakpoints') {
+        return;
+      }
+
       const breakpointsRule = rule.parent;
 
       // when we first meet a given @breakpoints at-rule
@@ -57,6 +62,7 @@ module.exports = () => ({
 
       // save clone of the rule before we modify it
       const originalRule = rule.clone();
+
       // clean up the extra indentation
       rule.selector = rule.selector.replace(/\n\s\s/g, '\n');
       rule.cleanRaws();
@@ -73,6 +79,18 @@ module.exports = () => ({
         breakpointsRule.remove();
         cache.delete(breakpointsRule);
       }
+    } catch (error) {
+      // React DevTools can interfere with PostCSS AST nodes during development
+      // Silently skip processing if this happens
+      if (process.env.NODE_ENV === 'development') {
+        console.warn(
+          `PostCSS breakpoints plugin skipped processing rule${rule && rule.selector ? ` "${rule.selector}"` : ""} due to DevTools interference. ` +
+          `Consider disabling React DevTools during development if this persists.`
+        );
+        return;
+      }
+      // Re-throw in production
+      throw error;
     }
   },
 });

@@ -32,10 +32,12 @@ export const MenuContent: React.FC<MenuContentProps> = ({
         sideOffset={4}
         {...placementTranslation[placement]}
         collisionPadding={8}
+        // This is a temporary UI fix, until we have time to replace with Base UI.
+        onCloseAutoFocus={e => e.preventDefault()}
       >
         <RadixScrollArea.Root className="hearth-ScrollAreaRoot" type="auto">
           <RadixScrollArea.Viewport className="hearth-ScrollAreaViewport">
-            {children}
+            <div className={`${componentClassName}List`}>{children}</div>
           </RadixScrollArea.Viewport>
           <RadixScrollArea.Scrollbar className="hearth-ScrollAreaScrollbar" orientation="vertical">
             <RadixScrollArea.Thumb className="hearth-ScrollAreaThumb" />
