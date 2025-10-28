@@ -1,6 +1,8 @@
+import { ErrorCircleSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Badge } from '../Badge';
+import { Helper } from '../Helper';
 import SectionHeaderProps from './SectionHeader.props';
 import SectionHeaderTitle from './SectionHeaderHeading';
 import SectionHeaderHelperText from './SectionHeaderHelperText';
@@ -14,6 +16,7 @@ const SectionHeader = ({
   style,
   trailingContent,
   badge,
+  invalidText,
   ...props
 }: SectionHeaderProps) => {
   return (
@@ -25,6 +28,14 @@ const SectionHeader = ({
           <SectionHeaderTextContent>
             <SectionHeaderTitle>{heading}</SectionHeaderTitle>
             {!!helperText && <SectionHeaderHelperText>{helperText}</SectionHeaderHelperText>}
+            {!!invalidText && (
+              <Helper
+                validationStatus="invalid"
+                showIcon
+                icon={ErrorCircleSmallIcon}
+                text={invalidText || ''}
+              />
+            )}
           </SectionHeaderTextContent>
           {!!badge && <Badge {...badge} />}
           {!!trailingContent && (

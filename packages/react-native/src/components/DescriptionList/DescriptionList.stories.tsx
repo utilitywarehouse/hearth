@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 import { DescriptionList, DescriptionListItem } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
+import { Link } from '../Link';
 
 const meta: Meta<typeof DescriptionList> = {
   title: 'Stories / DescriptionList',
@@ -130,15 +131,16 @@ export const WithLinks: Story = {
       <DescriptionListItem
         heading="Account Number"
         description="123456789"
-        linkText="Manage"
-        linkHref="https://example.com/account"
-        linkShowIcon
+        trailingContent={<Link href="https://example.com/account">Manage account</Link>}
       />
       <DescriptionListItem
         heading="Status"
         description="Active"
-        linkText="Change"
-        linkHref="https://example.com/status"
+        trailingContent={
+          <Link href="https://example.com/status" showIcon={false}>
+            Change
+          </Link>
+        }
       />
       <DescriptionListItem heading="Region" description="United Kingdom" />
     </DescriptionList>

@@ -12,6 +12,7 @@ export interface SectionHeaderWithChildren extends SectionHeaderBaseProps {
   helperText?: never;
   trailingContent?: never;
   badge?: never;
+  invalidText?: never;
 }
 
 export interface SectionHeaderWithoutChildren extends SectionHeaderBaseProps {
@@ -20,6 +21,7 @@ export interface SectionHeaderWithoutChildren extends SectionHeaderBaseProps {
   helperText?: string;
   trailingContent?: React.ReactNode;
   badge?: BadgeProps;
+  invalidText?: string;
 }
 
 type SectionHeaderProps = SectionHeaderWithChildren | SectionHeaderWithoutChildren;
