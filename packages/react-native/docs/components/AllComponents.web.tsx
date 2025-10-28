@@ -49,6 +49,8 @@ import {
   ListItem,
   Modal,
   OL,
+  ProgressStepper,
+  ProgressStep,
   Radio,
   RadioCard,
   RadioCardGroup,
@@ -443,6 +445,16 @@ const AllComponents: React.FC = () => {
                   <BodyText>List Item 2</BodyText>
                 </LI>
               </OL>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Progress Stepper" link="/?path=/docs/components-progress-stepper--docs">
+            <Center flex={1}>
+              <ProgressStepper>
+                <ProgressStep id='customer-data' state='complete' />
+                <ProgressStep id='shipping-data' state='complete' />
+                <ProgressStep id='payment-data' state='active' />
+                <ProgressStep id='summary' state='incomplete' />
+              </ProgressStepper>
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Radio" link="/?path=/docs/forms-radio--docs">
