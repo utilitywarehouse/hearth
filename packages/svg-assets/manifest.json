@@ -17,66 +17,6 @@
       "path": "logo-condensed-warm-white.svg"
     },
     {
-      "name": "SpotRecognition",
-      "path": "spot-recognition.svg"
-    },
-    {
-      "name": "SpotBilling",
-      "path": "spot-billing.svg"
-    },
-    {
-      "name": "SpotCelebratory",
-      "path": "spot-celebratory.svg"
-    },
-    {
-      "name": "SpotEv",
-      "path": "spot-ev.svg"
-    },
-    {
-      "name": "SpotSavings",
-      "path": "spot-savings.svg"
-    },
-    {
-      "name": "SpotError",
-      "path": "spot-error.svg"
-    },
-    {
-      "name": "SpotSecurity",
-      "path": "spot-security.svg"
-    },
-    {
-      "name": "SpotSmartMeter",
-      "path": "spot-smart-meter.svg"
-    },
-    {
-      "name": "SpotSuccess",
-      "path": "spot-success.svg"
-    },
-    {
-      "name": "SpotOnlineAccount",
-      "path": "spot-online-account.svg"
-    },
-    {
-      "name": "SpotHelp",
-      "path": "spot-help.svg"
-    },
-    {
-      "name": "SpotInnovation",
-      "path": "spot-innovation.svg"
-    },
-    {
-      "name": "SpotMovingHouse",
-      "path": "spot-moving-house.svg"
-    },
-    {
-      "name": "SpotNotification",
-      "path": "spot-notification.svg"
-    },
-    {
-      "name": "SpotNeighbours",
-      "path": "spot-neighbours.svg"
-    },
-    {
       "name": "SpotNeighboursLight",
       "path": "spot-neighbours-light.svg"
     },
@@ -85,52 +25,204 @@
       "path": "spot-neighbours-dark.svg"
     },
     {
-      "name": "SceneBundle",
-      "path": "scene-bundle.svg"
+      "name": "SpotNotificationLight",
+      "path": "spot-notification-light.svg"
     },
     {
-      "name": "SceneCashback",
-      "path": "scene-cashback.svg"
+      "name": "SpotNotificationDark",
+      "path": "spot-notification-dark.svg"
     },
     {
-      "name": "SceneInsurance",
-      "path": "scene-insurance.svg"
+      "name": "SpotMovingHouseLight",
+      "path": "spot-moving-house-light.svg"
     },
     {
-      "name": "SceneBroadband",
-      "path": "scene-broadband.svg"
+      "name": "SpotMovingHouseDark",
+      "path": "spot-moving-house-dark.svg"
     },
     {
-      "name": "SceneMobile",
-      "path": "scene-mobile.svg"
+      "name": "SpotInnovationLight",
+      "path": "spot-innovation-light.svg"
     },
     {
-      "name": "SceneEnergy",
-      "path": "scene-energy.svg"
+      "name": "SpotInnovationDark",
+      "path": "spot-innovation-dark.svg"
     },
     {
-      "name": "MascotBroadband",
-      "path": "mascot-broadband.svg"
+      "name": "SpotHelpLight",
+      "path": "spot-help-light.svg"
     },
     {
-      "name": "MascotBundle",
-      "path": "mascot-bundle.svg"
+      "name": "SpotHelpDark",
+      "path": "spot-help-dark.svg"
     },
     {
-      "name": "MascotCashback",
-      "path": "mascot-cashback.svg"
+      "name": "SpotOnlineAccountLight",
+      "path": "spot-online-account-light.svg"
     },
     {
-      "name": "MascotInsurance",
-      "path": "mascot-insurance.svg"
+      "name": "SpotOnlineAccountDark",
+      "path": "spot-online-account-dark.svg"
     },
     {
-      "name": "MascotMobile",
-      "path": "mascot-mobile.svg"
+      "name": "SpotSuccessLight",
+      "path": "spot-success-light.svg"
     },
     {
-      "name": "MascotEnergy",
-      "path": "mascot-energy.svg"
+      "name": "SpotSuccessDark",
+      "path": "spot-success-dark.svg"
+    },
+    {
+      "name": "SpotSmartMeterLight",
+      "path": "spot-smart-meter-light.svg"
+    },
+    {
+      "name": "SpotSmartMeterDark",
+      "path": "spot-smart-meter-dark.svg"
+    },
+    {
+      "name": "SpotSecurityLight",
+      "path": "spot-security-light.svg"
+    },
+    {
+      "name": "SpotSecurityDark",
+      "path": "spot-security-dark.svg"
+    },
+    {
+      "name": "SpotErrorLight",
+      "path": "spot-error-light.svg"
+    },
+    {
+      "name": "SpotErrorDark",
+      "path": "spot-error-dark.svg"
+    },
+    {
+      "name": "SpotSavingsLight",
+      "path": "spot-savings-light.svg"
+    },
+    {
+      "name": "SpotSavingsDark",
+      "path": "spot-savings-dark.svg"
+    },
+    {
+      "name": "SpotBillingLight",
+      "path": "spot-billing-light.svg"
+    },
+    {
+      "name": "SpotBillingDark",
+      "path": "spot-billing-dark.svg"
+    },
+    {
+      "name": "SpotCelebratoryLight",
+      "path": "spot-celebratory-light.svg"
+    },
+    {
+      "name": "SpotCelebratoryDark",
+      "path": "spot-celebratory-dark.svg"
+    },
+    {
+      "name": "SpotRecognitionLight",
+      "path": "spot-recognition-light.svg"
+    },
+    {
+      "name": "SpotRecognitionDark",
+      "path": "spot-recognition-dark.svg"
+    },
+    {
+      "name": "SpotEvLight",
+      "path": "spot-ev-light.svg"
+    },
+    {
+      "name": "SpotEvDark",
+      "path": "spot-ev-dark.svg"
+    },
+    {
+      "name": "SceneEnergyLight",
+      "path": "scene-energy-light.svg"
+    },
+    {
+      "name": "SceneEnergyDark",
+      "path": "scene-energy-dark.svg"
+    },
+    {
+      "name": "SceneMobileLight",
+      "path": "scene-mobile-light.svg"
+    },
+    {
+      "name": "SceneMobileDark",
+      "path": "scene-mobile-dark.svg"
+    },
+    {
+      "name": "SceneBroadbandLight",
+      "path": "scene-broadband-light.svg"
+    },
+    {
+      "name": "SceneBroadbandDark",
+      "path": "scene-broadband-dark.svg"
+    },
+    {
+      "name": "SceneInsuranceLight",
+      "path": "scene-insurance-light.svg"
+    },
+    {
+      "name": "SceneInsuranceDark",
+      "path": "scene-insurance-dark.svg"
+    },
+    {
+      "name": "SceneCashbackLight",
+      "path": "scene-cashback-light.svg"
+    },
+    {
+      "name": "SceneCashbackDark",
+      "path": "scene-cashback-dark.svg"
+    },
+    {
+      "name": "SceneBundleLight",
+      "path": "scene-bundle-light.svg"
+    },
+    {
+      "name": "SceneBundleDark",
+      "path": "scene-bundle-dark.svg"
+    },
+    {
+      "name": "MascotEnergyLight",
+      "path": "mascot-energy-light.svg"
+    },
+    {
+      "name": "MascotEnergyDark",
+      "path": "mascot-energy-dark.svg"
+    },
+    {
+      "name": "MascotBroadbandLight",
+      "path": "mascot-broadband-light.svg"
+    },
+    {
+      "name": "MascotBroadbandDark",
+      "path": "mascot-broadband-dark.svg"
+    },
+    {
+      "name": "MascotMobileLight",
+      "path": "mascot-mobile-light.svg"
+    },
+    {
+      "name": "MascotMobileDark",
+      "path": "mascot-mobile-dark.svg"
+    },
+    {
+      "name": "MascotInsuranceLight",
+      "path": "mascot-insurance-light.svg"
+    },
+    {
+      "name": "MascotInsuranceDark",
+      "path": "mascot-insurance-dark.svg"
+    },
+    {
+      "name": "MascotCashbackLight",
+      "path": "mascot-cashback-light.svg"
+    },
+    {
+      "name": "MascotCashbackDark",
+      "path": "mascot-cashback-dark.svg"
     }
   ]
 }

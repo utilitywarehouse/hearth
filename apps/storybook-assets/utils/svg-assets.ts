@@ -4,68 +4,114 @@ import LogoFullPurple from '@utilitywarehouse/hearth-svg-assets/lib/logo-full-pu
 import LogoFullWarmWhite from '@utilitywarehouse/hearth-svg-assets/lib/logo-full-warm-white.svg'
 import LogoCondensedPurple from '@utilitywarehouse/hearth-svg-assets/lib/logo-condensed-purple.svg'
 import LogoCondensedWarmWhite from '@utilitywarehouse/hearth-svg-assets/lib/logo-condensed-warm-white.svg'
-import SpotRecognition from '@utilitywarehouse/hearth-svg-assets/lib/spot-recognition.svg'
-import SpotBilling from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing.svg'
-import SpotCelebratory from '@utilitywarehouse/hearth-svg-assets/lib/spot-celebratory.svg'
-import SpotEv from '@utilitywarehouse/hearth-svg-assets/lib/spot-ev.svg'
-import SpotSavings from '@utilitywarehouse/hearth-svg-assets/lib/spot-savings.svg'
-import SpotError from '@utilitywarehouse/hearth-svg-assets/lib/spot-error.svg'
-import SpotSecurity from '@utilitywarehouse/hearth-svg-assets/lib/spot-security.svg'
-import SpotSmartMeter from '@utilitywarehouse/hearth-svg-assets/lib/spot-smart-meter.svg'
-import SpotSuccess from '@utilitywarehouse/hearth-svg-assets/lib/spot-success.svg'
-import SpotOnlineAccount from '@utilitywarehouse/hearth-svg-assets/lib/spot-online-account.svg'
-import SpotHelp from '@utilitywarehouse/hearth-svg-assets/lib/spot-help.svg'
-import SpotInnovation from '@utilitywarehouse/hearth-svg-assets/lib/spot-innovation.svg'
-import SpotMovingHouse from '@utilitywarehouse/hearth-svg-assets/lib/spot-moving-house.svg'
-import SpotNotification from '@utilitywarehouse/hearth-svg-assets/lib/spot-notification.svg'
-import SpotNeighbours from '@utilitywarehouse/hearth-svg-assets/lib/spot-neighbours.svg'
 import SpotNeighboursLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-neighbours-light.svg'
 import SpotNeighboursDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-neighbours-dark.svg'
-import SceneBundle from '@utilitywarehouse/hearth-svg-assets/lib/scene-bundle.svg'
-import SceneCashback from '@utilitywarehouse/hearth-svg-assets/lib/scene-cashback.svg'
-import SceneInsurance from '@utilitywarehouse/hearth-svg-assets/lib/scene-insurance.svg'
-import SceneBroadband from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband.svg'
-import SceneMobile from '@utilitywarehouse/hearth-svg-assets/lib/scene-mobile.svg'
-import SceneEnergy from '@utilitywarehouse/hearth-svg-assets/lib/scene-energy.svg'
-import MascotBroadband from '@utilitywarehouse/hearth-svg-assets/lib/mascot-broadband.svg'
-import MascotBundle from '@utilitywarehouse/hearth-svg-assets/lib/mascot-bundle.svg'
-import MascotCashback from '@utilitywarehouse/hearth-svg-assets/lib/mascot-cashback.svg'
-import MascotInsurance from '@utilitywarehouse/hearth-svg-assets/lib/mascot-insurance.svg'
-import MascotMobile from '@utilitywarehouse/hearth-svg-assets/lib/mascot-mobile.svg'
-import MascotEnergy from '@utilitywarehouse/hearth-svg-assets/lib/mascot-energy.svg'
+import SpotNotificationLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-notification-light.svg'
+import SpotNotificationDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-notification-dark.svg'
+import SpotMovingHouseLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-moving-house-light.svg'
+import SpotMovingHouseDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-moving-house-dark.svg'
+import SpotInnovationLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-innovation-light.svg'
+import SpotInnovationDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-innovation-dark.svg'
+import SpotHelpLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-help-light.svg'
+import SpotHelpDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-help-dark.svg'
+import SpotOnlineAccountLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-online-account-light.svg'
+import SpotOnlineAccountDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-online-account-dark.svg'
+import SpotSuccessLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-success-light.svg'
+import SpotSuccessDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-success-dark.svg'
+import SpotSmartMeterLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-smart-meter-light.svg'
+import SpotSmartMeterDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-smart-meter-dark.svg'
+import SpotSecurityLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-security-light.svg'
+import SpotSecurityDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-security-dark.svg'
+import SpotErrorLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-error-light.svg'
+import SpotErrorDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-error-dark.svg'
+import SpotSavingsLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-savings-light.svg'
+import SpotSavingsDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-savings-dark.svg'
+import SpotBillingLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-light.svg'
+import SpotBillingDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg'
+import SpotCelebratoryLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-celebratory-light.svg'
+import SpotCelebratoryDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-celebratory-dark.svg'
+import SpotRecognitionLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-recognition-light.svg'
+import SpotRecognitionDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-recognition-dark.svg'
+import SpotEvLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-ev-light.svg'
+import SpotEvDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-ev-dark.svg'
+import SceneEnergyLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-energy-light.svg'
+import SceneEnergyDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-energy-dark.svg'
+import SceneMobileLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-mobile-light.svg'
+import SceneMobileDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-mobile-dark.svg'
+import SceneBroadbandLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-light.svg'
+import SceneBroadbandDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-dark.svg'
+import SceneInsuranceLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-insurance-light.svg'
+import SceneInsuranceDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-insurance-dark.svg'
+import SceneCashbackLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-cashback-light.svg'
+import SceneCashbackDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-cashback-dark.svg'
+import SceneBundleLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-bundle-light.svg'
+import SceneBundleDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-bundle-dark.svg'
+import MascotEnergyLight from '@utilitywarehouse/hearth-svg-assets/lib/mascot-energy-light.svg'
+import MascotEnergyDark from '@utilitywarehouse/hearth-svg-assets/lib/mascot-energy-dark.svg'
+import MascotBroadbandLight from '@utilitywarehouse/hearth-svg-assets/lib/mascot-broadband-light.svg'
+import MascotBroadbandDark from '@utilitywarehouse/hearth-svg-assets/lib/mascot-broadband-dark.svg'
+import MascotMobileLight from '@utilitywarehouse/hearth-svg-assets/lib/mascot-mobile-light.svg'
+import MascotMobileDark from '@utilitywarehouse/hearth-svg-assets/lib/mascot-mobile-dark.svg'
+import MascotInsuranceLight from '@utilitywarehouse/hearth-svg-assets/lib/mascot-insurance-light.svg'
+import MascotInsuranceDark from '@utilitywarehouse/hearth-svg-assets/lib/mascot-insurance-dark.svg'
+import MascotCashbackLight from '@utilitywarehouse/hearth-svg-assets/lib/mascot-cashback-light.svg'
+import MascotCashbackDark from '@utilitywarehouse/hearth-svg-assets/lib/mascot-cashback-dark.svg'
 
 export const svgAssets = [
   { name: 'LogoFullPurple', src: LogoFullPurple, path: 'logo-full-purple.svg' },
   { name: 'LogoFullWarmWhite', src: LogoFullWarmWhite, path: 'logo-full-warm-white.svg' },
   { name: 'LogoCondensedPurple', src: LogoCondensedPurple, path: 'logo-condensed-purple.svg' },
   { name: 'LogoCondensedWarmWhite', src: LogoCondensedWarmWhite, path: 'logo-condensed-warm-white.svg' },
-  { name: 'SpotRecognition', src: SpotRecognition, path: 'spot-recognition.svg' },
-  { name: 'SpotBilling', src: SpotBilling, path: 'spot-billing.svg' },
-  { name: 'SpotCelebratory', src: SpotCelebratory, path: 'spot-celebratory.svg' },
-  { name: 'SpotEv', src: SpotEv, path: 'spot-ev.svg' },
-  { name: 'SpotSavings', src: SpotSavings, path: 'spot-savings.svg' },
-  { name: 'SpotError', src: SpotError, path: 'spot-error.svg' },
-  { name: 'SpotSecurity', src: SpotSecurity, path: 'spot-security.svg' },
-  { name: 'SpotSmartMeter', src: SpotSmartMeter, path: 'spot-smart-meter.svg' },
-  { name: 'SpotSuccess', src: SpotSuccess, path: 'spot-success.svg' },
-  { name: 'SpotOnlineAccount', src: SpotOnlineAccount, path: 'spot-online-account.svg' },
-  { name: 'SpotHelp', src: SpotHelp, path: 'spot-help.svg' },
-  { name: 'SpotInnovation', src: SpotInnovation, path: 'spot-innovation.svg' },
-  { name: 'SpotMovingHouse', src: SpotMovingHouse, path: 'spot-moving-house.svg' },
-  { name: 'SpotNotification', src: SpotNotification, path: 'spot-notification.svg' },
-  { name: 'SpotNeighbours', src: SpotNeighbours, path: 'spot-neighbours.svg' },
   { name: 'SpotNeighboursLight', src: SpotNeighboursLight, path: 'spot-neighbours-light.svg' },
   { name: 'SpotNeighboursDark', src: SpotNeighboursDark, path: 'spot-neighbours-dark.svg' },
-  { name: 'SceneBundle', src: SceneBundle, path: 'scene-bundle.svg' },
-  { name: 'SceneCashback', src: SceneCashback, path: 'scene-cashback.svg' },
-  { name: 'SceneInsurance', src: SceneInsurance, path: 'scene-insurance.svg' },
-  { name: 'SceneBroadband', src: SceneBroadband, path: 'scene-broadband.svg' },
-  { name: 'SceneMobile', src: SceneMobile, path: 'scene-mobile.svg' },
-  { name: 'SceneEnergy', src: SceneEnergy, path: 'scene-energy.svg' },
-  { name: 'MascotBroadband', src: MascotBroadband, path: 'mascot-broadband.svg' },
-  { name: 'MascotBundle', src: MascotBundle, path: 'mascot-bundle.svg' },
-  { name: 'MascotCashback', src: MascotCashback, path: 'mascot-cashback.svg' },
-  { name: 'MascotInsurance', src: MascotInsurance, path: 'mascot-insurance.svg' },
-  { name: 'MascotMobile', src: MascotMobile, path: 'mascot-mobile.svg' },
-  { name: 'MascotEnergy', src: MascotEnergy, path: 'mascot-energy.svg' },
+  { name: 'SpotNotificationLight', src: SpotNotificationLight, path: 'spot-notification-light.svg' },
+  { name: 'SpotNotificationDark', src: SpotNotificationDark, path: 'spot-notification-dark.svg' },
+  { name: 'SpotMovingHouseLight', src: SpotMovingHouseLight, path: 'spot-moving-house-light.svg' },
+  { name: 'SpotMovingHouseDark', src: SpotMovingHouseDark, path: 'spot-moving-house-dark.svg' },
+  { name: 'SpotInnovationLight', src: SpotInnovationLight, path: 'spot-innovation-light.svg' },
+  { name: 'SpotInnovationDark', src: SpotInnovationDark, path: 'spot-innovation-dark.svg' },
+  { name: 'SpotHelpLight', src: SpotHelpLight, path: 'spot-help-light.svg' },
+  { name: 'SpotHelpDark', src: SpotHelpDark, path: 'spot-help-dark.svg' },
+  { name: 'SpotOnlineAccountLight', src: SpotOnlineAccountLight, path: 'spot-online-account-light.svg' },
+  { name: 'SpotOnlineAccountDark', src: SpotOnlineAccountDark, path: 'spot-online-account-dark.svg' },
+  { name: 'SpotSuccessLight', src: SpotSuccessLight, path: 'spot-success-light.svg' },
+  { name: 'SpotSuccessDark', src: SpotSuccessDark, path: 'spot-success-dark.svg' },
+  { name: 'SpotSmartMeterLight', src: SpotSmartMeterLight, path: 'spot-smart-meter-light.svg' },
+  { name: 'SpotSmartMeterDark', src: SpotSmartMeterDark, path: 'spot-smart-meter-dark.svg' },
+  { name: 'SpotSecurityLight', src: SpotSecurityLight, path: 'spot-security-light.svg' },
+  { name: 'SpotSecurityDark', src: SpotSecurityDark, path: 'spot-security-dark.svg' },
+  { name: 'SpotErrorLight', src: SpotErrorLight, path: 'spot-error-light.svg' },
+  { name: 'SpotErrorDark', src: SpotErrorDark, path: 'spot-error-dark.svg' },
+  { name: 'SpotSavingsLight', src: SpotSavingsLight, path: 'spot-savings-light.svg' },
+  { name: 'SpotSavingsDark', src: SpotSavingsDark, path: 'spot-savings-dark.svg' },
+  { name: 'SpotBillingLight', src: SpotBillingLight, path: 'spot-billing-light.svg' },
+  { name: 'SpotBillingDark', src: SpotBillingDark, path: 'spot-billing-dark.svg' },
+  { name: 'SpotCelebratoryLight', src: SpotCelebratoryLight, path: 'spot-celebratory-light.svg' },
+  { name: 'SpotCelebratoryDark', src: SpotCelebratoryDark, path: 'spot-celebratory-dark.svg' },
+  { name: 'SpotRecognitionLight', src: SpotRecognitionLight, path: 'spot-recognition-light.svg' },
+  { name: 'SpotRecognitionDark', src: SpotRecognitionDark, path: 'spot-recognition-dark.svg' },
+  { name: 'SpotEvLight', src: SpotEvLight, path: 'spot-ev-light.svg' },
+  { name: 'SpotEvDark', src: SpotEvDark, path: 'spot-ev-dark.svg' },
+  { name: 'SceneEnergyLight', src: SceneEnergyLight, path: 'scene-energy-light.svg' },
+  { name: 'SceneEnergyDark', src: SceneEnergyDark, path: 'scene-energy-dark.svg' },
+  { name: 'SceneMobileLight', src: SceneMobileLight, path: 'scene-mobile-light.svg' },
+  { name: 'SceneMobileDark', src: SceneMobileDark, path: 'scene-mobile-dark.svg' },
+  { name: 'SceneBroadbandLight', src: SceneBroadbandLight, path: 'scene-broadband-light.svg' },
+  { name: 'SceneBroadbandDark', src: SceneBroadbandDark, path: 'scene-broadband-dark.svg' },
+  { name: 'SceneInsuranceLight', src: SceneInsuranceLight, path: 'scene-insurance-light.svg' },
+  { name: 'SceneInsuranceDark', src: SceneInsuranceDark, path: 'scene-insurance-dark.svg' },
+  { name: 'SceneCashbackLight', src: SceneCashbackLight, path: 'scene-cashback-light.svg' },
+  { name: 'SceneCashbackDark', src: SceneCashbackDark, path: 'scene-cashback-dark.svg' },
+  { name: 'SceneBundleLight', src: SceneBundleLight, path: 'scene-bundle-light.svg' },
+  { name: 'SceneBundleDark', src: SceneBundleDark, path: 'scene-bundle-dark.svg' },
+  { name: 'MascotEnergyLight', src: MascotEnergyLight, path: 'mascot-energy-light.svg' },
+  { name: 'MascotEnergyDark', src: MascotEnergyDark, path: 'mascot-energy-dark.svg' },
+  { name: 'MascotBroadbandLight', src: MascotBroadbandLight, path: 'mascot-broadband-light.svg' },
+  { name: 'MascotBroadbandDark', src: MascotBroadbandDark, path: 'mascot-broadband-dark.svg' },
+  { name: 'MascotMobileLight', src: MascotMobileLight, path: 'mascot-mobile-light.svg' },
+  { name: 'MascotMobileDark', src: MascotMobileDark, path: 'mascot-mobile-dark.svg' },
+  { name: 'MascotInsuranceLight', src: MascotInsuranceLight, path: 'mascot-insurance-light.svg' },
+  { name: 'MascotInsuranceDark', src: MascotInsuranceDark, path: 'mascot-insurance-dark.svg' },
+  { name: 'MascotCashbackLight', src: MascotCashbackLight, path: 'mascot-cashback-light.svg' },
+  { name: 'MascotCashbackDark', src: MascotCashbackDark, path: 'mascot-cashback-dark.svg' },
 ];
