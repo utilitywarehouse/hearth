@@ -12,6 +12,7 @@ export type ModalProps = RadixDialog.DialogPortalProps &
      */
     description?: string;
     hideCloseButton?: boolean;
+    fullScreen?: boolean;
     image?: React.ReactNode;
   };
 
