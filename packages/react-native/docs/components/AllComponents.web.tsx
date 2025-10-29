@@ -29,6 +29,7 @@ import {
   CarouselItem,
   Center,
   Checkbox,
+  Container,
   CurrencyInput,
   DatePicker,
   DatePickerInput,
@@ -53,8 +54,8 @@ import {
   ListItem,
   Modal,
   OL,
-  ProgressStepper,
   ProgressStep,
+  ProgressStepper,
   Radio,
   RadioCard,
   RadioCardGroup,
@@ -293,6 +294,13 @@ const AllComponents: React.FC = () => {
                 <Checkbox label="I'm a Checkbox" value="" />
               </View>
             </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Container" link="/?path=/docs/primitives-container--docs">
+            <Container space="md" backgroundColor="backgroundSecondary">
+              <Box h={20} bg="blue300" />
+              <Box h={20} bg="blue400" />
+              <Box h={20} bg="blue500" />
+            </Container>
           </ComponentWrapper>
           <ComponentWrapper name="Currency Input" link="/?path=/docs/forms-currency-input--docs">
             <Center flex={1} padding="200">

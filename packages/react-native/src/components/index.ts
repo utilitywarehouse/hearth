@@ -10,6 +10,7 @@ export * from './Card';
 export * from './Carousel';
 export * from './Center';
 export * from './Checkbox';
+export * from './Container';
 export * from './CurrencyInput';
 export * from './DatePicker';
 export * from './DatePickerInput';
