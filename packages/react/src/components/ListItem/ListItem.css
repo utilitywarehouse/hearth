@@ -1,5 +1,4 @@
 .hearth-ListItem {
-  display: flex;
   flex-direction: row;
   gap: var(--h-space-300);
   align-items: center;
