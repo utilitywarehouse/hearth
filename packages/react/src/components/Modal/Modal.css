@@ -98,12 +98,15 @@
 
   & :where(.hearth-ModalImage) {
     --h-icon-button-size: 1.5rem;
+
     margin-top: calc(var(--h-icon-button-size) + var(--h-modal-content-gap));
     max-height: 120px;
     max-width: 120px;
+
     @media (--h-tablet) {
       margin-top: var(--h-space-0);
     }
+
     @media (--h-desktop) {
       max-height: 160px;
       max-width: 160px;
