@@ -78,9 +78,9 @@ async function getAssetsFigmaDocument() {
     headers: figmaConfig.headers,
   });
   const data = await resp.json();
-  if (data.status === 403 && data.err === 'Invalid token') {
+  if (data.status === 403 && (data.err === 'Invalid token' || data.err === 'Token expired')) {
     throw new Error(
-      'An invalid token was used. Follow the Auth Guide (https://git.io/Je87i), and try again.'
+      'An invalid or expired token was used. Follow the Auth Guide (https://git.io/Je87i), and try again.'
     );
   }
   return data.document;
@@ -93,7 +93,7 @@ async function getSizeCanvases(document) {
 
     if (
       // Include these canvases only, and ensure they have content
-      ['Logo', 'Spots', 'Scenes', 'Mascots'].some(s => size.includes(s)) &&
+      ['Logo', 'Spots - Theme', 'Scenes - Theme', 'Mascots - Theme'].some(s => name.includes(s)) &&
       children.length > 0
     ) {
       canvases = [...canvases, { size, children }];
