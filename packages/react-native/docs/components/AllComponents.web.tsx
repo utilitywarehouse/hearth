@@ -155,7 +155,7 @@ const AllComponents: React.FC = () => {
   return (
     <div className="sb-unstyled">
       <ScrollView contentContainerStyle={styles.container}>
-        <Flex direction="row" wrap="wrap" space="md">
+        <Flex direction="row" wrap="wrap" space="md" style={styles.grid}>
           <ComponentWrapper name="Accordion" link="/?path=/docs/components-accordion--docs">
             <Center flex={1} p="200">
               <Accordion type="single">
@@ -666,6 +666,17 @@ const AllComponents: React.FC = () => {
 
 const styles = StyleSheet.create(theme => ({
   container: {},
+  grid: {
+    _web: {
+      display: 'grid',
+      gridTemplateColumns: {
+        xs: '1fr',
+        md: 'repeat(3, 1fr)',
+        lg: 'repeat(auto-fit, minmax(300px, 1fr))',
+      },
+      gap: theme.space['200'],
+    },
+  },
   component: {
     borderColor: theme.color.warmWhite[300],
     borderWidth: theme.borderWidth['1'],
