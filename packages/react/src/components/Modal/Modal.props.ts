@@ -12,6 +12,10 @@ export type ModalProps = RadixDialog.DialogPortalProps &
      */
     description?: string;
     hideCloseButton?: boolean;
+    /**
+     * When true, the modal takes up the full screen height on mobile devices.
+     */
+    fullScreen?: boolean;
     image?: React.ReactNode;
   };
 
