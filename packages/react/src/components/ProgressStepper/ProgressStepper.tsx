@@ -25,7 +25,6 @@ export const ProgressStepper: React.FC<ProgressStepperProps> = props => {
     <Tag
       aria-label={ariaLabel}
       className={clsx(componentClassName, className)}
-      data-hide-labels={hideLabels ? '' : undefined}
       {...progressStepperProps}
     >
       <ol role="list">

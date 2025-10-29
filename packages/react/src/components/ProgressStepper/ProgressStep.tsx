@@ -46,17 +46,18 @@ export const ProgressStep = React.forwardRef<ProgressStepElement, ProgressStepPr
             aria-hidden="true"
           />
         </div>
-        {!hideLabels && (
-          <div className={`${componentClassName}LabelWrapper`}>
-            {isInteractive ? (
-              <Link href={href} {...props}>
-                {labelText}
-              </Link>
-            ) : (
-              labelText
-            )}
-          </div>
-        )}
+        <div
+          className={`${componentClassName}LabelWrapper`}
+          data-visually-hidden={hideLabels ? '' : undefined}
+        >
+          {isInteractive ? (
+            <Link href={href} {...props}>
+              {labelText}
+            </Link>
+          ) : (
+            labelText
+          )}
+        </div>
       </li>
     );
   }

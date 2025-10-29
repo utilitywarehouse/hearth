@@ -126,11 +126,3 @@
   text-align: left;
   white-space: nowrap;
 }
-
-/* TODO: Figure out responsive value of `hideLabels` */
-/* Hide labels when container is too narrow */
-@container (inline-size < 600px) {
-  :not([data-hide-labels]) .hearth-ProgressStepLabel {
-    display: none;
-  }
-}
