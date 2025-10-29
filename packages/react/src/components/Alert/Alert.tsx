@@ -12,7 +12,6 @@ import {
 } from '@utilitywarehouse/hearth-react-icons';
 import { marginPropDefs } from '../../props/margin.props';
 import { BodyText } from '../BodyText/BodyText';
-import { DetailText } from '../DetailText/DetailText';
 import { Flex } from '../Flex/Flex';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 
