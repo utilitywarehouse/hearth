@@ -16,46 +16,40 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type ProgressStepElement = ElementRef<'li'>;
 
 export const ProgressStep = React.forwardRef<ProgressStepElement, ProgressStepProps>(
-  ({ className, state, label, href, stepIndex = 1, ...props }, ref) => {
-    const { showLabels, interactive } = React.useContext(ProgressStepperContext);
-    const isCompleted = state === 'complete';
-    const isActive = state === 'active';
+  ({ className, status, label, href, ...props }, ref) => {
+    const { hideLabels, interactive } = React.useContext(ProgressStepperContext);
+    const isCompleted = status === 'complete';
+    const isActive = status === 'active';
     const isInteractive = interactive && isCompleted && href;
 
-    const labelText = <BodyText className={`${componentClassName}__label`}>{label}</BodyText>;
+    const labelText = <BodyText className={`${componentClassName}Label`}>{label}</BodyText>;
 
     return (
       <li
         ref={ref}
         className={clsx(componentClassName, className)}
-        data-state={state}
+        data-status={status}
         aria-current={isActive ? 'step' : undefined}
-        aria-label={`Step ${stepIndex}, ${label}, ${state}`}
+        aria-label={`${label}, ${status}`}
       >
-        <div className={`${componentClassName}__row`}>
+        <div className={`${componentClassName}Row`}>
           <span
-            className={`${componentClassName}__indicator`}
-            data-state={state}
+            className={`${componentClassName}Indicator`}
+            data-status={status}
             aria-hidden="true"
           >
-            {isCompleted ? (
-              <TickSmallIcon />
-            ) : (
-              <BodyText weight="semibold" className={`${componentClassName}__indicator-number`}>
-                {stepIndex}
-              </BodyText>
-            )}
+            {isCompleted ? <TickSmallIcon /> : null}
           </span>
           <div
-            className={`${componentClassName}__connector`}
-            data-state={state}
+            className={`${componentClassName}Connector`}
+            data-status={status}
             aria-hidden="true"
           />
         </div>
-        {showLabels && (
-          <div className={`${componentClassName}__label-wrapper`}>
+        {!hideLabels && (
+          <div className={`${componentClassName}LabelWrapper`}>
             {isInteractive ? (
-              <Link href={href} {...props} className={`${componentClassName}__link`}>
+              <Link href={href} {...props}>
                 {labelText}
               </Link>
             ) : (

@@ -11,30 +11,29 @@ const COMPONENT_NAME = 'ProgressStepper';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const ProgressStepper: React.FC<ProgressStepperProps> = props => {
-  const { className, children, showLabels = true, interactive = false, ...progressStepperProps } =
-    extractProps(props, marginPropDefs);
-
-  // Add step indices to children
-  const childrenWithIndices = React.Children.map(children, (child, index) => {
-    if (React.isValidElement(child)) {
-      return React.cloneElement(child, { stepIndex: index + 1 });
-    }
-    return child;
-  });
+  const {
+    className,
+    children,
+    hideLabels = false,
+    interactive = false,
+    as: Tag = 'div',
+    'aria-label': ariaLabel = 'progress',
+    ...progressStepperProps
+  } = extractProps(props, marginPropDefs);
 
   return (
-    <nav
-      aria-label="progress"
+    <Tag
+      aria-label={ariaLabel}
       className={clsx(componentClassName, className)}
-      data-show-labels={showLabels ? '' : undefined}
+      data-hide-labels={hideLabels ? '' : undefined}
       {...progressStepperProps}
     >
       <ol role="list">
-        <ProgressStepperContext.Provider value={{ showLabels, interactive }}>
-          {childrenWithIndices}
+        <ProgressStepperContext.Provider value={{ hideLabels, interactive }}>
+          {children}
         </ProgressStepperContext.Provider>
       </ol>
-    </nav>
+    </Tag>
   );
 };
 

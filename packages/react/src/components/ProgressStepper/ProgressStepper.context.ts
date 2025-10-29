@@ -2,11 +2,11 @@ import { createContext } from 'react';
 import { ProgressStepperProps } from './ProgressStepper.props';
 
 export type ProgressStepperContextOptions = {
-  showLabels: ProgressStepperProps['showLabels'];
+  hideLabels: ProgressStepperProps['hideLabels'];
   interactive: ProgressStepperProps['interactive'];
 };
 
 export const ProgressStepperContext = createContext<ProgressStepperContextOptions>({
-  showLabels: true,
+  hideLabels: false,
   interactive: false,
 });
