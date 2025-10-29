@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react
 
+## 0.13.8
+
+### Patch Changes
+
+- [#598](https://github.com/utilitywarehouse/hearth/pull/598) [`d7c19fe`](https://github.com/utilitywarehouse/hearth/commit/d7c19fe459c45d4ac2a7a008c3d48b1a9cc57e5b) Thanks [@robphoenix](https://github.com/robphoenix)! - Update interactive font family
+
+- [#602](https://github.com/utilitywarehouse/hearth/pull/602) [`be72078`](https://github.com/utilitywarehouse/hearth/commit/be72078d5dbbd9319fcd5d82afd799b65ab04722) Thanks [@robphoenix](https://github.com/robphoenix)! - Add flex, gap & size props to `ListItem`
+
+- [#600](https://github.com/utilitywarehouse/hearth/pull/600) [`1a46171`](https://github.com/utilitywarehouse/hearth/commit/1a46171e75e758c7f1b282d1afc75b8547b6749b) Thanks [@robphoenix](https://github.com/robphoenix)! - Visual changes to `Modal` and addition of `fullScreen` prop
+
 ## 0.13.7
 
 ### Patch Changes
