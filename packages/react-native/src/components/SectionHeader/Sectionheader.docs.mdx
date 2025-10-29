@@ -26,7 +26,7 @@ Use the `Section Header` component to help define and separate content within a 
 
 ## Anatomy
 
-Section Header consists of: Heading, Helper Text and Link
+Section Header consists of: Heading, Helper Text, a Badge (optional) and a trailing content (optional, usually a Link or Button).
 
 ### Heading
 
@@ -42,41 +42,26 @@ A helper text property is included in the component to be able to add helper tex
 
 Use helper text when users need extra clarity or explanation before engaging with the section.
 
-### Link
-
-The Section Header component includes an optional Link that provides users with a related navigation option.
-
-Use the Link to provide a shortcut to additional details or a more comprehensive view.
-
-Use when users may need to navigate away or view extended content (e.g. view all)
-
 ## Usage
 
 <UsageWrap>
-  <SectionHeader heading="Heading" helperText="Helper text" linkText="See more" />
+  <SectionHeader heading="Heading" helperText="Helper text" />
 </UsageWrap>
 
 ```tsx
 import { SectionHeader } from '@utilitywarehouse/hearth-react-native';
 
-const MyComponent = () => (
-  <SectionHeader heading="Heading" helperText="Helper text" linkText="See more" />
-);
+const MyComponent = () => <SectionHeader heading="Heading" helperText="Helper text" />;
 ```
 
 ## Props
 
-| Name             | Type                                         | Default    | Description                                            |
-| ---------------- | -------------------------------------------- | ---------- | ------------------------------------------------------ |
-| heading          | `string`                                     |            | The text to display in the heading of the list.        |
-| helperText       | `string`                                     |            | The helper text to display in the heading of the list. |
-| linkText         | `string`                                     |            | The text for the link in the heading.                  |
-| linkHref         | `string`                                     |            | The href for the link in the heading.                  |
-| linkOnPress      | `() => void`                                 |            | Callback function when the link is pressed.            |
-| linkTarget       | `'_blank' \| '_self' \| '_parent' \| '_top'` | `'_blank'` | Target for the link in the heading.                    |
-| linkIcon         | `ComponentType`                              |            | Icon for the link.                                     |
-| linkIconPosition | `'left' \| 'right'`                          | `'right'`  | Position of the icon in the link.                      |
-| linkShowIcon     | `boolean`                                    | `true`     | Whether to show the icon in the link.                  |
+| Name            | Type              | Default | Description                                            |
+| --------------- | ----------------- | ------- | ------------------------------------------------------ |
+| heading         | `string`          |         | The text to display in the heading of the list.        |
+| helperText      | `string`          |         | The helper text to display in the heading of the list. |
+| trailingContent | `React.ReactNode` |         | Optional content to display on the right side.         |
+| badge           | `BadgeProps`      |         | Optional badge to display next to the heading.         |
 
 ## Variants
 

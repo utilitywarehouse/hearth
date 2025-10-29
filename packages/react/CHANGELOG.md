@@ -1,5 +1,16 @@
 # @utilitywarehouse/hearth-react
 
+## 0.13.7
+
+### Patch Changes
+
+- [#595](https://github.com/utilitywarehouse/hearth/pull/595) [`e85d11a`](https://github.com/utilitywarehouse/hearth/commit/e85d11ace270f3ec79bdce7fac1032c878410759) Thanks [@robphoenix](https://github.com/robphoenix)! - Update tokens
+
+- [#593](https://github.com/utilitywarehouse/hearth/pull/593) [`c72a1de`](https://github.com/utilitywarehouse/hearth/commit/c72a1de274ee0a4d538d24d0b70ce6034882037e) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix polymorphism for buttons when loading
+
+- Updated dependencies [[`e707eec`](https://github.com/utilitywarehouse/hearth/commit/e707eec790550cab71f2541c26a38c5691e9cbca)]:
+  - @utilitywarehouse/hearth-react-icons@0.7.0
+
 ## 0.13.6
 
 ### Patch Changes

@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 import { DescriptionList, DescriptionListItem } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
+import { Link } from '../Link';
 
 const meta: Meta<typeof DescriptionList> = {
   title: 'Stories / DescriptionList',
@@ -25,19 +26,6 @@ const meta: Meta<typeof DescriptionList> = {
     helperText: {
       control: 'text',
       description: 'Supporting text shown under heading (Playground only).',
-    },
-    linkText: { control: 'text', description: 'Header link text (Playground only).' },
-    linkHref: { control: 'text', description: 'Header link href (web).' },
-    linkIconPosition: {
-      control: 'select',
-      options: ['left', 'right'],
-      description: 'Header link icon position.',
-    },
-    linkShowIcon: { control: 'boolean', description: 'Show header link icon.' },
-    linkTarget: {
-      control: 'select',
-      options: ['_blank', '_self', '_parent', '_top'],
-      description: 'Header link target (web).',
     },
   },
   args: {
@@ -143,15 +131,16 @@ export const WithLinks: Story = {
       <DescriptionListItem
         heading="Account Number"
         description="123456789"
-        linkText="Manage"
-        linkHref="https://example.com/account"
-        linkShowIcon
+        trailingContent={<Link href="https://example.com/account">Manage account</Link>}
       />
       <DescriptionListItem
         heading="Status"
         description="Active"
-        linkText="Change"
-        linkHref="https://example.com/status"
+        trailingContent={
+          <Link href="https://example.com/status" showIcon={false}>
+            Change
+          </Link>
+        }
       />
       <DescriptionListItem heading="Region" description="United Kingdom" />
     </DescriptionList>

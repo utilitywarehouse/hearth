@@ -1,5 +1,49 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.5.0
+
+### Minor Changes
+
+- [#583](https://github.com/utilitywarehouse/hearth/pull/583) [`a31ab40`](https://github.com/utilitywarehouse/hearth/commit/a31ab40e4ccf4533aae2df16cc456d6db92d4e7b) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Carousel` component
+
+- [#567](https://github.com/utilitywarehouse/hearth/pull/567) [`b6869cf`](https://github.com/utilitywarehouse/hearth/commit/b6869cfaca7b3a5aacb27c06733f0243b6faa02a) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - Adds `ProgressStepper` component
+
+- [#596](https://github.com/utilitywarehouse/hearth/pull/596) [`61f1073`](https://github.com/utilitywarehouse/hearth/commit/61f10735a42445b6e4eb90282a2b340317f1ec08) Thanks [@jordmccord](https://github.com/jordmccord)! - `List` component updates:
+
+  - [BREAKING] The `text` prop in `ListItem` is now `heading`.
+  - Added `ListAction` component.
+  - Added `badge` prop to `ListItem`.
+  - Added `numericValue` prop to `ListItem`.
+  - Removes `divider` prop from `List` and `ListItem`; dividers are now handled automatically.
+
+- [#585](https://github.com/utilitywarehouse/hearth/pull/585) [`4894c34`](https://github.com/utilitywarehouse/hearth/commit/4894c34acaadcbbaba78fd64be2f8ae862200e1f) Thanks [@dorota-uw](https://github.com/dorota-uw)! - [BREAKING] `DescriptionListItem` updates:
+
+  - Removed `Link` props: `linkText`, `linkHref`, `linkIcon`, `linkIconPosition`, `linkOnPress`, `linkTarget`, `linkShowIcon`.
+  - Added `trailingContent` prop to allow custom trailing content (e.g. Link, Button).
+  - Added validation text support to `DescriptionListItem` via `invalidText` prop.
+
+- [#572](https://github.com/utilitywarehouse/hearth/pull/572) [`9fa6499`](https://github.com/utilitywarehouse/hearth/commit/9fa6499b6eb1534c2ce7dc4352b1f848b94786ec) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - Adds `IndicatorIconButton` component
+
+- [#596](https://github.com/utilitywarehouse/hearth/pull/596) [`61f1073`](https://github.com/utilitywarehouse/hearth/commit/61f10735a42445b6e4eb90282a2b340317f1ec08) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] `SectionHeader` updates:
+
+  - Removed `Link` props: `linkText`, `linkOnPress`, `linkAccessibilityLabel`.
+  - Added `trailingContent` prop to allow custom trailing content (e.g. Link, Button).
+  - Added `badge` prop to display a `Badge` next to the heading.
+  - Adds `invalidText` prop for validation messages.
+
+- [#596](https://github.com/utilitywarehouse/hearth/pull/596) [`61f1073`](https://github.com/utilitywarehouse/hearth/commit/61f10735a42445b6e4eb90282a2b340317f1ec08) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] Migrates `DescriptionList` `SectionHeader` to use `headerTrailingContent`
+
+### Patch Changes
+
+- [#596](https://github.com/utilitywarehouse/hearth/pull/596) [`61f1073`](https://github.com/utilitywarehouse/hearth/commit/61f10735a42445b6e4eb90282a2b340317f1ec08) Thanks [@jordmccord](https://github.com/jordmccord)! - Updates all interactive components fonts
+
+- [#589](https://github.com/utilitywarehouse/hearth/pull/589) [`635a392`](https://github.com/utilitywarehouse/hearth/commit/635a392c80e883790e3fe2cae3b22453288911f1) Thanks [@dorota-uw](https://github.com/dorota-uw)! - Added underline to Ghost button
+
+- [#596](https://github.com/utilitywarehouse/hearth/pull/596) [`61f1073`](https://github.com/utilitywarehouse/hearth/commit/61f10735a42445b6e4eb90282a2b340317f1ec08) Thanks [@jordmccord](https://github.com/jordmccord)! - Upgrade `@utilitywarehouse/hearth-react-native-icons` to `0.6.0`
+
+- Updated dependencies [[`e707eec`](https://github.com/utilitywarehouse/hearth/commit/e707eec790550cab71f2541c26a38c5691e9cbca)]:
+  - @utilitywarehouse/hearth-react-native-icons@0.7.0
+
 ## 0.4.2
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react-native",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Utility Warehouse React Native UI library",
   "main": "build/index.js",
   "types": "build/index.d.ts",
@@ -76,7 +76,7 @@
   },
   "peerDependencies": {
     "@gorhom/bottom-sheet": "^5.0.0",
-    "@utilitywarehouse/hearth-react-native-icons": "0.4.0",
+    "@utilitywarehouse/hearth-react-native-icons": "0.6.0",
     "react": ">=17 || ^18.0.0 || ^19.0.0",
     "react-native": ">=0.77",
     "react-native-gesture-handler": "^2.22.0",
