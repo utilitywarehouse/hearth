@@ -3,13 +3,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
 import type ContainerProps from './Container.props';
 
-const Container = ({
-  style,
-  children,
-  space = 'md',
-
-  ...props
-}: ContainerProps) => {
+const Container = ({ style, children, space = 'md', ...props }: ContainerProps) => {
   const { computedStyles, remainingProps } = useStyleProps(props);
 
   styles.useVariants({ space });
