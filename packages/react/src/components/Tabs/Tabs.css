@@ -14,7 +14,7 @@
   width: 100%;
 }
 
-.hearth-TabsList .hearth-container {
+.hearth-TabsList .hearth-TabsContainer {
   position: relative;
   display: flex;
   gap: var(--h-tabs-gap);
@@ -82,18 +82,19 @@
     width 250ms ease;
 }
 
-.hearth-TabsList .hearth-scroll-button {
+.hearth-TabsListScrollButtonLeft,
+.hearth-TabsListScrollButtonRight {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
 }
 
-.hearth-TabsList .hearth-scroll-button-left {
+.hearth-TabsListScrollButtonLeft {
   left: 0;
 }
 
-.hearth-TabsList .hearth-scroll-button-right {
+.hearth-TabsListScrollButtonRight {
   right: 0;
 }
 

@@ -1,5 +1,4 @@
 import { Tabs as RadixTabs } from 'radix-ui';
-import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { Responsive } from '../../types/responsive';
 
@@ -11,9 +10,7 @@ export const tabsPropDefs = {
   size: PropDef<(typeof sizes)[number]>;
 };
 
-export interface TabsProps
-  extends Omit<RadixTabs.TabsProps, 'asChild' | 'dir' | 'orientation' | keyof MarginProps>,
-    MarginProps {
+export interface TabsProps extends Omit<RadixTabs.TabsProps, 'asChild' | 'dir' | 'orientation'> {
   /** Size variant */
   size?: Responsive<(typeof sizes)[number]>;
 }

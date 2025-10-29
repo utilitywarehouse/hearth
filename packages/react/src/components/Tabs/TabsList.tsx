@@ -8,7 +8,7 @@ import { ChevronLeftSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/h
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 
 const COMPONENT_NAME = 'TabsList';
-const listClassName = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -108,16 +108,16 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
   const handleScrollRight = useCallback(() => scrollBy(1), [scrollBy]);
 
   return (
-    <RadixTabs.List className={clsx(listClassName, className)} {...rest}>
+    <RadixTabs.List className={clsx(componentClassName, className)} {...rest}>
       {canScrollLeft ? (
-        <div className="hearth-scroll-button hearth-scroll-button-left" aria-hidden>
+        <div className={`${componentClassName}ScrollButtonLeft`} aria-hidden>
           <UnstyledIconButton label="scroll left" tabIndex={-1} onClick={handleScrollLeft}>
             <ChevronLeftSmallIcon />
           </UnstyledIconButton>
         </div>
       ) : null}
       <div className="hearth-scroll" ref={scrollRef}>
-        <div className="hearth-container" ref={containerRef}>
+        <div className="hearth-TabsContainer" ref={containerRef}>
           {children}
           <div
             className="hearth-TabsIndicator"
@@ -130,7 +130,7 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
         </div>
       </div>
       {canScrollRight ? (
-        <div className="hearth-scroll-button hearth-scroll-button-right" aria-hidden>
+        <div className={`${componentClassName}ScrollButtonRight`} aria-hidden>
           <UnstyledIconButton label="scroll right" tabIndex={-1} onClick={handleScrollRight}>
             <ChevronRightSmallIcon />
           </UnstyledIconButton>
