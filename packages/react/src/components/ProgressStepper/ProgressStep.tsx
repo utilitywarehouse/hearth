@@ -1,14 +1,12 @@
 import * as React from 'react';
 import type { ElementRef } from 'react';
-import clsx from 'clsx';
 
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { Link } from '../Link/Link';
-import { BodyText } from '../BodyText/BodyText';
 import type { ProgressStepProps } from './ProgressStep.props';
-import { ProgressStepperContext } from './ProgressStepper.context';
+import { ProgressStepContext } from './ProgressStep.context';
+import './ProgressStep.css';
 
 const COMPONENT_NAME = 'ProgressStep';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -16,21 +14,16 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type ProgressStepElement = ElementRef<'li'>;
 
 export const ProgressStep = React.forwardRef<ProgressStepElement, ProgressStepProps>(
-  ({ className, status, label, href, ...props }, ref) => {
-    const { hideLabels, interactive } = React.useContext(ProgressStepperContext);
+  ({ status, children, ...props }, ref) => {
     const isCompleted = status === 'complete';
     const isActive = status === 'active';
-    const isInteractive = interactive && isCompleted && href;
-
-    const labelText = <BodyText className={`${componentClassName}Label`}>{label}</BodyText>;
 
     return (
       <li
         ref={ref}
-        className={clsx(componentClassName, className)}
-        data-status={status}
+        className={componentClassName}
         aria-current={isActive ? 'step' : undefined}
-        aria-label={`${label}, ${status}`}
+        {...props}
       >
         <div className={`${componentClassName}Row`}>
           <span
@@ -46,18 +39,11 @@ export const ProgressStep = React.forwardRef<ProgressStepElement, ProgressStepPr
             aria-hidden="true"
           />
         </div>
-        <div
-          className={`${componentClassName}LabelWrapper`}
-          data-visually-hidden={hideLabels ? '' : undefined}
-        >
-          {isInteractive ? (
-            <Link href={href} {...props}>
-              {labelText}
-            </Link>
-          ) : (
-            labelText
-          )}
-        </div>
+        <ProgressStepContext.Provider value={{ status }}>
+          <div className={`${componentClassName}Label`}>
+            {children}
+          </div>
+        </ProgressStepContext.Provider>
       </li>
     );
   }

@@ -1,5 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ProgressStepper, ProgressStep, Flex, Box } from '@utilitywarehouse/hearth-react';
+import {
+  ProgressStepper,
+  ProgressStep,
+  ProgressStepContent,
+  ProgressStepLink,
+  ProgressStepButton,
+} from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof ProgressStepper> = {
   title: 'Stories / ProgressStepper',
@@ -20,17 +26,9 @@ const meta: Meta<typeof ProgressStepper> = {
         defaultValue: { summary: 'false' },
       },
     },
-    interactive: {
-      control: 'boolean',
-      description: 'Whether complete steps should be interactive (clickable)',
-      table: {
-        defaultValue: { summary: 'false' },
-      },
-    },
   },
   args: {
     hideLabels: false,
-    interactive: false,
   },
 };
 
@@ -41,20 +39,39 @@ export const Playground: Story = {
   render: args => {
     return (
       <ProgressStepper {...args}>
-        <ProgressStep
-          id="customer-data"
-          status="complete"
-          label="Customer Data"
-          href="#customer-data"
-        />
-        <ProgressStep
-          id="shipping-data"
-          status="complete"
-          label="Shipping Data"
-          href="#shipping-data"
-        />
-        <ProgressStep id="payment-data" status="active" label="Payment Data" href="#payment-data" />
-        <ProgressStep id="summary" status="incomplete" label="Summary" href="#summary" />
+        <ProgressStep status="complete">
+          <ProgressStepLink label="Customer Data" href="#customer-data" />
+        </ProgressStep>
+        <ProgressStep status="complete">
+          <ProgressStepLink label="Shipping Data" href="#shipping-data" />
+        </ProgressStep>
+        <ProgressStep status="active">
+          <ProgressStepLink label="Payment Data" href="#payment-data" />
+        </ProgressStep>
+        <ProgressStep status="incomplete">
+          <ProgressStepLink label="Summary" href="#summary" />
+        </ProgressStep>
+      </ProgressStepper>
+    );
+  },
+};
+
+export const WithStaticLabels: Story = {
+  render: args => {
+    return (
+      <ProgressStepper {...args}>
+        <ProgressStep status="complete">
+          <ProgressStepContent label="Step 1" />
+        </ProgressStep>
+        <ProgressStep status="complete">
+          <ProgressStepContent label="Step 2" />
+        </ProgressStep>
+        <ProgressStep status="complete">
+          <ProgressStepContent label="Step 3" />
+        </ProgressStep>
+        <ProgressStep status="complete">
+          <ProgressStepContent label="Step 4" />
+        </ProgressStep>
       </ProgressStepper>
     );
   },
@@ -64,42 +81,20 @@ export const AllComplete: Story = {
   render: args => {
     return (
       <ProgressStepper {...args}>
-        <ProgressStep id="step-1" status="complete" label="Step 1" href="#step-1" />
-        <ProgressStep id="step-2" status="complete" label="Step 2" href="#step-2" />
-        <ProgressStep id="step-3" status="complete" label="Step 3" href="#step-3" />
-        <ProgressStep id="step-4" status="complete" label="Step 4" href="#step-4" />
+        <ProgressStep status="complete">
+          <ProgressStepContent label="Step 1" />
+        </ProgressStep>
+        <ProgressStep status="complete">
+          <ProgressStepContent label="Step 2" />
+        </ProgressStep>
+        <ProgressStep status="complete">
+          <ProgressStepContent label="Step 3" />
+        </ProgressStep>
+        <ProgressStep status="complete">
+          <ProgressStepContent label="Step 4" />
+        </ProgressStep>
       </ProgressStepper>
     );
-  },
-};
-
-export const Interactive: Story = {
-  render: () => {
-    return (
-      <ProgressStepper interactive>
-        <ProgressStep
-          id="customer-data"
-          status="complete"
-          label="Customer Data"
-          href="#customer-data"
-        />
-        <ProgressStep
-          id="shipping-data"
-          status="complete"
-          label="Shipping Data"
-          href="#shipping-data"
-        />
-        <ProgressStep id="payment-data" status="active" label="Payment Data" href="#payment-data" />
-        <ProgressStep id="summary" status="incomplete" label="Summary" href="#summary" />
-      </ProgressStepper>
-    );
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'When `interactive` is true, complete steps become clickable links.',
-      },
-    },
   },
 };
 
@@ -107,20 +102,18 @@ export const WithoutLabels: Story = {
   render: () => {
     return (
       <ProgressStepper hideLabels>
-        <ProgressStep
-          id="customer-data"
-          status="complete"
-          label="Customer Data"
-          href="#customer-data"
-        />
-        <ProgressStep
-          id="shipping-data"
-          status="complete"
-          label="Shipping Data"
-          href="#shipping-data"
-        />
-        <ProgressStep id="payment-data" status="active" label="Payment Data" href="#payment-data" />
-        <ProgressStep id="summary" status="incomplete" label="Summary" href="#summary" />
+        <ProgressStep status="complete">
+          <ProgressStepContent label="Customer Data" />
+        </ProgressStep>
+        <ProgressStep status="complete">
+          <ProgressStepContent label="Shipping Data" />
+        </ProgressStep>
+        <ProgressStep status="active">
+          <ProgressStepContent label="Payment Data" />
+        </ProgressStep>
+        <ProgressStep status="incomplete">
+          <ProgressStepContent label="Summary" />
+        </ProgressStep>
       </ProgressStepper>
     );
   },
@@ -134,98 +127,64 @@ export const WithoutLabels: Story = {
   },
 };
 
-export const ManySteps: Story = {
+export const WithLinks: Story = {
   render: args => {
     return (
       <ProgressStepper {...args}>
-        <ProgressStep id="step-1" status="complete" label="Step 1" href="#step-1" />
-        <ProgressStep id="step-2" status="complete" label="Step 2" href="#step-2" />
-        <ProgressStep id="step-3" status="complete" label="Step 3" href="#step-3" />
-        <ProgressStep id="step-4" status="complete" label="Step 4" href="#step-4" />
-        <ProgressStep id="step-5" status="active" label="Step 5" href="#step-5" />
-        <ProgressStep id="step-6" status="incomplete" label="Step 6" href="#step-6" />
-        <ProgressStep id="step-7" status="incomplete" label="Step 7" href="#step-7" />
-        <ProgressStep id="step-8" status="incomplete" label="Step 8" href="#step-8" />
+        <ProgressStep status="complete">
+          <ProgressStepLink label="Customer Data" href="#customer-data" />
+        </ProgressStep>
+        <ProgressStep status="complete">
+          <ProgressStepLink label="Shipping Data" href="#shipping-data" />
+        </ProgressStep>
+        <ProgressStep status="active">
+          <ProgressStepLink label="Payment Data" href="#payment-data" />
+        </ProgressStep>
+        <ProgressStep status="incomplete">
+          <ProgressStepLink label="Summary" />
+        </ProgressStep>
       </ProgressStepper>
     );
   },
   parameters: {
     docs: {
       description: {
-        story: 'The component handles multiple steps gracefully.',
+        story:
+          'Use `ProgressStepLink` for clickable steps and `ProgressStepContent` for non-interactive steps.',
       },
     },
   },
 };
 
-export const ResponsiveLabels: Story = {
-  render: () => {
+export const WithButtons: Story = {
+  render: args => {
     return (
-      <Flex direction="column" gap="400">
-        <Box>
-          <Box marginBottom="200">
-            <strong>Wide container (labels visible):</strong>
-          </Box>
-          <Box width="800px">
-            <ProgressStepper>
-              <ProgressStep
-                id="customer-data"
-                status="complete"
-                label="Customer Data"
-                href="#customer-data"
-              />
-              <ProgressStep
-                id="shipping-data"
-                status="complete"
-                label="Shipping Data"
-                href="#shipping-data"
-              />
-              <ProgressStep
-                id="payment-data"
-                status="active"
-                label="Payment Data"
-                href="#payment-data"
-              />
-              <ProgressStep id="summary" status="incomplete" label="Summary" href="#summary" />
-            </ProgressStepper>
-          </Box>
-        </Box>
-        <Box>
-          <Box marginBottom="200">
-            <strong>Narrow container (labels hidden automatically):</strong>
-          </Box>
-          <Box width="400px">
-            <ProgressStepper>
-              <ProgressStep
-                id="customer-data"
-                status="complete"
-                label="Customer Data"
-                href="#customer-data"
-              />
-              <ProgressStep
-                id="shipping-data"
-                status="complete"
-                label="Shipping Data"
-                href="#shipping-data"
-              />
-              <ProgressStep
-                id="payment-data"
-                status="active"
-                label="Payment Data"
-                href="#payment-data"
-              />
-              <ProgressStep id="summary" status="incomplete" label="Summary" href="#summary" />
-            </ProgressStepper>
-          </Box>
-        </Box>
-      </Flex>
+      <ProgressStepper {...args}>
+        <ProgressStep status="complete">
+          <ProgressStepButton
+            label="Customer Data"
+            onClick={() => console.log('Go to Customer Data')}
+          />
+        </ProgressStep>
+        <ProgressStep status="complete">
+          <ProgressStepButton
+            label="Shipping Data"
+            onClick={() => console.log('Go to Shipping Data')}
+          />
+        </ProgressStep>
+        <ProgressStep status="active">
+          <ProgressStepButton label="Payment Data" />
+        </ProgressStep>
+        <ProgressStep status="incomplete">
+          <ProgressStepButton label="Summary" />
+        </ProgressStep>
+      </ProgressStepper>
     );
   },
   parameters: {
     docs: {
       description: {
-        story:
-          'Labels automatically hide when the container is too narrow (< 600px) to prevent overflow.',
+        story: 'Use `ProgressStepButton` for steps that trigger actions instead of navigation.',
       },
     },
   },

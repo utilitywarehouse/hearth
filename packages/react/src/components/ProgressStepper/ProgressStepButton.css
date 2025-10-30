@@ -1,0 +1,16 @@
+.hearth-ProgressStepButton {
+  /* color: inherit;
+  font: inherit;
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer; */
+  /* text-align: left;
+  margin-top: var(--h-progress-stepper-gap-vertical); */
+
+  /* &:where(:focus-visible) {
+    outline: 2px solid var(--h-focus-primary);
+    outline-offset: 1px;
+  } */
+}

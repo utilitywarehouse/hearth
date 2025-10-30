@@ -52,4 +52,8 @@
 @import url('./Menu/Menu.css');
 @import url('./Breadcrumbs/Breadcrumbs.css');
 @import url('./ProgressStepper/ProgressStepper.css');
+@import url('./ProgressStepper/ProgressStep.css');
+@import url('./ProgressStepper/ProgressStepContent.css');
+@import url('./ProgressStepper/ProgressStepLink.css');
+@import url('./ProgressStepper/ProgressStepButton.css');
 @import url('./Avatar/Avatar.css');

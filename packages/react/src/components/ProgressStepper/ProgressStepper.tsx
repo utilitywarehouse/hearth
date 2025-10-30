@@ -15,7 +15,6 @@ export const ProgressStepper: React.FC<ProgressStepperProps> = props => {
     className,
     children,
     hideLabels = false,
-    interactive = false,
     as: Tag = 'div',
     'aria-label': ariaLabel = 'progress',
     ...progressStepperProps
@@ -28,7 +27,7 @@ export const ProgressStepper: React.FC<ProgressStepperProps> = props => {
       {...progressStepperProps}
     >
       <ol role="list">
-        <ProgressStepperContext.Provider value={{ hideLabels, interactive }}>
+        <ProgressStepperContext.Provider value={{ hideLabels }}>
           {children}
         </ProgressStepperContext.Provider>
       </ol>

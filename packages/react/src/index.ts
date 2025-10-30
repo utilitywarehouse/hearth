@@ -214,6 +214,12 @@ export { ProgressStepper } from './components/ProgressStepper/ProgressStepper';
 export type { ProgressStepperProps } from './components/ProgressStepper/ProgressStepper.props';
 export { ProgressStep } from './components/ProgressStepper/ProgressStep';
 export type { ProgressStepProps, ProgressStepStatus } from './components/ProgressStepper/ProgressStep.props';
+export { ProgressStepContent } from './components/ProgressStepper/ProgressStepContent';
+export type { ProgressStepContentProps } from './components/ProgressStepper/ProgressStepContent.props';
+export { ProgressStepLink } from './components/ProgressStepper/ProgressStepLink';
+export type { ProgressStepLinkProps } from './components/ProgressStepper/ProgressStepLink.props';
+export { ProgressStepButton } from './components/ProgressStepper/ProgressStepButton';
+export type { ProgressStepButtonProps } from './components/ProgressStepper/ProgressStepButton.props';
 
 export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar.props';

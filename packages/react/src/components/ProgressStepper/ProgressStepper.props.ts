@@ -12,11 +12,6 @@ interface CommonProgressStepperProps extends MarginProps {
    * @default false
    */
   hideLabels?: boolean;
-  /**
-   * Whether complete steps should be interactive (clickable)
-   * @default false
-   */
-  interactive?: boolean;
 }
 
 type ProgressStepperDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
