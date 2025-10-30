@@ -16,119 +16,211 @@
     "name": "LogoCondensedWarmWhite"
   },
   {
-    "id": "11:1270",
-    "name": "SpotRecognition"
-  },
-  {
-    "id": "11:1211",
-    "name": "SpotBilling"
-  },
-  {
-    "id": "11:1164",
-    "name": "SpotCelebratory"
-  },
-  {
-    "id": "11:1086",
-    "name": "SpotEv"
-  },
-  {
-    "id": "11:1044",
-    "name": "SpotSavings"
-  },
-  {
-    "id": "11:1016",
-    "name": "SpotError"
-  },
-  {
-    "id": "11:980",
-    "name": "SpotSecurity"
-  },
-  {
-    "id": "11:910",
-    "name": "SpotSmartMeter"
-  },
-  {
-    "id": "11:873",
-    "name": "SpotSuccess"
-  },
-  {
-    "id": "11:824",
-    "name": "SpotOnlineAccount"
-  },
-  {
-    "id": "11:762",
-    "name": "SpotHelp"
-  },
-  {
-    "id": "11:732",
-    "name": "SpotInnovation"
-  },
-  {
-    "id": "11:649",
-    "name": "SpotMovingHouse"
-  },
-  {
-    "id": "11:603",
-    "name": "SpotNotification"
-  },
-  {
-    "id": "11:538",
-    "name": "SpotNeighbours"
-  },
-  {
-    "id": "102:250",
+    "id": "2119:909",
     "name": "SpotNeighboursLight"
   },
   {
-    "id": "102:252",
+    "id": "2119:911",
     "name": "SpotNeighboursDark"
   },
   {
-    "id": "11:3199",
-    "name": "SceneBundle"
+    "id": "2125:696",
+    "name": "SpotNotificationLight"
   },
   {
-    "id": "11:2968",
-    "name": "SceneCashback"
+    "id": "2125:698",
+    "name": "SpotNotificationDark"
   },
   {
-    "id": "11:2753",
-    "name": "SceneInsurance"
+    "id": "2125:870",
+    "name": "SpotMovingHouseLight"
   },
   {
-    "id": "11:2550",
-    "name": "SceneBroadband"
+    "id": "2125:872",
+    "name": "SpotMovingHouseDark"
   },
   {
-    "id": "11:2379",
-    "name": "SceneMobile"
+    "id": "2125:1298",
+    "name": "SpotInnovationLight"
   },
   {
-    "id": "11:2107",
-    "name": "SceneEnergy"
+    "id": "2125:1300",
+    "name": "SpotInnovationDark"
   },
   {
-    "id": "11:4842",
-    "name": "MascotBroadband"
+    "id": "2125:1492",
+    "name": "SpotHelpLight"
   },
   {
-    "id": "11:4899",
-    "name": "MascotBundle"
+    "id": "2125:1494",
+    "name": "SpotHelpDark"
   },
   {
-    "id": "11:4845",
-    "name": "MascotCashback"
+    "id": "2125:1582",
+    "name": "SpotOnlineAccountLight"
   },
   {
-    "id": "11:4844",
-    "name": "MascotInsurance"
+    "id": "2125:1584",
+    "name": "SpotOnlineAccountDark"
   },
   {
-    "id": "11:4843",
-    "name": "MascotMobile"
+    "id": "2125:1702",
+    "name": "SpotSuccessLight"
   },
   {
-    "id": "11:4132",
-    "name": "MascotEnergy"
+    "id": "2125:1704",
+    "name": "SpotSuccessDark"
+  },
+  {
+    "id": "2125:1827",
+    "name": "SpotSmartMeterLight"
+  },
+  {
+    "id": "2125:1829",
+    "name": "SpotSmartMeterDark"
+  },
+  {
+    "id": "2125:4665",
+    "name": "SpotSecurityLight"
+  },
+  {
+    "id": "2125:4667",
+    "name": "SpotSecurityDark"
+  },
+  {
+    "id": "2125:4721",
+    "name": "SpotErrorLight"
+  },
+  {
+    "id": "2125:4723",
+    "name": "SpotErrorDark"
+  },
+  {
+    "id": "2125:4802",
+    "name": "SpotSavingsLight"
+  },
+  {
+    "id": "2125:4804",
+    "name": "SpotSavingsDark"
+  },
+  {
+    "id": "2125:4918",
+    "name": "SpotBillingLight"
+  },
+  {
+    "id": "2125:4920",
+    "name": "SpotBillingDark"
+  },
+  {
+    "id": "2125:5151",
+    "name": "SpotCelebratoryLight"
+  },
+  {
+    "id": "2125:5153",
+    "name": "SpotCelebratoryDark"
+  },
+  {
+    "id": "2125:5246",
+    "name": "SpotRecognitionLight"
+  },
+  {
+    "id": "2125:5248",
+    "name": "SpotRecognitionDark"
+  },
+  {
+    "id": "2125:5365",
+    "name": "SpotEvLight"
+  },
+  {
+    "id": "2125:5367",
+    "name": "SpotEvDark"
+  },
+  {
+    "id": "2125:10125",
+    "name": "SceneEnergyLight"
+  },
+  {
+    "id": "2125:10127",
+    "name": "SceneEnergyDark"
+  },
+  {
+    "id": "2125:11068",
+    "name": "SceneMobileLight"
+  },
+  {
+    "id": "2125:11070",
+    "name": "SceneMobileDark"
+  },
+  {
+    "id": "2125:12038",
+    "name": "SceneBroadbandLight"
+  },
+  {
+    "id": "2125:12040",
+    "name": "SceneBroadbandDark"
+  },
+  {
+    "id": "2125:12473",
+    "name": "SceneInsuranceLight"
+  },
+  {
+    "id": "2125:12475",
+    "name": "SceneInsuranceDark"
+  },
+  {
+    "id": "2125:12926",
+    "name": "SceneCashbackLight"
+  },
+  {
+    "id": "2125:12928",
+    "name": "SceneCashbackDark"
+  },
+  {
+    "id": "2125:13477",
+    "name": "SceneBundleLight"
+  },
+  {
+    "id": "2125:13479",
+    "name": "SceneBundleDark"
+  },
+  {
+    "id": "2125:20120",
+    "name": "MascotEnergyLight"
+  },
+  {
+    "id": "2125:20122",
+    "name": "MascotEnergyDark"
+  },
+  {
+    "id": "2125:27196",
+    "name": "MascotBroadbandLight"
+  },
+  {
+    "id": "2125:27198",
+    "name": "MascotBroadbandDark"
+  },
+  {
+    "id": "2125:27395",
+    "name": "MascotMobileLight"
+  },
+  {
+    "id": "2125:27397",
+    "name": "MascotMobileDark"
+  },
+  {
+    "id": "2125:27503",
+    "name": "MascotInsuranceLight"
+  },
+  {
+    "id": "2125:27505",
+    "name": "MascotInsuranceDark"
+  },
+  {
+    "id": "2125:27651",
+    "name": "MascotCashbackLight"
+  },
+  {
+    "id": "2125:27653",
+    "name": "MascotCashbackDark"
   }
 ]

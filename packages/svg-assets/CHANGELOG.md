@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-svg-assets
 
+## 0.2.0
+
+### Minor Changes
+
+- [#601](https://github.com/utilitywarehouse/hearth/pull/601) [`c9b9e64`](https://github.com/utilitywarehouse/hearth/commit/c9b9e64e15b2c713eed88ebd41a6452d69e6679a) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] Assets now have dark variant with `-dark` suffix, the default light assets now have `-light` suffix
+
 ## 0.1.0
 
 ### Minor Changes

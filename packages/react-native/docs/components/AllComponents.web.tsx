@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import {
+  BellMediumIcon,
   BroadbandMediumIcon,
   CashbackCardMediumIcon,
   ChevronRightMediumIcon,
@@ -43,6 +44,7 @@ import {
   Icon,
   IconButton,
   IconContainer,
+  IndicatorIconButton,
   InlineLink,
   Input,
   LI,
@@ -385,6 +387,14 @@ const AllComponents: React.FC = () => {
               <Heading>This is a Heading</Heading>
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper
+            name="Indicator Icon Button"
+            link="/?path=/docs/components-indicator-icon-button--docs"
+          >
+            <Center flex={1}>
+              <IndicatorIconButton icon={BellMediumIcon} onPress={() => null} indicator={true} />
+            </Center>
+          </ComponentWrapper>
           <ComponentWrapper name="Icon Button" link="/?path=/docs/components-icon-button--docs">
             <Center flex={1}>
               <IconButton icon={ChevronRightMediumIcon} size="md" onPress={() => null} />
@@ -465,8 +475,8 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="List" link="/?path=/docs/components-list--docs">
             <Center flex={1} p="300">
               <List>
-                <ListItem text="List Item 1" divider onPress={() => console.log('item pressed')} />
-                <ListItem text="List Item 2" onPress={() => console.log('item pressed')} />
+                <ListItem heading="List Item 1" onPress={() => console.log('item pressed')} />
+                <ListItem heading="List Item 2" onPress={() => console.log('item pressed')} />
               </List>
             </Center>
           </ComponentWrapper>
@@ -500,13 +510,16 @@ const AllComponents: React.FC = () => {
               </OL>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Progress Stepper" link="/?path=/docs/components-progress-stepper--docs">
+          <ComponentWrapper
+            name="Progress Stepper"
+            link="/?path=/docs/components-progress-stepper--docs"
+          >
             <Center flex={1}>
               <ProgressStepper>
-                <ProgressStep id='customer-data' state='complete' />
-                <ProgressStep id='shipping-data' state='complete' />
-                <ProgressStep id='payment-data' state='active' />
-                <ProgressStep id='summary' state='incomplete' />
+                <ProgressStep id="customer-data" state="complete" />
+                <ProgressStep id="shipping-data" state="complete" />
+                <ProgressStep id="payment-data" state="active" />
+                <ProgressStep id="summary" state="incomplete" />
               </ProgressStepper>
             </Center>
           </ComponentWrapper>
@@ -534,7 +547,11 @@ const AllComponents: React.FC = () => {
             link="/?path=/docs/components-section-header--docs"
           >
             <Center flex={1} p="300">
-              <SectionHeader heading="Heading" helperText="Supporting text" linkText="More" />
+              <SectionHeader
+                heading="Heading"
+                helperText="Supporting text"
+                trailingContent={<Link href="#">More</Link>}
+              />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Select" link="/?path=/docs/forms-select--docs">

@@ -37,9 +37,20 @@ pnpm add @utilitywarehouse/hearth-svg-assets
 When bundling SVGs via a bundler, you can import a file path and use it in an img tag:
 
 ```tsx
-import SceneBroadband from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband.svg';
+import SceneBroadband from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-light.svg';
 
 <img src={SceneBroadband} alt="Broadband scene" />;
+```
+
+If you need dark mode support, you can import both light and dark versions and switch between them based on your app's color mode:
+
+```tsx
+import SceneBroadbandLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-light.svg';
+import SceneBroadbandDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-broadband-dark.svg';
+
+const isDarkMode = getDarkModeSomehow(); // determine if dark mode is active
+
+<img src={isDarkMode ? SceneBroadbandDark : SceneBroadbandLight} alt="Broadband scene" />;
 ```
 
 If your setup doesn’t support importing .svg as a URL, copy the raw SVG from the asset story, or download it from the Search page below.

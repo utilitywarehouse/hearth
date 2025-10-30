@@ -124,7 +124,7 @@ import PaymentMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/payment-me
 import RefundMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/refund-medium-icon.svg';
 import RestartMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/restart-medium-icon.svg';
 import ShareMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/share-medium-icon.svg';
-import CallMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/call-medium-icon.svg';
+import PhoneMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/phone-medium-icon.svg';
 import TrashMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/trash-medium-icon.svg';
 import FilterMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/filter-medium-icon.svg';
 import CalendarAddMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/calendar-add-medium-icon.svg';
@@ -309,7 +309,7 @@ export const svgIcons = [
   RefundMediumIcon,
   RestartMediumIcon,
   ShareMediumIcon,
-  CallMediumIcon,
+  PhoneMediumIcon,
   TrashMediumIcon,
   FilterMediumIcon,
   CalendarAddMediumIcon,

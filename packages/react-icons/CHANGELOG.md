@@ -1,5 +1,19 @@
 # @utilitywarehouse/hearth-react-icons
 
+## 0.7.0
+
+### Minor Changes
+
+- [#594](https://github.com/utilitywarehouse/hearth/pull/594) [`e707eec`](https://github.com/utilitywarehouse/hearth/commit/e707eec790550cab71f2541c26a38c5691e9cbca) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - This is a breaking change.
+
+  ## NEW ICONS
+
+  - PhoneMediumIcon
+
+  ## REMOVED ICONS
+
+  - CallMediumIcon
+
 ## 0.6.0
 
 ### Minor Changes

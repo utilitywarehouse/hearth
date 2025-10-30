@@ -1,15 +1,15 @@
 import { TextProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { DetailText } from '../DetailText';
+import { BodyText } from '../BodyText';
 import { useButtonContext } from './Button.context';
 
 const ButtonText = ({ children, ...props }: TextProps) => {
   const { colorScheme, variant, inverted, disabled } = useButtonContext();
   styles.useVariants({ colorScheme, variant, inverted, disabled });
   return (
-    <DetailText size="md" {...props} style={[styles.text, props.style]}>
+    <BodyText size="md" weight="semibold" {...props} style={[styles.text, props.style]}>
       {children}
-    </DetailText>
+    </BodyText>
   );
 };
 

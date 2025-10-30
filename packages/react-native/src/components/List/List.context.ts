@@ -4,7 +4,6 @@ import type ListProps from './List.props';
 export const ListContext = createContext<{
   loading?: ListProps['loading'];
   disabled?: ListProps['disabled'];
-  divider?: ListProps['divider'];
   container?: ListProps['container'];
 }>({});
 

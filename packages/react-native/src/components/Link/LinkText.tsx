@@ -1,15 +1,15 @@
 import { TextProps } from 'react-native';
-import { useLinkContext } from './Link.context';
 import { StyleSheet } from 'react-native-unistyles';
-import { DetailText } from '../DetailText';
+import { BodyText } from '../BodyText';
+import { useLinkContext } from './Link.context';
 
 const LinkText = ({ children, ...props }: TextProps) => {
   const { inverted, disabled, active } = useLinkContext();
   styles.useVariants({ active, inverted, disabled });
   return (
-    <DetailText size="md" {...props} style={[styles.text, props.style]}>
+    <BodyText size="md" weight="semibold" {...props} style={[styles.text, props.style]}>
       {children}
-    </DetailText>
+    </BodyText>
   );
 };
 

@@ -137,7 +137,6 @@ const SwitchList = () => {
       <ListItem
         text="Notifications"
         helperText="Allow notifications"
-        divider
         leadingContent={<ListItemIcon as={BellMediumIcon} />}
         trailingContent={
           <Switch value={notifications} onValueChange={setNotifications} size="small" />
@@ -147,7 +146,6 @@ const SwitchList = () => {
       <ListItem
         text="Secure ID"
         helperText="Use secure ID"
-        divider
         leadingContent={<ListItemIcon as={LockMediumIcon} />}
         trailingContent={<Switch value={secureId} onValueChange={setSecureId} size="small" />}
         onPress={() => setSecureId(!secureId)}
@@ -155,7 +153,6 @@ const SwitchList = () => {
       <ListItem
         text="Location"
         helperText="Allow location"
-        divider
         leadingContent={<ListItemIcon as={LocationMediumIcon} />}
         trailingContent={<Switch value={location} onValueChange={setLocation} size="small" />}
         onPress={() => setLocation(!location)}
@@ -163,7 +160,6 @@ const SwitchList = () => {
       <ListItem
         text="Dark mode"
         helperText="Enable dark mode"
-        divider
         leadingContent={<ListItemIcon as={EyeMediumIcon} />}
         trailingContent={<Switch value={darkMode} onValueChange={setDarkMode} size="small" />}
         onPress={() => setDarkMode(!darkMode)}

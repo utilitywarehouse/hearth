@@ -26,6 +26,7 @@ export const Modal = React.forwardRef<ModalElement, ModalProps>(
       heading,
       description,
       hideCloseButton,
+      fullScreen,
       children,
       ...props
     },
@@ -43,6 +44,7 @@ export const Modal = React.forwardRef<ModalElement, ModalProps>(
                 ref={ref}
                 className={clsx(componentClassName, className)}
                 data-contains-image={containsImage ? '' : undefined}
+                data-full-screen={fullScreen ? '' : undefined}
                 {...props}
               >
                 <div className="hearth-ModalOuterContainer">

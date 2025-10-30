@@ -1,13 +1,13 @@
 import { type TextProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { DetailText } from '../DetailText';
+import { BodyText } from '../BodyText';
 
 const ToggleButtonText = ({ children, toggled, ...props }: TextProps & { toggled: boolean }) => {
   styles.useVariants({ toggled });
   return (
-    <DetailText size="md" {...props} style={[styles.text, props.style]}>
+    <BodyText size="md" weight="semibold" {...props} style={[styles.text, props.style]}>
       {children}
-    </DetailText>
+    </BodyText>
   );
 };
 

@@ -12,7 +12,7 @@ export const unstyledIconButtonPropDefs = {
 };
 
 export type UnstyledIconButtonProps = ComponentPropsWithout<'button', RemovedProps> &
-  Pick<IconButtonProps, 'label' | 'loading'> & {
+  Pick<IconButtonProps, 'label' | 'loading' | 'asChild'> & {
     /**
      * Sets the button height.
      * @default md

@@ -2,9 +2,9 @@ import React, { ReactNode, useMemo } from 'react';
 import { View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Card } from '../Card';
+import { SectionHeader } from '../SectionHeader';
 import { ListContext } from './List.context';
 import type ListProps from './List.props';
-import { SectionHeader } from '../SectionHeader';
 import { ListItem, ListItemProps } from './ListItem';
 
 const markFirstListItem = (children: ReactNode): ViewProps['children'] => {
@@ -41,20 +41,8 @@ const markFirstListItem = (children: ReactNode): ViewProps['children'] => {
   return recursiveClone(children) as ViewProps['children'];
 };
 
-const List = ({
-  children,
-  heading,
-  helperText,
-  linkText,
-  linkHref,
-  linkIcon,
-  linkIconPosition,
-  linkOnPress,
-  linkTarget,
-  linkShowIcon,
-  ...props
-}: ListProps) => {
-  const { loading, disabled, divider = true, container = 'none' } = props;
+const List = ({ children, heading, helperText, headerTrailingContent, ...props }: ListProps) => {
+  const { loading, disabled, container = 'none' } = props;
   const containerToCard: {
     variant: 'subtle' | 'emphasis';
     colorScheme: 'neutralStrong' | 'neutralSubtle';
@@ -66,10 +54,7 @@ const List = ({
         : 'neutralSubtle',
   };
   const updatedChildren = markFirstListItem(children);
-  const value = useMemo(
-    () => ({ loading, disabled, divider, container }),
-    [loading, disabled, divider, container]
-  );
+  const value = useMemo(() => ({ loading, disabled, container }), [loading, disabled, container]);
   styles.useVariants({ disabled });
   return (
     <ListContext.Provider value={value}>
@@ -78,13 +63,7 @@ const List = ({
           <SectionHeader
             heading={heading}
             helperText={helperText}
-            linkText={linkText}
-            linkHref={linkHref}
-            linkOnPress={linkOnPress}
-            linkTarget={linkTarget}
-            linkIcon={linkIcon}
-            linkIconPosition={linkIconPosition}
-            linkShowIcon={linkShowIcon}
+            trailingContent={headerTrailingContent}
           />
         ) : null}
         {container === 'none' ? (
