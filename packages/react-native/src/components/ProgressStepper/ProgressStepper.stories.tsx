@@ -65,7 +65,7 @@ export const StepStatuses: Story = {
             <ProgressStep id={'3'} status="incomplete" />
           </ProgressStepper>
         </VariantTitle>
-        <VariantTitle title="Mixed statuss">
+        <VariantTitle title="Mixed Statuses">
           <ProgressStepper {...props}>
             <ProgressStep id={'1'} status="complete" />
             <ProgressStep id={'2'} status="complete" />
