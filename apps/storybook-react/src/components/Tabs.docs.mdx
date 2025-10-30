@@ -1,0 +1,144 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './Tabs.stories';
+
+import { DocsHeader } from '../storybook-components/DocsHeader';
+
+<Meta title="Components / Tabs" />
+
+<DocsHeader componentName="Tabs" stories={Stories} />
+
+<Canvas of={Stories.KitchenSink} sourceState="none" />
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Examples](#examples)
+  - [Controlled](#controlled)
+  - [Overflow & Scrolling](#overflow--scrolling)
+  - [With icons](#with-icons)
+- [Size variants](#size-variants)
+- [Activation mode](#activation-mode)
+- [Accessibility](#accessibility)
+- [API](#api)
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Usage
+
+Use Tabs to organize and navigate between content sections within the same page context.
+
+```tsx
+import { Tabs, TabsList, Tab, TabContent } from '@utilitywarehouse/hearth-react';
+
+<Tabs defaultValue="account">
+  <TabsList>
+    <Tab value="account">Account</Tab>
+    <Tab value="security">Security</Tab>
+    <Tab value="billing">Billing</Tab>
+  </TabsList>
+  <TabContent value="account">Account content</TabContent>
+  <TabContent value="security">Security content</TabContent>
+  <TabContent value="billing">Billing content</TabContent>
+</Tabs>;
+```
+
+## Examples
+
+### Controlled
+
+Tabs can be controlled by passing `value` and `onValueChange` to the `Tabs` root.
+
+```tsx
+const [tab, setTab] = useState('account');
+<Tabs value={tab} onValueChange={setTab}>
+  <TabsList>
+    <Tab value="account">Account</Tab>
+    <Tab value="billing">Billing</Tab>
+    <Tab value="usage">Usage</Tab>
+  </TabsList>
+  <TabContent value="account">Account content</TabContent>
+  <TabContent value="billing">Billing content</TabContent>
+  <TabContent value="usage">Usage metrics content</TabContent>
+</Tabs>;
+```
+
+<Canvas of={Stories.Controlled} />
+
+### Overflow & Scrolling
+
+When tab labels exceed the available width, the list becomes horizontally scrollable. Contextual scroll buttons appear only when further scrolling is possible.
+
+<Canvas of={Stories.WithScrolling} />
+
+### With icons
+
+You can include icons directly as children inside a `Tab`.
+
+<Canvas of={Stories.WithIcons} />
+
+## Size variants
+
+<Canvas of={Stories.Sizes} />
+
+## Activation mode
+
+The `activationMode` prop controls how keyboard focus activates a tab:
+
+- `manual` (default): arrow keys move focus between tabs; selection changes when you press <kbd>Space</kbd> or <kbd>Enter</kbd>.
+- `automatic`: arrow keys both move focus and select the focused tab.
+
+```tsx
+<Tabs defaultValue="a" activationMode="automatic">
+  ...
+</Tabs>
+```
+
+## Accessibility
+
+- The `Tabs` root provides the `tablist` role; each `Tab` is a `tab`; each `TabContent` is a `tabpanel`.
+- Selection is communicated via ARIA attributes and `data-state` provided by the underlying primitives.
+- The animated indicator respects the user's reduced motion preferences.
+- Overflow scroll buttons are hidden from assistive technologies and only render when scrolling is possible.
+- Provide concise, descriptive tab labels; avoid relying on icons alone.
+
+## API
+
+This component supports the following common props:
+
+- Margin
+
+### Tabs
+
+| Prop             | Type                       | Description                            | Default   |
+| ---------------- | -------------------------- | -------------------------------------- | --------- |
+| `value`          | `string`                   | Controlled active tab value            | -         |
+| `defaultValue`   | `string`                   | Uncontrolled initial tab value         | first tab |
+| `onValueChange`  | `(value: string) => void`  | Change handler                         | -         |
+| `size`           | `Responsive<"md" \| "lg">` | Size variant                           | `md`      |
+| `activationMode` | `"automatic" \| "manual"`  | How keyboard focus activates a tab     | `manual`  |
+| `children`       | `ReactNode`                | Composition: `TabsList` + `TabContent` | required  |
+
+### TabsList
+
+| Prop       | Type        | Description                | Default  |
+| ---------- | ----------- | -------------------------- | -------- |
+| `children` | `ReactNode` | One or more `Tab` elements | required |
+
+### Tab
+
+| Prop       | Type        | Description                   | Default  |
+| ---------- | ----------- | ----------------------------- | -------- |
+| `value`    | `string`    | Unique tab value              | required |
+| `children` | `ReactNode` | Tab label (and optional icon) | required |
+| `disabled` | `boolean`   | Disabled state                | `false`  |
+
+### TabContent
+
+| Prop          | Type        | Description                                  | Default  |
+| ------------- | ----------- | -------------------------------------------- | -------- |
+| `value`       | `string`    | Matches a `Tab` value                        | required |
+| `children`    | `ReactNode` | Panel content                                | required |
+| `keepMounted` | `boolean`   | Keep hidden panels mounted to preserve state | `false`  |
