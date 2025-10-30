@@ -522,7 +522,7 @@ const AllComponents: React.FC = () => {
             name="Progress Stepper"
             link="/?path=/docs/components-progress-stepper--docs"
           >
-            <Center flex={1}>
+            <Center flex={1} px="300">
               <ProgressStepper>
                 <ProgressStep id="customer-data" state="complete" />
                 <ProgressStep id="shipping-data" state="complete" />
