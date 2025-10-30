@@ -40,9 +40,7 @@ export const ProgressStep = React.forwardRef<ProgressStepElement, ProgressStepPr
           />
         </div>
         <ProgressStepContext.Provider value={{ status }}>
-          <div className={`${componentClassName}Label`}>
-            {children}
-          </div>
+          <div className={`${componentClassName}Label`}>{children}</div>
         </ProgressStepContext.Provider>
       </li>
     );

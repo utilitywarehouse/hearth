@@ -4,7 +4,6 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { BodyText } from '../BodyText/BodyText';
 import type { ProgressStepContentProps } from './ProgressStepContent.props';
 import { ProgressStepperContext } from './ProgressStepper.context';
-import './ProgressStepContent.css';
 
 const COMPONENT_NAME = 'ProgressStepContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);

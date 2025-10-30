@@ -7,7 +7,6 @@ import { ProgressStepperContext } from './ProgressStepper.context';
 import type { ProgressStepButtonProps } from './ProgressStepButton.props';
 import { ProgressStepContent } from './ProgressStepContent';
 import { ProgressStepContext } from './ProgressStep.context';
-import './ProgressStepButton.css';
 
 const COMPONENT_NAME = 'ProgressStepButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
