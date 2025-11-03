@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { ViewStyle } from 'react-native';
-import useTheme from './useTheme';
 import { propStyleMapping, resolveThemeValue, themeStyleMapping, viewStyleProps } from '../utils';
+import useTheme from './useTheme';
 
 /**
  * Type for the return value from useStyleProps
