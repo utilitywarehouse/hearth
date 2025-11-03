@@ -10,7 +10,7 @@ const normalizedStories = [
     directory: "./components",
     files: "**/*.stories.?(ts|tsx|js|jsx)",
     importPathMatcher: /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
-
+    
     req: require.context(
       '../components',
       true,
@@ -22,7 +22,7 @@ const normalizedStories = [
     directory: "../../packages/react-native",
     files: "**/*.stories.?(ts|tsx|js|jsx)",
     importPathMatcher: /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
-
+    
     req: require.context(
       '../../../packages/react-native',
       true,
