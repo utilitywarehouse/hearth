@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { Card, CardAction } from '.';
+import { Card, CardPressHandler } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { BodyText } from '../BodyText';
 import { Button } from '../Button';
@@ -224,9 +224,9 @@ export const Interactive: Story = {
           >
             <Heading size="md">Heading</Heading>
             <BodyText>{children as string}</BodyText>
-            <CardAction>
+            <CardPressHandler>
               <Button onPress={() => console.log('pressed')}>Press me</Button>
-            </CardAction>
+            </CardPressHandler>
           </Card>
         </VariantTitle>
       </Flex>

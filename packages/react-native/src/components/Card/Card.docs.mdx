@@ -66,11 +66,11 @@ const MyComponent = () => (
 | rowGap         | `number`                                                                                                                                     | The row gap between the content.           | `0`               |
 | columnGap      | `number`                                                                                                                                     | The column gap between the content.        | `0`               |
 
-### `CardAction`
+### `CardPressHandler`
 
-| Property        | Type     | Description                                                                | Default   |
-| --------------- | -------- | -------------------------------------------------------------------------- | --------- |
-| actionToInherit | `string` | The action to inherit from the child component when the `Card` is pressed. | `onPress` |
+| Property         | Type     | Description                                                                 | Default   |
+| ---------------- | -------- | --------------------------------------------------------------------------- | --------- |
+| handlerToInherit | `string` | The handler to inherit from the child component when the `Card` is pressed. | `onPress` |
 
 ## Variants
 
@@ -81,26 +81,26 @@ const MyComponent = () => (
 You can make the card interactive by adding an `onPress` prop. You can also toggle the `selected` prop
 to change the card's appearance.
 
-Alternatively to make the card inherit an action from a child component, you can use the `CardAction` component.
-This will by default inherit the `onPress` action from the child component. You can specify a different action
-by passing the `actionToInherit` prop e.g `onChange`. Wrapping a component in a `CardAction` component will
+Alternatively to make the card inherit an event handler from a child component, you can use the `CardPressHandler` component.
+This will by default inherit the `onPress` handler from the child component. You can specify a different action
+by passing the `handlerToInherit` prop e.g `onChange`. Wrapping a component in a `CardPressHandler` component will
 make the card interactive and also show the `active` state of the child component when the `Card` is pressed.
 
 <Canvas of={Stories.Interactive} />
 
-See example below for how to use the `CardAction` component:
+See example below for how to use the `CardPressHandler` component:
 
 ```jsx
-import { Card, CardAction, BodyText, Heading, Felx, Button } from '@utilitywarehouse/hearth-react-native';
+import { Card, CardPressHandler, BodyText, Heading, Flex, Button } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
   <Card variant="emphasis" colorScheme="neutralSubtle">
     <Flex space="md" direction="column" align="stretch">
       <Heading size="md">Heading</Heading>
       <BodyText>{children as string}</BodyText>
-      <CardAction>
+      <CardPressHandler>
         <Button onPress={() => console.log('pressed')}>Press me</Button>
-      </CardAction>
+      </CardPressHandler>
     </Flex>
   </Card>
 );

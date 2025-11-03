@@ -14,15 +14,15 @@ const collectChildActionHandlers = (
       if (React.isValidElement(child)) {
         const childProps = child.props as any;
         // @ts-expect-error - type
-        if (child.type.displayName === 'CardAction') {
+        if (child.type.displayName === 'CardPressHandler') {
           const actionChildren = React.Children.toArray(childProps.children);
-          const actionToInherit = childProps['actionToInherit'] || 'onPress';
+          const handlerToInherit = childProps['handlerToInherit'] || 'onPress';
           const firstChild = actionChildren[0];
           if (
             React.isValidElement(firstChild) &&
-            typeof (firstChild.props as any)[actionToInherit] === 'function'
+            typeof (firstChild.props as any)[handlerToInherit] === 'function'
           ) {
-            handlers.push((firstChild.props as any)[actionToInherit]);
+            handlers.push((firstChild.props as any)[handlerToInherit]);
           }
         }
         if (childProps.children) {
