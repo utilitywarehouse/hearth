@@ -5,7 +5,6 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { ProgressStepperContext } from './ProgressStepper.context';
-import './ProgressStepper.css';
 
 const COMPONENT_NAME = 'ProgressStepper';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);

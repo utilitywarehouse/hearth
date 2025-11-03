@@ -3,7 +3,6 @@ import type { ElementRef } from 'react';
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Link } from '../Link/Link';
-import { ProgressStepperContext } from './ProgressStepper.context';
 import type { ProgressStepButtonProps } from './ProgressStepButton.props';
 import { ProgressStepContent } from './ProgressStepContent';
 import { ProgressStepContext } from './ProgressStep.context';
@@ -17,7 +16,6 @@ export const ProgressStepButton = React.forwardRef<
   ProgressStepButtonElement,
   ProgressStepButtonProps
 >(({ label, ...props }, ref) => {
-  const { hideLabels } = React.useContext(ProgressStepperContext);
   const stepContext = React.useContext(ProgressStepContext);
 
   const isInteractive = stepContext?.status === 'complete';
@@ -30,12 +28,7 @@ export const ProgressStepButton = React.forwardRef<
   // Render as interactive button if complete
   return (
     <Link asChild>
-      <button
-        ref={ref}
-        className={componentClassName}
-        data-visually-hidden={hideLabels ? '' : undefined}
-        {...props}
-      >
+      <button ref={ref} className={componentClassName} {...props}>
         {label}
       </button>
     </Link>

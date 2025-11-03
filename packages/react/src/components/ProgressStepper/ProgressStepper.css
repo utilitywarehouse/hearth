@@ -1,6 +1,4 @@
 .hearth-ProgressStepper {
-  container-type: inline-size;
-
   & :where(ol) {
     display: flex;
     flex-direction: row;

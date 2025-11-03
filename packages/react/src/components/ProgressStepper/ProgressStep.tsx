@@ -6,7 +6,7 @@ import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ProgressStepProps } from './ProgressStep.props';
 import { ProgressStepContext } from './ProgressStep.context';
-import './ProgressStep.css';
+import { ProgressStepperContext } from './ProgressStepper.context';
 
 const COMPONENT_NAME = 'ProgressStep';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -15,6 +15,7 @@ type ProgressStepElement = ElementRef<'li'>;
 
 export const ProgressStep = React.forwardRef<ProgressStepElement, ProgressStepProps>(
   ({ status, children, ...props }, ref) => {
+    const { hideLabels } = React.useContext(ProgressStepperContext);
     const isCompleted = status === 'complete';
     const isActive = status === 'active';
 
@@ -40,7 +41,12 @@ export const ProgressStep = React.forwardRef<ProgressStepElement, ProgressStepPr
           />
         </div>
         <ProgressStepContext.Provider value={{ status }}>
-          <div className={`${componentClassName}Label`}>{children}</div>
+          <div
+            className={`${componentClassName}Label`}
+            data-visually-hidden={hideLabels ? '' : undefined}
+          >
+            {children}
+          </div>
         </ProgressStepContext.Provider>
       </li>
     );
