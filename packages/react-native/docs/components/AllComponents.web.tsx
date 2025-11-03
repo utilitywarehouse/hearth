@@ -10,6 +10,10 @@ import {
   InsuranceMediumIcon,
   MobileMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
+// @ts-ignore
+import SpotBillingDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg';
+// @ts-ignore
+import SpotBillingLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-light.svg';
 import { Pressable, ScrollView, View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import {
@@ -53,8 +57,8 @@ import {
   ListItem,
   Modal,
   OL,
-  ProgressStepper,
   ProgressStep,
+  ProgressStepper,
   Radio,
   RadioCard,
   RadioCardGroup,
@@ -69,6 +73,7 @@ import {
   Tabs,
   TabsList,
   Textarea,
+  ThemedImage,
   ToggleButtonCard,
   ToggleButtonCardGroup,
   UL,
@@ -615,6 +620,17 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Textarea" link="/?path=/docs/forms-textarea--docs">
             <Center flex={1}>
               <Textarea numberOfLines={3} placeholder="This is a textarea" />
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
+            name="Themed Image"
+            link="/?path=/docs/utility-components-themed-image--docs"
+          >
+            <Center flex={1} p="300">
+              <ThemedImage
+                light={<SpotBillingLight width={160} height={160} />}
+                dark={<SpotBillingDark width={160} height={160} />}
+              />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper

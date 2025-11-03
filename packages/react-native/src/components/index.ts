@@ -42,6 +42,7 @@ export * from './Spinner';
 export * from './Switch';
 export * from './Tabs';
 export * from './Textarea';
+export * from './ThemedImage';
 export * from './ToggleButtonCard';
 
 export {
