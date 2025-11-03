@@ -4,5 +4,4 @@
 
 export default {
   colorMode: 'dark',
-  mode: 'dark',
 } as const;

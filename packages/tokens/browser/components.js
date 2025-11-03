@@ -166,6 +166,27 @@ export const components = {
       tablet: 'var(--h-card-padding-none-tablet)',
     },
   },
+  cardContent: {
+    banner: {
+      illustration: {
+        lg: {
+          width: 'var(--h-card-content-banner-illustration-lg-width)',
+        },
+        md: {
+          width: 'var(--h-card-content-banner-illustration-md-width)',
+        },
+        sm: {
+          width: 'var(--h-card-content-banner-illustration-sm-width)',
+        },
+        xl: {
+          width: 'var(--h-card-content-banner-illustration-xl-width)',
+        },
+        xs: {
+          width: 'var(--h-card-content-banner-illustration-xs-width)',
+        },
+      },
+    },
+  },
   carouselControl: {
     gap: 'var(--h-carousel-control-gap)',
     item: {
@@ -285,6 +306,22 @@ export const components = {
   divider: {
     borderWidth: 'var(--h-divider-border-width)',
   },
+  drawer: {
+    footer: {
+      horizontal: {
+        gap: 'var(--h-drawer-footer-horizontal-gap)',
+      },
+      padding: 'var(--h-drawer-footer-padding)',
+      vertical: {
+        gap: 'var(--h-drawer-footer-vertical-gap)',
+      },
+    },
+    gap: 'var(--h-drawer-gap)',
+    heading: {
+      gap: 'var(--h-drawer-heading-gap)',
+    },
+    width: 'var(--h-drawer-width)',
+  },
   expandableCard: {
     gapHorizontal: 'var(--h-expandable-card-gap-horizontal)',
     gapVertical: 'var(--h-expandable-card-gap-vertical)',
@@ -356,7 +393,6 @@ export const components = {
   },
   illustrations: {
     colorMode: 'var(--h-illustrations-color-mode)',
-    mode: 'var(--h-illustrations-mode)',
   },
   inlineLink: {
     color: 'var(--h-inline-link-color)',
@@ -812,10 +848,10 @@ export const components = {
     paddingVertical: 'var(--h-tooltip-padding-vertical)',
   },
   container: {
-    margin: {
-      desktop: 'var(--h-container-margin-desktop)',
-      mobile: 'var(--h-container-margin-mobile)',
-      tablet: 'var(--h-container-margin-tablet)',
+    marginHorizontal: {
+      desktop: 'var(--h-container-margin-horizontal-desktop)',
+      mobile: 'var(--h-container-margin-horizontal-mobile)',
+      tablet: 'var(--h-container-margin-horizontal-tablet)',
     },
     paddingBottom: {
       desktop: 'var(--h-container-padding-bottom-desktop)',
@@ -886,6 +922,11 @@ export const components = {
       },
       fontWeight: 'var(--h-heading-xl-font-weight)',
     },
+  },
+  listSpacing: {
+    desktop: 'var(--h-list-spacing-desktop)',
+    mobile: 'var(--h-list-spacing-mobile)',
+    tablet: 'var(--h-list-spacing-tablet)',
   },
   bodyText: {
     fontWeight: 'var(--h-body-text-font-weight)',

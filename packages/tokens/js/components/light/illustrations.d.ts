@@ -3,6 +3,5 @@
  */
 declare const _default: {
   readonly colorMode: 'light';
-  readonly mode: 'light';
 };
 export default _default;

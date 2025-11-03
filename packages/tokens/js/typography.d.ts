@@ -85,6 +85,7 @@ export declare const mobile: {
       readonly lineHeight: 36;
     };
   };
+  readonly listSpacing: 16;
 };
 export declare const tablet: {
   readonly bodyText: {
@@ -170,6 +171,7 @@ export declare const tablet: {
       readonly lineHeight: 36;
     };
   };
+  readonly listSpacing: 16;
 };
 export declare const desktop: {
   readonly bodyText: {
@@ -255,6 +257,7 @@ export declare const desktop: {
       readonly lineHeight: 48;
     };
   };
+  readonly listSpacing: 16;
 };
 declare const typography: {
   readonly mobile: {
@@ -341,6 +344,7 @@ declare const typography: {
         readonly lineHeight: 36;
       };
     };
+    readonly listSpacing: 16;
   };
   readonly tablet: {
     readonly bodyText: {
@@ -426,6 +430,7 @@ declare const typography: {
         readonly lineHeight: 36;
       };
     };
+    readonly listSpacing: 16;
   };
   readonly desktop: {
     readonly bodyText: {
@@ -511,6 +516,7 @@ declare const typography: {
         readonly lineHeight: 48;
       };
     };
+    readonly listSpacing: 16;
   };
 };
 export default typography;
