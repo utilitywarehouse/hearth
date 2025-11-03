@@ -1,0 +1,90 @@
+.hearth-ProgressBarCircular {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  &[data-size='md'] {
+    width: var(--h-progress-bar-circular-md-height);
+    height: var(--h-progress-bar-circular-md-height);
+
+    & :where(.hearth-ProgressBarCircularCircle) {
+      cx: calc(var(--h-progress-bar-circular-md-height) / 2);
+      cy: calc(var(--h-progress-bar-circular-md-height) / 2);
+      stroke-width: var(--h-progress-bar-circular-md-bar-width);
+      r: calc(var(--h-progress-bar-circular-md-height) / 2 - var(--h-progress-bar-circular-md-bar-width) / 2);
+    }
+
+    & :where(.hearth-ProgressBarValue) {
+      font-family: var(--h-progress-bar-circular-md-label-font-family);
+      font-size: var(--h-progress-bar-circular-md-label-font-size);
+      font-weight: var(--h-progress-bar-circular-md-label-font-weight);
+      line-height: var(--h-progress-bar-circular-md-label-line-height);
+    }
+  }
+
+  &[data-size='sm'] {
+    width: 80px;
+    height: 80px;
+    /* TODO: Fix it in tokens */
+    /* width: var(--h-progress-bar-circular-sm-height);
+    height: var(--h-progress-bar-circular-sm-height); */
+
+    & :where(.hearth-ProgressBarCircularCircle) {
+      cx: calc(80 / 2);
+      cy: calc(80 / 2);
+      /* cx: calc(var(--h-progress-bar-circular-sm-height) / 2);
+      cy: calc(var(--h-progress-bar-circular-sm-height) / 2); */
+      stroke-width: var(--h-progress-bar-circular-sm-bar-width);
+      r: calc(80px / 2 - var(--h-progress-bar-circular-sm-bar-width) / 2);
+      /* r: calc(var(--h-progress-bar-circular-sm-height) / 2 - var(--h-progress-bar-circular-sm-bar-width) / 2); */
+    }
+
+    & :where(.hearth-ProgressBarValue) {
+      font-weight: var(--h-body-text-font-weight-semibold);
+    }
+  }
+}
+
+.hearth-ProgressBarCircularSvg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(-1);
+}
+
+.hearth-ProgressBarCircularCircleBackground {
+  fill: none;
+  stroke: var(--h-progress-bar-bar-color);
+}
+
+.hearth-ProgressBarCircularCircleProgress {
+  fill: none;
+  stroke: var(--h-progress-bar-progress-default-color);
+  stroke-linecap: round;
+  transform: rotate(90deg) scaleY(-1);
+  transform-origin: center;
+  transition: stroke-dashoffset 0.3s ease-in-out;
+}
+
+/* Type variants */
+.hearth-ProgressBarCircular[data-type='success'] {
+  & :where(.hearth-ProgressBarCircularCircleProgress) {
+    stroke: var(--h-progress-bar-progress-success-color);
+  }
+}
+
+.hearth-ProgressBarCircular[data-type='danger'] {
+  & :where(.hearth-ProgressBarCircularCircleProgress) {
+    stroke: var(--h-progress-bar-progress-danger-color);
+  }
+}
+
+.hearth-ProgressBarCircularContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

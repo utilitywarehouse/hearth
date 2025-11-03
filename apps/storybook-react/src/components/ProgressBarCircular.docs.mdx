@@ -1,0 +1,89 @@
+import { Canvas, Meta, Primary } from '@storybook/addon-docs/blocks';
+import * as ProgressBarCircularStories from './ProgressBarCircular.stories';
+
+<Meta of={ProgressBarCircularStories} />
+
+# ProgressBarCircular
+
+## Table of contents
+
+- [Usage](#usage)
+- [Size variants](#size-variants)
+- [Type variants](#type-variants)
+- [Optional content](#optional-content)
+- [API Reference](#api-reference)
+
+## Usage
+
+The `ProgressBarCircular` component displays the progress of a task or process in a circular format. It can display an optional label and value, and supports different visual states through type variants and size options.
+
+<Canvas of={ProgressBarCircularStories.Playground} />
+
+## Size variants
+
+`ProgressBarCircular` supports two sizes: `md` and `sm`.
+
+For the `sm` size, only `ProgressBarValue` is allowed and displayed to maintain readability
+
+The `md` size displays both label and value when provided.
+
+<Canvas of={ProgressBarCircularStories.Sizes} />
+
+## Type variants
+
+The component supports three type variants that affect the color of the progress indicator:
+
+- `default` - Standard cyan progress indicator
+- `success` - Green progress indicator (automatically displays 100% fill regardless of value)
+- `danger` - Red progress indicator for error or warning states
+
+<Canvas of={ProgressBarCircularStories.AllVariants} />
+
+## Optional content
+
+The `ProgressBarCircular` component can optionally include `ProgressBarLabel` and `ProgressBarValue` children. Both, one, or neither can be included based on your needs.
+
+The `ProgressBarValue` accepts string values, allowing for flexible formatting such as percentages (`"90%"`), fractions (`"8.7GB / 10GB"`), or any other custom format.
+
+<Canvas of={ProgressBarCircularStories.OptionalContent} />
+
+## API Reference
+
+### ProgressBarCircular Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `type` | `'default' \| 'success' \| 'danger'` | `'default'` | The visual type/state of the progress bar |
+| `size` | `'sm' \| 'md'` | `'md'` | The size of the circular progress indicator |
+| `value` | `number` | `0` | The current progress value (0-100). Automatically clamped to valid range. |
+| `aria-label` | `string` | - | Optional accessible label override. Defaults to combining child label and value. |
+| `children` | `ReactNode` | - | Optional `ProgressBarLabel` and `ProgressBarValue` components |
+
+### ProgressBarLabel Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `label` | `string` | - | The label text to display |
+
+### ProgressBarValue Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value` | `string` | - | The value to display (e.g., "90%", "8.7GB / 10GB") |
+
+## Accessibility
+
+The component implements proper ARIA attributes for screen readers:
+
+- Uses `role="group"` for the container
+- Uses `role="progressbar"` on the SVG element
+- Provides `aria-valuenow`, `aria-valuemin`, and `aria-valuemax` attributes
+- Generates an accessible label from child content or accepts a custom `aria-label` override
+- Label uses `role="heading"` for semantic structure
+
+## Notes
+
+- The `success` type automatically displays 100% fill regardless of the `value` prop
+- Values are automatically clamped between 0 and 100
+- For `sm` size, only one child element is shown (value takes priority over label)
+- The progress indicator animates using CSS transitions

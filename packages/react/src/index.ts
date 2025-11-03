@@ -252,3 +252,6 @@ export type { ProgressBarValueProps } from './components/ProgressBarValue/Progre
 
 export { ProgressBarLinear } from './components/ProgressBarLinear/ProgressBarLinear';
 export type { ProgressBarLinearProps } from './components/ProgressBarLinear/ProgressBarLinear.props';
+
+export { ProgressBarCircular } from './components/ProgressBarCircular/ProgressBarCircular';
+export type { ProgressBarCircularProps } from './components/ProgressBarCircular/ProgressBarCircular.props';
