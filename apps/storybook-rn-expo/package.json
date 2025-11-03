@@ -31,6 +31,7 @@
     "@types/react": "~19.1.11",
     "@utilitywarehouse/hearth-react-native": "workspace:^",
     "@utilitywarehouse/hearth-react-native-icons": "workspace:^",
+    "@utilitywarehouse/hearth-svg-assets": "workspace:^",
     "@utilitywarehouse/hearth-tokens": "workspace:^",
     "expo": "54.0.0-preview.12",
     "expo-constants": "18.0.6",
@@ -59,6 +60,7 @@
     "cross-env": "^7.0.3",
     "eas-cli": "^16.9.0",
     "eslint-plugin-storybook": "9.1.6",
+    "react-native-svg-transformer": "^1.5.1",
     "typescript": "5.9.2"
   }
 }

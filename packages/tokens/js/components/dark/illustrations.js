@@ -3,5 +3,4 @@
  */
 export default {
   colorMode: 'dark',
-  mode: 'dark',
 };
