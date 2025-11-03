@@ -1,4 +1,4 @@
-import type { ComponentType, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import type { ViewProps } from 'react-native';
 
 export interface DescriptionListItemProps extends ViewProps {
@@ -7,13 +7,7 @@ export interface DescriptionListItemProps extends ViewProps {
   /** Description / value part */
   description: ReactNode;
   headingWidth?: number;
-  linkText?: string;
-  linkHref?: string;
-  linkIcon?: ComponentType;
-  linkIconPosition?: 'left' | 'right';
-  linkOnPress?: () => void;
-  linkTarget?: '_blank' | '_self' | '_parent' | '_top';
-  linkShowIcon?: boolean;
+  trailingContent?: ReactNode;
   invalidText?: string;
 }
 

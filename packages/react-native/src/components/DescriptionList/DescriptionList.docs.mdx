@@ -32,7 +32,11 @@ Display pairs of related metadata (heading + description). Supports column (stac
   >
     <DescriptionListItem heading="Account Number" description="123456789" />
     <DescriptionListItem heading="Sort Code" description="12-34-56" />
-    <DescriptionListItem heading="Status" description="Inactive" invalidText="Status cannot be inactive"/>
+    <DescriptionListItem
+      heading="Status"
+      description="Inactive"
+      invalidText="Status cannot be inactive"
+    />
   </DescriptionList>
 </UsageWrap>
 
@@ -42,7 +46,11 @@ import { DescriptionList, DescriptionListItem } from '@utilitywarehouse/hearth-r
 <DescriptionList direction="column" heading="Account details" helperText="Static account metadata">
   <DescriptionListItem heading="Account Number" description="123456789" />
   <DescriptionListItem heading="Sort Code" description="12-34-56" />
-  <DescriptionListItem heading="Status" description="Inactive" invalidText="Status cannot be inactive"/>
+  <DescriptionListItem
+    heading="Status"
+    description="Inactive"
+    invalidText="Status cannot be inactive"
+  />
 </DescriptionList>;
 ```
 
@@ -50,35 +58,23 @@ import { DescriptionList, DescriptionListItem } from '@utilitywarehouse/hearth-r
 
 ### DescriptionList
 
-| Prop               | Type                                         | Description                                      | Default     |
-| ------------------ | -------------------------------------------- | ------------------------------------------------ | ----------- |
-| `direction`        | `'row' \| 'column'`                          | Layout orientation                               | `column`    |
-| `itemHeadingWidth` | `number`                                     | Override heading column width in row layout      | token value |
-| `heading`          | `string`                                     | Optional overall heading (renders SectionHeader) | -           |
-| `helperText`       | `string`                                     | Supporting text under heading                    | -           |
-| `linkText`         | `string`                                     | Section header link text                         | -           |
-| `linkHref`         | `string`                                     | Header link URL (web)                            | -           |
-| `linkIcon`         | `ComponentType`                              | Header link icon                                 | -           |
-| `linkIconPosition` | `'left' \| 'right'`                          | Header link icon position                        | `right`     |
-| `linkOnPress`      | `() => void`                                 | Header link press handler                        | -           |
-| `linkTarget`       | `'_blank' \| '_self' \| '_parent' \| '_top'` | Header link target                               | `_self`     |
-| `linkShowIcon`     | `boolean`                                    | Whether header link icon is shown                | `false`     |
+| Prop                    | Type                | Description                                      | Default     |
+| ----------------------- | ------------------- | ------------------------------------------------ | ----------- |
+| `direction`             | `'row' \| 'column'` | Layout orientation                               | `column`    |
+| `itemHeadingWidth`      | `number`            | Override heading column width in row layout      | token value |
+| `heading`               | `string`            | Optional overall heading (renders SectionHeader) | -           |
+| `helperText`            | `string`            | Supporting text under heading                    | -           |
+| `headerTrailingContent` | `ReactNode`         | Custom trailing content for heading (e.g. Link)  | -           |
 
 ### DescriptionListItem
 
-| Prop               | Type                                         | Description                                  | Default    |
-| ------------------ | -------------------------------------------- | -------------------------------------------- | ---------- |
-| `heading`          | `ReactNode`                                  | Heading (label) content                      | (required) |
-| `description`      | `ReactNode`                                  | Description (value) content                  | (required) |
-| `headingWidth`     | `number`                                     | Per-item heading width override (row layout) | inherits   |
-| `linkText`         | `string`                                     | Inline action link text                      | -          |
-| `linkHref`         | `string`                                     | Inline action link URL (web)                 | -          |
-| `linkIcon`         | `ComponentType`                              | Inline action link icon                      | -          |
-| `linkIconPosition` | `'left' \| 'right'`                          | Inline link icon position                    | `right`    |
-| `linkOnPress`      | `() => void`                                 | Inline link press handler                    | -          |
-| `linkTarget`       | `'_blank' \| '_self' \| '_parent' \| '_top'` | Inline link target                           | `_self`    |
-| `linkShowIcon`     | `boolean`                                    | Show inline link icon                        | `false`    |
-| `invalidText`      | `string`                                     | Text to show under description for invalid value | -      |
+| Prop              | Type        | Description                                      | Default    |
+| ----------------- | ----------- | ------------------------------------------------ | ---------- |
+| `heading`         | `ReactNode` | Heading (label) content                          | (required) |
+| `description`     | `ReactNode` | Description (value) content                      | (required) |
+| `headingWidth`    | `number`    | Per-item heading width override (row layout)     | inherits   |
+| `trailingContent` | `ReactNode` | Optional trailing content (e.g. Link, Button)    | -          |
+| `invalidText`     | `string`    | Text to show under description for invalid value | -          |
 
 > Uses `theme.components.descriptionList` tokens for spacing & column width.
 

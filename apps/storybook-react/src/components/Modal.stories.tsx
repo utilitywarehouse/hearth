@@ -28,6 +28,7 @@ const meta: Meta<typeof Modal> = {
     heading: 'Heading',
     description: 'Description',
     hideCloseButton: false,
+    fullScreen: false,
   },
 };
 

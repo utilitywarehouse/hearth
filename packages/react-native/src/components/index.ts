@@ -10,6 +10,7 @@ export * from './Card';
 export * from './Carousel';
 export * from './Center';
 export * from './Checkbox';
+export * from './Container';
 export * from './CurrencyInput';
 export * from './DatePicker';
 export * from './DatePickerInput';
@@ -25,6 +26,7 @@ export * from './HTMLElements';
 export * from './Icon';
 export * from './IconButton';
 export * from './IconContainer';
+export * from './IndicatorIconButton';
 export * from './InlineLink';
 export * from './Input';
 export * from './Label';
@@ -41,6 +43,7 @@ export * from './Spinner';
 export * from './Switch';
 export * from './Tabs';
 export * from './Textarea';
+export * from './ThemedImage';
 export * from './ToggleButtonCard';
 
 export {

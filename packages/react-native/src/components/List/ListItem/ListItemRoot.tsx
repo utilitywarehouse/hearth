@@ -2,6 +2,8 @@ import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-ico
 import { useMemo } from 'react';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { Badge } from '../../Badge';
+import { DetailText } from '../../DetailText';
 import { Skeleton } from '../../Skeleton';
 import { useListContext } from '../List.context';
 import { IListItemContext, ListItemContext } from './ListItem.context';
@@ -14,16 +16,18 @@ import ListItemTrailingContent from './ListItemTrailingContent';
 import ListItemTrailingIcon from './ListItemTrailingIcon';
 
 const ListItemRoot = ({
-  text,
+  heading,
   helperText,
   leadingContent,
   trailingContent,
   disabled,
-  divider,
   loading,
   children,
   states,
   variant = 'subtle',
+  badge,
+  badgePosition = 'bottom',
+  numericValue,
   ...props
 }: ListItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { onPress } = props;
@@ -42,7 +46,6 @@ const ListItemRoot = ({
 
   const isLoading = loading || listContext?.loading;
   const showPressed = isLoading ? false : !!onPress;
-  const showDivider = listContext?.divider ?? divider;
   const isDisabled = disabled || listContext?.disabled || false;
   const listItemVariant = getListContainer() || variant;
 
@@ -50,7 +53,6 @@ const ListItemRoot = ({
   const loadingTestID = isLoading ? `${testID}-loading` : testID;
 
   styles.useVariants({
-    divider: showDivider,
     variant: listItemVariant,
     showPressed,
     active,
@@ -63,12 +65,11 @@ const ListItemRoot = ({
   const value: IListItemContext = useMemo(() => {
     return {
       showPressed,
-      divider: showDivider,
       active,
       loading: isLoading,
       disabled: isDisabled,
     };
-  }, [active, showPressed, showDivider, isLoading, isDisabled]);
+  }, [active, showPressed, isLoading, isDisabled]);
 
   if (loading || listContext?.loading) {
     return (
@@ -95,6 +96,7 @@ const ListItemRoot = ({
         testID={testID}
         style={[styles.container, props.style as ViewStyle]}
         disabled={isDisabled}
+        accessibilityRole={onPress ? 'button' : undefined}
       >
         {children ? (
           children
@@ -104,13 +106,16 @@ const ListItemRoot = ({
               <ListItemLeadingContent>{leadingContent}</ListItemLeadingContent>
             ) : null}
             <ListItemContent>
-              <ListItemText>{text}</ListItemText>
+              {badgePosition === 'top' && badge ? <Badge {...badge} /> : null}
+              <ListItemText>{heading}</ListItemText>
               {helperText ? <ListItemHelperText>{helperText}</ListItemHelperText> : null}
+              {badgePosition === 'bottom' && badge ? <Badge {...badge} /> : null}
             </ListItemContent>
+            {!!numericValue && <DetailText size="lg">{numericValue}</DetailText>}
             {trailingContent ? (
               <ListItemTrailingContent>{trailingContent}</ListItemTrailingContent>
             ) : onPress ? (
-              <ListItemTrailingContent>
+              <ListItemTrailingContent style={styles.centeredTrailingIcon}>
                 <ListItemTrailingIcon as={ChevronRightSmallIcon} />
               </ListItemTrailingContent>
             ) : null}
@@ -129,13 +134,9 @@ const styles = StyleSheet.create(theme => ({
     paddingHorizontal: theme.components.list.item.functional.padding,
     flexDirection: 'row',
     gap: theme.components.list.item.gap,
+    borderTopWidth: theme.borderWidth['1'],
+    borderStyle: 'solid',
     variants: {
-      divider: {
-        true: {
-          borderTopWidth: theme.borderWidth['1'],
-          borderStyle: 'solid',
-        },
-      },
       isFirstChild: {
         true: {
           borderTopWidth: 0,
@@ -196,6 +197,9 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     ],
+  },
+  centeredTrailingIcon: {
+    justifyContent: 'center',
   },
 }));
 

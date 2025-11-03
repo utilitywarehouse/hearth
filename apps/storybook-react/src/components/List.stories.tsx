@@ -75,8 +75,8 @@ export const Playground: Story = {
           </Link>
         }
       >
-        <ListItem>List item</ListItem>
-        <ListItem aria-label="list item">
+        <ListItem aria-label="list item">List item</ListItem>
+        <ListItem aria-label="list item content">
           <ListItemContent heading="List item" helperText="Helper text" />
         </ListItem>
         <ListItem aria-label="list item button">

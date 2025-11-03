@@ -3,5 +3,5 @@
  */
 
 export default {
-  mode: 'dark',
+  colorMode: 'dark',
 } as const;

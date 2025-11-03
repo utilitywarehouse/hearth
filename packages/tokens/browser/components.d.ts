@@ -166,6 +166,27 @@ export declare const components: {
       readonly tablet: 'var(--h-card-padding-none-tablet)';
     };
   };
+  readonly cardContent: {
+    readonly banner: {
+      readonly illustration: {
+        readonly lg: {
+          readonly width: 'var(--h-card-content-banner-illustration-lg-width)';
+        };
+        readonly md: {
+          readonly width: 'var(--h-card-content-banner-illustration-md-width)';
+        };
+        readonly sm: {
+          readonly width: 'var(--h-card-content-banner-illustration-sm-width)';
+        };
+        readonly xl: {
+          readonly width: 'var(--h-card-content-banner-illustration-xl-width)';
+        };
+        readonly xs: {
+          readonly width: 'var(--h-card-content-banner-illustration-xs-width)';
+        };
+      };
+    };
+  };
   readonly carouselControl: {
     readonly gap: 'var(--h-carousel-control-gap)';
     readonly item: {
@@ -284,6 +305,22 @@ export declare const components: {
   readonly divider: {
     readonly borderWidth: 'var(--h-divider-border-width)';
   };
+  readonly drawer: {
+    readonly footer: {
+      readonly horizontal: {
+        readonly gap: 'var(--h-drawer-footer-horizontal-gap)';
+      };
+      readonly padding: 'var(--h-drawer-footer-padding)';
+      readonly vertical: {
+        readonly gap: 'var(--h-drawer-footer-vertical-gap)';
+      };
+    };
+    readonly gap: 'var(--h-drawer-gap)';
+    readonly heading: {
+      readonly gap: 'var(--h-drawer-heading-gap)';
+    };
+    readonly width: 'var(--h-drawer-width)';
+  };
   readonly expandableCard: {
     readonly gapHorizontal: 'var(--h-expandable-card-gap-horizontal)';
     readonly gapVertical: 'var(--h-expandable-card-gap-vertical)';
@@ -354,7 +391,7 @@ export declare const components: {
     };
   };
   readonly illustrations: {
-    readonly mode: 'var(--h-illustrations-mode)';
+    readonly colorMode: 'var(--h-illustrations-color-mode)';
   };
   readonly inlineLink: {
     readonly color: 'var(--h-inline-link-color)';
@@ -810,10 +847,10 @@ export declare const components: {
     readonly paddingVertical: 'var(--h-tooltip-padding-vertical)';
   };
   readonly container: {
-    readonly margin: {
-      readonly desktop: 'var(--h-container-margin-desktop)';
-      readonly mobile: 'var(--h-container-margin-mobile)';
-      readonly tablet: 'var(--h-container-margin-tablet)';
+    readonly marginHorizontal: {
+      readonly desktop: 'var(--h-container-margin-horizontal-desktop)';
+      readonly mobile: 'var(--h-container-margin-horizontal-mobile)';
+      readonly tablet: 'var(--h-container-margin-horizontal-tablet)';
     };
     readonly paddingBottom: {
       readonly desktop: 'var(--h-container-padding-bottom-desktop)';
@@ -884,6 +921,11 @@ export declare const components: {
       };
       readonly fontWeight: 'var(--h-heading-xl-font-weight)';
     };
+  };
+  readonly listSpacing: {
+    readonly desktop: 'var(--h-list-spacing-desktop)';
+    readonly mobile: 'var(--h-list-spacing-mobile)';
+    readonly tablet: 'var(--h-list-spacing-tablet)';
   };
   readonly bodyText: {
     readonly fontWeight: 'var(--h-body-text-font-weight)';

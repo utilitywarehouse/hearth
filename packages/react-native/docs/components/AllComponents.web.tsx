@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import {
+  BellMediumIcon,
   BroadbandMediumIcon,
   CashbackCardMediumIcon,
   ChevronRightMediumIcon,
@@ -9,6 +10,10 @@ import {
   InsuranceMediumIcon,
   MobileMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
+// @ts-ignore
+import SpotBillingDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg';
+// @ts-ignore
+import SpotBillingLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-light.svg';
 import { Pressable, ScrollView, View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import {
@@ -28,6 +33,7 @@ import {
   CarouselItem,
   Center,
   Checkbox,
+  Container,
   CurrencyInput,
   DatePicker,
   DatePickerInput,
@@ -43,6 +49,7 @@ import {
   Icon,
   IconButton,
   IconContainer,
+  IndicatorIconButton,
   InlineLink,
   Input,
   LI,
@@ -51,8 +58,8 @@ import {
   ListItem,
   Modal,
   OL,
-  ProgressStepper,
   ProgressStep,
+  ProgressStepper,
   Radio,
   RadioCard,
   RadioCardGroup,
@@ -67,6 +74,7 @@ import {
   Tabs,
   TabsList,
   Textarea,
+  ThemedImage,
   ToggleButtonCard,
   ToggleButtonCardGroup,
   UL,
@@ -152,7 +160,7 @@ const AllComponents: React.FC = () => {
   return (
     <div className="sb-unstyled">
       <ScrollView contentContainerStyle={styles.container}>
-        <Flex direction="row" wrap="wrap" space="md">
+        <Flex direction="row" wrap="wrap" space="md" style={styles.grid}>
           <ComponentWrapper name="Accordion" link="/?path=/docs/components-accordion--docs">
             <Center flex={1} p="200">
               <Accordion type="single">
@@ -292,6 +300,13 @@ const AllComponents: React.FC = () => {
               </View>
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper name="Container" link="/?path=/docs/primitives-container--docs">
+            <Container space="md" backgroundColor="backgroundSecondary">
+              <Box h={20} bg="blue300" />
+              <Box h={20} bg="blue400" />
+              <Box h={20} bg="blue500" />
+            </Container>
+          </ComponentWrapper>
           <ComponentWrapper name="Currency Input" link="/?path=/docs/forms-currency-input--docs">
             <Center flex={1} padding="200">
               <CurrencyInput />
@@ -385,6 +400,14 @@ const AllComponents: React.FC = () => {
               <Heading>This is a Heading</Heading>
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper
+            name="Indicator Icon Button"
+            link="/?path=/docs/components-indicator-icon-button--docs"
+          >
+            <Center flex={1}>
+              <IndicatorIconButton icon={BellMediumIcon} onPress={() => null} indicator={true} />
+            </Center>
+          </ComponentWrapper>
           <ComponentWrapper name="Icon Button" link="/?path=/docs/components-icon-button--docs">
             <Center flex={1}>
               <IconButton icon={ChevronRightMediumIcon} size="md" onPress={() => null} />
@@ -465,8 +488,8 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="List" link="/?path=/docs/components-list--docs">
             <Center flex={1} p="300">
               <List>
-                <ListItem text="List Item 1" divider onPress={() => console.log('item pressed')} />
-                <ListItem text="List Item 2" onPress={() => console.log('item pressed')} />
+                <ListItem heading="List Item 1" onPress={() => console.log('item pressed')} />
+                <ListItem heading="List Item 2" onPress={() => console.log('item pressed')} />
               </List>
             </Center>
           </ComponentWrapper>
@@ -500,13 +523,16 @@ const AllComponents: React.FC = () => {
               </OL>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Progress Stepper" link="/?path=/docs/components-progress-stepper--docs">
-            <Center flex={1}>
+          <ComponentWrapper
+            name="Progress Stepper"
+            link="/?path=/docs/components-progress-stepper--docs"
+          >
+            <Center flex={1} px="300">
               <ProgressStepper>
-                <ProgressStep id='customer-data' state='complete' />
-                <ProgressStep id='shipping-data' state='complete' />
-                <ProgressStep id='payment-data' state='active' />
-                <ProgressStep id='summary' state='incomplete' />
+                <ProgressStep id="customer-data" state="complete" />
+                <ProgressStep id="shipping-data" state="complete" />
+                <ProgressStep id="payment-data" state="active" />
+                <ProgressStep id="summary" state="incomplete" />
               </ProgressStepper>
             </Center>
           </ComponentWrapper>
@@ -534,7 +560,11 @@ const AllComponents: React.FC = () => {
             link="/?path=/docs/components-section-header--docs"
           >
             <Center flex={1} p="300">
-              <SectionHeader heading="Heading" helperText="Supporting text" linkText="More" />
+              <SectionHeader
+                heading="Heading"
+                helperText="Supporting text"
+                trailingContent={<Link href="#">More</Link>}
+              />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Select" link="/?path=/docs/forms-select--docs">
@@ -601,6 +631,17 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
           <ComponentWrapper
+            name="Themed Image"
+            link="/?path=/docs/utility-components-themed-image--docs"
+          >
+            <Center flex={1} p="300">
+              <ThemedImage
+                light={<SpotBillingLight width={160} height={160} />}
+                dark={<SpotBillingDark width={160} height={160} />}
+              />
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
             name="Toggle Button Card"
             link="/?path=/docs/components-toggle-button-card--docs"
           >
@@ -641,6 +682,17 @@ const AllComponents: React.FC = () => {
 
 const styles = StyleSheet.create(theme => ({
   container: {},
+  grid: {
+    _web: {
+      display: 'grid',
+      gridTemplateColumns: {
+        xs: '1fr',
+        md: 'repeat(3, 1fr)',
+        lg: 'repeat(auto-fit, minmax(300px, 1fr))',
+      },
+      gap: theme.space['200'],
+    },
+  },
   component: {
     borderColor: theme.color.warmWhite[300],
     borderWidth: theme.borderWidth['1'],

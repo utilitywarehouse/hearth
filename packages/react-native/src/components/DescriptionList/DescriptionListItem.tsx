@@ -1,24 +1,17 @@
+import { ErrorCircleSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import { BodyText } from '../BodyText';
-import { Link } from '../Link';
+import Helper from '../Helper/Helper';
 import { useDescriptionListContext } from './DescriptionList.context';
 import type DescriptionListItemProps from './DescriptionListItem.props';
-import { ErrorCircleSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import Helper from '../Helper/Helper';
 
 const DescriptionListItem = ({
   heading,
   description,
   headingWidth,
-  linkText,
-  linkHref,
-  linkIcon,
-  linkIconPosition,
-  linkOnPress,
-  linkTarget,
-  linkShowIcon,
+  trailingContent,
   invalidText,
   style,
   ...props
@@ -49,7 +42,7 @@ const DescriptionListItem = ({
         </View>
         <View style={styles.descriptionWrapper}>
           {descIsText ? <BodyText>{description}</BodyText> : description}
-          {invalidText && (
+          {!!invalidText && (
             <Helper
               validationStatus="invalid"
               showIcon
@@ -59,19 +52,7 @@ const DescriptionListItem = ({
           )}
         </View>
       </View>
-      {linkText ? (
-        <Link
-          href={linkHref}
-          onPress={linkOnPress}
-          target={linkTarget}
-          showIcon={linkShowIcon}
-          icon={linkIcon}
-          iconPosition={linkIconPosition}
-          accessibilityRole="link"
-        >
-          {linkText}
-        </Link>
-      ) : null}
+      {trailingContent ? trailingContent : null}
     </View>
   );
 };
