@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react
 
+## 0.13.9
+
+### Patch Changes
+
+- [#592](https://github.com/utilitywarehouse/hearth/pull/592) [`0e30d9f`](https://github.com/utilitywarehouse/hearth/commit/0e30d9ff4c615fad40591d5a205c9d0e4a9ddd80) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - Adds `ProgressStepper` component
+
+- [#608](https://github.com/utilitywarehouse/hearth/pull/608) [`9e26261`](https://github.com/utilitywarehouse/hearth/commit/9e26261ef8679cc2e4fc30a5a1b83bfda17a41b2) Thanks [@robphoenix](https://github.com/robphoenix)! - Bump icons dependency
+
 ## 0.13.8
 
 ### Patch Changes

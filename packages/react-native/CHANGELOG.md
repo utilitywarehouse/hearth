@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.6.0
+
+### Minor Changes
+
+- [#603](https://github.com/utilitywarehouse/hearth/pull/603) [`3f292e9`](https://github.com/utilitywarehouse/hearth/commit/3f292e9960dc708dd6932cff04671dd7ef375c1a) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Container` component
+
+- [#605](https://github.com/utilitywarehouse/hearth/pull/605) [`f52e0f5`](https://github.com/utilitywarehouse/hearth/commit/f52e0f57eff5f1cfa36dacc45576c08771ca12df) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `ThemedImage` component
+
 ## 0.5.0
 
 ### Minor Changes
