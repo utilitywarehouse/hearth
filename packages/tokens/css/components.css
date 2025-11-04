@@ -86,6 +86,9 @@
   --h-card-selectable-border-width: var(--h-border-width-1);
   --h-card-selectable-border-width-selected: var(--h-border-width-2);
   --h-card-selectable-gap: var(--h-space-200);
+  --h-card-action-content-gap: var(--h-space-150);
+  --h-card-action-content-padding-horizontal: var(--h-space-200);
+  --h-card-action-content-padding-vertical: var(--h-space-150);
   --h-card-content-banner-illustration-lg-width: 100px;
   --h-card-content-banner-illustration-md-width: 80px;
   --h-card-content-banner-illustration-sm-width: 60px;

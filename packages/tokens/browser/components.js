@@ -166,6 +166,13 @@ export const components = {
       tablet: 'var(--h-card-padding-none-tablet)',
     },
   },
+  cardAction: {
+    content: {
+      gap: 'var(--h-card-action-content-gap)',
+      paddingHorizontal: 'var(--h-card-action-content-padding-horizontal)',
+      paddingVertical: 'var(--h-card-action-content-padding-vertical)',
+    },
+  },
   cardContent: {
     banner: {
       illustration: {
