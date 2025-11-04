@@ -86,6 +86,14 @@
   --h-card-selectable-border-width: var(--h-border-width-1);
   --h-card-selectable-border-width-selected: var(--h-border-width-2);
   --h-card-selectable-gap: var(--h-space-200);
+  --h-card-action-content-gap: var(--h-space-150);
+  --h-card-action-content-padding-horizontal: var(--h-space-200);
+  --h-card-action-content-padding-vertical: var(--h-space-150);
+  --h-card-content-banner-illustration-lg-width: 100px;
+  --h-card-content-banner-illustration-md-width: 80px;
+  --h-card-content-banner-illustration-sm-width: 60px;
+  --h-card-content-banner-illustration-xl-width: 120px;
+  --h-card-content-banner-illustration-xs-width: 40px;
   --h-carousel-control-gap: var(--h-space-100);
   --h-carousel-control-item-border-width: var(--h-border-width-2);
   --h-carousel-control-size: var(--h-space-150)px;
@@ -149,6 +157,12 @@
   --h-dialog-gap: var(--h-space-300);
   --h-dialog-padding: var(--h-space-300);
   --h-divider-border-width: var(--h-border-width-1);
+  --h-drawer-footer-horizontal-gap: var(--h-space-200);
+  --h-drawer-footer-padding: var(--h-space-300);
+  --h-drawer-footer-vertical-gap: var(--h-space-100);
+  --h-drawer-gap: var(--h-space-250);
+  --h-drawer-heading-gap: var(--h-space-100);
+  --h-drawer-width: 360px;
   --h-expandable-card-gap-horizontal: var(--h-space-150);
   --h-expandable-card-gap-vertical: var(--h-space-25);
   --h-expandable-card-group-gap: var(--h-space-150);
@@ -189,7 +203,6 @@
   --h-icon-container-sm-padding: var(--h-space-75);
   --h-icon-container-sm-width: var(--h-space-400)px;
   --h-illustrations-color-mode: light;
-  --h-illustrations-mode: light;
   --h-inline-link-color: var(--h-color-blue-700);
   --h-inline-link-color-visited: var(--h-color-purple-700);
   --h-inline-link-inverted-color: var(--h-color-warm-white-50);
@@ -284,17 +297,17 @@
   --h-pill-padding-horizontal: var(--h-space-250);
   --h-pill-padding-vertical: var(--h-space-150);
   --h-progress-bar-bar-color: var(--h-color-warm-white-200);
-  --h-progress-bar-circular-md-bar-width: var(--h-space-150)px;
+  --h-progress-bar-circular-md-bar-width: 12px;
   --h-progress-bar-circular-md-gap: 0;
   --h-progress-bar-circular-md-height: 140px;
   --h-progress-bar-circular-md-label-font-family: var(--h-font-family-body);
   --h-progress-bar-circular-md-label-font-size: var(--h-font-size-300);
   --h-progress-bar-circular-md-label-font-weight: var(--h-font-weight-regular);
   --h-progress-bar-circular-md-label-line-height: var(--h-line-height-500);
-  --h-progress-bar-circular-sm-bar-width: var(--h-space-100);
-  --h-progress-bar-circular-sm-height: var(--h-space-1000)px;
+  --h-progress-bar-circular-sm-bar-width: 8;
+  --h-progress-bar-circular-sm-height: 80px;
   --h-progress-bar-linear-bar-border-radius: var(--h-border-radius-full);
-  --h-progress-bar-linear-bar-height: var(--h-space-150)px;
+  --h-progress-bar-linear-bar-height: 12px;
   --h-progress-bar-linear-gap: var(--h-space-100);
   --h-progress-bar-linear-label-gap: var(--h-space-100);
   --h-progress-bar-progress-danger-color: var(--h-color-red-600);
@@ -422,7 +435,7 @@
   --h-modal-padding-desktop: var(--h-space-600);
   --h-modal-width-desktop: 680px;
   --h-select-item-padding-desktop: var(--h-space-150);
-  --h-container-margin-desktop: var(--h-space-400);
+  --h-container-margin-horizontal-desktop: var(--h-space-400);
   --h-container-padding-bottom-desktop: var(--h-space-600);
   --h-container-padding-top-desktop: var(--h-space-400);
   --h-container-width-desktop: 1096px;
@@ -434,6 +447,7 @@
   --h-heading-sm-line-height-desktop: var(--h-line-height-400);
   --h-heading-xl-font-size-desktop: var(--h-font-size-550);
   --h-heading-xl-line-height-desktop: var(--h-line-height-950);
+  --h-list-spacing-desktop: var(--h-space-200);
   --h-card-padding-mobile: var(--h-space-200);
   --h-card-padding-none-mobile: 0;
   --h-dialog-width-mobile: 360px;
@@ -441,7 +455,7 @@
   --h-modal-padding-mobile: var(--h-space-200);
   --h-modal-width-mobile: 360px;
   --h-select-item-padding-mobile: var(--h-space-50);
-  --h-container-margin-mobile: var(--h-space-200);
+  --h-container-margin-horizontal-mobile: var(--h-space-200);
   --h-container-padding-bottom-mobile: var(--h-space-400);
   --h-container-padding-top-mobile: var(--h-space-300);
   --h-container-width-mobile: 360px;
@@ -491,6 +505,7 @@
   --h-heading-xl-font-size-mobile: var(--h-font-size-400);
   --h-heading-xl-font-weight: var(--h-font-weight-bold);
   --h-heading-xl-line-height-mobile: var(--h-line-height-800);
+  --h-list-spacing-mobile: var(--h-space-200);
   --h-card-padding-tablet: var(--h-space-300);
   --h-card-padding-none-tablet: 0;
   --h-dialog-width-tablet: 504px;
@@ -498,7 +513,7 @@
   --h-modal-padding-tablet: var(--h-space-600);
   --h-modal-width-tablet: 504px;
   --h-select-item-padding-tablet: var(--h-space-150);
-  --h-container-margin-tablet: var(--h-space-400);
+  --h-container-margin-horizontal-tablet: var(--h-space-400);
   --h-container-padding-bottom-tablet: var(--h-space-400);
   --h-container-padding-top-tablet: var(--h-space-300);
   --h-container-width-tablet: 744px;
@@ -510,4 +525,5 @@
   --h-heading-sm-line-height-tablet: var(--h-line-height-400);
   --h-heading-xl-font-size-tablet: var(--h-font-size-400);
   --h-heading-xl-line-height-tablet: var(--h-line-height-800);
+  --h-list-spacing-tablet: var(--h-space-200);
 }
