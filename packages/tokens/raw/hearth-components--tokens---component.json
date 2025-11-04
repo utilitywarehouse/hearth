@@ -556,6 +556,25 @@
         }
       }
     },
+    "card-action": {
+      "content": {
+        "gap": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
+        },
+        "padding-horizontal": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        },
+        "padding-vertical": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
+        }
+      }
+    },
     "card-content": {
       "banner": {
         "illustration": {
@@ -3118,6 +3137,25 @@
           "alias": "{space.200}",
           "type": "number",
           "value": 16
+        }
+      }
+    },
+    "card-action": {
+      "content": {
+        "gap": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
+        },
+        "padding-horizontal": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        },
+        "padding-vertical": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
         }
       }
     },
