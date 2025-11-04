@@ -8,7 +8,7 @@ import {
   BodyText,
   Heading,
   Link,
-  CardAction,
+  CardInteraction,
   Button,
   IconButton,
 } from '@utilitywarehouse/hearth-react';
@@ -158,47 +158,47 @@ export const InteractiveCards: Story = {
             >
               <Heading size="sm">Neutral Card</Heading>
               <BodyText size="md">neutralStrong & emphasis</BodyText>
-              <CardAction asChild>
+              <CardInteraction asChild>
                 <Link href="#">
                   Link
                   <ChevronRightSmallIcon />
                 </Link>
-              </CardAction>
+              </CardInteraction>
             </Card>
             <Card as="li" variant="subtle" colorScheme="neutralStrong" flex="1">
               <Flex direction="column" gap="150">
                 <Heading size="sm">Neutral Card</Heading>
                 <BodyText size="md">neutralStrong & subtle</BodyText>
-                <CardAction asChild>
+                <CardInteraction asChild>
                   <Link href="#">
                     Link
                     <ChevronRightSmallIcon />
                   </Link>
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
             <Card as="li" variant="emphasis" colorScheme="neutralSubtle" flex="1">
               <Flex direction="column" gap="150">
                 <Heading size="sm">Neutral Card</Heading>
                 <BodyText size="md">neutralSubtle & emphasis</BodyText>
-                <CardAction asChild>
+                <CardInteraction asChild>
                   <Link href="#">
                     Link
                     <ChevronRightSmallIcon />
                   </Link>
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
             <Card as="li" variant="subtle" colorScheme="neutralSubtle" flex="1">
               <Flex direction="column" gap="150">
                 <Heading size="sm">Neutral Card</Heading>
                 <BodyText size="md">neutralSubtle & subtle</BodyText>
-                <CardAction asChild>
+                <CardInteraction asChild>
                   <Link href="#">
                     Link
                     <ChevronRightSmallIcon />
                   </Link>
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
           </ul>
@@ -210,36 +210,36 @@ export const InteractiveCards: Story = {
               <Flex direction="column" gap="150" justifyContent="between">
                 <Heading size="sm">Brand Card</Heading>
                 <BodyText size="md">Content</BodyText>
-                <CardAction asChild>
+                <CardInteraction asChild>
                   <Link href="#">
                     Link
                     <ChevronRightSmallIcon />
                   </Link>
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
             <Card as="li" variant="subtle" colorScheme="pig" flex="1">
               <Flex direction="column" gap="150" justifyContent="between">
                 <Heading size="sm">Pig Card</Heading>
                 <BodyText size="md">Content</BodyText>
-                <CardAction asChild>
+                <CardInteraction asChild>
                   <Link href="#">
                     Link
                     <ChevronRightSmallIcon />
                   </Link>
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
             <Card as="li" variant="subtle" colorScheme="highlight" flex="1">
               <Flex direction="column" gap="150" justifyContent="between">
                 <Heading size="sm">Highlight Card</Heading>
                 <BodyText size="md">Content</BodyText>
-                <CardAction asChild>
+                <CardInteraction asChild>
                   <Link href="#">
                     Link
                     <ChevronRightSmallIcon />
                   </Link>
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
           </ul>
@@ -251,60 +251,60 @@ export const InteractiveCards: Story = {
               <Flex direction="column" gap="150" justifyContent="between">
                 <Heading size="sm">Energy Card</Heading>
                 <BodyText size="md">Content</BodyText>
-                <CardAction asChild>
+                <CardInteraction asChild>
                   <Link href="#">
                     Link
                     <ChevronRightSmallIcon />
                   </Link>
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
             <Card as="li" variant="subtle" colorScheme="mobile" flex="1">
               <Flex direction="column" gap="150" justifyContent="between">
                 <Heading size="sm">Mobile Card</Heading>
                 <BodyText size="md">Content</BodyText>
-                <CardAction asChild>
+                <CardInteraction asChild>
                   <Link href="#">
                     Link
                     <ChevronRightSmallIcon />
                   </Link>
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
             <Card as="li" variant="subtle" colorScheme="broadband" flex="1">
               <Flex direction="column" gap="150" justifyContent="between">
                 <Heading size="sm">Broadband Card</Heading>
                 <BodyText size="md">Content</BodyText>
-                <CardAction asChild>
+                <CardInteraction asChild>
                   <Link href="#">
                     Link
                     <ChevronRightSmallIcon />
                   </Link>
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
             <Card as="li" variant="subtle" colorScheme="insurance" flex="1">
               <Flex direction="column" gap="150" justifyContent="between">
                 <Heading size="sm">Insurance Card</Heading>
                 <BodyText size="md">Content</BodyText>
-                <CardAction asChild>
+                <CardInteraction asChild>
                   <Link href="#">
                     Link
                     <ChevronRightSmallIcon />
                   </Link>
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
             <Card as="li" variant="subtle" colorScheme="cashback" flex="1">
               <Flex direction="column" gap="150" justifyContent="between">
                 <Heading size="sm">Cashback Card</Heading>
                 <BodyText size="md">Content</BodyText>
-                <CardAction asChild>
+                <CardInteraction asChild>
                   <Link href="#">
                     Link
                     <ChevronRightSmallIcon />
                   </Link>
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
           </ul>
@@ -343,7 +343,7 @@ export const InteractiveCards: Story = {
                 This whole card is tappable/clickable but the state is applied to the interactive
                 component
               </BodyText>
-              <CardAction>
+              <CardInteraction>
                 <Button
                   variant="solid"
                   colorScheme="highlight"
@@ -351,7 +351,7 @@ export const InteractiveCards: Story = {
                 >
                   Button
                 </Button>
-              </CardAction>
+              </CardInteraction>
             </Card>
             <Card
               as="li"
@@ -363,7 +363,7 @@ export const InteractiveCards: Story = {
             >
               <Flex alignItems="center" justifyContent="between">
                 <Heading size="sm">This is a card with multiple interactions</Heading>
-                <CardAction secondary>
+                <CardInteraction secondary>
                   <IconButton
                     variant="ghost"
                     size="sm"
@@ -372,12 +372,12 @@ export const InteractiveCards: Story = {
                   >
                     <CloseSmallIcon />
                   </IconButton>
-                </CardAction>
+                </CardInteraction>
               </Flex>
               <BodyText size="md">
                 The components within the card are interactive component
               </BodyText>
-              <CardAction>
+              <CardInteraction>
                 <Button
                   variant="solid"
                   colorScheme="highlight"
@@ -385,7 +385,7 @@ export const InteractiveCards: Story = {
                 >
                   Button
                 </Button>
-              </CardAction>
+              </CardInteraction>
             </Card>
           </ul>
         </Flex>
@@ -405,7 +405,7 @@ export const WithoutLink: Story = {
             <Card as="li" direction="column" flex="1" justifyContent="center" gap="300">
               <Flex justifyContent="between" alignItems="center">
                 <DetailText>5%</DetailText>
-                <CardAction secondary>
+                <CardInteraction secondary>
                   <IconButton
                     label="like"
                     variant="ghost"
@@ -414,22 +414,22 @@ export const WithoutLink: Story = {
                   >
                     {likedArgos ? <HeartMediumIcon /> : <HeartOutlineMediumIcon />}
                   </IconButton>
-                </CardAction>
+                </CardInteraction>
               </Flex>
               <Flex direction="column" alignItems="center" gap="200">
                 <Placeholder width="100px" height="50px" />
                 <BodyText size="md" id="title-argos">
                   Argos
                 </BodyText>
-                <CardAction>
+                <CardInteraction>
                   <Link href="https://www.argos.co.uk/" aria-labelledby="title-argos" />
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
             <Card as="li" direction="column" flex="1" justifyContent="center" gap="300">
               <Flex justifyContent="between" alignItems="center">
                 <DetailText>5%</DetailText>
-                <CardAction secondary>
+                <CardInteraction secondary>
                   <IconButton
                     label="like"
                     variant="ghost"
@@ -438,7 +438,7 @@ export const WithoutLink: Story = {
                   >
                     {likedAskItalian ? <HeartMediumIcon /> : <HeartOutlineMediumIcon />}
                   </IconButton>
-                </CardAction>
+                </CardInteraction>
               </Flex>
               <Flex direction="column" alignItems="center" gap="200">
                 <Placeholder width="100px" height="50px" />

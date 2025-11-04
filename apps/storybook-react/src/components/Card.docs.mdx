@@ -35,11 +35,11 @@ When grouping related `Card` components, they should be rendered as list items, 
 ## Interactive Cards
 
 By default the `Card` is static. When adding any interactive actions, such as
-links, or buttons, you should use the `CardAction` component.
+links, or buttons, you should use the `CardInteraction` component.
 
-The `CardAction` component will make the child element's clickable area extend
+The `CardInteraction` component will make the child element's clickable area extend
 to the bounds of the parent `Card`. You can choose to set the `asChild` prop on
-the `CardAction` component, but it's not essential.
+the `CardInteraction` component, but it's not essential.
 
 There should only ever be one main card action in each `Card`.
 
@@ -47,35 +47,35 @@ There should only ever be one main card action in each `Card`.
 <Card>
   <Heading size="sm">{title}</Heading>
   <BodyText size="md">{content}</BodyText>
-  <CardAction asChild>
+  <CardInteraction asChild>
     <Link href="http://...">
       Find out more
       <ChevronRightSmallIcon />
     </Link>
-  </CardAction>
+  </CardInteraction>
 </Card>
 ```
 
 If you need to add secondary actions to the card, use the `secondary` prop on
-the `CardAction` component. This will ensure any secondary actions are
+the `CardInteraction` component. This will ensure any secondary actions are
 clickable, but do not overlay the primary action.
 
 ```tsx
 <Card variant="emphasis" colorScheme="neutralStrong" flex="1" direction="column" gap="150">
   <Flex alignItems="start">
     <Heading size="sm">This is a card with multiple interactions</Heading>
-    <CardAction secondary>
+    <CardInteraction secondary>
       <IconButton variant="ghost" size="sm" label="close" onClick={() => console.log('close')}>
         <CloseSmallIcon />
       </IconButton>
-    </CardAction>
+    </CardInteraction>
   </Flex>
   <BodyText size="md">The components within the card are interactive component</BodyText>
-  <CardAction>
+  <CardInteraction>
     <Button variant="solid" colorScheme="yellow" onClick={() => console.log('action')}>
       Button
     </Button>
-  </CardAction>
+  </CardInteraction>
 </Card>
 ```
 

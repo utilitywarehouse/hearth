@@ -78,8 +78,8 @@ export type { InlineLinkProps } from './components/InlineLink/InlineLink.props';
 
 export { Card } from './components/Card/Card';
 export type { CardProps } from './components/Card/Card.props';
-export { CardAction } from './components/Card/CardAction';
-export type { CardActionProps } from './components/Card/CardAction.props';
+export { CardInteraction } from './components/Card/CardInteraction';
+export type { CardInteractionProps } from './components/Card/CardInteraction.props';
 
 export { Divider } from './components/Divider/Divider';
 export type { DividerProps } from './components/Divider/Divider.props';
