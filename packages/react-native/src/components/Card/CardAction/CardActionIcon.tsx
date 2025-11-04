@@ -1,10 +1,9 @@
 import { ComponentType } from 'react';
 import { Platform, type StyleProp, type ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-
 import { Icon, IconProps } from '../../Icon';
 
-const ListItemTrailingIcon = ({ children, ...props }: IconProps & { as?: ComponentType }) => {
+const CardActionIcon = ({ children, ...props }: IconProps & { as?: ComponentType }) => {
   return (
     <Icon
       {...props}
@@ -19,12 +18,14 @@ const ListItemTrailingIcon = ({ children, ...props }: IconProps & { as?: Compone
   );
 };
 
-ListItemTrailingIcon.displayName = 'ListItemTrailingIcon';
+CardActionIcon.displayName = 'CardActionIcon';
 
 const styles = StyleSheet.create(theme => ({
   icon: {
     color: theme.color.icon.primary,
+    width: 24,
+    height: 24,
   },
 }));
 
-export default ListItemTrailingIcon;
+export default CardActionIcon;

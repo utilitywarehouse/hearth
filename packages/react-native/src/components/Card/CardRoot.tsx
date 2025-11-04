@@ -4,6 +4,72 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
 import { CardContext } from './Card.context';
 import CardProps from './Card.props';
+import CardContent from './CardContent';
+
+// Helper to check if children contain specific component types
+const checkForComponentType = (children: React.ReactNode, displayName: string): boolean => {
+  return React.Children.toArray(children).some(child => {
+    if (React.isValidElement(child)) {
+      // @ts-expect-error - type
+      if (child.type.displayName === displayName) {
+        return true;
+      }
+      const childProps = child.props as any;
+      if (childProps.children) {
+        return checkForComponentType(childProps.children, displayName);
+      }
+    }
+    return false;
+  });
+};
+
+// Helper to filter out specific component types from children
+const filterChildren = (children: React.ReactNode, excludeDisplayName: string): React.ReactNode => {
+  return React.Children.map(children, child => {
+    if (React.isValidElement(child)) {
+      // @ts-expect-error - type
+      if (child.type.displayName === excludeDisplayName) {
+        return null;
+      }
+      const childProps = child.props as any;
+      if (childProps.children) {
+        return React.cloneElement(child, {
+          ...childProps,
+          children: filterChildren(childProps.children, excludeDisplayName),
+        });
+      }
+    }
+    return child;
+  });
+};
+
+// Helper to extract specific component types from children
+const extractChildren = (
+  children: React.ReactNode,
+  includeDisplayName: string,
+  markFirst = false
+): React.ReactNode => {
+  let isFirstFound = false;
+  return React.Children.map(children, child => {
+    if (React.isValidElement(child)) {
+      // @ts-expect-error - type
+      if (child.type.displayName === includeDisplayName) {
+        const isFirst = markFirst && !isFirstFound;
+        if (isFirst) {
+          isFirstFound = true;
+        }
+        return markFirst
+          ? React.cloneElement(child, { ...(child.props || {}), isFirst } as any)
+          : child;
+      }
+      const childProps = child.props as any;
+      if (childProps.children) {
+        return extractChildren(childProps.children, includeDisplayName, markFirst);
+      }
+    }
+    return null;
+  });
+};
 
 // Helper that recursively collects onPress or other defined handlers from descendants
 const collectChildActionHandlers = (
@@ -48,6 +114,8 @@ const Card = ({
 }: CardProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active } = states || { active: false };
   const childActionHandlers = collectChildActionHandlers(children as ReactNode);
+  const hasActions = checkForComponentType(children as ReactNode, 'CardAction');
+  const hasContent = checkForComponentType(children as ReactNode, 'CardContent');
   // Extract style props using our custom hook
   const { computedStyles, remainingProps } = useStyleProps(rest);
 
@@ -62,22 +130,43 @@ const Card = ({
   const inheritChildAction = childActionHandlers.length > 0;
   const showPressed = inheritChildAction || !!onPress;
 
-  styles.useVariants({
-    variant,
-    colorScheme,
-    noPadding,
-    active,
-    showPressed,
-    disabled,
-    space,
-  });
+  const filteredChildren =
+    !hasContent && hasActions ? filterChildren(children as ReactNode, 'CardAction') : null;
+
+  // Check if there's any content besides CardActions
+  const hasOnlyActions =
+    hasActions &&
+    !hasContent &&
+    React.Children.toArray(filteredChildren).filter(child => child != null).length === 0;
+
+  const filteredCardActions =
+    !hasContent && hasActions
+      ? extractChildren(children as ReactNode, 'CardAction', hasOnlyActions)
+      : null;
 
   const context = useMemo(
     () => ({
       pressed: showPressed && active,
+      noPadding,
+      hasActions,
+      hasContent,
+      hasOnlyActions,
+      space,
+      variant,
     }),
-    [showPressed, active]
+    [showPressed, active, hasActions, hasContent, hasOnlyActions, noPadding, space, variant]
   );
+
+  styles.useVariants({
+    variant,
+    colorScheme,
+    noPadding: noPadding || hasActions || hasContent,
+    active,
+    showPressed,
+    disabled,
+    space: hasActions || hasContent ? 'none' : space,
+  });
+
   return (
     <CardContext.Provider value={context}>
       <Pressable
@@ -88,7 +177,20 @@ const Card = ({
         accessible={showPressed}
         importantForAccessibility={showPressed ? 'yes' : 'no'}
       >
-        {children}
+        {!hasContent && hasActions ? (
+          hasOnlyActions ? (
+            (filteredCardActions as ReactNode)
+          ) : filteredChildren ? (
+            <>
+              <CardContent>{filteredChildren as ReactNode}</CardContent>
+              {filteredCardActions as ReactNode}
+            </>
+          ) : (
+            (children as ReactNode)
+          )
+        ) : (
+          (children as ReactNode)
+        )}
       </Pressable>
     </CardContext.Provider>
   );
