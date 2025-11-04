@@ -167,6 +167,9 @@ export type { AlertIconButtonProps } from './components/Alert/AlertIconButton';
 export { CurrencyInput } from './components/CurrencyInput/CurrencyInput';
 export type { CurrencyInputProps } from './components/CurrencyInput/CurrencyInput.props';
 
+export { DateInput } from './components/DateInput/DateInput';
+export type { DateInputProps } from './components/DateInput/DateInput.props';
+
 export { IconContainer } from './components/IconContainer/IconContainer';
 export type { IconContainerProps } from './components/IconContainer/IconContainer.props';
 
