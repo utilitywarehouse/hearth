@@ -74,6 +74,8 @@ import ThumbsDownSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/thumbs-d
 import BillSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/bill-small-icon.svg';
 import MeterSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/meter-small-icon.svg';
 import LocateSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/locate-small-icon.svg';
+import LocationSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/location-small-icon.svg';
+import ListSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/list-small-icon.svg';
 import AddMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/add-medium-icon.svg';
 import CloseMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/close-medium-icon.svg';
 import MinusMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/minus-medium-icon.svg';
@@ -259,6 +261,8 @@ export const svgIcons = [
   BillSmallIcon,
   MeterSmallIcon,
   LocateSmallIcon,
+  LocationSmallIcon,
+  ListSmallIcon,
   AddMediumIcon,
   CloseMediumIcon,
   MinusMediumIcon,
