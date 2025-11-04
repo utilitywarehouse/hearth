@@ -166,6 +166,13 @@ export declare const components: {
       readonly tablet: 'var(--h-card-padding-none-tablet)';
     };
   };
+  readonly cardAction: {
+    readonly content: {
+      readonly gap: 'var(--h-card-action-content-gap)';
+      readonly paddingHorizontal: 'var(--h-card-action-content-padding-horizontal)';
+      readonly paddingVertical: 'var(--h-card-action-content-padding-vertical)';
+    };
+  };
   readonly cardContent: {
     readonly banner: {
       readonly illustration: {
