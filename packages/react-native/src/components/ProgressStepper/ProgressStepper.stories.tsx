@@ -22,26 +22,26 @@ export const Playground: Story = {
     children: (
       <Flex space="xl" direction="column" align="center" style={{ flex: 1, minWidth: 200 }}>
         <ProgressStepper>
-          <ProgressStep id={'1'} state="complete" />
-          <ProgressStep id={'2'} state="complete" />
-          <ProgressStep id={'3'} state="active" />
-          <ProgressStep id={'4'} state="incomplete" />
+          <ProgressStep id={'1'} status="complete" />
+          <ProgressStep id={'2'} status="complete" />
+          <ProgressStep id={'3'} status="active" />
+          <ProgressStep id={'4'} status="incomplete" />
         </ProgressStepper>
         <Flex direction="row" space="lg" style={{ width: '100%' }}>
-          <ProgressStep id={'1'} state="complete" />
+          <ProgressStep id={'1'} status="complete" />
         </Flex>
         <Flex direction="row" space="lg" style={{ width: '100%' }}>
-          <ProgressStep id={'3'} state="active" />
+          <ProgressStep id={'3'} status="active" />
         </Flex>
         <Flex direction="row" space="lg" style={{ width: '100%' }}>
-          <ProgressStep id={'5'} state="incomplete" />
+          <ProgressStep id={'5'} status="incomplete" />
         </Flex>
       </Flex>
     ),
   },
 };
 
-export const StepStates: Story = {
+export const StepStatuses: Story = {
   args: {
     children: <></>,
   },
@@ -53,31 +53,31 @@ export const StepStates: Story = {
       <Flex space="xl" direction="column" align="center">
         <VariantTitle title="All Uncompleted Steps">
           <ProgressStepper {...props}>
-            <ProgressStep id={'1'} state="incomplete" />
-            <ProgressStep id={'2'} state="incomplete" />
-            <ProgressStep id={'3'} state="incomplete" />
+            <ProgressStep id={'1'} status="incomplete" />
+            <ProgressStep id={'2'} status="incomplete" />
+            <ProgressStep id={'3'} status="incomplete" />
           </ProgressStepper>
         </VariantTitle>
         <VariantTitle title="One Active Step">
           <ProgressStepper {...props}>
-            <ProgressStep id={'1'} state="active" />
-            <ProgressStep id={'2'} state="incomplete" />
-            <ProgressStep id={'3'} state="incomplete" />
+            <ProgressStep id={'1'} status="active" />
+            <ProgressStep id={'2'} status="incomplete" />
+            <ProgressStep id={'3'} status="incomplete" />
           </ProgressStepper>
         </VariantTitle>
-        <VariantTitle title="Mixed States">
+        <VariantTitle title="Mixed Statuses">
           <ProgressStepper {...props}>
-            <ProgressStep id={'1'} state="complete" />
-            <ProgressStep id={'2'} state="complete" />
-            <ProgressStep id={'3'} state="active" />
-            <ProgressStep id={'4'} state="incomplete" />
+            <ProgressStep id={'1'} status="complete" />
+            <ProgressStep id={'2'} status="complete" />
+            <ProgressStep id={'3'} status="active" />
+            <ProgressStep id={'4'} status="incomplete" />
           </ProgressStepper>
         </VariantTitle>
         <VariantTitle title="All Completed">
           <ProgressStepper {...props}>
-            <ProgressStep id={'1'} state="complete" />
-            <ProgressStep id={'2'} state="complete" />
-            <ProgressStep id={'3'} state="complete" />
+            <ProgressStep id={'1'} status="complete" />
+            <ProgressStep id={'2'} status="complete" />
+            <ProgressStep id={'3'} status="complete" />
           </ProgressStepper>
         </VariantTitle>
       </Flex>
@@ -95,11 +95,11 @@ export const BasicExample: Story = {
         <Heading size="md">Progress Stepper</Heading>
         <BodyText>Shows progress through multi-step processes</BodyText>
         <ProgressStepper {...props}>
-          <ProgressStep id="services-data" state="complete" />
-          <ProgressStep id="customer-data" state="complete" />
-          <ProgressStep id="shipping-data" state="active" />
-          <ProgressStep id="payment-data" state="incomplete" />
-          <ProgressStep id="summary" state="incomplete" />
+          <ProgressStep id="services-data" status="complete" />
+          <ProgressStep id="customer-data" status="complete" />
+          <ProgressStep id="shipping-data" status="active" />
+          <ProgressStep id="payment-data" status="incomplete" />
+          <ProgressStep id="summary" status="incomplete" />
         </ProgressStepper>
         <BodyText>Step 3 of 5</BodyText>
       </Flex>

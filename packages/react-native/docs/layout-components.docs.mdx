@@ -1,5 +1,6 @@
 import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks';
 import * as BoxStories from '../src/components/Box/Box.stories';
+import * as ContainerStories from '../src/components/Container/Container.stories';
 import * as FlexStories from '../src/components/Flex/Flex.stories';
 import * as GridStories from '../src/components/Grid/Grid.stories';
 import { BackToTopButton, NextPrevPage } from './components';
@@ -15,6 +16,7 @@ upon our design tokens, and providing styling options which make it easier to
 apply design decisions coherently.
 
 - [Box](#box)
+- [Container](#container)
 - [Flex](#flex)
 - [Grid](#grid)
 
@@ -34,6 +36,34 @@ elements within `Flex` and `Grid` containers.
 >
   {...}
 </Box>
+```
+
+## Container
+
+<Canvas of={ContainerStories.Playground} sourceState="none" />
+
+`Container` is a specialised layout component that provides consistent page-level
+spacing using the design system's responsive layout tokens. It automatically applies
+appropriate margin and padding based on the current breakpoint, making it ideal for
+wrapping page content or major sections.
+
+```tsx
+<Container space="lg">
+  <Box>{...}</Box>
+  <Box>{...}</Box>
+</Container>
+```
+
+When you need custom spacing, you can override the defaults while maintaining
+the convenience of the component:
+
+```tsx
+<Container
+  marginHorizontal="none"
+  space="xl"
+>
+  {...}
+</Container>
 ```
 
 ## Flex
