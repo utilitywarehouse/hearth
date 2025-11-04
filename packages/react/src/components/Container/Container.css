@@ -2,18 +2,18 @@
   & :where(.hearth-ContainerInner) {
     width: 100%;
     flex-direction: column;
-    margin-inline: var(--h-container-margin-mobile);
+    margin-inline: var(--h-container-margin-horizontal-mobile);
     padding-top: var(--h-container-padding-top-mobile);
     padding-bottom: var(--h-container-padding-bottom-mobile);
 
     @media (--h-tablet) {
-      margin-inline: var(--h-container-margin-tablet);
+      margin-inline: var(--h-container-margin-horizontal-tablet);
       padding-top: var(--h-container-padding-top-tablet);
       padding-bottom: var(--h-container-padding-bottom-tablet);
     }
 
     @media (--h-desktop) {
-      margin-inline: var(--h-container-margin-desktop);
+      margin-inline: var(--h-container-margin-horizontal-desktop);
       padding-top: var(--h-container-padding-top-desktop);
       padding-bottom: var(--h-container-padding-bottom-desktop);
       max-width: var(--h-container-width-desktop);
