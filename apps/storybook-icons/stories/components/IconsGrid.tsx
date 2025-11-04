@@ -6,7 +6,7 @@ import {
   BodyText,
   Grid,
   UnstyledIconButton,
-  CardAction,
+  CardInteraction,
 } from '@utilitywarehouse/hearth-react';
 
 interface IconsGridProps extends IconProps {
@@ -42,7 +42,7 @@ export const IconsGrid = ({ icons, ...props }: IconsGridProps) => {
               alignItems="center"
               justifyContent="center"
             >
-              <CardAction>
+              <CardInteraction>
                 <UnstyledIconButton
                   label={`${icon.displayName}`}
                   onClick={() => {
@@ -52,7 +52,7 @@ export const IconsGrid = ({ icons, ...props }: IconsGridProps) => {
                 >
                   <IconComponent {...props} />
                 </UnstyledIconButton>
-              </CardAction>
+              </CardInteraction>
               <BodyText as="span">
                 {copied === icon.displayName ? 'Icon Copied!' : icon.displayName}
               </BodyText>
