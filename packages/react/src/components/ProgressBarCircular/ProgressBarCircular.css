@@ -24,19 +24,15 @@
   }
 
   &[data-size='sm'] {
-    width: 80px;
-    height: 80px;
-    /* TODO: Fix it in tokens */
-    /* width: var(--h-progress-bar-circular-sm-height);
-    height: var(--h-progress-bar-circular-sm-height); */
+    width: var(--h-progress-bar-circular-sm-height);
+    height: var(--h-progress-bar-circular-sm-height);
 
     & :where(.hearth-ProgressBarCircularCircle) {
-      cx: calc(80 / 2);
-      cy: calc(80 / 2);
-      /* cx: calc(var(--h-progress-bar-circular-sm-height) / 2);
-      cy: calc(var(--h-progress-bar-circular-sm-height) / 2); */
+      cx: calc(var(--h-progress-bar-circular-sm-height) / 2);
+      cy: calc(var(--h-progress-bar-circular-sm-height) / 2);
       stroke-width: var(--h-progress-bar-circular-sm-bar-width);
-      r: calc(80px / 2 - var(--h-progress-bar-circular-sm-bar-width) / 2);
+      /* TODO: Replace that when bar width for SM is `8px` not 8 */
+      r: calc(var(--h-progress-bar-circular-sm-height) / 2 - 8px / 2);
       /* r: calc(var(--h-progress-bar-circular-sm-height) / 2 - var(--h-progress-bar-circular-sm-bar-width) / 2); */
     }
 

@@ -106,11 +106,15 @@ export const Sizes: Story = {
               <ProgressBarValue value="100%" />
               <ProgressBarLabel label="Complete" />
             </ProgressBarCircular>
+            <ProgressBarCircular size="md" value={120} type="danger">
+              <ProgressBarValue value="120%" />
+              <ProgressBarLabel label="Overuse" />
+            </ProgressBarCircular>
           </Flex>
         </div>
 
         <div>
-          <BodyText marginBottom="100">Size: sm (shows only value, or label if no value)</BodyText>
+          <BodyText marginBottom="100">Size: sm (shows only value)</BodyText>
           <Flex gap="300" alignItems="center">
             <ProgressBarCircular size="sm" value={10} type="default">
               <ProgressBarValue value="10%" />
