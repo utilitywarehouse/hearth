@@ -167,6 +167,32 @@ const Card = ({
     space: hasActions || hasContent ? 'none' : space,
   });
 
+  const renderChildren = () => {
+    // Default: render children as-is
+    if (hasContent || !hasActions) {
+      return children as ReactNode;
+    }
+
+    // Card has actions but no explicit CardContent
+    if (hasOnlyActions) {
+      // Only CardActions, no other content - render actions directly
+      return filteredCardActions as ReactNode;
+    }
+
+    if (filteredChildren) {
+      // Has both actions and other content - wrap content and render actions below
+      return (
+        <>
+          <CardContent>{filteredChildren as ReactNode}</CardContent>
+          {filteredCardActions as ReactNode}
+        </>
+      );
+    }
+
+    // Fallback
+    return children as ReactNode;
+  };
+
   return (
     <CardContext.Provider value={context}>
       <Pressable
@@ -177,20 +203,7 @@ const Card = ({
         accessible={showPressed}
         importantForAccessibility={showPressed ? 'yes' : 'no'}
       >
-        {!hasContent && hasActions ? (
-          hasOnlyActions ? (
-            (filteredCardActions as ReactNode)
-          ) : filteredChildren ? (
-            <>
-              <CardContent>{filteredChildren as ReactNode}</CardContent>
-              {filteredCardActions as ReactNode}
-            </>
-          ) : (
-            (children as ReactNode)
-          )
-        ) : (
-          (children as ReactNode)
-        )}
+        {renderChildren()}
       </Pressable>
     </CardContext.Provider>
   );

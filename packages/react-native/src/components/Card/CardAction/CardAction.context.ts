@@ -18,8 +18,5 @@ export const CardActionContext = createContext<ICardActionContext>({
 
 export const useCardActionContext = () => {
   const context = useContext(CardActionContext);
-  if (!context) {
-    throw new Error('CardAction compound components must be used within a CardAction component');
-  }
   return context;
 };

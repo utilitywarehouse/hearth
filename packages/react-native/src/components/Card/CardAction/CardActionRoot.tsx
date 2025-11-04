@@ -155,10 +155,10 @@ CardActionRoot.displayName = 'CardActionRoot';
 
 const styles = StyleSheet.create(theme => ({
   container: {
-    paddingVertical: theme.space['150'],
-    paddingHorizontal: theme.components.list.item.functional.padding,
+    paddingVertical: theme.components.cardAction.content.paddingVertical,
+    paddingHorizontal: theme.components.cardAction.content.paddingHorizontal,
     flexDirection: 'row',
-    gap: theme.components.list.item.gap,
+    gap: theme.components.cardAction.content.gap,
     borderTopWidth: theme.borderWidth[1],
     borderColor: theme.color.border.strong,
     width: '100%',
