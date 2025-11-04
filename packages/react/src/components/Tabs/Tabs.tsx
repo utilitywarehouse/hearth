@@ -15,7 +15,7 @@ type TabsElement = ElementRef<'div'>;
 export const Tabs = React.forwardRef<TabsElement, TabsProps>((props, ref) => {
   const {
     className,
-    activationMode = 'manual',
+    activationMode = 'automatic',
     ...tabsProps
   } = extractProps(props, tabsPropDefs, marginPropDefs) as TabsProps & {
     activationMode?: 'automatic' | 'manual';

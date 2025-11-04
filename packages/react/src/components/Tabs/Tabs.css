@@ -12,6 +12,11 @@
 .hearth-TabsList > .hearth-scroll {
   overflow: auto hidden;
   width: 100%;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .hearth-TabsList .hearth-TabsContainer {
@@ -88,6 +93,10 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
+
+  & > button {
+    background-color: var(--h-background-secondary);
+  }
 }
 
 .hearth-TabsListScrollButtonLeft {

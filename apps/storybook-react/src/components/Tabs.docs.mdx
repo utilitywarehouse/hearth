@@ -96,6 +96,12 @@ The `activationMode` prop controls how keyboard focus activates a tab:
 </Tabs>
 ```
 
+### Performance considerations
+
+**Use `manual` mode when tab panels contain heavily loaded content** that might cause lag during automatic activation. This prevents automatic panel switching as users navigate with arrow keys, avoiding performance issues.
+
+However, **prefetching panel data is the preferred solution** over relying on manual activation mode. Consider preloading content for adjacent tabs to provide a smooth experience while maintaining the benefits of automatic activation.
+
 ## Accessibility
 
 - The `Tabs` root provides the `tablist` role; each `Tab` is a `tab`; each `TabContent` is a `tabpanel`.
