@@ -3,5 +3,4 @@
  */
 export default {
   colorMode: 'light',
-  mode: 'light',
 };

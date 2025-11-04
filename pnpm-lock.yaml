@@ -579,7 +579,7 @@ importers:
         specifier: workspace:*
         version: link:../../packages/react
       '@utilitywarehouse/hearth-react-icons':
-        specifier: workspace:^0.7.0
+        specifier: workspace:^0.7.1
         version: link:../../packages/react-icons
       react:
         specifier: 19.1.0
@@ -663,6 +663,9 @@ importers:
       '@utilitywarehouse/hearth-react-native-icons':
         specifier: workspace:^
         version: link:../../packages/react-native-icons
+      '@utilitywarehouse/hearth-svg-assets':
+        specifier: workspace:^
+        version: link:../../packages/svg-assets
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:^
         version: link:../../packages/tokens
@@ -742,6 +745,9 @@ importers:
       eslint-plugin-storybook:
         specifier: 9.1.6
         version: 9.1.6(eslint@9.34.0)(storybook@9.1.6(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.9.2)
+      react-native-svg-transformer:
+        specifier: ^1.5.1
+        version: 1.5.1(react-native-svg@15.12.1(react-native@0.81.1(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.1(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(typescript@5.9.2)
       typescript:
         specifier: 5.9.2
         version: 5.9.2
@@ -1049,7 +1055,7 @@ importers:
         version: 9.1.6(@vitest/browser@3.2.4)(@vitest/runner@3.2.4)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.1.6(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)))(vitest@3.2.4)
       '@storybook/react-native-web-vite':
         specifier: ^9.1.6
-        version: 9.1.6(react-dom@19.1.0(react@19.1.0))(react-native-web@0.20.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)(storybook@9.1.6(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.7.3)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1))
+        version: 9.1.6(react-dom@19.1.0(react@19.1.0))(react-native-web@0.20.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)(rollup@4.52.5)(storybook@9.1.6(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.7.3)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1))
       '@types/prismjs':
         specifier: ^1.26.5
         version: 1.26.5
@@ -1065,6 +1071,9 @@ importers:
       '@utilitywarehouse/hearth-react-native-icons':
         specifier: workspace:^
         version: link:../react-native-icons
+      '@utilitywarehouse/hearth-svg-assets':
+        specifier: workspace:^
+        version: link:../svg-assets
       '@utilitywarehouse/hearth-tokens':
         specifier: workspace:^
         version: link:../tokens
@@ -1125,6 +1134,9 @@ importers:
       vite:
         specifier: ^7.1.3
         version: 7.1.3(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)
+      vite-plugin-svgr:
+        specifier: ^4.5.0
+        version: 4.5.0(rollup@4.52.5)(typescript@5.7.3)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1))
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(@types/debug@4.1.12)(@vitest/browser@3.2.4)(jsdom@24.1.3)(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)
@@ -4818,6 +4830,15 @@ packages:
       rollup:
         optional: true
 
+  '@rollup/pluginutils@5.3.0':
+    resolution: {integrity: sha512-5EdhGZtnu3V88ces7s53hhfK5KSASnJZv8Lulpc04cWO3REESroJXg73DFsOmgbU2BhwV0E20bu2IDZb3VKW4Q==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      rollup: ^1.20.0||^2.0.0||^3.0.0||^4.0.0
+    peerDependenciesMeta:
+      rollup:
+        optional: true
+
   '@rollup/rollup-android-arm-eabi@4.31.0':
     resolution: {integrity: sha512-9NrR4033uCbUBRgvLcBrJofa2KY9DzxL2UKZ1/4xA/mnTNyhZCWBuD8X3tPm1n4KxcgaraOYgrFKSgwjASfmlA==}
     cpu: [arm]
@@ -5258,8 +5279,20 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
+  '@svgr/babel-plugin-add-jsx-attribute@8.0.0':
+    resolution: {integrity: sha512-b9MIk7yhdS1pMCZM8VeNfUlSKVRhsHZNMl5O9SfaX0l0t5wjdgu4IDzGB8bpnGBBOjGST3rRFVsaaEtI4W6f7g==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
   '@svgr/babel-plugin-remove-jsx-attribute@7.0.0':
     resolution: {integrity: sha512-iiZaIvb3H/c7d3TH2HBeK91uI2rMhZNwnsIrvd7ZwGLkFw6mmunOCoVnjdYua662MqGFxlN9xTq4fv9hgR4VXQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
+  '@svgr/babel-plugin-remove-jsx-attribute@8.0.0':
+    resolution: {integrity: sha512-BcCkm/STipKvbCl6b7QFrMh/vx00vIP63k2eM66MfHJzPr6O2U0jYEViXkHJWqXqQYjdeA9cuCl5KWmlwjDvbA==}
     engines: {node: '>=14'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -5270,8 +5303,20 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
+  '@svgr/babel-plugin-remove-jsx-empty-expression@8.0.0':
+    resolution: {integrity: sha512-5BcGCBfBxB5+XSDSWnhTThfI9jcO5f0Ai2V24gZpG+wXF14BzwxxdDb4g6trdOux0rhibGs385BeFMSmxtS3uA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
   '@svgr/babel-plugin-replace-jsx-attribute-value@7.0.0':
     resolution: {integrity: sha512-i6MaAqIZXDOJeikJuzocByBf8zO+meLwfQ/qMHIjCcvpnfvWf82PFvredEZElErB5glQFJa2KVKk8N2xV6tRRA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
+  '@svgr/babel-plugin-replace-jsx-attribute-value@8.0.0':
+    resolution: {integrity: sha512-KVQ+PtIjb1BuYT3ht8M5KbzWBhdAjjUPdlMtpuw/VjT8coTrItWX6Qafl9+ji831JaJcu6PJNKCV0bp01lBNzQ==}
     engines: {node: '>=14'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -5282,8 +5327,20 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
+  '@svgr/babel-plugin-svg-dynamic-title@8.0.0':
+    resolution: {integrity: sha512-omNiKqwjNmOQJ2v6ge4SErBbkooV2aAWwaPFs2vUY7p7GhVkzRkJ00kILXQvRhA6miHnNpXv7MRnnSjdRjK8og==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
   '@svgr/babel-plugin-svg-em-dimensions@7.0.0':
     resolution: {integrity: sha512-tNDcBa+hYn0gO+GkP/AuNKdVtMufVhU9fdzu+vUQsR18RIJ9RWe7h/pSBY338RO08wArntwbDk5WhQBmhf2PaA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
+  '@svgr/babel-plugin-svg-em-dimensions@8.0.0':
+    resolution: {integrity: sha512-mURHYnu6Iw3UBTbhGwE/vsngtCIbHE43xCRK7kCw4t01xyGqb2Pd+WXekRRoFOBIY29ZoOhUCTEweDMdrjfi9g==}
     engines: {node: '>=14'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -5294,14 +5351,32 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
+  '@svgr/babel-plugin-transform-react-native-svg@8.1.0':
+    resolution: {integrity: sha512-Tx8T58CHo+7nwJ+EhUwx3LfdNSG9R2OKfaIXXs5soiy5HtgoAEkDay9LIimLOcG8dJQH1wPZp/cnAv6S9CrR1Q==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
   '@svgr/babel-plugin-transform-svg-component@7.0.0':
     resolution: {integrity: sha512-CcFECkDj98daOg9jE3Bh3uyD9kzevCAnZ+UtzG6+BQG/jOQ2OA3jHnX6iG4G1MCJkUQFnUvEv33NvQfqrb/F3A==}
     engines: {node: '>=12'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
 
+  '@svgr/babel-plugin-transform-svg-component@8.0.0':
+    resolution: {integrity: sha512-DFx8xa3cZXTdb/k3kfPeaixecQLgKh5NVBMwD0AQxOzcZawK4oo1Jh9LbrcACUivsCA7TLG8eeWgrDXjTMhRmw==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
   '@svgr/babel-preset@7.0.0':
     resolution: {integrity: sha512-EX/NHeFa30j5UjldQGVQikuuQNHUdGmbh9kEpBKofGUtF0GUPJ4T4rhoYiqDAOmBOxojyot36JIFiDUHUK1ilQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+
+  '@svgr/babel-preset@8.1.0':
+    resolution: {integrity: sha512-7EYDbHE7MxHpv4sxvnVPngw5fuR6pw79SkcrILHJ/iMpuKySNCl5W1qcwPEpU+LgyRXOaAFgH0KhwD18wwg6ug==}
     engines: {node: '>=14'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
@@ -5315,13 +5390,27 @@ packages:
     resolution: {integrity: sha512-ztAoxkaKhRVloa3XydohgQQCb0/8x9T63yXovpmHzKMkHO6pkjdsIAWKOS4bE95P/2quVh1NtjSKlMRNzSBffw==}
     engines: {node: '>=14'}
 
+  '@svgr/core@8.1.0':
+    resolution: {integrity: sha512-8QqtOQT5ACVlmsvKOJNEaWmRPmcojMOzCz4Hs2BGG/toAp/K38LcsMRyLp349glq5AzJbCEeimEoxaX6v/fLrA==}
+    engines: {node: '>=14'}
+
   '@svgr/hast-util-to-babel-ast@7.0.0':
     resolution: {integrity: sha512-42Ej9sDDEmsJKjrfQ1PHmiDiHagh/u9AHO9QWbeNx4KmD9yS5d1XHmXUNINfUcykAU+4431Cn+k6Vn5mWBYimQ==}
+    engines: {node: '>=14'}
+
+  '@svgr/hast-util-to-babel-ast@8.0.0':
+    resolution: {integrity: sha512-EbDKwO9GpfWP4jN9sGdYwPBU0kdomaPIL2Eu4YwmgP+sJeXT+L7bMwJUBnhzfH8Q2qMBqZ4fJwpCyYsAN3mt2Q==}
     engines: {node: '>=14'}
 
   '@svgr/plugin-jsx@7.0.0':
     resolution: {integrity: sha512-SWlTpPQmBUtLKxXWgpv8syzqIU8XgFRvyhfkam2So8b3BE0OS0HPe5UfmlJ2KIC+a7dpuuYovPR2WAQuSyMoPw==}
     engines: {node: '>=14'}
+
+  '@svgr/plugin-jsx@8.1.0':
+    resolution: {integrity: sha512-0xiIyBsLlr8quN+WyuxooNW9RJ0Dpr8uOnH/xrCVO8GLUcwHISwj1AG0k+LFzteTkAA0GbX0kj9q6Dk70PTiPA==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@svgr/core': '*'
 
   '@svgr/plugin-prettier@7.0.0':
     resolution: {integrity: sha512-ptHxDExQjxmMeHwgMYGDVuWVrdfd9DF2fSyQAUK8SeqEFfzcErEHTPK7MmzXbnCbxvXiSzymZXc/qqh8Wy/ARw==}
@@ -5331,6 +5420,12 @@ packages:
 
   '@svgr/plugin-svgo@7.0.0':
     resolution: {integrity: sha512-263znzlu3qTKj71/ot5G9l2vpL4CW+pr2IexBFIwwB+fRAXE9Xnw2rUFgE6P4+37N9siOuC4lKkgBfUCOLFRKQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@svgr/core': '*'
+
+  '@svgr/plugin-svgo@8.1.0':
+    resolution: {integrity: sha512-Ywtl837OGO9pTLIN/onoWLmDQ4zFUycI1g76vuKGEz6evR/ZTJlJuz3G/fIkb6OVBJ2g0o6CGJzaEjfmEo3AHA==}
     engines: {node: '>=14'}
     peerDependencies:
       '@svgr/core': '*'
@@ -10050,6 +10145,9 @@ packages:
   path-browserify@1.0.1:
     resolution: {integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==}
 
+  path-dirname@1.0.2:
+    resolution: {integrity: sha512-ALzNPpyNq9AqXMBjeymIjFDAkAFH06mHJH/cSBHAgU0s4vfpBn6b2nf8tiRLvagKD8RbTpq2FKTBg7cl9l3c7Q==}
+
   path-exists@3.0.0:
     resolution: {integrity: sha512-bpC7GYwiDYQ4wYLe+FA8lhRjhQCMcQGuSgGGqDkg/QerRWw9CmGRT0iSOVRSZJ29NMLZgIzqaljJ63oaL4NIJQ==}
     engines: {node: '>=4'}
@@ -10960,6 +11058,12 @@ packages:
       react: 19.1.0
       react-native: '*'
 
+  react-native-svg-transformer@1.5.1:
+    resolution: {integrity: sha512-dFvBNR8A9VPum9KCfh+LE49YiJEF8zUSnEFciKQroR/bEOhlPoZA0SuQ0qNk7m2iZl2w59FYjdRe0pMHWMDl0Q==}
+    peerDependencies:
+      react-native: '>=0.59.0'
+      react-native-svg: '>=12.0.0'
+
   react-native-svg@12.5.1:
     resolution: {integrity: sha512-c374ENsq2MWCfr+7jC7TGwSeOAuC1Dp0osh2pw8PjpYFxmmB/toFIwcnCLz+SgBd6iLJClRhbATealqM05HOGg==}
     peerDependencies:
@@ -11517,6 +11621,9 @@ packages:
   slugify@1.6.6:
     resolution: {integrity: sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==}
     engines: {node: '>=8.0.0'}
+
+  snake-case@3.0.4:
+    resolution: {integrity: sha512-LAOh4z89bGQvl9pFfNF8V146i7o7/CqFPbqzYgP+yYzDIDeS9HaNFtXABamRW+AQzEVODcvE79ljJ+8a9YSdMg==}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -12480,6 +12587,11 @@ packages:
       react-native-web: '*'
       typescript: ^5
       vite: ^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
+
+  vite-plugin-svgr@4.5.0:
+    resolution: {integrity: sha512-W+uoSpmVkSmNOGPSsDCWVW/DDAyv+9fap9AZXBvWiQqrboJ08j2vh0tFxTD/LjwqwAd3yYSVJgm54S/1GhbdnA==}
+    peerDependencies:
+      vite: '>=2.6.0'
 
   vite-tsconfig-paths@5.1.4:
     resolution: {integrity: sha512-cYj0LRuLV2c2sMqhqhGpaO3LretdtMn/BVX4cPLanIZuwwrkVl+lK84E/miEXkCHWXuq65rhNN4rXsBcOB3S4w==}
@@ -14425,7 +14537,7 @@ snapshots:
       '@babel/parser': 7.26.10
       '@babel/template': 7.26.9
       '@babel/types': 7.26.10
-      debug: 4.4.1
+      debug: 4.4.1(supports-color@8.1.1)
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -14474,7 +14586,7 @@ snapshots:
       '@babel/parser': 7.28.3
       '@babel/template': 7.27.2
       '@babel/types': 7.28.2
-      debug: 4.4.1
+      debug: 4.4.1(supports-color@8.1.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -18538,6 +18650,14 @@ snapshots:
     optionalDependencies:
       rollup: 4.52.5
 
+  '@rollup/pluginutils@5.3.0(rollup@4.52.5)':
+    dependencies:
+      '@types/estree': 1.0.8
+      estree-walker: 2.0.2
+      picomatch: 4.0.3
+    optionalDependencies:
+      rollup: 4.52.5
+
   '@rollup/rollup-android-arm-eabi@4.31.0':
     optional: true
 
@@ -18912,11 +19032,11 @@ snapshots:
       - react-dom
       - typescript
 
-  '@storybook/react-native-web-vite@9.1.6(react-dom@19.1.0(react@19.1.0))(react-native-web@0.20.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)(storybook@9.1.6(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.7.3)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1))':
+  '@storybook/react-native-web-vite@9.1.6(react-dom@19.1.0(react@19.1.0))(react-native-web@0.20.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)(rollup@4.52.5)(storybook@9.1.6(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.7.3)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1))':
     dependencies:
       '@storybook/builder-vite': 9.1.6(storybook@9.1.6(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)))(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1))
       '@storybook/react': 9.1.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.1.6(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.7.3)
-      '@storybook/react-vite': 9.1.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.1.6(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.7.3)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1))
+      '@storybook/react-vite': 9.1.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.52.5)(storybook@9.1.6(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.7.3)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1))
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
       react-native: 0.80.0(@babel/core@7.28.3)(@types/react@19.1.11)(react@19.1.0)
@@ -18981,7 +19101,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@storybook/react-vite@9.1.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.1.6(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.7.3)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1))':
+  '@storybook/react-vite@9.1.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(rollup@4.52.5)(storybook@9.1.6(@testing-library/dom@10.4.0)(prettier@3.4.2)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)))(typescript@5.7.3)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1))':
     dependencies:
       '@joshwooding/vite-plugin-react-docgen-typescript': 0.6.1(typescript@5.7.3)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1))
       '@rollup/pluginutils': 5.1.4(rollup@4.52.5)
@@ -19042,7 +19162,15 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.10
 
+  '@svgr/babel-plugin-add-jsx-attribute@8.0.0(@babel/core@7.26.10)':
+    dependencies:
+      '@babel/core': 7.26.10
+
   '@svgr/babel-plugin-remove-jsx-attribute@7.0.0(@babel/core@7.26.10)':
+    dependencies:
+      '@babel/core': 7.26.10
+
+  '@svgr/babel-plugin-remove-jsx-attribute@8.0.0(@babel/core@7.26.10)':
     dependencies:
       '@babel/core': 7.26.10
 
@@ -19050,7 +19178,15 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.10
 
+  '@svgr/babel-plugin-remove-jsx-empty-expression@8.0.0(@babel/core@7.26.10)':
+    dependencies:
+      '@babel/core': 7.26.10
+
   '@svgr/babel-plugin-replace-jsx-attribute-value@7.0.0(@babel/core@7.26.10)':
+    dependencies:
+      '@babel/core': 7.26.10
+
+  '@svgr/babel-plugin-replace-jsx-attribute-value@8.0.0(@babel/core@7.26.10)':
     dependencies:
       '@babel/core': 7.26.10
 
@@ -19058,7 +19194,15 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.10
 
+  '@svgr/babel-plugin-svg-dynamic-title@8.0.0(@babel/core@7.26.10)':
+    dependencies:
+      '@babel/core': 7.26.10
+
   '@svgr/babel-plugin-svg-em-dimensions@7.0.0(@babel/core@7.26.10)':
+    dependencies:
+      '@babel/core': 7.26.10
+
+  '@svgr/babel-plugin-svg-em-dimensions@8.0.0(@babel/core@7.26.10)':
     dependencies:
       '@babel/core': 7.26.10
 
@@ -19066,7 +19210,15 @@ snapshots:
     dependencies:
       '@babel/core': 7.26.10
 
+  '@svgr/babel-plugin-transform-react-native-svg@8.1.0(@babel/core@7.26.10)':
+    dependencies:
+      '@babel/core': 7.26.10
+
   '@svgr/babel-plugin-transform-svg-component@7.0.0(@babel/core@7.26.10)':
+    dependencies:
+      '@babel/core': 7.26.10
+
+  '@svgr/babel-plugin-transform-svg-component@8.0.0(@babel/core@7.26.10)':
     dependencies:
       '@babel/core': 7.26.10
 
@@ -19081,6 +19233,18 @@ snapshots:
       '@svgr/babel-plugin-svg-em-dimensions': 7.0.0(@babel/core@7.26.10)
       '@svgr/babel-plugin-transform-react-native-svg': 7.0.0(@babel/core@7.26.10)
       '@svgr/babel-plugin-transform-svg-component': 7.0.0(@babel/core@7.26.10)
+
+  '@svgr/babel-preset@8.1.0(@babel/core@7.26.10)':
+    dependencies:
+      '@babel/core': 7.26.10
+      '@svgr/babel-plugin-add-jsx-attribute': 8.0.0(@babel/core@7.26.10)
+      '@svgr/babel-plugin-remove-jsx-attribute': 8.0.0(@babel/core@7.26.10)
+      '@svgr/babel-plugin-remove-jsx-empty-expression': 8.0.0(@babel/core@7.26.10)
+      '@svgr/babel-plugin-replace-jsx-attribute-value': 8.0.0(@babel/core@7.26.10)
+      '@svgr/babel-plugin-svg-dynamic-title': 8.0.0(@babel/core@7.26.10)
+      '@svgr/babel-plugin-svg-em-dimensions': 8.0.0(@babel/core@7.26.10)
+      '@svgr/babel-plugin-transform-react-native-svg': 8.1.0(@babel/core@7.26.10)
+      '@svgr/babel-plugin-transform-svg-component': 8.0.0(@babel/core@7.26.10)
 
   '@svgr/cli@7.0.0(typescript@5.6.3)':
     dependencies:
@@ -19107,9 +19271,36 @@ snapshots:
       - supports-color
       - typescript
 
+  '@svgr/core@8.1.0(typescript@5.7.3)':
+    dependencies:
+      '@babel/core': 7.26.10
+      '@svgr/babel-preset': 8.1.0(@babel/core@7.26.10)
+      camelcase: 6.3.0
+      cosmiconfig: 8.3.6(typescript@5.7.3)
+      snake-case: 3.0.4
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
+  '@svgr/core@8.1.0(typescript@5.9.2)':
+    dependencies:
+      '@babel/core': 7.26.10
+      '@svgr/babel-preset': 8.1.0(@babel/core@7.26.10)
+      camelcase: 6.3.0
+      cosmiconfig: 8.3.6(typescript@5.9.2)
+      snake-case: 3.0.4
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
   '@svgr/hast-util-to-babel-ast@7.0.0':
     dependencies:
       '@babel/types': 7.26.10
+      entities: 4.5.0
+
+  '@svgr/hast-util-to-babel-ast@8.0.0':
+    dependencies:
+      '@babel/types': 7.28.4
       entities: 4.5.0
 
   '@svgr/plugin-jsx@7.0.0':
@@ -19117,6 +19308,26 @@ snapshots:
       '@babel/core': 7.26.10
       '@svgr/babel-preset': 7.0.0(@babel/core@7.26.10)
       '@svgr/hast-util-to-babel-ast': 7.0.0
+      svg-parser: 2.0.4
+    transitivePeerDependencies:
+      - supports-color
+
+  '@svgr/plugin-jsx@8.1.0(@svgr/core@8.1.0(typescript@5.7.3))':
+    dependencies:
+      '@babel/core': 7.26.10
+      '@svgr/babel-preset': 8.1.0(@babel/core@7.26.10)
+      '@svgr/core': 8.1.0(typescript@5.7.3)
+      '@svgr/hast-util-to-babel-ast': 8.0.0
+      svg-parser: 2.0.4
+    transitivePeerDependencies:
+      - supports-color
+
+  '@svgr/plugin-jsx@8.1.0(@svgr/core@8.1.0(typescript@5.9.2))':
+    dependencies:
+      '@babel/core': 7.26.10
+      '@svgr/babel-preset': 8.1.0(@babel/core@7.26.10)
+      '@svgr/core': 8.1.0(typescript@5.9.2)
+      '@svgr/hast-util-to-babel-ast': 8.0.0
       svg-parser: 2.0.4
     transitivePeerDependencies:
       - supports-color
@@ -19131,6 +19342,15 @@ snapshots:
     dependencies:
       '@svgr/core': 7.0.0(typescript@5.6.3)
       cosmiconfig: 8.3.6(typescript@5.6.3)
+      deepmerge: 4.3.1
+      svgo: 3.3.2
+    transitivePeerDependencies:
+      - typescript
+
+  '@svgr/plugin-svgo@8.1.0(@svgr/core@8.1.0(typescript@5.9.2))(typescript@5.9.2)':
+    dependencies:
+      '@svgr/core': 8.1.0(typescript@5.9.2)
+      cosmiconfig: 8.3.6(typescript@5.9.2)
       deepmerge: 4.3.1
       svgo: 3.3.2
     transitivePeerDependencies:
@@ -19248,7 +19468,7 @@ snapshots:
 
   '@types/eslint@9.6.1':
     dependencies:
-      '@types/estree': 1.0.7
+      '@types/estree': 1.0.8
       '@types/json-schema': 7.0.15
 
   '@types/estree@1.0.6': {}
@@ -19524,7 +19744,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/tsconfig-utils': 8.41.0(typescript@5.6.3)
       '@typescript-eslint/types': 8.41.0
-      debug: 4.4.1
+      debug: 4.4.1(supports-color@8.1.1)
       typescript: 5.6.3
     transitivePeerDependencies:
       - supports-color
@@ -19662,7 +19882,7 @@ snapshots:
       '@typescript-eslint/tsconfig-utils': 8.41.0(typescript@5.6.3)
       '@typescript-eslint/types': 8.41.0
       '@typescript-eslint/visitor-keys': 8.41.0
-      debug: 4.4.1
+      debug: 4.4.1(supports-color@8.1.1)
       fast-glob: 3.3.3
       is-glob: 4.0.3
       minimatch: 9.0.5
@@ -21195,6 +21415,24 @@ snapshots:
     optionalDependencies:
       typescript: 5.6.3
 
+  cosmiconfig@8.3.6(typescript@5.7.3):
+    dependencies:
+      import-fresh: 3.3.0
+      js-yaml: 4.1.0
+      parse-json: 5.2.0
+      path-type: 4.0.0
+    optionalDependencies:
+      typescript: 5.7.3
+
+  cosmiconfig@8.3.6(typescript@5.9.2):
+    dependencies:
+      import-fresh: 3.3.0
+      js-yaml: 4.1.0
+      parse-json: 5.2.0
+      path-type: 4.0.0
+    optionalDependencies:
+      typescript: 5.9.2
+
   cosmiconfig@9.0.0(typescript@5.6.3):
     dependencies:
       env-paths: 2.2.1
@@ -21511,10 +21749,6 @@ snapshots:
       ms: 2.1.2
 
   debug@4.4.0:
-    dependencies:
-      ms: 2.1.3
-
-  debug@4.4.1:
     dependencies:
       ms: 2.1.3
 
@@ -21968,7 +22202,7 @@ snapshots:
 
   esbuild-register@3.6.0(esbuild@0.25.5):
     dependencies:
-      debug: 4.4.1
+      debug: 4.4.1(supports-color@8.1.1)
       esbuild: 0.25.5
     transitivePeerDependencies:
       - supports-color
@@ -25276,7 +25510,7 @@ snapshots:
   micromark@4.0.1:
     dependencies:
       '@types/debug': 4.1.12
-      debug: 4.4.1
+      debug: 4.4.1(supports-color@8.1.1)
       decode-named-character-reference: 1.0.2
       devlop: 1.1.0
       micromark-core-commonmark: 2.0.2
@@ -25775,6 +26009,8 @@ snapshots:
       yaml: 2.7.0
 
   path-browserify@1.0.1: {}
+
+  path-dirname@1.0.2: {}
 
   path-exists@3.0.0: {}
 
@@ -26970,6 +27206,18 @@ snapshots:
       react-native-is-edge-to-edge: 1.2.1(react-native@0.81.1(@babel/core@7.28.4)(@react-native/metro-config@0.81.1(@babel/core@7.28.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       warn-once: 0.1.1
 
+  react-native-svg-transformer@1.5.1(react-native-svg@15.12.1(react-native@0.81.1(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.1(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(typescript@5.9.2):
+    dependencies:
+      '@svgr/core': 8.1.0(typescript@5.9.2)
+      '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@5.9.2))
+      '@svgr/plugin-svgo': 8.1.0(@svgr/core@8.1.0(typescript@5.9.2))(typescript@5.9.2)
+      path-dirname: 1.0.2
+      react-native: 0.81.1(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0)
+      react-native-svg: 15.12.1(react-native@0.81.1(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
   react-native-svg@12.5.1(react-native@0.81.1(@babel/core@7.28.4)(@react-native/metro-config@0.81.1(@babel/core@7.28.4))(@types/react@18.3.18)(react@19.1.0))(react@19.1.0):
     dependencies:
       css-select: 5.1.0
@@ -27927,6 +28175,11 @@ snapshots:
       is-fullwidth-code-point: 4.0.0
 
   slugify@1.6.6: {}
+
+  snake-case@3.0.4:
+    dependencies:
+      dot-case: 3.0.4
+      tslib: 2.8.1
 
   source-map-js@1.2.1: {}
 
@@ -29147,6 +29400,17 @@ snapshots:
       vite-plugin-commonjs: 0.10.4
     transitivePeerDependencies:
       - supports-color
+
+  vite-plugin-svgr@4.5.0(rollup@4.52.5)(typescript@5.7.3)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)):
+    dependencies:
+      '@rollup/pluginutils': 5.3.0(rollup@4.52.5)
+      '@svgr/core': 8.1.0(typescript@5.7.3)
+      '@svgr/plugin-jsx': 8.1.0(@svgr/core@8.1.0(typescript@5.7.3))
+      vite: 7.1.3(@types/node@22.10.7)(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+      - typescript
 
   vite-tsconfig-paths@5.1.4(typescript@5.7.3)(vite@7.1.3(lightningcss@1.27.0)(terser@5.44.0)(yaml@2.8.1)):
     dependencies:

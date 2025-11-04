@@ -297,6 +297,14 @@
       "path": "locate-small-icon.svg"
     },
     {
+      "name": "LocationSmallIcon",
+      "path": "location-small-icon.svg"
+    },
+    {
+      "name": "ListSmallIcon",
+      "path": "list-small-icon.svg"
+    },
+    {
       "name": "AddMediumIcon",
       "path": "add-medium-icon.svg"
     },

@@ -1,4 +1,5 @@
 import remarkGfm from 'remark-gfm';
+import svgr from 'vite-plugin-svgr';
 
 const unistylesPluginOptions = {
   autoProcessImports: ['@utilitywarehouse/hearth-react-native'],
@@ -39,7 +40,22 @@ const config = {
       },
     },
   },
-  viteFinal: config => {
+  viteFinal: async (config: any) => {
+    // Add SVGR plugin for web SVG imports as React components
+    config.plugins = [
+      ...(config.plugins || []),
+      svgr({
+        include: '**/*.svg',
+        svgrOptions: {
+          exportType: 'default',
+          ref: true,
+          svgo: false,
+          titleProp: true,
+          icon: true,
+        },
+      }),
+    ];
+
     return {
       ...config,
       resolve: {
@@ -48,6 +64,10 @@ const config = {
           ...config.resolve?.alias,
           '@utilitywarehouse/hearth-react-native-icons': '@utilitywarehouse/hearth-react-icons',
         },
+      },
+      optimizeDeps: {
+        ...config.optimizeDeps,
+        exclude: [...(config.optimizeDeps?.exclude || []), '@utilitywarehouse/hearth-svg-assets'],
       },
     };
   },

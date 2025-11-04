@@ -1,5 +1,18 @@
 # @utilitywarehouse/hearth-react-icons
 
+## 0.7.1
+
+### Patch Changes
+
+- [#609](https://github.com/utilitywarehouse/hearth/pull/609) [`7b090c6`](https://github.com/utilitywarehouse/hearth/commit/7b090c674bd0dd9ae205476589a89bdb3a5f03a8) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - LocationSmallIcon
+  - ListSmallIcon
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.7.0
 
 ### Minor Changes
