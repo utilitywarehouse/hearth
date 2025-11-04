@@ -74,6 +74,8 @@ export const icons = [
   { reactName: 'BillSmallIcon', svgName: 'bill-small-icon.svg' },
   { reactName: 'MeterSmallIcon', svgName: 'meter-small-icon.svg' },
   { reactName: 'LocateSmallIcon', svgName: 'locate-small-icon.svg' },
+  { reactName: 'LocationSmallIcon', svgName: 'location-small-icon.svg' },
+  { reactName: 'ListSmallIcon', svgName: 'list-small-icon.svg' },
   { reactName: 'AddMediumIcon', svgName: 'add-medium-icon.svg' },
   { reactName: 'CloseMediumIcon', svgName: 'close-medium-icon.svg' },
   { reactName: 'MinusMediumIcon', svgName: 'minus-medium-icon.svg' },
