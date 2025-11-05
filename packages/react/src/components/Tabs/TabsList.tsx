@@ -116,11 +116,17 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
           </UnstyledIconButton>
         </div>
       ) : null}
-      <div className="hearth-scroll" ref={scrollRef}>
-        <div className="hearth-TabsContainer" ref={containerRef}>
+      <div
+        className={clsx(`${componentClassName}Scroll`, {
+          [`${componentClassName}Scroll-with-left`]: canScrollLeft,
+          [`${componentClassName}Scroll-with-right`]: canScrollRight,
+        })}
+        ref={scrollRef}
+      >
+        <div className={`${componentClassName}Container`} ref={containerRef}>
           {children}
           <div
-            className="hearth-TabsIndicator"
+            className={`${componentClassName}Indicator`}
             // Animated underline: position and width driven by active trigger
             style={{
               transform: `translateX(${activeTabIndicatorX}px)`,

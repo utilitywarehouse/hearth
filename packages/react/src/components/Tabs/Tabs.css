@@ -9,7 +9,7 @@
   overflow: hidden;
 }
 
-.hearth-TabsList > .hearth-scroll {
+.hearth-TabsListScroll {
   overflow: auto hidden;
   width: 100%;
   scrollbar-width: none;
@@ -19,7 +19,37 @@
   }
 }
 
-.hearth-TabsList .hearth-TabsContainer {
+/* Mask when BOTH arrows are present */
+.hearth-TabsListScroll.hearth-TabsListScroll-with-left.hearth-TabsListScroll-with-right {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 20px,
+    black 32px,
+    black calc(100% - 32px),
+    transparent calc(100% - 20px)
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 20px,
+    black 32px,
+    black calc(100% - 32px),
+    transparent calc(100% - 20px)
+  );
+}
+
+/* Mask when ONLY left arrow is present */
+.hearth-TabsListScroll.hearth-TabsListScroll-with-left:not(.hearth-TabsListScroll-with-right) {
+  -webkit-mask-image: linear-gradient(to right, transparent 20px, black 32px);
+  mask-image: linear-gradient(to right, transparent 20px, black 32px);
+}
+
+/* Mask when ONLY right arrow is present */
+.hearth-TabsListScroll.hearth-TabsListScroll-with-right:not(.hearth-TabsListScroll-with-left) {
+  -webkit-mask-image: linear-gradient(to left, transparent 20px, black 32px);
+  mask-image: linear-gradient(to left, transparent 20px, black 32px);
+}
+
+.hearth-TabsListContainer {
   position: relative;
   display: flex;
   gap: var(--h-tabs-gap);
@@ -71,7 +101,7 @@
   }
 }
 
-.hearth-TabsIndicator {
+.hearth-TabsListIndicator {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -93,10 +123,6 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
-
-  & > button {
-    background-color: var(--h-background-secondary);
-  }
 }
 
 .hearth-TabsListScrollButtonLeft {
