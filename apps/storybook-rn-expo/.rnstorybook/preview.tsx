@@ -1,5 +1,5 @@
 import { Label, StyleSheet, Switch, useColorMode } from '@utilitywarehouse/hearth-react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Appearance, ScrollView, View } from 'react-native';
 
 /** @type{import("@storybook/react-vite").Preview} */
@@ -17,6 +17,10 @@ const preview = {
       const [colorMode, setColorMode] = useColorMode();
 
       styles.useVariants({ inverted: args.inverted });
+
+      useEffect(() => {
+        setColorMode(Appearance.getColorScheme() || 'light');
+      }, []);
 
       return (
         <>

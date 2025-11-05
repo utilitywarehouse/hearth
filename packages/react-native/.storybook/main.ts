@@ -1,3 +1,5 @@
+import { fileURLToPath } from "node:url";
+import { dirname } from "node:path";
 import remarkGfm from 'remark-gfm';
 import svgr from 'vite-plugin-svgr';
 
@@ -12,9 +14,9 @@ const unistylesPluginOptions = {
 const config = {
   stories: ['../**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
-    '@chromatic-com/storybook',
+    getAbsolutePath("@chromatic-com/storybook"),
     {
-      name: '@storybook/addon-docs',
+      name: getAbsolutePath("@storybook/addon-docs"),
       options: {
         mdxPluginOptions: {
           mdxCompileOptions: {
@@ -23,11 +25,11 @@ const config = {
         },
       },
     },
-    '@storybook/addon-a11y',
-    '@storybook/addon-vitest',
+    getAbsolutePath("@storybook/addon-a11y"),
+    getAbsolutePath("@storybook/addon-vitest"),
   ],
   framework: {
-    name: '@storybook/react-native-web-vite',
+    name: getAbsolutePath("@storybook/react-native-web-vite"),
     options: {
       pluginReactOptions: {
         babel: {
@@ -73,3 +75,7 @@ const config = {
   },
 };
 export default config;
+
+function getAbsolutePath(value: string): any {
+  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
+}

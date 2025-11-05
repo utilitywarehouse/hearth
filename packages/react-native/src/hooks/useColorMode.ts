@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { UnistylesRuntime } from 'react-native-unistyles';
 
 const useColorMode = () => {
@@ -6,11 +6,14 @@ const useColorMode = () => {
     UnistylesRuntime.themeName as 'light' | 'dark'
   );
 
-  const setColorModeWrapper = (mode: 'light' | 'dark') => {
-    if (mode === colorMode) return;
-    UnistylesRuntime.setTheme(mode);
-    setColorMode(mode);
-  };
+  const setColorModeWrapper = useCallback(
+    (mode: 'light' | 'dark') => {
+      if (mode === colorMode) return;
+      UnistylesRuntime.setTheme(mode);
+      setColorMode(mode);
+    },
+    [colorMode]
+  );
 
   return [colorMode, setColorModeWrapper] as const;
 };
