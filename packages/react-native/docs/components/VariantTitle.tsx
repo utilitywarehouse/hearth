@@ -1,5 +1,6 @@
 import { ViewProps } from 'react-native';
-import { Box, DetailText, useColorMode } from '../../src';
+import { StyleSheet } from 'react-native-unistyles';
+import { Box, DetailText } from '../../src';
 
 const VariantTitle = ({
   title,
@@ -12,19 +13,28 @@ const VariantTitle = ({
   invert?: boolean;
   children: ViewProps['children'];
 }) => {
-  const [colorMode] = useColorMode();
+  styles.useVariants({ invert });
   return (
     <Box gap="100" w="full">
-      <DetailText
-        textTransform={upperCase ? 'uppercase' : 'none'}
-        size="sm"
-        color={invert ? 'warmWhite50' : colorMode === 'light' ? 'grey600' : 'grey200'}
-      >
+      <DetailText textTransform={upperCase ? 'uppercase' : 'none'} size="sm" style={styles.text}>
         {title}
       </DetailText>
       {children}
     </Box>
   );
 };
+
+const styles = StyleSheet.create(theme => ({
+  text: {
+    color: theme.colorMode === 'light' ? theme.color.grey[600] : theme.color.grey[200],
+    variants: {
+      invert: {
+        true: {
+          color: theme.color.warmWhite[50],
+        },
+      },
+    },
+  },
+}));
 
 export default VariantTitle;

@@ -1,8 +1,6 @@
-import { useTheme } from '@utilitywarehouse/hearth-react-native';
-import { color } from '@utilitywarehouse/hearth-tokens';
-import React, { useEffect, useState } from 'react';
+import { Label, StyleSheet, Switch, useColorMode } from '@utilitywarehouse/hearth-react-native';
+import React from 'react';
 import { Appearance, ScrollView, View } from 'react-native';
-import { UnistylesRuntime } from 'react-native-unistyles';
 
 /** @type{import("@storybook/react-vite").Preview} */
 const preview = {
@@ -16,88 +14,60 @@ const preview = {
 
   decorators: [
     (Story, { parameters, args }) => {
-      // const theme = useColorScheme() === 'dark' ? 'dark' : 'light';
-      // const { colorMode } = useTheme();
-      // const [args, updateArgs] = useArgs();
-      // const [themeColourMode, setColourMode] = useState<'dark' | 'light'>(theme);
+      const [colorMode, setColorMode] = useColorMode();
 
-      // useEffect(() => {
-      //   Linking.addEventListener('url', event => {
-      //     const url = new URL(event.url ?? '');
-      //     const params = new URLSearchParams(url.search);
-      //     const { colourMode, storyId, ...rest } = Object.fromEntries(params.entries());
+      styles.useVariants({ inverted: args.inverted });
 
-      //     // Convert "true" and "false" strings in args to boolean values
-      //     const convertedArgs = Object.fromEntries(
-      //       Object.entries(rest).map(([key, value]) => [
-      //         key,
-      //         value === 'true' ? true : value === 'false' ? false : value,
-      //       ])
-      //     );
-
-      //     navigate({ storyId });
-      //     updateArgs({
-      //       ...args,
-      //       ...convertedArgs,
-      //     });
-      //     // if (colourMode) {
-      //     //   setColourMode(colourMode as 'dark' | 'light');
-      //     //   UnistylesRuntime.setTheme(colourMode as 'dark' | 'light');
-      //     // }
-      //   });
-      //   return () => Linking.removeAllListeners('url');
-      // }, []);
-
-      const [colorMode, setColorMode] = useState<'dark' | 'light'>(Appearance.getColorScheme());
-      const theme = useTheme();
-
-      useEffect(() => {
-        const colorScheme = Appearance.getColorScheme();
-        UnistylesRuntime.setTheme(colorScheme === 'dark' ? 'dark' : 'light');
-
-        const listerner = Appearance.addChangeListener(({ colorScheme: newColorScheme }) => {
-          UnistylesRuntime.setTheme(newColorScheme === 'dark' ? 'dark' : 'light');
-          setColorMode(newColorScheme === 'dark' ? 'dark' : 'light');
-        });
-        return () => {
-          listerner.remove();
-        };
-      }, []);
-
-      const bg = (() => {
-        if (parameters.noBackground === true) {
-          return undefined;
-        }
-        if (args.inverted) {
-          return color.purple['700'];
-        }
-        return theme.color.background.primary;
-      })();
-
-      // console.log(colorMode)
-
-      return parameters.noScroll ? (
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: bg,
-          }}
-        >
-          <Story />
-        </View>
-      ) : (
-        <ScrollView
-          style={{
-            flex: 1,
-            backgroundColor: bg,
-          }}
-          contentContainerStyle={{ padding: 8 }}
-        >
-          <Story />
-        </ScrollView>
+      return (
+        <>
+          <View style={styles.topBar} key={colorMode}>
+            <Label>{colorMode === 'dark' ? 'Dark mode on' : 'Dark mode off'}</Label>
+            <Switch
+              value={colorMode === 'dark'}
+              size="small"
+              onValueChange={() => {
+                Appearance.setColorScheme(colorMode === 'dark' ? 'light' : 'dark');
+                setColorMode(colorMode === 'dark' ? 'light' : 'dark');
+              }}
+            />
+          </View>
+          {parameters.noScroll ? (
+            <View style={styles.container}>
+              <Story />
+            </View>
+          ) : (
+            <ScrollView style={styles.container} contentContainerStyle={styles.story}>
+              <Story />
+            </ScrollView>
+          )}
+        </>
       );
     },
   ],
 };
+
+const styles = StyleSheet.create(theme => ({
+  container: {
+    flex: 1,
+    backgroundColor: theme.color.background.primary,
+    variants: {
+      inverted: {
+        true: {
+          backgroundColor: theme.color.background.brand,
+        },
+      },
+    },
+  },
+  story: {
+    padding: theme.space[100],
+  },
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    gap: theme.space[100],
+    padding: theme.space[100],
+  },
+}));
 
 export default preview;
