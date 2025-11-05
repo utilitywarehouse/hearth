@@ -31,8 +31,10 @@
       cx: calc(var(--h-progress-bar-circular-sm-height) / 2);
       cy: calc(var(--h-progress-bar-circular-sm-height) / 2);
       stroke-width: var(--h-progress-bar-circular-sm-bar-width);
+
       /* TODO: Replace that when bar width for SM is `8px` not 8 */
       r: calc(var(--h-progress-bar-circular-sm-height) / 2 - 8px / 2);
+
       /* r: calc(var(--h-progress-bar-circular-sm-height) / 2 - var(--h-progress-bar-circular-sm-bar-width) / 2); */
     }
 
