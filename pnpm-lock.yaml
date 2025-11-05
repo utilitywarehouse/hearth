@@ -706,8 +706,8 @@ importers:
         specifier: ^7.0.2
         version: 7.0.2(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       react-native-nitro-modules:
-        specifier: ^0.28.0
-        version: 0.28.0(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+        specifier: ^0.31.4
+        version: 0.31.4(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       react-native-reanimated:
         specifier: 4.1.3
         version: 4.1.3(@babel/core@7.26.10)(react-native-worklets@0.5.1(@babel/core@7.26.10)(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
@@ -718,8 +718,8 @@ importers:
         specifier: 15.12.1
         version: 15.12.1(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       react-native-unistyles:
-        specifier: 3.0.10
-        version: 3.0.10(@react-native/normalize-colors@0.81.5)(react-native-edge-to-edge@1.6.1(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.28.0(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-reanimated@4.1.3(@babel/core@7.26.10)(react-native-worklets@0.5.1(@babel/core@7.26.10)(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+        specifier: 3.0.17
+        version: 3.0.17(@react-native/normalize-colors@0.81.5)(react-native-edge-to-edge@1.6.1(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.31.4(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-reanimated@4.1.3(@babel/core@7.26.10)(react-native-worklets@0.5.1(@babel/core@7.26.10)(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       react-native-web:
         specifier: ^0.21.1
         version: 0.21.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -1108,8 +1108,8 @@ importers:
         specifier: 2.26.0
         version: 2.26.0(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       react-native-nitro-modules:
-        specifier: ^0.28.0
-        version: 0.28.0(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+        specifier: ^0.31.4
+        version: 0.31.4(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       react-native-reanimated:
         specifier: 4.1.3
         version: 4.1.3(@babel/core@7.28.4)(react-native-worklets@0.6.1(@babel/core@7.28.4)(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
@@ -1117,8 +1117,8 @@ importers:
         specifier: ^15.12.1
         version: 15.12.1(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       react-native-unistyles:
-        specifier: 3.0.10
-        version: 3.0.10(@react-native/normalize-colors@0.81.5)(react-native-edge-to-edge@1.6.1(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.28.0(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-reanimated@4.1.3(@babel/core@7.28.4)(react-native-worklets@0.6.1(@babel/core@7.28.4)(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+        specifier: 3.0.17
+        version: 3.0.17(@react-native/normalize-colors@0.81.5)(react-native-edge-to-edge@1.6.1(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.31.4(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-reanimated@4.1.3(@babel/core@7.28.4)(react-native-worklets@0.6.1(@babel/core@7.28.4)(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
       react-native-web:
         specifier: ^0.20.0
         version: 0.20.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -11236,6 +11236,12 @@ packages:
       react: 19.1.0
       react-native: '*'
 
+  react-native-nitro-modules@0.31.4:
+    resolution: {integrity: sha512-VIOD4lDMivexP6cqG6V3TyhAAGbnAVcBCv2LxWYHN5rQmRHgJHQ3fT2d/zbNChP5Be0ajR9QYF1xXEDDxbQT3w==}
+    peerDependencies:
+      react: 19.1.0
+      react-native: '*'
+
   react-native-reanimated@4.0.2:
     resolution: {integrity: sha512-RVD/jeTWrkloRVJmTAEtgXtihEnfA7aO6SgoaTBy3jbU1zblE3Oztq0ktVO5q/rxl96l9w2+6LLcuZ6N8D7aKQ==}
     peerDependencies:
@@ -11284,6 +11290,20 @@ packages:
 
   react-native-unistyles@3.0.10:
     resolution: {integrity: sha512-fghOtFK4oHyGX4sfKrmP5Q3GCxIldmJ3sUPeVuN2oy1tUDVD3qF2Djd+081DmSSmy/8NLKDIWgqhjSX5DUR9DA==}
+    engines: {node: '>= 18.0.0'}
+    peerDependencies:
+      '@react-native/normalize-colors': '*'
+      react: 19.1.0
+      react-native: '>=0.76.0'
+      react-native-edge-to-edge: '*'
+      react-native-nitro-modules: '*'
+      react-native-reanimated: '*'
+    peerDependenciesMeta:
+      react-native-reanimated:
+        optional: true
+
+  react-native-unistyles@3.0.17:
+    resolution: {integrity: sha512-YYhA54TK3pd4IDjyqELY4YDlsAtftA5tnajeEf5KjPbrYKo1zRVK5qiqpocVS2EexTZmkVCy5+6+kmQ4RGHUAw==}
     engines: {node: '>= 18.0.0'}
     peerDependencies:
       '@react-native/normalize-colors': '*'
@@ -18654,9 +18674,7 @@ snapshots:
       metro-runtime: 0.83.3
     transitivePeerDependencies:
       - '@babel/core'
-      - bufferutil
       - supports-color
-      - utf-8-validate
     optional: true
 
   '@react-native/metro-config@0.81.1(@babel/core@7.28.4)':
@@ -18667,9 +18685,7 @@ snapshots:
       metro-runtime: 0.83.3
     transitivePeerDependencies:
       - '@babel/core'
-      - bufferutil
       - supports-color
-      - utf-8-validate
     optional: true
 
   '@react-native/normalize-colors@0.74.88': {}
@@ -27560,17 +27576,17 @@ snapshots:
       prop-types: 15.8.1
       react-native: 0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0)
 
-  react-native-nitro-modules@0.28.0(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0):
-    dependencies:
-      react: 19.1.0
-      react-native: 0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0)
-
   react-native-nitro-modules@0.28.0(react-native@0.81.1(@babel/core@7.28.4)(@react-native/metro-config@0.81.1(@babel/core@7.28.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0):
     dependencies:
       react: 19.1.0
       react-native: 0.81.1(@babel/core@7.28.4)(@react-native/metro-config@0.81.1(@babel/core@7.28.4))(@types/react@19.1.11)(react@19.1.0)
 
-  react-native-nitro-modules@0.28.0(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0):
+  react-native-nitro-modules@0.31.4(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0):
+    dependencies:
+      react: 19.1.0
+      react-native: 0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0)
+
+  react-native-nitro-modules@0.31.4(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0):
     dependencies:
       react: 19.1.0
       react-native: 0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0)
@@ -27663,16 +27679,6 @@ snapshots:
       react-native: 0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0)
       warn-once: 0.1.1
 
-  react-native-unistyles@3.0.10(@react-native/normalize-colors@0.81.5)(react-native-edge-to-edge@1.6.1(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.28.0(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-reanimated@4.1.3(@babel/core@7.28.4)(react-native-worklets@0.6.1(@babel/core@7.28.4)(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0):
-    dependencies:
-      '@react-native/normalize-colors': 0.81.5
-      react: 19.1.0
-      react-native: 0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0)
-      react-native-edge-to-edge: 1.6.1(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
-      react-native-nitro-modules: 0.28.0(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
-    optionalDependencies:
-      react-native-reanimated: 4.1.3(@babel/core@7.28.4)(react-native-worklets@0.6.1(@babel/core@7.28.4)(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
-
   react-native-unistyles@3.0.10(@react-native/normalize-colors@0.81.5)(react-native-edge-to-edge@1.6.1(react-native@0.81.1(@babel/core@7.28.4)(@react-native/metro-config@0.81.1(@babel/core@7.28.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.28.0(react-native@0.81.1(@babel/core@7.28.4)(@react-native/metro-config@0.81.1(@babel/core@7.28.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-reanimated@4.0.2(@babel/core@7.28.4)(react-native-worklets@0.4.2(@babel/core@7.28.4)(react-native@0.81.1(@babel/core@7.28.4)(@react-native/metro-config@0.81.1(@babel/core@7.28.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.1(@babel/core@7.28.4)(@react-native/metro-config@0.81.1(@babel/core@7.28.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.1(@babel/core@7.28.4)(@react-native/metro-config@0.81.1(@babel/core@7.28.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0):
     dependencies:
       '@react-native/normalize-colors': 0.81.5
@@ -27683,13 +27689,23 @@ snapshots:
     optionalDependencies:
       react-native-reanimated: 4.0.2(@babel/core@7.28.4)(react-native-worklets@0.4.2(@babel/core@7.28.4)(react-native@0.81.1(@babel/core@7.28.4)(@react-native/metro-config@0.81.1(@babel/core@7.28.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.1(@babel/core@7.28.4)(@react-native/metro-config@0.81.1(@babel/core@7.28.4))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
 
-  react-native-unistyles@3.0.10(@react-native/normalize-colors@0.81.5)(react-native-edge-to-edge@1.6.1(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.28.0(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-reanimated@4.1.3(@babel/core@7.26.10)(react-native-worklets@0.5.1(@babel/core@7.26.10)(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0):
+  react-native-unistyles@3.0.17(@react-native/normalize-colors@0.81.5)(react-native-edge-to-edge@1.6.1(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.31.4(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-reanimated@4.1.3(@babel/core@7.28.4)(react-native-worklets@0.6.1(@babel/core@7.28.4)(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0):
+    dependencies:
+      '@react-native/normalize-colors': 0.81.5
+      react: 19.1.0
+      react-native: 0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0)
+      react-native-edge-to-edge: 1.6.1(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+      react-native-nitro-modules: 0.31.4(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+    optionalDependencies:
+      react-native-reanimated: 4.1.3(@babel/core@7.28.4)(react-native-worklets@0.6.1(@babel/core@7.28.4)(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.80.0(@babel/core@7.28.4)(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+
+  react-native-unistyles@3.0.17(@react-native/normalize-colors@0.81.5)(react-native-edge-to-edge@1.6.1(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-nitro-modules@0.31.4(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native-reanimated@4.1.3(@babel/core@7.26.10)(react-native-worklets@0.5.1(@babel/core@7.26.10)(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0):
     dependencies:
       '@react-native/normalize-colors': 0.81.5
       react: 19.1.0
       react-native: 0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0)
       react-native-edge-to-edge: 1.6.1(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
-      react-native-nitro-modules: 0.28.0(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
+      react-native-nitro-modules: 0.31.4(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
     optionalDependencies:
       react-native-reanimated: 4.1.3(@babel/core@7.26.10)(react-native-worklets@0.5.1(@babel/core@7.26.10)(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0))(react-native@0.81.5(@babel/core@7.26.10)(@react-native/metro-config@0.81.1(@babel/core@7.26.10))(@types/react@19.1.11)(react@19.1.0))(react@19.1.0)
 
