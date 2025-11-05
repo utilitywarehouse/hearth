@@ -37,4 +37,9 @@ export interface IconContainerProps
    * @default false
    */
   radiusNone?: boolean;
+  /**
+   * Fill the container, rather than having a constrained size
+   * @default false
+   */
+  fill?: boolean;
 }

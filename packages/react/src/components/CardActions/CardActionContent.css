@@ -1,0 +1,56 @@
+.hearth-CardActionContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--h-card-action-content-gap);
+  border-radius: inherit;
+
+  &:has(.hearth-IconContainer) {
+    gap: var(--h-space-0);
+  }
+
+  & :where(.hearth-CardActionContentLeadingIcon) {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-block: var(--h-card-action-content-padding-vertical);
+    padding-left: var(--h-card-action-content-padding-horizontal);
+    flex-shrink: 0;
+  }
+
+  & :where(.hearth-IconContainer) {
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+    height: 100%;
+  }
+
+  & :where(.hearth-CardActionContentMainWrapper) {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--h-card-action-content-gap);
+    padding-block: var(--h-card-action-content-padding-vertical);
+    padding-inline: var(--h-card-action-content-padding-horizontal);
+
+    &:where(.hearth-CardActionContent:has(.hearth-CardActionContentLeadingIcon) &) {
+      padding-left: var(--h-space-0);
+    }
+
+    & :where(.hearth-CardActionContentMain) {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      flex-grow: 1;
+
+      &:where([data-badge-placement='middle']) {
+        gap: var(--h-space-50);
+      }
+    }
+
+    & :where(.hearth-CardActionContentTrailingContent) {
+      display: flex;
+      align-self: center;
+    }
+  }
+}

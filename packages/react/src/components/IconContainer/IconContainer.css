@@ -10,13 +10,13 @@
   padding: var(--h-icon-container-padding);
 
   &:where(.hearth-variant-emphasis) {
-    color: var(--h-badge-emphasis-color);
-    background-color: var(--h-badge-emphasis-background-color);
+    color: var(--h-icon-container-emphasis-color);
+    background-color: var(--h-icon-container-emphasis-background-color);
   }
 
   &:where(.hearth-variant-subtle) {
-    color: var(--h-badge-subtle-color);
-    background-color: var(--h-badge-subtle-background-color);
+    color: var(--h-icon-container-subtle-color);
+    background-color: var(--h-icon-container-subtle-background-color);
   }
 
   @breakpoints {
@@ -40,50 +40,55 @@
     --h-icon-container-border-radius: 0;
   }
 
+  &:where([data-fill]) {
+    height: 100%;
+    width: 100%;
+  }
+
   &:where([data-colorscheme='pig']) {
-    --h-badge-emphasis-color: var(--h-text-primary);
-    --h-badge-emphasis-background-color: var(--h-surface-pig-default);
-    --h-badge-subtle-color: var(--h-text-primary);
-    --h-badge-subtle-background-color: var(--h-surface-pig-subtle);
+    --h-icon-container-emphasis-color: var(--h-text-primary);
+    --h-icon-container-emphasis-background-color: var(--h-surface-pig-default);
+    --h-icon-container-subtle-color: var(--h-text-primary);
+    --h-icon-container-subtle-background-color: var(--h-surface-pig-subtle);
   }
 
   &:where([data-colorscheme='energy']) {
-    --h-badge-emphasis-color: var(--h-text-primary);
-    --h-badge-emphasis-background-color: var(--h-surface-energy-default);
-    --h-badge-subtle-color: var(--h-text-primary);
-    --h-badge-subtle-background-color: var(--h-surface-energy-subtle);
+    --h-icon-container-emphasis-color: var(--h-text-primary);
+    --h-icon-container-emphasis-background-color: var(--h-surface-energy-default);
+    --h-icon-container-subtle-color: var(--h-text-primary);
+    --h-icon-container-subtle-background-color: var(--h-surface-energy-subtle);
   }
 
   &:where([data-colorscheme='broadband']) {
-    --h-badge-emphasis-color: var(--h-text-primary);
-    --h-badge-emphasis-background-color: var(--h-surface-broadband-default);
-    --h-badge-subtle-color: var(--h-text-primary);
-    --h-badge-subtle-background-color: var(--h-surface-broadband-subtle);
+    --h-icon-container-emphasis-color: var(--h-text-primary);
+    --h-icon-container-emphasis-background-color: var(--h-surface-broadband-default);
+    --h-icon-container-subtle-color: var(--h-text-primary);
+    --h-icon-container-subtle-background-color: var(--h-surface-broadband-subtle);
   }
 
   &:where([data-colorscheme='mobile']) {
-    --h-badge-emphasis-color: var(--h-text-primary);
-    --h-badge-emphasis-background-color: var(--h-surface-mobile-default);
-    --h-badge-subtle-color: var(--h-text-primary);
-    --h-badge-subtle-background-color: var(--h-surface-mobile-subtle);
+    --h-icon-container-emphasis-color: var(--h-text-primary);
+    --h-icon-container-emphasis-background-color: var(--h-surface-mobile-default);
+    --h-icon-container-subtle-color: var(--h-text-primary);
+    --h-icon-container-subtle-background-color: var(--h-surface-mobile-subtle);
   }
 
   &:where([data-colorscheme='cashback']) {
-    --h-badge-emphasis-color: var(--h-text-primary);
-    --h-badge-emphasis-background-color: var(--h-surface-cashback-default);
-    --h-badge-subtle-color: var(--h-text-primary);
-    --h-badge-subtle-background-color: var(--h-surface-cashback-subtle);
+    --h-icon-container-emphasis-color: var(--h-text-primary);
+    --h-icon-container-emphasis-background-color: var(--h-surface-cashback-default);
+    --h-icon-container-subtle-color: var(--h-text-primary);
+    --h-icon-container-subtle-background-color: var(--h-surface-cashback-subtle);
   }
 
   &:where([data-colorscheme='insurance']) {
-    --h-badge-emphasis-color: var(--h-text-primary);
-    --h-badge-emphasis-background-color: var(--h-surface-insurance-default);
-    --h-badge-subtle-color: var(--h-text-primary);
-    --h-badge-subtle-background-color: var(--h-surface-insurance-subtle);
+    --h-icon-container-emphasis-color: var(--h-text-primary);
+    --h-icon-container-emphasis-background-color: var(--h-surface-insurance-default);
+    --h-icon-container-subtle-color: var(--h-text-primary);
+    --h-icon-container-subtle-background-color: var(--h-surface-insurance-subtle);
   }
 
   &:where([data-colorscheme='highlight']) {
-    --h-badge-subtle-color: var(--h-text-primary);
-    --h-badge-subtle-background-color: var(--h-surface-highlight-subtle);
+    --h-icon-container-subtle-color: var(--h-text-primary);
+    --h-icon-container-subtle-background-color: var(--h-surface-highlight-subtle);
   }
 }

@@ -19,11 +19,13 @@ export const IconContainer = React.forwardRef<IconContainerElement, IconContaine
       className,
       colorScheme = 'pig',
       radiusNone,
+      fill,
       ...iconContainerProps
     } = extractProps(props, iconContainerPropDefs, marginPropDefs);
     const dataAttributeProps = {
       'data-colorscheme': colorScheme,
       'data-radius-zero': radiusNone ? '' : undefined,
+      'data-fill': fill ? '' : undefined,
     };
     return (
       <span

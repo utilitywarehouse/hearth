@@ -9,14 +9,19 @@ import {
   Heading,
   Link,
   CardInteraction,
+  CardActionLink,
   Button,
   IconButton,
+  Badge,
+  IconContainer,
 } from '@utilitywarehouse/hearth-react';
 import {
   ChevronRightSmallIcon,
   CloseSmallIcon,
+  ElectricityMediumIcon,
   HeartMediumIcon,
   HeartOutlineMediumIcon,
+  HomeInsuranceMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { Placeholder } from '../storybook-components/Placeholder';
 
@@ -127,7 +132,7 @@ export const KitchenSink: Story = {
 
 export const Playground: Story = {
   render: ({ children, ...args }) => (
-    <Flex padding="600" backgroundColor="warmWhite50" justifyContent="center">
+    <Flex padding="600" backgroundColor="primary" justifyContent="center">
       <Box width="300px">
         <Card {...args}>
           <DetailText
@@ -399,7 +404,7 @@ export const WithoutLink: Story = {
     const [likedArgos, setLikedArgos] = React.useState(false);
     const [likedAskItalian, setLikedAskItalian] = React.useState(false);
     return (
-      <Flex padding="600" backgroundColor="warmWhite50" justifyContent="center" gap="400">
+      <Flex padding="600" backgroundColor="primary" justifyContent="center" gap="400">
         <Flex asChild gap="400" width="400px">
           <ul role="list">
             <Card as="li" direction="column" flex="1" justifyContent="center" gap="300">
@@ -445,9 +450,9 @@ export const WithoutLink: Story = {
                 <BodyText size="md" id="title-askitalian">
                   Ask Italian
                 </BodyText>
-                <CardAction>
+                <CardInteraction>
                   <Link href="https://www.askitalian.co.uk/" aria-labelledby="title-askitalian" />
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
           </ul>
@@ -455,4 +460,40 @@ export const WithoutLink: Story = {
       </Flex>
     );
   },
+};
+
+export const SingleCardAction: Story = {
+  render: args => (
+    <Flex padding="500" direction="row" gap="500" backgroundColor="secondary" width="725px">
+      <Card {...args} paddingNone flexGrow="1">
+        <CardActionLink
+          heading="Electricity"
+          helperText="Last reading: 30th Oct"
+          leadingIcon={<ElectricityMediumIcon />}
+          leadingIconContainerColorScheme="energy"
+          badge={
+            <Badge colorScheme="info" size="sm">
+              Smart meter
+            </Badge>
+          }
+          badgePlacement="middle"
+          href="#"
+        />
+      </Card>
+      <Card {...args} paddingNone flexGrow="1">
+        <CardActionLink
+          heading="Home Insurance"
+          helperText="B12ABCD38"
+          leadingIcon={<HomeInsuranceMediumIcon />}
+          badge={
+            <Badge variant="outline" colorScheme="functional" size="sm">
+              Disconnected
+            </Badge>
+          }
+          badgePlacement="bottom"
+          href="#"
+        />
+      </Card>
+    </Flex>
+  ),
 };
