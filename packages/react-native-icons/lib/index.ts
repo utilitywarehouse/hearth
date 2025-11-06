@@ -162,6 +162,7 @@ export { default as TickMediumIcon } from './TickMediumIcon';
 export { default as TickSmallIcon } from './TickSmallIcon';
 export { default as TikTokMediumIcon } from './TikTokMediumIcon';
 export { default as TimeMediumIcon } from './TimeMediumIcon';
+export { default as TimeSmallIcon } from './TimeSmallIcon';
 export { default as TopUpMediumIcon } from './TopUpMediumIcon';
 export { default as TopUpSmallIcon } from './TopUpSmallIcon';
 export { default as TorchOffMediumIcon } from './TorchOffMediumIcon';

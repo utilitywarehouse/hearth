@@ -21,14 +21,18 @@ export const Accordion = React.forwardRef<AccordionElement, AccordionProps>((pro
     headingElement = 'h2',
     helperText,
     trailingContent,
+    validationText,
+    validationStatus,
     ...restProps
   } = extractProps(props, marginPropDefs);
 
-  const headerProps = {
+  const sectionHeaderProps = {
     heading,
     headingElement,
     helperText,
     trailingContent,
+    validationText,
+    validationStatus,
   };
 
   const accordionProps = {
@@ -38,7 +42,7 @@ export const Accordion = React.forwardRef<AccordionElement, AccordionProps>((pro
 
   return (
     <div className={clsx(componentClassName, className)}>
-      {heading ? <SectionHeader {...headerProps} /> : null}
+      {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
       <RadixAccordion.Root
         ref={ref}
         {...(accordionProps as React.ComponentProps<typeof RadixAccordion.Root>)}
