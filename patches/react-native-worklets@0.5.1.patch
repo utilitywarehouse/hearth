@@ -1,0 +1,26 @@
+diff --git a/lib/module/initializers.js b/lib/module/initializers.js
+index d012b5093956744fac0aa3d7fe9df734b20d191a..2a4de432522ac8ccc1dac6c047d18c5461172ac9 100644
+--- a/lib/module/initializers.js
++++ b/lib/module/initializers.js
+@@ -104,7 +104,7 @@ function initializeRuntime() {
+ 
+ /** A function that should be run only on React Native runtime. */
+ function initializeRNRuntime() {
+-  if (__DEV__) {
++   if (__DEV__ && !SHOULD_BE_USE_WEB) {
+     const testWorklet = () => {
+       'worklet';
+     };
+diff --git a/src/initializers.ts b/src/initializers.ts
+index dc252b387093cf6839a97f0d08e96581839dab16..fd180700c777e02ffa056a497ad6b10f43007de8 100644
+--- a/src/initializers.ts
++++ b/src/initializers.ts
+@@ -117,7 +117,7 @@ function initializeRuntime() {
+ 
+ /** A function that should be run only on React Native runtime. */
+ function initializeRNRuntime() {
+-  if (__DEV__) {
++  if (__DEV__ && !SHOULD_BE_USE_WEB) {
+     const testWorklet = () => {
+       'worklet';
+     };

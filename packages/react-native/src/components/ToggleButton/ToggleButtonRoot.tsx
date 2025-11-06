@@ -1,6 +1,6 @@
 import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { useCardActionContext } from '../Card';
+import { useCardPressHandlerContext } from '../Card';
 import type { ToggleButtonProps } from './ToggleButton.props';
 
 const ButtonRoot = ({
@@ -12,7 +12,7 @@ const ButtonRoot = ({
   ...props
 }: ToggleButtonProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active } = states || {};
-  const { pressed } = useCardActionContext();
+  const { pressed } = useCardPressHandlerContext();
 
   styles.useVariants({
     toggled,

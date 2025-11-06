@@ -1,27 +1,25 @@
 import { View } from 'react-native';
-import { StyleSheet, withUnistyles } from 'react-native-unistyles';
+import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import type IconContainerProps from './IconContainer.props';
 
-const IconContainer = withUnistyles(
-  ({
-    icon: IconComp,
-    size = 'md',
-    radiusNone = false,
-    variant = 'subtle',
-    color = 'pig',
-    style,
-    ...props
-  }: IconContainerProps) => {
-    styles.useVariants({ size, radiusNone, variant, color });
+const IconContainer = ({
+  icon: IconComp,
+  size = 'md',
+  radiusNone = false,
+  variant = 'subtle',
+  color = 'pig',
+  style,
+  ...props
+}: IconContainerProps) => {
+  styles.useVariants({ size, radiusNone, variant, color });
 
-    return (
-      <View style={[styles.container, style]} {...props}>
-        {IconComp ? <Icon as={IconComp} style={styles.icon} /> : null}
-      </View>
-    );
-  }
-);
+  return (
+    <View style={[styles.container, style]} {...props}>
+      {IconComp ? <Icon as={IconComp} style={styles.icon} /> : null}
+    </View>
+  );
+};
 
 IconContainer.displayName = 'IconContainer';
 

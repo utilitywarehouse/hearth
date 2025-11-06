@@ -1,8 +1,8 @@
 import { Platform, type StyleProp, type ViewStyle } from 'react-native';
-import { useLinkContext } from './Link.context';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
 import IconProps from '../Icon/Icon.props';
+import { useLinkContext } from './Link.context';
 
 const LinkIcon = ({ children, ...props }: IconProps) => {
   const { active, inverted, disabled } = useLinkContext();
@@ -13,7 +13,8 @@ const LinkIcon = ({ children, ...props }: IconProps) => {
       {...props}
       style={
         Platform.OS === 'web'
-          ? StyleSheet.compose(styles.icon as StyleProp<ViewStyle>, props.style)
+          ? // @ts-expect-error - style prop type issue
+            { ...(styles.icon as StyleProp<ViewStyle>), ...props.style }
           : [styles.icon as StyleProp<ViewStyle>, props.style]
       }
     >

@@ -11,6 +11,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
+import { useAnimatedTheme } from 'react-native-unistyles/reanimated';
 import { useTheme } from '../../hooks';
 import { Icon } from '../Icon';
 import SwitchProps from './Switch.props';
@@ -23,6 +24,7 @@ const CustomSwitch = ({
   ...accessibilityProps
 }: SwitchProps) => {
   const { components, color } = useTheme();
+  const theme = useAnimatedTheme();
   const SWITCH_WIDTH = size === 'medium' ? components.switch.md.width : components.switch.sm.width;
   const THUMB_SIZE =
     size === 'medium' ? components.switch.md.circle.size : components.switch.sm.circle.size;
@@ -34,17 +36,20 @@ const CustomSwitch = ({
   const offset = useSharedValue(value ? SWITCH_WIDTH - THUMB_SIZE - PADDING * 2 : 0);
   const progress = useSharedValue(value ? 1 : 0);
 
-  const animatedThumbStyle = useAnimatedStyle(() => ({
-    transform: [{ translateX: offset.value }],
-  }));
+  const animatedThumbStyle = useAnimatedStyle(
+    () => ({
+      transform: [{ translateX: offset.value }],
+    }),
+    [offset]
+  );
 
   const animatedSwitchBackgroundStyle = useAnimatedStyle(() => {
     const backgroundColor = interpolateColor(
       progress.value,
       [0, 1],
       [
-        color.interactive.functional.surface.strong.default,
-        color.interactive.brand.surface.strong.default,
+        theme.value.color.interactive.functional.surface.strong.default,
+        theme.value.color.interactive.brand.surface.strong.default,
       ]
     );
     return { backgroundColor };

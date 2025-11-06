@@ -22,7 +22,10 @@ const styles = StyleSheet.create(theme => ({
         emphasis: {},
         solid: {},
         outline: {},
-        ghost: {},
+        ghost: {
+          textDecorationStyle: 'solid',
+          textDecorationLine: 'underline',
+        },
       },
       colorScheme: {
         highlight: {},
