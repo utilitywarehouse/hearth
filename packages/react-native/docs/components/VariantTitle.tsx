@@ -26,7 +26,7 @@ const VariantTitle = ({
 
 const styles = StyleSheet.create(theme => ({
   text: {
-    color: theme.colorMode === 'light' ? theme.color.grey[600] : theme.color.grey[200],
+    color: theme.color.text.secondary,
     variants: {
       invert: {
         true: {
