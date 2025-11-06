@@ -24,20 +24,24 @@ export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
     headingElement,
     helperText,
     trailingContent,
+    validationText,
+    validationStatus,
     children,
     ...listProps
   } = extractProps(props, marginPropDefs);
 
-  const headerProps = {
+  const sectionHeaderProps = {
     heading,
     headingElement,
     helperText,
     trailingContent,
+    validationText,
+    validationStatus,
   };
 
   return (
     <div className={clsx(componentClassName, className)}>
-      {heading ? <SectionHeader {...headerProps} /> : null}
+      {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
       {variant === undefined || colorScheme === undefined ? (
         <Box asChild className="hearth-ListContainer" role="list">
           <Tag ref={ref} {...listProps}>

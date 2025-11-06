@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.14.1
+
+### Patch Changes
+
+- [#621](https://github.com/utilitywarehouse/hearth/pull/621) [`134514b`](https://github.com/utilitywarehouse/hearth/commit/134514bca3105077a37b6fc6897a4569182d027b) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `DescriptionList` docs; updating usage of `link` to `trailingContent`
+
 ## 0.14.0
 
 ### Minor Changes

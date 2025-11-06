@@ -11,11 +11,9 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 <Canvas of={Stories.Playground} />
 <Controls of={Stories.Playground} />
 
-- [Playground](#playground)
 - [Usage](#usage)
 - [Heading](#heading)
-  - [Link](#link)
-  - [Helper text](#helper-text)
+- [Trailing content](#trailing-content)
 - [Direction](#direction)
 - [API](#api)
 - [DescriptionListItem API](#descriptionlistitem-api)
@@ -53,14 +51,14 @@ heading. This is important for maintaining semantic structure in your document.
 </DescriptionList>
 ```
 
-## Link
+## Trailing content
 
-Use the `link` prop to provide a call-to-action or navigation link.
+Use the `trailingContent` prop to include a `Link`, `Button` or `Badge` component.
 
 ```tsx
 <DescriptionList
   heading="My Bills"
-  link={
+  trailingContent={
     <Link href="https://uw.co.uk/bills">
       View all
       <ChevronRightSmallIcon />
@@ -85,13 +83,13 @@ This component is based on the `dl` element and supports the following common pr
 
 - Margin
 
-| Name             | Type                                                                 |
-| ---------------- | -------------------------------------------------------------------- |
-| `heading`        | `string`                                                             |
-| `headingElement` | `"div" \| "h1" \| "h2" \| "h3" \| "h4" \| "div"`                     |
-| `helperText`     | `string`                                                             |
-| `link`           | `ReactNode`                                                          |
-| `direction`      | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">` |
+| Name              | Type                                                                 |
+| ----------------- | -------------------------------------------------------------------- |
+| `heading`         | `string`                                                             |
+| `headingElement`  | `"div" \| "h1" \| "h2" \| "h3" \| "h4" \| "div"`                     |
+| `helperText`      | `string`                                                             |
+| `trailingContent` | `ReactNode`                                                          |
+| `direction`       | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">` |
 
 ## DescriptionListItem API
 

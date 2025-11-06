@@ -24,19 +24,23 @@ export const DescriptionList = React.forwardRef<DescriptionListElement, Descript
       trailingContent,
       children,
       direction,
+      validationText,
+      validationStatus,
       ...listProps
     } = extractProps(props, marginPropDefs);
 
-    const headerProps = {
+    const sectionHeaderProps = {
       heading,
       headingElement,
       helperText,
       trailingContent,
+      validationText,
+      validationStatus,
     };
 
     return (
       <div className={clsx(componentClassName, className)}>
-        {heading ? <SectionHeader {...headerProps} /> : null}
+        {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
         <Flex asChild className="hearth-DescriptionListContainer" role="list">
           <dl role="list" ref={ref} {...listProps}>
             <DescriptionListContext.Provider value={{ direction }}>
