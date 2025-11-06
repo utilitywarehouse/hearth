@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react-native-icons
 
+## 0.7.2
+
+### Patch Changes
+
+- [#622](https://github.com/utilitywarehouse/hearth/pull/622) [`8a5c5ce`](https://github.com/utilitywarehouse/hearth/commit/8a5c5cec7543463c66e54a95cc4677f5bc6fc11e) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - TimeSmallIcon
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.7.1
 
 ### Patch Changes
