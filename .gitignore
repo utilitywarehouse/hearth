@@ -21,3 +21,4 @@ storybook-static
 /**/*.tsbuildinfo
 .env
 *storybook.log
+apps/storybook-rn-expo/.rnstorybook/storybook.requires.js
