@@ -19,7 +19,8 @@ const ButtonIcon = ({
       {...props}
       style={
         Platform.OS === 'web'
-          ? StyleSheet.compose(styles.icon as StyleProp<ViewStyle>, props.style)
+          ? // @ts-ignore
+            { ...(styles.icon as StyleProp<ViewStyle>), ...props.style }
           : [styles.icon as StyleProp<ViewStyle>, props.style]
       }
     >

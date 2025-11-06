@@ -77,7 +77,7 @@ The `ToggleGroup` has access to the `Flex` props for controlling layout.
 
 The entire `ToggleButtonCard` is interactive, so if you need to include
 additional interactive content, such as a link or button, then you will need to
-wrap it in a `CardAction` component.
+wrap it in a `CardInteraction` component.
 
 ```tsx
 <ToggleButtonCard>
@@ -85,12 +85,12 @@ wrap it in a `CardAction` component.
 
     {...}
 
-    <CardAction secondary>
+    <CardInteraction secondary>
       <Button variant="ghost" size="sm" paddingNone>
         Tariff price breakdown
         <ChevronRightSmallIcon />
       </Button>
-    </CardAction>
+    </CardInteraction>
 
   </Flex>
 </ToggleButtonCard>

@@ -8,7 +8,7 @@ import {
   BodyText,
   Box,
   Button,
-  CardAction,
+  CardInteraction,
 } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 import { Placeholder } from '../storybook-components/Placeholder';
@@ -196,12 +196,12 @@ export const InteractiveContent: Story = {
               <BodyText id="fixed-description" as="p" size="md">
                 Your energy rates will stay the same until December 2025
               </BodyText>
-              <CardAction secondary>
+              <CardInteraction secondary>
                 <Button variant="ghost" size="sm" paddingNone>
                   Tariff price breakdown
                   <ChevronRightSmallIcon />
                 </Button>
-              </CardAction>
+              </CardInteraction>
             </Flex>
           </ToggleButtonCard>
           <ToggleButtonCard
@@ -223,12 +223,12 @@ export const InteractiveContent: Story = {
               <BodyText id="variable-description" as="p" size="md">
                 Your energy rates will stay the same until December 2025
               </BodyText>
-              <CardAction secondary>
+              <CardInteraction secondary>
                 <Button variant="ghost" size="sm" paddingNone>
                   Tariff price breakdown
                   <ChevronRightSmallIcon />
                 </Button>
-              </CardAction>
+              </CardInteraction>
             </Flex>
           </ToggleButtonCard>
         </ToggleGroup>

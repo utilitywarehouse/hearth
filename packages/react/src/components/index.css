@@ -19,7 +19,7 @@
 @import url('./Label/Label.css'); /* keep label CSS high, so we can more easily override the cursor styles */
 @import url('./SectionHeader/SectionHeader.css');
 @import url('./Card/Card.css');
-@import url('./Card/CardAction.css');
+@import url('./Card/CardInteraction.css');
 @import url('./HelperText/HelperText.css');
 @import url('./ValidationText/ValidationText.css');
 @import url('./TextInput/TextInput.css');

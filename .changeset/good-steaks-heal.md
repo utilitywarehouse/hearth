@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react': patch
 ---
 
-Bump React Icons dependency
+Fix `ListItem` trailing content alignment
