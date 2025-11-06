@@ -1,6 +1,6 @@
 import { ViewProps } from 'react-native';
 
-export type StepState = 'complete' | 'active' | 'incomplete';
+export type StepStatus = 'complete' | 'active' | 'incomplete';
 
 export interface ProgressStepperProps extends ViewProps {
   /**
@@ -15,9 +15,9 @@ export interface ProgressStepProps extends ViewProps {
    */
   id: string;
   /**
-   * Current state of the step
+   * Current status of the step
    */
-  state: StepState;
+  status: StepStatus;
 }
 
 export interface ProgressStepperRootProps extends ViewProps {

@@ -1,0 +1,28 @@
+import { forwardRef } from 'react';
+import { IconProps } from './types';
+export const LocationSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M9.667 10q.687 0 1.177-.49.49-.489.49-1.177 0-.687-.49-1.177a1.6 1.6 0 0 0-1.177-.49q-.688 0-1.177.49T8 8.333t.49 1.177q.489.49 1.177.49m0 8.333q-3.355-2.854-5.01-5.302Q3 10.583 3 8.5q0-3.125 2.01-4.98 2.01-1.853 4.657-1.853 2.646 0 4.656 1.854t2.01 4.979q0 2.084-1.656 4.531-1.656 2.448-5.01 5.302"
+        />
+      </svg>
+    );
+  }
+);
+LocationSmallIcon.displayName = 'LocationSmallIcon';

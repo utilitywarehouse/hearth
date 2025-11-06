@@ -1,5 +1,31 @@
 # @utilitywarehouse/hearth-react
 
+## 0.14.1
+
+### Patch Changes
+
+- [#621](https://github.com/utilitywarehouse/hearth/pull/621) [`134514b`](https://github.com/utilitywarehouse/hearth/commit/134514bca3105077a37b6fc6897a4569182d027b) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `DescriptionList` docs; updating usage of `link` to `trailingContent`
+
+## 0.14.0
+
+### Minor Changes
+
+- [#616](https://github.com/utilitywarehouse/hearth/pull/616) [`3d4cbe9`](https://github.com/utilitywarehouse/hearth/commit/3d4cbe94d362838c5ece6fa09fa62dd9876aec56) Thanks [@robphoenix](https://github.com/robphoenix)! - Rename `CardAction` to `CardInteraction`. This is a breaking change.
+
+### Patch Changes
+
+- [#611](https://github.com/utilitywarehouse/hearth/pull/611) [`60598bf`](https://github.com/utilitywarehouse/hearth/commit/60598bfb2a0a91e2cd70471f3f601a6c3ff33d6c) Thanks [@robphoenix](https://github.com/robphoenix)! - Bump React Icons dependency
+
+- [#615](https://github.com/utilitywarehouse/hearth/pull/615) [`b146891`](https://github.com/utilitywarehouse/hearth/commit/b1468914544938162af5ab0c1b12456c17c38ab1) Thanks [@robphoenix](https://github.com/robphoenix)! - Update tokens
+
+## 0.13.9
+
+### Patch Changes
+
+- [#592](https://github.com/utilitywarehouse/hearth/pull/592) [`0e30d9f`](https://github.com/utilitywarehouse/hearth/commit/0e30d9ff4c615fad40591d5a205c9d0e4a9ddd80) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - Adds `ProgressStepper` component
+
+- [#608](https://github.com/utilitywarehouse/hearth/pull/608) [`9e26261`](https://github.com/utilitywarehouse/hearth/commit/9e26261ef8679cc2e4fc30a5a1b83bfda17a41b2) Thanks [@robphoenix](https://github.com/robphoenix)! - Bump icons dependency
+
 ## 0.13.8
 
 ### Patch Changes

@@ -14,7 +14,7 @@
   "dependencies": {
     "@utilitywarehouse/hearth-fonts": "workspace:*",
     "@utilitywarehouse/hearth-react": "workspace:*",
-    "@utilitywarehouse/hearth-react-icons": "workspace:^0.7.0",
+    "@utilitywarehouse/hearth-react-icons": "workspace:^0.7.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },

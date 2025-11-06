@@ -78,8 +78,8 @@ export type { InlineLinkProps } from './components/InlineLink/InlineLink.props';
 
 export { Card } from './components/Card/Card';
 export type { CardProps } from './components/Card/Card.props';
-export { CardAction } from './components/Card/CardAction';
-export type { CardActionProps } from './components/Card/CardAction.props';
+export { CardInteraction } from './components/Card/CardInteraction';
+export type { CardInteractionProps } from './components/Card/CardInteraction.props';
 
 export { Divider } from './components/Divider/Divider';
 export type { DividerProps } from './components/Divider/Divider.props';
@@ -209,6 +209,20 @@ export { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
 export type { BreadcrumbsProps } from './components/Breadcrumbs/Breadcrumbs.props';
 export { BreadcrumbItem } from './components/Breadcrumbs/BreadcrumbItem';
 export type { BreadcrumbItemProps } from './components/Breadcrumbs/BreadcrumbItem.props';
+
+export { ProgressStepper } from './components/ProgressStepper/ProgressStepper';
+export type { ProgressStepperProps } from './components/ProgressStepper/ProgressStepper.props';
+export { ProgressStep } from './components/ProgressStepper/ProgressStep';
+export type {
+  ProgressStepProps,
+  ProgressStepStatus,
+} from './components/ProgressStepper/ProgressStep.props';
+export { ProgressStepContent } from './components/ProgressStepper/ProgressStepContent';
+export type { ProgressStepContentProps } from './components/ProgressStepper/ProgressStepContent.props';
+export { ProgressStepLink } from './components/ProgressStepper/ProgressStepLink';
+export type { ProgressStepLinkProps } from './components/ProgressStepper/ProgressStepLink.props';
+export { ProgressStepButton } from './components/ProgressStepper/ProgressStepButton';
+export type { ProgressStepButtonProps } from './components/ProgressStepper/ProgressStepButton.props';
 
 export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar.props';

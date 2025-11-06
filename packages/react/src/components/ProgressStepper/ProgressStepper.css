@@ -1,0 +1,12 @@
+.hearth-ProgressStepper {
+  & :where(ol) {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--h-progress-stepper-gap-horizontal);
+    list-style: none;
+    padding: var(--h-space-0);
+    margin: var(--h-space-0);
+    counter-reset: list-item;
+  }
+}
