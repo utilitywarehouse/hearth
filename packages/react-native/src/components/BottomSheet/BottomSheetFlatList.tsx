@@ -1,8 +1,7 @@
- 
 import { BottomSheetFlatList as FlatList } from '@gorhom/bottom-sheet';
+import { BottomSheetFlatListProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetScrollable/types';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { useBottomSheetContext } from './BottomSheet.context';
-import { BottomSheetFlatListProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetScrollable/types';
 
 const StyledBottomSheetFlatList = withUnistyles(FlatList);
 
@@ -20,7 +19,7 @@ const BottomSheetFlatList = ({
 
   return (
     <StyledBottomSheetFlatList
-      // @ts-expect-error - style
+      // @ts-expect-error - style prop type issue
       style={[styles.container, style]}
       contentContainerStyle={[styles.contentContainer, contentContainerStyle]}
       {...props}

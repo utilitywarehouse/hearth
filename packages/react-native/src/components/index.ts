@@ -46,15 +46,7 @@ export * from './Textarea';
 export * from './ThemedImage';
 export * from './ToggleButtonCard';
 
-export {
-  FlatList,
-  Image,
-  KeyboardAvoidingView,
-  ScrollView,
-  SectionList,
-  StatusBar,
-  View,
-} from 'react-native';
+export { FlatList, Image, KeyboardAvoidingView, ScrollView, SectionList, View } from 'react-native';
 
 export { Pressable } from 'react-native';
 
