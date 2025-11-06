@@ -13,4 +13,6 @@ export const tabsPropDefs = {
 export interface TabsProps extends Omit<RadixTabs.TabsProps, 'asChild' | 'dir' | 'orientation'> {
   /** Size variant */
   size?: Responsive<(typeof sizes)[number]>;
+  /** Activation mode for tabs */
+  activationMode?: 'automatic' | 'manual';
 }
