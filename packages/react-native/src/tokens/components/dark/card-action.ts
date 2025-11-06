@@ -3,5 +3,9 @@
  */
 
 export default {
-  colorMode: 'light',
+  content: {
+    gap: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+  },
 } as const;

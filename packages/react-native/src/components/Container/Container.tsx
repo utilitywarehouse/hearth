@@ -37,9 +37,9 @@ const styles = StyleSheet.create(theme => ({
     marginHorizontal:
       typeof extra.margin === 'undefined' && typeof extra.marginHorizontal === 'undefined'
         ? {
-            base: theme.layout.mobile.container.margin,
-            md: theme.layout.tablet.container.margin,
-            lg: theme.layout.desktop.container.margin,
+            base: theme.layout.mobile.container.marginHorizontal,
+            md: theme.layout.tablet.container.marginHorizontal,
+            lg: theme.layout.desktop.container.marginHorizontal,
           }
         : undefined,
     ...extra,

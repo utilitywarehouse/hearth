@@ -1,6 +1,6 @@
 import { ChevronLeftSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { StyleSheet, View } from 'react-native';
-import { Card, CardAction, Heading, Link } from '../../src';
+import { Card, CardPressHandler, Heading, Link } from '../../src';
 import { addReactNativePrefix } from '../heplers';
 
 type NextPrevPageProps = {
@@ -34,7 +34,7 @@ const NextPrevPage: React.FC<NextPrevPageProps> = ({
         {!!prevLink && (
           <Card gap="100">
             {!!prevTitle && <Heading size="sm">{prevTitle}</Heading>}
-            <CardAction>
+            <CardPressHandler>
               <Link
                 onPress={() => openLink(prevLink)}
                 iconPosition="left"
@@ -42,16 +42,16 @@ const NextPrevPage: React.FC<NextPrevPageProps> = ({
               >
                 Prev Page
               </Link>
-            </CardAction>
+            </CardPressHandler>
           </Card>
         )}
         <div />
         {!!nextLink && (
           <Card gap="100">
             {!!nextTitle && <Heading size="sm">{nextTitle}</Heading>}
-            <CardAction>
+            <CardPressHandler>
               <Link onPress={() => openLink(nextLink)}>Next Page</Link>
-            </CardAction>
+            </CardPressHandler>
           </Card>
         )}
       </View>
