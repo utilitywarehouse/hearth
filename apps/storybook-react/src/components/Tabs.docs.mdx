@@ -87,20 +87,20 @@ You can include icons directly as children inside a `Tab`.
 
 The `activationMode` prop controls how keyboard focus activates a tab:
 
-- `manual` (default): arrow keys move focus between tabs; selection changes when you press <kbd>Space</kbd> or <kbd>Enter</kbd>.
-- `automatic`: arrow keys both move focus and select the focused tab.
+- `automatic` (default): arrow keys both move focus and select the focused tab.
+- `manual`: arrow keys move focus between tabs; selection changes when you press <kbd>Space</kbd> or <kbd>Enter</kbd>.
 
 ```tsx
-<Tabs defaultValue="a" activationMode="automatic">
+<Tabs defaultValue="a" activationMode="manual">
   ...
 </Tabs>
 ```
 
 ### Performance considerations
 
-**Use `manual` mode when tab panels contain heavily loaded content** that might cause lag during automatic activation. This prevents automatic panel switching as users navigate with arrow keys, avoiding performance issues.
+The default `automatic` mode provides the best user experience for most cases. However, **use `manual` mode when tab panels contain heavily loaded content** that might cause lag during automatic activation. This prevents automatic panel switching as users navigate with arrow keys, avoiding performance issues.
 
-However, **prefetching panel data is the preferred solution** over relying on manual activation mode. Consider preloading content for adjacent tabs to provide a smooth experience while maintaining the benefits of automatic activation.
+**Prefetching panel data is the preferred solution** over relying on manual activation mode. Consider preloading content for adjacent tabs to provide a smooth experience while maintaining the benefits of automatic activation.
 
 ## Accessibility
 
@@ -112,20 +112,16 @@ However, **prefetching panel data is the preferred solution** over relying on ma
 
 ## API
 
-This component supports the following common props:
-
-- Margin
-
 ### Tabs
 
-| Prop             | Type                       | Description                            | Default   |
-| ---------------- | -------------------------- | -------------------------------------- | --------- |
-| `value`          | `string`                   | Controlled active tab value            | -         |
-| `defaultValue`   | `string`                   | Uncontrolled initial tab value         | first tab |
-| `onValueChange`  | `(value: string) => void`  | Change handler                         | -         |
-| `size`           | `Responsive<"md" \| "lg">` | Size variant                           | `md`      |
-| `activationMode` | `"automatic" \| "manual"`  | How keyboard focus activates a tab     | `manual`  |
-| `children`       | `ReactNode`                | Composition: `TabsList` + `TabContent` | required  |
+| Prop             | Type                       | Description                            | Default     |
+| ---------------- | -------------------------- | -------------------------------------- | ----------- |
+| `value`          | `string`                   | Controlled active tab value            | -           |
+| `defaultValue`   | `string`                   | Uncontrolled initial tab value         | first tab   |
+| `onValueChange`  | `(value: string) => void`  | Change handler                         | -           |
+| `size`           | `Responsive<"md" \| "lg">` | Size variant                           | `md`        |
+| `activationMode` | `"automatic" \| "manual"`  | How keyboard focus activates a tab     | `automatic` |
+| `children`       | `ReactNode`                | Composition: `TabsList` + `TabContent` | required    |
 
 ### TabsList
 
@@ -143,8 +139,8 @@ This component supports the following common props:
 
 ### TabContent
 
-| Prop          | Type        | Description                                  | Default  |
-| ------------- | ----------- | -------------------------------------------- | -------- |
-| `value`       | `string`    | Matches a `Tab` value                        | required |
-| `children`    | `ReactNode` | Panel content                                | required |
-| `keepMounted` | `boolean`   | Keep hidden panels mounted to preserve state | `false`  |
+| Prop         | Type        | Description                                  | Default  |
+| ------------ | ----------- | -------------------------------------------- | -------- |
+| `value`      | `string`    | Matches a `Tab` value                        | required |
+| `children`   | `ReactNode` | Panel content                                | required |
+| `forceMount` | `boolean`   | Keep hidden panels mounted to preserve state | `false`  |
