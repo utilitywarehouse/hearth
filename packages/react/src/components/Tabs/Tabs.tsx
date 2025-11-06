@@ -26,7 +26,7 @@ export const Tabs = React.forwardRef<TabsElement, TabsProps>((props, ref) => {
       ref={ref}
       className={clsx(componentClassName, className)}
       activationMode={activationMode}
-      {...(tabsProps as React.ComponentProps<typeof RadixTabs.Root>)}
+      {...tabsProps}
     />
   );
 });
