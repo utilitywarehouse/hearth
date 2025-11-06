@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.14.3
+
+### Patch Changes
+
+- [#626](https://github.com/utilitywarehouse/hearth/pull/626) [`5180885`](https://github.com/utilitywarehouse/hearth/commit/51808858e5d8a69084f76c126c10faaa918be23b) Thanks [@robphoenix](https://github.com/robphoenix)! - Bump icons dependency
+
 ## 0.14.2
 
 ### Patch Changes
