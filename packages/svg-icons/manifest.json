@@ -153,6 +153,10 @@
       "path": "sim-small-icon.svg"
     },
     {
+      "name": "TimeSmallIcon",
+      "path": "time-small-icon.svg"
+    },
+    {
       "name": "PlaceholderSmallIcon",
       "path": "placeholder-small-icon.svg"
     },
