@@ -6,7 +6,7 @@ const CardActionText = ({ children, ...props }: TextProps) => {
   const { size } = useCardActionContext();
 
   return (
-    <BodyText size={size} {...props}>
+    <BodyText size={size} weight="semibold" {...props}>
       {children}
     </BodyText>
   );

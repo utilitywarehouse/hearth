@@ -40,10 +40,6 @@ const meta: Meta<typeof CardAction> = {
       description: 'The trailing icon.',
     },
     iconContainer: { control: 'boolean' },
-    iconContainerSize: {
-      control: 'select',
-      options: ['sm', 'md', 'lg'],
-    },
     iconContainerVariant: {
       control: 'select',
       options: ['subtle', 'emphasis'],
@@ -135,7 +131,6 @@ export const WithIconContainer: Story = {
           helperText="Last reading 23/03/24"
           leadingIcon={ElectricityMediumIcon}
           iconContainer
-          iconContainerSize="md"
           iconContainerVariant="emphasis"
           iconContainerColor="energy"
           onPress={() => console.log('pressed')}
@@ -145,7 +140,6 @@ export const WithIconContainer: Story = {
           helperText="Last reading 23/03/24"
           leadingIcon={GasMediumIcon}
           iconContainer
-          iconContainerSize="md"
           iconContainerVariant="emphasis"
           iconContainerColor="energy"
           onPress={() => console.log('pressed')}
@@ -155,7 +149,6 @@ export const WithIconContainer: Story = {
           helperText="Last reading 23/03/24"
           leadingIcon={GasMediumIcon}
           iconContainer
-          iconContainerSize="md"
           iconContainerVariant="emphasis"
           iconContainerColor="energy"
           onPress={() => console.log('pressed')}

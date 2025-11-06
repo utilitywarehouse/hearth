@@ -15,7 +15,6 @@ interface CardActionContentProps {
   badge?: BadgeProps;
   badgePosition?: 'bottom' | 'middle' | 'right' | 'top';
   iconContainer?: boolean;
-  iconContainerSize?: IconContainerProps['size'];
   iconContainerVariant?: IconContainerProps['variant'];
   iconContainerColor?: IconContainerProps['color'];
 }
@@ -31,7 +30,6 @@ export interface CardActionWithChildren extends CardActionBaseProps {
   badge?: never;
   badgePosition?: never;
   iconContainer?: never;
-  iconContainerSize?: never;
   iconContainerVariant?: never;
   iconContainerColor?: never;
 }

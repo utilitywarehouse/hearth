@@ -29,7 +29,6 @@ const CardActionRoot = ({
   badgePosition = 'bottom',
   iconContainer = true,
   iconContainerColor,
-  iconContainerSize,
   iconContainerVariant,
   leadingIcon,
   trailingIcon = ChevronRightSmallIcon,
@@ -109,7 +108,6 @@ const CardActionRoot = ({
                 <IconContainer
                   style={styles.iconContainer}
                   icon={leadingIcon}
-                  size={iconContainerSize}
                   variant={iconContainerVariant}
                   color={iconContainerColor}
                   radiusNone
