@@ -1,5 +1,14 @@
 # @utilitywarehouse/hearth-react
 
+## 0.14.2
+
+### Patch Changes
+
+- [#624](https://github.com/utilitywarehouse/hearth/pull/624) [`493ca22`](https://github.com/utilitywarehouse/hearth/commit/493ca22e6824ccda79ff9e7b8e363b72bdd8ad1a) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `ListItem` trailing content alignment
+
+- Updated dependencies [[`8a5c5ce`](https://github.com/utilitywarehouse/hearth/commit/8a5c5cec7543463c66e54a95cc4677f5bc6fc11e)]:
+  - @utilitywarehouse/hearth-react-icons@0.7.2
+
 ## 0.14.1
 
 ### Patch Changes
