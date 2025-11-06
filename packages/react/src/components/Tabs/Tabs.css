@@ -21,13 +21,6 @@
 
 /* Mask when BOTH arrows are present */
 .hearth-TabsListScroll.hearth-TabsListScroll-with-left.hearth-TabsListScroll-with-right {
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 20px,
-    black 32px,
-    black calc(100% - 32px),
-    transparent calc(100% - 20px)
-  );
   mask-image: linear-gradient(
     to right,
     transparent 20px,
@@ -39,13 +32,11 @@
 
 /* Mask when ONLY left arrow is present */
 .hearth-TabsListScroll.hearth-TabsListScroll-with-left:not(.hearth-TabsListScroll-with-right) {
-  -webkit-mask-image: linear-gradient(to right, transparent 20px, black 32px);
   mask-image: linear-gradient(to right, transparent 20px, black 32px);
 }
 
 /* Mask when ONLY right arrow is present */
 .hearth-TabsListScroll.hearth-TabsListScroll-with-right:not(.hearth-TabsListScroll-with-left) {
-  -webkit-mask-image: linear-gradient(to left, transparent 20px, black 32px);
   mask-image: linear-gradient(to left, transparent 20px, black 32px);
 }
 
