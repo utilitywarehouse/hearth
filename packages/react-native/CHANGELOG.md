@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.7.0
+
+### Minor Changes
+
+- [#613](https://github.com/utilitywarehouse/hearth/pull/613) [`0bdfbe4`](https://github.com/utilitywarehouse/hearth/commit/0bdfbe41ed8b30e5abf49de6ea4cb3a12194921e) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `CardAction` component
+
 ## 0.6.0
 
 ### Minor Changes
