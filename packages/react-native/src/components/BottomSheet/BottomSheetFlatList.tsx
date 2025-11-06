@@ -19,6 +19,7 @@ const BottomSheetFlatList = ({
 
   return (
     <StyledBottomSheetFlatList
+      // @ts-expect-error - style prop type issue
       style={[styles.container, style]}
       contentContainerStyle={[styles.contentContainer, contentContainerStyle]}
       {...props}

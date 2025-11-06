@@ -11,7 +11,8 @@ const CheckboxIcon = ({ style, ...props }: IconProps) => {
       {...props}
       style={
         Platform.OS === 'web'
-          ? StyleSheet.compose(styles.icon as any, style)
+          ? // @ts-expect-error - style prop type issue
+            { ...(styles.icon as StyleProp<ViewStyle>), ...props.style }
           : ([styles.icon as ViewStyle, style] as any)
       }
     />

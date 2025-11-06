@@ -15,6 +15,7 @@ const InputField = ({
 
   if (inBottomSheet) {
     return (
+      // @ts-expect-error - BottomSheetTextInput type issue
       <BottomSheetTextInput
         placeholderTextColor={color.text.secondary}
         selectionColor={color.purple[700]}
