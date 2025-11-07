@@ -5,11 +5,11 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { TabContentProps } from './TabContent.props';
 
 const COMPONENT_NAME = 'TabPanel';
-const contentClassName = withGlobalPrefix(COMPONENT_NAME);
+const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const TabContent = React.forwardRef<HTMLDivElement, TabContentProps>((props, ref) => {
   const { className, ...rest } = props;
-  return <RadixTabs.Content ref={ref} className={clsx(contentClassName, className)} {...rest} />;
+  return <RadixTabs.Content ref={ref} className={clsx(componentClassName, className)} {...rest} />;
 });
 
-TabContent.displayName = 'TabContent';
+TabContent.displayName = COMPONENT_NAME;
