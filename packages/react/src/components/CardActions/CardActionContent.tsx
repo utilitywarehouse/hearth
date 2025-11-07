@@ -40,6 +40,7 @@ export const CardActionContent: React.FC<CardActionContentProps> = ({
           {helperText ? <HelperText>{helperText}</HelperText> : null}
           {badge && badgePlacement === 'bottom' ? badge : null}
         </div>
+        {badge && badgePlacement === 'right' ? badge : null}
         <div className={`${componentClassName}TrailingIcon`}>
           {trailingIcon ? trailingIcon : null}
         </div>

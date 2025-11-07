@@ -48,7 +48,7 @@
       }
     }
 
-    & :where(.hearth-CardActionContentTrailingContent) {
+    & :where(.hearth-CardActionContentTrailingIcon) {
       display: flex;
       align-self: center;
     }

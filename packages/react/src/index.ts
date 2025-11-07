@@ -82,6 +82,8 @@ export { CardInteraction } from './components/Card/CardInteraction';
 export type { CardInteractionProps } from './components/Card/CardInteraction.props';
 export { CardActionLink } from './components/CardActions/CardActionLink';
 export type { CardActionLinkProps } from './components/CardActions/CardActionLink.props';
+export { CardActionButton } from './components/CardActions/CardActionButton';
+export type { CardActionButtonProps } from './components/CardActions/CardActionButton.props';
 
 export { Divider } from './components/Divider/Divider';
 export type { DividerProps } from './components/Divider/Divider.props';

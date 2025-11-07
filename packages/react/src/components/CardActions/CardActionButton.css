@@ -1,0 +1,39 @@
+.hearth-CardActionButton {
+  all: unset;
+  outline: transparent;
+  appearance: none;
+  box-sizing: border-box;
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: var(--h-space-150);
+  align-items: center;
+  border-radius: inherit;
+  overflow: hidden;
+
+  &::after {
+    z-index: 0;
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  @media (hover: hover) {
+    &:where(:hover) {
+      background-color: var(--h-interactive-neutral-surface-subtle-hover);
+    }
+  }
+
+  &:where(:active) {
+    background-color: var(--h-interactive-neutral-surface-subtle-active);
+  }
+
+  &:where(:focus-visible) {
+    outline: 2px solid var(--h-focus-primary);
+    outline-offset: 1px;
+  }
+}
