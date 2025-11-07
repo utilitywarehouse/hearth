@@ -78,8 +78,12 @@ export type { InlineLinkProps } from './components/InlineLink/InlineLink.props';
 
 export { Card } from './components/Card/Card';
 export type { CardProps } from './components/Card/Card.props';
+export { CardContent } from './components/Card/CardContent';
+export type { CardContentProps } from './components/Card/CardContent.props';
 export { CardInteraction } from './components/Card/CardInteraction';
 export type { CardInteractionProps } from './components/Card/CardInteraction.props';
+export { CardActions } from './components/CardActions/CardActions';
+export type { CardActionsProps } from './components/CardActions/CardActions.props';
 export { CardActionLink } from './components/CardActions/CardActionLink';
 export type { CardActionLinkProps } from './components/CardActions/CardActionLink.props';
 export { CardActionButton } from './components/CardActions/CardActionButton';

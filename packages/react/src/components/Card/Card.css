@@ -14,8 +14,29 @@
     padding: var(--h-card-padding-desktop);
   }
 
-  &:where(.hearth-padding-none) {
+  &:where(
+      .hearth-padding-none,
+      :has(.hearth-CardContent),
+      :has(> .hearth-CardActionLink),
+      :has(> .hearth-CardActionButton)
+    ) {
     padding: 0;
+  }
+
+  &:has(.hearth-CardActions) {
+    flex-direction: column;
+  }
+
+  & :where(.hearth-CardContent) {
+    padding: var(--h-card-padding-mobile);
+
+    @media (--h-tablet) {
+      padding: var(--h-card-padding-tablet);
+    }
+
+    @media (--h-desktop) {
+      padding: var(--h-card-padding-desktop);
+    }
   }
 
   &:where(:has(:focus-visible)) {

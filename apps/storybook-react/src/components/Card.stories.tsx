@@ -11,17 +11,23 @@ import {
   CardInteraction,
   CardActionLink,
   CardActionButton,
+  CardActions,
   Button,
   IconButton,
   Badge,
+  CardContent,
 } from '@utilitywarehouse/hearth-react';
 import {
   ChevronRightSmallIcon,
   CloseSmallIcon,
+  DownloadSmallIcon,
   ElectricityMediumIcon,
+  EmailSmallIcon,
   HeartMediumIcon,
   HeartOutlineMediumIcon,
   HomeInsuranceMediumIcon,
+  OpenSmallIcon,
+  TickCircleSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { Placeholder } from '../storybook-components/Placeholder';
 
@@ -465,7 +471,7 @@ export const WithoutLink: Story = {
 export const SingleCardActionLink: Story = {
   render: args => (
     <Flex padding="500" direction="row" gap="500" backgroundColor="secondary" wrap="wrap">
-      <Card {...args} paddingNone flexGrow="1">
+      <Card {...args}>
         <CardActionLink
           heading="Electricity"
           helperText="Last reading: 30th Oct"
@@ -480,7 +486,7 @@ export const SingleCardActionLink: Story = {
           href="#"
         />
       </Card>
-      <Card {...args} paddingNone flexGrow="1">
+      <Card {...args}>
         <CardActionLink
           heading="Home Insurance"
           helperText="B12ABCD38"
@@ -494,7 +500,7 @@ export const SingleCardActionLink: Story = {
           href="#"
         />
       </Card>
-      <Card {...args} paddingNone flexGrow="1">
+      <Card {...args}>
         <CardActionLink
           heading="Card Action"
           helperText="With badge to the right"
@@ -514,7 +520,7 @@ export const SingleCardActionLink: Story = {
 export const SingleCardActionButton: Story = {
   render: args => (
     <Flex padding="500" direction="row" gap="500" backgroundColor="secondary" wrap="wrap">
-      <Card {...args} paddingNone flexGrow="1">
+      <Card {...args}>
         <CardActionButton
           heading="Electricity"
           helperText="Last reading: 30th Oct"
@@ -528,7 +534,7 @@ export const SingleCardActionButton: Story = {
           badgePlacement="middle"
         />
       </Card>
-      <Card {...args} paddingNone flexGrow="1">
+      <Card {...args}>
         <CardActionButton
           heading="Home Insurance"
           helperText="B12ABCD38"
@@ -541,7 +547,7 @@ export const SingleCardActionButton: Story = {
           badgePlacement="bottom"
         />
       </Card>
-      <Card {...args} paddingNone flexGrow="1">
+      <Card {...args}>
         <CardActionButton
           heading="Card Action"
           helperText="With badge to the right"
@@ -552,6 +558,53 @@ export const SingleCardActionButton: Story = {
           }
           badgePlacement="right"
         />
+      </Card>
+    </Flex>
+  ),
+};
+
+export const WithCardActions: Story = {
+  render: args => (
+    <Flex padding="500" direction="row" gap="500" backgroundColor="secondary" wrap="wrap">
+      <Card {...args}>
+        <CardContent direction="column" spacing="lg">
+          <Heading size="md" as="h2">
+            Your December bill
+          </Heading>
+
+          <Flex direction="column" spacing="sm">
+            <DetailText size="4xl">£110.00</DetailText>
+            <Flex gap="50" alignItems="center">
+              <TickCircleSmallIcon />
+              <BodyText size="md">Your Direct Debit is ready to go</BodyText>
+            </Flex>
+          </Flex>
+        </CardContent>
+        <CardActions direction="column">
+          <CardActionButton heading="Download PDF" trailingIcon={<DownloadSmallIcon />} />
+          <CardActionButton heading="Open PDF" trailingIcon={<OpenSmallIcon />} />
+          <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} />
+        </CardActions>
+      </Card>
+      <Card {...args}>
+        <CardContent direction="column" spacing="lg">
+          <Heading size="md" as="h2">
+            Your December bill
+          </Heading>
+
+          <Flex direction="column" spacing="sm">
+            <DetailText size="4xl">£110.00</DetailText>
+            <Flex gap="50" alignItems="center">
+              <TickCircleSmallIcon />
+              <BodyText size="md">Your Direct Debit is ready to go</BodyText>
+            </Flex>
+          </Flex>
+        </CardContent>
+        <CardActions direction="row">
+          <CardActionButton heading="Download PDF" trailingIcon={<DownloadSmallIcon />} />
+          <CardActionButton heading="Open PDF" trailingIcon={<OpenSmallIcon />} />
+          <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} />
+        </CardActions>
       </Card>
     </Flex>
   ),
