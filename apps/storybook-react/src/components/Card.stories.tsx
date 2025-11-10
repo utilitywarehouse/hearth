@@ -25,6 +25,7 @@ import {
   EmailSmallIcon,
   HeartMediumIcon,
   HeartOutlineMediumIcon,
+  HomeAndBoilerMediumIcon,
   HomeInsuranceMediumIcon,
   OpenSmallIcon,
   TickCircleSmallIcon,
@@ -138,18 +139,9 @@ export const KitchenSink: Story = {
 
 export const Playground: Story = {
   render: ({ children, ...args }) => (
-    <Flex padding="600" backgroundColor="primary" justifyContent="center">
-      <Box width="300px">
-        <Card {...args}>
-          <DetailText
-            size="sm"
-            inverted={args.colorScheme === 'brand' && args.variant === 'emphasis'}
-          >
-            {children}
-          </DetailText>
-        </Card>
-      </Box>
-    </Flex>
+    <Card {...args} width="400px" marginInline="auto">
+      <BodyText size="md">{children}</BodyText>
+    </Card>
   ),
 };
 
@@ -372,7 +364,7 @@ export const InteractiveCards: Story = {
               direction="column"
               gap="150"
             >
-              <Flex alignItems="center" justifyContent="between">
+              <Flex alignItems="start" justifyContent="between">
                 <Heading size="sm">This is a card with multiple interactions</Heading>
                 <CardInteraction secondary>
                   <IconButton
@@ -560,6 +552,39 @@ export const SingleCardActionButton: Story = {
         />
       </Card>
     </Flex>
+  ),
+};
+
+export const WithOnlyCardActions: Story = {
+  render: args => (
+    <Card {...args} width="500px">
+      <CardActions direction="column">
+        <CardActionButton
+          leadingIcon={<HomeInsuranceMediumIcon />}
+          leadingIconContainerColorScheme="insurance"
+          heading="Home insurance"
+          helperText="B12ABCD34"
+          badge={
+            <Badge size="sm" colorScheme="positive">
+              Live
+            </Badge>
+          }
+          badgePlacement="right"
+        />
+        <CardActionButton
+          leadingIcon={<HomeAndBoilerMediumIcon />}
+          leadingIconContainerColorScheme="insurance"
+          heading="Boiler & home cover"
+          helperText="B12ABCD37"
+          badge={
+            <Badge size="sm" colorScheme="positive">
+              Live
+            </Badge>
+          }
+          badgePlacement="right"
+        />
+      </CardActions>
+    </Card>
   ),
 };
 

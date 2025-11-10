@@ -9,6 +9,7 @@
   gap: var(--h-space-150);
   align-items: center;
   border-radius: inherit;
+  position: relative;
   overflow: hidden;
 
   &::after {

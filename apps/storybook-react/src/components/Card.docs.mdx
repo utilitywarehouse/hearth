@@ -8,10 +8,33 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <DocsHeader componentName="Card" stories={Stories} />
 
+- [Playground](#playground)
+- [Components](#components)
+- [Semantic HTML](#semantic-html)
+  - [Grouping related cards](#grouping-related-cards)
+- [Interactive Cards](#interactive-cards)
+- [Card Actions](#card-actions)
+  - [Accessibility](#accessibility)
+- [API](#api)
+  - [CardInteraction API](#cardinteraction-api)
+  - [CardActions API](#cardactions-api)
+  - [CardActionLink API](#cardactionlink-api)
+  - [CardActionButton API](#cardactionbutton-api)
+  - [CardContent API](#cardcontent-api)
+
 ## Playground
 
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
+
+## Components
+
+- `Card` - The main card container.
+- `CardActionLink` - A card action which renders a link.
+- `CardActionButton` - A card action which renders a button.
+- `CardActions` - A wrapper for multiple card actions.
+- `CardContent` - A wrapper for card content.
+- `CardInteraction` - A wrapper for additional card interactions.
 
 ## Semantic HTML
 
@@ -34,7 +57,7 @@ When grouping related `Card` components, they should be rendered as list items, 
 
 ## Interactive Cards
 
-By default the `Card` is static. When adding any interactive actions, such as
+By default the `Card` is static. When adding interactive actions, such as
 links, or buttons, you should use the `CardInteraction` component.
 
 The `CardInteraction` component will make the child element's clickable area extend
@@ -81,6 +104,36 @@ clickable, but do not overlay the primary action.
 
 <Canvas of={Stories.InteractiveCards} sourceState="hide" />
 
+## Card Actions
+
+Separate to `CardInteraction` you can include `CardActions` within a `Card`
+component. These are visually different UI elements that are used in various
+different lock ups to call actions to content within a card. You do not need to
+wrap them in a `CardInteraction` component.
+
+`CardActionLink` and `CardActionButton` can be used standalone within a `Card`
+component. If you set the `leadingIconContainerColorScheme` then the
+`leadingIcon` will be rendered within an `IconContainer`.
+
+You can also include a `Badge` and `trailingIcon`.
+
+<Canvas of={Stories.SingleCardActionButton} sourceState="hide" />
+
+When including multiple `CardActionLink` or `CardActionButton` components you
+must wrap them in the `CardActions` component.
+
+<Canvas of={Stories.WithOnlyCardActions} sourceState="hide" />
+
+When using `CardActions` alongside other additional content, you must wrap the
+additional content in a `CardContent` component.
+
+<Canvas of={Stories.WithCardActions} sourceState="hide" />
+
+### Accessibility
+
+By default `CardActions` renders a `ul` element. If the order of the actions
+matters then use the `as` prop to render a `ol` instead.
+
 ## API
 
 This component is based on the `Flex` component and supports the following common props:
@@ -92,9 +145,60 @@ This component is based on the `Flex` component and supports the following commo
 - Grid item
 - Text align
 
-| Prop          | Type                                                                                                                                       |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `as`          | `"div" \| "li"`                                                                                                                            |
-| `variant`     | `"emphasis" \| "subtle"`                                                                                                                   |
+| Prop          | Type                                                                                                                                        |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| `as`          | `"div" \| "li"`                                                                                                                             |
+| `variant`     | `"emphasis" \| "subtle"`                                                                                                                    |
 | `colorScheme` | `"neutralStrong" \| "neutralSubtle" \| "pig" \| "highlight" \| "brand" \| "energy" \| "broadband" \| "mobile" \| "insurance" \| "cashback"` |
-| `paddingNone` | `boolean`                                                                                                                                  |
+| `paddingNone` | `boolean`                                                                                                                                   |
+
+### CardInteraction API
+
+This component is based on the `Flex` component.
+
+| Prop        | Type      |
+| ----------- | --------- |
+| `secondary` | `boolean` |
+
+### CardActions API
+
+This component is based on the `ul` element and supports the following common props:
+
+- Margin
+
+| Prop        | Type                                                                 |
+| ----------- | -------------------------------------------------------------------- |
+| `as`        | `"ul" \| "ol"`                                                       |
+| `direction` | `Responsive<"row" \| "column" \| "row-reverse" \| "column-reverse">` |
+
+### CardActionLink API
+
+This component is based on the `a` element.
+
+| Name                              | Type                                                                                    |
+| --------------------------------- | --------------------------------------------------------------------------------------- |
+| `heading`                         | `string`                                                                                |
+| `helperText`                      | `string`                                                                                |
+| `leadingIcon`                     | `ReactNode`                                                                             |
+| `leadingIconContainerColorScheme` | `"pig" \|"highlight" \| "energy" \| "mobile" \| "broadband"\| "cashback"\| "insurance"` |
+| `trailingIcon`                    | `ReactNode`                                                                             |
+| `badge`                           | `ReactNode`                                                                             |
+| `badgePlacement`                  | `"middle" \|"bottom" \| "right"`                                                        |
+
+### CardActionButton API
+
+This component is based on the `button` element.
+
+| Name                              | Type                                                                                    |
+| --------------------------------- | --------------------------------------------------------------------------------------- |
+| `heading`                         | `string`                                                                                |
+| `helperText`                      | `string`                                                                                |
+| `leadingIcon`                     | `ReactNode`                                                                             |
+| `leadingIconContainerColorScheme` | `"pig" \|"highlight" \| "energy" \| "mobile" \| "broadband"\| "cashback"\| "insurance"` |
+| `trailingIcon`                    | `ReactNode`                                                                             |
+| `badge`                           | `ReactNode`                                                                             |
+| `badgePlacement`                  | `"middle" \|"bottom" \| "right"`                                                        |
+
+### CardContent API
+
+This component is based on the `Card` component, supporting the same props except for those related to appearance and polymorphism.
