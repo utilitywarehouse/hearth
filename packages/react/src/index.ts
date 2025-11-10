@@ -226,3 +226,12 @@ export type { ProgressStepButtonProps } from './components/ProgressStepper/Progr
 
 export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar.props';
+
+export { Tabs } from './components/Tabs/Tabs';
+export { TabsList } from './components/Tabs/TabsList';
+export { Tab } from './components/Tabs/Tab';
+export { TabContent } from './components/Tabs/TabContent';
+export type { TabsProps } from './components/Tabs/Tabs.props';
+export type { TabsListProps } from './components/Tabs/TabsList.props';
+export type { TabProps } from './components/Tabs/Tab.props';
+export type { TabContentProps } from './components/Tabs/TabContent.props';
