@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useState } from 'react';
 import {
   Table,
   TableBody,
@@ -8,6 +9,7 @@ import {
   TableCell,
   TableProps,
 } from '@utilitywarehouse/hearth-react';
+import type { SortDirection } from '@utilitywarehouse/hearth-react';
 
 type ExtendedTableProps = TableProps & {
   numberOfRows: number;
@@ -44,7 +46,7 @@ const meta: Meta<ExtendedTableProps> = {
   },
   args: {
     containerVariant: 'subtle',
-    numberOfRows: 5,
+    numberOfRows: 3,
   },
 };
 
@@ -229,6 +231,90 @@ export const Playground: Story = {
         </TableHeader>
         <TableBody>
           {personalDetails.slice(0, numberOfRows).map(person => (
+            <TableRow key={person.id}>
+              <TableCell>{person.id}</TableCell>
+              <TableCell>{person.firstName}</TableCell>
+              <TableCell>{person.lastName}</TableCell>
+              <TableCell>{person.email}</TableCell>
+              <TableCell>{person.phone}</TableCell>
+              <TableCell>{person.city}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    );
+  },
+};
+
+export const WithSorting: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story:
+          'Table with sortable columns. Click on column headers to sort. Clicking the same header cycles through ascending, descending, and no sort.',
+      },
+    },
+  },
+  render: args => {
+    const [sortConfig, setSortConfig] = useState<{
+      column: keyof typeof personalDetails[number] | null;
+      direction: SortDirection;
+    }>({
+      column: null,
+      direction: 'none',
+    });
+
+    const handleSort = (columnKey: string) => {
+      setSortConfig(prev => {
+        if (prev.column === columnKey) {
+          const nextDirection: SortDirection =
+            prev.direction === 'none' ? 'asc' : prev.direction === 'asc' ? 'desc' : 'none';
+          return { column: columnKey, direction: nextDirection };
+        }
+        return { column: columnKey as keyof typeof personalDetails[number], direction: 'asc' };
+      });
+    };
+
+    // Sort the data
+    const sortedData = [...personalDetails].sort((a, b) => {
+      if (!sortConfig.column || sortConfig.direction === 'none') return 0;
+
+      const aValue = a[sortConfig.column];
+      const bValue = b[sortConfig.column];
+
+      if (aValue < bValue) return sortConfig.direction === 'asc' ? -1 : 1;
+      if (aValue > bValue) return sortConfig.direction === 'asc' ? 1 : -1;
+      return 0;
+    });
+
+    return (
+      <Table {...args}>
+        <TableHeader
+          sortColumn={sortConfig.column}
+          sortDirection={sortConfig.direction}
+          onSort={handleSort}
+        >
+          <TableHeaderCell sortable sortKey="id">
+            ID
+          </TableHeaderCell>
+          <TableHeaderCell sortable sortKey="firstName">
+            First Name
+          </TableHeaderCell>
+          <TableHeaderCell sortable sortKey="lastName">
+            Last Name
+          </TableHeaderCell>
+          <TableHeaderCell sortKey="email">
+            Email
+          </TableHeaderCell>
+          <TableHeaderCell>
+            Phone
+          </TableHeaderCell>
+          <TableHeaderCell sortable sortKey="city">
+            City
+          </TableHeaderCell>
+        </TableHeader>
+        <TableBody>
+          {sortedData.slice(0, args.numberOfRows).map(person => (
             <TableRow key={person.id}>
               <TableCell>{person.id}</TableCell>
               <TableCell>{person.firstName}</TableCell>

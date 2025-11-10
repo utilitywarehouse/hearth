@@ -232,6 +232,7 @@ export type { TableProps } from './components/Table/Table.props';
 export { TableBody } from './components/TableBody/TableBody';
 export type { TableBodyProps } from './components/TableBody/TableBody.props';
 export { TableHeader } from './components/TableHeader/TableHeader';
+export type { TableHeaderProps, SortDirection } from './components/TableHeader/TableHeader.props';
 export { TableHeaderCell } from './components/TableHeaderCell/TableHeaderCell';
 export type { TableHeaderCellProps } from './components/TableHeaderCell/TableHeaderCell.props';
 export { TableRow } from './components/TableRow/TableRow';

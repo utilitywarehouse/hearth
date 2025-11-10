@@ -15,10 +15,12 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 ## ToC
 - [Container variants](#container-variants)
 - [Component structure](#component-structure)
+- [Sorting](#sorting)
 - [Usage guidelines](#usage-guidelines)
 - [Responsive behavior](#responsive-behavior)
 - [Examples](#examples)
   - [Basic table](#basic-table)
+  - [Table with sorting](#table-with-sorting)
   - [Container variants](#container-variants-examples)
 - [Components API](#components-api)
   - [Table API](#table-api)
@@ -62,6 +64,54 @@ The Table uses a compound component pattern:
 </Table>
 ```
 
+## Sorting
+
+The Table supports column sorting through the `TableHeader` and `TableHeaderCell` components. To enable sorting:
+
+1. Pass `sortColumn`, `sortDirection`, and `onSort` props to `TableHeader`
+2. Add `sortable` and `sortKey` props to sortable `TableHeaderCell` components
+3. Manage sort state in your component and handle the sorting logic
+
+```tsx
+const [sortConfig, setSortConfig] = useState({
+  column: null,
+  direction: 'none'
+});
+
+const handleSort = (columnKey) => {
+  setSortConfig(prev => {
+    if (prev.column === columnKey) {
+      // Cycle through: none → asc → desc → none
+      const nextDirection =
+        prev.direction === 'none' ? 'asc' :
+        prev.direction === 'asc' ? 'desc' : 'none';
+      return { column: columnKey, direction: nextDirection };
+    }
+    return { column: columnKey, direction: 'asc' };
+  });
+};
+
+<Table>
+  <TableHeader
+    sortColumn={sortConfig.column}
+    sortDirection={sortConfig.direction}
+    onSort={handleSort}
+  >
+    <TableHeaderCell sortable sortKey="name">Name</TableHeaderCell>
+    <TableHeaderCell sortable sortKey="email">Email</TableHeaderCell>
+    <TableHeaderCell>Actions</TableHeaderCell> {/* Not sortable */}
+  </TableHeader>
+  <TableBody>
+    {/* ... sorted data rows */}
+  </TableBody>
+</Table>
+```
+
+**Sort indicators:**
+- Chevron icons appear next to sortable column headers
+- Active sort direction is highlighted
+- Clicking cycles through: none → ascending → descending → none
+
 ## Usage guidelines
 
 - Use `TableHeader` for column headers
@@ -86,6 +136,12 @@ The Table component automatically adapts to different screen sizes:
 
 <Canvas of={Stories.Playground} />
 
+### Table with sorting
+
+Demonstrates sortable columns with visual indicators. Click column headers to sort.
+
+<Canvas of={Stories.WithSorting} />
+
 ### Container variants examples
 
 Compare the different container variants side by side.
@@ -106,15 +162,26 @@ Additionally supports all standard `<div>` element props.
 
 ### TableHeader API
 
-Wrapper component for the table header row. Automatically wraps children in a `<tr>` element.
+Wrapper component for the table header row. Automatically wraps children in a `<tr>` element. Provides sorting context to child `TableHeaderCell` components.
 
-Extends all `<thead>` element props.
+| Prop            | Type                                 | Default | Description                                      |
+| --------------- | ------------------------------------ | ------- | ------------------------------------------------ |
+| `sortColumn`    | `string \| null`                     | -       | The currently sorted column key                  |
+| `sortDirection` | `'asc' \| 'desc' \| 'none'`          | -       | The current sort direction                       |
+| `onSort`        | `(sortKey: string) => void`          | -       | Callback fired when a sortable column is clicked |
+
+Additionally supports all `<thead>` element props.
 
 ### TableHeaderCell API
 
-Component for header cells in the table.
+Component for header cells in the table. Can be made sortable by adding `sortable` and `sortKey` props.
 
-Extends all `<th>` element props.
+| Prop       | Type      | Default | Description                                              |
+| ---------- | --------- | ------- | -------------------------------------------------------- |
+| `sortable` | `boolean` | `false` | Whether the column is sortable                           |
+| `sortKey`  | `string`  | -       | Unique identifier for this column (required if sortable) |
+
+Additionally supports all `<th>` element props.
 
 ### TableBody API
 
