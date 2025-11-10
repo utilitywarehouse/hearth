@@ -4,7 +4,8 @@ import clsx from 'clsx';
 
 import { TableProps } from './Table.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { TableContext } from './Table.context';
+import { Card } from '../Card/Card';
+import { Box } from '../Box/Box';
 
 const COMPONENT_NAME = 'Table';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -12,20 +13,29 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type TableElement = ElementRef<'div'>;
 
 export const Table = React.forwardRef<TableElement, TableProps>(
-  ({ className, children, containerVariant = 'subtle', ...props }, ref) => {
+  ({ className, children, variant = 'subtle', ...props }, ref) => {
     return (
-      <TableContext.Provider value={{ containerVariant }}>
-        <div
-          ref={ref}
-          className={clsx(componentClassName, className)}
-          data-container-variant={containerVariant}
-          {...props}
-        >
-          <div className={`${componentClassName}ScrollContainer`}>
+      <div
+        ref={ref}
+        className={clsx(componentClassName, className)}
+        data-variant={variant}
+        {...props}
+      >
+        {variant === 'none' ? (
+          <Box className={`${componentClassName}ScrollContainer`}>
             <table className={`${componentClassName}Element`}>{children}</table>
-          </div>
-        </div>
-      </TableContext.Provider>
+          </Box>
+        ) : (
+          <Card
+            className={`${componentClassName}ScrollContainer`}
+            paddingNone
+            variant={variant}
+            colorScheme="neutralStrong"
+          >
+            <table className={`${componentClassName}Element`}>{children}</table>
+          </Card>
+        )}
+      </div>
     );
   }
 );
