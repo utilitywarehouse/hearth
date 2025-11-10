@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { IconContainer, Flex } from '@utilitywarehouse/hearth-react';
+import { IconContainer, Flex, Card } from '@utilitywarehouse/hearth-react';
 import { PlaceholderSmallIcon, PlaceholderMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const variants = ['subtle', 'emphasis'] as const;
@@ -164,6 +164,19 @@ export const RadiusNone: Story = {
           </Flex>
         ))}
       </Flex>
+    );
+  },
+};
+
+export const Fill: Story = {
+  parameters: { controls: { hideNoControlsWarning: true } },
+  render: () => {
+    return (
+      <Card width="200px" height="200px" paddingNone>
+        <IconContainer fill borderRadius="inherit">
+          <PlaceholderSmallIcon />
+        </IconContainer>
+      </Card>
     );
   },
 };

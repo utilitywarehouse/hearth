@@ -15,6 +15,15 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
+- [Icons](#icons)
+- [Variants](#variants)
+- [Sizes](#sizes)
+- [Color schemes](#color-schemes)
+- [Dead prop combinations](#dead-prop-combinations)
+- [Radius none](#radius-none)
+- [Fill](#fill)
+- [API](#api)
+
 ## Icons
 
 The `IconContainer` component is intended to be used with the `@utilitywarehouse/hearth-react-icons` package.
@@ -82,10 +91,16 @@ Be aware there are some combinations of `colorScheme` & `variant` that do not wo
 
 ## Radius none
 
-The `radiusNone` will remove the `border-radius`, for use when the icon
+The `radiusNone` prop will remove the `border-radius`, for use when the icon
 container needs to sit flush against the edge of a card.
 
 <Canvas of={Stories.RadiusNone} sourceState="none" />
+
+## Fill
+
+The `fill` prop will remove the `border-radius` and set the size to fill it's container.
+
+<Canvas of={Stories.Fill} sourceState="none" />
 
 ## API
 

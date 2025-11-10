@@ -1,3 +1,4 @@
+import { BorderRadiusProps } from '../../props/border-radius.props';
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
@@ -16,7 +17,8 @@ export const iconContainerPropDefs = {
 
 export interface IconContainerProps
   extends ComponentPropsWithout<'span', RemovedProps>,
-    MarginProps {
+    MarginProps,
+    BorderRadiusProps {
   /**
    * Sets the container size.
    * @default md

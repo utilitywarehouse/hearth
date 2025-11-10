@@ -36,7 +36,7 @@
     }
   }
 
-  &:where([data-radius-zero]) {
+  &:where([data-radius-zero], [data-fill]) {
     --h-icon-container-border-radius: 0;
   }
 
