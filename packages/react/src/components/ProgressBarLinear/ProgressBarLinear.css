@@ -22,11 +22,7 @@
 
   & :where(.hearth-ProgressBarLinearIndicatorBar) {
     width: 100%;
-
-    /* TODO: Fix that variable */
-    height: 12px;
-
-    /* height: var(--h-progress-bar-linear-bar-height); */
+    height: var(--h-progress-bar-linear-bar-height);
     background-color: var(--h-progress-bar-bar-color);
     border-radius: var(--h-progress-bar-linear-bar-border-radius);
     overflow: hidden;
