@@ -21,6 +21,7 @@ import {
   AccordionItem,
   Alert,
   Badge,
+  Banner,
   BodyText,
   BottomSheet,
   BottomSheetModal,
@@ -187,6 +188,16 @@ const AllComponents: React.FC = () => {
               <View>
                 <Badge colorScheme="danger">This is a red badge</Badge>
               </View>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Banner" link="/?path=/docs/components-banner--docs">
+            <Center flex={1} p="200">
+              <Banner
+                icon={ElectricityMediumIcon}
+                iconContainerColor="energy"
+                heading="I'm a Banner"
+                description="This is a banner description"
+              />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Body Text" link="/?path=/docs/typography-body-text--docs">
@@ -548,10 +559,10 @@ const AllComponents: React.FC = () => {
           >
             <Center flex={1} px="300">
               <ProgressStepper>
-                <ProgressStep id="customer-data" state="complete" />
-                <ProgressStep id="shipping-data" state="complete" />
-                <ProgressStep id="payment-data" state="active" />
-                <ProgressStep id="summary" state="incomplete" />
+                <ProgressStep id="customer-data" status="complete" />
+                <ProgressStep id="shipping-data" status="complete" />
+                <ProgressStep id="payment-data" status="active" />
+                <ProgressStep id="summary" status="incomplete" />
               </ProgressStepper>
             </Center>
           </ComponentWrapper>
