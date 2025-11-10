@@ -19,11 +19,11 @@ const meta: Meta<typeof ProgressBarLinear> = {
     },
   },
   argTypes: {
-    type: { control: { type: 'radio' }, options: ['default', 'success', 'danger'] },
+    colorScheme: { control: { type: 'radio' }, options: ['default', 'success', 'danger'] },
     value: { control: { type: 'range', min: 0, max: 100, step: 1 } },
   },
   args: {
-    type: 'default',
+    colorScheme: 'default',
     value: 90,
   },
 };

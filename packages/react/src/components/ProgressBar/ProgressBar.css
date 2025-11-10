@@ -1,0 +1,46 @@
+.hearth-ProgressBar {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  & :where(.hearth-ProgressBarValue) {
+    grid-column-start: 2;
+    text-align: right;
+  }
+
+  & :where(.hearth-ProgressBarLinear) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: var(--h-progress-bar-linear-gap);
+    width: 100%;
+
+    & :where(.hearth-ProgressBarLinearIndicator) {
+      width: 100%;
+      grid-column: 1 / 3;
+
+      & :where(.hearth-ProgressBarLinearIndicatorBar) {
+        width: 100%;
+        height: var(--h-progress-bar-linear-bar-height);
+        background-color: var(--h-progress-bar-bar-color);
+        border-radius: var(--h-progress-bar-linear-bar-border-radius);
+        overflow: hidden;
+        position: relative;
+      }
+
+      & :where(.hearth-ProgressBarLinearIndicatorFill) {
+        height: 100%;
+        background-color: var(--h-progress-bar-progress-default-color);
+        border-radius: var(--h-progress-bar-linear-bar-border-radius);
+        transition: width 0.3s ease-in-out;
+
+        &:where([data-colorscheme='success'] &) {
+          background-color: var(--h-progress-bar-progress-success-color);
+        }
+
+        &:where([data-colorscheme='danger'] &) {
+          background-color: var(--h-progress-bar-progress-danger-color);
+        }
+      }
+    }
+  }
+}

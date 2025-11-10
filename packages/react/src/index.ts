@@ -244,6 +244,9 @@ export type { TabsListProps } from './components/Tabs/TabsList.props';
 export type { TabProps } from './components/Tabs/Tab.props';
 export type { TabContentProps } from './components/Tabs/TabContent.props';
 
+export { ProgressBar } from './components/ProgressBar/ProgressBar';
+export type { ProgressBarProps } from './components/ProgressBar/ProgressBar.props';
+
 export { ProgressBarLabel } from './components/ProgressBarLabel/ProgressBarLabel';
 export type { ProgressBarLabelProps } from './components/ProgressBarLabel/ProgressBarLabel.props';
 
