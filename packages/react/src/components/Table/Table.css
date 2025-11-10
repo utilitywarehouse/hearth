@@ -1,0 +1,45 @@
+.hearth-Table {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container Variants */
+.hearth-Table[data-container-variant='subtle'] {
+  border: var(--h-table-cell-border-width) solid var(--h-border-subtle);
+  border-radius: var(--h-table-border-radius);
+  background-color: var(--h-surface-neutral-strong);
+}
+
+.hearth-Table[data-container-variant='emphasis'] {
+  border: var(--h-table-emphasis-border-width) solid var(--h-border-strong);
+  border-radius: var(--h-table-border-radius);
+  background-color: var(--h-surface-neutral-strong);
+}
+
+.hearth-Table[data-container-variant='none'] {
+  border: none;
+}
+
+.hearth-TableScrollContainer {
+  overflow-x: auto;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hearth-TableElement {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: var(--h-font-family-body);
+  font-size: var(--h-font-size-100);
+  line-height: var(--h-line-height-500);
+}
+
+/* Ensure minimum table width on mobile/tablet for horizontal scroll */
+@media not all and (--h-desktop) {
+  .hearth-TableElement {
+    min-width: 600px;
+  }
+}

@@ -1,0 +1,5 @@
+.hearth-TableCell {
+  padding: var(--h-table-cell-padding);
+  color: var(--h-text-primary);
+  height: 48px;
+}

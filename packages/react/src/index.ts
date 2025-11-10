@@ -226,3 +226,16 @@ export type { ProgressStepButtonProps } from './components/ProgressStepper/Progr
 
 export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar.props';
+
+export { Table } from './components/Table/Table';
+export type { TableProps } from './components/Table/Table.props';
+export { TableBody } from './components/TableBody/TableBody';
+export type { TableBodyProps } from './components/TableBody/TableBody.props';
+export { TableHeader } from './components/TableHeader/TableHeader';
+export type { TableHeaderProps } from './components/TableHeader/TableHeader.props';
+export { TableHeaderCell } from './components/TableHeaderCell/TableHeaderCell';
+export type { TableHeaderCellProps } from './components/TableHeaderCell/TableHeaderCell.props';
+export { TableRow } from './components/TableRow/TableRow';
+export type { TableRowProps } from './components/TableRow/TableRow.props';
+export { TableCell } from './components/TableCell/TableCell';
+export type { TableCellProps } from './components/TableCell/TableCell.props';

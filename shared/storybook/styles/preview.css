@@ -38,17 +38,17 @@ code {
   border: 1px solid #e6e4db !important;
 }
 
-:where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr,
+:where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table, .hearth-Table table)) tr,
 .docblock-argstable-body tr td {
   background-color: #f1efe4 !important;
 }
 
-thead th {
+thead th:not(..hearth-TableHeaderCell) {
   background-color: #7a42c8 !important;
   color: white !important;
 }
 
-:where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table)) tr:nth-of-type(2n),
+:where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table, .hearth-Table table)) tr:nth-of-type(2n),
 .docblock-argstable-body tr:nth-of-type(2n) td {
   background-color: #fcfbf2 !important;
 }

@@ -1,0 +1,12 @@
+/* Container Variants */
+.hearth-TableHeader[data-container-variant='subtle'],
+  .hearth-TableHeader[data-container-variant='emphasis'] {
+  border-bottom: var(--h-table-header-cell-border-width) solid var(--h-border-strong);
+  background: var(--h-surface-brand-default);
+  color: var(--h-text-inverted);
+}
+
+.hearth-TableHeader[data-container-variant='none'] {
+  border-bottom: var(--h-table-header-cell-border-width) solid var(--h-border-subtle);
+  background-color: var(--h-surface-neutral-strong);
+}
