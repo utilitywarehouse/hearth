@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.15.0
+
+### Minor Changes
+
+- [#574](https://github.com/utilitywarehouse/hearth/pull/574) [`620052d`](https://github.com/utilitywarehouse/hearth/commit/620052d1bf6ad43f98bb182076bff5098fad0cdc) Thanks [@Utakato](https://github.com/Utakato)! - Add `Tabs` component
+
 ## 0.14.3
 
 ### Patch Changes
