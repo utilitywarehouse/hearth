@@ -163,6 +163,7 @@ import { TickMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickMed
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickSmallIcon';
 import { TikTokMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TikTokMediumIcon';
 import { TimeMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TimeMediumIcon';
+import { TimeSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/TimeSmallIcon';
 import { TopUpMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TopUpMediumIcon';
 import { TopUpSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/TopUpSmallIcon';
 import { TorchOffMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TorchOffMediumIcon';
@@ -350,6 +351,7 @@ export const reactIcons = [
   TickSmallIcon,
   TikTokMediumIcon,
   TimeMediumIcon,
+  TimeSmallIcon,
   TopUpMediumIcon,
   TopUpSmallIcon,
   TorchOffMediumIcon,

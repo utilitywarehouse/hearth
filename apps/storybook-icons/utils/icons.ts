@@ -38,6 +38,7 @@ export const icons = [
   { reactName: 'CashbackCardSmallIcon', svgName: 'cashback-card-small-icon.svg' },
   { reactName: 'MobileSmallIcon', svgName: 'mobile-small-icon.svg' },
   { reactName: 'SimSmallIcon', svgName: 'sim-small-icon.svg' },
+  { reactName: 'TimeSmallIcon', svgName: 'time-small-icon.svg' },
   { reactName: 'PlaceholderSmallIcon', svgName: 'placeholder-small-icon.svg' },
   { reactName: 'MoreSmallIcon', svgName: 'more-small-icon.svg' },
   { reactName: 'CopySmallIcon', svgName: 'copy-small-icon.svg' },

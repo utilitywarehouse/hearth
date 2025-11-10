@@ -38,6 +38,7 @@ import IncomeProtectSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/incom
 import CashbackCardSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/cashback-card-small-icon.svg';
 import MobileSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/mobile-small-icon.svg';
 import SimSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/sim-small-icon.svg';
+import TimeSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/time-small-icon.svg';
 import PlaceholderSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/placeholder-small-icon.svg';
 import MoreSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/more-small-icon.svg';
 import CopySmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/copy-small-icon.svg';
@@ -225,6 +226,7 @@ export const svgIcons = [
   CashbackCardSmallIcon,
   MobileSmallIcon,
   SimSmallIcon,
+  TimeSmallIcon,
   PlaceholderSmallIcon,
   MoreSmallIcon,
   CopySmallIcon,

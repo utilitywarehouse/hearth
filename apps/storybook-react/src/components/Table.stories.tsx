@@ -27,10 +27,10 @@ const meta: Meta<ExtendedTableProps> = {
     },
   },
   argTypes: {
-    containerVariant: {
+    variant: {
       control: { type: 'select' },
       options: ['subtle', 'emphasis', 'none'],
-      description: 'The container variant of the table',
+      description: 'The visual variant of the table',
       table: {
         defaultValue: { summary: 'subtle' },
       },
@@ -45,7 +45,7 @@ const meta: Meta<ExtendedTableProps> = {
     },
   },
   args: {
-    containerVariant: 'subtle',
+    variant: 'subtle',
     numberOfRows: 3,
   },
 };
@@ -332,7 +332,7 @@ export const WithSorting: Story = {
 
 export const ContainerVariants: Story = {
   argTypes: {
-    containerVariant: {
+    variant: {
       table: {
         disable: true,
       },
@@ -350,7 +350,7 @@ export const ContainerVariants: Story = {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
         <div>
           <h3 style={{ marginBottom: '1rem' }}>Subtle (default)</h3>
-          <Table containerVariant="subtle">
+          <Table>
             <TableHeader>
               <TableHeaderCell>ID</TableHeaderCell>
               <TableHeaderCell>First Name</TableHeaderCell>
@@ -376,7 +376,7 @@ export const ContainerVariants: Story = {
 
         <div>
           <h3 style={{ marginBottom: '1rem' }}>Emphasis</h3>
-          <Table containerVariant="emphasis">
+          <Table variant="emphasis">
             <TableHeader>
               <TableHeaderCell>ID</TableHeaderCell>
               <TableHeaderCell>First Name</TableHeaderCell>
@@ -402,7 +402,7 @@ export const ContainerVariants: Story = {
 
         <div>
           <h3 style={{ marginBottom: '1rem' }}>None</h3>
-          <Table containerVariant="none">
+          <Table variant="none">
             <TableHeader>
               <TableHeaderCell>ID</TableHeaderCell>
               <TableHeaderCell>First Name</TableHeaderCell>

@@ -1,7 +1,14 @@
 import { createContext, useContext } from 'react';
+import CardProps from './Card.props';
 
 interface CardContextProps {
   pressed?: boolean;
+  noPadding?: boolean;
+  hasActions?: boolean;
+  hasContent?: boolean;
+  hasOnlyActions?: boolean;
+  space?: CardProps['space'];
+  variant?: CardProps['variant'];
 }
 
 export const CardContext = createContext<CardContextProps>({});

@@ -8,7 +8,7 @@ export const mobile = {
     minWidth: 320,
   },
   container: {
-    margin: 16,
+    marginHorizontal: 16,
     paddingBottom: 32,
     paddingTop: 24,
     width: 360,
@@ -37,7 +37,7 @@ export const tablet = {
     minWidth: 740,
   },
   container: {
-    margin: 32,
+    marginHorizontal: 32,
     paddingBottom: 32,
     paddingTop: 24,
     width: 744,
@@ -66,7 +66,7 @@ export const desktop = {
     minWidth: 992,
   },
   container: {
-    margin: 32,
+    marginHorizontal: 32,
     paddingBottom: 48,
     paddingTop: 32,
     width: 1096,

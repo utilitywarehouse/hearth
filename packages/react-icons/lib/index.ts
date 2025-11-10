@@ -162,6 +162,7 @@ export { TickMediumIcon } from './TickMediumIcon';
 export { TickSmallIcon } from './TickSmallIcon';
 export { TikTokMediumIcon } from './TikTokMediumIcon';
 export { TimeMediumIcon } from './TimeMediumIcon';
+export { TimeSmallIcon } from './TimeSmallIcon';
 export { TopUpMediumIcon } from './TopUpMediumIcon';
 export { TopUpSmallIcon } from './TopUpSmallIcon';
 export { TorchOffMediumIcon } from './TorchOffMediumIcon';

@@ -1,9 +1,10 @@
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+import { CardProps } from '../Card/Card.props';
 
 export type TableProps = ComponentPropsWithout<'div', RemovedProps> & {
   /**
-   * The container variant of the table
+   * Sets the visual variant of the table.
    * @default 'subtle'
    */
-  containerVariant?: 'subtle' | 'emphasis' | 'none';
+  variant?: CardProps['variant'] | 'none';
 };

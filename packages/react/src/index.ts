@@ -237,3 +237,12 @@ export { TableHeaderCell } from './components/TableHeaderCell/TableHeaderCell';
 export type { TableHeaderCellProps } from './components/TableHeaderCell/TableHeaderCell.props';
 export { TableRow } from './components/TableRow/TableRow';
 export { TableCell } from './components/TableCell/TableCell';
+
+export { Tabs } from './components/Tabs/Tabs';
+export { TabsList } from './components/Tabs/TabsList';
+export { Tab } from './components/Tabs/Tab';
+export { TabContent } from './components/Tabs/TabContent';
+export type { TabsProps } from './components/Tabs/Tabs.props';
+export type { TabsListProps } from './components/Tabs/TabsList.props';
+export type { TabProps } from './components/Tabs/Tab.props';
+export type { TabContentProps } from './components/Tabs/TabContent.props';

@@ -1,6 +1,10 @@
+// This file has been automatically migrated to valid ESM format by Storybook.
+import { createRequire } from "node:module";
 import type { StorybookConfig } from '@storybook/react-vite';
 
 import { dirname, join } from 'path';
+
+const require = createRequire(import.meta.url);
 
 const isDev = process.env.NODE_ENV === 'development';
 
