@@ -15,7 +15,6 @@ import { UnstyledIconButton } from '../UnstyledIconButton';
 import { useTabsContext } from './Tabs.context';
 import type TabsListProps from './TabsList.props';
 
-// @ts-expect-error - Animated.View type issue
 const Indicator = Animated.createAnimatedComponent(View);
 
 const SCROLL_STEP_RATIO = 0.6;
@@ -113,7 +112,6 @@ const TabsList = ({ children, style, ...rest }: TabsListProps) => {
         <View style={styles.container}>
           {children}
           <Indicator
-            // @ts-expect-error - Animated.View type issue
             accessibilityElementsHidden
             importantForAccessibility="no-hide-descendants"
             style={[styles.indicator, indicatorStyle]}
