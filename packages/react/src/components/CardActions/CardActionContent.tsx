@@ -23,7 +23,12 @@ export const CardActionContent: React.FC<CardActionContentProps> = ({
     <div className={clsx(componentClassName, className)}>
       {leadingIcon ? (
         leadingIconContainerColorScheme ? (
-          <IconContainer colorScheme={leadingIconContainerColorScheme} size="md" radiusNone>
+          <IconContainer
+            colorScheme={leadingIconContainerColorScheme}
+            size="md"
+            fill="height"
+            borderRadius="none"
+          >
             {leadingIcon}
           </IconContainer>
         ) : (
@@ -41,9 +46,7 @@ export const CardActionContent: React.FC<CardActionContentProps> = ({
           {badge && badgePlacement === 'bottom' ? badge : null}
         </div>
         {badge && badgePlacement === 'right' ? badge : null}
-        <div className={`${componentClassName}TrailingIcon`}>
-          {trailingIcon}
-        </div>
+        <div className={`${componentClassName}TrailingIcon`}>{trailingIcon}</div>
       </div>
     </div>
   );

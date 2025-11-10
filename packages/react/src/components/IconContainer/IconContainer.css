@@ -36,12 +36,10 @@
     }
   }
 
-  &:where([data-radius-zero], [data-fill]) {
-    --h-icon-container-border-radius: 0;
-  }
-
-  &:where([data-fill]) {
+  &:where([data-fill='height'], [data-fill='both']) {
     height: 100%;
+  }
+  &:where([data-fill='width'], [data-fill='both']) {
     width: 100%;
   }
 

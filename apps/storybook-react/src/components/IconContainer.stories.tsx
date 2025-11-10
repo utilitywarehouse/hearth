@@ -30,7 +30,6 @@ const meta: Meta<typeof IconContainer> = {
     variant: { options: variants, control: { type: 'radio' } },
     size: { control: { type: 'radio' }, options: sizes },
     colorScheme: { options: colorSchemes, control: { type: 'radio' } },
-    radiusNone: { control: { type: 'boolean' } },
   },
   args: {
     variant: 'subtle',
@@ -141,7 +140,7 @@ export const RadiusNone: Story = {
                     variant={variant}
                     colorScheme={colorScheme}
                     size={size}
-                    radiusNone
+                    borderRadius="none"
                   >
                     {size === 'sm' ? <PlaceholderSmallIcon /> : <PlaceholderMediumIcon />}
                   </IconContainer>
@@ -153,7 +152,7 @@ export const RadiusNone: Story = {
                         variant={variant}
                         colorScheme={colorScheme}
                         size={size}
-                        radiusNone
+                        borderRadius="none"
                       >
                         {size === 'sm' ? <PlaceholderSmallIcon /> : <PlaceholderMediumIcon />}
                       </IconContainer>
@@ -172,11 +171,33 @@ export const Fill: Story = {
   parameters: { controls: { hideNoControlsWarning: true } },
   render: () => {
     return (
-      <Card width="200px" height="200px" paddingNone>
-        <IconContainer fill borderRadius="inherit">
-          <PlaceholderSmallIcon />
-        </IconContainer>
-      </Card>
+      <Flex direction="row" gap="200">
+        <Card width="200px" height="200px" paddingNone>
+          <IconContainer fill="both" borderRadius="inherit">
+            <PlaceholderSmallIcon />
+          </IconContainer>
+        </Card>
+        <Card width="200px" height="200px" paddingNone>
+          <IconContainer
+            fill="height"
+            borderRadius="none"
+            borderTopLeftRadius="inherit"
+            borderBottomLeftRadius="inherit"
+          >
+            <PlaceholderSmallIcon />
+          </IconContainer>
+        </Card>
+        <Card width="200px" height="200px" paddingNone>
+          <IconContainer
+            fill="width"
+            borderRadius="none"
+            borderTopLeftRadius="inherit"
+            borderTopRightRadius="inherit"
+          >
+            <PlaceholderSmallIcon />
+          </IconContainer>
+        </Card>
+      </Flex>
     );
   },
 };

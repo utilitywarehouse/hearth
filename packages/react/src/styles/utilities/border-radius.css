@@ -152,10 +152,10 @@
   }
 
   .hearth-r-border-bottom-left-radius-full {
-    border-radius: var(--h-border-radius-full);
+    border-bottom-left-radius: var(--h-border-radius-full);
   }
 
   .hearth-r-border-bottom-left-radius-inherit {
-    border-radius: inherit;
+    border-bottom-left-radius: inherit;
   }
 }

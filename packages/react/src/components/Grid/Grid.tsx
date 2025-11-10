@@ -21,7 +21,7 @@ import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { borderColorPropDefs } from '../../props/border-color.props';
-import {borderRadiusPropDefs} from '../../props/border-radius.props';
+import { borderRadiusPropDefs } from '../../props/border-radius.props';
 
 const COMPONENT_NAME = 'Grid';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
