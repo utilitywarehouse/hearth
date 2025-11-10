@@ -2,7 +2,6 @@ import * as React from 'react';
 import type { ElementRef } from 'react';
 import clsx from 'clsx';
 
-import { TableHeaderProps } from './TableHeader.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { useTableContext } from '../Table/Table.context';
 
@@ -11,7 +10,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TableHeaderElement = ElementRef<'thead'>;
 
-export const TableHeader = React.forwardRef<TableHeaderElement, TableHeaderProps>(
+export const TableHeader = React.forwardRef<TableHeaderElement, React.ComponentProps<'thead'>>(
   ({ className, children, ...props }, ref) => {
     const { containerVariant } = useTableContext();
 

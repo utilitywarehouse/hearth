@@ -15,9 +15,7 @@ export const TableHeaderCell = React.forwardRef<TableHeaderCellElement, TableHea
   ({ className, children, ...props }, ref) => {
     return (
       <th ref={ref} className={clsx(componentClassName, className)} {...props}>
-        <BodyText weight="semibold">
-          {children}
-        </BodyText>
+        <BodyText weight="semibold">{children}</BodyText>
       </th>
     );
   }

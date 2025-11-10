@@ -43,7 +43,7 @@ code {
   background-color: #f1efe4 !important;
 }
 
-thead th:not(..hearth-TableHeaderCell) {
+thead th:not(.hearth-TableHeaderCell) {
   background-color: #7a42c8 !important;
   color: white !important;
 }

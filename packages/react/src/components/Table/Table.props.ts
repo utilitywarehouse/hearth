@@ -1,6 +1,6 @@
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
-export type TableProps = ComponentPropsWithout<'table', RemovedProps> & {
+export type TableProps = ComponentPropsWithout<'div', RemovedProps> & {
   /**
    * The container variant of the table
    * @default 'subtle'
