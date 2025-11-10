@@ -1,8 +1,8 @@
+import { Platform, StyleProp, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Icon } from '../Icon';
-import { CircleIcon } from '../Icons';
 import IconProps from '../Icon/Icon.props';
-import { Platform } from 'react-native';
+import { CircleIcon } from '../Icons';
 
 const RadioCardIcon = ({ style, ...props }: IconProps) => {
   return (
@@ -11,7 +11,8 @@ const RadioCardIcon = ({ style, ...props }: IconProps) => {
       {...props}
       style={
         Platform.OS === 'web'
-          ? StyleSheet.compose(styles.container, style)
+          ? // @ts-expect-error - style prop type issue
+            { ...(styles.container as StyleProp<ViewStyle>), ...props.style }
           : ([styles.container, style] as any)
       }
     />

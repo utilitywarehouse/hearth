@@ -1,5 +1,26 @@
 # @utilitywarehouse/hearth-react
 
+## 0.14.3
+
+### Patch Changes
+
+- [#626](https://github.com/utilitywarehouse/hearth/pull/626) [`5180885`](https://github.com/utilitywarehouse/hearth/commit/51808858e5d8a69084f76c126c10faaa918be23b) Thanks [@robphoenix](https://github.com/robphoenix)! - Bump icons dependency
+
+## 0.14.2
+
+### Patch Changes
+
+- [#624](https://github.com/utilitywarehouse/hearth/pull/624) [`493ca22`](https://github.com/utilitywarehouse/hearth/commit/493ca22e6824ccda79ff9e7b8e363b72bdd8ad1a) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `ListItem` trailing content alignment
+
+- Updated dependencies [[`8a5c5ce`](https://github.com/utilitywarehouse/hearth/commit/8a5c5cec7543463c66e54a95cc4677f5bc6fc11e)]:
+  - @utilitywarehouse/hearth-react-icons@0.7.2
+
+## 0.14.1
+
+### Patch Changes
+
+- [#621](https://github.com/utilitywarehouse/hearth/pull/621) [`134514b`](https://github.com/utilitywarehouse/hearth/commit/134514bca3105077a37b6fc6897a4569182d027b) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `DescriptionList` docs; updating usage of `link` to `trailingContent`
+
 ## 0.14.0
 
 ### Minor Changes

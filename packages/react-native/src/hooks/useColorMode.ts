@@ -1,21 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import { UnistylesRuntime, useUnistyles } from 'react-native-unistyles';
 
 const useColorMode = () => {
-  const {
-    theme: { colorMode: themeColorMode },
-  } = useUnistyles();
+  const { theme } = useUnistyles();
 
-  const [colorMode, setColorMode] = useState<'light' | 'dark'>(
-    UnistylesRuntime.themeName as 'light' | 'dark'
+  const setColorModeWrapper = useCallback(
+    (mode: 'light' | 'dark') => {
+      if (mode === theme.colorMode) return;
+      UnistylesRuntime.setTheme(mode);
+    },
+    [theme.colorMode]
   );
 
-  useEffect(() => {
-    if (colorMode === themeColorMode) return;
-    setColorMode(themeColorMode);
-  }, [themeColorMode, colorMode]);
-
-  return [colorMode, setColorMode] as const;
+  return [theme.colorMode, setColorModeWrapper] as const;
 };
 
 export default useColorMode;

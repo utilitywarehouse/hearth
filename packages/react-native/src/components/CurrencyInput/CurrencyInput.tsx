@@ -82,7 +82,7 @@ const styles = StyleSheet.create(theme => ({
   input: {
     fontSize: theme.typography.mobile.detailText['4xl'].fontSize,
     fontFamily: theme.typography.mobile.detailText.fontFamily,
-    fontWeight: theme.typography.mobile.detailText.fontWeight,
+    fontWeight: `${theme.typography.mobile.detailText.fontWeight}`,
     paddingTop: 0,
     paddingBottom: 0,
     paddingLeft: 0,
