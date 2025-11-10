@@ -22,6 +22,7 @@ export * from './FormField';
 export * from './Grid';
 export * from './Heading';
 export * from './Helper';
+export * from './HighlightBanner';
 export * from './HTMLElements';
 export * from './Icon';
 export * from './IconButton';

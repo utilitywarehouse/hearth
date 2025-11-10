@@ -1,10 +1,10 @@
 import { Image, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { BodyText } from '../../BodyText';
-import { useCardContext } from '../Card.context';
-import type CardHighlightBannerProps from './CardHighlightBanner.props';
+import { BodyText } from '../BodyText';
+import { Card } from '../Card';
+import type HighlightBannerProps from './HighlightBanner.props';
 
-const CardHighlightBanner = ({
+const HighlightBanner = ({
   heading,
   headingColor,
   image,
@@ -12,34 +12,36 @@ const CardHighlightBanner = ({
   description,
   link,
   button,
+  variant = 'emphasis',
   style,
   ...props
-}: CardHighlightBannerProps) => {
-  const { variant } = useCardContext();
+}: HighlightBannerProps) => {
   styles.useVariants({ headingColor, variant });
 
   return (
-    <View style={[styles.container, style]} {...props}>
-      <View style={[styles.header]}>
-        <BodyText size="md" textAlign="center" weight="semibold">
-          {heading}
-        </BodyText>
+    <Card variant={variant} noPadding style={style} {...props}>
+      <View style={[styles.container]}>
+        <View style={[styles.header]}>
+          <BodyText size="md" textAlign="center" weight="semibold">
+            {heading}
+          </BodyText>
+        </View>
+        <View style={styles.imageContainer(imageContainerHeight)}>
+          <Image resizeMode="cover" {...image} style={[styles.image, image?.style]} />
+        </View>
+        <View style={styles.footer}>
+          <BodyText size="md" textAlign="center">
+            {description}
+          </BodyText>
+          {link && <View style={styles.linkContainer}>{link}</View>}
+          {button && <View style={styles.buttonContainer}>{button}</View>}
+        </View>
       </View>
-      <View style={styles.imageContainer(imageContainerHeight)}>
-        <Image resizeMode="cover" {...image} style={[styles.image, image?.style]} />
-      </View>
-      <View style={styles.footer}>
-        <BodyText size="md" textAlign="center">
-          {description}
-        </BodyText>
-        {link && <View style={styles.linkContainer}>{link}</View>}
-        {button && <View style={styles.buttonContainer}>{button}</View>}
-      </View>
-    </View>
+    </Card>
   );
 };
 
-CardHighlightBanner.displayName = 'CardHighlightBanner';
+HighlightBanner.displayName = 'HighlightBanner';
 
 const styles = StyleSheet.create(theme => ({
   container: {
@@ -117,4 +119,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-export default CardHighlightBanner;
+export default HighlightBanner;

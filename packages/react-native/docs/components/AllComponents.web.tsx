@@ -46,6 +46,7 @@ import {
   FormField,
   Grid,
   Heading,
+  HighlightBanner,
   Icon,
   IconButton,
   IconContainer,
@@ -398,6 +399,24 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Heading" link="/?path=/docs/typography-heading--docs">
             <Center flex={1}>
               <Heading>This is a Heading</Heading>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
+            name="Highlight Banner"
+            link="/?path=/docs/components-highlight-banner--docs"
+          >
+            <Center flex={1} p="200">
+              <HighlightBanner
+                heading="Featured Content"
+                headingColor="energy"
+                imageContainerHeight={40}
+                image={{
+                  source: {
+                    uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80',
+                  },
+                }}
+                description="Banner description goes here."
+              />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper

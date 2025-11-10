@@ -1,0 +1,277 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { Button, Center, HighlightBanner, Link } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './HighlightBanner.stories';
+
+<Meta title="Components / Highlight Banner" />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=8306-4665&t=qkAoIRb6rKiYkSIE-4" />
+
+<BackToTopButton />
+
+# Highlight Banner
+
+A `HighlightBanner` component is a specialised card layout designed for highlighting featured content with an image. It combines a colored heading banner, an image, and descriptive text with optional action buttons or links. Perfect for promotional content, featured articles, or important announcements.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+- [Examples](#examples)
+  - [With Button](#with-button)
+  - [With Link](#with-link)
+  - [Color Variants](#color-variants)
+  - [Subtle Variant](#subtle-variant)
+  - [Different Images](#different-images)
+  - [Custom Image Height](#custom-image-height)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <HighlightBanner
+      heading="Featured Content"
+      headingColor="energy"
+      image={{
+        source: {
+          uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80',
+        },
+      }}
+      description="This is a description of the featured content that appears below the image."
+    />
+  </Center>
+</UsageWrap>
+
+```jsx
+import { HighlightBanner } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <HighlightBanner
+    heading="Featured Content"
+    headingColor="energy"
+    image={{
+      source: {
+        uri: 'https://example.com/image.jpg',
+      },
+    }}
+    description="This is a description of the featured content."
+  />
+);
+```
+
+## Props
+
+| Property             | Type                                                                                               | Description                                                   | Default      |
+| -------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------ |
+| heading              | `string`                                                                                           | The heading text displayed at the top with colored background | `-`          |
+| headingColor         | `'pig' \| 'energy' \| 'broadband' \| 'mobile' \|` <br />`'insurance' \| 'cashback' \| 'highlight'` | The semantic color scheme for the heading background          | `-`          |
+| image                | `ImageProps`                                                                                       | React Native Image props for the featured image               | `-`          |
+| imageContainerHeight | `number`                                                                                           | Height of the image container in pixels                       | `200`        |
+| description          | `string`                                                                                           | Description text displayed below the image                    | `-`          |
+| link                 | `ReactElement`                                                                                     | Optional Link component displayed below description           | `-`          |
+| button               | `ReactElement`                                                                                     | Optional Button component displayed below description         | `-`          |
+| variant              | `'emphasis' \| 'subtle'`                                                                           | Visual style variant with strong or subtle borders            | `'emphasis'` |
+
+The component also accepts all standard Card props except `noPadding`, `space`, `gap`, `rowGap`, `columnGap`, `flexDirection`, `flexWrap`, `alignItems`, and `justifyContent`.
+
+## Variants
+
+The HighlightBanner supports two visual variants:
+
+- **emphasis** (default) - Strong borders for clear visual separation
+- **subtle** - Softer borders for a more understated appearance
+
+## Examples
+
+### With Button
+
+Add a Button component to provide a clear call-to-action:
+
+<Canvas of={Stories.WithButton} />
+
+```jsx
+import { HighlightBanner, Button } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <HighlightBanner
+    heading="New Feature"
+    headingColor="energy"
+    image={{
+      source: {
+        uri: 'https://example.com/feature.jpg',
+      },
+    }}
+    description="Check out our latest feature"
+    button={<Button onPress={() => console.log('pressed')}>Get Started</Button>}
+  />
+);
+```
+
+### With Link
+
+Use a Link component for a lighter-weight action:
+
+<Canvas of={Stories.WithLink} />
+
+```jsx
+import { HighlightBanner, Link } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <HighlightBanner
+    heading="Learn More"
+    headingColor="broadband"
+    image={{
+      source: {
+        uri: 'https://example.com/info.jpg',
+      },
+    }}
+    description="Explore our documentation"
+    link={<Link onPress={() => console.log('pressed')}>Read more</Link>}
+  />
+);
+```
+
+### Color Variants
+
+The component supports seven semantic color schemes that automatically apply the appropriate subtle background colors:
+
+<Canvas of={Stories.ColorVariants} />
+
+```jsx
+import { HighlightBanner } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <>
+    {/* Energy Blue */}
+    <HighlightBanner
+      heading="Energy Services"
+      headingColor="energy"
+      image={{ source: { uri: 'https://example.com/energy.jpg' } }}
+      description="Discover our energy solutions"
+    />
+
+    {/* Broadband Green */}
+    <HighlightBanner
+      heading="Broadband Deals"
+      headingColor="broadband"
+      image={{ source: { uri: 'https://example.com/broadband.jpg' } }}
+      description="Fast and reliable broadband"
+    />
+
+    {/* Insurance Orange */}
+    <HighlightBanner
+      heading="Insurance Coverage"
+      headingColor="insurance"
+      image={{ source: { uri: 'https://example.com/insurance.jpg' } }}
+      description="Protect what matters most"
+    />
+
+    {/* Mobile Rose */}
+    <HighlightBanner
+      heading="Mobile Plans"
+      headingColor="mobile"
+      image={{ source: { uri: 'https://example.com/mobile.jpg' } }}
+      description="Stay connected anywhere"
+    />
+
+    {/* Cashback Lilac */}
+    <HighlightBanner
+      heading="Cashback Rewards"
+      headingColor="cashback"
+      image={{ source: { uri: 'https://example.com/cashback.jpg' } }}
+      description="Earn rewards on your bills"
+    />
+
+    {/* Pig Pink */}
+    <HighlightBanner
+      heading="Savings Account"
+      headingColor="pig"
+      image={{ source: { uri: 'https://example.com/savings.jpg' } }}
+      description="Save for your future"
+    />
+
+    {/* Highlight Yellow */}
+    <HighlightBanner
+      heading="Special Offer"
+      headingColor="highlight"
+      image={{ source: { uri: 'https://example.com/offer.jpg' } }}
+      description="Limited time promotion"
+    />
+  </>
+);
+```
+
+### Subtle Variant
+
+Use the subtle variant for a softer, less prominent appearance:
+
+<Canvas of={Stories.SubtleCard} />
+
+```jsx
+import { HighlightBanner } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <HighlightBanner
+    variant="subtle"
+    heading="Featured Content"
+    headingColor="energy"
+    image={{
+      source: {
+        uri: 'https://example.com/image.jpg',
+      },
+    }}
+    description="This banner has a subtle appearance"
+  />
+);
+```
+
+### Different Images
+
+The component works well with various types of imagery:
+
+<Canvas of={Stories.DifferentImages} />
+
+### Custom Image Height
+
+Control the image container height to suit your content needs:
+
+```jsx
+import { HighlightBanner } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <>
+    {/* Default height (200px) */}
+    <HighlightBanner
+      heading="Standard Image"
+      headingColor="energy"
+      image={{ source: { uri: 'https://example.com/image.jpg' } }}
+      description="Using default height"
+    />
+
+    {/* Custom height */}
+    <HighlightBanner
+      heading="Tall Image"
+      headingColor="broadband"
+      image={{ source: { uri: 'https://example.com/image.jpg' } }}
+      imageContainerHeight={300}
+      description="Using custom height of 300px"
+    />
+  </>
+);
+```
+
+## Best Practices
+
+- Use the **energy**, **broadband**, **mobile**, **insurance**, **cashback**, or **pig** colors to align with specific service offerings
+- Use **highlight** for time-sensitive promotions or special offers
+- Keep descriptions concise and scannable
+- Choose between link and button based on the importance of the action - use buttons for primary actions
+- Consider using the subtle variant when displaying multiple banners to reduce visual clutter
+- Ensure images are high quality and relevant to the content
+- Use appropriate image heights based on the aspect ratio of your images
