@@ -39,6 +39,7 @@
   &:where([data-fill='height'], [data-fill='both']) {
     height: 100%;
   }
+
   &:where([data-fill='width'], [data-fill='both']) {
     width: 100%;
   }
