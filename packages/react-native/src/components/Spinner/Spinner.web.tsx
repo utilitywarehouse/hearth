@@ -18,9 +18,7 @@ import { ColorValue } from '../../types';
 import { getFlattenedColorValue } from '../../utils';
 import type SpinnerProps from './Spinner.props';
 
-// @ts-expect-error - Animated.View type issue
 const AnimatedSvg = Animated.createAnimatedComponent(Svg as React.ComponentType<any>);
-// @ts-expect-error - Animated.View type issue
 const AnimatedCircle = Animated.createAnimatedComponent(Circle as React.ComponentType<any>);
 
 const SpinnerRoot = ({ size = 'md', color, ...props }: SpinnerProps) => {
