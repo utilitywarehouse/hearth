@@ -243,3 +243,6 @@ export type { TabsProps } from './components/Tabs/Tabs.props';
 export type { TabsListProps } from './components/Tabs/TabsList.props';
 export type { TabProps } from './components/Tabs/Tab.props';
 export type { TabContentProps } from './components/Tabs/TabContent.props';
+
+export { Pagination } from './components/Pagination/Pagination';
+export type { PaginationProps } from './components/Pagination/Pagination.props';

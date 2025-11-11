@@ -1,0 +1,86 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './Pagination.stories';
+
+import { DocsHeader } from '../storybook-components/DocsHeader';
+
+<Meta title="Components / Pagination" />
+
+<DocsHeader componentName="Pagination" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Condensed
+
+Use the `condensed` prop to display a more compact pagination with just "Page X of Y" text and navigation arrows.
+
+<Canvas of={Stories.Condensed} />
+
+## Without Skip Buttons
+
+Set `skip={false}` to hide the first/last page skip buttons.
+
+<Canvas of={Stories.WithoutSkip} />
+
+## Few Pages
+
+When there are 8 or fewer pages, all page numbers are displayed.
+
+<Canvas of={Stories.FewPages} />
+
+## Many Pages
+
+When there are many pages (more than 8), ellipsis (...) are shown to condense the pagination. The component intelligently shows:
+- First and last pages always visible
+- When near the start: first 4 pages, ellipsis, last 3 pages
+- When in the middle: first page, ellipsis, current page with neighbors, ellipsis, last page
+- When near the end: first 3 pages, ellipsis, last 4 pages
+
+<Canvas of={Stories.ManyPages} />
+
+## Edge Cases
+
+Examples showing different positions in a large page set:
+
+<Canvas of={Stories.EdgeCases} />
+
+## Pagination API
+
+This component is based on the `div` element by default and supports the following common props:
+
+- Margin
+
+| Prop          | Type                           | Default | Description                                                   |
+| ------------- | ------------------------------ | ------- | ------------------------------------------------------------- |
+| `as`          | `'div' \| 'nav'`               | `'div'` | Changes the rendered element into a semantically appropriate alternative |
+| `currentPage` | `number`                       | -       | The current active page number (1-indexed)                    |
+| `totalPages`  | `number`                       | -       | The total number of pages                                     |
+| `onPageChange`| `(page: number) => void`       | -       | Callback when page changes                                    |
+| `condensed`   | `boolean`                      | `false` | Whether to show condensed version with only "Page X of Y"     |
+| `skip`        | `boolean`                      | `true`  | Whether to show skip to first/last page buttons               |
+
+## Usage Guidelines
+
+- Handle the `onPageChange` callback to update your data
+- The component automatically shows a maximum of 8 items (including ellipses)
+
+### Example
+
+```ts
+const [currentPage, setCurrentPage] = useState(5);
+
+const handlePageChange = (newPage: number) => {
+  // Tracking, loading new data...
+  setCurrentPage(newPage)
+}
+
+return (
+  <Pagination
+    currentPage={currentPage}
+    totalPages={100}
+    onPageChange={handlePageChange}
+  />
+);
+```
