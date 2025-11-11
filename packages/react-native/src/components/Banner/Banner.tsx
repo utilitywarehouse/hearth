@@ -46,8 +46,8 @@ const Banner = ({
     if (illustration) {
       return (
         <ThemedImage
-          light={illustration.light as any}
-          dark={illustration.dark as any}
+          light={illustration.light}
+          dark={illustration.dark}
           style={styles.image}
           accessible
           accessibilityLabel={heading}
@@ -58,8 +58,8 @@ const Banner = ({
       return (
         <View style={[styles.media, styles.imageWrapper]}>
           <ThemedImage
-            light={image.light as any}
-            dark={image.dark as any}
+            light={image.light}
+            dark={image.dark}
             style={styles.image}
             accessible
             accessibilityLabel={heading}

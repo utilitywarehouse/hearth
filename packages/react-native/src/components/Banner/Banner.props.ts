@@ -1,5 +1,5 @@
-import type { ComponentType, ReactNode } from 'react';
-import type { ImageProps, ImageSourcePropType } from 'react-native';
+import type { ComponentType, ReactElement } from 'react';
+import type { ImageSourcePropType } from 'react-native';
 import type CardProps from '../Card/Card.props';
 
 export type BannerDirection = 'horizontal' | 'vertical';
@@ -48,20 +48,20 @@ export interface BannerProps
     | 'highlight';
   /**
    * Illustration to display in the banner
-   * Mutually exclusive with icon
+   * Mutually exclusive with icon and image
    */
   illustration?: {
-    light: ImageSourcePropType | ReactNode | ComponentType;
-    dark: ImageSourcePropType | ReactNode | ComponentType;
-  } & ImageProps;
+    light: ImageSourcePropType | ReactElement | ComponentType;
+    dark: ImageSourcePropType | ReactElement | ComponentType;
+  };
   /**
    * Image to display in the banner
-   * Mutually exclusive with icon
+   * Mutually exclusive with icon and illustration
    */
   image?: {
-    light: ImageSourcePropType | ReactNode | ComponentType;
-    dark: ImageSourcePropType | ReactNode | ComponentType;
-  } & ImageProps;
+    light: ImageSourcePropType | ReactElement | ComponentType;
+    dark: ImageSourcePropType | ReactElement | ComponentType;
+  };
   /**
    * Heading text
    */
@@ -78,11 +78,11 @@ export interface BannerProps
   /**
    * Link element to display
    */
-  link?: ReactNode;
+  link?: ReactElement;
   /**
    * Button element to display
    */
-  button?: ReactNode;
+  button?: ReactElement;
   /**
    * Makes the entire banner pressable
    */
