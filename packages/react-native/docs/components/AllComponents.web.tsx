@@ -43,6 +43,7 @@ import {
   DescriptionListItem,
   DetailText,
   Divider,
+  Expandable,
   Flex,
   FormField,
   Grid,
@@ -128,6 +129,7 @@ const AllComponents: React.FC = () => {
   const handleModalOpenPress = useCallback(() => {
     modalRef.current?.present();
   }, []);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [selected, setSelected] = useState<DateType>();
   const datePickerRef = useRef<BottomSheetModal>(null);
   const handleDatePickerOpenPress = useCallback(() => {
@@ -370,6 +372,24 @@ const AllComponents: React.FC = () => {
               <BodyText>This text is divided</BodyText>
               <Divider space="sm" />
               <BodyText>From this text</BodyText>
+            </Center>
+          </ComponentWrapper>
+
+          <ComponentWrapper
+            name="Expandable"
+            link="/?path=/docs/utility-components-expandable--docs"
+          >
+            <Center flex={1} p="200">
+              <Box width={240} gap="100">
+                <Button onPress={() => setIsExpanded(!isExpanded)}>
+                  {isExpanded ? 'Collapse' : 'Expand'}
+                </Button>
+                <Expandable expanded={isExpanded} accessibilityLabel="Expandable content section">
+                  <Card>
+                    <BodyText>This content expands and collapses</BodyText>
+                  </Card>
+                </Expandable>
+              </Box>
             </Center>
           </ComponentWrapper>
 

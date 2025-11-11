@@ -48,7 +48,6 @@
     "@storybook/addon-vitest": "^10.0.5",
     "@storybook/react": "^10.0.5",
     "@storybook/react-native-web-vite": "^10.0.5",
-    "@storybook/react-vite": "^10.0.6",
     "@types/prismjs": "^1.26.5",
     "@types/react": "^19.1.10",
     "@utilitywarehouse/hearth-fonts": "workspace:^",
