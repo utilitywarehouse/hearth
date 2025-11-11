@@ -30,59 +30,23 @@ const SEGMENT_CONFIGS = {
     maxLength: 2,
     defaultPlaceholder: 'DD',
     width: 'var(--h-date-input-day-width)',
-    clampRange: { min: 1, max: 31 },
-    shouldPad: true,
   },
   month: {
     label: 'Month',
     maxLength: 2,
     defaultPlaceholder: 'MM',
     width: 'var(--h-date-input-month-width)',
-    clampRange: { min: 1, max: 12 },
-    shouldPad: true,
   },
   year: {
     label: 'Year',
     maxLength: 4,
     defaultPlaceholder: 'YYYY',
     width: 'var(--h-date-input-year-width)',
-    clampRange: null,
-    shouldPad: false,
   },
 };
 
 const filterToNumeric = (value: string, maxLength: number): string => {
   return value.replace(/\D/g, '').slice(0, maxLength);
-};
-
-const padValue = (value: string, length: number): string => {
-  return value.padStart(length, '0');
-};
-
-const clampValue = (value: string, min: number, max: number): string => {
-  if (!value) return value;
-  const num = parseInt(value, 10);
-  if (isNaN(num)) return value;
-  if (num < min) return String(min);
-  if (num > max) return String(max);
-  return value;
-};
-
-const processSegmentOnBlur = (key: SegmentKey, value: string): string => {
-  if (!value) return value;
-
-  const config = SEGMENT_CONFIGS[key];
-  let processed = value;
-
-  if (config.shouldPad) {
-    processed = padValue(processed, config.maxLength);
-  }
-
-  if (config.clampRange) {
-    processed = clampValue(processed, config.clampRange.min, config.clampRange.max);
-  }
-
-  return processed;
 };
 
 export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
@@ -206,34 +170,20 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
 
         setValueForKey(key, filtered);
 
-        // Auto-advance if max length reached
+        // Got to next segment if max length reached
         if (filtered.length === config.maxLength) {
           const currentIndex = segments.findIndex(s => s.key === key);
           if (currentIndex < segments.length - 1) {
             const nextSegment = segments[currentIndex + 1];
             if (nextSegment) {
-              // queueMicrotask is used to ensure the focus is set after the current task is completed
+              // queueMicrotask is used to ensure the focus is set after the current task is completed.
+              // If we just call focusSegment directly, the focus will be set too fast providing a bad UX.
               queueMicrotask(() => focusSegment(nextSegment.key));
             }
           }
         }
       },
       [setValueForKey, segments, focusSegment]
-    );
-
-    const handleBlur = React.useCallback(
-      (key: SegmentKey) => {
-        const currentValue = getValueForKey(key);
-        if (!currentValue) return;
-
-        const processed = processSegmentOnBlur(key, currentValue);
-
-        // Only update if changed
-        if (processed !== currentValue) {
-          setValueForKey(key, processed);
-        }
-      },
-      [getValueForKey, setValueForKey]
     );
 
     const handleKeyDown = React.useCallback(
@@ -325,7 +275,6 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
                   placeholder={!disabled ? segment.placeholder : undefined}
                   value={getValueForKey(segment.key)}
                   onChange={e => handleChange(segment.key, e.target.value)}
-                  onBlur={() => handleBlur(segment.key)}
                   onKeyDown={e => handleKeyDown(segment.key, e)}
                   disabled={disabled}
                   required={required && segment.key === segments[0]?.key}
