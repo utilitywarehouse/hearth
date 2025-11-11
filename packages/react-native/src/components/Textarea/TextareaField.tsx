@@ -33,7 +33,7 @@ const styles = StyleSheet.create(theme => ({
     color: theme.color.text.primary,
     fontSize: theme.typography.mobile.bodyText.md.fontSize,
     fontFamily: theme.typography.mobile.bodyText.fontFamily,
-    fontWeight: theme.typography.mobile.bodyText.fontWeight,
+    fontWeight: `${theme.typography.mobile.bodyText.fontWeight}`,
     borderWidth: 0,
     outlineWidth: 0,
     _web: {

@@ -15,6 +15,7 @@ const InputField = ({
 
   if (inBottomSheet) {
     return (
+      // @ts-expect-error - BottomSheetTextInput type issue
       <BottomSheetTextInput
         placeholderTextColor={color.text.secondary}
         selectionColor={color.purple[700]}
@@ -52,7 +53,7 @@ const styles = StyleSheet.create(theme => ({
     color: theme.color.text.primary,
     fontSize: theme.typography.mobile.bodyText.md.fontSize,
     fontFamily: theme.typography.mobile.bodyText.fontFamily,
-    fontWeight: theme.typography.mobile.bodyText.fontWeight,
+    fontWeight: `${theme.typography.mobile.bodyText.fontWeight}`,
     borderWidth: 0,
     variants: {
       focused: {

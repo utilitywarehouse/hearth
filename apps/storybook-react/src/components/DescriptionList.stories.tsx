@@ -41,7 +41,7 @@ type Story = StoryObj<typeof DescriptionList>;
 export const Playground: Story = {
   render: args => (
     <Box width="550px">
-      <DescriptionList {...args} link={<Link href="#">Link</Link>}>
+      <DescriptionList {...args} trailingContent={<Link href="#">Link</Link>}>
         <DescriptionListItem
           heading="Heading"
           description="Description"
@@ -72,7 +72,7 @@ export const Playground: Story = {
 export const Directions: Story = {
   render: args => (
     <Flex width="550px" direction="column" gap="800">
-      <DescriptionList {...args} heading="Row" direction="row" link={<Link href="#">Link</Link>}>
+      <DescriptionList {...args} heading="Row" direction="row" trailingContent={<Link href="#">Link</Link>}>
         <DescriptionListItem
           heading="Heading"
           description="Description"
@@ -100,7 +100,7 @@ export const Directions: Story = {
         {...args}
         heading="Column"
         direction="column"
-        link={<Link href="#">Link</Link>}
+        trailingContent={<Link href="#">Link</Link>}
       >
         <DescriptionListItem
           heading="Heading"
@@ -134,7 +134,7 @@ export const ResponsiveDirection: Story = {
     <Box width="100%" maxWidth="800px">
       <DescriptionList
         {...args}
-        link={<Link href="#">Edit</Link>}
+        trailingContent={<Link href="#">Edit</Link>}
         direction={{ mobile: 'column', tablet: 'row' }}
       >
         <DescriptionListItem heading="Phone number" description="07123 456789" />

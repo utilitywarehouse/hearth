@@ -7,6 +7,8 @@ import { iconContainerPropDefs, IconContainerProps } from './IconContainer.props
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
+import { borderRadiusPropDefs } from '../../props/border-radius.props';
+import { sizePropDefs } from '../../props/size.props';
 
 const COMPONENT_NAME = 'IconContainer';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -18,12 +20,18 @@ export const IconContainer = React.forwardRef<IconContainerElement, IconContaine
     const {
       className,
       colorScheme = 'pig',
-      radiusNone,
+      fill,
       ...iconContainerProps
-    } = extractProps(props, iconContainerPropDefs, marginPropDefs);
+    } = extractProps(
+      props,
+      iconContainerPropDefs,
+      marginPropDefs,
+      sizePropDefs,
+      borderRadiusPropDefs
+    );
     const dataAttributeProps = {
       'data-colorscheme': colorScheme,
-      'data-radius-zero': radiusNone ? '' : undefined,
+      'data-fill': fill,
     };
     return (
       <span

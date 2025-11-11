@@ -78,8 +78,16 @@ export type { InlineLinkProps } from './components/InlineLink/InlineLink.props';
 
 export { Card } from './components/Card/Card';
 export type { CardProps } from './components/Card/Card.props';
-export { CardAction } from './components/Card/CardAction';
-export type { CardActionProps } from './components/Card/CardAction.props';
+export { CardContent } from './components/Card/CardContent';
+export type { CardContentProps } from './components/Card/CardContent.props';
+export { CardInteraction } from './components/Card/CardInteraction';
+export type { CardInteractionProps } from './components/Card/CardInteraction.props';
+export { CardActions } from './components/CardActions/CardActions';
+export type { CardActionsProps } from './components/CardActions/CardActions.props';
+export { CardActionLink } from './components/CardActions/CardActionLink';
+export type { CardActionLinkProps } from './components/CardActions/CardActionLink.props';
+export { CardActionButton } from './components/CardActions/CardActionButton';
+export type { CardActionButtonProps } from './components/CardActions/CardActionButton.props';
 
 export { Divider } from './components/Divider/Divider';
 export type { DividerProps } from './components/Divider/Divider.props';
@@ -229,3 +237,12 @@ export type { ProgressStepButtonProps } from './components/ProgressStepper/Progr
 
 export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar.props';
+
+export { Tabs } from './components/Tabs/Tabs';
+export { TabsList } from './components/Tabs/TabsList';
+export { Tab } from './components/Tabs/Tab';
+export { TabContent } from './components/Tabs/TabContent';
+export type { TabsProps } from './components/Tabs/Tabs.props';
+export type { TabsListProps } from './components/Tabs/TabsList.props';
+export type { TabProps } from './components/Tabs/Tab.props';
+export type { TabContentProps } from './components/Tabs/TabContent.props';

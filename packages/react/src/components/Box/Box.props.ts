@@ -1,5 +1,6 @@
 import { BackgroundColorProps } from '../../props/background-color.props';
 import { BorderColorProps } from '../../props/border-color.props';
+import { BorderRadiusProps } from '../../props/border-radius.props';
 import { BorderProps } from '../../props/border.props';
 import { ColorProps } from '../../props/color.props';
 import { FlexItemProps } from '../../props/flex-item.props';
@@ -31,6 +32,7 @@ interface CommonBoxProps
     SizeProps,
     BorderProps,
     BorderColorProps,
+    BorderRadiusProps,
     GridItemProps,
     FlexItemProps,
     TextAlignProps,

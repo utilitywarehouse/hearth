@@ -2,6 +2,7 @@
 export * from './Accordion';
 export * from './Alert';
 export * from './Badge';
+export * from './Banner';
 export * from './BodyText';
 export * from './BottomSheet';
 export * from './Box';
@@ -22,6 +23,7 @@ export * from './FormField';
 export * from './Grid';
 export * from './Heading';
 export * from './Helper';
+export * from './HighlightBanner';
 export * from './HTMLElements';
 export * from './Icon';
 export * from './IconButton';
@@ -46,15 +48,7 @@ export * from './Textarea';
 export * from './ThemedImage';
 export * from './ToggleButtonCard';
 
-export {
-  FlatList,
-  Image,
-  KeyboardAvoidingView,
-  ScrollView,
-  SectionList,
-  StatusBar,
-  View,
-} from 'react-native';
+export { FlatList, Image, KeyboardAvoidingView, ScrollView, SectionList, View } from 'react-native';
 
 export { Pressable } from 'react-native';
 

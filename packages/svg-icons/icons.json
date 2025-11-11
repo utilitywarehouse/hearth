@@ -152,6 +152,10 @@
     "name": "SimSmallIcon"
   },
   {
+    "id": "2459:19",
+    "name": "TimeSmallIcon"
+  },
+  {
     "id": "1:1227",
     "name": "PlaceholderSmallIcon"
   },
@@ -294,6 +298,14 @@
   {
     "id": "2447:40",
     "name": "LocateSmallIcon"
+  },
+  {
+    "id": "2458:19",
+    "name": "LocationSmallIcon"
+  },
+  {
+    "id": "2458:85",
+    "name": "ListSmallIcon"
   },
   {
     "id": "6:275",

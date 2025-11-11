@@ -1,4 +1,5 @@
 import { createIcon } from '@gluestack-ui/icon';
+import type React from 'react';
 import { useMemo } from 'react';
 import { Svg } from 'react-native-svg';
 import { withUnistyles } from 'react-native-unistyles';
@@ -44,8 +45,8 @@ const PrimitiveIcon = withUnistyles(
 
 PrimitiveIcon.displayName = 'PrimitiveIcon';
 
-export const Icon = createIcon({
-  Root: PrimitiveIcon,
-});
+export const Icon: React.ForwardRefExoticComponent<IconProps> = createIcon({
+  Root: PrimitiveIcon as any,
+}) as React.ForwardRefExoticComponent<IconProps>;
 
 export default Icon;

@@ -153,6 +153,10 @@
       "path": "sim-small-icon.svg"
     },
     {
+      "name": "TimeSmallIcon",
+      "path": "time-small-icon.svg"
+    },
+    {
       "name": "PlaceholderSmallIcon",
       "path": "placeholder-small-icon.svg"
     },
@@ -295,6 +299,14 @@
     {
       "name": "LocateSmallIcon",
       "path": "locate-small-icon.svg"
+    },
+    {
+      "name": "LocationSmallIcon",
+      "path": "location-small-icon.svg"
+    },
+    {
+      "name": "ListSmallIcon",
+      "path": "list-small-icon.svg"
     },
     {
       "name": "AddMediumIcon",

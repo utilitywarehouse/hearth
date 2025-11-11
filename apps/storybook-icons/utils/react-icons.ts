@@ -100,8 +100,10 @@ import { LaunchSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/Launch
 import { LinkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LinkMediumIcon';
 import { LinkSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LinkSmallIcon';
 import { LinkedInMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LinkedInMediumIcon';
+import { ListSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/ListSmallIcon';
 import { LocateSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LocateSmallIcon';
 import { LocationMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LocationMediumIcon';
+import { LocationSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LocationSmallIcon';
 import { LockMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LockMediumIcon';
 import { LockSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/LockSmallIcon';
 import { LoginMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/LoginMediumIcon';
@@ -161,6 +163,7 @@ import { TickMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickMed
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/TickSmallIcon';
 import { TikTokMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TikTokMediumIcon';
 import { TimeMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TimeMediumIcon';
+import { TimeSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/TimeSmallIcon';
 import { TopUpMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TopUpMediumIcon';
 import { TopUpSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/TopUpSmallIcon';
 import { TorchOffMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/TorchOffMediumIcon';
@@ -285,8 +288,10 @@ export const reactIcons = [
   LinkMediumIcon,
   LinkSmallIcon,
   LinkedInMediumIcon,
+  ListSmallIcon,
   LocateSmallIcon,
   LocationMediumIcon,
+  LocationSmallIcon,
   LockMediumIcon,
   LockSmallIcon,
   LoginMediumIcon,
@@ -346,6 +351,7 @@ export const reactIcons = [
   TickSmallIcon,
   TikTokMediumIcon,
   TimeMediumIcon,
+  TimeSmallIcon,
   TopUpMediumIcon,
   TopUpSmallIcon,
   TorchOffMediumIcon,

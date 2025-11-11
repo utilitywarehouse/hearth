@@ -7,7 +7,6 @@ const StyledBottomSheetHandle = withUnistyles(Handle);
 const BottomSheetHandle = ({ style, indicatorStyle, ...props }: BottomSheetDefaultHandleProps) => {
   return (
     <StyledBottomSheetHandle
-      // @ts-expect-error - style
       style={[styles.handle, style]}
       indicatorStyle={[styles.indicator, indicatorStyle]}
       {...props}
