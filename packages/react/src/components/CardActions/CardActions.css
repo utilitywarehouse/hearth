@@ -1,0 +1,17 @@
+.hearth-CardActions {
+  overflow: hidden;
+
+  & :where(.hearth-CardActionsItem) {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+
+    &:where([data-direction='column'] &):not(:first-child) {
+      border-top: var(--h-border-width-2) solid var(--h-border-strong);
+    }
+
+    &:where([data-direction='row'] &):not(:first-child) {
+      border-left: var(--h-border-width-2) solid var(--h-border-strong);
+    }
+  }
+}

@@ -906,9 +906,6 @@ importers:
       '@types/node':
         specifier: ^22.9.0
         version: 22.10.7
-      '@types/react':
-        specifier: ^19.0.0
-        version: 19.1.11
       '@utilitywarehouse/hearth-react-icons':
         specifier: workspace:*
         version: link:../react-icons

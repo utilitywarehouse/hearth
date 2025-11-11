@@ -5,6 +5,7 @@
   border: var(--h-card-border-width, var(--h-card-brand-border-width)) solid
     var(--h-card-border-color, var(--h-border-strong));
   padding: var(--h-card-padding-mobile);
+  height: fit-content;
 
   @media (--h-tablet) {
     padding: var(--h-card-padding-tablet);
@@ -14,8 +15,27 @@
     padding: var(--h-card-padding-desktop);
   }
 
-  &:where(.hearth-padding-none) {
+  &:where(
+      .hearth-padding-none,
+      :has(.hearth-CardContent),
+      :has(.hearth-CardActions),
+      :has(> .hearth-CardActionLink),
+      :has(> .hearth-CardActionButton)
+    ) {
     padding: 0;
+  }
+
+  & :where(.hearth-CardContent) {
+    padding: var(--h-card-padding-mobile);
+    flex-grow: 1;
+
+    @media (--h-tablet) {
+      padding: var(--h-card-padding-tablet);
+    }
+
+    @media (--h-desktop) {
+      padding: var(--h-card-padding-desktop);
+    }
   }
 
   &:where(:has(:focus-visible)) {
@@ -83,5 +103,23 @@
 
   &:where([data-colorscheme='highlight']) {
     --h-card-subtle-background-color: var(--h-surface-highlight-subtle);
+  }
+
+  &:has(.hearth-CardActions) {
+    flex-direction: column;
+  }
+
+  & :where(.hearth-CardActions) {
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+
+    &:where(:first-child) {
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+    }
+
+    &:not(:first-child) {
+      border-top: var(--h-border-width-2) solid var(--h-border-strong);
+    }
   }
 }
