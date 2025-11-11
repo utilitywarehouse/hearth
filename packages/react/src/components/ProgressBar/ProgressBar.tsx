@@ -8,6 +8,7 @@ import { ProgressBarProps } from './ProgressBar.props';
 import { ProgressBarLinear } from './ProgressBarLinear';
 import { ProgressBarCircular } from '../ProgressBarCircular/ProgressBarCircular';
 import { valueToPercent } from '../../helpers/value-to-percent';
+import { useIds } from '../../hooks/use-ids';
 
 const COMPONENT_NAME = 'ProgressBar';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -27,15 +28,15 @@ export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps
     ...progressBarProps
   } = extractProps(props, marginPropDefs);
 
+  const { labelId } = useIds({ prefix: 'progress' });
+
   // Clamp value between min and max; success should only ever reflect a complete state
   const clampedValue = colorScheme === 'success' ? max : Math.min(Math.max(value, min), max);
 
-  const dataAttributeProps = {
-    'data-colorscheme': colorScheme,
-  };
+  const defaultValueLabel = `${valueToPercent(clampedValue, min, max)}%`;
+  const valueLabel = formatValue ? formatValue(clampedValue) : defaultValueLabel;
 
-  const defaultValueLabel = `${valueToPercent(value, min, max)}%`;
-  const valueLabel = formatValue ? formatValue(value) : defaultValueLabel;
+  const dataAttributeProps = { 'data-colorscheme': colorScheme };
 
   return (
     <div
@@ -45,13 +46,20 @@ export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps
       aria-valuenow={clampedValue}
       aria-valuemin={0}
       aria-valuemax={100}
+      aria-valuetext={valueLabel}
+      aria-labelledby={labelId}
       {...dataAttributeProps}
       {...progressBarProps}
     >
       {variant === 'linear' ? (
-        <ProgressBarLinear value={value} label={label} valueLabel={valueLabel} />
+        <ProgressBarLinear
+          value={clampedValue}
+          label={label}
+          valueLabel={valueLabel}
+          labelId={labelId}
+        />
       ) : (
-        <ProgressBarCircular value={value} />
+        <ProgressBarCircular value={clampedValue} />
       )}
     </div>
   );

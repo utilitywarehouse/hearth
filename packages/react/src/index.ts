@@ -253,8 +253,5 @@ export type { ProgressBarLabelProps } from './components/ProgressBarLabel/Progre
 export { ProgressBarValue } from './components/ProgressBarValue/ProgressBarValue';
 export type { ProgressBarValueProps } from './components/ProgressBarValue/ProgressBarValue.props';
 
-export { ProgressBarLinear } from './components/ProgressBarLinear/ProgressBarLinear';
-export type { ProgressBarLinearProps } from './components/ProgressBarLinear/ProgressBarLinear.props';
-
 export { ProgressBarCircular } from './components/ProgressBarCircular/ProgressBarCircular';
 export type { ProgressBarCircularProps } from './components/ProgressBarCircular/ProgressBarCircular.props';

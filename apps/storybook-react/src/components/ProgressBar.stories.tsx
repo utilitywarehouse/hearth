@@ -40,3 +40,34 @@ export const Playground: Story = {
     return <ProgressBar {...args} value={args.value || value} />;
   },
 };
+
+export const AllVariants: Story = {
+  render: () => {
+    return (
+      <Flex direction="column" gap="400">
+        <ProgressBar label="Upload progress" value={90} />
+        <ProgressBar label="Completed tasks" colorScheme="success" value={100} />
+        <ProgressBar label="Storage usage" colorScheme="danger" value={10} />
+      </Flex>
+    );
+  },
+};
+
+export const OptionalContent: Story = {
+  render: () => {
+    return (
+      <Flex direction="column" gap="400">
+        <ProgressBar
+          label="Storage usage"
+          value={87}
+          formatValue={value => `${value / 10}GB / 10GB`}
+        />
+        <ProgressBar label="Label only" value={50} />
+
+        <ProgressBar label="hide label prop?" value={25} />
+
+        <ProgressBar label="Hide labels" value={60} />
+      </Flex>
+    );
+  },
+};

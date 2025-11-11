@@ -7,7 +7,7 @@ import { BodyTextProps } from '../BodyText/BodyText.props';
 const COMPONENT_NAME = 'ProgressBarLabel';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const ProgressBarLabel: React.FC<Pick<BodyTextProps, 'children' | 'className'>> = ({
+export const ProgressBarLabel: React.FC<Pick<BodyTextProps, 'children' | 'className' | 'id'>> = ({
   className,
   ...props
 }) => (

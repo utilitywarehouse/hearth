@@ -22,6 +22,18 @@ export interface ProgressBarProps extends ComponentPropsWithout<'div', RemovedPr
    * @default 100
    */
   max?: number;
-  label?: string;
+  label: string;
+  /**
+   * Override the default percentage value label formatting
+   */
   formatValue?: (value: number) => string;
+  /**
+   * A string value that provides a user-friendly name for `aria-valuenow`, the current value of the meter.
+   */
+  'aria-valuetext'?: React.AriaAttributes['aria-valuetext'];
+}
+
+export interface ProgressBarInternalProps extends ProgressBarProps {
+  valueLabel: string;
+  labelId: string;
 }

@@ -10,6 +10,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 export const ProgressBarValue: React.FC<Pick<BodyTextProps, 'children' | 'className'>> = ({
   className,
   ...props
-}) => <BodyText as="span" className={clsx(componentClassName, className)} {...props} />;
+}) => (
+  <BodyText
+    as="span"
+    className={clsx(componentClassName, className)}
+    aria-hidden="true"
+    {...props}
+  />
+);
 
 ProgressBarValue.displayName = COMPONENT_NAME;
