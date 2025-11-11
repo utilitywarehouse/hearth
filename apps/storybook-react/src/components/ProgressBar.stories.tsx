@@ -57,9 +57,11 @@ export const ColorSchemes: Story = {
         <ProgressBar variant="linear" label="Upload progress" value={90} />
         <ProgressBar variant="linear" label="Completed tasks" colorScheme="success" value={100} />
         <ProgressBar variant="linear" label="Storage usage" colorScheme="danger" value={10} />
-        <ProgressBar variant="circular" label="Upload progress" value={90} />
-        <ProgressBar variant="circular" label="Completed tasks" colorScheme="success" value={100} />
-        <ProgressBar variant="circular" label="Storage usage" colorScheme="danger" value={10} />
+        <Flex gap="400">
+          <ProgressBar variant="circular" label="Upload" value={90} />
+          <ProgressBar variant="circular" label="Completed" colorScheme="success" value={100} />
+          <ProgressBar variant="circular" label="Storage" colorScheme="danger" value={10} />
+        </Flex>
       </Flex>
     );
   },
