@@ -10,7 +10,7 @@
       text-align: left;
     }
 
-    & :where(.hearth-ProgressBarValue) {
+    & :where(.hearth-ProgressBarValueText) {
       grid-column-start: 2;
       text-align: right;
     }
@@ -38,6 +38,105 @@
       &:where([data-colorscheme='danger'] &) {
         background-color: var(--h-progress-bar-progress-danger-color);
       }
+    }
+  }
+
+  & :where(.hearth-ProgressBarCircular) {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+
+    width: var(--h-progress-bar-circular-size);
+    height: var(--h-progress-bar-circular-size);
+
+    --h-pi: 3.14;
+    --h-radius: calc(
+      calc(var(--h-progress-bar-circular-size) - var(--h-progress-bar-circular-bar-width)) / 2
+    );
+    --h-circumference: calc(2 * var(--h-pi) * var(--h-radius));
+    --h-stroke-dashoffset: calc(
+      var(--h-circumference) - calc(calc(var(--h-value) / 100) * var(--h-circumference))
+    );
+
+    & > svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: scaleY(-1);
+
+      & > circle {
+        cx: calc(var(--h-progress-bar-circular-size) / 2);
+        cy: calc(var(--h-progress-bar-circular-size) / 2);
+        stroke-width: var(--h-progress-bar-circular-bar-width);
+        r: calc(
+          var(--h-progress-bar-circular-size) / 2 - var(--h-progress-bar-circular-bar-width) / 2
+        );
+      }
+    }
+
+    & :where(.hearth-ProgressBarValueText) {
+      font-family: var(--h-progress-bar-circular-md-label-font-family);
+      font-size: var(--h-progress-bar-circular-label-font-size);
+      font-weight: var(--h-progress-bar-circular-label-font-weight);
+      line-height: var(--h-progress-bar-circular-md-label-line-height);
+    }
+
+    @breakpoints {
+      &:where(.hearth-r-size-md &) {
+        --h-progress-bar-circular-size: var(--h-progress-bar-circular-md-height);
+        --h-progress-bar-circular-bar-width: var(--h-progress-bar-circular-md-bar-width);
+        --h-progress-bar-circular-label-font-weight: var(
+          --h-progress-bar-circular-md-label-font-weight
+        );
+        --h-progress-bar-circular-label-font-size: var(
+          --h-progress-bar-circular-md-label-font-size
+        );
+        --h-content-margin-top: var(--h-space-75);
+      }
+
+      &:where(.hearth-r-size-sm &) {
+        --h-progress-bar-circular-size: var(--h-progress-bar-circular-sm-height);
+        --h-progress-bar-circular-bar-width: var(--h-progress-bar-circular-sm-bar-width);
+        --h-progress-bar-circular-label-font-weight: var(--h-body-text-font-weight-semibold);
+        --h-progress-bar-circular-label-font-size: var(--h-body-text-md-font-size);
+
+        & :where(.hearth-ProgressBarLabel) {
+          display: none;
+        }
+      }
+    }
+
+    & :where(.hearth-ProgressBarCircularTrack) {
+      fill: none;
+      stroke: var(--h-progress-bar-bar-color);
+    }
+
+    & :where(.hearth-ProgressBarCircularIndicator) {
+      fill: none;
+      stroke: var(--h-progress-bar-progress-default-color);
+      stroke-linecap: round;
+      stroke-dashoffset: var(--h-stroke-dashoffset);
+      stroke-dasharray: var(--h-circumference);
+      transform: rotate(90deg) scaleY(-1);
+      transform-origin: center;
+      transition: stroke-dashoffset 0.3s ease-in-out;
+
+      &:where([data-colorscheme='success'] &) {
+        stroke: var(--h-progress-bar-progress-success-color);
+      }
+
+      &:where([data-colorscheme='danger'] &) {
+        stroke: var(--h-progress-bar-progress-danger-color);
+      }
+    }
+
+    & :where(.hearth-ProgressBarCircularContent) {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      /* eyeballing this as the text content does not look centred */
+      margin-top: var(--h-content-margin-top);
     }
   }
 }

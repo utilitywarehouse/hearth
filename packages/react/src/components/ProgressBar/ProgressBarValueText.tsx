@@ -4,10 +4,10 @@ import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { BodyTextProps } from '../BodyText/BodyText.props';
 
-const COMPONENT_NAME = 'ProgressBarValue';
+const COMPONENT_NAME = 'ProgressBarValueText';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const ProgressBarValue: React.FC<Pick<BodyTextProps, 'children' | 'className'>> = ({
+export const ProgressBarValueText: React.FC<Pick<BodyTextProps, 'children' | 'className'>> = ({
   className,
   ...props
 }) => (
@@ -19,4 +19,4 @@ export const ProgressBarValue: React.FC<Pick<BodyTextProps, 'children' | 'classN
   />
 );
 
-ProgressBarValue.displayName = COMPONENT_NAME;
+ProgressBarValueText.displayName = COMPONENT_NAME;

@@ -4,11 +4,11 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
-import { ProgressBarProps } from './ProgressBar.props';
+import { ProgressBarProps, progressBarPropDefs } from './ProgressBar.props';
 import { ProgressBarLinear } from './ProgressBarLinear';
-import { ProgressBarCircular } from '../ProgressBarCircular/ProgressBarCircular';
 import { valueToPercent } from '../../helpers/value-to-percent';
 import { useIds } from '../../hooks/use-ids';
+import { ProgressBarCircular } from './ProgressBarCircular';
 
 const COMPONENT_NAME = 'ProgressBar';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -25,16 +25,25 @@ export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps
     max = 100,
     label,
     formatValue,
+    hideLabel,
     ...progressBarProps
-  } = extractProps(props, marginPropDefs);
+  } = extractProps(props, progressBarPropDefs, marginPropDefs);
 
   const { labelId } = useIds({ prefix: 'progress' });
 
   // Clamp value between min and max; success should only ever reflect a complete state
   const clampedValue = colorScheme === 'success' ? max : Math.min(Math.max(value, min), max);
 
-  const defaultValueLabel = `${valueToPercent(clampedValue, min, max)}%`;
-  const valueLabel = formatValue ? formatValue(clampedValue) : defaultValueLabel;
+  const defaultValueText = `${valueToPercent(clampedValue, min, max)}%`;
+  const valueText = formatValue ? formatValue(clampedValue) : defaultValueText;
+
+  const internalProgressBarProps = {
+    value: clampedValue,
+    label,
+    valueText,
+    labelId,
+    hideLabel,
+  };
 
   const dataAttributeProps = { 'data-colorscheme': colorScheme };
 
@@ -46,21 +55,13 @@ export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps
       aria-valuenow={clampedValue}
       aria-valuemin={0}
       aria-valuemax={100}
-      aria-valuetext={valueLabel}
+      aria-valuetext={valueText}
       aria-labelledby={labelId}
       {...dataAttributeProps}
       {...progressBarProps}
     >
-      {variant === 'linear' ? (
-        <ProgressBarLinear
-          value={clampedValue}
-          label={label}
-          valueLabel={valueLabel}
-          labelId={labelId}
-        />
-      ) : (
-        <ProgressBarCircular value={clampedValue} />
-      )}
+      {variant === 'linear' ? <ProgressBarLinear {...internalProgressBarProps} /> : null}
+      {variant === 'circular' ? <ProgressBarCircular {...internalProgressBarProps} /> : null}
     </div>
   );
 });

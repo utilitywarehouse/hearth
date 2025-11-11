@@ -1,5 +1,15 @@
 import { MarginProps } from '../../props/margin.props';
+import { PropDef } from '../../props/prop-def';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+import { Responsive } from '../../types/responsive';
+
+const sizes = ['sm', 'md'] as const;
+
+export const progressBarPropDefs = {
+  size: { className: 'size', tokens: sizes, responsive: true, default: 'md' },
+} satisfies {
+  size: PropDef<(typeof sizes)[number]>;
+};
 
 export interface ProgressBarProps extends ComponentPropsWithout<'div', RemovedProps>, MarginProps {
   variant?: 'linear' | 'circular';
@@ -11,6 +21,11 @@ export interface ProgressBarProps extends ComponentPropsWithout<'div', RemovedPr
   /**
    * The current progress value.
    */
+  /**
+   * Sets the circular variant size. Does not affect the appearance of the linear variant.
+   * @default md
+   */
+  size?: Responsive<(typeof sizes)[number]>;
   value: number;
   /**
    * The minimum value.
@@ -24,6 +39,10 @@ export interface ProgressBarProps extends ComponentPropsWithout<'div', RemovedPr
   max?: number;
   label: string;
   /**
+   * Visually hide the label.
+   */
+  hideLabel?: boolean;
+  /**
    * Override the default percentage value label formatting
    */
   formatValue?: (value: number) => string;
@@ -34,6 +53,6 @@ export interface ProgressBarProps extends ComponentPropsWithout<'div', RemovedPr
 }
 
 export interface ProgressBarInternalProps extends ProgressBarProps {
-  valueLabel: string;
+  valueText: string;
   labelId: string;
 }

@@ -246,12 +246,3 @@ export type { TabContentProps } from './components/Tabs/TabContent.props';
 
 export { ProgressBar } from './components/ProgressBar/ProgressBar';
 export type { ProgressBarProps } from './components/ProgressBar/ProgressBar.props';
-
-export { ProgressBarLabel } from './components/ProgressBarLabel/ProgressBarLabel';
-export type { ProgressBarLabelProps } from './components/ProgressBarLabel/ProgressBarLabel.props';
-
-export { ProgressBarValue } from './components/ProgressBarValue/ProgressBarValue';
-export type { ProgressBarValueProps } from './components/ProgressBarValue/ProgressBarValue.props';
-
-export { ProgressBarCircular } from './components/ProgressBarCircular/ProgressBarCircular';
-export type { ProgressBarCircularProps } from './components/ProgressBarCircular/ProgressBarCircular.props';

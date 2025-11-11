@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { ProgressBar, Flex, BodyText } from '@utilitywarehouse/hearth-react';
+import { ProgressBar, Flex } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta: Meta<typeof ProgressBar> = {
@@ -37,37 +37,59 @@ export const Playground: Story = {
       }, 1000);
       return () => clearInterval(interval);
     }, []);
-    return <ProgressBar {...args} value={args.value || value} />;
-  },
-};
 
-export const AllVariants: Story = {
-  render: () => {
     return (
-      <Flex direction="column" gap="400">
-        <ProgressBar label="Upload progress" value={90} />
-        <ProgressBar label="Completed tasks" colorScheme="success" value={100} />
-        <ProgressBar label="Storage usage" colorScheme="danger" value={10} />
+      <Flex direction="column" gap="400" width="600px">
+        <ProgressBar {...args} variant="linear" value={args.value || value} />
+        <Flex gap="400">
+          <ProgressBar {...args} variant="circular" value={args.value || value} size="md" />
+          <ProgressBar {...args} variant="circular" value={args.value || value} size="sm" />
+        </Flex>
       </Flex>
     );
   },
 };
 
-export const OptionalContent: Story = {
+export const ColorSchemes: Story = {
+  render: () => {
+    return (
+      <Flex direction="column" gap="400">
+        <ProgressBar variant="linear" label="Upload progress" value={90} />
+        <ProgressBar variant="linear" label="Completed tasks" colorScheme="success" value={100} />
+        <ProgressBar variant="linear" label="Storage usage" colorScheme="danger" value={10} />
+        <ProgressBar variant="circular" label="Upload progress" value={90} />
+        <ProgressBar variant="circular" label="Completed tasks" colorScheme="success" value={100} />
+        <ProgressBar variant="circular" label="Storage usage" colorScheme="danger" value={10} />
+      </Flex>
+    );
+  },
+};
+
+export const FormatValue: Story = {
   render: () => {
     return (
       <Flex direction="column" gap="400">
         <ProgressBar
+          variant="linear"
           label="Storage usage"
           value={87}
-          formatValue={value => `${value / 10}GB / 10GB`}
+          formatValue={(value: number) => `${value / 10}GB / 10GB`}
         />
-        <ProgressBar label="Label only" value={50} />
 
-        <ProgressBar label="hide label prop?" value={25} />
-
-        <ProgressBar label="Hide labels" value={60} />
+        <ProgressBar
+          variant="circular"
+          label="files"
+          value={15}
+          max={50}
+          formatValue={(value: number) => `${value}/50`}
+        />
       </Flex>
     );
+  },
+};
+
+export const HideLabel: Story = {
+  render: () => {
+    return <ProgressBar label="Hidden label" value={60} hideLabel />;
   },
 };
