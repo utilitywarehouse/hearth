@@ -29,19 +29,19 @@ const SEGMENT_CONFIGS = {
     label: 'Day',
     maxLength: 2,
     defaultPlaceholder: 'DD',
-    width: 'var(--h-date-input-day-width)',
+    width: '64px',
   },
   month: {
     label: 'Month',
     maxLength: 2,
     defaultPlaceholder: 'MM',
-    width: 'var(--h-date-input-month-width)',
+    width: '64px',
   },
   year: {
     label: 'Year',
     maxLength: 4,
     defaultPlaceholder: 'YYYY',
-    width: 'var(--h-date-input-year-width)',
+    width: '96px',
   },
 };
 

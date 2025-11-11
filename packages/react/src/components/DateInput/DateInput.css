@@ -27,7 +27,7 @@
   line-height: var(--h-line-height-500);
   font-style: normal;
   height: var(--h-input-height);
-  padding-inline: var(--h-date-input-segment-padding);
+  padding-inline: var(--h-input-padding-horizontal);
   padding-block: var(--h-input-padding-vertical);
   color: var(--h-text-primary);
   background-color: var(--h-surface-neutral-strong);
