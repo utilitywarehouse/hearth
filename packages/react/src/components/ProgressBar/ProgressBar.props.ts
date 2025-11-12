@@ -14,7 +14,7 @@ export const progressBarPropDefs = {
 export interface ProgressBarProps extends ComponentPropsWithout<'div', RemovedProps>, MarginProps {
   variant?: 'linear' | 'circular';
   /**
-   * Set the color Scheme
+   * Set the visual apearance.
    * @default 'default'
    */
   colorScheme?: 'default' | 'success' | 'danger';
