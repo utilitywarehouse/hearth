@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react",
-  "version": "0.14.3",
+  "version": "0.15.0",
   "description": "React components",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -63,7 +63,6 @@
   },
   "devDependencies": {
     "@types/node": "^22.9.0",
-    "@types/react": "^19.0.0",
     "@utilitywarehouse/hearth-react-icons": "workspace:*",
     "autoprefixer": "^10.4.20",
     "cssnano": "^7.0.6",

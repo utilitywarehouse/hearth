@@ -3,7 +3,6 @@ import { Responsive } from '../types/responsive';
 
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
-const borderRadiusValues = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'] as const;
 
 const borderPropDefs = {
   borderStyle: { className: 'border-style', tokens: borderStyleValues, responsive: true },
@@ -32,27 +31,6 @@ const borderPropDefs = {
   },
   borderLeftStyle: { className: 'border-left-style', tokens: borderStyleValues, responsive: true },
   borderLeftWidth: { className: 'border-left-width', tokens: borderWidthValues, responsive: true },
-  borderRadius: { className: 'border-radius', tokens: borderRadiusValues, responsive: true },
-  borderTopLeftRadius: {
-    className: 'border-top-left-radius',
-    tokens: borderRadiusValues,
-    responsive: true,
-  },
-  borderTopRightRadius: {
-    className: 'border-top-right-radius',
-    tokens: borderRadiusValues,
-    responsive: true,
-  },
-  borderBottomRightRadius: {
-    className: 'border-bottom-right-radius',
-    tokens: borderRadiusValues,
-    responsive: true,
-  },
-  borderBottomLeftRadius: {
-    className: 'border-bottom-left-radius',
-    tokens: borderRadiusValues,
-    responsive: true,
-  },
 } satisfies {
   borderStyle: PropDef<(typeof borderStyleValues)[number]>;
   borderWidth: PropDef<(typeof borderWidthValues)[number]>;
@@ -64,11 +42,6 @@ const borderPropDefs = {
   borderBottomWidth: PropDef<(typeof borderWidthValues)[number]>;
   borderLeftStyle: PropDef<(typeof borderStyleValues)[number]>;
   borderLeftWidth: PropDef<(typeof borderWidthValues)[number]>;
-  borderRadius: PropDef<(typeof borderRadiusValues)[number]>;
-  borderTopLeftRadius: PropDef<(typeof borderRadiusValues)[number]>;
-  borderTopRightRadius: PropDef<(typeof borderRadiusValues)[number]>;
-  borderBottomRightRadius: PropDef<(typeof borderRadiusValues)[number]>;
-  borderBottomLeftRadius: PropDef<(typeof borderRadiusValues)[number]>;
 };
 
 interface BorderProps {
@@ -92,16 +65,6 @@ interface BorderProps {
   borderLeftStyle?: Responsive<(typeof borderStyleValues)[number]>;
   /* Set the border-left width. */
   borderLeftWidth?: Responsive<(typeof borderWidthValues)[number]>;
-  /* Set the border radius. */
-  borderRadius?: Responsive<(typeof borderRadiusValues)[number]>;
-  /* Set the border-top-left radius. */
-  borderTopLeftRadius?: Responsive<(typeof borderRadiusValues)[number]>;
-  /* Set the border-top-right radius. */
-  borderTopRightRadius?: Responsive<(typeof borderRadiusValues)[number]>;
-  /* Set the border-bottom-right radius. */
-  borderBottomRightRadius?: Responsive<(typeof borderRadiusValues)[number]>;
-  /* Set the border-bottom-left radius. */
-  borderBottomLeftRadius?: Responsive<(typeof borderRadiusValues)[number]>;
 }
 
 export { borderPropDefs };

@@ -21,7 +21,6 @@ type CommonCardProps = Omit<
   | 'asChild'
   | 'color'
   | 'backgroundColor'
-  | 'spacing'
   | keyof PaddingProps
   | keyof BorderProps
   | keyof BorderColorProps

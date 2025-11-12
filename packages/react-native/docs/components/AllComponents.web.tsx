@@ -21,6 +21,7 @@ import {
   AccordionItem,
   Alert,
   Badge,
+  Banner,
   BodyText,
   BottomSheet,
   BottomSheetModal,
@@ -42,10 +43,12 @@ import {
   DescriptionListItem,
   DetailText,
   Divider,
+  Expandable,
   Flex,
   FormField,
   Grid,
   Heading,
+  HighlightBanner,
   Icon,
   IconButton,
   IconContainer,
@@ -126,6 +129,7 @@ const AllComponents: React.FC = () => {
   const handleModalOpenPress = useCallback(() => {
     modalRef.current?.present();
   }, []);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [selected, setSelected] = useState<DateType>();
   const datePickerRef = useRef<BottomSheetModal>(null);
   const handleDatePickerOpenPress = useCallback(() => {
@@ -186,6 +190,16 @@ const AllComponents: React.FC = () => {
               <View>
                 <Badge colorScheme="danger">This is a red badge</Badge>
               </View>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Banner" link="/?path=/docs/components-banner--docs">
+            <Center flex={1} p="200">
+              <Banner
+                icon={ElectricityMediumIcon}
+                iconContainerColor="energy"
+                heading="I'm a Banner"
+                description="This is a banner description"
+              />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Body Text" link="/?path=/docs/typography-body-text--docs">
@@ -361,6 +375,24 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
 
+          <ComponentWrapper
+            name="Expandable"
+            link="/?path=/docs/utility-components-expandable--docs"
+          >
+            <Center flex={1} p="200">
+              <Box width={240} gap="100">
+                <Button onPress={() => setIsExpanded(!isExpanded)}>
+                  {isExpanded ? 'Collapse' : 'Expand'}
+                </Button>
+                <Expandable expanded={isExpanded} accessibilityLabel="Expandable content section">
+                  <Card>
+                    <BodyText>This content expands and collapses</BodyText>
+                  </Card>
+                </Expandable>
+              </Box>
+            </Center>
+          </ComponentWrapper>
+
           <ComponentWrapper name="Flex" link="/?path=/docs/primitives-flex--docs">
             <Center flex={1}>
               <Flex direction="row" space="md">
@@ -398,6 +430,24 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Heading" link="/?path=/docs/typography-heading--docs">
             <Center flex={1}>
               <Heading>This is a Heading</Heading>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
+            name="Highlight Banner"
+            link="/?path=/docs/components-highlight-banner--docs"
+          >
+            <Center flex={1} p="200">
+              <HighlightBanner
+                heading="Featured Content"
+                headingColor="energy"
+                imageContainerHeight={40}
+                image={{
+                  source: {
+                    uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80',
+                  },
+                }}
+                description="Banner description goes here."
+              />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper
@@ -529,10 +579,10 @@ const AllComponents: React.FC = () => {
           >
             <Center flex={1} px="300">
               <ProgressStepper>
-                <ProgressStep id="customer-data" state="complete" />
-                <ProgressStep id="shipping-data" state="complete" />
-                <ProgressStep id="payment-data" state="active" />
-                <ProgressStep id="summary" state="incomplete" />
+                <ProgressStep id="customer-data" status="complete" />
+                <ProgressStep id="shipping-data" status="complete" />
+                <ProgressStep id="payment-data" status="active" />
+                <ProgressStep id="summary" status="incomplete" />
               </ProgressStepper>
             </Center>
           </ComponentWrapper>
