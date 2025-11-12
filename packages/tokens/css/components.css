@@ -304,7 +304,7 @@
   --h-progress-bar-circular-md-label-font-size: var(--h-font-size-300);
   --h-progress-bar-circular-md-label-font-weight: var(--h-font-weight-regular);
   --h-progress-bar-circular-md-label-line-height: var(--h-line-height-500);
-  --h-progress-bar-circular-sm-bar-width: 8;
+  --h-progress-bar-circular-sm-bar-width: 8px;
   --h-progress-bar-circular-sm-height: 80px;
   --h-progress-bar-linear-bar-border-radius: var(--h-border-radius-full);
   --h-progress-bar-linear-bar-height: 12px;

@@ -26,7 +26,6 @@ const meta: Meta<typeof BodyText> = {
   args: {
     children: 'The five boxing wizards jump quickly.',
     size: 'md',
-    weight: 'regular',
     truncate: false,
   },
 };
