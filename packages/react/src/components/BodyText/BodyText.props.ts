@@ -12,7 +12,7 @@ const weights = ['regular', 'semibold', 'bold'] as const;
 
 export const bodyTextPropDefs = {
   size: { className: 'size', tokens: sizes, responsive: true, default: 'md' },
-  weight: { className: 'weight', tokens: weights, responsive: true, default: 'regular' },
+  weight: { className: 'weight', tokens: weights, responsive: true },
   paragraphSpacing: { className: 'paragraph-spacing', responsive: false },
 } satisfies {
   size: PropDef<(typeof sizes)[number]>;
