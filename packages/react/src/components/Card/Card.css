@@ -5,6 +5,7 @@
   border: var(--h-card-border-width) solid var(--h-card-border-color);
   padding: var(--h-card-padding-mobile);
   height: fit-content;
+  overflow: hidden;
 
   --h-card-border-width: var(--h-card-brand-border-width);
   --h-card-border-color: var(--h-border-strong);
@@ -40,9 +41,13 @@
     }
   }
 
-  &:where(:has(:focus-visible)) {
+  &:has(:focus-visible) {
     outline: 2px solid var(--h-focus-primary);
     outline-offset: 1px;
+  }
+
+  &:has(.hearth-CardActions):has(:focus-visible) {
+    outline: none;
   }
 
   &:where(.hearth-variant-emphasis) {
@@ -112,14 +117,6 @@
   }
 
   & :where(.hearth-CardActions) {
-    border-bottom-left-radius: calc(var(--h-card-border-radius) - var(--h-card-border-width));
-    border-bottom-right-radius: calc(var(--h-card-border-radius) - var(--h-card-border-width));
-
-    &:where(:first-child) {
-      border-top-left-radius: calc(var(--h-card-border-radius) - var(--h-card-border-width));
-      border-top-right-radius: calc(var(--h-card-border-radius) - var(--h-card-border-width));
-    }
-
     &:not(:first-child) {
       border-top: var(--h-border-width-2) solid var(--h-border-strong);
     }

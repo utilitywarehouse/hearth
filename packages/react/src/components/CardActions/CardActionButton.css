@@ -13,7 +13,6 @@
   gap: var(--h-space-150);
   align-items: center;
   position: relative;
-  overflow: hidden;
 
   &::after {
     z-index: 0;
