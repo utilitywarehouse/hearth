@@ -243,7 +243,6 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
       >
         <Flex
           className="hearth-DateInputSegments"
-          gap="100"
           data-validation-status={validationStatus ? validationStatus : undefined}
           data-disabled={disabled ? '' : undefined}
         >
