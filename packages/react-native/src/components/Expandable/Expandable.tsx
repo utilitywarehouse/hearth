@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
@@ -10,20 +11,25 @@ import { ExpandableProps } from './Expandable.props';
 
 const Expandable = ({
   expanded = false,
+  onExpandedChange,
   children,
   duration = 200,
   style,
   accessibilityLabel,
   testID,
   animateOpacity = true,
+  ...props
 }: ExpandableProps) => {
   const height = useSharedValue(0);
   const open = useSharedValue(expanded);
 
-  // Update open value when expanded prop changes
-  if (open.value !== expanded) {
-    open.value = expanded;
-  }
+  // Update open value when expanded prop changes and call callback
+  useEffect(() => {
+    if (open.value !== expanded) {
+      open.value = expanded;
+      onExpandedChange?.(expanded);
+    }
+  }, [expanded, onExpandedChange, open]);
 
   const derivedHeight = useDerivedValue(() =>
     withTiming(height.value * Number(open.value), {
@@ -55,6 +61,7 @@ const Expandable = ({
       accessibilityRole="none"
       accessibilityState={{ expanded }}
       testID={testID}
+      {...props}
     >
       <Animated.View style={opacityStyle}>
         <View

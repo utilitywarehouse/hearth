@@ -263,14 +263,14 @@ export const WithCallback: Story = {
     const [message, setMessage] = useState('Content is collapsed');
 
     const handleExpandedChange = (newExpanded: boolean) => {
-      setExpanded(newExpanded);
+      console.log(newExpanded);
       setMessage(newExpanded ? 'Content is expanded' : 'Content is collapsed');
     };
 
     return (
       <View style={{ width: 300 }}>
         <BodyText style={{ marginBottom: 8 }}>{message}</BodyText>
-        <Button onPress={() => handleExpandedChange(!expanded)} style={{ marginBottom: 16 }}>
+        <Button onPress={() => setExpanded(!expanded)} style={{ marginBottom: 16 }}>
           Toggle
         </Button>
         <Expandable expanded={expanded} onExpandedChange={handleExpandedChange}>

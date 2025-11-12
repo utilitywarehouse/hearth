@@ -44,6 +44,7 @@ import {
   DetailText,
   Divider,
   Expandable,
+  ExpandableCard,
   Flex,
   FormField,
   Grid,
@@ -390,6 +391,26 @@ const AllComponents: React.FC = () => {
                   </Card>
                 </Expandable>
               </Box>
+            </Center>
+          </ComponentWrapper>
+
+          <ComponentWrapper
+            name="Expandable Card"
+            link="/?path=/docs/components-expandable-card--docs"
+          >
+            <Center flex={1} p="200">
+              <ExpandableCard
+                heading="This is an"
+                helperText="Expandable Card component"
+                leadingIcon={ElectricityMediumIcon}
+                expandedContent={
+                  <>
+                    <BodyText>I'm expanding</BodyText>
+                    <BodyText>to show more content</BodyText>
+                  </>
+                }
+                style={{ width: 240 }}
+              />
             </Center>
           </ComponentWrapper>
 
