@@ -46,7 +46,7 @@
     outline-offset: 1px;
   }
 
-  &:has(.hearth-CardActions):has(:focus-visible) {
+  &:has(.hearth-CardActions :focus-visible) {
     outline: none;
   }
 

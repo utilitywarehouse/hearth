@@ -29,6 +29,6 @@
 
   &:where(:focus-visible):not(.hearth-Card > &) {
     outline: 2px solid var(--h-focus-primary);
-    outline-offset: 1px;
+    outline-offset: calc(-1 * var(--h-space-100));
   }
 }
