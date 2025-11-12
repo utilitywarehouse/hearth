@@ -19,13 +19,13 @@ export interface ProgressBarProps extends ComponentPropsWithout<'div', RemovedPr
    */
   colorScheme?: 'default' | 'success' | 'danger';
   /**
-   * The current progress value.
-   */
-  /**
    * Sets the circular variant size. Does not affect the appearance of the linear variant.
    * @default md
    */
   size?: Responsive<(typeof sizes)[number]>;
+  /**
+   * The current progress value.
+   */
   value: number;
   /**
    * The minimum value.
@@ -37,6 +37,9 @@ export interface ProgressBarProps extends ComponentPropsWithout<'div', RemovedPr
    * @default 100
    */
   max?: number;
+  /**
+   * The required text label. Can be visually hidden with the `hideLabel` prop.
+   */
   label: string;
   /**
    * Visually hide the label.
@@ -47,7 +50,7 @@ export interface ProgressBarProps extends ComponentPropsWithout<'div', RemovedPr
    */
   formatValueText?: (value: number) => string;
   /**
-   * A string value that provides a user-friendly name for `aria-valuenow`, the current value of the meter.
+   * A human-readable text alternative for the current value (`aria-valuenow`).
    */
   'aria-valuetext'?: React.AriaAttributes['aria-valuetext'];
 }

@@ -35,11 +35,12 @@ export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps
   // Clamp value between min and max; success should only ever reflect a complete state
   const clampedValue = colorScheme === 'success' ? max : Math.min(Math.max(value, min), max);
 
-  const defaultValueText = `${valueToPercent(clampedValue, min, max)}%`;
+  const percentValue = valueToPercent(clampedValue, min, max);
+  const defaultValueText = `${percentValue}%`;
   const valueText = formatValueText ? formatValueText(clampedValue) : defaultValueText;
 
   const internalProgressBarProps = {
-    value: clampedValue,
+    value: percentValue,
     label,
     valueText,
     labelId,
@@ -54,8 +55,8 @@ export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps
       className={clsx(componentClassName, className)}
       role="progressbar"
       aria-valuenow={clampedValue}
-      aria-valuemin={0}
-      aria-valuemax={100}
+      aria-valuemin={min}
+      aria-valuemax={max}
       aria-valuetext={ariaValueText || valueText}
       aria-labelledby={labelId}
       {...dataAttributeProps}
