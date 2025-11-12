@@ -1,0 +1,22 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
+
+<Meta title="Common Props / Border Radius" />
+
+# Border
+
+The border radius props are responsive, and can be used in conjunction with the
+other common border props to style component borders.
+
+```tsx
+<Box borderRadius="md" />
+<Box borderRadius={{ mobile: 'full', desktop: 'lg' }}  />
+<Box borderBottomLeftRadius="inherit" borderBottomRightRadius="inherit" />
+```
+
+| Prop                      | Type                                                                  |
+| ------------------------- | --------------------------------------------------------------------- |
+| `borderRadius`            | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'\|'inherit'>` |
+| `borderTopLeftRadius`     | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'\|'inherit'>` |
+| `borderTopRightRadius`    | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'\|'inherit'>` |
+| `borderBottomLeftRadius`  | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'\|'inherit'>` |
+| `borderBottomRightRadius` | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'\|'inherit'>` |

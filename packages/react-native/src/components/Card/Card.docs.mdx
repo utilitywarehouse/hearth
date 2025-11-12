@@ -17,10 +17,18 @@ A Card component serves as a visual container that groups related content and ac
 - [Playground](#playground)
 - [Usage](#usage)
 - [Props](#props)
+  - [`CardPressHandler` Props](#cardpresshandler-props)
+  - [`CardAction` Props](#cardaction-props)
 - [Variants](#variants)
 - [Examples](#examples)
   - [Interactive](#interactive)
   - [With `CardAction`](#with-cardaction)
+    - [`CardAction` Playground](#cardaction-playground)
+    - [`CardAction` With Badge](#cardaction-with-badge)
+    - [`CardAction` Size Variants](#cardaction-size-variants)
+    - [`CardAction` Advanced Usage with Children](#cardaction-advanced-usage-with-children)
+    - [`CardAction` Component Parts](#cardaction-component-parts)
+    - [`CardAction` Accessibility](#cardaction-accessibility)
 
 ## Playground
 
@@ -69,13 +77,13 @@ const MyComponent = () => (
 | rowGap         | `number`                                                                                                                                     | The row gap between the content.           | `0`               |
 | columnGap      | `number`                                                                                                                                     | The column gap between the content.        | `0`               |
 
-### `CardPressHandler`
+### `CardPressHandler` Props
 
 | Property         | Type     | Description                                                                 | Default   |
 | ---------------- | -------- | --------------------------------------------------------------------------- | --------- |
 | handlerToInherit | `string` | The handler to inherit from the child component when the `Card` is pressed. | `onPress` |
 
-### `CardAction`
+### `CardAction` Props
 
 | Property             | Type                                                                                               | Description                                              | Default    |
 | -------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ---------- |

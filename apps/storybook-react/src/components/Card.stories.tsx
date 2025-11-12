@@ -9,14 +9,26 @@ import {
   Heading,
   Link,
   CardInteraction,
+  CardActionLink,
+  CardActionButton,
+  CardActions,
   Button,
   IconButton,
+  Badge,
+  CardContent,
 } from '@utilitywarehouse/hearth-react';
 import {
   ChevronRightSmallIcon,
   CloseSmallIcon,
+  DownloadSmallIcon,
+  ElectricityMediumIcon,
+  EmailSmallIcon,
   HeartMediumIcon,
   HeartOutlineMediumIcon,
+  HomeAndBoilerMediumIcon,
+  HomeInsuranceMediumIcon,
+  OpenSmallIcon,
+  TickCircleSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { Placeholder } from '../storybook-components/Placeholder';
 
@@ -127,18 +139,9 @@ export const KitchenSink: Story = {
 
 export const Playground: Story = {
   render: ({ children, ...args }) => (
-    <Flex padding="600" backgroundColor="warmWhite50" justifyContent="center">
-      <Box width="300px">
-        <Card {...args}>
-          <DetailText
-            size="sm"
-            inverted={args.colorScheme === 'brand' && args.variant === 'emphasis'}
-          >
-            {children}
-          </DetailText>
-        </Card>
-      </Box>
-    </Flex>
+    <Card {...args} width="400px" marginInline="auto">
+      <BodyText size="md">{children}</BodyText>
+    </Card>
   ),
 };
 
@@ -361,7 +364,7 @@ export const InteractiveCards: Story = {
               direction="column"
               gap="150"
             >
-              <Flex alignItems="center" justifyContent="between">
+              <Flex alignItems="start" justifyContent="between">
                 <Heading size="sm">This is a card with multiple interactions</Heading>
                 <CardInteraction secondary>
                   <IconButton
@@ -399,7 +402,7 @@ export const WithoutLink: Story = {
     const [likedArgos, setLikedArgos] = React.useState(false);
     const [likedAskItalian, setLikedAskItalian] = React.useState(false);
     return (
-      <Flex padding="600" backgroundColor="warmWhite50" justifyContent="center" gap="400">
+      <Flex padding="600" backgroundColor="primary" justifyContent="center" gap="400">
         <Flex asChild gap="400" width="400px">
           <ul role="list">
             <Card as="li" direction="column" flex="1" justifyContent="center" gap="300">
@@ -445,9 +448,9 @@ export const WithoutLink: Story = {
                 <BodyText size="md" id="title-askitalian">
                   Ask Italian
                 </BodyText>
-                <CardAction>
+                <CardInteraction>
                   <Link href="https://www.askitalian.co.uk/" aria-labelledby="title-askitalian" />
-                </CardAction>
+                </CardInteraction>
               </Flex>
             </Card>
           </ul>
@@ -455,4 +458,179 @@ export const WithoutLink: Story = {
       </Flex>
     );
   },
+};
+
+export const SingleCardActionLink: Story = {
+  render: args => (
+    <Flex padding="500" direction="row" gap="500" backgroundColor="secondary" wrap="wrap">
+      <Card {...args}>
+        <CardActionLink
+          heading="Electricity"
+          helperText="Last reading: 30th Oct"
+          leadingIcon={<ElectricityMediumIcon />}
+          leadingIconContainerColorScheme="energy"
+          badge={
+            <Badge colorScheme="info" size="sm">
+              Smart meter
+            </Badge>
+          }
+          badgePlacement="middle"
+          href="#"
+        />
+      </Card>
+      <Card {...args}>
+        <CardActionLink
+          heading="Home Insurance"
+          helperText="B12ABCD38"
+          leadingIcon={<HomeInsuranceMediumIcon />}
+          badge={
+            <Badge variant="outline" colorScheme="functional" size="sm">
+              Disconnected
+            </Badge>
+          }
+          badgePlacement="bottom"
+          href="#"
+        />
+      </Card>
+      <Card {...args}>
+        <CardActionLink
+          heading="Card Action"
+          helperText="With badge to the right"
+          badge={
+            <Badge variant="subtle" colorScheme="positive" size="sm">
+              Live
+            </Badge>
+          }
+          badgePlacement="right"
+          href="#"
+        />
+      </Card>
+    </Flex>
+  ),
+};
+
+export const SingleCardActionButton: Story = {
+  render: args => (
+    <Flex padding="500" direction="row" gap="500" backgroundColor="secondary" wrap="wrap">
+      <Card {...args}>
+        <CardActionButton
+          heading="Electricity"
+          helperText="Last reading: 30th Oct"
+          leadingIcon={<ElectricityMediumIcon />}
+          leadingIconContainerColorScheme="energy"
+          badge={
+            <Badge colorScheme="info" size="sm">
+              Smart meter
+            </Badge>
+          }
+          badgePlacement="middle"
+        />
+      </Card>
+      <Card {...args}>
+        <CardActionButton
+          heading="Home Insurance"
+          helperText="B12ABCD38"
+          leadingIcon={<HomeInsuranceMediumIcon />}
+          badge={
+            <Badge variant="outline" colorScheme="functional" size="sm">
+              Disconnected
+            </Badge>
+          }
+          badgePlacement="bottom"
+        />
+      </Card>
+      <Card {...args}>
+        <CardActionButton
+          heading="Card Action"
+          helperText="With badge to the right"
+          badge={
+            <Badge variant="subtle" colorScheme="positive" size="sm">
+              Live
+            </Badge>
+          }
+          badgePlacement="right"
+        />
+      </Card>
+    </Flex>
+  ),
+};
+
+export const WithOnlyCardActions: Story = {
+  render: args => (
+    <Card {...args} width="500px">
+      <CardActions direction="column">
+        <CardActionButton
+          leadingIcon={<HomeInsuranceMediumIcon />}
+          leadingIconContainerColorScheme="insurance"
+          heading="Home insurance"
+          helperText="B12ABCD34"
+          badge={
+            <Badge size="sm" colorScheme="positive">
+              Live
+            </Badge>
+          }
+          badgePlacement="right"
+        />
+        <CardActionButton
+          leadingIcon={<HomeAndBoilerMediumIcon />}
+          leadingIconContainerColorScheme="insurance"
+          heading="Boiler & home cover"
+          helperText="B12ABCD37"
+          badge={
+            <Badge size="sm" colorScheme="positive">
+              Live
+            </Badge>
+          }
+          badgePlacement="right"
+        />
+      </CardActions>
+    </Card>
+  ),
+};
+
+export const WithCardActions: Story = {
+  render: args => (
+    <Flex padding="500" direction="row" gap="500" backgroundColor="secondary" wrap="wrap">
+      <Card {...args}>
+        <CardContent direction="column" spacing="lg">
+          <Heading size="md" as="h2">
+            Your December bill
+          </Heading>
+
+          <Flex direction="column" spacing="sm">
+            <DetailText size="4xl">£110.00</DetailText>
+            <Flex gap="50" alignItems="center">
+              <TickCircleSmallIcon />
+              <BodyText size="md">Your Direct Debit is ready to go</BodyText>
+            </Flex>
+          </Flex>
+        </CardContent>
+        <CardActions direction="column">
+          <CardActionButton heading="Download PDF" trailingIcon={<DownloadSmallIcon />} />
+          <CardActionButton heading="Open PDF" trailingIcon={<OpenSmallIcon />} />
+          <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} />
+        </CardActions>
+      </Card>
+      <Card {...args}>
+        <CardContent direction="column" spacing="lg">
+          <Heading size="md" as="h2">
+            Your December bill
+          </Heading>
+
+          <Flex direction="column" spacing="sm">
+            <DetailText size="4xl">£110.00</DetailText>
+            <Flex gap="50" alignItems="center">
+              <TickCircleSmallIcon />
+              <BodyText size="md">Your Direct Debit is ready to go</BodyText>
+            </Flex>
+          </Flex>
+        </CardContent>
+        <CardActions direction="row">
+          <CardActionButton heading="Download PDF" trailingIcon={<DownloadSmallIcon />} />
+          <CardActionButton heading="Open PDF" trailingIcon={<OpenSmallIcon />} />
+          <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} />
+        </CardActions>
+      </Card>
+    </Flex>
+  ),
 };

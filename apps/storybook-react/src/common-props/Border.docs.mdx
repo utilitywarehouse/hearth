@@ -4,28 +4,24 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 # Border
 
-The border props are responsive, and can be used to control the appearance of component borders.
+The border props are responsive, and, alongside the border color and border
+radius props, can be used to control the appearance of component borders.
 
 ```tsx
 <Box borderStyle="solid" borderWidth="1" borderColor="strong" />
 <Box borderStyle={{ mobile: 'none', desktop: 'solid' }} borderWidth="2" borderColor="subtle" />
-<Box borderTopStyle="solid" borderTopWidth={{ mobile: '1', desktop: '2'}} borderTopColor="subtle" />
+<Box borderTopStyle="solid" borderTopWidth={{ mobile: '1', desktop: '2'}} borderTopColor="subtle" borderRadius="full" />
 ```
 
-| Prop                      | Type                                                       |
-| ------------------------- | ---------------------------------------------------------- |
-| `borderStyle`             | `Responsive<'none'\|'solid'>`                              |
-| `borderWidth`             | `Responsive<'0'\|'1'\|'2'>`                                |
-| `borderRadius`            | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
-| `borderTopStyle`          | `Responsive<'none'\|'solid'>`                              |
-| `borderTopWidth`          | `Responsive<'0'\|'1'\|'2'>`                                |
-| `borderTopLeftRadius`     | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
-| `borderTopRightRadius`    | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
-| `borderRightStyle`        | `Responsive<'none'\|'solid'>`                              |
-| `borderRightWidth`        | `Responsive<'0'\|'1'\|'2'>`                                |
-| `borderBottomStyle`       | `Responsive<'none'\|'solid'>`                              |
-| `borderBottomWidth`       | `Responsive<'0'\|'1'\|'2'>`                                |
-| `borderBottomLeftRadius`  | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
-| `borderBottomRightRadius` | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'>` |
-| `borderLeftStyle`         | `Responsive<'none'\|'solid'>`                              |
-| `borderLeftWidth`         | `Responsive<'0'\|'1'\|'2'>`                                |
+| Prop                | Type                          |
+| ------------------- | ----------------------------- |
+| `borderStyle`       | `Responsive<'none'\|'solid'>` |
+| `borderWidth`       | `Responsive<'0'\|'1'\|'2'>`   |
+| `borderTopStyle`    | `Responsive<'none'\|'solid'>` |
+| `borderTopWidth`    | `Responsive<'0'\|'1'\|'2'>`   |
+| `borderRightStyle`  | `Responsive<'none'\|'solid'>` |
+| `borderRightWidth`  | `Responsive<'0'\|'1'\|'2'>`   |
+| `borderBottomStyle` | `Responsive<'none'\|'solid'>` |
+| `borderBottomWidth` | `Responsive<'0'\|'1'\|'2'>`   |
+| `borderLeftStyle`   | `Responsive<'none'\|'solid'>` |
+| `borderLeftWidth`   | `Responsive<'0'\|'1'\|'2'>`   |

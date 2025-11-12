@@ -10,7 +10,6 @@ export interface ListItemContentProps extends ComponentPropsWithout<'div', Remov
   leadingContent?: ReactNode;
   trailingContent?: ReactNode;
   badge?: ReactNode;
-
   /**
    * Placement of the badge element
    * @default 'bottom'
