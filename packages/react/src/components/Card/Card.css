@@ -41,15 +41,6 @@
     }
   }
 
-  &:has(:focus-visible) {
-    outline: 2px solid var(--h-focus-primary);
-    outline-offset: 1px;
-  }
-
-  &:has(.hearth-CardActions :focus-visible) {
-    outline: none;
-  }
-
   &:where(.hearth-variant-emphasis) {
     --h-card-background-color: var(--h-card-emphasis-background-color);
   }
@@ -120,5 +111,14 @@
     &:not(:first-child) {
       border-top: var(--h-border-width-2) solid var(--h-border-strong);
     }
+  }
+
+  &:has(:focus-visible) {
+    outline: 2px solid var(--h-focus-primary);
+    outline-offset: 1px;
+  }
+
+  &:has(.hearth-CardActions :focus-visible) {
+    outline: none;
   }
 }
