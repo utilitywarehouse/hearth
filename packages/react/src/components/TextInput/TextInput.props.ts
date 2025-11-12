@@ -33,5 +33,8 @@ export interface TextInputProps
    * Text to display when the `validationStatus` is set.
    */
   validationText?: string;
+  /**
+   * Visually hide the label.
+   */
   hideLabel?: boolean;
 }
