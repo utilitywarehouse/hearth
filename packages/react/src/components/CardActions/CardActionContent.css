@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
   gap: var(--h-card-action-content-gap);
-  border-radius: inherit;
 
   &:has(.hearth-IconContainer) {
     gap: var(--h-space-0);
