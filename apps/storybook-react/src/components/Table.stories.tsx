@@ -303,7 +303,7 @@ export const WithSorting: Story = {
           <TableHeaderCell sortable sortKey="lastName">
             Last Name
           </TableHeaderCell>
-          <TableHeaderCell sortKey="email">
+          <TableHeaderCell>
             Email
           </TableHeaderCell>
           <TableHeaderCell>

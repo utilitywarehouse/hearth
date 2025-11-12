@@ -40,7 +40,6 @@ export const TableHeaderCell = React.forwardRef<TableHeaderCellElement, TableHea
         className={clsx(componentClassName, className)}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
-        role={sortable ? 'button' : undefined}
         tabIndex={sortable ? 0 : undefined}
         aria-sort={
           sortable
