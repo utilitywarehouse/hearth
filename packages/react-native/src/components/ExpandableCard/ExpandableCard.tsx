@@ -44,7 +44,7 @@ const ExpandableCard = ({
       <ExpandableCardTrigger
         onPress={handlePress}
         disabled={disabled}
-        heading={heading!}
+        heading={heading}
         helperText={helperText}
         leadingIcon={leadingIcon}
         leadingContent={leadingContent}

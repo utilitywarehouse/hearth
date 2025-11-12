@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
-import { ViewStyle } from 'react-native';
+import { ViewProps, ViewStyle } from 'react-native';
 
-export interface ExpandableProps {
+export interface ExpandableProps extends ViewProps {
   /**
    * Whether the content is expanded
    */

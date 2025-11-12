@@ -78,7 +78,7 @@ const ExpandableCardTriggerRoot = ({
         {renderBottomBadge()}
       </ExpandableCardContent>
       {numericValue && (
-        <DetailText size="lg" style={styles.numbericValue}>
+        <DetailText size="lg" style={styles.numericValue}>
           {numericValue}
         </DetailText>
       )}
@@ -146,7 +146,7 @@ const styles = StyleSheet.create(theme => ({
   chevron: {
     justifyContent: 'center',
   },
-  numbericValue: {
+  numericValue: {
     alignSelf: 'center',
   },
 }));
