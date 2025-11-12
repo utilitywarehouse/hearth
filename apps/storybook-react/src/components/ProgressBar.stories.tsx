@@ -50,6 +50,17 @@ export const Playground: Story = {
   },
 };
 
+export const Variants: Story = {
+  render: () => {
+    return (
+      <Flex gap="800" backgroundColor="secondary" padding="300" alignItems="center">
+        <ProgressBar variant="linear" label="Linear progress bar" value={30} />
+        <ProgressBar variant="circular" label="circular" value={30} />
+      </Flex>
+    );
+  },
+};
+
 export const ColorSchemes: Story = {
   render: () => {
     return (
@@ -67,7 +78,24 @@ export const ColorSchemes: Story = {
   },
 };
 
-export const FormatValue: Story = {
+export const Sizes: Story = {
+  render: () => {
+    return (
+      <Flex gap="400" alignItems="center" padding="300" backgroundColor="secondary">
+        <ProgressBar variant="circular" label="circular" value={30} />
+        <ProgressBar variant="circular" size="sm" label="circular" value={30} />
+        <ProgressBar
+          variant="circular"
+          size={{ mobile: 'sm', desktop: 'md' }}
+          label="responsive"
+          value={30}
+        />
+      </Flex>
+    );
+  },
+};
+
+export const FormatValueText: Story = {
   render: () => {
     return (
       <Flex direction="column" gap="400">
@@ -75,7 +103,7 @@ export const FormatValue: Story = {
           variant="linear"
           label="Storage usage"
           value={87}
-          formatValue={(value: number) => `${value / 10}GB / 10GB`}
+          formatValueText={(value: number) => `${value / 10}GB / 10GB`}
         />
 
         <ProgressBar
@@ -83,7 +111,7 @@ export const FormatValue: Story = {
           label="files"
           value={15}
           max={50}
-          formatValue={(value: number) => `${value}/50`}
+          formatValueText={(value: number) => `${value}/50`}
         />
       </Flex>
     );

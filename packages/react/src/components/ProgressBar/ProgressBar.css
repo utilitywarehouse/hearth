@@ -58,6 +58,10 @@
       var(--h-circumference) - calc(calc(var(--h-value) / 100) * var(--h-circumference))
     );
 
+    & :where(.hearth-ProgressBarLabel) {
+      display: var(--h-progress-bar-label-display, block);
+    }
+
     & > svg {
       position: absolute;
       width: 100%;
@@ -90,6 +94,7 @@
           --h-progress-bar-circular-md-label-font-size
         );
         --h-content-margin-top: var(--h-space-75);
+        --h-progress-bar-label-display: block;
       }
 
       &:where(.hearth-r-size-sm &) {
@@ -97,10 +102,7 @@
         --h-progress-bar-circular-bar-width: var(--h-progress-bar-circular-sm-bar-width);
         --h-progress-bar-circular-label-font-weight: var(--h-body-text-font-weight-semibold);
         --h-progress-bar-circular-label-font-size: var(--h-body-text-md-font-size);
-
-        & :where(.hearth-ProgressBarLabel) {
-          display: none;
-        }
+        --h-progress-bar-label-display: none;
       }
     }
 

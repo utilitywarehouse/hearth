@@ -24,7 +24,8 @@ export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps
     min = 0,
     max = 100,
     label,
-    formatValue,
+    formatValueText,
+    'aria-valuetext': ariaValueText,
     hideLabel,
     ...progressBarProps
   } = extractProps(props, progressBarPropDefs, marginPropDefs);
@@ -35,7 +36,7 @@ export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps
   const clampedValue = colorScheme === 'success' ? max : Math.min(Math.max(value, min), max);
 
   const defaultValueText = `${valueToPercent(clampedValue, min, max)}%`;
-  const valueText = formatValue ? formatValue(clampedValue) : defaultValueText;
+  const valueText = formatValueText ? formatValueText(clampedValue) : defaultValueText;
 
   const internalProgressBarProps = {
     value: clampedValue,
@@ -55,7 +56,7 @@ export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps
       aria-valuenow={clampedValue}
       aria-valuemin={0}
       aria-valuemax={100}
-      aria-valuetext={valueText}
+      aria-valuetext={ariaValueText || valueText}
       aria-labelledby={labelId}
       {...dataAttributeProps}
       {...progressBarProps}

@@ -45,7 +45,7 @@ export interface ProgressBarProps extends ComponentPropsWithout<'div', RemovedPr
   /**
    * Override the default percentage value label formatting
    */
-  formatValue?: (value: number) => string;
+  formatValueText?: (value: number) => string;
   /**
    * A string value that provides a user-friendly name for `aria-valuenow`, the current value of the meter.
    */
