@@ -79,7 +79,7 @@
     & :where(.hearth-ProgressBarValueText) {
       font-family: var(--h-progress-bar-circular-md-label-font-family);
       font-size: var(--h-progress-bar-circular-label-font-size);
-      font-weight: var(--h-progress-bar-circular-label-font-weight);
+      font-weight: var(--h-progress-bar-value-text-font-weight);
       line-height: var(--h-progress-bar-circular-md-label-line-height);
     }
 
@@ -95,6 +95,7 @@
         );
         --h-content-margin-top: var(--h-space-75);
         --h-progress-bar-label-display: block;
+        --h-progress-bar-value-text-font-weight: var(--h-body-text-font-weight-regular);
       }
 
       &:where(.hearth-r-size-sm &) {
@@ -103,6 +104,7 @@
         --h-progress-bar-circular-label-font-weight: var(--h-body-text-font-weight-semibold);
         --h-progress-bar-circular-label-font-size: var(--h-body-text-md-font-size);
         --h-progress-bar-label-display: none;
+        --h-progress-bar-value-text-font-weight: var(--h-body-text-font-weight-semibold);
       }
     }
 
