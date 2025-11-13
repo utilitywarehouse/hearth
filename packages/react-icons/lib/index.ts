@@ -89,6 +89,7 @@ export { IncreaseSmallIcon } from './IncreaseSmallIcon';
 export { InfoMediumIcon } from './InfoMediumIcon';
 export { InfoSmallIcon } from './InfoSmallIcon';
 export { InsightsMediumIcon } from './InsightsMediumIcon';
+export { InsightsSmallIcon } from './InsightsSmallIcon';
 export { InstagramMediumIcon } from './InstagramMediumIcon';
 export { InsuranceMediumIcon } from './InsuranceMediumIcon';
 export { InsuranceSmallIcon } from './InsuranceSmallIcon';
