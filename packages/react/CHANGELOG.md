@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.16.1
+
+### Patch Changes
+
+- [#642](https://github.com/utilitywarehouse/hearth/pull/642) [`fee2d0c`](https://github.com/utilitywarehouse/hearth/commit/fee2d0cb964f7ad9e2e0dd5e18b97b5921b8a33b) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix Button & IconButton polymorphism, again.
+
 ## 0.16.0
 
 ### Minor Changes
