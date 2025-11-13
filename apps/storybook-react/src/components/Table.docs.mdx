@@ -30,17 +30,17 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 ## Container variants
 
-The Table component supports three container variants:
+The Table component supports different container variants:
 
-- **subtle** (default) - Light border
-- **emphasis** - Strong border
-- **none** - No border, transparent rows, white header
+- **No variant** (default) - No Card wrapper, minimal styling
+- **subtle** - Light border with Card wrapper
+- **emphasis** - Strong border with Card wrapper
 
 ## Component structure
 
 The Table uses a compound component pattern:
 
-- **Table** - The container component with scroll wrapper (requires `containerVariant` prop, defaults to `'subtle'`)
+- **Table** - The container component with scroll wrapper (optional `variant` prop for Card styling)
 - **TableHeader** - Wrapper for header row (renders `<thead>` with embedded `<tr>`)
 - **TableHeaderCell** - Header cell component (renders `<th>`)
 - **TableBody** - Wrapper for table body rows (renders `<tbody>`)
@@ -48,7 +48,7 @@ The Table uses a compound component pattern:
 - **TableCell** - Data cell component (renders `<td>`)
 
 ```tsx
-<Table containerVariant="subtle">
+<Table variant="subtle">
   <TableHeader>
     <TableHeaderCell>Header 1</TableHeaderCell>
     <TableHeaderCell>Header 2</TableHeaderCell>
@@ -68,7 +68,7 @@ The Table uses a compound component pattern:
 - Use `TableBody` to wrap data rows
 - Use `TableRow` for each row of data
 - Use `TableCell` for data cells
-- Choose appropriate `containerVariant` based on visual hierarchy needs
+- Choose appropriate `variant` based on visual hierarchy needs (omit for minimal styling)
 
 ### Accessibility
 - Ensure table has a descriptive caption or aria-label when needed
@@ -98,9 +98,9 @@ Compare the different container variants side by side.
 
 The main container component that provides context and handles responsive behavior.
 
-| Prop               | Type                                 | Default    | Description                           |
-| ------------------ | ------------------------------------ | ---------- | ------------------------------------- |
-| `containerVariant` | `'subtle' \| 'emphasis' \| 'none'`   | `'subtle'` | The border style variant of the table |
+| Prop      | Type                             | Default     | Description                                                       |
+| --------- | -------------------------------- | ----------- | ----------------------------------------------------------------- |
+| `variant` | `'subtle' \| 'emphasis'`         | `undefined` | The Card variant wrapper. When undefined, no Card wrapper is used |
 
 Additionally supports all standard `<div>` element props.
 

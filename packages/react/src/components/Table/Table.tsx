@@ -10,20 +10,17 @@ import { Box } from '../Box/Box';
 const COMPONENT_NAME = 'Table';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type TableElement = ElementRef<'div'>;
+type TableElement = ElementRef<'table'>;
 
 export const Table = React.forwardRef<TableElement, TableProps>(
-  ({ className, children, variant = 'subtle', ...props }, ref) => {
+  ({ className, children, variant, ...props }, ref) => {
     return (
-      <div
-        ref={ref}
-        className={clsx(componentClassName, className)}
-        data-variant={variant}
-        {...props}
-      >
-        {variant === 'none' ? (
+      <div className={clsx(componentClassName, className)} data-variant={variant}>
+        {variant === undefined ? (
           <Box className={`${componentClassName}ScrollContainer`}>
-            <table className={`${componentClassName}Element`}>{children}</table>
+            <table className={`${componentClassName}Element`} ref={ref} {...props}>
+              {children}
+            </table>
           </Box>
         ) : (
           <Card
@@ -32,7 +29,9 @@ export const Table = React.forwardRef<TableElement, TableProps>(
             variant={variant}
             colorScheme="neutralStrong"
           >
-            <table className={`${componentClassName}Element`}>{children}</table>
+            <table className={`${componentClassName}Element`} ref={ref} {...props}>
+              {children}
+            </table>
           </Card>
         )}
       </div>

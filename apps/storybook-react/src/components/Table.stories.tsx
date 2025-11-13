@@ -27,11 +27,8 @@ const meta: Meta<ExtendedTableProps> = {
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['subtle', 'emphasis', 'none'],
+      options: [undefined, 'subtle', 'emphasis'],
       description: 'The visual variant of the table',
-      table: {
-        defaultValue: { summary: 'subtle' },
-      },
     },
     numberOfRows: {
       control: { type: 'number', min: 1, max: 20, step: 1 },
@@ -263,8 +260,34 @@ export const ContainerVariants: Story = {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
         <div>
-          <h3 style={{ marginBottom: '1rem' }}>Subtle (default)</h3>
+          <h3 style={{ marginBottom: '1rem' }}>No variant (default)</h3>
           <Table>
+            <TableHeader>
+              <TableHeaderCell>ID</TableHeaderCell>
+              <TableHeaderCell>First Name</TableHeaderCell>
+              <TableHeaderCell>Last Name</TableHeaderCell>
+              <TableHeaderCell>Email</TableHeaderCell>
+              <TableHeaderCell>Phone</TableHeaderCell>
+              <TableHeaderCell>City</TableHeaderCell>
+            </TableHeader>
+            <TableBody>
+              {displayData.map(person => (
+                <TableRow key={person.id}>
+                  <TableCell>{person.id}</TableCell>
+                  <TableCell>{person.firstName}</TableCell>
+                  <TableCell>{person.lastName}</TableCell>
+                  <TableCell>{person.email}</TableCell>
+                  <TableCell>{person.phone}</TableCell>
+                  <TableCell>{person.city}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+
+        <div>
+          <h3 style={{ marginBottom: '1rem' }}>Subtle</h3>
+          <Table variant="subtle">
             <TableHeader>
               <TableHeaderCell>ID</TableHeaderCell>
               <TableHeaderCell>First Name</TableHeaderCell>
@@ -291,32 +314,6 @@ export const ContainerVariants: Story = {
         <div>
           <h3 style={{ marginBottom: '1rem' }}>Emphasis</h3>
           <Table variant="emphasis">
-            <TableHeader>
-              <TableHeaderCell>ID</TableHeaderCell>
-              <TableHeaderCell>First Name</TableHeaderCell>
-              <TableHeaderCell>Last Name</TableHeaderCell>
-              <TableHeaderCell>Email</TableHeaderCell>
-              <TableHeaderCell>Phone</TableHeaderCell>
-              <TableHeaderCell>City</TableHeaderCell>
-            </TableHeader>
-            <TableBody>
-              {displayData.map(person => (
-                <TableRow key={person.id}>
-                  <TableCell>{person.id}</TableCell>
-                  <TableCell>{person.firstName}</TableCell>
-                  <TableCell>{person.lastName}</TableCell>
-                  <TableCell>{person.email}</TableCell>
-                  <TableCell>{person.phone}</TableCell>
-                  <TableCell>{person.city}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-
-        <div>
-          <h3 style={{ marginBottom: '1rem' }}>None</h3>
-          <Table variant="none">
             <TableHeader>
               <TableHeaderCell>ID</TableHeaderCell>
               <TableHeaderCell>First Name</TableHeaderCell>
