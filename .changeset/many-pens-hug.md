@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react-native': patch
 ---
 
-Fixes no images used on `HighlightBanner`
+Fixes `HighlightBanner` when no image is provided
