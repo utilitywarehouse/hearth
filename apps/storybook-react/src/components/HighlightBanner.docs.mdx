@@ -1,0 +1,31 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './HighlightBanner.stories';
+import { DocsHeader } from '../storybook-components/DocsHeader';
+
+<Meta title="Components / HighlightBanner" />
+
+<DocsHeader componentName="HighlightBanner" stories={Stories} />
+
+<Canvas of={Stories.Showcase} sourceState="shown" />
+
+## Usage
+
+- `HighlightBanner` - the parent component, provides heading and main content layout
+- `HighlightBannerContent` - For main content that requires consistent banner layout
+- `HighlightBannerFooter` - For footer content
+
+## Heading color
+
+<Canvas of={Stories.KitchenSink} />
+
+## API
+
+This component is based on the `div` element and supports the following common props:
+
+- Margin
+
+| Prop           | Type                                                                                                  |
+| -------------- | ----------------------------------------------------------------------------------------------------- |
+| `colorScheme`  | `"neutralStrong" \| "neutralSubtle"`                                                                  |
+| `heading`      | `string`                                                                                              |
+| `headingColor` | `"pig" \| "highlight" \| "brand" \| "energy" \| "broadband" \| "mobile" \| "insurance" \| "cashback"` |

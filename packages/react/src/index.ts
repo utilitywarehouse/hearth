@@ -246,3 +246,10 @@ export type { TabContentProps } from './components/Tabs/TabContent.props';
 
 export { ProgressBar } from './components/ProgressBar/ProgressBar';
 export type { ProgressBarProps } from './components/ProgressBar/ProgressBar.props';
+
+export { HighlightBanner } from './components/HighlightBanner/HighlightBanner';
+export type { HighlightBannerProps } from './components/HighlightBanner/HighlightBanner.props';
+export { HighlightBannerFooter } from './components/HighlightBanner/HighlightBannerFooter';
+export type { HighlightBannerFooterProps } from './components/HighlightBanner/HighlightBannerFooter.props';
+export { HighlightBannerContent } from './components/HighlightBanner/HighlightBannerContent';
+export type { HighlightBannerContentProps } from './components/HighlightBanner/HighlightBannerContent.props';
