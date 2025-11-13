@@ -11,7 +11,7 @@ import * as Stories from './HighlightBanner.stories';
 
 # Highlight Banner
 
-A `HighlightBanner` component is a specialised card layout designed for highlighting featured content with an image. It combines a colored heading banner, an image, and descriptive text with optional action buttons or links. Perfect for promotional content, featured articles, or important announcements.
+A `HighlightBanner` component is a specialised card layout designed for highlighting featured content with an image. It combines a colored heading banner, an optional image, and descriptive text with optional action buttons or links. Perfect for promotional content, featured articles, or important announcements.
 
 - [Playground](#playground)
 - [Usage](#usage)
@@ -20,6 +20,7 @@ A `HighlightBanner` component is a specialised card layout designed for highligh
 - [Examples](#examples)
   - [With Button](#with-button)
   - [With Link](#with-link)
+  - [Without Image](#without-image)
   - [Color Variants](#color-variants)
   - [Subtle Variant](#subtle-variant)
   - [Different Images](#different-images)
@@ -133,6 +134,24 @@ const MyComponent = () => (
     }}
     description="Explore our documentation"
     link={<Link onPress={() => console.log('pressed')}>Read more</Link>}
+  />
+);
+```
+
+### Without Image
+
+Display the HighlightBanner without an image by omitting the `image` prop:
+
+<Canvas of={Stories.WithoutImage} />
+
+```jsx
+import { HighlightBanner, Button } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <HighlightBanner
+    heading="Content Without Image"
+    description="This HighlightBanner does not have an image, focusing solely on the text content."
+    button={<Button onPress={() => console.log('pressed')}>Discover More</Button>}
   />
 );
 ```
