@@ -19,7 +19,7 @@ export const SendMediumIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M13.314 21.749 9.07 17.506l4.243-7.071-7.071 4.243L2 10.435l19.092-7.778z"
+          d="M13.314 21.749 9.07 17.506l4.243-7.07-7.071 4.242L2 10.435l19.092-7.778z"
         />
       </svg>
     );

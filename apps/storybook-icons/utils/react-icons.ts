@@ -90,6 +90,7 @@ import { IncreaseSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/Incr
 import { InfoMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InfoMediumIcon';
 import { InfoSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/InfoSmallIcon';
 import { InsightsMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InsightsMediumIcon';
+import { InsightsSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/InsightsSmallIcon';
 import { InstagramMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InstagramMediumIcon';
 import { InsuranceMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/InsuranceMediumIcon';
 import { InsuranceSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/InsuranceSmallIcon';
@@ -278,6 +279,7 @@ export const reactIcons = [
   InfoMediumIcon,
   InfoSmallIcon,
   InsightsMediumIcon,
+  InsightsSmallIcon,
   InstagramMediumIcon,
   InsuranceMediumIcon,
   InsuranceSmallIcon,
