@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const PhoneSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+export const InsightsSmallIcon = forwardRef<SVGSVGElement, IconProps>(
   ({ color = 'currentColor', title, titleId, ...props }, ref) => {
     return (
       <svg
@@ -19,10 +19,10 @@ export const PhoneSmallIcon = forwardRef<SVGSVGElement, IconProps>(
         {title ? <title id={titleId}>{title}</title> : null}
         <path
           fill={color}
-          d="M15.5 17.188q-2.292 0-4.625-1.063t-4.292-3.02q-1.958-1.96-3.02-4.292Q2.5 6.479 2.5 4.167v-1h4.604l.792 3.541-2.438 2.459q.48.812 1.032 1.541.552.73 1.156 1.334.583.583 1.27 1.114.689.531 1.542 1.052l2.5-2.437 3.542.75v4.667z"
+          d="M2.26 15.4 1 14.14l6.66-6.705 3.6 3.6L15.94 6.4H13.6V4.6H19V10h-1.8V7.66l-5.94 5.94-3.6-3.6z"
         />
       </svg>
     );
   }
 );
-PhoneSmallIcon.displayName = 'PhoneSmallIcon';
+InsightsSmallIcon.displayName = 'InsightsSmallIcon';
