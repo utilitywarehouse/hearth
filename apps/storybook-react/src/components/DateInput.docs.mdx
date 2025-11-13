@@ -12,29 +12,11 @@ import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
-- [When to use](#when-to-use)
-- [Usage](#usage)
-- [Label](#label)
-- [Required](#required)
-- [Disabled](#disabled)
-- [Validation](#validation)
-- [Choosing which segments to show](#choosing-which-segments-to-show)
-- [Grouping inputs](#grouping-inputs)
-- [Keyboard interactions](#keyboard-interactions)
-- [Accessibility](#accessibility)
-- [API](#api)
-
-## When to use
-
-Use `DateInput` when you need users to enter dates manually, especially when:
-
-- The date is well-known to the user (e.g., date of birth)
-- You need flexibility to show only specific date segments (e.g., month/year for card expiry)
-- You want to avoid the complexity of a calendar picker for simple date entry
-
-For selecting dates from a calendar or date ranges, consider using a date picker component instead.
-
 ## Usage
+
+Use `DateInput` when you need users to enter dates manually, especially for
+well-known dates like date of birth, or when you need flexibility to show only
+specific date segments (e.g., month/year for card expiry).
 
 The `DateInput` component consists of separate input fields for day, month, and year.
 Users can navigate between segments using keyboard arrow keys or by clicking.
@@ -176,7 +158,25 @@ otherwise the relationship is broken.
 
 <Canvas of={Stories.GroupingInputs} sourceState="shown" />
 
-## Keyboard interactions
+## Accessibility
+
+The `DateInput` component is built with accessibility in mind:
+
+- Each segment has a visible label (Day, Month, Year)
+- The component uses semantic `fieldset` and `legend` elements
+- Each segment is properly labeled with `aria-label`
+- Validation messages are associated using `aria-describedby`
+- Invalid states are indicated with `aria-invalid`
+- Required fields are properly marked with the `required` attribute
+
+### Screen reader support
+
+- The fieldset legend announces the main label
+- Each segment announces its specific label when focused
+- Helper text and validation messages are announced to screen readers
+- The required/optional status is communicated clearly
+
+### Keyboard interactions
 
 <Flex direction="column" gap="200" className="sb-unstyled">
   <Flex>
@@ -228,24 +228,6 @@ otherwise the relationship is broken.
     </>
   ))}
 </Flex>
-
-## Accessibility
-
-The `DateInput` component is built with accessibility in mind:
-
-- Each segment has a visible label (Day, Month, Year)
-- The component uses semantic `fieldset` and `legend` elements
-- Each segment is properly labeled with `aria-label`
-- Validation messages are associated using `aria-describedby`
-- Invalid states are indicated with `aria-invalid`
-- Required fields are properly marked with the `required` attribute
-
-### Screen reader support
-
-- The fieldset legend announces the main label
-- Each segment announces its specific label when focused
-- Helper text and validation messages are announced to screen readers
-- The required/optional status is communicated clearly
 
 ### Testing
 
