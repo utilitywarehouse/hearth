@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.8.1
+
+### Patch Changes
+
+- [#641](https://github.com/utilitywarehouse/hearth/pull/641) [`251242e`](https://github.com/utilitywarehouse/hearth/commit/251242e218c0b24589c3fb6fb6963b53bda8a367) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `HighlightBanner` when no image is provided
+
 ## 0.8.0
 
 ### Minor Changes
