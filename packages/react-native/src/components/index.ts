@@ -18,6 +18,8 @@ export * from './DatePickerInput';
 export * from './DescriptionList';
 export * from './DetailText';
 export * from './Divider';
+export * from './Expandable';
+export * from './ExpandableCard';
 export * from './Flex';
 export * from './FormField';
 export * from './Grid';
