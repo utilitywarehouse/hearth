@@ -174,6 +174,22 @@ export const ColorVariants: Story = {
   },
 };
 
+export const WithoutImage: Story = {
+  render: args => {
+    return (
+      <View style={{ width: 400 }}>
+        <HighlightBanner
+          {...args}
+          image={undefined}
+          heading="Content Without Image"
+          description="This HighlightBanner does not have an image, focusing solely on the text content."
+          button={<Button onPress={() => console.log('pressed')}>Discover More</Button>}
+        />
+      </View>
+    );
+  },
+};
+
 export const SubtleCard: Story = {
   args: {
     variant: 'subtle',

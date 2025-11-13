@@ -16,7 +16,7 @@ const HighlightBanner = ({
   style,
   ...props
 }: HighlightBannerProps) => {
-  styles.useVariants({ headingColor, variant });
+  styles.useVariants({ headingColor, variant, hasImage: Boolean(image) });
 
   return (
     <Card variant={variant} noPadding style={style} {...props}>
@@ -26,9 +26,11 @@ const HighlightBanner = ({
             {heading}
           </BodyText>
         </View>
-        <View style={styles.imageContainer(imageContainerHeight)}>
-          <Image resizeMode="cover" {...image} style={[styles.image, image?.style]} />
-        </View>
+        {!!image && (
+          <View style={styles.imageContainer(imageContainerHeight)}>
+            <Image resizeMode="cover" {...image} style={[styles.image, image?.style]} />
+          </View>
+        )}
         <View style={styles.footer}>
           <BodyText size="md" textAlign="center">
             {description}
@@ -86,6 +88,11 @@ const styles = StyleSheet.create(theme => ({
           borderColor: theme.color.border.subtle,
         },
       },
+      hasImage: {
+        false: {
+          borderBottomWidth: 0,
+        },
+      },
     },
   },
   imageContainer: (height: number = 200) => ({
@@ -107,6 +114,11 @@ const styles = StyleSheet.create(theme => ({
         },
         subtle: {
           borderColor: theme.color.border.subtle,
+        },
+      },
+      hasImage: {
+        true: {
+          flex: 1,
         },
       },
     },
