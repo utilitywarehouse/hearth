@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-svg-icons
 
+## 0.7.3
+
+### Patch Changes
+
+- [#638](https://github.com/utilitywarehouse/hearth/pull/638) [`8c6c069`](https://github.com/utilitywarehouse/hearth/commit/8c6c069472cfd53dbb521ef82ff732c5a9fc2abb) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  - InsightsSmallIcon
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.7.2
 
 ### Patch Changes
