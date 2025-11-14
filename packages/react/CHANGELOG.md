@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.16.3
+
+### Patch Changes
+
+- [#646](https://github.com/utilitywarehouse/hearth/pull/646) [`2f9eb96`](https://github.com/utilitywarehouse/hearth/commit/2f9eb96b7b46f64a9c0ffea2a54f5df497967d31) Thanks [@robphoenix](https://github.com/robphoenix)! - Change `Label` display to support top & bottom margin
+
 ## 0.16.2
 
 ### Patch Changes
