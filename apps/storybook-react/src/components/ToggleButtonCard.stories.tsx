@@ -236,3 +236,27 @@ export const InteractiveContent: Story = {
     );
   },
 };
+
+export const ResponsiveDirection: Story = {
+  render: args => {
+    return (
+      <ToggleGroup
+        {...args}
+        type="single"
+        gap="200"
+        direction={{ mobile: 'column', tablet: 'row' }}
+      >
+        {['One', 'Two', 'Three', 'Four'].map((label, value) => (
+          <ToggleButtonCard value={`${value}`} label={label} aria-labelledby="">
+            <Placeholder
+              borderColor="subtle"
+              backgroundColor="primary"
+              width="120px"
+              height="50px"
+            />
+          </ToggleButtonCard>
+        ))}
+      </ToggleGroup>
+    );
+  },
+};

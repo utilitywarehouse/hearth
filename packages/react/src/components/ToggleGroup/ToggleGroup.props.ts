@@ -11,5 +11,6 @@ export interface ToggleGroupProps
     Omit<FlexProps, 'direction'>,
     MarginProps {
   /** The direction of the toggle items, will also set the aria-orientation value. */
-  direction?: 'column' | 'row';
+  // direction?: 'column' | 'row';
+  direction: FlexProps['direction'];
 }
