@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.16.2
+
+### Patch Changes
+
+- [#644](https://github.com/utilitywarehouse/hearth/pull/644) [`0fd7fa4`](https://github.com/utilitywarehouse/hearth/commit/0fd7fa45de32866f6af4472d0a0979846cf65380) Thanks [@robphoenix](https://github.com/robphoenix)! - Update `ToggleGroup` to have responsive direction
+
 ## 0.16.1
 
 ### Patch Changes
