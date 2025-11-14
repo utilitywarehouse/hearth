@@ -251,8 +251,9 @@ export const ResponsiveDirection: Story = {
             <Placeholder
               borderColor="subtle"
               backgroundColor="primary"
-              width="120px"
-              height="50px"
+              minWidth="150px"
+              width="100%"
+              height="100px"
             />
           </ToggleButtonCard>
         ))}
