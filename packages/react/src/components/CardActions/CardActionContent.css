@@ -5,7 +5,6 @@
   display: flex;
   align-items: center;
   gap: var(--h-card-action-content-gap);
-  border-radius: inherit;
 
   &:has(.hearth-IconContainer) {
     gap: var(--h-space-0);
@@ -18,12 +17,7 @@
     padding-block: var(--h-card-action-content-padding-vertical);
     padding-left: var(--h-card-action-content-padding-horizontal);
     flex-shrink: 0;
-  }
-
-  & :where(.hearth-IconContainer) {
-    border-top-left-radius: inherit;
-    border-bottom-left-radius: inherit;
-    height: 100%;
+    overflow: hidden;
   }
 
   & :where(.hearth-CardActionContentMainWrapper) {

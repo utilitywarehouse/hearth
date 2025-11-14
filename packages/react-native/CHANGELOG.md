@@ -1,5 +1,23 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.8.1
+
+### Patch Changes
+
+- [#641](https://github.com/utilitywarehouse/hearth/pull/641) [`251242e`](https://github.com/utilitywarehouse/hearth/commit/251242e218c0b24589c3fb6fb6963b53bda8a367) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `HighlightBanner` when no image is provided
+
+## 0.8.0
+
+### Minor Changes
+
+- [#635](https://github.com/utilitywarehouse/hearth/pull/635) [`4cac2f2`](https://github.com/utilitywarehouse/hearth/commit/4cac2f28c12279557e2133d67cd75783f30c89ff) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Expandable` component
+
+- [#631](https://github.com/utilitywarehouse/hearth/pull/631) [`57b4991`](https://github.com/utilitywarehouse/hearth/commit/57b49912c90dce3d88a699bd50217df08dab601a) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Banner` component
+
+- [#636](https://github.com/utilitywarehouse/hearth/pull/636) [`a363352`](https://github.com/utilitywarehouse/hearth/commit/a363352dbfbc44245c64e2a16347463b89ff519a) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `ExpandableCard` component
+
+- [#631](https://github.com/utilitywarehouse/hearth/pull/631) [`57b4991`](https://github.com/utilitywarehouse/hearth/commit/57b49912c90dce3d88a699bd50217df08dab601a) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `HighlightBanner` component
+
 ## 0.7.0
 
 ### Minor Changes
