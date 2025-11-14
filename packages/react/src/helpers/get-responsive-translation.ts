@@ -12,7 +12,7 @@ import { isResponsiveObject } from './is-responsive-object';
  * getResponsiveTranslation('large', { large: 'medium', medium: 'small' }) // => 'medium'
  * getResponsiveTranslation({ mobile: 'medium', tablet: 'large' }, { large: 'medium', medium: 'small' })
  * // => { mobile: 'small', tablet: 'medium' }
- * getResponsiveTranslation<Orientation>({mobile: 'column', dekstop: 'row'}, { column: 'vertical', row: 'horizontal' });
+ * getResponsiveTranslation<Orientation>({mobile: 'column', desktop: 'row'}, { column: 'vertical', row: 'horizontal' });
  * // => { mobile: 'vertical', tablet: 'horizontal' }
  * ```
  *
