@@ -60,6 +60,8 @@
 
     & :where(.hearth-ProgressBarLabel) {
       display: var(--h-progress-bar-label-display, block);
+      text-wrap: wrap;
+      max-width: 90px;
     }
 
     & > svg {
