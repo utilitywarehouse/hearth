@@ -7,10 +7,10 @@ import type { ButtonBaseElement } from '../ButtonBase/ButtonBase';
 import { extractProps } from '../../helpers/extract-props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Spinner } from '../Spinner/Spinner';
-import { getResponsiveSizeTranslation } from '../../helpers/get-responsive-size-translation';
 import type { SpinnerProps } from '../Spinner/Spinner.props';
 import { Slot } from 'radix-ui';
 import { getSubtree } from '../../helpers/get-subtree';
+import { getResponsiveTranslation } from '../../helpers/get-responsive-translation';
 
 const COMPONENT_NAME = 'IconButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -20,7 +20,7 @@ export const IconButton = React.forwardRef<ButtonBaseElement, IconButtonProps>(
     const { className, label, disabled, loading, children, asChild, ...iconButtonProps } =
       extractProps(props, iconButtonPropDefs);
 
-    const spinnerSize = getResponsiveSizeTranslation(props.size || 'md', { md: 'sm', sm: 'xs' });
+    const spinnerSize = getResponsiveTranslation(props.size || 'md', { md: 'sm', sm: 'xs' });
     const Component = asChild ? Slot.Root : 'button';
 
     return (

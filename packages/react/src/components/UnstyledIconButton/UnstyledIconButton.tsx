@@ -7,10 +7,10 @@ import { unstyledIconButtonPropDefs } from './UnstyledIconButton.props';
 import type { UnstyledIconButtonProps } from './UnstyledIconButton.props';
 import { extractProps } from '../../helpers/extract-props';
 import { Spinner } from '../Spinner/Spinner';
-import { getResponsiveSizeTranslation } from '../../helpers/get-responsive-size-translation';
 import type { SpinnerProps } from '../Spinner/Spinner.props';
 import { Slot } from 'radix-ui';
 import { getSubtree } from '../../helpers/get-subtree';
+import { getResponsiveTranslation } from '../../helpers/get-responsive-translation';
 
 const COMPONENT_NAME = 'UnstyledIconButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -33,7 +33,7 @@ export const UnstyledIconButton = React.forwardRef<
     ...unstyledIconButtonProps
   } = extractProps(props, unstyledIconButtonPropDefs);
 
-  const spinnerSize = getResponsiveSizeTranslation(props.size || 'md', { md: 'sm', sm: 'xs' });
+  const spinnerSize = getResponsiveTranslation(props.size || 'md', { md: 'sm', sm: 'xs' });
   const Component = asChild ? Slot.Root : 'button';
 
   return (

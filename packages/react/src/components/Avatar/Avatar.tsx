@@ -8,10 +8,10 @@ import { Avatar as RadixAvatar } from 'radix-ui';
 import { UserMediumIcon, UserSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
 import { getInitials } from '../../helpers/get-initials';
-import { getResponsiveSizeTranslation } from '../../helpers/get-responsive-size-translation';
 import { BodyTextProps } from '../BodyText/BodyText.props';
 import { Box } from '../Box/Box';
 import type { BoxProps } from '../Box/Box.props';
+import { getResponsiveTranslation } from '../../helpers/get-responsive-translation';
 
 const COMPONENT_NAME = 'Avatar';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -27,12 +27,12 @@ export const Avatar: React.FC<AvatarProps> = props => {
 
   const initials = getInitials(name);
 
-  const bodyTextSize = getResponsiveSizeTranslation(props.size || 'md', { sm: 'md', md: 'lg' });
-  const mediumIconDisplay = getResponsiveSizeTranslation(props.size || 'md', {
+  const bodyTextSize = getResponsiveTranslation(props.size || 'md', { sm: 'md', md: 'lg' });
+  const mediumIconDisplay = getResponsiveTranslation(props.size || 'md', {
     sm: 'none',
     md: 'block',
   });
-  const smallIconDisplay = getResponsiveSizeTranslation(props.size || 'md', {
+  const smallIconDisplay = getResponsiveTranslation(props.size || 'md', {
     sm: 'block',
     md: 'none',
   });
