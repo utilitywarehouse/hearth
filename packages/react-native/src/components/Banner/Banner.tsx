@@ -84,21 +84,24 @@ const Banner = ({
     <View style={styles.container}>
       {renderIconOrImage()}
       <View style={styles.contentContainer}>
-        <View style={styles.textContainer}>
-          <Heading
-            size="sm"
-            style={styles.heading}
-            textAlign={hasIllustration && direction === 'vertical' ? 'center' : 'left'}
-          >
-            {heading}
-          </Heading>
-          <BodyText
-            size="md"
-            style={styles.description}
-            textAlign={hasIllustration && direction === 'vertical' ? 'center' : 'left'}
-          >
-            {description}
-          </BodyText>
+        <View style={styles.contentTextContainer}>
+          <View style={styles.textContainer}>
+            <Heading
+              size="sm"
+              style={styles.heading}
+              textAlign={hasIllustration && direction === 'vertical' ? 'center' : 'left'}
+            >
+              {heading}
+            </Heading>
+            <BodyText
+              size="md"
+              style={styles.description}
+              textAlign={hasIllustration && direction === 'vertical' ? 'center' : 'left'}
+            >
+              {description}
+            </BodyText>
+          </View>
+
           {renderAction()}
         </View>
         {onPress && (
@@ -225,6 +228,9 @@ const styles = StyleSheet.create(theme => ({
     gap: theme.space.lg,
   },
   textContainer: {
+    gap: theme.space.sm,
+  },
+  contentTextContainer: {
     flex: 1,
     gap: theme.space.lg,
   },

@@ -104,12 +104,14 @@ const Card = ({
   children,
   variant = 'subtle',
   colorScheme = 'neutralStrong',
+  shadowColor,
   noPadding = false,
   style,
   states,
   space,
   disabled = false,
   onPress,
+
   ...rest
 }: CardProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active } = states || { active: false };
@@ -165,6 +167,7 @@ const Card = ({
     showPressed,
     disabled,
     space: hasActions || hasContent ? 'none' : space,
+    shadowColor,
   });
 
   const renderChildren = () => {
@@ -255,6 +258,32 @@ const styles = StyleSheet.create(theme => ({
         },
         pig: {
           borderWidth: theme.components.card.brand.borderWidth,
+        },
+      },
+      shadowColor: {
+        functional: {
+          boxShadow: theme.helpers.shadow.functional,
+        },
+        brand: {
+          boxShadow: theme.helpers.shadow.brand,
+        },
+        energy: {
+          boxShadow: theme.helpers.shadow.energy,
+        },
+        broadband: {
+          boxShadow: theme.helpers.shadow.broadband,
+        },
+        mobile: {
+          boxShadow: theme.helpers.shadow.mobile,
+        },
+        insurance: {
+          boxShadow: theme.helpers.shadow.insurance,
+        },
+        cashback: {
+          boxShadow: theme.helpers.shadow.cashback,
+        },
+        pig: {
+          boxShadow: theme.helpers.shadow.pig,
         },
       },
       noPadding: {

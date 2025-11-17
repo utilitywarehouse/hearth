@@ -72,6 +72,7 @@ const preview = {
           'Theme Tokens',
           'Hooks',
           'Layout Components',
+          'Guides',
           'All Components',
           'Primitives',
           'Typography',
