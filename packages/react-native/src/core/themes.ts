@@ -269,6 +269,16 @@ const shared = {
 
 const lightHelpers = {
   ...shared.helpers,
+  shadow: {
+    functional: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${light.shadow.default}`,
+    brand: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${light.shadow.brand}`,
+    energy: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${light.shadow.energy}`,
+    broadband: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${light.shadow.broadband}`,
+    mobile: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${light.shadow.mobile}`,
+    insurance: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${light.shadow.insurance}`,
+    cashback: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${light.shadow.cashback}`,
+    pig: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${light.shadow.pig}`,
+  },
   focusVisible: {
     outlineStyle: 'solid',
     outlineWidth: 2,
@@ -303,6 +313,16 @@ export const lightTheme = {
 
 const darkHelpers = {
   ...shared.helpers,
+  shadow: {
+    functional: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${dark.shadow.default}`,
+    brand: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${dark.shadow.brand}`,
+    energy: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${dark.shadow.energy}`,
+    broadband: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${dark.shadow.broadband}`,
+    mobile: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${dark.shadow.mobile}`,
+    insurance: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${dark.shadow.insurance}`,
+    cashback: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${dark.shadow.cashback}`,
+    pig: `${shadow.mobile.md.x}px ${shadow.mobile.md.y}px ${shadow.mobile.md.spread}px ${dark.shadow.pig}`,
+  },
   focusVisible: {
     outlineStyle: 'solid',
     outlineWidth: 2,

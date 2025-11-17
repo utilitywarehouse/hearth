@@ -13,6 +13,15 @@ interface CardProps extends PressableProps {
     | 'insurance'
     | 'cashback'
     | 'pig';
+  shadowColor?:
+    | 'functional'
+    | 'brand'
+    | 'energy'
+    | 'broadband'
+    | 'mobile'
+    | 'insurance'
+    | 'cashback'
+    | 'pig';
   noPadding?: boolean;
   disabled?: boolean;
   space?: SpacingValues;

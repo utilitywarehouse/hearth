@@ -22,6 +22,7 @@ A Card component serves as a visual container that groups related content and ac
 - [Variants](#variants)
 - [Examples](#examples)
   - [Interactive](#interactive)
+  - [With Shadow](#with-shadow)
   - [With `CardAction`](#with-cardaction)
     - [`CardAction` Playground](#cardaction-playground)
     - [`CardAction` With Badge](#cardaction-with-badge)
@@ -64,6 +65,7 @@ const MyComponent = () => (
 | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ----------------- |
 | variant        | `'subtle' \| 'emphasis' `                                                                                                                    | The variant of the card.                   | `'subtle'`        |
 | colorScheme    | `'neutralStrong' \| 'neutralSubtle' \| 'purple' \| 'energy'` <br /> `'broadband' \| 'mobile' \| 'insurance' \| 'cashback' \|` <br /> `'pig'` | The color scheme of the card.              | `'neutralStrong'` |
+| shadowColor    | `'functional' \| 'brand' \| 'energy' \| 'broadband' \| 'mobile' `<br /> ` 'insurance' \| 'cashback' \| 'pig'`                                | The shadow color of the card.              | `-`               |
 | noPadding      | `boolean`                                                                                                                                    | Wether or not the card has padding.        | `false`           |
 | selected       | `boolean`                                                                                                                                    | Whether the card is selected.              | `false`           |
 | onPress        | `() => void`                                                                                                                                 | Callback function to be called.            | `-`               |
@@ -142,6 +144,23 @@ const MyComponent = () => (
         <Button onPress={() => console.log('pressed')}>Press me</Button>
       </CardPressHandler>
     </Flex>
+  </Card>
+);
+```
+
+### With Shadow
+
+You can add shadow to the `Card` component by using the `shadowColor` prop. This prop accepts various semantic color options to match your design needs.
+
+<Canvas of={Stories.WithShadow} />
+
+```jsx
+import { Card, BodyText, Heading } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <Card shadowColor="functional" variant="emphasis">
+    <Heading size="lg">Card with Shadow</Heading>
+    <BodyText>This card has a shadow applied using the shadowColor prop.</BodyText>
   </Card>
 );
 ```
