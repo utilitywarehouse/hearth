@@ -21,7 +21,7 @@ const COMPONENT_NAME = 'Pagination';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 const ELLIPSIS = '...';
-const MAX_VISIBLE_ITEMS = 8;
+const MAX_VISIBLE_ITEMS = 7;
 
 /**
  * Generates the array of page numbers and ellipsis to display
@@ -38,32 +38,28 @@ const generatePageNumbers = (
 
   const pages: Array<number | typeof ELLIPSIS> = [];
 
-  // Always show first page
-  pages.push(1);
-
   // Determine if current page is close to start or end
   const isNearStart = currentPage <= 4;
-  const isNearEnd = currentPage >= totalPages - 3;
+  const isNearEnd = currentPage > totalPages - 4;
 
   if (isNearStart) {
-    // Near the beginning: Show first and last pages
-    pages.push(2, 3, 4);
+    // Page 1-4 selected: 1, 2, 3, 4, 5, ..., last
+    pages.push(1, 2, 3, 4, 5);
     pages.push(ELLIPSIS);
-    pages.push(totalPages - 2, totalPages - 1);
+    pages.push(totalPages);
   } else if (isNearEnd) {
-    // Near the end: Show first and last pages
-    pages.push(2, 3);
+    // Page (totalPages-4) to totalPages selected: 1, ..., last-4, last-3, last-2, last-1, last
+    pages.push(1);
     pages.push(ELLIPSIS);
-    pages.push(totalPages - 3, totalPages - 2, totalPages - 1);
+    pages.push(totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages);
   } else {
-    // In the middle: Show first page, surrounding pages, and last page
+    // Middle pages: 1, ..., current-1, current, current+1, ..., last
+    pages.push(1);
     pages.push(ELLIPSIS);
     pages.push(currentPage - 1, currentPage, currentPage + 1);
     pages.push(ELLIPSIS);
+    pages.push(totalPages);
   }
-
-  // Always show last page
-  pages.push(totalPages);
 
   return pages;
 };

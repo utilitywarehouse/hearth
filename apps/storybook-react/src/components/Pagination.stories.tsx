@@ -89,7 +89,7 @@ export const FewPages: Story = {
     return (
       <Pagination
         currentPage={currentPage}
-        totalPages={8}
+        totalPages={7}
         onPageChange={setCurrentPage}
       />
     );
