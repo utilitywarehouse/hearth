@@ -1,6 +1,7 @@
 import type { ComponentType, ReactElement } from 'react';
-import type { ImageSourcePropType } from 'react-native';
+import { ImageProps } from 'react-native';
 import type CardProps from '../Card/Card.props';
+import { ThemedImageProps } from '../ThemedImage';
 
 export type BannerDirection = 'horizontal' | 'vertical';
 
@@ -50,18 +51,12 @@ export interface BannerProps
    * Illustration to display in the banner
    * Mutually exclusive with icon and image
    */
-  illustration?: {
-    light: ImageSourcePropType | ReactElement | ComponentType;
-    dark: ImageSourcePropType | ReactElement | ComponentType;
-  };
+  illustration?: ThemedImageProps & ImageProps;
   /**
    * Image to display in the banner
    * Mutually exclusive with icon and illustration
    */
-  image?: {
-    light: ImageSourcePropType | ReactElement | ComponentType;
-    dark: ImageSourcePropType | ReactElement | ComponentType;
-  };
+  image?: ThemedImageProps & ImageProps;
   /**
    * Heading text
    */

@@ -29,7 +29,7 @@ const Banner = ({
   ...props
 }: BannerProps) => {
   const hasIllustration = Boolean(illustration);
-  styles.useVariants({ direction, hasIllustration });
+  styles.useVariants({ direction, hasIllustration, variant });
 
   const renderIconOrImage = () => {
     if (icon) {
@@ -46,24 +46,16 @@ const Banner = ({
     if (illustration) {
       return (
         <ThemedImage
-          light={illustration.light}
-          dark={illustration.dark}
-          style={styles.image}
-          accessible
-          accessibilityLabel={heading}
+          {...illustration}
+          resizeMode="cover"
+          style={[styles.media, styles.imageWrapper, illustration.style]}
         />
       );
     }
     if (image) {
       return (
         <View style={[styles.media, styles.imageWrapper]}>
-          <ThemedImage
-            light={image.light}
-            dark={image.dark}
-            style={styles.image}
-            accessible
-            accessibilityLabel={heading}
-          />
+          <ThemedImage {...image} style={[styles.image, image.style]} />
         </View>
       );
     }
@@ -197,6 +189,7 @@ const styles = StyleSheet.create(theme => ({
     },
   },
   imageWrapper: {
+    flexDirection: 'row',
     variants: {
       direction: {
         horizontal: {},
@@ -208,8 +201,6 @@ const styles = StyleSheet.create(theme => ({
   },
   image: {
     borderRadius: theme.borderRadius.md,
-    borderWidth: theme.borderWidth[1],
-    borderColor: theme.color.border.strong,
     variants: {
       direction: {
         horizontal: { width: 160, height: 95 },
@@ -218,21 +209,47 @@ const styles = StyleSheet.create(theme => ({
           height: 160,
         },
       },
+      variant: {
+        emphasis: {
+          borderColor: theme.color.border.strong,
+          borderWidth: theme.borderWidth[2],
+        },
+        subtle: {
+          borderColor: theme.color.border.subtle,
+          borderWidth: theme.borderWidth[1],
+        },
+      },
     },
   },
   contentContainer: {
-    flex: 1,
-    flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     gap: theme.space.lg,
+    variants: {
+      direction: {
+        horizontal: {
+          flex: 1,
+          flexDirection: 'row',
+        },
+        vertical: {
+          flexDirection: 'column',
+        },
+      },
+    },
   },
   textContainer: {
     gap: theme.space.sm,
   },
   contentTextContainer: {
-    flex: 1,
     gap: theme.space.lg,
+    variants: {
+      direction: {
+        horizontal: {
+          flex: 1,
+        },
+        vertical: {},
+      },
+    },
   },
   heading: {
     compoundVariants: [
