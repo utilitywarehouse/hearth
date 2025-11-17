@@ -324,6 +324,7 @@ export const VerticalLayout: Story = {
             direction="vertical"
           />
           <Banner
+            variant="emphasis"
             image={{
               light: {
                 uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
@@ -334,6 +335,7 @@ export const VerticalLayout: Story = {
             }}
             heading="Featured Content"
             description="Discover amazing content curated just for you."
+            shadowColor="brand"
             direction="vertical"
             button={
               <Button size="sm" onPress={() => console.log('Learn More pressed')}>
