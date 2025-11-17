@@ -4,6 +4,7 @@ import { PaddingProps } from '../../props/padding.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { BorderProps } from '../../props/border.props';
 import { BorderColorProps } from '../../props/border-color.props';
+import { SizeProps } from '../../props/size.props';
 
 const variants = ['emphasis', 'subtle'] as const;
 
@@ -55,5 +56,5 @@ type CommonCardProps = Omit<
 };
 
 type CardDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
-type CardLiProps = { as: 'li' } & ComponentPropsWithout<'li', RemovedProps>;
+type CardLiProps = { as?: 'li' } & ComponentPropsWithout<'li', RemovedProps>;
 export type CardProps = CommonCardProps & (CardLiProps | CardDivProps);
