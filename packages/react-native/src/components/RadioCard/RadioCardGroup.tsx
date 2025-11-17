@@ -1,7 +1,9 @@
-import RadioCardGroupProps from './RadioCardGroup.props';
+import { useMemo } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Grid } from '../Grid';
+import { RadioCardGroupContext } from './RadioCardGroup.context';
+import RadioCardGroupProps from './RadioCardGroup.props';
 
 const RadioCardGroup = ({
   children,
@@ -14,26 +16,31 @@ const RadioCardGroup = ({
   columns,
   ...props
 }: RadioCardGroupProps) => {
+  const context = useMemo(() => {
+    return { flexDirection, flexWrap, justifyContent, alignItems };
+  }, [flexDirection, flexWrap, justifyContent, alignItems]);
   return columns ? (
     <Grid {...props} gap={gap} columns={columns} style={style}>
       {children as any}
     </Grid>
   ) : (
-    <View
-      {...props}
-      style={[
-        styles.containerGap(gap),
-        {
-          flexDirection,
-          flexWrap,
-          justifyContent,
-          alignItems,
-        },
-        style,
-      ]}
-    >
-      {children}
-    </View>
+    <RadioCardGroupContext.Provider value={context}>
+      <View
+        {...props}
+        style={[
+          styles.containerGap(gap),
+          {
+            flexDirection,
+            flexWrap,
+            justifyContent,
+            alignItems,
+          },
+          style,
+        ]}
+      >
+        {children}
+      </View>
+    </RadioCardGroupContext.Provider>
   );
 };
 
