@@ -29,7 +29,7 @@ const Banner = ({
   ...props
 }: BannerProps) => {
   const hasIllustration = Boolean(illustration);
-  styles.useVariants({ direction, hasIllustration, variant });
+  styles.useVariants({ direction, hasIllustration });
 
   const renderIconOrImage = () => {
     if (icon) {
@@ -201,22 +201,14 @@ const styles = StyleSheet.create(theme => ({
   },
   image: {
     borderRadius: theme.borderRadius.md,
+    borderColor: theme.color.border.strong,
+    borderWidth: theme.borderWidth[1],
     variants: {
       direction: {
         horizontal: { width: 160, height: 95 },
         vertical: {
           width: '100%',
           height: 160,
-        },
-      },
-      variant: {
-        emphasis: {
-          borderColor: theme.color.border.strong,
-          borderWidth: theme.borderWidth[2],
-        },
-        subtle: {
-          borderColor: theme.color.border.subtle,
-          borderWidth: theme.borderWidth[1],
         },
       },
     },
