@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ToggleGroup as RadixToggleGroup } from 'radix-ui';
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import type { ElementRef } from 'react';
+import { type ElementRef } from 'react';
 import { ToggleGroupProps } from './ToggleGroup.props';
 import { Flex } from '../Flex/Flex';
 
@@ -13,16 +13,7 @@ type ToggleGroupElement = ElementRef<'div'>;
 
 export const ToggleGroup = React.forwardRef<ToggleGroupElement, ToggleGroupProps>(
   (
-    {
-      className,
-      direction,
-      type = 'multiple',
-      value,
-      defaultValue,
-      onValueChange,
-      children,
-      ...flexProps
-    },
+    { className, type = 'multiple', value, defaultValue, onValueChange, children, ...flexProps },
     ref
   ) => {
     const toggleGroupProps = {
@@ -39,7 +30,6 @@ export const ToggleGroup = React.forwardRef<ToggleGroupElement, ToggleGroupProps
           ref={ref}
           className={clsx(componentClassName, className)}
           {...(toggleGroupProps as React.ComponentProps<typeof RadixToggleGroup.Root>)}
-          orientation={direction === 'column' ? 'vertical' : 'horizontal'}
         />
       </Flex>
     );
