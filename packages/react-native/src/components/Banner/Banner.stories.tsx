@@ -54,6 +54,20 @@ const meta = {
       description: 'Icon container size',
       options: ['sm', 'md', 'lg'],
     },
+    shadowColor: {
+      control: 'select',
+      description: 'The shadow color of the banner',
+      options: [
+        'functional',
+        'brand',
+        'energy',
+        'broadband',
+        'mobile',
+        'insurance',
+        'cashback',
+        'pig',
+      ],
+    },
   },
   args: {
     heading: 'Welcome to Banner',
