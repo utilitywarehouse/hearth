@@ -15,7 +15,7 @@ interface HighlightBannerProps
     | 'flexWrap'
     | 'alignItems'
     | 'justifyContent'
-    | `colorScheme`
+    | 'colorScheme'
   > {
   heading?: string;
   headingColor?: 'pig' | 'energy' | 'broadband' | 'mobile' | 'insurance' | 'cashback' | 'highlight';

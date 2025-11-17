@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react-native': patch
 ---
 
-Adds `shadwoColor` prop to `Card` and exposes helpers in theme
+Adds `shadowColor` prop to `Card` and exposes helpers in theme
