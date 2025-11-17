@@ -20,9 +20,11 @@ const RadioCardGroup = ({
     return { flexDirection, flexWrap, justifyContent, alignItems };
   }, [flexDirection, flexWrap, justifyContent, alignItems]);
   return columns ? (
-    <Grid {...props} gap={gap} columns={columns} style={style}>
-      {children as any}
-    </Grid>
+    <RadioCardGroupContext.Provider value={context}>
+      <Grid {...props} gap={gap} columns={columns} style={style}>
+        {children as any}
+      </Grid>
+    </RadioCardGroupContext.Provider>
   ) : (
     <RadioCardGroupContext.Provider value={context}>
       <View
