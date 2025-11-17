@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react': patch
 ---
 
-Add `HighlightBanner`
+Add `HighlightBanner`, `CardBannerContent` & `CardBannerImage` components.
