@@ -4,7 +4,6 @@ import { PaddingProps } from '../../props/padding.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { BorderProps } from '../../props/border.props';
 import { BorderColorProps } from '../../props/border-color.props';
-import { SizeProps } from '../../props/size.props';
 
 const variants = ['emphasis', 'subtle'] as const;
 
