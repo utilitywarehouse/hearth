@@ -17,12 +17,6 @@
           "value": 0
         }
       },
-      "dialog": {
-        "width": {
-          "type": "number",
-          "value": 680
-        }
-      },
       "drawer": {
         "padding": {
           "alias": "{space.300}",
@@ -40,11 +34,6 @@
         }
       },
       "modal": {
-        "padding": {
-          "alias": "{space.600}",
-          "type": "number",
-          "value": 48
-        },
         "width": {
           "type": "number",
           "value": 680
@@ -502,12 +491,6 @@
           "value": 0
         }
       },
-      "dialog": {
-        "width": {
-          "type": "number",
-          "value": 360
-        }
-      },
       "drawer": {
         "padding": {
           "alias": "{space.200}",
@@ -525,11 +508,6 @@
         }
       },
       "modal": {
-        "padding": {
-          "alias": "{space.200}",
-          "type": "number",
-          "value": 16
-        },
         "width": {
           "type": "number",
           "value": 360
@@ -987,12 +965,6 @@
           "value": 0
         }
       },
-      "dialog": {
-        "width": {
-          "type": "number",
-          "value": 504
-        }
-      },
       "drawer": {
         "padding": {
           "alias": "{space.300}",
@@ -1010,11 +982,6 @@
         }
       },
       "modal": {
-        "padding": {
-          "alias": "{space.600}",
-          "type": "number",
-          "value": 48
-        },
         "width": {
           "type": "number",
           "value": 504
