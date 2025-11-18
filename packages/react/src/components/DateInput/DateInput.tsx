@@ -131,15 +131,6 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
         });
     }, [showDay, showMonth, showYear, dayPlaceholder, monthPlaceholder, yearPlaceholder]);
 
-    const inputRefs = React.useRef<Record<string, HTMLInputElement | null>>({});
-
-    const focusSegment = React.useCallback((key: string) => {
-      const input = inputRefs.current[key];
-      if (input) {
-        input.focus();
-      }
-    }, []);
-
     const getValueForKey = React.useCallback(
       (key: SegmentKey): string => {
         switch (key) {
@@ -177,53 +168,8 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
         const filtered = filterToNumeric(newVal, config.maxLength);
 
         setValueForKey(key, filtered);
-
-        // Got to next segment if max length reached
-        if (filtered.length === config.maxLength) {
-          const currentIndex = segments.findIndex(s => s.key === key);
-          if (currentIndex < segments.length - 1) {
-            const nextSegment = segments[currentIndex + 1];
-            if (nextSegment) {
-              // queueMicrotask is used to ensure the focus is set after the current task is completed.
-              // If we just call focusSegment directly, the focus will be set too fast providing a bad UX.
-              queueMicrotask(() => focusSegment(nextSegment.key));
-            }
-          }
-        }
       },
-      [setValueForKey, segments, focusSegment]
-    );
-
-    const handleKeyDown = React.useCallback(
-      (key: SegmentKey, e: React.KeyboardEvent<HTMLInputElement>) => {
-        const currentIndex = segments.findIndex(s => s.key === key);
-        const currentValue = getValueForKey(key);
-
-        if (e.key === 'ArrowRight') {
-          e.preventDefault();
-          if (currentIndex < segments.length - 1) {
-            const nextSegment = segments[currentIndex + 1];
-            if (nextSegment) {
-              focusSegment(nextSegment.key);
-            }
-          }
-        } else if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-          if (currentIndex > 0) {
-            const prevSegment = segments[currentIndex - 1];
-            if (prevSegment) {
-              focusSegment(prevSegment.key);
-            }
-          }
-        } else if (e.key === 'Backspace' && currentValue === '' && currentIndex > 0) {
-          e.preventDefault();
-          const prevSegment = segments[currentIndex - 1];
-          if (prevSegment) {
-            focusSegment(prevSegment.key);
-          }
-        }
-      },
-      [segments, getValueForKey, focusSegment]
+      [setValueForKey]
     );
 
     const showValidationText = Boolean(
@@ -271,9 +217,6 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
               </Label>
               <div className="hearth-DateInputSegmentRoot">
                 <input
-                  ref={el => {
-                    inputRefs.current[segment.key] = el;
-                  }}
                   type="text"
                   inputMode="numeric"
                   pattern="[0-9]*"
@@ -282,7 +225,6 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
                   placeholder={!disabled ? segment.placeholder : undefined}
                   value={getValueForKey(segment.key)}
                   onChange={e => handleChange(segment.key, e.target.value)}
-                  onKeyDown={e => handleKeyDown(segment.key, e)}
                   disabled={disabled}
                   required={required && segment.key === segments[0]?.key}
                   aria-label={segment.label}

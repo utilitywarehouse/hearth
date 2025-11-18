@@ -19,7 +19,6 @@ well-known dates like date of birth, or when you need flexibility to show only
 specific date segments (e.g., month/year for card expiry).
 
 The `DateInput` component consists of separate input fields for day, month, and year.
-Users can navigate between segments using keyboard arrow keys or by clicking.
 
 ```tsx
 import { useState } from 'react';
@@ -101,8 +100,6 @@ to explain the validation result.
 **The component provides:**
 
 - Automatic filtering of non-numeric input
-- Auto-advance to next segment when max length is reached
-- Keyboard navigation between segments
 - Visual styling for valid/invalid states
 
 **You provide:**
@@ -200,21 +197,8 @@ The `DateInput` component is built with accessibility in mind:
       description: 'Moves focus to the previous date segment.',
     },
     {
-      key: 'ArrowRight',
-      description: 'Moves focus to the next date segment.',
-    },
-    {
-      key: 'ArrowLeft',
-      description: 'Moves focus to the previous date segment.',
-    },
-    {
-      key: 'Backspace',
-      description: 'If the current segment is empty, moves focus to the previous segment.',
-    },
-    {
       key: '0-9',
-      description:
-        'Enters a number. Automatically moves to next segment when max length is reached.',
+      description: 'Enters a number.',
     },
   ].map((kbi, i) => (
     <>
@@ -224,7 +208,7 @@ The `DateInput` component is built with accessibility in mind:
         </Box>
         <BodyText as="span">{kbi.description}</BodyText>
       </Flex>
-      {i < 5 ? <Divider /> : null}
+      {i < 2 ? <Divider /> : null}
     </>
   ))}
 </Flex>
