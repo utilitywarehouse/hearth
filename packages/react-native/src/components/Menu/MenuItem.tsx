@@ -66,16 +66,7 @@ const styles = StyleSheet.create(theme => ({
           opacity: theme.opacity.disabled,
           cursor: 'auto',
         },
-        false: {
-          _web: {
-            _hover: {
-              backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
-            },
-            _active: {
-              backgroundColor: theme.color.interactive.functional.surface.subtle.active,
-            },
-          },
-        },
+        false: {},
       },
       iconPosition: {
         left: {
@@ -86,22 +77,7 @@ const styles = StyleSheet.create(theme => ({
         },
       },
       colorScheme: {
-        functional: {},
-        destructive: {},
-      },
-    },
-    compoundVariants: [
-      {
-        colorScheme: 'destructive',
-        active: true,
-        styles: {
-          backgroundColor: theme.color.interactive.destructive.surface.subtle.active,
-        },
-      },
-      {
-        colorScheme: 'destructive',
-        disabled: false,
-        styles: {
+        functional: {
           _web: {
             _hover: {
               backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
@@ -110,6 +86,25 @@ const styles = StyleSheet.create(theme => ({
               backgroundColor: theme.color.interactive.functional.surface.subtle.active,
             },
           },
+        },
+        destructive: {
+          _web: {
+            _hover: {
+              backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
+            },
+            _active: {
+              backgroundColor: theme.color.interactive.functional.surface.subtle.active,
+            },
+          },
+        },
+      },
+    },
+    compoundVariants: [
+      {
+        colorScheme: 'destructive',
+        active: true,
+        styles: {
+          backgroundColor: theme.color.interactive.destructive.surface.subtle.active,
         },
       },
     ],
