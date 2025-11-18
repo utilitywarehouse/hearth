@@ -14,37 +14,6 @@ import { mergeIds } from '../../helpers/merge-ids';
 const COMPONENT_NAME = 'DateInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type SegmentKey = 'day' | 'month' | 'year';
-
-interface SegmentConfig {
-  key: SegmentKey;
-  label: string;
-  maxLength: number;
-  placeholder: string;
-  width: string;
-}
-
-const SEGMENT_CONFIGS = {
-  day: {
-    label: 'Day',
-    maxLength: 2,
-    defaultPlaceholder: 'DD',
-    width: '64px',
-  },
-  month: {
-    label: 'Month',
-    maxLength: 2,
-    defaultPlaceholder: 'MM',
-    width: '64px',
-  },
-  year: {
-    label: 'Year',
-    maxLength: 4,
-    defaultPlaceholder: 'YYYY',
-    width: '96px',
-  },
-};
-
 const filterToNumeric = (value: string, maxLength: number): string => {
   return value.replace(/\D/g, '').slice(0, maxLength);
 };
@@ -79,98 +48,104 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
       ...fieldsetProps
     } = extractProps(props, marginPropDefs);
 
+    // Helper IDs
+    const { id, helperTextId, validationTextId } = useIds({
+      providedId,
+      prefix: 'date-input',
+    });
+
+    // Controllable State
     const [day, setDay] = useControllableState({
       prop: dayProp,
       defaultProp: defaultDayValue ?? '',
       onChange: onDayChange,
     });
-
     const [month, setMonth] = useControllableState({
       prop: monthProp,
       defaultProp: defaultMonthValue ?? '',
       onChange: onMonthChange,
     });
-
     const [year, setYear] = useControllableState({
       prop: yearProp,
       defaultProp: defaultYearValue ?? '',
       onChange: onYearChange,
     });
 
-    const { id, helperTextId, validationTextId } = useIds({
-      providedId,
-      prefix: 'date-input',
-    });
+    // Handler Functions
+    const handleDayChange = React.useCallback(
+      (value: string) => {
+        setDay(filterToNumeric(value, 2));
+      },
+      [setDay]
+    );
+    const handleMonthChange = React.useCallback(
+      (value: string) => {
+        setMonth(filterToNumeric(value, 2));
+      },
+      [setMonth]
+    );
+    const handleYearChange = React.useCallback(
+      (value: string) => {
+        setYear(filterToNumeric(value, 4));
+      },
+      [setYear]
+    );
 
-    // Generate segment configurations based on visibility
-    const segments: Array<SegmentConfig> = React.useMemo(() => {
-      const visibilityMap: Record<SegmentKey, boolean> = {
-        day: showDay,
-        month: showMonth,
-        year: showYear,
-      };
+    // Determine which segments to show and their order
+    const segments = React.useMemo(() => {
+      const allSegments = [];
 
-      const placeholderMap: Record<SegmentKey, string | undefined> = {
-        day: dayPlaceholder,
-        month: monthPlaceholder,
-        year: yearPlaceholder,
-      };
-
-      const keys: Array<SegmentKey> = ['day', 'month', 'year'];
-      return keys
-        .filter(key => visibilityMap[key])
-        .map(key => {
-          const config = SEGMENT_CONFIGS[key];
-          return {
-            key,
-            label: config.label,
-            maxLength: config.maxLength,
-            placeholder: placeholderMap[key] || config.defaultPlaceholder,
-            width: config.width,
-          };
+      if (showDay) {
+        allSegments.push({
+          key: 'day' as const,
+          value: day,
+          onChange: handleDayChange,
+          placeholder: dayPlaceholder || 'DD',
+          label: 'Day',
+          maxLength: 2,
+          width: '64px',
         });
-    }, [showDay, showMonth, showYear, dayPlaceholder, monthPlaceholder, yearPlaceholder]);
+      }
 
-    const getValueForKey = React.useCallback(
-      (key: SegmentKey): string => {
-        switch (key) {
-          case 'day':
-            return day ?? '';
-          case 'month':
-            return month ?? '';
-          case 'year':
-            return year ?? '';
-        }
-      },
-      [day, month, year]
-    );
+      if (showMonth) {
+        allSegments.push({
+          key: 'month' as const,
+          value: month,
+          onChange: handleMonthChange,
+          placeholder: monthPlaceholder || 'MM',
+          label: 'Month',
+          maxLength: 2,
+          width: '64px',
+        });
+      }
 
-    const setValueForKey = React.useCallback(
-      (key: SegmentKey, value: string) => {
-        switch (key) {
-          case 'day':
-            setDay(value);
-            break;
-          case 'month':
-            setMonth(value);
-            break;
-          case 'year':
-            setYear(value);
-            break;
-        }
-      },
-      [setDay, setMonth, setYear]
-    );
+      if (showYear) {
+        allSegments.push({
+          key: 'year' as const,
+          value: year,
+          onChange: handleYearChange,
+          placeholder: yearPlaceholder || 'YYYY',
+          label: 'Year',
+          maxLength: 4,
+          width: '96px',
+        });
+      }
 
-    const handleChange = React.useCallback(
-      (key: SegmentKey, newVal: string) => {
-        const config = SEGMENT_CONFIGS[key];
-        const filtered = filterToNumeric(newVal, config.maxLength);
-
-        setValueForKey(key, filtered);
-      },
-      [setValueForKey]
-    );
+      return allSegments;
+    }, [
+      showDay,
+      showMonth,
+      showYear,
+      day,
+      month,
+      year,
+      dayPlaceholder,
+      monthPlaceholder,
+      yearPlaceholder,
+      handleDayChange,
+      handleMonthChange,
+      handleYearChange,
+    ]);
 
     const showValidationText = Boolean(
       !disabled && validationStatus !== undefined && validationText !== undefined
@@ -196,26 +171,26 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
         {...fieldsetProps}
       >
         <Flex
-          className="hearth-DateInputSegments"
+          className={`${componentClassName}Segments`}
           data-validation-status={validationStatus ? validationStatus : undefined}
           data-disabled={disabled ? '' : undefined}
         >
-          {segments.map(segment => (
+          {segments.map((segment, index) => (
             <Flex
               key={segment.key}
               direction="column"
               gap="50"
-              className="hearth-DateInputSegment"
+              className={`${componentClassName}Segment`}
               style={{ width: segment.width }}
             >
               <Label
                 htmlFor={`${id}-${segment.key}`}
-                className="hearth-DateInputSegmentLabel"
+                className={`${componentClassName}SegmentLabel`}
                 disableUserSelect
               >
                 {segment.label}
               </Label>
-              <div className="hearth-DateInputSegmentRoot">
+              <div className={`${componentClassName}SegmentRoot`}>
                 <input
                   type="text"
                   inputMode="numeric"
@@ -223,10 +198,10 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
                   id={`${id}-${segment.key}`}
                   maxLength={segment.maxLength}
                   placeholder={!disabled ? segment.placeholder : undefined}
-                  value={getValueForKey(segment.key)}
-                  onChange={e => handleChange(segment.key, e.target.value)}
+                  value={segment.value ?? ''}
+                  onChange={e => segment.onChange(e.target.value)}
                   disabled={disabled}
-                  required={required && segment.key === segments[0]?.key}
+                  required={required && index === 0}
                   aria-label={segment.label}
                   aria-invalid={validationStatus === 'invalid' ? true : undefined}
                   aria-describedby={ariaDescribedbyValue}
