@@ -69,8 +69,8 @@ const MyComponent = () => (
 | iconContainerVariant | `'subtle' \| 'emphasis'`                                                                           | Icon container visual style                                            | `'subtle'`     |
 | iconContainerSize    | `'sm' \| 'md' \| 'lg'`                                                                             | Icon container size                                                    | `'md'`         |
 | iconContainerColor   | `'pig' \| 'energy' \| 'broadband' \| 'mobile' \|` <br />`'insurance' \| 'cashback' \| 'highlight'` | Icon container color scheme                                            | `'pig'`        |
-| illustration         | `{ light: ImageSource, dark: ImageSource }`                                                        | Themed illustration object (mutually exclusive with icon/image)        | `-`            |
-| image                | `{ light: ImageSource, dark: ImageSource }`                                                        | Themed image object (mutually exclusive with icon/illustration)        | `-`            |
+| illustration         | `ThemedImageProps \| ImageProps`                                                                   | Themed illustration object (mutually exclusive with icon/image)        | `-`            |
+| image                | `ThemedImageProps \| ImageProps`                                                                   | Themed image object (mutually exclusive with icon/illustration)        | `-`            |
 | heading              | `string`                                                                                           | Heading text                                                           | `-` (required) |
 | description          | `string`                                                                                           | Description text                                                       | `-` (required) |
 | direction            | `'horizontal' \| 'vertical'`                                                                       | Layout direction for icon/image and content                            | `'horizontal'` |
@@ -156,14 +156,23 @@ Display a themed image that automatically switches between light and dark modes:
 import { Banner } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
-  <Banner
-    image={{
-      light: { uri: 'https://example.com/light-image.jpg' },
-      dark: { uri: 'https://example.com/dark-image.jpg' },
-    }}
-    heading="Featured Content"
-    description="Discover amazing content curated just for you."
-  />
+  <>
+    <Banner
+      image={{
+        source: { uri: 'https://example.com/image.jpg' },
+      }}
+      heading="Featured Content"
+      description="Discover amazing content curated just for you."
+    />
+    <Banner
+      image={{
+        light: { uri: 'https://example.com/light-image.jpg' },
+        dark: { uri: 'https://example.com/dark-image.jpg' },
+      }}
+      heading="Featured Content"
+      description="Discover amazing content curated just for you."
+    />
+  </>
 );
 ```
 

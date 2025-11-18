@@ -25,11 +25,12 @@ The Modal component is ideal for displaying important information, collecting us
 - [Examples](#examples)
   - [Basic Modal](#basic-modal)
   - [Modal with Image](#modal-with-image)
+  - [Fullscreen Modal](#fullscreen-modal)
   - [Modal with Custom Content](#modal-with-custom-content)
   - [Loading State](#loading-state)
   - [Without Close Button](#without-close-button)
   - [Single Action Modal](#single-action-modal)
-  - [Fullscreen Modal (Usage with navigation modal)](#fullscreen-modal-usage-with-navigation-modal)
+  - [Modal in Navigation Modal](#modal-in-navigation-modal)
 - [Integration Notes](#integration-notes)
 - [External Resources](#external-resources)
 
@@ -104,7 +105,8 @@ The Modal component extends the `BottomSheetModal` component and accepts all of 
 | `primaryButtonProps`          | `Omit<ButtonWithoutChildrenProps, 'children'>` | Additional props to pass to the primary button (colorScheme defaults to 'highlight', variant to 'solid')      | -       |
 | `secondaryButtonProps`        | `Omit<ButtonWithoutChildrenProps, 'children'>` | Additional props to pass to the secondary button (colorScheme defaults to 'functional', variant to 'outline') | -       |
 | `closeButtonProps`            | `Omit<UnstyledIconButtonProps, 'children'>`    | Additional props to pass to the close button                                                                  | -       |
-| `fullscreen`                  | `boolean`                                      | Whether the modal should take up the full screen height (useful for navigation modals)                        | `false` |
+| `fullscreen`                  | `boolean`                                      | Whether the modal should take up the full screen height                                                       | `false` |
+| `inNavModal`                  | `boolean`                                      | Renders the modal correctly when used inside a navigation modal                                               | `false` |
 
 ## Features
 
@@ -292,6 +294,33 @@ const ImageModal = () => {
 };
 ```
 
+### Fullscreen Modal
+
+Create a modal that takes up the full screen height:
+
+<Canvas of={Stories.FullscreenModal} />
+
+```tsx
+const FullscreenModal = () => {
+  const modalRef = useRef<BottomSheetModal>(null);
+
+  return (
+    <>
+      <Button onPress={() => modalRef.current?.present()}>Show Fullscreen Modal</Button>
+
+      <Modal
+        ref={modalRef}
+        heading="Fullscreen Modal"
+        description="This modal takes up the full screen height"
+        primaryButtonText="Close"
+        onPressPrimaryButton={() => modalRef.current?.dismiss()}
+        fullscreen
+      />
+    </>
+  );
+};
+```
+
 ### Modal with Custom Content
 
 Add custom content between the header and footer sections:
@@ -414,9 +443,9 @@ const AlertModal = () => {
 };
 ```
 
-### Fullscreen Modal (Usage with navigation modal)
+### Modal In Navigation Modal
 
-When using the Modal component in a navigation context, you can set it to fullscreen mode, this will make it behave like a standard modal screen.
+When using the Modal component in a navigation context, you can set it to `inNavModal` mode, this will make it behave like a standard modal screen.
 Here's an example of how to implement this with custom close animations for Android:
 
 ```tsx
@@ -465,7 +494,7 @@ export default function ModalScreen() {
   return (
     <Modal
       ref={modalRef}
-      fullscreen
+      inNavModal
       onPressCloseButton={handleClose}
       primaryButtonText="Action"
       onPressPrimaryButton={handleClose}

@@ -13,9 +13,6 @@ export default {
   headerCell: {
     borderWidth: 2,
     gap: 8,
-    neutral: {
-      backgroundColor: '#30302c',
-    },
     paddingHorizontal: 12,
     paddingVertical: 16,
   },
