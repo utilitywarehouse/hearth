@@ -1,5 +1,37 @@
 # @utilitywarehouse/hearth-react
 
+## 0.16.3
+
+### Patch Changes
+
+- [#646](https://github.com/utilitywarehouse/hearth/pull/646) [`2f9eb96`](https://github.com/utilitywarehouse/hearth/commit/2f9eb96b7b46f64a9c0ffea2a54f5df497967d31) Thanks [@robphoenix](https://github.com/robphoenix)! - Change `Label` display to support top & bottom margin
+
+## 0.16.2
+
+### Patch Changes
+
+- [#644](https://github.com/utilitywarehouse/hearth/pull/644) [`0fd7fa4`](https://github.com/utilitywarehouse/hearth/commit/0fd7fa45de32866f6af4472d0a0979846cf65380) Thanks [@robphoenix](https://github.com/robphoenix)! - Update `ToggleGroup` to have responsive direction
+
+## 0.16.1
+
+### Patch Changes
+
+- [#642](https://github.com/utilitywarehouse/hearth/pull/642) [`fee2d0c`](https://github.com/utilitywarehouse/hearth/commit/fee2d0cb964f7ad9e2e0dd5e18b97b5921b8a33b) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix Button & IconButton polymorphism, again.
+
+## 0.16.0
+
+### Minor Changes
+
+- [#619](https://github.com/utilitywarehouse/hearth/pull/619) [`62cdffc`](https://github.com/utilitywarehouse/hearth/commit/62cdffc6c789b6815d397db081ae5639331663dd) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `CardActions`.
+  Split `BorderRadius` props out from `Border` props.
+  Add `fill` & border props to `IconContainer`.
+
+### Patch Changes
+
+- [#637](https://github.com/utilitywarehouse/hearth/pull/637) [`8274c07`](https://github.com/utilitywarehouse/hearth/commit/8274c0791f97602422e6d391164148dffbd68c2d) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `CardActions` border-radius & focus outline
+
+- [#617](https://github.com/utilitywarehouse/hearth/pull/617) [`3397878`](https://github.com/utilitywarehouse/hearth/commit/339787804b7527cd49ceb99d5fe8bb277514f9a3) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - Add `ProgressBar` component
+
 ## 0.15.0
 
 ### Minor Changes

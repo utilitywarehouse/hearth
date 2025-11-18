@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react-native';
 import { View } from 'react-native';
 import { Button } from '../Button';
 import { Flex } from '../Flex';
@@ -29,6 +29,20 @@ const meta = {
       control: 'select',
       description: 'The variant style of the HighlightBanner',
       options: ['emphasis', 'subtle'],
+    },
+    shadowColor: {
+      control: 'select',
+      description: 'The shadow color of the card',
+      options: [
+        'functional',
+        'brand',
+        'energy',
+        'broadband',
+        'mobile',
+        'insurance',
+        'cashback',
+        'pig',
+      ],
     },
   },
   args: {
@@ -169,6 +183,22 @@ export const ColorVariants: Story = {
             description="Featured content with highlight yellow heading"
           />
         </Flex>
+      </View>
+    );
+  },
+};
+
+export const WithoutImage: Story = {
+  render: args => {
+    return (
+      <View style={{ width: 400 }}>
+        <HighlightBanner
+          {...args}
+          image={undefined}
+          heading="Content Without Image"
+          description="This HighlightBanner does not have an image, focusing solely on the text content."
+          button={<Button onPress={() => console.log('pressed')}>Discover More</Button>}
+        />
       </View>
     );
   },

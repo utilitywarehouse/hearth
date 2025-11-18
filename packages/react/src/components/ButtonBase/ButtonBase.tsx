@@ -6,6 +6,7 @@ import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
+import { getSubtree } from '../../helpers/get-subtree';
 
 const COMPONENT_NAME = 'ButtonBase';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -32,14 +33,12 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
     'data-inverted': inverted ? '' : undefined,
   };
 
-  const Component = asChild ? Slot.Root : 'button';
-
   // We're rendering a different component here so that we don't have to apply
   // transitions to box-shadow, which causes re-paints on every frame, heavily
   // impacting performance.
   if (variant === 'emphasis') {
     return (
-      <Component
+      <Slot.Root
         ref={ref}
         aria-disabled={disabled || undefined}
         className={clsx(componentClassName, className)}
@@ -49,13 +48,17 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
         {...dataAttributeProps}
         {...buttonBaseProps}
       >
-        <span className="hearth-shadow"></span>
-        <span className="hearth-front">{children}</span>
-      </Component>
+        {getSubtree({ asChild, children }, children => (
+          <>
+            <span className="hearth-shadow"></span>
+            <span className="hearth-front">{children}</span>
+          </>
+        ))}
+      </Slot.Root>
     );
   }
   return (
-    <Component
+    <Slot.Root
       ref={ref}
       aria-disabled={disabled || undefined}
       className={clsx(componentClassName, className)}
@@ -64,7 +67,7 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
       {...buttonBaseProps}
     >
       {children}
-    </Component>
+    </Slot.Root>
   );
 });
 

@@ -69,9 +69,11 @@ const List = ({ children, heading, helperText, headerTrailingContent, ...props }
         {container === 'none' ? (
           <View>{updatedChildren}</View>
         ) : (
-          <Card {...containerToCard} noPadding style={styles.card}>
-            <>{updatedChildren}</>
-          </Card>
+          React.Children.count(updatedChildren) > 0 && (
+            <Card {...containerToCard} noPadding style={styles.card}>
+              <>{updatedChildren}</>
+            </Card>
+          )
         )}
       </View>
     </ListContext.Provider>

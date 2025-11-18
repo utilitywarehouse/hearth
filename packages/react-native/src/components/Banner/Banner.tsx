@@ -46,24 +46,16 @@ const Banner = ({
     if (illustration) {
       return (
         <ThemedImage
-          light={illustration.light}
-          dark={illustration.dark}
-          style={styles.image}
-          accessible
-          accessibilityLabel={heading}
+          {...illustration}
+          resizeMode="cover"
+          style={[styles.media, styles.imageWrapper, illustration.style]}
         />
       );
     }
     if (image) {
       return (
         <View style={[styles.media, styles.imageWrapper]}>
-          <ThemedImage
-            light={image.light}
-            dark={image.dark}
-            style={styles.image}
-            accessible
-            accessibilityLabel={heading}
-          />
+          <ThemedImage {...image} style={[styles.image, image.style]} />
         </View>
       );
     }
@@ -84,21 +76,24 @@ const Banner = ({
     <View style={styles.container}>
       {renderIconOrImage()}
       <View style={styles.contentContainer}>
-        <View style={styles.textContainer}>
-          <Heading
-            size="sm"
-            style={styles.heading}
-            textAlign={hasIllustration && direction === 'vertical' ? 'center' : 'left'}
-          >
-            {heading}
-          </Heading>
-          <BodyText
-            size="md"
-            style={styles.description}
-            textAlign={hasIllustration && direction === 'vertical' ? 'center' : 'left'}
-          >
-            {description}
-          </BodyText>
+        <View style={styles.contentTextContainer}>
+          <View style={styles.textContainer}>
+            <Heading
+              size="sm"
+              style={styles.heading}
+              textAlign={hasIllustration && direction === 'vertical' ? 'center' : 'left'}
+            >
+              {heading}
+            </Heading>
+            <BodyText
+              size="md"
+              style={styles.description}
+              textAlign={hasIllustration && direction === 'vertical' ? 'center' : 'left'}
+            >
+              {description}
+            </BodyText>
+          </View>
+
           {renderAction()}
         </View>
         {onPress && (
@@ -194,6 +189,7 @@ const styles = StyleSheet.create(theme => ({
     },
   },
   imageWrapper: {
+    flexDirection: 'row',
     variants: {
       direction: {
         horizontal: {},
@@ -205,8 +201,8 @@ const styles = StyleSheet.create(theme => ({
   },
   image: {
     borderRadius: theme.borderRadius.md,
-    borderWidth: theme.borderWidth[1],
     borderColor: theme.color.border.strong,
+    borderWidth: theme.borderWidth[1],
     variants: {
       direction: {
         horizontal: { width: 160, height: 95 },
@@ -218,15 +214,34 @@ const styles = StyleSheet.create(theme => ({
     },
   },
   contentContainer: {
-    flex: 1,
-    flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     gap: theme.space.lg,
+    variants: {
+      direction: {
+        horizontal: {
+          flex: 1,
+          flexDirection: 'row',
+        },
+        vertical: {
+          flexDirection: 'column',
+        },
+      },
+    },
   },
   textContainer: {
-    flex: 1,
+    gap: theme.space.sm,
+  },
+  contentTextContainer: {
     gap: theme.space.lg,
+    variants: {
+      direction: {
+        horizontal: {
+          flex: 1,
+        },
+        vertical: {},
+      },
+    },
   },
   heading: {
     compoundVariants: [

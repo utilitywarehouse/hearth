@@ -21,6 +21,7 @@ const meta: Meta<typeof Label> = {
     children: 'Hearth Label',
     disabled: false,
     disableUserSelect: false,
+    marginTop: '300',
   },
 };
 
