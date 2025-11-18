@@ -90,10 +90,10 @@ const styles = StyleSheet.create(theme => ({
         destructive: {
           _web: {
             _hover: {
-              backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
+              backgroundColor: theme.color.interactive.destructive.surface.subtle.hover,
             },
             _active: {
-              backgroundColor: theme.color.interactive.functional.surface.subtle.active,
+              backgroundColor: theme.color.interactive.destructive.surface.subtle.active,
             },
           },
         },
