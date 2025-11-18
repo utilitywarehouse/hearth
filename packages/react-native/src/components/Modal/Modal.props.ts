@@ -9,6 +9,7 @@ interface ModalProps extends Omit<BottomSheetProps, 'children'> {
   showCloseButton?: boolean;
   heading?: string;
   description?: string;
+  inNavModal?: boolean;
   fullscreen?: boolean;
   children?: ViewProps['children'];
   onPressPrimaryButton?: () => void;

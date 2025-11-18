@@ -326,10 +326,7 @@ export const VerticalLayout: Story = {
           <Banner
             variant="emphasis"
             image={{
-              light: {
-                uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
-              },
-              dark: {
+              source: {
                 uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
               },
             }}

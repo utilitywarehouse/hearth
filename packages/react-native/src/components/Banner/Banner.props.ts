@@ -51,12 +51,12 @@ export interface BannerProps
    * Illustration to display in the banner
    * Mutually exclusive with icon and image
    */
-  illustration?: ThemedImageProps & ImageProps;
+  illustration?: ThemedImageProps | ImageProps;
   /**
    * Image to display in the banner
    * Mutually exclusive with icon and illustration
    */
-  image?: ThemedImageProps & ImageProps;
+  image?: ThemedImageProps | ImageProps;
   /**
    * Heading text
    */
