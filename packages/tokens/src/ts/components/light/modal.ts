@@ -11,7 +11,10 @@ export default {
     gap: 12,
   },
   gap: 24,
-  padding: 16,
+  heading: {
+    gap: 24,
+  },
+  padding: 24,
   mobile: {
     padding: 16,
     width: 360,

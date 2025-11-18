@@ -10,7 +10,10 @@ declare const _default: {
     readonly gap: 12;
   };
   readonly gap: 24;
-  readonly padding: 48;
+  readonly heading: {
+    readonly gap: 24;
+  };
+  readonly padding: 24;
   readonly mobile: {
     readonly padding: 16;
     readonly width: 360;
