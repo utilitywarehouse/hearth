@@ -100,7 +100,7 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         colorScheme: 'destructive',
-        disabled: true,
+        disabled: false,
         styles: {
           _web: {
             _hover: {

@@ -12,7 +12,7 @@ const MenuTrigger = ({ children, onPress }: MenuTriggerInternalProps) => {
 
   return cloneElement(children, {
     onPress,
-  } as any);
+  } as { onPress?: () => void });
 };
 
 MenuTrigger.displayName = 'MenuTrigger';

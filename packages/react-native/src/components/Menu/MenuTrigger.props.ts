@@ -5,6 +5,10 @@ export interface MenuTriggerProps {
    * The child element that triggers the menu (should be a single pressable element like Button)
    */
   children: ReactElement;
+  /**
+   * Called when the trigger is pressed.
+   */
+  onPress?: () => void;
 }
 
 export default MenuTriggerProps;
