@@ -16,7 +16,7 @@ export interface MenuProps {
    */
   children: ReactNode;
   /**
-   * Optional bottom sheet modal props to customize the menu behavior
+   * Optional bottom sheet modal props to customise the menu behavior
    */
   bottomSheetProps?: Partial<BottomSheetModalProps>;
 }
