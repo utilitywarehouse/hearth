@@ -41,37 +41,41 @@ export interface DateInputProps
    */
   showYear?: boolean;
   /**
-   * Placeholder text for each segment.
+   * Placeholder text for the day segment.
    */
-  placeholders?: {
-    day?: string;
-    month?: string;
-    year?: string;
-  };
+  dayPlaceholder?: string;
+  /**
+   * Placeholder text for the month segment.
+   */
+  monthPlaceholder?: string;
+  /**
+   * Placeholder text for the year segment.
+   */
+  yearPlaceholder?: string;
   /**
    * The controlled value for the day segment. Must be used with an `onDayChange` handler.
    */
-  day?: string;
+  dayValue?: string;
   /**
    * The controlled value for the month segment. Must be used with an `onMonthChange` handler.
    */
-  month?: string;
+  monthValue?: string;
   /**
    * The controlled value for the year segment. Must be used with an `onYearChange` handler.
    */
-  year?: string;
+  yearValue?: string;
   /**
    * The initial value for the day segment when rendered (uncontrolled).
    */
-  defaultDay?: string;
+  defaultDayValue?: string;
   /**
    * The initial value for the month segment when rendered (uncontrolled).
    */
-  defaultMonth?: string;
+  defaultMonthValue?: string;
   /**
    * The initial value for the year segment when rendered (uncontrolled).
    */
-  defaultYear?: string;
+  defaultYearValue?: string;
   /**
    * Callback fired when the day value changes.
    */

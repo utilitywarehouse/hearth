@@ -33,9 +33,9 @@ function MyComponent() {
   return (
     <DateInput
       label="Date of birth"
-      day={day}
-      month={month}
-      year={year}
+      dayValue={day}
+      monthValue={month}
+      yearValue={year}
       onDayChange={setDay}
       onMonthChange={setMonth}
       onYearChange={setYear}
@@ -51,9 +51,9 @@ function MyComponent() {
 
 `DateInput` supports both controlled and uncontrolled usage:
 
-**Controlled** (recommended): Manage state yourself using `day`, `month`, `year` props with their change handlers.
+**Controlled** (recommended): Manage state yourself using `dayValue`, `monthValue`, `yearValue` props with their change handlers.
 
-**Uncontrolled**: Use `defaultDay`, `defaultMonth`, `defaultYear` for initial values without managing state.
+**Uncontrolled**: Use `defaultDayValue`, `defaultMonthValue`, `defaultYearValue` for initial values without managing state.
 
 ## Label
 
@@ -240,24 +240,26 @@ This component is based on the `fieldset` element and supports the following com
 
 - Margin
 
-| Prop               | Type                                              | Description                                         |
-| ------------------ | ------------------------------------------------- | --------------------------------------------------- |
-| `label`            | `string`                                          | The label for the date input (required)             |
-| `helperText`       | `string`                                          | Optional helper text to provide context             |
-| `validationStatus` | `"valid" \| "invalid"`                            | Indicates the validation state                      |
-| `validationText`   | `string`                                          | Text to display when validation status is set       |
-| `required`         | `boolean`                                         | Whether the field is required                       |
-| `disabled`         | `boolean`                                         | Whether the field is disabled                       |
-| `showDay`          | `boolean`                                         | Whether to show the day segment (default: `true`)   |
-| `showMonth`        | `boolean`                                         | Whether to show the month segment (default: `true`) |
-| `showYear`         | `boolean`                                         | Whether to show the year segment (default: `true`)  |
-| `placeholders`     | `{ day?: string; month?: string; year?: string }` | Custom placeholder text for each segment            |
-| `day`              | `string`                                          | Controlled value for the day segment                |
-| `month`            | `string`                                          | Controlled value for the month segment              |
-| `year`             | `string`                                          | Controlled value for the year segment               |
-| `defaultDay`       | `string`                                          | Initial uncontrolled value for the day segment      |
-| `defaultMonth`     | `string`                                          | Initial uncontrolled value for the month segment    |
-| `defaultYear`      | `string`                                          | Initial uncontrolled value for the year segment     |
-| `onDayChange`      | `(day: string) => void`                           | Callback fired when the day value changes           |
-| `onMonthChange`    | `(month: string) => void`                         | Callback fired when the month value changes         |
-| `onYearChange`     | `(year: string) => void`                          | Callback fired when the year value changes          |
+| Prop                  | Type                    | Description                                         |
+| --------------------- | ----------------------- | --------------------------------------------------- |
+| `label`               | `string`                | The label for the date input (required)             |
+| `helperText`          | `string`                | Optional helper text to provide context             |
+| `validationStatus`    | `"valid" \| "invalid"`  | Indicates the validation state                      |
+| `validationText`      | `string`                | Text to display when validation status is set       |
+| `required`            | `boolean`               | Whether the field is required                       |
+| `disabled`            | `boolean`               | Whether the field is disabled                       |
+| `showDay`             | `boolean`               | Whether to show the day segment (default: `true`)   |
+| `showMonth`           | `boolean`               | Whether to show the month segment (default: `true`) |
+| `showYear`            | `boolean`               | Whether to show the year segment (default: `true`)  |
+| `dayPlaceholder`      | `string`                | Custom placeholder text for the day segment         |
+| `monthPlaceholder`    | `string`                | Custom placeholder text for the month segment       |
+| `yearPlaceholder`     | `string`                | Custom placeholder text for the year segment        |
+| `dayValue`            | `string`                | Controlled value for the day segment                |
+| `monthValue`          | `string`                | Controlled value for the month segment              |
+| `yearValue`           | `string`                | Controlled value for the year segment               |
+| `defaultDayValue`     | `string`                | Initial uncontrolled value for the day segment      |
+| `defaultMonthValue`   | `string`                | Initial uncontrolled value for the month segment    |
+| `defaultYearValue`    | `string`                | Initial uncontrolled value for the year segment     |
+| `onDayChange`         | `(day: string) => void` | Callback fired when the day value changes           |
+| `onMonthChange`       | `(month: string) => void` | Callback fired when the month value changes       |
+| `onYearChange`        | `(year: string) => void` | Callback fired when the year value changes        |

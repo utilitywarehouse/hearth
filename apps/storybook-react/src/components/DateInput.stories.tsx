@@ -49,9 +49,9 @@ export const DateOfBirth: Story = {
       <DateInput
         label="Date of birth"
         helperText="Enter your date of birth"
-        day={day}
-        month={month}
-        year={year}
+        dayValue={day}
+        monthValue={month}
+        yearValue={year}
         onDayChange={setDay}
         onMonthChange={setMonth}
         onYearChange={setYear}
@@ -69,8 +69,8 @@ export const CardExpiry: Story = {
       <DateInput
         label="Card expiry"
         helperText="Enter the expiry month and year"
-        month={month}
-        year={year}
+        monthValue={month}
+        yearValue={year}
         onMonthChange={setMonth}
         onYearChange={setYear}
         showDay={false}
@@ -87,7 +87,7 @@ export const YearOnly: Story = {
       <DateInput
         label="Year"
         helperText="Enter the year"
-        year={year}
+        yearValue={year}
         onYearChange={setYear}
         showDay={false}
         showMonth={false}
@@ -106,9 +106,9 @@ export const Validation: Story = {
       <Flex direction="column" gap="400">
         <DateInput
           label="Valid date"
-          day={day}
-          month={month}
-          year={year}
+          dayValue={day}
+          monthValue={month}
+          yearValue={year}
           onDayChange={setDay}
           onMonthChange={setMonth}
           onYearChange={setYear}
@@ -118,9 +118,9 @@ export const Validation: Story = {
         />
         <DateInput
           label="Invalid date"
-          day="32"
-          month="13"
-          year="2025"
+          dayValue="32"
+          monthValue="13"
+          yearValue="2025"
           validationStatus="invalid"
           validationText="Please enter a valid date"
           required
@@ -136,9 +136,9 @@ export const Disabled: Story = {
       <DateInput
         label="Date of birth"
         helperText="This field is disabled"
-        day="15"
-        month="06"
-        year="1990"
+        dayValue="15"
+        monthValue="06"
+        yearValue="1990"
         disabled
       />
     );
@@ -151,9 +151,9 @@ export const DefaultValue: Story = {
       <DateInput
         label="Date of birth"
         helperText="Uncontrolled with default value"
-        defaultDay="01"
-        defaultMonth="01"
-        defaultYear="2000"
+        defaultDayValue="01"
+        defaultMonthValue="01"
+        defaultYearValue="2000"
       />
     );
   },
@@ -205,9 +205,9 @@ export const WithCustomValidation: Story = {
       <DateInput
         label="Date of birth"
         helperText="Enter a valid date between 1900 and today"
-        day={day}
-        month={month}
-        year={year}
+        dayValue={day}
+        monthValue={month}
+        yearValue={year}
         onDayChange={setDay}
         onMonthChange={setMonth}
         onYearChange={setYear}

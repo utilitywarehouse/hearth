@@ -60,13 +60,15 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
       showDay = true,
       showMonth = true,
       showYear = true,
-      placeholders = {},
-      day: dayProp,
-      month: monthProp,
-      year: yearProp,
-      defaultDay,
-      defaultMonth,
-      defaultYear,
+      dayPlaceholder,
+      monthPlaceholder,
+      yearPlaceholder,
+      dayValue: dayProp,
+      monthValue: monthProp,
+      yearValue: yearProp,
+      defaultDayValue,
+      defaultMonthValue,
+      defaultYearValue,
       onDayChange,
       onMonthChange,
       onYearChange,
@@ -79,19 +81,19 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
 
     const [day, setDay] = useControllableState({
       prop: dayProp,
-      defaultProp: defaultDay ?? '',
+      defaultProp: defaultDayValue ?? '',
       onChange: onDayChange,
     });
 
     const [month, setMonth] = useControllableState({
       prop: monthProp,
-      defaultProp: defaultMonth ?? '',
+      defaultProp: defaultMonthValue ?? '',
       onChange: onMonthChange,
     });
 
     const [year, setYear] = useControllableState({
       prop: yearProp,
-      defaultProp: defaultYear ?? '',
+      defaultProp: defaultYearValue ?? '',
       onChange: onYearChange,
     });
 
@@ -108,6 +110,12 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
         year: showYear,
       };
 
+      const placeholderMap: Record<SegmentKey, string | undefined> = {
+        day: dayPlaceholder,
+        month: monthPlaceholder,
+        year: yearPlaceholder,
+      };
+
       const keys: Array<SegmentKey> = ['day', 'month', 'year'];
       return keys
         .filter(key => visibilityMap[key])
@@ -117,11 +125,11 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
             key,
             label: config.label,
             maxLength: config.maxLength,
-            placeholder: placeholders[key] || config.defaultPlaceholder,
+            placeholder: placeholderMap[key] || config.defaultPlaceholder,
             width: config.width,
           };
         });
-    }, [showDay, showMonth, showYear, placeholders]);
+    }, [showDay, showMonth, showYear, dayPlaceholder, monthPlaceholder, yearPlaceholder]);
 
     const inputRefs = React.useRef<Record<string, HTMLInputElement | null>>({});
 
