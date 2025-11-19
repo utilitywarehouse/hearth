@@ -1,0 +1,67 @@
+import { Canvas, Meta } from '@storybook/addon-docs/blocks';
+import { BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+import * as PillGroupStories from './PillGroup.stories';
+
+<Meta title="Components / Pill Group" />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens" />
+
+<BackToTopButton />
+
+# Pill Group
+
+A container component that groups multiple `Pill` components together for filtering and categorization. It provides layout control with optional wrapping behavior.
+
+- [Usage](#usage)
+- [Examples](#examples)
+- [API](#api)
+- [Accessibility](#accessibility)
+- [Best Practices](#best-practices)
+
+## Usage
+
+The `PillGroup` component is used to organize multiple `Pill` components. It manages the layout and spacing between pills, with an option to enable wrapping for responsive layouts.
+
+### Basic Usage
+
+```tsx
+import { Pill, PillGroup } from '@hearth/react-native';
+
+<PillGroup wrap={true}>
+  <Pill label="All" selected={false} onPress={handlePress} />
+  <Pill label="New" icon={StarMediumIcon} selected={true} onPress={handlePress} />
+  <Pill label="Read" selected={false} onPress={handlePress} />
+</PillGroup>
+```
+
+## Examples
+
+### Playground
+
+<Canvas of={PillGroupStories.Playground} />
+
+### Wrap Behavior
+
+Compare how pills behave with and without wrapping enabled.
+
+<Canvas of={PillGroupStories.WrapBehavior} />
+
+### Filter Example
+
+A practical example of using PillGroup for content filtering.
+
+<Canvas of={PillGroupStories.FilterExample} />
+
+## API
+
+### PillGroup Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `children` | `ReactNode` | Required | `Pill` components to group together |
+| `wrap` | `boolean` | `false` | Whether pills should wrap to multiple lines when they overflow |
+| ...rest | `ViewProps` | - | All standard View props are supported |
+
+## Accessibility
+
+- All accessibility features are handled by the individual `Pill` components

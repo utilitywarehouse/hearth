@@ -37,6 +37,8 @@ export * from './Label';
 export * from './Link';
 export * from './List';
 export * from './Modal';
+export * from './Pill';
+export * from './PillGroup';
 export * from './ProgressStepper';
 export * from './Radio';
 export * from './RadioCard';
