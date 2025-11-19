@@ -4,6 +4,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   build-and-push-storybook:
     name: Build & Push
@@ -14,6 +17,11 @@ jobs:
       - nscloud-exp-container-image-cache
       - nscloud-exp-runner-tool-cache-10gb
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@v2
+        with:
+          egress-policy: audit
+
       - name: Check out source code
         uses: actions/checkout@v4
 
