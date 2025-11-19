@@ -2322,6 +2322,10 @@
           "type": "number",
           "value": 1
         },
+        "min-height": {
+          "type": "number",
+          "value": 48
+        },
         "padding": {
           "alias": "{space.150}",
           "type": "number",
@@ -2345,6 +2349,10 @@
           "alias": "{space.100}",
           "type": "number",
           "value": 8
+        },
+        "height": {
+          "type": "number",
+          "value": 56
         },
         "padding-horizontal": {
           "alias": "{space.150}",
@@ -5023,6 +5031,10 @@
           "type": "number",
           "value": 1
         },
+        "min-height": {
+          "type": "number",
+          "value": 48
+        },
         "padding": {
           "alias": "{space.150}",
           "type": "number",
@@ -5046,6 +5058,10 @@
           "alias": "{space.100}",
           "type": "number",
           "value": 8
+        },
+        "height": {
+          "type": "number",
+          "value": 56
         },
         "padding-horizontal": {
           "alias": "{space.150}",

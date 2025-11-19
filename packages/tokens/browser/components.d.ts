@@ -779,6 +779,7 @@ export declare const components: {
     readonly borderRadius: 'var(--h-table-border-radius)';
     readonly cell: {
       readonly borderWidth: 'var(--h-table-cell-border-width)';
+      readonly minHeight: 'var(--h-table-cell-min-height)';
       readonly padding: 'var(--h-table-cell-padding)';
     };
     readonly emphasis: {
@@ -787,6 +788,7 @@ export declare const components: {
     readonly headerCell: {
       readonly borderWidth: 'var(--h-table-header-cell-border-width)';
       readonly gap: 'var(--h-table-header-cell-gap)';
+      readonly height: 'var(--h-table-header-cell-height)';
       readonly paddingHorizontal: 'var(--h-table-header-cell-padding-horizontal)';
       readonly paddingVertical: 'var(--h-table-header-cell-padding-vertical)';
     };
