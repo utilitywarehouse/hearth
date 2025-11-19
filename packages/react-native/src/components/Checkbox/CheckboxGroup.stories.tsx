@@ -1,5 +1,5 @@
-import { Checkbox, CheckboxGroup } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { Checkbox, CheckboxGroup } from '.';
 
 const meta = {
   title: 'Stories / CheckboxGroup',
@@ -73,6 +73,24 @@ export const Playground: Story = {
       <Checkbox
         aria-label="Label 2"
         label="Option 2 (with added option)"
+        value="Option 2"
+        nativeID="Checkbox-2"
+      />
+      <Checkbox aria-label="Label 3" label="Option 3" value="Option 3" nativeID="Checkbox-3" />
+    </CheckboxGroup>
+  ),
+};
+
+export const LongContent: Story = {
+  args: {
+    type: 'tile',
+  },
+  render: args => (
+    <CheckboxGroup {...args}>
+      <Checkbox aria-label="Label 1" label="Option 1" value="Option 1" nativeID="Checkbox-1" />
+      <Checkbox
+        aria-label="Label 2"
+        label="Option 2 with a very long content that should wrap into multiple lines to test the layout of the checkbox component in such scenarios."
         value="Option 2"
         nativeID="Checkbox-2"
       />

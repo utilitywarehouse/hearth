@@ -293,23 +293,6 @@ export const components = {
       gap: 'var(--h-description-list-stack-gap)',
     },
   },
-  dialog: {
-    action: {
-      gap: 'var(--h-dialog-action-gap)',
-    },
-    borderRadius: 'var(--h-dialog-border-radius)',
-    content: {
-      gap: 'var(--h-dialog-content-gap)',
-      paddingBottom: 'var(--h-dialog-content-padding-bottom)',
-    },
-    gap: 'var(--h-dialog-gap)',
-    padding: 'var(--h-dialog-padding)',
-    width: {
-      desktop: 'var(--h-dialog-width-desktop)',
-      mobile: 'var(--h-dialog-width-mobile)',
-      tablet: 'var(--h-dialog-width-tablet)',
-    },
-  },
   divider: {
     borderWidth: 'var(--h-divider-border-width)',
   },
@@ -431,6 +414,9 @@ export const components = {
     minWidth: 'var(--h-input-min-width)',
     paddingHorizontal: 'var(--h-input-padding-horizontal)',
     paddingVertical: 'var(--h-input-padding-vertical)',
+    stepper: {
+      gap: 'var(--h-input-stepper-gap)',
+    },
     textArea: {
       height: 'var(--h-input-text-area-height)',
     },
@@ -518,11 +504,13 @@ export const components = {
       gap: 'var(--h-modal-content-gap)',
     },
     gap: 'var(--h-modal-gap)',
-    padding: {
-      desktop: 'var(--h-modal-padding-desktop)',
-      mobile: 'var(--h-modal-padding-mobile)',
-      tablet: 'var(--h-modal-padding-tablet)',
+    heading: {
+      gap: 'var(--h-modal-heading-gap)',
     },
+    illustration: {
+      padding: 'var(--h-modal-illustration-padding)',
+    },
+    padding: 'var(--h-modal-padding)',
     width: {
       desktop: 'var(--h-modal-width-desktop)',
       mobile: 'var(--h-modal-width-mobile)',
@@ -686,6 +674,10 @@ export const components = {
       padding: 'var(--h-radio-tile-padding)',
     },
   },
+  rating: {
+    borderWidth: 'var(--h-rating-border-width)',
+    gap: 'var(--h-rating-gap)',
+  },
   sectionHeader: {
     gap: 'var(--h-section-header-gap)',
     textContent: {
@@ -796,9 +788,6 @@ export const components = {
     headerCell: {
       borderWidth: 'var(--h-table-header-cell-border-width)',
       gap: 'var(--h-table-header-cell-gap)',
-      neutral: {
-        backgroundColor: 'var(--h-table-header-cell-neutral-background-color)',
-      },
       paddingHorizontal: 'var(--h-table-header-cell-padding-horizontal)',
       paddingVertical: 'var(--h-table-header-cell-padding-vertical)',
     },
@@ -826,6 +815,54 @@ export const components = {
     },
     md: {
       height: 'var(--h-tabs-md-height)',
+    },
+  },
+  timePicker: {
+    gap: 'var(--h-time-picker-gap)',
+    gapContainer: 'var(--h-time-picker-gap-container)',
+    minWidth: 'var(--h-time-picker-min-width)',
+    paddingHorizontal: 'var(--h-time-picker-padding-horizontal)',
+    paddingVertical: 'var(--h-time-picker-padding-vertical)',
+    time: {
+      columnGap: 'var(--h-time-picker-time-column-gap)',
+      content: {
+        gap: 'var(--h-time-picker-time-content-gap)',
+        item: {
+          gap: 'var(--h-time-picker-time-content-item-gap)',
+        },
+      },
+      footer: {
+        gap: 'var(--h-time-picker-time-footer-gap)',
+      },
+      gap: 'var(--h-time-picker-time-gap)',
+      item: {
+        height: 'var(--h-time-picker-time-item-height)',
+        width: 'var(--h-time-picker-time-item-width)',
+      },
+      rowGap: 'var(--h-time-picker-time-row-gap)',
+    },
+  },
+  timeline: {
+    bar: {
+      width: 'var(--h-timeline-bar-width)',
+    },
+    content: {
+      gap: 'var(--h-timeline-content-gap)',
+      paddingBottom: 'var(--h-timeline-content-padding-bottom)',
+      paddingTop: 'var(--h-timeline-content-padding-top)',
+    },
+    gap: 'var(--h-timeline-gap)',
+    progress: {
+      circle: {
+        height: 'var(--h-timeline-progress-circle-height)',
+        width: 'var(--h-timeline-progress-circle-width)',
+      },
+    },
+    static: {
+      circle: {
+        height: 'var(--h-timeline-static-circle-height)',
+        width: 'var(--h-timeline-static-circle-width)',
+      },
     },
   },
   toast: {

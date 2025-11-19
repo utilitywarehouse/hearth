@@ -22,6 +22,9 @@ export default {
   minWidth: 152,
   paddingHorizontal: 16,
   paddingVertical: 12,
+  stepper: {
+    gap: 4,
+  },
   textArea: {
     height: 96,
   },

@@ -1,13 +1,17 @@
 import { ChevronRightSmallIcon, CloseSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { Pressable, View } from 'react-native';
+import { Image, ImageProps, Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { Card } from '../Card';
 import { Heading } from '../Heading';
 import { IconContainer } from '../IconContainer';
-import { ThemedImage } from '../ThemedImage';
+import { ThemedImage, ThemedImageProps } from '../ThemedImage';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import type BannerProps from './Banner.props';
+
+const isThemedImageProps = (props: ThemedImageProps | ImageProps): props is ThemedImageProps => {
+  return 'light' in props && 'dark' in props;
+};
 
 const Banner = ({
   icon,
@@ -44,26 +48,34 @@ const Banner = ({
       );
     }
     if (illustration) {
+      if (isThemedImageProps(illustration)) {
+        return (
+          <ThemedImage
+            {...illustration}
+            resizeMode="cover"
+            style={[styles.media, styles.imageWrapper, illustration.style]}
+          />
+        );
+      }
       return (
-        <ThemedImage
-          light={illustration.light}
-          dark={illustration.dark}
-          style={styles.image}
-          accessible
-          accessibilityLabel={heading}
+        <Image
+          {...illustration}
+          resizeMode="cover"
+          style={[styles.media, styles.imageWrapper, illustration.style]}
         />
       );
     }
     if (image) {
+      if (isThemedImageProps(image)) {
+        return (
+          <View style={[styles.media, styles.imageWrapper]}>
+            <ThemedImage {...image} style={[styles.image, image.style]} />
+          </View>
+        );
+      }
       return (
         <View style={[styles.media, styles.imageWrapper]}>
-          <ThemedImage
-            light={image.light}
-            dark={image.dark}
-            style={styles.image}
-            accessible
-            accessibilityLabel={heading}
-          />
+          <Image {...image} style={[styles.image, image.style]} />
         </View>
       );
     }
@@ -82,23 +94,36 @@ const Banner = ({
 
   const content = (
     <View style={styles.container}>
+      {onClose && direction === 'vertical' && (
+        <UnstyledIconButton
+          icon={CloseSmallIcon}
+          size="sm"
+          onPress={onClose}
+          style={styles.closeButton}
+          accessibilityLabel="Close banner"
+        />
+      )}
       {renderIconOrImage()}
+
       <View style={styles.contentContainer}>
-        <View style={styles.textContainer}>
-          <Heading
-            size="sm"
-            style={styles.heading}
-            textAlign={hasIllustration && direction === 'vertical' ? 'center' : 'left'}
-          >
-            {heading}
-          </Heading>
-          <BodyText
-            size="md"
-            style={styles.description}
-            textAlign={hasIllustration && direction === 'vertical' ? 'center' : 'left'}
-          >
-            {description}
-          </BodyText>
+        <View style={styles.contentTextContainer}>
+          <View style={styles.textContainer}>
+            <Heading
+              size="sm"
+              style={styles.heading}
+              textAlign={hasIllustration && direction === 'vertical' ? 'center' : 'left'}
+            >
+              {heading}
+            </Heading>
+            <BodyText
+              size="md"
+              style={styles.description}
+              textAlign={hasIllustration && direction === 'vertical' ? 'center' : 'left'}
+            >
+              {description}
+            </BodyText>
+          </View>
+
           {renderAction()}
         </View>
         {onPress && (
@@ -109,7 +134,7 @@ const Banner = ({
             style={styles.chevron}
           />
         )}
-        {onClose && (
+        {onClose && direction === 'horizontal' && (
           <UnstyledIconButton
             icon={CloseSmallIcon}
             size="sm"
@@ -142,9 +167,9 @@ const Banner = ({
 Banner.displayName = 'Banner';
 
 const styles = StyleSheet.create(theme => ({
-  card: {},
+  card: { flexDirection: 'row', _web: { flexDirection: 'column' } },
   pressable: {
-    width: '100%',
+    flex: 1,
   },
   container: {
     flexDirection: 'row',
@@ -194,6 +219,7 @@ const styles = StyleSheet.create(theme => ({
     },
   },
   imageWrapper: {
+    flexDirection: 'row',
     variants: {
       direction: {
         horizontal: {},
@@ -205,8 +231,8 @@ const styles = StyleSheet.create(theme => ({
   },
   image: {
     borderRadius: theme.borderRadius.md,
-    borderWidth: theme.borderWidth[1],
     borderColor: theme.color.border.strong,
+    borderWidth: theme.borderWidth[1],
     variants: {
       direction: {
         horizontal: { width: 160, height: 95 },
@@ -218,15 +244,34 @@ const styles = StyleSheet.create(theme => ({
     },
   },
   contentContainer: {
-    flex: 1,
-    flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     gap: theme.space.lg,
+    variants: {
+      direction: {
+        horizontal: {
+          flex: 1,
+          flexDirection: 'row',
+        },
+        vertical: {
+          flexDirection: 'column',
+        },
+      },
+    },
   },
   textContainer: {
-    flex: 1,
+    gap: theme.space.sm,
+  },
+  contentTextContainer: {
     gap: theme.space.lg,
+    variants: {
+      direction: {
+        horizontal: {
+          flex: 1,
+        },
+        vertical: {},
+      },
+    },
   },
   heading: {
     compoundVariants: [
@@ -258,6 +303,16 @@ const styles = StyleSheet.create(theme => ({
   },
   closeButton: {
     alignSelf: 'flex-start',
+    variants: {
+      direction: {
+        vertical: {
+          position: 'absolute',
+          top: 0,
+          right: 0,
+        },
+        horizontal: {},
+      },
+    },
   },
 }));
 

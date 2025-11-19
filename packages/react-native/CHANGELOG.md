@@ -1,5 +1,21 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.8.2
+
+### Patch Changes
+
+- [#652](https://github.com/utilitywarehouse/hearth/pull/652) [`5119703`](https://github.com/utilitywarehouse/hearth/commit/5119703a31f663cc8c0a8bb2c6ba5b10f9bf72d6) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `RadioCard` label wrapping issue
+
+- [#648](https://github.com/utilitywarehouse/hearth/pull/648) [`c90ea5c`](https://github.com/utilitywarehouse/hearth/commit/c90ea5ce165f27ccfc9774ec58ac642d02b349d1) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `ListAction` icon size
+
+- [#648](https://github.com/utilitywarehouse/hearth/pull/648) [`c90ea5c`](https://github.com/utilitywarehouse/hearth/commit/c90ea5ce165f27ccfc9774ec58ac642d02b349d1) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `Banner` text gap size
+
+- [#651](https://github.com/utilitywarehouse/hearth/pull/651) [`4ee77b7`](https://github.com/utilitywarehouse/hearth/commit/4ee77b75e58ac4abbeba375ecb367d8899c7f1a0) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `Banner` image and height issue
+
+- [#649](https://github.com/utilitywarehouse/hearth/pull/649) [`7374535`](https://github.com/utilitywarehouse/hearth/commit/737453598ad5e885b35b5fcd2e4c4ccff4910c43) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `List` to only show `Card` container if it has children
+
+- [#648](https://github.com/utilitywarehouse/hearth/pull/648) [`c90ea5c`](https://github.com/utilitywarehouse/hearth/commit/c90ea5ce165f27ccfc9774ec58ac642d02b349d1) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `shadowColor` prop to `Card` and exposes helpers in theme
+
 ## 0.8.1
 
 ### Patch Changes

@@ -68,3 +68,27 @@ export const Playground: Story = {
     </RadioCardGroup>
   ),
 };
+
+export const LongContent: Story = {
+  args: {
+    flexDirection: 'column',
+  },
+  render: args => (
+    <RadioCardGroup {...args}>
+      <RadioCard aria-label="Label 1" label="Option 1" value="Option 1" nativeID="RadioCard-1">
+        <BodyText>Additional content</BodyText>
+      </RadioCard>
+      <RadioCard
+        aria-label="Label 2"
+        label="Option 2 with a very long content that should wrap into multiple lines to test the layout of the RadioCard component in such scenarios."
+        value="Option 2"
+        nativeID="RadioCard-2"
+      >
+        <BodyText>Additional content</BodyText>
+      </RadioCard>
+      <RadioCard aria-label="Label 3" label="Option 3" value="Option 3" nativeID="RadioCard-3">
+        <BodyText>Additional content</BodyText>
+      </RadioCard>
+    </RadioCardGroup>
+  ),
+};

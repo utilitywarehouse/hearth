@@ -6,9 +6,12 @@ import {
   BroadbandMediumIcon,
   CashbackCardMediumIcon,
   ChevronRightMediumIcon,
+  EditSmallIcon,
   ElectricityMediumIcon,
   InsuranceMediumIcon,
   MobileMediumIcon,
+  ShareSmallIcon,
+  TrashSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 // @ts-ignore
 import SpotBillingDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg';
@@ -60,6 +63,9 @@ import {
   Link,
   List,
   ListItem,
+  Menu,
+  MenuItem,
+  MenuTrigger,
   Modal,
   OL,
   ProgressStep,
@@ -159,6 +165,10 @@ const AllComponents: React.FC = () => {
   }, [datePickerRef]);
   const [switchEnabled, setSwitchEnabled] = React.useState(false);
   const toggleSwitch = () => setSwitchEnabled(!switchEnabled);
+  const menuRef = useRef<any>(null);
+  const handleMenuOpenPress = useCallback(() => {
+    menuRef.current?.present();
+  }, []);
 
   const [colorMode] = useColorMode();
   const isDark = colorMode === 'dark';
@@ -562,6 +572,29 @@ const AllComponents: React.FC = () => {
                 <ListItem heading="List Item 1" onPress={() => console.log('item pressed')} />
                 <ListItem heading="List Item 2" onPress={() => console.log('item pressed')} />
               </List>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Menu" link="/?path=/docs/components-menu--docs">
+            <Center flex={1}>
+              <BottomSheetModalProvider>
+                <MenuTrigger onPress={handleMenuOpenPress}>
+                  <Button>Open Menu</Button>
+                </MenuTrigger>
+                <Menu ref={menuRef} heading="Actions">
+                  <MenuItem icon={EditSmallIcon} text="Edit" onPress={() => console.log('Edit')} />
+                  <MenuItem
+                    icon={ShareSmallIcon}
+                    text="Share"
+                    onPress={() => console.log('Share')}
+                  />
+                  <MenuItem
+                    icon={TrashSmallIcon}
+                    text="Delete"
+                    colorScheme="destructive"
+                    onPress={() => console.log('Delete')}
+                  />
+                </Menu>
+              </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Modal" link="/?path=/docs/components-modal--docs">

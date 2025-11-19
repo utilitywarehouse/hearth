@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { Pressable, ViewStyle } from 'react-native';
 import { RadioCardContext } from './RadioCard.context';
 import type RadioCardProps from './RadioCard.props';
+import { useRadioCardGroupContext } from './RadioCardGroup.context';
 
 const RadioCardRoot = ({
   children,
@@ -12,6 +13,8 @@ const RadioCardRoot = ({
   ...props
 }: RadioCardProps & { states?: { disabled?: boolean; checked?: boolean; active?: boolean } }) => {
   const { checked, active } = states ?? {};
+
+  const { flexDirection } = useRadioCardGroupContext() ?? {};
 
   const value = useMemo(
     () => ({
@@ -23,6 +26,7 @@ const RadioCardRoot = ({
 
   styles.useVariants({
     selected: checked,
+    flexDirection,
   });
 
   return (
@@ -39,6 +43,7 @@ RadioCardRoot.displayName = 'RadioCardRoot';
 const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'column',
+
     gap: theme.components.card.selectable.gap,
     borderRadius: theme.components.card.borderRadius,
     backgroundColor: theme.color.surface.neutral.strong,
@@ -56,6 +61,16 @@ const styles = StyleSheet.create(theme => ({
           borderWidth: theme.components.card.selectable.borderWidthSelected,
           borderColor: theme.color.border.strong,
           margin: -theme.components.card.selectable.borderWidthSelected / 2,
+        },
+      },
+      flexDirection: {
+        row: {},
+        column: {
+          width: '100%',
+        },
+        'row-reverse': {},
+        'column-reverse': {
+          width: '100%',
         },
       },
     },

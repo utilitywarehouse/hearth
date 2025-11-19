@@ -38,6 +38,20 @@ const meta = {
       ],
       description: 'Use this value to set the Card color scheme.',
     },
+    shadowColor: {
+      control: 'select',
+      options: [
+        'functional',
+        'brand',
+        'energy',
+        'broadband',
+        'mobile',
+        'insurance',
+        'cashback',
+        'pig',
+      ],
+      description: 'Use this value to set the Card shadow color.',
+    },
   },
   args: {
     children: 'This is a card',
@@ -200,6 +214,31 @@ export const Variants: Story = {
         </VariantTitle>
         <VariantTitle title="Piggy Pink - Emphasis">
           <Card {...props} colorScheme="pig" variant="emphasis">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+      </Flex>
+    );
+  },
+};
+
+export const WithShadow: Story = {
+  args: {
+    shadowColor: 'functional',
+  },
+  parameters: {
+    controls: { exclude: ['variant'] },
+  },
+  render: ({ children, ...props }) => {
+    return (
+      <Flex space="lg">
+        <VariantTitle title="Subtle - White - Shadow">
+          <Card {...props} variant="subtle">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Emphasis - White - Shadow">
+          <Card {...props} variant="emphasis">
             <BodyText>{children as string}</BodyText>
           </Card>
         </VariantTitle>
