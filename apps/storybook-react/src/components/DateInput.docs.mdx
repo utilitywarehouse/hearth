@@ -1,0 +1,249 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './DateInput.stories';
+import { DocsHeader } from '../storybook-components/DocsHeader';
+import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+
+<Meta title="Components / DateInput" />
+
+<DocsHeader componentName="DateInput" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Usage
+
+Use `DateInput` when you need users to enter dates manually, especially for
+well-known dates like date of birth, or when you need flexibility to show only
+specific date segments (e.g., month/year for card expiry).
+
+The `DateInput` component consists of separate input fields for day, month, and year.
+
+```tsx
+import { useState } from 'react';
+import { DateInput } from '@utilitywarehouse/hearth-react';
+
+function MyComponent() {
+  const [day, setDay] = useState('');
+  const [month, setMonth] = useState('');
+  const [year, setYear] = useState('');
+
+  return (
+    <DateInput
+      label="Date of birth"
+      dayValue={day}
+      monthValue={month}
+      yearValue={year}
+      onDayChange={setDay}
+      onMonthChange={setMonth}
+      onYearChange={setYear}
+      required
+    />
+  );
+}
+```
+
+<Canvas of={Stories.DateOfBirth} />
+
+### Controlled vs Uncontrolled
+
+`DateInput` supports both controlled and uncontrolled usage:
+
+**Controlled** (recommended): Manage state yourself using `dayValue`, `monthValue`, `yearValue` props with their change handlers.
+
+**Uncontrolled**: Use `defaultDayValue`, `defaultMonthValue`, `defaultYearValue` for initial values without managing state.
+
+## Label
+
+A label is required and should clearly describe what date is being requested.
+
+```tsx
+<DateInput label="Date of birth" />
+<DateInput label="Card expiry date" showDay={false} />
+<DateInput label="Year of graduation" showDay={false} showMonth={false} />
+```
+
+## Required
+
+In its default state, the `DateInput` is optional and is indicated with the `(optional)`
+text following the label.
+
+When using online forms, most users assume all fields are required by default,
+so the `DateInput` draws attention to when it is optional. Make sure that when
+the input field is required for successful completion of the form, you apply the
+`required` prop and include appropriate validation.
+
+```tsx
+<DateInput label="Date of birth" required />
+```
+
+## Disabled
+
+Use the `disabled` prop to prevent user interaction. Disabled inputs cannot be
+edited or focused.
+
+<Canvas of={Stories.Disabled} />
+
+## Validation
+
+`DateInput` shows validation states visually, but **you implement the validation logic**.
+This gives you full control over your validation rules.
+
+Set `validationStatus` to `"valid"` or `"invalid"` and provide `validationText`
+to explain the validation result.
+
+<Canvas of={Stories.Validation} />
+
+### How validation works
+
+**The component provides:**
+
+- Automatic filtering of non-numeric input
+- Visual styling for valid/invalid states
+
+**You provide:**
+
+- Validation logic (date ranges, valid day/month combinations, etc.)
+- Error messages
+- Business rules (e.g., minimum age, future dates only)
+
+### Example with custom validation
+
+Here's a complete example showing how to implement date validation:
+
+<Canvas of={Stories.WithCustomValidation} sourceState="shown" />
+
+## Choosing which segments to show
+
+Control which date segments are visible using `showDay`, `showMonth`, and `showYear` props.
+This is useful for specific use cases:
+
+<Canvas of={Stories.FlexibleSegments} />
+
+### Common use cases
+
+**Date of birth (DD/MM/YYYY)** - All segments shown (default)
+
+```tsx
+<DateInput label="Date of birth" required />
+```
+
+**Card expiry (MM/YYYY)** - Only month and year
+
+```tsx
+<DateInput label="Card expiry" showDay={false} required />
+```
+
+<Canvas of={Stories.CardExpiry} />
+
+**Year of graduation (YYYY)** - Only year
+
+```tsx
+<DateInput label="Year of graduation" showDay={false} showMonth={false} required />
+```
+
+<Canvas of={Stories.YearOnly} />
+
+## Grouping inputs
+
+When grouping date inputs with other form fields, use the `fieldset` and `legend`
+elements. This ensures the group title is properly associated with child input elements.
+
+Make sure you place the `legend` element as the first child of the `fieldset`,
+otherwise the relationship is broken.
+
+<Canvas of={Stories.GroupingInputs} sourceState="shown" />
+
+## Accessibility
+
+The `DateInput` component is built with accessibility in mind:
+
+- Each segment has a visible label (Day, Month, Year)
+- The component uses semantic `fieldset` and `legend` elements
+- Each segment is properly labeled with `aria-label`
+- Validation messages are associated using `aria-describedby`
+- Invalid states are indicated with `aria-invalid`
+- Required fields are properly marked with the `required` attribute
+
+### Screen reader support
+
+- The fieldset legend announces the main label
+- Each segment announces its specific label when focused
+- Helper text and validation messages are announced to screen readers
+- The required/optional status is communicated clearly
+
+### Keyboard interactions
+
+<Flex direction="column" gap="200" className="sb-unstyled">
+  <Flex>
+    <Box width="300px">
+      <BodyText as="span" weight="bold">
+        Key
+      </BodyText>
+    </Box>
+    <BodyText as="span" weight="bold">
+      Description
+    </BodyText>
+  </Flex>
+  <Divider />
+  {[
+    {
+      key: 'Tab',
+      description: 'Moves focus to the first/next date segment.',
+    },
+    {
+      key: 'Shift + Tab',
+      description: 'Moves focus to the previous date segment.',
+    },
+    {
+      key: '0-9',
+      description: 'Enters a number.',
+    },
+  ].map((kbi, i) => (
+    <>
+      <Flex>
+        <Box width="300px">
+          <kbd>{kbi.key}</kbd>
+        </Box>
+        <BodyText as="span">{kbi.description}</BodyText>
+      </Flex>
+      {i < 2 ? <Divider /> : null}
+    </>
+  ))}
+</Flex>
+
+### Testing
+
+Always test your implementation with a screen reader to ensure proper announcement
+of labels, validation messages, and state changes.
+
+## API
+
+This component is based on the `fieldset` element and supports the following common props:
+
+- Margin
+
+| Prop                  | Type                    | Description                                         |
+| --------------------- | ----------------------- | --------------------------------------------------- |
+| `label`               | `string`                | The label for the date input (required)             |
+| `helperText`          | `string`                | Optional helper text to provide context             |
+| `validationStatus`    | `"valid" \| "invalid"`  | Indicates the validation state                      |
+| `validationText`      | `string`                | Text to display when validation status is set       |
+| `required`            | `boolean`               | Whether the field is required                       |
+| `disabled`            | `boolean`               | Whether the field is disabled                       |
+| `showDay`             | `boolean`               | Whether to show the day segment (default: `true`)   |
+| `showMonth`           | `boolean`               | Whether to show the month segment (default: `true`) |
+| `showYear`            | `boolean`               | Whether to show the year segment (default: `true`)  |
+| `dayPlaceholder`      | `string`                | Custom placeholder text for the day segment         |
+| `monthPlaceholder`    | `string`                | Custom placeholder text for the month segment       |
+| `yearPlaceholder`     | `string`                | Custom placeholder text for the year segment        |
+| `dayValue`            | `string`                | Controlled value for the day segment                |
+| `monthValue`          | `string`                | Controlled value for the month segment              |
+| `yearValue`           | `string`                | Controlled value for the year segment               |
+| `defaultDayValue`     | `string`                | Initial uncontrolled value for the day segment      |
+| `defaultMonthValue`   | `string`                | Initial uncontrolled value for the month segment    |
+| `defaultYearValue`    | `string`                | Initial uncontrolled value for the year segment     |
+| `onDayChange`         | `(day: string) => void` | Callback fired when the day value changes           |
+| `onMonthChange`       | `(month: string) => void` | Callback fired when the month value changes       |
+| `onYearChange`        | `(year: string) => void` | Callback fired when the year value changes        |
