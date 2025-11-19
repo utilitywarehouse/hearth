@@ -1,12 +1,14 @@
 import React from 'react';
-import { View, ViewProps } from 'react-native';
+import { ScrollViewProps, ViewStyle } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { StyleSheet } from 'react-native-unistyles';
 import { Box } from '../Box';
 
-export interface PillGroupProps extends ViewProps {
+export interface PillGroupProps
+  extends Omit<ScrollViewProps, 'horizontal' | 'contentContainerStyle' | 'showsHorizontalScrollIndicator'> {
   children: React.ReactNode;
   wrap?: boolean;
+  style?: ViewStyle | ViewStyle[];
 }
 
 export const PillGroup = ({ children, wrap = false, style, ...props }: PillGroupProps) => {

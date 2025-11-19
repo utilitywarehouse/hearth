@@ -16,7 +16,6 @@ A container component that groups multiple `Pill` components together for filter
 - [Examples](#examples)
 - [API](#api)
 - [Accessibility](#accessibility)
-- [Best Practices](#best-practices)
 
 ## Usage
 
@@ -33,6 +32,10 @@ import { Pill, PillGroup } from '@hearth/react-native';
   <Pill label="Read" selected={false} onPress={handlePress} />
 </PillGroup>
 ```
+
+### Accessibility
+
+- All accessibility features are handled by the individual `Pill` components
 
 ## Examples
 
@@ -61,7 +64,3 @@ A practical example of using PillGroup for content filtering.
 | `children` | `ReactNode` | Required | `Pill` components to group together |
 | `wrap` | `boolean` | `false` | Whether pills should wrap to multiple lines when they overflow |
 | ...rest | `ViewProps` | - | All standard View props are supported |
-
-## Accessibility
-
-- All accessibility features are handled by the individual `Pill` components

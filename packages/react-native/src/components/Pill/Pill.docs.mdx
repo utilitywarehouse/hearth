@@ -15,10 +15,9 @@ A compact, interactive component for filtering and categorizing content. Pills c
 **Note:** The `Pill` component is designed to be used within `PillGroup`. For typical usage patterns and examples, see the [PillGroup documentation](?path=/docs/components-pill-group--docs).
 
 - [Usage](#usage)
+- [Best Practices](#best-practices)
 - [Examples](#examples)
 - [API](#api)
-- [Accessibility](#accessibility)
-- [Best Practices](#best-practices)
 
 ## Usage
 
@@ -34,6 +33,11 @@ import { Pill, PillGroup } from '@hearth/react-native';
   <Pill label="Read" selected={true} onPress={handlePress} />
 </PillGroup>
 ```
+
+## Best Practices
+
+1. **Use within PillGroup** - Pills should typically be grouped using the `PillGroup` component
+1. **Handle state properly** - Manage selected state in your component to control which pills are active
 
 ## Examples
 
@@ -56,8 +60,3 @@ import { Pill, PillGroup } from '@hearth/react-native';
 | `selected` | `boolean` | `false` | Whether the pill is in selected state |
 | `onPress` | `function` | - | Callback fired when the pill is pressed |
 | ...rest | `PressableProps` | - | All standard Pressable props are supported |
-
-## Best Practices
-
-1. **Use within PillGroup** - Pills should typically be grouped using the `PillGroup` component
-1. **Handle state properly** - Manage selected state in your component to control which pills are active

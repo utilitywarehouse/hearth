@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react-native': minor
 ---
 
-Adds `PillGroup` component
+Adds `Pill` and `PillGroup` components
