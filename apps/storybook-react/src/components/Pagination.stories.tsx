@@ -23,7 +23,7 @@ const meta: Meta<typeof Pagination> = {
     condensed: {
       control: 'boolean',
     },
-    skip: {
+    hideSkipButtons: {
       control: 'boolean',
     },
   },
@@ -31,7 +31,7 @@ const meta: Meta<typeof Pagination> = {
     currentPage: 1,
     totalPages: 10,
     condensed: false,
-    skip: true,
+    hideSkipButtons: false,
   },
 };
 
@@ -76,7 +76,7 @@ export const WithoutSkip: Story = {
         currentPage={currentPage}
         totalPages={10}
         onPageChange={setCurrentPage}
-        skip={false}
+        hideSkipButtons
       />
     );
   },

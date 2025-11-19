@@ -25,10 +25,10 @@ interface CommonPaginationProps extends MarginProps {
    */
   condensed?: boolean;
   /**
-   * Whether to show skip to first/last page buttons
-   * @default true
+   * Whether to hide the skip to first/last page buttons
+   * @default false
    */
-  skip?: boolean;
+  hideSkipButtons?: boolean;
 }
 
 type PaginationDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;

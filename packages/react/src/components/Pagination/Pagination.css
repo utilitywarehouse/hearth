@@ -5,6 +5,13 @@
     justify-content: space-between;
     gap: var(--h-pagination-gap);
     flex-wrap: nowrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: flex;
+    }
   }
 
   .hearth-PaginationControllers {
@@ -30,17 +37,18 @@
   }
 
   .hearth-PaginationPage {
-    /* height: var(--h-pagination-item-height); */
+    height: var(--h-pagination-item-height);
     height: 40px;
 
-    /* width: var(--h-pagination-item-width); */
+    width: var(--h-pagination-item-width);
     width: 40px;
     aspect-ratio: 1/1;
     padding: var(--h-space-0);
     text-decoration: none;
 
-    &:where([data-active='true']) {
+    &:where([data-active]) {
       background: var(--h-interactive-brand-surface-strong-default);
+      color: var(--h-interactive-brand-foreground-strong);
     }
   }
 }
