@@ -5,6 +5,7 @@ declare const _default: {
   readonly borderRadius: 16;
   readonly cell: {
     readonly borderWidth: 1;
+    readonly minHeight: 48;
     readonly padding: 12;
   };
   readonly emphasis: {
@@ -13,6 +14,7 @@ declare const _default: {
   readonly headerCell: {
     readonly borderWidth: 2;
     readonly gap: 8;
+    readonly height: 56;
     readonly paddingHorizontal: 12;
     readonly paddingVertical: 16;
   };
