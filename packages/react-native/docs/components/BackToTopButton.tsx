@@ -29,7 +29,7 @@ const ScrollButton = () => {
       <Button
         onPress={scrollToTop}
         variant="ghost"
-        colorScheme="grey"
+        colorScheme="functional"
         size="sm"
         // @ts-expect-error - This is a playground
         style={{
