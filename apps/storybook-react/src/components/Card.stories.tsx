@@ -16,8 +16,16 @@ import {
   IconButton,
   Badge,
   CardContent,
+  CardBannerContent,
+  CardBannerImage,
+  UnstyledIconButton,
+  IconContainer,
 } from '@utilitywarehouse/hearth-react';
+import piggies from '../assets/piggies.png';
+import SpotSmartMeter from '@utilitywarehouse/hearth-svg-assets/lib/spot-smart-meter-light.svg';
+import SpotSavings from '@utilitywarehouse/hearth-svg-assets/lib/spot-savings-light.svg';
 import {
+  PlaceholderSmallIcon,
   ChevronRightSmallIcon,
   CloseSmallIcon,
   DownloadSmallIcon,
@@ -630,6 +638,144 @@ export const WithCardActions: Story = {
           <CardActionButton heading="Open PDF" trailingIcon={<OpenSmallIcon />} />
           <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} />
         </CardActions>
+      </Card>
+    </Flex>
+  ),
+};
+
+export const BannerContent: Story = {
+  render: () => (
+    <Card spacing="lg" justifyContent="between">
+      <CardBannerContent heading="This is a banner heading" description="Put your description here">
+        <Link href="#">
+          Link
+          <ChevronRightSmallIcon />
+        </Link>
+      </CardBannerContent>
+
+      <UnstyledIconButton label="close">
+        <CloseSmallIcon />
+      </UnstyledIconButton>
+    </Card>
+  ),
+};
+
+export const BannerWithIconContainer: Story = {
+  render: () => (
+    <Flex gap="400">
+      <Card spacing="md">
+        <IconContainer colorScheme="pig">
+          <PlaceholderSmallIcon />
+        </IconContainer>
+        <CardBannerContent
+          heading="This is a banner heading"
+          description="Put your description here"
+        >
+          <Link href="#">
+            Link
+            <ChevronRightSmallIcon />
+          </Link>
+        </CardBannerContent>
+        <UnstyledIconButton label="close">
+          <CloseSmallIcon />
+        </UnstyledIconButton>
+      </Card>
+      <Card spacing="lg">
+        <Flex spacing="lg" direction="column" alignItems="start">
+          <IconContainer colorScheme="pig">
+            <PlaceholderSmallIcon />
+          </IconContainer>
+          <CardBannerContent
+            heading="This is a banner heading"
+            description="Put your description here"
+          >
+            <Link href="#">
+              Link
+              <ChevronRightSmallIcon />
+            </Link>
+          </CardBannerContent>
+        </Flex>
+        <UnstyledIconButton label="close">
+          <CloseSmallIcon />
+        </UnstyledIconButton>
+      </Card>
+    </Flex>
+  ),
+};
+
+export const BannerWithImage: Story = {
+  render: () => (
+    <Flex gap="400">
+      <Card spacing="md" maxWidth="420px">
+        <CardBannerImage width="160px" height="174px">
+          <img src={piggies} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        </CardBannerImage>
+        <CardBannerContent
+          heading="Save a bundle"
+          description="Homeowners who bundle two or more services with UW and activate the Cashback Card trial will receive up to £150 in credit."
+        />
+      </Card>
+      <Card spacing="lg" direction="column" alignItems="start" maxWidth="300px">
+        <CardBannerImage height="160px">
+          <img src={piggies} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        </CardBannerImage>
+        <CardBannerContent
+          heading="Save a bundle"
+          description="Our network of friendly, local Partners can help you find ways to save."
+        >
+          <Link href="#">
+            Find a UW Partner
+            <ChevronRightSmallIcon />
+          </Link>
+        </CardBannerContent>
+      </Card>
+    </Flex>
+  ),
+};
+
+export const BannerWithIllustration: Story = {
+  render: () => (
+    <Flex gap="400">
+      <Card spacing="lg" colorScheme="pig" variant="subtle" alignItems="center" width="450px">
+        <img src={SpotSavings} alt="Savings Pig" width={80} />
+
+        <CardBannerContent
+          heading="Save money on your household bills when you get it together"
+          description="Our network of friendly, local Partners can help you find ways to save."
+        >
+          <Link href="#">
+            Find a UW Partner
+            <ChevronRightSmallIcon />
+          </Link>
+        </CardBannerContent>
+      </Card>
+      <Card
+        spacing="lg"
+        direction="column"
+        alignItems="center"
+        maxWidth="300px"
+        colorScheme="energy"
+        variant="subtle"
+      >
+        <Flex width="100%" position="relative" justifyContent="center">
+          <img src={SpotSmartMeter} alt="Billing Pig" width={80} />
+          <Box position="absolute" top="0" right="0">
+            <UnstyledIconButton label="close">
+              <CloseSmallIcon />
+            </UnstyledIconButton>
+          </Box>
+        </Flex>
+        <CardBannerContent
+          heading="Save a bundle"
+          description="Our network of friendly, local Partners can help you find ways to save."
+          textAlign="center"
+          alignItems="center"
+        >
+          <Link href="#">
+            Find a UW Partner
+            <ChevronRightSmallIcon />
+          </Link>
+        </CardBannerContent>
       </Card>
     </Flex>
   ),

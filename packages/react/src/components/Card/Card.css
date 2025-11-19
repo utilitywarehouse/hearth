@@ -121,4 +121,11 @@
   &:has(.hearth-CardActions :focus-visible) {
     outline: none;
   }
+
+  & :where(.hearth-CardBannerImage) {
+    border: var(--h-border-width-1) solid var(--h-border-strong);
+    border-radius: var(--h-border-radius-md);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
 }

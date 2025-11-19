@@ -82,6 +82,10 @@ export { CardContent } from './components/Card/CardContent';
 export type { CardContentProps } from './components/Card/CardContent.props';
 export { CardInteraction } from './components/Card/CardInteraction';
 export type { CardInteractionProps } from './components/Card/CardInteraction.props';
+export { CardBannerContent } from './components/Card/CardBannerContent';
+export type { CardBannerContentProps } from './components/Card/CardBannerContent.props';
+export { CardBannerImage } from './components/Card/CardBannerImage';
+export type { CardBannerImageProps } from './components/Card/CardBannerImage.props';
 export { CardActions } from './components/CardActions/CardActions';
 export type { CardActionsProps } from './components/CardActions/CardActions.props';
 export { CardActionLink } from './components/CardActions/CardActionLink';
@@ -249,3 +253,10 @@ export type { TabContentProps } from './components/Tabs/TabContent.props';
 
 export { ProgressBar } from './components/ProgressBar/ProgressBar';
 export type { ProgressBarProps } from './components/ProgressBar/ProgressBar.props';
+
+export { HighlightBanner } from './components/HighlightBanner/HighlightBanner';
+export type { HighlightBannerProps } from './components/HighlightBanner/HighlightBanner.props';
+export { HighlightBannerFooter } from './components/HighlightBanner/HighlightBannerFooter';
+export type { HighlightBannerFooterProps } from './components/HighlightBanner/HighlightBannerFooter.props';
+export { HighlightBannerContent } from './components/HighlightBanner/HighlightBannerContent';
+export type { HighlightBannerContentProps } from './components/HighlightBanner/HighlightBannerContent.props';

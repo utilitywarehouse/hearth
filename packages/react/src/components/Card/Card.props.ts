@@ -55,5 +55,5 @@ type CommonCardProps = Omit<
 };
 
 type CardDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
-type CardLiProps = { as: 'li' } & ComponentPropsWithout<'li', RemovedProps>;
+type CardLiProps = { as?: 'li' } & ComponentPropsWithout<'li', RemovedProps>;
 export type CardProps = CommonCardProps & (CardLiProps | CardDivProps);
