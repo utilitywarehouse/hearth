@@ -391,10 +391,12 @@
   --h-switch-unchecked-background-color-hover: var(--h-color-grey-500);
   --h-table-border-radius: var(--h-border-radius-xl);
   --h-table-cell-border-width: var(--h-border-width-1);
+  --h-table-cell-min-height: 48;
   --h-table-cell-padding: var(--h-space-150);
   --h-table-emphasis-border-width: var(--h-border-width-2);
   --h-table-header-cell-border-width: var(--h-border-width-2);
   --h-table-header-cell-gap: var(--h-space-100);
+  --h-table-header-cell-height: 56px;
   --h-table-header-cell-padding-horizontal: var(--h-space-150);
   --h-table-header-cell-padding-vertical: var(--h-space-200);
   --h-table-subtle-border-width: var(--h-border-width-1);
