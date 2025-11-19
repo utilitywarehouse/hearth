@@ -55,6 +55,7 @@ const styles = StyleSheet.create(theme => ({
     paddingVertical: theme.components.menu.item.padding,
     paddingHorizontal: theme.components.menu.mobile.item.padding,
     gap: theme.components.menu.item.gap,
+    borderRadius: theme.components.menu.item.borderRadius,
     variants: {
       active: {
         true: {
