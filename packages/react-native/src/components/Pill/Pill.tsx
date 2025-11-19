@@ -14,7 +14,7 @@ export const Pill = ({ label, icon, selected = false, ...props }: PillProps) => 
   styles.useVariants({ selected });
 
   return (
-    <Pressable style={styles.pill} {...props}>
+    <Pressable style={styles.pill} accessibilityRole="button" {...props}>
       {icon && <Icon as={icon} size="sm" color={selected ? 'textInverted' : 'textPrimary'} />}
       <BodyText weight="semibold" inverted={selected}>
         {label}
