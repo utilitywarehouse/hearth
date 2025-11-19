@@ -10,17 +10,20 @@ export default {
     gap: 12,
   },
   gap: 24,
-  padding: 48,
+  heading: {
+    gap: 24,
+  },
+  illustration: {
+    padding: 48,
+  },
+  padding: 24,
   mobile: {
-    padding: 16,
     width: 360,
   },
   tablet: {
-    padding: 48,
     width: 504,
   },
   desktop: {
-    padding: 48,
     width: 680,
   },
 };

@@ -21,6 +21,9 @@ declare const _default: {
   readonly minWidth: 120;
   readonly paddingHorizontal: 16;
   readonly paddingVertical: 12;
+  readonly stepper: {
+    readonly gap: 4;
+  };
   readonly textArea: {
     readonly height: 96;
   };

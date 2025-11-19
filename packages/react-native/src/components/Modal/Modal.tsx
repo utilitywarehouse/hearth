@@ -37,11 +37,12 @@ const Modal = ({
   closeOnPrimaryButtonPress = true,
   closeOnSecondaryButtonPress = true,
   loading,
+  fullscreen = false,
   image,
   primaryButtonProps,
   secondaryButtonProps,
   closeButtonProps,
-  fullscreen = false,
+  inNavModal = false,
   ...props
 }: ModalProps) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -52,7 +53,7 @@ const Modal = ({
   const pretendContentTranslateY = useSharedValue(20);
 
   const triggerCloseAnimation = useCallback(() => {
-    if (Platform.OS === 'android' && fullscreen) {
+    if (Platform.OS === 'android' && inNavModal) {
       pretendContentTranslateY.value = withTiming(20, {
         duration: 50,
         easing: Easing.in(Easing.quad),
@@ -62,16 +63,16 @@ const Modal = ({
         easing: Easing.in(Easing.quad),
       });
     }
-  }, [Platform.OS, fullscreen, pretendContentTranslateY, backgroundOpacity]);
+  }, [Platform.OS, inNavModal, pretendContentTranslateY, backgroundOpacity]);
 
   useImperativeHandle(ref, () => ({
     ...(bottomSheetModalRef.current as BottomSheetModal),
     triggerCloseAnimation,
   }));
 
-  // Trigger animations on render for fullscreen Android modal
+  // Trigger animations on render for inNavModal Android modal
   useEffect(() => {
-    if (Platform.OS === 'android' && fullscreen) {
+    if (Platform.OS === 'android' && inNavModal) {
       backgroundOpacity.value = withDelay(
         300,
         withTiming(1, {
@@ -87,7 +88,7 @@ const Modal = ({
         })
       );
     }
-  }, [fullscreen, backgroundOpacity, pretendContentTranslateY]);
+  }, [inNavModal, backgroundOpacity, pretendContentTranslateY]);
 
   const animatedBackgroundStyle = useAnimatedStyle(() => ({
     backgroundColor: hexWithOpacity(
@@ -96,7 +97,7 @@ const Modal = ({
     ),
   }));
 
-  const animatedFullscreenStyle = useAnimatedStyle(() => ({
+  const animatedInNavModalStyle = useAnimatedStyle(() => ({
     backgroundColor: hexWithOpacity(
       theme.components.overlay.backgroundColor,
       backgroundOpacity.value * (theme.components.overlay.opacity / 100)
@@ -240,7 +241,7 @@ const Modal = ({
     </>
   );
 
-  return fullscreen ? (
+  return inNavModal ? (
     <View style={{ flex: 1, backgroundColor: theme.color.background.primary }}>
       {Platform.OS === 'android' ? (
         <Animated.View style={[styles.androidContainer, animatedBackgroundStyle]}>
@@ -248,18 +249,19 @@ const Modal = ({
         </Animated.View>
       ) : null}
       <Animated.View
-        style={[styles.fullscreenContainer, Platform.OS === 'android' && animatedFullscreenStyle]}
+        style={[styles.inNavModalContainer, Platform.OS === 'android' && animatedInNavModalStyle]}
       >
-        <View style={styles.fullscreenContent}>{content}</View>
+        <View style={styles.inNavModalContent}>{content}</View>
       </Animated.View>
     </View>
   ) : (
     <BottomSheetModal
       ref={bottomSheetModalRef}
       enableDynamicSizing={true}
-      snapPoints={image ? ['90%'] : props.snapPoints}
+      snapPoints={image || fullscreen ? ['90%'] : props.snapPoints}
       showHandle={typeof loading !== 'undefined' && loading ? false : props.showHandle}
       accessible={false}
+      style={styles.modal}
       {...props}
       onChange={handleChange}
     >
@@ -272,9 +274,12 @@ const Modal = ({
 };
 
 const styles = StyleSheet.create((theme, rt) => ({
+  modal: {
+    gap: theme.components.modal.content.gap - theme.components.bottomSheet.gap,
+  },
   container: {
     flex: 1,
-    gap: theme.components.dialog.gap,
+    gap: theme.components.modal.gap,
     variants: {
       loading: {
         true: {
@@ -285,11 +290,11 @@ const styles = StyleSheet.create((theme, rt) => ({
   },
   header: {
     flexDirection: 'row',
-    gap: theme.components.dialog.gap,
+    gap: theme.components.modal.gap,
   },
   headerTextContent: {
     flex: 1,
-    gap: theme.components.dialog.content.gap,
+    gap: theme.components.modal.content.gap,
   },
   image: {
     width: 260,
@@ -297,52 +302,51 @@ const styles = StyleSheet.create((theme, rt) => ({
   },
   imageContainer: {
     alignItems: 'center',
-    justifyContent: 'center',
     flex: 1,
   },
   textContent: {
-    gap: theme.components.dialog.content.gap,
+    gap: theme.components.modal.content.gap,
   },
   loadingTop: {
-    borderTopLeftRadius: theme.components.dialog.borderRadius,
-    borderTopRightRadius: theme.components.dialog.borderRadius,
+    borderTopLeftRadius: theme.components.modal.borderRadius,
+    borderTopRightRadius: theme.components.modal.borderRadius,
     height: 16,
     backgroundColor: theme.color.surface.neutral.strong,
   },
   loadingContainer: {
-    borderTopLeftRadius: theme.components.dialog.borderRadius,
-    borderTopRightRadius: theme.components.dialog.borderRadius,
+    borderTopLeftRadius: theme.components.modal.borderRadius,
+    borderTopRightRadius: theme.components.modal.borderRadius,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     minHeight: 140,
-    gap: theme.components.dialog.content.gap,
+    gap: theme.components.modal.content.gap,
   },
   footer: {
-    gap: theme.components.dialog.action.gap,
+    gap: theme.components.modal.action.gap,
   },
-  fullscreenContainer: {
+  inNavModalContainer: {
     flex: 1,
     ...(Platform.OS === 'ios' ? { backgroundColor: theme.components.overlay.backgroundColor } : {}),
   },
-  fullscreenContent: {
+  inNavModalContent: {
     flex: 1,
-    borderTopLeftRadius: theme.components.dialog.borderRadius,
-    borderTopRightRadius: theme.components.dialog.borderRadius,
+    borderTopLeftRadius: theme.components.modal.borderRadius,
+    borderTopRightRadius: theme.components.modal.borderRadius,
     backgroundColor: theme.color.surface.neutral.strong,
-    gap: theme.components.dialog.gap,
-    padding: theme.components.dialog.padding,
-    paddingBottom: theme.components.dialog.padding + rt.insets.bottom,
+    gap: theme.components.modal.gap,
+    padding: theme.components.modal.padding,
+    paddingBottom: theme.components.modal.padding + rt.insets.bottom,
   },
   androidContainer: {
     height: rt.insets.top + 18,
-    paddingLeft: theme.components.dialog.padding,
-    paddingRight: theme.components.dialog.padding,
+    paddingLeft: theme.components.modal.padding,
+    paddingRight: theme.components.modal.padding,
     justifyContent: 'flex-end',
   },
   pretendContent: {
-    borderTopLeftRadius: theme.components.dialog.borderRadius,
-    borderTopRightRadius: theme.components.dialog.borderRadius,
+    borderTopLeftRadius: theme.components.modal.borderRadius,
+    borderTopRightRadius: theme.components.modal.borderRadius,
     height: 12,
     backgroundColor: theme.components.parts.modalStack.backgroundColorCardTop,
   },

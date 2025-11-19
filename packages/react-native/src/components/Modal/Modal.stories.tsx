@@ -41,6 +41,12 @@ const meta = {
       control: 'boolean',
       description: 'Whether the modal is in a loading state.',
     },
+    fullscreen: {
+      control: 'boolean',
+      description: 'Whether the modal should take up the full screen height.',
+    },
+  },
+  actions: {
     onPressPrimaryButton: { action: () => null },
     onPressSecondaryButton: { action: () => null },
     onPressCloseButton: { action: () => null },
@@ -52,6 +58,7 @@ const meta = {
     primaryButtonText: 'Primary',
     secondaryButtonText: 'Cancel',
     loading: false,
+    fullscreen: false,
     onPressCloseButton: () => null,
     onPressPrimaryButton: () => null,
     onPressSecondaryButton: () => null,
@@ -191,4 +198,43 @@ export const Loading = () => {
       </ViewWrap>
     </View>
   );
+};
+
+export const FullscreenModal: Story = {
+  render: () => {
+    const modalRef = useRef<BottomSheetModal>(null);
+
+    const openModal = () => {
+      modalRef.current?.present();
+    };
+
+    const closeModal = () => {
+      modalRef.current?.dismiss();
+    };
+
+    return (
+      <View style={Platform.OS === 'web' ? { width: 400, height: 800 } : { flex: 1 }}>
+        <ViewWrap>
+          <Button onPress={openModal}>Open Fullscreen Modal</Button>
+
+          <Modal
+            ref={modalRef}
+            heading="Fullscreen Modal Heading"
+            description="This is a fullscreen modal description"
+            onPressCloseButton={closeModal}
+            primaryButtonText="Primary"
+            onPressPrimaryButton={closeModal}
+            secondaryButtonText="Cancel"
+            onPressSecondaryButton={closeModal}
+            fullscreen
+          >
+            <Box gap="200">
+              <BodyText>This is a fullscreen modal with content.</BodyText>
+              <BodyText>You can swipe it up and down to close.</BodyText>
+            </Box>
+          </Modal>
+        </ViewWrap>
+      </View>
+    );
+  },
 };
