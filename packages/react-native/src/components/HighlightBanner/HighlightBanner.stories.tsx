@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react-native';
 import { View } from 'react-native';
 import { Button } from '../Button';
 import { Flex } from '../Flex';
@@ -29,6 +29,20 @@ const meta = {
       control: 'select',
       description: 'The variant style of the HighlightBanner',
       options: ['emphasis', 'subtle'],
+    },
+    shadowColor: {
+      control: 'select',
+      description: 'The shadow color of the card',
+      options: [
+        'functional',
+        'brand',
+        'energy',
+        'broadband',
+        'mobile',
+        'insurance',
+        'cashback',
+        'pig',
+      ],
     },
   },
   args: {

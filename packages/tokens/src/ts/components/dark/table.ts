@@ -6,6 +6,7 @@ export default {
   borderRadius: 16,
   cell: {
     borderWidth: 1,
+    minHeight: 48,
     padding: 12,
   },
   emphasis: {
@@ -14,9 +15,7 @@ export default {
   headerCell: {
     borderWidth: 2,
     gap: 8,
-    neutral: {
-      backgroundColor: '#30302c',
-    },
+    height: 56,
     paddingHorizontal: 12,
     paddingVertical: 16,
   },
