@@ -38,10 +38,7 @@
 
   .hearth-PaginationPage {
     height: var(--h-pagination-item-height);
-    height: 40px;
-
     width: var(--h-pagination-item-width);
-    width: 40px;
     aspect-ratio: 1/1;
     padding: var(--h-space-0);
     text-decoration: none;
