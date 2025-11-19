@@ -1,5 +1,4 @@
 .hearth-Menu {
-  /* width: 100%; */
   min-width: var(--h-menu-min-width);
   max-width: var(--h-menu-max-width);
   display: flex;

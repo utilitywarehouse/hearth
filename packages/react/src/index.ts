@@ -78,8 +78,16 @@ export type { InlineLinkProps } from './components/InlineLink/InlineLink.props';
 
 export { Card } from './components/Card/Card';
 export type { CardProps } from './components/Card/Card.props';
-export { CardAction } from './components/Card/CardAction';
-export type { CardActionProps } from './components/Card/CardAction.props';
+export { CardContent } from './components/Card/CardContent';
+export type { CardContentProps } from './components/Card/CardContent.props';
+export { CardInteraction } from './components/Card/CardInteraction';
+export type { CardInteractionProps } from './components/Card/CardInteraction.props';
+export { CardActions } from './components/CardActions/CardActions';
+export type { CardActionsProps } from './components/CardActions/CardActions.props';
+export { CardActionLink } from './components/CardActions/CardActionLink';
+export type { CardActionLinkProps } from './components/CardActions/CardActionLink.props';
+export { CardActionButton } from './components/CardActions/CardActionButton';
+export type { CardActionButtonProps } from './components/CardActions/CardActionButton.props';
 
 export { Divider } from './components/Divider/Divider';
 export type { DividerProps } from './components/Divider/Divider.props';
@@ -167,6 +175,9 @@ export type { AlertIconButtonProps } from './components/Alert/AlertIconButton';
 export { CurrencyInput } from './components/CurrencyInput/CurrencyInput';
 export type { CurrencyInputProps } from './components/CurrencyInput/CurrencyInput.props';
 
+export { DateInput } from './components/DateInput/DateInput';
+export type { DateInputProps } from './components/DateInput/DateInput.props';
+
 export { IconContainer } from './components/IconContainer/IconContainer';
 export type { IconContainerProps } from './components/IconContainer/IconContainer.props';
 
@@ -210,5 +221,31 @@ export type { BreadcrumbsProps } from './components/Breadcrumbs/Breadcrumbs.prop
 export { BreadcrumbItem } from './components/Breadcrumbs/BreadcrumbItem';
 export type { BreadcrumbItemProps } from './components/Breadcrumbs/BreadcrumbItem.props';
 
+export { ProgressStepper } from './components/ProgressStepper/ProgressStepper';
+export type { ProgressStepperProps } from './components/ProgressStepper/ProgressStepper.props';
+export { ProgressStep } from './components/ProgressStepper/ProgressStep';
+export type {
+  ProgressStepProps,
+  ProgressStepStatus,
+} from './components/ProgressStepper/ProgressStep.props';
+export { ProgressStepContent } from './components/ProgressStepper/ProgressStepContent';
+export type { ProgressStepContentProps } from './components/ProgressStepper/ProgressStepContent.props';
+export { ProgressStepLink } from './components/ProgressStepper/ProgressStepLink';
+export type { ProgressStepLinkProps } from './components/ProgressStepper/ProgressStepLink.props';
+export { ProgressStepButton } from './components/ProgressStepper/ProgressStepButton';
+export type { ProgressStepButtonProps } from './components/ProgressStepper/ProgressStepButton.props';
+
 export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar.props';
+
+export { Tabs } from './components/Tabs/Tabs';
+export { TabsList } from './components/Tabs/TabsList';
+export { Tab } from './components/Tabs/Tab';
+export { TabContent } from './components/Tabs/TabContent';
+export type { TabsProps } from './components/Tabs/Tabs.props';
+export type { TabsListProps } from './components/Tabs/TabsList.props';
+export type { TabProps } from './components/Tabs/Tab.props';
+export type { TabContentProps } from './components/Tabs/TabContent.props';
+
+export { ProgressBar } from './components/ProgressBar/ProgressBar';
+export type { ProgressBarProps } from './components/ProgressBar/ProgressBar.props';

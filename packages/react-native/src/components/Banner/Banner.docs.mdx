@@ -1,0 +1,411 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { Banner, Button, Center, Link } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Banner.stories';
+
+<Meta title="Components / Banner" />
+
+<BackToTopButton />
+
+# Banner
+
+The `Banner` component is a versatile card-based component for displaying informational content with an icon or image. It supports various layouts, interactive features like pressable states and close buttons, and optional action elements like buttons or links.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Layout Options](#layout-options)
+- [Examples](#examples)
+  - [With Icon](#with-icon)
+  - [With Image](#with-image)
+  - [With Illustration](#with-illustration)
+  - [With Button](#with-button)
+  - [With Link](#with-link)
+  - [Pressable](#pressable)
+  - [With Close Button](#with-close-button)
+  - [Vertical Layout](#vertical-layout-1)
+  - [Color Schemes](#color-schemes)
+  - [Complex Examples](#complex-examples)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <Banner
+      icon={ElectricityMediumIcon}
+      iconContainerColor="energy"
+      heading="Energy Services"
+      description="Manage your energy account and view your usage."
+    />
+  </Center>
+</UsageWrap>
+
+```jsx
+import { Banner } from '@utilitywarehouse/hearth-react-native';
+import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => (
+  <Banner
+    icon={ElectricityMediumIcon}
+    iconContainerColor="energy"
+    heading="Energy Services"
+    description="Manage your energy account and view your usage."
+  />
+);
+```
+
+## Props
+
+| Property             | Type                                                                                               | Description                                                            | Default        |
+| -------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | -------------- |
+| icon                 | `ComponentType`                                                                                    | Icon component to display (mutually exclusive with image/illustration) | `-`            |
+| iconContainerVariant | `'subtle' \| 'emphasis'`                                                                           | Icon container visual style                                            | `'subtle'`     |
+| iconContainerSize    | `'sm' \| 'md' \| 'lg'`                                                                             | Icon container size                                                    | `'md'`         |
+| iconContainerColor   | `'pig' \| 'energy' \| 'broadband' \| 'mobile' \|` <br />`'insurance' \| 'cashback' \| 'highlight'` | Icon container color scheme                                            | `'pig'`        |
+| illustration         | `ThemedImageProps \| ImageProps`                                                                   | Themed illustration object (mutually exclusive with icon/image)        | `-`            |
+| image                | `ThemedImageProps \| ImageProps`                                                                   | Themed image object (mutually exclusive with icon/illustration)        | `-`            |
+| heading              | `string`                                                                                           | Heading text                                                           | `-` (required) |
+| description          | `string`                                                                                           | Description text                                                       | `-` (required) |
+| direction            | `'horizontal' \| 'vertical'`                                                                       | Layout direction for icon/image and content                            | `'horizontal'` |
+| link                 | `ReactNode`                                                                                        | Link element to display                                                | `-`            |
+| button               | `ReactNode`                                                                                        | Button element to display                                              | `-`            |
+| onPress              | `() => void`                                                                                       | Makes the entire banner pressable (shows chevron)                      | `-`            |
+| onClose              | `() => void`                                                                                       | Shows close button with handler                                        | `-`            |
+| variant              | `'subtle' \| 'emphasis'`                                                                           | Card visual style variant                                              | `'subtle'`     |
+| colorScheme          | `'pig' \| 'energy' \| 'broadband' \| 'mobile' \|` <br />`'insurance' \| 'cashback' \| 'highlight'` | Color scheme for buttons                                               | `'pig'`        |
+
+The component also accepts all standard Card props except `noPadding`, `space`, `gap`, `rowGap`, `columnGap`, `flexDirection`, `flexWrap`, `alignItems`, and `justifyContent`.
+
+## Layout Options
+
+### Horizontal Layout (Default)
+
+The default horizontal layout places the icon or image to the left of the content, creating a compact side-by-side arrangement.
+
+```jsx
+<Banner
+  icon={ElectricityMediumIcon}
+  heading="Horizontal Layout"
+  description="Icon appears to the left of the content."
+  direction="horizontal"
+/>
+```
+
+### Vertical Layout
+
+The vertical layout stacks the icon or image above the content, useful for centered or full-width presentations.
+
+```jsx
+<Banner
+  icon={ElectricityMediumIcon}
+  heading="Vertical Layout"
+  description="Icon appears above the content."
+  direction="vertical"
+/>
+```
+
+## Examples
+
+### With Icon
+
+Use an icon with `IconContainer` styling options:
+
+<Canvas of={Stories.WithIcon} />
+
+```jsx
+import { Banner } from '@utilitywarehouse/hearth-react-native';
+import {
+  ElectricityMediumIcon,
+  BroadbandMediumIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => (
+  <>
+    <Banner
+      icon={ElectricityMediumIcon}
+      iconContainerColor="energy"
+      heading="Energy Services"
+      description="Manage your energy account and view your usage."
+    />
+
+    <Banner
+      icon={BroadbandMediumIcon}
+      iconContainerColor="broadband"
+      iconContainerVariant="emphasis"
+      heading="Broadband Plans"
+      description="Upgrade your broadband to faster speeds."
+    />
+  </>
+);
+```
+
+### With Image
+
+Display a themed image that automatically switches between light and dark modes:
+
+<Canvas of={Stories.WithImage} />
+
+```jsx
+import { Banner } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <>
+    <Banner
+      image={{
+        source: { uri: 'https://example.com/image.jpg' },
+      }}
+      heading="Featured Content"
+      description="Discover amazing content curated just for you."
+    />
+    <Banner
+      image={{
+        light: { uri: 'https://example.com/light-image.jpg' },
+        dark: { uri: 'https://example.com/dark-image.jpg' },
+      }}
+      heading="Featured Content"
+      description="Discover amazing content curated just for you."
+    />
+  </>
+);
+```
+
+### With Illustration
+
+Display a themed illustration that adapts to layout changes:
+
+<Canvas of={Stories.WithIllustration} />
+
+```jsx
+import { Banner } from '@utilitywarehouse/hearth-react-native';
+import SpotBillingDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg';
+import SpotBillingLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-light.svg';
+
+const MyComponent = () => (
+  <Banner
+    illustration={{
+      light: SpotBillingLight,
+      dark: SpotBillingDark,
+      width: 80,
+      height: 80,
+    }}
+    heading="Featured Content"
+    description="Discover amazing content curated just for you."
+  />
+);
+```
+
+### With Button
+
+Add a button for clear call-to-action:
+
+<Canvas of={Stories.WithButton} />
+
+```jsx
+import { Banner } from '@utilitywarehouse/hearth-react-native';
+import { InsuranceMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => (
+  <Banner
+    icon={InsuranceMediumIcon}
+    iconContainerColor="insurance"
+    heading="Home Insurance"
+    description="Protect your home with our comprehensive insurance."
+    button={
+      <Button size="sm" onPress={() => console.log('Get Quote pressed')}>
+        Get Quote
+      </Button>
+    }
+  />
+);
+```
+
+### With Link
+
+Use a link for lighter-weight actions:
+
+<Canvas of={Stories.WithLink} />
+
+```jsx
+import { Banner } from '@utilitywarehouse/hearth-react-native';
+import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => (
+  <Banner
+    icon={ElectricityMediumIcon}
+    iconContainerColor="energy"
+    heading="Energy Saving Tips"
+    description="Learn how to reduce your energy consumption."
+    link={<Link href="#">View tips</Link>}
+  />
+);
+```
+
+### Pressable
+
+Make the entire banner pressable with a chevron indicator:
+
+<Canvas of={Stories.Pressable} />
+
+```jsx
+import { Banner } from '@utilitywarehouse/hearth-react-native';
+import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => (
+  <Banner
+    icon={ElectricityMediumIcon}
+    iconContainerColor="energy"
+    heading="Energy Dashboard"
+    description="View your energy usage and bills."
+    onPress={() => console.log('Banner pressed')}
+  />
+);
+```
+
+### With Close Button
+
+Add a close button for dismissible banners:
+
+<Canvas of={Stories.WithClose} />
+
+```jsx
+import { Banner } from '@utilitywarehouse/hearth-react-native';
+import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => (
+  <Banner
+    icon={ElectricityMediumIcon}
+    iconContainerColor="energy"
+    heading="Special Announcement"
+    description="We have some exciting news to share with you."
+    onClose={() => console.log('Close pressed')}
+  />
+);
+```
+
+### Vertical Layout
+
+Stack the icon or image above the content:
+
+<Canvas of={Stories.VerticalLayout} />
+
+```jsx
+import { Banner } from '@utilitywarehouse/hearth-react-native';
+import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => (
+  <Banner
+    icon={ElectricityMediumIcon}
+    iconContainerColor="energy"
+    heading="Energy Services"
+    description="Manage your energy account and view your usage."
+    direction="vertical"
+  />
+);
+```
+
+### Color Schemes
+
+The component supports semantic color schemes for buttons and theming:
+
+<Canvas of={Stories.ColorSchemes} />
+
+```jsx
+import { Banner } from '@utilitywarehouse/hearth-react-native';
+import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => (
+  <>
+    <Banner
+      icon={ElectricityMediumIcon}
+      iconContainerColor="energy"
+      colorScheme="energy"
+      heading="Energy Blue"
+      description="Banner with energy color scheme."
+      button={
+        <Button size="sm" onPress={() => {}}>
+          Action
+        </Button>
+      }
+    />
+
+    <Banner
+      icon={BroadbandMediumIcon}
+      iconContainerColor="broadband"
+      colorScheme="broadband"
+      heading="Broadband Green"
+      description="Banner with broadband color scheme."
+      button={
+        <Button size="sm" onPress={() => {}}>
+          Action
+        </Button>
+      }
+    />
+  </>
+);
+```
+
+### Complex Examples
+
+Combine multiple features for rich interactive banners:
+
+<Canvas of={Stories.ComplexExample} />
+
+```jsx
+import { Banner } from '@utilitywarehouse/hearth-react-native';
+import { InsuranceMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+const MyComponent = () => (
+  <>
+    {/* Pressable banner with button */}
+    <Banner
+      icon={InsuranceMediumIcon}
+      iconContainerColor="insurance"
+      iconContainerVariant="emphasis"
+      colorScheme="insurance"
+      heading="Home Insurance Alert"
+      description="Your policy renewal is coming up. Review your coverage and make any necessary changes."
+      button={
+        <Button size="sm" onPress={() => console.log('Review pressed')}>
+          Review Policy
+        </Button>
+      }
+      onPress={() => console.log('Banner pressed')}
+    />
+
+    {/* Dismissible banner with link */}
+    <Banner
+      image={{
+        light: { uri: 'https://example.com/light.jpg' },
+        dark: { uri: 'https://example.com/dark.jpg' },
+      }}
+      heading="Exclusive Member Benefit"
+      description="As a valued member, you now have access to premium features at no extra cost."
+      variant="emphasis"
+      link={<Link href="#">Explore benefits</Link>}
+      onClose={() => console.log('Close pressed')}
+    />
+  </>
+);
+```
+
+## Best Practices
+
+- Use **icons** for service-related or informational banners
+- Use **images** for promotional or visual content with fixed aspect ratios
+- Use **illustrations** for decorative or branded visual content that adapts to layout
+- Choose **horizontal layout** for compact presentations
+- Choose **vertical layout** for more prominent or centered displays
+- Use **pressable** (`onPress`) when the entire banner is clickable
+- Use **buttons** for primary actions (e.g., "Get Started", "Learn More")
+- Use **links** for secondary actions (e.g., "View details", "Read more")
+- Add **close button** (`onClose`) for dismissible announcements or notifications
+- Align **iconContainerColor** and **colorScheme** with your content's semantic meaning
+- Don't combine icon, image, and illustration - they are mutually exclusive
+- Avoid using both `onPress` and `onClose` together unless the distinction is clear to users

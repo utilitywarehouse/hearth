@@ -17,10 +17,11 @@
           "value": 0
         }
       },
-      "dialog": {
-        "width": {
+      "drawer": {
+        "padding": {
+          "alias": "{space.300}",
           "type": "number",
-          "value": 680
+          "value": 24
         }
       },
       "menu": {
@@ -33,11 +34,6 @@
         }
       },
       "modal": {
-        "padding": {
-          "alias": "{space.600}",
-          "type": "number",
-          "value": 48
-        },
         "width": {
           "type": "number",
           "value": 680
@@ -69,7 +65,7 @@
         }
       },
       "container": {
-        "margin": {
+        "margin-horizontal": {
           "alias": "{space.400}",
           "type": "number",
           "value": 32
@@ -469,6 +465,11 @@
             "value": 48
           }
         }
+      },
+      "list-spacing": {
+        "alias": "{space.200}",
+        "type": "number",
+        "value": 16
       }
     }
   },
@@ -490,10 +491,11 @@
           "value": 0
         }
       },
-      "dialog": {
-        "width": {
+      "drawer": {
+        "padding": {
+          "alias": "{space.200}",
           "type": "number",
-          "value": 360
+          "value": 16
         }
       },
       "menu": {
@@ -506,11 +508,6 @@
         }
       },
       "modal": {
-        "padding": {
-          "alias": "{space.200}",
-          "type": "number",
-          "value": 16
-        },
         "width": {
           "type": "number",
           "value": 360
@@ -542,7 +539,7 @@
         }
       },
       "container": {
-        "margin": {
+        "margin-horizontal": {
           "alias": "{space.200}",
           "type": "number",
           "value": 16
@@ -942,6 +939,11 @@
             "value": 36
           }
         }
+      },
+      "list-spacing": {
+        "alias": "{space.200}",
+        "type": "number",
+        "value": 16
       }
     }
   },
@@ -963,10 +965,11 @@
           "value": 0
         }
       },
-      "dialog": {
-        "width": {
+      "drawer": {
+        "padding": {
+          "alias": "{space.300}",
           "type": "number",
-          "value": 504
+          "value": 24
         }
       },
       "menu": {
@@ -979,11 +982,6 @@
         }
       },
       "modal": {
-        "padding": {
-          "alias": "{space.600}",
-          "type": "number",
-          "value": 48
-        },
         "width": {
           "type": "number",
           "value": 504
@@ -1015,7 +1013,7 @@
         }
       },
       "container": {
-        "margin": {
+        "margin-horizontal": {
           "alias": "{space.400}",
           "type": "number",
           "value": 32
@@ -1415,6 +1413,11 @@
             "value": 36
           }
         }
+      },
+      "list-spacing": {
+        "alias": "{space.200}",
+        "type": "number",
+        "value": 16
       }
     }
   }

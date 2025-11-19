@@ -1,0 +1,148 @@
+.hearth-ProgressBar {
+  & :where(.hearth-ProgressBarLinear) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: var(--h-progress-bar-linear-gap);
+    width: 100%;
+
+    & :where(.hearth-ProgressBarLabel) {
+      grid-column-start: 1;
+      text-align: left;
+    }
+
+    & :where(.hearth-ProgressBarValueText) {
+      grid-column-start: 2;
+      text-align: right;
+    }
+
+    & :where(.hearth-ProgressBarLinearTrack) {
+      width: 100%;
+      grid-column: 1 / 3;
+      height: var(--h-progress-bar-linear-bar-height);
+      background-color: var(--h-progress-bar-bar-color);
+      border-radius: var(--h-progress-bar-linear-bar-border-radius);
+      overflow: hidden;
+      position: relative;
+    }
+
+    & :where(.hearth-ProgressBarLinearIndicator) {
+      height: 100%;
+      background-color: var(--h-progress-bar-progress-default-color);
+      border-radius: var(--h-progress-bar-linear-bar-border-radius);
+      transition: width 0.3s ease-in-out;
+
+      &:where([data-colorscheme='success'] &) {
+        background-color: var(--h-progress-bar-progress-success-color);
+      }
+
+      &:where([data-colorscheme='danger'] &) {
+        background-color: var(--h-progress-bar-progress-danger-color);
+      }
+    }
+  }
+
+  & :where(.hearth-ProgressBarCircular) {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: var(--h-progress-bar-circular-size);
+    height: var(--h-progress-bar-circular-size);
+
+    --h-pi: 3.14;
+    --h-radius: calc(
+      calc(var(--h-progress-bar-circular-size) - var(--h-progress-bar-circular-bar-width)) / 2
+    );
+    --h-circumference: calc(2 * var(--h-pi) * var(--h-radius));
+    --h-stroke-dashoffset: calc(
+      var(--h-circumference) - calc(calc(var(--h-value) / 100) * var(--h-circumference))
+    );
+
+    & :where(.hearth-ProgressBarLabel) {
+      display: var(--h-progress-bar-label-display, block);
+      text-wrap: wrap;
+      max-width: 90px;
+    }
+
+    & > svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      & > circle {
+        cx: 50%;
+        cy: 50%;
+        r: var(--h-radius);
+        fill: transparent;
+        stroke-width: var(--h-progress-bar-circular-bar-width);
+      }
+    }
+
+    & :where(.hearth-ProgressBarValueText) {
+      font-family: var(--h-progress-bar-circular-md-label-font-family);
+      font-size: var(--h-progress-bar-circular-label-font-size);
+      font-weight: var(--h-progress-bar-value-text-font-weight);
+      line-height: var(--h-progress-bar-circular-md-label-line-height);
+    }
+
+    @breakpoints {
+      &:where(.hearth-r-size-md &) {
+        --h-progress-bar-circular-size: var(--h-progress-bar-circular-md-height);
+        --h-progress-bar-circular-bar-width: var(--h-progress-bar-circular-md-bar-width);
+        --h-progress-bar-circular-label-font-weight: var(
+          --h-progress-bar-circular-md-label-font-weight
+        );
+        --h-progress-bar-circular-label-font-size: var(
+          --h-progress-bar-circular-md-label-font-size
+        );
+        --h-content-margin-top: var(--h-space-75);
+        --h-progress-bar-label-display: block;
+        --h-progress-bar-value-text-font-weight: var(--h-body-text-font-weight-regular);
+      }
+
+      &:where(.hearth-r-size-sm &) {
+        --h-progress-bar-circular-size: var(--h-progress-bar-circular-sm-height);
+        --h-progress-bar-circular-bar-width: var(--h-progress-bar-circular-sm-bar-width);
+        --h-progress-bar-circular-label-font-weight: var(--h-body-text-font-weight-semibold);
+        --h-progress-bar-circular-label-font-size: var(--h-body-text-md-font-size);
+        --h-progress-bar-label-display: none;
+        --h-progress-bar-value-text-font-weight: var(--h-body-text-font-weight-semibold);
+      }
+    }
+
+    & :where(.hearth-ProgressBarCircularTrack) {
+      stroke: var(--h-progress-bar-bar-color);
+    }
+
+    & :where(.hearth-ProgressBarCircularIndicator) {
+      stroke: var(--h-progress-bar-progress-default-color);
+      stroke-linecap: round;
+      stroke-dashoffset: var(--h-stroke-dashoffset);
+      transform: rotate(-90deg);
+      transform-origin: center;
+      transition: stroke-dashoffset 0.3s ease-in-out;
+      stroke-dasharray: var(--h-circumference);
+
+      @media (prefers-reduced-motion: reduce) {
+        stroke-dasharray: none;
+      }
+
+      &:where([data-colorscheme='success'] &) {
+        stroke: var(--h-progress-bar-progress-success-color);
+      }
+
+      &:where([data-colorscheme='danger'] &) {
+        stroke: var(--h-progress-bar-progress-danger-color);
+      }
+    }
+
+    & :where(.hearth-ProgressBarCircularContent) {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+
+      /* eyeballing this as the text content does not look centred */
+      margin-top: var(--h-content-margin-top);
+    }
+  }
+}

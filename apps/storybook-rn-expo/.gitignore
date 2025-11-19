@@ -95,6 +95,7 @@ web-build/
 !.yarn/sdks
 !.yarn/versions
 *storybook.log
+.rnstorybook/storybook.requires.js
 
 android
 ios

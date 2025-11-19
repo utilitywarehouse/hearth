@@ -18,7 +18,8 @@ const IconButtonIcon = (props: IconProps) => {
       {...props}
       style={
         Platform.OS === 'web'
-          ? StyleSheet.compose(styles.icon as StyleProp<ViewStyle>, props.style)
+          ? // @ts-expect-error - style prop type issue
+            { ...(styles.icon as StyleProp<ViewStyle>), ...props.style }
           : [styles.icon as ViewStyle, props.style]
       }
     >

@@ -1,5 +1,53 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.8.2
+
+### Patch Changes
+
+- [#652](https://github.com/utilitywarehouse/hearth/pull/652) [`5119703`](https://github.com/utilitywarehouse/hearth/commit/5119703a31f663cc8c0a8bb2c6ba5b10f9bf72d6) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `RadioCard` label wrapping issue
+
+- [#648](https://github.com/utilitywarehouse/hearth/pull/648) [`c90ea5c`](https://github.com/utilitywarehouse/hearth/commit/c90ea5ce165f27ccfc9774ec58ac642d02b349d1) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `ListAction` icon size
+
+- [#648](https://github.com/utilitywarehouse/hearth/pull/648) [`c90ea5c`](https://github.com/utilitywarehouse/hearth/commit/c90ea5ce165f27ccfc9774ec58ac642d02b349d1) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `Banner` text gap size
+
+- [#651](https://github.com/utilitywarehouse/hearth/pull/651) [`4ee77b7`](https://github.com/utilitywarehouse/hearth/commit/4ee77b75e58ac4abbeba375ecb367d8899c7f1a0) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `Banner` image and height issue
+
+- [#649](https://github.com/utilitywarehouse/hearth/pull/649) [`7374535`](https://github.com/utilitywarehouse/hearth/commit/737453598ad5e885b35b5fcd2e4c4ccff4910c43) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `List` to only show `Card` container if it has children
+
+- [#648](https://github.com/utilitywarehouse/hearth/pull/648) [`c90ea5c`](https://github.com/utilitywarehouse/hearth/commit/c90ea5ce165f27ccfc9774ec58ac642d02b349d1) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `shadowColor` prop to `Card` and exposes helpers in theme
+
+## 0.8.1
+
+### Patch Changes
+
+- [#641](https://github.com/utilitywarehouse/hearth/pull/641) [`251242e`](https://github.com/utilitywarehouse/hearth/commit/251242e218c0b24589c3fb6fb6963b53bda8a367) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `HighlightBanner` when no image is provided
+
+## 0.8.0
+
+### Minor Changes
+
+- [#635](https://github.com/utilitywarehouse/hearth/pull/635) [`4cac2f2`](https://github.com/utilitywarehouse/hearth/commit/4cac2f28c12279557e2133d67cd75783f30c89ff) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Expandable` component
+
+- [#631](https://github.com/utilitywarehouse/hearth/pull/631) [`57b4991`](https://github.com/utilitywarehouse/hearth/commit/57b49912c90dce3d88a699bd50217df08dab601a) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Banner` component
+
+- [#636](https://github.com/utilitywarehouse/hearth/pull/636) [`a363352`](https://github.com/utilitywarehouse/hearth/commit/a363352dbfbc44245c64e2a16347463b89ff519a) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `ExpandableCard` component
+
+- [#631](https://github.com/utilitywarehouse/hearth/pull/631) [`57b4991`](https://github.com/utilitywarehouse/hearth/commit/57b49912c90dce3d88a699bd50217df08dab601a) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `HighlightBanner` component
+
+## 0.7.0
+
+### Minor Changes
+
+- [#613](https://github.com/utilitywarehouse/hearth/pull/613) [`0bdfbe4`](https://github.com/utilitywarehouse/hearth/commit/0bdfbe41ed8b30e5abf49de6ea4cb3a12194921e) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `CardAction` component
+
+## 0.6.0
+
+### Minor Changes
+
+- [#603](https://github.com/utilitywarehouse/hearth/pull/603) [`3f292e9`](https://github.com/utilitywarehouse/hearth/commit/3f292e9960dc708dd6932cff04671dd7ef375c1a) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Container` component
+
+- [#605](https://github.com/utilitywarehouse/hearth/pull/605) [`f52e0f5`](https://github.com/utilitywarehouse/hearth/commit/f52e0f57eff5f1cfa36dacc45576c08771ca12df) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `ThemedImage` component
+
 ## 0.5.0
 
 ### Minor Changes

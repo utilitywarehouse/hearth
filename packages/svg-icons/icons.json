@@ -1,19 +1,67 @@
 [
   {
-    "id": "1:742",
-    "name": "CloseSmallIcon"
-  },
-  {
     "id": "1:773",
     "name": "AddSmallIcon"
+  },
+  {
+    "id": "2275:794",
+    "name": "AttachSmallIcon"
   },
   {
     "id": "2330:17",
     "name": "BasketSmallIcon"
   },
   {
+    "id": "2301:392",
+    "name": "BellSmallIcon"
+  },
+  {
+    "id": "2397:19",
+    "name": "BillSmallIcon"
+  },
+  {
+    "id": "2192:61",
+    "name": "BroadbandSmallIcon"
+  },
+  {
+    "id": "2017:52",
+    "name": "CalendarSmallIcon"
+  },
+  {
+    "id": "2275:769",
+    "name": "CalendarAddSmallIcon"
+  },
+  {
+    "id": "2192:89",
+    "name": "CashbackCardSmallIcon"
+  },
+  {
     "id": "2353:17",
     "name": "CelebrationSmallIcon"
+  },
+  {
+    "id": "2074:37",
+    "name": "ChevronDownSmallIcon"
+  },
+  {
+    "id": "1:1172",
+    "name": "ChevronLeftSmallIcon"
+  },
+  {
+    "id": "1:1183",
+    "name": "ChevronRightSmallIcon"
+  },
+  {
+    "id": "2074:100",
+    "name": "ChevronUpSmallIcon"
+  },
+  {
+    "id": "1:742",
+    "name": "CloseSmallIcon"
+  },
+  {
+    "id": "1:1249",
+    "name": "CopySmallIcon"
   },
   {
     "id": "2388:14",
@@ -24,80 +72,32 @@
     "name": "CreditReversalSmallIcon"
   },
   {
-    "id": "1:790",
-    "name": "MinusSmallIcon"
-  },
-  {
-    "id": "1:854",
-    "name": "TickSmallIcon"
-  },
-  {
-    "id": "1:1183",
-    "name": "ChevronRightSmallIcon"
-  },
-  {
-    "id": "1:1172",
-    "name": "ChevronLeftSmallIcon"
-  },
-  {
-    "id": "2074:37",
-    "name": "ChevronDownSmallIcon"
-  },
-  {
-    "id": "2074:100",
-    "name": "ChevronUpSmallIcon"
-  },
-  {
-    "id": "43:133",
-    "name": "IncreaseSmallIcon"
-  },
-  {
     "id": "43:150",
     "name": "DecreaseSmallIcon"
-  },
-  {
-    "id": "1:1194",
-    "name": "ExpandSmallIcon"
   },
   {
     "id": "1:1205",
     "name": "DownloadSmallIcon"
   },
   {
-    "id": "2353:16",
-    "name": "LaunchSmallIcon"
+    "id": "1:1194",
+    "name": "ExpandSmallIcon"
   },
   {
-    "id": "4:102",
-    "name": "LoginSmallIcon"
+    "id": "4:27",
+    "name": "EditSmallIcon"
   },
   {
-    "id": "1:1216",
-    "name": "UploadSmallIcon"
+    "id": "2173:34",
+    "name": "ElectricitySmallIcon"
   },
   {
-    "id": "4:113",
-    "name": "LogoutSmallIcon"
-  },
-  {
-    "id": "2415:19",
-    "name": "InfoSmallIcon"
-  },
-  {
-    "id": "135:136",
-    "name": "TickCircleSmallIcon"
+    "id": "46:25",
+    "name": "EmailSmallIcon"
   },
   {
     "id": "2017:23",
     "name": "ErrorCircleSmallIcon"
-  },
-  {
-    "id": "2425:32",
-    "name": "QuestionMarkSmallIcon"
-  },
-  {
-    "id": "2425:40",
-    "name": "WarningSmallIcon"
   },
   {
     "id": "2017:88",
@@ -108,24 +108,20 @@
     "name": "EyeOffSmallIcon"
   },
   {
+    "id": "4:135",
+    "name": "FilterSmallIcon"
+  },
+  {
+    "id": "4:38",
+    "name": "FullscreenSmallIcon"
+  },
+  {
     "id": "2173:22",
     "name": "GasSmallIcon"
   },
   {
-    "id": "2173:34",
-    "name": "ElectricitySmallIcon"
-  },
-  {
-    "id": "2311:35",
-    "name": "LandlineSmallIcon"
-  },
-  {
-    "id": "2192:61",
-    "name": "BroadbandSmallIcon"
-  },
-  {
-    "id": "2192:75",
-    "name": "InsuranceSmallIcon"
+    "id": "2165:39",
+    "name": "HeartSmallIcon"
   },
   {
     "id": "2311:38",
@@ -140,116 +136,116 @@
     "name": "IncomeProtectSmallIcon"
   },
   {
-    "id": "2192:89",
-    "name": "CashbackCardSmallIcon"
+    "id": "43:133",
+    "name": "IncreaseSmallIcon"
   },
   {
-    "id": "2192:103",
-    "name": "MobileSmallIcon"
+    "id": "2463:9",
+    "name": "InsightsSmallIcon"
   },
   {
-    "id": "2311:47",
-    "name": "SimSmallIcon"
+    "id": "2415:19",
+    "name": "InfoSmallIcon"
   },
   {
-    "id": "1:1227",
-    "name": "PlaceholderSmallIcon"
+    "id": "2192:75",
+    "name": "InsuranceSmallIcon"
   },
   {
-    "id": "1:1238",
-    "name": "MoreSmallIcon"
+    "id": "2311:35",
+    "name": "LandlineSmallIcon"
   },
   {
-    "id": "1:1249",
-    "name": "CopySmallIcon"
+    "id": "2353:16",
+    "name": "LaunchSmallIcon"
   },
   {
-    "id": "4:38",
-    "name": "FullscreenSmallIcon"
+    "id": "2458:85",
+    "name": "ListSmallIcon"
   },
   {
-    "id": "4:27",
-    "name": "EditSmallIcon"
+    "id": "4:113",
+    "name": "LogoutSmallIcon"
   },
   {
-    "id": "4:49",
-    "name": "UserSmallIcon"
+    "id": "2447:40",
+    "name": "LocateSmallIcon"
   },
   {
-    "id": "4:60",
-    "name": "SettingsSmallIcon"
-  },
-  {
-    "id": "46:25",
-    "name": "EmailSmallIcon"
-  },
-  {
-    "id": "46:27",
-    "name": "PhoneSmallIcon"
-  },
-  {
-    "id": "4:91",
-    "name": "LinkSmallIcon"
-  },
-  {
-    "id": "4:124",
-    "name": "TrashSmallIcon"
-  },
-  {
-    "id": "4:135",
-    "name": "FilterSmallIcon"
-  },
-  {
-    "id": "2015:19",
-    "name": "OpenSmallIcon"
-  },
-  {
-    "id": "2017:20",
-    "name": "SearchSmallIcon"
-  },
-  {
-    "id": "2017:52",
-    "name": "CalendarSmallIcon"
-  },
-  {
-    "id": "2275:769",
-    "name": "CalendarAddSmallIcon"
-  },
-  {
-    "id": "4:1361",
-    "name": "ShareSmallIcon"
-  },
-  {
-    "id": "2076:19",
-    "name": "WhatsAppSmallIcon"
-  },
-  {
-    "id": "2165:39",
-    "name": "HeartSmallIcon"
-  },
-  {
-    "id": "2275:784",
-    "name": "SendSmallIcon"
-  },
-  {
-    "id": "2275:794",
-    "name": "AttachSmallIcon"
+    "id": "2458:19",
+    "name": "LocationSmallIcon"
   },
   {
     "id": "2275:804",
     "name": "LockSmallIcon"
   },
   {
-    "id": "2304:2253",
-    "name": "UnlockSmallIcon"
+    "id": "4:91",
+    "name": "LinkSmallIcon"
+  },
+  {
+    "id": "4:102",
+    "name": "LoginSmallIcon"
+  },
+  {
+    "id": "2425:19",
+    "name": "MeterSmallIcon"
+  },
+  {
+    "id": "1:790",
+    "name": "MinusSmallIcon"
+  },
+  {
+    "id": "2192:103",
+    "name": "MobileSmallIcon"
+  },
+  {
+    "id": "1:1238",
+    "name": "MoreSmallIcon"
+  },
+  {
+    "id": "2015:19",
+    "name": "OpenSmallIcon"
+  },
+  {
+    "id": "46:27",
+    "name": "PhoneSmallIcon"
+  },
+  {
+    "id": "1:1227",
+    "name": "PlaceholderSmallIcon"
+  },
+  {
+    "id": "2425:32",
+    "name": "QuestionMarkSmallIcon"
   },
   {
     "id": "2388:26",
     "name": "RefundSmallIcon"
   },
   {
+    "id": "2017:20",
+    "name": "SearchSmallIcon"
+  },
+  {
+    "id": "2275:784",
+    "name": "SendSmallIcon"
+  },
+  {
+    "id": "4:60",
+    "name": "SettingsSmallIcon"
+  },
+  {
+    "id": "4:1361",
+    "name": "ShareSmallIcon"
+  },
+  {
     "id": "2388:20",
     "name": "ShoppingSmallIcon"
+  },
+  {
+    "id": "2311:47",
+    "name": "SimSmallIcon"
   },
   {
     "id": "2260:12",
@@ -264,16 +260,12 @@
     "name": "SnowflakeSmallIcon"
   },
   {
-    "id": "2388:24",
-    "name": "TopUpSmallIcon"
+    "id": "1:854",
+    "name": "TickSmallIcon"
   },
   {
-    "id": "2388:22",
-    "name": "WithdrawSmallIcon"
-  },
-  {
-    "id": "2301:392",
-    "name": "BellSmallIcon"
+    "id": "135:136",
+    "name": "TickCircleSmallIcon"
   },
   {
     "id": "2392:24",
@@ -284,156 +276,184 @@
     "name": "ThumbsDownSmallIcon"
   },
   {
-    "id": "2397:19",
-    "name": "BillSmallIcon"
+    "id": "2459:19",
+    "name": "TimeSmallIcon"
   },
   {
-    "id": "2425:19",
-    "name": "MeterSmallIcon"
+    "id": "2388:24",
+    "name": "TopUpSmallIcon"
   },
   {
-    "id": "2447:40",
-    "name": "LocateSmallIcon"
+    "id": "4:124",
+    "name": "TrashSmallIcon"
+  },
+  {
+    "id": "2304:2253",
+    "name": "UnlockSmallIcon"
+  },
+  {
+    "id": "1:1216",
+    "name": "UploadSmallIcon"
+  },
+  {
+    "id": "4:49",
+    "name": "UserSmallIcon"
+  },
+  {
+    "id": "2425:40",
+    "name": "WarningSmallIcon"
+  },
+  {
+    "id": "2076:19",
+    "name": "WhatsAppSmallIcon"
+  },
+  {
+    "id": "2388:22",
+    "name": "WithdrawSmallIcon"
   },
   {
     "id": "6:275",
     "name": "AddMediumIcon"
   },
   {
-    "id": "6:287",
-    "name": "CloseMediumIcon"
+    "id": "2268:24",
+    "name": "AttachMediumIcon"
   },
   {
-    "id": "6:437",
-    "name": "MinusMediumIcon"
+    "id": "9:774",
+    "name": "BankMediumIcon"
   },
   {
-    "id": "6:492",
-    "name": "TickMediumIcon"
+    "id": "9:925",
+    "name": "BasketMediumIcon"
   },
   {
-    "id": "6:503",
-    "name": "ChevronRightMediumIcon"
+    "id": "9:666",
+    "name": "BellMediumIcon"
   },
   {
-    "id": "9:1153",
-    "name": "ChevronLeftMediumIcon"
+    "id": "154:97",
+    "name": "BillMediumIcon"
   },
   {
-    "id": "68:124",
-    "name": "ChevronDownMediumIcon"
+    "id": "2447:68",
+    "name": "BoilerMediumIcon"
   },
   {
-    "id": "68:134",
-    "name": "ChevronUpMediumIcon"
+    "id": "9:223",
+    "name": "BookmarkMediumIcon"
   },
   {
-    "id": "2388:12",
-    "name": "CreditMediumIcon"
-  },
-  {
-    "id": "2388:16",
-    "name": "CreditReversalMediumIcon"
-  },
-  {
-    "id": "151:191",
-    "name": "ExpandMediumIcon"
-  },
-  {
-    "id": "15:172",
-    "name": "IncreaseMediumIcon"
-  },
-  {
-    "id": "15:183",
-    "name": "DecreaseMediumIcon"
-  },
-  {
-    "id": "4:1406",
-    "name": "ElectricityMediumIcon"
-  },
-  {
-    "id": "4:1395",
-    "name": "GasMediumIcon"
+    "id": "2365:13",
+    "name": "BookOpenMediumIcon"
   },
   {
     "id": "4:1417",
     "name": "BroadbandMediumIcon"
   },
   {
-    "id": "2268:1382",
-    "name": "LandlineMediumIcon"
+    "id": "9:892",
+    "name": "BulbMediumIcon"
   },
   {
-    "id": "2060:2",
-    "name": "InsuranceMediumIcon"
+    "id": "68:124",
+    "name": "ChevronDownMediumIcon"
   },
   {
-    "id": "2268:1412",
-    "name": "HomeAndBoilerMediumIcon"
+    "id": "9:1153",
+    "name": "ChevronLeftMediumIcon"
   },
   {
-    "id": "2268:1421",
-    "name": "HomeInsuranceMediumIcon"
+    "id": "6:503",
+    "name": "ChevronRightMediumIcon"
   },
   {
-    "id": "2268:1435",
-    "name": "IncomeProtectMediumIcon"
+    "id": "68:134",
+    "name": "ChevronUpMediumIcon"
   },
   {
-    "id": "174:26",
-    "name": "MobileMediumIcon"
+    "id": "9:359",
+    "name": "PhoneMediumIcon"
   },
   {
-    "id": "2268:1392",
-    "name": "SimMediumIcon"
+    "id": "9:699",
+    "name": "CalendarMediumIcon"
+  },
+  {
+    "id": "9:423",
+    "name": "CalendarAddMediumIcon"
+  },
+  {
+    "id": "9:604",
+    "name": "CameraMediumIcon"
   },
   {
     "id": "6:264",
     "name": "CashbackCardMediumIcon"
   },
   {
-    "id": "6:470",
-    "name": "WarningMediumIcon"
+    "id": "9:492",
+    "name": "CelebrationMediumIcon"
   },
   {
-    "id": "6:481",
-    "name": "InfoMediumIcon"
+    "id": "6:287",
+    "name": "CloseMediumIcon"
   },
   {
-    "id": "9:1110",
-    "name": "TickCircleMediumIcon"
+    "id": "9:189",
+    "name": "ContactlessMediumIcon"
   },
   {
-    "id": "9:1068",
-    "name": "QuestionMarkMediumIcon"
+    "id": "6:644",
+    "name": "CopyMediumIcon"
   },
   {
-    "id": "9:256",
-    "name": "LoginMediumIcon"
+    "id": "2388:12",
+    "name": "CreditMediumIcon"
   },
   {
-    "id": "9:267",
-    "name": "LogoutMediumIcon"
+    "id": "154:177",
+    "name": "CreditsAndDebitsMediumIcon"
+  },
+  {
+    "id": "2388:16",
+    "name": "CreditReversalMediumIcon"
+  },
+  {
+    "id": "15:183",
+    "name": "DecreaseMediumIcon"
+  },
+  {
+    "id": "33:115",
+    "name": "DocumentMediumIcon"
   },
   {
     "id": "6:589",
     "name": "DownloadMediumIcon"
   },
   {
-    "id": "6:600",
-    "name": "UploadMediumIcon"
+    "id": "9:517",
+    "name": "EditMediumIcon"
   },
   {
-    "id": "6:622",
-    "name": "MenuMediumIcon"
+    "id": "4:1406",
+    "name": "ElectricityMediumIcon"
   },
   {
-    "id": "6:633",
-    "name": "MoreMediumIcon"
+    "id": "9:212",
+    "name": "EmailMediumIcon"
   },
   {
-    "id": "6:644",
-    "name": "CopyMediumIcon"
+    "id": "14:149",
+    "name": "EnvironmentMediumIcon"
+  },
+  {
+    "id": "9:1046",
+    "name": "ExtraHelpMediumIcon"
+  },
+  {
+    "id": "151:191",
+    "name": "ExpandMediumIcon"
   },
   {
     "id": "6:655",
@@ -444,164 +464,32 @@
     "name": "EyeOffMediumIcon"
   },
   {
-    "id": "6:677",
-    "name": "FullscreenMediumIcon"
-  },
-  {
-    "id": "6:688",
-    "name": "OpenMediumIcon"
-  },
-  {
-    "id": "9:146",
-    "name": "SettingsMediumIcon"
-  },
-  {
-    "id": "9:168",
-    "name": "TorchOffMediumIcon"
-  },
-  {
-    "id": "9:167",
-    "name": "TorchOnMediumIcon"
-  },
-  {
-    "id": "9:189",
-    "name": "ContactlessMediumIcon"
-  },
-  {
-    "id": "9:201",
-    "name": "LinkMediumIcon"
-  },
-  {
-    "id": "9:223",
-    "name": "BookmarkMediumIcon"
-  },
-  {
-    "id": "9:337",
-    "name": "SendMediumIcon"
-  },
-  {
-    "id": "14:159",
-    "name": "PaymentMediumIcon"
-  },
-  {
-    "id": "15:268",
-    "name": "RefundMediumIcon"
-  },
-  {
-    "id": "6:611",
-    "name": "RestartMediumIcon"
-  },
-  {
-    "id": "9:348",
-    "name": "ShareMediumIcon"
-  },
-  {
-    "id": "9:359",
-    "name": "PhoneMediumIcon"
-  },
-  {
-    "id": "9:401",
-    "name": "TrashMediumIcon"
+    "id": "9:1074",
+    "name": "FacebookMediumIcon"
   },
   {
     "id": "9:412",
     "name": "FilterMediumIcon"
   },
   {
-    "id": "9:423",
-    "name": "CalendarAddMediumIcon"
+    "id": "4:1384",
+    "name": "FingerprintMediumIcon"
   },
   {
-    "id": "14:164",
-    "name": "InsightsMediumIcon"
+    "id": "15:259",
+    "name": "FitEnergyMediumIcon"
   },
   {
-    "id": "9:434",
-    "name": "MoneyMediumIcon"
+    "id": "6:677",
+    "name": "FullscreenMediumIcon"
   },
   {
-    "id": "154:97",
-    "name": "BillMediumIcon"
+    "id": "4:1395",
+    "name": "GasMediumIcon"
   },
   {
-    "id": "9:492",
-    "name": "CelebrationMediumIcon"
-  },
-  {
-    "id": "9:517",
-    "name": "EditMediumIcon"
-  },
-  {
-    "id": "33:115",
-    "name": "DocumentMediumIcon"
-  },
-  {
-    "id": "9:582",
-    "name": "UserMediumIcon"
-  },
-  {
-    "id": "9:604",
-    "name": "CameraMediumIcon"
-  },
-  {
-    "id": "154:177",
-    "name": "CreditsAndDebitsMediumIcon"
-  },
-  {
-    "id": "2365:13",
-    "name": "BookOpenMediumIcon"
-  },
-  {
-    "id": "9:677",
-    "name": "ShoppingMediumIcon"
-  },
-  {
-    "id": "9:688",
-    "name": "TimeMediumIcon"
-  },
-  {
-    "id": "9:699",
-    "name": "CalendarMediumIcon"
-  },
-  {
-    "id": "9:710",
-    "name": "LaunchMediumIcon"
-  },
-  {
-    "id": "14:149",
-    "name": "EnvironmentMediumIcon"
-  },
-  {
-    "id": "9:774",
-    "name": "BankMediumIcon"
-  },
-  {
-    "id": "14:144",
-    "name": "TransferMediumIcon"
-  },
-  {
-    "id": "9:864",
-    "name": "TeamMediumIcon"
-  },
-  {
-    "id": "9:892",
-    "name": "BulbMediumIcon"
-  },
-  {
-    "id": "9:914",
-    "name": "LocationMediumIcon"
-  },
-  {
-    "id": "9:925",
-    "name": "BasketMediumIcon"
-  },
-  {
-    "id": "9:135",
-    "name": "HistoryMediumIcon"
-  },
-  {
-    "id": "14:176",
-    "name": "MeterMediumIcon"
+    "id": "20:127",
+    "name": "GreenDealElectricityMediumIcon"
   },
   {
     "id": "6:459",
@@ -612,123 +500,251 @@
     "name": "HeartOutlineMediumIcon"
   },
   {
-    "id": "2268:24",
-    "name": "AttachMediumIcon"
-  },
-  {
-    "id": "9:615",
-    "name": "SearchMediumIcon"
-  },
-  {
-    "id": "20:127",
-    "name": "GreenDealElectricityMediumIcon"
-  },
-  {
-    "id": "9:212",
-    "name": "EmailMediumIcon"
-  },
-  {
-    "id": "9:1046",
-    "name": "ExtraHelpMediumIcon"
-  },
-  {
-    "id": "9:1071",
-    "name": "InstagramMediumIcon"
-  },
-  {
-    "id": "9:1074",
-    "name": "FacebookMediumIcon"
-  },
-  {
-    "id": "9:1077",
-    "name": "LinkedInMediumIcon"
-  },
-  {
-    "id": "9:1080",
-    "name": "YoutubeMediumIcon"
-  },
-  {
-    "id": "9:1083",
-    "name": "TwitterMediumIcon"
-  },
-  {
-    "id": "9:1086",
-    "name": "TikTokMediumIcon"
-  },
-  {
-    "id": "34:108",
-    "name": "WhatsAppMediumIcon"
+    "id": "9:135",
+    "name": "HistoryMediumIcon"
   },
   {
     "id": "9:644",
     "name": "HomeMediumIcon"
   },
   {
-    "id": "9:666",
-    "name": "BellMediumIcon"
+    "id": "2268:1412",
+    "name": "HomeAndBoilerMediumIcon"
   },
   {
-    "id": "9:997",
-    "name": "MoonMediumIcon"
+    "id": "2268:1421",
+    "name": "HomeInsuranceMediumIcon"
   },
   {
-    "id": "9:1008",
-    "name": "SunMediumIcon"
+    "id": "15:172",
+    "name": "IncreaseMediumIcon"
   },
   {
-    "id": "2404:6",
-    "name": "SnowflakeMediumIcon"
+    "id": "2268:1435",
+    "name": "IncomeProtectMediumIcon"
   },
   {
-    "id": "15:259",
-    "name": "FitEnergyMediumIcon"
+    "id": "6:481",
+    "name": "InfoMediumIcon"
   },
   {
-    "id": "4:1384",
-    "name": "FingerprintMediumIcon"
+    "id": "14:164",
+    "name": "InsightsMediumIcon"
+  },
+  {
+    "id": "9:1071",
+    "name": "InstagramMediumIcon"
+  },
+  {
+    "id": "2060:2",
+    "name": "InsuranceMediumIcon"
+  },
+  {
+    "id": "2268:1382",
+    "name": "LandlineMediumIcon"
+  },
+  {
+    "id": "9:710",
+    "name": "LaunchMediumIcon"
+  },
+  {
+    "id": "9:201",
+    "name": "LinkMediumIcon"
+  },
+  {
+    "id": "9:1077",
+    "name": "LinkedInMediumIcon"
+  },
+  {
+    "id": "9:914",
+    "name": "LocationMediumIcon"
   },
   {
     "id": "153:369",
     "name": "LockMediumIcon"
   },
   {
-    "id": "153:383",
-    "name": "UnlockMediumIcon"
+    "id": "9:256",
+    "name": "LoginMediumIcon"
   },
   {
-    "id": "57:116",
-    "name": "PlaceholderMediumIcon"
-  },
-  {
-    "id": "2341:13",
-    "name": "TopUpMediumIcon"
-  },
-  {
-    "id": "2447:85",
-    "name": "WithdrawMediumIcon"
+    "id": "9:267",
+    "name": "LogoutMediumIcon"
   },
   {
     "id": "2447:56",
     "name": "MaintenanceMediumIcon"
   },
   {
-    "id": "2447:68",
-    "name": "BoilerMediumIcon"
+    "id": "6:437",
+    "name": "MinusMediumIcon"
+  },
+  {
+    "id": "9:434",
+    "name": "MoneyMediumIcon"
+  },
+  {
+    "id": "14:176",
+    "name": "MeterMediumIcon"
+  },
+  {
+    "id": "6:622",
+    "name": "MenuMediumIcon"
+  },
+  {
+    "id": "174:26",
+    "name": "MobileMediumIcon"
+  },
+  {
+    "id": "9:997",
+    "name": "MoonMediumIcon"
+  },
+  {
+    "id": "6:633",
+    "name": "MoreMediumIcon"
+  },
+  {
+    "id": "6:688",
+    "name": "OpenMediumIcon"
+  },
+  {
+    "id": "14:159",
+    "name": "PaymentMediumIcon"
+  },
+  {
+    "id": "57:116",
+    "name": "PlaceholderMediumIcon"
+  },
+  {
+    "id": "9:1068",
+    "name": "QuestionMarkMediumIcon"
+  },
+  {
+    "id": "15:268",
+    "name": "RefundMediumIcon"
+  },
+  {
+    "id": "6:611",
+    "name": "RestartMediumIcon"
+  },
+  {
+    "id": "9:615",
+    "name": "SearchMediumIcon"
+  },
+  {
+    "id": "9:337",
+    "name": "SendMediumIcon"
+  },
+  {
+    "id": "9:146",
+    "name": "SettingsMediumIcon"
+  },
+  {
+    "id": "9:348",
+    "name": "ShareMediumIcon"
+  },
+  {
+    "id": "9:677",
+    "name": "ShoppingMediumIcon"
+  },
+  {
+    "id": "2268:1392",
+    "name": "SimMediumIcon"
+  },
+  {
+    "id": "2404:6",
+    "name": "SnowflakeMediumIcon"
+  },
+  {
+    "id": "9:1008",
+    "name": "SunMediumIcon"
+  },
+  {
+    "id": "9:864",
+    "name": "TeamMediumIcon"
+  },
+  {
+    "id": "9:1110",
+    "name": "TickCircleMediumIcon"
+  },
+  {
+    "id": "6:492",
+    "name": "TickMediumIcon"
+  },
+  {
+    "id": "9:1086",
+    "name": "TikTokMediumIcon"
+  },
+  {
+    "id": "9:688",
+    "name": "TimeMediumIcon"
+  },
+  {
+    "id": "2341:13",
+    "name": "TopUpMediumIcon"
+  },
+  {
+    "id": "9:168",
+    "name": "TorchOffMediumIcon"
+  },
+  {
+    "id": "9:167",
+    "name": "TorchOnMediumIcon"
+  },
+  {
+    "id": "14:144",
+    "name": "TransferMediumIcon"
+  },
+  {
+    "id": "9:401",
+    "name": "TrashMediumIcon"
+  },
+  {
+    "id": "9:1083",
+    "name": "TwitterMediumIcon"
+  },
+  {
+    "id": "153:383",
+    "name": "UnlockMediumIcon"
+  },
+  {
+    "id": "6:600",
+    "name": "UploadMediumIcon"
+  },
+  {
+    "id": "9:582",
+    "name": "UserMediumIcon"
+  },
+  {
+    "id": "6:470",
+    "name": "WarningMediumIcon"
+  },
+  {
+    "id": "34:108",
+    "name": "WhatsAppMediumIcon"
+  },
+  {
+    "id": "2447:85",
+    "name": "WithdrawMediumIcon"
+  },
+  {
+    "id": "9:1080",
+    "name": "YoutubeMediumIcon"
+  },
+  {
+    "id": "2365:21",
+    "name": "BookOpenLargeIcon"
   },
   {
     "id": "2194:438",
     "name": "MoonLargeIcon"
   },
   {
-    "id": "2194:451",
-    "name": "SunLargeIcon"
-  },
-  {
     "id": "2194:464",
     "name": "PlaceholderLargeIcon"
   },
   {
-    "id": "2365:21",
-    "name": "BookOpenLargeIcon"
+    "id": "2194:451",
+    "name": "SunLargeIcon"
   }
 ]

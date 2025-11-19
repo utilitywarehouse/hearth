@@ -1,7 +1,7 @@
 import { BottomSheetBackdrop as Backdrop } from '@gorhom/bottom-sheet';
+import { BottomSheetDefaultBackdropProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetBackdrop/types';
 import { StyleSheet, withUnistyles } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
-import { BottomSheetDefaultBackdropProps } from '@gorhom/bottom-sheet/lib/typescript/components/bottomSheetBackdrop/types';
 
 const StyledBottomSheetBackdrop = withUnistyles(Backdrop);
 
@@ -9,7 +9,6 @@ const BottomSheetBackdrop = ({ style, ...props }: BottomSheetDefaultBackdropProp
   const theme = useTheme();
   return (
     <StyledBottomSheetBackdrop
-      // @ts-expect-error - style unistyles error
       style={[styles.backdrop, style]}
       opacity={theme.components.overlay.opacity / 100}
       appearsOnIndex={0}

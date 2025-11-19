@@ -37,8 +37,8 @@
     width: var(--h-modal-width-desktop);
   }
 
-  &:where([data-contains-image]) {
-    height: 90vh;
+  &:where([data-contains-image], [data-full-screen]) {
+    height: calc(100vh - 40px);
 
     @media (--h-tablet) {
       height: fit-content;
@@ -85,22 +85,32 @@
     gap: var(--h-modal-content-gap);
     justify-content: center;
     height: fit-content;
-    margin-top: auto;
-    margin-bottom: auto;
 
     &:where([data-contains-image] &) {
       align-items: center;
     }
 
     @media (--h-tablet) {
+      margin-top: auto;
       gap: var(--h-modal-gap);
     }
   }
 
   & :where(.hearth-ModalImage) {
-    margin-top: calc(var(--h-space-300) + var(--h-modal-gap));
-    max-height: 260px;
-    max-width: 260px;
+    --h-icon-button-size: 1.5rem;
+
+    margin-top: calc(var(--h-icon-button-size) + var(--h-modal-content-gap));
+    max-height: 120px;
+    max-width: 120px;
+
+    @media (--h-tablet) {
+      margin-top: var(--h-space-0);
+    }
+
+    @media (--h-desktop) {
+      max-height: 160px;
+      max-width: 160px;
+    }
   }
 
   & :where(.hearth-ModalHeader) {

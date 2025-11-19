@@ -1,0 +1,84 @@
+
+## NEW ASSETS
+
+- SpotNotificationLight
+- SpotNotificationDark
+- SpotMovingHouseLight
+- SpotMovingHouseDark
+- SpotInnovationLight
+- SpotInnovationDark
+- SpotHelpLight
+- SpotHelpDark
+- SpotOnlineAccountLight
+- SpotOnlineAccountDark
+- SpotSuccessLight
+- SpotSuccessDark
+- SpotSmartMeterLight
+- SpotSmartMeterDark
+- SpotSecurityLight
+- SpotSecurityDark
+- SpotErrorLight
+- SpotErrorDark
+- SpotSavingsLight
+- SpotSavingsDark
+- SpotBillingLight
+- SpotBillingDark
+- SpotCelebratoryLight
+- SpotCelebratoryDark
+- SpotRecognitionLight
+- SpotRecognitionDark
+- SpotEvLight
+- SpotEvDark
+- SceneEnergyLight
+- SceneEnergyDark
+- SceneMobileLight
+- SceneMobileDark
+- SceneBroadbandLight
+- SceneBroadbandDark
+- SceneInsuranceLight
+- SceneInsuranceDark
+- SceneCashbackLight
+- SceneCashbackDark
+- SceneBundleLight
+- SceneBundleDark
+- MascotEnergyLight
+- MascotEnergyDark
+- MascotBroadbandLight
+- MascotBroadbandDark
+- MascotMobileLight
+- MascotMobileDark
+- MascotInsuranceLight
+- MascotInsuranceDark
+- MascotCashbackLight
+- MascotCashbackDark
+
+## REMOVED ASSETS
+
+- SpotRecognition
+- SpotBilling
+- SpotCelebratory
+- SpotEv
+- SpotSavings
+- SpotError
+- SpotSecurity
+- SpotSmartMeter
+- SpotSuccess
+- SpotOnlineAccount
+- SpotHelp
+- SpotInnovation
+- SpotMovingHouse
+- SpotNotification
+- SpotNeighbours
+- SceneBundle
+- SceneCashback
+- SceneInsurance
+- SceneBroadband
+- SceneMobile
+- SceneEnergy
+- MascotBroadband
+- MascotBundle
+- MascotCashback
+- MascotInsurance
+- MascotMobile
+- MascotEnergy
+

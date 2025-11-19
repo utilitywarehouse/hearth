@@ -1,4 +1,7 @@
+import { fileURLToPath } from "node:url";
+import { dirname } from "node:path";
 import remarkGfm from 'remark-gfm';
+import svgr from 'vite-plugin-svgr';
 
 const unistylesPluginOptions = {
   autoProcessImports: ['@utilitywarehouse/hearth-react-native'],
@@ -11,9 +14,9 @@ const unistylesPluginOptions = {
 const config = {
   stories: ['../**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
-    '@chromatic-com/storybook',
+    getAbsolutePath("@chromatic-com/storybook"),
     {
-      name: '@storybook/addon-docs',
+      name: getAbsolutePath("@storybook/addon-docs"),
       options: {
         mdxPluginOptions: {
           mdxCompileOptions: {
@@ -22,24 +25,39 @@ const config = {
         },
       },
     },
-    '@storybook/addon-a11y',
-    '@storybook/addon-vitest',
+    getAbsolutePath("@storybook/addon-a11y"),
+    getAbsolutePath("@storybook/addon-vitest"),
   ],
   framework: {
-    name: '@storybook/react-native-web-vite',
+    name: getAbsolutePath("@storybook/react-native-web-vite"),
     options: {
       pluginReactOptions: {
         babel: {
           plugins: [
             ['react-native-unistyles/plugin', unistylesPluginOptions],
             '@babel/plugin-proposal-export-namespace-from',
-            'react-native-reanimated/plugin',
+            'react-native-worklets/plugin',
           ],
         },
       },
     },
   },
-  viteFinal: config => {
+  viteFinal: async (config: any) => {
+    // Add SVGR plugin for web SVG imports as React components
+    config.plugins = [
+      ...(config.plugins || []),
+      svgr({
+        include: '**/*.svg',
+        svgrOptions: {
+          exportType: 'default',
+          ref: true,
+          svgo: false,
+          titleProp: true,
+          icon: true,
+        },
+      }),
+    ];
+
     return {
       ...config,
       resolve: {
@@ -49,7 +67,15 @@ const config = {
           '@utilitywarehouse/hearth-react-native-icons': '@utilitywarehouse/hearth-react-icons',
         },
       },
+      optimizeDeps: {
+        ...config.optimizeDeps,
+        exclude: [...(config.optimizeDeps?.exclude || []), '@utilitywarehouse/hearth-svg-assets'],
+      },
     };
   },
 };
 export default config;
+
+function getAbsolutePath(value: string): any {
+  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
+}

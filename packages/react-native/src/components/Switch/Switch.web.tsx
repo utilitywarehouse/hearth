@@ -122,6 +122,7 @@ const CustomSwitch = ({
               return <IconAny as={TickSmallIcon} style={styles.icon as any} />;
             })()}
           </AnimatedView>
+
           <AnimatedView style={[styles.iconWrap, animatedCrossStyle]}>
             {(() => {
               const IconAny = Icon as any;

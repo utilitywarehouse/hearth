@@ -556,6 +556,61 @@
         }
       }
     },
+    "card-action": {
+      "content": {
+        "gap": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
+        },
+        "padding-horizontal": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        },
+        "padding-vertical": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
+        }
+      }
+    },
+    "card-content": {
+      "banner": {
+        "illustration": {
+          "lg": {
+            "width": {
+              "type": "number",
+              "value": 100
+            }
+          },
+          "md": {
+            "width": {
+              "type": "number",
+              "value": 80
+            }
+          },
+          "sm": {
+            "width": {
+              "type": "number",
+              "value": 60
+            }
+          },
+          "xl": {
+            "width": {
+              "type": "number",
+              "value": 120
+            }
+          },
+          "xs": {
+            "width": {
+              "type": "number",
+              "value": 40
+            }
+          }
+        }
+      }
+    },
     "carousel-control": {
       "gap": {
         "alias": "{space.100}",
@@ -870,47 +925,50 @@
         }
       }
     },
-    "dialog": {
-      "action": {
-        "gap": {
-          "alias": "{space.150}",
-          "type": "number",
-          "value": 12
-        }
-      },
-      "border-radius": {
-        "alias": "{border-radius.xl}",
-        "type": "number",
-        "value": 16
-      },
-      "content": {
-        "gap": {
-          "alias": "{space.150}",
-          "type": "number",
-          "value": 12
-        },
-        "padding-bottom": {
-          "alias": "{space.150}",
-          "type": "number",
-          "value": 12
-        }
-      },
-      "gap": {
-        "alias": "{space.300}",
-        "type": "number",
-        "value": 24
-      },
-      "padding": {
-        "alias": "{space.300}",
-        "type": "number",
-        "value": 24
-      }
-    },
     "divider": {
       "border-width": {
         "alias": "{border-width.1}",
         "type": "number",
         "value": 1
+      }
+    },
+    "drawer": {
+      "footer": {
+        "horizontal": {
+          "gap": {
+            "alias": "{space.200}",
+            "type": "number",
+            "value": 16
+          }
+        },
+        "padding": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
+        },
+        "vertical": {
+          "gap": {
+            "alias": "{space.100}",
+            "type": "number",
+            "value": 8
+          }
+        }
+      },
+      "gap": {
+        "alias": "{space.250}",
+        "type": "number",
+        "value": 20
+      },
+      "heading": {
+        "gap": {
+          "alias": "{space.100}",
+          "type": "number",
+          "value": 8
+        }
+      },
+      "width": {
+        "type": "number",
+        "value": 360
       }
     },
     "expandable-card": {
@@ -1134,10 +1192,6 @@
       "color-mode": {
         "type": "string",
         "value": "dark"
-      },
-      "mode": {
-        "type": "string",
-        "value": "dark"
       }
     },
     "indicator-icon-button": {
@@ -1260,6 +1314,13 @@
         "alias": "{space.150}",
         "type": "number",
         "value": 12
+      },
+      "stepper": {
+        "gap": {
+          "alias": "{space.50}",
+          "type": "number",
+          "value": 4
+        }
       },
       "text-area": {
         "height": {
@@ -1497,10 +1558,24 @@
         "type": "number",
         "value": 24
       },
+      "heading": {
+        "gap": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
+        }
+      },
+      "illustration": {
+        "padding": {
+          "alias": "{space.600}",
+          "type": "number",
+          "value": 48
+        }
+      },
       "padding": {
-        "alias": "{space.600}",
+        "alias": "{space.300}",
         "type": "number",
-        "value": 48
+        "value": 24
       }
     },
     "navigation": {
@@ -1563,7 +1638,6 @@
       },
       "item": {
         "height": {
-          "alias": "{space.500}",
           "type": "number",
           "value": 40
         },
@@ -1573,7 +1647,6 @@
           "value": 8
         },
         "width": {
-          "alias": "{space.500}",
           "type": "number",
           "value": 40
         }
@@ -1708,7 +1781,6 @@
         "md": {
           "bar": {
             "width": {
-              "alias": "{space.150}",
               "type": "number",
               "value": 12
             }
@@ -1747,12 +1819,10 @@
         },
         "sm": {
           "bar-width": {
-            "alias": "{space.100}",
             "type": "number",
             "value": 8
           },
           "height": {
-            "alias": "{space.1000}",
             "type": "number",
             "value": 80
           }
@@ -1766,7 +1836,6 @@
             "value": 9999
           },
           "height": {
-            "alias": "{space.150}",
             "type": "number",
             "value": 12
           }
@@ -1950,6 +2019,18 @@
           "type": "number",
           "value": 12
         }
+      }
+    },
+    "rating": {
+      "border-width": {
+        "alias": "{border-width.2}",
+        "type": "number",
+        "value": 2
+      },
+      "gap": {
+        "alias": "{space.50}",
+        "type": "number",
+        "value": 4
       }
     },
     "section-header": {
@@ -2241,6 +2322,10 @@
           "type": "number",
           "value": 1
         },
+        "min-height": {
+          "type": "number",
+          "value": 48
+        },
         "padding": {
           "alias": "{space.150}",
           "type": "number",
@@ -2265,12 +2350,9 @@
           "type": "number",
           "value": 8
         },
-        "neutral": {
-          "background-color": {
-            "alias": "{color.warm-white.900}",
-            "type": "color",
-            "value": "#30302c"
-          }
+        "height": {
+          "type": "number",
+          "value": 56
         },
         "padding-horizontal": {
           "alias": "{space.150}",
@@ -2350,6 +2432,135 @@
           "alias": "{space.700}",
           "type": "number",
           "value": 56
+        }
+      }
+    },
+    "time-picker": {
+      "gap": {
+        "alias": "{space.75}",
+        "type": "number",
+        "value": 6
+      },
+      "gap-container": {
+        "alias": "{space.50}",
+        "type": "number",
+        "value": 4
+      },
+      "min-width": {
+        "type": "number",
+        "value": 288
+      },
+      "padding-horizontal": {
+        "alias": "{space.200}",
+        "type": "number",
+        "value": 16
+      },
+      "padding-vertical": {
+        "alias": "{space.150}",
+        "type": "number",
+        "value": 12
+      },
+      "time": {
+        "column-gap": {
+          "alias": "{space.50}",
+          "type": "number",
+          "value": 4
+        },
+        "content": {
+          "gap": {
+            "alias": "{space.100}",
+            "type": "number",
+            "value": 8
+          },
+          "item": {
+            "gap": {
+              "alias": "{space.25}",
+              "type": "number",
+              "value": 2
+            }
+          }
+        },
+        "footer": {
+          "gap": {
+            "alias": "{space.100}",
+            "type": "number",
+            "value": 8
+          }
+        },
+        "gap": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        },
+        "item": {
+          "height": {
+            "type": "number",
+            "value": 40
+          },
+          "width": {
+            "type": "number",
+            "value": 64
+          }
+        },
+        "row-gap": {
+          "alias": "{space.25}",
+          "type": "number",
+          "value": 2
+        }
+      }
+    },
+    "timeline": {
+      "bar": {
+        "width": {
+          "alias": "{space.25}",
+          "type": "number",
+          "value": 2
+        }
+      },
+      "content": {
+        "gap": {
+          "alias": "{space.100}",
+          "type": "number",
+          "value": 8
+        },
+        "padding-bottom": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
+        },
+        "padding-top": {
+          "alias": "{space.25}",
+          "type": "number",
+          "value": 2
+        }
+      },
+      "gap": {
+        "alias": "{space.150}",
+        "type": "number",
+        "value": 12
+      },
+      "progress": {
+        "circle": {
+          "height": {
+            "type": "number",
+            "value": 24
+          },
+          "width": {
+            "type": "number",
+            "value": 24
+          }
+        }
+      },
+      "static": {
+        "circle": {
+          "height": {
+            "type": "number",
+            "value": 12
+          },
+          "width": {
+            "type": "number",
+            "value": 12
+          }
         }
       }
     },
@@ -3054,6 +3265,61 @@
         }
       }
     },
+    "card-action": {
+      "content": {
+        "gap": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
+        },
+        "padding-horizontal": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        },
+        "padding-vertical": {
+          "alias": "{space.150}",
+          "type": "number",
+          "value": 12
+        }
+      }
+    },
+    "card-content": {
+      "banner": {
+        "illustration": {
+          "lg": {
+            "width": {
+              "type": "number",
+              "value": 100
+            }
+          },
+          "md": {
+            "width": {
+              "type": "number",
+              "value": 80
+            }
+          },
+          "sm": {
+            "width": {
+              "type": "number",
+              "value": 60
+            }
+          },
+          "xl": {
+            "width": {
+              "type": "number",
+              "value": 120
+            }
+          },
+          "xs": {
+            "width": {
+              "type": "number",
+              "value": 40
+            }
+          }
+        }
+      }
+    },
     "carousel-control": {
       "gap": {
         "alias": "{space.100}",
@@ -3368,47 +3634,50 @@
         }
       }
     },
-    "dialog": {
-      "action": {
-        "gap": {
-          "alias": "{space.150}",
-          "type": "number",
-          "value": 12
-        }
-      },
-      "border-radius": {
-        "alias": "{border-radius.xl}",
-        "type": "number",
-        "value": 16
-      },
-      "content": {
-        "gap": {
-          "alias": "{space.150}",
-          "type": "number",
-          "value": 12
-        },
-        "padding-bottom": {
-          "alias": "{space.150}",
-          "type": "number",
-          "value": 12
-        }
-      },
-      "gap": {
-        "alias": "{space.300}",
-        "type": "number",
-        "value": 24
-      },
-      "padding": {
-        "alias": "{space.300}",
-        "type": "number",
-        "value": 24
-      }
-    },
     "divider": {
       "border-width": {
         "alias": "{border-width.1}",
         "type": "number",
         "value": 1
+      }
+    },
+    "drawer": {
+      "footer": {
+        "horizontal": {
+          "gap": {
+            "alias": "{space.200}",
+            "type": "number",
+            "value": 16
+          }
+        },
+        "padding": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
+        },
+        "vertical": {
+          "gap": {
+            "alias": "{space.100}",
+            "type": "number",
+            "value": 8
+          }
+        }
+      },
+      "gap": {
+        "alias": "{space.250}",
+        "type": "number",
+        "value": 20
+      },
+      "heading": {
+        "gap": {
+          "alias": "{space.100}",
+          "type": "number",
+          "value": 8
+        }
+      },
+      "width": {
+        "type": "number",
+        "value": 360
       }
     },
     "expandable-card": {
@@ -3632,10 +3901,6 @@
       "color-mode": {
         "type": "string",
         "value": "light"
-      },
-      "mode": {
-        "type": "string",
-        "value": "light"
       }
     },
     "indicator-icon-button": {
@@ -3758,6 +4023,13 @@
         "alias": "{space.150}",
         "type": "number",
         "value": 12
+      },
+      "stepper": {
+        "gap": {
+          "alias": "{space.50}",
+          "type": "number",
+          "value": 4
+        }
       },
       "text-area": {
         "height": {
@@ -3995,10 +4267,24 @@
         "type": "number",
         "value": 24
       },
+      "heading": {
+        "gap": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
+        }
+      },
+      "illustration": {
+        "padding": {
+          "alias": "{space.600}",
+          "type": "number",
+          "value": 48
+        }
+      },
       "padding": {
-        "alias": "{space.200}",
+        "alias": "{space.300}",
         "type": "number",
-        "value": 16
+        "value": 24
       }
     },
     "navigation": {
@@ -4061,7 +4347,6 @@
       },
       "item": {
         "height": {
-          "alias": "{space.500}",
           "type": "number",
           "value": 40
         },
@@ -4071,7 +4356,6 @@
           "value": 8
         },
         "width": {
-          "alias": "{space.500}",
           "type": "number",
           "value": 40
         }
@@ -4206,7 +4490,6 @@
         "md": {
           "bar": {
             "width": {
-              "alias": "{space.150}",
               "type": "number",
               "value": 12
             }
@@ -4245,12 +4528,10 @@
         },
         "sm": {
           "bar-width": {
-            "alias": "{space.100}",
             "type": "number",
             "value": 8
           },
           "height": {
-            "alias": "{space.1000}",
             "type": "number",
             "value": 80
           }
@@ -4264,7 +4545,6 @@
             "value": 9999
           },
           "height": {
-            "alias": "{space.150}",
             "type": "number",
             "value": 12
           }
@@ -4448,6 +4728,18 @@
           "type": "number",
           "value": 12
         }
+      }
+    },
+    "rating": {
+      "border-width": {
+        "alias": "{border-width.2}",
+        "type": "number",
+        "value": 2
+      },
+      "gap": {
+        "alias": "{space.50}",
+        "type": "number",
+        "value": 4
       }
     },
     "section-header": {
@@ -4739,6 +5031,10 @@
           "type": "number",
           "value": 1
         },
+        "min-height": {
+          "type": "number",
+          "value": 48
+        },
         "padding": {
           "alias": "{space.150}",
           "type": "number",
@@ -4763,12 +5059,9 @@
           "type": "number",
           "value": 8
         },
-        "neutral": {
-          "background-color": {
-            "alias": "{color.warm-white.200}",
-            "type": "color",
-            "value": "#f1efe4"
-          }
+        "height": {
+          "type": "number",
+          "value": 56
         },
         "padding-horizontal": {
           "alias": "{space.150}",
@@ -4848,6 +5141,135 @@
           "alias": "{space.700}",
           "type": "number",
           "value": 56
+        }
+      }
+    },
+    "time-picker": {
+      "gap": {
+        "alias": "{space.75}",
+        "type": "number",
+        "value": 6
+      },
+      "gap-container": {
+        "alias": "{space.50}",
+        "type": "number",
+        "value": 4
+      },
+      "min-width": {
+        "type": "number",
+        "value": 288
+      },
+      "padding-horizontal": {
+        "alias": "{space.200}",
+        "type": "number",
+        "value": 16
+      },
+      "padding-vertical": {
+        "alias": "{space.150}",
+        "type": "number",
+        "value": 12
+      },
+      "time": {
+        "column-gap": {
+          "alias": "{space.50}",
+          "type": "number",
+          "value": 4
+        },
+        "content": {
+          "gap": {
+            "alias": "{space.100}",
+            "type": "number",
+            "value": 8
+          },
+          "item": {
+            "gap": {
+              "alias": "{space.25}",
+              "type": "number",
+              "value": 2
+            }
+          }
+        },
+        "footer": {
+          "gap": {
+            "alias": "{space.100}",
+            "type": "number",
+            "value": 8
+          }
+        },
+        "gap": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        },
+        "item": {
+          "height": {
+            "type": "number",
+            "value": 40
+          },
+          "width": {
+            "type": "number",
+            "value": 64
+          }
+        },
+        "row-gap": {
+          "alias": "{space.25}",
+          "type": "number",
+          "value": 2
+        }
+      }
+    },
+    "timeline": {
+      "bar": {
+        "width": {
+          "alias": "{space.25}",
+          "type": "number",
+          "value": 2
+        }
+      },
+      "content": {
+        "gap": {
+          "alias": "{space.100}",
+          "type": "number",
+          "value": 8
+        },
+        "padding-bottom": {
+          "alias": "{space.300}",
+          "type": "number",
+          "value": 24
+        },
+        "padding-top": {
+          "alias": "{space.25}",
+          "type": "number",
+          "value": 2
+        }
+      },
+      "gap": {
+        "alias": "{space.150}",
+        "type": "number",
+        "value": 12
+      },
+      "progress": {
+        "circle": {
+          "height": {
+            "type": "number",
+            "value": 28
+          },
+          "width": {
+            "type": "number",
+            "value": 28
+          }
+        }
+      },
+      "static": {
+        "circle": {
+          "height": {
+            "type": "number",
+            "value": 12
+          },
+          "width": {
+            "type": "number",
+            "value": 12
+          }
         }
       }
     },

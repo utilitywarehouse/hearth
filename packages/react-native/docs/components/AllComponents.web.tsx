@@ -6,10 +6,17 @@ import {
   BroadbandMediumIcon,
   CashbackCardMediumIcon,
   ChevronRightMediumIcon,
+  EditSmallIcon,
   ElectricityMediumIcon,
   InsuranceMediumIcon,
   MobileMediumIcon,
+  ShareSmallIcon,
+  TrashSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
+// @ts-ignore
+import SpotBillingDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg';
+// @ts-ignore
+import SpotBillingLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-light.svg';
 import { Pressable, ScrollView, View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import {
@@ -17,6 +24,7 @@ import {
   AccordionItem,
   Alert,
   Badge,
+  Banner,
   BodyText,
   BottomSheet,
   BottomSheetModal,
@@ -29,6 +37,7 @@ import {
   CarouselItem,
   Center,
   Checkbox,
+  Container,
   CurrencyInput,
   DatePicker,
   DatePickerInput,
@@ -37,10 +46,13 @@ import {
   DescriptionListItem,
   DetailText,
   Divider,
+  Expandable,
+  ExpandableCard,
   Flex,
   FormField,
   Grid,
   Heading,
+  HighlightBanner,
   Icon,
   IconButton,
   IconContainer,
@@ -51,10 +63,13 @@ import {
   Link,
   List,
   ListItem,
+  Menu,
+  MenuItem,
+  MenuTrigger,
   Modal,
   OL,
-  ProgressStepper,
   ProgressStep,
+  ProgressStepper,
   Radio,
   RadioCard,
   RadioCardGroup,
@@ -69,6 +84,7 @@ import {
   Tabs,
   TabsList,
   Textarea,
+  ThemedImage,
   ToggleButtonCard,
   ToggleButtonCardGroup,
   UL,
@@ -120,6 +136,7 @@ const AllComponents: React.FC = () => {
   const handleModalOpenPress = useCallback(() => {
     modalRef.current?.present();
   }, []);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [selected, setSelected] = useState<DateType>();
   const datePickerRef = useRef<BottomSheetModal>(null);
   const handleDatePickerOpenPress = useCallback(() => {
@@ -148,13 +165,17 @@ const AllComponents: React.FC = () => {
   }, [datePickerRef]);
   const [switchEnabled, setSwitchEnabled] = React.useState(false);
   const toggleSwitch = () => setSwitchEnabled(!switchEnabled);
+  const menuRef = useRef<any>(null);
+  const handleMenuOpenPress = useCallback(() => {
+    menuRef.current?.present();
+  }, []);
 
   const [colorMode] = useColorMode();
   const isDark = colorMode === 'dark';
   return (
     <div className="sb-unstyled">
       <ScrollView contentContainerStyle={styles.container}>
-        <Flex direction="row" wrap="wrap" space="md">
+        <Flex direction="row" wrap="wrap" space="md" style={styles.grid}>
           <ComponentWrapper name="Accordion" link="/?path=/docs/components-accordion--docs">
             <Center flex={1} p="200">
               <Accordion type="single">
@@ -180,6 +201,16 @@ const AllComponents: React.FC = () => {
               <View>
                 <Badge colorScheme="danger">This is a red badge</Badge>
               </View>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Banner" link="/?path=/docs/components-banner--docs">
+            <Center flex={1} p="200">
+              <Banner
+                icon={ElectricityMediumIcon}
+                iconContainerColor="energy"
+                heading="I'm a Banner"
+                description="This is a banner description"
+              />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Body Text" link="/?path=/docs/typography-body-text--docs">
@@ -294,6 +325,13 @@ const AllComponents: React.FC = () => {
               </View>
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper name="Container" link="/?path=/docs/primitives-container--docs">
+            <Container space="md" backgroundColor="backgroundSecondary">
+              <Box h={20} bg="blue300" />
+              <Box h={20} bg="blue400" />
+              <Box h={20} bg="blue500" />
+            </Container>
+          </ComponentWrapper>
           <ComponentWrapper name="Currency Input" link="/?path=/docs/forms-currency-input--docs">
             <Center flex={1} padding="200">
               <CurrencyInput />
@@ -348,6 +386,44 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
 
+          <ComponentWrapper
+            name="Expandable"
+            link="/?path=/docs/utility-components-expandable--docs"
+          >
+            <Center flex={1} p="200">
+              <Box width={240} gap="100">
+                <Button onPress={() => setIsExpanded(!isExpanded)}>
+                  {isExpanded ? 'Collapse' : 'Expand'}
+                </Button>
+                <Expandable expanded={isExpanded} accessibilityLabel="Expandable content section">
+                  <Card>
+                    <BodyText>This content expands and collapses</BodyText>
+                  </Card>
+                </Expandable>
+              </Box>
+            </Center>
+          </ComponentWrapper>
+
+          <ComponentWrapper
+            name="Expandable Card"
+            link="/?path=/docs/components-expandable-card--docs"
+          >
+            <Center flex={1} p="200">
+              <ExpandableCard
+                heading="This is an"
+                helperText="Expandable Card component"
+                leadingIcon={ElectricityMediumIcon}
+                expandedContent={
+                  <>
+                    <BodyText>I'm expanding</BodyText>
+                    <BodyText>to show more content</BodyText>
+                  </>
+                }
+                style={{ width: 240 }}
+              />
+            </Center>
+          </ComponentWrapper>
+
           <ComponentWrapper name="Flex" link="/?path=/docs/primitives-flex--docs">
             <Center flex={1}>
               <Flex direction="row" space="md">
@@ -385,6 +461,24 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Heading" link="/?path=/docs/typography-heading--docs">
             <Center flex={1}>
               <Heading>This is a Heading</Heading>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
+            name="Highlight Banner"
+            link="/?path=/docs/components-highlight-banner--docs"
+          >
+            <Center flex={1} p="200">
+              <HighlightBanner
+                heading="Featured Content"
+                headingColor="energy"
+                imageContainerHeight={40}
+                image={{
+                  source: {
+                    uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80',
+                  },
+                }}
+                description="Banner description goes here."
+              />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper
@@ -480,6 +574,29 @@ const AllComponents: React.FC = () => {
               </List>
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper name="Menu" link="/?path=/docs/components-menu--docs">
+            <Center flex={1}>
+              <BottomSheetModalProvider>
+                <MenuTrigger onPress={handleMenuOpenPress}>
+                  <Button>Open Menu</Button>
+                </MenuTrigger>
+                <Menu ref={menuRef} heading="Actions">
+                  <MenuItem icon={EditSmallIcon} text="Edit" onPress={() => console.log('Edit')} />
+                  <MenuItem
+                    icon={ShareSmallIcon}
+                    text="Share"
+                    onPress={() => console.log('Share')}
+                  />
+                  <MenuItem
+                    icon={TrashSmallIcon}
+                    text="Delete"
+                    colorScheme="destructive"
+                    onPress={() => console.log('Delete')}
+                  />
+                </Menu>
+              </BottomSheetModalProvider>
+            </Center>
+          </ComponentWrapper>
           <ComponentWrapper name="Modal" link="/?path=/docs/components-modal--docs">
             <Center flex={1}>
               <Button onPress={handleModalOpenPress}>Open Modal</Button>
@@ -514,12 +631,12 @@ const AllComponents: React.FC = () => {
             name="Progress Stepper"
             link="/?path=/docs/components-progress-stepper--docs"
           >
-            <Center flex={1}>
+            <Center flex={1} px="300">
               <ProgressStepper>
-                <ProgressStep id="customer-data" state="complete" />
-                <ProgressStep id="shipping-data" state="complete" />
-                <ProgressStep id="payment-data" state="active" />
-                <ProgressStep id="summary" state="incomplete" />
+                <ProgressStep id="customer-data" status="complete" />
+                <ProgressStep id="shipping-data" status="complete" />
+                <ProgressStep id="payment-data" status="active" />
+                <ProgressStep id="summary" status="incomplete" />
               </ProgressStepper>
             </Center>
           </ComponentWrapper>
@@ -618,6 +735,17 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
           <ComponentWrapper
+            name="Themed Image"
+            link="/?path=/docs/utility-components-themed-image--docs"
+          >
+            <Center flex={1} p="300">
+              <ThemedImage
+                light={<SpotBillingLight width={160} height={160} />}
+                dark={<SpotBillingDark width={160} height={160} />}
+              />
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
             name="Toggle Button Card"
             link="/?path=/docs/components-toggle-button-card--docs"
           >
@@ -658,6 +786,17 @@ const AllComponents: React.FC = () => {
 
 const styles = StyleSheet.create(theme => ({
   container: {},
+  grid: {
+    _web: {
+      display: 'grid',
+      gridTemplateColumns: {
+        xs: '1fr',
+        md: 'repeat(3, 1fr)',
+        lg: 'repeat(auto-fit, minmax(300px, 1fr))',
+      },
+      gap: theme.space['200'],
+    },
+  },
   component: {
     borderColor: theme.color.warmWhite[300],
     borderWidth: theme.borderWidth['1'],

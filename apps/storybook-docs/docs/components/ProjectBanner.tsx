@@ -2,7 +2,7 @@ import {
   BodyText,
   Box,
   Card,
-  CardAction,
+  CardInteraction,
   Flex,
   Heading,
   Link,
@@ -37,12 +37,12 @@ const ProjectBanner = ({ image, link, title, description }: ProjectBannerProps) 
           <Heading size="sm">{title}</Heading>
           <BodyText size="md">{description}</BodyText>
         </Flex>
-        <CardAction asChild>
+        <CardInteraction asChild>
           <Link href={link}>
             Learn more
             <ChevronRightSmallIcon />
           </Link>
-        </CardAction>
+        </CardInteraction>
       </Flex>
     </Card>
   );

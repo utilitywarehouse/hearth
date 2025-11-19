@@ -2,6 +2,7 @@
 export * from './Accordion';
 export * from './Alert';
 export * from './Badge';
+export * from './Banner';
 export * from './BodyText';
 export * from './BottomSheet';
 export * from './Box';
@@ -10,17 +11,21 @@ export * from './Card';
 export * from './Carousel';
 export * from './Center';
 export * from './Checkbox';
+export * from './Container';
 export * from './CurrencyInput';
 export * from './DatePicker';
 export * from './DatePickerInput';
 export * from './DescriptionList';
 export * from './DetailText';
 export * from './Divider';
+export * from './Expandable';
+export * from './ExpandableCard';
 export * from './Flex';
 export * from './FormField';
 export * from './Grid';
 export * from './Heading';
 export * from './Helper';
+export * from './HighlightBanner';
 export * from './HTMLElements';
 export * from './Icon';
 export * from './IconButton';
@@ -31,6 +36,7 @@ export * from './Input';
 export * from './Label';
 export * from './Link';
 export * from './List';
+export * from './Menu';
 export * from './Modal';
 export * from './ProgressStepper';
 export * from './Radio';
@@ -42,17 +48,10 @@ export * from './Spinner';
 export * from './Switch';
 export * from './Tabs';
 export * from './Textarea';
+export * from './ThemedImage';
 export * from './ToggleButtonCard';
 
-export {
-  FlatList,
-  Image,
-  KeyboardAvoidingView,
-  ScrollView,
-  SectionList,
-  StatusBar,
-  View,
-} from 'react-native';
+export { FlatList, Image, KeyboardAvoidingView, ScrollView, SectionList, View } from 'react-native';
 
 export { Pressable } from 'react-native';
 

@@ -12,7 +12,6 @@ import {
 } from '@utilitywarehouse/hearth-react-icons';
 import { marginPropDefs } from '../../props/margin.props';
 import { BodyText } from '../BodyText/BodyText';
-import { DetailText } from '../DetailText/DetailText';
 import { Flex } from '../Flex/Flex';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 
@@ -53,7 +52,11 @@ export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => 
       <AlertIcon aria-hidden="true" />
       <div className={`${componentClassName}Content`}>
         <Flex direction="column">
-          {title ? <DetailText>{title}</DetailText> : null}
+          {title ? (
+            <BodyText as="span" size="md" weight="semibold">
+              {title}
+            </BodyText>
+          ) : null}
           {text ? <BodyText as="div">{text}</BodyText> : null}
         </Flex>
         {children}

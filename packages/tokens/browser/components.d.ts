@@ -166,6 +166,34 @@ export declare const components: {
       readonly tablet: 'var(--h-card-padding-none-tablet)';
     };
   };
+  readonly cardAction: {
+    readonly content: {
+      readonly gap: 'var(--h-card-action-content-gap)';
+      readonly paddingHorizontal: 'var(--h-card-action-content-padding-horizontal)';
+      readonly paddingVertical: 'var(--h-card-action-content-padding-vertical)';
+    };
+  };
+  readonly cardContent: {
+    readonly banner: {
+      readonly illustration: {
+        readonly lg: {
+          readonly width: 'var(--h-card-content-banner-illustration-lg-width)';
+        };
+        readonly md: {
+          readonly width: 'var(--h-card-content-banner-illustration-md-width)';
+        };
+        readonly sm: {
+          readonly width: 'var(--h-card-content-banner-illustration-sm-width)';
+        };
+        readonly xl: {
+          readonly width: 'var(--h-card-content-banner-illustration-xl-width)';
+        };
+        readonly xs: {
+          readonly width: 'var(--h-card-content-banner-illustration-xs-width)';
+        };
+      };
+    };
+  };
   readonly carouselControl: {
     readonly gap: 'var(--h-carousel-control-gap)';
     readonly item: {
@@ -264,25 +292,24 @@ export declare const components: {
       readonly gap: 'var(--h-description-list-stack-gap)';
     };
   };
-  readonly dialog: {
-    readonly action: {
-      readonly gap: 'var(--h-dialog-action-gap)';
-    };
-    readonly borderRadius: 'var(--h-dialog-border-radius)';
-    readonly content: {
-      readonly gap: 'var(--h-dialog-content-gap)';
-      readonly paddingBottom: 'var(--h-dialog-content-padding-bottom)';
-    };
-    readonly gap: 'var(--h-dialog-gap)';
-    readonly padding: 'var(--h-dialog-padding)';
-    readonly width: {
-      readonly desktop: 'var(--h-dialog-width-desktop)';
-      readonly mobile: 'var(--h-dialog-width-mobile)';
-      readonly tablet: 'var(--h-dialog-width-tablet)';
-    };
-  };
   readonly divider: {
     readonly borderWidth: 'var(--h-divider-border-width)';
+  };
+  readonly drawer: {
+    readonly footer: {
+      readonly horizontal: {
+        readonly gap: 'var(--h-drawer-footer-horizontal-gap)';
+      };
+      readonly padding: 'var(--h-drawer-footer-padding)';
+      readonly vertical: {
+        readonly gap: 'var(--h-drawer-footer-vertical-gap)';
+      };
+    };
+    readonly gap: 'var(--h-drawer-gap)';
+    readonly heading: {
+      readonly gap: 'var(--h-drawer-heading-gap)';
+    };
+    readonly width: 'var(--h-drawer-width)';
   };
   readonly expandableCard: {
     readonly gapHorizontal: 'var(--h-expandable-card-gap-horizontal)';
@@ -355,7 +382,6 @@ export declare const components: {
   };
   readonly illustrations: {
     readonly colorMode: 'var(--h-illustrations-color-mode)';
-    readonly mode: 'var(--h-illustrations-mode)';
   };
   readonly inlineLink: {
     readonly color: 'var(--h-inline-link-color)';
@@ -387,6 +413,9 @@ export declare const components: {
     readonly minWidth: 'var(--h-input-min-width)';
     readonly paddingHorizontal: 'var(--h-input-padding-horizontal)';
     readonly paddingVertical: 'var(--h-input-padding-vertical)';
+    readonly stepper: {
+      readonly gap: 'var(--h-input-stepper-gap)';
+    };
     readonly textArea: {
       readonly height: 'var(--h-input-text-area-height)';
     };
@@ -474,11 +503,13 @@ export declare const components: {
       readonly gap: 'var(--h-modal-content-gap)';
     };
     readonly gap: 'var(--h-modal-gap)';
-    readonly padding: {
-      readonly desktop: 'var(--h-modal-padding-desktop)';
-      readonly mobile: 'var(--h-modal-padding-mobile)';
-      readonly tablet: 'var(--h-modal-padding-tablet)';
+    readonly heading: {
+      readonly gap: 'var(--h-modal-heading-gap)';
     };
+    readonly illustration: {
+      readonly padding: 'var(--h-modal-illustration-padding)';
+    };
+    readonly padding: 'var(--h-modal-padding)';
     readonly width: {
       readonly desktop: 'var(--h-modal-width-desktop)';
       readonly mobile: 'var(--h-modal-width-mobile)';
@@ -642,6 +673,10 @@ export declare const components: {
       readonly padding: 'var(--h-radio-tile-padding)';
     };
   };
+  readonly rating: {
+    readonly borderWidth: 'var(--h-rating-border-width)';
+    readonly gap: 'var(--h-rating-gap)';
+  };
   readonly sectionHeader: {
     readonly gap: 'var(--h-section-header-gap)';
     readonly textContent: {
@@ -744,6 +779,7 @@ export declare const components: {
     readonly borderRadius: 'var(--h-table-border-radius)';
     readonly cell: {
       readonly borderWidth: 'var(--h-table-cell-border-width)';
+      readonly minHeight: 'var(--h-table-cell-min-height)';
       readonly padding: 'var(--h-table-cell-padding)';
     };
     readonly emphasis: {
@@ -752,9 +788,7 @@ export declare const components: {
     readonly headerCell: {
       readonly borderWidth: 'var(--h-table-header-cell-border-width)';
       readonly gap: 'var(--h-table-header-cell-gap)';
-      readonly neutral: {
-        readonly backgroundColor: 'var(--h-table-header-cell-neutral-background-color)';
-      };
+      readonly height: 'var(--h-table-header-cell-height)';
       readonly paddingHorizontal: 'var(--h-table-header-cell-padding-horizontal)';
       readonly paddingVertical: 'var(--h-table-header-cell-padding-vertical)';
     };
@@ -784,6 +818,54 @@ export declare const components: {
       readonly height: 'var(--h-tabs-md-height)';
     };
   };
+  readonly timePicker: {
+    readonly gap: 'var(--h-time-picker-gap)';
+    readonly gapContainer: 'var(--h-time-picker-gap-container)';
+    readonly minWidth: 'var(--h-time-picker-min-width)';
+    readonly paddingHorizontal: 'var(--h-time-picker-padding-horizontal)';
+    readonly paddingVertical: 'var(--h-time-picker-padding-vertical)';
+    readonly time: {
+      readonly columnGap: 'var(--h-time-picker-time-column-gap)';
+      readonly content: {
+        readonly gap: 'var(--h-time-picker-time-content-gap)';
+        readonly item: {
+          readonly gap: 'var(--h-time-picker-time-content-item-gap)';
+        };
+      };
+      readonly footer: {
+        readonly gap: 'var(--h-time-picker-time-footer-gap)';
+      };
+      readonly gap: 'var(--h-time-picker-time-gap)';
+      readonly item: {
+        readonly height: 'var(--h-time-picker-time-item-height)';
+        readonly width: 'var(--h-time-picker-time-item-width)';
+      };
+      readonly rowGap: 'var(--h-time-picker-time-row-gap)';
+    };
+  };
+  readonly timeline: {
+    readonly bar: {
+      readonly width: 'var(--h-timeline-bar-width)';
+    };
+    readonly content: {
+      readonly gap: 'var(--h-timeline-content-gap)';
+      readonly paddingBottom: 'var(--h-timeline-content-padding-bottom)';
+      readonly paddingTop: 'var(--h-timeline-content-padding-top)';
+    };
+    readonly gap: 'var(--h-timeline-gap)';
+    readonly progress: {
+      readonly circle: {
+        readonly height: 'var(--h-timeline-progress-circle-height)';
+        readonly width: 'var(--h-timeline-progress-circle-width)';
+      };
+    };
+    readonly static: {
+      readonly circle: {
+        readonly height: 'var(--h-timeline-static-circle-height)';
+        readonly width: 'var(--h-timeline-static-circle-width)';
+      };
+    };
+  };
   readonly toast: {
     readonly backgroundColor: 'var(--h-toast-background-color)';
     readonly borderRadius: 'var(--h-toast-border-radius)';
@@ -811,10 +893,10 @@ export declare const components: {
     readonly paddingVertical: 'var(--h-tooltip-padding-vertical)';
   };
   readonly container: {
-    readonly margin: {
-      readonly desktop: 'var(--h-container-margin-desktop)';
-      readonly mobile: 'var(--h-container-margin-mobile)';
-      readonly tablet: 'var(--h-container-margin-tablet)';
+    readonly marginHorizontal: {
+      readonly desktop: 'var(--h-container-margin-horizontal-desktop)';
+      readonly mobile: 'var(--h-container-margin-horizontal-mobile)';
+      readonly tablet: 'var(--h-container-margin-horizontal-tablet)';
     };
     readonly paddingBottom: {
       readonly desktop: 'var(--h-container-padding-bottom-desktop)';
@@ -885,6 +967,11 @@ export declare const components: {
       };
       readonly fontWeight: 'var(--h-heading-xl-font-weight)';
     };
+  };
+  readonly listSpacing: {
+    readonly desktop: 'var(--h-list-spacing-desktop)';
+    readonly mobile: 'var(--h-list-spacing-mobile)';
+    readonly tablet: 'var(--h-list-spacing-tablet)';
   };
   readonly bodyText: {
     readonly fontWeight: 'var(--h-body-text-font-weight)';

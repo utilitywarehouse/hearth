@@ -166,6 +166,34 @@ export const components = {
       tablet: 'var(--h-card-padding-none-tablet)',
     },
   },
+  cardAction: {
+    content: {
+      gap: 'var(--h-card-action-content-gap)',
+      paddingHorizontal: 'var(--h-card-action-content-padding-horizontal)',
+      paddingVertical: 'var(--h-card-action-content-padding-vertical)',
+    },
+  },
+  cardContent: {
+    banner: {
+      illustration: {
+        lg: {
+          width: 'var(--h-card-content-banner-illustration-lg-width)',
+        },
+        md: {
+          width: 'var(--h-card-content-banner-illustration-md-width)',
+        },
+        sm: {
+          width: 'var(--h-card-content-banner-illustration-sm-width)',
+        },
+        xl: {
+          width: 'var(--h-card-content-banner-illustration-xl-width)',
+        },
+        xs: {
+          width: 'var(--h-card-content-banner-illustration-xs-width)',
+        },
+      },
+    },
+  },
   carouselControl: {
     gap: 'var(--h-carousel-control-gap)',
     item: {
@@ -265,25 +293,24 @@ export const components = {
       gap: 'var(--h-description-list-stack-gap)',
     },
   },
-  dialog: {
-    action: {
-      gap: 'var(--h-dialog-action-gap)',
-    },
-    borderRadius: 'var(--h-dialog-border-radius)',
-    content: {
-      gap: 'var(--h-dialog-content-gap)',
-      paddingBottom: 'var(--h-dialog-content-padding-bottom)',
-    },
-    gap: 'var(--h-dialog-gap)',
-    padding: 'var(--h-dialog-padding)',
-    width: {
-      desktop: 'var(--h-dialog-width-desktop)',
-      mobile: 'var(--h-dialog-width-mobile)',
-      tablet: 'var(--h-dialog-width-tablet)',
-    },
-  },
   divider: {
     borderWidth: 'var(--h-divider-border-width)',
+  },
+  drawer: {
+    footer: {
+      horizontal: {
+        gap: 'var(--h-drawer-footer-horizontal-gap)',
+      },
+      padding: 'var(--h-drawer-footer-padding)',
+      vertical: {
+        gap: 'var(--h-drawer-footer-vertical-gap)',
+      },
+    },
+    gap: 'var(--h-drawer-gap)',
+    heading: {
+      gap: 'var(--h-drawer-heading-gap)',
+    },
+    width: 'var(--h-drawer-width)',
   },
   expandableCard: {
     gapHorizontal: 'var(--h-expandable-card-gap-horizontal)',
@@ -356,7 +383,6 @@ export const components = {
   },
   illustrations: {
     colorMode: 'var(--h-illustrations-color-mode)',
-    mode: 'var(--h-illustrations-mode)',
   },
   inlineLink: {
     color: 'var(--h-inline-link-color)',
@@ -388,6 +414,9 @@ export const components = {
     minWidth: 'var(--h-input-min-width)',
     paddingHorizontal: 'var(--h-input-padding-horizontal)',
     paddingVertical: 'var(--h-input-padding-vertical)',
+    stepper: {
+      gap: 'var(--h-input-stepper-gap)',
+    },
     textArea: {
       height: 'var(--h-input-text-area-height)',
     },
@@ -475,11 +504,13 @@ export const components = {
       gap: 'var(--h-modal-content-gap)',
     },
     gap: 'var(--h-modal-gap)',
-    padding: {
-      desktop: 'var(--h-modal-padding-desktop)',
-      mobile: 'var(--h-modal-padding-mobile)',
-      tablet: 'var(--h-modal-padding-tablet)',
+    heading: {
+      gap: 'var(--h-modal-heading-gap)',
     },
+    illustration: {
+      padding: 'var(--h-modal-illustration-padding)',
+    },
+    padding: 'var(--h-modal-padding)',
     width: {
       desktop: 'var(--h-modal-width-desktop)',
       mobile: 'var(--h-modal-width-mobile)',
@@ -643,6 +674,10 @@ export const components = {
       padding: 'var(--h-radio-tile-padding)',
     },
   },
+  rating: {
+    borderWidth: 'var(--h-rating-border-width)',
+    gap: 'var(--h-rating-gap)',
+  },
   sectionHeader: {
     gap: 'var(--h-section-header-gap)',
     textContent: {
@@ -745,6 +780,7 @@ export const components = {
     borderRadius: 'var(--h-table-border-radius)',
     cell: {
       borderWidth: 'var(--h-table-cell-border-width)',
+      minHeight: 'var(--h-table-cell-min-height)',
       padding: 'var(--h-table-cell-padding)',
     },
     emphasis: {
@@ -753,9 +789,7 @@ export const components = {
     headerCell: {
       borderWidth: 'var(--h-table-header-cell-border-width)',
       gap: 'var(--h-table-header-cell-gap)',
-      neutral: {
-        backgroundColor: 'var(--h-table-header-cell-neutral-background-color)',
-      },
+      height: 'var(--h-table-header-cell-height)',
       paddingHorizontal: 'var(--h-table-header-cell-padding-horizontal)',
       paddingVertical: 'var(--h-table-header-cell-padding-vertical)',
     },
@@ -785,6 +819,54 @@ export const components = {
       height: 'var(--h-tabs-md-height)',
     },
   },
+  timePicker: {
+    gap: 'var(--h-time-picker-gap)',
+    gapContainer: 'var(--h-time-picker-gap-container)',
+    minWidth: 'var(--h-time-picker-min-width)',
+    paddingHorizontal: 'var(--h-time-picker-padding-horizontal)',
+    paddingVertical: 'var(--h-time-picker-padding-vertical)',
+    time: {
+      columnGap: 'var(--h-time-picker-time-column-gap)',
+      content: {
+        gap: 'var(--h-time-picker-time-content-gap)',
+        item: {
+          gap: 'var(--h-time-picker-time-content-item-gap)',
+        },
+      },
+      footer: {
+        gap: 'var(--h-time-picker-time-footer-gap)',
+      },
+      gap: 'var(--h-time-picker-time-gap)',
+      item: {
+        height: 'var(--h-time-picker-time-item-height)',
+        width: 'var(--h-time-picker-time-item-width)',
+      },
+      rowGap: 'var(--h-time-picker-time-row-gap)',
+    },
+  },
+  timeline: {
+    bar: {
+      width: 'var(--h-timeline-bar-width)',
+    },
+    content: {
+      gap: 'var(--h-timeline-content-gap)',
+      paddingBottom: 'var(--h-timeline-content-padding-bottom)',
+      paddingTop: 'var(--h-timeline-content-padding-top)',
+    },
+    gap: 'var(--h-timeline-gap)',
+    progress: {
+      circle: {
+        height: 'var(--h-timeline-progress-circle-height)',
+        width: 'var(--h-timeline-progress-circle-width)',
+      },
+    },
+    static: {
+      circle: {
+        height: 'var(--h-timeline-static-circle-height)',
+        width: 'var(--h-timeline-static-circle-width)',
+      },
+    },
+  },
   toast: {
     backgroundColor: 'var(--h-toast-background-color)',
     borderRadius: 'var(--h-toast-border-radius)',
@@ -812,10 +894,10 @@ export const components = {
     paddingVertical: 'var(--h-tooltip-padding-vertical)',
   },
   container: {
-    margin: {
-      desktop: 'var(--h-container-margin-desktop)',
-      mobile: 'var(--h-container-margin-mobile)',
-      tablet: 'var(--h-container-margin-tablet)',
+    marginHorizontal: {
+      desktop: 'var(--h-container-margin-horizontal-desktop)',
+      mobile: 'var(--h-container-margin-horizontal-mobile)',
+      tablet: 'var(--h-container-margin-horizontal-tablet)',
     },
     paddingBottom: {
       desktop: 'var(--h-container-padding-bottom-desktop)',
@@ -886,6 +968,11 @@ export const components = {
       },
       fontWeight: 'var(--h-heading-xl-font-weight)',
     },
+  },
+  listSpacing: {
+    desktop: 'var(--h-list-spacing-desktop)',
+    mobile: 'var(--h-list-spacing-mobile)',
+    tablet: 'var(--h-list-spacing-tablet)',
   },
   bodyText: {
     fontWeight: 'var(--h-body-text-font-weight)',

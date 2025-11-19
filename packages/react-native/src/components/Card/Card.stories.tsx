@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { Card, CardAction } from '.';
+import { BellMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { Card, CardAction, CardPressHandler } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { BodyText } from '../BodyText';
 import { Button } from '../Button';
@@ -37,6 +38,20 @@ const meta = {
       ],
       description: 'Use this value to set the Card color scheme.',
     },
+    shadowColor: {
+      control: 'select',
+      options: [
+        'functional',
+        'brand',
+        'energy',
+        'broadband',
+        'mobile',
+        'insurance',
+        'cashback',
+        'pig',
+      ],
+      description: 'Use this value to set the Card shadow color.',
+    },
   },
   args: {
     children: 'This is a card',
@@ -54,6 +69,52 @@ export const Playground: Story = {
     return (
       <Card {...props}>
         <BodyText>{children as string}</BodyText>
+      </Card>
+    );
+  },
+};
+
+export const WithActions: Story = {
+  render: ({ children, ...props }) => {
+    return (
+      <Card {...props} flexDirection="column" alignItems="stretch" space="md" variant="emphasis">
+        <BodyText>{children as string}</BodyText>
+        <CardAction
+          onPress={() => console.log('Card action pressed')}
+          heading="Card Action Head"
+          helperText="Some helper text"
+          leadingIcon={BellMediumIcon}
+        />
+        <CardAction
+          onPress={() => console.log('Card action pressed')}
+          heading="Card Action Head"
+          leadingIcon={BellMediumIcon}
+        />
+        <CardAction
+          onPress={() => console.log('Card action pressed')}
+          heading="Card Action Head"
+          helperText="Testing"
+          leadingIcon={BellMediumIcon}
+          iconContainer={false}
+        />
+      </Card>
+    );
+  },
+};
+
+export const WithOnlyAction: Story = {
+  args: {
+    variant: 'emphasis',
+  },
+  render: ({ children, ...props }) => {
+    return (
+      <Card {...props} flexDirection="column" alignItems="stretch" space="md">
+        <CardAction
+          onPress={() => console.log('Card action pressed')}
+          heading="Card Action Head"
+          helperText="Some helper text"
+          leadingIcon={BellMediumIcon}
+        />
       </Card>
     );
   },
@@ -161,6 +222,31 @@ export const Variants: Story = {
   },
 };
 
+export const WithShadow: Story = {
+  args: {
+    shadowColor: 'functional',
+  },
+  parameters: {
+    controls: { exclude: ['variant'] },
+  },
+  render: ({ children, ...props }) => {
+    return (
+      <Flex space="lg">
+        <VariantTitle title="Subtle - White - Shadow">
+          <Card {...props} variant="subtle">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+        <VariantTitle title="Emphasis - White - Shadow">
+          <Card {...props} variant="emphasis">
+            <BodyText>{children as string}</BodyText>
+          </Card>
+        </VariantTitle>
+      </Flex>
+    );
+  },
+};
+
 export const Interactive: Story = {
   parameters: {
     controls: { exclude: ['variant', 'colorScheme'] },
@@ -224,9 +310,9 @@ export const Interactive: Story = {
           >
             <Heading size="md">Heading</Heading>
             <BodyText>{children as string}</BodyText>
-            <CardAction>
+            <CardPressHandler>
               <Button onPress={() => console.log('pressed')}>Press me</Button>
-            </CardAction>
+            </CardPressHandler>
           </Card>
         </VariantTitle>
       </Flex>

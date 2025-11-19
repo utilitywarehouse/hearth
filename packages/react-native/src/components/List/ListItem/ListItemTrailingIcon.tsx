@@ -10,7 +10,8 @@ const ListItemTrailingIcon = ({ children, ...props }: IconProps & { as?: Compone
       {...props}
       style={
         Platform.OS === 'web'
-          ? StyleSheet.compose(styles.icon as StyleProp<ViewStyle>, props.style)
+          ? // @ts-expect-error - style prop type issue
+            { ...(styles.icon as StyleProp<ViewStyle>), ...props.style }
           : ([styles.icon as StyleProp<ViewStyle>, props.style] as any)
       }
     >
@@ -24,8 +25,6 @@ ListItemTrailingIcon.displayName = 'ListItemTrailingIcon';
 const styles = StyleSheet.create(theme => ({
   icon: {
     color: theme.color.icon.primary,
-    width: 24,
-    height: 24,
   },
 }));
 

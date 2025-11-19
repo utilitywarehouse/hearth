@@ -1,27 +1,30 @@
 import { StyleSheet } from 'react-native-unistyles';
-import { themes } from './themes';
 import { breakpoints } from './breakpoints';
-export * from './themes';
-export * from './breakpoints';
+import { themes } from './themes';
 export {
+  createUnistylesElement,
+  Display,
+  getServerUnistyles,
+  Hide,
+  hydrateServerUnistyles,
+  mq,
+  NavigationBar,
+  resetServerUnistyles,
+  ScopedTheme,
+  StatusBar,
   StyleSheet,
   UnistylesRuntime,
-  withUnistyles,
-  Hide,
-  Display,
-  ScopedTheme,
-  mq,
-  getServerUnistyles,
-  useUnistyles,
-  hydrateServerUnistyles,
   useServerUnistyles,
-  resetServerUnistyles,
+  useUnistyles,
+  withUnistyles,
 } from 'react-native-unistyles';
 export type {
   UnistylesBreakpoints,
   UnistylesThemes,
   UnistylesVariants,
 } from 'react-native-unistyles';
+export * from './breakpoints';
+export * from './themes';
 
 StyleSheet.configure({
   breakpoints,

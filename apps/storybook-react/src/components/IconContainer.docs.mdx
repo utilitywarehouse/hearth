@@ -15,6 +15,15 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
+- [Icons](#icons)
+- [Variants](#variants)
+- [Sizes](#sizes)
+- [Color schemes](#color-schemes)
+- [Dead prop combinations](#dead-prop-combinations)
+- [Radius none](#radius-none)
+- [Fill](#fill)
+- [API](#api)
+
 ## Icons
 
 The `IconContainer` component is intended to be used with the `@utilitywarehouse/hearth-react-icons` package.
@@ -58,7 +67,7 @@ import { AddMediumIcon, AddSmallIcon } from '@utilitywarehouse/hearth-react-icon
 import { IconContainer, Box } from '@utilitywarehouse/hearth-react';
 
 const MyComponent = () => (
-  <IconContainer size={{ mobile: 'sm', desktop: 'md' }} >
+  <IconContainer size={{ mobile: 'sm', desktop: 'md' }}>
     <Box asChild display={{ mobile: 'none', desktop: 'block' }}>
       <AddMediumIcon />
     </Box>
@@ -82,20 +91,35 @@ Be aware there are some combinations of `colorScheme` & `variant` that do not wo
 
 ## Radius none
 
-The `radiusNone` will remove the `border-radius`, for use when the icon
-container needs to sit flush against the edge of a card.
+Use the border radius common props to remove the default `border-radius`, for
+use when the icon container needs to sit flush against the edge of a card.
 
 <Canvas of={Stories.RadiusNone} sourceState="none" />
+
+## Fill
+
+The `fill` prop will remove the `border-radius` and set the size to fill it's
+container. You can also use this in conjuntion with the Border Radius common
+props to inherit the container border-radius as needed.
+
+<Canvas of={Stories.Fill} sourceState="none" />
 
 ## API
 
 This component is based on the `span` element and supports the following common props:
 
 - Margin
+- Border Radius
+- Size
 
-| Prop          | Type                                                                                  |
-| ------------- | ------------------------------------------------------------------------------------- |
-| `variant`     | `emphasis` \| `subtle`                                                                |
-| `size`        | `Responsive<"sm" \| "md" \| "lg">`                                                    |
-| `colorScheme` | `pig` \|`highlight` \| `energy` \| `mobile` \| `broadband`\| `cashback`\| `insurance` |
-| `radiusNone`  | `boolean`                                                                             |
+| Prop                      | Type                                                                                    |
+| ------------------------- | --------------------------------------------------------------------------------------- |
+| `variant`                 | `emphasis` \| `subtle`                                                                  |
+| `size`                    | `Responsive<"sm" \| "md" \| "lg">`                                                      |
+| `colorScheme`             | `"pig" \|"highlight" \| "energy" \| "mobile" \| "broadband"\| "cashback"\| "insurance"` |
+| `fill`                    | `"height" \|"width" \| "both"`                                                          |
+| `borderRadius`            | `Responsive<'none'\|'inherit'>`                                                         |
+| `borderTopLeftRadius`     | `Responsive<'none'\|'inherit'>`                                                         |
+| `borderTopRightRadius`    | `Responsive<'none'\|'inherit'>`                                                         |
+| `borderBottomLeftRadius`  | `Responsive<'none'\|'inherit'>`                                                         |
+| `borderBottomRightRadius` | `Responsive<'none'\|'inherit'>`                                                         |
