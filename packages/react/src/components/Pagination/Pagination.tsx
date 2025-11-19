@@ -25,7 +25,7 @@ const MAX_VISIBLE_ITEMS = 7;
 
 /**
  * Generates the array of page numbers and ellipsis to display
- * Max visible items is 8 (including ellipses)
+ * Max visible items is 7 (including ellipses)
  */
 const generatePageNumbers = (
   currentPage: number,

@@ -27,7 +27,7 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 ## Usage Guidelines
 
 - Handle the `onPageChange` callback to update your data
-- The component automatically shows a maximum of 8 items (including ellipses)
+- The component automatically shows a maximum of 7 items (including ellipses)
 - When using `as="nav"`, you must provide an `id` prop for proper accessibility
 
 ## Examples
@@ -76,9 +76,9 @@ When there are 7 or fewer pages, all page numbers are displayed.
 When there are many pages (more than 8), ellipsis (...) are shown to condense the pagination. The component shows:
 
 - First and last pages always visible
-- When near the start: first 4 pages, ellipsis, last 3 pages
+- When near the start: first 5 pages, ellipsis, last page
 - When in the middle: first page, ellipsis, current page with neighbours, ellipsis, last page
-- When near the end: first 3 pages, ellipsis, last 4 pages
+- When near the end: first page, ellipsis, last 5 pages
 
 <Canvas of={Stories.ManyPages} />
 
