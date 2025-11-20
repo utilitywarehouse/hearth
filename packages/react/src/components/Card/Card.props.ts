@@ -63,7 +63,6 @@ type CommonCardProps = Omit<
     | 'insurance'
     | 'cashback'
     | 'pig'
-    | 'highlight'
     | 'functional';
 };
 

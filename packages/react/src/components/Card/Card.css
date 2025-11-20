@@ -139,10 +139,6 @@
     --h-card-shadow-color: var(--h-shadow-pig);
   }
 
-  &:where([data-shadowcolor='highlight']) {
-    --h-card-shadow-color: var(--h-shadow-highlight);
-  }
-
   &:where([data-shadowcolor='functional']) {
     --h-card-shadow-color: var(--h-shadow-default);
   }

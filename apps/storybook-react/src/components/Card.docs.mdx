@@ -33,6 +33,10 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 - `CardBannerContent` - Layout for banner text content.
 - `CardBannerImage` - A wrapper for a banner image.
 
+## Alternatives
+
+- [HighlightBanner](?path=/docs/components-highlightbanner--docs) - For highlighting key information or marketing messaging
+
 ## Semantic HTML
 
 By default `Card` renders a `div` element, this can be customised using the
@@ -126,6 +130,12 @@ additional content in a `CardContent` component.
 
 <Canvas of={Stories.WithCardActions} sourceState="hide" />
 
+## Shadow colours
+
+You can set a shadow on the `Card` component using the `shadowColor` prop.
+
+<Canvas of={Stories.InteractiveCards} sourceState="hide" />
+
 ## Banners
 
 Banners can be created using a `Card` along with the `CardBannerContent` & `CardBannerImage` helper components.
@@ -167,6 +177,7 @@ This component is based on the `Flex` component and supports the following commo
 | `as`          | `"div" \| "li"`                                                                                                                             |
 | `variant`     | `"emphasis" \| "subtle"`                                                                                                                    |
 | `colorScheme` | `"neutralStrong" \| "neutralSubtle" \| "pig" \| "highlight" \| "brand" \| "energy" \| "broadband" \| "mobile" \| "insurance" \| "cashback"` |
+| `shadowColor` | `"pig" \| "brand" \| "energy" \| "broadband" \| "mobile" \| "insurance" \| "cashback" \| "functional"`                                      |
 | `paddingNone` | `boolean`                                                                                                                                   |
 
 ### CardInteraction API
