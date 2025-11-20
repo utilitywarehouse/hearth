@@ -1,5 +1,5 @@
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
-import {ListItemContentProps} from './ListItemContent.props';
+import { ListItemContentProps } from './ListItemContent.props';
 
 export interface ListItemButtonProps
   extends ComponentPropsWithout<'button', RemovedProps>,
