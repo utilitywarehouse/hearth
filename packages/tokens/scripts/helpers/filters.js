@@ -25,6 +25,8 @@ export const filters = {
   isSpace: token =>
     (token.filePath.includes('primitive') && token.path.includes('space')) ||
     (token.path.includes('layout') && token.path.includes('spacing')),
+  // Identifies shadow tokens
+  isShadow: token => !token.path.includes('dark') && token.path.includes('shadow'),
 
   // Identifies primitive border tokens (border width and radius from primitive tokens)
   isPrimitiveBorder: token =>

@@ -212,9 +212,19 @@ export function generateCssTokens() {
               filter: filters.isPrimitiveLightColor,
             },
             {
+              destination: 'layout.css',
+              format: 'css/variables',
+              filter: filters.isLayoutSpacing,
+            },
+            {
               destination: 'space.css',
               format: 'css/variables',
-              filter: filters.isSpace,
+              filter: filters.isPrimitiveSpace,
+            },
+            {
+              destination: 'shadow.css',
+              format: 'css/variables',
+              filter: filters.isShadow,
             },
             {
               destination: 'font.css',
