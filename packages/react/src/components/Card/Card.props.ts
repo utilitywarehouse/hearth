@@ -52,6 +52,18 @@ type CommonCardProps = Omit<
    * Remove padding
    */
   paddingNone?: boolean;
+  /**
+   * Sets the card shadow colour
+   */
+  shadowColor?:
+    | 'brand'
+    | 'energy'
+    | 'broadband'
+    | 'mobile'
+    | 'insurance'
+    | 'cashback'
+    | 'pig'
+    | 'functional';
 };
 
 type CardDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;

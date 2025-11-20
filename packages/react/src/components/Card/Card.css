@@ -103,6 +103,46 @@
     --h-card-subtle-background-color: var(--h-surface-highlight-subtle);
   }
 
+  &:where([data-shadowcolor]) {
+    box-shadow: var(--h-card-shadow-color) var(--h-md-x-mobile) var(--h-md-y-mobile);
+
+    @media (--h-desktop) {
+      box-shadow: var(--h-card-shadow-color) var(--h-md-x-desktop) var(--h-md-y-desktop);
+    }
+  }
+
+  &:where([data-shadowcolor='brand']) {
+    --h-card-shadow-color: var(--h-shadow-brand);
+  }
+
+  &:where([data-shadowcolor='energy']) {
+    --h-card-shadow-color: var(--h-shadow-energy);
+  }
+
+  &:where([data-shadowcolor='broadband']) {
+    --h-card-shadow-color: var(--h-shadow-broadband);
+  }
+
+  &:where([data-shadowcolor='mobile']) {
+    --h-card-shadow-color: var(--h-shadow-mobile);
+  }
+
+  &:where([data-shadowcolor='insurance']) {
+    --h-card-shadow-color: var(--h-shadow-insurance);
+  }
+
+  &:where([data-shadowcolor='cashback']) {
+    --h-card-shadow-color: var(--h-shadow-cashback);
+  }
+
+  &:where([data-shadowcolor='pig']) {
+    --h-card-shadow-color: var(--h-shadow-pig);
+  }
+
+  &:where([data-shadowcolor='functional']) {
+    --h-card-shadow-color: var(--h-shadow-default);
+  }
+
   &:has(.hearth-CardActions) {
     flex-direction: column;
   }
