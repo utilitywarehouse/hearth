@@ -8,6 +8,8 @@ import {
   ListItemContent,
   ListItemButton,
   ListItemLink,
+  ListActionLink,
+  ListActionButton,
   Badge,
   BodyText,
   DetailText,
@@ -104,6 +106,9 @@ export const Playground: Story = {
             leadingContent={<SettingsMediumIcon />}
             href="#"
           />
+        </ListItem>
+        <ListItem>
+          <ListActionButton>List action</ListActionButton>
         </ListItem>
       </List>
     </Box>
@@ -589,6 +594,73 @@ export const ListItemLinks: Story = {
         </ListItem>
       </List>
     </Box>
+  ),
+  args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
+};
+
+export const ListActions: Story = {
+  render: args => (
+    <Flex gap="400" width="700px">
+      <List {...args}>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item"
+            helperText="Helper text"
+            leadingContent={<SettingsMediumIcon />}
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item"
+            helperText="Helper text"
+            leadingContent={<SettingsMediumIcon />}
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item"
+            helperText="Helper text"
+            leadingContent={<SettingsMediumIcon />}
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem>
+          <ListActionLink href="#">List action link</ListActionLink>
+        </ListItem>
+      </List>
+
+      <List {...args}>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item"
+            helperText="Helper text"
+            leadingContent={<SettingsMediumIcon />}
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item"
+            helperText="Helper text"
+            leadingContent={<SettingsMediumIcon />}
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item"
+            helperText="Helper text"
+            leadingContent={<SettingsMediumIcon />}
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem>
+          <ListActionButton>List action button</ListActionButton>
+        </ListItem>
+      </List>
+    </Flex>
   ),
   args: { variant: 'emphasis', colorScheme: 'neutralSubtle' },
 };

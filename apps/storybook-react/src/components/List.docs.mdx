@@ -11,13 +11,14 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 <Canvas of={Stories.Playground} />
 <Controls of={Stories.Playground} />
 
-- [Playground](#playground)
+- [Usage](#usage)
 - [Accessibility](#accessibility)
 - [Appearance](#appearance)
 - [Heading](#heading)
 - [Leading content](#leading-content)
 - [Trailing content](#trailing-content)
 - [Advanced Content](#advanced-content)
+- [List actions](#list-actions)
 - [API](#api)
 
 ## Usage
@@ -27,6 +28,8 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 - Use `ListItemContent` as a child of `ListItem` to include `helperText` or a `leadingIcon`.
 - Use `ListItemButton` as a child of `ListItem` when you need the list item to perform an action.
 - Use `ListItemLink` as a child of `ListItem` when you need the list item to navigate somewhere.
+- Use `ListActionLink` as a child of `ListItem` when you need an action for the list to navigate somewhere.
+- Use `ListActionButton` as a child of `ListItem` when you need an action for the list to do somthing.
 
 ## Accessibility
 
@@ -163,6 +166,14 @@ reflects the contents of the list item.
 
 <Canvas of={Stories.CustomContent} />
 
+## List actions
+
+A single List Action can be applied to any List that sits within a container.
+Use List Action to apply to actions that apply the the content of the list. For
+example, "View older bills"
+
+<Canvas of={Stories.ListActions} />
+
 ## API
 
 This component is based on the `ul` element and supports the following common props:
@@ -256,3 +267,19 @@ This component is base on the `a` element.
 | `helperText`   | `string`    |
 | `leadingIcon`  | `ReactNode` |
 | `trailingIcon` | `ReactNode` |
+
+## ListActionLink
+
+A single `ListActionLink` component can render a list action as a link, and should be wrapped in a `ListItem` component.
+
+### API
+
+This component is base on the `a` element.
+
+## ListActionButton
+
+A single `ListActionButon` component can render a list action as a link, and should be wrapped in a `ListItem` component.
+
+### API
+
+This component is base on the `button` element.
