@@ -52,6 +52,16 @@ const brandColorSchemes = [
   'pig',
 ] as const;
 const colorSchemes = [...neutralColorSchemes, 'highlight', ...brandColorSchemes] as const;
+const shadowColors = [
+  'brand',
+  'energy',
+  'broadband',
+  'mobile',
+  'insurance',
+  'cashback',
+  'pig',
+  'functional',
+] as const;
 
 const meta: Meta<typeof Card> = {
   title: 'Stories / Card',
@@ -68,6 +78,7 @@ const meta: Meta<typeof Card> = {
     children: { control: { type: 'text' } },
     variant: { control: { type: 'radio' }, options: variants },
     colorScheme: { control: { type: 'radio' }, options: colorSchemes },
+    shadowColor: { control: { type: 'radio' }, options: shadowColors },
     paddingNone: { control: { type: 'boolean' } },
     as: { control: { type: 'radio' }, options: ['div', 'li'] },
   },
@@ -150,6 +161,18 @@ export const Playground: Story = {
     <Card {...args} width="400px" marginInline="auto">
       <BodyText size="md">{children}</BodyText>
     </Card>
+  ),
+};
+
+export const ShadowColours: Story = {
+  render: ({ children, ...args }) => (
+    <Flex gap="400" direction="column" padding="400">
+      {shadowColors.map(c => (
+        <Card {...args} width="300px" shadowColor={c}>
+          <BodyText size="md">{children}</BodyText>
+        </Card>
+      ))}
+    </Flex>
   ),
 };
 

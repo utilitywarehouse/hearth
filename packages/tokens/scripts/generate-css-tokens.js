@@ -124,7 +124,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerTransform({
   name: 'component/px',
   type: 'value',
-  filter: filters.isComponentPxValue,
+  filter: filters.isPxValue,
   transform: px,
 });
 
@@ -212,14 +212,14 @@ export function generateCssTokens() {
               filter: filters.isPrimitiveLightColor,
             },
             {
-              destination: 'layout.css',
-              format: 'css/variables',
-              filter: filters.isLayoutSpacing,
-            },
-            {
               destination: 'space.css',
               format: 'css/variables',
               filter: filters.isPrimitiveSpace,
+            },
+            {
+              destination: 'layout.css',
+              format: 'css/variables',
+              filter: filters.isLayoutSpacing,
             },
             {
               destination: 'shadow.css',
