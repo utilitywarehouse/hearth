@@ -780,6 +780,7 @@ export const components = {
     borderRadius: 'var(--h-table-border-radius)',
     cell: {
       borderWidth: 'var(--h-table-cell-border-width)',
+      minHeight: 'var(--h-table-cell-min-height)',
       padding: 'var(--h-table-cell-padding)',
     },
     emphasis: {
@@ -788,6 +789,7 @@ export const components = {
     headerCell: {
       borderWidth: 'var(--h-table-header-cell-border-width)',
       gap: 'var(--h-table-header-cell-gap)',
+      height: 'var(--h-table-header-cell-height)',
       paddingHorizontal: 'var(--h-table-header-cell-padding-horizontal)',
       paddingVertical: 'var(--h-table-header-cell-padding-vertical)',
     },

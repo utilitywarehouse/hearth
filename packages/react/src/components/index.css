@@ -47,6 +47,7 @@
 @import url('./Modal/Modal.css');
 @import url('./Alert/Alert.css');
 @import url('./CurrencyInput/CurrencyInput.css');
+@import url('./DateInput/DateInput.css');
 @import url('./Tabs/Tabs.css');
 @import url('./IconContainer/IconContainer.css');
 @import url('./Accordion/Accordion.css');
@@ -60,3 +61,4 @@
 @import url('./ProgressStepper/ProgressStep.css');
 @import url('./Avatar/Avatar.css');
 @import url('./ProgressBar/ProgressBar.css');
+@import url('./HighlightBanner/HighlightBanner.css');

@@ -1,0 +1,60 @@
+.hearth-HighlightBanner {
+  width: fit-content;
+
+  &
+    :where(
+      .hearth-HighlightBannerHeading,
+      .hearth-HighlightBannerFooter,
+      .hearth-HighlightBannerContent
+    ) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--h-banner-highlight-padding);
+  }
+
+  & :where(.hearth-HighlightBannerHeading) {
+    border-bottom: var(--h-border-width-2) solid var(--h-border-strong);
+
+    &:where([data-colorscheme='brand']) {
+      background-color: var(--h-surface-brand-subtle);
+    }
+
+    &:where([data-colorscheme='energy']) {
+      background-color: var(--h-surface-energy-subtle);
+    }
+
+    &:where([data-colorscheme='broadband']) {
+      background-color: var(--h-surface-broadband-subtle);
+    }
+
+    &:where([data-colorscheme='mobile']) {
+      background-color: var(--h-surface-mobile-subtle);
+    }
+
+    &:where([data-colorscheme='insurance']) {
+      background-color: var(--h-surface-insurance-subtle);
+    }
+
+    &:where([data-colorscheme='cashback']) {
+      background-color: var(--h-surface-cashback-subtle);
+    }
+
+    &:where([data-colorscheme='pig']) {
+      background-color: var(--h-surface-pig-subtle);
+    }
+
+    &:where([data-colorscheme='highlight']) {
+      background-color: var(--h-surface-highlight-subtle);
+    }
+  }
+
+  & :where(.hearth-HighlightBannerContent) {
+    gap: var(--h-banner-highlight-content-gap);
+  }
+
+  & :where(.hearth-HighlightBannerFooter) {
+    border-top: var(--h-border-width-2) solid var(--h-border-strong);
+  }
+}
