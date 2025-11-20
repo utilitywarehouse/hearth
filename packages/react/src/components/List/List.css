@@ -98,7 +98,7 @@
       }
     }
 
-    & :where(.hearth-ListItemButton, .hearth-ListItemLink, ) {
+    & :where(.hearth-ListItemButton, .hearth-ListItemLink) {
       cursor: pointer;
       width: 100%;
       display: flex;
