@@ -56,6 +56,7 @@ export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGrou
       onValueChange,
       children,
     };
+
     // useControllableState will handle whether controlled or uncontrolled
     const [value = [], setValue] = useControllableState({
       prop: valueProp,

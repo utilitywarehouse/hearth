@@ -2,25 +2,27 @@ import * as React from 'react';
 import clsx from 'clsx';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { DateInputElement, DateInputProps } from './DateInput.props';
-import { extractProps } from '../../helpers/extract-props';
-import { marginPropDefs } from '../../props/margin.props';
+import { DateInputProps } from './DateInput.props';
 import { FormGroupBase } from '../FormGroupBase/FormGroupBase';
 import { Flex } from '../Flex/Flex';
 import { Label } from '../Label/Label';
 import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
+import { ElementRef } from 'react';
+import { TextInput } from '../TextInput/TextInput';
 
 const COMPONENT_NAME = 'DateInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
+
+type DateInputElement = ElementRef<'fieldset'>;
 
 const filterToNumeric = (value: string, maxLength: number): string => {
   return value.replace(/\D/g, '').slice(0, maxLength);
 };
 
 export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
-  (props, forwardedRef) => {
-    const {
+  (
+    {
       className,
       label,
       helperText,
@@ -45,16 +47,15 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
       required,
       id: providedId,
       'aria-describedby': ariaDescribedby,
-      ...fieldsetProps
-    } = extractProps(props, marginPropDefs);
-
-    // Helper IDs
+      ...props
+    },
+    forwardedRef
+  ) => {
     const { id, helperTextId, validationTextId } = useIds({
       providedId,
       prefix: 'date-input',
     });
 
-    // Controllable State
     const [day, setDay] = useControllableState({
       prop: dayProp,
       defaultProp: defaultDayValue ?? '',
@@ -168,7 +169,7 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
         disabled={disabled}
         id={id}
         aria-describedby={ariaDescribedbyValue}
-        {...fieldsetProps}
+        {...props}
       >
         <Flex
           className={`${componentClassName}Segments`}
