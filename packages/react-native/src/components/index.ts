@@ -49,6 +49,7 @@ export * from './Switch';
 export * from './Tabs';
 export * from './Textarea';
 export * from './ThemedImage';
+export * from './Toast';
 export * from './ToggleButtonCard';
 
 export { FlatList, Image, KeyboardAvoidingView, ScrollView, SectionList, View } from 'react-native';
