@@ -1,25 +1,16 @@
 .hearth-DateInput {
   width: 100%;
-  min-width: var(--h-input-min-width);
-  max-width: var(--h-input-max-width);
-}
 
-& :where(.hearth-DateInputSegments) {
-  display: flex;
-  align-items: stretch;
-  gap: var(--h-input-date-gap);
-
-  & :where(.hearth-DateInputSegment) {
+  & :where(.hearth-DateInputGroup) {
     display: flex;
-    flex-direction: column;
-    gap: var(--h-input-gap);
-    width:96px;
+    align-items: stretch;
+    gap: var(--h-input-date-gap);
+
+    & :where(.hearth-DateInputSegment) {
+      display: flex;
+      flex-direction: column;
+      gap: var(--h-input-gap);
+      width: 96px;
+    }
   }
-
-}
-
-.hearth-DateInputSegmentLabel {
-  font-size: var(--h-font-size-75);
-  line-height: var(--h-line-height-400);
-  color: var(--h-text-secondary);
 }

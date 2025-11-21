@@ -11,6 +11,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { FormGroupBaseProvider } from './FormGroupBase.context';
+import { BodyText } from '../BodyText/BodyText';
 
 const COMPONENT_NAME = 'FormGroupBase';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -27,6 +28,7 @@ export const FormGroupBase = React.forwardRef<FormGroupBaseElement, FormGroupBas
       helperText,
       validationText,
       validationStatus,
+      validationPlacement = 'top',
       disabled,
       'aria-labelledby': ariaLabelledby,
       'aria-describedby': ariaDescribedby,
@@ -78,7 +80,7 @@ export const FormGroupBase = React.forwardRef<FormGroupBaseElement, FormGroupBas
                     {helperText}
                   </HelperText>
                 ) : null}
-                {showValidationText ? (
+                {showValidationText && validationPlacement === 'top' ? (
                   <ValidationText id={validationTextId} status={validationStatus}>
                     {validationText}
                   </ValidationText>
@@ -88,6 +90,11 @@ export const FormGroupBase = React.forwardRef<FormGroupBaseElement, FormGroupBas
           </>
         ) : null}
         <FormGroupBaseProvider value={value}>{children}</FormGroupBaseProvider>
+        {showValidationText && validationPlacement === 'bottom' ? (
+          <ValidationText id={validationTextId} status={validationStatus}>
+            {validationText}
+          </ValidationText>
+        ) : null}
       </fieldset>
     );
   }

@@ -4,7 +4,6 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { DateInputProps } from './DateInput.props';
 import { FormGroupBase } from '../FormGroupBase/FormGroupBase';
 import { useIds } from '../../hooks/use-ids';
-import { mergeIds } from '../../helpers/merge-ids';
 import { ElementRef } from 'react';
 import { DateInputSegment } from './DateInputSegment';
 
@@ -21,12 +20,12 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
       helperText,
       validationStatus,
       validationText,
-      showDay = true,
-      showMonth = true,
-      showYear = true,
-      dayPlaceholder = 'DD',
-      monthPlaceholder = 'MM',
-      yearPlaceholder = 'YYYY',
+      hideDay,
+      hideMonth,
+      hideYear,
+      dayPlaceholder,
+      monthPlaceholder,
+      yearPlaceholder,
       dayValue,
       monthValue,
       yearValue,
@@ -36,29 +35,20 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
       onDayChange,
       onMonthChange,
       onYearChange,
+      onDayFocus,
+      onMonthFocus,
+      onYearFocus,
+      onDayBlur,
+      onMonthBlur,
+      onYearBlur,
       disabled,
       required,
       id: providedId,
-      'aria-describedby': ariaDescribedby,
       ...props
     },
     forwardedRef
   ) => {
-    const { id, helperTextId, validationTextId } = useIds({
-      providedId,
-      prefix: 'date-input',
-    });
-
-    const showValidationText = Boolean(
-      !disabled && validationStatus !== undefined && validationText !== undefined
-    );
-
-    const ariaDescribedbyValue = mergeIds(
-      ariaDescribedby,
-      helperText ? helperTextId : undefined,
-      showValidationText ? validationTextId : undefined
-    );
-
+    const { id } = useIds({ providedId, prefix: 'date-input' });
     return (
       <FormGroupBase
         ref={forwardedRef}
@@ -67,51 +57,63 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
         helperText={helperText}
         validationStatus={validationStatus}
         validationText={validationText}
+        validationPlacement="bottom"
         disabled={disabled}
         id={id}
-        aria-describedby={ariaDescribedbyValue}
         {...props}
       >
-        <div className={`${componentClassName}Segments`}>
-          {showDay ? (
+        <div className={`${componentClassName}Group`}>
+          {hideDay ? null : (
             <DateInputSegment
               maxLength={2}
               placeholder={dayPlaceholder}
               value={dayValue}
               defaultValue={defaultDayValue}
               onChange={onDayChange}
+              onFocus={onDayFocus}
+              onBlur={onDayBlur}
               disabled={disabled}
               required={required}
-              label="Day"
               validationStatus={validationStatus}
+              label="Day"
+              name={`${id}-day`}
+              id={`${id}-day`}
             />
-          ) : null}
-          {showMonth ? (
+          )}
+          {hideMonth ? null : (
             <DateInputSegment
-              maxLength={2}
               placeholder={monthPlaceholder}
               value={monthValue}
               defaultValue={defaultMonthValue}
               onChange={onMonthChange}
+              onFocus={onMonthFocus}
+              onBlur={onMonthBlur}
               disabled={disabled}
               required={required}
-              label="Month"
               validationStatus={validationStatus}
+              label="Month"
+              name={`${id}-month`}
+              id={`${id}-month`}
             />
-          ) : null}
-          {showYear ? (
+          )}
+          {hideYear ? null : (
             <DateInputSegment
               maxLength={4}
+              minLength={4}
               placeholder={yearPlaceholder}
               value={yearValue}
               defaultValue={defaultYearValue}
               onChange={onYearChange}
+              onFocus={onYearFocus}
+              onBlur={onYearBlur}
               disabled={disabled}
               required={required}
-              label="Year"
               validationStatus={validationStatus}
+              label="Year"
+              name={`${id}-year`}
+              id={`${id}-year`}
             />
-          ) : null}
+          )}
         </div>
       </FormGroupBase>
     );

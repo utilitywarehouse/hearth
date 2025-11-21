@@ -6,19 +6,19 @@ export interface DateInputProps
     Omit<InputBaseProps, keyof FormGroupBaseProps> {
   /**
    * Whether the day segment is visible.
-   * @default true
+   * @default false
    */
-  showDay?: boolean;
+  hideDay?: boolean;
   /**
    * Whether the month segment is visible.
-   * @default true
+   * @default false
    */
-  showMonth?: boolean;
+  hideMonth?: boolean;
   /**
    * Whether the year segment is visible.
-   * @default true
+   * @default false
    */
-  showYear?: boolean;
+  hideYear?: boolean;
   /**
    * Placeholder text for the day segment.
    */
@@ -67,4 +67,10 @@ export interface DateInputProps
    * Callback fired when the year value changes.
    */
   onYearChange?: InputBaseProps['onChange'];
+  onDayFocus?: InputBaseProps['onFocus'];
+  onMonthFocus?: InputBaseProps['onFocus'];
+  onYearFocus?: InputBaseProps['onFocus'];
+  onDayBlur?: InputBaseProps['onBlur'];
+  onMonthBlur?: InputBaseProps['onBlur'];
+  onYearBlur?: InputBaseProps['onBlur'];
 }

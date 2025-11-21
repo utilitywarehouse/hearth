@@ -45,6 +45,7 @@ export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGrou
       validationText,
       validationStatus,
     };
+
     const checkboxGroupProps = {
       width: contentWidth,
       direction,
@@ -81,6 +82,7 @@ export const CheckboxGroup = React.forwardRef<CheckboxGroupElement, CheckboxGrou
       onItemCheck: handleItemCheck,
       onItemUncheck: handleItemUncheck,
     };
+
     return (
       <FormGroupBase
         ref={ref}
