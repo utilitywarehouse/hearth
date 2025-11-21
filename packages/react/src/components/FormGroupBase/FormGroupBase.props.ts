@@ -23,4 +23,5 @@ export interface FormGroupBaseProps
   helperText?: ReactNode;
   validationText?: ReactNode;
   validationStatus?: ValidationTextProps['status'];
+  validationPlacement?: 'top' | 'bottom';
 }

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { DateInput, Flex, Card, Heading, BodyText } from '@utilitywarehouse/hearth-react';
+import { DateInput, Flex, Card, Heading, HelperText } from '@utilitywarehouse/hearth-react';
 import { useState } from 'react';
 
 const meta: Meta<typeof DateInput> = {
@@ -9,7 +9,7 @@ const meta: Meta<typeof DateInput> = {
     docs: {
       description: {
         component:
-          '`DateInput` allows users to enter a date manually using separate input fields for day, month, and year. It provides flexibility to show only the date segments you need.',
+          '`DateInput` allows users to enter a date manually using separate input fields for day, month, and year. It provides flexibility to show only the date segments you need. Use `DateInput` when you need users to enter dates manually.',
       },
     },
   },
@@ -19,19 +19,14 @@ const meta: Meta<typeof DateInput> = {
     disabled: { control: { type: 'boolean' } },
     required: { control: { type: 'boolean' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
-    showDay: { control: { type: 'boolean' } },
-    showMonth: { control: { type: 'boolean' } },
-    showYear: { control: { type: 'boolean' } },
+    hideDay: { control: { type: 'boolean' } },
+    hideMonth: { control: { type: 'boolean' } },
+    hideYear: { control: { type: 'boolean' } },
   },
   args: {
     label: 'Date',
     helperText: 'Helper text',
     validationText: 'Validation text',
-    disabled: false,
-    required: false,
-    showDay: true,
-    showMonth: true,
-    showYear: true,
   },
 };
 
@@ -42,22 +37,7 @@ export const Playground: Story = {};
 
 export const DateOfBirth: Story = {
   render: () => {
-    const [day, setDay] = useState('');
-    const [month, setMonth] = useState('');
-    const [year, setYear] = useState('');
-    return (
-      <DateInput
-        label="Date of birth"
-        helperText="Enter your date of birth"
-        dayValue={day}
-        monthValue={month}
-        yearValue={year}
-        onDayChange={setDay}
-        onMonthChange={setMonth}
-        onYearChange={setYear}
-        required
-      />
-    );
+    return <DateInput label="Date of birth" helperText="Enter your date of birth" required />;
   },
 };
 
@@ -71,9 +51,9 @@ export const CardExpiry: Story = {
         helperText="Enter the expiry month and year"
         monthValue={month}
         yearValue={year}
-        onMonthChange={setMonth}
-        onYearChange={setYear}
-        showDay={false}
+        onMonthChange={(event: React.ChangeEvent<HTMLInputElement>) => setMonth(event.target.value)}
+        onYearChange={(event: React.ChangeEvent<HTMLInputElement>) => setYear(event.target.value)}
+        hideDay
         required
       />
     );
@@ -82,18 +62,7 @@ export const CardExpiry: Story = {
 
 export const YearOnly: Story = {
   render: () => {
-    const [year, setYear] = useState('');
-    return (
-      <DateInput
-        label="Year"
-        helperText="Enter the year"
-        yearValue={year}
-        onYearChange={setYear}
-        showDay={false}
-        showMonth={false}
-        required
-      />
-    );
+    return <DateInput label="Year" helperText="Enter the year" hideDay hideMonth />;
   },
 };
 
@@ -109,9 +78,11 @@ export const Validation: Story = {
           dayValue={day}
           monthValue={month}
           yearValue={year}
-          onDayChange={setDay}
-          onMonthChange={setMonth}
-          onYearChange={setYear}
+          onDayChange={(event: React.ChangeEvent<HTMLInputElement>) => setDay(event.target.value)}
+          onMonthChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setMonth(event.target.value)
+          }
+          onYearChange={(event: React.ChangeEvent<HTMLInputElement>) => setYear(event.target.value)}
           validationStatus="valid"
           validationText="Date is valid"
           required
@@ -150,7 +121,6 @@ export const DefaultValue: Story = {
     return (
       <DateInput
         label="Date of birth"
-        helperText="Uncontrolled with default value"
         defaultDayValue="01"
         defaultMonthValue="01"
         defaultYearValue="2000"
@@ -208,9 +178,9 @@ export const WithCustomValidation: Story = {
         dayValue={day}
         monthValue={month}
         yearValue={year}
-        onDayChange={setDay}
-        onMonthChange={setMonth}
-        onYearChange={setYear}
+        onDayChange={(event: React.ChangeEvent<HTMLInputElement>) => setDay(event.target.value)}
+        onMonthChange={(event: React.ChangeEvent<HTMLInputElement>) => setMonth(event.target.value)}
+        onYearChange={(event: React.ChangeEvent<HTMLInputElement>) => setYear(event.target.value)}
         validationStatus={validation.status}
         validationText={validation.message}
         required
@@ -222,36 +192,21 @@ export const WithCustomValidation: Story = {
 export const FlexibleSegments: Story = {
   render: () => (
     <Flex direction="column" gap="400">
-      <DateInput label="Full date (DD/MM/YYYY)" helperText="Day, month and year" required />
-      <DateInput
-        label="Month and year (MM/YYYY)"
-        helperText="Expiry date"
-        showDay={false}
-        required
-      />
-      <DateInput
-        label="Year only (YYYY)"
-        helperText="Year of graduation"
-        showDay={false}
-        showMonth={false}
-        required
-      />
+      <DateInput label="Full date" helperText="DD/MM/YYYY" />
+      <DateInput label="Month and year" helperText="MM/YYYY" hideDay required />
+      <DateInput label="Year only" helperText="YYYY" hideDay hideMonth required />
     </Flex>
   ),
 };
 
 export const GroupingInputs: Story = {
   render: () => (
-    <Flex asChild direction="column">
+    <Flex asChild direction="column" gap="200">
       <fieldset>
-        <legend>
-          <Heading as="h3" size="lg" marginBottom="200">
-            Event Registration
-          </Heading>
-        </legend>
-        <BodyText size="md" marginBottom="250" id="event-info">
-          Please enter your details for the event
-        </BodyText>
+        <Heading asChild as="h3" size="lg">
+          <legend>Event Registration</legend>
+        </Heading>
+        <HelperText id="event-info">Please enter your details for the event</HelperText>
         <Card variant="subtle" direction="column" gap="250">
           <DateInput
             label="Date of birth"

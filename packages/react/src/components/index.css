@@ -26,6 +26,7 @@
 @import url('./Card/CardInteraction.css');
 @import url('./HelperText/HelperText.css');
 @import url('./ValidationText/ValidationText.css');
+@import url('./InputBase/InputBase.css');
 @import url('./TextInput/TextInput.css');
 @import url('./TextInputSlot/TextInputSlot.css');
 @import url('./Badge/Badge.css');
