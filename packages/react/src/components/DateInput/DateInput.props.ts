@@ -1,19 +1,9 @@
 import { FormGroupBaseProps } from '../FormGroupBase/FormGroupBase.props';
-import { ComponentPropsWithout } from '../../types/component-props';
-import { NotInputTextualAttributes } from '../../helpers/input-attributes';
+import { InputBaseProps } from '../InputBase/InputBase.props';
 
 export interface DateInputProps
   extends FormGroupBaseProps,
-    ComponentPropsWithout<
-      'input',
-      | NotInputTextualAttributes
-      | 'color'
-      | 'defaultValue'
-      | 'size'
-      | 'type'
-      | 'value'
-      | keyof FormGroupBaseProps
-    > {
+    Omit<InputBaseProps, keyof FormGroupBaseProps> {
   /**
    * Whether the day segment is visible.
    * @default true
@@ -68,13 +58,13 @@ export interface DateInputProps
   /**
    * Callback fired when the day value changes.
    */
-  onDayChange?: (day: string) => void;
+  onDayChange?: InputBaseProps['onChange'];
   /**
    * Callback fired when the month value changes.
    */
-  onMonthChange?: (month: string) => void;
+  onMonthChange?: InputBaseProps['onChange'];
   /**
    * Callback fired when the year value changes.
    */
-  onYearChange?: (year: string) => void;
+  onYearChange?: InputBaseProps['onChange'];
 }

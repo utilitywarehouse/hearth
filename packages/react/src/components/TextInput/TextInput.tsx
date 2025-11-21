@@ -39,7 +39,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((pro
 
   const { id, labelId, helperTextId, validationTextId } = useIds({
     providedId,
-    prefix: 'input',
+    prefix: 'text-input',
   });
 
   const showValidationText = Boolean(

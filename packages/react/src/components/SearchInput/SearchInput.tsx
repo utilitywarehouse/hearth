@@ -15,7 +15,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type SearchInputElement = ElementRef<'input'>;
 
 export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps>(
-  ({ className, disabled, value, onClear, loading, ...props }, forwardedRef) => {
+  ({ className, disabled, value, onClear, loading, id, ...props }, forwardedRef) => {
     const defaultRef = React.useRef<HTMLInputElement | null>(null);
     const inputRef = forwardedRef || defaultRef;
 
@@ -43,6 +43,7 @@ export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps
         disabled={disabled}
         hideLabel
         value={value}
+        id={id || 'search-input'}
         {...props}
       >
         <TextInputSlot placement="prefix">
