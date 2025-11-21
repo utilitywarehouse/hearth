@@ -11,7 +11,6 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { FormGroupBaseProvider } from './FormGroupBase.context';
-import { BodyText } from '../BodyText/BodyText';
 
 const COMPONENT_NAME = 'FormGroupBase';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);

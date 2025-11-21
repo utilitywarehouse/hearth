@@ -7,6 +7,7 @@ import { TextInput } from '../TextInput/TextInput';
 import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { EyeOffSmallIcon, EyeSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { useIds } from '../../hooks/use-ids';
 
 const COMPONENT_NAME = 'PasswordInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -14,7 +15,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type PasswordInputElement = ElementRef<'input'>;
 
 export const PasswordInput = React.forwardRef<PasswordInputElement, PasswordInputProps>(
-  ({ className, disabled, ...props }, forwardedRef) => {
+  ({ className, disabled, id: providedId, ...props }, forwardedRef) => {
     const defaultRef = React.useRef<HTMLInputElement | null>(null);
     const inputRef = forwardedRef || defaultRef;
     const [visible, setVisible] = React.useState(false);
@@ -62,6 +63,8 @@ export const PasswordInput = React.forwardRef<PasswordInputElement, PasswordInpu
       }, 1500);
     }, [showVisibilityMessage]);
 
+    const { id } = useIds({ providedId, prefix: 'password-input' });
+
     return (
       <>
         <TextInput
@@ -69,6 +72,7 @@ export const PasswordInput = React.forwardRef<PasswordInputElement, PasswordInpu
           className={clsx(componentClassName, className)}
           type={visible ? 'text' : 'password'}
           disabled={disabled}
+          id={id}
           {...props}
         >
           <TextInputSlot placement="suffix">

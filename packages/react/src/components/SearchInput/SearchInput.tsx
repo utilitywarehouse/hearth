@@ -8,6 +8,7 @@ import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { SearchInputProps } from './SearchInput.props';
 import { Spinner } from '../Spinner/Spinner';
 import { CloseSmallIcon, SearchMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import { useIds } from '../../hooks/use-ids';
 
 const COMPONENT_NAME = 'SearchInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -15,7 +16,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type SearchInputElement = ElementRef<'input'>;
 
 export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps>(
-  ({ className, disabled, value, onClear, loading, id, ...props }, forwardedRef) => {
+  ({ className, disabled, value, onClear, loading, id: providedId, ...props }, forwardedRef) => {
     const defaultRef = React.useRef<HTMLInputElement | null>(null);
     const inputRef = forwardedRef || defaultRef;
 
@@ -33,6 +34,8 @@ export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps
       [inputRef, onClear]
     );
 
+    const { id } = useIds({ providedId, prefix: 'search-input' });
+
     return (
       <TextInput
         ref={inputRef}
@@ -43,7 +46,7 @@ export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps
         disabled={disabled}
         hideLabel
         value={value}
-        id={id || 'search-input'}
+        id={id}
         {...props}
       >
         <TextInputSlot placement="prefix">
