@@ -1,0 +1,75 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './DateInput.stories';
+import { DocsHeader } from '../storybook-components/DocsHeader';
+import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
+
+<Meta title="Components / DateInput" />
+
+<DocsHeader componentName="DateInput" stories={Stories} />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Validation
+
+`DateInput` shows validation states visually, but **you implement the validation logic**.
+This gives you full control over your validation rules.
+
+Set `validationStatus` to `"valid"` or `"invalid"` and provide `validationText`
+to explain the validation result.
+
+<Canvas of={Stories.Validation} />
+
+Here's a complete example showing how to implement date validation:
+
+<Canvas of={Stories.WithCustomValidation} />
+
+## Optional inputs
+
+Control which inputs are shown using `hideDay`, `hideMonth`, and `hideYear` props.
+
+This is useful for specific use cases:
+
+<Canvas of={Stories.FlexibleSegments} />
+
+## Grouping inputs
+
+When grouping date inputs with other form fields, use the `fieldset` and `legend`
+elements. This ensures the group title is properly associated with child input elements.
+
+Make sure you place the `legend` element as the first child of the `fieldset`,
+otherwise the relationship is broken.
+
+<Canvas of={Stories.GroupingInputs} />
+
+## API
+
+This component is based on the `fieldset` element and supports the following common props:
+
+- Margin
+
+| Prop                | Type                                                      |
+| ------------------- | --------------------------------------------------------- |
+| `label`             | `string`                                                  |
+| `helperText`        | `string`                                                  |
+| `validationStatus`  | `"valid" \| "invalid"`                                    |
+| `validationText`    | `string`                                                  |
+| `required`          | `boolean`                                                 |
+| `disabled`          | `boolean`                                                 |
+| `hideDay`           | `boolean`                                                 |
+| `hideMonth`         | `boolean`                                                 |
+| `hideYear`          | `boolean`                                                 |
+| `dayPlaceholder`    | `string`                                                  |
+| `monthPlaceholder`  | `string`                                                  |
+| `yearPlaceholder`   | `string`                                                  |
+| `dayValue`          | `string`                                                  |
+| `monthValue`        | `string`                                                  |
+| `yearValue`         | `string`                                                  |
+| `defaultDayValue`   | `string`                                                  |
+| `defaultMonthValue` | `string`                                                  |
+| `defaultYearValue`  | `string`                                                  |
+| `onDayChange`       | `React.ChangeEventHandler<HTMLInputElement> \| undefined` |
+| `onMonthChange`     | `React.ChangeEventHandler<HTMLInputElement> \| undefined` |
+| `onYearChange`      | `React.ChangeEventHandler<HTMLInputElement> \| undefined` |

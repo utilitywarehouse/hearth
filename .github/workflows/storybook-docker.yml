@@ -4,6 +4,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   build-and-push-storybook:
     name: Build & Push
@@ -14,11 +17,16 @@ jobs:
       - nscloud-exp-container-image-cache
       - nscloud-exp-runner-tool-cache-10gb
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@95d9a5deda9de15063e7595e9719c11c38c90ae2 # v2.13.2
+        with:
+          egress-policy: audit
+
       - name: Check out source code
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
 
       - name: Login to registry
-        uses: docker/login-action@v3
+        uses: docker/login-action@5e57cd118135c172c3672efd75eb46360885c0ef # v3.6.0
         with:
           registry: registry.uw.systems
           username: ${{ secrets.DOCKER_ID }}
@@ -26,7 +34,7 @@ jobs:
 
       - name: Extract metadata (tags, labels)
         id: metadata
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@818d4b7b91585d195f67373fd9cb0332e31a7175 # v4.6.0
         with:
           images: registry.uw.systems/design-systems/storybook
           tags: |
@@ -39,7 +47,7 @@ jobs:
       # this remote runner enables better caching & more performance for container builds.
       # i.e. don't call `docker/setup-buildx-action`
       - name: Build and push Docker image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6.18.0
         with:
           file: apps/storybook-server/Dockerfile
           context: .

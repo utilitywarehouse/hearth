@@ -112,7 +112,17 @@ export function generateBrowserTokens() {
             {
               destination: 'space.ts',
               format: 'browser/variables',
-              filter: filters.isSpace,
+              filter: filters.isPrimitiveSpace,
+            },
+            {
+              destination: 'layout.ts',
+              format: 'browser/variables',
+              filter: filters.isLayoutSpacing,
+            },
+            {
+              destination: 'shadow.ts',
+              format: 'browser/variables',
+              filter: filters.isShadow,
             },
             {
               destination: 'font.ts',
