@@ -1,0 +1,38 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --h-shadow-brand: var(--h-color-purple-700);
+  --h-shadow-broadband: var(--h-color-broadband-green-300);
+  --h-shadow-cashback: var(--h-color-cashback-lilac-500);
+  --h-shadow-default: var(--h-color-grey-1000);
+  --h-shadow-energy: var(--h-color-energy-blue-300);
+  --h-shadow-insurance: var(--h-color-insurance-orange-400);
+  --h-shadow-mobile: var(--h-color-mobile-rose-400);
+  --h-shadow-pig: var(--h-color-piggy-pink-300);
+  --h-md-blur-desktop: 0;
+  --h-md-spread-desktop: 0;
+  --h-md-x-desktop: 6px;
+  --h-md-y-desktop: 6px;
+  --h-sm-blur-desktop: 0;
+  --h-sm-spread-desktop: 0;
+  --h-sm-x-desktop: 4px;
+  --h-sm-y-desktop: 4px;
+  --h-md-blur-mobile: 0;
+  --h-md-spread-mobile: 0;
+  --h-md-x-mobile: 4px;
+  --h-md-y-mobile: 4px;
+  --h-sm-blur-mobile: 0;
+  --h-sm-spread-mobile: 0;
+  --h-sm-x-mobile: 4px;
+  --h-sm-y-mobile: 4px;
+  --h-md-blur-tablet: 0;
+  --h-md-spread-tablet: 0;
+  --h-md-x-tablet: 6px;
+  --h-md-y-tablet: 6px;
+  --h-sm-blur-tablet: 0;
+  --h-sm-spread-tablet: 0;
+  --h-sm-x-tablet: 4px;
+  --h-sm-y-tablet: 4px;
+}

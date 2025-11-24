@@ -27,6 +27,7 @@ export const FormGroupBase = React.forwardRef<FormGroupBaseElement, FormGroupBas
       helperText,
       validationText,
       validationStatus,
+      validationPlacement = 'top',
       disabled,
       'aria-labelledby': ariaLabelledby,
       'aria-describedby': ariaDescribedby,
@@ -78,7 +79,7 @@ export const FormGroupBase = React.forwardRef<FormGroupBaseElement, FormGroupBas
                     {helperText}
                   </HelperText>
                 ) : null}
-                {showValidationText ? (
+                {showValidationText && validationPlacement === 'top' ? (
                   <ValidationText id={validationTextId} status={validationStatus}>
                     {validationText}
                   </ValidationText>
@@ -88,6 +89,11 @@ export const FormGroupBase = React.forwardRef<FormGroupBaseElement, FormGroupBas
           </>
         ) : null}
         <FormGroupBaseProvider value={value}>{children}</FormGroupBaseProvider>
+        {showValidationText && validationPlacement === 'bottom' ? (
+          <ValidationText id={validationTextId} status={validationStatus}>
+            {validationText}
+          </ValidationText>
+        ) : null}
       </fieldset>
     );
   }
