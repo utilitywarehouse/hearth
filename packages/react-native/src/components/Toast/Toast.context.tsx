@@ -113,6 +113,6 @@ const styles = StyleSheet.create(theme => ({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    gap: theme.space.xs,
+    gap: theme.components.toast.stack.gap,
   },
 }));

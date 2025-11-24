@@ -5,9 +5,13 @@
 export default {
   backgroundColor: '#3f3f3f',
   borderRadius: 8,
-  gapHorizontal: 16,
+  bottomPosition: 32,
+  gap: 16,
   padding: 14,
   stack: {
-    gapHorizontal: 8,
+    gap: 12,
+  },
+  text: {
+    gap: 8,
   },
 } as const;

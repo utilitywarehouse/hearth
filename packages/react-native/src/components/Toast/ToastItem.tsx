@@ -107,21 +107,18 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
 
   const toastContent = (
     <View style={styles.inner}>
-      {IconComp ? (
-        <View style={styles.iconWrap}>
-          <Icon as={IconComp} style={styles.icon} />
-        </View>
-      ) : null}
-
       <View style={styles.content}>
+        {IconComp ? (
+          <View style={styles.iconWrap}>
+            <Icon as={IconComp} style={styles.icon} />
+          </View>
+        ) : null}
         <BodyText inverted>{toast.text}</BodyText>
       </View>
       {toast.actionText ? (
-        <View style={styles.linkWrap}>
-          <Link onPress={handlePress} showIcon={false} inverted>
-            {toast.actionText}
-          </Link>
-        </View>
+        <Link onPress={handlePress} showIcon={false} inverted>
+          {toast.actionText}
+        </Link>
       ) : null}
 
       {showDismissIcon ? (
@@ -165,11 +162,8 @@ ToastItem.displayName = 'ToastItem';
 const styles = StyleSheet.create(theme => ({
   toast: {
     backgroundColor: theme.components.toast.backgroundColor,
-    borderRadius: theme.borderRadius.md,
-    paddingVertical: theme.space.sm,
-    paddingHorizontal: theme.space.md,
-    marginBottom: theme.space.sm,
-    marginHorizontal: theme.space.md,
+    borderRadius: theme.components.toast.borderRadius,
+    padding: theme.components.toast.padding,
     width: '95%',
   },
   pressable: {
@@ -178,8 +172,8 @@ const styles = StyleSheet.create(theme => ({
   inner: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: theme.space.md,
     width: '100%',
+    gap: theme.components.toast.gap,
   },
   iconWrap: {
     width: 24,
@@ -193,13 +187,12 @@ const styles = StyleSheet.create(theme => ({
   },
   content: {
     flex: 1,
+    gap: theme.components.toast.text.gap,
+    flexDirection: 'row',
+    alignItems: 'center',
     minWidth: 0,
   },
-  linkWrap: {
-    marginTop: theme.space.xs,
-  },
   actions: {
-    marginLeft: theme.space.sm,
     flexShrink: 0,
   },
 }));

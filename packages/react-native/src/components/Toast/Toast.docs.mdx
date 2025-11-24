@@ -1,6 +1,9 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import toastiOSVideo from '../../../docs/assets/toast-ios.MP4';
 import { BackToTopButton, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Toast.stories';
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=7072-902" />
 
 <Meta title="Components / Toast" />
 
@@ -14,7 +17,6 @@ The `Toast` component provides a non-intrusive way to display brief messages to 
 - [Usage](#usage)
 - [Props](#props)
 - [Features](#features)
-- [Accessibility](#accessibility)
 - [Examples](#examples)
   - [Basic Toast](#basic-toast)
   - [With Icon](#with-icon)
@@ -23,6 +25,7 @@ The `Toast` component provides a non-intrusive way to display brief messages to 
   - [Stacked Toasts](#stacked-toasts)
   - [Programmatic Dismiss](#programmatic-dismiss)
   - [Dismiss Options](#dismiss-options)
+- [Accessibility](#accessibility)
 
 ## Playground
 
@@ -96,38 +99,16 @@ Returns an object with:
 
 ## Features
 
-### Auto-Dismiss
+- **Auto-Dismiss:** Toasts automatically dismiss after 6 seconds by default. You can customize this duration or disable auto-dismiss entirely by setting `duration` to `0`.
+- **Swipe to Dismiss:** Users can swipe down on any toast to dismiss it immediately. The gesture uses smooth animations for a native feel.
+- **Dismiss Button:** Each toast includes a close button in the top-right corner for manual dismissal.
+- **Stacking:** Multiple toasts stack vertically at the bottom of the screen, with the newest toast appearing on top. Each toast maintains its own auto-dismiss timer.
+- **Icons:** Add visual context by including an icon component. Icons are positioned at the start of the toast message.
+- **Action Links:** Include interactive action links (like "Undo" or "View") as secondary actions within the toast using the `actionText` prop. When `onPress` is provided, the entire toast becomes tappable, allowing users to trigger the action by tapping anywhere on the toast.
 
-Toasts automatically dismiss after 6 seconds by default. You can customize this duration or disable auto-dismiss entirely by setting `duration` to `0`.
+### Native iOS Toast Animation
 
-### Swipe to Dismiss
-
-Users can swipe down on any toast to dismiss it immediately. The gesture uses smooth animations for a native feel.
-
-### Dismiss Button
-
-Each toast includes a close button in the top-right corner for manual dismissal.
-
-### Stacking
-
-Multiple toasts stack vertically at the bottom of the screen, with the newest toast appearing on top. Each toast maintains its own auto-dismiss timer.
-
-### Icons
-
-Add visual context by including an icon component. Icons are positioned at the start of the toast message.
-
-### Action Links
-
-Include interactive action links (like "Undo" or "View") as secondary actions within the toast using the `actionText` prop. When `onPress` is provided, the entire toast becomes tappable, allowing users to trigger the action by tapping anywhere on the toast.
-
-## Accessibility
-
-- **Screen reader announcements**: Toast content is automatically announced when it appears. On iOS, VoiceOver receives the announcement via accessibility live regions. On Android, TalkBack receives a direct announcement to avoid duplication
-- **Semantic structure**: Toasts use proper ARIA roles (`alert` on iOS) for screen readers
-- **Dismiss button**: Includes an accessibility label for easy dismissal
-- **Action links**: Properly accessible as interactive elements when provided
-- **Swipe gestures**: Work alongside manual dismiss options for user flexibility
-- **Non-blocking**: Toasts don't interrupt user interaction with the app or steal focus
+<video src={toastiOSVideo} width={400} height="auto" controls loop autoPlay />
 
 ## Examples
 
@@ -173,21 +154,11 @@ Control dismiss behavior with `showDismissIcon` and `dismissOnPress`:
 
 <Canvas of={Stories.DismissOptions} />
 
-## Best Practices
+## Accessibility
 
-- **Keep messages brief**: Toasts should be scannable at a glance (1-2 lines)
-- **Don't overuse toasts**: Too many can overwhelm users
-- **Provide actions when helpful**: Include "Undo" or "View" actions for relevant operations
-- **Consider timing**: Use longer durations for important messages, shorter for simple confirmations
-- **Avoid critical information**: Don't rely on toasts for information users must see
-- **Test on different screen sizes**: Ensure toasts don't block important UI elements
-- **Use onDismiss callback**: Track when users dismiss toasts for analytics or cleanup logic
-- **Control dismiss UI**: Use `showDismissIcon={false}` for cleaner toasts or `dismissOnPress={true}` for easier dismissal
-
-## Technical Details
-
-- Built with `react-native-reanimated` for smooth animations
-- Uses `react-native-gesture-handler` for swipe detection
-- Toasts render in an absolute-positioned container at the bottom of the screen
-- Each toast maintains its own animation state and timer
-- Provider manages a stack of active toasts with automatic cleanup
+- **Screen reader announcements**: Toast content is automatically announced when it appears. On iOS, VoiceOver receives the announcement via accessibility live regions. On Android, TalkBack receives a direct announcement to avoid duplication
+- **Semantic structure**: Toasts use proper ARIA roles (`alert` on iOS) for screen readers
+- **Dismiss button**: Includes an accessibility label for easy dismissal
+- **Action links**: Properly accessible as interactive elements when provided
+- **Swipe gestures**: Work alongside manual dismiss options for user flexibility
+- **Non-blocking**: Toasts don't interrupt user interaction with the app or steal focus
