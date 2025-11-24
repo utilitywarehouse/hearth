@@ -68,6 +68,8 @@ import {
   MenuTrigger,
   Modal,
   OL,
+  Pill,
+  PillGroup,
   ProgressStep,
   ProgressStepper,
   Radio,
@@ -625,6 +627,21 @@ const AllComponents: React.FC = () => {
                   <BodyText>List Item 2</BodyText>
                 </LI>
               </OL>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Pill Group" link="/?path=/docs/components-pill-group--docs">
+            <Center flex={1} p="200">
+              {(() => {
+                const [pillValue, setPillValue] = React.useState<string[]>(['energy', 'mobile']);
+                return (
+                  <PillGroup value={pillValue} onChange={v => setPillValue(v as string[])} wrap={false} multiple>
+                    <Pill value="all" label="All" />
+                    <Pill value="energy" label="Energy" icon={ElectricityMediumIcon} />
+                    <Pill value="broadband" label="Broadband" icon={BroadbandMediumIcon} />
+                    <Pill value="mobile" label="Mobile" icon={MobileMediumIcon} />
+                  </PillGroup>
+                );
+              })()}
             </Center>
           </ComponentWrapper>
           <ComponentWrapper

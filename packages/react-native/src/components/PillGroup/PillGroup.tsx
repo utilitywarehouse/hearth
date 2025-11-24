@@ -1,30 +1,55 @@
-import React from 'react';
-import { ScrollViewProps, ViewStyle } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import React, { useMemo } from 'react';
+import { ScrollView } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Box } from '../Box';
+import { PillGroupContext, PillGroupContextValue } from './PillGroup.context';
+import type { PillGroupProps } from './PillGroup.props';
 
-export interface PillGroupProps
-  extends Omit<ScrollViewProps, 'horizontal' | 'contentContainerStyle' | 'showsHorizontalScrollIndicator'> {
-  children: React.ReactNode;
-  wrap?: boolean;
-  style?: ViewStyle | ViewStyle[];
-}
+export const PillGroup = ({
+  children,
+  value,
+  multiple = false,
+  wrap = true,
+  onChange,
+  style,
+  ...props
+}: PillGroupProps) => {
+  const normalizedValue = Array.isArray(value) ? value : [value];
 
-export const PillGroup = ({ children, wrap = false, style, ...props }: PillGroupProps) => {
-  return wrap ? (
-    <Box style={[styles.group, styles.wrap, style]} {...props}>
-      {children}
-    </Box>
-  ) : (
-    <ScrollView
-      horizontal
-      contentContainerStyle={[styles.group, style]}
-      showsHorizontalScrollIndicator={false}
-      {...props}
-    >
-      {children}
-    </ScrollView>
+  const contextValue: PillGroupContextValue = useMemo(
+    () => ({
+      value: normalizedValue,
+      onChange: (pillValue: string) => {
+        if (multiple) {
+          const newValue = normalizedValue.includes(pillValue)
+            ? normalizedValue.filter(v => v !== pillValue)
+            : [...normalizedValue, pillValue];
+          onChange?.(newValue);
+        } else {
+          onChange?.(pillValue);
+        }
+      },
+    }),
+    [normalizedValue, multiple, onChange]
+  );
+
+  return (
+    <PillGroupContext.Provider value={contextValue}>
+      {wrap ? (
+        <Box style={[styles.group, styles.wrap, style]} {...props}>
+          {children}
+        </Box>
+      ) : (
+        <ScrollView
+          horizontal
+          contentContainerStyle={[styles.group, style]}
+          showsHorizontalScrollIndicator={false}
+          {...props}
+        >
+          {children}
+        </ScrollView>
+      )}
+    </PillGroupContext.Provider>
   );
 };
 

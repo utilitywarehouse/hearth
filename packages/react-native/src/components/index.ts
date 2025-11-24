@@ -38,7 +38,6 @@ export * from './Link';
 export * from './List';
 export * from './Menu';
 export * from './Modal';
-export * from './Pill';
 export * from './PillGroup';
 export * from './ProgressStepper';
 export * from './Radio';
