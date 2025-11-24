@@ -1,0 +1,39 @@
+.hearth-DatePickerCalendar {
+  & :where(.react-datepicker__month) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--h-date-picker-calendar-column-gap);
+    text-align: center;
+  }
+
+  & :where(.hearth-DatePickerWeek) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--h-date-picker-calendar-row-gap);
+    white-space: nowrap;
+  }
+
+  & :where(.hearth-DatePickerDay) {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: var(--h-date-picker-calendar-item-min-width);
+    min-height: 32px;
+    border-radius: var(--h-border-radius-md);
+    padding: var(--h-space-0);
+    color: var(--h-interactive-functional-foreground-subtle);
+    font-family: var(--h-font-family-body);
+    font-size: var(--h-body-text-md-font-size);
+    font-weight: var(--h-body-text-font-weight);
+    line-height: var(--h-body-text-md-line-height);
+    letter-spacing: 0;
+
+    &:where(.react-datepicker__day--selected) {
+      color: var(--h-text-inverted);
+      background-color: var(--h-surface-brand-default);
+    }
+  }
+}

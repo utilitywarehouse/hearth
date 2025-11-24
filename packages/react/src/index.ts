@@ -276,3 +276,6 @@ export { HighlightBannerFooter } from './components/HighlightBanner/HighlightBan
 export type { HighlightBannerFooterProps } from './components/HighlightBanner/HighlightBannerFooter.props';
 export { HighlightBannerContent } from './components/HighlightBanner/HighlightBannerContent';
 export type { HighlightBannerContentProps } from './components/HighlightBanner/HighlightBannerContent.props';
+
+export { DatePicker } from './components/DatePicker/DatePicker';
+export type { DatePickerProps } from './components/DatePicker/DatePicker.props';
