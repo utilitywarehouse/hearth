@@ -1,162 +1,54 @@
 import * as React from 'react';
 import clsx from 'clsx';
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { DateInputElement, DateInputProps } from './DateInput.props';
-import { extractProps } from '../../helpers/extract-props';
-import { marginPropDefs } from '../../props/margin.props';
+import { DateInputProps } from './DateInput.props';
 import { FormGroupBase } from '../FormGroupBase/FormGroupBase';
-import { Flex } from '../Flex/Flex';
-import { Label } from '../Label/Label';
 import { useIds } from '../../hooks/use-ids';
-import { mergeIds } from '../../helpers/merge-ids';
+import { ElementRef } from 'react';
+import { DateInputSegment } from './DateInputSegment';
 
 const COMPONENT_NAME = 'DateInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-const filterToNumeric = (value: string, maxLength: number): string => {
-  return value.replace(/\D/g, '').slice(0, maxLength);
-};
+type DateInputElement = ElementRef<'fieldset'>;
 
 export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
-  (props, forwardedRef) => {
-    const {
+  (
+    {
       className,
       label,
       helperText,
       validationStatus,
       validationText,
-      showDay = true,
-      showMonth = true,
-      showYear = true,
+      hideDay,
+      hideMonth,
+      hideYear,
       dayPlaceholder,
       monthPlaceholder,
       yearPlaceholder,
-      dayValue: dayProp,
-      monthValue: monthProp,
-      yearValue: yearProp,
+      dayValue,
+      monthValue,
+      yearValue,
       defaultDayValue,
       defaultMonthValue,
       defaultYearValue,
       onDayChange,
       onMonthChange,
       onYearChange,
+      onDayFocus,
+      onMonthFocus,
+      onYearFocus,
+      onDayBlur,
+      onMonthBlur,
+      onYearBlur,
       disabled,
       required,
       id: providedId,
-      'aria-describedby': ariaDescribedby,
-      ...fieldsetProps
-    } = extractProps(props, marginPropDefs);
-
-    // Helper IDs
-    const { id, helperTextId, validationTextId } = useIds({
-      providedId,
-      prefix: 'date-input',
-    });
-
-    // Controllable State
-    const [day, setDay] = useControllableState({
-      prop: dayProp,
-      defaultProp: defaultDayValue ?? '',
-      onChange: onDayChange,
-    });
-    const [month, setMonth] = useControllableState({
-      prop: monthProp,
-      defaultProp: defaultMonthValue ?? '',
-      onChange: onMonthChange,
-    });
-    const [year, setYear] = useControllableState({
-      prop: yearProp,
-      defaultProp: defaultYearValue ?? '',
-      onChange: onYearChange,
-    });
-
-    // Handler Functions
-    const handleDayChange = React.useCallback(
-      (value: string) => {
-        setDay(filterToNumeric(value, 2));
-      },
-      [setDay]
-    );
-    const handleMonthChange = React.useCallback(
-      (value: string) => {
-        setMonth(filterToNumeric(value, 2));
-      },
-      [setMonth]
-    );
-    const handleYearChange = React.useCallback(
-      (value: string) => {
-        setYear(filterToNumeric(value, 4));
-      },
-      [setYear]
-    );
-
-    // Determine which segments to show and their order
-    const segments = React.useMemo(() => {
-      const allSegments = [];
-
-      if (showDay) {
-        allSegments.push({
-          key: 'day' as const,
-          value: day,
-          onChange: handleDayChange,
-          placeholder: dayPlaceholder || 'DD',
-          label: 'Day',
-          maxLength: 2,
-          width: '64px',
-        });
-      }
-
-      if (showMonth) {
-        allSegments.push({
-          key: 'month' as const,
-          value: month,
-          onChange: handleMonthChange,
-          placeholder: monthPlaceholder || 'MM',
-          label: 'Month',
-          maxLength: 2,
-          width: '64px',
-        });
-      }
-
-      if (showYear) {
-        allSegments.push({
-          key: 'year' as const,
-          value: year,
-          onChange: handleYearChange,
-          placeholder: yearPlaceholder || 'YYYY',
-          label: 'Year',
-          maxLength: 4,
-          width: '96px',
-        });
-      }
-
-      return allSegments;
-    }, [
-      showDay,
-      showMonth,
-      showYear,
-      day,
-      month,
-      year,
-      dayPlaceholder,
-      monthPlaceholder,
-      yearPlaceholder,
-      handleDayChange,
-      handleMonthChange,
-      handleYearChange,
-    ]);
-
-    const showValidationText = Boolean(
-      !disabled && validationStatus !== undefined && validationText !== undefined
-    );
-
-    const ariaDescribedbyValue = mergeIds(
-      ariaDescribedby,
-      helperText ? helperTextId : undefined,
-      showValidationText ? validationTextId : undefined
-    );
-
+      ...props
+    },
+    forwardedRef
+  ) => {
+    const { id } = useIds({ providedId, prefix: 'date-input' });
     return (
       <FormGroupBase
         ref={forwardedRef}
@@ -165,53 +57,64 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
         helperText={helperText}
         validationStatus={validationStatus}
         validationText={validationText}
+        validationPlacement="bottom"
         disabled={disabled}
         id={id}
-        aria-describedby={ariaDescribedbyValue}
-        {...fieldsetProps}
+        {...props}
       >
-        <Flex
-          className={`${componentClassName}Segments`}
-          data-validation-status={validationStatus ? validationStatus : undefined}
-          data-disabled={disabled ? '' : undefined}
-        >
-          {segments.map((segment, index) => (
-            <Flex
-              key={segment.key}
-              direction="column"
-              gap="50"
-              className={`${componentClassName}Segment`}
-              style={{ width: segment.width }}
-            >
-              <Label
-                htmlFor={`${id}-${segment.key}`}
-                className={`${componentClassName}SegmentLabel`}
-                disableUserSelect
-              >
-                {segment.label}
-              </Label>
-              <div className={`${componentClassName}SegmentRoot`}>
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  id={`${id}-${segment.key}`}
-                  maxLength={segment.maxLength}
-                  placeholder={!disabled ? segment.placeholder : undefined}
-                  value={segment.value ?? ''}
-                  onChange={e => segment.onChange(e.target.value)}
-                  disabled={disabled}
-                  required={required && index === 0}
-                  aria-label={segment.label}
-                  aria-invalid={validationStatus === 'invalid' ? true : undefined}
-                  aria-describedby={ariaDescribedbyValue}
-                  spellCheck="false"
-                  autoComplete="off"
-                />
-              </div>
-            </Flex>
-          ))}
-        </Flex>
+        <div className={`${componentClassName}Group`}>
+          {hideDay ? null : (
+            <DateInputSegment
+              maxLength={2}
+              placeholder={dayPlaceholder}
+              value={dayValue}
+              defaultValue={defaultDayValue}
+              onChange={onDayChange}
+              onFocus={onDayFocus}
+              onBlur={onDayBlur}
+              disabled={disabled}
+              required={required}
+              validationStatus={validationStatus}
+              label="Day"
+              name={`${id}-day`}
+              id={`${id}-day`}
+            />
+          )}
+          {hideMonth ? null : (
+            <DateInputSegment
+              placeholder={monthPlaceholder}
+              value={monthValue}
+              defaultValue={defaultMonthValue}
+              onChange={onMonthChange}
+              onFocus={onMonthFocus}
+              onBlur={onMonthBlur}
+              disabled={disabled}
+              required={required}
+              validationStatus={validationStatus}
+              label="Month"
+              name={`${id}-month`}
+              id={`${id}-month`}
+            />
+          )}
+          {hideYear ? null : (
+            <DateInputSegment
+              maxLength={4}
+              minLength={4}
+              placeholder={yearPlaceholder}
+              value={yearValue}
+              defaultValue={defaultYearValue}
+              onChange={onYearChange}
+              onFocus={onYearFocus}
+              onBlur={onYearBlur}
+              disabled={disabled}
+              required={required}
+              validationStatus={validationStatus}
+              label="Year"
+              name={`${id}-year`}
+              id={`${id}-year`}
+            />
+          )}
+        </div>
       </FormGroupBase>
     );
   }

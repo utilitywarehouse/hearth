@@ -227,6 +227,9 @@ export declare const components: {
       readonly gap: 'var(--h-checkbox-tile-gap)';
       readonly group: {
         readonly gap: 'var(--h-checkbox-tile-group-gap)';
+        readonly heading: {
+          readonly gap: 'var(--h-checkbox-tile-group-heading-gap)';
+        };
         readonly stack: {
           readonly gap: 'var(--h-checkbox-tile-group-stack-gap)';
         };
@@ -405,6 +408,12 @@ export declare const components: {
       readonly gap: 'var(--h-input-date-gap)';
     };
     readonly gap: 'var(--h-input-gap)';
+    readonly heading: {
+      readonly gap: 'var(--h-input-heading-gap)';
+      readonly text: {
+        readonly gap: 'var(--h-input-heading-text-gap)';
+      };
+    };
     readonly height: 'var(--h-input-height)';
     readonly label: {
       readonly gap: 'var(--h-input-label-gap)';
@@ -664,6 +673,9 @@ export declare const components: {
       readonly gap: 'var(--h-radio-tile-gap)';
       readonly group: {
         readonly gap: 'var(--h-radio-tile-group-gap)';
+        readonly heading: {
+          readonly gap: 'var(--h-radio-tile-group-heading-gap)';
+        };
         readonly stack: {
           readonly gap: 'var(--h-radio-tile-group-stack-gap)';
         };
@@ -869,10 +881,14 @@ export declare const components: {
   readonly toast: {
     readonly backgroundColor: 'var(--h-toast-background-color)';
     readonly borderRadius: 'var(--h-toast-border-radius)';
-    readonly gapHorizontal: 'var(--h-toast-gap-horizontal)';
+    readonly bottomPosition: 'var(--h-toast-bottom-position)';
+    readonly gap: 'var(--h-toast-gap)';
     readonly padding: 'var(--h-toast-padding)';
     readonly stack: {
-      readonly gapHorizontal: 'var(--h-toast-stack-gap-horizontal)';
+      readonly gap: 'var(--h-toast-stack-gap)';
+    };
+    readonly text: {
+      readonly gap: 'var(--h-toast-text-gap)';
     };
   };
   readonly toggleButton: {

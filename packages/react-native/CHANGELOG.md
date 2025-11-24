@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.9.0
+
+### Minor Changes
+
+- [#658](https://github.com/utilitywarehouse/hearth/pull/658) [`2ac2366`](https://github.com/utilitywarehouse/hearth/commit/2ac2366aaa7f3b253fd9336664a73a64f1ab91a5) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Menu` component
+
+- [#656](https://github.com/utilitywarehouse/hearth/pull/656) [`a01a49a`](https://github.com/utilitywarehouse/hearth/commit/a01a49a49ec1dd3c04684ce010281030d45c77a1) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `fullscreen` and `inNavModal` props to `Modal`
+
 ## 0.8.2
 
 ### Patch Changes

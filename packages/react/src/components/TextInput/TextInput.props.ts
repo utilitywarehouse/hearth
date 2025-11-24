@@ -1,22 +1,7 @@
-import { NotInputTextualAttributes } from '../../helpers/input-attributes';
 import { MarginProps } from '../../props/margin.props';
-import { ComponentPropsWithout } from '../../types/component-props';
+import { InputBaseProps } from '../InputBase/InputBase.props';
 
-export interface TextInputProps
-  extends ComponentPropsWithout<
-      'input',
-      NotInputTextualAttributes | 'color' | 'defaultValue' | 'size' | 'type' | 'value'
-    >,
-    MarginProps {
-  type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
-  /**
-   * The initial value of the TextInput when rendered.
-   */
-  defaultValue?: string | number;
-  /**
-   * The controlled value of the TextInput. Must be used with an `onChange` handler.
-   */
-  value?: string | number;
+export interface TextInputProps extends InputBaseProps, MarginProps {
   /**
    * The label for the TextInput, describing its purpose.
    */
@@ -25,10 +10,6 @@ export interface TextInputProps
    * Optional helper text to provide additional context or instructions.
    */
   helperText?: string;
-  /**
-   * Indicates the validation state of the TextInput.
-   */
-  validationStatus?: 'valid' | 'invalid';
   /**
    * Text to display when the `validationStatus` is set.
    */

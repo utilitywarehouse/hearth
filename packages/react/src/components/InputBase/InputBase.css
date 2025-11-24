@@ -1,0 +1,92 @@
+.hearth-InputBase {
+  display: flex;
+  align-items: stretch;
+  gap: var(--h-input-gap);
+  cursor: text;
+  font-family: var(--h-font-family-body);
+  font-weight: var(--h-font-weight-regular);
+  font-size: var(--h-font-size-100);
+  line-height: var(--h-line-height-500);
+  font-style: normal;
+  text-align: start;
+  height: var(--h-input-height);
+  padding-inline: var(--h-input-padding-horizontal);
+  padding-block: var(--h-input-padding-vertical);
+  color: var(--h-text-primary);
+  background-color: var(--h-surface-neutral-strong);
+  border-radius: var(--h-input-border-radius);
+  border-color: var(--h-border-strong);
+  border-width: var(--h-input-border-width);
+  border-style: solid;
+
+  --h-input-border-color-focus: var(--h-border-strong);
+
+  &:where(:has(input[readonly]):not([data-disabled] &)) {
+    border-color: var(--h-border-subtle);
+
+    --h-input-border-color-focus: var(--h-border-subtle);
+  }
+
+  &:where(:has(input:disabled, input[readonly])) {
+    cursor: default;
+  }
+
+  &:where([data-validation-status='valid']:not(:has(input[readonly], input:disabled))) {
+    border-color: var(--h-feedback-positive-border);
+
+    --h-input-border-color-focus: var(--h-feedback-positive-border);
+  }
+
+  &:where([data-validation-status='invalid']:not(:has(input[readonly], input:disabled))) {
+    border-color: var(--h-feedback-danger-border);
+
+    --h-input-border-color-focus: var(--h-feedback-danger-border);
+  }
+
+  &:where(
+        :has(input:focus),
+        :has(button:focus) /* don't lose visual focus border when any internal button is clicked */
+      ) {
+    outline: var(--h-input-border-width-focused) solid var(--h-input-border-color-focus);
+    outline-offset: -1px;
+  }
+
+  & :where(input) {
+    all: unset;
+    display: block;
+    width: 100%;
+    font-weight: normal;
+    font-style: normal;
+    text-align: start;
+    text-indent: initial;
+    -webkit-tap-highlight-color: transparent;
+
+    /* Make sure parent <label> doesn't change the text cursor */
+    cursor: text;
+
+    &:where(:disabled, [readonly]) {
+      cursor: default;
+    }
+
+    &::placeholder {
+      color: var(--h-text-secondary);
+    }
+  }
+
+  /* Remove default search input cancel button */
+  input[type='search']::-webkit-search-cancel-button {
+    appearance: none;
+  }
+
+  /* Remove default number input step buttons */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  input[type='number'] {
+    appearance: textfield; /* Firefox */
+  }
+}

@@ -4,7 +4,7 @@ import type { ListItemButtonProps } from './ListItemButton.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ElementRef } from 'react';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
-import { ListItemContent } from '../ListItemContent/ListItemContent';
+import { ListItemContent } from './ListItemContent';
 
 const COMPONENT_NAME = 'ListItemButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);

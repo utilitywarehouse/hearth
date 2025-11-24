@@ -27,6 +27,9 @@ declare const _default: {
     readonly gap: 12;
     readonly group: {
       readonly gap: 6;
+      readonly heading: {
+        readonly gap: 2;
+      };
       readonly stack: {
         readonly gap: 12;
       };
