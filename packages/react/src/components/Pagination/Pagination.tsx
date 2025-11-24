@@ -108,8 +108,8 @@ export const Pagination: React.FC<PaginationProps> = props => {
       className={clsx(componentClassName, className)}
       {...paginationProps}
     >
-      <ul className={`${componentClassName}Container`}>
-        <li className={`${componentClassName}Controllers`}>
+      <div className={`${componentClassName}Container`}>
+        <div className={`${componentClassName}Controllers`}>
           {!hideSkipButtons && (
             <UnstyledIconButton
               label="Go to first page"
@@ -127,16 +127,14 @@ export const Pagination: React.FC<PaginationProps> = props => {
           >
             <ChevronLeftSmallIcon />
           </UnstyledIconButton>
-        </li>
+        </div>
 
         {condensed ? (
-          <li>
-            <BodyText size="md" color="primary">
-              Page {currentPage} of {totalPages}
-            </BodyText>
-          </li>
+          <BodyText size="md" color="primary">
+            Page {currentPage} of {totalPages}
+          </BodyText>
         ) : (
-          <li>
+          <div>
             <ol className={`${componentClassName}Pages`}>
               {pages.map((page, index) => {
                 if (page === ELLIPSIS) {
@@ -170,10 +168,10 @@ export const Pagination: React.FC<PaginationProps> = props => {
                 );
               })}
             </ol>
-          </li>
+          </div>
         )}
 
-        <li className={`${componentClassName}Controllers`}>
+        <div className={`${componentClassName}Controllers`}>
           <UnstyledIconButton
             label="Go to next page"
             onClick={handleNext}
@@ -191,8 +189,8 @@ export const Pagination: React.FC<PaginationProps> = props => {
               <SkipLastSmallIcon />
             </UnstyledIconButton>
           )}
-        </li>
-      </ul>
+        </div>
+      </div>
     </Component>
   );
 };
