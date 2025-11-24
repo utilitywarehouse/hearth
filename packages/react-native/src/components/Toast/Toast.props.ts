@@ -15,7 +15,7 @@ export interface ToastOptions {
   duration?: number;
   /** Whether to show the dismiss icon button; default true */
   showDismissIcon?: boolean;
-  /** Whether to dismiss the toast when pressed; default false */
+  /** Whether to dismiss the toast when pressed; default true */
   dismissOnPress?: boolean;
 }
 
