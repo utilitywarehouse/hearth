@@ -181,6 +181,7 @@ const Select = ({
               <Input
                 placeholder={searchPlaceholder}
                 value={search}
+                inBottomSheet
                 onChangeText={setSearch}
                 type="search"
               />
@@ -287,6 +288,7 @@ const styles = StyleSheet.create(theme => ({
   emptyContainer: {
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: theme.space.md,
   },
 }));
 
