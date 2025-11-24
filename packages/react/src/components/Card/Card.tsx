@@ -26,6 +26,7 @@ export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
     as: Tag = 'div',
     children,
     colorScheme = 'neutralStrong',
+    shadowColor,
     ...cardProps
   } = extractProps(
     props,
@@ -44,6 +45,7 @@ export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
       asChild
       className={clsx(componentClassName, className)}
       data-colorscheme={kebabCase(colorScheme)}
+      data-shadowcolor={shadowColor}
       {...(cardProps as FlexProps)}
     >
       <Tag>{children}</Tag>

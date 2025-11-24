@@ -25,6 +25,8 @@ export const filters = {
   isSpace: token =>
     (token.filePath.includes('primitive') && token.path.includes('space')) ||
     (token.path.includes('layout') && token.path.includes('spacing')),
+  // Identifies shadow tokens
+  isShadow: token => !token.path.includes('dark') && token.path.includes('shadow'),
 
   // Identifies primitive border tokens (border width and radius from primitive tokens)
   isPrimitiveBorder: token =>
@@ -44,13 +46,8 @@ export const filters = {
   },
   isOpacity: token => token.path.includes('opacity'),
 
-  // Identifies component-specific pixel values for:
-  // - Outline width
-  // - Max/min width
-  // - Width
-  // - Height
-  // - Size (excluding font size)
-  isComponentPxValue: token => {
+  // Identifies pixel values
+  isPxValue: token => {
     return (
       (token.filePath.includes('component') && token.path.includes('outline-width')) ||
       (token.filePath.includes('component') && token.path.includes('max-width')) ||
@@ -61,7 +58,14 @@ export const filters = {
       (token.filePath.includes('component') && token.path.includes('height')) ||
       (token.filePath.includes('component') &&
         token.path.includes('size') &&
-        !token.path.includes('font'))
+        !token.path.includes('font')) ||
+      // shadow values
+      (token.filePath.includes('device') &&
+        token.path.includes('shadow') &&
+        token.path.includes('x')) ||
+      (token.filePath.includes('device') &&
+        token.path.includes('shadow') &&
+        token.path.includes('y'))
     );
   },
 

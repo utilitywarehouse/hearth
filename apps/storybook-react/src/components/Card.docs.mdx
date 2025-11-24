@@ -8,19 +8,14 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <DocsHeader componentName="Card" stories={Stories} />
 
-- [Playground](#playground)
 - [Components](#components)
+- [Alternatives](#alternatives)
 - [Semantic HTML](#semantic-html)
-  - [Grouping related cards](#grouping-related-cards)
 - [Interactive Cards](#interactive-cards)
 - [Card Actions](#card-actions)
-  - [Accessibility](#accessibility)
+- [Shadow colours](#shadow-colours)
+- [Banners](#banners)
 - [API](#api)
-  - [CardInteraction API](#cardinteraction-api)
-  - [CardActions API](#cardactions-api)
-  - [CardActionLink API](#cardactionlink-api)
-  - [CardActionButton API](#cardactionbutton-api)
-  - [CardContent API](#cardcontent-api)
 
 ## Playground
 
@@ -33,8 +28,14 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 - `CardActionLink` - A card action which renders a link.
 - `CardActionButton` - A card action which renders a button.
 - `CardActions` - A wrapper for multiple card actions.
-- `CardContent` - A wrapper for card content.
+- `CardContent` - Layout for card content.
 - `CardInteraction` - A wrapper for additional card interactions.
+- `CardBannerContent` - Layout for banner text content.
+- `CardBannerImage` - A wrapper for a banner image.
+
+## Alternatives
+
+- [HighlightBanner](?path=/docs/components-highlightbanner--docs) - For highlighting key information or marketing messaging
 
 ## Semantic HTML
 
@@ -129,6 +130,32 @@ additional content in a `CardContent` component.
 
 <Canvas of={Stories.WithCardActions} sourceState="hide" />
 
+## Shadow colours
+
+You can set a shadow on the `Card` component using the `shadowColor` prop.
+
+<Canvas of={Stories.InteractiveCards} sourceState="hide" />
+
+## Banners
+
+Banners can be created using a `Card` along with the `CardBannerContent` & `CardBannerImage` helper components.
+
+### Text only
+
+<Canvas of={Stories.BannerContent} sourceState="shown" />
+
+### With an icon container
+
+<Canvas of={Stories.BannerWithIconContainer} sourceState="shown" />
+
+### With an illustration
+
+<Canvas of={Stories.BannerWithIllustration} sourceState="shown" />
+
+### With an image
+
+<Canvas of={Stories.BannerWithImage} sourceState="shown" />
+
 ### Accessibility
 
 By default `CardActions` renders a `ul` element. If the order of the actions
@@ -150,6 +177,7 @@ This component is based on the `Flex` component and supports the following commo
 | `as`          | `"div" \| "li"`                                                                                                                             |
 | `variant`     | `"emphasis" \| "subtle"`                                                                                                                    |
 | `colorScheme` | `"neutralStrong" \| "neutralSubtle" \| "pig" \| "highlight" \| "brand" \| "energy" \| "broadband" \| "mobile" \| "insurance" \| "cashback"` |
+| `shadowColor` | `"pig" \| "brand" \| "energy" \| "broadband" \| "mobile" \| "insurance" \| "cashback" \| "functional"`                                      |
 | `paddingNone` | `boolean`                                                                                                                                   |
 
 ### CardInteraction API
@@ -202,3 +230,17 @@ This component is based on the `button` element.
 ### CardContent API
 
 This component is based on the `Card` component, supporting the same props except for those related to appearance and polymorphism.
+
+### CardBannerContent API
+
+This component is based on the `Flex` component.
+
+| Name          | Type                           |
+| ------------- | ------------------------------ |
+| `heading`     | `string`                       |
+| `description` | `string`                       |
+| `textAlign`   | `"left" \|"center" \| "right"` |
+
+### CardBannerImage API
+
+This component is based on the `Flex` component.
