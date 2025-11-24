@@ -14,6 +14,12 @@ export default {
     gap: 8,
   },
   gap: 6,
+  heading: {
+    gap: 12,
+    text: {
+      gap: 2,
+    },
+  },
   height: 48,
   label: {
     gap: 2,

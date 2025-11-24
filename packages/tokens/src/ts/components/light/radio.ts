@@ -25,6 +25,9 @@ export default {
     gap: 8,
     group: {
       gap: 12,
+      heading: {
+        gap: 2,
+      },
       stack: {
         gap: 12,
       },
