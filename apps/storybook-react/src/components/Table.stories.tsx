@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
+import { useState } from 'react';
 import {
   Table,
   TableBody,
@@ -7,6 +8,7 @@ import {
   TableRow,
   TableCell,
   TableProps,
+  Pagination,
 } from '@utilitywarehouse/hearth-react';
 
 type ExtendedTableProps = TableProps & {
@@ -336,6 +338,57 @@ export const ContainerVariants: Story = {
             </TableBody>
           </Table>
         </div>
+      </div>
+    );
+  },
+};
+
+export const WithPagination: Story = {
+  argTypes: {
+    numberOfRows: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  render: (args) => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 5;
+
+    const totalPages = Math.ceil(personalDetails.length / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentData = personalDetails.slice(startIndex, endIndex);
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        <Table variant={args.variant}>
+          <TableHeader>
+            <TableHeaderCell>ID</TableHeaderCell>
+            <TableHeaderCell>First Name</TableHeaderCell>
+            <TableHeaderCell>Last Name</TableHeaderCell>
+            <TableHeaderCell>Email</TableHeaderCell>
+            <TableHeaderCell>Phone</TableHeaderCell>
+            <TableHeaderCell>City</TableHeaderCell>
+          </TableHeader>
+          <TableBody>
+            {currentData.map(person => (
+              <TableRow key={person.id}>
+                <TableCell>{person.id}</TableCell>
+                <TableCell>{person.firstName}</TableCell>
+                <TableCell>{person.lastName}</TableCell>
+                <TableCell>{person.email}</TableCell>
+                <TableCell>{person.phone}</TableCell>
+                <TableCell>{person.city}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
+        </Table>
       </div>
     );
   },
