@@ -24,7 +24,7 @@ export const Playground: Story = {
     const [selectedDate, setSelectedDate] = React.useState<Date | null>(new Date());
 
     return (
-      <Flex paddingTop="400" marginLeft="800">
+      <Flex padding="400">
         <DatePicker
           selected={selectedDate}
           onChange={(date: Date | null) => setSelectedDate(date)}
