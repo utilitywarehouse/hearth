@@ -64,6 +64,7 @@ const styles = StyleSheet.create(theme => ({
   },
   story: {
     padding: theme.space[100],
+    flex: 1,
   },
   topBar: {
     flexDirection: 'row',

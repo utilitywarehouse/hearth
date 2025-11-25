@@ -87,6 +87,7 @@ import {
   TabsList,
   Textarea,
   ThemedImage,
+  ToastItem,
   ToggleButtonCard,
   ToggleButtonCardGroup,
   UL,
@@ -759,6 +760,14 @@ const AllComponents: React.FC = () => {
               <ThemedImage
                 light={<SpotBillingLight width={160} height={160} />}
                 dark={<SpotBillingDark width={160} height={160} />}
+              />
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Toast" link="/?path=/docs/components-toast--docs">
+            <Center flex={1} p="200">
+              <ToastItem
+                onClose={() => {}}
+                toast={{ id: 'tst', text: "I'm a toast", duration: 0 }}
               />
             </Center>
           </ComponentWrapper>
