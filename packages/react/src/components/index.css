@@ -57,6 +57,7 @@
 @import url('./ProgressStepper/ProgressStepper.css');
 @import url('./ProgressStepper/ProgressStep.css');
 @import url('./Avatar/Avatar.css');
+@import url('./Pagination/Pagination.css');
 @import url('./Table/Table.css');
 @import url('./TableCell/TableCell.css');
 @import url('./TableRow/TableRow.css');
