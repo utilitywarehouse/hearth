@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.10.0
+
+### Minor Changes
+
+- [#659](https://github.com/utilitywarehouse/hearth/pull/659) [`99afbed`](https://github.com/utilitywarehouse/hearth/commit/99afbed95df550d5d5a8bb6e04f7640077bf4883) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - Adds `Pill` and `PillGroup` components
+
+- [#671](https://github.com/utilitywarehouse/hearth/pull/671) [`706448d`](https://github.com/utilitywarehouse/hearth/commit/706448d91f354cb96a71a5f3acc9d17aaa767078) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Toast` component
+
 ## 0.9.0
 
 ### Minor Changes
