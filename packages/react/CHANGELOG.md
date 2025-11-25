@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.17.1
+
+### Patch Changes
+
+- [#634](https://github.com/utilitywarehouse/hearth/pull/634) [`0f809d3`](https://github.com/utilitywarehouse/hearth/commit/0f809d387d1932b204ba71f84125b2dfc00e52ce) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - Add `Table` & `Pagination` components
+
 ## 0.17.0
 
 ### Minor Changes
