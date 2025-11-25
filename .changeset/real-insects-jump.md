@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react': patch
 ---
 
-Adds `Pagination` component
+Add `Table` & `Pagination` components
