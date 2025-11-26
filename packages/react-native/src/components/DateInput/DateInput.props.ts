@@ -3,17 +3,17 @@ import type { FormFieldBaseProps } from '../FormField/FormField.props';
 
 export interface DateInputProps extends FormFieldBaseProps {
   /**
-   * Whether the day segment is visible.
+   * Whether the day segment is hidden.
    * @default false
    */
   hideDay?: boolean;
   /**
-   * Whether the month segment is visible.
+   * Whether the month segment is hidden.
    * @default false
    */
   hideMonth?: boolean;
   /**
-   * Whether the year segment is visible.
+   * Whether the year segment is hidden.
    * @default false
    */
   hideYear?: boolean;
@@ -41,18 +41,6 @@ export interface DateInputProps extends FormFieldBaseProps {
    * The controlled value for the year segment. Must be used with an `onYearChange` handler.
    */
   yearValue?: string;
-  /**
-   * The initial value for the day segment when rendered (uncontrolled).
-   */
-  defaultDayValue?: string;
-  /**
-   * The initial value for the month segment when rendered (uncontrolled).
-   */
-  defaultMonthValue?: string;
-  /**
-   * The initial value for the year segment when rendered (uncontrolled).
-   */
-  defaultYearValue?: string;
   /**
    * Callback fired when the day value changes.
    */

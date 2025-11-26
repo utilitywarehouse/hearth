@@ -15,6 +15,7 @@ interface DateInputSegmentProps {
   required?: boolean;
   validationStatus?: DateInputProps['validationStatus'];
   maxLength?: number;
+  readonly?: boolean;
   testID?: string;
 }
 
@@ -28,6 +29,7 @@ const DateInputSegment = ({
   disabled,
   validationStatus,
   maxLength,
+  readonly,
   testID,
 }: DateInputSegmentProps) => {
   styles.useVariants({ disabled });
@@ -48,6 +50,7 @@ const DateInputSegment = ({
         accessibilityLabel={label}
         disabled={disabled}
         validationStatus={validationStatus}
+        readonly={readonly}
         style={styles.input}
       />
     </View>
