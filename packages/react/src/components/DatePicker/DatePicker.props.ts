@@ -1,10 +1,8 @@
 import { DatePickerProps as ReactDatePickerProps } from 'react-datepicker';
 import { MarginProps } from '../../props/margin.props';
-import { RefObject } from 'react';
 
-export type DatePickerProps = ReactDatePickerProps &
+export type DatePickerProps = Omit<ReactDatePickerProps, 'selectsMultiple' | 'selectsRange'> &
   MarginProps & {
-    triggerRef?: RefObject<HTMLButtonElement | null>;
     /**
      * The label for the TextInput, describing its purpose.
      */

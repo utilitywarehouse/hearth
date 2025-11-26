@@ -96,7 +96,7 @@
     letter-spacing: 0;
 
     @media (hover: hover) {
-      &:where(:hover):not([aria-disabled='true']):not(.react-datepicker__day--selected) {
+      &:where(:hover):not([aria-disabled='true'], .react-datepicker__day--selected) {
         background-color: var(--h-interactive-functional-surface-subtle-hover);
       }
     }

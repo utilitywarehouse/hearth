@@ -28,6 +28,7 @@ export const Playground: Story = {
         <DatePicker
           selected={selectedDate}
           onChange={(date: Date | null) => setSelectedDate(date)}
+          {...({} as any)}
         />
       </Flex>
     );
