@@ -50,6 +50,7 @@ export * from './Tabs';
 export * from './Textarea';
 export * from './ThemedImage';
 export * from './ToggleButtonCard';
+export * from './VerificationInput';
 
 export { FlatList, Image, KeyboardAvoidingView, ScrollView, SectionList, View } from 'react-native';
 
