@@ -1,8 +1,17 @@
 import { DatePickerProps as ReactDatePickerProps } from 'react-datepicker';
 import { MarginProps } from '../../props/margin.props';
 
-export type DatePickerProps = Omit<ReactDatePickerProps, 'selectsMultiple' | 'selectsRange'> &
+export type DatePickerProps = Omit<
+  ReactDatePickerProps,
+  'selectsMultiple' | 'selectsRange' | 'onChange'
+> &
   MarginProps & {
+    selectsRange?: never;
+    selectsMultiple?: never;
+    onChange?: (
+      date: Date | null,
+      event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>
+    ) => void;
     /**
      * The label for the TextInput, describing its purpose.
      */
