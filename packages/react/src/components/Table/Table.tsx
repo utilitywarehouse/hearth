@@ -13,9 +13,7 @@ type TableElement = React.ComponentRef<'table'>;
 
 export const Table = React.forwardRef<TableElement, TableProps>(
   ({ className, children, variant, footer, ...props }, ref) => {
-    const renderFooter = footer ? (
-      <div className={`${componentClassName}Footer`}>{footer}</div>
-    ) : null;
+    const TableFooter = () => <div className={`${componentClassName}Footer`}>{footer}</div>;
 
     return (
       <div className={clsx(componentClassName, className)} data-variant={variant}>
@@ -26,7 +24,7 @@ export const Table = React.forwardRef<TableElement, TableProps>(
                 {children}
               </table>
             </Box>
-            {renderFooter}
+            {footer ? <TableFooter /> : null}
           </>
         ) : (
           <Card paddingNone variant={variant} colorScheme="neutralStrong" direction="column">
@@ -35,7 +33,7 @@ export const Table = React.forwardRef<TableElement, TableProps>(
                 {children}
               </table>
             </Box>
-            {renderFooter}
+            {footer ? <TableFooter /> : null}
           </Card>
         )}
       </div>
