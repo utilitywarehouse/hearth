@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.11.0
+
+### Minor Changes
+
+- [#674](https://github.com/utilitywarehouse/hearth/pull/674) [`c617257`](https://github.com/utilitywarehouse/hearth/commit/c617257974b11c39d706d6fd46712a284ff5fe10) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `DateInput` component
+
+- [#663](https://github.com/utilitywarehouse/hearth/pull/663) [`8889a07`](https://github.com/utilitywarehouse/hearth/commit/8889a07e347e9289928e679cee495d7656a4e9aa) Thanks [@Utakato](https://github.com/Utakato)! - Add Avatar component
+
 ## 0.10.0
 
 ### Minor Changes
