@@ -23,6 +23,7 @@ import {
   Accordion,
   AccordionItem,
   Alert,
+  Avatar,
   Badge,
   Banner,
   BodyText,
@@ -39,6 +40,7 @@ import {
   Checkbox,
   Container,
   CurrencyInput,
+  DateInput,
   DatePicker,
   DatePickerInput,
   DateType,
@@ -196,6 +198,11 @@ const AllComponents: React.FC = () => {
               <Alert text="This is an alert" />
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper name="Avatar" link="/?path=/docs/components-avatar--docs">
+            <Center flex={1} gap="200">
+              <Avatar name="John Doe" />
+            </Center>
+          </ComponentWrapper>
           <ComponentWrapper name="Badge" link="/?path=/docs/components-badge--docs">
             <Center gap="200" flex={1}>
               <View>
@@ -338,6 +345,11 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Currency Input" link="/?path=/docs/forms-currency-input--docs">
             <Center flex={1} padding="200">
               <CurrencyInput />
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Date Input" link="/?path=/docs/forms-date-input--docs">
+            <Center flex={1} padding="200">
+              <DateInput />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Date Picker" link="/?path=/docs/components-date-picker--docs">
@@ -635,7 +647,12 @@ const AllComponents: React.FC = () => {
               {(() => {
                 const [pillValue, setPillValue] = React.useState<string[]>(['energy', 'mobile']);
                 return (
-                  <PillGroup value={pillValue} onChange={v => setPillValue(v as string[])} wrap={false} multiple>
+                  <PillGroup
+                    value={pillValue}
+                    onChange={v => setPillValue(v as string[])}
+                    wrap={false}
+                    multiple
+                  >
                     <Pill value="all" label="All" />
                     <Pill value="energy" label="Energy" icon={ElectricityMediumIcon} />
                     <Pill value="broadband" label="Broadband" icon={BroadbandMediumIcon} />

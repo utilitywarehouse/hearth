@@ -1,6 +1,7 @@
 // Custom
 export * from './Accordion';
 export * from './Alert';
+export * from './Avatar';
 export * from './Badge';
 export * from './Banner';
 export * from './BodyText';
@@ -13,6 +14,7 @@ export * from './Center';
 export * from './Checkbox';
 export * from './Container';
 export * from './CurrencyInput';
+export * from './DateInput';
 export * from './DatePicker';
 export * from './DatePickerInput';
 export * from './DescriptionList';
