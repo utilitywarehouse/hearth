@@ -23,6 +23,7 @@ import {
   Accordion,
   AccordionItem,
   Alert,
+  Avatar,
   Badge,
   Banner,
   BodyText,
@@ -191,6 +192,11 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Alert" link="/?path=/docs/components-alert--docs">
             <Center flex={1}>
               <Alert text="This is an alert" />
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Avatar" link="/?path=/docs/components-avatar--docs">
+            <Center flex={1} gap="200">
+              <Avatar name="John Doe" />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Badge" link="/?path=/docs/components-badge--docs">
