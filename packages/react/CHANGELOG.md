@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.17.3
+
+### Patch Changes
+
+- [#679](https://github.com/utilitywarehouse/hearth/pull/679) [`0a9d740`](https://github.com/utilitywarehouse/hearth/commit/0a9d74094f4729f4005f71927b5f25f340314eff) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `footer` prop to `Table`, for use with `Pagination`
+
 ## 0.17.2
 
 ### Patch Changes
