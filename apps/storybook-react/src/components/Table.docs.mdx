@@ -13,6 +13,7 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 <Controls of={Stories.Playground} />
 
 ## ToC
+
 - [Container variants](#container-variants)
 - [Component structure](#component-structure)
 - [Usage guidelines](#usage-guidelines)
@@ -20,6 +21,7 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 - [Examples](#examples)
   - [Basic table](#basic-table)
   - [Container variants](#container-variants-examples)
+  - [With Pagination](#with-pagination)
 - [Components API](#components-api)
   - [Table API](#table-api)
   - [TableHeader API](#tableheader-api)
@@ -62,6 +64,42 @@ The Table uses a compound component pattern:
 </Table>
 ```
 
+### Example with pagination
+
+```tsx
+import {
+  Table,
+  [...]
+  Pagination,
+} from '@utilitywarehouse/hearth-react';
+
+const [currentPage, setCurrentPage] = useState(1);
+const itemsPerPage = 5;
+
+const totalPages = Math.ceil(personalDetails.length / itemsPerPage);
+const startIndex = (currentPage - 1) * itemsPerPage;
+const endIndex = startIndex + itemsPerPage;
+const currentData = personalDetails.slice(startIndex, endIndex);
+
+<Table
+  variant="subtle"
+  footer={
+    <Pagination
+      currentPage={currentPage}
+      totalPages={totalPages}
+      onPageChange={setCurrentPage}
+    />
+  }
+>
+  <TableHeader>
+    [...]
+  </TableHeader>
+  <TableBody>
+    [...]
+  </TableBody>
+</Table>
+```
+
 ## Usage guidelines
 
 - Use `TableHeader` for column headers
@@ -71,6 +109,7 @@ The Table uses a compound component pattern:
 - Choose appropriate `variant` based on visual hierarchy needs (omit for minimal styling)
 
 ### Accessibility
+
 - Ensure table has a descriptive caption or aria-label when needed
 
 ## Responsive behavior
@@ -92,15 +131,22 @@ Compare the different container variants side by side.
 
 <Canvas of={Stories.ContainerVariants} />
 
+### With Pagination
+
+Table with implemented pagination
+
+<Canvas of={Stories.WithPagination} />
+
 ## Components API
 
 ### Table API
 
 The main container component that provides context and handles responsive behavior.
 
-| Prop      | Type                             | Default     | Description                                                       |
-| --------- | -------------------------------- | ----------- | ----------------------------------------------------------------- |
-| `variant` | `'subtle' \| 'emphasis'`         | `undefined` | The Card variant wrapper. When undefined, no Card wrapper is used |
+| Prop      | Type                     | Default     | Description                                                                     |
+| --------- | ------------------------ | ----------- | ------------------------------------------------------------------------------- |
+| `variant` | `'subtle' \| 'emphasis'` | `undefined` | The Card variant wrapper. When undefined, no Card wrapper is used               |
+| `footer`  | `ReactNode`              | `undefined` | Optional footer content to render below the table. Typically used for pagination |
 
 Additionally supports all standard `<div>` element props.
 
