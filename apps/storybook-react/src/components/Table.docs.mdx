@@ -81,18 +81,22 @@ const startIndex = (currentPage - 1) * itemsPerPage;
 const endIndex = startIndex + itemsPerPage;
 const currentData = personalDetails.slice(startIndex, endIndex);
 
-<Table variant="subtle">
+<Table
+  variant="subtle"
+  footer={
+    <Pagination
+      currentPage={currentPage}
+      totalPages={totalPages}
+      onPageChange={setCurrentPage}
+    />
+  }
+>
   <TableHeader>
     [...]
   </TableHeader>
   <TableBody>
     [...]
   </TableBody>
-  <Pagination
-    currentPage={currentPage}
-    totalPages={totalPages}
-    onPageChange={setCurrentPage}
-  />
 </Table>
 ```
 
@@ -139,9 +143,10 @@ Table with implemented pagination
 
 The main container component that provides context and handles responsive behavior.
 
-| Prop      | Type                     | Default     | Description                                                       |
-| --------- | ------------------------ | ----------- | ----------------------------------------------------------------- |
-| `variant` | `'subtle' \| 'emphasis'` | `undefined` | The Card variant wrapper. When undefined, no Card wrapper is used |
+| Prop      | Type                     | Default     | Description                                                                     |
+| --------- | ------------------------ | ----------- | ------------------------------------------------------------------------------- |
+| `variant` | `'subtle' \| 'emphasis'` | `undefined` | The Card variant wrapper. When undefined, no Card wrapper is used               |
+| `footer`  | `ReactNode`              | `undefined` | Optional footer content to render below the table. Typically used for pagination |
 
 Additionally supports all standard `<div>` element props.
 

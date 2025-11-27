@@ -361,35 +361,37 @@ export const WithPagination: Story = {
     const currentData = personalDetails.slice(startIndex, endIndex);
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-        <Table variant={args.variant}>
-          <TableHeader>
-            <TableHeaderCell>ID</TableHeaderCell>
-            <TableHeaderCell>First Name</TableHeaderCell>
-            <TableHeaderCell>Last Name</TableHeaderCell>
-            <TableHeaderCell>Email</TableHeaderCell>
-            <TableHeaderCell>Phone</TableHeaderCell>
-            <TableHeaderCell>City</TableHeaderCell>
-          </TableHeader>
-          <TableBody>
-            {currentData.map(person => (
-              <TableRow key={person.id}>
-                <TableCell>{person.id}</TableCell>
-                <TableCell>{person.firstName}</TableCell>
-                <TableCell>{person.lastName}</TableCell>
-                <TableCell>{person.email}</TableCell>
-                <TableCell>{person.phone}</TableCell>
-                <TableCell>{person.city}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
+      <Table
+        variant={args.variant}
+        footer={
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={setCurrentPage}
           />
-        </Table>
-      </div>
+        }
+      >
+        <TableHeader>
+          <TableHeaderCell>ID</TableHeaderCell>
+          <TableHeaderCell>First Name</TableHeaderCell>
+          <TableHeaderCell>Last Name</TableHeaderCell>
+          <TableHeaderCell>Email</TableHeaderCell>
+          <TableHeaderCell>Phone</TableHeaderCell>
+          <TableHeaderCell>City</TableHeaderCell>
+        </TableHeader>
+        <TableBody>
+          {currentData.map(person => (
+            <TableRow key={person.id}>
+              <TableCell>{person.id}</TableCell>
+              <TableCell>{person.firstName}</TableCell>
+              <TableCell>{person.lastName}</TableCell>
+              <TableCell>{person.email}</TableCell>
+              <TableCell>{person.phone}</TableCell>
+              <TableCell>{person.city}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     );
   },
 };

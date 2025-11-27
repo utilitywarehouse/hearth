@@ -20,7 +20,7 @@
   line-height: var(--h-line-height-500);
 }
 
-.hearth-TablePagination {
+.hearth-TableFooter {
   padding: var(--h-space-200) var(--h-space-300);
   border-top: var(--h-table-cell-border-width) solid var(--h-border-subtle);
 }
