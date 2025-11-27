@@ -5,8 +5,6 @@ import { Flex } from '../Flex/Flex';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { ChevronLeftSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
-import { ButtonBase } from '../ButtonBase/ButtonBase';
-import { Button } from '../Button/Button';
 
 const COMPONENT_NAME = 'DatePickerHeader';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
