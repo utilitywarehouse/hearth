@@ -112,6 +112,7 @@
   --h-checkbox-tile-border-width-selected: var(--h-border-width-2);
   --h-checkbox-tile-gap: var(--h-space-150);
   --h-checkbox-tile-group-gap: var(--h-space-75);
+  --h-checkbox-tile-group-heading-gap: var(--h-space-25);
   --h-checkbox-tile-group-stack-gap: var(--h-space-150);
   --h-checkbox-tile-max-width: 680px;
   --h-checkbox-tile-min-width: 80px;
@@ -127,7 +128,7 @@
   --h-date-picker-calendar-header-control-gap: var(--h-space-350);
   --h-date-picker-calendar-header-date-gap: var(--h-space-100);
   --h-date-picker-calendar-item-border-radius: var(--h-border-radius-md);
-  --h-date-picker-calendar-item-min-width: var(--h-space-400)px;
+  --h-date-picker-calendar-item-min-width: 32px;
   --h-date-picker-calendar-item-range-background: var(--h-color-grey-50);
   --h-date-picker-calendar-item-roundel-background-color-inverted: var(--h-color-warm-white-50);
   --h-date-picker-calendar-item-roundel-height: var(--h-space-75);
@@ -210,6 +211,8 @@
   --h-input-currency-height: 60px;
   --h-input-date-gap: var(--h-space-100);
   --h-input-gap: var(--h-space-75);
+  --h-input-heading-gap: var(--h-space-150);
+  --h-input-heading-text-gap: var(--h-space-25);
   --h-input-height: 48px;
   --h-input-label-gap: var(--h-space-25);
   --h-input-max-width: 504px;
@@ -332,6 +335,7 @@
   --h-radio-tile-border-width-selected: var(--h-border-width-2);
   --h-radio-tile-gap: var(--h-space-100);
   --h-radio-tile-group-gap: var(--h-space-150);
+  --h-radio-tile-group-heading-gap: var(--h-space-25);
   --h-radio-tile-group-stack-gap: var(--h-space-150);
   --h-radio-tile-max-width: 680px;
   --h-radio-tile-min-width: 80px;
@@ -434,9 +438,11 @@
   --h-timeline-static-circle-width: 12px;
   --h-toast-background-color: var(--h-color-grey-1000);
   --h-toast-border-radius: var(--h-border-radius-md);
-  --h-toast-gap-horizontal: var(--h-space-200);
+  --h-toast-bottom-position: var(--h-space-400);
+  --h-toast-gap: var(--h-space-200);
   --h-toast-padding: var(--h-space-175);
-  --h-toast-stack-gap-horizontal: var(--h-space-100);
+  --h-toast-stack-gap: var(--h-space-150);
+  --h-toast-text-gap: var(--h-space-100);
   --h-toggle-button-border-radius: var(--h-border-radius-md);
   --h-toggle-button-border-width: var(--h-border-width-2);
   --h-toggle-button-gap: var(--h-space-75);

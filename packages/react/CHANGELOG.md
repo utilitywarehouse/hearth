@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.17.2
+
+### Patch Changes
+
+- [#677](https://github.com/utilitywarehouse/hearth/pull/677) [`e85f3c7`](https://github.com/utilitywarehouse/hearth/commit/e85f3c7abf8eeccdb19c0ef56b8af85b3170ba57) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `Modal` tokens
+
 ## 0.17.1
 
 ### Patch Changes
