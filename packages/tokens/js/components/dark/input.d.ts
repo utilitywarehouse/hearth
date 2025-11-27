@@ -13,6 +13,12 @@ declare const _default: {
     readonly gap: 8;
   };
   readonly gap: 6;
+  readonly heading: {
+    readonly gap: 12;
+    readonly text: {
+      readonly gap: 0;
+    };
+  };
   readonly height: 48;
   readonly label: {
     readonly gap: 6;

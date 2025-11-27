@@ -1,5 +1,25 @@
 # @utilitywarehouse/hearth-react
 
+## 0.17.1
+
+### Patch Changes
+
+- [#634](https://github.com/utilitywarehouse/hearth/pull/634) [`0f809d3`](https://github.com/utilitywarehouse/hearth/commit/0f809d387d1932b204ba71f84125b2dfc00e52ce) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - Add `Table` & `Pagination` components
+
+## 0.17.0
+
+### Minor Changes
+
+- [#667](https://github.com/utilitywarehouse/hearth/pull/667) [`5439927`](https://github.com/utilitywarehouse/hearth/commit/5439927b0fa52fcf366af44479ed5585174653af) Thanks [@robphoenix](https://github.com/robphoenix)! - Update `DateInput` props
+
+### Patch Changes
+
+- [#640](https://github.com/utilitywarehouse/hearth/pull/640) [`dde0470`](https://github.com/utilitywarehouse/hearth/commit/dde0470250f35f60f35b7cafc82d00c6e59873b0) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `HighlightBanner`, `CardBannerContent` & `CardBannerImage` components.
+
+- [#664](https://github.com/utilitywarehouse/hearth/pull/664) [`09d3a24`](https://github.com/utilitywarehouse/hearth/commit/09d3a24e2377f2835fa8677969a803d8ea02026a) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `List` actions
+
+- [#662](https://github.com/utilitywarehouse/hearth/pull/662) [`b0ba9a2`](https://github.com/utilitywarehouse/hearth/commit/b0ba9a260f2236f3094c169cd3fb841392f05b79) Thanks [@robphoenix](https://github.com/robphoenix)! - Add shadow colours to `Card`, extract layout spacing tokens to own file and add shadow tokens.
+
 ## 0.16.3
 
 ### Patch Changes

@@ -1,0 +1,96 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+import * as PillGroupStories from './PillGroup.stories';
+
+<Meta title="Components / Pill Group" />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens" />
+
+<BackToTopButton />
+
+# Pill Group
+
+A container component that groups multiple `Pill` components together for filtering and categorization. It provides layout control with optional wrapping behavior and manages selection state.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Examples](#examples)
+
+## Playground
+
+<Canvas of={PillGroupStories.Playground} />
+
+<Controls of={PillGroupStories.Playground} />
+
+## Usage
+
+The `PillGroup` component is a controlled component that manages the selection state of multiple `Pill` components. It supports both single and multi-select modes.
+
+### Basic Usage
+
+```tsx
+import { Pill, PillGroup } from '@hearth/react-native';
+import { useState } from 'react';
+
+const [selectedTags, setSelectedTags] = useState(['ui']);
+
+<PillGroup value={selectedTags} onChange={setSelectedTags}>
+  <Pill value="ui" label="UI" />
+  <Pill value="backend" label="Backend" icon={ServerMediumIcon} />
+  <Pill value="devops" label="DevOps" />
+</PillGroup>
+```
+
+## Props
+
+### PillGroup Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string \| string[]` | Required | Controlled selected value(s). Single string for single-select, array for multi-select |
+| `multiple` | `boolean` | `false` | Enable multi-select mode |
+| `wrap` | `boolean` | `true` | Whether pills should wrap to multiple lines when they overflow |
+| `onChange` | `(value: string \| string[]) => void` | - | Handle selection changes. Returns single string in single-select mode, array in multi-select mode |
+| `children` | `ReactNode` | Required | `Pill` components to group together |
+| ...rest | `ViewProps` | - | All standard View props are supported |
+
+### Pill Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string` | Required | Value returned when selected |
+| `label` | `string` | Required | The text content of the pill |
+| `icon` | `ComponentType<any>` | - | Optional icon component to display before the label |
+| ...rest | `PressableProps` | - | All standard Pressable props are supported |
+
+
+### Multi-Select Mode
+
+```tsx
+const [tags, setTags] = useState(['ui', 'backend']);
+
+<PillGroup multiple value={tags} onChange={setTags}>
+  <Pill value="ui" label="UI" />
+  <Pill value="backend" label="Backend" icon={ServerMediumIcon} />
+  <Pill value="devops" label="DevOps" />
+</PillGroup>
+```
+
+## Examples
+
+### Wrap Behavior
+
+Compare how pills behave with and without wrapping enabled.
+
+<Canvas of={PillGroupStories.WrapBehavior} />
+
+### Multi-Select Example
+
+Select multiple options
+
+<Canvas of={PillGroupStories.Multiple} />
+
+### All States of Pill
+
+<Canvas of={PillGroupStories.PillStates} />

@@ -1,45 +1,24 @@
-import { ComponentPropsWithout } from '../../types/component-props';
-import { MarginProps } from '../../props/margin.props';
-import { ElementRef } from 'react';
+import { FormGroupBaseProps } from '../FormGroupBase/FormGroupBase.props';
+import { InputBaseProps } from '../InputBase/InputBase.props';
 
 export interface DateInputProps
-  extends ComponentPropsWithout<'fieldset', 'onChange' | 'defaultValue'>,
-    MarginProps {
-  /**
-   * The label for the DateInput, describing its purpose.
-   */
-  label: string;
-  /**
-   * Optional helper text to provide additional context or instructions.
-   */
-  helperText?: string;
-  /**
-   * Indicates the validation state of the DateInput.
-   */
-  validationStatus?: 'valid' | 'invalid';
-  /**
-   * Text to display when the `validationStatus` is set.
-   */
-  validationText?: string;
-  /**
-   * Whether the field is required.
-   */
-  required?: boolean;
+  extends FormGroupBaseProps,
+    Omit<InputBaseProps, keyof FormGroupBaseProps> {
   /**
    * Whether the day segment is visible.
-   * @default true
+   * @default false
    */
-  showDay?: boolean;
+  hideDay?: boolean;
   /**
    * Whether the month segment is visible.
-   * @default true
+   * @default false
    */
-  showMonth?: boolean;
+  hideMonth?: boolean;
   /**
    * Whether the year segment is visible.
-   * @default true
+   * @default false
    */
-  showYear?: boolean;
+  hideYear?: boolean;
   /**
    * Placeholder text for the day segment.
    */
@@ -79,15 +58,19 @@ export interface DateInputProps
   /**
    * Callback fired when the day value changes.
    */
-  onDayChange?: (day: string) => void;
+  onDayChange?: InputBaseProps['onChange'];
   /**
    * Callback fired when the month value changes.
    */
-  onMonthChange?: (month: string) => void;
+  onMonthChange?: InputBaseProps['onChange'];
   /**
    * Callback fired when the year value changes.
    */
-  onYearChange?: (year: string) => void;
+  onYearChange?: InputBaseProps['onChange'];
+  onDayFocus?: InputBaseProps['onFocus'];
+  onMonthFocus?: InputBaseProps['onFocus'];
+  onYearFocus?: InputBaseProps['onFocus'];
+  onDayBlur?: InputBaseProps['onBlur'];
+  onMonthBlur?: InputBaseProps['onBlur'];
+  onYearBlur?: InputBaseProps['onBlur'];
 }
-
-export type DateInputElement = ElementRef<'fieldset'>;

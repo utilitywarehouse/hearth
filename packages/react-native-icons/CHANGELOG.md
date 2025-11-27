@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react-native-icons
 
+## 0.7.4
+
+### Patch Changes
+
+- [#669](https://github.com/utilitywarehouse/hearth/pull/669) [`b86dc44`](https://github.com/utilitywarehouse/hearth/commit/b86dc449d8edf8a6af73b97ac5d6b54fdbe94ef9) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+
+  No new icons.
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.7.3
 
 ### Patch Changes

@@ -1,0 +1,10 @@
+.hearth-TableHeader {
+  border-bottom: var(--h-table-header-cell-border-width) solid var(--h-border-subtle);
+  background-color: var(--h-surface-neutral-strong);
+
+  &:where(.hearth-Card &) {
+    border-bottom: var(--h-table-header-cell-border-width) solid var(--h-border-strong);
+    background-color: var(--h-surface-brand-default);
+    color: var(--h-text-inverted);
+    }
+}

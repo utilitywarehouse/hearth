@@ -1,0 +1,163 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './DateInput.stories';
+
+<Meta title="Forms / Date Input" />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=2277-14708&t=dbFGPEbIX93BQlur-4" />
+
+<BackToTopButton />
+
+# Date Input
+
+The `DateInput` component allows users to enter dates manually using separate input fields for day, month, and year. It provides flexibility to show only the date segments you need, supports validation states, and integrates seamlessly with the React Native form system.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Examples](#examples)
+  - [Date of Birth](#date-of-birth)
+  - [Card Expiry](#card-expiry)
+  - [Year Only](#year-only)
+  - [Validation](#validation)
+  - [Disabled](#disabled)
+  - [Default Value](#default-value)
+  - [Custom Validation](#custom-validation)
+  - [Flexible Segments](#flexible-segments)
+  - [Grouping Inputs](#grouping-inputs)
+  - [With State](#with-state)
+- [Accessibility](#accessibility)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+Use state to control the date values:
+
+```tsx
+import { useState } from 'react';
+import { DateInput } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [day, setDay] = useState('');
+  const [month, setMonth] = useState('');
+  const [year, setYear] = useState('');
+
+  return (
+    <DateInput
+      label="Date of birth"
+      dayValue={day}
+      monthValue={month}
+      yearValue={year}
+      onDayChange={setDay}
+      onMonthChange={setMonth}
+      onYearChange={setYear}
+    />
+  );
+};
+```
+
+## Props
+
+### DateInputProps
+
+| Prop               | Type                                | Default     | Description                                           |
+| ------------------ | ----------------------------------- | ----------- | ----------------------------------------------------- |
+| `label`            | `string`                            | -           | Label text displayed above the inputs                 |
+| `helperText`       | `string`                            | -           | Helper text displayed below the inputs                |
+| `helperIcon`       | `ComponentType`                     | -           | Icon component to display with helper/validation text |
+| `validationStatus` | `'initial' \| 'valid' \| 'invalid'` | `'initial'` | Validation status of the input                        |
+| `validText`        | `string`                            | -           | Text to display when validation status is valid       |
+| `invalidText`      | `string`                            | -           | Text to display when validation status is invalid     |
+| `required`         | `boolean`                           | `false`     | Whether the input is required                         |
+| `disabled`         | `boolean`                           | `false`     | Whether the input is disabled                         |
+| `readonly`         | `boolean`                           | `false`     | Whether the input is read-only                        |
+| `hideDay`          | `boolean`                           | `false`     | Whether to hide the day segment                       |
+| `hideMonth`        | `boolean`                           | `false`     | Whether to hide the month segment                     |
+| `hideYear`         | `boolean`                           | `false`     | Whether to hide the year segment                      |
+| `dayPlaceholder`   | `string`                            | `'DD'`      | Placeholder text for the day segment                  |
+| `monthPlaceholder` | `string`                            | `'MM'`      | Placeholder text for the month segment                |
+| `yearPlaceholder`  | `string`                            | `'YYYY'`    | Placeholder text for the year segment                 |
+| `dayValue`         | `string`                            | -           | Controlled value for the day segment                  |
+| `monthValue`       | `string`                            | -           | Controlled value for the month segment                |
+| `yearValue`        | `string`                            | -           | Controlled value for the year segment                 |
+| `onDayChange`      | `(text: string) => void`            | -           | Callback fired when the day value changes             |
+| `onMonthChange`    | `(text: string) => void`            | -           | Callback fired when the month value changes           |
+| `onYearChange`     | `(text: string) => void`            | -           | Callback fired when the year value changes            |
+| `onDayFocus`       | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the day segment receives focus    |
+| `onMonthFocus`     | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the month segment receives focus  |
+| `onYearFocus`      | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the year segment receives focus   |
+| `onDayBlur`        | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the day segment loses focus       |
+| `onMonthBlur`      | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the month segment loses focus     |
+| `onYearBlur`       | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the year segment loses focus      |
+
+## Examples
+
+### Date of Birth
+
+<Canvas of={Stories.DateOfBirth} />
+
+### Card Expiry
+
+Hide the day segment for card expiry dates:
+
+<Canvas of={Stories.CardExpiry} />
+
+### Year Only
+
+Hide day and month segments for year-only inputs:
+
+<Canvas of={Stories.YearOnly} />
+
+### Validation
+
+Show validation states with helper text and icons:
+
+<Canvas of={Stories.Validation} />
+
+### Disabled
+
+Disabled date inputs:
+
+<Canvas of={Stories.Disabled} />
+
+### Default Value
+
+Set initial values with `value` props:
+
+<Canvas of={Stories.DefaultValue} />
+
+### Custom Validation
+
+Implement custom validation logic:
+
+<Canvas of={Stories.WithCustomValidation} />
+
+### Flexible Segments
+
+Control which segments are visible:
+
+<Canvas of={Stories.FlexibleSegments} />
+
+### Grouping Inputs
+
+Group date inputs with other form fields in a card:
+
+<Canvas of={Stories.GroupingInputs} />
+
+### With State
+
+Programmatically control date values:
+
+<Canvas of={Stories.WithState} />
+
+## Accessibility
+
+- Each segment has a descriptive label ("Day", "Month", "Year") for screen readers
+- Keyboard type is set to `number-pad` for easier numeric input
+- Validation states are communicated through helper text and icons
+- Disabled state properly communicated to assistive technologies

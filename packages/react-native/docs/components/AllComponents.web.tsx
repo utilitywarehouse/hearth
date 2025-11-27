@@ -40,6 +40,7 @@ import {
   Checkbox,
   Container,
   CurrencyInput,
+  DateInput,
   DatePicker,
   DatePickerInput,
   DateType,
@@ -69,6 +70,8 @@ import {
   MenuTrigger,
   Modal,
   OL,
+  Pill,
+  PillGroup,
   ProgressStep,
   ProgressStepper,
   Radio,
@@ -86,6 +89,7 @@ import {
   TabsList,
   Textarea,
   ThemedImage,
+  ToastItem,
   ToggleButtonCard,
   ToggleButtonCardGroup,
   UL,
@@ -341,6 +345,11 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Currency Input" link="/?path=/docs/forms-currency-input--docs">
             <Center flex={1} padding="200">
               <CurrencyInput />
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Date Input" link="/?path=/docs/forms-date-input--docs">
+            <Center flex={1} padding="200">
+              <DateInput />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Date Picker" link="/?path=/docs/components-date-picker--docs">
@@ -633,6 +642,26 @@ const AllComponents: React.FC = () => {
               </OL>
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper name="Pill Group" link="/?path=/docs/components-pill-group--docs">
+            <Center flex={1} p="200">
+              {(() => {
+                const [pillValue, setPillValue] = React.useState<string[]>(['energy', 'mobile']);
+                return (
+                  <PillGroup
+                    value={pillValue}
+                    onChange={v => setPillValue(v as string[])}
+                    wrap={false}
+                    multiple
+                  >
+                    <Pill value="all" label="All" />
+                    <Pill value="energy" label="Energy" icon={ElectricityMediumIcon} />
+                    <Pill value="broadband" label="Broadband" icon={BroadbandMediumIcon} />
+                    <Pill value="mobile" label="Mobile" icon={MobileMediumIcon} />
+                  </PillGroup>
+                );
+              })()}
+            </Center>
+          </ComponentWrapper>
           <ComponentWrapper
             name="Progress Stepper"
             link="/?path=/docs/components-progress-stepper--docs"
@@ -748,6 +777,14 @@ const AllComponents: React.FC = () => {
               <ThemedImage
                 light={<SpotBillingLight width={160} height={160} />}
                 dark={<SpotBillingDark width={160} height={160} />}
+              />
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Toast" link="/?path=/docs/components-toast--docs">
+            <Center flex={1} p="200">
+              <ToastItem
+                onClose={() => {}}
+                toast={{ id: 'tst', text: "I'm a toast", duration: 0 }}
               />
             </Center>
           </ComponentWrapper>
