@@ -55,7 +55,6 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
       dayClassName={() => 'hearth-DatePickerDay'}
       weekClassName={() => 'hearth-DatePickerWeek'}
       monthClassName={() => 'hearth-DatePickerMonth'}
-
       formatWeekDay={day => day.charAt(0)}
       showMonthYearPicker={showMonths}
       onMonthChange={date => console.log({ date })}
