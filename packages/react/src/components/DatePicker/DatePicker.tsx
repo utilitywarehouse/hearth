@@ -16,9 +16,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type DatePickerElement = ElementRef<'button'>;
 
 export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((props, ref) => {
-  const { className, onChange, ...datePickerProps } = extractProps(props, marginPropDefs);
+  const { className, onChange, onCalendarOpen, onCalendarClose, ...datePickerProps } = extractProps(
+    props,
+    marginPropDefs
+  );
   const [showMonths, setShowMonths] = React.useState(false);
   const [shouldCloseOnSelect, setShouldCloseOnSelect] = React.useState(true);
+  const [calendarOpen, setCalendarOpen] = React.useState(false);
 
   const handleChange = (
     date: Date | null,
@@ -34,10 +38,29 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
     }
   };
 
+  const handleCalendarOpen = () => {
+    setCalendarOpen(true);
+    if (onCalendarOpen) {
+      onCalendarOpen();
+    }
+  };
+
+  const handleCalendarClose = () => {
+    setCalendarOpen(false);
+    if (onCalendarClose) {
+      onCalendarClose();
+    }
+  };
   return (
     <ReactDatePicker
       wrapperClassName={clsx(componentClassName, className)}
-      customInput={<DatePickerTrigger ref={ref} className="" />}
+      customInput={
+        <DatePickerTrigger
+          ref={ref}
+          className=""
+          data-calendar-state={calendarOpen ? 'open' : 'closed'}
+        />
+      }
       renderCustomHeader={props => (
         <DatePickerHeader
           {...props}
@@ -55,11 +78,14 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
       dayClassName={() => 'hearth-DatePickerDay'}
       weekClassName={() => 'hearth-DatePickerWeek'}
       monthClassName={() => 'hearth-DatePickerMonth'}
+      showIcon={false}
       formatWeekDay={day => day.charAt(0)}
       showMonthYearPicker={showMonths}
       onMonthChange={date => console.log({ date })}
       shouldCloseOnSelect={shouldCloseOnSelect}
       onChange={handleChange}
+      onCalendarClose={handleCalendarClose}
+      onCalendarOpen={handleCalendarOpen}
       // @ts-expect-error having to be explicit about these types to ensure onChange type is correct
       selectsRange={false}
       // @ts-expect-error having to be explicit about these types to ensure onChange type is correct

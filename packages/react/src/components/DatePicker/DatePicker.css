@@ -20,6 +20,29 @@
     border-radius: var(--h-input-border-radius);
     padding-inline: var(--h-input-padding-horizontal);
     padding-block: var(--h-input-padding-vertical);
+
+    &:where([aria-disabled], [readonly]) {
+      cursor: default;
+    }
+
+    &:where([readonly]) {
+      border-color: var(--h-border-subtle);
+    }
+
+    &:where(:focus-visible, [data-calendar-state='open']):not([aria-disabled]) {
+      outline: var(--h-date-picker-border-width-focused) solid var(--h-border-strong);
+      outline-offset: -1px;
+    }
+
+    &:where([data-validation-status='valid']:not(:has([readonly], [aria-disabled]))) {
+      --h-select-border: var(--h-feedback-positive-border);
+      --h-select-border-color-focus: var(--h-feedback-positive-border);
+    }
+
+    &:where([data-validation-status='invalid']:not(:has([readonly], [aria-disabled]))) {
+      --h-select-border: var(--h-feedback-danger-border);
+      --h-select-border-color-focus: var(--h-feedback-danger-border);
+    }
   }
 
   & :where(.hearth-DatePickerTriggerValue, .hearth-DatePickerTriggerPlaceholder) {

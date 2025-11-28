@@ -11,9 +11,15 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type DatePickerTriggerElement = ElementRef<'button'>;
 
 export const DatePickerTrigger = React.forwardRef<DatePickerTriggerElement, DatePickerTriggerProps>(
-  ({ className, value, placeholder = 'DD/MM/YYYY', ...props }, ref) => {
+  ({ className, value, placeholder = 'DD/MM/YYYY', disabled, onClick, ...props }, ref) => {
     return (
-      <button className={clsx(componentClassName, className)} ref={ref} {...props}>
+      <button
+        className={clsx(componentClassName, className)}
+        ref={ref}
+        aria-disabled={disabled || undefined}
+        onClick={disabled ? undefined : onClick}
+        {...props}
+      >
         {value ? (
           <div className={`${componentClassName}Value`}>{value}</div>
         ) : placeholder ? (

@@ -13,14 +13,21 @@ const meta: Meta<typeof DatePicker> = {
       },
     },
   },
-  args: {},
+  argTypes: {
+    disabled: { control: { type: 'boolean' } },
+    readOnly: { control: { type: 'boolean' } },
+  },
+  args: {
+    disabled: false,
+    readOnly: false,
+  },
 };
 
 export default meta;
 type Story = StoryObj<typeof DatePicker>;
 
 export const Playground: Story = {
-  render: () => {
+  render: args => {
     const [selectedDate, setSelectedDate] = React.useState<Date | null>(new Date());
 
     return (
@@ -28,7 +35,7 @@ export const Playground: Story = {
         <DatePicker
           selected={selectedDate}
           onChange={(date: Date | null) => setSelectedDate(date)}
-          {...({} as any)}
+          {...args}
         />
       </Flex>
     );
