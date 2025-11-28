@@ -24,10 +24,3 @@
   padding: var(--h-space-200) var(--h-space-300);
   border-top: var(--h-table-cell-border-width) solid var(--h-border-subtle);
 }
-
-/* Ensure minimum table width on mobile/tablet for horizontal scroll */
-@media not all and (--h-desktop) {
-  .hearth-TableElement {
-    min-width: 600px;
-  }
-}
