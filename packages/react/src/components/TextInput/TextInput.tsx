@@ -13,6 +13,7 @@ import { mergeIds } from '../../helpers/merge-ids';
 import { BodyText } from '../BodyText/BodyText';
 import { marginPropDefs } from '../../props/margin.props';
 import { InputBase } from '../InputBase/InputBase';
+import { FormField } from '../FormField/FormField';
 
 const COMPONENT_NAME = 'TextInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -42,37 +43,33 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((pro
     prefix: 'text-input',
   });
 
-  const showValidationText = Boolean(
-    !readOnly && !disabled && validationStatus !== undefined && validationText !== undefined
-  );
+  const showValidation = Boolean(!readOnly && !disabled);
+
+  const formFieldProps = {
+    id,
+    labelId,
+    helperTextId,
+    validationTextId,
+    label,
+    helperText,
+    validationText: showValidation ? validationText : undefined,
+    validationStatus: showValidation ? validationStatus : undefined,
+    hideLabel,
+    required,
+  };
+
   const ariaDescribedbyValue = mergeIds(
     ariaDescribedby,
     !!helperText ? helperTextId : undefined,
-    showValidationText ? validationTextId : undefined
+    showValidation && validationText !== undefined ? validationTextId : undefined
   );
 
   return (
-    <Flex
+    <FormField
       className={clsx(componentClassName, className)}
-      direction="column"
-      gap="75"
       data-disabled={disabled ? '' : undefined}
+      {...formFieldProps}
     >
-      <Flex direction="column" data-visually-hidden={hideLabel ? '' : undefined}>
-        <Label htmlFor={id} id={labelId} disableUserSelect fontWeight="semibold">
-          {label}
-          {required ? null : (
-            <BodyText as="span" marginLeft="50">
-              (optional)
-            </BodyText>
-          )}
-        </Label>
-        {helperText ? (
-          <HelperText id={helperTextId} disableUserSelect>
-            {helperText}
-          </HelperText>
-        ) : null}
-      </Flex>
       <InputBase
         ref={ref}
         spellCheck="false"
@@ -90,12 +87,7 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((pro
       >
         {children}
       </InputBase>
-      {showValidationText ? (
-        <ValidationText status={validationStatus} disableUserSelect id={validationTextId}>
-          {validationText}
-        </ValidationText>
-      ) : null}
-    </Flex>
+    </FormField>
   );
 });
 
