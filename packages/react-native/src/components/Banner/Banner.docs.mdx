@@ -63,23 +63,23 @@ const MyComponent = () => (
 
 ## Props
 
-| Property             | Type                                                                                               | Description                                                            | Default        |
-| -------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | -------------- |
-| icon                 | `ComponentType`                                                                                    | Icon component to display (mutually exclusive with image/illustration) | `-`            |
-| iconContainerVariant | `'subtle' \| 'emphasis'`                                                                           | Icon container visual style                                            | `'subtle'`     |
-| iconContainerSize    | `'sm' \| 'md' \| 'lg'`                                                                             | Icon container size                                                    | `'md'`         |
-| iconContainerColor   | `'pig' \| 'energy' \| 'broadband' \| 'mobile' \|` <br />`'insurance' \| 'cashback' \| 'highlight'` | Icon container color scheme                                            | `'pig'`        |
-| illustration         | `ReactNode`                                                                                        | Themed illustration object (mutually exclusive with icon/image)        | `-`            |
-| image                | `ReactNode`                                                                                        | Themed image object (mutually exclusive with icon/illustration)        | `-`            |
-| heading              | `string`                                                                                           | Heading text                                                           | `-` (required) |
-| description          | `string`                                                                                           | Description text                                                       | `-` (required) |
-| direction            | `'horizontal' \| 'vertical'`                                                                       | Layout direction for icon/image and content                            | `'horizontal'` |
-| link                 | `ReactNode`                                                                                        | Link element to display                                                | `-`            |
-| button               | `ReactNode`                                                                                        | Button element to display                                              | `-`            |
-| onPress              | `() => void`                                                                                       | Makes the entire banner pressable (shows chevron)                      | `-`            |
-| onClose              | `() => void`                                                                                       | Shows close button with handler                                        | `-`            |
-| variant              | `'subtle' \| 'emphasis'`                                                                           | Card visual style variant                                              | `'subtle'`     |
-| colorScheme          | `'pig' \| 'energy' \| 'broadband' \| 'mobile' \|` <br />`'insurance' \| 'cashback' \| 'highlight'` | Color scheme for buttons                                               | `'pig'`        |
+| Property             | Type                                                                                               | Description                                                             | Default        |
+| -------------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | -------------- |
+| icon                 | `ComponentType`                                                                                    | Icon component to display (mutually exclusive with image/illustration)  | `-`            |
+| iconContainerVariant | `'subtle' \| 'emphasis'`                                                                           | Icon container visual style                                             | `'subtle'`     |
+| iconContainerSize    | `'sm' \| 'md' \| 'lg'`                                                                             | Icon container size                                                     | `'md'`         |
+| iconContainerColor   | `'pig' \| 'energy' \| 'broadband' \| 'mobile' \|` <br />`'insurance' \| 'cashback' \| 'highlight'` | Icon container color scheme                                             | `'pig'`        |
+| illustration         | `ReactNode`                                                                                        | The illustration element to render (mutually exclusive with icon/image) | `-`            |
+| image                | `ReactNode`                                                                                        | The image element to render (mutually exclusive with icon/illustration) | `-`            |
+| heading              | `string`                                                                                           | Heading text                                                            | `-` (required) |
+| description          | `string`                                                                                           | Description text                                                        | `-` (required) |
+| direction            | `'horizontal' \| 'vertical'`                                                                       | Layout direction for icon/image and content                             | `'horizontal'` |
+| link                 | `ReactNode`                                                                                        | Link element to display                                                 | `-`            |
+| button               | `ReactNode`                                                                                        | Button element to display                                               | `-`            |
+| onPress              | `() => void`                                                                                       | Makes the entire banner pressable (shows chevron)                       | `-`            |
+| onClose              | `() => void`                                                                                       | Shows close button with handler                                         | `-`            |
+| variant              | `'subtle' \| 'emphasis'`                                                                           | Card visual style variant                                               | `'subtle'`     |
+| colorScheme          | `'pig' \| 'energy' \| 'broadband' \| 'mobile' \|` <br />`'insurance' \| 'cashback' \| 'highlight'` | Color scheme for buttons                                                | `'pig'`        |
 
 The component also accepts all standard Card props except `noPadding`, `space`, `gap`, `rowGap`, `columnGap`, `flexDirection`, `flexWrap`, `alignItems`, and `justifyContent`.
 

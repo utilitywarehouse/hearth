@@ -2,8 +2,11 @@ import { Image, ImageProps, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { isThemedImageProps } from '../../utils';
 import { ThemedImage, ThemedImageProps } from '../ThemedImage';
+import { useBannerContext } from './Banner.context';
 
 const BannerImage = (props: ImageProps | ThemedImageProps) => {
+  const { direction } = useBannerContext();
+  styles.useVariants({ direction });
   if (isThemedImageProps(props)) {
     return (
       <View style={[styles.media, styles.imageWrapper]}>

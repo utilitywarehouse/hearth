@@ -1,4 +1,5 @@
 import { ChevronRightSmallIcon, CloseSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { useMemo } from 'react';
 import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
@@ -6,6 +7,7 @@ import { Card } from '../Card';
 import { Heading } from '../Heading';
 import { IconContainer } from '../IconContainer';
 import { UnstyledIconButton } from '../UnstyledIconButton';
+import BannerContext from './Banner.context';
 import type BannerProps from './Banner.props';
 
 const Banner = ({
@@ -29,6 +31,13 @@ const Banner = ({
 }: BannerProps) => {
   const hasIllustration = Boolean(illustration);
   styles.useVariants({ direction, hasIllustration });
+
+  const context = useMemo(
+    () => ({
+      direction,
+    }),
+    [direction]
+  );
 
   const renderIconOrImage = () => {
     if (icon) {
@@ -118,18 +127,22 @@ const Banner = ({
 
   if (onPress) {
     return (
-      <Card variant={variant} style={[styles.card, style]} {...props}>
-        <Pressable onPress={onPress} accessibilityRole="button" style={styles.pressable}>
-          {content}
-        </Pressable>
-      </Card>
+      <BannerContext.Provider value={context}>
+        <Card variant={variant} style={[styles.card, style]} {...props}>
+          <Pressable onPress={onPress} accessibilityRole="button" style={styles.pressable}>
+            {content}
+          </Pressable>
+        </Card>
+      </BannerContext.Provider>
     );
   }
 
   return (
-    <Card variant={variant} style={[styles.card, style]} {...props}>
-      {content}
-    </Card>
+    <BannerContext.Provider value={context}>
+      <Card variant={variant} style={[styles.card, style]} {...props}>
+        {content}
+      </Card>
+    </BannerContext.Provider>
   );
 };
 
