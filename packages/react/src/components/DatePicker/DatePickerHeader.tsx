@@ -3,7 +3,11 @@ import React from 'react';
 import { DatePickerHeaderProps } from './DatePickerHeader.props';
 import { Flex } from '../Flex/Flex';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
-import { ChevronLeftSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import {
+  ChevronDownSmallIcon,
+  ChevronLeftSmallIcon,
+  ChevronRightSmallIcon,
+} from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
 
 const COMPONENT_NAME = 'DatePickerHeader';
@@ -36,7 +40,11 @@ export const DatePickerHeader = (props: DatePickerHeaderProps) => {
     'December',
   ] as const;
   return (
-    <Flex className={componentClassName} justifyContent="between">
+    <Flex
+      className={componentClassName}
+      justifyContent="between"
+      data-months-view={showMonths ? '' : undefined}
+    >
       <BodyText asChild size="md" weight="semibold">
         <button
           className={`${componentClassName}MonthButton`}
@@ -46,6 +54,7 @@ export const DatePickerHeader = (props: DatePickerHeaderProps) => {
           }}
         >
           {MONTHS[date.getMonth()]}
+          <ChevronDownSmallIcon className="hearth-Chevron" aria-hidden />
         </button>
       </BodyText>
 

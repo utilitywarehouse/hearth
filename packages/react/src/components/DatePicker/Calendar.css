@@ -146,12 +146,28 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    gap: var(--h-space-100);
     flex-shrink: 0;
     user-select: none; /* make inner text unselectable */
     vertical-align: top;
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     touch-action: manipulation; /* make clicks not need to wait and observe a potential double click, making the buttons feel faster */
+    border-radius: var(--h-date-picker-calendar-border-radius);
+    padding-inline: var(--h-space-100);
+
+    @media (hover: hover) {
+      &:where(:hover) {
+        background-color: var(--h-interactive-functional-surface-subtle-hover);
+      }
+    }
+
+    & :where(.hearth-Chevron) {
+      transition: transform 300ms;
+      &:where(.hearth-DatePickerHeader[data-months-view] &) {
+        transform: rotate(180deg);
+      }
+    }
   }
 
   & :where(.hearth-DatePickerHeaderControl) {

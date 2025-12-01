@@ -104,7 +104,6 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
             ref={ref}
             className=""
             data-calendar-state={calendarOpen ? 'open' : 'closed'}
-            // data-validation-status={validationStatus ? validationStatus : undefined}
           />
         }
         renderCustomHeader={props => (
