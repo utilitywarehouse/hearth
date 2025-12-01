@@ -31,14 +31,11 @@ export const FormField: React.FC<FormFieldProps> = ({
   );
 
   return (
-    <Flex
-      className={clsx(componentClassName, className)}
-      width="100%"
-      direction="column"
-      gap="75"
-      {...props}
-    >
-      <Flex direction="column" data-visually-hidden={hideLabel ? '' : undefined}>
+    <div className={clsx(componentClassName, className)} {...props}>
+      <div
+        className={`${componentClassName}LabelContainer`}
+        data-visually-hidden={hideLabel ? '' : undefined}
+      >
         <Label htmlFor={id} id={labelId} disableUserSelect fontWeight="semibold">
           {label}
           {required ? null : (
@@ -52,7 +49,7 @@ export const FormField: React.FC<FormFieldProps> = ({
             {helperText}
           </HelperText>
         ) : null}
-      </Flex>
+      </div>
 
       {children}
 
@@ -61,7 +58,7 @@ export const FormField: React.FC<FormFieldProps> = ({
           {validationText}
         </ValidationText>
       ) : null}
-    </Flex>
+    </div>
   );
 };
 

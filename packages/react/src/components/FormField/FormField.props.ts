@@ -1,12 +1,15 @@
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+import { ReactNode } from 'react';
+import { InputBaseProps } from '../InputBase/InputBase.props';
 
-export interface FormFieldProps extends ComponentPropsWithout<'div', RemovedProps> {
+export interface FormFieldProps {
+  className?: string;
+  children?: ReactNode;
   id?: string;
   labelId?: string;
   helperTextId?: string;
   validationTextId?: string;
   showValidationText?: boolean;
-  required?: boolean;
+  required?: InputBaseProps['required'];
   /**
    * The label for the form field, describing its purpose.
    */
@@ -22,7 +25,7 @@ export interface FormFieldProps extends ComponentPropsWithout<'div', RemovedProp
   /**
    * Indicates the validation status.
    */
-  validationStatus?: 'valid' | 'invalid';
+  validationStatus?: InputBaseProps['validationStatus'];
   /**
    * Visually hide the label.
    */
