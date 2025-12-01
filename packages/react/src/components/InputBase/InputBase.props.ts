@@ -15,8 +15,4 @@ export interface InputBaseProps
    * The controlled value of the input. Must be used with an `onChange` handler.
    */
   value?: string | number;
-  /**
-   * Indicates the validation state of the input.
-   */
-  validationStatus?: 'valid' | 'invalid';
 }

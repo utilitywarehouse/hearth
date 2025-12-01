@@ -16,10 +16,18 @@ const meta: Meta<typeof DatePicker> = {
   argTypes: {
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
+    label: { control: { type: 'text' } },
+    helperText: { control: { type: 'text' } },
+    validationText: { control: { type: 'text' } },
+    validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
   },
   args: {
     disabled: false,
     readOnly: false,
+    required: false,
+    label: 'Label',
+    helperText: 'Helper text',
+    validationText: 'Validation text',
   },
 };
 

@@ -31,7 +31,11 @@ export const FormField: React.FC<FormFieldProps> = ({
   );
 
   return (
-    <div className={clsx(componentClassName, className)} {...props}>
+    <div
+      className={clsx(componentClassName, className)}
+      data-validation-status={validationStatus ? validationStatus : undefined}
+      {...props}
+    >
       <div
         className={`${componentClassName}LabelContainer`}
         data-visually-hidden={hideLabel ? '' : undefined}

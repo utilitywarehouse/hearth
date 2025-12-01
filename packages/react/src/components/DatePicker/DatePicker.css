@@ -1,4 +1,6 @@
 .hearth-DatePicker {
+  min-width: var(--h-date-picker-min-width);
+  max-width: var(--h-date-picker-max-width);
   & :where(.hearth-DatePickerTrigger) {
     all: unset;
     outline: transparent;
@@ -14,12 +16,14 @@
     touch-action: manipulation; /* make clicks not need to wait and observe a potential double click, making the buttons feel faster */
     transition: background-color 200ms ease-out;
     width: 100%;
-    min-width: var(--h-date-picker-min-width);
-    max-width: var(--h-date-picker-max-width);
-    border: var(--h-input-border-width) solid var(--h-border-strong);
+    border-color: var(--h-border-strong);
+    border-width: var(--h-input-border-width);
+    border-style: solid;
     border-radius: var(--h-input-border-radius);
     padding-inline: var(--h-input-padding-horizontal);
     padding-block: var(--h-input-padding-vertical);
+
+    --h-input-border-color-focus: var(--h-border-strong);
 
     &:where([aria-disabled], [readonly]) {
       cursor: default;
@@ -29,19 +33,21 @@
       border-color: var(--h-border-subtle);
     }
 
+    &:where([data-validation-status='valid'] &) {
+      border-color: var(--h-feedback-positive-border);
+
+      --h-input-border-color-focus: var(--h-feedback-positive-border);
+    }
+
+    &:where([data-validation-status='invalid'] &) {
+      border-color: var(--h-feedback-danger-border);
+
+      --h-input-border-color-focus: var(--h-feedback-danger-border);
+    }
+
     &:where(:focus-visible, [data-calendar-state='open']):not([aria-disabled]) {
-      outline: var(--h-date-picker-border-width-focused) solid var(--h-border-strong);
+      outline: var(--h-date-picker-border-width-focused) solid var(--h-input-border-color-focus);
       outline-offset: -1px;
-    }
-
-    &:where([data-validation-status='valid']:not(:has([readonly], [aria-disabled]))) {
-      --h-select-border: var(--h-feedback-positive-border);
-      --h-select-border-color-focus: var(--h-feedback-positive-border);
-    }
-
-    &:where([data-validation-status='invalid']:not(:has([readonly], [aria-disabled]))) {
-      --h-select-border: var(--h-feedback-danger-border);
-      --h-select-border-color-focus: var(--h-feedback-danger-border);
     }
   }
 

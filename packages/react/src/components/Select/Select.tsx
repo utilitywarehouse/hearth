@@ -61,7 +61,6 @@ export const Select = React.forwardRef<SelectElement, SelectProps>((props, ref) 
           ref={ref}
           className={`${componentClassName}Trigger`}
           disabled={disabled}
-          data-validation-status={validationStatus ? validationStatus : undefined}
         >
           <RadixSelect.Value className={`${componentClassName}Value`} placeholder={placeholder} />
           <RadixSelect.Icon className={`${componentClassName}TriggerIcon`}>

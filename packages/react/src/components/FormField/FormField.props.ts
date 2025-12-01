@@ -25,7 +25,7 @@ export interface FormFieldProps {
   /**
    * Indicates the validation status.
    */
-  validationStatus?: InputBaseProps['validationStatus'];
+  validationStatus?: 'valid' | 'invalid';
   /**
    * Visually hide the label.
    */
