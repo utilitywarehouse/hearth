@@ -166,7 +166,7 @@ export const Playground: Story = {
 
 export const ShadowColours: Story = {
   render: ({ children, ...args }) => (
-    <Flex gap="400" direction="column" padding="400">
+    <Flex gap="400" padding="400" wrap="wrap">
       {shadowColors.map(c => (
         <Card {...args} width="300px" shadowColor={c}>
           <BodyText size="md">{children}</BodyText>
