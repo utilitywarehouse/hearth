@@ -1,0 +1,68 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { InfoMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { VerificationInput } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './VerificationInput.stories';
+
+<Meta title="Forms / VerificationInput" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components-%26-Tokens?node-id=1-152" />
+
+# Verification Input
+
+The verification input component is used to capture OTP (One Time Password) or other verification codes.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Variants](#variants)
+  - [States](#states)
+  - [Secure Text Entry](#secure-text-entry)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <VerificationInput label="Enter Code" onChangeText={code => console.log(code)} />
+</UsageWrap>
+
+```tsx
+import { VerificationInput } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [code, setCode] = useState('');
+
+  return <VerificationInput label="Enter Code" value={code} onChangeText={setCode} />;
+};
+```
+
+## Props
+
+### `VerificationInput`
+
+The component accepts the following props:
+
+| Prop               | Type                                | Default     | Description                                                  |
+| :----------------- | :---------------------------------- | :---------- | :----------------------------------------------------------- |
+| `value`            | `string`                            | -           | The value of the input.                                      |
+| `onChangeText`     | `(text: string) => void`            | -           | Callback when the value changes.                             |
+| `label`            | `string`                            | -           | The label for the input.                                     |
+| `helperText`       | `string`                            | -           | Helper text to display below the input.                      |
+| `helperIcon`       | `ComponentType`                     | -           | Icon to display alongside the helper text.                   |
+| `validationStatus` | `'initial' \| 'valid' \| 'invalid'` | `'initial'` | The validation status of the input.                          |
+| `validText`        | `string`                            | -           | Text to display when validation status is 'valid'.           |
+| `invalidText`      | `string`                            | -           | Text to display when validation status is 'invalid'.         |
+| `disabled`         | `boolean`                           | `false`     | Whether the input is disabled.                               |
+| `readonly`         | `boolean`                           | `false`     | Whether the input is read-only.                              |
+| `secureTextEntry`  | `boolean`                           | `false`     | Whether to obscure the text entry (e.g. for passwords/OTPs). |
+
+## Variants
+
+<Canvas of={Stories.Variants} />

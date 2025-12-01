@@ -11,11 +11,6 @@ export interface VerificationInputProps extends ViewProps {
    */
   onChangeText?: (text: string) => void;
   /**
-   * The number of characters in the verification code.
-   * @default 6
-   */
-  length?: number;
-  /**
    * The label for the input.
    */
   label?: string;
