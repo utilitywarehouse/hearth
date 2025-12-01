@@ -142,7 +142,7 @@ export const Multiple: Story = {
     return (
       <Flex space="lg" direction="column" align="center" style={{ maxWidth: 400 }}>
         <PillGroup wrap={true} multiple value={selectedCategories} onChange={v => setSelectedCategories(v as string[])}>
-          <Pill value="all" label="All" />
+          <Pill value="unread" label="Unread" />
           <Pill value="new" label="New" icon={HeartMediumIcon} />
           <Pill value="favourites" label="My favourites" icon={HeartMediumIcon} />
           <Pill value="read" label="Read" />
