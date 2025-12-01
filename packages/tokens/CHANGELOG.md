@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.2.0
+
+### Minor Changes
+
+- [#662](https://github.com/utilitywarehouse/hearth/pull/662) [`b0ba9a2`](https://github.com/utilitywarehouse/hearth/commit/b0ba9a260f2236f3094c169cd3fb841392f05b79) Thanks [@robphoenix](https://github.com/robphoenix)! - Add shadow colours to `Card`, extract layout spacing tokens to own file and add shadow tokens.
+
 ## 0.1.3
 
 ### Patch Changes

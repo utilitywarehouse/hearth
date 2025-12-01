@@ -54,7 +54,7 @@
     padding: var(--h-bottom-sheet-padding);
 
     @media (--h-tablet) {
-      padding: var(--h-dialog-padding);
+      padding: var(--h-modal-padding);
     }
 
     &:where([data-contains-image] &) {
@@ -75,8 +75,8 @@
 
   & :where(.hearth-ModalCloseIconButton) {
     position: absolute;
-    top: var(--h-dialog-padding);
-    right: var(--h-dialog-padding);
+    top: var(--h-modal-padding);
+    right: var(--h-modal-padding);
   }
 
   & :where(.hearth-ModalInnerContainer) {

@@ -1,0 +1,33 @@
+.hearth-Table {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.hearth-TableScrollContainer {
+  overflow-x: auto;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hearth-TableElement {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: var(--h-font-family-body);
+  font-size: var(--h-font-size-100);
+  line-height: var(--h-line-height-500);
+}
+
+.hearth-TableFooter {
+  padding: var(--h-space-200) var(--h-space-300);
+  border-top: var(--h-table-cell-border-width) solid var(--h-border-subtle);
+}
+
+/* Ensure minimum table width on mobile/tablet for horizontal scroll */
+@media not all and (--h-desktop) {
+  .hearth-TableElement {
+    min-width: 600px;
+  }
+}

@@ -227,6 +227,9 @@ export const components = {
       gap: 'var(--h-checkbox-tile-gap)',
       group: {
         gap: 'var(--h-checkbox-tile-group-gap)',
+        heading: {
+          gap: 'var(--h-checkbox-tile-group-heading-gap)',
+        },
         stack: {
           gap: 'var(--h-checkbox-tile-group-stack-gap)',
         },
@@ -406,6 +409,12 @@ export const components = {
       gap: 'var(--h-input-date-gap)',
     },
     gap: 'var(--h-input-gap)',
+    heading: {
+      gap: 'var(--h-input-heading-gap)',
+      text: {
+        gap: 'var(--h-input-heading-text-gap)',
+      },
+    },
     height: 'var(--h-input-height)',
     label: {
       gap: 'var(--h-input-label-gap)',
@@ -665,6 +674,9 @@ export const components = {
       gap: 'var(--h-radio-tile-gap)',
       group: {
         gap: 'var(--h-radio-tile-group-gap)',
+        heading: {
+          gap: 'var(--h-radio-tile-group-heading-gap)',
+        },
         stack: {
           gap: 'var(--h-radio-tile-group-stack-gap)',
         },
@@ -870,10 +882,14 @@ export const components = {
   toast: {
     backgroundColor: 'var(--h-toast-background-color)',
     borderRadius: 'var(--h-toast-border-radius)',
-    gapHorizontal: 'var(--h-toast-gap-horizontal)',
+    bottomPosition: 'var(--h-toast-bottom-position)',
+    gap: 'var(--h-toast-gap)',
     padding: 'var(--h-toast-padding)',
     stack: {
-      gapHorizontal: 'var(--h-toast-stack-gap-horizontal)',
+      gap: 'var(--h-toast-stack-gap)',
+    },
+    text: {
+      gap: 'var(--h-toast-text-gap)',
     },
   },
   toggleButton: {

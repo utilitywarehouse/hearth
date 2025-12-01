@@ -13,7 +13,7 @@
   }
 
   .hearth-Legend {
-    color: var(--h-text-color);
+    color: var(--h-text-primary);
 
     /* only apply text styles if the legend doesn't have another element as a child, ie. a Heading component */
     &:where(:not(:has(*))) {

@@ -39,6 +39,7 @@ export const Playground: Story = {
         value={value}
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
         onClear={() => setValue('')}
+        id="search-input-playground"
         {...args}
       />
     );

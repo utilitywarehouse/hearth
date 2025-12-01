@@ -1,0 +1,51 @@
+.hearth-Pagination {
+  .hearth-PaginationContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--h-pagination-gap);
+    flex-wrap: nowrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: flex;
+    }
+  }
+
+  .hearth-PaginationControllers {
+    display: flex;
+    align-items: center;
+    gap: var(--h-pagination-gap);
+  }
+
+  .hearth-PaginationPages {
+    display: flex;
+    align-items: center;
+    gap: var(--h-pagination-gap);
+    flex-wrap: nowrap;
+  }
+
+  .hearth-PaginationEllipsis {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--h-button-min-width);
+    padding-inline: var(--h-button-sm-padding-horizontal);
+    flex-shrink: 0;
+  }
+
+  .hearth-PaginationPage {
+    height: var(--h-pagination-item-height);
+    width: var(--h-pagination-item-width);
+    aspect-ratio: 1/1;
+    padding: var(--h-space-0);
+    text-decoration: none;
+
+    &:where([data-active]) {
+      background: var(--h-interactive-brand-surface-strong-default);
+      color: var(--h-interactive-brand-foreground-strong);
+    }
+  }
+}
