@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react-native';
 import React, { useEffect } from 'react';
 import { ImageSourcePropType } from 'react-native';
-import { Checkbox, CheckboxGroup } from '.';
+import { Checkbox, CheckboxGroup, CheckboxImage } from '.';
 import bankLogo from '../../../docs/assets/bank-logo.png';
 import bankLogo1 from '../../../docs/assets/bank-logo1.png';
 import { VariantTitle } from '../../../docs/components';
@@ -106,7 +106,12 @@ export const WithImage: Story = {
         {...args}
         value="visa"
         label="Visa"
-        image={{ source: bankLogo1 as ImageSourcePropType, style: { width: 40, height: 24 } }}
+        image={
+          <CheckboxImage
+            source={bankLogo1 as ImageSourcePropType}
+            style={{ width: 40, height: 24 }}
+          />
+        }
       />
       <Checkbox
         aria-label="Mastercard"
@@ -117,11 +122,12 @@ export const WithImage: Story = {
         {...args}
         value="mastercard"
         label="Mastercard"
-        image={{
-          source: bankLogo as ImageSourcePropType,
-          style: { width: 40, height: 24 },
-          resizeMode: 'contain',
-        }}
+        image={
+          <CheckboxImage
+            source={bankLogo as ImageSourcePropType}
+            style={{ width: 40, height: 24, resizeMode: 'contain' }}
+          />
+        }
       />
     </CheckboxGroup>
   ),

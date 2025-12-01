@@ -126,7 +126,7 @@ export const WithBadge: Story = {
         leadingContent={
           <IconContainer icon={ElectricityMediumIcon} size="md" variant="emphasis" color="energy" />
         }
-        badge={{ text: 'Text' }}
+        badge={<Badge text="Text" />}
       />
       <ListItem
         heading="Gas"
@@ -135,7 +135,7 @@ export const WithBadge: Story = {
         leadingContent={
           <IconContainer icon={GasMediumIcon} size="md" variant="emphasis" color="energy" />
         }
-        badge={{ text: 'Smart Meter' }}
+        badge={<Badge text="Smart Meter" />}
       />
     </List>
   ),

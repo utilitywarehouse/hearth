@@ -4,7 +4,6 @@ import {
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Badge } from '../Badge';
 import { DetailText } from '../DetailText';
 import ExpandableCardContent from './ExpandableCardContent';
 import ExpandableCardHelperText from './ExpandableCardHelperText';
@@ -54,28 +53,14 @@ const ExpandableCardTriggerRoot = ({
     return null;
   };
 
-  const renderTopBadge = () => {
-    if (badgePosition === 'top' && badge) {
-      return <Badge {...badge} />;
-    }
-    return null;
-  };
-
-  const renderBottomBadge = () => {
-    if (badgePosition === 'bottom' && badge) {
-      return <Badge {...badge} />;
-    }
-    return null;
-  };
-
   const renderDefaultContent = () => (
     <>
       {renderLeadingContent()}
       <ExpandableCardContent>
-        {renderTopBadge()}
+        {badgePosition === 'top' ? badge : null}
         <ExpandableCardText>{heading}</ExpandableCardText>
         {helperText && <ExpandableCardHelperText>{helperText}</ExpandableCardHelperText>}
-        {renderBottomBadge()}
+        {badgePosition === 'bottom' ? badge : null}
       </ExpandableCardContent>
       {numericValue && (
         <DetailText size="lg" style={styles.numericValue}>

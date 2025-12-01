@@ -1,5 +1,5 @@
-import type { ComponentType } from 'react';
-import type { ImageProps, PressableProps, ViewProps } from 'react-native';
+import type { ComponentType, ReactNode } from 'react';
+import type { PressableProps, ViewProps } from 'react-native';
 
 interface RadioBaseProps extends Omit<PressableProps, 'children'> {
   value: string;
@@ -28,7 +28,7 @@ interface RadioWithoutChildrenProps extends RadioBaseProps {
   invalidText?: string;
   validText?: string;
   showValidationIcon?: boolean;
-  image?: ImageProps;
+  image?: ReactNode;
 }
 
 type RadioProps = RadioWithChildrenProps | RadioWithoutChildrenProps;

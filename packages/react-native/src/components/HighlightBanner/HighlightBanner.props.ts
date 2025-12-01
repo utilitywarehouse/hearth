@@ -1,5 +1,4 @@
-import { ReactElement } from 'react';
-import { ImageProps } from 'react-native';
+import { ReactElement, ReactNode } from 'react';
 import CardProps from '../Card/Card.props';
 
 interface HighlightBannerProps
@@ -20,7 +19,7 @@ interface HighlightBannerProps
   heading?: string;
   headingColor?: 'pig' | 'energy' | 'broadband' | 'mobile' | 'insurance' | 'cashback' | 'highlight';
   variant?: 'emphasis' | 'subtle';
-  image?: ImageProps;
+  image?: ReactNode;
   imageContainerHeight?: number;
   description?: string;
   link?: ReactElement;

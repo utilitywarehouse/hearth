@@ -1,17 +1,12 @@
 import { ChevronRightSmallIcon, CloseSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { Image, ImageProps, Pressable, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { Card } from '../Card';
 import { Heading } from '../Heading';
 import { IconContainer } from '../IconContainer';
-import { ThemedImage, ThemedImageProps } from '../ThemedImage';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import type BannerProps from './Banner.props';
-
-const isThemedImageProps = (props: ThemedImageProps | ImageProps): props is ThemedImageProps => {
-  return 'light' in props && 'dark' in props;
-};
 
 const Banner = ({
   icon,
@@ -48,36 +43,10 @@ const Banner = ({
       );
     }
     if (illustration) {
-      if (isThemedImageProps(illustration)) {
-        return (
-          <ThemedImage
-            {...illustration}
-            resizeMode="cover"
-            style={[styles.media, styles.imageWrapper, illustration.style]}
-          />
-        );
-      }
-      return (
-        <Image
-          {...illustration}
-          resizeMode="cover"
-          style={[styles.media, styles.imageWrapper, illustration.style]}
-        />
-      );
+      return illustration;
     }
     if (image) {
-      if (isThemedImageProps(image)) {
-        return (
-          <View style={[styles.media, styles.imageWrapper]}>
-            <ThemedImage {...image} style={[styles.image, image.style]} />
-          </View>
-        );
-      }
-      return (
-        <View style={[styles.media, styles.imageWrapper]}>
-          <Image {...image} style={[styles.image, image.style]} />
-        </View>
-      );
+      return image;
     }
     return null;
   };
@@ -214,31 +183,6 @@ const styles = StyleSheet.create(theme => ({
         horizontal: {},
         vertical: {
           alignSelf: 'flex-start',
-        },
-      },
-    },
-  },
-  imageWrapper: {
-    flexDirection: 'row',
-    variants: {
-      direction: {
-        horizontal: {},
-        vertical: {
-          width: '100%',
-        },
-      },
-    },
-  },
-  image: {
-    borderRadius: theme.borderRadius.md,
-    borderColor: theme.color.border.strong,
-    borderWidth: theme.borderWidth[1],
-    variants: {
-      direction: {
-        horizontal: { width: 160, height: 95 },
-        vertical: {
-          width: '100%',
-          height: 160,
         },
       },
     },

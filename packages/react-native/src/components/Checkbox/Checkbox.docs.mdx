@@ -91,7 +91,7 @@ const MyComponent = () => {
 | `validText`          | `string`                            | -         | The valid text to be displayed below the checkbox.                                                                   |
 | `showValidationIcon` | `boolean`                           | `true`    | Whether to show the validation icon.                                                                                 |
 | `type`               | `'default' \| 'tile'`               | `default` | The type of the checkbox.                                                                                            |
-| `image`              | `ImageProps`                        | -         | The image to be displayed next to the label.                                                                         |
+| `image`              | `ReactNode`                         | -         | The image to be displayed next to the label.                                                                         |
 
 ## Components
 
@@ -209,6 +209,15 @@ const MyComponent = () => {
 | `validationStatus` | `'valid' \| 'invalid' \| 'initial'` | -       | The validation status of the checkbox group.                           |
 
 ### `CheckboxImage`
+
+| Property  | Type                  | Description                                                              |
+| --------- | --------------------- | ------------------------------------------------------------------------ |
+| `source`  | `ImageSourcePropType` | The source of the image to display                                       |
+| `light`   | `ImageSourcePropType` | The source of the image to display in light mode (use instead of source) |
+| `dark`    | `ImageSourcePropType` | The source of the image to display in dark mode (use instead of source)  |
+| `...rest` | `ImageProps`          | Additional props to pass to the underlying Image component               |
+
+For more details about the ThemedImage component used internally, refer to the [`ThemedImage` documentation](/docs/utility-components-themed-image--docs).
 
 The `CheckboxImage` component is used to display an image next to the checkbox label. It inherits all the properties of React Native's `Image` component.
 
@@ -336,7 +345,7 @@ The `CheckboxImage` component is used to display an image next to the checkbox l
 <Canvas of={Stories.WithImage} />
 
 ```tsx
-import { Checkbox } from '@utilitywarehouse/native-ui';
+import { Checkbox, CheckboxImage } from '@utilitywarehouse/hearth-react-native';
 import visaLogo from '../../../assets/visa.png';
 import mastercardLogo from '../../../assets/mastercard.png';
 
@@ -347,13 +356,23 @@ const MyComponent = () => {
         value="visa"
         aria-label="Visa"
         label="Visa"
-        image={{ source: visaLogo, style: { width: 40, height: 24, resizeMode: 'contain' } }}
+        image={
+          <CheckboxImage
+            source={visaLogo}
+            style={{ width: 40, height: 24, resizeMode: 'contain' }}
+          />
+        }
       />
       <Checkbox
         value="mastercard"
         aria-label="Mastercard"
         label="Mastercard"
-        image={{ source: mastercardLogo, style: { width: 40, height: 24, resizeMode: 'contain' } }}
+        image={
+          <CheckboxImage
+            source={mastercardLogo}
+            style={{ width: 40, height: 24, resizeMode: 'contain' }}
+          />
+        }
       />
     </CheckboxGroup>
   );

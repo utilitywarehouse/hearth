@@ -13,6 +13,8 @@ import { Button } from '../Button';
 import { Flex } from '../Flex';
 import { Link } from '../Link';
 import Banner from './Banner';
+import BannerIllustration from './BannerIllustration';
+import BannerImage from './BannerImage';
 
 const meta = {
   title: 'Stories / Banner',
@@ -128,23 +130,35 @@ export const WithIllustration: Story = {
       <View style={{ width: 400 }}>
         <Flex space="lg" direction="column">
           <Banner
-            illustration={{
-              // @ts-ignore
-              light: <SpotBillingLight width={80} height={80} />,
-              // @ts-ignore
-              dark: <SpotBillingDark width={80} height={80} />,
-            }}
+            illustration={
+              <BannerIllustration
+                light={
+                  // @ts-ignore
+                  <SpotBillingLight width={80} height={80} />
+                }
+                dark={
+                  // @ts-ignore
+                  <SpotBillingDark width={80} height={80} />
+                }
+              />
+            }
             heading="Featured Content"
             description="Discover amazing content curated just for you."
           />
           <Banner
             direction="vertical"
-            illustration={{
-              // @ts-ignore
-              light: <SpotBillingLight width={120} height={120} />,
-              // @ts-ignore
-              dark: <SpotBillingDark width={120} height={120} />,
-            }}
+            illustration={
+              <BannerIllustration
+                light={
+                  // @ts-ignore
+                  <SpotBillingLight width={120} height={120} />
+                }
+                dark={
+                  // @ts-ignore
+                  <SpotBillingDark width={120} height={120} />
+                }
+              />
+            }
             heading="Special Offer"
             description="Limited time offer on selected services."
           />
@@ -160,27 +174,31 @@ export const WithImage: Story = {
       <View style={{ width: 400 }}>
         <Flex space="lg" direction="column">
           <Banner
-            image={{
-              light: {
-                uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
-              },
-              dark: {
-                uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
-              },
-            }}
+            image={
+              <BannerImage
+                light={{
+                  uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
+                }}
+                dark={{
+                  uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
+                }}
+              />
+            }
             heading="Featured Content"
             description="Discover amazing content curated just for you."
           />
           <Banner
             direction="vertical"
-            image={{
-              light: {
-                uri: 'https://images.unsplash.com/photo-1473186578172-c141e6798cf4?w=200&q=80',
-              },
-              dark: {
-                uri: 'https://images.unsplash.com/photo-1473186578172-c141e6798cf4?w=200&q=80',
-              },
-            }}
+            image={
+              <BannerImage
+                light={{
+                  uri: 'https://images.unsplash.com/photo-1473186578172-c141e6798cf4?w=200&q=80',
+                }}
+                dark={{
+                  uri: 'https://images.unsplash.com/photo-1473186578172-c141e6798cf4?w=200&q=80',
+                }}
+              />
+            }
             heading="Special Offer"
             description="Limited time offer on selected services."
           />
@@ -262,14 +280,16 @@ export const Pressable: Story = {
             onPress={() => console.log('Banner pressed')}
           />
           <Banner
-            image={{
-              light: {
-                uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
-              },
-              dark: {
-                uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
-              },
-            }}
+            image={
+              <BannerImage
+                light={{
+                  uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
+                }}
+                dark={{
+                  uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
+                }}
+              />
+            }
             heading="Account Settings"
             description="Manage your account preferences."
             onPress={() => console.log('Banner pressed')}
@@ -325,11 +345,16 @@ export const VerticalLayout: Story = {
           />
           <Banner
             variant="emphasis"
-            image={{
-              source: {
-                uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
-              },
-            }}
+            image={
+              <BannerImage
+                light={{
+                  uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
+                }}
+                dark={{
+                  uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=200&q=80',
+                }}
+              />
+            }
             heading="Featured Content"
             description="Discover amazing content curated just for you."
             shadowColor="brand"
@@ -443,14 +468,16 @@ export const EmphasisVariant: Story = {
             variant="emphasis"
           />
           <Banner
-            image={{
-              light: {
-                uri: 'https://images.unsplash.com/photo-1473186578172-c141e6798cf4?w=200&q=80',
-              },
-              dark: {
-                uri: 'https://images.unsplash.com/photo-1473186578172-c141e6798cf4?w=200&q=80',
-              },
-            }}
+            image={
+              <BannerImage
+                light={{
+                  uri: 'https://images.unsplash.com/photo-1473186578172-c141e6798cf4?w=200&q=80',
+                }}
+                dark={{
+                  uri: 'https://images.unsplash.com/photo-1473186578172-c141e6798cf4?w=200&q=80',
+                }}
+              />
+            }
             heading="Featured Offer"
             description="Limited time deal on premium services."
             variant="emphasis"
@@ -486,14 +513,16 @@ export const ComplexExample: Story = {
             onPress={() => console.log('Banner pressed')}
           />
           <Banner
-            image={{
-              light: {
-                uri: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=200&q=80',
-              },
-              dark: {
-                uri: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=200&q=80',
-              },
-            }}
+            image={
+              <BannerImage
+                light={{
+                  uri: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=200&q=80',
+                }}
+                dark={{
+                  uri: 'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=200&q=80',
+                }}
+              />
+            }
             heading="Exclusive Member Benefit"
             description="As a valued member, you now have access to premium features at no extra cost."
             variant="emphasis"

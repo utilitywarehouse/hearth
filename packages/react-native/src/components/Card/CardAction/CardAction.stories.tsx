@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { ElectricityMediumIcon, GasMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { View } from 'react-native';
+import { Badge } from '../../Badge';
 import { Flex } from '../../Flex';
 import Card from '../Card';
 import CardAction from './CardAction';
@@ -169,7 +170,7 @@ export const WithBadge: Story = {
           heading="Badge at bottom"
           helperText="Badge positioned below text"
           leadingIcon={ElectricityMediumIcon}
-          badge={{ text: 'New' }}
+          badge={<Badge text="New" />}
           badgePosition="bottom"
           onPress={() => console.log('pressed')}
         />
@@ -179,7 +180,7 @@ export const WithBadge: Story = {
           heading="Badge at middle"
           helperText="Badge positioned between heading and helper text"
           leadingIcon={ElectricityMediumIcon}
-          badge={{ text: 'New' }}
+          badge={<Badge text="New" />}
           badgePosition="middle"
           onPress={() => console.log('pressed')}
         />
@@ -189,7 +190,7 @@ export const WithBadge: Story = {
           heading="Badge at right"
           helperText="Badge positioned on the right side"
           leadingIcon={ElectricityMediumIcon}
-          badge={{ text: 'New' }}
+          badge={<Badge text="New" />}
           badgePosition="right"
           onPress={() => console.log('pressed')}
         />

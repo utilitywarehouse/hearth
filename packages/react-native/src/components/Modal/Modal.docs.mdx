@@ -108,6 +108,19 @@ The Modal component extends the `BottomSheetModal` component and accepts all of 
 | `fullscreen`                  | `boolean`                                      | Whether the modal should take up the full screen height                                                       | `false` |
 | `inNavModal`                  | `boolean`                                      | Renders the modal correctly when used inside a navigation modal                                               | `false` |
 
+### `ModalImage` Props
+
+The `ModalImage` component can be used to display an image within the Modal. It accepts the following props:
+
+| Property  | Type                  | Description                                                              |
+| --------- | --------------------- | ------------------------------------------------------------------------ |
+| `source`  | `ImageSourcePropType` | The source of the image to display                                       |
+| `light`   | `ImageSourcePropType` | The source of the image to display in light mode (use instead of source) |
+| `dark`    | `ImageSourcePropType` | The source of the image to display in dark mode (use instead of source)  |
+| `...rest` | `ImageProps`          | Additional props to pass to the underlying Image component               |
+
+For more details about the ThemedImage component used internally, refer to the [`ThemedImage` documentation](/docs/utility-components-themed-image--docs).
+
 ## Features
 
 ### Automatic Layout Management
@@ -269,6 +282,8 @@ Use the `image` prop to display an image-centric modal with centered content:
 <Canvas of={Stories.WithImage} />
 
 ```tsx
+import { Modal, ModalImage, Button } from '@utilitywarehouse/hearth-react-native';
+
 const ImageModal = () => {
   const modalRef = useRef<BottomSheetModal>(null);
 
@@ -282,10 +297,7 @@ const ImageModal = () => {
         description="Thanks for joining our community"
         primaryButtonText="Get Started"
         secondaryButtonText="Maybe Later"
-        image={{
-          source: require('./path/to/image.png'),
-          resizeMode: 'contain',
-        }}
+        image={<ModalImage source={require('./path/to/image.png')} resizeMode="contain" />}
         onPressPrimaryButton={() => modalRef.current?.dismiss()}
         onPressSecondaryButton={() => modalRef.current?.dismiss()}
       />

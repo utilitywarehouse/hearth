@@ -1,8 +1,13 @@
 import { Image, ImageProps } from 'react-native';
+import { isThemedImageProps } from '../../utils';
+import { ThemedImage, ThemedImageProps } from '../ThemedImage';
 
-const RadioImage = ({ source, style, ...props }: ImageProps) => (
-  <Image source={source} style={style} {...props} />
-);
+const RadioImage = ({ ...props }: ImageProps | ThemedImageProps) => {
+  if (isThemedImageProps(props)) {
+    return <ThemedImage {...props} />;
+  }
+  return <Image {...props} />;
+};
 
 RadioImage.displayName = 'RadioImage';
 

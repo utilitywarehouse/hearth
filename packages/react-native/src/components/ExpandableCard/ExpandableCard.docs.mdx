@@ -64,7 +64,7 @@ const MyComponent = () => (
 | `helperText`       | `string`                      | -                   | Optional helper text displayed below the heading |
 | `leadingIcon`      | `ComponentType`               | -                   | Leading icon component (automatically wrapped)   |
 | `leadingContent`   | `ReactNode`                   | -                   | Leading content (icon or custom element)         |
-| `badge`            | `BadgeProps`                  | -                   | Badge to display                                 |
+| `badge`            | `ReactNode`                   | -                   | Badge to display                                 |
 | `badgePosition`    | `'top' \| 'bottom'`           | `'bottom'`          | Badge position                                   |
 | `numericValue`     | `string \| number`            | -                   | Numeric value to display on the right            |
 | `expandedContent`  | `ReactNode`                   | -                   | The content to show when expanded                |
@@ -152,7 +152,7 @@ const MyComponent = () => (
 <ExpandableCard
   heading="New Feature"
   helperText="Check out what's new"
-  badge={{ text: 'New', colorScheme: 'cyan' }}
+  badge={<Badge text="New" colorScheme="cyan" />}
   expandedContent={<BodyText>We've added new features to improve your experience.</BodyText>}
 />
 ```

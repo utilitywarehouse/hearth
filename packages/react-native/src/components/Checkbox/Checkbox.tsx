@@ -5,7 +5,6 @@ import CheckboxProps from './Checkbox.props';
 import { useCheckboxGroupContext } from './CheckboxGroup.context';
 import StyledCheckboxGroup from './CheckboxGroupRoot';
 import StyledCheckboxIcon from './CheckboxIcon';
-import CheckboxImage from './CheckboxImage';
 import StyledCheckboxIndicator from './CheckboxIndicator';
 import StyledCheckboxLabel from './CheckboxLabel';
 import StyledCheckbox from './CheckboxRoot';
@@ -57,7 +56,7 @@ const Checkbox = ({
       <CheckboxIndicator>
         <CheckboxIcon />
       </CheckboxIndicator>
-      {image ? <CheckboxImage {...image} /> : null}
+      {image ? image : null}
       <CheckboxTextContent>
         {!!label && <CheckboxLabel>{label}</CheckboxLabel>}
         {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
