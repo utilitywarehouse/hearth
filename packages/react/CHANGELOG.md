@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.17.4
+
+### Patch Changes
+
+- [#681](https://github.com/utilitywarehouse/hearth/pull/681) [`ca261b1`](https://github.com/utilitywarehouse/hearth/commit/ca261b1134233505afa1939e03167c20935989e7) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - fix: remove Table min width value
+
 ## 0.17.3
 
 ### Patch Changes
