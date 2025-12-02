@@ -14,20 +14,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type DateInputSegmentElement = ElementRef<'input'>;
 
 export const DateInputSegment = React.forwardRef<DateInputSegmentElement, DateInputSegmentProps>(
-  (
-    {
-      className,
-      label,
-      validationStatus,
-      placeholder,
-      value,
-      disabled,
-      required,
-      id: providedId,
-      ...props
-    },
-    ref
-  ) => {
+  ({ className, label, placeholder, value, disabled, required, id: providedId, ...props }, ref) => {
     const { id, labelId } = useIds({ providedId, prefix: 'date-input-segment' });
 
     return (
@@ -50,8 +37,6 @@ export const DateInputSegment = React.forwardRef<DateInputSegmentElement, DateIn
           disabled={disabled}
           required={required}
           aria-labelledby={labelId}
-          aria-invalid={validationStatus === 'invalid' ? true : undefined}
-          validationStatus={validationStatus}
           spellCheck="false"
           {...props}
         />

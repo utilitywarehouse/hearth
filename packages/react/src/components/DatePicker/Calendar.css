@@ -18,6 +18,13 @@
     background-color: var(--h-surface-brand-default);
   }
 
+  .react-datepicker__day--today,
+  .react-datepicker__month-text--today,
+  .react-datepicker__quarter-text--today,
+  .react-datepicker__year-text--today {
+    font-weight: var(--h-body-text-font-weight-semibold);
+  }
+
   & .react-datepicker__day--keyboard-selected,
   .react-datepicker__month-text--keyboard-selected,
   .react-datepicker__year-text--keyboard-selected {
@@ -29,7 +36,8 @@
     opacity: var(--h-opacity-disabled);
   }
 
-  & .react-datepicker__month-container {
+  & .react-datepicker__month-container,
+  .react-datepicker__year--container {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -46,7 +54,26 @@
     display: flex;
     gap: var(--h-date-picker-calendar-column-gap);
   }
+
+  & .react-datepicker__year-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--h-date-picker-calendar-column-gap);
+  }
   /* stylelint-enable selector-class-pattern */
+
+  & :where(.hearth-DatePickerYear) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 40px;
+    width: 100%;
+    padding: var(--h-space-100) var(--h-space-0);
+    margin: 0;
+    flex: 1;
+    border-radius: var(--h-border-radius-md);
+  }
 
   & :where(.hearth-DatePickerMonth) {
     display: inline-flex;
@@ -97,6 +124,7 @@
           [aria-disabled='true'],
           /* stylelint-disable selector-class-pattern -- React Datepicker specific class names */
           .react-datepicker__month-text--selected,
+          .react-datepicker__year-text--selected,
           .react-datepicker__day--selected
           /* stylelint-enable selector-class-pattern */
         ) {
@@ -136,6 +164,11 @@
   }
   /* stylelint-enable selector-class-pattern */
 
+  & :where(.hearth-DatePickerHeader) {
+    display: flex;
+    justify-content: space-between;
+  }
+
   & :where(.hearth-DatePickerHeaderMonthButton) {
     all: unset;
     outline: transparent;
@@ -146,7 +179,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: var(--h-space-100);
+    gap: var(--h-date-picker-calendar-header-date-gap);
     flex-shrink: 0;
     user-select: none; /* make inner text unselectable */
     vertical-align: top;
@@ -155,19 +188,6 @@
     touch-action: manipulation; /* make clicks not need to wait and observe a potential double click, making the buttons feel faster */
     border-radius: var(--h-date-picker-calendar-border-radius);
     padding-inline: var(--h-space-100);
-
-    @media (hover: hover) {
-      &:where(:hover) {
-        background-color: var(--h-interactive-functional-surface-subtle-hover);
-      }
-    }
-
-    & :where(.hearth-Chevron) {
-      transition: transform 300ms;
-      &:where(.hearth-DatePickerHeader[data-months-view] &) {
-        transform: rotate(180deg);
-      }
-    }
   }
 
   & :where(.hearth-DatePickerHeaderControl) {

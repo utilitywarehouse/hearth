@@ -15,3 +15,5 @@ export type DatePickerProps = Omit<
       event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>
     ) => void;
   };
+
+export type View = 'days' | 'months' | 'years';

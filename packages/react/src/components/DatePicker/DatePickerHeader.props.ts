@@ -1,7 +1,8 @@
 import type { ReactDatePickerCustomHeaderProps } from 'react-datepicker';
+import { View } from './DatePicker.props';
+import { ButtonProps } from '../Button/Button.props';
 
 export interface DatePickerHeaderProps extends ReactDatePickerCustomHeaderProps {
-  showMonths: boolean;
-  setShowMonths: React.Dispatch<React.SetStateAction<boolean>>;
-  setShouldCloseOnSelect: React.Dispatch<React.SetStateAction<boolean>>;
+  view: View;
+  onClick: ButtonProps['onClick'];
 }
