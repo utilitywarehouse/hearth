@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { useRef } from 'react';
 import { ImageSourcePropType, Platform, View } from 'react-native';
-import { Modal } from '.';
+import { Modal, ModalImage } from '.';
 import pigs from '../../../docs/assets/pigs.png';
 import { ViewWrap } from '../../../docs/components';
 import { BodyText } from '../BodyText';
@@ -117,10 +117,7 @@ export const WithImage = () => {
           secondaryButtonText="Cancel"
           onPressSecondaryButton={closeModal}
           index={1}
-          image={{
-            source: pigs as ImageSourcePropType,
-            resizeMode: 'contain',
-          }}
+          image={<ModalImage source={pigs as ImageSourcePropType} resizeMode="contain" />}
         />
       </ViewWrap>
     </View>

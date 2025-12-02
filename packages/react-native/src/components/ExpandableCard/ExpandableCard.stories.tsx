@@ -7,7 +7,7 @@ import {
   SettingsMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import React from 'react';
-import { BodyText, IconContainer, Link } from '../../components';
+import { Badge, BodyText, IconContainer, Link } from '../../components';
 import ExpandableCard from './ExpandableCard';
 import ExpandableCardExpandedContent from './ExpandableCardExpandedContent';
 import ExpandableCardGroup from './ExpandableCardGroup';
@@ -135,7 +135,7 @@ export const WithBadge: Story = {
     <ExpandableCard
       heading="New Feature"
       helperText="Check out what's new"
-      badge={{ text: 'New', colorScheme: 'info' }}
+      badge={<Badge text="New" colorScheme="info" />}
       expandedContent={
         <BodyText>We've added new features to improve your experience. Explore them now!</BodyText>
       }
@@ -264,7 +264,7 @@ export const GroupWithMixedContent: Story = {
       <ExpandableCard
         heading="Settings"
         leadingContent={<ExpandableCardIcon as={SettingsMediumIcon} />}
-        badge={{ text: 'Updated', colorScheme: 'info', size: 'sm' }}
+        badge={<Badge text="Updated" colorScheme="info" size="sm" />}
         expandedContent={
           <>
             <BodyText>• Notification preferences</BodyText>

@@ -1,17 +1,14 @@
 import { ChevronRightSmallIcon, CloseSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { Image, ImageProps, Pressable, View } from 'react-native';
+import { useMemo } from 'react';
+import { Pressable, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { Card } from '../Card';
 import { Heading } from '../Heading';
 import { IconContainer } from '../IconContainer';
-import { ThemedImage, ThemedImageProps } from '../ThemedImage';
 import { UnstyledIconButton } from '../UnstyledIconButton';
+import BannerContext from './Banner.context';
 import type BannerProps from './Banner.props';
-
-const isThemedImageProps = (props: ThemedImageProps | ImageProps): props is ThemedImageProps => {
-  return 'light' in props && 'dark' in props;
-};
 
 const Banner = ({
   icon,
@@ -35,6 +32,13 @@ const Banner = ({
   const hasIllustration = Boolean(illustration);
   styles.useVariants({ direction, hasIllustration });
 
+  const context = useMemo(
+    () => ({
+      direction,
+    }),
+    [direction]
+  );
+
   const renderIconOrImage = () => {
     if (icon) {
       return (
@@ -48,36 +52,10 @@ const Banner = ({
       );
     }
     if (illustration) {
-      if (isThemedImageProps(illustration)) {
-        return (
-          <ThemedImage
-            {...illustration}
-            resizeMode="cover"
-            style={[styles.media, styles.imageWrapper, illustration.style]}
-          />
-        );
-      }
-      return (
-        <Image
-          {...illustration}
-          resizeMode="cover"
-          style={[styles.media, styles.imageWrapper, illustration.style]}
-        />
-      );
+      return illustration;
     }
     if (image) {
-      if (isThemedImageProps(image)) {
-        return (
-          <View style={[styles.media, styles.imageWrapper]}>
-            <ThemedImage {...image} style={[styles.image, image.style]} />
-          </View>
-        );
-      }
-      return (
-        <View style={[styles.media, styles.imageWrapper]}>
-          <Image {...image} style={[styles.image, image.style]} />
-        </View>
-      );
+      return image;
     }
     return null;
   };
@@ -149,18 +127,22 @@ const Banner = ({
 
   if (onPress) {
     return (
-      <Card variant={variant} style={[styles.card, style]} {...props}>
-        <Pressable onPress={onPress} accessibilityRole="button" style={styles.pressable}>
-          {content}
-        </Pressable>
-      </Card>
+      <BannerContext.Provider value={context}>
+        <Card variant={variant} style={[styles.card, style]} {...props}>
+          <Pressable onPress={onPress} accessibilityRole="button" style={styles.pressable}>
+            {content}
+          </Pressable>
+        </Card>
+      </BannerContext.Provider>
     );
   }
 
   return (
-    <Card variant={variant} style={[styles.card, style]} {...props}>
-      {content}
-    </Card>
+    <BannerContext.Provider value={context}>
+      <Card variant={variant} style={[styles.card, style]} {...props}>
+        {content}
+      </Card>
+    </BannerContext.Provider>
   );
 };
 
@@ -214,31 +196,6 @@ const styles = StyleSheet.create(theme => ({
         horizontal: {},
         vertical: {
           alignSelf: 'flex-start',
-        },
-      },
-    },
-  },
-  imageWrapper: {
-    flexDirection: 'row',
-    variants: {
-      direction: {
-        horizontal: {},
-        vertical: {
-          width: '100%',
-        },
-      },
-    },
-  },
-  image: {
-    borderRadius: theme.borderRadius.md,
-    borderColor: theme.color.border.strong,
-    borderWidth: theme.borderWidth[1],
-    variants: {
-      direction: {
-        horizontal: { width: 160, height: 95 },
-        vertical: {
-          width: '100%',
-          height: 160,
         },
       },
     },

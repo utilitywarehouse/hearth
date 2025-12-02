@@ -2,7 +2,7 @@ import { BottomSheetScrollViewMethods, SNAP_POINT_TYPE } from '@gorhom/bottom-sh
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useCallback, useEffect, useImperativeHandle, useRef } from 'react';
-import { AccessibilityInfo, Image, Platform, View, findNodeHandle } from 'react-native';
+import { AccessibilityInfo, Platform, View, findNodeHandle } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -197,7 +197,7 @@ const Modal = ({
           </View>
           {image ? (
             <View style={styles.imageContainer}>
-              <Image style={styles.image} {...image} />
+              {image}
               <View style={styles.textContent}>
                 {heading ? (
                   <Heading size="lg" textAlign="center" accessible>
@@ -280,10 +280,6 @@ const styles = StyleSheet.create((theme, rt) => ({
   headerTextContent: {
     flex: 1,
     gap: theme.components.modal.content.gap,
-  },
-  image: {
-    width: 260,
-    height: 260,
   },
   imageContainer: {
     alignItems: 'center',

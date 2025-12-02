@@ -1,6 +1,5 @@
-import { ComponentType } from 'react';
+import { ComponentType, ReactNode } from 'react';
 import type { PressableProps, ViewProps } from 'react-native';
-import BadgeProps from '../../Badge/Badge.props';
 import { IconContainerProps } from '../../IconContainer';
 
 interface CardActionBaseProps extends Omit<PressableProps, 'children'> {
@@ -12,7 +11,7 @@ interface CardActionBaseProps extends Omit<PressableProps, 'children'> {
 interface CardActionContentProps {
   heading: string;
   helperText?: string;
-  badge?: BadgeProps;
+  badge?: ReactNode;
   badgePosition?: 'bottom' | 'middle' | 'right' | 'top';
   iconContainer?: boolean;
   iconContainerVariant?: IconContainerProps['variant'];

@@ -1,5 +1,4 @@
 import type { ComponentType, ReactNode } from 'react';
-import type BadgeProps from '../Badge/Badge.props';
 import type CardProps from '../Card/Card.props';
 
 export interface ExpandableCardProps extends Omit<CardProps, 'children'> {
@@ -36,7 +35,7 @@ export interface ExpandableCardProps extends Omit<CardProps, 'children'> {
   /**
    * Badge to display
    */
-  badge?: BadgeProps;
+  badge?: ReactNode;
 
   /**
    * Badge position

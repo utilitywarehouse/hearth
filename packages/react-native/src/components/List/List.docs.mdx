@@ -4,18 +4,20 @@ import {
   ChevronRightSmallIcon,
   ElectricityMediumIcon,
   GasMediumIcon,
-  InfoMediumIcon as HomeMediumIcon,
-  // HomeMediumIcon,
+  HomeMediumIcon,
   PaymentMediumIcon,
   UserMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import {
   Badge,
   BadgeText,
+  BodyText,
   Box,
   FlatList,
   Image,
+  Link,
   List,
+  ListAction,
   ListItem,
   ListItemContent,
   ListItemHelperText,
@@ -26,9 +28,6 @@ import {
   ListItemTrailingIcon,
   SectionHeader,
   Switch,
-  Link,
-  ListAction,
-  BodyText,
 } from '../../';
 import { BackToTopButton, BadgeList, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './List.stories';
@@ -116,7 +115,7 @@ const MyComponent = () => (
 | variant         | `'subtle' \| 'emphasis'` |          | The variant style of the list item.                             |
 | disabled        | `boolean`                | `false`  | Whether to disable the list item.                               |
 | loading         | `boolean`                | `false`  | Whether to show the list item in loading state.                 |
-| badge           | `BadgeProps`             |          | Props to pass to the Badge component.                           |
+| badge           | `ReactNode`              |          | The badge component to display in the list item.                |
 | badgePosition   | `'top' \| 'bottom'`      | `bottom` | Position of the badge in the list item.                         |
 | numericValue    | `string \| number`       |          | A numeric value to display on the right side of the item.       |
 
@@ -197,7 +196,14 @@ parts like `ListItemLeadingContent`, `ListItemContent`, and `ListItemTrailingCon
 <Canvas of={Stories.WithBadge} />
 
 ```tsx
-import { List, ListItem, IconContainer, Flex, Box } from '@utilitywarehouse/hearth-react-native';
+import {
+  List,
+  ListItem,
+  IconContainer,
+  Flex,
+  Box,
+  Badge,
+} from '@utilitywarehouse/hearth-react-native';
 
 import { ElectricityMediumIcon, GasMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
@@ -211,7 +217,7 @@ const BadgeList = () => {
         leadingContent={
           <IconContainer icon={ElectricityMediumIcon} size="md" variant="emphasis" color="energy" />
         }
-        badge={{ text: 'Text' }}
+        badge={<Badge text="Text" />}
       />
       <ListItem
         heading="Gas"
@@ -220,7 +226,7 @@ const BadgeList = () => {
         leadingContent={
           <IconContainer icon={GasMediumIcon} size="md" variant="emphasis" color="energy" />
         }
-        badge={{ text: 'Smart Meter' }}
+        badge={<Badge text="Smart Meter" />}
       />
     </List>
   );

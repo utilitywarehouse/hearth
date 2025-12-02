@@ -2,7 +2,6 @@ import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-ico
 import { useMemo } from 'react';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Badge } from '../../Badge';
 import { DetailText } from '../../DetailText';
 import { Skeleton } from '../../Skeleton';
 import { useListContext } from '../List.context';
@@ -106,10 +105,10 @@ const ListItemRoot = ({
               <ListItemLeadingContent>{leadingContent}</ListItemLeadingContent>
             ) : null}
             <ListItemContent>
-              {badgePosition === 'top' && badge ? <Badge {...badge} /> : null}
+              {badgePosition === 'top' && badge ? badge : null}
               <ListItemText>{heading}</ListItemText>
               {helperText ? <ListItemHelperText>{helperText}</ListItemHelperText> : null}
-              {badgePosition === 'bottom' && badge ? <Badge {...badge} /> : null}
+              {badgePosition === 'bottom' && badge ? badge : null}
             </ListItemContent>
             {!!numericValue && <DetailText size="lg">{numericValue}</DetailText>}
             {trailingContent ? (
