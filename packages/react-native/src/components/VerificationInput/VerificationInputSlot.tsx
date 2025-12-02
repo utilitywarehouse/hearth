@@ -1,6 +1,7 @@
 import { forwardRef } from 'react';
 import { TextInput, TextInputProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import InputField from '../Input/InputField';
 
 interface VerificationInputSlotProps extends TextInputProps {
   isActive: boolean;
@@ -19,7 +20,7 @@ export const VerificationInputSlot = forwardRef<TextInput, VerificationInputSlot
     });
 
     return (
-      <TextInput
+      <InputField
         ref={ref}
         {...props}
         editable={!disabled && !readonly}
@@ -37,6 +38,7 @@ VerificationInputSlot.displayName = 'VerificationInputSlot';
 
 const styles = StyleSheet.create(theme => ({
   slot: {
+    flex: 0,
     width: theme.components.input.height,
     height: theme.components.input.height,
     borderWidth: theme.components.input.borderWidth,
