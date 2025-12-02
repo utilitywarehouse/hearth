@@ -1,5 +1,6 @@
 import { createInput } from '@gluestack-ui/input';
-import { ComponentType, useState } from 'react';
+import { ComponentType, forwardRef, useImperativeHandle, useRef, useState } from 'react';
+import { TextInput } from 'react-native';
 import type InputProps from './Input.props';
 
 import {
@@ -29,108 +30,129 @@ export const InputSlot = InputComponent.Slot;
 export const InputField = InputComponent.Input;
 export const InputIcon = InputComponent.Icon;
 
-const Input = ({
-  validationStatus = 'initial',
-  children,
-  disabled,
-  focused,
-  readonly,
-  leadingIcon,
-  trailingIcon,
-  type,
-  showPasswordToggle = true,
-  onClear,
-  format,
-  loading,
-  clearable = false,
-  required,
-  inBottomSheet = false,
-  ...props
-}: InputProps) => {
-  const formFieldContext = useFormFieldContext();
-  const { disabled: formFieldDisabled } = formFieldContext;
-  const validationStatusFromContext = formFieldContext?.validationStatus ?? validationStatus;
-  const isRequired = formFieldContext?.required ?? required;
-  const [fieldType, setFieldType] = useState<'password' | 'text'>(
-    type === 'password' ? 'password' : 'text'
-  );
-  const { color } = useTheme();
+const Input = forwardRef<TextInput, InputProps>(
+  (
+    {
+      validationStatus = 'initial',
+      children,
+      disabled,
+      focused,
+      readonly,
+      leadingIcon,
+      trailingIcon,
+      type,
+      showPasswordToggle = true,
+      onClear,
+      format,
+      loading,
+      clearable = false,
+      required,
+      inBottomSheet = false,
+      ...props
+    },
+    ref
+  ) => {
+    const formFieldContext = useFormFieldContext();
+    const { disabled: formFieldDisabled } = formFieldContext;
+    const validationStatusFromContext = formFieldContext?.validationStatus ?? validationStatus;
+    const isRequired = formFieldContext?.required ?? required;
+    const [fieldType, setFieldType] = useState<'password' | 'text'>(
+      type === 'password' ? 'password' : 'text'
+    );
+    const { color } = useTheme();
+    const inputRef = useRef<TextInput>(null);
 
-  const shouldShowPasswordToggle = type === 'password' && showPasswordToggle;
-  const shouldShowClear = clearable && !!(props as InputWithoutChildrenProps)?.value;
+    // Expose TextInput methods to parent components
+    useImperativeHandle(ref, () => inputRef.current as TextInput, []);
 
-  const toggleFieldType = () => {
-    setFieldType(fieldType === 'password' ? 'text' : 'password');
-  };
+    const shouldShowPasswordToggle = type === 'password' && showPasswordToggle;
+    const shouldShowClear = clearable && !!(props as InputWithoutChildrenProps)?.value;
 
-  const leadingIconComponent = ((): ComponentType | undefined => {
-    if (type === 'search') {
-      return SearchMediumIcon;
-    }
-    return leadingIcon;
-  })();
+    const toggleFieldType = () => {
+      setFieldType(fieldType === 'password' ? 'text' : 'password');
+    };
 
-  const getInputMode = (() => {
-    if (type === 'search') {
-      return 'search';
-    }
-    return undefined;
-  })();
+    const leadingIconComponent = ((): ComponentType | undefined => {
+      if (type === 'search') {
+        return SearchMediumIcon;
+      }
+      return leadingIcon;
+    })();
 
-  return (
-    <InputComponent
-      {...(children ? props : {})}
-      validationStatus={validationStatusFromContext}
-      isInvalid={validationStatusFromContext === 'invalid'}
-      isReadOnly={readonly}
-      isDisabled={formFieldDisabled ?? disabled}
-      isFocused={focused}
-      type={type as undefined}
-      isRequired={isRequired}
-    >
-      {children ? (
-        <>{children}</>
-      ) : (
-        <>
-          {!!leadingIconComponent && (
-            <InputSlot>
-              <InputIcon as={leadingIconComponent} />
-            </InputSlot>
-          )}
-          <InputField
-            type={fieldType}
-            inputMode={getInputMode}
-            inBottomSheet={inBottomSheet}
-            {...props}
-          />
-          {shouldShowClear && (
-            <InputSlot>
-              <UnstyledIconButton onPress={onClear} icon={CloseSmallIcon} />
-            </InputSlot>
-          )}
-          {loading && (
-            <InputSlot>
-              <Spinner size="xs" color={color.icon.primary} />
-            </InputSlot>
-          )}
-          {shouldShowPasswordToggle && (
-            <InputSlot>
-              <UnstyledIconButton
-                onPress={toggleFieldType}
-                icon={fieldType === 'password' ? EyeSmallIcon : EyeOffSmallIcon}
-              />
-            </InputSlot>
-          )}
-          {!!trailingIcon && (
-            <InputSlot>
-              <InputIcon as={trailingIcon} />
-            </InputSlot>
-          )}
-        </>
-      )}
-    </InputComponent>
-  );
-};
+    const getInputMode = (() => {
+      if (type === 'search') {
+        return 'search';
+      }
+      return undefined;
+    })();
+
+    return (
+      <InputComponent
+        {...(children ? props : {})}
+        validationStatus={validationStatusFromContext}
+        isInvalid={validationStatusFromContext === 'invalid'}
+        isReadOnly={readonly}
+        isDisabled={formFieldDisabled ?? disabled}
+        isFocused={focused}
+        type={type as undefined}
+        isRequired={isRequired}
+      >
+        {children ? (
+          <>{children}</>
+        ) : (
+          <>
+            {!!leadingIconComponent && (
+              <InputSlot>
+                <InputIcon as={leadingIconComponent} />
+              </InputSlot>
+            )}
+            <InputField
+              ref={(instance: any) => {
+                // Gluestack wraps the component, so we need to access the underlying input
+                if (instance && typeof instance === 'object') {
+                  // Try to find the underlying TextInput ref
+                  const textInputRef = instance._internalFiberInstanceHandleDEV
+                    ? instance
+                    : instance;
+                  if (inputRef) {
+                    (inputRef as any).current = textInputRef;
+                  }
+                }
+              }}
+              type={fieldType}
+              inputMode={getInputMode}
+              inBottomSheet={inBottomSheet}
+              {...props}
+            />
+            {shouldShowClear && (
+              <InputSlot>
+                <UnstyledIconButton onPress={onClear} icon={CloseSmallIcon} />
+              </InputSlot>
+            )}
+            {loading && (
+              <InputSlot>
+                <Spinner size="xs" color={color.icon.primary} />
+              </InputSlot>
+            )}
+            {shouldShowPasswordToggle && (
+              <InputSlot>
+                <UnstyledIconButton
+                  onPress={toggleFieldType}
+                  icon={fieldType === 'password' ? EyeSmallIcon : EyeOffSmallIcon}
+                />
+              </InputSlot>
+            )}
+            {!!trailingIcon && (
+              <InputSlot>
+                <InputIcon as={trailingIcon} />
+              </InputSlot>
+            )}
+          </>
+        )}
+      </InputComponent>
+    );
+  }
+);
 
 Input.displayName = 'Input';
 

@@ -1,22 +1,35 @@
 import { BottomSheetTextInput } from '@gorhom/bottom-sheet';
+import { forwardRef } from 'react';
 import { TextInput as RNTextInput, TextInputProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from '../../hooks';
 import { useInputContext } from './Input.context';
 
-const InputField = ({
-  style,
-  inBottomSheet = false,
-  ...props
-}: TextInputProps & { inBottomSheet?: boolean }) => {
-  const { disabled, focused = false, type } = useInputContext();
-  styles.useVariants({ focused, type });
-  const { color } = useTheme();
+const InputField = forwardRef<RNTextInput, TextInputProps & { inBottomSheet?: boolean }>(
+  ({ style, inBottomSheet = false, ...props }, ref) => {
+    const { disabled, focused = false, type } = useInputContext();
+    styles.useVariants({ focused, type });
+    const { color } = useTheme();
 
-  if (inBottomSheet) {
+    if (inBottomSheet) {
+      return (
+        // @ts-expect-error - BottomSheetTextInput has incompatible event types with TextInput
+        <BottomSheetTextInput
+          ref={ref as any}
+          placeholderTextColor={color.text.secondary}
+          selectionColor={color.purple[700]}
+          cursorColor={color.purple[700]}
+          verticalAlign="middle"
+          aria-disabled={disabled}
+          {...props}
+          style={[styles.input, style]}
+        />
+      );
+    }
+
     return (
-      // @ts-expect-error - BottomSheetTextInput type issue
-      <BottomSheetTextInput
+      <RNTextInput
+        ref={ref}
         placeholderTextColor={color.text.secondary}
         selectionColor={color.purple[700]}
         cursorColor={color.purple[700]}
@@ -27,19 +40,7 @@ const InputField = ({
       />
     );
   }
-
-  return (
-    <RNTextInput
-      placeholderTextColor={color.text.secondary}
-      selectionColor={color.purple[700]}
-      cursorColor={color.purple[700]}
-      verticalAlign="middle"
-      aria-disabled={disabled}
-      {...props}
-      style={[styles.input, style]}
-    />
-  );
-};
+);
 
 InputField.displayName = 'InputField';
 
