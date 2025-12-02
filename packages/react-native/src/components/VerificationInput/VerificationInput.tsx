@@ -1,7 +1,6 @@
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Helper } from '../Helper';
-import { Label } from '../Label';
+import { FormField } from '../FormField';
 import { useVerificationInput } from './useVerificationInput';
 import VerificationInputProps from './VerificationInput.props';
 import { VerificationInputSlot } from './VerificationInputSlot';
@@ -31,13 +30,18 @@ const VerificationInput = ({
   const slots = Array.from({ length }, (_, index) => index);
 
   return (
-    <View style={[styles.root, style]} {...props}>
-      {!!label && (
-        <Label disabled={disabled} style={styles.label}>
-          {label}
-        </Label>
-      )}
-
+    <FormField
+      label={label}
+      helperText={helperText}
+      helperIcon={helperIcon}
+      validationStatus={validationStatus}
+      validText={validText}
+      invalidText={invalidText}
+      disabled={disabled}
+      readonly={readonly}
+      style={[styles.root, style]}
+      {...props}
+    >
       <View style={styles.slotsContainer}>
         {slots.map(index => {
           const char = value[index] || '';
@@ -63,27 +67,7 @@ const VerificationInput = ({
           );
         })}
       </View>
-
-      {!!helperText && (
-        <Helper disabled={disabled} icon={helperIcon} text={helperText} style={styles.helper} />
-      )}
-      {validationStatus === 'invalid' && !!invalidText && (
-        <Helper
-          validationStatus="invalid"
-          text={invalidText}
-          disabled={disabled}
-          style={styles.helper}
-        />
-      )}
-      {validationStatus === 'valid' && !!validText && (
-        <Helper
-          validationStatus="valid"
-          text={validText}
-          disabled={disabled}
-          style={styles.helper}
-        />
-      )}
-    </View>
+    </FormField>
   );
 };
 
@@ -93,16 +77,10 @@ const styles = StyleSheet.create(theme => ({
     width: '100%',
     maxWidth: theme.components.input.maxWidth,
   },
-  label: {
-    marginBottom: theme.components.input.label.gap,
-  },
   slotsContainer: {
     flexDirection: 'row',
     gap: theme.components.input.verification.gap,
     width: '100%',
-  },
-  helper: {
-    marginTop: theme.components.input.verification.gap,
   },
 }));
 

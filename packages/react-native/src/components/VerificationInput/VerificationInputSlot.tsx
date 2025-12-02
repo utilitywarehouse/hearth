@@ -14,6 +14,8 @@ export const VerificationInputSlot = forwardRef<TextInput, VerificationInputSlot
     styles.useVariants({
       disabled,
       readonly,
+      validationStatus,
+      active: isActive,
     });
 
     return (
@@ -25,12 +27,7 @@ export const VerificationInputSlot = forwardRef<TextInput, VerificationInputSlot
         keyboardType="number-pad"
         cursorColor={styles.slot.color}
         selectionColor={styles.slot.color}
-        style={[
-          styles.slot,
-          isActive && styles.slotActive,
-          styles.slotVariant(validationStatus, isActive),
-          style,
-        ]}
+        style={[styles.slot, style]}
       />
     );
   }
@@ -52,7 +49,6 @@ const styles = StyleSheet.create(theme => ({
     textAlign: 'center',
     fontFamily: theme.typography.mobile.bodyText.fontFamily,
     fontSize: theme.typography.mobile.bodyText.md.fontSize,
-    lineHeight: theme.typography.mobile.bodyText.md.lineHeight,
     fontWeight: theme.fontWeight.regular,
     padding: 0,
     variants: {
@@ -68,30 +64,37 @@ const styles = StyleSheet.create(theme => ({
           backgroundColor: theme.color.surface.neutral.subtle,
         },
       },
-    },
-  },
-  slotActive: {},
-  slotVariant: (validationStatus: 'initial' | 'valid' | 'invalid', active: boolean) => {
-    if (active) {
-      if (validationStatus === 'invalid') {
-        return {
+      validationStatus: {
+        initial: {},
+        valid: {
+          borderColor: theme.color.feedback.positive.border,
+        },
+        invalid: {
           borderColor: theme.color.feedback.danger.border,
+        },
+      },
+      active: {
+        true: {
+          borderColor: theme.color.border.strong,
           borderWidth: theme.components.input.borderWidthFocused,
-        };
-      }
-      return {
-        borderColor: theme.color.border.strong,
-        borderWidth: theme.components.input.borderWidthFocused,
-      };
-    }
-
-    switch (validationStatus) {
-      case 'invalid':
-        return { borderColor: theme.color.feedback.danger.border };
-      case 'valid':
-        return { borderColor: theme.color.feedback.positive.border };
-      default:
-        return {};
-    }
+        },
+      },
+    },
+    compoundVariants: [
+      {
+        validationStatus: 'invalid',
+        active: true,
+        styles: {
+          borderColor: theme.color.feedback.danger.border,
+        },
+      },
+      {
+        validationStatus: 'valid',
+        active: true,
+        styles: {
+          borderColor: theme.color.border.strong,
+        },
+      },
+    ],
   },
 }));
