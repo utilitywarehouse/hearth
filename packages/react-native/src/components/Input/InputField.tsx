@@ -17,8 +17,8 @@ const InputField = forwardRef<RNTextInput, TextInputProps & { inBottomSheet?: bo
         <BottomSheetTextInput
           ref={ref as any}
           placeholderTextColor={color.text.secondary}
-          selectionColor={color.purple[700]}
-          cursorColor={color.purple[700]}
+          selectionColor={color.surface.brand.default}
+          cursorColor={color.surface.brand.default}
           verticalAlign="middle"
           aria-disabled={disabled}
           {...props}
@@ -31,8 +31,8 @@ const InputField = forwardRef<RNTextInput, TextInputProps & { inBottomSheet?: bo
       <RNTextInput
         ref={ref}
         placeholderTextColor={color.text.secondary}
-        selectionColor={color.purple[700]}
-        cursorColor={color.purple[700]}
+        selectionColor={color.surface.brand.default}
+        cursorColor={color.surface.brand.default}
         verticalAlign="middle"
         aria-disabled={disabled}
         {...props}

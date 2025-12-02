@@ -107,18 +107,8 @@ const Input = forwardRef<TextInput, InputProps>(
               </InputSlot>
             )}
             <InputField
-              ref={(instance: any) => {
-                // Gluestack wraps the component, so we need to access the underlying input
-                if (instance && typeof instance === 'object') {
-                  // Try to find the underlying TextInput ref
-                  const textInputRef = instance._internalFiberInstanceHandleDEV
-                    ? instance
-                    : instance;
-                  if (inputRef) {
-                    (inputRef as any).current = textInputRef;
-                  }
-                }
-              }}
+              // @ts-expect-error - ref forwarding issue
+              ref={inputRef}
               type={fieldType}
               inputMode={getInputMode}
               inBottomSheet={inBottomSheet}
