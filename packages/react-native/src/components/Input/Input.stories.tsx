@@ -1,10 +1,13 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react-native';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useState } from 'react';
-import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
+import { useRef, useState } from 'react';
+import { NativeSyntheticEvent, TextInput, TextInputChangeEventData, View } from 'react-native';
 import { Input } from '.';
 import { VariantTitle } from '../../../docs/components';
+import { useTheme } from '../../hooks';
+import { BodyText } from '../BodyText';
+import { Button } from '../Button';
 import { Flex } from '../Flex';
 
 const meta = {
@@ -73,6 +76,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
+  // @ts-expect-error - This is a playground
   render: ({ leadingIcon: leading, trailingIcon: trailing, ...args }) => {
     // @ts-expect-error - This is a playground
     const leadingIcon = leading === 'none' ? undefined : Icons[leading];
@@ -147,6 +151,75 @@ export const Variants: Story = {
         </VariantTitle>
         <VariantTitle title="Readonly">
           <Input readonly placeholder="Input placeholder" readOnly />
+        </VariantTitle>
+      </Flex>
+    );
+  },
+};
+
+export const RefTest: Story = {
+  parameters: {
+    controls: { include: [] },
+  },
+  render: () => {
+    const inputRef = useRef<TextInput>(null);
+    const [refStatus, setRefStatus] = useState('Ref not tested yet');
+    const theme = useTheme();
+
+    const handleFocus = () => {
+      if (inputRef.current) {
+        inputRef.current.focus();
+        setRefStatus('✅ Ref works! Input focused programmatically');
+      } else {
+        setRefStatus('❌ Ref is null');
+      }
+    };
+
+    const handleBlur = () => {
+      if (inputRef.current) {
+        inputRef.current.blur();
+        setRefStatus('✅ Ref works! Input blurred programmatically');
+      } else {
+        setRefStatus('❌ Ref is null');
+      }
+    };
+
+    const handleClear = () => {
+      if (inputRef.current) {
+        inputRef.current.clear();
+        setRefStatus('✅ Ref works! Input cleared programmatically');
+      } else {
+        setRefStatus('❌ Ref is null');
+      }
+    };
+
+    return (
+      <Flex direction="column" space="lg">
+        <VariantTitle title="Ref Test">
+          <Input
+            ref={inputRef}
+            placeholder="Test ref functionality"
+            defaultValue="Try the buttons below"
+          />
+        </VariantTitle>
+        <VariantTitle title="Status">
+          <Flex direction="column" space="sm">
+            <Flex direction="row" space="sm">
+              <Button onPress={handleFocus}>Focus Input</Button>
+              <Button onPress={handleBlur}>Blur Input</Button>
+              <Button onPress={handleClear}>Clear Input</Button>
+            </Flex>
+            <View
+              style={{
+                marginTop: 8,
+                padding: 8,
+                backgroundColor: theme.color.background.secondary,
+                borderRadius: 4,
+              }}
+            >
+              <BodyText>{refStatus}</BodyText>
+            </View>
+          </Flex>
         </VariantTitle>
       </Flex>
     );
