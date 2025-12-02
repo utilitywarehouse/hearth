@@ -1,4 +1,5 @@
 import type { ElementRef } from 'react';
+
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import React from 'react';
 import ReactDatePicker from 'react-datepicker';
@@ -35,7 +36,6 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
     required,
     ...datePickerProps
   } = extractProps(props, marginPropDefs);
-  const [shouldCloseOnSelect, setShouldCloseOnSelect] = React.useState(true);
   const [calendarOpen, setCalendarOpen] = React.useState(false);
   const [view, setView] = React.useState<View>('days');
 
@@ -63,6 +63,12 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
     showValidation && validationText !== undefined ? validationTextId : undefined
   );
 
+  const prevView: { [key in View]: View } = {
+    days: 'days',
+    months: 'days',
+    years: 'months',
+  };
+
   const nextView: { [key in View]: View } = {
     days: 'months',
     months: 'years',
@@ -73,13 +79,11 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
     date: Date | null,
     event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>
   ) => {
-    if (view === 'months') {
-      setView('days');
-      setShouldCloseOnSelect(true);
-    } else {
-      if (onChange !== undefined) {
-        onChange(date, event);
-      }
+    if (view !== 'days') {
+      setView(prevView[view]);
+    }
+    if (onChange !== undefined) {
+      onChange(date, event);
     }
   };
 
@@ -112,7 +116,6 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
         view={view}
         onClick={() => {
           setView(nextView[view]);
-          setShouldCloseOnSelect(false);
         }}
       />
     ),
@@ -131,6 +134,7 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
     weekClassName: () => 'hearth-DatePickerWeek',
     monthClassName: () => 'hearth-DatePickerMonth',
     yearClassName: () => 'hearth-DatePickerYear',
+    popperClassName: () => 'hearth-DatePickerPopper',
   };
 
   const defaultProps = {
@@ -140,7 +144,7 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
     calendarStartDay: 1,
     showIcon: false,
     dateFormat: 'dd/MM/yyyy',
-    formatWeekDay: (day: Date) => day.toString().charAt(0),
+    useWeekdaysShort: true,
   };
 
   const popperProps = {
@@ -158,16 +162,17 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
   const stateProps = {
     showMonthYearPicker: view === 'months',
     showYearPicker: view === 'years',
-    shouldCloseOnSelect: shouldCloseOnSelect,
+    shouldCloseOnSelect: view === 'days',
+    closeOnScroll: true,
   };
 
   const reactDatePickerProps = {
-    ...stateProps,
     ...eventHandlingProps,
     ...defaultProps,
     ...ariaProps,
     ...classNameProps,
     ...popperProps,
+    ...stateProps,
     ...customComponents,
     ...datePickerProps,
   };
