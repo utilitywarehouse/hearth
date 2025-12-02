@@ -1,11 +1,12 @@
-import { ImageProps, ViewProps } from 'react-native';
+import { ReactNode } from 'react';
+import { ViewProps } from 'react-native';
 import { BottomSheetProps } from '../BottomSheet';
 import { ButtonWithoutChildrenProps } from '../Button/Button.props';
 import { UnstyledIconButtonProps } from '../UnstyledIconButton';
 
 interface ModalProps extends Omit<BottomSheetProps, 'children'> {
   loading?: boolean;
-  image?: ImageProps;
+  image?: ReactNode;
   showCloseButton?: boolean;
   heading?: string;
   description?: string;

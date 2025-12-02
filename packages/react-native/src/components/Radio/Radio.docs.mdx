@@ -104,7 +104,7 @@ const MyComponent = () => {
 | `validText`          | `string`                            | -         | The valid text to be displayed below the radio.                                                      |
 | `showValidationIcon` | `boolean`                           | `true`    | Whether to show the validation icon.                                                                 |
 | `type`               | `'default' \| 'tile'`               | `default` | The type of the radio.                                                                               |
-| `image`              | `ImageProps`                        | -         | The image to be displayed next to the label.                                                         |
+| `image`              | `ReactNode`                         | -         | The image to be displayed next to the label.                                                         |
 
 ## Components
 
@@ -149,6 +149,15 @@ Contains all Group related layout style props and actions. It inherits all the p
 | `gap`                | `string`                            | -         | The gap between the radio group items.                              |
 
 ### `RadioImage`
+
+| Property  | Type                  | Description                                                              |
+| --------- | --------------------- | ------------------------------------------------------------------------ |
+| `source`  | `ImageSourcePropType` | The source of the image to display                                       |
+| `light`   | `ImageSourcePropType` | The source of the image to display in light mode (use instead of source) |
+| `dark`    | `ImageSourcePropType` | The source of the image to display in dark mode (use instead of source)  |
+| `...rest` | `ImageProps`          | Additional props to pass to the underlying Image component               |
+
+For more details about the ThemedImage component used internally, refer to the [`ThemedImage` documentation](/docs/utility-components-themed-image--docs).
 
 Contains all Image related layout style props and actions. It inherits all the properties of React Native's [Image component](https://reactnative.dev/docs/image).
 
@@ -261,9 +270,9 @@ The `RadioImage` component is used to display an image next to the radio button.
 <Canvas of={Stories.WithImage} />
 
 ```tsx
-import { Radio, RadioGroup } from '@utilitywarehouse/native-ui';
+import { Radio, RadioGroup, RadioImage } from '@utilitywarehouse/native-ui';
 import visaLogo from './visa-logo.png';
-import mastarcardLogo from './mastercard-logo.png';
+import mastercardLogo from './mastercard-logo.png';
 
 const MyComponent = () => {
   const [value, setValue] = React.useState('Option 1');
@@ -273,16 +282,20 @@ const MyComponent = () => {
         value="visa"
         aria-label="Visa"
         label="Visa"
-        image={{ source: visaLogo, style: { width: 40, height: 24, resizeMode: 'contain' } }}
+        image={
+          <RadioImage source={visaLogo} style={{ width: 40, height: 24, resizeMode: 'contain' }} />
+        }
       />
       <Radio
         value="mastercard"
         aria-label="Mastercard"
         label="Mastercard"
-        image={{
-          source: mastarcardLogo,
-          style: { width: 40, height: 24, resizeMode: 'contain' },
-        }}
+        image={
+          <RadioImage
+            source={mastercardLogo}
+            style={{ width: 40, height: 24, resizeMode: 'contain' }}
+          />
+        }
       />
     </RadioGroup>
   );

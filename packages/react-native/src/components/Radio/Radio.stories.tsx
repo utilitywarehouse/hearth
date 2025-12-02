@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { useState } from 'react';
 import { ImageSourcePropType } from 'react-native';
-import { Radio, RadioGroup } from '.';
+import { Radio, RadioGroup, RadioImage } from '.';
 import bankLogo from '../../../docs/assets/bank-logo.png';
 import bankLogo1 from '../../../docs/assets/bank-logo1.png';
 import { VariantTitle } from '../../../docs/components';
@@ -106,11 +106,13 @@ export const WithImage: Story = {
         {...args}
         label="Visa"
         value="Option 1"
-        image={{
-          source: bankLogo1 as ImageSourcePropType,
-          style: { width: 48, height: 32 },
-          resizeMode: 'cover',
-        }}
+        image={
+          <RadioImage
+            source={bankLogo1 as ImageSourcePropType}
+            style={{ width: 48, height: 32 }}
+            resizeMode="cover"
+          />
+        }
       />
       <Radio
         aria-label="Label 2"
@@ -121,11 +123,13 @@ export const WithImage: Story = {
         {...args}
         label="Mastercard"
         value="Option 2"
-        image={{
-          source: bankLogo as ImageSourcePropType,
-          style: { width: 48, height: 32 },
-          resizeMode: 'cover',
-        }}
+        image={
+          <RadioImage
+            source={bankLogo as ImageSourcePropType}
+            style={{ width: 48, height: 32 }}
+            resizeMode="cover"
+          />
+        }
       />
     </RadioGroup>
   ),

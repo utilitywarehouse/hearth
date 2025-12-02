@@ -209,7 +209,7 @@ const MyComponent = () => (
 The badge can be positioned in three different locations:
 
 ```tsx
-import { Card, CardAction } from '@utilitywarehouse/hearth-react-native';
+import { Card, CardAction, Badge } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
   <>
@@ -218,7 +218,7 @@ const MyComponent = () => (
       <CardAction
         heading="Action"
         helperText="Helper text"
-        badge={{ text: 'New' }}
+        badge={<Badge text="New" />}
         badgePosition="bottom"
         onPress={() => console.log('pressed')}
       />
@@ -229,7 +229,7 @@ const MyComponent = () => (
       <CardAction
         heading="Action"
         helperText="Helper text"
-        badge={{ text: 'New' }}
+        badge={<Badge text="New" />}
         badgePosition="middle"
         onPress={() => console.log('pressed')}
       />
@@ -240,7 +240,7 @@ const MyComponent = () => (
       <CardAction
         heading="Action"
         helperText="Helper text"
-        badge={{ text: 'New' }}
+        badge={<Badge text="New" />}
         badgePosition="right"
         onPress={() => console.log('pressed')}
       />

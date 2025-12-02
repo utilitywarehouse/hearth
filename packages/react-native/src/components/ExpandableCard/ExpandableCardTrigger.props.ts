@@ -1,6 +1,5 @@
-import type { ComponentType } from 'react';
+import type { ComponentType, ReactNode } from 'react';
 import type { PressableProps } from 'react-native';
-import type BadgeProps from '../Badge/Badge.props';
 
 export interface ExpandableCardTriggerProps extends Omit<PressableProps, 'children'> {
   /**
@@ -18,11 +17,11 @@ export interface ExpandableCardTriggerProps extends Omit<PressableProps, 'childr
   /**
    * Content to display on the left side (e.g., icon, avatar)
    */
-  leadingContent?: React.ReactNode;
+  leadingContent?: ReactNode;
   /**
    * Optional badge to display
    */
-  badge?: BadgeProps;
+  badge?: ReactNode;
   /**
    * Position of the badge relative to the heading
    * @default 'bottom'
@@ -41,7 +40,7 @@ export interface ExpandableCardTriggerProps extends Omit<PressableProps, 'childr
    */
   disabled?: boolean;
   /* Optional children */
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 export default ExpandableCardTriggerProps;

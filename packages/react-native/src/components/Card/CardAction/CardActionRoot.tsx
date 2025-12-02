@@ -2,7 +2,6 @@ import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-ico
 import { useMemo } from 'react';
 import { Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Badge } from '../../Badge';
 import { IconContainer } from '../../IconContainer';
 import { Skeleton } from '../../Skeleton';
 import { useCardContext } from '../Card.context';
@@ -124,14 +123,14 @@ const CardActionRoot = ({
                 </CardActionLeadingContent>
               ) : null}
               <CardActionContent>
-                {badgePosition === 'top' && badge ? <Badge {...badge} /> : null}
+                {badgePosition === 'top' && badge ? badge : null}
                 <CardActionText>{heading}</CardActionText>
-                {badgePosition === 'middle' && badge ? <Badge {...badge} /> : null}
+                {badgePosition === 'middle' && badge ? badge : null}
                 {helperText ? <CardActionHelperText>{helperText}</CardActionHelperText> : null}
-                {badgePosition === 'bottom' && badge ? <Badge {...badge} /> : null}
+                {badgePosition === 'bottom' && badge ? badge : null}
               </CardActionContent>
               {badgePosition === 'right' && badge ? (
-                <Badge {...badge} style={[badge.style, styles.alignCenter]} />
+                <View style={styles.alignCenter}>{badge}</View>
               ) : null}
               {trailingContent ? (
                 <CardActionTrailingContent>{trailingContent}</CardActionTrailingContent>

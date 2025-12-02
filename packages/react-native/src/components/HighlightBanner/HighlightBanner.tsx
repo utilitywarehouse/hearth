@@ -1,4 +1,4 @@
-import { Image, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { Card } from '../Card';
@@ -26,11 +26,7 @@ const HighlightBanner = ({
             {heading}
           </BodyText>
         </View>
-        {!!image && (
-          <View style={styles.imageContainer(imageContainerHeight)}>
-            <Image resizeMode="cover" {...image} style={[styles.image, image?.style]} />
-          </View>
-        )}
+        {!!image && <View style={styles.imageContainer(imageContainerHeight)}>{image}</View>}
         <View style={styles.footer}>
           <BodyText size="md" textAlign="center">
             {description}
@@ -99,10 +95,7 @@ const styles = StyleSheet.create(theme => ({
     width: '100%',
     height,
   }),
-  image: {
-    width: '100%',
-    height: '100%',
-  },
+
   footer: {
     padding: theme.components.banner.highlight.padding,
     gap: theme.components.banner.highlight.content.gap,

@@ -9,7 +9,6 @@ import StyledRadio from './RadioRoot';
 import { useFormFieldContext } from '../FormField';
 import { Helper } from '../Helper';
 import { useRadioGroupContext } from './RadioGroup.context';
-import RadioImage from './RadioImage';
 import RadioTextContent from './RadioTextContent';
 import RadioTileRoot from './RadioTileRoot';
 
@@ -57,7 +56,7 @@ const Radio = ({
       <RadioIndicator>
         <RadioIcon />
       </RadioIndicator>
-      {image ? <RadioImage {...image} /> : null}
+      {image ? image : null}
       <RadioTextContent>
         {!!label && <RadioLabel>{label}</RadioLabel>}
         {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}

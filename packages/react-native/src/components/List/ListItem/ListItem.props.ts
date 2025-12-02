@@ -1,5 +1,5 @@
+import { ReactNode } from 'react';
 import type { PressableProps, ViewProps } from 'react-native';
-import BadgeProps from '../../Badge/Badge.props';
 
 interface ListItemBaseProps extends Omit<PressableProps, 'children'> {
   loading?: boolean;
@@ -26,7 +26,7 @@ export interface ListItemWithoutChildren extends ListItemBaseProps {
   leadingContent?: ViewProps['children'];
   trailingContent?: ViewProps['children'];
   numericValue?: string | number;
-  badge?: BadgeProps;
+  badge?: ReactNode;
   badgePosition?: 'top' | 'bottom';
 }
 
