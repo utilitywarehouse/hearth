@@ -1,6 +1,7 @@
 .hearth-DatePicker {
   min-width: var(--h-date-picker-min-width);
   max-width: var(--h-date-picker-max-width);
+
   & :where(.hearth-DatePickerTrigger) {
     all: unset;
     outline: transparent;

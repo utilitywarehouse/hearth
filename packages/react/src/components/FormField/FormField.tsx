@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import React from 'react';
 import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
-import { Flex } from '../Flex/Flex';
 import { ValidationText } from '../ValidationText/ValidationText';
 import { BodyText } from '../BodyText/BodyText';
 import { FormFieldProps } from './FormField.props';
