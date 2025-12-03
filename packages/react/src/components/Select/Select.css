@@ -8,7 +8,7 @@
     appearance: none;
     box-sizing: border-box;
     cursor: pointer;
-    /* stylelint-disable-next-line custom-property-pattern -- Radix UI specific custom property */
+    /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
     width: var(--radix-select-trigger-width);
     display: inline-flex;
     align-items: center;
@@ -67,9 +67,9 @@
   align-items: flex-start;
   padding: var(--h-select-dropdown-padding);
   background-color: var(--h-surface-neutral-strong);
-  /* stylelint-disable-next-line custom-property-pattern -- Radix UI specific custom property */
+  /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
   width: var(--radix-select-trigger-width);
-  /* stylelint-disable-next-line custom-property-pattern -- Radix UI specific custom property */
+  /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
   max-height: var(--radix-select-content-available-height);
   border: var(--h-select-dropdown-border-width) solid var(--h-border-subtle);
   border-radius: var(--h-select-border-radius);
