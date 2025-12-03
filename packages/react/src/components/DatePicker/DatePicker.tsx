@@ -14,6 +14,7 @@ import { DatePickerHeader } from './DatePickerHeader';
 import { FormField } from '../FormField/FormField';
 import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
+import { Portal } from 'radix-ui';
 
 const COMPONENT_NAME = 'DatePicker';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -144,13 +145,15 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
     calendarStartDay: 1,
     showIcon: false,
     dateFormat: 'dd/MM/yyyy',
-    useWeekdaysShort: true,
+    formatWeekDay: (day: Date) => day.toString().charAt(0),
   };
 
   const popperProps = {
     showPopperArrow: false,
     popperModifiers: [offset(-6)],
     popperPlacement: 'bottom-start',
+    popperProps: { strategy: 'fixed' },
+    popperContainer: Portal.Root,
   };
 
   const eventHandlingProps = {
