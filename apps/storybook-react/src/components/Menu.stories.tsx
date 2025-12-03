@@ -11,6 +11,7 @@ import {
 import {
   AddMediumIcon,
   ExpandSmallIcon,
+  OpenSmallIcon,
   TrashSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 
@@ -45,6 +46,12 @@ export const Playground: Story = {
         <MenuContent>
           <MenuItem>Item</MenuItem>
           <MenuItem>Item</MenuItem>
+          <MenuItem asChild>
+            <a href="#">
+              Navigation Item
+              <OpenSmallIcon />
+            </a>
+          </MenuItem>
           <MenuItem colorScheme="functional">Item</MenuItem>
           <MenuItem colorScheme="destructive">
             Destructive item

@@ -52,6 +52,9 @@ You can adjust the vertical and horizontal placement of the `MenuContent`.
 
 The `MenuItem` can be either `functional` or `destructive`, and can also contain icons.
 
+If a `MenuItem` is navigating to another page, you can use the `asChild` prop to
+render a semantic `<a>` element.
+
 ```tsx
 <MenuContent>
   <MenuItem>Item</MenuItem>
@@ -59,6 +62,13 @@ The `MenuItem` can be either `functional` or `destructive`, and can also contain
   <MenuItem colorScheme="destructive">
     Destructive item
     <TrashSmallIcon />
+  </MenuItem>
+  // render a link element if navigating to somewhere else
+  <MenuItem asChild>
+    <a href="/another-page">
+      Navigation Item
+      <OpenSmallIcon />
+    </a>
   </MenuItem>
   <MenuItem disabled>Disabled item</MenuItem>
 </MenuContent>
