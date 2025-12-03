@@ -8,7 +8,6 @@ export interface FormFieldProps {
   labelId?: string;
   helperTextId?: string;
   validationTextId?: string;
-  showValidationText?: boolean;
   required?: InputBaseProps['required'];
   /**
    * The label for the form field, describing its purpose.
