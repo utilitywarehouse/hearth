@@ -80,6 +80,7 @@
     gap: var(--h-modal-content-gap);
     justify-content: center;
     height: fit-content;
+    margin-right: calc(24px + var(--h-space-100));
 
     &:where([data-contains-image] &) {
       align-items: center;
