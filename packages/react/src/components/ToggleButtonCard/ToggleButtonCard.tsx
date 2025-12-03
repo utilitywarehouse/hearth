@@ -18,6 +18,7 @@ export const ToggleButtonCard = React.forwardRef<ToggleButtonCardElement, Toggle
       className,
       children,
       label,
+      alignItems,
       'aria-label': ariaLabel,
       'aria-labelledby': ariaLabelledBy,
       'aria-describedby': ariaDescribedBy,
@@ -26,7 +27,11 @@ export const ToggleButtonCard = React.forwardRef<ToggleButtonCardElement, Toggle
     ref
   ) => {
     return (
-      <Card direction="column" className={clsx(componentClassName, className)}>
+      <Card
+        direction="column"
+        alignItems={alignItems}
+        className={clsx(componentClassName, className)}
+      >
         {children}
         <RadixToggleGroup.Item
           ref={ref}
