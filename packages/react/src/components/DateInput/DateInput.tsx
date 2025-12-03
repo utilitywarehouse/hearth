@@ -74,7 +74,7 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
               onBlur={onDayBlur}
               disabled={disabled}
               required={required}
-              validationStatus={validationStatus}
+              aria-invalid={validationStatus === 'invalid' ? true : undefined}
               label="Day"
               name={`${id}-day`}
               id={`${id}-day`}
@@ -90,7 +90,7 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
               onBlur={onMonthBlur}
               disabled={disabled}
               required={required}
-              validationStatus={validationStatus}
+              aria-invalid={validationStatus === 'invalid' ? true : undefined}
               label="Month"
               name={`${id}-month`}
               id={`${id}-month`}
@@ -108,7 +108,7 @@ export const DateInput = React.forwardRef<DateInputElement, DateInputProps>(
               onBlur={onYearBlur}
               disabled={disabled}
               required={required}
-              validationStatus={validationStatus}
+              aria-invalid={validationStatus === 'invalid' ? true : undefined}
               label="Year"
               name={`${id}-year`}
               id={`${id}-year`}

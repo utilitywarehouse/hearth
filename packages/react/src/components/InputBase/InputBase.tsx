@@ -10,17 +10,13 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type InputBaseElement = ElementRef<'input'>;
 
 export const InputBase = React.forwardRef<InputBaseElement, InputBaseProps>(
-  (
-    { className, children, disabled, readOnly, required, placeholder, validationStatus, ...props },
-    forwardedRef
-  ) => {
+  ({ className, children, disabled, readOnly, required, placeholder, ...props }, forwardedRef) => {
     const defaultRef = React.useRef<HTMLInputElement>(null);
     const inputRef = forwardedRef || defaultRef;
     return (
       <div
         className={clsx(componentClassName, className)}
         data-disabled={disabled ? '' : undefined}
-        data-validation-status={validationStatus ? validationStatus : undefined}
         onPointerDown={event => {
           // avoid losing focus when users click on non-interactive slot elements, such as icons
           const target = event.target as HTMLElement;

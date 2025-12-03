@@ -66,6 +66,7 @@ export const FormGroupBase = React.forwardRef<FormGroupBaseElement, FormGroupBas
         aria-labelledby={ariaLabelledby ?? (Boolean(label) ? labelId : undefined)}
         aria-invalid={showInvalid}
         aria-describedby={ariaDescribedbyValue}
+        data-validation-status={validationStatus ? validationStatus : undefined}
       >
         {hasLabel ? (
           <>

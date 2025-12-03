@@ -8,11 +8,7 @@ import { SelectProps } from './Select.props';
 import { Select as RadixSelect, ScrollArea as RadixScrollArea } from 'radix-ui';
 import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
-import { Flex } from '../Flex/Flex';
-import { Label } from '../Label/Label';
-import { BodyText } from '../BodyText/BodyText';
-import { HelperText } from '../HelperText/HelperText';
-import { ValidationText } from '../ValidationText/ValidationText';
+import { FormField } from '../FormField/FormField';
 
 const COMPONENT_NAME = 'Select';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -38,34 +34,33 @@ export const Select = React.forwardRef<SelectElement, SelectProps>((props, ref) 
     providedId,
     prefix: 'select',
   });
-  const showValidationText = Boolean(
-    !disabled && validationStatus !== undefined && validationText !== undefined
-  );
+
+  const showValidation = !disabled;
+
+  const formFieldProps = {
+    id,
+    labelId,
+    helperTextId,
+    validationTextId,
+    label,
+    helperText,
+    validationText: showValidation ? validationText : undefined,
+    validationStatus: showValidation ? validationStatus : undefined,
+    required,
+  };
 
   return (
-    <div className={clsx(componentClassName, className)}>
-      <Flex direction="column">
-        <Label htmlFor={id} id={labelId} disableUserSelect fontWeight="semibold">
-          {label}
-          {required ? null : (
-            <BodyText as="span" marginLeft="50">
-              (optional)
-            </BodyText>
-          )}
-        </Label>
-        {helperText ? (
-          <HelperText id={helperTextId} disableUserSelect>
-            {helperText}
-          </HelperText>
-        ) : null}
-      </Flex>
+    <FormField
+      className={clsx(componentClassName, className)}
+      data-disabled={disabled ? '' : undefined}
+      {...formFieldProps}
+    >
       <RadixSelect.Root {...selectProps}>
         <RadixSelect.Trigger
           id={id}
           ref={ref}
           className={`${componentClassName}Trigger`}
           disabled={disabled}
-          data-validation-status={validationStatus ? validationStatus : undefined}
         >
           <RadixSelect.Value className={`${componentClassName}Value`} placeholder={placeholder} />
           <RadixSelect.Icon className={`${componentClassName}TriggerIcon`}>
@@ -95,12 +90,7 @@ export const Select = React.forwardRef<SelectElement, SelectProps>((props, ref) 
           </RadixSelect.Content>
         </RadixSelect.Portal>
       </RadixSelect.Root>
-      {showValidationText ? (
-        <ValidationText status={validationStatus} disableUserSelect id={validationTextId}>
-          {validationText}
-        </ValidationText>
-      ) : null}
-    </div>
+    </FormField>
   );
 });
 

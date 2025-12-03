@@ -6,13 +6,10 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { mergeIds } from '../../helpers/merge-ids';
 import { useIds } from '../../hooks/use-ids';
 import { TextAreaProps } from './TextArea.props';
-import { Label } from '../Label/Label';
-import { HelperText } from '../HelperText/HelperText';
-import { ValidationText } from '../ValidationText/ValidationText';
 import { Flex } from '../Flex/Flex';
-import { BodyText } from '../BodyText/BodyText';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
+import { FormField } from '../FormField/FormField';
 
 const COMPONENT_NAME = 'TextArea';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -31,47 +28,44 @@ export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props,
     readOnly,
     required,
     placeholder,
+    'aria-describedby': ariaDescribedby,
     resize,
     rows = 3,
     ...textAreaProps
   } = extractProps(props, marginPropDefs);
+
   const { id, labelId, helperTextId, validationTextId } = useIds({
     providedId,
     prefix: 'textarea',
   });
 
-  const showValidationText = Boolean(
-    !readOnly && !disabled && validationStatus !== undefined && validationText !== undefined
-  );
+  const showValidation = Boolean(!readOnly && !disabled);
+
+  const formFieldProps = {
+    id,
+    labelId,
+    helperTextId,
+    validationTextId,
+    label,
+    helperText,
+    validationText: showValidation ? validationText : undefined,
+    validationStatus: showValidation ? validationStatus : undefined,
+    required,
+  };
 
   const ariaDescribedbyValue = mergeIds(
+    ariaDescribedby,
     !!helperText ? helperTextId : undefined,
-    showValidationText ? validationTextId : undefined
+    showValidation && validationText !== undefined ? validationTextId : undefined
   );
 
   return (
-    <Flex
-      direction="column"
-      gap="75"
+    <FormField
       className={clsx(componentClassName, className)}
       data-validation-status={validationStatus ? validationStatus : undefined}
       data-disabled={disabled ? '' : undefined}
+      {...formFieldProps}
     >
-      <Flex direction="column">
-        <Label htmlFor={id} id={labelId} disableUserSelect fontWeight="semibold">
-          {label}
-          {required ? null : (
-            <BodyText as="span" marginLeft="50">
-              (optional)
-            </BodyText>
-          )}
-        </Label>
-        {helperText ? (
-          <HelperText id={helperTextId} disableUserSelect>
-            {helperText}
-          </HelperText>
-        ) : null}
-      </Flex>
       <Flex direction="column" className="hearth-TextAreaRoot">
         <textarea
           ref={ref}
@@ -89,12 +83,7 @@ export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props,
           {...textAreaProps}
         />
       </Flex>
-      {showValidationText ? (
-        <ValidationText status={validationStatus} disableUserSelect id={validationTextId}>
-          {validationText}
-        </ValidationText>
-      ) : null}
-    </Flex>
+    </FormField>
   );
 });
 

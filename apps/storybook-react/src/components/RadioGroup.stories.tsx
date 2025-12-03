@@ -2,9 +2,17 @@ import { useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { RadioGroup, RadioTile, Box, Heading, Grid } from '@utilitywarehouse/hearth-react';
+import {
+  RadioGroup,
+  RadioTile,
+  Box,
+  Heading,
+  Grid,
+  DatePicker,
+} from '@utilitywarehouse/hearth-react';
 import { Flex } from '@utilitywarehouse/hearth-react/src/index.js';
 import { ThumbsUpSmallIcon, ThumbsDownSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import React from 'react';
 
 const meta: Meta<typeof RadioGroup> = {
   title: 'Stories / RadioGroup',
@@ -175,8 +183,9 @@ export const Wrap: Story = {
 
 export const CustomLabel: Story = {
   render: args => {
+    const [selectedDate, setSelectedDate] = React.useState<Date | null>(new Date());
     return (
-      <Flex gap="600">
+      <Flex gap="600" direction="column">
         <Flex width="fit-content">
           <RadioGroup
             {...args}
@@ -189,6 +198,11 @@ export const CustomLabel: Story = {
             <RadioTile value="northern-ireland" label="Northern Ireland" />
           </RadioGroup>
         </Flex>
+        <DatePicker
+          selected={selectedDate}
+          onChange={(date: Date | null) => setSelectedDate(date)}
+          label="Date picker"
+        />
         <Flex direction="column" gap="100">
           <Heading as="h2" id="where-do-you-live">
             Where do you live?
