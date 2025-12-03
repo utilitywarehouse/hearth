@@ -275,7 +275,7 @@ export const InteractiveCards: Story = {
                   </CardInteraction>
                 </Flex>
               </Card>
-            </li>{' '}
+            </li>
             <li>
               <Card variant="subtle" colorScheme="highlight" flex="1">
                 <Flex direction="column" gap="150" justifyContent="between">
