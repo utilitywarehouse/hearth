@@ -23,7 +23,6 @@ type CardElement = ElementRef<'div'>;
 export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
   const {
     className,
-    as: Tag = 'div',
     children,
     colorScheme = 'neutralStrong',
     shadowColor,
@@ -42,13 +41,13 @@ export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
   return (
     <Flex
       ref={ref}
-      asChild
+      as="div"
       className={clsx(componentClassName, className)}
       data-colorscheme={kebabCase(colorScheme)}
       data-shadowcolor={shadowColor}
       {...(cardProps as FlexProps)}
     >
-      <Tag>{children}</Tag>
+      {children}
     </Flex>
   );
 });
