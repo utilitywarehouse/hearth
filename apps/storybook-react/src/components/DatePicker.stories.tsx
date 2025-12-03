@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { DatePicker, Flex } from '@utilitywarehouse/hearth-react';
+import { DatePicker } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta: Meta<typeof DatePicker> = {
@@ -9,7 +9,7 @@ const meta: Meta<typeof DatePicker> = {
     docs: {
       description: {
         component:
-          'An `Alert` is a visual label or indicator used to convey status or highlight content. Alerts are read-only status indicators or labels and are not interactive.',
+          '`DatePicker` allows a user to specify a date, month or date range through the use of an expandable calendar.',
       },
     },
   },
