@@ -80,7 +80,6 @@
     gap: var(--h-modal-content-gap);
     justify-content: center;
     height: fit-content;
-    margin-right: calc(24px + var(--h-space-100));
 
     &:where([data-contains-image] &) {
       align-items: center;
@@ -122,7 +121,8 @@
     }
 
     &:not([data-contains-image] &) :where(.hearth-Heading) {
-      margin-right: var(--h-space-300);
+      --h-close-button-visual-size: 16px;
+      margin-right: calc(var(--h-close-button-visual-size) + var(--h-modal-padding));
     }
 
     &:where([data-contains-image] &) {
