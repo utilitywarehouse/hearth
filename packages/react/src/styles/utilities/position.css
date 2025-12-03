@@ -1,3 +1,4 @@
+/* stylelint-disable csstools/value-no-unknown-custom-properties */
 @breakpoints {
   .hearth-r-position-static {
     position: static;
