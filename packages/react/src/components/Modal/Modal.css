@@ -121,7 +121,9 @@
     }
 
     &:not([data-contains-image] &) :where(.hearth-Heading) {
-      margin-right: var(--h-space-300);
+      --h-close-button-visual-size: 16px;
+
+      margin-right: calc(var(--h-close-button-visual-size) + var(--h-modal-padding));
     }
 
     &:where([data-contains-image] &) {
