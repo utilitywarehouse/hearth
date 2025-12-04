@@ -124,11 +124,11 @@ export const Pagination: Story = {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const currentData = [
-      ...personalDetails.sort(() => 0.5 - Math.random()),
-      ...personalDetails.sort(() => 0.5 - Math.random()),
-      ...personalDetails.sort(() => 0.5 - Math.random()),
-      ...personalDetails.sort(() => 0.5 - Math.random()),
-      ...personalDetails.sort(() => 0.5 - Math.random()),
+      ...personalDetails.sort(() => 0.5 - Math.random()).map((p, i) => ({ ...p, id: p.id + i * 1000 })),
+      ...personalDetails.sort(() => 0.5 - Math.random()).map((p, i) => ({ ...p, id: p.id + (i + 10) * 1000 })),
+      ...personalDetails.sort(() => 0.5 - Math.random()).map((p, i) => ({ ...p, id: p.id + (i + 20) * 1000 })),
+      ...personalDetails.sort(() => 0.5 - Math.random()).map((p, i) => ({ ...p, id: p.id + (i + 30) * 1000 })),
+      ...personalDetails.sort(() => 0.5 - Math.random()).map((p, i) => ({ ...p, id: p.id + (i + 40) * 1000 })),
     ].slice(startIndex, endIndex);
 
     return (
