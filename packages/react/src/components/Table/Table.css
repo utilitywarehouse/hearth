@@ -1,26 +1,58 @@
-.hearth-Table {
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
+.hearth-TableContainer {
+  & :where(.hearth-TablePagination) {
+    padding-block: var(--h-space-200);
+    padding-inline: var(--h-space-300);
+  }
 }
 
-.hearth-TableScrollContainer {
+.hearth-Table {
+  overflow: hidden;
   overflow-x: auto;
   width: 100%;
   -webkit-overflow-scrolling: touch;
-}
 
-.hearth-TableElement {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  font-family: var(--h-font-family-body);
-  font-size: var(--h-font-size-100);
-  line-height: var(--h-line-height-500);
-}
+  & :where(.hearth-TableElement) {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-family: var(--h-font-family-body);
+    font-size: var(--h-font-size-100);
+    line-height: var(--h-line-height-500);
+  }
 
-.hearth-TableFooter {
-  padding: var(--h-space-200) var(--h-space-300);
-  border-top: var(--h-table-cell-border-width) solid var(--h-border-subtle);
+  & :where(.hearth-TableRow) {
+    border-bottom: var(--h-table-cell-border-width) solid var(--h-border-subtle);
+
+    &:where(.hearth-Card:not(:has(.hearth-TablePagination)) &):last-child {
+      border-bottom: none;
+    }
+  }
+
+  & :where(.hearth-TableHeader) {
+    border-bottom: var(--h-table-header-cell-border-width) solid var(--h-border-subtle);
+    background-color: var(--h-surface-neutral-strong);
+
+    &:where(.hearth-Card &) {
+      background-color: var(--h-surface-brand-default);
+      color: var(--h-text-inverted);
+      border-bottom-color: var(--h-border-strong);
+    }
+  }
+
+  & :where(.hearth-TableHeaderCell) {
+    padding-block: var(--h-table-header-cell-padding-vertical);
+    padding-inline: var(--h-table-header-cell-padding-horizontal);
+    text-align: left;
+    white-space: nowrap;
+
+    &:not([scope='row']) {
+      font-weight: var(--h-body-text-font-weight-semibold);
+    }
+  }
+
+  & :where(.hearth-TableCell) {
+    padding: var(--h-table-cell-padding);
+    color: var(--h-text-primary);
+    min-height: var(--h-table-cell-min-height);
+  }
 }

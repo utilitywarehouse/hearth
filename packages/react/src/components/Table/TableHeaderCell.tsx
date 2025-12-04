@@ -2,9 +2,9 @@ import * as React from 'react';
 import type { ElementRef } from 'react';
 import clsx from 'clsx';
 
-import { TableHeaderCellProps } from './TableHeaderCell.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { BodyText } from '../BodyText/BodyText';
+import type { TableHeaderCellProps } from './Table.props';
 
 const COMPONENT_NAME = 'TableHeaderCell';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -12,11 +12,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type TableHeaderCellElement = ElementRef<'th'>;
 
 export const TableHeaderCell = React.forwardRef<TableHeaderCellElement, TableHeaderCellProps>(
-  ({ className, children, ...props }, ref) => {
+  ({ className, children, row, ...props }, ref) => {
+    const rowProps = row ? { scope: 'row' } : undefined;
     return (
-      <th ref={ref} className={clsx(componentClassName, className)} {...props}>
-        <BodyText weight="semibold">{children}</BodyText>
-      </th>
+      <BodyText asChild>
+        <th ref={ref} className={clsx(componentClassName, className)} {...rowProps} {...props}>
+          {children}
+        </th>
+      </BodyText>
     );
   }
 );

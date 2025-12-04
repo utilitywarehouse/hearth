@@ -1,3 +1,0 @@
-.hearth-TableRow:not(:last-child) {
-  border-bottom: var(--h-table-cell-border-width) solid var(--h-border-subtle);
-}

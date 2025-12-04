@@ -60,10 +60,6 @@
 @import url('./Avatar/Avatar.css');
 @import url('./Pagination/Pagination.css');
 @import url('./Table/Table.css');
-@import url('./TableCell/TableCell.css');
-@import url('./TableRow/TableRow.css');
-@import url('./TableHeader/TableHeader.css');
-@import url('./TableHeaderCell/TableHeaderCell.css');
 @import url('./ProgressBar/ProgressBar.css');
 @import url('./HighlightBanner/HighlightBanner.css');
 @import url('./DatePicker/DatePicker.css');
