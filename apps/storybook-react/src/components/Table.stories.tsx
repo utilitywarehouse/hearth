@@ -7,15 +7,14 @@ import {
   TableHeaderCell,
   TableRow,
   TableCell,
-  TableProps,
-  Pagination,
+  TableContainer,
+  TablePagination,
+  Flex,
 } from '@utilitywarehouse/hearth-react';
 
-type ExtendedTableProps = TableProps & {
-  numberOfRows: number;
-};
+const variants = [undefined, 'subtle', 'emphasis'] as const;
 
-const meta: Meta<ExtendedTableProps> = {
+const meta: Meta<typeof Table & typeof TableContainer> = {
   title: 'Stories / Table',
   component: Table,
   parameters: {
@@ -27,371 +26,210 @@ const meta: Meta<ExtendedTableProps> = {
     },
   },
   argTypes: {
-    variant: {
-      control: { type: 'select' },
-      options: [undefined, 'subtle', 'emphasis'],
-      description: 'The visual variant of the table',
-    },
-    numberOfRows: {
-      control: { type: 'number', min: 1, max: 20, step: 1 },
-      description: 'Number of rows to display in the table (Playground story only)',
-      table: {
-        defaultValue: { summary: '3' },
-        type: { summary: 'number' },
-      },
-    },
+    variant: { control: { type: 'select' }, options: variants },
   },
   args: {
     variant: 'subtle',
-    numberOfRows: 5,
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof Table>;
+type Story = StoryObj<typeof Table & typeof TableContainer>;
 
-// Sample data - Personal details
+export const Playground: Story = {
+  render: ({ variant, ...args }) => {
+    return (
+      <TableContainer variant={variant}>
+        <Table {...args}>
+          <TableHeader>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Email</TableHeaderCell>
+            <TableHeaderCell>Phone</TableHeaderCell>
+            <TableHeaderCell>City</TableHeaderCell>
+          </TableHeader>
+          <TableBody>
+            {personalDetails.map(person => (
+              <TableRow key={person.id}>
+                <TableCell>{person.name}</TableCell>
+                <TableCell>{person.email}</TableCell>
+                <TableCell>{person.phone}</TableCell>
+                <TableCell>{person.city}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    );
+  },
+};
+
+export const KitchenSink: Story = {
+  render: () => {
+    return (
+      <Flex direction="column" gap="600">
+        <Table>
+          <TableHeader>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Email</TableHeaderCell>
+            <TableHeaderCell>Phone</TableHeaderCell>
+            <TableHeaderCell>City</TableHeaderCell>
+          </TableHeader>
+          <TableBody>
+            {personalDetails.map(person => (
+              <TableRow key={person.id}>
+                <TableHeaderCell row>{person.name}</TableHeaderCell>
+                <TableCell>{person.email}</TableCell>
+                <TableCell>{person.phone}</TableCell>
+                <TableCell>{person.city}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+
+        {variants
+          .filter(v => v)
+          .map(variant => (
+            <TableContainer key={variant} variant={variant}>
+              <Table>
+                <TableHeader>
+                  <TableHeaderCell>Name</TableHeaderCell>
+                  <TableHeaderCell>Email</TableHeaderCell>
+                  <TableHeaderCell>Phone</TableHeaderCell>
+                  <TableHeaderCell>City</TableHeaderCell>
+                </TableHeader>
+                <TableBody>
+                  {personalDetails.map(person => (
+                    <TableRow key={person.id}>
+                      <TableHeaderCell row>{person.name}</TableHeaderCell>
+                      <TableCell>{person.email}</TableCell>
+                      <TableCell>{person.phone}</TableCell>
+                      <TableCell>{person.city}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          ))}
+      </Flex>
+    );
+  },
+};
+
+export const Pagination: Story = {
+  render: ({ variant, ...args }) => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 5;
+
+    const totalPages = Math.ceil((5 * personalDetails.length) / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentData = [
+      ...personalDetails.sort(() => 0.5 - Math.random()),
+      ...personalDetails.sort(() => 0.5 - Math.random()),
+      ...personalDetails.sort(() => 0.5 - Math.random()),
+      ...personalDetails.sort(() => 0.5 - Math.random()),
+      ...personalDetails.sort(() => 0.5 - Math.random()),
+    ].slice(startIndex, endIndex);
+
+    return (
+      <TableContainer variant={variant}>
+        <Table {...args}>
+          <TableHeader>
+            <TableHeaderCell>Name</TableHeaderCell>
+            <TableHeaderCell>Email</TableHeaderCell>
+            <TableHeaderCell>Phone</TableHeaderCell>
+            <TableHeaderCell>City</TableHeaderCell>
+          </TableHeader>
+          <TableBody>
+            {currentData.map(person => (
+              <TableRow key={person.id}>
+                <TableCell>{person.name}</TableCell>
+                <TableCell>{person.email}</TableCell>
+                <TableCell>{person.phone}</TableCell>
+                <TableCell>{person.city}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+        <TablePagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      </TableContainer>
+    );
+  },
+};
+
 const personalDetails = [
   {
     id: 1,
-    firstName: 'Emma',
-    lastName: 'Wilson',
+    name: 'Emma Wilson',
     email: 'emma.wilson@email.com',
     phone: '+44 7700 900001',
     city: 'London',
   },
   {
     id: 2,
-    firstName: 'Oliver',
-    lastName: 'Brown',
+    name: 'Oliver Brown',
     email: 'oliver.brown@email.com',
     phone: '+44 7700 900002',
     city: 'Manchester',
   },
   {
     id: 3,
-    firstName: 'Ava',
-    lastName: 'Taylor',
+    name: 'Ava Taylor',
     email: 'ava.taylor@email.com',
     phone: '+44 7700 900003',
     city: 'Birmingham',
   },
   {
     id: 4,
-    firstName: 'Noah',
-    lastName: 'Davies',
+    name: 'Noah Davies',
     email: 'noah.davies@email.com',
     phone: '+44 7700 900004',
     city: 'Leeds',
   },
   {
     id: 5,
-    firstName: 'Isla',
-    lastName: 'Evans',
+    name: 'Isla Evans',
     email: 'isla.evans@email.com',
     phone: '+44 7700 900005',
     city: 'Glasgow',
   },
   {
     id: 6,
-    firstName: 'George',
-    lastName: 'Thomas',
+    name: 'George Thomas',
     email: 'george.thomas@email.com',
     phone: '+44 7700 900006',
     city: 'Liverpool',
   },
   {
     id: 7,
-    firstName: 'Amelia',
-    lastName: 'Roberts',
+    name: 'Amelia Roberts',
     email: 'amelia.roberts@email.com',
     phone: '+44 7700 900007',
     city: 'Bristol',
   },
   {
     id: 8,
-    firstName: 'Harry',
-    lastName: 'Johnson',
+    name: 'Harry Johnson',
     email: 'harry.johnson@email.com',
     phone: '+44 7700 900008',
     city: 'Sheffield',
   },
   {
     id: 9,
-    firstName: 'Mia',
-    lastName: 'Walker',
+    name: 'Mia Walker',
     email: 'mia.walker@email.com',
     phone: '+44 7700 900009',
     city: 'Edinburgh',
   },
   {
     id: 10,
-    firstName: 'Jack',
-    lastName: 'Wright',
+    name: 'Jack Wright',
     email: 'jack.wright@email.com',
     phone: '+44 7700 900010',
     city: 'Cardiff',
   },
-  {
-    id: 11,
-    firstName: 'Sophie',
-    lastName: 'Robinson',
-    email: 'sophie.robinson@email.com',
-    phone: '+44 7700 900011',
-    city: 'Newcastle',
-  },
-  {
-    id: 12,
-    firstName: 'Charlie',
-    lastName: 'Thompson',
-    email: 'charlie.thompson@email.com',
-    phone: '+44 7700 900012',
-    city: 'Nottingham',
-  },
-  {
-    id: 13,
-    firstName: 'Emily',
-    lastName: 'White',
-    email: 'emily.white@email.com',
-    phone: '+44 7700 900013',
-    city: 'Southampton',
-  },
-  {
-    id: 14,
-    firstName: 'Oscar',
-    lastName: 'Hughes',
-    email: 'oscar.hughes@email.com',
-    phone: '+44 7700 900014',
-    city: 'Leicester',
-  },
-  {
-    id: 15,
-    firstName: 'Lily',
-    lastName: 'Edwards',
-    email: 'lily.edwards@email.com',
-    phone: '+44 7700 900015',
-    city: 'Coventry',
-  },
-  {
-    id: 16,
-    firstName: 'Thomas',
-    lastName: 'Green',
-    email: 'thomas.green@email.com',
-    phone: '+44 7700 900016',
-    city: 'Bradford',
-  },
-  {
-    id: 17,
-    firstName: 'Grace',
-    lastName: 'Hall',
-    email: 'grace.hall@email.com',
-    phone: '+44 7700 900017',
-    city: 'Belfast',
-  },
-  {
-    id: 18,
-    firstName: 'James',
-    lastName: 'Lewis',
-    email: 'james.lewis@email.com',
-    phone: '+44 7700 900018',
-    city: 'Brighton',
-  },
-  {
-    id: 19,
-    firstName: 'Ella',
-    lastName: 'Clark',
-    email: 'ella.clark@email.com',
-    phone: '+44 7700 900019',
-    city: 'Plymouth',
-  },
-  {
-    id: 20,
-    firstName: 'William',
-    lastName: 'Turner',
-    email: 'william.turner@email.com',
-    phone: '+44 7700 900020',
-    city: 'Cambridge',
-  },
 ];
-
-export const Playground: Story = {
-  render: ({ numberOfRows, ...args }) => {
-    return (
-      <Table {...args}>
-        <TableHeader>
-          <TableHeaderCell>ID</TableHeaderCell>
-          <TableHeaderCell>First Name</TableHeaderCell>
-          <TableHeaderCell>Last Name</TableHeaderCell>
-          <TableHeaderCell>Email</TableHeaderCell>
-          <TableHeaderCell>Phone</TableHeaderCell>
-          <TableHeaderCell>City</TableHeaderCell>
-        </TableHeader>
-        <TableBody>
-          {personalDetails.slice(0, numberOfRows).map(person => (
-            <TableRow key={person.id}>
-              <TableCell>{person.id}</TableCell>
-              <TableCell>{person.firstName}</TableCell>
-              <TableCell>{person.lastName}</TableCell>
-              <TableCell>{person.email}</TableCell>
-              <TableCell>{person.phone}</TableCell>
-              <TableCell>{person.city}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    );
-  },
-};
-
-export const ContainerVariants: Story = {
-  argTypes: {
-    variant: {
-      table: {
-        disable: true,
-      },
-    },
-    numberOfRows: {
-      table: {
-        disable: true,
-      },
-    },
-  },
-  render: () => {
-    const displayData = personalDetails.slice(0, 3);
-
-    return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-        <div>
-          <h3 style={{ marginBottom: '1rem' }}>No variant (default)</h3>
-          <Table>
-            <TableHeader>
-              <TableHeaderCell>ID</TableHeaderCell>
-              <TableHeaderCell>First Name</TableHeaderCell>
-              <TableHeaderCell>Last Name</TableHeaderCell>
-              <TableHeaderCell>Email</TableHeaderCell>
-              <TableHeaderCell>Phone</TableHeaderCell>
-              <TableHeaderCell>City</TableHeaderCell>
-            </TableHeader>
-            <TableBody>
-              {displayData.map(person => (
-                <TableRow key={person.id}>
-                  <TableCell>{person.id}</TableCell>
-                  <TableCell>{person.firstName}</TableCell>
-                  <TableCell>{person.lastName}</TableCell>
-                  <TableCell>{person.email}</TableCell>
-                  <TableCell>{person.phone}</TableCell>
-                  <TableCell>{person.city}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-
-        <div>
-          <h3 style={{ marginBottom: '1rem' }}>Subtle</h3>
-          <Table variant="subtle">
-            <TableHeader>
-              <TableHeaderCell>ID</TableHeaderCell>
-              <TableHeaderCell>First Name</TableHeaderCell>
-              <TableHeaderCell>Last Name</TableHeaderCell>
-              <TableHeaderCell>Email</TableHeaderCell>
-              <TableHeaderCell>Phone</TableHeaderCell>
-              <TableHeaderCell>City</TableHeaderCell>
-            </TableHeader>
-            <TableBody>
-              {displayData.map(person => (
-                <TableRow key={person.id}>
-                  <TableCell>{person.id}</TableCell>
-                  <TableCell>{person.firstName}</TableCell>
-                  <TableCell>{person.lastName}</TableCell>
-                  <TableCell>{person.email}</TableCell>
-                  <TableCell>{person.phone}</TableCell>
-                  <TableCell>{person.city}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-
-        <div>
-          <h3 style={{ marginBottom: '1rem' }}>Emphasis</h3>
-          <Table variant="emphasis">
-            <TableHeader>
-              <TableHeaderCell>ID</TableHeaderCell>
-              <TableHeaderCell>First Name</TableHeaderCell>
-              <TableHeaderCell>Last Name</TableHeaderCell>
-              <TableHeaderCell>Email</TableHeaderCell>
-              <TableHeaderCell>Phone</TableHeaderCell>
-              <TableHeaderCell>City</TableHeaderCell>
-            </TableHeader>
-            <TableBody>
-              {displayData.map(person => (
-                <TableRow key={person.id}>
-                  <TableCell>{person.id}</TableCell>
-                  <TableCell>{person.firstName}</TableCell>
-                  <TableCell>{person.lastName}</TableCell>
-                  <TableCell>{person.email}</TableCell>
-                  <TableCell>{person.phone}</TableCell>
-                  <TableCell>{person.city}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-      </div>
-    );
-  },
-};
-
-export const WithPagination: Story = {
-  argTypes: {
-    numberOfRows: {
-      table: {
-        disable: true,
-      },
-    },
-  },
-  render: (args) => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 5;
-
-    const totalPages = Math.ceil(personalDetails.length / itemsPerPage);
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const currentData = personalDetails.slice(startIndex, endIndex);
-
-    return (
-      <Table
-        variant={args.variant}
-        footer={
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={setCurrentPage}
-          />
-        }
-      >
-        <TableHeader>
-          <TableHeaderCell>ID</TableHeaderCell>
-          <TableHeaderCell>First Name</TableHeaderCell>
-          <TableHeaderCell>Last Name</TableHeaderCell>
-          <TableHeaderCell>Email</TableHeaderCell>
-          <TableHeaderCell>Phone</TableHeaderCell>
-          <TableHeaderCell>City</TableHeaderCell>
-        </TableHeader>
-        <TableBody>
-          {currentData.map(person => (
-            <TableRow key={person.id}>
-              <TableCell>{person.id}</TableCell>
-              <TableCell>{person.firstName}</TableCell>
-              <TableCell>{person.lastName}</TableCell>
-              <TableCell>{person.email}</TableCell>
-              <TableCell>{person.phone}</TableCell>
-              <TableCell>{person.city}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    );
-  },
-};

@@ -1,6 +1,5 @@
 import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 import * as Stories from './Table.stories';
-
 import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <Meta title="Components / Table" />
@@ -12,66 +11,53 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 <Canvas of={Stories.Playground} sourceState="hidden" />
 <Controls of={Stories.Playground} />
 
-## ToC
+## Usage
 
-- [Container variants](#container-variants)
-- [Component structure](#component-structure)
-- [Usage guidelines](#usage-guidelines)
-- [Responsive behavior](#responsive-behavior)
-- [Examples](#examples)
-  - [Basic table](#basic-table)
-  - [Container variants](#container-variants-examples)
-  - [With Pagination](#with-pagination)
-- [Components API](#components-api)
-  - [Table API](#table-api)
-  - [TableHeader API](#tableheader-api)
-  - [TableHeaderCell API](#tableheadercell-api)
-  - [TableBody API](#tablebody-api)
-  - [TableRow API](#tablerow-api)
-  - [TableCell API](#tablecell-api)
+- `Table` groups the `TableHeader` and `TableBody` components.
+- `TableContainer` groups the `Table` and `TablePagination` components, and provides UI variants.
+- `TableHeader` for table column headers
+- `TableBody` provides the body of the table.
+- `TableRow` to wrap rows of data cells
+- `TableHeaderCell` provides the header cell, which can be used within both `TableHeader` and `TableRow` components.
+- `TableCell` for data cells within a `TableRow`.
+- `TablePagination` provides a data cell for use within a `TableRow` component.
 
-## Container variants
+## Container
 
-The Table component supports different container variants:
+To include different visual variants you must wrap your `Table` in a `TableContainer` component.
 
-- **No variant** (default) - No Card wrapper, minimal styling
-- **subtle** - Light border with Card wrapper
-- **emphasis** - Strong border with Card wrapper
+`TableContainer` supports the following variants, based on the `Card` component:
 
-## Component structure
-
-The Table uses a compound component pattern:
-
-- **Table** - The container component with scroll wrapper (optional `variant` prop for Card styling)
-- **TableHeader** - Wrapper for header row (renders `<thead>` with embedded `<tr>`)
-- **TableHeaderCell** - Header cell component (renders `<th>`)
-- **TableBody** - Wrapper for table body rows (renders `<tbody>`)
-- **TableRow** - Row component (renders `<tr>`)
-- **TableCell** - Data cell component (renders `<td>`)
+- `undefined` - No `Card` container, minimal styling
+- `subtle` - Subtle `Card` container
+- `emphasis` - Emphasis `Card` container
 
 ```tsx
-<Table variant="subtle">
-  <TableHeader>
-    <TableHeaderCell>Header 1</TableHeaderCell>
-    <TableHeaderCell>Header 2</TableHeaderCell>
-  </TableHeader>
-  <TableBody>
-    <TableRow>
-      <TableCell>Data 1</TableCell>
-      <TableCell>Data 2</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
+<TableContainer variant="subtle">
+  <Table>
+    <TableHeader>
+      <TableHeaderCell>Name</TableHeaderCell>
+      <TableHeaderCell>Occupation</TableHeaderCell>
+    </TableHeader>
+    <TableBody>
+      <TableRow>
+        <TableHeaderCell row>Toni Morrison</TableCell>
+        <TableCell>Writer</TableCell>
+      </TableRow>
+    </TableBody>
+  </Table>
+</TableContainer>
 ```
 
-### Example with pagination
+<Canvas of={Stories.KitchenSink} />
+
+## Pagination
+
+To include pagination, you need to wrap the `Table` & `TablePagination` components in a `TableContainer`
 
 ```tsx
-import {
-  Table,
-  [...]
-  Pagination,
-} from '@utilitywarehouse/hearth-react';
+
+[...]
 
 const [currentPage, setCurrentPage] = useState(1);
 const itemsPerPage = 5;
@@ -81,101 +67,82 @@ const startIndex = (currentPage - 1) * itemsPerPage;
 const endIndex = startIndex + itemsPerPage;
 const currentData = personalDetails.slice(startIndex, endIndex);
 
-<Table
-  variant="subtle"
-  footer={
-    <Pagination
-      currentPage={currentPage}
-      totalPages={totalPages}
-      onPageChange={setCurrentPage}
-    />
-  }
->
-  <TableHeader>
-    [...]
-  </TableHeader>
-  <TableBody>
-    [...]
-  </TableBody>
-</Table>
+[...]
+
+<TableContainer variant="subtle">
+  <Table>
+    <TableHeader>{...}</TableHeader>
+    <TableBody>{...}</TableBody>
+  </Table>
+  <TablePagination
+    currentPage={currentPage}
+    totalPages={totalPages}
+    onPageChange={setCurrentPage}
+  />
+</TableContainer>
 ```
 
-## Usage guidelines
+<Canvas of={Stories.Pagination} />
 
-- Use `TableHeader` for column headers
-- Use `TableBody` to wrap data rows
-- Use `TableRow` for each row of data
-- Use `TableCell` for data cells
-- Choose appropriate `variant` based on visual hierarchy needs (omit for minimal styling)
+## Header cells
 
-### Accessibility
+The `TableHeaderCell` component is used for column header cell within the `TableHeader` component.
 
-- Ensure table has a descriptive caption or aria-label when needed
+When the `row` prop is set it can also be used as the first cell in a `TableRow`.
 
-## Responsive behavior
+```tsx
+[...]
+<TableHeader>
+  <TableHeaderCell>Name</TableHeaderCell>
+  <TableHeaderCell>Occupation</TableHeaderCell>
+</TableHeader>
+<TableBody>
+  <TableRow>
+    <TableHeaderCell row>Toni Morrison</TableCell>
+    <TableCell>Writer</TableCell>
+  </TableRow>
+</TableBody>
+[...]
+```
 
-The Table component automatically adapts to different screen sizes:
+## API
 
-- **Desktop**: Full table layout
-- **Tablet/Mobile**: Horizontal scrolling with minimum width of 600px
+### TableContainer API
 
-## Examples
+This component is based on the `div` element and supports the following common props:
 
-### Basic table
+- Margin
 
-<Canvas of={Stories.Playground} />
-
-### Container variants examples
-
-Compare the different container variants side by side.
-
-<Canvas of={Stories.ContainerVariants} />
-
-### With Pagination
-
-Table with implemented pagination
-
-<Canvas of={Stories.WithPagination} />
-
-## Components API
+| Prop      | Type                                    |
+| --------- | --------------------------------------- |
+| `variant` | `'undefined' \| 'subtle' \| 'emphasis'` |
 
 ### Table API
 
-The main container component that provides context and handles responsive behavior.
+This component is based on the `table` element and supports the following common props:
 
-| Prop      | Type                     | Default     | Description                                                                     |
-| --------- | ------------------------ | ----------- | ------------------------------------------------------------------------------- |
-| `variant` | `'subtle' \| 'emphasis'` | `undefined` | The Card variant wrapper. When undefined, no Card wrapper is used               |
-| `footer`  | `ReactNode`              | `undefined` | Optional footer content to render below the table. Typically used for pagination |
-
-Additionally supports all standard `<div>` element props.
+- Margin
 
 ### TableHeader API
 
-Wrapper component for the table header row. Automatically wraps children in a `<tr>` element.
-
-Extends all `<thead>` element props.
+This component is based on the `thead` element.
 
 ### TableHeaderCell API
 
-Component for header cells in the table.
-
-Extends all `<th>` element props.
+This component is based on the `th` element.
 
 ### TableBody API
 
-Wrapper component for table body rows.
-
-Extends all `<tbody>` element props.
+This component is based on the `tbody` element.
 
 ### TableRow API
 
-Component for table rows.
-
-Extends all `<tr>` element props.
+This component is based on the `tr` element.
 
 ### TableCell API
 
-Component for data cells in the table.
+This component is based on the `td` element.
 
-Extends all `<td>` element props.
+### TablePagination API
+
+This component is based on the `Pagination` component.

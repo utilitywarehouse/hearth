@@ -395,7 +395,7 @@
   --h-switch-unchecked-background-color-hover: var(--h-color-grey-500);
   --h-table-border-radius: var(--h-border-radius-xl);
   --h-table-cell-border-width: var(--h-border-width-1);
-  --h-table-cell-min-height: 48;
+  --h-table-cell-min-height: 48px;
   --h-table-cell-padding: var(--h-space-150);
   --h-table-emphasis-border-width: var(--h-border-width-2);
   --h-table-header-cell-border-width: var(--h-border-width-2);

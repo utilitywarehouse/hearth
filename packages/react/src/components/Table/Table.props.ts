@@ -1,16 +1,11 @@
+import { MarginProps } from '../../props/margin.props';
 import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
-import { CardProps } from '../Card/Card.props';
-import type { ReactNode } from 'react';
 
-export type TableProps = ComponentPropsWithout<'table', RemovedProps> & {
-  /**
-   * Sets the visual variant of the table.
-   * When undefined, the table is rendered without a Card wrapper.
-   */
-  variant?: CardProps['variant'];
-  /**
-   * Optional footer content to render below the table.
-   * Typically used for pagination controls.
-   */
-  footer?: ReactNode;
-};
+export type TableProps = ComponentPropsWithout<'table', RemovedProps> & MarginProps;
+export type TableBodyProps = ComponentPropsWithout<'tbody', RemovedProps>;
+export type TableHeaderProps = ComponentPropsWithout<'thead', RemovedProps>;
+export interface TableHeaderCellProps extends ComponentPropsWithout<'th', RemovedProps> {
+  row?: boolean;
+}
+export type TableRowProps = ComponentPropsWithout<'tr', RemovedProps>;
+export type TableCellProps = ComponentPropsWithout<'td', RemovedProps>;

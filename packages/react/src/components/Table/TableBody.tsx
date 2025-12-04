@@ -2,8 +2,8 @@ import * as React from 'react';
 import type { ElementRef } from 'react';
 import clsx from 'clsx';
 
-import { TableBodyProps } from './TableBody.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import type { TableBodyProps } from './Table.props';
 
 const COMPONENT_NAME = 'TableBody';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
