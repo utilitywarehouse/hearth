@@ -1,5 +1,28 @@
 # @utilitywarehouse/hearth-react
 
+## 0.18.0
+
+### Minor Changes
+
+- [#695](https://github.com/utilitywarehouse/hearth/pull/695) [`1e5f3c4`](https://github.com/utilitywarehouse/hearth/commit/1e5f3c45241fc3893d6b3ead394dcc6cb978a72c) Thanks [@robphoenix](https://github.com/robphoenix)! - `Table` component BREAKING changes
+
+  - Remove `footer` prop
+  - Remove `variant` prop from `Table` component
+  - Add `TableContainer` component, with `variant` prop
+  - Add `TablePagination` component
+
+- [#691](https://github.com/utilitywarehouse/hearth/pull/691) [`d8eba84`](https://github.com/utilitywarehouse/hearth/commit/d8eba847f104c17e0b069e9cf66331a0bd433f88) Thanks [@robphoenix](https://github.com/robphoenix)! - Remove `as` prop from `Card`
+
+### Patch Changes
+
+- [#688](https://github.com/utilitywarehouse/hearth/pull/688) [`b0ff651`](https://github.com/utilitywarehouse/hearth/commit/b0ff6511924989dadeca1ae7ccf0c012424e08e7) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix missing tokens
+
+- [#689](https://github.com/utilitywarehouse/hearth/pull/689) [`311ab8e`](https://github.com/utilitywarehouse/hearth/commit/311ab8e7dcc3f78136d4b62415f013ed2c0b6b94) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `alignItems` prop to `ToggleButtonCard` to improve layout opportunities
+
+- [#678](https://github.com/utilitywarehouse/hearth/pull/678) [`a9326cf`](https://github.com/utilitywarehouse/hearth/commit/a9326cf3dad34145b42491ce578a7b13021cb89d) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `DatePicker`
+
+- [#690](https://github.com/utilitywarehouse/hearth/pull/690) [`461a9a4`](https://github.com/utilitywarehouse/hearth/commit/461a9a42f74a0acaffcfdec2e23bcbd02d016867) Thanks [@robphoenix](https://github.com/robphoenix)! - Ensure spacing between heading & close button in `Modal`
+
 ## 0.17.4
 
 ### Patch Changes
