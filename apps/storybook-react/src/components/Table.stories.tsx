@@ -21,7 +21,7 @@ const meta: Meta<typeof Table & typeof TableContainer> = {
     docs: {
       description: {
         component:
-          '`Table` displays data in a structured format with rows and columns. It features responsive layouts that adapt to mobile and tablet screens with horizontal scrolling.',
+          'Use a `Table` to arrange data in rows and columns. They are used to communicate relationships between content and to display references, comparisons, and choices.',
       },
     },
   },

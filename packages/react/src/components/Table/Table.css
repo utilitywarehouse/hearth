@@ -6,7 +6,6 @@
 }
 
 .hearth-Table {
-  width: 100%;
   overflow: hidden;
   overflow-x: auto;
   width: 100%;
@@ -30,9 +29,7 @@
   }
 
   & :where(.hearth-TableHeader) {
-    border-bottom-width: var(--h-table-header-cell-border-width);
-    border-bottom-style: solid;
-    border-bottom-color: var(--h-border-subtle);
+    border-bottom: var(--h-table-header-cell-border-width) solid var(--h-border-subtle);
     background-color: var(--h-surface-neutral-strong);
 
     &:where(.hearth-Card &) {
