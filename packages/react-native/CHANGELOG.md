@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.12.0
+
+### Minor Changes
+
+- [#685](https://github.com/utilitywarehouse/hearth/pull/685) [`10f5209`](https://github.com/utilitywarehouse/hearth/commit/10f52095e5f36e58f9821e3fec3fdf43f4578fbb) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] Component props moved from objects to React Nodes
+
+### Patch Changes
+
+- [#687](https://github.com/utilitywarehouse/hearth/pull/687) [`11e8176`](https://github.com/utilitywarehouse/hearth/commit/11e8176ced40b0a8b2d27e07c482ed10a7b7ce7a) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `Input` refs
+
 ## 0.11.0
 
 ### Minor Changes
