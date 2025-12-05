@@ -1,3 +1,5 @@
+'use client';
+
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import React from 'react';
 import { DatePickerHeaderProps } from './DatePickerHeader.props';

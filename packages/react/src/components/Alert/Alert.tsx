@@ -1,3 +1,5 @@
+'use client';
+
 import type { ElementRef } from 'react';
 import * as React from 'react';
 import clsx from 'clsx';
