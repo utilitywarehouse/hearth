@@ -22,7 +22,6 @@ export const BodyText = (props: BodyTextProps) => {
     as: Tag = 'p',
     children,
     truncate,
-    ref,
     ...bodyTextProps
   } = extractProps(
     props,
@@ -36,7 +35,6 @@ export const BodyText = (props: BodyTextProps) => {
 
   return (
     <Slot.Root
-      ref={ref}
       className={clsx(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
       {...bodyTextProps}
