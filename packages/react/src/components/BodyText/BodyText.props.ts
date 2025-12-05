@@ -1,11 +1,10 @@
-import { ComponentPropsWithoutRef, ComponentPropsWithRef, RefObject } from 'react';
+import { ComponentPropsWithRef } from 'react';
 import { ColorProps } from '../../props/color.props';
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
 import { TextWrapProps } from '../../props/text-wrap.props';
-import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
 const sizes = ['sm', 'md', 'lg'] as const;
@@ -56,7 +55,6 @@ interface CommonBodyTextProps
    * If true, the text will have a bottom margin.
    */
   paragraphSpacing?: boolean;
-  ref: RefObject<HTMLDivElement | null>;
 }
 type BodyTextDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
 type BodyTextSpanProps = { as?: 'span' } & ComponentPropsWithRef<'span'>;
