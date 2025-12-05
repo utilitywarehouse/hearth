@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.19.1
+
+### Patch Changes
+
+- [#698](https://github.com/utilitywarehouse/hearth/pull/698) [`d7095fb`](https://github.com/utilitywarehouse/hearth/commit/d7095fba7a215e742fafdac8b3dd44180b3f312d) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `'use client'` directive where necessary
+
 ## 0.19.0
 
 ### Minor Changes
