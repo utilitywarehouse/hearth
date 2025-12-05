@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import type { ElementRef } from 'react';
 import { Dialog as RadixDialog } from 'radix-ui';

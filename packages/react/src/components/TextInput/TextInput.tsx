@@ -1,3 +1,5 @@
+'use client';
+
 import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { TextInputProps } from './TextInput.props';
