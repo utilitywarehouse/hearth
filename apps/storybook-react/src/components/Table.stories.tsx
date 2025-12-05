@@ -7,14 +7,13 @@ import {
   TableHeaderCell,
   TableRow,
   TableCell,
-  TableContainer,
   TablePagination,
   Flex,
 } from '@utilitywarehouse/hearth-react';
 
 const variants = [undefined, 'subtle', 'emphasis'] as const;
 
-const meta: Meta<typeof Table & typeof TableContainer> = {
+const meta: Meta<typeof Table> = {
   title: 'Stories / Table',
   component: Table,
   parameters: {
@@ -26,39 +25,37 @@ const meta: Meta<typeof Table & typeof TableContainer> = {
     },
   },
   argTypes: {
-    variant: { control: { type: 'select' }, options: variants },
+    variant: { control: { type: 'radio' }, options: variants },
   },
   args: {
-    variant: 'subtle',
+    variant: 'emphasis',
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof Table & typeof TableContainer>;
+type Story = StoryObj<typeof Table>;
 
 export const Playground: Story = {
-  render: ({ variant, ...args }) => {
+  render: args => {
     return (
-      <TableContainer variant={variant}>
-        <Table {...args}>
-          <TableHeader>
-            <TableHeaderCell>Name</TableHeaderCell>
-            <TableHeaderCell>Email</TableHeaderCell>
-            <TableHeaderCell>Phone</TableHeaderCell>
-            <TableHeaderCell>City</TableHeaderCell>
-          </TableHeader>
-          <TableBody>
-            {personalDetails.map(person => (
-              <TableRow key={person.id}>
-                <TableCell>{person.name}</TableCell>
-                <TableCell>{person.email}</TableCell>
-                <TableCell>{person.phone}</TableCell>
-                <TableCell>{person.city}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <Table {...args}>
+        <TableHeader>
+          <TableHeaderCell>Name</TableHeaderCell>
+          <TableHeaderCell>Email</TableHeaderCell>
+          <TableHeaderCell>Phone</TableHeaderCell>
+          <TableHeaderCell>City</TableHeaderCell>
+        </TableHeader>
+        <TableBody>
+          {personalDetails.slice(0, 3).map(person => (
+            <TableRow key={person.id}>
+              <TableCell>{person.name}</TableCell>
+              <TableCell>{person.email}</TableCell>
+              <TableCell>{person.phone}</TableCell>
+              <TableCell>{person.city}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     );
   },
 };
@@ -67,56 +64,33 @@ export const KitchenSink: Story = {
   render: () => {
     return (
       <Flex direction="column" gap="600">
-        <Table>
-          <TableHeader>
-            <TableHeaderCell>Name</TableHeaderCell>
-            <TableHeaderCell>Email</TableHeaderCell>
-            <TableHeaderCell>Phone</TableHeaderCell>
-            <TableHeaderCell>City</TableHeaderCell>
-          </TableHeader>
-          <TableBody>
-            {personalDetails.map(person => (
-              <TableRow key={person.id}>
-                <TableHeaderCell row>{person.name}</TableHeaderCell>
-                <TableCell>{person.email}</TableCell>
-                <TableCell>{person.phone}</TableCell>
-                <TableCell>{person.city}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-
-        {variants
-          .filter(v => v)
-          .map(variant => (
-            <TableContainer key={variant} variant={variant}>
-              <Table>
-                <TableHeader>
-                  <TableHeaderCell>Name</TableHeaderCell>
-                  <TableHeaderCell>Email</TableHeaderCell>
-                  <TableHeaderCell>Phone</TableHeaderCell>
-                  <TableHeaderCell>City</TableHeaderCell>
-                </TableHeader>
-                <TableBody>
-                  {personalDetails.map(person => (
-                    <TableRow key={person.id}>
-                      <TableHeaderCell row>{person.name}</TableHeaderCell>
-                      <TableCell>{person.email}</TableCell>
-                      <TableCell>{person.phone}</TableCell>
-                      <TableCell>{person.city}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          ))}
+        {variants.map(variant => (
+          <Table key={variant} variant={variant}>
+            <TableHeader>
+              <TableHeaderCell>Name</TableHeaderCell>
+              <TableHeaderCell>Email</TableHeaderCell>
+              <TableHeaderCell>Phone</TableHeaderCell>
+              <TableHeaderCell>City</TableHeaderCell>
+            </TableHeader>
+            <TableBody>
+              {personalDetails.slice(0, 5).map(person => (
+                <TableRow key={person.id}>
+                  <TableHeaderCell row>{person.name}</TableHeaderCell>
+                  <TableCell>{person.email}</TableCell>
+                  <TableCell>{person.phone}</TableCell>
+                  <TableCell>{person.city}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        ))}
       </Flex>
     );
   },
 };
 
 export const Pagination: Story = {
-  render: ({ variant, ...args }) => {
+  render: args => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
 
@@ -124,39 +98,51 @@ export const Pagination: Story = {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const currentData = [
-      ...personalDetails.sort(() => 0.5 - Math.random()).map((p, i) => ({ ...p, id: p.id + i * 1000 })),
-      ...personalDetails.sort(() => 0.5 - Math.random()).map((p, i) => ({ ...p, id: p.id + (i + 10) * 1000 })),
-      ...personalDetails.sort(() => 0.5 - Math.random()).map((p, i) => ({ ...p, id: p.id + (i + 20) * 1000 })),
-      ...personalDetails.sort(() => 0.5 - Math.random()).map((p, i) => ({ ...p, id: p.id + (i + 30) * 1000 })),
-      ...personalDetails.sort(() => 0.5 - Math.random()).map((p, i) => ({ ...p, id: p.id + (i + 40) * 1000 })),
+      ...personalDetails
+        .sort(() => 0.5 - Math.random())
+        .map((p, i) => ({ ...p, id: p.id + i * 1000 })),
+      ...personalDetails
+        .sort(() => 0.5 - Math.random())
+        .map((p, i) => ({ ...p, id: p.id + (i + 10) * 1000 })),
+      ...personalDetails
+        .sort(() => 0.5 - Math.random())
+        .map((p, i) => ({ ...p, id: p.id + (i + 20) * 1000 })),
+      ...personalDetails
+        .sort(() => 0.5 - Math.random())
+        .map((p, i) => ({ ...p, id: p.id + (i + 30) * 1000 })),
+      ...personalDetails
+        .sort(() => 0.5 - Math.random())
+        .map((p, i) => ({ ...p, id: p.id + (i + 40) * 1000 })),
     ].slice(startIndex, endIndex);
 
     return (
-      <TableContainer variant={variant}>
-        <Table {...args}>
-          <TableHeader>
-            <TableHeaderCell>Name</TableHeaderCell>
-            <TableHeaderCell>Email</TableHeaderCell>
-            <TableHeaderCell>Phone</TableHeaderCell>
-            <TableHeaderCell>City</TableHeaderCell>
-          </TableHeader>
-          <TableBody>
-            {currentData.map(person => (
-              <TableRow key={person.id}>
-                <TableCell>{person.name}</TableCell>
-                <TableCell>{person.email}</TableCell>
-                <TableCell>{person.phone}</TableCell>
-                <TableCell>{person.city}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-        <TablePagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={setCurrentPage}
-        />
-      </TableContainer>
+      <Table
+        {...args}
+        pagination={
+          <TablePagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
+        }
+      >
+        <TableHeader>
+          <TableHeaderCell>Name</TableHeaderCell>
+          <TableHeaderCell>Email</TableHeaderCell>
+          <TableHeaderCell>Phone</TableHeaderCell>
+          <TableHeaderCell>City</TableHeaderCell>
+        </TableHeader>
+        <TableBody>
+          {currentData.map(person => (
+            <TableRow key={person.id}>
+              <TableHeaderCell row>{person.name}</TableHeaderCell>
+              <TableCell>{person.email}</TableCell>
+              <TableCell>{person.phone}</TableCell>
+              <TableCell>{person.city}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     );
   },
 };
