@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react
 
+## 0.19.0
+
+### Minor Changes
+
+- [#696](https://github.com/utilitywarehouse/hearth/pull/696) [`6ce785d`](https://github.com/utilitywarehouse/hearth/commit/6ce785da957edea98952c3043721aad4e6567dc3) Thanks [@robphoenix](https://github.com/robphoenix)! - Revert `Table` breaking changes with further BREAKING CHANGES
+  - Remove `TableContainer`
+  - Add `pagination` prop
+
 ## 0.18.0
 
 ### Minor Changes
