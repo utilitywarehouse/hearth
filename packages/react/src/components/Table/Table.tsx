@@ -5,6 +5,7 @@ import type { TableProps } from './Table.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
+import { Card } from '../Card/Card';
 
 const COMPONENT_NAME = 'Table';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -12,13 +13,35 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type TableElement = React.ComponentRef<'table'>;
 
 export const Table = React.forwardRef<TableElement, TableProps>((props, ref) => {
-  const { className, children, ...tableProps } = extractProps(props, marginPropDefs);
+  const { className, style, children, variant, pagination, ...tableProps } = extractProps(
+    props,
+    marginPropDefs
+  );
+
+  if (variant === undefined) {
+    return (
+      <div className={clsx(componentClassName, className)} style={style}>
+        <table ref={ref} {...tableProps}>
+          {children}
+        </table>
+        {pagination}
+      </div>
+    );
+  }
+
   return (
-    <div className={clsx(componentClassName, className)}>
-      <table ref={ref} className={`${componentClassName}Element`} {...tableProps}>
+    <Card
+      className={clsx(componentClassName, className)}
+      style={style}
+      variant={variant}
+      colorScheme="neutralStrong"
+      paddingNone
+    >
+      <table ref={ref} {...tableProps}>
         {children}
       </table>
-    </div>
+      {pagination}
+    </Card>
   );
 });
 

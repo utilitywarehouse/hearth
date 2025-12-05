@@ -1,17 +1,12 @@
-.hearth-TableContainer {
-  & :where(.hearth-TablePagination) {
-    padding-block: var(--h-space-200);
-    padding-inline: var(--h-space-300);
-  }
-}
-
 .hearth-Table {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   overflow-x: auto;
   width: 100%;
   -webkit-overflow-scrolling: touch;
 
-  & :where(.hearth-TableElement) {
+  & :where(table) {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
@@ -54,5 +49,10 @@
     padding: var(--h-table-cell-padding);
     color: var(--h-text-primary);
     min-height: var(--h-table-cell-min-height);
+  }
+
+  & :where(.hearth-TablePagination) {
+    padding-block: var(--h-space-200);
+    padding-inline: var(--h-space-300);
   }
 }

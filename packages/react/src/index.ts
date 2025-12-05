@@ -254,8 +254,6 @@ export type {
   TableRowProps,
   TableCellProps,
 } from './components/Table/Table.props';
-export { TableContainer } from './components/Table/TableContainer';
-export type { TableContainerProps } from './components/Table/TableContainer.props';
 export { TablePagination } from './components/Table/TablePagination';
 export type { TablePaginationProps } from './components/Table/TablePagination.props';
 export { TableBody } from './components/Table/TableBody';
