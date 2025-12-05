@@ -6,7 +6,6 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { Card } from '../Card/Card';
-import { Flex } from '../Flex/Flex';
 
 const COMPONENT_NAME = 'Table';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -14,39 +13,19 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type TableElement = React.ComponentRef<'table'>;
 
 export const Table = React.forwardRef<TableElement, TableProps>((props, ref) => {
-  const { className, children, variant, pagination, ...componentProps } = extractProps(
+  const { className, children, variant, pagination, ...tableProps } = extractProps(
     props,
     marginPropDefs
   );
 
-  const {
-    margin,
-    marginTop,
-    marginRight,
-    marginBottom,
-    marginLeft,
-    marginInline,
-    marginBlock,
-    ...tableProps
-  } = componentProps;
-  const marginProps = {
-    margin,
-    marginTop,
-    marginRight,
-    marginBottom,
-    marginLeft,
-    marginInline,
-    marginBlock,
-  };
-
   if (variant === undefined) {
     return (
-      <Flex direction="column" className={clsx(componentClassName, className)} {...marginProps}>
-        <table ref={ref} className={`${componentClassName}Table`} {...tableProps}>
+      <div className={clsx(componentClassName, className)}>
+        <table ref={ref} {...tableProps}>
           {children}
         </table>
         {pagination}
-      </Flex>
+      </div>
     );
   }
 
@@ -56,9 +35,8 @@ export const Table = React.forwardRef<TableElement, TableProps>((props, ref) => 
       variant={variant}
       colorScheme="neutralStrong"
       paddingNone
-      direction="column"
     >
-      <table ref={ref} className={`${componentClassName}Table`} {...tableProps}>
+      <table ref={ref} {...tableProps}>
         {children}
       </table>
       {pagination}

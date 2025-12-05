@@ -1,10 +1,12 @@
 .hearth-Table {
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   overflow-x: auto;
   width: 100%;
   -webkit-overflow-scrolling: touch;
 
-  & :where(.hearth-TableTable) {
+  & :where(table) {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
