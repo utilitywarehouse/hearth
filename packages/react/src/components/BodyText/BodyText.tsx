@@ -1,7 +1,6 @@
 'use client';
 
 import * as React from 'react';
-import type { ElementRef } from 'react';
 import clsx from 'clsx';
 import { bodyTextPropDefs, BodyTextProps } from './BodyText.props';
 import { Slot } from 'radix-ui';
@@ -16,15 +15,14 @@ import { colorPropDefs } from '../../props/color.props';
 const COMPONENT_NAME = 'BodyText';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type BodyTextElement = ElementRef<'span'>;
-
-export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props, ref) => {
+export const BodyText = (props: BodyTextProps) => {
   const {
     className,
     asChild,
     as: Tag = 'p',
     children,
     truncate,
+    ref,
     ...bodyTextProps
   } = extractProps(
     props,
@@ -46,6 +44,6 @@ export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props,
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot.Root>
   );
-});
+};
 
 BodyText.displayName = COMPONENT_NAME;

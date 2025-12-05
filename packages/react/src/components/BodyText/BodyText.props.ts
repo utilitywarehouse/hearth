@@ -1,3 +1,4 @@
+import { ComponentPropsWithoutRef, ComponentPropsWithRef, RefObject } from 'react';
 import { ColorProps } from '../../props/color.props';
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
@@ -55,10 +56,11 @@ interface CommonBodyTextProps
    * If true, the text will have a bottom margin.
    */
   paragraphSpacing?: boolean;
+  ref: RefObject<HTMLDivElement | null>;
 }
-type BodyTextDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
-type BodyTextSpanProps = { as?: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
-type BodyTextPProps = { as?: 'p' } & ComponentPropsWithout<'p', RemovedProps>;
-type BodyTextLabelProps = { as?: 'label' } & ComponentPropsWithout<'label', RemovedProps>;
+type BodyTextDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
+type BodyTextSpanProps = { as?: 'span' } & ComponentPropsWithRef<'span'>;
+type BodyTextPProps = { as?: 'p' } & ComponentPropsWithRef<'p'>;
+type BodyTextLabelProps = { as?: 'label' } & ComponentPropsWithRef<'label'>;
 export type BodyTextProps = CommonBodyTextProps &
   (BodyTextSpanProps | BodyTextDivProps | BodyTextPProps | BodyTextLabelProps);

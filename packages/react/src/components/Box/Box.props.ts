@@ -1,4 +1,4 @@
-import { RefObject } from 'react';
+import { ComponentPropsWithRef } from 'react';
 import { BackgroundColorProps } from '../../props/background-color.props';
 import { BorderColorProps } from '../../props/border-color.props';
 import { BorderRadiusProps } from '../../props/border-radius.props';
@@ -13,7 +13,6 @@ import { PropDef } from '../../props/prop-def';
 import { SizeProps } from '../../props/size.props';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive } from '../../types/responsive';
 
 const displayValues = ['none', 'inline', 'inline-block', 'block'] as const;
@@ -49,8 +48,7 @@ interface CommonBoxProps
    */
   asChild?: boolean;
   display?: Responsive<(typeof displayValues)[number]>;
-  ref: RefObject<HTMLDivElement | null>;
 }
-type BoxDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
-type BoxSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
+type BoxDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
+type BoxSpanProps = { as: 'span' } & ComponentPropsWithRef<'span'>;
 export type BoxProps = CommonBoxProps & (BoxSpanProps | BoxDivProps);

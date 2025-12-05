@@ -25,11 +25,12 @@ import { borderRadiusPropDefs } from '../../props/border-radius.props';
 const COMPONENT_NAME = 'Box';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Box = ({ ref, ...props }: BoxProps) => {
+export const Box = (props: BoxProps) => {
   const {
     className,
     asChild,
     as: Tag = 'div',
+    children,
     ...boxProps
   } = extractProps(
     props,
@@ -48,10 +49,11 @@ export const Box = ({ ref, ...props }: BoxProps) => {
     textAlignPropDefs,
     textTransformPropDefs
   );
-
-  const Component = asChild ? Slot.Root : Tag;
-
-  return <Component ref={ref} className={clsx(componentClassName, className)} {...boxProps} />;
+  return (
+    <Slot.Root className={clsx(componentClassName, className)} {...boxProps}>
+      {asChild ? children : <Tag>{children}</Tag>}
+    </Slot.Root>
+  );
 };
 
 Box.displayName = COMPONENT_NAME;

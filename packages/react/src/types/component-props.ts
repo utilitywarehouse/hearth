@@ -9,4 +9,12 @@ export type ComponentPropsWithout<
     | keyof React.ComponentPropsWithoutRef<T>,
 > = Omit<React.ComponentPropsWithoutRef<T>, O & string>;
 
+export type ComponentPropsWithRefWithout<
+  T extends React.ElementType,
+  O extends
+    | Omit<string, keyof React.ComponentPropsWithRef<T>>
+    | keyof React.ComponentPropsWithRef<T>,
+> = Omit<React.ComponentPropsWithRef<T>, O & string>;
+
+export type DeprecatedProps = 'align' | 'border' | 'clear';
 export type RemovedProps = 'asChild' | 'defaultChecked' | 'defaultValue' | 'color';
