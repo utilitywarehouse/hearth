@@ -5,7 +5,6 @@ import clsx from 'clsx';
 
 import { boxPropDefs, type BoxProps } from './Box.props';
 
-import type { ElementRef } from 'react';
 import { Slot } from 'radix-ui';
 import { extractProps } from '../../helpers/extract-props';
 import { paddingPropDefs } from '../../props/padding.props';
@@ -26,9 +25,7 @@ import { borderRadiusPropDefs } from '../../props/border-radius.props';
 const COMPONENT_NAME = 'Box';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type BoxElement = ElementRef<'div'>;
-
-export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
+export const Box = ({ ref, ...props }: BoxProps) => {
   const {
     className,
     asChild,
@@ -55,6 +52,6 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
   const Component = asChild ? Slot.Root : Tag;
 
   return <Component ref={ref} className={clsx(componentClassName, className)} {...boxProps} />;
-});
+};
 
 Box.displayName = COMPONENT_NAME;

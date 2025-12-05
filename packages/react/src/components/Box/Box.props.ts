@@ -1,3 +1,4 @@
+import { RefObject } from 'react';
 import { BackgroundColorProps } from '../../props/background-color.props';
 import { BorderColorProps } from '../../props/border-color.props';
 import { BorderRadiusProps } from '../../props/border-radius.props';
@@ -48,6 +49,7 @@ interface CommonBoxProps
    */
   asChild?: boolean;
   display?: Responsive<(typeof displayValues)[number]>;
+  ref: RefObject<HTMLDivElement | null>;
 }
 type BoxDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
 type BoxSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
