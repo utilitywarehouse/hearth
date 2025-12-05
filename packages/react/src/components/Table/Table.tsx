@@ -13,14 +13,14 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type TableElement = React.ComponentRef<'table'>;
 
 export const Table = React.forwardRef<TableElement, TableProps>((props, ref) => {
-  const { className, children, variant, pagination, ...tableProps } = extractProps(
+  const { className, style, children, variant, pagination, ...tableProps } = extractProps(
     props,
     marginPropDefs
   );
 
   if (variant === undefined) {
     return (
-      <div className={clsx(componentClassName, className)}>
+      <div className={clsx(componentClassName, className)} style={style}>
         <table ref={ref} {...tableProps}>
           {children}
         </table>
@@ -32,6 +32,7 @@ export const Table = React.forwardRef<TableElement, TableProps>((props, ref) => 
   return (
     <Card
       className={clsx(componentClassName, className)}
+      style={style}
       variant={variant}
       colorScheme="neutralStrong"
       paddingNone
