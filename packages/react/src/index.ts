@@ -112,6 +112,9 @@ export type { TextInputProps } from './components/TextInput/TextInput.props';
 export { InputSlot } from './components/InputSlot/InputSlot';
 export type { InputSlotProps } from './components/InputSlot/InputSlot.props';
 
+export { VerificationInput } from './components/VerificationInput/VerificationInput';
+export type { VerificationInputProps } from './components/VerificationInput/VerificationInput.props';
+
 export { PasswordInput } from './components/PasswordInput/PasswordInput';
 export type { PasswordInputProps } from './components/PasswordInput/PasswordInput.props';
 
