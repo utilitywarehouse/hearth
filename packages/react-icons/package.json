@@ -11,7 +11,7 @@
   "sideEffects": false,
   "scripts": {
     "clean": "rm -rf node_modules && rm -rf dist",
-    "clean:lib": "rm -rf lib",
+    "clean:lib": "rm -rf lib && rm -rf figma-code-connect",
     "transform": "svgr --config-file ./svgr.config.cjs --template templates/icon.cjs --index-template templates/index.cjs ../svg-icons/lib",
     "copy-types": "cp ./templates/props.tsx ./lib/types.tsx",
     "format": "prettier --log-level=silent --write --parser=typescript \"lib/*.ts*\"",

@@ -8,7 +8,7 @@
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "clean:lib": "rm -rf lib",
+    "clean:lib": "rm -rf lib && rm -rf figma-code-connect",
     "clean:dist": "rm -rf dist",
     "clean": "rm -rf node_modules",
     "transform": "svgr --config-file ./svgr.config.cjs --template templates/icon.cjs ../svg-icons/lib",
