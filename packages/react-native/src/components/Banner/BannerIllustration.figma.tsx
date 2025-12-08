@@ -1,5 +1,5 @@
 import React from "react"
-import Radio from "./Radio"
+import BannerIllustration from "./BannerIllustration"
 import figma from "@figma/code-connect"
 
 /**
@@ -11,20 +11,20 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Radio,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=7428%3A12685",
+  BannerIllustration,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=10145%3A4877",
   {
     props: {
       // No matching props could be found for these Figma properties:
-      // "helperText": figma.boolean('Helper text?'),
-      // "helperText": figma.string('Helper text'),
-      // "label": figma.string('Label'),
-      // "image": figma.boolean('Image?'),
-      // "state": figma.enum('State', {
-      //   "Default": "default"
-      // }),
-      // "checked": figma.boolean('Checked?')
+      // "illustration": figma.instance('Illustration'),
+      // "size": figma.enum('Size', {
+      //   "XL-120": "xl-120",
+      //   "LG-100": "lg-100",
+      //   "MD-80": "md-80",
+      //   "SM-60": "sm-60",
+      //   "XS-40": "xs-40"
+      // })
     },
-    example: (props) => <Radio value={/* TODO */} />,
+    example: (props) => <BannerIllustration />,
   },
 )

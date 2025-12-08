@@ -1,5 +1,5 @@
 import React from "react"
-import Input from "./Input"
+import CurrencyInput from "./CurrencyInput"
 import figma from "@figma/code-connect"
 
 /**
@@ -10,37 +10,29 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Input,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=2685%3A7021",
+  CurrencyInput,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=2161%3A1336",
   {
     props: {
       // These props were automatically mapped based on your linked code:
-      disabled: figma.enum("State", {
-        Disabled: true,
-      }),
-      readonly: figma.enum("State", {
-        "Read-only": true,
-      }),
       focused: figma.boolean("Focus?"),
-      placeholder: figma.string("Suffix"),
+      placeholder: figma.string("Label"),
+      autoFocus: figma.boolean("Focus?"),
+      defaultValue: figma.string("Value"),
+      value: figma.string("Value"),
       focusable: figma.boolean("Focus?"),
       hasTVPreferredFocus: figma.boolean("Focus?"),
-      "aria-disabled": figma.enum("State", {
-        Disabled: true,
-      }),
       // No matching props could be found for these Figma properties:
-      // "helperText": figma.boolean('Helper text?'),
-      // "label": figma.string('Label'),
       // "validation": figma.string('Validation'),
       // "helperText": figma.string('Helper text'),
+      // "label": figma.string('Label'),
       // "value": figma.string('Value'),
-      // "suffix": figma.boolean('Suffix?'),
-      // "prefix": figma.boolean('Prefix?'),
-      // "prefix": figma.string('Prefix'),
-      // "suffix": figma.string('Suffix'),
-      // "optional": figma.boolean('Optional?'),
+      // "helperText": figma.boolean('Helper text?'),
+      // "state": figma.enum('State', {
+      //   "Default": "default",
+      //   "Invalid": "invalid"
+      // }),
       // "valueType": figma.enum('Value type', {
-      //   "Empty": "empty",
       //   "Placeholder": "placeholder",
       //   "Filled": "filled"
       // }),
@@ -50,14 +42,14 @@ figma.connect(
       // })
     },
     example: (props) => (
-      <Input
-        disabled={props.disabled}
-        readonly={props.readonly}
+      <CurrencyInput
         focused={props.focused}
         placeholder={props.placeholder}
+        autoFocus={props.autoFocus}
+        defaultValue={props.defaultValue}
+        value={props.value}
         focusable={props.focusable}
         hasTVPreferredFocus={props.hasTVPreferredFocus}
-        aria-disabled={props.aria - disabled}
       />
     ),
   },

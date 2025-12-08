@@ -1,5 +1,5 @@
 import React from "react"
-import { Checkbox } from "./Checkbox"
+import SelectOption from "./SelectOption"
 import figma from "@figma/code-connect"
 
 /**
@@ -10,30 +10,27 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Checkbox,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=3087%3A7316",
+  SelectOption,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=4340%3A1252",
   {
     props: {
       // These props were automatically mapped based on your linked code:
+      label: figma.string("Label"),
+      selected: figma.boolean("Selected?"),
       disabled: figma.enum("State", {
-        Disabled: true,
-      }),
-      checked: figma.boolean("Checked?"),
-      "aria-disabled": figma.enum("State", {
-        Disabled: true,
+        Active: true,
       }),
       // No matching props could be found for these Figma properties:
       // "label": figma.string('Label'),
-      // "helperText": figma.string('Helper text'),
-      // "helperText": figma.boolean('Helper text?'),
-      // "validationText": figma.string('Validation text'),
-      // "image": figma.boolean('Image?')
+      // "icon": figma.boolean('Icon?'),
+      // "icon20": figma.instance('Icon-20')
     },
     example: (props) => (
-      <Checkbox
+      <SelectOption
+        label={props.label}
+        value={/* TODO */}
+        selected={props.selected}
         disabled={props.disabled}
-        checked={props.checked}
-        aria-disabled={props.aria - disabled}
       />
     ),
   },

@@ -1,5 +1,5 @@
 import React from "react"
-import SectionHeader from "./SectionHeader"
+import RadioTileRoot from "./RadioTileRoot"
 import figma from "@figma/code-connect"
 
 /**
@@ -11,21 +11,21 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  SectionHeader,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=9092%3A3352",
+  RadioTileRoot,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=3138%3A13222",
   {
     props: {
       // No matching props could be found for these Figma properties:
-      // "trailingContent": figma.boolean('Trailing content?'),
       // "helperText": figma.boolean('Helper text?'),
       // "helperText": figma.string('Helper text'),
-      // "heading": figma.string('Heading'),
-      // "badge": figma.boolean('Badge?'),
+      // "label": figma.string('Label'),
+      // "image": figma.boolean('Image?'),
       // "state": figma.enum('State', {
-      //   "Invalid": "invalid",
-      //   "Default": "default"
-      // })
+      //   "Default": "default",
+      //   "Focus": "focus"
+      // }),
+      // "checked": figma.boolean('Checked?')
     },
-    example: (props) => <SectionHeader />,
+    example: (props) => <RadioTileRoot />,
   },
 )

@@ -1,5 +1,5 @@
 import React from "react"
-import Spinner from "./Spinner"
+import { PillGroup } from "./PillGroup"
 import figma from "@figma/code-connect"
 
 /**
@@ -10,18 +10,13 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Spinner,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=61%3A195",
+  PillGroup,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=4348%3A15988",
   {
     props: {
       // These props were automatically mapped based on your linked code:
-      size: figma.enum("Size", {
-        "XS-20": "xs",
-        "SM-24": "sm",
-        "MD-32": "md",
-        "LG-44": "lg",
-      }),
+      wrap: figma.boolean("Wrap?"),
     },
-    example: (props) => <Spinner size={props.size} />,
+    example: (props) => <PillGroup value={/* TODO */} wrap={props.wrap} />,
   },
 )

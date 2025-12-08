@@ -1,5 +1,5 @@
 import React from "react"
-import Input from "./Input"
+import DatePickerInput from "./DatePickerInput"
 import figma from "@figma/code-connect"
 
 /**
@@ -10,51 +10,52 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Input,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=2685%3A7021",
+  DatePickerInput,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=3917%3A7057",
   {
     props: {
       // These props were automatically mapped based on your linked code:
-      disabled: figma.enum("State", {
+      disabled: figma.enum("Variant", {
         Disabled: true,
       }),
-      readonly: figma.enum("State", {
+      readonly: figma.enum("Variant", {
         "Read-only": true,
       }),
       focused: figma.boolean("Focus?"),
-      placeholder: figma.string("Suffix"),
+      placeholder: figma.string("Label"),
+      autoFocus: figma.boolean("Focus?"),
+      defaultValue: figma.string("Value"),
+      readOnly: figma.enum("Variant", {
+        "Read-only": true,
+      }),
       focusable: figma.boolean("Focus?"),
       hasTVPreferredFocus: figma.boolean("Focus?"),
-      "aria-disabled": figma.enum("State", {
+      "aria-disabled": figma.enum("Variant", {
         Disabled: true,
       }),
       // No matching props could be found for these Figma properties:
-      // "helperText": figma.boolean('Helper text?'),
+      // "helperText": figma.boolean('Helper  text?'),
       // "label": figma.string('Label'),
       // "validation": figma.string('Validation'),
       // "helperText": figma.string('Helper text'),
       // "value": figma.string('Value'),
-      // "suffix": figma.boolean('Suffix?'),
-      // "prefix": figma.boolean('Prefix?'),
-      // "prefix": figma.string('Prefix'),
-      // "suffix": figma.string('Suffix'),
-      // "optional": figma.boolean('Optional?'),
+      // "icon": figma.boolean('Icon?'),
+      // "calendar": figma.boolean('Calendar?'),
       // "valueType": figma.enum('Value type', {
       //   "Empty": "empty",
       //   "Placeholder": "placeholder",
       //   "Filled": "filled"
-      // }),
-      // "labelVariant": figma.enum('Label variant', {
-      //   "Body": "body",
-      //   "Heading": "heading"
       // })
     },
     example: (props) => (
-      <Input
+      <DatePickerInput
         disabled={props.disabled}
         readonly={props.readonly}
         focused={props.focused}
         placeholder={props.placeholder}
+        autoFocus={props.autoFocus}
+        defaultValue={props.defaultValue}
+        readOnly={props.readOnly}
         focusable={props.focusable}
         hasTVPreferredFocus={props.hasTVPreferredFocus}
         aria-disabled={props.aria - disabled}

@@ -1,5 +1,5 @@
 import React from "react"
-import Badge from "./Badge"
+import IconContainer from "./IconContainer"
 import figma from "@figma/code-connect"
 
 /**
@@ -10,46 +10,41 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Badge,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=61%3A652",
+  IconContainer,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=5462%3A9728",
   {
     props: {
       // These props were automatically mapped based on your linked code:
-      variant: figma.enum("Variant", {
-        "Subtle - Default": "subtle",
-        Emphasis: "emphasis",
-        Outline: "outline",
+      size: figma.enum("Size", {
+        "SM-32": "sm",
+        "MD-48": "md",
+        "LG-64": "lg",
       }),
-      colorScheme: figma.enum("Color Scheme", {
-        Info: "info",
-        Positive: "positive",
-        Danger: "danger",
-        Warning: "warning",
-        Functional: "functional",
+      radiusNone: figma.boolean("Radius None?"),
+      variant: figma.enum("Variant", {
+        Subtle: "subtle",
+        Emphasis: "emphasis",
+      }),
+      color: figma.enum("Color", {
+        Pig: "pig",
         Energy: "energy",
         Broadband: "broadband",
         Mobile: "mobile",
         Insurance: "insurance",
         Cashback: "cashback",
-        Pig: "pig",
         Highlight: "highlight",
       }),
-      size: figma.enum("Size", {
-        "SM-24": "sm",
-        "MD-28": "md",
-      }),
-      flatBase: figma.boolean("Flat Base?"),
       // No matching props could be found for these Figma properties:
-      // "icon": figma.boolean('Icon?'),
       // "icon20": figma.instance('Icon-20'),
-      // "text": figma.string('Text')
+      // "icon24": figma.instance('Icon-24')
     },
     example: (props) => (
-      <Badge
-        variant={props.variant}
-        colorScheme={props.colorScheme}
+      <IconContainer
+        icon={/* TODO */}
         size={props.size}
-        flatBase={props.flatBase}
+        radiusNone={props.radiusNone}
+        variant={props.variant}
+        color={props.color}
       />
     ),
   },

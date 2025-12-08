@@ -1,5 +1,5 @@
 import React from "react"
-import Radio from "./Radio"
+import ExpandableCardGroup from "./ExpandableCardGroup"
 import figma from "@figma/code-connect"
 
 /**
@@ -11,20 +11,13 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Radio,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=7428%3A12685",
+  ExpandableCardGroup,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=7222%3A7221",
   {
     props: {
       // No matching props could be found for these Figma properties:
-      // "helperText": figma.boolean('Helper text?'),
-      // "helperText": figma.string('Helper text'),
-      // "label": figma.string('Label'),
-      // "image": figma.boolean('Image?'),
-      // "state": figma.enum('State', {
-      //   "Default": "default"
-      // }),
-      // "checked": figma.boolean('Checked?')
+      // "sectionHeader": figma.boolean('Section header?')
     },
-    example: (props) => <Radio value={/* TODO */} />,
+    example: (props) => <ExpandableCardGroup />,
   },
 )

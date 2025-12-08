@@ -1,5 +1,5 @@
 import React from "react"
-import Input from "./Input"
+import Select from "./Select"
 import figma from "@figma/code-connect"
 
 /**
@@ -10,22 +10,24 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Input,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=2685%3A7021",
+  Select,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=3224%3A995",
   {
     props: {
       // These props were automatically mapped based on your linked code:
-      disabled: figma.enum("State", {
+      label: figma.string("Label"),
+      placeholder: figma.string("Label"),
+      disabled: figma.enum("Variant", {
         Disabled: true,
       }),
-      readonly: figma.enum("State", {
+      emptyText: figma.string("Helper text"),
+      readonly: figma.enum("Variant", {
         "Read-only": true,
       }),
-      focused: figma.boolean("Focus?"),
-      placeholder: figma.string("Suffix"),
+      collapsable: figma.boolean("Dropdown?"),
       focusable: figma.boolean("Focus?"),
       hasTVPreferredFocus: figma.boolean("Focus?"),
-      "aria-disabled": figma.enum("State", {
+      "aria-disabled": figma.enum("Variant", {
         Disabled: true,
       }),
       // No matching props could be found for these Figma properties:
@@ -34,27 +36,22 @@ figma.connect(
       // "validation": figma.string('Validation'),
       // "helperText": figma.string('Helper text'),
       // "value": figma.string('Value'),
-      // "suffix": figma.boolean('Suffix?'),
-      // "prefix": figma.boolean('Prefix?'),
-      // "prefix": figma.string('Prefix'),
-      // "suffix": figma.string('Suffix'),
+      // "dropdown": figma.boolean('Dropdown?'),
       // "optional": figma.boolean('Optional?'),
       // "valueType": figma.enum('Value type', {
       //   "Empty": "empty",
       //   "Placeholder": "placeholder",
-      //   "Filled": "filled"
-      // }),
-      // "labelVariant": figma.enum('Label variant', {
-      //   "Body": "body",
-      //   "Heading": "heading"
+      //   "Selected": "selected"
       // })
     },
     example: (props) => (
-      <Input
-        disabled={props.disabled}
-        readonly={props.readonly}
-        focused={props.focused}
+      <Select
+        label={props.label}
         placeholder={props.placeholder}
+        disabled={props.disabled}
+        emptyText={props.emptyText}
+        readonly={props.readonly}
+        collapsable={props.collapsable}
         focusable={props.focusable}
         hasTVPreferredFocus={props.hasTVPreferredFocus}
         aria-disabled={props.aria - disabled}

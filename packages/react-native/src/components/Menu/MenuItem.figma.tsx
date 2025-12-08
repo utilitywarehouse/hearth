@@ -1,5 +1,5 @@
 import React from "react"
-import { Checkbox } from "./Checkbox"
+import MenuItem from "./MenuItem"
 import figma from "@figma/code-connect"
 
 /**
@@ -10,30 +10,26 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Checkbox,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=3087%3A7316",
+  MenuItem,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=6416%3A11142",
   {
     props: {
       // These props were automatically mapped based on your linked code:
       disabled: figma.enum("State", {
-        Disabled: true,
+        Active: true,
       }),
-      checked: figma.boolean("Checked?"),
-      "aria-disabled": figma.enum("State", {
-        Disabled: true,
+      focusable: figma.enum("State", {
+        Focus: true,
       }),
       // No matching props could be found for these Figma properties:
-      // "label": figma.string('Label'),
-      // "helperText": figma.string('Helper text'),
-      // "helperText": figma.boolean('Helper text?'),
-      // "validationText": figma.string('Validation text'),
-      // "image": figma.boolean('Image?')
+      // "number": figma.string('Number'),
+      // "selected": figma.boolean('Selected?')
     },
     example: (props) => (
-      <Checkbox
+      <MenuItem
+        text={/* TODO */}
         disabled={props.disabled}
-        checked={props.checked}
-        aria-disabled={props.aria - disabled}
+        focusable={props.focusable}
       />
     ),
   },

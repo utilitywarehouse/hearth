@@ -1,5 +1,5 @@
 import React from "react"
-import SectionHeader from "./SectionHeader"
+import CheckboxTileRoot from "./CheckboxTileRoot"
 import figma from "@figma/code-connect"
 
 /**
@@ -11,21 +11,22 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  SectionHeader,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=9092%3A3352",
+  CheckboxTileRoot,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=4961%3A23797",
   {
     props: {
       // No matching props could be found for these Figma properties:
-      // "trailingContent": figma.boolean('Trailing content?'),
       // "helperText": figma.boolean('Helper text?'),
       // "helperText": figma.string('Helper text'),
-      // "heading": figma.string('Heading'),
-      // "badge": figma.boolean('Badge?'),
+      // "label": figma.string('Label'),
+      // "image": figma.boolean('Image?'),
       // "state": figma.enum('State', {
+      //   "Default": "default",
       //   "Invalid": "invalid",
-      //   "Default": "default"
-      // })
+      //   "Focus": "focus"
+      // }),
+      // "checked": figma.boolean('Checked?')
     },
-    example: (props) => <SectionHeader />,
+    example: (props) => <CheckboxTileRoot />,
   },
 )

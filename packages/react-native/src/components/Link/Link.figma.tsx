@@ -1,5 +1,5 @@
 import React from "react"
-import { Checkbox } from "./Checkbox"
+import Link from "./Link"
 import figma from "@figma/code-connect"
 
 /**
@@ -10,30 +10,32 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Checkbox,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=3087%3A7316",
+  Link,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=163%3A562",
   {
     props: {
       // These props were automatically mapped based on your linked code:
+      inverted: figma.boolean("Inverted?"),
       disabled: figma.enum("State", {
-        Disabled: true,
+        Active: true,
       }),
-      checked: figma.boolean("Checked?"),
-      "aria-disabled": figma.enum("State", {
-        Disabled: true,
+      showIcon: figma.boolean("Icon right?"),
+      focusable: figma.enum("State", {
+        Focus: true,
       }),
       // No matching props could be found for these Figma properties:
-      // "label": figma.string('Label'),
-      // "helperText": figma.string('Helper text'),
-      // "helperText": figma.boolean('Helper text?'),
-      // "validationText": figma.string('Validation text'),
-      // "image": figma.boolean('Image?')
+      // "iconLeft": figma.boolean('Icon left?'),
+      // "iconRight": figma.boolean('Icon right?'),
+      // "iconRight20": figma.instance('Icon right-20'),
+      // "iconLeft20": figma.instance('Icon left-20'),
+      // "text": figma.string('Text')
     },
     example: (props) => (
-      <Checkbox
+      <Link
+        inverted={props.inverted}
         disabled={props.disabled}
-        checked={props.checked}
-        aria-disabled={props.aria - disabled}
+        showIcon={props.showIcon}
+        focusable={props.focusable}
       />
     ),
   },

@@ -1,5 +1,5 @@
 import React from "react"
-import Spinner from "./Spinner"
+import Tabs from "./Tabs"
 import figma from "@figma/code-connect"
 
 /**
@@ -10,18 +10,20 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Spinner,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=61%3A195",
+  Tabs,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=6464%3A8744",
   {
     props: {
       // These props were automatically mapped based on your linked code:
       size: figma.enum("Size", {
-        "XS-20": "xs",
-        "SM-24": "sm",
-        "MD-32": "md",
-        "LG-44": "lg",
+        "MD-56": "md",
+        "LG-64": "lg",
       }),
+      // No matching props could be found for these Figma properties:
+      // "arrowLeft": figma.boolean('Arrow left?'),
+      // "arrowRight": figma.boolean('Arrow right?'),
+      // "condensed": figma.boolean('Condensed?')
     },
-    example: (props) => <Spinner size={props.size} />,
+    example: (props) => <Tabs size={props.size} />,
   },
 )

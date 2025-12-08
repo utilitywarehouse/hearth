@@ -1,5 +1,5 @@
 import React from "react"
-import Switch from "./Switch"
+import { Pill } from "./Pill"
 import figma from "@figma/code-connect"
 
 /**
@@ -10,32 +10,25 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Switch,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=3044%3A243",
+  Pill,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=4348%3A15595",
   {
     props: {
       // These props were automatically mapped based on your linked code:
-      disabled: figma.enum("State", {
-        Disabled: true,
-      }),
-      "aria-disabled": figma.enum("State", {
-        Disabled: true,
-      }),
+      label: figma.string("Label"),
       focusable: figma.enum("State", {
         Focus: true,
       }),
       // No matching props could be found for these Figma properties:
-      // "checked": figma.boolean('Checked?'),
-      // "size": figma.enum('Size', {
-      //   "MD-32": "md-32",
-      //   "SM-24": "sm-24"
-      // })
+      // "label": figma.string('Label'),
+      // "icon": figma.boolean('Icon?'),
+      // "icon20": figma.instance('Icon-20'),
+      // "selected": figma.boolean('Selected?')
     },
     example: (props) => (
-      <Switch
+      <Pill
         value={/* TODO */}
-        disabled={props.disabled}
-        aria-disabled={props.aria - disabled}
+        label={props.label}
         focusable={props.focusable}
       />
     ),

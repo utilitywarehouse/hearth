@@ -1,5 +1,5 @@
 import React from "react"
-import { Checkbox } from "./Checkbox"
+import UnstyledIconButton from "./UnstyledIconButton"
 import figma from "@figma/code-connect"
 
 /**
@@ -10,30 +10,41 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Checkbox,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=3087%3A7316",
+  UnstyledIconButton,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=2926%3A2430",
   {
     props: {
       // These props were automatically mapped based on your linked code:
       disabled: figma.enum("State", {
         Disabled: true,
       }),
-      checked: figma.boolean("Checked?"),
+      loading: figma.enum("State", {
+        Loading: true,
+      }),
+      size: figma.enum("Size", {
+        "SM-20": "sm",
+        "MD-24": "md",
+      }),
+      inverted: figma.boolean("Inverted?"),
       "aria-disabled": figma.enum("State", {
         Disabled: true,
       }),
+      focusable: figma.enum("State", {
+        Focus: true,
+      }),
       // No matching props could be found for these Figma properties:
-      // "label": figma.string('Label'),
-      // "helperText": figma.string('Helper text'),
-      // "helperText": figma.boolean('Helper text?'),
-      // "validationText": figma.string('Validation text'),
-      // "image": figma.boolean('Image?')
+      // "icon24": figma.instance('Icon-24'),
+      // "icon20": figma.instance('Icon-20')
     },
     example: (props) => (
-      <Checkbox
+      <UnstyledIconButton
         disabled={props.disabled}
-        checked={props.checked}
+        icon={/* TODO */}
+        loading={props.loading}
+        size={props.size}
+        inverted={props.inverted}
         aria-disabled={props.aria - disabled}
+        focusable={props.focusable}
       />
     ),
   },

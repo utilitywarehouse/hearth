@@ -1,5 +1,5 @@
 import React from "react"
-import ListItem from "./ListItem"
+import CardAction from "./CardAction"
 import figma from "@figma/code-connect"
 
 /**
@@ -10,8 +10,8 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  ListItem,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=2421%3A1628",
+  CardAction,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=8154%3A4346",
   {
     props: {
       // These props were automatically mapped based on your linked code:
@@ -28,20 +28,20 @@ figma.connect(
       // "listHeading": figma.string('List heading'),
       // "helperText": figma.boolean('Helper text?'),
       // "helperText": figma.string('Helper text'),
-      // "customContent": figma.instance('Custom content'),
-      // "badge": figma.boolean('Badge?'),
-      // "leadingContent": figma.boolean('Leading content?'),
-      // "trailingContent": figma.boolean('Trailing Content?'),
-      // "numericalValue": figma.boolean('Numerical value?'),
-      // "numericalValue": figma.string('Numerical value'),
-      // "variant": figma.enum('Variant', {
+      // "iconContainer": figma.boolean('Icon container?'),
+      // "trailingIcon20": figma.instance('Trailing icon-20'),
+      // "leadingIcon": figma.boolean('Leading Icon?'),
+      // "leadingIcon24": figma.instance('Leading icon-24'),
+      // "badgeRight": figma.boolean('Badge right?'),
+      // "badgeBottom": figma.boolean('Badge bottom?'),
+      // "badgeMiddle": figma.boolean('Badge middle?'),
+      // "size": figma.enum('Size', {
       //   "Default": "default",
-      //   "Custom": "custom"
-      // }),
-      // "paddingNone": figma.boolean('Padding None?')
+      //   "Large": "large"
+      // })
     },
     example: (props) => (
-      <ListItem
+      <CardAction
         loading={props.loading}
         disabled={props.disabled}
         aria-disabled={props.aria - disabled}

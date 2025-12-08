@@ -1,5 +1,5 @@
 import React from "react"
-import Spinner from "./Spinner"
+import Carousel from "./Carousel"
 import figma from "@figma/code-connect"
 
 /**
@@ -10,18 +10,17 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Spinner,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=61%3A195",
+  Carousel,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=5191%3A3220",
   {
     props: {
       // These props were automatically mapped based on your linked code:
-      size: figma.enum("Size", {
-        "XS-20": "xs",
-        "SM-24": "sm",
-        "MD-32": "md",
-        "LG-44": "lg",
-      }),
+      inverted: figma.boolean("Inverted?"),
+      // No matching props could be found for these Figma properties:
+      // "arrows": figma.boolean('Arrows?')
     },
-    example: (props) => <Spinner size={props.size} />,
+    example: (props) => (
+      <Carousel width={/* TODO */} inverted={props.inverted} />
+    ),
   },
 )

@@ -1,5 +1,5 @@
 import React from "react"
-import Radio from "./Radio"
+import ListItemLeadingContent from "./ListItemLeadingContent"
 import figma from "@figma/code-connect"
 
 /**
@@ -11,20 +11,19 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Radio,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=7428%3A12685",
+  ListItemLeadingContent,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=6732%3A5792",
   {
     props: {
       // No matching props could be found for these Figma properties:
-      // "helperText": figma.boolean('Helper text?'),
-      // "helperText": figma.string('Helper text'),
-      // "label": figma.string('Label'),
-      // "image": figma.boolean('Image?'),
-      // "state": figma.enum('State', {
-      //   "Default": "default"
-      // }),
-      // "checked": figma.boolean('Checked?')
+      // "icon24": figma.instance('Icon-24'),
+      // "variant": figma.enum('Variant', {
+      //   "Icon": "icon",
+      //   "Icon Container": "icon-container",
+      //   "Avatar": "avatar",
+      //   "Indicator": "indicator"
+      // })
     },
-    example: (props) => <Radio value={/* TODO */} />,
+    example: (props) => <ListItemLeadingContent />,
   },
 )

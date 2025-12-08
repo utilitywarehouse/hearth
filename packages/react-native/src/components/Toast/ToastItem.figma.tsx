@@ -1,5 +1,5 @@
 import React from "react"
-import Radio from "./Radio"
+import ToastItem from "./ToastItem"
 import figma from "@figma/code-connect"
 
 /**
@@ -11,20 +11,17 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  Radio,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=7428%3A12685",
+  ToastItem,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=7072%3A913",
   {
     props: {
       // No matching props could be found for these Figma properties:
-      // "helperText": figma.boolean('Helper text?'),
-      // "helperText": figma.string('Helper text'),
-      // "label": figma.string('Label'),
-      // "image": figma.boolean('Image?'),
-      // "state": figma.enum('State', {
-      //   "Default": "default"
-      // }),
-      // "checked": figma.boolean('Checked?')
+      // "link": figma.boolean('Link?'),
+      // "text": figma.string('Text'),
+      // "icon": figma.boolean('Icon?'),
+      // "icon24": figma.instance('Icon-24'),
+      // "dismiss": figma.boolean('Dismiss?')
     },
-    example: (props) => <Radio value={/* TODO */} />,
+    example: (props) => <ToastItem toast={/* TODO */} onClose={/* TODO */} />,
   },
 )
