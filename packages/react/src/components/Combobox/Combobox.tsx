@@ -10,7 +10,7 @@ import { FormField } from '../FormField/FormField';
 import { ComboboxProps } from './Combobox.props';
 import { Combobox as BaseUICombobox } from '@base-ui-components/react/combobox';
 import { InputBase } from '../InputBase/InputBase';
-import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
+import { InputSlot } from '../InputSlot/InputSlot';
 import {
   CloseSmallIcon,
   ExpandSmallIcon,
@@ -66,24 +66,24 @@ export const Combobox = (props: ComboboxProps) => {
         <BaseUICombobox.Input
           render={
             <InputBase id={id}>
-              <TextInputSlot placement="prefix">
+              <InputSlot placement="prefix">
                 <SearchMediumIcon />
-              </TextInputSlot>
+              </InputSlot>
               <BaseUICombobox.Clear
                 aria-label="Clear selection"
                 render={
-                  <TextInputSlot placement="suffix">
+                  <InputSlot placement="suffix">
                     <CloseSmallIcon />
-                  </TextInputSlot>
+                  </InputSlot>
                 }
               />
               {triggerOnlyOnType ? null : (
                 <BaseUICombobox.Trigger
                   aria-label="Open popup"
                   render={
-                    <TextInputSlot placement="suffix">
+                    <InputSlot placement="suffix">
                       <ExpandSmallIcon />
-                    </TextInputSlot>
+                    </InputSlot>
                   }
                 />
               )}

@@ -109,8 +109,8 @@ export type { ValidationTextProps } from './components/ValidationText/Validation
 export { TextInput } from './components/TextInput/TextInput';
 export type { TextInputProps } from './components/TextInput/TextInput.props';
 
-export { TextInputSlot } from './components/TextInputSlot/TextInputSlot';
-export type { TextInputSlotProps } from './components/TextInputSlot/TextInputSlot.props';
+export { InputSlot } from './components/InputSlot/InputSlot';
+export type { InputSlotProps } from './components/InputSlot/InputSlot.props';
 
 export { PasswordInput } from './components/PasswordInput/PasswordInput';
 export type { PasswordInputProps } from './components/PasswordInput/PasswordInput.props';
