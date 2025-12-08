@@ -24,7 +24,7 @@ figma.connect(
       // "color": figma.enum('Color', {
       //   "Purple": "purple",
       //   "White": "white"
-      
+
       // })
     },
     example: (props) => <TableHeaderCell />,
