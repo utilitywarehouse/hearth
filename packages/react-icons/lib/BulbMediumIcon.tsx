@@ -1,28 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const BulbMediumIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={24}
-        height={24}
-        fill="none"
-        viewBox="0 0 24 24"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M8 18v-3.25a6.7 6.7 0 0 1-2.213-2.5A7 7 0 0 1 5 9q0-2.925 2.037-4.962T12 2t4.962 2.037T19 9a6.9 6.9 0 0 1-.788 3.238A6.96 6.96 0 0 1 16 14.75V18zm1 4v-2h6v2z"
-        />
-      </svg>
-    );
-  }
-);
-BulbMediumIcon.displayName = 'BulbMediumIcon';
+export const BulbMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M8 18v-3.25a6.7 6.7 0 0 1-2.213-2.5A7 7 0 0 1 5 9q0-2.925 2.037-4.962T12 2t4.962 2.037T19 9a6.9 6.9 0 0 1-.788 3.238A6.96 6.96 0 0 1 16 14.75V18zm1 4v-2h6v2z" /></svg>;
+});
+BulbMediumIcon.displayName = "BulbMediumIcon";

@@ -1,28 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const ShoppingMediumIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={24}
-        height={24}
-        fill="none"
-        viewBox="0 0 24 24"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M4 22V6h4c0-1.1.4-2 1.2-2.8S10.9 2 12 2s2 .4 2.8 1.2S16 4.9 16 6h4v16zm6-16h4c0-.6-.2-1-.6-1.4S12.5 4 12 4s-1 .2-1.4.6-.6.9-.6 1.4m-1 5c.6 0 1-.4 1-1V9c0-.6-.4-1-1-1s-1 .4-1 1v1c0 .6.4 1 1 1m6 0c.6 0 1-.4 1-1V9c0-.6-.4-1-1-1s-1 .4-1 1v1c0 .6.4 1 1 1"
-        />
-      </svg>
-    );
-  }
-);
-ShoppingMediumIcon.displayName = 'ShoppingMediumIcon';
+export const ShoppingMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M4 22V6h4c0-1.1.4-2 1.2-2.8S10.9 2 12 2s2 .4 2.8 1.2S16 4.9 16 6h4v16zm6-16h4c0-.6-.2-1-.6-1.4S12.5 4 12 4s-1 .2-1.4.6-.6.9-.6 1.4m-1 5c.6 0 1-.4 1-1V9c0-.6-.4-1-1-1s-1 .4-1 1v1c0 .6.4 1 1 1m6 0c.6 0 1-.4 1-1V9c0-.6-.4-1-1-1s-1 .4-1 1v1c0 .6.4 1 1 1" /></svg>;
+});
+ShoppingMediumIcon.displayName = "ShoppingMediumIcon";

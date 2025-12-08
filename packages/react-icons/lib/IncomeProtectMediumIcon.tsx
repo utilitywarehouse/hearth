@@ -1,30 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const IncomeProtectMediumIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={24}
-        height={24}
-        fill="none"
-        viewBox="0 0 24 24"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          fillRule="evenodd"
-          d="M21 4.65v6.405q0 3.99-2.545 7.259Q15.909 21.58 12 22.5q-3.91-.92-6.455-4.186-2.544-3.27-2.545-7.26V4.65l9-3.15zm-8.608 1.638q-.966 0-1.708.348-.742.346-1.162.988t-.42 1.537q0 .441.098.842.079.27.173.535H8.234v1.35h1.55q.018.147.018.294 0 .561-.126 1.002a2.5 2.5 0 0 1-.364.789 5 5 0 0 1-.616.694v1.136h7.07v-1.59h-4.914q.533-.455.729-.99.21-.548.21-1.055-.001-.14-.016-.28h2.227v-1.35h-2.586a16 16 0 0 1-.228-.655 2.4 2.4 0 0 1-.098-.642q0-.428.183-.721.18-.294.489-.44.308-.148.672-.148.658 0 .994.374.335.375.35.949h1.946a3.34 3.34 0 0 0-.42-1.497q-.364-.668-1.092-1.069-.714-.4-1.82-.4"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
-);
-IncomeProtectMediumIcon.displayName = 'IncomeProtectMediumIcon';
+export const IncomeProtectMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} fillRule="evenodd" d="M21 4.65v6.405q0 3.99-2.545 7.259Q15.909 21.58 12 22.5q-3.91-.92-6.455-4.186-2.544-3.27-2.545-7.26V4.65l9-3.15zm-8.608 1.638q-.966 0-1.708.348-.742.346-1.162.988t-.42 1.537q0 .441.098.842.079.27.173.535H8.234v1.35h1.55q.018.147.018.294 0 .561-.126 1.002a2.5 2.5 0 0 1-.364.789 5 5 0 0 1-.616.694v1.136h7.07v-1.59h-4.914q.533-.455.729-.99.21-.548.21-1.055-.001-.14-.016-.28h2.227v-1.35h-2.586a16 16 0 0 1-.228-.655 2.4 2.4 0 0 1-.098-.642q0-.428.183-.721.18-.294.489-.44.308-.148.672-.148.658 0 .994.374.335.375.35.949h1.946a3.34 3.34 0 0 0-.42-1.497q-.364-.668-1.092-1.069-.714-.4-1.82-.4" clipRule="evenodd" /></svg>;
+});
+IncomeProtectMediumIcon.displayName = "IncomeProtectMediumIcon";

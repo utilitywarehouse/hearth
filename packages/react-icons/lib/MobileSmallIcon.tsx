@@ -1,28 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const MobileSmallIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={20}
-        height={20}
-        fill="none"
-        viewBox="0 0 20 20"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M5 18V2h10v16zm5-1.818q.303 0 .509-.21a.7.7 0 0 0 .205-.518.71.71 0 0 0-.714-.727.71.71 0 0 0-.714.727.71.71 0 0 0 .714.728m-3.571-3.273h7.142V5.636H6.43z"
-        />
-      </svg>
-    );
-  }
-);
-MobileSmallIcon.displayName = 'MobileSmallIcon';
+export const MobileSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M5 18V2h10v16zm5-1.818q.303 0 .509-.21a.7.7 0 0 0 .205-.518.71.71 0 0 0-.714-.727.71.71 0 0 0-.714.727.71.71 0 0 0 .714.728m-3.571-3.273h7.142V5.636H6.43z" /></svg>;
+});
+MobileSmallIcon.displayName = "MobileSmallIcon";

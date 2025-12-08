@@ -1,28 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const OpenMediumIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={24}
-        height={24}
-        fill="none"
-        viewBox="0 0 24 24"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M3 21V3h9v2H5v14h14v-7h2v9zm6.7-5.3-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z"
-        />
-      </svg>
-    );
-  }
-);
-OpenMediumIcon.displayName = 'OpenMediumIcon';
+export const OpenMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M3 21V3h9v2H5v14h14v-7h2v9zm6.7-5.3-1.4-1.4L17.6 5H14V3h7v7h-2V6.4z" /></svg>;
+});
+OpenMediumIcon.displayName = "OpenMediumIcon";

@@ -1,28 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const LocateSmallIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={20}
-        height={20}
-        fill="none"
-        viewBox="0 0 20 20"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M2.6 17.4V12h2.04v3.359H8V17.4zm9.4 0v-2.04h3.359V12H17.4v5.4zM2.6 8V2.6H8v2.04H4.641V8zm12.759 0V4.641H12V2.6h5.4V8zM10 12.4a2.3 2.3 0 0 1-1.693-.707A2.3 2.3 0 0 1 7.6 10q0-.987.707-1.693A2.3 2.3 0 0 1 10 7.6a2.3 2.3 0 0 1 1.693.707A2.3 2.3 0 0 1 12.4 10a2.3 2.3 0 0 1-.707 1.693A2.3 2.3 0 0 1 10 12.4"
-        />
-      </svg>
-    );
-  }
-);
-LocateSmallIcon.displayName = 'LocateSmallIcon';
+export const LocateSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M2.6 17.4V12h2.04v3.359H8V17.4zm9.4 0v-2.04h3.359V12H17.4v5.4zM2.6 8V2.6H8v2.04H4.641V8zm12.759 0V4.641H12V2.6h5.4V8zM10 12.4a2.3 2.3 0 0 1-1.693-.707A2.3 2.3 0 0 1 7.6 10q0-.987.707-1.693A2.3 2.3 0 0 1 10 7.6a2.3 2.3 0 0 1 1.693.707A2.3 2.3 0 0 1 12.4 10a2.3 2.3 0 0 1-.707 1.693A2.3 2.3 0 0 1 10 12.4" /></svg>;
+});
+LocateSmallIcon.displayName = "LocateSmallIcon";
