@@ -22,6 +22,7 @@ export { borderColorValues } from './props/border-color.props';
  ********************/
 export { media } from './utils/media';
 export { useMediaQuery } from './hooks/use-media-query';
+export { useFilter } from './hooks/use-filter';
 
 /********************
  *

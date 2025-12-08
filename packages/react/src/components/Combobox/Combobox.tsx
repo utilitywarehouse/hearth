@@ -11,8 +11,13 @@ import { ComboboxProps } from './Combobox.props';
 import { Combobox as BaseUICombobox } from '@base-ui-components/react/combobox';
 import { InputBase } from '../InputBase/InputBase';
 import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
-import { CloseSmallIcon, ExpandSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import {
+  CloseSmallIcon,
+  ExpandSmallIcon,
+  SearchMediumIcon,
+} from '@utilitywarehouse/hearth-react-icons';
 import { ComboboxItem } from './ComboboxItem';
+import { ScrollArea as RadixScrollArea } from 'radix-ui';
 
 const COMPONENT_NAME = 'Combobox';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -21,8 +26,7 @@ export const Combobox = (props: ComboboxProps) => {
   const {
     className,
     children,
-    // placeholder,
-    dropdown,
+    triggerOnlyOnType,
     validationStatus,
     validationText,
     label,
@@ -58,10 +62,13 @@ export const Combobox = (props: ComboboxProps) => {
       data-disabled={disabled ? '' : undefined}
       {...formFieldProps}
     >
-      <BaseUICombobox.Root {...comboboxProps}>
+      <BaseUICombobox.Root openOnInputClick={!triggerOnlyOnType} {...comboboxProps}>
         <BaseUICombobox.Input
           render={
             <InputBase id={id}>
+              <TextInputSlot placement="prefix">
+                <SearchMediumIcon />
+              </TextInputSlot>
               <BaseUICombobox.Clear
                 aria-label="Clear selection"
                 render={
@@ -70,7 +77,7 @@ export const Combobox = (props: ComboboxProps) => {
                   </TextInputSlot>
                 }
               />
-              {dropdown ? (
+              {triggerOnlyOnType ? null : (
                 <BaseUICombobox.Trigger
                   aria-label="Open popup"
                   render={
@@ -79,25 +86,35 @@ export const Combobox = (props: ComboboxProps) => {
                     </TextInputSlot>
                   }
                 />
-              ) : null}
+              )}
             </InputBase>
           }
         />
 
         <BaseUICombobox.Portal>
-          <BaseUICombobox.Positioner side="bottom" sideOffset={16} align="start" alignOffset={-16}>
-            <BaseUICombobox.Popup>
+          <BaseUICombobox.Positioner side="bottom" sideOffset={16} align="start" alignOffset={-46}>
+            <BaseUICombobox.Popup className={`${componentClassName}Popup`}>
               {/* <Combobox.Status /> */}
               {/* <Combobox.Empty /> */}
-              <BaseUICombobox.List className={`${componentClassName}Content`}>
-                {children
-                  ? children
-                  : (item: string) => (
-                      <ComboboxItem key={item} value={item}>
-                        {item}
-                      </ComboboxItem>
-                    )}
-              </BaseUICombobox.List>
+              <RadixScrollArea.Root className="hearth-ScrollAreaRoot" type="auto">
+                <RadixScrollArea.Viewport className="hearth-ScrollAreaViewport">
+                  <BaseUICombobox.List className={`${componentClassName}List`}>
+                    {children
+                      ? children
+                      : (item: string) => (
+                          <ComboboxItem key={item} value={item}>
+                            {item}
+                          </ComboboxItem>
+                        )}
+                  </BaseUICombobox.List>
+                </RadixScrollArea.Viewport>
+                <RadixScrollArea.Scrollbar
+                  className="hearth-ScrollAreaScrollbar"
+                  orientation="vertical"
+                >
+                  <RadixScrollArea.Thumb className="hearth-ScrollAreaThumb" />
+                </RadixScrollArea.Scrollbar>
+              </RadixScrollArea.Root>
             </BaseUICombobox.Popup>
           </BaseUICombobox.Positioner>
         </BaseUICombobox.Portal>

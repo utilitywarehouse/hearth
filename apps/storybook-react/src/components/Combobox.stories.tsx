@@ -19,11 +19,10 @@ const meta: Meta<typeof Combobox> = {
   args: {
     label: 'Combobox',
     helperText: 'Helper text',
-    // placeholder: 'Combobox',
     validationText: 'Validation text',
     disabled: false,
     required: false,
-    dropdown: false,
+    triggerOnlyOnType: false,
   },
 };
 
@@ -32,7 +31,36 @@ type Story = StoryObj<typeof Combobox>;
 
 export const Playground: Story = {
   render: args => {
-    const fruit = ['Apple', 'Banana', 'Orange'];
-    return <Combobox {...args} items={fruit} />;
+    const fruits = ['Apple', 'Banana', 'Orange'];
+    return <Combobox {...args} items={fruits} />;
+  },
+};
+
+export const ItemsAsChildren: Story = {
+  render: args => {
+    const fruits = ['Apple', 'Banana', 'Orange'];
+    return (
+      <Combobox {...args}>
+        {fruits.map(fruit => (
+          <ComboboxItem key={fruit} value={fruit}>
+            {fruit}
+          </ComboboxItem>
+        ))}
+      </Combobox>
+    );
+  },
+};
+
+export const ScrollArea: Story = {
+  render: args => {
+    return (
+      <Combobox {...args}>
+        {[...Array(100).keys()].map(n => (
+          <ComboboxItem key={n + 1} value={`Item ${n + 1}`}>
+            Item {n + 1}
+          </ComboboxItem>
+        ))}
+      </Combobox>
+    );
   },
 };

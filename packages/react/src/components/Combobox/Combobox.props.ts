@@ -3,8 +3,8 @@ import { FormFieldProps } from '../FormField/FormField.props';
 import { Combobox as BaseUICombobox } from '@base-ui-components/react/combobox';
 
 export interface ComboboxProps
-  extends React.ComponentPropsWithRef<typeof BaseUICombobox.Root>,
+  extends Omit<React.ComponentPropsWithRef<typeof BaseUICombobox.Root>, 'openOnInputClick'>,
     Omit<FormFieldProps, 'hideLabel'>,
     MarginProps {
-  dropdown?: boolean;
+  triggerOnlyOnType?: boolean;
 }
