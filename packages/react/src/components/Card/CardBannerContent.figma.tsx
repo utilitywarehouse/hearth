@@ -1,5 +1,5 @@
-import figma from '@figma/code-connect';
 import React from 'react';
+import figma from '@figma/code-connect';
 import { CardBannerContent } from './CardBannerContent';
 
 /**
@@ -15,6 +15,6 @@ figma.connect(
   'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=8294%3A3905',
   {
     props: {},
-    example: props => <CardBannerContent heading={null} />,
+    example: props => <CardBannerContent heading="Sample Heading" {...props}  />,
   }
 );

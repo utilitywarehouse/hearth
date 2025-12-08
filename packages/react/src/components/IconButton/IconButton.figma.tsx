@@ -44,7 +44,7 @@ figma.connect(IconButton, 'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?n
       disabled={props.disabled}
       loading={props.loading}
       inverted={props.inverted}
-      label={null}
+      label=''
       size={props.size}
     />
   ),

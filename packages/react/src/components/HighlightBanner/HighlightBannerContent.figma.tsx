@@ -31,7 +31,6 @@ figma.connect(
     },
     example: props => (
       <HighlightBannerContent
-        as={null}
         color={props.color}
         backgroundColor={props.backgroundColor}
       />

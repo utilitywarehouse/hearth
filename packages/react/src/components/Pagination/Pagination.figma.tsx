@@ -22,9 +22,9 @@ figma.connect(
     },
     example: props => (
       <Pagination
-        currentPage={null}
-        totalPages={null}
-        onPageChange={null}
+        currentPage={1}
+        onPageChange={() => console.log('on page change')}
+        totalPages={5}
         condensed={props.condensed}
         hideSkipButtons={props.hideSkipButtons}
       />
