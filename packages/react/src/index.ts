@@ -286,3 +286,8 @@ export type { HighlightBannerContentProps } from './components/HighlightBanner/H
 
 export { DatePicker } from './components/DatePicker/DatePicker';
 export type { DatePickerProps } from './components/DatePicker/DatePicker.props';
+
+export { Combobox } from './components/Combobox/Combobox';
+export type { ComboboxProps } from './components/Combobox/Combobox.props';
+export { ComboboxItem } from './components/Combobox/ComboboxItem';
+export type { ComboboxItemProps } from './components/Combobox/ComboboxItem.props';
