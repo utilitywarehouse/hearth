@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import type { ChangeEvent, ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';

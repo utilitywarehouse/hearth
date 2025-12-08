@@ -54,6 +54,7 @@
       calc(var(--h-progress-bar-circular-size) - var(--h-progress-bar-circular-bar-width)) / 2
     );
     --h-circumference: calc(2 * var(--h-pi) * var(--h-radius));
+    /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties -- set in component code */
     --h-stroke-dashoffset: calc(
       var(--h-circumference) - calc(calc(var(--h-value) / 100) * var(--h-circumference))
     );
@@ -97,7 +98,7 @@
         );
         --h-content-margin-top: var(--h-space-75);
         --h-progress-bar-label-display: block;
-        --h-progress-bar-value-text-font-weight: var(--h-body-text-font-weight-regular);
+        --h-progress-bar-value-text-font-weight: var(--h-body-text-font-weight);
       }
 
       &:where(.hearth-r-size-sm &) {

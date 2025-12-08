@@ -1,3 +1,4 @@
+/* stylelint-disable csstools/value-no-unknown-custom-properties */
 @breakpoints {
   .hearth-r-flex-direction-row {
     flex-direction: row;

@@ -1,5 +1,5 @@
 import React from "react"
-import { TableCell } from "./TableCell"
+import { TableHeaderCell } from "./TableHeaderCell"
 import figma from "@figma/code-connect"
 
 /**
@@ -11,21 +11,22 @@ import figma from "@figma/code-connect"
  */
 
 figma.connect(
-  TableCell,
-  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=6403%3A8140",
+  TableHeaderCell,
+  "https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id=6414%3A6728",
   {
     props: {
       // No matching props could be found for these Figma properties:
-      // "text": figma.string('Text'),
+      // "sort": figma.boolean('Sort?'),
       // "variant": figma.enum('Variant', {
       //   "Text": "text",
-      //   "Badge": "badge",
-      //   "Link": "link",
-      //   "Button": "button",
-      //   "Roundel": "roundel",
-      //   "Custom content": "custom-content"
+      //   "Blank": "blank"
+      // }),
+      // "color": figma.enum('Color', {
+      //   "Purple": "purple",
+      //   "White": "white"
+      
       // })
     },
-    example: (props) => <TableCell />,
+    example: (props) => <TableHeaderCell />,
   },
 )

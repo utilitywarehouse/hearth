@@ -12,37 +12,23 @@ import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
+## Alternatives
+
+- [DatePicker](?path=/docs/components-datepicker--docs) - For when a calendar adds visual benefit to the user.
+
 ## Validation
 
-`DateInput` shows validation states visually, but **you implement the validation logic**.
-This gives you full control over your validation rules.
-
-Set `validationStatus` to `"valid"` or `"invalid"` and provide `validationText`
-to explain the validation result.
-
-<Canvas of={Stories.Validation} />
-
-Here's a complete example showing how to implement date validation:
+`DateInput` provides the UI for `valid` & `invalid` states visually, however
+there is not internal validation logic.
 
 <Canvas of={Stories.WithCustomValidation} />
 
 ## Optional inputs
 
-Control which inputs are shown using `hideDay`, `hideMonth`, and `hideYear` props.
-
-This is useful for specific use cases:
+Control which inputs are shown using `hideDay`, `hideMonth`, and `hideYear`
+props.
 
 <Canvas of={Stories.FlexibleSegments} />
-
-## Grouping inputs
-
-When grouping date inputs with other form fields, use the `fieldset` and `legend`
-elements. This ensures the group title is properly associated with child input elements.
-
-Make sure you place the `legend` element as the first child of the `fieldset`,
-otherwise the relationship is broken.
-
-<Canvas of={Stories.GroupingInputs} />
 
 ## API
 

@@ -93,14 +93,14 @@
   }
 
   to {
-    /* stylelint-disable-next-line custom-property-pattern -- Radix UI specific custom property */
+    /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
     height: var(--radix-accordion-content-height);
   }
 }
 
 @keyframes hearth-slide-up {
   from {
-    /* stylelint-disable-next-line custom-property-pattern -- Radix UI specific custom property */
+    /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
     height: var(--radix-accordion-content-height);
   }
 

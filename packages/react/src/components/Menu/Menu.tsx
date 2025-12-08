@@ -1,3 +1,5 @@
+'use client';
+
 import * as React from 'react';
 import { MenuProps } from './Menu.props';
 import { DropdownMenu as RadixMenu } from 'radix-ui';

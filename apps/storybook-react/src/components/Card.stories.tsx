@@ -100,16 +100,17 @@ export const KitchenSink: Story = {
           <Flex gap="300" asChild direction="column">
             <ul role="list">
               {neutralColorSchemes.map(colorScheme => (
-                <Card
-                  key={`${variant}${colorScheme}`}
-                  as="li"
-                  variant={variant}
-                  colorScheme={colorScheme}
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <DetailText size="sm">{children}</DetailText>
-                </Card>
+                <li>
+                  <Card
+                    key={`${variant}${colorScheme}`}
+                    variant={variant}
+                    colorScheme={colorScheme}
+                    justifyContent="center"
+                    alignItems="center"
+                  >
+                    <DetailText size="sm">{children}</DetailText>
+                  </Card>
+                </li>
               ))}
             </ul>
           </Flex>
@@ -117,7 +118,6 @@ export const KitchenSink: Story = {
       </Flex>
       <Flex justifyContent="center">
         <Card
-          as="li"
           variant="subtle"
           colorScheme="highlight"
           justifyContent="center"
@@ -132,21 +132,22 @@ export const KitchenSink: Story = {
           <Flex gap="300" asChild direction="column">
             <ul role="list">
               {brandColorSchemes.map(colorScheme => (
-                <Card
-                  key={`${colorScheme}`}
-                  as="li"
-                  variant={variant}
-                  colorScheme={colorScheme}
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <DetailText
-                    size="sm"
-                    inverted={colorScheme === 'brand' && variant === 'emphasis'}
+                <li>
+                  <Card
+                    key={`${colorScheme}`}
+                    variant={variant}
+                    colorScheme={colorScheme}
+                    justifyContent="center"
+                    alignItems="center"
                   >
-                    {children}
-                  </DetailText>
-                </Card>
+                    <DetailText
+                      size="sm"
+                      inverted={colorScheme === 'brand' && variant === 'emphasis'}
+                    >
+                      {children}
+                    </DetailText>
+                  </Card>
+                </li>
               ))}
             </ul>
           </Flex>
@@ -182,202 +183,207 @@ export const InteractiveCards: Story = {
       <Flex padding="600" gap="400" direction="column" alignItems="center">
         <Flex gap="300" width="800px" asChild>
           <ul role="list">
-            <Card
-              as="li"
-              variant="emphasis"
-              colorScheme="neutralStrong"
-              flex="1"
-              direction="column"
-              gap="150"
-            >
-              <Heading size="sm">Neutral Card</Heading>
-              <BodyText size="md">neutralStrong & emphasis</BodyText>
-              <CardInteraction asChild>
-                <Link href="#">
-                  Link
-                  <ChevronRightSmallIcon />
-                </Link>
-              </CardInteraction>
-            </Card>
-            <Card as="li" variant="subtle" colorScheme="neutralStrong" flex="1">
-              <Flex direction="column" gap="150">
+            <li>
+              <Card
+                variant="emphasis"
+                colorScheme="neutralStrong"
+                flex="1"
+                direction="column"
+                gap="150"
+              >
                 <Heading size="sm">Neutral Card</Heading>
-                <BodyText size="md">neutralStrong & subtle</BodyText>
+                <BodyText size="md">neutralStrong & emphasis</BodyText>
                 <CardInteraction asChild>
                   <Link href="#">
                     Link
                     <ChevronRightSmallIcon />
                   </Link>
                 </CardInteraction>
-              </Flex>
-            </Card>
-            <Card as="li" variant="emphasis" colorScheme="neutralSubtle" flex="1">
-              <Flex direction="column" gap="150">
-                <Heading size="sm">Neutral Card</Heading>
-                <BodyText size="md">neutralSubtle & emphasis</BodyText>
-                <CardInteraction asChild>
-                  <Link href="#">
-                    Link
-                    <ChevronRightSmallIcon />
-                  </Link>
-                </CardInteraction>
-              </Flex>
-            </Card>
-            <Card as="li" variant="subtle" colorScheme="neutralSubtle" flex="1">
-              <Flex direction="column" gap="150">
-                <Heading size="sm">Neutral Card</Heading>
-                <BodyText size="md">neutralSubtle & subtle</BodyText>
-                <CardInteraction asChild>
-                  <Link href="#">
-                    Link
-                    <ChevronRightSmallIcon />
-                  </Link>
-                </CardInteraction>
-              </Flex>
-            </Card>
+              </Card>
+            </li>
+            <li>
+              <Card variant="subtle" colorScheme="neutralStrong" flex="1">
+                <Flex direction="column" gap="150">
+                  <Heading size="sm">Neutral Card</Heading>
+                  <BodyText size="md">neutralStrong & subtle</BodyText>
+                  <CardInteraction asChild>
+                    <Link href="#">
+                      Link
+                      <ChevronRightSmallIcon />
+                    </Link>
+                  </CardInteraction>
+                </Flex>
+              </Card>
+            </li>
+            <li>
+              <Card variant="emphasis" colorScheme="neutralSubtle" flex="1">
+                <Flex direction="column" gap="150">
+                  <Heading size="sm">Neutral Card</Heading>
+                  <BodyText size="md">neutralSubtle & emphasis</BodyText>
+                  <CardInteraction asChild>
+                    <Link href="#">
+                      Link
+                      <ChevronRightSmallIcon />
+                    </Link>
+                  </CardInteraction>
+                </Flex>
+              </Card>
+            </li>
+            <li>
+              <Card variant="subtle" colorScheme="neutralSubtle" flex="1">
+                <Flex direction="column" gap="150">
+                  <Heading size="sm">Neutral Card</Heading>
+                  <BodyText size="md">neutralSubtle & subtle</BodyText>
+                  <CardInteraction asChild>
+                    <Link href="#">
+                      Link
+                      <ChevronRightSmallIcon />
+                    </Link>
+                  </CardInteraction>
+                </Flex>
+              </Card>
+            </li>
           </ul>
         </Flex>
 
         <Flex asChild gap="300" width="700px">
           <ul role="list">
-            <Card as="li" variant="subtle" colorScheme="brand" flex="1">
-              <Flex direction="column" gap="150" justifyContent="between">
-                <Heading size="sm">Brand Card</Heading>
-                <BodyText size="md">Content</BodyText>
-                <CardInteraction asChild>
-                  <Link href="#">
-                    Link
-                    <ChevronRightSmallIcon />
-                  </Link>
-                </CardInteraction>
-              </Flex>
-            </Card>
-            <Card as="li" variant="subtle" colorScheme="pig" flex="1">
-              <Flex direction="column" gap="150" justifyContent="between">
-                <Heading size="sm">Pig Card</Heading>
-                <BodyText size="md">Content</BodyText>
-                <CardInteraction asChild>
-                  <Link href="#">
-                    Link
-                    <ChevronRightSmallIcon />
-                  </Link>
-                </CardInteraction>
-              </Flex>
-            </Card>
-            <Card as="li" variant="subtle" colorScheme="highlight" flex="1">
-              <Flex direction="column" gap="150" justifyContent="between">
-                <Heading size="sm">Highlight Card</Heading>
-                <BodyText size="md">Content</BodyText>
-                <CardInteraction asChild>
-                  <Link href="#">
-                    Link
-                    <ChevronRightSmallIcon />
-                  </Link>
-                </CardInteraction>
-              </Flex>
-            </Card>
+            <li>
+              <Card variant="subtle" colorScheme="brand" flex="1">
+                <Flex direction="column" gap="150" justifyContent="between">
+                  <Heading size="sm">Brand Card</Heading>
+                  <BodyText size="md">Content</BodyText>
+                  <CardInteraction asChild>
+                    <Link href="#">
+                      Link
+                      <ChevronRightSmallIcon />
+                    </Link>
+                  </CardInteraction>
+                </Flex>
+              </Card>
+            </li>
+            <li>
+              <Card variant="subtle" colorScheme="pig" flex="1">
+                <Flex direction="column" gap="150" justifyContent="between">
+                  <Heading size="sm">Pig Card</Heading>
+                  <BodyText size="md">Content</BodyText>
+                  <CardInteraction asChild>
+                    <Link href="#">
+                      Link
+                      <ChevronRightSmallIcon />
+                    </Link>
+                  </CardInteraction>
+                </Flex>
+              </Card>
+            </li>
+            <li>
+              <Card variant="subtle" colorScheme="highlight" flex="1">
+                <Flex direction="column" gap="150" justifyContent="between">
+                  <Heading size="sm">Highlight Card</Heading>
+                  <BodyText size="md">Content</BodyText>
+                  <CardInteraction asChild>
+                    <Link href="#">
+                      Link
+                      <ChevronRightSmallIcon />
+                    </Link>
+                  </CardInteraction>
+                </Flex>
+              </Card>
+            </li>
           </ul>
         </Flex>
 
         <Flex asChild gap="300" width="1000px">
           <ul role="list">
-            <Card as="li" variant="subtle" colorScheme="energy" flex="1">
-              <Flex direction="column" gap="150" justifyContent="between">
-                <Heading size="sm">Energy Card</Heading>
-                <BodyText size="md">Content</BodyText>
-                <CardInteraction asChild>
-                  <Link href="#">
-                    Link
-                    <ChevronRightSmallIcon />
-                  </Link>
-                </CardInteraction>
-              </Flex>
-            </Card>
-            <Card as="li" variant="subtle" colorScheme="mobile" flex="1">
-              <Flex direction="column" gap="150" justifyContent="between">
-                <Heading size="sm">Mobile Card</Heading>
-                <BodyText size="md">Content</BodyText>
-                <CardInteraction asChild>
-                  <Link href="#">
-                    Link
-                    <ChevronRightSmallIcon />
-                  </Link>
-                </CardInteraction>
-              </Flex>
-            </Card>
-            <Card as="li" variant="subtle" colorScheme="broadband" flex="1">
-              <Flex direction="column" gap="150" justifyContent="between">
-                <Heading size="sm">Broadband Card</Heading>
-                <BodyText size="md">Content</BodyText>
-                <CardInteraction asChild>
-                  <Link href="#">
-                    Link
-                    <ChevronRightSmallIcon />
-                  </Link>
-                </CardInteraction>
-              </Flex>
-            </Card>
-            <Card as="li" variant="subtle" colorScheme="insurance" flex="1">
-              <Flex direction="column" gap="150" justifyContent="between">
-                <Heading size="sm">Insurance Card</Heading>
-                <BodyText size="md">Content</BodyText>
-                <CardInteraction asChild>
-                  <Link href="#">
-                    Link
-                    <ChevronRightSmallIcon />
-                  </Link>
-                </CardInteraction>
-              </Flex>
-            </Card>
-            <Card as="li" variant="subtle" colorScheme="cashback" flex="1">
-              <Flex direction="column" gap="150" justifyContent="between">
-                <Heading size="sm">Cashback Card</Heading>
-                <BodyText size="md">Content</BodyText>
-                <CardInteraction asChild>
-                  <Link href="#">
-                    Link
-                    <ChevronRightSmallIcon />
-                  </Link>
-                </CardInteraction>
-              </Flex>
-            </Card>
+            <li>
+              <Card variant="subtle" colorScheme="energy" flex="1">
+                <Flex direction="column" gap="150" justifyContent="between">
+                  <Heading size="sm">Energy Card</Heading>
+                  <BodyText size="md">Content</BodyText>
+                  <CardInteraction asChild>
+                    <Link href="#">
+                      Link
+                      <ChevronRightSmallIcon />
+                    </Link>
+                  </CardInteraction>
+                </Flex>
+              </Card>
+            </li>
+            <li>
+              <Card variant="subtle" colorScheme="mobile" flex="1">
+                <Flex direction="column" gap="150" justifyContent="between">
+                  <Heading size="sm">Mobile Card</Heading>
+                  <BodyText size="md">Content</BodyText>
+                  <CardInteraction asChild>
+                    <Link href="#">
+                      Link
+                      <ChevronRightSmallIcon />
+                    </Link>
+                  </CardInteraction>
+                </Flex>
+              </Card>
+            </li>
+            <li>
+              <Card variant="subtle" colorScheme="broadband" flex="1">
+                <Flex direction="column" gap="150" justifyContent="between">
+                  <Heading size="sm">Broadband Card</Heading>
+                  <BodyText size="md">Content</BodyText>
+                  <CardInteraction asChild>
+                    <Link href="#">
+                      Link
+                      <ChevronRightSmallIcon />
+                    </Link>
+                  </CardInteraction>
+                </Flex>
+              </Card>
+            </li>
+            <li>
+              <Card variant="subtle" colorScheme="insurance" flex="1">
+                <Flex direction="column" gap="150" justifyContent="between">
+                  <Heading size="sm">Insurance Card</Heading>
+                  <BodyText size="md">Content</BodyText>
+                  <CardInteraction asChild>
+                    <Link href="#">
+                      Link
+                      <ChevronRightSmallIcon />
+                    </Link>
+                  </CardInteraction>
+                </Flex>
+              </Card>
+            </li>
+            <li>
+              <Card variant="subtle" colorScheme="cashback" flex="1">
+                <Flex direction="column" gap="150" justifyContent="between">
+                  <Heading size="sm">Cashback Card</Heading>
+                  <BodyText size="md">Content</BodyText>
+                  <CardInteraction asChild>
+                    <Link href="#">
+                      Link
+                      <ChevronRightSmallIcon />
+                    </Link>
+                  </CardInteraction>
+                </Flex>
+              </Card>
+            </li>
           </ul>
         </Flex>
 
         <Flex asChild direction="row" gap="200" width="1000px" alignItems="start">
           <ul role="list">
-            <Card
-              as="li"
-              variant="emphasis"
-              colorScheme="neutralStrong"
-              flex="1"
-              direction="column"
-              gap="150"
-              alignItems="start"
-            >
-              <Heading size="sm">This is a card with a single interaction</Heading>
-              <BodyText size="md">
-                The card itself doesn’t need to be clickable and the only interaction is with the
-                interactive component nested within the card
-              </BodyText>
-              <Button variant="solid" colorScheme="highlight" onClick={() => console.log('hello')}>
-                Button
-              </Button>
-            </Card>
-            <Card
-              as="li"
-              variant="emphasis"
-              colorScheme="neutralStrong"
-              flex="1"
-              direction="column"
-              gap="150"
-            >
-              <Heading size="sm">This whole card is clickable</Heading>
-              <BodyText size="md">
-                This whole card is tappable/clickable but the state is applied to the interactive
-                component
-              </BodyText>
-              <CardInteraction>
+            <li>
+              <Card
+                variant="emphasis"
+                colorScheme="neutralStrong"
+                flex="1"
+                direction="column"
+                gap="150"
+                alignItems="start"
+              >
+                <Heading size="sm">This is a card with a single interaction</Heading>
+                <BodyText size="md">
+                  The card itself doesn’t need to be clickable and the only interaction is with the
+                  interactive component nested within the card
+                </BodyText>
                 <Button
                   variant="solid"
                   colorScheme="highlight"
@@ -385,42 +391,67 @@ export const InteractiveCards: Story = {
                 >
                   Button
                 </Button>
-              </CardInteraction>
-            </Card>
-            <Card
-              as="li"
-              variant="emphasis"
-              colorScheme="neutralStrong"
-              flex="1"
-              direction="column"
-              gap="150"
-            >
-              <Flex alignItems="start" justifyContent="between">
-                <Heading size="sm">This is a card with multiple interactions</Heading>
-                <CardInteraction secondary>
-                  <IconButton
-                    variant="ghost"
-                    size="sm"
-                    label="close"
-                    onClick={() => console.log('close')}
+              </Card>
+            </li>
+            <li>
+              <Card
+                variant="emphasis"
+                colorScheme="neutralStrong"
+                flex="1"
+                direction="column"
+                gap="150"
+              >
+                <Heading size="sm">This whole card is clickable</Heading>
+                <BodyText size="md">
+                  This whole card is tappable/clickable but the state is applied to the interactive
+                  component
+                </BodyText>
+                <CardInteraction>
+                  <Button
+                    variant="solid"
+                    colorScheme="highlight"
+                    onClick={() => console.log('hello')}
                   >
-                    <CloseSmallIcon />
-                  </IconButton>
+                    Button
+                  </Button>
                 </CardInteraction>
-              </Flex>
-              <BodyText size="md">
-                The components within the card are interactive component
-              </BodyText>
-              <CardInteraction>
-                <Button
-                  variant="solid"
-                  colorScheme="highlight"
-                  onClick={() => console.log('action')}
-                >
-                  Button
-                </Button>
-              </CardInteraction>
-            </Card>
+              </Card>
+            </li>
+            <li>
+              <Card
+                variant="emphasis"
+                colorScheme="neutralStrong"
+                flex="1"
+                direction="column"
+                gap="150"
+              >
+                <Flex alignItems="start" justifyContent="between">
+                  <Heading size="sm">This is a card with multiple interactions</Heading>
+                  <CardInteraction secondary>
+                    <IconButton
+                      variant="ghost"
+                      size="sm"
+                      label="close"
+                      onClick={() => console.log('close')}
+                    >
+                      <CloseSmallIcon />
+                    </IconButton>
+                  </CardInteraction>
+                </Flex>
+                <BodyText size="md">
+                  The components within the card are interactive component
+                </BodyText>
+                <CardInteraction>
+                  <Button
+                    variant="solid"
+                    colorScheme="highlight"
+                    onClick={() => console.log('action')}
+                  >
+                    Button
+                  </Button>
+                </CardInteraction>
+              </Card>
+            </li>
           </ul>
         </Flex>
       </Flex>
@@ -436,54 +467,58 @@ export const WithoutLink: Story = {
       <Flex padding="600" backgroundColor="primary" justifyContent="center" gap="400">
         <Flex asChild gap="400" width="400px">
           <ul role="list">
-            <Card as="li" direction="column" flex="1" justifyContent="center" gap="300">
-              <Flex justifyContent="between" alignItems="center">
-                <DetailText>5%</DetailText>
-                <CardInteraction secondary>
-                  <IconButton
-                    label="like"
-                    variant="ghost"
-                    colorScheme="destructive"
-                    onClick={() => setLikedArgos(likedArgos => !likedArgos)}
-                  >
-                    {likedArgos ? <HeartMediumIcon /> : <HeartOutlineMediumIcon />}
-                  </IconButton>
-                </CardInteraction>
-              </Flex>
-              <Flex direction="column" alignItems="center" gap="200">
-                <Placeholder width="100px" height="50px" />
-                <BodyText size="md" id="title-argos">
-                  Argos
-                </BodyText>
-                <CardInteraction>
-                  <Link href="https://www.argos.co.uk/" aria-labelledby="title-argos" />
-                </CardInteraction>
-              </Flex>
-            </Card>
-            <Card as="li" direction="column" flex="1" justifyContent="center" gap="300">
-              <Flex justifyContent="between" alignItems="center">
-                <DetailText>5%</DetailText>
-                <CardInteraction secondary>
-                  <IconButton
-                    label="like"
-                    variant="ghost"
-                    colorScheme="destructive"
-                    onClick={() => setLikedAskItalian(likedAskItalian => !likedAskItalian)}
-                  >
-                    {likedAskItalian ? <HeartMediumIcon /> : <HeartOutlineMediumIcon />}
-                  </IconButton>
-                </CardInteraction>
-              </Flex>
-              <Flex direction="column" alignItems="center" gap="200">
-                <Placeholder width="100px" height="50px" />
-                <BodyText size="md" id="title-askitalian">
-                  Ask Italian
-                </BodyText>
-                <CardInteraction>
-                  <Link href="https://www.askitalian.co.uk/" aria-labelledby="title-askitalian" />
-                </CardInteraction>
-              </Flex>
-            </Card>
+            <li>
+              <Card direction="column" flex="1" justifyContent="center" gap="300">
+                <Flex justifyContent="between" alignItems="center">
+                  <DetailText>5%</DetailText>
+                  <CardInteraction secondary>
+                    <IconButton
+                      label="like"
+                      variant="ghost"
+                      colorScheme="destructive"
+                      onClick={() => setLikedArgos(likedArgos => !likedArgos)}
+                    >
+                      {likedArgos ? <HeartMediumIcon /> : <HeartOutlineMediumIcon />}
+                    </IconButton>
+                  </CardInteraction>
+                </Flex>
+                <Flex direction="column" alignItems="center" gap="200">
+                  <Placeholder width="100px" height="50px" />
+                  <BodyText size="md" id="title-argos">
+                    Argos
+                  </BodyText>
+                  <CardInteraction>
+                    <Link href="https://www.argos.co.uk/" aria-labelledby="title-argos" />
+                  </CardInteraction>
+                </Flex>
+              </Card>
+            </li>
+            <li>
+              <Card direction="column" flex="1" justifyContent="center" gap="300">
+                <Flex justifyContent="between" alignItems="center">
+                  <DetailText>5%</DetailText>
+                  <CardInteraction secondary>
+                    <IconButton
+                      label="like"
+                      variant="ghost"
+                      colorScheme="destructive"
+                      onClick={() => setLikedAskItalian(likedAskItalian => !likedAskItalian)}
+                    >
+                      {likedAskItalian ? <HeartMediumIcon /> : <HeartOutlineMediumIcon />}
+                    </IconButton>
+                  </CardInteraction>
+                </Flex>
+                <Flex direction="column" alignItems="center" gap="200">
+                  <Placeholder width="100px" height="50px" />
+                  <BodyText size="md" id="title-askitalian">
+                    Ask Italian
+                  </BodyText>
+                  <CardInteraction>
+                    <Link href="https://www.askitalian.co.uk/" aria-labelledby="title-askitalian" />
+                  </CardInteraction>
+                </Flex>
+              </Card>
+            </li>
           </ul>
         </Flex>
       </Flex>

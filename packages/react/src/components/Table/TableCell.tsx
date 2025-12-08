@@ -3,13 +3,14 @@ import type { ElementRef } from 'react';
 import clsx from 'clsx';
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import type { TableCellProps } from './Table.props';
 
 const COMPONENT_NAME = 'TableCell';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TableCellElement = ElementRef<'td'>;
 
-export const TableCell = React.forwardRef<TableCellElement, React.ComponentProps<'td'>>(
+export const TableCell = React.forwardRef<TableCellElement, TableCellProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <td ref={ref} className={clsx(componentClassName, className)} {...props}>

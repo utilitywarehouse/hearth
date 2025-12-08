@@ -59,16 +59,11 @@
 
     &:where([data-contains-image] &) {
       align-items: center;
-      padding: var(--h-modal-padding-mobile);
+      padding: var(--h-modal-padding);
       justify-content: space-between;
 
       @media (--h-tablet) {
         height: fit-content;
-        padding: var(--h-modal-padding-tablet);
-      }
-
-      @media (--h-desktop) {
-        padding: var(--h-modal-padding-desktop);
       }
     }
   }
@@ -126,7 +121,9 @@
     }
 
     &:not([data-contains-image] &) :where(.hearth-Heading) {
-      margin-right: var(--h-space-300);
+      --h-close-button-visual-size: 16px;
+
+      margin-right: calc(var(--h-close-button-visual-size) + var(--h-modal-padding));
     }
 
     &:where([data-contains-image] &) {
