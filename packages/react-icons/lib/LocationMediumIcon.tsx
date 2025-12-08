@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const LocationMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M12.111 12.333q.824 0 1.413-.587.587-.588.587-1.413 0-.824-.587-1.412a1.93 1.93 0 0 0-1.413-.588q-.824 0-1.412.588a1.93 1.93 0 0 0-.588 1.412q0 .825.588 1.413.587.587 1.412.587m0 10Q8.087 18.908 6.1 15.971t-1.99-5.438q0-3.75 2.413-5.975t5.587-2.225 5.59 2.225q2.412 2.226 2.412 5.975 0 2.5-1.987 5.438t-6.013 6.362" /></svg>;
-});
-LocationMediumIcon.displayName = "LocationMediumIcon";
+export const LocationMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={24}
+        height={24}
+        fill="none"
+        viewBox="0 0 24 24"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M12.111 12.333q.824 0 1.413-.587.587-.588.587-1.413 0-.824-.587-1.412a1.93 1.93 0 0 0-1.413-.588q-.824 0-1.412.588a1.93 1.93 0 0 0-.588 1.412q0 .825.588 1.413.587.587 1.412.587m0 10Q8.087 18.908 6.1 15.971t-1.99-5.438q0-3.75 2.413-5.975t5.587-2.225 5.59 2.225q2.412 2.226 2.412 5.975 0 2.5-1.987 5.438t-6.013 6.362"
+        />
+      </svg>
+    );
+  }
+);
+LocationMediumIcon.displayName = 'LocationMediumIcon';

@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const EyeOffMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="m19.8 22.6-4.2-4.15q-.874.274-1.762.413Q12.95 19 12 19q-3.775 0-6.725-2.087T1 11.5q.525-1.325 1.325-2.462A11.5 11.5 0 0 1 4.15 7L1.4 4.2l1.4-1.4 18.4 18.4zM12 16a5 5 0 0 0 .512-.025q.238-.025.513-.1l-5.4-5.4q-.075.274-.1.513a5 5 0 0 0-.025.512q0 1.875 1.313 3.188Q10.125 16 12 16m7.3.45-3.175-3.15q.175-.424.275-.863.1-.437.1-.937 0-1.875-1.312-3.187Q13.875 7 12 7a4.2 4.2 0 0 0-.937.1q-.438.1-.863.3L7.65 4.85A11.1 11.1 0 0 1 12 4q3.775 0 6.725 2.088T23 11.5a11.7 11.7 0 0 1-1.512 2.738A11 11 0 0 1 19.3 16.45m-4.625-4.6-3-3a2.3 2.3 0 0 1 1.287.113q.588.237 1.013.687t.613 1.037.087 1.163" /></svg>;
-});
-EyeOffMediumIcon.displayName = "EyeOffMediumIcon";
+export const EyeOffMediumIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={24}
+        height={24}
+        fill="none"
+        viewBox="0 0 24 24"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="m19.8 22.6-4.2-4.15q-.874.274-1.762.413Q12.95 19 12 19q-3.775 0-6.725-2.087T1 11.5q.525-1.325 1.325-2.462A11.5 11.5 0 0 1 4.15 7L1.4 4.2l1.4-1.4 18.4 18.4zM12 16a5 5 0 0 0 .512-.025q.238-.025.513-.1l-5.4-5.4q-.075.274-.1.513a5 5 0 0 0-.025.512q0 1.875 1.313 3.188Q10.125 16 12 16m7.3.45-3.175-3.15q.175-.424.275-.863.1-.437.1-.937 0-1.875-1.312-3.187Q13.875 7 12 7a4.2 4.2 0 0 0-.937.1q-.438.1-.863.3L7.65 4.85A11.1 11.1 0 0 1 12 4q3.775 0 6.725 2.088T23 11.5a11.7 11.7 0 0 1-1.512 2.738A11 11 0 0 1 19.3 16.45m-4.625-4.6-3-3a2.3 2.3 0 0 1 1.287.113q.588.237 1.013.687t.613 1.037.087 1.163"
+        />
+      </svg>
+    );
+  }
+);
+EyeOffMediumIcon.displayName = 'EyeOffMediumIcon';
