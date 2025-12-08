@@ -1,28 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const CalendarSmallIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={20}
-        height={20}
-        fill="none"
-        viewBox="0 0 20 20"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M9.111 11.8V10h1.778v1.8zm-3.555 0V10h1.777v1.8zm7.11 0V10h1.778v1.8zm-3.555 3.6v-1.8h1.778v1.8zm-3.555 0v-1.8h1.777v1.8zm7.11 0v-1.8h1.778v1.8zM2 19V2.8h2.667V1h1.777v1.8h7.112V1h1.777v1.8H18V19zm1.778-1.8h12.444v-9H3.778z"
-        />
-      </svg>
-    );
-  }
-);
-CalendarSmallIcon.displayName = 'CalendarSmallIcon';
+export const CalendarSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M9.111 11.8V10h1.778v1.8zm-3.555 0V10h1.777v1.8zm7.11 0V10h1.778v1.8zm-3.555 3.6v-1.8h1.778v1.8zm-3.555 0v-1.8h1.777v1.8zm7.11 0v-1.8h1.778v1.8zM2 19V2.8h2.667V1h1.777v1.8h7.112V1h1.777v1.8H18V19zm1.778-1.8h12.444v-9H3.778z" /></svg>;
+});
+CalendarSmallIcon.displayName = "CalendarSmallIcon";

@@ -1,28 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const CameraMediumIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={24}
-        height={24}
-        fill="none"
-        viewBox="0 0 24 24"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M16.85 6 15 4H9L7.15 6H2v14h20V6zm-2.72 9.13Q13.26 16 12 16t-2.13-.87T9 13t.87-2.13T12 10t2.13.87T15 13t-.87 2.13"
-        />
-      </svg>
-    );
-  }
-);
-CameraMediumIcon.displayName = 'CameraMediumIcon';
+export const CameraMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M16.85 6 15 4H9L7.15 6H2v14h20V6zm-2.72 9.13Q13.26 16 12 16t-2.13-.87T9 13t.87-2.13T12 10t2.13.87T15 13t-.87 2.13" /></svg>;
+});
+CameraMediumIcon.displayName = "CameraMediumIcon";

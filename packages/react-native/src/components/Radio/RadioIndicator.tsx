@@ -35,9 +35,9 @@ const styles = StyleSheet.create(theme => ({
       _hover: {
         outlineColor: theme.components.radio.outlineColorHover,
       },
-      '_focus-within': {
-        ...theme.helpers.focusVisible,
-      },
+      // '_focus-within': {
+      //   ...theme.helpers.focusVisible,
+      // },
       _active: {
         outlineColor: theme.components.radio.outlineColorActive,
       },

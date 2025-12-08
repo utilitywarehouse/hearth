@@ -1,34 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const HomeAndBoilerMediumIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={24}
-        height={24}
-        fill="none"
-        viewBox="0 0 24 24"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M12 12.048q.775.628 1.155 1.17c.258.357.385.694.385.998q-.002.644-.44 1.076-.439.432-1.1.43-.661.002-1.1-.43a1.45 1.45 0 0 1-.44-1.076c0-.305.126-.64.385-.997q.379-.543 1.154-1.171"
-        />
-        <path
-          fill={color}
-          fillRule="evenodd"
-          d="M21 4.65v6.405q0 3.99-2.545 7.258-2.546 3.269-6.456 4.187-3.909-.919-6.454-4.187T3 11.055V4.65l9-3.15zm-9 1.623C10.525 7.47 9.42 8.583 8.693 9.61Q7.6 11.155 7.6 12.467q-.001 1.836 1.26 3.072c.835.824 1.886 1.234 3.14 1.234 1.253 0 2.305-.41 3.14-1.234q1.262-1.236 1.26-3.072.001-1.313-1.094-2.856c-.726-1.029-1.833-2.141-3.307-3.338"
-          clipRule="evenodd"
-        />
-      </svg>
-    );
-  }
-);
-HomeAndBoilerMediumIcon.displayName = 'HomeAndBoilerMediumIcon';
+export const HomeAndBoilerMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M12 12.048q.775.628 1.155 1.17c.258.357.385.694.385.998q-.002.644-.44 1.076-.439.432-1.1.43-.661.002-1.1-.43a1.45 1.45 0 0 1-.44-1.076c0-.305.126-.64.385-.997q.379-.543 1.154-1.171" /><path fill={color} fillRule="evenodd" d="M21 4.65v6.405q0 3.99-2.545 7.258-2.546 3.269-6.456 4.187-3.909-.919-6.454-4.187T3 11.055V4.65l9-3.15zm-9 1.623C10.525 7.47 9.42 8.583 8.693 9.61Q7.6 11.155 7.6 12.467q-.001 1.836 1.26 3.072c.835.824 1.886 1.234 3.14 1.234 1.253 0 2.305-.41 3.14-1.234q1.262-1.236 1.26-3.072.001-1.313-1.094-2.856c-.726-1.029-1.833-2.141-3.307-3.338" clipRule="evenodd" /></svg>;
+});
+HomeAndBoilerMediumIcon.displayName = "HomeAndBoilerMediumIcon";

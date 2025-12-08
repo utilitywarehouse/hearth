@@ -75,9 +75,9 @@ const styles = StyleSheet.create(theme => ({
       },
     },
     _web: {
-      '_focus-visible': {
-        ...theme.helpers.focusVisible,
-      },
+      // '_focus-visible': {
+      //   ...theme.helpers.focusVisible,
+      // },
     },
   },
 }));

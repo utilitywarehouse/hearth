@@ -1,28 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const HomeInsuranceMediumIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={24}
-        height={24}
-        fill="none"
-        viewBox="0 0 24 24"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="M12 2 3 8.667V22h18V8.667zm4.32 11.589a3.9 3.9 0 0 1-.607 1.067c-.282.4-.687.833-1.182 1.322a42 42 0 0 1-1.89 1.733L12 18.3l-.641-.589a42 42 0 0 1-1.89-1.733c-.495-.49-.9-.922-1.181-1.322a3.9 3.9 0 0 1-.608-1.067 2.8 2.8 0 0 1-.18-1c0-.689.236-1.278.72-1.756.461-.455 1.057-.689 1.755-.689.383 0 .754.078 1.114.245.348.167.652.4.911.689q.389-.436.911-.69a2.6 2.6 0 0 1 1.114-.244c.697 0 1.294.234 1.755.69.484.477.72 1.066.72 1.755 0 .344-.056.667-.18 1"
-        />
-      </svg>
-    );
-  }
-);
-HomeInsuranceMediumIcon.displayName = 'HomeInsuranceMediumIcon';
+export const HomeInsuranceMediumIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M12 2 3 8.667V22h18V8.667zm4.32 11.589a3.9 3.9 0 0 1-.607 1.067c-.282.4-.687.833-1.182 1.322a42 42 0 0 1-1.89 1.733L12 18.3l-.641-.589a42 42 0 0 1-1.89-1.733c-.495-.49-.9-.922-1.181-1.322a3.9 3.9 0 0 1-.608-1.067 2.8 2.8 0 0 1-.18-1c0-.689.236-1.278.72-1.756.461-.455 1.057-.689 1.755-.689.383 0 .754.078 1.114.245.348.167.652.4.911.689q.389-.436.911-.69a2.6 2.6 0 0 1 1.114-.244c.697 0 1.294.234 1.755.69.484.477.72 1.066.72 1.755 0 .344-.056.667-.18 1" /></svg>;
+});
+HomeInsuranceMediumIcon.displayName = "HomeInsuranceMediumIcon";

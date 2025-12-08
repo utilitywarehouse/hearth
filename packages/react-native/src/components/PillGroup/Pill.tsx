@@ -1,10 +1,10 @@
 import { createPressable } from '@gluestack-ui/pressable';
 import { Pressable } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Icon } from '../Icon';
 import { BodyText } from '../BodyText';
-import { usePillGroupContext } from './PillGroup.context';
+import { Icon } from '../Icon';
 import type { PillProps } from './Pill.props';
+import { usePillGroupContext } from './PillGroup.context';
 
 const PillRoot = ({
   value,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create(theme => ({
       _hover: {
         backgroundColor: theme.color.interactive.neutral.surface.subtle.hover,
       },
-      '_focus-visible': theme.helpers.focusVisible,
+      // '_focus-visible': theme.helpers.focusVisible,
     },
     variants: {
       active: {

@@ -1,28 +1,11 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const TimeSmallIcon = forwardRef<SVGSVGElement, IconProps>(
-  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
-    return (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={20}
-        height={20}
-        fill="none"
-        viewBox="0 0 20 20"
-        aria-hidden={!title}
-        focusable="false"
-        role="img"
-        ref={ref}
-        aria-labelledby={titleId}
-        {...props}
-      >
-        {title ? <title id={titleId}>{title}</title> : null}
-        <path
-          fill={color}
-          d="m12.64 13.76 1.12-1.12-2.96-2.96V6H9.2v4.32zM10 18a7.8 7.8 0 0 1-3.12-.63 8.1 8.1 0 0 1-2.54-1.71 8.1 8.1 0 0 1-1.71-2.54A7.8 7.8 0 0 1 2 10q0-1.66.63-3.12t1.71-2.54a8.1 8.1 0 0 1 2.54-1.71A7.8 7.8 0 0 1 10 2a7.8 7.8 0 0 1 3.12.63q1.46.63 2.54 1.71t1.71 2.54T18 10a7.8 7.8 0 0 1-.63 3.12 8.1 8.1 0 0 1-1.71 2.54 8.1 8.1 0 0 1-2.54 1.71A7.8 7.8 0 0 1 10 18"
-        />
-      </svg>
-    );
-  }
-);
-TimeSmallIcon.displayName = 'TimeSmallIcon';
+export const TimeSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
+  color = 'currentColor',
+  title,
+  titleId,
+  ...props
+}, ref) => {
+  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="m12.64 13.76 1.12-1.12-2.96-2.96V6H9.2v4.32zM10 18a7.8 7.8 0 0 1-3.12-.63 8.1 8.1 0 0 1-2.54-1.71 8.1 8.1 0 0 1-1.71-2.54A7.8 7.8 0 0 1 2 10q0-1.66.63-3.12t1.71-2.54a8.1 8.1 0 0 1 2.54-1.71A7.8 7.8 0 0 1 10 2a7.8 7.8 0 0 1 3.12.63q1.46.63 2.54 1.71t1.71 2.54T18 10a7.8 7.8 0 0 1-.63 3.12 8.1 8.1 0 0 1-1.71 2.54 8.1 8.1 0 0 1-2.54 1.71A7.8 7.8 0 0 1 10 18" /></svg>;
+});
+TimeSmallIcon.displayName = "TimeSmallIcon";
