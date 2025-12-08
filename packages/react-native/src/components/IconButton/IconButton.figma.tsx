@@ -46,7 +46,7 @@ figma.connect(IconButton, 'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?n
     <IconButton
       disabled={props.disabled}
       size={props.size}
-      icon={/* TODO */}
+      icon={null}
       loading={props.loading}
       focusable={props.focusable}
       colorScheme={props.colorScheme}

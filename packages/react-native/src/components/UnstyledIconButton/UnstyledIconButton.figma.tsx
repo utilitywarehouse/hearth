@@ -38,7 +38,7 @@ figma.connect(
     example: props => (
       <UnstyledIconButton
         disabled={props.disabled}
-        icon={/* TODO */}
+        icon={null}
         loading={props.loading}
         size={props.size}
         inverted={props.inverted}
