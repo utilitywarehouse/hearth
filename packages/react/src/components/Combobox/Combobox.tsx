@@ -12,6 +12,7 @@ import { Combobox as BaseUICombobox } from '@base-ui-components/react/combobox';
 import { InputBase } from '../InputBase/InputBase';
 import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
 import { CloseSmallIcon, ExpandSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { ComboboxItem } from './ComboboxItem';
 
 const COMPONENT_NAME = 'Combobox';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -89,7 +90,13 @@ export const Combobox = (props: ComboboxProps) => {
               {/* <Combobox.Status /> */}
               {/* <Combobox.Empty /> */}
               <BaseUICombobox.List className={`${componentClassName}Content`}>
-                {children}
+                {children
+                  ? children
+                  : (item: string) => (
+                      <ComboboxItem key={item} value={item}>
+                        {item}
+                      </ComboboxItem>
+                    )}
               </BaseUICombobox.List>
             </BaseUICombobox.Popup>
           </BaseUICombobox.Positioner>

@@ -32,12 +32,7 @@ type Story = StoryObj<typeof Combobox>;
 
 export const Playground: Story = {
   render: args => {
-    return (
-      <Combobox {...args}>
-        <ComboboxItem value="Item 1">Item 1</ComboboxItem>
-        <ComboboxItem value="Item 2">Item 2</ComboboxItem>
-        <ComboboxItem value="Item 3">Item 3</ComboboxItem>
-      </Combobox>
-    );
+    const fruit = ['Apple', 'Banana', 'Orange'];
+    return <Combobox {...args} items={fruit} />;
   },
 };
