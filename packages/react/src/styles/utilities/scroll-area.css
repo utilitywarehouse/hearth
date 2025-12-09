@@ -13,7 +13,7 @@
   /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI & Base UI specific custom properties */
   --h-available-height: var(--radix-popper-available-height, var(--available-height));
 
-    max-height: calc(var(--h-available-height) - calc(var(--h-space-50) * 2))
+  max-height: calc(var(--h-available-height) - calc(var(--h-space-50) * 2));
 }
 
 .hearth-ScrollAreaScrollbar {
