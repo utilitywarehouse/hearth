@@ -1,28 +1,28 @@
-import * as React from 'react';
-
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import type { ElementRef } from 'react';
 import { InputSlotProps } from './InputSlot.props';
+import { Slot } from 'radix-ui';
 
 const COMPONENT_NAME = 'InputSlot';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type InputSlotElement = ElementRef<'div'>;
-
-export const InputSlot = React.forwardRef<InputSlotElement, InputSlotProps>(
-  ({ className, children, placement, ...props }, ref) => {
-    return (
-      <div
-        ref={ref}
-        className={clsx(componentClassName, className)}
-        data-placement={placement}
-        {...props}
-      >
-        {children}
-      </div>
-    );
-  }
-);
+export const InputSlot = ({
+  className,
+  children,
+  placement,
+  asChild,
+  ...props
+}: InputSlotProps) => {
+  const Component = asChild ? Slot.Root : 'div';
+  return (
+    <Component
+      className={clsx(componentClassName, className)}
+      data-placement={placement}
+      {...props}
+    >
+      {children}
+    </Component>
+  );
+};
 
 InputSlot.displayName = COMPONENT_NAME;

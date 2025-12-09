@@ -8,4 +8,11 @@ export interface ComboboxProps
     Omit<FormFieldProps, 'hideLabel'>,
     MarginProps {
   triggerOnlyOnType?: boolean;
+  noOptionsFoundText?: string;
+  /**
+   * Displays a status message whose content changes are announced politely to
+   * screen readers. Useful for conveying the status of an asynchronously
+   * loaded list.
+   */
+  statusText?: string;
 }

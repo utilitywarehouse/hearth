@@ -1,5 +1,6 @@
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+import { ComponentPropsWithRef } from 'react';
 
-export interface InputSlotProps extends ComponentPropsWithout<'div', RemovedProps> {
+export interface InputSlotProps extends ComponentPropsWithRef<'div'> {
   placement?: 'prefix' | 'suffix';
+  asChild?: boolean;
 }

@@ -14,7 +14,9 @@ const meta: Meta<typeof Combobox> = {
   argTypes: {
     label: { control: { type: 'text' } },
     helperText: { control: { type: 'text' } },
+    validationText: { control: { type: 'text' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
+    noOptionsFoundText: { control: { type: 'text' } },
   },
   args: {
     label: 'Combobox',
