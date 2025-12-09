@@ -109,7 +109,7 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
         <BaseUICombobox.Portal>
           <BaseUICombobox.Positioner side="bottom" sideOffset={16} align="start" alignOffset={-47}>
             <BaseUICombobox.Popup className={`${componentClassName}Popup`}>
-              {statusText ? <BaseUICombobox.Status /> : null}
+              {statusText ? <BaseUICombobox.Status>{statusText}</BaseUICombobox.Status> : null}
               {props.items ? (
                 <ComboboxEmpty className={`${componentClassName}Empty`}>
                   {noOptionsFoundText}
