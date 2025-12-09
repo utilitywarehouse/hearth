@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const ShareSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M15.333 19q-1.11 0-1.889-.788a2.62 2.62 0 0 1-.777-1.912q0-.135.066-.63L6.49 11.98a2.63 2.63 0 0 1-1.822.72q-1.11 0-1.89-.787A2.62 2.62 0 0 1 2 10q0-1.125.778-1.912A2.56 2.56 0 0 1 4.667 7.3a2.6 2.6 0 0 1 1.822.72l6.244-3.69a1.6 1.6 0 0 1-.055-.304 4 4 0 0 1-.011-.326q0-1.125.777-1.912A2.56 2.56 0 0 1 15.334 1q1.11 0 1.888.788A2.62 2.62 0 0 1 18 3.7q0 1.125-.778 1.912a2.56 2.56 0 0 1-1.889.788 2.6 2.6 0 0 1-1.822-.72L7.267 9.37q.045.157.055.304a4 4 0 0 1 0 .652 1.6 1.6 0 0 1-.055.304l6.244 3.69a2.63 2.63 0 0 1 1.822-.72q1.11 0 1.89.787A2.62 2.62 0 0 1 18 16.3q0 1.125-.778 1.912a2.56 2.56 0 0 1-1.889.788" /></svg>;
-});
-ShareSmallIcon.displayName = "ShareSmallIcon";
+export const ShareSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M15.333 19q-1.11 0-1.889-.788a2.62 2.62 0 0 1-.777-1.912q0-.135.066-.63L6.49 11.98a2.63 2.63 0 0 1-1.822.72q-1.11 0-1.89-.787A2.62 2.62 0 0 1 2 10q0-1.125.778-1.912A2.56 2.56 0 0 1 4.667 7.3a2.6 2.6 0 0 1 1.822.72l6.244-3.69a1.6 1.6 0 0 1-.055-.304 4 4 0 0 1-.011-.326q0-1.125.777-1.912A2.56 2.56 0 0 1 15.334 1q1.11 0 1.888.788A2.62 2.62 0 0 1 18 3.7q0 1.125-.778 1.912a2.56 2.56 0 0 1-1.889.788 2.6 2.6 0 0 1-1.822-.72L7.267 9.37q.045.157.055.304a4 4 0 0 1 0 .652 1.6 1.6 0 0 1-.055.304l6.244 3.69a2.63 2.63 0 0 1 1.822-.72q1.11 0 1.89.787A2.62 2.62 0 0 1 18 16.3q0 1.125-.778 1.912a2.56 2.56 0 0 1-1.889.788"
+        />
+      </svg>
+    );
+  }
+);
+ShareSmallIcon.displayName = 'ShareSmallIcon';

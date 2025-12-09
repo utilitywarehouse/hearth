@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const EyeSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M10 13.5q1.458 0 2.48-1.02Q13.5 11.457 13.5 10t-1.02-2.48Q11.457 6.5 10 6.5T7.52 7.52Q6.5 8.543 6.5 10t1.02 2.48Q8.543 13.5 10 13.5m0-1.5a1.93 1.93 0 0 1-1.417-.583A1.93 1.93 0 0 1 8 10q0-.834.583-1.417A1.93 1.93 0 0 1 10 8q.834 0 1.417.583Q12 9.167 12 10t-.583 1.417A1.93 1.93 0 0 1 10 12m0 4q-2.97 0-5.412-1.635A9.63 9.63 0 0 1 1 10a9.63 9.63 0 0 1 3.588-4.365Q7.028 4 10 4q2.97 0 5.413 1.635A9.6 9.6 0 0 1 19 10a9.63 9.63 0 0 1-3.588 4.365Q12.973 16 10 16" /></svg>;
-});
-EyeSmallIcon.displayName = "EyeSmallIcon";
+export const EyeSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M10 13.5q1.458 0 2.48-1.02Q13.5 11.457 13.5 10t-1.02-2.48Q11.457 6.5 10 6.5T7.52 7.52Q6.5 8.543 6.5 10t1.02 2.48Q8.543 13.5 10 13.5m0-1.5a1.93 1.93 0 0 1-1.417-.583A1.93 1.93 0 0 1 8 10q0-.834.583-1.417A1.93 1.93 0 0 1 10 8q.834 0 1.417.583Q12 9.167 12 10t-.583 1.417A1.93 1.93 0 0 1 10 12m0 4q-2.97 0-5.412-1.635A9.63 9.63 0 0 1 1 10a9.63 9.63 0 0 1 3.588-4.365Q7.028 4 10 4q2.97 0 5.413 1.635A9.6 9.6 0 0 1 19 10a9.63 9.63 0 0 1-3.588 4.365Q12.973 16 10 16"
+        />
+      </svg>
+    );
+  }
+);
+EyeSmallIcon.displayName = 'EyeSmallIcon';

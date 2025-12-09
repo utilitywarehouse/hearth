@@ -1,11 +1,28 @@
 import { forwardRef } from 'react';
 import { IconProps } from './types';
-export const TopUpSmallIcon = forwardRef<SVGSVGElement, IconProps>(({
-  color = 'currentColor',
-  title,
-  titleId,
-  ...props
-}, ref) => {
-  return <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} fill="none" viewBox="0 0 20 20" aria-hidden={!title} focusable="false" role="img" ref={ref} aria-labelledby={titleId} {...props}>{title ? <title id={titleId}>{title}</title> : null}<path fill={color} d="M4.167 17.5H2.5v-15h15v8.333h-1.667V4.167H4.167v11.666h6.666V17.5zm11.666 1.667L14.667 18l1.312-1.333H12.5V15h3.48l-1.313-1.333 1.166-1.167 3.334 3.333zm-6.666-5h1.666v-3.334h3.334V9.167h-3.334V5.833H9.167v3.334H5.833v1.666h3.334z" /></svg>;
-});
-TopUpSmallIcon.displayName = "TopUpSmallIcon";
+export const TopUpSmallIcon = forwardRef<SVGSVGElement, IconProps>(
+  ({ color = 'currentColor', title, titleId, ...props }, ref) => {
+    return (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={20}
+        height={20}
+        fill="none"
+        viewBox="0 0 20 20"
+        aria-hidden={!title}
+        focusable="false"
+        role="img"
+        ref={ref}
+        aria-labelledby={titleId}
+        {...props}
+      >
+        {title ? <title id={titleId}>{title}</title> : null}
+        <path
+          fill={color}
+          d="M4.167 17.5H2.5v-15h15v8.333h-1.667V4.167H4.167v11.666h6.666V17.5zm11.666 1.667L14.667 18l1.312-1.333H12.5V15h3.48l-1.313-1.333 1.166-1.167 3.334 3.333zm-6.666-5h1.666v-3.334h3.334V9.167h-3.334V5.833H9.167v3.334H5.833v1.666h3.334z"
+        />
+      </svg>
+    );
+  }
+);
+TopUpSmallIcon.displayName = 'TopUpSmallIcon';
