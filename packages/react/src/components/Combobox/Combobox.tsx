@@ -84,7 +84,7 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
               <BaseUICombobox.Clear
                 render={
                   <InputSlot placement="suffix" asChild>
-                    <UnstyledIconButton type="button" label="Clear selection">
+                    <UnstyledIconButton type="button" label="Clear selection" disabled={disabled}>
                       <CloseSmallIcon />
                     </UnstyledIconButton>
                   </InputSlot>
