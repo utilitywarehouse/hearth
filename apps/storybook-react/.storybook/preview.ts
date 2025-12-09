@@ -37,6 +37,11 @@ const hearthViewports = {
 };
 
 const preview: Preview = {
+  globalTypes: {
+    darkMode: {
+      current: 'light',
+    },
+  },
   parameters: {
     viewport: {
       options: hearthViewports,
