@@ -22,7 +22,7 @@ export { borderColorValues } from './props/border-color.props';
  ********************/
 export { media } from './utils/media';
 export { useMediaQuery } from './hooks/use-media-query';
-export { useFilter } from './hooks/use-filter';
+export { useComboboxFilter } from './hooks/use-combobox-filter';
 
 /********************
  *
@@ -292,3 +292,5 @@ export { Combobox } from './components/Combobox/Combobox';
 export type { ComboboxProps } from './components/Combobox/Combobox.props';
 export { ComboboxItem } from './components/Combobox/ComboboxItem';
 export type { ComboboxItemProps } from './components/Combobox/ComboboxItem.props';
+export { ComboboxEmpty } from './components/Combobox/ComboboxEmpty';
+export type { ComboboxEmptyProps } from './components/Combobox/ComboboxEmpty.props';

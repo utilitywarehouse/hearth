@@ -38,8 +38,25 @@ const hearthViewports = {
 
 const preview: Preview = {
   globalTypes: {
-    darkMode: {
-      current: 'light',
+    measureEnabled: {
+      name: 'Measure',
+      description: 'Enable measure addon',
+      defaultValue: false,
+    },
+    backgrounds: {
+      name: 'Backgrounds',
+      description: 'Global backgrounds',
+      defaultValue: { value: 'transparent' },
+    },
+    outline: {
+      name: 'Outline',
+      description: 'Enable outline addon',
+      defaultValue: false,
+    },
+    viewport: {
+      name: 'Viewport',
+      description: 'Global viewport',
+      defaultValue: { value: 'reset' },
     },
   },
   parameters: {

@@ -18,11 +18,14 @@ import {
 import { ComboboxItem } from './ComboboxItem';
 import { ScrollArea as RadixScrollArea } from 'radix-ui';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
+import { ComboboxEmpty } from './ComboboxEmpty';
 
 const COMPONENT_NAME = 'Combobox';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Combobox = (props: ComboboxProps) => {
+export function Combobox<Value, Multiple extends boolean | undefined = false>(
+  props: ComboboxProps<Value, Multiple>
+) {
   const {
     className,
     children,
@@ -34,7 +37,7 @@ export const Combobox = (props: ComboboxProps) => {
     id: providedId,
     disabled,
     required,
-    noOptionsFoundText = 'No options found',
+    noOptionsFoundText,
     statusText,
     ...comboboxProps
   } = extractProps(props, marginPropDefs);
@@ -67,10 +70,17 @@ export const Combobox = (props: ComboboxProps) => {
       <BaseUICombobox.Root openOnInputClick={!triggerOnlyOnType} {...comboboxProps}>
         <BaseUICombobox.Input
           render={
-            <InputBase id={id}>
-              <InputSlot placement="prefix">
-                <SearchMediumIcon />
-              </InputSlot>
+            <InputBase id={id} disabled={disabled}>
+              <BaseUICombobox.Trigger
+                disabled={disabled}
+                render={
+                  <InputSlot placement="prefix" asChild>
+                    <UnstyledIconButton type="button" label="Open popup" disabled={disabled}>
+                      <SearchMediumIcon />
+                    </UnstyledIconButton>
+                  </InputSlot>
+                }
+              />
               <BaseUICombobox.Clear
                 render={
                   <InputSlot placement="suffix" asChild>
@@ -82,9 +92,10 @@ export const Combobox = (props: ComboboxProps) => {
               />
               {triggerOnlyOnType ? null : (
                 <BaseUICombobox.Trigger
+                  disabled={disabled}
                   render={
                     <InputSlot placement="suffix" asChild>
-                      <UnstyledIconButton type="button" label="Open popup">
+                      <UnstyledIconButton type="button" label="Open popup" disabled={disabled}>
                         <ExpandSmallIcon />
                       </UnstyledIconButton>
                     </InputSlot>
@@ -99,9 +110,11 @@ export const Combobox = (props: ComboboxProps) => {
           <BaseUICombobox.Positioner side="bottom" sideOffset={16} align="start" alignOffset={-47}>
             <BaseUICombobox.Popup className={`${componentClassName}Popup`}>
               {statusText ? <BaseUICombobox.Status /> : null}
-              <BaseUICombobox.Empty className={`${componentClassName}Empty`}>
-                {noOptionsFoundText}
-              </BaseUICombobox.Empty>
+              {props.items ? (
+                <ComboboxEmpty className={`${componentClassName}Empty`}>
+                  {noOptionsFoundText}
+                </ComboboxEmpty>
+              ) : null}
               <RadixScrollArea.Root className="hearth-ScrollAreaRoot" type="auto">
                 <RadixScrollArea.Viewport className="hearth-ScrollAreaViewport">
                   <BaseUICombobox.List className={`${componentClassName}List`}>
@@ -127,6 +140,6 @@ export const Combobox = (props: ComboboxProps) => {
       </BaseUICombobox.Root>
     </FormField>
   );
-};
+}
 
 Combobox.displayName = COMPONENT_NAME;
