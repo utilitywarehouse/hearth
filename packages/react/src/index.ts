@@ -22,6 +22,7 @@ export { borderColorValues } from './props/border-color.props';
  ********************/
 export { media } from './utils/media';
 export { useMediaQuery } from './hooks/use-media-query';
+export { useComboboxFilter } from './hooks/use-combobox-filter';
 
 /********************
  *
@@ -108,8 +109,8 @@ export type { ValidationTextProps } from './components/ValidationText/Validation
 export { TextInput } from './components/TextInput/TextInput';
 export type { TextInputProps } from './components/TextInput/TextInput.props';
 
-export { TextInputSlot } from './components/TextInputSlot/TextInputSlot';
-export type { TextInputSlotProps } from './components/TextInputSlot/TextInputSlot.props';
+export { InputSlot } from './components/InputSlot/InputSlot';
+export type { InputSlotProps } from './components/InputSlot/InputSlot.props';
 
 export { PasswordInput } from './components/PasswordInput/PasswordInput';
 export type { PasswordInputProps } from './components/PasswordInput/PasswordInput.props';
@@ -286,3 +287,10 @@ export type { HighlightBannerContentProps } from './components/HighlightBanner/H
 
 export { DatePicker } from './components/DatePicker/DatePicker';
 export type { DatePickerProps } from './components/DatePicker/DatePicker.props';
+
+export { Combobox } from './components/Combobox/Combobox';
+export type { ComboboxProps } from './components/Combobox/Combobox.props';
+export { ComboboxItem } from './components/Combobox/ComboboxItem';
+export type { ComboboxItemProps } from './components/Combobox/ComboboxItem.props';
+export { ComboboxEmpty } from './components/Combobox/ComboboxEmpty';
+export type { ComboboxEmptyProps } from './components/Combobox/ComboboxEmpty.props';

@@ -8,8 +8,12 @@
   height: 100%;
   padding-bottom: var(--h-space-25);
   border-radius: var(--h-border-radius-md);
-  /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
-  max-height: calc(var(--radix-popper-available-height) - calc(var(--h-space-50) * 2));
+
+  /* cover the possibility that we're using either radix or base ui variables */
+  /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI & Base UI specific custom properties */
+  --h-available-height: var(--radix-popper-available-height, var(--available-height));
+
+  max-height: calc(var(--h-available-height) - calc(var(--h-space-50) * 2));
 }
 
 .hearth-ScrollAreaScrollbar {

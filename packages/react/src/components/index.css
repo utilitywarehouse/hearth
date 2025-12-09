@@ -29,7 +29,7 @@
 @import url('./FormField/FormField.css');
 @import url('./InputBase/InputBase.css');
 @import url('./TextInput/TextInput.css');
-@import url('./TextInputSlot/TextInputSlot.css');
+@import url('./InputSlot/InputSlot.css');
 @import url('./Badge/Badge.css');
 @import url('./FormGroupBase/FormGroupBase.css');
 @import url('./Radio/Radio.css');
@@ -64,3 +64,4 @@
 @import url('./HighlightBanner/HighlightBanner.css');
 @import url('./DatePicker/DatePicker.css');
 @import url('./DatePicker/Calendar.css');
+@import url('./Combobox/Combobox.css');

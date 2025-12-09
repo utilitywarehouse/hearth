@@ -1,6 +1,6 @@
 .hearth-InputBase {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   gap: var(--h-input-gap);
   cursor: text;
   font-family: var(--h-font-family-body);

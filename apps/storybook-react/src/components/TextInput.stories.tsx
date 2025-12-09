@@ -5,7 +5,7 @@ import {
   Flex,
   Heading,
   TextInput,
-  TextInputSlot,
+  InputSlot,
 } from '@utilitywarehouse/hearth-react';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
@@ -93,18 +93,18 @@ export const PrefixAndSuffix: Story = {
   render: args => (
     <Flex direction="column" gap="400">
       <TextInput {...args}>
-        <TextInputSlot placement="prefix">
+        <InputSlot placement="prefix">
           <BodyText size="md" weight="semibold">
             £
           </BodyText>
-        </TextInputSlot>
+        </InputSlot>
       </TextInput>
       <TextInput {...args}>
-        <TextInputSlot placement="suffix">
+        <InputSlot placement="suffix">
           <BodyText size="md" weight="semibold">
             kWh
           </BodyText>
-        </TextInputSlot>
+        </InputSlot>
       </TextInput>
     </Flex>
   ),
@@ -113,9 +113,9 @@ export const PrefixAndSuffix: Story = {
 export const WithIcons: Story = {
   render: args => (
     <TextInput {...args}>
-      <TextInputSlot placement="prefix">
+      <InputSlot placement="prefix">
         <EmailMediumIcon />
-      </TextInputSlot>
+      </InputSlot>
     </TextInput>
   ),
 };
@@ -140,9 +140,9 @@ export const GroupingInputs: Story = {
             helperText="this is the helper text"
             aria-describedby="supporting-info"
           >
-            <TextInputSlot placement="prefix">
+            <InputSlot placement="prefix">
               <EmailMediumIcon />
-            </TextInputSlot>
+            </InputSlot>
           </TextInput>
         </Card>
       </fieldset>

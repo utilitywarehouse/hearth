@@ -12,6 +12,7 @@
     "chromatic": "chromatic --config-file 'chromatic.config.json'"
   },
   "dependencies": {
+    "@tanstack/react-virtual": "^3.13.13",
     "@utilitywarehouse/hearth-fonts": "workspace:*",
     "@utilitywarehouse/hearth-react": "workspace:*",
     "@utilitywarehouse/hearth-react-icons": "workspace:^0.7.4",
