@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { VerificationInput, Flex } from '@utilitywarehouse/hearth-react';
+import { VerificationInput } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta: Meta<typeof VerificationInput> = {
