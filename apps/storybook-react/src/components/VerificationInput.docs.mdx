@@ -1,36 +1,85 @@
 import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
-import * as VerificationInputStories from './VerificationInput.stories';
+import * as Stories from './VerificationInput.stories';
 import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <Meta title="Components / VerificationInput" />
 
-<DocsHeader componentName="VerificationInput" stories={VerificationInputStories} />
-
-## When to use
-
-Use the Verification Input to allow users enters a one-time password (OTP) sent via SMS, email, or authenticator apps.
-
-- Use when **verifying user identity** during login, sign-up, or sensitive actions.
-- Use when adding an **extra layer of security** for multi-factor authentication (MFA).
-
-## When not to use
-
-- Do not use when allowing users to **create or set passwords**. Use `PasswordInput` instead.
+<DocsHeader componentName="VerificationInput" stories={Stories} />
 
 ## Playground
 
-<Canvas of={VerificationInputStories.Playground} />
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
 
-<Controls of={VerificationInputStories.Playground} />
+## Alternatives
 
-## Disabled and Read Only
+- [TextInput](?path=/docs/components-verificationinput--docs) - For text
+- [PasswordInput](?path=/docs/components-passwordinput--docs) - For entering passwords
+- [SearchInput](?path=/docs/components-searchinput--docs) - For search
+- [CurrencyInput](?path=/docs/components-currencyinput--docs) - For money
+- [DateInput](?path=/docs/components-dateinput--docs) - For one-time passwords
 
-The verification input can be disabled or read-only.
+## Controlled
 
-<Canvas of={VerificationInputStories.DisabledAndReadOnly} />
+Use `value` in conjunction with `onValueChange` for a controlled input.
 
-## Validation
+```tsx
+const [value, setValue] = React.useState("");
 
-The verification input supports validation states.
+[...]
 
-<Canvas of={VerificationInputStories.Validation} />
+<VerificationInput
+  label="Controlled"
+  value={value}
+  onValueChange={setValue}
+/>
+```
+
+## Input type
+
+By default `VerificationInput` renders a text input where the value is visible.
+You can set `type="password"` if you need to visually hide the value being
+entered.
+
+## Validation type
+
+The `VerificationInput` only accepts numeric values by default. To change this,
+use the `validationType` prop.
+
+If you set this to `"none"` you can use the `sanitizeValue` prop for custom
+sanitization. This function will be called before updating values in response
+to user interactions.
+
+## Auto submit
+
+Use the `autoSubmit` and `onAutoSubmit` props to define whether the component
+should attempt to automatically submit when all fields are filled. If the field
+is associated with an HTML form element, the form's `requestSubmit` method will
+be called. The `onAutoSubmit` callback will be called when `autoSubmit` is
+`true`, before attempting to submit the associated form.
+
+## API
+
+This component is based on the `input` element and supports the following common props:
+
+- Margin
+
+| Prop               | Type                                               |
+| ------------------ | -------------------------------------------------- |
+| `label`            | `string`                                           |
+| `helperText`       | `string`                                           |
+| `validationStatus` | `undefined \| "valid" \| "invalid"`                |
+| `validationText`   | `string`                                           |
+| `value`            | `string`                                           |
+| `defaultValue`     | `string`                                           |
+| `onValueChange`    | `(value:string) => void`                           |
+| `autoSubmit`       | `boolean`                                          |
+| `onAutoSubmit`     | `(value:string) => void`                           |
+| `disabled`         | `boolean`                                          |
+| `readOnly`         | `boolean`                                          |
+| `required`         | `boolean`                                          |
+| `form`             | `string`                                           |
+| `name`             | `string`                                           |
+| `sanitizeValue`    | `(value:string) => string`                         |
+| `type`             | `"password" \| "text"`                             |
+| `validationType`   | `"none" \| "numeric" \| "alpha" \| "alphanumeric"` |

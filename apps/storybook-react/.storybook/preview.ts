@@ -60,6 +60,13 @@ const preview: Preview = {
     },
   },
   parameters: {
+    backgrounds: {
+      options: {
+        primary: { name: 'Primary', value: 'var(--h-background-primary)' },
+        secondary: { name: 'Primary', value: 'var(--h-background-secondary)' },
+        brand: { name: 'Primary', value: 'var(--h-background-brand)' },
+      },
+    },
     viewport: {
       options: hearthViewports,
     },

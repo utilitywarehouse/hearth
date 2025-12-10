@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { VerificationInput, Flex } from '@utilitywarehouse/hearth-react';
+import React from 'react';
 
 const meta: Meta<typeof VerificationInput> = {
   title: 'Stories / VerificationInput',
@@ -17,7 +18,6 @@ const meta: Meta<typeof VerificationInput> = {
     helperText: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
-    hideLabel: { control: { type: 'boolean' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
   },
   args: {
@@ -35,47 +35,36 @@ type Story = StoryObj<typeof VerificationInput>;
 
 export const Playground: Story = {};
 
-export const DisabledAndReadOnly: Story = {
-  render: args => (
-    <Flex direction="column" gap="400">
+export const Controlled: Story = {
+  render: args => {
+    const [value, setValue] = React.useState('');
+    return (
       <VerificationInput
         {...args}
-        label="Disabled"
-        disabled
-        helperText="Please do something before this"
+        label="Controlled"
+        name="controlled"
+        helperText={value && `Your OTP is: ${value}`}
+        value={value}
+        onValueChange={setValue}
+        required
       />
-      <VerificationInput
-        {...args}
-        label="Read only"
-        readOnly
-        value="123456"
-        helperText="Uneditable previously provided information"
-      />
-    </Flex>
-  ),
-  args: { helperText: undefined },
+    );
+  },
 };
 
-export const Validation: Story = {
-  render: args => (
-    <Flex direction="column" gap="400">
+export const PasswordType: Story = {
+  render: args => {
+    const [value, setValue] = React.useState<string | undefined>();
+    return (
       <VerificationInput
         {...args}
-        label="Label"
-        value="123456"
-        validationStatus="valid"
-        validationText="Valid code"
+        type="password"
+        label="Password type"
+        name="password-type"
+        value={value}
+        onValueChange={setValue}
         required
       />
-      <VerificationInput
-        {...args}
-        label="Label"
-        value="123456"
-        validationStatus="invalid"
-        validationText="Invalid code"
-        required
-      />
-    </Flex>
-  ),
-  args: { helperText: undefined },
+    );
+  },
 };

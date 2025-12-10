@@ -1,42 +1,15 @@
 .hearth-VerificationInput {
-  display: flex;
-  gap: var(--h-space-100);
-}
+  & :where(.hearth-VerificationInputRow) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--h-input-verification-gap);
 
-.hearth-VerificationInput-slot {
-  all: unset;
-  box-sizing: border-box;
-  width: var(--h-input-height);
-  height: var(--h-input-height);
-  font-family: var(--h-font-family-body);
-  font-weight: var(--h-font-weight-regular);
-  font-size: var(--h-body-text-md-font-size);
-  line-height: var(--h-body-text-md-line-height);
-  text-align: center;
-  color: var(--h-text-primary);
-  background-color: var(--h-surface-neutral-strong);
-  border: var(--h-input-border-width) solid var(--h-border-strong);
-  border-radius: var(--h-input-border-radius);
-  cursor: text;
-  transition:
-    border-color 0.2s,
-    outline 0.2s;
-
-  --h-input-border-color-focus: var(--h-border-strong);
-
-  &:where([data-validation-status='invalid'] &) {
-    border-color: var(--h-feedback-danger-border);
-
-    --h-input-border-color-focus: var(--h-feedback-danger-border);
-  }
-
-  &:focus {
-    outline: var(--h-input-border-width-focused) solid var(--h-input-border-color-focus);
-    outline-offset: -1px;
-  }
-
-  &:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
+    & :where(.hearth-InputBase) {
+      width: 48px;
+      & :where(input) {
+        text-align: center;
+      }
+    }
   }
 }
