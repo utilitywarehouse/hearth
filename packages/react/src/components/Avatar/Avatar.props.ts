@@ -16,7 +16,7 @@ export interface AvatarProps
       React.ComponentPropsWithRef<typeof AvatarPrimitive.Root>,
       keyof AvatarPrimitive.AvatarImageProps | 'asChild'
     >,
-    Omit<React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>, 'alt'>,
+    Omit<React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>, 'alt' | 'asChild'>,
     Omit<
       React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>,
       keyof AvatarPrimitive.AvatarImageProps | 'asChild'

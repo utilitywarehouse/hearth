@@ -1,9 +1,7 @@
-import * as React from 'react';
-import type { ElementRef } from 'react';
-
 import clsx from 'clsx';
 
-import { badgePropDefs, BadgeProps } from './Badge.props';
+import { badgePropDefs } from './Badge.props';
+import type { BadgeProps } from './Badge.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
@@ -12,27 +10,21 @@ import { marginPropDefs } from '../../props/margin.props';
 const COMPONENT_NAME = 'Badge';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type BadgeElement = ElementRef<'span'>;
-
-export const Badge = React.forwardRef<BadgeElement, BadgeProps>((props, ref) => {
+export const Badge = (props: BadgeProps) => {
   const {
     className,
     colorScheme = 'info',
     flatBase,
     ...badgeProps
   } = extractProps(props, badgePropDefs, marginPropDefs, textTransformPropDefs);
-  const dataAttributeProps = {
-    'data-colorscheme': colorScheme,
-    'data-bottom-radius-zero': flatBase ? '' : undefined,
-  };
   return (
     <span
-      ref={ref}
       className={clsx(componentClassName, className)}
-      {...dataAttributeProps}
+      data-colorscheme={colorScheme}
+      data-bottom-radius-zero={flatBase ? '' : undefined}
       {...badgeProps}
     />
   );
-});
+};
 
 Badge.displayName = COMPONENT_NAME;
