@@ -15,11 +15,7 @@ export const AccordionHeader = ({
   ...props
 }: AccordionHeaderProps) => {
   return (
-    <AccordionPrimitive.Header
-      asChild
-      className={clsx(componentClassName, className)}
-      {...props}
-    >
+    <AccordionPrimitive.Header asChild className={clsx(componentClassName, className)} {...props}>
       <Tag>{children}</Tag>
     </AccordionPrimitive.Header>
   );
