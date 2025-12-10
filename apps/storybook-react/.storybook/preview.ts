@@ -63,8 +63,8 @@ const preview: Preview = {
     backgrounds: {
       options: {
         primary: { name: 'Primary', value: 'var(--h-background-primary)' },
-        secondary: { name: 'Primary', value: 'var(--h-background-secondary)' },
-        brand: { name: 'Primary', value: 'var(--h-background-brand)' },
+        secondary: { name: 'Secondary', value: 'var(--h-background-secondary)' },
+        brand: { name: 'Brand', value: 'var(--h-background-brand)' },
       },
     },
     viewport: {
