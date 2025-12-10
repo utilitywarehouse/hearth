@@ -38,12 +38,6 @@ interface CommonBoxProps
     TextAlignProps,
     TextTransformProps {
   /**
-   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
-   * Cannot be used in combination with `asChild`.
-   * @default div
-   */
-  as?: 'div' | 'span';
-  /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    */
   asChild?: boolean;
