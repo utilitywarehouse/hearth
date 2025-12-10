@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react
 
+## 0.20.0
+
+### Minor Changes
+
+- [#703](https://github.com/utilitywarehouse/hearth/pull/703) [`03e4928`](https://github.com/utilitywarehouse/hearth/commit/03e492801f4457d85a7e0fbda322ac6aa5aa28f9) Thanks [@robphoenix](https://github.com/robphoenix)! - BREAKING CHANGE - Rename `TextInputSlot` to `InputSlot`
+
+### Patch Changes
+
+- [#703](https://github.com/utilitywarehouse/hearth/pull/703) [`03e4928`](https://github.com/utilitywarehouse/hearth/commit/03e492801f4457d85a7e0fbda322ac6aa5aa28f9) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `Combobox`
+
+- [#701](https://github.com/utilitywarehouse/hearth/pull/701) [`99b7f07`](https://github.com/utilitywarehouse/hearth/commit/99b7f0726638fb840d107b52f3968c009e994e09) Thanks [@Utakato](https://github.com/Utakato)! - Add `VerificationInput`
+
 ## 0.19.1
 
 ### Patch Changes
