@@ -5,12 +5,13 @@ import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
-import { avatarPropDefs, AvatarProps } from './Avatar.props';
-import { Avatar as RadixAvatar } from 'radix-ui';
+import { avatarPropDefs } from './Avatar.props';
+import type { AvatarProps } from './Avatar.props';
+import { Avatar as AvatarPrimitive } from 'radix-ui';
 import { UserMediumIcon, UserSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
 import { getInitials } from '../../helpers/get-initials';
-import { BodyTextProps } from '../BodyText/BodyText.props';
+import type { BodyTextProps } from '../BodyText/BodyText.props';
 import { Box } from '../Box/Box';
 import type { BoxProps } from '../Box/Box.props';
 import { getResponsiveTranslation } from '../../helpers/get-responsive-translation';
@@ -18,12 +19,13 @@ import { getResponsiveTranslation } from '../../helpers/get-responsive-translati
 const COMPONENT_NAME = 'Avatar';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Avatar: React.FC<AvatarProps> = props => {
+export const Avatar = (props: AvatarProps) => {
   const {
     className,
     src,
     name,
     delayMs = 0,
+    ref,
     ...avatarProps
   } = extractProps(props, avatarPropDefs, marginPropDefs);
 
@@ -40,16 +42,16 @@ export const Avatar: React.FC<AvatarProps> = props => {
   });
 
   return (
-    <RadixAvatar.Root className={clsx(componentClassName, className)}>
+    <AvatarPrimitive.Root className={clsx(componentClassName, className)} ref={ref}>
       {src ? (
-        <RadixAvatar.Image
+        <AvatarPrimitive.Image
           className={`${componentClassName}Image`}
           src={src}
           alt={name}
           {...avatarProps}
         />
       ) : null}
-      <RadixAvatar.Fallback className={`${componentClassName}Fallback`} delayMs={delayMs}>
+      <AvatarPrimitive.Fallback className={`${componentClassName}Fallback`} delayMs={delayMs}>
         {name ? (
           <BodyText
             as="span"
@@ -69,8 +71,8 @@ export const Avatar: React.FC<AvatarProps> = props => {
             </Box>
           </>
         )}
-      </RadixAvatar.Fallback>
-    </RadixAvatar.Root>
+      </AvatarPrimitive.Fallback>
+    </AvatarPrimitive.Root>
   );
 };
 
