@@ -2,10 +2,9 @@
 
 import * as React from 'react';
 import clsx from 'clsx';
-import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { AccordionProps } from './Accordion.props';
-import { Accordion as RadixAccordion } from 'radix-ui';
+import type { AccordionProps } from './Accordion.props';
+import { Accordion as AccordionPrimitive } from 'radix-ui';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
@@ -13,9 +12,7 @@ import { marginPropDefs } from '../../props/margin.props';
 const COMPONENT_NAME = 'Accordion';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type AccordionElement = ElementRef<'div'>;
-
-export const Accordion = React.forwardRef<AccordionElement, AccordionProps>((props, ref) => {
+export const Accordion = (props: AccordionProps) => {
   const {
     className,
     type = 'multiple',
@@ -37,20 +34,16 @@ export const Accordion = React.forwardRef<AccordionElement, AccordionProps>((pro
     validationStatus,
   };
 
-  const accordionProps = {
-    type,
-    ...restProps,
-  };
+  const accordionProps = { type, ...restProps } as React.ComponentPropsWithRef<
+    typeof AccordionPrimitive.Root
+  >;
 
   return (
     <div className={clsx(componentClassName, className)}>
       {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
-      <RadixAccordion.Root
-        ref={ref}
-        {...(accordionProps as React.ComponentProps<typeof RadixAccordion.Root>)}
-      />
+      <AccordionPrimitive.Root {...accordionProps} />
     </div>
   );
-});
+};
 
 Accordion.displayName = COMPONENT_NAME;

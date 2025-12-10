@@ -1,7 +1,6 @@
-import { Accordion as RadixAccordion } from 'radix-ui';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+import { Accordion as AccordionPrimitive } from 'radix-ui';
 
-export type AccordionContentProps = ComponentPropsWithout<
-  typeof RadixAccordion.Content,
-  RemovedProps
-> & {};
+export type AccordionContentProps = Omit<
+  React.ComponentPropsWithRef<typeof AccordionPrimitive.Content>,
+  'asChild'
+>;
