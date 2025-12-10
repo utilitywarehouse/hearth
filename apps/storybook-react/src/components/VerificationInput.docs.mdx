@@ -1,0 +1,36 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as VerificationInputStories from './VerificationInput.stories';
+import { DocsHeader } from '../storybook-components/DocsHeader';
+
+<Meta title="Components / VerificationInput" />
+
+<DocsHeader componentName="VerificationInput" stories={VerificationInputStories} />
+
+## When to use
+
+Use the Verification Input to allow users enters a one-time password (OTP) sent via SMS, email, or authenticator apps.
+
+- Use when **verifying user identity** during login, sign-up, or sensitive actions.
+- Use when adding an **extra layer of security** for multi-factor authentication (MFA).
+
+## When not to use
+
+- Do not use when allowing users to **create or set passwords**. Use `PasswordInput` instead.
+
+## Playground
+
+<Canvas of={VerificationInputStories.Playground} />
+
+<Controls of={VerificationInputStories.Playground} />
+
+## Disabled and Read Only
+
+The verification input can be disabled or read-only.
+
+<Canvas of={VerificationInputStories.DisabledAndReadOnly} />
+
+## Validation
+
+The verification input supports validation states.
+
+<Canvas of={VerificationInputStories.Validation} />
