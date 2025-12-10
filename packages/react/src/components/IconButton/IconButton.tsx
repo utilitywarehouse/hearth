@@ -1,11 +1,9 @@
 'use client';
 
-import * as React from 'react';
-
 import clsx from 'clsx';
-import { iconButtonPropDefs, IconButtonProps } from './IconButton.props';
+import { iconButtonPropDefs } from './IconButton.props';
+import type { IconButtonProps } from './IconButton.props';
 import { ButtonBase } from '../ButtonBase/ButtonBase';
-import type { ButtonBaseElement } from '../ButtonBase/ButtonBase';
 import { extractProps } from '../../helpers/extract-props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Spinner } from '../Spinner/Spinner';
@@ -17,33 +15,30 @@ import { getResponsiveTranslation } from '../../helpers/get-responsive-translati
 const COMPONENT_NAME = 'IconButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const IconButton = React.forwardRef<ButtonBaseElement, IconButtonProps>(
-  (props, forwardedRef) => {
-    const { className, label, disabled, loading, children, asChild, ...iconButtonProps } =
-      extractProps(props, iconButtonPropDefs);
+export const IconButton = (props: IconButtonProps) => {
+  const { className, label, disabled, loading, children, asChild, ...iconButtonProps } =
+    extractProps(props, iconButtonPropDefs);
 
-    const spinnerSize = getResponsiveTranslation(props.size || 'md', { md: 'sm', sm: 'xs' });
-    const Component = asChild ? Slot.Root : 'button';
+  const spinnerSize = getResponsiveTranslation(props.size || 'md', { md: 'sm', sm: 'xs' });
+  const Component = asChild ? Slot.Root : 'button';
 
-    return (
-      <ButtonBase
-        ref={forwardedRef}
-        className={clsx(componentClassName, className)}
-        aria-label={label}
-        disabled={disabled || loading}
-        asChild
-        {...iconButtonProps}
-      >
-        <Component>
-          {loading
-            ? getSubtree({ asChild, children }, () => (
-                <Spinner size={spinnerSize as SpinnerProps['size']} currentColor />
-              ))
-            : children}
-        </Component>
-      </ButtonBase>
-    );
-  }
-);
+  return (
+    <ButtonBase
+      className={clsx(componentClassName, className)}
+      aria-label={label}
+      disabled={disabled || loading}
+      asChild
+      {...iconButtonProps}
+    >
+      <Component>
+        {loading
+          ? getSubtree({ asChild, children }, () => (
+              <Spinner size={spinnerSize as SpinnerProps['size']} currentColor />
+            ))
+          : children}
+      </Component>
+    </ButtonBase>
+  );
+};
 
 IconButton.displayName = COMPONENT_NAME;

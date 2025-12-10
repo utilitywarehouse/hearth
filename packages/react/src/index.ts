@@ -86,7 +86,6 @@ export type { CardInteractionProps } from './components/Card/CardInteraction.pro
 export { CardBannerContent } from './components/Card/CardBannerContent';
 export type { CardBannerContentProps } from './components/Card/CardBannerContent.props';
 export { CardBannerImage } from './components/Card/CardBannerImage';
-export type { CardBannerImageProps } from './components/Card/CardBannerImage.props';
 export { CardActions } from './components/CardActions/CardActions';
 export type { CardActionsProps } from './components/CardActions/CardActions.props';
 export { CardActionLink } from './components/CardActions/CardActionLink';
@@ -176,12 +175,8 @@ export { ModalTrigger } from './components/Modal/ModalTrigger';
 
 export { Alert } from './components/Alert/Alert';
 export type { AlertProps } from './components/Alert/Alert.props';
-
 export { AlertLink } from './components/Alert/AlertLink';
-export type { AlertLinkProps } from './components/Alert/AlertLink';
-
 export { AlertIconButton } from './components/Alert/AlertIconButton';
-export type { AlertIconButtonProps } from './components/Alert/AlertIconButton';
 
 export { CurrencyInput } from './components/CurrencyInput/CurrencyInput';
 export type { CurrencyInputProps } from './components/CurrencyInput/CurrencyInput.props';
