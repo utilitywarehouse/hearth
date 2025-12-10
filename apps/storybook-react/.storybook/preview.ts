@@ -5,7 +5,7 @@ import { breakpoints } from '@utilitywarehouse/hearth-react';
 import '../../../shared/storybook/styles/preview.css';
 import theme from '../../../shared/storybook/theme';
 
-const hearthViewports = {
+const HEARTH_VIEWPORTS = {
   mobile: {
     name: 'mobile',
     styles: {
@@ -43,25 +43,26 @@ const preview: Preview = {
       description: 'Enable measure addon',
       defaultValue: false,
     },
-    backgrounds: {
-      name: 'Backgrounds',
-      description: 'Global backgrounds',
-      defaultValue: { value: 'transparent' },
-    },
     outline: {
       name: 'Outline',
       description: 'Enable outline addon',
       defaultValue: false,
     },
-    viewport: {
-      name: 'Viewport',
-      description: 'Global viewport',
-      defaultValue: { value: 'reset' },
-    },
+  },
+  initialGlobals: {
+    backgrounds: { value: 'primary' },
+    viewport: { value: 'reset' },
   },
   parameters: {
+    backgrounds: {
+      options: {
+        primary: { name: 'Primary', value: 'var(--h-background-primary)' },
+        secondary: { name: 'Secondary', value: 'var(--h-background-secondary)' },
+        brand: { name: 'Brand', value: 'var(--h-background-brand)' },
+      },
+    },
     viewport: {
-      options: hearthViewports,
+      options: HEARTH_VIEWPORTS,
     },
     docs: {
       theme,
