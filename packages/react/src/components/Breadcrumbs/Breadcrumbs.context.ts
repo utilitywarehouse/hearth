@@ -1,10 +1,10 @@
-import { createContext } from 'react';
+import React from 'react';
 import { BreadcrumbsProps } from './Breadcrumbs.props';
 
 export type BreadcrumbsContextOptions = {
   inverted: BreadcrumbsProps['inverted'];
 };
 
-export const BreadcrumbsContext = createContext<BreadcrumbsContextOptions>({
+export const BreadcrumbsContext = React.createContext<BreadcrumbsContextOptions>({
   inverted: false,
 });

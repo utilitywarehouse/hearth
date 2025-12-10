@@ -1,10 +1,8 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
-
-import { boxPropDefs, type BoxProps } from './Box.props';
-
+import { boxPropDefs } from './Box.props';
+import type { BoxProps } from './Box.props';
 import { Slot } from 'radix-ui';
 import { extractProps } from '../../helpers/extract-props';
 import { paddingPropDefs } from '../../props/padding.props';

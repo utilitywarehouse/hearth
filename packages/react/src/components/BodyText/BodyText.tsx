@@ -1,8 +1,8 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
-import { bodyTextPropDefs, BodyTextProps } from './BodyText.props';
+import { bodyTextPropDefs } from './BodyText.props';
+import type { BodyTextProps } from './BodyText.props';
 import { Slot } from 'radix-ui';
 import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
