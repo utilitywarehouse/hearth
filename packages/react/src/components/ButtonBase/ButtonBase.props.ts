@@ -1,6 +1,5 @@
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
 const variants = ['emphasis', 'solid', 'outline', 'ghost'] as const;
 
@@ -10,7 +9,7 @@ export const buttonBasePropDefs = {
   variant: PropDef<(typeof variants)[number]>;
 };
 
-export type ButtonBaseProps = ComponentPropsWithout<'button', RemovedProps> &
+export type ButtonBaseProps = React.ComponentPropsWithRef<'button'> &
   MarginProps &
   (
     | {
