@@ -1,8 +1,8 @@
 import { createContext } from 'react';
-import { ProgressStepStatus } from './ProgressStep.props';
+import { ProgressStepProps } from './ProgressStep.props';
 
 export type ProgressStepContextOptions = {
-  status: ProgressStepStatus;
+  status: ProgressStepProps['status'];
 };
 
 export const ProgressStepContext = createContext<ProgressStepContextOptions | null>(null);

@@ -1,10 +1,6 @@
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
-
-export type ProgressStepStatus = 'complete' | 'active' | 'incomplete';
-
-export interface ProgressStepProps extends ComponentPropsWithout<'li', RemovedProps> {
+export interface ProgressStepProps extends React.ComponentPropsWithRef<'li'> {
   /**
    * The current status of the step
    */
-  status: ProgressStepStatus;
+  status: 'complete' | 'active' | 'incomplete';
 }

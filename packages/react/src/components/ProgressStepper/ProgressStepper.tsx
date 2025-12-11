@@ -7,11 +7,12 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { ProgressStepperContext } from './ProgressStepper.context';
+import { Slot } from 'radix-ui';
 
 const COMPONENT_NAME = 'ProgressStepper';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const ProgressStepper: React.FC<ProgressStepperProps> = props => {
+export const ProgressStepper = (props: ProgressStepperProps) => {
   const {
     className,
     children,
@@ -22,17 +23,19 @@ export const ProgressStepper: React.FC<ProgressStepperProps> = props => {
   } = extractProps(props, marginPropDefs);
 
   return (
-    <Tag
+    <Slot.Root
       aria-label={ariaLabel}
       className={clsx(componentClassName, className)}
       {...progressStepperProps}
     >
-      <ol role="list">
-        <ProgressStepperContext.Provider value={{ hideLabels }}>
-          {children}
-        </ProgressStepperContext.Provider>
-      </ol>
-    </Tag>
+      <Tag>
+        <ol role="list">
+          <ProgressStepperContext.Provider value={{ hideLabels }}>
+            {children}
+          </ProgressStepperContext.Provider>
+        </ol>
+      </Tag>
+    </Slot.Root>
   );
 };
 
