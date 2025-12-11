@@ -1,0 +1,11 @@
+{
+  "codeConnect": {
+    "include": ["src/**"],
+    "parser": "react",
+    "exclude": [],
+    "label": "React",
+    "importPaths": {
+      "packages/react/src/*": "@utilitywarehouse/hearth-react"
+    }
+  }
+}

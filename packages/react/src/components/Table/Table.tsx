@@ -1,44 +1,48 @@
 import * as React from 'react';
 import clsx from 'clsx';
 
-import { TableProps } from './Table.props';
+import type { TableProps } from './Table.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
+import { extractProps } from '../../helpers/extract-props';
+import { marginPropDefs } from '../../props/margin.props';
 import { Card } from '../Card/Card';
-import { Box } from '../Box/Box';
 
 const COMPONENT_NAME = 'Table';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TableElement = React.ComponentRef<'table'>;
 
-export const Table = React.forwardRef<TableElement, TableProps>(
-  ({ className, children, variant, footer, ...props }, ref) => {
-    const TableFooter = () => <div className={`${componentClassName}Footer`}>{footer}</div>;
+export const Table = React.forwardRef<TableElement, TableProps>((props, ref) => {
+  const { className, style, children, variant, pagination, ...tableProps } = extractProps(
+    props,
+    marginPropDefs
+  );
 
+  if (variant === undefined) {
     return (
-      <div className={clsx(componentClassName, className)} data-variant={variant}>
-        {variant === undefined ? (
-          <>
-            <Box className={`${componentClassName}ScrollContainer`}>
-              <table className={`${componentClassName}Element`} ref={ref} {...props}>
-                {children}
-              </table>
-            </Box>
-            {footer ? <TableFooter /> : null}
-          </>
-        ) : (
-          <Card paddingNone variant={variant} colorScheme="neutralStrong" direction="column">
-            <Box className={`${componentClassName}ScrollContainer`}>
-              <table className={`${componentClassName}Element`} ref={ref} {...props}>
-                {children}
-              </table>
-            </Box>
-            {footer ? <TableFooter /> : null}
-          </Card>
-        )}
+      <div className={clsx(componentClassName, className)} style={style}>
+        <table ref={ref} {...tableProps}>
+          {children}
+        </table>
+        {pagination}
       </div>
     );
   }
-);
+
+  return (
+    <Card
+      className={clsx(componentClassName, className)}
+      style={style}
+      variant={variant}
+      colorScheme="neutralStrong"
+      paddingNone
+    >
+      <table ref={ref} {...tableProps}>
+        {children}
+      </table>
+      {pagination}
+    </Card>
+  );
+});
 
 Table.displayName = COMPONENT_NAME;

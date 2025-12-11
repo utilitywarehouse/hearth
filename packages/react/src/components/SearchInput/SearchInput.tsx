@@ -1,9 +1,11 @@
+'use client';
+
 import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import clsx from 'clsx';
 import React from 'react';
 import { TextInput } from '../TextInput/TextInput';
-import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
+import { InputSlot } from '../InputSlot/InputSlot';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { SearchInputProps } from './SearchInput.props';
 import { Spinner } from '../Spinner/Spinner';
@@ -49,16 +51,16 @@ export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps
         id={id}
         {...props}
       >
-        <TextInputSlot placement="prefix">
+        <InputSlot placement="prefix">
           <SearchMediumIcon />
-        </TextInputSlot>
+        </InputSlot>
         {loading ? (
-          <TextInputSlot placement="suffix">
+          <InputSlot placement="suffix">
             <Spinner size="xs" color="primary" />
-          </TextInputSlot>
+          </InputSlot>
         ) : null}
         {value !== undefined && String(value).length > 0 ? (
-          <TextInputSlot placement="suffix">
+          <InputSlot placement="suffix">
             <UnstyledIconButton
               type="button"
               label="clear search"
@@ -67,7 +69,7 @@ export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps
             >
               <CloseSmallIcon />
             </UnstyledIconButton>
-          </TextInputSlot>
+          </InputSlot>
         ) : null}
       </TextInput>
     );

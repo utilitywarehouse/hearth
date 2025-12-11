@@ -1,6 +1,0 @@
-.hearth-TableHeaderCell {
-  padding: var(--h-table-header-cell-padding-vertical)
-    var(--h-table-header-cell-padding-horizontal);
-  text-align: left;
-  white-space: nowrap;
-}

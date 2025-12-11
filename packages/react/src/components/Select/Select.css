@@ -1,10 +1,6 @@
 .hearth-Select {
-  width: 100%;
   min-width: var(--h-select-min-width);
   max-width: var(--h-select-max-width);
-  display: flex;
-  flex-direction: column;
-  gap: var(--h-select-gap);
 
   & :where(.hearth-SelectTrigger) {
     all: unset;
@@ -12,7 +8,7 @@
     appearance: none;
     box-sizing: border-box;
     cursor: pointer;
-    /* stylelint-disable-next-line custom-property-pattern -- Radix UI specific custom property */
+    /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
     width: var(--radix-select-trigger-width);
     display: inline-flex;
     align-items: center;
@@ -46,12 +42,12 @@
       outline-offset: -1px;
     }
 
-    &:where([data-validation-status='valid']) {
+    &:where([data-validation-status='valid'] &) {
       --h-select-border: var(--h-feedback-positive-border);
       --h-select-border-color-focus: var(--h-feedback-positive-border);
     }
 
-    &:where([data-validation-status='invalid']) {
+    &:where([data-validation-status='invalid'] &) {
       --h-select-border: var(--h-feedback-danger-border);
       --h-select-border-color-focus: var(--h-feedback-danger-border);
     }
@@ -71,9 +67,9 @@
   align-items: flex-start;
   padding: var(--h-select-dropdown-padding);
   background-color: var(--h-surface-neutral-strong);
-  /* stylelint-disable-next-line custom-property-pattern -- Radix UI specific custom property */
+  /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
   width: var(--radix-select-trigger-width);
-  /* stylelint-disable-next-line custom-property-pattern -- Radix UI specific custom property */
+  /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
   max-height: var(--radix-select-content-available-height);
   border: var(--h-select-dropdown-border-width) solid var(--h-border-subtle);
   border-radius: var(--h-select-border-radius);

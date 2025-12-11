@@ -8,7 +8,7 @@
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "clean:lib": "rm -rf lib",
+    "clean:lib": "rm -rf lib && rm -rf figma-code-connect",
     "clean:dist": "rm -rf dist",
     "clean": "rm -rf node_modules",
     "transform": "svgr --config-file ./svgr.config.cjs --template templates/icon.cjs ../svg-icons/lib",
@@ -29,7 +29,7 @@
     "react-native-svg": ">=12.3.0"
   },
   "devDependencies": {
-    "@figma/code-connect": "^1.1.3",
+    "@figma/code-connect": "^1.3.11",
     "@svgr/cli": "^7.0.0",
     "@tsconfig/react-native": "^3.0.0",
     "@types/jest": "^29.5.1",

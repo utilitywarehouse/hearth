@@ -1,0 +1,71 @@
+.hearth-Combobox {
+  min-width: var(--h-select-min-width);
+  max-width: var(--h-select-max-width);
+}
+
+.hearth-ComboboxPopup {
+  padding: var(--h-select-dropdown-padding);
+  background-color: var(--h-surface-neutral-strong);
+  border: var(--h-select-dropdown-border-width) solid var(--h-border-subtle);
+  border-radius: var(--h-select-border-radius);
+  color: var(--h-interactive-functional-foreground-subtle);
+
+  & :where(.hearth-ComboboxList) {
+    display: flex;
+    flex-direction: column;
+    gap: var(--h-select-dropdown-gap);
+    align-items: flex-start;
+    /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Base UI specific custom property */
+    width: var(--anchor-width);
+    /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Base UI specific custom property */
+    max-width: var(--available-width);
+    /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Base UI specific custom property */
+    transform-origin: var(--transform-origin);
+
+    & :where(.hearth-ComboboxItem) {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--h-select-dropdown-item-gap);
+      padding: var(--h-select-dropdown-item-padding);
+      font-family: var(--h-font-family-body);
+      font-size: var(--h-body-text-md-font-size);
+      font-weight: var(--h-font-weight-regular);
+      line-height: var(--h-body-text-md-line-height);
+      color: var(--h-interactive-functional-foreground-subtle);
+      border-radius: var(--h-select-dropdown-item-border-radius);
+      user-select: none;
+      cursor: pointer;
+
+      &:where([data-highlighted]) {
+        background-color: var(--h-interactive-functional-surface-subtle-hover);
+        outline: none;
+      }
+
+      &:where(:active):not([data-disabled]) {
+        background-color: var(--h-interactive-functional-surface-subtle-active);
+      }
+    }
+
+    & :where(span[aria-hidden='true']:has(svg)) {
+      display: inline-flex;
+      align-items: center;
+    }
+  }
+
+  & :where(.hearth-ComboboxEmpty):not(:empty) {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    padding: var(--h-select-dropdown-item-padding);
+    font-family: var(--h-font-family-body);
+    font-size: var(--h-body-text-md-font-size);
+    font-weight: var(--h-font-weight-regular);
+    line-height: var(--h-body-text-md-line-height);
+    border-radius: var(--h-select-dropdown-item-border-radius);
+    user-select: none;
+    color: var(--h-interactive-functional-foreground-subtle);
+    opacity: var(--h-opacity-disabled);
+  }
+}

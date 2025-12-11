@@ -22,6 +22,7 @@ export { borderColorValues } from './props/border-color.props';
  ********************/
 export { media } from './utils/media';
 export { useMediaQuery } from './hooks/use-media-query';
+export { useComboboxFilter } from './hooks/use-combobox-filter';
 
 /********************
  *
@@ -108,8 +109,11 @@ export type { ValidationTextProps } from './components/ValidationText/Validation
 export { TextInput } from './components/TextInput/TextInput';
 export type { TextInputProps } from './components/TextInput/TextInput.props';
 
-export { TextInputSlot } from './components/TextInputSlot/TextInputSlot';
-export type { TextInputSlotProps } from './components/TextInputSlot/TextInputSlot.props';
+export { InputSlot } from './components/InputSlot/InputSlot';
+export type { InputSlotProps } from './components/InputSlot/InputSlot.props';
+
+export { VerificationInput } from './components/VerificationInput/VerificationInput';
+export type { VerificationInputProps } from './components/VerificationInput/VerificationInput.props';
 
 export { PasswordInput } from './components/PasswordInput/PasswordInput';
 export type { PasswordInputProps } from './components/PasswordInput/PasswordInput.props';
@@ -246,14 +250,21 @@ export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar.props';
 
 export { Table } from './components/Table/Table';
-export type { TableProps } from './components/Table/Table.props';
-export { TableBody } from './components/TableBody/TableBody';
-export type { TableBodyProps } from './components/TableBody/TableBody.props';
-export { TableHeader } from './components/TableHeader/TableHeader';
-export { TableHeaderCell } from './components/TableHeaderCell/TableHeaderCell';
-export type { TableHeaderCellProps } from './components/TableHeaderCell/TableHeaderCell.props';
-export { TableRow } from './components/TableRow/TableRow';
-export { TableCell } from './components/TableCell/TableCell';
+export type {
+  TableProps,
+  TableBodyProps,
+  TableHeaderProps,
+  TableHeaderCellProps,
+  TableRowProps,
+  TableCellProps,
+} from './components/Table/Table.props';
+export { TablePagination } from './components/Table/TablePagination';
+export type { TablePaginationProps } from './components/Table/TablePagination.props';
+export { TableBody } from './components/Table/TableBody';
+export { TableHeader } from './components/Table/TableHeader';
+export { TableHeaderCell } from './components/Table/TableHeaderCell';
+export { TableRow } from './components/Table/TableRow';
+export { TableCell } from './components/Table/TableCell';
 
 export { Tabs } from './components/Tabs/Tabs';
 export { TabsList } from './components/Tabs/TabsList';
@@ -276,3 +287,13 @@ export { HighlightBannerFooter } from './components/HighlightBanner/HighlightBan
 export type { HighlightBannerFooterProps } from './components/HighlightBanner/HighlightBannerFooter.props';
 export { HighlightBannerContent } from './components/HighlightBanner/HighlightBannerContent';
 export type { HighlightBannerContentProps } from './components/HighlightBanner/HighlightBannerContent.props';
+
+export { DatePicker } from './components/DatePicker/DatePicker';
+export type { DatePickerProps } from './components/DatePicker/DatePicker.props';
+
+export { Combobox } from './components/Combobox/Combobox';
+export type { ComboboxProps } from './components/Combobox/Combobox.props';
+export { ComboboxItem } from './components/Combobox/ComboboxItem';
+export type { ComboboxItemProps } from './components/Combobox/ComboboxItem.props';
+export { ComboboxEmpty } from './components/Combobox/ComboboxEmpty';
+export type { ComboboxEmptyProps } from './components/Combobox/ComboboxEmpty.props';

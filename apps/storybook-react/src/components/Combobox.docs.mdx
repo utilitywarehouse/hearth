@@ -1,0 +1,202 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as Stories from './Combobox.stories';
+import { DocsHeader } from '../storybook-components/DocsHeader';
+
+<Meta title="Components / Combobox" />
+
+<DocsHeader componentName="Combobox" stories={Stories} />
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Trigger only on type](#trigger-only-on-type)
+- [No options found](#no-options-found)
+- [Status text](#status-text)
+- [Virtualised](#virtualised)
+- [API](#api)
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Usage
+
+Pass your array of options to the `items` prop, these will be rendered using
+the `ComboboxItem` component.
+
+You can use `ComboboxItem` yourself if you need more control over the rendered
+option content.
+
+```tsx
+const fruits = ['Apple', 'Banana', 'Orange'];
+
+[...]
+
+
+<Combobox>
+  {fruits.map(fruit => (
+    <ComboboxItem key={fruit} value={fruit}>
+      {fruit}
+    </ComboboxItem>
+  ))}
+</Combobox>
+```
+
+## Trigger only on type
+
+By default the dropdown will open when the input is clicked. You can change
+this behaviour, so that the dropdown is only opened when a user starts typing,
+with the `triggerOnlyOnType` prop. This will also remove the trigger icon button.
+
+- Set `triggerOnlyOnType` to `false` where there is a predefined list of options for a user to choose.
+- Set `triggerOnlyOnType` to `true` where the user is required to type before surfacing options. For example, postcode or address lookups.
+
+## No options found
+
+If a user searches and no options are found, a disabled option will appear in
+the dropdown to communicate this. You can customise this using the
+`noOptionsFoundText` prop.
+
+This requires that you pass options via the `items` prop. If you are rendering
+the options yourself, using `ComboboxItem`, you can use the `ComboboxEmpty`
+component to display when there are no options available.
+
+## Status text
+
+Use the `statusText` prop to display a status message whose content changes are
+announced politely to screen readers. Useful for conveying the status of an
+asynchronously loaded list.
+
+## Virtualised
+
+Efficiently handle large datasets using a virtualization library like `@tanstack/react-virtual`.
+
+<Canvas of={Stories.Virtualised} sourceState="hidden" />
+
+```tsx
+import { Combobox, ComboboxItem, useComboboxFilter } from '@utilitywarehouse/hearth-react';
+import { useVirtualizer } from '@tanstack/react-virtual';
+
+[...]
+
+
+const [open, setOpen] = React.useState(false);
+const [searchValue, setSearchValue] = React.useState('');
+const [value, setValue] = React.useState<VirtualizedItem | null>(null);
+
+const deferredSearchValue = React.useDeferredValue(searchValue);
+
+const scrollElementRef = React.useRef<HTMLDivElement | null>(null);
+
+const { contains } = useComboboxFilter({ value });
+
+const resolvedSearchValue =
+  searchValue === '' || deferredSearchValue === '' ? searchValue : deferredSearchValue;
+
+const filteredItems = React.useMemo(() => {
+  return virtualizedItems.filter(item => contains(item, resolvedSearchValue, getItemLabel));
+}, [contains, resolvedSearchValue]);
+
+const virtualizer = useVirtualizer({
+  enabled: open,
+  count: filteredItems.length,
+  getScrollElement: () => scrollElementRef.current,
+  estimateSize: () => 32,
+  overscan: 20,
+});
+
+const handleScrollElementRef = React.useCallback(
+  (element: HTMLDivElement | null) => {
+    scrollElementRef.current = element;
+    if (element) {
+      virtualizer.measure();
+    }
+  },
+  [virtualizer]
+);
+
+const totalSize = virtualizer.getTotalSize();
+
+return (
+  <Combobox
+    virtualized
+    label="Search 10,000 items"
+    items={virtualizedItems}
+    filteredItems={filteredItems}
+    open={open}
+    onOpenChange={setOpen}
+    inputValue={searchValue}
+    onInputValueChange={setSearchValue}
+    value={value}
+    onValueChange={setValue}
+    itemToStringLabel={getItemLabel}
+    onItemHighlighted={(item: any, { reason, index }: any) => {
+      if (!item) {
+        return;
+      }
+
+      const isStart = index === 0;
+      const isEnd = index === filteredItems.length - 1;
+      const shouldScroll = reason === 'none' || (reason === 'keyboard' && (isStart || isEnd));
+
+      if (shouldScroll) {
+        queueMicrotask(() => {
+          virtualizer.scrollToIndex(index, { align: isEnd ? 'start' : 'end' });
+        });
+      }
+    }}
+  >
+    {filteredItems.length > 0 && (
+      <div
+        role="presentation"
+        ref={handleScrollElementRef}
+        style={{
+          height: `min(22rem, ${totalSize}px)`,
+          width: '100%',
+        }}
+      >
+        <div role="presentation" style={{ height: totalSize }}>
+          {virtualizer.getVirtualItems().map(virtualItem => {
+            const item = filteredItems[virtualItem.index];
+            if (!item) {
+              return null;
+            }
+
+            return (
+              <ComboboxItem
+                key={virtualItem.key}
+                index={virtualItem.index}
+                data-index={virtualItem.index}
+                ref={virtualizer.measureElement}
+                value={item}
+                aria-setsize={filteredItems.length}
+                aria-posinset={virtualItem.index + 1}
+              >
+                {item.name}
+              </ComboboxItem>
+            );
+          })}
+        </div>
+      </div>
+    )}
+  </Combobox>
+)
+```
+
+## API
+
+This component is based on the [Base UI Combobox](https://base-ui.com/react/components/combobox#) and supports the following common props:
+
+- Margin
+
+| Prop                 | Type                                |
+| -------------------- | ----------------------------------- |
+| `label`              | `string`                            |
+| `helperText`         | `string`                            |
+| `validationStatus`   | `undefined \| "valid" \| "invalid"` |
+| `validationText`     | `string`                            |
+| `required`           | `boolean`                           |
+| `disabled`           | `boolean`                           |
+| `triggerOnlyOnType`  | `boolean`                           |
+| `noOptionsFoundText` | `string`                            |
+| `statusText`         | `string`                            |

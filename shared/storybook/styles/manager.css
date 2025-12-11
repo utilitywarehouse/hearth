@@ -6,6 +6,10 @@ div:where([role='main']) > div {
   border-right: 1px solid #101010;
 }
 
+#storybook-preview-wrapper {
+  background: white !important;
+}
+
 #storybook-explorer-tree div[aria-expanded='true'],
 #storybook-explorer-tree div[aria-expanded='false'] {
   border-top: 1px solid #fff !important;

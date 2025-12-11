@@ -1,3 +1,5 @@
+'use client';
+
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import clsx from 'clsx';
 import type { ElementRef } from 'react';

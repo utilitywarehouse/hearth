@@ -1,6 +1,6 @@
 .hearth-InputBase {
   display: flex;
-  align-items: stretch;
+  align-items: center;
   gap: var(--h-input-gap);
   cursor: text;
   font-family: var(--h-font-family-body);
@@ -31,13 +31,13 @@
     cursor: default;
   }
 
-  &:where([data-validation-status='valid']:not(:has(input[readonly], input:disabled))) {
+  &:where([data-validation-status='valid'] &) {
     border-color: var(--h-feedback-positive-border);
 
     --h-input-border-color-focus: var(--h-feedback-positive-border);
   }
 
-  &:where([data-validation-status='invalid']:not(:has(input[readonly], input:disabled))) {
+  &:where([data-validation-status='invalid'] &) {
     border-color: var(--h-feedback-danger-border);
 
     --h-input-border-color-focus: var(--h-feedback-danger-border);

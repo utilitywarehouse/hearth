@@ -1,9 +1,11 @@
+'use client';
+
 import React from 'react';
 import type { ChangeEvent, ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import clsx from 'clsx';
 import { TextInput } from '../TextInput/TextInput';
-import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
+import { InputSlot } from '../InputSlot/InputSlot';
 import { CurrencyInputProps } from './CurrencyInput.props';
 import { DetailText } from '../DetailText/DetailText';
 
@@ -134,9 +136,9 @@ export const CurrencyInput = React.forwardRef<CurrencyInputElement, CurrencyInpu
         placeholder={placeholder}
         {...props}
       >
-        <TextInputSlot placement="prefix">
+        <InputSlot placement="prefix">
           <DetailText size="3xl">£</DetailText>
-        </TextInputSlot>
+        </InputSlot>
       </TextInput>
     );
   }

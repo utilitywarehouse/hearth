@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.2.1
+
+### Patch Changes
+
+- [#695](https://github.com/utilitywarehouse/hearth/pull/695) [`1e5f3c4`](https://github.com/utilitywarehouse/hearth/commit/1e5f3c45241fc3893d6b3ead394dcc6cb978a72c) Thanks [@robphoenix](https://github.com/robphoenix)! - regenerate tokens
+
 ## 0.2.0
 
 ### Minor Changes

@@ -1,10 +1,12 @@
+'use client';
+
 import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import clsx from 'clsx';
 import React from 'react';
 import { PasswordInputProps } from './PasswordInput.props';
 import { TextInput } from '../TextInput/TextInput';
-import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
+import { InputSlot } from '../InputSlot/InputSlot';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { EyeOffSmallIcon, EyeSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
@@ -75,7 +77,7 @@ export const PasswordInput = React.forwardRef<PasswordInputElement, PasswordInpu
           id={id}
           {...props}
         >
-          <TextInputSlot placement="suffix">
+          <InputSlot placement="suffix">
             <UnstyledIconButton
               type="button"
               label="toggle password visibility"
@@ -85,7 +87,7 @@ export const PasswordInput = React.forwardRef<PasswordInputElement, PasswordInpu
             >
               {visible ? <EyeSmallIcon /> : <EyeOffSmallIcon />}
             </UnstyledIconButton>
-          </TextInputSlot>
+          </InputSlot>
         </TextInput>
         <div data-visually-hidden aria-live="assertive" role="status">
           {showVisibilityMessage ? visibilityMessage : ''}

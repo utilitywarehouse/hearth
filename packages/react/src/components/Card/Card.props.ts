@@ -1,7 +1,6 @@
 import { PropDef } from '../../props/prop-def';
 import { FlexProps } from '../Flex/Flex.props';
 import { PaddingProps } from '../../props/padding.props';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { BorderProps } from '../../props/border.props';
 import { BorderColorProps } from '../../props/border-color.props';
 
@@ -15,16 +14,17 @@ export const cardPropDefs = {
   paddingNone: PropDef<boolean>;
 };
 
-type CommonCardProps = Omit<
-  FlexProps,
-  | 'as'
-  | 'asChild'
-  | 'color'
-  | 'backgroundColor'
-  | keyof PaddingProps
-  | keyof BorderProps
-  | keyof BorderColorProps
-> & {
+export interface CardProps
+  extends Omit<
+    FlexProps,
+    | 'as'
+    | 'asChild'
+    | 'color'
+    | 'backgroundColor'
+    | keyof PaddingProps
+    | keyof BorderProps
+    | keyof BorderColorProps
+  > {
   /**
    * Sets the card's visual variant
    */
@@ -64,8 +64,4 @@ type CommonCardProps = Omit<
     | 'cashback'
     | 'pig'
     | 'functional';
-};
-
-type CardDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
-type CardLiProps = { as?: 'li' } & ComponentPropsWithout<'li', RemovedProps>;
-export type CardProps = CommonCardProps & (CardLiProps | CardDivProps);
+}
