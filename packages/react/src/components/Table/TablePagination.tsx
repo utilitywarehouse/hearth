@@ -1,4 +1,3 @@
-import * as React from 'react';
 import clsx from 'clsx';
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -8,8 +7,8 @@ import type { TablePaginationProps } from './TablePagination.props';
 const COMPONENT_NAME = 'TablePagination';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const TablePagination: React.FC<TablePaginationProps> = ({ className, ...props }) => {
-  return <Pagination as="div" className={clsx(componentClassName, className)} {...props} />;
+export const TablePagination = ({ className, ...props }: TablePaginationProps) => {
+  return <Pagination className={clsx(componentClassName, className)} {...props} as="div" />;
 };
 
 TablePagination.displayName = COMPONENT_NAME;

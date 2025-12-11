@@ -14,18 +14,11 @@ const meta: Meta<typeof Pagination> = {
     },
   },
   argTypes: {
-    currentPage: {
-      control: { type: 'number', min: 1 },
-    },
-    totalPages: {
-      control: { type: 'number', min: 1 },
-    },
-    condensed: {
-      control: 'boolean',
-    },
-    hideSkipButtons: {
-      control: 'boolean',
-    },
+    currentPage: { control: { type: 'number', min: 1 } },
+    totalPages: { control: { type: 'number', min: 1 } },
+    condensed: { control: 'boolean' },
+    hideSkipButtons: { control: 'boolean' },
+    as: { control: { type: 'radio' }, options: ['nav', 'div'] },
   },
   args: {
     currentPage: 1,
@@ -42,13 +35,7 @@ export const Playground: Story = {
   render: args => {
     const [currentPage, setCurrentPage] = useState(args.currentPage);
 
-    return (
-      <Pagination
-        {...args}
-        currentPage={currentPage}
-        onPageChange={setCurrentPage}
-      />
-    );
+    return <Pagination {...args} currentPage={currentPage} onPageChange={setCurrentPage} />;
   },
 };
 
@@ -86,13 +73,7 @@ export const FewPages: Story = {
   render: () => {
     const [currentPage, setCurrentPage] = useState(1);
 
-    return (
-      <Pagination
-        currentPage={currentPage}
-        totalPages={7}
-        onPageChange={setCurrentPage}
-      />
-    );
+    return <Pagination currentPage={currentPage} totalPages={7} onPageChange={setCurrentPage} />;
   },
 };
 
@@ -100,13 +81,7 @@ export const ManyPages: Story = {
   render: () => {
     const [currentPage, setCurrentPage] = useState(5);
 
-    return (
-      <Pagination
-        currentPage={currentPage}
-        totalPages={100}
-        onPageChange={setCurrentPage}
-      />
-    );
+    return <Pagination currentPage={currentPage} totalPages={100} onPageChange={setCurrentPage} />;
   },
 };
 
@@ -132,21 +107,13 @@ export const EdgeCases: Story = {
           <p style={{ marginBottom: '8px', fontSize: '14px', color: '#666' }}>
             In middle (page 50 of 100):
           </p>
-          <Pagination
-            currentPage={middlePage}
-            totalPages={100}
-            onPageChange={setMiddlePage}
-          />
+          <Pagination currentPage={middlePage} totalPages={100} onPageChange={setMiddlePage} />
         </div>
         <div>
           <p style={{ marginBottom: '8px', fontSize: '14px', color: '#666' }}>
             Near end (page 98 of 100):
           </p>
-          <Pagination
-            currentPage={nearEndPage}
-            totalPages={100}
-            onPageChange={setNearEndPage}
-          />
+          <Pagination currentPage={nearEndPage} totalPages={100} onPageChange={setNearEndPage} />
         </div>
       </div>
     );

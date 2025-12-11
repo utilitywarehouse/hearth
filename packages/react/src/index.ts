@@ -158,11 +158,15 @@ export { Switch } from './components/Switch/Switch';
 export type { SwitchProps } from './components/Switch/Switch.props';
 
 export { Modal } from './components/Modal/Modal';
-export type { ModalProps } from './components/Modal/Modal.props';
+export type {
+  ModalProps,
+  ModalCloseProps,
+  ModalRootProps,
+  ModalTriggerProps,
+} from './components/Modal/Modal.props';
 export { ModalClose } from './components/Modal/ModalClose';
 export { ModalFooter } from './components/Modal/ModalFooter';
 export { ModalRoot } from './components/Modal/ModalRoot';
-export type { ModalRootProps } from './components/Modal/ModalRoot';
 export { ModalTrigger } from './components/Modal/ModalTrigger';
 
 export { Alert } from './components/Alert/Alert';

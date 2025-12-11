@@ -1,6 +1,5 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
 import { flexPropDefs } from './Flex.props';
 import type { FlexProps } from './Flex.props';
