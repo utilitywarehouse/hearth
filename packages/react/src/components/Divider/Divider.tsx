@@ -1,25 +1,21 @@
 import * as React from 'react';
-
 import clsx from 'clsx';
-
 import type { DividerProps } from './Divider.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { ORIENTATIONS, type Orientation } from '../../types/orientation';
-import type { ElementRef } from 'react';
+import { ORIENTATIONS } from '../../types/orientation';
+import type { Orientation } from '../../types/orientation';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 
 const COMPONENT_NAME = 'Divider';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type DividerElement = ElementRef<'hr'>;
-
 function isValidOrientation(orientation?: Orientation) {
   if (orientation === undefined) return false;
   return ORIENTATIONS.includes(orientation);
 }
 
-export const Divider = React.forwardRef<DividerElement, DividerProps>((props, ref) => {
+export const Divider = (props: DividerProps) => {
   const {
     decorative,
     orientation: providedOrientation,
@@ -36,13 +32,12 @@ export const Divider = React.forwardRef<DividerElement, DividerProps>((props, re
 
   return (
     <hr
-      ref={ref}
       className={clsx(componentClassName, className)}
       data-orientation={orientation}
       {...semanticProps}
       {...dividerProps}
     />
   );
-});
+};
 
 Divider.displayName = COMPONENT_NAME;

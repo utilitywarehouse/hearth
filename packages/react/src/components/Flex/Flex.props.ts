@@ -14,7 +14,6 @@ import { SizeProps } from '../../props/size.props';
 import { SpacingProps } from '../../props/spacing.props';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive } from '../../types/responsive';
 
 const displayValues = ['none', 'inline-flex', 'flex'] as const;
@@ -77,6 +76,6 @@ interface CommonFlexProps
   justifyContent?: Responsive<(typeof justifyContentValues)[number]>;
   wrap?: Responsive<(typeof wrapValues)[number]>;
 }
-type FlexDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
-type FlexSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
-export type FlexProps = CommonFlexProps & (FlexSpanProps | FlexDivProps);
+type FlexDivProps = { as?: 'div' } & React.ComponentPropsWithRef<'div'>;
+type FlexSpanProps = { as?: 'span' } & React.ComponentPropsWithRef<'span'>;
+export type FlexProps = CommonFlexProps & (FlexDivProps | FlexSpanProps);

@@ -1,11 +1,8 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
-
-import { gridPropDefs, type GridProps } from './Grid.props';
-
-import type { ElementRef } from 'react';
+import { gridPropDefs } from './Grid.props';
+import type { GridProps } from './Grid.props';
 import { Slot } from 'radix-ui';
 import { extractProps } from '../../helpers/extract-props';
 import { paddingPropDefs } from '../../props/padding.props';
@@ -28,14 +25,13 @@ import { borderRadiusPropDefs } from '../../props/border-radius.props';
 const COMPONENT_NAME = 'Grid';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type GridElement = ElementRef<'div'>;
-
-export const Grid = React.forwardRef<GridElement, GridProps>((props, ref) => {
+export const Grid = (props: GridProps) => {
   const {
     className,
     asChild,
     defaultResponsiveColumns,
     as: Tag = 'div',
+    children,
     ...gridProps
   } = extractProps(
     props,
@@ -57,20 +53,15 @@ export const Grid = React.forwardRef<GridElement, GridProps>((props, ref) => {
     textTransformPropDefs
   );
 
-  const dataAttributeProps = {
-    'data-responsive-columns': defaultResponsiveColumns ? '' : undefined,
-  };
-
-  const Component = asChild ? Slot.Root : Tag;
-
   return (
-    <Component
-      ref={ref}
+    <Slot.Root
       className={clsx(componentClassName, className)}
+      data-responsive-columns={defaultResponsiveColumns ? '' : undefined}
       {...gridProps}
-      {...dataAttributeProps}
-    />
+    >
+      {asChild ? children : <Tag>{children}</Tag>}
+    </Slot.Root>
   );
-});
+};
 
 Grid.displayName = COMPONENT_NAME;

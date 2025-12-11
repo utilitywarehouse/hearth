@@ -204,8 +204,8 @@ export type { ToggleButtonCardProps } from './components/ToggleButtonCard/Toggle
 
 export { DescriptionList } from './components/DescriptionList/DescriptionList';
 export type { DescriptionListProps } from './components/DescriptionList/DescriptionList.props';
-export { DescriptionListItem } from './components/DescriptionListItem/DescriptionListItem';
-export type { DescriptionListItemProps } from './components/DescriptionListItem/DescriptionListItem.props';
+export { DescriptionListItem } from './components/DescriptionList/DescriptionListItem';
+export type { DescriptionListItemProps } from './components/DescriptionList/DescriptionListItem.props';
 
 export { Menu } from './components/Menu/Menu';
 export type { MenuProps } from './components/Menu/Menu.props';

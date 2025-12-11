@@ -1,9 +1,8 @@
 'use client';
 
-import * as React from 'react';
-import type { ElementRef } from 'react';
 import clsx from 'clsx';
-import { detailTextPropDefs, DetailTextProps } from './DetailText.props';
+import { detailTextPropDefs } from './DetailText.props';
+import type { DetailTextProps } from './DetailText.props';
 import { Slot } from 'radix-ui';
 import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
@@ -15,9 +14,7 @@ import { marginPropDefs } from '../../props/margin.props';
 const COMPONENT_NAME = 'DetailText';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type DetailTextElement = ElementRef<'span'>;
-
-export const DetailText = React.forwardRef<DetailTextElement, DetailTextProps>((props, ref) => {
+export const DetailText = (props: DetailTextProps) => {
   const {
     className,
     asChild,
@@ -36,14 +33,13 @@ export const DetailText = React.forwardRef<DetailTextElement, DetailTextProps>((
 
   return (
     <Slot.Root
-      ref={ref}
       className={clsx(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
-      {...(detailTextProps as Slot.SlotProps)}
+      {...detailTextProps}
     >
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot.Root>
   );
-});
+};
 
 DetailText.displayName = COMPONENT_NAME;

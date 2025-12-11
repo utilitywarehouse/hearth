@@ -1,8 +1,5 @@
-import { ReactNode } from 'react';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
-
 export interface DescriptionListItemProps
-  extends ComponentPropsWithout<'div', RemovedProps | 'children'> {
+  extends Omit<React.ComponentPropsWithRef<'div'>, 'color'> {
   /**
    * Description term
    */
@@ -14,7 +11,7 @@ export interface DescriptionListItemProps
   /**
    * Optional link element
    */
-  link?: ReactNode;
+  link?: React.ReactNode;
   /**
    * Indicates the validation state
    */
