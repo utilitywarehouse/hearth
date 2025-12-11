@@ -9,7 +9,7 @@ import { IconContainer } from '../IconContainer/IconContainer';
 const COMPONENT_NAME = 'CardActionContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const CardActionContent: React.FC<CardActionContentProps> = ({
+export const CardActionContent = ({
   heading,
   leadingIcon,
   leadingIconContainerColorScheme,
@@ -18,7 +18,7 @@ export const CardActionContent: React.FC<CardActionContentProps> = ({
   className,
   badge,
   badgePlacement = 'bottom',
-}) => {
+}: CardActionContentProps) => {
   return (
     <div className={clsx(componentClassName, className)}>
       {leadingIcon ? (
