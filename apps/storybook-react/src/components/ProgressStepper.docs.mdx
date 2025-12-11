@@ -13,6 +13,7 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 <Controls of={Stories.Playground} />
 
 ## ToC
+
 - [Step states](#step-states)
 - [Component structure](#component-structure)
 - [Usage guidelines](#usage-guidelines)
@@ -74,6 +75,7 @@ The ProgressStepper uses a compound component pattern:
 - Use `ProgressStepContent` for static labels or when the label should not be keyboard-focusable.
 
 ### Accessability
+
 - Use the `as` prop to render the stepper as `nav` when it represents site/app navigation; otherwise use the default `div`.
 - Add `name` to `ProgressStepper` when using `nav` as element and having multiple navigations on the page
 - Override `aria-label` of `ProgressStepper` to reflect proper component usage
@@ -102,11 +104,7 @@ Use `ProgressStepContent` for non-interactive steps.
 
 Set `hideLabels={true}` to hide step labels completely.
 
-<Canvas of={Stories.WithoutLabels} />
-
 ### All complete
-
-<Canvas of={Stories.AllComplete} />
 
 ## Components API
 
@@ -116,36 +114,36 @@ This component supports the `as` prop to change the rendered element (`div` or `
 
 - Margin props
 
-| Prop         | Type      | Default | Description                                 |
-| ------------ | --------- | ------- | ------------------------------------------- |
-| `as`         | `'div' \| 'nav'` | `'div'` | The element type to render           |
-| `hideLabels` | `boolean` | `false` | Whether to hide step labels                 |
-| `aria-label` | `string`  | `'progress'` | Accessible label for the stepper       |
+| Prop         | Type             | Default      | Description                      |
+| ------------ | ---------------- | ------------ | -------------------------------- |
+| `as`         | `'div' \| 'nav'` | `'div'`      | The element type to render       |
+| `hideLabels` | `boolean`        | `false`      | Whether to hide step labels      |
+| `aria-label` | `string`         | `'progress'` | Accessible label for the stepper |
 
 ### ProgressStep API
 
 Renders the step indicator (circle) and connector (line). The indicator and connector are always visible and non-interactive. Extends all `<li>` element props.
 
-| Prop     | Type                                        | Description                               |
-| -------- | ------------------------------------------- | ----------------------------------------- |
-| `status` | `'complete' \| 'active' \| 'incomplete'`    | The current status of the step (required) |
+| Prop     | Type                                     | Description                               |
+| -------- | ---------------------------------------- | ----------------------------------------- |
+| `status` | `'complete' \| 'active' \| 'incomplete'` | The current status of the step (required) |
 
 ### ProgressStepContent API
 
 Displays non-interactive step label.
 
-| Prop     | Type     | Description                          |
-| -------- | -------- | ------------------------------------ |
-| `label`  | `string` | The label text to display (required) |
+| Prop    | Type     | Description                          |
+| ------- | -------- | ------------------------------------ |
+| `label` | `string` | The label text to display (required) |
 
 ### ProgressStepLink API
 
 Wraps the step label in a link for navigation. Only the label is clickable. Extends all `<a>` element props.
 
-| Prop     | Type     | Description                          |
-| -------- | -------- | ------------------------------------ |
-| `label`  | `string` | The label text to display (required) |
-| `href`   | `string` | Link URL                             |
+| Prop    | Type     | Description                          |
+| ------- | -------- | ------------------------------------ |
+| `label` | `string` | The label text to display (required) |
+| `href`  | `string` | Link URL                             |
 
 ### ProgressStepButton API
 

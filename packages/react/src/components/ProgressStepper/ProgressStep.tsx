@@ -4,33 +4,39 @@ import * as React from 'react';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ProgressStepProps } from './ProgressStep.props';
-import { ProgressStepContext } from './ProgressStep.context';
 import { ProgressStepperContext } from './ProgressStepper.context';
+import clsx from 'clsx';
+import { BodyText } from '../BodyText/BodyText';
 
 const COMPONENT_NAME = 'ProgressStep';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const ProgressStep = ({ status, children, ...props }: ProgressStepProps) => {
+export const ProgressStep = ({ status, children, className, ...props }: ProgressStepProps) => {
   const { hideLabels } = React.useContext(ProgressStepperContext);
-  const isCompleted = status === 'complete';
+  const isComplete = status === 'complete';
   const isActive = status === 'active';
 
   return (
-    <li className={componentClassName} aria-current={isActive ? 'step' : undefined} {...props}>
+    <li
+      className={clsx(componentClassName, className)}
+      aria-current={isActive ? 'step' : undefined}
+      {...props}
+    >
       <div className={`${componentClassName}Row`}>
         <span className={`${componentClassName}Indicator`} data-status={status} aria-hidden="true">
-          {isCompleted ? <TickSmallIcon /> : null}
+          {isComplete ? <TickSmallIcon /> : null}
         </span>
         <div className={`${componentClassName}Connector`} data-status={status} aria-hidden="true" />
       </div>
-      <ProgressStepContext.Provider value={{ status }}>
-        <div
-          className={`${componentClassName}Label`}
-          data-visually-hidden={hideLabels ? '' : undefined}
-        >
-          {children}
-        </div>
-      </ProgressStepContext.Provider>
+
+      <BodyText
+        as="span"
+        size="md"
+        className={`${componentClassName}Label`}
+        data-visually-hidden={hideLabels ? '' : undefined}
+      >
+        {children}
+      </BodyText>
     </li>
   );
 };

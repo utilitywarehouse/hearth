@@ -226,8 +226,11 @@ export type { BreadcrumbItemProps } from './components/Breadcrumbs/BreadcrumbIte
 export { ProgressStepper } from './components/ProgressStepper/ProgressStepper';
 export type { ProgressStepperProps } from './components/ProgressStepper/ProgressStepper.props';
 export { ProgressStep } from './components/ProgressStepper/ProgressStep';
-export type { ProgressStepProps } from './components/ProgressStepper/ProgressStep.props';
-export { ProgressStepContent } from './components/ProgressStepper/ProgressStepContent';
+export type {
+  ProgressStepProps,
+  ProgressStepButtonProps,
+  ProgressStepLinkProps,
+} from './components/ProgressStepper/ProgressStep.props';
 export { ProgressStepLink } from './components/ProgressStepper/ProgressStepLink';
 export { ProgressStepButton } from './components/ProgressStepper/ProgressStepButton';
 
