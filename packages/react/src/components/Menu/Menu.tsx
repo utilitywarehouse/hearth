@@ -1,9 +1,8 @@
 'use client';
 
-import * as React from 'react';
-import { MenuProps } from './Menu.props';
-import { DropdownMenu as RadixMenu } from 'radix-ui';
+import type { MenuProps } from './Menu.props';
+import { DropdownMenu as MenuPrimitive } from 'radix-ui';
 
-export const Menu: React.FC<MenuProps> = props => <RadixMenu.Root {...props} />;
+export const Menu = (props: MenuProps) => <MenuPrimitive.Root {...props} />;
 
 Menu.displayName = 'Menu';
