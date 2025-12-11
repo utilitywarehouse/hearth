@@ -1,9 +1,6 @@
-import { ReactNode } from 'react';
 import { InputBaseProps } from '../InputBase/InputBase.props';
 
-export interface FormFieldProps {
-  className?: string;
-  children?: ReactNode;
+export interface FormFieldProps extends Omit<React.ComponentPropsWithRef<'div'>, 'defaultValue'> {
   id?: string;
   labelId?: string;
   helperTextId?: string;
