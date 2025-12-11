@@ -1,6 +1,4 @@
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
-
-export interface DatePickerTriggerProps extends ComponentPropsWithout<'button', RemovedProps> {
+export interface DatePickerTriggerProps extends React.ComponentPropsWithRef<'button'> {
   value?: string;
   placeholder?: string;
 }

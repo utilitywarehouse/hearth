@@ -1,8 +1,7 @@
 'use client';
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import React from 'react';
-import { DatePickerHeaderProps } from './DatePickerHeader.props';
+import type { DatePickerHeaderProps } from './DatePickerHeader.props';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import {
   ChevronDownSmallIcon,
