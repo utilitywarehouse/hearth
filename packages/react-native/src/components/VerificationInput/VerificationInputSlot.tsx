@@ -26,8 +26,6 @@ export const VerificationInputSlot = forwardRef<TextInput, VerificationInputSlot
         editable={!disabled && !readonly}
         selectTextOnFocus
         keyboardType="number-pad"
-        cursorColor={styles.slot.color}
-        selectionColor={styles.slot.color}
         style={[styles.slot, style]}
       />
     );
@@ -44,14 +42,8 @@ const styles = StyleSheet.create(theme => ({
     borderWidth: theme.components.input.borderWidth,
     borderColor: theme.color.border.strong,
     borderRadius: theme.components.input.borderRadius,
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: theme.color.surface.neutral.strong,
-    color: theme.color.text.primary,
     textAlign: 'center',
-    fontFamily: theme.typography.mobile.bodyText.fontFamily,
-    fontSize: theme.typography.mobile.bodyText.md.fontSize,
-    fontWeight: theme.fontWeight.regular,
     padding: 0,
     variants: {
       disabled: {

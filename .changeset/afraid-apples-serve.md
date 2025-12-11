@@ -1,5 +1,5 @@
 ---
-'@utilitywarehouse/hearth-react-native': patch
+'@utilitywarehouse/hearth-react-native': minor
 ---
 
 Add Verification Input component
