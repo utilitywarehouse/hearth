@@ -125,22 +125,16 @@ export type { BadgeProps } from './components/Badge/Badge.props';
 
 export { Radio } from './components/Radio/Radio';
 export type { RadioProps } from './components/Radio/Radio.props';
-
 export { RadioTile } from './components/RadioTile/RadioTile';
 export type { RadioTileProps } from './components/RadioTile/RadioTile.props';
-
 export { RadioCard } from './components/RadioCard/RadioCard';
 export type { RadioCardProps } from './components/RadioCard/RadioCard.props';
-
 export { RadioGroup } from './components/RadioGroup/RadioGroup';
 export type { RadioGroupProps } from './components/RadioGroup/RadioGroup.props';
 
 export { Checkbox } from './components/Checkbox/Checkbox';
 export type { CheckboxProps } from './components/Checkbox/Checkbox.props';
-
 export { CheckboxTile } from './components/CheckboxTile/CheckboxTile';
-export type { CheckboxTileProps } from './components/CheckboxTile/CheckboxTile.props';
-
 export { CheckboxGroup } from './components/CheckboxGroup/CheckboxGroup';
 export type { CheckboxGroupProps } from './components/CheckboxGroup/CheckboxGroup.props';
 
