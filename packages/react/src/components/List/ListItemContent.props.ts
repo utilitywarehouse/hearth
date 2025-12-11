@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
-export interface ListItemContentProps extends ComponentPropsWithout<'div', RemovedProps> {
+export interface ListItemContentProps extends React.ComponentPropsWithRef<'div'> {
   heading: string;
   /**
    * Optional helper text to provide additional context or instructions.

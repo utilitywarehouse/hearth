@@ -1,18 +1,12 @@
-import * as React from 'react';
-import type { FC } from 'react';
-
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Flex } from '../Flex/Flex';
-import { HighlightBannerContentProps } from './HighlightBannerContent.props';
+import type { FlexProps } from '../Flex/Flex.props';
 
 const COMPONENT_NAME = 'HighlightBannerContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const HighlightBannerContent: FC<HighlightBannerContentProps> = ({
-  className,
-  ...props
-}) => {
+export const HighlightBannerContent = ({ className, ...props }: FlexProps) => {
   return <Flex className={clsx(componentClassName, className)} {...props} />;
 };
 

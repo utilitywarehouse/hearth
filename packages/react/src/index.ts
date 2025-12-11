@@ -152,9 +152,7 @@ export type { ListItemButtonProps } from './components/List/ListItemButton.props
 export { ListItemLink } from './components/List/ListItemLink';
 export type { ListItemLinkProps } from './components/List/ListItemLink.props';
 export { ListActionButton } from './components/List/ListActionButton';
-export type { ListActionButtonProps } from './components/List/ListActionButton.props';
 export { ListActionLink } from './components/List/ListActionLink';
-export type { ListActionLinkProps } from './components/List/ListActionLink.props';
 
 export { Switch } from './components/Switch/Switch';
 export type { SwitchProps } from './components/Switch/Switch.props';
@@ -273,9 +271,7 @@ export type { ProgressBarProps } from './components/ProgressBar/ProgressBar.prop
 export { HighlightBanner } from './components/HighlightBanner/HighlightBanner';
 export type { HighlightBannerProps } from './components/HighlightBanner/HighlightBanner.props';
 export { HighlightBannerFooter } from './components/HighlightBanner/HighlightBannerFooter';
-export type { HighlightBannerFooterProps } from './components/HighlightBanner/HighlightBannerFooter.props';
 export { HighlightBannerContent } from './components/HighlightBanner/HighlightBannerContent';
-export type { HighlightBannerContentProps } from './components/HighlightBanner/HighlightBannerContent.props';
 
 export { DatePicker } from './components/DatePicker/DatePicker';
 export type { DatePickerProps } from './components/DatePicker/DatePicker.props';

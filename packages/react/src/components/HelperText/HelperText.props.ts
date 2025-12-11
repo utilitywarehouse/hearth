@@ -1,10 +1,9 @@
 import { MarginProps } from '../../props/margin.props';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
-import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
 export interface HelperTextProps
-  extends ComponentPropsWithout<'span', RemovedProps>,
+  extends Omit<React.ComponentPropsWithRef<'span'>, 'color'>,
     MarginProps,
     TextAlignProps,
     TextTransformProps {

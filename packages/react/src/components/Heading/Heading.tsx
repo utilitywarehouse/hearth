@@ -1,11 +1,8 @@
 'use client';
 
-import * as React from 'react';
-
 import clsx from 'clsx';
-
-import { headingPropDefs, HeadingProps } from './Heading.props';
-import type { ElementRef } from 'react';
+import { headingPropDefs } from './Heading.props';
+import type { HeadingProps } from './Heading.props';
 import { extractProps } from '../../helpers/extract-props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { Slot } from 'radix-ui';
@@ -17,10 +14,8 @@ import { marginPropDefs } from '../../props/margin.props';
 const COMPONENT_NAME = 'Heading';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type HeadingElement = ElementRef<'h2'>;
-
-export const Heading = React.forwardRef<HeadingElement, HeadingProps>(({ size, ...props }, ref) => {
-  const { className, as, asChild, inverted, children, ...headingProps } = extractProps(
+export const Heading = ({ size, as: Tag = 'h2', ...props }: HeadingProps) => {
+  const { className, asChild, inverted, children, ...headingProps } = extractProps(
     { size, ...props },
     headingPropDefs,
     textAlignPropDefs,
@@ -28,11 +23,9 @@ export const Heading = React.forwardRef<HeadingElement, HeadingProps>(({ size, .
     textWrapPropDefs,
     marginPropDefs
   );
-  const defaultElement = 'h2';
-  const Tag = as ? as : defaultElement;
+
   return (
     <Slot.Root
-      ref={ref}
       className={clsx(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
       {...headingProps}
@@ -40,6 +33,6 @@ export const Heading = React.forwardRef<HeadingElement, HeadingProps>(({ size, .
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot.Root>
   );
-});
+};
 
 Heading.displayName = COMPONENT_NAME;

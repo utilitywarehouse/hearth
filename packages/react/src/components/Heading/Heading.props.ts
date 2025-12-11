@@ -3,7 +3,6 @@ import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
 import { TextWrapProps } from '../../props/text-wrap.props';
-import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
 const sizes = ['sm', 'md', 'lg', 'xl'] as const;
 
@@ -14,7 +13,7 @@ export const headingPropDefs = {
 };
 
 export interface HeadingProps
-  extends ComponentPropsWithout<'h2', RemovedProps>,
+  extends React.ComponentPropsWithRef<'h2'>,
     TextAlignProps,
     TextTransformProps,
     TextWrapProps,

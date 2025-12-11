@@ -1,20 +1,18 @@
-import * as React from 'react';
-import type { FC } from 'react';
-
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
-import { HighlightBannerProps } from './HighlightBanner.props';
+import type { HighlightBannerProps } from './HighlightBanner.props';
 import { Card } from '../Card/Card';
 import { BodyText } from '../BodyText/BodyText';
 
 const COMPONENT_NAME = 'HighlightBanner';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const HighlightBanner: FC<HighlightBannerProps> = props => {
+export const HighlightBanner = (props: HighlightBannerProps) => {
   const { children, className, colorScheme, heading, headingColor, ...highlightBannerProps } =
     extractProps(props, marginPropDefs);
+
   return (
     <Card
       className={clsx(componentClassName, className)}
