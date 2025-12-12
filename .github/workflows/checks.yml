@@ -1,8 +1,5 @@
 name: Code Checks
-on:
-  push:
-    branches-ignore:
-      - 'changeset-release/main'
+on: push
 
 permissions:
   contents: read
