@@ -3,8 +3,8 @@
 import * as React from 'react';
 import { Slot } from 'radix-ui';
 import clsx from 'clsx';
-import { buttonBasePropDefs, ButtonBaseProps } from './ButtonBase.props';
-import type { ElementRef } from 'react';
+import { buttonBasePropDefs } from './ButtonBase.props';
+import type { ButtonBaseProps } from './ButtonBase.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
@@ -13,9 +13,7 @@ import { getSubtree } from '../../helpers/get-subtree';
 const COMPONENT_NAME = 'ButtonBase';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export type ButtonBaseElement = ElementRef<'button'>;
-
-export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((props, ref) => {
+export const ButtonBase = (props: ButtonBaseProps) => {
   const {
     colorScheme,
     inverted,
@@ -41,7 +39,6 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
   if (variant === 'emphasis') {
     return (
       <Slot.Root
-        ref={ref}
         aria-disabled={disabled || undefined}
         className={clsx(componentClassName, className)}
         // as we're using aria-disabled instead of disabled then we need to
@@ -61,7 +58,6 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
   }
   return (
     <Slot.Root
-      ref={ref}
       aria-disabled={disabled || undefined}
       className={clsx(componentClassName, className)}
       onClick={disabled ? undefined : onClick}
@@ -71,6 +67,6 @@ export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((
       {children}
     </Slot.Root>
   );
-});
+};
 
 ButtonBase.displayName = COMPONENT_NAME;

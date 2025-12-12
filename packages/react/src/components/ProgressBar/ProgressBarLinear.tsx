@@ -1,21 +1,21 @@
-import * as React from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import type { ElementRef } from 'react';
 import { ProgressBarLabel } from './ProgressBarLabel';
 import { ProgressBarValueText } from './ProgressBarValueText';
-import { ProgressBarInternalProps } from './ProgressBar.props';
+import type { ProgressBarInternalProps } from './ProgressBar.props';
 
 const COMPONENT_NAME = 'ProgressBarLinear';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type ProgressBarLinearElement = ElementRef<'div'>;
-
-export const ProgressBarLinear = React.forwardRef<
-  ProgressBarLinearElement,
-  ProgressBarInternalProps
->(({ value, label, valueText, labelId, hideLabel, ...props }, ref) => {
+export const ProgressBarLinear = ({
+  value,
+  label,
+  valueText,
+  labelId,
+  hideLabel,
+  ...props
+}: ProgressBarInternalProps) => {
   return (
-    <div ref={ref} className={componentClassName} {...props}>
+    <div className={componentClassName} {...props}>
       <ProgressBarLabel id={labelId} data-visually-hidden={hideLabel ? '' : undefined}>
         {label}
       </ProgressBarLabel>
@@ -28,6 +28,6 @@ export const ProgressBarLinear = React.forwardRef<
       </div>
     </div>
   );
-});
+};
 
 ProgressBarLinear.displayName = COMPONENT_NAME;

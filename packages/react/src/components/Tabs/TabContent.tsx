@@ -1,17 +1,15 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
-import { Tabs as RadixTabs } from 'radix-ui';
+import { Tabs as TabsPrimitive } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import type { TabContentProps } from './TabContent.props';
+import type { TabContentProps } from './Tabs.props';
 
 const COMPONENT_NAME = 'TabPanel';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const TabContent = React.forwardRef<HTMLDivElement, TabContentProps>((props, ref) => {
-  const { className, ...rest } = props;
-  return <RadixTabs.Content ref={ref} className={clsx(componentClassName, className)} {...rest} />;
-});
+export const TabContent = ({ className, ...props }: TabContentProps) => {
+  return <TabsPrimitive.Content className={clsx(componentClassName, className)} {...props} />;
+};
 
 TabContent.displayName = COMPONENT_NAME;

@@ -1,12 +1,6 @@
-import { Accordion as RadixAccordion } from 'radix-ui';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+import { Accordion as AccordionPrimitive } from 'radix-ui';
 
-export type AccordionHeaderProps = ComponentPropsWithout<
-  typeof RadixAccordion.Header,
-  RemovedProps
-> & {
-  /**
-   * @default h3
-   */
+export interface AccordionHeaderProps
+  extends Omit<React.ComponentPropsWithRef<typeof AccordionPrimitive.Header>, 'asChild'> {
   as?: 'h1' | 'h2' | 'h3' | 'h4';
-};
+}

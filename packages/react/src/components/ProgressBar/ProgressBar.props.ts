@@ -1,6 +1,5 @@
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive } from '../../types/responsive';
 
 const sizes = ['sm', 'md'] as const;
@@ -11,7 +10,7 @@ export const progressBarPropDefs = {
   size: PropDef<(typeof sizes)[number]>;
 };
 
-export interface ProgressBarProps extends ComponentPropsWithout<'div', RemovedProps>, MarginProps {
+export interface ProgressBarProps extends React.ComponentPropsWithRef<'div'>, MarginProps {
   variant?: 'linear' | 'circular';
   /**
    * Set the visual apearance.

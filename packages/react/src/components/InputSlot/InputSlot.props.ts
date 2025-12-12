@@ -1,6 +1,4 @@
-import { ComponentPropsWithRef } from 'react';
-
-export interface InputSlotProps extends ComponentPropsWithRef<'div'> {
+export interface InputSlotProps extends React.ComponentPropsWithRef<'div'> {
   placement?: 'prefix' | 'suffix';
   asChild?: boolean;
 }

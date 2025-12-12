@@ -1,4 +1,6 @@
 import { MarginProps } from '../../props/margin.props';
 import { PaginationProps } from '../Pagination/Pagination.props';
 
-export type TablePaginationProps = Omit<PaginationProps, keyof MarginProps>;
+type ElementProps = React.ComponentPropsWithRef<'div'>;
+export type TablePaginationProps = ElementProps &
+  Omit<PaginationProps, 'as' | keyof MarginProps | keyof ElementProps>;

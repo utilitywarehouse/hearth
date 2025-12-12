@@ -1,6 +1,6 @@
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { ListItemContentProps } from './ListItemContent.props';
 
+type ElementProps = React.ComponentPropsWithRef<'button'>;
 export interface ListItemButtonProps
-  extends ComponentPropsWithout<'button', RemovedProps>,
-    Omit<ListItemContentProps, keyof ComponentPropsWithout<'button', RemovedProps>> {}
+  extends ElementProps,
+    Omit<ListItemContentProps, keyof ElementProps> {}

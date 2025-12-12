@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { InputSlotProps } from './InputSlot.props';
+import type { InputSlotProps } from './InputSlot.props';
 import { Slot } from 'radix-ui';
 
 const COMPONENT_NAME = 'InputSlot';

@@ -1,40 +1,44 @@
 'use client';
 
-import * as React from 'react';
-import type { ElementRef } from 'react';
-
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Link } from '../Link/Link';
-import type { ProgressStepButtonProps } from './ProgressStepButton.props';
-import { ProgressStepContent } from './ProgressStepContent';
-import { ProgressStepContext } from './ProgressStep.context';
+import clsx from 'clsx';
+import type { ProgressStepButtonProps } from './ProgressStep.props';
+import { ProgressStep } from './ProgressStep';
 
 const COMPONENT_NAME = 'ProgressStepButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type ProgressStepButtonElement = ElementRef<'button'>;
+export const ProgressStepButton = ({
+  children,
+  label,
+  className,
+  status,
+  disabled,
+  onClick,
+  'aria-label': ariaLabel,
+  ...props
+}: ProgressStepButtonProps) => {
+  const isActive = status === 'active';
 
-export const ProgressStepButton = React.forwardRef<
-  ProgressStepButtonElement,
-  ProgressStepButtonProps
->(({ label, ...props }, ref) => {
-  const stepContext = React.useContext(ProgressStepContext);
-
-  const isInteractive = stepContext?.status === 'complete';
-
-  // Render as non-interactive content if not complete
-  if (!isInteractive) {
-    return <ProgressStepContent label={label} />;
-  }
-
-  // Render as interactive button if complete
   return (
-    <Link asChild>
-      <button ref={ref} className={componentClassName} {...props}>
-        {label}
-      </button>
-    </Link>
+    <ProgressStep
+      status={status}
+      className={clsx(componentClassName, className)}
+      aria-label={ariaLabel}
+      label={label}
+    >
+      {isActive ? (
+        children
+      ) : (
+        <Link asChild aria-disabled={disabled}>
+          <button {...props} onClick={disabled ? undefined : onClick}>
+            {children}
+          </button>
+        </Link>
+      )}
+    </ProgressStep>
   );
-});
+};
 
 ProgressStepButton.displayName = COMPONENT_NAME;

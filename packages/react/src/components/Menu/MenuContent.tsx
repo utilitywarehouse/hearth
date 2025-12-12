@@ -1,21 +1,20 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { DropdownMenu as RadixMenu, ScrollArea as RadixScrollArea } from 'radix-ui';
-import { MenuContentProps } from './MenuContent.props';
+import { DropdownMenu as MenuPrimitive, ScrollArea as ScrollAreaPrimitive } from 'radix-ui';
+import type { MenuContentProps } from './MenuContent.props';
 
 const COMPONENT_NAME = 'MenuContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const MenuContent: React.FC<MenuContentProps> = ({
+export const MenuContent = ({
   className,
   children,
   forceMount,
   placement = 'bottomLeft',
   ...props
-}) => {
+}: MenuContentProps) => {
   const portalProps = { forceMount };
   const placementTranslation: {
     [key: string]: { side: 'bottom' | 'top'; align: 'start' | 'end' };
@@ -27,8 +26,8 @@ export const MenuContent: React.FC<MenuContentProps> = ({
   };
 
   return (
-    <RadixMenu.DropdownMenuPortal {...portalProps}>
-      <RadixMenu.DropdownMenuContent
+    <MenuPrimitive.DropdownMenuPortal {...portalProps}>
+      <MenuPrimitive.DropdownMenuContent
         className={clsx(componentClassName, className)}
         {...props}
         sideOffset={4}
@@ -37,16 +36,19 @@ export const MenuContent: React.FC<MenuContentProps> = ({
         // This is a temporary UI fix, until we have time to replace with Base UI.
         onCloseAutoFocus={e => e.preventDefault()}
       >
-        <RadixScrollArea.Root className="hearth-ScrollAreaRoot" type="auto">
-          <RadixScrollArea.Viewport className="hearth-ScrollAreaViewport">
+        <ScrollAreaPrimitive.Root className="hearth-ScrollAreaRoot" type="auto">
+          <ScrollAreaPrimitive.Viewport className="hearth-ScrollAreaViewport">
             <div className={`${componentClassName}List`}>{children}</div>
-          </RadixScrollArea.Viewport>
-          <RadixScrollArea.Scrollbar className="hearth-ScrollAreaScrollbar" orientation="vertical">
-            <RadixScrollArea.Thumb className="hearth-ScrollAreaThumb" />
-          </RadixScrollArea.Scrollbar>
-        </RadixScrollArea.Root>
-      </RadixMenu.DropdownMenuContent>
-    </RadixMenu.DropdownMenuPortal>
+          </ScrollAreaPrimitive.Viewport>
+          <ScrollAreaPrimitive.Scrollbar
+            className="hearth-ScrollAreaScrollbar"
+            orientation="vertical"
+          >
+            <ScrollAreaPrimitive.Thumb className="hearth-ScrollAreaThumb" />
+          </ScrollAreaPrimitive.Scrollbar>
+        </ScrollAreaPrimitive.Root>
+      </MenuPrimitive.DropdownMenuContent>
+    </MenuPrimitive.DropdownMenuPortal>
   );
 };
 

@@ -6,8 +6,8 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { useIds } from '../../hooks/use-ids';
 import { FormField } from '../FormField/FormField';
-import { ComboboxProps } from './Combobox.props';
-import { Combobox as BaseUICombobox } from '@base-ui-components/react/combobox';
+import type { ComboboxProps } from './Combobox.props';
+import { Combobox as ComboboxPrimitive } from '@base-ui-components/react/combobox';
 import { InputBase } from '../InputBase/InputBase';
 import { InputSlot } from '../InputSlot/InputSlot';
 import {
@@ -16,7 +16,7 @@ import {
   SearchMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { ComboboxItem } from './ComboboxItem';
-import { ScrollArea as RadixScrollArea } from 'radix-ui';
+import { ScrollArea as ScrollAreaPrimitive } from 'radix-ui';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { ComboboxEmpty } from './ComboboxEmpty';
 
@@ -67,11 +67,11 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
       data-disabled={disabled ? '' : undefined}
       {...formFieldProps}
     >
-      <BaseUICombobox.Root openOnInputClick={!triggerOnlyOnType} {...comboboxProps}>
-        <BaseUICombobox.Input
+      <ComboboxPrimitive.Root openOnInputClick={!triggerOnlyOnType} {...comboboxProps}>
+        <ComboboxPrimitive.Input
           render={
             <InputBase id={id} disabled={disabled}>
-              <BaseUICombobox.Trigger
+              <ComboboxPrimitive.Trigger
                 disabled={disabled}
                 render={
                   <InputSlot placement="prefix" asChild>
@@ -81,7 +81,7 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
                   </InputSlot>
                 }
               />
-              <BaseUICombobox.Clear
+              <ComboboxPrimitive.Clear
                 render={
                   <InputSlot placement="suffix" asChild>
                     <UnstyledIconButton type="button" label="Clear selection" disabled={disabled}>
@@ -91,7 +91,7 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
                 }
               />
               {triggerOnlyOnType ? null : (
-                <BaseUICombobox.Trigger
+                <ComboboxPrimitive.Trigger
                   disabled={disabled}
                   render={
                     <InputSlot placement="suffix" asChild>
@@ -106,18 +106,25 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
           }
         />
 
-        <BaseUICombobox.Portal>
-          <BaseUICombobox.Positioner side="bottom" sideOffset={16} align="start" alignOffset={-47}>
-            <BaseUICombobox.Popup className={`${componentClassName}Popup`}>
-              {statusText ? <BaseUICombobox.Status>{statusText}</BaseUICombobox.Status> : null}
+        <ComboboxPrimitive.Portal>
+          <ComboboxPrimitive.Positioner
+            side="bottom"
+            sideOffset={16}
+            align="start"
+            alignOffset={-47}
+          >
+            <ComboboxPrimitive.Popup className={`${componentClassName}Popup`}>
+              {statusText ? (
+                <ComboboxPrimitive.Status>{statusText}</ComboboxPrimitive.Status>
+              ) : null}
               {props.items ? (
                 <ComboboxEmpty className={`${componentClassName}Empty`}>
                   {noOptionsFoundText}
                 </ComboboxEmpty>
               ) : null}
-              <RadixScrollArea.Root className="hearth-ScrollAreaRoot" type="auto">
-                <RadixScrollArea.Viewport className="hearth-ScrollAreaViewport">
-                  <BaseUICombobox.List className={`${componentClassName}List`}>
+              <ScrollAreaPrimitive.Root className="hearth-ScrollAreaRoot" type="auto">
+                <ScrollAreaPrimitive.Viewport className="hearth-ScrollAreaViewport">
+                  <ComboboxPrimitive.List className={`${componentClassName}List`}>
                     {children
                       ? children
                       : (item: string) => (
@@ -125,19 +132,19 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
                             {item}
                           </ComboboxItem>
                         )}
-                  </BaseUICombobox.List>
-                </RadixScrollArea.Viewport>
-                <RadixScrollArea.Scrollbar
+                  </ComboboxPrimitive.List>
+                </ScrollAreaPrimitive.Viewport>
+                <ScrollAreaPrimitive.Scrollbar
                   className="hearth-ScrollAreaScrollbar"
                   orientation="vertical"
                 >
-                  <RadixScrollArea.Thumb className="hearth-ScrollAreaThumb" />
-                </RadixScrollArea.Scrollbar>
-              </RadixScrollArea.Root>
-            </BaseUICombobox.Popup>
-          </BaseUICombobox.Positioner>
-        </BaseUICombobox.Portal>
-      </BaseUICombobox.Root>
+                  <ScrollAreaPrimitive.Thumb className="hearth-ScrollAreaThumb" />
+                </ScrollAreaPrimitive.Scrollbar>
+              </ScrollAreaPrimitive.Root>
+            </ComboboxPrimitive.Popup>
+          </ComboboxPrimitive.Positioner>
+        </ComboboxPrimitive.Portal>
+      </ComboboxPrimitive.Root>
     </FormField>
   );
 }

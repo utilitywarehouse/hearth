@@ -1,13 +1,11 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import type { ElementRef } from 'react';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
-import { SelectProps } from './Select.props';
-import { Select as RadixSelect, ScrollArea as RadixScrollArea } from 'radix-ui';
+import type { SelectProps } from './Select.props';
+import { Select as SelectPrimitive, ScrollArea as ScrollAreaPrimitive } from 'radix-ui';
 import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
 import { FormField } from '../FormField/FormField';
@@ -15,9 +13,7 @@ import { FormField } from '../FormField/FormField';
 const COMPONENT_NAME = 'Select';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type SelectElement = ElementRef<'button'>;
-
-export const Select = React.forwardRef<SelectElement, SelectProps>((props, ref) => {
+export const Select = (props: SelectProps) => {
   const {
     className,
     children,
@@ -29,6 +25,7 @@ export const Select = React.forwardRef<SelectElement, SelectProps>((props, ref) 
     id: providedId,
     disabled,
     required,
+    ref,
     ...selectProps
   } = extractProps(props, marginPropDefs);
 
@@ -57,43 +54,46 @@ export const Select = React.forwardRef<SelectElement, SelectProps>((props, ref) 
       data-disabled={disabled ? '' : undefined}
       {...formFieldProps}
     >
-      <RadixSelect.Root {...selectProps}>
-        <RadixSelect.Trigger
+      <SelectPrimitive.Root {...selectProps}>
+        <SelectPrimitive.Trigger
           id={id}
           ref={ref}
           className={`${componentClassName}Trigger`}
           disabled={disabled}
         >
-          <RadixSelect.Value className={`${componentClassName}Value`} placeholder={placeholder} />
-          <RadixSelect.Icon className={`${componentClassName}TriggerIcon`}>
+          <SelectPrimitive.Value
+            className={`${componentClassName}Value`}
+            placeholder={placeholder}
+          />
+          <SelectPrimitive.Icon className={`${componentClassName}TriggerIcon`}>
             <ExpandSmallIcon />
-          </RadixSelect.Icon>
-        </RadixSelect.Trigger>
-        <RadixSelect.Portal>
-          <RadixSelect.Content
+          </SelectPrimitive.Icon>
+        </SelectPrimitive.Trigger>
+        <SelectPrimitive.Portal>
+          <SelectPrimitive.Content
             className={`${componentClassName}Content`}
             position="popper"
             side="bottom"
             sideOffset={4}
           >
-            <RadixScrollArea.Root className="hearth-ScrollAreaRoot" type="auto">
-              <RadixSelect.Viewport className={`${componentClassName}Viewport`}>
-                <RadixScrollArea.Viewport className="hearth-ScrollAreaViewport">
+            <ScrollAreaPrimitive.Root className="hearth-ScrollAreaRoot" type="auto">
+              <SelectPrimitive.Viewport className={`${componentClassName}Viewport`}>
+                <ScrollAreaPrimitive.Viewport className="hearth-ScrollAreaViewport">
                   {children}
-                </RadixScrollArea.Viewport>
-              </RadixSelect.Viewport>
-              <RadixScrollArea.Scrollbar
+                </ScrollAreaPrimitive.Viewport>
+              </SelectPrimitive.Viewport>
+              <ScrollAreaPrimitive.Scrollbar
                 className="hearth-ScrollAreaScrollbar"
                 orientation="vertical"
               >
-                <RadixScrollArea.Thumb className="hearth-ScrollAreaThumb" />
-              </RadixScrollArea.Scrollbar>
-            </RadixScrollArea.Root>
-          </RadixSelect.Content>
-        </RadixSelect.Portal>
-      </RadixSelect.Root>
+                <ScrollAreaPrimitive.Thumb className="hearth-ScrollAreaThumb" />
+              </ScrollAreaPrimitive.Scrollbar>
+            </ScrollAreaPrimitive.Root>
+          </SelectPrimitive.Content>
+        </SelectPrimitive.Portal>
+      </SelectPrimitive.Root>
     </FormField>
   );
-});
+};
 
 Select.displayName = COMPONENT_NAME;

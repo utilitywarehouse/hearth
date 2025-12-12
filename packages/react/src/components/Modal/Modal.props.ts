@@ -1,8 +1,7 @@
-import { Dialog as RadixDialog } from 'radix-ui';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+import { Dialog as DialogPrimitive } from 'radix-ui';
 
-export type ModalProps = RadixDialog.DialogPortalProps &
-  ComponentPropsWithout<'div', RemovedProps> & {
+export type ModalProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal> &
+  React.ComponentPropsWithRef<'div'> & {
     /**
      * The heading for the modal, describing its purpose.
      */
@@ -19,4 +18,17 @@ export type ModalProps = RadixDialog.DialogPortalProps &
     image?: React.ReactNode;
   };
 
-export type ModalFooterProps = ComponentPropsWithout<'div', RemovedProps>;
+export type ModalCloseProps = Omit<
+  React.ComponentPropsWithRef<typeof DialogPrimitive.DialogClose>,
+  'asChild'
+>;
+
+export type ModalRootProps = Omit<
+  React.ComponentPropsWithRef<typeof DialogPrimitive.Root>,
+  'modal'
+>;
+
+export type ModalTriggerProps = Omit<
+  React.ComponentPropsWithRef<typeof DialogPrimitive.DialogTrigger>,
+  'asChild'
+>;

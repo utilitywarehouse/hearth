@@ -1,6 +1,6 @@
-import { unstable_OneTimePasswordField as RadixOneTimePasswordField } from 'radix-ui';
+import { unstable_OneTimePasswordField as OneTimePasswordFieldPrimitive } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { VerificationInputProps } from './VerificationInput.props';
+import type { VerificationInputProps } from './VerificationInput.props';
 import { FormField } from '../FormField/FormField';
 import { useIds } from '../../hooks/use-ids';
 import { extractProps } from '../../helpers/extract-props';
@@ -61,7 +61,7 @@ export const VerificationInput = (props: VerificationInputProps) => {
       data-disabled={disabled ? '' : undefined}
       {...formFieldProps}
     >
-      <RadixOneTimePasswordField.Root
+      <OneTimePasswordFieldPrimitive.Root
         className={`${componentClassName}Row`}
         disabled={disabled}
         readOnly={readOnly}
@@ -73,13 +73,13 @@ export const VerificationInput = (props: VerificationInputProps) => {
         {...verificationInputProps}
       >
         {Array.from({ length: PASSWORD_LENGTH }).map((_, i) => (
-          <RadixOneTimePasswordField.Input key={i} asChild>
+          <OneTimePasswordFieldPrimitive.Input key={i} asChild>
             <InputBase />
-          </RadixOneTimePasswordField.Input>
+          </OneTimePasswordFieldPrimitive.Input>
         ))}
 
-        <RadixOneTimePasswordField.HiddenInput ref={ref} />
-      </RadixOneTimePasswordField.Root>
+        <OneTimePasswordFieldPrimitive.HiddenInput ref={ref} />
+      </OneTimePasswordFieldPrimitive.Root>
     </FormField>
   );
 };

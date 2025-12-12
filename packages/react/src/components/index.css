@@ -53,11 +53,9 @@
 @import url('./Select/Select.css');
 @import url('./ToggleButtonCard/ToggleButtonCard.css');
 @import url('./DescriptionList/DescriptionList.css');
-@import url('./DescriptionListItem/DescriptionListItem.css');
 @import url('./Menu/Menu.css');
 @import url('./Breadcrumbs/Breadcrumbs.css');
 @import url('./ProgressStepper/ProgressStepper.css');
-@import url('./ProgressStepper/ProgressStep.css');
 @import url('./Avatar/Avatar.css');
 @import url('./Pagination/Pagination.css');
 @import url('./Table/Table.css');

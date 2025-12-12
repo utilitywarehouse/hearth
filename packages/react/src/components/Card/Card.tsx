@@ -1,9 +1,6 @@
-import * as React from 'react';
-import type { ElementRef } from 'react';
-
 import clsx from 'clsx';
-
-import { cardPropDefs, CardProps } from './Card.props';
+import { cardPropDefs } from './Card.props';
+import type { CardProps } from './Card.props';
 import { extractProps } from '../../helpers/extract-props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { marginPropDefs } from '../../props/margin.props';
@@ -11,16 +8,14 @@ import { sizePropDefs } from '../../props/size.props';
 import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
 import { Flex } from '../Flex/Flex';
-import { flexPropDefs, FlexProps } from '../Flex/Flex.props';
+import { flexPropDefs } from '../Flex/Flex.props';
 import { kebabCase } from '../../helpers/kebab-case';
 import { gapPropDefs } from '../../props/gap.props';
 
 const COMPONENT_NAME = 'Card';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type CardElement = ElementRef<'div'>;
-
-export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
+export const Card = (props: CardProps) => {
   const {
     className,
     children,
@@ -40,16 +35,15 @@ export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
 
   return (
     <Flex
-      ref={ref}
-      as="div"
       className={clsx(componentClassName, className)}
       data-colorscheme={kebabCase(colorScheme)}
       data-shadowcolor={shadowColor}
-      {...(cardProps as FlexProps)}
+      {...cardProps}
+      as="div"
     >
       {children}
     </Flex>
   );
-});
+};
 
 Card.displayName = COMPONENT_NAME;

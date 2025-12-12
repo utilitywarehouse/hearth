@@ -1,10 +1,10 @@
+import { ComponentPropsWithRef } from 'react';
 import { ColorProps } from '../../props/color.props';
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
 import { TextWrapProps } from '../../props/text-wrap.props';
-import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { Responsive } from '../../types/responsive';
 
 const sizes = ['sm', 'md', 'lg'] as const;
@@ -56,9 +56,9 @@ interface CommonBodyTextProps
    */
   paragraphSpacing?: boolean;
 }
-type BodyTextDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
-type BodyTextSpanProps = { as?: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
-type BodyTextPProps = { as?: 'p' } & ComponentPropsWithout<'p', RemovedProps>;
-type BodyTextLabelProps = { as?: 'label' } & ComponentPropsWithout<'label', RemovedProps>;
+type BodyTextDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
+type BodyTextSpanProps = { as?: 'span' } & ComponentPropsWithRef<'span'>;
+type BodyTextPProps = { as?: 'p' } & ComponentPropsWithRef<'p'>;
+type BodyTextLabelProps = { as?: 'label' } & ComponentPropsWithRef<'label'>;
 export type BodyTextProps = CommonBodyTextProps &
   (BodyTextSpanProps | BodyTextDivProps | BodyTextPProps | BodyTextLabelProps);
