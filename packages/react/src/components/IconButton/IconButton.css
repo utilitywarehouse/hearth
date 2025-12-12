@@ -9,7 +9,7 @@
     padding: 0;
   }
 
-  &:where(.h-variant-emphasis) > .h-front {
+  &:where(.h-variant-emphasis) > .h-ButtonBaseFront {
     height: var(--h-icon-button-size);
     width: var(--h-icon-button-size);
     padding-inline: var(--h-icon-button-padding-inline);

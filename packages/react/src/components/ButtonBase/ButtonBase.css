@@ -175,7 +175,7 @@
       outline: 2px solid var(--h-focus-inverted);
     }
 
-    & > .h-shadow {
+    & > .h-ButtonBaseShadow {
       background: transparent;
     }
   }
@@ -195,7 +195,7 @@
 
     --h-button-base-background-color: var(--h-button-base-background-color-active);
 
-    & > .h-front {
+    & > .h-ButtonBaseFront {
       transform: var(--h-emphasis-transform);
     }
   }
