@@ -1,4 +1,5 @@
 name: Code Checks
+on: push
 
 permissions:
   contents: read
