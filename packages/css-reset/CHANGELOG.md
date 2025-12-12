@@ -1,5 +1,11 @@
 # @utilitywarehouse/css-reset
 
+## 0.1.3
+
+### Patch Changes
+
+- [#700](https://github.com/utilitywarehouse/hearth/pull/700) [`bb556e6`](https://github.com/utilitywarehouse/hearth/commit/bb556e67219e806f0b8ff4fe21d1a7a84a9fa7db) Thanks [@robphoenix](https://github.com/robphoenix)! - Don't use pointer cursor when `aria-disabled` applied
+
 ## 0.1.2
 
 ### Patch Changes
