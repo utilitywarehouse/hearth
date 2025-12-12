@@ -51,30 +51,18 @@ export const Playground: Story = {
 
     return (
       <Flex direction="column" gap="400">
-        <Box paddingBlock="400">
-          <BodyText weight="bold">Step {currentStep + 1} Content</BodyText>
-        </Box>
+        <BodyText weight="bold">Step {currentStep + 1} Content</BodyText>
         <ProgressStepper {...args}>
-          <ProgressStepButton status={getStatus(0)} onClick={() => setCurrentStep(0)}>
-            Customer data
-          </ProgressStepButton>
-          <ProgressStepButton status={getStatus(1)} onClick={() => setCurrentStep(1)}>
-            Shipping data
-          </ProgressStepButton>
-          <ProgressStepButton status={getStatus(2)} onClick={() => setCurrentStep(2)}>
-            Payment data
-          </ProgressStepButton>
-          <ProgressStepButton status={getStatus(3)} onClick={() => setCurrentStep(3)}>
-            Summary
-          </ProgressStepButton>
+          <ProgressStep status={getStatus(0)} label="Customer data" />
+          <ProgressStep status={getStatus(1)} label="Shipping data" />
+          <ProgressStep status={getStatus(2)} label="Payment data" />
+          <ProgressStep status={getStatus(3)} label="Summary" />
         </ProgressStepper>
         <Flex gap="200">
           <Button
             disabled={currentStep === 0}
             onClick={() => {
-              if (currentStep > 0) {
-                setCurrentStep(s => s - 1);
-              }
+              if (currentStep > 0) setCurrentStep(s => s - 1);
             }}
           >
             Prev
@@ -82,9 +70,7 @@ export const Playground: Story = {
           <Button
             disabled={currentStep === 3}
             onClick={() => {
-              if (currentStep < 3) {
-                setCurrentStep(s => s + 1);
-              }
+              if (currentStep < 3) setCurrentStep(s => s + 1);
             }}
           >
             Next
@@ -100,32 +86,30 @@ export const KitchenSink: Story = {
     return (
       <Flex direction="column" gap="400">
         <ProgressStepper {...args}>
-          <ProgressStep status="complete">Customer data</ProgressStep>
-          <ProgressStep status="complete">Shipping data</ProgressStep>
-          <ProgressStep status="active">Payment data</ProgressStep>
-          <ProgressStep status="incomplete">Summary</ProgressStep>
+          <ProgressStep status="complete" label="Customer data" />
+          <ProgressStep status="complete" label="Shipping data" />
+          <ProgressStep status="active" label="Payment data" />
+          <ProgressStep status="incomplete" label="Summary" />
         </ProgressStepper>
         <ProgressStepper {...args}>
-          <ProgressStepLink status="complete" href="#customer-data">
-            Customer data
-          </ProgressStepLink>
-          <ProgressStepLink status="complete" href="#shipping-data">
-            Shipping data
-          </ProgressStepLink>
-          <ProgressStepLink status="active" href="#payment-data">
-            Payment data
-          </ProgressStepLink>
-          <ProgressStepLink status="incomplete">Summary</ProgressStepLink>
+          <ProgressStepLink status="complete" href="#customer-data" label="Customer data" />
+          <ProgressStepLink status="complete" href="#shipping-data" label="Shipping data" />
+          <ProgressStepLink status="active" href="#payment-data" label="Payment data" />
+          <ProgressStepLink status="incomplete" label="Summary" />
         </ProgressStepper>
         <ProgressStepper {...args}>
-          <ProgressStepButton status="complete" onClick={() => console.log('Go to Customer Data')}>
-            Customer data
-          </ProgressStepButton>
-          <ProgressStepButton status="complete" onClick={() => console.log('Go to Shipping Data')}>
-            Shipping data
-          </ProgressStepButton>
-          <ProgressStepButton status="active">Payment data</ProgressStepButton>
-          <ProgressStepButton status="incomplete">Summary</ProgressStepButton>
+          <ProgressStepButton
+            status="complete"
+            onClick={() => console.log('Go to Customer Data')}
+            label="Customer data"
+          />
+          <ProgressStepButton
+            status="complete"
+            onClick={() => console.log('Go to Shipping Data')}
+            label="Shipping data"
+          />
+          <ProgressStepButton status="active" label="Payment data" />
+          <ProgressStepButton status="incomplete" label="Summary" />
         </ProgressStepper>
       </Flex>
     );
@@ -136,10 +120,10 @@ export const StaticSteps: Story = {
   render: args => {
     return (
       <ProgressStepper {...args}>
-        <ProgressStep status="complete">Customer data</ProgressStep>
-        <ProgressStep status="complete">Shipping data</ProgressStep>
-        <ProgressStep status="active">Payment data</ProgressStep>
-        <ProgressStep status="incomplete">Summary</ProgressStep>
+        <ProgressStep status="complete" label="Customer data" />
+        <ProgressStep status="complete" label="Shipping data" />
+        <ProgressStep status="active" label="Payment data" />
+        <ProgressStep status="incomplete" label="Summary" />
       </ProgressStepper>
     );
   },
@@ -149,16 +133,10 @@ export const LinkSteps: Story = {
   render: args => {
     return (
       <ProgressStepper {...args}>
-        <ProgressStepLink status="complete" href="#customer-data">
-          Customer data
-        </ProgressStepLink>
-        <ProgressStepLink status="complete" href="#shipping-data">
-          Shipping data
-        </ProgressStepLink>
-        <ProgressStepLink status="active" href="#payment-data">
-          Payment data
-        </ProgressStepLink>
-        <ProgressStepLink status="incomplete">Summary</ProgressStepLink>
+        <ProgressStepLink status="complete" href="#customer-data" label="Customer data" />
+        <ProgressStepLink status="complete" href="#shipping-data" label="Shipping data" />
+        <ProgressStepLink status="active" href="#payment-data" label="Payment data" />
+        <ProgressStepLink status="incomplete" label="Summary" />
       </ProgressStepper>
     );
   },
@@ -168,14 +146,18 @@ export const ButtonSteps: Story = {
   render: args => {
     return (
       <ProgressStepper {...args}>
-        <ProgressStepButton status="complete" onClick={() => console.log('Go to Customer Data')}>
-          Customer data
-        </ProgressStepButton>
-        <ProgressStepButton status="complete" onClick={() => console.log('Go to Shipping Data')}>
-          Shipping data
-        </ProgressStepButton>
-        <ProgressStepButton status="active">Payment data</ProgressStepButton>
-        <ProgressStepButton status="incomplete">Summary</ProgressStepButton>
+        <ProgressStepButton
+          status="complete"
+          onClick={() => console.log('Go to Customer Data')}
+          label="Customer data"
+        />
+        <ProgressStepButton
+          status="complete"
+          onClick={() => console.log('Go to Shipping Data')}
+          label="Shipping data"
+        />
+        <ProgressStepButton status="active" label="Payment data" />
+        <ProgressStepButton status="incomplete" label="Summary" />
       </ProgressStepper>
     );
   },
@@ -186,34 +168,30 @@ export const DisabledSteps: Story = {
     return (
       <Flex direction="column" gap="400">
         <ProgressStepper {...args}>
-          <ProgressStepLink disabled status="complete" href="#customer-data">
-            Customer data
-          </ProgressStepLink>
-          <ProgressStepLink status="active" href="#shipping-data">
-            Shipping data
-          </ProgressStepLink>
-          <ProgressStepLink status="incomplete" href="#payment-data">
-            Payment data
-          </ProgressStepLink>
-          <ProgressStepLink disabled status="incomplete">
-            Summary
-          </ProgressStepLink>
+          <ProgressStepLink
+            disabled
+            status="complete"
+            href="#customer-data"
+            label="Customer data"
+          />
+          <ProgressStepLink status="active" href="#shipping-data" label="Shipping data" />
+          <ProgressStepLink status="incomplete" href="#payment-data" label="Payment data" />
+          <ProgressStepLink disabled status="incomplete" label="Summary" />
         </ProgressStepper>
         <ProgressStepper {...args}>
           <ProgressStepButton
             disabled
             status="complete"
             onClick={() => console.log('Go to Customer Data')}
-          >
-            Customer data
-          </ProgressStepButton>
-          <ProgressStepButton status="active" onClick={() => console.log('Go to Shipping Data')}>
-            Shipping data
-          </ProgressStepButton>
-          <ProgressStepButton status="incomplete">Payment data</ProgressStepButton>
-          <ProgressStepButton disabled status="incomplete">
-            Summary
-          </ProgressStepButton>
+            label="Customer data"
+          />
+          <ProgressStepButton
+            status="active"
+            onClick={() => console.log('Go to Shipping Data')}
+            label="Shipping data"
+          />
+          <ProgressStepButton status="incomplete" label="Payment data" />
+          <ProgressStepButton disabled status="incomplete" label="Summary" />
         </ProgressStepper>
       </Flex>
     );

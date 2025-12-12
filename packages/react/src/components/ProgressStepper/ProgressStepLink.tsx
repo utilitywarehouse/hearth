@@ -11,6 +11,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const ProgressStepLink = ({
   children,
+  label,
   className,
   status,
   disabled,
@@ -25,6 +26,7 @@ export const ProgressStepLink = ({
       status={status}
       className={clsx(componentClassName, className)}
       aria-label={ariaLabel}
+      label={label}
     >
       {isActive ? (
         children

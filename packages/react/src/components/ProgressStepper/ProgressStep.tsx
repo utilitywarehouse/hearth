@@ -11,20 +11,15 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const ProgressStep = ({
   status,
-  children,
+  label,
   className,
+  children,
   'aria-label': ariaLabel,
   ...props
 }: ProgressStepProps) => {
   const isStatus = (currentStatus: typeof status) => currentStatus === status;
 
-  const ariaLabelText = [
-    typeof children === 'string' ? children : undefined,
-    `${status} step`,
-    ariaLabel,
-  ]
-    .filter(t => t)
-    .join(', ');
+  const ariaLabelText = [label, `${status} step`, ariaLabel].filter(t => t).join(', ');
 
   return (
     <li
@@ -46,9 +41,9 @@ export const ProgressStep = ({
         size="md"
         className={`${componentClassName}Label`}
         // we use this to avoid layout shift when transitioning to semibold text
-        data-content={typeof children === 'string' ? children : null}
+        data-content={label}
       >
-        {children}
+        {children || label}
       </BodyText>
     </li>
   );
