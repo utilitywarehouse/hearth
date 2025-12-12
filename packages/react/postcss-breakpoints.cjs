@@ -84,8 +84,8 @@ module.exports = () => ({
       // Silently skip processing if this happens
       if (process.env.NODE_ENV === 'development') {
         console.warn(
-          `PostCSS breakpoints plugin skipped processing rule${rule && rule.selector ? ` "${rule.selector}"` : ""} due to DevTools interference. ` +
-          `Consider disabling React DevTools during development if this persists.`
+          `PostCSS breakpoints plugin skipped processing rule${rule && rule.selector ? ` "${rule.selector}"` : ''} due to DevTools interference. ` +
+            `Consider disabling React DevTools during development if this persists.`
         );
         return;
       }
@@ -103,25 +103,25 @@ function updateClass(node, prefix) {
   }
 
   /**
-   * Should match responsive classes (hearth-r- prefix):
+   * Should match responsive classes (h-r- prefix):
    * ```
-   * .hearth-r-size-1
-   * .hearth-r-m-2
-   * .-hearth-r-m-2
-   * .hearth-Button.hearth-r-size-1 (captures "hearth-r-size-1")
+   * .h-r-size-1
+   * .h-r-m-2
+   * .-h-r-m-2
+   * .h-Button.h-r-size-1 (captures "h-r-size-1")
    * ```
    *
    * Should not match:
-   * .hearth-Button
+   * .h-Button
    */
-  const classNameRegexp = /\.(-?hearth-r-[a-z0-9-]+)/g;
+  const classNameRegexp = /\.(-?h-r-[a-z0-9-]+)/g;
 
   // Check for rules that use compound props on a component:
-  // - a component name (prefixed with "hearth-" and pascal cased)
+  // - a component name (prefixed with "h-" and pascal cased)
   // - followed by 2 or more prop selectors (lowercase, numbers, -)
   //
-  // e.g. ".hearth-DialogContent.rt-r-size-2.gray"
-  if (/\.hearth-(?:[A-Z][a-z]+)+(?:\.[a-z0-9-]+){2,}/.test(node.selector)) {
+  // e.g. ".h-DialogContent.rt-r-size-2.gray"
+  if (/\.h-(?:[A-Z][a-z]+)+(?:\.[a-z0-9-]+){2,}/.test(node.selector)) {
     throw Error(`
       "${node.selector}" looks like it uses compound props on a component.
       "@breakpoints" does not support compound props yet.
