@@ -255,13 +255,15 @@ export { TableRow } from './components/Table/TableRow';
 export { TableCell } from './components/Table/TableCell';
 
 export { Tabs } from './components/Tabs/Tabs';
+export type {
+  TabsProps,
+  TabsListProps,
+  TabProps,
+  TabContentProps,
+} from './components/Tabs/Tabs.props';
 export { TabsList } from './components/Tabs/TabsList';
 export { Tab } from './components/Tabs/Tab';
 export { TabContent } from './components/Tabs/TabContent';
-export type { TabsProps } from './components/Tabs/Tabs.props';
-export type { TabsListProps } from './components/Tabs/TabsList.props';
-export type { TabProps } from './components/Tabs/Tab.props';
-export type { TabContentProps } from './components/Tabs/TabContent.props';
 
 export { Pagination } from './components/Pagination/Pagination';
 export type { PaginationProps } from './components/Pagination/Pagination.props';

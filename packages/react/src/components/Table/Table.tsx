@@ -1,4 +1,3 @@
-import * as React from 'react';
 import clsx from 'clsx';
 
 import type { TableProps } from './Table.props';
@@ -10,9 +9,7 @@ import { Card } from '../Card/Card';
 const COMPONENT_NAME = 'Table';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type TableElement = React.ComponentRef<'table'>;
-
-export const Table = React.forwardRef<TableElement, TableProps>((props, ref) => {
+export const Table = (props: TableProps) => {
   const { className, style, children, variant, pagination, ...tableProps } = extractProps(
     props,
     marginPropDefs
@@ -21,9 +18,7 @@ export const Table = React.forwardRef<TableElement, TableProps>((props, ref) => 
   if (variant === undefined) {
     return (
       <div className={clsx(componentClassName, className)} style={style}>
-        <table ref={ref} {...tableProps}>
-          {children}
-        </table>
+        <table {...tableProps}>{children}</table>
         {pagination}
       </div>
     );
@@ -37,12 +32,10 @@ export const Table = React.forwardRef<TableElement, TableProps>((props, ref) => 
       colorScheme="neutralStrong"
       paddingNone
     >
-      <table ref={ref} {...tableProps}>
-        {children}
-      </table>
+      <table {...tableProps}>{children}</table>
       {pagination}
     </Card>
   );
-});
+};
 
 Table.displayName = COMPONENT_NAME;

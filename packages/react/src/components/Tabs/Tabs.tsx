@@ -1,19 +1,16 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
-import type { ElementRef } from 'react';
 import { Tabs as RadixTabs } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
-import { tabsPropDefs, type TabsProps } from './Tabs.props';
+import { tabsPropDefs } from './Tabs.props';
+import type { TabsProps } from './Tabs.props';
 
 const COMPONENT_NAME = 'Tabs';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type TabsElement = ElementRef<'div'>;
-
-export const Tabs = React.forwardRef<TabsElement, TabsProps>((props, ref) => {
+export const Tabs = (props: TabsProps) => {
   const {
     className,
     activationMode = 'automatic',
@@ -22,12 +19,11 @@ export const Tabs = React.forwardRef<TabsElement, TabsProps>((props, ref) => {
 
   return (
     <RadixTabs.Root
-      ref={ref}
       className={clsx(componentClassName, className)}
       activationMode={activationMode}
       {...tabsProps}
     />
   );
-});
+};
 
 Tabs.displayName = COMPONENT_NAME;
