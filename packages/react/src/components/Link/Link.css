@@ -8,7 +8,10 @@
     padding: 0;
   }
 
-  cursor: pointer;
+  &:not([aria-disabled]) {
+    cursor: pointer;
+  }
+
   display: inline;
   font-family: var(--h-font-family-body);
   font-size: var(--h-body-text-md-font-size);
@@ -24,7 +27,7 @@
   }
 
   @media (hover: hover) {
-    &:where(:hover) {
+    &:where(:hover):not([aria-disabled]) {
       color: var(--h-link-color-hover);
       text-decoration: none;
 
@@ -34,7 +37,7 @@
     }
   }
 
-  &:where(:active) {
+  &:where(:active):not([aria-disabled]) {
     color: var(--h-link-color-active);
 
     &:where([data-inverted]) {

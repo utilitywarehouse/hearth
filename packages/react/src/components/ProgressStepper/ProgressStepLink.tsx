@@ -13,13 +13,26 @@ export const ProgressStepLink = ({
   children,
   className,
   status,
+  disabled,
+  href,
+  'aria-label': ariaLabel,
   ...props
 }: ProgressStepLinkProps) => {
-  const isComplete = status === 'complete';
+  const isActive = status === 'active';
 
   return (
-    <ProgressStep status={status} className={clsx(componentClassName, className)}>
-      {isComplete ? <Link {...props}>{children}</Link> : children}
+    <ProgressStep
+      status={status}
+      className={clsx(componentClassName, className)}
+      aria-label={ariaLabel}
+    >
+      {isActive ? (
+        children
+      ) : (
+        <Link {...props} href={disabled ? undefined : href} role="link" aria-disabled={disabled}>
+          {children}
+        </Link>
+      )}
     </ProgressStep>
   );
 };

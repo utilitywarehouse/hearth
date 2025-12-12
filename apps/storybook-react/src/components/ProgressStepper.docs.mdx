@@ -12,144 +12,105 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
-## ToC
+## Usage
 
-- [Step states](#step-states)
-- [Component structure](#component-structure)
-- [Usage guidelines](#usage-guidelines)
-- [Examples](#examples)
-  - [Interactive steps](#interactive-steps)
-  - [Static labels](#static-labels)
-  - [Without labels](#without-labels)
-  - [All complete](#all-complete)
-- [Components API](#components-api)
-  - [ProgressStep API](#progressstep-api)
-  - [ProgressStepContent API](#progressstepcontent-api)
-  - [ProgressStepLink API](#progresssteplink-api)
-  - [ProgressStepButton API](#progressstepbutton-api)
+There are 3 step components for different scenarios. Do not mix these step
+types, they should not be used together.
+
+- `ProgressStep` is a static step
+- `ProgressStepButton` is an interactive step for use when the step requires an action
+- `ProgressStepLink` is an interactive step for use when the step requires navigation
+
+Wrap the steps in a `ProgressStepper` components.
+
+```tsx
+<ProgressStepper>
+  <ProgressStep status="complete">Customer data</ProgressStep>
+  <ProgressStep status="complete">Shipping data</ProgressStep>
+  <ProgressStep status="active">Payment data</ProgressStep>
+  <ProgressStep status="incomplete">Summary</ProgressStep>
+</ProgressStepper>
+
+[...]
+
+<ProgressStepper>
+  <ProgressStepLink status="complete" href="#customer-data">
+    Customer data
+  </ProgressStepLink>
+  <ProgressStepLink status="complete" href="#shipping-data">
+    Shipping data
+  </ProgressStepLink>
+  <ProgressStepLink status="active" href="#payment-data">
+    Payment data
+  </ProgressStepLink>
+  <ProgressStepLink status="incomplete">Summary</ProgressStepLink>
+</ProgressStepper>
+
+[...]
+
+<ProgressStepper >
+  <ProgressStepButton status="complete" onClick={setStep('shipping')}>
+    Customer data
+  </ProgressStepButton>
+  <ProgressStepButton status="complete" onClick={setStep('payment')}>
+    Shipping data
+  </ProgressStepButton>
+  <ProgressStepButton status="active" onClick={setStep('summary')}>Payment data</ProgressStepButton>
+  <ProgressStepButton status="incomplete">Summary</ProgressStepButton>
+</ProgressStepper>
+```
 
 ## Step states
 
 Each step can have one of three states:
 
-- **complete**
-- **active**
-- **incomplete**
+- `complete`
+- `active`
+- `incomplete`
 
-## Component structure
+The `ProgressStepButton` and `ProgressStepLink` components will render a static
+step when they have an `active` status.
 
-The ProgressStepper uses a compound component pattern:
+To prevent users interacting with a `ProgressStepButton` or `ProgressStepLink`
+component, use the `disabled` prop. This will prevent click events and remove
+the href attribute.
 
-- **ProgressStepper** - The container component
-- **ProgressStep** - Wrapper for each step that renders the indicator and connector (requires `status` prop)
-- **ProgressStepContent** - Non-interactive step label
-- **ProgressStepLink** - Interactive step label that navigates (uses `<a>` tag)
-- **ProgressStepButton** - Interactive step label that triggers an action (uses `<button>` tag)
-
-```tsx
-// Non-interactive steps
-<ProgressStepper>
-  <ProgressStep status="complete">
-    <ProgressStepContent label="Step 1" />
-  </ProgressStep>
-</ProgressStepper>
-
-// Interactive navigation (only label is clickable)
-<ProgressStepper>
-  <ProgressStep status="complete">
-    <ProgressStepLink label="Step 1" href="/step-1" />
-  </ProgressStep>
-</ProgressStepper>
-
-// Interactive actions (only label is clickable)
-<ProgressStepper>
-  <ProgressStep status="complete">
-    <ProgressStepButton label="Step 1" onClick={() => {}} />
-  </ProgressStep>
-</ProgressStepper>
-```
-
-## Usage guidelines
-
-- Use `ProgressStepLink` for navigation and `ProgressStepButton` for actions
-- Use `ProgressStepContent` for static labels or when the label should not be keyboard-focusable.
-
-### Accessability
+## Accessability
 
 - Use the `as` prop to render the stepper as `nav` when it represents site/app navigation; otherwise use the default `div`.
-- Add `name` to `ProgressStepper` when using `nav` as element and having multiple navigations on the page
-- Override `aria-label` of `ProgressStepper` to reflect proper component usage
+- Add `name` to `ProgressStepper` when using `nav` as element and having multiple navigations on the page.
+- Any `aria-label` value passed to a progress step will be appended to the default `aria-label`.
+- The `hideLabels` prop will visually hide the step labels but keep them available for screen readers.
 
-## Examples
+## API
 
-### Interactive steps
+This component is based on the `div` element and supports the following common props:
 
-Use `ProgressStepLink` for clickable navigation steps and `ProgressStepButton` for steps that trigger actions.
+- Margin
 
-<Canvas of={Stories.WithLinks} />
-
-#### With buttons
-
-Use `ProgressStepButton` when steps should trigger actions instead of navigation.
-
-<Canvas of={Stories.WithButtons} />
-
-### Static labels
-
-Use `ProgressStepContent` for non-interactive steps.
-
-<Canvas of={Stories.WithStaticLabels} />
-
-### Without labels
-
-Set `hideLabels={true}` to hide step labels completely.
-
-### All complete
-
-## Components API
-
-### ProgressStepper API
-
-This component supports the `as` prop to change the rendered element (`div` or `nav`), with `div` as the default.
-
-- Margin props
-
-| Prop         | Type             | Default      | Description                      |
-| ------------ | ---------------- | ------------ | -------------------------------- |
-| `as`         | `'div' \| 'nav'` | `'div'`      | The element type to render       |
-| `hideLabels` | `boolean`        | `false`      | Whether to hide step labels      |
-| `aria-label` | `string`         | `'progress'` | Accessible label for the stepper |
+| Prop         | Type             |
+| ------------ | ---------------- |
+| `as`         | `'div' \| 'nav'` |
+| `hideLabels` | `boolean`        |
 
 ### ProgressStep API
 
-Renders the step indicator (circle) and connector (line). The indicator and connector are always visible and non-interactive. Extends all `<li>` element props.
-
-| Prop     | Type                                     | Description                               |
-| -------- | ---------------------------------------- | ----------------------------------------- |
-| `status` | `'complete' \| 'active' \| 'incomplete'` | The current status of the step (required) |
-
-### ProgressStepContent API
-
-Displays non-interactive step label.
-
-| Prop    | Type     | Description                          |
-| ------- | -------- | ------------------------------------ |
-| `label` | `string` | The label text to display (required) |
+| Prop     | Type                                     |
+| -------- | ---------------------------------------- |
+| `status` | `'complete' \| 'active' \| 'incomplete'` |
 
 ### ProgressStepLink API
 
-Wraps the step label in a link for navigation. Only the label is clickable. Extends all `<a>` element props.
+This component is based on the `a` element.
 
-| Prop    | Type     | Description                          |
-| ------- | -------- | ------------------------------------ |
-| `label` | `string` | The label text to display (required) |
-| `href`  | `string` | Link URL                             |
+| Prop       | Type      |
+| ---------- | --------- |
+| `disabled` | `boolean` |
 
 ### ProgressStepButton API
 
-Wraps the step label in a button for actions. Only the label is clickable. Extends all `<button>` element props.
+This component is based on the `button` element.
 
-| Prop      | Type       | Description                          |
-| --------- | ---------- | ------------------------------------ |
-| `label`   | `string`   | The label text to display (required) |
-| `onClick` | `function` | Click handler                        |
+| Prop       | Type      |
+| ---------- | --------- |
+| `disabled` | `boolean` |

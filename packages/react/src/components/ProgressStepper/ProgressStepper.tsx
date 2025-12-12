@@ -1,12 +1,10 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
 import type { ProgressStepperProps } from './ProgressStepper.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
-import { ProgressStepperContext } from './ProgressStepper.context';
 import { Slot } from 'radix-ui';
 
 const COMPONENT_NAME = 'ProgressStepper';
@@ -16,7 +14,7 @@ export const ProgressStepper = (props: ProgressStepperProps) => {
   const {
     className,
     children,
-    hideLabels = false,
+    hideLabels,
     as: Tag = 'div',
     'aria-label': ariaLabel = 'progress',
     ...progressStepperProps
@@ -26,14 +24,11 @@ export const ProgressStepper = (props: ProgressStepperProps) => {
     <Slot.Root
       aria-label={ariaLabel}
       className={clsx(componentClassName, className)}
+      data-visually-hidden-labels={hideLabels ? '' : undefined}
       {...progressStepperProps}
     >
       <Tag>
-        <ol role="list">
-          <ProgressStepperContext.Provider value={{ hideLabels }}>
-            {children}
-          </ProgressStepperContext.Provider>
-        </ol>
+        <ol role="list">{children}</ol>
       </Tag>
     </Slot.Root>
   );

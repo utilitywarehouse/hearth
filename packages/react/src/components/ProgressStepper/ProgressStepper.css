@@ -2,11 +2,132 @@
   & :where(ol) {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
     gap: var(--h-progress-stepper-gap-horizontal);
-    list-style: none;
-    padding: var(--h-space-0);
-    margin: var(--h-space-0);
     counter-reset: list-item;
+  }
+
+  & :where(.hearth-ProgressStep) {
+    counter-increment: list-item;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--h-progress-stepper-gap-vertical);
+
+    & :where(.hearth-ProgressStepRow) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--h-progress-stepper-gap-horizontal);
+    }
+
+    & :where(.hearth-ProgressStepIndicator) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--h-progress-stepper-indicator-width);
+      height: var(--h-progress-stepper-indicator-height);
+      border-radius: var(--h-border-radius-full);
+      flex-shrink: 0;
+      position: relative;
+
+      &:where([data-status='complete']) {
+        background-color: var(--h-progress-stepper-bar-complete-background-color);
+        border: none;
+
+        & > svg {
+          color: var(--h-progress-stepper-indicator-complete-icon-color);
+        }
+      }
+
+      &:where([data-status='active']) {
+        background-color: var(--h-progress-stepper-bar-complete-background-color);
+        border: none;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: calc(var(--h-progress-stepper-indicator-width) - var(--h-border-width-2) * 2);
+          height: calc(var(--h-progress-stepper-indicator-height) - var(--h-border-width-2) * 2);
+          border-radius: 50%;
+          background-color: var(--h-progress-stepper-bar-complete-background-color);
+          border: 2px solid var(--h-color-warm-white-50);
+        }
+
+        &::after {
+          content: counter(list-item);
+          color: var(--h-progress-stepper-indicator-complete-icon-color);
+          position: relative;
+          font-family: var(--h-font-family-body);
+          font-size: var(--h-font-size-100);
+          font-weight: var(--h-font-weight-medium);
+          line-height: 1;
+        }
+      }
+
+      &:where([data-status='incomplete']) {
+        background-color: var(--h-color-warm-white-50);
+        border: var(--h-progress-stepper-indicator-future-border-width) solid
+          var(--h-color-grey-400);
+
+        &::after {
+          content: counter(list-item);
+          color: var(--h-color-grey-700);
+          font-family: var(--h-font-family-body);
+          font-size: var(--h-font-size-100);
+          font-weight: var(--h-font-weight-medium);
+          line-height: 1;
+        }
+      }
+    }
+
+    & :where(.hearth-ProgressStepConnector) {
+      flex: 1;
+      height: var(--h-progress-stepper-bar-height);
+
+      &:where([data-status='complete']) {
+        background-color: var(--h-progress-stepper-bar-complete-background-color);
+      }
+
+      &:where([data-status='active'], [data-status='incomplete']) {
+        background-color: var(--h-color-grey-400);
+      }
+    }
+
+    &:where(:last-child) {
+      flex: 0;
+
+      & :where(.hearth-ProgressStepConnector) {
+        display: none;
+      }
+    }
+
+    & :where(.hearth-ProgressStepLabel) {
+      text-align: left;
+      white-space: nowrap;
+
+      /* reserve space for semibold text to avoid layout shift when changing to a link or button step */
+      &:where(:after) {
+        content: attr(data-content);
+        display: block;
+        font-weight: var(--h-font-weight-semibold);
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+      }
+
+      &:where([data-visually-hidden-labels] &) {
+        border: 0;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        margin: 0 -1px -1px 0;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+      }
+    }
   }
 }

@@ -13,20 +13,27 @@ export const ProgressStepButton = ({
   children,
   className,
   status,
+  disabled,
+  onClick,
+  'aria-label': ariaLabel,
   ...props
 }: ProgressStepButtonProps) => {
-  const isComplete = status === 'complete';
+  const isActive = status === 'active';
 
   return (
-    <ProgressStep status={status} className={clsx(componentClassName, className)}>
-      {isComplete ? (
-        <Link asChild>
-          <button className={clsx(componentClassName, className)} {...props}>
+    <ProgressStep
+      status={status}
+      className={clsx(componentClassName, className)}
+      aria-label={ariaLabel}
+    >
+      {isActive ? (
+        children
+      ) : (
+        <Link asChild aria-disabled={disabled}>
+          <button {...props} onClick={disabled ? undefined : onClick}>
             {children}
           </button>
         </Link>
-      ) : (
-        children
       )}
     </ProgressStep>
   );

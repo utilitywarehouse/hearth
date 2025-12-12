@@ -5,12 +5,13 @@ export interface ProgressStepProps extends React.ComponentPropsWithRef<'li'> {
   status: 'complete' | 'active' | 'incomplete';
 }
 
-type LinkElementProps = React.ComponentPropsWithRef<'a'>;
-export interface ProgressStepLinkProps
-  extends LinkElementProps,
-    Omit<ProgressStepProps, keyof LinkElementProps> {}
-
 type ButtonElementProps = React.ComponentPropsWithRef<'button'>;
 export interface ProgressStepButtonProps
   extends ButtonElementProps,
     Omit<ProgressStepProps, keyof ButtonElementProps> {}
+
+type LinkElementProps = React.ComponentPropsWithRef<'a'>;
+export interface ProgressStepLinkProps
+  extends LinkElementProps,
+    Omit<ProgressStepProps, keyof LinkElementProps>,
+    Pick<ButtonElementProps, 'disabled'> {}
