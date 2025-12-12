@@ -22,7 +22,7 @@
     text-decoration: underline;
   }
 
-  &:where(.h-variant-emphasis) > .h-front {
+  &:where(.h-variant-emphasis) > .h-ButtonBaseFront {
     min-width: var(--h-button-min-width);
     gap: var(--h-button-gap);
     padding-inline: var(--h-button-padding-inline);
