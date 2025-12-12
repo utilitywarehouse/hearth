@@ -107,7 +107,7 @@
       white-space: nowrap;
 
       /* reserve space for semibold text to avoid layout shift when changing to a link or button step */
-      &:where(:after) {
+      &:where(::after) {
         content: attr(data-content);
         display: block;
         font-weight: var(--h-font-weight-semibold);

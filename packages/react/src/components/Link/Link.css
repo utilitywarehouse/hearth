@@ -8,10 +8,6 @@
     padding: 0;
   }
 
-  &:not([aria-disabled]) {
-    cursor: pointer;
-  }
-
   display: inline;
   font-family: var(--h-font-family-body);
   font-size: var(--h-body-text-md-font-size);
@@ -24,6 +20,15 @@
 
   &:where([data-inverted]) {
     color: var(--h-link-inverted-color);
+  }
+
+  &:where(:focus-visible) {
+    outline: 2px solid var(--h-focus-primary);
+    outline-offset: 1px;
+
+    &:where([data-inverted]) {
+      outline: 2px solid var(--h-focus-inverted);
+    }
   }
 
   @media (hover: hover) {
@@ -45,13 +50,8 @@
     }
   }
 
-  &:where(:focus-visible) {
-    outline: 2px solid var(--h-focus-primary);
-    outline-offset: 1px;
-
-    &:where([data-inverted]) {
-      outline: 2px solid var(--h-focus-inverted);
-    }
+  &:not([aria-disabled]) {
+    cursor: pointer;
   }
 
   &:has(svg, [data-icon]) {
