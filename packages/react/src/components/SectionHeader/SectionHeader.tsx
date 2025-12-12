@@ -1,17 +1,14 @@
-import * as React from 'react';
-
 import clsx from 'clsx';
-
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Heading } from '../Heading/Heading';
 import { HelperText } from '../HelperText/HelperText';
-import { SectionHeaderProps } from './SectionHeader.props';
+import type { SectionHeaderProps } from './SectionHeader.props';
 import { ValidationText } from '../ValidationText/ValidationText';
 
 const COMPONENT_NAME = 'SectionHeader';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const SectionHeader: React.FC<SectionHeaderProps> = ({
+export const SectionHeader = ({
   className,
   heading,
   id,
@@ -21,7 +18,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   validationText,
   validationStatus,
   ...props
-}) => {
+}: SectionHeaderProps) => {
   const showValidationText = validationStatus !== undefined && validationText !== undefined;
   return (
     <div className={clsx(componentClassName, className)}>

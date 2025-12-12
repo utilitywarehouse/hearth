@@ -7,7 +7,7 @@ export interface AccordionProps
       React.ComponentPropsWithRef<typeof AccordionPrimitive.Root>,
       'orientation' | 'asChild' | 'dir'
     >,
-    Omit<SectionHeaderProps, 'headingElement'>,
+    Omit<SectionHeaderProps, 'headingElement' | 'defaultValue'>,
     MarginProps {
   headingElement?: 'h1' | 'h2' | 'h3' | 'h4';
   collapsible?: AccordionPrimitive.AccordionSingleProps['collapsible'];

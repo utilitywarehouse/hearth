@@ -1,6 +1,5 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
