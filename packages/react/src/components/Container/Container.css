@@ -1,5 +1,5 @@
-.hearth-Container {
-  & :where(.hearth-ContainerInner) {
+.h-Container {
+  & :where(.h-ContainerInner) {
     width: 100%;
     flex-direction: column;
     margin-inline: var(--h-container-margin-horizontal-mobile);

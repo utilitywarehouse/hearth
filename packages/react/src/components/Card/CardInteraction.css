@@ -1,4 +1,4 @@
-.hearth-CardInteraction {
+.h-CardInteraction {
   &:where([data-secondary]) {
     &:where(a[href], button),
     :where(a[href], button) {

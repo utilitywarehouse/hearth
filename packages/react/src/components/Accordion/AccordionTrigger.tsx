@@ -13,7 +13,7 @@ export const AccordionTrigger = ({ className, children, ...props }: AccordionTri
   return (
     <AccordionPrimitive.Trigger className={clsx(componentClassName, className)} {...props}>
       {children}
-      <ChevronDownSmallIcon className="hearth-AccordionChevron" aria-hidden />
+      <ChevronDownSmallIcon aria-hidden />
     </AccordionPrimitive.Trigger>
   );
 };

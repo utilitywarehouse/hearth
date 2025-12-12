@@ -29,11 +29,11 @@ export const Button = (props: ButtonProps) => {
       <Component>
         {loading
           ? getSubtree({ asChild, children }, children => (
-              <div className="hearth-loading">
+              <div className={`${componentClassName}Loading`}>
                 <div>
                   <Spinner size="xs" currentColor />
                 </div>
-                <span className="hearth-hidden">{children}</span>
+                <span className={`${componentClassName}Hidden`}>{children}</span>
               </div>
             ))
           : children}

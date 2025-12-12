@@ -1,4 +1,4 @@
-.hearth-Card {
+.h-Card {
   position: relative;
   background-color: var(--h-card-background-color);
   border-radius: var(--h-card-border-radius);
@@ -19,16 +19,16 @@
   }
 
   &:where(
-      .hearth-padding-none,
-      :has(.hearth-CardContent),
-      :has(.hearth-CardActions),
-      :has(> .hearth-CardActionLink),
-      :has(> .hearth-CardActionButton)
+      .h-padding-none,
+      :has(.h-CardContent),
+      :has(.h-CardActions),
+      :has(> .h-CardActionLink),
+      :has(> .h-CardActionButton)
     ) {
     padding: 0;
   }
 
-  & :where(.hearth-CardContent) {
+  & :where(.h-CardContent) {
     padding: var(--h-card-padding-mobile);
     flex-grow: 1;
 
@@ -41,11 +41,11 @@
     }
   }
 
-  &:where(.hearth-variant-emphasis) {
+  &:where(.h-variant-emphasis) {
     --h-card-background-color: var(--h-card-emphasis-background-color);
   }
 
-  &:where(.hearth-variant-subtle) {
+  &:where(.h-variant-subtle) {
     --h-card-background-color: var(--h-card-subtle-background-color);
 
     &:where([data-colorscheme='neutral-strong'], [data-colorscheme='neutral-subtle']) {
@@ -143,33 +143,33 @@
     --h-card-shadow-color: var(--h-shadow-default);
   }
 
-  &:has(.hearth-CardActions) {
+  &:has(.h-CardActions) {
     flex-direction: column;
   }
 
-  & :where(.hearth-CardActions) {
+  & :where(.h-CardActions) {
     &:not(:first-child) {
       border-top: var(--h-border-width-2) solid var(--h-border-strong);
     }
   }
 
-  &:has(.hearth-CardInteraction:focus-visible) {
+  &:has(.h-CardInteraction:focus-visible) {
     outline: 2px solid var(--h-focus-primary);
     outline-offset: 1px;
   }
 
-  &:has(.hearth-CardInteraction) {
+  &:has(.h-CardInteraction) {
     &:has(:focus-visible) {
       outline: 2px solid var(--h-focus-primary);
       outline-offset: 1px;
     }
   }
 
-  &:has(.hearth-CardActions :focus-visible) {
+  &:has(.h-CardActions :focus-visible) {
     outline: none;
   }
 
-  & :where(.hearth-CardBannerImage) {
+  & :where(.h-CardBannerImage) {
     border: var(--h-border-width-1) solid var(--h-border-strong);
     border-radius: var(--h-border-radius-md);
     overflow: hidden;

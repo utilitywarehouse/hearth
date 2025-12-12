@@ -1,4 +1,4 @@
-.hearth-ProgressStepper {
+.h-ProgressStepper {
   & :where(ol) {
     display: flex;
     flex-direction: row;
@@ -6,7 +6,7 @@
     counter-reset: list-item;
   }
 
-  & :where(.hearth-ProgressStep) {
+  & :where(.h-ProgressStep) {
     counter-increment: list-item;
     flex: 1;
     display: flex;
@@ -14,14 +14,14 @@
     align-items: stretch;
     gap: var(--h-progress-stepper-gap-vertical);
 
-    & :where(.hearth-ProgressStepRow) {
+    & :where(.h-ProgressStepRow) {
       display: flex;
       flex-direction: row;
       align-items: center;
       gap: var(--h-progress-stepper-gap-horizontal);
     }
 
-    & :where(.hearth-ProgressStepIndicator) {
+    & :where(.h-ProgressStepIndicator) {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -81,7 +81,7 @@
       }
     }
 
-    & :where(.hearth-ProgressStepConnector) {
+    & :where(.h-ProgressStepConnector) {
       flex: 1;
       height: var(--h-progress-stepper-bar-height);
 
@@ -97,12 +97,12 @@
     &:where(:last-child) {
       flex: 0;
 
-      & :where(.hearth-ProgressStepConnector) {
+      & :where(.h-ProgressStepConnector) {
         display: none;
       }
     }
 
-    & :where(.hearth-ProgressStepLabel) {
+    & :where(.h-ProgressStepLabel) {
       text-align: left;
       white-space: nowrap;
 

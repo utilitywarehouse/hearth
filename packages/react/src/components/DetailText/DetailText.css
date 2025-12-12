@@ -1,16 +1,16 @@
-.hearth-DetailText {
+.h-DetailText {
   font-family: var(--h-font-family-detail);
   font-weight: var(--h-detail-text-font-weight);
 
-  &:where(.hearth-color-text) {
+  &:where(.h-color-text) {
     color: var(--h-text-primary);
   }
 
-  &:where(.hearth-color-valid) {
+  &:where(.h-color-valid) {
     color: var(--h-feedback-positive-foreground-subtle);
   }
 
-  &:where(.hearth-color-invalid) {
+  &:where(.h-color-invalid) {
     color: var(--h-feedback-danger-foreground-subtle);
   }
 
@@ -19,43 +19,43 @@
   }
 
   @breakpoints {
-    &:where(.hearth-r-size-sm) {
+    &:where(.h-r-size-sm) {
       font-size: var(--h-detail-text-sm-font-size);
       line-height: var(--h-detail-text-sm-line-height);
       letter-spacing: var(--h-detail-text-sm-letter-spacing);
     }
 
-    &:where(.hearth-r-size-md) {
+    &:where(.h-r-size-md) {
       font-size: var(--h-detail-text-md-font-size);
       line-height: var(--h-detail-text-md-line-height);
       letter-spacing: var(--h-detail-text-md-letter-spacing);
     }
 
-    &:where(.hearth-r-size-lg) {
+    &:where(.h-r-size-lg) {
       font-size: var(--h-detail-text-lg-font-size);
       line-height: var(--h-detail-text-lg-line-height);
       letter-spacing: var(--h-detail-text-lg-letter-spacing);
     }
 
-    &:where(.hearth-r-size-xl) {
+    &:where(.h-r-size-xl) {
       font-size: var(--h-detail-text-xl-font-size);
       line-height: var(--h-detail-text-xl-line-height);
       letter-spacing: var(--h-detail-text-xl-letter-spacing);
     }
 
-    &:where(.hearth-r-size-2xl) {
+    &:where(.h-r-size-2xl) {
       font-size: var(--h-detail-text-2xl-font-size);
       line-height: var(--h-detail-text-2xl-line-height);
       letter-spacing: var(--h-detail-text-2xl-letter-spacing);
     }
 
-    &:where(.hearth-r-size-3xl) {
+    &:where(.h-r-size-3xl) {
       font-size: var(--h-detail-text-3xl-font-size);
       line-height: var(--h-detail-text-3xl-line-height);
       letter-spacing: var(--h-detail-text-3xl-letter-spacing);
     }
 
-    &:where(.hearth-r-size-4xl) {
+    &:where(.h-r-size-4xl) {
       font-size: var(--h-detail-text-4xl-font-size);
       line-height: var(--h-detail-text-4xl-line-height);
       letter-spacing: var(--h-detail-text-4xl-letter-spacing);

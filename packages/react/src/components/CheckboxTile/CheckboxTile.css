@@ -1,4 +1,4 @@
-.hearth-CheckboxTile {
+.h-CheckboxTile {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -16,7 +16,7 @@
     cursor: pointer;
   }
 
-  .hearth-Label {
+  .h-Label {
     display: flex;
     align-items: center;
     gap: var(--h-checkbox-tile-gap);
@@ -39,7 +39,11 @@
     outline-offset: 1px;
   }
 
-  & :where(.hearth-CheckboxRoot):focus-visible {
+  & :where(.h-CheckboxRoot):focus-visible {
     outline: none;
+  }
+
+  & :where(.h-CheckboxTileIndicator) {
+    position: absolute;
   }
 }

@@ -33,9 +33,9 @@ export const RadioTile = ({
       aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
       aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}
     >
-      <div className="hearth-RadioContainer">
-        <div className="hearth-RadioItem">
-          <RadioGroupPrimitive.Indicator className="hearth-RadioIndicator" />
+      <div className={withGlobalPrefix('RadioContainer')}>
+        <div className={withGlobalPrefix('RadioItem')}>
+          <RadioGroupPrimitive.Indicator className={withGlobalPrefix('RadioIndicator')} />
         </div>
         <Flex direction="column">
           <Label id={labelId} htmlFor={id} disableUserSelect>

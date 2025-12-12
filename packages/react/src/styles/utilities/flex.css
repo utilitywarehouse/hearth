@@ -1,56 +1,56 @@
 /* stylelint-disable csstools/value-no-unknown-custom-properties */
 @breakpoints {
-  .hearth-r-flex-direction-row {
+  .h-r-flex-direction-row {
     flex-direction: row;
   }
 
-  .hearth-r-flex-direction-column {
+  .h-r-flex-direction-column {
     flex-direction: column;
   }
 
-  .hearth-r-flex-direction-row-reverse {
+  .h-r-flex-direction-row-reverse {
     flex-direction: row-reverse;
   }
 
-  .hearth-r-flex-direction-column-reverse {
+  .h-r-flex-direction-column-reverse {
     flex-direction: column-reverse;
   }
 }
 
 @breakpoints {
-  .hearth-r-flex {
+  .h-r-flex {
     flex: var(--h-r-flex);
   }
 }
 
 @breakpoints {
-  .hearth-r-flex-basis {
+  .h-r-flex-basis {
     flex-basis: var(--h-r-flex-basis);
   }
 }
 
 @breakpoints {
-  .hearth-r-flex-shrink {
+  .h-r-flex-shrink {
     flex-shrink: var(--h-r-flex-shrink);
   }
 }
 
 @breakpoints {
-  .hearth-r-flex-grow {
+  .h-r-flex-grow {
     flex-grow: var(--h-r-flex-grow);
   }
 }
 
 @breakpoints {
-  .hearth-r-flex-wrap-nowrap {
+  .h-r-flex-wrap-nowrap {
     flex-wrap: nowrap;
   }
 
-  .hearth-r-flex-wrap-wrap {
+  .h-r-flex-wrap-wrap {
     flex-wrap: wrap;
   }
 
-  .hearth-r-flex-wrap-wrap-reverse {
+  .h-r-flex-wrap-wrap-reverse {
     flex-wrap: wrap-reverse;
   }
 }

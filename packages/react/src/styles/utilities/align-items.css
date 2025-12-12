@@ -1,21 +1,21 @@
 @breakpoints {
-  .hearth-r-align-items-start {
+  .h-r-align-items-start {
     align-items: flex-start;
   }
 
-  .hearth-r-align-items-center {
+  .h-r-align-items-center {
     align-items: center;
   }
 
-  .hearth-r-align-items-end {
+  .h-r-align-items-end {
     align-items: flex-end;
   }
 
-  .hearth-r-align-items-baseline {
+  .h-r-align-items-baseline {
     align-items: baseline;
   }
 
-  .hearth-r-align-items-stretch {
+  .h-r-align-items-stretch {
     align-items: stretch;
   }
 }

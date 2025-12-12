@@ -1,4 +1,4 @@
-.hearth-Alert {
+.h-Alert {
   display: inline-flex;
   flex-direction: row;
   align-items: start;
@@ -11,7 +11,7 @@
   border-radius: var(--h-alert-border-radius);
   position: relative;
 
-  & :where(.hearth-AlertContent) {
+  & :where(.h-AlertContent) {
     display: flex;
     flex-direction: column;
     gap: var(--h-alert-content-gap);
@@ -20,22 +20,22 @@
       gap: var(--h-alert-content-gap);
     }
 
-    &:has(.hearth-AlertLink) {
+    &:has(.h-AlertLink) {
       flex-direction: column;
     }
 
-    &:has(.hearth-AlertIconButton, .hearth-AlertLink[data-icon-only]) {
+    &:has(.h-AlertIconButton, .h-AlertLink[data-icon-only]) {
       flex-direction: row;
       align-items: center;
       gap: var(--h-alert-gap);
     }
   }
 
-  .hearth-AlertCloseButton {
+  .h-AlertCloseButton {
     z-index: 1;
   }
 
-  .hearth-AlertLink {
+  .h-AlertLink {
     color: var(--h-alert-link-color);
 
     @media (hover: hover) {
@@ -49,7 +49,7 @@
     }
   }
 
-  .hearth-AlertLink[data-icon-only] {
+  .h-AlertLink[data-icon-only] {
     &::after {
       content: ' ';
       position: absolute;
@@ -81,7 +81,7 @@
     --h-alert-border-color: var(--h-feedback-warning-border);
   }
 
-  & :where(.hearth-AlertIconButton)::after {
+  & :where(.h-AlertIconButton)::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -91,7 +91,7 @@
     z-index: 1;
   }
 
-  .hearth-AlertIconButton {
+  .h-AlertIconButton {
     color: var(--h-alert-icon-button-unstyled-foreground-color);
 
     @media (hover: hover) {

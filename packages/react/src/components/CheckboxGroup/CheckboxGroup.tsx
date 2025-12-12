@@ -82,7 +82,7 @@ export const CheckboxGroup = ({
     <FormGroupBase className={clsx(componentClassName, className)} {...formGroupBaseProps}>
       <Flex
         {...checkboxGroupProps}
-        className="hearth-CheckboxGroupContent"
+        className={`${componentClassName}Content`}
         data-orientation={direction === 'column' ? 'vertical' : 'horizontal'}
         data-disabled={disabled ? '' : undefined}
         width={contentWidth}

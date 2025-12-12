@@ -36,15 +36,15 @@ export const MenuContent = ({
         // This is a temporary UI fix, until we have time to replace with Base UI.
         onCloseAutoFocus={e => e.preventDefault()}
       >
-        <ScrollAreaPrimitive.Root className="hearth-ScrollAreaRoot" type="auto">
-          <ScrollAreaPrimitive.Viewport className="hearth-ScrollAreaViewport">
+        <ScrollAreaPrimitive.Root className={withGlobalPrefix('ScrollAreaRoot')} type="auto">
+          <ScrollAreaPrimitive.Viewport className={withGlobalPrefix('ScrollAreaViewport')}>
             <div className={`${componentClassName}List`}>{children}</div>
           </ScrollAreaPrimitive.Viewport>
           <ScrollAreaPrimitive.Scrollbar
-            className="hearth-ScrollAreaScrollbar"
+            className={withGlobalPrefix('ScrollAreaScrollbar')}
             orientation="vertical"
           >
-            <ScrollAreaPrimitive.Thumb className="hearth-ScrollAreaThumb" />
+            <ScrollAreaPrimitive.Thumb className={withGlobalPrefix('ScrollAreaThumb')} />
           </ScrollAreaPrimitive.Scrollbar>
         </ScrollAreaPrimitive.Root>
       </MenuPrimitive.DropdownMenuContent>

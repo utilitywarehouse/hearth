@@ -1,60 +1,60 @@
 /* stylelint-disable csstools/value-no-unknown-custom-properties */
-.hearth-border-color {
+.h-border-color {
   border-color: var(--h-border-color);
 }
 
-.hearth-border-top-color {
+.h-border-top-color {
   border-top-color: var(--h-border-top-color);
 }
 
-.hearth-border-right-color {
+.h-border-right-color {
   border-right-color: var(--h-border-right-color);
 }
 
-.hearth-border-bottom-color {
+.h-border-bottom-color {
   border-bottom-color: var(--h-border-bottom-color);
 }
 
-.hearth-border-left-color {
+.h-border-left-color {
   border-left-color: var(--h-border-left-color);
 }
 
-.hearth-border-color-strong {
+.h-border-color-strong {
   border-color: var(--h-border-strong);
 }
 
-.hearth-border-color-subtle {
+.h-border-color-subtle {
   border-color: var(--h-border-subtle);
 }
 
-.hearth-border-top-color-strong {
+.h-border-top-color-strong {
   border-top-color: var(--h-border-strong);
 }
 
-.hearth-border-top-color-subtle {
+.h-border-top-color-subtle {
   border-top-color: var(--h-border-subtle);
 }
 
-.hearth-border-right-color-strong {
+.h-border-right-color-strong {
   border-right-color: var(--h-border-strong);
 }
 
-.hearth-border-right-color-subtle {
+.h-border-right-color-subtle {
   border-right-color: var(--h-border-subtle);
 }
 
-.hearth-border-bottom-color-strong {
+.h-border-bottom-color-strong {
   border-bottom-color: var(--h-border-strong);
 }
 
-.hearth-border-bottom-color-subtle {
+.h-border-bottom-color-subtle {
   border-bottom-color: var(--h-border-subtle);
 }
 
-.hearth-border-left-color-strong {
+.h-border-left-color-strong {
   border-left-color: var(--h-border-strong);
 }
 
-.hearth-border-left-color-subtle {
+.h-border-left-color-subtle {
   border-left-color: var(--h-border-subtle);
 }

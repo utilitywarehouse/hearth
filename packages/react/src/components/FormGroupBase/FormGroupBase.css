@@ -1,4 +1,4 @@
-.hearth-FormGroupBase {
+.h-FormGroupBase {
   border: 0;
   margin: 0;
   padding: 0;
@@ -7,12 +7,12 @@
   flex-direction: column;
   gap: var(--h-space-75);
 
-  & :where(.hearth-Legend):not(:has(+ .hearth-HelperTextContainer)) {
+  & :where(legend):not(:has(+ .h-FormGroupBaseHelperTextContainer)) {
     /* enable flex gap when there is no additional text */
     display: contents;
   }
 
-  .hearth-Legend {
+  & :where(legend) {
     color: var(--h-text-primary);
 
     /* only apply text styles if the legend doesn't have another element as a child, ie. a Heading component */

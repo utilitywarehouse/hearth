@@ -1,4 +1,4 @@
-.hearth-RadioCard {
+.h-RadioCard {
   all: unset;
   display: flex;
   flex-direction: column;
@@ -32,13 +32,13 @@
     outline-offset: 1px;
   }
 
-  .hearth-RadioContainer {
+  .h-RadioContainer {
     display: flex;
     flex-direction: row;
     gap: var(--h-space-150);
   }
 
-  & :where(.hearth-Label) {
+  & :where(.h-Label) {
     display: flex;
     align-items: center;
     gap: var(--h-radio-tile-gap);

@@ -1,4 +1,4 @@
-.hearth-Table {
+.h-Table {
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -15,26 +15,26 @@
     line-height: var(--h-line-height-500);
   }
 
-  & :where(.hearth-TableRow) {
+  & :where(.h-TableRow) {
     border-bottom: var(--h-table-cell-border-width) solid var(--h-border-subtle);
 
-    &:where(.hearth-Card:not(:has(.hearth-TablePagination)) &):last-child {
+    &:where(.h-Card:not(:has(.h-TablePagination)) &):last-child {
       border-bottom: none;
     }
   }
 
-  & :where(.hearth-TableHeader) {
+  & :where(.h-TableHeader) {
     border-bottom: var(--h-table-header-cell-border-width) solid var(--h-border-subtle);
     background-color: var(--h-surface-neutral-strong);
 
-    &:where(.hearth-Card &) {
+    &:where(.h-Card &) {
       background-color: var(--h-surface-brand-default);
       color: var(--h-text-inverted);
       border-bottom-color: var(--h-border-strong);
     }
   }
 
-  & :where(.hearth-TableHeaderCell) {
+  & :where(.h-TableHeaderCell) {
     padding-block: var(--h-table-header-cell-padding-vertical);
     padding-inline: var(--h-table-header-cell-padding-horizontal);
     text-align: left;
@@ -45,13 +45,13 @@
     }
   }
 
-  & :where(.hearth-TableCell) {
+  & :where(.h-TableCell) {
     padding: var(--h-table-cell-padding);
     color: var(--h-text-primary);
     min-height: var(--h-table-cell-min-height);
   }
 
-  & :where(.hearth-TablePagination) {
+  & :where(.h-TablePagination) {
     padding-block: var(--h-space-200);
     padding-inline: var(--h-space-300);
   }

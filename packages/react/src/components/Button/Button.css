@@ -1,4 +1,4 @@
-.hearth-Button {
+.h-Button {
   font-family: var(--h-font-family-body);
   font-size: var(--h-body-text-md-font-size);
   font-weight: var(--h-font-weight-semibold);
@@ -8,28 +8,28 @@
   padding-inline: var(--h-button-padding-inline);
   padding-block: var(--h-button-padding-block);
 
-  &:where(.hearth-variant-ghost.hearth-padding-none) {
+  &:where(.h-variant-ghost.h-padding-none) {
     padding-inline: 0;
   }
 
-  &:where(.hearth-variant-emphasis) {
+  &:where(.h-variant-emphasis) {
     min-width: 0;
     padding: 0;
     gap: 0;
   }
 
-  &:where(.hearth-variant-ghost) {
+  &:where(.h-variant-ghost) {
     text-decoration: underline;
   }
 
-  &:where(.hearth-variant-emphasis) > .hearth-front {
+  &:where(.h-variant-emphasis) > .h-front {
     min-width: var(--h-button-min-width);
     gap: var(--h-button-gap);
     padding-inline: var(--h-button-padding-inline);
     padding-block: var(--h-button-padding-block);
   }
 
-  & :where(.hearth-loading) {
+  & :where(.h-ButtonLoading) {
     display: grid;
 
     > div,
@@ -45,18 +45,18 @@
       gap: var(--h-button-gap);
     }
 
-    & :where(.hearth-hidden) {
+    & :where(.h-ButtonHidden) {
       visibility: hidden;
     }
   }
 
   @breakpoints {
-    &:where(.hearth-r-size-md) {
+    &:where(.h-r-size-md) {
       --h-button-padding-inline: var(--h-button-md-padding-horizontal);
       --h-button-padding-block: var(--h-button-md-padding-vertical);
     }
 
-    &:where(.hearth-r-size-sm) {
+    &:where(.h-r-size-sm) {
       --h-button-padding-inline: var(--h-button-sm-padding-horizontal);
       --h-button-padding-block: var(--h-button-sm-padding-vertical);
     }

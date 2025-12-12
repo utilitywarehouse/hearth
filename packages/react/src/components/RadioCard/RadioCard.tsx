@@ -30,9 +30,9 @@ export const RadioCard = (props: RadioCardProps) => {
       id={id}
       aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}
     >
-      <div className="hearth-RadioContainer">
-        <div className="hearth-RadioItem">
-          <RadioGroupPrimitive.Indicator className="hearth-RadioIndicator" />
+      <div className={withGlobalPrefix('RadioContainer')}>
+        <div className={withGlobalPrefix('RadioItem')}>
+          <RadioGroupPrimitive.Indicator className={withGlobalPrefix('RadioIndicator')} />
         </div>
         <Label id={labelId} htmlFor={id} disableUserSelect fontWeight="semibold">
           {image}

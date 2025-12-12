@@ -1,4 +1,4 @@
-.hearth-Breadcrumbs {
+.h-Breadcrumbs {
   & :where(ol) {
     display: flex;
     flex-direction: row;
@@ -6,7 +6,7 @@
   }
 }
 
-.hearth-BreadcrumbItem > .hearth-BodyText {
+.h-BreadcrumbItem > .h-BodyText {
   opacity: 1;
   cursor: default;
 }

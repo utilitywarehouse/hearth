@@ -19,10 +19,10 @@ interface UseIdsProps {
  * Example
  * ```ts
  * const { id, labelId, helperTextId, validationTextId } = useIds({ prefix: 'text-input' });
- * // id → e.g. 'hearth-text-input-:r1:'
- * // labelId → 'hearth-text-input-:r1:-label'
- * // helperTextId → 'hearth-text-input-:r1:-helper-text'
- * // validationTextId → 'hearth-text-input-:r1:-validation-text'
+ * // id → e.g. 'h-text-input-:r1:'
+ * // labelId → 'h-text-input-:r1:-label'
+ * // helperTextId → 'h-text-input-:r1:-helper-text'
+ * // validationTextId → 'h-text-input-:r1:-validation-text'
  * ```
  *
  * @param props - Optional explicit IDs and an optional `prefix` used when generating IDs.
@@ -33,12 +33,12 @@ export const useIds = ({
   providedLabelId,
   providedHelperTextId,
   providedValidationTextId,
-  prefix: providedPrefix,
+  prefix,
 }: UseIdsProps) => {
-  const prefix = providedId || providedPrefix;
+  // const prefix = providedId || providedPrefix;
   const generatedId = useId();
-  const defaultId = [GLOBAL_PREFIX, prefix, generatedId].filter(el => !!el).join('-');
-  const id = providedId || defaultId;
+  const id = [GLOBAL_PREFIX, prefix, providedId, generatedId].filter(el => !!el).join('-');
+  // const id = providedId || defaultId;
   const labelId = providedLabelId || `${id}-label`;
   const helperTextId = providedHelperTextId || `${id}-helper-text`;
   const validationTextId = providedValidationTextId || `${id}-validation-text`;

@@ -1,21 +1,21 @@
-.hearth-Accordion {
+.h-Accordion {
   display: flex;
   flex-direction: column;
   gap: var(--h-accordion-gap);
 
-  & :where(.hearth-AccordionItem) {
+  & :where(.h-AccordionItem) {
     border-bottom: var(--h-divider-border-width) solid var(--h-border-subtle);
 
-    & :where(.hearth-AccordionItemHeader) {
+    & :where(.h-AccordionItemHeader) {
       display: flex;
       flex-direction: column;
     }
 
-    & :where(.hearth-AccordionHeader) {
+    & :where(.h-AccordionHeader) {
       display: flex;
     }
 
-    & :where(.hearth-AccordionItemDescription) {
+    & :where(.h-AccordionItemDescription) {
       padding-inline: var(--h-accordion-item-heading-padding-horizontal);
       padding-top: var(--h-accordion-item-content-padding-top);
       padding-bottom: var(--h-accordion-item-content-padding-bottom);
@@ -27,7 +27,7 @@
     }
   }
 
-  & :where(.hearth-AccordionTrigger) {
+  & :where(.h-AccordionTrigger) {
     all: unset;
     flex: 1;
     cursor: pointer;
@@ -60,34 +60,34 @@
     }
   }
 
-  & :where(.hearth-AccordionChevron) {
+  & :where(svg) {
     transition: transform 300ms;
   }
 
-  & :where(.hearth-AccordionTrigger[data-state='open'] > .hearth-AccordionChevron) {
+  & :where(.h-AccordionTrigger[data-state='open'] > svg) {
     transform: rotate(180deg);
   }
 
-  & :where(.hearth-AccordionContent) {
+  & :where(.h-AccordionContent) {
     overflow: hidden;
   }
 
-  & :where(.hearth-AccordionContent[data-state='open']) {
-    animation: hearth-slide-down 300ms ease-out;
+  & :where(.h-AccordionContent[data-state='open']) {
+    animation: h-slide-down 300ms ease-out;
   }
 
-  & :where(.hearth-AccordionContent[data-state='closed']) {
-    animation: hearth-slide-up 300ms ease-out;
+  & :where(.h-AccordionContent[data-state='closed']) {
+    animation: h-slide-up 300ms ease-out;
   }
 
-  & :where(.hearth-AccordionContentText) {
+  & :where(.h-AccordionContentText) {
     padding-inline: var(--h-accordion-item-heading-padding-horizontal);
     padding-top: var(--h-accordion-item-content-padding-top);
     padding-bottom: var(--h-accordion-item-content-padding-bottom);
   }
 }
 
-@keyframes hearth-slide-down {
+@keyframes h-slide-down {
   from {
     height: 0;
   }
@@ -98,7 +98,7 @@
   }
 }
 
-@keyframes hearth-slide-up {
+@keyframes h-slide-up {
   from {
     /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
     height: var(--radix-accordion-content-height);

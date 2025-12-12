@@ -1,5 +1,5 @@
-.hearth-CheckboxGroup {
-  & :where(.hearth-CheckboxGroupContent) {
+.h-CheckboxGroup {
+  & :where(.h-CheckboxGroupContent) {
     flex-wrap: wrap;
 
     &:where([data-orientation='horizontal']) {
@@ -13,7 +13,7 @@
 
     gap: var(--h-checkbox-group-stack-gap);
 
-    &:has(.hearth-CheckboxTile) {
+    &:has(.h-CheckboxTile) {
       gap: var(--h-checkbox-tile-group-stack-gap);
     }
   }

@@ -12,7 +12,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 export const AccordionContent = ({ className, children, ...props }: AccordionContentProps) => {
   return (
     <AccordionPrimitive.Content className={clsx(componentClassName, className)} {...props}>
-      <BodyText as="div" className="hearth-AccordionContentText">
+      <BodyText as="div" className={`${componentClassName}Text`}>
         {children}
       </BodyText>
     </AccordionPrimitive.Content>

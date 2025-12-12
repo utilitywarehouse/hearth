@@ -42,7 +42,7 @@ export const CheckboxTile = ({
       data-disabled={disabled ? '' : undefined}
     >
       <CheckboxPrimitive.Root
-        className="hearth-CheckboxRoot"
+        className="h-CheckboxRoot"
         name={checkboxContext?.name}
         checked={checked}
         value={value}
@@ -64,7 +64,7 @@ export const CheckboxTile = ({
           }
         }}
       >
-        <CheckboxPrimitive.Indicator asChild className="hearth-CheckboxIndicator">
+        <CheckboxPrimitive.Indicator asChild className={`${componentClassName}Indicator`}>
           <TickSmallIcon />
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>

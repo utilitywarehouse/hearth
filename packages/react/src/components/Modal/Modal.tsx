@@ -31,30 +31,32 @@ export const Modal = ({
 
   return (
     <DialogPrimitive.Portal {...portalProps}>
-      <DialogPrimitive.Overlay className="hearth-Overlay">
-        <div className="hearth-ModalScroll">
-          <div className="hearth-ModalScrollPadding">
+      <DialogPrimitive.Overlay className={withGlobalPrefix('Overlay')}>
+        <div className={`${componentClassName}Scroll`}>
+          <div className={`${componentClassName}ScrollPadding`}>
             <DialogPrimitive.Content
               className={clsx(componentClassName, className)}
               data-contains-image={containsImage ? '' : undefined}
               data-full-screen={fullScreen ? '' : undefined}
               {...props}
             >
-              <div className="hearth-ModalOuterContainer">
+              <div className={`${componentClassName}OuterContainer`}>
                 <ModalClose>
                   <UnstyledIconButton
                     type="button"
                     label="Close"
                     data-visually-hidden={hideCloseButton ? '' : undefined}
-                    className="hearth-ModalCloseIconButton"
+                    className={`${componentClassName}CloseIconButton`}
                   >
                     <CloseMediumIcon />
                   </UnstyledIconButton>
                 </ModalClose>
 
-                <div className="hearth-ModalInnerContainer">
-                  {containsImage ? <div className="hearth-ModalImage">{image}</div> : null}
-                  <div className="hearth-ModalHeader">
+                <div className={`${componentClassName}InnerContainer`}>
+                  {containsImage ? (
+                    <div className={`${componentClassName}Image`}>{image}</div>
+                  ) : null}
+                  <div className={`${componentClassName}Header`}>
                     <Box asChild>
                       <DialogPrimitive.Title asChild>
                         <Heading size="lg">{heading}</Heading>

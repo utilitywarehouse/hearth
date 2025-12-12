@@ -65,11 +65,15 @@ export const FormGroupBase = (props: FormGroupBaseProps) => {
     >
       {hasLabel ? (
         <>
-          <legend id={labelId} className="hearth-Legend" data-label-variant={labelVariant}>
+          <legend id={labelId} data-label-variant={labelVariant}>
             {label}
           </legend>
           {hasHelperText || showValidationText ? (
-            <Flex direction="column" alignItems="start" className="hearth-HelperTextContainer">
+            <Flex
+              direction="column"
+              alignItems="start"
+              className={`${componentClassName}HelperTextContainer`}
+            >
               {helperText ? (
                 <HelperText id={helperTextId} disabled={disabled}>
                   {helperText}

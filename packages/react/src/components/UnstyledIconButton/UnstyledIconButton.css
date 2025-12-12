@@ -1,4 +1,4 @@
-.hearth-UnstyledIconButton {
+.h-UnstyledIconButton {
   all: unset;
   outline: transparent;
   appearance: none;
@@ -58,7 +58,7 @@
   /* Increase the touch target size to 32px * 32px when the primary input
   mechanism includes a pointing device of limited accuracy, such as a finger on
   a touchscreen. We only need to do this for the `sm` size button. */
-  &:where(.hearth-r-size-sm) {
+  &:where(.h-r-size-sm) {
     @media (pointer: coarse) {
       &::after {
         z-index: 0;
@@ -71,11 +71,11 @@
   }
 
   @breakpoints {
-    &:where(.hearth-r-size-md) {
+    &:where(.h-r-size-md) {
       --h-icon-button-size: 1.5rem;
     }
 
-    &:where(.hearth-r-size-sm) {
+    &:where(.h-r-size-sm) {
       --h-icon-button-size: 1.25rem;
     }
   }

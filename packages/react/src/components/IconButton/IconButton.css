@@ -1,15 +1,15 @@
-.hearth-IconButton {
+.h-IconButton {
   height: var(--h-icon-button-size);
   width: var(--h-icon-button-size);
   padding-inline: var(--h-icon-button-padding-inline);
   padding-block: var(--h-icon-button-padding-block);
 
-  &:where(.hearth-variant-emphasis) {
+  &:where(.h-variant-emphasis) {
     min-width: 0;
     padding: 0;
   }
 
-  &:where(.hearth-variant-emphasis) > .hearth-front {
+  &:where(.h-variant-emphasis) > .h-front {
     height: var(--h-icon-button-size);
     width: var(--h-icon-button-size);
     padding-inline: var(--h-icon-button-padding-inline);
@@ -17,13 +17,13 @@
   }
 
   @breakpoints {
-    &:where(.hearth-r-size-md) {
+    &:where(.h-r-size-md) {
       --h-icon-button-size: 3rem;
       --h-icon-button-padding-inline: var(--h-icon-button-md-padding-horizontal);
       --h-icon-button-padding-block: var(--h-icon-button-md-padding-vertical);
     }
 
-    &:where(.hearth-r-size-sm) {
+    &:where(.h-r-size-sm) {
       --h-icon-button-size: 2rem;
       --h-icon-button-padding-inline: var(--h-icon-button-sm-padding-horizontal);
       --h-icon-button-padding-block: var(--h-icon-button-sm-padding-vertical);

@@ -1,4 +1,4 @@
-.hearth-ButtonBase {
+.h-ButtonBase {
   all: unset;
   outline: transparent;
   appearance: none;
@@ -99,7 +99,7 @@
     --h-emphasis-border-color: transparent;
   }
 
-  &:where(.hearth-variant-solid) {
+  &:where(.h-variant-solid) {
     --h-button-base-foreground-color: var(--h-solid-foreground-color);
     --h-button-base-border-color: var(--h-solid-border-color);
     --h-button-base-background-color: var(--h-solid-background-color);
@@ -107,7 +107,7 @@
     --h-button-base-background-color-active: var(--h-solid-background-color-active);
   }
 
-  &:where(.hearth-variant-outline) {
+  &:where(.h-variant-outline) {
     --h-button-base-foreground-color: var(--h-outline-foreground-color);
     --h-button-base-border-color: var(--h-outline-border-color);
     --h-button-base-background-color: transparent;
@@ -115,7 +115,7 @@
     --h-button-base-background-color-active: var(--h-outline-background-color-active);
   }
 
-  &:where(.hearth-variant-ghost) {
+  &:where(.h-variant-ghost) {
     --h-button-base-border-color: transparent;
     --h-button-base-foreground-color: var(--h-ghost-foreground-color);
     --h-button-base-background-color: transparent;
@@ -123,11 +123,11 @@
     --h-button-base-background-color-active: var(--h-ghost-background-color-active);
   }
 
-  &:where(.hearth-variant-emphasis) {
+  &:where(.h-variant-emphasis) {
     position: relative;
     box-shadow: none;
 
-    & > .hearth-shadow {
+    & > .h-ButtonBaseShadow {
       position: absolute;
       top: 0;
       left: 0;
@@ -139,7 +139,7 @@
       transform: var(--h-emphasis-transform);
     }
 
-    & > .hearth-front {
+    & > .h-ButtonBaseFront {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -175,7 +175,7 @@
       outline: 2px solid var(--h-focus-inverted);
     }
 
-    & > .hearth-shadow {
+    & > .h-shadow {
       background: transparent;
     }
   }
@@ -195,7 +195,7 @@
 
     --h-button-base-background-color: var(--h-button-base-background-color-active);
 
-    & > .hearth-front {
+    & > .h-front {
       transform: var(--h-emphasis-transform);
     }
   }

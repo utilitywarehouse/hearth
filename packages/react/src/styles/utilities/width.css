@@ -1,14 +1,14 @@
 /* stylelint-disable csstools/value-no-unknown-custom-properties */
 @breakpoints {
-  .hearth-r-width {
+  .h-r-width {
     width: var(--h-r-width);
   }
 
-  .hearth-r-min-width {
+  .h-r-min-width {
     min-width: var(--h-r-min-width);
   }
 
-  .hearth-r-max-width {
+  .h-r-max-width {
     max-width: var(--h-r-max-width);
   }
 }

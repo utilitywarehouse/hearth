@@ -1,11 +1,11 @@
-.hearth-VerificationInput {
-  & :where(.hearth-VerificationInputRow) {
+.h-VerificationInput {
+  & :where(.h-VerificationInputRow) {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: var(--h-input-verification-gap);
 
-    & :where(.hearth-InputBase) {
+    & :where(.h-InputBase) {
       width: 48px;
 
       & :where(input) {

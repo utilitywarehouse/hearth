@@ -1,24 +1,24 @@
 /* stylelint-disable csstools/value-no-unknown-custom-properties */
-.hearth-color {
+.h-color {
   color: var(--h-color);
 }
 
-.hearth-color-primary {
+.h-color-primary {
   color: var(--h-text-primary);
 }
 
-.hearth-color-secondary {
+.h-color-secondary {
   color: var(--h-text-secondary);
 }
 
-.hearth-color-brand {
+.h-color-brand {
   color: var(--h-text-brand);
 }
 
-.hearth-color-affirmative {
+.h-color-affirmative {
   color: var(--h-text-affirmative);
 }
 
-.hearth-color-inverted {
+.h-color-inverted {
   color: var(--h-text-inverted);
 }

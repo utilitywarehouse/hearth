@@ -52,7 +52,7 @@ export const Playground: Story = {
   render: args => {
     return (
       <Flex direction="column" gap="400">
-        <RadioGroup {...args}>
+        <RadioGroup {...args} labelVariant="heading" id="bobby">
           <RadioTile value="england" label="England" />
           <RadioTile value="wales" label="Wales" />
           <RadioTile value="scotland" label="Scotland" />

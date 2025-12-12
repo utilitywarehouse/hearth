@@ -49,8 +49,8 @@ export const ButtonBase = (props: ButtonBaseProps) => {
       >
         {getSubtree({ asChild, children }, children => (
           <>
-            <span className="hearth-shadow"></span>
-            <span className="hearth-front">{children}</span>
+            <span className={`${componentClassName}Shadow`}></span>
+            <span className={`${componentClassName}Front`}>{children}</span>
           </>
         ))}
       </Slot.Root>
