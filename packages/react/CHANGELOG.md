@@ -1,5 +1,21 @@
 # @utilitywarehouse/hearth-react
 
+## 0.21.0
+
+### Minor Changes
+
+- [#700](https://github.com/utilitywarehouse/hearth/pull/700) [`bb556e6`](https://github.com/utilitywarehouse/hearth/commit/bb556e67219e806f0b8ff4fe21d1a7a84a9fa7db) Thanks [@robphoenix](https://github.com/robphoenix)! - Remove usage of `forwardRef`. While this change shouldn't change any public APIs, it's significant enough to warrant a release bump.
+
+- [#700](https://github.com/utilitywarehouse/hearth/pull/700) [`bb556e6`](https://github.com/utilitywarehouse/hearth/commit/bb556e67219e806f0b8ff4fe21d1a7a84a9fa7db) Thanks [@robphoenix](https://github.com/robphoenix)! - [BREAKING CHANGE] Refactor `ProgressStepper`
+
+  - `ProgressStepContent` has been removed.
+  - `ProgressStepButton` & `ProgressStepLink` should no longer be wrapped in a `ProgressStep` component.
+
+### Patch Changes
+
+- Updated dependencies [[`bb556e6`](https://github.com/utilitywarehouse/hearth/commit/bb556e67219e806f0b8ff4fe21d1a7a84a9fa7db)]:
+  - @utilitywarehouse/hearth-css-reset@0.1.3
+
 ## 0.20.0
 
 ### Minor Changes
