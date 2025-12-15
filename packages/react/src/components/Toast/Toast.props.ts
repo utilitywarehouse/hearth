@@ -5,8 +5,9 @@ export type ToastProps = ComponentPropsWithout<typeof RadixToast.Root, RemovedPr
 export type ToastProviderProps = ComponentPropsWithout<typeof RadixToast.Provider, RemovedProps>;
 export type ToastViewportProps = ComponentPropsWithout<typeof RadixToast.Viewport, RemovedProps>;
 export type ToastTitleProps = ComponentPropsWithout<typeof RadixToast.Title, RemovedProps>;
-export type ToastDescriptionProps = ComponentPropsWithout<typeof RadixToast.Description, RemovedProps>;
-// Action and Close have asChild removed from props since we always pass it internally
+export type ToastDescriptionProps = ComponentPropsWithout<
+  typeof RadixToast.Description,
+  RemovedProps
+>;
 export type ToastActionProps = Omit<RadixToast.ToastActionProps, 'asChild'>;
 export type ToastCloseProps = Omit<RadixToast.ToastCloseProps, 'asChild'>;
-
