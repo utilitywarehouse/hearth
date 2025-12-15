@@ -4,7 +4,7 @@ import { PropDef } from './prop-def';
 const colorValues = ['primary', 'secondary', 'brand'] as const;
 
 const backgroundColorPropDefs = {
-  backgroundColor: { className: 'background-color', tokens: colorValues, responsive: false },
+  backgroundColor: { className: 'bg', tokens: colorValues, responsive: false },
 } satisfies {
   backgroundColor: PropDef<(typeof colorValues)[number] | CssTokenVariable>;
 };

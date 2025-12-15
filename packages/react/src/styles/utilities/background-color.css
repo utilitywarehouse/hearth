@@ -1,16 +1,16 @@
 /* stylelint-disable csstools/value-no-unknown-custom-properties */
-.h-background-color {
-  background-color: var(--h-background-color);
+.h-bg {
+  background-color: var(--h-bg);
 }
 
-.h-background-color-primary {
+.h-bg-primary {
   background-color: var(--h-background-primary);
 }
 
-.h-background-color-secondary {
+.h-bg-secondary {
   background-color: var(--h-background-secondary);
 }
 
-.h-background-color-brand {
+.h-bg-brand {
   background-color: var(--h-background-brand);
 }
