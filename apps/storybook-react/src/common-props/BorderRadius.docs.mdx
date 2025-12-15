@@ -4,19 +4,25 @@ import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 
 # Border
 
-The border radius props are responsive, and can be used in conjunction with the
-other common border props to style component borders.
+The `borderRadius` prop is responsive, and can be used in conjunction with the
+other common border props to style component borders. You can also override the
+`borderRadius` for individual corners and sides.
 
 ```tsx
 <Box borderRadius="md" />
 <Box borderRadius={{ mobile: 'full', desktop: 'lg' }}  />
-<Box borderBottomLeftRadius="inherit" borderBottomRightRadius="inherit" />
+<Box borderRadius="lg" borderRadiusBottomNone />
+<Box borderRadius="lg" borderRadiusTopLeftNone borderRadiusBottomRightNone  />
 ```
 
-| Prop                      | Type                                                                  |
-| ------------------------- | --------------------------------------------------------------------- |
-| `borderRadius`            | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'\|'inherit'>` |
-| `borderTopLeftRadius`     | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'\|'inherit'>` |
-| `borderTopRightRadius`    | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'\|'inherit'>` |
-| `borderBottomLeftRadius`  | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'\|'inherit'>` |
-| `borderBottomRightRadius` | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'\|'inherit'>` |
+| Prop                          | Type                                                                  |
+| ----------------------------- | --------------------------------------------------------------------- |
+| `borderRadius`                | `Responsive<'none'\|'xs'\|'sm'\|'md'\|'lg'\|'xl'\|'full'\|'inherit'>` |
+| `borderRadiusTopLeftNone`     | `boolean`                                                             |
+| `borderRadiusTopRightNone`    | `boolean`                                                             |
+| `borderRadiusBottomLeftNone`  | `boolean`                                                             |
+| `borderRadiusBottomRightNone` | `boolean`                                                             |
+| `borderRadiusTopNone`         | `boolean`                                                             |
+| `borderRadiusRightNone`       | `boolean`                                                             |
+| `borderRadiusBottomNone`      | `boolean`                                                             |
+| `borderRadiusLeftNone`        | `boolean`                                                             |
