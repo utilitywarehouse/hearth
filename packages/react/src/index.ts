@@ -305,3 +305,5 @@ export type {
   ToastActionProps,
   ToastCloseProps,
 } from './components/Toast/Toast.props';
+export { ProviderlessToast } from './components/Toast/ProviderlessToast';
+export type { ProviderlessToastProps } from './components/Toast/ProviderlessToast';

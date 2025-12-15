@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import type { FC } from 'react';
 import { Toast as RadixToast } from 'radix-ui';
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -17,90 +18,61 @@ import {
 const COMPONENT_NAME = 'Toast';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const ToastProvider: React.FC<ToastProviderProps> = ({ children, ...props }) => {
-  return (
-    <RadixToast.Provider {...props}>
-      {children}
-    </RadixToast.Provider>
-  );
+export const ToastProvider: FC<ToastProviderProps> = ({ children, ...props }) => {
+  return <RadixToast.Provider {...props}>{children}</RadixToast.Provider>;
 };
 ToastProvider.displayName = 'ToastProvider';
 
-export const ToastViewport = React.forwardRef<HTMLOListElement, ToastViewportProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <RadixToast.Viewport
-        ref={ref}
-        className={clsx(withGlobalPrefix('ToastViewport'), className)}
-        {...props}
-      />
-    );
-  }
-);
+export const ToastViewport: FC<ToastViewportProps> = ({ className, ...props }) => {
+  return (
+    <RadixToast.Viewport
+      className={clsx(withGlobalPrefix('ToastViewport'), className)}
+      {...props}
+    />
+  );
+};
 ToastViewport.displayName = 'ToastViewport';
 
-export const Toast = React.forwardRef<HTMLLIElement, ToastProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <RadixToast.Root
-        ref={ref}
-        className={clsx(componentClassName, className)}
-        {...props}
-      />
-    );
-  }
-);
+export const Toast: FC<ToastProps> = ({ className, ...props }) => {
+  return <RadixToast.Root className={clsx(componentClassName, className)} {...props} />;
+};
 Toast.displayName = COMPONENT_NAME;
 
-export const ToastTitle = React.forwardRef<HTMLDivElement, ToastTitleProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <RadixToast.Title
-        ref={ref}
-        className={clsx(withGlobalPrefix('ToastTitle'), className)}
-        {...props}
-      />
-    );
-  }
-);
+export const ToastTitle: FC<ToastTitleProps> = ({ className, ...props }) => {
+  return (
+    <RadixToast.Title className={clsx(withGlobalPrefix('ToastTitle'), className)} {...props} />
+  );
+};
 ToastTitle.displayName = 'ToastTitle';
 
-export const ToastDescription = React.forwardRef<HTMLDivElement, ToastDescriptionProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <RadixToast.Description
-        ref={ref}
-        className={clsx(withGlobalPrefix('ToastDescription'), className)}
-        {...props}
-      />
-    );
-  }
-);
+export const ToastDescription: FC<ToastDescriptionProps> = ({ className, ...props }) => {
+  return (
+    <RadixToast.Description
+      className={clsx(withGlobalPrefix('ToastDescription'), className)}
+      {...props}
+    />
+  );
+};
 ToastDescription.displayName = 'ToastDescription';
 
-export const ToastAction = React.forwardRef<HTMLButtonElement, ToastActionProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <RadixToast.Action
-        ref={ref}
-        className={clsx(withGlobalPrefix('ToastAction'), className)}
-        {...props}
-      />
-    );
-  }
-);
+export const ToastAction: FC<ToastActionProps> = ({ className, ...props }) => {
+  return (
+    <RadixToast.Action
+      className={clsx(withGlobalPrefix('ToastAction'), className)}
+      asChild
+      {...props}
+    />
+  );
+};
 ToastAction.displayName = 'ToastAction';
 
-export const ToastClose = React.forwardRef<HTMLButtonElement, ToastCloseProps>(
-  ({ className, ...props }, ref) => {
-    return (
-      <RadixToast.Close
-        ref={ref}
-        className={clsx(withGlobalPrefix('ToastClose'), className)}
-        {...props}
-      />
-    );
-  }
-);
+export const ToastClose: FC<ToastCloseProps> = ({ className, ...props }) => {
+  return (
+    <RadixToast.Close
+      className={clsx(withGlobalPrefix('ToastClose'), className)}
+      asChild
+      {...props}
+    />
+  );
+};
 ToastClose.displayName = 'ToastClose';
-
