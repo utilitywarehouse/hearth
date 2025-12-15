@@ -4,15 +4,15 @@ import { Responsive } from '../types/responsive';
 const borderRadiusValues = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full', 'inherit'] as const;
 
 const borderRadiusPropDefs = {
-  borderRadius: { className: 'border-radius', tokens: borderRadiusValues, responsive: true },
-  borderRadiusTopLeftNone: { className: 'br-tl-none', responsive: false },
-  borderRadiusTopRightNone: { className: 'br-tr-none', responsive: false },
-  borderRadiusBottomLeftNone: { className: 'br-bl-none', responsive: false },
-  borderRadiusBottomRightNone: { className: 'br-br-none', responsive: false },
-  borderRadiusTopNone: { className: 'br-t-none', responsive: false },
-  borderRadiusRightNone: { className: 'br-r-none', responsive: false },
-  borderRadiusBottomNone: { className: 'br-b-none', responsive: false },
-  borderRadiusLeftNone: { className: 'br-l-none', responsive: false },
+  borderRadius: { className: 'radius', tokens: borderRadiusValues, responsive: true },
+  borderRadiusTopLeftNone: { className: 'radius-tl-none', responsive: false },
+  borderRadiusTopRightNone: { className: 'radius-tr-none', responsive: false },
+  borderRadiusBottomLeftNone: { className: 'radius-bl-none', responsive: false },
+  borderRadiusBottomRightNone: { className: 'radius-br-none', responsive: false },
+  borderRadiusTopNone: { className: 'radius-t-none', responsive: false },
+  borderRadiusRightNone: { className: 'radius-r-none', responsive: false },
+  borderRadiusBottomNone: { className: 'radius-b-none', responsive: false },
+  borderRadiusLeftNone: { className: 'radius-l-none', responsive: false },
 } satisfies {
   borderRadius: PropDef<(typeof borderRadiusValues)[number]>;
   borderRadiusTopLeftNone: PropDef<boolean>;

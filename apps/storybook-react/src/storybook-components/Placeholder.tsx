@@ -5,7 +5,6 @@ export const Placeholder = (props: FlexProps) => {
     <Flex
       borderRadius="xs"
       borderWidth="2"
-      borderStyle="solid"
       borderColor="strong"
       backgroundColor="brand"
       height="100%"

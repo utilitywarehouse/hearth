@@ -5,32 +5,16 @@ const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
 
 const borderPropDefs = {
-  borderStyle: { className: 'border-style', tokens: borderStyleValues, responsive: true },
-  borderWidth: { className: 'border-width', tokens: borderWidthValues, responsive: true },
-  borderTopStyle: { className: 'border-top-style', tokens: borderStyleValues, responsive: true },
-  borderTopWidth: { className: 'border-top-width', tokens: borderWidthValues, responsive: true },
-  borderRightStyle: {
-    className: 'border-right-style',
-    tokens: borderStyleValues,
-    responsive: true,
-  },
-  borderRightWidth: {
-    className: 'border-right-width',
-    tokens: borderWidthValues,
-    responsive: true,
-  },
-  borderBottomStyle: {
-    className: 'border-bottom-style',
-    tokens: borderStyleValues,
-    responsive: true,
-  },
-  borderBottomWidth: {
-    className: 'border-bottom-width',
-    tokens: borderWidthValues,
-    responsive: true,
-  },
-  borderLeftStyle: { className: 'border-left-style', tokens: borderStyleValues, responsive: true },
-  borderLeftWidth: { className: 'border-left-width', tokens: borderWidthValues, responsive: true },
+  borderStyle: { className: 'bs', tokens: borderStyleValues, responsive: true },
+  borderWidth: { className: 'bw', tokens: borderWidthValues, responsive: true },
+  borderTopStyle: { className: 'bs-t', tokens: borderStyleValues, responsive: true },
+  borderTopWidth: { className: 'bw-t', tokens: borderWidthValues, responsive: true },
+  borderRightStyle: { className: 'bs-r', tokens: borderStyleValues, responsive: true },
+  borderRightWidth: { className: 'bw-r', tokens: borderWidthValues, responsive: true },
+  borderBottomStyle: { className: 'bs-b', tokens: borderStyleValues, responsive: true },
+  borderBottomWidth: { className: 'bw-b', tokens: borderWidthValues, responsive: true },
+  borderLeftStyle: { className: 'bs-l', tokens: borderStyleValues, responsive: true },
+  borderLeftWidth: { className: 'bw-l', tokens: borderWidthValues, responsive: true },
 } satisfies {
   borderStyle: PropDef<(typeof borderStyleValues)[number]>;
   borderWidth: PropDef<(typeof borderWidthValues)[number]>;

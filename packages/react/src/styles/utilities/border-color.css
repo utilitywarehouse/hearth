@@ -1,60 +1,49 @@
-/* stylelint-disable csstools/value-no-unknown-custom-properties */
-.h-border-color {
-  border-color: var(--h-border-color);
-}
-
-.h-border-top-color {
-  border-top-color: var(--h-border-top-color);
-}
-
-.h-border-right-color {
-  border-right-color: var(--h-border-right-color);
-}
-
-.h-border-bottom-color {
-  border-bottom-color: var(--h-border-bottom-color);
-}
-
-.h-border-left-color {
-  border-left-color: var(--h-border-left-color);
-}
-
-.h-border-color-strong {
+.h-border-strong {
+  border-style: solid;
   border-color: var(--h-border-strong);
 }
 
-.h-border-color-subtle {
+.h-border-subtle {
+  border-style: solid;
   border-color: var(--h-border-subtle);
 }
 
-.h-border-top-color-strong {
+.h-border-t-strong {
+  border-top-style: solid;
   border-top-color: var(--h-border-strong);
 }
 
-.h-border-top-color-subtle {
+.h-border-t-subtle {
+  border-top-style: solid;
   border-top-color: var(--h-border-subtle);
 }
 
-.h-border-right-color-strong {
+.h-border-r-strong {
+  border-right-style: solid;
   border-right-color: var(--h-border-strong);
 }
 
-.h-border-right-color-subtle {
+.h-border-r-subtle {
+  border-right-style: solid;
   border-right-color: var(--h-border-subtle);
 }
 
-.h-border-bottom-color-strong {
+.h-border-b-strong {
+  border-bottom-style: solid;
   border-bottom-color: var(--h-border-strong);
 }
 
-.h-border-bottom-color-subtle {
+.h-border-b-subtle {
+  border-bottom-style: solid;
   border-bottom-color: var(--h-border-subtle);
 }
 
-.h-border-left-color-strong {
+.h-border-l-strong {
+  border-left-style: solid;
   border-left-color: var(--h-border-strong);
 }
 
-.h-border-left-color-subtle {
+.h-border-l-subtle {
+  border-left-style: solid;
   border-left-color: var(--h-border-subtle);
 }
