@@ -147,8 +147,38 @@ export const Playground: StoryObj<PlaygroundArgs> = {
   },
 };
 
-export const WithAction: Story = {
-  render: () => {
+export const WithAction: StoryObj<{
+  message: string;
+  actionText: string;
+  duration: number;
+  type: 'foreground' | 'background';
+}> = {
+  args: {
+    message: 'Toast description',
+    actionText: 'Link',
+    duration: 6000,
+    type: 'foreground',
+  },
+  argTypes: {
+    message: {
+      control: { type: 'text' },
+      description: 'The toast message content',
+    },
+    actionText: {
+      control: { type: 'text' },
+      description: 'Text for the action link',
+    },
+    duration: {
+      control: { type: 'number' },
+      description: 'Time in milliseconds before toast auto-dismisses',
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['foreground', 'background'],
+      description: 'Control sensitivity of toast for accessibility',
+    },
+  },
+  render: args => {
     const [open, setOpen] = React.useState(false);
     const timerRef = React.useRef(0);
 
@@ -169,14 +199,14 @@ export const WithAction: Story = {
         >
           Show Toast with Action
         </Button>
-        <Toast open={open} onOpenChange={setOpen}>
+        <Toast open={open} onOpenChange={setOpen} duration={args.duration} type={args.type}>
           <ToastDescription>
             <InfoMediumIcon />
-            Toast description
+            {args.message}
           </ToastDescription>
           <ToastAction altText="Go to link">
             <InlineLink href="#" color="inverted">
-              Link
+              {args.actionText}
             </InlineLink>
           </ToastAction>
         </Toast>
@@ -185,8 +215,38 @@ export const WithAction: Story = {
   },
 };
 
-export const WithActionAndDismiss: Story = {
-  render: () => {
+export const WithActionAndDismiss: StoryObj<{
+  message: string;
+  actionText: string;
+  duration: number;
+  type: 'foreground' | 'background';
+}> = {
+  args: {
+    message: 'Toast description',
+    actionText: 'Link',
+    duration: 6000,
+    type: 'foreground',
+  },
+  argTypes: {
+    message: {
+      control: { type: 'text' },
+      description: 'The toast message content',
+    },
+    actionText: {
+      control: { type: 'text' },
+      description: 'Text for the action link',
+    },
+    duration: {
+      control: { type: 'number' },
+      description: 'Time in milliseconds before toast auto-dismisses',
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['foreground', 'background'],
+      description: 'Control sensitivity of toast for accessibility',
+    },
+  },
+  render: args => {
     const [open, setOpen] = React.useState(false);
     const timerRef = React.useRef(0);
 
@@ -207,14 +267,14 @@ export const WithActionAndDismiss: Story = {
         >
           Show Toast with Action and Dismiss
         </Button>
-        <Toast open={open} onOpenChange={setOpen}>
+        <Toast open={open} onOpenChange={setOpen} duration={args.duration} type={args.type}>
           <ToastDescription>
             <InfoMediumIcon />
-            Toast description
+            {args.message}
           </ToastDescription>
           <ToastAction altText="Go to link">
             <InlineLink href="#" color="inverted">
-              Link
+              {args.actionText}
             </InlineLink>
           </ToastAction>
           <ToastClose>
@@ -228,8 +288,32 @@ export const WithActionAndDismiss: Story = {
   },
 };
 
-export const WithoutIcon: Story = {
-  render: () => {
+export const WithoutIcon: StoryObj<{
+  message: string;
+  duration: number;
+  type: 'foreground' | 'background';
+}> = {
+  args: {
+    message: 'Payment method updated',
+    duration: 6000,
+    type: 'foreground',
+  },
+  argTypes: {
+    message: {
+      control: { type: 'text' },
+      description: 'The toast message content',
+    },
+    duration: {
+      control: { type: 'number' },
+      description: 'Time in milliseconds before toast auto-dismisses',
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['foreground', 'background'],
+      description: 'Control sensitivity of toast for accessibility',
+    },
+  },
+  render: args => {
     const [open, setOpen] = React.useState(false);
     const timerRef = React.useRef(0);
 
@@ -250,8 +334,8 @@ export const WithoutIcon: Story = {
         >
           Show Toast without Icon
         </Button>
-        <Toast open={open} onOpenChange={setOpen}>
-          <ToastDescription>Payment method updated</ToastDescription>
+        <Toast open={open} onOpenChange={setOpen} duration={args.duration} type={args.type}>
+          <ToastDescription>{args.message}</ToastDescription>
           <ToastClose>
             <UnstyledIconButton label="Close" inverted>
               <CloseMediumIcon />
@@ -263,8 +347,32 @@ export const WithoutIcon: Story = {
   },
 };
 
-export const CustomDuration: Story = {
-  render: () => {
+export const CustomDuration: StoryObj<{
+  message: string;
+  duration: number;
+  type: 'foreground' | 'background';
+}> = {
+  args: {
+    message: 'This toast will remain visible for the custom duration',
+    duration: 10000,
+    type: 'foreground',
+  },
+  argTypes: {
+    message: {
+      control: { type: 'text' },
+      description: 'The toast message content',
+    },
+    duration: {
+      control: { type: 'number' },
+      description: 'Time in milliseconds before toast auto-dismisses',
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['foreground', 'background'],
+      description: 'Control sensitivity of toast for accessibility',
+    },
+  },
+  render: args => {
     const [open, setOpen] = React.useState(false);
     const timerRef = React.useRef(0);
 
@@ -283,12 +391,12 @@ export const CustomDuration: Story = {
             }, 100);
           }}
         >
-          Show Toast (10s duration)
+          Show Toast ({args.duration / 1000}s duration)
         </Button>
-        <Toast open={open} onOpenChange={setOpen} duration={10000}>
+        <Toast open={open} onOpenChange={setOpen} duration={args.duration} type={args.type}>
           <ToastDescription>
             <InfoMediumIcon />
-            This toast will remain visible for 10 seconds
+            {args.message}
           </ToastDescription>
         </Toast>
       </div>
@@ -296,11 +404,47 @@ export const CustomDuration: Story = {
   },
 };
 
-export const StackingToasts: Story = {
-  render: () => {
+export const StackingToasts: StoryObj<{
+  message1: string;
+  message2: string;
+  message3: string;
+  duration: number;
+  type: 'foreground' | 'background';
+}> = {
+  args: {
+    message1: 'Email address updated',
+    message2: 'Phone number updated',
+    message3: 'Payment method updated',
+    duration: 6000,
+    type: 'foreground',
+  },
+  argTypes: {
+    message1: {
+      control: { type: 'text' },
+      description: 'First toast message',
+    },
+    message2: {
+      control: { type: 'text' },
+      description: 'Second toast message',
+    },
+    message3: {
+      control: { type: 'text' },
+      description: 'Third toast message',
+    },
+    duration: {
+      control: { type: 'number' },
+      description: 'Time in milliseconds before toast auto-dismisses',
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['foreground', 'background'],
+      description: 'Control sensitivity of toast for accessibility',
+    },
+  },
+  render: args => {
     const [toasts, setToasts] = React.useState<number[]>([]);
     const countRef = React.useRef(0);
-    const messages = ['Email address updated', 'Phone number updated', 'Payment method updated'];
+    const messages = [args.message1, args.message2, args.message3];
 
     const addToast = () => {
       const id = countRef.current++;
@@ -315,7 +459,13 @@ export const StackingToasts: Story = {
       <div style={{ minHeight: '400px', position: 'relative' }}>
         <Button onClick={addToast}>Add Toast (stacks vertically)</Button>
         {toasts.map(id => (
-          <Toast key={id} open={true} onOpenChange={open => !open && removeToast(id)}>
+          <Toast
+            key={id}
+            open={true}
+            onOpenChange={open => !open && removeToast(id)}
+            duration={args.duration}
+            type={args.type}
+          >
             <ToastDescription>
               <TickCircleMediumIcon />
               {messages[id % messages.length]}
@@ -332,8 +482,44 @@ export const StackingToasts: Story = {
   },
 };
 
-export const InteractiveExample: Story = {
-  render: () => {
+export const InteractiveExample: StoryObj<{
+  saveMessage: string;
+  undoMessage: string;
+  actionText: string;
+  duration: number;
+  type: 'foreground' | 'background';
+}> = {
+  args: {
+    saveMessage: 'Settings updated successfully',
+    undoMessage: 'Changes reverted',
+    actionText: 'Undo',
+    duration: 6000,
+    type: 'foreground',
+  },
+  argTypes: {
+    saveMessage: {
+      control: { type: 'text' },
+      description: 'Success toast message',
+    },
+    undoMessage: {
+      control: { type: 'text' },
+      description: 'Undo toast message',
+    },
+    actionText: {
+      control: { type: 'text' },
+      description: 'Text for the action link',
+    },
+    duration: {
+      control: { type: 'number' },
+      description: 'Time in milliseconds before toast auto-dismisses',
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['foreground', 'background'],
+      description: 'Control sensitivity of toast for accessibility',
+    },
+  },
+  render: args => {
     const [open, setOpen] = React.useState(false);
     const [undoOpen, setUndoOpen] = React.useState(false);
     const timerRef = React.useRef(0);
@@ -367,14 +553,14 @@ export const InteractiveExample: Story = {
       <div style={{ minHeight: '400px', position: 'relative' }}>
         <Flex direction="column" gap="200">
           <Button onClick={handleSave}>Update Settings</Button>
-          <Toast open={open} onOpenChange={setOpen}>
+          <Toast open={open} onOpenChange={setOpen} duration={args.duration} type={args.type}>
             <ToastDescription>
               <TickCircleMediumIcon />
-              Settings updated successfully
+              {args.saveMessage}
             </ToastDescription>
             <ToastAction altText="Undo changes" onClick={handleUndo}>
               <InlineLink href="#" color="inverted">
-                Undo
+                {args.actionText}
               </InlineLink>
             </ToastAction>
             <ToastClose>
@@ -383,10 +569,15 @@ export const InteractiveExample: Story = {
               </UnstyledIconButton>
             </ToastClose>
           </Toast>
-          <Toast open={undoOpen} onOpenChange={setUndoOpen}>
+          <Toast
+            open={undoOpen}
+            onOpenChange={setUndoOpen}
+            duration={args.duration}
+            type={args.type}
+          >
             <ToastDescription>
               <InfoMediumIcon />
-              Changes reverted
+              {args.undoMessage}
             </ToastDescription>
           </Toast>
         </Flex>
@@ -395,7 +586,12 @@ export const InteractiveExample: Story = {
   },
 };
 
-export const ProviderlessExample: Story = {
+export const ProviderlessExample: StoryObj<{
+  message: string;
+  showCloseButton: boolean;
+  duration: number;
+  type: 'foreground' | 'background';
+}> = {
   parameters: {
     docs: {
       description: {
@@ -404,7 +600,32 @@ export const ProviderlessExample: Story = {
       },
     },
   },
-  render: () => {
+  args: {
+    message: 'Payment method updated',
+    showCloseButton: true,
+    duration: 6000,
+    type: 'foreground',
+  },
+  argTypes: {
+    message: {
+      control: { type: 'text' },
+      description: 'The toast message content',
+    },
+    showCloseButton: {
+      control: { type: 'boolean' },
+      description: 'Whether to show a close button',
+    },
+    duration: {
+      control: { type: 'number' },
+      description: 'Time in milliseconds before toast auto-dismisses',
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['foreground', 'background'],
+      description: 'Control sensitivity of toast for accessibility',
+    },
+  },
+  render: args => {
     const [open, setOpen] = React.useState(false);
     const timerRef = React.useRef(0);
 
@@ -428,22 +649,62 @@ export const ProviderlessExample: Story = {
         <ProviderlessToast
           isOpen={open}
           onIsOpenChange={setOpen}
+          duration={args.duration}
+          type={args.type}
           closeButton={
-            <UnstyledIconButton label="Close" inverted>
-              <CloseMediumIcon />
-            </UnstyledIconButton>
+            args.showCloseButton ? (
+              <UnstyledIconButton label="Close" inverted>
+                <CloseMediumIcon />
+              </UnstyledIconButton>
+            ) : undefined
           }
         >
           <TickCircleMediumIcon />
-          Payment method updated
+          {args.message}
         </ProviderlessToast>
       </div>
     );
   },
 };
 
-export const ProviderlessWithAction: Story = {
-  render: () => {
+export const ProviderlessWithAction: StoryObj<{
+  message: string;
+  actionText: string;
+  showCloseButton: boolean;
+  duration: number;
+  type: 'foreground' | 'background';
+}> = {
+  args: {
+    message: 'Settings updated successfully',
+    actionText: 'Undo',
+    showCloseButton: true,
+    duration: 6000,
+    type: 'foreground',
+  },
+  argTypes: {
+    message: {
+      control: { type: 'text' },
+      description: 'The toast message content',
+    },
+    actionText: {
+      control: { type: 'text' },
+      description: 'Text for the action link',
+    },
+    showCloseButton: {
+      control: { type: 'boolean' },
+      description: 'Whether to show a close button',
+    },
+    duration: {
+      control: { type: 'number' },
+      description: 'Time in milliseconds before toast auto-dismisses',
+    },
+    type: {
+      control: { type: 'select' },
+      options: ['foreground', 'background'],
+      description: 'Control sensitivity of toast for accessibility',
+    },
+  },
+  render: args => {
     const [open, setOpen] = React.useState(false);
     const timerRef = React.useRef(0);
 
@@ -467,19 +728,23 @@ export const ProviderlessWithAction: Story = {
         <ProviderlessToast
           isOpen={open}
           onIsOpenChange={setOpen}
+          duration={args.duration}
+          type={args.type}
           action={
             <InlineLink href="#" color="inverted">
-              Undo
+              {args.actionText}
             </InlineLink>
           }
           closeButton={
-            <UnstyledIconButton label="Close" inverted>
-              <CloseMediumIcon />
-            </UnstyledIconButton>
+            args.showCloseButton ? (
+              <UnstyledIconButton label="Close" inverted>
+                <CloseMediumIcon />
+              </UnstyledIconButton>
+            ) : undefined
           }
         >
           <TickCircleMediumIcon />
-          Settings updated successfully
+          {args.message}
         </ProviderlessToast>
       </div>
     );
