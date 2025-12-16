@@ -13,13 +13,51 @@ import {
 import type { ToastProps } from './Toast.props';
 
 export interface ProviderlessToastProps extends ToastProps {
+  /**
+   * The content to display in the toast (typically includes icon and message text)
+   */
   children: ReactNode;
+  /**
+   * Optional action element (e.g., a link or button) to include in the toast
+   */
   action?: ReactNode;
+  /**
+   * Optional close button element to manually dismiss the toast
+   */
   closeButton?: ReactNode;
+  /**
+   * Time in milliseconds before the toast auto-dismisses
+   * @default 6000
+   */
   duration?: number;
+  /**
+   * Direction to swipe to dismiss the toast
+   * @default 'down'
+   */
   swipeDirection?: 'up' | 'down' | 'left' | 'right';
 }
 
+/**
+ * A simplified Toast component that includes its own provider and viewport.
+ * Use this when you only need a single toast and don't want to set up the
+ * provider and viewport separately.
+ *
+ * @example
+ * ```tsx
+ * <ProviderlessToast
+ *   open={isOpen}
+ *   onOpenChange={setIsOpen}
+ *   closeButton={
+ *     <UnstyledIconButton label="Close" inverted>
+ *       <CloseMediumIcon />
+ *     </UnstyledIconButton>
+ *   }
+ * >
+ *   <TickCircleMediumIcon />
+ *   Payment method updated
+ * </ProviderlessToast>
+ * ```
+ */
 export const ProviderlessToast: FC<ProviderlessToastProps> = ({
   children,
   action,
