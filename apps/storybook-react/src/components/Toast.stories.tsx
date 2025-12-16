@@ -647,8 +647,8 @@ export const ProviderlessExample: StoryObj<{
           Show Providerless Toast
         </Button>
         <ProviderlessToast
-          isOpen={open}
-          onIsOpenChange={setOpen}
+          open={open}
+          onOpenChange={setOpen}
           duration={args.duration}
           type={args.type}
           closeButton={
@@ -726,8 +726,8 @@ export const ProviderlessWithAction: StoryObj<{
           Show Toast with Action
         </Button>
         <ProviderlessToast
-          isOpen={open}
-          onIsOpenChange={setOpen}
+          open={open}
+          onOpenChange={setOpen}
           duration={args.duration}
           type={args.type}
           action={

@@ -12,12 +12,10 @@ import {
 } from './Toast';
 import type { ToastProps } from './Toast.props';
 
-export interface ProviderlessToastProps extends Omit<ToastProps, 'open' | 'onOpenChange'> {
+export interface ProviderlessToastProps extends ToastProps {
   children: ReactNode;
   action?: ReactNode;
   closeButton?: ReactNode;
-  isOpen?: boolean;
-  onIsOpenChange?: (open: boolean) => void;
   duration?: number;
   swipeDirection?: 'up' | 'down' | 'left' | 'right';
 }
@@ -26,15 +24,15 @@ export const ProviderlessToast: FC<ProviderlessToastProps> = ({
   children,
   action,
   closeButton,
-  isOpen = false,
-  onIsOpenChange,
+  open = false,
+  onOpenChange,
   duration = 6000,
   swipeDirection = 'down',
   ...toastProps
 }) => {
   return (
     <ToastProvider duration={duration} swipeDirection={swipeDirection}>
-      <Toast open={isOpen} onOpenChange={onIsOpenChange} {...toastProps}>
+      <Toast open={open} onOpenChange={onOpenChange} {...toastProps}>
         <ToastDescription>{children}</ToastDescription>
         {action && <ToastAction altText="Action">{action}</ToastAction>}
         {closeButton && <ToastClose>{closeButton}</ToastClose>}
