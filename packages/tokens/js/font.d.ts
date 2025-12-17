@@ -18,7 +18,9 @@ declare const _default: {
     readonly '400': 30;
     readonly '500': 36;
     readonly '550': 40;
+    readonly '575': 44;
     readonly '600': 48;
+    readonly '650': 54;
     readonly '700': 60;
     readonly '800': 72;
     readonly '900': 96;

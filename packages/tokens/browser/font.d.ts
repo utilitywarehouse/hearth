@@ -15,7 +15,9 @@ export declare const font: {
     readonly '400': 'var(--h-font-size-400)';
     readonly '500': 'var(--h-font-size-500)';
     readonly '550': 'var(--h-font-size-550)';
+    readonly '575': 'var(--h-font-size-575)';
     readonly '600': 'var(--h-font-size-600)';
+    readonly '650': 'var(--h-font-size-650)';
     readonly '700': 'var(--h-font-size-700)';
     readonly '800': 'var(--h-font-size-800)';
     readonly '900': 'var(--h-font-size-900)';
@@ -59,7 +61,9 @@ export declare const font: {
     readonly '800': 'var(--h-line-height-800)';
     readonly '900': 'var(--h-line-height-900)';
     readonly '950': 'var(--h-line-height-950)';
+    readonly '975': 'var(--h-line-height-975)';
     readonly '1000': 'var(--h-line-height-1000)';
+    readonly '1050': 'var(--h-line-height-1050)';
     readonly '1100': 'var(--h-line-height-1100)';
     readonly '1200': 'var(--h-line-height-1200)';
   };
