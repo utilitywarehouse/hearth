@@ -2,15 +2,14 @@ import { SizeProps } from '../../props/size.props';
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
 import { FormGroupBaseProps } from '../FormGroupBase/FormGroupBase.props';
 
-type SharedProps = 'defaultValue';
-type DivProps = Omit<React.ComponentPropsWithoutRef<'div'>, SharedProps>;
-type PrimitiveProps = Omit<
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.RadioGroup>,
-  'dir' | 'orientation' | keyof DivProps
->;
-type FormGroupProps = Omit<FormGroupBaseProps, SharedProps>;
+type DivProps = Omit<React.ComponentPropsWithoutRef<'div'>, 'defaultValue'>;
 
-export interface RadioGroupProps extends PrimitiveProps, FormGroupProps {
+export interface RadioGroupProps
+  extends Omit<
+      React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.RadioGroup>,
+      'dir' | 'orientation' | keyof DivProps
+    >,
+    Omit<FormGroupBaseProps, 'defaultValue'> {
   /** The direction of the radios, will also set the aria-orientation value. */
   direction?: 'column' | 'row';
   /**
