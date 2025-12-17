@@ -13,12 +13,14 @@ const meta: Meta<typeof Label> = {
   },
   argTypes: {
     children: { control: { type: 'text' } },
+    fontWeight: { control: { type: 'radio' }, options: ['regular', 'semibold'] },
+    variant: { control: { type: 'radio' }, options: ['body', 'heading'] },
     disabled: { control: { type: 'boolean' } },
     disableUserSelect: { control: { type: 'boolean' } },
     as: { control: { type: 'radio' }, options: ['label', 'span'] },
   },
   args: {
-    children: 'Hearth Label',
+    children: 'Label',
     disabled: false,
     disableUserSelect: false,
     marginTop: '300',

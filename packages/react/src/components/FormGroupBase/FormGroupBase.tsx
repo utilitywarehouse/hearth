@@ -21,6 +21,7 @@ export const FormGroupBase = (props: FormGroupBaseProps) => {
     className,
     id: providedId,
     label,
+    labelVariant = 'body',
     helperText,
     validationText,
     validationStatus,
@@ -64,7 +65,7 @@ export const FormGroupBase = (props: FormGroupBaseProps) => {
     >
       {hasLabel ? (
         <>
-          <legend id={labelId} className="hearth-Legend">
+          <legend id={labelId} className="hearth-Legend" data-label-variant={labelVariant}>
             {label}
           </legend>
           {hasHelperText || showValidationText ? (
