@@ -13,6 +13,10 @@ export interface FormGroupBaseProps extends React.ComponentPropsWithRef<'fieldse
    */
   label?: ReactNode;
   /**
+   * Set the label variant
+   */
+  labelVariant?: 'body' | 'heading';
+  /**
    * Helper text for the formfield group. Provides a hint such as specific
    * requirements for what to choose. When displayed, child
    * components should not display their own `helperText`.

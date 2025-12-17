@@ -16,6 +16,7 @@ export const RadioGroup = ({
   direction = 'column',
   className,
   label,
+  labelVariant,
   helperText,
   validationText,
   validationStatus,
@@ -28,11 +29,12 @@ export const RadioGroup = ({
   name,
   ...props
 }: RadioGroupProps) => {
-  const fieldsetProps = {
+  const formGroupBaseProps = {
     ...props,
     disabled,
     required,
     label,
+    labelVariant,
     helperText,
     validationText,
     validationStatus,
@@ -50,7 +52,7 @@ export const RadioGroup = ({
   };
 
   return (
-    <FormGroupBase {...fieldsetProps}>
+    <FormGroupBase {...formGroupBaseProps}>
       <RadioGroupPrimitive.Root
         asChild
         className={clsx(componentClassName, className)}

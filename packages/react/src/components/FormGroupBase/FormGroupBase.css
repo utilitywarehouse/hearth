@@ -17,10 +17,19 @@
 
     /* only apply text styles if the legend doesn't have another element as a child, ie. a Heading component */
     &:where(:not(:has(*))) {
-      font-family: var(--h-font-family-body);
-      font-weight: var(--h-font-weight-semibold);
-      font-size: var(--h-font-size-100);
-      line-height: var(--h-line-height-500);
+      &:where([data-label-variant='body']) {
+        font-family: var(--h-font-family-body);
+        font-weight: var(--h-font-weight-semibold);
+        font-size: var(--h-body-text-md-font-size);
+        line-height: var(--h-body-text-md-line-height);
+      }
+
+      &:where([data-label-variant='heading']) {
+        font-family: var(--h-font-family-heading);
+        font-weight: var(--h-font-weight-semibold);
+        font-size: var(--h-heading-md-font-size-mobile);
+        line-height: var(--h-heading-md-line-height-mobile);
+      }
     }
   }
 }

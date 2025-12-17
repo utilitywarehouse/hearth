@@ -13,6 +13,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 export const DateInput = ({
   className,
   label,
+  labelVariant,
   helperText,
   validationStatus,
   validationText,
@@ -43,17 +44,21 @@ export const DateInput = ({
   ...props
 }: DateInputProps) => {
   const { id } = useIds({ providedId, prefix: 'date-input' });
+  const formGroupBaseProps = {
+    ...props,
+    disabled,
+    label,
+    labelVariant,
+    helperText,
+    validationText,
+    validationStatus,
+    id,
+  };
   return (
     <FormGroupBase
       className={clsx(componentClassName, className)}
-      label={label}
-      helperText={helperText}
-      validationStatus={validationStatus}
-      validationText={validationText}
       validationPlacement="bottom"
-      disabled={disabled}
-      id={id}
-      {...props}
+      {...formGroupBaseProps}
     >
       <div className={`${componentClassName}Group`}>
         {hideDay ? null : (
