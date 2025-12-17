@@ -1,18 +1,18 @@
 /* stylelint-disable csstools/value-no-unknown-custom-properties */
 @breakpoints {
-  .h-r-flex-direction-row {
+  .h-r-fd-row {
     flex-direction: row;
   }
 
-  .h-r-flex-direction-column {
+  .h-r-fd-column {
     flex-direction: column;
   }
 
-  .h-r-flex-direction-row-reverse {
+  .h-r-fd-row-reverse {
     flex-direction: row-reverse;
   }
 
-  .h-r-flex-direction-column-reverse {
+  .h-r-fd-column-reverse {
     flex-direction: column-reverse;
   }
 }
@@ -42,15 +42,15 @@
 }
 
 @breakpoints {
-  .h-r-flex-wrap-nowrap {
+  .h-r-fw-nowrap {
     flex-wrap: nowrap;
   }
 
-  .h-r-flex-wrap-wrap {
+  .h-r-fw-wrap {
     flex-wrap: wrap;
   }
 
-  .h-r-flex-wrap-wrap-reverse {
+  .h-r-fw-wrap-reverse {
     flex-wrap: wrap-reverse;
   }
 }

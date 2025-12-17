@@ -32,16 +32,12 @@ const justifyContentValues = ['start', 'center', 'end', 'between', 'around', 'ev
 const wrapValues = ['nowrap', 'wrap', 'wrap-reverse'] as const;
 
 export const flexPropDefs = {
-  display: { className: 'display', tokens: displayValues, responsive: true },
-  direction: { className: 'flex-direction', tokens: directionValues, responsive: true },
-  alignItems: { className: 'align-items', tokens: alignItemsValues, responsive: true },
-  alignContent: { className: 'align-content', tokens: alignContentValues, responsive: true },
-  justifyContent: {
-    className: 'justify-content',
-    tokens: justifyContentValues,
-    responsive: true,
-  },
-  wrap: { className: 'flex-wrap', tokens: wrapValues, responsive: true },
+  display: { className: 'd', tokens: displayValues, responsive: true },
+  direction: { className: 'fd', tokens: directionValues, responsive: true },
+  alignItems: { className: 'ai', tokens: alignItemsValues, responsive: true },
+  alignContent: { className: 'ac', tokens: alignContentValues, responsive: true },
+  justifyContent: { className: 'jc', tokens: justifyContentValues, responsive: true },
+  wrap: { className: 'fw', tokens: wrapValues, responsive: true },
 } satisfies {
   display: PropDef<(typeof displayValues)[number]>;
   direction: PropDef<(typeof directionValues)[number]>;
