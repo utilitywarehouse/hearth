@@ -8,6 +8,7 @@ interface CommonLabelProps extends MarginProps, TextTransformProps {
    * @default label
    */
   as?: 'label' | 'span';
+  variant?: 'body' | 'heading';
   fontWeight?: 'regular' | 'semibold';
   /** Set the label appearance to disabled */
   disabled?: boolean;

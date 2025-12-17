@@ -5,6 +5,8 @@ import { BodyText } from '../BodyText/BodyText';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
+import { Heading } from '../Heading/Heading';
+import type { HeadingProps } from '../Heading/Heading.props';
 
 const COMPONENT_NAME = 'Label';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -17,8 +19,24 @@ export const Label = (props: LabelProps) => {
     disableUserSelect,
     className,
     fontWeight = 'regular',
+    variant = 'body',
     ...labelProps
   } = extractProps(props, marginPropDefs, textTransformPropDefs);
+
+  if (variant === 'heading') {
+    return (
+      <Heading
+        asChild
+        size="md"
+        className={clsx(componentClassName, className)}
+        data-disabled={disabled ? '' : undefined}
+        data-disable-user-select={disableUserSelect ? '' : undefined}
+        {...(labelProps as HeadingProps)}
+      >
+        <Tag>{children}</Tag>
+      </Heading>
+    );
+  }
 
   return (
     <BodyText
