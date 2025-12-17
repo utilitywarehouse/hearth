@@ -258,12 +258,15 @@
   --h-modal-action-gap: var(--h-space-150);
   --h-modal-border-radius: var(--h-border-radius-xl);
   --h-modal-content-gap: var(--h-space-150);
+  --h-modal-content-mobile-padding-bottom: var(--h-space-200);
   --h-modal-gap: var(--h-space-300);
+  --h-modal-handle-padding-bottom: var(--h-space-200);
   --h-modal-heading-gap: var(--h-space-300);
   --h-modal-illustration-padding: var(--h-space-600);
   --h-modal-padding: var(--h-space-300);
   --h-navigation-bar-border-radius-none: 0;
   --h-navigation-bar-border-radius-rounded: var(--h-border-radius-xs);
+  --h-navigation-border-bottom: var(--h-color-purple-800);
   --h-navigation-border-radius: var(--h-border-radius-sm);
   --h-navigation-desktop-height: 88px;
   --h-navigation-divider-border-color: var(--h-color-purple-800);
@@ -465,6 +468,8 @@
   --h-container-padding-bottom-desktop: var(--h-space-600);
   --h-container-padding-top-desktop: var(--h-space-400);
   --h-container-width-desktop: 1096px;
+  --h-heading-2xl-font-size-desktop: 54;
+  --h-heading-2xl-line-height-desktop: 62;
   --h-heading-lg-font-size-desktop: var(--h-font-size-400);
   --h-heading-lg-line-height-desktop: var(--h-line-height-800);
   --h-heading-md-font-size-desktop: var(--h-font-size-300);
@@ -517,6 +522,9 @@
   --h-detail-text-xl-font-size: var(--h-font-size-200);
   --h-detail-text-xl-letter-spacing: var(--h-letter-spacing-200);
   --h-detail-text-xl-line-height: var(--h-line-height-400);
+  --h-heading-2xl-font-size-mobile: 44;
+  --h-heading-2xl-font-weight: var(--h-font-weight-bold);
+  --h-heading-2xl-line-height-mobile: 52;
   --h-heading-lg-font-size-mobile: var(--h-font-size-300);
   --h-heading-lg-font-weight: var(--h-font-weight-semibold);
   --h-heading-lg-line-height-mobile: var(--h-line-height-700);
@@ -539,6 +547,8 @@
   --h-container-padding-bottom-tablet: var(--h-space-400);
   --h-container-padding-top-tablet: var(--h-space-300);
   --h-container-width-tablet: 744px;
+  --h-heading-2xl-font-size-tablet: 44;
+  --h-heading-2xl-line-height-tablet: 52;
   --h-heading-lg-font-size-tablet: var(--h-font-size-300);
   --h-heading-lg-line-height-tablet: var(--h-line-height-700);
   --h-heading-md-font-size-tablet: var(--h-font-size-200);

@@ -510,8 +510,14 @@ export declare const components: {
     readonly borderRadius: 'var(--h-modal-border-radius)';
     readonly content: {
       readonly gap: 'var(--h-modal-content-gap)';
+      readonly mobile: {
+        readonly paddingBottom: 'var(--h-modal-content-mobile-padding-bottom)';
+      };
     };
     readonly gap: 'var(--h-modal-gap)';
+    readonly handle: {
+      readonly paddingBottom: 'var(--h-modal-handle-padding-bottom)';
+    };
     readonly heading: {
       readonly gap: 'var(--h-modal-heading-gap)';
     };
@@ -530,6 +536,7 @@ export declare const components: {
       readonly borderRadiusNone: 'var(--h-navigation-bar-border-radius-none)';
       readonly borderRadiusRounded: 'var(--h-navigation-bar-border-radius-rounded)';
     };
+    readonly borderBottom: 'var(--h-navigation-border-bottom)';
     readonly borderRadius: 'var(--h-navigation-border-radius)';
     readonly desktop: {
       readonly height: 'var(--h-navigation-desktop-height)';
@@ -931,6 +938,19 @@ export declare const components: {
     };
   };
   readonly heading: {
+    readonly '2xl': {
+      readonly fontSize: {
+        readonly desktop: 'var(--h-heading-2xl-font-size-desktop)';
+        readonly mobile: 'var(--h-heading-2xl-font-size-mobile)';
+        readonly tablet: 'var(--h-heading-2xl-font-size-tablet)';
+      };
+      readonly lineHeight: {
+        readonly desktop: 'var(--h-heading-2xl-line-height-desktop)';
+        readonly mobile: 'var(--h-heading-2xl-line-height-mobile)';
+        readonly tablet: 'var(--h-heading-2xl-line-height-tablet)';
+      };
+      readonly fontWeight: 'var(--h-heading-2xl-font-weight)';
+    };
     readonly lg: {
       readonly fontSize: {
         readonly desktop: 'var(--h-heading-lg-font-size-desktop)';
