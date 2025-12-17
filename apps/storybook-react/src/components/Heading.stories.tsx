@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, Flex, Heading } from '@utilitywarehouse/hearth-react';
 
-const sizes = ['sm', 'md', 'lg', 'xl'] as const;
+const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
 
 const meta: Meta<typeof Heading> = {
   title: 'Stories / Heading',
