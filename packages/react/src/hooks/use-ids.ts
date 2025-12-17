@@ -33,12 +33,12 @@ export const useIds = ({
   providedLabelId,
   providedHelperTextId,
   providedValidationTextId,
-  prefix,
+  prefix: providedPrefix,
 }: UseIdsProps) => {
-  // const prefix = providedId || providedPrefix;
+  const prefix = providedId || providedPrefix;
   const generatedId = useId();
-  const id = [GLOBAL_PREFIX, prefix, providedId, generatedId].filter(el => !!el).join('-');
-  // const id = providedId || defaultId;
+  const defaultId = [GLOBAL_PREFIX, prefix, generatedId].filter(el => !!el).join('-');
+  const id = providedId || defaultId;
   const labelId = providedLabelId || `${id}-label`;
   const helperTextId = providedHelperTextId || `${id}-helper-text`;
   const validationTextId = providedValidationTextId || `${id}-validation-text`;
