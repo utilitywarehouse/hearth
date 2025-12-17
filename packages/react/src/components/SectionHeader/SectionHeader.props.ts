@@ -1,10 +1,6 @@
 import { MarginProps } from '../../props/margin.props';
-import type { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
-import type { ReactNode } from 'react';
 
-export interface SectionHeaderProps
-  extends ComponentPropsWithout<'div', RemovedProps>,
-    MarginProps {
+export interface SectionHeaderProps extends React.ComponentPropsWithRef<'div'>, MarginProps {
   /**
    * Actual string to display as section header
    */
@@ -20,7 +16,7 @@ export interface SectionHeaderProps
   /**
    * Optional trailing content element
    */
-  trailingContent?: ReactNode;
+  trailingContent?: React.ReactNode;
   /**
    * Indicates the validation state
    */

@@ -1,7 +1,6 @@
-import { Accordion as RadixAccordion } from 'radix-ui';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
+import { Accordion as AccordionPrimitive } from 'radix-ui';
 
-export type AccordionTriggerProps = ComponentPropsWithout<
-  typeof RadixAccordion.Trigger,
-  RemovedProps
-> & {};
+export type AccordionTriggerProps = Omit<
+  React.ComponentPropsWithRef<typeof AccordionPrimitive.Trigger>,
+  'asChild'
+>;

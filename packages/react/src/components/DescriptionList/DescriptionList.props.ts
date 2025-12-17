@@ -1,12 +1,12 @@
-import { ComponentProps } from 'react';
 import { MarginProps } from '../../props/margin.props';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { SectionHeaderProps } from '../SectionHeader/SectionHeader.props';
 import { Responsive } from '../../types/responsive';
 
+type ElementProps = React.ComponentPropsWithRef<'dl'>;
+
 export interface DescriptionListProps
-  extends ComponentPropsWithout<'dl', RemovedProps>,
-    Omit<SectionHeaderProps, keyof ComponentProps<'dl'>>,
+  extends ElementProps,
+    Omit<SectionHeaderProps, keyof ElementProps>,
     MarginProps {
   direction?: Responsive<'row' | 'column'>;
 }

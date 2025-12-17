@@ -1,10 +1,9 @@
 import { ReactElement } from 'react';
 import { MarginProps } from '../../props/margin.props';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { CardProps } from '../Card/Card.props';
 import { TablePaginationProps } from './TablePagination.props';
 
-export type TableProps = ComponentPropsWithout<'table', RemovedProps> &
+export type TableProps = React.ComponentPropsWithRef<'table'> &
   MarginProps & {
     /**
      * Sets the visual variant of the table.
@@ -13,10 +12,10 @@ export type TableProps = ComponentPropsWithout<'table', RemovedProps> &
     variant?: CardProps['variant'];
     pagination?: ReactElement<TablePaginationProps>;
   };
-export type TableBodyProps = ComponentPropsWithout<'tbody', RemovedProps>;
-export type TableHeaderProps = ComponentPropsWithout<'thead', RemovedProps>;
-export interface TableHeaderCellProps extends ComponentPropsWithout<'th', RemovedProps> {
+export type TableBodyProps = React.ComponentPropsWithRef<'tbody'>;
+export type TableHeaderProps = React.ComponentPropsWithRef<'thead'>;
+export interface TableHeaderCellProps extends React.ComponentPropsWithRef<'th'> {
   row?: boolean;
 }
-export type TableRowProps = ComponentPropsWithout<'tr', RemovedProps>;
-export type TableCellProps = ComponentPropsWithout<'td', RemovedProps>;
+export type TableRowProps = React.ComponentPropsWithRef<'tr'>;
+export type TableCellProps = React.ComponentPropsWithRef<'td'>;

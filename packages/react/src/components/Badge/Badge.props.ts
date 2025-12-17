@@ -1,7 +1,6 @@
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { TextTransformProps } from '../../props/text-transform.props';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive } from '../../types/responsive';
 
 const variants = ['emphasis', 'subtle', 'outline'] as const;
@@ -16,7 +15,7 @@ export const badgePropDefs = {
 };
 
 export interface BadgeProps
-  extends ComponentPropsWithout<'span', RemovedProps>,
+  extends React.ComponentPropsWithRef<'span'>,
     MarginProps,
     TextTransformProps {
   /**

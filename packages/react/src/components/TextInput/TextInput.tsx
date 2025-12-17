@@ -1,11 +1,9 @@
 'use client';
 
-import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { TextInputProps } from './TextInput.props';
+import type { TextInputProps } from './TextInput.props';
 import { extractProps } from '../../helpers/extract-props';
 import clsx from 'clsx';
-import React from 'react';
 import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
 import { marginPropDefs } from '../../props/margin.props';
@@ -15,9 +13,7 @@ import { FormField } from '../FormField/FormField';
 const COMPONENT_NAME = 'TextInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type TextInputElement = ElementRef<'input'>;
-
-export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((props, ref) => {
+export const TextInput = (props: TextInputProps) => {
   const {
     className,
     validationStatus,
@@ -68,7 +64,6 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((pro
       {...formFieldProps}
     >
       <InputBase
-        ref={ref}
         spellCheck="false"
         id={id}
         required={required}
@@ -85,6 +80,6 @@ export const TextInput = React.forwardRef<TextInputElement, TextInputProps>((pro
       </InputBase>
     </FormField>
   );
-});
+};
 
 TextInput.displayName = COMPONENT_NAME;

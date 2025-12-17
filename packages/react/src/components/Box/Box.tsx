@@ -1,11 +1,8 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
-
-import { boxPropDefs, type BoxProps } from './Box.props';
-
-import type { ElementRef } from 'react';
+import { boxPropDefs } from './Box.props';
+import type { BoxProps } from './Box.props';
 import { Slot } from 'radix-ui';
 import { extractProps } from '../../helpers/extract-props';
 import { paddingPropDefs } from '../../props/padding.props';
@@ -26,13 +23,12 @@ import { borderRadiusPropDefs } from '../../props/border-radius.props';
 const COMPONENT_NAME = 'Box';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type BoxElement = ElementRef<'div'>;
-
-export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
+export const Box = (props: BoxProps) => {
   const {
     className,
     asChild,
     as: Tag = 'div',
+    children,
     ...boxProps
   } = extractProps(
     props,
@@ -51,10 +47,11 @@ export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
     textAlignPropDefs,
     textTransformPropDefs
   );
-
-  const Component = asChild ? Slot.Root : Tag;
-
-  return <Component ref={ref} className={clsx(componentClassName, className)} {...boxProps} />;
-});
+  return (
+    <Slot.Root className={clsx(componentClassName, className)} {...boxProps}>
+      {asChild ? children : <Tag>{children}</Tag>}
+    </Slot.Root>
+  );
+};
 
 Box.displayName = COMPONENT_NAME;

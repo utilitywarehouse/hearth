@@ -86,7 +86,6 @@ export type { CardInteractionProps } from './components/Card/CardInteraction.pro
 export { CardBannerContent } from './components/Card/CardBannerContent';
 export type { CardBannerContentProps } from './components/Card/CardBannerContent.props';
 export { CardBannerImage } from './components/Card/CardBannerImage';
-export type { CardBannerImageProps } from './components/Card/CardBannerImage.props';
 export { CardActions } from './components/CardActions/CardActions';
 export type { CardActionsProps } from './components/CardActions/CardActions.props';
 export { CardActionLink } from './components/CardActions/CardActionLink';
@@ -126,22 +125,16 @@ export type { BadgeProps } from './components/Badge/Badge.props';
 
 export { Radio } from './components/Radio/Radio';
 export type { RadioProps } from './components/Radio/Radio.props';
-
 export { RadioTile } from './components/RadioTile/RadioTile';
 export type { RadioTileProps } from './components/RadioTile/RadioTile.props';
-
 export { RadioCard } from './components/RadioCard/RadioCard';
 export type { RadioCardProps } from './components/RadioCard/RadioCard.props';
-
 export { RadioGroup } from './components/RadioGroup/RadioGroup';
 export type { RadioGroupProps } from './components/RadioGroup/RadioGroup.props';
 
 export { Checkbox } from './components/Checkbox/Checkbox';
 export type { CheckboxProps } from './components/Checkbox/Checkbox.props';
-
 export { CheckboxTile } from './components/CheckboxTile/CheckboxTile';
-export type { CheckboxTileProps } from './components/CheckboxTile/CheckboxTile.props';
-
 export { CheckboxGroup } from './components/CheckboxGroup/CheckboxGroup';
 export type { CheckboxGroupProps } from './components/CheckboxGroup/CheckboxGroup.props';
 
@@ -159,29 +152,27 @@ export type { ListItemButtonProps } from './components/List/ListItemButton.props
 export { ListItemLink } from './components/List/ListItemLink';
 export type { ListItemLinkProps } from './components/List/ListItemLink.props';
 export { ListActionButton } from './components/List/ListActionButton';
-export type { ListActionButtonProps } from './components/List/ListActionButton.props';
 export { ListActionLink } from './components/List/ListActionLink';
-export type { ListActionLinkProps } from './components/List/ListActionLink.props';
 
 export { Switch } from './components/Switch/Switch';
 export type { SwitchProps } from './components/Switch/Switch.props';
 
 export { Modal } from './components/Modal/Modal';
-export type { ModalProps } from './components/Modal/Modal.props';
+export type {
+  ModalProps,
+  ModalCloseProps,
+  ModalRootProps,
+  ModalTriggerProps,
+} from './components/Modal/Modal.props';
 export { ModalClose } from './components/Modal/ModalClose';
 export { ModalFooter } from './components/Modal/ModalFooter';
 export { ModalRoot } from './components/Modal/ModalRoot';
-export type { ModalRootProps } from './components/Modal/ModalRoot';
 export { ModalTrigger } from './components/Modal/ModalTrigger';
 
 export { Alert } from './components/Alert/Alert';
 export type { AlertProps } from './components/Alert/Alert.props';
-
 export { AlertLink } from './components/Alert/AlertLink';
-export type { AlertLinkProps } from './components/Alert/AlertLink';
-
 export { AlertIconButton } from './components/Alert/AlertIconButton';
-export type { AlertIconButtonProps } from './components/Alert/AlertIconButton';
 
 export { CurrencyInput } from './components/CurrencyInput/CurrencyInput';
 export type { CurrencyInputProps } from './components/CurrencyInput/CurrencyInput.props';
@@ -204,9 +195,8 @@ export { AccordionContent } from './components/Accordion/AccordionContent';
 export type { AccordionContentProps } from './components/Accordion/AccordionContent.props';
 
 export { Select } from './components/Select/Select';
-export type { SelectProps } from './components/Select/Select.props';
+export type { SelectProps, SelectItemProps } from './components/Select/Select.props';
 export { SelectItem } from './components/Select/SelectItem';
-export type { SelectItemProps } from './components/Select/SelectItem.props';
 
 export { ToggleGroup } from './components/ToggleGroup/ToggleGroup';
 export type { ToggleGroupProps } from './components/ToggleGroup/ToggleGroup.props';
@@ -215,8 +205,8 @@ export type { ToggleButtonCardProps } from './components/ToggleButtonCard/Toggle
 
 export { DescriptionList } from './components/DescriptionList/DescriptionList';
 export type { DescriptionListProps } from './components/DescriptionList/DescriptionList.props';
-export { DescriptionListItem } from './components/DescriptionListItem/DescriptionListItem';
-export type { DescriptionListItemProps } from './components/DescriptionListItem/DescriptionListItem.props';
+export { DescriptionListItem } from './components/DescriptionList/DescriptionListItem';
+export type { DescriptionListItemProps } from './components/DescriptionList/DescriptionListItem.props';
 
 export { Menu } from './components/Menu/Menu';
 export type { MenuProps } from './components/Menu/Menu.props';
@@ -237,14 +227,11 @@ export type { ProgressStepperProps } from './components/ProgressStepper/Progress
 export { ProgressStep } from './components/ProgressStepper/ProgressStep';
 export type {
   ProgressStepProps,
-  ProgressStepStatus,
+  ProgressStepButtonProps,
+  ProgressStepLinkProps,
 } from './components/ProgressStepper/ProgressStep.props';
-export { ProgressStepContent } from './components/ProgressStepper/ProgressStepContent';
-export type { ProgressStepContentProps } from './components/ProgressStepper/ProgressStepContent.props';
 export { ProgressStepLink } from './components/ProgressStepper/ProgressStepLink';
-export type { ProgressStepLinkProps } from './components/ProgressStepper/ProgressStepLink.props';
 export { ProgressStepButton } from './components/ProgressStepper/ProgressStepButton';
-export type { ProgressStepButtonProps } from './components/ProgressStepper/ProgressStepButton.props';
 
 export { Avatar } from './components/Avatar/Avatar';
 export type { AvatarProps } from './components/Avatar/Avatar.props';
@@ -267,13 +254,15 @@ export { TableRow } from './components/Table/TableRow';
 export { TableCell } from './components/Table/TableCell';
 
 export { Tabs } from './components/Tabs/Tabs';
+export type {
+  TabsProps,
+  TabsListProps,
+  TabProps,
+  TabContentProps,
+} from './components/Tabs/Tabs.props';
 export { TabsList } from './components/Tabs/TabsList';
 export { Tab } from './components/Tabs/Tab';
 export { TabContent } from './components/Tabs/TabContent';
-export type { TabsProps } from './components/Tabs/Tabs.props';
-export type { TabsListProps } from './components/Tabs/TabsList.props';
-export type { TabProps } from './components/Tabs/Tab.props';
-export type { TabContentProps } from './components/Tabs/TabContent.props';
 
 export { Pagination } from './components/Pagination/Pagination';
 export type { PaginationProps } from './components/Pagination/Pagination.props';
@@ -284,9 +273,7 @@ export type { ProgressBarProps } from './components/ProgressBar/ProgressBar.prop
 export { HighlightBanner } from './components/HighlightBanner/HighlightBanner';
 export type { HighlightBannerProps } from './components/HighlightBanner/HighlightBanner.props';
 export { HighlightBannerFooter } from './components/HighlightBanner/HighlightBannerFooter';
-export type { HighlightBannerFooterProps } from './components/HighlightBanner/HighlightBannerFooter.props';
 export { HighlightBannerContent } from './components/HighlightBanner/HighlightBannerContent';
-export type { HighlightBannerContentProps } from './components/HighlightBanner/HighlightBannerContent.props';
 
 export { DatePicker } from './components/DatePicker/DatePicker';
 export type { DatePickerProps } from './components/DatePicker/DatePicker.props';

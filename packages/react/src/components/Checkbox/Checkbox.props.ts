@@ -1,11 +1,9 @@
-import type { ReactNode } from 'react';
-
-import { Checkbox as RadixCheckbox } from 'radix-ui';
+import { Checkbox as CheckboxPrimitive } from 'radix-ui';
 import { MarginProps } from '../../props/margin.props';
 
 export interface CheckboxProps
   extends Omit<
-      RadixCheckbox.CheckboxProps,
+      React.ComponentPropsWithRef<typeof CheckboxPrimitive.Checkbox>,
       'asChild' | 'value' | 'onCheckedChange' | 'defaultChecked' | 'defaultValue'
     >,
     MarginProps {
@@ -16,11 +14,11 @@ export interface CheckboxProps
    * The label for the Checkbox. If not using please properly associate the
    * checkbox with a label using the `aria-label` or `aria-labelledby` props.
    */
-  label?: ReactNode;
+  label?: React.ReactNode;
   /** Helper text for the Checkbox. Will not display if the checkbox group has `helperText` set. */
-  helperText?: ReactNode;
+  helperText?: React.ReactNode;
   /** Optional image to show between the check indicator and label. */
-  image?: ReactNode;
+  image?: React.ReactNode;
   /** The controlled checked state of the checkbox. Must be used in conjunction with onCheckedChange. */
   checked?: boolean;
   /** Event handler called when the checked state of the checkbox changes. */

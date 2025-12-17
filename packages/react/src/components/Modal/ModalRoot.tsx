@@ -1,9 +1,8 @@
 'use client';
 
-import * as React from 'react';
-import { Dialog as RadixDialog } from 'radix-ui';
-import { ComponentPropsWithout } from '../../types/component-props';
+import { Dialog as DialogPrimitive } from 'radix-ui';
+import { ModalRootProps } from './Modal.props';
 
-export type ModalRootProps = ComponentPropsWithout<typeof RadixDialog.Root, 'modal'>;
-export const ModalRoot: React.FC<ModalRootProps> = props => <RadixDialog.Root {...props} modal />;
+export const ModalRoot = (props: ModalRootProps) => <DialogPrimitive.Root {...props} modal />;
+
 ModalRoot.displayName = 'ModalRoot';

@@ -14,17 +14,21 @@ export const cardPropDefs = {
   paddingNone: PropDef<boolean>;
 };
 
+type ElementProps = Omit<React.ComponentPropsWithRef<'div'>, 'color'>;
+
 export interface CardProps
-  extends Omit<
-    FlexProps,
-    | 'as'
-    | 'asChild'
-    | 'color'
-    | 'backgroundColor'
-    | keyof PaddingProps
-    | keyof BorderProps
-    | keyof BorderColorProps
-  > {
+  extends ElementProps,
+    Omit<
+      FlexProps,
+      | 'as'
+      | 'asChild'
+      | 'color'
+      | 'backgroundColor'
+      | keyof PaddingProps
+      | keyof BorderProps
+      | keyof BorderColorProps
+      | keyof ElementProps
+    > {
   /**
    * Sets the card's visual variant
    */
@@ -43,11 +47,6 @@ export interface CardProps
     | 'cashback'
     | 'pig'
     | 'highlight';
-  /**
-   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
-   * @default div
-   */
-  as?: 'div' | 'li';
   /**
    * Remove padding
    */

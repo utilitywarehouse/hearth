@@ -1,5 +1,5 @@
-import { DropdownMenu as RadixMenu } from 'radix-ui';
+import { DropdownMenu as MenuPrimitive } from 'radix-ui';
 
-export interface MenuItemProps extends React.ComponentProps<typeof RadixMenu.Item> {
+export interface MenuItemProps extends React.ComponentPropsWithRef<typeof MenuPrimitive.Item> {
   colorScheme?: 'functional' | 'destructive';
 }

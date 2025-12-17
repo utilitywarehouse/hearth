@@ -1,12 +1,11 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import type { ElementRef } from 'react';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
-import { ProgressBarProps, progressBarPropDefs } from './ProgressBar.props';
+import { progressBarPropDefs } from './ProgressBar.props';
+import type { ProgressBarProps } from './ProgressBar.props';
 import { ProgressBarLinear } from './ProgressBarLinear';
 import { valueToPercent } from '../../helpers/value-to-percent';
 import { useIds } from '../../hooks/use-ids';
@@ -15,9 +14,7 @@ import { ProgressBarCircular } from './ProgressBarCircular';
 const COMPONENT_NAME = 'ProgressBar';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type ProgressBarElement = ElementRef<'div'>;
-
-export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps>((props, ref) => {
+export const ProgressBar = (props: ProgressBarProps) => {
   const {
     className,
     variant = 'linear',
@@ -49,11 +46,8 @@ export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps
     hideLabel,
   };
 
-  const dataAttributeProps = { 'data-colorscheme': colorScheme };
-
   return (
     <div
-      ref={ref}
       className={clsx(componentClassName, className)}
       role="progressbar"
       aria-valuenow={clampedValue}
@@ -61,13 +55,13 @@ export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps
       aria-valuemax={max}
       aria-valuetext={ariaValueText || valueText}
       aria-labelledby={labelId}
-      {...dataAttributeProps}
+      data-colorscheme={colorScheme}
       {...progressBarProps}
     >
       {variant === 'linear' ? <ProgressBarLinear {...internalProgressBarProps} /> : null}
       {variant === 'circular' ? <ProgressBarCircular {...internalProgressBarProps} /> : null}
     </div>
   );
-});
+};
 
 ProgressBar.displayName = COMPONENT_NAME;

@@ -1,28 +1,22 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
-import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { AccordionContentProps } from './AccordionContent.props';
-import { Accordion as RadixAccordion } from 'radix-ui';
+import type { AccordionContentProps } from './AccordionContent.props';
+import { Accordion as AccordionPrimitive } from 'radix-ui';
 import { BodyText } from '../BodyText/BodyText';
 
 const COMPONENT_NAME = 'AccordionContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type AccordionContentElement = ElementRef<'div'>;
-
-export const AccordionContent = React.forwardRef<AccordionContentElement, AccordionContentProps>(
-  ({ className, children, ...props }, ref) => {
-    return (
-      <RadixAccordion.Content ref={ref} className={clsx(componentClassName, className)} {...props}>
-        <BodyText as="div" className="hearth-AccordionContentText">
-          {children}
-        </BodyText>
-      </RadixAccordion.Content>
-    );
-  }
-);
+export const AccordionContent = ({ className, children, ...props }: AccordionContentProps) => {
+  return (
+    <AccordionPrimitive.Content className={clsx(componentClassName, className)} {...props}>
+      <BodyText as="div" className="hearth-AccordionContentText">
+        {children}
+      </BodyText>
+    </AccordionPrimitive.Content>
+  );
+};
 
 AccordionContent.displayName = COMPONENT_NAME;

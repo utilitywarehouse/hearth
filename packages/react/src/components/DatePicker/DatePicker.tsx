@@ -1,10 +1,7 @@
 'use client';
 
-import type { ElementRef } from 'react';
-
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import React from 'react';
-import ReactDatePicker from 'react-datepicker';
+import DatePickerPrimitive from 'react-datepicker';
 import type { ReactDatePickerCustomHeaderProps } from 'react-datepicker';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
@@ -17,13 +14,12 @@ import { FormField } from '../FormField/FormField';
 import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
 import { Portal } from 'radix-ui';
+import * as React from 'react';
 
 const COMPONENT_NAME = 'DatePicker';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type DatePickerElement = ElementRef<'button'>;
-
-export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((props, ref) => {
+export const DatePicker = (props: DatePickerProps) => {
   const {
     className,
     onChange,
@@ -37,6 +33,7 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
     disabled,
     readOnly,
     required,
+    ref,
     ...datePickerProps
   } = extractProps(props, marginPropDefs);
   const [calendarOpen, setCalendarOpen] = React.useState(false);
@@ -132,12 +129,12 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
   };
 
   const classNameProps = {
-    calendarClassName: 'hearth-DatePickerCalendar',
-    dayClassName: () => 'hearth-DatePickerDay',
-    weekClassName: () => 'hearth-DatePickerWeek',
-    monthClassName: () => 'hearth-DatePickerMonth',
-    yearClassName: () => 'hearth-DatePickerYear',
-    popperClassName: () => 'hearth-DatePickerPopper',
+    calendarClassName: `${componentClassName}Calendar`,
+    dayClassName: () => `${componentClassName}Day`,
+    weekClassName: () => `${componentClassName}Week`,
+    monthClassName: () => `${componentClassName}Month`,
+    yearClassName: () => `${componentClassName}Year`,
+    popperClassName: () => `${componentClassName}Popper`,
   };
 
   const defaultProps = {
@@ -184,7 +181,7 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
 
   return (
     <FormField className={clsx(componentClassName, className)} {...formFieldProps}>
-      <ReactDatePicker
+      <DatePickerPrimitive
         {...reactDatePickerProps}
         // @ts-expect-error having to be explicit about these types to ensure onChange type is correct
         selectsRange={false}
@@ -193,6 +190,6 @@ export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((
       />
     </FormField>
   );
-});
+};
 
 DatePicker.displayName = COMPONENT_NAME;

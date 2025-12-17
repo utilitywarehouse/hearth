@@ -1,6 +1,5 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
 import {
   ChevronLeftSmallIcon,
@@ -8,16 +7,14 @@ import {
   SkipFirstSmallIcon,
   SkipLastSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
-
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
-
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { Button } from '../Button/Button';
 import { BodyText } from '../BodyText/BodyText';
-
 import type { PaginationProps } from './Pagination.props';
+import { Slot } from 'radix-ui';
 
 const COMPONENT_NAME = 'Pagination';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -66,7 +63,7 @@ const generatePageNumbers = (
   return pages;
 };
 
-export const Pagination: React.FC<PaginationProps> = props => {
+export const Pagination = (props: PaginationProps) => {
   const {
     className,
     currentPage,
@@ -74,7 +71,7 @@ export const Pagination: React.FC<PaginationProps> = props => {
     onPageChange,
     condensed = false,
     hideSkipButtons = false,
-    as: Component = 'div',
+    as: Tag = 'div',
     ...paginationProps
   } = extractProps(props, marginPropDefs);
 
@@ -105,95 +102,97 @@ export const Pagination: React.FC<PaginationProps> = props => {
   };
 
   return (
-    <Component
+    <Slot.Root
       aria-label="pagination"
       className={clsx(componentClassName, className)}
       {...paginationProps}
     >
-      <div className={`${componentClassName}Container`}>
-        <div className={`${componentClassName}Controllers`}>
-          {!hideSkipButtons && (
+      <Tag>
+        <div className={`${componentClassName}Container`}>
+          <div className={`${componentClassName}Controllers`}>
+            {!hideSkipButtons && (
+              <UnstyledIconButton
+                label="Go to first page"
+                onClick={handleFirst}
+                disabled={currentPage === 1}
+              >
+                <SkipFirstSmallIcon />
+              </UnstyledIconButton>
+            )}
+
             <UnstyledIconButton
-              label="Go to first page"
-              onClick={handleFirst}
+              label="Go to previous page"
+              onClick={handlePrevious}
               disabled={currentPage === 1}
             >
-              <SkipFirstSmallIcon />
+              <ChevronLeftSmallIcon />
             </UnstyledIconButton>
-          )}
+          </div>
 
-          <UnstyledIconButton
-            label="Go to previous page"
-            onClick={handlePrevious}
-            disabled={currentPage === 1}
-          >
-            <ChevronLeftSmallIcon />
-          </UnstyledIconButton>
-        </div>
-
-        {condensed ? (
-          <BodyText size="md" color="primary">
-            Page {currentPage} of {totalPages}
-          </BodyText>
-        ) : (
-          <div>
-            <ol className={`${componentClassName}Pages`}>
-              {pages.map((page, index) => {
-                if (page === ELLIPSIS) {
+          {condensed ? (
+            <BodyText size="md" color="primary">
+              Page {currentPage} of {totalPages}
+            </BodyText>
+          ) : (
+            <div>
+              <ol className={`${componentClassName}Pages`}>
+                {pages.map((page, index) => {
+                  if (page === ELLIPSIS) {
+                    return (
+                      <li key={`ellipsis-${index}`}>
+                        <BodyText
+                          size="md"
+                          color="primary"
+                          className={`${componentClassName}Ellipsis`}
+                        >
+                          {ELLIPSIS}
+                        </BodyText>
+                      </li>
+                    );
+                  }
+                  const isActive = page === currentPage;
                   return (
-                    <li key={`ellipsis-${index}`}>
-                      <BodyText
-                        size="md"
-                        color="primary"
-                        className={`${componentClassName}Ellipsis`}
+                    <li key={page}>
+                      <Button
+                        className={`${componentClassName}Page`}
+                        variant="ghost"
+                        colorScheme="functional"
+                        onClick={() => onPageChange(page)}
+                        data-active={isActive ? '' : undefined}
+                        aria-label={`Go to page ${page}`}
+                        aria-current={isActive ? 'page' : undefined}
                       >
-                        {ELLIPSIS}
-                      </BodyText>
+                        {page}
+                      </Button>
                     </li>
                   );
-                }
-                const isActive = page === currentPage;
-                return (
-                  <li key={page}>
-                    <Button
-                      className={`${componentClassName}Page`}
-                      variant="ghost"
-                      colorScheme="functional"
-                      onClick={() => onPageChange(page)}
-                      data-active={isActive ? '' : undefined}
-                      aria-label={`Go to page ${page}`}
-                      aria-current={isActive ? 'page' : undefined}
-                    >
-                      {page}
-                    </Button>
-                  </li>
-                );
-              })}
-            </ol>
-          </div>
-        )}
+                })}
+              </ol>
+            </div>
+          )}
 
-        <div className={`${componentClassName}Controllers`}>
-          <UnstyledIconButton
-            label="Go to next page"
-            onClick={handleNext}
-            disabled={currentPage === totalPages}
-          >
-            <ChevronRightSmallIcon />
-          </UnstyledIconButton>
-
-          {!hideSkipButtons && (
+          <div className={`${componentClassName}Controllers`}>
             <UnstyledIconButton
-              label="Go to last page"
-              onClick={handleLast}
+              label="Go to next page"
+              onClick={handleNext}
               disabled={currentPage === totalPages}
             >
-              <SkipLastSmallIcon />
+              <ChevronRightSmallIcon />
             </UnstyledIconButton>
-          )}
+
+            {!hideSkipButtons && (
+              <UnstyledIconButton
+                label="Go to last page"
+                onClick={handleLast}
+                disabled={currentPage === totalPages}
+              >
+                <SkipLastSmallIcon />
+              </UnstyledIconButton>
+            )}
+          </div>
         </div>
-      </div>
-    </Component>
+      </Tag>
+    </Slot.Root>
   );
 };
 

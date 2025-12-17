@@ -1,12 +1,11 @@
 'use client';
 
-import * as React from 'react';
-
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
-import { ButtonBase, ButtonBaseElement } from '../ButtonBase/ButtonBase';
-import { buttonPropDefs, ButtonProps } from './Button.props';
+import { ButtonBase } from '../ButtonBase/ButtonBase';
+import { buttonPropDefs } from './Button.props';
+import type { ButtonProps } from './Button.props';
 import { Spinner } from '../Spinner/Spinner';
 import { Slot } from 'radix-ui';
 import { getSubtree } from '../../helpers/get-subtree';
@@ -14,7 +13,7 @@ import { getSubtree } from '../../helpers/get-subtree';
 const COMPONENT_NAME = 'Button';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Button = React.forwardRef<ButtonBaseElement, ButtonProps>((props, forwardedRef) => {
+export const Button = (props: ButtonProps) => {
   const { className, children, disabled, loading, asChild, ...buttonProps } = extractProps(
     props,
     buttonPropDefs
@@ -22,7 +21,6 @@ export const Button = React.forwardRef<ButtonBaseElement, ButtonProps>((props, f
   const Component = asChild ? Slot.Root : 'button';
   return (
     <ButtonBase
-      ref={forwardedRef}
       className={clsx(componentClassName, className)}
       disabled={disabled || loading}
       asChild
@@ -42,6 +40,6 @@ export const Button = React.forwardRef<ButtonBaseElement, ButtonProps>((props, f
       </Component>
     </ButtonBase>
   );
-});
+};
 
 Button.displayName = COMPONENT_NAME;

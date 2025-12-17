@@ -12,7 +12,6 @@ import { PropDef } from '../../props/prop-def';
 import { SizeProps } from '../../props/size.props';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive } from '../../types/responsive';
 
 const displayValues = ['none', 'inline', 'inline-block', 'block'] as const;
@@ -38,17 +37,11 @@ interface CommonBoxProps
     TextAlignProps,
     TextTransformProps {
   /**
-   * Shorthand for changing the default rendered element into a semantically appropriate alternative.
-   * Cannot be used in combination with `asChild`.
-   * @default div
-   */
-  as?: 'div' | 'span';
-  /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    */
   asChild?: boolean;
   display?: Responsive<(typeof displayValues)[number]>;
 }
-type BoxDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
-type BoxSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
+type BoxDivProps = { as?: 'div' } & React.ComponentPropsWithRef<'div'>;
+type BoxSpanProps = { as: 'span' } & React.ComponentPropsWithRef<'span'>;
 export type BoxProps = CommonBoxProps & (BoxSpanProps | BoxDivProps);

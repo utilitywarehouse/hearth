@@ -1,24 +1,21 @@
-import * as React from 'react';
-import type { FC } from 'react';
-
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Flex } from '../Flex/Flex';
 import { Heading } from '../Heading/Heading';
 import { BodyText } from '../BodyText/BodyText';
-import { CardBannerContentProps } from './CardBannerContent.props';
+import type { CardBannerContentProps } from './CardBannerContent.props';
 
 const COMPONENT_NAME = 'CardBannerContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const CardBannerContent: FC<CardBannerContentProps> = ({
+export const CardBannerContent = ({
   heading,
   description,
   className,
   children,
   textAlign,
   ...props
-}) => {
+}: CardBannerContentProps) => {
   return (
     <Flex
       className={clsx(componentClassName, className)}

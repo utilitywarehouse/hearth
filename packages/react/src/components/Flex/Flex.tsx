@@ -1,11 +1,8 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
-
-import { flexPropDefs, type FlexProps } from './Flex.props';
-
-import type { ElementRef } from 'react';
+import { flexPropDefs } from './Flex.props';
+import type { FlexProps } from './Flex.props';
 import { Slot } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
@@ -28,13 +25,12 @@ import { borderRadiusPropDefs } from '../../props/border-radius.props';
 const COMPONENT_NAME = 'Flex';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type FlexElement = ElementRef<'div'>;
-
-export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
+export const Flex = (props: FlexProps) => {
   const {
     className,
     asChild,
     as: Tag = 'div',
+    children,
     ...flexProps
   } = extractProps(
     props,
@@ -56,9 +52,11 @@ export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
     textTransformPropDefs
   );
 
-  const Component = asChild ? Slot.Root : Tag;
-
-  return <Component ref={ref} className={clsx(componentClassName, className)} {...flexProps} />;
-});
+  return (
+    <Slot.Root className={clsx(componentClassName, className)} {...flexProps}>
+      {asChild ? children : <Tag>{children}</Tag>}
+    </Slot.Root>
+  );
+};
 
 Flex.displayName = COMPONENT_NAME;

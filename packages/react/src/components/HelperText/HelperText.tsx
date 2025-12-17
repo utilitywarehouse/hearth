@@ -1,21 +1,16 @@
-import * as React from 'react';
-import type { ElementRef } from 'react';
-
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { BodyText } from '../BodyText/BodyText';
-import { HelperTextProps } from './HelperText.props';
+import type { HelperTextProps } from './HelperText.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 
 const COMPONENT_NAME = 'HelperText';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type HelperTextElement = ElementRef<'span'>;
-
-export const HelperText = React.forwardRef<HelperTextElement, HelperTextProps>((props, ref) => {
+export const HelperText = (props: HelperTextProps) => {
   const { children, disabled, disableUserSelect, className, ...helperTextProps } = extractProps(
     props,
     marginPropDefs,
@@ -26,7 +21,6 @@ export const HelperText = React.forwardRef<HelperTextElement, HelperTextProps>((
     <BodyText
       size="md"
       as="span"
-      ref={ref}
       className={clsx(componentClassName, className)}
       data-disabled={disabled ? '' : undefined}
       data-disable-user-select={disableUserSelect ? '' : undefined}
@@ -35,6 +29,6 @@ export const HelperText = React.forwardRef<HelperTextElement, HelperTextProps>((
       {children}
     </BodyText>
   );
-});
+};
 
 HelperText.displayName = COMPONENT_NAME;
