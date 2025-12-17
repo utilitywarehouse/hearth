@@ -8,8 +8,14 @@ export default {
   borderRadius: 16,
   content: {
     gap: 12,
+    mobile: {
+      paddingBottom: 16,
+    },
   },
   gap: 24,
+  handle: {
+    paddingBottom: 16,
+  },
   heading: {
     gap: 24,
   },

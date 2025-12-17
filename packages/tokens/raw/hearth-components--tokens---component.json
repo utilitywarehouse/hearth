@@ -1571,12 +1571,26 @@
           "alias": "{space.150}",
           "type": "number",
           "value": 12
+        },
+        "mobile": {
+          "padding-bottom": {
+            "alias": "{space.200}",
+            "type": "number",
+            "value": 16
+          }
         }
       },
       "gap": {
         "alias": "{space.300}",
         "type": "number",
         "value": 24
+      },
+      "handle": {
+        "padding-bottom": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        }
       },
       "heading": {
         "gap": {
@@ -1610,6 +1624,11 @@
           "type": "number",
           "value": 4
         }
+      },
+      "border-bottom": {
+        "alias": "{color.purple.800}",
+        "type": "color",
+        "value": "#5c2ca9"
       },
       "border-radius": {
         "alias": "{border-radius.sm}",
@@ -4319,12 +4338,26 @@
           "alias": "{space.150}",
           "type": "number",
           "value": 12
+        },
+        "mobile": {
+          "padding-bottom": {
+            "alias": "{space.200}",
+            "type": "number",
+            "value": 16
+          }
         }
       },
       "gap": {
         "alias": "{space.300}",
         "type": "number",
         "value": 24
+      },
+      "handle": {
+        "padding-bottom": {
+          "alias": "{space.200}",
+          "type": "number",
+          "value": 16
+        }
       },
       "heading": {
         "gap": {
@@ -4358,6 +4391,11 @@
           "type": "number",
           "value": 4
         }
+      },
+      "border-bottom": {
+        "alias": "{color.purple.800}",
+        "type": "color",
+        "value": "#5c2ca9"
       },
       "border-radius": {
         "alias": "{border-radius.sm}",
