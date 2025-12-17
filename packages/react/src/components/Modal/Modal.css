@@ -136,7 +136,7 @@
     gap: var(--h-modal-action-gap);
     flex-direction: column-reverse;
     width: 100%;
-    padding-bottom: var(--h-space-200);
+    padding-bottom: var(--h-modal-content-mobile-padding-bottom);
 
     @media (--h-tablet) {
       flex-direction: row;

@@ -4,7 +4,7 @@ import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
 import { TextWrapProps } from '../../props/text-wrap.props';
 
-const sizes = ['sm', 'md', 'lg', 'xl'] as const;
+const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
 
 export const headingPropDefs = {
   size: { className: 'size', tokens: sizes, responsive: false, default: 'md' },
