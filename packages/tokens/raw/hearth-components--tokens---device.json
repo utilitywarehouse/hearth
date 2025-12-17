@@ -394,6 +394,7 @@
       "heading": {
         "2xl": {
           "font-size": {
+            "alias": "{font.size.650}",
             "type": "number",
             "value": 54
           },
@@ -403,6 +404,7 @@
             "value": 700
           },
           "line-height": {
+            "alias": "{line-height.1050}",
             "type": "number",
             "value": 62
           }
@@ -883,6 +885,7 @@
       "heading": {
         "2xl": {
           "font-size": {
+            "alias": "{font.size.575}",
             "type": "number",
             "value": 44
           },
@@ -892,6 +895,7 @@
             "value": 700
           },
           "line-height": {
+            "alias": "{line-height.975}",
             "type": "number",
             "value": 52
           }
@@ -1372,6 +1376,7 @@
       "heading": {
         "2xl": {
           "font-size": {
+            "alias": "{font.size.575}",
             "type": "number",
             "value": 44
           },
@@ -1381,6 +1386,7 @@
             "value": 700
           },
           "line-height": {
+            "alias": "{line-height.975}",
             "type": "number",
             "value": 52
           }

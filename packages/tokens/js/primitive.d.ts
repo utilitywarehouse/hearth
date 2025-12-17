@@ -32,7 +32,9 @@ declare const _default: {
       readonly '400': 30;
       readonly '500': 36;
       readonly '550': 40;
+      readonly '575': 44;
       readonly '600': 48;
+      readonly '650': 54;
       readonly '700': 60;
       readonly '800': 72;
       readonly '900': 96;
@@ -77,7 +79,9 @@ declare const _default: {
     readonly '800': 36;
     readonly '900': 40;
     readonly '950': 48;
+    readonly '975': 52;
     readonly '1000': 56;
+    readonly '1050': 62;
     readonly '1100': 72;
     readonly '1200': 90;
   };
