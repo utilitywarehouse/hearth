@@ -63,6 +63,11 @@ export declare const mobile: {
     };
   };
   readonly heading: {
+    readonly '2xl': {
+      readonly fontSize: 44;
+      readonly fontWeight: 700;
+      readonly lineHeight: 52;
+    };
     readonly fontFamily: 'Comic Hams';
     readonly lg: {
       readonly fontSize: 24;
@@ -149,6 +154,11 @@ export declare const tablet: {
     };
   };
   readonly heading: {
+    readonly '2xl': {
+      readonly fontSize: 44;
+      readonly fontWeight: 700;
+      readonly lineHeight: 52;
+    };
     readonly fontFamily: 'Comic Hams';
     readonly lg: {
       readonly fontSize: 24;
@@ -235,6 +245,11 @@ export declare const desktop: {
     };
   };
   readonly heading: {
+    readonly '2xl': {
+      readonly fontSize: 54;
+      readonly fontWeight: 700;
+      readonly lineHeight: 62;
+    };
     readonly fontFamily: 'Comic Hams';
     readonly lg: {
       readonly fontSize: 30;
@@ -322,6 +337,11 @@ declare const typography: {
       };
     };
     readonly heading: {
+      readonly '2xl': {
+        readonly fontSize: 44;
+        readonly fontWeight: 700;
+        readonly lineHeight: 52;
+      };
       readonly fontFamily: 'Comic Hams';
       readonly lg: {
         readonly fontSize: 24;
@@ -408,6 +428,11 @@ declare const typography: {
       };
     };
     readonly heading: {
+      readonly '2xl': {
+        readonly fontSize: 44;
+        readonly fontWeight: 700;
+        readonly lineHeight: 52;
+      };
       readonly fontFamily: 'Comic Hams';
       readonly lg: {
         readonly fontSize: 24;
@@ -494,6 +519,11 @@ declare const typography: {
       };
     };
     readonly heading: {
+      readonly '2xl': {
+        readonly fontSize: 54;
+        readonly fontWeight: 700;
+        readonly lineHeight: 62;
+      };
       readonly fontFamily: 'Comic Hams';
       readonly lg: {
         readonly fontSize: 30;
