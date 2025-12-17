@@ -16,6 +16,8 @@ const meta: Meta<typeof SearchInput> = {
   argTypes: {
     placeholder: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
+    hideLabel: { control: { type: 'boolean' } },
+    helperText: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },
     loading: { control: { type: 'boolean' } },

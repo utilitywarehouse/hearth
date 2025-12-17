@@ -20,6 +20,8 @@ export const SearchInput = ({
   value,
   onClear,
   loading,
+  hideLabel = true,
+  helperText,
   id: providedId,
   ref: forwardedRef,
   ...props
@@ -51,7 +53,8 @@ export const SearchInput = ({
       role="search"
       enterKeyHint="search"
       disabled={disabled}
-      hideLabel
+      hideLabel={hideLabel}
+      helperText={helperText}
       value={value}
       id={id}
       {...props}
