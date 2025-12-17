@@ -94,6 +94,7 @@ import {
   ToggleButtonCardGroup,
   UL,
   useColorMode,
+  VerificationInput,
 } from '../../src';
 import { addReactNativePrefix } from '../heplers';
 
@@ -819,6 +820,14 @@ const AllComponents: React.FC = () => {
                   <BodyText>List Item 2</BodyText>
                 </LI>
               </UL>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
+            name="Verification Input"
+            link="/?path=/docs/forms-verificationinput--docs"
+          >
+            <Center flex={1} padding="200">
+              <VerificationInput onChangeText={() => {}} />
             </Center>
           </ComponentWrapper>
         </Flex>
