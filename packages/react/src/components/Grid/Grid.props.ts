@@ -41,19 +41,19 @@ const justifyContentValues = [
 const justifyItemsValues = ['start', 'center', 'end', 'stretch'] as const;
 
 export const gridPropDefs = {
-  display: { className: 'display', tokens: displayValues, responsive: true },
+  display: { className: 'd', tokens: displayValues, responsive: true },
   columns: { className: 'columns', tokens: columnsValues, responsive: true },
-  template: { className: 'grid-template', responsive: true },
-  templateColumns: { className: 'grid-template-columns', responsive: true },
-  templateRows: { className: 'grid-template-rows', responsive: true },
-  templateAreas: { className: 'grid-template-areas', responsive: true },
-  autoFlow: { className: 'grid-auto-flow', tokens: flowValues, responsive: true },
-  autoColumns: { className: 'grid-auto-columns', responsive: true },
-  autoRows: { className: 'grid-auto-rows', responsive: true },
-  alignItems: { className: 'align-items', tokens: alignItemsValues, responsive: true },
-  alignContent: { className: 'align-content', tokens: alignContentValues, responsive: true },
-  justifyContent: { className: 'justify-content', tokens: justifyContentValues, responsive: true },
-  justifyItems: { className: 'justify-items', tokens: justifyItemsValues, responsive: true },
+  template: { className: 'grid-t', responsive: true },
+  templateColumns: { className: 'grid-t-c', responsive: true },
+  templateRows: { className: 'grid-t-r', responsive: true },
+  templateAreas: { className: 'grid-t-a', responsive: true },
+  autoFlow: { className: 'grid-af', tokens: flowValues, responsive: true },
+  autoColumns: { className: 'grid-ac', responsive: true },
+  autoRows: { className: 'grid-ar', responsive: true },
+  alignItems: { className: 'ai', tokens: alignItemsValues, responsive: true },
+  alignContent: { className: 'ac', tokens: alignContentValues, responsive: true },
+  justifyContent: { className: 'jc', tokens: justifyContentValues, responsive: true },
+  justifyItems: { className: 'ji', tokens: justifyItemsValues, responsive: true },
 } satisfies {
   display: PropDef<(typeof displayValues)[number]>;
   columns: PropDef<(typeof columnsValues)[number]>;

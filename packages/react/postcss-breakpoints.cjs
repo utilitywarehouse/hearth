@@ -120,7 +120,7 @@ function updateClass(node, prefix) {
   // - a component name (prefixed with "h-" and pascal cased)
   // - followed by 2 or more prop selectors (lowercase, numbers, -)
   //
-  // e.g. ".h-DialogContent.rt-r-size-2.gray"
+  // e.g. ".h-DialogContent.h-r-size-2.text-primary"
   if (/\.h-(?:[A-Z][a-z]+)+(?:\.[a-z0-9-]+){2,}/.test(node.selector)) {
     throw Error(`
       "${node.selector}" looks like it uses compound props on a component.

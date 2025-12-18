@@ -2,10 +2,10 @@ import { Responsive } from '../types/responsive';
 import { PropDef } from './prop-def';
 
 const flexItemPropDefs = {
-  flexBasis: { className: 'flex-basis', responsive: true },
-  flexShrink: { className: 'flex-shrink', responsive: true },
-  flexGrow: { className: 'flex-grow', responsive: true },
-  flex: { className: 'flex', responsive: true },
+  flexBasis: { className: 'f-basis', responsive: true },
+  flexShrink: { className: 'f-shrink', responsive: true },
+  flexGrow: { className: 'f-grow', responsive: true },
+  flex: { className: 'f', responsive: true },
 } satisfies {
   flexBasis: PropDef<string>;
   flexShrink: PropDef<string>;
