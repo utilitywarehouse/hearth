@@ -1,15 +1,15 @@
-:where(.h-text-transform-none) {
+.h-tt-none {
   text-transform: none;
 }
 
-:where(.h-text-transform-capitalize) {
+.h-tt-capitalize {
   text-transform: capitalize;
 }
 
-:where(.h-text-transform-uppercase) {
+.h-tt-uppercase {
   text-transform: uppercase;
 }
 
-:where(.h-text-transform-lowercase) {
+.h-tt-lowercase {
   text-transform: lowercase;
 }

@@ -1,6 +1,5 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ContainerProps } from './Container.props';
@@ -29,8 +28,8 @@ export const Container = ({
   paddingRight,
   paddingBottom,
   paddingLeft,
-  paddingInline,
-  paddingBlock,
+  paddingX,
+  paddingY,
   ...props
 }: ContainerProps) => {
   const innerProps = {
@@ -47,8 +46,8 @@ export const Container = ({
     paddingRight,
     paddingBottom,
     paddingLeft,
-    paddingInline,
-    paddingBlock,
+    paddingX,
+    paddingY,
   };
   const Component = asChild ? Slot.Root : 'div';
 

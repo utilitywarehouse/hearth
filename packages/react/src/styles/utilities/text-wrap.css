@@ -1,17 +1,17 @@
 @breakpoints {
-  :where(.h-r-text-wrap-wrap) {
+  .h-r-tw-wrap {
     text-wrap: wrap;
   }
 
-  :where(.h-r-text-wrap-nowrap) {
+  .h-r-tw-nowrap {
     text-wrap: nowrap;
   }
 
-  :where(.h-r-text-wrap-balance) {
+  .h-r-tw-balance {
     text-wrap: balance;
   }
 
-  :where(.h-r-text-wrap-pretty) {
+  .h-r-tw-pretty {
     text-wrap: pretty;
   }
 }

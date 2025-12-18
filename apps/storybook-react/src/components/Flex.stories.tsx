@@ -25,8 +25,9 @@ const meta: Meta<typeof Flex> = {
     color: { options: colorValues, control: { type: 'select' } },
     backgroundColor: { options: backgroundColorValues, control: { type: 'select' } },
     padding: { options: spaceTokens, control: { type: 'select' } },
-    paddingInline: { options: spaceTokens, control: { type: 'select' } },
-    paddingBlock: { options: spaceTokens, control: { type: 'select' } },
+    paddingX: { options: spaceTokens, control: { type: 'select' } },
+    paddingY: { options: spaceTokens, control: { type: 'select' } },
+
     paddingTop: { options: spaceTokens, control: { type: 'select' } },
     paddingRight: { options: spaceTokens, control: { type: 'select' } },
     paddingBottom: { options: spaceTokens, control: { type: 'select' } },

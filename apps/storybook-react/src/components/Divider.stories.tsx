@@ -32,7 +32,7 @@ export const KitchenSink: Story = {
   render: () => {
     return (
       <Flex direction="column" gap="400" width="100%" maxWidth="800px" padding="200">
-        <Flex direction="column" gap="100" paddingInline="400">
+        <Flex direction="column" gap="100" paddingX="400">
           <Heading>Mobile number: 07891123456</Heading>
           <Flex gap="300" alignItems="center">
             <BodyText>Unlimited Tariff</BodyText>
@@ -47,7 +47,7 @@ export const KitchenSink: Story = {
           </Flex>
         </Flex>
         <Divider />
-        <Flex direction="column" gap="100" paddingInline="400">
+        <Flex direction="column" gap="100" paddingX="400">
           <Heading>Mobile number: 07875123456</Heading>
           <Flex gap="300" alignItems="center">
             <BodyText>Value Tariff</BodyText>
@@ -62,7 +62,7 @@ export const KitchenSink: Story = {
           </Flex>
         </Flex>
         <Divider />
-        <Flex direction="column" gap="100" paddingInline="400">
+        <Flex direction="column" gap="100" paddingX="400">
           <Heading>Mobile number: 07929123456</Heading>
           <Flex gap="300" alignItems="center">
             <BodyText>Unlimited Tariff</BodyText>

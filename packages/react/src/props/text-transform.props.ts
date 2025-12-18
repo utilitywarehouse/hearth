@@ -3,7 +3,7 @@ import { PropDef } from './prop-def';
 const textTransformValues = ['none', 'uppercase', 'lowercase', 'capitalize'] as const;
 
 const textTransformPropDefs = {
-  textTransform: { className: 'text-transform', tokens: textTransformValues, responsive: false },
+  textTransform: { className: 'tt', tokens: textTransformValues, responsive: false },
 } satisfies {
   textTransform: PropDef<(typeof textTransformValues)[number]>;
 };
