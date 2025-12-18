@@ -9,7 +9,7 @@
  * const colorProp: PropDef<string> = {
  *   className: 'color',
  *   responsive: false,
- *   tokens: ['grey-100', 'grey-200', 'blue-500'],
+ *   tokens: ['100', '200', '500'],
  * };
  * ```
  */
