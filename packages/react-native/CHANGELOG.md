@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.13.0
+
+### Minor Changes
+
+- [#682](https://github.com/utilitywarehouse/hearth/pull/682) [`57d6c71`](https://github.com/utilitywarehouse/hearth/commit/57d6c71baedeaa0bc914ff5163e73bbf4281aa79) Thanks [@Utakato](https://github.com/Utakato)! - Add Verification Input component
+
 ## 0.12.0
 
 ### Minor Changes
