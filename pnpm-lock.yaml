@@ -925,7 +925,7 @@ importers:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.5.1)
       browserslist:
-        specifier: ^4.28.1
+        specifier: ^4.27.0
         version: 4.28.1
       cssnano:
         specifier: ^7.0.6
