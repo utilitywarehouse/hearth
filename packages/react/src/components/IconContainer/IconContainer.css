@@ -1,4 +1,4 @@
-.hearth-IconContainer {
+.h-IconContainer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -9,28 +9,28 @@
   border-radius: var(--h-icon-container-border-radius);
   padding: var(--h-icon-container-padding);
 
-  &:where(.hearth-variant-emphasis) {
+  &:where(.h-variant-emphasis) {
     color: var(--h-icon-container-emphasis-color);
     background-color: var(--h-icon-container-emphasis-background-color);
   }
 
-  &:where(.hearth-variant-subtle) {
+  &:where(.h-variant-subtle) {
     color: var(--h-icon-container-subtle-color);
     background-color: var(--h-icon-container-subtle-background-color);
   }
 
   @breakpoints {
-    &:where(.hearth-r-size-lg) {
+    &:where(.h-r-size-lg) {
       --h-icon-container-border-radius: var(--h-icon-container-lg-border-radius-rounded);
       --h-icon-container-padding: var(--h-icon-container-lg-padding);
     }
 
-    &:where(.hearth-r-size-md) {
+    &:where(.h-r-size-md) {
       --h-icon-container-border-radius: var(--h-icon-container-md-border-radius-rounded);
       --h-icon-container-padding: var(--h-icon-container-md-padding);
     }
 
-    &:where(.hearth-r-size-sm) {
+    &:where(.h-r-size-sm) {
       --h-icon-container-border-radius: var(--h-icon-container-sm-border-radius-rounded);
       --h-icon-container-padding: var(--h-icon-container-sm-padding);
     }

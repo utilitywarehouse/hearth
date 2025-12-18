@@ -32,7 +32,7 @@ import { PropDef } from '../props/prop-def';
  *   colorPropDefs,
  *   backgroundColorPropDefs,
  * );
- * // => { className: "hearth-background-color hearth-r-height hearth-border-color hearth-r-border-style-solid hearth-r-border-width-1 hearth-r-border-radius-xs", style: {--h-background-color: "var(--h-color-grey-100)", --h-border-color: "var(--h-color-grey-200)" --h-r-height: "100%" }, ...otherProps}
+ * // => { className: "h-background-color h-r-height h-border-color h-r-border-style-solid h-r-border-width-1 h-r-border-radius-xs", style: {--h-background-color: "var(--h-color-grey-100)", --h-border-color: "var(--h-color-grey-200)" --h-r-height: "100%" }, ...otherProps}
  * ```
  *
  * @param props - Incoming props for the component, including potential style props.

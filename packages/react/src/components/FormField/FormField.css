@@ -1,10 +1,10 @@
-.hearth-FormField {
+.h-FormField {
   display: flex;
   flex-direction: column;
   gap: var(--h-space-75);
   width: 100%;
 
-  & :where(.hearth-FormFieldLabelContainer) {
+  & :where(.h-FormFieldLabelContainer) {
     display: flex;
     flex-direction: column;
   }

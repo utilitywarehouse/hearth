@@ -1,8 +1,8 @@
-.hearth-DatePicker {
+.h-DatePicker {
   min-width: var(--h-date-picker-min-width);
   max-width: var(--h-date-picker-max-width);
 
-  & :where(.hearth-DatePickerTrigger) {
+  & :where(.h-DatePickerTrigger) {
     all: unset;
     outline: transparent;
     appearance: none;
@@ -52,16 +52,16 @@
     }
   }
 
-  & :where(.hearth-DatePickerTriggerValue, .hearth-DatePickerTriggerPlaceholder) {
+  & :where(.h-DatePickerTriggerValue, .h-DatePickerTriggerPlaceholder) {
     flex: 1;
     text-align: left;
   }
 
-  & :where(.hearth-DatePickerTriggerPlaceholder) {
+  & :where(.h-DatePickerTriggerPlaceholder) {
     color: var(--h-text-secondary);
   }
 
-  & :where(.hearth-DatePickerTriggerIcon) {
+  & :where(.h-DatePickerTriggerIcon) {
     box-sizing: border-box;
     flex-shrink: 0;
     display: flex;

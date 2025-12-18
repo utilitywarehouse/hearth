@@ -1,21 +1,21 @@
 @breakpoints {
-  .hearth-r-weight-regular {
+  .h-r-fw-regular {
     font-weight: var(--h-font-weight-regular);
   }
 
-  .hearth-r-weight-medium {
+  .h-r-fw-medium {
     font-weight: var(--h-font-weight-medium);
   }
 
-  .hearth-r-weight-semibold {
+  .h-r-fw-semibold {
     font-weight: var(--h-font-weight-semibold);
   }
 
-  .hearth-r-weight-bold {
+  .h-r-fw-bold {
     font-weight: var(--h-font-weight-bold);
   }
 
-  .hearth-r-weight-heavy {
+  .h-r-fw-heavy {
     font-weight: var(--h-font-weight-heavy);
   }
 }

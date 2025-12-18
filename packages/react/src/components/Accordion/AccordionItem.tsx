@@ -21,12 +21,12 @@ export const AccordionItem = ({
   return (
     <AccordionPrimitive.Item className={clsx(componentClassName, className)} {...props}>
       {title ? (
-        <div className="hearth-AccordionItemHeader">
+        <div className={`${componentClassName}Header`}>
           <AccordionHeader as={headingElement}>
             <AccordionTrigger>{title}</AccordionTrigger>
           </AccordionHeader>
           {description ? (
-            <span className="hearth-AccordionItemDescription">{description}</span>
+            <span className={`${componentClassName}Description`}>{description}</span>
           ) : null}
         </div>
       ) : null}

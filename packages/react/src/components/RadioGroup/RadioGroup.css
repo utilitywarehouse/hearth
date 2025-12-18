@@ -1,4 +1,4 @@
-.hearth-RadioGroup {
+.h-RadioGroup {
   flex-wrap: wrap;
 
   &:where([data-orientation='horizontal']) {
@@ -12,7 +12,7 @@
 
   gap: var(--h-radio-group-stack-gap);
 
-  &:has(.hearth-RadioTile) {
+  &:has(.h-RadioTile) {
     gap: var(--h-radio-tile-group-stack-gap);
   }
 }

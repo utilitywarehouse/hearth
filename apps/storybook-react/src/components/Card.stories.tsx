@@ -159,7 +159,7 @@ export const KitchenSink: Story = {
 
 export const Playground: Story = {
   render: ({ children, ...args }) => (
-    <Card {...args} width="400px" marginInline="auto">
+    <Card {...args} width="400px" marginX="auto">
       <BodyText size="md">{children}</BodyText>
     </Card>
   ),

@@ -1,4 +1,4 @@
-.hearth-Badge {
+.h-Badge {
   display: inline-flex;
   gap: var(--h-badge-gap);
   align-items: center;
@@ -22,30 +22,30 @@
     border-bottom-right-radius: var(--h-badge-flat-base-border-bottom-right-radius);
   }
 
-  &:where(.hearth-variant-emphasis) {
+  &:where(.h-variant-emphasis) {
     color: var(--h-badge-emphasis-color);
     background-color: var(--h-badge-emphasis-background-color);
   }
 
-  &:where(.hearth-variant-subtle) {
+  &:where(.h-variant-subtle) {
     color: var(--h-badge-subtle-color);
     background-color: var(--h-badge-subtle-background-color);
   }
 
-  &:where(.hearth-variant-outline) {
+  &:where(.h-variant-outline) {
     color: var(--h-badge-outline-color);
     background-color: transparent;
     box-shadow: inset 0 0 0 1px var(--h-border-subtle);
   }
 
   @breakpoints {
-    &:where(.hearth-r-size-md) {
+    &:where(.h-r-size-md) {
       --h-badge-padding-block: var(--h-badge-md-padding-vertical);
       --h-badge-line-height: var(--h-body-text-md-line-height);
       --h-badge-font-size: var(--h-body-text-md-font-size);
     }
 
-    &:where(.hearth-r-size-sm) {
+    &:where(.h-r-size-sm) {
       --h-badge-padding-block: var(--h-badge-sm-padding-vertical);
       --h-badge-line-height: var(--h-body-text-sm-line-height);
       --h-badge-font-size: var(--h-body-text-sm-font-size);

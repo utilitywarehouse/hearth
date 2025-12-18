@@ -4,7 +4,7 @@ import { PropDef } from './prop-def';
 const textAlignValues = ['left', 'center', 'right'] as const;
 
 const textAlignPropDefs = {
-  textAlign: { className: 'text-align', tokens: textAlignValues, responsive: true },
+  textAlign: { className: 'ta', tokens: textAlignValues, responsive: true },
 } satisfies {
   textAlign: PropDef<(typeof textAlignValues)[number]>;
 };

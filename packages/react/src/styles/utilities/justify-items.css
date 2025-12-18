@@ -1,17 +1,17 @@
 @breakpoints {
-  .hearth-r-justify-items-start {
+  .h-r-ji-start {
     justify-items: start;
   }
 
-  .hearth-r-justify-items-center {
+  .h-r-ji-center {
     justify-items: center;
   }
 
-  .hearth-r-justify-items-end {
+  .h-r-ji-end {
     justify-items: end;
   }
 
-  .hearth-r-justify-items-stretch {
+  .h-r-ji-stretch {
     justify-items: stretch;
   }
 }

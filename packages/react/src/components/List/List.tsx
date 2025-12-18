@@ -39,12 +39,12 @@ export const List = (props: ListProps) => {
     <div className={clsx(componentClassName, className)}>
       {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
       {variant === undefined || colorScheme === undefined ? (
-        <Box asChild className="hearth-ListContainer" role="list">
+        <Box asChild className={`${componentClassName}Container`} role="list">
           <Tag {...listProps}>{children}</Tag>
         </Box>
       ) : (
         <Card
-          className="hearth-ListContainer"
+          className={`${componentClassName}Container`}
           paddingNone
           variant={variant}
           colorScheme={colorScheme}

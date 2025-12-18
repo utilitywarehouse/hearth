@@ -1,17 +1,17 @@
-.hearth-ModalScroll {
+.h-ModalScroll {
   display: flex;
   overflow: auto;
   position: absolute;
   inset: 0;
 }
 
-.hearth-ModalScrollPadding {
+.h-ModalScrollPadding {
   flex-grow: 1;
   margin: auto;
   padding: var(--h-space-400) var(--h-space-200);
 }
 
-.hearth-Modal {
+.h-Modal {
   background-color: var(--h-surface-neutral-strong);
   position: fixed;
   left: 0;
@@ -45,7 +45,7 @@
     }
   }
 
-  & :where(.hearth-ModalOuterContainer) {
+  & :where(.h-ModalOuterContainer) {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -68,13 +68,13 @@
     }
   }
 
-  & :where(.hearth-ModalCloseIconButton) {
+  & :where(.h-ModalCloseIconButton) {
     position: absolute;
     top: var(--h-modal-padding);
     right: var(--h-modal-padding);
   }
 
-  & :where(.hearth-ModalInnerContainer) {
+  & :where(.h-ModalInnerContainer) {
     display: flex;
     flex-direction: column;
     gap: var(--h-modal-content-gap);
@@ -91,7 +91,7 @@
     }
   }
 
-  & :where(.hearth-ModalImage) {
+  & :where(.h-ModalImage) {
     --h-icon-button-size: 1.5rem;
 
     margin-top: calc(var(--h-icon-button-size) + var(--h-modal-content-gap));
@@ -108,7 +108,7 @@
     }
   }
 
-  & :where(.hearth-ModalHeader) {
+  & :where(.h-ModalHeader) {
     display: flex;
     flex-direction: column;
     gap: var(--h-modal-content-gap);
@@ -120,7 +120,7 @@
       text-align: left;
     }
 
-    &:not([data-contains-image] &) :where(.hearth-Heading) {
+    &:not([data-contains-image] &) :where(.h-Heading) {
       --h-close-button-visual-size: 16px;
 
       margin-right: calc(var(--h-close-button-visual-size) + var(--h-modal-padding));
@@ -131,7 +131,7 @@
     }
   }
 
-  & :where(.hearth-ModalFooter) {
+  & :where(.h-ModalFooter) {
     display: flex;
     gap: var(--h-modal-action-gap);
     flex-direction: column-reverse;
@@ -151,7 +151,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  @keyframes hearth-modal-slide-up {
+  @keyframes h-modal-slide-up {
     from {
       opacity: 0;
       transform: translateY(50%);
@@ -163,7 +163,7 @@
     }
   }
 
-  @keyframes hearth-modal-slide-down {
+  @keyframes h-modal-slide-down {
     from {
       opacity: 1;
       transform: translateY(0);
@@ -175,7 +175,7 @@
     }
   }
 
-  @keyframes hearth-modal-show {
+  @keyframes h-modal-show {
     from {
       transform: translateX(-50%);
     }
@@ -185,7 +185,7 @@
     }
   }
 
-  @keyframes hearth-modal-hide {
+  @keyframes h-modal-hide {
     from {
       transform: translateX(-50%);
     }
@@ -195,24 +195,24 @@
     }
   }
 
-  .hearth-Modal {
+  .h-Modal {
     will-change: transform;
 
     &:where([data-state='open']) {
-      animation: hearth-modal-slide-up 100ms ease-out;
+      animation: h-modal-slide-up 100ms ease-out;
     }
 
     &:where([data-state='closed']) {
-      animation: hearth-modal-slide-down 100ms ease-in;
+      animation: h-modal-slide-down 100ms ease-in;
     }
 
     @media (--h-tablet) {
       &:where([data-state='open']) {
-        animation: hearth-modal-show 200ms ease-out;
+        animation: h-modal-show 200ms ease-out;
       }
 
       &:where([data-state='closed']) {
-        animation: hearth-modal-hide 100ms ease-in;
+        animation: h-modal-hide 100ms ease-in;
       }
     }
   }

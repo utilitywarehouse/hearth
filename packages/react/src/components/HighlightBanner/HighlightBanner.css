@@ -1,11 +1,11 @@
-.hearth-HighlightBanner {
+.h-HighlightBanner {
   width: fit-content;
 
   &
     :where(
-      .hearth-HighlightBannerHeading,
-      .hearth-HighlightBannerFooter,
-      .hearth-HighlightBannerContent
+      .h-HighlightBannerHeading,
+      .h-HighlightBannerFooter,
+      .h-HighlightBannerContent
     ) {
     display: flex;
     flex-direction: column;
@@ -14,7 +14,7 @@
     padding: var(--h-banner-highlight-padding);
   }
 
-  & :where(.hearth-HighlightBannerHeading) {
+  & :where(.h-HighlightBannerHeading) {
     border-bottom: var(--h-border-width-2) solid var(--h-border-strong);
 
     &:where([data-colorscheme='brand']) {
@@ -50,11 +50,11 @@
     }
   }
 
-  & :where(.hearth-HighlightBannerContent) {
+  & :where(.h-HighlightBannerContent) {
     gap: var(--h-banner-highlight-content-gap);
   }
 
-  & :where(.hearth-HighlightBannerFooter) {
+  & :where(.h-HighlightBannerFooter) {
     border-top: var(--h-border-width-2) solid var(--h-border-strong);
   }
 }

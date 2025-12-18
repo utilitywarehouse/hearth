@@ -1,7 +1,7 @@
-.hearth-Checkbox {
+.h-Checkbox {
   gap: var(--h-checkbox-gap);
 
-  .hearth-Label {
+  .h-Label {
     display: flex;
     gap: var(--h-checkbox-gap);
 
@@ -18,7 +18,7 @@
   }
 }
 
-.hearth-CheckboxRoot {
+.h-CheckboxRoot {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -67,7 +67,7 @@
     outline-offset: 1px;
   }
 
-  .hearth-CheckboxIndicator {
+  & :where(.h-CheckboxIndicator) {
     position: absolute;
   }
 }

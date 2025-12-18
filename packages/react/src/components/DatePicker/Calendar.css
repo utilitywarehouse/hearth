@@ -1,4 +1,4 @@
-.hearth-DatePickerCalendar {
+.h-DatePickerCalendar {
   width: 100%;
   height: fit-content;
   min-width: var(--h-date-picker-calendar-min-width);
@@ -87,7 +87,7 @@
   }
   /* stylelint-enable selector-class-pattern */
 
-  & :where(.hearth-DatePickerYear) {
+  & :where(.h-DatePickerYear) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -100,7 +100,7 @@
     border-radius: var(--h-border-radius-md);
   }
 
-  & :where(.hearth-DatePickerMonth) {
+  & :where(.h-DatePickerMonth) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -113,7 +113,7 @@
     border-radius: var(--h-border-radius-md);
   }
 
-  & :where(.hearth-DatePickerWeek) {
+  & :where(.h-DatePickerWeek) {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -121,7 +121,7 @@
     white-space: nowrap;
   }
 
-  & :where(.hearth-DatePickerDay) {
+  & :where(.h-DatePickerDay) {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -141,7 +141,7 @@
     letter-spacing: 0;
   }
 
-  & :where(.hearth-DatePickerMonth, .hearth-DatePickerDay, .hearth-DatePickerYear) {
+  & :where(.h-DatePickerMonth, .h-DatePickerDay, .h-DatePickerYear) {
     cursor: pointer;
 
     &:where([aria-disabled='true']) {
@@ -204,12 +204,12 @@
   }
   /* stylelint-enable selector-class-pattern */
 
-  & :where(.hearth-DatePickerHeader) {
+  & :where(.h-DatePickerHeader) {
     display: flex;
     justify-content: space-between;
   }
 
-  & :where(.hearth-DatePickerHeaderMonthButton) {
+  & :where(.h-DatePickerHeaderMonthButton) {
     all: unset;
     outline: transparent;
     appearance: none;
@@ -234,7 +234,7 @@
     }
   }
 
-  & :where(.hearth-DatePickerHeaderControl) {
+  & :where(.h-DatePickerHeaderControl) {
     display: flex;
     gap: var(--h-date-picker-header-control-gap);
   }

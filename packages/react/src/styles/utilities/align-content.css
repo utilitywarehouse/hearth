@@ -1,29 +1,29 @@
 @breakpoints {
-  .hearth-r-align-content-start {
+  .h-r-ac-start {
     align-content: flex-start;
   }
 
-  .hearth-r-align-content-center {
+  .h-r-ac-center {
     align-content: center;
   }
 
-  .hearth-r-align-content-end {
+  .h-r-ac-end {
     align-content: flex-end;
   }
 
-  .hearth-r-align-content-stretch {
+  .h-r-ac-stretch {
     align-content: stretch;
   }
 
-  .hearth-r-align-content-between {
+  .h-r-ac-between {
     align-content: space-between;
   }
 
-  .hearth-r-align-content-around {
+  .h-r-ac-around {
     align-content: space-around;
   }
 
-  .hearth-r-align-content-evenly {
+  .h-r-ac-evenly {
     align-content: space-evenly;
   }
 }

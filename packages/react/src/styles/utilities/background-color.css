@@ -1,16 +1,16 @@
 /* stylelint-disable csstools/value-no-unknown-custom-properties */
-.hearth-background-color {
-  background-color: var(--h-background-color);
+.h-bg {
+  background-color: var(--h-bg);
 }
 
-.hearth-background-color-primary {
+.h-bg-primary {
   background-color: var(--h-background-primary);
 }
 
-.hearth-background-color-secondary {
+.h-bg-secondary {
   background-color: var(--h-background-secondary);
 }
 
-.hearth-background-color-brand {
+.h-bg-brand {
   background-color: var(--h-background-brand);
 }

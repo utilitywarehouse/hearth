@@ -1,9 +1,9 @@
-.hearth-ScrollAreaRoot {
+.h-ScrollAreaRoot {
   width: 100%;
   height: 100%;
 }
 
-.hearth-ScrollAreaViewport {
+.h-ScrollAreaViewport {
   width: 100%;
   height: 100%;
   padding-bottom: var(--h-space-25);
@@ -16,12 +16,12 @@
   max-height: calc(var(--h-available-height) - calc(var(--h-space-50) * 2));
 }
 
-.hearth-ScrollAreaScrollbar {
+.h-ScrollAreaScrollbar {
   width: 8px;
   padding-bottom: var(--h-space-25);
 }
 
-.hearth-ScrollAreaThumb {
+.h-ScrollAreaThumb {
   background-color: var(--h-interactive-functional-surface-subtle-active);
   border-radius: var(--h-border-radius-md);
 }

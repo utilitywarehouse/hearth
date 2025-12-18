@@ -65,7 +65,7 @@ export const TextArea = (props: TextAreaProps) => {
       data-disabled={disabled ? '' : undefined}
       {...formFieldProps}
     >
-      <Flex direction="column" className="hearth-TextAreaRoot">
+      <Flex direction="column" className={`${componentClassName}Root`}>
         <textarea
           id={id}
           rows={rows}

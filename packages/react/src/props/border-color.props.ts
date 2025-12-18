@@ -4,11 +4,11 @@ import { PropDef } from './prop-def';
 const colorValues = ['strong', 'subtle'] as const;
 
 const borderColorPropDefs = {
-  borderColor: { className: 'border-color', tokens: colorValues, responsive: false },
-  borderTopColor: { className: 'border-top-color', tokens: colorValues, responsive: false },
-  borderRightColor: { className: 'border-right-color', tokens: colorValues, responsive: false },
-  borderBottomColor: { className: 'border-bottom-color', tokens: colorValues, responsive: false },
-  borderLeftColor: { className: 'border-left-color', tokens: colorValues, responsive: false },
+  borderColor: { className: 'border', tokens: colorValues, responsive: false },
+  borderTopColor: { className: 'border-t', tokens: colorValues, responsive: false },
+  borderRightColor: { className: 'border-r', tokens: colorValues, responsive: false },
+  borderBottomColor: { className: 'border-b', tokens: colorValues, responsive: false },
+  borderLeftColor: { className: 'border-l', tokens: colorValues, responsive: false },
 } satisfies {
   borderColor: PropDef<(typeof colorValues)[number] | CssTokenVariable>;
   borderTopColor: PropDef<(typeof colorValues)[number] | CssTokenVariable>;

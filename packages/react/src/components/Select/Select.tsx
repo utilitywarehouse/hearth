@@ -78,17 +78,17 @@ export const Select = (props: SelectProps) => {
             side="bottom"
             sideOffset={4}
           >
-            <ScrollAreaPrimitive.Root className="hearth-ScrollAreaRoot" type="auto">
+            <ScrollAreaPrimitive.Root className={withGlobalPrefix('ScrollAreaRoot')} type="auto">
               <SelectPrimitive.Viewport className={`${componentClassName}Viewport`}>
-                <ScrollAreaPrimitive.Viewport className="hearth-ScrollAreaViewport">
+                <ScrollAreaPrimitive.Viewport className={withGlobalPrefix('ScrollAreaViewport')}>
                   {children}
                 </ScrollAreaPrimitive.Viewport>
               </SelectPrimitive.Viewport>
               <ScrollAreaPrimitive.Scrollbar
-                className="hearth-ScrollAreaScrollbar"
+                className={withGlobalPrefix('ScrollAreaScrollbar')}
                 orientation="vertical"
               >
-                <ScrollAreaPrimitive.Thumb className="hearth-ScrollAreaThumb" />
+                <ScrollAreaPrimitive.Thumb className={withGlobalPrefix('ScrollAreaThumb')} />
               </ScrollAreaPrimitive.Scrollbar>
             </ScrollAreaPrimitive.Root>
           </SelectPrimitive.Content>

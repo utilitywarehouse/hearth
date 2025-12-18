@@ -29,15 +29,15 @@ export const Radio = ({
   const showLabel = !!label;
   return (
     <div className={clsx(componentClassName, className)}>
-      <div className="hearth-RadioContainer">
+      <div className={`${componentClassName}Container`}>
         <RadioGroupPrimitive.Item
           {...props}
           id={id}
           aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
           aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}
-          className="hearth-RadioItem"
+          className={`${componentClassName}Item`}
         >
-          <RadioGroupPrimitive.Indicator className="hearth-RadioIndicator" />
+          <RadioGroupPrimitive.Indicator className={`${componentClassName}Indicator`} />
         </RadioGroupPrimitive.Item>
       </div>
       {showLabel ? (

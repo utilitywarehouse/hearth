@@ -1,28 +1,28 @@
-.hearth-spacing-none {
+.h-spacing-none {
   gap: var(--h-space-0);
 }
 
-.hearth-spacing-2xs {
+.h-spacing-2xs {
   gap: var(--h-spacing-2xs-mobile);
 }
 
-.hearth-spacing-xs {
+.h-spacing-xs {
   gap: var(--h-spacing-xs-mobile);
 }
 
-.hearth-spacing-sm {
+.h-spacing-sm {
   gap: var(--h-spacing-sm-mobile);
 }
 
-.hearth-spacing-md {
+.h-spacing-md {
   gap: var(--h-spacing-md-mobile);
 }
 
-.hearth-spacing-lg {
+.h-spacing-lg {
   gap: var(--h-spacing-lg-mobile);
 }
 
-.hearth-spacing-xl {
+.h-spacing-xl {
   gap: var(--h-spacing-xl-mobile);
 
   @media (--h-tablet) {
@@ -30,7 +30,7 @@
   }
 }
 
-.hearth-spacing-2xl {
+.h-spacing-2xl {
   gap: var(--h-spacing-2xl-mobile);
 
   @media (--h-desktop) {
@@ -38,31 +38,31 @@
   }
 }
 
-.hearth-row-spacing-none {
+.h-row-spacing-none {
   row-gap: var(--h-space-0);
 }
 
-.hearth-row-spacing-2xs {
+.h-row-spacing-2xs {
   row-gap: var(--h-spacing-2xs-mobile);
 }
 
-.hearth-row-spacing-xs {
+.h-row-spacing-xs {
   row-gap: var(--h-spacing-xs-mobile);
 }
 
-.hearth-row-spacing-sm {
+.h-row-spacing-sm {
   row-gap: var(--h-spacing-sm-mobile);
 }
 
-.hearth-row-spacing-md {
+.h-row-spacing-md {
   row-gap: var(--h-spacing-md-mobile);
 }
 
-.hearth-row-spacing-lg {
+.h-row-spacing-lg {
   row-gap: var(--h-spacing-lg-mobile);
 }
 
-.hearth-row-spacing-xl {
+.h-row-spacing-xl {
   row-gap: var(--h-spacing-xl-mobile);
 
   @media (--h-tablet) {
@@ -70,7 +70,7 @@
   }
 }
 
-.hearth-row-spacing-2xl {
+.h-row-spacing-2xl {
   row-gap: var(--h-spacing-2xl-mobile);
 
   @media (--h-desktop) {
@@ -78,31 +78,31 @@
   }
 }
 
-.hearth-column-spacing-none {
+.h-column-spacing-none {
   column-gap: var(--h-space-0);
 }
 
-.hearth-column-spacing-2xs {
+.h-column-spacing-2xs {
   column-gap: var(--h-spacing-2xs-mobile);
 }
 
-.hearth-column-spacing-xs {
+.h-column-spacing-xs {
   column-gap: var(--h-spacing-xs-mobile);
 }
 
-.hearth-column-spacing-sm {
+.h-column-spacing-sm {
   column-gap: var(--h-spacing-sm-mobile);
 }
 
-.hearth-column-spacing-md {
+.h-column-spacing-md {
   column-gap: var(--h-spacing-md-mobile);
 }
 
-.hearth-column-spacing-lg {
+.h-column-spacing-lg {
   column-gap: var(--h-spacing-lg-mobile);
 }
 
-.hearth-column-spacing-xl {
+.h-column-spacing-xl {
   column-gap: var(--h-spacing-xl-mobile);
 
   @media (--h-tablet) {
@@ -110,7 +110,7 @@
   }
 }
 
-.hearth-column-spacing-2xl {
+.h-column-spacing-2xl {
   column-gap: var(--h-spacing-2xl-mobile);
 
   @media (--h-desktop) {
