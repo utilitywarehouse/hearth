@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react
 
+## 0.21.1
+
+### Patch Changes
+
+- [#717](https://github.com/utilitywarehouse/hearth/pull/717) [`36fb968`](https://github.com/utilitywarehouse/hearth/commit/36fb968802bb364d57fd3f99e4be1857e86e9514) Thanks [@robphoenix](https://github.com/robphoenix)! - Add label variant
+
+- [#718](https://github.com/utilitywarehouse/hearth/pull/718) [`a6ba6b0`](https://github.com/utilitywarehouse/hearth/commit/a6ba6b095f97c903f240e98dc933dbbdc124c7f5) Thanks [@robphoenix](https://github.com/robphoenix)! - Add visible label to `SearchInput`
+
+- [#716](https://github.com/utilitywarehouse/hearth/pull/716) [`e754226`](https://github.com/utilitywarehouse/hearth/commit/e7542265dea0bdb79d6eb200c811fea75bd4a23d) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `2xl` heading size
+
+- [#712](https://github.com/utilitywarehouse/hearth/pull/712) [`8a384e0`](https://github.com/utilitywarehouse/hearth/commit/8a384e0b0e994ecb3a281fbbfb614dd8a230a73f) Thanks [@robphoenix](https://github.com/robphoenix)! - Update `Modal` padding
+
 ## 0.21.0
 
 ### Minor Changes
