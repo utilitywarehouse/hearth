@@ -3,9 +3,11 @@
 import * as React from 'react';
 import type { FC } from 'react';
 import { Toast as RadixToast } from 'radix-ui';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
-export type ToastProviderProps = ComponentPropsWithout<typeof RadixToast.Provider, RemovedProps>;
+export type ToastProviderProps = Omit<
+  React.ComponentPropsWithoutRef<typeof RadixToast.Provider>,
+  'asChild' | 'dir'
+>;
 
 const COMPONENT_NAME = 'ToastProvider';
 
