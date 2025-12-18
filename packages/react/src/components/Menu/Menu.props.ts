@@ -1,3 +1,6 @@
-import { DropdownMenu as RadixMenu } from 'radix-ui';
+import { DropdownMenu as MenuPrimitive } from 'radix-ui';
 
-export type MenuProps = Omit<RadixMenu.DropdownMenuProps, 'dir' | 'modal'> & {};
+export type MenuProps = Omit<
+  React.ComponentPropsWithRef<typeof MenuPrimitive.DropdownMenu>,
+  'dir' | 'modal'
+>;

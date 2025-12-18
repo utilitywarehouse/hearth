@@ -15,13 +15,14 @@ export const FormField: React.FC<FormFieldProps> = ({
   validationStatus,
   validationText,
   label,
+  labelVariant,
+  hideLabel,
   helperText,
   children,
   id,
   labelId,
   helperTextId,
   validationTextId,
-  hideLabel,
   required,
   ...props
 }) => {
@@ -39,7 +40,13 @@ export const FormField: React.FC<FormFieldProps> = ({
         className={`${componentClassName}LabelContainer`}
         data-visually-hidden={hideLabel ? '' : undefined}
       >
-        <Label htmlFor={id} id={labelId} disableUserSelect fontWeight="semibold">
+        <Label
+          htmlFor={id}
+          id={labelId}
+          disableUserSelect
+          fontWeight="semibold"
+          variant={labelVariant}
+        >
           {label}
           {required ? null : (
             <BodyText as="span" marginLeft="50">

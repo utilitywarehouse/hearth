@@ -1,3 +1,6 @@
-import { DropdownMenu as RadixMenu } from 'radix-ui';
+import { DropdownMenu as MenuPrimitive } from 'radix-ui';
 
-export type MenuTriggerProps = Omit<RadixMenu.DropdownMenuTriggerProps, 'asChild'> & {};
+export type MenuTriggerProps = Omit<
+  React.ComponentPropsWithRef<typeof MenuPrimitive.DropdownMenuTrigger>,
+  'asChild'
+>;

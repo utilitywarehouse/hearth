@@ -1,16 +1,15 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
-import { Tabs as RadixTabs } from 'radix-ui';
+import { Tabs as TabsPrimitive } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import type { TabProps } from './Tab.props';
+import type { TabProps } from './Tabs.props';
 
 const COMPONENT_NAME = 'Tab';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Tab: React.FC<TabProps> = ({ className, value, ...rest }) => (
-  <RadixTabs.Trigger className={clsx(componentClassName, className)} value={value} {...rest} />
+export const Tab = ({ className, ...props }: TabProps) => (
+  <TabsPrimitive.Trigger className={clsx(componentClassName, className)} {...props} />
 );
 
 Tab.displayName = COMPONENT_NAME;

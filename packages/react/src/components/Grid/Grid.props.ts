@@ -14,7 +14,6 @@ import { SizeProps } from '../../props/size.props';
 import { SpacingProps } from '../../props/spacing.props';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive, Union } from '../../types/responsive';
 
 const displayValues = ['none', 'inline-grid', 'grid'] as const;
@@ -87,7 +86,6 @@ interface CommonGridProps
     FlexItemProps,
     TextAlignProps,
     TextTransformProps {
-  as?: 'div' | 'span';
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    */
@@ -107,6 +105,6 @@ interface CommonGridProps
   justifyItems?: Responsive<(typeof justifyItemsValues)[number]>;
   justifyContent?: Responsive<(typeof justifyContentValues)[number]>;
 }
-type GridDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
-type GridSpanProps = { as: 'span' } & ComponentPropsWithout<'span', RemovedProps>;
+type GridDivProps = { as?: 'div' } & React.ComponentPropsWithRef<'div'>;
+type GridSpanProps = { as: 'span' } & React.ComponentPropsWithRef<'span'>;
 export type GridProps = CommonGridProps & (GridSpanProps | GridDivProps);

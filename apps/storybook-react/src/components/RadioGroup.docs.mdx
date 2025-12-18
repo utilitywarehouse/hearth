@@ -210,15 +210,17 @@ This component is based on the `fieldset` element and supports the following com
 
 - Margin
 
-| Prop               | Type                   |
-| ------------------ | ---------------------- |
-| `label`            | `string`               |
-| `helperText`       | `string`               |
-| `validationText`   | `string`               |
-| `validationStatus` | `"valid" \| "invalid"` |
-| `direction`        | `"column" \| "row"`    |
-| `columns`          | `Responsive<number>`   |
-| `contentWidth`     | `Responsive<string>`   |
+| Prop                  | Type                                  |
+| --------------------- | ------------------------------------- |
+| `label`               | `ReactNode`                           |
+| `labelVariant`        | `"body" \| "heading"`                 |
+| `helperText`          | `ReactNode`                           |
+| `validationText`      | `ReactNode`                           |
+| `validationStatus`    | `"undefined" \| "valid" \| "invalid"` |
+| `validationPlacement` | `"top" \| "bottom"`                   |
+| `direction`           | `"column" \| "row"`                   |
+| `columns`             | `Responsive<number>`                  |
+| `contentWidth`        | `Responsive<string>`                  |
 
 ## Radio & RadioTile API
 

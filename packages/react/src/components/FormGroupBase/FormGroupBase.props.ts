@@ -1,11 +1,8 @@
 import { MarginProps } from '../../props/margin.props';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import type { ReactNode } from 'react';
 import { ValidationTextProps } from '../ValidationText/ValidationText.props';
 
-export interface FormGroupBaseProps
-  extends ComponentPropsWithout<'fieldset', RemovedProps>,
-    MarginProps {
+export interface FormGroupBaseProps extends React.ComponentPropsWithRef<'fieldset'>, MarginProps {
   /**
    * The label for the formfield group. This should contain the question being
    * answered by the formfield group.
@@ -15,6 +12,10 @@ export interface FormGroupBaseProps
    * group.
    */
   label?: ReactNode;
+  /**
+   * Set the label variant
+   */
+  labelVariant?: 'body' | 'heading';
   /**
    * Helper text for the formfield group. Provides a hint such as specific
    * requirements for what to choose. When displayed, child

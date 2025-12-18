@@ -3,7 +3,6 @@
   outline: transparent;
   appearance: none;
   box-sizing: border-box;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -19,6 +18,7 @@
   height: var(--h-icon-button-size);
   width: var(--h-icon-button-size);
   color: var(--h-icon-button-unstyled-foreground-color);
+  cursor: pointer;
 
   &:where([data-inverted]) {
     color: var(--h-icon-button-unstyled-inverted-foreground-color);

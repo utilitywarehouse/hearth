@@ -1,18 +1,17 @@
 'use client';
 
-import * as React from 'react';
 import { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
-import { Tabs as RadixTabs } from 'radix-ui';
+import { Tabs as TabsPrimitive } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import type { TabsListProps } from './TabsList.props';
 import { ChevronLeftSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
+import type { TabsListProps } from './Tabs.props';
 
 const COMPONENT_NAME = 'TabsList';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest }) => {
+export const TabsList = ({ className, children, ...rest }: TabsListProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const scrollRef = useRef<HTMLDivElement | null>(null);
 
@@ -110,7 +109,7 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
   const handleScrollRight = useCallback(() => scrollBy(1), [scrollBy]);
 
   return (
-    <RadixTabs.List className={clsx(componentClassName, className)} {...rest}>
+    <TabsPrimitive.List className={clsx(componentClassName, className)} {...rest}>
       {canScrollLeft ? (
         <div className={`${componentClassName}ScrollButtonLeft`} aria-hidden>
           <UnstyledIconButton label="scroll left" tabIndex={-1} onClick={handleScrollLeft}>
@@ -144,7 +143,7 @@ export const TabsList: React.FC<TabsListProps> = ({ className, children, ...rest
           </UnstyledIconButton>
         </div>
       ) : null}
-    </RadixTabs.List>
+    </TabsPrimitive.List>
   );
 };
 

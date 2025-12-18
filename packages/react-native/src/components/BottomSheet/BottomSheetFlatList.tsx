@@ -18,7 +18,6 @@ const BottomSheetFlatList = ({
   });
 
   return (
-    // @ts-expect-error ts-migrate(2322) FIXME: Type '{ style: (ViewStyle | RegisteredStyle<ViewS...
     <StyledBottomSheetFlatList
       style={[styles.container, style]}
       contentContainerStyle={[styles.contentContainer, contentContainerStyle]}

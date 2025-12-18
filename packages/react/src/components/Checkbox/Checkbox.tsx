@@ -1,27 +1,23 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
 import type { CheckboxProps } from './Checkbox.props';
 import { Flex } from '../Flex/Flex';
 import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
-import type { ElementRef } from 'react';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { useIds } from '../../hooks/use-ids';
 import { marginPropDefs } from '../../props/margin.props';
 import { extractProps } from '../../helpers/extract-props';
-import { Checkbox as RadixCheckbox } from 'radix-ui';
+import { Checkbox as CheckboxPrimitive } from 'radix-ui';
 import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 
 const COMPONENT_NAME = 'Checkbox';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export type CheckboxElement = ElementRef<'button'>;
-
-export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props, ref) => {
+export const Checkbox = (props: CheckboxProps) => {
   const {
     id: providedId,
     label,
@@ -45,8 +41,7 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props,
 
   return (
     <Flex className={clsx(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
-      <RadixCheckbox.Root
-        ref={ref}
+      <CheckboxPrimitive.Root
         className="hearth-CheckboxRoot"
         name={checkboxContext?.name}
         checked={checked}
@@ -69,10 +64,10 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props,
           }
         }}
       >
-        <RadixCheckbox.Indicator asChild className="hearth-CheckboxIndicator">
+        <CheckboxPrimitive.Indicator asChild className="hearth-CheckboxIndicator">
           <TickSmallIcon />
-        </RadixCheckbox.Indicator>
-      </RadixCheckbox.Root>
+        </CheckboxPrimitive.Indicator>
+      </CheckboxPrimitive.Root>
       {showLabel ? (
         <Flex direction="column" gap="50">
           <Label id={labelId} htmlFor={id} disableUserSelect>
@@ -88,6 +83,6 @@ export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props,
       ) : null}
     </Flex>
   );
-});
+};
 
 Checkbox.displayName = COMPONENT_NAME;

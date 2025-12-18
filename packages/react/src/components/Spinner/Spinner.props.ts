@@ -1,6 +1,5 @@
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive } from '../../types/responsive';
 
 const sizes = ['xs', 'sm', 'md', 'lg'] as const;
@@ -14,7 +13,7 @@ export const spinnerPropDefs = {
   color: PropDef<(typeof colors)[number]>;
 };
 
-export interface SpinnerProps extends ComponentPropsWithout<'div', RemovedProps>, MarginProps {
+export interface SpinnerProps extends React.ComponentPropsWithRef<'div'>, MarginProps {
   /**
    * Sets the button height.
    * @default md

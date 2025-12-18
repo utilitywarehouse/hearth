@@ -1,11 +1,11 @@
 'use client';
 
-import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import React from 'react';
-import { switchPropDefs, SwitchProps } from './Switch.props';
+import { switchPropDefs } from './Switch.props';
+import type { SwitchProps } from './Switch.props';
 import clsx from 'clsx';
-import { Switch as RadixSwitch } from 'radix-ui';
+import { Switch as SwitchPrimitive } from 'radix-ui';
 import { extractProps } from '../../helpers/extract-props';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
@@ -15,9 +15,7 @@ import { marginPropDefs } from '../../props/margin.props';
 const COMPONENT_NAME = 'Switch';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type SwitchElement = ElementRef<'button'>;
-
-export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwardedRef) => {
+export const Switch = ({ ref: forwardedRef, ...props }: SwitchProps) => {
   const {
     className,
     label,
@@ -66,7 +64,7 @@ export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwa
           {label}
         </BodyText>
       ) : null}
-      <RadixSwitch.Root
+      <SwitchPrimitive.Root
         ref={switchRef}
         className={clsx('hearth-SwitchRoot', className)}
         id={id}
@@ -76,13 +74,13 @@ export const Switch = React.forwardRef<SwitchElement, SwitchProps>((props, forwa
         onCheckedChange={disabled ? undefined : onCheckedChange}
         {...switchProps}
       >
-        <RadixSwitch.Thumb className="hearth-SwitchThumb">
+        <SwitchPrimitive.Thumb className="hearth-SwitchThumb">
           <CloseSmallIcon className="hearth-CloseIcon" />
           <TickSmallIcon className="hearth-TickIcon" />
-        </RadixSwitch.Thumb>
-      </RadixSwitch.Root>
+        </SwitchPrimitive.Thumb>
+      </SwitchPrimitive.Root>
     </div>
   );
-});
+};
 
 Switch.displayName = COMPONENT_NAME;

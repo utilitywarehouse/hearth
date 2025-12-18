@@ -1,79 +1,86 @@
 'use client';
 
-import type { ElementRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import clsx from 'clsx';
-import React from 'react';
 import { TextInput } from '../TextInput/TextInput';
-import { TextInputSlot } from '../TextInputSlot/TextInputSlot';
+import { InputSlot } from '../InputSlot/InputSlot';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
-import { SearchInputProps } from './SearchInput.props';
+import type { SearchInputProps } from './SearchInput.props';
 import { Spinner } from '../Spinner/Spinner';
 import { CloseSmallIcon, SearchMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
+import * as React from 'react';
 
 const COMPONENT_NAME = 'SearchInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type SearchInputElement = ElementRef<'input'>;
+export const SearchInput = ({
+  className,
+  disabled,
+  value,
+  onClear,
+  loading,
+  hideLabel = true,
+  helperText,
+  id: providedId,
+  ref: forwardedRef,
+  ...props
+}: SearchInputProps) => {
+  const defaultRef = React.useRef<HTMLInputElement | null>(null);
+  const inputRef = forwardedRef || defaultRef;
 
-export const SearchInput = React.forwardRef<SearchInputElement, SearchInputProps>(
-  ({ className, disabled, value, onClear, loading, id: providedId, ...props }, forwardedRef) => {
-    const defaultRef = React.useRef<HTMLInputElement | null>(null);
-    const inputRef = forwardedRef || defaultRef;
+  const handleClear = React.useCallback(
+    (event: React.MouseEvent<HTMLButtonElement>) => {
+      if (typeof onClear !== 'function' || event.button !== 0) {
+        return;
+      }
+      onClear();
 
-    const handleClear = React.useCallback(
-      (event: React.MouseEvent<HTMLButtonElement>) => {
-        if (typeof onClear !== 'function' || event.button !== 0) {
-          return;
-        }
-        onClear();
+      if (inputRef && typeof inputRef === 'object' && inputRef.current) {
+        inputRef.current.focus();
+      }
+    },
+    [inputRef, onClear]
+  );
 
-        if (inputRef && typeof inputRef === 'object' && inputRef.current) {
-          inputRef.current.focus();
-        }
-      },
-      [inputRef, onClear]
-    );
+  const { id } = useIds({ providedId, prefix: 'search-input' });
 
-    const { id } = useIds({ providedId, prefix: 'search-input' });
-
-    return (
-      <TextInput
-        ref={inputRef}
-        className={clsx(componentClassName, className)}
-        type="search"
-        role="search"
-        enterKeyHint="search"
-        disabled={disabled}
-        hideLabel
-        value={value}
-        id={id}
-        {...props}
-      >
-        <TextInputSlot placement="prefix">
-          <SearchMediumIcon />
-        </TextInputSlot>
-        {loading ? (
-          <TextInputSlot placement="suffix">
-            <Spinner size="xs" color="primary" />
-          </TextInputSlot>
-        ) : null}
-        {value !== undefined && String(value).length > 0 ? (
-          <TextInputSlot placement="suffix">
-            <UnstyledIconButton
-              type="button"
-              label="clear search"
-              onClick={handleClear}
-              disabled={disabled}
-            >
-              <CloseSmallIcon />
-            </UnstyledIconButton>
-          </TextInputSlot>
-        ) : null}
-      </TextInput>
-    );
-  }
-);
+  return (
+    <TextInput
+      ref={inputRef}
+      className={clsx(componentClassName, className)}
+      type="search"
+      role="search"
+      enterKeyHint="search"
+      disabled={disabled}
+      hideLabel={hideLabel}
+      helperText={helperText}
+      value={value}
+      id={id}
+      {...props}
+    >
+      <InputSlot placement="prefix">
+        <SearchMediumIcon />
+      </InputSlot>
+      {loading ? (
+        <InputSlot placement="suffix">
+          <Spinner size="xs" color="primary" />
+        </InputSlot>
+      ) : null}
+      {value !== undefined && String(value).length > 0 ? (
+        <InputSlot placement="suffix">
+          <UnstyledIconButton
+            type="button"
+            label="clear search"
+            onClick={handleClear}
+            disabled={disabled}
+          >
+            <CloseSmallIcon />
+          </UnstyledIconButton>
+        </InputSlot>
+      ) : null}
+    </TextInput>
+  );
+};
 
 SearchInput.displayName = COMPONENT_NAME;

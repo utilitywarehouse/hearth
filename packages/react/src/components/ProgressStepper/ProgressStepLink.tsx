@@ -1,37 +1,42 @@
 'use client';
 
-import * as React from 'react';
-import type { ElementRef } from 'react';
-
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Link } from '../Link/Link';
-import type { ProgressStepLinkProps } from './ProgressStepLink.props';
-import { ProgressStepContent } from './ProgressStepContent';
-import { ProgressStepContext } from './ProgressStep.context';
+import clsx from 'clsx';
+import type { ProgressStepLinkProps } from './ProgressStep.props';
+import { ProgressStep } from './ProgressStep';
 
 const COMPONENT_NAME = 'ProgressStepLink';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type ProgressStepLinkElement = ElementRef<'a'>;
+export const ProgressStepLink = ({
+  children,
+  label,
+  className,
+  status,
+  disabled,
+  href,
+  'aria-label': ariaLabel,
+  ...props
+}: ProgressStepLinkProps) => {
+  const isActive = status === 'active';
 
-export const ProgressStepLink = React.forwardRef<ProgressStepLinkElement, ProgressStepLinkProps>(
-  ({ label, ...props }, ref) => {
-    const stepContext = React.useContext(ProgressStepContext);
-
-    const isInteractive = stepContext?.status === 'complete';
-
-    // Render as non-interactive content if not complete
-    if (!isInteractive) {
-      return <ProgressStepContent label={label} />;
-    }
-
-    // Render as interactive link if complete
-    return (
-      <Link ref={ref} className={componentClassName} {...props}>
-        {label}
-      </Link>
-    );
-  }
-);
+  return (
+    <ProgressStep
+      status={status}
+      className={clsx(componentClassName, className)}
+      aria-label={ariaLabel}
+      label={label}
+    >
+      {isActive ? (
+        children
+      ) : (
+        <Link {...props} href={disabled ? undefined : href} role="link" aria-disabled={disabled}>
+          {children}
+        </Link>
+      )}
+    </ProgressStep>
+  );
+};
 
 ProgressStepLink.displayName = COMPONENT_NAME;

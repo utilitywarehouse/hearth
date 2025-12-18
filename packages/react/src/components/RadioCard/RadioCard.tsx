@@ -1,22 +1,18 @@
 'use client';
 
-import * as React from 'react';
 import clsx from 'clsx';
-import type { ElementRef } from 'react';
 import type { RadioCardProps } from './RadioCard.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { useIds } from '../../hooks/use-ids';
 import { Label } from '../Label/Label';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
-import { RadioGroup as RadixRadioGroup } from 'radix-ui';
+import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
 
 const COMPONENT_NAME = 'RadioCard';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type RadioCardElement = ElementRef<'button'>;
-
-export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>((props, ref) => {
+export const RadioCard = (props: RadioCardProps) => {
   const {
     className,
     children,
@@ -28,8 +24,7 @@ export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>((pro
   } = extractProps(props, marginPropDefs);
   const { id, labelId } = useIds({ providedId, prefix: 'radio' });
   return (
-    <RadixRadioGroup.Item
-      ref={ref}
+    <RadioGroupPrimitive.Item
       className={clsx(componentClassName, className)}
       {...radioCardProps}
       id={id}
@@ -37,7 +32,7 @@ export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>((pro
     >
       <div className="hearth-RadioContainer">
         <div className="hearth-RadioItem">
-          <RadixRadioGroup.Indicator className="hearth-RadioIndicator" />
+          <RadioGroupPrimitive.Indicator className="hearth-RadioIndicator" />
         </div>
         <Label id={labelId} htmlFor={id} disableUserSelect fontWeight="semibold">
           {image}
@@ -45,8 +40,8 @@ export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>((pro
         </Label>
       </div>
       {children}
-    </RadixRadioGroup.Item>
+    </RadioGroupPrimitive.Item>
   );
-});
+};
 
 RadioCard.displayName = COMPONENT_NAME;

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { HelperText } from '../HelperText/HelperText';
 import { Flex } from '../Flex/Flex';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -9,7 +8,7 @@ import { BodyText } from '../BodyText/BodyText';
 const COMPONENT_NAME = 'ListItemContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const ListItemContent: React.FC<ListItemContentProps> = ({
+export const ListItemContent = ({
   heading,
   leadingContent,
   trailingContent,
@@ -18,7 +17,7 @@ export const ListItemContent: React.FC<ListItemContentProps> = ({
   badge,
   badgePlacement = 'bottom',
   children,
-}) => {
+}: ListItemContentProps) => {
   return (
     <div className={clsx(componentClassName, className)}>
       {children ? (

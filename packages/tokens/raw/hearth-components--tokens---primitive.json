@@ -865,9 +865,17 @@
         "type": "number",
         "value": 40
       },
+      "575": {
+        "type": "number",
+        "value": 44
+      },
       "600": {
         "type": "number",
         "value": 48
+      },
+      "650": {
+        "type": "number",
+        "value": 54
       },
       "700": {
         "type": "number",
@@ -1024,9 +1032,17 @@
       "type": "number",
       "value": 48
     },
+    "975": {
+      "type": "number",
+      "value": 52
+    },
     "1000": {
       "type": "number",
       "value": 56
+    },
+    "1050": {
+      "type": "number",
+      "value": 62
     },
     "1100": {
       "type": "number",

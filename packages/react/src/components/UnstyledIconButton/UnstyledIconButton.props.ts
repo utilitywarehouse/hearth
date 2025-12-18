@@ -1,5 +1,4 @@
 import { PropDef } from '../../props/prop-def';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { Responsive } from '../../types/responsive';
 import { IconButtonProps } from '../IconButton/IconButton.props';
 
@@ -11,7 +10,7 @@ export const unstyledIconButtonPropDefs = {
   size: PropDef<(typeof sizes)[number]>;
 };
 
-export type UnstyledIconButtonProps = ComponentPropsWithout<'button', RemovedProps> &
+export type UnstyledIconButtonProps = React.ComponentPropsWithRef<'button'> &
   Pick<IconButtonProps, 'label' | 'loading' | 'asChild'> & {
     /**
      * Sets the button height.

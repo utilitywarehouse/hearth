@@ -1,11 +1,10 @@
 'use client';
 
-import type { ElementRef } from 'react';
 import * as React from 'react';
 import clsx from 'clsx';
 import { extractProps } from '../../helpers/extract-props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { AlertProps } from './Alert.props';
+import type { AlertProps } from './Alert.props';
 import {
   CloseSmallIcon,
   InfoMediumIcon,
@@ -20,9 +19,7 @@ import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 const COMPONENT_NAME = 'Alert';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type AlertElement = ElementRef<'div'>;
-
-export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => {
+export const Alert = (props: AlertProps) => {
   const icons = {
     info: InfoMediumIcon,
     positive: TickCircleMediumIcon,
@@ -43,7 +40,6 @@ export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => 
 
   return (
     <div
-      ref={ref}
       className={clsx(componentClassName, className)}
       role="alert" // Adding role for dynamic alerts
       aria-live="assertive" // Making it announced immediately
@@ -75,6 +71,6 @@ export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => 
       ) : null}
     </div>
   );
-});
+};
 
 Alert.displayName = COMPONENT_NAME;

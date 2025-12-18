@@ -1,13 +1,10 @@
 'use client';
 
-import * as React from 'react';
-import type { ElementRef } from 'react';
-
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { mergeIds } from '../../helpers/merge-ids';
 import { useIds } from '../../hooks/use-ids';
-import { TextAreaProps } from './TextArea.props';
+import type { TextAreaProps } from './TextArea.props';
 import { Flex } from '../Flex/Flex';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
@@ -16,14 +13,13 @@ import { FormField } from '../FormField/FormField';
 const COMPONENT_NAME = 'TextArea';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type TextAreaElement = ElementRef<'textarea'>;
-
-export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props, ref) => {
+export const TextArea = (props: TextAreaProps) => {
   const {
     className,
     validationStatus,
     validationText,
     label,
+    labelVariant,
     helperText,
     id: providedId,
     disabled,
@@ -49,6 +45,7 @@ export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props,
     helperTextId,
     validationTextId,
     label,
+    labelVariant,
     helperText,
     validationText: showValidation ? validationText : undefined,
     validationStatus: showValidation ? validationStatus : undefined,
@@ -70,7 +67,6 @@ export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props,
     >
       <Flex direction="column" className="hearth-TextAreaRoot">
         <textarea
-          ref={ref}
           id={id}
           rows={rows}
           required={required}
@@ -87,6 +83,6 @@ export const TextArea = React.forwardRef<TextAreaElement, TextAreaProps>((props,
       </Flex>
     </FormField>
   );
-});
+};
 
 TextArea.displayName = COMPONENT_NAME;

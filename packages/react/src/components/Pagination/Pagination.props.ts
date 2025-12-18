@@ -1,5 +1,4 @@
 import { MarginProps } from '../../props/margin.props';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 
 interface CommonPaginationProps extends MarginProps {
   /**
@@ -31,7 +30,7 @@ interface CommonPaginationProps extends MarginProps {
   hideSkipButtons?: boolean;
 }
 
-type PaginationDivProps = { as?: 'div' } & ComponentPropsWithout<'div', RemovedProps>;
-type PaginationNavProps = { as: 'nav' } & ComponentPropsWithout<'nav', RemovedProps>;
+type PaginationDivProps = { as?: 'div' } & React.ComponentPropsWithRef<'div'>;
+type PaginationNavProps = { as: 'nav' } & React.ComponentPropsWithRef<'nav'>;
 
 export type PaginationProps = CommonPaginationProps & (PaginationDivProps | PaginationNavProps);

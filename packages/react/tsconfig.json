@@ -26,7 +26,7 @@
       "dom",
       "dom.iterable"
     ],
-    "jsx": "react",
+    "jsx": "react-jsx",
     "emitDeclarationOnly": true,
     "types": [
       "node"
@@ -35,7 +35,7 @@
   "exclude": [
     "dist",
     "node_modules",
-    "./src/**/*.figma.tsx",
+    "./src/figma/**",
   ],
   "include": [
     "src/**/*"

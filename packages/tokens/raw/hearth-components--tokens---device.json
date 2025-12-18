@@ -392,6 +392,23 @@
         }
       },
       "heading": {
+        "2xl": {
+          "font-size": {
+            "alias": "{font.size.650}",
+            "type": "number",
+            "value": 54
+          },
+          "font-weight": {
+            "alias": "{font.weight.bold}",
+            "type": "number",
+            "value": 700
+          },
+          "line-height": {
+            "alias": "{line-height.1050}",
+            "type": "number",
+            "value": 62
+          }
+        },
         "font-family": {
           "alias": "{font.family.heading}",
           "type": "string",
@@ -866,6 +883,23 @@
         }
       },
       "heading": {
+        "2xl": {
+          "font-size": {
+            "alias": "{font.size.575}",
+            "type": "number",
+            "value": 44
+          },
+          "font-weight": {
+            "alias": "{font.weight.bold}",
+            "type": "number",
+            "value": 700
+          },
+          "line-height": {
+            "alias": "{line-height.975}",
+            "type": "number",
+            "value": 52
+          }
+        },
         "font-family": {
           "alias": "{font.family.heading}",
           "type": "string",
@@ -1340,6 +1374,23 @@
         }
       },
       "heading": {
+        "2xl": {
+          "font-size": {
+            "alias": "{font.size.575}",
+            "type": "number",
+            "value": 44
+          },
+          "font-weight": {
+            "alias": "{font.weight.bold}",
+            "type": "number",
+            "value": 700
+          },
+          "line-height": {
+            "alias": "{line-height.975}",
+            "type": "number",
+            "value": 52
+          }
+        },
         "font-family": {
           "alias": "{font.family.heading}",
           "type": "string",

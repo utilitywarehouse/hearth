@@ -1,10 +1,11 @@
 import { MarginProps } from '../../props/margin.props';
-import { ComponentPropsWithout, RemovedProps } from '../../types/component-props';
 import { FormFieldProps } from '../FormField/FormField.props';
 
+type ElementProps = Omit<React.ComponentPropsWithRef<'textarea'>, 'value'>;
+
 export interface TextAreaProps
-  extends ComponentPropsWithout<'textarea', RemovedProps | 'value' | keyof FormFieldProps>,
-    Omit<FormFieldProps, 'hideLabel'>,
+  extends ElementProps,
+    Omit<FormFieldProps, 'hideLabel' | keyof ElementProps>,
     MarginProps {
   /**
    * The controlled value of the TextArea. Must be used with an `onChange` handler.

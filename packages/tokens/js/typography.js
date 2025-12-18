@@ -63,6 +63,11 @@ export const mobile = {
     },
   },
   heading: {
+    '2xl': {
+      fontSize: 44,
+      fontWeight: 700,
+      lineHeight: 52,
+    },
     fontFamily: 'Comic Hams',
     lg: {
       fontSize: 24,
@@ -149,6 +154,11 @@ export const tablet = {
     },
   },
   heading: {
+    '2xl': {
+      fontSize: 44,
+      fontWeight: 700,
+      lineHeight: 52,
+    },
     fontFamily: 'Comic Hams',
     lg: {
       fontSize: 24,
@@ -235,6 +245,11 @@ export const desktop = {
     },
   },
   heading: {
+    '2xl': {
+      fontSize: 54,
+      fontWeight: 700,
+      lineHeight: 62,
+    },
     fontFamily: 'Comic Hams',
     lg: {
       fontSize: 30,

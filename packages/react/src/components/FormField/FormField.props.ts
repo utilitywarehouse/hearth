@@ -1,9 +1,7 @@
-import { ReactNode } from 'react';
 import { InputBaseProps } from '../InputBase/InputBase.props';
+import { LabelProps } from '../Label/Label.props';
 
-export interface FormFieldProps {
-  className?: string;
-  children?: ReactNode;
+export interface FormFieldProps extends Omit<React.ComponentPropsWithRef<'div'>, 'defaultValue'> {
   id?: string;
   labelId?: string;
   helperTextId?: string;
@@ -13,6 +11,14 @@ export interface FormFieldProps {
    * The label for the form field, describing its purpose.
    */
   label: string;
+  /**
+   * Visually hide the label.
+   */
+  hideLabel?: boolean;
+  /**
+   * Change the label variant
+   */
+  labelVariant?: LabelProps['variant'];
   /**
    * Optional helper text to provide additional context or instructions.
    */
@@ -25,8 +31,4 @@ export interface FormFieldProps {
    * Indicates the validation status.
    */
   validationStatus?: 'valid' | 'invalid';
-  /**
-   * Visually hide the label.
-   */
-  hideLabel?: boolean;
 }

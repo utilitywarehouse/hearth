@@ -6,5 +6,29 @@
   & :where(.hearth-DescriptionListContainer) {
     flex-direction: column;
     gap: var(--h-description-list-stack-gap);
+
+    & :where(.hearth-DescriptionListItem) {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: var(--h-description-list-item-gap);
+
+      & :where(.hearth-Flex) {
+        column-gap: var(--h-description-list-item-row-gap);
+
+        & :where(.hearth-Flex) {
+          flex-direction: column;
+        }
+      }
+
+      dt {
+        width: var(--h-description-list-item-row-heading-width);
+        color: var(--h-text-secondary);
+      }
+
+      dd {
+        color: var(--h-text-primary);
+      }
+    }
   }
 }

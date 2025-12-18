@@ -511,8 +511,14 @@ export const components = {
     borderRadius: 'var(--h-modal-border-radius)',
     content: {
       gap: 'var(--h-modal-content-gap)',
+      mobile: {
+        paddingBottom: 'var(--h-modal-content-mobile-padding-bottom)',
+      },
     },
     gap: 'var(--h-modal-gap)',
+    handle: {
+      paddingBottom: 'var(--h-modal-handle-padding-bottom)',
+    },
     heading: {
       gap: 'var(--h-modal-heading-gap)',
     },
@@ -531,6 +537,7 @@ export const components = {
       borderRadiusNone: 'var(--h-navigation-bar-border-radius-none)',
       borderRadiusRounded: 'var(--h-navigation-bar-border-radius-rounded)',
     },
+    borderBottom: 'var(--h-navigation-border-bottom)',
     borderRadius: 'var(--h-navigation-border-radius)',
     desktop: {
       height: 'var(--h-navigation-desktop-height)',
@@ -932,6 +939,19 @@ export const components = {
     },
   },
   heading: {
+    '2xl': {
+      fontSize: {
+        desktop: 'var(--h-heading-2xl-font-size-desktop)',
+        mobile: 'var(--h-heading-2xl-font-size-mobile)',
+        tablet: 'var(--h-heading-2xl-font-size-tablet)',
+      },
+      lineHeight: {
+        desktop: 'var(--h-heading-2xl-line-height-desktop)',
+        mobile: 'var(--h-heading-2xl-line-height-mobile)',
+        tablet: 'var(--h-heading-2xl-line-height-tablet)',
+      },
+      fontWeight: 'var(--h-heading-2xl-font-weight)',
+    },
     lg: {
       fontSize: {
         desktop: 'var(--h-heading-lg-font-size-desktop)',

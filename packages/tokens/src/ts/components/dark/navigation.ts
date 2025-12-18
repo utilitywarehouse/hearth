@@ -7,6 +7,7 @@ export default {
     borderRadiusNone: 0,
     borderRadiusRounded: 4,
   },
+  borderBottom: '#5c2ca9',
   borderRadius: 6,
   desktop: {
     height: 88,
