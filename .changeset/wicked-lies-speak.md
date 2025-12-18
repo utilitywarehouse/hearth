@@ -1,5 +1,5 @@
 ---
-'@utilitywarehouse/hearth-react': minor
+'@utilitywarehouse/hearth-react': patch
 ---
 
 Export breakpoints.css
