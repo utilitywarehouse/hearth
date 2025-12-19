@@ -20,6 +20,7 @@ import { borderColorPropDefs } from '../../props/border-color.props';
 import { borderRadiusPropDefs } from '../../props/border-radius.props';
 import { borderStylePropDefs } from '../../props/border-style.props';
 import { borderWidthPropDefs } from '../../props/border-width.props';
+import { zIndexPropDefs } from '../../props/z-index.props';
 
 const COMPONENT_NAME = 'Box';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -47,7 +48,8 @@ export const Box = (props: BoxProps) => {
     gridItemPropDefs,
     flexItemPropDefs,
     textAlignPropDefs,
-    textTransformPropDefs
+    textTransformPropDefs,
+    zIndexPropDefs
   );
   return (
     <Slot.Root className={clsx(componentClassName, className)} {...boxProps}>

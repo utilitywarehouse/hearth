@@ -24,6 +24,7 @@ import { alignItemsPropDefs } from '../../props/align-items.props';
 import { justifyContentPropDefs } from '../../props/justify-content.props';
 import { borderStylePropDefs } from '../../props/border-style.props';
 import { borderWidthPropDefs } from '../../props/border-width.props';
+import { zIndexPropDefs } from '../../props/z-index.props';
 
 const COMPONENT_NAME = 'Flex';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -55,7 +56,8 @@ export const Flex = (props: FlexProps) => {
     flexItemPropDefs,
     spacingPropDefs,
     textAlignPropDefs,
-    textTransformPropDefs
+    textTransformPropDefs,
+    zIndexPropDefs
   );
 
   return (

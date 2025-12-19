@@ -13,6 +13,7 @@ import { PropDef } from '../../props/prop-def';
 import { SizeProps } from '../../props/size.props';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
+import { ZIndexProps } from '../../props/z-index.props';
 import { Responsive } from '../../types/responsive';
 
 const displayValues = ['none', 'inline', 'inline-block', 'block'] as const;
@@ -37,7 +38,8 @@ interface CommonBoxProps
     GridItemProps,
     FlexItemProps,
     TextAlignProps,
-    TextTransformProps {
+    TextTransformProps,
+    ZIndexProps {
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    */

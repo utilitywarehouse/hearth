@@ -18,6 +18,7 @@ import { SizeProps } from '../../props/size.props';
 import { SpacingProps } from '../../props/spacing.props';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
+import { ZIndexProps } from '../../props/z-index.props';
 import { Responsive } from '../../types/responsive';
 
 const displayValues = ['none', 'inline-flex', 'flex'] as const;
@@ -53,7 +54,8 @@ interface CommonFlexProps
     GridItemProps,
     FlexItemProps,
     TextAlignProps,
-    TextTransformProps {
+    TextTransformProps,
+    ZIndexProps {
   asChild?: boolean;
   display?: Responsive<(typeof displayValues)[number]>;
   direction?: Responsive<(typeof directionValues)[number]>;

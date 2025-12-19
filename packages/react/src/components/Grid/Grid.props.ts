@@ -18,6 +18,7 @@ import { SizeProps } from '../../props/size.props';
 import { SpacingProps } from '../../props/spacing.props';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
+import { ZIndexProps } from '../../props/z-index.props';
 import { Responsive, Union } from '../../types/responsive';
 
 const displayValues = ['none', 'inline-grid', 'grid'] as const;
@@ -127,7 +128,8 @@ interface CommonGridProps
     GridItemProps,
     FlexItemProps,
     TextAlignProps,
-    TextTransformProps {
+    TextTransformProps,
+    ZIndexProps {
   /**
    * When `true`, renders the Grid as a `Slot` so that its props are
    * forwarded to the child element instead of rendering a DOM node.
