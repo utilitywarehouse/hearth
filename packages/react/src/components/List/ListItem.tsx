@@ -42,6 +42,7 @@ export const ListItem = ({
     rowGap,
     columnGap,
   };
+
   return (
     <Flex asChild {...flexProps}>
       <BodyText size="lg" asChild className={clsx(componentClassName, className)}>

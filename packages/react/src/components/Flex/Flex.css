@@ -3,4 +3,34 @@
   display: flex;
   justify-content: flex-start;
   align-items: stretch;
+
+  @breakpoints {
+    &:where(.h-r-flex-d-row) {
+      flex-direction: row;
+    }
+
+    &:where(.h-r-flex-d-column) {
+      flex-direction: column;
+    }
+
+    &:where(.h-r-flex-d-row-reverse) {
+      flex-direction: row-reverse;
+    }
+
+    &:where(.h-r-flex-d-column-reverse) {
+      flex-direction: column-reverse;
+    }
+
+    &:where(.h-r-flex-w-nowrap) {
+      flex-wrap: nowrap;
+    }
+
+    &:where(.h-r-flex-w-wrap) {
+      flex-wrap: wrap;
+    }
+
+    &:where(.h-r-flex-w-wrap-reverse) {
+      flex-wrap: wrap-reverse;
+    }
+  }
 }

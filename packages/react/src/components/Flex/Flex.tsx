@@ -16,11 +16,14 @@ import { flexItemPropDefs } from '../../props/flex-item.props';
 import { spacingPropDefs } from '../../props/spacing.props';
 import { backgroundColorPropDefs } from '../../props/background-color.props';
 import { positionPropDefs } from '../../props/position.props';
-import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { borderColorPropDefs } from '../../props/border-color.props';
 import { borderRadiusPropDefs } from '../../props/border-radius.props';
+import { alignItemsPropDefs } from '../../props/align-items.props';
+import { justifyContentPropDefs } from '../../props/justify-content.props';
+import { borderStylePropDefs } from '../../props/border-style.props';
+import { borderWidthPropDefs } from '../../props/border-width.props';
 
 const COMPONENT_NAME = 'Flex';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -35,6 +38,8 @@ export const Flex = (props: FlexProps) => {
   } = extractProps(
     props,
     flexPropDefs,
+    alignItemsPropDefs,
+    justifyContentPropDefs,
     positionPropDefs,
     paddingPropDefs,
     marginPropDefs,
@@ -42,7 +47,8 @@ export const Flex = (props: FlexProps) => {
     backgroundColorPropDefs,
     sizePropDefs,
     gapPropDefs,
-    borderPropDefs,
+    borderStylePropDefs,
+    borderWidthPropDefs,
     borderRadiusPropDefs,
     borderColorPropDefs,
     gridItemPropDefs,

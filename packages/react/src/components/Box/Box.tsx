@@ -14,11 +14,12 @@ import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
 import { backgroundColorPropDefs } from '../../props/background-color.props';
 import { positionPropDefs } from '../../props/position.props';
-import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { borderColorPropDefs } from '../../props/border-color.props';
 import { borderRadiusPropDefs } from '../../props/border-radius.props';
+import { borderStylePropDefs } from '../../props/border-style.props';
+import { borderWidthPropDefs } from '../../props/border-width.props';
 
 const COMPONENT_NAME = 'Box';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -39,7 +40,8 @@ export const Box = (props: BoxProps) => {
     backgroundColorPropDefs,
     marginPropDefs,
     sizePropDefs,
-    borderPropDefs,
+    borderStylePropDefs,
+    borderWidthPropDefs,
     borderRadiusPropDefs,
     borderColorPropDefs,
     gridItemPropDefs,

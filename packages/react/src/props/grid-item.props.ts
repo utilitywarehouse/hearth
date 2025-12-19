@@ -1,10 +1,10 @@
 import { Responsive, Union } from '../types/responsive';
 import { PropDef } from './prop-def';
 
-const columnsValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'] as const;
+const values = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'] as const;
 
-const gridItemPropDefs = {
-  gridColumnSpan: { className: 'grid-c-span', tokens: columnsValues, responsive: true },
+export const gridItemPropDefs = {
+  gridColumnSpan: { className: 'grid-c-span', tokens: values, responsive: true },
   gridArea: { className: 'grid-a', responsive: true },
   gridColumn: { className: 'grid-c', responsive: true },
   gridColumnStart: { className: 'grid-cs', responsive: true },
@@ -13,7 +13,7 @@ const gridItemPropDefs = {
   gridRowStart: { className: 'grid-rs', responsive: true },
   gridRowEnd: { className: 'grid-re', responsive: true },
 } satisfies {
-  gridColumnSpan: PropDef<(typeof columnsValues)[number]>;
+  gridColumnSpan: PropDef<(typeof values)[number]>;
   gridArea: PropDef<string>;
   gridColumn: PropDef<string>;
   gridColumnStart: PropDef<string>;
@@ -23,8 +23,8 @@ const gridItemPropDefs = {
   gridRowEnd: PropDef<string>;
 };
 
-interface GridItemProps {
-  gridColumnSpan?: Responsive<Union<string, (typeof columnsValues)[number]>>;
+export interface GridItemProps {
+  gridColumnSpan?: Responsive<Union<string, (typeof values)[number]>>;
   gridArea?: Responsive<string>;
   gridColumn?: Responsive<string>;
   gridColumnStart?: Responsive<string>;
@@ -33,6 +33,3 @@ interface GridItemProps {
   gridRowStart?: Responsive<string>;
   gridRowEnd?: Responsive<string>;
 }
-
-export { gridItemPropDefs };
-export type { GridItemProps };

@@ -1,31 +1,31 @@
 /* stylelint-disable csstools/value-no-unknown-custom-properties */
 @breakpoints {
   .h-r-m {
-    margin: var(--h-r-margin);
+    margin: var(--h-r-m);
   }
 
   .h-r-mt {
-    margin-top: var(--h-r-margin-top);
+    margin-top: var(--h-r-mt);
   }
 
   .h-r-mr {
-    margin-right: var(--h-r-margin-right);
+    margin-right: var(--h-r-mr);
   }
 
   .h-r-mb {
-    margin-bottom: var(--h-r-margin-bottom);
+    margin-bottom: var(--h-r-mb);
   }
 
   .h-r-ml {
-    margin-left: var(--h-r-margin-left);
+    margin-left: var(--h-r-ml);
   }
 
   .h-r-mx {
-    margin-inline: var(--h-r-margin-inline);
+    margin-inline: var(--h-r-mx);
   }
 
   .h-r-my {
-    margin-block: var(--h-r-margin-block);
+    margin-block: var(--h-r-my);
   }
 
   .h-r-m-auto {

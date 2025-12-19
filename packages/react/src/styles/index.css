@@ -9,4 +9,5 @@
 
 /* utilities */
 @import url('./breakpoints.css');
+@import url('./common/index.css');
 @import url('./utilities/index.css');

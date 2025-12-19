@@ -16,11 +16,15 @@ import { flexItemPropDefs } from '../../props/flex-item.props';
 import { spacingPropDefs } from '../../props/spacing.props';
 import { backgroundColorPropDefs } from '../../props/background-color.props';
 import { positionPropDefs } from '../../props/position.props';
-import { borderPropDefs } from '../../props/border.props';
 import { textAlignPropDefs } from '../../props/text-align.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { borderColorPropDefs } from '../../props/border-color.props';
 import { borderRadiusPropDefs } from '../../props/border-radius.props';
+import { alignItemsPropDefs } from '../../props/align-items.props';
+import { alignContentPropDefs } from '../../props/align-content.props';
+import { justifyContentPropDefs } from '../../props/justify-content.props';
+import { borderStylePropDefs } from '../../props/border-style.props';
+import { borderWidthPropDefs } from '../../props/border-width.props';
 
 const COMPONENT_NAME = 'Grid';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -36,6 +40,9 @@ export const Grid = (props: GridProps) => {
   } = extractProps(
     props,
     gridPropDefs,
+    alignItemsPropDefs,
+    alignContentPropDefs,
+    justifyContentPropDefs,
     positionPropDefs,
     paddingPropDefs,
     marginPropDefs,
@@ -43,7 +50,8 @@ export const Grid = (props: GridProps) => {
     backgroundColorPropDefs,
     gapPropDefs,
     sizePropDefs,
-    borderPropDefs,
+    borderStylePropDefs,
+    borderWidthPropDefs,
     borderRadiusPropDefs,
     borderColorPropDefs,
     gridItemPropDefs,
