@@ -10,7 +10,7 @@ export const justifyContentPropDefs = {
 };
 
 export interface JustifyContentProps {
-  /*
+  /**
    * For flexboxes, the stretch value behaves as flex-start or start.
    * This is because, in flexboxes, stretching is controlled using the flex-grow property.
    */
