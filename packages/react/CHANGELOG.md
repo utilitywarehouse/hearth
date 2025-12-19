@@ -1,5 +1,51 @@
 # @utilitywarehouse/hearth-react
 
+## 0.22.0
+
+### Minor Changes
+
+- [#710](https://github.com/utilitywarehouse/hearth/pull/710) [`c354913`](https://github.com/utilitywarehouse/hearth/commit/c354913e1bd2e33b615a68b993432e40399d1c16) Thanks [@robphoenix](https://github.com/robphoenix)! - Breaking changes to `borderRadius` props. The following props have been removed:
+
+  - `borderTopLeftRadius`
+  - `borderTopRightRadius`
+  - `borderBottomLeftRadius`
+  - `borderBottomRightRadius`
+
+  These have been replaced with the following props:
+
+  - `borderRadiusTopLeftNone`
+  - `borderRadiusTopRightNone`
+  - `borderRadiusTopNone`
+  - `borderRadiusBottomLeftNone`
+  - `borderRadiusBottomRightNone`
+  - `borderRadiusBottomNone`
+
+  If you were using the above removed props previously, you can now set your
+  desired border-radius using `borderRadius` and override any sides or corners you
+  do not need it applied to:
+
+  ```diff
+  - <Box borderTopLeftRadius='lg' borderTopRightRadius='lg' />
+  + <Box borderRadius='lg' borderRadiusBottomNone />
+  ```
+
+- [#710](https://github.com/utilitywarehouse/hearth/pull/710) [`c354913`](https://github.com/utilitywarehouse/hearth/commit/c354913e1bd2e33b615a68b993432e40399d1c16) Thanks [@robphoenix](https://github.com/robphoenix)! - Breaking changes to padding & margin props. These were made for better
+  readability and familiarity with prop naming conventions.
+
+  Rename `marginInline` & `marginBlock` to `marginX` & `marginY`
+  Rename `paddingInline` & `paddingBlock` to `paddingX` & `paddingY`
+
+  ```diff
+  - <Box marginInline="200" marginBlock="200" paddingInline="200" paddingBlock="200" />
+  + <Box marginX="200" marginY="200" paddingX="200" paddingY="200" />
+  ```
+
+### Patch Changes
+
+- [#710](https://github.com/utilitywarehouse/hearth/pull/710) [`c354913`](https://github.com/utilitywarehouse/hearth/commit/c354913e1bd2e33b615a68b993432e40399d1c16) Thanks [@robphoenix](https://github.com/robphoenix)! - Export breakpoints.css
+
+- [#721](https://github.com/utilitywarehouse/hearth/pull/721) [`eb8a8c1`](https://github.com/utilitywarehouse/hearth/commit/eb8a8c125173cd126794f5737f34e3e1f0011212) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `zIndex` & `overflow` props
+
 ## 0.21.1
 
 ### Patch Changes
