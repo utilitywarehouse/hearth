@@ -84,7 +84,7 @@ export default meta;
 type Story = StoryObj<typeof Box>;
 
 export const Playground: Story = {
-  render: args => <Box {...args} />,
+  render: args => <Box {...args} overflowX="scroll" />,
   args: {
     height: '128px',
     width: '128px',

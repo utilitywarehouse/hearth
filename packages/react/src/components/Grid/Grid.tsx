@@ -26,6 +26,7 @@ import { justifyContentPropDefs } from '../../props/justify-content.props';
 import { borderStylePropDefs } from '../../props/border-style.props';
 import { borderWidthPropDefs } from '../../props/border-width.props';
 import { zIndexPropDefs } from '../../props/z-index.props';
+import { overflowPropDefs } from '../../props/overflow.props';
 
 const COMPONENT_NAME = 'Grid';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -60,7 +61,8 @@ export const Grid = (props: GridProps) => {
     spacingPropDefs,
     textAlignPropDefs,
     textTransformPropDefs,
-    zIndexPropDefs
+    zIndexPropDefs,
+    overflowPropDefs
   );
 
   return (

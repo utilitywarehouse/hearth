@@ -21,6 +21,7 @@ import { borderRadiusPropDefs } from '../../props/border-radius.props';
 import { borderStylePropDefs } from '../../props/border-style.props';
 import { borderWidthPropDefs } from '../../props/border-width.props';
 import { zIndexPropDefs } from '../../props/z-index.props';
+import { overflowPropDefs } from '../../props/overflow.props';
 
 const COMPONENT_NAME = 'Box';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -49,7 +50,8 @@ export const Box = (props: BoxProps) => {
     flexItemPropDefs,
     textAlignPropDefs,
     textTransformPropDefs,
-    zIndexPropDefs
+    zIndexPropDefs,
+    overflowPropDefs
   );
   return (
     <Slot.Root className={clsx(componentClassName, className)} {...boxProps}>

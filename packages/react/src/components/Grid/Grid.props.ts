@@ -11,6 +11,7 @@ import { GapProps } from '../../props/gap.props';
 import { GridItemProps } from '../../props/grid-item.props';
 import { JustifyContentProps } from '../../props/justify-content.props';
 import { MarginProps } from '../../props/margin.props';
+import { OverflowProps } from '../../props/overflow.props';
 import { PaddingProps } from '../../props/padding.props';
 import { PositionProps } from '../../props/position.props';
 import { PropDef } from '../../props/prop-def';
@@ -129,7 +130,8 @@ interface CommonGridProps
     FlexItemProps,
     TextAlignProps,
     TextTransformProps,
-    ZIndexProps {
+    ZIndexProps,
+    OverflowProps {
   /**
    * When `true`, renders the Grid as a `Slot` so that its props are
    * forwarded to the child element instead of rendering a DOM node.

@@ -11,6 +11,7 @@ import { GapProps } from '../../props/gap.props';
 import { GridItemProps } from '../../props/grid-item.props';
 import { JustifyContentProps } from '../../props/justify-content.props';
 import { MarginProps } from '../../props/margin.props';
+import { OverflowProps } from '../../props/overflow.props';
 import { PaddingProps } from '../../props/padding.props';
 import { PositionProps } from '../../props/position.props';
 import { PropDef } from '../../props/prop-def';
@@ -55,7 +56,8 @@ interface CommonFlexProps
     FlexItemProps,
     TextAlignProps,
     TextTransformProps,
-    ZIndexProps {
+    ZIndexProps,
+    OverflowProps {
   asChild?: boolean;
   display?: Responsive<(typeof displayValues)[number]>;
   direction?: Responsive<(typeof directionValues)[number]>;

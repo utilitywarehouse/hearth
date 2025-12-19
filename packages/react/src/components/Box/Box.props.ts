@@ -7,6 +7,7 @@ import { ColorProps } from '../../props/color.props';
 import { FlexItemProps } from '../../props/flex-item.props';
 import { GridItemProps } from '../../props/grid-item.props';
 import { MarginProps } from '../../props/margin.props';
+import { OverflowProps } from '../../props/overflow.props';
 import { PaddingProps } from '../../props/padding.props';
 import { PositionProps } from '../../props/position.props';
 import { PropDef } from '../../props/prop-def';
@@ -39,10 +40,8 @@ interface CommonBoxProps
     FlexItemProps,
     TextAlignProps,
     TextTransformProps,
-    ZIndexProps {
-  /**
-   * Change the default rendered element for the one passed as a child, merging their props and behavior.
-   */
+    ZIndexProps,
+    OverflowProps {
   asChild?: boolean;
   display?: Responsive<(typeof displayValues)[number]>;
 }
