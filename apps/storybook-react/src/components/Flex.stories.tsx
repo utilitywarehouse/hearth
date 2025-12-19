@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Flex, spaceTokens, colorValues, borderColorValues } from '@utilitywarehouse/hearth-react';
+import { Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
 import { Placeholder } from '../storybook-components/Placeholder';
 
 const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
 const borderRadiusValues = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'] as const;
+const borderColorValues = ['strong', 'subtle'] as const;
+const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
 
 const meta: Meta<typeof Flex> = {
   title: 'Stories / Flex',

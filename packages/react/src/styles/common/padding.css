@@ -1,31 +1,31 @@
 /* stylelint-disable csstools/value-no-unknown-custom-properties */
 @breakpoints {
   .h-r-p {
-    padding: var(--h-r-padding);
+    padding: var(--h-r-p);
   }
 
   .h-r-pt {
-    padding-top: var(--h-r-padding-top);
+    padding-top: var(--h-r-pt);
   }
 
   .h-r-pr {
-    padding-right: var(--h-r-padding-right);
+    padding-right: var(--h-r-pr);
   }
 
   .h-r-pb {
-    padding-bottom: var(--h-r-padding-bottom);
+    padding-bottom: var(--h-r-pb);
   }
 
   .h-r-pl {
-    padding-left: var(--h-r-padding-left);
+    padding-left: var(--h-r-pl);
   }
 
   .h-r-px {
-    padding-inline: var(--h-r-padding-inline);
+    padding-inline: var(--h-r-px);
   }
 
   .h-r-py {
-    padding-block: var(--h-r-padding-block);
+    padding-block: var(--h-r-py);
   }
 
   .h-r-p-0 {

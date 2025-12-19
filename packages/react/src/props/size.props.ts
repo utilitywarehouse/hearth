@@ -1,7 +1,7 @@
 import { Responsive } from '../types/responsive';
 import { PropDef } from './prop-def';
 
-const sizePropDefs = {
+export const sizePropDefs = {
   width: { className: 'width', responsive: true },
   maxWidth: { className: 'max-width', responsive: true },
   minWidth: { className: 'min-width', responsive: true },
@@ -17,7 +17,7 @@ const sizePropDefs = {
   minHeight: PropDef<string>;
 };
 
-interface SizeProps {
+export interface SizeProps {
   width?: Responsive<string>;
   maxWidth?: Responsive<string>;
   minWidth?: Responsive<string>;
@@ -25,6 +25,3 @@ interface SizeProps {
   maxHeight?: Responsive<string>;
   minHeight?: Responsive<string>;
 }
-
-export type { SizeProps };
-export { sizePropDefs };

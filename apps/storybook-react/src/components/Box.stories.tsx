@@ -1,19 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Box,
-  BoxProps,
-  Flex,
-  spaceTokens,
-  colorValues,
-  backgroundColorValues,
-  borderColorValues,
-} from '@utilitywarehouse/hearth-react';
+import { Box, BoxProps, Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
 import { useRef } from 'react';
 import { Placeholder } from '../storybook-components/Placeholder';
 
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
 const borderRadiusValues = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'] as const;
+const borderColorValues = ['strong', 'subtle'] as const;
+const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
+const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;
 
 const meta: Meta<typeof Box> = {
   title: 'Stories / Box',

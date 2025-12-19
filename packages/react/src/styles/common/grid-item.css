@@ -1,0 +1,92 @@
+/* stylelint-disable csstools/value-no-unknown-custom-properties */
+@breakpoints {
+  .h-r-grid-c-span-1 {
+    grid-column: span 1;
+  }
+
+  .h-r-grid-c-span-2 {
+    grid-column: span 2;
+  }
+
+  .h-r-grid-c-span-3 {
+    grid-column: span 3;
+  }
+
+  .h-r-grid-c-span-4 {
+    grid-column: span 4;
+  }
+
+  .h-r-grid-c-span-5 {
+    grid-column: span 5;
+  }
+
+  .h-r-grid-c-span-6 {
+    grid-column: span 6;
+  }
+
+  .h-r-grid-c-span-7 {
+    grid-column: span 7;
+  }
+
+  .h-r-grid-c-span-8 {
+    grid-column: span 8;
+  }
+
+  .h-r-grid-c-span-9 {
+    grid-column: span 9;
+  }
+
+  .h-r-grid-c-span-10 {
+    grid-column: span 10;
+  }
+
+  .h-r-grid-c-span-11 {
+    grid-column: span 11;
+  }
+
+  .h-r-grid-c-span-12 {
+    grid-column: span 12;
+  }
+}
+
+@breakpoints {
+  .h-r-grid-cs {
+    grid-column-start: var(--h-r-grid-cs);
+  }
+}
+
+@breakpoints {
+  .h-r-grid-ce {
+    grid-column-end: var(--h-r-grid-ce);
+  }
+}
+
+@breakpoints {
+  .h-r-grid-a {
+    grid-area: var(--h-r-grid-a);
+  }
+}
+
+@breakpoints {
+  .h-r-grid-c {
+    grid-column: var(--h-r-grid-c);
+  }
+}
+
+@breakpoints {
+  .h-r-grid-r {
+    grid-row: var(--h-r-grid-r);
+  }
+}
+
+@breakpoints {
+  .h-r-grid-rs {
+    grid-row-start: var(--h-r-grid-rs);
+  }
+}
+
+@breakpoints {
+  .h-r-grid-re {
+    grid-row-end: var(--h-r-grid-re);
+  }
+}

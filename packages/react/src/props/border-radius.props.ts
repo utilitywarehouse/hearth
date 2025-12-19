@@ -1,10 +1,10 @@
 import { PropDef } from './prop-def';
 import { Responsive } from '../types/responsive';
 
-const borderRadiusValues = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full', 'inherit'] as const;
+const values = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full', 'inherit'] as const;
 
-const borderRadiusPropDefs = {
-  borderRadius: { className: 'radius', tokens: borderRadiusValues, responsive: true },
+export const borderRadiusPropDefs = {
+  borderRadius: { className: 'radius', tokens: values, responsive: true },
   borderRadiusTopLeftNone: { className: 'radius-tl-none', responsive: false },
   borderRadiusTopRightNone: { className: 'radius-tr-none', responsive: false },
   borderRadiusBottomLeftNone: { className: 'radius-bl-none', responsive: false },
@@ -14,7 +14,7 @@ const borderRadiusPropDefs = {
   borderRadiusBottomNone: { className: 'radius-b-none', responsive: false },
   borderRadiusLeftNone: { className: 'radius-l-none', responsive: false },
 } satisfies {
-  borderRadius: PropDef<(typeof borderRadiusValues)[number]>;
+  borderRadius: PropDef<(typeof values)[number]>;
   borderRadiusTopLeftNone: PropDef<boolean>;
   borderRadiusTopRightNone: PropDef<boolean>;
   borderRadiusBottomLeftNone: PropDef<boolean>;
@@ -25,26 +25,14 @@ const borderRadiusPropDefs = {
   borderRadiusLeftNone: PropDef<boolean>;
 };
 
-interface BorderRadiusProps {
-  /* Set the border radius. */
-  borderRadius?: Responsive<(typeof borderRadiusValues)[number]>;
-  /* Set the border-top-left-radius to none. */
+export interface BorderRadiusProps {
+  borderRadius?: Responsive<(typeof values)[number]>;
   borderRadiusTopLeftNone?: boolean;
-  /* Set the border-top-right-radius to none. */
   borderRadiusTopRightNone?: boolean;
-  /* Set the border-bottom-left-radius to none. */
   borderRadiusBottomLeftNone?: boolean;
-  /* Set the border-bottom-right-radius to none. */
   borderRadiusBottomRightNone?: boolean;
-  /* Set thed top border-radius to none. */
   borderRadiusTopNone?: boolean;
-  /* Set thed right border-radius to none. */
   borderRadiusRightNone?: boolean;
-  /* Set thed bottom border-radius to none. */
   borderRadiusBottomNone?: boolean;
-  /* Set thed left border-radius to none. */
   borderRadiusLeftNone?: boolean;
 }
-
-export { borderRadiusPropDefs };
-export type { BorderRadiusProps };

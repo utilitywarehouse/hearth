@@ -1,8 +1,9 @@
 import { PropDef } from '../../props/prop-def';
 import { FlexProps } from '../Flex/Flex.props';
 import { PaddingProps } from '../../props/padding.props';
-import { BorderProps } from '../../props/border.props';
 import { BorderColorProps } from '../../props/border-color.props';
+import { BorderWidthProps } from '../../props/border-width.props';
+import { BorderStyleProps } from '../../props/border-style.props';
 
 const variants = ['emphasis', 'subtle'] as const;
 
@@ -25,7 +26,8 @@ export interface CardProps
       | 'color'
       | 'backgroundColor'
       | keyof PaddingProps
-      | keyof BorderProps
+      | keyof BorderWidthProps
+      | keyof BorderStyleProps
       | keyof BorderColorProps
       | keyof ElementProps
     > {

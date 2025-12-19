@@ -66,5 +66,67 @@
     &:where(.h-r-columns-12) {
       grid-template-columns: repeat(12, minmax(0, 1fr));
     }
+
+    /* stylelint-disable csstools/value-no-unknown-custom-properties */
+    &:where(.h-r-grid-t) {
+      grid-template: var(--h-r-grid-t);
+    }
+
+    &:where(.h-r-grid-tc) {
+      grid-template-columns: var(--h-r-grid-tc);
+    }
+
+    &:where(.h-r-grid-tr) {
+      grid-template-rows: var(--h-r-grid-tr);
+    }
+
+    &:where(.h-r-grid-ta) {
+      grid-template-areas: var(--h-r-grid-ta);
+    }
+
+    &:where(.h-r-grid-ac) {
+      grid-auto-columns: var(--h-r-grid-ac);
+    }
+
+    &:where(.h-r-grid-ar) {
+      grid-auto-rows: var(--h-r-grid-ar);
+    }
+    /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
+    &:where(.h-r-grid-af-row) {
+      grid-auto-flow: row;
+    }
+
+    &:where(.h-r-grid-af-column) {
+      grid-auto-flow: column;
+    }
+
+    &:where(.h-r-grid-af-dense) {
+      grid-auto-flow: dense;
+    }
+
+    &:where(.h-r-grid-af-row-dense) {
+      grid-auto-flow: row dense;
+    }
+
+    &:where(.h-r-grid-af-column-dense) {
+      grid-auto-flow: column dense;
+    }
+
+    &:where(.h-r-ji-start) {
+      justify-items: start;
+    }
+
+    &:where(.h-r-ji-center) {
+      justify-items: center;
+    }
+
+    &:where(.h-r-ji-end) {
+      justify-items: end;
+    }
+
+    &:where(.h-r-ji-stretch) {
+      justify-items: stretch;
+    }
   }
 }

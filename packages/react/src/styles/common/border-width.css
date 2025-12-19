@@ -1,46 +1,4 @@
 @breakpoints {
-  .h-r-bs-none {
-    border-style: none;
-  }
-
-  .h-r-bs-solid {
-    border-style: solid;
-  }
-
-  .h-r-bs-t-none {
-    border-top-style: none;
-  }
-
-  .h-r-bs-t-solid {
-    border-top-style: solid;
-  }
-
-  .h-r-bs-r-none {
-    border-right-style: none;
-  }
-
-  .h-r-bs-r-solid {
-    border-right-style: solid;
-  }
-
-  .h-r-bs-b-none {
-    border-bottom-style: none;
-  }
-
-  .h-r-bs-b-solid {
-    border-bottom-style: solid;
-  }
-
-  .h-r-bs-l-none {
-    border-left-style: none;
-  }
-
-  .h-r-bs-l-solid {
-    border-left-style: solid;
-  }
-}
-
-@breakpoints {
   .h-r-bw-0 {
     border-width: 0;
   }

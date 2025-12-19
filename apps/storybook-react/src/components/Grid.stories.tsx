@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Grid, spaceTokens, colorValues, borderColorValues } from '@utilitywarehouse/hearth-react';
+import { Grid, spaceTokens } from '@utilitywarehouse/hearth-react';
 import { Placeholder } from '../storybook-components/Placeholder';
 
 const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;
@@ -7,6 +7,8 @@ const columnsValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', 
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
 const borderRadiusValues = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'] as const;
+const borderColorValues = ['strong', 'subtle'] as const;
+const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
 
 const meta: Meta<typeof Grid> = {
   title: 'Stories / Grid',
@@ -54,10 +56,6 @@ const meta: Meta<typeof Grid> = {
     borderLeftStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderLeftWidth: { options: borderWidthValues, control: { type: 'select' } },
     borderRadius: { options: borderRadiusValues, control: { type: 'select' } },
-    borderTopLeftRadius: { options: borderRadiusValues, control: { type: 'select' } },
-    borderTopRightRadius: { options: borderRadiusValues, control: { type: 'select' } },
-    borderBottomRightRadius: { options: borderRadiusValues, control: { type: 'select' } },
-    borderBottomLeftRadius: { options: borderRadiusValues, control: { type: 'select' } },
     position: {
       options: ['static', 'relative', 'absolute', 'fixed', 'sticky'],
       control: { type: 'select' },
