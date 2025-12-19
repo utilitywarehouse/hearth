@@ -69,27 +69,27 @@
 
     /* stylelint-disable csstools/value-no-unknown-custom-properties */
     &:where(.h-r-grid-t) {
-      grid-template: var(--h-r-grid-template);
+      grid-template: var(--h-r-grid-t);
     }
 
     &:where(.h-r-grid-tc) {
-      grid-template-columns: var(--h-r-grid-template-columns);
+      grid-template-columns: var(--h-r-grid-tc);
     }
 
     &:where(.h-r-grid-tr) {
-      grid-template-rows: var(--h-r-grid-template-rows);
+      grid-template-rows: var(--h-r-grid-tr);
     }
 
     &:where(.h-r-grid-ta) {
-      grid-template-areas: var(--h-r-grid-template-areas);
+      grid-template-areas: var(--h-r-grid-ta);
     }
 
     &:where(.h-r-grid-ac) {
-      grid-auto-columns: var(--h-r-grid-auto-columns);
+      grid-auto-columns: var(--h-r-grid-ac);
     }
 
     &:where(.h-r-grid-ar) {
-      grid-auto-rows: var(--h-r-grid-auto-rows);
+      grid-auto-rows: var(--h-r-grid-ar);
     }
     /* stylelint-enable csstools/value-no-unknown-custom-properties */
 
