@@ -1,4 +1,4 @@
-.hearth-ToastViewport {
+.h-ToastViewport {
   position: fixed;
   bottom: var(--h-toast-bottom-position);
   left: 50%;
@@ -15,7 +15,7 @@
   pointer-events: none;
 }
 
-.hearth-Toast {
+.h-Toast {
   background-color: var(--h-toast-background-color);
   border-radius: var(--h-toast-border-radius);
   padding: var(--h-toast-padding);
@@ -27,29 +27,29 @@
   pointer-events: auto;
 }
 
-.hearth-Toast[data-state='open'] {
-  animation: hearth-slide-in-from-bottom 200ms cubic-bezier(0.16, 1, 0.3, 1);
+.h-Toast[data-state='open'] {
+  animation: h-slide-in-from-bottom 200ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hearth-Toast[data-state='closed'] {
-  animation: hearth-hide 150ms ease-in;
+.h-Toast[data-state='closed'] {
+  animation: h-hide 150ms ease-in;
 }
 
-.hearth-Toast[data-swipe='move'] {
+.h-Toast[data-swipe='move'] {
   /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties */
   transform: translateY(var(--radix-toast-swipe-move-y));
 }
 
-.hearth-Toast[data-swipe='cancel'] {
+.h-Toast[data-swipe='cancel'] {
   transform: translateY(0);
   transition: transform 200ms ease-out;
 }
 
-.hearth-Toast[data-swipe='end'] {
-  animation: hearth-swipe-out-down 150ms ease-out forwards;
+.h-Toast[data-swipe='end'] {
+  animation: h-swipe-out-down 150ms ease-out forwards;
 }
 
-@keyframes hearth-slide-in-from-bottom {
+@keyframes h-slide-in-from-bottom {
   from {
     transform: translateY(calc(100% + var(--h-toast-bottom-position)));
     opacity: 0;
@@ -61,7 +61,7 @@
   }
 }
 
-@keyframes hearth-hide {
+@keyframes h-hide {
   from {
     opacity: 1;
   }
@@ -71,7 +71,7 @@
   }
 }
 
-@keyframes hearth-swipe-out-down {
+@keyframes h-swipe-out-down {
   from {
     /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties */
     transform: translateY(var(--radix-toast-swipe-end-y));
@@ -83,7 +83,7 @@
   }
 }
 
-.hearth-ToastTitle {
+.h-ToastTitle {
   flex: 1;
   margin: 0;
   font-weight: var(--h-font-weight-regular);
@@ -95,7 +95,7 @@
   gap: var(--h-toast-text-gap);
 }
 
-.hearth-ToastDescription {
+.h-ToastDescription {
   flex: 1;
   margin: 0;
   color: var(--h-text-inverted);
@@ -106,10 +106,10 @@
   gap: var(--h-toast-text-gap);
 }
 
-.hearth-ToastAction {
+.h-ToastAction {
   flex-shrink: 0;
 }
 
-.hearth-ToastClose {
+.h-ToastClose {
   flex-shrink: 0;
 }
