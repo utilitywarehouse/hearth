@@ -279,19 +279,21 @@ export { DatePicker } from './components/DatePicker/DatePicker';
 export type { DatePickerProps } from './components/DatePicker/DatePicker.props';
 
 export { Toast } from './components/Toast/ToastRoot';
-export type { ToastProps } from './components/Toast/ToastRoot';
 export { ToastProvider } from './components/Toast/ToastProvider';
-export type { ToastProviderProps } from './components/Toast/ToastProvider';
 export { ToastViewport } from './components/Toast/ToastViewport';
-export type { ToastViewportProps } from './components/Toast/ToastViewport';
 export { ToastTitle } from './components/Toast/ToastTitle';
-export type { ToastTitleProps } from './components/Toast/ToastTitle';
 export { ToastDescription } from './components/Toast/ToastDescription';
-export type { ToastDescriptionProps } from './components/Toast/ToastDescription';
 export { ToastAction } from './components/Toast/ToastAction';
-export type { ToastActionProps } from './components/Toast/ToastAction';
 export { ToastClose } from './components/Toast/ToastClose';
-export type { ToastCloseProps } from './components/Toast/ToastClose';
+export type {
+  ToastProps,
+  ToastProviderProps,
+  ToastViewportProps,
+  ToastTitleProps,
+  ToastDescriptionProps,
+  ToastActionProps,
+  ToastCloseProps,
+} from './components/Toast/Toast.props';
 export { Combobox } from './components/Combobox/Combobox';
 export type { ComboboxProps } from './components/Combobox/Combobox.props';
 export { ComboboxItem } from './components/Combobox/ComboboxItem';

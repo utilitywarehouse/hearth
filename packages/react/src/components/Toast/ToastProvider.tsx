@@ -1,12 +1,7 @@
 'use client';
 
-import type { ComponentPropsWithRef } from 'react';
 import { Toast as RadixToast } from 'radix-ui';
-
-export type ToastProviderProps = Omit<
-  ComponentPropsWithRef<typeof RadixToast.Provider>,
-  'asChild' | 'dir'
->;
+import type { ToastProviderProps } from './Toast.props';
 
 const COMPONENT_NAME = 'ToastProvider';
 

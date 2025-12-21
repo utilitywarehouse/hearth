@@ -1,14 +1,9 @@
 'use client';
 
-import type { ComponentPropsWithRef } from 'react';
 import { Toast as RadixToast } from 'radix-ui';
 import clsx from 'clsx';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-
-export type ToastDescriptionProps = Omit<
-  ComponentPropsWithRef<typeof RadixToast.Description>,
-  'asChild' | 'dir'
->;
+import type { ToastDescriptionProps } from './Toast.props';
 
 const COMPONENT_NAME = 'ToastDescription';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
