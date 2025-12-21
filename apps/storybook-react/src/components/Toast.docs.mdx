@@ -197,66 +197,6 @@ A full example showing action and dismiss functionality:
 
 <Canvas of={Stories.InteractiveExample} sourceState="none" />
 
-## ProviderlessToast
-
-A simplified Toast component that manages its own provider. Use this when you only need a single toast and don't want to set up the provider yourself.
-
-### Basic Usage
-
-```tsx
-import { ProviderlessToast, UnstyledIconButton } from '@utilitywarehouse/hearth-react';
-import { TickCircleMediumIcon, CloseMediumIcon } from '@utilitywarehouse/hearth-react-icons';
-
-function App() {
-  const [open, setOpen] = React.useState(false);
-
-  return (
-    <>
-      <button onClick={() => setOpen(true)}>Show Toast</button>
-
-      <ProviderlessToast
-        open={open}
-        onOpenChange={setOpen}
-        closeButton={
-          <UnstyledIconButton label="Close" inverted>
-            <CloseMediumIcon />
-          </UnstyledIconButton>
-        }
-      >
-        <TickCircleMediumIcon />
-        Payment method updated
-      </ProviderlessToast>
-    </>
-  );
-}
-```
-
-<Canvas of={Stories.ProviderlessExample} sourceState="none" />
-
-### With Action
-
-```tsx
-<ProviderlessToast
-  open={open}
-  onOpenChange={setOpen}
-  action={
-    <InlineLink href="#" color="inverted">
-      Undo
-    </InlineLink>
-  }
-  closeButton={
-    <UnstyledIconButton label="Close" inverted>
-      <CloseMediumIcon />
-    </UnstyledIconButton>
-  }
->
-  <TickCircleMediumIcon />
-  Settings updated successfully
-</ProviderlessToast>
-```
-
-<Canvas of={Stories.ProviderlessWithAction} sourceState="none" />
-
 ## API
 
 ### ToastProvider
@@ -296,16 +236,3 @@ The viewport where toasts are rendered. Typically placed at the bottom-right of 
 | `hotkey` | `string[]` | Keyboard shortcuts to focus the toast viewport |
 | `label`  | `string`   | Label announced to screen readers              |
 
-### ProviderlessToast
-
-A simplified Toast component that includes its own provider and viewport. Use this when you only need a single toast and don't want to set up the provider and viewport separately.
-
-| Prop             | Type                                        | Default  | Description                                      |
-| ---------------- | ------------------------------------------- | -------- | ------------------------------------------------ |
-| `children`       | `ReactNode`                                 | -        | The content to display in the toast              |
-| `open`           | `boolean`                                   | `false`  | Controls whether the toast is visible            |
-| `onOpenChange`   | `(open: boolean) => void`                   | -        | Callback when the toast open state changes       |
-| `action`         | `ReactNode`                                 | -        | Optional action element (e.g., a link or button) |
-| `closeButton`    | `ReactNode`                                 | -        | Optional close button element                    |
-| `duration`       | `number`                                    | `6000`   | Time in milliseconds before auto-dismiss         |
-| `swipeDirection` | `"right"` \| `"left"` \| `"up"` \| `"down"` | `"down"` | Direction to swipe to dismiss                    |
