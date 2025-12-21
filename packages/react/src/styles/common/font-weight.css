@@ -1,0 +1,21 @@
+@breakpoints {
+  .h-r-fw-regular {
+    font-weight: var(--h-font-weight-regular);
+  }
+
+  .h-r-fw-medium {
+    font-weight: var(--h-font-weight-medium);
+  }
+
+  .h-r-fw-semibold {
+    font-weight: var(--h-font-weight-semibold);
+  }
+
+  .h-r-fw-bold {
+    font-weight: var(--h-font-weight-bold);
+  }
+
+  .h-r-fw-heavy {
+    font-weight: var(--h-font-weight-heavy);
+  }
+}

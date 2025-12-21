@@ -1,0 +1,33 @@
+@breakpoints {
+  .h-r-d-block {
+    display: block;
+  }
+
+  .h-r-d-inline {
+    display: inline;
+  }
+
+  .h-r-d-inline-block {
+    display: inline-block;
+  }
+
+  .h-r-d-flex {
+    display: flex;
+  }
+
+  .h-r-d-inline-flex {
+    display: inline-flex;
+  }
+
+  .h-r-d-grid {
+    display: grid;
+  }
+
+  .h-r-d-inline-grid {
+    display: inline-grid;
+  }
+
+  .h-r-d-none {
+    display: none;
+  }
+}

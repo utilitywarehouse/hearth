@@ -1,0 +1,29 @@
+@breakpoints {
+  .h-r-ac-start {
+    align-content: flex-start;
+  }
+
+  .h-r-ac-center {
+    align-content: center;
+  }
+
+  .h-r-ac-end {
+    align-content: flex-end;
+  }
+
+  .h-r-ac-stretch {
+    align-content: stretch;
+  }
+
+  .h-r-ac-between {
+    align-content: space-between;
+  }
+
+  .h-r-ac-around {
+    align-content: space-around;
+  }
+
+  .h-r-ac-evenly {
+    align-content: space-evenly;
+  }
+}

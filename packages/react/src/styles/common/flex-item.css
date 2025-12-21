@@ -1,0 +1,18 @@
+/* stylelint-disable csstools/value-no-unknown-custom-properties */
+@breakpoints {
+  .h-r-flex {
+    flex: var(--h-r-flex);
+  }
+
+  .h-r-flex-b {
+    flex-basis: var(--h-r-flex-b);
+  }
+
+  .h-r-flex-s {
+    flex-shrink: var(--h-r-flex-s);
+  }
+
+  .h-r-flex-g {
+    flex-grow: var(--h-r-flex-g);
+  }
+}

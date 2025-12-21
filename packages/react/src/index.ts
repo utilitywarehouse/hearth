@@ -8,15 +8,6 @@ export { spaceTokens } from './tokens/space';
 
 /********************
  *
- * Prop Values
- *
- ********************/
-export { colorValues } from './props/color.props';
-export { backgroundColorValues } from './props/background-color.props';
-export { borderColorValues } from './props/border-color.props';
-
-/********************
- *
  * Utilities
  *
  ********************/

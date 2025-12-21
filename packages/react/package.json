@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react",
-  "version": "0.21.0",
+  "version": "0.22.0",
   "description": "React components",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -26,7 +26,8 @@
   "scripts": {
     "clean": "rm -rf .turbo node_modules dist *.css",
     "build": "pnpm build:css && pnpm build:js",
-    "build:css": "postcss ./src/styles/index.css -o styles.css",
+    "build:breakpoints": "cp ./src/styles/breakpoints.css ./breakpoints.css",
+    "build:css": "postcss ./src/styles/index.css -o styles.css && pnpm build:breakpoints",
     "build:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup",
     "dev:js": "NODE_OPTIONS='--max-old-space-size=16384' tsup --watch",
     "dev:css": "postcss --watch --verbose src/styles/index.css -o styles.css",
@@ -69,6 +70,7 @@
     "@types/node": "^22.9.0",
     "@utilitywarehouse/hearth-react-icons": "workspace:*",
     "autoprefixer": "^10.4.20",
+    "browserslist": "^4.28.1",
     "cssnano": "^7.0.6",
     "ejs": "^3.1.10",
     "postcss": "^8.4.49",

@@ -1,4 +1,4 @@
-.hearth-Grid {
+.h-Grid {
   box-sizing: border-box;
   display: grid;
   align-items: stretch;
@@ -19,52 +19,114 @@
   }
 
   @breakpoints {
-    &:where(.hearth-r-columns-1) {
+    &:where(.h-r-columns-1) {
       grid-template-columns: minmax(0, 1fr);
     }
 
-    &:where(.hearth-r-columns-2) {
+    &:where(.h-r-columns-2) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    &:where(.hearth-r-columns-3) {
+    &:where(.h-r-columns-3) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    &:where(.hearth-r-columns-4) {
+    &:where(.h-r-columns-4) {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
-    &:where(.hearth-r-columns-5) {
+    &:where(.h-r-columns-5) {
       grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 
-    &:where(.hearth-r-columns-6) {
+    &:where(.h-r-columns-6) {
       grid-template-columns: repeat(6, minmax(0, 1fr));
     }
 
-    &:where(.hearth-r-columns-7) {
+    &:where(.h-r-columns-7) {
       grid-template-columns: repeat(7, minmax(0, 1fr));
     }
 
-    &:where(.hearth-r-columns-8) {
+    &:where(.h-r-columns-8) {
       grid-template-columns: repeat(8, minmax(0, 1fr));
     }
 
-    &:where(.hearth-r-columns-9) {
+    &:where(.h-r-columns-9) {
       grid-template-columns: repeat(9, minmax(0, 1fr));
     }
 
-    &:where(.hearth-r-columns-10) {
+    &:where(.h-r-columns-10) {
       grid-template-columns: repeat(10, minmax(0, 1fr));
     }
 
-    &:where(.hearth-r-columns-11) {
+    &:where(.h-r-columns-11) {
       grid-template-columns: repeat(11, minmax(0, 1fr));
     }
 
-    &:where(.hearth-r-columns-12) {
+    &:where(.h-r-columns-12) {
       grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+
+    /* stylelint-disable csstools/value-no-unknown-custom-properties */
+    &:where(.h-r-grid-t) {
+      grid-template: var(--h-r-grid-t);
+    }
+
+    &:where(.h-r-grid-tc) {
+      grid-template-columns: var(--h-r-grid-tc);
+    }
+
+    &:where(.h-r-grid-tr) {
+      grid-template-rows: var(--h-r-grid-tr);
+    }
+
+    &:where(.h-r-grid-ta) {
+      grid-template-areas: var(--h-r-grid-ta);
+    }
+
+    &:where(.h-r-grid-ac) {
+      grid-auto-columns: var(--h-r-grid-ac);
+    }
+
+    &:where(.h-r-grid-ar) {
+      grid-auto-rows: var(--h-r-grid-ar);
+    }
+    /* stylelint-enable csstools/value-no-unknown-custom-properties */
+
+    &:where(.h-r-grid-af-row) {
+      grid-auto-flow: row;
+    }
+
+    &:where(.h-r-grid-af-column) {
+      grid-auto-flow: column;
+    }
+
+    &:where(.h-r-grid-af-dense) {
+      grid-auto-flow: dense;
+    }
+
+    &:where(.h-r-grid-af-row-dense) {
+      grid-auto-flow: row dense;
+    }
+
+    &:where(.h-r-grid-af-column-dense) {
+      grid-auto-flow: column dense;
+    }
+
+    &:where(.h-r-ji-start) {
+      justify-items: start;
+    }
+
+    &:where(.h-r-ji-center) {
+      justify-items: center;
+    }
+
+    &:where(.h-r-ji-end) {
+      justify-items: end;
+    }
+
+    &:where(.h-r-ji-stretch) {
+      justify-items: stretch;
     }
   }
 }

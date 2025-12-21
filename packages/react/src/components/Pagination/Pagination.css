@@ -1,5 +1,5 @@
-.hearth-Pagination {
-  & :where(.hearth-PaginationContainer) {
+.h-Pagination {
+  & :where(.h-PaginationContainer) {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -14,20 +14,20 @@
     }
   }
 
-  & :where(.hearth-PaginationControllers) {
+  & :where(.h-PaginationControllers) {
     display: flex;
     align-items: center;
     gap: var(--h-pagination-gap);
   }
 
-  & :where(.hearth-PaginationPages) {
+  & :where(.h-PaginationPages) {
     display: flex;
     align-items: center;
     gap: var(--h-pagination-gap);
     flex-wrap: nowrap;
   }
 
-  & :where(.hearth-PaginationEllipsis) {
+  & :where(.h-PaginationEllipsis) {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,7 +36,7 @@
     flex-shrink: 0;
   }
 
-  & :where(.hearth-PaginationPage) {
+  & :where(.h-PaginationPage) {
     height: var(--h-pagination-item-height);
     width: var(--h-pagination-item-width);
     aspect-ratio: 1/1;

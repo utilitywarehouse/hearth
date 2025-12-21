@@ -1,14 +1,14 @@
-.hearth-Tabs {
+.h-Tabs {
   position: relative;
 
-  & :where(.hearth-TabsList) {
+  & :where(.h-TabsList) {
     position: relative;
     width: 100%;
     border-bottom: var(--h-tabs-divider-border-width) solid var(--h-tabs-divider-color);
     overflow: hidden;
   }
 
-  & :where(.hearth-TabsListScroll) {
+  & :where(.h-TabsListScroll) {
     overflow: auto hidden;
     width: 100%;
     scrollbar-width: none;
@@ -21,7 +21,7 @@
   /* Mask when BOTH arrows are present */
   &
     :where(
-      .hearth-TabsListScroll.hearth-TabsListScroll-with-left.hearth-TabsListScroll-with-right
+      .h-TabsListScroll.h-TabsListScroll-with-left.h-TabsListScroll-with-right
     ) {
     mask-image: linear-gradient(
       to right,
@@ -35,7 +35,7 @@
   /* Mask when ONLY left arrow is present */
   &
     :where(
-      .hearth-TabsListScroll.hearth-TabsListScroll-with-left:not(.hearth-TabsListScroll-with-right)
+      .h-TabsListScroll.h-TabsListScroll-with-left:not(.h-TabsListScroll-with-right)
     ) {
     mask-image: linear-gradient(to right, transparent 20px, black 32px);
   }
@@ -43,19 +43,19 @@
   /* Mask when ONLY right arrow is present */
   &
     :where(
-      .hearth-TabsListScroll.hearth-TabsListScroll-with-right:not(.hearth-TabsListScroll-with-left)
+      .h-TabsListScroll.h-TabsListScroll-with-right:not(.h-TabsListScroll-with-left)
     ) {
     mask-image: linear-gradient(to left, transparent 20px, black 32px);
   }
 
-  & :where(.hearth-TabsListContainer) {
+  & :where(.h-TabsListContainer) {
     position: relative;
     display: flex;
     gap: var(--h-tabs-gap);
     flex-wrap: nowrap;
   }
 
-  & :where(.hearth-Tab) {
+  & :where(.h-Tab) {
     all: unset;
     cursor: pointer;
     position: relative;
@@ -89,18 +89,18 @@
   }
 
   @breakpoints {
-    &:where(.hearth-r-size-md) .hearth-Tab {
+    &:where(.h-r-size-md) .h-Tab {
       font-size: var(--h-body-text-md-font-size);
       line-height: var(--h-body-text-md-line-height);
     }
 
-    &:where(.hearth-r-size-lg) .hearth-Tab {
+    &:where(.h-r-size-lg) .h-Tab {
       font-size: var(--h-body-text-lg-font-size);
       line-height: var(--h-body-text-lg-line-height);
     }
   }
 
-  & :where(.hearth-TabsListIndicator) {
+  & :where(.h-TabsListIndicator) {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -116,22 +116,22 @@
       width 250ms ease;
   }
 
-  & :where(.hearth-TabsListScrollButtonLeft, .hearth-TabsListScrollButtonRight) {
+  & :where(.h-TabsListScrollButtonLeft, .h-TabsListScrollButtonRight) {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
   }
 
-  & :where(.hearth-TabsListScrollButtonLeft) {
+  & :where(.h-TabsListScrollButtonLeft) {
     left: 0;
   }
 
-  & :where(.hearth-TabsListScrollButtonRight) {
+  & :where(.h-TabsListScrollButtonRight) {
     right: 0;
   }
 
-  & :where(.hearth-TabPanel) {
+  & :where(.h-TabPanel) {
     width: 100%;
     padding-top: var(--h-space-100);
   }

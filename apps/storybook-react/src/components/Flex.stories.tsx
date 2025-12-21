@@ -1,11 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Flex, spaceTokens, colorValues, borderColorValues } from '@utilitywarehouse/hearth-react';
+import { Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
 import { Placeholder } from '../storybook-components/Placeholder';
 
 const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
 const borderRadiusValues = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'] as const;
+const borderColorValues = ['strong', 'subtle'] as const;
+const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
 
 const meta: Meta<typeof Flex> = {
   title: 'Stories / Flex',
@@ -25,8 +27,9 @@ const meta: Meta<typeof Flex> = {
     color: { options: colorValues, control: { type: 'select' } },
     backgroundColor: { options: backgroundColorValues, control: { type: 'select' } },
     padding: { options: spaceTokens, control: { type: 'select' } },
-    paddingInline: { options: spaceTokens, control: { type: 'select' } },
-    paddingBlock: { options: spaceTokens, control: { type: 'select' } },
+    paddingX: { options: spaceTokens, control: { type: 'select' } },
+    paddingY: { options: spaceTokens, control: { type: 'select' } },
+
     paddingTop: { options: spaceTokens, control: { type: 'select' } },
     paddingRight: { options: spaceTokens, control: { type: 'select' } },
     paddingBottom: { options: spaceTokens, control: { type: 'select' } },
@@ -59,10 +62,14 @@ const meta: Meta<typeof Flex> = {
     borderLeftStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderLeftWidth: { options: borderWidthValues, control: { type: 'select' } },
     borderRadius: { options: borderRadiusValues, control: { type: 'select' } },
-    borderTopLeftRadius: { options: borderRadiusValues, control: { type: 'select' } },
-    borderTopRightRadius: { options: borderRadiusValues, control: { type: 'select' } },
-    borderBottomRightRadius: { options: borderRadiusValues, control: { type: 'select' } },
-    borderBottomLeftRadius: { options: borderRadiusValues, control: { type: 'select' } },
+    borderRadiusTopLeftNone: { control: 'boolean' },
+    borderRadiusTopRightNone: { control: 'boolean' },
+    borderRadiusBottomLeftNone: { control: 'boolean' },
+    borderRadiusBottomRightNone: { control: 'boolean' },
+    borderRadiusTopNone: { control: 'boolean' },
+    borderRadiusRightNone: { control: 'boolean' },
+    borderRadiusBottomNone: { control: 'boolean' },
+    borderRadiusLeftNone: { control: 'boolean' },
     position: {
       options: ['static', 'relative', 'absolute', 'fixed', 'sticky'],
       control: { type: 'select' },

@@ -1,0 +1,49 @@
+.h-border-strong {
+  border-style: solid;
+  border-color: var(--h-border-strong);
+}
+
+.h-border-subtle {
+  border-style: solid;
+  border-color: var(--h-border-subtle);
+}
+
+.h-border-t-strong {
+  border-top-style: solid;
+  border-top-color: var(--h-border-strong);
+}
+
+.h-border-t-subtle {
+  border-top-style: solid;
+  border-top-color: var(--h-border-subtle);
+}
+
+.h-border-r-strong {
+  border-right-style: solid;
+  border-right-color: var(--h-border-strong);
+}
+
+.h-border-r-subtle {
+  border-right-style: solid;
+  border-right-color: var(--h-border-subtle);
+}
+
+.h-border-b-strong {
+  border-bottom-style: solid;
+  border-bottom-color: var(--h-border-strong);
+}
+
+.h-border-b-subtle {
+  border-bottom-style: solid;
+  border-bottom-color: var(--h-border-subtle);
+}
+
+.h-border-l-strong {
+  border-left-style: solid;
+  border-left-color: var(--h-border-strong);
+}
+
+.h-border-l-subtle {
+  border-left-style: solid;
+  border-left-color: var(--h-border-subtle);
+}

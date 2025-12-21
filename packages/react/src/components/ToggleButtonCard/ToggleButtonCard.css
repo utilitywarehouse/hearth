@@ -1,4 +1,4 @@
-.hearth-ToggleButtonCard {
+.h-ToggleButtonCard {
   gap: var(--h-card-selectable-gap);
   border: none;
   cursor: pointer;
@@ -11,7 +11,7 @@
     box-shadow: inset 0 0 0 var(--h-card-brand-border-width) var(--h-border-strong);
   }
 
-  & .hearth-ToggleButtonCardItem {
+  & .h-ToggleButtonCardItem {
     all: unset;
     outline: transparent;
     appearance: none;

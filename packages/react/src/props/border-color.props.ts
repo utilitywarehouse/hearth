@@ -1,44 +1,26 @@
 import { CssTokenVariable } from '../types/css-token-variable';
 import { PropDef } from './prop-def';
 
-const colorValues = ['strong', 'subtle'] as const;
+const values = ['strong', 'subtle'] as const;
 
-const borderColorPropDefs = {
-  borderColor: { className: 'border-color', tokens: colorValues, responsive: false },
-  borderTopColor: { className: 'border-top-color', tokens: colorValues, responsive: false },
-  borderRightColor: { className: 'border-right-color', tokens: colorValues, responsive: false },
-  borderBottomColor: { className: 'border-bottom-color', tokens: colorValues, responsive: false },
-  borderLeftColor: { className: 'border-left-color', tokens: colorValues, responsive: false },
+export const borderColorPropDefs = {
+  borderColor: { className: 'border', tokens: values, responsive: false },
+  borderTopColor: { className: 'border-t', tokens: values, responsive: false },
+  borderRightColor: { className: 'border-r', tokens: values, responsive: false },
+  borderBottomColor: { className: 'border-b', tokens: values, responsive: false },
+  borderLeftColor: { className: 'border-l', tokens: values, responsive: false },
 } satisfies {
-  borderColor: PropDef<(typeof colorValues)[number] | CssTokenVariable>;
-  borderTopColor: PropDef<(typeof colorValues)[number] | CssTokenVariable>;
-  borderRightColor: PropDef<(typeof colorValues)[number] | CssTokenVariable>;
-  borderBottomColor: PropDef<(typeof colorValues)[number] | CssTokenVariable>;
-  borderLeftColor: PropDef<(typeof colorValues)[number] | CssTokenVariable>;
+  borderColor: PropDef<(typeof values)[number] | CssTokenVariable>;
+  borderTopColor: PropDef<(typeof values)[number] | CssTokenVariable>;
+  borderRightColor: PropDef<(typeof values)[number] | CssTokenVariable>;
+  borderBottomColor: PropDef<(typeof values)[number] | CssTokenVariable>;
+  borderLeftColor: PropDef<(typeof values)[number] | CssTokenVariable>;
 };
 
-interface BorderColorProps {
-  /**
-   * Set the border colour.
-   */
-  borderColor?: (typeof colorValues)[number] | CssTokenVariable;
-  /**
-   * Set the border top colour.
-   */
-  borderTopColor?: (typeof colorValues)[number] | CssTokenVariable;
-  /**
-   * Set the border right colour.
-   */
-  borderRightColor?: (typeof colorValues)[number] | CssTokenVariable;
-  /**
-   * Set the border bottom colour.
-   */
-  borderBottomColor?: (typeof colorValues)[number] | CssTokenVariable;
-  /**
-   * Set the border left colour.
-   */
-  borderLeftColor?: (typeof colorValues)[number] | CssTokenVariable;
+export interface BorderColorProps {
+  borderColor?: (typeof values)[number] | CssTokenVariable;
+  borderTopColor?: (typeof values)[number] | CssTokenVariable;
+  borderRightColor?: (typeof values)[number] | CssTokenVariable;
+  borderBottomColor?: (typeof values)[number] | CssTokenVariable;
+  borderLeftColor?: (typeof values)[number] | CssTokenVariable;
 }
-
-export { borderColorPropDefs, colorValues as borderColorValues };
-export type { BorderColorProps };

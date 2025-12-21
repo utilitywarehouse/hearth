@@ -1,5 +1,5 @@
 @media (prefers-reduced-motion: no-preference) {
-  @keyframes hearth-overlay-fade-in {
+  @keyframes h-overlay-fade-in {
     from {
       opacity: 0;
     }
@@ -9,7 +9,7 @@
     }
   }
 
-  @keyframes hearth-overlay-fade-out {
+  @keyframes h-overlay-fade-out {
     from {
       opacity: var(--h-overlay-opacity);
     }

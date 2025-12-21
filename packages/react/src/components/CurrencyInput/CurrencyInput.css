@@ -1,5 +1,5 @@
-.hearth-CurrencyInput {
-  & :where(.hearth-TextInputRoot) {
+.h-CurrencyInput {
+  & :where(.h-TextInputRoot) {
     font-family: var(--h-font-family-detail);
     font-weight: var(--h-font-weight-regular);
     font-size: var(--h-detail-text-3xl-font-size);

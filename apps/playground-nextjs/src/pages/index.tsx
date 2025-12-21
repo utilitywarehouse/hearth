@@ -109,6 +109,14 @@ export default function Home() {
         position
       </Box>
 
+      <div className="breakpoint-demo">
+        <div className="breakpoint-demo__label">Breakpoint demo</div>
+        <p className="breakpoint-demo__description">
+          Resize the viewport: this box changes colour at the Hearth custom media breakpoints
+          (--h-tablet, --h-desktop, --h-wide).
+        </p>
+      </div>
+
       <Flex
         maxWidth={container.width}
         color={semantic.feedback.positive.foreground.subtle}

@@ -66,7 +66,7 @@ export const Switch = ({ ref: forwardedRef, ...props }: SwitchProps) => {
       ) : null}
       <SwitchPrimitive.Root
         ref={switchRef}
-        className={clsx('hearth-SwitchRoot', className)}
+        className={clsx(`${componentClassName}Root`, className)}
         id={id}
         aria-labelledby={ariaLabelledby ?? (showLabel ? labelId : undefined)}
         aria-disabled={disabled || undefined}
@@ -74,9 +74,9 @@ export const Switch = ({ ref: forwardedRef, ...props }: SwitchProps) => {
         onCheckedChange={disabled ? undefined : onCheckedChange}
         {...switchProps}
       >
-        <SwitchPrimitive.Thumb className="hearth-SwitchThumb">
-          <CloseSmallIcon className="hearth-CloseIcon" />
-          <TickSmallIcon className="hearth-TickIcon" />
+        <SwitchPrimitive.Thumb className={`${componentClassName}Thumb`}>
+          <CloseSmallIcon className={`${componentClassName}CloseIcon`} />
+          <TickSmallIcon className={`${componentClassName}TickIcon`} />
         </SwitchPrimitive.Thumb>
       </SwitchPrimitive.Root>
     </div>

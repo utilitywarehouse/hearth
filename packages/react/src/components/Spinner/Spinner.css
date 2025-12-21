@@ -1,4 +1,4 @@
-.hearth-Spinner {
+.h-Spinner {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +21,7 @@
     height: var(--h-spinner-size);
     width: var(--h-spinner-size);
     stroke: currentcolor;
-    animation: hearth-rotator var(--h-spinner-animation-duration) linear infinite;
+    animation: h-rotator var(--h-spinner-animation-duration) linear infinite;
 
     & > circle {
       fill: transparent;
@@ -30,7 +30,7 @@
       stroke-dasharray: var(--h-circumference);
       stroke-dashoffset: 0;
       transform-origin: center;
-      animation: hearth-dash var(--h-spinner-animation-duration) ease-in-out infinite;
+      animation: h-dash var(--h-spinner-animation-duration) ease-in-out infinite;
 
       @media (prefers-reduced-motion: reduce) {
         stroke-dasharray: calc(var(--h-spinner-size) * 2.3);
@@ -39,29 +39,29 @@
   }
 
   @breakpoints {
-    &:where(.hearth-r-size-xs) {
+    &:where(.h-r-size-xs) {
       --h-spinner-size: var(--h-spinner-xs-size);
       --h-spinner-stroke-width: var(--h-spinner-xs-stroke-width);
     }
 
-    &:where(.hearth-r-size-sm) {
+    &:where(.h-r-size-sm) {
       --h-spinner-size: var(--h-spinner-sm-size);
       --h-spinner-stroke-width: var(--h-spinner-sm-stroke-width);
     }
 
-    &:where(.hearth-r-size-md) {
+    &:where(.h-r-size-md) {
       --h-spinner-size: var(--h-spinner-md-size);
       --h-spinner-stroke-width: var(--h-spinner-md-stroke-width);
     }
 
-    &:where(.hearth-r-size-lg) {
+    &:where(.h-r-size-lg) {
       --h-spinner-size: var(--h-spinner-lg-size);
       --h-spinner-stroke-width: var(--h-spinner-lg-stroke-width);
     }
   }
 }
 
-@keyframes hearth-rotator {
+@keyframes h-rotator {
   0% {
     transform: rotate(0deg);
   }
@@ -71,7 +71,7 @@
   }
 }
 
-@keyframes hearth-dash {
+@keyframes h-dash {
   0% {
     stroke-dashoffset: var(--h-circumference);
   }

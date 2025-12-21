@@ -1,10 +1,10 @@
-.hearth-List {
+.h-List {
   display: flex;
   flex-direction: column;
   gap: var(--h-list-gap);
   width: 100%;
 
-  & :where(.hearth-ListContainer) {
+  & :where(.h-ListContainer) {
     &:where(:has(:focus-visible)) {
       outline: none;
     }
@@ -14,7 +14,7 @@
     }
   }
 
-  & :where(.hearth-ListItem) {
+  & :where(.h-ListItem) {
     display: flex;
     flex-direction: row;
     gap: var(--h-space-300);
@@ -22,7 +22,7 @@
     position: relative;
     padding: var(--h-list-item-functional-padding);
 
-    :where(.hearth-variant-subtle, .hearth-variant-emphasis) & {
+    :where(.h-variant-subtle, .h-variant-emphasis) & {
       &:where(:first-child) {
         border-top-left-radius: var(--h-card-border-radius);
         border-top-right-radius: var(--h-card-border-radius);
@@ -39,15 +39,15 @@
       border-color: var(--h-border-subtle);
     }
 
-    :where(.hearth-variant-subtle) & {
+    :where(.h-variant-subtle) & {
       border-color: var(--h-border-subtle);
     }
 
-    :where(.hearth-variant-emphasis) & {
+    :where(.h-variant-emphasis) & {
       border-color: var(--h-border-strong);
     }
 
-    &:has(button, a):not(:has(.hearth-Switch), :has(.hearth-Link)) {
+    &:has(button, a):not(:has(.h-Switch), :has(.h-Link)) {
       @media (hover: hover) {
         &:where(:hover) {
           background-color: var(--h-interactive-neutral-surface-subtle-hover);
@@ -59,24 +59,24 @@
       }
     }
 
-    & :where(.hearth-ListItemButton, .hearth-ListActionButton) {
+    & :where(.h-ListItemButton, .h-ListActionButton) {
       all: unset;
       outline: transparent;
       appearance: none;
       box-sizing: border-box;
 
-      & :where(.hearth-ListItemContent) {
+      & :where(.h-ListItemContent) {
         width: 100%;
       }
     }
 
-    & :where(.hearth-ListItemLink, .hearth-ListActionLink) {
+    & :where(.h-ListItemLink, .h-ListActionLink) {
       color: inherit;
       font: inherit;
       text-decoration: none;
     }
 
-    & :where(.hearth-ListActionLink, .hearth-ListActionButton) {
+    & :where(.h-ListActionLink, .h-ListActionButton) {
       cursor: pointer;
       width: 100%;
       display: flex;
@@ -98,7 +98,7 @@
       }
     }
 
-    & :where(.hearth-ListItemButton, .hearth-ListItemLink) {
+    & :where(.h-ListItemButton, .h-ListItemLink) {
       cursor: pointer;
       width: 100%;
       display: flex;
@@ -119,24 +119,24 @@
       }
     }
 
-    & :where(.hearth-ListItemContent) {
+    & :where(.h-ListItemContent) {
       width: 100%;
       display: flex;
       gap: var(--h-list-item-gap);
       align-items: center;
 
-      &:has(.hearth-HelperText) {
+      &:has(.h-HelperText) {
         align-items: start;
       }
 
-      & :where(.hearth-ListItemContentTrailingContent) {
+      & :where(.h-ListItemContentTrailingContent) {
         display: flex;
         flex-direction: column;
         align-items: end;
         justify-content: center;
         align-self: center;
 
-        &:has(.hearth-Switch, .hearth-Link) {
+        &:has(.h-Switch, .h-Link) {
           justify-content: start;
         }
       }

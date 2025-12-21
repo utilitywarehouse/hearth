@@ -1,4 +1,4 @@
-.hearth-Link {
+.h-Link {
   /*  unset button styles when asChild is used */
   &:where(button) {
     outline: transparent;

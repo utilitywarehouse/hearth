@@ -1,0 +1,14 @@
+/* stylelint-disable csstools/value-no-unknown-custom-properties */
+@breakpoints {
+  .h-r-height {
+    height: var(--h-r-height);
+  }
+
+  .h-r-min-height {
+    min-height: var(--h-r-min-height);
+  }
+
+  .h-r-max-height {
+    max-height: var(--h-r-max-height);
+  }
+}

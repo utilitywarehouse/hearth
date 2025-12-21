@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.2.2
+
+### Patch Changes
+
+- [#716](https://github.com/utilitywarehouse/hearth/pull/716) [`e754226`](https://github.com/utilitywarehouse/hearth/commit/e7542265dea0bdb79d6eb200c811fea75bd4a23d) Thanks [@robphoenix](https://github.com/robphoenix)! - Add new typography tokens
+
 ## 0.2.1
 
 ### Patch Changes

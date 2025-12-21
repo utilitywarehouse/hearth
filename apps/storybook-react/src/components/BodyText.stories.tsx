@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Box, BodyText, Flex, colorValues } from '@utilitywarehouse/hearth-react';
+import { Box, BodyText, Flex } from '@utilitywarehouse/hearth-react';
 
 const sizes = ['sm', 'md', 'lg'] as const;
 const weights = ['regular', 'semibold', 'bold'] as const;
+const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
 
 const meta: Meta<typeof BodyText> = {
   title: 'Stories / BodyText',

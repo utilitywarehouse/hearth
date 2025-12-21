@@ -1,31 +1,28 @@
 import { PropDef } from './prop-def';
 
-const spacingValues = ['none', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const;
+const values = ['none', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const;
 
-const spacingPropDefs = {
-  spacing: { className: 'spacing', tokens: spacingValues, responsive: false },
-  rowSpacing: { className: 'row-spacing', tokens: spacingValues, responsive: false },
-  columnSpacing: { className: 'column-spacing', tokens: spacingValues, responsive: false },
+export const spacingPropDefs = {
+  spacing: { className: 'spacing', tokens: values, responsive: false },
+  rowSpacing: { className: 'row-spacing', tokens: values, responsive: false },
+  columnSpacing: { className: 'column-spacing', tokens: values, responsive: false },
 } satisfies {
-  spacing: PropDef<(typeof spacingValues)[number]>;
-  rowSpacing: PropDef<(typeof spacingValues)[number]>;
-  columnSpacing: PropDef<(typeof spacingValues)[number]>;
+  spacing: PropDef<(typeof values)[number]>;
+  rowSpacing: PropDef<(typeof values)[number]>;
+  columnSpacing: PropDef<(typeof values)[number]>;
 };
 
-interface SpacingProps {
+export interface SpacingProps {
   /**
    * Set responsive spacing between child elements.
    */
-  spacing?: (typeof spacingValues)[number];
+  spacing?: (typeof values)[number];
   /**
    * Set responsive row spacing between child elements.
    */
-  rowSpacing?: (typeof spacingValues)[number];
+  rowSpacing?: (typeof values)[number];
   /**
    * Set responsive column spacing between child elements.
    */
-  columnSpacing?: (typeof spacingValues)[number];
+  columnSpacing?: (typeof values)[number];
 }
-
-export type { SpacingProps };
-export { spacingPropDefs };

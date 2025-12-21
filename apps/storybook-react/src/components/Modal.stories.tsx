@@ -167,7 +167,7 @@ export const Loading: Story = {
         <Button>Open modal</Button>
       </ModalTrigger>
       <Modal {...args}>
-        <Flex justifyContent="center" paddingBlock="200">
+        <Flex justifyContent="center" paddingY="200">
           <Spinner />
         </Flex>
         <ModalFooter>

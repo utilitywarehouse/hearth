@@ -4,9 +4,9 @@ module.exports = {
   rules: {
     'at-rule-no-unknown': [true, { ignoreAtRules: ['breakpoints'] }],
     // Enforce prefixes on classnames and keyframes
-    'selector-class-pattern': /^((mobile|tablet|desktop|wide):)?-?hearth-([a-zA-Z\d]|-)+$/,
+    'selector-class-pattern': /^((mobile|tablet|desktop|wide):)?-?h-([a-zA-Z\d]|-)+$/,
     'custom-property-pattern': /^h-([a-zA-Z\d]|-)+$/,
-    'keyframes-name-pattern': /^hearth-([a-z]|-)+$/,
+    'keyframes-name-pattern': /^h-([a-z]|-)+$/,
     'csstools/media-use-custom-media': ['known', { importFrom: ['./src/styles/breakpoints.css'] }],
     'csstools/value-no-unknown-custom-properties': [
       true,

@@ -1,19 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import {
-  Box,
-  BoxProps,
-  Flex,
-  spaceTokens,
-  colorValues,
-  backgroundColorValues,
-  borderColorValues,
-} from '@utilitywarehouse/hearth-react';
+import { Box, BoxProps, Flex, spaceTokens } from '@utilitywarehouse/hearth-react';
 import { useRef } from 'react';
 import { Placeholder } from '../storybook-components/Placeholder';
 
 const borderStyleValues = ['none', 'solid'] as const;
 const borderWidthValues = ['0', '1', '2'] as const;
 const borderRadiusValues = ['none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'] as const;
+const borderColorValues = ['strong', 'subtle'] as const;
+const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted'] as const;
+const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;
 
 const meta: Meta<typeof Box> = {
   title: 'Stories / Box',
@@ -32,15 +27,15 @@ const meta: Meta<typeof Box> = {
     color: { options: colorValues, control: { type: 'select' } },
     backgroundColor: { options: backgroundColorValues, control: { type: 'select' } },
     padding: { options: spaceTokens, control: { type: 'select' } },
-    paddingInline: { options: spaceTokens, control: { type: 'select' } },
-    paddingBlock: { options: spaceTokens, control: { type: 'select' } },
+    paddingX: { options: spaceTokens, control: { type: 'select' } },
+    paddingY: { options: spaceTokens, control: { type: 'select' } },
     paddingTop: { options: spaceTokens, control: { type: 'select' } },
     paddingRight: { options: spaceTokens, control: { type: 'select' } },
     paddingBottom: { options: spaceTokens, control: { type: 'select' } },
     paddingLeft: { options: spaceTokens, control: { type: 'select' } },
     margin: { options: spaceTokens, control: { type: 'select' } },
-    marginInline: { options: spaceTokens, control: { type: 'select' } },
-    marginBlock: { options: spaceTokens, control: { type: 'select' } },
+    marginX: { options: spaceTokens, control: { type: 'select' } },
+    marginY: { options: spaceTokens, control: { type: 'select' } },
     marginTop: { options: spaceTokens, control: { type: 'select' } },
     marginRight: { options: spaceTokens, control: { type: 'select' } },
     marginBottom: { options: spaceTokens, control: { type: 'select' } },
@@ -67,10 +62,12 @@ const meta: Meta<typeof Box> = {
     borderLeftStyle: { options: borderStyleValues, control: { type: 'select' } },
     borderLeftWidth: { options: borderWidthValues, control: { type: 'select' } },
     borderRadius: { options: borderRadiusValues, control: { type: 'select' } },
-    borderTopLeftRadius: { options: borderRadiusValues, control: { type: 'select' } },
-    borderTopRightRadius: { options: borderRadiusValues, control: { type: 'select' } },
-    borderBottomRightRadius: { options: borderRadiusValues, control: { type: 'select' } },
-    borderBottomLeftRadius: { options: borderRadiusValues, control: { type: 'select' } },
+    borderRadiusTopLeftNone: { control: 'boolean' },
+    borderRadiusTopRightNone: { control: 'boolean' },
+    borderRadiusTopNone: { control: 'boolean' },
+    borderRadiusBottomLeftNone: { control: 'boolean' },
+    borderRadiusBottomRightNone: { control: 'boolean' },
+    borderRadiusBottomNone: { control: 'boolean' },
     position: {
       options: ['static', 'relative', 'absolute', 'fixed', 'sticky'],
       control: { type: 'select' },
@@ -95,7 +92,6 @@ export const Playground: Story = {
     children: 'Box',
     borderRadius: 'xs',
     borderWidth: '1',
-    borderStyle: 'solid',
     borderColor: 'subtle',
   },
 };

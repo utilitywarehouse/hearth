@@ -124,8 +124,8 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
                   {noOptionsFoundText}
                 </ComboboxEmpty>
               ) : null}
-              <ScrollAreaPrimitive.Root className="hearth-ScrollAreaRoot" type="auto">
-                <ScrollAreaPrimitive.Viewport className="hearth-ScrollAreaViewport">
+              <ScrollAreaPrimitive.Root className={withGlobalPrefix('ScrollAreaRoot')} type="auto">
+                <ScrollAreaPrimitive.Viewport className={withGlobalPrefix('ScrollAreaViewport')}>
                   <ComboboxPrimitive.List className={`${componentClassName}List`}>
                     {children
                       ? children
@@ -137,10 +137,10 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
                   </ComboboxPrimitive.List>
                 </ScrollAreaPrimitive.Viewport>
                 <ScrollAreaPrimitive.Scrollbar
-                  className="hearth-ScrollAreaScrollbar"
+                  className={withGlobalPrefix('ScrollAreaScrollbar')}
                   orientation="vertical"
                 >
-                  <ScrollAreaPrimitive.Thumb className="hearth-ScrollAreaThumb" />
+                  <ScrollAreaPrimitive.Thumb className={withGlobalPrefix('ScrollAreaThumb')} />
                 </ScrollAreaPrimitive.Scrollbar>
               </ScrollAreaPrimitive.Root>
             </ComboboxPrimitive.Popup>

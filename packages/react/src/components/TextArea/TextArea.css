@@ -1,5 +1,5 @@
-.hearth-TextArea {
-  & :where(.hearth-TextAreaRoot) {
+.h-TextArea {
+  & :where(.h-TextAreaRoot) {
     box-sizing: border-box;
     position: relative;
     font-family: var(--h-font-family-body);

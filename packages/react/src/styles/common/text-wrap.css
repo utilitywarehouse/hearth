@@ -1,0 +1,17 @@
+@breakpoints {
+  .h-r-tw-wrap {
+    text-wrap: wrap;
+  }
+
+  .h-r-tw-nowrap {
+    text-wrap: nowrap;
+  }
+
+  .h-r-tw-balance {
+    text-wrap: balance;
+  }
+
+  .h-r-tw-pretty {
+    text-wrap: pretty;
+  }
+}

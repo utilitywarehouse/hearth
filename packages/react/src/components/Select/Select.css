@@ -1,8 +1,8 @@
-.hearth-Select {
+.h-Select {
   min-width: var(--h-select-min-width);
   max-width: var(--h-select-max-width);
 
-  & :where(.hearth-SelectTrigger) {
+  & :where(.h-SelectTrigger) {
     all: unset;
     outline: transparent;
     appearance: none;
@@ -52,7 +52,7 @@
       --h-select-border-color-focus: var(--h-feedback-danger-border);
     }
 
-    & :where(.hearth-SelectTriggerIcon) {
+    & :where(.h-SelectTriggerIcon) {
       display: inline-flex;
       align-items: center;
       color: var(--h-text-primary);
@@ -60,7 +60,7 @@
   }
 }
 
-.hearth-SelectContent {
+.h-SelectContent {
   display: flex;
   flex-direction: column;
   gap: var(--h-select-dropdown-gap);
@@ -75,11 +75,11 @@
   border-radius: var(--h-select-border-radius);
   color: var(--h-interactive-functional-foreground-subtle);
 
-  & :where(.hearth-SelectViewport) {
+  & :where(.h-SelectViewport) {
     width: 100%;
   }
 
-  & :where(.hearth-SelectItem) {
+  & :where(.h-SelectItem) {
     width: 100%;
     display: inline-flex;
     align-items: center;

@@ -1,5 +1,5 @@
-.hearth-TextInput {
-  & :where(.hearth-InputBase) {
+.h-TextInput {
+  & :where(.h-InputBase) {
     min-width: var(--h-input-min-width);
     max-width: var(--h-input-max-width);
   }

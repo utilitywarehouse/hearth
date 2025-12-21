@@ -28,7 +28,9 @@ export const TabsList = ({ className, children, ...rest }: TabsListProps) => {
     const container = containerRef.current;
     if (!container) return;
 
-    const activeTrigger = container.querySelector<HTMLElement>('.hearth-Tab[data-state="active"]');
+    const activeTrigger = container.querySelector<HTMLElement>(
+      '.' + withGlobalPrefix('Tab[data-state="active"]')
+    );
     if (!activeTrigger) return;
 
     setActiveTabIndicatorX(activeTrigger.offsetLeft);

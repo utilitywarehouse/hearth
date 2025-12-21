@@ -1,16 +1,16 @@
-.hearth-Combobox {
+.h-Combobox {
   min-width: var(--h-select-min-width);
   max-width: var(--h-select-max-width);
 }
 
-.hearth-ComboboxPopup {
+.h-ComboboxPopup {
   padding: var(--h-select-dropdown-padding);
   background-color: var(--h-surface-neutral-strong);
   border: var(--h-select-dropdown-border-width) solid var(--h-border-subtle);
   border-radius: var(--h-select-border-radius);
   color: var(--h-interactive-functional-foreground-subtle);
 
-  & :where(.hearth-ComboboxList) {
+  & :where(.h-ComboboxList) {
     display: flex;
     flex-direction: column;
     gap: var(--h-select-dropdown-gap);
@@ -22,7 +22,7 @@
     /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Base UI specific custom property */
     transform-origin: var(--transform-origin);
 
-    & :where(.hearth-ComboboxItem) {
+    & :where(.h-ComboboxItem) {
       width: 100%;
       display: inline-flex;
       align-items: center;
@@ -54,7 +54,7 @@
     }
   }
 
-  & :where(.hearth-ComboboxEmpty):not(:empty) {
+  & :where(.h-ComboboxEmpty):not(:empty) {
     width: 100%;
     display: inline-flex;
     align-items: center;

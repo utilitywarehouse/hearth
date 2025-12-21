@@ -1,20 +1,14 @@
 import { Responsive } from '../types/responsive';
 import { PropDef } from './prop-def';
 
-const textAlignValues = ['left', 'center', 'right'] as const;
+const values = ['left', 'center', 'right'] as const;
 
-const textAlignPropDefs = {
-  textAlign: { className: 'text-align', tokens: textAlignValues, responsive: true },
+export const textAlignPropDefs = {
+  textAlign: { className: 'ta', tokens: values, responsive: true },
 } satisfies {
-  textAlign: PropDef<(typeof textAlignValues)[number]>;
+  textAlign: PropDef<(typeof values)[number]>;
 };
 
-interface TextAlignProps {
-  /**
-   * Set the text-align on the component.
-   */
-  textAlign?: Responsive<(typeof textAlignValues)[number]>;
+export interface TextAlignProps {
+  textAlign?: Responsive<(typeof values)[number]>;
 }
-
-export { textAlignPropDefs };
-export type { TextAlignProps };

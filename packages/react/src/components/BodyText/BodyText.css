@@ -1,23 +1,23 @@
-.hearth-BodyText {
+.h-BodyText {
   font-family: var(--h-font-family-body);
   font-weight: var(--h-body-text-font-weight);
 
-  &:where(.hearth-paragraph-spacing) {
+  &:where(.h-paragraph-spacing) {
     margin-bottom: 1em;
   }
 
   @breakpoints {
-    &:where(.hearth-r-size-sm) {
+    &:where(.h-r-size-sm) {
       font-size: var(--h-body-text-sm-font-size);
       line-height: var(--h-body-text-sm-line-height);
     }
 
-    &:where(.hearth-r-size-md) {
+    &:where(.h-r-size-md) {
       font-size: var(--h-body-text-md-font-size);
       line-height: var(--h-body-text-md-line-height);
     }
 
-    &:where(.hearth-r-size-lg) {
+    &:where(.h-r-size-lg) {
       font-size: var(--h-body-text-lg-font-size);
       line-height: var(--h-body-text-lg-line-height);
     }

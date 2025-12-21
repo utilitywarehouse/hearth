@@ -1,12 +1,12 @@
-.hearth-DateInput {
+.h-DateInput {
   width: 100%;
 
-  & :where(.hearth-DateInputGroup) {
+  & :where(.h-DateInputGroup) {
     display: flex;
     align-items: stretch;
     gap: var(--h-input-date-gap);
 
-    & :where(.hearth-DateInputSegment) {
+    & :where(.h-DateInputSegment) {
       display: flex;
       flex-direction: column;
       gap: var(--h-input-gap);

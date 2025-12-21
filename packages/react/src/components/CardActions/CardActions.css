@@ -1,5 +1,5 @@
-.hearth-CardActions {
-  & :where(.hearth-CardActionsItem) {
+.h-CardActions {
+  & :where(.h-CardActionsItem) {
     display: flex;
     position: relative;
 
