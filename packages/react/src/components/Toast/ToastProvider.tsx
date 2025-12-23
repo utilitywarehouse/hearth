@@ -4,9 +4,19 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 
 const COMPONENT_NAME = 'ToastProvider';
 
-export const ToastProvider = ({ children, viewportLabel, ...props }: ToastProviderProps) => {
+export const ToastProvider = ({
+  children,
+  duration = 6000,
+  viewportLabel,
+  ...props
+}: ToastProviderProps) => {
   return (
-    <ToastPrimitive.Provider {...props} swipeDirection="right" swipeThreshold={50}>
+    <ToastPrimitive.Provider
+      {...props}
+      duration={duration}
+      swipeDirection="right"
+      swipeThreshold={50}
+    >
       {children}
       <ToastPrimitive.Viewport
         className={withGlobalPrefix('ToastViewport')}

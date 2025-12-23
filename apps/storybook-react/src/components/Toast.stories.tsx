@@ -1,15 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import {
-  Box,
-  Button,
-  Toast,
-  ToastProvider,
-  ToastDescription,
-  ToastAction,
-  ToastClose,
-  InlineLink,
-} from '@utilitywarehouse/hearth-react';
+import { Button, Toast, ToastProvider, InlineLink } from '@utilitywarehouse/hearth-react';
 import { TickCircleMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof Toast> = {
@@ -25,7 +16,7 @@ const meta: Meta<typeof Toast> = {
   },
   decorators: [
     Story => (
-      <ToastProvider duration={60000}>
+      <ToastProvider>
         <Story />
       </ToastProvider>
     ),
@@ -65,220 +56,25 @@ export const Playground: Story = {
         >
           Show Toast
         </Button>
-        <Toast open={open} onOpenChange={setOpen} type={args.type}>
-          <TickCircleMediumIcon />
-          <ToastDescription>Toast description</ToastDescription>
-          <ToastAction altText="Visit #">
+        <Toast
+          open={open}
+          onOpenChange={setOpen}
+          type={args.type}
+          showDismissButton
+          icon={<TickCircleMediumIcon />}
+          description="ToastDescription"
+          action={
             <InlineLink href="#" color="inverted">
               Link
             </InlineLink>
-          </ToastAction>
-          <ToastClose />
-        </Toast>
+          }
+          actionAltText="Visit #"
+        />
       </div>
     );
   },
 };
 
-// export const WithAction: StoryObj<{
-//   message: string;
-//   actionText: string;
-//   duration: number;
-//   type: 'foreground' | 'background';
-// }> = {
-//   args: {
-//     message: 'Toast description',
-//     actionText: 'Link',
-//     duration: 6000,
-//     type: 'foreground',
-//   },
-//   argTypes: {
-//     message: {
-//       control: { type: 'text' },
-//       description: 'The toast message content',
-//     },
-//     actionText: {
-//       control: { type: 'text' },
-//       description: 'Text for the action link',
-//     },
-//     duration: {
-//       control: { type: 'number' },
-//       description: 'Time in milliseconds before toast auto-dismisses',
-//     },
-//     type: {
-//       control: { type: 'select' },
-//       options: ['foreground', 'background'],
-//       description: 'Control sensitivity of toast for accessibility',
-//     },
-//   },
-//   render: args => {
-//     const [open, setOpen] = React.useState(false);
-//     const timerRef = React.useRef(0);
-//
-//     React.useEffect(() => {
-//       return () => clearTimeout(timerRef.current);
-//     }, []);
-//
-//     return (
-//       <div style={{ minHeight: '400px', position: 'relative' }}>
-//         <Button
-//           onClick={() => {
-//             setOpen(false);
-//             window.clearTimeout(timerRef.current);
-//             timerRef.current = window.setTimeout(() => {
-//               setOpen(true);
-//             }, 100);
-//           }}
-//         >
-//           Show Toast with Action
-//         </Button>
-//         <Toast open={open} onOpenChange={setOpen} duration={args.duration} type={args.type}>
-//           <ToastDescription>
-//             <InfoMediumIcon />
-//             {args.message}
-//           </ToastDescription>
-//           <ToastAction altText="Go to link">
-//             <InlineLink href="#" color="inverted">
-//               {args.actionText}
-//             </InlineLink>
-//           </ToastAction>
-//         </Toast>
-//       </div>
-//     );
-//   },
-// };
-//
-// export const WithActionAndDismiss: StoryObj<{
-//   message: string;
-//   actionText: string;
-//   duration: number;
-//   type: 'foreground' | 'background';
-// }> = {
-//   args: {
-//     message: 'Toast description',
-//     actionText: 'Link',
-//     duration: 6000,
-//     type: 'foreground',
-//   },
-//   argTypes: {
-//     message: {
-//       control: { type: 'text' },
-//       description: 'The toast message content',
-//     },
-//     actionText: {
-//       control: { type: 'text' },
-//       description: 'Text for the action link',
-//     },
-//     duration: {
-//       control: { type: 'number' },
-//       description: 'Time in milliseconds before toast auto-dismisses',
-//     },
-//     type: {
-//       control: { type: 'select' },
-//       options: ['foreground', 'background'],
-//       description: 'Control sensitivity of toast for accessibility',
-//     },
-//   },
-//   render: args => {
-//     const [open, setOpen] = React.useState(false);
-//     const timerRef = React.useRef(0);
-//
-//     React.useEffect(() => {
-//       return () => clearTimeout(timerRef.current);
-//     }, []);
-//
-//     return (
-//       <div style={{ minHeight: '400px', position: 'relative' }}>
-//         <Button
-//           onClick={() => {
-//             setOpen(false);
-//             window.clearTimeout(timerRef.current);
-//             timerRef.current = window.setTimeout(() => {
-//               setOpen(true);
-//             }, 100);
-//           }}
-//         >
-//           Show Toast with Action and Dismiss
-//         </Button>
-//         <Toast open={open} onOpenChange={setOpen} duration={args.duration} type={args.type}>
-//           <ToastDescription>
-//             <InfoMediumIcon />
-//             {args.message}
-//           </ToastDescription>
-//           <ToastAction altText="Go to link">
-//             <InlineLink href="#" color="inverted">
-//               {args.actionText}
-//             </InlineLink>
-//           </ToastAction>
-//           <ToastClose>
-//             <UnstyledIconButton label="Close" inverted>
-//               <CloseMediumIcon />
-//             </UnstyledIconButton>
-//           </ToastClose>
-//         </Toast>
-//       </div>
-//     );
-//   },
-// };
-//
-// export const WithoutIcon: StoryObj<{
-//   message: string;
-//   duration: number;
-//   type: 'foreground' | 'background';
-// }> = {
-//   args: {
-//     message: 'Payment method updated',
-//     duration: 6000,
-//     type: 'foreground',
-//   },
-//   argTypes: {
-//     message: {
-//       control: { type: 'text' },
-//       description: 'The toast message content',
-//     },
-//     duration: {
-//       control: { type: 'number' },
-//       description: 'Time in milliseconds before toast auto-dismisses',
-//     },
-//     type: {
-//       control: { type: 'select' },
-//       options: ['foreground', 'background'],
-//       description: 'Control sensitivity of toast for accessibility',
-//     },
-//   },
-//   render: args => {
-//     const [open, setOpen] = React.useState(false);
-//     const timerRef = React.useRef(0);
-//
-//     React.useEffect(() => {
-//       return () => clearTimeout(timerRef.current);
-//     }, []);
-//
-//     return (
-//       <div style={{ minHeight: '400px', position: 'relative' }}>
-//         <Button
-//           onClick={() => {
-//             setOpen(false);
-//             window.clearTimeout(timerRef.current);
-//             timerRef.current = window.setTimeout(() => {
-//               setOpen(true);
-//             }, 100);
-//           }}
-//         >
-//           Show Toast without Icon
-//         </Button>
-//         <Toast open={open} onOpenChange={setOpen} duration={args.duration} type={args.type}>
-//           <ToastDescription>{args.message}</ToastDescription>
-//           <ToastClose>
-//             <UnstyledIconButton label="Close" inverted>
-//               <CloseMediumIcon />
-//             </UnstyledIconButton>
-//           </ToastClose>
-//         </Toast>
-//       </div>
-//     );
-//   },
-// };
 //
 // export const CustomDuration: StoryObj<{
 //   message: string;

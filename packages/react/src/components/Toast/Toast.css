@@ -13,45 +13,49 @@
   z-index: 2147483647;
   outline: none;
   pointer-events: none;
-}
 
-.h-Toast {
-  background-color: var(--h-toast-background-color);
-  border-radius: var(--h-toast-border-radius);
-  padding: var(--h-toast-padding);
-  display: flex;
-  align-items: center;
-  gap: var(--h-toast-gap);
-  min-width: 288px;
-  max-width: 680px;
-  width: fit-content;
-  pointer-events: auto;
-  color: var(--h-text-inverted);
+  & :where(.h-Toast) {
+    background-color: var(--h-toast-background-color);
+    border-radius: var(--h-toast-border-radius);
+    padding: var(--h-toast-padding);
+    display: flex;
+    align-items: center;
+    gap: var(--h-toast-gap);
+    min-width: 288px;
+    max-width: 680px;
+    width: fit-content;
+    pointer-events: auto;
+    color: var(--h-text-inverted);
 
-  & :where(.h-ToastDescription) {
-    flex-grow: 1;
-  }
+    &:where([data-state='open']) {
+      animation: h-slide-in-from-bottom 200ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
-  &:where([data-state='open']) {
-    animation: h-slide-in-from-bottom 200ms cubic-bezier(0.16, 1, 0.3, 1);
-  }
+    &:where([data-state='closed']) {
+      animation: h-hide 150ms ease-in;
+    }
 
-  &:where([data-state='closed']) {
-    animation: h-hide 150ms ease-in;
-  }
+    &:where([data-swipe='move']) {
+      /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties */
+      transform: translateY(var(--radix-toast-swipe-move-y));
+    }
 
-  &:where([data-swipe='move']) {
-    /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties */
-    transform: translateY(var(--radix-toast-swipe-move-y));
-  }
+    &:where([data-swipe='cancel']) {
+      transform: translateY(0);
+      transition: transform 200ms ease-out;
+    }
 
-  &:where([data-swipe='cancel']) {
-    transform: translateY(0);
-    transition: transform 200ms ease-out;
-  }
+    &:where([data-swipe='end']) {
+      animation: h-swipe-out-down 150ms ease-out forwards;
+    }
 
-  &:where([data-swipe='end']) {
-    animation: h-swipe-out-down 150ms ease-out forwards;
+    & :where(.h-ToastDescription) {
+      flex-grow: 1;
+      font-family: var(--h-font-family-body);
+      font-weight: var(--h-body-text-font-weight);
+      font-size: var(--h-body-text-md-font-size);
+      line-height: var(--h-body-text-md-line-height);
+    }
   }
 }
 

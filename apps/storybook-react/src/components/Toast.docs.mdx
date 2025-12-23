@@ -13,164 +13,58 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
-- [Playground](#playground)
-- [Usage Guidelines](#usage-guidelines)
-- [Accessibility](#accessibility)
-  - [Basic Usage](#basic-usage)
-  - [With Action Button](#with-action-button)
-  - [With Close Button](#with-close-button)
-  - [Multiple Toasts](#multiple-toasts)
-- [API](#api)
+## Usage
 
-## Usage Guidelines
+- `ToastProvider` - This provider should wrap your toasts, it usually wraps the entire application.
+- `Toast` - The main toast component.
 
-Use Toast to show temporary messages that provide immediate feedback about a user action. They communicate the success or failure of an action, with an optional button to revert a decision, correct a failure, or dismiss.
-
-### When to use
-
-✅ Use Toast to provide feedback about the processing of a user action.
-
-### Content Guidelines
-
-- **Icon**: Optional and should only be included when it helps reinforce the meaning of the message. Icons should be consistent with the semantic tone of the toast (success, error, info, etc.)
-- **Description**: Messages should be as short as possible, and use generic language for items. Keep the text label to one line long when possible. On mobile, the text label can be up to two lines long.
-- **Action**: A single action link can be used in Toast, placed to the right of the message. Use a single action link (e.g. Undo, Retry).
-- **Dismiss**: A dismiss icon can be included on the right of all toasts. Use dismiss when a user should be able to manually dismiss a Toast.
-
-### Placement
-
-Toast should appear at the bottom center on all screen sizes. They can span full width minus insets on small screens but adhere to a maximum width at larger screen sizes.
-
-Toasts animate upward from the bottom of the screen and downward off screen when dismissing.
-
-### Component Composition
-
-`Toast` comprises several components you can compose together:
-
-- `ToastProvider` provides context for all toasts and should wrap your application or the section where toasts will appear (default duration: 6000ms)
-- `ToastViewport` is the container where toasts are rendered at the bottom center of the screen
-- `Toast` is the main component containing the notification content
-- `ToastDescription` provides the toast text content (can include icon and text)
-- `ToastAction` is an action link that keeps the toast open when interacted with
-- `ToastClose` is a button to manually dismiss the toast
-
-Toasts use portals to render notifications. Make sure the `ToastProvider` and `ToastViewport` are properly set up in your application.
-
-## Accessibility
-
-Follows the [WAI-ARIA Alert Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alert/).
-
-- Toasts are automatically announced to screen readers when they appear
-- Keyboard navigation is supported for action buttons
-- Toasts can be dismissed using the Escape key when focused
-- Swipe down gestures are supported on touch devices to dismiss toasts
-- The default timeout is 6 seconds (6000ms), timing begins when the component loads into view
-
-### Basic Usage
-
-The simplest form of a toast with an icon and description:
+When using toasts you must first wrap your usage in a provider. It usually makes sense to do this at the root of the application.
 
 ```tsx
-import {
-  Toast,
-  ToastProvider,
-  ToastViewport,
-  ToastDescription,
-  ToastClose,
-  UnstyledIconButton,
-} from '@utilitywarehouse/hearth-react';
-import { TickCircleMediumIcon, CloseMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import { ToastProvider } from '@utilitywarehouse/hearth-react';
 
-function App() {
-  const [open, setOpen] = React.useState(false);
+[...]
 
-  return (
-    <ToastProvider duration={6000} swipeDirection="down">
-      <button onClick={() => setOpen(true)}>Show Toast</button>
-
-      <Toast open={open} onOpenChange={setOpen}>
-        <ToastDescription>
-          <TickCircleMediumIcon />
-          Payment method updated
-        </ToastDescription>
-        <ToastClose>
-          <UnstyledIconButton label="Close" inverted>
-            <CloseMediumIcon />
-          </UnstyledIconButton>
-        </ToastClose>
-      </Toast>
-
-      <ToastViewport />
-    </ToastProvider>
-  );
-}
+<ToastProvider>
+  {children}
+</ToastProvider>
 ```
 
-<Canvas of={Stories.Playground} sourceState="none" />
-
-### Without Icon
-
-Toasts can be displayed without an icon:
+You can then render your toast:
 
 ```tsx
-<Toast open={open} onOpenChange={setOpen}>
-  <ToastDescription>Payment method updated</ToastDescription>
-  <ToastClose>
-    <UnstyledIconButton label="Close" inverted>
-      <CloseMediumIcon />
-    </UnstyledIconButton>
-  </ToastClose>
-</Toast>
-```
+[open, setOpen] = React.useState(false)
 
-<Canvas of={Stories.WithoutIcon} sourceState="none" />
+[...]
 
-### With Action Link
-
-Add an action link to allow users to interact with the notification:
-
-```tsx
-<Toast open={open} onOpenChange={setOpen}>
-  <ToastDescription>
-    <InfoMediumIcon />
-    Toast description
-  </ToastDescription>
-  <ToastAction altText="Go to link">
-    <InlineLink href="#" color="inverted">
+<Toast
+  open={open}
+  onOpenChange={setOpen}
+  icon={<TickCircleMediumIcon />}
+  description="Toast description"
+  action={
+    <InlineLink href="/help" color="inverted">
       Link
     </InlineLink>
-  </ToastAction>
-</Toast>
+  }
+  actionAltText="Visit /help"
+  showDismissButton
+>
 ```
 
-<Canvas of={Stories.WithAction} sourceState="none" />
+## type
 
-### With Action and Dismiss
+fore/background
 
-Include both an action link and a dismiss button:
+## action
+altText
 
-```tsx
-<Toast open={open} onOpenChange={setOpen}>
-  <ToastDescription>
-    <InfoMediumIcon />
-    Toast description
-  </ToastDescription>
-  <ToastAction altText="Go to link">
-    <InlineLink href="#" color="inverted">
-      Link
-    </InlineLink>
-  </ToastAction>
-  <ToastClose>
-    <UnstyledIconButton label="Close" inverted>
-      <CloseMediumIcon />
-    </UnstyledIconButton>
-  </ToastClose>
-</Toast>
-```
+## dismiss button
 
-<Canvas of={Stories.WithActionAndDismiss} sourceState="none" />
 
-### Custom Duration
+### Duration
+
+override in provider
 
 Override the default 6-second duration for specific toasts:
 
@@ -183,7 +77,6 @@ Override the default 6-second duration for specific toasts:
 </Toast>
 ```
 
-<Canvas of={Stories.CustomDuration} sourceState="none" />
 
 ### Stacking
 
@@ -235,4 +128,3 @@ The viewport where toasts are rendered. Typically placed at the bottom-right of 
 | -------- | ---------- | ---------------------------------------------- |
 | `hotkey` | `string[]` | Keyboard shortcuts to focus the toast viewport |
 | `label`  | `string`   | Label announced to screen readers              |
-

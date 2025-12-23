@@ -272,15 +272,7 @@ export type { DatePickerProps } from './components/DatePicker/DatePicker.props';
 export { ToastProvider } from './components/Toast/ToastProvider';
 export type { ToastProviderProps } from './components/Toast/ToastProvider.props';
 export { Toast } from './components/Toast/Toast';
-export { ToastAction } from './components/Toast/ToastAction';
-export { ToastClose } from './components/Toast/ToastClose';
-export { ToastDescription } from './components/Toast/ToastDescription';
-export type {
-  ToastProps,
-  ToastDescriptionProps,
-  ToastActionProps,
-  ToastCloseProps,
-} from './components/Toast/Toast.props';
+export type { ToastProps } from './components/Toast/Toast.props';
 
 export { Combobox } from './components/Combobox/Combobox';
 export type { ComboboxProps } from './components/Combobox/Combobox.props';
