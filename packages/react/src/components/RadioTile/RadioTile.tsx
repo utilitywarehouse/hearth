@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { RadioTileProps } from './RadioTile.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
@@ -27,7 +27,7 @@ export const RadioTile = ({
   const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
   return (
     <RadioGroupPrimitive.Item
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       {...props}
       id={id}
       aria-describedby={showHelperText ? helperTextId : ariaDescribedby}

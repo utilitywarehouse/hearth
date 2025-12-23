@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { BreadcrumbItemProps } from './BreadcrumbItem.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Link } from '../Link/Link';
@@ -28,14 +28,14 @@ export const BreadcrumbItem = ({
         textAlign="center"
         asChild
       >
-        <li className={clsx(componentClassName, className)}>{children}</li>
+        <li className={cn(componentClassName, className)}>{children}</li>
       </BodyText>
     );
   }
 
   return (
     <>
-      <li className={clsx(componentClassName, className)}>
+      <li className={cn(componentClassName, className)}>
         <Link {...props} inverted={inverted}>
           {children}
         </Link>

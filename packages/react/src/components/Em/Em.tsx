@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { EmProps } from './Em.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Slot } from 'radix-ui';
@@ -23,7 +23,7 @@ export const Em = (props: EmProps) => {
   );
   return (
     <Slot.Root
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
       {...emProps}
     >

@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { AccordionProps } from './Accordion.props';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
@@ -39,7 +39,7 @@ export const Accordion = (props: AccordionProps) => {
   >;
 
   return (
-    <div className={clsx(componentClassName, className)}>
+    <div className={cn(componentClassName, className)}>
       {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
       <AccordionPrimitive.Root {...accordionProps} />
     </div>

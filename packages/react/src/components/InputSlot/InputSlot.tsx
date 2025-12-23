@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { InputSlotProps } from './InputSlot.props';
 import { Slot } from 'radix-ui';
@@ -16,7 +16,7 @@ export const InputSlot = ({
   const Component = asChild ? Slot.Root : 'div';
   return (
     <Component
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-placement={placement}
       {...props}
     >

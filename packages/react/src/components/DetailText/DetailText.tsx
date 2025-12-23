@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { detailTextPropDefs } from './DetailText.props';
 import type { DetailTextProps } from './DetailText.props';
 import { Slot } from 'radix-ui';
@@ -33,7 +33,7 @@ export const DetailText = (props: DetailTextProps) => {
 
   return (
     <Slot.Root
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
       {...detailTextProps}
     >

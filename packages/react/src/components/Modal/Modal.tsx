@@ -1,7 +1,7 @@
 'use client';
 
 import { Dialog as DialogPrimitive } from 'radix-ui';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ModalProps } from './Modal.props';
 import { Heading } from '../Heading/Heading';
@@ -35,7 +35,7 @@ export const Modal = ({
         <div className={`${componentClassName}Scroll`}>
           <div className={`${componentClassName}ScrollPadding`}>
             <DialogPrimitive.Content
-              className={clsx(componentClassName, className)}
+              className={cn(componentClassName, className)}
               data-contains-image={containsImage ? '' : undefined}
               data-full-screen={fullScreen ? '' : undefined}
               {...props}

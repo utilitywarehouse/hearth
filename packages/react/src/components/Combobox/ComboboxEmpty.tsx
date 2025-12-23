@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Combobox as ComboboxPrimitive } from '@base-ui-components/react/combobox';
 import type { ComboboxEmptyProps } from './ComboboxEmpty.props';
@@ -14,7 +14,7 @@ export const ComboboxEmpty = ({
   ...props
 }: ComboboxEmptyProps) => {
   return (
-    <ComboboxPrimitive.Empty className={clsx(componentClassName, className)} {...props}>
+    <ComboboxPrimitive.Empty className={cn(componentClassName, className)} {...props}>
       {children}
     </ComboboxPrimitive.Empty>
   );

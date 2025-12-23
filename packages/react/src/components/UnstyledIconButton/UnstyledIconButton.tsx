@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { unstyledIconButtonPropDefs } from './UnstyledIconButton.props';
 import type { UnstyledIconButtonProps } from './UnstyledIconButton.props';
@@ -32,7 +32,7 @@ export const UnstyledIconButton = (props: UnstyledIconButtonProps) => {
 
   return (
     <Component
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       aria-label={label}
       aria-disabled={disabled || loading}
       data-inverted={inverted ? '' : undefined}

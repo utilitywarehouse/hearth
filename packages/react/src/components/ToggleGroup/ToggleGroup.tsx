@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { ToggleGroup as ToggleGroupPrimitive } from 'radix-ui';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ToggleGroupProps } from './ToggleGroup.props';
 import { Flex } from '../Flex/Flex';
@@ -32,7 +32,7 @@ export const ToggleGroup = ({
   return (
     <Flex asChild {...props}>
       <ToggleGroupPrimitive.Root
-        className={clsx(componentClassName, className)}
+        className={cn(componentClassName, className)}
         {...(toggleGroupProps as React.ComponentPropsWithRef<typeof ToggleGroupPrimitive.Root>)}
       />
     </Flex>

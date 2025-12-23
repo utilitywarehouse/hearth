@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import {
   ChevronLeftSmallIcon,
   ChevronRightSmallIcon,
@@ -104,7 +104,7 @@ export const Pagination = (props: PaginationProps) => {
   return (
     <Slot.Root
       aria-label="pagination"
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       {...paginationProps}
     >
       <Tag>

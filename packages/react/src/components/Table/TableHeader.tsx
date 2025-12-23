@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { TableHeaderProps } from './Table.props';
@@ -8,7 +8,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const TableHeader = ({ className, children, ...props }: TableHeaderProps) => {
   return (
-    <thead className={clsx(componentClassName, className)} {...props}>
+    <thead className={cn(componentClassName, className)} {...props}>
       <tr>{children}</tr>
     </thead>
   );

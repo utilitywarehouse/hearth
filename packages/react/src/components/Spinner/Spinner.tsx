@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { spinnerPropDefs } from './Spinner.props';
 import type { SpinnerProps } from './Spinner.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -12,7 +12,7 @@ export const Spinner = ({ currentColor, ...props }: SpinnerProps) => {
   const { className, ...spinnerProps } = extractProps(props, spinnerPropDefs, marginPropDefs);
   return (
     <div
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-currentColor={currentColor ? '' : undefined}
       {...spinnerProps}
     >

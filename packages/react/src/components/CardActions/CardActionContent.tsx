@@ -2,7 +2,7 @@ import * as React from 'react';
 import { HelperText } from '../HelperText/HelperText';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { CardActionContentProps } from './CardActionContent.props';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { BodyText } from '../BodyText/BodyText';
 import { IconContainer } from '../IconContainer/IconContainer';
 
@@ -20,7 +20,7 @@ export const CardActionContent = ({
   badgePlacement = 'bottom',
 }: CardActionContentProps) => {
   return (
-    <div className={clsx(componentClassName, className)}>
+    <div className={cn(componentClassName, className)}>
       {leadingIcon ? (
         leadingIconContainerColorScheme ? (
           <IconContainer

@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { gridPropDefs } from './Grid.props';
 import type { GridProps } from './Grid.props';
 import { Slot } from 'radix-ui';
@@ -67,7 +67,7 @@ export const Grid = (props: GridProps) => {
 
   return (
     <Slot.Root
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-responsive-columns={defaultResponsiveColumns ? '' : undefined}
       {...gridProps}
     >

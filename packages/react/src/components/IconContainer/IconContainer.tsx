@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { iconContainerPropDefs } from './IconContainer.props';
 import type { IconContainerProps } from './IconContainer.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -26,7 +26,7 @@ export const IconContainer = (props: IconContainerProps) => {
 
   return (
     <span
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-colorscheme={colorScheme}
       data-fill={fill}
       {...iconContainerProps}

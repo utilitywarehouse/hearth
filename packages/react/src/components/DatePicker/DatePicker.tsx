@@ -5,7 +5,7 @@ import DatePickerPrimitive from 'react-datepicker';
 import type { ReactDatePickerCustomHeaderProps } from 'react-datepicker';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { offset } from '@floating-ui/dom';
 import type { DatePickerProps, View } from './DatePicker.props';
 import { DatePickerTrigger } from './DatePickerTrigger';
@@ -182,7 +182,7 @@ export const DatePicker = (props: DatePickerProps) => {
   };
 
   return (
-    <FormField className={clsx(componentClassName, className)} {...formFieldProps}>
+    <FormField className={cn(componentClassName, className)} {...formFieldProps}>
       <DatePickerPrimitive
         {...reactDatePickerProps}
         // @ts-expect-error having to be explicit about these types to ensure onChange type is correct

@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { iconButtonPropDefs } from './IconButton.props';
 import type { IconButtonProps } from './IconButton.props';
 import { ButtonBase } from '../ButtonBase/ButtonBase';
@@ -24,7 +24,7 @@ export const IconButton = (props: IconButtonProps) => {
 
   return (
     <ButtonBase
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       aria-label={label}
       disabled={disabled || loading}
       asChild

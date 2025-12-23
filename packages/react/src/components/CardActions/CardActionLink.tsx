@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { CardActionLinkProps } from './CardActionLink.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
@@ -30,7 +30,7 @@ export const CardActionLink = ({
     badgePlacement,
   };
   return (
-    <a className={clsx(componentClassName, className)} {...props}>
+    <a className={cn(componentClassName, className)} {...props}>
       <CardActionContent
         trailingIcon={trailingIcon ? trailingIcon : <ChevronRightSmallIcon />}
         {...contentProps}

@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { AccordionTriggerProps } from './AccordionTrigger.props';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
@@ -11,7 +11,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const AccordionTrigger = ({ className, children, ...props }: AccordionTriggerProps) => {
   return (
-    <AccordionPrimitive.Trigger className={clsx(componentClassName, className)} {...props}>
+    <AccordionPrimitive.Trigger className={cn(componentClassName, className)} {...props}>
       {children}
       <ChevronDownSmallIcon aria-hidden />
     </AccordionPrimitive.Trigger>

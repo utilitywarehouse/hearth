@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 
 import type { TableProps } from './Table.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -17,7 +17,7 @@ export const Table = (props: TableProps) => {
 
   if (variant === undefined) {
     return (
-      <div className={clsx(componentClassName, className)} style={style}>
+      <div className={cn(componentClassName, className)} style={style}>
         <table {...tableProps}>{children}</table>
         {pagination}
       </div>
@@ -26,7 +26,7 @@ export const Table = (props: TableProps) => {
 
   return (
     <Card
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       style={style}
       variant={variant}
       colorScheme="neutralStrong"

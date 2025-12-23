@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { bodyTextPropDefs } from './BodyText.props';
 import type { BodyTextProps } from './BodyText.props';
 import { Slot } from 'radix-ui';
@@ -35,7 +35,7 @@ export const BodyText = (props: BodyTextProps) => {
 
   return (
     <Slot.Root
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
       {...bodyTextProps}
     >

@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { InlineLinkProps } from './InlineLink.props';
 import { extractProps } from '../../helpers/extract-props';
@@ -17,7 +17,7 @@ export const InlineLink = (props: InlineLinkProps) => {
   } = extractProps(props, marginPropDefs, textTransformPropDefs);
   return (
     <a
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-inverted={color === 'inverted' ? '' : undefined}
       data-inherit-color={color === 'inherit' ? '' : undefined}
       {...inlineLinkProps}

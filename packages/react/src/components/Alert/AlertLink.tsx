@@ -1,7 +1,7 @@
 'use client';
 
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Link } from '../Link/Link';
 import type { LinkProps } from '../Link/Link.props';
@@ -14,7 +14,7 @@ export const AlertLink = (props: LinkProps) => {
   const { children, asChild, ...linkProps } = props;
   return (
     <Link
-      className={clsx(componentClassName)}
+      className={cn(componentClassName)}
       data-icon-only={children ? undefined : ''}
       asChild={asChild}
       {...linkProps}

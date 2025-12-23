@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
 import type { AccordionHeaderProps } from './AccordionHeader.props';
@@ -15,7 +15,7 @@ export const AccordionHeader = ({
   ...props
 }: AccordionHeaderProps) => {
   return (
-    <AccordionPrimitive.Header asChild className={clsx(componentClassName, className)} {...props}>
+    <AccordionPrimitive.Header asChild className={cn(componentClassName, className)} {...props}>
       <Tag>{children}</Tag>
     </AccordionPrimitive.Header>
   );

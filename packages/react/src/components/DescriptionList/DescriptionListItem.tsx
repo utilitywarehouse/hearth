@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { DescriptionListItemProps } from './DescriptionListItem.props';
 import { DescriptionListContext } from '../DescriptionList/DescriptionList.context';
@@ -23,7 +23,7 @@ export const DescriptionListItem = ({
   const { direction } = React.useContext(DescriptionListContext);
   const showValidationText = validationStatus !== undefined && validationText !== undefined;
   return (
-    <Flex {...props} className={clsx(componentClassName, className)}>
+    <Flex {...props} className={cn(componentClassName, className)}>
       <Flex direction={direction}>
         <dt>{heading}</dt>
         <Flex>

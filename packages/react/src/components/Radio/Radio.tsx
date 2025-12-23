@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { RadioProps } from './Radio.props';
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -28,7 +28,7 @@ export const Radio = ({
   const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
   const showLabel = !!label;
   return (
-    <div className={clsx(componentClassName, className)}>
+    <div className={cn(componentClassName, className)}>
       <div className={`${componentClassName}Container`}>
         <RadioGroupPrimitive.Item
           {...props}

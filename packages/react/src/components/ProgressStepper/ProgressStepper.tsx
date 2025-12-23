@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { ProgressStepperProps } from './ProgressStepper.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
@@ -23,7 +23,7 @@ export const ProgressStepper = (props: ProgressStepperProps) => {
   return (
     <Slot.Root
       aria-label={ariaLabel}
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-visually-hidden-labels={hideLabels ? '' : undefined}
       {...progressStepperProps}
     >

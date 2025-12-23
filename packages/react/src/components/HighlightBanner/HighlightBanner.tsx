@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
@@ -15,7 +15,7 @@ export const HighlightBanner = (props: HighlightBannerProps) => {
 
   return (
     <Card
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       {...highlightBannerProps}
       colorScheme={colorScheme}
       direction="column"

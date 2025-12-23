@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 
 import { badgePropDefs } from './Badge.props';
 import type { BadgeProps } from './Badge.props';
@@ -19,7 +19,7 @@ export const Badge = (props: BadgeProps) => {
   } = extractProps(props, badgePropDefs, marginPropDefs, textTransformPropDefs);
   return (
     <span
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-colorscheme={colorScheme}
       data-bottom-radius-zero={flatBase ? '' : undefined}
       {...badgeProps}

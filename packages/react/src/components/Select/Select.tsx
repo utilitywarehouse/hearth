@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
@@ -52,7 +52,7 @@ export const Select = (props: SelectProps) => {
 
   return (
     <FormField
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-disabled={disabled ? '' : undefined}
       {...formFieldProps}
     >

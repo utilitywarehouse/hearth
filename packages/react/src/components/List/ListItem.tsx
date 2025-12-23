@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { ListItemProps } from './ListItem.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { BodyText } from '../BodyText/BodyText';
@@ -45,7 +45,7 @@ export const ListItem = ({
 
   return (
     <Flex asChild {...flexProps}>
-      <BodyText size="lg" asChild className={clsx(componentClassName, className)}>
+      <BodyText size="lg" asChild className={cn(componentClassName, className)}>
         <li {...props}>{children}</li>
       </BodyText>
     </Flex>

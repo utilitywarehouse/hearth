@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { DropdownMenu as MenuPrimitive, ScrollArea as ScrollAreaPrimitive } from 'radix-ui';
 import type { MenuContentProps } from './MenuContent.props';
@@ -28,7 +28,7 @@ export const MenuContent = ({
   return (
     <MenuPrimitive.DropdownMenuPortal {...portalProps}>
       <MenuPrimitive.DropdownMenuContent
-        className={clsx(componentClassName, className)}
+        className={cn(componentClassName, className)}
         {...props}
         sideOffset={4}
         {...placementTranslation[placement]}

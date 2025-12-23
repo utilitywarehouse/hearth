@@ -2,7 +2,7 @@ import { HelperText } from '../HelperText/HelperText';
 import { Flex } from '../Flex/Flex';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ListItemContentProps } from './ListItemContent.props';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { BodyText } from '../BodyText/BodyText';
 
 const COMPONENT_NAME = 'ListItemContent';
@@ -19,7 +19,7 @@ export const ListItemContent = ({
   children,
 }: ListItemContentProps) => {
   return (
-    <div className={clsx(componentClassName, className)}>
+    <div className={cn(componentClassName, className)}>
       {children ? (
         children
       ) : (

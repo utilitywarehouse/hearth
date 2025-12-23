@@ -8,7 +8,7 @@ import { useIds } from '../../hooks/use-ids';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { InputBase } from '../InputBase/InputBase';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { mergeIds } from '../../helpers/merge-ids';
 
 const COMPONENT_NAME = 'VerificationInput';
@@ -61,7 +61,7 @@ export const VerificationInput = (props: VerificationInputProps) => {
 
   return (
     <FormField
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-disabled={disabled ? '' : undefined}
       {...formFieldProps}
     >

@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { boxPropDefs } from './Box.props';
 import type { BoxProps } from './Box.props';
 import { Slot } from 'radix-ui';
@@ -54,7 +54,7 @@ export const Box = (props: BoxProps) => {
     overflowPropDefs
   );
   return (
-    <Slot.Root className={clsx(componentClassName, className)} {...boxProps}>
+    <Slot.Root className={cn(componentClassName, className)} {...boxProps}>
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot.Root>
   );

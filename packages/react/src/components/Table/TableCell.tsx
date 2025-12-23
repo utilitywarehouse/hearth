@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { TableCellProps } from './Table.props';
@@ -8,7 +8,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const TableCell = ({ className, children, ...props }: TableCellProps) => {
   return (
-    <td className={clsx(componentClassName, className)} {...props}>
+    <td className={cn(componentClassName, className)} {...props}>
       {children}
     </td>
   );

@@ -1,7 +1,7 @@
 'use client';
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import React from 'react';
 import type { PasswordInputProps } from './PasswordInput.props';
 import { TextInput } from '../TextInput/TextInput';
@@ -73,7 +73,7 @@ export const PasswordInput = ({
     <>
       <TextInput
         ref={inputRef}
-        className={clsx(componentClassName, className)}
+        className={cn(componentClassName, className)}
         type={visible ? 'text' : 'password'}
         disabled={disabled}
         id={id}
