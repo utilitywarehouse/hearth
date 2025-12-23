@@ -1,5 +1,5 @@
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import React from 'react';
 import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
@@ -32,7 +32,7 @@ export const FormField: React.FC<FormFieldProps> = ({
 
   return (
     <div
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-validation-status={validationStatus ? validationStatus : undefined}
       {...props}
     >

@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { BodyText } from '../BodyText/BodyText';
@@ -11,7 +11,7 @@ export const TableHeaderCell = ({ className, children, row, ...props }: TableHea
   const rowProps = row ? { scope: 'row' } : undefined;
   return (
     <BodyText asChild>
-      <th className={clsx(componentClassName, className)} {...rowProps} {...props}>
+      <th className={cn(componentClassName, className)} {...rowProps} {...props}>
         {children}
       </th>
     </BodyText>

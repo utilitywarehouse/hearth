@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
@@ -24,7 +24,7 @@ export const ValidationText = (props: ValidationTextProps) => {
     <BodyText
       as="span"
       size="sm"
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-disable-user-select={disableUserSelect ? '' : undefined}
       data-status={status}
       {...validationTextProps}

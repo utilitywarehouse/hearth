@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { Tabs as RadixTabs } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
@@ -19,7 +19,7 @@ export const Tabs = (props: TabsProps) => {
 
   return (
     <RadixTabs.Root
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       activationMode={activationMode}
       {...tabsProps}
     />

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Slot } from 'radix-ui';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { buttonBasePropDefs } from './ButtonBase.props';
 import type { ButtonBaseProps } from './ButtonBase.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -40,7 +40,7 @@ export const ButtonBase = (props: ButtonBaseProps) => {
     return (
       <Slot.Root
         aria-disabled={disabled || undefined}
-        className={clsx(componentClassName, className)}
+        className={cn(componentClassName, className)}
         // as we're using aria-disabled instead of disabled then we need to
         // disable the onClick event
         onClick={disabled ? undefined : onClick}
@@ -59,7 +59,7 @@ export const ButtonBase = (props: ButtonBaseProps) => {
   return (
     <Slot.Root
       aria-disabled={disabled || undefined}
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       onClick={disabled ? undefined : onClick}
       {...dataAttributeProps}
       {...buttonBaseProps}

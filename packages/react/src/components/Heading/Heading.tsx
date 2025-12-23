@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { headingPropDefs } from './Heading.props';
 import type { HeadingProps } from './Heading.props';
 import { extractProps } from '../../helpers/extract-props';
@@ -26,7 +26,7 @@ export const Heading = ({ size, as: Tag = 'h2', ...props }: HeadingProps) => {
 
   return (
     <Slot.Root
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
       {...headingProps}
     >

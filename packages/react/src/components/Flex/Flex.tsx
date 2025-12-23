@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { flexPropDefs } from './Flex.props';
 import type { FlexProps } from './Flex.props';
 import { Slot } from 'radix-ui';
@@ -63,7 +63,7 @@ export const Flex = (props: FlexProps) => {
   );
 
   return (
-    <Slot.Root className={clsx(componentClassName, className)} {...flexProps}>
+    <Slot.Root className={cn(componentClassName, className)} {...flexProps}>
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot.Root>
   );

@@ -1,7 +1,7 @@
 'use client';
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import React from 'react';
 import type { InputBaseProps } from './InputBase.props';
 
@@ -22,7 +22,7 @@ export const InputBase = ({
   const inputRef = forwardedRef || defaultRef;
   return (
     <div
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-disabled={disabled ? '' : undefined}
       onPointerDown={event => {
         // avoid losing focus when users click on non-interactive slot elements, such as icons

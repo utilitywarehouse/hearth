@@ -3,7 +3,7 @@
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ProgressStepProps } from './ProgressStep.props';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { BodyText } from '../BodyText/BodyText';
 
 const COMPONENT_NAME = 'ProgressStep';
@@ -23,7 +23,7 @@ export const ProgressStep = ({
 
   return (
     <li
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       aria-current={isStatus('active') ? 'step' : undefined}
       aria-label={ariaLabelText}
       aria-live="polite"

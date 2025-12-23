@@ -4,7 +4,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import React from 'react';
 import { switchPropDefs } from './Switch.props';
 import type { SwitchProps } from './Switch.props';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { Switch as SwitchPrimitive } from 'radix-ui';
 import { extractProps } from '../../helpers/extract-props';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
@@ -66,7 +66,7 @@ export const Switch = ({ ref: forwardedRef, ...props }: SwitchProps) => {
       ) : null}
       <SwitchPrimitive.Root
         ref={switchRef}
-        className={clsx(`${componentClassName}Root`, className)}
+        className={cn(`${componentClassName}Root`, className)}
         id={id}
         aria-labelledby={ariaLabelledby ?? (showLabel ? labelId : undefined)}
         aria-disabled={disabled || undefined}

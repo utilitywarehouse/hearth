@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useLayoutEffect, useRef, useState } from 'react';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { Tabs as TabsPrimitive } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { ChevronLeftSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
@@ -111,7 +111,7 @@ export const TabsList = ({ className, children, ...rest }: TabsListProps) => {
   const handleScrollRight = useCallback(() => scrollBy(1), [scrollBy]);
 
   return (
-    <TabsPrimitive.List className={clsx(componentClassName, className)} {...rest}>
+    <TabsPrimitive.List className={cn(componentClassName, className)} {...rest}>
       {canScrollLeft ? (
         <div className={`${componentClassName}ScrollButtonLeft`} aria-hidden>
           <UnstyledIconButton label="scroll left" tabIndex={-1} onClick={handleScrollLeft}>
@@ -120,10 +120,9 @@ export const TabsList = ({ className, children, ...rest }: TabsListProps) => {
         </div>
       ) : null}
       <div
-        className={clsx(`${componentClassName}Scroll`, {
-          [`${componentClassName}Scroll-with-left`]: canScrollLeft,
-          [`${componentClassName}Scroll-with-right`]: canScrollRight,
-        })}
+        className={cn(`${componentClassName}Scroll`)}
+        data-scroll-left={canScrollLeft ? '' : undefined}
+        data-scroll-right={canScrollRight ? '' : undefined}
         ref={scrollRef}
       >
         <div className={`${componentClassName}Container`} ref={containerRef}>

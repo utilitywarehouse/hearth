@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { Slot } from 'radix-ui';
 import type { LinkProps } from './Link.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -19,7 +19,7 @@ export const Link = (props: LinkProps) => {
   );
   return (
     <Slot.Root
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
       {...linkProps}
     >

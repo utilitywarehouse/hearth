@@ -1,7 +1,7 @@
 'use client';
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { TextInput } from '../TextInput/TextInput';
 import { InputSlot } from '../InputSlot/InputSlot';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
@@ -48,7 +48,7 @@ export const SearchInput = ({
   return (
     <TextInput
       ref={inputRef}
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       type="search"
       role="search"
       enterKeyHint="search"

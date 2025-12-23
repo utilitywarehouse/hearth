@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
@@ -16,7 +16,7 @@ export const ListActionButton = ({
 }: React.ComponentPropsWithRef<'button'>) => {
   return (
     <BodyText size="md" weight="semibold" asChild>
-      <button className={clsx(componentClassName, className)} {...props}>
+      <button className={cn(componentClassName, className)} {...props}>
         {children}
         <ChevronRightSmallIcon />
       </button>

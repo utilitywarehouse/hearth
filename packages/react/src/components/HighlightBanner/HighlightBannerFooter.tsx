@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 
 const COMPONENT_NAME = 'HighlightBannerFooter';
@@ -8,7 +8,7 @@ export const HighlightBannerFooter = ({
   className,
   ...props
 }: React.ComponentPropsWithRef<'div'>) => {
-  return <div className={clsx(componentClassName, className)} {...props} />;
+  return <div className={cn(componentClassName, className)} {...props} />;
 };
 
 HighlightBannerFooter.displayName = COMPONENT_NAME;

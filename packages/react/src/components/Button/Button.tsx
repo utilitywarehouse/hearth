@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { ButtonBase } from '../ButtonBase/ButtonBase';
@@ -21,7 +21,7 @@ export const Button = (props: ButtonProps) => {
   const Component = asChild ? Slot.Root : 'button';
   return (
     <ButtonBase
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       disabled={disabled || loading}
       asChild
       {...buttonProps}

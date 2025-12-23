@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { mergeIds } from '../../helpers/merge-ids';
 import { useIds } from '../../hooks/use-ids';
@@ -60,7 +60,7 @@ export const TextArea = (props: TextAreaProps) => {
 
   return (
     <FormField
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-validation-status={validationStatus ? validationStatus : undefined}
       data-disabled={disabled ? '' : undefined}
       {...formFieldProps}

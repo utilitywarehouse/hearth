@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Flex } from '../Flex/Flex';
 import { Heading } from '../Heading/Heading';
@@ -17,12 +17,7 @@ export const CardBannerContent = ({
   ...props
 }: CardBannerContentProps) => {
   return (
-    <Flex
-      className={clsx(componentClassName, className)}
-      direction="column"
-      spacing="lg"
-      {...props}
-    >
+    <Flex className={cn(componentClassName, className)} direction="column" spacing="lg" {...props}>
       <Flex spacing="sm" direction="column">
         <Heading size="sm" textAlign={textAlign}>
           {heading}

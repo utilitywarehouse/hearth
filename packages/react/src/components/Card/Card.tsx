@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { cardPropDefs } from './Card.props';
 import type { CardProps } from './Card.props';
 import { extractProps } from '../../helpers/extract-props';
@@ -35,7 +35,7 @@ export const Card = (props: CardProps) => {
 
   return (
     <Flex
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-colorscheme={kebabCase(colorScheme)}
       data-shadowcolor={shadowColor}
       {...cardProps}

@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { ListProps } from './List.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Card } from '../Card/Card';
@@ -36,7 +36,7 @@ export const List = (props: ListProps) => {
   };
 
   return (
-    <div className={clsx(componentClassName, className)}>
+    <div className={cn(componentClassName, className)}>
       {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
       {variant === undefined || colorScheme === undefined ? (
         <Box asChild className={`${componentClassName}Container`} role="list">

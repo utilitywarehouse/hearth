@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { ChangeEvent } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { TextInput } from '../TextInput/TextInput';
@@ -121,7 +121,7 @@ export const CurrencyInput = ({
   return (
     <TextInput
       ref={inputRef}
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       type="text"
       inputMode="decimal"
       disabled={disabled}

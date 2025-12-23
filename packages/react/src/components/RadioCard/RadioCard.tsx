@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { RadioCardProps } from './RadioCard.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { useIds } from '../../hooks/use-ids';
@@ -25,7 +25,7 @@ export const RadioCard = (props: RadioCardProps) => {
   const { id, labelId } = useIds({ providedId, prefix: 'radio' });
   return (
     <RadioGroupPrimitive.Item
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       {...radioCardProps}
       id={id}
       aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}

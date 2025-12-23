@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { ListItemLinkProps } from './ListItemLink.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
@@ -28,7 +28,7 @@ export const ListItemLink = ({
     badgePlacement,
   };
   return (
-    <a className={clsx(componentClassName, className)} {...props}>
+    <a className={cn(componentClassName, className)} {...props}>
       <ListItemContent
         trailingContent={trailingContent ? trailingContent : <ChevronRightSmallIcon />}
         {...contentProps}

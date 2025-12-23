@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { ListItemButtonProps } from './ListItemButton.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
@@ -28,7 +28,7 @@ export const ListItemButton = ({
     badgePlacement,
   };
   return (
-    <button className={clsx(componentClassName, className)} {...props}>
+    <button className={cn(componentClassName, className)} {...props}>
       <ListItemContent
         trailingContent={trailingContent ? trailingContent : <ChevronRightSmallIcon />}
         {...contentProps}

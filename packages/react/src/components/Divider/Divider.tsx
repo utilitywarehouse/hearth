@@ -1,5 +1,5 @@
 import * as React from 'react';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { DividerProps } from './Divider.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { ORIENTATIONS } from '../../types/orientation';
@@ -32,7 +32,7 @@ export const Divider = (props: DividerProps) => {
 
   return (
     <hr
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-orientation={orientation}
       {...semanticProps}
       {...dividerProps}

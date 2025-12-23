@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ContainerProps } from './Container.props';
 import { Flex } from '../Flex/Flex';
@@ -52,7 +52,7 @@ export const Container = ({
   const Component = asChild ? Slot.Root : 'div';
 
   return (
-    <Flex className={clsx(componentClassName, className)} {...props} justifyContent={align} asChild>
+    <Flex className={cn(componentClassName, className)} {...props} justifyContent={align} asChild>
       <Component>
         {getSubtree({ asChild, children }, children => (
           <Flex className={`${componentClassName}Inner`} {...innerProps}>

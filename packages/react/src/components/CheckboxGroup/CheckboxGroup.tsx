@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { CheckboxGroupProps } from './CheckboxGroup.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Flex } from '../Flex/Flex';
@@ -79,7 +79,7 @@ export const CheckboxGroup = ({
   };
 
   return (
-    <FormGroupBase className={clsx(componentClassName, className)} {...formGroupBaseProps}>
+    <FormGroupBase className={cn(componentClassName, className)} {...formGroupBaseProps}>
       <Flex
         {...checkboxGroupProps}
         className={`${componentClassName}Content`}

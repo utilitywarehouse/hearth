@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { DropdownMenu as MenuPrimitive } from 'radix-ui';
 import type { MenuTriggerProps } from './MenuTrigger.props';
@@ -11,7 +11,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 export const MenuTrigger = ({ className, ...props }: MenuTriggerProps) => {
   return (
     <MenuPrimitive.DropdownMenuTrigger
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       asChild
       {...props}
     />

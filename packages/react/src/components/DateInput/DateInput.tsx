@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { DateInputProps } from './DateInput.props';
 import { FormGroupBase } from '../FormGroupBase/FormGroupBase';
@@ -56,7 +56,7 @@ export const DateInput = ({
   };
   return (
     <FormGroupBase
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       validationPlacement="bottom"
       {...formGroupBaseProps}
     >

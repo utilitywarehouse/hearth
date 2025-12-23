@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { useIds } from '../../hooks/use-ids';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
@@ -37,10 +37,7 @@ export const CheckboxTile = ({
   const showLabel = !!label;
 
   return (
-    <label
-      className={clsx(componentClassName, className)}
-      data-disabled={disabled ? '' : undefined}
-    >
+    <label className={cn(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
       <CheckboxPrimitive.Root
         className="h-CheckboxRoot"
         name={checkboxContext?.name}

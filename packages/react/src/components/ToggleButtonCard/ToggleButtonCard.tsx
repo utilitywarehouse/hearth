@@ -1,7 +1,7 @@
 'use client';
 
 import { ToggleGroup as RadixToggleGroup } from 'radix-ui';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ToggleButtonCardProps } from './ToggleButtonCard.props';
 import { Card } from '../Card/Card';
@@ -21,11 +21,7 @@ export const ToggleButtonCard = ({
   ...props
 }: ToggleButtonCardProps) => {
   return (
-    <Card
-      direction="column"
-      alignItems={alignItems}
-      className={clsx(componentClassName, className)}
-    >
+    <Card direction="column" alignItems={alignItems} className={cn(componentClassName, className)}>
       {children}
       <RadixToggleGroup.Item
         {...props}

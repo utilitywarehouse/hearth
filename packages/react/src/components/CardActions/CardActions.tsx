@@ -1,5 +1,5 @@
 import * as React from 'react';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { CardActionsProps } from './CardActions.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
@@ -22,7 +22,7 @@ export const CardActions = (props: CardActionsProps) => {
     <Flex
       asChild
       role="list"
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       direction={direction}
       data-direction={direction}
     >

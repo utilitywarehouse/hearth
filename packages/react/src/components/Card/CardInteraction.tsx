@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { cardPropDefs } from './Card.props';
 import { extractProps } from '../../helpers/extract-props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -27,7 +27,7 @@ export const CardInteraction = (props: CardInteractionProps) => {
   };
 
   return (
-    <Flex className={clsx(componentClassName, className)} {...cardProps} {...dataAttributeProps} />
+    <Flex className={cn(componentClassName, className)} {...cardProps} {...dataAttributeProps} />
   );
 };
 

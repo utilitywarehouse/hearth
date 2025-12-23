@@ -1,7 +1,7 @@
 'use client';
 
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import type { UnstyledIconButtonProps } from '../UnstyledIconButton/UnstyledIconButton.props';
@@ -18,7 +18,7 @@ export const AlertIconButton = ({
 }: UnstyledIconButtonProps) => {
   return (
     <UnstyledIconButton
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       label={label}
       title={title}
       {...props}

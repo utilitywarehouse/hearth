@@ -2,7 +2,7 @@
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Link } from '../Link/Link';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { ProgressStepButtonProps } from './ProgressStep.props';
 import { ProgressStep } from './ProgressStep';
 
@@ -24,7 +24,7 @@ export const ProgressStepButton = ({
   return (
     <ProgressStep
       status={status}
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       aria-label={ariaLabel}
       label={label}
     >

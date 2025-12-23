@@ -2,7 +2,7 @@
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { DatePickerTriggerProps } from './DatePickerTrigger.props';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { CalendarSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const COMPONENT_NAME = 'DatePickerTrigger';
@@ -18,7 +18,7 @@ export const DatePickerTrigger = ({
 }: DatePickerTriggerProps) => {
   return (
     <button
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       aria-disabled={disabled || undefined}
       onClick={disabled ? undefined : onClick}
       {...props}

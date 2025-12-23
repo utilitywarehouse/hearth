@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { CheckboxProps } from './Checkbox.props';
 import { Flex } from '../Flex/Flex';
 import { Label } from '../Label/Label';
@@ -40,7 +40,7 @@ export const Checkbox = (props: CheckboxProps) => {
   const showLabel = !!label;
 
   return (
-    <Flex className={clsx(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
+    <Flex className={cn(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
       <CheckboxPrimitive.Root
         className={`${componentClassName}Root`}
         name={checkboxContext?.name}

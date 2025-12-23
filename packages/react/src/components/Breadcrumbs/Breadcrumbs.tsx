@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { BreadcrumbsProps } from './Breadcrumbs.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
@@ -18,7 +18,7 @@ export const Breadcrumbs = (props: BreadcrumbsProps) => {
   return (
     <nav
       aria-label="breadcrumbs"
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
       {...breadcrumbsProps}
     >

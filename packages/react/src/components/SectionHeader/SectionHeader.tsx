@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Heading } from '../Heading/Heading';
 import { HelperText } from '../HelperText/HelperText';
@@ -21,7 +21,7 @@ export const SectionHeader = ({
 }: SectionHeaderProps) => {
   const showValidationText = validationStatus !== undefined && validationText !== undefined;
   return (
-    <div className={clsx(componentClassName, className)}>
+    <div className={cn(componentClassName, className)}>
       <Heading asChild size="md" id={id} {...props}>
         <HeadingEl>{heading}</HeadingEl>
       </Heading>

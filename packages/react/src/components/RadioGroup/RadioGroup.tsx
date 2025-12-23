@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { RadioGroupProps } from './RadioGroup.props';
@@ -55,7 +55,7 @@ export const RadioGroup = ({
     <FormGroupBase {...formGroupBaseProps}>
       <RadioGroupPrimitive.Root
         asChild
-        className={clsx(componentClassName, className)}
+        className={cn(componentClassName, className)}
         {...radioGroupRootProps}
         orientation={direction === 'column' ? 'vertical' : 'horizontal'}
       >

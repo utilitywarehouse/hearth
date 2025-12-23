@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { LabelProps } from './Label.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { BodyText } from '../BodyText/BodyText';
@@ -28,7 +28,7 @@ export const Label = (props: LabelProps) => {
       <Heading
         asChild
         size="md"
-        className={clsx(componentClassName, className)}
+        className={cn(componentClassName, className)}
         data-disabled={disabled ? '' : undefined}
         data-disable-user-select={disableUserSelect ? '' : undefined}
         {...(labelProps as HeadingProps)}
@@ -43,7 +43,7 @@ export const Label = (props: LabelProps) => {
       asChild
       size="md"
       weight={fontWeight}
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-disabled={disabled ? '' : undefined}
       data-disable-user-select={disableUserSelect ? '' : undefined}
       {...labelProps}

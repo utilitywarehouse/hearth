@@ -1,6 +1,6 @@
 'use client';
 
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { DropdownMenu as MenuPrimitive } from 'radix-ui';
 import type { MenuItemProps } from './MenuItem.props';
@@ -11,7 +11,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 export const MenuItem = ({ className, colorScheme = 'functional', ...props }: MenuItemProps) => {
   return (
     <MenuPrimitive.DropdownMenuItem
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       data-colorscheme={colorScheme}
       {...props}
     />

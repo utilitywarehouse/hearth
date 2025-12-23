@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import clsx from 'clsx';
+import { cn } from './cn';
 import { mergeStyles } from './merge-styles';
 import { getClassNameStyles } from './get-classname-styles';
 import { PropDef } from '../props/prop-def';
@@ -62,11 +62,11 @@ export function extractProps<
     });
     if (styles) {
       const { className: propClassName, style: propStyle } = styles;
-      className = clsx(className, propClassName);
+      className = cn(className, propClassName);
       style = mergeStyles(style, propStyle);
     }
   }
-  extractedProps.className = clsx(className, props.className);
+  extractedProps.className = cn(className, props.className);
   extractedProps.style = mergeStyles(style, props.style);
   return extractedProps;
 }

@@ -5,7 +5,7 @@ import { mergeIds } from '../../helpers/merge-ids';
 import { Flex } from '../Flex/Flex';
 import { HelperText } from '../HelperText/HelperText';
 import { ValidationText } from '../ValidationText/ValidationText';
-import clsx from 'clsx';
+import { cn } from '../../helpers/cn';
 import type { FormGroupBaseProps } from './FormGroupBase.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
@@ -52,7 +52,7 @@ export const FormGroupBase = (props: FormGroupBaseProps) => {
 
   return (
     <fieldset
-      className={clsx(componentClassName, className)}
+      className={cn(componentClassName, className)}
       {...fieldsetProps}
       disabled={disabled}
       id={id}
