@@ -1,3 +1,5 @@
+'use client';
+
 import { unstable_OneTimePasswordField as OneTimePasswordFieldPrimitive } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { VerificationInputProps } from './VerificationInput.props';
