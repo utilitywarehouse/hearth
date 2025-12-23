@@ -1,6 +1,4 @@
-/**
- * helper function replacement for clsx
- */
+/* helper function replacement for clsx */
 export function cn(...classNames: Array<string | null | undefined | false>) {
   return classNames.filter(Boolean).join(' ');
 }

@@ -27,10 +27,12 @@
         transparent calc(100% - 20px)
       );
     }
+
     /* Mask when ONLY left arrow is present */
     &:where([data-scroll-left]):not([data-scroll-right]) {
       mask-image: linear-gradient(to right, transparent 20px, black 32px);
     }
+
     /* Mask when ONLY right arrow is present */
     &:where([data-scroll-right]):not([data-scroll-left]) {
       mask-image: linear-gradient(to left, transparent 20px, black 32px);

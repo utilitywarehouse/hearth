@@ -9,9 +9,7 @@ const COMPONENT_NAME = 'ModalClose';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const ModalClose = ({ className, ...props }: ModalCloseProps) => {
-  return (
-    <DialogPrimitive.Close className={cn(componentClassName, className)} asChild {...props} />
-  );
+  return <DialogPrimitive.Close className={cn(componentClassName, className)} asChild {...props} />;
 };
 
 ModalClose.displayName = COMPONENT_NAME;

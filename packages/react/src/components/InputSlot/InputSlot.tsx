@@ -15,11 +15,7 @@ export const InputSlot = ({
 }: InputSlotProps) => {
   const Component = asChild ? Slot.Root : 'div';
   return (
-    <Component
-      className={cn(componentClassName, className)}
-      data-placement={placement}
-      {...props}
-    >
+    <Component className={cn(componentClassName, className)} data-placement={placement} {...props}>
       {children}
     </Component>
   );

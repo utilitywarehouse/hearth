@@ -61,6 +61,7 @@
     "@base-ui-components/react": "1.0.0-rc.0",
     "@radix-ui/react-use-controllable-state": "^1.0.1",
     "@utilitywarehouse/hearth-css-reset": "workspace:*",
+    "clsx": "^2.1.1",
     "radix-ui": "^1.4.3",
     "react-datepicker": "^8.9.0"
   },

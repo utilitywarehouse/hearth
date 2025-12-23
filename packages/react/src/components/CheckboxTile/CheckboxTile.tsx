@@ -37,10 +37,7 @@ export const CheckboxTile = ({
   const showLabel = !!label;
 
   return (
-    <label
-      className={cn(componentClassName, className)}
-      data-disabled={disabled ? '' : undefined}
-    >
+    <label className={cn(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
       <CheckboxPrimitive.Root
         className="h-CheckboxRoot"
         name={checkboxContext?.name}

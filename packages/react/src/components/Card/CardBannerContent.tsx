@@ -17,12 +17,7 @@ export const CardBannerContent = ({
   ...props
 }: CardBannerContentProps) => {
   return (
-    <Flex
-      className={cn(componentClassName, className)}
-      direction="column"
-      spacing="lg"
-      {...props}
-    >
+    <Flex className={cn(componentClassName, className)} direction="column" spacing="lg" {...props}>
       <Flex spacing="sm" direction="column">
         <Heading size="sm" textAlign={textAlign}>
           {heading}

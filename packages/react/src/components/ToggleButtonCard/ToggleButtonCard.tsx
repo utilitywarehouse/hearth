@@ -21,11 +21,7 @@ export const ToggleButtonCard = ({
   ...props
 }: ToggleButtonCardProps) => {
   return (
-    <Card
-      direction="column"
-      alignItems={alignItems}
-      className={cn(componentClassName, className)}
-    >
+    <Card direction="column" alignItems={alignItems} className={cn(componentClassName, className)}>
       {children}
       <RadixToggleGroup.Item
         {...props}
