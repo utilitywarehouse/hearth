@@ -8,6 +8,16 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <DocsHeader componentName="Toast" stories={Stories} />
 
+- [Playground](#playground)
+- [Usage](#usage)
+- [Icon](#icon)
+- [Actions](#actions)
+- [Custom duration](#custom-duration)
+- [Type](#type)
+- [Dismiss button](#dismiss-button)
+- [Duplicate toasts](#duplicate-toasts)
+- [API](#api)
+
 ## Playground
 
 <Canvas of={Stories.Playground} sourceState="shown" />
@@ -125,13 +135,25 @@ A dismiss button can be included.
 <Toast description="Show dismiss button" showDismissButton />
 ```
 
-### Stacking
+## Duplicate toasts
 
-In instances where additional Toasts appear before the previous have timed out,
-they will stack. Toasts will stack vertically with the newest appearing at the
-bottom.
+When a toast must appear every time a user clicks a button, use state to render
+multiple instances of the same toast. Toasts will stack vertically with the
+newest appearing at the bottom.
 
-<Canvas of={Stories.StackingToasts} sourceState="none" />
+```tsx
+const [savedCount, setSavedCount] = React.useState(0);
+
+return (
+  <div>
+    <Button onClick={() => setSavedCount(count => count + 1)}>Save</Button>
+
+    {Array.from({ length: savedCount }).map((_, index) => (
+      <Toast key={index} description={`Saved! (${index})`} showDismissButton />
+    ))}
+  </div>
+);
+```
 
 ## API
 

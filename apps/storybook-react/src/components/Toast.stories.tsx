@@ -147,36 +147,16 @@ export const Actions: Story = {
     );
   },
 };
-export const StackingToasts: Story = {
-  render: args => {
-    const [toasts, setToasts] = React.useState<number[]>([]);
-    const countRef = React.useRef(0);
-    const toastDescriptions = [
-      'Email address updated',
-      'Phone number updated',
-      'Payment method updated',
-    ];
 
-    const addToast = () => {
-      const id = countRef.current++;
-      setToasts(prev => [...prev, id]);
-    };
-
-    const removeToast = (id: number) => {
-      setToasts(prev => prev.filter(toastId => toastId !== id));
-    };
+export const DuplicateToasts: Story = {
+  render: () => {
+    const [savedCount, setSavedCount] = React.useState(0);
 
     return (
       <div>
-        <Button onClick={addToast}>Add Toast</Button>
-        {toasts.map(id => (
-          <Toast
-            key={id}
-            open={true}
-            onOpenChange={open => !open && removeToast(id)}
-            description={toastDescriptions[id % toastDescriptions.length]}
-            showDismissButton
-          />
+        <Button onClick={() => setSavedCount(count => count + 1)}>Save</Button>
+        {Array.from({ length: savedCount }).map((_, index) => (
+          <Toast key={index} description={`Saved! (${index})`} showDismissButton />
         ))}
       </div>
     );
