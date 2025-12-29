@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react
 
+## 0.23.0
+
+### Minor Changes
+
+- [#711](https://github.com/utilitywarehouse/hearth/pull/711) [`358c38b`](https://github.com/utilitywarehouse/hearth/commit/358c38b97ce44b86c44c9d2f4c5950833ba11dde) Thanks [@Utakato](https://github.com/Utakato)! - Add `Toast`
+
+### Patch Changes
+
+- [#725](https://github.com/utilitywarehouse/hearth/pull/725) [`59eca05`](https://github.com/utilitywarehouse/hearth/commit/59eca052a823b9dbf582e6dd100fa593d25e13e3) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `asChild` to `InlineLink`
+
+- [#723](https://github.com/utilitywarehouse/hearth/pull/723) [`097ea5d`](https://github.com/utilitywarehouse/hearth/commit/097ea5dec680cdb02d9e219697d6b66bb71e2308) Thanks [@robphoenix](https://github.com/robphoenix)! - Replace clsx with local helper function
+
 ## 0.22.0
 
 ### Minor Changes
