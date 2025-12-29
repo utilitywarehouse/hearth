@@ -152,7 +152,7 @@ export const HideContent: Story = {
         borderColor="strong"
         borderStyle="solid"
         borderWidth="1"
-        display={{ mobile: 'block', desktop: 'none' }}
+        display={{ mobile: 'block', desktop: 'none', wide: 'block' }}
         padding="300"
       >
         hidden on desktop screens
