@@ -14,4 +14,8 @@ export interface InlineLinkProps
    * Use 'inherit' to match the surrounding text color.
    */
   color?: 'default' | 'inverted' | 'inherit';
+  /**
+   * Change the default rendered element for the one passed as a child, merging their props and behavior.
+   */
+  asChild?: boolean;
 }

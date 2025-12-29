@@ -4,6 +4,7 @@ import type { InlineLinkProps } from './InlineLink.props';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
+import { Slot } from 'radix-ui';
 
 const COMPONENT_NAME = 'InlineLink';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -13,17 +14,18 @@ export const InlineLink = (props: InlineLinkProps) => {
     className,
     color = 'default',
     children,
+    asChild,
     ...inlineLinkProps
   } = extractProps(props, marginPropDefs, textTransformPropDefs);
   return (
-    <a
+    <Slot.Root
       className={cn(componentClassName, className)}
       data-inverted={color === 'inverted' ? '' : undefined}
       data-inherit-color={color === 'inherit' ? '' : undefined}
       {...inlineLinkProps}
     >
-      {children}
-    </a>
+      {asChild ? children : <a>{children}</a>}
+    </Slot.Root>
   );
 };
 

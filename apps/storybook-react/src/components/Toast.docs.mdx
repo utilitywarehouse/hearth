@@ -1,201 +1,220 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
-
 import * as Stories from './Toast.stories';
-
 import { DocsHeader } from '../storybook-components/DocsHeader';
+import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 
 <Meta title="Components / Toast" />
 
 <DocsHeader componentName="Toast" stories={Stories} />
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Icon](#icon)
+- [Dismiss toast](#dismiss-toast)
+- [Actions](#actions)
+- [Custom duration](#custom-duration)
+- [Accessibility](#accessibility)
+  - [Sensitivity](#sensitivity)
+  - [Keyboard interactions](#keyboard-interactions)
+- [Duplicate toasts](#duplicate-toasts)
+- [API](#api)
 
 ## Playground
 
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
-- [Playground](#playground)
-- [Usage Guidelines](#usage-guidelines)
-- [Accessibility](#accessibility)
-  - [Basic Usage](#basic-usage)
-  - [With Action Button](#with-action-button)
-  - [With Close Button](#with-close-button)
-  - [Multiple Toasts](#multiple-toasts)
-- [API](#api)
+## Usage
 
-## Usage Guidelines
+When using toasts you must first wrap your usage in a provider. It usually
+makes sense to do this at the root of the application.
 
-Use Toast to show temporary messages that provide immediate feedback about a user action. They communicate the success or failure of an action, with an optional button to revert a decision, correct a failure, or dismiss.
+```tsx
+import { ToastProvider } from '@utilitywarehouse/hearth-react';
 
-### When to use
+[...]
 
-✅ Use Toast to provide feedback about the processing of a user action.
+<ToastProvider>
+  {children}
+</ToastProvider>
+```
 
-### Content Guidelines
+You can then render your toast:
 
-- **Icon**: Optional and should only be included when it helps reinforce the meaning of the message. Icons should be consistent with the semantic tone of the toast (success, error, info, etc.)
-- **Description**: Messages should be as short as possible, and use generic language for items. Keep the text label to one line long when possible. On mobile, the text label can be up to two lines long.
-- **Action**: A single action link can be used in Toast, placed to the right of the message. Use a single action link (e.g. Undo, Retry).
-- **Dismiss**: A dismiss icon can be included on the right of all toasts. Use dismiss when a user should be able to manually dismiss a Toast.
+```tsx
+<Toast description="Toast description" />
+```
 
-### Placement
+## Icon
 
-Toast should appear at the bottom center on all screen sizes. They can span full width minus insets on small screens but adhere to a maximum width at larger screen sizes.
+Include an icon using the `icon` prop:
 
-Toasts animate upward from the bottom of the screen and downward off screen when dismissing.
+```tsx
+import { Toast } from '@utilitywarehouse/hearth-react';
+import { TickCircleMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
-### Component Composition
+[...]
 
-`Toast` comprises several components you can compose together:
+<Toast
+  description='With icon'
+  icon={<TickCircleMediumIcon />}
+/>
+```
 
-- `ToastProvider` provides context for all toasts and should wrap your application or the section where toasts will appear (default duration: 6000ms)
-- `ToastViewport` is the container where toasts are rendered at the bottom center of the screen
-- `Toast` is the main component containing the notification content
-- `ToastDescription` provides the toast text content (can include icon and text)
-- `ToastAction` is an action link that keeps the toast open when interacted with
-- `ToastClose` is a button to manually dismiss the toast
+## Dismiss toast
 
-Toasts use portals to render notifications. Make sure the `ToastProvider` and `ToastViewport` are properly set up in your application.
+A dismiss button can be included.
+
+```tsx
+<Toast description="Show dismiss button" showDismissButton />
+```
+
+Users can also swipe down on any toast to dismiss it immediately.
+
+## Actions
+
+You can include an `action` using the `ToastActionLink` or `ToastActionButton`
+components as children. Only use one per toast.
+
+The action should be safe to ignore so that users are not expected to complete
+tasks with unexpected side effects as a result of a time limit. You can direct
+the user to a permanent place in your application where they can action it. Use
+foreground type to announce immediately and increase the duration to give the
+user ample time.
+
+When obtaining a user response is necessary, consider using an `Alert` instead.
+
+```tsx
+<Toast
+  type="foreground"
+  duration={10000}
+  description="You can change your details anytime"
+>
+  <ToastActionLink
+    href="/account-settings"
+    altText="Visit account settings to change your details"
+  >
+    Account settings
+  </ToastActionLink>
+</Toast>
+
+[...]
+
+<Toast
+  type="foreground"
+  duration={10000}
+  description="Settings updated"
+>
+  <ToastActionButton altText="Go to settings to undo">Undo</ToastActionButton>
+</Toast>
+```
+
+<Canvas of={Stories.Actions} />
+
+## Custom duration
+
+The default duration of 5 seconds is set on the `ToastProvider`, you
+can override this on the provider, or setting this on the individual toast will
+override the global default.
+
+```tsx
+<Toast duration={10000} description="Custom toast duration of 10 seconds" />
+```
 
 ## Accessibility
 
-Follows the [WAI-ARIA Alert Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/alert/).
+Adheres to the [aria-live requirements](https://www.w3.org/TR/wai-aria/#aria-live)
 
-- Toasts are automatically announced to screen readers when they appear
-- Keyboard navigation is supported for action buttons
-- Toasts can be dismissed using the Escape key when focused
-- Swipe down gestures are supported on touch devices to dismiss toasts
-- The default timeout is 6 seconds (6000ms), timing begins when the component loads into view
+### Sensitivity
 
-### Basic Usage
+You can control the sensitivity of the toast for screen readers, using the `type` prop.
 
-The simplest form of a toast with an icon and description:
+For toasts that are the result of a user action, choose `foreground`. Toasts
+generated from background tasks should use `background`. The default type is
+`foreground`.
 
-```tsx
-import {
-  Toast,
-  ToastProvider,
-  ToastViewport,
-  ToastDescription,
-  ToastClose,
-  UnstyledIconButton,
-} from '@utilitywarehouse/hearth-react';
-import { TickCircleMediumIcon, CloseMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+Foreground toasts are announced immediately. Assistive technologies may choose
+to clear previously queued messages when a foreground toast appears. Try to
+avoid stacking distinct foreground toasts at the same time.
 
-function App() {
-  const [open, setOpen] = React.useState(false);
+Background toasts are announced at the next graceful opportunity, for example,
+when the screen reader has finished reading its current sentence. They do not
+clear queued messages so overusing them can be perceived as a laggy user
+experience for screen reader users when used in response to a user interaction.
 
-  return (
-    <ToastProvider duration={6000} swipeDirection="down">
-      <button onClick={() => setOpen(true)}>Show Toast</button>
+### Keyboard interactions
 
-      <Toast open={open} onOpenChange={setOpen}>
-        <ToastDescription>
-          <TickCircleMediumIcon />
-          Payment method updated
-        </ToastDescription>
-        <ToastClose>
-          <UnstyledIconButton label="Close" inverted>
-            <CloseMediumIcon />
-          </UnstyledIconButton>
-        </ToastClose>
-      </Toast>
+<Flex direction="column" gap="200" className="sb-unstyled">
+  <Flex>
+    <Box width="300px">
+      <BodyText as="span" weight="bold">
+        Key
+      </BodyText>
+    </Box>
+    <BodyText as="span" weight="bold">
+      Description
+    </BodyText>
+  </Flex>
+  <Divider />
+  {[
+    {
+      key: 'F8',
+      description: 'Focuses toasts viewport.',
+    },
+    {
+      key: 'Tab',
+      description: 'Moves focus to the next focusable element.',
+    },
+    {
+      key: 'Shift+Tab',
+      description: 'Moves focus to the previous focusable element.',
+    },
+    {
+      key: 'Space',
+      description:
+        'When focus is on a Toast action component or the Toast dismiss button, closes the toast.',
+    },
+    {
+      key: 'Enter',
+      description:
+        'When focus is on a Toast action component or the Toast dismiss button, closes the toast.',
+    },
+    {
+      key: 'Esc',
+      description: 'When focus is on a Toast, closes the toast.',
+    },
+  ].map((kbi, i) => (
+    <>
+      <Flex>
+        <Box width="300px">
+          <kbd>{kbi.key}</kbd>
+        </Box>
+        <BodyText as="span">{kbi.description}</BodyText>
+      </Flex>
+      {i < 5 ? <Divider /> : null}
+    </>
+  ))}
+</Flex>
 
-      <ToastViewport />
-    </ToastProvider>
-  );
-}
-```
+## Duplicate toasts
 
-<Canvas of={Stories.Playground} sourceState="none" />
-
-### Without Icon
-
-Toasts can be displayed without an icon:
-
-```tsx
-<Toast open={open} onOpenChange={setOpen}>
-  <ToastDescription>Payment method updated</ToastDescription>
-  <ToastClose>
-    <UnstyledIconButton label="Close" inverted>
-      <CloseMediumIcon />
-    </UnstyledIconButton>
-  </ToastClose>
-</Toast>
-```
-
-<Canvas of={Stories.WithoutIcon} sourceState="none" />
-
-### With Action Link
-
-Add an action link to allow users to interact with the notification:
-
-```tsx
-<Toast open={open} onOpenChange={setOpen}>
-  <ToastDescription>
-    <InfoMediumIcon />
-    Toast description
-  </ToastDescription>
-  <ToastAction altText="Go to link">
-    <InlineLink href="#" color="inverted">
-      Link
-    </InlineLink>
-  </ToastAction>
-</Toast>
-```
-
-<Canvas of={Stories.WithAction} sourceState="none" />
-
-### With Action and Dismiss
-
-Include both an action link and a dismiss button:
+When a toast must appear every time a user clicks a button, use state to render
+multiple instances of the same toast. Toasts will stack vertically with the
+newest appearing at the bottom.
 
 ```tsx
-<Toast open={open} onOpenChange={setOpen}>
-  <ToastDescription>
-    <InfoMediumIcon />
-    Toast description
-  </ToastDescription>
-  <ToastAction altText="Go to link">
-    <InlineLink href="#" color="inverted">
-      Link
-    </InlineLink>
-  </ToastAction>
-  <ToastClose>
-    <UnstyledIconButton label="Close" inverted>
-      <CloseMediumIcon />
-    </UnstyledIconButton>
-  </ToastClose>
-</Toast>
+const [savedCount, setSavedCount] = React.useState(0);
+
+return (
+  <div>
+    <Button onClick={() => setSavedCount(count => count + 1)}>Save</Button>
+
+    {Array.from({ length: savedCount }).map((_, index) => (
+      <Toast key={index} description={`Saved! (${index})`} showDismissButton />
+    ))}
+  </div>
+);
 ```
-
-<Canvas of={Stories.WithActionAndDismiss} sourceState="none" />
-
-### Custom Duration
-
-Override the default 6-second duration for specific toasts:
-
-```tsx
-<Toast open={open} onOpenChange={setOpen} duration={10000}>
-  <ToastDescription>
-    <InfoMediumIcon />
-    This toast will remain visible for 10 seconds
-  </ToastDescription>
-</Toast>
-```
-
-<Canvas of={Stories.CustomDuration} sourceState="none" />
-
-### Stacking
-
-In instances where additional Toasts appear before the previous have timed out, they will stack. Toasts will appear stacked vertically with the newest appearing at the bottom.
-
-<Canvas of={Stories.StackingToasts} sourceState="none" />
-
-### Interactive Example
-
-A full example showing action and dismiss functionality:
-
-<Canvas of={Stories.InteractiveExample} sourceState="none" />
 
 ## API
 
@@ -203,36 +222,46 @@ A full example showing action and dismiss functionality:
 
 This component is based on [Radix UI's Toast primitive](https://www.radix-ui.com/primitives/docs/components/toast).
 
-| Prop             | Type                                        | Default  | Description                                                          |
-| ---------------- | ------------------------------------------- | -------- | -------------------------------------------------------------------- |
-| `duration`       | `number`                                    | `6000`   | Time in milliseconds before toast auto-dismisses (6 seconds default) |
-| `swipeDirection` | `"right"` \| `"left"` \| `"up"` \| `"down"` | `"down"` | Direction of swipe to dismiss                                        |
-| `swipeThreshold` | `number`                                    | `50`     | Distance in pixels before swipe dismisses toast                      |
+| Prop             | Type            |
+| ---------------- | --------------- |
+| `duration`       | `number`        |
+| `viewportLabel`  | `string`        |
+| `viewportHotkey` | `Array<string>` |
 
 ### Toast
 
-This component is based on Radix UI's Toast primitive.
+This component is based on [Radix UI's Toast primitive](https://www.radix-ui.com/primitives/docs/components/toast).
 
-| Prop           | Type                             | Description                                                            |
-| -------------- | -------------------------------- | ---------------------------------------------------------------------- |
-| `open`         | `boolean`                        | Controls the open state of the toast                                   |
-| `onOpenChange` | `(open: boolean) => void`        | Callback when open state changes                                       |
-| `duration`     | `number`                         | Time in milliseconds before auto-dismiss (overrides provider duration) |
-| `type`         | `"foreground"` \| `"background"` | Control sensitivity of toast for accessibility                         |
+| Prop                | Type                             |
+| ------------------- | -------------------------------- |
+| `description`       | `ReactNode`                      |
+| `icon`              | `ReactNode`                      |
+| `showDismissButton` | `boolean`                        |
+| `type`              | `"foreground"` \| `"background"` |
+| `duration`          | `number`                         |
+| `defaultOpen`       | `boolean`                        |
+| `open`              | `boolean`                        |
+| `onOpenChange`      | `(open: boolean) => void`        |
+| `onEscapeKeyDown`   | `(event: KeyboardEvent) => void` |
+| `onPause`           | `() => void`                     |
+| `onResume`          | `() => void`                     |
+| `onSwipeStart`      | `(event: SwipeEvent) => void`    |
+| `onSwipeMove`       | `(event: SwipeEvent) => void`    |
+| `onSwipeEnd`        | `(event: SwipeEvent) => void`    |
+| `onSwipeCancel`     | `(event: SwipeEvent) => void`    |
 
-### ToastAction
+### ToastActionLink
 
-| Prop      | Type      | Description                                               |
-| --------- | --------- | --------------------------------------------------------- |
-| `altText` | `string`  | Alternative text for screen readers describing the action |
-| `asChild` | `boolean` | When true, renders child element as the action button     |
+This component is based on the `a` element and [Radix UI's Toast primitive](https://www.radix-ui.com/primitives/docs/components/toast).
 
-### ToastViewport
+| Prop      | Type     |
+| --------- | -------- |
+| `altText` | `string` |
 
-The viewport where toasts are rendered. Typically placed at the bottom-right of the screen.
+### ToastActionButton
 
-| Prop     | Type       | Description                                    |
-| -------- | ---------- | ---------------------------------------------- |
-| `hotkey` | `string[]` | Keyboard shortcuts to focus the toast viewport |
-| `label`  | `string`   | Label announced to screen readers              |
+This component is based on the `button` element and [Radix UI's Toast primitive](https://www.radix-ui.com/primitives/docs/components/toast).
 
+| Prop      | Type     |
+| --------- | -------- |
+| `altText` | `string` |
