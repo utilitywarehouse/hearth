@@ -76,8 +76,8 @@ export const CustomLink: Story = {
     return (
       <Flex gap="600" direction="column" width="600px">
         <SectionHeader
-          heading="Default usage"
-          helperText="Identical to List heading"
+          heading="With link"
+          helperText="Includes icon"
           trailingContent={
             <Link href="#">
               See more
@@ -86,20 +86,11 @@ export const CustomLink: Story = {
           }
         />
         <SectionHeader
-          heading="Customization of icon"
-          helperText="Custom icon on right"
+          heading="Different icon and placement"
           trailingContent={
             <Link href="#">
               <SettingsSmallIcon />
               Settings
-            </Link>
-          }
-        />
-        <SectionHeader
-          heading="No icon, href target _blank, no helper text"
-          trailingContent={
-            <Link href="#" target="_blank">
-              Call to action
             </Link>
           }
         />
