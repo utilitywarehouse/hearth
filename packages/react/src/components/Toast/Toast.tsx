@@ -14,9 +14,8 @@ export const Toast = ({
   className,
   icon,
   description,
-  action,
-  actionAltText,
   showDismissButton,
+  children,
   ...props
 }: ToastProps) => {
   return (
@@ -25,11 +24,7 @@ export const Toast = ({
       <ToastPrimitive.Description asChild>
         <div className={`${componentClassName}Description`}>{description}</div>
       </ToastPrimitive.Description>
-      {action ? (
-        <ToastPrimitive.Action asChild altText={actionAltText}>
-          {action}
-        </ToastPrimitive.Action>
-      ) : null}
+      {children}
       {showDismissButton ? (
         <ToastPrimitive.Close asChild>
           <UnstyledIconButton label="dismiss toast" inverted>

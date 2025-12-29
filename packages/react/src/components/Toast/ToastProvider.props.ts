@@ -10,4 +10,5 @@ export interface ToastProviderProps
       'asChild' | 'hotkey' | 'label'
     > {
   viewportLabel?: React.ComponentPropsWithRef<typeof ToastPrimitive.Viewport>['label'];
+  viewportHotkey?: React.ComponentPropsWithRef<typeof ToastPrimitive.Viewport>['hotkey'];
 }

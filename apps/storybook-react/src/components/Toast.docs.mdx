@@ -15,10 +15,8 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 ## Usage
 
-- `ToastProvider` - This provider should wrap your toasts, it usually wraps the entire application.
-- `Toast` - The main toast component.
-
-When using toasts you must first wrap your usage in a provider. It usually makes sense to do this at the root of the application.
+When using toasts you must first wrap your usage in a provider. It usually
+makes sense to do this at the root of the application.
 
 ```tsx
 import { ToastProvider } from '@utilitywarehouse/hearth-react';
@@ -42,53 +40,98 @@ const [open, setOpen] = React.useState(false);
   onOpenChange={setOpen}
   icon={<TickCircleMediumIcon />}
   description="Toast description"
-  action={
-    <InlineLink href="/help" color="inverted">
-      Link
-    </InlineLink>
-  }
-  actionAltText="Visit /help"
   showDismissButton
->
+/>
 ```
 
-## type
+## Icon
 
-fore/background
-
-## action
-altText
-
-## dismiss button
-
-
-### Duration
-
-override in provider
-
-Override the default 6-second duration for specific toasts:
+Include an icon using the `icon` prop:
 
 ```tsx
-<Toast open={open} onOpenChange={setOpen} duration={10000}>
-  <ToastDescription>
-    <InfoMediumIcon />
-    This toast will remain visible for 10 seconds
-  </ToastDescription>
+import { Toast } from '@utilitywarehouse/hearth-react';
+import { TickCircleMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+
+[...]
+
+<Toast
+  description='With icon'
+  icon={<TickCircleMediumIcon />}
+/>
+```
+
+## Actions
+
+You can include an `action` using the `TextActionLink` or `TextActionButton`
+components as children. Only use one per toast.
+
+The action should be safe to ignore so that users are not expected to complete
+tasks with unexpected side effects as a result of a time limit. You can direct
+the user to a permanent place in your application where they can action it. Use
+foreground type to announce immediately and increase the duration to give the
+user ample time.
+
+When obtaining a user response is necessary, consider using an `Alert` instead.
+
+```tsx
+<Toast
+  type="foreground"
+  duration={10000}
+  description="You can change your details anytime"
+>
+  <ToastActionLink
+    href="/account-settings"
+    altText="Visit account settings to change your details"
+  >
+    Account settings
+  </ToastActionLink>
+</Toast>
+
+[...]
+
+<Toast
+  type="foreground"
+  duration={10000}
+  description="Settings updated"
+>
+  <ToastActionButton altText="Go to settings to undo">Undo</ToastActionButton>
 </Toast>
 ```
 
+<Canvas of={Stories.Actions} />
+
+## Custom duration
+
+The default duration of 5 seconds is set on the `ToastProvider`, you
+can override this on the provider, or setting this on the individual toast will
+override the global default.
+
+```tsx
+<Toast duration={10000} description="Custom toast duration of 10 seconds" />
+```
+
+## Type
+
+You can control the sensitivity of the toast for accessibility purposes. For
+toasts that are the result of a user action, choose `foreground`. Toasts
+generated from background tasks should use `background`. The default type is
+`foreground`.
+
+## Dismiss button
+
+A dismiss button can be included.
+
+```tsx
+<Toast description="Show dismiss button" showDismissButton />
+```
 
 ### Stacking
 
-In instances where additional Toasts appear before the previous have timed out, they will stack. Toasts will appear stacked vertically with the newest appearing at the bottom.
+In instances where additional Toasts appear before the previous have timed out,
+they will stack. Toasts will stack vertically with the newest appearing at the
+bottom.
 
 <Canvas of={Stories.StackingToasts} sourceState="none" />
-
-### Interactive Example
-
-A full example showing action and dismiss functionality:
-
-<Canvas of={Stories.InteractiveExample} sourceState="none" />
 
 ## API
 
@@ -96,35 +139,46 @@ A full example showing action and dismiss functionality:
 
 This component is based on [Radix UI's Toast primitive](https://www.radix-ui.com/primitives/docs/components/toast).
 
-| Prop             | Type                                        | Default  | Description                                                          |
-| ---------------- | ------------------------------------------- | -------- | -------------------------------------------------------------------- |
-| `duration`       | `number`                                    | `6000`   | Time in milliseconds before toast auto-dismisses (6 seconds default) |
-| `swipeDirection` | `"right"` \| `"left"` \| `"up"` \| `"down"` | `"down"` | Direction of swipe to dismiss                                        |
-| `swipeThreshold` | `number`                                    | `50`     | Distance in pixels before swipe dismisses toast                      |
+| Prop             | Type            |
+| ---------------- | --------------- |
+| `duration`       | `number`        |
+| `viewportLabel`  | `string`        |
+| `viewportHotkey` | `Array<string>` |
 
 ### Toast
 
-This component is based on Radix UI's Toast primitive.
+This component is based on [Radix UI's Toast primitive](https://www.radix-ui.com/primitives/docs/components/toast).
 
-| Prop           | Type                             | Description                                                            |
-| -------------- | -------------------------------- | ---------------------------------------------------------------------- |
-| `open`         | `boolean`                        | Controls the open state of the toast                                   |
-| `onOpenChange` | `(open: boolean) => void`        | Callback when open state changes                                       |
-| `duration`     | `number`                         | Time in milliseconds before auto-dismiss (overrides provider duration) |
-| `type`         | `"foreground"` \| `"background"` | Control sensitivity of toast for accessibility                         |
+| Prop                | Type                             |
+| ------------------- | -------------------------------- |
+| `description`       | `string`                         |
+| `icon`              | `ReactNode`                      |
+| `showDismissButton` | `boolean`                        |
+| `type`              | `"foreground"` \| `"background"` |
+| `duration`          | `number`                         |
+| `defaultOpen`       | `boolean`                        |
+| `open`              | `boolean`                        |
+| `onOpenChange`      | `(open: boolean) => void`        |
+| `onEscapeKeyDown`   | `(event: KeyboardEvent) => void` |
+| `onPause`           | `() => void`                     |
+| `onResume`          | `() => void`                     |
+| `onSwipeStart`      | `(event: SwipeEvent) => void`    |
+| `onSwipeMove`       | `(event: SwipeEvent) => void`    |
+| `onSwipeEnd`        | `(event: SwipeEvent) => void`    |
+| `onSwipeCancel`     | `(event: SwipeEvent) => void`    |
 
-### ToastAction
+### ToastActionLink
 
-| Prop      | Type      | Description                                               |
-| --------- | --------- | --------------------------------------------------------- |
-| `altText` | `string`  | Alternative text for screen readers describing the action |
-| `asChild` | `boolean` | When true, renders child element as the action button     |
+This component is based on the `a` element and [Radix UI's Toast primitive](https://www.radix-ui.com/primitives/docs/components/toast).
 
-### ToastViewport
+| Prop      | Type     |
+| --------- | -------- |
+| `altText` | `string` |
 
-The viewport where toasts are rendered. Typically placed at the bottom-right of the screen.
+### ToastActionButton
 
-| Prop     | Type       | Description                                    |
-| -------- | ---------- | ---------------------------------------------- |
-| `hotkey` | `string[]` | Keyboard shortcuts to focus the toast viewport |
-| `label`  | `string`   | Label announced to screen readers              |
+This component is based on the `button` element and [Radix UI's Toast primitive](https://www.radix-ui.com/primitives/docs/components/toast).
+
+| Prop      | Type     |
+| --------- | -------- |
+| `altText` | `string` |

@@ -273,6 +273,10 @@ export { ToastProvider } from './components/Toast/ToastProvider';
 export type { ToastProviderProps } from './components/Toast/ToastProvider.props';
 export { Toast } from './components/Toast/Toast';
 export type { ToastProps } from './components/Toast/Toast.props';
+export { ToastActionLink } from './components/Toast/ToastActionLink';
+export type { ToastActionLinkProps } from './components/Toast/ToastActionLink.props';
+export { ToastActionButton } from './components/Toast/ToastActionButton';
+export type { ToastActionButtonProps } from './components/Toast/ToastActionButton.props';
 
 export { Combobox } from './components/Combobox/Combobox';
 export type { ComboboxProps } from './components/Combobox/Combobox.props';

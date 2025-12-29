@@ -6,8 +6,9 @@ const COMPONENT_NAME = 'ToastProvider';
 
 export const ToastProvider = ({
   children,
-  duration = 6000,
+  duration = 5000,
   viewportLabel,
+  viewportHotkey,
   ...props
 }: ToastProviderProps) => {
   return (
@@ -21,6 +22,7 @@ export const ToastProvider = ({
       <ToastPrimitive.Viewport
         className={withGlobalPrefix('ToastViewport')}
         label={viewportLabel}
+        hotkey={viewportHotkey}
       />
     </ToastPrimitive.Provider>
   );

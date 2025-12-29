@@ -1,6 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Button, Toast, ToastProvider, InlineLink } from '@utilitywarehouse/hearth-react';
+import {
+  Button,
+  Toast,
+  ToastProvider,
+  ToastActionLink,
+  ToastActionButton,
+  Flex,
+} from '@utilitywarehouse/hearth-react';
 import { TickCircleMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof Toast> = {
@@ -23,7 +30,13 @@ const meta: Meta<typeof Toast> = {
   ],
   argTypes: {
     duration: { control: { type: 'number' } },
-    type: { control: { type: 'select' }, options: ['foreground', 'background'] },
+    type: { control: { type: 'radio' }, options: ['foreground', 'background'] },
+    showDismissButton: { control: { type: 'boolean' } },
+  },
+  args: {
+    duration: 5000,
+    description: 'Toast description',
+    showDismissButton: true,
   },
 };
 
@@ -56,261 +69,116 @@ export const Playground: Story = {
         >
           Show Toast
         </Button>
-        <Toast
-          open={open}
-          onOpenChange={setOpen}
-          type={args.type}
-          showDismissButton
-          icon={<TickCircleMediumIcon />}
-          description="ToastDescription"
-          action={
-            <InlineLink href="#" color="inverted">
-              Link
-            </InlineLink>
-          }
-          actionAltText="Visit #"
-        />
+        <Toast open={open} onOpenChange={setOpen} icon={<TickCircleMediumIcon />} {...args}>
+          <ToastActionLink href="#" altText="Visit #">
+            Link
+          </ToastActionLink>
+        </Toast>
       </div>
     );
   },
 };
 
-//
-// export const CustomDuration: StoryObj<{
-//   message: string;
-//   duration: number;
-//   type: 'foreground' | 'background';
-// }> = {
-//   args: {
-//     message: 'This toast will remain visible for the custom duration',
-//     duration: 10000,
-//     type: 'foreground',
-//   },
-//   argTypes: {
-//     message: {
-//       control: { type: 'text' },
-//       description: 'The toast message content',
-//     },
-//     duration: {
-//       control: { type: 'number' },
-//       description: 'Time in milliseconds before toast auto-dismisses',
-//     },
-//     type: {
-//       control: { type: 'select' },
-//       options: ['foreground', 'background'],
-//       description: 'Control sensitivity of toast for accessibility',
-//     },
-//   },
-//   render: args => {
-//     const [open, setOpen] = React.useState(false);
-//     const timerRef = React.useRef(0);
-//
-//     React.useEffect(() => {
-//       return () => clearTimeout(timerRef.current);
-//     }, []);
-//
-//     return (
-//       <div style={{ minHeight: '400px', position: 'relative' }}>
-//         <Button
-//           onClick={() => {
-//             setOpen(false);
-//             window.clearTimeout(timerRef.current);
-//             timerRef.current = window.setTimeout(() => {
-//               setOpen(true);
-//             }, 100);
-//           }}
-//         >
-//           Show Toast ({args.duration / 1000}s duration)
-//         </Button>
-//         <Toast open={open} onOpenChange={setOpen} duration={args.duration} type={args.type}>
-//           <ToastDescription>
-//             <InfoMediumIcon />
-//             {args.message}
-//           </ToastDescription>
-//         </Toast>
-//       </div>
-//     );
-//   },
-// };
-//
-// export const StackingToasts: StoryObj<{
-//   message1: string;
-//   message2: string;
-//   message3: string;
-//   duration: number;
-//   type: 'foreground' | 'background';
-// }> = {
-//   args: {
-//     message1: 'Email address updated',
-//     message2: 'Phone number updated',
-//     message3: 'Payment method updated',
-//     duration: 6000,
-//     type: 'foreground',
-//   },
-//   argTypes: {
-//     message1: {
-//       control: { type: 'text' },
-//       description: 'First toast message',
-//     },
-//     message2: {
-//       control: { type: 'text' },
-//       description: 'Second toast message',
-//     },
-//     message3: {
-//       control: { type: 'text' },
-//       description: 'Third toast message',
-//     },
-//     duration: {
-//       control: { type: 'number' },
-//       description: 'Time in milliseconds before toast auto-dismisses',
-//     },
-//     type: {
-//       control: { type: 'select' },
-//       options: ['foreground', 'background'],
-//       description: 'Control sensitivity of toast for accessibility',
-//     },
-//   },
-//   render: args => {
-//     const [toasts, setToasts] = React.useState<number[]>([]);
-//     const countRef = React.useRef(0);
-//     const messages = [args.message1, args.message2, args.message3];
-//
-//     const addToast = () => {
-//       const id = countRef.current++;
-//       setToasts(prev => [...prev, id]);
-//     };
-//
-//     const removeToast = (id: number) => {
-//       setToasts(prev => prev.filter(toastId => toastId !== id));
-//     };
-//
-//     return (
-//       <div style={{ minHeight: '400px', position: 'relative' }}>
-//         <Button onClick={addToast}>Add Toast (stacks vertically)</Button>
-//         {toasts.map(id => (
-//           <Toast
-//             key={id}
-//             open={true}
-//             onOpenChange={open => !open && removeToast(id)}
-//             duration={args.duration}
-//             type={args.type}
-//           >
-//             <ToastDescription>
-//               <TickCircleMediumIcon />
-//               {messages[id % messages.length]}
-//             </ToastDescription>
-//             <ToastClose>
-//               <UnstyledIconButton label="Close" inverted>
-//                 <CloseMediumIcon />
-//               </UnstyledIconButton>
-//             </ToastClose>
-//           </Toast>
-//         ))}
-//       </div>
-//     );
-//   },
-// };
-//
-// export const InteractiveExample: StoryObj<{
-//   saveMessage: string;
-//   undoMessage: string;
-//   actionText: string;
-//   duration: number;
-//   type: 'foreground' | 'background';
-// }> = {
-//   args: {
-//     saveMessage: 'Settings updated successfully',
-//     undoMessage: 'Changes reverted',
-//     actionText: 'Undo',
-//     duration: 6000,
-//     type: 'foreground',
-//   },
-//   argTypes: {
-//     saveMessage: {
-//       control: { type: 'text' },
-//       description: 'Success toast message',
-//     },
-//     undoMessage: {
-//       control: { type: 'text' },
-//       description: 'Undo toast message',
-//     },
-//     actionText: {
-//       control: { type: 'text' },
-//       description: 'Text for the action link',
-//     },
-//     duration: {
-//       control: { type: 'number' },
-//       description: 'Time in milliseconds before toast auto-dismisses',
-//     },
-//     type: {
-//       control: { type: 'select' },
-//       options: ['foreground', 'background'],
-//       description: 'Control sensitivity of toast for accessibility',
-//     },
-//   },
-//   render: args => {
-//     const [open, setOpen] = React.useState(false);
-//     const [undoOpen, setUndoOpen] = React.useState(false);
-//     const timerRef = React.useRef(0);
-//     const undoTimerRef = React.useRef(0);
-//
-//     React.useEffect(() => {
-//       return () => {
-//         clearTimeout(timerRef.current);
-//         clearTimeout(undoTimerRef.current);
-//       };
-//     }, []);
-//
-//     const handleSave = () => {
-//       setOpen(false);
-//       window.clearTimeout(timerRef.current);
-//       timerRef.current = window.setTimeout(() => {
-//         setOpen(true);
-//       }, 100);
-//     };
-//
-//     const handleUndo = () => {
-//       setOpen(false);
-//       setUndoOpen(false);
-//       window.clearTimeout(undoTimerRef.current);
-//       undoTimerRef.current = window.setTimeout(() => {
-//         setUndoOpen(true);
-//       }, 100);
-//     };
-//
-//     return (
-//       <div style={{ minHeight: '400px', position: 'relative' }}>
-//         <Flex direction="column" gap="200">
-//           <Button onClick={handleSave}>Update Settings</Button>
-//           <Toast open={open} onOpenChange={setOpen} duration={args.duration} type={args.type}>
-//             <ToastDescription>
-//               <TickCircleMediumIcon />
-//               {args.saveMessage}
-//             </ToastDescription>
-//             <ToastAction altText="Undo changes" onClick={handleUndo}>
-//               <InlineLink href="#" color="inverted">
-//                 {args.actionText}
-//               </InlineLink>
-//             </ToastAction>
-//             <ToastClose>
-//               <UnstyledIconButton label="Close" inverted>
-//                 <CloseMediumIcon />
-//               </UnstyledIconButton>
-//             </ToastClose>
-//           </Toast>
-//           <Toast
-//             open={undoOpen}
-//             onOpenChange={setUndoOpen}
-//             duration={args.duration}
-//             type={args.type}
-//           >
-//             <ToastDescription>
-//               <InfoMediumIcon />
-//               {args.undoMessage}
-//             </ToastDescription>
-//           </Toast>
-//         </Flex>
-//       </div>
-//     );
-//   },
-// };
+export const Actions: Story = {
+  render: () => {
+    const [openLinkActionToast, setOpenLinkActionToast] = React.useState(false);
+    const [openButtonActionToast, setOpenButtonActionToast] = React.useState(false);
+
+    const linkActionTimerRef = React.useRef(0);
+    const buttonActionTimerRef = React.useRef(0);
+
+    React.useEffect(() => {
+      return () => {
+        clearTimeout(linkActionTimerRef.current);
+        clearTimeout(buttonActionTimerRef.current);
+      };
+    }, []);
+
+    return (
+      <div>
+        <Flex gap="400">
+          <Button
+            onClick={() => {
+              setOpenLinkActionToast(false);
+              window.clearTimeout(linkActionTimerRef.current);
+              linkActionTimerRef.current = window.setTimeout(() => {
+                setOpenLinkActionToast(true);
+              }, 100);
+            }}
+          >
+            Show Link Action Toast
+          </Button>
+          <Button
+            onClick={() => {
+              setOpenButtonActionToast(false);
+              window.clearTimeout(buttonActionTimerRef.current);
+              buttonActionTimerRef.current = window.setTimeout(() => {
+                setOpenButtonActionToast(true);
+              }, 100);
+            }}
+          >
+            Show Button Action Toast
+          </Button>
+        </Flex>
+        <Toast
+          type="foreground"
+          duration={10000}
+          description="You can change your details anytime"
+          open={openLinkActionToast}
+          onOpenChange={setOpenLinkActionToast}
+        >
+          <ToastActionLink
+            href="/account-settings"
+            altText="Visit account settings to change your details"
+          >
+            Account settings
+          </ToastActionLink>
+        </Toast>
+        <Toast
+          type="foreground"
+          duration={10000}
+          description="Settings updated"
+          open={openButtonActionToast}
+          onOpenChange={setOpenButtonActionToast}
+        >
+          <ToastActionButton altText="Go to settings to undo">Undo</ToastActionButton>
+        </Toast>
+      </div>
+    );
+  },
+};
+export const StackingToasts: Story = {
+  render: args => {
+    const [toasts, setToasts] = React.useState<number[]>([]);
+    const countRef = React.useRef(0);
+    const toastDescriptions = [
+      'Email address updated',
+      'Phone number updated',
+      'Payment method updated',
+    ];
+
+    const addToast = () => {
+      const id = countRef.current++;
+      setToasts(prev => [...prev, id]);
+    };
+
+    const removeToast = (id: number) => {
+      setToasts(prev => prev.filter(toastId => toastId !== id));
+    };
+
+    return (
+      <div>
+        <Button onClick={addToast}>Add Toast</Button>
+        {toasts.map(id => (
+          <Toast
+            key={id}
+            open={true}
+            onOpenChange={open => !open && removeToast(id)}
+            description={toastDescriptions[id % toastDescriptions.length]}
+            showDismissButton
+          />
+        ))}
+      </div>
+    );
+  },
+};
