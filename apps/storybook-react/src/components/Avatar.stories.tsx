@@ -14,8 +14,8 @@ const meta: Meta<typeof Avatar> = {
   },
   argTypes: {
     size: { control: { type: 'radio' }, options: ['sm', 'md'] },
-    name: { control: { type: 'string' } },
-    src: { control: { type: 'string' } },
+    name: { control: { type: 'text' } },
+    src: { control: { type: 'text' } },
   },
   args: {
     name: undefined,
