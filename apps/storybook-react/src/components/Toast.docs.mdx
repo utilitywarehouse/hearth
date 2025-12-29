@@ -1,8 +1,7 @@
 import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
-
 import * as Stories from './Toast.stories';
-
 import { DocsHeader } from '../storybook-components/DocsHeader';
+import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 
 <Meta title="Components / Toast" />
 
@@ -11,10 +10,12 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 - [Playground](#playground)
 - [Usage](#usage)
 - [Icon](#icon)
+- [Dismiss toast](#dismiss-toast)
 - [Actions](#actions)
 - [Custom duration](#custom-duration)
-- [Type](#type)
-- [Dismiss button](#dismiss-button)
+- [Accessibility](#accessibility)
+  - [Sensitivity](#sensitivity)
+  - [Keyboard interactions](#keyboard-interactions)
 - [Duplicate toasts](#duplicate-toasts)
 - [API](#api)
 
@@ -41,17 +42,7 @@ import { ToastProvider } from '@utilitywarehouse/hearth-react';
 You can then render your toast:
 
 ```tsx
-const [open, setOpen] = React.useState(false);
-
-[...]
-
-<Toast
-  open={open}
-  onOpenChange={setOpen}
-  icon={<TickCircleMediumIcon />}
-  description="Toast description"
-  showDismissButton
-/>
+<Toast description="Toast description" />
 ```
 
 ## Icon
@@ -69,6 +60,16 @@ import { TickCircleMediumIcon } from '@utilitywarehouse/hearth-react-icons';
   icon={<TickCircleMediumIcon />}
 />
 ```
+
+## Dismiss toast
+
+A dismiss button can be included.
+
+```tsx
+<Toast description="Show dismiss button" showDismissButton />
+```
+
+Users can also swipe down on any toast to dismiss it immediately.
 
 ## Actions
 
@@ -120,22 +121,80 @@ override the global default.
 <Toast duration={10000} description="Custom toast duration of 10 seconds" />
 ```
 
-## Type
+## Accessibility
 
-You can control the sensitivity of the toast for accessibility purposes. For
-toasts that are the result of a user action, choose `foreground`. Toasts
+Adheres to the [aria-live requirements](https://www.w3.org/TR/wai-aria/#aria-live)
+
+### Sensitivity
+
+You can control the sensitivity of the toast for screen readers, using the `type` prop.
+
+For toasts that are the result of a user action, choose `foreground`. Toasts
 generated from background tasks should use `background`. The default type is
 `foreground`.
 
-## Dismiss toast
+Foreground toasts are announced immediately. Assistive technologies may choose
+to clear previously queued messages when a foreground toast appears. Try to
+avoid stacking distinct foreground toasts at the same time.
 
-A dismiss button can be included.
+Background toasts are announced at the next graceful opportunity, for example,
+when the screen reader has finished reading its current sentence. They do not
+clear queued messages so overusing them can be perceived as a laggy user
+experience for screen reader users when used in response to a user interaction.
 
-```tsx
-<Toast description="Show dismiss button" showDismissButton />
-```
+### Keyboard interactions
 
-Users can also swipe down on any toast to dismiss it immediately.
+<Flex direction="column" gap="200" className="sb-unstyled">
+  <Flex>
+    <Box width="300px">
+      <BodyText as="span" weight="bold">
+        Key
+      </BodyText>
+    </Box>
+    <BodyText as="span" weight="bold">
+      Description
+    </BodyText>
+  </Flex>
+  <Divider />
+  {[
+    {
+      key: 'F8',
+      description: 'Focuses toasts viewport.',
+    },
+    {
+      key: 'Tab',
+      description: 'Moves focus to the next focusable element.',
+    },
+    {
+      key: 'Shift+Tab',
+      description: 'Moves focus to the previous focusable element.',
+    },
+    {
+      key: 'Space',
+      description:
+        'When focus is on a Toast action component or the Toast dismiss button, closes the toast.',
+    },
+    {
+      key: 'Enter',
+      description:
+        'When focus is on a Toast action component or the Toast dismiss button, closes the toast.',
+    },
+    {
+      key: 'Esc',
+      description: 'When focus is on a Toast, closes the toast.',
+    },
+  ].map((kbi, i) => (
+    <>
+      <Flex>
+        <Box width="300px">
+          <kbd>{kbi.key}</kbd>
+        </Box>
+        <BodyText as="span">{kbi.description}</BodyText>
+      </Flex>
+      {i < 5 ? <Divider /> : null}
+    </>
+  ))}
+</Flex>
 
 ## Duplicate toasts
 
