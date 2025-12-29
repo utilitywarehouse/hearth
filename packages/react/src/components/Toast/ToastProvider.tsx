@@ -15,7 +15,7 @@ export const ToastProvider = ({
     <ToastPrimitive.Provider
       {...props}
       duration={duration}
-      swipeDirection="right"
+      swipeDirection="down"
       swipeThreshold={50}
     >
       {children}
