@@ -27,7 +27,7 @@ export const Toast = ({
       {children}
       {showDismissButton ? (
         <ToastPrimitive.Close asChild>
-          <UnstyledIconButton label="dismiss toast" inverted>
+          <UnstyledIconButton label="Dismiss toast" inverted>
             <CloseMediumIcon />
           </UnstyledIconButton>
         </ToastPrimitive.Close>
