@@ -21,7 +21,9 @@ export const ToastActionButton = ({
   return (
     <ToastPrimitive.Action className={cn(componentClassName, className)} asChild altText={altText}>
       <InlineLink color="inverted" asChild>
-        <button {...props}>{children}</button>
+        <button type="button" {...props}>
+          {children}
+        </button>
       </InlineLink>
     </ToastPrimitive.Action>
   );
