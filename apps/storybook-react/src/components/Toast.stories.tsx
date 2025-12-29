@@ -32,7 +32,7 @@ type Story = StoryObj<typeof Toast>;
 
 export const Playground: Story = {
   render: args => {
-    const [open, setOpen] = React.useState(true);
+    const [open, setOpen] = React.useState(false);
 
     // Note: The timer logic below is only needed for Storybook to properly replay
     // the toast animation when clicking the button multiple times. In your app,
