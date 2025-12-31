@@ -8,6 +8,15 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <DocsHeader componentName="SearchInput" stories={Stories} />
 
+- [Playground](#playground)
+- [Alternatives](#alternatives)
+- [Accessibility](#accessibility)
+- [Label](#label)
+- [Clear](#clear)
+- [Loading](#loading)
+- [Usage with a button](#usage-with-a-button)
+- [API](#api)
+
 ## Playground
 
 <Canvas of={Stories.Playground} sourceState="shown" />
@@ -18,6 +27,24 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 - [TextInput](?path=/docs/components-textinput--docs) - For text
 - [PasswordInput](?path=/docs/components-passwordinput--docs) - For passwords
 - [CurrencyInput](?path=/docs/components-currencyinput--docs) - For money
+
+## Accessibility
+
+Wrap `SearchInput` in a container element with `role="search"` to increase
+their discoverability to assistive technologies. This parent element should
+encompass all of the elements that together form the search feature.
+
+Be aware though that too many landmark roles such as this can create
+unnecessary 'noise' for screen reader users, and should be used sparingly on a
+page.
+
+You can learn more about this at the [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/search_role).
+
+```tsx
+<form role="search">
+  <SearchInput />
+</form>
+```
 
 ## Label
 
@@ -36,26 +63,6 @@ You can set the `SearchInput` into a loading state, where it will disable the
 input and display a loading spinner.
 
 <Canvas of={Stories.Loading} sourceState="shown" />
-
-## Form usage
-
-When using the `SearchInput` inside a form, please make sure you add the search
-role to the form element to assist screen readers. Be aware though that too
-many landmark roles such as this can create unnecessary 'noise' for screen
-reader users, and should be used sparingly on a page.
-
-Please take the time to read [the MDN docs](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/search_role)
-around this, to fully understand how best to use the `SearchInput` within the
-context of your specific form.
-
-```tsx
-<form role="search">
-  <SearchInput />
-</form>
-```
-
-The `<search>` element is an alternative to this, however it is not supported by
-our [current browser versions](https://wiki.uw.systems/posts/supported-browsers-gi115224).
 
 ## Usage with a button
 

@@ -3,13 +3,13 @@ import { Flex, Link, Badge, SectionHeader, Button } from '@utilitywarehouse/hear
 import { SettingsSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const meta: Meta<typeof SectionHeader> = {
-  title: 'Stories / Section Header',
+  title: 'Stories / SectionHeader',
   component: SectionHeader,
   parameters: {
     docs: {
       description: {
         component:
-          'Use the `Section Header` component to help define and separate content within a screen. It provides structure, clarity, and improves page scannability for users.',
+          'Use the `SectionHeader` component to help define and separate content within a screen. It provides structure, clarity, and improves page scannability for users.',
       },
     },
   },
