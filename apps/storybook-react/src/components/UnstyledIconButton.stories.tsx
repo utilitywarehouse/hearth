@@ -21,12 +21,14 @@ const meta: Meta<typeof UnstyledIconButton> = {
   component: UnstyledIconButton,
   argTypes: {
     children: { control: { type: 'text' } },
+    label: { control: { type: 'text' } },
     size: { control: { type: 'radio' }, options: sizes },
     disabled: { control: { type: 'boolean' } },
     loading: { control: { type: 'boolean' } },
   },
   args: {
     onClick: fn(),
+    label: 'close',
   },
 } satisfies Meta<typeof UnstyledIconButton>;
 

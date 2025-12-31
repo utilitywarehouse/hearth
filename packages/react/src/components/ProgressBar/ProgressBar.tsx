@@ -31,12 +31,13 @@ export const ProgressBar = (props: ProgressBarProps) => {
 
   const { labelId } = useIds({ prefix: 'progress' });
 
-  // Clamp value between min and max; success should only ever reflect a complete state
-  const clampedValue = colorScheme === 'success' ? max : Math.min(Math.max(value, min), max);
-
-  const percentValue = valueToPercent(clampedValue, min, max);
-  const defaultValueText = `${percentValue}%`;
-  const valueText = formatValueText ? formatValueText(clampedValue) : defaultValueText;
+  // Determine the logical value based on status
+  // If 'success', we force 100% (max); otherwise, we clamp the actual value.
+  const effectiveValue = colorScheme === 'success' ? max : Math.max(min, Math.min(value, max));
+  // Get the whole number percentage
+  const percentValue = valueToPercent(effectiveValue, min, max);
+  // Determine the text display
+  const valueText = formatValueText ? formatValueText(effectiveValue) : `${percentValue}%`;
 
   const internalProgressBarProps = {
     value: percentValue,
@@ -50,7 +51,7 @@ export const ProgressBar = (props: ProgressBarProps) => {
     <div
       className={cn(componentClassName, className)}
       role="progressbar"
-      aria-valuenow={clampedValue}
+      aria-valuenow={effectiveValue}
       aria-valuemin={min}
       aria-valuemax={max}
       aria-valuetext={ariaValueText || valueText}
