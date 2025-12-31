@@ -13,19 +13,16 @@ const getAbsolutePath = (input: string) => dirname(require.resolve(`${input}/pac
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.docs.mdx', '../src/**/*.stories.tsx'],
-  addons: [
-    getAbsolutePath('@chromatic-com/storybook'),
-    {
-      name: getAbsolutePath('@storybook/addon-docs'),
-      options: {
-        mdxPluginOptions: {
-          mdxCompileOptions: {
-            remarkPlugins: [remarkGfm],
-          },
+  addons: [getAbsolutePath('@chromatic-com/storybook'), {
+    name: getAbsolutePath('@storybook/addon-docs'),
+    options: {
+      mdxPluginOptions: {
+        mdxCompileOptions: {
+          remarkPlugins: [remarkGfm],
         },
       },
     },
-  ],
+  }, getAbsolutePath('@storybook/addon-a11y')],
   framework: {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {},

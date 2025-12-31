@@ -50,7 +50,6 @@ export const SearchInput = ({
       ref={inputRef}
       className={cn(componentClassName, className)}
       type="search"
-      role="search"
       enterKeyHint="search"
       disabled={disabled}
       hideLabel={hideLabel}

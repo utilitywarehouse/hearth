@@ -766,7 +766,7 @@ export const BannerWithImage: Story = {
     <Flex gap="400">
       <Card spacing="md" maxWidth="420px">
         <CardBannerImage width="160px" height="174px">
-          <img src={piggies} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src={piggies} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
         </CardBannerImage>
         <CardBannerContent
           heading="Save a bundle"
@@ -775,7 +775,7 @@ export const BannerWithImage: Story = {
       </Card>
       <Card spacing="lg" direction="column" alignItems="start" maxWidth="300px">
         <CardBannerImage height="160px">
-          <img src={piggies} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src={piggies} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="" />
         </CardBannerImage>
         <CardBannerContent
           heading="Save a bundle"

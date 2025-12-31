@@ -23,7 +23,7 @@ body {
 }
 
 :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
-:where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li, .hearth-ListItem)) {
+:where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li, .h-ListItem)) {
   font-size: max(1em, 16px) !important;
 }
 
@@ -42,18 +42,17 @@ code {
   border: 1px solid #e6e4db !important;
 }
 
-:where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table, .hearth-Table table)) tr,
+:where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table, .h-Table table)) tr,
 .docblock-argstable-body tr td {
   background-color: #f1efe4 !important;
 }
 
-thead th:not(.hearth-TableHeaderCell) {
+thead th:not(.h-TableHeaderCell) {
   background-color: #7a42c8 !important;
   color: white !important;
 }
 
-:where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table, .hearth-Table table))
-  tr:nth-of-type(2n),
+:where(table:not(.sb-anchor, .sb-unstyled, .sb-unstyled table, .h-Table table)) tr:nth-of-type(2n),
 .docblock-argstable-body tr:nth-of-type(2n) td {
   background-color: #fcfbf2 !important;
 }
@@ -70,10 +69,10 @@ thead th:not(.hearth-TableHeaderCell) {
   border-right: 1px solid #101010 !important;
 }
 
-h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, .hearth-DetailText, .hearth-Heading),
-h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2, .hearth-DetailText, .hearth-Heading),
-h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3, .hearth-DetailText, .hearth-Heading),
-h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4, .hearth-DetailText, .hearth-Heading),
+h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, .h-DetailText, .h-Heading),
+h2:not(.sb-anchor, .sb-unstyled, .sb-unstyled h2, .h-DetailText, .h-Heading),
+h3:not(.sb-anchor, .sb-unstyled, .sb-unstyled h3, .h-DetailText, .h-Heading),
+h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4, .h-DetailText, .h-Heading),
 h5:not(.sb-anchor, .sb-unstyled, .sb-unstyled h5),
 h6:not(.sb-anchor, .sb-unstyled, .sb-unstyled h6) {
   font-family: 'Comic Hams', serif !important;
@@ -81,7 +80,7 @@ h6:not(.sb-anchor, .sb-unstyled, .sb-unstyled h6) {
   border-bottom-color: var(--color-border-subtle);
 }
 
-h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, .hearth-DetailText, .hearth-Heading) {
+h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, .h-DetailText, .h-Heading) {
   margin-bottom: var(--h-space-400);
 }
 

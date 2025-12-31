@@ -20,7 +20,7 @@ import { Responsive } from '../../types/responsive';
 const displayValues = ['none', 'inline', 'inline-block', 'block'] as const;
 
 export const boxPropDefs = {
-  display: { className: 'display', tokens: displayValues, responsive: true },
+  display: { className: 'd', tokens: displayValues, responsive: true },
 } satisfies {
   display: PropDef<(typeof displayValues)[number]>;
 };

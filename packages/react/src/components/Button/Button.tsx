@@ -23,6 +23,7 @@ export const Button = (props: ButtonProps) => {
     <ButtonBase
       className={cn(componentClassName, className)}
       disabled={disabled || loading}
+      aria-label={loading ? 'Loading' : undefined}
       asChild
       {...buttonProps}
     >

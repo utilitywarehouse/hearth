@@ -11,7 +11,8 @@ export const unstyledIconButtonPropDefs = {
 };
 
 export type UnstyledIconButtonProps = React.ComponentPropsWithRef<'button'> &
-  Pick<IconButtonProps, 'label' | 'loading' | 'asChild'> & {
+  Pick<IconButtonProps, 'loading' | 'asChild'> & {
+    label: IconButtonProps['label'];
     /**
      * Sets the button height.
      * @default md
