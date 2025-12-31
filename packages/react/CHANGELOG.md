@@ -1,5 +1,19 @@
 # @utilitywarehouse/hearth-react
 
+## 0.23.1
+
+### Patch Changes
+
+- [#727](https://github.com/utilitywarehouse/hearth/pull/727) [`58d8f21`](https://github.com/utilitywarehouse/hearth/commit/58d8f21ed9e1875ce9e2b7d4b5fe20c739da776c) Thanks [@robphoenix](https://github.com/robphoenix)! - Multiple fixes
+
+  - fix `Box` display prop
+  - fix `CurrencyInput` styles
+  - fix `ListItem` trailing content
+  - fix `Button` loading label
+  - fix `SearchInput` role
+  - fix `UnstyledIconButton` label
+  - fix `ProgressBar` percentage calculation
+
 ## 0.23.0
 
 ### Minor Changes
