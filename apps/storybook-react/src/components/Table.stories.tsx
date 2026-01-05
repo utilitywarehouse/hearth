@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   Table,
   TableBody,
@@ -90,32 +90,71 @@ export const KitchenSink: Story = {
   },
 };
 
+/**
+ * A hook that takes a small array and creates a larger, predictably shuffled,
+ * and paginated dataset for use in environments like Chromatic.
+ * * @template T - The type of the data object, must contain an `id`.
+ * @param {T[]} data - The base array of items to multiply and shuffle.
+ * @param {number} multiplier - How many times to duplicate the base set.
+ * @param {string} seed - The string used to anchor the randomness (e.g., 'hearth').
+ * @param {number} currentPage - The current active page (1-indexed).
+ * @param {number} itemsPerPage - Number of items to return per page.
+ * @returns {T[]} A stable, shuffled, and paginated subset of the multiplied data.
+ */
+function usePaginatedSeededData<T extends { id: string | number }>(
+  data: T[],
+  multiplier: number,
+  seed: string,
+  currentPage: number,
+  itemsPerPage: number
+): T[] {
+  return useMemo(() => {
+    // 1. Initialize the seeded generator
+    const rng = seedrandom(seed);
+
+    /**
+     * Internal Fisher-Yates shuffle implementation using the seeded generator.
+     */
+    const shuffle = (arr: T[]): T[] => {
+      const result = [...arr];
+      for (let i = result.length - 1; i > 0; i--) {
+        const j = Math.floor(rng() * (i + 1));
+        [result[i], result[j]] = [result[j], result[i]];
+      }
+      return result;
+    };
+
+    // 2. Multiply and shuffle the data
+    // flatMap executes the shuffle for each "iteration" and flattens the result
+    const bigList = Array.from({ length: multiplier }).flatMap((_, index) => {
+      return shuffle(data).map((item, i) => ({
+        ...item,
+        // String-based IDs prevent mathematical collisions and satisfy React keys
+        id: `seeded-${seed}-${index}-${item.id}-${i}`,
+      }));
+    });
+
+    // 3. Slice the list for the current page
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return bigList.slice(startIndex, startIndex + itemsPerPage);
+  }, [data, multiplier, seed, currentPage, itemsPerPage]);
+}
+
 export const Pagination: Story = {
   render: args => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 5;
+    const multiplier = 5;
 
-    const totalPages = Math.ceil((5 * personalDetails.length) / itemsPerPage);
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    // Use seedrandom to create predictable randomness so we don't create
-    // instability in chromatic
-    const random = seedrandom('hearth');
-    const currentData = [
-      ...personalDetails.sort(() => 0.5 - random()).map((p, i) => ({ ...p, id: p.id + i * 1000 })),
-      ...personalDetails
-        .sort(() => 0.5 - random())
-        .map((p, i) => ({ ...p, id: p.id + (i + 10) * 1000 })),
-      ...personalDetails
-        .sort(() => 0.5 - random())
-        .map((p, i) => ({ ...p, id: p.id + (i + 20) * 1000 })),
-      ...personalDetails
-        .sort(() => 0.5 - random())
-        .map((p, i) => ({ ...p, id: p.id + (i + 30) * 1000 })),
-      ...personalDetails
-        .sort(() => 0.5 - random())
-        .map((p, i) => ({ ...p, id: p.id + (i + 40) * 1000 })),
-    ].slice(startIndex, endIndex);
+    const currentData = usePaginatedSeededData(
+      personalDetails,
+      multiplier,
+      'hearth',
+      currentPage,
+      itemsPerPage
+    );
+
+    const totalPages = Math.ceil((multiplier * personalDetails.length) / itemsPerPage);
 
     return (
       <Table
