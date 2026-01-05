@@ -10,6 +10,7 @@ import {
   TablePagination,
   Flex,
 } from '@utilitywarehouse/hearth-react';
+import seedrandom from 'seedrandom';
 
 const variants = [undefined, 'subtle', 'emphasis'] as const;
 
@@ -97,21 +98,22 @@ export const Pagination: Story = {
     const totalPages = Math.ceil((5 * personalDetails.length) / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
+    // Use seedrandom to create predictable randomness so we don't create
+    // instability in chromatic
+    const random = seedrandom('hearth');
     const currentData = [
+      ...personalDetails.sort(() => 0.5 - random()).map((p, i) => ({ ...p, id: p.id + i * 1000 })),
       ...personalDetails
-        .sort(() => 0.5 - Math.random())
-        .map((p, i) => ({ ...p, id: p.id + i * 1000 })),
-      ...personalDetails
-        .sort(() => 0.5 - Math.random())
+        .sort(() => 0.5 - random())
         .map((p, i) => ({ ...p, id: p.id + (i + 10) * 1000 })),
       ...personalDetails
-        .sort(() => 0.5 - Math.random())
+        .sort(() => 0.5 - random())
         .map((p, i) => ({ ...p, id: p.id + (i + 20) * 1000 })),
       ...personalDetails
-        .sort(() => 0.5 - Math.random())
+        .sort(() => 0.5 - random())
         .map((p, i) => ({ ...p, id: p.id + (i + 30) * 1000 })),
       ...personalDetails
-        .sort(() => 0.5 - Math.random())
+        .sort(() => 0.5 - random())
         .map((p, i) => ({ ...p, id: p.id + (i + 40) * 1000 })),
     ].slice(startIndex, endIndex);
 
