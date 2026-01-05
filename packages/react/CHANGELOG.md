@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.23.2
+
+### Patch Changes
+
+- [#729](https://github.com/utilitywarehouse/hearth/pull/729) [`40ad6b9`](https://github.com/utilitywarehouse/hearth/commit/40ad6b9c8bf4abae7c0f3772609f88a69c8ebf4f) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `DatePicker` props
+
 ## 0.23.1
 
 ### Patch Changes
