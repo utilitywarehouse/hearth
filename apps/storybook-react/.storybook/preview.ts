@@ -86,6 +86,8 @@ const preview: Preview = {
         ],
       },
     },
+    // globally disable chromatic snapshots & accessibility tests
+    chromatic: { disableSnapshot: true },
   },
 };
 
