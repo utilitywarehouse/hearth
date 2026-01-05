@@ -36,7 +36,7 @@ type Story = StoryObj<typeof DatePicker>;
 
 export const Playground: Story = {
   render: args => {
-    const [selectedDate, setSelectedDate] = React.useState<Date | null>(new Date());
+    const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
     return (
       <DatePicker
         selected={selectedDate}

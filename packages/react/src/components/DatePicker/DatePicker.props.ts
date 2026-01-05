@@ -6,7 +6,7 @@ export type DatePickerProps = Omit<
   DatePickerPrimitiveProps,
   'selectsMultiple' | 'selectsRange' | 'onChange'
 > &
-  Omit<FormFieldProps, 'hideLabel'> &
+  Omit<FormFieldProps, 'hideLabel' | 'onChange'> &
   React.RefAttributes<HTMLButtonElement> &
   MarginProps & {
     selectsRange?: never;

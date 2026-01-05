@@ -12,8 +12,8 @@ permissions:
 jobs:
   release:
     permissions:
-      contents: write  # for changesets/action to push to the repo
-      pull-requests: write  # for changesets/action to create PRs
+      contents: write # for changesets/action to push to the repo
+      pull-requests: write # for changesets/action to create PRs
     name: Release
     runs-on: ubuntu-latest
     steps:
@@ -33,7 +33,7 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_PUBLISH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
       - run: pnpm build:icons
       - run: pnpm checks:ci
         env:
