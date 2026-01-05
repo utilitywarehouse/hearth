@@ -90,16 +90,22 @@ export const KitchenSink: Story = {
   },
 };
 
+// **NOTE** If this seems overengineered for generating paginated data, it's
+// because it probably is! I've been using this story to explore and improve my
+// usage of AI tools, so please forgive any excesses in complexity. Though it
+// did start from a real need to fix instability in Chromatic tests, caused by
+// the use of Math.random() in data shuffling.
+
 /**
  * A hook that takes a small array and creates a larger, predictably shuffled,
  * and paginated dataset for use in environments like Chromatic.
- * * @template T - The type of the data object, must contain an `id`.
+ * @template T - The type of the data object, must contain an `id`.
  * @param {T[]} data - The base array of items to multiply and shuffle.
  * @param {number} multiplier - How many times to duplicate the base set.
  * @param {string} seed - The string used to anchor the randomness (e.g., 'hearth').
  * @param {number} currentPage - The current active page (1-indexed).
  * @param {number} itemsPerPage - Number of items to return per page.
- * @returns {T[]} A stable, shuffled, and paginated subset of the multiplied data.
+ * @returns {{ pageData: T[], totalItems: number }} A stable, shuffled, and paginated subset with total count.
  */
 function usePaginatedSeededData<T extends { id: string | number }>(
   data: T[],
@@ -107,14 +113,12 @@ function usePaginatedSeededData<T extends { id: string | number }>(
   seed: string,
   currentPage: number,
   itemsPerPage: number
-): T[] {
-  return useMemo(() => {
-    // 1. Initialize the seeded generator
+): { pageData: T[]; totalItems: number } {
+  const shuffledData = useMemo(() => {
+    if (!data.length) return [];
+
     const rng = seedrandom(seed);
 
-    /**
-     * Internal Fisher-Yates shuffle implementation using the seeded generator.
-     */
     const shuffle = (arr: T[]): T[] => {
       const result = [...arr];
       for (let i = result.length - 1; i > 0; i--) {
@@ -124,20 +128,33 @@ function usePaginatedSeededData<T extends { id: string | number }>(
       return result;
     };
 
-    // 2. Multiply and shuffle the data
-    // flatMap executes the shuffle for each "iteration" and flattens the result
-    const bigList = Array.from({ length: multiplier }).flatMap((_, index) => {
-      return shuffle(data).map((item, i) => ({
-        ...item,
-        // String-based IDs prevent mathematical collisions and satisfy React keys
-        id: `seeded-${seed}-${index}-${item.id}-${i}`,
-      }));
-    });
+    return shuffle(data);
+  }, [data, seed]);
 
-    // 3. Slice the list for the current page
+  const totalItems = shuffledData.length * multiplier;
+
+  const pageData = useMemo(() => {
+    if (!shuffledData.length) return [];
+
     const startIndex = (currentPage - 1) * itemsPerPage;
-    return bigList.slice(startIndex, startIndex + itemsPerPage);
-  }, [data, multiplier, seed, currentPage, itemsPerPage]);
+    const endIndex = startIndex + itemsPerPage;
+    const result: T[] = [];
+
+    for (let i = startIndex; i < endIndex && i < totalItems; i++) {
+      const cycleIndex = i % shuffledData.length;
+      const multiplierIndex = Math.floor(i / shuffledData.length);
+      const item = shuffledData[cycleIndex];
+
+      result.push({
+        ...item,
+        id: `seeded-${seed}-${multiplierIndex}-${item.id}`,
+      });
+    }
+
+    return result;
+  }, [shuffledData, currentPage, itemsPerPage, totalItems, seed]);
+
+  return { pageData, totalItems };
 }
 
 export const Pagination: Story = {
@@ -146,7 +163,7 @@ export const Pagination: Story = {
     const itemsPerPage = 5;
     const multiplier = 5;
 
-    const currentData = usePaginatedSeededData(
+    const { pageData, totalItems } = usePaginatedSeededData(
       personalDetails,
       multiplier,
       'hearth',
@@ -154,7 +171,7 @@ export const Pagination: Story = {
       itemsPerPage
     );
 
-    const totalPages = Math.ceil((multiplier * personalDetails.length) / itemsPerPage);
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
 
     return (
       <Table
@@ -174,7 +191,7 @@ export const Pagination: Story = {
           <TableHeaderCell>City</TableHeaderCell>
         </TableHeader>
         <TableBody>
-          {currentData.map(person => (
+          {pageData.map(person => (
             <TableRow key={person.id}>
               <TableHeaderCell row>{person.name}</TableHeaderCell>
               <TableCell>{person.email}</TableCell>
