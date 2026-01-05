@@ -18,4 +18,3 @@ export type DatePickerProps = Omit<
   };
 
 export type View = 'days' | 'months' | 'years';
-
