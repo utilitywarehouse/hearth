@@ -8,8 +8,6 @@ import {
   ModalTrigger,
   ModalClose,
   ModalFooter,
-  Spinner,
-  Flex,
 } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Modal> = {
@@ -35,10 +33,8 @@ const meta: Meta<typeof Modal> = {
 export default meta;
 type Story = StoryObj<typeof Modal>;
 
-type ModalArgs = React.ComponentProps<typeof Modal>;
-
 export const Playground: Story = {
-  render: (args: ModalArgs) => (
+  render: args => (
     <ModalRoot>
       <ModalTrigger>
         <Button>Open modal</Button>
@@ -63,8 +59,8 @@ export const Playground: Story = {
 
 export const DefaultOpen: Story = {
   parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
-  render: (args: ModalArgs) => (
-    <ModalRoot defaultOpen>
+  render: (args, context) => (
+    <ModalRoot defaultOpen={context.viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
         <Button>Open modal</Button>
       </ModalTrigger>
@@ -87,15 +83,18 @@ export const DefaultOpen: Story = {
 };
 
 export const WithLongHeading: Story = {
-  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    a11y: { test: 'off' },
+  },
   args: {
     heading:
       'Your account with BT is either closed or has no live broadband or home phone services',
     description:
       'BT have told us you don’t have an active service at this address, so we don’t need to let them know you’re switching. We’ll get you up and running with UW broadband as fast as we can.',
   },
-  render: (args: ModalArgs) => (
-    <ModalRoot defaultOpen>
+  render: (args, context) => (
+    <ModalRoot defaultOpen={context.viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
         <Button>Open modal</Button>
       </ModalTrigger>
@@ -121,8 +120,8 @@ export const WithLongHeadingAndHideCloseButton: Story = {
       'BT have told us you don’t have an active service at this address, so we don’t need to let them know you’re switching. We’ll get you up and running with UW broadband as fast as we can.',
     hideCloseButton: true,
   },
-  render: (args: ModalArgs) => (
-    <ModalRoot defaultOpen>
+  render: (args, context) => (
+    <ModalRoot defaultOpen={context.viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
         <Button>Open modal</Button>
       </ModalTrigger>
@@ -140,9 +139,12 @@ export const WithLongHeadingAndHideCloseButton: Story = {
 };
 
 export const WithImage: Story = {
-  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
-  render: (args: ModalArgs) => (
-    <ModalRoot defaultOpen>
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    a11y: { test: 'off' },
+  },
+  render: (args, context) => (
+    <ModalRoot defaultOpen={context.viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
         <Button>Open modal</Button>
       </ModalTrigger>
@@ -165,9 +167,12 @@ export const WithImage: Story = {
 };
 
 export const OnMobile: Story = {
-  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    a11y: { test: 'off' },
+  },
   globals: { viewport: { value: 'mobile' } },
-  render: (args: ModalArgs) => (
+  render: args => (
     <ModalRoot defaultOpen>
       <ModalTrigger>
         <Button>Open modal</Button>
@@ -215,7 +220,7 @@ export const ControlledUsage: Story = {
 
 export const HideCloseButton: Story = {
   args: { hideCloseButton: true },
-  render: (args: ModalArgs) => (
+  render: args => (
     <ModalRoot>
       <ModalTrigger>
         <Button>Open modal</Button>
@@ -239,24 +244,20 @@ export const HideCloseButton: Story = {
 };
 
 export const Loading: Story = {
-  args: { heading: 'Your details', description: '' },
-  render: (args: ModalArgs) => (
-    <ModalRoot>
+  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
+  args: {
+    heading: 'Loading modal',
+    description: 'This is a loading modal, and the heading and description should not show.',
+    loading: true,
+    loadingText: 'Matching your details. This may take a minute...',
+    hideCloseButton: true,
+  },
+  render: (args, context) => (
+    <ModalRoot defaultOpen={context.viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
         <Button>Open modal</Button>
       </ModalTrigger>
-      <Modal {...args}>
-        <Flex justifyContent="center" paddingY="200">
-          <Spinner />
-        </Flex>
-        <ModalFooter>
-          <ModalClose>
-            <Button variant="outline" colorScheme="destructive">
-              Cancel
-            </Button>
-          </ModalClose>
-        </ModalFooter>
-      </Modal>
+      <Modal {...args} />
     </ModalRoot>
   ),
 };

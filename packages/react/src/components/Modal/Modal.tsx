@@ -10,6 +10,8 @@ import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
 import { ModalClose } from './ModalClose';
 import { Box } from '../Box/Box';
+import { Flex } from '../Flex/Flex';
+import { Spinner } from '../Spinner/Spinner';
 
 const COMPONENT_NAME = 'Modal';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -23,6 +25,8 @@ export const Modal = ({
   description,
   hideCloseButton,
   fullScreen,
+  loading,
+  loadingText,
   children,
   ...props
 }: ModalProps) => {
@@ -53,27 +57,48 @@ export const Modal = ({
                   </UnstyledIconButton>
                 </ModalClose>
 
-                <div className={`${componentClassName}InnerContainer`}>
-                  {containsImage ? (
-                    <div className={`${componentClassName}Image`}>{image}</div>
-                  ) : null}
-                  <div className={`${componentClassName}Header`}>
-                    <Box asChild>
+                {!loading ? (
+                  <div className={`${componentClassName}InnerContainer`}>
+                    {containsImage ? (
+                      <div className={`${componentClassName}Image`}>{image}</div>
+                    ) : null}
+                    <div className={`${componentClassName}Header`}>
+                      <Box asChild>
+                        <DialogPrimitive.Title asChild>
+                          <Heading size="lg" wrap="wrap">
+                            {heading}
+                          </Heading>
+                        </DialogPrimitive.Title>
+                      </Box>
+                      <DialogPrimitive.Description asChild>
+                        <BodyText size="md" as="span">
+                          {description}
+                        </BodyText>
+                      </DialogPrimitive.Description>
+                    </div>
+                  </div>
+                ) : null}
+
+                {loading ? (
+                  <Flex
+                    direction="column"
+                    gap="300"
+                    alignItems="center"
+                    paddingY="200"
+                    width="100%"
+                  >
+                    <Spinner size="lg" />
+                    {loadingText ? (
                       <DialogPrimitive.Title asChild>
-                        <Heading size="lg" wrap="wrap">
-                          {heading}
+                        <Heading size="lg" textAlign="center" wrap="wrap">
+                          {loadingText}
                         </Heading>
                       </DialogPrimitive.Title>
-                    </Box>
-                    <DialogPrimitive.Description asChild>
-                      <BodyText size="md" as="span">
-                        {description}
-                      </BodyText>
-                    </DialogPrimitive.Description>
-                  </div>
-                </div>
-
-                {children}
+                    ) : null}
+                  </Flex>
+                ) : (
+                  children
+                )}
               </div>
             </DialogPrimitive.Content>
           </div>
