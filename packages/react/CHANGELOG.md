@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react
 
+## 0.23.3
+
+### Patch Changes
+
+- [#734](https://github.com/utilitywarehouse/hearth/pull/734) [`f5e50ed`](https://github.com/utilitywarehouse/hearth/commit/f5e50ed591170f8313d7435c30387998b90962d2) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `loading` & `loadingText` props to `Modal`
+
+- [#732](https://github.com/utilitywarehouse/hearth/pull/732) [`3a785c4`](https://github.com/utilitywarehouse/hearth/commit/3a785c4cff2c2f69d4aaa14e9b237c41fb40a195) Thanks [@robphoenix](https://github.com/robphoenix)! - Fix `Modal` heading text wrap
+
 ## 0.23.2
 
 ### Patch Changes
