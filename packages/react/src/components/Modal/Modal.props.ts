@@ -7,13 +7,13 @@ type BaseModalProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Dial
     hideCloseButton?: boolean;
     fullScreen?: boolean;
     image?: React.ReactNode;
-    loadingText?: string;
   };
 
 // The "Content" state (Loading is false or undefined)
 type ContentState = {
   loading?: false;
   heading: string; // Required
+  loadingText?: string;
 };
 
 // The "Loading" state (Loading is true)
