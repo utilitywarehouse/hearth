@@ -16,7 +16,13 @@ export type ModalProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.D
      */
     fullScreen?: boolean;
     image?: React.ReactNode;
+    /**
+     * When true, displays a loading spinner instead of the modal content.
+     */
     loading?: boolean;
+    /**
+     * Optional text to display below the loading spinner.
+     */
     loadingText?: string;
   };
 
