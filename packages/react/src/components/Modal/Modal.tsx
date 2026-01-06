@@ -37,6 +37,7 @@ export const Modal = ({
             <DialogPrimitive.Content
               className={cn(componentClassName, className)}
               data-contains-image={containsImage ? '' : undefined}
+              data-hide-close-button={hideCloseButton ? '' : undefined}
               data-full-screen={fullScreen ? '' : undefined}
               {...props}
             >
@@ -59,7 +60,9 @@ export const Modal = ({
                   <div className={`${componentClassName}Header`}>
                     <Box asChild>
                       <DialogPrimitive.Title asChild>
-                        <Heading size="lg">{heading}</Heading>
+                        <Heading size="lg" wrap="wrap">
+                          {heading}
+                        </Heading>
                       </DialogPrimitive.Title>
                     </Box>
                     <DialogPrimitive.Description asChild>
