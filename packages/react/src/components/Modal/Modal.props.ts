@@ -16,6 +16,8 @@ export type ModalProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.D
      */
     fullScreen?: boolean;
     image?: React.ReactNode;
+    loading?: boolean;
+    loadingText?: string;
   };
 
 export type ModalCloseProps = Omit<

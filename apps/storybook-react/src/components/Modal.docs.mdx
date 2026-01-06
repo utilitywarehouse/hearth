@@ -6,20 +6,19 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <DocsHeader componentName="Modal" stories={Stories} />
 
+- [Playground](#playground)
+- [Usage Guidelines](#usage-guidelines)
+- [Accessibility](#accessibility)
+- [Uncontrolled usage](#uncontrolled-usage)
+- [Controlled usage](#controlled-usage)
+- [With Image](#with-image)
+- [Loading](#loading)
+- [API](#api)
+
 ## Playground
 
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
-
-- [Playground](#playground)
-- [Usage Guidelines](#usage-guidelines)
-- [Accessibility](#accessibility)
-  - [Uncontrolled usage](#uncontrolled-usage)
-  - [Controlled usage](#controlled-usage)
-  - [With Image](#with-image)
-- [API](#api)
-  - [ModalRoot](#modalroot)
-  - [Modal](#modal)
 
 ## Usage Guidelines
 
@@ -51,7 +50,7 @@ button.
 
 <Canvas of={Stories.HideCloseButton} />
 
-### Uncontrolled usage
+## Uncontrolled usage
 
 This is the recommended approach. You can use the `open` & `onOpenChange` props
 on the `ModalRoot` component with your event handlers.
@@ -81,7 +80,7 @@ on the `ModalRoot` component with your event handlers.
 </ModalRoot>
 ```
 
-### Controlled usage
+## Controlled usage
 
 If you need more control over elements of the modal, then you can combine
 state with the `open` and `onOpenChange` props, and control the opening and
@@ -89,7 +88,7 @@ closing of the modal outside the `ModalRoot` context.
 
 <Canvas of={Stories.ControlledUsage} sourceState="shown" />
 
-### With Image
+## With Image
 
 You can pass an image, such as an SVG illustration, to the `image` prop. The
 `Modal` layout will automatically adjust to accomodate the image, taking up
@@ -97,9 +96,9 @@ more of the viewport height, and centre aligning the text and actions.
 
 <Canvas of={Stories.WithImage} />
 
-### Loading
+## Loading
 
-Use the `Spinner` component if you need to indicate a loading state withing the `Modal`
+Use the `loading` and `loadingText` props to indicate a loading state within the modal.
 
 <Canvas of={Stories.Loading} />
 
@@ -109,12 +108,11 @@ Use the `Spinner` component if you need to indicate a loading state withing the 
 
 This component is based on [Radix UI's Dialog primitive](https://www.radix-ui.com/primitives/docs/components/dialog).
 
-| Prop           | Type                      | Description                                                               |
-| -------------- | ------------------------- | ------------------------------------------------------------------------- |
-| `open`         | `boolean`                 | Controls the open state of the modal                                      |
-| `defaultOpen`  | `boolean`                 | Whether the modal is open by default                                      |
-| `onOpenChange` | `(open: boolean) => void` | Callback that fires when the open state changes                           |
-| `modal`        | `boolean`                 | Whether the modal is modal (blocks interaction with the rest of the page) |
+| Prop           | Type                      |
+| -------------- | ------------------------- |
+| `open`         | `boolean`                 |
+| `defaultOpen`  | `boolean`                 |
+| `onOpenChange` | `(open: boolean) => void` |
 
 ### Modal
 
@@ -128,3 +126,5 @@ This component is based on Radix UI's Dialog primitive and supports the followin
 | `description`     | `string`    |
 | `hideCloseButton` | `boolean`   |
 | `image`           | `ReactNode` |
+| `loading`         | `boolean`   |
+| `loadingText`     | `string`    |
