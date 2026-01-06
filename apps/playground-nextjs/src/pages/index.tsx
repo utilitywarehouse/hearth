@@ -16,6 +16,8 @@ import {
 import { StyledBox } from '@/components/StyledBox';
 import { space, color, components, semantic } from '@utilitywarehouse/hearth-tokens/browser';
 import NextLink from 'next/link';
+import NextImage from 'next/image';
+import SpotHelpLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-help-light.svg';
 
 export default function Home() {
   const { container } = components;
@@ -31,7 +33,6 @@ export default function Home() {
       <StyledBox sx={{ border: '1px solid red', padding: '32px', display: 'flex' }}>
         Hearth styled with sx
       </StyledBox>
-
       <Flex padding="200" gap="300">
         <Button asChild onClick={() => console.log('Hearth React Button + Next.js')}>
           <NextLink href="https://uw-hearth-react.vercel.app/?path=/docs/components-button--docs">
@@ -47,7 +48,6 @@ export default function Home() {
           </NextLink>
         </Link>
       </Flex>
-
       <HearthBox>
         <HearthBox
           padding="200"
@@ -70,7 +70,6 @@ export default function Home() {
           </Modal>
         </ModalRoot>
       </HearthBox>
-
       <div>
         <h1>CSS Reset</h1>
         <p>Checking the tokens work with the CSS Reset package.</p>
@@ -104,11 +103,9 @@ export default function Home() {
           Hearth Tokens
         </StyledBox>
       </div>
-
       <Box position="relative" inset="400" top="100">
         position
       </Box>
-
       <div className="breakpoint-demo">
         <div className="breakpoint-demo__label">Breakpoint demo</div>
         <p className="breakpoint-demo__description">
@@ -116,7 +113,6 @@ export default function Home() {
           (--h-tablet, --h-desktop, --h-wide).
         </p>
       </div>
-
       <Flex
         maxWidth={container.width}
         color={semantic.feedback.positive.foreground.subtle}
@@ -142,6 +138,8 @@ export default function Home() {
           <a href="https://www.uw.co.uk/energy/faqs">Energy FAQs</a>
         </Button>
       </Flex>
+
+      <NextImage src={SpotHelpLight} alt="" width={200} height={200} />
     </>
   );
 }
