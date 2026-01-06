@@ -113,7 +113,7 @@ export const Color: Story = {
         </BodyText>
       </Flex>
       <Flex direction="column" gap="400" backgroundColor="secondary" padding="400">
-        <BodyText color="affirmative">
+        <BodyText color="primary">
           <InlineLink {...args} color="inherit">
             Inherited color
           </InlineLink>

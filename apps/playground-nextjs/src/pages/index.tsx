@@ -51,7 +51,7 @@ export default function Home() {
       <HearthBox>
         <HearthBox
           padding="200"
-          backgroundColor="warmWhite50"
+          backgroundColor="primary"
           position="relative"
           style={{ zIndex: 10 }}
         >
@@ -133,6 +133,14 @@ export default function Home() {
         textTransform="uppercase"
       >
         container
+      </Flex>
+      <Flex width="100%" padding="600" gap="400" backgroundColor="var(--h-surface-energy-subtle)">
+        <Button size="md" variant="outline" colorScheme="functional" asChild>
+          <NextLink href="/energy/faqs">Energy FAQs</NextLink>
+        </Button>
+        <Button size="md" variant="outline" colorScheme="functional" asChild>
+          <a href="https://www.uw.co.uk/energy/faqs">Energy FAQs</a>
+        </Button>
       </Flex>
     </>
   );
