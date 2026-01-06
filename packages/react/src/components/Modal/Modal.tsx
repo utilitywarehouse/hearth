@@ -79,7 +79,6 @@ export const Modal = ({
                   </div>
                 ) : null}
 
-                {!loading ? null : children}
                 {loading ? (
                   <Flex
                     direction="column"
@@ -90,12 +89,16 @@ export const Modal = ({
                   >
                     <Spinner size="lg" />
                     {loadingText ? (
-                      <Heading size="lg" textAlign="center" wrap="wrap">
-                        {loadingText}
-                      </Heading>
+                      <DialogPrimitive.Title asChild>
+                        <Heading size="lg" textAlign="center" wrap="wrap">
+                          {loadingText}
+                        </Heading>
+                      </DialogPrimitive.Title>
                     ) : null}
                   </Flex>
-                ) : null}
+                ) : (
+                  children
+                )}
               </div>
             </DialogPrimitive.Content>
           </div>

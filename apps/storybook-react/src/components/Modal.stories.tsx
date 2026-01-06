@@ -235,6 +235,7 @@ export const HideCloseButton: Story = {
 };
 
 export const Loading: Story = {
+  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
   args: {
     heading: 'Loading modal',
     description: 'This is a loading modal, and the heading and description should not show.',
