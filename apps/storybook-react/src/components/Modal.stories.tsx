@@ -87,7 +87,7 @@ export const DefaultOpen: Story = {
 };
 
 export const WithLongHeading: Story = {
-  parameters: { chromatic: { disableSnapshot: false }, delay: 300 },
+  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
   args: {
     heading:
       'Your account with BT is either closed or has no live broadband or home phone services',
@@ -113,7 +113,7 @@ export const WithLongHeading: Story = {
 };
 
 export const WithLongHeadingAndHideCloseButton: Story = {
-  parameters: { chromatic: { disableSnapshot: false }, delay: 300 },
+  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
   args: {
     heading:
       'Your account with BT is either closed or has no live broadband or home phone services',
@@ -140,7 +140,7 @@ export const WithLongHeadingAndHideCloseButton: Story = {
 };
 
 export const WithImage: Story = {
-  parameters: { chromatic: { disableSnapshot: false }, delay: 300 },
+  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
   render: (args: ModalArgs) => (
     <ModalRoot defaultOpen>
       <ModalTrigger>
@@ -165,7 +165,7 @@ export const WithImage: Story = {
 };
 
 export const OnMobile: Story = {
-  parameters: { chromatic: { disableSnapshot: false }, delay: 300 },
+  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
   globals: { viewport: { value: 'mobile' } },
   render: (args: ModalArgs) => (
     <ModalRoot defaultOpen>
