@@ -1,30 +1,29 @@
 import { Dialog as DialogPrimitive } from 'radix-ui';
 
-export type ModalProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal> &
+// Props that are ALWAYS available regardless of loading state
+type BaseModalProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal> &
   React.ComponentPropsWithRef<'div'> & {
-    /**
-     * The heading for the modal, describing its purpose.
-     */
-    heading: string;
-    /**
-     * Optional description to provide additional context or instructions.
-     */
     description?: string;
     hideCloseButton?: boolean;
-    /**
-     * When true, the modal takes up the full screen height on mobile devices.
-     */
     fullScreen?: boolean;
     image?: React.ReactNode;
-    /**
-     * When true, displays a loading spinner instead of the modal content.
-     */
-    loading?: boolean;
-    /**
-     * Optional text to display below the loading spinner.
-     */
     loadingText?: string;
   };
+
+// The "Content" state (Loading is false or undefined)
+type ContentState = {
+  loading?: false;
+  heading: string; // Required
+};
+
+// The "Loading" state (Loading is true)
+type LoadingState = {
+  loading: true;
+  loadingText: string; // Required when loading is true
+  heading?: string; // Heading becomes optional
+};
+
+export type ModalProps = BaseModalProps & (ContentState | LoadingState);
 
 export type ModalCloseProps = Omit<
   React.ComponentPropsWithRef<typeof DialogPrimitive.DialogClose>,
