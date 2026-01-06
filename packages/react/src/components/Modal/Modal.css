@@ -20,7 +20,7 @@
   border-top-left-radius: var(--h-modal-border-radius);
   border-top-right-radius: var(--h-modal-border-radius);
   height: fit-content;
-  min-width: fit-content;
+  min-width: 0;
   overflow: hidden;
 
   @media (--h-tablet) {
@@ -113,14 +113,13 @@
     flex-direction: column;
     gap: var(--h-modal-content-gap);
     align-items: start;
-    text-wrap: pretty;
     text-align: center;
 
     @media (--h-tablet) {
       text-align: left;
     }
 
-    &:not([data-contains-image] &) :where(.h-Heading) {
+    &:not([data-contains-image] &, [data-hide-close-button] &) :where(.h-Heading) {
       --h-close-button-visual-size: 16px;
 
       margin-right: calc(var(--h-close-button-visual-size) + var(--h-modal-padding));

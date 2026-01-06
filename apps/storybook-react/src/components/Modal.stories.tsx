@@ -61,9 +61,88 @@ export const Playground: Story = {
   ),
 };
 
-export const WithImage: Story = {
+export const DefaultOpen: Story = {
+  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
   render: (args: ModalArgs) => (
-    <ModalRoot>
+    <ModalRoot defaultOpen>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal {...args}>
+        <ModalFooter>
+          <ModalClose>
+            <Button variant="ghost" colorScheme="functional">
+              Cancel
+            </Button>
+          </ModalClose>
+          <ModalClose>
+            <Button variant="solid" colorScheme="highlight">
+              Primary
+            </Button>
+          </ModalClose>
+        </ModalFooter>
+      </Modal>
+    </ModalRoot>
+  ),
+};
+
+export const WithLongHeading: Story = {
+  parameters: { chromatic: { disableSnapshot: false }, delay: 300 },
+  args: {
+    heading:
+      'Your account with BT is either closed or has no live broadband or home phone services',
+    description:
+      'BT have told us you don’t have an active service at this address, so we don’t need to let them know you’re switching. We’ll get you up and running with UW broadband as fast as we can.',
+  },
+  render: (args: ModalArgs) => (
+    <ModalRoot defaultOpen>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal {...args}>
+        <ModalFooter>
+          <ModalClose>
+            <Button variant="solid" colorScheme="highlight">
+              Continue
+            </Button>
+          </ModalClose>
+        </ModalFooter>
+      </Modal>
+    </ModalRoot>
+  ),
+};
+
+export const WithLongHeadingAndHideCloseButton: Story = {
+  parameters: { chromatic: { disableSnapshot: false }, delay: 300 },
+  args: {
+    heading:
+      'Your account with BT is either closed or has no live broadband or home phone services',
+    description:
+      'BT have told us you don’t have an active service at this address, so we don’t need to let them know you’re switching. We’ll get you up and running with UW broadband as fast as we can.',
+    hideCloseButton: true,
+  },
+  render: (args: ModalArgs) => (
+    <ModalRoot defaultOpen>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal {...args}>
+        <ModalFooter>
+          <ModalClose>
+            <Button variant="solid" colorScheme="highlight">
+              Continue
+            </Button>
+          </ModalClose>
+        </ModalFooter>
+      </Modal>
+    </ModalRoot>
+  ),
+};
+
+export const WithImage: Story = {
+  parameters: { chromatic: { disableSnapshot: false }, delay: 300 },
+  render: (args: ModalArgs) => (
+    <ModalRoot defaultOpen>
       <ModalTrigger>
         <Button>Open modal</Button>
       </ModalTrigger>
@@ -86,11 +165,10 @@ export const WithImage: Story = {
 };
 
 export const OnMobile: Story = {
-  globals: {
-    viewport: { value: 'mobile' },
-  },
+  parameters: { chromatic: { disableSnapshot: false }, delay: 300 },
+  globals: { viewport: { value: 'mobile' } },
   render: (args: ModalArgs) => (
-    <ModalRoot>
+    <ModalRoot defaultOpen>
       <ModalTrigger>
         <Button>Open modal</Button>
       </ModalTrigger>
@@ -136,6 +214,7 @@ export const ControlledUsage: Story = {
 };
 
 export const HideCloseButton: Story = {
+  args: { hideCloseButton: true },
   render: (args: ModalArgs) => (
     <ModalRoot>
       <ModalTrigger>
@@ -157,10 +236,10 @@ export const HideCloseButton: Story = {
       </Modal>
     </ModalRoot>
   ),
-  args: { hideCloseButton: true },
 };
 
 export const Loading: Story = {
+  args: { heading: 'Your details', description: '' },
   render: (args: ModalArgs) => (
     <ModalRoot>
       <ModalTrigger>
@@ -172,7 +251,7 @@ export const Loading: Story = {
         </Flex>
         <ModalFooter>
           <ModalClose>
-            <Button variant="solid" colorScheme="destructive">
+            <Button variant="outline" colorScheme="destructive">
               Cancel
             </Button>
           </ModalClose>
@@ -180,5 +259,4 @@ export const Loading: Story = {
       </Modal>
     </ModalRoot>
   ),
-  args: { heading: 'Your details', description: '' },
 };
