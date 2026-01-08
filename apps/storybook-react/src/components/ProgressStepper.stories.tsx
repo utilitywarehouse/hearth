@@ -40,7 +40,7 @@ type Story = StoryObj<typeof ProgressStepper>;
 
 export const KitchenSink: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
-  render: () => {
+  render: args => {
     return (
       <Flex direction="column" gap="400">
         <ProgressStepper {...args}>
