@@ -16,6 +16,8 @@ export interface ListItemWithChildren extends ListItemBaseProps {
   numericValue?: never;
   badge?: never;
   badgePosition?: never;
+  truncateHeading?: never;
+  truncateHelperText?: never;
 }
 
 export interface ListItemWithoutChildren extends ListItemBaseProps {
@@ -27,6 +29,8 @@ export interface ListItemWithoutChildren extends ListItemBaseProps {
   numericValue?: string | number;
   badge?: ReactNode;
   badgePosition?: 'top' | 'bottom';
+  truncateHeading?: boolean;
+  truncateHelperText?: boolean;
 }
 
 type ListItemProps = ListItemWithChildren | ListItemWithoutChildren;

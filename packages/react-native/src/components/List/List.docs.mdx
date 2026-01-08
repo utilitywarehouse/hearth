@@ -20,10 +20,10 @@ import {
   ListAction,
   ListItem,
   ListItemContent,
+  ListItemHeading,
   ListItemHelperText,
   ListItemIcon,
   ListItemLeadingContent,
-  ListItemText,
   ListItemTrailingContent,
   ListItemTrailingIcon,
   SectionHeader,
@@ -105,19 +105,21 @@ const MyComponent = () => (
 
 ### `ListItem`
 
-| Name            | Type                     | Default  | Description                                                     |
-| --------------- | ------------------------ | -------- | --------------------------------------------------------------- |
-| heading         | `string`                 |          | The text to display in the list item.                           |
-| onPress         | `() => void`             |          | A callback function to be called when the list item is pressed. |
-| helperText      | `string`                 |          | The supporting text to display in the list item.                |
-| leadingContent  | `ReactNode`              |          | The leading content to display in the list item.                |
-| trailingContent | `ReactNode`              |          | The trailing content to display in the list item.               |
-| variant         | `'subtle' \| 'emphasis'` |          | The variant style of the list item.                             |
-| disabled        | `boolean`                | `false`  | Whether to disable the list item.                               |
-| loading         | `boolean`                | `false`  | Whether to show the list item in loading state.                 |
-| badge           | `ReactNode`              |          | The badge component to display in the list item.                |
-| badgePosition   | `'top' \| 'bottom'`      | `bottom` | Position of the badge in the list item.                         |
-| numericValue    | `string \| number`       |          | A numeric value to display on the right side of the item.       |
+| Name               | Type                     | Default  | Description                                                     |
+| ------------------ | ------------------------ | -------- | --------------------------------------------------------------- |
+| heading            | `string`                 |          | The text to display in the list item.                           |
+| onPress            | `() => void`             |          | A callback function to be called when the list item is pressed. |
+| helperText         | `string`                 |          | The supporting text to display in the list item.                |
+| leadingContent     | `ReactNode`              |          | The leading content to display in the list item.                |
+| trailingContent    | `ReactNode`              |          | The trailing content to display in the list item.               |
+| variant            | `'subtle' \| 'emphasis'` |          | The variant style of the list item.                             |
+| disabled           | `boolean`                | `false`  | Whether to disable the list item.                               |
+| loading            | `boolean`                | `false`  | Whether to show the list item in loading state.                 |
+| badge              | `ReactNode`              |          | The badge component to display in the list item.                |
+| badgePosition      | `'top' \| 'bottom'`      | `bottom` | Position of the badge in the list item.                         |
+| numericValue       | `string \| number`       |          | A numeric value to display on the right side of the item.       |
+| truncateHeading    | `boolean`                | `false`  | Whether to truncate the heading text if it overflows.           |
+| truncateHelperText | `boolean`                | `false`  | Whether to truncate the helper text if it overflows.            |
 
 ### `ListAction`
 
@@ -137,9 +139,13 @@ const MyComponent = () => (
 
 #### - `ListItemContent`
 
-#### - `ListItemText`
+#### - `ListItemHeading`
+
+Has all props of the [`BodyText` component](?path=/docs/typography-body-text--docs).
 
 #### - `ListItemHelperText`
+
+Has all props of the [`BodyText` component](?path=/docs/typography-body-text--docs).
 
 #### - `ListItemTrailingContent`
 
@@ -478,7 +484,7 @@ If you need to use the `<List>` component in a more advanced way, you can use th
         <ListItemIcon as={BillMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
-        <ListItemText>Bills</ListItemText>
+        <ListItemHeading>Bills</ListItemHeading>
         <ListItemHelperText>View your bills</ListItemHelperText>
       </ListItemContent>
       <ListItemTrailingContent>
@@ -490,7 +496,7 @@ If you need to use the `<List>` component in a more advanced way, you can use th
         <ListItemIcon as={PaymentMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
-        <ListItemText>Payments</ListItemText>
+        <ListItemHeading>Payments</ListItemHeading>
         <ListItemHelperText>Make a payment</ListItemHelperText>
       </ListItemContent>
       <ListItemTrailingContent>
@@ -502,7 +508,7 @@ If you need to use the `<List>` component in a more advanced way, you can use th
         <ListItemIcon as={HomeMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
-        <ListItemText>Moving home</ListItemText>
+        <ListItemHeading>Moving home</ListItemHeading>
         <ListItemHelperText>Tell us if your moving</ListItemHelperText>
       </ListItemContent>
       <ListItemTrailingContent>
@@ -514,7 +520,7 @@ If you need to use the `<List>` component in a more advanced way, you can use th
         <ListItemIcon as={UserMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
-        <ListItemText>Refer a friend</ListItemText>
+        <ListItemHeading>Refer a friend</ListItemHeading>
         <ListItemHelperText>Get rewarded with a friend</ListItemHelperText>
       </ListItemContent>
       <ListItemTrailingContent>
@@ -532,7 +538,7 @@ import {
   ListItemIcon,
   ListItemLeadingContent,
   ListItemHelperText,
-  ListItemText,
+  ListItemHeading,
   ListItemTrailingContent,
   ListItemTrailingIcon,
   ListItemContent,
@@ -553,7 +559,7 @@ const MyComponent = () => (
         <ListItemIcon as={BillMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
-        <ListItemText>Bills</ListItemText>
+        <ListItemHeading>Bills</ListItemHeading>
         <ListItemHelperText>View your bills</ListItemHelperText>
       </ListItemContent>
       <ListItemTrailingContent>
@@ -565,7 +571,7 @@ const MyComponent = () => (
         <ListItemIcon as={PaymentMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
-        <ListItemText>Payments</ListItemText>
+        <ListItemHeading>Payments</ListItemHeading>
         <ListItemHelperText>Make a payment</ListItemHelperText>
       </ListItemContent>
       <ListItemTrailingContent>
@@ -577,7 +583,7 @@ const MyComponent = () => (
         <ListItemIcon as={HomeMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
-        <ListItemText>Moving home</ListItemText>
+        <ListItemHeading>Moving home</ListItemHeading>
         <ListItemHelperText>Tell us if your moving</ListItemHelperText>
       </ListItemContent>
       <ListItemTrailingContent>
@@ -589,7 +595,7 @@ const MyComponent = () => (
         <ListItemIcon as={UserMediumIcon} />
       </ListItemLeadingContent>
       <ListItemContent>
-        <ListItemText>Refer a friend</ListItemText>
+        <ListItemHeading>Refer a friend</ListItemHeading>
         <ListItemHelperText>Get rewarded with a friend</ListItemHelperText>
       </ListItemContent>
       <ListItemTrailingContent>

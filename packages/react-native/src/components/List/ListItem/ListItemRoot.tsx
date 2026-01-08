@@ -8,9 +8,9 @@ import { useListContext, useListFirstItemContext } from '../List.context';
 import { IListItemContext, ListItemContext } from './ListItem.context';
 import type ListItemProps from './ListItem.props';
 import ListItemContent from './ListItemContent';
+import ListItemHeading from './ListItemHeading';
 import ListItemHelperText from './ListItemHelperText';
 import ListItemLeadingContent from './ListItemLeadingContent';
-import ListItemText from './ListItemText';
 import ListItemTrailingContent from './ListItemTrailingContent';
 import ListItemTrailingIcon from './ListItemTrailingIcon';
 
@@ -27,6 +27,8 @@ const ListItemRoot = ({
   badge,
   badgePosition = 'bottom',
   numericValue,
+  truncateHeading = false,
+  truncateHelperText = false,
   ...props
 }: ListItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { onPress } = props;
@@ -107,8 +109,10 @@ const ListItemRoot = ({
             ) : null}
             <ListItemContent>
               {badgePosition === 'top' && badge ? badge : null}
-              <ListItemText>{heading}</ListItemText>
-              {helperText ? <ListItemHelperText>{helperText}</ListItemHelperText> : null}
+              <ListItemHeading truncated={truncateHeading}>{heading}</ListItemHeading>
+              {helperText ? (
+                <ListItemHelperText truncated={truncateHelperText}>{helperText}</ListItemHelperText>
+              ) : null}
               {badgePosition === 'bottom' && badge ? badge : null}
             </ListItemContent>
             {!!numericValue && <DetailText size="lg">{numericValue}</DetailText>}
