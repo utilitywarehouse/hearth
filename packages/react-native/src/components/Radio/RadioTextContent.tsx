@@ -12,7 +12,6 @@ const RadioTextContent = ({ children, style, ...props }: FlexProps) => {
 
 const styles = StyleSheet.create({
   content: {
-    flex: 1,
     flexShrink: 1,
   },
 });

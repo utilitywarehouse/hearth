@@ -6,6 +6,7 @@ import bankLogo from '../../../docs/assets/bank-logo.png';
 import bankLogo1 from '../../../docs/assets/bank-logo1.png';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
+import { FormField } from '../FormField';
 
 const meta = {
   title: 'Stories / Radio',
@@ -205,4 +206,30 @@ export const Variants: Story = {
       </Flex>
     );
   },
+};
+
+export const WithFormFieldExample = () => {
+  const [value, setValue] = useState('Option 1');
+  return (
+    <>
+      <FormField
+        label="Account type"
+        helperText="Is this account used for personal or business purposes?"
+      >
+        <RadioGroup type="tile">
+          <Radio label="Personal" value="Personal" />
+          <Radio label="Business" value="Business" />
+        </RadioGroup>
+      </FormField>
+      <RadioGroup
+        direction="row"
+        label="Account type"
+        helperText="Is this account used for personal or business purposes?"
+        type="tile"
+      >
+        <Radio label="Personal" value="Personal" />
+        <Radio label="Business" value="Business" />
+      </RadioGroup>
+    </>
+  );
 };

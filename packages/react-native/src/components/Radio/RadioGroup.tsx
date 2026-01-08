@@ -25,8 +25,8 @@ const RadioGroup = ({
   ...props
 }: RadioGroupProps) => {
   const value = useMemo(
-    () => ({ disabled, validationStatus, type }),
-    [disabled, validationStatus, type]
+    () => ({ disabled, validationStatus, type, direction }),
+    [disabled, validationStatus, type, direction]
   );
   const showHeader = !!label || !!helperText || !!invalidText || !!validText;
   const childrenArray = React.Children.toArray(children as any);
