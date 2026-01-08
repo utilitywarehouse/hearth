@@ -34,6 +34,8 @@ export default meta;
 type Story = StoryObj<typeof Menu>;
 
 export const Playground: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
+  args: { defaultOpen: true },
   render: args => {
     return (
       <Menu {...args}>
@@ -101,9 +103,6 @@ export const ScrollArea: Story = {
         </MenuContent>
       </Menu>
     );
-  },
-  args: {
-    open: true,
   },
 };
 

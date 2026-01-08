@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { BodyText, Flex, InlineLink } from '@utilitywarehouse/hearth-react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof InlineLink> = {
   title: 'Stories / InlineLink',
@@ -132,5 +133,22 @@ export const Color: Story = {
   ),
   args: {
     href: '#',
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      KitchenSink,
+      LengthyContent,
+      Color,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

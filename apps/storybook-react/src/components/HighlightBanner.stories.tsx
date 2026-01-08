@@ -87,7 +87,8 @@ export const Showcase: Story = {
 };
 
 export const KitchenSink: Story = {
-  render: args => (
+  parameters: { chromatic: { disableSnapshot: false } },
+  render: () => (
     <Flex gap="200" direction="column">
       {headingColors.map(color => (
         <Flex direction="row" gap="200">

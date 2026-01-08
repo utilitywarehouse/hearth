@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { ProgressBar, Flex } from '@utilitywarehouse/hearth-react';
 import React from 'react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof ProgressBar> = {
   title: 'Stories / ProgressBar',
@@ -122,5 +123,24 @@ export const FormatValueText: Story = {
 export const HideLabel: Story = {
   render: () => {
     return <ProgressBar label="Hidden label" value={60} hideLabel />;
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Variants,
+      ColorSchemes,
+      Sizes,
+      FormatValueText,
+      HideLabel,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

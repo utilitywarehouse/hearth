@@ -6,6 +6,7 @@ import {
   ChevronLeftSmallIcon,
   ChevronRightSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof Link> = {
   title: 'Stories / Link',
@@ -83,5 +84,24 @@ export const LengthyContent: Story = {
     href: 'https://www.tate.org.uk/art/artists/agnes-martin-1583',
     children:
       'Agnes Bernice Martin was an American abstract painter known for her minimalist style and abstract expressionism.',
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Playground,
+      WithIcons,
+      AsButton,
+      Inverted,
+      LengthyContent,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

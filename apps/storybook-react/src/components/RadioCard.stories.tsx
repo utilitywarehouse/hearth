@@ -20,6 +20,7 @@ export default meta;
 type Story = StoryObj<typeof RadioCard>;
 
 export const Playground: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
   render: () => {
     return (
       <Flex>

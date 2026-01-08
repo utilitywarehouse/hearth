@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, Button, Flex, SearchInput } from '@utilitywarehouse/hearth-react';
 import React from 'react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof SearchInput> = {
   title: 'Stories / SearchInput',
@@ -104,5 +105,22 @@ export const UsageWithButton: Story = {
         </Flex>
       </Box>
     );
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Playground,
+      Loading,
+      UsageWithButton,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

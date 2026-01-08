@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex, Link, Badge, SectionHeader, Button } from '@utilitywarehouse/hearth-react';
 import { SettingsSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof SectionHeader> = {
   title: 'Stories / SectionHeader',
@@ -110,5 +111,24 @@ export const ValidationText: Story = {
   args: {
     validationStatus: 'invalid',
     validationText: 'Validation text',
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Playground,
+      WithBadge,
+      WithButton,
+      CustomLink,
+      ValidationText,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

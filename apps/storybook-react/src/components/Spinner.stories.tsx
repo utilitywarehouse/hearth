@@ -31,6 +31,7 @@ type Story = StoryObj<typeof Spinner>;
 export const Playground: Story = {};
 
 export const KitchenSink: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
   render: () => (
     <Flex gap="600">
       {sizes.map(size => (

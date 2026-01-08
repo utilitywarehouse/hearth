@@ -20,6 +20,7 @@ export default meta;
 type Story = StoryObj<typeof Em>;
 
 export const KitchenSink: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
   render: () => (
     <Flex direction="column" gap="100">
       {sizes.map(size => (

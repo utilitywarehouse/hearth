@@ -16,6 +16,7 @@ import {
   MobileMediumIcon,
   InsuranceMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const sizes = ['md', 'lg'] as const;
 
@@ -63,42 +64,10 @@ export const Playground: Story = {
   ),
 };
 
-export const KitchenSink: Story = {
-  parameters: { controls: { hideNoControlsWarning: true } },
-  render: () => {
-    return (
-      <Flex direction="column" gap="600">
-        {sizes.map(size => (
-          <Flex key={size} gap="200" direction="column">
-            <Heading>Size {size}</Heading>
-            <Tabs defaultValue="account" size={size}>
-              <TabsList>
-                <Tab value="account">Account</Tab>
-                <Tab value="security">Security</Tab>
-                <Tab value="billing">Billing</Tab>
-              </TabsList>
-              <TabContent value="account">
-                <BodyText>Manage your personal details and preferences.</BodyText>
-              </TabContent>
-              <TabContent value="security">
-                <BodyText>Update your password and security settings.</BodyText>
-              </TabContent>
-              <TabContent value="billing">
-                <BodyText>View invoices and update payment methods.</BodyText>
-              </TabContent>
-            </Tabs>
-          </Flex>
-        ))}
-      </Flex>
-    );
-  },
-};
-
 export const Sizes: Story = {
   args: {
     size: 'md',
   },
-
   render: () => (
     <Flex direction="column" gap="400">
       <Tabs size="md" defaultValue="a">
@@ -290,5 +259,22 @@ export const Controlled: Story = {
         <Button onClick={next}>Next Tab</Button>
       </Flex>
     );
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Sizes,
+      WithScrolling,
+      WithIcons,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

@@ -10,7 +10,6 @@ const COMPONENT_NAME = 'ProgressStepButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const ProgressStepButton = ({
-  children,
   label,
   className,
   status,
@@ -29,11 +28,11 @@ export const ProgressStepButton = ({
       label={label}
     >
       {isActive ? (
-        children
+        label
       ) : (
         <Link asChild aria-disabled={disabled}>
           <button {...props} onClick={disabled ? undefined : onClick}>
-            {children}
+            {label}
           </button>
         </Link>
       )}

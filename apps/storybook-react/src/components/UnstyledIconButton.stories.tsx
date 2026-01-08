@@ -13,6 +13,7 @@ import {
   CloseMediumIcon,
   CloseSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const sizes = ['md', 'sm'] as const;
 
@@ -88,5 +89,22 @@ export const AsLink: Story = {
         </UnstyledIconButton>
       </Flex>
     );
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Playground,
+      WithCard,
+      AsLink,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

@@ -7,7 +7,6 @@ import {
   Flex,
   BodyText,
   Button,
-  Box,
 } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
@@ -39,9 +38,45 @@ const meta: Meta<typeof ProgressStepper> = {
 export default meta;
 type Story = StoryObj<typeof ProgressStepper>;
 
+export const KitchenSink: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
+  render: () => {
+    return (
+      <Flex direction="column" gap="400">
+        <ProgressStepper {...args}>
+          <ProgressStep status="complete" label="Customer data" />
+          <ProgressStep status="complete" label="Shipping data" />
+          <ProgressStep status="active" label="Payment data" />
+          <ProgressStep status="incomplete" label="Summary" />
+        </ProgressStepper>
+        <ProgressStepper {...args}>
+          <ProgressStepLink status="complete" href="#customer-data" label="Customer data" />
+          <ProgressStepLink status="complete" href="#shipping-data" label="Shipping data" />
+          <ProgressStepLink status="active" href="#payment-data" label="Payment data" />
+          <ProgressStepLink status="incomplete" label="Summary" />
+        </ProgressStepper>
+        <ProgressStepper {...args}>
+          <ProgressStepButton
+            status="complete"
+            onClick={() => console.log('Go to Customer Data')}
+            label="Customer data"
+          />
+          <ProgressStepButton
+            status="complete"
+            onClick={() => console.log('Go to Shipping Data')}
+            label="Shipping data"
+          />
+          <ProgressStepButton status="active" label="Payment data" />
+          <ProgressStepButton status="incomplete" label="Summary" />
+        </ProgressStepper>
+      </Flex>
+    );
+  },
+};
+
 export const Playground: Story = {
   render: args => {
-    const [currentStep, setCurrentStep] = React.useState(0);
+    const [currentStep, setCurrentStep] = React.useState(1);
 
     const getStatus = (step: number) => {
       if (step === currentStep) return 'active';
@@ -76,41 +111,6 @@ export const Playground: Story = {
             Next
           </Button>
         </Flex>
-      </Flex>
-    );
-  },
-};
-
-export const KitchenSink: Story = {
-  render: args => {
-    return (
-      <Flex direction="column" gap="400">
-        <ProgressStepper {...args}>
-          <ProgressStep status="complete" label="Customer data" />
-          <ProgressStep status="complete" label="Shipping data" />
-          <ProgressStep status="active" label="Payment data" />
-          <ProgressStep status="incomplete" label="Summary" />
-        </ProgressStepper>
-        <ProgressStepper {...args}>
-          <ProgressStepLink status="complete" href="#customer-data" label="Customer data" />
-          <ProgressStepLink status="complete" href="#shipping-data" label="Shipping data" />
-          <ProgressStepLink status="active" href="#payment-data" label="Payment data" />
-          <ProgressStepLink status="incomplete" label="Summary" />
-        </ProgressStepper>
-        <ProgressStepper {...args}>
-          <ProgressStepButton
-            status="complete"
-            onClick={() => console.log('Go to Customer Data')}
-            label="Customer data"
-          />
-          <ProgressStepButton
-            status="complete"
-            onClick={() => console.log('Go to Shipping Data')}
-            label="Shipping data"
-          />
-          <ProgressStepButton status="active" label="Payment data" />
-          <ProgressStepButton status="incomplete" label="Summary" />
-        </ProgressStepper>
       </Flex>
     );
   },

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { TextArea, Flex, TextInput } from '@utilitywarehouse/hearth-react';
 import React from 'react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof TextArea> = {
   title: 'Stories / TextArea',
@@ -32,7 +33,7 @@ const meta: Meta<typeof TextArea> = {
     placeholder: 'Enter your text here...',
     rows: 3,
     cols: 40,
-    resize: 'none',
+    resize: 'both',
     disabled: false,
     readOnly: false,
     required: false,
@@ -42,7 +43,9 @@ const meta: Meta<typeof TextArea> = {
 export default meta;
 type Story = StoryObj<typeof TextArea>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  render: args => <TextArea {...args} />,
+};
 
 export const DisabledAndReadOnly: Story = {
   render: args => (
@@ -113,4 +116,23 @@ export const FullWidth: Story = {
       <TextArea label="Text area" rows={3} cols={60} />
     </Flex>
   ),
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Playground,
+      DisabledAndReadOnly,
+      Validation,
+      CustomRows,
+      FullWidth,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
+  },
 };
