@@ -222,7 +222,7 @@ const CustomListItem = () => (
   />
 );
 
-export const CustomWithListAction: Story = {
+export const WithCustomListItemComponent: Story = {
   parameters: {
     controls: { include: [] },
   },

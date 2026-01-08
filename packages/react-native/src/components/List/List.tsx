@@ -5,6 +5,7 @@ import { Card } from '../Card';
 import { SectionHeader } from '../SectionHeader';
 import { ListContext, ListFirstItemContext } from './List.context';
 import type ListProps from './List.props';
+import { ListAction } from './ListAction';
 import { ListItem } from './ListItem';
 
 const markFirstListItem = (children: ReactNode): ViewProps['children'] => {
@@ -14,11 +15,10 @@ const markFirstListItem = (children: ReactNode): ViewProps['children'] => {
     return React.Children.map(children, (child: ReactNode): ReactNode => {
       if (!React.isValidElement(child)) return child;
 
-      // Check if the current element is the ListItem and hasn't been marked yet
+      // Check if the current element is the ListItem or ListAction and hasn't been marked yet
       if (!found) {
-        if (child.type === ListItem) {
+        if (child.type === ListItem || child.type === ListAction) {
           found = true;
-          // Cast the additional prop to match ListItemProps
           return (
             <ListFirstItemContext.Provider value={true}>{child}</ListFirstItemContext.Provider>
           );
