@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { DateInput, Flex, Card, Heading, HelperText } from '@utilitywarehouse/hearth-react';
 import { useState } from 'react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof DateInput> = {
   title: 'Stories / DateInput',
@@ -33,36 +34,17 @@ const meta: Meta<typeof DateInput> = {
 export default meta;
 type Story = StoryObj<typeof DateInput>;
 
-export const Playground: Story = {};
-
-export const DateOfBirth: Story = {
+export const Playground: Story = {
   render: () => {
-    return <DateInput label="Date of birth" helperText="Enter your date of birth" required />;
-  },
-};
-
-export const CardExpiry: Story = {
-  render: () => {
-    const [month, setMonth] = useState('');
-    const [year, setYear] = useState('');
     return (
       <DateInput
-        label="Card expiry"
-        helperText="Enter the expiry month and year"
-        monthValue={month}
-        yearValue={year}
-        onMonthChange={(event: React.ChangeEvent<HTMLInputElement>) => setMonth(event.target.value)}
-        onYearChange={(event: React.ChangeEvent<HTMLInputElement>) => setYear(event.target.value)}
-        hideDay
-        required
+        label="Date"
+        helperText="Helper text"
+        dayValue="15"
+        monthValue="06"
+        yearValue="1990"
       />
     );
-  },
-};
-
-export const YearOnly: Story = {
-  render: () => {
-    return <DateInput label="Year" helperText="Enter the year" hideDay hideMonth />;
   },
 };
 
@@ -223,4 +205,22 @@ export const GroupingInputs: Story = {
       </fieldset>
     </Flex>
   ),
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Playground,
+      Validation,
+      Disabled,
+      FlexibleSegments,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
+  },
 };

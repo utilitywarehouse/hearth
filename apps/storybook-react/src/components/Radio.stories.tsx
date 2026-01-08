@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Radio, Flex, RadioGroup } from '@utilitywarehouse/hearth-react';
 import { BillMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import visa from '../assets/visa.png';
 
 const meta: Meta<typeof Radio> = {
   title: 'Stories / Radio',
@@ -33,10 +34,7 @@ export const Playground: Story = {
         </RadioGroup>
 
         <RadioGroup defaultValue={args.value} label="With image">
-          <Radio
-            {...args}
-            image={<img src="https://help.uw.co.uk/images/iPhone.svg" width={25} alt="" />}
-          />
+          <Radio {...args} image={<img src={visa} width={40} alt="" />} />
         </RadioGroup>
       </Flex>
     );

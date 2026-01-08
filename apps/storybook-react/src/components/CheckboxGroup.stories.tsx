@@ -4,6 +4,7 @@ import { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { CheckboxGroup, Flex, CheckboxTile, Box } from '@utilitywarehouse/hearth-react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof CheckboxGroup> = {
   title: 'Stories / CheckboxGroup',
@@ -77,6 +78,10 @@ export const Controlled: Story = {
 
 export const CheckboxHelperText: Story = {
   name: 'Checkbox HelperText',
+  args: {
+    label: 'Choose music you enjoy.',
+    helperText: '',
+  },
   render: args => {
     return (
       <CheckboxGroup {...args}>
@@ -86,10 +91,6 @@ export const CheckboxHelperText: Story = {
         <CheckboxTile value="4" label="Dance" helperText="Including House music" />
       </CheckboxGroup>
     );
-  },
-  args: {
-    label: 'Choose music you enjoy.',
-    helperText: 'Please choose wisely.',
   },
 };
 
@@ -146,5 +147,24 @@ export const Wrap: Story = {
         </CheckboxGroup>
       </Box>
     );
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Playground,
+      CheckboxHelperText,
+      Validation,
+      ContentWidth,
+      Wrap,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

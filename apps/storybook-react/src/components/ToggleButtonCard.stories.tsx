@@ -36,6 +36,7 @@ export default meta;
 type Story = StoryObj<typeof ToggleGroup>;
 
 export const Playground: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
   render: args => {
     const [value, setValue] = React.useState<string>('fixed');
     return (

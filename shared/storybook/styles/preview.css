@@ -18,11 +18,7 @@ body {
   background: white;
 }
 
-:where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)) {
-  font-size: 16px !important;
-}
-
-:where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
+:where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p, .h-BodyText)),
 :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li, .h-ListItem)) {
   font-size: max(1em, 16px) !important;
 }

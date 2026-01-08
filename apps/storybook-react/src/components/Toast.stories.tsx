@@ -79,6 +79,22 @@ export const Playground: Story = {
   },
 };
 
+export const ToastStory: Story = {
+  name: 'Toast',
+  parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
+  render: args => {
+    return (
+      <div>
+        <Toast open={true} icon={<TickCircleMediumIcon />} {...args}>
+          <ToastActionLink href="#" altText="Visit #">
+            Link
+          </ToastActionLink>
+        </Toast>
+      </div>
+    );
+  },
+};
+
 export const Actions: Story = {
   render: () => {
     const [openLinkActionToast, setOpenLinkActionToast] = React.useState(false);

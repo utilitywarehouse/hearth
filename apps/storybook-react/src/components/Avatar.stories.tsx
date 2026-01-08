@@ -28,7 +28,14 @@ type Story = StoryObj<typeof Avatar>;
 
 export const Playground: Story = {};
 
+// Kitchen sink covers all variations so we don't need a Gallery story
 export const KitchenSink: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
   render: () => {
     return (
       <Flex direction="row" gap="400">

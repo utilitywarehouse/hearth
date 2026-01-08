@@ -84,7 +84,6 @@ export default meta;
 type Story = StoryObj<typeof Box>;
 
 export const Playground: Story = {
-  render: args => <Box {...args} />,
   args: {
     height: '128px',
     width: '128px',
@@ -94,14 +93,10 @@ export const Playground: Story = {
     borderWidth: '1',
     borderColor: 'subtle',
   },
+  render: args => <Box {...args} />,
 };
 
 export const ResponsiveProps: Story = {
-  render: args => (
-    <Box {...args}>
-      <Placeholder />
-    </Box>
-  ),
   args: {
     asChild: true,
     children: 'Responsive props',
@@ -124,6 +119,11 @@ export const ResponsiveProps: Story = {
       wide: '500',
     },
   },
+  render: args => (
+    <Box {...args}>
+      <Placeholder />
+    </Box>
+  ),
 };
 
 export const HideContent: Story = {

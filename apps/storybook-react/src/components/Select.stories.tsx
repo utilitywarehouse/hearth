@@ -31,18 +31,8 @@ export default meta;
 type Story = StoryObj<typeof Select>;
 
 export const Playground: Story = {
-  render: args => {
-    return (
-      <Select {...args}>
-        <SelectItem value="1">Item 1</SelectItem>
-        <SelectItem value="2">Item 2</SelectItem>
-        <SelectItem value="3">Item 3</SelectItem>
-      </Select>
-    );
-  },
-};
-
-export const Dropdown: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
+  args: { defaultOpen: true, defaultValue: '2' },
   render: args => {
     return (
       <Select {...args}>
@@ -55,10 +45,6 @@ export const Dropdown: Story = {
       </Select>
     );
   },
-  args: {
-    defaultValue: '2',
-    open: true,
-  },
 };
 
 export const ScrollArea: Story = {
@@ -66,12 +52,11 @@ export const ScrollArea: Story = {
     return (
       <Select {...args}>
         {[...Array(100).keys()].map(n => (
-          <SelectItem key={n + 1} value={`${n + 1}`}>Item {n + 1}</SelectItem>
+          <SelectItem key={n + 1} value={`${n + 1}`}>
+            Item {n + 1}
+          </SelectItem>
         ))}
       </Select>
     );
-  },
-  args: {
-    open: true,
   },
 };

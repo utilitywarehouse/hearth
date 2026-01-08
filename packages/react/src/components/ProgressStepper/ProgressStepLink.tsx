@@ -10,7 +10,6 @@ const COMPONENT_NAME = 'ProgressStepLink';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const ProgressStepLink = ({
-  children,
   label,
   className,
   status,
@@ -29,10 +28,10 @@ export const ProgressStepLink = ({
       label={label}
     >
       {isActive ? (
-        children
+        label
       ) : (
         <Link {...props} href={disabled ? undefined : href} role="link" aria-disabled={disabled}>
-          {children}
+          {label}
         </Link>
       )}
     </ProgressStep>

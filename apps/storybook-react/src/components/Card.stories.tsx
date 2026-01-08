@@ -39,6 +39,7 @@ import {
   TickCircleSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { Placeholder } from '../storybook-components/Placeholder';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const variants = ['emphasis', 'subtle'] as const;
 const neutralColorSchemes = ['neutralStrong', 'neutralSubtle'] as const;
@@ -80,7 +81,6 @@ const meta: Meta<typeof Card> = {
     colorScheme: { control: { type: 'radio' }, options: colorSchemes },
     shadowColor: { control: { type: 'radio' }, options: shadowColors },
     paddingNone: { control: { type: 'boolean' } },
-    as: { control: { type: 'radio' }, options: ['div', 'li'] },
   },
   args: {
     children: 'Maya Angelou was an American memoirist, poet, and civil rights activist.',
@@ -837,4 +837,29 @@ export const BannerWithIllustration: Story = {
       </Card>
     </Flex>
   ),
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      KitchenSink,
+      ShadowColours,
+      InteractiveCards,
+      SingleCardActionLink,
+      SingleCardActionButton,
+      WithOnlyCardActions,
+      WithCardActions,
+      BannerContent,
+      BannerWithIconContainer,
+      BannerWithImage,
+      BannerWithIllustration,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
+  },
 };

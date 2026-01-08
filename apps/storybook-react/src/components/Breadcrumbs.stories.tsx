@@ -19,32 +19,35 @@ const meta: Meta<typeof Breadcrumbs> = {
 export default meta;
 type Story = StoryObj<typeof Breadcrumbs>;
 
-export const Playground: Story = {
+// Kitchen sink covers all variations so we don't need a Gallery story
+export const KitchenSink: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
   render: () => {
     return (
-      <Breadcrumbs>
-        <BreadcrumbItem href="#">Page</BreadcrumbItem>
-        <BreadcrumbItem href="#">Page</BreadcrumbItem>
-        <BreadcrumbItem href="#">Page</BreadcrumbItem>
-        <BreadcrumbItem href="#">Page</BreadcrumbItem>
-        <BreadcrumbItem href="#" currentPage>
-          Current page
-        </BreadcrumbItem>
-      </Breadcrumbs>
+      <Flex direction="column">
+        <Flex padding="400">
+          <Breadcrumbs>
+            <BreadcrumbItem href="#">Page</BreadcrumbItem>
+            <BreadcrumbItem href="#">Page</BreadcrumbItem>
+            <BreadcrumbItem href="#">Page</BreadcrumbItem>
+            <BreadcrumbItem href="#">Page</BreadcrumbItem>
+            <BreadcrumbItem href="#" currentPage>
+              Current page
+            </BreadcrumbItem>
+          </Breadcrumbs>
+        </Flex>
+        <Flex backgroundColor="brand" padding="400">
+          <Breadcrumbs inverted>
+            <BreadcrumbItem href="#">Page</BreadcrumbItem>
+            <BreadcrumbItem href="#">Page</BreadcrumbItem>
+            <BreadcrumbItem href="#">Page</BreadcrumbItem>
+            <BreadcrumbItem href="#">Page</BreadcrumbItem>
+            <BreadcrumbItem href="#" currentPage>
+              Current page
+            </BreadcrumbItem>
+          </Breadcrumbs>
+        </Flex>
+      </Flex>
     );
   },
-};
-
-export const Inverted: Story = {
-  render: () => (
-    <Flex gap="400" backgroundColor="brand" padding="400">
-      <Breadcrumbs inverted>
-        <BreadcrumbItem href="#">Page</BreadcrumbItem>
-        <BreadcrumbItem href="#">Page</BreadcrumbItem>
-        <BreadcrumbItem href="#" currentPage>
-          Current page
-        </BreadcrumbItem>
-      </Breadcrumbs>
-    </Flex>
-  ),
 };

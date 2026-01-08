@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, BodyText, Flex } from '@utilitywarehouse/hearth-react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const sizes = ['sm', 'md', 'lg'] as const;
 const weights = ['regular', 'semibold', 'bold'] as const;
@@ -105,6 +106,10 @@ export const Colours: Story = {
 
 export const TextTruncate: Story = {
   name: 'Truncate',
+  args: {
+    truncate: true,
+    weight: 'regular',
+  },
   render: args => {
     return (
       <Flex direction="column" gap="100" width="200px">
@@ -116,13 +121,12 @@ export const TextTruncate: Story = {
       </Flex>
     );
   },
-  args: {
-    truncate: true,
-    weight: 'regular',
-  },
 };
 
 export const InvertedText: Story = {
+  args: {
+    color: 'inverted',
+  },
   render: args => {
     return (
       <Flex direction="column">
@@ -132,12 +136,13 @@ export const InvertedText: Story = {
       </Flex>
     );
   },
-  args: {
-    color: 'inverted',
-  },
 };
 
 export const ParagraphSpacing: Story = {
+  args: {
+    truncate: true,
+    weight: 'regular',
+  },
   render: () => {
     return (
       <Flex gap="500">
@@ -160,8 +165,23 @@ export const ParagraphSpacing: Story = {
       </Flex>
     );
   },
-  args: {
-    truncate: true,
-    weight: 'regular',
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      KitchenSink,
+      Colours,
+      TextTruncate,
+      InvertedText,
+      ParagraphSpacing,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

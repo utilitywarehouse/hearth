@@ -29,6 +29,7 @@ type Story = StoryObj<typeof Divider>;
 export const Workshop: Story = {};
 
 export const KitchenSink: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
   render: () => {
     return (
       <Flex direction="column" gap="400" width="100%" maxWidth="800px" padding="200">

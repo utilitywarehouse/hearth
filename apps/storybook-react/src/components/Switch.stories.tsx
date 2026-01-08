@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { BodyText, Flex, Switch } from '@utilitywarehouse/hearth-react';
-import React, { useState } from 'react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const sizes = ['sm', 'md'] as const;
 
@@ -44,18 +44,17 @@ export const Sizes: Story = {
 };
 
 export const Disabled: Story = {
+  args: { disabled: true },
   render: args => (
     <Flex direction="row" gap="200">
       <Switch {...args} />
       <Switch {...args} checked />
     </Flex>
   ),
-  args: {
-    disabled: true,
-  },
 };
 
 export const Labelled: Story = {
+  args: { label: undefined, size: 'sm' },
   render: args => (
     <Flex direction="column" gap="600">
       <Flex direction="row" gap="200" alignItems="center">
@@ -67,14 +66,26 @@ export const Labelled: Story = {
       <Switch aria-label="airplane-mode" {...args} />
     </Flex>
   ),
-  args: {
-    label: undefined,
-    size: 'sm',
-  },
 };
 
 export const ResponsiveSize: Story = {
   args: {
     size: { mobile: 'sm', desktop: 'md' },
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Sizes,
+      Disabled,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

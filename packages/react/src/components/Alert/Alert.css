@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     gap: var(--h-alert-content-gap);
+    flex: 1;
 
     & :where(div) {
       gap: var(--h-alert-content-gap);

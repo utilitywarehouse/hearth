@@ -8,6 +8,7 @@ import {
   InputSlot,
 } from '@utilitywarehouse/hearth-react';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-icons';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof TextInput> = {
   title: 'Stories / TextInput',
@@ -148,4 +149,23 @@ export const GroupingInputs: Story = {
       </fieldset>
     </Flex>
   ),
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Playground,
+      DisabledAndReadOnly,
+      Validation,
+      PrefixAndSuffix,
+      WithIcons,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
+  },
 };

@@ -7,6 +7,7 @@ import {
   TrashSmallIcon,
   UserSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const sizes = ['md', 'sm'] as const;
 const variants = ['solid', 'outline', 'ghost'] as const;
@@ -394,7 +395,7 @@ export const WithIcons: Story = {
 
 export const Inverted: Story = {
   render: () => (
-    <Flex gap="400" backgroundColor="purple700" padding="400">
+    <Flex gap="400" backgroundColor="brand" padding="400">
       <Button variant="emphasis" inverted>
         Emphasis
       </Button>
@@ -412,6 +413,9 @@ export const Inverted: Story = {
 };
 
 export const Loading: Story = {
+  args: {
+    loading: true,
+  },
   render: args => {
     return (
       <Flex gap="400" direction="column" alignItems="start">
@@ -430,9 +434,6 @@ export const Loading: Story = {
       </Flex>
     );
   },
-  args: {
-    loading: true,
-  },
 };
 
 export const PaddingNone: Story = {
@@ -445,5 +446,27 @@ export const PaddingNone: Story = {
         </Button>
       </Flex>
     );
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      KitchenSink,
+      AsLink,
+      FullWidth,
+      DeadPropCombinations,
+      WithIcons,
+      Inverted,
+      Loading,
+      PaddingNone,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

@@ -10,6 +10,7 @@ import {
   Flex,
   Box,
 } from '@utilitywarehouse/hearth-react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof Accordion> = {
   title: 'Stories / Accordion',
@@ -87,27 +88,11 @@ export const CustomItemHeader: Story = {
 };
 
 export const DefaultExpanded: Story = {
-  render: args => {
-    return (
-      <Box width="600px">
-        <Accordion {...args}>
-          {[1, 2, 3, 4, 5, 6].map(n => (
-            <AccordionItem value={`item-${n}`} title={`Item ${n}`}>
-              <AccordionContent>{`Content ${n}`}</AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
-      </Box>
-    );
-  },
   args: {
     heading: 'Default expanded items',
     helperText: '',
     defaultValue: ['item-3', 'item-4'],
   },
-};
-
-export const Multiple: Story = {
   render: args => {
     return (
       <Box width="600px">
@@ -121,13 +106,13 @@ export const Multiple: Story = {
       </Box>
     );
   },
+};
+
+export const Multiple: Story = {
   args: {
     heading: 'Multiple items open at once',
     helperText: '',
   },
-};
-
-export const Single: Story = {
   render: args => {
     return (
       <Box width="600px">
@@ -141,14 +126,14 @@ export const Single: Story = {
       </Box>
     );
   },
+};
+
+export const Single: Story = {
   args: {
     heading: 'Only a single item open at once',
     helperText: '',
     type: 'single',
   },
-};
-
-export const Collapsible: Story = {
   render: args => {
     return (
       <Box width="600px">
@@ -162,15 +147,36 @@ export const Collapsible: Story = {
       </Box>
     );
   },
+};
+
+export const Collapsible: Story = {
   args: {
     heading: 'Collapse all items',
     helperText: 'For use with single type accordions',
     type: 'single',
     collapsible: true,
   },
+  render: args => {
+    return (
+      <Box width="600px">
+        <Accordion {...args}>
+          {[1, 2, 3, 4, 5, 6].map(n => (
+            <AccordionItem value={`item-${n}`} title={`Item ${n}`}>
+              <AccordionContent>{`Content ${n}`}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </Box>
+    );
+  },
 };
 
 export const HeadingElement: Story = {
+  args: {
+    heading: 'Heading element',
+    helperText: '',
+    headingElement: 'h1',
+  },
   render: args => {
     return (
       <Box width="600px">
@@ -184,9 +190,21 @@ export const HeadingElement: Story = {
       </Box>
     );
   },
-  args: {
-    heading: 'Heading element',
-    helperText: '',
-    headingElement: 'h1',
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Playground,
+      CustomItemHeader,
+      DefaultExpanded,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };

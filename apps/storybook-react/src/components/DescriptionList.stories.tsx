@@ -70,9 +70,15 @@ export const Playground: Story = {
 };
 
 export const Directions: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
   render: args => (
     <Flex width="550px" direction="column" gap="800">
-      <DescriptionList {...args} heading="Row" direction="row" trailingContent={<Link href="#">Link</Link>}>
+      <DescriptionList
+        {...args}
+        heading="Row"
+        direction="row"
+        trailingContent={<Link href="#">Link</Link>}
+      >
         <DescriptionListItem
           heading="Heading"
           description="Description"
@@ -87,13 +93,13 @@ export const Directions: Story = {
           heading="Heading"
           description="Description"
           link={<Link href="#">Link</Link>}
-        />
-        <DescriptionListItem
-          heading="Heading"
-          description="Description"
-          link={<Link href="#">Link</Link>}
-          validationText="Validation text"
+          validationText="This item is invalid"
           validationStatus="invalid"
+        />
+        <DescriptionListItem
+          heading="Heading"
+          description="Description"
+          link={<Link href="#">Link</Link>}
         />
       </DescriptionList>
       <DescriptionList
@@ -116,13 +122,13 @@ export const Directions: Story = {
           heading="Heading"
           description="Description"
           link={<Link href="#">Link</Link>}
+          validationText="This item is invalid"
+          validationStatus="invalid"
         />
         <DescriptionListItem
           heading="Heading"
           description="Description"
           link={<Link href="#">Link</Link>}
-          validationText="Validation text"
-          validationStatus="invalid"
         />
       </DescriptionList>
     </Flex>

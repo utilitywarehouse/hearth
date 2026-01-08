@@ -33,7 +33,9 @@ const meta: Meta<typeof VerificationInput> = {
 export default meta;
 type Story = StoryObj<typeof VerificationInput>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
+};
 
 export const Controlled: Story = {
   render: args => {

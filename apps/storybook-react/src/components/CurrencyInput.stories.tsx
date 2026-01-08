@@ -34,11 +34,12 @@ const meta: Meta<typeof CurrencyInput> = {
 export default meta;
 type Story = StoryObj<typeof CurrencyInput>;
 
-export const Playground: Story = {
+export const KitchenSink: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
   render: args => {
     const [value, setValue] = React.useState<string>('');
     return (
-      <Flex direction="column" gap="200">
+      <Flex direction="column" gap="400">
         <CurrencyInput
           {...args}
           label="Uncontrolled"
@@ -50,6 +51,21 @@ export const Playground: Story = {
           helperText={`Value: ${value}`}
           value={value}
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => setValue(event.target.value)}
+        />
+        <CurrencyInput
+          {...args}
+          required
+          label="Group separators"
+          value="1234567.89"
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => console.log(event.target.value)}
+        />
+        <CurrencyInput
+          {...args}
+          required
+          label="Group separators disabled"
+          disableGroupSeparators
+          value="1234567.89"
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => console.log(event.target.value)}
         />
       </Flex>
     );

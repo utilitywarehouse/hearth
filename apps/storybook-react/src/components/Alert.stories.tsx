@@ -8,6 +8,7 @@ import {
   Strong,
 } from '@utilitywarehouse/hearth-react';
 import { useEffect, useState } from 'react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const colorSchemes = ['info', 'positive', 'danger', 'warning'] as const;
 
@@ -55,28 +56,12 @@ export const Playground: Story = {
 
 export const Dismissable: Story = {
   render: () => {
-    const [visible, setVisible] = useState(true);
-    useEffect(() => {
-      let timer: ReturnType<typeof setTimeout> | undefined;
-      if (!visible) {
-        timer = setTimeout(() => {
-          setVisible(true);
-        }, 3000);
-      }
-      return () => clearTimeout(timer);
-    }, [visible]);
-
-    const handleClose = () => {
-      setVisible(false);
-    };
-
-    if (!visible) return <>Alert closed</>;
     return (
       <Alert
         colorScheme="positive"
         title="Success"
         text="Your email address has been verified successfully."
-        onClose={handleClose}
+        onClose={() => {}}
       />
     );
   },
@@ -148,4 +133,22 @@ export const StaticAlert: Story = {
       This alert is completely static with no interactive elements.
     </Alert>
   ),
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      KitchenSink,
+      Dismissable,
+      WithAlertLink,
+      WithAlertButton,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
+  },
 };

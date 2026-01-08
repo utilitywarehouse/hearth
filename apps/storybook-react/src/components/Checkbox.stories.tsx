@@ -38,6 +38,7 @@ export const Playground: Story = {
   render: args => <Checkbox {...args} />,
 };
 
+// Kitchen sink covers all variations so we don't need a Gallery story
 export const KitchenSink: Story = {
   render: () => {
     return (

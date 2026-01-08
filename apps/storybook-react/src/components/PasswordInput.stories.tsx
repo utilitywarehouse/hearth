@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Flex, PasswordInput } from '@utilitywarehouse/hearth-react';
 import React from 'react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof PasswordInput> = {
   title: 'Stories / PasswordInput',
@@ -24,6 +25,7 @@ const meta: Meta<typeof PasswordInput> = {
   },
   args: {
     label: 'Password',
+    helperText: undefined,
     required: true,
     autoComplete: 'new-password',
     disabled: false,
@@ -34,7 +36,9 @@ const meta: Meta<typeof PasswordInput> = {
 export default meta;
 type Story = StoryObj<typeof PasswordInput>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  render: args => <PasswordInput {...args} />,
+};
 
 export const DisabledAndReadOnly: Story = {
   render: args => (
@@ -48,7 +52,6 @@ export const DisabledAndReadOnly: Story = {
       <PasswordInput {...args} label="Read only" readOnly value="password123" />
     </Flex>
   ),
-  args: { helperText: undefined },
 };
 
 export const Validation: Story = {
@@ -100,5 +103,22 @@ export const FormUsage: Story = {
         </Flex>
       </Flex>
     );
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Playground,
+      DisabledAndReadOnly,
+      Validation,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };
