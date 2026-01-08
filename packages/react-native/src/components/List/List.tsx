@@ -3,9 +3,9 @@ import { View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Card } from '../Card';
 import { SectionHeader } from '../SectionHeader';
-import { ListContext } from './List.context';
+import { ListContext, ListFirstItemContext } from './List.context';
 import type ListProps from './List.props';
-import { ListItem, ListItemProps } from './ListItem';
+import { ListItem } from './ListItem';
 
 const markFirstListItem = (children: ReactNode): ViewProps['children'] => {
   let found = false;
@@ -15,23 +15,30 @@ const markFirstListItem = (children: ReactNode): ViewProps['children'] => {
       if (!React.isValidElement(child)) return child;
 
       // Check if the current element is the ListItem and hasn't been marked yet
-      if (!found && child.type === ListItem) {
-        found = true;
-        // Cast the additional prop to match ListItemProps
-        return React.cloneElement(child, { isFirst: true } as Partial<ListItemProps>);
-      }
+      if (!found) {
+        if (child.type === ListItem) {
+          found = true;
+          // Cast the additional prop to match ListItemProps
+          return (
+            <ListFirstItemContext.Provider value={true}>{child}</ListFirstItemContext.Provider>
+          );
+        }
 
-      // If the child has nested children, process them recursively
-      if (
-        React.isValidElement(child) &&
-        child.props &&
-        typeof child.props === 'object' &&
-        child.props !== null &&
-        'children' in child.props &&
-        child.props.children
-      ) {
-        const clonedChildren = recursiveClone((child.props as any).children);
-        return React.cloneElement(child, { children: clonedChildren } as any);
+        // If the child has nested children, process them recursively
+        if (
+          React.isValidElement(child) &&
+          child.props &&
+          typeof child.props === 'object' &&
+          child.props !== null &&
+          'children' in child.props &&
+          child.props.children
+        ) {
+          const clonedChildren = recursiveClone((child.props as any).children);
+          return React.cloneElement(child, { children: clonedChildren } as any);
+        }
+
+        found = true;
+        return <ListFirstItemContext.Provider value={true}>{child}</ListFirstItemContext.Provider>;
       }
 
       return child;

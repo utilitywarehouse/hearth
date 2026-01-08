@@ -12,3 +12,7 @@ export const useListContext = () => {
 
   return context;
 };
+
+export const ListFirstItemContext = createContext<boolean>(false);
+
+export const useListFirstItemContext = () => useContext(ListFirstItemContext);

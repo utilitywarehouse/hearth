@@ -2,7 +2,7 @@ import { createPressable } from '@gluestack-ui/pressable';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { useListContext } from '../List.context';
+import { useListContext, useListFirstItemContext } from '../List.context';
 import type ListActionProps from './ListAction.props';
 import ListActionContent from './ListActionContent';
 import ListActionText from './ListActionText';
@@ -17,6 +17,7 @@ const ListActionRoot = ({
 }: ListActionProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { onPress } = props;
   const listContext = useListContext();
+  const isFirstContext = useListFirstItemContext();
 
   const { active } = props.states || { active: false };
 
@@ -40,7 +41,7 @@ const ListActionRoot = ({
     disabled: isDisabled,
     active,
     showDisabled: !listContext?.disabled && disabled,
-    isFirstChild: props.isFirst,
+    isFirstChild: isFirstContext,
     container: listContext?.container,
   });
 
