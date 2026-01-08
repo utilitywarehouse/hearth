@@ -35,6 +35,7 @@ export default meta;
 type Story = StoryObj<typeof DatePicker>;
 
 export const Playground: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
   render: args => {
     const [selectedDate, setSelectedDate] = React.useState<Date | null>(null);
     return (

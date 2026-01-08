@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { DetailText, Flex, Box } from '@utilitywarehouse/hearth-react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const sizes = ['sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl'] as const;
 const colorValues = ['text', 'valid', 'invalid'] as const;
@@ -70,10 +71,7 @@ export const InvertedText: Story = {
   render: args => {
     return (
       <Flex direction="column">
-        <Box backgroundColor="uwPurple" padding="400">
-          <DetailText {...args}>Inverted text</DetailText>
-        </Box>
-        <Box backgroundColor="darkPurple" padding="400">
+        <Box backgroundColor="brand" padding="400">
           <DetailText {...args}>Inverted text</DetailText>
         </Box>
       </Flex>
@@ -81,5 +79,21 @@ export const InvertedText: Story = {
   },
   args: {
     inverted: true,
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      KitchenSink,
+      InvertedText,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };
