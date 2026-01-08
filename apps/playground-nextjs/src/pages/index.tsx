@@ -140,6 +140,8 @@ export default function Home() {
       </Flex>
 
       <NextImage src={SpotHelpLight} alt="" width={200} height={200} />
+      <NextImage src={SpotHelpLight} alt="" width={200} height={200} unoptimized />
+      <img src={SpotHelpLight.src} alt="" width={200} height={200} />
     </>
   );
 }
