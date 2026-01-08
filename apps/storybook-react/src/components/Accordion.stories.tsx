@@ -200,7 +200,11 @@ export const Gallery: Story = {
     interactions: { disable: true },
   },
   render: () => {
-    const stories = { Playground, CustomItemHeader, DefaultExpanded };
+    const stories = {
+      Playground,
+      CustomItemHeader,
+      DefaultExpanded,
+    };
     return <StoryGallery meta={meta} stories={stories} />;
   },
 };
