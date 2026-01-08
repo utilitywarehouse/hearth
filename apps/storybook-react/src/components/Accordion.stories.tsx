@@ -10,6 +10,7 @@ import {
   Flex,
   Box,
 } from '@utilitywarehouse/hearth-react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof Accordion> = {
   title: 'Stories / Accordion',
@@ -188,5 +189,18 @@ export const HeadingElement: Story = {
     heading: 'Heading element',
     helperText: '',
     headingElement: 'h1',
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = { Playground, CustomItemHeader, DefaultExpanded };
+    return <StoryGallery meta={meta} stories={stories} />;
   },
 };
