@@ -5,7 +5,6 @@ interface ListItemBaseProps extends Omit<PressableProps, 'children'> {
   loading?: boolean;
   disabled?: boolean;
   variant?: 'subtle' | 'emphasis';
-  isFirst?: boolean;
 }
 
 export interface ListItemWithChildren extends ListItemBaseProps {

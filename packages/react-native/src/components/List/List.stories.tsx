@@ -212,6 +212,30 @@ export const WithSectionHeader: Story = {
   ),
 };
 
+const CustomListItem = () => (
+  <ListItem
+    heading="Custom List Item"
+    helperText="This is a custom list item component"
+    leadingContent={<ListItemIcon as={SettingsMediumIcon} />}
+    trailingContent={<ListItemTrailingIcon as={ChevronRightSmallIcon} />}
+    onPress={() => console.log('Custom List Item pressed')}
+  />
+);
+
+export const WithCustomListItemComponent: Story = {
+  parameters: {
+    controls: { include: [] },
+  },
+  render: () => (
+    <List container="subtleWarmWhite">
+      <CustomListItem />
+      <CustomListItem />
+      <CustomListItem />
+      <ListAction heading="Contact support" onPress={() => console.log('Contact pressed')} />
+    </List>
+  ),
+};
+
 export const WithListAction: Story = {
   parameters: {
     controls: { include: [] },
