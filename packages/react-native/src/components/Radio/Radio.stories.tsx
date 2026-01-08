@@ -208,28 +208,25 @@ export const Variants: Story = {
   },
 };
 
-export const WithFormFieldExample = () => {
-  const [value, setValue] = useState('Option 1');
-  return (
-    <>
-      <FormField
-        label="Account type"
-        helperText="Is this account used for personal or business purposes?"
-      >
-        <RadioGroup type="tile">
-          <Radio label="Personal" value="Personal" />
-          <Radio label="Business" value="Business" />
-        </RadioGroup>
-      </FormField>
-      <RadioGroup
-        direction="row"
-        label="Account type"
-        helperText="Is this account used for personal or business purposes?"
-        type="tile"
-      >
+export const WithFormFieldExample: Story = () => (
+  <>
+    <FormField
+      label="Account type"
+      helperText="Is this account used for personal or business purposes?"
+    >
+      <RadioGroup type="tile">
         <Radio label="Personal" value="Personal" />
         <Radio label="Business" value="Business" />
       </RadioGroup>
-    </>
-  );
-};
+    </FormField>
+    <RadioGroup
+      direction="row"
+      label="Account type"
+      helperText="Is this account used for personal or business purposes?"
+      type="tile"
+    >
+      <Radio label="Personal" value="Personal" />
+      <Radio label="Business" value="Business" />
+    </RadioGroup>
+  </>
+);
