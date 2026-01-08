@@ -219,7 +219,8 @@ export const WithListAction: Story = {
   render: () => (
     <List container="subtleWarmWhite">
       <ListItem
-        heading="Upgrade your plan"
+        heading="Upgrade your plan this is really long text to test wrapping"
+        truncateHeading={true}
         helperText="Get more features with a premium plan"
         onPress={() => console.log('Upgrade pressed')}
       />

@@ -105,19 +105,21 @@ const MyComponent = () => (
 
 ### `ListItem`
 
-| Name            | Type                     | Default  | Description                                                     |
-| --------------- | ------------------------ | -------- | --------------------------------------------------------------- |
-| heading         | `string`                 |          | The text to display in the list item.                           |
-| onPress         | `() => void`             |          | A callback function to be called when the list item is pressed. |
-| helperText      | `string`                 |          | The supporting text to display in the list item.                |
-| leadingContent  | `ReactNode`              |          | The leading content to display in the list item.                |
-| trailingContent | `ReactNode`              |          | The trailing content to display in the list item.               |
-| variant         | `'subtle' \| 'emphasis'` |          | The variant style of the list item.                             |
-| disabled        | `boolean`                | `false`  | Whether to disable the list item.                               |
-| loading         | `boolean`                | `false`  | Whether to show the list item in loading state.                 |
-| badge           | `ReactNode`              |          | The badge component to display in the list item.                |
-| badgePosition   | `'top' \| 'bottom'`      | `bottom` | Position of the badge in the list item.                         |
-| numericValue    | `string \| number`       |          | A numeric value to display on the right side of the item.       |
+| Name               | Type                     | Default  | Description                                                     |
+| ------------------ | ------------------------ | -------- | --------------------------------------------------------------- |
+| heading            | `string`                 |          | The text to display in the list item.                           |
+| onPress            | `() => void`             |          | A callback function to be called when the list item is pressed. |
+| helperText         | `string`                 |          | The supporting text to display in the list item.                |
+| leadingContent     | `ReactNode`              |          | The leading content to display in the list item.                |
+| trailingContent    | `ReactNode`              |          | The trailing content to display in the list item.               |
+| variant            | `'subtle' \| 'emphasis'` |          | The variant style of the list item.                             |
+| disabled           | `boolean`                | `false`  | Whether to disable the list item.                               |
+| loading            | `boolean`                | `false`  | Whether to show the list item in loading state.                 |
+| badge              | `ReactNode`              |          | The badge component to display in the list item.                |
+| badgePosition      | `'top' \| 'bottom'`      | `bottom` | Position of the badge in the list item.                         |
+| numericValue       | `string \| number`       |          | A numeric value to display on the right side of the item.       |
+| truncateHeading    | `boolean`                | `false`  | Whether to truncate the heading text if it overflows.           |
+| truncateHelperText | `boolean`                | `false`  | Whether to truncate the helper text if it overflows.            |
 
 ### `ListAction`
 
@@ -137,9 +139,13 @@ const MyComponent = () => (
 
 #### - `ListItemContent`
 
-#### - `ListItemText`
+#### - `ListItemHeading`
+
+Has all props of the [`BodyText` component](?path=/docs/typography-body-text--docs).
 
 #### - `ListItemHelperText`
+
+Has all props of the [`BodyText` component](?path=/docs/typography-body-text--docs).
 
 #### - `ListItemTrailingContent`
 
