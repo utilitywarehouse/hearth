@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Badge, Box, Flex } from '@utilitywarehouse/hearth-react';
 import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const variants = ['subtle', 'emphasis', 'outline'] as const;
 const subtleOnlyColorSchemes = ['highlight'] as const;
@@ -219,4 +220,22 @@ export const Icons: Story = {
       </Badge>
     </Flex>
   ),
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      KitchenSink,
+      FlatBase,
+      SurfaceColours,
+      Icons,
+    };
+    return <StoryGallery meta={meta} stories={stories} />;
+  },
 };
