@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Combobox, ComboboxItem, useComboboxFilter } from '@utilitywarehouse/hearth-react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 import React from 'react';
+import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const meta: Meta<typeof Combobox> = {
   title: 'Stories / Combobox',
@@ -35,6 +36,7 @@ export default meta;
 type Story = StoryObj<typeof Combobox>;
 
 export const Playground: Story = {
+  args: { defaultOpen: true },
   render: args => {
     const fruits = ['Apple', 'Banana', 'Orange'];
     return <Combobox {...args} items={fruits} />;
@@ -57,6 +59,7 @@ export const ItemsAsChildren: Story = {
 };
 
 export const ScrollArea: Story = {
+  args: { defaultOpen: true },
   render: args => {
     return (
       <Combobox {...args}>
@@ -188,5 +191,21 @@ export const Virtualised: Story = {
         )}
       </Combobox>
     );
+  },
+};
+
+export const Gallery: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false },
+    controls: { disable: true },
+    actions: { disable: true },
+    interactions: { disable: true },
+  },
+  render: () => {
+    const stories = {
+      Playground,
+      ScrollArea,
+    };
+    return <StoryGallery meta={meta} stories={stories} direction="row" />;
   },
 };
