@@ -1,13 +1,12 @@
- 
 import React, { useMemo } from 'react';
-import { CheckboxGroup as CheckboxGroupComponent } from './Checkbox';
-import CheckboxGroupProps from './CheckboxGroup.props';
-import { CheckboxGroupContext } from './CheckboxGroup.context';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import CheckboxGroupTextContent from './CheckboxGroupTextContent';
-import { Label } from '../Label';
 import { Helper } from '../Helper';
+import { Label } from '../Label';
+import { CheckboxGroup as CheckboxGroupComponent } from './Checkbox';
+import { CheckboxGroupContext } from './CheckboxGroup.context';
+import CheckboxGroupProps from './CheckboxGroup.props';
+import CheckboxGroupTextContent from './CheckboxGroupTextContent';
 
 const CheckboxGroup = ({
   children,
@@ -26,8 +25,8 @@ const CheckboxGroup = ({
   ...props
 }: CheckboxGroupProps) => {
   const value = useMemo(
-    () => ({ disabled, validationStatus, type }),
-    [disabled, validationStatus, type]
+    () => ({ disabled, validationStatus, type, direction }),
+    [disabled, validationStatus, type, direction]
   );
   const showHeader = !!label || !!helperText || !!invalidText || !!validText;
   const childrenArray = React.Children.toArray(children as any);
