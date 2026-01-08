@@ -8,12 +8,13 @@ const ListItemHeading = ({ children, ...props }: BodyTextProps) => {
   );
 };
 
+ListItemHeading.displayName = 'ListItemHeading';
+
 /**
  * @deprecated Use `ListItemHeading` instead.
  */
 export const ListItemText = ListItemHeading;
 
-ListItemHeading.displayName = 'ListItemHeading';
 ListItemText.displayName = 'ListItemText';
 
 export default ListItemHeading;

@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react-native': patch
 ---
 
-Adds `truncatedHeading` and `truncatedHelperText` props to `ListItem`
+Adds `truncateHeading` and `truncateHelperText` props to `ListItem`
