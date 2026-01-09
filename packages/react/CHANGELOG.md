@@ -1,5 +1,29 @@
 # @utilitywarehouse/hearth-react
 
+## 0.23.4
+
+### Patch Changes
+
+- [#746](https://github.com/utilitywarehouse/hearth/pull/746) [`8832481`](https://github.com/utilitywarehouse/hearth/commit/88324814f51976cc8e4330199ebe3dbfc69f0656) Thanks [@robphoenix](https://github.com/robphoenix)! - [FEATURE]: Add `minHeight` & `maxHeight` props to `TextArea`
+
+- [#743](https://github.com/utilitywarehouse/hearth/pull/743) [`f7e8d94`](https://github.com/utilitywarehouse/hearth/commit/f7e8d947cd4150a77b91e42c7620f7486a49b2ed) Thanks [@robphoenix](https://github.com/robphoenix)! - [BUG]: Fix `DatePicker` trigger type
+
+  Explicitly set the `DatePickerTrigger` type to `button` to prevent it from
+  defaulting to `submit` in forms, which could cause unintended form submissions.
+
+  This update requires no changes to existing code that uses `DatePicker`, as it
+  only alters the default behaviour of the trigger element.
+
+- [#748](https://github.com/utilitywarehouse/hearth/pull/748) [`b165e12`](https://github.com/utilitywarehouse/hearth/commit/b165e127b8049bb3784fd345df389d429646d129) Thanks [@robphoenix](https://github.com/robphoenix)! - [BUG]: Fix `TextInput` focus with react-hook-form
+
+  `react-hook-form` was causing the `TextInput` to lose focus when typing, this
+  has been fixed.
+
+  Be aware that you will probably want to set `noValidate` on your form to prevent
+  the browser from displaying its own validation messages.
+
+  Otherwise, this shouldn't cause any changes to consumer code.
+
 ## 0.23.3
 
 ### Patch Changes
