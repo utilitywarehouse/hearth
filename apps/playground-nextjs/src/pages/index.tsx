@@ -43,7 +43,7 @@ export default function Home() {
         <BreadcrumbItem asChild>
           <NextLink href="/three">Three</NextLink>
         </BreadcrumbItem>
-        <BreadcrumbItem asChild currentPage>
+        <BreadcrumbItem currentPage>
           Home
         </BreadcrumbItem>
       </Breadcrumbs>
