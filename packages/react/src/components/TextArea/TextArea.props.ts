@@ -16,4 +16,5 @@ export interface TextAreaProps
    * @default "both"
    */
   resize?: 'none' | 'vertical' | 'horizontal' | 'both';
+  minHeight?: string;
 }

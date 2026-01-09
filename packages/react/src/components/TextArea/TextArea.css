@@ -67,6 +67,14 @@
       all: unset;
       border: none;
       display: block;
+      --h-textarea-padding-bottom: calc(var(--h-input-padding-vertical) - var(--h-space-100));
+      /* to get the min-height of the internal text-area:
+       * from the container min-height we need to subtract the internal
+       * padding and add the border width */
+      min-height: calc(
+        96px + calc(var(--h-input-border-width) * 2) -
+          calc(var(--h-textarea-padding-bottom) + calc(var(--h-input-padding-vertical) * 2))
+      );
       width: auto;
       min-width: calc(
         var(--h-input-min-width) - calc(var(--h-input-padding-horizontal) + var(--h-space-100))
@@ -81,7 +89,7 @@
           var(--h-space-100)
       );
       padding-right: calc(var(--h-input-padding-horizontal) - var(--h-space-100));
-      padding-bottom: calc(var(--h-input-padding-vertical) - var(--h-space-100));
+      padding-bottom: var(--h-textarea-padding-bottom);
       font-weight: normal;
       font-style: normal;
       text-align: start;
