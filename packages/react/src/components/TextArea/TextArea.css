@@ -67,7 +67,9 @@
       all: unset;
       border: none;
       display: block;
+
       --h-textarea-padding-bottom: calc(var(--h-input-padding-vertical) - var(--h-space-100));
+
       /* to get the min-height of the internal text-area:
        * from the container min-height we need to subtract the internal
        * padding and add the border width */
