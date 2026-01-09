@@ -64,6 +64,20 @@ The input `validationStatus` can be set to either `"valid"` or `"invalid"` to
 indicate the status. This status must be accompanied by a validation text to
 explain the reason for the status.
 
+Be aware that you probably want to set `noValidate` on your form to prevent
+the browser from displaying its own validation messages.
+
+```
+<form noValidate>
+  <TextInput
+    label="Name"
+    required
+    validationStatus="invalid"
+    validationText="Please enter your name"
+  />
+</form>
+```
+
 <Canvas of={Stories.Validation} />
 
 ## Prefix and Suffix

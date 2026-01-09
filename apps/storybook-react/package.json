@@ -18,7 +18,8 @@
     "@utilitywarehouse/hearth-react-icons": "workspace:^0.7.4",
     "@utilitywarehouse/hearth-svg-assets": "^0.2.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.70.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.3",
