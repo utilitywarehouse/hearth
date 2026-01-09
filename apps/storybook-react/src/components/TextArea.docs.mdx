@@ -16,7 +16,7 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 - [Validation](#validation)
 - [Disabled and Read-only](#disabled-and-read-only)
 - [Custom Rows](#custom-rows)
-- [Minimum Height](#minimum-height)
+- [Height](#height)
 - [Controlled Usage](#controlled-usage)
 - [Full width](#full-width)
 - [API](#api)
@@ -51,11 +51,11 @@ You can control the number of visible rows using the `rows` prop.
 
 <Canvas of={Stories.CustomRows} />
 
-## Minimum Height
+## Height
 
-You can set a minimum height for the `TextArea` using the `minHeight` prop.
+You can set a minimum and maximum height for the `TextArea` using the `minHeight` & `maxHeight` props.
 
-<Canvas of={Stories.MinHeight} sourceState="shown" />
+<Canvas of={Stories.Height} sourceState="shown" />
 
 ## Controlled Usage
 

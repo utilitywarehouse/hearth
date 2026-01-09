@@ -30,6 +30,7 @@ export const TextArea = (props: TextAreaProps) => {
     resize,
     rows = 3,
     minHeight: providedMinHeight,
+    maxHeight: providedMaxHeight,
     style,
     ...textAreaProps
   } = extractProps(props, marginPropDefs);
@@ -68,6 +69,9 @@ export const TextArea = (props: TextAreaProps) => {
   const minHeight = providedMinHeight
     ? `calc(${providedMinHeight} + ${borders} - ${padding})`
     : undefined;
+  const maxHeight = providedMaxHeight
+    ? `calc(${providedMaxHeight} + ${borders} - ${padding})`
+    : undefined;
 
   return (
     <FormField
@@ -89,7 +93,7 @@ export const TextArea = (props: TextAreaProps) => {
           aria-invalid={validationStatus === 'invalid' ? true : undefined}
           aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
           data-resize={resize}
-          style={{ ...style, minHeight }}
+          style={{ ...style, minHeight, maxHeight }}
           {...textAreaProps}
         />
       </Flex>

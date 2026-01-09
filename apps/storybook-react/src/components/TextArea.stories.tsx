@@ -47,8 +47,8 @@ export const Playground: Story = {
   render: args => <TextArea {...args} />,
 };
 
-export const MinHeight: Story = {
-  args: { minHeight: '200px' },
+export const Height: Story = {
+  args: { minHeight: '200px', maxHeight: '400px' },
   render: args => <TextArea {...args} />,
 };
 
@@ -133,7 +133,7 @@ export const Gallery: Story = {
   render: () => {
     const stories = {
       Playground,
-      MinHeight,
+      Height,
       DisabledAndReadOnly,
       Validation,
       CustomRows,

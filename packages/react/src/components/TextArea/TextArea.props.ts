@@ -21,4 +21,9 @@ export interface TextAreaProps
    * Accepts any valid CSS height value, such as "200px", "10rem", or "50%".
    */
   minHeight?: string;
+  /**
+   * Sets the maximum height of the TextArea.
+   * Accepts any valid CSS height value, such as "200px", "10rem", or "50%".
+   */
+  maxHeight?: string;
 }
