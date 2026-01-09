@@ -65,7 +65,9 @@ export const TextArea = (props: TextAreaProps) => {
   const borders = 'calc(var(--h-input-border-width) * 2)';
   const padding =
     'calc(var(--h-textarea-padding-bottom) + calc(var(--h-input-padding-vertical) * 2))';
-  const minHeight = `calc(${providedMinHeight} + ${borders} - ${padding})`;
+  const minHeight = providedMinHeight
+    ? `calc(${providedMinHeight} + ${borders} - ${padding})`
+    : undefined;
 
   return (
     <FormField
