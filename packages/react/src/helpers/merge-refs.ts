@@ -4,17 +4,17 @@ import React from 'react';
 
 /**
  * Merges multiple React refs into a single callback ref.
- * * This is useful when you need to attach multiple refs to a single DOM element,
+ * This is useful when you need to attach multiple refs to a single DOM element,
  * such as a local ref for DOM manipulation and a ref from a library like
  * React Hook Form or Framer Motion.
  *
  * @template T - The type of the element (e.g., HTMLInputElement).
  * @param {...(React.Ref<T> | undefined | null)} refs - An array of refs to be merged.
  * @returns {(value: T | null) => void} A callback ref that assigns the element to all provided refs.
- * * @example
+ * @example
  * const { ref: rhfRef, ...field } = register('name');
  * const localRef = useRef<HTMLInputElement>(null);
- * * <input {...field} ref={mergeRefs(rhfRef, localRef)} />
+ * <input {...field} ref={mergeRefs(rhfRef, localRef)} />
  */
 export function mergeRefs<T>(
   ...refs: Array<React.Ref<T> | undefined | null>
