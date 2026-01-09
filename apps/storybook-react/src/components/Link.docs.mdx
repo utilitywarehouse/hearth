@@ -8,19 +8,19 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <DocsHeader componentName="Link" stories={Stories} />
 
-## Playground
-
-<Canvas of={Stories.Playground} sourceState="shown" />
-<Controls of={Stories.Playground} />
-
 - [Playground](#playground)
 - [Alternatives](#alternatives)
 - [Semantic HTML](#semantic-html)
 - [Guidelines](#guidelines)
 - [Icons](#icons)
 - [Inverted colours](#inverted-colours)
-- [Usage with Next.js](#usage-with-next.js)
+- [Usage with Next.js](#usage-with-nextjs)
 - [API](#api)
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
 
 ## Alternatives
 
@@ -120,7 +120,7 @@ colours, specifically the UW Purple and Dark Purple colours.
 
 ## Usage with Next.js
 
-### Next.js v13
+### Next.js v13 and above
 
 The Next.js `Link` component behaviour has changed in v13, so that an `<a>` is
 no longer required as a child. You can render the Hearth React `Link` component
@@ -132,7 +132,6 @@ import { Link } from '@utilitywarehouse/hearth-react';
 
 [...]
 
-{/* // eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 <Link asChild>
   <NextLink href={href} onClick={onClick}>
     {title}
@@ -149,7 +148,6 @@ import { Link } from '@utilitywarehouse/hearth-react';
 [...]
 
 <NextLink href={href} passHref onClick={onClick} legacyBehavior>
-  {/* // eslint-disable-next-line jsx-a11y/anchor-is-valid */}
   <Link>{title}</Link>
 </NextLink>
 ```

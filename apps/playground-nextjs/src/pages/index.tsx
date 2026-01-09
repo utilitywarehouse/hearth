@@ -12,6 +12,8 @@ import {
   ModalFooter,
   ModalClose,
   Box,
+  Breadcrumbs,
+  BreadcrumbItem,
 } from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';
 import { space, color, components, semantic } from '@utilitywarehouse/hearth-tokens/browser';
@@ -30,6 +32,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HearthBox padding="200">Hearth</HearthBox>
+
+      <Breadcrumbs margin="400">
+        <BreadcrumbItem asChild>
+          <NextLink href="/one">One</NextLink>
+        </BreadcrumbItem>
+        <BreadcrumbItem asChild>
+          <NextLink href="/two">Two</NextLink>
+        </BreadcrumbItem>
+        <BreadcrumbItem asChild>
+          <NextLink href="/three">Three</NextLink>
+        </BreadcrumbItem>
+        <BreadcrumbItem asChild currentPage>
+          Home
+        </BreadcrumbItem>
+      </Breadcrumbs>
+
       <StyledBox sx={{ border: '1px solid red', padding: '32px', display: 'flex' }}>
         Hearth styled with sx
       </StyledBox>
