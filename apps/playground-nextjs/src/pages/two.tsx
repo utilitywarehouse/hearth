@@ -3,7 +3,7 @@ import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-react/styles.css';
 import { Heading } from '@utilitywarehouse/hearth-react';
 
-export default function One() {
+export default function Two() {
   return (
     <>
       <Head>
