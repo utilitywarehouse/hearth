@@ -6,9 +6,11 @@ import {
   Heading,
   TextInput,
   InputSlot,
+  Button,
 } from '@utilitywarehouse/hearth-react';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../storybook-components/StoryGallery';
+import { useForm, Controller } from 'react-hook-form';
 
 const meta: Meta<typeof TextInput> = {
   title: 'Stories / TextInput',
@@ -47,7 +49,9 @@ const meta: Meta<typeof TextInput> = {
 export default meta;
 type Story = StoryObj<typeof TextInput>;
 
-export const Playground: Story = {};
+export const Playground: Story = {
+  render: args => <TextInput {...args} />,
+};
 
 export const DisabledAndReadOnly: Story = {
   render: args => (
@@ -149,6 +153,41 @@ export const GroupingInputs: Story = {
       </fieldset>
     </Flex>
   ),
+};
+
+export const ReactHookForm: Story = {
+  render: () => {
+    const { control, handleSubmit } = useForm({
+      defaultValues: {
+        firstName: '',
+      },
+    });
+    return (
+      <Flex asChild gap="200" direction="column" alignItems="start">
+        <form onSubmit={handleSubmit(data => console.log(data))} noValidate>
+          <Controller
+            name="firstName"
+            control={control}
+            rules={{ required: 'This is required' }}
+            render={({ field, fieldState }) => {
+              console.log({ field });
+              return (
+                <div>
+                  <TextInput
+                    {...field} // Spreads onChange, onBlur, value, and ref
+                    label="First Name"
+                    validationStatus={fieldState.error ? 'invalid' : undefined}
+                    validationText={fieldState.error?.message}
+                  />
+                </div>
+              );
+            }}
+          />
+          <Button type="submit">Submit</Button>
+        </form>
+      </Flex>
+    );
+  },
 };
 
 export const Gallery: Story = {

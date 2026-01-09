@@ -4,6 +4,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { cn } from '../../helpers/cn';
 import React from 'react';
 import type { InputBaseProps } from './InputBase.props';
+import { mergeRefs } from '../../helpers/merge-refs';
 
 const COMPONENT_NAME = 'InputBase';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -18,8 +19,10 @@ export const InputBase = ({
   ref: forwardedRef,
   ...props
 }: InputBaseProps) => {
-  const defaultRef = React.useRef<HTMLInputElement>(null);
-  const inputRef = forwardedRef || defaultRef;
+  const localRef = React.useRef<HTMLInputElement>(null);
+  // merge refs so we can control focus but still allow parent components to
+  // have a ref to the input
+  const ref = mergeRefs(forwardedRef, localRef);
   return (
     <div
       className={cn(componentClassName, className)}
@@ -29,8 +32,8 @@ export const InputBase = ({
         const target = event.target as HTMLElement;
         if (target.closest('input, button, a')) return;
 
-        if (inputRef && typeof inputRef === 'object' && inputRef.current) {
-          const input = inputRef.current;
+        if (localRef && typeof localRef === 'object' && localRef.current) {
+          const input = localRef.current;
           requestAnimationFrame(() => {
             input.focus();
           });
@@ -38,7 +41,7 @@ export const InputBase = ({
       }}
     >
       <input
-        ref={inputRef}
+        ref={ref}
         spellCheck="false"
         required={required}
         disabled={disabled}
