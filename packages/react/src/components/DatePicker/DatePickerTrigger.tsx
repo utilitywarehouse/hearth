@@ -21,6 +21,7 @@ export const DatePickerTrigger = ({
       className={cn(componentClassName, className)}
       aria-disabled={disabled || undefined}
       onClick={disabled ? undefined : onClick}
+      type="button"
       {...props}
     >
       {value ? (

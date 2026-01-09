@@ -47,3 +47,18 @@ export const Playground: Story = {
     );
   },
 };
+
+export const FormUsage: Story = {
+  render: args => {
+    const [selectedDate, setSelectedDate] = React.useState<Date | null>(new Date());
+    return (
+      <form>
+        <DatePicker
+          selected={selectedDate}
+          onChange={(date: Date | null) => setSelectedDate(date)}
+          {...args}
+        />
+      </form>
+    );
+  },
+};
