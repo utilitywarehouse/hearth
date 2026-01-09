@@ -7,10 +7,13 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <DocsHeader componentName="Breadcrumbs" stories={Stories} />
 
-## Playground
+- [Current page](#current-page)
+- [Inverted](#inverted)
+- [Usage with Next.js](#usage-with-nextjs)
+- [API](#api)
 
-<Canvas of={Stories.Playground} sourceState="shown" />
-<Controls of={Stories.Playground} />
+<Canvas of={Stories.KitchenSink} sourceState="shown" />
+<Controls of={Stories.KitchenSink} />
 
 ## Current page
 
@@ -20,9 +23,43 @@ Use the `currentPage` prop to indicate the current page.
 
 Use the `inverted` prop to adjust colours for use on darker brand backgrounds.
 
-<Canvas of={Stories.Inverted} />
+## Usage with Next.js
 
-## Breadcrumbs API
+When using `Breadcrumbs` with Next.js v13 and above, use the `asChild` prop on
+`BreadcrumbItem` to render it as a Next.js `Link` component.
+
+Make sure you only do this with `BreadcrumbItem` components that are not the
+current page.
+
+```tsx
+import { Breadcrumbs, BreadcrumbItem } from '@utilitywarehouse/hearth-react';
+import NextLink from 'next/link';
+
+[...]
+
+<Breadcrumbs margin="400">
+  <BreadcrumbItem asChild>
+    <NextLink href="/one">
+      One
+    </NextLink>
+  </BreadcrumbItem>
+  <BreadcrumbItem asChild>
+    <NextLink href="/two">
+      Two
+    </NextLink>
+  </BreadcrumbItem>
+  <BreadcrumbItem asChild>
+    <NextLink href="/three">
+      Three
+    </NextLink>
+  </BreadcrumbItem>
+  <BreadcrumbItem currentPage>
+    Home
+  </BreadcrumbItem>
+</Breadcrumbs>
+```
+
+## API
 
 This component is based on the `nav` element and supports the following common props:
 
