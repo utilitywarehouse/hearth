@@ -8,8 +8,6 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <DocsHeader componentName="TextArea" stories={Stories} />
 
-## Playground
-
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
@@ -18,6 +16,7 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 - [Validation](#validation)
 - [Disabled and Read-only](#disabled-and-read-only)
 - [Custom Rows](#custom-rows)
+- [Minimum Height](#minimum-height)
 - [Controlled Usage](#controlled-usage)
 - [Full width](#full-width)
 - [API](#api)
@@ -51,6 +50,12 @@ to explain the reason for the status.
 You can control the number of visible rows using the `rows` prop.
 
 <Canvas of={Stories.CustomRows} />
+
+## Minimum Height
+
+You can set a minimum height for the `TextArea` using the `minHeight` prop.
+
+<Canvas of={Stories.MinHeight} sourceState="shown" />
 
 ## Controlled Usage
 
@@ -99,3 +104,4 @@ This component is based on the `textarea` element, and supports the following co
 | `disabled`         | `boolean`                                        |
 | `readOnly`         | `boolean`                                        |
 | `required`         | `boolean`                                        |
+| `minHeight`        | `string`                                         |

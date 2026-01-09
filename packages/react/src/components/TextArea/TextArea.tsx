@@ -29,6 +29,8 @@ export const TextArea = (props: TextAreaProps) => {
     'aria-describedby': ariaDescribedby,
     resize,
     rows = 3,
+    minHeight: providedMinHeight,
+    style,
     ...textAreaProps
   } = extractProps(props, marginPropDefs);
 
@@ -58,6 +60,15 @@ export const TextArea = (props: TextAreaProps) => {
     showValidation && validationText !== undefined ? validationTextId : undefined
   );
 
+  // we have to set the min-height on the textarea otherwise we break resizing,
+  // so we need to account for borders and padding of the root container
+  const borders = 'calc(var(--h-input-border-width) * 2)';
+  const padding =
+    'calc(var(--h-textarea-padding-bottom) + calc(var(--h-input-padding-vertical) * 2))';
+  const minHeight = providedMinHeight
+    ? `calc(${providedMinHeight} + ${borders} - ${padding})`
+    : undefined;
+
   return (
     <FormField
       className={cn(componentClassName, className)}
@@ -78,6 +89,7 @@ export const TextArea = (props: TextAreaProps) => {
           aria-invalid={validationStatus === 'invalid' ? true : undefined}
           aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
           data-resize={resize}
+          style={{ ...style, minHeight }}
           {...textAreaProps}
         />
       </Flex>

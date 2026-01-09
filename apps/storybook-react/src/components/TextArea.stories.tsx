@@ -47,6 +47,11 @@ export const Playground: Story = {
   render: args => <TextArea {...args} />,
 };
 
+export const MinHeight: Story = {
+  args: { minHeight: '200px' },
+  render: args => <TextArea {...args} />,
+};
+
 export const DisabledAndReadOnly: Story = {
   render: args => (
     <Flex direction="column" gap="400">
@@ -128,6 +133,7 @@ export const Gallery: Story = {
   render: () => {
     const stories = {
       Playground,
+      MinHeight,
       DisabledAndReadOnly,
       Validation,
       CustomRows,

@@ -16,4 +16,9 @@ export interface TextAreaProps
    * @default "both"
    */
   resize?: 'none' | 'vertical' | 'horizontal' | 'both';
+  /**
+   * Sets the minimum height of the TextArea.
+   * Accepts any valid CSS height value, such as "200px", "10rem", or "50%".
+   */
+  minHeight?: string;
 }
