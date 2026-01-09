@@ -73,8 +73,9 @@
       /* to get the min-height of the internal text-area:
        * from the container min-height we need to subtract the internal
        * padding and add the border width */
+      --h-textarea-min-height: 96px;
       min-height: calc(
-        96px + calc(var(--h-input-border-width) * 2) -
+        var(--h-textarea-min-height) + calc(var(--h-input-border-width) * 2) -
           calc(var(--h-textarea-padding-bottom) + calc(var(--h-input-padding-vertical) * 2))
       );
       width: auto;
