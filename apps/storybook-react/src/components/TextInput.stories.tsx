@@ -164,13 +164,12 @@ export const ReactHookForm: Story = {
     });
     return (
       <Flex asChild gap="200" direction="column" alignItems="start">
-        <form onSubmit={handleSubmit(data => console.log(data))} noValidate>
+        <form onSubmit={handleSubmit(() => {})} noValidate>
           <Controller
             name="firstName"
             control={control}
             rules={{ required: 'This is required' }}
             render={({ field, fieldState }) => {
-              console.log({ field });
               return (
                 <div>
                   <TextInput
