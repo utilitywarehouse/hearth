@@ -222,9 +222,9 @@ const styles = StyleSheet.create(theme => ({
   withIconContainer: {
     alignItems: 'center',
     flexDirection: 'row',
-    paddingVertical: theme.components.list.item.functional.padding,
-    paddingHorizontal: theme.components.list.item.functional.padding,
-    gap: theme.components.list.item.gap,
+    paddingVertical: theme.components.cardAction.content.paddingVertical,
+    paddingHorizontal: theme.components.cardAction.content.paddingHorizontal,
+    gap: theme.components.cardAction.content.gap,
     flex: 1,
     variants: {
       hasIconContainer: {
