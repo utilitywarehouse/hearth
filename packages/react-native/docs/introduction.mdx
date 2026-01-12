@@ -212,6 +212,16 @@ StyleSheet.configure({
   breakpoints,
 });
 
+// For some reason react-native-reanimated's default mock doesn't mock useReducedMotion, so we need to override it here
+// as we use that method in our components.
+jest.mock('react-native-reanimated', () => {
+  return {
+    ...jest.requireActual('react-native-reanimated/mock'),
+    useReducedMotion: () => {}, // Add this line
+  };
+});
+require('react-native-reanimated').setUpTests();
+
 // rest of your setup...
 ```
 
