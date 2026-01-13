@@ -31,8 +31,11 @@ export const InlineLink = (props: InlineLinkProps) => {
       ) : (
         <a>
           {children}
-          {inlineLinkProps.target === '_blank' && !hideOpenIcon ? (
-            <OpenSmallIcon aria-hidden="true" />
+          {inlineLinkProps.target === '_blank' ? (
+            <>
+              <span data-visually-hidden>(opens in new tab)</span>
+              {hideOpenIcon ? null : <OpenSmallIcon />}
+            </>
           ) : null}
         </a>
       )}
