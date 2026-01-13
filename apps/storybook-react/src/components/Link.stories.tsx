@@ -113,6 +113,7 @@ export const Gallery: Story = {
       AsButton,
       Inverted,
       LengthyContent,
+      OpenInNewTab,
     };
     return <StoryGallery meta={meta} stories={stories} />;
   },
