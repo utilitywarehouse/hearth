@@ -21,6 +21,10 @@ const meta: Meta<typeof InlineLink> = {
     target: { control: { type: 'text' } },
     hideOpenIcon: { control: { type: 'boolean' } },
   },
+  args: {
+    children: 'InlineLink',
+    href: '#',
+  },
 };
 
 export default meta;
@@ -30,10 +34,6 @@ const sizes = ['sm', 'md', 'lg'] as const;
 const weights = ['regular', 'semibold', 'bold'] as const;
 
 export const Playground: Story = {
-  args: {
-    children: 'InlineLink',
-    href: '#',
-  },
   render: args => (
     <Flex
       direction="column"

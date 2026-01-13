@@ -29,8 +29,11 @@ export const Link = (props: LinkProps) => {
       ) : (
         <a>
           {children}
-          {linkProps.target === '_blank' && !hideOpenIcon ? (
-            <OpenSmallIcon aria-hidden="true" />
+          {linkProps.target === '_blank' ? (
+            <>
+              <span data-visually-hidden>(opens in new tab)</span>
+              {hideOpenIcon ? null : <OpenSmallIcon />}
+            </>
           ) : null}
         </a>
       )}
