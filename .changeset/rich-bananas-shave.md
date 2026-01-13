@@ -10,6 +10,9 @@ open in new tabs. An open icon will now be displayed next to the link text when
 
 You can override this behaviour by setting the `hideOpenIcon` prop to true.
 
+Additionally, "opens in new tab" will be read out by screen readers. This will
+happen even when `hideOpenIcon` is set to true.
+
 **Components affected**:
 
 - `InlineLink`
