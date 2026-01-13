@@ -11,10 +11,10 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 - [Playground](#playground)
 - [Alternatives](#alternatives)
 - [Semantic HTML](#semantic-html)
-- [Guidelines](#guidelines)
+- [Open in new tab](#open-in-new-tab)
 - [Icons](#icons)
 - [Inverted colours](#inverted-colours)
-- [Usage with Next.js](#usage-with-nextjs)
+- [Usage with Next.js](#usage-with-next.js)
 - [API](#api)
 
 ## Playground
@@ -50,11 +50,17 @@ Read more about this idea in the [Radix UI composition docs](https://www.radix-u
 
 <Canvas of={Stories.AsButton} />
 
-## Guidelines
+## Open in new tab
 
-Avoid using `target=_blank`: [When to use target="\_blank"](https://css-tricks.com/use-target_blank/).
+Avoid using `target=_blank` ([When to use target="\_blank"](https://css-tricks.com/use-target_blank/)).
 
-If you do use it, be aware that [browsers now implicitly set rel=noopener for any target=\_blank link](https://mathiasbynens.github.io/rel-noopener/).
+If you do use it, be aware that [browsers now implicitly set rel=noopener for any "target=\_blank" link](https://mathiasbynens.github.io/rel-noopener/).
+
+An icon will also be added to indicate that the link opens in a new tab or
+window, improving accessibility. You can override this behaviour by setting the
+`hideOpenIcon` prop.
+
+<Canvas of={Stories.OpenInNewTab} />
 
 ## Icons
 

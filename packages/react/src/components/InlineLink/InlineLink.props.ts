@@ -18,4 +18,6 @@ export interface InlineLinkProps
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    */
   asChild?: boolean;
+  /** Hides the "open in new tab" icon when `target="_blank"` is set. */
+  hideOpenIcon?: boolean;
 }

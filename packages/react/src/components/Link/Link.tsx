@@ -7,12 +7,13 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
+import { OpenSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const COMPONENT_NAME = 'Link';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const Link = (props: LinkProps) => {
-  const { className, asChild, inverted, children, ...linkProps } = extractProps(
+  const { className, asChild, inverted, children, hideOpenIcon, ...linkProps } = extractProps(
     props,
     marginPropDefs,
     textTransformPropDefs
@@ -23,7 +24,16 @@ export const Link = (props: LinkProps) => {
       data-inverted={inverted ? '' : undefined}
       {...linkProps}
     >
-      {asChild ? children : <a>{children}</a>}
+      {asChild ? (
+        children
+      ) : (
+        <a>
+          {children}
+          {linkProps.target === '_blank' && !hideOpenIcon ? (
+            <OpenSmallIcon aria-hidden="true" />
+          ) : null}
+        </a>
+      )}
     </Slot.Root>
   );
 };
