@@ -5,6 +5,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { Slot } from 'radix-ui';
+import { OpenSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 const COMPONENT_NAME = 'InlineLink';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -15,6 +16,7 @@ export const InlineLink = (props: InlineLinkProps) => {
     color = 'default',
     children,
     asChild,
+    hideOpenIcon,
     ...inlineLinkProps
   } = extractProps(props, marginPropDefs, textTransformPropDefs);
   return (
@@ -24,7 +26,16 @@ export const InlineLink = (props: InlineLinkProps) => {
       data-inherit-color={color === 'inherit' ? '' : undefined}
       {...inlineLinkProps}
     >
-      {asChild ? children : <a>{children}</a>}
+      {asChild ? (
+        children
+      ) : (
+        <a>
+          {children}
+          {inlineLinkProps.target === '_blank' && !hideOpenIcon ? (
+            <OpenSmallIcon aria-hidden="true" />
+          ) : null}
+        </a>
+      )}
     </Slot.Root>
   );
 };

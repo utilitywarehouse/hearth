@@ -10,6 +10,14 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
   figmaLink="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components-%26-Tokens?node-id=1-154&m=dev"
 />
 
+- [Playground](#playground)
+- [Alternatives](#alternatives)
+- [Semantic HTML](#semantic-html)
+- [Colour](#colour)
+- [Open in new tab](#open-in-new-tab)
+- [Usage with Next.js](#usage-with-next.js)
+- [API](#api)
+
 ## Playground
 
 <Canvas of={Stories.Playground} sourceState="shown" />
@@ -33,11 +41,17 @@ match the parent text colour.
 
 <Canvas of={Stories.Color} />
 
-## Guidelines
+## Open in new tab
 
-Avoid using `target=_blank`: [When to use target="\_blank"](https://css-tricks.com/use-target_blank/).
+Avoid using `target=_blank` ([When to use target="\_blank"](https://css-tricks.com/use-target_blank/)).
 
-If you do use it, be aware that [browsers now implicitly set rel=noopener for any target=\_blank link](https://mathiasbynens.github.io/rel-noopener/).
+If you do use it, be aware that [browsers now implicitly set rel=noopener for any "target=\_blank" link](https://mathiasbynens.github.io/rel-noopener/).
+
+An icon will also be added to indicate that the link opens in a new tab or
+window, improving accessibility. You can override this behaviour by setting the
+`hideOpenIcon` prop.
+
+<Canvas of={Stories.OpenInNewTab} />
 
 ## Usage with Next.js
 

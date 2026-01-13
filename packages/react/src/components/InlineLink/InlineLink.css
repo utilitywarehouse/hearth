@@ -53,4 +53,11 @@
       outline: 2px solid var(--h-focus-inverted);
     }
   }
+
+  &:has(svg) {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: var(--h-link-gap);
+  }
 }

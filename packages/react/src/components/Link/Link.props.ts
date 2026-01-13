@@ -11,4 +11,6 @@ export interface LinkProps
   asChild?: boolean;
   /** Inverts the component colours, for use on darker surface colours. */
   inverted?: boolean;
+  /** Hides the "open in new tab" icon when `target="_blank"` is set. */
+  hideOpenIcon?: boolean;
 }

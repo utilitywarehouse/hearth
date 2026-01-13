@@ -18,6 +18,8 @@ const meta: Meta<typeof InlineLink> = {
     children: { control: { type: 'text' } },
     href: { control: { type: 'text' } },
     color: { control: { type: 'radio' }, options: ['default', 'inverted', 'inherit'] },
+    target: { control: { type: 'text' } },
+    hideOpenIcon: { control: { type: 'boolean' } },
   },
 };
 
@@ -28,6 +30,10 @@ const sizes = ['sm', 'md', 'lg'] as const;
 const weights = ['regular', 'semibold', 'bold'] as const;
 
 export const Playground: Story = {
+  args: {
+    children: 'InlineLink',
+    href: '#',
+  },
   render: args => (
     <Flex
       direction="column"
@@ -50,10 +56,20 @@ export const Playground: Story = {
       </BodyText>
     </Flex>
   ),
+};
+
+export const OpenInNewTab: Story = {
   args: {
-    children: 'InlineLink',
-    href: '#',
+    target: '_blank',
   },
+  render: args => (
+    <Flex gap="600">
+      <InlineLink {...args}>Visit help pages</InlineLink>
+      <InlineLink {...args} hideOpenIcon>
+        Go to help
+      </InlineLink>
+    </Flex>
+  ),
 };
 
 export const KitchenSink: Story = {
@@ -148,6 +164,7 @@ export const Gallery: Story = {
       KitchenSink,
       LengthyContent,
       Color,
+      OpenInNewTab,
     };
     return <StoryGallery meta={meta} stories={stories} />;
   },
