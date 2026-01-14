@@ -52,7 +52,7 @@ const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
     gap: theme.components.formField.helper.gap,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     variants: {
       disabled: {
         true: {

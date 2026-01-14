@@ -86,7 +86,14 @@ const styles = StyleSheet.create(theme => ({
     color: theme.color.text.secondary,
   },
   descriptionWrapper: {
-    flex: 1,
+    variants: {
+      direction: {
+        row: {
+          flex: 1,
+        },
+        column: {},
+      },
+    },
   },
 }));
 
