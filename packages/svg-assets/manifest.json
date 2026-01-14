@@ -145,14 +145,6 @@
       "path": "spot-tick-dark.svg"
     },
     {
-      "name": "SpotSecurityLight",
-      "path": "spot-security-light.svg"
-    },
-    {
-      "name": "SpotSecurityDark",
-      "path": "spot-security-dark.svg"
-    },
-    {
       "name": "SpotNoBroadbandLight",
       "path": "spot-no-broadband-light.svg"
     },
@@ -215,14 +207,6 @@
     {
       "name": "SpotSwitchDark",
       "path": "spot-switch-dark.svg"
-    },
-    {
-      "name": "SpotSavingsLight",
-      "path": "spot-savings-light.svg"
-    },
-    {
-      "name": "SpotSavingsDark",
-      "path": "spot-savings-dark.svg"
     },
     {
       "name": "SpotNewLookLight",

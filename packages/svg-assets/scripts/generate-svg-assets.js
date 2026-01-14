@@ -208,10 +208,15 @@ async function downloadSvgsToFs(urls, assets) {
 
 /** Generates a manifest.json file for use by storybook to generate docs. */
 async function generateManifest(assets) {
-  const svgAssets = Object.values(assets).reduce((manifest, asset) => {
+  // use a map to avoid duplicates
+  const manifestMap = Object.values(assets).reduce((map, asset) => {
     const { svgName, jsxName } = asset;
-    return [...manifest, { name: jsxName, path: `${svgName}.svg` }];
-  }, []);
+    map.set(jsxName, { name: jsxName, path: `${svgName}.svg` });
+    return map;
+  }, new Map());
+
+  const svgAssets = Array.from(manifestMap.values());
+
   await fs.outputFile(
     path.resolve(__dirname, '../manifest.json'),
     JSON.stringify({ svgAssets }, null, 2),
