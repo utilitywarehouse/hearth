@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { HelperText } from '../HelperText/HelperText';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { CardActionContentProps } from './CardActionContent.props';

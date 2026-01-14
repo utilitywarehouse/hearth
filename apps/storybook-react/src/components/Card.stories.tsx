@@ -20,6 +20,8 @@ import {
   CardBannerImage,
   UnstyledIconButton,
   IconContainer,
+  Container,
+  Grid,
 } from '@utilitywarehouse/hearth-react';
 import piggies from '../assets/piggies.png';
 import SpotSmartMeter from '@utilitywarehouse/hearth-svg-assets/lib/spot-smart-meter-light.svg';
@@ -37,6 +39,8 @@ import {
   HomeInsuranceMediumIcon,
   OpenSmallIcon,
   TickCircleSmallIcon,
+  MobileMediumIcon,
+  CashbackCardMediumIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { Placeholder } from '../storybook-components/Placeholder';
 import { StoryGallery } from '../storybook-components/StoryGallery';
@@ -698,6 +702,75 @@ export const WithCardActions: Story = {
         </CardActions>
       </Card>
     </Flex>
+  ),
+};
+
+export const StaticCardActionPattern: Story = {
+  render: () => (
+    <Container>
+      <Grid columns={{ mobile: '1', tablet: '2' }} gap="300">
+        <Card paddingNone shadowColor="energy">
+          <Flex spacing="lg">
+            <IconContainer colorScheme="energy" fill="height" borderRadius="none">
+              <ElectricityMediumIcon />
+            </IconContainer>
+            <Flex direction="column" spacing="sm" padding="200" paddingLeft="0">
+              <Heading size="md" as="h3">
+                Energy
+              </Heading>
+              <Link href="#">
+                View energy info
+                <ChevronRightSmallIcon />
+              </Link>
+            </Flex>
+          </Flex>
+        </Card>
+        <Card paddingNone shadowColor="mobile">
+          <Flex spacing="lg">
+            <IconContainer colorScheme="mobile" fill="height" borderRadius="none">
+              <MobileMediumIcon />
+            </IconContainer>
+            <Flex direction="column" spacing="sm" padding="200" paddingLeft="0">
+              <Heading size="md" as="h3">
+                Mobile
+              </Heading>
+              <Link href="#">
+                View mobile plan
+                <ChevronRightSmallIcon />
+              </Link>
+            </Flex>
+          </Flex>
+        </Card>
+        <Card paddingNone shadowColor="cashback" gridColumnSpan={{ mobile: '1', tablet: '2' }}>
+          <Flex spacing="lg" width="100%">
+            <IconContainer colorScheme="cashback" fill="height" borderRadius="none">
+              <CashbackCardMediumIcon />
+            </IconContainer>
+            <Flex
+              direction={{ mobile: 'column', tablet: 'row' }}
+              spacing="sm"
+              padding="200"
+              paddingLeft="0"
+              width="100%"
+            >
+              <Flex direction="column" flex="1">
+                <Heading size="md" as="h3">
+                  Cashback
+                </Heading>
+                <Flex alignItems="baseline" spacing="xs">
+                  <DetailText size="2xl">+£100.00</DetailText>
+                  <BodyText size="sm">this month</BodyText>
+                </Flex>
+              </Flex>
+              <Link href="#">
+                Track cashback earnings
+                <ChevronRightSmallIcon />
+              </Link>
+            </Flex>
+          </Flex>
+        </Card>
+      </Grid>
+    </Container>
   ),
 };
 
