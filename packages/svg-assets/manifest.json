@@ -137,6 +137,126 @@
       "path": "spot-ev-dark.svg"
     },
     {
+      "name": "SpotTickLight",
+      "path": "spot-tick-light.svg"
+    },
+    {
+      "name": "SpotTickDark",
+      "path": "spot-tick-dark.svg"
+    },
+    {
+      "name": "SpotSecurityLight",
+      "path": "spot-security-light.svg"
+    },
+    {
+      "name": "SpotSecurityDark",
+      "path": "spot-security-dark.svg"
+    },
+    {
+      "name": "SpotNoBroadbandLight",
+      "path": "spot-no-broadband-light.svg"
+    },
+    {
+      "name": "SpotNoBroadbandDark",
+      "path": "spot-no-broadband-dark.svg"
+    },
+    {
+      "name": "SpotHeartLight",
+      "path": "spot-heart-light.svg"
+    },
+    {
+      "name": "SpotHeartDark",
+      "path": "spot-heart-dark.svg"
+    },
+    {
+      "name": "SpotEmptyLight",
+      "path": "spot-empty-light.svg"
+    },
+    {
+      "name": "SpotEmptyDark",
+      "path": "spot-empty-dark.svg"
+    },
+    {
+      "name": "SpotConfettiLight",
+      "path": "spot-confetti-light.svg"
+    },
+    {
+      "name": "SpotConfettiDark",
+      "path": "spot-confetti-dark.svg"
+    },
+    {
+      "name": "SpotBundleCompleteLight",
+      "path": "spot-bundle-complete-light.svg"
+    },
+    {
+      "name": "SpotBundleCompleteDark",
+      "path": "spot-bundle-complete-dark.svg"
+    },
+    {
+      "name": "SpotBundleIncompleteLight",
+      "path": "spot-bundle-incomplete-light.svg"
+    },
+    {
+      "name": "SpotBundleIncompleteDark",
+      "path": "spot-bundle-incomplete-dark.svg"
+    },
+    {
+      "name": "SpotBoilerLight",
+      "path": "spot-boiler-light.svg"
+    },
+    {
+      "name": "SpotBoilerDark",
+      "path": "spot-boiler-dark.svg"
+    },
+    {
+      "name": "SpotSwitchLight",
+      "path": "spot-switch-light.svg"
+    },
+    {
+      "name": "SpotSwitchDark",
+      "path": "spot-switch-dark.svg"
+    },
+    {
+      "name": "SpotSavingsLight",
+      "path": "spot-savings-light.svg"
+    },
+    {
+      "name": "SpotSavingsDark",
+      "path": "spot-savings-dark.svg"
+    },
+    {
+      "name": "SpotNewLookLight",
+      "path": "spot-new-look-light.svg"
+    },
+    {
+      "name": "SpotNewLookDark",
+      "path": "spot-new-look-dark.svg"
+    },
+    {
+      "name": "SpotUnavailableLight",
+      "path": "spot-unavailable-light.svg"
+    },
+    {
+      "name": "SpotUnavailableDark",
+      "path": "spot-unavailable-dark.svg"
+    },
+    {
+      "name": "SpotDarkModeLight",
+      "path": "spot-dark-mode-light.svg"
+    },
+    {
+      "name": "SpotDarkModeDark",
+      "path": "spot-dark-mode-dark.svg"
+    },
+    {
+      "name": "SpotBroadbandLight",
+      "path": "spot-broadband-light.svg"
+    },
+    {
+      "name": "SpotBroadbandDark",
+      "path": "spot-broadband-dark.svg"
+    },
+    {
       "name": "SceneEnergyLight",
       "path": "scene-energy-light.svg"
     },
