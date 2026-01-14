@@ -136,6 +136,126 @@
     "name": "SpotEvDark"
   },
   {
+    "id": "2211:5642",
+    "name": "SpotTickLight"
+  },
+  {
+    "id": "2219:15492",
+    "name": "SpotTickDark"
+  },
+  {
+    "id": "2211:5691",
+    "name": "SpotSecurityCodeLight"
+  },
+  {
+    "id": "2211:5693",
+    "name": "SpotSecurityCodeDark"
+  },
+  {
+    "id": "2212:5730",
+    "name": "SpotNoBroadbandLight"
+  },
+  {
+    "id": "2212:5732",
+    "name": "SpotNoBroadbandDark"
+  },
+  {
+    "id": "2212:5754",
+    "name": "SpotHeartLight"
+  },
+  {
+    "id": "2212:5756",
+    "name": "SpotHeartDark"
+  },
+  {
+    "id": "2212:5784",
+    "name": "SpotEmptyLight"
+  },
+  {
+    "id": "2212:5786",
+    "name": "SpotEmptyDark"
+  },
+  {
+    "id": "2212:5825",
+    "name": "SpotConfettiLight"
+  },
+  {
+    "id": "2212:5827",
+    "name": "SpotConfettiDark"
+  },
+  {
+    "id": "2212:5891",
+    "name": "SpotBundleCompleteLight"
+  },
+  {
+    "id": "2212:5893",
+    "name": "SpotBundleCompleteDark"
+  },
+  {
+    "id": "2212:5919",
+    "name": "SpotBundleIncompleteLight"
+  },
+  {
+    "id": "2212:5921",
+    "name": "SpotBundleIncompleteDark"
+  },
+  {
+    "id": "2212:5961",
+    "name": "SpotBoilerLight"
+  },
+  {
+    "id": "2212:5963",
+    "name": "SpotBoilerDark"
+  },
+  {
+    "id": "2212:5984",
+    "name": "SpotSwitchLight"
+  },
+  {
+    "id": "2212:5986",
+    "name": "SpotSwitchDark"
+  },
+  {
+    "id": "2212:6004",
+    "name": "SpotSavingsLight"
+  },
+  {
+    "id": "2212:6006",
+    "name": "SpotSavingsDark"
+  },
+  {
+    "id": "2212:6325",
+    "name": "SpotNewLookLight"
+  },
+  {
+    "id": "2212:6327",
+    "name": "SpotNewLookDark"
+  },
+  {
+    "id": "2212:6351",
+    "name": "SpotUnavailableLight"
+  },
+  {
+    "id": "2212:6353",
+    "name": "SpotUnavailableDark"
+  },
+  {
+    "id": "2212:6374",
+    "name": "SpotDarkModeLight"
+  },
+  {
+    "id": "2212:6376",
+    "name": "SpotDarkModeDark"
+  },
+  {
+    "id": "2212:6406",
+    "name": "SpotBroadbandLight"
+  },
+  {
+    "id": "2212:6408",
+    "name": "SpotBroadbandDark"
+  },
+  {
     "id": "2125:10125",
     "name": "SceneEnergyLight"
   },
