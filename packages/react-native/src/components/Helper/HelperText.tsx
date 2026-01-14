@@ -23,6 +23,7 @@ HelperText.displayName = 'HelperText';
 const styles = StyleSheet.create(theme => ({
   text: {
     color: theme.color.text.secondary,
+    flexShrink: 1,
     variants: {
       validationStatus: {
         valid: {
