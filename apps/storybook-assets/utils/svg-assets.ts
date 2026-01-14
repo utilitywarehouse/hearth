@@ -34,6 +34,32 @@ import SpotRecognitionLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-r
 import SpotRecognitionDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-recognition-dark.svg'
 import SpotEvLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-ev-light.svg'
 import SpotEvDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-ev-dark.svg'
+import SpotTickLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-tick-light.svg'
+import SpotTickDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-tick-dark.svg'
+import SpotNoBroadbandLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-no-broadband-light.svg'
+import SpotNoBroadbandDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-no-broadband-dark.svg'
+import SpotHeartLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-heart-light.svg'
+import SpotHeartDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-heart-dark.svg'
+import SpotEmptyLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-empty-light.svg'
+import SpotEmptyDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-empty-dark.svg'
+import SpotConfettiLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-confetti-light.svg'
+import SpotConfettiDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-confetti-dark.svg'
+import SpotBundleCompleteLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-bundle-complete-light.svg'
+import SpotBundleCompleteDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-bundle-complete-dark.svg'
+import SpotBundleIncompleteLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-bundle-incomplete-light.svg'
+import SpotBundleIncompleteDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-bundle-incomplete-dark.svg'
+import SpotBoilerLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-boiler-light.svg'
+import SpotBoilerDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-boiler-dark.svg'
+import SpotSwitchLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-switch-light.svg'
+import SpotSwitchDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-switch-dark.svg'
+import SpotNewLookLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-new-look-light.svg'
+import SpotNewLookDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-new-look-dark.svg'
+import SpotUnavailableLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-unavailable-light.svg'
+import SpotUnavailableDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-unavailable-dark.svg'
+import SpotDarkModeLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-dark-mode-light.svg'
+import SpotDarkModeDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-dark-mode-dark.svg'
+import SpotBroadbandLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-broadband-light.svg'
+import SpotBroadbandDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-broadband-dark.svg'
 import SceneEnergyLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-energy-light.svg'
 import SceneEnergyDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-energy-dark.svg'
 import SceneMobileLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-mobile-light.svg'
@@ -92,6 +118,32 @@ export const svgAssets = [
   { name: 'SpotRecognitionDark', src: SpotRecognitionDark, path: 'spot-recognition-dark.svg' },
   { name: 'SpotEvLight', src: SpotEvLight, path: 'spot-ev-light.svg' },
   { name: 'SpotEvDark', src: SpotEvDark, path: 'spot-ev-dark.svg' },
+  { name: 'SpotTickLight', src: SpotTickLight, path: 'spot-tick-light.svg' },
+  { name: 'SpotTickDark', src: SpotTickDark, path: 'spot-tick-dark.svg' },
+  { name: 'SpotNoBroadbandLight', src: SpotNoBroadbandLight, path: 'spot-no-broadband-light.svg' },
+  { name: 'SpotNoBroadbandDark', src: SpotNoBroadbandDark, path: 'spot-no-broadband-dark.svg' },
+  { name: 'SpotHeartLight', src: SpotHeartLight, path: 'spot-heart-light.svg' },
+  { name: 'SpotHeartDark', src: SpotHeartDark, path: 'spot-heart-dark.svg' },
+  { name: 'SpotEmptyLight', src: SpotEmptyLight, path: 'spot-empty-light.svg' },
+  { name: 'SpotEmptyDark', src: SpotEmptyDark, path: 'spot-empty-dark.svg' },
+  { name: 'SpotConfettiLight', src: SpotConfettiLight, path: 'spot-confetti-light.svg' },
+  { name: 'SpotConfettiDark', src: SpotConfettiDark, path: 'spot-confetti-dark.svg' },
+  { name: 'SpotBundleCompleteLight', src: SpotBundleCompleteLight, path: 'spot-bundle-complete-light.svg' },
+  { name: 'SpotBundleCompleteDark', src: SpotBundleCompleteDark, path: 'spot-bundle-complete-dark.svg' },
+  { name: 'SpotBundleIncompleteLight', src: SpotBundleIncompleteLight, path: 'spot-bundle-incomplete-light.svg' },
+  { name: 'SpotBundleIncompleteDark', src: SpotBundleIncompleteDark, path: 'spot-bundle-incomplete-dark.svg' },
+  { name: 'SpotBoilerLight', src: SpotBoilerLight, path: 'spot-boiler-light.svg' },
+  { name: 'SpotBoilerDark', src: SpotBoilerDark, path: 'spot-boiler-dark.svg' },
+  { name: 'SpotSwitchLight', src: SpotSwitchLight, path: 'spot-switch-light.svg' },
+  { name: 'SpotSwitchDark', src: SpotSwitchDark, path: 'spot-switch-dark.svg' },
+  { name: 'SpotNewLookLight', src: SpotNewLookLight, path: 'spot-new-look-light.svg' },
+  { name: 'SpotNewLookDark', src: SpotNewLookDark, path: 'spot-new-look-dark.svg' },
+  { name: 'SpotUnavailableLight', src: SpotUnavailableLight, path: 'spot-unavailable-light.svg' },
+  { name: 'SpotUnavailableDark', src: SpotUnavailableDark, path: 'spot-unavailable-dark.svg' },
+  { name: 'SpotDarkModeLight', src: SpotDarkModeLight, path: 'spot-dark-mode-light.svg' },
+  { name: 'SpotDarkModeDark', src: SpotDarkModeDark, path: 'spot-dark-mode-dark.svg' },
+  { name: 'SpotBroadbandLight', src: SpotBroadbandLight, path: 'spot-broadband-light.svg' },
+  { name: 'SpotBroadbandDark', src: SpotBroadbandDark, path: 'spot-broadband-dark.svg' },
   { name: 'SceneEnergyLight', src: SceneEnergyLight, path: 'scene-energy-light.svg' },
   { name: 'SceneEnergyDark', src: SceneEnergyDark, path: 'scene-energy-dark.svg' },
   { name: 'SceneMobileLight', src: SceneMobileLight, path: 'scene-mobile-light.svg' },
