@@ -96,6 +96,19 @@ export const Playground: Story = {
   render: args => <Box {...args} />,
 };
 
+export const BorderColorVarProps: Story = {
+  args: {
+    paddingY: '200',
+    borderWidth: '1',
+    borderColor: 'var(--h-color-purple-800)',
+    borderTopColor: 'var(--h-color-purple-800)',
+    borderRightColor: 'var(--h-color-purple-800)',
+    borderBottomColor: 'var(--h-color-purple-800)',
+    borderLeftColor: 'var(--h-color-purple-800)',
+  },
+  render: args => <Box {...args} />,
+};
+
 export const ResponsiveProps: Story = {
   args: {
     asChild: true,
