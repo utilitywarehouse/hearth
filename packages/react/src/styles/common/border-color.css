@@ -1,3 +1,29 @@
+/* stylelint-disable csstools/value-no-unknown-custom-properties */
+.h-border {
+  border-style: solid;
+  border-color: var(--h-border);
+}
+
+.h-border-t {
+  border-top-style: solid;
+  border-top-color: var(--h-border-t);
+}
+
+.h-border-r {
+  border-right-style: solid;
+  border-right-color: var(--h-border-r);
+}
+
+.h-border-b {
+  border-bottom-style: solid;
+  border-bottom-color: var(--h-border-b);
+}
+
+.h-border-l {
+  border-left-style: solid;
+  border-left-color: var(--h-border-l);
+}
+
 .h-border-strong {
   border-style: solid;
   border-color: var(--h-border-strong);
