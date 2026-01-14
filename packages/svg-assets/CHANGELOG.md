@@ -1,5 +1,44 @@
 # @utilitywarehouse/hearth-svg-assets
 
+## 0.3.0
+
+### Minor Changes
+
+- [#760](https://github.com/utilitywarehouse/hearth/pull/760) [`a9a5144`](https://github.com/utilitywarehouse/hearth/commit/a9a51447733e9126e0880cc5374491b3049f8faa) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ASSETS
+
+  - SpotTickLight
+  - SpotTickDark
+  - SpotSecurityCodeLight
+  - SpotSecurityCodeDark
+  - SpotNoBroadbandLight
+  - SpotNoBroadbandDark
+  - SpotHeartLight
+  - SpotHeartDark
+  - SpotEmptyLight
+  - SpotEmptyDark
+  - SpotConfettiLight
+  - SpotConfettiDark
+  - SpotBundleCompleteLight
+  - SpotBundleCompleteDark
+  - SpotBundleIncompleteLight
+  - SpotBundleIncompleteDark
+  - SpotBoilerLight
+  - SpotBoilerDark
+  - SpotSwitchLight
+  - SpotSwitchDark
+  - SpotNewLookLight
+  - SpotNewLookDark
+  - SpotUnavailableLight
+  - SpotUnavailableDark
+  - SpotDarkModeLight
+  - SpotDarkModeDark
+  - SpotBroadbandLight
+  - SpotBroadbandDark
+
+  ## REMOVED ASSETS
+
+  No removed assets.
+
 ## 0.2.0
 
 ### Minor Changes
