@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { HeartMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { useState } from 'react';
 import { PillGroup } from '.';
-import { Pill } from './Pill';
 import { VariantTitle } from '../../../docs/components';
 import { BodyText } from '../BodyText';
 import { Flex } from '../Flex';
-import { Heading } from '../Heading';
+import { Pill } from './Pill';
 
 const meta = {
   title: 'Stories / PillGroup',
@@ -104,7 +103,7 @@ export const WrapBehavior: Story = {
     return (
       <Flex space="xl" direction="column" align="center">
         <VariantTitle title="Wrap: False">
-          <PillGroup wrap={false} value={value1} onChange={v => setValue1(v as string)}>
+          <PillGroup wrap={false} value={value1} onChange={setValue1}>
             <Pill value="1" label="New" />
             <Pill value="2" label="Some label" />
             <Pill value="3" label="Short" />
@@ -113,7 +112,7 @@ export const WrapBehavior: Story = {
           </PillGroup>
         </VariantTitle>
         <VariantTitle title="Wrap: True">
-          <PillGroup wrap={true} value={value2} onChange={v => setValue2(v as string)}>
+          <PillGroup wrap={true} value={value2} onChange={setValue2}>
             <Pill value="6" label="New" />
             <Pill value="7" label="Some label" />
             <Pill value="8" label="Short" />
@@ -141,7 +140,7 @@ export const Multiple: Story = {
 
     return (
       <Flex space="lg" direction="column" align="center" style={{ maxWidth: 400 }}>
-        <PillGroup wrap={true} multiple value={selectedCategories} onChange={v => setSelectedCategories(v as string[])}>
+        <PillGroup wrap={true} multiple value={selectedCategories} onChange={setSelectedCategories}>
           <Pill value="unread" label="Unread" />
           <Pill value="new" label="New" icon={HeartMediumIcon} />
           <Pill value="favourites" label="My favourites" icon={HeartMediumIcon} />

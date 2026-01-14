@@ -48,6 +48,7 @@ const Input = forwardRef<TextInput, InputProps>(
       clearable = false,
       required,
       inBottomSheet = false,
+      style,
       ...props
     },
     ref
@@ -96,6 +97,7 @@ const Input = forwardRef<TextInput, InputProps>(
         isFocused={focused}
         type={type as undefined}
         isRequired={isRequired}
+        style={style}
       >
         {children ? (
           <>{children}</>

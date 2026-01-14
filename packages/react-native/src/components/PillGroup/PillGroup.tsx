@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { ScrollView } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Box } from '../Box';
@@ -24,9 +24,9 @@ export const PillGroup = ({
           const newValue = normalizedValue.includes(pillValue)
             ? normalizedValue.filter(v => v !== pillValue)
             : [...normalizedValue, pillValue];
-          onChange?.(newValue);
+          (onChange as (value: string[]) => void)?.(newValue);
         } else {
-          onChange?.(pillValue);
+          (onChange as (value: string) => void)?.(pillValue);
         }
       },
     }),
