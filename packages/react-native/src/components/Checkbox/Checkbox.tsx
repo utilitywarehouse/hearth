@@ -42,6 +42,7 @@ const Checkbox = ({
   showValidationIcon,
   type = 'default',
   image,
+  value,
   ...props
 }: CheckboxProps) => {
   const { validationStatus: fieldValidationStatus } = useFormFieldContext();
@@ -80,8 +81,12 @@ const Checkbox = ({
     </>
   );
   return (
-    // @ts-expect-error - type
-    <CheckboxComponent {...props} isDisabled={disabled} isChecked={checked}>
+    <CheckboxComponent
+      {...props}
+      value={(value ?? '').toString()}
+      isDisabled={disabled}
+      isChecked={checked}
+    >
       {checkboxType === 'tile' ? (
         <CheckboxTileRoot>{checkboxChildren}</CheckboxTileRoot>
       ) : (
