@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.14.1
+
+### Patch Changes
+
+- [#749](https://github.com/utilitywarehouse/hearth/pull/749) [`ded4b2e`](https://github.com/utilitywarehouse/hearth/commit/ded4b2e3dcad9c1cc4860a13120e44a43e5f0dde) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `CardAction` padding
+
 ## 0.14.0
 
 ### Minor Changes

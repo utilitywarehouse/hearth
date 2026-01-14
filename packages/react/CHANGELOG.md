@@ -1,5 +1,49 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.0
+
+### Minor Changes
+
+- [#753](https://github.com/utilitywarehouse/hearth/pull/753) [`a68da7e`](https://github.com/utilitywarehouse/hearth/commit/a68da7ee1eb87270336ee0a2269f082c994926da) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Display an open icon when links are set to open in a new tab.
+
+  This change enhances user experience by providing a visual cue for links that
+  open in new tabs. An open icon will now be displayed next to the link text when
+  `target` is set to `_blank`.
+
+  You can override this behaviour by setting the `hideOpenIcon` prop to true.
+
+  Additionally, "opens in new tab" will be read out by screen readers. This will
+  happen even when `hideOpenIcon` is set to true.
+
+  **Components affected**:
+
+  - `InlineLink`
+  - `Link`
+
+  **Developer changes**:
+
+  If you already have links that open in new tabs, you don't need to make any
+  changes. However, if you want to hide the open icon for specific links, you can
+  do so by adding the `hideOpenIcon` prop:
+
+  ```tsx
+  <Link href="/faqs" target="_blank" hideOpenIcon>
+    Visit FAQs
+  </Link>
+  ```
+
+  ```tsx
+  <InlineLink href="/faqs" target="_blank" hideOpenIcon>
+    Visit FAQs
+  </InlineLink>
+  ```
+
+  Remember, use `target="_blank"` sparingly! ([When to use target="\_blank"](https://css-tricks.com/use-target_blank/)).
+
+### Patch Changes
+
+- [#759](https://github.com/utilitywarehouse/hearth/pull/759) [`cdc8063`](https://github.com/utilitywarehouse/hearth/commit/cdc806343e3cdd4002668f5044f804083cb01d38) Thanks [@robphoenix](https://github.com/robphoenix)! - 🪲 [BUGFIX]: Add missing border color CSS classes
+
 ## 0.23.4
 
 ### Patch Changes
