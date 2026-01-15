@@ -293,7 +293,7 @@ const Modal = ({
       onChange={handleChange}
     >
       {loading ? <View style={styles.loadingTop} /> : null}
-      <BottomSheetScrollView contentContainerStyle={styles.container} ref={scrollViewRef}>
+      <BottomSheetScrollView contentContainerStyle={styles.scrollView} ref={scrollViewRef}>
         {content}
       </BottomSheetScrollView>
     </BottomSheetModal>
@@ -313,23 +313,28 @@ const styles = StyleSheet.create((theme, rt) => ({
           paddingTop: 0,
         },
       },
+    },
+  },
+  scrollView: {
+    flex: 1,
+    variants: {
       bothButtons: {
         true: {
-          paddingBottom: Platform.OS === 'android' ? 100 : 94,
+          paddingBottom: 166 + rt.insets.bottom - theme.components.modal.padding,
         },
         false: {
-          paddingBottom: Platform.OS === 'android' ? 70 : 64,
+          paddingBottom: 102 + rt.insets.bottom - theme.components.modal.padding,
         },
       },
       noButtons: {
         true: {
-          paddingBottom: rt.insets.bottom,
+          paddingBottom: rt.insets.bottom + theme.components.modal.padding,
         },
       },
       stickyFooter: {
         true: {},
         false: {
-          paddingBottom: rt.insets.bottom,
+          paddingBottom: rt.insets.bottom + theme.components.modal.padding,
         },
       },
     },
