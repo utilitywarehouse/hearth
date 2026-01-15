@@ -705,7 +705,7 @@ export const WithCardActions: Story = {
   ),
 };
 
-export const StaticCardActionPattern: Story = {
+export const InteractiveServiceCards: Story = {
   render: () => (
     <Container>
       <Grid columns={{ mobile: '1', tablet: '2' }} gap="300">
@@ -718,10 +718,12 @@ export const StaticCardActionPattern: Story = {
               <Heading size="md" as="h3">
                 Energy
               </Heading>
-              <Link href="#">
-                View energy info
-                <ChevronRightSmallIcon />
-              </Link>
+              <CardInteraction asChild>
+                <Link href="#">
+                  View energy info
+                  <ChevronRightSmallIcon />
+                </Link>
+              </CardInteraction>
             </Flex>
           </Flex>
         </Card>
@@ -734,10 +736,12 @@ export const StaticCardActionPattern: Story = {
               <Heading size="md" as="h3">
                 Mobile
               </Heading>
-              <Link href="#">
-                View mobile plan
-                <ChevronRightSmallIcon />
-              </Link>
+              <CardInteraction asChild>
+                <Link href="#">
+                  View mobile plan
+                  <ChevronRightSmallIcon />
+                </Link>
+              </CardInteraction>
             </Flex>
           </Flex>
         </Card>
@@ -762,10 +766,12 @@ export const StaticCardActionPattern: Story = {
                   <BodyText size="sm">this month</BodyText>
                 </Flex>
               </Flex>
-              <Link href="#">
-                Track cashback earnings
-                <ChevronRightSmallIcon />
-              </Link>
+              <CardInteraction asChild>
+                <Link href="#">
+                  Track cashback earnings
+                  <ChevronRightSmallIcon />
+                </Link>
+              </CardInteraction>
             </Flex>
           </Flex>
         </Card>
