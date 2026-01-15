@@ -27,7 +27,7 @@ figma.connect(
         Cashback: 'cashback',
         Highlight: 'highlight',
       }),
-      size: figma.enum('Variant', {
+      size: figma.enum('Size', {
         'SM-24': 'sm',
         'MD-28': 'md',
       }),
