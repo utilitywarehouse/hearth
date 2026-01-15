@@ -1,9 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import OrderedList from './OrderedList';
-import ListItem from './ListItem';
 import { primitive } from '@utilitywarehouse/hearth-tokens/js';
+import { View } from 'react-native';
 import { InputType } from 'storybook/internal/types';
 import { SpaceValue } from '../../types';
+import ListItem from './ListItem';
+import OrderedList from './OrderedList';
 
 const gap: InputType = {
   options: Object.keys(primitive.space),
@@ -52,4 +53,34 @@ export const WithCustomGap: Story = {
       <ListItem>List item 3 with larger gap</ListItem>
     </OrderedList>
   ),
+};
+
+export const WithColoredNumbers: Story = {
+  render: ({ ...args }) => (
+    <OrderedList {...args} listStyleColour="piggyPink300">
+      <ListItem>Item 1</ListItem>
+      <ListItem>Item 2</ListItem>
+    </OrderedList>
+  ),
+};
+
+export const WithIconOverride: Story = {
+  render: ({ ...args }) => {
+    const CustomIcon = (props: any) => (
+      <View
+        style={{
+          width: props.width,
+          height: props.height,
+          backgroundColor: props.color || 'blue',
+          borderRadius: 4,
+        }}
+      />
+    );
+    return (
+      <OrderedList {...args} listStyleIcon={CustomIcon}>
+        <ListItem>Item 1 (overridden)</ListItem>
+        <ListItem>Item 2 (overridden)</ListItem>
+      </OrderedList>
+    );
+  },
 };

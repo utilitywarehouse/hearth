@@ -1,7 +1,16 @@
 import { StyleSheet, View, ViewProps } from 'react-native';
+import { ColorValue } from '../../types';
 import { BodyText } from '../BodyText';
 
-export interface ListItemProps extends ViewProps {
+export interface ListStyleProps {
+  listStyleImage?: React.ReactElement;
+  listStyleIcon?: React.ComponentType<any>;
+  listStyleWidth?: number;
+  listStyleHeight?: number;
+  listStyleColour?: ColorValue;
+}
+
+export interface ListItemProps extends ViewProps, ListStyleProps {
   children: ViewProps['children'];
 }
 
@@ -17,8 +26,7 @@ ListItem.displayName = 'ListItem';
 
 const styles = StyleSheet.create({
   item: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
+    flexShrink: 1,
   },
 });
 
