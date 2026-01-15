@@ -1,5 +1,16 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.1
+
+### Patch Changes
+
+- [#765](https://github.com/utilitywarehouse/hearth/pull/765) [`e47f6bf`](https://github.com/utilitywarehouse/hearth/commit/e47f6bfba9f54adf62c034186f696bee1c563acc) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `DatePicker` usage inside `Modal`
+
+  When using the `DatePicker` component inside a `Modal`, users were unable to
+  select dates properly. This was caused by the Radix UI dialog component we use
+  in `Modal` setting `pointer-events: none` on the `body` element. This is fixed
+  by explicitly setting `pointer-events: auto` on the `DatePicker` popper.
+
 ## 0.24.0
 
 ### Minor Changes

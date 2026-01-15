@@ -1,5 +1,52 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.15.0
+
+### Minor Changes
+
+- [#766](https://github.com/utilitywarehouse/hearth/pull/766) [`183155a`](https://github.com/utilitywarehouse/hearth/commit/183155a1aaf7713f0ab8a39ab1e5684ef6190d0c) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE] Custom `ListItem` styles for `UL` and `OL` components
+
+  Added new props to `UL`, `OL`, and `ListItem` components to support custom list markers, including icons, images, and colors. This brings the functionality closer to CSS-like list styling. We also fixed a layout issue where list item text could overflow the container.
+
+  **Components affected**:
+
+  - `UL` (UnorderedList)
+  - `OL` (OrderedList)
+  - `ListItem`
+
+  **Developer changes**:
+
+  You can now customise list bullets/markers using the new `listStyle*` props. These can be set on the list container to apply to all items, or overridden on individual list items.
+
+  ```tsx
+  import { UL, LI } from '@utilitywarehouse/hearth-react-native';
+  import { TickIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+  <UL listStyleColour="feedbackPositiveSurfaceDefault" listStyleIcon={TickIcon}>
+    <LI>Success item 1</LI>
+    <LI listStyleColour="feedbackDangerSurfaceDefault">Error item override</LI>
+  </UL>;
+  ```
+
+  Supported props:
+
+  - `listStyleImage`: React Element (e.g. `<Image />`)
+  - `listStyleIcon`: Icon component
+  - `listStyleWidth` / `listStyleHeight`: Dimensions for the marker (default: 20)
+  - `listStyleColour`: Color token or value for the marker
+
+### Patch Changes
+
+- [#762](https://github.com/utilitywarehouse/hearth/pull/762) [`2d2bbd2`](https://github.com/utilitywarehouse/hearth/commit/2d2bbd2ba109b9acb2e0b220766eb02c0ad5710e) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Fixes Android error when passing boolean or number as a `Checkbox` value
+
+- [#764](https://github.com/utilitywarehouse/hearth/pull/764) [`46f115d`](https://github.com/utilitywarehouse/hearth/commit/46f115dd4bd9da824496e8ec19e29276523931a1) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Fixes `HelperText` wrapping issue
+
+- [#762](https://github.com/utilitywarehouse/hearth/pull/762) [`2d2bbd2`](https://github.com/utilitywarehouse/hearth/commit/2d2bbd2ba109b9acb2e0b220766eb02c0ad5710e) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Fixes `PillGroup` `onChange` prop types
+
+- [#764](https://github.com/utilitywarehouse/hearth/pull/764) [`46f115d`](https://github.com/utilitywarehouse/hearth/commit/46f115dd4bd9da824496e8ec19e29276523931a1) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `DescriptionListItem` description disappearing when direction is `column`
+
+- [#762](https://github.com/utilitywarehouse/hearth/pull/762) [`2d2bbd2`](https://github.com/utilitywarehouse/hearth/commit/2d2bbd2ba109b9acb2e0b220766eb02c0ad5710e) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Input styles are now passed to the correct View
+
 ## 0.14.1
 
 ### Patch Changes
