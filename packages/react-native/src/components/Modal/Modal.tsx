@@ -264,7 +264,14 @@ const Modal = ({
         <View style={styles.footerWrap}>{footer}</View>
       </BottomSheetFooter>
     ),
-    []
+    [
+      onPressPrimaryButton,
+      primaryButtonText,
+      onPressSecondaryButton,
+      secondaryButtonText,
+      primaryButtonProps,
+      secondaryButtonProps,
+    ]
   );
 
   return inNavModal ? (
