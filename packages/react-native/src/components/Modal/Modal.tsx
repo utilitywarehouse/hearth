@@ -1,4 +1,9 @@
-import { BottomSheetScrollViewMethods, SNAP_POINT_TYPE } from '@gorhom/bottom-sheet';
+import {
+  BottomSheetFooter,
+  BottomSheetFooterProps,
+  BottomSheetScrollViewMethods,
+  SNAP_POINT_TYPE,
+} from '@gorhom/bottom-sheet';
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useCallback, useEffect, useImperativeHandle, useRef } from 'react';
@@ -43,6 +48,7 @@ const Modal = ({
   secondaryButtonProps,
   closeButtonProps,
   inNavModal = false,
+  stickyFooter = true,
   ...props
 }: ModalProps) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -155,7 +161,37 @@ const Modal = ({
     }
   };
 
-  styles.useVariants({ loading });
+  const noButtons = !onPressPrimaryButton && !onPressSecondaryButton;
+
+  styles.useVariants({
+    loading,
+    bothButtons: !!(onPressPrimaryButton && onPressSecondaryButton),
+    noButtons,
+    stickyFooter,
+  });
+
+  const footer = (
+    <View style={styles.footer}>
+      {onPressPrimaryButton && primaryButtonText ? (
+        <Button
+          onPress={handlePrimaryButtonPress}
+          text={primaryButtonText}
+          {...primaryButtonProps}
+          variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
+          colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
+        />
+      ) : null}
+      {onPressSecondaryButton && secondaryButtonText ? (
+        <Button
+          onPress={handleSecondaryButtonPress}
+          text={secondaryButtonText}
+          {...secondaryButtonProps}
+          variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
+          colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
+        />
+      ) : null}
+    </View>
+  );
 
   const content = (
     <>
@@ -216,29 +252,26 @@ const Modal = ({
             </View>
           ) : null}
           {children}
-          <View style={styles.footer}>
-            {onPressPrimaryButton && primaryButtonText ? (
-              <Button
-                onPress={handlePrimaryButtonPress}
-                text={primaryButtonText}
-                {...primaryButtonProps}
-                variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
-                colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
-              />
-            ) : null}
-            {onPressSecondaryButton && secondaryButtonText ? (
-              <Button
-                onPress={handleSecondaryButtonPress}
-                text={secondaryButtonText}
-                {...secondaryButtonProps}
-                variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
-                colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
-              />
-            ) : null}
-          </View>
+          {!stickyFooter && !noButtons ? footer : null}
         </View>
       )}
     </>
+  );
+
+  const renderFooter = useCallback(
+    (props: BottomSheetFooterProps) => (
+      <BottomSheetFooter {...props}>
+        <View style={styles.footerWrap}>{footer}</View>
+      </BottomSheetFooter>
+    ),
+    [
+      onPressPrimaryButton,
+      primaryButtonText,
+      onPressSecondaryButton,
+      secondaryButtonText,
+      primaryButtonProps,
+      secondaryButtonProps,
+    ]
   );
 
   return inNavModal ? (
@@ -262,11 +295,12 @@ const Modal = ({
       showHandle={typeof loading !== 'undefined' && loading ? false : props.showHandle}
       accessible={false}
       style={styles.modal}
+      footerComponent={stickyFooter && !noButtons ? renderFooter : undefined}
       {...props}
       onChange={handleChange}
     >
       {loading ? <View style={styles.loadingTop} /> : null}
-      <BottomSheetScrollView contentContainerStyle={styles.container} ref={scrollViewRef}>
+      <BottomSheetScrollView contentContainerStyle={styles.scrollView} ref={scrollViewRef}>
         {content}
       </BottomSheetScrollView>
     </BottomSheetModal>
@@ -284,6 +318,30 @@ const styles = StyleSheet.create((theme, rt) => ({
       loading: {
         true: {
           paddingTop: 0,
+        },
+      },
+    },
+  },
+  scrollView: {
+    flex: 1,
+    variants: {
+      bothButtons: {
+        true: {
+          paddingBottom: 166 + rt.insets.bottom - theme.components.modal.padding,
+        },
+        false: {
+          paddingBottom: 102 + rt.insets.bottom - theme.components.modal.padding,
+        },
+      },
+      noButtons: {
+        true: {
+          paddingBottom: rt.insets.bottom + theme.components.modal.padding,
+        },
+      },
+      stickyFooter: {
+        true: {},
+        false: {
+          paddingBottom: rt.insets.bottom + theme.components.modal.padding,
         },
       },
     },
@@ -320,6 +378,11 @@ const styles = StyleSheet.create((theme, rt) => ({
   },
   footer: {
     gap: theme.components.modal.action.gap,
+  },
+  footerWrap: {
+    backgroundColor: theme.color.surface.neutral.strong,
+    paddingHorizontal: theme.components.bottomSheet.padding,
+    paddingBottom: theme.components.bottomSheet.padding + rt.insets.bottom,
   },
   inNavModalContainer: {
     flex: 1,

@@ -12,6 +12,7 @@ interface ModalProps extends Omit<BottomSheetProps, 'children'> {
   description?: string;
   inNavModal?: boolean;
   fullscreen?: boolean;
+  stickyFooter?: boolean;
   children?: ViewProps['children'];
   onPressPrimaryButton?: () => void;
   primaryButtonText?: string;
