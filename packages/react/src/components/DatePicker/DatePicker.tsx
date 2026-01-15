@@ -136,7 +136,7 @@ export const DatePicker = (props: DatePickerProps) => {
     weekClassName: () => `${componentClassName}Week`,
     monthClassName: () => `${componentClassName}Month`,
     yearClassName: () => `${componentClassName}Year`,
-    popperClassName: () => `${componentClassName}Popper`,
+    popperClassName: `${componentClassName}Popper`,
   };
 
   const defaultProps = {
@@ -174,8 +174,8 @@ export const DatePicker = (props: DatePickerProps) => {
     ...eventHandlingProps,
     ...defaultProps,
     ...ariaProps,
-    ...classNameProps,
     ...popperProps,
+    ...classNameProps,
     ...stateProps,
     ...customComponents,
     ...datePickerProps,

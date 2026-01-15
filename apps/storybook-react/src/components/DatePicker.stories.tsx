@@ -1,5 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { DatePicker } from '@utilitywarehouse/hearth-react';
+import {
+  Button,
+  DatePicker,
+  Flex,
+  Modal,
+  ModalRoot,
+  ModalTrigger,
+  ModalClose,
+  ModalFooter,
+} from '@utilitywarehouse/hearth-react';
 import React from 'react';
 
 const meta: Meta<typeof DatePicker> = {
@@ -59,6 +68,52 @@ export const FormUsage: Story = {
           {...args}
         />
       </form>
+    );
+  },
+};
+
+export const UsageInModal: Story = {
+  render: () => {
+    const [selectedFromDate, setSelectedFromDate] = React.useState<Date | null>();
+    const [selectedToDate, setSelectedToDate] = React.useState<Date | null>();
+    return (
+      <Flex>
+        <ModalRoot>
+          <ModalTrigger>
+            <Button>Trends date range</Button>
+          </ModalTrigger>
+          <Modal heading="Trends date range">
+            <Flex direction="column" spacing="xl">
+              <DatePicker
+                label="From"
+                helperText="Earliest: 01/2017"
+                required
+                selected={selectedFromDate}
+                onChange={(date: Date | null) => setSelectedFromDate(date)}
+              />
+              <DatePicker
+                label="To"
+                helperText="Latest: 12/2025"
+                required
+                selected={selectedToDate}
+                onChange={(date: Date | null) => setSelectedToDate(date)}
+              />
+            </Flex>
+            <ModalFooter>
+              <ModalClose>
+                <Button variant="ghost" colorScheme="functional">
+                  Cancel
+                </Button>
+              </ModalClose>
+              <ModalClose>
+                <Button variant="solid" colorScheme="highlight">
+                  Apply
+                </Button>
+              </ModalClose>
+            </ModalFooter>
+          </Modal>
+        </ModalRoot>
+      </Flex>
     );
   },
 };
