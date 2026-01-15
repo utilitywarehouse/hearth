@@ -1,3 +1,10 @@
+.h-DatePickerPopper {
+  /* We need to add this to override the Radix UI modal styles which set */
+  /* pointer-events to none on the body element, causing the DatePicker to not */
+  /* work when in a modal  */
+  pointer-events: auto;
+}
+
 .h-DatePickerCalendar {
   width: 100%;
   height: fit-content;
