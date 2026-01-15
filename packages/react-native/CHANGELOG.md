@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.15.1
+
+### Patch Changes
+
+- [#768](https://github.com/utilitywarehouse/hearth/pull/768) [`570f240`](https://github.com/utilitywarehouse/hearth/commit/570f240a448eae546b893ed3ad69235213ee5fac) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Makes `Modal` footer sticky by default
+
+  This change updates the `Modal` component to have a sticky footer by default, enhancing user experience by keeping action buttons accessible. The `stickyFooter` prop has been added to allow developers to disable this behavior if needed.
+
 ## 0.15.0
 
 ### Minor Changes
