@@ -70,11 +70,13 @@ export const Modal = ({
                           </Heading>
                         </DialogPrimitive.Title>
                       </Box>
-                      <DialogPrimitive.Description asChild>
-                        <BodyText size="md" as="span">
-                          {description}
-                        </BodyText>
-                      </DialogPrimitive.Description>
+                      {description ? (
+                        <DialogPrimitive.Description asChild>
+                          <BodyText size="md" as="span">
+                            {description}
+                          </BodyText>
+                        </DialogPrimitive.Description>
+                      ) : null}
                     </div>
                   </div>
                 ) : null}
