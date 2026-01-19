@@ -5,6 +5,5 @@ import '../../../shared/storybook/styles/manager.css';
 
 addons.setConfig({
   panelPosition: 'right',
-  selectedPanel: 'storybook/controls/panel',
   theme,
 });
