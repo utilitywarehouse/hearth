@@ -17,6 +17,7 @@ const CurrencyInput = ({
   disableGroupSeparator = false,
   value,
   onChangeText,
+  ref,
   ...rest
 }: CurrencyInputProps) => {
   const formFieldContext = useFormFieldContext();
@@ -52,6 +53,7 @@ const CurrencyInput = ({
         </DetailText>
       </InputSlot>
       <InputField
+        ref={ref as any}
         inputMode="decimal"
         inBottomSheet={inBottomSheet}
         accessibilityHint='Enter the amount in pounds and pence, for example "10.99"'
@@ -67,7 +69,6 @@ const CurrencyInput = ({
 };
 
 CurrencyInput.displayName = 'CurrencyInput';
-
 const styles = StyleSheet.create(theme => ({
   wrap: {
     height: theme.components.input.currency.height,
