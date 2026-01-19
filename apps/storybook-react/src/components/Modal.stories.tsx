@@ -8,6 +8,7 @@ import {
   ModalTrigger,
   ModalClose,
   ModalFooter,
+  BodyText,
 } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Modal> = {
@@ -99,6 +100,39 @@ export const WithLongHeading: Story = {
         <Button>Open modal</Button>
       </ModalTrigger>
       <Modal {...args}>
+        <ModalFooter>
+          <ModalClose>
+            <Button variant="solid" colorScheme="highlight">
+              Continue
+            </Button>
+          </ModalClose>
+        </ModalFooter>
+      </Modal>
+    </ModalRoot>
+  ),
+};
+
+export const WithoutDescription: Story = {
+  parameters: {
+    chromatic: { disableSnapshot: false, delay: 300 },
+    a11y: { test: 'off' },
+  },
+  args: {
+    heading:
+      'Your account with BT is either closed or has no live broadband or home phone services',
+    description: undefined,
+  },
+  render: (args, context) => (
+    <ModalRoot defaultOpen={context.viewMode === 'docs' ? undefined : true}>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal {...args}>
+        <BodyText>
+          BT have told us you don’t have an active service at this address, so we don’t need to let
+          them know you’re switching. We’ll get you up and running with UW broadband as fast as we
+          can.
+        </BodyText>
         <ModalFooter>
           <ModalClose>
             <Button variant="solid" colorScheme="highlight">
