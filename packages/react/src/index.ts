@@ -79,8 +79,6 @@ export type { CardBannerContentProps } from './components/Card/CardBannerContent
 export { CardBannerImage } from './components/Card/CardBannerImage';
 export { CardActions } from './components/CardActions/CardActions';
 export type { CardActionsProps } from './components/CardActions/CardActions.props';
-export { CardAction } from './components/CardActions/CardAction';
-export type { CardActionProps } from './components/CardActions/CardAction.props';
 export { CardActionLink } from './components/CardActions/CardActionLink';
 export type { CardActionLinkProps } from './components/CardActions/CardActionLink.props';
 export { CardActionButton } from './components/CardActions/CardActionButton';
