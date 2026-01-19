@@ -61,13 +61,31 @@ input, but read-only fields should stay undeditable in the same view.
 ## Validation
 
 The input `validationStatus` can be set to either `"valid"` or `"invalid"` to
-indicate the status. This status must be accompanied by a validation text to
+indicate the status. This status must be accompanied by the `validationText` to
 explain the reason for the status.
+
+<Canvas of={Stories.Validation} />
+
+You can set the `validationText` according to what the `validationStatus` is:
+
+```tsx
+const validationStatus = isValid ? "valid" : isInvalid ? "invalid" : undefined
+const validationText = isValid ? "Your input is valid" : isInvalid ? "Your input is invalid" : undefined
+
+[...]
+
+<TextInput
+  label="Name"
+  required
+  validationStatus={validationStatus}
+  validationText={validationText}
+/>
+```
 
 Be aware that you probably want to set `noValidate` on your form to prevent
 the browser from displaying its own validation messages.
 
-```
+```tsx
 <form noValidate>
   <TextInput
     label="Name"
@@ -77,8 +95,6 @@ the browser from displaying its own validation messages.
   />
 </form>
 ```
-
-<Canvas of={Stories.Validation} />
 
 ## Prefix and Suffix
 
