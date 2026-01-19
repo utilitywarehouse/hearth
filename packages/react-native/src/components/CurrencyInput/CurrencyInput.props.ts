@@ -1,6 +1,8 @@
-import type { TextInputProps, ViewProps } from 'react-native';
+import type { Ref } from 'react';
+import type { TextInput, TextInputProps, ViewProps } from 'react-native';
 
 export interface CurrencyInputBaseProps {
+  ref?: Ref<TextInput>;
   disabled?: boolean;
   validationStatus?: 'initial' | 'valid' | 'invalid';
   readonly?: boolean;
