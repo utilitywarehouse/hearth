@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.15.2
+
+### Patch Changes
+
+- [#771](https://github.com/utilitywarehouse/hearth/pull/771) [`5320be5`](https://github.com/utilitywarehouse/hearth/commit/5320be544992c137e201be7750d30ea098a7d399) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Adds missing `ref` prop to the `CurrencyInput` component
+
 ## 0.15.1
 
 ### Patch Changes
