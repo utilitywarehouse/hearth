@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.2
+
+### Patch Changes
+
+- [#777](https://github.com/utilitywarehouse/hearth/pull/777) [`ede161a`](https://github.com/utilitywarehouse/hearth/commit/ede161abb1be82582223f64209b5fa4bdaa57954) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Modal content spacing when `description` is not used.
+
+  Ideally users should use the `description` prop for modal content, but in cases
+  where they don't, we need to ensure proper spacing is maintained. This fix
+  doesn't require any changes from the users' side.
+
 ## 0.24.1
 
 ### Patch Changes
