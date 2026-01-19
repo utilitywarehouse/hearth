@@ -17,8 +17,13 @@ figma.connect(
       }),
       children: figma.children('Accordion Item'),
     },
-    example: ({ sectionHeader: { heading, helperText }, children, ...props }) => (
-      <Accordion type="single" heading={heading} helperText={helperText} {...props}>
+    example: ({ sectionHeader, children, ...props }) => (
+      <Accordion
+        type="single"
+        heading={sectionHeader.heading}
+        helperText={sectionHeader.helperText}
+        {...props}
+      >
         {children}
       </Accordion>
     ),
