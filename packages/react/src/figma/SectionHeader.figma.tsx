@@ -13,12 +13,14 @@ figma.connect(
         false: undefined,
       }),
       badge: figma.enum('Badge?', {
-        true: figma.instance('Badge'),
-        false: undefined,
+        true: figma.children('Badge'),
       }),
       // this is not fully working as expected due to figma limitations
       trailingContent: figma.enum('Trailing content?', {
-        true: figma.children('Link'),
+        true: figma.enum('Trailing content', {
+          Link: figma.children('Link'),
+          Button: figma.children('Button'),
+        }),
       }),
     },
     example: ({ ...props }) => <SectionHeader {...props} />,
