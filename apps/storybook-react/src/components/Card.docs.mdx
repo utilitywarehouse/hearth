@@ -8,9 +8,10 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <DocsHeader componentName="Card" stories={Stories} />
 
+- [Playground](#playground)
 - [Components](#components)
 - [Alternatives](#alternatives)
-- [Semantic HTML](#semantic-html)
+- [Grouping related cards](#grouping-related-cards)
 - [Interactive Cards](#interactive-cards)
 - [Card Actions](#card-actions)
 - [Shadow colours](#shadow-colours)
@@ -37,21 +38,22 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 - [HighlightBanner](?path=/docs/components-highlightbanner--docs) - For highlighting key information or marketing messaging
 
-## Semantic HTML
-
-By default `Card` renders a `div` element, this can be customised using the
-`as` prop, to render a `li`.
-
-### Grouping related cards
+## Grouping related cards
 
 When grouping related `Card` components, they should be rendered as list items, as part of a list.
 
 ```tsx
 <Flex asChild>
-  <ul>
-    <Card as='li'>{...}</Card>
-    <Card as='li'>{...}</Card>
-    <Card as='li'>{...}</Card>
+  <ul role="list">
+    <li>
+      <Card>{...}</Card>
+    </li>
+    <li>
+      <Card>{...}</Card>
+    </li>
+    <li>
+      <Card>{...}</Card>
+    </li>
   </ul>
 </Flex>
 ```
