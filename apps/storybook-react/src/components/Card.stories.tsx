@@ -170,11 +170,26 @@ export const Playground: Story = {
 };
 
 export const ShadowColours: Story = {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    options: { selectedPanel: 'storybook/a11y/panel' },
+  },
+  args: {
+    width: '300px',
+    direction: 'column',
+    gap: '150',
+  },
   render: ({ children, ...args }) => (
     <Flex gap="400" padding="400" wrap="wrap">
       {shadowColors.map(c => (
-        <Card {...args} width="300px" shadowColor={c}>
+        <Card {...args} key={c} shadowColor={c}>
           <BodyText size="md">{children}</BodyText>
+          <CardInteraction asChild>
+            <Link href="https://en.wikipedia.org/wiki/Maya_Angelou" target="_blank">
+              Learn more
+            </Link>
+          </CardInteraction>
         </Card>
       ))}
     </Flex>
@@ -182,16 +197,21 @@ export const ShadowColours: Story = {
 };
 
 export const InteractiveCards: Story = {
-  render: () => {
+  parameters: {
+    controls: { disable: true },
+    actions: { disable: true },
+    options: { showPanel: false },
+  },
+  render: args => {
     return (
-      <Flex padding="600" gap="400" direction="column" alignItems="center">
-        <Flex gap="300" width="800px" asChild>
+      <Flex padding="600" gap="400" direction="column" alignItems="start" width="700px">
+        <Flex asChild gap="300" wrap="wrap">
           <ul role="list">
             <li>
               <Card
+                {...args}
                 variant="emphasis"
                 colorScheme="neutralStrong"
-                flex="1"
                 direction="column"
                 gap="150"
               >
@@ -205,8 +225,9 @@ export const InteractiveCards: Story = {
                 </CardInteraction>
               </Card>
             </li>
+
             <li>
-              <Card variant="subtle" colorScheme="neutralStrong" flex="1">
+              <Card {...args} variant="subtle" colorScheme="neutralStrong">
                 <Flex direction="column" gap="150">
                   <Heading size="sm">Neutral Card</Heading>
                   <BodyText size="md">neutralStrong & subtle</BodyText>
@@ -219,8 +240,9 @@ export const InteractiveCards: Story = {
                 </Flex>
               </Card>
             </li>
+
             <li>
-              <Card variant="emphasis" colorScheme="neutralSubtle" flex="1">
+              <Card {...args} variant="emphasis" colorScheme="neutralSubtle">
                 <Flex direction="column" gap="150">
                   <Heading size="sm">Neutral Card</Heading>
                   <BodyText size="md">neutralSubtle & emphasis</BodyText>
@@ -233,8 +255,9 @@ export const InteractiveCards: Story = {
                 </Flex>
               </Card>
             </li>
+
             <li>
-              <Card variant="subtle" colorScheme="neutralSubtle" flex="1">
+              <Card {...args} variant="subtle" colorScheme="neutralSubtle">
                 <Flex direction="column" gap="150">
                   <Heading size="sm">Neutral Card</Heading>
                   <BodyText size="md">neutralSubtle & subtle</BodyText>
@@ -250,10 +273,10 @@ export const InteractiveCards: Story = {
           </ul>
         </Flex>
 
-        <Flex asChild gap="300" width="700px">
+        <Flex asChild gap="300" wrap="wrap">
           <ul role="list">
             <li>
-              <Card variant="subtle" colorScheme="brand" flex="1">
+              <Card {...args} variant="subtle" colorScheme="brand">
                 <Flex direction="column" gap="150" justifyContent="between">
                   <Heading size="sm">Brand Card</Heading>
                   <BodyText size="md">Content</BodyText>
@@ -266,8 +289,9 @@ export const InteractiveCards: Story = {
                 </Flex>
               </Card>
             </li>
+
             <li>
-              <Card variant="subtle" colorScheme="pig" flex="1">
+              <Card {...args} variant="subtle" colorScheme="pig">
                 <Flex direction="column" gap="150" justifyContent="between">
                   <Heading size="sm">Pig Card</Heading>
                   <BodyText size="md">Content</BodyText>
@@ -280,8 +304,9 @@ export const InteractiveCards: Story = {
                 </Flex>
               </Card>
             </li>
+
             <li>
-              <Card variant="subtle" colorScheme="highlight" flex="1">
+              <Card {...args} variant="subtle" colorScheme="highlight">
                 <Flex direction="column" gap="150" justifyContent="between">
                   <Heading size="sm">Highlight Card</Heading>
                   <BodyText size="md">Content</BodyText>
@@ -297,10 +322,10 @@ export const InteractiveCards: Story = {
           </ul>
         </Flex>
 
-        <Flex asChild gap="300" width="1000px">
+        <Flex asChild gap="300" wrap="wrap">
           <ul role="list">
             <li>
-              <Card variant="subtle" colorScheme="energy" flex="1">
+              <Card {...args} variant="subtle" colorScheme="energy">
                 <Flex direction="column" gap="150" justifyContent="between">
                   <Heading size="sm">Energy Card</Heading>
                   <BodyText size="md">Content</BodyText>
@@ -313,8 +338,9 @@ export const InteractiveCards: Story = {
                 </Flex>
               </Card>
             </li>
+
             <li>
-              <Card variant="subtle" colorScheme="mobile" flex="1">
+              <Card {...args} variant="subtle" colorScheme="mobile">
                 <Flex direction="column" gap="150" justifyContent="between">
                   <Heading size="sm">Mobile Card</Heading>
                   <BodyText size="md">Content</BodyText>
@@ -327,8 +353,9 @@ export const InteractiveCards: Story = {
                 </Flex>
               </Card>
             </li>
+
             <li>
-              <Card variant="subtle" colorScheme="broadband" flex="1">
+              <Card {...args} variant="subtle" colorScheme="broadband">
                 <Flex direction="column" gap="150" justifyContent="between">
                   <Heading size="sm">Broadband Card</Heading>
                   <BodyText size="md">Content</BodyText>
@@ -341,8 +368,9 @@ export const InteractiveCards: Story = {
                 </Flex>
               </Card>
             </li>
+
             <li>
-              <Card variant="subtle" colorScheme="insurance" flex="1">
+              <Card {...args} variant="subtle" colorScheme="insurance">
                 <Flex direction="column" gap="150" justifyContent="between">
                   <Heading size="sm">Insurance Card</Heading>
                   <BodyText size="md">Content</BodyText>
@@ -355,8 +383,9 @@ export const InteractiveCards: Story = {
                 </Flex>
               </Card>
             </li>
+
             <li>
-              <Card variant="subtle" colorScheme="cashback" flex="1">
+              <Card {...args} variant="subtle" colorScheme="cashback">
                 <Flex direction="column" gap="150" justifyContent="between">
                   <Heading size="sm">Cashback Card</Heading>
                   <BodyText size="md">Content</BodyText>
@@ -372,13 +401,13 @@ export const InteractiveCards: Story = {
           </ul>
         </Flex>
 
-        <Flex asChild direction="row" gap="200" width="1000px" alignItems="start">
+        <Flex asChild direction="row" gap="200" wrap="wrap">
           <ul role="list">
             <li>
               <Card
+                {...args}
                 variant="emphasis"
                 colorScheme="neutralStrong"
-                flex="1"
                 direction="column"
                 gap="150"
                 alignItems="start"
@@ -397,11 +426,12 @@ export const InteractiveCards: Story = {
                 </Button>
               </Card>
             </li>
+
             <li>
               <Card
+                {...args}
                 variant="emphasis"
                 colorScheme="neutralStrong"
-                flex="1"
                 direction="column"
                 gap="150"
               >
@@ -421,11 +451,12 @@ export const InteractiveCards: Story = {
                 </CardInteraction>
               </Card>
             </li>
+
             <li>
               <Card
+                {...args}
                 variant="emphasis"
                 colorScheme="neutralStrong"
-                flex="1"
                 direction="column"
                 gap="150"
               >

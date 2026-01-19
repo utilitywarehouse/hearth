@@ -13,6 +13,7 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 - [Alternatives](#alternatives)
 - [Grouping related cards](#grouping-related-cards)
 - [Interactive Cards](#interactive-cards)
+  - [Shadow colours](#shadow-colours)
 - [Card Actions](#card-actions)
 - [Shadow colours](#shadow-colours)
 - [Banners](#banners)
@@ -107,6 +108,16 @@ clickable, but do not overlay the primary action.
 
 <Canvas of={Stories.InteractiveCards} sourceState="hide" />
 
+### Shadow colours
+
+You can set a shadow on the `Card` component using the `shadowColor` prop.
+
+Shadows serve as a visual cue for interactivity. While interactive cards do not
+require a shadow, shadows should only be applied to cards that contain an
+action. Don't apply a shadow to a static card.
+
+<Canvas of={Stories.ShadowColours} sourceState="hide" />
+
 ## Card Actions
 
 Separate to `CardInteraction` you can include `CardActions` within a `Card`
@@ -131,12 +142,6 @@ When using `CardActions` alongside other additional content, you must wrap the
 additional content in a `CardContent` component.
 
 <Canvas of={Stories.WithCardActions} sourceState="hide" />
-
-## Shadow colours
-
-You can set a shadow on the `Card` component using the `shadowColor` prop.
-
-<Canvas of={Stories.ShadowColours} sourceState="hide" />
 
 ## Banners
 
