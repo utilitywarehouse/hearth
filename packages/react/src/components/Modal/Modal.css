@@ -52,18 +52,13 @@
       display: none;
     }
 
+    position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: var(--h-modal-content-gap);
     overflow: auto;
     padding: var(--h-bottom-sheet-padding);
-
-    &:has(.h-ModalFooter) {
-      &:where([data-contains-image] &) {
-        padding-bottom: var(--h-space-0);
-      }
-    }
 
     @media (--h-tablet) {
       padding: var(--h-modal-padding);
@@ -159,7 +154,7 @@
       height: 100%;
 
       &:where([data-contains-image] &) {
-        --h-modal-content-multiplier: 0.45; /* percentage of available height */
+        --h-modal-content-multiplier: 0.5; /* percentage of available height */
 
         max-height: calc(var(--h-modal-max-height-on-mobile) * var(--h-modal-content-multiplier));
       }
@@ -172,12 +167,23 @@
     flex-direction: column-reverse;
     width: 100%;
     margin-top: calc(var(--h-modal-gap) - var(--h-modal-content-gap));
-    padding-bottom: var(--h-modal-content-mobile-padding-bottom);
 
     @media (--h-tablet) {
       flex-direction: row;
       justify-content: end;
-      padding-bottom: var(--h-modal-padding);
+    }
+
+    &:where([data-contains-image] &) {
+      &:not(.h-ModalOuterContainer:has(.h-ModalContent) &) {
+        padding: var(--h-bottom-sheet-padding);
+        position: absolute;
+        bottom: 0;
+
+        @media (--h-tablet) {
+          position: static;
+          padding: var(--h-space-0);
+        }
+      }
     }
   }
 }
