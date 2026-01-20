@@ -14,7 +14,7 @@ updates:
     ignore:
       - dependency-name: '*'
   - package-ecosystem: 'pnpm'
-    directory: '/apps/storybook*'
+    directory: '/apps/playground*'
     schedule:
       interval: 'monthly'
     ignore:
