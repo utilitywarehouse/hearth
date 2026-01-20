@@ -7,14 +7,14 @@ registries:
 
 updates:
   # ignore security updates for docs etc.
-  - package-ecosystem: 'pnpm'
+  - package-ecosystem: 'npm'
     directory: '/apps'
     schedule:
       interval: 'monthly'
     ignore:
       - dependency-name: '*'
 
-  - package-ecosystem: 'pnpm'
+  - package-ecosystem: 'npm'
     directory: '/packages'
     registries:
       - npm-uw
