@@ -8,7 +8,12 @@ import {
   ModalTrigger,
   ModalClose,
   ModalFooter,
+  ModalContent,
   BodyText,
+  Card,
+  List,
+  ListItem,
+  ListItemContent,
 } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Modal> = {
@@ -292,6 +297,65 @@ export const Loading: Story = {
         <Button>Open modal</Button>
       </ModalTrigger>
       <Modal {...args} />
+    </ModalRoot>
+  ),
+};
+
+export const WithCard: Story = {
+  render: args => (
+    <ModalRoot>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal {...args}>
+        <Card>Card content</Card>
+        <ModalFooter>
+          <ModalClose>
+            <Button variant="ghost" colorScheme="functional">
+              Cancel
+            </Button>
+          </ModalClose>
+          <ModalClose>
+            <Button variant="solid" colorScheme="highlight">
+              Primary
+            </Button>
+          </ModalClose>
+        </ModalFooter>
+      </Modal>
+    </ModalRoot>
+  ),
+};
+
+export const WithLongContent: Story = {
+  globals: { viewport: { value: 'mobile' } },
+  render: (args, context) => (
+    <ModalRoot defaultOpen={context.viewMode === 'docs' ? undefined : true}>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal {...args} image={<img src={SpotSavings} alt="Savings Pig" />}>
+        <ModalContent>
+          <List variant="emphasis" colorScheme="neutralStrong">
+            {Array.from({ length: 50 }, (_, i) => (
+              <ListItem key={i}>
+                <ListItemContent heading={`Heading ${i + 1}`} helperText="Description" />
+              </ListItem>
+            ))}
+          </List>
+        </ModalContent>
+        <ModalFooter>
+          <ModalClose>
+            <Button variant="ghost" colorScheme="functional">
+              Cancel
+            </Button>
+          </ModalClose>
+          <ModalClose>
+            <Button variant="solid" colorScheme="highlight">
+              Primary
+            </Button>
+          </ModalClose>
+        </ModalFooter>
+      </Modal>
     </ModalRoot>
   ),
 };
