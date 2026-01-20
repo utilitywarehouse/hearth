@@ -39,6 +39,7 @@
 
   &:where([data-contains-image], [data-full-screen]) {
     --h-modal-max-height-on-mobile: calc(100vh - 40px);
+
     height: var(--h-modal-max-height-on-mobile);
 
     @media (--h-tablet) {
@@ -159,6 +160,7 @@
 
       &:where([data-contains-image] &) {
         --h-modal-content-multiplier: 0.45; /* percentage of available height */
+
         max-height: calc(var(--h-modal-max-height-on-mobile) * var(--h-modal-content-multiplier));
       }
     }
