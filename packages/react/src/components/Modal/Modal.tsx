@@ -45,18 +45,17 @@ export const Modal = ({
               data-full-screen={fullScreen ? '' : undefined}
               {...props}
             >
+              <ModalClose>
+                <UnstyledIconButton
+                  type="button"
+                  label="Close"
+                  data-visually-hidden={hideCloseButton ? '' : undefined}
+                  className={`${componentClassName}CloseIconButton`}
+                >
+                  <CloseMediumIcon />
+                </UnstyledIconButton>
+              </ModalClose>
               <div className={`${componentClassName}OuterContainer`}>
-                <ModalClose>
-                  <UnstyledIconButton
-                    type="button"
-                    label="Close"
-                    data-visually-hidden={hideCloseButton ? '' : undefined}
-                    className={`${componentClassName}CloseIconButton`}
-                  >
-                    <CloseMediumIcon />
-                  </UnstyledIconButton>
-                </ModalClose>
-
                 {!loading ? (
                   <div className={`${componentClassName}InnerContainer`}>
                     {containsImage ? (

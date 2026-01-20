@@ -8,6 +8,7 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 - [Playground](#playground)
 - [Usage Guidelines](#usage-guidelines)
+- [Content](#content)
 - [Accessibility](#accessibility)
 - [Uncontrolled usage](#uncontrolled-usage)
 - [Controlled usage](#controlled-usage)
@@ -25,15 +26,29 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 `Modal` comprises a number of components you can compose together, and can be
 used as either a controlled or uncontrolled component.
 
-- `ModalRoot` contains all parts of a modal, providing context to its children. You must wrap your Modal with this component.
+- `ModalRoot` must wrap all parts of the modal, providing context to its children.
 - `ModalTrigger` wraps a `Button` component and is used to open the modal.
 - `Modal` is the main component where you should place your content.
+- `ModalContent` is a container for any long content within the modal, ensuring it is scrollable.
 - `ModalFooter` is a container for any actions, typically buttons.
 - `ModalClose` wraps a `Button` component and is used to close the modal.
 
 `Modal` uses portals to render a popup. Please make sure you have portals
 setup properly in the root of your application. See the **Getting Started**
 guide for more details.
+
+## Content
+
+The `Modal` component accepts a `heading` and `description` prop for the main
+content. It is recommended that you use these props to ensure proper spacing
+and alignment of content within the modal. However you can also pass custom
+content as children to the `Modal` component, alongside a `ModalFooter`, in
+which case you may need to handle the layout and spacing of the content
+yourself.
+
+If you have a lot of content within the modal, it is recommended to wrap the
+content in a `ModalContent` component. This will ensure that the content is
+scrollable and fits within the viewport.
 
 ## Accessibility
 

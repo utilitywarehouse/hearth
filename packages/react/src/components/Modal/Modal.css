@@ -38,7 +38,9 @@
   }
 
   &:where([data-contains-image], [data-full-screen]) {
-    height: calc(100vh - 40px);
+    --h-modal-max-height-on-mobile: calc(100vh - 40px);
+
+    height: var(--h-modal-max-height-on-mobile);
 
     @media (--h-tablet) {
       height: fit-content;
@@ -46,6 +48,11 @@
   }
 
   & :where(.h-ModalOuterContainer) {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -60,7 +67,6 @@
     &:where([data-contains-image] &) {
       align-items: center;
       padding: var(--h-modal-padding);
-      justify-content: space-between;
 
       @media (--h-tablet) {
         height: fit-content;
@@ -93,18 +99,18 @@
 
   & :where(.h-ModalImage) {
     --h-icon-button-size: 1.5rem;
+    --h-modal-image-max-size: 120px;
 
     margin-top: calc(var(--h-icon-button-size) + var(--h-modal-content-gap));
-    max-height: 120px;
-    max-width: 120px;
+    max-height: var(--h-modal-image-max-size);
+    max-width: var(--h-modal-image-max-size);
 
     @media (--h-tablet) {
       margin-top: var(--h-space-0);
     }
 
     @media (--h-desktop) {
-      max-height: 160px;
-      max-width: 160px;
+      --h-modal-image-max-size: 160px;
     }
   }
 
@@ -130,21 +136,55 @@
     }
   }
 
+  & :where(.h-ModalContent) {
+    display: flex;
+    width: 100%;
+
+    &:where([data-contains-image] &) {
+      margin-top: auto;
+    }
+
+    & :where(.h-ModalContentScrollAreaRoot) {
+      width: 100%;
+      height: 100%;
+    }
+
+    & :where(.h-ModalContentScrollAreaViewport) {
+      width: 100%;
+      height: 100%;
+
+      &:where([data-contains-image] &) {
+        --h-modal-content-multiplier: 0.5; /* percentage of available height */
+
+        max-height: calc(var(--h-modal-max-height-on-mobile) * var(--h-modal-content-multiplier));
+      }
+    }
+  }
+
   & :where(.h-ModalFooter) {
     display: flex;
     gap: var(--h-modal-action-gap);
     flex-direction: column-reverse;
     width: 100%;
     margin-top: calc(var(--h-modal-gap) - var(--h-modal-content-gap));
-    padding-bottom: var(--h-modal-content-mobile-padding-bottom);
 
     @media (--h-tablet) {
       flex-direction: row;
       justify-content: end;
-      padding-bottom: var(--h-space-0);
+    }
 
-      &:where([data-contains-image] &) {
-        justify-content: center;
+    &:where([data-contains-image] &) {
+      justify-content: center;
+
+      &:not(.h-ModalOuterContainer:has(.h-ModalContent) &) {
+        padding: var(--h-bottom-sheet-padding);
+        position: absolute;
+        bottom: 0;
+
+        @media (--h-tablet) {
+          position: static;
+          padding: var(--h-space-0);
+        }
       }
     }
   }
