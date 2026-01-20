@@ -156,6 +156,7 @@ export type {
   ModalTriggerProps,
 } from './components/Modal/Modal.props';
 export { ModalClose } from './components/Modal/ModalClose';
+export { ModalContent } from './components/Modal/ModalContent';
 export { ModalFooter } from './components/Modal/ModalFooter';
 export { ModalRoot } from './components/Modal/ModalRoot';
 export { ModalTrigger } from './components/Modal/ModalTrigger';
