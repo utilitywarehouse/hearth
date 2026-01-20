@@ -1,0 +1,46 @@
+version: 2
+registries:
+  npm-uw:
+    type: npm-registry
+    url: https://registry.npmjs.org
+    token: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
+
+updates:
+  # ignore security updates for docs etc.
+  - package-ecosystem: 'pnpm'
+    directory: '/apps/storybook*'
+    schedule:
+      interval: 'monthly'
+    ignore:
+      - dependency-name: '*'
+  - package-ecosystem: 'pnpm'
+    directory: '/apps/storybook*'
+    schedule:
+      interval: 'monthly'
+    ignore:
+      - dependency-name: '*'
+
+  - package-ecosystem: 'pnpm'
+    directory: '/'
+    registries:
+      - npm-uw
+    schedule:
+      interval: 'monthly'
+    cooldown:
+      default-days: 4
+    pull-request-branch-name:
+      separator: '-'
+    groups:
+      all:
+        patterns:
+          - '*'
+
+  - package-ecosystem: 'docker'
+    directory: '/'
+    schedule:
+      interval: 'monthly'
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'monthly'
