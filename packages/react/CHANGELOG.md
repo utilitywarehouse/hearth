@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.3
+
+### Patch Changes
+
+- [#781](https://github.com/utilitywarehouse/hearth/pull/781) [`434854e`](https://github.com/utilitywarehouse/hearth/commit/434854e269bcae2dce647efca667d024b38450c7) Thanks [@robphoenix](https://github.com/robphoenix)! - Ensure long content is handled properly in `Modal`. This change adds a
+  `ModalContent` component that can be used to wrap long content within a modal,
+  ensuring it is scrollable and fits within the viewport.
+
 ## 0.24.2
 
 ### Patch Changes
