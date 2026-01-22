@@ -17,10 +17,7 @@ figma.connect(
       }),
       // this is not fully working as expected due to figma limitations
       trailingContent: figma.enum('Trailing content?', {
-        true: figma.enum('Trailing content', {
-          Link: figma.children('Link'),
-          Button: figma.children('Button'),
-        }),
+        true: figma.children(['Link', 'Button']),
       }),
     },
     example: ({ ...props }) => <SectionHeader {...props} />,
