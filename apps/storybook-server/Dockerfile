@@ -5,9 +5,10 @@ FROM base AS builder-base
 ENV PNPM_HOME=/usr/local/pnpm
 ENV PATH="${PNPM_HOME}:${PATH}"
 RUN apk add --no-cache \
-python3 \
-make \
-&& rm -rf /var/cache/apk/*
+    python3 \
+    make \
+    && rm -rf /var/cache/apk/* \
+    && npm install -g corepack@0.34.5
 RUN corepack enable && corepack prepare pnpm@9.15.2 --activate
 RUN pnpm install turbo --global
 RUN turbo telemetry disable
