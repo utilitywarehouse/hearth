@@ -8,7 +8,7 @@ RUN apk add --no-cache \
     python3 \
     make \
     && rm -rf /var/cache/apk/* \
-    && npm install -g corepack
+    && npm install -g corepack@0.34.5
 RUN corepack enable && corepack prepare pnpm@9.15.2 --activate
 RUN pnpm install turbo --global
 RUN turbo telemetry disable
