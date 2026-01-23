@@ -35,9 +35,9 @@ jobs:
         working-directory: ./packages/react
         run: pnpm run figma:publish --token=${{ secrets.FIGMA_ACCESS_TOKEN }}
 
-      - name: 🌝 Publish React Native Figma Code Connect
-        working-directory: ./packages/react-native
-        run: pnpm run figma:publish --token=${{ secrets.FIGMA_ACCESS_TOKEN }}
+      # - name: 🌝 Publish React Native Figma Code Connect
+      #   working-directory: ./packages/react-native
+      #   run: pnpm run figma:publish --token=${{ secrets.FIGMA_ACCESS_TOKEN }}
 
       - name: 🌝 Publish React Icons Figma Code Connect
         working-directory: ./packages/react-icons
