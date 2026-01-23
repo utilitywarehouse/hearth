@@ -8,6 +8,7 @@ RUN apk add --no-cache \
     python3 \
     make \
     && rm -rf /var/cache/apk/* \
+    && rm -f /usr/local/bin/yarn /usr/local/bin/yarnpkg \
     && npm install -g corepack@0.34.5
 RUN corepack enable && corepack prepare pnpm@9.15.2 --activate
 RUN pnpm install turbo --global
