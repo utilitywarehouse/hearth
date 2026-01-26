@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.4
+
+### Patch Changes
+
+- [#797](https://github.com/utilitywarehouse/hearth/pull/797) [`c748148`](https://github.com/utilitywarehouse/hearth/commit/c7481484cef981f0c634e5041a6f76e3b1cc5214) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `Select` - truncate selected value.
+  This change requires no changes from consumers.
+
+- [#794](https://github.com/utilitywarehouse/hearth/pull/794) [`b09bfa1`](https://github.com/utilitywarehouse/hearth/commit/b09bfa1f690e15437ab6038ec4c92c96c561e753) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Unable to click `Modal` close icon button.
+  This change requires no changes from consumers.
+
 ## 0.24.3
 
 ### Patch Changes
