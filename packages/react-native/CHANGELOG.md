@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.15.3
+
+### Patch Changes
+
+- [#801](https://github.com/utilitywarehouse/hearth/pull/801) [`6d11339`](https://github.com/utilitywarehouse/hearth/commit/6d1133997b28efa104c282522a5708f1d4d8614c) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Modal` without handle heading padding issue
+
+- [#796](https://github.com/utilitywarehouse/hearth/pull/796) [`f0ccadb`](https://github.com/utilitywarehouse/hearth/commit/f0ccadbb48fb7a7a70520d7521746a63421e01cc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `CheckboxTile` text wrapping issue
+
 ## 0.15.2
 
 ### Patch Changes
