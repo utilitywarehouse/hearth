@@ -126,7 +126,7 @@ const Select = ({
         <View>
           <Label variant={labelVariant}>
             {label}
-            {!isRequired && <Label> (Optional)</Label>}
+            {!isRequired && <Label variant={labelVariant}> (Optional)</Label>}
           </Label>
         </View>
       )}

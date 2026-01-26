@@ -76,22 +76,22 @@ const MyComponent = () => {
 
 ## Props
 
-| Property             | Type                                | Default   | Description                                                                                                          |
-| -------------------- | ----------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------- |
-| `value`              | `string`                            | -         | The value to be used in the checkbox input. This is the value that will be returned on form submission.              |
-| `onChange`           | `(value: boolean) => void`          | -         | Function called when the state of the checkbox changes.                                                              |
-| `defaultchecked`     | `bool`                              | `false`   | If true, the checkbox will be initially checked.                                                                     |
-| `checked`            | `bool`                              | `false`   | When true, the checkbox will be checked. You'll need to pass onChange update it's value (since it's now controlled). |
-| `validationStatus`   | `'valid' \| 'invalid' \| 'initial'` | -         | The validation status of the checkbox.                                                                               |
-| `disabled`           | `bool`                              | `false`   | To manually set disable to the checkbox.                                                                             |
-| `label`              | `string`                            | -         | The label to be displayed next to the checkbox.                                                                      |
-| `helperText`         | `string`                            | -         | The helper text to be displayed below the checkbox.                                                                  |
-| `helperIcon`         | `React.ComponentType`               | -         | The icon to be displayed next to the helper text.                                                                    |
-| `invalidText`        | `string`                            | -         | The invalid text to be displayed below the checkbox.                                                                 |
-| `validText`          | `string`                            | -         | The valid text to be displayed below the checkbox.                                                                   |
-| `showValidationIcon` | `boolean`                           | `true`    | Whether to show the validation icon.                                                                                 |
-| `type`               | `'default' \| 'tile'`               | `default` | The type of the checkbox.                                                                                            |
-| `image`              | `ReactNode`                         | -         | The image to be displayed next to the label.                                                                         |
+| Property             | Type                                | Default     | Description                                                                                                          |
+| -------------------- | ----------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------- |
+| `value`              | `string`                            | -           | The value to be used in the checkbox input. This is the value that will be returned on form submission.              |
+| `onChange`           | `(value: boolean) => void`          | -           | Function called when the state of the checkbox changes.                                                              |
+| `defaultchecked`     | `bool`                              | `false`     | If true, the checkbox will be initially checked.                                                                     |
+| `checked`            | `bool`                              | `false`     | When true, the checkbox will be checked. You'll need to pass onChange update it's value (since it's now controlled). |
+| `validationStatus`   | `'valid' \| 'invalid' \| 'initial'` | -           | The validation status of the checkbox.                                                                               |
+| `disabled`           | `bool`                              | `false`     | To manually set disable to the checkbox.                                                                             |
+| `label`              | `string`                            | -           | The label to be displayed next to the checkbox.                                                                      |
+| `helperText`         | `string`                            | -           | The helper text to be displayed below the checkbox.                                                                  |
+| `helperIcon`         | `React.ComponentType`               | -           | The icon to be displayed next to the helper text.                                                                    |
+| `invalidText`        | `string`                            | -           | The invalid text to be displayed below the checkbox.                                                                 |
+| `validText`          | `string`                            | -           | The valid text to be displayed below the checkbox.                                                                   |
+| `showValidationIcon` | `boolean`                           | `true`      | Whether to show the validation icon.                                                                                 |
+| `type`               | `'default' \| 'tile'`               | `'default'` | The type of the checkbox.                                                                                            |
+| `image`              | `ReactNode`                         | -           | The image to be displayed next to the label.                                                                         |
 
 ## Components
 
@@ -123,22 +123,22 @@ The `CheckboxLabel` component is used to create the label for the checkbox input
 
 The `CheckboxGroup` component is used to group multiple checkbox inputs together. It inherits all the properties of React Native's `View` component.
 
-| Property             | Type                                | Default   | Description                                                            |
-| -------------------- | ----------------------------------- | --------- | ---------------------------------------------------------------------- |
-| `value`              | string                              | -         | The value of the checkbox group.                                       |
-| `onChange`           | function                            | -         | The callback fired when any children Checkbox is checked or unchecked. |
-| `disabled`           | bool                                | -         | To manually set disable to the checkbox group.                         |
-| `validationStatus`   | `'valid' \| 'invalid' \| 'initial'` | -         | The validation status of the checkbox group.                           |
-| `label`              | `string`                            | -         | The label to be displayed above the checkbox group.                    |
-| `labelVariant`       | `'heading' \| 'body'`               | `body`    | The variant of the label text.                                         |
-| `helperText`         | `string`                            | -         | The helper text to be displayed below the checkbox group.              |
-| `helperIcon`         | `React.ComponentType`               | -         | The icon to be displayed next to the helper text.                      |
-| `invalidText`        | `string`                            | -         | The invalid text to be displayed below the checkbox group.             |
-| `validText`          | `string`                            | -         | The valid text to be displayed below the checkbox group.               |
-| `showValidationIcon` | `boolean`                           | `true`    | Whether to show the validation icon.                                   |
-| `type`               | `'default' \| 'tile'`               | `default` | The type of the checkbox group.                                        |
-| `direction`          | `'row' \| 'column'`                 | `column`  | The direction of the checkbox group.                                   |
-| `gap`                | `string`                            | -         | The gap between the checkbox group items.                              |
+| Property             | Type                                | Default     | Description                                                            |
+| -------------------- | ----------------------------------- | ----------- | ---------------------------------------------------------------------- |
+| `value`              | string                              | -           | The value of the checkbox group.                                       |
+| `onChange`           | function                            | -           | The callback fired when any children Checkbox is checked or unchecked. |
+| `disabled`           | bool                                | -           | To manually set disable to the checkbox group.                         |
+| `validationStatus`   | `'valid' \| 'invalid' \| 'initial'` | -           | The validation status of the checkbox group.                           |
+| `label`              | `string`                            | -           | The label to be displayed above the checkbox group.                    |
+| `labelVariant`       | `'heading' \| 'body'`               | `'body'`    | The variant of the label text.                                         |
+| `helperText`         | `string`                            | -           | The helper text to be displayed below the checkbox group.              |
+| `helperIcon`         | `React.ComponentType`               | -           | The icon to be displayed next to the helper text.                      |
+| `invalidText`        | `string`                            | -           | The invalid text to be displayed below the checkbox group.             |
+| `validText`          | `string`                            | -           | The valid text to be displayed below the checkbox group.               |
+| `showValidationIcon` | `boolean`                           | `true`      | Whether to show the validation icon.                                   |
+| `type`               | `'default' \| 'tile'`               | `'default'` | The type of the checkbox group.                                        |
+| `direction`          | `'row' \| 'column'`                 | `'column'`  | The direction of the checkbox group.                                   |
+| `gap`                | `string`                            | -           | The gap between the checkbox group items.                              |
 
 <UsageWrap>
     <Center>
