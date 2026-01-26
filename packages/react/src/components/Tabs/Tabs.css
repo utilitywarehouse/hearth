@@ -121,8 +121,4 @@
   & :where(.h-TabsListScrollButtonRight) {
     right: 0;
   }
-
-  & :where(.h-TabContent) {
-    width: 100%;
-  }
 }

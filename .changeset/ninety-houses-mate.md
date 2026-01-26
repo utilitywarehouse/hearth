@@ -2,12 +2,11 @@
 '@utilitywarehouse/hearth-react': patch
 ---
 
-💅 [ENHANCEMENT]: Support `Flex` props on `TabContent` component
+🐛 [FIX]: Remove default padding from `TabContent`.
 
-This change bases the `TabContent` component on the `Flex` component, allowing
-consumers to use all `Flex` props to customize its layout.
+We have removed the default padding on `TabContent`, as it shouldn't have been
+there in the first place.
 
-In doing this we have also removed the default padding on `TabContent`.
-Consumers will need to adjust their own padding in response to this change as
-`TabContent` layouts may change slightly as a result.
+Consumers will need to visual check and adjust their own padding in response to
+this change as `TabContent` layouts will change slightly as a result.
 

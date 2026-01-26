@@ -1,7 +1,6 @@
 import { Tabs as TabsPrimitive } from 'radix-ui';
 import { PropDef } from '../../props/prop-def';
 import { Responsive } from '../../types/responsive';
-import { FlexProps } from '../Flex/Flex.props';
 
 const sizes = ['md', 'lg'] as const;
 
@@ -37,5 +36,4 @@ export type TabProps = Omit<
 export type TabContentProps = Omit<
   React.ComponentPropsWithRef<typeof TabsPrimitive.TabsContent>,
   RemovedProps
-> &
-  FlexProps;
+>;

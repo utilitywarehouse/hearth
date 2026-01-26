@@ -50,14 +50,20 @@ export const Playground: Story = {
         <Tab value="security">Security</Tab>
         <Tab value="billing">Billing</Tab>
       </TabsList>
-      <TabContent value="account" paddingTop="300">
-        <BodyText>Manage your personal details and preferences.</BodyText>
+      <TabContent value="account">
+        <Flex paddingTop="300">
+          <BodyText>Manage your personal details and preferences.</BodyText>
+        </Flex>
       </TabContent>
-      <TabContent value="security" paddingTop="300">
-        <BodyText>Update your password and security settings.</BodyText>
+      <TabContent value="security">
+        <Flex paddingTop="300">
+          <BodyText>Update your password and security settings.</BodyText>
+        </Flex>
       </TabContent>
-      <TabContent value="billing" paddingTop="300">
-        <BodyText>View invoices and update payment methods.</BodyText>
+      <TabContent value="billing">
+        <Flex paddingTop="300">
+          <BodyText>View invoices and update payment methods.</BodyText>
+        </Flex>
       </TabContent>
     </Tabs>
   ),
