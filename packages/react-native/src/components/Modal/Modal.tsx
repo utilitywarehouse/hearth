@@ -168,6 +168,7 @@ const Modal = ({
     bothButtons: !!(onPressPrimaryButton && onPressSecondaryButton),
     noButtons,
     stickyFooter,
+    showHandle: props.showHandle,
   });
 
   const footer = (
@@ -349,6 +350,14 @@ const styles = StyleSheet.create((theme, rt) => ({
   header: {
     flexDirection: 'row',
     gap: theme.components.modal.gap,
+    variants: {
+      showHandle: {
+        true: {},
+        false: {
+          marginTop: -6,
+        },
+      },
+    },
   },
   headerTextContent: {
     flex: 1,
