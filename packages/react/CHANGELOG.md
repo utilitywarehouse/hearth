@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.5
+
+### Patch Changes
+
+- [#802](https://github.com/utilitywarehouse/hearth/pull/802) [`f9a357b`](https://github.com/utilitywarehouse/hearth/commit/f9a357b79e7cbbe871bbc96c26d4729853114079) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Remove default padding from `TabContent`.
+
+  We have removed the default padding on `TabContent`, as it shouldn't have been
+  there in the first place.
+
+  Consumers will need to visual check and adjust their own padding in response to
+  this change as `TabContent` layouts will change slightly as a result.
+
 ## 0.24.4
 
 ### Patch Changes
