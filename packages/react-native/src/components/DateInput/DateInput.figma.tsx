@@ -55,7 +55,7 @@ figma.connect(
       invalidText: figma.enum('State', {
         Invalid: figma.string('Validation'),
       }),
-      validationStats: figma.enum('State', {
+      validationStatus: figma.enum('State', {
         Default: undefined,
         Valid: 'valid',
         Invalid: 'invalid',
