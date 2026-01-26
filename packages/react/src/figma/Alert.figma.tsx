@@ -13,7 +13,7 @@ figma.connect(
         Danger: 'danger',
         Warning: 'warning',
       }),
-      title: figma.enum('Title?', {
+      title: figma.boolean('Title?', {
         true: figma.string('Title'),
         false: undefined,
       }),
