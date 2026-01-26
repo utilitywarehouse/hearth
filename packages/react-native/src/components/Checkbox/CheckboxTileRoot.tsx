@@ -37,6 +37,9 @@ const styles = StyleSheet.create(theme => ({
         column: {
           flex: 1,
         },
+        default: {
+          flex: 1,
+        },
       },
     },
   },
