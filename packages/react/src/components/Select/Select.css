@@ -53,6 +53,7 @@
     }
 
     & :where(.h-SelectTriggerIcon) {
+      flex-shrink: 0;
       display: inline-flex;
       align-items: center;
       color: var(--h-text-primary);
@@ -101,6 +102,10 @@
 
     &:where(:active):not([data-disabled]) {
       background-color: var(--h-interactive-functional-surface-subtle-active);
+    }
+
+    & :where(.h-SelectItemIndicator) {
+      flex-shrink: 0;
     }
   }
 
