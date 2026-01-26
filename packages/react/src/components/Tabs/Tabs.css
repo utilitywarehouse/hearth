@@ -121,9 +121,4 @@
   & :where(.h-TabsListScrollButtonRight) {
     right: 0;
   }
-
-  & :where(.h-TabPanel) {
-    width: 100%;
-    padding-top: var(--h-space-100);
-  }
 }

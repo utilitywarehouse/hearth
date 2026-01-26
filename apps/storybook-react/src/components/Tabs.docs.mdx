@@ -43,9 +43,7 @@ import { Tabs, TabsList, Tab, TabContent } from '@utilitywarehouse/hearth-react'
 </Tabs>;
 ```
 
-## Examples
-
-### Controlled
+## Controlled
 
 Tabs can be controlled by passing `value` and `onValueChange` to the `Tabs` root.
 
@@ -65,9 +63,11 @@ const [tab, setTab] = useState('account');
 
 <Canvas of={Stories.Controlled} />
 
-### Overflow & Scrolling
+## Overflow & Scrolling
 
-When tab labels exceed the available width, the list becomes horizontally scrollable. Contextual scroll buttons appear only when further scrolling is possible.
+When tab labels exceed the available width, the list becomes horizontally
+scrollable. Contextual scroll buttons appear only when further scrolling is
+possible.
 
 <Canvas of={Stories.WithScrolling} />
 
@@ -96,9 +96,14 @@ The `activationMode` prop controls how keyboard focus activates a tab:
 
 ### Performance considerations
 
-The default `automatic` mode provides the best user experience for most cases. However, **use `manual` mode when tab panels contain heavily loaded content** that might cause lag during automatic activation. This prevents automatic panel switching as users navigate with arrow keys, avoiding performance issues.
+The default `automatic` mode provides the best user experience for most cases.
+However, **use `manual` mode when tab panels contain heavily loaded content**
+that might cause lag during automatic activation. This prevents automatic panel
+switching as users navigate with arrow keys, avoiding performance issues.
 
-**Prefetching panel data is the preferred solution** over relying on manual activation mode. Consider preloading content for adjacent tabs to provide a smooth experience while maintaining the benefits of automatic activation.
+**Prefetching panel data is the preferred solution** over relying on manual
+activation mode. Consider preloading content for adjacent tabs to provide a
+smooth experience while maintaining the benefits of automatic activation.
 
 ## Accessibility
 
@@ -112,33 +117,33 @@ The default `automatic` mode provides the best user experience for most cases. H
 
 ### Tabs
 
-| Prop             | Type                       | Description                            | Default     |
-| ---------------- | -------------------------- | -------------------------------------- | ----------- |
-| `value`          | `string`                   | Controlled active tab value            | -           |
-| `defaultValue`   | `string`                   | Uncontrolled initial tab value         | first tab   |
-| `onValueChange`  | `(value: string) => void`  | Change handler                         | -           |
-| `size`           | `Responsive<"md" \| "lg">` | Size variant                           | `md`        |
-| `activationMode` | `"automatic" \| "manual"`  | How keyboard focus activates a tab     | `automatic` |
-| `children`       | `ReactNode`                | Composition: `TabsList` + `TabContent` | required    |
+| Prop             | Type                       |
+| ---------------- | -------------------------- |
+| `value`          | `string`                   |
+| `defaultValue`   | `string`                   |
+| `onValueChange`  | `(value: string) => void`  |
+| `size`           | `Responsive<"md" \| "lg">` |
+| `activationMode` | `"automatic" \| "manual"`  |
+| `children`       | `ReactNode`                |
 
 ### TabsList
 
-| Prop       | Type        | Description                | Default  |
-| ---------- | ----------- | -------------------------- | -------- |
-| `children` | `ReactNode` | One or more `Tab` elements | required |
+| Prop       | Type        |
+| ---------- | ----------- |
+| `children` | `ReactNode` |
 
 ### Tab
 
-| Prop       | Type        | Description                   | Default  |
-| ---------- | ----------- | ----------------------------- | -------- |
-| `value`    | `string`    | Unique tab value              | required |
-| `children` | `ReactNode` | Tab label (and optional icon) | required |
-| `disabled` | `boolean`   | Disabled state                | `false`  |
+| Prop       | Type        |
+| ---------- | ----------- |
+| `value`    | `string`    |
+| `children` | `ReactNode` |
+| `disabled` | `boolean`   |
 
 ### TabContent
 
-| Prop         | Type        | Description                                  | Default  |
-| ------------ | ----------- | -------------------------------------------- | -------- |
-| `value`      | `string`    | Matches a `Tab` value                        | required |
-| `children`   | `ReactNode` | Panel content                                | required |
-| `forceMount` | `boolean`   | Keep hidden panels mounted to preserve state | `false`  |
+| Prop         | Type        |
+| ------------ | ----------- |
+| `value`      | `string`    |
+| `children`   | `ReactNode` |
+| `forceMount` | `boolean`   |

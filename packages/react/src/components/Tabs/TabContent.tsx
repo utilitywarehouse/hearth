@@ -5,7 +5,7 @@ import { Tabs as TabsPrimitive } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { TabContentProps } from './Tabs.props';
 
-const COMPONENT_NAME = 'TabPanel';
+const COMPONENT_NAME = 'TabContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const TabContent = ({ className, ...props }: TabContentProps) => {
