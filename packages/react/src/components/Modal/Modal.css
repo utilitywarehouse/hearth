@@ -78,6 +78,7 @@
     position: absolute;
     top: var(--h-modal-padding);
     right: var(--h-modal-padding);
+    z-index: 1;
   }
 
   & :where(.h-ModalInnerContainer) {
