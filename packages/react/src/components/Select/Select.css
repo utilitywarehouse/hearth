@@ -103,6 +103,10 @@
     &:where(:active):not([data-disabled]) {
       background-color: var(--h-interactive-functional-surface-subtle-active);
     }
+
+    & :where(.h-SelectItemIndicator) {
+      flex-shrink: 0;
+    }
   }
 
   & :where(span[aria-hidden='true']:has(svg)) {
