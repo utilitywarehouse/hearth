@@ -7,11 +7,11 @@ figma.connect(
   'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=90-432&m=dev',
   {
     props: {
-      iconLeft: figma.enum('Show icon left?', {
+      iconLeft: figma.boolean('Show icon left?', {
         true: figma.instance('Icon left-20'),
         false: undefined,
       }),
-      iconRight: figma.enum('Show icon right?', {
+      iconRight: figma.boolean('Show icon right?', {
         true: figma.instance('Icon right-20'),
         false: undefined,
       }),
