@@ -27,7 +27,13 @@ RadioCardIndicator.displayName = 'RadioCardIndicator';
 RadioCardIcon.displayName = 'RadioCardIcon';
 RadioCardLabel.displayName = 'RadioCardLabel';
 
-const RadioCard = ({ children, label, contentStyle, ...props }: RadioCardProps) => {
+const RadioCard = ({
+  children,
+  label,
+  labelVariant = 'body',
+  contentStyle,
+  ...props
+}: RadioCardProps) => {
   const { computedStyles } = useStyleProps(props);
   return (
     <RadioCardComponent {...props}>
@@ -35,7 +41,7 @@ const RadioCard = ({ children, label, contentStyle, ...props }: RadioCardProps) 
         <RadioCardIndicator>
           <RadioCardIcon />
         </RadioCardIndicator>
-        {!!label && <RadioCardLabel>{label}</RadioCardLabel>}
+        {!!label && <RadioCardLabel variant={labelVariant}>{label}</RadioCardLabel>}
       </View>
       {!!children && <View style={[computedStyles, contentStyle]}>{children}</View>}
     </RadioCardComponent>

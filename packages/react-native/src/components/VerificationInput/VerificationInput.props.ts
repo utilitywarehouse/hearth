@@ -15,6 +15,10 @@ export interface VerificationInputProps extends ViewProps {
    */
   label?: string;
   /**
+   * The label variant for the input.
+   */
+  labelVariant?: 'heading' | 'body';
+  /**
    * Helper text to display below the input.
    */
   helperText?: string;
@@ -49,4 +53,3 @@ export interface VerificationInputProps extends ViewProps {
 }
 
 export default VerificationInputProps;
-

@@ -1,6 +1,6 @@
 import { ComponentType } from 'react';
-import { space } from '../../tokens';
 import { ViewProps } from 'react-native';
+import { space } from '../../tokens';
 
 interface CheckboxGroupProps extends ViewProps {
   disabled?: boolean;
@@ -9,6 +9,7 @@ interface CheckboxGroupProps extends ViewProps {
   readonly?: boolean;
   validationStatus?: 'valid' | 'invalid' | 'initial';
   label?: string;
+  labelVariant?: 'heading' | 'body';
   helperText?: string;
   showValidationIcon?: boolean;
   invalidText?: string;

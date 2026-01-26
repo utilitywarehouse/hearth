@@ -44,6 +44,16 @@ interface SelectProps extends ViewProps {
    */
   label?: string;
   /**
+   * The variant of the label text.
+   *
+   * Supported values are:
+   * - `'heading'` – use heading text styling for the label.
+   * - `'body'` – use body text styling for the label.
+   *
+   * @default 'body'.
+   */
+  labelVariant?: 'heading' | 'body';
+  /**
    * Placeholder text to show when no value is selected
    */
   placeholder?: string;

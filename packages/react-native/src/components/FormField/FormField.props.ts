@@ -6,6 +6,7 @@ export interface FormFieldBaseProps {
   disabled?: boolean;
   readonly?: boolean;
   label?: string;
+  labelVariant?: 'heading' | 'body';
   helperText?: string;
   helperIcon?: ComponentType;
   validText?: string;

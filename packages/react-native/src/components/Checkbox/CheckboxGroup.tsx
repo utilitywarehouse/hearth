@@ -14,6 +14,7 @@ const CheckboxGroup = ({
   readonly,
   validationStatus,
   label,
+  labelVariant = 'body',
   helperText,
   invalidText,
   validText,
@@ -50,7 +51,11 @@ const CheckboxGroup = ({
       >
         {showHeader && (
           <CheckboxGroupTextContent>
-            {!!label && <Label disabled={disabled}>{label}</Label>}
+            {!!label && (
+              <Label disabled={disabled} variant={labelVariant}>
+                {label}
+              </Label>
+            )}
             {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
             {validationStatus === 'invalid' && !!invalidText && (
               <Helper
