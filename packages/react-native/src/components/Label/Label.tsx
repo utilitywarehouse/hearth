@@ -1,9 +1,19 @@
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
+import { Heading } from '../Heading';
 import LabelProps from './Label.props';
 
-const Label = ({ children, nested, disabled, style, ...props }: LabelProps) => {
+const Label = ({ children, nested, disabled, style, variant = 'body', ...props }: LabelProps) => {
   styles.useVariants({ disabled });
+
+  if (variant === 'heading') {
+    return (
+      <Heading size="md" style={[styles.text, style]} {...props}>
+        {children}
+      </Heading>
+    );
+  }
+
   return (
     <BodyText
       size="md"

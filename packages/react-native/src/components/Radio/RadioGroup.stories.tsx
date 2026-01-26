@@ -19,6 +19,11 @@ const meta = {
       control: 'text',
       description: 'The label component for the radio group.',
     },
+    labelVariant: {
+      control: 'radio',
+      options: ['heading', 'body'],
+      description: 'The variant of the label text.',
+    },
     helperText: {
       type: 'string',
       control: 'text',
@@ -51,6 +56,7 @@ const meta = {
   args: {
     disabled: false,
     label: 'Group label',
+    labelVariant: 'body',
     helperText: 'Supporting text',
     validationStatus: 'initial',
     showValidationIcon: true,

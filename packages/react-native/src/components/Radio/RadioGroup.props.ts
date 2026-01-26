@@ -9,6 +9,7 @@ interface RadioGroupProps extends ViewProps {
   readonly?: boolean;
   validationStatus?: 'valid' | 'invalid' | 'initial';
   label?: string;
+  labelVariant?: 'heading' | 'body';
   helperText?: string;
   showValidationIcon?: boolean;
   invalidText?: string;

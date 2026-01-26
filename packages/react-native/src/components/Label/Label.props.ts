@@ -1,8 +1,9 @@
-import type TextProps from '../BodyText/BodyText.props';
+import { BodyTextProps } from '../BodyText';
 
-interface LabelProps extends TextProps {
+interface LabelProps extends Omit<BodyTextProps, 'size' | 'weight'> {
   nested?: boolean;
   disabled?: boolean;
+  variant?: 'heading' | 'body';
 }
 
 export default LabelProps;

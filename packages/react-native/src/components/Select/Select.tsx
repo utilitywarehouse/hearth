@@ -23,6 +23,7 @@ const Select = ({
   value,
   onValueChange,
   label,
+  labelVariant = 'body',
   placeholder = 'Select an option',
   disabled = false,
   leadingIcon: LeadingIcon,
@@ -123,7 +124,7 @@ const Select = ({
     <View {...rest} style={[styles.container, rest.style]}>
       {!!label && (
         <View>
-          <Label>
+          <Label variant={labelVariant}>
             {label}
             {!isRequired && <Label> (Optional)</Label>}
           </Label>

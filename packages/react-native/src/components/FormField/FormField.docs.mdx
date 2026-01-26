@@ -1,32 +1,28 @@
-import { Meta, Controls, Story, Canvas } from '@storybook/addon-docs/blocks';
-import * as Stories from './FormField.stories';
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
+import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import {
-  Input,
-  InputField,
+  Center,
   FormField,
   FormFieldHelper,
   FormFieldHelperText,
+  FormFieldInvalid,
+  FormFieldInvalidIcon,
+  FormFieldInvalidText,
   FormFieldLabel,
   FormFieldLabelText,
-  FormFieldInvalidIcon,
-  FormFieldInvalid,
-  FormFieldInvalidText,
-  FormFieldValidIcon,
-  FormFieldValid,
-  FormFieldValidText,
   FormFieldTextContent,
-  Center,
-  RadioGroup,
+  FormFieldValid,
+  FormFieldValidIcon,
+  FormFieldValidText,
+  Input,
+  InputField,
   Radio,
+  RadioGroup,
   RadioIndicator,
   RadioLabel,
-  // Checkbox,
-  // CheckboxIndicator,
-  // CheckboxIcon,
-  // CheckboxLabel,
 } from '../../';
-import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './FormField.stories';
 
 <Meta title="Forms / Form Field" />
 
@@ -122,6 +118,7 @@ const MyComponent = () => {
 | `disabled`           | `boolean`                           | `false`     | Whether the field is disabled.                                   |
 | `readonly`           | `boolean`                           | `false`     | Whether the field is readonly.                                   |
 | `label`              | `string`                            | `-`         | The label for the field.                                         |
+| `labelVariant`       | `'heading' \| 'body'`               | `'body'`    | The variant of the label text.                                   |
 | `helperText`         | `string`                            | `-`         | The helper text for the field.                                   |
 | `helperIcon`         | `React.ComponentType`               | `-`         | The icon for the helper text.                                    |
 | `helperPosition`     | `'top' \| 'bottom'`                 | `'top'`     | The position of the helper text.                                 |

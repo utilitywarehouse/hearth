@@ -28,6 +28,12 @@ const meta = {
       description: 'The label of the Input component',
       defaultValue: 'Label',
     },
+    labelVariant: {
+      control: 'radio',
+      options: ['heading', 'body'],
+      description: 'The label variant of the Input component',
+      defaultValue: 'body',
+    },
     helperText: {
       control: 'text',
       description: 'The helper text of the Input component',
@@ -37,7 +43,7 @@ const meta = {
       control: 'select',
       options: ['none', ...Object.keys(Icons).filter(icon => icon.includes('Medium'))],
       description: 'The helper text icon of the Input component',
-      defaultValue: 'Helper text icon',
+      defaultValue: 'none',
     },
 
     validText: {
@@ -55,9 +61,9 @@ const meta = {
     validationStatus: 'initial',
     disabled: false,
     label: 'Label',
+    labelVariant: 'body',
     helperText: 'Helper text',
     helperIcon: undefined,
-
     validText: 'Valid text',
     invalidText: 'Invalid error text',
   },

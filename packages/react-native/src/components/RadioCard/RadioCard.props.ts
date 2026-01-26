@@ -7,6 +7,7 @@ interface RadioCardProps extends Omit<PressableProps, 'children'> {
   onChange?: (isSelected: boolean) => void;
   children?: ViewProps['children'];
   label?: string;
+  labelVariant?: 'heading' | 'body';
   flexDirection?: ViewStyle['flexDirection'];
   flexWrap?: ViewStyle['flexWrap'];
   alignItems?: ViewStyle['alignItems'];

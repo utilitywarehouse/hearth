@@ -44,6 +44,10 @@ interface SelectProps extends ViewProps {
    */
   label?: string;
   /**
+   * Label variant for the select
+   */
+  labelVariant?: 'heading' | 'body';
+  /**
    * Placeholder text to show when no value is selected
    */
   placeholder?: string;

@@ -46,6 +46,7 @@ const FormField = ({
   validText,
   invalidText,
   required = true,
+  labelVariant = 'body',
   ...props
 }: FormFieldProps) => {
   const value = useMemo(
@@ -64,7 +65,7 @@ const FormField = ({
         {(!!label || !!helperText) && (
           <FormFieldTextContent>
             {!!label && (
-              <FormFieldLabelText>
+              <FormFieldLabelText variant={labelVariant}>
                 {label}
                 {!required ? ` (Optional)` : ''}
               </FormFieldLabelText>

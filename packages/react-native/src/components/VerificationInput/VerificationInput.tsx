@@ -9,6 +9,7 @@ const VerificationInput = ({
   value = '',
   onChangeText,
   label,
+  labelVariant = 'body',
   helperText,
   helperIcon,
   validationStatus = 'initial',
@@ -32,6 +33,7 @@ const VerificationInput = ({
   return (
     <FormField
       label={label}
+      labelVariant={labelVariant}
       helperText={helperText}
       helperIcon={helperIcon}
       validationStatus={validationStatus}
