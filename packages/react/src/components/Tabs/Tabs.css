@@ -122,8 +122,7 @@
     right: 0;
   }
 
-  & :where(.h-TabPanel) {
+  & :where(.h-TabContent) {
     width: 100%;
-    padding-top: var(--h-space-100);
   }
 }

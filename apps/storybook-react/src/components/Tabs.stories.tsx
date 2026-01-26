@@ -7,7 +7,6 @@ import {
   TabContent,
   Flex,
   BodyText,
-  Heading,
   Button,
 } from '@utilitywarehouse/hearth-react';
 import {
@@ -51,13 +50,13 @@ export const Playground: Story = {
         <Tab value="security">Security</Tab>
         <Tab value="billing">Billing</Tab>
       </TabsList>
-      <TabContent value="account">
+      <TabContent value="account" paddingTop="300">
         <BodyText>Manage your personal details and preferences.</BodyText>
       </TabContent>
-      <TabContent value="security">
+      <TabContent value="security" paddingTop="300">
         <BodyText>Update your password and security settings.</BodyText>
       </TabContent>
-      <TabContent value="billing">
+      <TabContent value="billing" paddingTop="300">
         <BodyText>View invoices and update payment methods.</BodyText>
       </TabContent>
     </Tabs>
