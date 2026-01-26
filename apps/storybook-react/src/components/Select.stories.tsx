@@ -60,3 +60,30 @@ export const ScrollArea: Story = {
     );
   },
 };
+
+export const Truncate: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
+  args: { defaultOpen: true, defaultValue: '2' },
+  render: args => {
+    return (
+      <Select {...args}>
+        <SelectItem value="1">
+          1 Riverside Cottage, Shepherds Way, Longvillagename, Picturesqueville,
+          Wordyvocabularyshire, PP11 1AB
+        </SelectItem>
+        <SelectItem value="2">
+          2 Riverside Cottage, Shepherds Way, Longvillagename, Picturesqueville,
+          Wordyvocabularyshire, PP11 1AB
+        </SelectItem>
+        <SelectItem value="3">
+          3 Riverside Cottage, Shepherds Way, Longvillagename, Picturesqueville,
+          Wordyvocabularyshire, PP11 1AB
+        </SelectItem>
+        <SelectItem value="4">
+          4 Riverside Cottage, Shepherds Way, Longvillagename, Picturesqueville,
+          Wordyvocabularyshire, PP11 1AB
+        </SelectItem>
+      </Select>
+    );
+  },
+};

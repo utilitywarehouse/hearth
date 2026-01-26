@@ -63,10 +63,7 @@ export const Select = (props: SelectProps) => {
           className={`${componentClassName}Trigger`}
           disabled={disabled}
         >
-          <SelectPrimitive.Value
-            className={`${componentClassName}Value`}
-            placeholder={placeholder}
-          />
+          <SelectPrimitive.Value placeholder={placeholder} data-truncate />
           <SelectPrimitive.Icon className={`${componentClassName}TriggerIcon`}>
             <ExpandSmallIcon />
           </SelectPrimitive.Icon>

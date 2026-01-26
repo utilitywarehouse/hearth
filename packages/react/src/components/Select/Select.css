@@ -53,6 +53,7 @@
     }
 
     & :where(.h-SelectTriggerIcon) {
+      flex-shrink: 0;
       display: inline-flex;
       align-items: center;
       color: var(--h-text-primary);
