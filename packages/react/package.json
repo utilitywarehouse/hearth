@@ -51,6 +51,7 @@
     "dist/**",
     "*.css"
   ],
+  "packageManager": "pnpm@10.28.2",
   "peerDependencies": {
     "@utilitywarehouse/hearth-fonts": "workspace:*",
     "@utilitywarehouse/hearth-react-icons": "0.7.2",
