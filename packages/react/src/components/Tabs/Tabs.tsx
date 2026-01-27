@@ -6,6 +6,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { tabsPropDefs } from './Tabs.props';
 import type { TabsProps } from './Tabs.props';
+import { Flex } from '../Flex/Flex';
 
 const COMPONENT_NAME = 'Tabs';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -14,15 +15,18 @@ export const Tabs = (props: TabsProps) => {
   const {
     className,
     activationMode = 'automatic',
+    spacing = 'xl',
     ...tabsProps
   } = extractProps(props, tabsPropDefs);
 
   return (
-    <RadixTabs.Root
-      className={cn(componentClassName, className)}
-      activationMode={activationMode}
-      {...tabsProps}
-    />
+    <Flex asChild direction="column" spacing={spacing}>
+      <RadixTabs.Root
+        className={cn(componentClassName, className)}
+        activationMode={activationMode}
+        {...tabsProps}
+      />
+    </Flex>
   );
 };
 

@@ -51,19 +51,13 @@ export const Playground: Story = {
         <Tab value="billing">Billing</Tab>
       </TabsList>
       <TabContent value="account">
-        <Flex paddingTop="300">
-          <BodyText>Manage your personal details and preferences.</BodyText>
-        </Flex>
+        <BodyText>Manage your personal details and preferences.</BodyText>
       </TabContent>
       <TabContent value="security">
-        <Flex paddingTop="300">
-          <BodyText>Update your password and security settings.</BodyText>
-        </Flex>
+        <BodyText>Update your password and security settings.</BodyText>
       </TabContent>
       <TabContent value="billing">
-        <Flex paddingTop="300">
-          <BodyText>View invoices and update payment methods.</BodyText>
-        </Flex>
+        <BodyText>View invoices and update payment methods.</BodyText>
       </TabContent>
     </Tabs>
   ),
