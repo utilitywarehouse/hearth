@@ -4,10 +4,8 @@ import { FormFieldProps } from '../FormField/FormField.props';
 import { Combobox as ComboboxPrimitive } from '@base-ui-components/react/combobox';
 
 export interface ComboboxProps<Value, Multiple extends boolean | undefined = false>
-  extends Omit<
-      ComponentPropsWithRef<typeof ComboboxPrimitive.Root<Value, Multiple>>,
-      'openOnInputClick'
-    >,
+  extends
+    Omit<ComponentPropsWithRef<typeof ComboboxPrimitive.Root<Value, Multiple>>, 'openOnInputClick'>,
     Pick<ComboboxPrimitive.Trigger.Props, 'disabled'>,
     Omit<FormFieldProps, 'hideLabel'>,
     MarginProps {

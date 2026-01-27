@@ -4,7 +4,8 @@ import { TextTransformProps } from '../../props/text-transform.props';
 import { TextWrapProps } from '../../props/text-wrap.props';
 
 export interface StrongProps
-  extends React.ComponentPropsWithRef<'strong'>,
+  extends
+    React.ComponentPropsWithRef<'strong'>,
     TextAlignProps,
     TextTransformProps,
     TextWrapProps,

@@ -1,10 +1,9 @@
 import { NotInputTextualAttributes } from '../../helpers/input-attributes';
 
-export interface InputBaseProps
-  extends Omit<
-    React.ComponentPropsWithRef<'input'>,
-    NotInputTextualAttributes | 'color' | 'defaultValue' | 'size' | 'type' | 'value'
-  > {
+export interface InputBaseProps extends Omit<
+  React.ComponentPropsWithRef<'input'>,
+  NotInputTextualAttributes | 'color' | 'defaultValue' | 'size' | 'type' | 'value'
+> {
   type?: 'email' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
   /**
    * The initial value of the input when rendered.

@@ -5,7 +5,8 @@ import { FormGroupBaseProps } from '../FormGroupBase/FormGroupBase.props';
 type DivProps = Omit<React.ComponentPropsWithoutRef<'div'>, 'defaultValue'>;
 
 export interface RadioGroupProps
-  extends Omit<
+  extends
+    Omit<
       React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.RadioGroup>,
       'dir' | 'orientation' | keyof DivProps
     >,

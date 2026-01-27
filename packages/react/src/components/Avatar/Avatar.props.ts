@@ -12,7 +12,8 @@ export const avatarPropDefs = {
 };
 
 export interface AvatarProps
-  extends Omit<
+  extends
+    Omit<
       React.ComponentPropsWithRef<typeof AvatarPrimitive.Root>,
       keyof AvatarPrimitive.AvatarImageProps | 'asChild'
     >,

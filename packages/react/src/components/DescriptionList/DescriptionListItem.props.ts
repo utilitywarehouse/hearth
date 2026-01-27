@@ -1,5 +1,7 @@
-export interface DescriptionListItemProps
-  extends Omit<React.ComponentPropsWithRef<'div'>, 'color'> {
+export interface DescriptionListItemProps extends Omit<
+  React.ComponentPropsWithRef<'div'>,
+  'color'
+> {
   /**
    * Description term
    */

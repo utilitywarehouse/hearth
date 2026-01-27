@@ -5,8 +5,6 @@ import { Responsive } from '../../types/responsive';
 type ElementProps = React.ComponentPropsWithRef<'dl'>;
 
 export interface DescriptionListProps
-  extends ElementProps,
-    Omit<SectionHeaderProps, keyof ElementProps>,
-    MarginProps {
+  extends ElementProps, Omit<SectionHeaderProps, keyof ElementProps>, MarginProps {
   direction?: Responsive<'row' | 'column'>;
 }

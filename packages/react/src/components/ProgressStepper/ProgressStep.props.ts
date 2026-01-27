@@ -11,11 +11,11 @@ export interface ProgressStepProps extends React.ComponentPropsWithRef<'li'> {
 
 type ButtonElementProps = React.ComponentPropsWithRef<'button'>;
 export interface ProgressStepButtonProps
-  extends ButtonElementProps,
-    Omit<ProgressStepProps, keyof ButtonElementProps> {}
+  extends ButtonElementProps, Omit<ProgressStepProps, keyof ButtonElementProps> {}
 
 type LinkElementProps = React.ComponentPropsWithRef<'a'>;
 export interface ProgressStepLinkProps
-  extends LinkElementProps,
+  extends
+    LinkElementProps,
     Omit<ProgressStepProps, keyof LinkElementProps>,
     Pick<ButtonElementProps, 'disabled'> {}

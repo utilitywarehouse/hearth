@@ -3,7 +3,8 @@ import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
 
 export interface HelperTextProps
-  extends Omit<React.ComponentPropsWithRef<'span'>, 'color'>,
+  extends
+    Omit<React.ComponentPropsWithRef<'span'>, 'color'>,
     MarginProps,
     TextAlignProps,
     TextTransformProps {

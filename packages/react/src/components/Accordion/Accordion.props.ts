@@ -3,7 +3,8 @@ import { SectionHeaderProps } from '../SectionHeader/SectionHeader.props';
 import { MarginProps } from '../../props/margin.props';
 
 export interface AccordionProps
-  extends Omit<
+  extends
+    Omit<
       React.ComponentPropsWithRef<typeof AccordionPrimitive.Root>,
       'orientation' | 'asChild' | 'dir'
     >,
