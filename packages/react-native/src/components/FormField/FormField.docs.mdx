@@ -112,20 +112,23 @@ const MyComponent = () => {
 
 ## Props
 
-| Name                 | Type                                | Default     | Description                                                      |
-| -------------------- | ----------------------------------- | ----------- | ---------------------------------------------------------------- |
-| `validationStatus`   | `'initial' \| 'valid' \| 'invalid'` | `'initial'` | The validation status of the field.                              |
-| `disabled`           | `boolean`                           | `false`     | Whether the field is disabled.                                   |
-| `readonly`           | `boolean`                           | `false`     | Whether the field is readonly.                                   |
-| `label`              | `string`                            | `-`         | The label for the field.                                         |
-| `labelVariant`       | `'heading' \| 'body'`               | `'body'`    | The variant of the label text.                                   |
-| `helperText`         | `string`                            | `-`         | The helper text for the field.                                   |
-| `helperIcon`         | `React.ComponentType`               | `-`         | The icon for the helper text.                                    |
-| `helperPosition`     | `'top' \| 'bottom'`                 | `'top'`     | The position of the helper text.                                 |
-| `validText`          | `string`                            | `-`         | The valid text for the field.                                    |
-| `invalidText`        | `string`                            | `-`         | The invalid text for the field.                                  |
-| `showValidationIcon` | `boolean`                           | `false`     | Whether to show the validation icon next to the validation text. |
-| `required`           | `boolean`                           | `true`      | Whether the field is required.                                   |
+| Name                               | Type                                | Default     | Description                                                                                          |
+| ---------------------------------- | ----------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------- |
+| `validationStatus`                 | `'initial' \| 'valid' \| 'invalid'` | `'initial'` | The validation status of the field.                                                                  |
+| `disabled`                         | `boolean`                           | `false`     | Whether the field is disabled.                                                                       |
+| `readonly`                         | `boolean`                           | `false`     | Whether the field is readonly.                                                                       |
+| `label`                            | `string`                            | `-`         | The label for the field.                                                                             |
+| `labelVariant`                     | `'heading' \| 'body'`               | `'body'`    | The variant of the label text.                                                                       |
+| `helperText`                       | `string`                            | `-`         | The helper text for the field.                                                                       |
+| `helperIcon`                       | `React.ComponentType`               | `-`         | The icon for the helper text.                                                                        |
+| `helperPosition`                   | `'top' \| 'bottom'`                 | `'top'`     | The position of the helper text.                                                                     |
+| `validText`                        | `string`                            | `-`         | The valid text for the field.                                                                        |
+| `invalidText`                      | `string`                            | `-`         | The invalid text for the field.                                                                      |
+| `showValidationIcon`               | `boolean`                           | `false`     | Whether to show the validation icon next to the validation text.                                     |
+| `required`                         | `boolean`                           | `true`      | Whether the field is required.                                                                       |
+| `accessibilityHandledByChildren`\* | `boolean`                           | `false`     | Whether accessibility is handled by child components. (Hides accessibility for the FormField itself) |
+
+- This prop is useful when the child component (e.g., Input) manages its own accessibility attributes, preventing screen readers from reading the FormField's label and helper text multiple times.
 
 ## Components
 

@@ -1,5 +1,5 @@
 import { createInput } from '@gluestack-ui/input';
-import { ComponentType, forwardRef, useImperativeHandle, useRef, useState } from 'react';
+import { ComponentType, forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { TextInput } from 'react-native';
 import type InputProps from './Input.props';
 
@@ -10,7 +10,7 @@ import {
   SearchMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useTheme } from '../../hooks';
-import { useFormFieldContext } from '../FormField';
+import { FormField, useFormFieldContext } from '../FormField';
 import { Spinner } from '../Spinner';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import { InputWithoutChildrenProps } from './Input.props';
@@ -46,17 +46,35 @@ const Input = forwardRef<TextInput, InputProps>(
       format,
       loading,
       clearable = false,
-      required,
+      required = true,
       inBottomSheet = false,
       style,
+      label,
+      labelVariant,
+      helperText,
+      helperIcon,
+      validText,
+      invalidText,
       ...props
     },
     ref
   ) => {
     const formFieldContext = useFormFieldContext();
-    const { disabled: formFieldDisabled } = formFieldContext;
-    const validationStatusFromContext = formFieldContext?.validationStatus ?? validationStatus;
-    const isRequired = formFieldContext?.required ?? required;
+    const inputLabel = label ?? formFieldContext?.label;
+    const inputHelperText = helperText ?? formFieldContext?.helperText;
+    const inputValidText = validText ?? formFieldContext?.validText;
+    const inputInvalidText = invalidText ?? formFieldContext?.invalidText;
+    const inputRequired = required ?? formFieldContext?.required;
+    const inputDisabled = disabled ?? formFieldContext?.disabled;
+    const inputReadonly = readonly ?? formFieldContext?.readonly;
+    const inputValidationStatus = formFieldContext?.validationStatus ?? validationStatus;
+
+    useEffect(() => {
+      if (formFieldContext?.setShouldHandleAccessibility) {
+        formFieldContext.setShouldHandleAccessibility(true);
+      }
+    }, []);
+
     const [fieldType, setFieldType] = useState<'password' | 'text'>(
       type === 'password' ? 'password' : 'text'
     );
@@ -87,61 +105,108 @@ const Input = forwardRef<TextInput, InputProps>(
       return undefined;
     })();
 
+    const getAccessibilityLabel = () => {
+      let accessibilityLabel = '';
+      if (inputLabel) {
+        accessibilityLabel = accessibilityLabel + inputLabel;
+      }
+      if (inputRequired) {
+        accessibilityLabel = accessibilityLabel + ', required';
+      }
+
+      return accessibilityLabel || props.accessibilityLabel;
+    };
+
+    const getAccessibilityHint = () => {
+      let accessibilityHint = '';
+      if (inputHelperText) {
+        accessibilityHint = accessibilityHint + inputHelperText;
+      }
+      if (inputValidationStatus !== 'initial') {
+        if (accessibilityHint.length > 0) {
+          accessibilityHint = accessibilityHint + ', ';
+        }
+        if (inputValidationStatus === 'invalid' && inputInvalidText) {
+          accessibilityHint = accessibilityHint + inputInvalidText;
+        }
+        if (inputValidationStatus === 'valid' && inputValidText) {
+          accessibilityHint = accessibilityHint + inputValidText;
+        }
+      }
+      return accessibilityHint || props.accessibilityHint;
+    };
+
     return (
-      <InputComponent
-        {...(children ? props : {})}
-        validationStatus={validationStatusFromContext}
-        isInvalid={validationStatusFromContext === 'invalid'}
-        isReadOnly={readonly}
-        isDisabled={formFieldDisabled ?? disabled}
-        isFocused={focused}
-        type={type as undefined}
-        isRequired={isRequired}
-        style={style}
+      <FormField
+        label={label}
+        labelVariant={labelVariant}
+        helperText={helperText}
+        helperIcon={helperIcon}
+        validText={validText}
+        invalidText={invalidText}
+        required={required}
+        validationStatus={validationStatus}
+        disabled={disabled}
+        readonly={readonly}
+        accessibilityHandledByChildren
       >
-        {children ? (
-          <>{children}</>
-        ) : (
-          <>
-            {!!leadingIconComponent && (
-              <InputSlot>
-                <InputIcon as={leadingIconComponent} />
-              </InputSlot>
-            )}
-            <InputField
-              // @ts-expect-error - ref forwarding issue
-              ref={inputRef}
-              type={fieldType}
-              inputMode={getInputMode}
-              inBottomSheet={inBottomSheet}
-              {...props}
-            />
-            {shouldShowClear && (
-              <InputSlot>
-                <UnstyledIconButton onPress={onClear} icon={CloseSmallIcon} />
-              </InputSlot>
-            )}
-            {loading && (
-              <InputSlot>
-                <Spinner size="xs" color={color.icon.primary} />
-              </InputSlot>
-            )}
-            {shouldShowPasswordToggle && (
-              <InputSlot>
-                <UnstyledIconButton
-                  onPress={toggleFieldType}
-                  icon={fieldType === 'password' ? EyeSmallIcon : EyeOffSmallIcon}
-                />
-              </InputSlot>
-            )}
-            {!!trailingIcon && (
-              <InputSlot>
-                <InputIcon as={trailingIcon} />
-              </InputSlot>
-            )}
-          </>
-        )}
-      </InputComponent>
+        <InputComponent
+          {...(children ? props : {})}
+          validationStatus={inputValidationStatus}
+          isInvalid={inputValidationStatus === 'invalid'}
+          isReadOnly={inputReadonly}
+          isDisabled={inputDisabled}
+          isFocused={focused}
+          type={type as undefined}
+          isRequired={inputRequired}
+          style={style}
+        >
+          {children ? (
+            <>{children}</>
+          ) : (
+            <>
+              {!!leadingIconComponent && (
+                <InputSlot>
+                  <InputIcon as={leadingIconComponent} />
+                </InputSlot>
+              )}
+              <InputField
+                // @ts-expect-error - ref forwarding issue
+                ref={inputRef}
+                type={fieldType}
+                inputMode={getInputMode}
+                inBottomSheet={inBottomSheet}
+                {...props}
+                aria-label={getAccessibilityLabel()}
+                accessibilityHint={getAccessibilityHint()}
+              />
+              {shouldShowClear && (
+                <InputSlot>
+                  <UnstyledIconButton onPress={onClear} icon={CloseSmallIcon} />
+                </InputSlot>
+              )}
+              {loading && (
+                <InputSlot>
+                  <Spinner size="xs" color={color.icon.primary} />
+                </InputSlot>
+              )}
+              {shouldShowPasswordToggle && (
+                <InputSlot>
+                  <UnstyledIconButton
+                    onPress={toggleFieldType}
+                    icon={fieldType === 'password' ? EyeSmallIcon : EyeOffSmallIcon}
+                  />
+                </InputSlot>
+              )}
+              {!!trailingIcon && (
+                <InputSlot>
+                  <InputIcon as={trailingIcon} />
+                </InputSlot>
+              )}
+            </>
+          )}
+        </InputComponent>
+      </FormField>
     );
   }
 );

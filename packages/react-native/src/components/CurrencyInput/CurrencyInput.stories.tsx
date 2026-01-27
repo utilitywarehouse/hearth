@@ -22,6 +22,35 @@ const meta = {
       description: 'The validation status',
       defaultValue: 'initial',
     },
+    label: {
+      control: 'text',
+      description: 'The label for the CurrencyInput',
+      defaultValue: 'Currency Input Label',
+    },
+    helperText: {
+      control: 'text',
+      description: 'The helper text for the CurrencyInput',
+      defaultValue: 'Supporting text',
+    },
+    labelVariant: {
+      control: 'radio',
+      options: ['heading', 'body'],
+      description: 'The label text variant',
+    },
+    helperIcon: {
+      control: 'object',
+      description: 'The helper icon component',
+    },
+    validText: {
+      control: 'text',
+      description: 'The valid text for the CurrencyInput',
+      defaultValue: 'Valid text',
+    },
+    invalidText: {
+      control: 'text',
+      description: 'The invalid text for the CurrencyInput',
+      defaultValue: 'Invalid text',
+    },
     disabled: {
       control: 'boolean',
       description: 'Disable the input',
@@ -107,7 +136,7 @@ export const States: Story = {
           <CurrencyInput disabled />
         </VariantTitle>
         <VariantTitle title="Readonly">
-          <CurrencyInput readonly value="11666"/>
+          <CurrencyInput readonly value="11666" />
         </VariantTitle>
         <VariantTitle title="Disable auto format thousands">
           <CurrencyInput disableGroupSeparator value="1234.56" />

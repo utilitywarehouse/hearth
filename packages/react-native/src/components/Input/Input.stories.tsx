@@ -82,7 +82,15 @@ export const Playground: Story = {
     const leadingIcon = leading === 'none' ? undefined : Icons[leading];
     // @ts-expect-error - This is a playground
     const trailingIcon = trailing === 'none' ? undefined : Icons[trailing];
-    return <Input {...args} leadingIcon={leadingIcon} trailingIcon={trailingIcon} />;
+    return (
+      <Input
+        {...args}
+        leadingIcon={leadingIcon}
+        trailingIcon={trailingIcon}
+        label="First Name"
+        helperText="Only enter your first name, not your full name"
+      />
+    );
   },
 };
 

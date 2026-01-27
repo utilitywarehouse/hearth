@@ -12,6 +12,12 @@ export interface CurrencyInputBaseProps {
   required?: boolean;
   /** When not specifically disabled, the numeric value is automatically formatted with thousand separators (e.g. 1234 -> 1,234). */
   disableGroupSeparator?: boolean;
+  label?: string;
+  labelVariant?: 'heading' | 'body';
+  helperText?: string;
+  helperIcon?: React.ComponentType;
+  validText?: string;
+  invalidText?: string;
 }
 
 export type CurrencyInputProps = CurrencyInputBaseProps &

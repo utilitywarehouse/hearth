@@ -75,7 +75,6 @@ const styles = StyleSheet.create(theme => ({
     },
   },
   input: {
-    flex: 1,
     maxWidth: 96,
   },
 }));
