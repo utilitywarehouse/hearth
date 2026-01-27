@@ -2,7 +2,6 @@ import { Platform } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { formatThousands } from '../../utils';
 import { DetailText } from '../DetailText';
-import { useFormFieldContext } from '../FormField';
 import { Input, InputField, InputSlot } from '../Input';
 import type CurrencyInputProps from './CurrencyInput.props';
 
@@ -17,13 +16,15 @@ const CurrencyInput = ({
   disableGroupSeparator = false,
   value,
   onChangeText,
+  label,
+  labelVariant = 'body',
+  helperText,
+  helperIcon,
+  validText,
+  invalidText,
   ref,
   ...rest
 }: CurrencyInputProps) => {
-  const formFieldContext = useFormFieldContext();
-  const { disabled: formFieldDisabled } = formFieldContext;
-  const validationStatusFromContext = formFieldContext?.validationStatus ?? validationStatus;
-
   const defaultFormat = '0.00';
   const getPlaceholder = placeholder ?? defaultFormat;
 
@@ -41,11 +42,17 @@ const CurrencyInput = ({
 
   return (
     <Input
-      validationStatus={validationStatusFromContext}
-      disabled={formFieldDisabled ?? disabled}
+      validationStatus={validationStatus}
+      disabled={disabled}
       readonly={readonly}
       focused={focused}
       style={styles.wrap}
+      label={label}
+      labelVariant={labelVariant}
+      helperText={helperText}
+      helperIcon={helperIcon}
+      validText={validText}
+      invalidText={invalidText}
     >
       <InputSlot>
         <DetailText size="4xl" style={styles.text} accessible={false}>

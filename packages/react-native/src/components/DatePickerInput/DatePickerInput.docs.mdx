@@ -78,6 +78,12 @@ When used inside `FormField`, validation, disabled, and required states are inhe
 | `disabled`          | `boolean`                                                              | `false`              | Disables both typing and the calendar trigger button.                                                                                                                       |
 | `readonly`          | `boolean`                                                              | `false`              | Prevents manual typing while keeping the picker available.                                                                                                                  |
 | `focused`           | `boolean`                                                              | `false`              | Forces the focused state styling.                                                                                                                                           |
+| `label`             | `string`                                                               | `-`                  | The label for the input. When used inside `FormField`, this is inherited from the context.                                                                                  |
+| `labelVariant`      | `'heading' \| 'body'`                                                  | `'body'`             | The variant of the label text.                                                                                                                                              |
+| `helperText`        | `string`                                                               | `-`                  | Helper text to display below the input. When used inside `FormField`, this is inherited from the context.                                                                   |
+| `helperIcon`        | `ComponentType`                                                        | `-`                  | Icon to display alongside the helper                                                                                                                                        |
+| `validText`         | `string`                                                               | `-`                  | Text to display when validation status is 'valid'. When used inside `FormField`, this is inherited from the context.                                                        |
+| `invalidText`       | `string`                                                               | `-`                  | Text to                                                                                                                                                                     |
 | `inBottomSheet`     | `boolean`                                                              | `false`              | Uses `BottomSheetTextInput` when rendering inside a bottom sheet.                                                                                                           |
 | `format`            | `string`                                                               | `'DD/MM/YYYY'`       | Day.js format string used to render selected dates and parse manual input. Leaving it as `'DD/MM/YYYY'` automatically inserts `/` separators and requests a numeric keypad. |
 | `openButtonLabel`   | `string`                                                               | `'Open date picker'` | Accessible label read by screen readers for the calendar trigger button.                                                                                                    |
@@ -151,6 +157,22 @@ Swap `'DD/MM/YYYY'` in the example for the `format` you're using, and reuse the 
 Selection through the calendar always returns a JavaScript `Date` that is reformatted according to `format` when displayed in the field.
 
 ## Examples
+
+## With Label and Helper Text
+
+The `DatePickerInput` component can display a label and helper text by passing the appropriate props.
+
+<UsageWrap>
+  <BottomSheetModalProvider>
+    <Center>
+      <DatePickerInput label="Travel date" helperText="Choose a departure day" onClear={() => {}} />
+    </Center>
+  </BottomSheetModalProvider>
+</UsageWrap>
+
+```tsx
+<DatePickerInput label="Travel date" helperText="Choose a departure day" onClear={() => {}} />
+```
 
 ### With `FormField`
 

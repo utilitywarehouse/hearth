@@ -36,6 +36,12 @@ const DatePickerInput = ({
   format = DEFAULT_FORMAT,
   openButtonLabel = 'Open date picker',
   autoCloseOnSelect = true,
+  label,
+  labelVariant,
+  helperText,
+  helperIcon,
+  validText,
+  invalidText,
   onChange,
   onChangeText,
   onBlur,
@@ -183,10 +189,16 @@ const DatePickerInput = ({
   return (
     <>
       <Input
-        validationStatus={validationStatusFromContext}
-        disabled={isDisabled}
-        readonly={isReadonly}
+        validationStatus={validationStatus}
+        disabled={disabled}
+        readonly={readonly}
         focused={focused}
+        label={label}
+        labelVariant={labelVariant}
+        helperText={helperText}
+        helperIcon={helperIcon}
+        validText={validText}
+        invalidText={invalidText}
         style={styles.wrap}
         accessible={false}
       >

@@ -12,6 +12,7 @@ export interface FormFieldBaseProps {
   validText?: string;
   invalidText?: string;
   required?: boolean;
+  accessibilityHandledByChildren?: boolean;
 }
 
 interface FormFieldProps extends FormFieldBaseProps, ViewProps {}

@@ -7,6 +7,12 @@ export interface DatePickerInputBaseProps {
   validationStatus?: 'initial' | 'valid' | 'invalid';
   readonly?: boolean;
   focused?: boolean;
+  label?: string;
+  labelVariant?: 'heading' | 'body';
+  helperText?: string;
+  helperIcon?: React.ComponentType;
+  validText?: string;
+  invalidText?: string;
   placeholder?: string;
   inBottomSheet?: boolean;
   required?: boolean;

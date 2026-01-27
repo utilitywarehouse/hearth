@@ -17,7 +17,7 @@ import {
 import SpotBillingDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg';
 // @ts-ignore
 import SpotBillingLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-light.svg';
-import { Image, Pressable, ScrollView, View, ViewProps } from 'react-native';
+import { Pressable, ScrollView, View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import {
   Accordion,
@@ -55,6 +55,7 @@ import {
   Grid,
   Heading,
   HighlightBanner,
+  HighlightBannerImage,
   Icon,
   IconButton,
   IconContainer,
@@ -489,7 +490,7 @@ const AllComponents: React.FC = () => {
                 headingColor="energy"
                 imageContainerHeight={40}
                 image={
-                  <Image
+                  <HighlightBannerImage
                     source={{
                       uri: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80',
                     }}

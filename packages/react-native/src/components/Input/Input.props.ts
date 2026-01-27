@@ -27,6 +27,13 @@ export interface InputBaseProps {
   focused?: boolean;
   placeholder?: string;
   inBottomSheet?: boolean;
+  label?: string;
+  labelVariant?: 'heading' | 'body';
+  helperText?: string;
+  helperIcon?: ComponentType;
+  validText?: string;
+  invalidText?: string;
+  required?: boolean;
 }
 
 // For inputs that have children

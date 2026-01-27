@@ -83,18 +83,25 @@ all of the React Native [`View` props](https://reactnative.dev/docs/view).
 | ---------------- | ---------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type             | `'text' \| 'password'`             | `'text'`    | The type of the input.                                                                                                                                                  |
 | validationStatus | `'initial' \| 'valid' \| 'invalid` | `'initial'` | The validation status of the input.                                                                                                                                     |
-| disabled         | boolean                            | `false`     | Disables the input.                                                                                                                                                     |
-| readonly         | boolean                            | `false`     | Makes the input read-only.                                                                                                                                              |
-| focused          | boolean                            | `false`     | Sets focus on the input.                                                                                                                                                |
-| leadingIcon      | React.ComponentType                | `-`         | The leading icon of the input. **(Only to be used if the input has no children)**                                                                                       |
-| trailingIcon     | React.ComponentType                | `-`         | The trailing icon of the input. **(Only to be used if the input has no children)**                                                                                      |
-| value            | string                             | `-`         | The value of the input. **(Only to be used if the input has no children)**                                                                                              |
-| onChange         | function                           | `-`         | Callback function that is triggered when the input value changes. **(Only to be used if the input has no children)** **(Only to be used if the input has no children)** |
-| onBlur           | function                           | `-`         | Callback function that is triggered when the input loses focus. **(Only to be used if the input has no children)**                                                      |
-| onFocus          | function                           | `-`         | Callback function that is triggered when the input gains focus. **(Only to be used if the input has no children)**                                                      |
-| placeholder      | string                             | `-`         | The placeholder text for the input. **(Only to be used if the input has no children)**                                                                                  |
-| required         | boolean                            | `true`      | Indicates that the input is required. **(Only to be used if the input has no children)**                                                                                |
-| inBottomSheet    | boolean                            | `false`     | Indicates if the input is within a bottom sheet.                                                                                                                        |
+| disabled         | `boolean`                          | `false`     | Disables the input.                                                                                                                                                     |
+| readonly         | `boolean`                          | `false`     | Makes the input read-only.                                                                                                                                              |
+| focused          | `boolean`                          | `false`     | Sets focus on the input.                                                                                                                                                |
+| label            | `string`                           | `-`         | The label for the input. **(Only to be used if the input has no children)**                                                                                             |
+| labelVariant     | `'heading' \| 'body'`              | `'body'`    | The variant of the label text. **(Only to be used if the input has no children)**                                                                                       |
+| helperText       | `string`                           | `-`         | Helper text to display below the input. **(Only to be used if the input has no children)**                                                                              |
+| helperIcon       | `React.ComponentType`              | `-`         | Icon to display alongside the helper text. **(Only to be used if the input has no children)**                                                                           |
+| validText        | `string`                           | `-`         | Text to display when validation status is 'valid'. **(Only to be used if the input has no children)**                                                                   |
+| invalidText      | `string`                           | `-`         | Text to display when validation status is 'invalid'. **(Only to be used if the input has no children)**                                                                 |
+| required         | `boolean`                          | `true`      | Indicates that the input is required. **(Only to be used if the input has no children)**                                                                                |
+| leadingIcon      | `React.ComponentType`              | `-`         | The leading icon of the input. **(Only to be used if the input has no children)**                                                                                       |
+| trailingIcon     | `React.ComponentType`              | `-`         | The trailing icon of the input. **(Only to be used if the input has no children)**                                                                                      |
+| value            | `string`                           | `-`         | The value of the input. **(Only to be used if the input has no children)**                                                                                              |
+| onChange         | `function`                         | `-`         | Callback function that is triggered when the input value changes. **(Only to be used if the input has no children)** **(Only to be used if the input has no children)** |
+| onBlur           | `function`                         | `-`         | Callback function that is triggered when the input loses focus. **(Only to be used if the input has no children)**                                                      |
+| onFocus          | `function`                         | `-`         | Callback function that is triggered when the input gains focus. **(Only to be used if the input has no children)**                                                      |
+| placeholder      | `string`                           | `-`         | The placeholder text for the input. **(Only to be used if the input has no children)**                                                                                  |
+| required         | `boolean`                          | `true`      | Indicates that the input is required. **(Only to be used if the input has no children)**                                                                                |
+| inBottomSheet    | `boolean`                          | `false`     | Indicates if the input is within a bottom sheet.                                                                                                                        |
 
 If the `leadingIcon` or `trailingIcon` props are used, the `Input` component should not have any children.
 
@@ -105,19 +112,19 @@ The `InputField` inherits all of the React Native [`TextInput` props](https://re
 | Prop          | Type                   | Default  | Description                                                       |
 | ------------- | ---------------------- | -------- | ----------------------------------------------------------------- |
 | type          | `'text' \| 'password'` | `'text'` | The type of the input.                                            |
-| value         | string                 | `-`      | The value of the input.                                           |
-| onChange      | function               | `-`      | Callback function that is triggered when the input value changes. |
-| onBlur        | function               | `-`      | Callback function that is triggered when the input loses focus.   |
-| onFocus       | function               | `-`      | Callback function that is triggered when the input gains focus.   |
-| placeholder   | string                 | `-`      | The placeholder text for the input.                               |
-| required      | boolean                | `true`   | Indicates that the input is required.                             |
-| inBottomSheet | boolean                | `false`  | Indicates if the input is within a bottom sheet.                  |
+| value         | `string`               | `-`      | The value of the input.                                           |
+| onChange      | `function`             | `-`      | Callback function that is triggered when the input value changes. |
+| onBlur        | `function`             | `-`      | Callback function that is triggered when the input loses focus.   |
+| onFocus       | `function`             | `-`      | Callback function that is triggered when the input gains focus.   |
+| placeholder   | `string`               | `-`      | The placeholder text for the input.                               |
+| required      | `boolean`              | `true`   | Indicates that the input is required.                             |
+| inBottomSheet | `boolean`              | `false`  | Indicates if the input is within a bottom sheet.                  |
 
 ### `InputIcon`
 
-| Prop | Type   | Default | Description         |
-| ---- | ------ | ------- | ------------------- |
-| as   | string |         | The icon component. |
+| Prop | Type     | Default | Description         |
+| ---- | -------- | ------- | ------------------- |
+| as   | `string` |         | The icon component. |
 
 ### `InputSlot`
 
@@ -191,6 +198,41 @@ The `Input` component has the following variants:
 
 ## Examples
 
+## With Label and Helper Text
+
+The `Input` component can be used with a label and helper text by passing the `label` and `helperText` props.
+
+<UsageWrap>
+  <Center>
+    <Input
+      label="Label"
+      helperText="Helper text"
+      onChange={() => console.log('###')}
+      placeholder="Placeholder"
+    />
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Input } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [value, setValue] = useState('');
+  const handleChange = e => {
+    setValue(e.target.value);
+  };
+  return (
+    <Input
+      label="Label"
+      helperText="Helper text"
+      onChange={handleChange}
+      value={value}
+      placeholder="Placeholder"
+    />
+  );
+};
+```
+
 ### With `FormField`
 
 The `Input` component can be used with the `FormField` component to create a custom input field.
@@ -230,6 +272,9 @@ We have outlined the various features that ensure the Input component is accessi
 
 ### Screen Reader
 
+- When setting the label prop, it is associated with the Input using aria-label.
+- When setting the helperText prop, it is associated with the Input using aria-describedby.
+- The required prop to indicate if the Input is required or optional and is read out by screen readers.
 - Compatible with screen readers such as VoiceOver and Talk-back.
 - The accessible and aria-label props to provide descriptive information about the Input
 - Setting aria-traits and aria-hint to provide contextual information about the various states of the Input, such as "double tap to edit".

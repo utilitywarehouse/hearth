@@ -1,5 +1,5 @@
 import { createFormControl } from '@gluestack-ui/form-control';
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { View } from 'react-native';
 import { HelperIcon, HelperText } from '../Helper';
 import { FormFieldContext } from './FormField.context';
@@ -47,16 +47,39 @@ const FormField = ({
   invalidText,
   required = true,
   labelVariant = 'body',
+  accessibilityHandledByChildren = false,
   ...props
 }: FormFieldProps) => {
+  const [shouldHandleAccessibility, setShouldHandleAccessibility] = useState<boolean>(
+    accessibilityHandledByChildren
+  );
   const value = useMemo(
     () => ({
       validationStatus,
       disabled,
       readonly,
       required,
+      label,
+      helperText,
+      helperIcon,
+      validText,
+      invalidText,
+      setShouldHandleAccessibility,
+      shouldHandleAccessibility,
     }),
-    [validationStatus, disabled, readonly, required]
+    [
+      validationStatus,
+      disabled,
+      readonly,
+      required,
+      label,
+      helperText,
+      helperIcon,
+      validText,
+      invalidText,
+      setShouldHandleAccessibility,
+      shouldHandleAccessibility,
+    ]
   );
 
   return (
@@ -65,13 +88,23 @@ const FormField = ({
         {(!!label || !!helperText) && (
           <FormFieldTextContent>
             {!!label && (
-              <FormFieldLabelText variant={labelVariant}>
+              <FormFieldLabelText
+                variant={labelVariant}
+                importantForAccessibility={shouldHandleAccessibility ? 'no' : undefined}
+                accessibilityElementsHidden={shouldHandleAccessibility}
+              >
                 {label}
                 {!required ? ` (Optional)` : ''}
               </FormFieldLabelText>
             )}
             {!!helperText && (
-              <FormFieldHelper text={helperText} icon={helperIcon} showIcon={!!helperIcon} />
+              <FormFieldHelper
+                text={helperText}
+                icon={helperIcon}
+                showIcon={!!helperIcon}
+                importantForAccessibility={shouldHandleAccessibility ? 'no' : undefined}
+                accessibilityElementsHidden={shouldHandleAccessibility}
+              />
             )}
           </FormFieldTextContent>
         )}

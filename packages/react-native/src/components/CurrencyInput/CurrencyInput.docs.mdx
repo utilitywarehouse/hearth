@@ -16,6 +16,7 @@ An input specialised for monetary amounts. It shows a currency symbol prefix and
 - [Playground](#playground)
 - [Usage](#usage)
 - [Props](#props)
+- [Examples](#examples)
 - [States](#states)
 - [Formatting](#formatting)
 - [Accessibility](#accessibility)
@@ -48,19 +49,61 @@ const MyComponent = () => {
 
 When using `CurrencyInput`, the component inherits React Native TextInput props (except `children`). In addition, it supports:
 
-| Prop                | Type                                | Default     | Description                                                                                                               |
-| ------------------- | ----------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------- |
-| validationStatus    | `'initial' \| 'valid' \| 'invalid'` | `'initial'` | Validation styling state                                                                                                  |
-| disabled            | boolean                             | `false`     | Disables the input                                                                                                        |
-| readonly            | boolean                             | `false`     | Makes the input read-only                                                                                                 |
-| focused             | boolean                             | `false`     | Forces the focused visual state                                                                                           |
-| inBottomSheet       | boolean                             | `false`     | Use BottomSheetTextInput when true                                                                                        |
-| placeholder         | string                              | `'0.00'`    | Placeholder text                                                                                                          |
-| disableGroupSeparator | boolean                             | `false`     | Disables automatic inserting of thousand separators while the user types _(Formatting only works with controlled components via onTextChange)_ |
+| Prop                  | Type                                             | Default     | Description                                                                                                                                    |
+| --------------------- | ------------------------------------------------ | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| validationStatus      | `'initial' \| 'valid' \| 'invalid'`              | `'initial'` | Validation styling state                                                                                                                       |
+| onChangeText          | `(e: { nativeEvent: { text: string } }) => void` | -           | Callback when the text changes                                                                                                                 |
+| value                 | `string`                                         | -           | The value of the input                                                                                                                         |
+| label                 | `string`                                         | -           | The label for the input                                                                                                                        |
+| labelVariant          | `'heading' \| 'body'`                            | `'body'     | The variant of the label text                                                                                                                  |
+| helperText            | `string`                                         | -           | Helper text to display below the input                                                                                                         |
+| helperIcon            | `ComponentType`                                  | -           | Icon to display alongside the helper text                                                                                                      |
+| required              | `boolean`                                        |
+| disabled              | `boolean`                                        | `false`     | Disables the input                                                                                                                             |
+| readonly              | `boolean`                                        | `false`     | Makes the input read-only                                                                                                                      |
+| focused               | `boolean`                                        | `false`     | Forces the focused visual state                                                                                                                |
+| inBottomSheet         | `boolean`                                        | `false`     | Use BottomSheetTextInput when true                                                                                                             |
+| placeholder           | `string`                                         | `'0.00'`    | Placeholder text                                                                                                                               |
+| disableGroupSeparator | `boolean`                                        | `false`     | Disables automatic inserting of thousand separators while the user types _(Formatting only works with controlled components via onTextChange)_ |
 
 Note: When used inside `FormField`, `validationStatus` and `disabled` are read from the context unless explicitly overridden.
 
 ## Examples
+
+## With Label and Helper Text
+
+The `CurrencyInput` component can display a label and helper text by passing the appropriate props.
+
+<UsageWrap>
+  <Center>
+    <CurrencyInput
+      label="Amount"
+      helperText="Enter the amount in GBP"
+      placeholder="0.00"
+      onChange={() => console.log('###')}
+    />
+  </Center>
+</UsageWrap>
+
+```tsx
+import { CurrencyInput } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [value, setValue] = useState('');
+  const handleChange = e => {
+    setValue(e.target.value);
+  };
+  return (
+    <CurrencyInput
+      label="Amount"
+      helperText="Enter the amount in GBP"
+      placeholder="0.00"
+      value={value}
+      onChange={handleChange}
+    />
+  );
+};
+```
 
 ### With `FormField`
 

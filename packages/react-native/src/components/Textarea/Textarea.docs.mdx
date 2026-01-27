@@ -1,8 +1,8 @@
-import { Meta, Controls, Story, Canvas } from '@storybook/addon-docs/blocks';
-import * as Stories from './Textarea.stories';
-import { Textarea, TextareaField, Center, Pressable } from '../..';
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
 import { EmailMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
+import { Center, Pressable, Textarea, TextareaField } from '../..';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Textarea.stories';
 
 <Meta title="Forms / Textarea" />
 
@@ -19,6 +19,7 @@ The input component is a text field that allows users to enter text, numbers, or
 - [Props](#props)
   - [`Textarea`](#input)
   - [`TextareaField`](#inputfield)
+- [Examples](#examples)
 - [Accessibility](#accessibility)
 
 ## Playground
@@ -61,14 +62,21 @@ all of the React Native [`View` props](https://reactnative.dev/docs/view).
 | ---------------- | ---------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type             | `'text' \| 'password'`             | `'text'`    | The type of the input.                                                                                                                                                  |
 | validationStatus | `'initial' \| 'valid' \| 'invalid` | `'initial'` | The validation status of the input.                                                                                                                                     |
-| disabled         | boolean                            | `false`     | Disables the input.                                                                                                                                                     |
-| readonly         | boolean                            | `false`     | Makes the input read-only.                                                                                                                                              |
-| focused          | boolean                            | `false`     | Sets focus on the input.                                                                                                                                                |
-| value            | string                             | `-`         | The value of the input. **(Only to be used if the input has no children)**                                                                                              |
-| onChange         | function                           | `-`         | Callback function that is triggered when the input value changes. **(Only to be used if the input has no children)** **(Only to be used if the input has no children)** |
-| onBlur           | function                           | `-`         | Callback function that is triggered when the input loses focus. **(Only to be used if the input has no children)**                                                      |
-| onFocus          | function                           | `-`         | Callback function that is triggered when the input gains focus. **(Only to be used if the input has no children)**                                                      |
-| placeholder      | string                             | `-`         | The placeholder text for the input. **(Only to be used if the input has no children)**                                                                                  |
+| disabled         | `boolean`                          | `false`     | Disables the input.                                                                                                                                                     |
+| readonly         | `boolean`                          | `false`     | Makes the input read-only.                                                                                                                                              |
+| focused          | `boolean`                          | `false`     | Sets focus on the input.                                                                                                                                                |
+| label            | `string`                           | `-`         | The label for the input. **(Only to be used if the input has no children)**                                                                                             |
+| labelVariant     | `'heading' \| 'body'`              | `'body'`    | The variant of the label text. **(Only to be used if the input has no children)**                                                                                       |
+| helperText       | `string`                           | `-`         | Helper text to display below the input. **(Only to be used if the input has no children)**                                                                              |
+| helperIcon       | `ComponentType`                    | `-`         | Icon to display alongside the helper text. **(Only to be used if the input has no children)**                                                                           |
+| validText        | `string`                           | `-`         | Text to display when validation status is 'valid'. **(Only to be used if the input has no children)**                                                                   |
+| invalidText      | `string`                           | `-`         | Text to display when validation status is 'invalid'.                                                                                                                    |
+| required         | `boolean`                          | `false`     | Whether the input is required. **(Only to be used if the input has no children)**                                                                                       |
+| value            | `string`                           | `-`         | The value of the input. **(Only to be used if the input has no children)**                                                                                              |
+| onChange         | `function`                         | `-`         | Callback function that is triggered when the input value changes. **(Only to be used if the input has no children)** **(Only to be used if the input has no children)** |
+| onBlur           | `function`                         | `-`         | Callback function that is triggered when the input loses focus. **(Only to be used if the input has no children)**                                                      |
+| onFocus          | `function`                         | `-`         | Callback function that is triggered when the input gains focus. **(Only to be used if the input has no children)**                                                      |
+| placeholder      | `string`                           | `-`         | The placeholder text for the input. **(Only to be used if the input has no children)**                                                                                  |
 
 If the `leadingIcon` or `trailingIcon` props are used, the `Textarea` component should not have any children.
 
@@ -79,11 +87,48 @@ The `TextareaField` inherits all of the React Native [`TextTextarea` props](http
 | Prop        | Type                   | Default  | Description                                                       |
 | ----------- | ---------------------- | -------- | ----------------------------------------------------------------- |
 | type        | `'text' \| 'password'` | `'text'` | The type of the input.                                            |
-| value       | string                 | `-`      | The value of the input.                                           |
-| onChange    | function               | `-`      | Callback function that is triggered when the input value changes. |
-| onBlur      | function               | `-`      | Callback function that is triggered when the input loses focus.   |
-| onFocus     | function               | `-`      | Callback function that is triggered when the input gains focus.   |
-| placeholder | string                 | `-`      | The placeholder text for the input.                               |
+| value       | `string`               | `-`      | The value of the input.                                           |
+| onChange    | `function`             | `-`      | Callback function that is triggered when the input value changes. |
+| onBlur      | `function`             | `-`      | Callback function that is triggered when the input loses focus.   |
+| onFocus     | `function`             | `-`      | Callback function that is triggered when the input gains focus.   |
+| placeholder | `string`               | `-`      | The placeholder text for the input.                               |
+
+## Examples
+
+### With Label and Helper Text
+
+The `Textarea` component can display a label and helper text by passing the appropriate props.
+
+<UsageWrap>
+  <Center>
+    <Textarea
+      label="Description"
+      helperText="Provide a detailed description"
+      placeholder="Enter your text here..."
+      onChange={() => console.log('###')}
+    />
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Textarea } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [value, setValue] = useState('');
+  const handleChange = e => {
+    setValue(e.target.value);
+  };
+  return (
+    <Textarea
+      label="Description"
+      helperText="Provide a detailed description"
+      placeholder="Enter your text here..."
+      value={value}
+      onTextChange={handleChange}
+    />
+  );
+};
+```
 
 ## Accessibility
 
@@ -95,6 +140,9 @@ We have outlined the various features that ensure the Textarea component is acce
 
 ### Screen Reader
 
+- When setting the label prop, it is associated with the Textarea using aria-label.
+- When setting the helperText prop, it is associated with the Textarea using aria-describedby.
+- The required prop to indicate if the Textarea is required or optional and is read out by screen readers.
 - Compatible with screen readers such as VoiceOver and Talk-back.
 - The accessible and aria-label props to provide descriptive information about the Textarea
 - Setting aria-traits and aria-hint to provide contextual information about the various states of the Textarea, such as "double tap to edit".

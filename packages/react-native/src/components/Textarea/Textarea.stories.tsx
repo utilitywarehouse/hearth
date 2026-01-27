@@ -1,5 +1,5 @@
-import { Textarea } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { Textarea } from '.';
 
 const meta = {
   title: 'Stories / Textarea',
@@ -13,12 +13,33 @@ const meta = {
       description: 'The Textarea field placeholder',
       defaultValue: '',
     },
-
+    label: {
+      control: 'text',
+      description: 'The label for the Textarea component',
+      defaultValue: 'Textarea label',
+    },
+    labelVariant: {
+      control: 'radio',
+      options: ['heading', 'body'],
+      description: 'The label variant for the Textarea component',
+    },
+    helperText: {
+      control: 'text',
+      description: 'The helper text for the Textarea component',
+    },
     validationStatus: {
       control: 'select',
       options: ['initial', 'valid', 'invalid'],
       description: 'The validation status of the Textarea component',
       defaultValue: 'initial',
+    },
+    invalidText: {
+      control: 'text',
+      description: 'The invalid text for the Textarea component',
+    },
+    validText: {
+      control: 'text',
+      description: 'The valid text for the Textarea component',
     },
     disabled: {
       control: 'boolean',

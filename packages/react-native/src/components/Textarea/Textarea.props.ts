@@ -24,6 +24,15 @@ export interface TextareaBaseProps {
   readonly?: boolean;
   focused?: boolean;
   placeholder?: string;
+  label?: string;
+  labelVariant?: 'heading' | 'body';
+  helperText?: string;
+  helperIcon?: React.ComponentType;
+  validText?: string;
+  invalidText?: string;
+  inBottomSheet?: boolean;
+  required?: boolean;
+  isInBottomSheet?: boolean;
 }
 
 export interface TextareaWithChildrenProps extends TextareaBaseProps, ViewProps {}

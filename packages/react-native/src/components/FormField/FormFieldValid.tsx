@@ -1,7 +1,7 @@
-import { useFormFieldContext } from './FormField.context';
+import { TickCircleSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Helper } from '../Helper';
 import HelperProps from '../Helper/Helper.props';
-import { TickCircleSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { useFormFieldContext } from './FormField.context';
 
 const FormFieldValid = ({
   children,
