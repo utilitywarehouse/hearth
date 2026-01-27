@@ -47,7 +47,6 @@ export interface InputWithChildrenProps extends InputBaseProps, ViewProps {
   onClear?: never;
   leadingIcon?: never;
   trailingIcon?: never;
-  required?: never;
 }
 
 // Base for inputs without children

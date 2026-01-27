@@ -30,7 +30,6 @@ export interface TextareaBaseProps {
   helperIcon?: React.ComponentType;
   validText?: string;
   invalidText?: string;
-  inBottomSheet?: boolean;
   required?: boolean;
   isInBottomSheet?: boolean;
 }

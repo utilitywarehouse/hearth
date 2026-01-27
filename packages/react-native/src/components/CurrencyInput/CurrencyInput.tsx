@@ -12,7 +12,7 @@ const CurrencyInput = ({
   readonly,
   placeholder,
   inBottomSheet = false,
-  required,
+  required = true,
   disableGroupSeparator = false,
   value,
   onChangeText,
@@ -46,6 +46,7 @@ const CurrencyInput = ({
       disabled={disabled}
       readonly={readonly}
       focused={focused}
+      required={required}
       style={styles.wrap}
       label={label}
       labelVariant={labelVariant}

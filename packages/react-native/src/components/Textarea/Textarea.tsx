@@ -58,14 +58,16 @@ const Textarea = ({
 
   const getAccessibilityHint = () => {
     let accessibilityHint = '';
-    if (textareaHelperText) {
-      accessibilityHint = accessibilityHint + textareaHelperText;
-    }
-    if (textareaValidationStatus === 'invalid' && textareaInvalidText) {
-      accessibilityHint = accessibilityHint + ', ' + textareaInvalidText;
-    }
-    if (textareaValidationStatus === 'valid' && textareaValidText) {
-      accessibilityHint = accessibilityHint + ', ' + textareaValidText;
+    if (textareaValidationStatus !== 'initial') {
+      if (accessibilityHint.length > 0) {
+        accessibilityHint = accessibilityHint + ', ';
+      }
+      if (textareaValidationStatus === 'invalid' && textareaInvalidText) {
+        accessibilityHint = accessibilityHint + textareaInvalidText;
+      }
+      if (textareaValidationStatus === 'valid' && textareaValidText) {
+        accessibilityHint = accessibilityHint + textareaValidText;
+      }
     }
     return accessibilityHint || props.accessibilityHint;
   };
@@ -91,6 +93,7 @@ const Textarea = ({
         isReadOnly={textareaReadonly}
         isDisabled={textareaDisabled}
         isFocused={focused}
+        required={textareaRequired}
         aria-label={getAccessibilityLabel()}
         accessibilityHint={getAccessibilityHint()}
       >

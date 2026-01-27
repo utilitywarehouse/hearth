@@ -42,6 +42,7 @@ const DatePickerInput = ({
   helperIcon,
   validText,
   invalidText,
+  required = true,
   onChange,
   onChangeText,
   onBlur,
@@ -199,6 +200,7 @@ const DatePickerInput = ({
         helperIcon={helperIcon}
         validText={validText}
         invalidText={invalidText}
+        required={required}
         style={styles.wrap}
         accessible={false}
       >

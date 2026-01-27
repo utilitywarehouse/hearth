@@ -122,11 +122,16 @@ const Input = forwardRef<TextInput, InputProps>(
       if (inputHelperText) {
         accessibilityHint = accessibilityHint + inputHelperText;
       }
-      if (inputValidationStatus === 'invalid' && inputInvalidText) {
-        accessibilityHint = accessibilityHint + ', ' + inputInvalidText;
-      }
-      if (inputValidationStatus === 'valid' && inputValidText) {
-        accessibilityHint = accessibilityHint + ', ' + inputValidText;
+      if (inputValidationStatus !== 'initial') {
+        if (accessibilityHint.length > 0) {
+          accessibilityHint = accessibilityHint + ', ';
+        }
+        if (inputValidationStatus === 'invalid' && inputInvalidText) {
+          accessibilityHint = accessibilityHint + inputInvalidText;
+        }
+        if (inputValidationStatus === 'valid' && inputValidText) {
+          accessibilityHint = accessibilityHint + inputValidText;
+        }
       }
       return accessibilityHint || props.accessibilityHint;
     };
