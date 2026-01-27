@@ -43,6 +43,24 @@ import { Tabs, TabsList, Tab, TabContent } from '@utilitywarehouse/hearth-react'
 </Tabs>;
 ```
 
+### Spacing
+
+The `spacing` prop on the `Tabs` component controls the space between the `TabsList` and the `TabContent`.
+It is set to `"xl"` by default, and can be overridden as needed.
+
+```tsx
+<Tabs defaultValue="account" spacing="lg">
+  <TabsList>
+    <Tab value="account">Account</Tab>
+    <Tab value="security">Security</Tab>
+    <Tab value="billing">Billing</Tab>
+  </TabsList>
+  <TabContent value="account">Account content</TabContent>
+  <TabContent value="security">Security content</TabContent>
+  <TabContent value="billing">Billing content</TabContent>
+</Tabs>
+```
+
 ## Controlled
 
 Tabs can be controlled by passing `value` and `onValueChange` to the `Tabs` root.
@@ -117,14 +135,15 @@ smooth experience while maintaining the benefits of automatic activation.
 
 ### Tabs
 
-| Prop             | Type                       |
-| ---------------- | -------------------------- |
-| `value`          | `string`                   |
-| `defaultValue`   | `string`                   |
-| `onValueChange`  | `(value: string) => void`  |
-| `size`           | `Responsive<"md" \| "lg">` |
-| `activationMode` | `"automatic" \| "manual"`  |
-| `children`       | `ReactNode`                |
+| Prop             | Type                           |
+| ---------------- | ------------------------------ |
+| `value`          | `string`                       |
+| `defaultValue`   | `string`                       |
+| `onValueChange`  | `(value: string) => void`      |
+| `size`           | `Responsive<"md" \| "lg">`     |
+| `activationMode` | `"automatic" \| "manual"`      |
+| `children`       | `ReactNode`                    |
+| `spacing`        | `'xs'\|'sm'\|'md'\|'lg'\|'xl'` |
 
 ### TabsList
 

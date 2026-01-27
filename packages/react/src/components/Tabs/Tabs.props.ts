@@ -1,6 +1,7 @@
 import { Tabs as TabsPrimitive } from 'radix-ui';
 import { PropDef } from '../../props/prop-def';
 import { Responsive } from '../../types/responsive';
+import { FlexProps } from '../Flex/Flex.props';
 
 const sizes = ['md', 'lg'] as const;
 
@@ -20,6 +21,7 @@ export interface TabsProps extends Omit<
   size?: Responsive<(typeof sizes)[number]>;
   /** Activation mode for tabs */
   activationMode?: 'automatic' | 'manual';
+  spacing?: FlexProps['spacing'];
 }
 
 export type TabsListProps = Omit<
