@@ -4,9 +4,7 @@ import { FormFieldProps } from '../FormField/FormField.props';
 type ElementProps = Omit<React.ComponentPropsWithRef<'textarea'>, 'value'>;
 
 export interface TextAreaProps
-  extends ElementProps,
-    Omit<FormFieldProps, 'hideLabel' | keyof ElementProps>,
-    MarginProps {
+  extends ElementProps, Omit<FormFieldProps, 'hideLabel' | keyof ElementProps>, MarginProps {
   /**
    * The controlled value of the TextArea. Must be used with an `onChange` handler.
    */

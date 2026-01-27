@@ -2,7 +2,8 @@ import { Checkbox as CheckboxPrimitive } from 'radix-ui';
 import { MarginProps } from '../../props/margin.props';
 
 export interface CheckboxProps
-  extends Omit<
+  extends
+    Omit<
       React.ComponentPropsWithRef<typeof CheckboxPrimitive.Checkbox>,
       'asChild' | 'value' | 'onCheckedChange' | 'defaultChecked' | 'defaultValue'
     >,

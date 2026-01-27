@@ -13,7 +13,8 @@ export const headingPropDefs = {
 };
 
 export interface HeadingProps
-  extends React.ComponentPropsWithRef<'h2'>,
+  extends
+    React.ComponentPropsWithRef<'h2'>,
     TextAlignProps,
     TextTransformProps,
     TextWrapProps,

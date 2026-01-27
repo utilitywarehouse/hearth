@@ -21,11 +21,7 @@ export const bodyTextPropDefs = {
 };
 
 interface CommonBodyTextProps
-  extends ColorProps,
-    TextAlignProps,
-    TextTransformProps,
-    TextWrapProps,
-    MarginProps {
+  extends ColorProps, TextAlignProps, TextTransformProps, TextWrapProps, MarginProps {
   /**
    * Shorthand for changing the default rendered element into a semantically appropriate alternative.
    * Cannot be used in combination with `asChild`.

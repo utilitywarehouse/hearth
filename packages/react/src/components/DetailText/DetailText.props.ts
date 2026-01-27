@@ -17,10 +17,7 @@ export const detailTextPropDefs = {
 };
 
 interface CommonDetailTextProps
-  extends TextAlignProps,
-    TextTransformProps,
-    TextWrapProps,
-    MarginProps {
+  extends TextAlignProps, TextTransformProps, TextWrapProps, MarginProps {
   /** Change the default rendered element for the one passed as a child, merging their props and behavior. */
   asChild?: boolean;
   /**

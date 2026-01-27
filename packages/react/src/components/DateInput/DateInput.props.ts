@@ -2,8 +2,7 @@ import { FormGroupBaseProps } from '../FormGroupBase/FormGroupBase.props';
 import { InputBaseProps } from '../InputBase/InputBase.props';
 
 export interface DateInputProps
-  extends FormGroupBaseProps,
-    Omit<InputBaseProps, keyof FormGroupBaseProps> {
+  extends FormGroupBaseProps, Omit<InputBaseProps, keyof FormGroupBaseProps> {
   /**
    * Whether the day segment is visible.
    * @default false

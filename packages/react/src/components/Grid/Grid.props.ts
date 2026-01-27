@@ -111,7 +111,8 @@ export const gridPropDefs = {
  * layout, spacing, and positioning of the grid container and its items.
  */
 interface CommonGridProps
-  extends AlignItemsProps,
+  extends
+    AlignItemsProps,
     AlignContentProps,
     JustifyContentProps,
     PositionProps,

@@ -4,7 +4,8 @@ import { TextTransformProps } from '../../props/text-transform.props';
 import { TextWrapProps } from '../../props/text-wrap.props';
 
 export interface EmProps
-  extends React.ComponentPropsWithRef<'em'>,
+  extends
+    React.ComponentPropsWithRef<'em'>,
     TextAlignProps,
     TextTransformProps,
     TextWrapProps,

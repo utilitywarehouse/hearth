@@ -15,9 +15,7 @@ export const badgePropDefs = {
 };
 
 export interface BadgeProps
-  extends React.ComponentPropsWithRef<'span'>,
-    MarginProps,
-    TextTransformProps {
+  extends React.ComponentPropsWithRef<'span'>, MarginProps, TextTransformProps {
   /**
    * Sets the badges's visual variant
    * @default subtle

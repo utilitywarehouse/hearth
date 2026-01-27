@@ -37,7 +37,8 @@ export const flexPropDefs = {
 };
 
 interface CommonFlexProps
-  extends AlignItemsProps,
+  extends
+    AlignItemsProps,
     AlignContentProps,
     JustifyContentProps,
     PositionProps,

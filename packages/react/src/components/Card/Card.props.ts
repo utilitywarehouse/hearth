@@ -18,7 +18,8 @@ export const cardPropDefs = {
 type ElementProps = Omit<React.ComponentPropsWithRef<'div'>, 'color'>;
 
 export interface CardProps
-  extends ElementProps,
+  extends
+    ElementProps,
     Omit<
       FlexProps,
       | 'as'

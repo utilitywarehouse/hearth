@@ -12,11 +12,10 @@ export const tabsPropDefs = {
 
 type RemovedProps = 'asChild' | 'dir';
 
-export interface TabsProps
-  extends Omit<
-    React.ComponentPropsWithRef<typeof TabsPrimitive.Tabs>,
-    RemovedProps | 'orientation'
-  > {
+export interface TabsProps extends Omit<
+  React.ComponentPropsWithRef<typeof TabsPrimitive.Tabs>,
+  RemovedProps | 'orientation'
+> {
   /** Size variant */
   size?: Responsive<(typeof sizes)[number]>;
   /** Activation mode for tabs */

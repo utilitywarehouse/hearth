@@ -1,7 +1,8 @@
 import { Toast as ToastPrimitive } from 'radix-ui';
 
 export interface ToastProviderProps
-  extends Omit<
+  extends
+    Omit<
       React.ComponentPropsWithRef<typeof ToastPrimitive.Provider>,
       'swipeDirection' | 'swipeThreshold'
     >,

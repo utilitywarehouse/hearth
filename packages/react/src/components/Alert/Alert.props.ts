@@ -2,8 +2,7 @@ import React from 'react';
 import { MarginProps } from '../../props/margin.props';
 
 export interface AlertProps
-  extends Omit<React.ComponentPropsWithRef<'div'>, 'asChild'>,
-    MarginProps {
+  extends Omit<React.ComponentPropsWithRef<'div'>, 'asChild'>, MarginProps {
   /**
    * Sets the colour scheme.
    * @default info

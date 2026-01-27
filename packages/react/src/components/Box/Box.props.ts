@@ -26,7 +26,8 @@ export const boxPropDefs = {
 };
 
 interface CommonBoxProps
-  extends PositionProps,
+  extends
+    PositionProps,
     ColorProps,
     BackgroundColorProps,
     PaddingProps,
