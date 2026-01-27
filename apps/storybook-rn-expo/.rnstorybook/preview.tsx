@@ -53,6 +53,7 @@ const preview = {
 const styles = StyleSheet.create(theme => ({
   container: {
     flex: 1,
+    width: '100%',
     backgroundColor: theme.color.background.primary,
     variants: {
       inverted: {
@@ -67,6 +68,7 @@ const styles = StyleSheet.create(theme => ({
     flex: 1,
   },
   topBar: {
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'center',
