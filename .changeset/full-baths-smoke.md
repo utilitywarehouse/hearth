@@ -6,7 +6,7 @@
 
 You can now customize the spacing between the `TabsList` and `TabContent` in the
 `Tabs` component by using the new `spacing` prop. This prop from the `Flex`
-component accepts predefined values (`'xs'`, `'sm'`, `'md'`, `'lg'`, `'xl'`) to
+component and accepts predefined values (`'none'`, `'2xs'`, `'xs'`, `'sm'`, `'md'`, `'lg'`, `'xl'`, `'2xl'`) to
 adjust the gap according to your design needs.
 
 No changes are needed from consumers, however you may find this is a better way
