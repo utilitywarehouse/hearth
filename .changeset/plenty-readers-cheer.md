@@ -16,6 +16,10 @@ Added a `labelVariant` prop to allow consumers to choose between a body or headi
 - `RadioCard`
 - `Select`
 - `VerificationInput`
+- `Input`
+- `CurrencyInput`
+- `DatePickerInput`
+- `Textarea`
 
 #### Developer changes
 
