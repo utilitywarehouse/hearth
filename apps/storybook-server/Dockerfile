@@ -10,7 +10,7 @@ RUN apk add --no-cache \
     && rm -rf /var/cache/apk/* \
     && rm -f /usr/local/bin/yarn /usr/local/bin/yarnpkg \
     && npm install -g corepack@0.34.5
-RUN corepack enable && corepack prepare pnpm@9.15.2 --activate
+RUN corepack enable && corepack prepare pnpm@10.28.2 --activate
 RUN pnpm install turbo@2.7.5 --global
 RUN turbo telemetry disable
 RUN --mount=type=secret,id=npm_token,env=NPM_TOKEN \
