@@ -1,5 +1,72 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.16.0
+
+### Minor Changes
+
+- [#810](https://github.com/utilitywarehouse/hearth/pull/810) [`eae4c24`](https://github.com/utilitywarehouse/hearth/commit/eae4c24a421415247c720f88bb8341133340cc7b) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: All `Input` components accessibility improvements and you can now pass a label, helper text and validation to the `Input` component directly.
+
+  ### Input accessibility improvements and FormField integration
+
+  The `Input` component has been updated to internally use `FormField`. This allows you to pass props like `label`, `helperText`, and validation status directly to the `Input` component, streamlining its usage.
+
+  We have also greatly improved accessibility behavior. The `Input` component now intelligently constructs `aria-label` and `accessibilityHint` based on the provided label, helper text, and validation state. To support this, `FormField` now has a mechanism to hide its own accessibility elements when a child component is handling them, preventing duplicate announcements.
+
+  #### Affected components
+  - `Input`
+  - `CurrencyInput`
+  - `DatePickerInput`
+  - `Textarea`
+  - `FormField`
+
+  #### Developer changes
+
+  You can now use `Input`, `CurrencyInput`, `DatePickerInput`, and `Textarea` without explicitly wrapping them in `FormField` for standard layouts:
+
+  ```tsx
+  // Before
+  <FormField label="Email" helperText="Enter email">
+    <Input />
+  </FormField>
+
+  // After
+  <Input label="Email" helperText="Enter email" />
+  ```
+
+  No breaking changes. The `Input` component continues to support being wrapped externally by `FormField`.
+
+  #### References
+  - UWDS-4179
+
+- [#803](https://github.com/utilitywarehouse/hearth/pull/803) [`8e96af6`](https://github.com/utilitywarehouse/hearth/commit/8e96af69f3a3498f264f2a6dc2416cdb6a298275) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Adds `labelVariant` prop to components with a label
+
+  ### Adds `labelVariant` prop to components with a label
+
+  Added a `labelVariant` prop to allow consumers to choose between a body or heading style for component labels. Defaults to `body`.
+
+  #### Affected components
+  - `CheckboxGroup`
+  - `FormField`
+  - `Label`
+  - `RadioGroup`
+  - `RadioCard`
+  - `Select`
+  - `VerificationInput`
+  - `Input`
+  - `CurrencyInput`
+  - `DatePickerInput`
+  - `Textarea`
+
+  #### Developer changes
+
+  You can now pass `labelVariant="heading"` to these components to render the label as a heading instead of body text.
+
+  ```tsx
+  <FormField label="My Label" labelVariant="heading">
+    <Input />
+  </FormField>
+  ```
+
 ## 0.15.3
 
 ### Patch Changes
@@ -31,7 +98,6 @@
   Added new props to `UL`, `OL`, and `ListItem` components to support custom list markers, including icons, images, and colors. This brings the functionality closer to CSS-like list styling. We also fixed a layout issue where list item text could overflow the container.
 
   **Components affected**:
-
   - `UL` (UnorderedList)
   - `OL` (OrderedList)
   - `ListItem`
@@ -51,7 +117,6 @@
   ```
 
   Supported props:
-
   - `listStyleImage`: React Element (e.g. `<Image />`)
   - `listStyleIcon`: Icon component
   - `listStyleWidth` / `listStyleHeight`: Dimensions for the marker (default: 20)
@@ -188,7 +253,6 @@
 - [#567](https://github.com/utilitywarehouse/hearth/pull/567) [`b6869cf`](https://github.com/utilitywarehouse/hearth/commit/b6869cfaca7b3a5aacb27c06733f0243b6faa02a) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - Adds `ProgressStepper` component
 
 - [#596](https://github.com/utilitywarehouse/hearth/pull/596) [`61f1073`](https://github.com/utilitywarehouse/hearth/commit/61f10735a42445b6e4eb90282a2b340317f1ec08) Thanks [@jordmccord](https://github.com/jordmccord)! - `List` component updates:
-
   - [BREAKING] The `text` prop in `ListItem` is now `heading`.
   - Added `ListAction` component.
   - Added `badge` prop to `ListItem`.
@@ -196,7 +260,6 @@
   - Removes `divider` prop from `List` and `ListItem`; dividers are now handled automatically.
 
 - [#585](https://github.com/utilitywarehouse/hearth/pull/585) [`4894c34`](https://github.com/utilitywarehouse/hearth/commit/4894c34acaadcbbaba78fd64be2f8ae862200e1f) Thanks [@dorota-uw](https://github.com/dorota-uw)! - [BREAKING] `DescriptionListItem` updates:
-
   - Removed `Link` props: `linkText`, `linkHref`, `linkIcon`, `linkIconPosition`, `linkOnPress`, `linkTarget`, `linkShowIcon`.
   - Added `trailingContent` prop to allow custom trailing content (e.g. Link, Button).
   - Added validation text support to `DescriptionListItem` via `invalidText` prop.
@@ -204,7 +267,6 @@
 - [#572](https://github.com/utilitywarehouse/hearth/pull/572) [`9fa6499`](https://github.com/utilitywarehouse/hearth/commit/9fa6499b6eb1534c2ce7dc4352b1f848b94786ec) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - Adds `IndicatorIconButton` component
 
 - [#596](https://github.com/utilitywarehouse/hearth/pull/596) [`61f1073`](https://github.com/utilitywarehouse/hearth/commit/61f10735a42445b6e4eb90282a2b340317f1ec08) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] `SectionHeader` updates:
-
   - Removed `Link` props: `linkText`, `linkOnPress`, `linkAccessibilityLabel`.
   - Added `trailingContent` prop to allow custom trailing content (e.g. Link, Button).
   - Added `badge` prop to display a `Badge` next to the heading.
@@ -256,7 +318,6 @@
 - [#472](https://github.com/utilitywarehouse/hearth/pull/472) [`009fe4b`](https://github.com/utilitywarehouse/hearth/commit/009fe4bff4fc54e424f22629040f715d3d4714ea) Thanks [@jordmccord](https://github.com/jordmccord)! - Add `image` prop to `Checkbox` and `Radio` components
 
 - [#500](https://github.com/utilitywarehouse/hearth/pull/500) [`cc49e74`](https://github.com/utilitywarehouse/hearth/commit/cc49e74e3736b9647e8c5576ce45020add258625) Thanks [@jordmccord](https://github.com/jordmccord)! - - Updated dependencies [[`8dac8c1`](https://github.com/utilitywarehouse/hearth/commit/8dac8c1def9083d8e4efa1385e0ee7be23428c46)]:
-
   - @utilitywarehouse/hearth-react-native-icons@0.4.0
 
 - [#499](https://github.com/utilitywarehouse/hearth/pull/499) [`7b6781c`](https://github.com/utilitywarehouse/hearth/commit/7b6781cc054cf9f1ed4969a2c663abceb526c249) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes dark mode styles for several components
