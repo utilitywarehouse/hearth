@@ -146,3 +146,27 @@ export const WithLinks: Story = {
     </DescriptionList>
   ),
 };
+
+export const WithNumericValues: Story = {
+  parameters: { controls: { include: ['direction', 'itemHeadingWidth'] } },
+  args: { direction: 'row' },
+  render: args => (
+    <DescriptionList {...args}>
+      <DescriptionListItem
+        heading="Account Balance"
+        description="Current balance"
+        numericValue="£5,432.10"
+      />
+      <DescriptionListItem
+        heading="Available Credit"
+        description="Credit limit minus current balance"
+        numericValue="£1,234.56"
+      />
+      <DescriptionListItem
+        heading="Minimum Payment"
+        description="Amount due by next statement date"
+        numericValue="£123.45"
+      />
+    </DescriptionList>
+  ),
+};

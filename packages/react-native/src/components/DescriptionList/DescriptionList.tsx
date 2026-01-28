@@ -13,6 +13,7 @@ const DescriptionList = ({
   headerTrailingContent,
   children,
   style,
+  invalidText,
   ...props
 }: DescriptionListProps) => {
   styles.useVariants({ direction });
@@ -26,6 +27,7 @@ const DescriptionList = ({
             heading={heading}
             helperText={helperText}
             trailingContent={headerTrailingContent}
+            invalidText={invalidText}
           />
         ) : null}
         {children}
