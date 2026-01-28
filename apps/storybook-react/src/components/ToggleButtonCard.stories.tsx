@@ -164,6 +164,72 @@ export const SingleWithOneAlwaysSelected: Story = {
   },
 };
 
+export const StartAligned: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
+  render: args => {
+    const [value, setValue] = React.useState<string>('fixed');
+    return (
+      <Box width="750px">
+        <ToggleGroup
+          {...args}
+          gap="300"
+          direction="column"
+          type="single"
+          value={value}
+          onValueChange={(value: string) => {
+            if (value) setValue(value);
+          }}
+        >
+          <ToggleButtonCard
+            value="fixed"
+            label={value === 'fixed' ? 'Selected plan' : 'Select plan'}
+            aria-labelledby="fixed-label fixed-secondary-label"
+            aria-describedby="fixed-description"
+            alignItems="start"
+          >
+            <Flex direction="column" gap="200">
+              <Heading id="fixed-label" size="md">
+                Fixed
+              </Heading>
+              <Flex id="fixed-secondary-label" direction="row" gap="100" alignItems="baseline">
+                <DetailText size="3xl">£163.00</DetailText>
+                <BodyText size="md" color="secondary" as="span">
+                  monthly estimate
+                </BodyText>
+              </Flex>
+              <BodyText id="fixed-description" as="p" size="md">
+                Your energy rates will stay the same until December 2025
+              </BodyText>
+            </Flex>
+          </ToggleButtonCard>
+          <ToggleButtonCard
+            value="variable"
+            label={value === 'variable' ? 'Selected plan' : 'Select plan'}
+            aria-labelledby="variable-label variable-secondary-label"
+            aria-describedby="variable-description"
+            alignItems="start"
+          >
+            <Flex direction="column" gap="200">
+              <Heading id="variable-label" size="md">
+                Variable
+              </Heading>
+              <Flex id="variable-secondary-label" direction="row" gap="100" alignItems="baseline">
+                <DetailText size="3xl">£153.00</DetailText>
+                <BodyText size="md" color="secondary" as="span">
+                  monthly estimate
+                </BodyText>
+              </Flex>
+              <BodyText id="variable-description" as="p" size="md">
+                Your energy rates will stay the same until December 2025
+              </BodyText>
+            </Flex>
+          </ToggleButtonCard>
+        </ToggleGroup>
+      </Box>
+    );
+  },
+};
+
 export const InteractiveContent: Story = {
   render: args => {
     const [value, setValue] = React.useState<string>('fixed');

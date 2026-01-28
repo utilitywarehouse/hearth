@@ -14,10 +14,9 @@ import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 - [Playground](#playground)
 - [Usage](#usage)
 - [ToggleGroup type](#togglegroup-type)
-- [ToggleGroup layout](#togglegroup-layout)
+- [Layout](#layout)
 - [Interactive content](#interactive-content)
 - [Accessibility](#accessibility)
-  - [Keyboard interactions](#keyboard-interactions)
 - [ToggleGroup API](#togglegroup-api)
 - [ToggleButtonCard API](#togglebuttoncard-api)
 
@@ -69,9 +68,17 @@ return (
 
 <Canvas of={Stories.SingleWithOneAlwaysSelected} />
 
-## ToggleGroup layout
+## Layout
 
 The `ToggleGroup` has access to the `Flex` props for controlling layout.
+
+### Start aligned
+
+In cases where the internal button should fit the content, rather than stretch
+to fill the available space, you can set the `alignItems` prop to `start` on
+the `ToggleButtonCard`.
+
+<Canvas of={Stories.StartAligned} />
 
 ## Interactive content
 
