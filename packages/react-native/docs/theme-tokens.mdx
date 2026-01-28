@@ -1,4 +1,6 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { ColorItem, ColorPalette, Meta } from '@storybook/addon-docs/blocks';
+import { color } from '@utilitywarehouse/hearth-tokens/js';
+import { Box, Link } from '../src/components';
 import { BackToTopButton, NextPrevPage } from './components';
 
 <Meta title="Theme Tokens" />
@@ -13,7 +15,10 @@ Hearth React Native provides a comprehensive set of design tokens that ensure co
 - [Colors](#colors)
   - [Brand and Service Colors](#brand-and-service-colors)
   - [Semantic Colors](#semantic-colors)
+  - [Light Theme Colors](#light-theme-colors)
+  - [Dark Theme Colors](#dark-theme-colors)
   - [Primitive Color Palette](#primitive-color-palette)
+  - [Color Scales](#color-scales)
 - [Typography](#typography)
   - [Font Family](#font-family)
   - [Font Size](#font-size)
@@ -111,7 +116,52 @@ const styles = StyleSheet.create(theme => ({
 
 The color system provides both semantic and primitive color tokens that automatically adapt to light and dark themes.
 
-You can view the full color palette in the [Hearth Tokens documentation](https://hearth.prod.uw.systems/?path=/docs/tokens_colours--docs#available-colour-tokens).
+You can view the full color scales below.
+
+<Box
+  style={{
+    position: 'sticky',
+    top: 0,
+    width: 240,
+    padding: 8,
+    height: 16,
+    overflow: 'visible',
+    marginLeft: '-260px !important',
+    zIndex: 1,
+  }}
+>
+  <ul
+    style={{
+      listStyleType: 'none',
+      paddingLeft: 0,
+      marginLeft: 0,
+    }}
+  >
+    <li>[Colors](#colors)</li>
+    <ul style={{ marginTop: 0, marginBottom: 0 }}>
+      <li>[Brand and Service Colors](#brand-and-service-colors)</li>
+      <li>[Semantic Colors](#semantic-colors)</li>
+      <li>[Light Theme Colors](#light-theme-colors)</li>
+      <li>[Dark Theme Colors](#dark-theme-colors)</li>
+      <li>[Primitive Color Palette](#primitive-color-palette)</li>
+      <li>[Color Scales](#color-scales)</li>
+    </ul>
+    <li>[Typography](#typography)</li>
+    <ul style={{ marginTop: 0, marginBottom: 0 }}>
+      <li>[Font Family](#font-family)</li>
+      <li>[Font Size](#font-size)</li>
+      <li>[Font Weight](#font-weight)</li>
+      <li>[Letter Spacing](#letter-spacing)</li>
+      <li>[Line Height](#line-height)</li>
+    </ul>
+    <li>[Spacing](#spacing)</li>
+    <li>[Border](#border)</li>
+    <ul style={{ marginTop: 0, marginBottom: 0 }}>
+      <li>[Border Width](#border-width)</li>
+      <li>[Border Radius](#border-radius)</li>
+    </ul>
+  </ul>
+</Box>
 
 ### Brand and Service Colors
 
@@ -245,6 +295,296 @@ const styles = StyleSheet.create(theme => ({
 }));
 ```
 
+#### Light Theme Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Background"
+    subtitle="Background colors"
+    colors={{
+      'background.brand': color.light.background.brand,
+      'background.primary': color.light.background.primary,
+      'background.secondary': color.light.background.secondary,
+    }}
+  />
+  <ColorItem
+    title="Text"
+    subtitle="Text colors"
+    colors={{
+      'text.primary': color.light.text.primary,
+      'text.secondary': color.light.text.secondary,
+      'text.inverted': color.light.text.inverted,
+    }}
+  />
+  <ColorItem
+    title="Border"
+    subtitle="Border colors"
+    colors={{
+      'border.strong': color.light.border.strong,
+      'border.subtle': color.light.border.subtle,
+    }}
+  />
+  <ColorItem
+    title="Focus"
+    subtitle="Focus indicator colors"
+    colors={{
+      'focus.primary': color.light.focus.primary,
+      'focus.inverted': color.light.focus.inverted,
+    }}
+  />
+  <ColorItem
+    title="Feedback - Danger"
+    subtitle="Error and danger states"
+    colors={{
+      'feedback.danger.\nsurface.default': color.light.feedback.danger.surface.default,
+      'feedback.danger.\nsurface.subtle': color.light.feedback.danger.surface.subtle,
+      'feedback.danger.\nborder': color.light.feedback.danger.border,
+    }}
+  />
+  <ColorItem
+    title="Feedback - Functional"
+    subtitle="Neutral functional states"
+    colors={{
+      'feedback.functional.\nsurface.default': color.light.feedback.functional.surface.default,
+      'feedback.functional.\nsurface.subtle': color.light.feedback.functional.surface.subtle,
+      'feedback.functional.\nborder': color.light.feedback.functional.border,
+    }}
+  />
+  <ColorItem
+    title="Feedback - Info"
+    subtitle="Information states"
+    colors={{
+      'feedback.info.\nsurface.default': color.light.feedback.info.surface.default,
+      'feedback.info.\nsurface.subtle': color.light.feedback.info.surface.subtle,
+      'feedback.info.\nborder': color.light.feedback.info.border,
+    }}
+  />
+  <ColorItem
+    title="Feedback - Positive"
+    subtitle="Success and positive states"
+    colors={{
+      'feedback.positive.\nsurface.default': color.light.feedback.positive.surface.default,
+      'feedback.positive.\nsurface.subtle': color.light.feedback.positive.surface.subtle,
+      'feedback.positive.\nborder': color.light.feedback.positive.border,
+    }}
+  />
+  <ColorItem
+    title="Feedback - Warning"
+    subtitle="Warning and caution states"
+    colors={{
+      'feedback.warning.\nsurface.default': color.light.feedback.warning.surface.default,
+      'feedback.warning.\nsurface.subtle': color.light.feedback.warning.surface.subtle,
+      'feedback.warning.\nborder': color.light.feedback.warning.border,
+    }}
+  />
+  <ColorItem
+    title="Surface - Brand"
+    subtitle="Brand surface colors"
+    colors={{
+      'surface.brand.default': color.light.surface.brand.default,
+      'surface.brand.strong': color.light.surface.brand.strong,
+      'surface.brand.subtle': color.light.surface.brand.subtle,
+    }}
+  />
+  <ColorItem
+    title="Surface - Service Colors"
+    subtitle="Service-specific surface colors"
+    colors={{
+      'surface.\nbroadband.default': color.light.surface.broadband.default,
+      'surface.\nbroadband.subtle': color.light.surface.broadband.subtle,
+      'surface.\ncashback.default': color.light.surface.cashback.default,
+      'surface.\ncashback.subtle': color.light.surface.cashback.subtle,
+      'surface.\nenergy.default': color.light.surface.energy.default,
+      'surface.\nenergy.subtle': color.light.surface.energy.subtle,
+    }}
+  />
+  <ColorItem
+    title="Surface - Other Services"
+    subtitle="Additional service surface colors"
+    colors={{
+      'surface.\nhighlight.default': color.light.surface.highlight.default,
+      'surface.\nhighlight.subtle': color.light.surface.highlight.subtle,
+      'surface.\ninsurance.default': color.light.surface.insurance.default,
+      'surface.\ninsurance.subtle': color.light.surface.insurance.subtle,
+      'surface.\nmobile.default': color.light.surface.mobile.default,
+      'surface.\nmobile.subtle': color.light.surface.mobile.subtle,
+    }}
+  />
+  <ColorItem
+    title="Surface - Pig"
+    subtitle="Pig service surface colors"
+    colors={{
+      'surface.pig.default': color.light.surface.pig.default,
+      'surface.pig.subtle': color.light.surface.pig.subtle,
+    }}
+  />
+  <ColorItem
+    title="Shadow Colors"
+    subtitle="Shadow and elevation colors"
+    colors={{
+      'shadow.default': color.light.shadow.default,
+      'shadow.brand': color.light.shadow.brand,
+      'shadow.broadband': color.light.shadow.broadband,
+      'shadow.cashback': color.light.shadow.cashback,
+      'shadow.energy': color.light.shadow.energy,
+      'shadow.insurance': color.light.shadow.insurance,
+    }}
+  />
+  <ColorItem
+    title="Shadow Colors (Cont.)"
+    subtitle="Additional shadow colors"
+    colors={{
+      'shadow.mobile': color.light.shadow.mobile,
+      'shadow.pig': color.light.shadow.pig,
+    }}
+  />
+</ColorPalette>
+
+#### Dark Theme Colors
+
+<ColorPalette>
+  <ColorItem
+    title="Background"
+    subtitle="Background colors"
+    colors={{
+      'background.brand': color.dark.background.brand,
+      'background.primary': color.dark.background.primary,
+      'background.secondary': color.dark.background.secondary,
+    }}
+  />
+  <ColorItem
+    title="Text"
+    subtitle="Text colors"
+    colors={{
+      'text.primary': color.dark.text.primary,
+      'text.secondary': color.dark.text.secondary,
+      'text.inverted': color.dark.text.inverted,
+    }}
+  />
+  <ColorItem
+    title="Border"
+    subtitle="Border colors"
+    colors={{
+      'border.strong': color.dark.border.strong,
+      'border.subtle': color.dark.border.subtle,
+    }}
+  />
+  <ColorItem
+    title="Focus"
+    subtitle="Focus indicator colors"
+    colors={{
+      'focus.primary': color.dark.focus.primary,
+      'focus.inverted': color.dark.focus.inverted,
+    }}
+  />
+  <ColorItem
+    title="Feedback - Danger"
+    subtitle="Error and danger states"
+    colors={{
+      'feedback.danger.\nsurface.default': color.dark.feedback.danger.surface.default,
+      'feedback.danger.\nsurface.subtle': color.dark.feedback.danger.surface.subtle,
+      'feedback.danger.\nborder': color.dark.feedback.danger.border,
+    }}
+  />
+  <ColorItem
+    title="Feedback - Functional"
+    subtitle="Neutral functional states"
+    colors={{
+      'feedback.functional.\nsurface.default': color.dark.feedback.functional.surface.default,
+      'feedback.functional.\nsurface.subtle': color.dark.feedback.functional.surface.subtle,
+      'feedback.functional.\nborder': color.dark.feedback.functional.border,
+    }}
+  />
+  <ColorItem
+    title="Feedback - Info"
+    subtitle="Information states"
+    colors={{
+      'feedback.info.surface.\ndefault': color.dark.feedback.info.surface.default,
+      'feedback.info.surface.\nsubtle': color.dark.feedback.info.surface.subtle,
+      'feedback.info.border': color.dark.feedback.info.border,
+    }}
+  />
+  <ColorItem
+    title="Feedback - Positive"
+    subtitle="Success and positive states"
+    colors={{
+      'feedback.positive.\nsurface.default': color.dark.feedback.positive.surface.default,
+      'feedback.positive.\nsurface.subtle': color.dark.feedback.positive.surface.subtle,
+      'feedback.positive.\nborder': color.dark.feedback.positive.border,
+    }}
+  />
+  <ColorItem
+    title="Feedback - Warning"
+    subtitle="Warning and caution states"
+    colors={{
+      'feedback.warning.\nsurface.default': color.dark.feedback.warning.surface.default,
+      'feedback.warning.\nsurface.subtle': color.dark.feedback.warning.surface.subtle,
+      'feedback.warning.\nborder': color.dark.feedback.warning.border,
+    }}
+  />
+  <ColorItem
+    title="Surface - Brand"
+    subtitle="Brand surface colors"
+    colors={{
+      'surface.brand.default': color.dark.surface.brand.default,
+      'surface.brand.strong': color.dark.surface.brand.strong,
+      'surface.brand.subtle': color.dark.surface.brand.subtle,
+    }}
+  />
+  <ColorItem
+    title="Surface - Service Colors"
+    subtitle="Service-specific surface colors"
+    colors={{
+      'surface.\nbroadband.default': color.dark.surface.broadband.default,
+      'surface.\nbroadband.subtle': color.dark.surface.broadband.subtle,
+      'surface.\ncashback.default': color.dark.surface.cashback.default,
+      'surface.\ncashback.subtle': color.dark.surface.cashback.subtle,
+      'surface.\nenergy.default': color.dark.surface.energy.default,
+      'surface.\nenergy.subtle': color.dark.surface.energy.subtle,
+    }}
+  />
+  <ColorItem
+    title="Surface - Other Services"
+    subtitle="Additional service surface colors"
+    colors={{
+      'surface.\nhighlight.default': color.dark.surface.highlight.default,
+      'surface.\nhighlight.subtle': color.dark.surface.highlight.subtle,
+      'surface.\ninsurance.default': color.dark.surface.insurance.default,
+      'surface.\ninsurance.subtle': color.dark.surface.insurance.subtle,
+      'surface.\nmobile.default': color.dark.surface.mobile.default,
+      'surface.\nmobile.subtle': color.dark.surface.mobile.subtle,
+    }}
+  />
+  <ColorItem
+    title="Surface - Pig"
+    subtitle="Pig service surface colors"
+    colors={{
+      'surface.pig.default': color.dark.surface.pig.default,
+      'surface.pig.subtle': color.dark.surface.pig.subtle,
+    }}
+  />
+  <ColorItem
+    title="Shadow Colors"
+    subtitle="Shadow and elevation colors"
+    colors={{
+      'shadow.default': color.dark.shadow.default,
+      'shadow.brand': color.dark.shadow.brand,
+      'shadow.broadband': color.dark.shadow.broadband,
+      'shadow.cashback': color.dark.shadow.cashback,
+      'shadow.energy': color.dark.shadow.energy,
+      'shadow.insurance': color.dark.shadow.insurance,
+    }}
+  />
+  <ColorItem
+    title="Shadow Colors (Cont.)"
+    subtitle="Additional shadow colors"
+    colors={{
+      'shadow.mobile': color.dark.shadow.mobile,
+      'shadow.pig': color.dark.shadow.pig,
+    }}
+  />
+</ColorPalette>
+
 ### Primitive Color Palette
 
 Access the full primitive color palette for custom use cases:
@@ -265,6 +605,54 @@ Available primitive colors with full scales (0-1000):
 - `purple`, `grey`, `warmWhite`
 - `broadbandGreen`, `energyBlue`, `mobileRose`
 - `insuranceOrange`, `cashbackLilac`, `piggyPink`
+
+#### Color Scales
+
+<ColorPalette>
+  {Object.keys(color)
+    .filter(key => !['light', 'dark'].includes(key))
+    .map(key => (
+      <>
+        <ColorItem
+          key={`${key}-1`}
+          title={key}
+          subtitle={`${key}`}
+          colors={Object.keys(color[key])
+            .slice(0, 6)
+            .reduce((acc, subKey) => {
+              acc[subKey] = color[key][subKey];
+              return acc;
+            }, {})}
+        />
+        {Object.keys(color[key]).length > 6 && (
+          <ColorItem
+            key={`${key}-2`}
+            title=""
+            subtitle=""
+            colors={Object.keys(color[key])
+              .slice(6, 12)
+              .reduce((acc, subKey) => {
+                acc[subKey] = color[key][subKey];
+                return acc;
+              }, {})}
+          />
+        )}
+        {Object.keys(color[key]).length > 12 && (
+          <ColorItem
+            key={`${key}-3`}
+            title=""
+            subtitle=""
+            colors={Object.keys(color[key])
+              .slice(12, 18)
+              .reduce((acc, subKey) => {
+                acc[subKey] = color[key][subKey];
+                return acc;
+              }, {})}
+          />
+        )}
+      </>
+    ))}
+</ColorPalette>
 
 ## Typography
 
