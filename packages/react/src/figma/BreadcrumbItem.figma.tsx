@@ -8,7 +8,6 @@ figma.connect(
   {
     props: {
       currentPage: figma.boolean('Current page?'),
-      inverted: figma.boolean('Inverted?'),
       children: figma.string('Text'),
     },
     example: ({ children, ...props }) => <BreadcrumbItem {...props}>{children}</BreadcrumbItem>,
