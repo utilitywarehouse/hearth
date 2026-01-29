@@ -1,5 +1,59 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.7
+
+### Patch Changes
+
+- [#822](https://github.com/utilitywarehouse/hearth/pull/822) [`f6e92b0`](https://github.com/utilitywarehouse/hearth/commit/f6e92b00b9d85ea830ea0f2bc271d5af06db8a9e) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add validation to `Checkbox` & `CheckboxTile`
+
+- [#824](https://github.com/utilitywarehouse/hearth/pull/824) [`4244533`](https://github.com/utilitywarehouse/hearth/commit/4244533d324adda52f145153fb160b647a258d34) Thanks [@robphoenix](https://github.com/robphoenix)! - Add `asChild` to `ListItemLink` component.
+
+  You can use the `ListItemLink` component with Next.js's `Link` component by using the
+  `asChild` prop. This allows you to wrap the `ListItemLink` around Next.js's `Link`
+  component, enabling client-side navigation while maintaining the styling and
+  functionality of the `ListItemLink`.
+
+  ```tsx
+  import NextLink from 'next/link';
+  import { List, ListItem, ListItemLink } from '@utilitywarehouse/hearth-react';
+
+  [...]
+
+  <List>
+    <ListItem>
+      <ListItemLink heading="Page One" asChild>
+        <NextLink href="/one" />
+      </ListItemLink>
+    </ListItem>
+    <ListItem>
+      <ListItemLink heading="Page Two" asChild>
+        <NextLink href="/two" />
+      </ListItemLink>
+    </ListItem>
+  </List>
+  ```
+
+- [#825](https://github.com/utilitywarehouse/hearth/pull/825) [`697748b`](https://github.com/utilitywarehouse/hearth/commit/697748b8b10229b890a5bdfdac5ebdd923e6577f) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `badge` prop to `RadioTile` component.
+
+  With the `badge` prop you can now add a badge element to the `RadioTile` component for additional context or status indication.
+
+  ```tsx
+  <RadioTile
+    value="2"
+    label="Two"
+    helperText="The number two"
+    badge={<Badge colorScheme="positive">Popular</Badge>}
+  />
+  ```
+
+- [#820](https://github.com/utilitywarehouse/hearth/pull/820) [`bfac360`](https://github.com/utilitywarehouse/hearth/commit/bfac3609df812b7d9876f9691ee0e1ff3e8edbb1) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `paddingNone` prop to `List` component.
+
+  Setting this prop on the `List` component will remove the inline padding on
+  child list item components. This change will not have an effect if either
+  `variant` or `colorScheme` are set as `undefined`.
+
+- [#821](https://github.com/utilitywarehouse/hearth/pull/821) [`61cc627`](https://github.com/utilitywarehouse/hearth/commit/61cc6271873f3c55eab427651366c79428f8d9a4) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Don't show `Card` shadows when interactive cards are focused.
+
 ## 0.24.6
 
 ### Patch Changes
