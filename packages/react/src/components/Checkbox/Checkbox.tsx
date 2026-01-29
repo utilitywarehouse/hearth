@@ -13,6 +13,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { Checkbox as CheckboxPrimitive } from 'radix-ui';
 import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
+import { ValidationText } from '../ValidationText/ValidationText';
 
 const COMPONENT_NAME = 'Checkbox';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -28,6 +29,8 @@ export const Checkbox = (props: CheckboxProps) => {
     value = 'on',
     'aria-labelledby': ariaLabelledby,
     image,
+    validationStatus,
+    validationText,
     ...checkboxProps
   } = extractProps(props, marginPropDefs);
   const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'checkbox' });
@@ -38,6 +41,7 @@ export const Checkbox = (props: CheckboxProps) => {
   const ariaDescribedby = context ? context['aria-describedby'] : '';
   const showHelperText = !hasGroupHelperText && !!helperText;
   const showLabel = !!label;
+  const showValidationText = validationStatus !== undefined && validationText !== undefined;
 
   return (
     <Flex className={cn(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
@@ -69,7 +73,7 @@ export const Checkbox = (props: CheckboxProps) => {
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
       {showLabel ? (
-        <Flex direction="column" gap="50">
+        <Flex direction="column">
           <Label id={labelId} htmlFor={id} disableUserSelect>
             {image}
             {label}
@@ -78,6 +82,9 @@ export const Checkbox = (props: CheckboxProps) => {
             <HelperText id={helperTextId} disableUserSelect>
               {helperText}
             </HelperText>
+          ) : null}
+          {showValidationText ? (
+            <ValidationText status={validationStatus}>{validationText}</ValidationText>
           ) : null}
         </Flex>
       ) : null}

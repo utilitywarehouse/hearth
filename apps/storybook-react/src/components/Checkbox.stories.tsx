@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Checkbox, Flex, BodyText } from '@utilitywarehouse/hearth-react';
+import { Checkbox, Flex, BodyText, Grid } from '@utilitywarehouse/hearth-react';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import mastercard from '../assets/mastercard.png';
 import visa from '../assets/visa.png';
@@ -22,12 +22,16 @@ const meta: Meta<typeof Checkbox> = {
     label: { control: { type: 'text' } },
     value: { control: { type: 'text' } },
     disabled: { type: 'boolean' },
+    validationStatus: { control: { type: 'radio' }, options: [undefined, 'invalid'] },
+    validationText: { control: { type: 'text' } },
   },
   args: {
     label: 'Label',
     helperText: 'Helper text',
     disabled: false,
     value: '1',
+    validationStatus: undefined,
+    validationText: 'Validation text',
   },
 };
 
@@ -42,7 +46,7 @@ export const Playground: Story = {
 export const KitchenSink: Story = {
   render: () => {
     return (
-      <Flex gap="400">
+      <Grid gap="400" columns="3">
         <Flex direction="column" gap="200">
           <BodyText>Standalone</BodyText>
           <Checkbox aria-label="standalone" />
@@ -52,6 +56,23 @@ export const KitchenSink: Story = {
           <Checkbox label="Label" />
         </Flex>
         <Flex direction="column" gap="200">
+          <BodyText>With label & helper text</BodyText>
+          <Checkbox label="Label" helperText="Helper text" />
+        </Flex>
+        <Flex direction="column" gap="200">
+          <BodyText>With label & validation text</BodyText>
+          <Checkbox label="Label" validationStatus="invalid" validationText="Validation text" />
+        </Flex>
+        <Flex direction="column" gap="200">
+          <BodyText>With label & helper text & validation text</BodyText>
+          <Checkbox
+            label="Label"
+            helperText="Helper text"
+            validationStatus="invalid"
+            validationText="Validation text"
+          />
+        </Flex>
+        <Flex direction="column" gap="200">
           <BodyText>With icon</BodyText>
           <Checkbox label="Label" image={<MoneyMediumIcon />} />
         </Flex>
@@ -59,7 +80,7 @@ export const KitchenSink: Story = {
           <BodyText>With image</BodyText>
           <Checkbox label="Label" image={<img src={visa} width={40} alt="" />} />
         </Flex>
-      </Flex>
+      </Grid>
     );
   },
 };
