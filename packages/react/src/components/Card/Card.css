@@ -103,7 +103,7 @@
     --h-card-subtle-background-color: var(--h-surface-highlight-subtle);
   }
 
-  &:where([data-shadowcolor]):not(:has(:focus-visible)) {
+  &:where([data-shadowcolor]):not(:has(.h-CardInteraction:focus-visible)) {
     box-shadow: var(--h-card-shadow-color) var(--h-md-x-mobile) var(--h-md-y-mobile);
 
     @media (--h-desktop) {
