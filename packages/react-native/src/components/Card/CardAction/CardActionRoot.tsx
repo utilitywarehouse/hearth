@@ -4,7 +4,7 @@ import { Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { IconContainer } from '../../IconContainer';
 import { Skeleton } from '../../Skeleton';
-import { useCardContext } from '../Card.context';
+import { useCardContext, useCardFirstActionContext } from '../Card.context';
 import { CardActionContext, ICardActionContext } from './CardAction.context';
 import type CardActionProps from './CardAction.props';
 import CardActionContent from './CardActionContent';
@@ -45,7 +45,8 @@ const CardActionRoot = ({
   const loadingTestID = isLoading ? `${testID}-loading` : testID;
 
   const { variant, hasOnlyActions } = useCardContext();
-  const isFirst = props.isFirst;
+  const isFirstFromContext = useCardFirstActionContext();
+  const isFirst = props.isFirst ?? isFirstFromContext;
 
   styles.useVariants({
     showPressed,

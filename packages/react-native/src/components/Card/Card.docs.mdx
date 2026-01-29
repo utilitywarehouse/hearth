@@ -316,6 +316,161 @@ const MyComponent = () => (
 );
 ```
 
+#### `CardAction` Usage Patterns and Best Practices
+
+Understanding how `Card` detects and renders `CardAction` components will help you structure your code correctly.
+
+##### Direct vs Wrapped CardActions
+
+The `Card` component can detect `CardAction` components in three ways:
+
+1. **Direct children** - `CardAction` components passed directly to `Card`
+2. **Wrapped in custom components** - `CardAction` components wrapped inside your own components (e.g., when mapping over data)
+3. **Explicit `CardContent` wrapper** - Using `CardContent` to explicitly separate content from actions
+
+**Direct CardActions (Recommended for static lists):**
+
+```tsx
+import { Card, CardAction, BodyText } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <Card>
+    <BodyText>Card content here</BodyText>
+    <CardAction heading="First Action" onPress={() => {}} />
+    <CardAction heading="Second Action" onPress={() => {}} />
+  </Card>
+);
+```
+
+**Wrapped CardActions (For dynamic/mapped lists):**
+
+```tsx
+import { Card, CardAction, BodyText } from '@utilitywarehouse/hearth-react-native';
+
+const actions = [
+  { id: 1, label: 'Action 1' },
+  { id: 2, label: 'Action 2' },
+];
+
+// CustomAction wrapper component
+const CustomAction = ({ label, onPress }) => <CardAction heading={label} onPress={onPress} />;
+
+const MyComponent = () => (
+  <Card>
+    <BodyText>Card content here</BodyText>
+    {actions.map(action => (
+      <CustomAction key={action.id} label={action.label} onPress={() => {}} />
+    ))}
+  </Card>
+);
+```
+
+**Using `CardContent` wrapper (For complex mixed content):**
+
+```tsx
+import {
+  Card,
+  CardContent,
+  CardAction,
+  BodyText,
+  Heading,
+} from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <Card>
+    <CardContent>
+      <Heading>Title</Heading>
+      <BodyText>Complex content that shouldn't be auto-wrapped</BodyText>
+    </CardContent>
+    <CardAction heading="Action 1" onPress={() => {}} />
+    <CardAction heading="Action 2" onPress={() => {}} />
+  </Card>
+);
+```
+
+##### How Card Detects Actions
+
+The `Card` component uses heuristics to automatically determine whether it contains only actions or mixed content:
+
+- **Type comparison**: Directly checks if children are `CardAction` or `CardContent` components
+- **Content detection**: Function components (wrappers) with no text content or non-action elements are assumed to be action wrappers
+- **Automatic wrapping**: When mixing content and actions, non-action content is automatically wrapped in `CardContent`
+
+##### When to Use `CardContent`
+
+Use the explicit `CardContent` wrapper when:
+
+1. **Complex content structure**: You have multiple components and want precise control over what gets wrapped
+2. **Avoiding auto-wrap heuristics**: The automatic detection isn't working as expected for your use case
+3. **Nested components**: You have deeply nested content structures that might confuse the detection
+
+```tsx
+// Scenario: Complex nested structure with custom wrappers
+const MyComponent = () => (
+  <Card>
+    <CardContent>
+      <CustomHeader />
+      <CustomBody />
+      <CustomFooter />
+    </CardContent>
+    <CardAction heading="Learn More" onPress={() => {}} />
+  </Card>
+);
+```
+
+##### Mapped Actions Best Practices
+
+When mapping over data to create `CardAction` components:
+
+1. **Always use a wrapper component** for better code organization:
+
+```tsx
+const ActionItem = ({ item }) => (
+  <CardAction
+    heading={item.label}
+    helperText={item.description}
+    onPress={() => handlePress(item)}
+  />
+);
+
+<Card>
+  {actions.map(action => (
+    <ActionItem key={action.id} item={action} />
+  ))}
+</Card>;
+```
+
+2. **Keep wrapper components simple** - avoid adding content children to action wrapper components:
+
+```tsx
+// ✅ Good: Simple wrapper, only props
+const ActionWrapper = ({ label }) => <CardAction heading={label} onPress={() => {}} />;
+
+// ❌ Avoid: Adding content makes it ambiguous
+const ActionWrapper = ({ label }) => (
+  <View>
+    <Text>Extra content</Text>
+    <CardAction heading={label} onPress={() => {}} />
+  </View>
+);
+```
+
+3. **Mix mapped actions with direct actions when needed**:
+
+```tsx
+<Card>
+  <BodyText>Content</BodyText>
+  {dynamicActions.map(action => (
+    <CustomAction key={action.id} {...action} />
+  ))}
+  <CardAction heading="Static Action" onPress={() => {}} />
+</Card>
+```
+
+##### First Action Styling
+
+The first `CardAction` in a card automatically has no top border. This applies even when actions are wrapped in custom components. The `Card` component tracks the first action and removes its border-top to maintain visual consistency.
+
 #### `CardAction` Component Parts
 
 - `CardAction` - Main component wrapper
