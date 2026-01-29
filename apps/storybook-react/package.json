@@ -34,7 +34,7 @@
     "globals": "^15.14.0",
     "remark-gfm": "^4.0.1",
     "seedrandom": "^3.0.5",
-    "storybook": "^10.1.8",
+    "storybook": "^10.1.10",
     "typescript": "~5.6.2",
     "vite": "^7.2.7"
   },
