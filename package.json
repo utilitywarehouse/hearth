@@ -6,7 +6,7 @@
     "url": "git+https://github.com/utilitywarehouse/hearth.git"
   },
   "scripts": {
-    "setup": "corepack enable && corepack prepare pnpm@10.28.2 --activate",
+    "setup": "corepack enable && corepack prepare pnpm@10.28.2 --activate && pnpm install --loglevel=\"info\" && pnpm build",
     "build": "turbo build",
     "build:react": "turbo run @utilitywarehouse/hearth-react#build @utilitywarehouse/hearth-fonts#build @utilitywarehouse/hearth-css-reset#build @utilitywarehouse/hearth-tokens#build @utilitywarehouse/hearth-react-icons#build storybook-react#build:storybook",
     "build:react-native": "turbo run @utilitywarehouse/hearth-react-native#build @utilitywarehouse/hearth-react-native#build:storybook",
@@ -27,7 +27,8 @@
     "format:ci": "turbo run format:ci",
     "lint": "turbo run lint --filter='./packages/*'",
     "lint:fix": "turbo run lint:fix --filter='./packages/*'",
-    "clean": "pnpm -r --stream clean && rm -rf node_modules",
+    "clean": "pnpm -r --stream --loglevel=\"info\" clean && rm -rf node_modules",
+    "refresh": "pnpm clean && pnpm install --loglevel=\"info\" && pnpm run build",
     "changeset": "changeset",
     "ci:version": "changeset version && pnpm install --no-frozen-lockfile",
     "ci:publish": "pnpm run build && changeset publish",
@@ -66,6 +67,7 @@
       "dtrace-provider",
       "esbuild",
       "react-native-nitro-modules",
+      "sharp",
       "style-dictionary",
       "unrs-resolver"
     ]
