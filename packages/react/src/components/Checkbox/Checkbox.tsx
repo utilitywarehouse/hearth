@@ -14,6 +14,7 @@ import { Checkbox as CheckboxPrimitive } from 'radix-ui';
 import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 import { ValidationText } from '../ValidationText/ValidationText';
+import { mergeIds } from '../../helpers/merge-ids';
 
 const COMPONENT_NAME = 'Checkbox';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -33,7 +34,10 @@ export const Checkbox = (props: CheckboxProps) => {
     validationText,
     ...checkboxProps
   } = extractProps(props, marginPropDefs);
-  const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'checkbox' });
+  const { id, labelId, helperTextId, validationTextId } = useIds({
+    providedId,
+    prefix: 'checkbox',
+  });
   const context = useFormGroupBase();
   const checkboxContext = useCheckboxGroup();
   const checked = checkboxContext?.value?.includes(value);
@@ -42,8 +46,14 @@ export const Checkbox = (props: CheckboxProps) => {
   const ariaDescribedby = context ? context['aria-describedby'] : '';
   const showHelperText = !hasGroupHelperText && !!helperText;
   const showLabel = !!label;
-  const showValidationText =
+  const showValidation =
     !hasGroupValidationText && validationStatus !== undefined && validationText !== undefined;
+
+  const ariaDescribedbyValue = mergeIds(
+    ariaDescribedby,
+    !!helperText ? helperTextId : undefined,
+    showValidation && validationText !== undefined ? validationTextId : undefined
+  );
 
   return (
     <Flex className={cn(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
@@ -55,8 +65,9 @@ export const Checkbox = (props: CheckboxProps) => {
         {...checkboxProps}
         id={id}
         disabled={disabled}
-        aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
+        aria-describedby={ariaDescribedbyValue}
         aria-labelledby={ariaLabelledby || showLabel ? labelId : undefined}
+        aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
         onCheckedChange={(checked: boolean) => {
           if (context) {
             if (checked) {
@@ -85,8 +96,10 @@ export const Checkbox = (props: CheckboxProps) => {
               {helperText}
             </HelperText>
           ) : null}
-          {showValidationText ? (
-            <ValidationText status={validationStatus}>{validationText}</ValidationText>
+          {showValidation ? (
+            <ValidationText id={validationTextId} status={validationStatus} disableUserSelect>
+              {validationText}
+            </ValidationText>
           ) : null}
         </Flex>
       ) : null}
