@@ -121,7 +121,6 @@ const WheelWeb = ({ value, setValue = () => {}, items }: WheelProps) => {
         return (
           <Animated.View
             key={`${displayValue?.text}-${index}`}
-            // eslint-disable-next-line react-native/no-inline-styles
             style={{
               position: 'absolute',
               height: ITEM_HEIGHT - 10,

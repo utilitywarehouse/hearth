@@ -3,7 +3,9 @@
   "include": [
     "./src",
     "./src/**/*.stories.tsx",
-    "./src/**/*.figma.tsx"
+    "./src/**/*.figma.tsx",
+    "./.storybook/**/*",
+    "./docs/**/*"
   ],
   "exclude": [
     "node_modules"

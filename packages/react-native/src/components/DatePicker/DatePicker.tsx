@@ -52,7 +52,8 @@ export interface DatePickerMultipleProps extends DatePickerBaseProps {
 const DateTimePicker = (
   props: DatePickerSingleProps | DatePickerRangeProps | DatePickerMultipleProps
 ) => {
-  const numerals = 'latn';
+  // eslint-disable-next-line @typescript-eslint/prefer-as-const
+  const numerals: 'latn' = 'latn';
   const {
     mode = 'single',
     timeZone,
