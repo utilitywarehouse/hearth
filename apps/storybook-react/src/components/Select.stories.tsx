@@ -14,11 +14,13 @@ const meta: Meta<typeof Select> = {
   },
   argTypes: {
     label: { control: { type: 'text' } },
+    labelVariant: { control: { type: 'radio' }, options: ['body', 'heading'] },
     helperText: { control: { type: 'text' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
   },
   args: {
     label: 'Select',
+    labelVariant: 'body',
     helperText: 'Helper text',
     placeholder: 'Select',
     validationText: 'Validation text',
