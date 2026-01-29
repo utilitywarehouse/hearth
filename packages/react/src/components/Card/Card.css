@@ -19,12 +19,12 @@
   }
 
   &:where(
-      .h-padding-none,
-      :has(.h-CardContent),
-      :has(.h-CardActions),
-      :has(> .h-CardActionLink),
-      :has(> .h-CardActionButton)
-    ) {
+    .h-padding-none,
+    :has(.h-CardContent),
+    :has(.h-CardActions),
+    :has(> .h-CardActionLink),
+    :has(> .h-CardActionButton)
+  ) {
     padding: 0;
   }
 
@@ -103,7 +103,7 @@
     --h-card-subtle-background-color: var(--h-surface-highlight-subtle);
   }
 
-  &:where([data-shadowcolor]) {
+  &:where([data-shadowcolor]):not(:has(:focus-visible)) {
     box-shadow: var(--h-card-shadow-color) var(--h-md-x-mobile) var(--h-md-y-mobile);
 
     @media (--h-desktop) {
