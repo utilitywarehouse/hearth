@@ -133,11 +133,11 @@ export const WithIllustration: Story = {
             illustration={
               <BannerIllustration
                 light={
-                  // @ts-ignore
+                  // @ts-expect-error - Illustration SVG import
                   <SpotBillingLight width={80} height={80} />
                 }
                 dark={
-                  // @ts-ignore
+                  // @ts-expect-error - Illustration SVG import
                   <SpotBillingDark width={80} height={80} />
                 }
               />
@@ -150,11 +150,11 @@ export const WithIllustration: Story = {
             illustration={
               <BannerIllustration
                 light={
-                  // @ts-ignore
+                  // @ts-expect-error - Illustration SVG import
                   <SpotBillingLight width={120} height={120} />
                 }
                 dark={
-                  // @ts-ignore
+                  // @ts-expect-error - Illustration SVG import
                   <SpotBillingDark width={120} height={120} />
                 }
               />

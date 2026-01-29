@@ -33,9 +33,9 @@ export const Playground: Story = {
   render: () => (
     <Box gap="200">
       <ThemedImage
-        // @ts-ignore
+        // @ts-expect-error - This is a playground
         light={<SpotBillingLight width={200} height={200} />}
-        // @ts-ignore
+        // @ts-expect-error - This is a playground
         dark={<SpotBillingDark width={200} height={200} />}
       />
     </Box>
@@ -49,9 +49,9 @@ export const WithSpotIllustrations: Story = {
   render: () => (
     <Box flexDirection="row" flexWrap="wrap" gap="200">
       <ThemedImage
-        // @ts-ignore
+        // @ts-expect-error - Ignore TS2322 for Storybook stories
         light={<SpotBillingLight width={120} height={120} />}
-        // @ts-ignore
+        // @ts-expect-error - Ignore TS2322 for Storybook stories
         dark={<SpotBillingDark width={120} height={120} />}
       />
     </Box>
@@ -81,9 +81,9 @@ export const WithSceneIllustrations: Story = {
   render: () => (
     <Box gap="200">
       <ThemedImage
-        //  @ts-ignore
+        //  @ts-expect-error - Ignore TS2322 for Storybook stories
         light={<SceneBroadbandLight width={300} height={200} />}
-        //  @ts-ignore
+        //  @ts-expect-error - Ignore TS2322 for Storybook stories
         dark={<SceneBroadbandDark width={300} height={200} />}
       />
     </Box>
@@ -129,21 +129,21 @@ export const WithCustomSize: Story = {
   render: () => (
     <Box flexDirection="row" flexWrap="wrap" gap="200" alignItems="center">
       <ThemedImage
-        // @ts-ignore
+        // @ts-expect-error - Ignore TS2322 for Storybook stories
         light={<SpotBillingLight width={80} height={80} />}
-        // @ts-ignore
+        // @ts-expect-error - Ignore TS2322 for Storybook stories
         dark={<SpotBillingDark width={80} height={80} />}
       />
       <ThemedImage
-        // @ts-ignore
+        // @ts-expect-error - Ignore TS2322 for Storybook stories
         light={<SpotBillingLight width={120} height={120} />}
-        // @ts-ignore
+        // @ts-expect-error - Ignore TS2322 for Storybook stories
         dark={<SpotBillingDark width={120} height={120} />}
       />
       <ThemedImage
-        // @ts-ignore
+        // @ts-expect-error - Ignore TS2322 for Storybook stories
         light={<SpotBillingLight width={160} height={160} />}
-        // @ts-ignore
+        // @ts-expect-error - Ignore TS2322 for Storybook stories
         dark={<SpotBillingDark width={160} height={160} />}
       />
     </Box>
@@ -163,9 +163,9 @@ export const WithAccessibility: Story = {
   render: () => (
     <Box gap="200">
       <ThemedImage
-        // @ts-ignore
+        // @ts-expect-error - This is a playground
         light={<MascotEnergyLight width={150} height={150} />}
-        // @ts-ignore
+        // @ts-expect-error - This is a playground
         dark={<MascotEnergyDark width={150} height={150} />}
         accessible={true}
         accessibilityLabel="Energy service mascot illustration"

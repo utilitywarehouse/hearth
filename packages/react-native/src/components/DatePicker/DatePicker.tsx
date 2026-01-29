@@ -52,7 +52,7 @@ export interface DatePickerMultipleProps extends DatePickerBaseProps {
 const DateTimePicker = (
   props: DatePickerSingleProps | DatePickerRangeProps | DatePickerMultipleProps
 ) => {
-  const numerals: 'latn' = 'latn';
+  const numerals = 'latn';
   const {
     mode = 'single',
     timeZone,
@@ -216,26 +216,29 @@ const DateTimePicker = (
           ...prevState,
           currentYear: action.payload,
         };
-      case CalendarActionKind.CHANGE_SELECTED_DATE:
+      case CalendarActionKind.CHANGE_SELECTED_DATE: {
         const { date: selectedDate } = action.payload;
         return {
           ...prevState,
           date: selectedDate,
           currentDate: selectedDate,
         };
-      case CalendarActionKind.CHANGE_SELECTED_RANGE:
+      }
+      case CalendarActionKind.CHANGE_SELECTED_RANGE: {
         const { startDate: start, endDate: end } = action.payload;
         return {
           ...prevState,
           startDate: start,
           endDate: end,
         };
-      case CalendarActionKind.CHANGE_SELECTED_MULTIPLE:
+      }
+      case CalendarActionKind.CHANGE_SELECTED_MULTIPLE: {
         const { dates: selectedDates } = action.payload;
         return {
           ...prevState,
           dates: selectedDates,
         };
+      }
       case CalendarActionKind.RESET_STATE:
         return action.payload;
       default:
@@ -363,7 +366,7 @@ const DateTimePicker = (
           });
         } else if (mode === 'range') {
           // set time to 00:00:00
-          let start = removeTime(stateRef.current.startDate, timeZone);
+          const start = removeTime(stateRef.current.startDate, timeZone);
           let end = removeTime(stateRef.current.endDate, timeZone);
           const selected = removeTime(selectedDate, timeZone);
           let isStart: boolean = true;

@@ -11,7 +11,6 @@ const Tabs = ({
   size = 'md',
   disabled,
   children,
-  withPanels,
   ...props
 }: TabsProps) => {
   // Collect child tab values

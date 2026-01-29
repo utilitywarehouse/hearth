@@ -23,7 +23,7 @@ const CustomSwitch = ({
   size = 'medium',
   ...accessibilityProps
 }: SwitchProps) => {
-  const { components, color } = useTheme();
+  const { components } = useTheme();
   const theme = useAnimatedTheme();
   const SWITCH_WIDTH = size === 'medium' ? components.switch.md.width : components.switch.sm.width;
   const THUMB_SIZE =

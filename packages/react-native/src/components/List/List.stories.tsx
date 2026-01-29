@@ -9,7 +9,7 @@ import {
   SettingsMediumIcon,
   UserMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
-import { FC, PropsWithChildren, useState } from 'react';
+import { useState } from 'react';
 import { List, ListAction, ListItem, ListItemIcon, ListItemTrailingIcon } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Badge } from '../Badge';
@@ -18,9 +18,6 @@ import { Flex } from '../Flex';
 import { IconContainer } from '../IconContainer';
 import { Link } from '../Link';
 import { Switch } from '../Switch';
-// import { Card } from '../Card';
-
-const Card: FC<PropsWithChildren> = ({ children }) => <div>{children}</div>;
 
 const meta = {
   title: 'Stories / List',

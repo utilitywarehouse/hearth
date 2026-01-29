@@ -2,7 +2,6 @@ import { UserMediumIcon, UserSmallIcon } from '@utilitywarehouse/hearth-react-na
 import { useEffect, useState } from 'react';
 import { Image, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { useTheme } from '../../hooks';
 import { getInitials } from '../../utils';
 import BodyText from '../BodyText/BodyText';
 import AvatarProps, { AvatarLoadingStatus } from './Avatar.props';
@@ -18,7 +17,6 @@ const Avatar = ({
 }: AvatarProps) => {
   const [status, setStatus] = useState<AvatarLoadingStatus>('idle');
   const [isDelayed, setIsDelayed] = useState(delayMs > 0);
-  const { components } = useTheme();
 
   useEffect(() => {
     if (!src) {

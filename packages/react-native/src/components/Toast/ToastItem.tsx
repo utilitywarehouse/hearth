@@ -45,7 +45,7 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [toast.text, toast.actionText]);
+  }, [toast.text, toast.actionText, translateY, opacity]);
 
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ translateY: translateY.value + gestureTranslateY.value }],

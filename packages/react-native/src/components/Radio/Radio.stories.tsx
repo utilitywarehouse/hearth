@@ -96,7 +96,7 @@ export const WithImage: Story = {
     value: 'Option 1',
     label: 'Label',
   },
-  render: ({ children, ...args }) => (
+  render: ({ ...args }) => (
     <RadioGroup>
       <Radio
         aria-label="Label 1"
