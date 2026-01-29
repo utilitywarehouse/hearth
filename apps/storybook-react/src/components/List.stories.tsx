@@ -156,6 +156,48 @@ export const KitchenSink: Story = {
   ),
 };
 
+export const PaddingNone: Story = {
+  render: args => (
+    <Flex gap="400">
+      <List {...args} paddingNone>
+        <ListItem>List item</ListItem>
+        <ListItem aria-label="list item content">
+          <ListItemContent heading="List item" helperText="Helper text" />
+        </ListItem>
+        <ListItem aria-label="list item button">
+          <ListItemButton
+            heading="List item button"
+            helperText="Helper text"
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem aria-label="list item link">
+          <ListItemLink heading="List item as link" href="#" />
+        </ListItem>
+      </List>
+
+      {(['subtle', 'emphasis'] as const).map(variant => (
+        <List {...args} key={variant} variant={variant} colorScheme="neutralStrong" paddingNone>
+          <ListItem>List item</ListItem>
+          <ListItem aria-label="list item content">
+            <ListItemContent heading="List item" helperText="Helper text" />
+          </ListItem>
+          <ListItem aria-label="list item button">
+            <ListItemButton
+              heading="List item button"
+              helperText="Helper text"
+              onClick={() => console.log('clickety click')}
+            />
+          </ListItem>
+          <ListItem aria-label="list item link">
+            <ListItemLink heading="List item as link" href="#" />
+          </ListItem>
+        </List>
+      ))}
+    </Flex>
+  ),
+};
+
 export const LeadingContent: Story = {
   render: args => (
     <Box width="400px">
@@ -744,6 +786,7 @@ export const Gallery: Story = {
       ListItemContents,
       ListActions,
       CustomContent,
+      PaddingNone,
     };
     return <StoryGallery meta={meta} stories={stories} />;
   },
