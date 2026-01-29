@@ -43,7 +43,6 @@ const Input = forwardRef<TextInput, InputProps>(
       type,
       showPasswordToggle = true,
       onClear,
-      format,
       loading,
       clearable = false,
       required = true,

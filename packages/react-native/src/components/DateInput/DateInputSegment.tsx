@@ -63,7 +63,7 @@ const styles = StyleSheet.create(theme => ({
   container: {
     flex: 1,
     gap: theme.components.input.gap,
-    maxWidth: 96,
+    // maxWidth: 96,
   },
   label: {
     variants: {
@@ -75,7 +75,7 @@ const styles = StyleSheet.create(theme => ({
     },
   },
   input: {
-    maxWidth: 96,
+    // maxWidth: 96,
   },
 }));
 
