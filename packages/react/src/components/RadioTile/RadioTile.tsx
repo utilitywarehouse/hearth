@@ -20,6 +20,7 @@ export const RadioTile = ({
   helperText,
   image,
   'aria-labelledby': ariaLabelledby,
+  badge,
   ...props
 }: RadioTileProps) => {
   const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
@@ -37,7 +38,7 @@ export const RadioTile = ({
         <div className={withGlobalPrefix('RadioItem')}>
           <RadioGroupPrimitive.Indicator className={withGlobalPrefix('RadioIndicator')} />
         </div>
-        <Flex direction="column">
+        <Flex direction="column" alignItems="start">
           <Label id={labelId} htmlFor={id} disableUserSelect>
             {image}
             {label}
@@ -47,6 +48,7 @@ export const RadioTile = ({
               {helperText}
             </HelperText>
           ) : null}
+          {badge}
         </Flex>
       </div>
     </RadioGroupPrimitive.Item>

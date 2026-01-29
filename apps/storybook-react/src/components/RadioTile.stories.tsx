@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { RadioTile, Flex, RadioGroup } from '@utilitywarehouse/hearth-react';
+import { RadioTile, Flex, RadioGroup, Badge } from '@utilitywarehouse/hearth-react';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import mastercard from '../assets/mastercard.png';
 import visa from '../assets/visa.png';
@@ -55,6 +55,33 @@ export const Playground: Story = {
     label: 'Radio label',
     helperText: 'Radio helper text',
   },
+};
+
+export const WithBadge: Story = {
+  render: () => (
+    <RadioGroup label="With badge" contentWidth="200px">
+      <RadioTile
+        value="1"
+        label="Label"
+        helperText=""
+        badge={
+          <Badge size="sm" variant="subtle" colorScheme="info">
+            Badge
+          </Badge>
+        }
+      />
+      <RadioTile
+        value="2"
+        label="Label"
+        helperText="Helper text"
+        badge={
+          <Badge size="sm" variant="subtle" colorScheme="info">
+            Badge
+          </Badge>
+        }
+      />
+    </RadioGroup>
+  ),
 };
 
 export const WithImage: Story = {
