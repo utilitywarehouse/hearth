@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.6
+
+### Patch Changes
+
+- [#811](https://github.com/utilitywarehouse/hearth/pull/811) [`2ef3b12`](https://github.com/utilitywarehouse/hearth/commit/2ef3b124cc45284bbe18c0022dc0bf6ccd7a0d5a) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `spacing` prop to `Tabs` to control the space between `TabsList` & `TabContent`.
+
+  You can now customize the spacing between the `TabsList` and `TabContent` in the
+  `Tabs` component by using the new `spacing` prop. This prop from the `Flex`
+  component and accepts predefined values (`'none'`, `'2xs'`, `'xs'`, `'sm'`, `'md'`, `'lg'`, `'xl'`, `'2xl'`) to
+  adjust the gap according to your design needs.
+
+  No changes are needed from consumers, however you may find this is a better way
+  to manage the spacing in your `TabContent` layouts, possibly removing any
+  `paddingTop` within the `TabContent` component in favour of this approach.
+
 ## 0.24.5
 
 ### Patch Changes
@@ -67,7 +82,6 @@
   happen even when `hideOpenIcon` is set to true.
 
   **Components affected**:
-
   - `InlineLink`
   - `Link`
 
@@ -138,7 +152,6 @@
 ### Patch Changes
 
 - [#727](https://github.com/utilitywarehouse/hearth/pull/727) [`58d8f21`](https://github.com/utilitywarehouse/hearth/commit/58d8f21ed9e1875ce9e2b7d4b5fe20c739da776c) Thanks [@robphoenix](https://github.com/robphoenix)! - Multiple fixes
-
   - fix `Box` display prop
   - fix `CurrencyInput` styles
   - fix `ListItem` trailing content
@@ -164,14 +177,12 @@
 ### Minor Changes
 
 - [#710](https://github.com/utilitywarehouse/hearth/pull/710) [`c354913`](https://github.com/utilitywarehouse/hearth/commit/c354913e1bd2e33b615a68b993432e40399d1c16) Thanks [@robphoenix](https://github.com/robphoenix)! - Breaking changes to `borderRadius` props. The following props have been removed:
-
   - `borderTopLeftRadius`
   - `borderTopRightRadius`
   - `borderBottomLeftRadius`
   - `borderBottomRightRadius`
 
   These have been replaced with the following props:
-
   - `borderRadiusTopLeftNone`
   - `borderRadiusTopRightNone`
   - `borderRadiusTopNone`
@@ -224,7 +235,6 @@
 - [#700](https://github.com/utilitywarehouse/hearth/pull/700) [`bb556e6`](https://github.com/utilitywarehouse/hearth/commit/bb556e67219e806f0b8ff4fe21d1a7a84a9fa7db) Thanks [@robphoenix](https://github.com/robphoenix)! - Remove usage of `forwardRef`. While this change shouldn't change any public APIs, it's significant enough to warrant a release bump.
 
 - [#700](https://github.com/utilitywarehouse/hearth/pull/700) [`bb556e6`](https://github.com/utilitywarehouse/hearth/commit/bb556e67219e806f0b8ff4fe21d1a7a84a9fa7db) Thanks [@robphoenix](https://github.com/robphoenix)! - [BREAKING CHANGE] Refactor `ProgressStepper`
-
   - `ProgressStepContent` has been removed.
   - `ProgressStepButton` & `ProgressStepLink` should no longer be wrapped in a `ProgressStep` component.
 
@@ -264,7 +274,6 @@
 ### Minor Changes
 
 - [#695](https://github.com/utilitywarehouse/hearth/pull/695) [`1e5f3c4`](https://github.com/utilitywarehouse/hearth/commit/1e5f3c45241fc3893d6b3ead394dcc6cb978a72c) Thanks [@robphoenix](https://github.com/robphoenix)! - `Table` component BREAKING changes
-
   - Remove `footer` prop
   - Remove `variant` prop from `Table` component
   - Add `TableContainer` component, with `variant` prop
@@ -523,13 +532,11 @@
   accessed via CSS or JS variables in your preferred styling method.
 
   The following props are affected by this change:
-
   - `color`
   - `backgroundColor`
   - `borderColor`
 
   The following components are affected by this change:
-
   - `Box`
   - `Flex`
   - `Grid`
@@ -637,7 +644,6 @@
 - [#428](https://github.com/utilitywarehouse/hearth/pull/428) [`8486120`](https://github.com/utilitywarehouse/hearth/commit/848612059721f1b524a0c659907b2994c85079ef) Thanks [@dorota-uw](https://github.com/dorota-uw)! - Added image prop to radio/checkbox
 
 - [#470](https://github.com/utilitywarehouse/hearth/pull/470) [`6a27b8b`](https://github.com/utilitywarehouse/hearth/commit/6a27b8b8c6c8b97255801963815f8bbbd015a835) Thanks [@robphoenix](https://github.com/robphoenix)! - Badge updates. This is a breaking change.
-
   - Add `size` prop
   - Change font family, font size & line-height
   - Rename `solid` variant to `emphasis`
@@ -649,7 +655,6 @@
 
   The values for the `colorScheme` prop have been updated to reflect the
   introduction of semantic design tokens. The values have been renamed as below:
-
   - `white` -> `neutralStrong`
   - `warmWhite` -> `neutralSubtle`
   - `blue` -> `info`
@@ -663,7 +668,6 @@
 
   The changes will be dependent on the intent and usage of specific components.
   The following components are included in this change:
-
   - `Alert`
   - `Badge`
   - `Button`
@@ -675,7 +679,6 @@
 
 - [#473](https://github.com/utilitywarehouse/hearth/pull/473) [`dcd34d0`](https://github.com/utilitywarehouse/hearth/commit/dcd34d0b4c1e8223b2b07667cb81407ba2f197eb) Thanks [@robphoenix](https://github.com/robphoenix)! - Refactor token CSS & Browser files. This is a breaking change, only affecting
   usage of CSS and browser JS tokens.
-
   - Individual component files have been combined into a single components tokens
     file.
   - Typography and Device tokens (mobile, tablet & desktop) have been included in
@@ -685,7 +688,6 @@
     file.
 
   There is now a more concise set of individual tokens files:
-
   - border.{css,ts}
   - color.{css,ts}
   - components.{css,ts}
