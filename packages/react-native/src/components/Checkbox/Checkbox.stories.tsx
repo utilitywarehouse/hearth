@@ -76,7 +76,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  render: ({ checked: checkedArg = false, value, children, onChange, ...args }) => {
+  render: ({ checked: checkedArg = false, value, onChange, ...args }) => {
     const [checked, setChecked] = React.useState(checkedArg);
     useEffect(() => {
       setChecked(checkedArg);
@@ -95,7 +95,7 @@ export const Playground: Story = {
 };
 
 export const WithImage: Story = {
-  render: ({ children, ...args }) => (
+  render: ({ ...args }) => (
     <CheckboxGroup aria-label="Checkbox Group" nativeID="checkbox-group">
       <Checkbox
         aria-label="Visa"

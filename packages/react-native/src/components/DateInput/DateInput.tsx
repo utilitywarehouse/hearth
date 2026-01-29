@@ -111,6 +111,7 @@ const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
     gap: theme.components.input.date.gap,
+    // alignItems: 'stretch',
   },
 }));
 

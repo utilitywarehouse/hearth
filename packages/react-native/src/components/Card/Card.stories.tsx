@@ -106,7 +106,7 @@ export const WithOnlyAction: Story = {
   args: {
     variant: 'emphasis',
   },
-  render: ({ children, ...props }) => {
+  render: ({ ...props }) => {
     return (
       <Card {...props} flexDirection="column" alignItems="stretch" space="md">
         <CardAction

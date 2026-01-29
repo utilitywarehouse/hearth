@@ -6,5 +6,3 @@ export type HeaderProps = {
   NextIcon?: React.ReactNode;
   navigationPosition?: NavigationPosition;
 };
-
-export type NavigationProps = {};

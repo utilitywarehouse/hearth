@@ -53,7 +53,6 @@ const DatePickerInput = ({
   ...rest
 }: DatePickerInputProps) => {
   const formFieldContext = useFormFieldContext();
-  const validationStatusFromContext = formFieldContext?.validationStatus ?? validationStatus;
   const isDisabled = formFieldContext?.disabled ?? disabled;
   const isReadonly = formFieldContext?.readonly ?? readonly;
 
@@ -168,7 +167,6 @@ const DatePickerInput = ({
     accessibilityHint: accessibilityHintProp,
     accessibilityLabel: accessibilityLabelProp,
     accessible: accessibleProp,
-    accessibilityRole: accessibilityRoleProp,
     importantForAccessibility: importantForAccessibilityProp,
     ...textInputProps
   } = rest;

@@ -58,6 +58,9 @@ const Textarea = ({
 
   const getAccessibilityHint = () => {
     let accessibilityHint = '';
+    if (textareaHelperText) {
+      accessibilityHint = accessibilityHint + textareaHelperText;
+    }
     if (textareaValidationStatus !== 'initial') {
       if (accessibilityHint.length > 0) {
         accessibilityHint = accessibilityHint + ', ';

@@ -25,7 +25,8 @@ const Banner = ({
   onPress,
   onClose,
   variant = 'subtle',
-  colorScheme = 'pig',
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  colorScheme: _,
   style,
   ...props
 }: BannerProps) => {

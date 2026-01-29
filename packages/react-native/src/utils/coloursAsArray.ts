@@ -1,6 +1,6 @@
 import { color } from '../tokens';
 
-const { light, dark, ...restOfColors } = color;
+const { light, ...restOfColors } = color;
 
 /**
  * Recursively flatten nested color objects into camelCase keys

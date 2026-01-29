@@ -12,7 +12,7 @@ const UnstyledIconButtonIcon = ({ children, ...props }: IconProps) => {
       {...props}
       style={
         Platform.OS === 'web'
-          ? // @ts-ignore
+          ? // @ts-expect-error - Spread types may only be created from object types.
             { ...(styles.icon as StyleProp<ViewStyle>), ...props.style }
           : [styles.icon as ViewStyle, props.style]
       }

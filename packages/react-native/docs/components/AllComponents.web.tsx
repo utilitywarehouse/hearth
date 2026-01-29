@@ -13,9 +13,9 @@ import {
   ShareSmallIcon,
   TrashSmallIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
-// @ts-ignore
+// @ts-expect-error - Module missing type declarations
 import SpotBillingDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg';
-// @ts-ignore
+// @ts-expect-error - Module missing type declarations
 import SpotBillingLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-light.svg';
 import { Pressable, ScrollView, View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
@@ -176,6 +176,7 @@ const AllComponents: React.FC = () => {
   const handleMenuOpenPress = useCallback(() => {
     menuRef.current?.present();
   }, []);
+  const [pillValue, setPillValue] = React.useState<string[]>(['energy', 'mobile']);
 
   const [colorMode] = useColorMode();
   const isDark = colorMode === 'dark';
@@ -648,22 +649,19 @@ const AllComponents: React.FC = () => {
           </ComponentWrapper>
           <ComponentWrapper name="Pill Group" link="/?path=/docs/components-pill-group--docs">
             <Center flex={1} p="200">
-              {(() => {
-                const [pillValue, setPillValue] = React.useState<string[]>(['energy', 'mobile']);
-                return (
-                  <PillGroup
-                    value={pillValue}
-                    onChange={v => setPillValue(v as string[])}
-                    wrap={false}
-                    multiple
-                  >
-                    <Pill value="all" label="All" />
-                    <Pill value="energy" label="Energy" icon={ElectricityMediumIcon} />
-                    <Pill value="broadband" label="Broadband" icon={BroadbandMediumIcon} />
-                    <Pill value="mobile" label="Mobile" icon={MobileMediumIcon} />
-                  </PillGroup>
-                );
-              })()}
+              (
+              <PillGroup
+                value={pillValue}
+                onChange={v => setPillValue(v as string[])}
+                wrap={false}
+                multiple
+              >
+                <Pill value="all" label="All" />
+                <Pill value="energy" label="Energy" icon={ElectricityMediumIcon} />
+                <Pill value="broadband" label="Broadband" icon={BroadbandMediumIcon} />
+                <Pill value="mobile" label="Mobile" icon={MobileMediumIcon} />
+              </PillGroup>
+              );
             </Center>
           </ComponentWrapper>
           <ComponentWrapper

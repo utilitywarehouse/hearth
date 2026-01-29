@@ -58,23 +58,25 @@ import { DescriptionList, DescriptionListItem } from '@utilitywarehouse/hearth-r
 
 ### DescriptionList
 
-| Prop                    | Type                | Description                                      | Default     |
-| ----------------------- | ------------------- | ------------------------------------------------ | ----------- |
-| `direction`             | `'row' \| 'column'` | Layout orientation                               | `column`    |
-| `itemHeadingWidth`      | `number`            | Override heading column width in row layout      | token value |
-| `heading`               | `string`            | Optional overall heading (renders SectionHeader) | -           |
-| `helperText`            | `string`            | Supporting text under heading                    | -           |
-| `headerTrailingContent` | `ReactNode`         | Custom trailing content for heading (e.g. Link)  | -           |
+| Prop                    | Type                | Default     | Description                                      |
+| ----------------------- | ------------------- | ----------- | ------------------------------------------------ |
+| `direction`             | `'row' \| 'column'` | `column`    | Layout orientation                               |
+| `itemHeadingWidth`      | `number`            | token value | Override heading column width in row layout      |
+| `heading`               | `string`            | -           | Optional overall heading (renders SectionHeader) |
+| `helperText`            | `string`            | -           | Supporting text under heading                    |
+| `headerTrailingContent` | `ReactNode`         | -           | Custom trailing content for heading (e.g. Link)  |
+| `invalidText`           | `string`            | -           | Text to show under section header                |
 
 ### DescriptionListItem
 
-| Prop              | Type        | Description                                      | Default    |
-| ----------------- | ----------- | ------------------------------------------------ | ---------- |
-| `heading`         | `ReactNode` | Heading (label) content                          | (required) |
-| `description`     | `ReactNode` | Description (value) content                      | (required) |
-| `headingWidth`    | `number`    | Per-item heading width override (row layout)     | inherits   |
-| `trailingContent` | `ReactNode` | Optional trailing content (e.g. Link, Button)    | -          |
-| `invalidText`     | `string`    | Text to show under description for invalid value | -          |
+| Prop              | Type        | Default    | Description                                      |
+| ----------------- | ----------- | ---------- | ------------------------------------------------ |
+| `heading`         | `ReactNode` | (required) | Heading (label) content                          |
+| `description`     | `ReactNode` | (required) | Description (value) content                      |
+| `numericValue`    | `string`    | -          | Optional numeric value                           |
+| `headingWidth`    | `number`    | inherits   | Per-item heading width override (row layout)     |
+| `trailingContent` | `ReactNode` | -          | Optional trailing content (e.g. Link, Button)    |
+| `invalidText`     | `string`    | -          | Text to show under description for invalid value |
 
 > Uses `theme.components.descriptionList` tokens for spacing & column width.
 

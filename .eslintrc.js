@@ -24,7 +24,7 @@ module.exports = {
     },
     ecmaVersion: 12,
     sourceType: 'module',
-    project: ['./packages/*/tsconfig.json'],
+    project: ['./packages/*/tsconfig.json', './apps/*/tsconfig.json'],
     tsconfigRootDir: __dirname,
   },
   rules: {
@@ -36,7 +36,7 @@ module.exports = {
     'no-constant-binary-expression': 'error',
     'no-sequences': 'error',
     'react/prop-types': 'off',
-    "react/react-in-jsx-scope": "off",
+    'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/array-type': ['error', { default: 'generic' }],
     '@typescript-eslint/unbound-method': 'off',
   },

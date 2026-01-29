@@ -9,6 +9,7 @@ export interface DescriptionListItemProps extends ViewProps {
   headingWidth?: number;
   trailingContent?: ReactNode;
   invalidText?: string;
+  numericValue?: string;
 }
 
 export default DescriptionListItemProps;

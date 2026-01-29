@@ -8,6 +8,7 @@ export interface DescriptionListProps extends ViewProps {
   heading?: string;
   helperText?: string;
   headerTrailingContent?: React.ReactNode;
+  invalidText?: string;
 }
 
 export default DescriptionListProps;

@@ -49,7 +49,7 @@ const Carousel = ({
   ...props
 }: CarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(initialActiveIndex);
-  const [numItems, setNumItems] = useState(0);
+  const [, setNumItems] = useState(0);
 
   const scrollViewRef = useRef<ScrollView>(null);
   const flatListRef = useRef<FlatList>(null);
