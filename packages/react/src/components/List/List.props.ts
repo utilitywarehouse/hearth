@@ -27,4 +27,8 @@ export type ListProps = React.ComponentPropsWithRef<'ol'> &
      * @default ul
      */
     as?: 'ul' | 'ol';
+    /**
+     * Remove the inline padding for better alignment with other elements.
+     */
+    paddingNone?: boolean;
   };

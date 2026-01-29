@@ -23,6 +23,7 @@ export const List = (props: ListProps) => {
     validationText,
     validationStatus,
     children,
+    paddingNone,
     ...listProps
   } = extractProps(props, marginPropDefs);
 
@@ -35,11 +36,20 @@ export const List = (props: ListProps) => {
     validationStatus,
   };
 
+  const dataAttributeProps = {
+    'data-padding-none': paddingNone ? '' : undefined,
+  };
+
   return (
     <div className={cn(componentClassName, className)}>
       {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
       {variant === undefined || colorScheme === undefined ? (
-        <Box asChild className={`${componentClassName}Container`} role="list">
+        <Box
+          asChild
+          className={`${componentClassName}Container`}
+          role="list"
+          {...dataAttributeProps}
+        >
           <Tag {...listProps}>{children}</Tag>
         </Box>
       ) : (
@@ -49,7 +59,7 @@ export const List = (props: ListProps) => {
           variant={variant}
           colorScheme={colorScheme}
         >
-          <Tag role="list" {...listProps}>
+          <Tag role="list" {...listProps} {...dataAttributeProps}>
             {children}
           </Tag>
         </Card>
