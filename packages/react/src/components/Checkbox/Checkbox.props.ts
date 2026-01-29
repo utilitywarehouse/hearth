@@ -26,4 +26,12 @@ export interface CheckboxProps
   onCheckedChange?: (checked: boolean) => void;
   /** The checked state of the checkbox when it is initially rendered. Use when you do not need to control its checked state. */
   defaultChecked?: boolean;
+  /**
+   * Indicates the validation state
+   */
+  validationStatus?: 'invalid';
+  /**
+   * Text to display when the `validationStatus` is set.
+   */
+  validationText?: string;
 }
