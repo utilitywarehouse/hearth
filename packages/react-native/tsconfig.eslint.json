@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "./src",
+    "./src/**/*.stories.tsx",
+    "./src/**/*.figma.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
