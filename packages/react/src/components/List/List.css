@@ -22,7 +22,11 @@
     position: relative;
     padding: var(--h-list-item-functional-padding);
 
-    :where(.h-variant-subtle, .h-variant-emphasis) & {
+    &:where(.h-ListContainer[data-padding-none]:not(.h-Card) &) {
+      padding-inline: var(--h-space-0);
+    }
+
+    &:where(.h-variant-subtle, .h-variant-emphasis) & {
       &:where(:first-child) {
         border-top-left-radius: var(--h-card-border-radius);
         border-top-right-radius: var(--h-card-border-radius);
