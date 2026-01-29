@@ -34,6 +34,33 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 - Use `ListActionLink` as a child of `ListItem` when you need an action for the list to navigate somewhere.
 - Use `ListActionButton` as a child of `ListItem` when you need an action for the list to do something.
 
+### With Next.js
+
+You can use the `ListItemLink` component with Next.js's `Link` component by using the
+`asChild` prop. This allows you to wrap the `ListItemLink` around Next.js's `Link`
+component, enabling client-side navigation while maintaining the styling and
+functionality of the `ListItemLink`.
+
+```tsx
+import NextLink from 'next/link';
+import { List, ListItem, ListItemLink } from '@utilitywarehouse/hearth-react';
+
+[...]
+
+<List>
+  <ListItem>
+    <ListItemLink heading="Page One" asChild>
+      <NextLink href="/one" />
+    </ListItemLink>
+  </ListItem>
+  <ListItem>
+    <ListItemLink heading="Page Two" asChild>
+      <NextLink href="/two" />
+    </ListItemLink>
+  </ListItem>
+</List>
+```
+
 ## Accessibility
 
 If you are doing anything more complex than rendering simple text within the
@@ -275,6 +302,7 @@ This component is base on the `a` element.
 | `helperText`   | `string`    |
 | `leadingIcon`  | `ReactNode` |
 | `trailingIcon` | `ReactNode` |
+| `asChild`      | `boolean`   |
 
 ## ListActionLink
 
