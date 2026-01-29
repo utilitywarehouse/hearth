@@ -13,6 +13,8 @@ import { extractProps } from '../../helpers/extract-props';
 import { Checkbox as CheckboxPrimitive } from 'radix-ui';
 import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
+import { ValidationText } from '../ValidationText/ValidationText';
+import { mergeIds } from '../../helpers/merge-ids';
 
 const COMPONENT_NAME = 'Checkbox';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -28,16 +30,30 @@ export const Checkbox = (props: CheckboxProps) => {
     value = 'on',
     'aria-labelledby': ariaLabelledby,
     image,
+    validationStatus,
+    validationText,
     ...checkboxProps
   } = extractProps(props, marginPropDefs);
-  const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'checkbox' });
+  const { id, labelId, helperTextId, validationTextId } = useIds({
+    providedId,
+    prefix: 'checkbox',
+  });
   const context = useFormGroupBase();
   const checkboxContext = useCheckboxGroup();
   const checked = checkboxContext?.value?.includes(value);
   const hasGroupHelperText = context?.hasGroupHelperText;
+  const hasGroupValidationText = context?.hasGroupValidationText;
   const ariaDescribedby = context ? context['aria-describedby'] : '';
   const showHelperText = !hasGroupHelperText && !!helperText;
   const showLabel = !!label;
+  const showValidation =
+    !hasGroupValidationText && validationStatus !== undefined && validationText !== undefined;
+
+  const ariaDescribedbyValue = mergeIds(
+    ariaDescribedby,
+    !!helperText ? helperTextId : undefined,
+    showValidation && validationText !== undefined ? validationTextId : undefined
+  );
 
   return (
     <Flex className={cn(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
@@ -49,8 +65,9 @@ export const Checkbox = (props: CheckboxProps) => {
         {...checkboxProps}
         id={id}
         disabled={disabled}
-        aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
+        aria-describedby={ariaDescribedbyValue}
         aria-labelledby={ariaLabelledby || showLabel ? labelId : undefined}
+        aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
         onCheckedChange={(checked: boolean) => {
           if (context) {
             if (checked) {
@@ -69,7 +86,7 @@ export const Checkbox = (props: CheckboxProps) => {
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
       {showLabel ? (
-        <Flex direction="column" gap="50">
+        <Flex direction="column">
           <Label id={labelId} htmlFor={id} disableUserSelect>
             {image}
             {label}
@@ -78,6 +95,11 @@ export const Checkbox = (props: CheckboxProps) => {
             <HelperText id={helperTextId} disableUserSelect>
               {helperText}
             </HelperText>
+          ) : null}
+          {showValidation ? (
+            <ValidationText id={validationTextId} status={validationStatus} disableUserSelect>
+              {validationText}
+            </ValidationText>
           ) : null}
         </Flex>
       ) : null}

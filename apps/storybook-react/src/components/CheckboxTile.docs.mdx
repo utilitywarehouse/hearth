@@ -18,6 +18,15 @@ which also displays a helper text message.
 <CheckboxTile value="1" label="One" helperText="The number one" />
 ```
 
+## Validation text
+
+The `CheckboxTile` can display a validation message when `validationStatus` is `invalid`. This will not
+show if the `CheckboxTile` is a child of a `CheckboxGroup` which also displays a validation message.
+
+```tsx
+<CheckboxTile value="1" label="One" validationText="That is invalid" validationStatus="invalid" />
+```
+
 ## Image
 
 The `CheckboxTile` can display an icon or image between the indicator and label.

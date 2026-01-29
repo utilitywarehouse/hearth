@@ -14,6 +14,9 @@ import {
   Box,
   Breadcrumbs,
   BreadcrumbItem,
+  List,
+  ListItem,
+  ListItemLink,
 } from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';
 import { space, color, components, semantic } from '@utilitywarehouse/hearth-tokens/browser';
@@ -43,10 +46,26 @@ export default function Home() {
         <BreadcrumbItem asChild>
           <NextLink href="/three">Three</NextLink>
         </BreadcrumbItem>
-        <BreadcrumbItem currentPage>
-          Home
-        </BreadcrumbItem>
+        <BreadcrumbItem currentPage>Home</BreadcrumbItem>
       </Breadcrumbs>
+
+      <List>
+        <ListItem>
+          <ListItemLink heading="Page One" asChild>
+            <NextLink href="/one" />
+          </ListItemLink>
+        </ListItem>
+        <ListItem>
+          <ListItemLink heading="Page Two" asChild>
+            <NextLink href="/two" />
+          </ListItemLink>
+        </ListItem>
+        <ListItem>
+          <ListItemLink heading="Page Three" asChild>
+            <NextLink href="/three" />
+          </ListItemLink>
+        </ListItem>
+      </List>
 
       <StyledBox sx={{ border: '1px solid red', padding: '32px', display: 'flex' }}>
         Hearth styled with sx
