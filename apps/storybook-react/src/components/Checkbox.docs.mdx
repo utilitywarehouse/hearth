@@ -17,6 +17,15 @@ show if the `Checkbox` is a child of a `CheckboxGroup` which also displays a hel
 <Checkbox value="1" label="One" helperText="The number one" />
 ```
 
+## Validation text
+
+The `Checkbox` can display a validation message when `validationStatus` is `invalid`. This will not
+show if the `Checkbox` is a child of a `CheckboxGroup` which also displays a validation message.
+
+```tsx
+<Checkbox value="1" label="One" validationText="That is invalid" validationStatus="invalid" />
+```
+
 ## Image
 
 The `Checkbox` can display an icon or image between the indicator and label.
@@ -65,13 +74,15 @@ This component is based on the `button` element and supports the following commo
 
 - Margin
 
-| Prop              | Type                         |
-| ----------------- | ---------------------------- |
-| `value`           | `string`                     |
-| `defaultValue`    | `string`                     |
-| `label`           | `ReactNode`                  |
-| `helperText`      | `ReactNode`                  |
-| `image`           | `ReactNode`                  |
-| `checked`         | `boolean`                    |
-| `defaultChecked`  | `boolean`                    |
-| `onCheckedChange` | `(checked: boolean) => void` |
+| Prop               | Type                         |
+| ------------------ | ---------------------------- |
+| `value`            | `string`                     |
+| `defaultValue`     | `string`                     |
+| `label`            | `ReactNode`                  |
+| `helperText`       | `ReactNode`                  |
+| `image`            | `ReactNode`                  |
+| `checked`          | `boolean`                    |
+| `defaultChecked`   | `boolean`                    |
+| `onCheckedChange`  | `(checked: boolean) => void` |
+| `validationStatus` | `undefined \| 'invalid'`     |
+| `validationText`   | `string`                     |

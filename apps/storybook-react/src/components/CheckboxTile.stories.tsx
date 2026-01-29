@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { CheckboxTile, Flex, BodyText } from '@utilitywarehouse/hearth-react';
+import { CheckboxTile, Flex, BodyText, Grid } from '@utilitywarehouse/hearth-react';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import mastercard from '../assets/mastercard.png';
 import visa from '../assets/visa.png';
@@ -21,11 +21,15 @@ const meta: Meta<typeof CheckboxTile> = {
     helperText: { control: { type: 'text' } },
     label: { control: { type: 'text' } },
     disabled: { type: 'boolean' },
+    validationStatus: { control: { type: 'radio' }, options: [undefined, 'invalid'] },
+    validationText: { control: { type: 'text' } },
   },
   args: {
     label: 'Label',
     helperText: 'Helper text',
     disabled: false,
+    validationStatus: undefined,
+    validationText: 'Validation text',
   },
 };
 
@@ -33,18 +37,14 @@ export default meta;
 type Story = StoryObj<typeof CheckboxTile>;
 
 export const Playground: Story = {
-  render: args => <CheckboxTile {...args} />,
+  render: (args: any) => <CheckboxTile {...args} />,
 };
 
 // Kitchen sink covers all variations so we don't need a Gallery story
 export const KitchenSink: Story = {
   render: () => {
     return (
-      <Flex gap="400">
-        <Flex direction="column" gap="200">
-          <BodyText>Standalone</BodyText>
-          <CheckboxTile aria-label="standalone" />
-        </Flex>
+      <Grid gap="400" columns="3" alignItems="start">
         <Flex direction="column" gap="200">
           <BodyText>With label</BodyText>
           <CheckboxTile label="Label" />
@@ -54,10 +54,27 @@ export const KitchenSink: Story = {
           <CheckboxTile label="Label" image={<MoneyMediumIcon />} />
         </Flex>
         <Flex direction="column" gap="200">
+          <BodyText>With label & helper text</BodyText>
+          <CheckboxTile label="Label" helperText="Helper text" />
+        </Flex>
+        <Flex direction="column" gap="200">
+          <BodyText>With label & validation text</BodyText>
+          <CheckboxTile label="Label" validationStatus="invalid" validationText="Validation text" />
+        </Flex>
+        <Flex direction="column" gap="200">
+          <BodyText>With label & helper text & validation text</BodyText>
+          <CheckboxTile
+            label="Label"
+            helperText="Helper text"
+            validationStatus="invalid"
+            validationText="Validation text"
+          />
+        </Flex>
+        <Flex direction="column" gap="200">
           <BodyText>With image</BodyText>
           <CheckboxTile label="Label" image={<img src={visa} width={40} alt="" />} />
         </Flex>
-      </Flex>
+      </Grid>
     );
   },
 };
