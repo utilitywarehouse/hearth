@@ -1,27 +1,36 @@
 # Hearth - Utility Warehouse Design Systems
 
-Hearth is the unified design system powering coherent, accessible user interfaces across all our platforms. Built with scalability and flexibility in mind, Hearth brings together our shared visual language, component libraries, iconography, and design tokens — so teams can build faster with confidence and consistency.
-
-Whether you're working on web, mobile, or crafting brand assets, Hearth is your central source of truth for all things design and UI implementation. And it's all built with accessibility at its core.
+Hearth is a set of systems for designing and building coherent, scalable and
+accessible UIs across all our platforms. Hearth provides a shared visual
+language and a single source of truth so teams can build with confidence.
 
 ## Prerequisites
 
-You need to have `pnpm` installed ([see docs](https://pnpm.io/installation#using-npm)) and NPM token set up locally ([see docs](https://wiki.uw.systems/posts/npm-tokens-16f6l31h)).
+You need to have `npm` & [`nvm`](https://github.com/nvm-sh/nvm) installed.
+
+### Setting up the project
+
+Run the following commands in your terminal to set the correct Node version, set
+up `pnpm`, install dependencies and build the libraries:
+
+```console
+nvm use
+npm run setup
+```
+
+If at any time you need to do a refresh of the dependencies, you can run:
+
+```console
+pnpm refresh
+```
+
+This will clean all the package dependencies, reinstall them and rebuild the
+libraries.
 
 ## Developing React library
 
-Install everything in the root of the repo:
-
-```console
-pnpm install
-```
-
-You then need to build all the libraries so that internal dependencies will be
-found:
-
-```console
-pnpm build
-```
+You need to have installed everything in the root of the repo, and built all the
+libraries so that internal dependencies will be found.
 
 The following command will then run the React Storybook and build the React
 library in watch mode:
@@ -32,18 +41,8 @@ pnpm dev:react
 
 ## Developing React Native library
 
-Install everything in the root of the repo:
-
-```console
-pnpm install
-```
-
-You then need to build all the libraries so that internal dependencies will be
-found:
-
-```console
-pnpm build
-```
+You need to have installed everything in the root of the repo, and built all the
+libraries so that internal dependencies will be found.
 
 The following command will then run the React Native Storybook:
 
@@ -65,28 +64,44 @@ pnpm dev:react-native:ios
 For Android:
 ```console
 pnpm dev:react-native:android
-``` 
+```
 
 ### Code formatting
 
-We are running linting checks on every PR. If on your PR `Code Checks / Code Checks (push)` is failing, format code by using this command in your package root:
+We are running linting checks on every PR. If on your PR `Code Checks / Code Checks (push)`
+is failing, format code by using this command in your package root:
 
 ```console
 pnpm format
 ```
+
 And/or this command in your package:
- ```console
+
+```console
 pnpm lint:fix
 ```
 
+To run all checks use the following command:
+
+```console
+pnpm check
+```
+
 ### Deploying changes
-The libraries are deployed by semi-automatic script that creates the release based on Changesets merged into `main`.
+
+The libraries are deployed by semi-automatic script that creates the release
+based on Changesets merged into `main`.
 
 Run following command and include the output files in the PR:
+
 ```console
 pnpm changeset
 ```
-Once the changeset is merged into `main`, the GH Action will run that will create a PR for release (or add your changes to existing PR, as sometimes we may want to wait for more work to release). Once that PR is merged, the release process will fire and new versions of the libs will be ready to use.
+
+Once the changeset is merged into `main`, GitHub Actions will run that will
+create a PR for release (or add your changes to existing PR, as sometimes we may
+want to wait for more work to release). Once that PR is merged, the release
+process will fire and new versions of the libs will be ready to use.
 
 ### Integration with Hearth Tokens
 
