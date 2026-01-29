@@ -11,6 +11,7 @@ import { Checkbox as CheckboxPrimitive } from 'radix-ui';
 import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 import type { CheckboxProps } from '../Checkbox/Checkbox.props';
+import { ValidationText } from '../ValidationText/ValidationText';
 
 const COMPONENT_NAME = 'CheckboxTile';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -25,6 +26,8 @@ export const CheckboxTile = ({
   helperText,
   image,
   'aria-labelledby': ariaLabelledby,
+  validationStatus,
+  validationText,
   ...props
 }: CheckboxProps) => {
   const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
@@ -32,9 +35,12 @@ export const CheckboxTile = ({
   const checkboxContext = useCheckboxGroup();
   const checked = checkboxContext?.value?.includes(value);
   const hasGroupHelperText = context?.hasGroupHelperText;
+  const hasGroupValidationText = context?.hasGroupValidationText;
   const ariaDescribedby = context ? context['aria-describedby'] : '';
   const showHelperText = !hasGroupHelperText && !!helperText;
   const showLabel = !!label;
+  const showValidationText =
+    !hasGroupValidationText && validationStatus !== undefined && validationText !== undefined;
 
   return (
     <label className={cn(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
@@ -74,6 +80,9 @@ export const CheckboxTile = ({
           <HelperText id={helperTextId} disableUserSelect>
             {helperText}
           </HelperText>
+        ) : null}
+        {showValidationText ? (
+          <ValidationText status={validationStatus}>{validationText}</ValidationText>
         ) : null}
       </Flex>
     </label>

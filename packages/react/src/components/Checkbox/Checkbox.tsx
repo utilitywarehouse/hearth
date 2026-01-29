@@ -38,10 +38,12 @@ export const Checkbox = (props: CheckboxProps) => {
   const checkboxContext = useCheckboxGroup();
   const checked = checkboxContext?.value?.includes(value);
   const hasGroupHelperText = context?.hasGroupHelperText;
+  const hasGroupValidationText = context?.hasGroupValidationText;
   const ariaDescribedby = context ? context['aria-describedby'] : '';
   const showHelperText = !hasGroupHelperText && !!helperText;
   const showLabel = !!label;
-  const showValidationText = validationStatus !== undefined && validationText !== undefined;
+  const showValidationText =
+    !hasGroupValidationText && validationStatus !== undefined && validationText !== undefined;
 
   return (
     <Flex className={cn(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
