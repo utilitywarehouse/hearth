@@ -116,9 +116,9 @@ export const Controlled: Story = {
 
 export const FullWidth: Story = {
   render: () => (
-    <Flex width="600px" direction="column" gap="400">
+    <Flex maxWidth="600px" width="100%" direction="column" gap="400">
       <TextInput label="Text input" />
-      <TextArea label="Text area" rows={3} cols={60} />
+      <TextArea label="Text area" resize="both" />
     </Flex>
   ),
 };

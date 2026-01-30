@@ -80,23 +80,21 @@ export const TextArea = (props: TextAreaProps) => {
       data-disabled={disabled ? '' : undefined}
       {...formFieldProps}
     >
-      <Flex direction="column" className={`${componentClassName}Root`}>
-        <textarea
-          id={id}
-          rows={rows}
-          required={required}
-          disabled={disabled}
-          readOnly={readOnly}
-          placeholder={!disabled ? placeholder : undefined}
-          aria-labelledby={labelId}
-          aria-describedby={ariaDescribedbyValue}
-          aria-invalid={validationStatus === 'invalid' ? true : undefined}
-          aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
-          data-resize={resize}
-          style={{ ...style, minHeight, maxHeight }}
-          {...textAreaProps}
-        />
-      </Flex>
+      <textarea
+        id={id}
+        rows={rows}
+        required={required}
+        disabled={disabled}
+        readOnly={readOnly}
+        placeholder={!disabled ? placeholder : undefined}
+        aria-labelledby={labelId}
+        aria-describedby={ariaDescribedbyValue}
+        aria-invalid={validationStatus === 'invalid' ? true : undefined}
+        aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
+        data-resize={resize}
+        // style={{ ...style, minHeight, maxHeight }}
+        {...textAreaProps}
+      />
     </FormField>
   );
 };
