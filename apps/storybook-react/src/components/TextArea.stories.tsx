@@ -114,11 +114,11 @@ export const Controlled: Story = {
   },
 };
 
-export const FullWidth: Story = {
+export const WithTextInput: Story = {
   render: () => (
-    <Flex width="600px" direction="column" gap="400">
+    <Flex direction="column" gap="400">
       <TextInput label="Text input" />
-      <TextArea label="Text area" rows={3} cols={60} />
+      <TextArea label="Text area" />
     </Flex>
   ),
 };
@@ -137,7 +137,7 @@ export const Gallery: Story = {
       DisabledAndReadOnly,
       Validation,
       CustomRows,
-      FullWidth,
+      WithTextInput,
     };
     return <StoryGallery meta={meta} stories={stories} />;
   },

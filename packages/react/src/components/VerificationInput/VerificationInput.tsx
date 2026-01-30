@@ -60,13 +60,9 @@ export const VerificationInput = (props: VerificationInputProps) => {
   const PASSWORD_LENGTH = 6;
 
   return (
-    <FormField
-      className={cn(componentClassName, className)}
-      data-disabled={disabled ? '' : undefined}
-      {...formFieldProps}
-    >
+    <FormField data-disabled={disabled ? '' : undefined} {...formFieldProps}>
       <OneTimePasswordFieldPrimitive.Root
-        className={`${componentClassName}Row`}
+        className={cn(componentClassName, className)}
         disabled={disabled}
         readOnly={readOnly}
         aria-labelledby={labelId}

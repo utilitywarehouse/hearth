@@ -1,133 +1,82 @@
 .h-TextArea {
-  & :where(.h-TextAreaRoot) {
-    box-sizing: border-box;
-    position: relative;
-    font-family: var(--h-font-family-body);
-    font-weight: var(--h-font-weight-regular);
-    font-size: var(--h-font-size-100);
-    line-height: var(--h-line-height-500);
-    font-style: normal;
-    cursor: text;
-    text-align: start;
-    padding: var(--h-input-padding-vertical) var(--h-space-100) var(--h-space-100)
-      var(--h-input-padding-horizontal);
-    border-radius: var(--h-input-border-radius);
-    border-color: var(--h-border-strong);
-    border-width: var(--h-input-border-width);
-    border-style: solid;
-    background-color: var(--h-surface-neutral-strong);
+  all: unset;
+  display: block;
+  font-family: var(--h-font-family-body);
+  font-weight: var(--h-font-weight-regular);
+  font-size: var(--h-font-size-100);
+  line-height: var(--h-line-height-500);
+  font-style: normal;
+  cursor: text;
+  text-align: start;
+  text-indent: initial;
+  -webkit-tap-highlight-color: transparent;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 
-    /* Allows the `resize` property to work on the div */
-    overflow: hidden;
-    width: fit-content;
-    min-width: var(--h-input-min-width);
-    max-width: var(--h-input-max-width);
+  --h-textarea-padding-inline: calc(var(--h-input-padding-horizontal) - var(--h-space-100));
 
-    --h-input-border-color-focus: var(--h-border-strong);
+  padding-inline: var(--h-textarea-padding-inline);
+  padding-block: calc(var(--h-input-padding-vertical) - var(--h-space-100));
+  border-radius: var(--h-input-border-radius);
+  background-color: var(--h-surface-neutral-strong);
 
-    &:where(:has(textarea[readonly]):not([data-disabled] &)) {
-      border-color: var(--h-border-subtle);
+  --h-textarea-border-color: var(--h-border-strong);
+  --h-textarea-border-width: var(--h-input-border-width);
 
-      --h-input-border-color-focus: var(--h-border-subtle);
-    }
+  /* fake padding */
+  border: calc(var(--h-space-100) + var(--h-input-border-width)) solid
+    var(--h-surface-neutral-strong);
+  outline: var(--h-textarea-border-width) solid var(--h-textarea-border-color);
+  outline-offset: -1px;
+  background-clip: padding-box;
 
-    &:where(:has(textarea:disabled, textarea[readonly])) {
-      cursor: default;
-    }
+  /* account for fake padding when calculating width */
+  min-width: calc(
+    var(--h-input-min-width) - calc(var(--h-space-100) * 2) -
+      calc(var(--h-textarea-padding-inline) * 2) - calc(var(--h-input-border-width) * 2)
+  );
+  max-width: calc(
+    var(--h-input-max-width) - calc(var(--h-space-100) * 2) -
+      calc(var(--h-textarea-padding-inline) * 2) - calc(var(--h-input-border-width) * 2)
+  );
 
-    :where([data-validation-status='valid']:not(:has(textarea[readonly], textarea:disabled))) & {
-      border-color: var(--h-feedback-positive-border);
+  &:where([data-resize='none']) {
+    resize: none;
+  }
 
-      --h-input-border-color-focus: var(--h-feedback-positive-border);
-    }
+  &:where([data-resize='vertical']) {
+    resize: vertical;
+  }
 
-    :where([data-validation-status='invalid']:not(:has(textarea[readonly], textarea:disabled))) & {
-      border-color: var(--h-feedback-danger-border);
+  &:where([data-resize='horizontal']) {
+    resize: horizontal;
+  }
 
-      --h-input-border-color-focus: var(--h-feedback-danger-border);
-    }
+  &:where([data-resize='both']) {
+    resize: both;
+  }
 
-    &:where(:has(textarea:focus)) {
-      outline: var(--h-input-border-width-focused) solid var(--h-input-border-color-focus);
-      outline-offset: -1px;
-    }
+  :where([data-validation-status='valid']:not(:has(textarea[readonly], textarea:disabled))) & {
+    --h-textarea-border-color: var(--h-feedback-positive-border);
+  }
 
-    &::after {
-      content: '';
-      display: block;
-      position: absolute;
-      left: 12px;
-      right: 16px;
-      bottom: 8px;
-      height: 4px;
-      background-color: inherit;
-    }
+  :where([data-validation-status='invalid']:not(:has(textarea[readonly], textarea:disabled))) & {
+    --h-textarea-border-color: var(--h-feedback-danger-border);
+  }
 
-    & :where(textarea) {
-      all: unset;
-      border: none;
-      display: block;
+  &:where(:focus) {
+    --h-textarea-border-width: var(--h-input-border-width-focused);
+  }
 
-      --h-textarea-padding-bottom: calc(var(--h-input-padding-vertical) - var(--h-space-100));
+  &:where(:disabled, [readonly]) {
+    cursor: default;
+  }
 
-      /* to get the min-height of the internal text-area:
-       * from the container min-height we need to subtract the internal
-       * padding and add the border width */
-      --h-textarea-min-height: 96px;
+  &:where([readonly]):not([data-disabled] &) {
+    --h-textarea-border-color: var(--h-border-subtle);
+  }
 
-      min-height: calc(
-        var(--h-textarea-min-height) + calc(var(--h-input-border-width) * 2) -
-          calc(var(--h-textarea-padding-bottom) + calc(var(--h-input-padding-vertical) * 2))
-      );
-      width: auto;
-      min-width: calc(
-        var(--h-input-min-width) - calc(var(--h-input-padding-horizontal) + var(--h-space-100))
-      );
-
-      /* to get the max-width of the internal text-area:
-       * from the container max-width we need to subtract the internal padding,
-       * the gap between the handle and the container, and the width of the
-       * handle itself */
-      max-width: calc(
-        var(--h-input-max-width) - var(--h-input-padding-horizontal) - var(--h-space-100) -
-          var(--h-space-100)
-      );
-      padding-right: calc(var(--h-input-padding-horizontal) - var(--h-space-100));
-      padding-bottom: var(--h-textarea-padding-bottom);
-      font-weight: normal;
-      font-style: normal;
-      text-align: start;
-      text-indent: initial;
-      -webkit-tap-highlight-color: transparent;
-      overflow-wrap: break-word;
-      white-space: pre-wrap;
-
-      /* Make sure parent <label> doesn't change the text cursor */
-      cursor: text;
-
-      &:where(:disabled, [readonly]) {
-        cursor: default;
-      }
-
-      &::placeholder {
-        color: var(--h-text-secondary);
-      }
-
-      &:where([data-resize='none']) {
-        resize: none;
-      }
-
-      &:where([data-resize='vertical']) {
-        resize: vertical;
-      }
-
-      &:where([data-resize='horizontal']) {
-        resize: horizontal;
-      }
-
-      &:where([data-resize='both']) {
-        resize: both;
-      }
-    }
+  &::placeholder {
+    color: var(--h-text-secondary);
   }
 }

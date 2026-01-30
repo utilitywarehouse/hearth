@@ -1,4 +1,5 @@
 import { MarginProps } from '../../props/margin.props';
+import { BoxProps } from '../Box/Box.props';
 import { FormFieldProps } from '../FormField/FormField.props';
 
 type ElementProps = Omit<React.ComponentPropsWithRef<'textarea'>, 'value'>;
@@ -16,12 +17,10 @@ export interface TextAreaProps
   resize?: 'none' | 'vertical' | 'horizontal' | 'both';
   /**
    * Sets the minimum height of the TextArea.
-   * Accepts any valid CSS height value, such as "200px", "10rem", or "50%".
    */
-  minHeight?: string;
+  minHeight?: BoxProps['minHeight'];
   /**
    * Sets the maximum height of the TextArea.
-   * Accepts any valid CSS height value, such as "200px", "10rem", or "50%".
    */
-  maxHeight?: string;
+  maxHeight?: BoxProps['maxHeight'];
 }

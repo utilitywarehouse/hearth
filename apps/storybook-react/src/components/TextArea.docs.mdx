@@ -18,7 +18,6 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 - [Custom Rows](#custom-rows)
 - [Height](#height)
 - [Controlled Usage](#controlled-usage)
-- [Full width](#full-width)
 - [API](#api)
 
 ## Label
@@ -75,17 +74,6 @@ return (
 
 <Canvas of={Stories.Controlled} />
 
-## Full width
-
-Unlike the `TextInput` component, `TextArea` does not stretch to fill the
-available width. This is due to the way the `TextArea` resizing works.
-
-If you do want the `TextArea` to appear to stretch to it's max width, then you
-can set the number of columns to higher than the `TextArea` `max-width` can contain;
-`cols={60}` will do.
-
-<Canvas of={Stories.FullWidth} sourceState="shown" />
-
 ## API
 
 This component is based on the `textarea` element, and supports the following common props:
@@ -104,4 +92,5 @@ This component is based on the `textarea` element, and supports the following co
 | `disabled`         | `boolean`                                        |
 | `readOnly`         | `boolean`                                        |
 | `required`         | `boolean`                                        |
-| `minHeight`        | `string`                                         |
+| `maxHeight`        | `Responsive<string>`                             |
+| `minHeight`        | `Responsive<string>`                             |
