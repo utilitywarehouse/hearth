@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { TextArea, Flex } from '@utilitywarehouse/hearth-react';
+import { TextArea, Flex, TextInput } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
@@ -114,6 +114,15 @@ export const Controlled: Story = {
   },
 };
 
+export const WithTextInput: Story = {
+  render: () => (
+    <Flex direction="column" gap="400">
+      <TextInput label="Text input" />
+      <TextArea label="Text area" />
+    </Flex>
+  ),
+};
+
 export const Gallery: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -128,6 +137,7 @@ export const Gallery: Story = {
       DisabledAndReadOnly,
       Validation,
       CustomRows,
+      WithTextInput,
     };
     return <StoryGallery meta={meta} stories={stories} />;
   },
