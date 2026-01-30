@@ -1,76 +1,74 @@
 .h-TextArea {
-  & :where(textarea) {
-    all: unset;
-    border: none;
-    display: block;
-    font-family: var(--h-font-family-body);
-    font-weight: var(--h-font-weight-regular);
-    font-size: var(--h-font-size-100);
-    line-height: var(--h-line-height-500);
-    font-style: normal;
-    cursor: text;
-    text-align: start;
-    text-indent: initial;
-    -webkit-tap-highlight-color: transparent;
-    overflow-wrap: break-word;
-    white-space: pre-wrap;
-    /* account for fake padding when calculating width */
-    min-width: calc(var(--h-input-min-width) - calc(var(--h-space-100) * 2));
-    max-width: calc(var(--h-input-max-width) - calc(var(--h-space-100) * 2));
-    border-radius: var(--h-input-border-radius);
-    background-color: var(--h-surface-neutral-strong);
+  all: unset;
+  display: block;
+  font-family: var(--h-font-family-body);
+  font-weight: var(--h-font-weight-regular);
+  font-size: var(--h-font-size-100);
+  line-height: var(--h-line-height-500);
+  font-style: normal;
+  cursor: text;
+  text-align: start;
+  text-indent: initial;
+  -webkit-tap-highlight-color: transparent;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
 
-    --h-textarea-border-color: var(--h-border-strong);
-    --h-textarea-border-width: var(--h-input-border-width);
+  /* account for fake padding when calculating width */
+  min-width: calc(var(--h-input-min-width) - calc(var(--h-space-100) * 2));
+  max-width: calc(var(--h-input-max-width) - calc(var(--h-space-100) * 2));
+  border-radius: var(--h-input-border-radius);
+  background-color: var(--h-surface-neutral-strong);
 
-    /* fake padding */
-    border: var(--h-space-100) solid var(--h-surface-neutral-strong);
-    outline: var(--h-textarea-border-width) solid var(--h-textarea-border-color);
-    outline-offset: -1px;
-    background-clip: padding-box;
+  --h-textarea-border-color: var(--h-border-strong);
+  --h-textarea-border-width: var(--h-input-border-width);
 
-    &:where(textarea[readonly]):not([data-disabled] &) {
-      --h-textarea-border-color: var(--h-border-subtle);
-    }
+  /* fake padding */
+  border: var(--h-space-100) solid var(--h-surface-neutral-strong);
+  outline: var(--h-textarea-border-width) solid var(--h-textarea-border-color);
+  outline-offset: -1px;
+  background-clip: padding-box;
 
-    &:where(textarea:disabled, textarea[readonly]) {
-      cursor: default;
-    }
+  &:where([data-resize='none']) {
+    resize: none;
+  }
 
-    :where([data-validation-status='valid']:not(:has(textarea[readonly], textarea:disabled))) & {
-      --h-textarea-border-color: var(--h-feedback-positive-border);
-    }
+  &:where([data-resize='vertical']) {
+    resize: vertical;
+  }
 
-    :where([data-validation-status='invalid']:not(:has(textarea[readonly], textarea:disabled))) & {
-      --h-textarea-border-color: var(--h-feedback-danger-border);
-    }
+  &:where([data-resize='horizontal']) {
+    resize: horizontal;
+  }
 
-    &:where(:focus) {
-      --h-textarea-border-width: var(--h-input-border-width-focused);
-    }
+  &:where([data-resize='both']) {
+    resize: both;
+  }
 
-    &:where(:disabled, [readonly]) {
-      cursor: default;
-    }
+  &:where(textarea:disabled, textarea[readonly]) {
+    cursor: default;
+  }
 
-    &::placeholder {
-      color: var(--h-text-secondary);
-    }
+  :where([data-validation-status='valid']:not(:has(textarea[readonly], textarea:disabled))) & {
+    --h-textarea-border-color: var(--h-feedback-positive-border);
+  }
 
-    &:where([data-resize='none']) {
-      resize: none;
-    }
+  :where([data-validation-status='invalid']:not(:has(textarea[readonly], textarea:disabled))) & {
+    --h-textarea-border-color: var(--h-feedback-danger-border);
+  }
 
-    &:where([data-resize='vertical']) {
-      resize: vertical;
-    }
+  &:where(:focus) {
+    --h-textarea-border-width: var(--h-input-border-width-focused);
+  }
 
-    &:where([data-resize='horizontal']) {
-      resize: horizontal;
-    }
+  &:where(:disabled, [readonly]) {
+    cursor: default;
+  }
 
-    &:where([data-resize='both']) {
-      resize: both;
-    }
+  &:where(textarea[readonly]):not([data-disabled] &) {
+    --h-textarea-border-color: var(--h-border-subtle);
+  }
+
+  &::placeholder {
+    color: var(--h-text-secondary);
   }
 }

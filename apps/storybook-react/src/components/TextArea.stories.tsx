@@ -114,15 +114,6 @@ export const Controlled: Story = {
   },
 };
 
-export const FullWidth: Story = {
-  render: () => (
-    <Flex maxWidth="600px" width="100%" direction="column" gap="400">
-      <TextInput label="Text input" />
-      <TextArea label="Text area" resize="both" />
-    </Flex>
-  ),
-};
-
 export const Gallery: Story = {
   parameters: {
     chromatic: { disableSnapshot: false },
@@ -137,7 +128,6 @@ export const Gallery: Story = {
       DisabledAndReadOnly,
       Validation,
       CustomRows,
-      FullWidth,
     };
     return <StoryGallery meta={meta} stories={stories} />;
   },
