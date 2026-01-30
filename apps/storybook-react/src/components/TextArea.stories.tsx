@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { TextArea, Flex, TextInput } from '@utilitywarehouse/hearth-react';
+import { TextArea, Flex } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 

@@ -12,12 +12,10 @@
   -webkit-tap-highlight-color: transparent;
   overflow-wrap: break-word;
   white-space: pre-wrap;
-  padding-inline: calc(var(--h-input-padding-horizontal) - var(--h-space-100));
+  --h-textarea-padding-inline: calc(var(--h-input-padding-horizontal) - var(--h-space-100));
+  padding-inline: var(--h-textarea-padding-inline);
   padding-block: calc(var(--h-input-padding-vertical) - var(--h-space-100));
 
-  /* account for fake padding when calculating width */
-  min-width: calc(var(--h-input-min-width) - calc(var(--h-space-100) * 2));
-  max-width: calc(var(--h-input-max-width) - calc(var(--h-space-100) * 2));
   border-radius: var(--h-input-border-radius);
   background-color: var(--h-surface-neutral-strong);
 
@@ -25,10 +23,20 @@
   --h-textarea-border-width: var(--h-input-border-width);
 
   /* fake padding */
-  border: var(--h-space-100) solid var(--h-surface-neutral-strong);
+  border: calc(var(--h-space-100) + var(--h-input-border-width)) solid
+    var(--h-surface-neutral-strong);
   outline: var(--h-textarea-border-width) solid var(--h-textarea-border-color);
   outline-offset: -1px;
   background-clip: padding-box;
+  /* account for fake padding when calculating width */
+  min-width: calc(
+    var(--h-input-min-width) - calc(var(--h-space-100) * 2) -
+      calc(var(--h-textarea-padding-inline) * 2) - calc(var(--h-input-border-width) * 2)
+  );
+  max-width: calc(
+    var(--h-input-max-width) - calc(var(--h-space-100) * 2) -
+      calc(var(--h-textarea-padding-inline) * 2) - calc(var(--h-input-border-width) * 2)
+  );
 
   &:where([data-resize='none']) {
     resize: none;
