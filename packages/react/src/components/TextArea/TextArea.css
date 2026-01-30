@@ -12,6 +12,8 @@
   -webkit-tap-highlight-color: transparent;
   overflow-wrap: break-word;
   white-space: pre-wrap;
+  padding-inline: calc(var(--h-input-padding-horizontal) - var(--h-space-100));
+  padding-block: calc(var(--h-input-padding-vertical) - var(--h-space-100));
 
   /* account for fake padding when calculating width */
   min-width: calc(var(--h-input-min-width) - calc(var(--h-space-100) * 2));
