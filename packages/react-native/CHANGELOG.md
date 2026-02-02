@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.16.1
+
+### Patch Changes
+
+- [#817](https://github.com/utilitywarehouse/hearth/pull/817) [`fb4f4d0`](https://github.com/utilitywarehouse/hearth/commit/fb4f4d034e5b67b0c75dc093f7fdd8d3ab26edde) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `DateInput` height issue
+
 ## 0.16.0
 
 ### Minor Changes
