@@ -434,5 +434,3 @@ const theme = {
 - [Changesets Documentation](https://github.com/changesets/changesets)
 - [Semantic Versioning](https://semver.org/)
 - [Keep a Changelog](https://keepachangelog.com/)
-
-````

@@ -78,11 +78,17 @@ export interface DateInputProps extends FormFieldBaseProps {
    * Callback fired when the year segment loses focus.
    */
   onYearBlur?: TextInputProps['onBlur'];
-
+  /*
+   * Style for all the input segment's container.
+   */
   inputContainerStyle?: ViewProps['style'];
-
-  inputStyle?: TextInputProps['style'];
-
+  /*
+   * Style for all the input segment's TextInput.
+   */
+  inputStyle?: ViewProps['style'];
+  /*
+   * Style for all the input segment's label.
+   */
   inputLabelStyle?: LabelProps['style'];
 }
 
@@ -100,6 +106,6 @@ export interface DateInputSegmentProps {
   readonly?: boolean;
   testID?: string;
   inputContainerStyle?: ViewProps['style'];
-  inputStyle?: TextInputProps['style'];
+  inputStyle?: ViewProps['style'];
   inputLabelStyle?: LabelProps['style'];
 }
