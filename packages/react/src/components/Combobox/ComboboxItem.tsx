@@ -3,7 +3,7 @@
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
-import { Combobox as ComboboxPrimitive } from '@base-ui-components/react/combobox';
+import { Combobox as ComboboxPrimitive } from '@base-ui/react/combobox';
 import { ComboboxItemProps } from './ComboboxItem.props';
 
 const COMPONENT_NAME = 'ComboboxItem';
