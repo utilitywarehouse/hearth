@@ -1,5 +1,29 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.16.2
+
+### Patch Changes
+
+- [#837](https://github.com/utilitywarehouse/hearth/pull/837) [`126657c`](https://github.com/utilitywarehouse/hearth/commit/126657cd96008625f9573ed5cc1588709c00f7da) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Add style customisation props to `DateInput` component
+
+  The `DateInput` component now supports three new style props for customising the appearance of date segments: `inputContainerStyle`, `inputStyle`, and `inputLabelStyle`. This allows for greater flexibility when integrating DateInput into different layouts.
+
+  **Components affected**:
+  - `DateInput`
+
+  **Developer changes**:
+
+  No changes required. To customise the appearance of date input segments, use the new style props:
+
+  ```tsx
+  <DateInput
+    label="Custom date input"
+    inputContainerStyle={{ maxWidth: 'auto' }}
+    inputStyle={{ fontSize: 16 }}
+    inputLabelStyle={{ fontWeight: 'bold' }}
+  />
+  ```
+
 ## 0.16.1
 
 ### Patch Changes
