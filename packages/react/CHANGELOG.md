@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.9
+
+### Patch Changes
+
+- [#838](https://github.com/utilitywarehouse/hearth/pull/838) [`dc030be`](https://github.com/utilitywarehouse/hearth/commit/dc030be5fe00c02a9fe66014081a8f5d9def2df7) Thanks [@robphoenix](https://github.com/robphoenix)! - 📦 [DEPS]: Bump `hearth-react-icons` peer dep
+
+- [#840](https://github.com/utilitywarehouse/hearth/pull/840) [`980b503`](https://github.com/utilitywarehouse/hearth/commit/980b5031431989ac203c4b444357832030c10dff) Thanks [@robphoenix](https://github.com/robphoenix)! - 📦 [DEPS]: Bump base-ui
+
 ## 0.24.8
 
 ### Patch Changes
