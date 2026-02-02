@@ -2,22 +2,7 @@ import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { Input } from '../Input';
-import type { DateInputProps } from './DateInput.props';
-
-interface DateInputSegmentProps {
-  label: string;
-  placeholder?: string;
-  value?: string;
-  onChange?: (text: string) => void;
-  onFocus?: DateInputProps['onDayFocus'];
-  onBlur?: DateInputProps['onDayBlur'];
-  disabled?: boolean;
-  required?: boolean;
-  validationStatus?: DateInputProps['validationStatus'];
-  maxLength?: number;
-  readonly?: boolean;
-  testID?: string;
-}
+import type { DateInputSegmentProps } from './DateInput.props';
 
 const DateInputSegment = ({
   label,
@@ -31,11 +16,14 @@ const DateInputSegment = ({
   maxLength,
   readonly,
   testID,
+  inputContainerStyle,
+  inputStyle,
+  inputLabelStyle,
 }: DateInputSegmentProps) => {
   styles.useVariants({ disabled });
   return (
-    <View style={styles.container}>
-      <BodyText size="md" style={styles.label}>
+    <View style={[styles.container, inputContainerStyle]}>
+      <BodyText size="md" style={[styles.label, inputLabelStyle]}>
         {label}
       </BodyText>
       <Input
@@ -51,7 +39,7 @@ const DateInputSegment = ({
         disabled={disabled}
         validationStatus={validationStatus}
         readonly={readonly}
-        style={styles.input}
+        style={inputStyle}
       />
     </View>
   );
@@ -63,7 +51,7 @@ const styles = StyleSheet.create(theme => ({
   container: {
     flex: 1,
     gap: theme.components.input.gap,
-    // maxWidth: 96,
+    maxWidth: 96,
   },
   label: {
     variants: {
@@ -73,9 +61,6 @@ const styles = StyleSheet.create(theme => ({
         },
       },
     },
-  },
-  input: {
-    // maxWidth: 96,
   },
 }));
 

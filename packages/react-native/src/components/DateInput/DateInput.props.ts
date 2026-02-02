@@ -1,5 +1,6 @@
-import type { TextInputProps } from 'react-native';
+import type { TextInputProps, ViewProps } from 'react-native';
 import type { FormFieldBaseProps } from '../FormField/FormField.props';
+import LabelProps from '../Label/Label.props';
 
 export interface DateInputProps extends FormFieldBaseProps {
   /**
@@ -77,4 +78,28 @@ export interface DateInputProps extends FormFieldBaseProps {
    * Callback fired when the year segment loses focus.
    */
   onYearBlur?: TextInputProps['onBlur'];
+
+  inputContainerStyle?: ViewProps['style'];
+
+  inputStyle?: TextInputProps['style'];
+
+  inputLabelStyle?: LabelProps['style'];
+}
+
+export interface DateInputSegmentProps {
+  label: string;
+  placeholder?: string;
+  value?: string;
+  onChange?: (text: string) => void;
+  onFocus?: DateInputProps['onDayFocus'];
+  onBlur?: DateInputProps['onDayBlur'];
+  disabled?: boolean;
+  required?: boolean;
+  validationStatus?: DateInputProps['validationStatus'];
+  maxLength?: number;
+  readonly?: boolean;
+  testID?: string;
+  inputContainerStyle?: ViewProps['style'];
+  inputStyle?: TextInputProps['style'];
+  inputLabelStyle?: LabelProps['style'];
 }

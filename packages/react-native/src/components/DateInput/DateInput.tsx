@@ -32,6 +32,9 @@ const DateInput = ({
   onDayBlur,
   onMonthBlur,
   onYearBlur,
+  inputLabelStyle,
+  inputContainerStyle,
+  inputStyle,
   ...props
 }: DateInputProps) => {
   return (
@@ -63,6 +66,9 @@ const DateInput = ({
             validationStatus={validationStatus}
             maxLength={2}
             testID="date-input-day"
+            inputContainerStyle={inputContainerStyle}
+            inputStyle={inputStyle}
+            inputLabelStyle={inputLabelStyle}
           />
         )}
         {!hideMonth && (
@@ -79,6 +85,9 @@ const DateInput = ({
             validationStatus={validationStatus}
             maxLength={2}
             testID="date-input-month"
+            inputContainerStyle={inputContainerStyle}
+            inputStyle={inputStyle}
+            inputLabelStyle={inputLabelStyle}
           />
         )}
         {!hideYear && (
@@ -95,6 +104,9 @@ const DateInput = ({
             validationStatus={validationStatus}
             maxLength={4}
             testID="date-input-year"
+            inputContainerStyle={inputContainerStyle}
+            inputStyle={inputStyle}
+            inputLabelStyle={inputLabelStyle}
           />
         )}
       </View>
@@ -111,7 +123,6 @@ const styles = StyleSheet.create(theme => ({
   container: {
     flexDirection: 'row',
     gap: theme.components.input.date.gap,
-    // alignItems: 'stretch',
   },
 }));
 
