@@ -1,5 +1,16 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.8
+
+### Patch Changes
+
+- [#830](https://github.com/utilitywarehouse/hearth/pull/830) [`c2a1156`](https://github.com/utilitywarehouse/hearth/commit/c2a1156b1ae9faa484951c77fc8e41d0566d2751) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Refactor `TextArea`.
+
+  This refactor does not affect the external API of the `TextArea` component, but
+  addresses the sizing issues previously encountered. The component now behaves in
+  the same way as the `TextInput` component, while keeping the same visual
+  appearance.
+
 ## 0.24.7
 
 ### Patch Changes
