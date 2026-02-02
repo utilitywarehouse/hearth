@@ -85,6 +85,16 @@ Use for changes that break backward compatibility and require consumers to updat
 - Removing features
 - Major API redesigns
 
+### 📦 [DEPS]
+Use for dependency updates, including adding, removing, or upgrading package dependencies.
+
+**Examples:**
+- Updating React Native to a new version
+- Adding a new dependency for a feature
+- Removing unused dependencies
+- Upgrading TypeScript or other dev dependencies
+- Security patches for dependencies
+
 ## Content Structure
 
 ### For Small Changes
@@ -96,6 +106,10 @@ For minor bug fixes or simple enhancements, a brief single-line description is s
 
 ```markdown
 💅 [ENHANCEMENT]: Improve performance of List component with large datasets
+```
+
+```markdown
+📦 [DEPS]: Update @types/react to 18.2.45
 ```
 
 ### For Impactful Changes
@@ -267,6 +281,27 @@ Optimised the Button component's press animation to use native driver, resulting
 **Developer changes**:
 
 No changes required. The performance improvement is automatic.
+```
+
+### Dependency Update
+```markdown
+📦 [DEPS]: Update React Native to 0.73.0
+
+Updated React Native from 0.72.0 to 0.73.0, bringing performance improvements and new features.
+
+**Developer changes**:
+
+No changes required. The update is backward compatible with existing code.
+```
+
+```markdown
+📦 [DEPS]: Upgrade TypeScript to 5.3.0
+
+Updated TypeScript to version 5.3.0, which includes improved type inference and better performance.
+
+**Developer changes**:
+
+No changes required. All existing type definitions remain compatible.
 ```
 
 ## Package Selection
