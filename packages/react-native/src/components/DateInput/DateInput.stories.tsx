@@ -267,3 +267,13 @@ export const WithState: Story = {
     );
   },
 };
+
+export const CustomWidth: Story = {
+  render: () => (
+    <DateInput
+      label="Custom width date input"
+      helperText="Date input with custom width"
+      inputContainerStyle={{ maxWidth: 'auto' }}
+    />
+  ),
+};

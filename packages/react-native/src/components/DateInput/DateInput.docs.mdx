@@ -26,6 +26,7 @@ The `DateInput` component allows users to enter dates manually using separate in
   - [Flexible Segments](#flexible-segments)
   - [Grouping Inputs](#grouping-inputs)
   - [With State](#with-state)
+  - [Overriding Styles](#overriding-styles)
 - [Accessibility](#accessibility)
 
 ## Playground
@@ -65,35 +66,38 @@ const MyComponent = () => {
 
 ### DateInputProps
 
-| Prop               | Type                                | Default     | Description                                           |
-| ------------------ | ----------------------------------- | ----------- | ----------------------------------------------------- |
-| `label`            | `string`                            | -           | Label text displayed above the inputs                 |
-| `helperText`       | `string`                            | -           | Helper text displayed below the inputs                |
-| `helperIcon`       | `ComponentType`                     | -           | Icon component to display with helper/validation text |
-| `validationStatus` | `'initial' \| 'valid' \| 'invalid'` | `'initial'` | Validation status of the input                        |
-| `validText`        | `string`                            | -           | Text to display when validation status is valid       |
-| `invalidText`      | `string`                            | -           | Text to display when validation status is invalid     |
-| `required`         | `boolean`                           | `false`     | Whether the input is required                         |
-| `disabled`         | `boolean`                           | `false`     | Whether the input is disabled                         |
-| `readonly`         | `boolean`                           | `false`     | Whether the input is read-only                        |
-| `hideDay`          | `boolean`                           | `false`     | Whether to hide the day segment                       |
-| `hideMonth`        | `boolean`                           | `false`     | Whether to hide the month segment                     |
-| `hideYear`         | `boolean`                           | `false`     | Whether to hide the year segment                      |
-| `dayPlaceholder`   | `string`                            | `'DD'`      | Placeholder text for the day segment                  |
-| `monthPlaceholder` | `string`                            | `'MM'`      | Placeholder text for the month segment                |
-| `yearPlaceholder`  | `string`                            | `'YYYY'`    | Placeholder text for the year segment                 |
-| `dayValue`         | `string`                            | -           | Controlled value for the day segment                  |
-| `monthValue`       | `string`                            | -           | Controlled value for the month segment                |
-| `yearValue`        | `string`                            | -           | Controlled value for the year segment                 |
-| `onDayChange`      | `(text: string) => void`            | -           | Callback fired when the day value changes             |
-| `onMonthChange`    | `(text: string) => void`            | -           | Callback fired when the month value changes           |
-| `onYearChange`     | `(text: string) => void`            | -           | Callback fired when the year value changes            |
-| `onDayFocus`       | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the day segment receives focus    |
-| `onMonthFocus`     | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the month segment receives focus  |
-| `onYearFocus`      | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the year segment receives focus   |
-| `onDayBlur`        | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the day segment loses focus       |
-| `onMonthBlur`      | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the month segment loses focus     |
-| `onYearBlur`       | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the year segment loses focus      |
+| Prop                  | Type                                | Default     | Description                                           |
+| --------------------- | ----------------------------------- | ----------- | ----------------------------------------------------- |
+| `label`               | `string`                            | -           | Label text displayed above the inputs                 |
+| `helperText`          | `string`                            | -           | Helper text displayed below the inputs                |
+| `helperIcon`          | `ComponentType`                     | -           | Icon component to display with helper/validation text |
+| `validationStatus`    | `'initial' \| 'valid' \| 'invalid'` | `'initial'` | Validation status of the input                        |
+| `validText`           | `string`                            | -           | Text to display when validation status is valid       |
+| `invalidText`         | `string`                            | -           | Text to display when validation status is invalid     |
+| `required`            | `boolean`                           | `false`     | Whether the input is required                         |
+| `disabled`            | `boolean`                           | `false`     | Whether the input is disabled                         |
+| `readonly`            | `boolean`                           | `false`     | Whether the input is read-only                        |
+| `hideDay`             | `boolean`                           | `false`     | Whether to hide the day segment                       |
+| `hideMonth`           | `boolean`                           | `false`     | Whether to hide the month segment                     |
+| `hideYear`            | `boolean`                           | `false`     | Whether to hide the year segment                      |
+| `dayPlaceholder`      | `string`                            | `'DD'`      | Placeholder text for the day segment                  |
+| `monthPlaceholder`    | `string`                            | `'MM'`      | Placeholder text for the month segment                |
+| `yearPlaceholder`     | `string`                            | `'YYYY'`    | Placeholder text for the year segment                 |
+| `dayValue`            | `string`                            | -           | Controlled value for the day segment                  |
+| `monthValue`          | `string`                            | -           | Controlled value for the month segment                |
+| `yearValue`           | `string`                            | -           | Controlled value for the year segment                 |
+| `onDayChange`         | `(text: string) => void`            | -           | Callback fired when the day value changes             |
+| `onMonthChange`       | `(text: string) => void`            | -           | Callback fired when the month value changes           |
+| `onYearChange`        | `(text: string) => void`            | -           | Callback fired when the year value changes            |
+| `onDayFocus`          | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the day segment receives focus    |
+| `onMonthFocus`        | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the month segment receives focus  |
+| `onYearFocus`         | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the year segment receives focus   |
+| `onDayBlur`           | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the day segment loses focus       |
+| `onMonthBlur`         | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the month segment loses focus     |
+| `onYearBlur`          | `(e: NativeSyntheticEvent) => void` | -           | Callback fired when the year segment loses focus      |
+| `inputContainerStyle` | `ViewStyle`                         | -           | Custom style for each input container                 |
+| `inputStyle`          | `ViewStyle`                         | -           | Custom style for each input field                     |
+| `inputLabelStyle`     | `TextStyle`                         | -           | Custom style for each input label                     |
 
 ## Examples
 
@@ -154,6 +158,20 @@ Group date inputs with other form fields in a card:
 Programmatically control date values:
 
 <Canvas of={Stories.WithState} />
+
+### Overriding Styles
+
+You can override the styles of the input containers, input fields, and input labels using the `inputContainerStyle`, `inputStyle`, and `inputLabelStyle` props respectively:
+
+<Canvas of={Stories.CustomWidth} />
+
+```tsx
+<DateInput
+  label="Custom width date input"
+  helperText="Date input with custom width"
+  inputContainerStyle={{ maxWidth: 'auto' }}
+/>
+```
 
 ## Accessibility
 
