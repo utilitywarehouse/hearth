@@ -1,3 +1,3 @@
-import { Combobox as BaseUICombobox } from '@base-ui-components/react/combobox';
+import { Combobox as ComboboxPrimitive } from '@base-ui/react/combobox';
 
-export const useComboboxFilter = BaseUICombobox.useFilter;
+export const useComboboxFilter = ComboboxPrimitive.useFilter;

@@ -2,7 +2,7 @@
 
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import { Combobox as ComboboxPrimitive } from '@base-ui-components/react/combobox';
+import { Combobox as ComboboxPrimitive } from '@base-ui/react/combobox';
 import type { ComboboxEmptyProps } from './ComboboxEmpty.props';
 
 const COMPONENT_NAME = 'ComboboxEmpty';

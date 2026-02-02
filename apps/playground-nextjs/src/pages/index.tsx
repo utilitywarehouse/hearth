@@ -17,6 +17,7 @@ import {
   List,
   ListItem,
   ListItemLink,
+  Combobox,
 } from '@utilitywarehouse/hearth-react';
 import { StyledBox } from '@/components/StyledBox';
 import { space, color, components, semantic } from '@utilitywarehouse/hearth-tokens/browser';
@@ -174,6 +175,10 @@ export default function Home() {
         <Button size="md" variant="outline" colorScheme="functional" asChild>
           <a href="https://www.uw.co.uk/energy/faqs">Energy FAQs</a>
         </Button>
+      </Flex>
+
+      <Flex marginBottom="1000" width="100%" justifyContent="center">
+        <Combobox label="Fruits" items={['apple', 'banana', 'orange']}></Combobox>
       </Flex>
 
       <NextImage src={SpotHelpLight} alt="" width={200} height={200} />

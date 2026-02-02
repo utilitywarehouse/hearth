@@ -7,7 +7,7 @@ import { marginPropDefs } from '../../props/margin.props';
 import { useIds } from '../../hooks/use-ids';
 import { FormField } from '../FormField/FormField';
 import type { ComboboxProps } from './Combobox.props';
-import { Combobox as ComboboxPrimitive } from '@base-ui-components/react/combobox';
+import { Combobox as ComboboxPrimitive } from '@base-ui/react/combobox';
 import { InputBase } from '../InputBase/InputBase';
 import { InputSlot } from '../InputSlot/InputSlot';
 import {

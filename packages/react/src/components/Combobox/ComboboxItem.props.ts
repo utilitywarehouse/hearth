@@ -1,4 +1,4 @@
-import { Combobox as ComboboxPrimitive } from '@base-ui-components/react/combobox';
+import { Combobox as ComboboxPrimitive } from '@base-ui/react/combobox';
 
 export interface ComboboxItemProps extends Omit<
   React.ComponentPropsWithRef<typeof ComboboxPrimitive.Item>,
