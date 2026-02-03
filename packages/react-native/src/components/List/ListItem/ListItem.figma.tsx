@@ -37,7 +37,7 @@ figma.connect(ListItem, 'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?nod
     badge: figma.boolean('Badge?', {
       true: figma.children('Badge'),
     }),
-    numbericValue: figma.boolean('Numerical value?', {
+    numericValue: figma.boolean('Numerical value?', {
       true: figma.string('Numerical value'),
     }),
   },
@@ -46,7 +46,7 @@ figma.connect(ListItem, 'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?nod
       heading={props.heading}
       helperText={props.helperText}
       badge={props.badge}
-      numbericValue={props.numbericValue}
+      numericValue={props.numericValue}
       loading={props.loading}
       disabled={props.disabled}
       leadingContent={props.leadingContent?.variant}

@@ -14,6 +14,8 @@ figma.connect(
         Loading: true,
       }),
     },
-    example: props => <ListAction heading={props.heading} disabled={props.disabled} />,
+    example: props => (
+      <ListAction heading={props.heading} disabled={props.disabled} loading={props.loading} />
+    ),
   }
 );

@@ -2,7 +2,7 @@ import { createPressable } from '@gluestack-ui/pressable';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { Skeleton } from 'src/components';
+import { Skeleton } from '../../Skeleton';
 import { useListContext, useListFirstItemContext } from '../List.context';
 import type ListActionProps from './ListAction.props';
 import ListActionContent from './ListActionContent';
