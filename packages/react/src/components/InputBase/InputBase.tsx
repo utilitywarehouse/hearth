@@ -2,16 +2,16 @@
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { cn } from '../../helpers/cn';
-import React, { type ElementRef } from 'react';
+import React, { type ComponentRef } from 'react';
 import type { InputBaseProps } from './InputBase.props';
 import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 
 const COMPONENT_NAME = 'InputBase';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type InputBaseElement = ElementRef<'input'>;
+type InputBaseElement = ComponentRef<'input'>;
 
-// We're keeping the deprecated forwardRef API for backwards compatibility with consumers using Combobox in React 18 applications
+// We're keeping the forwardRef API here for backwards compatibility with consumers using Combobox in React 18 applications
 // https://linear.app/utilitywarehouse/issue/UWDS-4232/broken-combobox
 export const InputBase = React.forwardRef<InputBaseElement, InputBaseProps>(
   ({ className, children, disabled, readOnly, required, placeholder, ...props }, forwardedRef) => {
