@@ -10,6 +10,7 @@ const ExpandableCardGroup = ({
   children,
   style,
   testID = 'expandable-card-group',
+  invalidText,
   ...props
 }: ExpandableCardGroupProps) => {
   return (
@@ -19,6 +20,7 @@ const ExpandableCardGroup = ({
           heading={heading}
           helperText={helperText}
           trailingContent={headerTrailingContent}
+          invalidText={invalidText}
         />
       ) : null}
       <View style={styles.cardsContainer}>{children}</View>

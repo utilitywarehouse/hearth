@@ -26,6 +26,11 @@ export interface ExpandableCardGroupProps extends ViewProps {
    * Test ID for testing
    */
   testID?: string;
+
+  /**
+   * Validation text displayed below the helper text when in an invalid state
+   */
+  invalidText?: string;
 }
 
 export default ExpandableCardGroupProps;
