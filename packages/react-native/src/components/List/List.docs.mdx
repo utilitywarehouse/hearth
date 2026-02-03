@@ -100,6 +100,7 @@ const MyComponent = () => (
 | heading               | `string`                                                                                          |          | The text to display in the heading of the list.              |
 | helperText            | `string`                                                                                          |          | The supporting text to display in the heading of the list.   |
 | headerTrailingContent | `ReactNode`                                                                                       |          | Optional content to display on the right side of the header. |
+| invalidText           | `string`                                                                                          |          | Validation error text to display in the heading of the list. |
 | loading               | `boolean`                                                                                         | `false`  | Whether to show the list items in loading state.             |
 | disabled              | `boolean`                                                                                         | `false`  | Whether to disable the list.                                 |
 
@@ -123,11 +124,12 @@ const MyComponent = () => (
 
 ### `ListAction`
 
-| Name     | Type         | Default | Description                                  |
-| -------- | ------------ | ------- | -------------------------------------------- |
-| heading  | `string`     |         | The text to display in the list action item. |
-| onPress  | `() => void` |         | A callback function to be called             |
-| disabled | `boolean`    | `false` | Whether to disable the list action item.     |
+| Name     | Type         | Default | Description                                       |
+| -------- | ------------ | ------- | ------------------------------------------------- |
+| heading  | `string`     |         | The text to display in the list action item.      |
+| onPress  | `() => void` |         | A callback function to be called                  |
+| disabled | `boolean`    | `false` | Whether to disable the list action item.          |
+| loading  | `boolean`    | `false` | Whether to show the list action in loading state. |
 
 #### - `ListItemLeadingContent`
 
