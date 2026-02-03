@@ -1,5 +1,5 @@
 ---
-'@utilitywarehouse/react-native': patch
+'@utilitywarehouse/hearth-react-native': patch
 ---
 
 💅 [ENHANCEMENT]: Add `invalidText` prop to `ExpandableCardGroup`
