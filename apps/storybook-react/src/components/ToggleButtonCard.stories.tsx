@@ -9,6 +9,8 @@ import {
   Box,
   Button,
   CardInteraction,
+  Container,
+  Grid,
 } from '@utilitywarehouse/hearth-react';
 import React from 'react';
 import { Placeholder } from '../storybook-components/Placeholder';
@@ -300,6 +302,73 @@ export const InteractiveContent: Story = {
           </ToggleButtonCard>
         </ToggleGroup>
       </Box>
+    );
+  },
+};
+
+export const LayoutExample: Story = {
+  render: args => {
+    const [value, setValue] = React.useState<string>('fixed');
+    return (
+      <Container>
+        <Grid defaultResponsiveColumns>
+          <ToggleGroup
+            gridColumnSpan="8"
+            {...args}
+            gap="300"
+            type="single"
+            value={value}
+            onValueChange={(value: string) => {
+              if (value) setValue(value);
+            }}
+          >
+            <ToggleButtonCard
+              value="fixed"
+              label={value === 'fixed' ? 'Selected plan' : 'Select plan'}
+              aria-labelledby="fixed-label fixed-secondary-label"
+              aria-describedby="fixed-description"
+              flex="1"
+            >
+              <Flex direction="column" gap="200">
+                <Heading id="fixed-label" size="md" as="h2">
+                  Off-peak Saver
+                </Heading>
+                <Flex id="fixed-secondary-label" direction="row" gap="100" alignItems="baseline">
+                  <DetailText size="3xl">£6.50</DetailText>
+                  <BodyText size="md" color="secondary" as="span">
+                    a month
+                  </BodyText>
+                </Flex>
+                <BodyText id="fixed-description" as="p" size="md">
+                  Unlimited free calls (up to 75 mins) to UK numbers from 7pm-7am and weekends
+                </BodyText>
+              </Flex>
+            </ToggleButtonCard>
+            <ToggleButtonCard
+              value="variable"
+              label={value === 'variable' ? 'Selected plan' : 'Select plan'}
+              aria-labelledby="variable-label variable-secondary-label"
+              aria-describedby="variable-description"
+              flex="1"
+            >
+              <Flex direction="column" gap="200">
+                <Heading id="variable-label" size="md" as="h2">
+                  Peak Saver
+                </Heading>
+                <Flex id="variable-secondary-label" direction="row" gap="100" alignItems="baseline">
+                  <DetailText size="3xl">£13.00</DetailText>
+                  <BodyText size="md" color="secondary" as="span">
+                    a month
+                  </BodyText>
+                </Flex>
+                <BodyText id="variable-description" as="p" size="md">
+                  Unlimited free calls (up to 75 mins) to UK numbers anytime
+                </BodyText>
+              </Flex>
+            </ToggleButtonCard>
+          </ToggleGroup>
+        </Grid>
+      </Container>
     );
   },
 };
