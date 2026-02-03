@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.10
+
+### Patch Changes
+
+- [#842](https://github.com/utilitywarehouse/hearth/pull/842) [`c7a530d`](https://github.com/utilitywarehouse/hearth/commit/c7a530d96f7e4d6c533eaa0a3b1c57ccc21730f2) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `CurrencyInput` text styles
+
+- [#844](https://github.com/utilitywarehouse/hearth/pull/844) [`738a065`](https://github.com/utilitywarehouse/hearth/commit/738a065f8e2c0314cb455a97dc2221000702d803) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Include flex-item props on `ToggleButtonCard`
+
 ## 0.24.9
 
 ### Patch Changes
