@@ -1,5 +1,5 @@
 .h-CurrencyInput {
-  & :where(.h-InputBase) {
+  &:where(.h-InputBase) {
     font-family: var(--h-font-family-detail);
     font-weight: var(--h-font-weight-regular);
     font-size: var(--h-detail-text-3xl-font-size);
