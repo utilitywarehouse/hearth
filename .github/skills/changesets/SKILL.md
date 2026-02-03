@@ -30,18 +30,16 @@ ls -la .changeset/*.md
 Look for changeset files (excluding `README.md` and `config.json`). If you see files like `.changeset/some-name-here.md`, review their content to see if they already document your changes.
 
 ### Create a New Changeset
-If no changeset exists or you need to document additional changes, create one from the **root of the repository**:
+If no changeset exists or you need to document additional changes, create one in the `.changeset` directory. It should follow this structure:
 
-```bash
-pnpm changeset
+```markdown
+---
+'@package/name': patch|minor|major
+---
+
+...rest of the changeset content...
 ```
-
-This will:
-1. Prompt you to select which packages are affected by your changes
-2. Ask you to choose the semver bump type (patch, minor, or major) for each package
-3. Open your editor to write the changeset description
-
-**Important**: Always run `pnpm changeset` from the repository root, not from within a package directory.
+The name of the .md file can be anything descriptive, as long as it ends with `.md`.
 
 ## Change Type Classification
 
@@ -212,6 +210,8 @@ Include helpful links or context:
 - Include context that will be helpful months or years later
 - Link to relevant discussions or documentation
 - Document the reasoning behind significant decisions
+
+Make sure to wrap component names, prop names, and code snippets in backticks for clarity.
 
 ## Common Patterns
 
@@ -419,6 +419,8 @@ const theme = {
 💅 [ENHANCEMENT]: Refactor Button component to use hooks internally
 ```
 (Better: Focus on the benefit this brings to users, or skip if there's no visible change)
+
+Also avoid including internal implementation details that don't affect consumers. We also don't need to add internal changes to things like Figma mappings or documentation unless they change how consumers use the component. 
 
 ## Tips for Success
 
