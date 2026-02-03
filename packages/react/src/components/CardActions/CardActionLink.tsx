@@ -18,7 +18,6 @@ export const CardActionLink = ({
   trailingIcon,
   badge,
   badgePlacement,
-  children,
   ...props
 }: CardActionLinkProps) => {
   const contentProps = {
@@ -34,9 +33,7 @@ export const CardActionLink = ({
       <CardActionContent
         trailingIcon={trailingIcon ? trailingIcon : <ChevronRightSmallIcon />}
         {...contentProps}
-      >
-        {children}
-      </CardActionContent>
+      />
     </a>
   );
 };
