@@ -16,7 +16,7 @@
     "build:assets": "turbo run @utilitywarehouse/hearth-react#build @utilitywarehouse/hearth-fonts#build @utilitywarehouse/hearth-css-reset#build storybook-assets#build:storybook",
     "build:icons": "turbo run @utilitywarehouse/hearth-react#build @utilitywarehouse/hearth-fonts#build @utilitywarehouse/hearth-css-reset#build storybook-icons#build:storybook",
     "build:storybook": "turbo build build:storybook",
-    "build:storybook:react": "turbo run --filter=storybook-react build:storybook -- -o \"./apps/storybook-react/storybook-static\"",
+    "build:storybook:react": "turbo run --filter=storybook-react build:storybook -- -o \"./storybook-static\"",
     "dev:react": "turbo run @utilitywarehouse/hearth-react#dev storybook-react#dev",
     "dev:react-native": "turbo run @utilitywarehouse/hearth-react-native#dev @utilitywarehouse/hearth-react-native#dev",
     "dev:react-native:prebuild": "turbo run hearth-react-native-expo#prebuild",
