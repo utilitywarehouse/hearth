@@ -34,6 +34,9 @@ figma.connect(
       children: figma.string('Text'),
       inverted: figma.boolean('Inverted?'),
       paddingNone: figma.boolean('Padding None?'),
+      loading: figma.enum('State', {
+        Loading: true,
+      }),
     },
     example: ({ children, iconLeft, iconRight, ...props }) => (
       <Button {...props}>
