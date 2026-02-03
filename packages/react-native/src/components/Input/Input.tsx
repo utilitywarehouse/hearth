@@ -10,6 +10,7 @@ import {
   SearchMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useTheme } from '../../hooks';
+import { BodyText } from '../BodyText';
 import { FormField, useFormFieldContext } from '../FormField';
 import { Spinner } from '../Spinner';
 import { UnstyledIconButton } from '../UnstyledIconButton';
@@ -54,6 +55,8 @@ const Input = forwardRef<TextInput, InputProps>(
       helperIcon,
       validText,
       invalidText,
+      prefix,
+      suffix,
       ...props
     },
     ref
@@ -169,6 +172,15 @@ const Input = forwardRef<TextInput, InputProps>(
                   <InputIcon as={leadingIconComponent} />
                 </InputSlot>
               )}
+              {!!prefix && (
+                <InputSlot>
+                  {typeof prefix === 'string' || typeof prefix === 'number' ? (
+                    <BodyText>{prefix}</BodyText>
+                  ) : (
+                    prefix
+                  )}
+                </InputSlot>
+              )}
               <InputField
                 // @ts-expect-error - ref forwarding issue
                 ref={inputRef}
@@ -195,6 +207,15 @@ const Input = forwardRef<TextInput, InputProps>(
                     onPress={toggleFieldType}
                     icon={fieldType === 'password' ? EyeSmallIcon : EyeOffSmallIcon}
                   />
+                </InputSlot>
+              )}
+              {!!suffix && (
+                <InputSlot>
+                  {typeof suffix === 'string' || typeof suffix === 'number' ? (
+                    <BodyText>{suffix}</BodyText>
+                  ) : (
+                    suffix
+                  )}
                 </InputSlot>
               )}
               {!!trailingIcon && (
