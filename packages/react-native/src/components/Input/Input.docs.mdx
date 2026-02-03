@@ -29,6 +29,8 @@ The input component is a text field that allows users to enter text, numbers, or
 - [Advanced Usage](#advanced-usage)
 - [Variants](#variants)
 - [Examples](#examples)
+  - [With Label and Helper Text](#with-label-and-helper-text)
+  - [With `prefix` and `suffix`](#with-prefix-and-suffix)
   - [With `FormField`](#with-formfield)
 - [Accessibility](#accessibility)
 
@@ -46,7 +48,7 @@ The input component is a text field that allows users to enter text, numbers, or
       <InputSlot>
         <InputIcon as={EmailMediumIcon} />
       </InputSlot>
-      <InputField placeholder="Placeholder" onChange={() => console.log('###')} />
+      <InputField placeholder="Placeholder" onChangeText={() => console.log('###')} />
     </Input>
   </Center>
 </UsageWrap>
@@ -96,7 +98,7 @@ all of the React Native [`View` props](https://reactnative.dev/docs/view).
 | leadingIcon      | `React.ComponentType`              | `-`         | The leading icon of the input. **(Only to be used if the input has no children)**                                                                                       |
 | trailingIcon     | `React.ComponentType`              | `-`         | The trailing icon of the input. **(Only to be used if the input has no children)**                                                                                      |
 | value            | `string`                           | `-`         | The value of the input. **(Only to be used if the input has no children)**                                                                                              |
-| onChange         | `function`                         | `-`         | Callback function that is triggered when the input value changes. **(Only to be used if the input has no children)** **(Only to be used if the input has no children)** |
+| onChangeText     | `function`                         | `-`         | Callback function that is triggered when the input value changes. **(Only to be used if the input has no children)** **(Only to be used if the input has no children)** |
 | onBlur           | `function`                         | `-`         | Callback function that is triggered when the input loses focus. **(Only to be used if the input has no children)**                                                      |
 | onFocus          | `function`                         | `-`         | Callback function that is triggered when the input gains focus. **(Only to be used if the input has no children)**                                                      |
 | placeholder      | `string`                           | `-`         | The placeholder text for the input. **(Only to be used if the input has no children)**                                                                                  |
@@ -113,7 +115,7 @@ The `InputField` inherits all of the React Native [`TextInput` props](https://re
 | ------------- | ---------------------- | -------- | ----------------------------------------------------------------- |
 | type          | `'text' \| 'password'` | `'text'` | The type of the input.                                            |
 | value         | `string`               | `-`      | The value of the input.                                           |
-| onChange      | `function`             | `-`      | Callback function that is triggered when the input value changes. |
+| onChangeText  | `function`             | `-`      | Callback function that is triggered when the input value changes. |
 | onBlur        | `function`             | `-`      | Callback function that is triggered when the input loses focus.   |
 | onFocus       | `function`             | `-`      | Callback function that is triggered when the input gains focus.   |
 | placeholder   | `string`               | `-`      | The placeholder text for the input.                               |
@@ -156,13 +158,12 @@ import {
   EyeOffMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
-import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native';
 
 const AdvancedExample = () => {
   const [value, setValue] = useState<string>('');
   const [fieldType, setFieldType] = useState<'password' | 'text'>('password');
-  const handleChange = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
-    setValue(e.nativeEvent.text);
+  const handleChange = (text: string) => {
+    setValue(text);
   };
   const handleToggleFieldType = () => {
     setFieldType(fieldType === 'password' ? 'text' : 'password');
@@ -173,7 +174,7 @@ const AdvancedExample = () => {
         <InputIcon as={EmailMediumIcon} />
       </InputSlot>
       <InputField
-        onChange={handleChange}
+        onChangeText={handleChange}
         type={fieldType}
         value={value}
         placeholder="Secret email address"
@@ -207,7 +208,7 @@ The `Input` component can be used with a label and helper text by passing the `l
     <Input
       label="Label"
       helperText="Helper text"
-      onChange={() => console.log('###')}
+      onChangeText={() => console.log('###')}
       placeholder="Placeholder"
     />
   </Center>
@@ -218,16 +219,53 @@ import { Input } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const [value, setValue] = useState('');
-  const handleChange = e => {
-    setValue(e.target.value);
+  const handleChange = text => {
+    setValue(text);
   };
   return (
     <Input
       label="Label"
       helperText="Helper text"
-      onChange={handleChange}
+      onChangeText={handleChange}
       value={value}
       placeholder="Placeholder"
+    />
+  );
+};
+```
+
+## With `prefix` and `suffix`
+
+The `Input` component can be customised with `prefix` and `suffix` props to add content before or after the input field.
+
+<UsageWrap>
+  <Center>
+    <Input
+      label="Amount"
+      prefix="£"
+      suffix="GBP"
+      onChangeText={() => console.log('###')}
+      placeholder="0.00"
+    />
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Input } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [value, setValue] = useState('');
+  const handleChange = text => {
+    setValue(text);
+  };
+  return (
+    <Input
+      label="Amount"
+      prefix="£"
+      suffix="GBP"
+      onChangeText={handleChange}
+      value={value}
+      placeholder="0.00"
     />
   );
 };
@@ -241,7 +279,7 @@ For more information on the `FormField` componment view the [docs here](/docs/co
 <UsageWrap>
   <Center>
     <FormField label="Label" helperText="Helper text" helperPosition="bottom">
-      <Input onChange={() => console.log('###')} placeholder="Placeholder" />
+      <Input onChangeText={() => console.log('###')} placeholder="Placeholder" />
     </FormField>
   </Center>
 </UsageWrap>
@@ -251,12 +289,12 @@ import { FormField, Input } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const [value, setValue] = useState('');
-  const handleChange = e => {
-    setValue(e.target.value);
+  const handleChange = text => {
+    setValue(text);
   };
   return (
     <FormField label="Label" helperText="Helper text" helperPosition="bottom">
-      <Input onChange={handleChange} value={value} placeholder="Placeholder" />
+      <Input onChangeText={handleChange} value={value} placeholder="Placeholder" />
     </FormField>
   );
 };

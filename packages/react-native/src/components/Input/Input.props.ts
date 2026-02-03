@@ -1,4 +1,5 @@
 import type { ComponentType } from 'react';
+import React from 'react';
 import type { TextInputProps, ViewProps } from 'react-native';
 
 // Base props common to all input types
@@ -47,6 +48,8 @@ export interface InputWithChildrenProps extends InputBaseProps, ViewProps {
   onClear?: never;
   leadingIcon?: never;
   trailingIcon?: never;
+  prefix?: never;
+  suffix?: never;
 }
 
 // Base for inputs without children
@@ -55,6 +58,8 @@ interface InputWithoutChildrenBaseProps extends InputBaseProps, Omit<TextInputPr
   leadingIcon?: ComponentType;
   trailingIcon?: ComponentType;
   required?: boolean;
+  prefix?: string | number | React.ReactNode;
+  suffix?: string | number | React.ReactNode;
 }
 
 // Specific input types with their unique props
@@ -74,6 +79,8 @@ interface PasswordInputSpecificProps extends InputWithoutChildrenBaseProps {
   loading?: never;
   clearable?: never;
   onClear?: never;
+  prefix?: never;
+  suffix?: never;
 }
 
 interface SearchInputSpecificProps extends InputWithoutChildrenBaseProps {
@@ -83,6 +90,8 @@ interface SearchInputSpecificProps extends InputWithoutChildrenBaseProps {
   onClear?: () => void;
   showPasswordToggle?: never;
   format?: never;
+  prefix?: never;
+  suffix?: never;
 }
 
 // Union of all input types
