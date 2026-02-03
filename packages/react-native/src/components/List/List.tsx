@@ -48,7 +48,14 @@ const markFirstListItem = (children: ReactNode): ViewProps['children'] => {
   return recursiveClone(children) as ViewProps['children'];
 };
 
-const List = ({ children, heading, helperText, headerTrailingContent, ...props }: ListProps) => {
+const List = ({
+  children,
+  heading,
+  helperText,
+  headerTrailingContent,
+  invalidText,
+  ...props
+}: ListProps) => {
   const { loading, disabled, container = 'none' } = props;
   const containerToCard: {
     variant: 'subtle' | 'emphasis';
@@ -71,6 +78,7 @@ const List = ({ children, heading, helperText, headerTrailingContent, ...props }
             heading={heading}
             helperText={helperText}
             trailingContent={headerTrailingContent}
+            invalidText={invalidText}
           />
         ) : null}
         {container === 'none' ? (

@@ -1,7 +1,8 @@
 import { createPressable } from '@gluestack-ui/pressable';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { Pressable, ViewStyle } from 'react-native';
+import { Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { Skeleton } from 'src/components';
 import { useListContext, useListFirstItemContext } from '../List.context';
 import type ListActionProps from './ListAction.props';
 import ListActionContent from './ListActionContent';
@@ -13,6 +14,7 @@ const ListActionRoot = ({
   heading,
   disabled,
   variant = 'subtle',
+  loading,
   ...props
 }: ListActionProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { onPress } = props;
@@ -52,12 +54,21 @@ const ListActionRoot = ({
       style={[styles.container, props.style as ViewStyle]}
       disabled={isDisabled || !onPress}
     >
-      <ListActionContent>
-        <ListActionText>{heading}</ListActionText>
-      </ListActionContent>
-      <ListActionTrailingContent style={styles.centeredTrailingIcon}>
-        <ListActionTrailingIcon as={ChevronRightSmallIcon} />
-      </ListActionTrailingContent>
+      {loading ? (
+        <View style={styles.loadingWrap}>
+          <Skeleton style={{ flex: 1, maxWidth: 166 }} width="auto" height={24} borderRadius="sm" />
+          <Skeleton width={24} height={24} borderRadius="sm" />
+        </View>
+      ) : (
+        <>
+          <ListActionContent>
+            <ListActionText>{heading}</ListActionText>
+          </ListActionContent>
+          <ListActionTrailingContent style={styles.centeredTrailingIcon}>
+            <ListActionTrailingIcon as={ChevronRightSmallIcon} />
+          </ListActionTrailingContent>
+        </>
+      )}
     </Pressable>
   );
 };
@@ -128,6 +139,13 @@ const styles = StyleSheet.create(theme => ({
   },
   centeredTrailingIcon: {
     justifyContent: 'center',
+  },
+  loadingWrap: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+    gap: theme.space['200'],
   },
 }));
 

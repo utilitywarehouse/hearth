@@ -7,6 +7,7 @@ interface ListProps extends ViewProps {
   headerTrailingContent?: React.ReactNode;
   disabled?: boolean;
   loading?: boolean;
+  invalidText?: string;
 }
 
 export default ListProps;
