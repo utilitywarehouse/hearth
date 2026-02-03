@@ -12,7 +12,7 @@ figma.connect(
         true: <Image source={{ uri: '' }} />,
       }),
       headingColor: figma.enum('Heading color', {
-        Hightlight: 'highlight',
+        Highlight: 'highlight',
         Pig: 'pig',
         Energy: 'energy',
         Broadband: 'broadband',

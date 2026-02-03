@@ -41,6 +41,17 @@ If no changeset exists or you need to document additional changes, create one in
 ```
 The name of the .md file can be anything descriptive, as long as it ends with `.md`.
 
+Make sure the package name is correct, it should be one of the following: 
+- `@utilitywarehouse/hearth-react`
+- `@utilitywarehouse/hearth-react-icons`
+- `@utilitywarehouse/hearth-react-native`
+- `@utilitywarehouse/hearth-react-native-icons`
+- `@utilitywarehouse/hearth-svg-icons`
+- `@utilitywarehouse/hearth-svg-assets`
+- `@utilitywarehouse/hearth-fonts`
+- `@utilitywarehouse/hearth-tokens`
+- `@utilitywarehouse/hearth-css-reset`
+
 ## Change Type Classification
 
 Every changeset must start with a type indicator using the following format:
