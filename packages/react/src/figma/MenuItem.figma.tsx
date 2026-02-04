@@ -16,7 +16,7 @@ figma.connect(
         true: figma.instance('Icon right-20'),
         false: undefined,
       }),
-      colorscheme: figma.enum('Color Scheme', {
+      colorScheme: figma.enum('Color Scheme', {
         Functional: 'functional',
         Destructive: 'destructive',
       }),

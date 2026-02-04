@@ -1,6 +1,10 @@
 import React from 'react';
 import { Menu } from '../components/Menu/Menu';
+import { MenuTrigger } from '../components/Menu/MenuTrigger';
+import { MenuContent } from '../components/Menu/MenuContent';
+import { Button } from '../components/Button/Button';
 import figma from '@figma/code-connect';
+import { ExpandSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 
 figma.connect(
   Menu,
@@ -12,6 +16,16 @@ figma.connect(
       }),
       children: figma.children('Menu Item'),
     },
-    example: ({ children, ...props }) => <Menu {...props}>{children}</Menu>,
+    example: ({ children, ...props }) => (
+      <Menu {...props}>
+        <MenuTrigger>
+          <Button>
+            Menu trigger
+            <ExpandSmallIcon />
+          </Button>
+        </MenuTrigger>
+        <MenuContent>{children}</MenuContent>
+      </Menu>
+    ),
   }
 );
