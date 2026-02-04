@@ -1,18 +1,13 @@
 import React from 'react';
-import { TextInput } from '../components/TextInput/TextInput';
-
+import { VerificationInput } from '../components/VerificationInput/VerificationInput';
 import figma from '@figma/code-connect';
 
 figma.connect(
-  TextInput,
-  'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=2685-7021&m=dev',
+  VerificationInput,
+  'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=4049-3615&m=dev',
   {
     props: {
       label: figma.string('Label'),
-      labelVariant: figma.enum('Label variant', {
-        Body: 'body',
-        Heading: 'heading',
-      }),
       helperText: figma.boolean('Helper text?', {
         true: figma.string('Helper text'),
         false: undefined,
@@ -25,11 +20,7 @@ figma.connect(
         Invalid: 'invalid',
         Valid: 'valid',
       }),
-      required: figma.boolean('Optional?', {
-        true: false,
-        false: true,
-      }),
     },
-    example: ({ ...props }) => <TextInput {...props} />,
+    example: props => <VerificationInput {...props} />,
   }
 );
