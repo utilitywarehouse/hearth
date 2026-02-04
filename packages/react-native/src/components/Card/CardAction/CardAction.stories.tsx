@@ -2,9 +2,11 @@ import { Meta, StoryObj } from '@storybook/react-native';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { ElectricityMediumIcon, GasMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { View } from 'react-native';
+import { BodyText } from '../../';
 import { Badge } from '../../Badge';
 import { Flex } from '../../Flex';
 import Card from '../Card';
+import CardContent from '../CardContent';
 import CardAction from './CardAction';
 
 const meta: Meta<typeof CardAction> = {
@@ -74,7 +76,7 @@ export const Playground: Story = {
     // @ts-expect-error - This is a playground
     const trailingIcon = args.trailingIcon === 'none' ? undefined : Icons[args.trailingIcon];
     return (
-      <View style={{ width: '100%', maxWidth: 400 }}>
+      <View style={{ width: '100%', maxWidth: 400, gap: 16 }}>
         <Card variant="emphasis">
           <CardAction {...args} leadingIcon={leadingIcon} trailingIcon={trailingIcon} />
         </Card>
@@ -263,4 +265,118 @@ export const Disabled: Story = {
       </Card>
     </View>
   ),
+};
+
+// Custom action wrappers can set isCardActionWrapper to opt into action detection.
+const CustomAction = ({ heading, ...props }: { heading: string }) => {
+  return <CardAction key={heading} heading={heading} {...props} onPress={() => null} />;
+};
+
+CustomAction.isCardActionWrapper = true;
+
+const CustomComponent = () => <BodyText>Multiple CardActions within a Card:</BodyText>;
+
+export const WithCustomActions: Story = {
+  parameters: {
+    controls: { include: [] },
+  },
+  render: (args: any) => {
+    // @ts-expect-error - This is a playground
+    const leadingIcon = args.leadingIcon === 'none' ? undefined : Icons[args.leadingIcon];
+    // @ts-expect-error - This is a playground
+    const trailingIcon = args.trailingIcon === 'none' ? undefined : Icons[args.trailingIcon];
+
+    const actions = [{ text: 'Action 1' }, { text: 'Action 2' }, { text: 'Action 3' }];
+    return (
+      <View style={{ width: '100%', maxWidth: 400, gap: 16 }}>
+        {/* Example 1 */}
+        <Card variant="emphasis">
+          <BodyText>Multiple CardActions within a Card:</BodyText>
+          {actions.map(action => (
+            <CustomAction
+              key={action.text}
+              {...args}
+              heading={action.text}
+              leadingIcon={leadingIcon}
+              trailingIcon={trailingIcon}
+            />
+          ))}
+          <CardAction
+            {...args}
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+            onPress={() => null}
+          />
+        </Card>
+        {/* Example 2 */}
+        <Card variant="emphasis">
+          {actions.map(action => (
+            <CustomAction
+              key={action.text}
+              {...args}
+              heading={action.text}
+              leadingIcon={leadingIcon}
+              trailingIcon={trailingIcon}
+            />
+          ))}
+        </Card>
+        {/* Example 3 */}
+        <Card variant="emphasis">
+          <CardAction
+            {...args}
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+            onPress={() => null}
+          />
+          <CardAction
+            {...args}
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+            onPress={() => null}
+          />
+        </Card>
+        {/* Example 4 */}
+        <Card variant="emphasis">
+          <BodyText>Multiple CardActions within a Card:</BodyText>
+        </Card>
+        {/* Example 5 */}
+        <Card variant="emphasis">
+          <BodyText>Multiple CardActions within a Card:</BodyText>
+          <CardAction
+            {...args}
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+            onPress={() => null}
+          />
+          <CardAction
+            {...args}
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+            onPress={() => null}
+          />
+        </Card>
+        {/* Example 6 */}
+        <Card variant="emphasis">
+          <CardContent>
+            <CustomComponent />
+          </CardContent>
+          {actions.map(action => (
+            <CustomAction
+              key={action.text}
+              {...args}
+              heading={action.text}
+              leadingIcon={leadingIcon}
+              trailingIcon={trailingIcon}
+            />
+          ))}
+          <CardAction
+            {...args}
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+            onPress={() => null}
+          />
+        </Card>
+      </View>
+    );
+  },
 };

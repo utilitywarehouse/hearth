@@ -1,104 +1,19 @@
-import React, { ReactNode, useMemo } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
 import { CardContext } from './Card.context';
 import CardProps from './Card.props';
+import { CardAction } from './CardAction';
 import CardContent from './CardContent';
-
-// Helper to check if children contain specific component types
-const checkForComponentType = (children: React.ReactNode, displayName: string): boolean => {
-  return React.Children.toArray(children).some(child => {
-    if (React.isValidElement(child)) {
-      // @ts-expect-error - type
-      if (child.type.displayName === displayName) {
-        return true;
-      }
-      const childProps = child.props as any;
-      if (childProps.children) {
-        return checkForComponentType(childProps.children, displayName);
-      }
-    }
-    return false;
-  });
-};
-
-// Helper to filter out specific component types from children
-const filterChildren = (children: React.ReactNode, excludeDisplayName: string): React.ReactNode => {
-  return React.Children.map(children, child => {
-    if (React.isValidElement(child)) {
-      // @ts-expect-error - type
-      if (child.type.displayName === excludeDisplayName) {
-        return null;
-      }
-      const childProps = child.props as any;
-      if (childProps.children) {
-        return React.cloneElement(child, {
-          ...childProps,
-          children: filterChildren(childProps.children, excludeDisplayName),
-        });
-      }
-    }
-    return child;
-  });
-};
-
-// Helper to extract specific component types from children
-const extractChildren = (
-  children: React.ReactNode,
-  includeDisplayName: string,
-  markFirst = false
-): React.ReactNode => {
-  let isFirstFound = false;
-  return React.Children.map(children, child => {
-    if (React.isValidElement(child)) {
-      // @ts-expect-error - type
-      if (child.type.displayName === includeDisplayName) {
-        const isFirst = markFirst && !isFirstFound;
-        if (isFirst) {
-          isFirstFound = true;
-        }
-        return markFirst
-          ? React.cloneElement(child, { ...(child.props || {}), isFirst } as any)
-          : child;
-      }
-      const childProps = child.props as any;
-      if (childProps.children) {
-        return extractChildren(childProps.children, includeDisplayName, markFirst);
-      }
-    }
-    return null;
-  });
-};
-
-// Helper that recursively collects onPress or other defined handlers from descendants
-const collectChildActionHandlers = (
-  children: React.ReactNode
-): Array<(e: GestureResponderEvent) => void> =>
-  React.Children.toArray(children).reduce(
-    (handlers, child) => {
-      if (React.isValidElement(child)) {
-        const childProps = child.props as any;
-        // @ts-expect-error - type
-        if (child.type.displayName === 'CardPressHandler') {
-          const actionChildren = React.Children.toArray(childProps.children);
-          const handlerToInherit = childProps['handlerToInherit'] || 'onPress';
-          const firstChild = actionChildren[0];
-          if (
-            React.isValidElement(firstChild) &&
-            typeof (firstChild.props as any)[handlerToInherit] === 'function'
-          ) {
-            handlers.push((firstChild.props as any)[handlerToInherit]);
-          }
-        }
-        if (childProps.children) {
-          handlers.push(...collectChildActionHandlers(childProps.children));
-        }
-      }
-      return handlers;
-    },
-    [] as Array<(e: GestureResponderEvent) => void>
-  );
+import {
+  checkForComponentType,
+  collectChildActionHandlers,
+  extractCardActions,
+  filterChildren,
+  hasOnlyPotentialActions,
+  markFirstCardAction,
+} from './helpers';
 
 const Card = ({
   children,
@@ -116,8 +31,8 @@ const Card = ({
 }: CardProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active } = states || { active: false };
   const childActionHandlers = collectChildActionHandlers(children as ReactNode);
-  const hasActions = checkForComponentType(children as ReactNode, 'CardAction');
-  const hasContent = checkForComponentType(children as ReactNode, 'CardContent');
+  const hasActions = checkForComponentType(children as ReactNode, CardAction);
+  const hasContent = checkForComponentType(children as ReactNode, CardContent);
   // Extract style props using our custom hook
   const { computedStyles, remainingProps } = useStyleProps(rest);
 
@@ -132,19 +47,17 @@ const Card = ({
   const inheritChildAction = childActionHandlers.length > 0;
   const showPressed = inheritChildAction || !!onPress;
 
-  const filteredChildren =
-    !hasContent && hasActions ? filterChildren(children as ReactNode, 'CardAction') : null;
+  // Check if all children are potential action components (direct CardAction or wrappers)
+  // Trust hasOnlyPotentialActions even if we can't detect actual CardActions (e.g., inside CustomAction)
+  const potentiallyOnlyActions = hasOnlyPotentialActions(children as ReactNode, CardAction);
+  const hasOnlyActions = potentiallyOnlyActions && !hasContent;
 
-  // Check if there's any content besides CardActions
-  const hasOnlyActions =
-    hasActions &&
-    !hasContent &&
-    React.Children.toArray(filteredChildren).filter(child => child != null).length === 0;
-
-  const filteredCardActions =
-    !hasContent && hasActions
-      ? extractChildren(children as ReactNode, 'CardAction', hasOnlyActions)
-      : null;
+  // When CardContent is explicitly used, mark first action outside of CardContent
+  // When only actions (or potential actions), mark the first action
+  const childrenWithMarkedFirstAction =
+    (hasActions || hasOnlyActions) && (hasOnlyActions || hasContent)
+      ? markFirstCardAction(children as ReactNode, CardAction, hasActions || hasOnlyActions)
+      : (children as ReactNode);
 
   const context = useMemo(
     () => ({
@@ -162,38 +75,40 @@ const Card = ({
   styles.useVariants({
     variant,
     colorScheme,
-    noPadding: noPadding || hasActions || hasContent,
+    noPadding: noPadding || hasActions || hasContent || hasOnlyActions,
     active,
     showPressed,
     disabled,
-    space: hasActions || hasContent ? 'none' : space,
+    space: hasActions || hasContent || hasOnlyActions ? 'none' : space,
     shadowColor,
   });
 
   const renderChildren = () => {
-    // Default: render children as-is
-    if (hasContent || !hasActions) {
+    // Explicit CardContent used - render as-is with marked first action
+    if (hasContent) {
+      return childrenWithMarkedFirstAction as ReactNode;
+    }
+
+    // Card has only actions (or potential action wrappers) - render marked children directly
+    if (hasOnlyActions) {
+      return childrenWithMarkedFirstAction as ReactNode;
+    }
+
+    // No detectable actions - render children as-is
+    if (!hasActions) {
       return children as ReactNode;
     }
 
-    // Card has actions but no explicit CardContent
-    if (hasOnlyActions) {
-      // Only CardActions, no other content - render actions directly
-      return filteredCardActions as ReactNode;
-    }
+    // Has both actions and other content - wrap non-action content and render actions separately
+    const filteredNonActionChildren = filterChildren(children as ReactNode, CardAction);
+    const cardActions = extractCardActions(children as ReactNode, CardAction, true);
 
-    if (filteredChildren) {
-      // Has both actions and other content - wrap content and render actions below
-      return (
-        <>
-          <CardContent>{filteredChildren as ReactNode}</CardContent>
-          {filteredCardActions as ReactNode}
-        </>
-      );
-    }
-
-    // Fallback
-    return children as ReactNode;
+    return (
+      <>
+        <CardContent>{filteredNonActionChildren as ReactNode}</CardContent>
+        {cardActions}
+      </>
+    );
   };
 
   return (
@@ -298,7 +213,6 @@ const styles = StyleSheet.create(theme => ({
           },
         },
       },
-
       active: {
         true: {},
       },
