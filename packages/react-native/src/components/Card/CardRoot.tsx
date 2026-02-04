@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
 import { CardContext } from './Card.context';
 import CardProps from './Card.props';
-import { CardAction } from './CardAction';
+import CardActions from './CardActions';
 import CardContent from './CardContent';
 import {
   checkForComponentType,
@@ -35,7 +35,7 @@ const Card = ({
   actionIndexRef.current = 0;
   const renderId = renderIdRef.current;
   const childActionHandlers = collectChildActionHandlers(children as ReactNode);
-  const hasActions = checkForComponentType(children as ReactNode, CardAction);
+  const hasActions = checkForComponentType(children as ReactNode, CardActions);
   const hasContent = checkForComponentType(children as ReactNode, CardContent);
   // Extract style props using our custom hook
   const { computedStyles, remainingProps } = useStyleProps(rest);
@@ -51,9 +51,8 @@ const Card = ({
   const inheritChildAction = childActionHandlers.length > 0;
   const showPressed = inheritChildAction || !!onPress;
 
-  // Check if all children are potential action components (direct CardAction or wrappers)
-  // Trust hasOnlyPotentialActions even if we can't detect actual CardActions (e.g., inside CustomAction)
-  const potentiallyOnlyActions = hasOnlyPotentialActions(children as ReactNode, CardAction);
+  // Check if all children are action groups (CardActions)
+  const potentiallyOnlyActions = hasOnlyPotentialActions(children as ReactNode, CardActions);
   const hasOnlyActions = potentiallyOnlyActions && !hasContent;
 
   const context = useMemo(
@@ -103,8 +102,8 @@ const Card = ({
     }
 
     // Has both actions and other content - wrap non-action content and render actions separately
-    const filteredNonActionChildren = filterChildren(children as ReactNode, CardAction);
-    const cardActions = extractCardActions(children as ReactNode, CardAction);
+    const filteredNonActionChildren = filterChildren(children as ReactNode, CardActions);
+    const cardActions = extractCardActions(children as ReactNode, CardActions);
 
     return (
       <>

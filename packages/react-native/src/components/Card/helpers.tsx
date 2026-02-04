@@ -1,15 +1,6 @@
 import React from 'react';
 import { GestureResponderEvent } from 'react-native';
 
-const isExplicitActionWrapper = (child: React.ReactNode): boolean => {
-  if (!React.isValidElement(child)) {
-    return false;
-  }
-
-  const type = child.type as { isCardActionWrapper?: boolean };
-  return type?.isCardActionWrapper === true;
-};
-
 const getInheritableHandler = (
   child: React.ReactNode,
   handlerToInherit: string
@@ -71,7 +62,7 @@ export const hasContentInChildren = (
   });
 };
 
-// Check if all children are actions or potential action wrappers
+// Check if all children are CardActions groups
 export const hasOnlyPotentialActions = (
   children: React.ReactNode,
   actionType: React.ComponentType<any>
@@ -109,10 +100,7 @@ export const hasOnlyPotentialActions = (
       return false;
     }
 
-    if (isExplicitActionWrapper(child)) {
-      hasActionCandidate = true;
-      continue;
-    }
+    return false;
   }
 
   return hasActionCandidate || checkForComponentType(children, actionType);
@@ -148,11 +136,6 @@ export const filterChildren = (
         });
       }
 
-      // Explicit action wrapper (CustomAction)
-      if (isExplicitActionWrapper(child)) {
-        // No content in children, likely an action wrapper
-        return null;
-      }
     }
     return child;
   });
@@ -172,13 +155,8 @@ export const extractCardActions = (
         return child;
       }
 
-      // If this child contains a CardAction in its tree, keep it
-      if (checkForComponentType(child, actionType)) {
-        return child;
-      }
-
-      // Explicit action wrapper like CustomAction
-      if (isExplicitActionWrapper(child)) {
+      // If this child contains a CardActions wrapper in its tree, keep it
+      if (checkForComponentType(child, actionType) && !hasContentInChildren(child, actionType)) {
         return child;
       }
 

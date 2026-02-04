@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { BellMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { Card, CardAction, CardPressHandler } from '.';
+import { Card, CardAction, CardActions, CardPressHandler } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { BodyText } from '../BodyText';
 import { Button } from '../Button';
@@ -79,24 +79,26 @@ export const WithActions: Story = {
     return (
       <Card {...props} flexDirection="column" alignItems="stretch" space="md" variant="emphasis">
         <BodyText>{children as string}</BodyText>
-        <CardAction
-          onPress={() => console.log('Card action pressed')}
-          heading="Card Action Head"
-          helperText="Some helper text"
-          leadingIcon={BellMediumIcon}
-        />
-        <CardAction
-          onPress={() => console.log('Card action pressed')}
-          heading="Card Action Head"
-          leadingIcon={BellMediumIcon}
-        />
-        <CardAction
-          onPress={() => console.log('Card action pressed')}
-          heading="Card Action Head"
-          helperText="Testing"
-          leadingIcon={BellMediumIcon}
-          iconContainer={false}
-        />
+        <CardActions>
+          <CardAction
+            onPress={() => console.log('Card action pressed')}
+            heading="Card Action Head"
+            helperText="Some helper text"
+            leadingIcon={BellMediumIcon}
+          />
+          <CardAction
+            onPress={() => console.log('Card action pressed')}
+            heading="Card Action Head"
+            leadingIcon={BellMediumIcon}
+          />
+          <CardAction
+            onPress={() => console.log('Card action pressed')}
+            heading="Card Action Head"
+            helperText="Testing"
+            leadingIcon={BellMediumIcon}
+            iconContainer={false}
+          />
+        </CardActions>
       </Card>
     );
   },
@@ -109,12 +111,14 @@ export const WithOnlyAction: Story = {
   render: ({ ...props }) => {
     return (
       <Card {...props} flexDirection="column" alignItems="stretch" space="md">
-        <CardAction
-          onPress={() => console.log('Card action pressed')}
-          heading="Card Action Head"
-          helperText="Some helper text"
-          leadingIcon={BellMediumIcon}
-        />
+        <CardActions>
+          <CardAction
+            onPress={() => console.log('Card action pressed')}
+            heading="Card Action Head"
+            helperText="Some helper text"
+            leadingIcon={BellMediumIcon}
+          />
+        </CardActions>
       </Card>
     );
   },
