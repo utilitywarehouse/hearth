@@ -1,10 +1,11 @@
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useMemo } from 'react';
+import { useId, useLayoutEffect, useMemo } from 'react';
 import { Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { IconContainer } from '../../IconContainer';
 import { Skeleton } from '../../Skeleton';
-import { useCardContext, useCardFirstActionContext } from '../Card.context';
+import { useCardContext } from '../Card.context';
+import { useCardActionsContext } from '../CardActions.context';
 import { CardActionContext, ICardActionContext } from './CardAction.context';
 import type CardActionProps from './CardAction.props';
 import CardActionContent from './CardActionContent';
@@ -45,7 +46,18 @@ const CardActionRoot = ({
   const loadingTestID = isLoading ? `${testID}-loading` : testID;
 
   const { variant, hasOnlyActions } = useCardContext();
-  const isFirstFromContext = useCardFirstActionContext();
+  const actionId = useId();
+  const actionsContext = useCardActionsContext();
+
+  useLayoutEffect(() => {
+    if (!actionsContext) {
+      return;
+    }
+
+    return actionsContext.registerAction(actionId);
+  }, [actionId, actionsContext]);
+
+  const isFirstFromContext = actionsContext?.firstActionId === actionId;
   const isFirst = props.isFirst ?? isFirstFromContext;
 
   styles.useVariants({

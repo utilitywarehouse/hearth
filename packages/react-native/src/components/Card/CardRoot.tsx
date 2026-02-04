@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
 import { CardContext } from './Card.context';
 import CardProps from './Card.props';
-import { CardAction } from './CardAction';
+import CardActions from './CardActions';
 import CardContent from './CardContent';
 import {
   checkForComponentType,
@@ -12,7 +12,6 @@ import {
   extractCardActions,
   filterChildren,
   hasOnlyPotentialActions,
-  markFirstCardAction,
 } from './helpers';
 
 const Card = ({
@@ -31,7 +30,7 @@ const Card = ({
 }: CardProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active } = states || { active: false };
   const childActionHandlers = collectChildActionHandlers(children as ReactNode);
-  const hasActions = checkForComponentType(children as ReactNode, CardAction);
+  const hasActions = checkForComponentType(children as ReactNode, CardActions);
   const hasContent = checkForComponentType(children as ReactNode, CardContent);
   // Extract style props using our custom hook
   const { computedStyles, remainingProps } = useStyleProps(rest);
@@ -47,17 +46,9 @@ const Card = ({
   const inheritChildAction = childActionHandlers.length > 0;
   const showPressed = inheritChildAction || !!onPress;
 
-  // Check if all children are potential action components (direct CardAction or wrappers)
-  // Trust hasOnlyPotentialActions even if we can't detect actual CardActions (e.g., inside CustomAction)
-  const potentiallyOnlyActions = hasOnlyPotentialActions(children as ReactNode, CardAction);
+  // Check if all children are action groups (CardActions)
+  const potentiallyOnlyActions = hasOnlyPotentialActions(children as ReactNode, CardActions);
   const hasOnlyActions = potentiallyOnlyActions && !hasContent;
-
-  // When CardContent is explicitly used, mark first action outside of CardContent
-  // When only actions (or potential actions), mark the first action
-  const childrenWithMarkedFirstAction =
-    (hasActions || hasOnlyActions) && (hasOnlyActions || hasContent)
-      ? markFirstCardAction(children as ReactNode, CardAction, hasActions || hasOnlyActions)
-      : (children as ReactNode);
 
   const context = useMemo(
     () => ({
@@ -84,24 +75,14 @@ const Card = ({
   });
 
   const renderChildren = () => {
-    // Explicit CardContent used - render as-is with marked first action
-    if (hasContent) {
-      return childrenWithMarkedFirstAction as ReactNode;
-    }
-
-    // Card has only actions (or potential action wrappers) - render marked children directly
-    if (hasOnlyActions) {
-      return childrenWithMarkedFirstAction as ReactNode;
-    }
-
-    // No detectable actions - render children as-is
-    if (!hasActions) {
+    // Explicit CardContent used - render as-is or Card has only actions (or potential action wrappers) - render children directly
+    if (hasContent || hasOnlyActions || !hasActions) {
       return children as ReactNode;
     }
 
     // Has both actions and other content - wrap non-action content and render actions separately
-    const filteredNonActionChildren = filterChildren(children as ReactNode, CardAction);
-    const cardActions = extractCardActions(children as ReactNode, CardAction, true);
+    const filteredNonActionChildren = filterChildren(children as ReactNode, CardActions);
+    const cardActions = extractCardActions(children as ReactNode, CardActions);
 
     return (
       <>

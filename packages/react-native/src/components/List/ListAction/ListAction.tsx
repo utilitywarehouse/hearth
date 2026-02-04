@@ -1,9 +1,10 @@
 import { createPressable } from '@gluestack-ui/pressable';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { useId, useLayoutEffect } from 'react';
 import { Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Skeleton } from '../../Skeleton';
-import { useListContext, useListFirstItemContext } from '../List.context';
+import { useListContext } from '../List.context';
 import type ListActionProps from './ListAction.props';
 import ListActionContent from './ListActionContent';
 import ListActionText from './ListActionText';
@@ -19,7 +20,7 @@ const ListActionRoot = ({
 }: ListActionProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { onPress } = props;
   const listContext = useListContext();
-  const isFirstContext = useListFirstItemContext();
+  const { registerItem, firstItemId } = listContext;
 
   const { active } = props.states || { active: false };
 
@@ -35,6 +36,17 @@ const ListActionRoot = ({
 
   const isDisabled = disabled || listContext?.disabled || false;
   const listItemVariant = getListContainer() || variant;
+  const actionId = useId();
+
+  useLayoutEffect(() => {
+    if (!registerItem) {
+      return;
+    }
+
+    return registerItem(actionId);
+  }, [actionId, registerItem]);
+
+  const isFirstChild = firstItemId === actionId;
 
   const testID = props.testID || 'list-action';
 
@@ -43,7 +55,7 @@ const ListActionRoot = ({
     disabled: isDisabled,
     active,
     showDisabled: !listContext?.disabled && disabled,
-    isFirstChild: isFirstContext,
+    isFirstChild,
     container: listContext?.container,
   });
 

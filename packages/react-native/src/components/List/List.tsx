@@ -1,52 +1,10 @@
-import React, { ReactNode, useMemo } from 'react';
-import { View, ViewProps } from 'react-native';
+import React, { useCallback, useRef, useState } from 'react';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Card } from '../Card';
 import { SectionHeader } from '../SectionHeader';
-import { ListContext, ListFirstItemContext } from './List.context';
+import { ListContext } from './List.context';
 import type ListProps from './List.props';
-import { ListAction } from './ListAction';
-import { ListItem } from './ListItem';
-
-const markFirstListItem = (children: ReactNode): ViewProps['children'] => {
-  let found = false;
-
-  const recursiveClone = (children: ReactNode): ReactNode => {
-    return React.Children.map(children, (child: ReactNode): ReactNode => {
-      if (!React.isValidElement(child)) return child;
-
-      // Check if the current element is the ListItem or ListAction and hasn't been marked yet
-      if (!found) {
-        if (child.type === ListItem || child.type === ListAction) {
-          found = true;
-          return (
-            <ListFirstItemContext.Provider value={true}>{child}</ListFirstItemContext.Provider>
-          );
-        }
-
-        // If the child has nested children, process them recursively
-        if (
-          React.isValidElement(child) &&
-          child.props &&
-          typeof child.props === 'object' &&
-          child.props !== null &&
-          'children' in child.props &&
-          child.props.children
-        ) {
-          const clonedChildren = recursiveClone((child.props as any).children);
-          return React.cloneElement(child, { children: clonedChildren } as any);
-        }
-
-        found = true;
-        return <ListFirstItemContext.Provider value={true}>{child}</ListFirstItemContext.Provider>;
-      }
-
-      return child;
-    });
-  };
-
-  return recursiveClone(children) as ViewProps['children'];
-};
 
 const List = ({
   children,
@@ -57,6 +15,8 @@ const List = ({
   ...props
 }: ListProps) => {
   const { loading, disabled, container = 'none' } = props;
+  const orderRef = useRef<string[]>([]);
+  const [firstItemId, setFirstItemId] = useState<string | undefined>(undefined);
   const containerToCard: {
     variant: 'subtle' | 'emphasis';
     colorScheme: 'neutralStrong' | 'neutralSubtle';
@@ -67,8 +27,27 @@ const List = ({
         ? 'neutralStrong'
         : 'neutralSubtle',
   };
-  const updatedChildren = markFirstListItem(children);
-  const value = useMemo(() => ({ loading, disabled, container }), [loading, disabled, container]);
+
+  const registerItem = useCallback((id: string) => {
+    if (!orderRef.current.includes(id)) {
+      orderRef.current.push(id);
+    }
+    const nextFirst = orderRef.current[0];
+    setFirstItemId(prev => (prev === nextFirst ? prev : nextFirst));
+    return () => {
+      orderRef.current = orderRef.current.filter(currentId => currentId !== id);
+      const nextFirst = orderRef.current[0];
+      setFirstItemId(prev => (prev === nextFirst ? prev : nextFirst));
+    };
+  }, []);
+
+  const value = {
+    loading,
+    disabled,
+    container,
+    firstItemId,
+    registerItem,
+  };
   styles.useVariants({ disabled });
   return (
     <ListContext.Provider value={value}>
@@ -82,11 +61,11 @@ const List = ({
           />
         ) : null}
         {container === 'none' ? (
-          <View>{updatedChildren}</View>
+          <View>{children}</View>
         ) : (
-          React.Children.count(updatedChildren) > 0 && (
+          React.Children.count(children) > 0 && (
             <Card {...containerToCard} noPadding style={styles.card}>
-              <>{updatedChildren}</>
+              <>{children}</>
             </Card>
           )
         )}

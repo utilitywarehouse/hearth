@@ -6,6 +6,7 @@ import { BodyText } from '../../';
 import { Badge } from '../../Badge';
 import { Flex } from '../../Flex';
 import Card from '../Card';
+import CardActions from '../CardActions';
 import CardContent from '../CardContent';
 import CardAction from './CardAction';
 
@@ -78,7 +79,9 @@ export const Playground: Story = {
     return (
       <View style={{ width: '100%', maxWidth: 400, gap: 16 }}>
         <Card variant="emphasis">
-          <CardAction {...args} leadingIcon={leadingIcon} trailingIcon={trailingIcon} />
+          <CardActions>
+            <CardAction {...args} leadingIcon={leadingIcon} trailingIcon={trailingIcon} />
+          </CardActions>
         </Card>
       </View>
     );
@@ -92,12 +95,14 @@ export const WithLeadingIcon: Story = {
   render: () => (
     <View style={{ width: '100%', maxWidth: 400 }}>
       <Card variant="emphasis">
-        <CardAction
-          heading="Bills"
-          helperText="View your bills"
-          leadingIcon={ElectricityMediumIcon}
-          onPress={() => console.log('pressed')}
-        />
+        <CardActions>
+          <CardAction
+            heading="Bills"
+            helperText="View your bills"
+            leadingIcon={ElectricityMediumIcon}
+            onPress={() => console.log('pressed')}
+          />
+        </CardActions>
       </Card>
     </View>
   ),
@@ -110,12 +115,14 @@ export const WithTrailingIcon: Story = {
   render: () => (
     <View style={{ width: '100%', maxWidth: 400 }}>
       <Card variant="emphasis">
-        <CardAction
-          heading="Bills"
-          helperText="View your bills"
-          trailingIcon={ElectricityMediumIcon}
-          onPress={() => console.log('pressed')}
-        />
+        <CardActions>
+          <CardAction
+            heading="Bills"
+            helperText="View your bills"
+            trailingIcon={ElectricityMediumIcon}
+            onPress={() => console.log('pressed')}
+          />
+        </CardActions>
       </Card>
     </View>
   ),
@@ -129,33 +136,35 @@ export const WithIconContainer: Story = {
   render: () => (
     <View style={{ width: '100%', maxWidth: 400 }}>
       <Card variant="emphasis">
-        <CardAction
-          heading="Electricity"
-          helperText="Last reading 23/03/24"
-          leadingIcon={ElectricityMediumIcon}
-          iconContainer
-          iconContainerVariant="emphasis"
-          iconContainerColor="energy"
-          onPress={() => console.log('pressed')}
-        />
-        <CardAction
-          heading="Gas"
-          helperText="Last reading 23/03/24"
-          leadingIcon={GasMediumIcon}
-          iconContainer
-          iconContainerVariant="emphasis"
-          iconContainerColor="energy"
-          onPress={() => console.log('pressed')}
-        />
-        <CardAction
-          heading="Gas"
-          helperText="Last reading 23/03/24"
-          leadingIcon={GasMediumIcon}
-          iconContainer
-          iconContainerVariant="emphasis"
-          iconContainerColor="energy"
-          onPress={() => console.log('pressed')}
-        />
+        <CardActions>
+          <CardAction
+            heading="Electricity"
+            helperText="Last reading 23/03/24"
+            leadingIcon={ElectricityMediumIcon}
+            iconContainer
+            iconContainerVariant="emphasis"
+            iconContainerColor="energy"
+            onPress={() => console.log('pressed')}
+          />
+          <CardAction
+            heading="Gas"
+            helperText="Last reading 23/03/24"
+            leadingIcon={GasMediumIcon}
+            iconContainer
+            iconContainerVariant="emphasis"
+            iconContainerColor="energy"
+            onPress={() => console.log('pressed')}
+          />
+          <CardAction
+            heading="Gas"
+            helperText="Last reading 23/03/24"
+            leadingIcon={GasMediumIcon}
+            iconContainer
+            iconContainerVariant="emphasis"
+            iconContainerColor="energy"
+            onPress={() => console.log('pressed')}
+          />
+        </CardActions>
       </Card>
     </View>
   ),
@@ -168,34 +177,40 @@ export const WithBadge: Story = {
   render: () => (
     <Flex direction="column" space="md" style={{ width: '100%', maxWidth: 400 }}>
       <Card variant="emphasis">
-        <CardAction
-          heading="Badge at bottom"
-          helperText="Badge positioned below text"
-          leadingIcon={ElectricityMediumIcon}
-          badge={<Badge text="New" />}
-          badgePosition="bottom"
-          onPress={() => console.log('pressed')}
-        />
+        <CardActions>
+          <CardAction
+            heading="Badge at bottom"
+            helperText="Badge positioned below text"
+            leadingIcon={ElectricityMediumIcon}
+            badge={<Badge text="New" />}
+            badgePosition="bottom"
+            onPress={() => console.log('pressed')}
+          />
+        </CardActions>
       </Card>
       <Card variant="emphasis">
-        <CardAction
-          heading="Badge at middle"
-          helperText="Badge positioned between heading and helper text"
-          leadingIcon={ElectricityMediumIcon}
-          badge={<Badge text="New" />}
-          badgePosition="middle"
-          onPress={() => console.log('pressed')}
-        />
+        <CardActions>
+          <CardAction
+            heading="Badge at middle"
+            helperText="Badge positioned between heading and helper text"
+            leadingIcon={ElectricityMediumIcon}
+            badge={<Badge text="New" />}
+            badgePosition="middle"
+            onPress={() => console.log('pressed')}
+          />
+        </CardActions>
       </Card>
       <Card variant="emphasis">
-        <CardAction
-          heading="Badge at right"
-          helperText="Badge positioned on the right side"
-          leadingIcon={ElectricityMediumIcon}
-          badge={<Badge text="New" />}
-          badgePosition="right"
-          onPress={() => console.log('pressed')}
-        />
+        <CardActions>
+          <CardAction
+            heading="Badge at right"
+            helperText="Badge positioned on the right side"
+            leadingIcon={ElectricityMediumIcon}
+            badge={<Badge text="New" />}
+            badgePosition="right"
+            onPress={() => console.log('pressed')}
+          />
+        </CardActions>
       </Card>
     </Flex>
   ),
@@ -208,22 +223,26 @@ export const Sizes: Story = {
   render: () => (
     <Flex direction="column" space="md" style={{ width: '100%', maxWidth: 400 }}>
       <Card variant="emphasis">
-        <CardAction
-          heading="Medium size (default)"
-          helperText="Heading size is md"
-          size="md"
-          leadingIcon={ElectricityMediumIcon}
-          onPress={() => console.log('pressed')}
-        />
+        <CardActions>
+          <CardAction
+            heading="Medium size (default)"
+            helperText="Heading size is md"
+            size="md"
+            leadingIcon={ElectricityMediumIcon}
+            onPress={() => console.log('pressed')}
+          />
+        </CardActions>
       </Card>
       <Card variant="emphasis">
-        <CardAction
-          heading="Large size"
-          helperText="Heading size is lg"
-          size="lg"
-          leadingIcon={ElectricityMediumIcon}
-          onPress={() => console.log('pressed')}
-        />
+        <CardActions>
+          <CardAction
+            heading="Large size"
+            helperText="Heading size is lg"
+            size="lg"
+            leadingIcon={ElectricityMediumIcon}
+            onPress={() => console.log('pressed')}
+          />
+        </CardActions>
       </Card>
     </Flex>
   ),
@@ -236,13 +255,15 @@ export const Loading: Story = {
   render: () => (
     <View style={{ width: '100%', maxWidth: 400 }}>
       <Card variant="emphasis">
-        <CardAction
-          heading="Loading"
-          helperText="This is loading"
-          loading
-          leadingIcon={ElectricityMediumIcon}
-          onPress={() => console.log('pressed')}
-        />
+        <CardActions>
+          <CardAction
+            heading="Loading"
+            helperText="This is loading"
+            loading
+            leadingIcon={ElectricityMediumIcon}
+            onPress={() => console.log('pressed')}
+          />
+        </CardActions>
       </Card>
     </View>
   ),
@@ -255,24 +276,23 @@ export const Disabled: Story = {
   render: () => (
     <View style={{ width: '100%', maxWidth: 400 }}>
       <Card variant="emphasis">
-        <CardAction
-          heading="Disabled"
-          helperText="This is disabled"
-          disabled
-          leadingIcon={ElectricityMediumIcon}
-          onPress={() => console.log('pressed')}
-        />
+        <CardActions>
+          <CardAction
+            heading="Disabled"
+            helperText="This is disabled"
+            disabled
+            leadingIcon={ElectricityMediumIcon}
+            onPress={() => console.log('pressed')}
+          />
+        </CardActions>
       </Card>
     </View>
   ),
 };
 
-// Custom action wrappers can set isCardActionWrapper to opt into action detection.
 const CustomAction = ({ heading, ...props }: { heading: string }) => {
   return <CardAction key={heading} heading={heading} {...props} onPress={() => null} />;
 };
-
-CustomAction.isCardActionWrapper = true;
 
 const CustomComponent = () => <BodyText>Multiple CardActions within a Card:</BodyText>;
 
@@ -292,48 +312,54 @@ export const WithCustomActions: Story = {
         {/* Example 1 */}
         <Card variant="emphasis">
           <BodyText>Multiple CardActions within a Card:</BodyText>
-          {actions.map(action => (
-            <CustomAction
-              key={action.text}
+          <CardActions>
+            {actions.map(action => (
+              <CustomAction
+                key={action.text}
+                {...args}
+                heading={action.text}
+                leadingIcon={leadingIcon}
+                trailingIcon={trailingIcon}
+              />
+            ))}
+            <CardAction
               {...args}
-              heading={action.text}
               leadingIcon={leadingIcon}
               trailingIcon={trailingIcon}
+              onPress={() => null}
             />
-          ))}
-          <CardAction
-            {...args}
-            leadingIcon={leadingIcon}
-            trailingIcon={trailingIcon}
-            onPress={() => null}
-          />
+          </CardActions>
         </Card>
         {/* Example 2 */}
         <Card variant="emphasis">
-          {actions.map(action => (
-            <CustomAction
-              key={action.text}
-              {...args}
-              heading={action.text}
-              leadingIcon={leadingIcon}
-              trailingIcon={trailingIcon}
-            />
-          ))}
+          <CardActions>
+            {actions.map(action => (
+              <CustomAction
+                key={action.text}
+                {...args}
+                heading={action.text}
+                leadingIcon={leadingIcon}
+                trailingIcon={trailingIcon}
+              />
+            ))}
+          </CardActions>
         </Card>
         {/* Example 3 */}
         <Card variant="emphasis">
-          <CardAction
-            {...args}
-            leadingIcon={leadingIcon}
-            trailingIcon={trailingIcon}
-            onPress={() => null}
-          />
-          <CardAction
-            {...args}
-            leadingIcon={leadingIcon}
-            trailingIcon={trailingIcon}
-            onPress={() => null}
-          />
+          <CardActions>
+            <CardAction
+              {...args}
+              leadingIcon={leadingIcon}
+              trailingIcon={trailingIcon}
+              onPress={() => null}
+            />
+            <CardAction
+              {...args}
+              leadingIcon={leadingIcon}
+              trailingIcon={trailingIcon}
+              onPress={() => null}
+            />
+          </CardActions>
         </Card>
         {/* Example 4 */}
         <Card variant="emphasis">
@@ -342,39 +368,43 @@ export const WithCustomActions: Story = {
         {/* Example 5 */}
         <Card variant="emphasis">
           <BodyText>Multiple CardActions within a Card:</BodyText>
-          <CardAction
-            {...args}
-            leadingIcon={leadingIcon}
-            trailingIcon={trailingIcon}
-            onPress={() => null}
-          />
-          <CardAction
-            {...args}
-            leadingIcon={leadingIcon}
-            trailingIcon={trailingIcon}
-            onPress={() => null}
-          />
+          <CardActions>
+            <CardAction
+              {...args}
+              leadingIcon={leadingIcon}
+              trailingIcon={trailingIcon}
+              onPress={() => null}
+            />
+            <CardAction
+              {...args}
+              leadingIcon={leadingIcon}
+              trailingIcon={trailingIcon}
+              onPress={() => null}
+            />
+          </CardActions>
         </Card>
         {/* Example 6 */}
         <Card variant="emphasis">
           <CardContent>
             <CustomComponent />
           </CardContent>
-          {actions.map(action => (
-            <CustomAction
-              key={action.text}
+          <CardActions>
+            {actions.map(action => (
+              <CustomAction
+                key={action.text}
+                {...args}
+                heading={action.text}
+                leadingIcon={leadingIcon}
+                trailingIcon={trailingIcon}
+              />
+            ))}
+            <CardAction
               {...args}
-              heading={action.text}
               leadingIcon={leadingIcon}
               trailingIcon={trailingIcon}
+              onPress={() => null}
             />
-          ))}
-          <CardAction
-            {...args}
-            leadingIcon={leadingIcon}
-            trailingIcon={trailingIcon}
-            onPress={() => null}
-          />
+          </CardActions>
         </Card>
       </View>
     );

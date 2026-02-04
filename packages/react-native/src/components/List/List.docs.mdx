@@ -122,14 +122,17 @@ const MyComponent = () => (
 | truncateHeading    | `boolean`                | `false`  | Whether to truncate the heading text if it overflows.           |
 | truncateHelperText | `boolean`                | `false`  | Whether to truncate the helper text if it overflows.            |
 
+First-item styling is applied to the first rendered `ListItem` or `ListAction`. Wrapper components that render `null`
+are ignored, so conditional list items will not affect which item loses the top border.
+
 ### `ListAction`
 
-| Name     | Type         | Default | Description                                       |
-| -------- | ------------ | ------- | ------------------------------------------------- |
-| heading  | `string`     |         | The text to display in the list action item.      |
-| onPress  | `() => void` |         | A callback function to be called                  |
-| disabled | `boolean`    | `false` | Whether to disable the list action item.          |
-| loading  | `boolean`    | `false` | Whether to show the list action in loading state. |
+| Name     | Type         | Default | Description                                                            |
+| -------- | ------------ | ------- | ---------------------------------------------------------------------- |
+| heading  | `string`     |         | The text to display in the list action item.                           |
+| onPress  | `() => void` |         | A callback function to be called when the list action item is pressed. |
+| disabled | `boolean`    | `false` | Whether to disable the list action item.                               |
+| loading  | `boolean`    | `false` | Whether to show the list action in loading state.                      |
 
 #### - `ListItemLeadingContent`
 
