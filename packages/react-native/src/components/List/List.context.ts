@@ -5,6 +5,8 @@ export const ListContext = createContext<{
   loading?: ListProps['loading'];
   disabled?: ListProps['disabled'];
   container?: ListProps['container'];
+  renderId?: number;
+  getNextListIndex?: () => number;
 }>({});
 
 export const useListContext = () => {
@@ -12,7 +14,3 @@ export const useListContext = () => {
 
   return context;
 };
-
-export const ListFirstItemContext = createContext<boolean>(false);
-
-export const useListFirstItemContext = () => useContext(ListFirstItemContext);

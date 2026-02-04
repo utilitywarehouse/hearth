@@ -1,10 +1,10 @@
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { DetailText } from '../../DetailText';
 import { Skeleton } from '../../Skeleton';
-import { useListContext, useListFirstItemContext } from '../List.context';
+import { useListContext } from '../List.context';
 import { IListItemContext, ListItemContext } from './ListItem.context';
 import type ListItemProps from './ListItem.props';
 import ListItemContent from './ListItemContent';
@@ -33,8 +33,18 @@ const ListItemRoot = ({
 }: ListItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { onPress } = props;
   const listContext = useListContext();
-  const isFirstContext = useListFirstItemContext();
+  const listIndexRef = useRef<{ renderId?: number; index?: number }>({});
   const { active } = states || { active: false };
+  const renderId = listContext?.renderId;
+
+  if (renderId != null && listIndexRef.current.renderId !== renderId) {
+    listIndexRef.current = {
+      renderId,
+      index: listContext?.getNextListIndex ? listContext.getNextListIndex() : undefined,
+    };
+  }
+
+  const isFirstChild = listIndexRef.current.index === 0;
 
   const getListContainer = (): ListItemProps['variant'] => {
     if (listContext?.container?.includes('subtle')) {
@@ -60,7 +70,7 @@ const ListItemRoot = ({
     active,
     disabled: isDisabled || isLoading,
     showDisabled: !listContext.disabled && disabled,
-    isFirstChild: isFirstContext,
+    isFirstChild,
     container: listContext?.container,
   });
 

@@ -233,6 +233,49 @@ export const WithCustomListItemComponent: Story = {
   ),
 };
 
+const CustomListAction = () => (
+  <ListAction
+    heading="Custom List Action"
+    onPress={() => console.log('Custom List Action pressed')}
+  />
+);
+
+const CustomNull = () => null;
+
+export const WithMappedCustomListItems: Story = {
+  parameters: {
+    controls: { include: [] },
+  },
+  render: () => {
+    const listData = [
+      { heading: 'Custom Item 1', helperText: 'Supporting text 1' },
+      { heading: 'Custom Item 2', helperText: 'Supporting text 2' },
+      { heading: 'Custom Item 3', helperText: 'Supporting text 3' },
+    ];
+
+    return (
+      <List container="subtleWarmWhite">
+        <CustomNull />
+        <ListItem
+          heading="Refer a friend"
+          helperText="Get rewarded with a friend"
+          leadingContent={<ListItemIcon as={UserMediumIcon} />}
+          trailingContent={<ListItemTrailingIcon as={ChevronRightSmallIcon} />}
+          onPress={() => console.log('Refer a friend pressed')}
+        />
+        {listData.map((item, index) => (
+          <CustomListItem key={index} />
+        ))}
+        {listData.map((item, index) => (
+          <CustomListAction key={index} />
+        ))}
+        <CustomListAction />
+        <CustomListAction />
+      </List>
+    );
+  },
+};
+
 export const WithListAction: Story = {
   parameters: {
     controls: { include: [] },

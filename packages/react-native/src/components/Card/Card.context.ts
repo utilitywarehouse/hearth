@@ -9,6 +9,8 @@ interface CardContextProps {
   hasOnlyActions?: boolean;
   space?: CardProps['space'];
   variant?: CardProps['variant'];
+  renderId?: number;
+  getNextActionIndex?: () => number;
 }
 
 export const CardContext = createContext<CardContextProps>({});
@@ -16,10 +18,4 @@ export const CardContext = createContext<CardContextProps>({});
 export const useCardContext = (): CardContextProps => {
   const context = useContext(CardContext);
   return context;
-};
-
-export const CardFirstActionContext = createContext<boolean>(false);
-
-export const useCardFirstActionContext = (): boolean => {
-  return useContext(CardFirstActionContext);
 };
