@@ -3,6 +3,32 @@ import { GestureResponderEvent } from 'react-native';
 import { CardFirstActionContext } from './Card.context';
 import CardContent from './CardContent';
 
+const isExplicitActionWrapper = (child: React.ReactNode): boolean => {
+  if (!React.isValidElement(child)) {
+    return false;
+  }
+
+  const type = child.type as { isCardActionWrapper?: boolean };
+  return type?.isCardActionWrapper === true;
+};
+
+const getInheritableHandler = (
+  child: React.ReactNode,
+  handlerToInherit: string
+): ((e: GestureResponderEvent) => void) | null => {
+  if (!React.isValidElement(child)) {
+    return null;
+  }
+
+  const childProps = child.props as any;
+  const isDisabled = !!childProps.disabled || !!childProps.loading;
+  if (isDisabled || typeof childProps[handlerToInherit] !== 'function') {
+    return null;
+  }
+
+  return childProps[handlerToInherit];
+};
+
 // Helper to check if children contain specific component types
 export const checkForComponentType = (
   children: React.ReactNode,
@@ -50,87 +76,48 @@ export const hasContentInChildren = (
 // Check if all children are actions or potential action wrappers
 export const hasOnlyPotentialActions = (
   children: React.ReactNode,
-  actionType: React.ComponentType<any>,
-  hasDetectedActionsInTree: boolean
+  actionType: React.ComponentType<any>
 ): boolean => {
   const childArray = React.Children.toArray(children);
   if (childArray.length === 0) {
     return false;
   }
 
-  let hasDirectAction = false;
-  let hasFunctionComponentThatIsContent = false;
-  let hasFunctionComponentWithoutChildren = false;
-  let hasBuiltInOrText = false;
+  let hasActionCandidate = false;
 
-  // Analyse each child
-  childArray.forEach(child => {
+  for (const child of childArray) {
     if (!React.isValidElement(child)) {
-      // Text node, number, etc - definitely not an action
       if (child != null) {
-        hasBuiltInOrText = true;
+        return false;
       }
-      return;
+      continue;
     }
 
-    // Direct CardAction
     if (child.type === actionType) {
-      hasDirectAction = true;
-      return;
+      hasActionCandidate = true;
+      continue;
     }
 
-    // Check if this child has CardAction in its detectable tree (children prop)
-    const hasActionInChildren = checkForComponentType(child, actionType);
-
-    if (hasActionInChildren) {
-      // This is an action wrapper (passes CardAction as children)
-      return;
+    if (checkForComponentType(child, actionType)) {
+      hasActionCandidate = true;
+      continue;
     }
 
-    // Built-in component (View, Text, etc)
     if (typeof child.type === 'string') {
-      hasBuiltInOrText = true;
-      return;
+      return false;
     }
 
-    // Function component without CardAction in detectable children
-    // Check if it has content in its children (like BodyText with text children)
     if (hasContentInChildren(child, actionType)) {
-      hasFunctionComponentThatIsContent = true;
-      return;
+      return false;
     }
 
-    // Function component with no children or empty children (like CustomAction)
-    hasFunctionComponentWithoutChildren = true;
-  });
-
-  // If we have built-in components, text, or function components with content children, it's mixed
-  if (hasBuiltInOrText || hasFunctionComponentThatIsContent) {
-    return false;
+    if (isExplicitActionWrapper(child)) {
+      hasActionCandidate = true;
+      continue;
+    }
   }
 
-  // If we have direct actions, it's only actions
-  if (hasDirectAction) {
-    return true;
-  }
-
-  // If we have function components without children AND we know actions exist in tree
-  if (hasFunctionComponentWithoutChildren && hasDetectedActionsInTree) {
-    return true;
-  }
-
-  // If we ONLY have function components without children (like CustomAction)
-  // and no definite non-actions, assume they're action wrappers
-  if (
-    hasFunctionComponentWithoutChildren &&
-    !hasBuiltInOrText &&
-    !hasFunctionComponentThatIsContent
-  ) {
-    return true;
-  }
-
-  // Otherwise, check if there are any actions in the tree
-  return checkForComponentType(children, actionType);
+  return hasActionCandidate || checkForComponentType(children, actionType);
 };
 
 // Helper to filter out specific component types from children
@@ -163,9 +150,8 @@ export const filterChildren = (
         });
       }
 
-      // Function component with no children - could be action wrapper (CustomAction)
-      // Check if it has actual content children (like BodyText with text)
-      if (typeof child.type === 'function' && !hasContentInChildren(child, excludeComponentType)) {
+      // Explicit action wrapper (CustomAction)
+      if (isExplicitActionWrapper(child)) {
         // No content in children, likely an action wrapper
         return null;
       }
@@ -212,8 +198,8 @@ export const markFirstCardAction = (
           );
         }
 
-        // When we know there are actions in the tree, assume function components are action wrappers
-        if (hasActionsInTree && typeof child.type === 'function') {
+        // When we know there are actions in the tree, assume explicit wrappers are actions
+        if (hasActionsInTree && isExplicitActionWrapper(child)) {
           found = true;
           return (
             <CardFirstActionContext.Provider value={true}>{child}</CardFirstActionContext.Provider>
@@ -256,9 +242,8 @@ export const extractCardActions = (
         return child;
       }
 
-      // Function component with no children or no content in children
-      // Likely an action wrapper like CustomAction
-      if (typeof child.type === 'function' && !hasContentInChildren(child, actionType)) {
+      // Explicit action wrapper like CustomAction
+      if (isExplicitActionWrapper(child)) {
         return child;
       }
 
@@ -284,11 +269,9 @@ export const collectChildActionHandlers = (
           const actionChildren = React.Children.toArray(childProps.children);
           const handlerToInherit = childProps['handlerToInherit'] || 'onPress';
           const firstChild = actionChildren[0];
-          if (
-            React.isValidElement(firstChild) &&
-            typeof (firstChild.props as any)[handlerToInherit] === 'function'
-          ) {
-            handlers.push((firstChild.props as any)[handlerToInherit]);
+          const handler = getInheritableHandler(firstChild, handlerToInherit);
+          if (handler) {
+            handlers.push(handler);
           }
         }
         if (childProps.children) {

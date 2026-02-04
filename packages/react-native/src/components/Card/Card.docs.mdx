@@ -354,6 +354,7 @@ const actions = [
 
 // CustomAction wrapper component
 const CustomAction = ({ label, onPress }) => <CardAction heading={label} onPress={onPress} />;
+CustomAction.isCardActionWrapper = true;
 
 const MyComponent = () => (
   <Card>
@@ -390,10 +391,10 @@ const MyComponent = () => (
 
 ##### How Card Detects Actions
 
-The `Card` component uses heuristics to automatically determine whether it contains only actions or mixed content:
+The `Card` component determines whether it contains only actions or mixed content using the following rules:
 
 - **Type comparison**: Directly checks if children are `CardAction` or `CardContent` components
-- **Content detection**: Function components (wrappers) with no text content or non-action elements are assumed to be action wrappers
+- **Explicit wrapper marker**: Wrapper components must set `isCardActionWrapper = true` to be treated as actions
 - **Automatic wrapping**: When mixing content and actions, non-action content is automatically wrapped in `CardContent`
 
 ##### When to Use `CardContent`
@@ -422,7 +423,7 @@ const MyComponent = () => (
 
 When mapping over data to create `CardAction` components:
 
-1. **Always use a wrapper component** for better code organization:
+1. **Always use a wrapper component** for better code organisation and mark it as an action wrapper:
 
 ```tsx
 const ActionItem = ({ item }) => (
@@ -432,6 +433,8 @@ const ActionItem = ({ item }) => (
     onPress={() => handlePress(item)}
   />
 );
+
+ActionItem.isCardActionWrapper = true;
 
 <Card>
   {actions.map(action => (

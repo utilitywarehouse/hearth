@@ -267,9 +267,12 @@ export const Disabled: Story = {
   ),
 };
 
+// Custom action wrappers can set isCardActionWrapper to opt into action detection.
 const CustomAction = ({ heading, ...props }: { heading: string }) => {
   return <CardAction key={heading} heading={heading} {...props} onPress={() => null} />;
 };
+
+CustomAction.isCardActionWrapper = true;
 
 const CustomComponent = () => <BodyText>Multiple CardActions within a Card:</BodyText>;
 
@@ -298,7 +301,12 @@ export const WithCustomActions: Story = {
               trailingIcon={trailingIcon}
             />
           ))}
-          <CardAction {...args} leadingIcon={leadingIcon} trailingIcon={trailingIcon} />
+          <CardAction
+            {...args}
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+            onPress={() => null}
+          />
         </Card>
         {/* Example 2 */}
         <Card variant="emphasis">
@@ -314,8 +322,18 @@ export const WithCustomActions: Story = {
         </Card>
         {/* Example 3 */}
         <Card variant="emphasis">
-          <CardAction {...args} leadingIcon={leadingIcon} trailingIcon={trailingIcon} />
-          <CardAction {...args} leadingIcon={leadingIcon} trailingIcon={trailingIcon} />
+          <CardAction
+            {...args}
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+            onPress={() => null}
+          />
+          <CardAction
+            {...args}
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+            onPress={() => null}
+          />
         </Card>
         {/* Example 4 */}
         <Card variant="emphasis">
@@ -324,8 +342,18 @@ export const WithCustomActions: Story = {
         {/* Example 5 */}
         <Card variant="emphasis">
           <BodyText>Multiple CardActions within a Card:</BodyText>
-          <CardAction {...args} leadingIcon={leadingIcon} trailingIcon={trailingIcon} />
-          <CardAction {...args} leadingIcon={leadingIcon} trailingIcon={trailingIcon} />
+          <CardAction
+            {...args}
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+            onPress={() => null}
+          />
+          <CardAction
+            {...args}
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+            onPress={() => null}
+          />
         </Card>
         {/* Example 6 */}
         <Card variant="emphasis">
@@ -341,7 +369,12 @@ export const WithCustomActions: Story = {
               trailingIcon={trailingIcon}
             />
           ))}
-          <CardAction {...args} leadingIcon={leadingIcon} trailingIcon={trailingIcon} />
+          <CardAction
+            {...args}
+            leadingIcon={leadingIcon}
+            trailingIcon={trailingIcon}
+            onPress={() => null}
+          />
         </Card>
       </View>
     );

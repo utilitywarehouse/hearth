@@ -49,11 +49,7 @@ const Card = ({
 
   // Check if all children are potential action components (direct CardAction or wrappers)
   // Trust hasOnlyPotentialActions even if we can't detect actual CardActions (e.g., inside CustomAction)
-  const potentiallyOnlyActions = hasOnlyPotentialActions(
-    children as ReactNode,
-    CardAction,
-    hasActions
-  );
+  const potentiallyOnlyActions = hasOnlyPotentialActions(children as ReactNode, CardAction);
   const hasOnlyActions = potentiallyOnlyActions && !hasContent;
 
   // When CardContent is explicitly used, mark first action outside of CardContent
