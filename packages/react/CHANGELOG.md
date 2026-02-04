@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.11
+
+### Patch Changes
+
+- [#863](https://github.com/utilitywarehouse/hearth/pull/863) [`b753e8a`](https://github.com/utilitywarehouse/hearth/commit/b753e8a920420b7f6d48d4ce30d39138a27e600d) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `ToggleButtonCard` - Add flexbox props, and apply sensible defaults.
+
 ## 0.24.10
 
 ### Patch Changes
