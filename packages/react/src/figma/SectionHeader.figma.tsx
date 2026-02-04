@@ -12,14 +12,23 @@ figma.connect(
         true: figma.string('Helper text'),
         false: undefined,
       }),
-      badge: figma.enum('Badge?', {
+      badge: figma.boolean('Badge?', {
         true: figma.children('Badge'),
       }),
-      // this is not fully working as expected due to figma limitations
-      trailingContent: figma.enum('Trailing content?', {
-        true: figma.children(['Link', 'Button']),
+      validationStatus: figma.enum('State', {
+        Invalid: 'invalid',
+      }),
+      trailingContent: figma.boolean('Trailing content?', {
+        true: figma.nestedProps('Trailing content', {
+          variant: figma.enum('Variant', {
+            Link: figma.children('Link'),
+            Button: figma.children('Button'),
+          }),
+        }),
       }),
     },
-    example: ({ ...props }) => <SectionHeader {...props} />,
+    example: ({ trailingContent, ...props }) => (
+      <SectionHeader {...props} trailingContent={trailingContent.variant} />
+    ),
   }
 );
