@@ -5,7 +5,8 @@ export const ListContext = createContext<{
   loading?: ListProps['loading'];
   disabled?: ListProps['disabled'];
   container?: ListProps['container'];
-  getNextListIndex?: () => number;
+  firstItemId?: string;
+  registerItem?: (id: string) => () => void;
 }>({});
 
 export const useListContext = () => {

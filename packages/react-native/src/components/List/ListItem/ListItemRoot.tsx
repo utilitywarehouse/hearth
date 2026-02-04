@@ -1,5 +1,5 @@
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useMemo } from 'react';
+import { useId, useLayoutEffect, useMemo } from 'react';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { DetailText } from '../../DetailText';
@@ -33,13 +33,19 @@ const ListItemRoot = ({
 }: ListItemProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { onPress } = props;
   const listContext = useListContext();
-  const { getNextListIndex } = listContext;
+  const { registerItem, firstItemId } = listContext;
   const { active } = states || { active: false };
-  const listIndex = useMemo(
-    () => (getNextListIndex ? getNextListIndex() : undefined),
-    [getNextListIndex]
-  );
-  const isFirstChild = listIndex === 0;
+  const itemId = useId();
+
+  useLayoutEffect(() => {
+    if (!registerItem) {
+      return;
+    }
+
+    return registerItem(itemId);
+  }, [itemId, registerItem]);
+
+  const isFirstChild = firstItemId === itemId;
 
   const getListContainer = (): ListItemProps['variant'] => {
     if (listContext?.container?.includes('subtle')) {

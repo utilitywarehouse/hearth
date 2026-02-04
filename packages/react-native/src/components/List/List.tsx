@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Card } from '../Card';
@@ -15,7 +15,8 @@ const List = ({
   ...props
 }: ListProps) => {
   const { loading, disabled, container = 'none' } = props;
-  let nextIndex = 0;
+  const orderRef = useRef<string[]>([]);
+  const [firstItemId, setFirstItemId] = useState<string | undefined>(undefined);
   const containerToCard: {
     variant: 'subtle' | 'emphasis';
     colorScheme: 'neutralStrong' | 'neutralSubtle';
@@ -26,15 +27,26 @@ const List = ({
         ? 'neutralStrong'
         : 'neutralSubtle',
   };
+
+  const registerItem = useCallback((id: string) => {
+    if (!orderRef.current.includes(id)) {
+      orderRef.current.push(id);
+    }
+    const nextFirst = orderRef.current[0];
+    setFirstItemId(prev => (prev === nextFirst ? prev : nextFirst));
+    return () => {
+      orderRef.current = orderRef.current.filter(currentId => currentId !== id);
+      const nextFirst = orderRef.current[0];
+      setFirstItemId(prev => (prev === nextFirst ? prev : nextFirst));
+    };
+  }, []);
+
   const value = {
     loading,
     disabled,
     container,
-    getNextListIndex: () => {
-      const current = nextIndex;
-      nextIndex += 1;
-      return current;
-    },
+    firstItemId,
+    registerItem,
   };
   styles.useVariants({ disabled });
   return (
