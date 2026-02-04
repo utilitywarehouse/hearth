@@ -1,5 +1,137 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.17.0
+
+### Minor Changes
+
+- [#867](https://github.com/utilitywarehouse/hearth/pull/867) [`9a15eb8`](https://github.com/utilitywarehouse/hearth/commit/9a15eb8c659aa541988da6f28f6c50261f3557f9) Thanks [@jordmccord](https://github.com/jordmccord)! - 💔 [BREAKING CHANGE]: Require `CardActions` wrapper for `CardAction` groups.
+
+  `Card` now only treats actions as such when they are wrapped in `CardActions`. This removes wrapper heuristics and makes action grouping explicit while keeping automatic content wrapping.
+
+  **Components affected**:
+  - `Card`
+  - `CardActions`
+  - `CardAction`
+
+  **Developer changes**:
+
+  Wrap all `CardAction` items in `CardActions`:
+
+  ```diff
+  - <Card>
+  -   <CardAction heading="Action 1" onPress={() => {}} />
+  -   <CardAction heading="Action 2" onPress={() => {}} />
+  - </Card>
+  + <Card>
+  +   <CardActions>
+  +     <CardAction heading="Action 1" onPress={() => {}} />
+  +     <CardAction heading="Action 2" onPress={() => {}} />
+  +   </CardActions>
+  + </Card>
+  ```
+
+- [#860](https://github.com/utilitywarehouse/hearth/pull/860) [`ec44a9d`](https://github.com/utilitywarehouse/hearth/commit/ec44a9d3d7a2d95ab69b6e4c461104402d82659d) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `prefix` and `suffix` props to `Input` component
+
+  The `Input` component now supports `prefix` and `suffix` props, allowing you to display text or custom content before and after the input field. This is useful for adding units, currency symbols, or other contextual information.
+
+  **Components affected**:
+  - `Input`
+
+  **Developer changes**:
+
+  Use the `prefix` and `suffix` props to add content before or after the input:
+
+  ```tsx
+  <Input label="Amount" prefix="£" suffix="GBP" placeholder="0.00" />
+  ```
+
+  You can also pass custom React nodes:
+
+  ```tsx
+  <Input label="Email" prefix={<CustomIcon />} suffix={<BodyText>@example.com</BodyText>} />
+  ```
+
+  **Note**: The `prefix` and `suffix` props are not available on `password` and `search` input types, as these have specific UI patterns.
+
+- [#862](https://github.com/utilitywarehouse/hearth/pull/862) [`654552e`](https://github.com/utilitywarehouse/hearth/commit/654552e33d56e4b2b2ba8fb783b7f9a7c57ba212) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `loading` prop to `ListAction` component
+
+  The `ListAction` component now supports a `loading` prop that displays a skeleton loading state while content is being fetched. This provides better user feedback during asynchronous operations.
+
+  **Components affected**:
+  - `ListAction`
+
+  **Developer changes**:
+
+  Use the `loading` prop to show a loading state:
+
+  ```tsx
+  <List>
+    <ListItem heading="Account details" />
+    <ListAction heading="View transactions" loading={isLoading} onPress={handlePress} />
+  </List>
+  ```
+
+  When `loading` is true, the action will display skeleton placeholders instead of the heading and icon.
+
+- [#862](https://github.com/utilitywarehouse/hearth/pull/862) [`654552e`](https://github.com/utilitywarehouse/hearth/commit/654552e33d56e4b2b2ba8fb783b7f9a7c57ba212) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `invalidText` prop to `List` component
+
+  The `List` component now supports an `invalidText` prop for displaying validation error messages in the section header. This provides consistent validation feedback across list-based forms and grouped content.
+
+  **Components affected**:
+  - `List`
+
+  **Developer changes**:
+
+  Use the `invalidText` prop to display validation errors:
+
+  ```tsx
+  <List
+    heading="Payment methods"
+    helperText="Select at least one payment method"
+    invalidText="You must select a payment method"
+  >
+    <ListItem heading="Credit card" />
+    <ListItem heading="Direct debit" />
+  </List>
+  ```
+
+### Patch Changes
+
+- [#845](https://github.com/utilitywarehouse/hearth/pull/845) [`9c034f9`](https://github.com/utilitywarehouse/hearth/commit/9c034f98f9d6aa4596a45296d02e01703ef1c762) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Add `invalidText` prop to `ExpandableCardGroup`
+
+  The `ExpandableCardGroup` component now supports an `invalidText` prop that displays validation text below the helper text when the group is in an invalid state.
+
+  **Components affected**:
+  - `ExpandableCardGroup`
+
+  **Developer changes**:
+
+  No changes required. If you want to display validation text, you can now use the `invalidText` prop:
+
+  ```tsx
+  <ExpandableCardGroup
+    heading="Select an option"
+    helperText="Choose one of the options below"
+    invalidText="Please select at least one option"
+  >
+    {/* ExpandableCard components */}
+  </ExpandableCardGroup>
+  ```
+
+- [#867](https://github.com/utilitywarehouse/hearth/pull/867) [`9a15eb8`](https://github.com/utilitywarehouse/hearth/commit/9a15eb8c659aa541988da6f28f6c50261f3557f9) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Improve first-item border detection in `Card` and `List` components
+
+  The `Card` and `List` components now use a more reliable method to detect and style the first rendered `CardAction`, `ListItem`, or `ListAction`. This fixes edge cases where wrapper components that conditionally render `null` would previously interfere with first-item border removal.
+
+  **Components affected**:
+  - `Card` / `CardAction`
+  - `List` / `ListItem` / `ListAction`
+
+  **Developer changes**:
+
+  No changes required. The improvement is automatic and maintains the same visual behavior. Components that wrap card actions or list items will now work correctly even when some wrappers return `null` conditionally.
+
+  **Note**: The `useCardFirstActionContext` hook has been removed as it was an internal implementation detail.
+
 ## 0.16.2
 
 ### Patch Changes
