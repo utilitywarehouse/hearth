@@ -17,3 +17,9 @@ export const useCardContext = (): CardContextProps => {
   const context = useContext(CardContext);
   return context;
 };
+
+export const CardFirstActionContext = createContext<boolean>(false);
+
+export const useCardFirstActionContext = (): boolean => {
+  return useContext(CardFirstActionContext);
+};
