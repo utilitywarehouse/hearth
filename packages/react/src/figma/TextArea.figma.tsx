@@ -1,11 +1,10 @@
 import React from 'react';
-import { TextInput } from '../components/TextInput/TextInput';
-
+import { TextArea } from '../components/TextArea/TextArea';
 import figma from '@figma/code-connect';
 
 figma.connect(
-  TextInput,
-  'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=2685-7021&m=dev',
+  TextArea,
+  'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=2356-5180&m=dev',
   {
     props: {
       label: figma.string('Label'),
@@ -30,6 +29,6 @@ figma.connect(
         false: true,
       }),
     },
-    example: ({ ...props }) => <TextInput {...props} />,
+    example: props => <TextArea {...props} />,
   }
 );
