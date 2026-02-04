@@ -7,25 +7,18 @@ const CardActions = ({ children, style, ...props }: PropsWithChildren<ViewProps>
   const orderRef = useRef<string[]>([]);
   const [firstActionId, setFirstActionId] = useState<string | undefined>(undefined);
 
-  const updateFirstAction = useCallback(() => {
+  const registerAction = useCallback((id: string) => {
+    if (!orderRef.current.includes(id)) {
+      orderRef.current.push(id);
+    }
     const nextFirst = orderRef.current[0];
     setFirstActionId(prev => (prev === nextFirst ? prev : nextFirst));
+    return () => {
+      orderRef.current = orderRef.current.filter(currentId => currentId !== id);
+      const nextFirst = orderRef.current[0];
+      setFirstActionId(prev => (prev === nextFirst ? prev : nextFirst));
+    };
   }, []);
-
-  const registerAction = useCallback(
-    (id: string) => {
-      if (!orderRef.current.includes(id)) {
-        orderRef.current.push(id);
-      }
-      updateFirstAction();
-
-      return () => {
-        orderRef.current = orderRef.current.filter(currentId => currentId !== id);
-        updateFirstAction();
-      };
-    },
-    [updateFirstAction]
-  );
 
   return (
     <CardActionsContext.Provider value={{ firstActionId, registerAction }}>
