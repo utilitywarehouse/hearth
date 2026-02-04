@@ -1,6 +1,6 @@
 import { createPressable } from '@gluestack-ui/pressable';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useRef } from 'react';
+import { useMemo } from 'react';
 import { Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Skeleton } from '../../Skeleton';
@@ -20,7 +20,7 @@ const ListActionRoot = ({
 }: ListActionProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { onPress } = props;
   const listContext = useListContext();
-  const listIndexRef = useRef<{ renderId?: number; index?: number }>({});
+  const { getNextListIndex } = listContext;
 
   const { active } = props.states || { active: false };
 
@@ -36,16 +36,11 @@ const ListActionRoot = ({
 
   const isDisabled = disabled || listContext?.disabled || false;
   const listItemVariant = getListContainer() || variant;
-  const renderId = listContext?.renderId;
-
-  if (renderId != null && listIndexRef.current.renderId !== renderId) {
-    listIndexRef.current = {
-      renderId,
-      index: listContext?.getNextListIndex ? listContext.getNextListIndex() : undefined,
-    };
-  }
-
-  const isFirstChild = listIndexRef.current.index === 0;
+  const listIndex = useMemo(
+    () => (getNextListIndex ? getNextListIndex() : undefined),
+    [getNextListIndex]
+  );
+  const isFirstChild = listIndex === 0;
 
   const testID = props.testID || 'list-action';
 

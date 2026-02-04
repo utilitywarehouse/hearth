@@ -5,7 +5,6 @@ export const ListContext = createContext<{
   loading?: ListProps['loading'];
   disabled?: ListProps['disabled'];
   container?: ListProps['container'];
-  renderId?: number;
   getNextListIndex?: () => number;
 }>({});
 

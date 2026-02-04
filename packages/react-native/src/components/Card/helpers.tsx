@@ -135,7 +135,6 @@ export const filterChildren = (
           children: filteredChildren,
         });
       }
-
     }
     return child;
   });

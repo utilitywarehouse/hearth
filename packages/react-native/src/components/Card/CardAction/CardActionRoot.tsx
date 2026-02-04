@@ -1,9 +1,10 @@
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useMemo, useRef } from 'react';
+import { useId, useLayoutEffect, useMemo } from 'react';
 import { Pressable, View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { IconContainer } from '../../IconContainer';
 import { Skeleton } from '../../Skeleton';
+import { useCardActionsContext } from '../CardActions.context';
 import { useCardContext } from '../Card.context';
 import { CardActionContext, ICardActionContext } from './CardAction.context';
 import type CardActionProps from './CardAction.props';
@@ -44,19 +45,19 @@ const CardActionRoot = ({
   const testID = props.testID || 'card-action';
   const loadingTestID = isLoading ? `${testID}-loading` : testID;
 
-  const cardContext = useCardContext();
-  const { variant, hasOnlyActions } = cardContext;
-  const actionIndexRef = useRef<{ renderId?: number; index?: number }>({});
-  const renderId = cardContext.renderId;
+  const { variant, hasOnlyActions } = useCardContext();
+  const actionId = useId();
+  const actionsContext = useCardActionsContext();
 
-  if (renderId != null && actionIndexRef.current.renderId !== renderId) {
-    actionIndexRef.current = {
-      renderId,
-      index: cardContext.getNextActionIndex ? cardContext.getNextActionIndex() : undefined,
-    };
-  }
+  useLayoutEffect(() => {
+    if (!actionsContext) {
+      return;
+    }
 
-  const isFirstFromContext = actionIndexRef.current.index === 0;
+    return actionsContext.registerAction(actionId);
+  }, [actionId, actionsContext]);
+
+  const isFirstFromContext = actionsContext?.firstActionId === actionId;
   const isFirst = props.isFirst ?? isFirstFromContext;
 
   styles.useVariants({

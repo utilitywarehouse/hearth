@@ -1,4 +1,4 @@
-import { ReactNode, useMemo, useRef } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { GestureResponderEvent, Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
@@ -29,11 +29,6 @@ const Card = ({
   ...rest
 }: CardProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active } = states || { active: false };
-  const actionIndexRef = useRef(0);
-  const renderIdRef = useRef(0);
-  renderIdRef.current += 1;
-  actionIndexRef.current = 0;
-  const renderId = renderIdRef.current;
   const childActionHandlers = collectChildActionHandlers(children as ReactNode);
   const hasActions = checkForComponentType(children as ReactNode, CardActions);
   const hasContent = checkForComponentType(children as ReactNode, CardContent);
@@ -64,12 +59,6 @@ const Card = ({
       hasOnlyActions,
       space,
       variant,
-      renderId,
-      getNextActionIndex: () => {
-        const current = actionIndexRef.current;
-        actionIndexRef.current += 1;
-        return current;
-      },
     }),
     [
       showPressed,
@@ -80,7 +69,6 @@ const Card = ({
       noPadding,
       space,
       variant,
-      renderId,
     ]
   );
 

@@ -1,4 +1,4 @@
-import React, { useMemo, useRef } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { Card } from '../Card';
@@ -15,11 +15,7 @@ const List = ({
   ...props
 }: ListProps) => {
   const { loading, disabled, container = 'none' } = props;
-  const listIndexRef = useRef(0);
-  const renderIdRef = useRef(0);
-  renderIdRef.current += 1;
-  listIndexRef.current = 0;
-  const renderId = renderIdRef.current;
+  let nextIndex = 0;
   const containerToCard: {
     variant: 'subtle' | 'emphasis';
     colorScheme: 'neutralStrong' | 'neutralSubtle';
@@ -30,20 +26,16 @@ const List = ({
         ? 'neutralStrong'
         : 'neutralSubtle',
   };
-  const value = useMemo(
-    () => ({
-      loading,
-      disabled,
-      container,
-      renderId,
-      getNextListIndex: () => {
-        const current = listIndexRef.current;
-        listIndexRef.current += 1;
-        return current;
-      },
-    }),
-    [loading, disabled, container, renderId]
-  );
+  const value = {
+    loading,
+    disabled,
+    container,
+    getNextListIndex: () => {
+      const current = nextIndex;
+      nextIndex += 1;
+      return current;
+    },
+  };
   styles.useVariants({ disabled });
   return (
     <ListContext.Provider value={value}>

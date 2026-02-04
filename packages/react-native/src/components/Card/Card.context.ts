@@ -9,8 +9,6 @@ interface CardContextProps {
   hasOnlyActions?: boolean;
   space?: CardProps['space'];
   variant?: CardProps['variant'];
-  renderId?: number;
-  getNextActionIndex?: () => number;
 }
 
 export const CardContext = createContext<CardContextProps>({});
