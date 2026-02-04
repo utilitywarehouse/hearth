@@ -1,5 +1,12 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
+import {
+  BroadbandMediumIcon,
+  CashbackCardMediumIcon,
+  ElectricityMediumIcon,
+  InsuranceMediumIcon,
+  MobileMediumIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
 import { ComponentType } from 'react';
 import { IconButton, IconButtonProps } from '.';
 import { VariantTitle } from '../../../docs/components';
@@ -210,6 +217,55 @@ export const KitchenSink: Story = {
           </Flex>
         ))}
       </Flex>
+    );
+  },
+};
+
+export const ServiceIconButtons: Story = {
+  render: () => {
+    return (
+      <ButtonGroup space="md">
+        <IconButton
+          icon={ElectricityMediumIcon}
+          backgroundColor="energyBlue200"
+          activeBackgroundColor="energyBlue300"
+          variant="emphasis"
+          shadowColor="energyBlue300"
+          onPress={() => console.log('Pressed')}
+        />
+        <IconButton
+          icon={BroadbandMediumIcon}
+          backgroundColor="broadbandGreen200"
+          activeBackgroundColor="broadbandGreen300"
+          variant="emphasis"
+          shadowColor="broadbandGreen300"
+          onPress={() => console.log('Pressed')}
+        />
+        <IconButton
+          icon={MobileMediumIcon}
+          backgroundColor="mobileRose200"
+          activeBackgroundColor="mobileRose300"
+          variant="emphasis"
+          shadowColor="mobileRose400"
+          onPress={() => console.log('Pressed')}
+        />
+        <IconButton
+          icon={InsuranceMediumIcon}
+          backgroundColor="insuranceOrange300"
+          activeBackgroundColor="insuranceOrange400"
+          variant="emphasis"
+          shadowColor="insuranceOrange400"
+          onPress={() => console.log('Pressed')}
+        />
+        <IconButton
+          icon={CashbackCardMediumIcon}
+          backgroundColor="cashbackLilac300"
+          activeBackgroundColor="cashbackLilac400"
+          variant="emphasis"
+          shadowColor="cashbackLilac500"
+          onPress={() => console.log('Pressed')}
+        />
+      </ButtonGroup>
     );
   },
 };
