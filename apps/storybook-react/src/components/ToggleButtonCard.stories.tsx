@@ -105,11 +105,11 @@ export const Single: Story = {
     return (
       <ToggleGroup {...args} type="single" gap="200">
         {['One', 'Two', 'Three', 'Four'].map((label, value) => (
-          <ToggleButtonCard value={`${value}`} label={label} aria-labelledby="">
+          <ToggleButtonCard key={value} value={`${value}`} label={label} aria-labelledby="">
             <Placeholder
               borderColor="subtle"
               backgroundColor="primary"
-              width="120px"
+              width="100%"
               height="50px"
             />
           </ToggleButtonCard>
@@ -124,11 +124,11 @@ export const Multiple: Story = {
     return (
       <ToggleGroup {...args} type="multiple" gap="200">
         {['One', 'Two', 'Three', 'Four'].map((label, value) => (
-          <ToggleButtonCard value={`${value}`} label={label} aria-labelledby="">
+          <ToggleButtonCard key={value} value={`${value}`} label={label} aria-labelledby="">
             <Placeholder
               borderColor="subtle"
               backgroundColor="primary"
-              width="120px"
+              width="100%"
               height="50px"
             />
           </ToggleButtonCard>
@@ -152,7 +152,7 @@ export const SingleWithOneAlwaysSelected: Story = {
         }}
       >
         {['One', 'Two', 'Three', 'Four'].map((label, value) => (
-          <ToggleButtonCard value={`${value}`} label={label} aria-labelledby="">
+          <ToggleButtonCard key={value} value={`${value}`} label={label} aria-labelledby="">
             <Placeholder
               borderColor="subtle"
               backgroundColor="primary"
@@ -327,7 +327,6 @@ export const LayoutExample: Story = {
               label={value === 'fixed' ? 'Selected plan' : 'Select plan'}
               aria-labelledby="fixed-label fixed-secondary-label"
               aria-describedby="fixed-description"
-              flex="1"
             >
               <Flex direction="column" gap="200">
                 <Heading id="fixed-label" size="md" as="h2">
@@ -349,7 +348,6 @@ export const LayoutExample: Story = {
               label={value === 'variable' ? 'Selected plan' : 'Select plan'}
               aria-labelledby="variable-label variable-secondary-label"
               aria-describedby="variable-description"
-              flex="1"
             >
               <Flex direction="column" gap="200">
                 <Heading id="variable-label" size="md" as="h2">
@@ -383,11 +381,10 @@ export const ResponsiveDirection: Story = {
         direction={{ mobile: 'column', tablet: 'row' }}
       >
         {['One', 'Two', 'Three', 'Four'].map((label, value) => (
-          <ToggleButtonCard value={`${value}`} label={label} aria-labelledby="">
+          <ToggleButtonCard key={value} value={`${value}`} label={label} aria-labelledby="">
             <Placeholder
               borderColor="subtle"
               backgroundColor="primary"
-              minWidth="150px"
               width="100%"
               height="100px"
             />

@@ -6,5 +6,5 @@ export type ToggleGroupProps = Omit<
   React.ComponentPropsWithRef<typeof ToggleGroupPrimitive.Root>,
   'asChild' | 'rovingFocus' | 'loop' | 'dir' | 'orientation' | 'disabled' | keyof FlexProps
 > &
-  FlexProps &
+  Omit<FlexProps, 'display'> &
   MarginProps;

@@ -7,7 +7,7 @@ export type ToggleButtonCardProps = Omit<
   'disabled'
 > &
   FlexItemProps &
-  Pick<FlexProps, 'alignItems'> & {
+  FlexProps & {
     label: string;
     'aria-labelledby': string;
   };

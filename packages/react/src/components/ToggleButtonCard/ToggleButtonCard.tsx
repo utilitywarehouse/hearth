@@ -8,6 +8,10 @@ import { Card } from '../Card/Card';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { flexItemPropDefs } from '../../props/flex-item.props';
 import { extractProps } from '../../helpers/extract-props';
+import { flexPropDefs } from '../Flex/Flex.props';
+import { alignItemsPropDefs } from '../../props/align-items.props';
+import { alignContentPropDefs } from '../../props/align-content.props';
+import { justifyContentPropDefs } from '../../props/justify-content.props';
 
 const COMPONENT_NAME = 'ToggleButtonCard';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -18,19 +22,20 @@ export const ToggleButtonCard = (props: ToggleButtonCardProps) => {
     style,
     children,
     label,
-    alignItems,
     'aria-label': ariaLabel,
     'aria-labelledby': ariaLabelledBy,
     'aria-describedby': ariaDescribedBy,
     ...toggleButtonCardProps
-  } = extractProps(props, flexItemPropDefs);
+  } = extractProps(
+    props,
+    flexItemPropDefs,
+    flexPropDefs,
+    alignItemsPropDefs,
+    alignContentPropDefs,
+    justifyContentPropDefs
+  );
   return (
-    <Card
-      direction="column"
-      alignItems={alignItems}
-      className={cn(componentClassName, className)}
-      style={style}
-    >
+    <Card direction="column" className={cn(componentClassName, className)} style={style}>
       {children}
       <RadixToggleGroup.Item
         {...toggleButtonCardProps}
