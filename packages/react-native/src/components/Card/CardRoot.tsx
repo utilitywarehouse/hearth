@@ -60,16 +60,7 @@ const Card = ({
       space,
       variant,
     }),
-    [
-      showPressed,
-      active,
-      hasActions,
-      hasContent,
-      hasOnlyActions,
-      noPadding,
-      space,
-      variant,
-    ]
+    [showPressed, active, hasActions, hasContent, hasOnlyActions, noPadding, space, variant]
   );
 
   styles.useVariants({

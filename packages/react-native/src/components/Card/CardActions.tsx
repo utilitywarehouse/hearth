@@ -1,11 +1,9 @@
-import React, { PropsWithChildren, useCallback, useRef, useState } from 'react';
+import { PropsWithChildren, useCallback, useRef, useState } from 'react';
 import { View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { CardActionsContext } from './CardActions.context';
 
 const CardActions = ({ children, style, ...props }: PropsWithChildren<ViewProps>) => {
-
-
   const orderRef = useRef<string[]>([]);
   const [firstActionId, setFirstActionId] = useState<string | undefined>(undefined);
 
