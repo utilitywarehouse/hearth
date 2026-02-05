@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText, BodyTextProps } from '../../BodyText';
 
-const ListItemHelperText = ({ children, ...props }: BodyTextProps) => {
+const ListItemHelperText = ({ children, style, ...props }: BodyTextProps) => {
   return (
-    <BodyText size="md" {...props} style={[styles.text, props.style]}>
+    <BodyText size="md" style={[styles.text, style]} {...props}>
       {children}
     </BodyText>
   );
