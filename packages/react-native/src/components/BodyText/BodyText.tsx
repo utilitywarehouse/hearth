@@ -43,7 +43,7 @@ const BodyText = ({
         : {})}
       style={[
         styles.text,
-        styles.getColours(color, textDecorationColor),
+        props.style,
         {
           ...(textTransform && { textTransform }),
           ...(textAlign && { textAlign }),
@@ -53,7 +53,7 @@ const BodyText = ({
           ...(userSelect && { userSelect }),
           ...(textAlignVertical && { textAlignVertical }),
         },
-        props.style,
+        styles.getColours(color, textDecorationColor),
       ]}
     >
       {children}
