@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { Pressable, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { getFlattenedColorValue } from '../../utils';
 import { IconButtonContext } from './IconButton.context';
 import type { IconButtonProps } from './IconButton.props';
 
@@ -11,6 +12,9 @@ const IconButtonRoot = ({
   size = 'md',
   inverted = false,
   states,
+  backgroundColor,
+  activeBackgroundColor,
+  shadowColor,
   ...props
 }: IconButtonProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active, disabled } = states || {};
@@ -21,7 +25,20 @@ const IconButtonRoot = ({
   );
   return (
     <IconButtonContext.Provider value={value}>
-      <Pressable {...props} style={[styles.container, props.style as ViewStyle]}>
+      <Pressable
+        {...props}
+        style={[
+          styles.container,
+          styles.overrides({
+            backgroundColor,
+            activeBackgroundColor,
+            shadowColor,
+            active,
+            variant,
+          }),
+          props.style as ViewStyle,
+        ]}
+      >
         {children}
       </Pressable>
     </IconButtonContext.Provider>
@@ -420,6 +437,42 @@ const styles = StyleSheet.create(theme => ({
       },
     ],
   },
+  overrides: ({ backgroundColor, activeBackgroundColor, shadowColor, active, variant }) => ({
+    ...(backgroundColor
+      ? {
+          backgroundColor: getFlattenedColorValue(backgroundColor, theme.color),
+          _web: {
+            _hover: {
+              backgroundColor: getFlattenedColorValue(
+                activeBackgroundColor ?? backgroundColor,
+                theme.color
+              ),
+            },
+            _active: {
+              backgroundColor: getFlattenedColorValue(
+                activeBackgroundColor ?? backgroundColor,
+                theme.color
+              ),
+            },
+          },
+        }
+      : {}),
+    ...(active && activeBackgroundColor
+      ? {
+          backgroundColor: getFlattenedColorValue(activeBackgroundColor, theme.color),
+        }
+      : {}),
+    ...(shadowColor && variant === 'emphasis'
+      ? {
+          boxShadow: `${theme.shadow.mobile.sm.x}px ${theme.shadow.mobile.sm.y}px ${theme.shadow.mobile.sm.spread}px ${getFlattenedColorValue(shadowColor, theme.color)}`,
+        }
+      : {}),
+    ...(active && shadowColor && variant === 'emphasis'
+      ? {
+          boxShadow: 'none',
+        }
+      : {}),
+  }),
 }));
 
 export default IconButtonRoot;
