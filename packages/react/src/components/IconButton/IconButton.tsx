@@ -3,7 +3,7 @@
 import { cn } from '../../helpers/cn';
 import { iconButtonPropDefs } from './IconButton.props';
 import type { IconButtonProps } from './IconButton.props';
-import { ButtonBase } from '../ButtonBase/ButtonBase';
+import { ButtonBase, ButtonBaseElement } from '../ButtonBase/ButtonBase';
 import { extractProps } from '../../helpers/extract-props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Spinner } from '../Spinner/Spinner';
@@ -11,11 +11,12 @@ import type { SpinnerProps } from '../Spinner/Spinner.props';
 import { Slot } from 'radix-ui';
 import { getSubtree } from '../../helpers/get-subtree';
 import { getResponsiveTranslation } from '../../helpers/get-responsive-translation';
+import React from 'react';
 
 const COMPONENT_NAME = 'IconButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const IconButton = (props: IconButtonProps) => {
+export const IconButton = React.forwardRef<ButtonBaseElement, IconButtonProps>((props, ref) => {
   const { className, label, disabled, loading, children, asChild, ...iconButtonProps } =
     extractProps(props, iconButtonPropDefs);
 
@@ -24,6 +25,7 @@ export const IconButton = (props: IconButtonProps) => {
 
   return (
     <ButtonBase
+      ref={ref}
       className={cn(componentClassName, className)}
       aria-label={label}
       disabled={disabled || loading}
@@ -39,6 +41,6 @@ export const IconButton = (props: IconButtonProps) => {
       </Component>
     </ButtonBase>
   );
-};
+});
 
 IconButton.displayName = COMPONENT_NAME;

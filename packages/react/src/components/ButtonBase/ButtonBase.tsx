@@ -8,11 +8,15 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { getSubtree } from '../../helpers/get-subtree';
+import type { ComponentRef } from 'react';
+import React from 'react';
 
 const COMPONENT_NAME = 'ButtonBase';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const ButtonBase = (props: ButtonBaseProps) => {
+export type ButtonBaseElement = ComponentRef<'button'>;
+
+export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((props, ref) => {
   const {
     colorScheme,
     inverted,
@@ -38,6 +42,7 @@ export const ButtonBase = (props: ButtonBaseProps) => {
   if (variant === 'emphasis') {
     return (
       <Slot.Root
+        ref={ref}
         aria-disabled={disabled || undefined}
         className={cn(componentClassName, className)}
         // as we're using aria-disabled instead of disabled then we need to
@@ -57,6 +62,7 @@ export const ButtonBase = (props: ButtonBaseProps) => {
   }
   return (
     <Slot.Root
+      ref={ref}
       aria-disabled={disabled || undefined}
       className={cn(componentClassName, className)}
       onClick={disabled ? undefined : onClick}
@@ -66,6 +72,6 @@ export const ButtonBase = (props: ButtonBaseProps) => {
       {children}
     </Slot.Root>
   );
-};
+});
 
 ButtonBase.displayName = COMPONENT_NAME;
