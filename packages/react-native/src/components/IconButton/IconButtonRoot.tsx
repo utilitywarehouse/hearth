@@ -442,16 +442,18 @@ const styles = StyleSheet.create(theme => ({
       ? {
           backgroundColor: getFlattenedColorValue(backgroundColor, theme.color),
           _web: {
-            ...(activeBackgroundColor
-              ? {
-                  _hover: {
-                    backgroundColor: getFlattenedColorValue(activeBackgroundColor, theme.color),
-                  },
-                  _active: {
-                    backgroundColor: getFlattenedColorValue(activeBackgroundColor, theme.color),
-                  },
-                }
-              : {}),
+            _hover: {
+              backgroundColor: getFlattenedColorValue(
+                activeBackgroundColor ?? backgroundColor,
+                theme.color
+              ),
+            },
+            _active: {
+              backgroundColor: getFlattenedColorValue(
+                activeBackgroundColor ?? backgroundColor,
+                theme.color
+              ),
+            },
           },
         }
       : {}),
