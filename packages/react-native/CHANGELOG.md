@@ -1,5 +1,47 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.18.0
+
+### Minor Changes
+
+- [#869](https://github.com/utilitywarehouse/hearth/pull/869) [`89231c8`](https://github.com/utilitywarehouse/hearth/commit/89231c818dfd694f53b50f4cc961a38d0a50999e) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add color override props to `IconButton` for service-specific branding
+
+  The `IconButton` component now supports custom color overrides through three new optional props: `backgroundColor`, `activeBackgroundColor`, and `shadowColor`. These props enable service-specific branding for use cases like service buttons (Electricity, Broadband, Mobile, Insurance, Cashback Card).
+
+  ⚠️ **Important**: These props should be used sparingly and only for specific use cases where brand-specific colors are required. For most use cases, continue using the standard `colorScheme` and `variant` props to maintain design system consistency.
+
+  **Components affected**:
+  - `IconButton`
+
+  **Developer changes**:
+
+  You can now customize `IconButton` colors for service-specific branding:
+
+  ```tsx
+  import { IconButton } from '@utilitywarehouse/hearth-react-native';
+  import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+  <IconButton
+    icon={ElectricityMediumIcon}
+    backgroundColor="energyBlue200"
+    activeBackgroundColor="energyBlue300"
+    shadowColor="energyBlue300"
+    variant="emphasis"
+    onPress={handlePress}
+  />;
+  ```
+
+  The new props are:
+  - `backgroundColor` - Sets the base background color, overriding the color scheme's default
+  - `activeBackgroundColor` - Sets the background color when pressed or in an active state
+  - `shadowColor` - Sets the shadow/elevation color
+
+  These overrides work alongside the existing `variant` and `colorScheme` props, allowing you to maintain structural styling while customizing colors for specific branding requirements.
+
+### Patch Changes
+
+- [#871](https://github.com/utilitywarehouse/hearth/pull/871) [`8984335`](https://github.com/utilitywarehouse/hearth/commit/89843355d268aaa184bea75784e6841568c4784f) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Fix style ordering in `BodyText` to ensure color props properly override custom styles
+
 ## 0.17.0
 
 ### Minor Changes

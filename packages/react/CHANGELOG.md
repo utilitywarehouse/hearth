@@ -1,5 +1,15 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.12
+
+### Patch Changes
+
+- [#872](https://github.com/utilitywarehouse/hearth/pull/872) [`e870754`](https://github.com/utilitywarehouse/hearth/commit/e8707546773432d3f346d19ade946feb0b64dddd) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add explicit ref forwarding to better support React v18
+
+  **Components affected**:
+  - `Button`
+  - `IconButton`
+
 ## 0.24.11
 
 ### Patch Changes
