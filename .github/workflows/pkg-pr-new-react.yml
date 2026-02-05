@@ -38,7 +38,6 @@ jobs:
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
 
-      - run: pnpm dlx pkg-pr-new publish ./packages/react
+      - run: pnpm dlx pkg-pr-new publish ./packages/react ./packages/css-reset ./packages/react-icons --packageManager=yarn,pnpm
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: pnpm dlx pkg-pr-new publish --packageManager=yarn,pnpm
