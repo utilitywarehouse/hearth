@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react-native-icons
 
+## 0.8.0
+
+### Minor Changes
+
+- [#874](https://github.com/utilitywarehouse/hearth/pull/874) [`74d55c1`](https://github.com/utilitywarehouse/hearth/commit/74d55c1741137d8080912797bb0827c03146c0c6) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
+  - PlaySmallIcon
+  - PlayMediumIcon
+
+  ## REMOVED ICONS
+
+  No removed icons.
+
 ## 0.7.4
 
 ### Patch Changes
@@ -17,7 +29,6 @@
 ### Patch Changes
 
 - [#638](https://github.com/utilitywarehouse/hearth/pull/638) [`8c6c069`](https://github.com/utilitywarehouse/hearth/commit/8c6c069472cfd53dbb521ef82ff732c5a9fc2abb) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
-
   - InsightsSmallIcon
 
   ## REMOVED ICONS
@@ -29,7 +40,6 @@
 ### Patch Changes
 
 - [#622](https://github.com/utilitywarehouse/hearth/pull/622) [`8a5c5ce`](https://github.com/utilitywarehouse/hearth/commit/8a5c5cec7543463c66e54a95cc4677f5bc6fc11e) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
-
   - TimeSmallIcon
 
   ## REMOVED ICONS
@@ -41,7 +51,6 @@
 ### Patch Changes
 
 - [#609](https://github.com/utilitywarehouse/hearth/pull/609) [`7b090c6`](https://github.com/utilitywarehouse/hearth/commit/7b090c674bd0dd9ae205476589a89bdb3a5f03a8) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
-
   - LocationSmallIcon
   - ListSmallIcon
 
@@ -56,11 +65,9 @@
 - [#594](https://github.com/utilitywarehouse/hearth/pull/594) [`e707eec`](https://github.com/utilitywarehouse/hearth/commit/e707eec790550cab71f2541c26a38c5691e9cbca) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - This is a breaking change.
 
   ## NEW ICONS
-
   - PhoneMediumIcon
 
   ## REMOVED ICONS
-
   - CallMediumIcon
 
 ## 0.6.0
@@ -68,7 +75,6 @@
 ### Minor Changes
 
 - [#587](https://github.com/utilitywarehouse/hearth/pull/587) [`8345d8c`](https://github.com/utilitywarehouse/hearth/commit/8345d8c365167d2bea2875c78430e4a89c216798) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
-
   - LocateSmallIcon
   - WithdrawMediumIcon
   - MaintenanceMediumIcon
@@ -83,7 +89,6 @@
 ### Minor Changes
 
 - [#514](https://github.com/utilitywarehouse/hearth/pull/514) [`bdf76e4`](https://github.com/utilitywarehouse/hearth/commit/bdf76e4ccdbde5ba12aec5970e4b008a28656146) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
-
   - InfoSmallIcon
   - QuestionMarkSmallIcon
   - WarningSmallIcon
@@ -100,7 +105,6 @@
 ### Minor Changes
 
 - [#493](https://github.com/utilitywarehouse/hearth/pull/493) [`8dac8c1`](https://github.com/utilitywarehouse/hearth/commit/8dac8c1def9083d8e4efa1385e0ee7be23428c46) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
-
   - CelebrationSmallIcon
   - CreditSmallIcon
   - CreditReversalSmallIcon
@@ -121,7 +125,6 @@
 ### Minor Changes
 
 - [#475](https://github.com/utilitywarehouse/hearth/pull/475) [`8106f93`](https://github.com/utilitywarehouse/hearth/commit/8106f93f1ba4b127614cef26c237319d5c8ae824) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ICONS
-
   - ThumbsUpSmallIcon
   - ThumbsDownSmallIcon
   - BookOpenMediumIcon

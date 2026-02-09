@@ -15,7 +15,7 @@
     "@tanstack/react-virtual": "^3.13.13",
     "@utilitywarehouse/hearth-fonts": "workspace:*",
     "@utilitywarehouse/hearth-react": "workspace:*",
-    "@utilitywarehouse/hearth-react-icons": "workspace:^0.7.4",
+    "@utilitywarehouse/hearth-react-icons": "workspace:^0.8.0",
     "@utilitywarehouse/hearth-svg-assets": "^0.2.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
