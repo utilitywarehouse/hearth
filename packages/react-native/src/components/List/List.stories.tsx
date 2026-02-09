@@ -408,7 +408,7 @@ export const KitchenSink: Story = {
       { text: 'List Item 3', helperText: 'Supporting Text 3' },
     ];
     return (
-      <Flex space="sm" direction="column" style={{ width: '100%' }}>
+      <Flex spacing="sm" direction="column" style={{ width: '100%' }}>
         <VariantTitle title="List with title and supporting text">
           <List heading="List Heading" helperText="Supporting Text">
             {list.map((item, index) => (

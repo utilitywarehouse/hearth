@@ -81,4 +81,4 @@ export type BordeWidthValue =
 
 export type OpacityValue = AnimatableNumericValue | undefined;
 
-export type SpacingValues = keyof (typeof themes)['light']['globalStyle']['variants']['space'];
+export type SpacingValues = keyof (typeof themes)['light']['globalStyle']['variants']['spacing'];

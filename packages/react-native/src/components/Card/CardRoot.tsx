@@ -22,10 +22,10 @@ const Card = ({
   noPadding = false,
   style,
   states,
+  spacing,
   space,
   disabled = false,
   onPress,
-
   ...rest
 }: CardProps & { states?: { active?: boolean; disabled?: boolean } }) => {
   const { active } = states || { active: false };
@@ -57,10 +57,20 @@ const Card = ({
       hasActions,
       hasContent,
       hasOnlyActions,
-      space,
+      spacing: space ?? spacing,
       variant,
     }),
-    [showPressed, active, hasActions, hasContent, hasOnlyActions, noPadding, space, variant]
+    [
+      showPressed,
+      active,
+      hasActions,
+      hasContent,
+      hasOnlyActions,
+      noPadding,
+      space,
+      spacing,
+      variant,
+    ]
   );
 
   styles.useVariants({
@@ -70,7 +80,7 @@ const Card = ({
     active,
     showPressed,
     disabled,
-    space: hasActions || hasContent || hasOnlyActions ? 'none' : space,
+    spacing: hasActions || hasContent || hasOnlyActions ? 'none' : spacing,
     shadowColor,
   });
 
@@ -116,7 +126,7 @@ const styles = StyleSheet.create(theme => ({
     alignItems: 'flex-start',
     borderRadius: theme.components.card.borderRadius,
     variants: {
-      space: theme.globalStyle.variants.space,
+      spacing: theme.globalStyle.variants.spacing,
       variant: {
         subtle: {
           borderWidth: theme.components.card.neutral.subtle.borderWidth,

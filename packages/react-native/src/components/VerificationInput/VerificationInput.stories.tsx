@@ -74,7 +74,7 @@ export const Variants: Story = {
     };
 
     return (
-      <Flex direction="column" space="lg" style={{ width: 400 }}>
+      <Flex direction="column" spacing="lg" style={{ width: 400 }}>
         <VariantTitle title="Default">
           <VerificationInput
             label="Verification Code"

@@ -132,7 +132,7 @@ export const KitchenSink: Story = {
     const sizes: Array<BadgeProps['size']> = ['sm', 'md'];
 
     return (
-      <Flex direction="column" space="lg" style={{ width: '100%' }}>
+      <Flex direction="column" spacing="lg" style={{ width: '100%' }}>
         {colorSchemes.map(cs => {
           // Determine allowed variants per color scheme based on design constraints:
           // - Remove 'outline' for energy, broadband, mobile, insurance, cashback, pig, highlight
@@ -158,9 +158,9 @@ export const KitchenSink: Story = {
           return (
             <Box key={cs} gap="200">
               <VariantTitle title={cs.charAt(0).toUpperCase() + cs.slice(1)}>
-                <Flex direction="column" space="sm">
+                <Flex direction="column" spacing="sm">
                   {sizes.map(sz => (
-                    <Flex key={sz} direction="row" align="center" space="md">
+                    <Flex key={sz} direction="row" align="center" spacing="md">
                       {variantsForScheme.map(variant => (
                         <Badge
                           key={`${cs}-${sz}-${variant}`}

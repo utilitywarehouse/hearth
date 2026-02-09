@@ -103,7 +103,7 @@ export const ColorVariants: Story = {
   render: args => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column" align="stretch">
+        <Flex spacing="lg" direction="column" align="stretch">
           <HighlightBanner
             {...args}
             heading="Energy Blue"
@@ -237,7 +237,7 @@ export const SubtleCard: Story = {
 export const DifferentImages: Story = {
   render: args => {
     return (
-      <Flex space="lg" direction="column">
+      <Flex spacing="lg" direction="column">
         <View style={{ width: 400 }}>
           <HighlightBanner
             {...args}

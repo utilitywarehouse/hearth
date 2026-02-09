@@ -1,6 +1,6 @@
+import { Meta, StoryObj } from '@storybook/react-vite';
 import React, { useEffect } from 'react';
 import { Switch } from '.';
-import { Meta, StoryObj } from '@storybook/react-vite';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
 
@@ -50,7 +50,7 @@ export const Playground: Story = {
 
 export const Variants: Story = {
   render: () => (
-    <Flex direction="column" space="sm">
+    <Flex direction="column" spacing="sm">
       <VariantTitle title="Off - medium">
         <Switch value={false} />
       </VariantTitle>

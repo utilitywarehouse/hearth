@@ -7,7 +7,7 @@ interface CardContextProps {
   hasActions?: boolean;
   hasContent?: boolean;
   hasOnlyActions?: boolean;
-  space?: CardProps['space'];
+  spacing?: CardProps['spacing'];
   variant?: CardProps['variant'];
 }
 

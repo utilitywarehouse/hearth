@@ -66,7 +66,11 @@ const Banner = ({
       return <View style={styles.action}>{link}</View>;
     }
     if (button) {
-      return <View style={styles.action}>{button}</View>;
+      return (
+        <View style={[styles.action, styles.buttonWrap]}>
+          <View style={styles.buttonInner}>{button}</View>
+        </View>
+      );
     }
     return null;
   };
@@ -255,6 +259,28 @@ const styles = StyleSheet.create(theme => ({
   },
   action: {
     alignSelf: 'flex-start',
+  },
+  buttonWrap: {
+    variants: {
+      direction: {
+        horizontal: {},
+        vertical: {
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'stretch',
+        },
+      },
+    },
+  },
+  buttonInner: {
+    variants: {
+      direction: {
+        horizontal: {},
+        vertical: {
+          flex: 1,
+        },
+      },
+    },
   },
   chevron: {
     alignSelf: 'center',

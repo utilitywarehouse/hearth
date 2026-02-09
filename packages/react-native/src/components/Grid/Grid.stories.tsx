@@ -13,7 +13,7 @@ const meta = {
       control: 'object',
       description: 'Number of columns or responsive object with breakpoints',
     },
-    space: {
+    spacing: {
       options: ['none', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
       control: 'radio',
       description: 'Responsive spacing between grid items (applied to both rows and columns).',
@@ -33,7 +33,7 @@ const meta = {
   },
   args: {
     columns: 2,
-    space: 'md',
+    spacing: 'md',
   },
 } satisfies Meta<typeof Grid>;
 
@@ -69,7 +69,7 @@ export const Playground: Story = {
     controls: {
       include: [
         'columns',
-        'space',
+        'spacing',
         'gap',
         'columnGap',
         'rowGap',
@@ -81,7 +81,7 @@ export const Playground: Story = {
   },
   args: {
     columns: 2,
-    space: 'md',
+    spacing: 'md',
   },
   render: args => (
     <Grid {...args} style={{ width: 400 }}>
@@ -98,7 +98,7 @@ export const Playground: Story = {
 export const ThreeColumns: Story = {
   args: {
     columns: 3,
-    space: 'md',
+    spacing: 'md',
   },
   render: args => (
     <Grid {...args} style={{ width: 500 }}>
@@ -124,7 +124,7 @@ export const ResponsiveColumns: Story = {
       lg: 4,
       xl: 5,
     },
-    space: 'md',
+    spacing: 'md',
   },
   render: args => (
     <Grid {...args} style={{ width: '100%' }}>
@@ -145,7 +145,7 @@ export const ResponsiveColumns: Story = {
 export const DifferentSizes: Story = {
   args: {
     columns: 3,
-    space: 'sm',
+    spacing: 'sm',
   },
   render: args => (
     <Grid {...args} style={{ width: 500 }}>
@@ -178,7 +178,7 @@ export const CustomGaps: Story = {
 export const WithContent: Story = {
   args: {
     columns: 2,
-    space: 'md',
+    spacing: 'md',
   },
   render: args => (
     <Grid {...args} style={{ width: 400 }}>

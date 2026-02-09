@@ -9,7 +9,8 @@ const Flex = ({
   align = 'flex-start',
   justify = 'flex-start',
   wrap = 'nowrap',
-  space = 'md',
+  spacing = 'md',
+  space,
   ...rest
 }: FlexProps) => {
   const propStyle: ViewStyle = {
@@ -19,7 +20,7 @@ const Flex = ({
     flexWrap: wrap,
   };
 
-  styles.useVariants({ space });
+  styles.useVariants({ spacing: space ?? spacing });
 
   return (
     <View style={[propStyle, styles.flex, style]} {...rest}>
@@ -34,7 +35,7 @@ const styles = StyleSheet.create(theme => ({
   flex: {
     display: 'flex',
     variants: {
-      space: theme.globalStyle.variants.space,
+      spacing: theme.globalStyle.variants.spacing,
     },
   },
 }));

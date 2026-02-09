@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
 import type ContainerProps from './Container.props';
 
-const Container = ({ style, children, space = 'md', ...props }: ContainerProps) => {
+const Container = ({ style, children, spacing = 'md', space, ...props }: ContainerProps) => {
   const { computedStyles, remainingProps } = useStyleProps(props);
 
-  styles.useVariants({ space });
+  styles.useVariants({ spacing: space ?? spacing });
   return (
     <View style={[styles.container(computedStyles), style]} {...remainingProps}>
       {children}
@@ -44,7 +44,7 @@ const styles = StyleSheet.create(theme => ({
         : undefined,
     ...extra,
     variants: {
-      space: theme.globalStyle.variants.space,
+      spacing: theme.globalStyle.variants.spacing,
     },
   }),
 }));

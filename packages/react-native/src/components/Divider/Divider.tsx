@@ -8,13 +8,14 @@ import type DividerProps from './Divider.props';
 const Divider = ({
   orientation = 'horizontal',
   color,
+  spacing,
   space,
   height,
   width,
   flexItem,
   ...props
 }: DividerProps) => {
-  styles.useVariants({ orientation, space, flexItem });
+  styles.useVariants({ orientation, spacing: space ?? spacing, flexItem });
   const { color: themeColor, colorMode } = useTheme();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const colorValue = useMemo(() => getFlattenedColorValue(color, themeColor), [color, colorMode]);
@@ -42,7 +43,7 @@ const styles = StyleSheet.create(theme => ({
           width: theme.components.divider.borderWidth,
         },
       },
-      space: {
+      spacing: {
         none: {},
         '2xs': {},
         xs: {},
@@ -61,14 +62,14 @@ const styles = StyleSheet.create(theme => ({
     compoundVariants: [
       {
         orientation: 'horizontal',
-        space: 'none',
+        spacing: 'none',
         styles: {
           marginVertical: 0,
         },
       },
       {
         orientation: 'horizontal',
-        space: '2xs',
+        spacing: '2xs',
         styles: {
           marginVertical: {
             base: theme.layout.mobile.spacing['2xs'],
@@ -79,7 +80,7 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'horizontal',
-        space: 'xs',
+        spacing: 'xs',
         styles: {
           marginVertical: {
             base: theme.layout.mobile.spacing.xs,
@@ -90,7 +91,7 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'horizontal',
-        space: 'sm',
+        spacing: 'sm',
         styles: {
           marginVertical: {
             base: theme.layout.mobile.spacing.sm,
@@ -101,7 +102,7 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'horizontal',
-        space: 'md',
+        spacing: 'md',
         styles: {
           marginVertical: {
             base: theme.layout.mobile.spacing.md,
@@ -112,7 +113,7 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'horizontal',
-        space: 'lg',
+        spacing: 'lg',
         styles: {
           marginVertical: {
             base: theme.layout.mobile.spacing.lg,
@@ -123,7 +124,7 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'horizontal',
-        space: 'xl',
+        spacing: 'xl',
         styles: {
           marginVertical: {
             base: theme.layout.mobile.spacing.xl,
@@ -134,7 +135,7 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'horizontal',
-        space: '2xl',
+        spacing: '2xl',
         styles: {
           marginVertical: {
             base: theme.layout.mobile.spacing['2xl'],
@@ -145,14 +146,14 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'vertical',
-        space: 'none',
+        spacing: 'none',
         styles: {
           marginHorizontal: 0,
         },
       },
       {
         orientation: 'vertical',
-        space: '2xs',
+        spacing: '2xs',
         styles: {
           marginHorizontal: {
             base: theme.layout.mobile.spacing['2xs'],
@@ -163,7 +164,7 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'vertical',
-        space: 'xs',
+        spacing: 'xs',
         styles: {
           marginHorizontal: {
             base: theme.layout.mobile.spacing.xs,
@@ -174,7 +175,7 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'vertical',
-        space: 'sm',
+        spacing: 'sm',
         styles: {
           marginHorizontal: {
             base: theme.layout.mobile.spacing.sm,
@@ -185,7 +186,7 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'vertical',
-        space: 'md',
+        spacing: 'md',
         styles: {
           marginHorizontal: {
             base: theme.layout.mobile.spacing.md,
@@ -196,7 +197,7 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'vertical',
-        space: 'lg',
+        spacing: 'lg',
         styles: {
           marginHorizontal: {
             base: theme.layout.mobile.spacing.lg,
@@ -207,7 +208,7 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'vertical',
-        space: 'xl',
+        spacing: 'xl',
         styles: {
           marginHorizontal: {
             base: theme.layout.mobile.spacing.xl,
@@ -218,7 +219,7 @@ const styles = StyleSheet.create(theme => ({
       },
       {
         orientation: 'vertical',
-        space: '2xl',
+        spacing: '2xl',
         styles: {
           marginHorizontal: {
             base: theme.layout.mobile.spacing['2xl'],

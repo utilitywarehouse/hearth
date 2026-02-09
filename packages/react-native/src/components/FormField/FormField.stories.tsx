@@ -87,7 +87,7 @@ export const Playground: Story = {
 export const Variants: Story = {
   render: () => {
     return (
-      <Flex direction="column" space="lg">
+      <Flex direction="column" spacing="lg">
         <VariantTitle title="Default">
           <FormField label="Label">
             <Input />
