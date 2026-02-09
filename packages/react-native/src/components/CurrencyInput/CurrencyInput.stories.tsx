@@ -69,7 +69,7 @@ const meta = {
     disableGroupSeparator: {
       control: 'boolean',
       description:
-        'Disable automatic adding of thousand separators while typing _(Formatting only works with controlled components via onTextChange)_',
+        'Disable automatic adding of thousand separators while typing _(Formatting only works with controlled components via onChangeText)_',
       defaultValue: false,
     },
   },
