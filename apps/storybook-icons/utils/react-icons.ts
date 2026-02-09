@@ -132,6 +132,8 @@ import { PhoneSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PhoneSm
 import { PlaceholderLargeIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaceholderLargeIcon';
 import { PlaceholderMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaceholderMediumIcon';
 import { PlaceholderSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaceholderSmallIcon';
+import { PlayMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlayMediumIcon';
+import { PlaySmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/PlaySmallIcon';
 import { QuestionMarkMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/QuestionMarkMediumIcon';
 import { QuestionMarkSmallIcon } from '@utilitywarehouse/hearth-react-icons/lib/QuestionMarkSmallIcon';
 import { RefundMediumIcon } from '@utilitywarehouse/hearth-react-icons/lib/RefundMediumIcon';
@@ -321,6 +323,8 @@ export const reactIcons = [
   PlaceholderLargeIcon,
   PlaceholderMediumIcon,
   PlaceholderSmallIcon,
+  PlayMediumIcon,
+  PlaySmallIcon,
   QuestionMarkMediumIcon,
   QuestionMarkSmallIcon,
   RefundMediumIcon,

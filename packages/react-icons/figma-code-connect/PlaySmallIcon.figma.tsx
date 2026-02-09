@@ -1,0 +1,16 @@
+import React from 'react';
+import { PlaySmallIcon } from '../lib/PlaySmallIcon';
+import figma from '@figma/code-connect';
+
+/**
+ * -- This file was auto-generated --
+ */
+
+figma.connect(
+  PlaySmallIcon,
+  'https://www.figma.com/design/x1DivEZ23UPZP7WXufHPjG/UW-Icons?node-id=2513:21&m=dev',
+  {
+    props: {},
+    example: () => <PlaySmallIcon />,
+  }
+);

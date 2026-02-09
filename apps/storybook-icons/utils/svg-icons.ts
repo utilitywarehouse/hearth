@@ -54,6 +54,7 @@ import MoreSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/more-small-ico
 import OpenSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/open-small-icon.svg';
 import PhoneSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/phone-small-icon.svg';
 import PlaceholderSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/placeholder-small-icon.svg';
+import PlaySmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/play-small-icon.svg';
 import QuestionMarkSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/question-mark-small-icon.svg';
 import RefundSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/refund-small-icon.svg';
 import SearchSmallIcon from '@utilitywarehouse/hearth-svg-icons/lib/search-small-icon.svg';
@@ -154,6 +155,7 @@ import MoreMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/more-medium-i
 import OpenMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/open-medium-icon.svg';
 import PaymentMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/payment-medium-icon.svg';
 import PlaceholderMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/placeholder-medium-icon.svg';
+import PlayMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/play-medium-icon.svg';
 import QuestionMarkMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/question-mark-medium-icon.svg';
 import RefundMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/refund-medium-icon.svg';
 import RestartMediumIcon from '@utilitywarehouse/hearth-svg-icons/lib/restart-medium-icon.svg';
@@ -243,6 +245,7 @@ export const svgIcons = [
   OpenSmallIcon,
   PhoneSmallIcon,
   PlaceholderSmallIcon,
+  PlaySmallIcon,
   QuestionMarkSmallIcon,
   RefundSmallIcon,
   SearchSmallIcon,
@@ -343,6 +346,7 @@ export const svgIcons = [
   OpenMediumIcon,
   PaymentMediumIcon,
   PlaceholderMediumIcon,
+  PlayMediumIcon,
   QuestionMarkMediumIcon,
   RefundMediumIcon,
   RestartMediumIcon,
