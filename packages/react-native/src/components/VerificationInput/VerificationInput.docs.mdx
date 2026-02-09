@@ -17,9 +17,8 @@ The verification input component is used to capture OTP (One Time Password) or o
 - [Playground](#playground)
 - [Usage](#usage)
 - [Props](#props)
-- [Variants](#variants)
-  - [States](#states)
-  - [Secure Text Entry](#secure-text-entry)
+- [Ref Methods](#ref-methods)
+- [States](#states)
 
 ## Playground
 
@@ -45,10 +44,6 @@ const MyComponent = () => {
 
 ## Props
 
-### `VerificationInput`
-
-The component accepts the following props:
-
 | Prop               | Type                                | Default     | Description                                                  |
 | :----------------- | :---------------------------------- | :---------- | :----------------------------------------------------------- |
 | `value`            | `string`                            | -           | The value of the input.                                      |
@@ -63,7 +58,35 @@ The component accepts the following props:
 | `disabled`         | `boolean`                           | `false`     | Whether the input is disabled.                               |
 | `readonly`         | `boolean`                           | `false`     | Whether the input is read-only.                              |
 | `secureTextEntry`  | `boolean`                           | `false`     | Whether to obscure the text entry (e.g. for passwords/OTPs). |
+| `autoFocus`        | `boolean`                           | `false`     | Whether the input should auto-focus when mounted.            |
 
-## Variants
+## Ref Methods
+
+<Canvas of={Stories.RefMethods} />
+
+```tsx
+import { useRef } from 'react';
+import {
+  VerificationInput,
+  type VerificationInputHandle,
+} from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const inputRef = useRef<VerificationInputHandle>(null);
+
+  return (
+    <VerificationInput ref={inputRef} label="Enter Code" onChangeText={code => console.log(code)} />
+  );
+};
+```
+
+Available methods:
+
+- `focus()`
+- `blur()`
+- `clear()`
+- `focusIndex(index: number)`
+
+## States
 
 <Canvas of={Stories.Variants} />
