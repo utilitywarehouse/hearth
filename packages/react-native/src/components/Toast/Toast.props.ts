@@ -26,7 +26,7 @@ export interface ToastInstance extends ToastOptions {
 }
 
 export interface ToastProviderProps {
-  children: React.ReactNode;
+  children: ReactNode;
   safeAreaPadding?: boolean;
 }
 

@@ -123,7 +123,7 @@ const styles = StyleSheet.create((theme, rt) => ({
     variants: {
       safeAreaPadding: {
         true: {
-          paddingBottom: rt.insets.bottom,
+          paddingBottom: theme.space['200'] + rt.insets.bottom,
           paddingTop: rt.insets.top,
         },
         false: {},
