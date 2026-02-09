@@ -110,7 +110,7 @@ export const States: Story = {
   },
   render: () => {
     return (
-      <Flex direction="column" space="lg">
+      <Flex direction="column" spacing="lg">
         <VariantTitle title="Default">
           <CurrencyInput />
         </VariantTitle>

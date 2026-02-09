@@ -147,7 +147,7 @@ export const Variants: Story = {
   render: ({ value: _, children: __, label: ___, disabled: _____, onChange: ______, ...args }) => {
     const [value, setValue] = useState('Option 1');
     return (
-      <Flex space="lg">
+      <Flex spacing="lg">
         <VariantTitle title="Default">
           <RadioGroup
             aria-label="Radio Group"

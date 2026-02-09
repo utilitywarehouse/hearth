@@ -97,7 +97,7 @@ export const WithIcon: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
@@ -128,7 +128,7 @@ export const WithIllustration: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             illustration={
               <BannerIllustration
@@ -172,7 +172,7 @@ export const WithImage: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             image={
               <BannerImage
@@ -212,7 +212,7 @@ export const WithButton: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={InsuranceMediumIcon}
             iconContainerColor="insurance"
@@ -246,7 +246,7 @@ export const WithLink: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
@@ -271,7 +271,7 @@ export const Pressable: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
@@ -304,7 +304,7 @@ export const WithClose: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
@@ -335,7 +335,7 @@ export const VerticalLayout: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
@@ -375,7 +375,7 @@ export const ColorSchemes: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="pig"
@@ -458,7 +458,7 @@ export const EmphasisVariant: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
@@ -497,7 +497,7 @@ export const ComplexExample: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={InsuranceMediumIcon}
             iconContainerColor="insurance"

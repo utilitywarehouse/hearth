@@ -1,7 +1,7 @@
-import { Meta, Controls, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
+import { BodyText, Center, Divider } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Divider.stories';
-import { Divider, BodyText, Center } from '../../';
-import { ViewFigmaButton, BackToTopButton, UsageWrap } from '../../../docs/components';
 
 <Meta title="Components / Divider" />
 
@@ -35,7 +35,7 @@ Dividers can help establish a visual hierarchy on your designs. They can indicat
 <UsageWrap>
   <Center>
     <BodyText>This text is divided</BodyText>
-    <Divider space="sm" />
+    <Divider spacing="sm" />
     <BodyText>From this text</BodyText>
   </Center>
 </UsageWrap>
@@ -46,7 +46,7 @@ import { Spinner, Center } from '@utilitywarehouse/hearth-react-native';
 const MyComponent = () => (
   <Center>
     <BodyText>This text is divided</BodyText>
-    <Divider space="sm" />
+    <Divider spacing="sm" />
     <BodyText>From this text</BodyText>
   </Center>
 );
@@ -58,7 +58,7 @@ const MyComponent = () => (
 | ------------- | ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
 | `orientation` | `'horizontal' \| 'vertical'`                     | The orientation of the Divider.                                                                                                                                                                     | `'horizontal'` |
 | `color`       | `string`                                         | The color of the spinner.                                                                                                                                                                           | `-`            |
-| `space`       | `'none' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | The space between the Divider items.                                                                                                                                                                | `none`         |
+| `spacing`     | `'none' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | The space between the Divider items.                                                                                                                                                                | `none`         |
 | `width`       | `number`                                         | The width of the Divider.                                                                                                                                                                           | `100%`         |
 | `height`      | `number`                                         | The height of the Divider.                                                                                                                                                                          | `100%`         |
 | `flexItem`    | `boolean`                                        | If true, a vertical divider will have the correct height when used in flex container. (By default, a vertical divider will have a calculated height of 0px if it is the child of a flex container.) | false          |

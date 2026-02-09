@@ -7,13 +7,18 @@ const ButtonGroupRoot = ({
   attached = false,
   flexDirection = 'row',
   reversed = false,
-  space = 'md',
+  spacing = 'md',
+  space,
   ...props
 }: ViewProps & {
   flexDirection?: ViewStyle['flexDirection'];
   reversed?: boolean;
   attached?: boolean;
+  /**
+   * @deprecated Use `spacing` instead. The `space` prop will be removed in a future release
+   */
   space?: SpacingValues;
+  spacing?: SpacingValues;
 }) => {
   let direction = flexDirection;
   if (reversed) {
@@ -24,7 +29,7 @@ const ButtonGroupRoot = ({
   }
   styles.useVariants({
     attached,
-    space,
+    spacing: space ?? spacing,
   });
   return (
     <View
@@ -41,7 +46,7 @@ ButtonGroupRoot.displayName = 'ButtonGroupRoot';
 const styles = StyleSheet.create(theme => ({
   text: {
     variants: {
-      space: {
+      spacing: {
         none: {
           gap: theme.layout.mobile.spacing.none,
         },

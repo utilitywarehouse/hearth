@@ -92,11 +92,11 @@ export const KitchenSink: Story = {
       'pig' | 'energy' | 'broadband' | 'mobile' | 'insurance' | 'cashback' | 'highlight'
     > = ['pig', 'energy', 'broadband', 'mobile', 'insurance', 'cashback', 'highlight'];
     return (
-      <Flex direction="column" space="lg">
+      <Flex direction="column" spacing="lg">
         {sizes.map(size => (
           <Box key={size} gap="300">
             <VariantTitle title={`Size: ${size.toUpperCase()} / Subtle`}> </VariantTitle>
-            <Flex direction="row" wrap="wrap" space="md">
+            <Flex direction="row" wrap="wrap" spacing="md">
               {colors.map(color => (
                 <IconContainer
                   key={`${size}-subtle-${color}`}
@@ -108,7 +108,7 @@ export const KitchenSink: Story = {
               ))}
             </Flex>
             <VariantTitle title={`Size: ${size.toUpperCase()} / Emphasis`}> </VariantTitle>
-            <Flex direction="row" wrap="wrap" space="md">
+            <Flex direction="row" wrap="wrap" spacing="md">
               {colors.map(
                 color =>
                   color !== 'highlight' && (

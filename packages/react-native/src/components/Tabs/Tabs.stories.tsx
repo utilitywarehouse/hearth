@@ -245,7 +245,7 @@ export const Controlled: Story = {
       setValue(tabs[nextIndex]);
     };
     return (
-      <Flex align={Platform.OS === 'web' ? 'flex-start' : 'stretch'} space="lg">
+      <Flex align={Platform.OS === 'web' ? 'flex-start' : 'stretch'} spacing="lg">
         <Tabs value={value}>
           <TabsList>
             <Tab value="account">Account</Tab>

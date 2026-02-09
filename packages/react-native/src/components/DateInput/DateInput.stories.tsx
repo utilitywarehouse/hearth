@@ -212,7 +212,7 @@ export const FlexibleSegments: Story = {
 
 export const GroupingInputs: Story = {
   render: () => (
-    <Flex space="sm">
+    <Flex spacing="sm">
       <Heading size="lg">Event Registration</Heading>
       <Card variant="subtle" gap="250">
         <DateInput label="Date of birth" helperText="Enter your date of birth" required />
@@ -246,7 +246,7 @@ export const WithState: Story = {
     };
 
     return (
-      <Flex space="md">
+      <Flex spacing="md">
         <DateInput
           label="Date"
           helperText="Select or enter a date"
@@ -257,7 +257,7 @@ export const WithState: Story = {
           onMonthChange={setMonth}
           onYearChange={setYear}
         />
-        <Flex space="xs">
+        <Flex spacing="xs">
           <Button onPress={handleSetToday}>Set to Today</Button>
           <Button onPress={handleReset} variant="solid">
             Reset

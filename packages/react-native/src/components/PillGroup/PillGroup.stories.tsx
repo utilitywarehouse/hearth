@@ -54,30 +54,30 @@ export const PillStates: Story = {
     const selectedValue = '2';
 
     return (
-      <Flex space="xl" direction="column" align="center">
+      <Flex spacing="xl" direction="column" align="center">
         <VariantTitle title="Unselected">
-          <Flex direction="row" space="sm">
+          <Flex direction="row" spacing="sm">
             <PillGroup value={selectedValue} onChange={() => {}}>
               <Pill value="1" label="Label" />
             </PillGroup>
           </Flex>
         </VariantTitle>
         <VariantTitle title="Selected">
-          <Flex direction="row" space="sm">
+          <Flex direction="row" spacing="sm">
             <PillGroup value={selectedValue} onChange={() => {}}>
               <Pill value="2" label="Label" />
             </PillGroup>
           </Flex>
         </VariantTitle>
         <VariantTitle title="With Icon - Unselected">
-          <Flex direction="row" space="sm">
+          <Flex direction="row" spacing="sm">
             <PillGroup value={selectedValue} onChange={() => {}}>
               <Pill value="1" label="New" icon={HeartMediumIcon} />
             </PillGroup>
           </Flex>
         </VariantTitle>
         <VariantTitle title="With Icon - Selected">
-          <Flex direction="row" space="sm">
+          <Flex direction="row" spacing="sm">
             <PillGroup value={selectedValue} onChange={() => {}}>
               <Pill value="2" label="New" icon={HeartMediumIcon} />
             </PillGroup>
@@ -101,7 +101,7 @@ export const WrapBehavior: Story = {
     const [value2, setValue2] = useState<string>('7');
 
     return (
-      <Flex space="xl" direction="column" align="center">
+      <Flex spacing="xl" direction="column" align="center">
         <VariantTitle title="Wrap: False">
           <PillGroup wrap={false} value={value1} onChange={setValue1}>
             <Pill value="1" label="New" />
@@ -139,7 +139,7 @@ export const Multiple: Story = {
     const [selectedCategories, setSelectedCategories] = useState<string[]>(['new', 'read']);
 
     return (
-      <Flex space="lg" direction="column" align="center" style={{ maxWidth: 400 }}>
+      <Flex spacing="lg" direction="column" align="center" style={{ maxWidth: 400 }}>
         <PillGroup wrap={true} multiple value={selectedCategories} onChange={setSelectedCategories}>
           <Pill value="unread" label="Unread" />
           <Pill value="new" label="New" icon={HeartMediumIcon} />

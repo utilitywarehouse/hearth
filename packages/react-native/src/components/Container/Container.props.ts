@@ -75,7 +75,12 @@ interface ContainerProps extends ViewProps {
   ml?: SpaceValue;
   mr?: SpaceValue;
   /**
+   * The spacing between child elements (gap).
+   */
+  spacing?: SpacingValues;
+  /**
    * The space between child elements (gap).
+   * @deprecated Use `spacing` instead. The `space` prop will be removed in a future release.
    */
   space?: SpacingValues;
   /**

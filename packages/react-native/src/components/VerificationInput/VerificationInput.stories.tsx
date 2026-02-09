@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { InfoMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { VerificationInput } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Flex } from '../Flex';
@@ -69,7 +69,7 @@ export const Variants: Story = {
     };
 
     return (
-      <Flex direction="column" space="lg" style={{ width: 400 }}>
+      <Flex direction="column" spacing="lg" style={{ width: 400 }}>
         <VariantTitle title="Default">
           <VerificationInput
             label="Verification Code"

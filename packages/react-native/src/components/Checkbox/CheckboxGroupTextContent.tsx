@@ -1,9 +1,9 @@
-import FlexProps from '../Flex/Flex.props';
 import { Flex } from '../Flex';
+import FlexProps from '../Flex/Flex.props';
 
 const CheckboxGroupTextContent = ({ children, ...props }: FlexProps) => {
   return (
-    <Flex direction="column" space="none" {...props}>
+    <Flex direction="column" spacing="none" {...props}>
       {children}
     </Flex>
   );

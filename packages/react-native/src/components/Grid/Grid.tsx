@@ -9,6 +9,7 @@ const Grid = ({
   containerStyle,
   itemStyle,
   rowStyle,
+  spacing,
   space,
   children,
   ...props
@@ -19,7 +20,7 @@ const Grid = ({
   const { width } = useWindowDimensions();
   const { gap, columnGap, rowGap } = { ...remainingProps, ...computedStyles };
 
-  styles.useVariants({ space });
+  styles.useVariants({ spacing: space ?? spacing });
 
   const getColumnsForWidth = useMemo(() => {
     // If columns is a number, use that number
@@ -124,14 +125,14 @@ const styles = StyleSheet.create(theme => ({
   rowsContainer: {
     width: '100%',
     variants: {
-      space: theme.globalStyle.variants.space,
+      spacing: theme.globalStyle.variants.spacing,
     },
   },
   row: {
     flexDirection: 'row',
     width: '100%',
     variants: {
-      space: theme.globalStyle.variants.space,
+      spacing: theme.globalStyle.variants.spacing,
     },
   },
   item: {
