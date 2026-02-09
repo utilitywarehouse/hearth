@@ -1,8 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { InfoMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useState } from 'react';
-import { VerificationInput } from '.';
+import { useRef, useState } from 'react';
+import { VerificationInput, type VerificationInputHandle } from '.';
 import { VariantTitle } from '../../../docs/components';
+import { BodyText } from '../BodyText';
+import { Button } from '../Button';
 import { Flex } from '../Flex';
 
 const meta = {
@@ -24,10 +26,13 @@ const meta = {
     disabled: { control: 'boolean' },
     readonly: { control: 'boolean' },
     secureTextEntry: { control: 'boolean' },
+    autoFocus: { control: 'boolean' },
   },
   args: {
     label: 'Verification Code',
     validationStatus: 'initial',
+    autoFocus: true,
+    secureTextEntry: false,
   },
 } satisfies Meta<typeof VerificationInput>;
 
@@ -133,6 +138,77 @@ export const Variants: Story = {
             value={values.default}
             onChangeText={updateValue('default')}
           />
+        </VariantTitle>
+      </Flex>
+    );
+  },
+};
+
+export const RefMethods: Story = {
+  parameters: {
+    controls: { include: [] },
+  },
+  render: () => {
+    const inputRef = useRef<VerificationInputHandle>(null);
+    const [value, setValue] = useState('123456');
+    const [status, setStatus] = useState('Ref not tested yet');
+
+    const handleFocus = () => {
+      if (inputRef.current) {
+        inputRef.current.focus();
+        setStatus('OK: focused first slot');
+      } else {
+        setStatus('Error: ref is null');
+      }
+    };
+
+    const handleBlur = () => {
+      if (inputRef.current) {
+        inputRef.current.blur();
+        setStatus('OK: blurred inputs');
+      } else {
+        setStatus('Error: ref is null');
+      }
+    };
+
+    const handleClear = () => {
+      if (inputRef.current) {
+        inputRef.current.clear();
+        setStatus('OK: cleared value');
+      } else {
+        setStatus('Error: ref is null');
+      }
+    };
+
+    const handleFocusIndex = () => {
+      if (inputRef.current) {
+        inputRef.current.focusIndex(3);
+        setStatus('OK: focused slot 4');
+      } else {
+        setStatus('Error: ref is null');
+      }
+    };
+
+    return (
+      <Flex direction="column" space="lg" style={{ width: 400 }}>
+        <VariantTitle title="Ref Methods">
+          <VerificationInput
+            ref={inputRef}
+            label="Verification Code"
+            value={value}
+            onChangeText={setValue}
+          />
+        </VariantTitle>
+        <VariantTitle title="Actions">
+          <Flex direction="column" space="sm">
+            <Flex direction="row" space="sm">
+              <Button onPress={handleFocus}>Focus</Button>
+              <Button onPress={handleFocusIndex}>Focus Slot 4</Button>
+              <Button onPress={handleBlur}>Blur</Button>
+              <Button onPress={handleClear}>Clear</Button>
+            </Flex>
+            <BodyText>{status}</BodyText>
+          </Flex>
         </VariantTitle>
       </Flex>
     );
