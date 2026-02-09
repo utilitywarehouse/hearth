@@ -217,6 +217,10 @@
       "path": "placeholder-small-icon.svg"
     },
     {
+      "name": "PlaySmallIcon",
+      "path": "play-small-icon.svg"
+    },
+    {
       "name": "QuestionMarkSmallIcon",
       "path": "question-mark-small-icon.svg"
     },
@@ -615,6 +619,10 @@
     {
       "name": "PlaceholderMediumIcon",
       "path": "placeholder-medium-icon.svg"
+    },
+    {
+      "name": "PlayMediumIcon",
+      "path": "play-medium-icon.svg"
     },
     {
       "name": "QuestionMarkMediumIcon",

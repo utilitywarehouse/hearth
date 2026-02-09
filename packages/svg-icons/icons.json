@@ -216,6 +216,10 @@
     "name": "PlaceholderSmallIcon"
   },
   {
+    "id": "2513:21",
+    "name": "PlaySmallIcon"
+  },
+  {
     "id": "2425:32",
     "name": "QuestionMarkSmallIcon"
   },
@@ -614,6 +618,10 @@
   {
     "id": "57:116",
     "name": "PlaceholderMediumIcon"
+  },
+  {
+    "id": "2513:13",
+    "name": "PlayMediumIcon"
   },
   {
     "id": "9:1068",

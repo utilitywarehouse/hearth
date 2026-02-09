@@ -131,6 +131,8 @@ export { default as PhoneSmallIcon } from './PhoneSmallIcon';
 export { default as PlaceholderLargeIcon } from './PlaceholderLargeIcon';
 export { default as PlaceholderMediumIcon } from './PlaceholderMediumIcon';
 export { default as PlaceholderSmallIcon } from './PlaceholderSmallIcon';
+export { default as PlayMediumIcon } from './PlayMediumIcon';
+export { default as PlaySmallIcon } from './PlaySmallIcon';
 export { default as QuestionMarkMediumIcon } from './QuestionMarkMediumIcon';
 export { default as QuestionMarkSmallIcon } from './QuestionMarkSmallIcon';
 export { default as RefundMediumIcon } from './RefundMediumIcon';
