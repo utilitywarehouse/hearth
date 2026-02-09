@@ -3,4 +3,3 @@
 ---
 
 🐛 [FIX]: Fix `Modal` bottom padding
-🐛 [FIX]: Fix `Modal` bottom padding
