@@ -1,7 +1,12 @@
 import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import type { ToastContextValue, ToastInstance, ToastOptions } from './Toast.props';
+import type {
+  ToastContextValue,
+  ToastInstance,
+  ToastOptions,
+  ToastProviderProps,
+} from './Toast.props';
 import ToastItem, { type ToastItemHandle } from './ToastItem';
 
 const ToastContext = createContext<ToastContextValue | undefined>(undefined);
@@ -12,7 +17,10 @@ export const useToastContext = () => {
   return ctx;
 };
 
-export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const ToastProvider: React.FC<ToastProviderProps> = ({
+  children,
+  safeAreaPadding = true,
+}) => {
   const [toasts, setToasts] = useState<ToastInstance[]>([]);
   const timers = useRef<Record<string, number>>({});
   const toastRefs = useRef<Record<string, ToastItemHandle | null>>({});
@@ -62,6 +70,10 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     [removeToast]
   );
 
+  styles.useVariants({
+    safeAreaPadding,
+  });
+
   useEffect(() => {
     return () => {
       // cleanup timers on unmount
@@ -99,7 +111,7 @@ export const useToast = () => {
 
 export default ToastContext;
 
-const styles = StyleSheet.create(theme => ({
+const styles = StyleSheet.create((theme, rt) => ({
   container: {
     position: 'absolute',
     left: 0,
@@ -108,6 +120,15 @@ const styles = StyleSheet.create(theme => ({
     alignItems: 'stretch',
     paddingBottom: theme.space['200'],
     pointerEvents: 'box-none',
+    variants: {
+      safeAreaPadding: {
+        true: {
+          paddingBottom: rt.insets.bottom,
+          paddingTop: rt.insets.top,
+        },
+        false: {},
+      },
+    },
   },
   stack: {
     width: '100%',

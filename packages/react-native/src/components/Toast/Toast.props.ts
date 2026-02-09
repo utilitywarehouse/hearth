@@ -25,6 +25,11 @@ export interface ToastInstance extends ToastOptions {
   duration: number;
 }
 
+export interface ToastProviderProps {
+  children: React.ReactNode;
+  safeAreaPadding?: boolean;
+}
+
 export interface ToastContextValue {
   addToast: (opts: ToastOptions) => string;
   removeToast: (id: string) => void;
