@@ -3,6 +3,7 @@ import {
   BroadbandMediumIcon,
   CashbackCardMediumIcon,
   ElectricityMediumIcon,
+  HomeMediumIcon,
   InsuranceMediumIcon,
   MobileMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
@@ -44,7 +45,17 @@ const meta = {
     colorScheme: {
       control: 'select',
       description: 'The color scheme for the banner',
-      options: ['pig', 'energy', 'broadband', 'mobile', 'insurance', 'cashback', 'highlight'],
+      options: [
+        'neutralStrong',
+        'neutralSubtle',
+        'brand',
+        'energy',
+        'broadband',
+        'mobile',
+        'insurance',
+        'cashback',
+        'pig',
+      ],
     },
     iconContainerVariant: {
       control: 'select',
@@ -376,6 +387,57 @@ export const ColorSchemes: Story = {
     return (
       <View style={{ width: 400 }}>
         <Flex spacing="lg" direction="column">
+          <Banner
+            icon={HomeMediumIcon}
+            iconContainerColor="highlight"
+            colorScheme="neutralStrong"
+            variant="subtle"
+            heading="Neutral Strong"
+            description="Banner with neutral strong color scheme and subtle variant."
+            button={
+              <Button size="sm" onPress={() => console.log('Action pressed')}>
+                Action
+              </Button>
+            }
+          />
+          <Banner
+            icon={HomeMediumIcon}
+            iconContainerColor="highlight"
+            colorScheme="neutralStrong"
+            variant="emphasis"
+            heading="Neutral Strong"
+            description="Banner with neutral strong color scheme and emphasis variant."
+            button={
+              <Button size="sm" onPress={() => console.log('Action pressed')}>
+                Action
+              </Button>
+            }
+          />
+          <Banner
+            icon={HomeMediumIcon}
+            iconContainerColor="highlight"
+            colorScheme="neutralSubtle"
+            heading="Neutral Subtle"
+            description="Banner with neutral subtle color scheme and subtle variant."
+            button={
+              <Button size="sm" onPress={() => console.log('Action pressed')}>
+                Action
+              </Button>
+            }
+          />
+          <Banner
+            icon={HomeMediumIcon}
+            iconContainerColor="highlight"
+            colorScheme="neutralSubtle"
+            variant="emphasis"
+            heading="Neutral Subtle"
+            description="Banner with neutral subtle color scheme and emphasis variant."
+            button={
+              <Button size="sm" onPress={() => console.log('Action pressed')}>
+                Action
+              </Button>
+            }
+          />
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="pig"
