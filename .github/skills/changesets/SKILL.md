@@ -204,7 +204,7 @@ Include helpful links or context:
 ## Writing Best Practices
 
 ### Be Clear and Concise
-- Write in plain (British) English
+- Write in plain (British) English, this is important, no customize or optimize, use customise and optimise instead.
 - Use present tense ("Add feature" not "Added feature")
 - Focus on what changed from the user's perspective
 
