@@ -42,6 +42,7 @@ const Modal = ({
   closeOnPrimaryButtonPress = true,
   closeOnSecondaryButtonPress = true,
   loading,
+  loadingHeading = 'Loading...',
   fullscreen = false,
   image,
   primaryButtonProps,
@@ -206,7 +207,7 @@ const Modal = ({
         >
           <Spinner size="lg" />
           <Heading size="lg" textAlign="center">
-            Loading...
+            {loadingHeading}
           </Heading>
         </View>
       ) : (
@@ -328,21 +329,35 @@ const styles = StyleSheet.create((theme, rt) => ({
     variants: {
       bothButtons: {
         true: {
-          paddingBottom: 166 + rt.insets.bottom - theme.components.modal.padding,
+          paddingBottom:
+            166 +
+            rt.insets.bottom -
+            theme.components.modal.padding +
+            theme.components.bottomSheet.padding,
         },
         false: {
-          paddingBottom: 102 + rt.insets.bottom - theme.components.modal.padding,
+          paddingBottom:
+            102 +
+            rt.insets.bottom -
+            theme.components.modal.padding +
+            theme.components.bottomSheet.padding,
         },
       },
       noButtons: {
         true: {
-          paddingBottom: rt.insets.bottom + theme.components.modal.padding,
+          paddingBottom:
+            rt.insets.bottom +
+            theme.components.modal.padding +
+            theme.components.bottomSheet.padding,
         },
       },
       stickyFooter: {
         true: {},
         false: {
-          paddingBottom: rt.insets.bottom + theme.components.modal.padding,
+          paddingBottom:
+            rt.insets.bottom +
+            theme.components.modal.padding +
+            theme.components.bottomSheet.padding,
         },
       },
     },

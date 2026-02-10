@@ -6,6 +6,11 @@ interface FlexProps extends ViewProps {
   align?: FlexAlignType;
   justify?: ViewStyle['justifyContent'];
   wrap?: ViewStyle['flexWrap'];
+  spacing?: SpacingValues;
+  /**
+   * The space between child elements (gap).
+   * @deprecated Use `spacing` instead. The `space` prop will be removed in a future release.
+   */
   space?: SpacingValues;
 }
 

@@ -39,7 +39,7 @@ export const KitchenSink: Story = {
   },
   render: () => {
     return (
-      <Flex space="xl" direction="column" style={{ width: '100%' }}>
+      <Flex spacing="xl" direction="column" style={{ width: '100%' }}>
         <VariantTitle title="Default SectionHeader with helper text and link">
           <SectionHeader
             heading="Heading"

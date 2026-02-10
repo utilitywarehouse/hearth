@@ -17,6 +17,12 @@ export interface GridProps extends ViewProps {
   /**
    * Spacing between grid items (applies to both rows and columns)
    */
+  spacing?: SpacingValues;
+
+  /**
+   * Spacing between grid items (applies to both rows and columns)
+   * @deprecated Use `spacing` instead. The `space` prop will be removed in a future release.
+   */
   space?: SpacingValues;
 
   /**

@@ -94,7 +94,7 @@ export const Column: Story = {
 export const KitchenSink: Story = {
   parameters: { controls: { include: [] } },
   render: () => (
-    <Flex direction="column" space="lg" style={{ width: '100%' }}>
+    <Flex direction="column" spacing="lg" style={{ width: '100%' }}>
       <VariantTitle title="Row direction">
         <DescriptionList direction="row">
           {sampleData.map(item => (

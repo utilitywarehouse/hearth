@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { NativeSyntheticEvent, TextInput, TextInputKeyPressEventData } from 'react-native';
 
 interface UseVerificationInputProps {
@@ -9,7 +9,16 @@ interface UseVerificationInputProps {
 export const useVerificationInput = ({ value, onChangeText }: UseVerificationInputProps) => {
   const length = 6;
   const inputRefs = useRef<(TextInput | null)[]>([]);
+  const latestValueRef = useRef(value);
+  const [displayValue, setDisplayValue] = useState(value);
   const [focusedIndex, setFocusedIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (value !== latestValueRef.current) {
+      latestValueRef.current = value;
+      setDisplayValue(value);
+    }
+  }, [value]);
 
   const handleFocus = (index: number) => {
     setFocusedIndex(index);
@@ -19,11 +28,17 @@ export const useVerificationInput = ({ value, onChangeText }: UseVerificationInp
     setFocusedIndex(null);
   };
 
+  const updateValue = (nextValue: string) => {
+    latestValueRef.current = nextValue;
+    setDisplayValue(nextValue);
+    onChangeText?.(nextValue);
+  };
+
   const handleChangeText = (text: string, index: number) => {
-    // Break down the text into an array of characters
+    const currentValue = latestValueRef.current;
     const chars = Array(length).fill('');
-    for (let i = 0; i < value.length && i < length; i++) {
-      chars[i] = value[i];
+    for (let i = 0; i < currentValue.length && i < length; i++) {
+      chars[i] = currentValue[i];
     }
 
     if (text.length > 1) {
@@ -41,28 +56,29 @@ export const useVerificationInput = ({ value, onChangeText }: UseVerificationInp
         inputRefs.current[index + 1]?.focus();
       }
     }
-
-    onChangeText?.(chars.join(''));
+    updateValue(chars.join(''));
   };
 
   const handleKeyPress = (e: NativeSyntheticEvent<TextInputKeyPressEventData>, index: number) => {
     if (e.nativeEvent.key === 'Backspace') {
-      if (!value[index] && index > 0) {
+      const currentValue = latestValueRef.current;
+      if (!currentValue[index] && index > 0) {
         e.preventDefault();
         inputRefs.current[index - 1]?.focus();
 
         const chars = Array(length).fill('');
-        for (let i = 0; i < value.length && i < length; i++) {
-          chars[i] = value[i];
+        for (let i = 0; i < currentValue.length && i < length; i++) {
+          chars[i] = currentValue[i];
         }
         chars[index - 1] = '';
-        onChangeText?.(chars.join(''));
+        updateValue(chars.join(''));
       }
     }
   };
 
   return {
     inputRefs,
+    displayValue,
     focusedIndex,
     handleFocus,
     handleBlur,

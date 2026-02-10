@@ -24,6 +24,8 @@ interface CardProps extends PressableProps {
     | 'pig';
   noPadding?: boolean;
   disabled?: boolean;
+  spacing?: SpacingValues;
+  /** @deprecated Use `spacing` instead. The `gap` prop will be removed in a future release. */
   space?: SpacingValues;
   alignItems?: ViewStyle['alignItems'];
   justifyContent?: ViewStyle['justifyContent'];

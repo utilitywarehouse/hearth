@@ -113,7 +113,9 @@ const ToastItem = forwardRef<ToastItemHandle, Props>(({ toast, onClose }, ref) =
             <Icon as={IconComp} style={styles.icon} />
           </View>
         ) : null}
-        <BodyText inverted>{toast.text}</BodyText>
+        <BodyText inverted style={styles.text}>
+          {toast.text}
+        </BodyText>
       </View>
       {toast.actionText ? (
         <Link onPress={handlePress} showIcon={false} inverted>
@@ -179,7 +181,8 @@ const styles = StyleSheet.create(theme => ({
     width: 24,
     height: 24,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignSelf: 'flex-start',
+    alignItems: 'flex-start',
     flexShrink: 0,
   },
   icon: {
@@ -192,8 +195,10 @@ const styles = StyleSheet.create(theme => ({
     alignItems: 'center',
     minWidth: 0,
   },
+  text: { flexShrink: 1 },
   actions: {
     flexShrink: 0,
+    alignSelf: 'flex-start',
   },
 }));
 

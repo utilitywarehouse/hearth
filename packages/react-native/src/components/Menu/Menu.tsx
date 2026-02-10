@@ -1,12 +1,12 @@
 import { forwardRef, useCallback, useImperativeHandle, useMemo, useRef } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
-import { BottomSheetModal, BottomSheetProps, BottomSheetScrollView } from '../BottomSheet';
+import { BottomSheetModal, BottomSheetScrollView } from '../BottomSheet';
 import { MenuContext } from './Menu.context';
 import type MenuProps from './Menu.props';
 import type { MenuMethods } from './Menu.props';
 
-const Menu = forwardRef<MenuMethods, MenuProps>(({ heading, children, bottomSheetProps }, ref) => {
+const Menu = forwardRef<MenuMethods, MenuProps>(({ heading, children, ...props }, ref) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   useImperativeHandle(
@@ -25,10 +25,7 @@ const Menu = forwardRef<MenuMethods, MenuProps>(({ heading, children, bottomShee
   const contextValue = useMemo(() => ({ close: handleClose }), [handleClose]);
 
   return (
-    <BottomSheetModal
-      ref={bottomSheetModalRef}
-      {...(bottomSheetProps as Partial<BottomSheetProps>)}
-    >
+    <BottomSheetModal ref={bottomSheetModalRef} {...props}>
       <BottomSheetScrollView contentContainerStyle={styles.container}>
         <MenuContext.Provider value={contextValue}>
           {heading && (

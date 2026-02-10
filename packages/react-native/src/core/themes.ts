@@ -205,7 +205,7 @@ const shared = {
           },
         },
       },
-      space: {
+      spacing: {
         none: {
           gap: {
             base: layout.mobile.spacing.none,

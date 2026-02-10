@@ -1,77 +1,109 @@
+import { forwardRef, useImperativeHandle } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { FormField } from '../FormField';
 import { useVerificationInput } from './useVerificationInput';
-import VerificationInputProps from './VerificationInput.props';
+import type { VerificationInputHandle, VerificationInputProps } from './VerificationInput.props';
 import { VerificationInputSlot } from './VerificationInputSlot';
 
-const VerificationInput = ({
-  value = '',
-  onChangeText,
-  label,
-  labelVariant = 'body',
-  helperText,
-  helperIcon,
-  validationStatus = 'initial',
-  validText,
-  invalidText,
-  disabled = false,
-  readonly = false,
-  secureTextEntry = false,
-  style,
-  ...props
-}: VerificationInputProps) => {
-  const length = 6;
-  const { inputRefs, focusedIndex, handleFocus, handleBlur, handleChangeText, handleKeyPress } =
-    useVerificationInput({
+const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputProps>(
+  (
+    {
+      value = '',
+      onChangeText,
+      label,
+      labelVariant = 'body',
+      helperText,
+      helperIcon,
+      validationStatus = 'initial',
+      validText,
+      invalidText,
+      disabled = false,
+      readonly = false,
+      secureTextEntry = false,
+      autoFocus = false,
+      style,
+      ...props
+    },
+    ref
+  ) => {
+    const length = 6;
+    const {
+      inputRefs,
+      displayValue,
+      focusedIndex,
+      handleFocus,
+      handleBlur,
+      handleChangeText,
+      handleKeyPress,
+    } = useVerificationInput({
       value,
       onChangeText,
     });
 
-  const slots = Array.from({ length }, (_, index) => index);
+    useImperativeHandle(
+      ref,
+      () => ({
+        focus: () => inputRefs.current[0]?.focus(),
+        blur: () => {
+          inputRefs.current.forEach(input => input?.blur());
+        },
+        clear: () => onChangeText?.(''),
+        focusIndex: (index: number) => {
+          if (index >= 0 && index < length) {
+            inputRefs.current[index]?.focus();
+          }
+        },
+      }),
+      [length, onChangeText]
+    );
 
-  return (
-    <FormField
-      label={label}
-      labelVariant={labelVariant}
-      helperText={helperText}
-      helperIcon={helperIcon}
-      validationStatus={validationStatus}
-      validText={validText}
-      invalidText={invalidText}
-      disabled={disabled}
-      readonly={readonly}
-      style={[styles.root, style]}
-      {...props}
-    >
-      <View style={styles.slotsContainer}>
-        {slots.map(index => {
-          const char = value[index] || '';
-          const isActive = focusedIndex === index;
+    const slots = Array.from({ length }, (_, index) => index);
 
-          return (
-            <VerificationInputSlot
-              key={index}
-              ref={ref => {
-                inputRefs.current[index] = ref;
-              }}
-              value={char}
-              isActive={isActive}
-              validationStatus={validationStatus}
-              disabled={disabled}
-              readonly={readonly}
-              secureTextEntry={secureTextEntry}
-              onChangeText={text => handleChangeText(text, index)}
-              onKeyPress={e => handleKeyPress(e, index)}
-              onFocus={() => handleFocus(index)}
-              onBlur={handleBlur}
-            />
-          );
-        })}
-      </View>
-    </FormField>
-  );
-};
+    return (
+      <FormField
+        label={label}
+        labelVariant={labelVariant}
+        helperText={helperText}
+        helperIcon={helperIcon}
+        validationStatus={validationStatus}
+        validText={validText}
+        invalidText={invalidText}
+        disabled={disabled}
+        readonly={readonly}
+        style={[styles.root, style]}
+        {...props}
+      >
+        <View style={styles.slotsContainer}>
+          {slots.map(index => {
+            const char = displayValue[index] || '';
+            const isActive = focusedIndex === index;
+
+            return (
+              <VerificationInputSlot
+                key={index}
+                ref={inputRef => {
+                  inputRefs.current[index] = inputRef;
+                }}
+                autoFocus={index === 0 && autoFocus}
+                value={char}
+                isActive={isActive}
+                validationStatus={validationStatus}
+                disabled={disabled}
+                readonly={readonly}
+                secureTextEntry={secureTextEntry}
+                onChangeText={text => handleChangeText(text, index)}
+                onKeyPress={e => handleKeyPress(e, index)}
+                onFocus={() => handleFocus(index)}
+                onBlur={handleBlur}
+              />
+            );
+          })}
+        </View>
+      </FormField>
+    );
+  }
+);
 
 const styles = StyleSheet.create(theme => ({
   root: {

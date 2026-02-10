@@ -1,10 +1,10 @@
-import UnstyledIconButton from './UnstyledIconButton';
 import { Meta, StoryObj } from '@storybook/react-vite';
-import { VariantTitle } from '../../../docs/components';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
-import { Flex } from '../Flex';
-import { Platform } from 'react-native';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { Platform } from 'react-native';
+import { VariantTitle } from '../../../docs/components';
+import { Flex } from '../Flex';
+import UnstyledIconButton from './UnstyledIconButton';
 
 const meta = {
   title: 'Stories / UnstyledIconButton',
@@ -77,7 +77,7 @@ export const States: Story = {
     const iconComponent =
       typeof iconProp === 'string' ? Icons[iconProp as keyof typeof Icons] : iconProp;
     return (
-      <Flex direction="column" space="lg">
+      <Flex direction="column" spacing="lg">
         <VariantTitle title="Default" invert={inverted}>
           <UnstyledIconButton size={size} inverted={inverted} icon={iconComponent} />
         </VariantTitle>

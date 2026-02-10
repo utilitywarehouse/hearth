@@ -1,8 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import React from 'react';
 import { Avatar } from '.';
-import { Flex } from '../Flex';
 import { VariantTitle } from '../../../docs/components';
+import { Flex } from '../Flex';
 
 const meta = {
   title: 'Stories / Avatar',
@@ -61,13 +60,13 @@ export const Image: Story = {
 
 export const Sizes: Story = {
   render: () => (
-    <Flex direction="row" space="xl" align="center">
-      <Flex direction="column" space="md" align="center">
+    <Flex direction="row" spacing="xl" align="center">
+      <Flex direction="column" spacing="md" align="center">
         <VariantTitle title="SM">
           <Avatar size="sm" name="Jane Doe" />
         </VariantTitle>
       </Flex>
-      <Flex direction="column" space="md" align="center">
+      <Flex direction="column" spacing="md" align="center">
         <VariantTitle title="MD">
           <Avatar size="md" name="Jane Doe" />
         </VariantTitle>

@@ -115,8 +115,8 @@ import { Textarea } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => {
   const [value, setValue] = useState('');
-  const handleChange = e => {
-    setValue(e.target.value);
+  const handleChange = text => {
+    setValue(text);
   };
   return (
     <Textarea
@@ -124,7 +124,7 @@ const MyComponent = () => {
       helperText="Provide a detailed description"
       placeholder="Enter your text here..."
       value={value}
-      onTextChange={handleChange}
+      onChangeText={handleChange}
     />
   );
 };

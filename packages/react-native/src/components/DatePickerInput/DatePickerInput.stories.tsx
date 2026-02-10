@@ -130,7 +130,7 @@ export const States: Story = {
     const [formFieldDate, setFormFieldDate] = useState<DateType>();
 
     return (
-      <Flex direction="column" space="lg">
+      <Flex direction="column" spacing="lg">
         <VariantTitle title="Default">
           <DatePickerInput placeholder="DD/MM/YYYY" />
         </VariantTitle>

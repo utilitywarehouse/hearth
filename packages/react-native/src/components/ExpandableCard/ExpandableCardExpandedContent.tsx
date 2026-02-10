@@ -20,7 +20,7 @@ const ExpandableCardExpandedContent = ({
     <View style={styles.container}>
       <Expandable expanded={isExpanded} duration={duration} animateOpacity={animateOpacity}>
         <View>
-          <Divider space="none" />
+          <Divider spacing="none" />
           <View style={styles.content}>{children}</View>
         </View>
       </Expandable>

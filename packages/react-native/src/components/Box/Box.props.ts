@@ -6,6 +6,7 @@ import type {
   ColorValue,
   OpacityValue,
   SpaceValue,
+  SpacingValues,
 } from '../../types';
 
 export type OmittedStyles = Omit<
@@ -223,12 +224,18 @@ export interface ThemedBoxViewStyleProps {
   borderWidth?: BordeWidthValue;
 }
 
+interface CustomBoxProps {
+  // Custom props
+  as?: React.ElementType;
+  spacing?: SpacingValues;
+}
+
 export interface BoxProps
-  extends BoxStyleMappingValues,
+  extends
+    BoxStyleMappingValues,
     ThemedBoxViewStyleProps,
     OtherBoxViewStyles,
-    ViewProps {
-  as?: React.ElementType;
-}
+    ViewProps,
+    CustomBoxProps {}
 
 export default BoxProps;
