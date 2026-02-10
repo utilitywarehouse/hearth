@@ -4,5 +4,5 @@
 
 🐛 [FIX]: `DescriptionListItem` heading width
 
-Don't apply the width constraint when the direction is set to `row` as it
-unnecessarily constrains long headings.
+Ensure the heading text doesn't wrap unnecessarily, especially when the
+direction is set to 'column'.
