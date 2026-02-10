@@ -22,7 +22,10 @@ if (!fs.existsSync(sourceFile)) {
   process.exit(1);
 }
 
-const changelogContent = fs.readFileSync(sourceFile, 'utf-8');
+let changelogContent = fs.readFileSync(sourceFile, 'utf-8');
+
+// Remove the first line (package name heading)
+changelogContent = changelogContent.split('\n').slice(1).join('\n');
 
 // Create the MDX content with imports and components
 const mdxContent = `import { Meta } from '@storybook/addon-docs/blocks';
@@ -30,6 +33,10 @@ import { BackToTopButton } from './components';
 
 <Meta title="Changelog" />
 <BackToTopButton />
+
+# Changelog - ${'`@utilitywarehouse/hearth-react-native`'}
+
+The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 ${changelogContent}
 `;
