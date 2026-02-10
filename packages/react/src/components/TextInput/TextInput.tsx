@@ -60,9 +60,12 @@ export const TextInput = (props: TextInputProps) => {
   );
 
   return (
-    <FormField data-disabled={disabled ? '' : undefined} {...formFieldProps}>
+    <FormField
+      className={cn(componentClassName, className)}
+      data-disabled={disabled ? '' : undefined}
+      {...formFieldProps}
+    >
       <InputBase
-        className={cn(componentClassName, className)}
         spellCheck="false"
         id={id}
         required={required}
