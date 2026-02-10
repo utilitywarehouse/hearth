@@ -87,7 +87,7 @@ const meta = {
     description: 'This is a banner component that can display an icon or image with content.',
     direction: 'horizontal',
     variant: 'subtle',
-    colorScheme: 'pig',
+    colorScheme: 'neutralStrong',
   },
 } satisfies Meta<typeof Banner>;
 
@@ -240,7 +240,7 @@ export const WithButton: Story = {
             iconContainerColor="cashback"
             heading="Cashback Rewards"
             description="Earn cashback on every purchase."
-            colorScheme="cashback"
+            colorScheme="neutralSubtle"
             button={
               <Button size="sm" onPress={() => console.log('Learn More pressed')}>
                 Learn More
@@ -441,6 +441,7 @@ export const ColorSchemes: Story = {
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="pig"
+            iconContainerVariant="emphasis"
             colorScheme="pig"
             heading="Pig Pink"
             description="Banner with pig color scheme."
@@ -453,6 +454,7 @@ export const ColorSchemes: Story = {
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
+            iconContainerVariant="emphasis"
             colorScheme="energy"
             heading="Energy Blue"
             description="Banner with energy color scheme."
@@ -465,6 +467,7 @@ export const ColorSchemes: Story = {
           <Banner
             icon={BroadbandMediumIcon}
             iconContainerColor="broadband"
+            iconContainerVariant="emphasis"
             colorScheme="broadband"
             heading="Broadband Green"
             description="Banner with broadband color scheme."
@@ -477,6 +480,7 @@ export const ColorSchemes: Story = {
           <Banner
             icon={MobileMediumIcon}
             iconContainerColor="mobile"
+            iconContainerVariant="emphasis"
             colorScheme="mobile"
             heading="Mobile Rose"
             description="Banner with mobile color scheme."
@@ -489,6 +493,7 @@ export const ColorSchemes: Story = {
           <Banner
             icon={InsuranceMediumIcon}
             iconContainerColor="insurance"
+            iconContainerVariant="emphasis"
             colorScheme="insurance"
             heading="Insurance Orange"
             description="Banner with insurance color scheme."
@@ -501,6 +506,7 @@ export const ColorSchemes: Story = {
           <Banner
             icon={CashbackCardMediumIcon}
             iconContainerColor="cashback"
+            iconContainerVariant="emphasis"
             colorScheme="cashback"
             heading="Cashback Lilac"
             description="Banner with cashback color scheme."
@@ -564,7 +570,7 @@ export const ComplexExample: Story = {
             icon={InsuranceMediumIcon}
             iconContainerColor="insurance"
             iconContainerVariant="emphasis"
-            colorScheme="insurance"
+            colorScheme="neutralStrong"
             heading="Home Insurance Alert"
             description="Your policy renewal is coming up. Review your coverage and make any necessary changes."
             button={
