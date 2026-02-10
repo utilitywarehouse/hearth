@@ -1,5 +1,31 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.19.1
+
+### Patch Changes
+
+- [#886](https://github.com/utilitywarehouse/hearth/pull/886) [`7a948de`](https://github.com/utilitywarehouse/hearth/commit/7a948dea0d15ce7ca34e4d405e86984213c96196) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Add `loadingHeading` prop to `Modal` component
+
+  The `Modal` component now supports a `loadingHeading` prop to customize the heading text displayed during loading states. If not provided, it defaults to 'Loading...'.
+
+  **Components affected**:
+  - `Modal`
+
+  **Developer changes**:
+
+  No changes required. To customize the loading heading text, use the new `loadingHeading` prop:
+
+  ```tsx
+  <Modal
+    loading={isLoading}
+    loadingHeading="Processing your request..."
+    heading="Confirm Action"
+    description="Please wait while we process your request"
+  />
+  ```
+
+- [#888](https://github.com/utilitywarehouse/hearth/pull/888) [`9b3e172`](https://github.com/utilitywarehouse/hearth/commit/9b3e172f9964026f4f3ba140731432ac63550256) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Align `Toast` icon and dismiss button to the top
+
 ## 0.19.0
 
 ### Minor Changes
