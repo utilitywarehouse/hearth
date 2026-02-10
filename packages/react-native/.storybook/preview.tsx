@@ -68,6 +68,7 @@ const preview = {
         order: [
           'Introduction',
           'Getting Started',
+          'Changelog',
           'Styling',
           'Theme Tokens',
           'Hooks',
