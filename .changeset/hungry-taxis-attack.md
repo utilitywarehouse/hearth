@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react': patch
 ---
 
-📦 [DEPS]: Bump hearth-react-icons dependency
+📦 [DEPS]: Bump @utilitywarehouse/hearth-react-icons peerDependency to 0.8.0
