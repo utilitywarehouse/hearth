@@ -4,5 +4,4 @@
 
 🐛 [FIX]: Styles incorrectly applied on `TextInput`, `TextArea` & `VerificationInput`
 
-Thankyou @msrch for finding and the issue and pinpointing the cause of the
-problem. 🙌
+Thank you @msrch for finding the issue and pinpointing its cause. 🙌
