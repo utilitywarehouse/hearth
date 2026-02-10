@@ -1,5 +1,5 @@
 import figma from '@figma/code-connect';
-import { ToggleButtonCard } from '..';
+import { ToggleButtonCard } from '../';
 
 figma.connect(
   ToggleButtonCard,
