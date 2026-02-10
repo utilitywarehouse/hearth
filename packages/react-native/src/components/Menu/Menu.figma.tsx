@@ -9,9 +9,7 @@ figma.connect(Menu, 'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id
       true: figma.string('Heading'),
     }),
     showHandle: figma.boolean('Grabber?', {
-      true: {
-        showHandle: true,
-      },
+      true: true,
     }),
   },
   example: props => {
@@ -19,11 +17,11 @@ figma.connect(Menu, 'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR?node-id
 
     return (
       <>
-        <MenuTrigger onPress={() => menuRef.current?.present()} bottomSheetProps={props.showHandle}>
+        <MenuTrigger onPress={() => menuRef.current?.present()}>
           <Button>Open Menu</Button>
         </MenuTrigger>
 
-        <Menu ref={menuRef} heading={props.heading}>
+        <Menu ref={menuRef} heading={props.heading} showHandle={props.showHandle}>
           {props.menuItems}
         </Menu>
       </>
