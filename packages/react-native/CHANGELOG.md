@@ -6,14 +6,14 @@
 
 - [#886](https://github.com/utilitywarehouse/hearth/pull/886) [`7a948de`](https://github.com/utilitywarehouse/hearth/commit/7a948dea0d15ce7ca34e4d405e86984213c96196) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Add `loadingHeading` prop to `Modal` component
 
-  The `Modal` component now supports a `loadingHeading` prop to customize the heading text displayed during loading states. If not provided, it defaults to 'Loading...'.
+  The `Modal` component now supports a `loadingHeading` prop to customise the heading text displayed during loading states. If not provided, it defaults to 'Loading...'.
 
   **Components affected**:
   - `Modal`
 
   **Developer changes**:
 
-  No changes required. To customize the loading heading text, use the new `loadingHeading` prop:
+  No changes required. To customise the loading heading text, use the new `loadingHeading` prop:
 
   ```tsx
   <Modal
@@ -143,7 +143,7 @@
 
   **Developer changes**:
 
-  You can now customize `IconButton` colors for service-specific branding:
+  You can now customise `IconButton` colors for service-specific branding:
 
   ```tsx
   import { IconButton } from '@utilitywarehouse/hearth-react-native';
@@ -164,7 +164,7 @@
   - `activeBackgroundColor` - Sets the background color when pressed or in an active state
   - `shadowColor` - Sets the shadow/elevation color
 
-  These overrides work alongside the existing `variant` and `colorScheme` props, allowing you to maintain structural styling while customizing colors for specific branding requirements.
+  These overrides work alongside the existing `variant` and `colorScheme` props, allowing you to maintain structural styling while customising colors for specific branding requirements.
 
 ### Patch Changes
 
