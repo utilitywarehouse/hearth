@@ -41,6 +41,10 @@ const meta = {
       control: 'boolean',
       description: 'Whether the modal is in a loading state.',
     },
+    loadingHeading: {
+      control: 'text',
+      description: 'The heading text to be displayed when loading is true.',
+    },
     fullscreen: {
       control: 'boolean',
       description: 'Whether the modal should take up the full screen height.',
