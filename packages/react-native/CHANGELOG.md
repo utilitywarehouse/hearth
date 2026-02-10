@@ -1,5 +1,107 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.19.0
+
+### Minor Changes
+
+- [#882](https://github.com/utilitywarehouse/hearth/pull/882) [`7e5338c`](https://github.com/utilitywarehouse/hearth/commit/7e5338c75bf051897a5384fe4ce0f65533b7e1a7) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Add `safeAreaPadding` option to `ToastProvider`
+
+  `ToastProvider` now supports an optional `safeAreaPadding` prop to control whether toasts respect safe-area inset padding. This can be useful when you want to disable additional safe-area inset space while keeping the base toast padding.
+
+  **Components affected**:
+  - `ToastProvider`
+
+  **Developer changes**:
+
+  No changes required. To disable safe-area inset padding (while preserving the base bottom padding), set `safeAreaPadding` to `false`:
+
+  ```tsx
+  <ToastProvider safeAreaPadding={false}>{children}</ToastProvider>
+  ```
+
+- [`da893ff`](https://github.com/utilitywarehouse/hearth/commit/da893ff8a9d576a6ca69021737056c7289f8c6aa) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Unify spacing prop naming across layout components
+
+  The `space` prop has been renamed to `spacing` across all layout components for improved consistency and clarity. The `space` prop is now deprecated but will continue to work alongside the new `spacing` prop to maintain backward compatibility.
+
+  **Components affected**:
+  - `Box`
+  - `ButtonGroup`
+  - `Card`
+  - `Container`
+  - `Divider`
+  - `Flex`
+  - `Grid`
+
+  **Developer changes**:
+
+  No immediate changes are required. The `space` prop will continue to work as before. However, we recommend migrating to the `spacing` prop at your convenience:
+
+  ```diff
+  - <Flex space="md">
+  + <Flex spacing="md">
+      <Box>...</Box>
+      <Box>...</Box>
+    </Flex>
+  ```
+
+  ```diff
+  - <Grid columns={2} space="lg">
+  + <Grid columns={2} spacing="lg">
+      <Box>...</Box>
+      <Box>...</Box>
+    </Grid>
+  ```
+
+  ```diff
+  - <Container space="xl">
+  + <Container spacing="xl">
+      <Box>...</Box>
+    </Container>
+  ```
+
+  The deprecated `space` prop will be removed in a future major version release.
+
+- [#877](https://github.com/utilitywarehouse/hearth/pull/877) [`2cdf3a2`](https://github.com/utilitywarehouse/hearth/commit/2cdf3a2f4251b24f34c260f3f5da39f8c330fff5) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `autoFocus` prop to `VerificationInput`
+
+  `VerificationInput` now supports an `autoFocus` prop to control whether the first slot should focus on mount.
+  Default is `false` to avoid unexpected focus when the component is used.
+
+  **Developer changes**:
+
+  ```tsx
+  <VerificationInput autoFocus={false} />
+  ```
+
+- [#877](https://github.com/utilitywarehouse/hearth/pull/877) [`2cdf3a2`](https://github.com/utilitywarehouse/hearth/commit/2cdf3a2f4251b24f34c260f3f5da39f8c330fff5) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `VerificationInput` ref methods and improve rapid input handling
+
+  `VerificationInput` now forwards a ref with `focus`, `blur`, `clear`, and `focusIndex` helpers. Input updates also use the latest value to avoid dropped digits when typing quickly.
+
+  **Developer changes**:
+
+  If you want to control focus programmatically, pass a ref:
+
+  ```tsx
+  import { useRef } from 'react';
+  import {
+    VerificationInput,
+    type VerificationInputHandle,
+  } from '@utilitywarehouse/hearth-react-native';
+
+  const inputRef = useRef<VerificationInputHandle>(null);
+
+  <VerificationInput ref={inputRef} onChangeText={setCode} />;
+  ```
+
+### Patch Changes
+
+- [#880](https://github.com/utilitywarehouse/hearth/pull/880) [`a52bb03`](https://github.com/utilitywarehouse/hearth/commit/a52bb03352dd8b83c9cfd3311aaa390e96e75662) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Remove the unsupported `colorScheme` prop from `Banner` types so the API matches the `Card` component.
+
+- [#879](https://github.com/utilitywarehouse/hearth/pull/879) [`383b686`](https://github.com/utilitywarehouse/hearth/commit/383b6860c1b68da139f10a67cd001dd884143df0) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Make `Banner` button full width in vertical layout
+
+- [#878](https://github.com/utilitywarehouse/hearth/pull/878) [`b31b8c3`](https://github.com/utilitywarehouse/hearth/commit/b31b8c3d37d4d1ec3df2f187ec18d00b3e663b49) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Fix `Modal` bottom padding
+
+- [#881](https://github.com/utilitywarehouse/hearth/pull/881) [`5681b8f`](https://github.com/utilitywarehouse/hearth/commit/5681b8fd4bcc73ad532229018049f959f06f77ec) Thanks [@jordmccord](https://github.com/jordmccord)! - 📦 [DEPS]: Bump `@utilitywarehouse/hearth-react-native-icons` peerDependency to 0.8.0
+
 ## 0.18.0
 
 ### Minor Changes
