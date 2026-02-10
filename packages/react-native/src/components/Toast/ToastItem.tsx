@@ -181,7 +181,8 @@ const styles = StyleSheet.create(theme => ({
     width: 24,
     height: 24,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignSelf: 'flex-start',
+    alignItems: 'flex-start',
     flexShrink: 0,
   },
   icon: {
@@ -197,6 +198,7 @@ const styles = StyleSheet.create(theme => ({
   text: { flexShrink: 1 },
   actions: {
     flexShrink: 0,
+    alignSelf: 'flex-start',
   },
 }));
 
