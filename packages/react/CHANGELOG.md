@@ -1,5 +1,16 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.13
+
+### Patch Changes
+
+- [#876](https://github.com/utilitywarehouse/hearth/pull/876) [`d956819`](https://github.com/utilitywarehouse/hearth/commit/d956819308578226cd8f6bb70b65922bd924ba50) Thanks [@robphoenix](https://github.com/robphoenix)! - 📦 [DEPS]: Bump @utilitywarehouse/hearth-react-icons peerDependency to 0.8.0
+
+- [#890](https://github.com/utilitywarehouse/hearth/pull/890) [`9a54516`](https://github.com/utilitywarehouse/hearth/commit/9a54516f8def4dcaa18e8975a777b0e6c69b315d) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `DescriptionListItem` heading width
+
+  Ensure the heading text doesn't wrap unnecessarily, especially when the
+  direction is set to 'column'.
+
 ## 0.24.12
 
 ### Patch Changes
