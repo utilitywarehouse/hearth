@@ -24,7 +24,7 @@ export const DescriptionListItem = ({
   const showValidationText = validationStatus !== undefined && validationText !== undefined;
   return (
     <Flex {...props} className={cn(componentClassName, className)}>
-      <Flex direction={direction} data-direction={direction}>
+      <Flex direction={direction}>
         <dt>{heading}</dt>
         <Flex>
           <dd>{description}</dd>

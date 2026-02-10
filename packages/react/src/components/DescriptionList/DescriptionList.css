@@ -25,10 +25,7 @@
 
   dt {
     color: var(--h-text-secondary);
-
-    &:not([data-direction='column'] &) {
-      width: var(--h-description-list-item-row-heading-width);
-    }
+    min-width: var(--h-description-list-item-row-heading-width);
   }
 
   dd {
