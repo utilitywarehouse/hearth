@@ -10,10 +10,6 @@ figma.connect(
       loading: figma.enum('State', {
         Loading: true,
       }),
-      image: figma.enum('Image?', {
-        False: false,
-        True: true,
-      }),
       heading: figma.string('Heading'),
       description: figma.string('Description'),
       fullscreen: figma.boolean('Full screen?'),
