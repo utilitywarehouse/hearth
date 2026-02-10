@@ -67,11 +67,14 @@ const MyComponent = () => {
 
 ### Menu
 
-| Prop               | Type                             | Default | Description                                         |
-| ------------------ | -------------------------------- | ------- | --------------------------------------------------- |
-| `heading`          | `string`                         | -       | Heading text displayed at the top of the menu       |
-| `children`         | `ReactNode`                      | -       | Menu items to display                               |
-| `bottomSheetProps` | `Partial<BottomSheetModalProps>` | -       | Optional bottom sheet modal props for customization |
+| Prop       | Type        | Default | Description                                   |
+| ---------- | ----------- | ------- | --------------------------------------------- |
+| `heading`  | `string`    | -       | Heading text displayed at the top of the menu |
+| `children` | `ReactNode` | -       | Menu items to display                         |
+
+The rest of the props are passed down to the underlying `BottomSheetModal` component, so you can use any of its
+props for additional configuration (e.g. `snapPoints`, `backgroundStyle`, etc.).
+See the [BottomSheetModal docs](/?path=/docs/components-bottomsheet--docs) for more details.
 
 ### MenuItem
 
