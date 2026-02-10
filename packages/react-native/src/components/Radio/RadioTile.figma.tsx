@@ -1,9 +1,9 @@
 import figma from '@figma/code-connect';
-import Radio from './Radio';
+import { RadioTile } from '../';
 
 figma.connect(
-  Radio,
-  'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=7428-12685&m=dev',
+  RadioTile,
+  'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=3138-13222&t=Uq6QfQcygdNGv5lM-4',
   {
     props: {
       helperText: figma.boolean('Helper text?', {
@@ -13,9 +13,6 @@ figma.connect(
       image: figma.boolean('Image?', {
         true: figma.instance('Radio Image'),
       }),
-      state: figma.enum('State', {
-        Default: 'default',
-      }),
       checked: figma.boolean('Checked?'),
       indicator: figma.nestedProps('Radio Item', {
         disabled: figma.enum('State', {
@@ -24,11 +21,10 @@ figma.connect(
       }),
     },
     example: props => (
-      <Radio
+      <RadioTile
         label={props.label}
         helperText={props.helperText}
         image={props.image}
-        state={props.state}
         checked={props.checked}
         disabled={props.indicator.disabled}
         value="someValue"
