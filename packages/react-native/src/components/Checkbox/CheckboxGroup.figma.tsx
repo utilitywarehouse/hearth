@@ -3,6 +3,10 @@ import { CheckboxGroup } from '../';
 
 const props = {
   label: figma.string('Group label'),
+  labelVariant: figma.enum('Label variant', {
+    Heading: 'heading',
+    Body: 'body',
+  }),
   helperText: figma.boolean('Helper text?', {
     true: figma.string('Helper text'),
     false: undefined,
@@ -13,6 +17,12 @@ const props = {
   }),
   tiles: figma.children('Checkbox Tile'),
   checkboxes: figma.children('Checkbox'),
+  validationStatus: figma.enum('State', {
+    Invalid: 'invalid',
+  }),
+  invalidText: figma.enum('State', {
+    Invalid: figma.string('Validation text'),
+  }),
 };
 
 figma.connect(
@@ -27,8 +37,11 @@ figma.connect(
       <CheckboxGroup
         type="tile"
         label={props.label}
+        labelVariant={props.labelVariant}
         helperText={props.helperText}
         direction={props.direction}
+        validationStatus={props.validationStatus}
+        invalidText={props.invalidText}
       >
         {props.tiles}
       </CheckboxGroup>
@@ -45,7 +58,14 @@ figma.connect(
     },
     props,
     example: props => (
-      <CheckboxGroup label={props.label} helperText={props.helperText} direction={props.direction}>
+      <CheckboxGroup
+        label={props.label}
+        labelVariant={props.labelVariant}
+        helperText={props.helperText}
+        direction={props.direction}
+        validationStatus={props.validationStatus}
+        invalidText={props.invalidText}
+      >
         {props.checkboxes}
       </CheckboxGroup>
     ),
