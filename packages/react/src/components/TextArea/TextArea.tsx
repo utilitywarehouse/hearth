@@ -64,14 +64,10 @@ export const TextArea = (props: TextAreaProps) => {
     <FormField
       data-validation-status={validationStatus ? validationStatus : undefined}
       data-disabled={disabled ? '' : undefined}
+      className={cn(componentClassName, className)}
       {...formFieldProps}
     >
-      <Box
-        asChild
-        className={cn(componentClassName, className)}
-        minHeight={minHeight}
-        maxHeight={maxHeight}
-      >
+      <Box asChild minHeight={minHeight} maxHeight={maxHeight}>
         <textarea
           id={id}
           rows={rows}

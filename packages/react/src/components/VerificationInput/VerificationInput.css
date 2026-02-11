@@ -1,14 +1,16 @@
 .h-VerificationInput {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--h-input-verification-gap);
+  & :where(.h-VerificationInputRoot) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--h-input-verification-gap);
 
-  & :where(.h-InputBase) {
-    width: 48px;
+    & :where(.h-InputBase) {
+      width: 48px;
 
-    & :where(input) {
-      text-align: center;
+      & :where(input) {
+        text-align: center;
+      }
     }
   }
 }
