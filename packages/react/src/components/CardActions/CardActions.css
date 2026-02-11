@@ -1,14 +1,24 @@
 .h-CardActions {
+  &:where([data-card-variant='emphasis'] &) {
+    --h-card-actions-border-width: var(--h-border-width-2);
+    --h-card-actions-border-color: var(--h-border-strong);
+  }
+
+  &:where([data-card-variant='subtle'] &) {
+    --h-card-actions-border-width: var(--h-border-width-1);
+    --h-card-actions-border-color: var(--h-border-subtle);
+  }
+
   & :where(.h-CardActionsItem) {
     display: flex;
     position: relative;
 
     &:where([data-direction='column'] &):not(:first-child) {
-      border-top: var(--h-border-width-2) solid var(--h-border-strong);
+      border-top: var(--h-card-actions-border-width) solid var(--h-card-actions-border-color);
     }
 
     &:where([data-direction='row'] &):not(:first-child) {
-      border-left: var(--h-border-width-2) solid var(--h-border-strong);
+      border-left: var(--h-card-actions-border-width) solid var(--h-card-actions-border-color);
     }
   }
 }

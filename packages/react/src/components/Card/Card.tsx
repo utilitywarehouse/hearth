@@ -38,6 +38,7 @@ export const Card = (props: CardProps) => {
       className={cn(componentClassName, className)}
       data-colorscheme={kebabCase(colorScheme)}
       data-shadowcolor={shadowColor}
+      data-card-variant={props.variant}
       {...cardProps}
       as="div"
     >
