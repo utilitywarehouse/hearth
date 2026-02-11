@@ -8,8 +8,8 @@ export default create({
   fontBase: '"DM Sans", sans-serif',
   fontCode: '"DM Mono", monospace',
 
-  brandTitle: 'UW Hearth - Design System',
-  brandUrl: 'https://hearth.uw.co.uk/',
+  brandTitle: 'Hearth Design Systems',
+  brandUrl: 'https://hearth.prod.uw.systems/',
   brandImage: logo,
   brandTarget: '_self',
 
