@@ -1,6 +1,6 @@
 {
   "name": "@utilitywarehouse/hearth-react",
-  "version": "0.24.13",
+  "version": "0.24.14",
   "description": "React components",
   "type": "module",
   "main": "./dist/index.cjs",
