@@ -9,7 +9,7 @@ const props = {
     Placeholder: figma.string('Value'),
   }),
   value: figma.enum('Value type', {
-    Filled: figma.string('Value'),
+    Filled: figma.string('Value 1'),
   }),
   label: figma.string('Label'),
   labelVariant: figma.enum('Label variant', {
