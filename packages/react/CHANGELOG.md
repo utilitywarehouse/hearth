@@ -1,5 +1,13 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.14
+
+### Patch Changes
+
+- [#895](https://github.com/utilitywarehouse/hearth/pull/895) [`6190fcb`](https://github.com/utilitywarehouse/hearth/commit/6190fcbd23d2f6117f9a23c11c938c79d46325af) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Styles incorrectly applied on `TextInput`, `TextArea` & `VerificationInput`
+
+  Thank you @msrch for finding the issue and pinpointing its cause. 🙌
+
 ## 0.24.13
 
 ### Patch Changes
