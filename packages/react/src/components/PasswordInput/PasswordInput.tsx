@@ -9,8 +9,8 @@ import { InputSlot } from '../InputSlot/InputSlot';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { EyeOffSmallIcon, EyeSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
-import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 import type { InputBaseElement } from '../InputBase/InputBase';
+import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 
 const COMPONENT_NAME = 'PasswordInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
