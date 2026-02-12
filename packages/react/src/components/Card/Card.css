@@ -144,6 +144,7 @@
       &:where([data-card-variant='emphasis'] &) {
         border-top: var(--h-border-width-2) solid var(--h-border-strong);
       }
+
       &:where([data-card-variant='subtle'] &) {
         border-top: var(--h-border-width-1) solid var(--h-border-subtle);
       }
