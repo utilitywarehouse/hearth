@@ -10,82 +10,87 @@ import { marginPropDefs } from '../../props/margin.props';
 import { InputBase } from '../InputBase/InputBase';
 import { cn } from '../../helpers/cn';
 import { mergeIds } from '../../helpers/merge-ids';
+import type { ComponentRef } from 'react';
+import React from 'react';
 
 const COMPONENT_NAME = 'VerificationInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const VerificationInput = (props: VerificationInputProps) => {
-  const {
-    className,
-    disabled,
-    readOnly,
-    label,
-    labelVariant,
-    helperText,
-    validationText,
-    validationStatus,
-    required,
-    id: providedId,
-    'aria-describedby': ariaDescribedby,
-    ref,
-    ...verificationInputProps
-  } = extractProps(props, marginPropDefs);
+export type VerificationInputElement = ComponentRef<'input'>;
 
-  const { id, labelId, helperTextId, validationTextId } = useIds({
-    providedId,
-    prefix: 'verification-input',
-  });
+export const VerificationInput = React.forwardRef<VerificationInputElement, VerificationInputProps>(
+  (props, ref) => {
+    const {
+      className,
+      disabled,
+      readOnly,
+      label,
+      labelVariant,
+      helperText,
+      validationText,
+      validationStatus,
+      required,
+      id: providedId,
+      'aria-describedby': ariaDescribedby,
+      ...verificationInputProps
+    } = extractProps(props, marginPropDefs);
 
-  const showValidation = Boolean(!readOnly && !disabled);
+    const { id, labelId, helperTextId, validationTextId } = useIds({
+      providedId,
+      prefix: 'verification-input',
+    });
 
-  const formFieldProps = {
-    id,
-    labelId,
-    helperTextId,
-    validationTextId,
-    label,
-    labelVariant,
-    helperText,
-    validationText: showValidation ? validationText : undefined,
-    validationStatus: showValidation ? validationStatus : undefined,
-    required,
-  };
+    const showValidation = Boolean(!readOnly && !disabled);
 
-  const ariaDescribedbyValue = mergeIds(
-    ariaDescribedby,
-    !!helperText ? helperTextId : undefined,
-    showValidation && validationText !== undefined ? validationTextId : undefined
-  );
+    const formFieldProps = {
+      id,
+      labelId,
+      helperTextId,
+      validationTextId,
+      label,
+      labelVariant,
+      helperText,
+      validationText: showValidation ? validationText : undefined,
+      validationStatus: showValidation ? validationStatus : undefined,
+      required,
+    };
 
-  const PASSWORD_LENGTH = 6;
+    const ariaDescribedbyValue = mergeIds(
+      ariaDescribedby,
+      !!helperText ? helperTextId : undefined,
+      showValidation && validationText !== undefined ? validationTextId : undefined
+    );
 
-  return (
-    <FormField
-      className={cn(componentClassName, className)}
-      data-disabled={disabled ? '' : undefined}
-      {...formFieldProps}
-    >
-      <OneTimePasswordFieldPrimitive.Root
-        className={`${componentClassName}Root`}
-        disabled={disabled}
-        readOnly={readOnly}
-        aria-labelledby={labelId}
-        aria-describedby={ariaDescribedbyValue}
-        aria-invalid={validationStatus === 'invalid' ? true : undefined}
-        aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
-        data-validation-status={showValidation ? validationStatus : undefined}
-        {...verificationInputProps}
+    const PASSWORD_LENGTH = 6;
+
+    return (
+      <FormField
+        className={cn(componentClassName, className)}
+        data-disabled={disabled ? '' : undefined}
+        {...formFieldProps}
       >
-        {Array.from({ length: PASSWORD_LENGTH }).map((_, i) => (
-          <OneTimePasswordFieldPrimitive.Input key={i} asChild>
-            <InputBase />
-          </OneTimePasswordFieldPrimitive.Input>
-        ))}
+        <OneTimePasswordFieldPrimitive.Root
+          className={`${componentClassName}Root`}
+          disabled={disabled}
+          readOnly={readOnly}
+          aria-labelledby={labelId}
+          aria-describedby={ariaDescribedbyValue}
+          aria-invalid={validationStatus === 'invalid' ? true : undefined}
+          aria-errormessage={validationStatus === 'invalid' ? validationTextId : undefined}
+          data-validation-status={showValidation ? validationStatus : undefined}
+          {...verificationInputProps}
+        >
+          {Array.from({ length: PASSWORD_LENGTH }).map((_, i) => (
+            <OneTimePasswordFieldPrimitive.Input key={i} asChild>
+              <InputBase />
+            </OneTimePasswordFieldPrimitive.Input>
+          ))}
 
-        <OneTimePasswordFieldPrimitive.HiddenInput ref={ref} />
-      </OneTimePasswordFieldPrimitive.Root>
-    </FormField>
-  );
-};
+          <OneTimePasswordFieldPrimitive.HiddenInput ref={ref} />
+        </OneTimePasswordFieldPrimitive.Root>
+      </FormField>
+    );
+  }
+);
 
 VerificationInput.displayName = COMPONENT_NAME;

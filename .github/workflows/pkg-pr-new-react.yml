@@ -16,7 +16,7 @@ jobs:
   preview:
     name: Build
     runs-on: ubuntu-latest
-    if: github.event.label.name == 'pkg-pr-new'
+    if: github.event.label.name != 'skip-pkg-pr-new'
     steps:
       - name: Harden the runner (Audit all outbound calls)
         uses: step-security/harden-runner@e3f713f2d8f53843e71c69a996d56f51aa9adfb9 # v2.14.1
@@ -39,6 +39,6 @@ jobs:
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
 
-      - run: pnpm dlx pkg-pr-new publish ./packages/react ./packages/css-reset --packageManager=yarn,pnpm
+      - run: pnpm dlx pkg-pr-new publish ./packages/react ./packages/css-reset --packageManager=yarn,pnpm,npm
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
