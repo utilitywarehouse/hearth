@@ -376,7 +376,7 @@
   --h-select-padding-horizontal: var(--h-space-200);
   --h-select-padding-vertical: var(--h-space-150);
   --h-select-validation-gap: var(--h-space-25);
-  --h-skeleton-loading-color: var(--h-color-warm-white-100);
+  --h-skeleton-loading-color: var(--h-color-warm-white-200);
   --h-spinner-default-fill: var(--h-color-purple-700);
   --h-spinner-lg-size: 40px;
   --h-spinner-lg-stroke-width: 3;
