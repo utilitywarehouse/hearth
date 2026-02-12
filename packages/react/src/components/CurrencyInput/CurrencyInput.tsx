@@ -112,7 +112,7 @@ export const CurrencyInput = React.forwardRef<InputBaseElement, CurrencyInputPro
 
     // Restore cursor position after render
     React.useEffect(() => {
-      if (internalRef.current && cursorPositionRef.current !== null) {
+      if (internalRef && internalRef.current && cursorPositionRef.current !== null) {
         internalRef.current.setSelectionRange(cursorPositionRef.current, cursorPositionRef.current);
         cursorPositionRef.current = null;
       }
