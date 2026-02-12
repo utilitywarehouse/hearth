@@ -3,11 +3,14 @@
     display: flex;
     position: relative;
 
+    /* the card border custom properties are set in the parent Card css */
     &:where([data-direction='column'] &):not(:first-child) {
+      /* stylelint-disable csstools/value-no-unknown-custom-properties */
       border-top: var(--h-card-border-width) solid var(--h-card-border-color);
     }
 
     &:where([data-direction='row'] &):not(:first-child) {
+      /* stylelint-disable csstools/value-no-unknown-custom-properties */
       border-left: var(--h-card-border-width) solid var(--h-card-border-color);
     }
   }
