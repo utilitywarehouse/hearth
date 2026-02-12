@@ -1,6 +1,6 @@
 import { View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { useStyleProps } from 'src/hooks';
+import { useStyleProps } from '../../hooks';
 import FlexProps from './Flex.props';
 
 const Flex = ({

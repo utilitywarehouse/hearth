@@ -166,12 +166,12 @@ const meta = {
       description: 'The space between child elements.',
     },
     backgroundColor: {
-      options: ['backgroundBrand', 'backgroundPrimary', 'backgroundSecondary', 'transparent'],
+      options: ['brand', 'primary', 'secondary', 'transparent'],
       control: 'select',
       description: 'The background color of the container.',
     },
     bg: {
-      options: ['backgroundBrand', 'backgroundPrimary', 'backgroundSecondary', 'transparent'],
+      options: ['brand', 'primary', 'secondary', 'transparent'],
       control: 'select',
       description: 'The background color of the container.',
     },
