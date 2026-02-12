@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.15
+
+### Patch Changes
+
+- [#907](https://github.com/utilitywarehouse/hearth/pull/907) [`a9e2a40`](https://github.com/utilitywarehouse/hearth/commit/a9e2a40d0a2ce05284d84aa0f02f7b0618061b07) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `CurrencyInput` styles
+
+- [#908](https://github.com/utilitywarehouse/hearth/pull/908) [`c870ad4`](https://github.com/utilitywarehouse/hearth/commit/c870ad4f829cfc193d80ec67a87367e91c3d9153) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Ensure refs are forwarded for input components
+
+- [#915](https://github.com/utilitywarehouse/hearth/pull/915) [`6f29e1e`](https://github.com/utilitywarehouse/hearth/commit/6f29e1eb911d989c1ee0eea85c72a70f72362a4b) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `CardActions` will now inherit the parent `Card` border styles
+
+- [#916](https://github.com/utilitywarehouse/hearth/pull/916) [`54248d0`](https://github.com/utilitywarehouse/hearth/commit/54248d07199ea3c427b9d22a8016e1431dc78162) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `CardActions` width
+
 ## 0.24.14
 
 ### Patch Changes
