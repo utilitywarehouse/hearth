@@ -9,6 +9,7 @@ import { InputSlot } from '../InputSlot/InputSlot';
 import type { CurrencyInputProps } from './CurrencyInput.props';
 import { DetailText } from '../DetailText/DetailText';
 import type { InputBaseElement } from '../InputBase/InputBase';
+import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 
 const COMPONENT_NAME = 'CurrencyInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -28,11 +29,10 @@ export const CurrencyInput = React.forwardRef<InputBaseElement, CurrencyInputPro
   ) => {
     const maxDecimals = 2;
     const [internalValue, setInternalValue] = React.useState<string>('');
-    const internalInputRef = React.useRef<HTMLInputElement>(null);
+    const internalRef = React.useRef<HTMLInputElement>(null);
     const cursorPositionRef = React.useRef<number | null>(null);
 
-    // Merge forwardedRef with internalInputRef
-    React.useImperativeHandle(forwardedRef, () => internalInputRef.current as InputBaseElement);
+    const inputRef = useMergedRefs(forwardedRef, internalRef);
 
     const isControlled = controlledValue !== undefined;
     const numericValue = isControlled ? String(controlledValue ?? '') : internalValue;
@@ -112,18 +112,15 @@ export const CurrencyInput = React.forwardRef<InputBaseElement, CurrencyInputPro
 
     // Restore cursor position after render
     React.useEffect(() => {
-      if (internalInputRef.current && cursorPositionRef.current !== null) {
-        internalInputRef.current.setSelectionRange(
-          cursorPositionRef.current,
-          cursorPositionRef.current
-        );
+      if (internalRef.current && cursorPositionRef.current !== null) {
+        internalRef.current.setSelectionRange(cursorPositionRef.current, cursorPositionRef.current);
         cursorPositionRef.current = null;
       }
     });
 
     return (
       <TextInput
-        ref={internalInputRef}
+        ref={inputRef}
         className={cn(componentClassName, className)}
         type="text"
         inputMode="decimal"

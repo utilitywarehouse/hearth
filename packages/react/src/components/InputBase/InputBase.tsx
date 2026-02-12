@@ -15,10 +15,10 @@ export type InputBaseElement = ComponentRef<'input'>;
 // https://linear.app/utilitywarehouse/issue/UWDS-4232/broken-combobox
 export const InputBase = React.forwardRef<InputBaseElement, InputBaseProps>(
   ({ className, children, disabled, readOnly, required, placeholder, ...props }, forwardedRef) => {
-    const localRef = React.useRef<HTMLInputElement>(null);
+    const internalRef = React.useRef<HTMLInputElement>(null);
     // merge refs so we can control focus but still allow parent components to
     // have a ref to the input
-    const ref = useMergedRefs(forwardedRef, localRef);
+    const inputRef = useMergedRefs(forwardedRef, internalRef);
     return (
       <div
         className={cn(componentClassName, className)}
@@ -28,8 +28,8 @@ export const InputBase = React.forwardRef<InputBaseElement, InputBaseProps>(
           const target = event.target as HTMLElement;
           if (target.closest('input, button, a')) return;
 
-          if (localRef && typeof localRef === 'object' && localRef.current) {
-            const input = localRef.current;
+          if (internalRef && typeof internalRef === 'object' && internalRef.current) {
+            const input = internalRef.current;
             requestAnimationFrame(() => {
               input.focus();
             });
@@ -37,7 +37,7 @@ export const InputBase = React.forwardRef<InputBaseElement, InputBaseProps>(
         }}
       >
         <input
-          ref={ref}
+          ref={inputRef}
           spellCheck="false"
           required={required}
           disabled={disabled}
