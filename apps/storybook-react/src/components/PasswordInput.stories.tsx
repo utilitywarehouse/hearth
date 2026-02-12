@@ -90,7 +90,12 @@ export const FormUsage: Story = {
           />
         </Flex>
         <Flex asChild gap="100" alignItems="end">
-          <form onSubmit={() => false}>
+          <form
+            onSubmit={event => {
+              console.log({ value });
+              event.preventDefault();
+            }}
+          >
             <PasswordInput
               {...args}
               label="Inside form"

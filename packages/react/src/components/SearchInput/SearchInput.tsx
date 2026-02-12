@@ -10,7 +10,8 @@ import { Spinner } from '../Spinner/Spinner';
 import { CloseSmallIcon, SearchMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
 import * as React from 'react';
-import { InputBaseElement } from '../InputBase/InputBase';
+import type { InputBaseElement } from '../InputBase/InputBase';
+import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 
 const COMPONENT_NAME = 'SearchInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -30,8 +31,8 @@ export const SearchInput = React.forwardRef<InputBaseElement, SearchInputProps>(
     },
     forwardedRef
   ) => {
-    const defaultRef = React.useRef<HTMLInputElement | null>(null);
-    const inputRef = forwardedRef || defaultRef;
+    const internalRef = React.useRef<HTMLInputElement | null>(null);
+    const inputRef = useMergedRefs(forwardedRef, internalRef);
 
     const handleClear = React.useCallback(
       (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -40,11 +41,11 @@ export const SearchInput = React.forwardRef<InputBaseElement, SearchInputProps>(
         }
         onClear();
 
-        if (inputRef && typeof inputRef === 'object' && inputRef.current) {
-          inputRef.current.focus();
+        if (internalRef && typeof internalRef === 'object' && internalRef.current) {
+          internalRef.current.focus();
         }
       },
-      [inputRef, onClear]
+      [internalRef, onClear]
     );
 
     const { id } = useIds({ providedId, prefix: 'search-input' });

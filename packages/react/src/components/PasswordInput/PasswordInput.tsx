@@ -10,14 +10,16 @@ import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { EyeOffSmallIcon, EyeSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
 import type { InputBaseElement } from '../InputBase/InputBase';
+import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 
 const COMPONENT_NAME = 'PasswordInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const PasswordInput = React.forwardRef<InputBaseElement, PasswordInputProps>(
   ({ className, disabled, id: providedId, ...props }, forwardedRef) => {
-    const defaultRef = React.useRef<HTMLInputElement | null>(null);
-    const inputRef = forwardedRef || defaultRef;
+    const internalRef = React.useRef<HTMLInputElement | null>(null);
+    const inputRef = useMergedRefs(forwardedRef, internalRef);
+
     const [visible, setVisible] = React.useState(false);
     const [showVisibilityMessage, setShowVisibilityMessage] = React.useState(false);
 
@@ -33,15 +35,16 @@ export const PasswordInput = React.forwardRef<InputBaseElement, PasswordInputPro
     React.useEffect(() => {
       // Get the ref value and ensure proper typing
       let currentElement: HTMLInputElement | null = null;
-      if (inputRef && typeof inputRef === 'object' && inputRef.current) {
+      if (internalRef && typeof internalRef === 'object' && internalRef.current) {
         // Type assertion to ensure TypeScript understands this is a valid ref object
-        const refObject = inputRef as React.RefObject<HTMLInputElement>;
+        const refObject = internalRef as React.RefObject<HTMLInputElement>;
         currentElement = refObject.current;
       }
 
       const handleSubmit = () => {
         if (currentElement?.type) {
           currentElement.type = 'password';
+          setVisible(false);
         }
       };
 
@@ -53,7 +56,7 @@ export const PasswordInput = React.forwardRef<InputBaseElement, PasswordInputPro
           currentElement.form.removeEventListener('submit', handleSubmit);
         }
       };
-    }, [inputRef]);
+    }, [internalRef]);
 
     const visibilityMessage = `Your password is ${visible ? 'shown' : 'hidden'}!`;
 
