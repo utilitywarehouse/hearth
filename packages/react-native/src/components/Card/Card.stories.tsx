@@ -77,29 +77,60 @@ export const Playground: Story = {
 export const WithActions: Story = {
   render: ({ children, ...props }) => {
     return (
-      <Card {...props} flexDirection="column" alignItems="stretch" spacing="md" variant="emphasis">
-        <BodyText>{children as string}</BodyText>
-        <CardActions>
-          <CardAction
-            onPress={() => console.log('Card action pressed')}
-            heading="Card Action Head"
-            helperText="Some helper text"
-            leadingIcon={BellMediumIcon}
-          />
-          <CardAction
-            onPress={() => console.log('Card action pressed')}
-            heading="Card Action Head"
-            leadingIcon={BellMediumIcon}
-          />
-          <CardAction
-            onPress={() => console.log('Card action pressed')}
-            heading="Card Action Head"
-            helperText="Testing"
-            leadingIcon={BellMediumIcon}
-            iconContainer={false}
-          />
-        </CardActions>
-      </Card>
+      <Flex gap="400">
+        <Card
+          {...props}
+          flexDirection="column"
+          alignItems="stretch"
+          spacing="md"
+          variant="emphasis"
+        >
+          <BodyText>{children as string}</BodyText>
+          <CardActions>
+            <CardAction
+              onPress={() => console.log('Card action pressed')}
+              heading="Card Action Head"
+              helperText="Some helper text"
+              leadingIcon={BellMediumIcon}
+            />
+            <CardAction
+              onPress={() => console.log('Card action pressed')}
+              heading="Card Action Head"
+              leadingIcon={BellMediumIcon}
+            />
+            <CardAction
+              onPress={() => console.log('Card action pressed')}
+              heading="Card Action Head"
+              helperText="Testing"
+              leadingIcon={BellMediumIcon}
+              iconContainer={false}
+            />
+          </CardActions>
+        </Card>
+        <Card {...props} flexDirection="column" alignItems="stretch" spacing="md" variant="subtle">
+          <BodyText>{children as string}</BodyText>
+          <CardActions>
+            <CardAction
+              onPress={() => console.log('Card action pressed')}
+              heading="Card Action Head"
+              helperText="Some helper text"
+              leadingIcon={BellMediumIcon}
+            />
+            <CardAction
+              onPress={() => console.log('Card action pressed')}
+              heading="Card Action Head"
+              leadingIcon={BellMediumIcon}
+            />
+            <CardAction
+              onPress={() => console.log('Card action pressed')}
+              heading="Card Action Head"
+              helperText="Testing"
+              leadingIcon={BellMediumIcon}
+              iconContainer={false}
+            />
+          </CardActions>
+        </Card>
+      </Flex>
     );
   },
 };
