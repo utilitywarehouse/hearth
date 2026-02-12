@@ -9,7 +9,7 @@ import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 const COMPONENT_NAME = 'InputBase';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type InputBaseElement = ComponentRef<'input'>;
+export type InputBaseElement = ComponentRef<'input'>;
 
 // We're keeping the forwardRef API here for backwards compatibility with consumers using Combobox in React 18 applications
 // https://linear.app/utilitywarehouse/issue/UWDS-4232/broken-combobox

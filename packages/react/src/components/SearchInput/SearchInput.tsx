@@ -10,76 +10,81 @@ import { Spinner } from '../Spinner/Spinner';
 import { CloseSmallIcon, SearchMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
 import * as React from 'react';
+import { InputBaseElement } from '../InputBase/InputBase';
 
 const COMPONENT_NAME = 'SearchInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const SearchInput = ({
-  className,
-  disabled,
-  value,
-  onClear,
-  loading,
-  hideLabel = true,
-  helperText,
-  id: providedId,
-  ref: forwardedRef,
-  ...props
-}: SearchInputProps) => {
-  const defaultRef = React.useRef<HTMLInputElement | null>(null);
-  const inputRef = forwardedRef || defaultRef;
-
-  const handleClear = React.useCallback(
-    (event: React.MouseEvent<HTMLButtonElement>) => {
-      if (typeof onClear !== 'function' || event.button !== 0) {
-        return;
-      }
-      onClear();
-
-      if (inputRef && typeof inputRef === 'object' && inputRef.current) {
-        inputRef.current.focus();
-      }
+export const SearchInput = React.forwardRef<InputBaseElement, SearchInputProps>(
+  (
+    {
+      className,
+      disabled,
+      value,
+      onClear,
+      loading,
+      hideLabel = true,
+      helperText,
+      id: providedId,
+      ...props
     },
-    [inputRef, onClear]
-  );
+    forwardedRef
+  ) => {
+    const defaultRef = React.useRef<HTMLInputElement | null>(null);
+    const inputRef = forwardedRef || defaultRef;
 
-  const { id } = useIds({ providedId, prefix: 'search-input' });
+    const handleClear = React.useCallback(
+      (event: React.MouseEvent<HTMLButtonElement>) => {
+        if (typeof onClear !== 'function' || event.button !== 0) {
+          return;
+        }
+        onClear();
 
-  return (
-    <TextInput
-      ref={inputRef}
-      className={cn(componentClassName, className)}
-      type="search"
-      enterKeyHint="search"
-      disabled={disabled}
-      hideLabel={hideLabel}
-      helperText={helperText}
-      value={value}
-      id={id}
-      {...props}
-    >
-      <InputSlot placement="prefix">
-        <SearchMediumIcon />
-      </InputSlot>
-      {loading ? (
-        <InputSlot placement="suffix">
-          <Spinner size="xs" color="primary" />
+        if (inputRef && typeof inputRef === 'object' && inputRef.current) {
+          inputRef.current.focus();
+        }
+      },
+      [inputRef, onClear]
+    );
+
+    const { id } = useIds({ providedId, prefix: 'search-input' });
+
+    return (
+      <TextInput
+        ref={inputRef}
+        className={cn(componentClassName, className)}
+        type="search"
+        enterKeyHint="search"
+        disabled={disabled}
+        hideLabel={hideLabel}
+        helperText={helperText}
+        value={value}
+        id={id}
+        {...props}
+      >
+        <InputSlot placement="prefix">
+          <SearchMediumIcon />
         </InputSlot>
-      ) : null}
-      {value !== undefined && String(value).length > 0 ? (
-        <InputSlot placement="suffix">
-          <UnstyledIconButton
-            type="button"
-            label="clear search"
-            onClick={handleClear}
-            disabled={disabled}
-          >
-            <CloseSmallIcon />
-          </UnstyledIconButton>
-        </InputSlot>
-      ) : null}
-    </TextInput>
-  );
-};
+        {loading ? (
+          <InputSlot placement="suffix">
+            <Spinner size="xs" color="primary" />
+          </InputSlot>
+        ) : null}
+        {value !== undefined && String(value).length > 0 ? (
+          <InputSlot placement="suffix">
+            <UnstyledIconButton
+              type="button"
+              label="clear search"
+              onClick={handleClear}
+              disabled={disabled}
+            >
+              <CloseSmallIcon />
+            </UnstyledIconButton>
+          </InputSlot>
+        ) : null}
+      </TextInput>
+    );
+  }
+);
 
 SearchInput.displayName = COMPONENT_NAME;
