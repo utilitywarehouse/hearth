@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { Container } from '.';
 import { lightTheme } from '../../core/themes';
+import { useTheme } from '../../hooks';
 import { BodyText } from '../BodyText';
 import { Box } from '../Box';
 
@@ -185,51 +186,60 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
-  render: args => (
-    <Box backgroundColor="red100">
-      <Container {...args} backgroundColor="backgroundSecondary">
-        <Box bg="blue400" p="200" borderRadius="md">
-          <BodyText>Container content 1</BodyText>
-        </Box>
-        <Box bg="purple400" p="200" borderRadius="md">
-          <BodyText>Container content 2</BodyText>
-        </Box>
-        <Box bg="piggyPink400" p="200" borderRadius="md">
-          <BodyText>Container content 3</BodyText>
-        </Box>
-      </Container>
-    </Box>
-  ),
+  render: args => {
+    const { color } = useTheme();
+    return (
+      <Box backgroundColor={color.red['100']}>
+        <Container {...args} backgroundColor="secondary">
+          <Box bg={color.blue['400']} p="200" borderRadius="md">
+            <BodyText>Container content 1</BodyText>
+          </Box>
+          <Box bg={color.purple['400']} p="200" borderRadius="md">
+            <BodyText>Container content 2</BodyText>
+          </Box>
+          <Box bg={color.piggyPink['400']} p="200" borderRadius="md">
+            <BodyText>Container content 3</BodyText>
+          </Box>
+        </Container>
+      </Box>
+    );
+  },
 };
 
 export const WithPadding: Story = {
   args: {
     padding: '300',
   },
-  render: args => (
-    <Box backgroundColor="red100">
-      <Container {...args} backgroundColor="backgroundSecondary">
-        <Box bg="blue400" p="200" borderRadius="md">
-          <BodyText>Container with padding</BodyText>
-        </Box>
-      </Container>
-    </Box>
-  ),
+  render: args => {
+    const { color } = useTheme();
+    return (
+      <Box backgroundColor={color.red['100']}>
+        <Container {...args} backgroundColor="secondary">
+          <Box bg={color.blue['400']} p="200" borderRadius="md">
+            <BodyText>Container with padding</BodyText>
+          </Box>
+        </Container>
+      </Box>
+    );
+  },
 };
 
 export const WithMargin: Story = {
   args: {
     margin: '300',
   },
-  render: args => (
-    <Box backgroundColor="red100">
-      <Container {...args} backgroundColor="backgroundSecondary">
-        <Box bg="blue400" p="200" borderRadius="md">
-          <BodyText>Container with margin</BodyText>
-        </Box>
-      </Container>
-    </Box>
-  ),
+  render: args => {
+    const { color } = useTheme();
+    return (
+      <Box backgroundColor={color.red['100']}>
+        <Container {...args} backgroundColor="secondary">
+          <Box bg={color.blue['400']} p="200" borderRadius="md">
+            <BodyText>Container with margin</BodyText>
+          </Box>
+        </Container>
+      </Box>
+    );
+  },
 };
 
 export const WithCustomSpacing: Story = {
@@ -238,37 +248,43 @@ export const WithCustomSpacing: Story = {
     paddingHorizontal: '200',
     paddingVertical: '300',
   },
-  render: args => (
-    <Box backgroundColor="red100">
-      <Container {...args} backgroundColor="backgroundSecondary">
-        <Box bg="blue400" p="200" borderRadius="md">
-          <BodyText>Item 1</BodyText>
-        </Box>
-        <Box bg="purple400" p="200" borderRadius="md">
-          <BodyText>Item 2</BodyText>
-        </Box>
-        <Box bg="piggyPink400" p="200" borderRadius="md">
-          <BodyText>Item 3</BodyText>
-        </Box>
-        <Box bg="orange400" p="200" borderRadius="md">
-          <BodyText>Item 4</BodyText>
-        </Box>
-      </Container>
-    </Box>
-  ),
+  render: args => {
+    const { color } = useTheme();
+    return (
+      <Box backgroundColor={color.red['100']}>
+        <Container {...args} backgroundColor="secondary">
+          <Box bg={color.blue['400']} p="200" borderRadius="md">
+            <BodyText>Item 1</BodyText>
+          </Box>
+          <Box bg={color.purple['400']} p="200" borderRadius="md">
+            <BodyText>Item 2</BodyText>
+          </Box>
+          <Box bg={color.piggyPink['400']} p="200" borderRadius="md">
+            <BodyText>Item 3</BodyText>
+          </Box>
+          <Box bg={color.orange['400']} p="200" borderRadius="md">
+            <BodyText>Item 4</BodyText>
+          </Box>
+        </Container>
+      </Box>
+    );
+  },
 };
 
 export const LayoutTokens: Story = {
-  render: () => (
-    <Box backgroundColor="red100">
-      <Container backgroundColor="backgroundSecondary">
-        <Box bg="blue100" p="200" borderRadius="md">
-          <BodyText>
-            This Container uses the responsive layout tokens from the design system. It will
-            automatically adjust margin and padding based on the current breakpoint.
-          </BodyText>
-        </Box>
-      </Container>
-    </Box>
-  ),
+  render: () => {
+    const { color } = useTheme();
+    return (
+      <Box backgroundColor={color.red['100']}>
+        <Container backgroundColor="secondary">
+          <Box bg={color.blue['100']} p="200" borderRadius="md">
+            <BodyText>
+              This Container uses the responsive layout tokens from the design system. It will
+              automatically adjust margin and padding based on the current breakpoint.
+            </BodyText>
+          </Box>
+        </Container>
+      </Box>
+    );
+  },
 };

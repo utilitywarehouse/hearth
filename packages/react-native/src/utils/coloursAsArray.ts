@@ -1,4 +1,5 @@
 import { color } from '../tokens';
+import semanticColors from '../tokens/semantic-light';
 
 const { light, ...restOfColors } = color;
 
@@ -57,3 +58,8 @@ export default function coloursAsArray(): Array<string> {
 
   return [...primitiveColors, ...primitiveColorValues, ...semanticColorValues];
 }
+
+export const backgroundColorKeys = Object.keys(semanticColors.background);
+export const borderColorKeys = Object.keys(semanticColors.border);
+export const textColorKeys = Object.keys(semanticColors.text);
+export const iconColorKeys = Object.keys(semanticColors.icon);

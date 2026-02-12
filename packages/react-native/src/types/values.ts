@@ -57,16 +57,13 @@ export type FlattenColorKeys<T> =
       }[keyof T]
     : never;
 
+export type RawColorValue = 'transparent' | HSLA | HSL | RGB | RGBA | HEX;
+
 export type ColorValue =
   | 'currentColor'
-  | 'transparent'
+  | RawColorValue
   | FlattenColorKeys<Omit<typeof color, 'light' | 'dark'> & { white: '#ffffff'; black: '#000000' }>
   | FlattenColorKeys<(typeof color)['light']>
-  | HSLA
-  | HSL
-  | RGB
-  | RGBA
-  | HEX
   | undefined;
 
 export type BorderRadiusValue =
@@ -74,7 +71,7 @@ export type BorderRadiusValue =
   | AnimatableNumericValue
   | undefined;
 
-export type BordeWidthValue =
+export type BorderWidthValue =
   | `${keyof (typeof lightTheme)['borderWidth'] & (string | number)}`
   | number
   | undefined;

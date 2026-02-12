@@ -1,5 +1,6 @@
 import { View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { useStyleProps } from 'src/hooks';
 import FlexProps from './Flex.props';
 
 const Flex = ({
@@ -20,10 +21,12 @@ const Flex = ({
     flexWrap: wrap,
   };
 
+  const { computedStyles, remainingProps } = useStyleProps(rest);
+
   styles.useVariants({ spacing: space ?? spacing });
 
   return (
-    <View style={[propStyle, styles.flex, style]} {...rest}>
+    <View style={[propStyle, styles.flex, computedStyles, style]} {...remainingProps}>
       {children}
     </View>
   );

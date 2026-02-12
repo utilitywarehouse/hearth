@@ -1,8 +1,7 @@
-import { useMemo } from 'react';
 import { Text } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { useTheme } from '../../hooks';
-import { getFlattenedColorValue } from '../../utils';
+import { useStyleProps } from '../../hooks';
+import { getFlattenedColorValue, resolveThemeValueWithFallback } from '../../utils';
 import type DetailTextProps from './DetailText.props';
 
 const DetailText = ({
@@ -23,7 +22,8 @@ const DetailText = ({
   inverted,
   ...props
 }: DetailTextProps) => {
-  const { color: themeColor, colorMode } = useTheme();
+  const { computedStyles: utilityStyles, remainingProps } = useStyleProps(props);
+
   styles.useVariants({
     size,
     underline,
@@ -31,19 +31,10 @@ const DetailText = ({
     italic,
     inverted,
   });
-  const colorValue = useMemo(
-    () => getFlattenedColorValue(color, themeColor),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [color, colorMode]
-  );
-  const decorationColor = useMemo(
-    () => getFlattenedColorValue(textDecorationColor, themeColor),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [textDecorationColor, colorMode]
-  );
+
   return (
     <Text
-      {...props}
+      {...remainingProps}
       {...(truncated
         ? {
             numberOfLines: 1,
@@ -52,16 +43,16 @@ const DetailText = ({
         : {})}
       style={[
         styles.text,
+        utilityStyles,
         {
-          ...(colorValue && { color: colorValue }),
           ...(textTransform && { textTransform }),
           ...(textAlign && { textAlign }),
-          ...(decorationColor && { textDecorationColor: decorationColor }),
           ...(textDecorationLine && { textDecorationLine }),
           ...(textDecorationStyle && { textDecorationStyle }),
           ...(userSelect && { userSelect }),
           ...(textAlignVertical && { textAlignVertical }),
         },
+        styles.getColours(color, textDecorationColor),
         props.style,
       ]}
     >
@@ -143,6 +134,14 @@ const styles = StyleSheet.create(theme => ({
       },
     },
   },
+  getColours: (color?: string, textDecorationColor?: string) => ({
+    ...(color
+      ? { color: resolveThemeValueWithFallback(color, theme.helpers.semanticColor.text, theme.color) }
+      : {}),
+    ...(textDecorationColor
+      ? { textDecorationColor: getFlattenedColorValue(textDecorationColor, theme.color) }
+      : {}),
+  }),
 }));
 
 export default DetailText;

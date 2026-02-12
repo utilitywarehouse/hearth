@@ -8,6 +8,7 @@ import {
 } from '../../../docs/components';
 import { Carousel, CarouselControls, CarouselItem } from './';
 import * as Stories from './Carousel.stories';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 <Meta title="Components / Carousel" />
 
@@ -53,13 +54,13 @@ Carousel Controls are used to clearly indicate multiple pieces of content and to
   <Center flex={1}>
     <Carousel width={300}>
       <CarouselItem>
-        <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
-          <BodyText color="white">I'm a Carousel item!</BodyText>
+        <Box p="100" aspectRatio={1.6} backgroundColor={color.purple[800]}>
+          <BodyText color="inverted">I'm a Carousel item!</BodyText>
         </Box>
       </CarouselItem>
       <CarouselItem>
-        <Box p="100" aspectRatio={1.6} backgroundColor="red800">
-          <BodyText color="white">I'm another Carousel item!</BodyText>
+        <Box p="100" aspectRatio={1.6} backgroundColor={color.red[800]}>
+          <BodyText color="inverted">I'm another Carousel item!</BodyText>
         </Box>
       </CarouselItem>
     </Carousel>
@@ -68,17 +69,18 @@ Carousel Controls are used to clearly indicate multiple pieces of content and to
 
 ```jsx
 import { BodyText, Box, Carousel, CarouselItem } from '@utilitywarehouse/hearth-react-native';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 const MyComponent = () => (
   <Carousel width={300}>
     <CarouselItem>
-      <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
-        <BodyText color="white">I'm a Carousel item!</BodyText>
+      <Box p="100" aspectRatio={1.6} backgroundColor={color.purple[800]}>
+        <BodyText color="inverted">I'm a Carousel item!</BodyText>
       </Box>
     </CarouselItem>
     <CarouselItem>
-      <Box p="100" aspectRatio={1.6} backgroundColor="red800">
-        <BodyText color="white">I'm another Carousel item!</BodyText>
+      <Box p="100" aspectRatio={1.6} backgroundColor={color.red[800]}>
+        <BodyText color="inverted">I'm another Carousel item!</BodyText>
       </Box>
     </CarouselItem>
   </Carousel>
@@ -93,13 +95,13 @@ The `Carousel` component includes built-in pagination controls by default. You c
   <Center flex={1}>
     <Carousel width={300}>
       <CarouselItem>
-        <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
-          <BodyText color="white">I'm a Carousel item!</BodyText>
+        <Box p="100" aspectRatio={1.6} backgroundColor={color.purple[800]}>
+          <BodyText color="inverted">I'm a Carousel item!</BodyText>
         </Box>
       </CarouselItem>
       <CarouselItem>
-        <Box p="100" aspectRatio={1.6} backgroundColor="red800">
-          <BodyText color="white">I'm another Carousel item!</BodyText>
+        <Box p="100" aspectRatio={1.6} backgroundColor={color.red[800]}>
+          <BodyText color="inverted">I'm another Carousel item!</BodyText>
         </Box>
       </CarouselItem>
     </Carousel>
@@ -108,17 +110,18 @@ The `Carousel` component includes built-in pagination controls by default. You c
 
 ```jsx
 import { BodyText, Box, Carousel, CarouselItem } from '@utilitywarehouse/hearth-react-native';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 const MyComponent = () => (
   <Carousel width={300}>
     <CarouselItem>
-      <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
-        <BodyText color="white">I'm a Carousel item!</BodyText>
+      <Box p="100" aspectRatio={1.6} backgroundColor={color.purple[800]}>
+        <BodyText color="inverted">I'm a Carousel item!</BodyText>
       </Box>
     </CarouselItem>
     <CarouselItem>
-      <Box p="100" aspectRatio={1.6} backgroundColor="red800">
-        <BodyText color="white">I'm another Carousel item!</BodyText>
+      <Box p="100" aspectRatio={1.6} backgroundColor={color.red[800]}>
+        <BodyText color="inverted">I'm another Carousel item!</BodyText>
       </Box>
     </CarouselItem>
   </Carousel>
@@ -133,13 +136,13 @@ Add previous and next navigation buttons to the controls by setting `showNavigat
   <Center flex={1}>
     <Carousel width={300} showNavigation>
       <CarouselItem>
-        <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
-          <BodyText color="white">I'm a Carousel item!</BodyText>
+        <Box p="100" aspectRatio={1.6} backgroundColor={color.purple[800]}>
+          <BodyText color="inverted">I'm a Carousel item!</BodyText>
         </Box>
       </CarouselItem>
       <CarouselItem>
-        <Box p="100" aspectRatio={1.6} backgroundColor="red800">
-          <BodyText color="white">I'm another Carousel item!</BodyText>
+        <Box p="100" aspectRatio={1.6} backgroundColor={color.red[800]}>
+          <BodyText color="inverted">I'm another Carousel item!</BodyText>
         </Box>
       </CarouselItem>
     </Carousel>
@@ -148,17 +151,18 @@ Add previous and next navigation buttons to the controls by setting `showNavigat
 
 ```jsx
 import { BodyText, Box, Carousel, CarouselItem } from '@utilitywarehouse/hearth-react-native';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 const MyComponent = () => (
   <Carousel width={300} showNavigation>
     <CarouselItem>
-      <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
-        <BodyText color="white">I'm a Carousel item!</BodyText>
+      <Box p="100" aspectRatio={1.6} backgroundColor={color.purple[800]}>
+        <BodyText color="inverted">I'm a Carousel item!</BodyText>
       </Box>
     </CarouselItem>
     <CarouselItem>
-      <Box p="100" aspectRatio={1.6} backgroundColor="red800">
-        <BodyText color="white">I'm another Carousel item!</BodyText>
+      <Box p="100" aspectRatio={1.6} backgroundColor={color.red[800]}>
+        <BodyText color="inverted">I'm another Carousel item!</BodyText>
       </Box>
     </CarouselItem>
   </Carousel>
@@ -173,13 +177,13 @@ The `CarouselControls` component is to be used in conjunction with the `Carousel
   <Center flex={1}>
     <Carousel width={300}>
       <CarouselItem>
-        <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
-          <BodyText color="white">I'm a Carousel item!</BodyText>
+        <Box p="100" aspectRatio={1.6} backgroundColor={color.purple[800]}>
+          <BodyText color="inverted">I'm a Carousel item!</BodyText>
         </Box>
       </CarouselItem>
       <CarouselItem>
-        <Box p="100" aspectRatio={1.6} backgroundColor="red800">
-          <BodyText color="white">I'm another Carousel item!</BodyText>
+        <Box p="100" aspectRatio={1.6} backgroundColor={color.red[800]}>
+          <BodyText color="inverted">I'm another Carousel item!</BodyText>
         </Box>
       </CarouselItem>
       <CarouselControls style={{ marginTop: 16 }} />
@@ -189,17 +193,18 @@ The `CarouselControls` component is to be used in conjunction with the `Carousel
 
 ```jsx
 import { BodyText, Box, Carousel, CarouselControls } from '@utilitywarehouse/hearth-react-native';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 const MyComponent = () => (
   <Carousel width={300}>
     <CarouselItem>
-      <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
-        <BodyText color="white">I'm a Carousel item!</BodyText>
+      <Box p="100" aspectRatio={1.6} backgroundColor={color.purple[800]}>
+        <BodyText color="inverted">I'm a Carousel item!</BodyText>
       </Box>
     </CarouselItem>
     <CarouselItem>
-      <Box p="100" aspectRatio={1.6} backgroundColor="red800">
-        <BodyText color="white">I'm another Carousel item!</BodyText>
+      <Box p="100" aspectRatio={1.6} backgroundColor={color.red[800]}>
+        <BodyText color="inverted">I'm another Carousel item!</BodyText>
       </Box>
     </CarouselItem>
     <CarouselControls style={{ marginTop: 16 }} />
@@ -232,13 +237,13 @@ const MyComponent = () => {
     <>
       <Carousel ref={carouselRef} width={300}>
         <CarouselItem>
-          <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
-            <BodyText color="white">Slide 1</BodyText>
+          <Box p="100" aspectRatio={1.6} backgroundColor={color.purple[800]}>
+            <BodyText color="inverted">Slide 1</BodyText>
           </Box>
         </CarouselItem>
         <CarouselItem>
-          <Box p="100" aspectRatio={1.6} backgroundColor="red800">
-            <BodyText color="white">Slide 2</BodyText>
+          <Box p="100" aspectRatio={1.6} backgroundColor={color.red[800]}>
+            <BodyText color="inverted">Slide 2</BodyText>
           </Box>
         </CarouselItem>
       </Carousel>
@@ -262,13 +267,13 @@ const MyComponent = () => {
   return (
     <Carousel width={carouselWidth} itemWidth={itemWidth} centered showOverflow>
       <CarouselItem>
-        <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
-          <BodyText color="white">I'm a Carousel item!</BodyText>
+        <Box p="100" aspectRatio={1.6} backgroundColor={color.purple[800]}>
+          <BodyText color="inverted">I'm a Carousel item!</BodyText>
         </Box>
       </CarouselItem>
       <CarouselItem>
-        <Box p="100" aspectRatio={1.6} backgroundColor="red800">
-          <BodyText color="white">I'm another Carousel item!</BodyText>
+        <Box p="100" aspectRatio={1.6} backgroundColor={color.red[800]}>
+          <BodyText color="inverted">I'm another Carousel item!</BodyText>
         </Box>
       </CarouselItem>
     </Carousel>
@@ -345,9 +350,9 @@ When using a screen reader, users will navigate through the carousel items in or
 ```jsx
 <Carousel width={300}>
   <CarouselItem>
-    <Box p="100" aspectRatio={1.6} backgroundColor="purple800">
+    <Box p="100" aspectRatio={1.6} backgroundColor={color.purple[800]}>
       <BodyText
-        color="white"
+        color="inverted"
         accessibilityLabel="Special offer: 20% off your next bill"
         accessibilityHint="Double tap to view offer details"
       >
@@ -356,9 +361,9 @@ When using a screen reader, users will navigate through the carousel items in or
     </Box>
   </CarouselItem>
   <CarouselItem>
-    <Box p="100" aspectRatio={1.6} backgroundColor="red800">
+    <Box p="100" aspectRatio={1.6} backgroundColor={color.red[800]}>
       <BodyText
-        color="white"
+        color="inverted"
         accessibilityLabel="Refer a friend and earn rewards"
         accessibilityHint="Double tap to learn more about referrals"
       >

@@ -2,6 +2,7 @@ import { Meta, Canvas, Story, Controls, Primary } from '@storybook/addon-docs/bl
 import * as Stories from './Box.stories';
 import { Center, Pressable, Box, BodyText } from '../..';
 import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 <Meta title="Primitives / Box" />
 
@@ -25,8 +26,8 @@ When you need to center-align content, the Center component comes in handy. It i
 
 <UsageWrap>
   <Center>
-    <Box backgroundColor="green400" width={300} height={200} padding="200">
-      <BodyText color="white">Box.</BodyText>
+    <Box backgroundColor={color.green[400]} width={300} height={200} padding="200">
+      <BodyText color="inverted">Box.</BodyText>
     </Box>
   </Center>
 </UsageWrap>
@@ -35,8 +36,8 @@ When you need to center-align content, the Center component comes in handy. It i
 import { Center, BodyText } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
-  <Box backgroundColor="green400" width={300} height={200} padding="200">
-    <BodyText color="white">Box.</BodyText>
+  <Box backgroundColor={color.green[400]} width={300} height={200} padding="200">
+    <BodyText color="inverted">Box.</BodyText>
   </Box>
 );
 ```

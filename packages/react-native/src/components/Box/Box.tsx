@@ -1,14 +1,16 @@
- 
 import React, { useMemo } from 'react';
 import { View, ViewStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import type BoxProps from './Box.props';
 import {
   propStyleMapping,
-  resolveThemeValue,
+  resolveThemeKey,
+  resolveThemeValueWithFallback,
+  semanticPropMapping,
+  themeStyleFallbackMapping,
   themeStyleMapping,
   viewStyleProps,
 } from '../../utils';
+import type BoxProps from './Box.props';
 
 // --- Box component definition ---
 const BoxComponent = ({ as, style, children, ...props }: BoxProps) => {
@@ -18,6 +20,7 @@ const BoxComponent = ({ as, style, children, ...props }: BoxProps) => {
     Object.entries(props).forEach(([propName, propValue]) => {
       if (propValue === undefined) return;
 
+      if (semanticPropMapping[propName]) return;
       if (propStyleMapping[propName] || viewStyleProps.has(propName)) {
         return;
       }
@@ -44,6 +47,22 @@ const styles = StyleSheet.create(theme => ({
     Object.entries(props).forEach(([propName, propValue]) => {
       if (propValue === undefined) return;
 
+      // Check for semantic prop mappings first (e.g., iconColor, color)
+      const semanticMapping = semanticPropMapping[propName];
+      if (semanticMapping) {
+        const { styleProp, themeKey } = semanticMapping;
+        const themeMapping = resolveThemeKey(theme, themeKey);
+        const fallbackKey = themeStyleFallbackMapping[themeKey];
+        const fallbackMapping = fallbackKey ? resolveThemeKey(theme, fallbackKey) : undefined;
+
+        computedStyles[styleProp] = resolveThemeValueWithFallback(
+          propValue,
+          themeMapping,
+          fallbackMapping
+        );
+        return;
+      }
+
       let stylePropName: keyof ViewStyle | undefined;
 
       // Handle shorthand props
@@ -58,12 +77,22 @@ const styles = StyleSheet.create(theme => ({
       if (!stylePropName) return;
 
       // Resolve theme value if needed
-      const themeKey: keyof typeof theme | undefined = themeStyleMapping[
-        stylePropName
-      ] as keyof typeof theme;
+      const themeKey = themeStyleMapping[stylePropName as string];
 
-      if (themeKey && theme[themeKey]) {
-        computedStyles[stylePropName] = resolveThemeValue(propValue, theme[themeKey]);
+      if (themeKey) {
+        const themeObj = resolveThemeKey(theme, themeKey);
+        const fallbackKey = themeStyleFallbackMapping[themeKey];
+        const fallbackMapping = fallbackKey ? resolveThemeKey(theme, fallbackKey) : undefined;
+
+        if (themeObj) {
+          computedStyles[stylePropName] = resolveThemeValueWithFallback(
+            propValue,
+            themeObj,
+            fallbackMapping
+          );
+        } else {
+          computedStyles[stylePropName] = propValue;
+        }
       } else {
         computedStyles[stylePropName] = propValue;
       }

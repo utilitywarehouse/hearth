@@ -2,6 +2,7 @@ import { Canvas, Controls, Meta, Primary, Story } from '@storybook/addon-docs/bl
 import { BodyText, Box, Center, Grid } from '../..';
 import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Grid.stories';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 <Meta title="Primitives / Grid" />
 
@@ -26,17 +27,17 @@ The Grid component helps you create responsive grid layouts with configurable co
 <UsageWrap>
   <Center>
     <Grid columns={2} spacing="md" width={300}>
-      <Box backgroundColor="green400" height={100} padding="200">
-        <BodyText color="white">Item 1</BodyText>
+      <Box backgroundColor={color.green[400]} height={100} padding="200">
+        <BodyText color="inverted">Item 1</BodyText>
       </Box>
-      <Box backgroundColor="blue400" height={100} padding="200">
-        <BodyText color="white">Item 2</BodyText>
+      <Box backgroundColor={color.blue[400]} height={100} padding="200">
+        <BodyText color="inverted">Item 2</BodyText>
       </Box>
-      <Box backgroundColor="red400" height={100} padding="200">
-        <BodyText color="white">Item 3</BodyText>
+      <Box backgroundColor={color.red[400]} height={100} padding="200">
+        <BodyText color="inverted">Item 3</BodyText>
       </Box>
-      <Box backgroundColor="yellow400" height={100} padding="200">
-        <BodyText color="white">Item 4</BodyText>
+      <Box backgroundColor={color.yellow[400]} height={100} padding="200">
+        <BodyText color="inverted">Item 4</BodyText>
       </Box>
     </Grid>
   </Center>
@@ -44,20 +45,21 @@ The Grid component helps you create responsive grid layouts with configurable co
 
 ```jsx
 import { Grid, Box, BodyText } from '@utilitywarehouse/hearth-react-native';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 const MyComponent = () => (
   <Grid columns={2} spacing="md" width={300}>
-    <Box backgroundColor="green400" height={100} padding="200">
-      <BodyText color="white">Item 1</BodyText>
+    <Box backgroundColor={color.green[400]} height={100} padding="200">
+      <BodyText color="inverted">Item 1</BodyText>
     </Box>
-    <Box backgroundColor="blue400" height={100} padding="200">
-      <BodyText color="white">Item 2</BodyText>
+    <Box backgroundColor={color.blue[400]} height={100} padding="200">
+      <BodyText color="inverted">Item 2</BodyText>
     </Box>
-    <Box backgroundColor="red400" height={100} padding="200">
-      <BodyText color="white">Item 3</BodyText>
+    <Box backgroundColor={color.red[400]} height={100} padding="200">
+      <BodyText color="inverted">Item 3</BodyText>
     </Box>
-    <Box backgroundColor="yellow400" height={100} padding="200">
-      <BodyText color="white">Item 4</BodyText>
+    <Box backgroundColor={color.yellow[400]} height={100} padding="200">
+      <BodyText color="inverted">Item 4</BodyText>
     </Box>
   </Grid>
 );
@@ -79,17 +81,17 @@ The Grid component supports responsive column layouts based on screen size break
       spacing="md"
       width="100%"
     >
-      <Box backgroundColor="green400" height={100} padding="200">
-        <BodyText color="white">Item 1</BodyText>
+      <Box backgroundColor={color.green[400]} height={100} padding="200">
+        <BodyText color="inverted">Item 1</BodyText>
       </Box>
-      <Box backgroundColor="blue400" height={100} padding="200">
-        <BodyText color="white">Item 2</BodyText>
+      <Box backgroundColor={color.blue[400]} height={100} padding="200">
+        <BodyText color="inverted">Item 2</BodyText>
       </Box>
-      <Box backgroundColor="red400" height={100} padding="200">
-        <BodyText color="white">Item 3</BodyText>
+      <Box backgroundColor={color.red[400]} height={100} padding="200">
+        <BodyText color="inverted">Item 3</BodyText>
       </Box>
-      <Box backgroundColor="yellow400" height={100} padding="200">
-        <BodyText color="white">Item 4</BodyText>
+      <Box backgroundColor={color.yellow[400]} height={100} padding="200">
+        <BodyText color="inverted">Item 4</BodyText>
       </Box>
     </Grid>
   </Center>
@@ -97,6 +99,7 @@ The Grid component supports responsive column layouts based on screen size break
 
 ```jsx
 import { Grid, Box, BodyText } from '@utilitywarehouse/hearth-react-native';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 const MyComponent = () => (
   <Grid
@@ -109,17 +112,17 @@ const MyComponent = () => (
     spacing="md"
     width="100%"
   >
-    <Box backgroundColor="green400" height={100} padding="200">
-      <BodyText color="white">Item 1</BodyText>
+    <Box backgroundColor={color.green[400]} height={100} padding="200">
+      <BodyText color="inverted">Item 1</BodyText>
     </Box>
-    <Box backgroundColor="blue400" height={100} padding="200">
-      <BodyText color="white">Item 2</BodyText>
+    <Box backgroundColor={color.blue[400]} height={100} padding="200">
+      <BodyText color="inverted">Item 2</BodyText>
     </Box>
-    <Box backgroundColor="red400" height={100} padding="200">
-      <BodyText color="white">Item 3</BodyText>
+    <Box backgroundColor={color.red[400]} height={100} padding="200">
+      <BodyText color="inverted">Item 3</BodyText>
     </Box>
-    <Box backgroundColor="yellow400" height={100} padding="200">
-      <BodyText color="white">Item 4</BodyText>
+    <Box backgroundColor={color.yellow[400]} height={100} padding="200">
+      <BodyText color="inverted">Item 4</BodyText>
     </Box>
   </Grid>
 );
@@ -132,38 +135,39 @@ You can specify different horizontal and vertical spacing:
 <UsageWrap>
   <Center>
     <Grid columns={2} columnGap={24} rowGap={16}>
-      <Box backgroundColor="green400" height={100} padding="200">
-        <BodyText color="white">Item 1</BodyText>
+      <Box backgroundColor={color.green[400]} height={100} padding="200">
+        <BodyText color="inverted">Item 1</BodyText>
       </Box>
-      <Box backgroundColor="blue400" height={100} padding="200">
-        <BodyText color="white">Item 2</BodyText>
+      <Box backgroundColor={color.blue[400]} height={100} padding="200">
+        <BodyText color="inverted">Item 2</BodyText>
       </Box>
-      <Box backgroundColor="red400" height={100} padding="200">
-        <BodyText color="white">Item 3</BodyText>
+      <Box backgroundColor={color.red[400]} height={100} padding="200">
+        <BodyText color="inverted">Item 3</BodyText>
       </Box>
-      <Box backgroundColor="yellow400" height={100} padding="200">
-        <BodyText color="white">Item 4</BodyText>
+      <Box backgroundColor={color.yellow[400]} height={100} padding="200">
+        <BodyText color="inverted">Item 4</BodyText>
       </Box>
     </Grid>
   </Center>
 </UsageWrap>
 
 ```jsx
-import { Grid, Box } from '@utilitywarehouse/hearth-react-native';
+import { Grid, Box, BodyText } from '@utilitywarehouse/hearth-react-native';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 const MyComponent = () => (
   <Grid columns={2} columnGap={24} rowGap={8}>
-    <Box backgroundColor="green400" height={100} padding="200">
-      <BodyText color="white">Item 1</BodyText>
+    <Box backgroundColor={color.green[400]} height={100} padding="200">
+      <BodyText color="inverted">Item 1</BodyText>
     </Box>
-    <Box backgroundColor="blue400" height={100} padding="200">
-      <BodyText color="white">Item 2</BodyText>
+    <Box backgroundColor={color.blue[400]} height={100} padding="200">
+      <BodyText color="inverted">Item 2</BodyText>
     </Box>
-    <Box backgroundColor="red400" height={100} padding="200">
-      <BodyText color="white">Item 3</BodyText>
+    <Box backgroundColor={color.red[400]} height={100} padding="200">
+      <BodyText color="inverted">Item 3</BodyText>
     </Box>
-    <Box backgroundColor="yellow400" height={100} padding="200">
-      <BodyText color="white">Item 4</BodyText>
+    <Box backgroundColor={color.yellow[400]} height={100} padding="200">
+      <BodyText color="inverted">Item 4</BodyText>
     </Box>
   </Grid>
 );

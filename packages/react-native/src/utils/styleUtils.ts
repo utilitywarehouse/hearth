@@ -34,9 +34,15 @@ export const propStyleMapping: { [key: string]: keyof ViewStyle } = {
 };
 
 /**
- * Mapping of style props to their theme category
+ * Mapping of style props to their theme category.
+ *
+ * - `backgroundColor` maps to `theme.helpers.semanticColor.background` (simplified semantic background tokens)
+ *   with fallback to `theme.color` for full color values
+ * - `borderColor` (and variants) maps to `theme.helpers.semanticColor.border` (simplified semantic border tokens)
+ *   with fallback to `theme.color` for full color values
+ * - Other color props (shadowColor, outlineColor) still map to the full `theme.color` object
  */
-export const themeStyleMapping: { [key in keyof ViewStyle]?: string } = {
+export const themeStyleMapping: { [key: string]: string } = {
   // Space related
   top: 'space',
   bottom: 'space',
@@ -71,18 +77,20 @@ export const themeStyleMapping: { [key in keyof ViewStyle]?: string } = {
   maxHeight: 'space',
   start: 'space',
   end: 'space',
-  // Colors
-  backgroundColor: 'color',
-  borderColor: 'color',
-  borderBottomColor: 'color',
-  borderLeftColor: 'color',
-  borderRightColor: 'color',
-  borderTopColor: 'color',
-  borderBlockColor: 'color',
-  borderBlockEndColor: 'color',
-  borderBlockStartColor: 'color',
-  borderEndColor: 'color',
-  borderStartColor: 'color',
+  // Semantic background color (simplified keys: 'brand', 'primary', 'secondary')
+  backgroundColor: 'helpers.semanticColor.background',
+  // Semantic border colors (simplified keys: 'strong', 'subtle')
+  borderColor: 'helpers.semanticColor.border',
+  borderBottomColor: 'helpers.semanticColor.border',
+  borderLeftColor: 'helpers.semanticColor.border',
+  borderRightColor: 'helpers.semanticColor.border',
+  borderTopColor: 'helpers.semanticColor.border',
+  borderBlockColor: 'helpers.semanticColor.border',
+  borderBlockEndColor: 'helpers.semanticColor.border',
+  borderBlockStartColor: 'helpers.semanticColor.border',
+  borderEndColor: 'helpers.semanticColor.border',
+  borderStartColor: 'helpers.semanticColor.border',
+  // Other colors (still use the full color object for flexibility)
   outlineColor: 'color',
   shadowColor: 'color',
   // Border radii
@@ -107,6 +115,29 @@ export const themeStyleMapping: { [key in keyof ViewStyle]?: string } = {
   borderStartWidth: 'borderWidth',
   borderTopWidth: 'borderWidth',
   borderWidth: 'borderWidth',
+};
+
+/**
+ * Mapping of theme categories to their fallback categories.
+ * When a value isn't found in the primary theme category, the fallback is tried.
+ * This ensures backward compatibility with full color values.
+ */
+export const themeStyleFallbackMapping: { [key: string]: string } = {
+  'helpers.semanticColor.background': 'color',
+  'helpers.semanticColor.border': 'color',
+  'helpers.semanticColor.text': 'color',
+  'helpers.semanticColor.icon': 'color',
+};
+
+/**
+ * Mapping of custom semantic prop names to their style prop + theme category.
+ * These are props that don't correspond 1:1 with ViewStyle keys.
+ */
+export const semanticPropMapping: { [key: string]: { styleProp: string; themeKey: string } } = {
+  /** Maps iconColor prop -> resolves against theme.helpers.semanticColor.icon (semantic icon tokens) */
+  iconColor: { styleProp: 'color', themeKey: 'helpers.semanticColor.icon' },
+  /** Maps color prop -> resolves against theme.helpers.semanticColor.text (semantic text tokens) */
+  color: { styleProp: 'color', themeKey: 'helpers.semanticColor.text' },
 };
 
 /**

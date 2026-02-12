@@ -1,7 +1,7 @@
 import type { FlexAlignType, ViewProps, ViewStyle } from 'react-native';
-import { SpacingValues } from '../../types';
+import { FlexLayoutProps, GapProps, SpacingValues } from '../../types';
 
-interface FlexProps extends ViewProps {
+interface FlexProps extends ViewProps, FlexLayoutProps, GapProps {
   direction?: ViewStyle['flexDirection'];
   align?: FlexAlignType;
   justify?: ViewStyle['justifyContent'];
