@@ -46,4 +46,3 @@ describe('CurrencyInput', () => {
     expect(input.selectionStart).toBe(5); // Cursor position after formatting
   });
 });
-
