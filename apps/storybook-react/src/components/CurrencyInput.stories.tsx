@@ -38,6 +38,7 @@ export const KitchenSink: Story = {
   parameters: { chromatic: { disableSnapshot: false } },
   render: args => {
     const [value, setValue] = React.useState<string>('');
+    const [separatorsValue, setSeparatorsValue] = React.useState<string>('1234567.89');
     return (
       <Flex direction="column" gap="400">
         <CurrencyInput
@@ -56,16 +57,20 @@ export const KitchenSink: Story = {
           {...args}
           required
           label="Group separators"
-          value="1234567.89"
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => console.log(event.target.value)}
+          value={separatorsValue}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setSeparatorsValue(event.target.value)
+          }
         />
         <CurrencyInput
           {...args}
           required
           label="Group separators disabled"
           disableGroupSeparators
-          value="1234567.89"
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => console.log(event.target.value)}
+          value={separatorsValue}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            setSeparatorsValue(event.target.value)
+          }
         />
       </Flex>
     );

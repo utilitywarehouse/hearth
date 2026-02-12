@@ -1,6 +1,7 @@
 export declare const semantic: {
   readonly background: {
     readonly brand: 'var(--h-background-brand)';
+    readonly loading: 'var(--h-background-loading)';
     readonly primary: 'var(--h-background-primary)';
     readonly secondary: 'var(--h-background-secondary)';
   };

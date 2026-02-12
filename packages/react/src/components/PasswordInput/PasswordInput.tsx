@@ -9,93 +9,93 @@ import { InputSlot } from '../InputSlot/InputSlot';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { EyeOffSmallIcon, EyeSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
+import type { InputBaseElement } from '../InputBase/InputBase';
+import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 
 const COMPONENT_NAME = 'PasswordInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const PasswordInput = ({
-  className,
-  disabled,
-  id: providedId,
-  ref: forwardedRef,
-  ...props
-}: PasswordInputProps) => {
-  const defaultRef = React.useRef<HTMLInputElement | null>(null);
-  const inputRef = forwardedRef || defaultRef;
-  const [visible, setVisible] = React.useState(false);
-  const [showVisibilityMessage, setShowVisibilityMessage] = React.useState(false);
+export const PasswordInput = React.forwardRef<InputBaseElement, PasswordInputProps>(
+  ({ className, disabled, id: providedId, ...props }, forwardedRef) => {
+    const internalRef = React.useRef<HTMLInputElement | null>(null);
+    const inputRef = useMergedRefs(forwardedRef, internalRef);
 
-  const handleVisibility = React.useCallback(() => {
-    const newVisibilityState = !visible;
-    const newVisibilityMessageState = !showVisibilityMessage;
-    setVisible(newVisibilityState);
-    setShowVisibilityMessage(newVisibilityMessageState);
-  }, [visible, showVisibilityMessage]);
+    const [visible, setVisible] = React.useState(false);
+    const [showVisibilityMessage, setShowVisibilityMessage] = React.useState(false);
 
-  // If the PasswordInput is inside a form we should switch the input type
-  // back to password when its parent form is submitted
-  React.useEffect(() => {
-    // Get the ref value and ensure proper typing
-    let currentElement: HTMLInputElement | null = null;
-    if (inputRef && typeof inputRef === 'object' && inputRef.current) {
-      // Type assertion to ensure TypeScript understands this is a valid ref object
-      const refObject = inputRef as React.RefObject<HTMLInputElement>;
-      currentElement = refObject.current;
-    }
+    const handleVisibility = React.useCallback(() => {
+      const newVisibilityState = !visible;
+      const newVisibilityMessageState = !showVisibilityMessage;
+      setVisible(newVisibilityState);
+      setShowVisibilityMessage(newVisibilityMessageState);
+    }, [visible, showVisibilityMessage]);
 
-    const handleSubmit = () => {
-      if (currentElement?.type) {
-        currentElement.type = 'password';
+    // If the PasswordInput is inside a form we should switch the input type
+    // back to password when its parent form is submitted
+    React.useEffect(() => {
+      // Get the ref value and ensure proper typing
+      let currentElement: HTMLInputElement | null = null;
+      if (internalRef && typeof internalRef === 'object' && internalRef.current) {
+        // Type assertion to ensure TypeScript understands this is a valid ref object
+        const refObject = internalRef as React.RefObject<HTMLInputElement>;
+        currentElement = refObject.current;
       }
-    };
 
-    if (currentElement && currentElement.form !== null) {
-      currentElement.form.addEventListener('submit', handleSubmit);
-    }
-    return () => {
-      if (currentElement?.form) {
-        currentElement.form.removeEventListener('submit', handleSubmit);
+      const handleSubmit = () => {
+        if (currentElement?.type) {
+          currentElement.type = 'password';
+          setVisible(false);
+        }
+      };
+
+      if (currentElement && currentElement.form !== null) {
+        currentElement.form.addEventListener('submit', handleSubmit);
       }
-    };
-  }, [inputRef]);
+      return () => {
+        if (currentElement?.form) {
+          currentElement.form.removeEventListener('submit', handleSubmit);
+        }
+      };
+    }, [internalRef]);
 
-  const visibilityMessage = `Your password is ${visible ? 'shown' : 'hidden'}!`;
+    const visibilityMessage = `Your password is ${visible ? 'shown' : 'hidden'}!`;
 
-  React.useEffect(() => {
-    setTimeout(() => {
-      setShowVisibilityMessage(false);
-    }, 1500);
-  }, [showVisibilityMessage]);
+    React.useEffect(() => {
+      setTimeout(() => {
+        setShowVisibilityMessage(false);
+      }, 1500);
+    }, [showVisibilityMessage]);
 
-  const { id } = useIds({ providedId, prefix: 'password-input' });
+    const { id } = useIds({ providedId, prefix: 'password-input' });
 
-  return (
-    <>
-      <TextInput
-        ref={inputRef}
-        className={cn(componentClassName, className)}
-        type={visible ? 'text' : 'password'}
-        disabled={disabled}
-        id={id}
-        {...props}
-      >
-        <InputSlot placement="suffix">
-          <UnstyledIconButton
-            type="button"
-            label="toggle password visibility"
-            onClick={handleVisibility}
-            disabled={disabled}
-            aria-pressed={visible}
-          >
-            {visible ? <EyeSmallIcon /> : <EyeOffSmallIcon />}
-          </UnstyledIconButton>
-        </InputSlot>
-      </TextInput>
-      <div data-visually-hidden aria-live="assertive" role="status">
-        {showVisibilityMessage ? visibilityMessage : ''}
-      </div>
-    </>
-  );
-};
+    return (
+      <>
+        <TextInput
+          ref={inputRef}
+          className={cn(componentClassName, className)}
+          type={visible ? 'text' : 'password'}
+          disabled={disabled}
+          id={id}
+          {...props}
+        >
+          <InputSlot placement="suffix">
+            <UnstyledIconButton
+              type="button"
+              label="toggle password visibility"
+              onClick={handleVisibility}
+              disabled={disabled}
+              aria-pressed={visible}
+            >
+              {visible ? <EyeSmallIcon /> : <EyeOffSmallIcon />}
+            </UnstyledIconButton>
+          </InputSlot>
+        </TextInput>
+        <div data-visually-hidden aria-live="assertive" role="status">
+          {showVisibilityMessage ? visibilityMessage : ''}
+        </div>
+      </>
+    );
+  }
+);
 
 PasswordInput.displayName = COMPONENT_NAME;

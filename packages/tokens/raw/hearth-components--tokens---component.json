@@ -5015,9 +5015,9 @@
     },
     "skeleton": {
       "loading-color": {
-        "alias": "{color.warm-white.100}",
+        "alias": "{color.warm-white.200}",
         "type": "color",
-        "value": "#f7f6eb"
+        "value": "#f1efe4"
       }
     },
     "spinner": {

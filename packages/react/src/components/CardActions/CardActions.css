@@ -2,13 +2,17 @@
   & :where(.h-CardActionsItem) {
     display: flex;
     position: relative;
+    flex: 1;
+    white-space: nowrap;
 
     &:where([data-direction='column'] &):not(:first-child) {
-      border-top: var(--h-border-width-2) solid var(--h-border-strong);
+      /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties -- the card border custom properties are set in the parent Card css */
+      border-top: var(--h-card-border-width) solid var(--h-card-border-color);
     }
 
     &:where([data-direction='row'] &):not(:first-child) {
-      border-left: var(--h-border-width-2) solid var(--h-border-strong);
+      /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties -- the card border custom properties are set in the parent Card css */
+      border-left: var(--h-card-border-width) solid var(--h-card-border-color);
     }
   }
 }

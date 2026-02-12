@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.2.3
+
+### Patch Changes
+
+- [#906](https://github.com/utilitywarehouse/hearth/pull/906) [`bb84710`](https://github.com/utilitywarehouse/hearth/commit/bb84710bf370f821b9da5e50f9844341bbdfa888) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Update skeleton loading background colour
+
+  Updated the skeleton loading background colour to improve visual consistency across components. The new colour provides better contrast and a more refined loading experience.
+
+  **Developer changes**:
+
+  No changes required. The colour tokens will be automatically updated when you upgrade to this version.
+
 ## 0.2.2
 
 ### Patch Changes
@@ -42,7 +54,6 @@
 
 - [#473](https://github.com/utilitywarehouse/hearth/pull/473) [`dcd34d0`](https://github.com/utilitywarehouse/hearth/commit/dcd34d0b4c1e8223b2b07667cb81407ba2f197eb) Thanks [@robphoenix](https://github.com/robphoenix)! - Refactor token CSS & Browser files. This is a breaking change, only affecting
   usage of CSS and browser JS tokens.
-
   - Individual component files have been combined into a single components tokens
     file.
   - Typography and Device tokens (mobile, tablet & desktop) have been included in
@@ -52,7 +63,6 @@
     file.
 
   There is now a more concise set of individual tokens files:
-
   - border.{css,ts}
   - color.{css,ts}
   - components.{css,ts}
@@ -108,7 +118,6 @@
 ### Patch Changes
 
 - [#347](https://github.com/utilitywarehouse/hearth/pull/347) [`f15f6b9`](https://github.com/utilitywarehouse/hearth/commit/f15f6b98f9b679fb3953457d53aad056efbde66a) Thanks [@robphoenix](https://github.com/robphoenix)! - - **Automated Index File Generation**:
-
   - **CSS Index**: The `create_css_index` action was implemented to automatically generate an `index.css` file. This action reads all CSS files in the build directory, filters out `index.css` itself, and creates `@import` statements for each CSS file, ensuring that all styles are included in the main CSS file.
   - **JavaScript Index**: The `create_browser_index` action was similarly implemented to generate an `index.js` file. This action reads all JavaScript files in the build directory, filters out `index.js` itself, and creates export statements for each JavaScript file, ensuring that all modules are accessible through the main JavaScript file.
 

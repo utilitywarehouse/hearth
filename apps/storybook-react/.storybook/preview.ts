@@ -70,8 +70,11 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
+          'Introduction',
           'Getting Started',
+          'Design Tokens',
           "What's New",
+          ['Introduction'],
           'Breakpoints',
           'Media Queries',
           'Common Props',
