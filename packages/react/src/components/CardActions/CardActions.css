@@ -2,6 +2,8 @@
   & :where(.h-CardActionsItem) {
     display: flex;
     position: relative;
+    flex: 1;
+    white-space: nowrap;
 
     &:where([data-direction='column'] &):not(:first-child) {
       /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties -- the card border custom properties are set in the parent Card css */
