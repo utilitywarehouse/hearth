@@ -28,11 +28,11 @@ export const CurrencyInput = React.forwardRef<InputBaseElement, CurrencyInputPro
   ) => {
     const maxDecimals = 2;
     const [internalValue, setInternalValue] = React.useState<string>('');
-    const localRef = React.useRef<HTMLInputElement>(null);
+    const internalInputRef = React.useRef<HTMLInputElement>(null);
     const cursorPositionRef = React.useRef<number | null>(null);
 
-    // Use forwarded ref if provided, otherwise use internal ref
-    const inputRef = forwardedRef || localRef;
+    // Merge forwardedRef with internalInputRef
+    React.useImperativeHandle(forwardedRef, () => internalInputRef.current as InputBaseElement);
 
     const isControlled = controlledValue !== undefined;
     const numericValue = isControlled ? String(controlledValue ?? '') : internalValue;
@@ -92,8 +92,8 @@ export const CurrencyInput = React.forwardRef<InputBaseElement, CurrencyInputPro
         setInternalValue(limitedValue);
       }
 
-      // Return numeric value WITHOUT commas
-      if (onChange && inputRef && typeof inputRef === 'object' && inputRef.current) {
+      // Call onChange unconditionally
+      if (onChange) {
         const syntheticEvent = {
           ...e,
           target: {
@@ -112,20 +112,18 @@ export const CurrencyInput = React.forwardRef<InputBaseElement, CurrencyInputPro
 
     // Restore cursor position after render
     React.useEffect(() => {
-      if (
-        inputRef &&
-        typeof inputRef === 'object' &&
-        inputRef.current &&
-        cursorPositionRef.current !== null
-      ) {
-        inputRef.current.setSelectionRange(cursorPositionRef.current, cursorPositionRef.current);
+      if (internalInputRef.current && cursorPositionRef.current !== null) {
+        internalInputRef.current.setSelectionRange(
+          cursorPositionRef.current,
+          cursorPositionRef.current
+        );
         cursorPositionRef.current = null;
       }
     });
 
     return (
       <TextInput
-        ref={inputRef}
+        ref={internalInputRef}
         className={cn(componentClassName, className)}
         type="text"
         inputMode="decimal"

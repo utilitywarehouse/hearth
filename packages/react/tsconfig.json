@@ -21,23 +21,11 @@
     "moduleResolution": "node",
     "outDir": "dist",
     "rootDir": "src",
-    "lib": [
-      "es2022",
-      "dom",
-      "dom.iterable"
-    ],
+    "lib": ["es2022", "dom", "dom.iterable"],
     "jsx": "react-jsx",
     "emitDeclarationOnly": true,
-    "types": [
-      "node"
-    ]
+    "types": ["node", "jest"]
   },
-  "exclude": [
-    "dist",
-    "node_modules",
-    "./src/figma/**",
-  ],
-  "include": [
-    "src/**/*"
-  ]
+  "exclude": ["dist", "node_modules", "./src/figma/**"],
+  "include": ["src/**/*"]
 }

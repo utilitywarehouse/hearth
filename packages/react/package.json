@@ -42,7 +42,10 @@
     "format": "prettier --write \"src/**/*.ts*\"",
     "format:ci": "prettier --list-different \"src/**/*.ts*\"",
     "figma:publish": "figma connect publish",
-    "copy-tokens-index": "cp ./src/styles/tokens.css ./src/styles/tokens/index.css"
+    "copy-tokens-index": "cp ./src/styles/tokens.css ./src/styles/tokens/index.css",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage"
   },
   "publishConfig": {
     "access": "restricted"
@@ -65,12 +68,17 @@
     "react-datepicker": "^8.9.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/jest": "^29.5.1",
     "@types/node": "^22.9.0",
     "@utilitywarehouse/hearth-react-icons": "workspace:*",
     "autoprefixer": "^10.4.20",
     "browserslist": "^4.28.1",
     "cssnano": "^7.0.6",
     "ejs": "^3.1.10",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
     "postcss": "^8.4.49",
     "postcss-cli": "^11.0.0",
     "postcss-custom-media": "^11.0.5",
@@ -83,6 +91,7 @@
     "stylelint-config-standard": "^36.0.1",
     "stylelint-media-use-custom-media": "^4.0.0",
     "stylelint-value-no-unknown-custom-properties": "^6.0.1",
+    "ts-jest": "^29.4.6",
     "tsup": "^8.3.5"
   }
 }
