@@ -232,6 +232,7 @@ export const yellow = {
 export const light = {
   background: {
     brand: '#7a42c8',
+    loading: '#f1efe4',
     primary: '#fcfbf2',
     secondary: '#ffffff',
   },
@@ -480,6 +481,7 @@ export const light = {
 export const dark = {
   background: {
     brand: '#7a42c8',
+    loading: '#30302c',
     primary: '#191917',
     secondary: '#232323',
   },
