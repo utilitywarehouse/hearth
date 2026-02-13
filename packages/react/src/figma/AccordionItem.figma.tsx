@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { AccordionItem } from '../components/Accordion/AccordionItem';
 import figma from '@figma/code-connect';
 

@@ -22,6 +22,7 @@ import { borderStylePropDefs } from '../../props/border-style.props';
 import { borderWidthPropDefs } from '../../props/border-width.props';
 import { zIndexPropDefs } from '../../props/z-index.props';
 import { overflowPropDefs } from '../../props/overflow.props';
+import { opacityPropDefs } from '../../props/opacity.props';
 
 const COMPONENT_NAME = 'Box';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -36,22 +37,23 @@ export const Box = (props: BoxProps) => {
   } = extractProps(
     props,
     boxPropDefs,
-    positionPropDefs,
-    paddingPropDefs,
-    colorPropDefs,
     backgroundColorPropDefs,
-    marginPropDefs,
-    sizePropDefs,
+    borderColorPropDefs,
+    borderRadiusPropDefs,
     borderStylePropDefs,
     borderWidthPropDefs,
-    borderRadiusPropDefs,
-    borderColorPropDefs,
-    gridItemPropDefs,
+    colorPropDefs,
     flexItemPropDefs,
+    gridItemPropDefs,
+    marginPropDefs,
+    opacityPropDefs,
+    overflowPropDefs,
+    paddingPropDefs,
+    positionPropDefs,
+    sizePropDefs,
     textAlignPropDefs,
     textTransformPropDefs,
-    zIndexPropDefs,
-    overflowPropDefs
+    zIndexPropDefs
   );
   return (
     <Slot.Root className={cn(componentClassName, className)} {...boxProps}>
