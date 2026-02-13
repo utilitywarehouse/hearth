@@ -738,12 +738,16 @@ export const WithCardActions: Story = {
             You have an overdue payment
           </Heading>
 
-          <Flex direction={{ mobile: 'column', tablet: 'row' }} spacing="sm" alignItems="end">
+          <Flex
+            direction={{ mobile: 'column', tablet: 'row' }}
+            spacing="xs"
+            alignItems={{ mobile: 'start', tablet: 'end' }}
+          >
             <DetailText size="4xl">£110.00</DetailText>
             <BodyText size="md">is overdue, pay it to avoid fees & disconnections</BodyText>
           </Flex>
         </CardContent>
-        <CardActions direction="row">
+        <CardActions direction={{ mobile: 'column', tablet: 'row' }}>
           <CardActionLink heading="Make a payment" />
           <CardActionLink heading="Go to bills" />
         </CardActions>
