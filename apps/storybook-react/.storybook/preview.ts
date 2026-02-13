@@ -72,6 +72,7 @@ const preview: Preview = {
         order: [
           'Introduction',
           'Getting Started',
+          'Changelog',
           'Design Tokens',
           "What's New",
           ['Introduction'],
