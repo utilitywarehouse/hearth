@@ -45,7 +45,7 @@ We use the Code Connect CLI to generate Figma components from our React
 components.
 
 You will need to make sure you have an appropriate Figma
-[personal access tokens](https://developers.figma.com/docs/rest-api/authentication/#generate-a-personal-access-token)
+[personal access token](https://developers.figma.com/docs/rest-api/authentication/#generate-a-personal-access-token)
 set in your environment as `FIGMA_ACCESS_TOKEN`.
 
 To generate a Figma component file, you will need to copy the link to the
