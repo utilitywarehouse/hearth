@@ -9,6 +9,7 @@ import { InputSlot } from '../InputSlot/InputSlot';
 import type { CurrencyInputProps } from './CurrencyInput.props';
 import { DetailText } from '../DetailText/DetailText';
 import type { InputBaseElement } from '../InputBase/InputBase';
+import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 
 const COMPONENT_NAME = 'CurrencyInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -28,11 +29,11 @@ export const CurrencyInput = React.forwardRef<InputBaseElement, CurrencyInputPro
   ) => {
     const maxDecimals = 2;
     const [internalValue, setInternalValue] = React.useState<string>('');
-    const localRef = React.useRef<HTMLInputElement>(null);
+    const internalRef = React.useRef<HTMLInputElement>(null);
     const cursorPositionRef = React.useRef<number | null>(null);
 
     // Use forwarded ref if provided, otherwise use internal ref
-    const inputRef = forwardedRef || localRef;
+    const inputRef = useMergedRefs(forwardedRef, internalRef);
 
     const isControlled = controlledValue !== undefined;
     const numericValue = isControlled ? String(controlledValue ?? '') : internalValue;
@@ -93,7 +94,7 @@ export const CurrencyInput = React.forwardRef<InputBaseElement, CurrencyInputPro
       }
 
       // Return numeric value WITHOUT commas
-      if (onChange && inputRef && typeof inputRef === 'object' && inputRef.current) {
+      if (onChange) {
         const syntheticEvent = {
           ...e,
           target: {
@@ -113,12 +114,12 @@ export const CurrencyInput = React.forwardRef<InputBaseElement, CurrencyInputPro
     // Restore cursor position after render
     React.useEffect(() => {
       if (
-        inputRef &&
-        typeof inputRef === 'object' &&
-        inputRef.current &&
+        internalRef &&
+        typeof internalRef === 'object' &&
+        internalRef.current &&
         cursorPositionRef.current !== null
       ) {
-        inputRef.current.setSelectionRange(cursorPositionRef.current, cursorPositionRef.current);
+        internalRef.current.setSelectionRange(cursorPositionRef.current, cursorPositionRef.current);
         cursorPositionRef.current = null;
       }
     });
