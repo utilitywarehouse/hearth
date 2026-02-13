@@ -1,5 +1,46 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.16
+
+### Patch Changes
+
+- [#920](https://github.com/utilitywarehouse/hearth/pull/920) [`9dead1a`](https://github.com/utilitywarehouse/hearth/commit/9dead1a33302b265f54881d6dd00709749660f44) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `opacity` prop to layout components
+
+  **Components affected**:
+  - `Box`
+  - `Flex`
+  - `Grid`
+
+  These components now accept an `opacity` prop that allows you to set the opacity
+  of the component and its children. The `opacity` prop accepts a string value between
+  `0` and `1`, as well as Hearth browser tokens and CSS custom properties.
+
+  ```tsx
+  import {semantic} from '@utilitywarehouse/hearth-tokens/browser';
+
+  <Box opacity="0.5" />
+  <Box opacity={semantic.opacity.disabled}/>
+  <Box opacity="var(--h-opacity-disabled)" />
+
+  <Flex opacity="0.5" />
+  <Flex opacity={semantic.opacity.disabled}/>
+  <Flex opacity="var(--h-opacity-disabled)" />
+
+  <Grid opacity="0.5" />
+  <Grid opacity={semantic.opacity.disabled}/>
+  <Grid opacity="var(--h-opacity-disabled)" />
+  ```
+
+- [#921](https://github.com/utilitywarehouse/hearth/pull/921) [`d1b5fce`](https://github.com/utilitywarehouse/hearth/commit/d1b5fceae3f2b01747201cf29995c320878cb5fd) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Improve `CurrencyInput` ref handling
+
+- [#924](https://github.com/utilitywarehouse/hearth/pull/924) [`f93901c`](https://github.com/utilitywarehouse/hearth/commit/f93901c878bd21082fdc954778a8f90a543a7fd4) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `CardActions` trailing icon shrink
+
+- [#919](https://github.com/utilitywarehouse/hearth/pull/919) [`dd5c2ea`](https://github.com/utilitywarehouse/hearth/commit/dd5c2ea63424b3e64a5881bdcbfcaf42444a8d38) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Ensure `CardActions` borders render properly when direction is set responsively
+
+- [#919](https://github.com/utilitywarehouse/hearth/pull/919) [`dd5c2ea`](https://github.com/utilitywarehouse/hearth/commit/dd5c2ea63424b3e64a5881bdcbfcaf42444a8d38) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Apply correct border width to the `CardActions`. Previously this was
+  variable depending on the parent `Card` variant, but is now always set to
+  `--h-border-width-1`.
+
 ## 0.24.15
 
 ### Patch Changes
