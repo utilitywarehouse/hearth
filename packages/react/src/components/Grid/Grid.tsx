@@ -27,6 +27,7 @@ import { borderStylePropDefs } from '../../props/border-style.props';
 import { borderWidthPropDefs } from '../../props/border-width.props';
 import { zIndexPropDefs } from '../../props/z-index.props';
 import { overflowPropDefs } from '../../props/overflow.props';
+import { opacityPropDefs } from '../../props/opacity.props';
 
 const COMPONENT_NAME = 'Grid';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -42,27 +43,28 @@ export const Grid = (props: GridProps) => {
   } = extractProps(
     props,
     gridPropDefs,
-    alignItemsPropDefs,
     alignContentPropDefs,
-    justifyContentPropDefs,
-    positionPropDefs,
-    paddingPropDefs,
-    marginPropDefs,
-    colorPropDefs,
+    alignItemsPropDefs,
     backgroundColorPropDefs,
-    gapPropDefs,
-    sizePropDefs,
+    borderColorPropDefs,
+    borderRadiusPropDefs,
     borderStylePropDefs,
     borderWidthPropDefs,
-    borderRadiusPropDefs,
-    borderColorPropDefs,
-    gridItemPropDefs,
+    colorPropDefs,
     flexItemPropDefs,
+    gapPropDefs,
+    gridItemPropDefs,
+    justifyContentPropDefs,
+    marginPropDefs,
+    opacityPropDefs,
+    overflowPropDefs,
+    paddingPropDefs,
+    positionPropDefs,
+    sizePropDefs,
     spacingPropDefs,
     textAlignPropDefs,
     textTransformPropDefs,
-    zIndexPropDefs,
-    overflowPropDefs
+    zIndexPropDefs
   );
 
   return (

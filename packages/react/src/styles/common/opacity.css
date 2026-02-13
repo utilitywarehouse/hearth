@@ -1,0 +1,6 @@
+/* stylelint-disable csstools/value-no-unknown-custom-properties */
+@breakpoints {
+  .h-r-opacity {
+    opacity: var(--h-r-opacity);
+  }
+}
