@@ -54,7 +54,7 @@ component directory in the package `src` and run the following command, where
 `{FIGMA_LINK}` is the link you copied:
 
 ```bash
-npx figma connect create {FIGMA_LINK}
+pnpm exec figma connect create {FIGMA_LINK}
 ```
 
 This will generate a `{component}.figma.tsx` file in the component directory.
@@ -67,6 +67,6 @@ the one in Figma.
 When you have done this, you can run the following command to publish the component to Figma:
 
 ```bash
-npx figma connect publish
+pnpm exec figma connect publish
 ```
 
