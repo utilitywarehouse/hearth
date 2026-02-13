@@ -32,7 +32,7 @@ export const CurrencyInput = React.forwardRef<InputBaseElement, CurrencyInputPro
     const internalRef = React.useRef<HTMLInputElement>(null);
     const cursorPositionRef = React.useRef<number | null>(null);
 
-    // Use forwarded ref if provided, otherwise use internal ref
+    // Merge forwarded ref (if any) with internal ref
     const inputRef = useMergedRefs(forwardedRef, internalRef);
 
     const isControlled = controlledValue !== undefined;
