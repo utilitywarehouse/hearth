@@ -7,7 +7,7 @@ figma.connect(
   'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=6056-2000&m=dev',
   {
     props: {
-        children: figma.children('Step')
+      children: figma.children('Step'),
     },
     example: ({ children }) => <ProgressStepper>{children}</ProgressStepper>,
   }
