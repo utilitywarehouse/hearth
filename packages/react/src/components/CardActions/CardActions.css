@@ -5,14 +5,17 @@
     flex: 1;
     white-space: nowrap;
 
-    &:where([data-direction='column'] &):not(:first-child) {
-      /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties -- the card border custom properties are set in the parent Card css */
-      border-top: var(--h-card-border-width) solid var(--h-card-border-color);
-    }
-
-    &:where([data-direction='row'] &):not(:first-child) {
-      /* stylelint-disable-next-line csstools/value-no-unknown-custom-properties -- the card border custom properties are set in the parent Card css */
-      border-left: var(--h-card-border-width) solid var(--h-card-border-color);
+    /* We can't apply the individual border styles according to the direction
+     * as it can be set responsively, so we apply both and offset them with
+     * negative margins. This way the correct borders will always be visible
+     * regardless of the direction. */
+    &:not(:first-child) {
+      /* stylelint-disable csstools/value-no-unknown-custom-properties -- the card border color custom property is set in the parent Card css */
+      border-top: var(--h-border-width-1) solid var(--h-card-border-color);
+      border-left: var(--h-border-width-1) solid var(--h-card-border-color);
+      /* stylelint-enable */
+      margin-left: calc(-1 * var(--h-border-width-1));
+      margin-top: calc(-1 * var(--h-border-width-1));
     }
   }
 }
