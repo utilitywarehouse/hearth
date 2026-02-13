@@ -24,7 +24,6 @@ export const CardActions = (props: CardActionsProps) => {
       role="list"
       className={cn(componentClassName, className)}
       direction={direction}
-      data-direction={direction}
     >
       <Tag {...cardActionsProps}>
         {React.Children.map(children, child => (
