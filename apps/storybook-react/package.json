@@ -8,8 +8,9 @@
     "preview": "vite preview",
     "dev": "storybook dev -p 6006",
     "clean": "rm -rf node_modules storybook-static .turbo",
-    "build:storybook": "storybook build",
-    "chromatic": "chromatic --config-file 'chromatic.config.json'"
+    "build:storybook": "pnpm run copy-changelog && storybook build",
+    "chromatic": "chromatic --config-file 'chromatic.config.json'",
+    "copy-changelog": "node ./scripts/copy-changelog.js"
   },
   "dependencies": {
     "@tanstack/react-virtual": "^3.13.13",
