@@ -39,7 +39,7 @@ previously.
 
 You can then `yarn install` to install the preview release.
 
-## Figma code connect
+## Figma Code Connect
 
 We use the Code Connect CLI to generate Figma components from our React
 components.
