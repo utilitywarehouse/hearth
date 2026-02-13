@@ -8,12 +8,13 @@ import {
   Card,
   CardActions,
   CardActionLink,
+  Container,
 } from '@utilitywarehouse/hearth-react';
 
 <Meta title="Introduction" />
 
-<Flex className="sb-unstyled" direction="column" gap="600">
-  <Flex direction="column" gap="200" alignItems="center" textAlign="center">
+<Container className="sb-unstyled" direction="column" gap="600" alignItems="center" >
+  <Flex direction="column" gap="200" alignItems="center" textAlign="center" >
     <img src={pig} alt="" width={240} height={240} />
     <Flex direction="column" gap="100" alignItems="center">
       <Heading as="h1" size="xl">
@@ -28,52 +29,52 @@ import {
     </BodyText>
   </Flex>
 
-  <Flex direction='column' gap='400'>
+  <Flex direction='column' gap='400' width="80%">
 <Flex gap="200" justifyContent="center" >
-    <Card shadowColor="pig">
+    <Card shadowColor="pig" flex='1'>
       <CardActions>
         <CardActionLink heading="Getting Started" href='/?path=/docs/getting-started' />
       </CardActions>
     </Card>
-    <Card shadowColor="pig">
+    <Card shadowColor="pig" flex='1'>
       <CardActions>
         <CardActionLink heading="Design Tokens"  href='/?path=/docs/design-tokens' />
       </CardActions>
     </Card>
-    <Card shadowColor="pig">
+    <Card shadowColor="pig" flex='1'>
       <CardActions>
         <CardActionLink heading="What's New"  href='/?path=/docs/what-s-new-introduction' />
       </CardActions>
     </Card>
     </Flex>
 <Flex gap="200" justifyContent="center" wrap="wrap">
-    <Card shadowColor="brand">
+    <Card shadowColor="brand" flex='1'>
       <CardActions>
         <CardActionLink heading="Common Props"  href='/?path=/docs/common-props-introduction' />
       </CardActions>
     </Card>
-    <Card shadowColor="brand">
+    <Card shadowColor="brand" flex='1'>
       <CardActions>
         <CardActionLink heading="Responsive Design"  href='/?path=/docs/responsive-design-breakpoints' />
       </CardActions>
     </Card>
     </Flex>
 <Flex gap="200" justifyContent="center" wrap="wrap">
-    <Card shadowColor="functional">
+    <Card shadowColor="functional" flex='1'>
       <CardActions>
         <CardActionLink heading="Layout"  href='/?path=/docs/layout-introduction' />
       </CardActions>
     </Card>
-    <Card shadowColor="functional">
+    <Card shadowColor="functional" flex='1'>
       <CardActions>
         <CardActionLink heading="Typography"  href='/?path=/docs/typography-bodytext' />
       </CardActions>
     </Card>
-    <Card shadowColor="functional">
+    <Card shadowColor="functional" flex='1'>
       <CardActions>
         <CardActionLink heading="Components"  href='/?path=/docs/components-accordion' />
       </CardActions>
     </Card>
     </Flex>
   </Flex>
-  </Flex>
+  </Container>
