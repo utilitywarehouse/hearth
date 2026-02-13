@@ -6,6 +6,11 @@
         "type": "color",
         "value": "#7a42c8"
       },
+      "loading": {
+        "alias": "{color.warm-white.900}",
+        "type": "color",
+        "value": "#30302c"
+      },
       "primary": {
         "alias": "{color.warm-white.1000}",
         "type": "color",
@@ -702,6 +707,11 @@
         "alias": "{color.purple.700}",
         "type": "color",
         "value": "#7a42c8"
+      },
+      "loading": {
+        "alias": "{color.warm-white.200}",
+        "type": "color",
+        "value": "#f1efe4"
       },
       "primary": {
         "alias": "{color.warm-white.50}",

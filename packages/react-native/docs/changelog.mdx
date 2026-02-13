@@ -1,0 +1,687 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { BackToTopButton } from './components';
+
+<Meta title="Changelog" />
+<BackToTopButton />
+
+# Changelog - `@utilitywarehouse/hearth-react-native`
+
+The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
+
+
+## 0.19.0
+
+### Minor Changes
+
+- [#882](https://github.com/utilitywarehouse/hearth/pull/882) [`7e5338c`](https://github.com/utilitywarehouse/hearth/commit/7e5338c75bf051897a5384fe4ce0f65533b7e1a7) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Add `safeAreaPadding` option to `ToastProvider`
+
+  `ToastProvider` now supports an optional `safeAreaPadding` prop to control whether toasts respect safe-area inset padding. This can be useful when you want to disable additional safe-area inset space while keeping the base toast padding.
+
+  **Components affected**:
+  - `ToastProvider`
+
+  **Developer changes**:
+
+  No changes required. To disable safe-area inset padding (while preserving the base bottom padding), set `safeAreaPadding` to `false`:
+
+  ```tsx
+  <ToastProvider safeAreaPadding={false}>{children}</ToastProvider>
+  ```
+
+- [`da893ff`](https://github.com/utilitywarehouse/hearth/commit/da893ff8a9d576a6ca69021737056c7289f8c6aa) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Unify spacing prop naming across layout components
+
+  The `space` prop has been renamed to `spacing` across all layout components for improved consistency and clarity. The `space` prop is now deprecated but will continue to work alongside the new `spacing` prop to maintain backward compatibility.
+
+  **Components affected**:
+  - `Box`
+  - `ButtonGroup`
+  - `Card`
+  - `Container`
+  - `Divider`
+  - `Flex`
+  - `Grid`
+
+  **Developer changes**:
+
+  No immediate changes are required. The `space` prop will continue to work as before. However, we recommend migrating to the `spacing` prop at your convenience:
+
+  ```diff
+  - <Flex space="md">
+  + <Flex spacing="md">
+      <Box>...</Box>
+      <Box>...</Box>
+    </Flex>
+  ```
+
+  ```diff
+  - <Grid columns={2} space="lg">
+  + <Grid columns={2} spacing="lg">
+      <Box>...</Box>
+      <Box>...</Box>
+    </Grid>
+  ```
+
+  ```diff
+  - <Container space="xl">
+  + <Container spacing="xl">
+      <Box>...</Box>
+    </Container>
+  ```
+
+  The deprecated `space` prop will be removed in a future major version release.
+
+- [#877](https://github.com/utilitywarehouse/hearth/pull/877) [`2cdf3a2`](https://github.com/utilitywarehouse/hearth/commit/2cdf3a2f4251b24f34c260f3f5da39f8c330fff5) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `autoFocus` prop to `VerificationInput`
+
+  `VerificationInput` now supports an `autoFocus` prop to control whether the first slot should focus on mount.
+  Default is `false` to avoid unexpected focus when the component is used.
+
+  **Developer changes**:
+
+  ```tsx
+  <VerificationInput autoFocus={false} />
+  ```
+
+- [#877](https://github.com/utilitywarehouse/hearth/pull/877) [`2cdf3a2`](https://github.com/utilitywarehouse/hearth/commit/2cdf3a2f4251b24f34c260f3f5da39f8c330fff5) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `VerificationInput` ref methods and improve rapid input handling
+
+  `VerificationInput` now forwards a ref with `focus`, `blur`, `clear`, and `focusIndex` helpers. Input updates also use the latest value to avoid dropped digits when typing quickly.
+
+  **Developer changes**:
+
+  If you want to control focus programmatically, pass a ref:
+
+  ```tsx
+  import { useRef } from 'react';
+  import {
+    VerificationInput,
+    type VerificationInputHandle,
+  } from '@utilitywarehouse/hearth-react-native';
+
+  const inputRef = useRef<VerificationInputHandle>(null);
+
+  <VerificationInput ref={inputRef} onChangeText={setCode} />;
+  ```
+
+### Patch Changes
+
+- [#880](https://github.com/utilitywarehouse/hearth/pull/880) [`a52bb03`](https://github.com/utilitywarehouse/hearth/commit/a52bb03352dd8b83c9cfd3311aaa390e96e75662) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Remove the unsupported `colorScheme` prop from `Banner` types so the API matches the `Card` component.
+
+- [#879](https://github.com/utilitywarehouse/hearth/pull/879) [`383b686`](https://github.com/utilitywarehouse/hearth/commit/383b6860c1b68da139f10a67cd001dd884143df0) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Make `Banner` button full width in vertical layout
+
+- [#878](https://github.com/utilitywarehouse/hearth/pull/878) [`b31b8c3`](https://github.com/utilitywarehouse/hearth/commit/b31b8c3d37d4d1ec3df2f187ec18d00b3e663b49) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Fix `Modal` bottom padding
+
+- [#881](https://github.com/utilitywarehouse/hearth/pull/881) [`5681b8f`](https://github.com/utilitywarehouse/hearth/commit/5681b8fd4bcc73ad532229018049f959f06f77ec) Thanks [@jordmccord](https://github.com/jordmccord)! - 📦 [DEPS]: Bump `@utilitywarehouse/hearth-react-native-icons` peerDependency to 0.8.0
+
+## 0.18.0
+
+### Minor Changes
+
+- [#869](https://github.com/utilitywarehouse/hearth/pull/869) [`89231c8`](https://github.com/utilitywarehouse/hearth/commit/89231c818dfd694f53b50f4cc961a38d0a50999e) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add color override props to `IconButton` for service-specific branding
+
+  The `IconButton` component now supports custom color overrides through three new optional props: `backgroundColor`, `activeBackgroundColor`, and `shadowColor`. These props enable service-specific branding for use cases like service buttons (Electricity, Broadband, Mobile, Insurance, Cashback Card).
+
+  ⚠️ **Important**: These props should be used sparingly and only for specific use cases where brand-specific colors are required. For most use cases, continue using the standard `colorScheme` and `variant` props to maintain design system consistency.
+
+  **Components affected**:
+  - `IconButton`
+
+  **Developer changes**:
+
+  You can now customize `IconButton` colors for service-specific branding:
+
+  ```tsx
+  import { IconButton } from '@utilitywarehouse/hearth-react-native';
+  import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+  <IconButton
+    icon={ElectricityMediumIcon}
+    backgroundColor="energyBlue200"
+    activeBackgroundColor="energyBlue300"
+    shadowColor="energyBlue300"
+    variant="emphasis"
+    onPress={handlePress}
+  />;
+  ```
+
+  The new props are:
+  - `backgroundColor` - Sets the base background color, overriding the color scheme's default
+  - `activeBackgroundColor` - Sets the background color when pressed or in an active state
+  - `shadowColor` - Sets the shadow/elevation color
+
+  These overrides work alongside the existing `variant` and `colorScheme` props, allowing you to maintain structural styling while customizing colors for specific branding requirements.
+
+### Patch Changes
+
+- [#871](https://github.com/utilitywarehouse/hearth/pull/871) [`8984335`](https://github.com/utilitywarehouse/hearth/commit/89843355d268aaa184bea75784e6841568c4784f) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Fix style ordering in `BodyText` to ensure color props properly override custom styles
+
+## 0.17.0
+
+### Minor Changes
+
+- [#867](https://github.com/utilitywarehouse/hearth/pull/867) [`9a15eb8`](https://github.com/utilitywarehouse/hearth/commit/9a15eb8c659aa541988da6f28f6c50261f3557f9) Thanks [@jordmccord](https://github.com/jordmccord)! - 💔 [BREAKING CHANGE]: Require `CardActions` wrapper for `CardAction` groups.
+
+  `Card` now only treats actions as such when they are wrapped in `CardActions`. This removes wrapper heuristics and makes action grouping explicit while keeping automatic content wrapping.
+
+  **Components affected**:
+  - `Card`
+  - `CardActions`
+  - `CardAction`
+
+  **Developer changes**:
+
+  Wrap all `CardAction` items in `CardActions`:
+
+  ```diff
+  - <Card>
+  -   <CardAction heading="Action 1" onPress={() => {}} />
+  -   <CardAction heading="Action 2" onPress={() => {}} />
+  - </Card>
+  + <Card>
+  +   <CardActions>
+  +     <CardAction heading="Action 1" onPress={() => {}} />
+  +     <CardAction heading="Action 2" onPress={() => {}} />
+  +   </CardActions>
+  + </Card>
+  ```
+
+- [#860](https://github.com/utilitywarehouse/hearth/pull/860) [`ec44a9d`](https://github.com/utilitywarehouse/hearth/commit/ec44a9d3d7a2d95ab69b6e4c461104402d82659d) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `prefix` and `suffix` props to `Input` component
+
+  The `Input` component now supports `prefix` and `suffix` props, allowing you to display text or custom content before and after the input field. This is useful for adding units, currency symbols, or other contextual information.
+
+  **Components affected**:
+  - `Input`
+
+  **Developer changes**:
+
+  Use the `prefix` and `suffix` props to add content before or after the input:
+
+  ```tsx
+  <Input label="Amount" prefix="£" suffix="GBP" placeholder="0.00" />
+  ```
+
+  You can also pass custom React nodes:
+
+  ```tsx
+  <Input label="Email" prefix={<CustomIcon />} suffix={<BodyText>@example.com</BodyText>} />
+  ```
+
+  **Note**: The `prefix` and `suffix` props are not available on `password` and `search` input types, as these have specific UI patterns.
+
+- [#862](https://github.com/utilitywarehouse/hearth/pull/862) [`654552e`](https://github.com/utilitywarehouse/hearth/commit/654552e33d56e4b2b2ba8fb783b7f9a7c57ba212) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `loading` prop to `ListAction` component
+
+  The `ListAction` component now supports a `loading` prop that displays a skeleton loading state while content is being fetched. This provides better user feedback during asynchronous operations.
+
+  **Components affected**:
+  - `ListAction`
+
+  **Developer changes**:
+
+  Use the `loading` prop to show a loading state:
+
+  ```tsx
+  <List>
+    <ListItem heading="Account details" />
+    <ListAction heading="View transactions" loading={isLoading} onPress={handlePress} />
+  </List>
+  ```
+
+  When `loading` is true, the action will display skeleton placeholders instead of the heading and icon.
+
+- [#862](https://github.com/utilitywarehouse/hearth/pull/862) [`654552e`](https://github.com/utilitywarehouse/hearth/commit/654552e33d56e4b2b2ba8fb783b7f9a7c57ba212) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `invalidText` prop to `List` component
+
+  The `List` component now supports an `invalidText` prop for displaying validation error messages in the section header. This provides consistent validation feedback across list-based forms and grouped content.
+
+  **Components affected**:
+  - `List`
+
+  **Developer changes**:
+
+  Use the `invalidText` prop to display validation errors:
+
+  ```tsx
+  <List
+    heading="Payment methods"
+    helperText="Select at least one payment method"
+    invalidText="You must select a payment method"
+  >
+    <ListItem heading="Credit card" />
+    <ListItem heading="Direct debit" />
+  </List>
+  ```
+
+### Patch Changes
+
+- [#845](https://github.com/utilitywarehouse/hearth/pull/845) [`9c034f9`](https://github.com/utilitywarehouse/hearth/commit/9c034f98f9d6aa4596a45296d02e01703ef1c762) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Add `invalidText` prop to `ExpandableCardGroup`
+
+  The `ExpandableCardGroup` component now supports an `invalidText` prop that displays validation text below the helper text when the group is in an invalid state.
+
+  **Components affected**:
+  - `ExpandableCardGroup`
+
+  **Developer changes**:
+
+  No changes required. If you want to display validation text, you can now use the `invalidText` prop:
+
+  ```tsx
+  <ExpandableCardGroup
+    heading="Select an option"
+    helperText="Choose one of the options below"
+    invalidText="Please select at least one option"
+  >
+    {/* ExpandableCard components */}
+  </ExpandableCardGroup>
+  ```
+
+- [#867](https://github.com/utilitywarehouse/hearth/pull/867) [`9a15eb8`](https://github.com/utilitywarehouse/hearth/commit/9a15eb8c659aa541988da6f28f6c50261f3557f9) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Improve first-item border detection in `Card` and `List` components
+
+  The `Card` and `List` components now use a more reliable method to detect and style the first rendered `CardAction`, `ListItem`, or `ListAction`. This fixes edge cases where wrapper components that conditionally render `null` would previously interfere with first-item border removal.
+
+  **Components affected**:
+  - `Card` / `CardAction`
+  - `List` / `ListItem` / `ListAction`
+
+  **Developer changes**:
+
+  No changes required. The improvement is automatic and maintains the same visual behavior. Components that wrap card actions or list items will now work correctly even when some wrappers return `null` conditionally.
+
+  **Note**: The `useCardFirstActionContext` hook has been removed as it was an internal implementation detail.
+
+## 0.16.2
+
+### Patch Changes
+
+- [#837](https://github.com/utilitywarehouse/hearth/pull/837) [`126657c`](https://github.com/utilitywarehouse/hearth/commit/126657cd96008625f9573ed5cc1588709c00f7da) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Add style customisation props to `DateInput` component
+
+  The `DateInput` component now supports three new style props for customising the appearance of date segments: `inputContainerStyle`, `inputStyle`, and `inputLabelStyle`. This allows for greater flexibility when integrating DateInput into different layouts.
+
+  **Components affected**:
+  - `DateInput`
+
+  **Developer changes**:
+
+  No changes required. To customise the appearance of date input segments, use the new style props:
+
+  ```tsx
+  <DateInput
+    label="Custom date input"
+    inputContainerStyle={{ maxWidth: 'auto' }}
+    inputStyle={{ fontSize: 16 }}
+    inputLabelStyle={{ fontWeight: 'bold' }}
+  />
+  ```
+
+## 0.16.1
+
+### Patch Changes
+
+- [#817](https://github.com/utilitywarehouse/hearth/pull/817) [`fb4f4d0`](https://github.com/utilitywarehouse/hearth/commit/fb4f4d034e5b67b0c75dc093f7fdd8d3ab26edde) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `DateInput` height issue
+
+## 0.16.0
+
+### Minor Changes
+
+- [#810](https://github.com/utilitywarehouse/hearth/pull/810) [`eae4c24`](https://github.com/utilitywarehouse/hearth/commit/eae4c24a421415247c720f88bb8341133340cc7b) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: All `Input` components accessibility improvements and you can now pass a label, helper text and validation to the `Input` component directly.
+
+  ### Input accessibility improvements and FormField integration
+
+  The `Input` component has been updated to internally use `FormField`. This allows you to pass props like `label`, `helperText`, and validation status directly to the `Input` component, streamlining its usage.
+
+  We have also greatly improved accessibility behavior. The `Input` component now intelligently constructs `aria-label` and `accessibilityHint` based on the provided label, helper text, and validation state. To support this, `FormField` now has a mechanism to hide its own accessibility elements when a child component is handling them, preventing duplicate announcements.
+
+  #### Affected components
+  - `Input`
+  - `CurrencyInput`
+  - `DatePickerInput`
+  - `Textarea`
+  - `FormField`
+
+  #### Developer changes
+
+  You can now use `Input`, `CurrencyInput`, `DatePickerInput`, and `Textarea` without explicitly wrapping them in `FormField` for standard layouts:
+
+  ```tsx
+  // Before
+  <FormField label="Email" helperText="Enter email">
+    <Input />
+  </FormField>
+
+  // After
+  <Input label="Email" helperText="Enter email" />
+  ```
+
+  No breaking changes. The `Input` component continues to support being wrapped externally by `FormField`.
+
+  #### References
+  - UWDS-4179
+
+- [#803](https://github.com/utilitywarehouse/hearth/pull/803) [`8e96af6`](https://github.com/utilitywarehouse/hearth/commit/8e96af69f3a3498f264f2a6dc2416cdb6a298275) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Adds `labelVariant` prop to components with a label
+
+  ### Adds `labelVariant` prop to components with a label
+
+  Added a `labelVariant` prop to allow consumers to choose between a body or heading style for component labels. Defaults to `body`.
+
+  #### Affected components
+  - `CheckboxGroup`
+  - `FormField`
+  - `Label`
+  - `RadioGroup`
+  - `RadioCard`
+  - `Select`
+  - `VerificationInput`
+  - `Input`
+  - `CurrencyInput`
+  - `DatePickerInput`
+  - `Textarea`
+
+  #### Developer changes
+
+  You can now pass `labelVariant="heading"` to these components to render the label as a heading instead of body text.
+
+  ```tsx
+  <FormField label="My Label" labelVariant="heading">
+    <Input />
+  </FormField>
+  ```
+
+## 0.15.3
+
+### Patch Changes
+
+- [#801](https://github.com/utilitywarehouse/hearth/pull/801) [`6d11339`](https://github.com/utilitywarehouse/hearth/commit/6d1133997b28efa104c282522a5708f1d4d8614c) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `Modal` without handle heading padding issue
+
+- [#796](https://github.com/utilitywarehouse/hearth/pull/796) [`f0ccadb`](https://github.com/utilitywarehouse/hearth/commit/f0ccadbb48fb7a7a70520d7521746a63421e01cc) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `CheckboxTile` text wrapping issue
+
+## 0.15.2
+
+### Patch Changes
+
+- [#771](https://github.com/utilitywarehouse/hearth/pull/771) [`5320be5`](https://github.com/utilitywarehouse/hearth/commit/5320be544992c137e201be7750d30ea098a7d399) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Adds missing `ref` prop to the `CurrencyInput` component
+
+## 0.15.1
+
+### Patch Changes
+
+- [#768](https://github.com/utilitywarehouse/hearth/pull/768) [`570f240`](https://github.com/utilitywarehouse/hearth/commit/570f240a448eae546b893ed3ad69235213ee5fac) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Makes `Modal` footer sticky by default
+
+  This change updates the `Modal` component to have a sticky footer by default, enhancing user experience by keeping action buttons accessible. The `stickyFooter` prop has been added to allow developers to disable this behavior if needed.
+
+## 0.15.0
+
+### Minor Changes
+
+- [#766](https://github.com/utilitywarehouse/hearth/pull/766) [`183155a`](https://github.com/utilitywarehouse/hearth/commit/183155a1aaf7713f0ab8a39ab1e5684ef6190d0c) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE] Custom `ListItem` styles for `UL` and `OL` components
+
+  Added new props to `UL`, `OL`, and `ListItem` components to support custom list markers, including icons, images, and colors. This brings the functionality closer to CSS-like list styling. We also fixed a layout issue where list item text could overflow the container.
+
+  **Components affected**:
+  - `UL` (UnorderedList)
+  - `OL` (OrderedList)
+  - `ListItem`
+
+  **Developer changes**:
+
+  You can now customise list bullets/markers using the new `listStyle*` props. These can be set on the list container to apply to all items, or overridden on individual list items.
+
+  ```tsx
+  import { UL, LI } from '@utilitywarehouse/hearth-react-native';
+  import { TickIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+  <UL listStyleColour="feedbackPositiveSurfaceDefault" listStyleIcon={TickIcon}>
+    <LI>Success item 1</LI>
+    <LI listStyleColour="feedbackDangerSurfaceDefault">Error item override</LI>
+  </UL>;
+  ```
+
+  Supported props:
+  - `listStyleImage`: React Element (e.g. `<Image />`)
+  - `listStyleIcon`: Icon component
+  - `listStyleWidth` / `listStyleHeight`: Dimensions for the marker (default: 20)
+  - `listStyleColour`: Color token or value for the marker
+
+### Patch Changes
+
+- [#762](https://github.com/utilitywarehouse/hearth/pull/762) [`2d2bbd2`](https://github.com/utilitywarehouse/hearth/commit/2d2bbd2ba109b9acb2e0b220766eb02c0ad5710e) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Fixes Android error when passing boolean or number as a `Checkbox` value
+
+- [#764](https://github.com/utilitywarehouse/hearth/pull/764) [`46f115d`](https://github.com/utilitywarehouse/hearth/commit/46f115dd4bd9da824496e8ec19e29276523931a1) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Fixes `HelperText` wrapping issue
+
+- [#762](https://github.com/utilitywarehouse/hearth/pull/762) [`2d2bbd2`](https://github.com/utilitywarehouse/hearth/commit/2d2bbd2ba109b9acb2e0b220766eb02c0ad5710e) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Fixes `PillGroup` `onChange` prop types
+
+- [#764](https://github.com/utilitywarehouse/hearth/pull/764) [`46f115d`](https://github.com/utilitywarehouse/hearth/commit/46f115dd4bd9da824496e8ec19e29276523931a1) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: `DescriptionListItem` description disappearing when direction is `column`
+
+- [#762](https://github.com/utilitywarehouse/hearth/pull/762) [`2d2bbd2`](https://github.com/utilitywarehouse/hearth/commit/2d2bbd2ba109b9acb2e0b220766eb02c0ad5710e) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Input styles are now passed to the correct View
+
+## 0.14.1
+
+### Patch Changes
+
+- [#749](https://github.com/utilitywarehouse/hearth/pull/749) [`ded4b2e`](https://github.com/utilitywarehouse/hearth/commit/ded4b2e3dcad9c1cc4860a13120e44a43e5f0dde) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `CardAction` padding
+
+## 0.14.0
+
+### Minor Changes
+
+- [#741](https://github.com/utilitywarehouse/hearth/pull/741) [`acf081a`](https://github.com/utilitywarehouse/hearth/commit/acf081a8e10722ea1e9106f8111f5d9548815646) Thanks [@jordmccord](https://github.com/jordmccord)! - Renames `ListItemText` to `ListItemHeading` (`ListItemText` is deprecated and will be removed in a later release)
+
+### Patch Changes
+
+- [#741](https://github.com/utilitywarehouse/hearth/pull/741) [`acf081a`](https://github.com/utilitywarehouse/hearth/commit/acf081a8e10722ea1e9106f8111f5d9548815646) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `truncateHeading` and `truncateHelperText` props to `ListItem`
+
+- [#740](https://github.com/utilitywarehouse/hearth/pull/740) [`16f1ce0`](https://github.com/utilitywarehouse/hearth/commit/16f1ce073d62c4e72693e7e07233a7498c0d0602) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes custom `ListItem` first child border issue
+
+- [#737](https://github.com/utilitywarehouse/hearth/pull/737) [`85f76db`](https://github.com/utilitywarehouse/hearth/commit/85f76dbbf7c90db96d7e89e5f5e353a772dd84c2) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `Radio` and `Checkbox` Groups row direction issue
+
+- [#741](https://github.com/utilitywarehouse/hearth/pull/741) [`acf081a`](https://github.com/utilitywarehouse/hearth/commit/acf081a8e10722ea1e9106f8111f5d9548815646) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `ListItemText` and `ListItemHelperText` prop types
+
+## 0.13.0
+
+### Minor Changes
+
+- [#682](https://github.com/utilitywarehouse/hearth/pull/682) [`57d6c71`](https://github.com/utilitywarehouse/hearth/commit/57d6c71baedeaa0bc914ff5163e73bbf4281aa79) Thanks [@Utakato](https://github.com/Utakato)! - Add Verification Input component
+
+## 0.12.0
+
+### Minor Changes
+
+- [#685](https://github.com/utilitywarehouse/hearth/pull/685) [`10f5209`](https://github.com/utilitywarehouse/hearth/commit/10f52095e5f36e58f9821e3fec3fdf43f4578fbb) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] Component props moved from objects to React Nodes
+
+### Patch Changes
+
+- [#687](https://github.com/utilitywarehouse/hearth/pull/687) [`11e8176`](https://github.com/utilitywarehouse/hearth/commit/11e8176ced40b0a8b2d27e07c482ed10a7b7ce7a) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `Input` refs
+
+## 0.11.0
+
+### Minor Changes
+
+- [#674](https://github.com/utilitywarehouse/hearth/pull/674) [`c617257`](https://github.com/utilitywarehouse/hearth/commit/c617257974b11c39d706d6fd46712a284ff5fe10) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `DateInput` component
+
+- [#663](https://github.com/utilitywarehouse/hearth/pull/663) [`8889a07`](https://github.com/utilitywarehouse/hearth/commit/8889a07e347e9289928e679cee495d7656a4e9aa) Thanks [@Utakato](https://github.com/Utakato)! - Add Avatar component
+
+## 0.10.0
+
+### Minor Changes
+
+- [#659](https://github.com/utilitywarehouse/hearth/pull/659) [`99afbed`](https://github.com/utilitywarehouse/hearth/commit/99afbed95df550d5d5a8bb6e04f7640077bf4883) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - Adds `Pill` and `PillGroup` components
+
+- [#671](https://github.com/utilitywarehouse/hearth/pull/671) [`706448d`](https://github.com/utilitywarehouse/hearth/commit/706448d91f354cb96a71a5f3acc9d17aaa767078) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Toast` component
+
+## 0.9.0
+
+### Minor Changes
+
+- [#658](https://github.com/utilitywarehouse/hearth/pull/658) [`2ac2366`](https://github.com/utilitywarehouse/hearth/commit/2ac2366aaa7f3b253fd9336664a73a64f1ab91a5) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Menu` component
+
+- [#656](https://github.com/utilitywarehouse/hearth/pull/656) [`a01a49a`](https://github.com/utilitywarehouse/hearth/commit/a01a49a49ec1dd3c04684ce010281030d45c77a1) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `fullscreen` and `inNavModal` props to `Modal`
+
+## 0.8.2
+
+### Patch Changes
+
+- [#652](https://github.com/utilitywarehouse/hearth/pull/652) [`5119703`](https://github.com/utilitywarehouse/hearth/commit/5119703a31f663cc8c0a8bb2c6ba5b10f9bf72d6) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `RadioCard` label wrapping issue
+
+- [#648](https://github.com/utilitywarehouse/hearth/pull/648) [`c90ea5c`](https://github.com/utilitywarehouse/hearth/commit/c90ea5ce165f27ccfc9774ec58ac642d02b349d1) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `ListAction` icon size
+
+- [#648](https://github.com/utilitywarehouse/hearth/pull/648) [`c90ea5c`](https://github.com/utilitywarehouse/hearth/commit/c90ea5ce165f27ccfc9774ec58ac642d02b349d1) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `Banner` text gap size
+
+- [#651](https://github.com/utilitywarehouse/hearth/pull/651) [`4ee77b7`](https://github.com/utilitywarehouse/hearth/commit/4ee77b75e58ac4abbeba375ecb367d8899c7f1a0) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `Banner` image and height issue
+
+- [#649](https://github.com/utilitywarehouse/hearth/pull/649) [`7374535`](https://github.com/utilitywarehouse/hearth/commit/737453598ad5e885b35b5fcd2e4c4ccff4910c43) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `List` to only show `Card` container if it has children
+
+- [#648](https://github.com/utilitywarehouse/hearth/pull/648) [`c90ea5c`](https://github.com/utilitywarehouse/hearth/commit/c90ea5ce165f27ccfc9774ec58ac642d02b349d1) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `shadowColor` prop to `Card` and exposes helpers in theme
+
+## 0.8.1
+
+### Patch Changes
+
+- [#641](https://github.com/utilitywarehouse/hearth/pull/641) [`251242e`](https://github.com/utilitywarehouse/hearth/commit/251242e218c0b24589c3fb6fb6963b53bda8a367) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `HighlightBanner` when no image is provided
+
+## 0.8.0
+
+### Minor Changes
+
+- [#635](https://github.com/utilitywarehouse/hearth/pull/635) [`4cac2f2`](https://github.com/utilitywarehouse/hearth/commit/4cac2f28c12279557e2133d67cd75783f30c89ff) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Expandable` component
+
+- [#631](https://github.com/utilitywarehouse/hearth/pull/631) [`57b4991`](https://github.com/utilitywarehouse/hearth/commit/57b49912c90dce3d88a699bd50217df08dab601a) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Banner` component
+
+- [#636](https://github.com/utilitywarehouse/hearth/pull/636) [`a363352`](https://github.com/utilitywarehouse/hearth/commit/a363352dbfbc44245c64e2a16347463b89ff519a) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `ExpandableCard` component
+
+- [#631](https://github.com/utilitywarehouse/hearth/pull/631) [`57b4991`](https://github.com/utilitywarehouse/hearth/commit/57b49912c90dce3d88a699bd50217df08dab601a) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `HighlightBanner` component
+
+## 0.7.0
+
+### Minor Changes
+
+- [#613](https://github.com/utilitywarehouse/hearth/pull/613) [`0bdfbe4`](https://github.com/utilitywarehouse/hearth/commit/0bdfbe41ed8b30e5abf49de6ea4cb3a12194921e) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `CardAction` component
+
+## 0.6.0
+
+### Minor Changes
+
+- [#603](https://github.com/utilitywarehouse/hearth/pull/603) [`3f292e9`](https://github.com/utilitywarehouse/hearth/commit/3f292e9960dc708dd6932cff04671dd7ef375c1a) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Container` component
+
+- [#605](https://github.com/utilitywarehouse/hearth/pull/605) [`f52e0f5`](https://github.com/utilitywarehouse/hearth/commit/f52e0f57eff5f1cfa36dacc45576c08771ca12df) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `ThemedImage` component
+
+## 0.5.0
+
+### Minor Changes
+
+- [#583](https://github.com/utilitywarehouse/hearth/pull/583) [`a31ab40`](https://github.com/utilitywarehouse/hearth/commit/a31ab40e4ccf4533aae2df16cc456d6db92d4e7b) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Carousel` component
+
+- [#567](https://github.com/utilitywarehouse/hearth/pull/567) [`b6869cf`](https://github.com/utilitywarehouse/hearth/commit/b6869cfaca7b3a5aacb27c06733f0243b6faa02a) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - Adds `ProgressStepper` component
+
+- [#596](https://github.com/utilitywarehouse/hearth/pull/596) [`61f1073`](https://github.com/utilitywarehouse/hearth/commit/61f10735a42445b6e4eb90282a2b340317f1ec08) Thanks [@jordmccord](https://github.com/jordmccord)! - `List` component updates:
+  - [BREAKING] The `text` prop in `ListItem` is now `heading`.
+  - Added `ListAction` component.
+  - Added `badge` prop to `ListItem`.
+  - Added `numericValue` prop to `ListItem`.
+  - Removes `divider` prop from `List` and `ListItem`; dividers are now handled automatically.
+
+- [#585](https://github.com/utilitywarehouse/hearth/pull/585) [`4894c34`](https://github.com/utilitywarehouse/hearth/commit/4894c34acaadcbbaba78fd64be2f8ae862200e1f) Thanks [@dorota-uw](https://github.com/dorota-uw)! - [BREAKING] `DescriptionListItem` updates:
+  - Removed `Link` props: `linkText`, `linkHref`, `linkIcon`, `linkIconPosition`, `linkOnPress`, `linkTarget`, `linkShowIcon`.
+  - Added `trailingContent` prop to allow custom trailing content (e.g. Link, Button).
+  - Added validation text support to `DescriptionListItem` via `invalidText` prop.
+
+- [#572](https://github.com/utilitywarehouse/hearth/pull/572) [`9fa6499`](https://github.com/utilitywarehouse/hearth/commit/9fa6499b6eb1534c2ce7dc4352b1f848b94786ec) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - Adds `IndicatorIconButton` component
+
+- [#596](https://github.com/utilitywarehouse/hearth/pull/596) [`61f1073`](https://github.com/utilitywarehouse/hearth/commit/61f10735a42445b6e4eb90282a2b340317f1ec08) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] `SectionHeader` updates:
+  - Removed `Link` props: `linkText`, `linkOnPress`, `linkAccessibilityLabel`.
+  - Added `trailingContent` prop to allow custom trailing content (e.g. Link, Button).
+  - Added `badge` prop to display a `Badge` next to the heading.
+  - Adds `invalidText` prop for validation messages.
+
+- [#596](https://github.com/utilitywarehouse/hearth/pull/596) [`61f1073`](https://github.com/utilitywarehouse/hearth/commit/61f10735a42445b6e4eb90282a2b340317f1ec08) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] Migrates `DescriptionList` `SectionHeader` to use `headerTrailingContent`
+
+### Patch Changes
+
+- [#596](https://github.com/utilitywarehouse/hearth/pull/596) [`61f1073`](https://github.com/utilitywarehouse/hearth/commit/61f10735a42445b6e4eb90282a2b340317f1ec08) Thanks [@jordmccord](https://github.com/jordmccord)! - Updates all interactive components fonts
+
+- [#589](https://github.com/utilitywarehouse/hearth/pull/589) [`635a392`](https://github.com/utilitywarehouse/hearth/commit/635a392c80e883790e3fe2cae3b22453288911f1) Thanks [@dorota-uw](https://github.com/dorota-uw)! - Added underline to Ghost button
+
+- [#596](https://github.com/utilitywarehouse/hearth/pull/596) [`61f1073`](https://github.com/utilitywarehouse/hearth/commit/61f10735a42445b6e4eb90282a2b340317f1ec08) Thanks [@jordmccord](https://github.com/jordmccord)! - Upgrade `@utilitywarehouse/hearth-react-native-icons` to `0.6.0`
+
+- Updated dependencies [[`e707eec`](https://github.com/utilitywarehouse/hearth/commit/e707eec790550cab71f2541c26a38c5691e9cbca)]:
+  - @utilitywarehouse/hearth-react-native-icons@0.7.0
+
+## 0.4.2
+
+### Patch Changes
+
+- [#570](https://github.com/utilitywarehouse/hearth/pull/570) [`364e1ac`](https://github.com/utilitywarehouse/hearth/commit/364e1ac1ee6c83327b0614d90bf280e283144ae6) Thanks [@dorota-uw](https://github.com/dorota-uw)! - Switched the logic for enabling/disabling comma separator in CurrencyInput
+
+- [#573](https://github.com/utilitywarehouse/hearth/pull/573) [`2c28614`](https://github.com/utilitywarehouse/hearth/commit/2c28614b5a9335dda15895c90e08774574d82d85) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `Radio` and `Checkbox` helper overflow issue
+
+- [#573](https://github.com/utilitywarehouse/hearth/pull/573) [`2c28614`](https://github.com/utilitywarehouse/hearth/commit/2c28614b5a9335dda15895c90e08774574d82d85) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes semantic text colour issue
+
+## 0.4.1
+
+### Patch Changes
+
+- [#544](https://github.com/utilitywarehouse/hearth/pull/544) [`98e6423`](https://github.com/utilitywarehouse/hearth/commit/98e642347a0aca8c23babb15ea6b5c70b6adca0f) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds legacy colour palette for backwards compatibility
+
+## 0.4.0
+
+### Minor Changes
+
+- [#511](https://github.com/utilitywarehouse/hearth/pull/511) [`04f804c`](https://github.com/utilitywarehouse/hearth/commit/04f804ca93d6e8881f649a0374a3b878c3217623) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `DatePicker` and `DatePickerInput` components
+
+### Patch Changes
+
+- [#511](https://github.com/utilitywarehouse/hearth/pull/511) [`04f804c`](https://github.com/utilitywarehouse/hearth/commit/04f804ca93d6e8881f649a0374a3b878c3217623) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes `useTheme` typing
+
+## 0.3.1
+
+### Patch Changes
+
+- [#472](https://github.com/utilitywarehouse/hearth/pull/472) [`009fe4b`](https://github.com/utilitywarehouse/hearth/commit/009fe4bff4fc54e424f22629040f715d3d4714ea) Thanks [@jordmccord](https://github.com/jordmccord)! - Add `image` prop to `Checkbox` and `Radio` components
+
+- [#500](https://github.com/utilitywarehouse/hearth/pull/500) [`cc49e74`](https://github.com/utilitywarehouse/hearth/commit/cc49e74e3736b9647e8c5576ce45020add258625) Thanks [@jordmccord](https://github.com/jordmccord)! - - Updated dependencies [[`8dac8c1`](https://github.com/utilitywarehouse/hearth/commit/8dac8c1def9083d8e4efa1385e0ee7be23428c46)]:
+  - @utilitywarehouse/hearth-react-native-icons@0.4.0
+
+- [#499](https://github.com/utilitywarehouse/hearth/pull/499) [`7b6781c`](https://github.com/utilitywarehouse/hearth/commit/7b6781cc054cf9f1ed4969a2c663abceb526c249) Thanks [@jordmccord](https://github.com/jordmccord)! - Fixes dark mode styles for several components
+
+## 0.3.0
+
+### Minor Changes
+
+- [`ce2b445`](https://github.com/utilitywarehouse/hearth/commit/ce2b445dfdd11a2912b4328d8259a604a77b31cd) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `IconContainer` component
+
+- [#423](https://github.com/utilitywarehouse/hearth/pull/423) [`af2deea`](https://github.com/utilitywarehouse/hearth/commit/af2deea62be55d6e40fe5bbb41700e054082b583) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `DescriptionList` component
+
+- [#421](https://github.com/utilitywarehouse/hearth/pull/421) [`a7974df`](https://github.com/utilitywarehouse/hearth/commit/a7974df554cb0eb499923a140ebea523fa49761c) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] Removes `date` and `currency` type from the `Input` component
+
+- [#426](https://github.com/utilitywarehouse/hearth/pull/426) [`997e7cb`](https://github.com/utilitywarehouse/hearth/commit/997e7cb847e4f70de7b995c00aeeee18f1a0a1cd) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] Adds updated `Badge` colour schemes and variants, replaces `solid` with `emphasis`
+
+- [#429](https://github.com/utilitywarehouse/hearth/pull/429) [`1a818ff`](https://github.com/utilitywarehouse/hearth/commit/1a818ffc97a04f412deac4e892fc2400b8ad8735) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Tabs` component
+
+- [#421](https://github.com/utilitywarehouse/hearth/pull/421) [`a7974df`](https://github.com/utilitywarehouse/hearth/commit/a7974df554cb0eb499923a140ebea523fa49761c) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `CurrencyInput` component
+
+### Patch Changes
+
+- [#430](https://github.com/utilitywarehouse/hearth/pull/430) [`a151f3a`](https://github.com/utilitywarehouse/hearth/commit/a151f3a116b97ce2756b89c07f2ac3f3105c3ff7) Thanks [@jordmccord](https://github.com/jordmccord)! - Added `autoFormatThousands` prop to `CurrencyInput` component
+
+- [#426](https://github.com/utilitywarehouse/hearth/pull/426) [`997e7cb`](https://github.com/utilitywarehouse/hearth/commit/997e7cb847e4f70de7b995c00aeeee18f1a0a1cd) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds 2 new layout spacing sizes, '2xs' and '2xl'
+
+## 0.2.0
+
+### Minor Changes
+
+- [#419](https://github.com/utilitywarehouse/hearth/pull/419) [`8b5d1fb`](https://github.com/utilitywarehouse/hearth/commit/8b5d1fbe44d7d7e6dd70d79011d273dbf868c5a6) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `fullscreen` prop to `Modal`
+
+- [#410](https://github.com/utilitywarehouse/hearth/pull/410) [`22cf96c`](https://github.com/utilitywarehouse/hearth/commit/22cf96c17d8ebf4f3c90264b1345a2a2131d7722) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] Updates the `colorScheme` component props to semantic meaning
+
+- [#412](https://github.com/utilitywarehouse/hearth/pull/412) [`bc92ff1`](https://github.com/utilitywarehouse/hearth/commit/bc92ff1ef2e1527fa5f8639a8367b039d14cd30b) Thanks [@dorota-uw](https://github.com/dorota-uw)! - Added SectionHeader component
+
+- [#415](https://github.com/utilitywarehouse/hearth/pull/415) [`614839e`](https://github.com/utilitywarehouse/hearth/commit/614839efec9c7eb7aaed59b4a4289439c170156f) Thanks [@jordmccord](https://github.com/jordmccord)! - [BREAKING] Removed `AccordionHeading` and `ListHeading` components in favour of `SectionHeader`
+
+- [#417](https://github.com/utilitywarehouse/hearth/pull/417) [`2df513f`](https://github.com/utilitywarehouse/hearth/commit/2df513f6f4fd0d695816badf254486f917996a93) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds `Modal` component
+
+### Patch Changes
+
+- [#420](https://github.com/utilitywarehouse/hearth/pull/420) [`960ab43`](https://github.com/utilitywarehouse/hearth/commit/960ab436ee5da9359849ff40557171a9c4edb192) Thanks [@jordmccord](https://github.com/jordmccord)! - Adds our semantic colours to the color value types so they can be accessed in things like the `Box` props
+
+- [#410](https://github.com/utilitywarehouse/hearth/pull/410) [`22cf96c`](https://github.com/utilitywarehouse/hearth/commit/22cf96c17d8ebf4f3c90264b1345a2a2131d7722) Thanks [@jordmccord](https://github.com/jordmccord)! - Moves components to use semantic tokens and exposes the new semantic tokens via the color object in the theme
+
+## 0.1.0
+
+### Minor Changes
+
+- [`f6366c4`](https://github.com/utilitywarehouse/hearth/commit/f6366c4da2676c535dca90be570d6e6bae5a0349) Thanks [@jordmccord](https://github.com/jordmccord)! - Initial Release 🎉
+

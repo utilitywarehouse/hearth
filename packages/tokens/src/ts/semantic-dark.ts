@@ -5,6 +5,7 @@
 export default {
   background: {
     brand: '#7a42c8',
+    loading: '#30302c',
     primary: '#191917',
     secondary: '#232323',
   },

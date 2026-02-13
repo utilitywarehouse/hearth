@@ -20,15 +20,15 @@
           flex-direction: column;
         }
       }
-
-      dt {
-        width: var(--h-description-list-item-row-heading-width);
-        color: var(--h-text-secondary);
-      }
-
-      dd {
-        color: var(--h-text-primary);
-      }
     }
+  }
+
+  dt {
+    color: var(--h-text-secondary);
+    min-width: var(--h-description-list-item-row-heading-width);
+  }
+
+  dd {
+    color: var(--h-text-primary);
   }
 }

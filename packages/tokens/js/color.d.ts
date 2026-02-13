@@ -217,6 +217,7 @@ export declare const yellow: {
 export declare const light: {
   readonly background: {
     readonly brand: '#7a42c8';
+    readonly loading: '#f1efe4';
     readonly primary: '#fcfbf2';
     readonly secondary: '#ffffff';
   };
@@ -464,6 +465,7 @@ export declare const light: {
 export declare const dark: {
   readonly background: {
     readonly brand: '#7a42c8';
+    readonly loading: '#30302c';
     readonly primary: '#191917';
     readonly secondary: '#232323';
   };
@@ -925,6 +927,7 @@ declare const color: {
   readonly light: {
     readonly background: {
       readonly brand: '#7a42c8';
+      readonly loading: '#f1efe4';
       readonly primary: '#fcfbf2';
       readonly secondary: '#ffffff';
     };
@@ -1172,6 +1175,7 @@ declare const color: {
   readonly dark: {
     readonly background: {
       readonly brand: '#7a42c8';
+      readonly loading: '#30302c';
       readonly primary: '#191917';
       readonly secondary: '#232323';
     };

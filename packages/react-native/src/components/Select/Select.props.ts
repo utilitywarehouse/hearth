@@ -54,6 +54,22 @@ interface SelectProps extends ViewProps {
    */
   labelVariant?: 'heading' | 'body';
   /**
+   * Helper text to show below the select
+   */
+  helperText?: string;
+  /**
+   * Optional icon to display alongside the helper text
+   */
+  helperIcon?: React.ComponentType;
+  /**
+   *  Text to display when validationStatus is 'invalid'
+   */
+  invalidText?: string;
+  /**
+   * Text to display when validationStatus is 'valid'
+   */
+  validText?: string;
+  /**
    * Placeholder text to show when no value is selected
    */
   placeholder?: string;

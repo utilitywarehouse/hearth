@@ -39,7 +39,7 @@ const meta = {
       control: 'select',
       description: 'The justify of the flex container.',
     },
-    space: {
+    spacing: {
       options: ['none', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
       control: 'radio',
       description: 'The space of the flex container.',
@@ -51,7 +51,7 @@ const meta = {
     align: 'center',
     wrap: 'wrap',
     justify: 'flex-start',
-    space: 'sm',
+    spacing: 'sm',
   },
 } satisfies Meta<typeof Flex>;
 

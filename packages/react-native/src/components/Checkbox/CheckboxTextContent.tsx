@@ -4,7 +4,7 @@ import FlexProps from '../Flex/Flex.props';
 
 const CheckboxTextContent = ({ children, style, ...props }: FlexProps) => {
   return (
-    <Flex style={[styles.content, style]} direction="column" space="none" {...props}>
+    <Flex style={[styles.content, style]} direction="column" spacing="none" {...props}>
       {children}
     </Flex>
   );

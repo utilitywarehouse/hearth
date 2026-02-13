@@ -56,7 +56,7 @@ export const Playground: Story = {};
 
 export const Variants: Story = {
   render: () => (
-    <Flex space="sm">
+    <Flex spacing="sm">
       <VariantTitle title="Info - Blue">
         <Alert
           colorScheme="info"

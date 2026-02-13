@@ -1,6 +1,7 @@
 export const semantic = {
   background: {
     brand: 'var(--h-background-brand)',
+    loading: 'var(--h-background-loading)',
     primary: 'var(--h-background-primary)',
     secondary: 'var(--h-background-secondary)',
   },

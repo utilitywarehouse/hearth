@@ -5,6 +5,7 @@ import {
   DescriptionListItem,
   Box,
   Link,
+  Card,
 } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof DescriptionList> = {
@@ -136,6 +137,10 @@ export const Directions: Story = {
 };
 
 export const ResponsiveDirection: Story = {
+  args: {
+    heading: 'Contact details',
+    helperText: '',
+  },
   render: args => (
     <Box width="100%" maxWidth="800px">
       <DescriptionList
@@ -149,8 +154,27 @@ export const ResponsiveDirection: Story = {
       </DescriptionList>
     </Box>
   ),
-  args: {
-    heading: 'Contact details',
-    helperText: '',
-  },
+};
+
+export const ContentWidth: Story = {
+  render: () => (
+    <Card>
+      <Flex direction="column">
+        <DescriptionList heading="We've received your order" direction="column">
+          <DescriptionListItem
+            heading="Your broadband monthly costs:"
+            description="£33.00 a month"
+          />
+          <DescriptionListItem
+            heading="Your new broadband service will go live on:"
+            description="25/02/2026"
+          />
+          <DescriptionListItem
+            heading="Delivery address"
+            description="Hill House, 1 Little New Street, London, EC4A 3TR"
+          />
+        </DescriptionList>
+      </Flex>
+    </Card>
+  ),
 };

@@ -25,7 +25,7 @@ The Grid component helps you create responsive grid layouts with configurable co
 
 <UsageWrap>
   <Center>
-    <Grid columns={2} space="md" width={300}>
+    <Grid columns={2} spacing="md" width={300}>
       <Box backgroundColor="green400" height={100} padding="200">
         <BodyText color="white">Item 1</BodyText>
       </Box>
@@ -46,7 +46,7 @@ The Grid component helps you create responsive grid layouts with configurable co
 import { Grid, Box, BodyText } from '@utilitywarehouse/hearth-react-native';
 
 const MyComponent = () => (
-  <Grid columns={2} space="md" width={300}>
+  <Grid columns={2} spacing="md" width={300}>
     <Box backgroundColor="green400" height={100} padding="200">
       <BodyText color="white">Item 1</BodyText>
     </Box>
@@ -76,7 +76,7 @@ The Grid component supports responsive column layouts based on screen size break
         md: 3,
         lg: 4,
       }}
-      space="md"
+      spacing="md"
       width="100%"
     >
       <Box backgroundColor="green400" height={100} padding="200">
@@ -106,7 +106,7 @@ const MyComponent = () => (
       md: 3,
       lg: 4,
     }}
-    space="md"
+    spacing="md"
     width="100%"
   >
     <Box backgroundColor="green400" height={100} padding="200">
@@ -176,7 +176,7 @@ The Grid component extends all the props from the [View component](https://react
 | Name             | Type                                                               | Default | Description                                                   |
 | ---------------- | ------------------------------------------------------------------ | ------- | ------------------------------------------------------------- |
 | `columns`        | `number` or `GridColumns`                                          | 2       | Number of columns or responsive object with breakpoint values |
-| `space`          | `'none' \| '2xs' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | -       | Spacing between grid items (both rows and columns)            |
+| `spacing`        | `'none' \| '2xs' \| 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | -       | Spacing between grid items (both rows and columns)            |
 | `columnGap`      | `number`                                                           | -       | Gap between columns (overrides spacing if provided)           |
 | `rowGap`         | `number`                                                           | -       | Gap between rows (overrides spacing if provided)              |
 | `containerStyle` | `StyleProp\<ViewStyle\>`                                           | -       | Style for the grid container                                  |

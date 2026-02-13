@@ -88,7 +88,7 @@ const BoxPerfTest: StoryFn = () => {
 
   return (
     <>
-      <ButtonGroup space="sm" flexDirection="column">
+      <ButtonGroup spacing="sm" flexDirection="column">
         <Button text="React Native" onPress={onStyleTypePress('React Native')} />
         <Button text="Unsistyles" onPress={onStyleTypePress('Unsistyles')} />
         <Button text="Box" onPress={onStyleTypePress('Box')} />

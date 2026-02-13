@@ -1,5 +1,36 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.15
+
+### Patch Changes
+
+- [#907](https://github.com/utilitywarehouse/hearth/pull/907) [`a9e2a40`](https://github.com/utilitywarehouse/hearth/commit/a9e2a40d0a2ce05284d84aa0f02f7b0618061b07) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `CurrencyInput` styles
+
+- [#908](https://github.com/utilitywarehouse/hearth/pull/908) [`c870ad4`](https://github.com/utilitywarehouse/hearth/commit/c870ad4f829cfc193d80ec67a87367e91c3d9153) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Ensure refs are forwarded for input components
+
+- [#915](https://github.com/utilitywarehouse/hearth/pull/915) [`6f29e1e`](https://github.com/utilitywarehouse/hearth/commit/6f29e1eb911d989c1ee0eea85c72a70f72362a4b) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: `CardActions` will now inherit the parent `Card` border styles
+
+- [#916](https://github.com/utilitywarehouse/hearth/pull/916) [`54248d0`](https://github.com/utilitywarehouse/hearth/commit/54248d07199ea3c427b9d22a8016e1431dc78162) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `CardActions` width
+
+## 0.24.14
+
+### Patch Changes
+
+- [#895](https://github.com/utilitywarehouse/hearth/pull/895) [`6190fcb`](https://github.com/utilitywarehouse/hearth/commit/6190fcbd23d2f6117f9a23c11c938c79d46325af) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Styles incorrectly applied on `TextInput`, `TextArea` & `VerificationInput`
+
+  Thank you @msrch for finding the issue and pinpointing its cause. 🙌
+
+## 0.24.13
+
+### Patch Changes
+
+- [#876](https://github.com/utilitywarehouse/hearth/pull/876) [`d956819`](https://github.com/utilitywarehouse/hearth/commit/d956819308578226cd8f6bb70b65922bd924ba50) Thanks [@robphoenix](https://github.com/robphoenix)! - 📦 [DEPS]: Bump @utilitywarehouse/hearth-react-icons peerDependency to 0.8.0
+
+- [#890](https://github.com/utilitywarehouse/hearth/pull/890) [`9a54516`](https://github.com/utilitywarehouse/hearth/commit/9a54516f8def4dcaa18e8975a777b0e6c69b315d) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `DescriptionListItem` heading width
+
+  Ensure the heading text doesn't wrap unnecessarily, especially when the
+  direction is set to 'column'.
+
 ## 0.24.12
 
 ### Patch Changes

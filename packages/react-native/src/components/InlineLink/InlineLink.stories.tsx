@@ -1,5 +1,5 @@
-import { InlineLink } from '.';
 import { Meta, StoryObj } from '@storybook/react-vite';
+import { InlineLink } from '.';
 import { BodyText } from '../BodyText';
 import { Flex } from '../Flex';
 import { List } from '../List';
@@ -55,7 +55,7 @@ export const Playground: Story = {};
 export const Variants: Story = {
   render: ({ children }) => {
     return (
-      <Flex direction="column" space="sm">
+      <Flex direction="column" spacing="sm">
         <List></List>
         <BodyText>
           This is the body text style, and it contains an{' '}

@@ -3,6 +3,7 @@ import {
   BroadbandMediumIcon,
   CashbackCardMediumIcon,
   ElectricityMediumIcon,
+  HomeMediumIcon,
   InsuranceMediumIcon,
   MobileMediumIcon,
 } from '@utilitywarehouse/hearth-react-native-icons';
@@ -44,7 +45,17 @@ const meta = {
     colorScheme: {
       control: 'select',
       description: 'The color scheme for the banner',
-      options: ['pig', 'energy', 'broadband', 'mobile', 'insurance', 'cashback', 'highlight'],
+      options: [
+        'neutralStrong',
+        'neutralSubtle',
+        'brand',
+        'energy',
+        'broadband',
+        'mobile',
+        'insurance',
+        'cashback',
+        'pig',
+      ],
     },
     iconContainerVariant: {
       control: 'select',
@@ -76,7 +87,7 @@ const meta = {
     description: 'This is a banner component that can display an icon or image with content.',
     direction: 'horizontal',
     variant: 'subtle',
-    colorScheme: 'pig',
+    colorScheme: 'neutralStrong',
   },
 } satisfies Meta<typeof Banner>;
 
@@ -97,7 +108,7 @@ export const WithIcon: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
@@ -128,7 +139,7 @@ export const WithIllustration: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             illustration={
               <BannerIllustration
@@ -172,7 +183,7 @@ export const WithImage: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             image={
               <BannerImage
@@ -212,7 +223,7 @@ export const WithButton: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={InsuranceMediumIcon}
             iconContainerColor="insurance"
@@ -229,7 +240,7 @@ export const WithButton: Story = {
             iconContainerColor="cashback"
             heading="Cashback Rewards"
             description="Earn cashback on every purchase."
-            colorScheme="cashback"
+            colorScheme="neutralSubtle"
             button={
               <Button size="sm" onPress={() => console.log('Learn More pressed')}>
                 Learn More
@@ -246,7 +257,7 @@ export const WithLink: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
@@ -271,7 +282,7 @@ export const Pressable: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
@@ -304,7 +315,7 @@ export const WithClose: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
@@ -335,7 +346,7 @@ export const VerticalLayout: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
@@ -375,10 +386,62 @@ export const ColorSchemes: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
+          <Banner
+            icon={HomeMediumIcon}
+            iconContainerColor="highlight"
+            colorScheme="neutralStrong"
+            variant="subtle"
+            heading="Neutral Strong"
+            description="Banner with neutral strong color scheme and subtle variant."
+            button={
+              <Button size="sm" onPress={() => console.log('Action pressed')}>
+                Action
+              </Button>
+            }
+          />
+          <Banner
+            icon={HomeMediumIcon}
+            iconContainerColor="highlight"
+            colorScheme="neutralStrong"
+            variant="emphasis"
+            heading="Neutral Strong"
+            description="Banner with neutral strong color scheme and emphasis variant."
+            button={
+              <Button size="sm" onPress={() => console.log('Action pressed')}>
+                Action
+              </Button>
+            }
+          />
+          <Banner
+            icon={HomeMediumIcon}
+            iconContainerColor="highlight"
+            colorScheme="neutralSubtle"
+            heading="Neutral Subtle"
+            description="Banner with neutral subtle color scheme and subtle variant."
+            button={
+              <Button size="sm" onPress={() => console.log('Action pressed')}>
+                Action
+              </Button>
+            }
+          />
+          <Banner
+            icon={HomeMediumIcon}
+            iconContainerColor="highlight"
+            colorScheme="neutralSubtle"
+            variant="emphasis"
+            heading="Neutral Subtle"
+            description="Banner with neutral subtle color scheme and emphasis variant."
+            button={
+              <Button size="sm" onPress={() => console.log('Action pressed')}>
+                Action
+              </Button>
+            }
+          />
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="pig"
+            iconContainerVariant="emphasis"
             colorScheme="pig"
             heading="Pig Pink"
             description="Banner with pig color scheme."
@@ -391,6 +454,7 @@ export const ColorSchemes: Story = {
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
+            iconContainerVariant="emphasis"
             colorScheme="energy"
             heading="Energy Blue"
             description="Banner with energy color scheme."
@@ -403,6 +467,7 @@ export const ColorSchemes: Story = {
           <Banner
             icon={BroadbandMediumIcon}
             iconContainerColor="broadband"
+            iconContainerVariant="emphasis"
             colorScheme="broadband"
             heading="Broadband Green"
             description="Banner with broadband color scheme."
@@ -415,6 +480,7 @@ export const ColorSchemes: Story = {
           <Banner
             icon={MobileMediumIcon}
             iconContainerColor="mobile"
+            iconContainerVariant="emphasis"
             colorScheme="mobile"
             heading="Mobile Rose"
             description="Banner with mobile color scheme."
@@ -427,6 +493,7 @@ export const ColorSchemes: Story = {
           <Banner
             icon={InsuranceMediumIcon}
             iconContainerColor="insurance"
+            iconContainerVariant="emphasis"
             colorScheme="insurance"
             heading="Insurance Orange"
             description="Banner with insurance color scheme."
@@ -439,6 +506,7 @@ export const ColorSchemes: Story = {
           <Banner
             icon={CashbackCardMediumIcon}
             iconContainerColor="cashback"
+            iconContainerVariant="emphasis"
             colorScheme="cashback"
             heading="Cashback Lilac"
             description="Banner with cashback color scheme."
@@ -458,7 +526,7 @@ export const EmphasisVariant: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={ElectricityMediumIcon}
             iconContainerColor="energy"
@@ -497,12 +565,12 @@ export const ComplexExample: Story = {
   render: () => {
     return (
       <View style={{ width: 400 }}>
-        <Flex space="lg" direction="column">
+        <Flex spacing="lg" direction="column">
           <Banner
             icon={InsuranceMediumIcon}
             iconContainerColor="insurance"
             iconContainerVariant="emphasis"
-            colorScheme="insurance"
+            colorScheme="neutralStrong"
             heading="Home Insurance Alert"
             description="Your policy renewal is coming up. Review your coverage and make any necessary changes."
             button={

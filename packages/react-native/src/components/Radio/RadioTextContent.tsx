@@ -4,7 +4,7 @@ import FlexProps from '../Flex/Flex.props';
 
 const RadioTextContent = ({ children, style, ...props }: FlexProps) => {
   return (
-    <Flex direction="column" space="none" style={[styles.content, style]} {...props}>
+    <Flex direction="column" spacing="none" style={[styles.content, style]} {...props}>
       {children}
     </Flex>
   );

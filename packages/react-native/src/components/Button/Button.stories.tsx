@@ -108,7 +108,7 @@ export const Variants: Story = {
     // @ts-expect-error - This is a playground
     const icon = _icon === 'none' ? undefined : Icons[_icon];
     return (
-      <ButtonGroup flexDirection="column" space="md">
+      <ButtonGroup flexDirection="column" spacing="md">
         <>
           {args.colorScheme === 'highlight' && (
             <VariantTitle title="Emphasis" invert={args.inverted}>
@@ -149,9 +149,9 @@ export const KitchenSink: Story = {
     const schemes: Array<ColorScheme> = ['highlight', 'destructive', 'affirmative', 'functional'];
     const variants: Array<Variant> = ['emphasis', 'solid', 'outline', 'ghost'];
     return (
-      <Flex direction="row" space="lg" wrap="wrap">
+      <Flex direction="row" spacing="lg" wrap="wrap">
         {schemes.map(scheme => (
-          <Flex direction="column" space="lg" key={scheme}>
+          <Flex direction="column" spacing="lg" key={scheme}>
             {variants
               .filter(variant => {
                 if (inverted) {
@@ -178,7 +178,7 @@ export const KitchenSink: Story = {
                       {scheme} - {variant}
                     </DetailText>
                   </Box>
-                  <Flex direction="column" space="lg">
+                  <Flex direction="column" spacing="lg">
                     <VariantTitle title="Default" invert={inverted}>
                       {/* @ts-expect-error - story loop types don't match */}
                       <Button

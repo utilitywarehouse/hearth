@@ -3,10 +3,10 @@ import { StyleSheet } from 'react-native-unistyles';
 import { useCardContext } from './Card.context';
 
 const CardContent = ({ children, style, ...props }: ViewProps) => {
-  const { noPadding, space } = useCardContext();
+  const { noPadding, spacing } = useCardContext();
   styles.useVariants({
     noPadding,
-    space,
+    spacing,
   });
   return (
     <View style={[styles.container, style]} {...props}>
@@ -20,7 +20,7 @@ CardContent.displayName = 'CardContent';
 const styles = StyleSheet.create(theme => ({
   container: {
     variants: {
-      space: theme.globalStyle.variants.space,
+      spacing: theme.globalStyle.variants.spacing,
       noPadding: {
         true: {
           padding: theme.components.card.mobile.paddingNone,

@@ -20,6 +20,7 @@ The `Select` component creates a dropdown menu that allows users to choose from 
   - [`Select`](#select)
   - [`SelectOption`](#selectoption)
 - [Examples](#examples)
+  - [With label and helper text](#with-label-and-helper-text)
   - [With `FormField`](#with-formfield)
   - [Searchable `Select`](#searchable-select)
   - [Inline `SelectOption`](#inline-selectoption)
@@ -77,41 +78,88 @@ const MyComponent = () => {
 
 The `Select` component inherits all of the React Native [`View` props](https://reactnative.dev/docs/view).
 
-| Prop              | Type                                | Default                  | Description                                                |
-| ----------------- | ----------------------------------- | ------------------------ | ---------------------------------------------------------- |
-| options           | SelectOptionProps[]                 | `[]`                     | Array of options to display in the select.                 |
-| value             | string \| null                      | `-`                      | Currently selected value.                                  |
-| onValueChange     | (value: string) => void             | `-`                      | Callback when value changes.                               |
-| label             | string                              | `-`                      | Label for the select.                                      |
-| placeholder       | string                              | `'Select an option'`     | Placeholder text to show when no value is selected.        |
-| disabled          | boolean                             | `false`                  | Whether the select is disabled.                            |
-| readonly          | boolean                             | `false`                  | Whether the select is readonly.                            |
-| leadingIcon       | React.ComponentType                 | `-`                      | Icon to display before the select text.                    |
-| validationStatus  | `'initial' \| 'valid' \| 'invalid'` | `'initial'`              | The validation status of the select.                       |
-| required          | boolean                             | `true`                   | Indicates that the select is required.                     |
-| menuHeading       | string                              | `-`                      | Heading to display at the top of the menu.                 |
-| children          | ReactNode                           | `-`                      | Children to render inside the select (for custom options). |
-| bottomSheetProps  | `BottomSheetProps`                  | `-`                      | Props passed to the BottomSheetModal.                      |
-| emptyText         | string                              | `'No options available'` | Text to display when no options are available.             |
-| listProps         | object                              | `-`                      | Props to be passed to the bottom sheet flat list.          |
-| searchable        | boolean                             | `false`                  | Optional search functionality for the select.              |
-| searchPlaceholder | string                              | `'Search'`               | Search placeholder.                                        |
+| Prop              | Type                                | Default                  | Description                                                                |
+| ----------------- | ----------------------------------- | ------------------------ | -------------------------------------------------------------------------- |
+| options           | `SelectOptionProps[]`               | `[]`                     | Array of options to display in the select.                                 |
+| value             | `string \| null`                    | `-`                      | Currently selected value.                                                  |
+| onValueChange     | `(value: string) => void`           | `-`                      | Callback when value changes.                                               |
+| label             | `string`                            | `-`                      | Label for the select.                                                      |
+| labelVariant      | `'body' \| 'heading'`               | `'body'`                 | Variant for the label. 'inline' will display the label next to the select. |
+| helperText        | `string`                            | `-`                      | Helper text to display below the select.                                   |
+| helperIcon        | `React.ComponentType`               | `-`                      | Optional icon to display next to the helper text.                          |
+| placeholder       | `string`                            | `'Select an option'`     | Placeholder text to show when no value is selected.                        |
+| disabled          | `boolean`                           | `false`                  | Whether the select is disabled.                                            |
+| readonly          | `boolean`                           | `false`                  | Whether the select is readonly.                                            |
+| leadingIcon       | `React.ComponentType`               | `-`                      | Icon to display before the select text.                                    |
+| validationStatus  | `'initial' \| 'valid' \| 'invalid'` | `'initial'`              | The validation status of the select.                                       |
+| invalidText       | `string`                            | `-`                      | Text to display when validationStatus is 'invalid'.                        |
+| validText         | `string`                            | `-`                      | Text to display when validationStatus is 'valid'.                          |
+| required          | `boolean`                           | `true`                   | Indicates that the select is required.                                     |
+| menuHeading       | `string`                            | `-`                      | Heading to display at the top of the menu.                                 |
+| children          | `ReactNode`                         | `-`                      | Children to render inside the select (for custom options).                 |
+| bottomSheetProps  | `BottomSheetProps`                  | `-`                      | Props passed to the BottomSheetModal.                                      |
+| emptyText         | `string`                            | `'No options available'` | Text to display when no options are available.                             |
+| listProps         | `object`                            | `-`                      | Props to be passed to the bottom sheet flat list.                          |
+| searchable        | `boolean`                           | `false`                  | Optional search functionality for the select.                              |
+| searchPlaceholder | `string`                            | `'Search'`               | Search placeholder.                                                        |
 
 ### `SelectOption`
 
 The `SelectOption` component is used to create individual options within the `Select` component. It can be used inline or as part of the `options` prop.
 
-| Prop         | Type                    | Default | Description                            |
-| ------------ | ----------------------- | ------- | -------------------------------------- |
-| label        | string                  | `-`     | Label to display for this option.      |
-| value        | string                  | `-`     | Value for this option.                 |
-| leadingIcon  | React.ComponentType     | `-`     | Optional left icon for this option.    |
-| trailingIcon | React.ComponentType     | `-`     | Optional right icon for this option.   |
-| selected     | boolean                 | `-`     | Whether this option is selected.       |
-| disabled     | boolean                 | `false` | Whether this option is disabled.       |
-| onPress      | (value: string) => void | `-`     | Callback when this option is selected. |
+| Prop         | Type                      | Default | Description                            |
+| ------------ | ------------------------- | ------- | -------------------------------------- |
+| label        | `string`                  | `-`     | Label to display for this option.      |
+| value        | `string`                  | `-`     | Value for this option.                 |
+| leadingIcon  | `React.ComponentType`     | `-`     | Optional left icon for this option.    |
+| trailingIcon | `React.ComponentType`     | `-`     | Optional right icon for this option.   |
+| selected     | `boolean`                 | `-`     | Whether this option is selected.       |
+| disabled     | `boolean`                 | `false` | Whether this option is disabled.       |
+| onPress      | `(value: string) => void` | `-`     | Callback when this option is selected. |
 
 ## Examples
+
+## With label and helper text
+
+<UsageWrap>
+  <Center>
+    <Select
+      label="Select an option"
+      helperText="This is some helper text for the select component."
+      placeholder="Select an option"
+      options={[
+        { label: 'Option 1', value: '1' },
+        { label: 'Option 2', value: '2' },
+        { label: 'Option 3', value: '3' },
+      ]}
+      value="1"
+      onValueChange={value => console.log('Selected:', value)}
+    />
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Select } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [value, setValue] = useState(null);
+
+  return (
+    <Select
+      label="Select an option"
+      helperText="This is some helper text for the select component."
+      placeholder="Select an option"
+      options={[
+        { label: 'Option 1', value: '1' },
+        { label: 'Option 2', value: '2' },
+        { label: 'Option 3', value: '3' },
+      ]}
+      value={value}
+      onValueChange={setValue}
+    />
+  );
+};
+```
 
 ### With `FormField`
 

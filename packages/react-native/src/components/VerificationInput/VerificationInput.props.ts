@@ -1,6 +1,13 @@
 import type { ComponentType } from 'react';
 import { ViewProps } from 'react-native';
 
+export interface VerificationInputHandle {
+  focus: () => void;
+  blur: () => void;
+  clear: () => void;
+  focusIndex: (index: number) => void;
+}
+
 export interface VerificationInputProps extends ViewProps {
   /**
    * The value of the input.
@@ -50,6 +57,10 @@ export interface VerificationInputProps extends ViewProps {
    * Whether to obscure the text entry (e.g. for passwords/OTPs).
    */
   secureTextEntry?: boolean;
+  /**
+   * Whether the input should auto-focus when mounted.
+   */
+  autoFocus?: boolean;
 }
 
 export default VerificationInputProps;

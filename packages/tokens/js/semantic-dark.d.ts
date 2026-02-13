@@ -4,6 +4,7 @@
 declare const _default: {
   readonly background: {
     readonly brand: '#7a42c8';
+    readonly loading: '#30302c';
     readonly primary: '#191917';
     readonly secondary: '#232323';
   };

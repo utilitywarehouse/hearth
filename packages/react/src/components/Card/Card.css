@@ -141,7 +141,7 @@
 
   & :where(.h-CardActions) {
     &:not(:first-child) {
-      border-top: var(--h-border-width-2) solid var(--h-border-strong);
+      border-top: var(--h-card-border-width) solid var(--h-card-border-color);
     }
   }
 

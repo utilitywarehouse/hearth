@@ -73,6 +73,35 @@ export const BasicToast: Story = {
   ),
 };
 
+const LongToastDemo = () => {
+  const { addToast } = useToast();
+
+  return (
+    <View style={{ gap: 12, padding: 16 }}>
+      <Button
+        onPress={() =>
+          addToast({
+            text: "Couldn't update top-up. Please check your connection and try again.",
+            icon: WarningSmallIcon,
+            actionText: 'Retry',
+            onPress: () => console.log('Retry clicked'),
+          })
+        }
+      >
+        Show Long Toast
+      </Button>
+    </View>
+  );
+};
+
+export const LongToastMessage = {
+  render: () => (
+    <ViewWrap>
+      <LongToastDemo />
+    </ViewWrap>
+  ),
+};
+
 const WithIconDemo = () => {
   const { addToast } = useToast();
 

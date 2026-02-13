@@ -10,10 +10,9 @@ import {
   BottomSheetView,
 } from '../BottomSheet';
 import { DetailText } from '../DetailText';
-import { useFormFieldContext } from '../FormField';
+import { FormField, useFormFieldContext } from '../FormField';
 import { Icon } from '../Icon';
 import { Input } from '../Input';
-import { Label } from '../Label';
 import { SelectContext } from './Select.context';
 import SelectProps, { SelectOptionItemProps } from './Select.props';
 import SelectOption from './SelectOption';
@@ -28,6 +27,10 @@ const Select = ({
   disabled = false,
   leadingIcon: LeadingIcon,
   validationStatus = 'initial',
+  helperText,
+  helperIcon,
+  invalidText,
+  validText,
   required = true,
   children,
   bottomSheetProps,
@@ -122,42 +125,46 @@ const Select = ({
 
   return (
     <View {...rest} style={[styles.container, rest.style]}>
-      {!!label && (
-        <View>
-          <Label variant={labelVariant}>
-            {label}
-            {!isRequired && <Label variant={labelVariant}> (Optional)</Label>}
-          </Label>
-        </View>
-      )}
-      <Pressable
-        onPress={openBottomSheet}
-        disabled={isDisabled || isReadonly}
-        style={({ pressed }) => [
-          styles.selectContainer,
-          styles.pressedContainer(pressed || isOpen),
-        ]}
+      <FormField
+        label={label}
+        labelVariant={labelVariant}
+        helperText={helperText}
+        helperIcon={helperIcon}
+        validationStatus={validationStatusFromContext}
+        required={isRequired}
+        disabled={isDisabled}
+        readonly={isReadonly}
+        invalidText={invalidText}
+        validText={validText}
       >
-        {!!LeadingIcon && (
-          <View>
-            {(() => {
-              const IconAny = Icon as any;
-              return <IconAny as={LeadingIcon} style={styles.icon as any} />;
-            })()}
+        <Pressable
+          onPress={openBottomSheet}
+          disabled={isDisabled || isReadonly}
+          style={({ pressed }) => [
+            styles.selectContainer,
+            styles.pressedContainer(pressed || isOpen),
+          ]}
+        >
+          {!!LeadingIcon && (
+            <View>
+              {(() => {
+                const IconAny = Icon as any;
+                return <IconAny as={LeadingIcon} style={styles.icon as any} />;
+              })()}
+            </View>
+          )}
+
+          <View style={styles.optionContainer}>
+            <BodyText numberOfLines={1} style={styles.placeholderText}>
+              {selectedOption?.label || selectedLabel || placeholder}
+            </BodyText>
           </View>
-        )}
 
-        <View style={styles.optionContainer}>
-          <BodyText numberOfLines={1} style={styles.placeholderText}>
-            {selectedOption?.label || selectedLabel || placeholder}
-          </BodyText>
-        </View>
-
-        <View>
-          <Icon as={ExpandSmallIcon} style={styles.icon} />
-        </View>
-      </Pressable>
-
+          <View>
+            <Icon as={ExpandSmallIcon} style={styles.icon} />
+          </View>
+        </Pressable>
+      </FormField>
       <BottomSheetModal
         ref={bottomSheetModalRef}
         snapPoints={['25%', '40%', '80%']}

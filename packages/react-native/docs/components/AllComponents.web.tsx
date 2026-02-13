@@ -183,7 +183,7 @@ const AllComponents: React.FC = () => {
   return (
     <div className="sb-unstyled">
       <ScrollView contentContainerStyle={styles.container}>
-        <Flex direction="row" wrap="wrap" space="md" style={styles.grid}>
+        <Flex direction="row" wrap="wrap" spacing="md" style={styles.grid}>
           <ComponentWrapper name="Accordion" link="/?path=/docs/components-accordion--docs">
             <Center flex={1} p="200">
               <Accordion type="single">
@@ -339,7 +339,7 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Container" link="/?path=/docs/primitives-container--docs">
-            <Container space="md" backgroundColor="backgroundSecondary">
+            <Container spacing="md" backgroundColor="backgroundSecondary">
               <Box h={20} bg="blue300" />
               <Box h={20} bg="blue400" />
               <Box h={20} bg="blue500" />
@@ -399,7 +399,7 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Divider" link="/?path=/docs/components-divider--docs">
             <Center flex={1} p="300">
               <BodyText>This text is divided</BodyText>
-              <Divider space="sm" />
+              <Divider spacing="sm" />
               <BodyText>From this text</BodyText>
             </Center>
           </ComponentWrapper>
@@ -444,7 +444,7 @@ const AllComponents: React.FC = () => {
 
           <ComponentWrapper name="Flex" link="/?path=/docs/primitives-flex--docs">
             <Center flex={1}>
-              <Flex direction="row" space="md">
+              <Flex direction="row" spacing="md">
                 <Box w={40} h={40} bg="blue300" />
                 <Box w={40} h={40} bg="blue400" />
                 <Box w={40} h={40} bg="blue500" />
@@ -467,7 +467,7 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Grid" link="/?path=/docs/primitives-grid--docs">
             <Center flex={1}>
               <Box width={100}>
-                <Grid columns={2} space="md">
+                <Grid columns={2} spacing="md">
                   <Box w={40} h={40} bg="blue300" />
                   <Box w={40} h={40} bg="blue400" />
                   <Box w={40} h={40} bg="blue500" />
@@ -519,7 +519,7 @@ const AllComponents: React.FC = () => {
             link="/?path=/docs/components-icon-container--docs"
           >
             <Center flex={1}>
-              <Flex direction="row" space="sm">
+              <Flex direction="row" spacing="sm">
                 <IconContainer
                   icon={ElectricityMediumIcon}
                   size="sm"
@@ -556,7 +556,7 @@ const AllComponents: React.FC = () => {
 
           <ComponentWrapper name="Icons" link="/?path=/docs/components-icons--docs">
             <Center flex={1}>
-              <Flex direction="row" space="lg">
+              <Flex direction="row" spacing="lg">
                 <Icon as={ElectricityMediumIcon} color="energyBlue700" />
                 <Icon as={MobileMediumIcon} color="mobileRose700" />
                 <Icon as={BroadbandMediumIcon} color="broadbandGreen700" />
@@ -727,9 +727,9 @@ const AllComponents: React.FC = () => {
           </ComponentWrapper>
           <ComponentWrapper name="Skeleton" link="/?path=/docs/components-skeleton--docs">
             <Center flex={1}>
-              <Flex direction="row" space="sm">
+              <Flex direction="row" spacing="sm">
                 <Skeleton width={30} height={30} />
-                <Flex space="sm">
+                <Flex spacing="sm">
                   <Skeleton width={120} height={15} />
                   <Skeleton width={100} height={15} />
                 </Flex>

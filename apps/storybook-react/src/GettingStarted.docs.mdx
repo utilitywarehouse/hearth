@@ -1,36 +1,20 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 import { version } from '../../../packages/react/package.json';
 import pig from '../../../shared/storybook/assets/images/react-pig.png';
+import { Flex, Heading, BodyText } from '@utilitywarehouse/hearth-react';
 
 <Meta title="Getting Started" />
 
-<div style={{ display: 'flex', flexDirection:'column', alignItems: 'center', textAlign: 'center'}}>
+# Getting started
 
-<img src={pig} alt="Icons Package" width={240} height={240} />
-
-# Hearth React
-
-React component library for UI development at Utility Warehouse.<br/>
-Current version: v{version}
-
-</div>
-
-A robust library of accessible and composable React components designed for
-speed and flexibility. Perfect for product teams building scalable, accessible
-web experiences.
-
-- [Getting started](#getting-started)
-  - [Install Hearth](#install-hearth)
-  - [Import CSS](#import-css)
-  - [Start building](#start-building)
+- [Install Hearth](#install-hearth)
+- [Import CSS](#import-css)
+- [Start building](#start-building)
 - [CSS reset](#css-reset)
-- [Hearth Tokens](#hearth-tokens)
 - [Portals](#portals)
 - [React DevTools](#react-devtools)
 
-## Getting started
-
-### Install Hearth
+## Install Hearth
 
 There are 3 libraries you'll need to get started:
 
@@ -54,7 +38,7 @@ or
 pnpm add @utilitywarehouse/hearth-react @utilitywarehouse/hearth-react-icons @utilitywarehouse/hearth-fonts
 ```
 
-### Import CSS
+## Import CSS
 
 Add the following imports in the root of your application:
 
@@ -63,7 +47,7 @@ import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-react/styles.css';
 ```
 
-### Start building
+## Start building
 
 ```tsx
 import { Flex, BodyText, Button } from '@utilitywarehouse/hearth-react';
@@ -87,51 +71,9 @@ export default function MyApp() {
 The Heart CSS Reset and Hearth Tokens CSS custom properties are now included in
 the Heart React global styles, so you don't need to install them separately.
 
-## Hearth Tokens
-
-You can, however, install and import the Hearth browser tokens, for use either
-with JavaScript based styling, or with some styling props.
-
-```console
-npm install @utilitywarehouse/hearth-tokens
-```
-
-When importing the tokens, make sure you specifically import the browser
-tokens, and **not** the JS tokens. These tokens reference the CSS custom
-properties already included with Hearth React, rather than raw values.
-
-```tsx
-import {
-  border,
-  space,
-  color,
-  components,
-  semantic,
-  font,
-} from '@utilitywarehouse/hearth-tokens/browser';
-```
-
-You can then reference them in your code.
-
-```tsx
-// Usage in CSS-in-JS
-<Component
-  sx={{
-    color: semantic.feedback.positive.foreground.subtle, // color: var(--h-color); & --h-color: var(--h-feedback-positive-foreground-subtle);
-  }}
->
-{...}
-</Component>
-
-// Some, but not all, style props will accept the browser tokens as values
-<Box color={semantic.feedback.positive.foreground.subtle}>
-{...}
-</Box>
-```
-
 ## Portals
 
-Hearth React uses portals for components that render popups, such as `Dialog`.
+Hearth React uses portals for components that render popups, such as `Modal`.
 To make portalled components always appear on top of the entire page, add the
 following style to your application layout root.
 

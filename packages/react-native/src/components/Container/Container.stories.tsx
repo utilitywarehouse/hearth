@@ -154,10 +154,10 @@ const meta = {
       control: 'select',
       description: 'The right margin of the container.',
     },
-    space: {
+    spacing: {
       options: ['none', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl'],
       control: 'radio',
-      description: 'The space between child elements (gap).',
+      description: 'The spacing between child elements (gap).',
     },
     gap: {
       options: Object.keys(lightTheme.space),

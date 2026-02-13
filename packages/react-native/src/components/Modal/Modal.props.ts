@@ -9,6 +9,7 @@ interface ModalProps extends Omit<BottomSheetProps, 'children'> {
   image?: ReactNode;
   showCloseButton?: boolean;
   heading?: string;
+  loadingHeading?: string;
   description?: string;
   inNavModal?: boolean;
   fullscreen?: boolean;

@@ -2,9 +2,9 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { ComponentType } from 'react';
 import { VariantTitle } from '../../../docs/components';
+import { useTheme } from '../../hooks';
 import { Box } from '../Box';
 import { Flex } from '../Flex';
-import { useTheme } from '../../hooks';
 import IndicatorIconButton from './IndicatorIconButton';
 
 const meta = {
@@ -57,8 +57,8 @@ export const Variants: Story = {
   render: args => {
     const icon = typeof args.icon === 'string' ? Icons[args.icon as keyof typeof Icons] : args.icon;
     return (
-      <Flex direction="column" space="xl">
-        <Flex direction="row" space="lg">
+      <Flex direction="column" spacing="xl">
+        <Flex direction="row" spacing="lg">
           <Box>
             <VariantTitle title="Without Indicator" invert={args.inverted}>
               <IndicatorIconButton {...args} icon={icon} indicator={false} />
@@ -70,7 +70,7 @@ export const Variants: Story = {
             </VariantTitle>
           </Box>
         </Flex>
-        <Flex direction="row" space="lg">
+        <Flex direction="row" spacing="lg">
           <Box style={{ backgroundColor: 'purple', padding: 10, borderRadius: 8 }}>
             <VariantTitle title="Inverted" invert={!args.inverted}>
               <IndicatorIconButton {...args} icon={icon} inverted={true} />
@@ -88,13 +88,21 @@ export const Colourful: Story = {
     const theme = useTheme();
 
     return (
-      <Flex direction="column" space="xl">
-        <Flex direction="row" space="lg">
+      <Flex direction="column" spacing="xl">
+        <Flex direction="row" spacing="lg">
           <Box>
-            <IndicatorIconButton {...args} icon={icon} iconStyle={{ color: theme.color.energyBlue[500] }} />
+            <IndicatorIconButton
+              {...args}
+              icon={icon}
+              iconStyle={{ color: theme.color.energyBlue[500] }}
+            />
           </Box>
           <Box>
-            <IndicatorIconButton {...args} icon={icon} iconStyle={{ color: theme.color.cashbackLilac[500] }} />
+            <IndicatorIconButton
+              {...args}
+              icon={icon}
+              iconStyle={{ color: theme.color.cashbackLilac[500] }}
+            />
           </Box>
         </Flex>
       </Flex>
@@ -105,7 +113,7 @@ export const Colourful: Story = {
 export const WithAccessibilityLabel: Story = {
   render: args => {
     return (
-      <Flex direction="column" space="xl">
+      <Flex direction="column" spacing="xl">
         <Box>
           <VariantTitle title="Notification label" invert={args.inverted}>
             <IndicatorIconButton

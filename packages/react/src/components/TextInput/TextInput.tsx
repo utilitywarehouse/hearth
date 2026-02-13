@@ -7,13 +7,14 @@ import { cn } from '../../helpers/cn';
 import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
 import { marginPropDefs } from '../../props/margin.props';
-import { InputBase } from '../InputBase/InputBase';
+import { InputBase, type InputBaseElement } from '../InputBase/InputBase';
 import { FormField } from '../FormField/FormField';
+import React from 'react';
 
 const COMPONENT_NAME = 'TextInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const TextInput = (props: TextInputProps) => {
+export const TextInput = React.forwardRef<InputBaseElement, TextInputProps>((props, ref) => {
   const {
     className,
     validationStatus,
@@ -60,9 +61,13 @@ export const TextInput = (props: TextInputProps) => {
   );
 
   return (
-    <FormField data-disabled={disabled ? '' : undefined} {...formFieldProps}>
+    <FormField
+      className={cn(componentClassName, className)}
+      data-disabled={disabled ? '' : undefined}
+      {...formFieldProps}
+    >
       <InputBase
-        className={cn(componentClassName, className)}
+        ref={ref}
         spellCheck="false"
         id={id}
         required={required}
@@ -79,6 +84,6 @@ export const TextInput = (props: TextInputProps) => {
       </InputBase>
     </FormField>
   );
-};
+});
 
 TextInput.displayName = COMPONENT_NAME;

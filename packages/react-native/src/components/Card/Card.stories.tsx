@@ -77,29 +77,60 @@ export const Playground: Story = {
 export const WithActions: Story = {
   render: ({ children, ...props }) => {
     return (
-      <Card {...props} flexDirection="column" alignItems="stretch" space="md" variant="emphasis">
-        <BodyText>{children as string}</BodyText>
-        <CardActions>
-          <CardAction
-            onPress={() => console.log('Card action pressed')}
-            heading="Card Action Head"
-            helperText="Some helper text"
-            leadingIcon={BellMediumIcon}
-          />
-          <CardAction
-            onPress={() => console.log('Card action pressed')}
-            heading="Card Action Head"
-            leadingIcon={BellMediumIcon}
-          />
-          <CardAction
-            onPress={() => console.log('Card action pressed')}
-            heading="Card Action Head"
-            helperText="Testing"
-            leadingIcon={BellMediumIcon}
-            iconContainer={false}
-          />
-        </CardActions>
-      </Card>
+      <Flex gap="400">
+        <Card
+          {...props}
+          flexDirection="column"
+          alignItems="stretch"
+          spacing="md"
+          variant="emphasis"
+        >
+          <BodyText>{children as string}</BodyText>
+          <CardActions>
+            <CardAction
+              onPress={() => console.log('Card action pressed')}
+              heading="Card Action Head"
+              helperText="Some helper text"
+              leadingIcon={BellMediumIcon}
+            />
+            <CardAction
+              onPress={() => console.log('Card action pressed')}
+              heading="Card Action Head"
+              leadingIcon={BellMediumIcon}
+            />
+            <CardAction
+              onPress={() => console.log('Card action pressed')}
+              heading="Card Action Head"
+              helperText="Testing"
+              leadingIcon={BellMediumIcon}
+              iconContainer={false}
+            />
+          </CardActions>
+        </Card>
+        <Card {...props} flexDirection="column" alignItems="stretch" spacing="md" variant="subtle">
+          <BodyText>{children as string}</BodyText>
+          <CardActions>
+            <CardAction
+              onPress={() => console.log('Card action pressed')}
+              heading="Card Action Head"
+              helperText="Some helper text"
+              leadingIcon={BellMediumIcon}
+            />
+            <CardAction
+              onPress={() => console.log('Card action pressed')}
+              heading="Card Action Head"
+              leadingIcon={BellMediumIcon}
+            />
+            <CardAction
+              onPress={() => console.log('Card action pressed')}
+              heading="Card Action Head"
+              helperText="Testing"
+              leadingIcon={BellMediumIcon}
+              iconContainer={false}
+            />
+          </CardActions>
+        </Card>
+      </Flex>
     );
   },
 };
@@ -110,7 +141,7 @@ export const WithOnlyAction: Story = {
   },
   render: ({ ...props }) => {
     return (
-      <Card {...props} flexDirection="column" alignItems="stretch" space="md">
+      <Card {...props} flexDirection="column" alignItems="stretch" spacing="md">
         <CardActions>
           <CardAction
             onPress={() => console.log('Card action pressed')}
@@ -130,7 +161,7 @@ export const Variants: Story = {
   },
   render: ({ children, ...props }) => {
     return (
-      <Flex space="lg">
+      <Flex spacing="lg">
         <VariantTitle title="Subtle - White">
           <Card {...props} variant="subtle" colorScheme="neutralStrong">
             <BodyText>{children as string}</BodyText>
@@ -235,7 +266,7 @@ export const WithShadow: Story = {
   },
   render: ({ children, ...props }) => {
     return (
-      <Flex space="lg">
+      <Flex spacing="lg">
         <VariantTitle title="Subtle - White - Shadow">
           <Card {...props} variant="subtle">
             <BodyText>{children as string}</BodyText>
@@ -257,14 +288,14 @@ export const Interactive: Story = {
   },
   render: ({ children, ...props }) => {
     return (
-      <Flex space="lg">
+      <Flex spacing="lg">
         <VariantTitle title="Pressable - Subtle - White">
           <Card
             {...props}
             onPress={() => console.log('pressed')}
             variant="subtle"
             colorScheme="neutralStrong"
-            space="md"
+            spacing="md"
             flexDirection="column"
             alignItems="stretch"
           >
@@ -279,7 +310,7 @@ export const Interactive: Story = {
             onPress={() => console.log('pressed')}
             variant="emphasis"
             colorScheme="neutralStrong"
-            space="md"
+            spacing="md"
             flexDirection="column"
             alignItems="stretch"
           >
@@ -294,7 +325,7 @@ export const Interactive: Story = {
             onPress={() => console.log('pressed')}
             variant="subtle"
             colorScheme="neutralSubtle"
-            space="md"
+            spacing="md"
             flexDirection="column"
             alignItems="stretch"
           >
@@ -308,7 +339,7 @@ export const Interactive: Story = {
             {...props}
             variant="emphasis"
             colorScheme="neutralSubtle"
-            space="md"
+            spacing="md"
             flexDirection="column"
             alignItems="stretch"
           >

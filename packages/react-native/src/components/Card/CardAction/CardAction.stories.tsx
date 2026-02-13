@@ -175,7 +175,7 @@ export const WithBadge: Story = {
     controls: { include: [] },
   },
   render: () => (
-    <Flex direction="column" space="md" style={{ width: '100%', maxWidth: 400 }}>
+    <Flex direction="column" spacing="md" style={{ width: '100%', maxWidth: 400 }}>
       <Card variant="emphasis">
         <CardActions>
           <CardAction
@@ -221,7 +221,7 @@ export const Sizes: Story = {
     controls: { include: [] },
   },
   render: () => (
-    <Flex direction="column" space="md" style={{ width: '100%', maxWidth: 400 }}>
+    <Flex direction="column" spacing="md" style={{ width: '100%', maxWidth: 400 }}>
       <Card variant="emphasis">
         <CardActions>
           <CardAction

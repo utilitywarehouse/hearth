@@ -3,21 +3,19 @@ import type CardProps from '../Card/Card.props';
 
 export type BannerDirection = 'horizontal' | 'vertical';
 
-export interface BannerProps
-  extends Omit<
-    CardProps,
-    | 'noPadding'
-    | 'variant'
-    | 'colorScheme'
-    | 'space'
-    | 'gap'
-    | 'rowGap'
-    | 'columnGap'
-    | 'flexDirection'
-    | 'flexWrap'
-    | 'alignItems'
-    | 'justifyContent'
-  > {
+export interface BannerProps extends Omit<
+  CardProps,
+  | 'noPadding'
+  | 'variant'
+  | 'space'
+  | 'gap'
+  | 'rowGap'
+  | 'columnGap'
+  | 'flexDirection'
+  | 'flexWrap'
+  | 'alignItems'
+  | 'justifyContent'
+> {
   /**
    * Icon component to display in the banner
    * Mutually exclusive with image
@@ -89,11 +87,6 @@ export interface BannerProps
    * @default 'subtle'
    */
   variant?: 'subtle' | 'emphasis';
-  /**
-   * Color scheme for the banner
-   * @default 'pig'
-   */
-  colorScheme?: 'pig' | 'energy' | 'broadband' | 'mobile' | 'insurance' | 'cashback' | 'highlight';
 }
 
 export default BannerProps;

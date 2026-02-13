@@ -107,7 +107,7 @@ export const Variants: Story = {
       setClearableSearchValue('');
     };
     return (
-      <Flex direction="column" space="lg">
+      <Flex direction="column" spacing="lg">
         <VariantTitle title="Default">
           <Input />
         </VariantTitle>
@@ -202,7 +202,7 @@ export const RefTest: Story = {
     };
 
     return (
-      <Flex direction="column" space="lg">
+      <Flex direction="column" spacing="lg">
         <VariantTitle title="Ref Test">
           <Input
             ref={inputRef}
@@ -211,8 +211,8 @@ export const RefTest: Story = {
           />
         </VariantTitle>
         <VariantTitle title="Status">
-          <Flex direction="column" space="sm">
-            <Flex direction="row" space="sm">
+          <Flex direction="column" spacing="sm">
+            <Flex direction="row" spacing="sm">
               <Button onPress={handleFocus}>Focus Input</Button>
               <Button onPress={handleBlur}>Blur Input</Button>
               <Button onPress={handleClear}>Clear Input</Button>
