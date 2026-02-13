@@ -38,3 +38,35 @@ Make sure to replace `{PR}` with the same pull request number as specified
 previously.
 
 You can then `yarn install` to install the preview release.
+
+## Figma code connect
+
+We use the Code Connect CLI to generate Figma components from our React
+components.
+
+You will need to make sure you have an appropriate Figma
+[personal access tokens](https://developers.figma.com/docs/rest-api/authentication/#generate-a-personal-access-token)
+set in your environment as `FIGMA_ACCESS_TOKEN`.
+
+To generate a Figma component file, you will need to copy the link to the
+component selection in the Figma file. You then need to navigate to the relevant
+component directory in the package `src` and run the following command, where
+`{FIGMA_LINK}` is the link you copied:
+
+```bash
+npx figma connect create {FIGMA_LINK}
+```
+
+This will generate a `{component}.figma.tsx` file in the component directory.
+However we don't keep these files with the components, so you will need to move
+it to the `src/figma` directory and update the import paths accordingly.
+
+You can now update the file as best you can to connect the React component to
+the one in Figma.
+
+When you have done this, you can run the following command to publish the component to Figma:
+
+```bash
+npx figma connect publish
+```
+
