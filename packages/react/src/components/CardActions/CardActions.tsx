@@ -19,12 +19,7 @@ export const CardActions = (props: CardActionsProps) => {
   } = extractProps(props, marginPropDefs);
 
   return (
-    <Flex
-      asChild
-      role="list"
-      className={cn(componentClassName, className)}
-      direction={direction}
-    >
+    <Flex asChild role="list" className={cn(componentClassName, className)} direction={direction}>
       <Tag {...cardActionsProps}>
         {React.Children.map(children, child => (
           <li className={`${componentClassName}Item`}>{child}</li>
