@@ -604,6 +604,9 @@ importers:
       '@utilitywarehouse/hearth-svg-assets':
         specifier: ^0.2.0
         version: 0.2.0
+      '@utilitywarehouse/hearth-tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
       react:
         specifier: 19.1.0
         version: 19.1.0
