@@ -7,6 +7,7 @@ import { ColorProps } from '../../props/color.props';
 import { FlexItemProps } from '../../props/flex-item.props';
 import { GridItemProps } from '../../props/grid-item.props';
 import { MarginProps } from '../../props/margin.props';
+import { OpacityProps } from '../../props/opacity.props';
 import { OverflowProps } from '../../props/overflow.props';
 import { PaddingProps } from '../../props/padding.props';
 import { PositionProps } from '../../props/position.props';
@@ -27,22 +28,23 @@ export const boxPropDefs = {
 
 interface CommonBoxProps
   extends
-    PositionProps,
-    ColorProps,
     BackgroundColorProps,
-    PaddingProps,
-    MarginProps,
-    SizeProps,
-    BorderWidthProps,
-    BorderStyleProps,
     BorderColorProps,
     BorderRadiusProps,
-    GridItemProps,
+    BorderStyleProps,
+    BorderWidthProps,
+    ColorProps,
     FlexItemProps,
+    GridItemProps,
+    MarginProps,
+    OpacityProps,
+    OverflowProps,
+    PaddingProps,
+    PositionProps,
+    SizeProps,
     TextAlignProps,
     TextTransformProps,
-    ZIndexProps,
-    OverflowProps {
+    ZIndexProps {
   asChild?: boolean;
   display?: Responsive<(typeof displayValues)[number]>;
 }

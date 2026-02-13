@@ -11,6 +11,7 @@ import { GapProps } from '../../props/gap.props';
 import { GridItemProps } from '../../props/grid-item.props';
 import { JustifyContentProps } from '../../props/justify-content.props';
 import { MarginProps } from '../../props/margin.props';
+import { OpacityProps } from '../../props/opacity.props';
 import { OverflowProps } from '../../props/overflow.props';
 import { PaddingProps } from '../../props/padding.props';
 import { PositionProps } from '../../props/position.props';
@@ -112,27 +113,28 @@ export const gridPropDefs = {
  */
 interface CommonGridProps
   extends
-    AlignItemsProps,
     AlignContentProps,
-    JustifyContentProps,
-    PositionProps,
-    ColorProps,
+    AlignItemsProps,
     BackgroundColorProps,
-    PaddingProps,
-    MarginProps,
-    GapProps,
-    SpacingProps,
-    SizeProps,
-    BorderStyleProps,
-    BorderWidthProps,
     BorderColorProps,
     BorderRadiusProps,
-    GridItemProps,
+    BorderStyleProps,
+    BorderWidthProps,
+    ColorProps,
     FlexItemProps,
+    GapProps,
+    GridItemProps,
+    JustifyContentProps,
+    MarginProps,
+    OpacityProps,
+    OverflowProps,
+    PaddingProps,
+    PositionProps,
+    SizeProps,
+    SpacingProps,
     TextAlignProps,
     TextTransformProps,
-    ZIndexProps,
-    OverflowProps {
+    ZIndexProps {
   /**
    * When `true`, renders the Grid as a `Slot` so that its props are
    * forwarded to the child element instead of rendering a DOM node.

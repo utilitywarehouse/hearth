@@ -17,6 +17,7 @@
     "@utilitywarehouse/hearth-react": "workspace:*",
     "@utilitywarehouse/hearth-react-icons": "workspace:^0.8.0",
     "@utilitywarehouse/hearth-svg-assets": "^0.2.0",
+    "@utilitywarehouse/hearth-tokens": "workspace:*",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-hook-form": "^7.70.0"
