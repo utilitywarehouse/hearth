@@ -24,8 +24,8 @@ import SpotSecurityLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-secu
 import SpotSecurityDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-security-dark.svg'
 import SpotErrorLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-error-light.svg'
 import SpotErrorDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-error-dark.svg'
-import SpotSavingsLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-savings-light.svg'
-import SpotSavingsDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-savings-dark.svg'
+import SpotPiggyBankLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-piggy-bank-light.svg'
+import SpotPiggyBankDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-piggy-bank-dark.svg'
 import SpotBillingLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-light.svg'
 import SpotBillingDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg'
 import SpotCelebratoryLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-celebratory-light.svg'
@@ -54,6 +54,8 @@ import SpotBoilerLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-boiler
 import SpotBoilerDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-boiler-dark.svg'
 import SpotSwitchLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-switch-light.svg'
 import SpotSwitchDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-switch-dark.svg'
+import SpotSavingsLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-savings-light.svg'
+import SpotSavingsDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-savings-dark.svg'
 import SpotNewLookLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-new-look-light.svg'
 import SpotNewLookDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-new-look-dark.svg'
 import SpotUnavailableLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-unavailable-light.svg'
@@ -62,6 +64,22 @@ import SpotDarkModeLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-dark
 import SpotDarkModeDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-dark-mode-dark.svg'
 import SpotBroadbandLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-broadband-light.svg'
 import SpotBroadbandDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-broadband-dark.svg'
+import SpotWelcomeLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-welcome-light.svg'
+import SpotWelcomeDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-welcome-dark.svg'
+import SpotQuoteLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-quote-light.svg'
+import SpotQuoteDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-quote-dark.svg'
+import SpotLeadsLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-leads-light.svg'
+import SpotLeadsDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-leads-dark.svg'
+import SpotKeepTrackLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-keep-track-light.svg'
+import SpotKeepTrackDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-keep-track-dark.svg'
+import SpotHowToVideoLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-how-to-video-light.svg'
+import SpotHowToVideoDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-how-to-video-dark.svg'
+import SpotEarningsLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-earnings-light.svg'
+import SpotEarningsDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-earnings-dark.svg'
+import SpotCalendarLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-calendar-light.svg'
+import SpotCalendarDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-calendar-dark.svg'
+import SpotBookAppointmentLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-book-appointment-light.svg'
+import SpotBookAppointmentDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-book-appointment-dark.svg'
 import SceneEnergyLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-energy-light.svg'
 import SceneEnergyDark from '@utilitywarehouse/hearth-svg-assets/lib/scene-energy-dark.svg'
 import SceneMobileLight from '@utilitywarehouse/hearth-svg-assets/lib/scene-mobile-light.svg'
@@ -110,8 +128,8 @@ export const svgAssets = [
   { name: 'SpotSecurityDark', src: SpotSecurityDark, path: 'spot-security-dark.svg' },
   { name: 'SpotErrorLight', src: SpotErrorLight, path: 'spot-error-light.svg' },
   { name: 'SpotErrorDark', src: SpotErrorDark, path: 'spot-error-dark.svg' },
-  { name: 'SpotSavingsLight', src: SpotSavingsLight, path: 'spot-savings-light.svg' },
-  { name: 'SpotSavingsDark', src: SpotSavingsDark, path: 'spot-savings-dark.svg' },
+  { name: 'SpotPiggyBankLight', src: SpotPiggyBankLight, path: 'spot-piggy-bank-light.svg' },
+  { name: 'SpotPiggyBankDark', src: SpotPiggyBankDark, path: 'spot-piggy-bank-dark.svg' },
   { name: 'SpotBillingLight', src: SpotBillingLight, path: 'spot-billing-light.svg' },
   { name: 'SpotBillingDark', src: SpotBillingDark, path: 'spot-billing-dark.svg' },
   { name: 'SpotCelebratoryLight', src: SpotCelebratoryLight, path: 'spot-celebratory-light.svg' },
@@ -140,6 +158,8 @@ export const svgAssets = [
   { name: 'SpotBoilerDark', src: SpotBoilerDark, path: 'spot-boiler-dark.svg' },
   { name: 'SpotSwitchLight', src: SpotSwitchLight, path: 'spot-switch-light.svg' },
   { name: 'SpotSwitchDark', src: SpotSwitchDark, path: 'spot-switch-dark.svg' },
+  { name: 'SpotSavingsLight', src: SpotSavingsLight, path: 'spot-savings-light.svg' },
+  { name: 'SpotSavingsDark', src: SpotSavingsDark, path: 'spot-savings-dark.svg' },
   { name: 'SpotNewLookLight', src: SpotNewLookLight, path: 'spot-new-look-light.svg' },
   { name: 'SpotNewLookDark', src: SpotNewLookDark, path: 'spot-new-look-dark.svg' },
   { name: 'SpotUnavailableLight', src: SpotUnavailableLight, path: 'spot-unavailable-light.svg' },
@@ -148,6 +168,22 @@ export const svgAssets = [
   { name: 'SpotDarkModeDark', src: SpotDarkModeDark, path: 'spot-dark-mode-dark.svg' },
   { name: 'SpotBroadbandLight', src: SpotBroadbandLight, path: 'spot-broadband-light.svg' },
   { name: 'SpotBroadbandDark', src: SpotBroadbandDark, path: 'spot-broadband-dark.svg' },
+  { name: 'SpotWelcomeLight', src: SpotWelcomeLight, path: 'spot-welcome-light.svg' },
+  { name: 'SpotWelcomeDark', src: SpotWelcomeDark, path: 'spot-welcome-dark.svg' },
+  { name: 'SpotQuoteLight', src: SpotQuoteLight, path: 'spot-quote-light.svg' },
+  { name: 'SpotQuoteDark', src: SpotQuoteDark, path: 'spot-quote-dark.svg' },
+  { name: 'SpotLeadsLight', src: SpotLeadsLight, path: 'spot-leads-light.svg' },
+  { name: 'SpotLeadsDark', src: SpotLeadsDark, path: 'spot-leads-dark.svg' },
+  { name: 'SpotKeepTrackLight', src: SpotKeepTrackLight, path: 'spot-keep-track-light.svg' },
+  { name: 'SpotKeepTrackDark', src: SpotKeepTrackDark, path: 'spot-keep-track-dark.svg' },
+  { name: 'SpotHowToVideoLight', src: SpotHowToVideoLight, path: 'spot-how-to-video-light.svg' },
+  { name: 'SpotHowToVideoDark', src: SpotHowToVideoDark, path: 'spot-how-to-video-dark.svg' },
+  { name: 'SpotEarningsLight', src: SpotEarningsLight, path: 'spot-earnings-light.svg' },
+  { name: 'SpotEarningsDark', src: SpotEarningsDark, path: 'spot-earnings-dark.svg' },
+  { name: 'SpotCalendarLight', src: SpotCalendarLight, path: 'spot-calendar-light.svg' },
+  { name: 'SpotCalendarDark', src: SpotCalendarDark, path: 'spot-calendar-dark.svg' },
+  { name: 'SpotBookAppointmentLight', src: SpotBookAppointmentLight, path: 'spot-book-appointment-light.svg' },
+  { name: 'SpotBookAppointmentDark', src: SpotBookAppointmentDark, path: 'spot-book-appointment-dark.svg' },
   { name: 'SceneEnergyLight', src: SceneEnergyLight, path: 'scene-energy-light.svg' },
   { name: 'SceneEnergyDark', src: SceneEnergyDark, path: 'scene-energy-dark.svg' },
   { name: 'SceneMobileLight', src: SceneMobileLight, path: 'scene-mobile-light.svg' },

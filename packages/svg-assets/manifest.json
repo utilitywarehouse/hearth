@@ -97,12 +97,12 @@
       "path": "spot-error-dark.svg"
     },
     {
-      "name": "SpotSavingsLight",
-      "path": "spot-savings-light.svg"
+      "name": "SpotPiggyBankLight",
+      "path": "spot-piggy-bank-light.svg"
     },
     {
-      "name": "SpotSavingsDark",
-      "path": "spot-savings-dark.svg"
+      "name": "SpotPiggyBankDark",
+      "path": "spot-piggy-bank-dark.svg"
     },
     {
       "name": "SpotBillingLight",
@@ -217,6 +217,14 @@
       "path": "spot-switch-dark.svg"
     },
     {
+      "name": "SpotSavingsLight",
+      "path": "spot-savings-light.svg"
+    },
+    {
+      "name": "SpotSavingsDark",
+      "path": "spot-savings-dark.svg"
+    },
+    {
       "name": "SpotNewLookLight",
       "path": "spot-new-look-light.svg"
     },
@@ -247,6 +255,70 @@
     {
       "name": "SpotBroadbandDark",
       "path": "spot-broadband-dark.svg"
+    },
+    {
+      "name": "SpotWelcomeLight",
+      "path": "spot-welcome-light.svg"
+    },
+    {
+      "name": "SpotWelcomeDark",
+      "path": "spot-welcome-dark.svg"
+    },
+    {
+      "name": "SpotQuoteLight",
+      "path": "spot-quote-light.svg"
+    },
+    {
+      "name": "SpotQuoteDark",
+      "path": "spot-quote-dark.svg"
+    },
+    {
+      "name": "SpotLeadsLight",
+      "path": "spot-leads-light.svg"
+    },
+    {
+      "name": "SpotLeadsDark",
+      "path": "spot-leads-dark.svg"
+    },
+    {
+      "name": "SpotKeepTrackLight",
+      "path": "spot-keep-track-light.svg"
+    },
+    {
+      "name": "SpotKeepTrackDark",
+      "path": "spot-keep-track-dark.svg"
+    },
+    {
+      "name": "SpotHowToVideoLight",
+      "path": "spot-how-to-video-light.svg"
+    },
+    {
+      "name": "SpotHowToVideoDark",
+      "path": "spot-how-to-video-dark.svg"
+    },
+    {
+      "name": "SpotEarningsLight",
+      "path": "spot-earnings-light.svg"
+    },
+    {
+      "name": "SpotEarningsDark",
+      "path": "spot-earnings-dark.svg"
+    },
+    {
+      "name": "SpotCalendarLight",
+      "path": "spot-calendar-light.svg"
+    },
+    {
+      "name": "SpotCalendarDark",
+      "path": "spot-calendar-dark.svg"
+    },
+    {
+      "name": "SpotBookAppointmentLight",
+      "path": "spot-book-appointment-light.svg"
+    },
+    {
+      "name": "SpotBookAppointmentDark",
+      "path": "spot-book-appointment-dark.svg"
     },
     {
       "name": "SceneEnergyLight",

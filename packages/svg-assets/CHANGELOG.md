@@ -1,11 +1,38 @@
 # @utilitywarehouse/hearth-svg-assets
 
+## 0.4.0
+
+### Minor Changes
+
+- [#926](https://github.com/utilitywarehouse/hearth/pull/926) [`6b3c8ae`](https://github.com/utilitywarehouse/hearth/commit/6b3c8ae8d6575c0680a51f9b28d0d16950f9423f) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ASSETS
+  - SpotPiggyBankLight
+  - SpotPiggyBankDark
+  - SpotWelcomeLight
+  - SpotWelcomeDark
+  - SpotQuoteLight
+  - SpotQuoteDark
+  - SpotLeadsLight
+  - SpotLeadsDark
+  - SpotKeepTrackLight
+  - SpotKeepTrackDark
+  - SpotHowToVideoLight
+  - SpotHowToVideoDark
+  - SpotEarningsLight
+  - SpotEarningsDark
+  - SpotCalendarLight
+  - SpotCalendarDark
+  - SpotBookAppointmentLight
+  - SpotBookAppointmentDark
+
+  ## REMOVED ASSETS
+
+  No removed assets.
+
 ## 0.3.0
 
 ### Minor Changes
 
 - [#760](https://github.com/utilitywarehouse/hearth/pull/760) [`a9a5144`](https://github.com/utilitywarehouse/hearth/commit/a9a51447733e9126e0880cc5374491b3049f8faa) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ASSETS
-
   - SpotTickLight
   - SpotTickDark
   - SpotSecurityCodeLight
@@ -50,7 +77,6 @@
 ### Minor Changes
 
 - [#489](https://github.com/utilitywarehouse/hearth/pull/489) [`4ab0c95`](https://github.com/utilitywarehouse/hearth/commit/4ab0c953fb6198cf200923528f0243cd26b78a5d) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ASSETS
-
   - LogoFullPurple
   - LogoFullWarmWhite
   - LogoCondensedPurple
