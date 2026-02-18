@@ -14,6 +14,7 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 - [Controlled usage](#controlled-usage)
 - [With Image](#with-image)
 - [Loading](#loading)
+- [Preventing dissmissal](#preventing-dissmissal)
 - [API](#api)
 
 ## Playground
@@ -118,6 +119,25 @@ Use the `loading` and `loadingText` props to indicate a loading state within the
 When `loading` is `true` the `loadingText` is required for accessibility purposes.
 
 <Canvas of={Stories.Loading} />
+
+## Preventing dissmissal
+
+If you need users to follow the modal flow without being able to dismiss the
+modal, you can use the `onPointerDownOutside`, `onEscapeKeyDown` &
+`onInteractOutside` props on `Modal` to prevent the modal from closing when
+users click outside of the modal or press the escape key.
+
+```tsx
+<Modal
+  onPointerDownOutside={event => event.preventDefault()}
+  onEscapeKeyDown={event => event.preventDefault()}
+  onInteractOutside={event => event.preventDefault()}
+>
+  {/* Modal content */}
+</Modal>
+```
+
+<Canvas of={Stories.PreventOutsideDismiss} />
 
 ## API
 
