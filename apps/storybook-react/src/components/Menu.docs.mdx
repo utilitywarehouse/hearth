@@ -36,6 +36,18 @@ The `MenuTrigger` must wrap a `Button` or `IconButton` component, and the
 </Menu>
 ```
 
+### Modal vs non-modal behaviour
+
+If you are using multiple `Menu` components together, for instance in a
+navigation bar, you can set `modal` to `false` so that when a user has an open
+`Menu` and they click on a different `MenuTrigger` the second `Menu` opens
+immediately, closing the first `Menu` without the need for the user to click
+outside of the first `Menu` to close it.
+
+```tsx
+<Menu modal={false}>
+```
+
 ## Menu trigger
 
 You must render either a `Button` or `IconButton` component as a child of the `MenuTrigger`.

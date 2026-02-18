@@ -158,3 +158,63 @@ export const Placement: Story = {
     );
   },
 };
+
+export const Modality: Story = {
+  parameters: { chromatic: { disableSnapshot: false } },
+  args: { modal: false },
+  render: args => {
+    return (
+      <Flex gap="300">
+        <Menu {...args}>
+          <MenuTrigger>
+            <Button variant="outline" colorScheme="functional">
+              Menu trigger
+              <ExpandSmallIcon />
+            </Button>
+          </MenuTrigger>
+          <MenuContent>
+            <MenuItem>Item</MenuItem>
+            <MenuItem>Item</MenuItem>
+            <MenuItem asChild>
+              <a href="#">
+                Navigation Item
+                <OpenSmallIcon />
+              </a>
+            </MenuItem>
+            <MenuItem colorScheme="functional">Item</MenuItem>
+            <MenuItem colorScheme="destructive">
+              Destructive item
+              <TrashSmallIcon />
+            </MenuItem>
+            <MenuItem disabled>Disabled item</MenuItem>
+          </MenuContent>
+        </Menu>
+
+        <Menu {...args}>
+          <MenuTrigger>
+            <Button variant="outline" colorScheme="functional">
+              Menu trigger
+              <ExpandSmallIcon />
+            </Button>
+          </MenuTrigger>
+          <MenuContent>
+            <MenuItem>Item</MenuItem>
+            <MenuItem>Item</MenuItem>
+            <MenuItem asChild>
+              <a href="#">
+                Navigation Item
+                <OpenSmallIcon />
+              </a>
+            </MenuItem>
+            <MenuItem colorScheme="functional">Item</MenuItem>
+            <MenuItem colorScheme="destructive">
+              Destructive item
+              <TrashSmallIcon />
+            </MenuItem>
+            <MenuItem disabled>Disabled item</MenuItem>
+          </MenuContent>
+        </Menu>
+      </Flex>
+    );
+  },
+};
