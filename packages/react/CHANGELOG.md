@@ -1,5 +1,39 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.17
+
+### Patch Changes
+
+- [#928](https://github.com/utilitywarehouse/hearth/pull/928) [`54baa29`](https://github.com/utilitywarehouse/hearth/commit/54baa29a40a8dd109d455cc23c4ea9bdddc90ca1) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Change `List` items `helperText` type to `ReactNode`
+
+  **Components affected**:
+  - `ListItemContent`
+  - `ListItemLink`
+  - `ListItemButton`
+
+- [#931](https://github.com/utilitywarehouse/hearth/pull/931) [`6b1d4ba`](https://github.com/utilitywarehouse/hearth/commit/6b1d4bade5119f5a7e9ecce567f7d290ca313007) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Include `modal` prop to change behaviour of `Menu` as needed
+
+  **Components affected**:
+  - `Menu`
+
+  This change adds a `modal` prop to `Menu` to allow users to change the behaviour
+  of the `Menu` when multiple `Menu` components are used together. When `modal` is
+  set to `false`, if a user has an open `Menu` and they click on a different
+  `MenuTrigger` the second `Menu` opens immediately, closing the first `Menu`
+  without the need for the user to click outside of the first `Menu` to close it.
+
+- [#929](https://github.com/utilitywarehouse/hearth/pull/929) [`2bfeeed`](https://github.com/utilitywarehouse/hearth/commit/2bfeeed64d1b670f31ec1d7da209acc09b492ada) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add props to `Modal` to control the ability to dismiss
+
+  **Components affected**:
+  - `Modal`
+
+  This change adds the `onPointerDownOutside`, `onEscapeKeyDown` & `onInteractOutside`
+  props to `Modal` to allow users to prevent the modal from closing when users
+  click outside of the modal or press the escape key.
+
+  These props are inherited from the underlying `Dialog.Content` component from
+  [Radix UI](https://www.radix-ui.com/primitives/docs/components/dialog#content).
+
 ## 0.24.16
 
 ### Patch Changes
