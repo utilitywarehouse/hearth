@@ -359,3 +359,32 @@ export const WithLongContent: Story = {
     </ModalRoot>
   ),
 };
+
+export const PreventOutsideDismiss: Story = {
+  render: args => (
+    <ModalRoot>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal
+        {...args}
+        onEscapeKeyDown={e => e.preventDefault()}
+        onPointerDownOutside={e => e.preventDefault()}
+        hideCloseButton
+      >
+        <ModalFooter>
+          <ModalClose>
+            <Button variant="ghost" colorScheme="functional">
+              Cancel
+            </Button>
+          </ModalClose>
+          <ModalClose>
+            <Button variant="solid" colorScheme="highlight">
+              Primary
+            </Button>
+          </ModalClose>
+        </ModalFooter>
+      </Modal>
+    </ModalRoot>
+  ),
+};

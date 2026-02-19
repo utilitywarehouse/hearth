@@ -2,6 +2,7 @@ import { Dialog as DialogPrimitive } from 'radix-ui';
 
 // Props that are ALWAYS available regardless of loading state
 type BaseModalProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal> &
+  Omit<React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>, 'asChild' | 'forceMount'> &
   React.ComponentPropsWithRef<'div'> & {
     description?: string;
     hideCloseButton?: boolean;
