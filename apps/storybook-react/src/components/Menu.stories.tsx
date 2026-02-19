@@ -160,7 +160,6 @@ export const Placement: Story = {
 };
 
 export const Modality: Story = {
-  parameters: { chromatic: { disableSnapshot: false } },
   args: { modal: false },
   render: args => {
     return (
