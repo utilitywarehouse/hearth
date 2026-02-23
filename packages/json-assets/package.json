@@ -1,0 +1,15 @@
+{
+  "name": "@utilitywarehouse/hearth-json-assets",
+  "version": "0.0.1",
+  "description": "Hearth JSON assets",
+  "scripts": {
+    "clean:lib": "rm -rf lib"
+  },
+  "main": "index.js",
+  "module": "index.js",
+  "devDependencies": {},
+  "files": [
+    "lib",
+    "index.js"
+  ]
+}

@@ -1,0 +1,2 @@
+# Hearth JSON Assets
+

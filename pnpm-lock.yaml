@@ -269,6 +269,9 @@ importers:
       '@utilitywarehouse/hearth-svg-assets':
         specifier: ^0.2.0
         version: 0.2.0
+      lottie-react:
+        specifier: ^2.4.1
+        version: 2.4.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next:
         specifier: 15.5.10
         version: 15.5.10(babel-plugin-react-compiler@1.0.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -9038,6 +9041,15 @@ packages:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
 
+  lottie-react@2.4.1:
+    resolution: {integrity: sha512-LQrH7jlkigIIv++wIyrOYFLHSKQpEY4zehPicL9bQsrt1rnoKRYCYgpCUe5maqylNtacy58/sQDZTkwMcTRxZw==}
+    peerDependencies:
+      react: 19.1.0
+      react-dom: 19.1.0
+
+  lottie-web@5.13.0:
+    resolution: {integrity: sha512-+gfBXl6sxXMPe8tKQm7qzLnUy5DUPJPKIyRHwtpCpyUEYjHYRJC/5gjUvdkuO2c3JllrPtHXH5UJJK8LRYl5yQ==}
+
   loupe@3.2.1:
     resolution: {integrity: sha512-CdzqowRJCeLU72bHvWqwRBBlLcMEtIvGrlvef74kMnV2AolS9Y8xUv1I0U/MNAWMhBlKIoyuEgoJ0t/bbwHbLQ==}
 
@@ -15042,7 +15054,7 @@ snapshots:
       postcss: 8.4.49
       resolve-from: 5.0.0
     optionalDependencies:
-      expo: 54.0.22(@babel/core@7.26.10)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.26.10)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.22(@babel/core@7.28.6)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.28.6)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -15165,7 +15177,7 @@ snapshots:
       '@expo/json-file': 10.0.8
       '@react-native/normalize-colors': 0.81.5
       debug: 4.4.3(supports-color@8.1.1)
-      expo: 54.0.22(@babel/core@7.26.10)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.26.10)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.22(@babel/core@7.28.6)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.28.6)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
       resolve-from: 5.0.0
       semver: 7.7.3
       xml2js: 0.6.0
@@ -21562,7 +21574,7 @@ snapshots:
 
   expo-dev-client@6.0.17(expo@54.0.22):
     dependencies:
-      expo: 54.0.22(@babel/core@7.26.10)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.26.10)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.22(@babel/core@7.28.6)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.28.6)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
       expo-dev-launcher: 6.0.17(expo@54.0.22)
       expo-dev-menu: 7.0.16(expo@54.0.22)
       expo-dev-menu-interface: 2.0.0(expo@54.0.22)
@@ -21573,7 +21585,7 @@ snapshots:
 
   expo-dev-launcher@6.0.17(expo@54.0.22):
     dependencies:
-      expo: 54.0.22(@babel/core@7.26.10)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.26.10)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.22(@babel/core@7.28.6)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.28.6)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
       expo-dev-menu: 7.0.16(expo@54.0.22)
       expo-manifests: 1.0.10(expo@54.0.22)
     transitivePeerDependencies:
@@ -21581,11 +21593,11 @@ snapshots:
 
   expo-dev-menu-interface@2.0.0(expo@54.0.22):
     dependencies:
-      expo: 54.0.22(@babel/core@7.26.10)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.26.10)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.22(@babel/core@7.28.6)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.28.6)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
 
   expo-dev-menu@7.0.16(expo@54.0.22):
     dependencies:
-      expo: 54.0.22(@babel/core@7.26.10)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.26.10)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.22(@babel/core@7.28.6)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.28.6)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
       expo-dev-menu-interface: 2.0.0(expo@54.0.22)
 
   expo-file-system@19.0.21(expo@54.0.22)(react-native@0.81.5(@babel/core@7.26.10)(@types/react@19.1.17)(react@19.1.0)):
@@ -21628,7 +21640,7 @@ snapshots:
 
   expo-keep-awake@15.0.8(expo@54.0.22)(react@19.1.0):
     dependencies:
-      expo: 54.0.22(@babel/core@7.26.10)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.26.10)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.22(@babel/core@7.28.6)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.28.6)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
       react: 19.1.0
 
   expo-linking@8.0.11(expo@54.0.22)(react-native@0.81.5(@babel/core@7.26.10)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0):
@@ -21655,7 +21667,7 @@ snapshots:
   expo-manifests@1.0.10(expo@54.0.22):
     dependencies:
       '@expo/config': 12.0.13
-      expo: 54.0.22(@babel/core@7.26.10)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.26.10)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.22(@babel/core@7.28.6)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.28.6)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
       expo-json-utils: 0.15.0
     transitivePeerDependencies:
       - supports-color
@@ -21772,7 +21784,7 @@ snapshots:
   expo-splash-screen@31.0.10(expo@54.0.22):
     dependencies:
       '@expo/prebuild-config': 54.0.8(expo@54.0.22)
-      expo: 54.0.22(@babel/core@7.26.10)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.26.10)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.22(@babel/core@7.28.6)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.28.6)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -21790,7 +21802,7 @@ snapshots:
 
   expo-updates-interface@2.0.0(expo@54.0.22):
     dependencies:
-      expo: 54.0.22(@babel/core@7.26.10)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.26.10)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
+      expo: 54.0.22(@babel/core@7.28.6)(@expo/metro-runtime@6.1.2)(expo-router@6.0.14)(graphql@16.8.1)(react-native@0.81.5(@babel/core@7.28.6)(@types/react@19.1.17)(react@19.1.0))(react@19.1.0)
 
   expo-web-browser@15.0.10(expo@54.0.22)(react-native@0.81.5(@babel/core@7.28.6)(@types/react@19.1.17)(react@19.1.0)):
     dependencies:
@@ -23356,6 +23368,14 @@ snapshots:
   loose-envify@1.4.0:
     dependencies:
       js-tokens: 4.0.0
+
+  lottie-react@2.4.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+    dependencies:
+      lottie-web: 5.13.0
+      react: 19.1.0
+      react-dom: 19.1.0(react@19.1.0)
+
+  lottie-web@5.13.0: {}
 
   loupe@3.2.1: {}
 
