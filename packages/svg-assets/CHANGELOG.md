@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-svg-assets
 
+## 0.4.1
+
+### Patch Changes
+
+- [#936](https://github.com/utilitywarehouse/hearth/pull/936) [`d8891ec`](https://github.com/utilitywarehouse/hearth/commit/d8891ecff680d2801406a4b20e9a431ce94dbd26) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ASSETS
+
+  No new assets.
+
+  ## REMOVED ASSETS
+
+  No removed assets.
+
 ## 0.4.0
 
 ### Minor Changes
