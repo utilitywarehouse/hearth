@@ -8,6 +8,10 @@ addons.setConfig({
   theme,
   showToolbar: false,
   navSize: 300,
+  sidebar: {
+    showRoots: true,
+    collapsedRoots: ['react_common-props', 'react_responsive-design'],
+  },
 });
 
 addons.register('darkmode-refresh', api => {
