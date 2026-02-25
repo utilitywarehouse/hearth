@@ -20,13 +20,13 @@ COPY . .
 FROM builder-base AS builder
 RUN pnpm install --filter=!"./packages/react-native" --filter=packages/*... --filter=storybook-*... --frozen-lockfile
 RUN pnpm run build --filter=!"./packages/react-native" --filter=packages/*...
-RUN pnpm run build:storybook --filter=storybook-*
+RUN pnpm run build:storybook:docs --filter=storybook-*
 
 # we need to build the react-native packages separately
 # due to dependecy version clashes with other packages
 FROM builder-base AS react-native-builder
 RUN pnpm install --prod=false --filter="./packages/react-native..." --frozen-lockfile
-RUN pnpm run build:storybook --filter="./packages/react-native"
+RUN pnpm run build:storybook:docs --filter="./packages/react-native"
 
 FROM builder-base AS prod-deps
 RUN pnpm install --prod --frozen-lockfile --filter=storybook-server

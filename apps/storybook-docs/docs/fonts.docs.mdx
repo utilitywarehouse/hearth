@@ -1,16 +1,16 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { version } from '../../../../packages/fonts/package.json';
+import { version } from '../../../packages/fonts/package.json';
+import { ComicHams } from '../../storybook-fonts/src/stories/ComicHams.tsx';
+import { DMSans } from '../../storybook-fonts/src/stories/DMSans.tsx';
+import { DMMono } from '../../storybook-fonts/src/stories/DMMono.tsx';
 
-<Meta title="Introduction" />
-
-<div style={{ display: 'flex', flexDirection:'column', alignItems: 'center', textAlign: 'center'}}>
+<Meta title="Fonts" />
 
 # Hearth Fonts
 
-Font library for UI development at Utility Warehouse.<br/>
-Current version: v{version}
+v{version}
 
-</div>
+Font library for UI development at Utility Warehouse.<br/>
 
 All the font and CSS files you need to self-host the Utility Warehouse font families in your
 application.
@@ -34,9 +34,27 @@ This package includes the following font families, styles and weights.
 
 | **Font Family** | **Font Weights** | **Font Styles** |
 | --------------- | ---------------- | --------------- |
+| Comic Hams      | 600, 700, 900    | Normal          |
 | DM Sans         | 400, 600, 700    | Normal, Italic  |
 | DM Mono         | 500, 700         | Normal, Italic  |
-| Comic Hams      | 600, 700, 900    | Normal          |
+
+### Comic Hams
+
+The Utility Warehouse display typeface, used for headings and emphasis.
+
+<ComicHams />
+
+### DM Sans
+
+The Utility Warehouse primary typeface, used for body text.
+
+<DMSans />
+
+### DM Mono
+
+The Utility Warehouse secondary typeface, used for detail text.
+
+<DMMono />
 
 ## Getting Started
 
@@ -72,20 +90,3 @@ body {
   font-family: 'DM Sans', sans-serif;
 }
 ```
-
-## Fonts
-
-### DM Sans
-
-DM Sans is Utility Warehouse's primary typeface, used for body text. It is available in the
-400 (normal), 600 (semi-bold) and 700 (bold) font weights, for both normal and italic font styles.
-
-### DM Mono
-
-DM Mono is Utility Warehouse's secondary typeface, used for detail text. It is available in the
-500 (normal) and 700 (bold) font weights, for both normal and italic font styles.
-
-### Comic Hams
-
-Comic Hams is Utility Warehouse's display typeface, used for headings and emphasis. It is available in the
-600 (normal), 700 (bold) and 900 (black) font weights, for normal font style only.

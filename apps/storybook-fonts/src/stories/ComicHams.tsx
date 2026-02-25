@@ -1,5 +1,5 @@
 export const ComicHams = () => (
-  <div>
+  <div className="sb-unstyled">
     <p className="comic-hams" contentEditable="true">
       AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
     </p>

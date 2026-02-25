@@ -2,15 +2,12 @@ import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Alert.stories';
 
-import { DocsHeader } from '../storybook-components/DocsHeader';
-
 <Meta title="Components / Alert" />
 
-<DocsHeader
-  componentName="Alert"
-  figmaLink="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=1-141"
-  stories={Stories}
-/>
+# Alert
+
+An `Alert` is a visual label or indicator used to convey status or highlight content. Alerts are
+read-only status indicators or labels and are not interactive.
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 

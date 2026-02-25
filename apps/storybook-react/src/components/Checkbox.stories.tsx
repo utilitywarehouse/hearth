@@ -9,14 +9,6 @@ import visa from '../assets/visa.png';
 const meta: Meta<typeof Checkbox> = {
   title: 'Stories / Checkbox',
   component: Checkbox,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'The `Checkbox` component is a dual-state checkbox allowing users to toggle between checked and not checked. `Checkbox` can be used independently, however multiple checkboxes should be used within a `CheckboxGroup` to handle the state control and layout.',
-      },
-    },
-  },
   argTypes: {
     helperText: { control: { type: 'text' } },
     label: { control: { type: 'text' } },

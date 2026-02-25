@@ -7,14 +7,6 @@ const sizes = ['sm', 'md'] as const;
 const meta: Meta<typeof Switch> = {
   title: 'Stories / Switch',
   component: Switch,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`Switch` is used to indicate switching between two opposing options. Switches allow users to turn an individual option on or off. They are usually used to activate or deactivate a specific setting.',
-      },
-    },
-  },
   argTypes: {
     size: { options: sizes, control: { type: 'radio' } },
     checked: { control: { type: 'boolean' } },

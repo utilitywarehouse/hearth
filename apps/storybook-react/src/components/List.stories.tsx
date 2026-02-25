@@ -28,14 +28,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof List> = {
   title: 'Stories / List',
   component: List,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'The `List` component is a flexible and customizable component for displaying a list of items. It supports various visual variants, color schemes, and additional features like helper text and links.',
-      },
-    },
-  },
   argTypes: {
     variant: {
       control: { type: 'radio' },

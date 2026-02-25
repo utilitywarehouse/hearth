@@ -10,14 +10,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof Link> = {
   title: 'Stories / Link',
   component: Link,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Links are used to navigate a user to another page or website, another place on the same page, or to open a link in a new tab.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     href: { control: { type: 'text' } },

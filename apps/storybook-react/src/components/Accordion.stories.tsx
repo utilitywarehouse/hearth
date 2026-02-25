@@ -15,14 +15,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof Accordion> = {
   title: 'Stories / Accordion',
   component: Accordion,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Use `Accordion` to allow users to expand or collapse individual content sections, providing a compact way to present a large amount of information while maintaining a clean and organised interface.',
-      },
-    },
-  },
   argTypes: {
     type: { control: { type: 'radio' }, options: ['multiple', 'single'] },
     heading: { control: { type: 'text' } },
@@ -47,7 +39,7 @@ export const Playground: Story = {
       <Box width="600px">
         <Accordion {...args}>
           {[1, 2, 3, 4, 5, 6].map(n => (
-            <AccordionItem value={`item-${n}`} title={`Item ${n}`}>
+            <AccordionItem key={n} value={`item-${n}`} title={`Item ${n}`}>
               <AccordionContent>{`Content ${n}`}</AccordionContent>
             </AccordionItem>
           ))}
@@ -67,7 +59,7 @@ export const CustomItemHeader: Story = {
           helperText="Including a badge, for example"
         >
           {[1, 2, 3].map(n => (
-            <AccordionItem value={`item-${n}`}>
+            <AccordionItem key={n} value={`item-${n}`}>
               <AccordionHeader>
                 <AccordionTrigger>
                   <Flex width="100%" alignItems="center" justifyContent="between">
@@ -98,7 +90,7 @@ export const DefaultExpanded: Story = {
       <Box width="600px">
         <Accordion {...args}>
           {[1, 2, 3, 4, 5, 6].map(n => (
-            <AccordionItem value={`item-${n}`} title={`Item ${n}`}>
+            <AccordionItem key={n} value={`item-${n}`} title={`Item ${n}`}>
               <AccordionContent>{`Content ${n}`}</AccordionContent>
             </AccordionItem>
           ))}
@@ -118,7 +110,7 @@ export const Multiple: Story = {
       <Box width="600px">
         <Accordion {...args}>
           {[1, 2, 3, 4, 5, 6].map(n => (
-            <AccordionItem value={`item-${n}`} title={`Item ${n}`}>
+            <AccordionItem key={n} value={`item-${n}`} title={`Item ${n}`}>
               <AccordionContent>{`Content ${n}`}</AccordionContent>
             </AccordionItem>
           ))}
@@ -139,7 +131,7 @@ export const Single: Story = {
       <Box width="600px">
         <Accordion {...args}>
           {[1, 2, 3, 4, 5, 6].map(n => (
-            <AccordionItem value={`item-${n}`} title={`Item ${n}`}>
+            <AccordionItem key={n} value={`item-${n}`} title={`Item ${n}`}>
               <AccordionContent>{`Content ${n}`}</AccordionContent>
             </AccordionItem>
           ))}
@@ -161,7 +153,7 @@ export const Collapsible: Story = {
       <Box width="600px">
         <Accordion {...args}>
           {[1, 2, 3, 4, 5, 6].map(n => (
-            <AccordionItem value={`item-${n}`} title={`Item ${n}`}>
+            <AccordionItem key={n} value={`item-${n}`} title={`Item ${n}`}>
               <AccordionContent>{`Content ${n}`}</AccordionContent>
             </AccordionItem>
           ))}
@@ -182,7 +174,7 @@ export const HeadingElement: Story = {
       <Box width="600px">
         <Accordion {...args}>
           {[1, 2, 3, 4, 5, 6].map(n => (
-            <AccordionItem value={`item-${n}`} title={`Item ${n}`} headingElement="h2">
+            <AccordionItem key={n} value={`item-${n}`} title={`Item ${n}`} headingElement="h2">
               <AccordionContent>{`Content ${n}`}</AccordionContent>
             </AccordionItem>
           ))}

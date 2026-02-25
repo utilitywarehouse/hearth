@@ -7,14 +7,6 @@ const colors = ['primary', 'secondary', 'brand', 'inverted'] as const;
 const meta: Meta<typeof Spinner> = {
   title: 'Stories / Spinner',
   component: Spinner,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Using a Spinner is a common method for indicating that an asynchronous process is ongoing.',
-      },
-    },
-  },
   argTypes: {
     size: { control: { type: 'radio' }, options: sizes },
     color: { options: colors, control: { type: 'select' } },

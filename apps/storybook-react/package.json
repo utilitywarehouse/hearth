@@ -7,8 +7,10 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "dev": "storybook dev -p 6006",
+    "dev:docs": "storybook dev -p 6001 --no-open --docs",
     "clean": "rm -rf node_modules storybook-static .turbo",
     "build:storybook": "pnpm run copy-changelog && storybook build",
+    "build:storybook:docs": "pnpm run copy-changelog && storybook build --docs",
     "chromatic": "chromatic --config-file 'chromatic.config.json'",
     "copy-changelog": "node ./scripts/copy-changelog.js"
   },

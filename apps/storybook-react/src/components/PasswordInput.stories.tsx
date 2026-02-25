@@ -6,14 +6,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof PasswordInput> = {
   title: 'Stories / PasswordInput',
   component: PasswordInput,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`PasswordInput` is an interactive field that is used to securely collect users passwords.',
-      },
-    },
-  },
   argTypes: {
     placeholder: { control: { type: 'text' } },
     label: { control: { type: 'text' } },

@@ -5,14 +5,6 @@ import React from 'react';
 const meta: Meta<typeof VerificationInput> = {
   title: 'Stories / VerificationInput',
   component: VerificationInput,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`VerificationInput` allows users to enter a one-time password (OTP) sent via SMS, email, or authenticator apps.',
-      },
-    },
-  },
   argTypes: {
     label: { control: { type: 'text' } },
     helperText: { control: { type: 'text' } },

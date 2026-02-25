@@ -14,14 +14,6 @@ import React from 'react';
 const meta: Meta<typeof DatePicker> = {
   title: 'Stories / DatePicker',
   component: DatePicker,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`DatePicker` allows a user to specify a date, month or date range through the use of an expandable calendar.',
-      },
-    },
-  },
   argTypes: {
     disabled: { control: { type: 'boolean' } },
     readOnly: { control: { type: 'boolean' } },

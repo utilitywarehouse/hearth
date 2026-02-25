@@ -1,0 +1,51 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { BodyText, Box, Flex, Grid, Heading, Link } from '@utilitywarehouse/hearth-react';
+import { ProjectBanner } from './components';
+
+<Meta title="Introduction" />
+
+# Hearth
+
+Hearth Design Systems provides several libraries of UI components, design
+tokens, fonts, icons and illustrations that work together to create cohesive
+and accessible user experiences across all our platforms.
+
+Built with accessibility, performance, and scalability in mind, Hearth is the
+shared visual language and central source of truth for designing and
+implementing UI at Utility Warehouse.
+
+<div className="sb-unstyled">
+  <Grid
+    gap="400"
+    paddingY="400"
+    as="ul"
+    role="list"
+    columns={{ mobile: '1', tablet: '1', desktop: '2' }}
+  >
+    <ProjectBanner
+      heading="Hearth React"
+      description="UI components for accessible and scalable web application experiences."
+      href="/?path=/docs/react_getting-started--docs"
+    />
+    <ProjectBanner
+      heading="Hearth React Native"
+      description="UI components for accessible and consistent iOS and Android native experiences."
+      href="/?path=/docs/react-native_introduction--docs"
+    />
+    <ProjectBanner
+      heading="Hearth Tokens"
+      description="Platform-agnostic design tokens including spacing, colors & typography."
+      href="/?path=/docs/tokens_introduction--docs"
+    />
+    <ProjectBanner
+      heading="Hearth Icons"
+      description="Icon libraries for React, React Native and SVG."
+      href="/?path=/docs/icons_introduction--docs"
+    />
+    <ProjectBanner
+      heading="Hearth SVG Assets"
+      description="Static SVG assets for illustrations and logos."
+      href="/?path=/docs/assets_introduction--docs"
+    />
+  </Grid>
+</div>

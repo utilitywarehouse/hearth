@@ -11,14 +11,6 @@ import {
 const meta: Meta<typeof DescriptionList> = {
   title: 'Stories / DescriptionList',
   component: DescriptionList,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Use the `DescriptionList` component when you need to present pairs of related information together.',
-      },
-    },
-  },
   argTypes: {
     headingElement: {
       control: { type: 'radio' },

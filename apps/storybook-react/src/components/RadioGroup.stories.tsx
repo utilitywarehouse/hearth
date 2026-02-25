@@ -10,14 +10,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof RadioGroup> = {
   title: 'Stories / RadioGroup',
   component: RadioGroup,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`RadioGroup` provides an accessible way to group and control a set of `Radio`, `RadioTile` or `RadioCard` components, allowing the user to select one option from a set. The `RadioGroup` is responsible for handling the value, helper text, validation status and text, as well as determining the presentation and selection of the items in the list. Follows the [WAI-ARIA Radio Group Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/radio/) for radio groups not contained in a toolbar.',
-      },
-    },
-  },
   argTypes: {
     direction: {
       options: ['column', 'row'],

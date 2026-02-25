@@ -1,16 +1,13 @@
 import { Meta, Canvas } from '@storybook/addon-docs/blocks';
-
 import * as Stories from './Divider.stories';
-
-import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <Meta title="Components / Divider" />
 
-<DocsHeader
-  componentName="Divider"
-  figmaLink="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components-%26-Tokens?node-id=1-151&m=dev"
-  stories={Stories}
-/>
+# Divider
+
+Used to provide a visual break and semantically divide content. Supports
+vertical and horizontal orientations. Vertical dividers will only be visible
+when contained inside an element with display set to `flex` or `grid`.
 
 <Canvas of={Stories.KitchenSink} sourceState="none" />
 
