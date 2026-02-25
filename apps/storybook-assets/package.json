@@ -8,7 +8,8 @@
     "generate": "node './scripts/generate-assets-utils.js'",
     "lint": "eslint .",
     "clean": "rm -rf node_modules storybook-static .turbo",
-    "build:storybook": "storybook build"
+    "build:storybook": "storybook build",
+    "build:storybook:docs": "storybook build --docs"
   },
   "dependencies": {
     "@utilitywarehouse/hearth-css-reset": "workspace:*",
