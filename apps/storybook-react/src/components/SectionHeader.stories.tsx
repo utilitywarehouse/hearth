@@ -6,14 +6,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof SectionHeader> = {
   title: 'Stories / SectionHeader',
   component: SectionHeader,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Use the `SectionHeader` component to help define and separate content within a screen. It provides structure, clarity, and improves page scannability for users.',
-      },
-    },
-  },
   argTypes: {
     helperText: { control: { type: 'text' } },
     heading: { control: { type: 'text' } },

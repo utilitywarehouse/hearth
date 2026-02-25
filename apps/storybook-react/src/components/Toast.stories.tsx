@@ -13,14 +13,6 @@ import { TickCircleMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 const meta: Meta<typeof Toast> = {
   title: 'Stories / Toast',
   component: Toast,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A `Toast` is a brief, non-intrusive message that appears temporarily to provide feedback on an action or notify users of important information. Toasts automatically dismiss after a set duration or can be dismissed manually.',
-      },
-    },
-  },
   decorators: [
     Story => (
       <ToastProvider>

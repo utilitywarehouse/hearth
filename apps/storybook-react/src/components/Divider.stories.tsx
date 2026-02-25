@@ -5,14 +5,6 @@ import { BodyText, Box, Divider, Flex, Heading, Strong } from '@utilitywarehouse
 const meta: Meta<typeof Divider> = {
   title: 'Stories / Divider',
   component: Divider,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Used to provide a visual break and semantically divide content. Supports vertical and horizontal orientations. Vertical dividers will only be visible when contained inside an element with display set to `flex` or `grid`.',
-      },
-    },
-  },
   argTypes: {
     orientation: { options: ['horizontal', 'vertical'], control: { type: 'radio' } },
     decorative: { control: { type: 'boolean' } },

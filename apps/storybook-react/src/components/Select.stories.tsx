@@ -4,14 +4,6 @@ import { Select, SelectItem } from '@utilitywarehouse/hearth-react';
 const meta: Meta<typeof Select> = {
   title: 'Stories / Select',
   component: Select,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`Select` enables users to select an option from a list of choices, and generally requires a final submit action to confirm the selection.',
-      },
-    },
-  },
   argTypes: {
     label: { control: { type: 'text' } },
     labelVariant: { control: { type: 'radio' }, options: ['body', 'heading'] },

@@ -1,53 +1,128 @@
-div:where([role='main']) > div {
-  box-shadow: none !important;
-  border-left: 1px solid #101010;
-}
-.container {
-  border-right: 1px solid #101010;
+.sidebar-header {
+  padding: var(--h-space-200);
+
+  & div {
+    margin: 0 !important;
+
+    & a {
+      margin: 0 !important;
+      padding: 0 !important;
+      justify-content: center;
+    }
+  }
+
+  & img {
+    max-width: 200px !important;
+    width: 200px !important;
+  }
 }
 
-#storybook-preview-wrapper {
-  background: white !important;
+button[aria-label='Create a new story'],
+button[aria-label='Settings'],
+button[aria-label='Open context menu'],
+button[aria-label='Extra actions'],
+button[aria-label='Expand all'] {
+  display: none !important;
+}
+
+.search-field {
+  display: none !important;
+}
+
+#storybook-explorer-menu {
+  margin-top: calc(-1 * var(--h-space-200));
+}
+
+#storybook-explorer-tree {
+  display: flex;
+  flex-direction: column;
+  gap: var(--h-space-50);
+  border-top: none !important;
 }
 
 #storybook-explorer-tree div[aria-expanded='true'],
 #storybook-explorer-tree div[aria-expanded='false'] {
-  border-top: 1px solid #fff !important;
-  color: #fff !important;
+  border-top: none !important;
 }
 
-#storybook-explorer-tree div[aria-expanded='true'] svg,
-#storybook-explorer-tree div[aria-expanded='false'] svg {
-  color: #fff !important;
+/* #storybook-explorer-tree div[aria-expanded='true'] svg, */
+/* #storybook-explorer-tree div[aria-expanded='false'] svg { */
+/*   color: currentColor !important; */
+/* } */
+
+#storybook-explorer-tree .sidebar-item {
+  border-radius: var(--h-border-radius-md) !important;
+}
+
+#storybook-explorer-tree div[aria-label^='Show'],
+#storybook-explorer-tree div[aria-label^='Hide'] {
+  color: var(--h-text-inverted) !important;
+  font-family: var(--h-font-family-body) !important;
+  font-size: var(--h-body-text-md-font-size) !important;
+  line-height: var(--h-body-text-md-line-height) !important;
+  font-weight: var(--h-font-weight-semibold) !important;
+  width: auto !important;
+  padding: 0 !important;
+  padding-top: var(--h-space-50) !important;
+  padding-bottom: var(--h-space-50) !important;
+  margin-top: var(--h-space-150);
+  border-radius: var(--h-border-radius-md) !important;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--h-text-primary) !important;
+    background-color: var(--h-surface-highlight-default);
+  }
+
+  & > button > div {
+    color: currentColor !important;
+  }
 }
 
 #storybook-explorer-tree .sidebar-item button,
 #storybook-explorer-tree .sidebar-item a,
 .sidebar-subheading button {
-  color: #fff !important;
-  font-family: 'DM Mono';
+  color: var(--h-text-inverted);
+  font-family: var(--h-font-family-body);
+  font-size: var(--h-body-text-md-font-size) !important;
+  line-height: var(--h-body-text-md-line-height) !important;
+  border-radius: var(--h-border-radius-md);
+
+  &:where([data-selected='true'] &) {
+    color: var(--h-text-inverted);
+    background-color: var(--h-interactive-brand-surface-strong-active);
+    font-weight: var(--h-font-weight-semibold) !important;
+  }
+
+  &:hover:not([data-selected='true'] &) {
+    color: var(--h-text-primary) !important;
+    background-color: var(--h-surface-highlight-default) !important;
+  }
+
+  &[aria-label='Expand'],
+  &[aria-label='Collapse'] {
+    width: 100%;
+    justify-content: flex-start;
+    font-size: var(--h-body-text-lg-font-size) !important;
+    line-height: var(--h-body-text-lg-line-height) !important;
+    letter-spacing: 0 !important;
+    text-transform: capitalize !important;
+    height: auto;
+    padding-top: var(--h-space-50) !important;
+    padding-bottom: var(--h-space-50) !important;
+  }
 }
 
-#storybook-explorer-tree .sidebar-item svg {
-  color: #fff !important;
+.sidebar-subheading > button > div {
+  color: var(--h-text-inverted) !important;
+
+  &:where(button:hover &) {
+    color: var(--h-text-primary) !important;
+  }
 }
 
-#storybook-explorer-tree .sidebar-item:hover {
-  background-color: #ffb921 !important;
-}
-
-#storybook-explorer-tree .sidebar-item:hover button,
-#storybook-explorer-tree .sidebar-item:hover a,
-#storybook-explorer-tree .sidebar-item:hover svg {
-  color: #101010 !important;
-}
-
-div#panel-tab-content > div > div > div {
-  background-color: #fcfbf2 !important;
-}
-
-#storybook-panel-root div[data-radix-scroll-area-content]:not(.sidebar-container div) > div > div {
-  background-color: #fcfbf2 !important;
+#storybook-explorer-tree .sidebar-item div:has(svg) {
+  display: none !important;
 }
 
 /* selector for data-test-id="sb-preview-toolbar" - brave browser fix */

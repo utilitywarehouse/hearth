@@ -1,5 +1,5 @@
 export const DMMono = () => (
-  <div>
+  <div className="sb-unstyled">
     <p className="dm-mono" contentEditable="true">
       AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
     </p>

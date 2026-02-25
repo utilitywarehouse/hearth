@@ -24,6 +24,7 @@
     "dev:react-native:android": "turbo run hearth-react-native-expo#android",
     "dev:fonts": "turbo run @utilitywarehouse/hearth-fonts#dev storybook-fonts#dev",
     "format": "turbo run format",
+    "dev:docs": "turbo run dev:docs",
     "format:ci": "turbo run format:ci",
     "lint": "turbo run lint --filter='./packages/*'",
     "lint:fix": "turbo run lint:fix --filter='./packages/*'",

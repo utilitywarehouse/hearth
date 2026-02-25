@@ -4,14 +4,6 @@ import { Breadcrumbs, BreadcrumbItem, Flex } from '@utilitywarehouse/hearth-reac
 const meta: Meta<typeof Breadcrumbs> = {
   title: 'Stories / Breadcrumbs',
   component: Breadcrumbs,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Use the `Breadcrumbs` component when you need to help users understand and move between multiple levels of a website.',
-      },
-    },
-  },
   argTypes: {},
   args: {},
 };

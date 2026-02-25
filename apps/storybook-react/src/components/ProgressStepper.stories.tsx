@@ -13,14 +13,6 @@ import React from 'react';
 const meta: Meta<typeof ProgressStepper> = {
   title: 'Stories / ProgressStepper',
   component: ProgressStepper,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Use the `ProgressStepper` component to show users their progress through a multi-step process.',
-      },
-    },
-  },
   argTypes: {
     hideLabels: {
       control: 'boolean',

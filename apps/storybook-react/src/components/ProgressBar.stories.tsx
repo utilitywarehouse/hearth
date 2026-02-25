@@ -6,14 +6,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof ProgressBar> = {
   title: 'Stories / ProgressBar',
   component: ProgressBar,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`ProgressBar` displays the progress of a task or process in a linear bar format, with support for different visual states.',
-      },
-    },
-  },
   argTypes: {
     colorScheme: { control: { type: 'radio' }, options: ['default', 'success', 'danger'] },
     value: { control: { type: 'range', min: 0, max: 100, step: 1 } },

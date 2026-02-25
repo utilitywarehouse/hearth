@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/react-vite';
 import * as React from 'react';
 import '../src/stories/styles.css';
 import '@utilitywarehouse/hearth-fonts';
+import '@utilitywarehouse/hearth-tokens/index.css';
 import '../../../shared/storybook/styles/preview.css';
 import theme from '../../../shared/storybook/theme';
 

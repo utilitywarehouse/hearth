@@ -24,14 +24,6 @@ const sizes = ['sm', 'md'] as const;
 const meta: Meta<typeof Badge> = {
   title: 'Stories / Badge',
   component: Badge,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A `Badge` is a visual label or indicator used to convey status or highlight content. Badges are read-only status indicators or labels and are not interactive.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     variant: { options: variants, control: { type: 'radio' } },

@@ -6,14 +6,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof Pagination> = {
   title: 'Stories / Pagination',
   component: Pagination,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Use the `Pagination` component to help users navigate through multiple pages of content.',
-      },
-    },
-  },
   argTypes: {
     currentPage: { control: { type: 'number', min: 1 } },
     totalPages: { control: { type: 'number', min: 1 } },

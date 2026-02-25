@@ -12,14 +12,6 @@ const otherColorSchemes = ['functional', 'affirmative', 'destructive'] as const;
 const meta: Meta<typeof IconButton> = {
   title: 'Stories / IconButton',
   component: IconButton,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Icon Buttons are used to trigger an action on a page or to complete tasks in other components. Use Icon Buttons when you want to display an action quickly and visually, and when space is limited.',
-      },
-    },
-  },
   argTypes: {
     variant: { control: { type: 'radio' }, options: ['emphasis', ...variants] },
     colorScheme: { options: ['highlight', ...otherColorSchemes], control: { type: 'radio' } },

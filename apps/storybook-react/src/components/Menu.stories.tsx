@@ -18,14 +18,6 @@ import {
 const meta: Meta<typeof Menu> = {
   title: 'Stories / Menu',
   component: Menu,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Use the `Menu` component to present a short list of actions or options in response to a user’s interaction. Menus are ideal for actions like sorting, filtering, or providing additional options without navigating away from the current screen.',
-      },
-    },
-  },
   argTypes: {},
   args: {},
 };

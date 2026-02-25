@@ -70,20 +70,15 @@ const preview: Preview = {
     options: {
       storySort: {
         order: [
-          'Introduction',
           'Getting Started',
-          'Changelog',
           'Design Tokens',
-          "What's New",
-          ['Introduction'],
-          'Breakpoints',
-          'Media Queries',
+          'Changelog',
+          'Migrating from Web UI',
           'Common Props',
-          ['Introduction'],
           'Responsive Design',
           ['Breakpoints', 'Responsive Props', 'Media Queries'],
           'Layout',
-          ['Introduction'],
+          ['Overview'],
           'Typography',
           'Components',
           'Stories',

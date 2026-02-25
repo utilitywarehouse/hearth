@@ -7,12 +7,6 @@ const meta: Meta<typeof Container> = {
   component: Container,
   parameters: {
     layout: 'fullscreen',
-    docs: {
-      description: {
-        component:
-          '`Container` is a layout primitive for page content, providing default, responsive, horizontal gutters and vertical padding.',
-      },
-    },
   },
   argTypes: {
     align: { options: ['start', 'center', 'end'], control: { type: 'select' } },

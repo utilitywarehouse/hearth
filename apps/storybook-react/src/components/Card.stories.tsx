@@ -71,14 +71,6 @@ const shadowColors = [
 const meta: Meta<typeof Card> = {
   title: 'Stories / Card',
   component: Card,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Use Cards as containers for concise information about a single subject. They can display featured information, related content, or navigational choices. In groups, cards present collections of similar content.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     variant: { control: { type: 'radio' }, options: variants },
