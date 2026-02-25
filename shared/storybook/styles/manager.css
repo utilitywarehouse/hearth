@@ -45,10 +45,10 @@ button[aria-label='Expand all'] {
   border-top: none !important;
 }
 
-/* #storybook-explorer-tree div[aria-expanded='true'] svg, */
-/* #storybook-explorer-tree div[aria-expanded='false'] svg { */
-/*   color: currentColor !important; */
-/* } */
+#storybook-explorer-tree div[aria-expanded='true'] svg,
+#storybook-explorer-tree div[aria-expanded='false'] svg {
+  color: currentColor !important;
+}
 
 #storybook-explorer-tree .sidebar-item {
   border-radius: var(--h-border-radius-md) !important;
@@ -110,14 +110,6 @@ button[aria-label='Expand all'] {
     height: auto;
     padding-top: var(--h-space-50) !important;
     padding-bottom: var(--h-space-50) !important;
-  }
-}
-
-.sidebar-subheading > button > div {
-  color: var(--h-text-inverted) !important;
-
-  &:where(button:hover &) {
-    color: var(--h-text-primary) !important;
   }
 }
 
