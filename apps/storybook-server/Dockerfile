@@ -44,7 +44,6 @@ COPY --from=builder /app/apps/storybook-react/storybook-static ./apps/storybook-
 COPY --from=builder /app/apps/storybook-assets/storybook-static ./apps/storybook-assets/storybook-static
 COPY --from=builder /app/apps/storybook-icons/storybook-static ./apps/storybook-icons/storybook-static
 COPY --from=builder /app/apps/storybook-tokens/storybook-static ./apps/storybook-tokens/storybook-static
-COPY --from=builder /app/apps/storybook-fonts/storybook-static ./apps/storybook-fonts/storybook-static
 COPY --from=react-native-builder /app/packages/react-native/storybook-static ./packages/react-native/storybook-static
 
 EXPOSE ${APP_PORT}
