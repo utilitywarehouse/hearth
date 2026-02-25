@@ -64,10 +64,13 @@
       "persistent": true
     },
     "dev:docs": {
-      "dependsOn": ["^dev:docs"],
-      "outputs": []
+      "cache": false
     },
     "build:storybook": {
+      "outputs": ["storybook-static/**"],
+      "dependsOn": ["^build"]
+    },
+    "build:storybook:docs": {
       "outputs": ["storybook-static/**"],
       "dependsOn": ["^build"]
     },
