@@ -127,20 +127,15 @@
       width: 100%;
       display: flex;
       gap: var(--h-list-item-gap);
-      align-items: center;
-
-      &:has(.h-HelperText) {
-        align-items: start;
-      }
+      align-items: stretch;
 
       & :where(.h-ListItemContentTrailingContent) {
         display: flex;
-        flex-direction: column;
-        align-items: end;
-        align-self: center;
+        align-items: center;
+        justify-content: end;
 
-        &:has(.h-Switch, .h-Link) {
-          align-self: start;
+        &:has(> .h-Switch, > .h-Link) {
+          align-items: start;
         }
       }
     }

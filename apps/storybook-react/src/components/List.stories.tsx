@@ -191,6 +191,12 @@ export const PaddingNone: Story = {
 };
 
 export const LeadingContent: Story = {
+  args: {
+    heading: 'Leading Content',
+    helperText: '',
+    variant: 'subtle',
+    colorScheme: 'neutralSubtle',
+  },
   render: args => (
     <Box width="400px">
       <List {...args}>
@@ -238,30 +244,36 @@ export const LeadingContent: Story = {
       </List>
     </Box>
   ),
+};
+
+export const TrailingContent: Story = {
   args: {
-    heading: 'Leading Content',
+    heading: 'Trailing Content',
     helperText: '',
     variant: 'subtle',
     colorScheme: 'neutralSubtle',
   },
-};
-
-export const TrailingContent: Story = {
   render: args => (
     <Box width="400px">
       <List {...args}>
         <ListItem aria-label="list item">
-          <ListItemContent heading="Icon trailing content" trailingContent={<InfoMediumIcon />} />
+          <ListItemContent
+            heading="Trailing content"
+            helperText="With custom icon"
+            trailingContent={<InfoMediumIcon />}
+          />
         </ListItem>
         <ListItem aria-label="list item">
           <ListItemContent
-            heading="Switch trailing content"
+            heading="Trailing content"
+            helperText="With Switch"
             trailingContent={<Switch aria-label="list item switch" size="sm" />}
           />
         </ListItem>
         <ListItem aria-label="list item">
           <ListItemContent
-            heading="Link trailing content"
+            heading="Trailing content"
+            helperText="With Link"
             trailingContent={<Link href="#">Link</Link>}
           />
         </ListItem>
@@ -270,14 +282,14 @@ export const TrailingContent: Story = {
             heading="Transaction trailing content"
             helperText="With multiple transactions"
             trailingContent={
-              <>
+              <Flex direction="column">
                 <BodyText size="md" as="span">
                   -£100.00
                 </BodyText>
                 <BodyText size="md" as="span" style={{ color: 'var(--h-text-brand)' }}>
                   +£1.00 CB
                 </BodyText>
-              </>
+              </Flex>
             }
           />
         </ListItem>
@@ -286,22 +298,65 @@ export const TrailingContent: Story = {
             heading="Transaction trailing content"
             helperText="With a single transaction"
             trailingContent={
-              <>
+              <Flex>
                 <BodyText size="md" as="span" style={{ color: 'var(--h-text-affirmative)' }}>
                   +£10.00
                 </BodyText>
-              </>
+              </Flex>
             }
           />
         </ListItem>
       </List>
     </Box>
   ),
+};
+
+export const CustomTrailingContent: Story = {
   args: {
-    heading: 'Trailing Content',
+    heading: 'Custom Trailing Content',
     helperText: '',
-    variant: 'subtle',
-    colorScheme: 'neutralSubtle',
+    variant: 'emphasis',
+    colorScheme: 'neutralStrong',
+  },
+  render: args => {
+    return (
+      <Box width="800px">
+        <List {...args}>
+          <ListItem>
+            <ListItemContent
+              heading="February 2026"
+              helperText="£100"
+              trailingContent={
+                <Flex alignItems="center" columnGap="400">
+                  <Link asChild>
+                    <button type="button">Download PDF</button>
+                  </Link>
+                  <Link asChild>
+                    <button type="button">Open PDF</button>
+                  </Link>
+                </Flex>
+              }
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemContent
+              heading="March 2026"
+              helperText="£100"
+              trailingContent={
+                <Flex alignItems="center" columnGap="400">
+                  <Link asChild>
+                    <button type="button">Download PDF</button>
+                  </Link>
+                  <Link asChild>
+                    <button type="button">Open PDF</button>
+                  </Link>
+                </Flex>
+              }
+            />
+          </ListItem>
+        </List>
+      </Box>
+    );
   },
 };
 
@@ -701,6 +756,7 @@ export const ListActions: Story = {
 };
 
 export const CustomContent: Story = {
+  args: { heading: undefined, helperText: undefined },
   render: args => {
     const events = [
       {
@@ -758,7 +814,6 @@ export const CustomContent: Story = {
       </List>
     );
   },
-  args: { heading: undefined, helperText: undefined },
 };
 
 export const Gallery: Story = {

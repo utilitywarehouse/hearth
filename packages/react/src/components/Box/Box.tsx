@@ -55,6 +55,7 @@ export const Box = (props: BoxProps) => {
     textTransformPropDefs,
     zIndexPropDefs
   );
+
   return (
     <Slot.Root className={cn(componentClassName, className)} {...boxProps}>
       {asChild ? children : <Tag>{children}</Tag>}

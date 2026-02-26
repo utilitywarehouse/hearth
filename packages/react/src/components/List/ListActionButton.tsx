@@ -5,23 +5,25 @@ import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { BodyText } from '../BodyText/BodyText';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'ListActionButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const ListActionButton = ({
-  className,
-  children,
-  ...props
-}: React.ComponentPropsWithRef<'button'>) => {
+type ListActionButtonElement = ComponentRef<'button'>;
+
+export const ListActionButton = React.forwardRef<
+  ListActionButtonElement,
+  React.ComponentPropsWithRef<'button'>
+>(({ className, children, ...props }, ref) => {
   return (
-    <BodyText size="md" weight="semibold" asChild>
+    <BodyText ref={ref} size="md" weight="semibold" asChild>
       <button className={cn(componentClassName, className)} {...props}>
         {children}
         <ChevronRightSmallIcon />
       </button>
     </BodyText>
   );
-};
+});
 
 ListActionButton.displayName = COMPONENT_NAME;
