@@ -129,6 +129,12 @@
       gap: var(--h-list-item-gap);
       align-items: stretch;
 
+      & :where(.h-ListItemContentMainContent) {
+        flex-grow: 1;
+        align-items: start;
+        align-self: center;
+      }
+
       & :where(.h-ListItemContentTrailingContent) {
         display: flex;
         align-items: center;

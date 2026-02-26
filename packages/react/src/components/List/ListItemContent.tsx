@@ -35,8 +35,7 @@ export const ListItemContent = React.forwardRef<ListItemContentElement, ListItem
             {leadingContent ? leadingContent : null}
             <Flex
               direction={badgePlacement === 'top' ? 'column-reverse' : 'column'}
-              flexGrow="1"
-              alignItems="start"
+              className={`${componentClassName}MainContent`}
             >
               <div>
                 <BodyText size="lg">{heading}</BodyText>
