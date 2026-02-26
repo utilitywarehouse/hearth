@@ -34,7 +34,7 @@ import * as React from 'react';
 const COMPONENT_NAME = 'Flex';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type FlexElement = ComponentRef<'div'>;
+type FlexElement = ComponentRef<'span'>;
 
 export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
   const {
