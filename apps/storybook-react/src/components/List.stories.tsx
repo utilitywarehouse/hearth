@@ -829,6 +829,7 @@ export const Gallery: Story = {
       KitchenSink,
       LeadingContent,
       TrailingContent,
+      CustomTrailingContent,
       AllListItems,
       ListItemContents,
       ListActions,

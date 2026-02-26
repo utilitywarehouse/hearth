@@ -28,11 +28,15 @@ import { zIndexPropDefs } from '../../props/z-index.props';
 import { overflowPropDefs } from '../../props/overflow.props';
 import { opacityPropDefs } from '../../props/opacity.props';
 import { alignContentPropDefs } from '../../props/align-content.props';
+import type { ComponentRef } from 'react';
+import * as React from 'react';
 
 const COMPONENT_NAME = 'Flex';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Flex = (props: FlexProps) => {
+type FlexElement = ComponentRef<'div'>;
+
+export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
   const {
     className,
     asChild,
@@ -67,10 +71,10 @@ export const Flex = (props: FlexProps) => {
   );
 
   return (
-    <Slot.Root className={cn(componentClassName, className)} {...flexProps}>
+    <Slot.Root ref={ref} className={cn(componentClassName, className)} {...flexProps}>
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot.Root>
   );
-};
+});
 
 Flex.displayName = COMPONENT_NAME;

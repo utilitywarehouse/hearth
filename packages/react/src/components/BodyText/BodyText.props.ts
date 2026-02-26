@@ -20,7 +20,7 @@ export const bodyTextPropDefs = {
   paragraphSpacing: PropDef<boolean>;
 };
 
-interface CommonBodyTextProps
+export interface CommonBodyTextProps
   extends ColorProps, TextAlignProps, TextTransformProps, TextWrapProps, MarginProps {
   /**
    * Shorthand for changing the default rendered element into a semantically appropriate alternative.
