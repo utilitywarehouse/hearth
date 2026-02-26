@@ -37,7 +37,7 @@ export const flexPropDefs = {
   wrap: PropDef<(typeof wrapValues)[number]>;
 };
 
-interface CommonFlexProps
+export interface CommonFlexProps
   extends
     AlignContentProps,
     AlignItemsProps,
