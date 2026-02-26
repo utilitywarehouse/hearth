@@ -17,6 +17,21 @@
   }
 }
 
+#storybook-explorer-tree .sidebar-item button:not([aria-label='Open context menu']),
+a {
+  display: flex !important;
+  align-items: center !important;
+  color: var(--h-text-inverted) !important;
+
+  & > div {
+    margin-top: 0 !important;
+  }
+
+  & svg {
+    color: currentColor !important;
+  }
+}
+
 button[aria-label='Create a new story'],
 button[aria-label='Settings'],
 button[aria-label='Open context menu'],
@@ -111,10 +126,6 @@ button[aria-label='Expand all'] {
     padding-top: var(--h-space-50) !important;
     padding-bottom: var(--h-space-50) !important;
   }
-}
-
-#storybook-explorer-tree .sidebar-item div:has(svg) {
-  display: none !important;
 }
 
 /* selector for data-test-id="sb-preview-toolbar" - brave browser fix */

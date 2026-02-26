@@ -17,4 +17,5 @@ export interface ComboboxProps<Value, Multiple extends boolean | undefined = fal
    * loaded list.
    */
   statusText?: string;
+  loading?: boolean;
 }
