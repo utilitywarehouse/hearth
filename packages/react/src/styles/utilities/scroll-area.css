@@ -7,7 +7,7 @@
   width: 100%;
   height: 100%;
   padding-bottom: var(--h-space-25);
-  border-radius: var(--h-border-radius-md);
+  border-radius: var(--h-border-radius-xs);
 
   /* cover the possibility that we're using either radix or base ui variables */
   /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI & Base UI specific custom properties */

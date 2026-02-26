@@ -94,7 +94,7 @@ h6:not(.sb-anchor, .sb-unstyled, .sb-unstyled h6) {
   padding: 0 !important;
 }
 
-h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, [class^='h-']) {
+h1:not(.sb-anchor, .sb-unstyled, .sb-unstyled h1, [class^='h-'], #error-message) {
   font-size: var(--h-heading-xl-font-size-desktop);
   line-height: var(--h-heading-xl-line-height-desktop);
   margin-bottom: var(--h-space-400);
