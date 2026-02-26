@@ -37,7 +37,7 @@ li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li, [class^='h-']) {
 
 .docblock-source {
   margin: var(--h-space-300) 0 !important;
-  background: var(--h-color-warm-white-100) !important;
+  background: var(--h-color-warm-white-200) !important;
 }
 
 code {
@@ -113,13 +113,6 @@ h4:not(.sb-anchor, .sb-unstyled, .sb-unstyled h4, [class^='h-']) {
   font-size: var(--h-heading-sm-font-size-desktop);
   line-height: var(--h-heading-sm-line-height-desktop);
   margin-bottom: var(--h-space-100);
-}
-
-.docs-story,
-.sbdocs-preview,
-.docblock-code-toggle {
-  background-color: var(--color-background-primary) !important;
-  border-color: var(--color-border-subtle) !important;
 }
 
 [data-theme='dark'] {

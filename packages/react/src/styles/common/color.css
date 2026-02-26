@@ -3,22 +3,27 @@
   color: var(--h-text);
 }
 
-.h-text-primary {
+.h-text-primary,
+.h-color-primary {
   color: var(--h-text-primary);
 }
 
-.h-text-secondary {
+.h-text-secondary,
+.h-color-secondary {
   color: var(--h-text-secondary);
 }
 
-.h-text-brand {
+.h-text-brand,
+.h-color-brand {
   color: var(--h-text-brand);
 }
 
-.h-text-affirmative {
+.h-text-affirmative,
+.h-color-affirmative {
   color: var(--h-text-affirmative);
 }
 
-.h-text-inverted {
+.h-text-inverted,
+.h-color-inverted {
   color: var(--h-text-inverted);
 }
