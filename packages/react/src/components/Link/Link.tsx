@@ -8,11 +8,15 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { OpenSmallIcon } from '@utilitywarehouse/hearth-react-icons';
+import type { ComponentRef } from 'react';
+import * as React from 'react';
 
 const COMPONENT_NAME = 'Link';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Link = (props: LinkProps) => {
+type LinkElement = ComponentRef<'a'>;
+
+export const Link = React.forwardRef<LinkElement, LinkProps>((props, ref) => {
   const { className, asChild, inverted, children, hideOpenIcon, ...linkProps } = extractProps(
     props,
     marginPropDefs,
@@ -20,6 +24,7 @@ export const Link = (props: LinkProps) => {
   );
   return (
     <Slot.Root
+      ref={ref}
       className={cn(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
       {...linkProps}
@@ -39,6 +44,6 @@ export const Link = (props: LinkProps) => {
       )}
     </Slot.Root>
   );
-};
+});
 
 Link.displayName = COMPONENT_NAME;
