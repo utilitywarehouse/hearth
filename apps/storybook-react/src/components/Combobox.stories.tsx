@@ -13,6 +13,7 @@ const meta: Meta<typeof Combobox> = {
     validationText: { control: { type: 'text' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
     noOptionsFoundText: { control: { type: 'text' } },
+    loading: { control: { type: 'boolean' } },
   },
   args: {
     label: 'Combobox',
@@ -21,6 +22,7 @@ const meta: Meta<typeof Combobox> = {
     disabled: false,
     required: false,
     triggerOnlyOnType: false,
+    loading: false,
   },
 };
 
