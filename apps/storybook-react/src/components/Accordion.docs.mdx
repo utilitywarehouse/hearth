@@ -110,6 +110,11 @@ these to an appropriate heading level.
 
 Follows the [Accordion WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion).
 
+While `Accordion` is meant to present multiple disclosure items, if you have
+variable data that could return only a single item, then using an `Accordion` is
+still OK. If you know ahead of time you only need to show/hide a single item,
+then an alternative disclosure pattern should be used.
+
 ### Keyboard interactions
 
 <Flex direction="column" gap="200" className="sb-unstyled">
