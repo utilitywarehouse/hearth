@@ -17,5 +17,9 @@ export interface ComboboxProps<Value, Multiple extends boolean | undefined = fal
    * loaded list.
    */
   statusText?: string;
+  /**
+   * Displays a loading indicator in the input field to show that options are
+   * being fetched or updated asynchronously.
+   */
   loading?: boolean;
 }
