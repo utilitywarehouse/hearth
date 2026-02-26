@@ -1,5 +1,39 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.18
+
+### Patch Changes
+
+- [#945](https://github.com/utilitywarehouse/hearth/pull/945) [`34404fe`](https://github.com/utilitywarehouse/hearth/commit/34404feec4fda152f1670be5f6ac23bc442359b1) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Pass refs to `ListItem*` components
+
+  ## Components affected
+  - `ListItem`
+  - `ListItemContent`
+  - `ListItemButton`
+  - `ListItemLink`
+  - `BodyText`
+  - `Flex`
+
+- [#942](https://github.com/utilitywarehouse/hearth/pull/942) [`4228cf0`](https://github.com/utilitywarehouse/hearth/commit/4228cf0a34d257f6c3e0fb76b8bfdde37ebba694) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `loading` prop to `Combobox`
+
+- [#943](https://github.com/utilitywarehouse/hearth/pull/943) [`96c247b`](https://github.com/utilitywarehouse/hearth/commit/96c247bcc36f3190423a0c37f0d7f6ce7b436932) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Ensure refs are forwarded for `Link` & `BreadcrumbItem` components
+
+- [#945](https://github.com/utilitywarehouse/hearth/pull/945) [`34404fe`](https://github.com/utilitywarehouse/hearth/commit/34404feec4fda152f1670be5f6ac23bc442359b1) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Better support for custom `ListItem*` trailing content
+
+  ## Components affected
+  - `ListItemContent`
+  - `ListItemButton`
+  - `ListItemLink`
+
+- [#943](https://github.com/utilitywarehouse/hearth/pull/943) [`96c247b`](https://github.com/utilitywarehouse/hearth/commit/96c247bcc36f3190423a0c37f0d7f6ce7b436932) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Add missing `alignContent` prop defs to `Flex` component
+
+- [#946](https://github.com/utilitywarehouse/hearth/pull/946) [`acacada`](https://github.com/utilitywarehouse/hearth/commit/acacadae520b026179c5e982bfa4c3760ea0a29e) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Scroll area border radius
+
+  ## Components affected
+  - `Menu`
+  - `ComboBox`
+  - `Select`
+
 ## 0.24.17
 
 ### Patch Changes
