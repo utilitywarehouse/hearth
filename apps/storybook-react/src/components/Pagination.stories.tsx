@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Pagination } from '@utilitywarehouse/hearth-react';
+import { Flex, BodyText, Pagination } from '@utilitywarehouse/hearth-react';
 import { useState } from 'react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
@@ -85,30 +85,30 @@ export const EdgeCases: Story = {
     const [middlePage, setMiddlePage] = useState(50);
 
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-        <div>
-          <p style={{ marginBottom: '8px', fontSize: '14px', color: '#666' }}>
+      <Flex direction="column" gap="400">
+        <Flex direction="column" gap="100">
+          <BodyText size="sm" color="secondary">
             Near start (page 2 of 100):
-          </p>
+          </BodyText>
           <Pagination
             currentPage={nearStartPage}
             totalPages={100}
             onPageChange={setNearStartPage}
           />
-        </div>
-        <div>
-          <p style={{ marginBottom: '8px', fontSize: '14px', color: '#666' }}>
+        </Flex>
+        <Flex direction="column" gap="100">
+          <BodyText size="sm" color="secondary">
             In middle (page 50 of 100):
-          </p>
+          </BodyText>
           <Pagination currentPage={middlePage} totalPages={100} onPageChange={setMiddlePage} />
-        </div>
-        <div>
-          <p style={{ marginBottom: '8px', fontSize: '14px', color: '#666' }}>
+        </Flex>
+        <Flex direction="column" gap="100">
+          <BodyText size="sm" color="secondary">
             Near end (page 98 of 100):
-          </p>
+          </BodyText>
           <Pagination currentPage={nearEndPage} totalPages={100} onPageChange={setNearEndPage} />
-        </div>
-      </div>
+        </Flex>
+      </Flex>
     );
   },
 };
