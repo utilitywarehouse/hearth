@@ -27,6 +27,7 @@ import { borderWidthPropDefs } from '../../props/border-width.props';
 import { zIndexPropDefs } from '../../props/z-index.props';
 import { overflowPropDefs } from '../../props/overflow.props';
 import { opacityPropDefs } from '../../props/opacity.props';
+import { alignContentPropDefs } from '../../props/align-content.props';
 
 const COMPONENT_NAME = 'Flex';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -42,6 +43,7 @@ export const Flex = (props: FlexProps) => {
     props,
     flexPropDefs,
     alignItemsPropDefs,
+    alignContentPropDefs,
     backgroundColorPropDefs,
     borderColorPropDefs,
     borderRadiusPropDefs,
