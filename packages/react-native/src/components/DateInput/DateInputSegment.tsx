@@ -8,6 +8,7 @@ const DateInputSegment = ({
   label,
   placeholder,
   value,
+  inputRef,
   onChange,
   onFocus,
   onBlur,
@@ -27,6 +28,7 @@ const DateInputSegment = ({
         {label}
       </BodyText>
       <Input
+        ref={inputRef}
         value={value}
         onChangeText={onChange}
         onFocus={onFocus}
