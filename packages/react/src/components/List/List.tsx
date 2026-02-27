@@ -42,9 +42,12 @@ export const List = (props: ListProps) => {
 
   const { id, labelId } = useIds({ providedId, prefix: 'list' });
 
+  const hasHeading = Boolean(heading);
+  const ariaLabelledbyValue = ariaLabelledby ?? (hasHeading && !ariaLabel ? labelId : undefined);
+
   const attributeProps = {
     'aria-label': ariaLabel,
-    'aria-labelledby': ariaLabelledby || labelId,
+    'aria-labelledby': ariaLabelledbyValue,
     'data-padding-none': paddingNone ? '' : undefined,
   };
 

@@ -267,7 +267,7 @@ export const TrailingContent: Story = {
           <ListItemContent
             heading="Trailing content"
             helperText="With Switch"
-            trailingContent={<Switch label="list item switch" size="sm" />}
+            trailingContent={<Switch aria-label="list item switch" size="sm" />}
           />
         </ListItem>
         <ListItem>
@@ -398,7 +398,7 @@ export const AllListItems: Story = {
           <ListItemContent
             heading="List item content"
             helperText="with trailing switch"
-            trailingContent={<Switch label="list item switch" size="sm" />}
+            trailingContent={<Switch aria-label="list item switch" size="sm" />}
           />
         </ListItem>
         <ListItem>
@@ -544,7 +544,7 @@ export const ListItemContentWithSwitch: Story = {
           <ListItemContent
             heading="List item content"
             helperText="Helper text"
-            trailingContent={<Switch label="list item switch" size="sm" />}
+            trailingContent={<Switch aria-label="list item switch" size="sm" />}
           />
         </ListItem>
       </List>
