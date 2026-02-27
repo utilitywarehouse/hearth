@@ -5,7 +5,9 @@ import * as Stories from './List.stories';
 
 # List
 
-The `List` component is a flexible and customizable component for displaying a list of items. It supports various visual variants, color schemes, and additional features like helper text and links.
+The `List` component is a flexible and customizable component for displaying a
+list of items. It supports various visual variants, color schemes, and
+additional features like helper text and links.
 
 ## Playground
 
@@ -13,7 +15,6 @@ The `List` component is a flexible and customizable component for displaying a l
 <Controls of={Stories.Playground} />
 
 - [Usage](#usage)
-- [Accessibility](#accessibility)
 - [Appearance](#appearance)
   - [Variant](#variant)
   - [ColorScheme](#colorscheme)
@@ -61,12 +62,6 @@ import { List, ListItem, ListItemLink } from '@utilitywarehouse/hearth-react';
   </ListItem>
 </List>
 ```
-
-## Accessibility
-
-If you are doing anything more complex than rendering simple text within the
-`ListItem` component, please include an `aria-label` prop, which accurately
-reflects the content of the list item.
 
 ## Appearance
 
@@ -174,7 +169,7 @@ be handled for you, however if necessary you can always wrap your custom
 content in a `Flex` component.
 
 ```tsx
-<ListItem aria-label="cashback">
+<ListItem>
   <ListItemContent
     heading="Transaction"
     trailingContent={
@@ -197,8 +192,7 @@ content in a `Flex` component.
 
 You can compose more complex content within the `ListItem` component. The
 `ListItemButton` and `ListItemLink` components will continue to make the entire
-list item interactive. Remember to include an accurate `aria-label` which
-reflects the contents of the list item.
+list item interactive.
 
 <Canvas of={Stories.CustomContent} />
 

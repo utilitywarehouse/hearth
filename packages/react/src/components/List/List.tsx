@@ -6,12 +6,14 @@ import { Box } from '../Box/Box';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
+import { useIds } from '../../hooks/use-ids';
 
 const COMPONENT_NAME = 'List';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export const List = (props: ListProps) => {
   const {
+    id: providedId,
     as: Tag = 'ul',
     className,
     colorScheme = undefined,
@@ -24,6 +26,8 @@ export const List = (props: ListProps) => {
     validationStatus,
     children,
     paddingNone,
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledby,
     ...listProps
   } = extractProps(props, marginPropDefs);
 
@@ -36,19 +40,27 @@ export const List = (props: ListProps) => {
     validationStatus,
   };
 
-  const dataAttributeProps = {
+  const { id, labelId } = useIds({ providedId, prefix: 'list' });
+
+  const hasHeading = Boolean(heading);
+  const ariaLabelledbyValue = ariaLabelledby ?? (hasHeading && !ariaLabel ? labelId : undefined);
+
+  const attributeProps = {
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledbyValue,
     'data-padding-none': paddingNone ? '' : undefined,
   };
 
   return (
     <div className={cn(componentClassName, className)}>
-      {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
+      {heading ? <SectionHeader id={labelId} {...sectionHeaderProps} /> : null}
       {variant === undefined || colorScheme === undefined ? (
         <Box
           asChild
+          id={id}
           className={`${componentClassName}Container`}
           role="list"
-          {...dataAttributeProps}
+          {...attributeProps}
         >
           <Tag {...listProps}>{children}</Tag>
         </Box>
@@ -59,7 +71,7 @@ export const List = (props: ListProps) => {
           variant={variant}
           colorScheme={colorScheme}
         >
-          <Tag role="list" {...listProps} {...dataAttributeProps}>
+          <Tag role="list" id={id} {...listProps} {...attributeProps}>
             {children}
           </Tag>
         </Card>
