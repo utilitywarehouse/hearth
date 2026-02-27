@@ -40,19 +40,25 @@ export const List = (props: ListProps) => {
     validationStatus,
   };
 
-  const { id } = useIds({ providedId });
+  const { id, labelId } = useIds({ providedId, prefix: 'list' });
 
   const attributeProps = {
     'aria-label': ariaLabel,
-    'aria-labelledby': ariaLabelledby || id,
+    'aria-labelledby': ariaLabelledby || labelId,
     'data-padding-none': paddingNone ? '' : undefined,
   };
 
   return (
     <div className={cn(componentClassName, className)}>
-      {heading ? <SectionHeader id={id} {...sectionHeaderProps} /> : null}
+      {heading ? <SectionHeader id={labelId} {...sectionHeaderProps} /> : null}
       {variant === undefined || colorScheme === undefined ? (
-        <Box asChild className={`${componentClassName}Container`} role="list" {...attributeProps}>
+        <Box
+          asChild
+          id={id}
+          className={`${componentClassName}Container`}
+          role="list"
+          {...attributeProps}
+        >
           <Tag {...listProps}>{children}</Tag>
         </Box>
       ) : (
@@ -62,7 +68,7 @@ export const List = (props: ListProps) => {
           variant={variant}
           colorScheme={colorScheme}
         >
-          <Tag role="list" {...listProps} {...attributeProps}>
+          <Tag role="list" id={id} {...listProps} {...attributeProps}>
             {children}
           </Tag>
         </Card>
