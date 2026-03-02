@@ -39,6 +39,10 @@
     @media (--h-desktop) {
       padding: var(--h-card-padding-desktop);
     }
+
+    &:where([data-padding-bottom-none='true']) {
+      padding-bottom: var(--h-spacing-0);
+    }
   }
 
   &:where(.h-variant-emphasis) {
