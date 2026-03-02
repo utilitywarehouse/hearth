@@ -26,7 +26,7 @@
 
     --h-input-border-color-focus: var(--h-border-strong);
 
-    &:where([aria-disabled], [readonly]) {
+    &:where([aria-disabled='true'], [readonly]) {
       cursor: default;
     }
 
@@ -46,7 +46,7 @@
       --h-input-border-color-focus: var(--h-feedback-danger-border);
     }
 
-    &:where(:focus-visible, [data-calendar-state='open']):not([aria-disabled]) {
+    &:where(:focus-visible, [data-calendar-state='open']):not([aria-disabled='true']) {
       outline: var(--h-date-picker-border-width-focused) solid var(--h-input-border-color-focus);
       outline-offset: -1px;
     }
