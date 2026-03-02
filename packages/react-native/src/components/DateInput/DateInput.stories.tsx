@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-native';
 import { TickSmallIcon, WarningSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useState } from 'react';
-import { View } from 'react-native';
+import { useRef, useState } from 'react';
+import { TextInput, View } from 'react-native';
 import { Button, Card, Flex, Heading } from '../../components';
 import { DateInput } from './';
 
@@ -262,6 +262,41 @@ export const WithState: Story = {
           <Button onPress={handleReset} variant="solid">
             Reset
           </Button>
+        </Flex>
+      </Flex>
+    );
+  },
+};
+
+export const WithRefs: Story = {
+  render: () => {
+    const [day, setDay] = useState('');
+    const [month, setMonth] = useState('');
+    const [year, setYear] = useState('');
+
+    const dayRef = useRef<TextInput>(null);
+    const monthRef = useRef<TextInput>(null);
+    const yearRef = useRef<TextInput>(null);
+
+    return (
+      <Flex spacing="md">
+        <DateInput
+          label="Date"
+          helperText="Use buttons to focus each segment"
+          dayValue={day}
+          monthValue={month}
+          yearValue={year}
+          onDayChange={setDay}
+          onMonthChange={setMonth}
+          onYearChange={setYear}
+          dayRef={dayRef}
+          monthRef={monthRef}
+          yearRef={yearRef}
+        />
+        <Flex spacing="xs">
+          <Button onPress={() => dayRef.current?.focus()}>Focus day</Button>
+          <Button onPress={() => monthRef.current?.focus()}>Focus month</Button>
+          <Button onPress={() => yearRef.current?.focus()}>Focus year</Button>
         </Flex>
       </Flex>
     );
