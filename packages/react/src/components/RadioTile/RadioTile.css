@@ -1,5 +1,4 @@
 .h-RadioTile {
-  flex: 1 1 0%;
   all: unset;
   background-color: var(--h-surface-neutral-strong);
   padding: var(--h-radio-tile-padding);
@@ -8,6 +7,10 @@
   min-width: var(--h-radio-tile-min-width);
   max-width: var(--h-radio-tile-max-width);
   cursor: pointer;
+
+  &:where(:not([data-fit-content])) {
+    flex: 1 1 0%;
+  }
 
   * {
     cursor: pointer;

@@ -24,6 +24,11 @@ export default meta;
 type Story = StoryObj<typeof RadioTile>;
 
 export const Playground: Story = {
+  args: {
+    value: '1',
+    label: 'Radio label',
+    helperText: 'Radio helper text',
+  },
   render: args => {
     return (
       <Flex gap="500" direction="column">
@@ -37,15 +42,32 @@ export const Playground: Story = {
       </Flex>
     );
   },
-  argTypes: {
-    value: { control: { type: 'text' } },
-    helperText: { control: { type: 'text' } },
-    label: { control: { type: 'text' } },
-  },
+};
+
+export const FitContent: Story = {
   args: {
     value: '1',
-    label: 'Radio label',
-    helperText: 'Radio helper text',
+    helperText: '',
+  },
+  render: args => {
+    return (
+      <Flex gap="500" direction="column">
+        <RadioGroup label="Do you have a meter?" direction="row">
+          <RadioTile {...args} value="y" label="Yes" flex="0 0 auto" />
+          <RadioTile {...args} value="n" label="No" flex="0 0 auto" />
+        </RadioGroup>
+
+        <RadioGroup label="how would you like to pay?" direction="row">
+          <RadioTile {...args} value="1" label="Budget plan" fitContent />
+          <RadioTile {...args} value="2" label="Monthly in arrears" fitContent />
+        </RadioGroup>
+
+        <RadioGroup label="how would you like to pay?" direction="row">
+          <RadioTile {...args} value="1" label="Budget plan" />
+          <RadioTile {...args} value="2" label="Monthly in arrears" />
+        </RadioGroup>
+      </Flex>
+    );
   },
 };
 

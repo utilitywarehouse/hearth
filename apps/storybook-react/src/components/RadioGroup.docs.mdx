@@ -12,6 +12,7 @@ import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 
 <Canvas of={Stories.Playground} />
 
+- [Alternatives](#alternatives)
 - [Usage](#usage)
 - [Accessibility](#accessibility)
 - [Keyboard interactions](#keyboard-interactions)
@@ -20,11 +21,11 @@ import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 - [Validation](#validation)
 - [Content width](#content-width)
 - [Grid layout](#grid-layout)
+- [RadioTile width](#radiotile-width)
 - [Controlled](#controlled)
+- [Radio & RadioTile Image](#radio-&-radiotile-image)
 - [RadioCard](#radiocard)
-- [RadioGroup API](#radiogroup-api)
-- [RadioTile API](#radiotile-api)
-- [RadioCard API](#radiocard-api)
+- [API](#api)
 
 ## Alternatives
 
@@ -137,6 +138,12 @@ present a specific grid layout.
 
 <Canvas of={Stories.WithGrid} />
 
+## RadioTile width
+
+`RadioTile` components will, by default, stretch to fill the width of the
+`RadioGroup`, however you can set the `fitContent` prop to make them only take
+up as much width as they need.
+
 ## Controlled
 
 A controlled value can be provided using the value prop, which accepts a value
@@ -205,7 +212,7 @@ children.
 
 <Canvas of={RadioCardStories.Playground} />
 
-## RadioGroup API
+## API
 
 This component is based on the `fieldset` element and supports the following common props:
 
@@ -223,7 +230,7 @@ This component is based on the `fieldset` element and supports the following com
 | `columns`             | `Responsive<number>`                  |
 | `contentWidth`        | `Responsive<string>`                  |
 
-## Radio API
+### Radio API
 
 This component is based on the `button` element and supports the following common props:
 
@@ -235,7 +242,7 @@ This component is based on the `button` element and supports the following commo
 | `helperText` | `string`    |
 | `image`      | `ReactNode` |
 
-## RadioTile API
+### RadioTile API
 
 This component is based on the `button` element and supports the following common props:
 
@@ -247,8 +254,9 @@ This component is based on the `button` element and supports the following commo
 | `helperText` | `string`    |
 | `image`      | `ReactNode` |
 | `badge`      | `ReactNode` |
+| `fitContent` | `boolean`   |
 
-## RadioCard API
+### RadioCard API
 
 This component is based on the `button` element and supports the following common props:
 
