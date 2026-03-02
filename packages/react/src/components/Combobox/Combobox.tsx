@@ -19,6 +19,7 @@ import { ComboboxItem } from './ComboboxItem';
 import { ScrollArea as ScrollAreaPrimitive } from 'radix-ui';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
 import { ComboboxEmpty } from './ComboboxEmpty';
+import { Spinner } from '../Spinner/Spinner';
 
 const COMPONENT_NAME = 'Combobox';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -40,6 +41,7 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
     required,
     noOptionsFoundText,
     statusText,
+    loading,
     ...comboboxProps
   } = extractProps(props, marginPropDefs);
 
@@ -83,6 +85,11 @@ export function Combobox<Value, Multiple extends boolean | undefined = false>(
                   </InputSlot>
                 }
               />
+              {loading ? (
+                <InputSlot placement="suffix">
+                  <Spinner size="xs" color="primary" />
+                </InputSlot>
+              ) : null}
               <ComboboxPrimitive.Clear
                 render={
                   <InputSlot placement="suffix" asChild>

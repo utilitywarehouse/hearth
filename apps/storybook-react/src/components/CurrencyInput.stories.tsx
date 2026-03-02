@@ -5,14 +5,6 @@ import React from 'react';
 const meta: Meta<typeof CurrencyInput> = {
   title: 'Stories / CurrencyInput',
   component: CurrencyInput,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`CurrencyInput` is an interactive field that specifically used for entering monetary amounts. It’s commonly used across Cashback and payment areas.',
-      },
-    },
-  },
   argTypes: {
     placeholder: { control: { type: 'text' } },
     label: { control: { type: 'text' } },

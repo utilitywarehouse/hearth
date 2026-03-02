@@ -1,5 +1,139 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.19
+
+### Patch Changes
+
+- [#960](https://github.com/utilitywarehouse/hearth/pull/960) [`fd1b98e`](https://github.com/utilitywarehouse/hearth/commit/fd1b98e1ef3a62ca8675b316854e00d4d5a2df93) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `paddingBottomNone` prop to `CardContent`
+
+- [#951](https://github.com/utilitywarehouse/hearth/pull/951) [`25698c1`](https://github.com/utilitywarehouse/hearth/commit/25698c112ed7f0f2b7c1f814481d00ca74561f4a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Improve disabled `Link` styles
+
+  The `Link` styles were being displayed when `aria-disabled` was both false &
+  true. This change ensures that the correct styles are applied only when
+  `aria-disabled='true'`.
+
+- [#950](https://github.com/utilitywarehouse/hearth/pull/950) [`680d770`](https://github.com/utilitywarehouse/hearth/commit/680d7708bc85d57263837697eee01e33f574dd01) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Improve labelling of `List`
+
+  This change ensures that the `List` component is properly labelled for assistive
+  technologies, enhancing accessibility for users relying on screen readers.
+
+  This change also updates the documentation, removing `aria-label` props on list
+  items, as we are changing the guidance to not include them. This is because the
+  list items are already labelled by their content, and adding an `aria-label` can
+  create confusion for screen readers.
+
+- Updated dependencies [[`25698c1`](https://github.com/utilitywarehouse/hearth/commit/25698c112ed7f0f2b7c1f814481d00ca74561f4a)]:
+  - @utilitywarehouse/hearth-css-reset@0.1.4
+
+## 0.24.18
+
+### Patch Changes
+
+- [#945](https://github.com/utilitywarehouse/hearth/pull/945) [`34404fe`](https://github.com/utilitywarehouse/hearth/commit/34404feec4fda152f1670be5f6ac23bc442359b1) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Pass refs to `ListItem*` components
+
+  ## Components affected
+  - `ListItem`
+  - `ListItemContent`
+  - `ListItemButton`
+  - `ListItemLink`
+  - `BodyText`
+  - `Flex`
+
+- [#942](https://github.com/utilitywarehouse/hearth/pull/942) [`4228cf0`](https://github.com/utilitywarehouse/hearth/commit/4228cf0a34d257f6c3e0fb76b8bfdde37ebba694) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `loading` prop to `Combobox`
+
+- [#943](https://github.com/utilitywarehouse/hearth/pull/943) [`96c247b`](https://github.com/utilitywarehouse/hearth/commit/96c247bcc36f3190423a0c37f0d7f6ce7b436932) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Ensure refs are forwarded for `Link` & `BreadcrumbItem` components
+
+- [#945](https://github.com/utilitywarehouse/hearth/pull/945) [`34404fe`](https://github.com/utilitywarehouse/hearth/commit/34404feec4fda152f1670be5f6ac23bc442359b1) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Better support for custom `ListItem*` trailing content
+
+  ## Components affected
+  - `ListItemContent`
+  - `ListItemButton`
+  - `ListItemLink`
+
+- [#943](https://github.com/utilitywarehouse/hearth/pull/943) [`96c247b`](https://github.com/utilitywarehouse/hearth/commit/96c247bcc36f3190423a0c37f0d7f6ce7b436932) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Add missing `alignContent` prop defs to `Flex` component
+
+- [#946](https://github.com/utilitywarehouse/hearth/pull/946) [`acacada`](https://github.com/utilitywarehouse/hearth/commit/acacadae520b026179c5e982bfa4c3760ea0a29e) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Scroll area border radius
+
+  ## Components affected
+  - `Menu`
+  - `ComboBox`
+  - `Select`
+
+## 0.24.17
+
+### Patch Changes
+
+- [#928](https://github.com/utilitywarehouse/hearth/pull/928) [`54baa29`](https://github.com/utilitywarehouse/hearth/commit/54baa29a40a8dd109d455cc23c4ea9bdddc90ca1) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Change `List` items `helperText` type to `ReactNode`
+
+  **Components affected**:
+  - `ListItemContent`
+  - `ListItemLink`
+  - `ListItemButton`
+
+- [#931](https://github.com/utilitywarehouse/hearth/pull/931) [`6b1d4ba`](https://github.com/utilitywarehouse/hearth/commit/6b1d4bade5119f5a7e9ecce567f7d290ca313007) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Include `modal` prop to change behaviour of `Menu` as needed
+
+  **Components affected**:
+  - `Menu`
+
+  This change adds a `modal` prop to `Menu` to allow users to change the behaviour
+  of the `Menu` when multiple `Menu` components are used together. When `modal` is
+  set to `false`, if a user has an open `Menu` and they click on a different
+  `MenuTrigger` the second `Menu` opens immediately, closing the first `Menu`
+  without the need for the user to click outside of the first `Menu` to close it.
+
+- [#929](https://github.com/utilitywarehouse/hearth/pull/929) [`2bfeeed`](https://github.com/utilitywarehouse/hearth/commit/2bfeeed64d1b670f31ec1d7da209acc09b492ada) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add props to `Modal` to control the ability to dismiss
+
+  **Components affected**:
+  - `Modal`
+
+  This change adds the `onPointerDownOutside`, `onEscapeKeyDown` & `onInteractOutside`
+  props to `Modal` to allow users to prevent the modal from closing when users
+  click outside of the modal or press the escape key.
+
+  These props are inherited from the underlying `Dialog.Content` component from
+  [Radix UI](https://www.radix-ui.com/primitives/docs/components/dialog#content).
+
+## 0.24.16
+
+### Patch Changes
+
+- [#920](https://github.com/utilitywarehouse/hearth/pull/920) [`9dead1a`](https://github.com/utilitywarehouse/hearth/commit/9dead1a33302b265f54881d6dd00709749660f44) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `opacity` prop to layout components
+
+  **Components affected**:
+  - `Box`
+  - `Flex`
+  - `Grid`
+
+  These components now accept an `opacity` prop that allows you to set the opacity
+  of the component and its children. The `opacity` prop accepts a string value between
+  `0` and `1`, as well as Hearth browser tokens and CSS custom properties.
+
+  ```tsx
+  import {semantic} from '@utilitywarehouse/hearth-tokens/browser';
+
+  <Box opacity="0.5" />
+  <Box opacity={semantic.opacity.disabled}/>
+  <Box opacity="var(--h-opacity-disabled)" />
+
+  <Flex opacity="0.5" />
+  <Flex opacity={semantic.opacity.disabled}/>
+  <Flex opacity="var(--h-opacity-disabled)" />
+
+  <Grid opacity="0.5" />
+  <Grid opacity={semantic.opacity.disabled}/>
+  <Grid opacity="var(--h-opacity-disabled)" />
+  ```
+
+- [#921](https://github.com/utilitywarehouse/hearth/pull/921) [`d1b5fce`](https://github.com/utilitywarehouse/hearth/commit/d1b5fceae3f2b01747201cf29995c320878cb5fd) Thanks [@robphoenix](https://github.com/robphoenix)! - 🧹 [HOUSEKEEPING]: Improve `CurrencyInput` ref handling
+
+- [#924](https://github.com/utilitywarehouse/hearth/pull/924) [`f93901c`](https://github.com/utilitywarehouse/hearth/commit/f93901c878bd21082fdc954778a8f90a543a7fd4) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `CardActions` trailing icon shrink
+
+- [#919](https://github.com/utilitywarehouse/hearth/pull/919) [`dd5c2ea`](https://github.com/utilitywarehouse/hearth/commit/dd5c2ea63424b3e64a5881bdcbfcaf42444a8d38) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Ensure `CardActions` borders render properly when direction is set responsively
+
+- [#919](https://github.com/utilitywarehouse/hearth/pull/919) [`dd5c2ea`](https://github.com/utilitywarehouse/hearth/commit/dd5c2ea63424b3e64a5881bdcbfcaf42444a8d38) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Apply correct border width to the `CardActions`. Previously this was
+  variable depending on the parent `Card` variant, but is now always set to
+  `--h-border-width-1`.
+
 ## 0.24.15
 
 ### Patch Changes
@@ -803,12 +937,12 @@
     file.
 
   There is now a more concise set of individual tokens files:
-  - border.{css,ts}
-  - color.{css,ts}
-  - components.{css,ts}
-  - font.{css,ts}
-  - semantic.{css,ts}
-  - space.{css,ts}
+  - `border.{css,ts}`
+  - `color.{css,ts}`
+  - `components.{css,ts}`
+  - `font.{css,ts}`
+  - `semantic.{css,ts}`
+  - `space.{css,ts}`
 
   This change will only affect you if you are importing tokens via specific file
   imports. This change does not affect you if you are importing the complete set

@@ -6,14 +6,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof DateInput> = {
   title: 'Stories / DateInput',
   component: DateInput,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`DateInput` allows users to enter a date manually using separate input fields for day, month, and year. It provides flexibility to show only the date segments you need. Use `DateInput` when you need users to enter dates manually.',
-      },
-    },
-  },
   argTypes: {
     label: { control: { type: 'text' } },
     helperText: { control: { type: 'text' } },

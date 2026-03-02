@@ -4,13 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx concurrently \"npm run sbook-children\" \"npm run sbook-parent\"",
-    "sbook-children": "npx concurrently \"npm run storybook -- --config-dir ../storybook-fonts/.storybook --port 6001 --no-open\"  \"npm run storybook -- --config-dir ../storybook-icons/.storybook --port 6002 --no-open\" \"npm run storybook -- --config-dir ../storybook-react/.storybook --port 6003 --no-open\" \"npm run storybook -- --config-dir ../../packages/react-native/.storybook --port 6004 --no-open\" \"npm run storybook -- --config-dir ../storybook-tokens/.storybook --port 6005 --no-open\" \"npm run storybook -- --config-dir ../storybook-assets/.storybook --port 6007 --no-open\"",
-    "sbook-parent": "npx wait-on http://localhost:6001 && npx wait-on http://localhost:6002 && npx wait-on http://localhost:6003 && npx wait-on http://localhost:6004 && npx wait-on http://localhost:6005 && npx wait-on http://localhost:6007 && npm run storybook",
+    "dev:docs": "npx wait-on http://localhost:6001 && npx wait-on http://localhost:6002 && npx wait-on http://localhost:6003 && npx wait-on http://localhost:6004 && npx wait-on http://localhost:6005 && pnpm run dev",
     "lint": "eslint .",
     "clean": "rm -rf node_modules storybook-static .turbo",
-    "storybook": "storybook dev -p 6006",
-    "build:storybook": "storybook build"
+    "dev": "storybook dev -p 6006 --docs",
+    "build:storybook": "storybook build",
+    "build:storybook:docs": "storybook build --docs"
   },
   "dependencies": {
     "react": "^19.1.0",
@@ -23,7 +22,6 @@
     "@storybook/react-vite": "^10.2.1",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
-    "@utilitywarehouse/hearth-css-reset": "workspace:*",
     "@utilitywarehouse/hearth-fonts": "workspace:*",
     "@utilitywarehouse/hearth-react": "workspace:*",
     "@utilitywarehouse/hearth-react-icons": "workspace:*",
@@ -35,6 +33,7 @@
     "eslint-plugin-react-refresh": "^0.4.16",
     "eslint-plugin-storybook": "^10.2.1",
     "globals": "^15.14.0",
+    "remark-gfm": "^4.0.1",
     "storybook": "^10.2.1",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",

@@ -1,4 +1,5 @@
-import type { TextInputProps, ViewProps } from 'react-native';
+import type { Ref } from 'react';
+import type { TextInput, TextInputProps, ViewProps } from 'react-native';
 import type { FormFieldBaseProps } from '../FormField/FormField.props';
 import LabelProps from '../Label/Label.props';
 
@@ -42,6 +43,18 @@ export interface DateInputProps extends FormFieldBaseProps {
    * The controlled value for the year segment. Must be used with an `onYearChange` handler.
    */
   yearValue?: string;
+  /**
+   * Ref for the day segment input.
+   */
+  dayRef?: Ref<TextInput>;
+  /**
+   * Ref for the month segment input.
+   */
+  monthRef?: Ref<TextInput>;
+  /**
+   * Ref for the year segment input.
+   */
+  yearRef?: Ref<TextInput>;
   /**
    * Callback fired when the day value changes.
    */
@@ -96,6 +109,7 @@ export interface DateInputSegmentProps {
   label: string;
   placeholder?: string;
   value?: string;
+  inputRef?: Ref<TextInput>;
   onChange?: (text: string) => void;
   onFocus?: DateInputProps['onDayFocus'];
   onBlur?: DateInputProps['onDayBlur'];

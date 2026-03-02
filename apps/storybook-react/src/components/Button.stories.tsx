@@ -17,13 +17,6 @@ const otherColorSchemes = ['functional', 'affirmative', 'destructive'] as const;
 const meta: Meta<typeof Button> = {
   title: 'Stories / Button',
   component: Button,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Trigger an action or event, such as submitting a form or displaying a dialog.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     variant: { control: { type: 'radio' }, options: ['emphasis', ...variants] },

@@ -12,14 +12,6 @@ const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted']
 const meta: Meta<typeof Flex> = {
   title: 'Stories / Flex',
   component: Flex,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`Flex` is a fundamental primitive, and should be used for CSS flexbox based layouts.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },

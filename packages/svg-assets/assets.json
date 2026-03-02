@@ -97,11 +97,11 @@
   },
   {
     "id": "2125:4802",
-    "name": "SpotSavingsLight"
+    "name": "SpotPiggyBankLight"
   },
   {
     "id": "2125:4804",
-    "name": "SpotSavingsDark"
+    "name": "SpotPiggyBankDark"
   },
   {
     "id": "2125:4918",
@@ -254,6 +254,70 @@
   {
     "id": "2212:6408",
     "name": "SpotBroadbandDark"
+  },
+  {
+    "id": "2256:17151",
+    "name": "SpotWelcomeLight"
+  },
+  {
+    "id": "2256:17153",
+    "name": "SpotWelcomeDark"
+  },
+  {
+    "id": "2256:17345",
+    "name": "SpotQuoteLight"
+  },
+  {
+    "id": "2256:17347",
+    "name": "SpotQuoteDark"
+  },
+  {
+    "id": "2256:17387",
+    "name": "SpotLeadsLight"
+  },
+  {
+    "id": "2256:17389",
+    "name": "SpotLeadsDark"
+  },
+  {
+    "id": "2256:17447",
+    "name": "SpotKeepTrackLight"
+  },
+  {
+    "id": "2256:17449",
+    "name": "SpotKeepTrackDark"
+  },
+  {
+    "id": "2256:17504",
+    "name": "SpotHowToVideoLight"
+  },
+  {
+    "id": "2256:17545",
+    "name": "SpotHowToVideoDark"
+  },
+  {
+    "id": "2256:17585",
+    "name": "SpotEarningsLight"
+  },
+  {
+    "id": "2256:17587",
+    "name": "SpotEarningsDark"
+  },
+  {
+    "id": "2256:17701",
+    "name": "SpotCalendarLight"
+  },
+  {
+    "id": "2256:17703",
+    "name": "SpotCalendarDark"
+  },
+  {
+    "id": "2256:17780",
+    "name": "SpotBookAppointmentLight"
+  },
+  {
+    "id": "2256:17782",
+    "name": "SpotBookAppointmentDark"
   },
   {
     "id": "2125:10125",

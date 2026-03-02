@@ -20,13 +20,13 @@ COPY . .
 FROM builder-base AS builder
 RUN pnpm install --filter=!"./packages/react-native" --filter=packages/*... --filter=storybook-*... --frozen-lockfile
 RUN pnpm run build --filter=!"./packages/react-native" --filter=packages/*...
-RUN pnpm run build:storybook --filter=storybook-*
+RUN pnpm run build:storybook:docs --filter=storybook-*
 
 # we need to build the react-native packages separately
 # due to dependecy version clashes with other packages
 FROM builder-base AS react-native-builder
 RUN pnpm install --prod=false --filter="./packages/react-native..." --frozen-lockfile
-RUN pnpm run build:storybook --filter="./packages/react-native"
+RUN pnpm run build:storybook:docs --filter="./packages/react-native"
 
 FROM builder-base AS prod-deps
 RUN pnpm install --prod --frozen-lockfile --filter=storybook-server
@@ -44,7 +44,6 @@ COPY --from=builder /app/apps/storybook-react/storybook-static ./apps/storybook-
 COPY --from=builder /app/apps/storybook-assets/storybook-static ./apps/storybook-assets/storybook-static
 COPY --from=builder /app/apps/storybook-icons/storybook-static ./apps/storybook-icons/storybook-static
 COPY --from=builder /app/apps/storybook-tokens/storybook-static ./apps/storybook-tokens/storybook-static
-COPY --from=builder /app/apps/storybook-fonts/storybook-static ./apps/storybook-fonts/storybook-static
 COPY --from=react-native-builder /app/packages/react-native/storybook-static ./packages/react-native/storybook-static
 
 EXPOSE ${APP_PORT}

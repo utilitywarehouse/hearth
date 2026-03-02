@@ -11,6 +11,7 @@ import { GapProps } from '../../props/gap.props';
 import { GridItemProps } from '../../props/grid-item.props';
 import { JustifyContentProps } from '../../props/justify-content.props';
 import { MarginProps } from '../../props/margin.props';
+import { OpacityProps } from '../../props/opacity.props';
 import { OverflowProps } from '../../props/overflow.props';
 import { PaddingProps } from '../../props/padding.props';
 import { PositionProps } from '../../props/position.props';
@@ -36,29 +37,30 @@ export const flexPropDefs = {
   wrap: PropDef<(typeof wrapValues)[number]>;
 };
 
-interface CommonFlexProps
+export interface CommonFlexProps
   extends
-    AlignItemsProps,
     AlignContentProps,
-    JustifyContentProps,
-    PositionProps,
-    ColorProps,
+    AlignItemsProps,
     BackgroundColorProps,
-    PaddingProps,
-    MarginProps,
-    SizeProps,
-    GapProps,
-    Pick<SpacingProps, 'spacing'>,
-    BorderStyleProps,
-    BorderWidthProps,
     BorderColorProps,
     BorderRadiusProps,
-    GridItemProps,
+    BorderStyleProps,
+    BorderWidthProps,
+    ColorProps,
     FlexItemProps,
+    GapProps,
+    GridItemProps,
+    JustifyContentProps,
+    MarginProps,
+    OpacityProps,
+    OverflowProps,
+    PaddingProps,
+    Pick<SpacingProps, 'spacing'>,
+    PositionProps,
+    SizeProps,
     TextAlignProps,
     TextTransformProps,
-    ZIndexProps,
-    OverflowProps {
+    ZIndexProps {
   asChild?: boolean;
   display?: Responsive<(typeof displayValues)[number]>;
   direction?: Responsive<(typeof directionValues)[number]>;

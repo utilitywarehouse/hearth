@@ -4,13 +4,6 @@ import { HelperText } from '@utilitywarehouse/hearth-react';
 const meta: Meta<typeof HelperText> = {
   title: 'Stories / HelperText',
   component: HelperText,
-  parameters: {
-    docs: {
-      description: {
-        component: '`HelperText` should be used with form field components to display helper text.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     disabled: { control: { type: 'boolean' } },

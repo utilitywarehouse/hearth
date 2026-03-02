@@ -7,20 +7,13 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof Combobox> = {
   title: 'Stories / Combobox',
   component: Combobox,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`Combobox` allows users to both type to filter results and select from a predefined list.',
-      },
-    },
-  },
   argTypes: {
     label: { control: { type: 'text' } },
     helperText: { control: { type: 'text' } },
     validationText: { control: { type: 'text' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
     noOptionsFoundText: { control: { type: 'text' } },
+    loading: { control: { type: 'boolean' } },
   },
   args: {
     label: 'Combobox',
@@ -29,6 +22,7 @@ const meta: Meta<typeof Combobox> = {
     disabled: false,
     required: false,
     triggerOnlyOnType: false,
+    loading: false,
   },
 };
 
@@ -82,7 +76,7 @@ function getItemLabel(item: VirtualizedItem | null) {
   return item ? item.name : '';
 }
 
-const virtualizedItems: VirtualizedItem[] = Array.from({ length: 10000 }, (_, index) => {
+const virtualizedItems: Array<VirtualizedItem> = Array.from({ length: 10000 }, (_, index) => {
   const id = String(index + 1);
   const indexLabel = id.padStart(4, '0');
   return { id, name: `Item ${indexLabel}` };

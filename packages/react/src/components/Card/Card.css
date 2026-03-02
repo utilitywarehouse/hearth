@@ -39,6 +39,10 @@
     @media (--h-desktop) {
       padding: var(--h-card-padding-desktop);
     }
+
+    &:where([data-padding-bottom-none]) {
+      padding-bottom: var(--h-space-0);
+    }
   }
 
   &:where(.h-variant-emphasis) {
@@ -141,7 +145,7 @@
 
   & :where(.h-CardActions) {
     &:not(:first-child) {
-      border-top: var(--h-card-border-width) solid var(--h-card-border-color);
+      border-top: var(--h-border-width-1) solid var(--h-card-border-color);
     }
   }
 

@@ -5,7 +5,7 @@ export interface ListItemContentProps extends React.ComponentPropsWithRef<'div'>
   /**
    * Optional helper text to provide additional context or instructions.
    */
-  helperText?: string;
+  helperText?: ReactNode;
   leadingContent?: ReactNode;
   trailingContent?: ReactNode;
   badge?: ReactNode;

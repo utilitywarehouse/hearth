@@ -13,14 +13,6 @@ const backgroundColorValues = ['primary', 'secondary', 'brand'] as const;
 const meta: Meta<typeof Box> = {
   title: 'Stories / Box',
   component: Box,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`Box` is a fundamental primitive, based on the `div` element, for creating layouts, styling content and as a building block for other elements.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },

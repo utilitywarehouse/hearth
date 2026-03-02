@@ -26,6 +26,7 @@ The `DateInput` component allows users to enter dates manually using separate in
   - [Flexible Segments](#flexible-segments)
   - [Grouping Inputs](#grouping-inputs)
   - [With State](#with-state)
+  - [Segment Refs](#segment-refs)
   - [Overriding Styles](#overriding-styles)
 - [Accessibility](#accessibility)
 
@@ -86,6 +87,9 @@ const MyComponent = () => {
 | `dayValue`            | `string`                            | -           | Controlled value for the day segment                  |
 | `monthValue`          | `string`                            | -           | Controlled value for the month segment                |
 | `yearValue`           | `string`                            | -           | Controlled value for the year segment                 |
+| `dayRef`              | `Ref<TextInput>`                    | -           | Ref for the day input segment                         |
+| `monthRef`            | `Ref<TextInput>`                    | -           | Ref for the month input segment                       |
+| `yearRef`             | `Ref<TextInput>`                    | -           | Ref for the year input segment                        |
 | `onDayChange`         | `(text: string) => void`            | -           | Callback fired when the day value changes             |
 | `onMonthChange`       | `(text: string) => void`            | -           | Callback fired when the month value changes           |
 | `onYearChange`        | `(text: string) => void`            | -           | Callback fired when the year value changes            |
@@ -158,6 +162,45 @@ Group date inputs with other form fields in a card:
 Programmatically control date values:
 
 <Canvas of={Stories.WithState} />
+
+### Segment Refs
+
+Use `dayRef`, `monthRef`, and `yearRef` to focus each segment programmatically:
+
+<Canvas of={Stories.WithRefs} />
+
+```tsx
+import { useRef, useState } from 'react';
+import { TextInput } from 'react-native';
+import { Button, DateInput } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [day, setDay] = useState('');
+  const [month, setMonth] = useState('');
+  const [year, setYear] = useState('');
+
+  const dayRef = useRef<TextInput>(null);
+  const monthRef = useRef<TextInput>(null);
+  const yearRef = useRef<TextInput>(null);
+
+  return (
+    <>
+      <DateInput
+        dayValue={day}
+        monthValue={month}
+        yearValue={year}
+        onDayChange={setDay}
+        onMonthChange={setMonth}
+        onYearChange={setYear}
+        dayRef={dayRef}
+        monthRef={monthRef}
+        yearRef={yearRef}
+      />
+      <Button onPress={() => monthRef.current?.focus()}>Focus month</Button>
+    </>
+  );
+};
+```
 
 ### Overriding Styles
 

@@ -6,14 +6,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof TextArea> = {
   title: 'Stories / TextArea',
   component: TextArea,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`TextArea` is a multi-line text input field that allows users to enter longer text content.',
-      },
-    },
-  },
   argTypes: {
     label: { control: { type: 'text' } },
     helperText: { control: { type: 'text' } },

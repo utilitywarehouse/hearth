@@ -18,14 +18,6 @@ import {
 const meta: Meta<typeof Menu> = {
   title: 'Stories / Menu',
   component: Menu,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Use the `Menu` component to present a short list of actions or options in response to a user’s interaction. Menus are ideal for actions like sorting, filtering, or providing additional options without navigating away from the current screen.',
-      },
-    },
-  },
   argTypes: {},
   args: {},
 };
@@ -152,6 +144,65 @@ export const Placement: Story = {
           <MenuContent placement="topRight">
             <MenuItem>Item</MenuItem>
             <MenuItem>Item</MenuItem>
+          </MenuContent>
+        </Menu>
+      </Flex>
+    );
+  },
+};
+
+export const Modality: Story = {
+  args: { modal: false },
+  render: args => {
+    return (
+      <Flex gap="300">
+        <Menu {...args}>
+          <MenuTrigger>
+            <Button variant="outline" colorScheme="functional">
+              Menu trigger
+              <ExpandSmallIcon />
+            </Button>
+          </MenuTrigger>
+          <MenuContent>
+            <MenuItem>Item</MenuItem>
+            <MenuItem>Item</MenuItem>
+            <MenuItem asChild>
+              <a href="#">
+                Navigation Item
+                <OpenSmallIcon />
+              </a>
+            </MenuItem>
+            <MenuItem colorScheme="functional">Item</MenuItem>
+            <MenuItem colorScheme="destructive">
+              Destructive item
+              <TrashSmallIcon />
+            </MenuItem>
+            <MenuItem disabled>Disabled item</MenuItem>
+          </MenuContent>
+        </Menu>
+
+        <Menu {...args}>
+          <MenuTrigger>
+            <Button variant="outline" colorScheme="functional">
+              Menu trigger
+              <ExpandSmallIcon />
+            </Button>
+          </MenuTrigger>
+          <MenuContent>
+            <MenuItem>Item</MenuItem>
+            <MenuItem>Item</MenuItem>
+            <MenuItem asChild>
+              <a href="#">
+                Navigation Item
+                <OpenSmallIcon />
+              </a>
+            </MenuItem>
+            <MenuItem colorScheme="functional">Item</MenuItem>
+            <MenuItem colorScheme="destructive">
+              Destructive item
+              <TrashSmallIcon />
+            </MenuItem>
+            <MenuItem disabled>Disabled item</MenuItem>
           </MenuContent>
         </Menu>
       </Flex>

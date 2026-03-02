@@ -17,12 +17,12 @@
     -webkit-tap-highlight-color: transparent;
     transition: background-color 200ms ease-in-out;
 
-    &:where([aria-disabled]) {
+    &:where([aria-disabled='true']) {
       cursor: not-allowed;
     }
 
     @media (hover: hover) {
-      &:where(:hover):not([aria-disabled]) {
+      &:where(:hover):not([aria-disabled='true']) {
         background-color: var(--h-interactive-functional-surface-strong-hover);
       }
     }
@@ -31,7 +31,7 @@
       background-color: var(--h-interactive-brand-surface-strong-default);
 
       @media (hover: hover) {
-        &:where(:hover):not([aria-disabled]) {
+        &:where(:hover):not([aria-disabled='true']) {
           background-color: var(--h-interactive-brand-surface-strong-hover);
         }
       }

@@ -6,14 +6,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof InlineLink> = {
   title: 'Stories / InlineLink',
   component: InlineLink,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'An `InlineLink` is a hyperlink embedded directly within a sentence or paragraph of text.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     href: { control: { type: 'text' } },

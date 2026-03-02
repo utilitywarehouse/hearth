@@ -13,7 +13,7 @@ type Story = StoryObj<typeof meta>;
 
 export const KitchenSink: Story = {
   render: () => (
-    <div>
+    <div className="sb-unstyled">
       <DMSans />
       <DMMono />
       <ComicHams />

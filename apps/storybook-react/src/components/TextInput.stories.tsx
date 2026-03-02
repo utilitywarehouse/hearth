@@ -15,13 +15,6 @@ import { useForm, Controller } from 'react-hook-form';
 const meta: Meta<typeof TextInput> = {
   title: 'Stories / TextInput',
   component: TextInput,
-  parameters: {
-    docs: {
-      description: {
-        component: '`TextInput` is an interactive field that allows users to enter text and data.',
-      },
-    },
-  },
   argTypes: {
     placeholder: { control: { type: 'text' } },
     label: { control: { type: 'text' } },

@@ -1,6 +1,6 @@
 import { create } from 'storybook/theming';
 // @ts-expect-error - logo is not a module
-import logo from './assets/images/logo.png';
+import logo from './assets/logo.svg';
 
 export default create({
   base: 'light',
@@ -13,24 +13,24 @@ export default create({
   brandImage: logo,
   brandTarget: '_self',
 
-  //
   colorPrimary: '#FAAF00',
   colorSecondary: '#7A42C8',
-  textMutedColor: '#9E9E9E',
 
   // UI
   appBg: '#7A42C8',
+  appHoverBg: '#5c2ca9',
   appContentBg: '#fcfbf2',
   appPreviewBg: '#fcfbf2',
   appBorderColor: '#101010',
-  appBorderRadius: 0,
+  appBorderRadius: 4,
 
   buttonBg: '#FAAF00',
   buttonBorder: '#101010',
 
   // Text colors
   textColor: '#101010',
-  textInverseColor: '#ffffff',
+  textInverseColor: '#fcfbf2',
+  textMutedColor: '#9E9E9E',
 
   // Toolbar default and active colors
   barTextColor: '#9E9E9E',

@@ -10,14 +10,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof Link> = {
   title: 'Stories / Link',
   component: Link,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Links are used to navigate a user to another page or website, another place on the same page, or to open a link in a new tab.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     href: { control: { type: 'text' } },
@@ -67,12 +59,20 @@ export const WithIcons: Story = {
 
 export const AsButton: Story = {
   render: () => (
-    <Link asChild>
-      <button onClick={() => alert('Hello world!')}>
-        View UW services
-        <ChevronRightSmallIcon />
-      </button>
-    </Link>
+    <Flex direction="column" gap="300">
+      <Link asChild>
+        <button onClick={() => alert('Hello world!')}>
+          View UW services
+          <ChevronRightSmallIcon />
+        </button>
+      </Link>
+      <Link asChild>
+        <button aria-disabled onClick={e => e.preventDefault()}>
+          View UW services
+          <ChevronRightSmallIcon />
+        </button>
+      </Link>
+    </Flex>
   ),
 };
 

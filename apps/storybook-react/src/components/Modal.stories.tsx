@@ -19,14 +19,6 @@ import {
 const meta: Meta<typeof Modal> = {
   title: 'Stories / Modal',
   component: Modal,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'A `Modal` overlays content to request a decision or inform users of important information. When users need to interact with the application without navigating to a new page or disrupting their workflow, a `Modal` creates a floating layer over the current page to gather feedback or display information.',
-      },
-    },
-  },
   argTypes: {},
   args: {
     heading: 'Heading',
@@ -343,6 +335,35 @@ export const WithLongContent: Story = {
             ))}
           </List>
         </ModalContent>
+        <ModalFooter>
+          <ModalClose>
+            <Button variant="ghost" colorScheme="functional">
+              Cancel
+            </Button>
+          </ModalClose>
+          <ModalClose>
+            <Button variant="solid" colorScheme="highlight">
+              Primary
+            </Button>
+          </ModalClose>
+        </ModalFooter>
+      </Modal>
+    </ModalRoot>
+  ),
+};
+
+export const PreventOutsideDismiss: Story = {
+  render: args => (
+    <ModalRoot>
+      <ModalTrigger>
+        <Button>Open modal</Button>
+      </ModalTrigger>
+      <Modal
+        {...args}
+        onEscapeKeyDown={e => e.preventDefault()}
+        onPointerDownOutside={e => e.preventDefault()}
+        hideCloseButton
+      >
         <ModalFooter>
           <ModalClose>
             <Button variant="ghost" colorScheme="functional">

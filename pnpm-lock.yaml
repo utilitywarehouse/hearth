@@ -398,9 +398,6 @@ importers:
       '@types/react-dom':
         specifier: ^19.1.6
         version: 19.2.3(@types/react@19.1.17)
-      '@utilitywarehouse/hearth-css-reset':
-        specifier: workspace:*
-        version: link:../../packages/css-reset
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:*
         version: link:../../packages/fonts
@@ -434,6 +431,9 @@ importers:
       globals:
         specifier: ^15.14.0
         version: 15.15.0
+      remark-gfm:
+        specifier: ^4.0.1
+        version: 4.0.1
       storybook:
         specifier: ^10.2.1
         version: 10.2.1(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -458,6 +458,9 @@ importers:
       '@utilitywarehouse/hearth-fonts':
         specifier: workspace:*
         version: link:../../packages/fonts
+      '@utilitywarehouse/hearth-tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
       react:
         specifier: 19.1.0
         version: 19.1.0
@@ -604,6 +607,9 @@ importers:
       '@utilitywarehouse/hearth-svg-assets':
         specifier: ^0.2.0
         version: 0.2.0
+      '@utilitywarehouse/hearth-tokens':
+        specifier: workspace:*
+        version: link:../../packages/tokens
       react:
         specifier: 19.1.0
         version: 19.1.0

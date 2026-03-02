@@ -31,7 +31,10 @@ export const CheckboxTile = ({
   validationText,
   ...props
 }: CheckboxProps) => {
-  const { id, labelId, helperTextId, validationTextId } = useIds({ providedId, prefix: 'radio' });
+  const { id, labelId, helperTextId, validationTextId } = useIds({
+    providedId,
+    prefix: 'checkboxtile',
+  });
   const context = useFormGroupBase();
   const checkboxContext = useCheckboxGroup();
   const checked = checkboxContext?.value?.includes(value);

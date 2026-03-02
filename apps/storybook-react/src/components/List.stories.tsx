@@ -28,14 +28,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof List> = {
   title: 'Stories / List',
   component: List,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'The `List` component is a flexible and customizable component for displaying a list of items. It supports various visual variants, color schemes, and additional features like helper text and links.',
-      },
-    },
-  },
   argTypes: {
     variant: {
       control: { type: 'radio' },
@@ -78,18 +70,18 @@ export const Playground: Story = {
           </Link>
         }
       >
-        <ListItem aria-label="list item">List item</ListItem>
-        <ListItem aria-label="list item content">
+        <ListItem>List item</ListItem>
+        <ListItem>
           <ListItemContent heading="List item" helperText="Helper text" />
         </ListItem>
-        <ListItem aria-label="list item button">
+        <ListItem>
           <ListItemButton
             heading="List item button"
             helperText="Helper text"
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
-        <ListItem aria-label="list item button">
+        <ListItem>
           <ListItemButton
             heading="List item button"
             helperText="Helper text"
@@ -97,10 +89,10 @@ export const Playground: Story = {
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
-        <ListItem aria-label="list item link">
+        <ListItem>
           <ListItemLink heading="List item as link" href="#" />
         </ListItem>
-        <ListItem aria-label="list item link">
+        <ListItem>
           <ListItemLink
             heading="List item link"
             helperText="Helper text"
@@ -161,17 +153,17 @@ export const PaddingNone: Story = {
     <Flex gap="400">
       <List {...args} paddingNone>
         <ListItem>List item</ListItem>
-        <ListItem aria-label="list item content">
+        <ListItem>
           <ListItemContent heading="List item" helperText="Helper text" />
         </ListItem>
-        <ListItem aria-label="list item button">
+        <ListItem>
           <ListItemButton
             heading="List item button"
             helperText="Helper text"
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
-        <ListItem aria-label="list item link">
+        <ListItem>
           <ListItemLink heading="List item as link" href="#" />
         </ListItem>
       </List>
@@ -179,17 +171,17 @@ export const PaddingNone: Story = {
       {(['subtle', 'emphasis'] as const).map(variant => (
         <List {...args} key={variant} variant={variant} colorScheme="neutralStrong" paddingNone>
           <ListItem>List item</ListItem>
-          <ListItem aria-label="list item content">
+          <ListItem>
             <ListItemContent heading="List item" helperText="Helper text" />
           </ListItem>
-          <ListItem aria-label="list item button">
+          <ListItem>
             <ListItemButton
               heading="List item button"
               helperText="Helper text"
               onClick={() => console.log('clickety click')}
             />
           </ListItem>
-          <ListItem aria-label="list item link">
+          <ListItem>
             <ListItemLink heading="List item as link" href="#" />
           </ListItem>
         </List>
@@ -199,20 +191,26 @@ export const PaddingNone: Story = {
 };
 
 export const LeadingContent: Story = {
+  args: {
+    heading: 'Leading Content',
+    helperText: '',
+    variant: 'subtle',
+    colorScheme: 'neutralSubtle',
+  },
   render: args => (
     <Box width="400px">
       <List {...args}>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent heading="Icon leading content" leadingContent={<InfoMediumIcon />} />
         </ListItem>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent
             heading="Icon leading content"
             helperText="Helper text"
             leadingContent={<InfoMediumIcon />}
           />
         </ListItem>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent
             heading="Icon container leading content"
             leadingContent={
@@ -222,7 +220,7 @@ export const LeadingContent: Story = {
             }
           />
         </ListItem>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent
             heading="Icon container leading content"
             helperText="Helper text"
@@ -233,10 +231,10 @@ export const LeadingContent: Story = {
             }
           />
         </ListItem>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent heading="Avatar leading content" leadingContent={<Avatar size="sm" />} />
         </ListItem>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent
             heading="Avatar leading content"
             helperText="Helper text"
@@ -246,30 +244,36 @@ export const LeadingContent: Story = {
       </List>
     </Box>
   ),
+};
+
+export const TrailingContent: Story = {
   args: {
-    heading: 'Leading Content',
+    heading: 'Trailing Content',
     helperText: '',
     variant: 'subtle',
     colorScheme: 'neutralSubtle',
   },
-};
-
-export const TrailingContent: Story = {
   render: args => (
     <Box width="400px">
       <List {...args}>
-        <ListItem aria-label="list item">
-          <ListItemContent heading="Icon trailing content" trailingContent={<InfoMediumIcon />} />
-        </ListItem>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent
-            heading="Switch trailing content"
+            heading="Trailing content"
+            helperText="With custom icon"
+            trailingContent={<InfoMediumIcon />}
+          />
+        </ListItem>
+        <ListItem>
+          <ListItemContent
+            heading="Trailing content"
+            helperText="With Switch"
             trailingContent={<Switch aria-label="list item switch" size="sm" />}
           />
         </ListItem>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent
-            heading="Link trailing content"
+            heading="Trailing content"
+            helperText="With Link"
             trailingContent={<Link href="#">Link</Link>}
           />
         </ListItem>
@@ -278,14 +282,14 @@ export const TrailingContent: Story = {
             heading="Transaction trailing content"
             helperText="With multiple transactions"
             trailingContent={
-              <>
+              <Flex direction="column">
                 <BodyText size="md" as="span">
                   -£100.00
                 </BodyText>
                 <BodyText size="md" as="span" style={{ color: 'var(--h-text-brand)' }}>
                   +£1.00 CB
                 </BodyText>
-              </>
+              </Flex>
             }
           />
         </ListItem>
@@ -294,22 +298,65 @@ export const TrailingContent: Story = {
             heading="Transaction trailing content"
             helperText="With a single transaction"
             trailingContent={
-              <>
+              <Flex>
                 <BodyText size="md" as="span" style={{ color: 'var(--h-text-affirmative)' }}>
                   +£10.00
                 </BodyText>
-              </>
+              </Flex>
             }
           />
         </ListItem>
       </List>
     </Box>
   ),
+};
+
+export const CustomTrailingContent: Story = {
   args: {
-    heading: 'Trailing Content',
+    heading: 'Custom Trailing Content',
     helperText: '',
-    variant: 'subtle',
-    colorScheme: 'neutralSubtle',
+    variant: 'emphasis',
+    colorScheme: 'neutralStrong',
+  },
+  render: args => {
+    return (
+      <Box width="800px">
+        <List {...args}>
+          <ListItem>
+            <ListItemContent
+              heading="February 2026"
+              helperText="£100"
+              trailingContent={
+                <Flex alignItems="center" columnGap="400">
+                  <Link asChild>
+                    <button type="button">Download PDF</button>
+                  </Link>
+                  <Link asChild>
+                    <button type="button">Open PDF</button>
+                  </Link>
+                </Flex>
+              }
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemContent
+              heading="March 2026"
+              helperText="£100"
+              trailingContent={
+                <Flex alignItems="center" columnGap="400">
+                  <Link asChild>
+                    <button type="button">Download PDF</button>
+                  </Link>
+                  <Link asChild>
+                    <button type="button">Open PDF</button>
+                  </Link>
+                </Flex>
+              }
+            />
+          </ListItem>
+        </List>
+      </Box>
+    );
   },
 };
 
@@ -326,17 +373,17 @@ export const AllListItems: Story = {
         }
       >
         <ListItem>List item</ListItem>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent heading="List item content" helperText="with helper text" />
         </ListItem>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent
             heading="List item content"
             helperText="with leading icon"
             leadingContent={<InfoMediumIcon />}
           />
         </ListItem>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent
             heading="List item content"
             helperText="with leading icon container"
@@ -347,21 +394,21 @@ export const AllListItems: Story = {
             }
           />
         </ListItem>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent
             heading="List item content"
             helperText="with trailing switch"
             trailingContent={<Switch aria-label="list item switch" size="sm" />}
           />
         </ListItem>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent
             heading="List item content"
             helperText="with trailing link"
             trailingContent={<Link href="#">Link</Link>}
           />
         </ListItem>
-        <ListItem aria-label="list item">
+        <ListItem>
           <ListItemContent
             heading="List item content"
             helperText="with trailing transaction"
@@ -390,20 +437,20 @@ export const AllListItems: Story = {
             }
           />
         </ListItem>
-        <ListItem aria-label="list item button">
+        <ListItem>
           <ListItemButton
             heading="List item button"
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
-        <ListItem aria-label="list item button">
+        <ListItem>
           <ListItemButton
             heading="List item button"
             helperText="with helper text"
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
-        <ListItem aria-label="list item button">
+        <ListItem>
           <ListItemButton
             heading="List item button"
             helperText="with leading icon"
@@ -411,7 +458,7 @@ export const AllListItems: Story = {
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
-        <ListItem aria-label="list item button">
+        <ListItem>
           <ListItemButton
             heading="List item button"
             helperText="with leading icon container"
@@ -423,13 +470,13 @@ export const AllListItems: Story = {
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
-        <ListItem aria-label="list item link">
+        <ListItem>
           <ListItemLink heading="List item as link" href="#" />
         </ListItem>
-        <ListItem aria-label="list item link">
+        <ListItem>
           <ListItemLink heading="List item link" helperText="with helper text" href="#" />
         </ListItem>
-        <ListItem aria-label="list item link">
+        <ListItem>
           <ListItemLink
             heading="List item link"
             helperText="with with leading icon"
@@ -437,7 +484,7 @@ export const AllListItems: Story = {
             href="#"
           />
         </ListItem>
-        <ListItem aria-label="list item link">
+        <ListItem>
           <ListItemLink
             heading="List item link"
             helperText="with with leading icon container"
@@ -645,7 +692,7 @@ export const ListActions: Story = {
   render: args => (
     <Flex gap="400" width="700px">
       <List {...args}>
-        <ListItem aria-label="list item button">
+        <ListItem>
           <ListItemButton
             heading="List item"
             helperText="Helper text"
@@ -653,7 +700,7 @@ export const ListActions: Story = {
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
-        <ListItem aria-label="list item button">
+        <ListItem>
           <ListItemButton
             heading="List item"
             helperText="Helper text"
@@ -661,7 +708,7 @@ export const ListActions: Story = {
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
-        <ListItem aria-label="list item button">
+        <ListItem>
           <ListItemButton
             heading="List item"
             helperText="Helper text"
@@ -675,7 +722,7 @@ export const ListActions: Story = {
       </List>
 
       <List {...args}>
-        <ListItem aria-label="list item button">
+        <ListItem>
           <ListItemButton
             heading="List item"
             helperText="Helper text"
@@ -683,7 +730,7 @@ export const ListActions: Story = {
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
-        <ListItem aria-label="list item button">
+        <ListItem>
           <ListItemButton
             heading="List item"
             helperText="Helper text"
@@ -691,7 +738,7 @@ export const ListActions: Story = {
             onClick={() => console.log('clickety click')}
           />
         </ListItem>
-        <ListItem aria-label="list item button">
+        <ListItem>
           <ListItemButton
             heading="List item"
             helperText="Helper text"
@@ -709,6 +756,7 @@ export const ListActions: Story = {
 };
 
 export const CustomContent: Story = {
+  args: { heading: undefined, helperText: undefined },
   render: args => {
     const events = [
       {
@@ -739,9 +787,7 @@ export const CustomContent: Story = {
     return (
       <List {...args} aria-label="Partner events">
         {events.map(event => (
-          <ListItem
-            aria-label={`${event.date.month} ${event.date.day} - ${event.title} - ${event.location}`}
-          >
+          <ListItem>
             <Flex direction="column" width="44px" textAlign="center">
               <BodyText size="md">{event.date.month}</BodyText>
               <DetailText size="2xl">{event.date.day}</DetailText>
@@ -766,7 +812,6 @@ export const CustomContent: Story = {
       </List>
     );
   },
-  args: { heading: undefined, helperText: undefined },
 };
 
 export const Gallery: Story = {
@@ -782,6 +827,7 @@ export const Gallery: Story = {
       KitchenSink,
       LeadingContent,
       TrailingContent,
+      CustomTrailingContent,
       AllListItems,
       ListItemContents,
       ListActions,

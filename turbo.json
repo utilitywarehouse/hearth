@@ -63,7 +63,14 @@
       "cache": false,
       "persistent": true
     },
+    "dev:docs": {
+      "cache": false
+    },
     "build:storybook": {
+      "outputs": ["storybook-static/**"],
+      "dependsOn": ["^build"]
+    },
+    "build:storybook:docs": {
       "outputs": ["storybook-static/**"],
       "dependsOn": ["^build"]
     },

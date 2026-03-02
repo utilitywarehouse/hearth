@@ -18,14 +18,6 @@ const variants = [undefined, 'subtle', 'emphasis'] as const;
 const meta: Meta<typeof Table> = {
   title: 'Stories / Table',
   component: Table,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Use a `Table` to arrange data in rows and columns. They are used to communicate relationships between content and to display references, comparisons, and choices.',
-      },
-    },
-  },
   argTypes: {
     variant: { control: { type: 'radio' }, options: variants },
   },
@@ -109,18 +101,18 @@ export const KitchenSink: Story = {
  * @returns {{ pageData: T[], totalItems: number }} A stable, shuffled, and paginated subset with total count.
  */
 function usePaginatedSeededData<T extends { id: string | number }>(
-  data: T[],
+  data: Array<T>,
   multiplier: number,
   seed: string,
   currentPage: number,
   itemsPerPage: number
-): { pageData: T[]; totalItems: number } {
+): { pageData: Array<T>; totalItems: number } {
   const shuffledData = useMemo(() => {
     if (!data.length) return [];
 
     const rng = seedrandom(seed);
 
-    const shuffle = (arr: T[]): T[] => {
+    const shuffle = (arr: Array<T>): Array<T> => {
       const result = [...arr];
       for (let i = result.length - 1; i > 0; i--) {
         const j = Math.floor(rng() * (i + 1));
@@ -139,7 +131,7 @@ function usePaginatedSeededData<T extends { id: string | number }>(
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const result: T[] = [];
+    const result: Array<T> = [];
 
     for (let i = startIndex; i < endIndex && i < totalItems; i++) {
       const cycleIndex = i % shuffledData.length;

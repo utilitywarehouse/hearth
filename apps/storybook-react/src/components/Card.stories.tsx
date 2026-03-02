@@ -71,14 +71,6 @@ const shadowColors = [
 const meta: Meta<typeof Card> = {
   title: 'Stories / Card',
   component: Card,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Use Cards as containers for concise information about a single subject. They can display featured information, related content, or navigational choices. In groups, cards present collections of similar content.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     variant: { control: { type: 'radio' }, options: variants },
@@ -691,8 +683,8 @@ export const WithOnlyCardActions: Story = {
 
 export const WithCardActions: Story = {
   render: args => (
-    <Flex padding="500" direction="row" gap="500" backgroundColor="secondary" wrap="wrap">
-      <Card {...args}>
+    <Flex padding="500" direction="column" gap="500" backgroundColor="secondary" wrap="wrap">
+      <Card {...args} width="fit-content">
         <CardContent direction="column" spacing="lg">
           <Heading size="md" as="h2">
             Your December bill
@@ -726,26 +718,10 @@ export const WithCardActions: Story = {
             </Flex>
           </Flex>
         </CardContent>
-        <CardActions direction="row">
+        <CardActions direction={{ mobile: 'column', tablet: 'row' }}>
           <CardActionButton heading="Download PDF" trailingIcon={<DownloadSmallIcon />} />
           <CardActionButton heading="Open PDF" trailingIcon={<OpenSmallIcon />} />
           <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} />
-        </CardActions>
-      </Card>
-      <Card {...args} width="100%">
-        <CardContent direction="column" spacing="lg">
-          <Heading size="md" as="h2">
-            You have an overdue payment
-          </Heading>
-
-          <Flex direction={{ mobile: 'column', tablet: 'row' }} spacing="sm" alignItems="end">
-            <DetailText size="4xl">£110.00</DetailText>
-            <BodyText size="md">is overdue, pay it to avoid fees & disconnections</BodyText>
-          </Flex>
-        </CardContent>
-        <CardActions direction="row">
-          <CardActionLink heading="Make a payment" />
-          <CardActionLink heading="Go to bills" />
         </CardActions>
       </Card>
     </Flex>

@@ -1,5 +1,5 @@
 export const DMSans = () => (
-  <div>
+  <div className="sb-unstyled">
     <p className="dm-sans" contentEditable="true">
       AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
     </p>

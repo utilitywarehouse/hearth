@@ -8,13 +8,6 @@ const colorValues = ['text', 'valid', 'invalid'] as const;
 const meta: Meta<typeof DetailText> = {
   title: 'Stories / DetailText',
   component: DetailText,
-  parameters: {
-    docs: {
-      description: {
-        component: '`DetailText` is to be used for detail text.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['span', 'p', 'div'], control: { type: 'radio' } },

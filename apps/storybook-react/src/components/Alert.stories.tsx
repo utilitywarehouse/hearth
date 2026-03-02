@@ -15,14 +15,6 @@ const colorSchemes = ['info', 'positive', 'danger', 'warning'] as const;
 const meta: Meta<typeof Alert> = {
   title: 'Stories / Alert',
   component: Alert,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'An `Alert` is a visual label or indicator used to convey status or highlight content. Alerts are read-only status indicators or labels and are not interactive.',
-      },
-    },
-  },
   args: {},
 };
 

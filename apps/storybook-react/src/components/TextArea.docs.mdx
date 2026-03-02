@@ -1,12 +1,11 @@
 import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
-
 import * as Stories from './TextArea.stories';
-
-import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <Meta title="Components / TextArea" />
 
-<DocsHeader componentName="TextArea" stories={Stories} />
+# TextArea
+
+`TextArea` is a multi-line text input field that allows users to enter longer text content.
 
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />

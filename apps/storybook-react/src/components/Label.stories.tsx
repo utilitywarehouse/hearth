@@ -4,13 +4,6 @@ import { Label } from '@utilitywarehouse/hearth-react';
 const meta: Meta<typeof Label> = {
   title: 'Stories / Label',
   component: Label,
-  parameters: {
-    docs: {
-      description: {
-        component: '`Label` is used for labelling form elements, such as inputs.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     fontWeight: { control: { type: 'radio' }, options: ['regular', 'semibold'] },

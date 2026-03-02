@@ -138,6 +138,23 @@ const styles = StyleSheet.create(theme => ({
             lg: theme.typography.desktop.heading.xl.lineHeight,
           },
         },
+        '2xl': {
+          fontSize: {
+            base: theme.typography.mobile.heading['2xl'].fontSize,
+            md: theme.typography.tablet.heading['2xl'].fontSize,
+            lg: theme.typography.desktop.heading['2xl'].fontSize,
+          },
+          fontWeight: {
+            base: theme.typography.mobile.heading['2xl'].fontWeight,
+            md: theme.typography.tablet.heading['2xl'].fontWeight,
+            lg: theme.typography.desktop.heading['2xl'].fontWeight,
+          },
+          lineHeight: {
+            base: theme.typography.mobile.heading['2xl'].lineHeight,
+            md: theme.typography.tablet.heading['2xl'].lineHeight,
+            lg: theme.typography.desktop.heading['2xl'].lineHeight,
+          },
+        },
       },
       underline: {
         true: {

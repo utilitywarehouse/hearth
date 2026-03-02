@@ -9,13 +9,6 @@ const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted']
 const meta: Meta<typeof BodyText> = {
   title: 'Stories / BodyText',
   component: BodyText,
-  parameters: {
-    docs: {
-      description: {
-        component: '`BodyText` is to be used for body text.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['span', 'p', 'div'], control: { type: 'radio' } },
@@ -42,7 +35,7 @@ export const KitchenSink: Story = {
       <Flex direction="column" gap="100">
         {sizes.map(size =>
           weights.map(weight => (
-            <BodyText size={size} weight={weight}>
+            <BodyText key={`${size}${weight}`} size={size} weight={weight}>
               Hamburgefons ({size}, {weight})
             </BodyText>
           ))
@@ -157,8 +150,8 @@ export const ParagraphSpacing: Story = {
               off-peak between midnight and 5am in the morning
             </BodyText>
             <BodyText size={size}>
-              And don't forget, any domestic usage (e.g. washing machines) in that off-peak window
-              will also be charged at the reduced rate.
+              And don&apos;t forget, any domestic usage (e.g. washing machines) in that off-peak
+              window will also be charged at the reduced rate.
             </BodyText>
           </Flex>
         ))}

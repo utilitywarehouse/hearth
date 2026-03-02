@@ -20,7 +20,9 @@
     "figma:publish": "figma connect publish",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm run copyChangelog && storybook dev -p 6006",
+    "dev:docs": "storybook dev -p 6002 --no-open --docs",
     "build:storybook": "npm run copyChangelog && storybook build",
+    "build:storybook:docs": "npm run copyChangelog && storybook build --docs",
     "chromatic": "npx chromatic --project-token=chpt_cce0fb1ebd95d2a --build-script-name build:storybook"
   },
   "dependencies": {
