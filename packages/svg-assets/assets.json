@@ -406,5 +406,317 @@
   {
     "id": "2125:27653",
     "name": "MascotCashbackDark"
+  },
+  {
+    "id": "2381:38504",
+    "name": "TechnicalRouterWithPowerLight"
+  },
+  {
+    "id": "2381:46017",
+    "name": "TechnicalRouterWithPowerDark"
+  },
+  {
+    "id": "2381:46167",
+    "name": "TechnicalStandardDslConnxFullLabelledLight"
+  },
+  {
+    "id": "2381:46169",
+    "name": "TechnicalStandardDslConnxFullLabelledDark"
+  },
+  {
+    "id": "2381:46901",
+    "name": "TechnicalStandardDslConnxPartLight"
+  },
+  {
+    "id": "2381:46903",
+    "name": "TechnicalStandardDslConnxPartDark"
+  },
+  {
+    "id": "2381:47224",
+    "name": "TechnicalStandardDslConnxFullLight"
+  },
+  {
+    "id": "2381:47226",
+    "name": "TechnicalStandardDslConnxFullDark"
+  },
+  {
+    "id": "2381:47528",
+    "name": "TechnicalPowerSupply01BRgbLight"
+  },
+  {
+    "id": "2381:47530",
+    "name": "TechnicalPowerSupply01BRgbDark"
+  },
+  {
+    "id": "2381:47584",
+    "name": "TechnicalPrefilteredConnxFullLabelledLight"
+  },
+  {
+    "id": "2381:47586",
+    "name": "TechnicalPrefilteredConnxFullLabelledDark"
+  },
+  {
+    "id": "2381:48000",
+    "name": "TechnicalPrefilteredConnxFullLight"
+  },
+  {
+    "id": "2381:48002",
+    "name": "TechnicalPrefilteredConnxFullDark"
+  },
+  {
+    "id": "2381:48312",
+    "name": "TechnicalPrefilteredConnxPartLight"
+  },
+  {
+    "id": "2381:48314",
+    "name": "TechnicalPrefilteredConnxPartDark"
+  },
+  {
+    "id": "2381:48486",
+    "name": "TechnicalPrefilteredMasterSocketsLight"
+  },
+  {
+    "id": "2381:48488",
+    "name": "TechnicalPrefilteredMasterSocketsDark"
+  },
+  {
+    "id": "2381:48554",
+    "name": "TechnicalRimAutomaticDeadlockLight"
+  },
+  {
+    "id": "2381:48556",
+    "name": "TechnicalRimAutomaticDeadlockDark"
+  },
+  {
+    "id": "2381:48591",
+    "name": "TechnicalRouter01Light"
+  },
+  {
+    "id": "2381:48593",
+    "name": "TechnicalRouter01Dark"
+  },
+  {
+    "id": "2381:48628",
+    "name": "TechnicalRouter02FrontLight"
+  },
+  {
+    "id": "2381:48630",
+    "name": "TechnicalRouter02FrontDark"
+  },
+  {
+    "id": "2381:48641",
+    "name": "TechnicalRouter03RearLight"
+  },
+  {
+    "id": "2381:48643",
+    "name": "TechnicalRouter03RearDark"
+  },
+  {
+    "id": "2381:48759",
+    "name": "TechnicalMeter01LabelledLight"
+  },
+  {
+    "id": "2381:48761",
+    "name": "TechnicalMeter01LabelledDark"
+  },
+  {
+    "id": "2381:48895",
+    "name": "TechnicalMeter02LabelledLight"
+  },
+  {
+    "id": "2381:48897",
+    "name": "TechnicalMeter02LabelledDark"
+  },
+  {
+    "id": "2381:48997",
+    "name": "TechnicalMeter02Light"
+  },
+  {
+    "id": "2381:48999",
+    "name": "TechnicalMeter02Dark"
+  },
+  {
+    "id": "2381:49075",
+    "name": "TechnicalMicrofilter01Light"
+  },
+  {
+    "id": "2381:49077",
+    "name": "TechnicalMicrofilter01Dark"
+  },
+  {
+    "id": "2381:49113",
+    "name": "TechnicalMorticeDeadlock5LeversLight"
+  },
+  {
+    "id": "2381:49115",
+    "name": "TechnicalMorticeDeadlock5LeversDark"
+  },
+  {
+    "id": "2381:49165",
+    "name": "TechnicalMicrofilter02Light"
+  },
+  {
+    "id": "2381:49167",
+    "name": "TechnicalMicrofilter02Dark"
+  },
+  {
+    "id": "2381:49193",
+    "name": "TechnicalMultipointSystem3BoltsLight"
+  },
+  {
+    "id": "2381:49195",
+    "name": "TechnicalMultipointSystem3BoltsDark"
+  },
+  {
+    "id": "2381:49237",
+    "name": "TechnicalOntRouterConnxLight"
+  },
+  {
+    "id": "2381:49239",
+    "name": "TechnicalOntRouterConnxDark"
+  },
+  {
+    "id": "2388:64970",
+    "name": "TechnicalOtherBuildingLight"
+  },
+  {
+    "id": "2381:49526",
+    "name": "TechnicalOtherBuildingDark"
+  },
+  {
+    "id": "2381:49548",
+    "name": "TechnicalOtherLockLight"
+  },
+  {
+    "id": "2381:49550",
+    "name": "TechnicalOtherLockDark"
+  },
+  {
+    "id": "2381:49571",
+    "name": "TechnicalEeroLight"
+  },
+  {
+    "id": "2381:49573",
+    "name": "TechnicalEeroDark"
+  },
+  {
+    "id": "2381:49582",
+    "name": "TechnicalEthernetCableLight"
+  },
+  {
+    "id": "2381:49584",
+    "name": "TechnicalEthernetCableDark"
+  },
+  {
+    "id": "2381:49618",
+    "name": "TechnicalFlatLight"
+  },
+  {
+    "id": "2381:49620",
+    "name": "TechnicalFlatDark"
+  },
+  {
+    "id": "2381:49659",
+    "name": "TechnicalFullFibreSocketLight"
+  },
+  {
+    "id": "2381:49661",
+    "name": "TechnicalFullFibreSocketDark"
+  },
+  {
+    "id": "2384:49733",
+    "name": "TechnicalFullfibre916MobileLight"
+  },
+  {
+    "id": "2384:49735",
+    "name": "TechnicalFullfibre916MobileDark"
+  },
+  {
+    "id": "2384:50440",
+    "name": "TechnicalFullfibre916DesktopLight"
+  },
+  {
+    "id": "2384:50442",
+    "name": "TechnicalFullfibre916DesktopDark"
+  },
+  {
+    "id": "2384:51134",
+    "name": "TechnicalHouseLight"
+  },
+  {
+    "id": "2384:51136",
+    "name": "TechnicalHouseDark"
+  },
+  {
+    "id": "2384:51171",
+    "name": "TechnicalMainTelephoneSocketLight"
+  },
+  {
+    "id": "2384:51173",
+    "name": "TechnicalMainTelephoneSocketDark"
+  },
+  {
+    "id": "2384:51200",
+    "name": "TechnicalMeterLight"
+  },
+  {
+    "id": "2384:51202",
+    "name": "TechnicalMeterDark"
+  },
+  {
+    "id": "2384:51308",
+    "name": "TechnicalBuildingsAndContentsLight"
+  },
+  {
+    "id": "2384:51310",
+    "name": "TechnicalBuildingsAndContentsDark"
+  },
+  {
+    "id": "2384:51367",
+    "name": "TechnicalBuildingsLight"
+  },
+  {
+    "id": "2388:51369",
+    "name": "TechnicalBuildingsDark"
+  },
+  {
+    "id": "2388:51452",
+    "name": "TechnicalBungalowLight"
+  },
+  {
+    "id": "2388:51483",
+    "name": "TechnicalBungalowDark"
+  },
+  {
+    "id": "2388:51512",
+    "name": "TechnicalContentsLight"
+  },
+  {
+    "id": "2388:51514",
+    "name": "TechnicalContentsDark"
+  },
+  {
+    "id": "2388:51640",
+    "name": "TechnicalDslCableLight"
+  },
+  {
+    "id": "2388:51642",
+    "name": "TechnicalDslCableDark"
+  },
+  {
+    "id": "2388:51675",
+    "name": "TechnicalDslPowerMicrofilterLight"
+  },
+  {
+    "id": "2388:51677",
+    "name": "TechnicalDslPowerMicrofilterDark"
+  },
+  {
+    "id": "2388:51897",
+    "name": "TechnicalOpticalNetworkTerminalLight"
+  },
+  {
+    "id": "2388:51899",
+    "name": "TechnicalOpticalNetworkTerminalDark"
   }
 ]
