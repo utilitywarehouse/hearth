@@ -35,7 +35,7 @@ jobs:
           NODE_OPTIONS: '--max_old_space_size=4096'
 
       - name: Run Chromatic
-        uses: chromaui/action@07791f8243f4cb2698bf4d00426baf4b2d1cb7e0 # latest
+        uses: chromaui/action@5ec258af08deb3e8c36653bd618cb7fe52090031 # latest
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           buildScriptName: build:storybook:react
