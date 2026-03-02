@@ -32,7 +32,7 @@
   }
 
   @media (hover: hover) {
-    &:where(:hover):not([aria-disabled]) {
+    &:where(:hover):not([aria-disabled='true']) {
       color: var(--h-link-color-hover);
       text-decoration: none;
 
@@ -42,7 +42,7 @@
     }
   }
 
-  &:where(:active):not([aria-disabled]) {
+  &:where(:active):not([aria-disabled='true']) {
     color: var(--h-link-color-active);
 
     &:where([data-inverted]) {
@@ -50,7 +50,7 @@
     }
   }
 
-  &:not([aria-disabled]) {
+  &:not([aria-disabled='true']) {
     cursor: pointer;
   }
 
