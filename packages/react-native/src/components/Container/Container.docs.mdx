@@ -1,4 +1,5 @@
 import { Canvas, Controls, Meta, Primary, Story } from '@storybook/addon-docs/blocks';
+import { color } from '@utilitywarehouse/hearth-tokens';
 import { BodyText, Box, Container } from '../..';
 import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Container.stories';
@@ -33,8 +34,8 @@ The Container component is a layout primitive that provides consistent spacing a
 The Container component uses layout tokens automatically for responsive spacing:
 
 <UsageWrap>
-  <Container backgroundColor="backgroundSecondary">
-    <Box bg="blue400" p="200" borderRadius="md">
+  <Container backgroundColor="secondary">
+    <Box bg={color.blue['400']} p="200" borderRadius="md">
       <BodyText>Container content</BodyText>
     </Box>
   </Container>
@@ -42,10 +43,11 @@ The Container component uses layout tokens automatically for responsive spacing:
 
 ```jsx
 import { Container, Box, BodyText } from '@utilitywarehouse/hearth-react-native';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 const MyComponent = () => (
   <Container>
-    <Box bg="cyan400" p="200" borderRadius="md">
+    <Box bg={color.cyan['400']} p="200" borderRadius="md">
       <BodyText>Container content</BodyText>
     </Box>
   </Container>
@@ -60,10 +62,11 @@ You can override the default padding with custom values using space tokens:
 
 ```jsx
 import { Container, Box, BodyText } from '@utilitywarehouse/hearth-react-native';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 const MyComponent = () => (
   <Container padding="300">
-    <Box bg="cyan400" p="200" borderRadius="md">
+    <Box bg={color.cyan['400']} p="200" borderRadius="md">
       <BodyText>Container with padding</BodyText>
     </Box>
   </Container>
@@ -78,10 +81,11 @@ You can override the default margin with custom values using space tokens:
 
 ```jsx
 import { Container, Box, BodyText } from '@utilitywarehouse/hearth-react-native';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 const MyComponent = () => (
   <Container margin="300">
-    <Box bg="cyan400" p="200" borderRadius="md">
+    <Box bg={color.cyan['400']} p="200" borderRadius="md">
       <BodyText>Container with margin</BodyText>
     </Box>
   </Container>
@@ -96,16 +100,17 @@ The Container component supports a `spacing` prop for controlling gap between ch
 
 ```jsx
 import { Container, Box, BodyText } from '@utilitywarehouse/hearth-react-native';
+import { color } from '@utilitywarehouse/hearth-tokens';
 
 const MyComponent = () => (
   <Container spacing="xl" paddingHorizontal="200" paddingVertical="300">
-    <Box bg="cyan400" p="200" borderRadius="md">
+    <Box bg={color.cyan['400']} p="200" borderRadius="md">
       <BodyText>Item 1</BodyText>
     </Box>
-    <Box bg="purple400" p="200" borderRadius="md">
+    <Box bg={color.purple['400']} p="200" borderRadius="md">
       <BodyText>Item 2</BodyText>
     </Box>
-    <Box bg="pink400" p="200" borderRadius="md">
+    <Box bg={color.pink['400']} p="200" borderRadius="md">
       <BodyText>Item 3</BodyText>
     </Box>
   </Container>

@@ -1,4 +1,11 @@
-export { default as coloursAsArray, extractLightColorValues } from './coloursAsArray';
+export {
+  backgroundColorKeys,
+  borderColorKeys,
+  default as coloursAsArray,
+  extractLightColorValues,
+  iconColorKeys,
+  textColorKeys,
+} from './coloursAsArray';
 export { default as formatThousands } from './formatThousands';
 export { default as getFlattenedColorValue } from './getFlattenedColorValue';
 export { getInitials } from './getInitials';
