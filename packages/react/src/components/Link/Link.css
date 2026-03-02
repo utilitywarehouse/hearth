@@ -50,7 +50,7 @@
     }
   }
 
-  &:not([aria-disabled]) {
+  &:not([aria-disabled='true']) {
     cursor: pointer;
   }
 
