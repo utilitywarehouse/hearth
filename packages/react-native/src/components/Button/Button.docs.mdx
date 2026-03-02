@@ -1,6 +1,17 @@
 import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
 import { AddSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { Box, Button, ButtonGroup, ButtonIcon, ButtonSpinner, ButtonText, Center } from '../../';
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  ButtonIcon,
+  ButtonSpinner,
+  ButtonText,
+  Card,
+  Center,
+  DetailText,
+  Flex,
+} from '../../';
 import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Button.stories';
 
@@ -26,6 +37,7 @@ The `Button` component is used to trigger an action or event, such as submitting
   - [`ButtonSpinner`](#buttonspinner)
 - [Examples](#examples)
   - [Padding None](#padding-none)
+  - [Full width button](#full-width-button)
 
 ## Playground
 
@@ -285,4 +297,37 @@ const MyComponent = () => {
     </Button>
   );
 };
+```
+
+### Full width button
+
+Use layout components, like `Box` or `Flex`, to define your UI layouts, which can also be responsive.
+
+<UsageWrap>
+<Box spacing="md">
+  <Flex align="stretch">
+    <Button>Full width button</Button>
+  </Flex>
+
+  <Card>
+    <DetailText size="xl">Button inside a Card component</DetailText>
+    <Box width="100%" paddingTop="md">
+      <Button>Refetch</Button>
+    </Box>
+  </Card>
+</Box>
+</UsageWrap>
+
+```tsx
+<Flex align="stretch">
+  <Button>Full width button</Button>
+</Flex>
+
+// Card example
+<Card>
+  <DetailText size="xl">Button inside a Card component</DetailText>
+  <Box width="100%" paddingTop="md">
+    <Button>Refetch</Button>
+  </Box>
+</Card>
 ```
