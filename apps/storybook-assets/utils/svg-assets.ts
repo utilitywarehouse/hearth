@@ -102,6 +102,84 @@ import MascotInsuranceLight from '@utilitywarehouse/hearth-svg-assets/lib/mascot
 import MascotInsuranceDark from '@utilitywarehouse/hearth-svg-assets/lib/mascot-insurance-dark.svg'
 import MascotCashbackLight from '@utilitywarehouse/hearth-svg-assets/lib/mascot-cashback-light.svg'
 import MascotCashbackDark from '@utilitywarehouse/hearth-svg-assets/lib/mascot-cashback-dark.svg'
+import TechnicalRouterWithPowerLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-with-power-light.svg'
+import TechnicalRouterWithPowerDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-with-power-dark.svg'
+import TechnicalStandardDslConnxFullLabelledLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-full-labelled-light.svg'
+import TechnicalStandardDslConnxFullLabelledDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-full-labelled-dark.svg'
+import TechnicalStandardDslConnxPartLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-part-light.svg'
+import TechnicalStandardDslConnxPartDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-part-dark.svg'
+import TechnicalStandardDslConnxFullLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-full-light.svg'
+import TechnicalStandardDslConnxFullDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-standard-dsl-connx-full-dark.svg'
+import TechnicalPowerSupply01BRgbLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-power-supply-01-b-rgb-light.svg'
+import TechnicalPowerSupply01BRgbDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-power-supply-01-b-rgb-dark.svg'
+import TechnicalPrefilteredConnxFullLabelledLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-connx-full-labelled-light.svg'
+import TechnicalPrefilteredConnxFullLabelledDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-connx-full-labelled-dark.svg'
+import TechnicalPrefilteredConnxFullLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-connx-full-light.svg'
+import TechnicalPrefilteredConnxFullDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-connx-full-dark.svg'
+import TechnicalPrefilteredConnxPartLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-connx-part-light.svg'
+import TechnicalPrefilteredConnxPartDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-connx-part-dark.svg'
+import TechnicalPrefilteredMasterSocketsLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-master-sockets-light.svg'
+import TechnicalPrefilteredMasterSocketsDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-prefiltered-master-sockets-dark.svg'
+import TechnicalRimAutomaticDeadlockLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-rim-automatic-deadlock-light.svg'
+import TechnicalRimAutomaticDeadlockDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-rim-automatic-deadlock-dark.svg'
+import TechnicalRouter01Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-01-light.svg'
+import TechnicalRouter01Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-01-dark.svg'
+import TechnicalRouter02FrontLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-02-front-light.svg'
+import TechnicalRouter02FrontDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-02-front-dark.svg'
+import TechnicalRouter03RearLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-03-rear-light.svg'
+import TechnicalRouter03RearDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-router-03-rear-dark.svg'
+import TechnicalMeter01LabelledLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-meter-01-labelled-light.svg'
+import TechnicalMeter01LabelledDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-meter-01-labelled-dark.svg'
+import TechnicalMeter02LabelledLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-meter-02-labelled-light.svg'
+import TechnicalMeter02LabelledDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-meter-02-labelled-dark.svg'
+import TechnicalMeter02Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-meter-02-light.svg'
+import TechnicalMeter02Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-meter-02-dark.svg'
+import TechnicalMicrofilter01Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-microfilter-01-light.svg'
+import TechnicalMicrofilter01Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-microfilter-01-dark.svg'
+import TechnicalMorticeDeadlock5LeversLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-mortice-deadlock-5-levers-light.svg'
+import TechnicalMorticeDeadlock5LeversDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-mortice-deadlock-5-levers-dark.svg'
+import TechnicalMicrofilter02Light from '@utilitywarehouse/hearth-svg-assets/lib/technical-microfilter-02-light.svg'
+import TechnicalMicrofilter02Dark from '@utilitywarehouse/hearth-svg-assets/lib/technical-microfilter-02-dark.svg'
+import TechnicalMultipointSystem3BoltsLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-multipoint-system-3-bolts-light.svg'
+import TechnicalMultipointSystem3BoltsDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-multipoint-system-3-bolts-dark.svg'
+import TechnicalOntRouterConnxLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-router-connx-light.svg'
+import TechnicalOntRouterConnxDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-ont-router-connx-dark.svg'
+import TechnicalOtherBuildingLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-other-building-light.svg'
+import TechnicalOtherBuildingDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-other-building-dark.svg'
+import TechnicalOtherLockLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-other-lock-light.svg'
+import TechnicalOtherLockDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-other-lock-dark.svg'
+import TechnicalEeroLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-eero-light.svg'
+import TechnicalEeroDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-eero-dark.svg'
+import TechnicalEthernetCableLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-ethernet-cable-light.svg'
+import TechnicalEthernetCableDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-ethernet-cable-dark.svg'
+import TechnicalFlatLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-flat-light.svg'
+import TechnicalFlatDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-flat-dark.svg'
+import TechnicalFullFibreSocketLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-full-fibre-socket-light.svg'
+import TechnicalFullFibreSocketDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-full-fibre-socket-dark.svg'
+import TechnicalFullfibre916MobileLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-fullfibre-9-16-mobile-light.svg'
+import TechnicalFullfibre916MobileDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-fullfibre-9-16-mobile-dark.svg'
+import TechnicalFullfibre916DesktopLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-fullfibre-9-16-desktop-light.svg'
+import TechnicalFullfibre916DesktopDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-fullfibre-9-16-desktop-dark.svg'
+import TechnicalHouseLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-house-light.svg'
+import TechnicalHouseDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-house-dark.svg'
+import TechnicalMainTelephoneSocketLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-main-telephone-socket-light.svg'
+import TechnicalMainTelephoneSocketDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-main-telephone-socket-dark.svg'
+import TechnicalMeterLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-meter-light.svg'
+import TechnicalMeterDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-meter-dark.svg'
+import TechnicalBuildingsAndContentsLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-buildings-and-contents-light.svg'
+import TechnicalBuildingsAndContentsDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-buildings-and-contents-dark.svg'
+import TechnicalBuildingsLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-buildings-light.svg'
+import TechnicalBuildingsDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-buildings-dark.svg'
+import TechnicalBungalowLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-bungalow-light.svg'
+import TechnicalBungalowDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-bungalow-dark.svg'
+import TechnicalContentsLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-contents-light.svg'
+import TechnicalContentsDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-contents-dark.svg'
+import TechnicalDslCableLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-dsl-cable-light.svg'
+import TechnicalDslCableDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-dsl-cable-dark.svg'
+import TechnicalDslPowerMicrofilterLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-dsl-power-microfilter-light.svg'
+import TechnicalDslPowerMicrofilterDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-dsl-power-microfilter-dark.svg'
+import TechnicalOpticalNetworkTerminalLight from '@utilitywarehouse/hearth-svg-assets/lib/technical-optical-network-terminal-light.svg'
+import TechnicalOpticalNetworkTerminalDark from '@utilitywarehouse/hearth-svg-assets/lib/technical-optical-network-terminal-dark.svg'
 
 export const svgAssets = [
   { name: 'LogoFullPurple', src: LogoFullPurple, path: 'logo-full-purple.svg' },
@@ -206,4 +284,82 @@ export const svgAssets = [
   { name: 'MascotInsuranceDark', src: MascotInsuranceDark, path: 'mascot-insurance-dark.svg' },
   { name: 'MascotCashbackLight', src: MascotCashbackLight, path: 'mascot-cashback-light.svg' },
   { name: 'MascotCashbackDark', src: MascotCashbackDark, path: 'mascot-cashback-dark.svg' },
+  { name: 'TechnicalRouterWithPowerLight', src: TechnicalRouterWithPowerLight, path: 'technical-router-with-power-light.svg' },
+  { name: 'TechnicalRouterWithPowerDark', src: TechnicalRouterWithPowerDark, path: 'technical-router-with-power-dark.svg' },
+  { name: 'TechnicalStandardDslConnxFullLabelledLight', src: TechnicalStandardDslConnxFullLabelledLight, path: 'technical-standard-dsl-connx-full-labelled-light.svg' },
+  { name: 'TechnicalStandardDslConnxFullLabelledDark', src: TechnicalStandardDslConnxFullLabelledDark, path: 'technical-standard-dsl-connx-full-labelled-dark.svg' },
+  { name: 'TechnicalStandardDslConnxPartLight', src: TechnicalStandardDslConnxPartLight, path: 'technical-standard-dsl-connx-part-light.svg' },
+  { name: 'TechnicalStandardDslConnxPartDark', src: TechnicalStandardDslConnxPartDark, path: 'technical-standard-dsl-connx-part-dark.svg' },
+  { name: 'TechnicalStandardDslConnxFullLight', src: TechnicalStandardDslConnxFullLight, path: 'technical-standard-dsl-connx-full-light.svg' },
+  { name: 'TechnicalStandardDslConnxFullDark', src: TechnicalStandardDslConnxFullDark, path: 'technical-standard-dsl-connx-full-dark.svg' },
+  { name: 'TechnicalPowerSupply01BRgbLight', src: TechnicalPowerSupply01BRgbLight, path: 'technical-power-supply-01-b-rgb-light.svg' },
+  { name: 'TechnicalPowerSupply01BRgbDark', src: TechnicalPowerSupply01BRgbDark, path: 'technical-power-supply-01-b-rgb-dark.svg' },
+  { name: 'TechnicalPrefilteredConnxFullLabelledLight', src: TechnicalPrefilteredConnxFullLabelledLight, path: 'technical-prefiltered-connx-full-labelled-light.svg' },
+  { name: 'TechnicalPrefilteredConnxFullLabelledDark', src: TechnicalPrefilteredConnxFullLabelledDark, path: 'technical-prefiltered-connx-full-labelled-dark.svg' },
+  { name: 'TechnicalPrefilteredConnxFullLight', src: TechnicalPrefilteredConnxFullLight, path: 'technical-prefiltered-connx-full-light.svg' },
+  { name: 'TechnicalPrefilteredConnxFullDark', src: TechnicalPrefilteredConnxFullDark, path: 'technical-prefiltered-connx-full-dark.svg' },
+  { name: 'TechnicalPrefilteredConnxPartLight', src: TechnicalPrefilteredConnxPartLight, path: 'technical-prefiltered-connx-part-light.svg' },
+  { name: 'TechnicalPrefilteredConnxPartDark', src: TechnicalPrefilteredConnxPartDark, path: 'technical-prefiltered-connx-part-dark.svg' },
+  { name: 'TechnicalPrefilteredMasterSocketsLight', src: TechnicalPrefilteredMasterSocketsLight, path: 'technical-prefiltered-master-sockets-light.svg' },
+  { name: 'TechnicalPrefilteredMasterSocketsDark', src: TechnicalPrefilteredMasterSocketsDark, path: 'technical-prefiltered-master-sockets-dark.svg' },
+  { name: 'TechnicalRimAutomaticDeadlockLight', src: TechnicalRimAutomaticDeadlockLight, path: 'technical-rim-automatic-deadlock-light.svg' },
+  { name: 'TechnicalRimAutomaticDeadlockDark', src: TechnicalRimAutomaticDeadlockDark, path: 'technical-rim-automatic-deadlock-dark.svg' },
+  { name: 'TechnicalRouter01Light', src: TechnicalRouter01Light, path: 'technical-router-01-light.svg' },
+  { name: 'TechnicalRouter01Dark', src: TechnicalRouter01Dark, path: 'technical-router-01-dark.svg' },
+  { name: 'TechnicalRouter02FrontLight', src: TechnicalRouter02FrontLight, path: 'technical-router-02-front-light.svg' },
+  { name: 'TechnicalRouter02FrontDark', src: TechnicalRouter02FrontDark, path: 'technical-router-02-front-dark.svg' },
+  { name: 'TechnicalRouter03RearLight', src: TechnicalRouter03RearLight, path: 'technical-router-03-rear-light.svg' },
+  { name: 'TechnicalRouter03RearDark', src: TechnicalRouter03RearDark, path: 'technical-router-03-rear-dark.svg' },
+  { name: 'TechnicalMeter01LabelledLight', src: TechnicalMeter01LabelledLight, path: 'technical-meter-01-labelled-light.svg' },
+  { name: 'TechnicalMeter01LabelledDark', src: TechnicalMeter01LabelledDark, path: 'technical-meter-01-labelled-dark.svg' },
+  { name: 'TechnicalMeter02LabelledLight', src: TechnicalMeter02LabelledLight, path: 'technical-meter-02-labelled-light.svg' },
+  { name: 'TechnicalMeter02LabelledDark', src: TechnicalMeter02LabelledDark, path: 'technical-meter-02-labelled-dark.svg' },
+  { name: 'TechnicalMeter02Light', src: TechnicalMeter02Light, path: 'technical-meter-02-light.svg' },
+  { name: 'TechnicalMeter02Dark', src: TechnicalMeter02Dark, path: 'technical-meter-02-dark.svg' },
+  { name: 'TechnicalMicrofilter01Light', src: TechnicalMicrofilter01Light, path: 'technical-microfilter-01-light.svg' },
+  { name: 'TechnicalMicrofilter01Dark', src: TechnicalMicrofilter01Dark, path: 'technical-microfilter-01-dark.svg' },
+  { name: 'TechnicalMorticeDeadlock5LeversLight', src: TechnicalMorticeDeadlock5LeversLight, path: 'technical-mortice-deadlock-5-levers-light.svg' },
+  { name: 'TechnicalMorticeDeadlock5LeversDark', src: TechnicalMorticeDeadlock5LeversDark, path: 'technical-mortice-deadlock-5-levers-dark.svg' },
+  { name: 'TechnicalMicrofilter02Light', src: TechnicalMicrofilter02Light, path: 'technical-microfilter-02-light.svg' },
+  { name: 'TechnicalMicrofilter02Dark', src: TechnicalMicrofilter02Dark, path: 'technical-microfilter-02-dark.svg' },
+  { name: 'TechnicalMultipointSystem3BoltsLight', src: TechnicalMultipointSystem3BoltsLight, path: 'technical-multipoint-system-3-bolts-light.svg' },
+  { name: 'TechnicalMultipointSystem3BoltsDark', src: TechnicalMultipointSystem3BoltsDark, path: 'technical-multipoint-system-3-bolts-dark.svg' },
+  { name: 'TechnicalOntRouterConnxLight', src: TechnicalOntRouterConnxLight, path: 'technical-ont-router-connx-light.svg' },
+  { name: 'TechnicalOntRouterConnxDark', src: TechnicalOntRouterConnxDark, path: 'technical-ont-router-connx-dark.svg' },
+  { name: 'TechnicalOtherBuildingLight', src: TechnicalOtherBuildingLight, path: 'technical-other-building-light.svg' },
+  { name: 'TechnicalOtherBuildingDark', src: TechnicalOtherBuildingDark, path: 'technical-other-building-dark.svg' },
+  { name: 'TechnicalOtherLockLight', src: TechnicalOtherLockLight, path: 'technical-other-lock-light.svg' },
+  { name: 'TechnicalOtherLockDark', src: TechnicalOtherLockDark, path: 'technical-other-lock-dark.svg' },
+  { name: 'TechnicalEeroLight', src: TechnicalEeroLight, path: 'technical-eero-light.svg' },
+  { name: 'TechnicalEeroDark', src: TechnicalEeroDark, path: 'technical-eero-dark.svg' },
+  { name: 'TechnicalEthernetCableLight', src: TechnicalEthernetCableLight, path: 'technical-ethernet-cable-light.svg' },
+  { name: 'TechnicalEthernetCableDark', src: TechnicalEthernetCableDark, path: 'technical-ethernet-cable-dark.svg' },
+  { name: 'TechnicalFlatLight', src: TechnicalFlatLight, path: 'technical-flat-light.svg' },
+  { name: 'TechnicalFlatDark', src: TechnicalFlatDark, path: 'technical-flat-dark.svg' },
+  { name: 'TechnicalFullFibreSocketLight', src: TechnicalFullFibreSocketLight, path: 'technical-full-fibre-socket-light.svg' },
+  { name: 'TechnicalFullFibreSocketDark', src: TechnicalFullFibreSocketDark, path: 'technical-full-fibre-socket-dark.svg' },
+  { name: 'TechnicalFullfibre916MobileLight', src: TechnicalFullfibre916MobileLight, path: 'technical-fullfibre-9-16-mobile-light.svg' },
+  { name: 'TechnicalFullfibre916MobileDark', src: TechnicalFullfibre916MobileDark, path: 'technical-fullfibre-9-16-mobile-dark.svg' },
+  { name: 'TechnicalFullfibre916DesktopLight', src: TechnicalFullfibre916DesktopLight, path: 'technical-fullfibre-9-16-desktop-light.svg' },
+  { name: 'TechnicalFullfibre916DesktopDark', src: TechnicalFullfibre916DesktopDark, path: 'technical-fullfibre-9-16-desktop-dark.svg' },
+  { name: 'TechnicalHouseLight', src: TechnicalHouseLight, path: 'technical-house-light.svg' },
+  { name: 'TechnicalHouseDark', src: TechnicalHouseDark, path: 'technical-house-dark.svg' },
+  { name: 'TechnicalMainTelephoneSocketLight', src: TechnicalMainTelephoneSocketLight, path: 'technical-main-telephone-socket-light.svg' },
+  { name: 'TechnicalMainTelephoneSocketDark', src: TechnicalMainTelephoneSocketDark, path: 'technical-main-telephone-socket-dark.svg' },
+  { name: 'TechnicalMeterLight', src: TechnicalMeterLight, path: 'technical-meter-light.svg' },
+  { name: 'TechnicalMeterDark', src: TechnicalMeterDark, path: 'technical-meter-dark.svg' },
+  { name: 'TechnicalBuildingsAndContentsLight', src: TechnicalBuildingsAndContentsLight, path: 'technical-buildings-and-contents-light.svg' },
+  { name: 'TechnicalBuildingsAndContentsDark', src: TechnicalBuildingsAndContentsDark, path: 'technical-buildings-and-contents-dark.svg' },
+  { name: 'TechnicalBuildingsLight', src: TechnicalBuildingsLight, path: 'technical-buildings-light.svg' },
+  { name: 'TechnicalBuildingsDark', src: TechnicalBuildingsDark, path: 'technical-buildings-dark.svg' },
+  { name: 'TechnicalBungalowLight', src: TechnicalBungalowLight, path: 'technical-bungalow-light.svg' },
+  { name: 'TechnicalBungalowDark', src: TechnicalBungalowDark, path: 'technical-bungalow-dark.svg' },
+  { name: 'TechnicalContentsLight', src: TechnicalContentsLight, path: 'technical-contents-light.svg' },
+  { name: 'TechnicalContentsDark', src: TechnicalContentsDark, path: 'technical-contents-dark.svg' },
+  { name: 'TechnicalDslCableLight', src: TechnicalDslCableLight, path: 'technical-dsl-cable-light.svg' },
+  { name: 'TechnicalDslCableDark', src: TechnicalDslCableDark, path: 'technical-dsl-cable-dark.svg' },
+  { name: 'TechnicalDslPowerMicrofilterLight', src: TechnicalDslPowerMicrofilterLight, path: 'technical-dsl-power-microfilter-light.svg' },
+  { name: 'TechnicalDslPowerMicrofilterDark', src: TechnicalDslPowerMicrofilterDark, path: 'technical-dsl-power-microfilter-dark.svg' },
+  { name: 'TechnicalOpticalNetworkTerminalLight', src: TechnicalOpticalNetworkTerminalLight, path: 'technical-optical-network-terminal-light.svg' },
+  { name: 'TechnicalOpticalNetworkTerminalDark', src: TechnicalOpticalNetworkTerminalDark, path: 'technical-optical-network-terminal-dark.svg' },
 ];

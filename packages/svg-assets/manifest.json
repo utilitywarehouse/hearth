@@ -407,6 +407,318 @@
     {
       "name": "MascotCashbackDark",
       "path": "mascot-cashback-dark.svg"
+    },
+    {
+      "name": "TechnicalRouterWithPowerLight",
+      "path": "technical-router-with-power-light.svg"
+    },
+    {
+      "name": "TechnicalRouterWithPowerDark",
+      "path": "technical-router-with-power-dark.svg"
+    },
+    {
+      "name": "TechnicalStandardDslConnxFullLabelledLight",
+      "path": "technical-standard-dsl-connx-full-labelled-light.svg"
+    },
+    {
+      "name": "TechnicalStandardDslConnxFullLabelledDark",
+      "path": "technical-standard-dsl-connx-full-labelled-dark.svg"
+    },
+    {
+      "name": "TechnicalStandardDslConnxPartLight",
+      "path": "technical-standard-dsl-connx-part-light.svg"
+    },
+    {
+      "name": "TechnicalStandardDslConnxPartDark",
+      "path": "technical-standard-dsl-connx-part-dark.svg"
+    },
+    {
+      "name": "TechnicalStandardDslConnxFullLight",
+      "path": "technical-standard-dsl-connx-full-light.svg"
+    },
+    {
+      "name": "TechnicalStandardDslConnxFullDark",
+      "path": "technical-standard-dsl-connx-full-dark.svg"
+    },
+    {
+      "name": "TechnicalPowerSupply01BRgbLight",
+      "path": "technical-power-supply-01-b-rgb-light.svg"
+    },
+    {
+      "name": "TechnicalPowerSupply01BRgbDark",
+      "path": "technical-power-supply-01-b-rgb-dark.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredConnxFullLabelledLight",
+      "path": "technical-prefiltered-connx-full-labelled-light.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredConnxFullLabelledDark",
+      "path": "technical-prefiltered-connx-full-labelled-dark.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredConnxFullLight",
+      "path": "technical-prefiltered-connx-full-light.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredConnxFullDark",
+      "path": "technical-prefiltered-connx-full-dark.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredConnxPartLight",
+      "path": "technical-prefiltered-connx-part-light.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredConnxPartDark",
+      "path": "technical-prefiltered-connx-part-dark.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredMasterSocketsLight",
+      "path": "technical-prefiltered-master-sockets-light.svg"
+    },
+    {
+      "name": "TechnicalPrefilteredMasterSocketsDark",
+      "path": "technical-prefiltered-master-sockets-dark.svg"
+    },
+    {
+      "name": "TechnicalRimAutomaticDeadlockLight",
+      "path": "technical-rim-automatic-deadlock-light.svg"
+    },
+    {
+      "name": "TechnicalRimAutomaticDeadlockDark",
+      "path": "technical-rim-automatic-deadlock-dark.svg"
+    },
+    {
+      "name": "TechnicalRouter01Light",
+      "path": "technical-router-01-light.svg"
+    },
+    {
+      "name": "TechnicalRouter01Dark",
+      "path": "technical-router-01-dark.svg"
+    },
+    {
+      "name": "TechnicalRouter02FrontLight",
+      "path": "technical-router-02-front-light.svg"
+    },
+    {
+      "name": "TechnicalRouter02FrontDark",
+      "path": "technical-router-02-front-dark.svg"
+    },
+    {
+      "name": "TechnicalRouter03RearLight",
+      "path": "technical-router-03-rear-light.svg"
+    },
+    {
+      "name": "TechnicalRouter03RearDark",
+      "path": "technical-router-03-rear-dark.svg"
+    },
+    {
+      "name": "TechnicalMeter01LabelledLight",
+      "path": "technical-meter-01-labelled-light.svg"
+    },
+    {
+      "name": "TechnicalMeter01LabelledDark",
+      "path": "technical-meter-01-labelled-dark.svg"
+    },
+    {
+      "name": "TechnicalMeter02LabelledLight",
+      "path": "technical-meter-02-labelled-light.svg"
+    },
+    {
+      "name": "TechnicalMeter02LabelledDark",
+      "path": "technical-meter-02-labelled-dark.svg"
+    },
+    {
+      "name": "TechnicalMeter02Light",
+      "path": "technical-meter-02-light.svg"
+    },
+    {
+      "name": "TechnicalMeter02Dark",
+      "path": "technical-meter-02-dark.svg"
+    },
+    {
+      "name": "TechnicalMicrofilter01Light",
+      "path": "technical-microfilter-01-light.svg"
+    },
+    {
+      "name": "TechnicalMicrofilter01Dark",
+      "path": "technical-microfilter-01-dark.svg"
+    },
+    {
+      "name": "TechnicalMorticeDeadlock5LeversLight",
+      "path": "technical-mortice-deadlock-5-levers-light.svg"
+    },
+    {
+      "name": "TechnicalMorticeDeadlock5LeversDark",
+      "path": "technical-mortice-deadlock-5-levers-dark.svg"
+    },
+    {
+      "name": "TechnicalMicrofilter02Light",
+      "path": "technical-microfilter-02-light.svg"
+    },
+    {
+      "name": "TechnicalMicrofilter02Dark",
+      "path": "technical-microfilter-02-dark.svg"
+    },
+    {
+      "name": "TechnicalMultipointSystem3BoltsLight",
+      "path": "technical-multipoint-system-3-bolts-light.svg"
+    },
+    {
+      "name": "TechnicalMultipointSystem3BoltsDark",
+      "path": "technical-multipoint-system-3-bolts-dark.svg"
+    },
+    {
+      "name": "TechnicalOntRouterConnxLight",
+      "path": "technical-ont-router-connx-light.svg"
+    },
+    {
+      "name": "TechnicalOntRouterConnxDark",
+      "path": "technical-ont-router-connx-dark.svg"
+    },
+    {
+      "name": "TechnicalOtherBuildingLight",
+      "path": "technical-other-building-light.svg"
+    },
+    {
+      "name": "TechnicalOtherBuildingDark",
+      "path": "technical-other-building-dark.svg"
+    },
+    {
+      "name": "TechnicalOtherLockLight",
+      "path": "technical-other-lock-light.svg"
+    },
+    {
+      "name": "TechnicalOtherLockDark",
+      "path": "technical-other-lock-dark.svg"
+    },
+    {
+      "name": "TechnicalEeroLight",
+      "path": "technical-eero-light.svg"
+    },
+    {
+      "name": "TechnicalEeroDark",
+      "path": "technical-eero-dark.svg"
+    },
+    {
+      "name": "TechnicalEthernetCableLight",
+      "path": "technical-ethernet-cable-light.svg"
+    },
+    {
+      "name": "TechnicalEthernetCableDark",
+      "path": "technical-ethernet-cable-dark.svg"
+    },
+    {
+      "name": "TechnicalFlatLight",
+      "path": "technical-flat-light.svg"
+    },
+    {
+      "name": "TechnicalFlatDark",
+      "path": "technical-flat-dark.svg"
+    },
+    {
+      "name": "TechnicalFullFibreSocketLight",
+      "path": "technical-full-fibre-socket-light.svg"
+    },
+    {
+      "name": "TechnicalFullFibreSocketDark",
+      "path": "technical-full-fibre-socket-dark.svg"
+    },
+    {
+      "name": "TechnicalFullfibre916MobileLight",
+      "path": "technical-fullfibre-9-16-mobile-light.svg"
+    },
+    {
+      "name": "TechnicalFullfibre916MobileDark",
+      "path": "technical-fullfibre-9-16-mobile-dark.svg"
+    },
+    {
+      "name": "TechnicalFullfibre916DesktopLight",
+      "path": "technical-fullfibre-9-16-desktop-light.svg"
+    },
+    {
+      "name": "TechnicalFullfibre916DesktopDark",
+      "path": "technical-fullfibre-9-16-desktop-dark.svg"
+    },
+    {
+      "name": "TechnicalHouseLight",
+      "path": "technical-house-light.svg"
+    },
+    {
+      "name": "TechnicalHouseDark",
+      "path": "technical-house-dark.svg"
+    },
+    {
+      "name": "TechnicalMainTelephoneSocketLight",
+      "path": "technical-main-telephone-socket-light.svg"
+    },
+    {
+      "name": "TechnicalMainTelephoneSocketDark",
+      "path": "technical-main-telephone-socket-dark.svg"
+    },
+    {
+      "name": "TechnicalMeterLight",
+      "path": "technical-meter-light.svg"
+    },
+    {
+      "name": "TechnicalMeterDark",
+      "path": "technical-meter-dark.svg"
+    },
+    {
+      "name": "TechnicalBuildingsAndContentsLight",
+      "path": "technical-buildings-and-contents-light.svg"
+    },
+    {
+      "name": "TechnicalBuildingsAndContentsDark",
+      "path": "technical-buildings-and-contents-dark.svg"
+    },
+    {
+      "name": "TechnicalBuildingsLight",
+      "path": "technical-buildings-light.svg"
+    },
+    {
+      "name": "TechnicalBuildingsDark",
+      "path": "technical-buildings-dark.svg"
+    },
+    {
+      "name": "TechnicalBungalowLight",
+      "path": "technical-bungalow-light.svg"
+    },
+    {
+      "name": "TechnicalBungalowDark",
+      "path": "technical-bungalow-dark.svg"
+    },
+    {
+      "name": "TechnicalContentsLight",
+      "path": "technical-contents-light.svg"
+    },
+    {
+      "name": "TechnicalContentsDark",
+      "path": "technical-contents-dark.svg"
+    },
+    {
+      "name": "TechnicalDslCableLight",
+      "path": "technical-dsl-cable-light.svg"
+    },
+    {
+      "name": "TechnicalDslCableDark",
+      "path": "technical-dsl-cable-dark.svg"
+    },
+    {
+      "name": "TechnicalDslPowerMicrofilterLight",
+      "path": "technical-dsl-power-microfilter-light.svg"
+    },
+    {
+      "name": "TechnicalDslPowerMicrofilterDark",
+      "path": "technical-dsl-power-microfilter-dark.svg"
+    },
+    {
+      "name": "TechnicalOpticalNetworkTerminalLight",
+      "path": "technical-optical-network-terminal-light.svg"
+    },
+    {
+      "name": "TechnicalOpticalNetworkTerminalDark",
+      "path": "technical-optical-network-terminal-dark.svg"
     }
   ]
 }
