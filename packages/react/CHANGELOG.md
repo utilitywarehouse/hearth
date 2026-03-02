@@ -1,5 +1,30 @@
 # @utilitywarehouse/hearth-react
 
+## 0.24.19
+
+### Patch Changes
+
+- [#960](https://github.com/utilitywarehouse/hearth/pull/960) [`fd1b98e`](https://github.com/utilitywarehouse/hearth/commit/fd1b98e1ef3a62ca8675b316854e00d4d5a2df93) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `paddingBottomNone` prop to `CardContent`
+
+- [#951](https://github.com/utilitywarehouse/hearth/pull/951) [`25698c1`](https://github.com/utilitywarehouse/hearth/commit/25698c112ed7f0f2b7c1f814481d00ca74561f4a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Improve disabled `Link` styles
+
+  The `Link` styles were being displayed when `aria-disabled` was both false &
+  true. This change ensures that the correct styles are applied only when
+  `aria-disabled='true'`.
+
+- [#950](https://github.com/utilitywarehouse/hearth/pull/950) [`680d770`](https://github.com/utilitywarehouse/hearth/commit/680d7708bc85d57263837697eee01e33f574dd01) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Improve labelling of `List`
+
+  This change ensures that the `List` component is properly labelled for assistive
+  technologies, enhancing accessibility for users relying on screen readers.
+
+  This change also updates the documentation, removing `aria-label` props on list
+  items, as we are changing the guidance to not include them. This is because the
+  list items are already labelled by their content, and adding an `aria-label` can
+  create confusion for screen readers.
+
+- Updated dependencies [[`25698c1`](https://github.com/utilitywarehouse/hearth/commit/25698c112ed7f0f2b7c1f814481d00ca74561f4a)]:
+  - @utilitywarehouse/hearth-css-reset@0.1.4
+
 ## 0.24.18
 
 ### Patch Changes
