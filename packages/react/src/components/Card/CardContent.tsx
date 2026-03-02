@@ -11,7 +11,7 @@ export const CardContent = ({ className, paddingBottomNone, ...props }: CardCont
     <Flex
       className={cn(componentClassName, className)}
       {...props}
-      data-padding-bottom-none={paddingBottomNone}
+      data-padding-bottom-none={paddingBottomNone ? '' : undefined}
     />
   );
 };
