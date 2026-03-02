@@ -1,7 +1,7 @@
 import { PressableProps, ViewStyle } from 'react-native';
-import { SpaceValue, SpacingValues } from '../../types';
+import { GapProps, MarginProps, SpacingValues } from '../../types';
 
-interface CardProps extends PressableProps {
+interface CardProps extends PressableProps, MarginProps, GapProps {
   variant?: 'emphasis' | 'subtle';
   colorScheme?:
     | 'neutralStrong'
@@ -31,9 +31,6 @@ interface CardProps extends PressableProps {
   justifyContent?: ViewStyle['justifyContent'];
   flexDirection?: ViewStyle['flexDirection'];
   flexWrap?: ViewStyle['flexWrap'];
-  gap?: SpaceValue;
-  rowGap?: SpaceValue;
-  columnGap?: SpaceValue;
 }
 
 export default CardProps;

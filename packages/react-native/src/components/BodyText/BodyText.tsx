@@ -1,8 +1,9 @@
 import { Text } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { useStyleProps } from '../../hooks';
 import type BodyTextProps from './BodyText.props';
 
-import { getFlattenedColorValue } from '../../utils';
+import { getFlattenedColorValue, resolveThemeValueWithFallback } from '../../utils';
 
 const BodyText = ({
   children,
@@ -23,6 +24,9 @@ const BodyText = ({
   inverted,
   ...props
 }: BodyTextProps) => {
+  // Extract margin utility props from remaining props
+  const { computedStyles: utilityStyles, remainingProps } = useStyleProps(props);
+
   styles.useVariants({
     size,
     weight,
@@ -34,7 +38,7 @@ const BodyText = ({
 
   return (
     <Text
-      {...props}
+      {...remainingProps}
       {...(truncated
         ? {
             numberOfLines: 1,
@@ -43,7 +47,7 @@ const BodyText = ({
         : {})}
       style={[
         styles.text,
-        props.style,
+        utilityStyles,
         {
           ...(textTransform && { textTransform }),
           ...(textAlign && { textAlign }),
@@ -54,6 +58,7 @@ const BodyText = ({
           ...(textAlignVertical && { textAlignVertical }),
         },
         styles.getColours(color, textDecorationColor),
+        props.style,
       ]}
     >
       {children}
@@ -117,13 +122,19 @@ const styles = StyleSheet.create(theme => ({
     },
   },
   getColours: (color?: string, textDecorationColor?: string) => ({
-    ...(color ? { color: getFlattenedColorValue(color, theme.color) } : {}),
+    ...(color
+      ? {
+          color: resolveThemeValueWithFallback(
+            color,
+            theme.helpers.semanticColor.text,
+            theme.color
+          ),
+        }
+      : {}),
     ...(textDecorationColor
       ? { textDecorationColor: getFlattenedColorValue(textDecorationColor, theme.color) }
       : {}),
   }),
 }));
-
-BodyText.displayName = 'BodyText';
 
 export default BodyText;
