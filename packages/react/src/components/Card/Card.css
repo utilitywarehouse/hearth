@@ -40,7 +40,7 @@
       padding: var(--h-card-padding-desktop);
     }
 
-    &:where([data-padding-bottom-none='true']) {
+    &:where([data-padding-bottom-none]) {
       padding-bottom: var(--h-spacing-0);
     }
   }
