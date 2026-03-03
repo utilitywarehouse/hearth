@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { RadioTile, Flex, RadioGroup, Badge } from '@utilitywarehouse/hearth-react';
+import { RadioTile, Flex, RadioGroup, Badge, Box } from '@utilitywarehouse/hearth-react';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import mastercard from '../assets/mastercard.png';
 import visa from '../assets/visa.png';
@@ -24,6 +24,11 @@ export default meta;
 type Story = StoryObj<typeof RadioTile>;
 
 export const Playground: Story = {
+  args: {
+    value: '1',
+    label: 'Radio label',
+    helperText: 'Radio helper text',
+  },
   render: args => {
     return (
       <Flex gap="500" direction="column">
@@ -37,15 +42,32 @@ export const Playground: Story = {
       </Flex>
     );
   },
-  argTypes: {
-    value: { control: { type: 'text' } },
-    helperText: { control: { type: 'text' } },
-    label: { control: { type: 'text' } },
-  },
+};
+
+export const FitContent: Story = {
   args: {
     value: '1',
-    label: 'Radio label',
-    helperText: 'Radio helper text',
+    helperText: '',
+  },
+  render: args => {
+    return (
+      <Flex gap="500" direction="column">
+        <RadioGroup label="Do you have a meter?" direction="row">
+          <RadioTile {...args} value="y" label="Yes" />
+          <RadioTile {...args} value="n" label="No" />
+        </RadioGroup>
+
+        <RadioGroup label="how would you like to pay?" direction="row">
+          <RadioTile {...args} value="1" label="Budget plan" flex="1" />
+          <RadioTile {...args} value="2" label="Monthly in arrears" flex="1" />
+        </RadioGroup>
+
+        <RadioGroup label="how would you like to pay?" direction="row">
+          <RadioTile {...args} value="1" label="Budget plan" />
+          <RadioTile {...args} value="2" label="Monthly in arrears" />
+        </RadioGroup>
+      </Flex>
+    );
   },
 };
 
