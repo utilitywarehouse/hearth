@@ -5,6 +5,7 @@ import { Radio, RadioGroup, RadioImage } from '.';
 import bankLogo from '../../../docs/assets/bank-logo.png';
 import bankLogo1 from '../../../docs/assets/bank-logo1.png';
 import { VariantTitle } from '../../../docs/components';
+import { Badge } from '../Badge';
 import { Flex } from '../Flex';
 import { FormField } from '../FormField';
 
@@ -131,6 +132,27 @@ export const WithImage: Story = {
             resizeMode="cover"
           />
         }
+      />
+    </RadioGroup>
+  ),
+};
+
+export const WithBadge: Story = {
+  args: {
+    value: 'Option 1',
+    label: 'Label',
+    helperText: 'Helper text',
+  },
+  render: args => (
+    <RadioGroup>
+      <Radio
+        aria-label="Label 1"
+        onChange={(checked: boolean) => {
+          console.log(checked, '###');
+        }}
+        nativeID="Radio-1"
+        badge={<Badge>New</Badge>}
+        {...args}
       />
     </RadioGroup>
   ),

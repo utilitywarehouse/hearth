@@ -5,6 +5,7 @@ import { Checkbox, CheckboxGroup, CheckboxImage } from '.';
 import bankLogo from '../../../docs/assets/bank-logo.png';
 import bankLogo1 from '../../../docs/assets/bank-logo1.png';
 import { VariantTitle } from '../../../docs/components';
+import { Badge } from '../Badge';
 
 const meta = {
   title: 'Stories / Checkbox',
@@ -131,6 +132,30 @@ export const WithImage: Story = {
       />
     </CheckboxGroup>
   ),
+};
+
+export const WithBadge: Story = {
+  args: {
+    label: 'Label',
+    helperText: 'Helper text',
+  },
+  render: ({ checked: checkedArg = false, onChange, ...args }) => {
+    const [checked, setChecked] = React.useState(checkedArg);
+    useEffect(() => {
+      setChecked(checkedArg);
+    }, [checkedArg]);
+    return (
+      <Checkbox
+        onChange={val => {
+          console.log('-----');
+          setChecked(val);
+        }}
+        badge={<Badge>New</Badge>}
+        {...args}
+        checked={checked}
+      />
+    );
+  },
 };
 
 export const Variants: Story = {

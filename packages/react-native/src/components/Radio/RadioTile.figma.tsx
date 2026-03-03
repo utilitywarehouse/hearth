@@ -9,6 +9,9 @@ figma.connect(
       helperText: figma.boolean('Helper text?', {
         true: figma.string('Helper text'),
       }),
+      badge: figma.boolean('Badge?', {
+        true: figma.children('Badge'),
+      }),
       label: figma.string('Label'),
       image: figma.boolean('Image?', {
         true: figma.instance('Radio Image'),
@@ -24,6 +27,7 @@ figma.connect(
       <RadioTile
         label={props.label}
         helperText={props.helperText}
+        badge={props.badge}
         image={props.image}
         checked={props.checked}
         disabled={props.indicator.disabled}

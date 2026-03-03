@@ -14,6 +14,7 @@ interface RadioWithChildrenProps extends RadioBaseProps {
   label?: never;
   helperText?: never;
   helperIcon?: never;
+  badge?: never;
   invalidText?: never;
   validText?: never;
   showValidationIcon?: never;
@@ -25,6 +26,7 @@ interface RadioWithoutChildrenProps extends RadioBaseProps {
   label?: string;
   helperText?: string;
   helperIcon?: ComponentType;
+  badge?: ReactNode;
   invalidText?: string;
   validText?: string;
   showValidationIcon?: boolean;
