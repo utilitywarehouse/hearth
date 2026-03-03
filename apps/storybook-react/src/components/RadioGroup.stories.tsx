@@ -73,6 +73,11 @@ export const Playground: Story = {
 
 export const RadioHelperText: Story = {
   name: 'Radio HelperText',
+  args: {
+    defaultValue: '3',
+    helperText: undefined,
+    name: 'helper-text',
+  },
   render: args => {
     return (
       <RadioGroup {...args}>
@@ -82,15 +87,11 @@ export const RadioHelperText: Story = {
       </RadioGroup>
     );
   },
-  args: {
-    defaultValue: '3',
-    helperText: undefined,
-    name: 'helper-text',
-  },
 };
 
 export const ContentWidth: Story = {
   name: 'Content Width',
+  args: { contentWidth: '200px', name: 'content-width' },
   render: args => {
     return (
       <RadioGroup {...args} helperText="Setting the width of the children elements">
@@ -100,7 +101,6 @@ export const ContentWidth: Story = {
       </RadioGroup>
     );
   },
-  args: { contentWidth: '200px', name: 'content-width' },
 };
 
 export const Controlled: Story = {
