@@ -36,6 +36,7 @@ const Checkbox = ({
   checked,
   helperIcon,
   helperText,
+  badge,
   invalidText,
   validText,
   validationStatus: validation,
@@ -61,6 +62,7 @@ const Checkbox = ({
       <CheckboxTextContent>
         {!!label && <CheckboxLabel>{label}</CheckboxLabel>}
         {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
+        {badge ? badge : null}
         {validationStatus === 'invalid' && !!invalidText && (
           <Helper
             showIcon={showValidationIcon}
