@@ -36,6 +36,7 @@ const Radio = ({
   disabled,
   helperIcon,
   helperText,
+  badge,
   invalidText,
   validText,
   validationStatus: validation,
@@ -60,6 +61,7 @@ const Radio = ({
       <RadioTextContent>
         {!!label && <RadioLabel>{label}</RadioLabel>}
         {!!helperText && <Helper disabled={disabled} icon={helperIcon} text={helperText} />}
+        {badge ? badge : null}
         {validationStatus === 'invalid' && !!invalidText && (
           <Helper
             showIcon={showValidationIcon}
