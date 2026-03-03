@@ -38,7 +38,7 @@
     "checks:build": "turbo run format lint:fix build --filter='./packages/*'",
     "checks:ci": "turbo run format:ci lint --filter='./packages/*'",
     "generate:svg-icons": "turbo run @utilitywarehouse/hearth-svg-icons#generate",
-    "generate:svg-assets": "turbo run @utilitywarehouse/hearth-svg-assets#generate",
+    "generate:svg-assets": "turbo run @utilitywarehouse/hearth-svg-assets#generate && turbo run storybook-assets#generate",
     "generate:react": "turbo run @utilitywarehouse/hearth-react-icons#generate @utilitywarehouse/hearth-react-native-icons#generate",
     "generate:storybook": "turbo run storybook-icons#generate storybook-assets#generate",
     "generate:assets": "pnpm run generate:svg-assets",

@@ -58,3 +58,41 @@ export const resolveThemeValue = (value: any, themeMapping: any): any => {
   // If none of the approaches work, return the original value
   return value;
 };
+
+/**
+ * Resolve a dot-notation key against the theme object.
+ * e.g., 'semanticColor.text' -> theme.semanticColor.text
+ * Simple keys like 'space' are resolved via direct bracket access.
+ */
+export const resolveThemeKey = (theme: Record<string, any>, key: string): any => {
+  if (key.includes('.')) {
+    return key.split('.').reduce((obj, k) => obj?.[k], theme);
+  }
+  return theme[key];
+};
+
+/**
+ * Resolve a theme value with a fallback theme mapping.
+ * First tries the primary mapping (e.g., theme.semanticColor.background for simplified tokens).
+ * If not found, falls back to the secondary mapping (e.g., theme.color for full color values).
+ * This ensures backward compatibility while supporting simplified token names.
+ */
+export const resolveThemeValueWithFallback = (
+  value: any,
+  primaryMapping: any,
+  fallbackMapping?: any
+): any => {
+  const resolved = resolveThemeValue(value, primaryMapping);
+
+  // If the value was resolved (changed from input), return it
+  if (resolved !== value) {
+    return resolved;
+  }
+
+  // If we have a fallback mapping and the primary didn't resolve, try the fallback
+  if (fallbackMapping) {
+    return resolveThemeValue(value, fallbackMapping);
+  }
+
+  return resolved;
+};

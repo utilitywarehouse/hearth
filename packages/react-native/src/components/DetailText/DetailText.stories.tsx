@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { DetailText } from '.';
 import { VariantTitle } from '../../../docs/components';
-import { coloursAsArray } from '../../utils';
+import { coloursAsArray, textColorKeys } from '../../utils';
 import { Box } from '../Box';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -24,7 +24,6 @@ const meta = {
       control: 'boolean',
       description: 'Truncate the text.',
     },
-
     italic: {
       type: 'boolean',
       control: 'boolean',
@@ -41,7 +40,7 @@ const meta = {
       description: 'Strike through the text.',
     },
     color: {
-      options: coloursAsArray(),
+      options: textColorKeys,
       control: 'select',
       description: 'Color of the text. Use the color name from the theme.',
     },

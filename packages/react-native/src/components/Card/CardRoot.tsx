@@ -123,7 +123,6 @@ Card.displayName = 'Card';
 const styles = StyleSheet.create(theme => ({
   card: {
     overflow: 'hidden',
-    alignItems: 'flex-start',
     borderRadius: theme.components.card.borderRadius,
     variants: {
       spacing: theme.globalStyle.variants.spacing,
