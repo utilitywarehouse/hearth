@@ -32,7 +32,7 @@ const NextPrevPage: React.FC<NextPrevPageProps> = ({
     <div className="sb-unstyled">
       <View style={styles.container}>
         {!!prevLink && (
-          <Card gap="100">
+          <Card gap="100" alignItems="flex-start">
             {!!prevTitle && <Heading size="sm">{prevTitle}</Heading>}
             <CardPressHandler>
               <Link
@@ -47,7 +47,7 @@ const NextPrevPage: React.FC<NextPrevPageProps> = ({
         )}
         <div />
         {!!nextLink && (
-          <Card gap="100">
+          <Card gap="100" alignItems="flex-start">
             {!!nextTitle && <Heading size="sm">{nextTitle}</Heading>}
             <CardPressHandler>
               <Link onPress={() => openLink(nextLink)}>Next Page</Link>
