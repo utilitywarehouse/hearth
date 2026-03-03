@@ -254,7 +254,7 @@ const Modal = ({
             </View>
           ) : null}
           {children}
-          {!stickyFooter && !noButtons ? footer : null}
+          {(!stickyFooter || inNavModal) && !noButtons ? footer : null}
         </View>
       )}
     </>

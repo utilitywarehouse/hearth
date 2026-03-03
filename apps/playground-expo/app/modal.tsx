@@ -43,7 +43,7 @@ export default function ModalScreen() {
   return (
     <Modal
       ref={modalRef}
-      fullscreen
+      inNavModal
       onPressCloseButton={handleClose}
       primaryButtonText="Action"
       onPressPrimaryButton={handleClose}
