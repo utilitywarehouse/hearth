@@ -139,6 +139,7 @@ export const WithBadge: Story = {
     label: 'Label',
     helperText: 'Helper text',
   },
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   render: ({ checked: checkedArg = false, onChange, ...args }) => {
     const [checked, setChecked] = React.useState(checkedArg);
     useEffect(() => {
