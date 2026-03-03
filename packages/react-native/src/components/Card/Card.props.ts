@@ -1,7 +1,8 @@
-import { PressableProps, ViewStyle } from 'react-native';
-import { GapProps, MarginProps, SpacingValues } from '../../types';
+import { PressableProps } from 'react-native';
+import { DisplayProps, FlexLayoutProps, GapProps, MarginProps, SpacingValues } from '../../types';
 
-interface CardProps extends PressableProps, MarginProps, GapProps {
+interface CardProps
+  extends PressableProps, MarginProps, GapProps, FlexLayoutProps, Omit<DisplayProps, 'direction'> {
   variant?: 'emphasis' | 'subtle';
   colorScheme?:
     | 'neutralStrong'
@@ -25,12 +26,8 @@ interface CardProps extends PressableProps, MarginProps, GapProps {
   noPadding?: boolean;
   disabled?: boolean;
   spacing?: SpacingValues;
-  /** @deprecated Use `spacing` instead. The `gap` prop will be removed in a future release. */
+  /** @deprecated Use `spacing` instead. The `space` prop will be removed in a future release. */
   space?: SpacingValues;
-  alignItems?: ViewStyle['alignItems'];
-  justifyContent?: ViewStyle['justifyContent'];
-  flexDirection?: ViewStyle['flexDirection'];
-  flexWrap?: ViewStyle['flexWrap'];
 }
 
 export default CardProps;
