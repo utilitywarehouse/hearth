@@ -29,7 +29,7 @@ import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 
 ## Alternatives
 
-- CheckboxGroup: For multi-select.
+- `CheckboxGroup`: For multi-select.
 
 ## Usage
 
@@ -138,11 +138,18 @@ present a specific grid layout.
 
 <Canvas of={Stories.WithGrid} />
 
-## RadioTile width
+## RadioTile layout
 
-`RadioTile` components will, by default, stretch to fill the width of the
-`RadioGroup`, however you can set the `fitContent` prop to make them only take
-up as much width as they need.
+`RadioTile` components will, by default, fit their content. However they have
+access to all flex item props, so you can set them to grow and fill the
+available space, or to have a specific width.
+
+```tsx
+<RadioGroup direction="row" label="Numbers">
+  <RadioTile value="1" label="One" flex="1" />
+  <RadioTile value="2" label="Two" flex="1" />
+</RadioGroup>
+```
 
 ## Controlled
 

@@ -2,11 +2,13 @@
 '@utilitywarehouse/hearth-react': patch
 ---
 
-💅 [ENHANCEMENT]: Add `fitContent` prop to `RadioTile`
+🌟 [FEATURE]: Add flex item props to `RadioTile` component
 
-This change introduces a new `fitContent` prop to the `RadioTile` component,
-allowing it to adjust its size based on its content. When `fitContent` is set to
-`true`, the tile will shrink to fit its content instead of expanding to fill the
-available space.
+This change adds all the `flexItem` props to the `RadioTile` component to
+support better layout control when using `RadioTile` within flex containers. The
+following props have been added:
 
-This change also adds all the `flexItem` props to the `RadioTile` component.
+- `flex`
+- `flexBasis`
+- `flexGrow`
+- `flexShrink`

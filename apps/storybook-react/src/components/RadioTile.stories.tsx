@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { RadioTile, Flex, RadioGroup, Badge } from '@utilitywarehouse/hearth-react';
+import { RadioTile, Flex, RadioGroup, Badge, Box } from '@utilitywarehouse/hearth-react';
 import { MoneyMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import mastercard from '../assets/mastercard.png';
 import visa from '../assets/visa.png';
@@ -53,13 +53,13 @@ export const FitContent: Story = {
     return (
       <Flex gap="500" direction="column">
         <RadioGroup label="Do you have a meter?" direction="row">
-          <RadioTile {...args} value="y" label="Yes" flex="0 0 auto" />
-          <RadioTile {...args} value="n" label="No" flex="0 0 auto" />
+          <RadioTile {...args} value="y" label="Yes" />
+          <RadioTile {...args} value="n" label="No" />
         </RadioGroup>
 
         <RadioGroup label="how would you like to pay?" direction="row">
-          <RadioTile {...args} value="1" label="Budget plan" fitContent />
-          <RadioTile {...args} value="2" label="Monthly in arrears" fitContent />
+          <RadioTile {...args} value="1" label="Budget plan" flex="1" />
+          <RadioTile {...args} value="2" label="Monthly in arrears" flex="1" />
         </RadioGroup>
 
         <RadioGroup label="how would you like to pay?" direction="row">

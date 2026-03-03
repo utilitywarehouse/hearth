@@ -8,10 +8,6 @@
   max-width: var(--h-radio-tile-max-width);
   cursor: pointer;
 
-  &:where(:not([data-fit-content])) {
-    flex: 1 1 0%;
-  }
-
   * {
     cursor: pointer;
   }

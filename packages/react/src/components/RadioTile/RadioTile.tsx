@@ -22,7 +22,6 @@ export const RadioTile = ({
   image,
   'aria-labelledby': ariaLabelledby,
   badge,
-  fitContent,
   flex,
   flexBasis,
   flexShrink,
@@ -34,7 +33,7 @@ export const RadioTile = ({
   const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
   const flexItemProps = { flex, flexBasis, flexShrink, flexGrow };
   return (
-    <Box asChild {...flexItemProps} data-fit-content={fitContent ? '' : undefined}>
+    <Box asChild {...flexItemProps}>
       <RadioGroupPrimitive.Item
         className={cn(componentClassName, className)}
         {...props}
