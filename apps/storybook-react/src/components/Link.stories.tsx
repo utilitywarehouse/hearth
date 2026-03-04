@@ -6,6 +6,7 @@ import {
   ChevronRightSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../storybook-components/StoryGallery';
+import React from 'react';
 
 const meta: Meta<typeof Link> = {
   title: 'Stories / Link',
@@ -58,22 +59,31 @@ export const WithIcons: Story = {
 };
 
 export const AsButton: Story = {
-  render: () => (
-    <Flex direction="column" gap="300">
-      <Link asChild>
-        <button onClick={() => alert('Hello world!')}>
-          View UW services
-          <ChevronRightSmallIcon />
-        </button>
-      </Link>
-      <Link asChild>
-        <button aria-disabled onClick={e => e.preventDefault()}>
-          View UW services
-          <ChevronRightSmallIcon />
-        </button>
-      </Link>
-    </Flex>
-  ),
+  render: () => {
+    const [emailBtnDisabled, setEmailBtnDisabled] = React.useState(false);
+    return (
+      <Flex direction="column" gap="300">
+        <Link asChild>
+          <button onClick={() => alert('Hello world!')}>
+            View UW services
+            <ChevronRightSmallIcon />
+          </button>
+        </Link>
+        <Link asChild>
+          <button aria-disabled onClick={e => e.preventDefault()}>
+            View UW services
+            <ChevronRightSmallIcon />
+          </button>
+        </Link>
+        <Link asChild>
+          <button aria-disabled={emailBtnDisabled} onClick={e => e.preventDefault()}>
+            View UW services
+            <ChevronRightSmallIcon />
+          </button>
+        </Link>
+      </Flex>
+    );
+  },
 };
 
 export const Inverted: Story = {

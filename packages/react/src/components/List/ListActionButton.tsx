@@ -15,10 +15,15 @@ type ListActionButtonElement = ComponentRef<'button'>;
 export const ListActionButton = React.forwardRef<
   ListActionButtonElement,
   React.ComponentPropsWithRef<'button'>
->(({ className, children, ...props }, ref) => {
+>(({ className, children, disabled, onClick, ...props }, ref) => {
   return (
     <BodyText ref={ref} size="md" weight="semibold" asChild>
-      <button className={cn(componentClassName, className)} {...props}>
+      <button
+        className={cn(componentClassName, className)}
+        {...props}
+        aria-disabled={disabled || undefined}
+        onClick={disabled ? undefined : onClick}
+      >
         {children}
         <ChevronRightSmallIcon />
       </button>
