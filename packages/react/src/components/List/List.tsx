@@ -8,11 +8,14 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
 import { useIds } from '../../hooks/use-ids';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'List';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const List = React.forwardRef<HTMLDivElement, ListProps>((props, ref) => {
+type ListElement = ComponentRef<'ol'>;
+
+export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
   const {
     id: providedId,
     as: Tag = 'ul',
@@ -53,7 +56,7 @@ export const List = React.forwardRef<HTMLDivElement, ListProps>((props, ref) => 
   };
 
   return (
-    <div ref={ref} className={cn(componentClassName, className)}>
+    <div className={cn(componentClassName, className)}>
       {heading ? <SectionHeader id={labelId} {...sectionHeaderProps} /> : null}
       {variant === undefined || colorScheme === undefined ? (
         <Box
@@ -63,7 +66,9 @@ export const List = React.forwardRef<HTMLDivElement, ListProps>((props, ref) => 
           role="list"
           {...attributeProps}
         >
-          <Tag {...listProps}>{children}</Tag>
+          <Tag ref={ref} {...listProps}>
+            {children}
+          </Tag>
         </Box>
       ) : (
         <Card
@@ -72,7 +77,7 @@ export const List = React.forwardRef<HTMLDivElement, ListProps>((props, ref) => 
           variant={variant}
           colorScheme={colorScheme}
         >
-          <Tag role="list" id={id} {...listProps} {...attributeProps}>
+          <Tag ref={ref} role="list" id={id} {...listProps} {...attributeProps}>
             {children}
           </Tag>
         </Card>

@@ -5,11 +5,14 @@ import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { DropdownMenu as MenuPrimitive } from 'radix-ui';
 import type { MenuItemProps } from './MenuItem.props';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'MenuItem';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(
+type MenuItemElement = ComponentRef<'div'>;
+
+export const MenuItem = React.forwardRef<MenuItemElement, MenuItemProps>(
   ({ className, colorScheme = 'functional', ...props }, ref) => {
     return (
       <MenuPrimitive.DropdownMenuItem

@@ -1,6 +1,6 @@
 import { MarginProps } from '../../props/margin.props';
 
-interface CommonProgressStepperProps extends MarginProps {
+export interface CommonProgressStepperProps extends MarginProps {
   /**
    * Whether to hide step labels
    * @default false

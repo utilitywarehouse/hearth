@@ -1,5 +1,7 @@
 'use client';
 
+import * as React from 'react';
+import type { ComponentRef } from 'react';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ProgressStepProps } from './ProgressStep.props';
@@ -9,44 +11,50 @@ import { BodyText } from '../BodyText/BodyText';
 const COMPONENT_NAME = 'ProgressStep';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const ProgressStep = ({
-  status,
-  label,
-  className,
-  children,
-  'aria-label': ariaLabel,
-  ...props
-}: ProgressStepProps) => {
-  const isStatus = (currentStatus: typeof status) => currentStatus === status;
+type ProgressStepElement = ComponentRef<'li'>;
 
-  const ariaLabelText = [label, `${status} step`, ariaLabel].filter(t => t).join(', ');
+export const ProgressStep = React.forwardRef<ProgressStepElement, ProgressStepProps>(
+  ({ status, label, className, children, 'aria-label': ariaLabel, ...props }, ref) => {
+    const isStatus = (currentStatus: typeof status) => currentStatus === status;
 
-  return (
-    <li
-      className={cn(componentClassName, className)}
-      aria-current={isStatus('active') ? 'step' : undefined}
-      aria-label={ariaLabelText}
-      aria-live="polite"
-      {...props}
-    >
-      <div className={`${componentClassName}Row`}>
-        <span className={`${componentClassName}Indicator`} data-status={status} aria-hidden="true">
-          {isStatus('complete') ? <TickSmallIcon /> : null}
-        </span>
-        <div className={`${componentClassName}Connector`} data-status={status} aria-hidden="true" />
-      </div>
+    const ariaLabelText = [label, `${status} step`, ariaLabel].filter(t => t).join(', ');
 
-      <BodyText
-        as="div"
-        size="md"
-        className={`${componentClassName}Label`}
-        // we use this to avoid layout shift when transitioning to semibold text
-        data-content={label}
+    return (
+      <li
+        ref={ref}
+        className={cn(componentClassName, className)}
+        aria-current={isStatus('active') ? 'step' : undefined}
+        aria-label={ariaLabelText}
+        aria-live="polite"
+        {...props}
       >
-        {children || label}
-      </BodyText>
-    </li>
-  );
-};
+        <div className={`${componentClassName}Row`}>
+          <span
+            className={`${componentClassName}Indicator`}
+            data-status={status}
+            aria-hidden="true"
+          >
+            {isStatus('complete') ? <TickSmallIcon /> : null}
+          </span>
+          <div
+            className={`${componentClassName}Connector`}
+            data-status={status}
+            aria-hidden="true"
+          />
+        </div>
+
+        <BodyText
+          as="div"
+          size="md"
+          className={`${componentClassName}Label`}
+          // we use this to avoid layout shift when transitioning to semibold text
+          data-content={label}
+        >
+          {children || label}
+        </BodyText>
+      </li>
+    );
+  }
+);
 
 ProgressStep.displayName = COMPONENT_NAME;

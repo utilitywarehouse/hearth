@@ -1,6 +1,6 @@
 import { MarginProps } from '../../props/margin.props';
 
-interface CommonPaginationProps extends MarginProps {
+export interface CommonPaginationProps extends MarginProps {
   /**
    * Shorthand for changing the default rendered element into a semantically appropriate alternative.
    * @default div

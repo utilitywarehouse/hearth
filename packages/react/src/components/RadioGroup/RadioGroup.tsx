@@ -1,5 +1,7 @@
 'use client';
 
+import * as React from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -10,59 +12,66 @@ import { FormGroupBase } from '../FormGroupBase/FormGroupBase';
 const COMPONENT_NAME = 'RadioGroup';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const RadioGroup = ({
-  children,
-  contentWidth,
-  direction = 'column',
-  className,
-  label,
-  labelVariant,
-  helperText,
-  validationText,
-  validationStatus,
-  required,
-  disabled,
-  loop,
-  defaultValue,
-  value,
-  onValueChange,
-  name,
-  ...props
-}: RadioGroupProps) => {
-  const formGroupBaseProps = {
-    ...props,
-    disabled,
-    required,
-    label,
-    labelVariant,
-    helperText,
-    validationText,
-    validationStatus,
-  };
-  const radioGroupRootProps = {
-    width: contentWidth,
-    direction,
-    name,
-    required,
-    disabled,
-    loop,
-    defaultValue,
-    value,
-    onValueChange,
-  };
+type RadioGroupElement = ComponentRef<'fieldset'>;
 
-  return (
-    <FormGroupBase {...formGroupBaseProps}>
-      <RadioGroupPrimitive.Root
-        asChild
-        className={cn(componentClassName, className)}
-        {...radioGroupRootProps}
-        orientation={direction === 'column' ? 'vertical' : 'horizontal'}
-      >
-        <Flex width={contentWidth}>{children}</Flex>
-      </RadioGroupPrimitive.Root>
-    </FormGroupBase>
-  );
-};
+export const RadioGroup = React.forwardRef<RadioGroupElement, RadioGroupProps>(
+  (
+    {
+      children,
+      contentWidth,
+      direction = 'column',
+      className,
+      label,
+      labelVariant,
+      helperText,
+      validationText,
+      validationStatus,
+      required,
+      disabled,
+      loop,
+      defaultValue,
+      value,
+      onValueChange,
+      name,
+      ...props
+    },
+    ref
+  ) => {
+    const formGroupBaseProps = {
+      ...props,
+      disabled,
+      required,
+      label,
+      labelVariant,
+      helperText,
+      validationText,
+      validationStatus,
+    };
+    const radioGroupRootProps = {
+      width: contentWidth,
+      direction,
+      name,
+      required,
+      disabled,
+      loop,
+      defaultValue,
+      value,
+      onValueChange,
+    };
+
+    return (
+      <FormGroupBase ref={ref} {...formGroupBaseProps}>
+        <RadioGroupPrimitive.Root
+          asChild
+          className={cn(componentClassName, className)}
+          {...radioGroupRootProps}
+          orientation={direction === 'column' ? 'vertical' : 'horizontal'}
+        >
+          <Flex width={contentWidth}>{children}</Flex>
+        </RadioGroupPrimitive.Root>
+      </FormGroupBase>
+    );
+  }
+);
 
 RadioGroup.displayName = COMPONENT_NAME;

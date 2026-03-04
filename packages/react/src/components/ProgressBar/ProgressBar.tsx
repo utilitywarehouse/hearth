@@ -10,11 +10,15 @@ import { ProgressBarLinear } from './ProgressBarLinear';
 import { valueToPercent } from '../../helpers/value-to-percent';
 import { useIds } from '../../hooks/use-ids';
 import { ProgressBarCircular } from './ProgressBarCircular';
+import * as React from 'react';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'ProgressBar';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const ProgressBar = (props: ProgressBarProps) => {
+type ProgressBarElement = ComponentRef<'div'>;
+
+export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps>((props, ref) => {
   const {
     className,
     variant = 'linear',
@@ -49,6 +53,7 @@ export const ProgressBar = (props: ProgressBarProps) => {
 
   return (
     <div
+      ref={ref}
       className={cn(componentClassName, className)}
       role="progressbar"
       aria-valuenow={effectiveValue}
@@ -63,6 +68,6 @@ export const ProgressBar = (props: ProgressBarProps) => {
       {variant === 'circular' ? <ProgressBarCircular {...internalProgressBarProps} /> : null}
     </div>
   );
-};
+});
 
 ProgressBar.displayName = COMPONENT_NAME;

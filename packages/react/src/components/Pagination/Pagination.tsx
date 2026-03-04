@@ -1,5 +1,6 @@
 'use client';
 
+import * as React from 'react';
 import { cn } from '../../helpers/cn';
 import {
   ChevronLeftSmallIcon,
@@ -15,9 +16,12 @@ import { Button } from '../Button/Button';
 import { BodyText } from '../BodyText/BodyText';
 import type { PaginationProps } from './Pagination.props';
 import { Slot } from 'radix-ui';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'Pagination';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
+
+type PaginationElement = ComponentRef<'div'>;
 
 const ELLIPSIS = '...';
 const MAX_VISIBLE_ITEMS = 7;
@@ -63,7 +67,7 @@ const generatePageNumbers = (
   return pages;
 };
 
-export const Pagination = (props: PaginationProps) => {
+export const Pagination = React.forwardRef<PaginationElement, PaginationProps>((props, ref) => {
   const {
     className,
     currentPage,
@@ -103,6 +107,7 @@ export const Pagination = (props: PaginationProps) => {
 
   return (
     <Slot.Root
+      ref={ref}
       aria-label="pagination"
       className={cn(componentClassName, className)}
       {...paginationProps}
@@ -194,6 +199,6 @@ export const Pagination = (props: PaginationProps) => {
       </Tag>
     </Slot.Root>
   );
-};
+});
 
 Pagination.displayName = COMPONENT_NAME;
