@@ -14,11 +14,14 @@ import type { BodyTextProps } from '../BodyText/BodyText.props';
 import { Box } from '../Box/Box';
 import type { BoxProps } from '../Box/Box.props';
 import { getResponsiveTranslation } from '../../helpers/get-responsive-translation';
+import type { ComponentRef } from 'react';
+
+type AvatarElement = ComponentRef<'div'>;
 
 const COMPONENT_NAME = 'Avatar';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Avatar = ({ ref, ...props }: AvatarProps) => {
+export const Avatar = React.forwardRef<AvatarElement, AvatarProps>((props, ref) => {
   const {
     className,
     src,
@@ -72,6 +75,6 @@ export const Avatar = ({ ref, ...props }: AvatarProps) => {
       </AvatarPrimitive.Fallback>
     </AvatarPrimitive.Root>
   );
-};
+});
 
 Avatar.displayName = COMPONENT_NAME;
