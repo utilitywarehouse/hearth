@@ -1,5 +1,7 @@
 'use client';
 
+import * as React from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { EmProps } from './Em.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -13,7 +15,9 @@ import { marginPropDefs } from '../../props/margin.props';
 const COMPONENT_NAME = 'Em';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Em = (props: EmProps) => {
+type EmElement = ComponentRef<'em'>;
+
+export const Em = React.forwardRef<EmElement, EmProps>((props, ref) => {
   const { className, asChild, children, truncate, ...emProps } = extractProps(
     props,
     textAlignPropDefs,
@@ -23,6 +27,7 @@ export const Em = (props: EmProps) => {
   );
   return (
     <Slot.Root
+      ref={ref}
       className={cn(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
       {...emProps}
@@ -30,6 +35,6 @@ export const Em = (props: EmProps) => {
       {asChild ? children : <em>{children}</em>}
     </Slot.Root>
   );
-};
+});
 
 Em.displayName = COMPONENT_NAME;

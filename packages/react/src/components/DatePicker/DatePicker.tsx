@@ -15,11 +15,14 @@ import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
 import { Portal } from 'radix-ui';
 import * as React from 'react';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'DatePicker';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const DatePicker = (props: DatePickerProps) => {
+type DatePickerElement = ComponentRef<'button'>;
+
+export const DatePicker = React.forwardRef<DatePickerElement, DatePickerProps>((props, ref) => {
   const {
     className,
     onChange,
@@ -34,9 +37,9 @@ export const DatePicker = (props: DatePickerProps) => {
     disabled,
     readOnly,
     required,
-    ref,
     ...datePickerProps
   } = extractProps(props, marginPropDefs);
+
   const [calendarOpen, setCalendarOpen] = React.useState(false);
   const [view, setView] = React.useState<View>('days');
 
@@ -192,6 +195,6 @@ export const DatePicker = (props: DatePickerProps) => {
       />
     </FormField>
   );
-};
+});
 
 DatePicker.displayName = COMPONENT_NAME;

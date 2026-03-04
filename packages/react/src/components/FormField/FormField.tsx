@@ -10,7 +10,7 @@ import { FormFieldProps } from './FormField.props';
 const COMPONENT_NAME = 'FormField';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const FormField: React.FC<FormFieldProps> = ({
+export const FormField = ({
   className,
   validationStatus,
   validationText,
@@ -25,7 +25,7 @@ export const FormField: React.FC<FormFieldProps> = ({
   validationTextId,
   required,
   ...props
-}) => {
+}: FormFieldProps) => {
   const showValidationText = Boolean(
     validationStatus !== undefined && validationText !== undefined
   );

@@ -1,3 +1,5 @@
+import * as React from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { InlineLinkProps } from './InlineLink.props';
@@ -10,7 +12,9 @@ import { OpenSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 const COMPONENT_NAME = 'InlineLink';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const InlineLink = (props: InlineLinkProps) => {
+type InlineLinkElement = ComponentRef<'a'>;
+
+export const InlineLink = React.forwardRef<InlineLinkElement, InlineLinkProps>((props, ref) => {
   const {
     className,
     color = 'default',
@@ -21,6 +25,7 @@ export const InlineLink = (props: InlineLinkProps) => {
   } = extractProps(props, marginPropDefs, textTransformPropDefs);
   return (
     <Slot.Root
+      ref={ref}
       className={cn(componentClassName, className)}
       data-inverted={color === 'inverted' ? '' : undefined}
       data-inherit-color={color === 'inherit' ? '' : undefined}
@@ -41,6 +46,6 @@ export const InlineLink = (props: InlineLinkProps) => {
       )}
     </Slot.Root>
   );
-};
+});
 
 InlineLink.displayName = COMPONENT_NAME;

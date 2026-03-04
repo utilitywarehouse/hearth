@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { cn } from '../../helpers/cn';
 import type { ListProps } from './List.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -11,7 +12,7 @@ import { useIds } from '../../hooks/use-ids';
 const COMPONENT_NAME = 'List';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const List = (props: ListProps) => {
+export const List = React.forwardRef<HTMLDivElement, ListProps>((props, ref) => {
   const {
     id: providedId,
     as: Tag = 'ul',
@@ -52,7 +53,7 @@ export const List = (props: ListProps) => {
   };
 
   return (
-    <div className={cn(componentClassName, className)}>
+    <div ref={ref} className={cn(componentClassName, className)}>
       {heading ? <SectionHeader id={labelId} {...sectionHeaderProps} /> : null}
       {variant === undefined || colorScheme === undefined ? (
         <Box
@@ -78,6 +79,6 @@ export const List = (props: ListProps) => {
       )}
     </div>
   );
-};
+});
 
 List.displayName = COMPONENT_NAME;

@@ -1,3 +1,5 @@
+import * as React from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
@@ -10,7 +12,9 @@ import { textTransformPropDefs } from '../../props/text-transform.props';
 const COMPONENT_NAME = 'HelperText';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const HelperText = (props: HelperTextProps) => {
+type HelperTextElement = ComponentRef<'span'>;
+
+export const HelperText = React.forwardRef<HelperTextElement, HelperTextProps>((props, ref) => {
   const { children, disabled, disableUserSelect, className, ...helperTextProps } = extractProps(
     props,
     marginPropDefs,
@@ -19,6 +23,7 @@ export const HelperText = (props: HelperTextProps) => {
   );
   return (
     <BodyText
+      ref={ref}
       size="md"
       as="span"
       className={cn(componentClassName, className)}
@@ -29,6 +34,6 @@ export const HelperText = (props: HelperTextProps) => {
       {children}
     </BodyText>
   );
-};
+});
 
 HelperText.displayName = COMPONENT_NAME;

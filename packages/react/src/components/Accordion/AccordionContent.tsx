@@ -1,12 +1,12 @@
 'use client';
 
-import * as React from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { AccordionContentProps } from './AccordionContent.props';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
 import { BodyText } from '../BodyText/BodyText';
 import type { ComponentRef } from 'react';
+import * as React from 'react';
 
 const COMPONENT_NAME = 'AccordionContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);

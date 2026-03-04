@@ -11,8 +11,6 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export type InputBaseElement = ComponentRef<'input'>;
 
-// We're keeping the forwardRef API here for backwards compatibility with consumers using Combobox in React 18 applications
-// https://linear.app/utilitywarehouse/issue/UWDS-4232/broken-combobox
 export const InputBase = React.forwardRef<InputBaseElement, InputBaseProps>(
   ({ className, children, disabled, readOnly, required, placeholder, ...props }, forwardedRef) => {
     const localRef = React.useRef<HTMLInputElement>(null);

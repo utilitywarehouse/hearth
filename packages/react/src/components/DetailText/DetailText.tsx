@@ -1,5 +1,7 @@
 'use client';
 
+import * as React from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { detailTextPropDefs } from './DetailText.props';
 import type { DetailTextProps } from './DetailText.props';
@@ -14,7 +16,9 @@ import { marginPropDefs } from '../../props/margin.props';
 const COMPONENT_NAME = 'DetailText';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const DetailText = (props: DetailTextProps) => {
+type DetailTextElement = ComponentRef<'span'>;
+
+export const DetailText = React.forwardRef<DetailTextElement, DetailTextProps>((props, ref) => {
   const {
     className,
     asChild,
@@ -33,6 +37,7 @@ export const DetailText = (props: DetailTextProps) => {
 
   return (
     <Slot.Root
+      ref={ref}
       className={cn(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
       {...detailTextProps}
@@ -40,6 +45,6 @@ export const DetailText = (props: DetailTextProps) => {
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot.Root>
   );
-};
+});
 
 DetailText.displayName = COMPONENT_NAME;

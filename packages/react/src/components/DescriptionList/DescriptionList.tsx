@@ -1,5 +1,7 @@
 'use client';
 
+import * as React from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
@@ -12,41 +14,45 @@ import { Flex } from '../Flex/Flex';
 const COMPONENT_NAME = 'DescriptionList';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const DescriptionList = (props: DescriptionListProps) => {
-  const {
-    className,
-    heading,
-    headingElement,
-    helperText,
-    trailingContent,
-    children,
-    direction,
-    validationText,
-    validationStatus,
-    ...listProps
-  } = extractProps(props, marginPropDefs);
+type DescriptionListElement = ComponentRef<'dl'>;
 
-  const sectionHeaderProps = {
-    heading,
-    headingElement,
-    helperText,
-    trailingContent,
-    validationText,
-    validationStatus,
-  };
+export const DescriptionList = React.forwardRef<DescriptionListElement, DescriptionListProps>(
+  (props, ref) => {
+    const {
+      className,
+      heading,
+      headingElement,
+      helperText,
+      trailingContent,
+      children,
+      direction,
+      validationText,
+      validationStatus,
+      ...listProps
+    } = extractProps(props, marginPropDefs);
 
-  return (
-    <div className={cn(componentClassName, className)}>
-      {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
-      <Flex asChild className={`${componentClassName}Container`} role="list">
-        <dl role="list" {...listProps}>
-          <DescriptionListContext.Provider value={{ direction }}>
-            {children}
-          </DescriptionListContext.Provider>
-        </dl>
-      </Flex>
-    </div>
-  );
-};
+    const sectionHeaderProps = {
+      heading,
+      headingElement,
+      helperText,
+      trailingContent,
+      validationText,
+      validationStatus,
+    };
+
+    return (
+      <div className={cn(componentClassName, className)}>
+        {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
+        <Flex asChild className={`${componentClassName}Container`} role="list">
+          <dl ref={ref} role="list" {...listProps}>
+            <DescriptionListContext.Provider value={{ direction }}>
+              {children}
+            </DescriptionListContext.Provider>
+          </dl>
+        </Flex>
+      </div>
+    );
+  }
+);
 
 DescriptionList.displayName = COMPONENT_NAME;
