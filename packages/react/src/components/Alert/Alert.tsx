@@ -15,11 +15,14 @@ import { marginPropDefs } from '../../props/margin.props';
 import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
 import { UnstyledIconButton } from '../UnstyledIconButton/UnstyledIconButton';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'Alert';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Alert = (props: AlertProps) => {
+type AlertElement = ComponentRef<'div'>;
+
+export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => {
   const icons = {
     info: InfoMediumIcon,
     positive: TickCircleMediumIcon,
@@ -40,10 +43,11 @@ export const Alert = (props: AlertProps) => {
 
   return (
     <div
+      ref={ref}
       className={cn(componentClassName, className)}
-      role="alert" // Adding role for dynamic alerts
-      aria-live="assertive" // Making it announced immediately
-      aria-atomic="true" // Ensuring the entire alert is read as a whole
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
       data-colorScheme={colorScheme}
       {...alertProps}
     >
@@ -71,6 +75,6 @@ export const Alert = (props: AlertProps) => {
       ) : null}
     </div>
   );
-};
+});
 
 Alert.displayName = COMPONENT_NAME;

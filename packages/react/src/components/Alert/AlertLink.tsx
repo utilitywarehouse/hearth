@@ -6,14 +6,18 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Link } from '../Link/Link';
 import type { LinkProps } from '../Link/Link.props';
 import { Slot } from 'radix-ui';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'AlertLink';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const AlertLink = (props: LinkProps) => {
+type AlertLinkElement = ComponentRef<'a'>;
+
+export const AlertLink = React.forwardRef<AlertLinkElement, LinkProps>((props, ref) => {
   const { children, asChild, ...linkProps } = props;
   return (
     <Link
+      ref={ref}
       className={cn(componentClassName)}
       data-icon-only={children ? undefined : ''}
       asChild={asChild}
@@ -23,6 +27,6 @@ export const AlertLink = (props: LinkProps) => {
       <ChevronRightSmallIcon />
     </Link>
   );
-};
+});
 
 AlertLink.displayName = COMPONENT_NAME;
