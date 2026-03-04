@@ -109,6 +109,7 @@ The Modal component extends the `BottomSheetModal` component and accepts all of 
 | `closeButtonProps`            | `Omit<UnstyledIconButtonProps, 'children'>`                        | Additional props to pass to the close button                                                                  | -              |
 | `fullscreen`                  | `boolean`                                                          | Whether the modal should take up the full screen height                                                       | `false`        |
 | `inNavModal`                  | `boolean`                                                          | Renders the modal correctly when used inside a navigation modal                                               | `false`        |
+| `background`                  | `'default' \| 'brand'`                                             | Sets the modal background. Only applies when `inNavModal` is `true`                                           | `'default'`    |
 
 \* use this to detect if the modal has been opened or closed, index 0 indicates open state and -1 indicates closed state
 

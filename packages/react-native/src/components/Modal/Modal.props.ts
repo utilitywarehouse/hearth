@@ -25,6 +25,7 @@ interface ModalProps extends Omit<BottomSheetProps, 'children'> {
   primaryButtonProps?: Omit<ButtonWithoutChildrenProps, 'children'>;
   secondaryButtonProps?: Omit<ButtonWithoutChildrenProps, 'children'>;
   closeButtonProps?: Omit<UnstyledIconButtonProps, 'children'>;
+  background?: 'default' | 'brand';
 }
 
 export default ModalProps;
