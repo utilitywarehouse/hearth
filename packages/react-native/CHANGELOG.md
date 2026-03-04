@@ -1,5 +1,26 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.23.0
+
+### Minor Changes
+
+- [#975](https://github.com/utilitywarehouse/hearth/pull/975) [`102f04e`](https://github.com/utilitywarehouse/hearth/commit/102f04e0d560cf0faa21da5020c230e88e857251) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add a `background` option for Modal when used inside navigation modals
+
+  Modal now supports a `background` prop with `default` and `brand` values. When `background="brand"` is used in a navigation modal, the buttons and close icon invert for contrast, and the content area is scrollable.
+
+  **Components affected**:
+  - `Modal`
+
+  **Developer changes**:
+
+  No changes required. To opt in to the brand background:
+
+  ```tsx
+  <Modal background="brand" inNavModal>
+    ...
+  </Modal>
+  ```
+
 ## 0.22.1
 
 ### Patch Changes

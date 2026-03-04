@@ -1,5 +1,21 @@
 # @utilitywarehouse/hearth-react
 
+## 0.25.1
+
+### Patch Changes
+
+- [#970](https://github.com/utilitywarehouse/hearth/pull/970) [`7829fdc`](https://github.com/utilitywarehouse/hearth/commit/7829fdc8c4accab0f5e25ae121ff457681f1c94c) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `SectionHeader` margin props now applied to the container, not the heading.
+
+- [#972](https://github.com/utilitywarehouse/hearth/pull/972) [`9914d76`](https://github.com/utilitywarehouse/hearth/commit/9914d7617603777e2dd77823fec7e4c88dee956f) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Disabled button styles
+
+  This change ensures the following button components correctly apply disabled
+  styles when the `disabled` prop is set.
+
+  ## Components affected
+  - `CardActionButton`
+  - `ListActionButton`
+  - `ListItemButton`
+
 ## 0.25.0
 
 ### Minor Changes
