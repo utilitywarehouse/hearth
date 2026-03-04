@@ -4,6 +4,7 @@ import { Heading } from '../Heading/Heading';
 import { HelperText } from '../HelperText/HelperText';
 import type { SectionHeaderProps } from './SectionHeader.props';
 import { ValidationText } from '../ValidationText/ValidationText';
+import { Box } from '../Box/Box';
 
 const COMPONENT_NAME = 'SectionHeader';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -21,8 +22,8 @@ export const SectionHeader = ({
 }: SectionHeaderProps) => {
   const showValidationText = validationStatus !== undefined && validationText !== undefined;
   return (
-    <div className={cn(componentClassName, className)}>
-      <Heading asChild size="md" id={id} {...props}>
+    <Box className={cn(componentClassName, className)} {...props}>
+      <Heading asChild size="md" id={id}>
         <HeadingEl>{heading}</HeadingEl>
       </Heading>
       {helperText ? <HelperText>{helperText}</HelperText> : null}
@@ -33,7 +34,7 @@ export const SectionHeader = ({
       {trailingContent ? (
         <span className={`${componentClassName}TrailingContent`}>{trailingContent}</span>
       ) : null}
-    </div>
+    </Box>
   );
 };
 
