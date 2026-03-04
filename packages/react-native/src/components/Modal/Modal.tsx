@@ -210,7 +210,10 @@ const Modal = ({
           screenReaderFocusable
           ref={viewRef}
         >
-          <Spinner size="lg" />
+          <Spinner
+            size="lg"
+            color={isBrandBackground && inNavModal ? theme.color.icon.inverted : undefined}
+          />
           <Heading size="lg" textAlign="center" inverted={isBrandBackground && inNavModal}>
             {loadingHeading}
           </Heading>
