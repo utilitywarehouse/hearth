@@ -7,6 +7,7 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { BreadcrumbsContext } from './Breadcrumbs.context';
 import type { ComponentRef } from 'react';
+import * as React from 'react';
 
 const COMPONENT_NAME = 'Breadcrumbs';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);

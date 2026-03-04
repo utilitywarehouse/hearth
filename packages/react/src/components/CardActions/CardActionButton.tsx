@@ -1,5 +1,6 @@
 'use client';
 
+import * as React from 'react';
 import { cn } from '../../helpers/cn';
 import type { CardActionButtonProps } from './CardActionButton.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';

@@ -1,5 +1,6 @@
 'use client';
 
+import * as React from 'react';
 import { cn } from '../../helpers/cn';
 import { boxPropDefs } from './Box.props';
 import type { BoxProps } from './Box.props';

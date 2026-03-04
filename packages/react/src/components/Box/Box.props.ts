@@ -26,7 +26,7 @@ export const boxPropDefs = {
   display: PropDef<(typeof displayValues)[number]>;
 };
 
-interface CommonBoxProps
+export interface CommonBoxProps
   extends
     BackgroundColorProps,
     BorderColorProps,

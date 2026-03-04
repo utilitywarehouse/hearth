@@ -13,24 +13,30 @@ import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 import type { CheckboxProps } from '../Checkbox/Checkbox.props';
 import { ValidationText } from '../ValidationText/ValidationText';
 import { mergeIds } from '../../helpers/merge-ids';
+import type { ComponentRef } from 'react';
+import * as React from 'react';
+
+type CheckboxTileElement = ComponentRef<'button'>;
 
 const COMPONENT_NAME = 'CheckboxTile';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const CheckboxTile = ({
-  className,
-  id: providedId,
-  disabled,
-  value = 'on',
-  onCheckedChange,
-  label,
-  helperText,
-  image,
-  'aria-labelledby': ariaLabelledby,
-  validationStatus,
-  validationText,
-  ...props
-}: CheckboxProps) => {
+export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxProps>((props, ref) => {
+  const {
+    className,
+    id: providedId,
+    disabled,
+    value = 'on',
+    onCheckedChange,
+    label,
+    helperText,
+    image,
+    'aria-labelledby': ariaLabelledby,
+    validationStatus,
+    validationText,
+    ...restProps
+  } = props;
+
   const { id, labelId, helperTextId, validationTextId } = useIds({
     providedId,
     prefix: 'checkboxtile',
@@ -54,11 +60,12 @@ export const CheckboxTile = ({
   return (
     <label className={cn(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
       <CheckboxPrimitive.Root
+        ref={ref}
         className="h-CheckboxRoot"
         name={checkboxContext?.name}
         checked={checked}
         value={value}
-        {...props}
+        {...restProps}
         id={id}
         disabled={disabled}
         aria-describedby={ariaDescribedbyValue}
@@ -99,6 +106,6 @@ export const CheckboxTile = ({
       </Flex>
     </label>
   );
-};
+});
 
 CheckboxTile.displayName = COMPONENT_NAME;

@@ -5,6 +5,7 @@ import { cn } from '../../helpers/cn';
 import { BodyText } from '../BodyText/BodyText';
 import { IconContainer } from '../IconContainer/IconContainer';
 import type { ComponentRef } from 'react';
+import * as React from 'react';
 
 const COMPONENT_NAME = 'CardActionContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);

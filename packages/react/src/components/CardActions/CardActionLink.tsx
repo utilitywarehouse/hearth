@@ -6,6 +6,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { CardActionContent } from './CardActionContent';
 import type { ComponentRef } from 'react';
+import * as React from 'react';
 
 type CardActionLinkElement = ComponentRef<'a'>;
 
