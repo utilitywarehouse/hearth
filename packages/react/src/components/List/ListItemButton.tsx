@@ -24,6 +24,8 @@ export const ListItemButton = React.forwardRef<ListItemButtonElement, ListItemBu
       badge,
       badgePlacement,
       children,
+      disabled,
+      onClick,
       ...props
     },
     ref
@@ -36,7 +38,13 @@ export const ListItemButton = React.forwardRef<ListItemButtonElement, ListItemBu
       badgePlacement,
     };
     return (
-      <button ref={ref} className={cn(componentClassName, className)} {...props}>
+      <button
+        ref={ref}
+        className={cn(componentClassName, className)}
+        {...props}
+        aria-disabled={disabled || undefined}
+        onClick={disabled ? undefined : onClick}
+      >
         <ListItemContent
           trailingContent={trailingContent ? trailingContent : <ChevronRightSmallIcon />}
           {...contentProps}

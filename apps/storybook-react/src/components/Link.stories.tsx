@@ -58,22 +58,24 @@ export const WithIcons: Story = {
 };
 
 export const AsButton: Story = {
-  render: () => (
-    <Flex direction="column" gap="300">
-      <Link asChild>
-        <button onClick={() => alert('Hello world!')}>
-          View UW services
-          <ChevronRightSmallIcon />
-        </button>
-      </Link>
-      <Link asChild>
-        <button aria-disabled onClick={e => e.preventDefault()}>
-          View UW services
-          <ChevronRightSmallIcon />
-        </button>
-      </Link>
-    </Flex>
-  ),
+  render: () => {
+    return (
+      <Flex direction="column" gap="300">
+        <Link asChild>
+          <button onClick={() => alert('Hello world!')}>
+            View UW services
+            <ChevronRightSmallIcon />
+          </button>
+        </Link>
+        <Link asChild>
+          <button aria-disabled onClick={e => e.preventDefault()}>
+            View UW services
+            <ChevronRightSmallIcon />
+          </button>
+        </Link>
+      </Flex>
+    );
+  },
 };
 
 export const Inverted: Story = {
