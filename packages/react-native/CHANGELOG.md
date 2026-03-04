@@ -1,5 +1,28 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.22.0
+
+### Minor Changes
+
+- [#968](https://github.com/utilitywarehouse/hearth/pull/968) [`cee5811`](https://github.com/utilitywarehouse/hearth/commit/cee5811020af02fe754d8311ec8313c1793f108a) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `badge` support to Radio and Checkbox (including tiles).
+
+  **Components affected**:
+  - `Radio`
+  - `RadioTile`
+  - `Checkbox`
+  - `CheckboxTile`
+
+  **Developer changes**:
+  You can now pass a `badge` React node to render beneath helper text. No changes required unless you want to use the new prop.
+
+### Patch Changes
+
+- [#966](https://github.com/utilitywarehouse/hearth/pull/966) [`4e9f3f0`](https://github.com/utilitywarehouse/hearth/commit/4e9f3f0284e50da5ba4e49e132dac745a1a8a68d) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Allow Card layout props and remove forced alignment
+
+  Card now accepts flex layout and display props, and it no longer forces `alignItems: flex-start` on the root, so custom alignment works as expected.
+
+- [#969](https://github.com/utilitywarehouse/hearth/pull/969) [`c5c988b`](https://github.com/utilitywarehouse/hearth/commit/c5c988b65f1133b85b822037b086a524bc1255e3) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Render the Modal footer in navigation modals
+
 ## 0.21.0
 
 ### Minor Changes
