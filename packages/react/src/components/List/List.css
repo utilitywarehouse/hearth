@@ -51,7 +51,7 @@
       border-color: var(--h-border-strong);
     }
 
-    &:has(button, a):not(:has(.h-Switch), :has(.h-Link)) {
+    &:has(button:not([aria-disabled='true']), a):not(:has(.h-Switch), :has(.h-Link)) {
       @media (hover: hover) {
         &:where(:hover) {
           background-color: var(--h-interactive-neutral-surface-subtle-hover);
@@ -61,6 +61,10 @@
       &:where(:active) {
         background-color: var(--h-interactive-neutral-surface-subtle-active);
       }
+    }
+
+    &:has(button[aria-disabled='true']) {
+      cursor: not-allowed;
     }
 
     & :where(.h-ListItemButton, .h-ListActionButton) {
@@ -80,14 +84,16 @@
       text-decoration: none;
     }
 
-    & :where(.h-ListActionLink, .h-ListActionButton) {
-      cursor: pointer;
+    & :where(.h-ListItemButton, .h-ListItemLink, .h-ListActionLink, .h-ListActionButton) {
       width: 100%;
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
       gap: var(--h-list-item-gap);
+      align-items: center;
+
+      &:not([aria-disabled='true']) {
+        cursor: pointer;
+      }
 
       &::after {
         z-index: 0;
@@ -102,25 +108,8 @@
       }
     }
 
-    & :where(.h-ListItemButton, .h-ListItemLink) {
-      cursor: pointer;
-      width: 100%;
-      display: flex;
-      flex-direction: row;
-      gap: var(--h-list-item-gap);
-      align-items: center;
-
-      &::after {
-        z-index: 0;
-        content: '';
-        position: absolute;
-        inset: 0;
-      }
-
-      &:where(:focus-visible) {
-        outline: 2px solid var(--h-focus-primary);
-        outline-offset: 1px;
-      }
+    & :where(.h-ListActionLink, .h-ListActionButton) {
+      justify-content: space-between;
     }
 
     & :where(.h-ListItemContent) {

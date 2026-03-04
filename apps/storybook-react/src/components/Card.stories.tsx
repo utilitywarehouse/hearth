@@ -665,6 +665,7 @@ export const WithOnlyCardActions: Story = {
           badgePlacement="right"
         />
         <CardActionButton
+          disabled
           leadingIcon={<HomeAndBoilerMediumIcon />}
           leadingIconContainerColorScheme="insurance"
           heading="Boiler & home cover"
@@ -701,7 +702,7 @@ export const WithCardActions: Story = {
         <CardActions direction="column">
           <CardActionButton heading="Download PDF" trailingIcon={<DownloadSmallIcon />} />
           <CardActionButton heading="Open PDF" trailingIcon={<OpenSmallIcon />} />
-          <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} />
+          <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} disabled />
         </CardActions>
       </Card>
       <Card {...args}>
@@ -721,7 +722,7 @@ export const WithCardActions: Story = {
         <CardActions direction={{ mobile: 'column', tablet: 'row' }}>
           <CardActionButton heading="Download PDF" trailingIcon={<DownloadSmallIcon />} />
           <CardActionButton heading="Open PDF" trailingIcon={<OpenSmallIcon />} />
-          <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} />
+          <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} disabled />
         </CardActions>
       </Card>
     </Flex>

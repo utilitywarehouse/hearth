@@ -1,6 +1,7 @@
 import { MarginProps } from '../../props/margin.props';
 
-export interface SectionHeaderProps extends React.ComponentPropsWithRef<'div'>, MarginProps {
+export interface SectionHeaderProps
+  extends Omit<React.ComponentPropsWithRef<'div'>, 'color'>, MarginProps {
   /**
    * Actual string to display as section header
    */

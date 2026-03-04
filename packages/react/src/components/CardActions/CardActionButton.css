@@ -22,12 +22,16 @@
   }
 
   @media (hover: hover) {
-    &:where(:hover) {
+    &:where(:hover):not([aria-disabled='true']) {
       background-color: var(--h-interactive-neutral-surface-subtle-hover);
     }
   }
 
-  &:where(:active) {
+  &:where([aria-disabled='true']) {
+    cursor: not-allowed;
+  }
+
+  &:where(:active):not([aria-disabled='true']) {
     background-color: var(--h-interactive-neutral-surface-subtle-active);
   }
 
