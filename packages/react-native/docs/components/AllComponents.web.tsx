@@ -74,6 +74,7 @@ import {
   OL,
   Pill,
   PillGroup,
+  ProgressBar,
   ProgressStep,
   ProgressStepper,
   Radio,
@@ -661,6 +662,11 @@ const AllComponents: React.FC = () => {
                 <Pill value="broadband" label="Broadband" icon={BroadbandMediumIcon} />
                 <Pill value="mobile" label="Mobile" icon={MobileMediumIcon} />
               </PillGroup>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Progress Bar" link="/?path=/docs/components-progress-bar--docs">
+            <Center flex={1} px="300">
+              <ProgressBar value={58} label="Order progress" />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper
