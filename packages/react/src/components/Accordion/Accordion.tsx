@@ -8,11 +8,14 @@ import { Accordion as AccordionPrimitive } from 'radix-ui';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'Accordion';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Accordion = (props: AccordionProps) => {
+type AccordionElement = ComponentRef<'div'>;
+
+export const Accordion = React.forwardRef<AccordionElement, AccordionProps>((props, ref) => {
   const {
     className,
     type = 'multiple',
@@ -39,11 +42,11 @@ export const Accordion = (props: AccordionProps) => {
   >;
 
   return (
-    <div className={cn(componentClassName, className)}>
+    <div ref={ref} className={cn(componentClassName, className)}>
       {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
       <AccordionPrimitive.Root {...accordionProps} />
     </div>
   );
-};
+});
 
 Accordion.displayName = COMPONENT_NAME;
