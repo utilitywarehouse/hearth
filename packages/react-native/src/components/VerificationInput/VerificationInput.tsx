@@ -87,8 +87,9 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
     };
 
     const handleChangeText = (text: string) => {
+      const prevValue = latestValueRef.current;
       const nextValue = text.slice(0, length);
-      const prevLength = displayValue.length;
+      const prevLength = prevValue.length;
       const nextLength = nextValue.length;
       const diff = nextLength - prevLength;
       const isBulkInsert = text.length > 1 && diff > 1;
@@ -98,7 +99,7 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
         Math.min(latestSelectionRef.current.start + (diff >= 0 ? 1 : diff), length)
       );
       if (Platform.OS === 'android') {
-        const editedIndex = findDiffIndex(displayValue, nextValue);
+        const editedIndex = findDiffIndex(prevValue, nextValue);
         nextIndex = diff >= 0 ? Math.min(editedIndex + 1, length) : Math.max(editedIndex, 0);
       }
       updateValue(nextValue);
