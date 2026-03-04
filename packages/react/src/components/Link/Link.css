@@ -6,6 +6,10 @@
     border: none;
     background: transparent;
     padding: 0;
+
+    &:where([aria-disabled='true']) {
+      cursor: not-allowed;
+    }
   }
 
   display: inline;

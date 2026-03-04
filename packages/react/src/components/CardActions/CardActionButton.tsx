@@ -18,6 +18,8 @@ export const CardActionButton = ({
   trailingIcon,
   badge,
   badgePlacement,
+  disabled,
+  onClick,
   ...props
 }: CardActionButtonProps) => {
   const contentProps = {
@@ -29,7 +31,12 @@ export const CardActionButton = ({
     badgePlacement,
   };
   return (
-    <button className={cn(componentClassName, className)} {...props}>
+    <button
+      className={cn(componentClassName, className)}
+      {...props}
+      aria-disabled={disabled || undefined}
+      onClick={disabled ? undefined : onClick}
+    >
       <CardActionContent
         trailingIcon={trailingIcon ? trailingIcon : <ChevronRightSmallIcon />}
         {...contentProps}

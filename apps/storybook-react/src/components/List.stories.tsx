@@ -90,6 +90,15 @@ export const Playground: Story = {
           />
         </ListItem>
         <ListItem>
+          <ListItemButton
+            disabled
+            heading="List item disabled button"
+            helperText="Helper text"
+            leadingContent={<SettingsMediumIcon />}
+            onClick={() => console.log('clickety click')}
+          />
+        </ListItem>
+        <ListItem>
           <ListItemLink heading="List item as link" href="#" />
         </ListItem>
         <ListItem>
@@ -102,6 +111,9 @@ export const Playground: Story = {
         </ListItem>
         <ListItem>
           <ListActionButton>List action</ListActionButton>
+        </ListItem>
+        <ListItem>
+          <ListActionButton disabled>Disabled list action</ListActionButton>
         </ListItem>
       </List>
     </Box>
