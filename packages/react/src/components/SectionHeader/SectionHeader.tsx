@@ -18,28 +18,12 @@ export const SectionHeader = ({
   trailingContent,
   validationText,
   validationStatus,
-  margin,
-  marginTop,
-  marginRight,
-  marginBottom,
-  marginLeft,
-  marginX,
-  marginY,
   ...props
 }: SectionHeaderProps) => {
   const showValidationText = validationStatus !== undefined && validationText !== undefined;
-  const marginProps = {
-    margin,
-    marginTop,
-    marginRight,
-    marginBottom,
-    marginLeft,
-    marginX,
-    marginY,
-  };
   return (
-    <Box className={cn(componentClassName, className)} {...marginProps}>
-      <Heading asChild size="md" id={id} {...props}>
+    <Box className={cn(componentClassName, className)} {...props}>
+      <Heading asChild size="md" id={id}>
         <HeadingEl>{heading}</HeadingEl>
       </Heading>
       {helperText ? <HelperText>{helperText}</HelperText> : null}
