@@ -41,6 +41,7 @@ export * from './List';
 export * from './Menu';
 export * from './Modal';
 export * from './PillGroup';
+export * from './ProgressBar';
 export * from './ProgressStepper';
 export * from './Radio';
 export * from './RadioCard';
