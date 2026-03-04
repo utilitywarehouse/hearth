@@ -10,6 +10,6 @@ styles when the `disabled` prop is set.
 ## Components affected
 
 - `CardActionButton`
-- `LinkActionButton`
-- `LinkItemButton`
+- `ListActionButton`
+- `ListItemButton`
 
