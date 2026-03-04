@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.22.1
+
+### Patch Changes
+
+- [#971](https://github.com/utilitywarehouse/hearth/pull/971) [`be1dfeb`](https://github.com/utilitywarehouse/hearth/commit/be1dfebd4b43f2df8ef6c5eaa42a88364e796479) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Improve VerificationInput OTP handling and accessibility
+
+  VerificationInput now uses a single hidden input to manage focus, selection, and paste behaviour across platforms, improving caret handling and bulk entry. Accessibility labels and hints are now derived from the form field to provide clearer screen reader output.
+
+  **Components affected**:
+  - `VerificationInput`
+
+  **Developer changes**:
+
+  No changes required.
+
 ## 0.22.0
 
 ### Minor Changes
