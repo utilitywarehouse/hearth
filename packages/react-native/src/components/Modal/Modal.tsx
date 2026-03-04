@@ -7,7 +7,7 @@ import {
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useCallback, useEffect, useImperativeHandle, useRef } from 'react';
-import { AccessibilityInfo, Platform, View, findNodeHandle } from 'react-native';
+import { AccessibilityInfo, Platform, ScrollView, View, findNodeHandle } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -50,6 +50,7 @@ const Modal = ({
   closeButtonProps,
   inNavModal = false,
   stickyFooter = true,
+  background = 'default',
   ...props
 }: ModalProps) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -170,6 +171,7 @@ const Modal = ({
     noButtons,
     stickyFooter,
     showHandle: props.showHandle,
+    background: background === 'brand' ? 'brand' : 'primary',
   });
 
   const footer = (
@@ -178,6 +180,7 @@ const Modal = ({
         <Button
           onPress={handlePrimaryButtonPress}
           text={primaryButtonText}
+          inverted={background === 'brand' && inNavModal}
           {...primaryButtonProps}
           variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
           colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
@@ -187,6 +190,7 @@ const Modal = ({
         <Button
           onPress={handleSecondaryButtonPress}
           text={secondaryButtonText}
+          inverted={background === 'brand' && inNavModal}
           {...secondaryButtonProps}
           variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
           colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
@@ -232,6 +236,7 @@ const Modal = ({
                 icon={CloseMediumIcon}
                 onPress={handleCloseButtonPress}
                 accessibilityLabel="Close modal"
+                inverted={background === 'brand' && inNavModal}
                 {...closeButtonProps}
               />
             ) : null}
@@ -253,7 +258,7 @@ const Modal = ({
               </View>
             </View>
           ) : null}
-          {children}
+          {inNavModal ? <ScrollView style={{ flex: 1 }}>{children}</ScrollView> : children}
           {(!stickyFooter || inNavModal) && !noButtons ? footer : null}
         </View>
       )}
@@ -277,7 +282,12 @@ const Modal = ({
   );
 
   return inNavModal ? (
-    <View style={{ flex: 1, backgroundColor: theme.color.background.primary }}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: theme.color.background[background === 'brand' ? 'brand' : 'primary'],
+      }}
+    >
       {Platform.OS === 'android' ? (
         <Animated.View style={[styles.androidContainer, animatedBackgroundStyle]}>
           <Animated.View style={[styles.pretendContent, animatedPretendContentStyle]} />
@@ -420,6 +430,14 @@ const styles = StyleSheet.create((theme, rt) => ({
     gap: theme.components.modal.gap,
     padding: theme.components.modal.padding,
     paddingBottom: theme.components.modal.padding + rt.insets.bottom,
+    variants: {
+      background: {
+        primary: {},
+        brand: {
+          backgroundColor: theme.color.background.brand,
+        },
+      },
+    },
   },
   androidContainer: {
     height: rt.insets.top + 18,
