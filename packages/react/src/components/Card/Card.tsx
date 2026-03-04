@@ -11,11 +11,15 @@ import { Flex } from '../Flex/Flex';
 import { flexPropDefs } from '../Flex/Flex.props';
 import { kebabCase } from '../../helpers/kebab-case';
 import { gapPropDefs } from '../../props/gap.props';
+import type { ComponentRef } from 'react';
+import * as React from 'react';
+
+type CardElement = ComponentRef<'div'>;
 
 const COMPONENT_NAME = 'Card';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Card = (props: CardProps) => {
+export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
   const {
     className,
     children,
@@ -35,6 +39,7 @@ export const Card = (props: CardProps) => {
 
   return (
     <Flex
+      ref={ref}
       className={cn(componentClassName, className)}
       data-colorscheme={kebabCase(colorScheme)}
       data-shadowcolor={shadowColor}
@@ -45,6 +50,6 @@ export const Card = (props: CardProps) => {
       {children}
     </Flex>
   );
-};
+});
 
 Card.displayName = COMPONENT_NAME;

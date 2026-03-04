@@ -23,11 +23,14 @@ import { borderWidthPropDefs } from '../../props/border-width.props';
 import { zIndexPropDefs } from '../../props/z-index.props';
 import { overflowPropDefs } from '../../props/overflow.props';
 import { opacityPropDefs } from '../../props/opacity.props';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'Box';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Box = (props: BoxProps) => {
+type BoxElement = ComponentRef<'div'>;
+
+export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
   const {
     className,
     asChild,
@@ -57,10 +60,10 @@ export const Box = (props: BoxProps) => {
   );
 
   return (
-    <Slot.Root className={cn(componentClassName, className)} {...boxProps}>
+    <Slot.Root ref={ref} className={cn(componentClassName, className)} {...boxProps}>
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot.Root>
   );
-};
+});
 
 Box.displayName = COMPONENT_NAME;

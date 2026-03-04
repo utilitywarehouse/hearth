@@ -6,17 +6,21 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { BreadcrumbsContext } from './Breadcrumbs.context';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'Breadcrumbs';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Breadcrumbs = (props: BreadcrumbsProps) => {
+type BreadcrumbsElement = ComponentRef<'nav'>;
+
+export const Breadcrumbs = React.forwardRef<BreadcrumbsElement, BreadcrumbsProps>((props, ref) => {
   const { className, children, inverted, ...breadcrumbsProps } = extractProps(
     props,
     marginPropDefs
   );
   return (
     <nav
+      ref={ref}
       aria-label="breadcrumbs"
       className={cn(componentClassName, className)}
       data-inverted={inverted ? '' : undefined}
@@ -27,6 +31,6 @@ export const Breadcrumbs = (props: BreadcrumbsProps) => {
       </ol>
     </nav>
   );
-};
+});
 
 Breadcrumbs.displayName = COMPONENT_NAME;

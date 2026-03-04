@@ -1,4 +1,5 @@
 import { cn } from '../../helpers/cn';
+import type { ComponentRef } from 'react';
 
 import { badgePropDefs } from './Badge.props';
 import type { BadgeProps } from './Badge.props';
@@ -10,7 +11,9 @@ import { marginPropDefs } from '../../props/margin.props';
 const COMPONENT_NAME = 'Badge';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Badge = (props: BadgeProps) => {
+type BadgeElement = ComponentRef<'span'>;
+
+export const Badge = React.forwardRef<BadgeElement, BadgeProps>((props, ref) => {
   const {
     className,
     colorScheme = 'info',
@@ -19,12 +22,13 @@ export const Badge = (props: BadgeProps) => {
   } = extractProps(props, badgePropDefs, marginPropDefs, textTransformPropDefs);
   return (
     <span
+      ref={ref}
       className={cn(componentClassName, className)}
       data-colorscheme={colorScheme}
       data-bottom-radius-zero={flatBase ? '' : undefined}
       {...badgeProps}
     />
   );
-};
+});
 
 Badge.displayName = COMPONENT_NAME;

@@ -8,27 +8,38 @@ import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
 import { Flex } from '../Flex/Flex';
 import type { CardInteractionProps } from './CardInteraction.props';
+import type { ComponentRef } from 'react';
+import * as React from 'react';
 
 const COMPONENT_NAME = 'CardInteraction';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const CardInteraction = (props: CardInteractionProps) => {
-  const { className, secondary, ...cardProps } = extractProps(
-    props,
-    cardPropDefs,
-    marginPropDefs,
-    sizePropDefs,
-    gridItemPropDefs,
-    flexItemPropDefs
-  );
+type CardInteractionElement = ComponentRef<'div'>;
 
-  const dataAttributeProps = {
-    'data-secondary': secondary ? '' : undefined,
-  };
+export const CardInteraction = React.forwardRef<CardInteractionElement, CardInteractionProps>(
+  (props, ref) => {
+    const { className, secondary, ...cardProps } = extractProps(
+      props,
+      cardPropDefs,
+      marginPropDefs,
+      sizePropDefs,
+      gridItemPropDefs,
+      flexItemPropDefs
+    );
 
-  return (
-    <Flex className={cn(componentClassName, className)} {...cardProps} {...dataAttributeProps} />
-  );
-};
+    const dataAttributeProps = {
+      'data-secondary': secondary ? '' : undefined,
+    };
+
+    return (
+      <Flex
+        ref={ref}
+        className={cn(componentClassName, className)}
+        {...cardProps}
+        {...dataAttributeProps}
+      />
+    );
+  }
+);
 
 CardInteraction.displayName = COMPONENT_NAME;

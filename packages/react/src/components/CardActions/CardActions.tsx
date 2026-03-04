@@ -5,11 +5,14 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { Flex } from '../Flex/Flex';
+import type { ComponentRef } from 'react';
+
+type CardActionsElement = ComponentRef<'ul'>;
 
 const COMPONENT_NAME = 'CardActions';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const CardActions = (props: CardActionsProps) => {
+export const CardActions = React.forwardRef<CardActionsElement, CardActionsProps>((props, ref) => {
   const {
     className,
     as: Tag = 'ul',
@@ -19,7 +22,13 @@ export const CardActions = (props: CardActionsProps) => {
   } = extractProps(props, marginPropDefs);
 
   return (
-    <Flex asChild role="list" className={cn(componentClassName, className)} direction={direction}>
+    <Flex
+      ref={ref}
+      asChild
+      role="list"
+      className={cn(componentClassName, className)}
+      direction={direction}
+    >
       <Tag {...cardActionsProps}>
         {React.Children.map(children, child => (
           <li className={`${componentClassName}Item`}>{child}</li>
@@ -27,6 +36,6 @@ export const CardActions = (props: CardActionsProps) => {
       </Tag>
     </Flex>
   );
-};
+});
 
 CardActions.displayName = COMPONENT_NAME;
