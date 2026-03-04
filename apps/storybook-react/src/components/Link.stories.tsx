@@ -6,7 +6,6 @@ import {
   ChevronRightSmallIcon,
 } from '@utilitywarehouse/hearth-react-icons';
 import { StoryGallery } from '../storybook-components/StoryGallery';
-import React from 'react';
 
 const meta: Meta<typeof Link> = {
   title: 'Stories / Link',
@@ -60,7 +59,6 @@ export const WithIcons: Story = {
 
 export const AsButton: Story = {
   render: () => {
-    const [emailBtnDisabled, setEmailBtnDisabled] = React.useState(false);
     return (
       <Flex direction="column" gap="300">
         <Link asChild>
@@ -71,12 +69,6 @@ export const AsButton: Story = {
         </Link>
         <Link asChild>
           <button aria-disabled onClick={e => e.preventDefault()}>
-            View UW services
-            <ChevronRightSmallIcon />
-          </button>
-        </Link>
-        <Link asChild>
-          <button aria-disabled={emailBtnDisabled} onClick={e => e.preventDefault()}>
             View UW services
             <ChevronRightSmallIcon />
           </button>
