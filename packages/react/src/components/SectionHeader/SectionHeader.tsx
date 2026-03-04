@@ -4,6 +4,7 @@ import { Heading } from '../Heading/Heading';
 import { HelperText } from '../HelperText/HelperText';
 import type { SectionHeaderProps } from './SectionHeader.props';
 import { ValidationText } from '../ValidationText/ValidationText';
+import { Box } from '../Box/Box';
 
 const COMPONENT_NAME = 'SectionHeader';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -17,11 +18,27 @@ export const SectionHeader = ({
   trailingContent,
   validationText,
   validationStatus,
+  margin,
+  marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
+  marginX,
+  marginY,
   ...props
 }: SectionHeaderProps) => {
   const showValidationText = validationStatus !== undefined && validationText !== undefined;
+  const marginProps = {
+    margin,
+    marginTop,
+    marginRight,
+    marginBottom,
+    marginLeft,
+    marginX,
+    marginY,
+  };
   return (
-    <div className={cn(componentClassName, className)}>
+    <Box className={cn(componentClassName, className)} {...marginProps}>
       <Heading asChild size="md" id={id} {...props}>
         <HeadingEl>{heading}</HeadingEl>
       </Heading>
@@ -33,7 +50,7 @@ export const SectionHeader = ({
       {trailingContent ? (
         <span className={`${componentClassName}TrailingContent`}>{trailingContent}</span>
       ) : null}
-    </div>
+    </Box>
   );
 };
 
