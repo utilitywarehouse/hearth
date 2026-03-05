@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react';
 import { BackgroundColorProps } from '../../props/background-color.props';
 import { BorderColorProps } from '../../props/border-color.props';
 import { BorderRadiusProps } from '../../props/border-radius.props';
@@ -26,7 +27,7 @@ export const boxPropDefs = {
   display: PropDef<(typeof displayValues)[number]>;
 };
 
-interface CommonBoxProps
+export interface CommonBoxProps
   extends
     BackgroundColorProps,
     BorderColorProps,
@@ -48,6 +49,6 @@ interface CommonBoxProps
   asChild?: boolean;
   display?: Responsive<(typeof displayValues)[number]>;
 }
-type BoxDivProps = { as?: 'div' } & React.ComponentPropsWithRef<'div'>;
-type BoxSpanProps = { as: 'span' } & React.ComponentPropsWithRef<'span'>;
+type BoxDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
+type BoxSpanProps = { as: 'span' } & ComponentPropsWithRef<'span'>;
 export type BoxProps = CommonBoxProps & (BoxSpanProps | BoxDivProps);

@@ -1,5 +1,7 @@
 'use client';
 
+import { forwardRef } from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { RadioTileProps } from './RadioTile.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -14,53 +16,61 @@ import { Box } from '../Box/Box';
 const COMPONENT_NAME = 'RadioTile';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const RadioTile = ({
-  className,
-  id: providedId,
-  label,
-  helperText,
-  image,
-  'aria-labelledby': ariaLabelledby,
-  badge,
-  flex,
-  flexBasis,
-  flexShrink,
-  flexGrow,
-  ...props
-}: RadioTileProps) => {
-  const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
-  const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormGroupBase();
-  const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
-  const flexItemProps = { flex, flexBasis, flexShrink, flexGrow };
-  return (
-    <Box asChild {...flexItemProps}>
-      <RadioGroupPrimitive.Item
-        className={cn(componentClassName, className)}
-        {...props}
-        id={id}
-        aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
-        aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}
-      >
-        <div className={withGlobalPrefix('RadioContainer')}>
-          <div className={withGlobalPrefix('RadioItem')}>
-            <RadioGroupPrimitive.Indicator className={withGlobalPrefix('RadioIndicator')} />
+type RadioTileElement = ComponentRef<'button'>;
+
+export const RadioTile = forwardRef<RadioTileElement, RadioTileProps>(
+  (
+    {
+      className,
+      id: providedId,
+      label,
+      helperText,
+      image,
+      'aria-labelledby': ariaLabelledby,
+      badge,
+      flex,
+      flexBasis,
+      flexShrink,
+      flexGrow,
+      ...props
+    },
+    ref
+  ) => {
+    const { id, labelId, helperTextId } = useIds({ providedId, prefix: 'radio' });
+    const { hasGroupHelperText, 'aria-describedby': ariaDescribedby } = useFormGroupBase();
+    const showHelperText = Boolean(!hasGroupHelperText && helperText !== undefined);
+    const flexItemProps = { flex, flexBasis, flexShrink, flexGrow };
+    return (
+      <Box asChild {...flexItemProps}>
+        <RadioGroupPrimitive.Item
+          ref={ref}
+          className={cn(componentClassName, className)}
+          {...props}
+          id={id}
+          aria-describedby={showHelperText ? helperTextId : ariaDescribedby}
+          aria-labelledby={ariaLabelledby ? ariaLabelledby : label ? labelId : undefined}
+        >
+          <div className={withGlobalPrefix('RadioContainer')}>
+            <div className={withGlobalPrefix('RadioItem')}>
+              <RadioGroupPrimitive.Indicator className={withGlobalPrefix('RadioIndicator')} />
+            </div>
+            <Flex direction="column" alignItems="start">
+              <Label id={labelId} htmlFor={id} disableUserSelect>
+                {image}
+                {label}
+              </Label>
+              {showHelperText ? (
+                <HelperText id={helperTextId} disableUserSelect>
+                  {helperText}
+                </HelperText>
+              ) : null}
+              {badge}
+            </Flex>
           </div>
-          <Flex direction="column" alignItems="start">
-            <Label id={labelId} htmlFor={id} disableUserSelect>
-              {image}
-              {label}
-            </Label>
-            {showHelperText ? (
-              <HelperText id={helperTextId} disableUserSelect>
-                {helperText}
-              </HelperText>
-            ) : null}
-            {badge}
-          </Flex>
-        </div>
-      </RadioGroupPrimitive.Item>
-    </Box>
-  );
-};
+        </RadioGroupPrimitive.Item>
+      </Box>
+    );
+  }
+);
 
 RadioTile.displayName = COMPONENT_NAME;

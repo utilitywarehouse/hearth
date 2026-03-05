@@ -1,5 +1,7 @@
 'use client';
 
+import { forwardRef } from 'react';
+import type { ComponentRef } from 'react';
 import { Dialog as DialogPrimitive } from 'radix-ui';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -8,8 +10,19 @@ import type { ModalCloseProps } from './Modal.props';
 const COMPONENT_NAME = 'ModalClose';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const ModalClose = ({ className, ...props }: ModalCloseProps) => {
-  return <DialogPrimitive.Close className={cn(componentClassName, className)} asChild {...props} />;
-};
+type ModalCloseElement = ComponentRef<'button'>;
+
+export const ModalClose = forwardRef<ModalCloseElement, ModalCloseProps>(
+  ({ className, ...props }, ref) => {
+    return (
+      <DialogPrimitive.Close
+        ref={ref}
+        className={cn(componentClassName, className)}
+        asChild
+        {...props}
+      />
+    );
+  }
+);
 
 ModalClose.displayName = COMPONENT_NAME;

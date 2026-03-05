@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { Responsive } from '../../types/responsive';
@@ -13,7 +14,7 @@ export const spinnerPropDefs = {
   color: PropDef<(typeof colors)[number]>;
 };
 
-export interface SpinnerProps extends React.ComponentPropsWithRef<'div'>, MarginProps {
+export interface SpinnerProps extends ComponentPropsWithRef<'div'>, MarginProps {
   /**
    * Sets the button height.
    * @default md

@@ -1,5 +1,7 @@
 'use client';
 
+import { forwardRef } from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { gridPropDefs } from './Grid.props';
 import type { GridProps } from './Grid.props';
@@ -32,7 +34,9 @@ import { opacityPropDefs } from '../../props/opacity.props';
 const COMPONENT_NAME = 'Grid';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Grid = (props: GridProps) => {
+type GridElement = ComponentRef<'div'>;
+
+export const Grid = forwardRef<GridElement, GridProps>((props, ref) => {
   const {
     className,
     asChild,
@@ -69,6 +73,7 @@ export const Grid = (props: GridProps) => {
 
   return (
     <Slot.Root
+      ref={ref}
       className={cn(componentClassName, className)}
       data-responsive-columns={defaultResponsiveColumns ? '' : undefined}
       {...gridProps}
@@ -76,6 +81,6 @@ export const Grid = (props: GridProps) => {
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot.Root>
   );
-};
+});
 
 Grid.displayName = COMPONENT_NAME;

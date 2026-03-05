@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 
@@ -9,7 +10,7 @@ export const buttonBasePropDefs = {
   variant: PropDef<(typeof variants)[number]>;
 };
 
-export type ButtonBaseProps = React.ComponentPropsWithRef<'button'> &
+export type ButtonBaseProps = ComponentPropsWithRef<'button'> &
   MarginProps &
   (
     | {

@@ -1,7 +1,8 @@
+import type { ComponentPropsWithoutRef, ComponentPropsWithRef } from 'react';
 import { Toast as ToastPrimitive } from 'radix-ui';
 
 export type ToastActionLinkProps = Omit<
-  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Action>,
+  ComponentPropsWithoutRef<typeof ToastPrimitive.Action>,
   'asChild'
 > &
-  React.ComponentPropsWithRef<'a'>;
+  ComponentPropsWithRef<'a'>;

@@ -10,15 +10,15 @@ import { marginPropDefs } from '../../props/margin.props';
 import { InputBase } from '../InputBase/InputBase';
 import { cn } from '../../helpers/cn';
 import { mergeIds } from '../../helpers/merge-ids';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
-import React from 'react';
 
 const COMPONENT_NAME = 'VerificationInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export type VerificationInputElement = ComponentRef<'input'>;
 
-export const VerificationInput = React.forwardRef<VerificationInputElement, VerificationInputProps>(
+export const VerificationInput = forwardRef<VerificationInputElement, VerificationInputProps>(
   (props, ref) => {
     const {
       className,

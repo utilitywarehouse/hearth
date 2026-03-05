@@ -8,14 +8,14 @@ import { ListItemContent } from './ListItemContent';
 import { Slot } from 'radix-ui';
 import { getSubtree } from '../../helpers/get-subtree';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'ListItemLink';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ListItemLinkElement = ComponentRef<'a'>;
 
-export const ListItemLink = React.forwardRef<ListItemLinkElement, ListItemLinkProps>(
+export const ListItemLink = forwardRef<ListItemLinkElement, ListItemLinkProps>(
   (
     {
       className,

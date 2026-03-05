@@ -1,7 +1,8 @@
+import type { ComponentPropsWithRef } from 'react';
 import { InputBaseProps } from '../InputBase/InputBase.props';
 import { LabelProps } from '../Label/Label.props';
 
-export interface FormFieldProps extends Omit<React.ComponentPropsWithRef<'div'>, 'defaultValue'> {
+export interface FormFieldProps extends Omit<ComponentPropsWithRef<'div'>, 'defaultValue'> {
   id?: string;
   labelId?: string;
   helperTextId?: string;

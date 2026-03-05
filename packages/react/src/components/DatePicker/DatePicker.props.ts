@@ -1,3 +1,4 @@
+import type { RefAttributes, MouseEvent, KeyboardEvent } from 'react';
 import { DatePickerProps as DatePickerPrimitiveProps } from 'react-datepicker';
 import { MarginProps } from '../../props/margin.props';
 import { FormFieldProps } from '../FormField/FormField.props';
@@ -7,13 +8,13 @@ export type DatePickerProps = Omit<
   'selectsMultiple' | 'selectsRange' | 'onChange'
 > &
   Omit<FormFieldProps, 'hideLabel' | 'onChange'> &
-  React.RefAttributes<HTMLButtonElement> &
+  RefAttributes<HTMLButtonElement> &
   MarginProps & {
     selectsRange?: never;
     selectsMultiple?: never;
     onChange?: (
       date: Date | null,
-      event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>
+      event?: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>
     ) => void;
   };
 

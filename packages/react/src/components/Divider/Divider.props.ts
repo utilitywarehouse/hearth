@@ -1,7 +1,8 @@
+import type { ComponentPropsWithRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { Orientation } from '../../types/orientation';
 
-export interface DividerProps extends React.ComponentPropsWithRef<'hr'>, MarginProps {
+export interface DividerProps extends ComponentPropsWithRef<'hr'>, MarginProps {
   /**
    * @default horizontal
    */

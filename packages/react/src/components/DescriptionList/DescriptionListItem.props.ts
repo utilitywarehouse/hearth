@@ -1,7 +1,6 @@
-export interface DescriptionListItemProps extends Omit<
-  React.ComponentPropsWithRef<'div'>,
-  'color'
-> {
+import type { ComponentPropsWithRef, ReactNode } from 'react';
+
+export interface DescriptionListItemProps extends Omit<ComponentPropsWithRef<'div'>, 'color'> {
   /**
    * Description term
    */
@@ -13,7 +12,7 @@ export interface DescriptionListItemProps extends Omit<
   /**
    * Optional link element
    */
-  link?: React.ReactNode;
+  link?: ReactNode;
   /**
    * Indicates the validation state
    */

@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react';
 import { PropDef } from '../../props/prop-def';
 import { Responsive } from '../../types/responsive';
 import { MarginProps } from '../../props/margin.props';
@@ -12,7 +13,7 @@ export const switchPropDefs = {
 };
 
 export interface SwitchProps
-  extends React.ComponentPropsWithRef<typeof SwitchPrimitive.Switch>, MarginProps {
+  extends ComponentPropsWithRef<typeof SwitchPrimitive.Switch>, MarginProps {
   size?: Responsive<(typeof sizes)[number]>;
   /**
    * The label for the Switch, describing its purpose.

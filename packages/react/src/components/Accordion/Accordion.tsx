@@ -1,7 +1,8 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
+import type { ComponentPropsWithRef, ComponentRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { AccordionProps } from './Accordion.props';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
@@ -12,7 +13,9 @@ import { marginPropDefs } from '../../props/margin.props';
 const COMPONENT_NAME = 'Accordion';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Accordion = (props: AccordionProps) => {
+type AccordionElement = ComponentRef<'div'>;
+
+export const Accordion = forwardRef<AccordionElement, AccordionProps>((props, ref) => {
   const {
     className,
     type = 'multiple',
@@ -34,16 +37,16 @@ export const Accordion = (props: AccordionProps) => {
     validationStatus,
   };
 
-  const accordionProps = { type, ...restProps } as React.ComponentPropsWithRef<
+  const accordionProps = { type, ...restProps } as ComponentPropsWithRef<
     typeof AccordionPrimitive.Root
   >;
 
   return (
-    <div className={cn(componentClassName, className)}>
+    <div ref={ref} className={cn(componentClassName, className)}>
       {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
       <AccordionPrimitive.Root {...accordionProps} />
     </div>
   );
-};
+});
 
 Accordion.displayName = COMPONENT_NAME;
