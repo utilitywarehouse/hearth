@@ -1,6 +1,10 @@
 import { memo } from 'react';
+import { Platform } from 'react-native';
 import type { PickerOption } from '../TimePicker.props';
-import WheelPicker from './wheel-picker';
+import WheelNativeAndroid from './wheel-native.android';
+import WheelNativeIOS from './wheel-native.ios';
+
+const WheelNative = Platform.OS === 'android' ? WheelNativeAndroid : WheelNativeIOS;
 
 interface PeriodProps {
   value: string;
@@ -13,15 +17,7 @@ const options: PickerOption[] = [
 ];
 
 const PeriodNative = ({ value, setValue = () => {} }: PeriodProps) => {
-  return (
-    <WheelPicker
-      value={value}
-      options={options}
-      onChange={setValue}
-      itemHeight={44}
-      decelerationRate="fast"
-    />
-  );
+  return <WheelNative value={value} items={options} setValue={setValue} />;
 };
 
 const customComparator = (prev: Readonly<PeriodProps>, next: Readonly<PeriodProps>) => {

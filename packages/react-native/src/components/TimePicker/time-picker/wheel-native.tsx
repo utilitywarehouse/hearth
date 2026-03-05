@@ -1,37 +1,16 @@
-import { memo } from 'react';
+import type { ComponentType } from 'react';
 import { Platform } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
 import type { PickerOption } from '../TimePicker.props';
-import WheelPicker from './wheel-picker';
+import WheelNativeAndroid from './wheel-native.android';
+import WheelNativeIOS from './wheel-native.ios';
 
-interface WheelProps {
+type WheelProps = {
   value: number | string;
   setValue?: (value: any) => void;
   items: PickerOption[];
-}
-
-const WheelNative = ({ value, setValue = () => {}, items }: WheelProps) => {
-  return (
-    <WheelPicker
-      value={value}
-      options={items}
-      onChange={setValue}
-      containerStyle={styles.container}
-      itemHeight={44}
-      decelerationRate="fast"
-    />
-  );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    display: 'flex',
-    ...Platform.select({
-      web: {
-        userSelect: 'none',
-      },
-    }),
-  },
-});
+const WheelNative: ComponentType<WheelProps> =
+  Platform.OS === 'android' ? WheelNativeAndroid : WheelNativeIOS;
 
-export default memo(WheelNative);
+export default WheelNative;

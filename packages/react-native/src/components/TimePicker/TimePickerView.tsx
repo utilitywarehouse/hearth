@@ -168,6 +168,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
   },
   wheelContainer: {
     flex: 1,
@@ -183,7 +184,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 5,
   },
   periodContainer: {
-    // marginLeft: 10,
+    marginLeft: 10,
   },
 });
 
