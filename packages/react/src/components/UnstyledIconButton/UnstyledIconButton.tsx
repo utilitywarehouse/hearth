@@ -1,5 +1,7 @@
 'use client';
 
+import * as React from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { unstyledIconButtonPropDefs } from './UnstyledIconButton.props';
@@ -14,7 +16,12 @@ import { getResponsiveTranslation } from '../../helpers/get-responsive-translati
 const COMPONENT_NAME = 'UnstyledIconButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const UnstyledIconButton = (props: UnstyledIconButtonProps) => {
+type UnstyledIconButtonElement = ComponentRef<'button'>;
+
+export const UnstyledIconButton = React.forwardRef<
+  UnstyledIconButtonElement,
+  UnstyledIconButtonProps
+>((props, ref) => {
   const {
     className,
     children,
@@ -32,6 +39,7 @@ export const UnstyledIconButton = (props: UnstyledIconButtonProps) => {
 
   return (
     <Component
+      ref={ref}
       className={cn(componentClassName, className)}
       aria-label={label}
       aria-disabled={disabled || loading}
@@ -46,6 +54,6 @@ export const UnstyledIconButton = (props: UnstyledIconButtonProps) => {
         : children}
     </Component>
   );
-};
+});
 
 UnstyledIconButton.displayName = COMPONENT_NAME;

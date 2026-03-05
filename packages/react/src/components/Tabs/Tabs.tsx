@@ -1,5 +1,7 @@
 'use client';
 
+import * as React from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { Tabs as RadixTabs } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -11,7 +13,9 @@ import { Flex } from '../Flex/Flex';
 const COMPONENT_NAME = 'Tabs';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Tabs = (props: TabsProps) => {
+type TabsElement = ComponentRef<'div'>;
+
+export const Tabs = React.forwardRef<TabsElement, TabsProps>((props, ref) => {
   const {
     className,
     activationMode = 'automatic',
@@ -22,12 +26,13 @@ export const Tabs = (props: TabsProps) => {
   return (
     <Flex asChild direction="column" spacing={spacing}>
       <RadixTabs.Root
+        ref={ref}
         className={cn(componentClassName, className)}
         activationMode={activationMode}
         {...tabsProps}
       />
     </Flex>
   );
-};
+});
 
 Tabs.displayName = COMPONENT_NAME;

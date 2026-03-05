@@ -1,7 +1,6 @@
 'use client';
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import React from 'react';
 import { switchPropDefs } from './Switch.props';
 import type { SwitchProps } from './Switch.props';
 import { cn } from '../../helpers/cn';
@@ -11,11 +10,15 @@ import { CloseSmallIcon, TickSmallIcon } from '@utilitywarehouse/hearth-react-ic
 import { BodyText } from '../BodyText/BodyText';
 import { useIds } from '../../hooks/use-ids';
 import { marginPropDefs } from '../../props/margin.props';
+import * as React from 'react';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'Switch';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Switch = ({ ref: forwardedRef, ...props }: SwitchProps) => {
+type SwitchElement = ComponentRef<'button'>;
+
+export const Switch = React.forwardRef<SwitchElement, SwitchProps>(({ ...props }, forwardedRef) => {
   const {
     className,
     label,
@@ -27,8 +30,8 @@ export const Switch = ({ ref: forwardedRef, ...props }: SwitchProps) => {
   } = extractProps(props, switchPropDefs, marginPropDefs);
   const { id, labelId } = useIds({ providedId, prefix: 'switch' });
   const showLabel = !!label;
-  const defaultRef = React.useRef<HTMLButtonElement | null>(null);
-  const switchRef = forwardedRef || defaultRef;
+  const internalRef = React.useRef<HTMLButtonElement | null>(null);
+  const switchRef = forwardedRef || internalRef;
 
   // We're using aria-disabled rather than disabled, so that the element can
   // still be focused with a keyboard. Therefore we need to prevent the
@@ -81,6 +84,6 @@ export const Switch = ({ ref: forwardedRef, ...props }: SwitchProps) => {
       </SwitchPrimitive.Root>
     </div>
   );
-};
+});
 
 Switch.displayName = COMPONENT_NAME;

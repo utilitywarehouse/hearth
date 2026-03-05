@@ -1,5 +1,7 @@
 'use client';
 
+import * as React from 'react';
+import type { ComponentRef } from 'react';
 import { ToggleGroup as RadixToggleGroup } from 'radix-ui';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -16,39 +18,44 @@ import { justifyContentPropDefs } from '../../props/justify-content.props';
 const COMPONENT_NAME = 'ToggleButtonCard';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const ToggleButtonCard = (props: ToggleButtonCardProps) => {
-  const {
-    className,
-    style,
-    children,
-    label,
-    'aria-label': ariaLabel,
-    'aria-labelledby': ariaLabelledBy,
-    'aria-describedby': ariaDescribedBy,
-    ...toggleButtonCardProps
-  } = extractProps(
-    props,
-    flexItemPropDefs,
-    flexPropDefs,
-    alignItemsPropDefs,
-    alignContentPropDefs,
-    justifyContentPropDefs
-  );
-  return (
-    <Card direction="column" className={cn(componentClassName, className)} style={style}>
-      {children}
-      <RadixToggleGroup.Item
-        {...toggleButtonCardProps}
-        className={`${componentClassName}Item`}
-        aria-label={ariaLabel}
-        aria-labelledby={ariaLabelledBy}
-        aria-describedby={ariaDescribedBy}
-      >
-        <TickSmallIcon />
-        {label}
-      </RadixToggleGroup.Item>
-    </Card>
-  );
-};
+type ToggleButtonCardElement = ComponentRef<'button'>;
+
+export const ToggleButtonCard = React.forwardRef<ToggleButtonCardElement, ToggleButtonCardProps>(
+  (props, ref) => {
+    const {
+      className,
+      style,
+      children,
+      label,
+      'aria-label': ariaLabel,
+      'aria-labelledby': ariaLabelledBy,
+      'aria-describedby': ariaDescribedBy,
+      ...toggleButtonCardProps
+    } = extractProps(
+      props,
+      flexItemPropDefs,
+      flexPropDefs,
+      alignItemsPropDefs,
+      alignContentPropDefs,
+      justifyContentPropDefs
+    );
+    return (
+      <Card direction="column" className={cn(componentClassName, className)} style={style}>
+        {children}
+        <RadixToggleGroup.Item
+          ref={ref}
+          {...toggleButtonCardProps}
+          className={`${componentClassName}Item`}
+          aria-label={ariaLabel}
+          aria-labelledby={ariaLabelledBy}
+          aria-describedby={ariaDescribedBy}
+        >
+          <TickSmallIcon />
+          {label}
+        </RadixToggleGroup.Item>
+      </Card>
+    );
+  }
+);
 
 ToggleButtonCard.displayName = COMPONENT_NAME;
