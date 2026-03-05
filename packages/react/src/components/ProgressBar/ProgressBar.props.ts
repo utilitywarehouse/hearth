@@ -1,3 +1,4 @@
+import type { AriaAttributes, ComponentPropsWithRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { Responsive } from '../../types/responsive';
@@ -10,7 +11,7 @@ export const progressBarPropDefs = {
   size: PropDef<(typeof sizes)[number]>;
 };
 
-export interface ProgressBarProps extends React.ComponentPropsWithRef<'div'>, MarginProps {
+export interface ProgressBarProps extends ComponentPropsWithRef<'div'>, MarginProps {
   variant?: 'linear' | 'circular';
   /**
    * Set the visual apearance.
@@ -51,7 +52,7 @@ export interface ProgressBarProps extends React.ComponentPropsWithRef<'div'>, Ma
   /**
    * A human-readable text alternative for the current value (`aria-valuenow`).
    */
-  'aria-valuetext'?: React.AriaAttributes['aria-valuetext'];
+  'aria-valuetext'?: AriaAttributes['aria-valuetext'];
 }
 
 export interface ProgressBarInternalProps extends ProgressBarProps {

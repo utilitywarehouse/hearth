@@ -12,14 +12,14 @@ import { textWrapPropDefs } from '../../props/text-wrap.props';
 import { marginPropDefs } from '../../props/margin.props';
 import { colorPropDefs } from '../../props/color.props';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'BodyText';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type BodyTextElement = ComponentRef<'span'>;
 
-export const BodyText = React.forwardRef<BodyTextElement, BodyTextProps>((props, ref) => {
+export const BodyText = forwardRef<BodyTextElement, BodyTextProps>((props, ref) => {
   const {
     className,
     asChild,

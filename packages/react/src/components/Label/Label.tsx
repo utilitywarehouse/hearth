@@ -1,3 +1,5 @@
+import { forwardRef } from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { LabelProps } from './Label.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -11,7 +13,9 @@ import type { HeadingProps } from '../Heading/Heading.props';
 const COMPONENT_NAME = 'Label';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Label = (props: LabelProps) => {
+type LabelElement = ComponentRef<'label'>;
+
+export const Label = forwardRef<LabelElement, LabelProps>((props, ref) => {
   const {
     children,
     as: Tag = 'label',
@@ -33,7 +37,7 @@ export const Label = (props: LabelProps) => {
         data-disable-user-select={disableUserSelect ? '' : undefined}
         {...(labelProps as HeadingProps)}
       >
-        <Tag>{children}</Tag>
+        <Tag ref={ref}>{children}</Tag>
       </Heading>
     );
   }
@@ -48,9 +52,9 @@ export const Label = (props: LabelProps) => {
       data-disable-user-select={disableUserSelect ? '' : undefined}
       {...labelProps}
     >
-      <Tag>{children}</Tag>
+      <Tag ref={ref}>{children}</Tag>
     </BodyText>
   );
-};
+});
 
 Label.displayName = COMPONENT_NAME;

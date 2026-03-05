@@ -9,14 +9,14 @@ import { marginPropDefs } from '../../props/margin.props';
 import { textTransformPropDefs } from '../../props/text-transform.props';
 import { OpenSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'Link';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type LinkElement = ComponentRef<'a'>;
 
-export const Link = React.forwardRef<LinkElement, LinkProps>((props, ref) => {
+export const Link = forwardRef<LinkElement, LinkProps>((props, ref) => {
   const { className, asChild, inverted, children, hideOpenIcon, ...linkProps } = extractProps(
     props,
     marginPropDefs,

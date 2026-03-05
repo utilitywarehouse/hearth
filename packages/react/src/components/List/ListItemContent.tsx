@@ -5,14 +5,14 @@ import type { ListItemContentProps } from './ListItemContent.props';
 import { cn } from '../../helpers/cn';
 import { BodyText } from '../BodyText/BodyText';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'ListItemContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ListItemContentElement = ComponentRef<'div'>;
 
-export const ListItemContent = React.forwardRef<ListItemContentElement, ListItemContentProps>(
+export const ListItemContent = forwardRef<ListItemContentElement, ListItemContentProps>(
   (
     {
       heading,

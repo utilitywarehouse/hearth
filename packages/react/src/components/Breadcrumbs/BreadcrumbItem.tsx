@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef, useContext } from 'react';
 import { cn } from '../../helpers/cn';
 import type { BreadcrumbItemProps } from './BreadcrumbItem.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -14,9 +14,9 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type BreadcrumbItemElement = ComponentRef<'a'>;
 
-export const BreadcrumbItem = React.forwardRef<BreadcrumbItemElement, BreadcrumbItemProps>(
+export const BreadcrumbItem = forwardRef<BreadcrumbItemElement, BreadcrumbItemProps>(
   ({ className, children, currentPage, ...props }, ref) => {
-    const { inverted } = React.useContext(BreadcrumbsContext);
+    const { inverted } = useContext(BreadcrumbsContext);
 
     if (currentPage) {
       return (

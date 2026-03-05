@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import type { ComponentPropsWithRef, ReactNode } from 'react';
 import { IconContainerProps } from '../IconContainer/IconContainer.props';
 
-export interface CardActionContentProps extends React.ComponentPropsWithRef<'div'> {
+export interface CardActionContentProps extends ComponentPropsWithRef<'div'> {
   heading: string;
   /**
    * Optional helper text to provide additional context or instructions.

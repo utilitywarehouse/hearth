@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef, ComponentPropsWithoutRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { Avatar as AvatarPrimitive } from 'radix-ui';
 import { PropDef } from '../../props/prop-def';
@@ -14,12 +15,12 @@ export const avatarPropDefs = {
 export interface AvatarProps
   extends
     Omit<
-      React.ComponentPropsWithRef<typeof AvatarPrimitive.Root>,
+      ComponentPropsWithRef<typeof AvatarPrimitive.Root>,
       keyof AvatarPrimitive.AvatarImageProps | 'asChild'
     >,
-    Omit<React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>, 'alt' | 'asChild'>,
+    Omit<ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>, 'alt' | 'asChild'>,
     Omit<
-      React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>,
+      ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>,
       keyof AvatarPrimitive.AvatarImageProps | 'asChild'
     >,
     MarginProps {

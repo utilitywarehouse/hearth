@@ -29,14 +29,14 @@ import { overflowPropDefs } from '../../props/overflow.props';
 import { opacityPropDefs } from '../../props/opacity.props';
 import { alignContentPropDefs } from '../../props/align-content.props';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'Flex';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type FlexElement = ComponentRef<'span'>;
 
-export const Flex = React.forwardRef<FlexElement, FlexProps>((props, ref) => {
+export const Flex = forwardRef<FlexElement, FlexProps>((props, ref) => {
   const {
     className,
     asChild,

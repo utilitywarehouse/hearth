@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react';
 import { Tabs as TabsPrimitive } from 'radix-ui';
 import { PropDef } from '../../props/prop-def';
 import { Responsive } from '../../types/responsive';
@@ -14,7 +15,7 @@ export const tabsPropDefs = {
 type RemovedProps = 'asChild' | 'dir';
 
 export interface TabsProps extends Omit<
-  React.ComponentPropsWithRef<typeof TabsPrimitive.Tabs>,
+  ComponentPropsWithRef<typeof TabsPrimitive.Tabs>,
   RemovedProps | 'orientation'
 > {
   /** Size variant */
@@ -25,16 +26,13 @@ export interface TabsProps extends Omit<
 }
 
 export type TabsListProps = Omit<
-  React.ComponentPropsWithRef<typeof TabsPrimitive.TabsList>,
+  ComponentPropsWithRef<typeof TabsPrimitive.TabsList>,
   RemovedProps
 >;
 
-export type TabProps = Omit<
-  React.ComponentPropsWithRef<typeof TabsPrimitive.TabsTrigger>,
-  RemovedProps
->;
+export type TabProps = Omit<ComponentPropsWithRef<typeof TabsPrimitive.TabsTrigger>, RemovedProps>;
 
 export type TabContentProps = Omit<
-  React.ComponentPropsWithRef<typeof TabsPrimitive.TabsContent>,
+  ComponentPropsWithRef<typeof TabsPrimitive.TabsContent>,
   RemovedProps
 >;

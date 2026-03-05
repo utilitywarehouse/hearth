@@ -1,13 +1,14 @@
 import { Dialog as DialogPrimitive } from 'radix-ui';
+import type { ComponentPropsWithRef, ComponentPropsWithoutRef, ReactNode } from 'react';
 
 // Props that are ALWAYS available regardless of loading state
-type BaseModalProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal> &
-  Omit<React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>, 'asChild' | 'forceMount'> &
-  React.ComponentPropsWithRef<'div'> & {
+type BaseModalProps = ComponentPropsWithoutRef<typeof DialogPrimitive.DialogPortal> &
+  Omit<ComponentPropsWithoutRef<typeof DialogPrimitive.Content>, 'asChild' | 'forceMount'> &
+  ComponentPropsWithRef<'div'> & {
     description?: string;
     hideCloseButton?: boolean;
     fullScreen?: boolean;
-    image?: React.ReactNode;
+    image?: ReactNode;
   };
 
 // The "Content" state (Loading is false or undefined)
@@ -27,16 +28,13 @@ type LoadingState = {
 export type ModalProps = BaseModalProps & (ContentState | LoadingState);
 
 export type ModalCloseProps = Omit<
-  React.ComponentPropsWithRef<typeof DialogPrimitive.DialogClose>,
+  ComponentPropsWithRef<typeof DialogPrimitive.DialogClose>,
   'asChild'
 >;
 
-export type ModalRootProps = Omit<
-  React.ComponentPropsWithRef<typeof DialogPrimitive.Root>,
-  'modal'
->;
+export type ModalRootProps = Omit<ComponentPropsWithRef<typeof DialogPrimitive.Root>, 'modal'>;
 
 export type ModalTriggerProps = Omit<
-  React.ComponentPropsWithRef<typeof DialogPrimitive.DialogTrigger>,
+  ComponentPropsWithRef<typeof DialogPrimitive.DialogTrigger>,
   'asChild'
 >;

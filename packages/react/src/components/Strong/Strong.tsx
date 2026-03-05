@@ -1,5 +1,7 @@
 'use client';
 
+import { forwardRef } from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { StrongProps } from './Strong.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -13,7 +15,9 @@ import { marginPropDefs } from '../../props/margin.props';
 const COMPONENT_NAME = 'Strong';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Strong = (props: StrongProps) => {
+type StrongElement = ComponentRef<'strong'>;
+
+export const Strong = forwardRef<StrongElement, StrongProps>((props, ref) => {
   const { className, asChild, children, truncate, ...strongProps } = extractProps(
     props,
     textAlignPropDefs,
@@ -23,6 +27,7 @@ export const Strong = (props: StrongProps) => {
   );
   return (
     <Slot.Root
+      ref={ref}
       className={cn(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
       {...strongProps}
@@ -30,6 +35,6 @@ export const Strong = (props: StrongProps) => {
       {asChild ? children : <strong>{children}</strong>}
     </Slot.Root>
   );
-};
+});
 
 Strong.displayName = COMPONENT_NAME;

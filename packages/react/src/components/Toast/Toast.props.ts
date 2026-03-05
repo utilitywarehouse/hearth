@@ -1,10 +1,11 @@
+import type { ComponentPropsWithRef, ReactNode } from 'react';
 import { Toast as ToastPrimitive } from 'radix-ui';
 
 export interface ToastProps extends Omit<
-  React.ComponentPropsWithRef<typeof ToastPrimitive.Root>,
+  ComponentPropsWithRef<typeof ToastPrimitive.Root>,
   'asChild' | 'forceMount'
 > {
-  description: React.ReactNode;
-  icon?: React.ReactNode;
+  description: ReactNode;
+  icon?: ReactNode;
   showDismissButton?: boolean;
 }

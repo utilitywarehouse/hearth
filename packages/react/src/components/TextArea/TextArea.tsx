@@ -1,5 +1,7 @@
 'use client';
 
+import { forwardRef } from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { mergeIds } from '../../helpers/merge-ids';
@@ -13,7 +15,9 @@ import { Box } from '../Box/Box';
 const COMPONENT_NAME = 'TextArea';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const TextArea = (props: TextAreaProps) => {
+type TextAreaElement = ComponentRef<'textarea'>;
+
+export const TextArea = forwardRef<TextAreaElement, TextAreaProps>((props, ref) => {
   const {
     className,
     validationStatus,
@@ -69,6 +73,7 @@ export const TextArea = (props: TextAreaProps) => {
     >
       <Box asChild minHeight={minHeight} maxHeight={maxHeight}>
         <textarea
+          ref={ref}
           id={id}
           rows={rows}
           required={required}
@@ -85,6 +90,6 @@ export const TextArea = (props: TextAreaProps) => {
       </Box>
     </FormField>
   );
-};
+});
 
 TextArea.displayName = COMPONENT_NAME;

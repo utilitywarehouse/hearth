@@ -1,4 +1,6 @@
-export interface ProgressStepProps extends React.ComponentPropsWithRef<'li'> {
+import type { ComponentPropsWithRef } from 'react';
+
+export interface ProgressStepProps extends ComponentPropsWithRef<'li'> {
   /**
    * The current status of the step
    */
@@ -9,11 +11,11 @@ export interface ProgressStepProps extends React.ComponentPropsWithRef<'li'> {
   label: string;
 }
 
-type ButtonElementProps = React.ComponentPropsWithRef<'button'>;
+type ButtonElementProps = ComponentPropsWithRef<'button'>;
 export interface ProgressStepButtonProps
   extends ButtonElementProps, Omit<ProgressStepProps, keyof ButtonElementProps> {}
 
-type LinkElementProps = React.ComponentPropsWithRef<'a'>;
+type LinkElementProps = ComponentPropsWithRef<'a'>;
 export interface ProgressStepLinkProps
   extends
     LinkElementProps,

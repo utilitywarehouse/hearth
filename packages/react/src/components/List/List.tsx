@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { ListProps } from './List.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -7,11 +8,14 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
 import { useIds } from '../../hooks/use-ids';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'List';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const List = (props: ListProps) => {
+type ListElement = ComponentRef<'ol'>;
+
+export const List = forwardRef<ListElement, ListProps>((props, ref) => {
   const {
     id: providedId,
     as: Tag = 'ul',
@@ -62,7 +66,9 @@ export const List = (props: ListProps) => {
           role="list"
           {...attributeProps}
         >
-          <Tag {...listProps}>{children}</Tag>
+          <Tag ref={ref} {...listProps}>
+            {children}
+          </Tag>
         </Box>
       ) : (
         <Card
@@ -71,13 +77,13 @@ export const List = (props: ListProps) => {
           variant={variant}
           colorScheme={colorScheme}
         >
-          <Tag role="list" id={id} {...listProps} {...attributeProps}>
+          <Tag ref={ref} role="list" id={id} {...listProps} {...attributeProps}>
             {children}
           </Tag>
         </Card>
       )}
     </div>
   );
-};
+});
 
 List.displayName = COMPONENT_NAME;

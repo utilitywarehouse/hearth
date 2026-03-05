@@ -1,5 +1,7 @@
 'use client';
 
+import { forwardRef } from 'react';
+import type { ComponentRef } from 'react';
 import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
 import { Flex } from '../Flex/Flex';
@@ -15,7 +17,9 @@ import { FormGroupBaseProvider } from './FormGroupBase.context';
 const COMPONENT_NAME = 'FormGroupBase';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const FormGroupBase = (props: FormGroupBaseProps) => {
+type FormGroupBaseElement = ComponentRef<'fieldset'>;
+
+export const FormGroupBase = forwardRef<FormGroupBaseElement, FormGroupBaseProps>((props, ref) => {
   const {
     children,
     className,
@@ -52,6 +56,7 @@ export const FormGroupBase = (props: FormGroupBaseProps) => {
 
   return (
     <fieldset
+      ref={ref}
       className={cn(componentClassName, className)}
       {...fieldsetProps}
       disabled={disabled}
@@ -96,6 +101,6 @@ export const FormGroupBase = (props: FormGroupBaseProps) => {
       ) : null}
     </fieldset>
   );
-};
+});
 
 FormGroupBase.displayName = COMPONENT_NAME;

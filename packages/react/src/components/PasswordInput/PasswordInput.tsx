@@ -2,7 +2,8 @@
 
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { cn } from '../../helpers/cn';
-import React from 'react';
+import { forwardRef, useRef, useState, useCallback, useEffect } from 'react';
+import type { RefObject } from 'react';
 import type { PasswordInputProps } from './PasswordInput.props';
 import { TextInput } from '../TextInput/TextInput';
 import { InputSlot } from '../InputSlot/InputSlot';
@@ -15,15 +16,15 @@ import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 const COMPONENT_NAME = 'PasswordInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const PasswordInput = React.forwardRef<InputBaseElement, PasswordInputProps>(
+export const PasswordInput = forwardRef<InputBaseElement, PasswordInputProps>(
   ({ className, disabled, id: providedId, ...props }, forwardedRef) => {
-    const internalRef = React.useRef<HTMLInputElement | null>(null);
+    const internalRef = useRef<HTMLInputElement | null>(null);
     const inputRef = useMergedRefs(forwardedRef, internalRef);
 
-    const [visible, setVisible] = React.useState(false);
-    const [showVisibilityMessage, setShowVisibilityMessage] = React.useState(false);
+    const [visible, setVisible] = useState(false);
+    const [showVisibilityMessage, setShowVisibilityMessage] = useState(false);
 
-    const handleVisibility = React.useCallback(() => {
+    const handleVisibility = useCallback(() => {
       const newVisibilityState = !visible;
       const newVisibilityMessageState = !showVisibilityMessage;
       setVisible(newVisibilityState);
@@ -32,12 +33,12 @@ export const PasswordInput = React.forwardRef<InputBaseElement, PasswordInputPro
 
     // If the PasswordInput is inside a form we should switch the input type
     // back to password when its parent form is submitted
-    React.useEffect(() => {
+    useEffect(() => {
       // Get the ref value and ensure proper typing
       let currentElement: HTMLInputElement | null = null;
       if (internalRef && typeof internalRef === 'object' && internalRef.current) {
         // Type assertion to ensure TypeScript understands this is a valid ref object
-        const refObject = internalRef as React.RefObject<HTMLInputElement>;
+        const refObject = internalRef as RefObject<HTMLInputElement>;
         currentElement = refObject.current;
       }
 
@@ -60,7 +61,7 @@ export const PasswordInput = React.forwardRef<InputBaseElement, PasswordInputPro
 
     const visibilityMessage = `Your password is ${visible ? 'shown' : 'hidden'}!`;
 
-    React.useEffect(() => {
+    useEffect(() => {
       setTimeout(() => {
         setShowVisibilityMessage(false);
       }, 1500);

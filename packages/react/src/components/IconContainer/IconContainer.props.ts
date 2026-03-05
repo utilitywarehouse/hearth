@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { Responsive } from '../../types/responsive';
@@ -40,7 +41,7 @@ export const iconContainerPropDefs = {
   borderBottomLeftRadius: PropDef<(typeof borderRadiusValues)[number]>;
 };
 
-export interface IconContainerProps extends React.ComponentPropsWithRef<'span'>, MarginProps {
+export interface IconContainerProps extends ComponentPropsWithRef<'span'>, MarginProps {
   /**
    * Sets the container size.
    * @default md

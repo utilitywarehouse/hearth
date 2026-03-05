@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import type { ComponentPropsWithRef, ReactNode } from 'react';
 
-export interface ListItemContentProps extends React.ComponentPropsWithRef<'div'> {
+export interface ListItemContentProps extends ComponentPropsWithRef<'div'> {
   heading: string;
   /**
    * Optional helper text to provide additional context or instructions.

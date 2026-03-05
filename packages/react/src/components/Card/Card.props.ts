@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react';
 import { PropDef } from '../../props/prop-def';
 import { FlexProps } from '../Flex/Flex.props';
 import { PaddingProps } from '../../props/padding.props';
@@ -15,7 +16,7 @@ export const cardPropDefs = {
   paddingNone: PropDef<boolean>;
 };
 
-type ElementProps = Omit<React.ComponentPropsWithRef<'div'>, 'color'>;
+type ElementProps = Omit<ComponentPropsWithRef<'div'>, 'color'>;
 
 export interface CardProps
   extends
