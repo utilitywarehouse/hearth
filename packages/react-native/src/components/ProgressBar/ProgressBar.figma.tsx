@@ -6,11 +6,17 @@ figma.connect(
   'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=7849-5704',
   {
     props: {
-      value: figma.enum('Value', {
+      value: figma.enum('Progress', {
         '0%': 0,
-        '25%': 25,
+        '10%': 10,
+        '20%': 20,
+        '30%': 30,
+        '40%': 40,
         '50%': 50,
-        '75%': 75,
+        '60%': 60,
+        '70%': 70,
+        '80%': 80,
+        '90%': 90,
         '100%': 100,
       }),
       colorScheme: figma.enum('Color Scheme', {
@@ -18,7 +24,7 @@ figma.connect(
         Success: 'success',
         Danger: 'danger',
       }),
-      label: figma.string('Label'),
+      label: figma.boolean('Label?', { true: figma.string('Label') }),
     },
     example: props => (
       <ProgressBar
@@ -36,11 +42,17 @@ figma.connect(
   'https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=7863-3977',
   {
     props: {
-      value: figma.enum('Value', {
+      value: figma.enum('Progress', {
         '0%': 0,
-        '25%': 25,
+        '10%': 10,
+        '20%': 20,
+        '30%': 30,
+        '40%': 40,
         '50%': 50,
-        '75%': 75,
+        '60%': 60,
+        '70%': 70,
+        '80%': 80,
+        '90%': 90,
         '100%': 100,
       }),
       colorScheme: figma.enum('Color Scheme', {
@@ -52,7 +64,7 @@ figma.connect(
         'SM-80': 'sm',
         'MD-140': 'md',
       }),
-      label: figma.string('Label'),
+      label: figma.boolean('Label?', { true: figma.string('Label') }),
     },
     example: props => (
       <ProgressBar
