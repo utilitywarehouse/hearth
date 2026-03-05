@@ -1,5 +1,41 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.24.0
+
+### Minor Changes
+
+- [#977](https://github.com/utilitywarehouse/hearth/pull/977) [`9d2b534`](https://github.com/utilitywarehouse/hearth/commit/9d2b5348a5748cb613f537808069de2e86bd21d7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `ProgressBar` component with linear and circular variants.
+
+  **Developer changes**:
+
+  Use `ProgressBar` with a default percentage label, or override the label to show a custom value:
+
+  ```tsx
+  import { ProgressBar } from '@utilitywarehouse/hearth-react-native';
+
+  <ProgressBar value={42} label="Uploading documents" />
+
+  <ProgressBar
+      value={68}
+      max={100}
+      label="Data allowance"
+      variant="circular"
+      formatValueText={(value, { max }) => `${max - value}GB remaining`}
+  />
+  ```
+
+### Patch Changes
+
+- [#978](https://github.com/utilitywarehouse/hearth/pull/978) [`26a1173`](https://github.com/utilitywarehouse/hearth/commit/26a11731a493a8b92ac2a3a183516376ab54663b) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Tighten `Modal` prop types and fix brand background text styling
+
+  Improves TypeScript safety so `stickyFooter` is not allowed when `inNavModal` is true, and `background` can only be set when `inNavModal` is true. Also ensures headings, body text, and button content are correctly inverted when using the brand background.
+
+  **Components affected**:
+  - `Modal`
+
+  **Developer changes**:
+  No changes required unless you were relying on invalid prop combinations.
+
 ## 0.23.0
 
 ### Minor Changes
