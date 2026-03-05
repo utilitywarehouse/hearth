@@ -7,7 +7,7 @@ import {
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useCallback, useEffect, useImperativeHandle, useRef } from 'react';
-import { AccessibilityInfo, Platform, ScrollView, View, findNodeHandle } from 'react-native';
+import { AccessibilityInfo, Platform, SafeAreaView, ScrollView, View, findNodeHandle } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -275,8 +275,14 @@ const Modal = ({
               </View>
             </View>
           ) : null}
-          {inNavModal ? <ScrollView style={{ flex: 1 }}>{children}</ScrollView> : children}
-          {(!stickyFooter || inNavModal) && !noButtons ? footer : null}
+          {inNavModal && (
+            <ScrollView style={{ flexGrow: 0 }}>
+              {children}
+              {!stickyFooter ? <View style={styles.inNavModalFooterContainer}>{footer}</View> : null}
+            </ScrollView>
+          )}
+          {!inNavModal && children}
+          {((!stickyFooter && !inNavModal) || (inNavModal && stickyFooter)) && !noButtons ? footer : null}
         </View>
       )}
     </>
@@ -313,7 +319,9 @@ const Modal = ({
       <Animated.View
         style={[styles.inNavModalContainer, Platform.OS === 'android' && animatedInNavModalStyle]}
       >
-        <View style={styles.inNavModalContent}>{content}</View>
+        <View style={styles.inNavModalContentContainer}>
+          <SafeAreaView style={styles.inNavModalContent}>{content}</SafeAreaView>
+        </View>
       </Animated.View>
     </View>
   ) : (
@@ -439,12 +447,11 @@ const styles = StyleSheet.create((theme, rt) => ({
     flex: 1,
     ...(Platform.OS === 'ios' ? { backgroundColor: theme.components.overlay.backgroundColor } : {}),
   },
-  inNavModalContent: {
+  inNavModalContentContainer: {
     flex: 1,
     borderTopLeftRadius: theme.components.modal.borderRadius,
     borderTopRightRadius: theme.components.modal.borderRadius,
     backgroundColor: theme.color.surface.neutral.strong,
-    gap: theme.components.modal.gap,
     padding: theme.components.modal.padding,
     paddingBottom: theme.components.modal.padding + rt.insets.bottom,
     variants: {
@@ -455,6 +462,13 @@ const styles = StyleSheet.create((theme, rt) => ({
         },
       },
     },
+  },
+  inNavModalContent: {
+    flex: 1,
+    gap: theme.components.modal.gap,
+  },
+  inNavModalFooterContainer: {
+    paddingTop: theme.components.modal.padding,
   },
   androidContainer: {
     height: rt.insets.top + 18,

@@ -12,6 +12,7 @@ interface ModalPropsBase extends Omit<BottomSheetProps, 'children'> {
   loadingHeading?: string;
   description?: string;
   fullscreen?: boolean;
+  stickyFooter?: boolean;
   children?: ViewProps['children'];
   onPressPrimaryButton?: () => void;
   primaryButtonText?: string;
@@ -28,12 +29,11 @@ interface ModalPropsBase extends Omit<BottomSheetProps, 'children'> {
 type ModalProps =
   | (ModalPropsBase & {
       inNavModal?: false | undefined;
-      stickyFooter?: boolean;
       background?: never;
     })
   | (ModalPropsBase & {
       inNavModal: true;
-      stickyFooter?: never;
+      fullscreen?: never;
       background?: 'default' | 'brand';
     });
 
