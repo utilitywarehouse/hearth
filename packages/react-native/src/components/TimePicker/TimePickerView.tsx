@@ -180,6 +180,7 @@ const styles = StyleSheet.create({
     width: 146,
     height: 208,
     flexDirection: 'row',
+    marginBottom: -30,
   },
   timeSeparator: {
     marginHorizontal: 5,
