@@ -16,7 +16,7 @@ import * as Stories from './TimePickerInput.stories';
 - [Playground](#playground)
 - [Usage](#usage)
 - [Props](#props)
-- [Formatting and validation](#formatting-and-validation)
+- [Formatting](#formatting)
 - [Examples](#examples)
 
 ## Playground
@@ -84,15 +84,9 @@ const BookingTimeField = () => {
 | `onChange`          | `(payload: { date: DateType }) => void`                | `-`                  | Fired whenever a valid time is parsed from typing or picked via the selector.                             |
 | `onClear`           | `() => void`                                           | `-`                  | Called after the clear action resets the input. Also displays a trailing clear button when provided.      |
 
-## Formatting and validation
-
-### Automatic formatting
+## Formatting
 
 When `format` is left as `'HH:mm'`, the input automatically inserts `:` as people type and requests a numeric keypad on supported platforms.
-
-### Handling validation yourself
-
-`TimePickerInput` doesn't display validation styles by itself. Pair it with `FormField` (or your own state) to surface errors whenever the typed value doesn't match your expected format.
 
 ## Examples
 
