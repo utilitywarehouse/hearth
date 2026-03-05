@@ -1,5 +1,46 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.25.0
+
+### Minor Changes
+
+- [#982](https://github.com/utilitywarehouse/hearth/pull/982) [`506b388`](https://github.com/utilitywarehouse/hearth/commit/506b388ae1ef1065f013024a14bd9e2599a6442d) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `TimePicker` and `TimePickerInput` components with 12/24-hour support and minute intervals.
+
+  Includes a shared time picker view, updated wheel behavior for native platforms, and polished visuals like gradient fades.
+
+  **Components affected**:
+  - `TimePicker`
+  - `TimePickerInput`
+
+  ```tsx
+  import { TimePicker, TimePickerInput } from '@utilitywarehouse/hearth-react-native';
+  import { useRef, useState } from 'react';
+  import type { DateType } from '@utilitywarehouse/hearth-react-native';
+
+  const Example = () => {
+    const [value, setValue] = useState<DateType>();
+    const pickerRef = useRef(null);
+
+    return (
+      <>
+        <TimePickerInput
+          value={value}
+          onChange={({ date }) => setValue(date ?? undefined)}
+          onClear={() => setValue(undefined)}
+          timePickerProps={{ use12Hours: true, minuteInterval: 5 }}
+        />
+        <TimePicker
+          ref={pickerRef}
+          date={value}
+          onChange={({ date }) => setValue(date)}
+          use12Hours
+          minuteInterval={5}
+        />
+      </>
+    );
+  };
+  ```
+
 ## 0.24.0
 
 ### Minor Changes
