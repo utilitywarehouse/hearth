@@ -10,7 +10,7 @@ import { ProgressBarLinear } from './ProgressBarLinear';
 import { valueToPercent } from '../../helpers/value-to-percent';
 import { useIds } from '../../hooks/use-ids';
 import { ProgressBarCircular } from './ProgressBarCircular';
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'ProgressBar';
@@ -18,7 +18,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ProgressBarElement = ComponentRef<'div'>;
 
-export const ProgressBar = React.forwardRef<ProgressBarElement, ProgressBarProps>((props, ref) => {
+export const ProgressBar = forwardRef<ProgressBarElement, ProgressBarProps>((props, ref) => {
   const {
     className,
     variant = 'linear',

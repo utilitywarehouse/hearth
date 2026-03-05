@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui';
@@ -14,7 +14,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioGroupElement = ComponentRef<'fieldset'>;
 
-export const RadioGroup = React.forwardRef<RadioGroupElement, RadioGroupProps>(
+export const RadioGroup = forwardRef<RadioGroupElement, RadioGroupProps>(
   (
     {
       children,

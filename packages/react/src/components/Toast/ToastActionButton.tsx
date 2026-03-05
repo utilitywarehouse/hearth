@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { Toast as ToastPrimitive } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -14,7 +14,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ToastActionButtonElement = ComponentRef<'button'>;
 
-export const ToastActionButton = React.forwardRef<ToastActionButtonElement, ToastActionButtonProps>(
+export const ToastActionButton = forwardRef<ToastActionButtonElement, ToastActionButtonProps>(
   ({ className, altText, children, ...props }, ref) => {
     warn(!altText, 'ToastActionButton: `altText` is required.');
 

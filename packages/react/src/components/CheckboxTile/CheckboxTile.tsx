@@ -14,14 +14,14 @@ import type { CheckboxProps } from '../Checkbox/Checkbox.props';
 import { ValidationText } from '../ValidationText/ValidationText';
 import { mergeIds } from '../../helpers/merge-ids';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 type CheckboxTileElement = ComponentRef<'button'>;
 
 const COMPONENT_NAME = 'CheckboxTile';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const CheckboxTile = React.forwardRef<CheckboxTileElement, CheckboxProps>((props, ref) => {
+export const CheckboxTile = forwardRef<CheckboxTileElement, CheckboxProps>((props, ref) => {
   const {
     className,
     id: providedId,

@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { RadioProps } from './Radio.props';
@@ -17,7 +17,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioElement = ComponentRef<'button'>;
 
-export const Radio = React.forwardRef<RadioElement, RadioProps>(
+export const Radio = forwardRef<RadioElement, RadioProps>(
   (
     {
       id: providedId,

@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { DropdownMenu as MenuPrimitive } from 'radix-ui';
@@ -12,7 +12,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type MenuTriggerElement = ComponentRef<'button'>;
 
-export const MenuTrigger = React.forwardRef<MenuTriggerElement, MenuTriggerProps>(
+export const MenuTrigger = forwardRef<MenuTriggerElement, MenuTriggerProps>(
   ({ className, ...props }, ref) => {
     return (
       <MenuPrimitive.DropdownMenuTrigger

@@ -8,15 +8,15 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { getSubtree } from '../../helpers/get-subtree';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
-import React from 'react';
 
 const COMPONENT_NAME = 'ButtonBase';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 export type ButtonBaseElement = ComponentRef<'button'>;
 
-export const ButtonBase = React.forwardRef<ButtonBaseElement, ButtonBaseProps>((props, ref) => {
+export const ButtonBase = forwardRef<ButtonBaseElement, ButtonBaseProps>((props, ref) => {
   const {
     colorScheme,
     inverted,

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { ComponentRef } from 'react';
 
@@ -14,7 +14,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type BadgeElement = ComponentRef<'span'>;
 
-export const Badge = React.forwardRef<BadgeElement, BadgeProps>((props, ref) => {
+export const Badge = forwardRef<BadgeElement, BadgeProps>((props, ref) => {
   const {
     className,
     colorScheme = 'info',

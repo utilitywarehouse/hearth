@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { ListProps } from './List.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -15,7 +15,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ListElement = ComponentRef<'ol'>;
 
-export const List = React.forwardRef<ListElement, ListProps>((props, ref) => {
+export const List = forwardRef<ListElement, ListProps>((props, ref) => {
   const {
     id: providedId,
     as: Tag = 'ul',

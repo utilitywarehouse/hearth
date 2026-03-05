@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -14,7 +14,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AlertLinkElement = ComponentRef<'a'>;
 
-export const AlertLink = React.forwardRef<AlertLinkElement, LinkProps>((props, ref) => {
+export const AlertLink = forwardRef<AlertLinkElement, LinkProps>((props, ref) => {
   const { children, asChild, ...linkProps } = props;
   return (
     <Link

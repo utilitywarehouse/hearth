@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 
 import { cn } from '../../helpers/cn';
@@ -11,7 +11,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TableHeaderCellElement = ComponentRef<'th'>;
 
-export const TableHeaderCell = React.forwardRef<TableHeaderCellElement, TableHeaderCellProps>(
+export const TableHeaderCell = forwardRef<TableHeaderCellElement, TableHeaderCellProps>(
   ({ className, children, row, ...props }, ref) => {
     const rowProps = row ? { scope: 'row' } : undefined;
     return (

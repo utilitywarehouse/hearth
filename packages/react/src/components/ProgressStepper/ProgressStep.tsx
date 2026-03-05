@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { TickSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -13,7 +13,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ProgressStepElement = ComponentRef<'li'>;
 
-export const ProgressStep = React.forwardRef<ProgressStepElement, ProgressStepProps>(
+export const ProgressStep = forwardRef<ProgressStepElement, ProgressStepProps>(
   ({ status, label, className, children, 'aria-label': ariaLabel, ...props }, ref) => {
     const isStatus = (currentStatus: typeof status) => currentStatus === status;
 

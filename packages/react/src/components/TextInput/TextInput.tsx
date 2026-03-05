@@ -9,12 +9,12 @@ import { mergeIds } from '../../helpers/merge-ids';
 import { marginPropDefs } from '../../props/margin.props';
 import { InputBase, type InputBaseElement } from '../InputBase/InputBase';
 import { FormField } from '../FormField/FormField';
-import React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'TextInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const TextInput = React.forwardRef<InputBaseElement, TextInputProps>((props, ref) => {
+export const TextInput = forwardRef<InputBaseElement, TextInputProps>((props, ref) => {
   const {
     className,
     validationStatus,

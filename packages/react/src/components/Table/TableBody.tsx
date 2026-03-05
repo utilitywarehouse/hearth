@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 
 import { cn } from '../../helpers/cn';
@@ -10,7 +10,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TableBodyElement = ComponentRef<'tbody'>;
 
-export const TableBody = React.forwardRef<TableBodyElement, TableBodyProps>(
+export const TableBody = forwardRef<TableBodyElement, TableBodyProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <tbody ref={ref} className={cn(componentClassName, className)} {...props}>

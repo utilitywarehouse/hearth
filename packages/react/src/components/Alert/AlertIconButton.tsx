@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -13,7 +13,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AlertIconButtonElement = ComponentRef<'button'>;
 
-export const AlertIconButton = React.forwardRef<AlertIconButtonElement, UnstyledIconButtonProps>(
+export const AlertIconButton = forwardRef<AlertIconButtonElement, UnstyledIconButtonProps>(
   ({ children, label = 'Alert action', title = 'Alert action', className, ...props }, ref) => {
     return (
       <UnstyledIconButton

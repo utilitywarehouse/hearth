@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { detailTextPropDefs } from './DetailText.props';
@@ -18,7 +18,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type DetailTextElement = ComponentRef<'span'>;
 
-export const DetailText = React.forwardRef<DetailTextElement, DetailTextProps>((props, ref) => {
+export const DetailText = forwardRef<DetailTextElement, DetailTextProps>((props, ref) => {
   const {
     className,
     asChild,

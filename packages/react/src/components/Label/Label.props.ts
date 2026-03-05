@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { TextTransformProps } from '../../props/text-transform.props';
 
@@ -15,6 +16,6 @@ export interface CommonLabelProps extends MarginProps, TextTransformProps {
   /** Make the text unselectable, for use when associated with input elements. */
   disableUserSelect?: boolean;
 }
-type LabelSpanProps = { as?: 'span' } & Omit<React.ComponentPropsWithRef<'span'>, 'color'>;
-type LabelLabelProps = { as: 'label' } & Omit<React.ComponentPropsWithRef<'label'>, 'color'>;
+type LabelSpanProps = { as?: 'span' } & Omit<ComponentPropsWithRef<'span'>, 'color'>;
+type LabelLabelProps = { as: 'label' } & Omit<ComponentPropsWithRef<'label'>, 'color'>;
 export type LabelProps = CommonLabelProps & (LabelSpanProps | LabelLabelProps);

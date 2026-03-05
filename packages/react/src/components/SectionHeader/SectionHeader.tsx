@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -13,7 +13,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type SectionHeaderElement = ComponentRef<'div'>;
 
-export const SectionHeader = React.forwardRef<SectionHeaderElement, SectionHeaderProps>(
+export const SectionHeader = forwardRef<SectionHeaderElement, SectionHeaderProps>(
   (
     {
       className,

@@ -1,4 +1,5 @@
 import { AlignContentProps } from '../../props/align-content.props';
+import type { ComponentPropsWithRef } from 'react';
 import { AlignItemsProps } from '../../props/align-items.props';
 import { BackgroundColorProps } from '../../props/background-color.props';
 import { BorderColorProps } from '../../props/border-color.props';
@@ -199,6 +200,6 @@ export interface CommonGridProps
   justifyItems?: Responsive<(typeof justifyItemsValues)[number]>;
 }
 
-type GridDivProps = { as?: 'div' } & React.ComponentPropsWithRef<'div'>;
-type GridSpanProps = { as: 'span' } & React.ComponentPropsWithRef<'span'>;
+type GridDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
+type GridSpanProps = { as: 'span' } & ComponentPropsWithRef<'span'>;
 export type GridProps = CommonGridProps & (GridSpanProps | GridDivProps);

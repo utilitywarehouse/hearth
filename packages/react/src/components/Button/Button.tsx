@@ -9,12 +9,12 @@ import type { ButtonProps } from './Button.props';
 import { Spinner } from '../Spinner/Spinner';
 import { Slot } from 'radix-ui';
 import { getSubtree } from '../../helpers/get-subtree';
-import React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'Button';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Button = React.forwardRef<ButtonBaseElement, ButtonProps>((props, ref) => {
+export const Button = forwardRef<ButtonBaseElement, ButtonProps>((props, ref) => {
   const { className, children, disabled, loading, asChild, ...buttonProps } = extractProps(
     props,
     buttonPropDefs

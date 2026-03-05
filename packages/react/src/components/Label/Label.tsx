@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { LabelProps } from './Label.props';
@@ -15,7 +15,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type LabelElement = ComponentRef<'label'>;
 
-export const Label = React.forwardRef<LabelElement, LabelProps>((props, ref) => {
+export const Label = forwardRef<LabelElement, LabelProps>((props, ref) => {
   const {
     children,
     as: Tag = 'label',

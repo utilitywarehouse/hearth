@@ -6,7 +6,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { Slot } from 'radix-ui';
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'ProgressStepper';
@@ -14,7 +14,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ProgressStepperElement = ComponentRef<'div'>;
 
-export const ProgressStepper = React.forwardRef<ProgressStepperElement, ProgressStepperProps>(
+export const ProgressStepper = forwardRef<ProgressStepperElement, ProgressStepperProps>(
   (props, ref) => {
     const {
       className,

@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { ToggleGroup as RadixToggleGroup } from 'radix-ui';
 import { cn } from '../../helpers/cn';
@@ -20,7 +20,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ToggleButtonCardElement = ComponentRef<'button'>;
 
-export const ToggleButtonCard = React.forwardRef<ToggleButtonCardElement, ToggleButtonCardProps>(
+export const ToggleButtonCard = forwardRef<ToggleButtonCardElement, ToggleButtonCardProps>(
   (props, ref) => {
     const {
       className,

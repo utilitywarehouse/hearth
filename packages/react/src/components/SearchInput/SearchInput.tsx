@@ -9,14 +9,15 @@ import type { SearchInputProps } from './SearchInput.props';
 import { Spinner } from '../Spinner/Spinner';
 import { CloseSmallIcon, SearchMediumIcon } from '@utilitywarehouse/hearth-react-icons';
 import { useIds } from '../../hooks/use-ids';
-import * as React from 'react';
+import { forwardRef, useRef, useCallback } from 'react';
 import type { InputBaseElement } from '../InputBase/InputBase';
+import type { MouseEvent } from 'react';
 import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 
 const COMPONENT_NAME = 'SearchInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const SearchInput = React.forwardRef<InputBaseElement, SearchInputProps>(
+export const SearchInput = forwardRef<InputBaseElement, SearchInputProps>(
   (
     {
       className,
@@ -31,11 +32,11 @@ export const SearchInput = React.forwardRef<InputBaseElement, SearchInputProps>(
     },
     forwardedRef
   ) => {
-    const internalRef = React.useRef<HTMLInputElement | null>(null);
+    const internalRef = useRef<HTMLInputElement | null>(null);
     const inputRef = useMergedRefs(forwardedRef, internalRef);
 
-    const handleClear = React.useCallback(
-      (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleClear = useCallback(
+      (event: MouseEvent<HTMLButtonElement>) => {
         if (typeof onClear !== 'function' || event.button !== 0) {
           return;
         }

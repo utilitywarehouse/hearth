@@ -1,6 +1,5 @@
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { cn } from '../../helpers/cn';
-import React from 'react';
 import { Label } from '../Label/Label';
 import { HelperText } from '../HelperText/HelperText';
 import { ValidationText } from '../ValidationText/ValidationText';

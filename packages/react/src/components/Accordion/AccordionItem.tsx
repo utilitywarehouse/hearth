@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { AccordionItemProps } from './AccordionItem.props';
@@ -14,7 +14,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionItemElement = ComponentRef<'div'>;
 
-export const AccordionItem = React.forwardRef<AccordionItemElement, AccordionItemProps>(
+export const AccordionItem = forwardRef<AccordionItemElement, AccordionItemProps>(
   ({ className, title, description, children, headingElement, ...props }, ref) => {
     return (
       <AccordionPrimitive.Item ref={ref} className={cn(componentClassName, className)} {...props}>

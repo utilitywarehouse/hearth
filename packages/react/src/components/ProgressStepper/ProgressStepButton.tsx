@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Link } from '../Link/Link';
@@ -13,30 +13,29 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ProgressStepButtonElement = ComponentRef<'button'>;
 
-export const ProgressStepButton = React.forwardRef<
-  ProgressStepButtonElement,
-  ProgressStepButtonProps
->(({ label, className, status, disabled, onClick, 'aria-label': ariaLabel, ...props }, ref) => {
-  const isActive = status === 'active';
+export const ProgressStepButton = forwardRef<ProgressStepButtonElement, ProgressStepButtonProps>(
+  ({ label, className, status, disabled, onClick, 'aria-label': ariaLabel, ...props }, ref) => {
+    const isActive = status === 'active';
 
-  return (
-    <ProgressStep
-      status={status}
-      className={cn(componentClassName, className)}
-      aria-label={ariaLabel}
-      label={label}
-    >
-      {isActive ? (
-        label
-      ) : (
-        <Link asChild aria-disabled={disabled}>
-          <button ref={ref} {...props} onClick={disabled ? undefined : onClick}>
-            {label}
-          </button>
-        </Link>
-      )}
-    </ProgressStep>
-  );
-});
+    return (
+      <ProgressStep
+        status={status}
+        className={cn(componentClassName, className)}
+        aria-label={ariaLabel}
+        label={label}
+      >
+        {isActive ? (
+          label
+        ) : (
+          <Link asChild aria-disabled={disabled}>
+            <button ref={ref} {...props} onClick={disabled ? undefined : onClick}>
+              {label}
+            </button>
+          </Link>
+        )}
+      </ProgressStep>
+    );
+  }
+);
 
 ProgressStepButton.displayName = COMPONENT_NAME;

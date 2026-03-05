@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { iconContainerPropDefs } from './IconContainer.props';
@@ -14,31 +14,29 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type IconContainerElement = ComponentRef<'span'>;
 
-export const IconContainer = React.forwardRef<IconContainerElement, IconContainerProps>(
-  (props, ref) => {
-    const {
-      className,
-      colorScheme = 'pig',
-      fill,
-      ...iconContainerProps
-    } = extractProps(
-      props,
-      iconContainerPropDefs,
-      marginPropDefs,
-      sizePropDefs,
-      borderRadiusPropDefs
-    );
+export const IconContainer = forwardRef<IconContainerElement, IconContainerProps>((props, ref) => {
+  const {
+    className,
+    colorScheme = 'pig',
+    fill,
+    ...iconContainerProps
+  } = extractProps(
+    props,
+    iconContainerPropDefs,
+    marginPropDefs,
+    sizePropDefs,
+    borderRadiusPropDefs
+  );
 
-    return (
-      <span
-        ref={ref}
-        className={cn(componentClassName, className)}
-        data-colorscheme={colorScheme}
-        data-fill={fill}
-        {...iconContainerProps}
-      />
-    );
-  }
-);
+  return (
+    <span
+      ref={ref}
+      className={cn(componentClassName, className)}
+      data-colorscheme={colorScheme}
+      data-fill={fill}
+      {...iconContainerProps}
+    />
+  );
+});
 
 IconContainer.displayName = COMPONENT_NAME;

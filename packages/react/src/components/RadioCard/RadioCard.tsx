@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { RadioCardProps } from './RadioCard.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -16,7 +16,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type RadioCardElement = ComponentRef<'button'>;
 
-export const RadioCard = React.forwardRef<RadioCardElement, RadioCardProps>((props, ref) => {
+export const RadioCard = forwardRef<RadioCardElement, RadioCardProps>((props, ref) => {
   const {
     className,
     children,

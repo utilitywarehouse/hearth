@@ -1,7 +1,8 @@
+import type { ComponentPropsWithRef } from 'react';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
 
 export interface AccordionItemProps extends Omit<
-  React.ComponentPropsWithRef<typeof AccordionPrimitive.Item>,
+  ComponentPropsWithRef<typeof AccordionPrimitive.Item>,
   'asChild'
 > {
   title?: string;

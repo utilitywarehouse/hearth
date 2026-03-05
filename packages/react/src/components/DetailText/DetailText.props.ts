@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
@@ -33,8 +34,8 @@ export interface CommonDetailTextProps
   /** Inverts the component colours, for use on darker surface colours. */
   inverted?: boolean;
 }
-type DetailTextDivProps = { as?: 'div' } & React.ComponentPropsWithRef<'div'>;
-type DetailTextSpanProps = { as: 'span' } & React.ComponentPropsWithRef<'span'>;
-type DetailTextPProps = { as?: 'p' } & React.ComponentPropsWithRef<'p'>;
+type DetailTextDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
+type DetailTextSpanProps = { as: 'span' } & ComponentPropsWithRef<'span'>;
+type DetailTextPProps = { as?: 'p' } & ComponentPropsWithRef<'p'>;
 export type DetailTextProps = CommonDetailTextProps &
   (DetailTextSpanProps | DetailTextDivProps | DetailTextPProps);

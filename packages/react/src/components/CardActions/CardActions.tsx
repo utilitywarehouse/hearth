@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef, Children } from 'react';
 import { cn } from '../../helpers/cn';
 import type { CardActionsProps } from './CardActions.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -12,7 +12,7 @@ type CardActionsElement = ComponentRef<'ul'>;
 const COMPONENT_NAME = 'CardActions';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const CardActions = React.forwardRef<CardActionsElement, CardActionsProps>((props, ref) => {
+export const CardActions = forwardRef<CardActionsElement, CardActionsProps>((props, ref) => {
   const {
     className,
     as: Tag = 'ul',
@@ -30,7 +30,7 @@ export const CardActions = React.forwardRef<CardActionsElement, CardActionsProps
       direction={direction}
     >
       <Tag {...cardActionsProps}>
-        {React.Children.map(children, child => (
+        {Children.map(children, child => (
           <li className={`${componentClassName}Item`}>{child}</li>
         ))}
       </Tag>

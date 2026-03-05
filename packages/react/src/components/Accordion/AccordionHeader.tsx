@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
@@ -12,7 +12,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionHeaderElement = ComponentRef<'h3'>;
 
-export const AccordionHeader = React.forwardRef<AccordionHeaderElement, AccordionHeaderProps>(
+export const AccordionHeader = forwardRef<AccordionHeaderElement, AccordionHeaderProps>(
   ({ className, as: Tag = 'h3', children, ...props }, ref) => {
     return (
       <AccordionPrimitive.Header asChild className={cn(componentClassName, className)} {...props}>

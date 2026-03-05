@@ -1,6 +1,6 @@
-import * as React from 'react';
-
 // gratefully copied from MUI -> https://github.com/mui/material-ui/blob/master/packages/mui-system/src/useMediaQuery/useMediaQuery.ts
+
+import { useCallback, useDebugValue, useMemo, useSyncExternalStore } from 'react';
 
 export interface UseMediaQueryOptions {
   /**
@@ -38,15 +38,15 @@ export function useMediaQuery(query: string, options: UseMediaQueryOptions = {})
 
   query = query.replace(/^@media( ?)/m, '');
 
-  const getDefaultSnapshot = React.useCallback(() => defaultValue, [defaultValue]);
-  const getServerSnapshot = React.useMemo(() => {
+  const getDefaultSnapshot = useCallback(() => defaultValue, [defaultValue]);
+  const getServerSnapshot = useMemo(() => {
     if (initializeWithDefaultValue) {
       return getDefaultSnapshot;
     }
     return () => window.matchMedia(query).matches;
   }, [getDefaultSnapshot, query, initializeWithDefaultValue]);
 
-  const [getSnapshot, subscribe] = React.useMemo(() => {
+  const [getSnapshot, subscribe] = useMemo(() => {
     if (window.matchMedia === null) {
       return [getDefaultSnapshot, () => () => {}];
     }
@@ -64,11 +64,11 @@ export function useMediaQuery(query: string, options: UseMediaQueryOptions = {})
     ];
   }, [getDefaultSnapshot, query]);
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment,@typescript-eslint/no-unsafe-call
-  const match = React.useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const match = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    React.useDebugValue({ query, match });
+    useDebugValue({ query, match });
   }
 
   return match;

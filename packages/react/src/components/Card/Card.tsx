@@ -11,15 +11,15 @@ import { Flex } from '../Flex/Flex';
 import { flexPropDefs } from '../Flex/Flex.props';
 import { kebabCase } from '../../helpers/kebab-case';
 import { gapPropDefs } from '../../props/gap.props';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
 
 type CardElement = ComponentRef<'div'>;
 
 const COMPONENT_NAME = 'Card';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Card = React.forwardRef<CardElement, CardProps>((props, ref) => {
+export const Card = forwardRef<CardElement, CardProps>((props, ref) => {
   const {
     className,
     children,

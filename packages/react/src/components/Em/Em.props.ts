@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
@@ -5,7 +6,7 @@ import { TextWrapProps } from '../../props/text-wrap.props';
 
 export interface EmProps
   extends
-    React.ComponentPropsWithRef<'em'>,
+    ComponentPropsWithRef<'em'>,
     TextAlignProps,
     TextTransformProps,
     TextWrapProps,

@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Link } from '../Link/Link';
@@ -13,7 +13,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ProgressStepLinkElement = ComponentRef<'a'>;
 
-export const ProgressStepLink = React.forwardRef<ProgressStepLinkElement, ProgressStepLinkProps>(
+export const ProgressStepLink = forwardRef<ProgressStepLinkElement, ProgressStepLinkProps>(
   ({ label, className, status, disabled, href, 'aria-label': ariaLabel, ...props }, ref) => {
     const isActive = status === 'active';
 

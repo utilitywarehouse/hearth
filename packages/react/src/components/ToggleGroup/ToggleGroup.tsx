@@ -1,7 +1,7 @@
 'use client';
 
-import * as React from 'react';
-import type { ComponentRef } from 'react';
+import { forwardRef } from 'react';
+import type { ComponentRef, ComponentPropsWithRef } from 'react';
 import { ToggleGroup as ToggleGroupPrimitive } from 'radix-ui';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -13,7 +13,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ToggleGroupElement = ComponentRef<'div'>;
 
-export const ToggleGroup = React.forwardRef<ToggleGroupElement, ToggleGroupProps>(
+export const ToggleGroup = forwardRef<ToggleGroupElement, ToggleGroupProps>(
   (
     { className, type = 'multiple', value, defaultValue, onValueChange, children, ...props },
     ref
@@ -31,7 +31,7 @@ export const ToggleGroup = React.forwardRef<ToggleGroupElement, ToggleGroupProps
       <Flex asChild {...props}>
         <ToggleGroupPrimitive.Root
           className={cn(componentClassName, className)}
-          {...(toggleGroupProps as React.ComponentPropsWithRef<typeof ToggleGroupPrimitive.Root>)}
+          {...(toggleGroupProps as ComponentPropsWithRef<typeof ToggleGroupPrimitive.Root>)}
         />
       </Flex>
     );

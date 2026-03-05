@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { gridPropDefs } from './Grid.props';
@@ -36,7 +36,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type GridElement = ComponentRef<'div'>;
 
-export const Grid = React.forwardRef<GridElement, GridProps>((props, ref) => {
+export const Grid = forwardRef<GridElement, GridProps>((props, ref) => {
   const {
     className,
     asChild,

@@ -7,12 +7,12 @@ import { Label } from '../Label/Label';
 import { useIds } from '../../hooks/use-ids';
 import { InputBase, type InputBaseElement } from '../InputBase/InputBase';
 import type { DateInputSegmentProps } from './DateInputSegment.props';
-import React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'DateInputSegment';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const DateInputSegment = React.forwardRef<InputBaseElement, DateInputSegmentProps>(
+export const DateInputSegment = forwardRef<InputBaseElement, DateInputSegmentProps>(
   ({ className, label, placeholder, value, disabled, required, id: providedId, ...props }, ref) => {
     const { id, labelId } = useIds({ providedId, prefix: 'date-input-segment' });
 

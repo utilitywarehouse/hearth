@@ -6,14 +6,14 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { CardActionContent } from './CardActionContent';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 type CardActionButtonElement = ComponentRef<'button'>;
 
 const COMPONENT_NAME = 'CardActionButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const CardActionButton = React.forwardRef<CardActionButtonElement, CardActionButtonProps>(
+export const CardActionButton = forwardRef<CardActionButtonElement, CardActionButtonProps>(
   (
     {
       className,

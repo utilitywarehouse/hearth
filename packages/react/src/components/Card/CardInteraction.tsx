@@ -8,15 +8,15 @@ import { gridItemPropDefs } from '../../props/grid-item.props';
 import { flexItemPropDefs } from '../../props/flex-item.props';
 import { Flex } from '../Flex/Flex';
 import type { CardInteractionProps } from './CardInteraction.props';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
 
 const COMPONENT_NAME = 'CardInteraction';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CardInteractionElement = ComponentRef<'div'>;
 
-export const CardInteraction = React.forwardRef<CardInteractionElement, CardInteractionProps>(
+export const CardInteraction = forwardRef<CardInteractionElement, CardInteractionProps>(
   (props, ref) => {
     const { className, secondary, ...cardProps } = extractProps(
       props,

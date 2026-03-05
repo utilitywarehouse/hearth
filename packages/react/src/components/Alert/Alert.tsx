@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { extractProps } from '../../helpers/extract-props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -22,7 +22,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AlertElement = ComponentRef<'div'>;
 
-export const Alert = React.forwardRef<AlertElement, AlertProps>((props, ref) => {
+export const Alert = forwardRef<AlertElement, AlertProps>((props, ref) => {
   const icons = {
     info: InfoMediumIcon,
     positive: TickCircleMediumIcon,

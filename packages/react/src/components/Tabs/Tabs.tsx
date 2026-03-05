@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { Tabs as RadixTabs } from 'radix-ui';
@@ -15,7 +15,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TabsElement = ComponentRef<'div'>;
 
-export const Tabs = React.forwardRef<TabsElement, TabsProps>((props, ref) => {
+export const Tabs = forwardRef<TabsElement, TabsProps>((props, ref) => {
   const {
     className,
     activationMode = 'automatic',

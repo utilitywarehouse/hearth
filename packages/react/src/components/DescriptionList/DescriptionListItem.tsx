@@ -6,7 +6,7 @@ import type { DescriptionListItemProps } from './DescriptionListItem.props';
 import { DescriptionListContext } from '../DescriptionList/DescriptionList.context';
 import { Flex } from '../Flex/Flex';
 import { ValidationText } from '../ValidationText/ValidationText';
-import * as React from 'react';
+import { useContext } from 'react';
 
 const COMPONENT_NAME = 'DescriptionListItem';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -20,7 +20,7 @@ export const DescriptionListItem = ({
   validationText,
   ...props
 }: DescriptionListItemProps) => {
-  const { direction } = React.useContext(DescriptionListContext);
+  const { direction } = useContext(DescriptionListContext);
   const showValidationText = validationStatus !== undefined && validationText !== undefined;
   return (
     <Flex {...props} className={cn(componentClassName, className)}>

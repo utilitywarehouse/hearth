@@ -11,12 +11,12 @@ import type { SpinnerProps } from '../Spinner/Spinner.props';
 import { Slot } from 'radix-ui';
 import { getSubtree } from '../../helpers/get-subtree';
 import { getResponsiveTranslation } from '../../helpers/get-responsive-translation';
-import React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'IconButton';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const IconButton = React.forwardRef<ButtonBaseElement, IconButtonProps>((props, ref) => {
+export const IconButton = forwardRef<ButtonBaseElement, IconButtonProps>((props, ref) => {
   const { className, label, disabled, loading, children, asChild, ...iconButtonProps } =
     extractProps(props, iconButtonPropDefs);
 

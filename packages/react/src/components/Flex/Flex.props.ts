@@ -22,6 +22,7 @@ import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
 import { ZIndexProps } from '../../props/z-index.props';
 import { Responsive } from '../../types/responsive';
+import type { ComponentPropsWithRef } from 'react';
 
 const displayValues = ['none', 'inline-flex', 'flex'] as const;
 const directionValues = ['row', 'column', 'row-reverse', 'column-reverse'] as const;
@@ -66,6 +67,6 @@ export interface CommonFlexProps
   direction?: Responsive<(typeof directionValues)[number]>;
   wrap?: Responsive<(typeof wrapValues)[number]>;
 }
-type FlexDivProps = { as?: 'div' } & React.ComponentPropsWithRef<'div'>;
-type FlexSpanProps = { as?: 'span' } & React.ComponentPropsWithRef<'span'>;
+type FlexDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
+type FlexSpanProps = { as?: 'span' } & ComponentPropsWithRef<'span'>;
 export type FlexProps = CommonFlexProps & (FlexDivProps | FlexSpanProps);

@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -16,7 +16,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type DescriptionListElement = ComponentRef<'dl'>;
 
-export const DescriptionList = React.forwardRef<DescriptionListElement, DescriptionListProps>(
+export const DescriptionList = forwardRef<DescriptionListElement, DescriptionListProps>(
   (props, ref) => {
     const {
       className,

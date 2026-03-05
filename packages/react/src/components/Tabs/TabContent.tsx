@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { Tabs as TabsPrimitive } from 'radix-ui';
@@ -12,7 +12,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TabContentElement = ComponentRef<'div'>;
 
-export const TabContent = React.forwardRef<TabContentElement, TabContentProps>(
+export const TabContent = forwardRef<TabContentElement, TabContentProps>(
   ({ className, ...props }, ref) => {
     return (
       <TabsPrimitive.Content ref={ref} className={cn(componentClassName, className)} {...props} />

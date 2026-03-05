@@ -1,4 +1,5 @@
 import { MarginProps } from '../../props/margin.props';
+import type { ComponentPropsWithRef } from 'react';
 
 export interface CommonProgressStepperProps extends MarginProps {
   /**
@@ -8,8 +9,8 @@ export interface CommonProgressStepperProps extends MarginProps {
   hideLabels?: boolean;
 }
 
-type ProgressStepperDivProps = { as?: 'div' } & React.ComponentPropsWithRef<'div'>;
-type ProgressStepperNavProps = { as: 'nav' } & React.ComponentPropsWithRef<'nav'>;
+type ProgressStepperDivProps = { as?: 'div' } & ComponentPropsWithRef<'div'>;
+type ProgressStepperNavProps = { as: 'nav' } & ComponentPropsWithRef<'nav'>;
 
 export type ProgressStepperProps = CommonProgressStepperProps &
   (ProgressStepperDivProps | ProgressStepperNavProps);

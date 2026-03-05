@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -13,7 +13,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type HighlightBannerElement = ComponentRef<'div'>;
 
-export const HighlightBanner = React.forwardRef<HighlightBannerElement, HighlightBannerProps>(
+export const HighlightBanner = forwardRef<HighlightBannerElement, HighlightBannerProps>(
   (props, ref) => {
     const { children, className, colorScheme, heading, headingColor, ...highlightBannerProps } =
       extractProps(props, marginPropDefs);

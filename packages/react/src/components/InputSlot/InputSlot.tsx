@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -10,7 +10,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type InputSlotElement = ComponentRef<'div'>;
 
-export const InputSlot = React.forwardRef<InputSlotElement, InputSlotProps>(
+export const InputSlot = forwardRef<InputSlotElement, InputSlotProps>(
   ({ className, children, placement, asChild, ...props }, ref) => {
     const Component = asChild ? Slot.Root : 'div';
     return (

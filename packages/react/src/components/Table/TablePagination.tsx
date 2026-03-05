@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 
 import { cn } from '../../helpers/cn';
@@ -11,7 +11,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TablePaginationElement = ComponentRef<'div'>;
 
-export const TablePagination = React.forwardRef<TablePaginationElement, TablePaginationProps>(
+export const TablePagination = forwardRef<TablePaginationElement, TablePaginationProps>(
   ({ className, ...props }, ref) => {
     return (
       <Pagination ref={ref} className={cn(componentClassName, className)} {...props} as="div" />

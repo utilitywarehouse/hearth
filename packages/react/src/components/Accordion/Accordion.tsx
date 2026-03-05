@@ -1,21 +1,21 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
+import type { ComponentPropsWithRef, ComponentRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { AccordionProps } from './Accordion.props';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
-import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'Accordion';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionElement = ComponentRef<'div'>;
 
-export const Accordion = React.forwardRef<AccordionElement, AccordionProps>((props, ref) => {
+export const Accordion = forwardRef<AccordionElement, AccordionProps>((props, ref) => {
   const {
     className,
     type = 'multiple',
@@ -37,7 +37,7 @@ export const Accordion = React.forwardRef<AccordionElement, AccordionProps>((pro
     validationStatus,
   };
 
-  const accordionProps = { type, ...restProps } as React.ComponentPropsWithRef<
+  const accordionProps = { type, ...restProps } as ComponentPropsWithRef<
     typeof AccordionPrimitive.Root
   >;
 

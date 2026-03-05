@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { boxPropDefs } from './Box.props';
 import type { BoxProps } from './Box.props';
@@ -31,7 +31,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type BoxElement = ComponentRef<'div'>;
 
-export const Box = React.forwardRef<BoxElement, BoxProps>((props, ref) => {
+export const Box = forwardRef<BoxElement, BoxProps>((props, ref) => {
   const {
     className,
     asChild,

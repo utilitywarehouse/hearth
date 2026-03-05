@@ -12,7 +12,7 @@ import { ModalClose } from './ModalClose';
 import { Box } from '../Box/Box';
 import { Flex } from '../Flex/Flex';
 import { Spinner } from '../Spinner/Spinner';
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'Modal';
@@ -20,7 +20,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ModalElement = ComponentRef<'div'>;
 
-export const Modal = React.forwardRef<ModalElement, ModalProps>(
+export const Modal = forwardRef<ModalElement, ModalProps>(
   (
     {
       className,

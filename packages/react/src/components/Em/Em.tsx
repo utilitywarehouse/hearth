@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { EmProps } from './Em.props';
@@ -17,7 +17,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type EmElement = ComponentRef<'em'>;
 
-export const Em = React.forwardRef<EmElement, EmProps>((props, ref) => {
+export const Em = forwardRef<EmElement, EmProps>((props, ref) => {
   const { className, asChild, children, truncate, ...emProps } = extractProps(
     props,
     textAlignPropDefs,

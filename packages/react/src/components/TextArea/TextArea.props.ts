@@ -1,8 +1,9 @@
+import type { ComponentPropsWithRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { BoxProps } from '../Box/Box.props';
 import { FormFieldProps } from '../FormField/FormField.props';
 
-type ElementProps = Omit<React.ComponentPropsWithRef<'textarea'>, 'value'>;
+type ElementProps = Omit<ComponentPropsWithRef<'textarea'>, 'value'>;
 
 export interface TextAreaProps
   extends ElementProps, Omit<FormFieldProps, 'hideLabel' | keyof ElementProps>, MarginProps {

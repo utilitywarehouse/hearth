@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { AccordionTriggerProps } from './AccordionTrigger.props';
@@ -13,7 +13,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionTriggerElement = ComponentRef<'button'>;
 
-export const AccordionTrigger = React.forwardRef<AccordionTriggerElement, AccordionTriggerProps>(
+export const AccordionTrigger = forwardRef<AccordionTriggerElement, AccordionTriggerProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <AccordionPrimitive.Trigger

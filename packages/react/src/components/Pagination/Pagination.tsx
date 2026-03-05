@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import {
   ChevronLeftSmallIcon,
@@ -67,7 +67,7 @@ const generatePageNumbers = (
   return pages;
 };
 
-export const Pagination = React.forwardRef<PaginationElement, PaginationProps>((props, ref) => {
+export const Pagination = forwardRef<PaginationElement, PaginationProps>((props, ref) => {
   const {
     className,
     currentPage,

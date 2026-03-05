@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
@@ -22,7 +22,7 @@ type AvatarElement = ComponentRef<'div'>;
 const COMPONENT_NAME = 'Avatar';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Avatar = React.forwardRef<AvatarElement, AvatarProps>((props, ref) => {
+export const Avatar = forwardRef<AvatarElement, AvatarProps>((props, ref) => {
   const {
     className,
     src,

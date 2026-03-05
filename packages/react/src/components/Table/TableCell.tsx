@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 
 import { cn } from '../../helpers/cn';
@@ -10,7 +10,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TableCellElement = ComponentRef<'td'>;
 
-export const TableCell = React.forwardRef<TableCellElement, TableCellProps>(
+export const TableCell = forwardRef<TableCellElement, TableCellProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <td ref={ref} className={cn(componentClassName, className)} {...props}>

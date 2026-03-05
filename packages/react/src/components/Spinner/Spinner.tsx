@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { spinnerPropDefs } from './Spinner.props';
@@ -12,7 +12,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type SpinnerElement = ComponentRef<'div'>;
 
-export const Spinner = React.forwardRef<SpinnerElement, SpinnerProps>(
+export const Spinner = forwardRef<SpinnerElement, SpinnerProps>(
   ({ currentColor, ...props }, ref) => {
     const { className, ...spinnerProps } = extractProps(props, spinnerPropDefs, marginPropDefs);
     return (

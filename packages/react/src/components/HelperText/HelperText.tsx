@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -14,7 +14,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type HelperTextElement = ComponentRef<'span'>;
 
-export const HelperText = React.forwardRef<HelperTextElement, HelperTextProps>((props, ref) => {
+export const HelperText = forwardRef<HelperTextElement, HelperTextProps>((props, ref) => {
   const { children, disabled, disableUserSelect, className, ...helperTextProps } = extractProps(
     props,
     marginPropDefs,

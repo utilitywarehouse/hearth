@@ -1,5 +1,5 @@
-import * as React from 'react';
-import type { ComponentRef } from 'react';
+import { forwardRef } from 'react';
+import type { ComponentRef, ComponentPropsWithRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 
@@ -8,9 +8,9 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type HighlightBannerFooterElement = ComponentRef<'div'>;
 
-export const HighlightBannerFooter = React.forwardRef<
+export const HighlightBannerFooter = forwardRef<
   HighlightBannerFooterElement,
-  React.ComponentPropsWithRef<'div'>
+  ComponentPropsWithRef<'div'>
 >(({ className, ...props }, ref) => {
   return <div ref={ref} className={cn(componentClassName, className)} {...props} />;
 });

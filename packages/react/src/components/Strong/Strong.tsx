@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { StrongProps } from './Strong.props';
@@ -17,7 +17,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type StrongElement = ComponentRef<'strong'>;
 
-export const Strong = React.forwardRef<StrongElement, StrongProps>((props, ref) => {
+export const Strong = forwardRef<StrongElement, StrongProps>((props, ref) => {
   const { className, asChild, children, truncate, ...strongProps } = extractProps(
     props,
     textAlignPropDefs,

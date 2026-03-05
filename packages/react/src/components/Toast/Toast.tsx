@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { Toast as ToastPrimitive } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -14,7 +14,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ToastElement = ComponentRef<'li'>;
 
-export const Toast = React.forwardRef<ToastElement, ToastProps>(
+export const Toast = forwardRef<ToastElement, ToastProps>(
   ({ className, icon, description, showDismissButton, children, ...props }, ref) => {
     return (
       <ToastPrimitive.Root ref={ref} className={cn(componentClassName, className)} {...props}>

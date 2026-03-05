@@ -1,7 +1,6 @@
 'use client';
 
-import { useCallback, useLayoutEffect, useRef, useState } from 'react';
-import * as React from 'react';
+import { forwardRef, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { Tabs as TabsPrimitive } from 'radix-ui';
@@ -15,7 +14,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type TabsListElement = ComponentRef<'div'>;
 
-export const TabsList = React.forwardRef<TabsListElement, TabsListProps>(
+export const TabsList = forwardRef<TabsListElement, TabsListProps>(
   ({ className, children, ...rest }, ref) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const scrollRef = useRef<HTMLDivElement | null>(null);

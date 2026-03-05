@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { headingPropDefs } from './Heading.props';
@@ -18,7 +18,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type HeadingElement = ComponentRef<'h2'>;
 
-export const Heading = React.forwardRef<HeadingElement, HeadingProps>(
+export const Heading = forwardRef<HeadingElement, HeadingProps>(
   ({ size, as: Tag = 'h2', ...props }, ref) => {
     const { className, asChild, inverted, children, ...headingProps } = extractProps(
       { size, ...props },

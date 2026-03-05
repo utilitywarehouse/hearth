@@ -16,14 +16,14 @@ import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 import { ValidationText } from '../ValidationText/ValidationText';
 import { mergeIds } from '../../helpers/merge-ids';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'Checkbox';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CheckboxElement = ComponentRef<'button'>;
 
-export const Checkbox = React.forwardRef<CheckboxElement, CheckboxProps>((props, ref) => {
+export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) => {
   const {
     id: providedId,
     label,

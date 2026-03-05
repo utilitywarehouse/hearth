@@ -4,15 +4,15 @@ import { Flex } from '../Flex/Flex';
 import { Heading } from '../Heading/Heading';
 import { BodyText } from '../BodyText/BodyText';
 import type { CardBannerContentProps } from './CardBannerContent.props';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
 
 const COMPONENT_NAME = 'CardBannerContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CardBannerContentElement = ComponentRef<'div'>;
 
-export const CardBannerContent = React.forwardRef<CardBannerContentElement, CardBannerContentProps>(
+export const CardBannerContent = forwardRef<CardBannerContentElement, CardBannerContentProps>(
   ({ heading, description, className, children, textAlign, ...props }, ref) => {
     return (
       <Flex

@@ -7,14 +7,14 @@ import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { BreadcrumbsContext } from './Breadcrumbs.context';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'Breadcrumbs';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type BreadcrumbsElement = ComponentRef<'nav'>;
 
-export const Breadcrumbs = React.forwardRef<BreadcrumbsElement, BreadcrumbsProps>((props, ref) => {
+export const Breadcrumbs = forwardRef<BreadcrumbsElement, BreadcrumbsProps>((props, ref) => {
   const { className, children, inverted, ...breadcrumbsProps } = extractProps(
     props,
     marginPropDefs

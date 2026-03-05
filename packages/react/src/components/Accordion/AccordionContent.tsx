@@ -6,14 +6,14 @@ import type { AccordionContentProps } from './AccordionContent.props';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
 import { BodyText } from '../BodyText/BodyText';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'AccordionContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type AccordionContentElement = ComponentRef<'div'>;
 
-export const AccordionContent = React.forwardRef<AccordionContentElement, AccordionContentProps>(
+export const AccordionContent = forwardRef<AccordionContentElement, AccordionContentProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <AccordionPrimitive.Content

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { DividerProps } from './Divider.props';
@@ -18,7 +18,7 @@ function isValidOrientation(orientation?: Orientation) {
 
 type DividerElement = ComponentRef<'hr'>;
 
-export const Divider = React.forwardRef<DividerElement, DividerProps>((props, ref) => {
+export const Divider = forwardRef<DividerElement, DividerProps>((props, ref) => {
   const {
     decorative,
     orientation: providedOrientation,

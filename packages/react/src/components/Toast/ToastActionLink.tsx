@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { Toast as ToastPrimitive } from 'radix-ui';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -14,7 +14,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ToastActionLinkElement = ComponentRef<'a'>;
 
-export const ToastActionLink = React.forwardRef<ToastActionLinkElement, ToastActionLinkProps>(
+export const ToastActionLink = forwardRef<ToastActionLinkElement, ToastActionLinkProps>(
   ({ className, altText, ...props }, ref) => {
     warn(!altText, 'ToastActionLink: `altText` is required.');
 

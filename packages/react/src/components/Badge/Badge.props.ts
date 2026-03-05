@@ -1,4 +1,5 @@
 import { MarginProps } from '../../props/margin.props';
+import type { ComponentPropsWithRef } from 'react';
 import { PropDef } from '../../props/prop-def';
 import { TextTransformProps } from '../../props/text-transform.props';
 import { Responsive } from '../../types/responsive';
@@ -14,8 +15,7 @@ export const badgePropDefs = {
   size: PropDef<(typeof sizes)[number]>;
 };
 
-export interface BadgeProps
-  extends React.ComponentPropsWithRef<'span'>, MarginProps, TextTransformProps {
+export interface BadgeProps extends ComponentPropsWithRef<'span'>, MarginProps, TextTransformProps {
   /**
    * Sets the badges's visual variant
    * @default subtle

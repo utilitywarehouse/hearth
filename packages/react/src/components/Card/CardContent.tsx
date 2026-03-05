@@ -2,15 +2,15 @@ import { cn } from '../../helpers/cn';
 import type { CardContentProps } from './CardContent.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { Flex } from '../Flex/Flex';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
 
 const COMPONENT_NAME = 'CardContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CardContentElement = ComponentRef<'div'>;
 
-export const CardContent = React.forwardRef<CardContentElement, CardContentProps>(
+export const CardContent = forwardRef<CardContentElement, CardContentProps>(
   ({ className, paddingBottomNone, ...props }, ref) => {
     return (
       <Flex

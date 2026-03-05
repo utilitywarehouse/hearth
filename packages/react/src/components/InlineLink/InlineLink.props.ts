@@ -1,8 +1,9 @@
+import type { ComponentPropsWithRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { TextTransformProps } from '../../props/text-transform.props';
 
 export interface InlineLinkProps
-  extends React.ComponentPropsWithRef<'a'>, MarginProps, TextTransformProps {
+  extends ComponentPropsWithRef<'a'>, MarginProps, TextTransformProps {
   /**
    * Sets the color scheme for the InlineLink.
    * - 'default': Uses the standard link color.

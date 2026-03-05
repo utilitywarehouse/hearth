@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -18,42 +18,41 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type UnstyledIconButtonElement = ComponentRef<'button'>;
 
-export const UnstyledIconButton = React.forwardRef<
-  UnstyledIconButtonElement,
-  UnstyledIconButtonProps
->((props, ref) => {
-  const {
-    className,
-    children,
-    label,
-    disabled,
-    inverted,
-    loading,
-    onClick,
-    asChild,
-    ...unstyledIconButtonProps
-  } = extractProps(props, unstyledIconButtonPropDefs);
+export const UnstyledIconButton = forwardRef<UnstyledIconButtonElement, UnstyledIconButtonProps>(
+  (props, ref) => {
+    const {
+      className,
+      children,
+      label,
+      disabled,
+      inverted,
+      loading,
+      onClick,
+      asChild,
+      ...unstyledIconButtonProps
+    } = extractProps(props, unstyledIconButtonPropDefs);
 
-  const spinnerSize = getResponsiveTranslation(props.size || 'md', { md: 'sm', sm: 'xs' });
-  const Component = asChild ? Slot.Root : 'button';
+    const spinnerSize = getResponsiveTranslation(props.size || 'md', { md: 'sm', sm: 'xs' });
+    const Component = asChild ? Slot.Root : 'button';
 
-  return (
-    <Component
-      ref={ref}
-      className={cn(componentClassName, className)}
-      aria-label={label}
-      aria-disabled={disabled || loading}
-      data-inverted={inverted ? '' : undefined}
-      onClick={disabled ? undefined : onClick}
-      {...unstyledIconButtonProps}
-    >
-      {loading
-        ? getSubtree({ asChild, children }, () => (
-            <Spinner size={spinnerSize as SpinnerProps['size']} currentColor />
-          ))
-        : children}
-    </Component>
-  );
-});
+    return (
+      <Component
+        ref={ref}
+        className={cn(componentClassName, className)}
+        aria-label={label}
+        aria-disabled={disabled || loading}
+        data-inverted={inverted ? '' : undefined}
+        onClick={disabled ? undefined : onClick}
+        {...unstyledIconButtonProps}
+      >
+        {loading
+          ? getSubtree({ asChild, children }, () => (
+              <Spinner size={spinnerSize as SpinnerProps['size']} currentColor />
+            ))
+          : children}
+      </Component>
+    );
+  }
+);
 
 UnstyledIconButton.displayName = COMPONENT_NAME;

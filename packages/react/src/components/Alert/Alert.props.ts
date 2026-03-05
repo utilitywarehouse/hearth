@@ -1,8 +1,7 @@
-import React from 'react';
+import type { ComponentPropsWithRef, ReactNode } from 'react';
 import { MarginProps } from '../../props/margin.props';
 
-export interface AlertProps
-  extends Omit<React.ComponentPropsWithRef<'div'>, 'asChild'>, MarginProps {
+export interface AlertProps extends Omit<ComponentPropsWithRef<'div'>, 'asChild'>, MarginProps {
   /**
    * Sets the colour scheme.
    * @default info
@@ -15,7 +14,7 @@ export interface AlertProps
   /**
    * Sets the text of the alert.
    */
-  text?: string | React.ReactNode;
+  text?: string | ReactNode;
   /**
    * Sets the onClose handler of the alert.
    */

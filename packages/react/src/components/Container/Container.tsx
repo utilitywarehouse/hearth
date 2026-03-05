@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -14,7 +14,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ContainerElement = ComponentRef<'div'>;
 
-export const Container = React.forwardRef<ContainerElement, ContainerProps>(
+export const Container = forwardRef<ContainerElement, ContainerProps>(
   (
     {
       className,

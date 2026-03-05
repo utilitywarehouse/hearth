@@ -5,14 +5,14 @@ import { cn } from '../../helpers/cn';
 import { BodyText } from '../BodyText/BodyText';
 import { IconContainer } from '../IconContainer/IconContainer';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'CardActionContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type CardActionContentElement = ComponentRef<'div'>;
 
-export const CardActionContent = React.forwardRef<CardActionContentElement, CardActionContentProps>(
+export const CardActionContent = forwardRef<CardActionContentElement, CardActionContentProps>(
   (props, ref) => {
     const {
       heading,

@@ -4,14 +4,14 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { BodyText } from '../BodyText/BodyText';
 import { Flex } from '../Flex/Flex';
 import type { ComponentRef } from 'react';
-import * as React from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'ListItem';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
 type ListItemElement = ComponentRef<'li'>;
 
-export const ListItem = React.forwardRef<ListItemElement, ListItemProps>(
+export const ListItem = forwardRef<ListItemElement, ListItemProps>(
   (
     {
       className,
