@@ -67,17 +67,16 @@ const BookingTime = () => {
 
 `TimePicker` extends the `BottomSheetModal` component. The table below highlights the main props.
 
-| Prop              | Type                                    | Default    | Description                                                     |
-| ----------------- | --------------------------------------- | ---------- | --------------------------------------------------------------- |
-| `date`            | `DateType`                              | `-`        | Selected time value.                                            |
-| `timeZone`        | `string`                                | `-`        | IANA time zone identifier applied to the selected time.         |
-| `use12Hours`      | `boolean`                               | `false`    | Displays an AM/PM selector and formats hours from 1 to 12.      |
-| `containerHeight` | `number`                                | `300`      | Height of the picker container used for wheel sizing.           |
-| `minuteInterval`  | `number`                                | `1`        | Step interval for minutes shown in the picker.                  |
-| `hideFooter`      | `boolean`                               | `false`    | Hides the Cancel/Ok actions.                                    |
-| `onChange`        | `(payload: { date: DateType }) => void` | `-`        | Fired whenever the selected time changes.                       |
-| `onCancel`        | `() => void`                            | `() => {}` | Fired when the cancel action is triggered.                      |
-| `ref`             | `Ref<BottomSheetModalMethods>`          | `-`        | Gives imperative access to present or dismiss the bottom sheet. |
+| Prop             | Type                                    | Default    | Description                                                     |
+| ---------------- | --------------------------------------- | ---------- | --------------------------------------------------------------- |
+| `date`           | `DateType`                              | `-`        | Selected time value.                                            |
+| `timeZone`       | `string`                                | `-`        | IANA time zone identifier applied to the selected time.         |
+| `use12Hours`     | `boolean`                               | `false`    | Displays an AM/PM selector and formats hours from 1 to 12.      |
+| `minuteInterval` | `number`                                | `1`        | Step interval for minutes shown in the picker.                  |
+| `hideFooter`     | `boolean`                               | `false`    | Hides the Cancel/Ok actions.                                    |
+| `onChange`       | `(payload: { date: DateType }) => void` | `-`        | Fired whenever the selected time changes.                       |
+| `onCancel`       | `() => void`                            | `() => {}` | Fired when the cancel action is triggered.                      |
+| `ref`            | `Ref<BottomSheetModalMethods>`          | `-`        | Gives imperative access to present or dismiss the bottom sheet. |
 
 ## Accessibility
 

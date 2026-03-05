@@ -60,11 +60,9 @@ const BookingTimeField = () => {
 };
 ```
 
-When used inside `FormField`, validation, disabled, and required states are inherited from the context.
-
 ## Props
 
-`TimePickerInput` inherits all React Native `TextInput` props (except `children`) and adds the following:
+`TimePickerInput` inherits all React of the `Input` component props props (except `children`) and adds the following:
 
 | Prop                | Type                                                   | Default              | Description                                                                                               |
 | ------------------- | ------------------------------------------------------ | -------------------- | --------------------------------------------------------------------------------------------------------- |
@@ -97,6 +95,32 @@ When `format` is left as `'HH:mm'`, the input automatically inserts `:` as peopl
 `TimePickerInput` doesn't display validation styles by itself. Pair it with `FormField` (or your own state) to surface errors whenever the typed value doesn't match your expected format.
 
 ## Examples
+
+### With label and helper text
+
+<UsageWrap>
+  <BottomSheetModalProvider>
+    <Center>
+      <TimePickerInput
+        onClear={() => {}}
+        label="Meeting time"
+        helperText="Pick a time for your meeting"
+        validText="Time looks good!"
+        invalidText="Please enter a valid time"
+      />
+    </Center>
+  </BottomSheetModalProvider>
+</UsageWrap>
+
+```tsx
+<TimePickerInput
+  onClear={() => {}}
+  label="Meeting time"
+  helperText="Pick a time for your meeting"
+  validText="Time looks good!"
+  invalidText="Please enter a valid time"
+/>
+```
 
 ### With `FormField`
 

@@ -12,7 +12,6 @@ import Animated, {
 import { StyleSheet } from 'react-native-unistyles';
 import { isEqual } from '../../../utils';
 import { BodyText } from '../../BodyText';
-import { DEFAULT_TIME_PICKER_HEIGHT } from '../constants';
 import type { PickerOption } from '../TimePicker.props';
 
 interface WheelProps {
@@ -65,13 +64,15 @@ const WheelWebItem = ({
       position: 'absolute',
       height: ITEM_HEIGHT - 10,
       opacity: baseOpacity,
+      alignItems: 'center',
+      justifyContent: 'center',
       transform: [{ translateY: translate }, { rotateX: `${rotateX}deg` }],
     };
   }, [baseOpacity, currentIndex, displayCount, index, radius, translateY]);
 
   return (
     <Animated.View style={animatedStyle}>
-      <BodyText>{displayValue?.text}</BodyText>
+      <BodyText size="lg">{displayValue?.text}</BodyText>
     </Animated.View>
   );
 };
@@ -177,13 +178,13 @@ const WheelWeb = ({ value, setValue = () => {}, items }: WheelProps) => {
   );
 };
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create(theme => ({
   container: {
     minWidth: 30,
     overflow: 'hidden',
     alignItems: 'center',
     justifyContent: 'center',
-    height: DEFAULT_TIME_PICKER_HEIGHT / 2,
+    height: 208,
     ...Platform.select({
       web: {
         cursor: 'pointer',
@@ -193,10 +194,15 @@ const styles = StyleSheet.create({
   },
   selectedIndicator: {
     position: 'absolute',
-    width: '100%',
+    width: theme.components.timePicker.time.item.width,
+    height: theme.components.timePicker.time.item.height,
     top: '50%',
+    backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
+    borderRadius: theme.borderRadius.md,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-});
+}));
 
 const customComparator = (prev: Readonly<WheelProps>, next: Readonly<WheelProps>) => {
   const areEqual =

@@ -6,7 +6,6 @@ import { AccessibilityInfo, findNodeHandle, Platform, View as RNView } from 'rea
 import { StyleSheet } from 'react-native-unistyles';
 import { BottomSheetModal, BottomSheetView } from '../BottomSheet';
 import { Button } from '../Button';
-import { DEFAULT_TIME_PICKER_HEIGHT } from './constants';
 import type { DateType, TimePickerProps } from './TimePicker.props';
 import TimePickerView from './TimePickerView';
 
@@ -38,7 +37,6 @@ const TimePicker = ({
   use12Hours,
   minuteInterval,
   numerals = 'latn',
-  containerHeight = DEFAULT_TIME_PICKER_HEIGHT,
   hideFooter,
   style,
   ref,
@@ -127,7 +125,6 @@ const TimePicker = ({
             numerals={numerals}
             use12Hours={use12Hours}
             minuteInterval={minuteInterval}
-            containerHeight={containerHeight}
           />
           {!hideFooter ? <Footer onCancel={handleCancel} onConfirm={handleConfirm} /> : null}
         </RNView>

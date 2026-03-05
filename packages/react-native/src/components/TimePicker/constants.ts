@@ -1,1 +1,0 @@
-export const DEFAULT_TIME_PICKER_HEIGHT = 300;

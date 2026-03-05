@@ -59,7 +59,7 @@ const meta = {
     focused: false,
     openButtonLabel: 'Open time picker',
     autoCloseOnSelect: false,
-    placeholder: 'HH:mm',
+    placeholder: undefined,
   },
 } satisfies Meta<typeof TimePickerInput>;
 
@@ -104,7 +104,7 @@ export const States: Story = {
     return (
       <Flex direction="column" spacing="lg">
         <VariantTitle title="Default">
-          <TimePickerInput placeholder="HH:mm" />
+          <TimePickerInput />
         </VariantTitle>
         <VariantTitle title="With value">
           <TimePickerInput
@@ -114,16 +114,16 @@ export const States: Story = {
           />
         </VariantTitle>
         <VariantTitle title="Disabled">
-          <TimePickerInput disabled placeholder="HH:mm" />
+          <TimePickerInput disabled />
         </VariantTitle>
         <VariantTitle title="Readonly">
           <TimePickerInput readonly value={withValue} />
         </VariantTitle>
         <VariantTitle title="Invalid">
-          <TimePickerInput validationStatus="invalid" placeholder="HH:mm" />
+          <TimePickerInput validationStatus="invalid" />
         </VariantTitle>
         <VariantTitle title="Valid">
-          <TimePickerInput validationStatus="valid" placeholder="HH:mm" />
+          <TimePickerInput validationStatus="valid" />
         </VariantTitle>
         <VariantTitle title="With clear action">
           <TimePickerInput
@@ -158,7 +158,6 @@ export const MinuteIntervals: Story = {
         value={intervalTime}
         onChange={({ date }) => setIntervalTime(date ?? undefined)}
         onClear={() => setIntervalTime(undefined)}
-        placeholder="HH:mm"
         timePickerProps={{ minuteInterval: 5 }}
       />
     );

@@ -1,10 +1,9 @@
 import dayjs from 'dayjs';
 import { useCallback, useMemo } from 'react';
-import { ScrollView, View } from 'react-native';
+import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
 import { formatNumber, getParsedDate } from '../DatePicker/utils';
-import { DEFAULT_TIME_PICKER_HEIGHT } from './constants';
 import { PeriodPicker, Wheel } from './time-picker';
 import type { DateType, Numerals, PickerOption } from './TimePicker.props';
 
@@ -77,7 +76,6 @@ const TimePickerView = ({
   numerals = 'latn',
   use12Hours,
   minuteInterval = 1,
-  containerHeight = DEFAULT_TIME_PICKER_HEIGHT,
 }: TimePickerViewProps) => {
   const hours = useMemo(
     () => createNumberList(use12Hours ? 12 : 24, numerals, use12Hours ? 1 : 0),
@@ -139,17 +137,19 @@ const TimePickerView = ({
   );
 
   return (
-    <ScrollView
-      horizontal={true}
-      scrollEnabled={false}
-      contentContainerStyle={styles.container}
+    <View
+      //   horizontal={true}
+      //   scrollEnabled={false}
+      style={styles.container}
       testID="time-selector"
     >
-      <View style={styles.timePickerContainer(containerHeight)}>
+      <View style={styles.timePickerContainer}>
         <View style={styles.wheelContainer}>
           <Wheel value={use12Hours ? hour12 : hour} items={hours} setValue={handleChangeHour} />
         </View>
-        <BodyText style={styles.timeSeparator}>:</BodyText>
+        <BodyText style={styles.timeSeparator} size="lg">
+          :
+        </BodyText>
         <View style={styles.wheelContainer}>
           <Wheel value={minuteValue} items={minutes} setValue={handleChangeMinute} />
         </View>
@@ -159,7 +159,7 @@ const TimePickerView = ({
           <PeriodPicker value={period} setValue={handlePeriodChange} />
         </View>
       ) : null}
-    </ScrollView>
+    </View>
   );
 };
 
@@ -172,18 +172,18 @@ const styles = StyleSheet.create({
   wheelContainer: {
     flex: 1,
   },
-  timePickerContainer: (height: number) => ({
+  timePickerContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: height / 2,
-    height: height / 2,
+    width: 146,
+    height: 208,
     flexDirection: 'row',
-  }),
+  },
   timeSeparator: {
     marginHorizontal: 5,
   },
   periodContainer: {
-    marginLeft: 10,
+    // marginLeft: 10,
   },
 });
 

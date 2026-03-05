@@ -31,7 +31,7 @@ const TimePickerInput = ({
   disabled,
   focused,
   readonly,
-  placeholder,
+  placeholder = '--:--',
   inBottomSheet = false,
   format,
   openButtonLabel = 'Open time picker',
@@ -190,7 +190,7 @@ const TimePickerInput = ({
     pickerRef.current?.close?.();
   }, [pickerOnCancel]);
 
-  const placeholderValue = placeholder ?? resolvedFormat;
+  const placeholderValue = placeholder;
 
   return (
     <>

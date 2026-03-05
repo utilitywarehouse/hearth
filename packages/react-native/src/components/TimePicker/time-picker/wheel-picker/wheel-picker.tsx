@@ -17,9 +17,9 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
 } from 'react-native-reanimated';
+import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../../../BodyText';
 import type { PickerOption } from '../../TimePicker.props';
-import styles from './wheel-picker.style';
 
 interface ItemProps {
   style: StyleProp<ViewStyle>;
@@ -154,7 +154,7 @@ const WheelPicker: React.FC<Props> = ({
   scaleFunction = (x: number) => 1.0 ** x,
   rotationFunction = (x: number) => 1 - Math.pow(1 / 2, x),
   opacityFunction = (x: number) => Math.pow(1 / 3, x),
-  visibleRest = 2,
+  visibleRest = 3,
   decelerationRate = 'normal',
   containerProps = {},
   flatListProps = {},
@@ -270,6 +270,7 @@ const WheelPicker: React.FC<Props> = ({
         onMomentumScrollEnd={handleMomentumScrollEnd}
         snapToOffsets={offsets}
         decelerationRate={decelerationRate}
+        disableIntervalMomentum
         initialScrollIndex={selectedIndex}
         getItemLayout={(_, index) => ({
           length: itemHeight,
@@ -277,10 +278,10 @@ const WheelPicker: React.FC<Props> = ({
           index,
         })}
         data={paddedOptions}
-        keyExtractor={(item, index) =>
+        keyExtractor={(item: PickerOption | null, index: number) =>
           item ? `${item.value}-${item.text}-${index}` : `null-${index}`
         }
-        renderItem={({ item: option, index }) => (
+        renderItem={({ item: option, index }: { item: PickerOption | null; index: number }) => (
           <WheelPickerItem
             key={`option-${index}`}
             index={index}
@@ -298,5 +299,32 @@ const WheelPicker: React.FC<Props> = ({
     </View>
   );
 };
+
+const styles = StyleSheet.create(theme => ({
+  container: {
+    position: 'relative',
+    height: 400,
+  },
+  selectedIndicator: {
+    position: 'absolute',
+    width: theme.components.timePicker.time.item.width,
+    height: theme.components.timePicker.time.item.height,
+    top: '50%',
+    backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
+    borderRadius: theme.borderRadius.md,
+  },
+  scrollView: {
+    overflow: 'hidden',
+    flex: 1,
+    height: 400,
+  },
+  option: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: theme.components.timePicker.time.item.width,
+    height: theme.components.timePicker.time.item.height,
+    zIndex: 100,
+  },
+}));
 
 export default memo(WheelPicker);

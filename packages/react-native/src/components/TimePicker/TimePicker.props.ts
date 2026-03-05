@@ -29,10 +29,6 @@ export interface TimePickerProps {
    */
   numerals?: Numerals;
   /**
-   * Height of the picker container.
-   */
-  containerHeight?: number;
-  /**
    * Hide the footer actions.
    */
   hideFooter?: boolean;
