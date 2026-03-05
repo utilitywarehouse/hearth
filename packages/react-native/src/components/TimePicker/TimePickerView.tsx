@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { useCallback, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
@@ -73,19 +73,15 @@ const TimePickerView = ({
   date,
   onSelectDate,
   timeZone,
-  numerals = 'latn',
   use12Hours,
   minuteInterval = 1,
 }: TimePickerViewProps) => {
   const hours = useMemo(
-    () => createNumberList(use12Hours ? 12 : 24, numerals, use12Hours ? 1 : 0),
-    [numerals, use12Hours]
+    () => createNumberList(use12Hours ? 12 : 24, 'latn', use12Hours ? 1 : 0),
+    [use12Hours]
   );
 
-  const minutes = useMemo(
-    () => createMinuteList(minuteInterval, numerals),
-    [minuteInterval, numerals]
-  );
+  const minutes = useMemo(() => createMinuteList(minuteInterval, 'latn'), [minuteInterval]);
 
   const baseDate = date ?? currentDate;
   const { hour, hour12, minute, period } = getParsedDate(baseDate);
@@ -188,4 +184,34 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TimePickerView;
+const customComparator = (
+  prev: Readonly<TimePickerViewProps>,
+  next: Readonly<TimePickerViewProps>
+) => {
+  if (prev.onSelectDate !== next.onSelectDate) {
+    return false;
+  }
+
+  if (prev.timeZone !== next.timeZone) {
+    return false;
+  }
+
+  if (prev.numerals !== next.numerals) {
+    return false;
+  }
+
+  if (prev.use12Hours !== next.use12Hours) {
+    return false;
+  }
+
+  if (prev.minuteInterval !== next.minuteInterval) {
+    return false;
+  }
+
+  const prevDate = prev.date ?? prev.currentDate;
+  const nextDate = next.date ?? next.currentDate;
+
+  return dayjs(prevDate).isSame(nextDate, 'minute');
+};
+
+export default memo(TimePickerView, customComparator);

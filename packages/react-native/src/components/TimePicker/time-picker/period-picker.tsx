@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { Platform } from 'react-native';
 import PeriodNative from './period-native';
 import PeriodWeb from './period-web';
@@ -13,4 +12,4 @@ const PeriodPicker = (props: PeriodProps) => {
   return <Component {...props} />;
 };
 
-export default memo(PeriodPicker);
+export default PeriodPicker;

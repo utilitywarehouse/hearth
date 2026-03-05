@@ -55,12 +55,13 @@ const TimePicker = ({
   });
 
   useEffect(() => {
-    if (date) {
-      setCurrentDate(dayjs.tz(date, timeZone));
-    } else {
-      setCurrentDate(dayjs().tz(timeZone));
+    const nextDate = date ? dayjs.tz(date, timeZone) : dayjs().tz(timeZone);
+    const isSameMinute = dayjs(currentDate).isSame(nextDate, 'minute');
+
+    if (!isSameMinute) {
+      setCurrentDate(nextDate);
     }
-  }, [date, timeZone]);
+  }, [currentDate, date, timeZone]);
 
   const closeTimePicker = useCallback(() => {
     modalRef.current?.close();
@@ -69,7 +70,9 @@ const TimePicker = ({
   const handleSelectDate = useCallback(
     (selectedDate: DateType) => {
       const newDate = dayjs.tz(selectedDate ?? currentDate, timeZone);
-      setCurrentDate(newDate);
+      if (!dayjs(currentDate).isSame(newDate, 'minute')) {
+        setCurrentDate(newDate);
+      }
       onChange?.({ date: newDate ? dayjs(newDate).toDate() : newDate });
     },
     [currentDate, onChange, timeZone]

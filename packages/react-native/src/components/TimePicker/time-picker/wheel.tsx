@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import { Platform } from 'react-native';
 import type { PickerOption } from '../TimePicker.props';
 import WheelNative from './wheel-native';
@@ -15,4 +14,4 @@ const Wheel = (props: WheelProps) => {
   return <Component {...props} />;
 };
 
-export default memo(Wheel);
+export default Wheel;

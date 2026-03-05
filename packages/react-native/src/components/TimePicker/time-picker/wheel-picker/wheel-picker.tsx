@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import {
   FlatListProps,
   NativeScrollEvent,
@@ -327,4 +327,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-export default memo(WheelPicker);
+export default WheelPicker;
