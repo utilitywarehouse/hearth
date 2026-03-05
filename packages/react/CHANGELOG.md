@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react
 
+## 0.25.2
+
+### Patch Changes
+
+- [#976](https://github.com/utilitywarehouse/hearth/pull/976) [`548f925`](https://github.com/utilitywarehouse/hearth/commit/548f925463186ef2736570f9e23bb1228ac20373) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Reinstate `forwardRef` on all components
+
 ## 0.25.1
 
 ### Patch Changes
