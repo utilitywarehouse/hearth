@@ -14,7 +14,7 @@ figma.connect(
         Valid: 'valid',
         Invalid: 'invalid',
       }),
-      readonly: figma.enum('Variant', { Readonly: true }),
+      readonly: figma.enum('Variant', { 'Read-only': true }),
       label: figma.string('Label'),
       validText: figma.enum('Variant', {
         Valid: figma.string('Validation'),
