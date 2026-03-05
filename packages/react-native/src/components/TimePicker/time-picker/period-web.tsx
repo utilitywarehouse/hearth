@@ -12,7 +12,7 @@ const PeriodWeb = ({ value, setValue = () => {} }: PeriodProps) => {
   return (
     <Pressable onPress={() => setValue(value == 'AM' ? 'PM' : 'AM')}>
       <View style={[styles.period]}>
-        <BodyText>{value}</BodyText>
+        <BodyText size="lg">{value}</BodyText>
       </View>
     </Pressable>
   );
