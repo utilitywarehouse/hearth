@@ -3,20 +3,20 @@ import { useCallback, useMemo } from 'react';
 import { View } from 'react-native';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import { StyleSheet } from 'react-native-unistyles';
-import { useTheme } from '../../../hooks';
-import { BodyText } from '../../BodyText';
-import type { PickerOption } from '../TimePicker.props';
+import { useTheme } from '../../hooks';
+import { BodyText } from '../BodyText';
+import type { PickerOption } from './TimePicker.props';
 
-interface WheelProps {
+type TimePickerWheelProps = {
   value: number | string;
   setValue?: (value: any) => void;
   items: PickerOption[];
-}
+};
 
 const ITEM_HEIGHT = 40;
 const VISIBLE_REST = 3;
 
-const WheelNative = ({ value, setValue = () => {}, items }: WheelProps) => {
+const TimePickerWheel = ({ value, setValue = () => {}, items }: TimePickerWheelProps) => {
   const theme = useTheme();
   const fadeHeight = ITEM_HEIGHT * 1.5;
   const gradientId = useMemo(() => `wheel-fade-${Math.random().toString(36).slice(2)}`, []);
@@ -46,7 +46,7 @@ const WheelNative = ({ value, setValue = () => {}, items }: WheelProps) => {
 
   const renderOverlay = useCallback(
     () => (
-      <View style={[styles.overlayContainer]} pointerEvents={'none'}>
+      <View style={[styles.overlayContainer]} pointerEvents="none">
         <View pointerEvents="none" style={[styles.fadeOverlay, { height: fadeHeight }]}>
           <Svg width="100%" height="100%" preserveAspectRatio="none">
             <Defs>
@@ -85,8 +85,6 @@ const WheelNative = ({ value, setValue = () => {}, items }: WheelProps) => {
     ),
     []
   );
-
-  console.log('render', value, new Date().toISOString());
 
   return (
     <View style={[styles.container, { height: pickerHeight }]}>
@@ -153,4 +151,4 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-export default WheelNative;
+export default TimePickerWheel;

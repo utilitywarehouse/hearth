@@ -10,15 +10,15 @@ import Animated, {
   useSharedValue,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
-import { isEqual } from '../../../utils';
-import { BodyText } from '../../BodyText';
-import type { PickerOption } from '../TimePicker.props';
+import { isEqual } from '../../utils';
+import { BodyText } from '../BodyText';
+import type { PickerOption } from './TimePicker.props';
 
-interface WheelProps {
+type TimePickerWheelProps = {
   value: number | string;
   setValue?: (value: any) => void;
   items: PickerOption[];
-}
+};
 
 const ITEM_HEIGHT = 44;
 
@@ -77,7 +77,7 @@ const WheelWebItem = ({
   );
 };
 
-const WheelWeb = ({ value, setValue = () => {}, items }: WheelProps) => {
+const TimePickerWheel = ({ value, setValue = () => {}, items }: TimePickerWheelProps) => {
   const displayCount = 5;
   const translateY = useSharedValue(0);
   const renderCount = displayCount * 2 < items.length ? displayCount * 8 : displayCount * 2 - 1;
@@ -204,11 +204,14 @@ const styles = StyleSheet.create(theme => ({
   },
 }));
 
-const customComparator = (prev: Readonly<WheelProps>, next: Readonly<WheelProps>) => {
+const customComparator = (
+  prev: Readonly<TimePickerWheelProps>,
+  next: Readonly<TimePickerWheelProps>
+) => {
   const areEqual =
     prev.value === next.value && prev.setValue === next.setValue && isEqual(prev.items, next.items);
 
   return areEqual;
 };
 
-export default memo(WheelWeb, customComparator);
+export default memo(TimePickerWheel, customComparator);

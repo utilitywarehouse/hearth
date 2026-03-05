@@ -15,11 +15,9 @@ const Calendar = () => {
     calendarView,
     containerHeight,
     navigationPosition,
-    date,
     currentDate,
     onSelectDate,
     timeZone,
-    numerals,
     use12Hours,
   } = useDatePickerContext();
 
@@ -30,11 +28,9 @@ const Calendar = () => {
       <Months />
     ) : calendarView === 'time' ? (
       <TimePickerView
-        date={date}
         currentDate={currentDate}
         onSelectDate={onSelectDate}
         timeZone={timeZone}
-        numerals={numerals}
         use12Hours={use12Hours}
         containerHeight={containerHeight}
       />

@@ -3,18 +3,17 @@ import { memo, useCallback, useMemo } from 'react';
 import { View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
+import { Numerals } from '../DatePicker/DatePicker.props';
 import { formatNumber, getParsedDate } from '../DatePicker/utils';
-import { PeriodPicker, Wheel } from './time-picker';
-import type { DateType, Numerals, PickerOption } from './TimePicker.props';
+import type { DateType, PickerOption } from './TimePicker.props';
+import TimePickerWheel from './TimePickerWheel';
 
 export type Period = 'AM' | 'PM';
 
 type TimePickerViewProps = {
-  date?: DateType;
   currentDate: DateType;
   onSelectDate: (date: DateType) => void;
   timeZone?: string;
-  numerals?: Numerals;
   use12Hours?: boolean;
   minuteInterval?: number;
   containerHeight?: number;
@@ -70,7 +69,6 @@ const getClosestMinute = (value: number, options: PickerOption[]) => {
 
 const TimePickerView = ({
   currentDate,
-  date,
   onSelectDate,
   timeZone,
   use12Hours,
@@ -83,7 +81,15 @@ const TimePickerView = ({
 
   const minutes = useMemo(() => createMinuteList(minuteInterval, 'latn'), [minuteInterval]);
 
-  const baseDate = date ?? currentDate;
+  const periodOptions = useMemo(
+    () => [
+      { value: 'AM', text: 'AM' },
+      { value: 'PM', text: 'PM' },
+    ],
+    []
+  );
+
+  const baseDate = currentDate;
   const { hour, hour12, minute, period } = getParsedDate(baseDate);
   const minuteValue = useMemo(() => getClosestMinute(minute, minutes), [minute, minutes]);
 
@@ -133,26 +139,25 @@ const TimePickerView = ({
   );
 
   return (
-    <View
-      //   horizontal={true}
-      //   scrollEnabled={false}
-      style={styles.container}
-      testID="time-selector"
-    >
+    <View style={styles.container} testID="time-selector">
       <View style={styles.timePickerContainer}>
         <View style={styles.wheelContainer}>
-          <Wheel value={use12Hours ? hour12 : hour} items={hours} setValue={handleChangeHour} />
+          <TimePickerWheel
+            value={use12Hours ? hour12 : hour}
+            items={hours}
+            setValue={handleChangeHour}
+          />
         </View>
         <BodyText style={styles.timeSeparator} size="lg">
           :
         </BodyText>
         <View style={styles.wheelContainer}>
-          <Wheel value={minuteValue} items={minutes} setValue={handleChangeMinute} />
+          <TimePickerWheel value={minuteValue} items={minutes} setValue={handleChangeMinute} />
         </View>
       </View>
       {use12Hours && period ? (
         <View style={styles.periodContainer}>
-          <PeriodPicker value={period} setValue={handlePeriodChange} />
+          <TimePickerWheel value={period} items={periodOptions} setValue={handlePeriodChange} />
         </View>
       ) : null}
     </View>
@@ -196,10 +201,6 @@ const customComparator = (
     return false;
   }
 
-  if (prev.numerals !== next.numerals) {
-    return false;
-  }
-
   if (prev.use12Hours !== next.use12Hours) {
     return false;
   }
@@ -208,10 +209,7 @@ const customComparator = (
     return false;
   }
 
-  const prevDate = prev.date ?? prev.currentDate;
-  const nextDate = next.date ?? next.currentDate;
-
-  return dayjs(prevDate).isSame(nextDate, 'minute');
+  return dayjs(prev.currentDate).isSame(next.currentDate, 'minute');
 };
 
 export default memo(TimePickerView, customComparator);

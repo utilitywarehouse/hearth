@@ -1,7 +1,7 @@
 import type { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import type { Ref } from 'react';
 import type { ViewStyle } from 'react-native';
-import type { DateType, Numerals, PickerOption } from '../DatePicker/DatePicker.props';
+import type { DateType, PickerOption } from '../DatePicker/DatePicker.props';
 
 export interface TimePickerProps {
   /**
@@ -25,10 +25,6 @@ export interface TimePickerProps {
    */
   minuteInterval?: number;
   /**
-   * Numeral system for hour and minute values.
-   */
-  numerals?: Numerals;
-  /**
    * Hide the footer actions.
    */
   hideFooter?: boolean;
@@ -46,4 +42,4 @@ export interface TimePickerProps {
   onCancel?: () => void;
 }
 
-export type { DateType, Numerals, PickerOption };
+export type { DateType, PickerOption };

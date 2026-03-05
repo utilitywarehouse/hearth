@@ -36,7 +36,6 @@ const TimePicker = ({
   onChange,
   use12Hours,
   minuteInterval,
-  numerals = 'latn',
   hideFooter,
   style,
   ref,
@@ -121,11 +120,9 @@ const TimePicker = ({
           style={contentStyle}
         >
           <TimePickerView
-            date={date}
             currentDate={currentDate}
             onSelectDate={handleSelectDate}
             timeZone={timeZone}
-            numerals={numerals}
             use12Hours={use12Hours}
             minuteInterval={minuteInterval}
           />
