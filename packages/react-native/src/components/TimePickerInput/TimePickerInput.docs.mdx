@@ -1,0 +1,117 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { BottomSheetModalProvider, Center, FormField, TimePickerInput } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './TimePickerInput.stories';
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=10334-6212&t=Jg2fPJPQNzOyspmQ-4" />
+
+<Meta title="Forms / Time Picker Input" />
+
+<BackToTopButton />
+
+# Time Picker Input
+
+`TimePickerInput` extends the base input to present a time picker trigger while still allowing direct text entry. It keeps the field inline and formats values with Day.js when needed.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Formatting and validation](#formatting-and-validation)
+- [Examples](#examples)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+<Controls of={Stories.Playground} />
+
+## Usage
+
+Wrap the component with `BottomSheetModalProvider` so the underlying picker can render its modal. Provide a controlled `value` if you want to react to changes immediately or let the component manage its own display string.
+
+<UsageWrap>
+  <BottomSheetModalProvider>
+    <Center>
+      <TimePickerInput placeholder="HH:mm" />
+    </Center>
+  </BottomSheetModalProvider>
+</UsageWrap>
+
+```tsx
+import { useState } from 'react';
+import {
+  BottomSheetModalProvider,
+  TimePickerInput,
+  type DateType,
+} from '@utilitywarehouse/hearth-react-native';
+
+const BookingTimeField = () => {
+  const [time, setTime] = useState<DateType>();
+
+  return (
+    <BottomSheetModalProvider>
+      <TimePickerInput
+        value={time}
+        onChange={({ date }) => setTime(date ?? undefined)}
+        onClear={() => setTime(undefined)}
+        placeholder="HH:mm"
+      />
+    </BottomSheetModalProvider>
+  );
+};
+```
+
+When used inside `FormField`, validation, disabled, and required states are inherited from the context.
+
+## Props
+
+`TimePickerInput` inherits all React Native `TextInput` props (except `children`) and adds the following:
+
+| Prop                | Type                                                   | Default              | Description                                                                                               |
+| ------------------- | ------------------------------------------------------ | -------------------- | --------------------------------------------------------------------------------------------------------- |
+| `validationStatus`  | `'initial' \| 'valid' \| 'invalid'`                    | `'initial'`          | Renders the corresponding validation style. Inherited from `FormField` when nested.                       |
+| `disabled`          | `boolean`                                              | `false`              | Disables both typing and the time picker trigger button.                                                  |
+| `readonly`          | `boolean`                                              | `false`              | Prevents manual typing while keeping the picker available.                                                |
+| `focused`           | `boolean`                                              | `false`              | Forces the focused state styling.                                                                         |
+| `label`             | `string`                                               | `-`                  | The label for the input. When used inside `FormField`, this is inherited from the context.                |
+| `labelVariant`      | `'heading' \| 'body'`                                  | `'body'`             | The variant of the label text.                                                                            |
+| `helperText`        | `string`                                               | `-`                  | Helper text to display below the input. When used inside `FormField`, this is inherited from the context. |
+| `helperIcon`        | `ComponentType`                                        | `-`                  | Icon to display alongside the helper                                                                      |
+| `validText`         | `string`                                               | `-`                  | Text to display when validation status is 'valid'. When used inside `FormField`, this is inherited.       |
+| `invalidText`       | `string`                                               | `-`                  | Text to display when validation status is 'invalid'. When used inside `FormField`, this is inherited.     |
+| `inBottomSheet`     | `boolean`                                              | `false`              | Uses `BottomSheetTextInput` when rendering inside a bottom sheet.                                         |
+| `format`            | `string`                                               | `'HH:mm'`            | Day.js format string used to render selected times and parse manual input.                                |
+| `openButtonLabel`   | `string`                                               | `'Open time picker'` | Accessible label read by screen readers for the time trigger button.                                      |
+| `autoCloseOnSelect` | `boolean`                                              | `true`               | Closes the picker automatically after a time is chosen.                                                   |
+| `timePickerProps`   | `Omit<TimePickerProps, 'date' \| 'onChange' \| 'ref'>` | `-`                  | Forwards props to the underlying `TimePicker` (e.g. `use12Hours`, `timeZone`, `minuteInterval`).          |
+| `onChange`          | `(payload: { date: DateType }) => void`                | `-`                  | Fired whenever a valid time is parsed from typing or picked via the selector.                             |
+| `onClear`           | `() => void`                                           | `-`                  | Called after the clear action resets the input. Also displays a trailing clear button when provided.      |
+
+## Formatting and validation
+
+### Automatic formatting
+
+When `format` is left as `'HH:mm'`, the input automatically inserts `:` as people type and requests a numeric keypad on supported platforms.
+
+### Handling validation yourself
+
+`TimePickerInput` doesn't display validation styles by itself. Pair it with `FormField` (or your own state) to surface errors whenever the typed value doesn't match your expected format.
+
+## Examples
+
+### With `FormField`
+
+<UsageWrap>
+  <BottomSheetModalProvider>
+    <Center>
+      <FormField label="Meeting time" helperText="Pick a time">
+        <TimePickerInput onClear={() => {}} />
+      </FormField>
+    </Center>
+  </BottomSheetModalProvider>
+</UsageWrap>
+
+```tsx
+<FormField label="Meeting time" helperText="Pick a time">
+  <TimePickerInput onClear={() => {}} />
+</FormField>
+```

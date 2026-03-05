@@ -92,6 +92,8 @@ import {
   TabsList,
   Textarea,
   ThemedImage,
+  TimePicker,
+  TimePickerInput,
   ToastItem,
   ToggleButtonCard,
   ToggleButtonCardGroup,
@@ -150,6 +152,11 @@ const AllComponents: React.FC = () => {
   const datePickerRef = useRef<BottomSheetModal>(null);
   const handleDatePickerOpenPress = useCallback(() => {
     datePickerRef.current?.present();
+  }, []);
+  const [selectedTime, setSelectedTime] = useState<DateType>();
+  const timePickerRef = useRef<BottomSheetModal>(null);
+  const handleTimePickerOpenPress = useCallback(() => {
+    timePickerRef.current?.present();
   }, []);
   useEffect(() => {
     if (bottomSheetRef.current) {
@@ -378,6 +385,29 @@ const AllComponents: React.FC = () => {
             <Center flex={1} padding="200">
               <BottomSheetModalProvider>
                 <DatePickerInput placeholder="DD/MM/YYYY" />
+              </BottomSheetModalProvider>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Time Picker" link="/?path=/docs/components-time-picker--docs">
+            <Center flex={1}>
+              <Button onPress={handleTimePickerOpenPress}>Open Time Picker</Button>
+              <BottomSheetModalProvider>
+                <TimePicker
+                  ref={timePickerRef}
+                  date={selectedTime}
+                  onChange={({ date }) => setSelectedTime(date)}
+                  onCancel={() => setSelectedTime(undefined)}
+                />
+              </BottomSheetModalProvider>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
+            name="Time Picker Input"
+            link="/?path=/docs/forms-time-picker-input--docs"
+          >
+            <Center flex={1} padding="200">
+              <BottomSheetModalProvider>
+                <TimePickerInput placeholder="HH:mm" />
               </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>

@@ -1,7 +1,5 @@
-import React, { memo, useEffect, useMemo, useRef, useState } from 'react';
+import React, { memo, useEffect, useMemo, useRef } from 'react';
 import {
-  Animated,
-  FlatList,
   FlatListProps,
   NativeScrollEvent,
   NativeSyntheticEvent,
@@ -11,9 +9,122 @@ import {
   ViewProps,
   ViewStyle,
 } from 'react-native';
-import { PickerOption } from '../../DatePicker.props';
-import WheelPickerItem from './wheel-picker-item';
+import Animated, {
+  Extrapolate,
+  interpolate,
+  type SharedValue,
+  useAnimatedScrollHandler,
+  useAnimatedStyle,
+  useSharedValue,
+} from 'react-native-reanimated';
+import { BodyText } from '../../../BodyText';
+import type { PickerOption } from '../../TimePicker.props';
 import styles from './wheel-picker.style';
+
+interface ItemProps {
+  style: StyleProp<ViewStyle>;
+  option: PickerOption | null;
+  height: number;
+  index: number;
+  scrollY: SharedValue<number>;
+  visibleRest: number;
+  rotationFunction: (x: number) => number;
+  opacityFunction: (x: number) => number;
+  scaleFunction: (x: number) => number;
+}
+
+const WheelPickerItem: React.FC<ItemProps> = ({
+  style,
+  height,
+  option,
+  index,
+  visibleRest,
+  scrollY,
+  opacityFunction,
+  rotationFunction,
+  scaleFunction,
+}) => {
+  const inputRange = useMemo(() => {
+    const range = [0];
+    for (let i = 1; i <= visibleRest + 1; i++) {
+      range.unshift(-i);
+      range.push(i);
+    }
+    return range;
+  }, [visibleRest]);
+
+  const translateYRange = useMemo(() => {
+    const range = [0];
+    for (let i = 1; i <= visibleRest + 1; i++) {
+      let y = (height / 2) * (1 - Math.sin(Math.PI / 2 - rotationFunction(i)));
+      for (let j = 1; j < i; j++) {
+        y += height * (1 - Math.sin(Math.PI / 2 - rotationFunction(j)));
+      }
+      range.unshift(y);
+      range.push(-y);
+    }
+    return range;
+  }, [height, rotationFunction, visibleRest]);
+
+  const opacityRange = useMemo(() => {
+    const range = [1];
+    for (let x = 1; x <= visibleRest + 1; x++) {
+      const y = opacityFunction(x);
+      range.unshift(y);
+      range.push(y);
+    }
+    return range;
+  }, [opacityFunction, visibleRest]);
+
+  const scaleRange = useMemo(() => {
+    const range = [1.0];
+    for (let x = 1; x <= visibleRest + 1; x++) {
+      const y = scaleFunction(x);
+      range.unshift(y);
+      range.push(y);
+    }
+    return range;
+  }, [scaleFunction, visibleRest]);
+
+  const rotateXRange = useMemo(() => {
+    const range = [0];
+    for (let x = 1; x <= visibleRest + 1; x++) {
+      const y = rotationFunction(x);
+      range.unshift(y);
+      range.push(y);
+    }
+    return range;
+  }, [rotationFunction, visibleRest]);
+
+  const animatedStyle = useAnimatedStyle(() => {
+    const relativeIndex = index - (scrollY.value / height + visibleRest);
+    const translateY = interpolate(relativeIndex, inputRange, translateYRange, Extrapolate.CLAMP);
+    const opacity = interpolate(relativeIndex, inputRange, opacityRange, Extrapolate.CLAMP);
+    const scale = interpolate(relativeIndex, inputRange, scaleRange, Extrapolate.CLAMP);
+    const rotateX = interpolate(relativeIndex, inputRange, rotateXRange, Extrapolate.CLAMP);
+
+    return {
+      opacity,
+      transform: [{ translateY }, { rotateX: `${rotateX}deg` }, { scale }],
+    };
+  }, [
+    height,
+    index,
+    inputRange,
+    opacityRange,
+    rotateXRange,
+    scaleRange,
+    translateYRange,
+    scrollY,
+    visibleRest,
+  ]);
+
+  return (
+    <Animated.View style={[styles.option, style, { height }, animatedStyle]}>
+      <BodyText size="lg">{option?.text}</BodyText>
+    </Animated.View>
+  );
+};
 
 interface Props {
   value: number | string;
@@ -51,8 +162,8 @@ const WheelPicker: React.FC<Props> = ({
   const momentumStarted = useRef(false);
   const selectedIndex = options.findIndex(item => item.value === value);
 
-  const flatListRef = useRef<FlatList<PickerOption | null>>(null);
-  const [scrollY] = useState(new Animated.Value(selectedIndex * itemHeight));
+  const flatListRef = useRef<any>(null);
+  const scrollY = useSharedValue(selectedIndex * itemHeight);
 
   const containerHeight = (1 + visibleRest * 2) * itemHeight;
   const paddedOptions = useMemo(() => {
@@ -69,10 +180,11 @@ const WheelPicker: React.FC<Props> = ({
     [paddedOptions, itemHeight]
   );
 
-  const currentScrollIndex = useMemo(
-    () => Animated.add(Animated.divide(scrollY, itemHeight), visibleRest),
-    [visibleRest, scrollY, itemHeight]
-  );
+  const scrollHandler = useAnimatedScrollHandler({
+    onScroll: event => {
+      scrollY.value = event.contentOffset.y;
+    },
+  });
 
   const handleScrollEnd = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const offsetY = Math.min(
@@ -101,15 +213,10 @@ const WheelPicker: React.FC<Props> = ({
   };
 
   const handleScrollEndDrag = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-    // Capture the offset value immediately
     const offsetY = event.nativeEvent.contentOffset?.y;
 
-    // We'll start a short timer to see if momentum scroll begins
     setTimeout(() => {
-      // If momentum scroll hasn't started within the timeout,
-      // then it was a slow scroll that won't trigger momentum
       if (!momentumStarted.current && offsetY !== undefined) {
-        // Create a synthetic event with just the data we need
         const syntheticEvent = {
           nativeEvent: {
             contentOffset: { y: offsetY },
@@ -128,16 +235,13 @@ const WheelPicker: React.FC<Props> = ({
     }
   }, [selectedIndex, options]);
 
-  /**
-   * If selectedIndex is changed from outside (not via onChange) we need to scroll to the specified index.
-   * This ensures that what the user sees as selected in the picker always corresponds to the value state.
-   */
   useEffect(() => {
+    scrollY.value = selectedIndex * itemHeight;
     flatListRef.current?.scrollToIndex({
       index: selectedIndex,
       animated: Platform.OS === 'ios',
     });
-  }, [selectedIndex, itemHeight]);
+  }, [selectedIndex, itemHeight, scrollY, flatListRef]);
 
   return (
     <View
@@ -155,14 +259,12 @@ const WheelPicker: React.FC<Props> = ({
         ]}
       />
       <Animated.FlatList<PickerOption | null>
-        {...flatListProps}
+        {...(flatListProps as any)}
         ref={flatListRef}
         nestedScrollEnabled
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
-        onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], {
-          useNativeDriver: true,
-        })}
+        onScroll={scrollHandler}
         onScrollEndDrag={handleScrollEndDrag}
         onMomentumScrollBegin={handleMomentumScrollBegin}
         onMomentumScrollEnd={handleMomentumScrollEnd}
@@ -185,7 +287,7 @@ const WheelPicker: React.FC<Props> = ({
             option={option}
             style={itemStyle}
             height={itemHeight}
-            currentScrollIndex={currentScrollIndex}
+            scrollY={scrollY}
             scaleFunction={scaleFunction}
             rotationFunction={rotationFunction}
             opacityFunction={opacityFunction}

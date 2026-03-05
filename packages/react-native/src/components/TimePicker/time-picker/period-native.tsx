@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { PickerOption } from '../DatePicker.props';
+import type { PickerOption } from '../TimePicker.props';
 import WheelPicker from './wheel-picker';
 
 interface PeriodProps {
@@ -18,7 +18,6 @@ const PeriodNative = ({ value, setValue = () => {} }: PeriodProps) => {
       value={value}
       options={options}
       onChange={setValue}
-      //containerStyle={defaultStyles.container}
       itemHeight={44}
       decelerationRate="fast"
     />

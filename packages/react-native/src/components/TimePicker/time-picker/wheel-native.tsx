@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { Platform } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { PickerOption } from '../DatePicker.props';
+import type { PickerOption } from '../TimePicker.props';
 import WheelPicker from './wheel-picker';
 
 interface WheelProps {
