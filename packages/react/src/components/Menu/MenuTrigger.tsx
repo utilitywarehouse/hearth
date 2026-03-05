@@ -5,11 +5,14 @@ import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { DropdownMenu as MenuPrimitive } from 'radix-ui';
 import type { MenuTriggerProps } from './MenuTrigger.props';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'MenuTrigger';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const MenuTrigger = React.forwardRef<HTMLButtonElement, MenuTriggerProps>(
+type MenuTriggerElement = ComponentRef<'button'>;
+
+export const MenuTrigger = React.forwardRef<MenuTriggerElement, MenuTriggerProps>(
   ({ className, ...props }, ref) => {
     return (
       <MenuPrimitive.DropdownMenuTrigger
