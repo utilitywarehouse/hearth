@@ -289,7 +289,7 @@ const Modal = ({
             </View>
           ) : null}
           {inNavModal && (
-            <ScrollView style={{ flexGrow: 0 }}>
+            <ScrollView style={{ flexGrow: stickyFooter ? 1 : 0 }}>
               {children}
               {!stickyFooter ? <View style={styles.inNavModalFooterContainer}>{footer}</View> : null}
             </ScrollView>
