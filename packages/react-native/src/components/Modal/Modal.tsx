@@ -335,7 +335,7 @@ const Modal = ({
       <Animated.View
         style={[styles.inNavModalContainer, Platform.OS === 'android' && animatedInNavModalStyle]}
       >
-        <View style={styles.inNavModalContentContainer}>
+        <View style={styles.inNavModalContent}>
           {content}
         </View>
       </Animated.View>
@@ -463,7 +463,7 @@ const styles = StyleSheet.create((theme, rt) => ({
     flex: 1,
     ...(Platform.OS === 'ios' ? { backgroundColor: theme.components.overlay.backgroundColor } : {}),
   },
-  inNavModalContentContainer: {
+  inNavModalContent: {
     flex: 1,
     borderTopLeftRadius: theme.components.modal.borderRadius,
     borderTopRightRadius: theme.components.modal.borderRadius,
