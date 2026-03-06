@@ -29,11 +29,13 @@ interface ModalPropsBase extends Omit<BottomSheetProps, 'children'> {
 type ModalProps =
   | (ModalPropsBase & {
       inNavModal?: false | undefined;
+      scrollable?: never;
       background?: never;
     })
   | (ModalPropsBase & {
       inNavModal: true;
       fullscreen?: never;
+      scrollable?: boolean;
       background?: 'default' | 'brand';
     });
 

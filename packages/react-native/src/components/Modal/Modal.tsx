@@ -51,6 +51,7 @@ const Modal = ({
   inNavModal = false,
   stickyFooter = true,
   background = 'default',
+  scrollable = true,
   ...props
 }: ModalProps) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -289,10 +290,17 @@ const Modal = ({
             </View>
           ) : null}
           {inNavModal && (
-            <ScrollView style={{ flexGrow: stickyFooter ? 1 : 0 }}>
-              {children}
-              {!stickyFooter ? <View style={styles.inNavModalFooterContainer}>{footer}</View> : null}
-            </ScrollView>
+            scrollable ? (
+              <ScrollView style={{ flexGrow: stickyFooter ? 1 : 0 }}>
+                {children}
+                {!stickyFooter ? <View style={styles.inNavModalFooterContainer}>{footer}</View> : null}
+              </ScrollView>
+            ) : (
+              <View style={{ flexGrow: stickyFooter ? 1 : 0 }}>
+                {children}
+                {!stickyFooter ? <View style={styles.inNavModalFooterContainer}>{footer}</View> : null}
+              </View>
+            )
           )}
           {!inNavModal && children}
           {((!stickyFooter && !inNavModal) || (inNavModal && stickyFooter)) && !noButtons ? footer : null}
