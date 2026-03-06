@@ -2,9 +2,9 @@
   "name": "@utilitywarehouse/hearth-react-native",
   "version": "0.25.0",
   "description": "Utility Warehouse React Native UI library",
-  "main": "src/index.ts",
+  "main": "build/index.js",
   "types": "build/index.d.ts",
-  "module": "src/index",
+  "module": "build/index",
   "type": "module",
   "sideEffects": false,
   "scripts": {
