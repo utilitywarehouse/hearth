@@ -214,6 +214,8 @@ const Modal = ({
     </View>
   );
 
+  const InNavModalContainer = scrollable ? ScrollView : View;
+
   const content = (
     <>
       {loading ? (
@@ -290,17 +292,10 @@ const Modal = ({
             </View>
           ) : null}
           {inNavModal && (
-            scrollable ? (
-              <ScrollView style={{ flexGrow: stickyFooter ? 1 : 0 }}>
-                {children}
-                {!stickyFooter ? <View style={styles.inNavModalFooterContainer}>{footer}</View> : null}
-              </ScrollView>
-            ) : (
-              <View style={{ flexGrow: stickyFooter ? 1 : 0 }}>
-                {children}
-                {!stickyFooter ? <View style={styles.inNavModalFooterContainer}>{footer}</View> : null}
-              </View>
-            )
+            <InNavModalContainer style={{ flexGrow: stickyFooter ? 1 : 0 }}>
+              {children}
+              {!stickyFooter ? <View style={styles.inNavModalFooterContainer}>{footer}</View> : null}
+            </InNavModalContainer>
           )}
           {!inNavModal && children}
           {((!stickyFooter && !inNavModal) || (inNavModal && stickyFooter)) && !noButtons ? footer : null}
