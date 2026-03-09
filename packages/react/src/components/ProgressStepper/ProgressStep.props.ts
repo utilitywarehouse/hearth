@@ -12,12 +12,19 @@ export interface ProgressStepProps extends ComponentPropsWithRef<'li'> {
 }
 
 type ButtonElementProps = ComponentPropsWithRef<'button'>;
+
 export interface ProgressStepButtonProps
   extends ButtonElementProps, Omit<ProgressStepProps, keyof ButtonElementProps> {}
 
 type LinkElementProps = ComponentPropsWithRef<'a'>;
+
 export interface ProgressStepLinkProps
   extends
     LinkElementProps,
     Omit<ProgressStepProps, keyof LinkElementProps>,
-    Pick<ButtonElementProps, 'disabled'> {}
+    Pick<ButtonElementProps, 'disabled'> {
+  /**
+   * Change the default rendered element for the one passed as a child, merging their props and behavior.
+   */
+  asChild?: boolean;
+}

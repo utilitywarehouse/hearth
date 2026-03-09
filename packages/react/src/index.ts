@@ -144,6 +144,7 @@ export { ListItemLink } from './components/List/ListItemLink';
 export type { ListItemLinkProps } from './components/List/ListItemLink.props';
 export { ListActionButton } from './components/List/ListActionButton';
 export { ListActionLink } from './components/List/ListActionLink';
+export type { ListActionLinkProps } from './components/List/ListActionLink.props';
 
 export { Switch } from './components/Switch/Switch';
 export type { SwitchProps } from './components/Switch/Switch.props';
