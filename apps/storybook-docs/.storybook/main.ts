@@ -1,6 +1,7 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
-import { createRequire } from "node:module";
+import { createRequire } from 'node:module';
 import type { StorybookConfig } from '@storybook/react-vite';
+import remarkGfm from 'remark-gfm';
 
 import { dirname, join } from 'path';
 
@@ -17,7 +18,19 @@ function getAbsolutePath(value: string) {
 }
 const config: StorybookConfig = {
   stories: ['../docs/**/*.docs.mdx'],
-  addons: [getAbsolutePath('@chromatic-com/storybook'), getAbsolutePath('@storybook/addon-docs')],
+  addons: [
+    getAbsolutePath('@chromatic-com/storybook'),
+    {
+      name: getAbsolutePath('@storybook/addon-docs'),
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
+  ],
   framework: {
     name: getAbsolutePath('@storybook/react-vite'),
     options: {},
@@ -25,34 +38,30 @@ const config: StorybookConfig = {
   refs: {
     react: {
       title: 'Hearth React',
-      url: isDev ? 'http://localhost:6003' : '/react',
+      url: isDev ? 'http://localhost:6001' : '/react',
       expanded: false,
     },
     'react-native': {
       title: 'Hearth React Native',
-      url: isDev ? 'http://localhost:6004' : '/react-native',
-      expanded: false,
-    },
-    icons: {
-      title: 'Hearth Icons',
-      url: isDev ? 'http://localhost:6002' : '/icons',
-      expanded: false,
-    },
-    assets: {
-      title: 'Hearth Assets',
-      url: isDev ? 'http://localhost:6007' : '/assets',
+      url: isDev ? 'http://localhost:6002' : '/react-native',
       expanded: false,
     },
     tokens: {
       title: 'Hearth Tokens',
-      url: isDev ? 'http://localhost:6005' : '/tokens',
+      url: isDev ? 'http://localhost:6003' : '/tokens',
       expanded: false,
     },
-    fonts: {
-      title: 'Hearth Fonts',
-      url: isDev ? 'http://localhost:6001' : '/fonts',
+    icons: {
+      title: 'Hearth Icons',
+      url: isDev ? 'http://localhost:6004' : '/icons',
+      expanded: false,
+    },
+    assets: {
+      title: 'Hearth Assets',
+      url: isDev ? 'http://localhost:6005' : '/assets',
       expanded: false,
     },
   },
 };
+
 export default config;

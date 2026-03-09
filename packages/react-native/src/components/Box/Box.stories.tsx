@@ -2,11 +2,11 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 import { primitive } from '@utilitywarehouse/hearth-tokens/js';
 import { InputType } from 'storybook/internal/types';
 import { Box } from '.';
-import { coloursAsArray } from '../../utils';
+import { backgroundColorKeys } from '../../utils/coloursAsArray';
 import { BodyText } from '../BodyText';
 
 const backgroundColor: InputType = {
-  options: coloursAsArray(),
+  options: backgroundColorKeys,
   control: 'select',
   description: 'Background color of the box.',
 };

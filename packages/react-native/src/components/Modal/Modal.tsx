@@ -7,7 +7,7 @@ import {
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useCallback, useEffect, useImperativeHandle, useRef } from 'react';
-import { AccessibilityInfo, Platform, View, findNodeHandle } from 'react-native';
+import { AccessibilityInfo, Platform, ScrollView, View, findNodeHandle } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -50,6 +50,7 @@ const Modal = ({
   closeButtonProps,
   inNavModal = false,
   stickyFooter = true,
+  background = 'default',
   ...props
 }: ModalProps) => {
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
@@ -58,6 +59,7 @@ const Modal = ({
   const theme = useTheme();
   const backgroundOpacity = useSharedValue(0);
   const pretendContentTranslateY = useSharedValue(20);
+  const isBrandBackground = background === 'brand';
 
   const triggerCloseAnimation = useCallback(() => {
     if (Platform.OS === 'android' && inNavModal) {
@@ -170,6 +172,7 @@ const Modal = ({
     noButtons,
     stickyFooter,
     showHandle: props.showHandle,
+    background: isBrandBackground ? 'brand' : 'primary',
   });
 
   const footer = (
@@ -178,6 +181,7 @@ const Modal = ({
         <Button
           onPress={handlePrimaryButtonPress}
           text={primaryButtonText}
+          inverted={isBrandBackground && inNavModal}
           {...primaryButtonProps}
           variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
           colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
@@ -187,6 +191,7 @@ const Modal = ({
         <Button
           onPress={handleSecondaryButtonPress}
           text={secondaryButtonText}
+          inverted={isBrandBackground && inNavModal}
           {...secondaryButtonProps}
           variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
           colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
@@ -205,8 +210,11 @@ const Modal = ({
           screenReaderFocusable
           ref={viewRef}
         >
-          <Spinner size="lg" />
-          <Heading size="lg" textAlign="center">
+          <Spinner
+            size="lg"
+            color={isBrandBackground && inNavModal ? theme.color.icon.inverted : undefined}
+          />
+          <Heading size="lg" textAlign="center" inverted={isBrandBackground && inNavModal}>
             {loadingHeading}
           </Heading>
         </View>
@@ -221,17 +229,22 @@ const Modal = ({
           <View style={styles.header}>
             <View style={styles.headerTextContent}>
               {heading && !image ? (
-                <Heading size="lg" accessible>
+                <Heading size="lg" accessible inverted={isBrandBackground && inNavModal}>
                   {heading}
                 </Heading>
               ) : null}
-              {description && !image ? <BodyText accessible>{description}</BodyText> : null}
+              {description && !image ? (
+                <BodyText accessible inverted={isBrandBackground && inNavModal}>
+                  {description}
+                </BodyText>
+              ) : null}
             </View>
             {showCloseButton ? (
               <UnstyledIconButton
                 icon={CloseMediumIcon}
                 onPress={handleCloseButtonPress}
                 accessibilityLabel="Close modal"
+                inverted={isBrandBackground && inNavModal}
                 {...closeButtonProps}
               />
             ) : null}
@@ -241,20 +254,29 @@ const Modal = ({
               {image}
               <View style={styles.textContent}>
                 {heading ? (
-                  <Heading size="lg" textAlign="center" accessible>
+                  <Heading
+                    size="lg"
+                    textAlign="center"
+                    accessible
+                    inverted={isBrandBackground && inNavModal}
+                  >
                     {heading}
                   </Heading>
                 ) : null}
                 {description ? (
-                  <BodyText textAlign="center" accessible>
+                  <BodyText
+                    textAlign="center"
+                    accessible
+                    inverted={isBrandBackground && inNavModal}
+                  >
                     {description}
                   </BodyText>
                 ) : null}
               </View>
             </View>
           ) : null}
-          {children}
-          {!stickyFooter && !noButtons ? footer : null}
+          {inNavModal ? <ScrollView style={{ flex: 1 }}>{children}</ScrollView> : children}
+          {(!stickyFooter || inNavModal) && !noButtons ? footer : null}
         </View>
       )}
     </>
@@ -277,7 +299,12 @@ const Modal = ({
   );
 
   return inNavModal ? (
-    <View style={{ flex: 1, backgroundColor: theme.color.background.primary }}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: theme.color.background[isBrandBackground ? 'brand' : 'primary'],
+      }}
+    >
       {Platform.OS === 'android' ? (
         <Animated.View style={[styles.androidContainer, animatedBackgroundStyle]}>
           <Animated.View style={[styles.pretendContent, animatedPretendContentStyle]} />
@@ -420,6 +447,14 @@ const styles = StyleSheet.create((theme, rt) => ({
     gap: theme.components.modal.gap,
     padding: theme.components.modal.padding,
     paddingBottom: theme.components.modal.padding + rt.insets.bottom,
+    variants: {
+      background: {
+        primary: {},
+        brand: {
+          backgroundColor: theme.color.background.brand,
+        },
+      },
+    },
   },
   androidContainer: {
     height: rt.insets.top + 18,

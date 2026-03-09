@@ -2,11 +2,13 @@ import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Switch.stories';
 
-import { DocsHeader } from '../storybook-components/DocsHeader';
-
 <Meta title="Components / Switch" />
 
-<DocsHeader componentName="Switch" stories={Stories} />
+# Switch
+
+`Switch` is used to indicate switching between two opposing options. Switches
+allow users to turn an individual option on or off. They are usually used to
+activate or deactivate a specific setting.
 
 ## Playground
 
@@ -15,7 +17,8 @@ import { DocsHeader } from '../storybook-components/DocsHeader';
 
 ## Sizes
 
-The `Switch` component supports two sizes: `sm` (small) and `md` (medium). You can control the size using the `size` prop.
+The `Switch` component supports two sizes: `sm` (small) and `md` (medium). You
+can control the size using the `size` prop.
 
 ```tsx
 <Switch size="sm" />
@@ -46,15 +49,14 @@ actions.
 
 ## Responsive Sizes
 
-The `Switch` component supports responsive sizes. You can specify different sizes for different breakpoints using a responsive object.
+The `Switch` component supports responsive sizes. You can specify different
+sizes for different breakpoints using a responsive object.
 
 ```tsx
 <Switch size={{ mobile: 'sm', desktop: 'md' }} />
 ```
 
 ## Accessibility
-
-The `Switch` component is built with accessibility in mind. It uses appropriate ARIA roles and attributes to ensure it is usable with assistive technologies.
 
 ### Keyboard Interactions
 

@@ -1,8 +1,8 @@
+import type { ComponentPropsWithRef, ReactNode } from 'react';
 import { MarginProps } from '../../props/margin.props';
-import type { ReactNode } from 'react';
 import { ValidationTextProps } from '../ValidationText/ValidationText.props';
 
-export interface FormGroupBaseProps extends React.ComponentPropsWithRef<'fieldset'>, MarginProps {
+export interface FormGroupBaseProps extends ComponentPropsWithRef<'fieldset'>, MarginProps {
   /**
    * The label for the formfield group. This should contain the question being
    * answered by the formfield group.

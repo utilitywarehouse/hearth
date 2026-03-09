@@ -4,16 +4,14 @@ import { BottomSheetProps } from '../BottomSheet';
 import { ButtonWithoutChildrenProps } from '../Button/Button.props';
 import { UnstyledIconButtonProps } from '../UnstyledIconButton';
 
-interface ModalProps extends Omit<BottomSheetProps, 'children'> {
+interface ModalPropsBase extends Omit<BottomSheetProps, 'children'> {
   loading?: boolean;
   image?: ReactNode;
   showCloseButton?: boolean;
   heading?: string;
   loadingHeading?: string;
   description?: string;
-  inNavModal?: boolean;
   fullscreen?: boolean;
-  stickyFooter?: boolean;
   children?: ViewProps['children'];
   onPressPrimaryButton?: () => void;
   primaryButtonText?: string;
@@ -26,5 +24,17 @@ interface ModalProps extends Omit<BottomSheetProps, 'children'> {
   secondaryButtonProps?: Omit<ButtonWithoutChildrenProps, 'children'>;
   closeButtonProps?: Omit<UnstyledIconButtonProps, 'children'>;
 }
+
+type ModalProps =
+  | (ModalPropsBase & {
+      inNavModal?: false | undefined;
+      stickyFooter?: boolean;
+      background?: never;
+    })
+  | (ModalPropsBase & {
+      inNavModal: true;
+      stickyFooter?: never;
+      background?: 'default' | 'brand';
+    });
 
 export default ModalProps;

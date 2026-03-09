@@ -71,14 +71,6 @@ const shadowColors = [
 const meta: Meta<typeof Card> = {
   title: 'Stories / Card',
   component: Card,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Use Cards as containers for concise information about a single subject. They can display featured information, related content, or navigational choices. In groups, cards present collections of similar content.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     variant: { control: { type: 'radio' }, options: variants },
@@ -673,6 +665,7 @@ export const WithOnlyCardActions: Story = {
           badgePlacement="right"
         />
         <CardActionButton
+          disabled
           leadingIcon={<HomeAndBoilerMediumIcon />}
           leadingIconContainerColorScheme="insurance"
           heading="Boiler & home cover"
@@ -709,7 +702,7 @@ export const WithCardActions: Story = {
         <CardActions direction="column">
           <CardActionButton heading="Download PDF" trailingIcon={<DownloadSmallIcon />} />
           <CardActionButton heading="Open PDF" trailingIcon={<OpenSmallIcon />} />
-          <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} />
+          <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} disabled />
         </CardActions>
       </Card>
       <Card {...args}>
@@ -729,7 +722,7 @@ export const WithCardActions: Story = {
         <CardActions direction={{ mobile: 'column', tablet: 'row' }}>
           <CardActionButton heading="Download PDF" trailingIcon={<DownloadSmallIcon />} />
           <CardActionButton heading="Open PDF" trailingIcon={<OpenSmallIcon />} />
-          <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} />
+          <CardActionButton heading="Email PDF" trailingIcon={<EmailSmallIcon />} disabled />
         </CardActions>
       </Card>
     </Flex>

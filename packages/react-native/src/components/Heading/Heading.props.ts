@@ -1,22 +1,8 @@
-import type { Ref } from 'react';
-import type { Text, TextProps, TextStyle } from 'react-native';
-import type { ColorValue } from '../../types';
+import type { CommonTextProps } from '../../types';
 
-interface HeadingProps extends TextProps {
-  size?: 'sm' | 'md' | 'lg' | 'xl';
-  strikeThrough?: boolean;
-  underline?: boolean;
-  truncated?: boolean;
-  color?: ColorValue;
-  textTransform?: TextStyle['textTransform'];
-  textAlign?: TextStyle['textAlign'];
-  textAlignVertical?: TextStyle['textAlignVertical'];
-  textDecorationLine?: TextStyle['textDecorationLine'];
-  textDecorationStyle?: TextStyle['textDecorationStyle'];
-  textDecorationColor?: ColorValue;
-  userSelect?: TextStyle['userSelect'];
-  inverted?: boolean;
-  ref?: Ref<Text>;
+interface HeadingProps extends CommonTextProps {
+  /** Heading size variant. */
+  size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 }
 
 export default HeadingProps;

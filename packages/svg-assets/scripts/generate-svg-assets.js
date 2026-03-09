@@ -5,7 +5,6 @@ const fs = require('fs-extra');
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const _ = require('lodash');
 const { optimize, loadConfig } = require('svgo');
-const cheerio = require('cheerio');
 const fetch = require('node-fetch');
 
 require('dotenv').config();
@@ -48,7 +47,7 @@ const transformers = {
   buildAssetNames(asset, metadata = {}) {
     const { componentSetName } = metadata;
     // Prefer set name when present (indicates variants); otherwise use the component name.
-    const base = (componentSetName || `${asset.name.split(' - ')[0]}`).replace(/[0-9]/g, '');
+    const base = componentSetName || `${asset.name.split(' - ')[0]}`;
     const variantValues = componentSetName ? transformers.parseVariantValues(asset.name) : [];
     const combined = [base, ...variantValues].join(' ').replace(/\s+/g, ' ').trim();
 
@@ -93,7 +92,9 @@ async function getSizeCanvases(document) {
 
     if (
       // Include these canvases only, and ensure they have content
-      ['Logo', 'Spots - Theme', 'Scenes - Theme', 'Mascots - Theme'].some(s => name.includes(s)) &&
+      ['Logo', 'Spots - Theme', 'Scenes - Theme', 'Mascots - Theme', 'Technical - Theme'].some(s =>
+        name.includes(s)
+      ) &&
       children.length > 0
     ) {
       canvases = [...canvases, { size, children }];

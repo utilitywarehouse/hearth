@@ -1,5 +1,6 @@
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import '@utilitywarehouse/hearth-fonts';
+import '@utilitywarehouse/hearth-tokens/index.css';
 import { color } from '@utilitywarehouse/hearth-tokens';
 import { useEffect } from 'react';
 import '../../../shared/storybook/styles/diff-highlighting.css';

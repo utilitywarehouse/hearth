@@ -14,12 +14,15 @@ import { FormField } from '../FormField/FormField';
 import { useIds } from '../../hooks/use-ids';
 import { mergeIds } from '../../helpers/merge-ids';
 import { Portal } from 'radix-ui';
-import * as React from 'react';
+import { forwardRef, useState } from 'react';
+import type { ComponentRef, MouseEvent, KeyboardEvent } from 'react';
 
 const COMPONENT_NAME = 'DatePicker';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const DatePicker = (props: DatePickerProps) => {
+type DatePickerElement = ComponentRef<'button'>;
+
+export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props, ref) => {
   const {
     className,
     onChange,
@@ -34,11 +37,11 @@ export const DatePicker = (props: DatePickerProps) => {
     disabled,
     readOnly,
     required,
-    ref,
     ...datePickerProps
   } = extractProps(props, marginPropDefs);
-  const [calendarOpen, setCalendarOpen] = React.useState(false);
-  const [view, setView] = React.useState<View>('days');
+
+  const [calendarOpen, setCalendarOpen] = useState(false);
+  const [view, setView] = useState<View>('days');
 
   const { id, labelId, helperTextId, validationTextId } = useIds({
     providedId,
@@ -79,7 +82,7 @@ export const DatePicker = (props: DatePickerProps) => {
 
   const handleChange = (
     date: Date | null,
-    event?: React.MouseEvent<HTMLElement> | React.KeyboardEvent<HTMLElement>
+    event?: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>
   ) => {
     if (view !== 'days') {
       setView(prevView[view]);
@@ -192,6 +195,6 @@ export const DatePicker = (props: DatePickerProps) => {
       />
     </FormField>
   );
-};
+});
 
 DatePicker.displayName = COMPONENT_NAME;

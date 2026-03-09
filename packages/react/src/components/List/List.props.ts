@@ -1,8 +1,9 @@
+import type { ComponentPropsWithRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { CardProps } from '../Card/Card.props';
 import { SectionHeaderProps } from '../SectionHeader/SectionHeader.props';
 
-export type ListProps = React.ComponentPropsWithRef<'ol'> &
+export type ListProps = ComponentPropsWithRef<'ol'> &
   SectionHeaderProps &
   MarginProps &
   (

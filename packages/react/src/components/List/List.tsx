@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { ListProps } from './List.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -6,12 +7,17 @@ import { Box } from '../Box/Box';
 import { extractProps } from '../../helpers/extract-props';
 import { marginPropDefs } from '../../props/margin.props';
 import { SectionHeader } from '../SectionHeader/SectionHeader';
+import { useIds } from '../../hooks/use-ids';
+import type { ComponentRef } from 'react';
 
 const COMPONENT_NAME = 'List';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const List = (props: ListProps) => {
+type ListElement = ComponentRef<'ol'>;
+
+export const List = forwardRef<ListElement, ListProps>((props, ref) => {
   const {
+    id: providedId,
     as: Tag = 'ul',
     className,
     colorScheme = undefined,
@@ -24,6 +30,8 @@ export const List = (props: ListProps) => {
     validationStatus,
     children,
     paddingNone,
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledby,
     ...listProps
   } = extractProps(props, marginPropDefs);
 
@@ -36,21 +44,31 @@ export const List = (props: ListProps) => {
     validationStatus,
   };
 
-  const dataAttributeProps = {
+  const { id, labelId } = useIds({ providedId, prefix: 'list' });
+
+  const hasHeading = Boolean(heading);
+  const ariaLabelledbyValue = ariaLabelledby ?? (hasHeading && !ariaLabel ? labelId : undefined);
+
+  const attributeProps = {
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledbyValue,
     'data-padding-none': paddingNone ? '' : undefined,
   };
 
   return (
     <div className={cn(componentClassName, className)}>
-      {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
+      {heading ? <SectionHeader id={labelId} {...sectionHeaderProps} /> : null}
       {variant === undefined || colorScheme === undefined ? (
         <Box
           asChild
+          id={id}
           className={`${componentClassName}Container`}
           role="list"
-          {...dataAttributeProps}
+          {...attributeProps}
         >
-          <Tag {...listProps}>{children}</Tag>
+          <Tag ref={ref} {...listProps}>
+            {children}
+          </Tag>
         </Box>
       ) : (
         <Card
@@ -59,13 +77,13 @@ export const List = (props: ListProps) => {
           variant={variant}
           colorScheme={colorScheme}
         >
-          <Tag role="list" {...listProps} {...dataAttributeProps}>
+          <Tag ref={ref} role="list" id={id} {...listProps} {...attributeProps}>
             {children}
           </Tag>
         </Card>
       )}
     </div>
   );
-};
+});
 
 List.displayName = COMPONENT_NAME;

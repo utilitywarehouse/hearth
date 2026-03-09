@@ -13,14 +13,6 @@ const colorValues = ['primary', 'secondary', 'brand', 'affirmative', 'inverted']
 const meta: Meta<typeof Grid> = {
   title: 'Stories / Grid',
   component: Grid,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`Grid` is a fundamental primitive, and should be used for CSS grid based layouts.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     as: { options: ['div', 'span'], control: { type: 'radio' } },

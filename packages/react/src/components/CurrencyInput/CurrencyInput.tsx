@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { forwardRef, useState, useRef, useEffect } from 'react';
 import { cn } from '../../helpers/cn';
 import type { ChangeEvent } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -14,7 +14,7 @@ import { useMergedRefs } from '@base-ui/utils/useMergedRefs';
 const COMPONENT_NAME = 'CurrencyInput';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const CurrencyInput = React.forwardRef<InputBaseElement, CurrencyInputProps>(
+export const CurrencyInput = forwardRef<InputBaseElement, CurrencyInputProps>(
   (
     {
       className,
@@ -28,9 +28,9 @@ export const CurrencyInput = React.forwardRef<InputBaseElement, CurrencyInputPro
     forwardedRef
   ) => {
     const maxDecimals = 2;
-    const [internalValue, setInternalValue] = React.useState<string>('');
-    const internalRef = React.useRef<HTMLInputElement>(null);
-    const cursorPositionRef = React.useRef<number | null>(null);
+    const [internalValue, setInternalValue] = useState<string>('');
+    const internalRef = useRef<HTMLInputElement>(null);
+    const cursorPositionRef = useRef<number | null>(null);
 
     // Merge forwarded ref (if any) with internal ref
     const inputRef = useMergedRefs(forwardedRef, internalRef);
@@ -112,7 +112,7 @@ export const CurrencyInput = React.forwardRef<InputBaseElement, CurrencyInputPro
     };
 
     // Restore cursor position after render
-    React.useEffect(() => {
+    useEffect(() => {
       if (
         internalRef &&
         typeof internalRef === 'object' &&

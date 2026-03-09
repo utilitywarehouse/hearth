@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react';
 import { MarginProps } from '../../props/margin.props';
 import { PropDef } from '../../props/prop-def';
 import { TextAlignProps } from '../../props/text-align.props';
@@ -14,7 +15,7 @@ export const headingPropDefs = {
 
 export interface HeadingProps
   extends
-    React.ComponentPropsWithRef<'h2'>,
+    ComponentPropsWithRef<'h2'>,
     TextAlignProps,
     TextTransformProps,
     TextWrapProps,

@@ -1,10 +1,10 @@
 import { Select as SelectPrimitive } from 'radix-ui';
 import { MarginProps } from '../../props/margin.props';
 import { FormFieldProps } from '../FormField/FormField.props';
-import { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithoutRef, ComponentPropsWithRef } from 'react';
 
 export type SelectProps = Omit<
-  React.ComponentPropsWithRef<typeof SelectPrimitive.Trigger>,
+  ComponentPropsWithRef<typeof SelectPrimitive.Trigger>,
   'value' | 'defaultValue' | 'dir'
 > &
   Omit<ComponentPropsWithoutRef<typeof SelectPrimitive.Root>, 'asChild' | 'dir'> &
@@ -14,6 +14,6 @@ export type SelectProps = Omit<
   };
 
 export type SelectItemProps = Omit<
-  React.ComponentPropsWithRef<typeof SelectPrimitive.SelectItem>,
+  ComponentPropsWithRef<typeof SelectPrimitive.SelectItem>,
   'textValue' | 'asChild'
 >;

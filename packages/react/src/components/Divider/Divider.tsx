@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { forwardRef } from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import type { DividerProps } from './Divider.props';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -15,7 +16,9 @@ function isValidOrientation(orientation?: Orientation) {
   return ORIENTATIONS.includes(orientation);
 }
 
-export const Divider = (props: DividerProps) => {
+type DividerElement = ComponentRef<'hr'>;
+
+export const Divider = forwardRef<DividerElement, DividerProps>((props, ref) => {
   const {
     decorative,
     orientation: providedOrientation,
@@ -32,12 +35,13 @@ export const Divider = (props: DividerProps) => {
 
   return (
     <hr
+      ref={ref}
       className={cn(componentClassName, className)}
       data-orientation={orientation}
       {...semanticProps}
       {...dividerProps}
     />
   );
-};
+});
 
 Divider.displayName = COMPONENT_NAME;

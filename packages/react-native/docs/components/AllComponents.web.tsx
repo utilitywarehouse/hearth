@@ -17,6 +17,7 @@ import {
 import SpotBillingDark from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-dark.svg';
 // @ts-expect-error - Module missing type declarations
 import SpotBillingLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-billing-light.svg';
+import { color } from '@utilitywarehouse/hearth-tokens';
 import { Pressable, ScrollView, View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import {
@@ -73,6 +74,7 @@ import {
   OL,
   Pill,
   PillGroup,
+  ProgressBar,
   ProgressStep,
   ProgressStepper,
   Radio,
@@ -90,6 +92,8 @@ import {
   TabsList,
   Textarea,
   ThemedImage,
+  TimePicker,
+  TimePickerInput,
   ToastItem,
   ToggleButtonCard,
   ToggleButtonCardGroup,
@@ -148,6 +152,11 @@ const AllComponents: React.FC = () => {
   const datePickerRef = useRef<BottomSheetModal>(null);
   const handleDatePickerOpenPress = useCallback(() => {
     datePickerRef.current?.present();
+  }, []);
+  const [selectedTime, setSelectedTime] = useState<DateType>();
+  const timePickerRef = useRef<BottomSheetModal>(null);
+  const handleTimePickerOpenPress = useCallback(() => {
+    timePickerRef.current?.present();
   }, []);
   useEffect(() => {
     if (bottomSheetRef.current) {
@@ -248,8 +257,8 @@ const AllComponents: React.FC = () => {
           </ComponentWrapper>
           <ComponentWrapper name="Box" link="/?path=/docs/primitives-box--docs">
             <Center flex={1}>
-              <Box backgroundColor="grey900" padding="300" width={200} height={100}>
-                <BodyText color={isDark ? 'grey100' : 'white'} weight="semibold">
+              <Box backgroundColor={color.grey[900]} padding="300" width={200} height={100}>
+                <BodyText color={isDark ? 'primary' : 'inverted'} weight="semibold">
                   This is a Box
                 </BodyText>
               </Box>
@@ -275,14 +284,14 @@ const AllComponents: React.FC = () => {
               <Carousel itemWidth={150} centered width={150}>
                 <CarouselItem>
                   <Box
-                    backgroundColor="blue700"
+                    backgroundColor={color.blue[700]}
                     width={150}
                     height={100}
                     px="100"
                     borderRadius="md"
                   >
                     <Center flex={1}>
-                      <BodyText color="white" textAlign="center">
+                      <BodyText color="inverted" textAlign="center">
                         I'm a carousel item
                       </BodyText>
                     </Center>
@@ -290,14 +299,14 @@ const AllComponents: React.FC = () => {
                 </CarouselItem>
                 <CarouselItem>
                   <Box
-                    backgroundColor="purple700"
+                    backgroundColor={color.purple[700]}
                     width={150}
                     height={100}
                     px="100"
                     borderRadius="md"
                   >
                     <Center flex={1}>
-                      <BodyText color="white" textAlign="center">
+                      <BodyText color="inverted" textAlign="center">
                         I'm another carousel item
                       </BodyText>
                     </Center>
@@ -305,14 +314,14 @@ const AllComponents: React.FC = () => {
                 </CarouselItem>
                 <CarouselItem>
                   <Box
-                    backgroundColor="green700"
+                    backgroundColor={color.green[700]}
                     width={150}
                     height={100}
                     px="100"
                     borderRadius="md"
                   >
                     <Center flex={1}>
-                      <BodyText color="white" textAlign="center">
+                      <BodyText color="inverted" textAlign="center">
                         I'm also a carousel item
                       </BodyText>
                     </Center>
@@ -323,8 +332,8 @@ const AllComponents: React.FC = () => {
           </ComponentWrapper>
           <ComponentWrapper name="Center" link="/?path=/docs/primitives-center--docs">
             <Center flex={1}>
-              <Center backgroundColor="red400" padding="300" width={200} height={100}>
-                <BodyText color={isDark ? 'grey1000' : 'white'} weight="semibold">
+              <Center backgroundColor={color.red[400]} padding="300" width={200} height={100}>
+                <BodyText color={isDark ? 'primary' : 'inverted'} weight="semibold">
                   I am in the Center
                 </BodyText>
               </Center>
@@ -339,10 +348,10 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Container" link="/?path=/docs/primitives-container--docs">
-            <Container spacing="md" backgroundColor="backgroundSecondary">
-              <Box h={20} bg="blue300" />
-              <Box h={20} bg="blue400" />
-              <Box h={20} bg="blue500" />
+            <Container spacing="md" backgroundColor="secondary">
+              <Box h={20} bg={color.blue[300]} />
+              <Box h={20} bg={color.blue[400]} />
+              <Box h={20} bg={color.blue[500]} />
             </Container>
           </ComponentWrapper>
           <ComponentWrapper name="Currency Input" link="/?path=/docs/forms-currency-input--docs">
@@ -376,6 +385,29 @@ const AllComponents: React.FC = () => {
             <Center flex={1} padding="200">
               <BottomSheetModalProvider>
                 <DatePickerInput placeholder="DD/MM/YYYY" />
+              </BottomSheetModalProvider>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Time Picker" link="/?path=/docs/components-time-picker--docs">
+            <Center flex={1}>
+              <Button onPress={handleTimePickerOpenPress}>Open Time Picker</Button>
+              <BottomSheetModalProvider>
+                <TimePicker
+                  ref={timePickerRef}
+                  date={selectedTime}
+                  onChange={({ date }) => setSelectedTime(date)}
+                  onCancel={() => setSelectedTime(undefined)}
+                />
+              </BottomSheetModalProvider>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
+            name="Time Picker Input"
+            link="/?path=/docs/forms-time-picker-input--docs"
+          >
+            <Center flex={1} padding="200">
+              <BottomSheetModalProvider>
+                <TimePickerInput placeholder="HH:mm" />
               </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
@@ -445,10 +477,10 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Flex" link="/?path=/docs/primitives-flex--docs">
             <Center flex={1}>
               <Flex direction="row" spacing="md">
-                <Box w={40} h={40} bg="blue300" />
-                <Box w={40} h={40} bg="blue400" />
-                <Box w={40} h={40} bg="blue500" />
-                <Box w={40} h={40} bg="blue600" />
+                <Box w={40} h={40} bg={color.blue[300]} />
+                <Box w={40} h={40} bg={color.blue[400]} />
+                <Box w={40} h={40} bg={color.blue[500]} />
+                <Box w={40} h={40} bg={color.blue[600]} />
               </Flex>
             </Center>
           </ComponentWrapper>
@@ -468,10 +500,10 @@ const AllComponents: React.FC = () => {
             <Center flex={1}>
               <Box width={100}>
                 <Grid columns={2} spacing="md">
-                  <Box w={40} h={40} bg="blue300" />
-                  <Box w={40} h={40} bg="blue400" />
-                  <Box w={40} h={40} bg="blue500" />
-                  <Box w={40} h={40} bg="blue600" />
+                  <Box w={40} h={40} bg={color.blue[300]} />
+                  <Box w={40} h={40} bg={color.blue[400]} />
+                  <Box w={40} h={40} bg={color.blue[500]} />
+                  <Box w={40} h={40} bg={color.blue[600]} />
                 </Grid>
               </Box>
             </Center>
@@ -649,7 +681,6 @@ const AllComponents: React.FC = () => {
           </ComponentWrapper>
           <ComponentWrapper name="Pill Group" link="/?path=/docs/components-pill-group--docs">
             <Center flex={1} p="200">
-              (
               <PillGroup
                 value={pillValue}
                 onChange={v => setPillValue(v as string[])}
@@ -661,7 +692,11 @@ const AllComponents: React.FC = () => {
                 <Pill value="broadband" label="Broadband" icon={BroadbandMediumIcon} />
                 <Pill value="mobile" label="Mobile" icon={MobileMediumIcon} />
               </PillGroup>
-              );
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Progress Bar" link="/?path=/docs/components-progress-bar--docs">
+            <Center flex={1} px="300">
+              <ProgressBar value={58} label="Order progress" />
             </Center>
           </ComponentWrapper>
           <ComponentWrapper

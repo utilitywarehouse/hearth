@@ -1,11 +1,12 @@
+import type { ComponentPropsWithRef } from 'react';
 import { DropdownMenu as MenuPrimitive } from 'radix-ui';
 
 export type MenuContentProps = Omit<
-  React.ComponentPropsWithRef<typeof MenuPrimitive.DropdownMenuPortal>,
+  ComponentPropsWithRef<typeof MenuPrimitive.DropdownMenuPortal>,
   'container'
 > &
   Omit<
-    React.ComponentPropsWithRef<typeof MenuPrimitive.DropdownMenuContent>,
+    ComponentPropsWithRef<typeof MenuPrimitive.DropdownMenuContent>,
     | 'asChild'
     | 'loop'
     | 'side'

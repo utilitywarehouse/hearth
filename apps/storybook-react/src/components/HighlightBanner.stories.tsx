@@ -24,14 +24,6 @@ const headingColors = [
 const meta: Meta<typeof HighlightBanner> = {
   title: 'Stories / HighlightBanner',
   component: HighlightBanner,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`HighlightBanner` can be used to highlight key information or marketing messaging.',
-      },
-    },
-  },
   argTypes: {},
   args: {},
 };

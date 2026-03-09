@@ -7,7 +7,9 @@
     "preview": "vite preview",
     "clean": "rm -rf node_modules storybook-static .turbo",
     "dev": "storybook dev -p 6006",
-    "build:storybook": "storybook build"
+    "dev:docs": "storybook dev -p 6003 --no-open --docs",
+    "build:storybook": "storybook build",
+    "build:storybook:docs": "storybook build --docs"
   },
   "dependencies": {
     "@utilitywarehouse/hearth-css-reset": "workspace:*",

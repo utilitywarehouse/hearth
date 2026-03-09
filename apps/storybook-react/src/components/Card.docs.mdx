@@ -2,11 +2,11 @@ import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
 
 import * as Stories from './Card.stories';
 
-import { DocsHeader } from '../storybook-components/DocsHeader';
-
 <Meta title="Components / Card" />
 
-<DocsHeader componentName="Card" stories={Stories} />
+# Card
+
+Use Cards as containers for concise information about a single subject. They can display featured information, related content, or navigational choices. In groups, cards present collections of similar content.
 
 - [Playground](#playground)
 - [Components](#components)
@@ -138,7 +138,8 @@ must wrap them in the `CardActions` component.
 <Canvas of={Stories.WithOnlyCardActions} sourceState="hide" />
 
 When using `CardActions` alongside other additional content, you must wrap the
-additional content in a `CardContent` component.
+additional content in a `CardContent` component. If necessary, you can set the
+`paddingBottomNone` prop to remove the bottom padding.
 
 <Canvas of={Stories.WithCardActions} sourceState="hide" />
 
@@ -236,6 +237,10 @@ This component is based on the `button` element.
 ### CardContent API
 
 This component is based on the `Card` component, supporting the same props except for those related to appearance and polymorphism.
+
+| Name                | Type      |
+| ------------------- | --------- |
+| `paddingBottomNone` | `boolean` |
 
 ### CardBannerContent API
 

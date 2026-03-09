@@ -1,8 +1,8 @@
 import type { Preview } from '@storybook/react-vite';
-import '@utilitywarehouse/hearth-css-reset';
 import '@utilitywarehouse/hearth-fonts';
 import '@utilitywarehouse/hearth-react/styles.css';
 import '../../../shared/storybook/styles/preview.css';
+import '../docs/fonts.css';
 import theme from '../../../shared/storybook/theme';
 
 const closeStories = (delay: number = 0) => {
@@ -55,7 +55,7 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ['Welcome', 'CSS Reset'],
+        order: ['Introduction', 'Fonts', 'CSS Reset'],
       },
     },
     controls: {

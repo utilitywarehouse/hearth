@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { createContext, useContext } from 'react';
 
 export type CheckboxGroupContextValue = {
   name?: string;
@@ -6,8 +6,6 @@ export type CheckboxGroupContextValue = {
   onItemCheck(value: string): void;
   onItemUncheck(value: string): void;
 };
-export const CheckboxGroupContext = React.createContext<CheckboxGroupContextValue | undefined>(
-  undefined
-);
+export const CheckboxGroupContext = createContext<CheckboxGroupContextValue | undefined>(undefined);
 export const CheckboxGroupProvider = CheckboxGroupContext.Provider;
-export const useCheckboxGroup = () => React.useContext(CheckboxGroupContext);
+export const useCheckboxGroup = () => useContext(CheckboxGroupContext);

@@ -15,11 +15,15 @@ import { useCheckboxGroup } from '../CheckboxGroup/CheckboxGroup.context';
 import { useFormGroupBase } from '../FormGroupBase/FormGroupBase.context';
 import { ValidationText } from '../ValidationText/ValidationText';
 import { mergeIds } from '../../helpers/merge-ids';
+import type { ComponentRef } from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'Checkbox';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Checkbox = (props: CheckboxProps) => {
+type CheckboxElement = ComponentRef<'button'>;
+
+export const Checkbox = forwardRef<CheckboxElement, CheckboxProps>((props, ref) => {
   const {
     id: providedId,
     label,
@@ -58,6 +62,7 @@ export const Checkbox = (props: CheckboxProps) => {
   return (
     <Flex className={cn(componentClassName, className)} data-disabled={disabled ? '' : undefined}>
       <CheckboxPrimitive.Root
+        ref={ref}
         className={`${componentClassName}Root`}
         name={checkboxContext?.name}
         checked={checked}
@@ -105,6 +110,6 @@ export const Checkbox = (props: CheckboxProps) => {
       ) : null}
     </Flex>
   );
-};
+});
 
 Checkbox.displayName = COMPONENT_NAME;

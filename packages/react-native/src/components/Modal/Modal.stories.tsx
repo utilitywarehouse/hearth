@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react-native';
 import { useRef } from 'react';
 import { ImageSourcePropType, Platform, View } from 'react-native';
 import { Modal, ModalImage } from '.';
@@ -66,6 +66,7 @@ const meta = {
     onPressCloseButton: () => null,
     onPressPrimaryButton: () => null,
     onPressSecondaryButton: () => null,
+    background: 'brand',
   },
 } satisfies Meta<typeof Modal>;
 

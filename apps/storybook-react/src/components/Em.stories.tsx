@@ -6,14 +6,6 @@ const sizes = ['sm', 'md', 'lg'] as const;
 const meta: Meta<typeof Em> = {
   title: 'Stories / Em',
   component: Em,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'The `Em` component is based on the HTML `em` element and is used to indicate text that has stress emphasis. `Em` should be wrapped in a `Text` component, and will inherit the parent styles. It should __not__ be used within the `Heading` component, as this will result in invalid HTML.',
-      },
-    },
-  },
 };
 
 export default meta;

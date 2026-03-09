@@ -1,5 +1,11 @@
 # @utilitywarehouse/css-reset
 
+## 0.1.4
+
+### Patch Changes
+
+- [#951](https://github.com/utilitywarehouse/hearth/pull/951) [`25698c1`](https://github.com/utilitywarehouse/hearth/commit/25698c112ed7f0f2b7c1f814481d00ca74561f4a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Refine cursor style
+
 ## 0.1.3
 
 ### Patch Changes
@@ -26,7 +32,6 @@
   default and only remove it when an explicit `role="list"` is present. This aligns
   with accessibility best practices where `role="list"` signals intentional removal
   of semantic list styling.
-
   - Updates CSS reset to preserve default padding and list styles for `ul` and `ol` elements.
   - Only removes list styling when `role="list"` is explicitly set.
   - Updates the List component to include `role="list"` in props object rather than inline.
@@ -73,7 +78,6 @@
   noticeably affects the typography visuals of the Aeonik font. Therefore we will
   set it to `optimizeLegibility` for all heading elements, and in the Web UI
   `Heading` component.
-
   - https://css-tricks.com/almanac/properties/t/text-rendering/
   - https://marco.org/2012/11/15/text-rendering-optimize-legibility
 

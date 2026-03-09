@@ -4,51 +4,60 @@ import type { CardActionContentProps } from './CardActionContent.props';
 import { cn } from '../../helpers/cn';
 import { BodyText } from '../BodyText/BodyText';
 import { IconContainer } from '../IconContainer/IconContainer';
+import type { ComponentRef } from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'CardActionContent';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const CardActionContent = ({
-  heading,
-  leadingIcon,
-  leadingIconContainerColorScheme,
-  trailingIcon,
-  helperText,
-  className,
-  badge,
-  badgePlacement = 'bottom',
-}: CardActionContentProps) => {
-  return (
-    <div className={cn(componentClassName, className)}>
-      {leadingIcon ? (
-        leadingIconContainerColorScheme ? (
-          <IconContainer
-            colorScheme={leadingIconContainerColorScheme}
-            size="md"
-            fill="height"
-            borderRadius="none"
-          >
-            {leadingIcon}
-          </IconContainer>
-        ) : (
-          <div className={`${componentClassName}LeadingIcon`}>{leadingIcon}</div>
-        )
-      ) : null}
+type CardActionContentElement = ComponentRef<'div'>;
 
-      <div className={`${componentClassName}MainWrapper`}>
-        <div className={`${componentClassName}Main`} data-badge-placement={badgePlacement}>
-          <BodyText size="md" weight="semibold" as="span">
-            {heading}
-          </BodyText>
-          {badge && badgePlacement === 'middle' ? badge : null}
-          {helperText ? <HelperText>{helperText}</HelperText> : null}
-          {badge && badgePlacement === 'bottom' ? badge : null}
+export const CardActionContent = forwardRef<CardActionContentElement, CardActionContentProps>(
+  (props, ref) => {
+    const {
+      heading,
+      leadingIcon,
+      leadingIconContainerColorScheme,
+      trailingIcon,
+      helperText,
+      className,
+      badge,
+      badgePlacement = 'bottom',
+      ...restProps
+    } = props;
+
+    return (
+      <div ref={ref} className={cn(componentClassName, className)} {...restProps}>
+        {leadingIcon ? (
+          leadingIconContainerColorScheme ? (
+            <IconContainer
+              colorScheme={leadingIconContainerColorScheme}
+              size="md"
+              fill="height"
+              borderRadius="none"
+            >
+              {leadingIcon}
+            </IconContainer>
+          ) : (
+            <div className={`${componentClassName}LeadingIcon`}>{leadingIcon}</div>
+          )
+        ) : null}
+
+        <div className={`${componentClassName}MainWrapper`}>
+          <div className={`${componentClassName}Main`} data-badge-placement={badgePlacement}>
+            <BodyText size="md" weight="semibold" as="span">
+              {heading}
+            </BodyText>
+            {badge && badgePlacement === 'middle' ? badge : null}
+            {helperText ? <HelperText>{helperText}</HelperText> : null}
+            {badge && badgePlacement === 'bottom' ? badge : null}
+          </div>
+          {badge && badgePlacement === 'right' ? badge : null}
+          <div className={`${componentClassName}TrailingIcon`}>{trailingIcon}</div>
         </div>
-        {badge && badgePlacement === 'right' ? badge : null}
-        <div className={`${componentClassName}TrailingIcon`}>{trailingIcon}</div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+);
 
 CardActionContent.displayName = COMPONENT_NAME;

@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 // https://github.com/radix-ui/themes/blob/main/packages/radix-ui-themes/src/helpers/get-subtree.ts
-import * as React from 'react';
+import { Children, cloneElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 /**
  * This is a helper function that is used when a component supports `asChild`
@@ -11,17 +12,17 @@ import * as React from 'react';
  * correct order in the DOM, adopting the intended consumer `children`.
  */
 export function getSubtree(
-  options: { asChild: boolean | undefined; children: React.ReactNode },
-  content: React.ReactNode | ((children: React.ReactNode) => React.ReactNode)
+  options: { asChild: boolean | undefined; children: ReactNode },
+  content: ReactNode | ((children: ReactNode) => ReactNode)
 ) {
   const { asChild, children } = options;
   if (!asChild) return typeof content === 'function' ? content(children) : content;
 
-  const firstChild = React.Children.only(children) as React.ReactElement<{
-    children?: React.ReactNode;
+  const firstChild = Children.only(children) as ReactElement<{
+    children?: ReactNode;
   }>;
 
-  return React.cloneElement(firstChild, {
+  return cloneElement(firstChild, {
     children: typeof content === 'function' ? content(firstChild.props.children) : content,
   });
 }

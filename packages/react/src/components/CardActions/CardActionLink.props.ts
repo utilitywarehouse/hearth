@@ -1,6 +1,7 @@
+import type { ComponentPropsWithRef } from 'react';
 import { CardActionContentProps } from './CardActionContent.props';
 
 export interface CardActionLinkProps
   extends
-    React.ComponentPropsWithRef<'a'>,
-    Omit<CardActionContentProps, keyof React.ComponentPropsWithRef<'a'>> {}
+    ComponentPropsWithRef<'a'>,
+    Omit<CardActionContentProps, keyof ComponentPropsWithRef<'a'>> {}

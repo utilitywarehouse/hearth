@@ -1,5 +1,107 @@
 # @utilitywarehouse/hearth-svg-assets
 
+## 0.5.0
+
+### Minor Changes
+
+- [#961](https://github.com/utilitywarehouse/hearth/pull/961) [`c32f7ac`](https://github.com/utilitywarehouse/hearth/commit/c32f7acbd578a753b86015a3e4d73649f6763889) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add Technical illustrations to SVG assets library
+
+  ## NEW ASSETS
+  - TechnicalRouterWithPowerLight
+  - TechnicalRouterWithPowerDark
+  - TechnicalStandardDslConnxFullLabelledLight
+  - TechnicalStandardDslConnxFullLabelledDark
+  - TechnicalStandardDslConnxPartLight
+  - TechnicalStandardDslConnxPartDark
+  - TechnicalStandardDslConnxFullLight
+  - TechnicalStandardDslConnxFullDark
+  - TechnicalPowerSupply01BRgbLight
+  - TechnicalPowerSupply01BRgbDark
+  - TechnicalPrefilteredConnxFullLabelledLight
+  - TechnicalPrefilteredConnxFullLabelledDark
+  - TechnicalPrefilteredConnxFullLight
+  - TechnicalPrefilteredConnxFullDark
+  - TechnicalPrefilteredConnxPartLight
+  - TechnicalPrefilteredConnxPartDark
+  - TechnicalPrefilteredMasterSocketsLight
+  - TechnicalPrefilteredMasterSocketsDark
+  - TechnicalRimAutomaticDeadlockLight
+  - TechnicalRimAutomaticDeadlockDark
+  - TechnicalRouter01Light
+  - TechnicalRouter01Dark
+  - TechnicalRouter02FrontLight
+  - TechnicalRouter02FrontDark
+  - TechnicalRouter03RearLight
+  - TechnicalRouter03RearDark
+  - TechnicalMeter01LabelledLight
+  - TechnicalMeter01LabelledDark
+  - TechnicalMeter02LabelledLight
+  - TechnicalMeter02LabelledDark
+  - TechnicalMeter02Light
+  - TechnicalMeter02Dark
+  - TechnicalMicrofilter01Light
+  - TechnicalMicrofilter01Dark
+  - TechnicalMorticeDeadlock5LeversLight
+  - TechnicalMorticeDeadlock5LeversDark
+  - TechnicalMicrofilter02Light
+  - TechnicalMicrofilter02Dark
+  - TechnicalMultipointSystem3BoltsLight
+  - TechnicalMultipointSystem3BoltsDark
+  - TechnicalOntRouterConnxLight
+  - TechnicalOntRouterConnxDark
+  - TechnicalOtherBuildingLight
+  - TechnicalOtherBuildingDark
+  - TechnicalOtherLockLight
+  - TechnicalOtherLockDark
+  - TechnicalEeroLight
+  - TechnicalEeroDark
+  - TechnicalEthernetCableLight
+  - TechnicalEthernetCableDark
+  - TechnicalFlatLight
+  - TechnicalFlatDark
+  - TechnicalFullFibreSocketLight
+  - TechnicalFullFibreSocketDark
+  - TechnicalFullfibre916MobileLight
+  - TechnicalFullfibre916MobileDark
+  - TechnicalFullfibre916DesktopLight
+  - TechnicalFullfibre916DesktopDark
+  - TechnicalHouseLight
+  - TechnicalHouseDark
+  - TechnicalMainTelephoneSocketLight
+  - TechnicalMainTelephoneSocketDark
+  - TechnicalMeterLight
+  - TechnicalMeterDark
+  - TechnicalBuildingsAndContentsLight
+  - TechnicalBuildingsAndContentsDark
+  - TechnicalBuildingsLight
+  - TechnicalBuildingsDark
+  - TechnicalBungalowLight
+  - TechnicalBungalowDark
+  - TechnicalContentsLight
+  - TechnicalContentsDark
+  - TechnicalDslCableLight
+  - TechnicalDslCableDark
+  - TechnicalDslPowerMicrofilterLight
+  - TechnicalDslPowerMicrofilterDark
+  - TechnicalOpticalNetworkTerminalLight
+  - TechnicalOpticalNetworkTerminalDark
+
+  ## REMOVED ASSETS
+
+  No removed assets.
+
+## 0.4.1
+
+### Patch Changes
+
+- [#936](https://github.com/utilitywarehouse/hearth/pull/936) [`d8891ec`](https://github.com/utilitywarehouse/hearth/commit/d8891ecff680d2801406a4b20e9a431ce94dbd26) Thanks [@uw-design-systems-bot](https://github.com/uw-design-systems-bot)! - ## NEW ASSETS
+
+  No new assets.
+
+  ## REMOVED ASSETS
+
+  No removed assets.
+
 ## 0.4.0
 
 ### Minor Changes

@@ -23,6 +23,9 @@ const DateInput = ({
   dayValue,
   monthValue,
   yearValue,
+  dayRef,
+  monthRef,
+  yearRef,
   onDayChange,
   onMonthChange,
   onYearChange,
@@ -57,6 +60,7 @@ const DateInput = ({
             label="Day"
             placeholder={dayPlaceholder}
             value={dayValue}
+            inputRef={dayRef}
             onChange={onDayChange}
             onFocus={onDayFocus}
             onBlur={onDayBlur}
@@ -76,6 +80,7 @@ const DateInput = ({
             label="Month"
             placeholder={monthPlaceholder}
             value={monthValue}
+            inputRef={monthRef}
             onChange={onMonthChange}
             onFocus={onMonthFocus}
             onBlur={onMonthBlur}
@@ -95,6 +100,7 @@ const DateInput = ({
             label="Year"
             placeholder={yearPlaceholder}
             value={yearValue}
+            inputRef={yearRef}
             onChange={onYearChange}
             onFocus={onYearFocus}
             onBlur={onYearBlur}

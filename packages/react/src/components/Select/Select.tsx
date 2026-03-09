@@ -1,5 +1,7 @@
 'use client';
 
+import { forwardRef } from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { extractProps } from '../../helpers/extract-props';
@@ -13,7 +15,9 @@ import { FormField } from '../FormField/FormField';
 const COMPONENT_NAME = 'Select';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Select = (props: SelectProps) => {
+type SelectElement = ComponentRef<'button'>;
+
+export const Select = forwardRef<SelectElement, SelectProps>((props, ref) => {
   const {
     className,
     children,
@@ -26,7 +30,6 @@ export const Select = (props: SelectProps) => {
     id: providedId,
     disabled,
     required,
-    ref,
     ...selectProps
   } = extractProps(props, marginPropDefs);
 
@@ -93,6 +96,6 @@ export const Select = (props: SelectProps) => {
       </SelectPrimitive.Root>
     </FormField>
   );
-};
+});
 
 Select.displayName = COMPONENT_NAME;

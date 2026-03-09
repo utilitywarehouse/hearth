@@ -19,13 +19,6 @@ const sizes = ['sm', 'md', 'lg'] as const;
 const meta: Meta<typeof IconContainer> = {
   title: 'Stories / IconContainer',
   component: IconContainer,
-  parameters: {
-    docs: {
-      description: {
-        component: 'Use the `IconContainer` when using icons that sit within a coloured container.',
-      },
-    },
-  },
   argTypes: {
     children: { control: { type: 'text' } },
     variant: { options: variants, control: { type: 'radio' } },

@@ -306,9 +306,18 @@ export const lightTheme = {
     white: '#ffffff',
     black: '#000000',
   } as const,
+
   components: components.light,
   ...shared,
-  helpers: lightHelpers,
+  helpers: {
+    ...lightHelpers /** Simplified semantic color tokens grouped by category */,
+    semanticColor: {
+      background: light.background,
+      border: light.border,
+      text: light.text,
+      icon: light.icon,
+    },
+  },
 } as const;
 
 const darkHelpers = {
@@ -364,7 +373,15 @@ export const darkTheme = {
   },
   components: components.dark,
   ...shared,
-  helpers: darkHelpers,
+  helpers: {
+    ...darkHelpers /** Simplified semantic color tokens grouped by category */,
+    semanticColor: {
+      background: dark.background,
+      border: dark.border,
+      text: dark.text,
+      icon: dark.icon,
+    },
+  },
 } as const;
 
 export const themes = {

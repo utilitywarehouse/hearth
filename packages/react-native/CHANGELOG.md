@@ -1,5 +1,390 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.25.0
+
+### Minor Changes
+
+- [#982](https://github.com/utilitywarehouse/hearth/pull/982) [`506b388`](https://github.com/utilitywarehouse/hearth/commit/506b388ae1ef1065f013024a14bd9e2599a6442d) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `TimePicker` and `TimePickerInput` components with 12/24-hour support and minute intervals.
+
+  Includes a shared time picker view, updated wheel behavior for native platforms, and polished visuals like gradient fades.
+
+  **Components affected**:
+  - `TimePicker`
+  - `TimePickerInput`
+
+  ```tsx
+  import { TimePicker, TimePickerInput } from '@utilitywarehouse/hearth-react-native';
+  import { useRef, useState } from 'react';
+  import type { DateType } from '@utilitywarehouse/hearth-react-native';
+
+  const Example = () => {
+    const [value, setValue] = useState<DateType>();
+    const pickerRef = useRef(null);
+
+    return (
+      <>
+        <TimePickerInput
+          value={value}
+          onChange={({ date }) => setValue(date ?? undefined)}
+          onClear={() => setValue(undefined)}
+          timePickerProps={{ use12Hours: true, minuteInterval: 5 }}
+        />
+        <TimePicker
+          ref={pickerRef}
+          date={value}
+          onChange={({ date }) => setValue(date)}
+          use12Hours
+          minuteInterval={5}
+        />
+      </>
+    );
+  };
+  ```
+
+## 0.24.0
+
+### Minor Changes
+
+- [#977](https://github.com/utilitywarehouse/hearth/pull/977) [`9d2b534`](https://github.com/utilitywarehouse/hearth/commit/9d2b5348a5748cb613f537808069de2e86bd21d7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `ProgressBar` component with linear and circular variants.
+
+  **Developer changes**:
+
+  Use `ProgressBar` with a default percentage label, or override the label to show a custom value:
+
+  ```tsx
+  import { ProgressBar } from '@utilitywarehouse/hearth-react-native';
+
+  <ProgressBar value={42} label="Uploading documents" />
+
+  <ProgressBar
+      value={68}
+      max={100}
+      label="Data allowance"
+      variant="circular"
+      formatValueText={(value, { max }) => `${max - value}GB remaining`}
+  />
+  ```
+
+### Patch Changes
+
+- [#978](https://github.com/utilitywarehouse/hearth/pull/978) [`26a1173`](https://github.com/utilitywarehouse/hearth/commit/26a11731a493a8b92ac2a3a183516376ab54663b) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Tighten `Modal` prop types and fix brand background text styling
+
+  Improves TypeScript safety so `stickyFooter` is not allowed when `inNavModal` is true, and `background` can only be set when `inNavModal` is true. Also ensures headings, body text, and button content are correctly inverted when using the brand background.
+
+  **Components affected**:
+  - `Modal`
+
+  **Developer changes**:
+  No changes required unless you were relying on invalid prop combinations.
+
+## 0.23.0
+
+### Minor Changes
+
+- [#975](https://github.com/utilitywarehouse/hearth/pull/975) [`102f04e`](https://github.com/utilitywarehouse/hearth/commit/102f04e0d560cf0faa21da5020c230e88e857251) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add a `background` option for Modal when used inside navigation modals
+
+  Modal now supports a `background` prop with `default` and `brand` values. When `background="brand"` is used in a navigation modal, the buttons and close icon invert for contrast, and the content area is scrollable.
+
+  **Components affected**:
+  - `Modal`
+
+  **Developer changes**:
+
+  No changes required. To opt in to the brand background:
+
+  ```tsx
+  <Modal background="brand" inNavModal>
+    ...
+  </Modal>
+  ```
+
+## 0.22.1
+
+### Patch Changes
+
+- [#971](https://github.com/utilitywarehouse/hearth/pull/971) [`be1dfeb`](https://github.com/utilitywarehouse/hearth/commit/be1dfebd4b43f2df8ef6c5eaa42a88364e796479) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Improve VerificationInput OTP handling and accessibility
+
+  VerificationInput now uses a single hidden input to manage focus, selection, and paste behaviour across platforms, improving caret handling and bulk entry. Accessibility labels and hints are now derived from the form field to provide clearer screen reader output.
+
+  **Components affected**:
+  - `VerificationInput`
+
+  **Developer changes**:
+
+  No changes required.
+
+## 0.22.0
+
+### Minor Changes
+
+- [#968](https://github.com/utilitywarehouse/hearth/pull/968) [`cee5811`](https://github.com/utilitywarehouse/hearth/commit/cee5811020af02fe754d8311ec8313c1793f108a) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `badge` support to Radio and Checkbox (including tiles).
+
+  **Components affected**:
+  - `Radio`
+  - `RadioTile`
+  - `Checkbox`
+  - `CheckboxTile`
+
+  **Developer changes**:
+  You can now pass a `badge` React node to render beneath helper text. No changes required unless you want to use the new prop.
+
+### Patch Changes
+
+- [#966](https://github.com/utilitywarehouse/hearth/pull/966) [`4e9f3f0`](https://github.com/utilitywarehouse/hearth/commit/4e9f3f0284e50da5ba4e49e132dac745a1a8a68d) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Allow Card layout props and remove forced alignment
+
+  Card now accepts flex layout and display props, and it no longer forces `alignItems: flex-start` on the root, so custom alignment works as expected.
+
+- [#969](https://github.com/utilitywarehouse/hearth/pull/969) [`c5c988b`](https://github.com/utilitywarehouse/hearth/commit/c5c988b65f1133b85b822037b086a524bc1255e3) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Render the Modal footer in navigation modals
+
+## 0.21.0
+
+### Minor Changes
+
+- [#917](https://github.com/utilitywarehouse/hearth/pull/917) [`6a016dc`](https://github.com/utilitywarehouse/hearth/commit/6a016dca0d1a06e40a877da15aced590d0c68112) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add 2xl size variant to Heading component
+
+  The `Heading` component now supports a `2xl` size option, providing a larger heading size for prominent page titles and hero sections. This size is responsive across device sizes with appropriate font sizes and line heights for mobile, tablet, and desktop viewports.
+
+  **Components affected**:
+  - `Heading`
+
+  **Developer changes**:
+
+  Use the new `2xl` size prop:
+
+  ```tsx
+  <Heading size="2xl">Welcome to Hearth</Heading>
+  ```
+
+  The `2xl` size will render with:
+  - Mobile: 44px font size, 52px line height
+  - Tablet: 44px font size, 52px line height
+  - Desktop: 54px font size, 62px line height
+
+- [#949](https://github.com/utilitywarehouse/hearth/pull/949) [`e1aacf0`](https://github.com/utilitywarehouse/hearth/commit/e1aacf06a58fd8358e9e7546ec35d8194a0d8d74) Thanks [@MichalCiesliczka](https://github.com/MichalCiesliczka)! - 🌟 [FEATURE]: Add segment refs to `DateInput` for programmatic focus control
+
+  The `DateInput` component now supports direct refs for each segment input via `dayRef`, `monthRef`, and `yearRef`.
+  This makes it easier to move focus between segments from custom flows (for example, advancing focus after validation or from custom buttons).
+
+  Documentation and Storybook examples are also updated to show how to use segment refs in real usage.
+
+  **Components affected**:
+  - `DateInput`
+
+  **Developer changes**:
+
+  You can now pass refs to each segment and call `.focus()` when needed:
+
+  ```tsx
+  import { useRef, useState } from 'react';
+  import { TextInput } from 'react-native';
+  import { Button, DateInput } from '@utilitywarehouse/hearth-react-native';
+
+  const DateWithSegmentFocus = () => {
+    const [day, setDay] = useState('');
+    const [month, setMonth] = useState('');
+    const [year, setYear] = useState('');
+
+    const dayRef = useRef<TextInput>(null);
+    const monthRef = useRef<TextInput>(null);
+    const yearRef = useRef<TextInput>(null);
+
+    return (
+      <>
+        <DateInput
+          label="Date of birth"
+          dayValue={day}
+          monthValue={month}
+          yearValue={year}
+          onDayChange={setDay}
+          onMonthChange={setMonth}
+          onYearChange={setYear}
+          dayRef={dayRef}
+          monthRef={monthRef}
+          yearRef={yearRef}
+        />
+
+        <Button onPress={() => monthRef.current?.focus()}>Focus month</Button>
+      </>
+    );
+  };
+  ```
+
+  This is a non-breaking enhancement, so existing `DateInput` usage continues to work without any changes.
+
+- [#918](https://github.com/utilitywarehouse/hearth/pull/918) [`2db4dbe`](https://github.com/utilitywarehouse/hearth/commit/2db4dbe273583239b148c4399af829df596a00c1) Thanks [@jordmccord](https://github.com/jordmccord)! - 💔 [BREAKING CHANGE]: Simplify semantic token naming and introduce utility prop types
+
+  This release simplifies the semantic token naming convention and introduces a new utility prop system to make the API more intuitive and consistent across components.
+
+  **Components affected**:
+  - `Box`
+  - `Container`
+  - `Card`
+  - `Flex`
+  - `Grid`
+  - `Center`
+  - `BodyText`
+  - `Heading`
+  - `DetailText`
+  - `Carousel`
+  - `CarouselItem`
+
+  **Developer changes**:
+
+  ### Background Colors
+
+  Background color props now accept simplified semantic tokens. Update your code as follows:
+
+  ```diff
+  - <Box backgroundColor="backgroundPrimary">
+  + <Box backgroundColor="primary">
+
+  - <Box backgroundColor="backgroundSecondary">
+  + <Box backgroundColor="secondary">
+
+  - <Box backgroundColor="backgroundBrand">
+  + <Box backgroundColor="brand">
+
+  - <Container bg="backgroundPrimary">
+  + <Container bg="primary">
+  ```
+
+  You can still use full color tokens (e.g., `backgroundColor={color.blue[400]}`) by using a `StyleSheet`, the `useTheme` hook, or directly importing from the tokens library:
+
+  ```tsx
+  import { StyleSheet } from 'react-native';
+
+  const styles = StyleSheet.create(theme => ({
+    customBackground: {
+      backgroundColor: theme.color.blue[400],
+    },
+  }));
+
+  <Box style={styles.customBackground} />;
+  ```
+
+  ```tsx
+  import { useTheme } from '@utilitywarehouse/hearth-react-native';
+
+  const theme = useTheme();
+
+  <Box backgroundColor={theme.color.purple[800]} />;
+  ```
+
+  ```tsx
+  import { color } from '@utilitywarehouse/hearth-tokens';
+
+  <Box backgroundColor={color.blue[400]} />;
+  ```
+
+  ### Text Colors
+
+  Text color props now accept simplified semantic tokens:
+
+  ```diff
+  - <BodyText color="white">Text</BodyText>
+  + <BodyText color="inverted">Text</BodyText>
+
+  - <BodyText color="grey1000">Text</BodyText>
+  + <BodyText color="primary">Text</BodyText>
+
+  - <Heading color="textSecondary">Heading</Heading>
+  + <Heading color="secondary">Heading</Heading>
+  ```
+
+  ### Border Colors
+
+  Border color props now accept simplified semantic tokens:
+
+  ```diff
+  - <Box borderColor="grey800">
+  + <Box borderColor="strong">
+
+  - <Box borderColor="borderSubtle">
+  + <Box borderColor="subtle">
+  ```
+
+  ### Utility Props
+
+  Components now support consistent utility props through shared type interfaces. The following components have been updated to support additional utility props:
+  - **Container**: Added `MarginProps`, `PaddingProps`, `GapProps`, and `BackgroundColorProps`
+  - **Card**: Added `MarginProps` and `GapProps`
+  - **Flex**: Now properly supports `MarginProps`, `PaddingProps`, and `GapProps`
+  - **Text components** (BodyText, Heading, DetailText): Now support `MarginProps`
+
+  This means you can now use margin utilities directly on these components:
+
+  ```tsx
+  <BodyText mt="200" mb="100">Text with margin utilities</BodyText>
+  <Container mx="300" py="200">Container with spacing utilities</Container>
+  <Card mt="200" gap="100">Card with margin and gap utilities</Card>
+  ```
+
+  **Migration guide**:
+  1. Replace semantic background color tokens:
+     - `backgroundPrimary` → `primary`
+     - `backgroundSecondary` → `secondary`
+     - `backgroundBrand` → `brand`
+  2. Replace semantic text color tokens:
+     - `white` → `inverted` (for text on dark backgrounds)
+     - `grey1000` / `textPrimary` → `primary`
+     - `textSecondary` → `secondary`
+  3. Replace semantic border color tokens:
+     - `grey800` / `borderStrong` → `strong`
+     - `borderSubtle` → `subtle`
+  4. For non-semantic colors, use a `StyleSheet` and use the full color token from the theme:
+
+  ```tsx
+  import { StyleSheet } from 'react-native';
+
+  const styles = StyleSheet.create(theme => ({
+    customBackground: {
+      backgroundColor: theme.color.blue[400],
+    },
+  }));
+
+  <Box style={styles.customBackground} />;
+  ```
+
+  or the `useTheme` hook:
+
+  ```tsx
+  import { useTheme } from '@utilitywarehouse/hearth-react-native';
+
+  const theme = useTheme();
+  <Box backgroundColor={theme.color.purple[800]} />;
+  ```
+
+  or use the tokens library:
+
+  ```tsx
+  import { color } from '@utilitywarehouse/hearth-tokens';
+
+  <Box backgroundColor={color.purple[800]} />;
+  ```
+
+  **Backwards compatibility**:
+
+  The full color tokens (e.g., `backgroundPrimary`, `grey1000`) are still supported as fallbacks but are deprecated and will cause type errors. We recommend migrating to the simplified tokens for a cleaner API.
+
+  **References**:
+  - [Semantic tokens documentation](https://github.com/utilitywarehouse/hearth/blob/main/packages/tokens/src/semantic-light.ts)
+
+### Patch Changes
+
+- [#917](https://github.com/utilitywarehouse/hearth/pull/917) [`6a016dc`](https://github.com/utilitywarehouse/hearth/commit/6a016dca0d1a06e40a877da15aced590d0c68112) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Update design tokens from Figma
+
+  Updated design tokens to include new font sizes, line heights, and component-specific tokens:
+  - Added `background.loading` colour token for both light and dark modes
+  - Added new font sizes: 575 (44px) and 650 (54px)
+  - Added new line heights: 975 (52px) and 1050 (62px)
+  - Updated `Modal` component tokens with `mobile.paddingBottom` and `handle.paddingBottom` properties
+  - Added `borderBottom` property to `Navigation` component tokens
+  - Updated `Skeleton` component `loadingColor` value in light mode
+
+  **Developer changes**:
+
+  No changes required. These tokens are automatically applied to components that use them.
+
 ## 0.20.0
 
 ### Minor Changes

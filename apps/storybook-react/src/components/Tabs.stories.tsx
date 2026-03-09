@@ -22,14 +22,6 @@ const sizes = ['md', 'lg'] as const;
 const meta: Meta<typeof Tabs> = {
   title: 'Stories / Tabs',
   component: Tabs,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          'Use Tabs to organize and navigate between content sections within the same context without leaving the page.',
-      },
-    },
-  },
   argTypes: {
     size: { control: { type: 'radio' }, options: sizes },
   },

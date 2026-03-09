@@ -1,5 +1,117 @@
 # @utilitywarehouse/hearth-react
 
+## 0.25.2
+
+### Patch Changes
+
+- [#976](https://github.com/utilitywarehouse/hearth/pull/976) [`548f925`](https://github.com/utilitywarehouse/hearth/commit/548f925463186ef2736570f9e23bb1228ac20373) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Reinstate `forwardRef` on all components
+
+## 0.25.1
+
+### Patch Changes
+
+- [#970](https://github.com/utilitywarehouse/hearth/pull/970) [`7829fdc`](https://github.com/utilitywarehouse/hearth/commit/7829fdc8c4accab0f5e25ae121ff457681f1c94c) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `SectionHeader` margin props now applied to the container, not the heading.
+
+- [#972](https://github.com/utilitywarehouse/hearth/pull/972) [`9914d76`](https://github.com/utilitywarehouse/hearth/commit/9914d7617603777e2dd77823fec7e4c88dee956f) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Disabled button styles
+
+  This change ensures the following button components correctly apply disabled
+  styles when the `disabled` prop is set.
+
+  ## Components affected
+  - `CardActionButton`
+  - `ListActionButton`
+  - `ListItemButton`
+
+## 0.25.0
+
+### Minor Changes
+
+- [#964](https://github.com/utilitywarehouse/hearth/pull/964) [`c21e661`](https://github.com/utilitywarehouse/hearth/commit/c21e6610af597b9a252c64032a6ab116f084bfc1) Thanks [@robphoenix](https://github.com/robphoenix)! - 💔 [BREAKING VISUAL CHANGE]: `RadioTile` default layout change
+
+  This change updates the default layout for `RadioTile`, when used in a row, to
+  hug the content instead of filling the available space. This is a breaking
+  change as it may affect existing layouts where `RadioTile` was used in a row and
+  relied on the previous default behaviour of filling the available space. To
+  restore the previous behaviour, you can set the `flex` prop to `1` on each `RadioTile`:
+
+  ```diff
+   <RadioGroup direction="row" label="Numbers">
+  +  <RadioTile value="1" label="One" flex="1" />
+  +  <RadioTile value="2" label="Two" flex="1" />
+   </RadioGroup>
+  ```
+
+### Patch Changes
+
+- [#964](https://github.com/utilitywarehouse/hearth/pull/964) [`c21e661`](https://github.com/utilitywarehouse/hearth/commit/c21e6610af597b9a252c64032a6ab116f084bfc1) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add flex item props to `RadioTile` component
+
+  This change adds all the `flexItem` props to the `RadioTile` component to
+  support better layout control when using `RadioTile` within flex containers. The
+  following props have been added:
+  - `flex`
+  - `flexBasis`
+  - `flexGrow`
+  - `flexShrink`
+
+## 0.24.19
+
+### Patch Changes
+
+- [#960](https://github.com/utilitywarehouse/hearth/pull/960) [`fd1b98e`](https://github.com/utilitywarehouse/hearth/commit/fd1b98e1ef3a62ca8675b316854e00d4d5a2df93) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `paddingBottomNone` prop to `CardContent`
+
+- [#951](https://github.com/utilitywarehouse/hearth/pull/951) [`25698c1`](https://github.com/utilitywarehouse/hearth/commit/25698c112ed7f0f2b7c1f814481d00ca74561f4a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Improve disabled `Link` styles
+
+  The `Link` styles were being displayed when `aria-disabled` was both false &
+  true. This change ensures that the correct styles are applied only when
+  `aria-disabled='true'`.
+
+- [#950](https://github.com/utilitywarehouse/hearth/pull/950) [`680d770`](https://github.com/utilitywarehouse/hearth/commit/680d7708bc85d57263837697eee01e33f574dd01) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Improve labelling of `List`
+
+  This change ensures that the `List` component is properly labelled for assistive
+  technologies, enhancing accessibility for users relying on screen readers.
+
+  This change also updates the documentation, removing `aria-label` props on list
+  items, as we are changing the guidance to not include them. This is because the
+  list items are already labelled by their content, and adding an `aria-label` can
+  create confusion for screen readers.
+
+- Updated dependencies [[`25698c1`](https://github.com/utilitywarehouse/hearth/commit/25698c112ed7f0f2b7c1f814481d00ca74561f4a)]:
+  - @utilitywarehouse/hearth-css-reset@0.1.4
+
+## 0.24.18
+
+### Patch Changes
+
+- [#945](https://github.com/utilitywarehouse/hearth/pull/945) [`34404fe`](https://github.com/utilitywarehouse/hearth/commit/34404feec4fda152f1670be5f6ac23bc442359b1) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Pass refs to `ListItem*` components
+
+  ## Components affected
+  - `ListItem`
+  - `ListItemContent`
+  - `ListItemButton`
+  - `ListItemLink`
+  - `BodyText`
+  - `Flex`
+
+- [#942](https://github.com/utilitywarehouse/hearth/pull/942) [`4228cf0`](https://github.com/utilitywarehouse/hearth/commit/4228cf0a34d257f6c3e0fb76b8bfdde37ebba694) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `loading` prop to `Combobox`
+
+- [#943](https://github.com/utilitywarehouse/hearth/pull/943) [`96c247b`](https://github.com/utilitywarehouse/hearth/commit/96c247bcc36f3190423a0c37f0d7f6ce7b436932) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Ensure refs are forwarded for `Link` & `BreadcrumbItem` components
+
+- [#945](https://github.com/utilitywarehouse/hearth/pull/945) [`34404fe`](https://github.com/utilitywarehouse/hearth/commit/34404feec4fda152f1670be5f6ac23bc442359b1) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Better support for custom `ListItem*` trailing content
+
+  ## Components affected
+  - `ListItemContent`
+  - `ListItemButton`
+  - `ListItemLink`
+
+- [#943](https://github.com/utilitywarehouse/hearth/pull/943) [`96c247b`](https://github.com/utilitywarehouse/hearth/commit/96c247bcc36f3190423a0c37f0d7f6ce7b436932) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Add missing `alignContent` prop defs to `Flex` component
+
+- [#946](https://github.com/utilitywarehouse/hearth/pull/946) [`acacada`](https://github.com/utilitywarehouse/hearth/commit/acacadae520b026179c5e982bfa4c3760ea0a29e) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Scroll area border radius
+
+  ## Components affected
+  - `Menu`
+  - `ComboBox`
+  - `Select`
+
 ## 0.24.17
 
 ### Patch Changes

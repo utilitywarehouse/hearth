@@ -1,3 +1,5 @@
+import { forwardRef } from 'react';
+import type { ComponentRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { iconContainerPropDefs } from './IconContainer.props';
 import type { IconContainerProps } from './IconContainer.props';
@@ -10,7 +12,9 @@ import { sizePropDefs } from '../../props/size.props';
 const COMPONENT_NAME = 'IconContainer';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const IconContainer = (props: IconContainerProps) => {
+type IconContainerElement = ComponentRef<'span'>;
+
+export const IconContainer = forwardRef<IconContainerElement, IconContainerProps>((props, ref) => {
   const {
     className,
     colorScheme = 'pig',
@@ -26,12 +30,13 @@ export const IconContainer = (props: IconContainerProps) => {
 
   return (
     <span
+      ref={ref}
       className={cn(componentClassName, className)}
       data-colorscheme={colorScheme}
       data-fill={fill}
       {...iconContainerProps}
     />
   );
-};
+});
 
 IconContainer.displayName = COMPONENT_NAME;

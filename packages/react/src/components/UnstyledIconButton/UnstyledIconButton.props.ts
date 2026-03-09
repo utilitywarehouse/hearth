@@ -1,3 +1,4 @@
+import type { ComponentPropsWithRef } from 'react';
 import { PropDef } from '../../props/prop-def';
 import { Responsive } from '../../types/responsive';
 import { IconButtonProps } from '../IconButton/IconButton.props';
@@ -10,7 +11,7 @@ export const unstyledIconButtonPropDefs = {
   size: PropDef<(typeof sizes)[number]>;
 };
 
-export type UnstyledIconButtonProps = React.ComponentPropsWithRef<'button'> &
+export type UnstyledIconButtonProps = ComponentPropsWithRef<'button'> &
   Pick<IconButtonProps, 'loading' | 'asChild'> & {
     label: IconButtonProps['label'];
     /**

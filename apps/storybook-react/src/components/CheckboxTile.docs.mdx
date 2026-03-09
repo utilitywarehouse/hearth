@@ -1,10 +1,11 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './CheckboxTile.stories';
-import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <Meta title="Components / CheckboxTile" />
 
-<DocsHeader componentName="CheckboxTile" stories={Stories} />
+# CheckboxTile
+
+The `CheckboxTile` component is a dual-state checkbox allowing users to toggle between checked and not checked. `CheckboxTile` can be used independently, however multiple checkboxes should be used within a `CheckboxGroup` to handle the state control and layout.
 
 <Canvas of={Stories.Playground} sourceState="none" />
 

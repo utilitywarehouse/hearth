@@ -1,10 +1,14 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as Stories from './Checkbox.stories';
-import { DocsHeader } from '../storybook-components/DocsHeader';
 
 <Meta title="Components / Checkbox" />
 
-<DocsHeader componentName="Checkbox" stories={Stories} />
+# Checkbox
+
+The `Checkbox` component is a dual-state checkbox allowing users to toggle
+between checked and not checked. `Checkbox` can be used independently, however
+multiple checkboxes should be used within a `CheckboxGroup` to handle the state
+control and layout.
 
 <Canvas of={Stories.Playground} sourceState="none" />
 

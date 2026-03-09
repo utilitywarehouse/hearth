@@ -27,11 +27,16 @@ import { borderWidthPropDefs } from '../../props/border-width.props';
 import { zIndexPropDefs } from '../../props/z-index.props';
 import { overflowPropDefs } from '../../props/overflow.props';
 import { opacityPropDefs } from '../../props/opacity.props';
+import { alignContentPropDefs } from '../../props/align-content.props';
+import type { ComponentRef } from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'Flex';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const Flex = (props: FlexProps) => {
+type FlexElement = ComponentRef<'span'>;
+
+export const Flex = forwardRef<FlexElement, FlexProps>((props, ref) => {
   const {
     className,
     asChild,
@@ -42,6 +47,7 @@ export const Flex = (props: FlexProps) => {
     props,
     flexPropDefs,
     alignItemsPropDefs,
+    alignContentPropDefs,
     backgroundColorPropDefs,
     borderColorPropDefs,
     borderRadiusPropDefs,
@@ -65,10 +71,10 @@ export const Flex = (props: FlexProps) => {
   );
 
   return (
-    <Slot.Root className={cn(componentClassName, className)} {...flexProps}>
+    <Slot.Root ref={ref} className={cn(componentClassName, className)} {...flexProps}>
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot.Root>
   );
-};
+});
 
 Flex.displayName = COMPONENT_NAME;

@@ -1,9 +1,7 @@
-import { useMemo } from 'react';
 import { Text, TextStyle } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
-import { useTheme } from '../../hooks';
-import type { ColorValue } from '../../types';
-import { getFlattenedColorValue } from '../../utils';
+import { useStyleProps } from '../../hooks';
+import { getFlattenedColorValue, resolveThemeValueWithFallback } from '../../utils';
 import type HeadingProps from './Heading.props';
 
 const Heading = ({
@@ -23,26 +21,19 @@ const Heading = ({
   inverted,
   ...props
 }: HeadingProps) => {
+  // Extract margin utility props from remaining props
+  const { computedStyles: utilityStyles, remainingProps } = useStyleProps(props);
+
   styles.useVariants({
     size,
     underline,
     strikeThrough,
     inverted,
   });
-  const { color: themeColor, colorMode } = useTheme();
-  const colorValue: ColorValue = useMemo(
-    () => getFlattenedColorValue(color, themeColor),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [color, colorMode]
-  );
-  const decorationColor = useMemo(
-    () => getFlattenedColorValue(textDecorationColor, themeColor),
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [textDecorationColor, colorMode]
-  );
+
   return (
     <Text
-      {...props}
+      {...remainingProps}
       {...(truncated
         ? {
             numberOfLines: 1,
@@ -51,16 +42,16 @@ const Heading = ({
         : {})}
       style={[
         styles.text,
+        utilityStyles,
         {
-          ...(colorValue ? { color: colorValue } : {}),
           ...(textTransform ? { textTransform } : {}),
           ...(textAlign ? { textAlign } : {}),
           ...(textAlignVertical ? { textAlignVertical } : {}),
-          ...(decorationColor && { textDecorationColor: decorationColor }),
           ...(textDecorationLine && { textDecorationLine }),
           ...(textDecorationStyle && { textDecorationStyle }),
           ...(userSelect && { userSelect }),
         },
+        styles.getColours(color, textDecorationColor),
         props.style,
       ]}
     >
@@ -147,6 +138,23 @@ const styles = StyleSheet.create(theme => ({
             lg: theme.typography.desktop.heading.xl.lineHeight,
           },
         },
+        '2xl': {
+          fontSize: {
+            base: theme.typography.mobile.heading['2xl'].fontSize,
+            md: theme.typography.tablet.heading['2xl'].fontSize,
+            lg: theme.typography.desktop.heading['2xl'].fontSize,
+          },
+          fontWeight: {
+            base: theme.typography.mobile.heading['2xl'].fontWeight,
+            md: theme.typography.tablet.heading['2xl'].fontWeight,
+            lg: theme.typography.desktop.heading['2xl'].fontWeight,
+          },
+          lineHeight: {
+            base: theme.typography.mobile.heading['2xl'].lineHeight,
+            md: theme.typography.tablet.heading['2xl'].lineHeight,
+            lg: theme.typography.desktop.heading['2xl'].lineHeight,
+          },
+        },
       },
       underline: {
         true: {
@@ -165,6 +173,20 @@ const styles = StyleSheet.create(theme => ({
       },
     },
   },
+  getColours: (color?: string, textDecorationColor?: string) => ({
+    ...(color
+      ? {
+          color: resolveThemeValueWithFallback(
+            color,
+            theme.helpers.semanticColor.text,
+            theme.color
+          ),
+        }
+      : {}),
+    ...(textDecorationColor
+      ? { textDecorationColor: getFlattenedColorValue(textDecorationColor, theme.color) }
+      : {}),
+  }),
 }));
 
 export default Heading;

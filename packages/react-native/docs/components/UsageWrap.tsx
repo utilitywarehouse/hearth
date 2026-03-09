@@ -6,10 +6,10 @@ const UsageWrap: FC<PropsWithChildren> = ({ children }) => (
     <Box
       mt="300"
       p="200"
-      bg="backgroundPrimary"
+      bg="primary"
       borderRadius="md"
       borderWidth="1"
-      borderColor="borderSubtle"
+      borderColor="subtle"
       width="100%"
       position="relative"
     >

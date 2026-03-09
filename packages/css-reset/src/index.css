@@ -113,7 +113,9 @@
       monospace;
   }
 
-  :where(input:is([type='checkbox'], [type='radio']), button, select, a):not([aria-disabled]) {
+  :where(input:is([type='checkbox'], [type='radio']), button, select, a):not(
+    [aria-disabled='true']
+  ) {
     cursor: pointer;
   }
 

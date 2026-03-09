@@ -11,11 +11,15 @@ import { textTransformPropDefs } from '../../props/text-transform.props';
 import { textWrapPropDefs } from '../../props/text-wrap.props';
 import { marginPropDefs } from '../../props/margin.props';
 import { colorPropDefs } from '../../props/color.props';
+import type { ComponentRef } from 'react';
+import { forwardRef } from 'react';
 
 const COMPONENT_NAME = 'BodyText';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const BodyText = (props: BodyTextProps) => {
+type BodyTextElement = ComponentRef<'span'>;
+
+export const BodyText = forwardRef<BodyTextElement, BodyTextProps>((props, ref) => {
   const {
     className,
     asChild,
@@ -35,6 +39,7 @@ export const BodyText = (props: BodyTextProps) => {
 
   return (
     <Slot.Root
+      ref={ref}
       className={cn(componentClassName, className)}
       data-truncate={truncate ? '' : undefined}
       {...bodyTextProps}
@@ -42,6 +47,6 @@ export const BodyText = (props: BodyTextProps) => {
       {asChild ? children : <Tag>{children}</Tag>}
     </Slot.Root>
   );
-};
+});
 
 BodyText.displayName = COMPONENT_NAME;

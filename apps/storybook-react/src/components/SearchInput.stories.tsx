@@ -6,14 +6,6 @@ import { StoryGallery } from '../storybook-components/StoryGallery';
 const meta: Meta<typeof SearchInput> = {
   title: 'Stories / SearchInput',
   component: SearchInput,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          '`SearchInput` allows users to enter a specific keyword or phrase and obtain results related to the context in which it is placed.',
-      },
-    },
-  },
   argTypes: {
     placeholder: { control: { type: 'text' } },
     label: { control: { type: 'text' } },

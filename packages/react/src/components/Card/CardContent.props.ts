@@ -1,3 +1,5 @@
 import { CardProps } from './Card.props';
 
-export type CardContentProps = Omit<CardProps, 'variant' | 'colorScheme' | 'as'>;
+export interface CardContentProps extends Omit<CardProps, 'variant' | 'colorScheme' | 'as'> {
+  paddingBottomNone?: boolean;
+}
