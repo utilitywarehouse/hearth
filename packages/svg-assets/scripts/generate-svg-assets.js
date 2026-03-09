@@ -1,5 +1,3 @@
-// This is all copied and updated to our needs from
-// https://github.com/radix-ui/assets/tree/master/packages/generate-asset-lib
 const path = require('path');
 const fs = require('fs-extra');
 // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -241,7 +239,7 @@ async function getAssetsList() {
 
 /**
  * Create a temporary list of added and removed assets. This will be deleted
- * after it has been ourputted to the console when running the generate
+ * after it has been outputted to the console when running the generate
  * script.
  * Currently this won't list any assets that have changed. So we'll have to
  * check this manually to see if the change warrants inclusion in the

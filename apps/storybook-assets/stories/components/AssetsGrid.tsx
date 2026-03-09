@@ -37,43 +37,50 @@ export function AssetsGrid({ assets }: { assets: Asset[] }) {
     >
       <ul role="list">
         {assets.map(asset => (
-          <Card
-            key={asset.name}
-            as="li"
-            direction="column"
-            gap="200"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Flex direction="column" alignItems="center" flex="1" gap="150" style={{ padding: 16 }}>
-              <img
-                src={asset.src as unknown as string}
-                alt={asset.name}
-                style={{ maxWidth: 200, maxHeight: 140 }}
-              />
-              <BodyText as="span">
-                {copied === asset.name ? 'Copied Import...' : asset.name}
-              </BodyText>
-            </Flex>
-            <Flex
-              gap="100"
-              paddingBottom="100"
-              wrap="wrap"
+          <li>
+            <Card
+              key={asset.name}
+              direction="column"
+              gap="200"
               alignItems="center"
               justifyContent="center"
             >
-              <Button
-                size="sm"
-                onClick={() => onDownload(asset.name, asset.src as unknown as string)}
+              <Flex
+                direction="column"
+                alignItems="center"
+                flex="1"
+                gap="150"
+                style={{ padding: 16 }}
               >
-                Download
-              </Button>
+                <img
+                  src={asset.src as unknown as string}
+                  alt={asset.name}
+                  style={{ maxWidth: 200, maxHeight: 140 }}
+                />
+                <BodyText as="span">
+                  {copied === asset.name ? 'Copied Import...' : asset.name}
+                </BodyText>
+              </Flex>
+              <Flex
+                gap="100"
+                paddingBottom="100"
+                wrap="wrap"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Button
+                  size="sm"
+                  onClick={() => onDownload(asset.name, asset.src as unknown as string)}
+                >
+                  Download
+                </Button>
 
-              <Button size="sm" onClick={() => onCopyImport(asset.name, asset.path)}>
-                Copy Import
-              </Button>
-            </Flex>
-          </Card>
+                <Button size="sm" onClick={() => onCopyImport(asset.name, asset.path)}>
+                  Copy Import
+                </Button>
+              </Flex>
+            </Card>
+          </li>
         ))}
       </ul>
     </Grid>

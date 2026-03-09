@@ -27,6 +27,7 @@ import NextImage from 'next/image';
 import SpotHelpLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-help-light.svg';
 import Lottie from 'lottie-react';
 import { useEffect, useState } from 'react';
+import SpotProcessCompleteFunctional from '@utilitywarehouse/hearth-json-assets/lib/Spot_Process-complete_Functional.json';
 
 export default function Home() {
   const { container } = components;
@@ -203,6 +204,9 @@ export default function Home() {
       />
       <div style={{ width: 300, height: 300 }}>
         <Lottie animationData={animationData} loop={true} />
+      </div>
+      <div style={{ width: 300, height: 300 }}>
+        <Lottie animationData={SpotProcessCompleteFunctional} loop={true} />
       </div>
     </>
   );

@@ -3,13 +3,11 @@
   "version": "0.0.1",
   "description": "Hearth JSON assets",
   "scripts": {
-    "clean:lib": "rm -rf lib"
+    "clean:lib": "rm -rf lib",
+    "generate": "pnpm clean:lib && node ./scripts/generate-json-assets.js"
   },
-  "main": "index.js",
-  "module": "index.js",
   "devDependencies": {},
   "files": [
-    "lib",
-    "index.js"
+    "lib"
   ]
 }
