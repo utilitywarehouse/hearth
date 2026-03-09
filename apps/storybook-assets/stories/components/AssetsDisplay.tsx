@@ -2,6 +2,7 @@ import { Box, Flex, SearchInput } from '@utilitywarehouse/hearth-react';
 import * as React from 'react';
 import { useMemo, useState } from 'react';
 import { svgAssets } from '../../utils/svg-assets';
+import { jsonAssets } from '../../utils/json-assets';
 import { AssetsGrid } from './AssetsGrid';
 
 export const AssetsDisplay = () => {
@@ -10,7 +11,7 @@ export const AssetsDisplay = () => {
   const assets = useMemo(() => {
     const q = query.trim().toLowerCase();
     if (!q) return svgAssets;
-    return svgAssets.filter(
+    return [...jsonAssets, ...svgAssets].filter(
       a => a.name.toLowerCase().includes(q) || a.path.toLowerCase().includes(q)
     );
   }, [query]);

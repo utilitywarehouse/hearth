@@ -32,13 +32,6 @@ async function generateAssetsUtils({ svgAssets, jsonAssets }) {
   const svgAssetsRendered = render(svgAssetsTemplateSrc, { assets: svgAssets });
   await fs.outputFile(path.resolve(__dirname, '../utils', 'svg-assets.ts'), svgAssetsRendered);
 
-  const assetsTemplateSrc = fs.readFileSync(
-    path.resolve(__dirname, '../templates', 'assets.ts.ejs'),
-    { encoding: 'utf8' }
-  );
-  const assetsRendered = render(assetsTemplateSrc, { assets: svgAssets });
-  await fs.outputFile(path.resolve(__dirname, '../utils', 'assets.ts'), assetsRendered);
-
   const jsonAssetsTemplateSrc = fs.readFileSync(
     path.resolve(__dirname, '../templates', 'json-assets.ts.ejs'),
     { encoding: 'utf8' }
@@ -47,22 +40,40 @@ async function generateAssetsUtils({ svgAssets, jsonAssets }) {
   await fs.outputFile(path.resolve(__dirname, '../utils', 'json-assets.ts'), jsonAssetsRendered);
 }
 
-async function generateAssetStories({ svgAssets }) {
-  const storiesDir = 'IndividualAssets';
-  fs.rmSync(path.resolve(__dirname, '../stories', storiesDir), {
+async function generateAssetStories({ svgAssets, jsonAssets }) {
+  const svgStoriesDir = 'IndividualSVGAssets';
+  const jsonStoriesDir = 'IndividualJSONAssets';
+
+  fs.rmSync(path.resolve(__dirname, '../stories', svgStoriesDir), {
+    recursive: true,
+    force: true,
+  });
+  fs.rmSync(path.resolve(__dirname, '../stories', jsonStoriesDir), {
     recursive: true,
     force: true,
   });
 
   svgAssets.forEach(async asset => {
-    const templateSrc = fs.readFileSync(
-      path.resolve(__dirname, '../templates', 'asset-story.ts.ejs'),
+    const templateSrcSvg = fs.readFileSync(
+      path.resolve(__dirname, '../templates', 'svg-asset-story.ts.ejs'),
       { encoding: 'utf8' }
     );
-    const rendered = render(templateSrc, { asset });
+    const renderedSvg = render(templateSrcSvg, { asset });
     await fs.outputFile(
-      path.resolve(__dirname, '../stories', storiesDir, asset.name + '.stories.tsx'),
-      rendered
+      path.resolve(__dirname, '../stories', svgStoriesDir, asset.name + '.stories.tsx'),
+      renderedSvg
+    );
+  });
+
+  jsonAssets.forEach(async asset => {
+    const templateSrcJson = fs.readFileSync(
+      path.resolve(__dirname, '../templates', 'json-asset-story.ts.ejs'),
+      { encoding: 'utf8' }
+    );
+    const renderedJson = render(templateSrcJson, { asset });
+    await fs.outputFile(
+      path.resolve(__dirname, '../stories', jsonStoriesDir, asset.name + '.stories.tsx'),
+      renderedJson
     );
   });
 }

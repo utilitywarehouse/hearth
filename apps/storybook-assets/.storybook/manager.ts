@@ -9,4 +9,8 @@ addons.setConfig({
   panelPosition: 'right',
   selectedPanel: 'storybook/controls/panel',
   theme,
+  sidebar: {
+    showRoots: true,
+    collapsedRoots: ['individual-json-assets', 'individual-svg-assets'],
+  },
 });

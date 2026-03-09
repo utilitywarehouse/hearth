@@ -1,7 +1,8 @@
 import { BodyText, Button, Card, Flex, Grid } from '@utilitywarehouse/hearth-react';
 import { useCallback, useState } from 'react';
+import Lottie from 'lottie-react';
 
-type Asset = { name: string; src: string; path: string };
+type Asset = { name: string; src: any; path: string };
 
 const pascalToKebab = (str: string) =>
   str
@@ -22,7 +23,7 @@ export function AssetsGrid({ assets }: { assets: Asset[] }) {
 
   const onCopyImport = useCallback((name: string, path: string) => {
     navigator.clipboard.writeText(
-      `import ${name} from '@utilitywarehouse/hearth-svg-assets/lib/${path}';`
+      `import ${name} from '@utilitywarehouse/hearth-${path.split('.')[1]}-assets/lib/${path}';`
     );
     setCopied(name);
     setTimeout(() => setCopied(null), 2000);
@@ -45,18 +46,18 @@ export function AssetsGrid({ assets }: { assets: Asset[] }) {
               alignItems="center"
               justifyContent="center"
             >
-              <Flex
-                direction="column"
-                alignItems="center"
-                flex="1"
-                gap="150"
-                style={{ padding: 16 }}
-              >
-                <img
-                  src={asset.src as unknown as string}
-                  alt={asset.name}
-                  style={{ maxWidth: 200, maxHeight: 140 }}
-                />
+              <Flex direction="column" alignItems="center" flex="1" gap="150" padding="200">
+                {asset.path.includes('.svg') ? (
+                  <img
+                    src={asset.src as unknown as string}
+                    alt=""
+                    style={{ maxWidth: 200, maxHeight: 140 }}
+                  />
+                ) : asset.path.includes('.json') ? (
+                  <div style={{ width: 180, height: 140 }}>
+                    <Lottie animationData={asset.src} loop={true} />
+                  </div>
+                ) : null}
                 <BodyText as="span">
                   {copied === asset.name ? 'Copied Import...' : asset.name}
                 </BodyText>

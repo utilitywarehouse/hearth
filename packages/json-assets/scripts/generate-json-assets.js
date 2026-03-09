@@ -129,7 +129,7 @@ ${removed}
 
 `;
 
-  await fs.outputFile(path.resolve(__dirname, '../../../', 'updated-assets.md'), content);
+  await fs.outputFile(path.resolve(__dirname, '../../../', 'updated-json-assets.md'), content);
   return { added, removed };
 }
 

@@ -11,7 +11,7 @@ const preview: Preview = {
     docs: { theme },
     options: {
       storySort: {
-        order: ['Introduction', 'Search Assets'],
+        order: ['Introduction', 'SVG Assets', 'JSON Assets', 'Search Assets'],
       },
     },
   },

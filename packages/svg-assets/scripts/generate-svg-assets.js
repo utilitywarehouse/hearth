@@ -273,7 +273,7 @@ ${added}
 ${removed}
 
 `;
-  await fs.outputFile(path.resolve(__dirname, '../../../', 'updated-assets.md'), content);
+  await fs.outputFile(path.resolve(__dirname, '../../../', 'updated-svg-assets.md'), content);
   return { added, removed };
 }
 

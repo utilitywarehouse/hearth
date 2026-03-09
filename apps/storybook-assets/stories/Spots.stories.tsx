@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { svgAssets } from '../utils/svg-assets';
 import { AssetsGrid } from './components/AssetsGrid';
+
 const meta: Meta = {
-  title: 'Spots',
+  title: 'Collections / Spots',
 };
 
 export default meta;
