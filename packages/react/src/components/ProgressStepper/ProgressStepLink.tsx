@@ -7,6 +7,7 @@ import { Link } from '../Link/Link';
 import { cn } from '../../helpers/cn';
 import type { ProgressStepLinkProps } from './ProgressStep.props';
 import { ProgressStep } from './ProgressStep';
+import { getSubtree } from '../../helpers/get-subtree';
 
 const COMPONENT_NAME = 'ProgressStepLink';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -14,7 +15,20 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type ProgressStepLinkElement = ComponentRef<'a'>;
 
 export const ProgressStepLink = forwardRef<ProgressStepLinkElement, ProgressStepLinkProps>(
-  ({ label, className, status, disabled, href, 'aria-label': ariaLabel, ...props }, ref) => {
+  (
+    {
+      label,
+      className,
+      status,
+      disabled,
+      href,
+      'aria-label': ariaLabel,
+      children,
+      asChild,
+      ...props
+    },
+    ref
+  ) => {
     const isActive = status === 'active';
 
     return (
@@ -33,8 +47,14 @@ export const ProgressStepLink = forwardRef<ProgressStepLinkElement, ProgressStep
             href={disabled ? undefined : href}
             role="link"
             aria-disabled={disabled}
+            asChild={asChild}
           >
-            {label}
+            {getSubtree({ asChild, children }, children => (
+              <>
+                {children}
+                {label}
+              </>
+            ))}
           </Link>
         )}
       </ProgressStep>
