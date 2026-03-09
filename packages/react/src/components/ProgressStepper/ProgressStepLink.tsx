@@ -7,7 +7,6 @@ import { Link } from '../Link/Link';
 import { cn } from '../../helpers/cn';
 import type { ProgressStepLinkProps } from './ProgressStep.props';
 import { ProgressStep } from './ProgressStep';
-import { Slot } from 'radix-ui';
 import { getSubtree } from '../../helpers/get-subtree';
 
 const COMPONENT_NAME = 'ProgressStepLink';
