@@ -1,5 +1,17 @@
 # @utilitywarehouse/hearth-react
 
+## 0.25.3
+
+### Patch Changes
+
+- [#984](https://github.com/utilitywarehouse/hearth/pull/984) [`8973336`](https://github.com/utilitywarehouse/hearth/commit/89733367c0675953cf189b6986a4c4630fb4a309) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `asChild` prop to link based components for better integration with Next.js
+
+  ## Components affected
+  - `ListActionLink`
+  - `ToastActionLink`
+  - `ProgressStepLink`
+  - `CardActionLink`
+
 ## 0.25.2
 
 ### Patch Changes
