@@ -43,11 +43,7 @@ export const KitchenSink: Story = {
         </ProgressStepper>
         <ProgressStepper {...args}>
           <ProgressStepLink status="complete" href="#customer-data" label="Customer data" />
-          <ProgressStepLink
-            status="complete"
-            href="#shipping-data"
-            label="Shipping data as child"
-          ></ProgressStepLink>
+          <ProgressStepLink status="complete" href="#shipping-data" label="Shipping data" />
           <ProgressStepLink status="active" href="#payment-data" label="Payment data" />
           <ProgressStepLink status="incomplete" label="Summary" />
         </ProgressStepper>
