@@ -8,10 +8,23 @@ async function getAssets() {
     { encoding: 'utf8' }
   );
   const { svgAssets } = JSON.parse(svgAssetsRaw);
-  return { svgAssets };
+
+  let jsonAssets = [];
+  const jsonAssetsManifestPath = path.resolve(
+    __dirname,
+    '../../../packages/json-assets',
+    'manifest.json'
+  );
+  if (fs.existsSync(jsonAssetsManifestPath)) {
+    const jsonAssetsRaw = fs.readFileSync(jsonAssetsManifestPath, { encoding: 'utf8' });
+    const parsed = JSON.parse(jsonAssetsRaw);
+    jsonAssets = parsed.jsonAssets || [];
+  }
+
+  return { svgAssets, jsonAssets };
 }
 
-async function generateAssetsUtils({ svgAssets }) {
+async function generateAssetsUtils({ svgAssets, jsonAssets }) {
   const svgAssetsTemplateSrc = fs.readFileSync(
     path.resolve(__dirname, '../templates', 'svg-assets.ts.ejs'),
     { encoding: 'utf8' }
@@ -25,6 +38,13 @@ async function generateAssetsUtils({ svgAssets }) {
   );
   const assetsRendered = render(assetsTemplateSrc, { assets: svgAssets });
   await fs.outputFile(path.resolve(__dirname, '../utils', 'assets.ts'), assetsRendered);
+
+  const jsonAssetsTemplateSrc = fs.readFileSync(
+    path.resolve(__dirname, '../templates', 'json-assets.ts.ejs'),
+    { encoding: 'utf8' }
+  );
+  const jsonAssetsRendered = render(jsonAssetsTemplateSrc, { assets: jsonAssets });
+  await fs.outputFile(path.resolve(__dirname, '../utils', 'json-assets.ts'), jsonAssetsRendered);
 }
 
 async function generateAssetStories({ svgAssets }) {
