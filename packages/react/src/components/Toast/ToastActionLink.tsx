@@ -15,7 +15,7 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type ToastActionLinkElement = ComponentRef<'a'>;
 
 export const ToastActionLink = forwardRef<ToastActionLinkElement, ToastActionLinkProps>(
-  ({ className, altText, ...props }, ref) => {
+  ({ className, altText, asChild, children, ...props }, ref) => {
     warn(!altText, 'ToastActionLink: `altText` is required.');
 
     return (
@@ -24,7 +24,9 @@ export const ToastActionLink = forwardRef<ToastActionLinkElement, ToastActionLin
         asChild
         altText={altText}
       >
-        <InlineLink ref={ref} {...props} color="inverted" />
+        <InlineLink ref={ref} {...props} color="inverted" asChild={asChild}>
+          {children}
+        </InlineLink>
       </ToastPrimitive.Action>
     );
   }

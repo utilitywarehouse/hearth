@@ -7,6 +7,8 @@ import { ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-icons';
 import { CardActionContent } from './CardActionContent';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
+import { Slot } from 'radix-ui';
+import { getSubtree } from '../../helpers/get-subtree';
 
 type CardActionLinkElement = ComponentRef<'a'>;
 
@@ -24,6 +26,8 @@ export const CardActionLink = forwardRef<CardActionLinkElement, CardActionLinkPr
       trailingIcon,
       badge,
       badgePlacement,
+      asChild,
+      children,
       ...restProps
     } = props;
 
@@ -36,13 +40,19 @@ export const CardActionLink = forwardRef<CardActionLinkElement, CardActionLinkPr
       badgePlacement,
     };
 
+    const Component = asChild ? Slot.Root : 'a';
+
     return (
-      <a ref={ref} className={cn(componentClassName, className)} {...restProps}>
-        <CardActionContent
-          trailingIcon={trailingIcon ? trailingIcon : <ChevronRightSmallIcon />}
-          {...contentProps}
-        />
-      </a>
+      <Component ref={ref} className={cn(componentClassName, className)} {...restProps}>
+        {getSubtree({ asChild, children }, children => (
+          <CardActionContent
+            trailingIcon={trailingIcon ? trailingIcon : <ChevronRightSmallIcon />}
+            {...contentProps}
+          >
+            {children}
+          </CardActionContent>
+        ))}
+      </Component>
     );
   }
 );
