@@ -29,7 +29,7 @@ const Banner = ({
   ...props
 }: BannerProps) => {
   const hasIllustration = Boolean(illustration);
-  styles.useVariants({ direction, hasIllustration });
+  styles.useVariants({ direction, hasIllustration, isPressable: Boolean(onPress) });
 
   const context = useMemo(
     () => ({
@@ -174,6 +174,10 @@ const styles = StyleSheet.create(theme => ({
         true: {},
         false: {},
       },
+      isPressable: {
+        true: {},
+        false: {},
+      },
     },
     compoundVariants: [
       {
@@ -188,6 +192,13 @@ const styles = StyleSheet.create(theme => ({
         hasIllustration: true,
         styles: {
           alignItems: 'center',
+        },
+      },
+      {
+        direction: 'horizontal',
+        isPressable: false,
+        styles: {
+          flex: 1,
         },
       },
     ],
