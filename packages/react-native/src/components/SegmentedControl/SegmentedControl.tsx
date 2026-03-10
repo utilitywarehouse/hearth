@@ -1,11 +1,11 @@
-import { Children, isValidElement, useCallback, useEffect, useMemo, useState } from 'react';
+import { Children, isValidElement, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { View } from 'react-native';
 import Animated, {
-  Easing,
-  useAnimatedStyle,
-  useReducedMotion,
-  useSharedValue,
-  withTiming,
+    Easing,
+    useAnimatedStyle,
+    useReducedMotion,
+    useSharedValue,
+    withTiming,
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 import { useStyleProps } from '../../hooks';
@@ -55,6 +55,12 @@ const SegmentedControl = ({
     walk(children);
     return values;
   }, [children]);
+  const optionValuesKey = useMemo(() => optionValues.join('|'), [optionValues]);
+  const optionValuesRef = useRef<string[]>(optionValues);
+
+  useEffect(() => {
+    optionValuesRef.current = optionValues;
+  }, [optionValues]);
 
   const getInitialValue = () => {
     if (controlledValue !== undefined) return controlledValue;
@@ -71,12 +77,13 @@ const SegmentedControl = ({
   }, [controlledValue]);
 
   useEffect(() => {
+    const currentOptionValues = optionValuesRef.current;
     setUncontrolledValue(prev => {
-      if (!prev) return optionValues[0];
-      if (!optionValues.includes(prev)) return optionValues[0];
+      if (!prev) return currentOptionValues[0];
+      if (!currentOptionValues.includes(prev)) return currentOptionValues[0];
       return prev;
     });
-  }, [optionValues]);
+  }, [optionValuesKey]);
 
   const currentValue = controlledValue !== undefined ? controlledValue : uncontrolledValue;
 
@@ -85,9 +92,11 @@ const SegmentedControl = ({
   const indicatorY = useSharedValue(0);
   const indicatorHeight = useSharedValue(0);
   const [hasIndicator, setHasIndicator] = useState(false);
-  const [layouts, setLayouts] = useState<
-    Map<string, { x: number; y: number; width: number; height: number }>
-  >(new Map());
+  const layoutsRef = useRef<Map<string, { x: number; y: number; width: number; height: number }>>(
+    new Map()
+  );
+  const prevValueRef = useRef<string | undefined>(undefined);
+  const initialisedRef = useRef(false);
 
   const select = useCallback(
     (nextValue: string) => {
@@ -102,44 +111,51 @@ const SegmentedControl = ({
 
   const registerOptionLayout = useCallback(
     (value: string, layout: { x: number; y: number; width: number; height: number }) => {
-      setLayouts(prev => {
-        const next = new Map(prev);
-        next.set(value, layout);
-        return next;
-      });
-      if (currentValue !== value) return;
+      layoutsRef.current.set(value, layout);
+      const activeValue = controlledValue !== undefined ? controlledValue : uncontrolledValue;
+      if (!activeValue || activeValue !== value) return;
 
-      const shouldAnimate = hasIndicator && !isReducedMotion;
-      const config = { duration: 220, easing: Easing.out(Easing.cubic) } as const;
-
-      if (shouldAnimate) {
-        indicatorX.value = withTiming(Math.max(0, layout.x - indicatorPositionOffset), config);
-        indicatorWidth.value = withTiming(layout.width, config);
-        indicatorY.value = withTiming(Math.max(0, layout.y - indicatorPositionOffset), config);
-        indicatorHeight.value = withTiming(layout.height, config);
-      } else {
+      if (!initialisedRef.current) {
         indicatorX.value = Math.max(0, layout.x - indicatorPositionOffset);
         indicatorWidth.value = layout.width;
         indicatorY.value = Math.max(0, layout.y - indicatorPositionOffset);
         indicatorHeight.value = layout.height;
+        prevValueRef.current = activeValue;
+        initialisedRef.current = true;
         setHasIndicator(true);
+        return;
       }
+
+      if (prevValueRef.current === activeValue) return;
+
+      const config = {
+        delay: 200,
+        duration: isReducedMotion ? 0 : 220,
+        easing: Easing.out(Easing.cubic),
+      } as const;
+
+      indicatorX.value = withTiming(Math.max(0, layout.x - indicatorPositionOffset), config);
+      indicatorWidth.value = withTiming(layout.width, config);
+      indicatorY.value = withTiming(Math.max(0, layout.y - indicatorPositionOffset), config);
+      indicatorHeight.value = withTiming(layout.height, config);
+      prevValueRef.current = activeValue;
     },
     [
-      currentValue,
-      hasIndicator,
+      controlledValue,
       indicatorHeight,
       indicatorWidth,
       indicatorX,
       indicatorY,
       indicatorPositionOffset,
       isReducedMotion,
+      uncontrolledValue,
     ]
   );
 
   useEffect(() => {
-    if (!currentValue) return;
-    const layout = layouts.get(currentValue);
+    if (!currentValue || !initialisedRef.current) return;
+    if (prevValueRef.current === undefined || prevValueRef.current === currentValue) return;
+    const layout = layoutsRef.current.get(currentValue);
     if (!layout) return;
     const config = {
       duration: isReducedMotion ? 0 : 220,
@@ -150,18 +166,16 @@ const SegmentedControl = ({
     indicatorWidth.value = withTiming(layout.width, config);
     indicatorY.value = withTiming(Math.max(0, layout.y - indicatorPositionOffset), config);
     indicatorHeight.value = withTiming(layout.height, config);
-
-    if (!hasIndicator) setHasIndicator(true);
+    prevValueRef.current = currentValue;
   }, [
     currentValue,
-    hasIndicator,
     indicatorHeight,
     indicatorWidth,
     indicatorX,
     indicatorY,
     indicatorPositionOffset,
     isReducedMotion,
-    layouts,
+    optionValuesKey,
   ]);
 
   const indicatorStyle = useAnimatedStyle(() => ({

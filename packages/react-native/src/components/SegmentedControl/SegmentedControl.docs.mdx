@@ -18,7 +18,7 @@ Each option is presented as an equal-priority segment in a single horizontal gro
 - [Usage](#usage)
 - [Sizes](#sizes)
 - [Props](#props)
-- [Figma](#figma)
+- [Accessibility](#accessibility)
 
 ## Playground
 
@@ -80,7 +80,11 @@ Figma defines two size variants for Segmented Control:
 | `children` | `ReactNode` | Option label/content.          | required |
 | `disabled` | `boolean`   | Disables only this option.     | `false`  |
 
-## Figma
+## Accessibility
 
-- Control: https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=6185-1021&t=c7xg5X0N2EL0t87h-4
-- Option: https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=4340-1252&t=c7xg5X0N2EL0t87h-4
+SegmentedControl uses radio semantics so assistive technologies can understand it as a single-choice group.
+
+- SegmentedControl root uses `accessibilityRole="radiogroup"`.
+- Each SegmentedControlOption uses `accessibilityRole="radio"`.
+- Option state is communicated with `accessibilityState={{ checked, disabled }}`.
+- If `accessibilityLabel` is not provided on an option, the component falls back to the option text content and then to the option `value`.

@@ -18,6 +18,7 @@ const AnimatedView = Animated.createAnimatedComponent(View);
 const SegmentedControlOptionRoot = ({
   value,
   children,
+  accessibilityLabel,
   disabled = false,
   style,
   states = {},
@@ -65,17 +66,17 @@ const SegmentedControlOptionRoot = ({
 
   return (
     <Pressable
+      {...props}
       accessibilityRole="radio"
       accessibilityState={{ checked: selected, disabled: isDisabled }}
-      accessibilityLabel={props.accessibilityLabel ?? accessibleLabel}
+      accessibilityLabel={accessibilityLabel ?? accessibleLabel}
       onPress={onPress}
       onLayout={e => registerOptionLayout(value, e.nativeEvent.layout)}
       disabled={isDisabled}
       style={[styles.option, style]}
       {...(Platform.OS === 'web'
-        ? ({ 'aria-label': props.accessibilityLabel ?? accessibleLabel } as any)
+        ? ({ 'aria-label': accessibilityLabel ?? accessibleLabel } as any)
         : null)}
-      {...props}
     >
       <View
         style={styles.labelWrap}
