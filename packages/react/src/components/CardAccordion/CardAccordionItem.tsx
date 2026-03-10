@@ -27,13 +27,12 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
       previousStepContent,
       children,
       value,
+      step,
+      onEditClick,
       ...props
     },
     ref
   ) => {
-    const { currentStep, previousSteps } = useCardAccordion();
-    const step =
-      value === currentStep ? 'current' : previousSteps.includes(value) ? 'previous' : 'future';
     const variant = step === 'current' ? 'emphasis' : 'subtle';
     const colorScheme = step === 'current' ? 'neutralStrong' : 'neutralSubtle';
 
@@ -48,26 +47,22 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
         {...props}
       >
         <Card variant={variant} colorScheme={colorScheme} direction="column">
-          <CardAccordionItemProvider value={{ value }}>
-            <CardAccordionPrimitive.Header asChild>
-              <SectionHeader
-                heading={heading}
-                headingElement={headingElement}
-                helperText={helperText}
-                trailingContent={
-                  step === 'previous' ? (
-                    <CardAccordionPrimitive.Trigger asChild>
-                      <Button size="sm" variant="ghost" colorScheme="functional">
-                        Edit
-                      </Button>
-                    </CardAccordionPrimitive.Trigger>
-                  ) : null
-                }
-              />
-            </CardAccordionPrimitive.Header>
-            {step === 'previous' && previousStepContent ? previousStepContent : null}
-            {step === 'current' ? children : null}
-          </CardAccordionItemProvider>
+          <CardAccordionPrimitive.Header asChild>
+            <SectionHeader
+              heading={heading}
+              headingElement={headingElement}
+              helperText={helperText}
+              trailingContent={
+                step === 'previous' ? (
+                  <Button size="sm" variant="ghost" colorScheme="functional" onClick={onEditClick}>
+                    Edit
+                  </Button>
+                ) : null
+              }
+            />
+          </CardAccordionPrimitive.Header>
+          {step === 'previous' && previousStepContent ? previousStepContent : null}
+          {step === 'current' ? children : null}
         </Card>
       </CardAccordionPrimitive.Item>
     );
