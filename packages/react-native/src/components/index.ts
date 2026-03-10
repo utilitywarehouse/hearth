@@ -46,6 +46,7 @@ export * from './ProgressStepper';
 export * from './Radio';
 export * from './RadioCard';
 export * from './SectionHeader';
+export * from './SegmentedControl';
 export * from './Select';
 export * from './Skeleton';
 export * from './Spinner';

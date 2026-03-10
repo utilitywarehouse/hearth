@@ -42,6 +42,7 @@ export const PillGroup = ({
       ) : (
         <ScrollView
           horizontal
+          style={styles.scrollView}
           contentContainerStyle={[styles.group, style]}
           showsHorizontalScrollIndicator={false}
           {...props}
@@ -56,6 +57,9 @@ export const PillGroup = ({
 PillGroup.displayName = 'PillGroup';
 
 const styles = StyleSheet.create(theme => ({
+  scrollView: {
+    flexGrow: 0,
+  },
   group: {
     flexDirection: 'row',
     gap: theme.components.pill.group.gap,

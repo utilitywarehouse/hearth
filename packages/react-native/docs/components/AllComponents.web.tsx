@@ -82,6 +82,8 @@ import {
   RadioCardGroup,
   RadioGroup,
   SectionHeader,
+  SegmentedControl,
+  SegmentedControlOption,
   Select,
   Skeleton,
   Spinner,
@@ -741,6 +743,18 @@ const AllComponents: React.FC = () => {
                 helperText="Supporting text"
                 trailingContent={<Link href="#">More</Link>}
               />
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
+            name="Segmented Control"
+            link="/?path=/docs/components-segmented-control--docs"
+          >
+            <Center flex={1}>
+              <SegmentedControl defaultValue="day" alignSelf="center">
+                <SegmentedControlOption value="day">Day</SegmentedControlOption>
+                <SegmentedControlOption value="week">Week</SegmentedControlOption>
+                <SegmentedControlOption value="month">Month</SegmentedControlOption>
+              </SegmentedControl>
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Select" link="/?path=/docs/forms-select--docs">
