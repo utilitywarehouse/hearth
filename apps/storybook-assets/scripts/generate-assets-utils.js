@@ -15,6 +15,7 @@ async function getAssets() {
     '../../../packages/json-assets',
     'manifest.json'
   );
+
   if (fs.existsSync(jsonAssetsManifestPath)) {
     const jsonAssetsRaw = fs.readFileSync(jsonAssetsManifestPath, { encoding: 'utf8' });
     const parsed = JSON.parse(jsonAssetsRaw);
@@ -41,8 +42,8 @@ async function generateAssetsUtils({ svgAssets, jsonAssets }) {
 }
 
 async function generateAssetStories({ svgAssets, jsonAssets }) {
-  const svgStoriesDir = 'IndividualSVGAssets';
-  const jsonStoriesDir = 'IndividualJSONAssets';
+  const svgStoriesDir = 'SVG';
+  const jsonStoriesDir = 'JSON';
 
   fs.rmSync(path.resolve(__dirname, '../stories', svgStoriesDir), {
     recursive: true,

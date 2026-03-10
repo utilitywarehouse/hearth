@@ -1,7 +1,8 @@
 # Hearth SVG Assets
 
-This package provides the Hearth Assets as optimized svg assets. These svg assets are
-generated from the [Figma Hearth Illustrations & Assets library](https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=1-3&p=f&t=TXanqMDBvlfODavY-0).
+This package provides static assets, including illustrations and logos, as
+optimized SVGs. These are generated from the
+[Figma Hearth Illustrations & Assets library](https://www.figma.com/design/bZWlxN5ZzRTlDmnR1EGZun/Hearth-Illustrations---Assets?node-id=1-3&p=f&t=TXanqMDBvlfODavY-0).
 
 ## Installation
 

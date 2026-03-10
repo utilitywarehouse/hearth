@@ -69,7 +69,7 @@ jobs:
         id: vars
         run: |
           echo 'pr_body<<EOF' >> $GITHUB_OUTPUT
-          echo "$(cat updated-assets.md)" >> $GITHUB_OUTPUT
+          echo "$(cat updated-svg-assets.md)" >> $GITHUB_OUTPUT
           echo 'EOF' >> $GITHUB_OUTPUT
 
       - name: Add changeset
@@ -81,8 +81,8 @@ jobs:
           ---
 
           EOF
-          cat updated-assets.md >> ./.changeset/${{ github.sha }}.md
-          rm updated-assets.md
+          cat updated-svg-assets.md >> ./.changeset/${{ github.sha }}.md
+          rm updated-svg-assets.md
 
       - name: Open pull request
         uses: peter-evans/create-pull-request@c0f553fe549906ede9cf27b5156039d195d2ece0 # v8.1.0

@@ -87,9 +87,9 @@ async function generateManifestFromLib() {
 }
 
 /** Get a list of JSON asset names from the manifest file. */
-async function getAssetsList() {
+function getAssetsList() {
   try {
-    const raw = await fs.readFileSync(MANIFEST_PATH, { encoding: 'utf8' });
+    const raw = fs.readFileSync(MANIFEST_PATH, { encoding: 'utf8' });
     const { jsonAssets } = JSON.parse(raw);
     return (jsonAssets || []).map(item => item.name);
   } catch (e) {
