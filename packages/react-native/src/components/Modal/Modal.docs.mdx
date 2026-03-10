@@ -107,9 +107,10 @@ The Modal component extends the `BottomSheetModal` component and accepts all of 
 | `primaryButtonProps`          | `Omit<ButtonWithoutChildrenProps, 'children'>`                     | Additional props to pass to the primary button (colorScheme defaults to 'highlight', variant to 'solid')      | -              |
 | `secondaryButtonProps`        | `Omit<ButtonWithoutChildrenProps, 'children'>`                     | Additional props to pass to the secondary button (colorScheme defaults to 'functional', variant to 'outline') | -              |
 | `closeButtonProps`            | `Omit<UnstyledIconButtonProps, 'children'>`                        | Additional props to pass to the close button                                                                  | -              |
-| `fullscreen`                  | `boolean`                                                          | Whether the modal should take up the full screen height                                                       | `false`        |
+| `fullscreen`                  | `boolean`                                                          | Whether the modal should take up the full screen height. Only applies when `inNavModal` is `false`            | `false`        |
 | `inNavModal`                  | `boolean`                                                          | Renders the modal correctly when used inside a navigation modal                                               | `false`        |
 | `background`                  | `'default' \| 'brand'`                                             | Sets the modal background. Only applies when `inNavModal` is `true`                                           | `'default'`    |
+| `scrollable`                  | `boolean`                                                          | Whether the modal's content should be placed in a `ScrollView`. Only applies when `inNavModal` is `true`      | `true`         |
 
 \* use this to detect if the modal has been opened or closed, index 0 indicates open state and -1 indicates closed state
 
@@ -462,11 +463,16 @@ const AlertModal = () => {
 
 ### Modal In Navigation Modal
 
-When using the Modal component in a navigation context, you can set it to `inNavModal` mode, this will make it behave like a standard modal screen.
+When wanting to use the Modal component in a navigation context using [React Navigation](https://reactnavigation.org/docs/modal), you can set `inNavModal` to `true` to make it behave like a standard modal screen.
+
+Within React Navigation, you can set `presentation: 'modal'` in the screen's settings to have the Modal look and behave like a standard modal/bottom sheet, or you can set `presentation: 'fullScreenModal'` to have the Modal fill the entire screen.
+
+When using `inNavModal`, by default the content will be rendered inside a `ScrollView` to ensure it is scrollable, especially on smaller devices or smaller modals. You can disable this by setting `scrollable={false}` if, for example, you need to center your content or add some custom content.
+
 Here's an example of how to implement this with custom close animations for Android:
 
 ```tsx
-import { useNavigation } from 'react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 import { useCallback, useEffect, useRef } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 
