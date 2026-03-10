@@ -1,18 +1,17 @@
 .h-CardAccordion {
   display: flex;
   flex-direction: column;
-  gap: var(--h-accordion-gap);
+  gap: var(--h-space-250);
 
   & :where(.h-CardAccordionItem) {
-    border-bottom: var(--h-divider-border-width) solid var(--h-border-subtle);
+    & :where(.h-CardAccordionHeader) {
+      width: 100%;
+      display: flex;
+    }
 
     & :where(.h-CardAccordionItemHeader) {
       display: flex;
       flex-direction: column;
-    }
-
-    & :where(.h-CardAccordionHeader) {
-      display: flex;
     }
 
     & :where(.h-CardAccordionItemDescription) {
@@ -36,19 +35,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding-block: var(--h-accordion-item-heading-padding-vertical);
-    padding-inline: var(--h-accordion-item-heading-padding-horizontal);
-    font-family: var(--h-font-family-body);
-    font-size: var(--h-body-text-md-font-size);
-    font-weight: var(--h-font-weight-semibold);
-    line-height: var(--h-body-text-md-line-height);
-    color: var(--h-text-primary);
-
-    @media (hover: hover) {
-      &:where(:hover) {
-        background-color: var(--h-interactive-neutral-surface-subtle-hover);
-      }
-    }
 
     &:where(:active) {
       background-color: var(--h-interactive-neutral-surface-subtle-active);
@@ -58,14 +44,6 @@
       outline: 2px solid var(--h-focus-primary);
       outline-offset: 1px;
     }
-  }
-
-  & :where(svg) {
-    transition: transform 300ms;
-  }
-
-  & :where(.h-CardAccordionTrigger[data-state='open'] > svg) {
-    transform: rotate(180deg);
   }
 
   & :where(.h-CardAccordionContent) {

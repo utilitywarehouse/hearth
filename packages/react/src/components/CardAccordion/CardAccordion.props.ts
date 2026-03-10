@@ -1,13 +1,24 @@
 import type { ComponentPropsWithRef } from 'react';
 import { Accordion as CardAccordionPrimitive } from 'radix-ui';
-import { SectionHeaderProps } from '../SectionHeader/SectionHeader.props';
 import { MarginProps } from '../../props/margin.props';
 
 export interface CardAccordionProps
   extends
-    Omit<ComponentPropsWithRef<typeof CardAccordionPrimitive.Root>, 'orientation' | 'asChild' | 'dir'>,
-    Omit<SectionHeaderProps, 'headingElement' | 'defaultValue'>,
+    Omit<
+      ComponentPropsWithRef<typeof CardAccordionPrimitive.Root>,
+      | 'orientation'
+      | 'asChild'
+      | 'dir'
+      | 'type'
+      | 'defaultValue'
+      | 'onValueChange'
+      | 'value'
+      | 'collapsible'
+    >,
     MarginProps {
-  headingElement?: 'h1' | 'h2' | 'h3' | 'h4';
+  initialValue: string;
+  value?: CardAccordionPrimitive.AccordionSingleProps['value'];
+  defaultValue?: CardAccordionPrimitive.AccordionSingleProps['defaultValue'];
+  onValueChange?: CardAccordionPrimitive.AccordionSingleProps['onValueChange'];
   collapsible?: CardAccordionPrimitive.AccordionSingleProps['collapsible'];
 }

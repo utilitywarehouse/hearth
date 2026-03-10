@@ -13,10 +13,15 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type CardAccordionHeaderElement = ComponentRef<'h3'>;
 
 export const CardAccordionHeader = forwardRef<CardAccordionHeaderElement, CardAccordionHeaderProps>(
-  ({ className, as: Tag = 'h3', children, ...props }, ref) => {
+  ({ className, children, ...props }, ref) => {
     return (
-      <CardAccordionPrimitive.Header asChild className={cn(componentClassName, className)} {...props}>
-        <Tag ref={ref}>{children}</Tag>
+      <CardAccordionPrimitive.Header
+        ref={ref}
+        className={cn(componentClassName, className)}
+        asChild
+        {...props}
+      >
+        <div>{children}</div>
       </CardAccordionPrimitive.Header>
     );
   }
