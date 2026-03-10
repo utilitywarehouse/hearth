@@ -11,6 +11,6 @@ addons.setConfig({
   theme,
   sidebar: {
     showRoots: true,
-    collapsedRoots: ['individual-json-assets', 'individual-svg-assets'],
+    collapsedRoots: ['json', 'svg'],
   },
 });

@@ -34,20 +34,16 @@ jobs:
         with:
           egress-policy: audit
 
-      - name: 🏗 Setup pnpm
-        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
+      - uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061 # v4.2.0
         with:
           version: 10.28.2
-      - name: 🏗 Checkout code
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-      - name: 🏗 Setup Node
-        uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/setup-node@6044e13b5dc448c55e2357c09f80417699197238 # v6.2.0
         with:
           node-version: '22.x'
           registry-url: 'https://registry.npmjs.org'
           cache: 'pnpm'
-      - name: 📦 Install dependencies
-        run: pnpm install
+      - run: pnpm install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GLOBAL_READ_TOKEN }}
 
@@ -56,14 +52,14 @@ jobs:
           touch ./packages/svg-icons/.env
           echo FIGMA_ACCESS_TOKEN=${{ secrets.FIGMA_ACCESS_TOKEN }} >> ./packages/svg-icons/.env
 
-      - name: 🪄 Generate SVG icons
+      - name: Generate SVG icons
         run: pnpm generate:svg-icons
 
-      - name: 🪄 Generate React & React Native icons
+      - name: Generate React & React Native icons
         run: pnpm generate:react
 
-      - name: 🪄 Generate Storybook docs
-        run: pnpm generate:storybook
+      - name: Generate Storybook docs
+        run: pnpm generate:storybook:icons
 
       - name: Format files
         run: pnpm format

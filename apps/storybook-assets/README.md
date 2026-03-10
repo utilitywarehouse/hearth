@@ -1,21 +1,17 @@
 # Storybook Assets
 
-A Storybook app to browse and download SVG assets from `@utilitywarehouse/hearth-svg-assets`.
+A Storybook app to browse and download assets from `@utilitywarehouse/hearth-svg-assets` & `@utilitywarehouse/hearth-json-assets`.
 
-- Search and preview assets
-- Download individual SVGs
-- Docs on installation and usage
+## Generate
 
-## Scripts
+Run the following from the root to re-generate the asset lists and stories:
 
-- `pnpm dev` – start Storybook on port 6010
-- `pnpm generate` – generate utils and stories from the svg-assets manifest
-- `pnpm build:storybook` – build a static Storybook
+```console
+pnpm generate:storyook:assets
+```
 
-## Codegen
+This will read `packages/svg-assets/manifest.json` and `packages/json-assets/manifest.json` and generate:
 
-This app reads `packages/svg-assets/manifest.json` and `packages/json-assets/manifest.json` and generates:
 - `utils/svg-assets.ts` – imports and lists all assets with name, path, and bundled src
 - `utils/json-assets.ts` – imports and lists all JSON assets with name, path, and bundled src
-- `utils/assets.ts` – lightweight metadata list
-- `stories/IndividualAssets/*.stories.ts` – one story per asset
+- `stories/{SVG,JSON}/*.stories.ts` – individual story per asset
