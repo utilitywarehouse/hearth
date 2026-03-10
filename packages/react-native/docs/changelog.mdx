@@ -9,6 +9,142 @@ import { BackToTopButton } from './components';
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 
+## 0.25.0
+
+### Minor Changes
+
+- [#982](https://github.com/utilitywarehouse/hearth/pull/982) [`506b388`](https://github.com/utilitywarehouse/hearth/commit/506b388ae1ef1065f013024a14bd9e2599a6442d) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `TimePicker` and `TimePickerInput` components with 12/24-hour support and minute intervals.
+
+  Includes a shared time picker view, updated wheel behavior for native platforms, and polished visuals like gradient fades.
+
+  **Components affected**:
+  - `TimePicker`
+  - `TimePickerInput`
+
+  ```tsx
+  import { TimePicker, TimePickerInput } from '@utilitywarehouse/hearth-react-native';
+  import { useRef, useState } from 'react';
+  import type { DateType } from '@utilitywarehouse/hearth-react-native';
+
+  const Example = () => {
+    const [value, setValue] = useState<DateType>();
+    const pickerRef = useRef(null);
+
+    return (
+      <>
+        <TimePickerInput
+          value={value}
+          onChange={({ date }) => setValue(date ?? undefined)}
+          onClear={() => setValue(undefined)}
+          timePickerProps={{ use12Hours: true, minuteInterval: 5 }}
+        />
+        <TimePicker
+          ref={pickerRef}
+          date={value}
+          onChange={({ date }) => setValue(date)}
+          use12Hours
+          minuteInterval={5}
+        />
+      </>
+    );
+  };
+  ```
+
+## 0.24.0
+
+### Minor Changes
+
+- [#977](https://github.com/utilitywarehouse/hearth/pull/977) [`9d2b534`](https://github.com/utilitywarehouse/hearth/commit/9d2b5348a5748cb613f537808069de2e86bd21d7) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `ProgressBar` component with linear and circular variants.
+
+  **Developer changes**:
+
+  Use `ProgressBar` with a default percentage label, or override the label to show a custom value:
+
+  ```tsx
+  import { ProgressBar } from '@utilitywarehouse/hearth-react-native';
+
+  <ProgressBar value={42} label="Uploading documents" />
+
+  <ProgressBar
+      value={68}
+      max={100}
+      label="Data allowance"
+      variant="circular"
+      formatValueText={(value, { max }) => `${max - value}GB remaining`}
+  />
+  ```
+
+### Patch Changes
+
+- [#978](https://github.com/utilitywarehouse/hearth/pull/978) [`26a1173`](https://github.com/utilitywarehouse/hearth/commit/26a11731a493a8b92ac2a3a183516376ab54663b) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Tighten `Modal` prop types and fix brand background text styling
+
+  Improves TypeScript safety so `stickyFooter` is not allowed when `inNavModal` is true, and `background` can only be set when `inNavModal` is true. Also ensures headings, body text, and button content are correctly inverted when using the brand background.
+
+  **Components affected**:
+  - `Modal`
+
+  **Developer changes**:
+  No changes required unless you were relying on invalid prop combinations.
+
+## 0.23.0
+
+### Minor Changes
+
+- [#975](https://github.com/utilitywarehouse/hearth/pull/975) [`102f04e`](https://github.com/utilitywarehouse/hearth/commit/102f04e0d560cf0faa21da5020c230e88e857251) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add a `background` option for Modal when used inside navigation modals
+
+  Modal now supports a `background` prop with `default` and `brand` values. When `background="brand"` is used in a navigation modal, the buttons and close icon invert for contrast, and the content area is scrollable.
+
+  **Components affected**:
+  - `Modal`
+
+  **Developer changes**:
+
+  No changes required. To opt in to the brand background:
+
+  ```tsx
+  <Modal background="brand" inNavModal>
+    ...
+  </Modal>
+  ```
+
+## 0.22.1
+
+### Patch Changes
+
+- [#971](https://github.com/utilitywarehouse/hearth/pull/971) [`be1dfeb`](https://github.com/utilitywarehouse/hearth/commit/be1dfebd4b43f2df8ef6c5eaa42a88364e796479) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Improve VerificationInput OTP handling and accessibility
+
+  VerificationInput now uses a single hidden input to manage focus, selection, and paste behaviour across platforms, improving caret handling and bulk entry. Accessibility labels and hints are now derived from the form field to provide clearer screen reader output.
+
+  **Components affected**:
+  - `VerificationInput`
+
+  **Developer changes**:
+
+  No changes required.
+
+## 0.22.0
+
+### Minor Changes
+
+- [#968](https://github.com/utilitywarehouse/hearth/pull/968) [`cee5811`](https://github.com/utilitywarehouse/hearth/commit/cee5811020af02fe754d8311ec8313c1793f108a) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `badge` support to Radio and Checkbox (including tiles).
+
+  **Components affected**:
+  - `Radio`
+  - `RadioTile`
+  - `Checkbox`
+  - `CheckboxTile`
+
+  **Developer changes**:
+  You can now pass a `badge` React node to render beneath helper text. No changes required unless you want to use the new prop.
+
+### Patch Changes
+
+- [#966](https://github.com/utilitywarehouse/hearth/pull/966) [`4e9f3f0`](https://github.com/utilitywarehouse/hearth/commit/4e9f3f0284e50da5ba4e49e132dac745a1a8a68d) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Allow Card layout props and remove forced alignment
+
+  Card now accepts flex layout and display props, and it no longer forces `alignItems: flex-start` on the root, so custom alignment works as expected.
+
+- [#969](https://github.com/utilitywarehouse/hearth/pull/969) [`c5c988b`](https://github.com/utilitywarehouse/hearth/commit/c5c988b65f1133b85b822037b086a524bc1255e3) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Render the Modal footer in navigation modals
+
 ## 0.21.0
 
 ### Minor Changes

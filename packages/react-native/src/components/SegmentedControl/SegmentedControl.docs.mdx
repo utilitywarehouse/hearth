@@ -1,0 +1,86 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { SegmentedControl, SegmentedControlOption } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './SegmentedControl.stories';
+
+<Meta title="Components / Segmented Control" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=6185-1021&t=c7xg5X0N2EL0t87h-4" />
+
+# Segmented Control
+
+Segmented Control lets users switch between a small set of related options.
+Each option is presented as an equal-priority segment in a single horizontal group.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Sizes](#sizes)
+- [Props](#props)
+- [Figma](#figma)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <SegmentedControl defaultValue="day">
+    <SegmentedControlOption value="day">Day</SegmentedControlOption>
+    <SegmentedControlOption value="week">Week</SegmentedControlOption>
+    <SegmentedControlOption value="month">Month</SegmentedControlOption>
+  </SegmentedControl>
+</UsageWrap>
+
+```tsx
+import { SegmentedControl, SegmentedControlOption } from '@utilitywarehouse/hearth-react-native';
+
+const Example = () => {
+  return (
+    <SegmentedControl defaultValue="day">
+      <SegmentedControlOption value="day">Day</SegmentedControlOption>
+      <SegmentedControlOption value="week">Week</SegmentedControlOption>
+      <SegmentedControlOption value="month">Month</SegmentedControlOption>
+    </SegmentedControl>
+  );
+};
+```
+
+## Sizes
+
+Figma defines two size variants for Segmented Control:
+
+- `sm` maps to `SM-32`
+- `md` maps to `MD-48`
+
+<Canvas of={Stories.Sizes} />
+
+## Props
+
+### SegmentedControl
+
+| Property        | Type                      | Description                            | Default      |
+| --------------- | ------------------------- | -------------------------------------- | ------------ |
+| `value`         | `string`                  | Controlled selected option value.      | -            |
+| `defaultValue`  | `string`                  | Initial selected value (uncontrolled). | first option |
+| `onValueChange` | `(value: string) => void` | Called when selected option changes.   | -            |
+| `size`          | `'sm' \| 'md'`            | Size variant (`SM-32` / `MD-48`).      | `'sm'`       |
+| `disabled`      | `boolean`                 | Disables all options in the group.     | `false`      |
+| `children`      | `ReactNode`               | `SegmentedControlOption` children.     | required     |
+
+### SegmentedControlOption
+
+| Property   | Type        | Description                    | Default  |
+| ---------- | ----------- | ------------------------------ | -------- |
+| `value`    | `string`    | Unique value for this segment. | required |
+| `children` | `ReactNode` | Option label/content.          | required |
+| `disabled` | `boolean`   | Disables only this option.     | `false`  |
+
+## Figma
+
+- Control: https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=6185-1021&t=c7xg5X0N2EL0t87h-4
+- Option: https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=4340-1252&t=c7xg5X0N2EL0t87h-4

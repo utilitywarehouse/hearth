@@ -1,0 +1,212 @@
+import { createPressable } from '@gluestack-ui/pressable';
+import { useEffect } from 'react';
+import { Platform, Pressable, View } from 'react-native';
+import Animated, {
+  Easing,
+  useAnimatedStyle,
+  useReducedMotion,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
+import { StyleSheet } from 'react-native-unistyles';
+import { BodyText } from '../BodyText';
+import { useSegmentedControlContext } from './SegmentedControl.context';
+import type SegmentedControlOptionProps from './SegmentedControlOption.props';
+
+const AnimatedView = Animated.createAnimatedComponent(View);
+
+const SegmentedControlOptionRoot = ({
+  value,
+  children,
+  disabled = false,
+  style,
+  states = {},
+  ...props
+}: SegmentedControlOptionProps & { states?: { active?: boolean; disabled?: boolean } }) => {
+  const {
+    value: selectedValue,
+    select,
+    disabled: allDisabled,
+    size,
+    registerOptionLayout,
+  } = useSegmentedControlContext();
+  const { active = false } = states;
+  const reducedMotion = useReducedMotion();
+
+  const selected = selectedValue === value;
+  const isDisabled = disabled || !!allDisabled;
+
+  const selectedProgress = useSharedValue(selected ? 1 : 0);
+
+  useEffect(() => {
+    selectedProgress.value = withTiming(selected ? 1 : 0, {
+      duration: reducedMotion ? 0 : 220,
+      easing: Easing.out(Easing.cubic),
+    });
+  }, [reducedMotion, selected, selectedProgress]);
+
+  const regularLabelStyle = useAnimatedStyle(() => ({
+    opacity: 1 - selectedProgress.value,
+  }));
+
+  const selectedLabelStyle = useAnimatedStyle(() => ({
+    opacity: selectedProgress.value,
+  }));
+
+  styles.useVariants({ selected, disabled: isDisabled, size, active });
+
+  const onPress = () => {
+    if (isDisabled) return;
+    select(value);
+  };
+
+  const accessibleLabel =
+    typeof children === 'string' || typeof children === 'number' ? String(children) : value;
+
+  return (
+    <Pressable
+      accessibilityRole="radio"
+      accessibilityState={{ checked: selected, disabled: isDisabled }}
+      accessibilityLabel={props.accessibilityLabel ?? accessibleLabel}
+      onPress={onPress}
+      onLayout={e => registerOptionLayout(value, e.nativeEvent.layout)}
+      disabled={isDisabled}
+      style={[styles.option, style]}
+      {...(Platform.OS === 'web'
+        ? ({ 'aria-label': props.accessibilityLabel ?? accessibleLabel } as any)
+        : null)}
+      {...props}
+    >
+      <View
+        style={styles.labelWrap}
+        accessible={false}
+        accessibilityElementsHidden
+        importantForAccessibility="no-hide-descendants"
+        {...(Platform.OS === 'web' ? ({ 'aria-hidden': true } as any) : null)}
+      >
+        <BodyText
+          size="md"
+          weight="semibold"
+          style={styles.labelSizer}
+          accessible={false}
+          accessibilityElementsHidden
+          importantForAccessibility="no-hide-descendants"
+          {...(Platform.OS === 'web' ? ({ 'aria-hidden': true } as any) : null)}
+        >
+          {children}
+        </BodyText>
+        <AnimatedView
+          pointerEvents="none"
+          style={[styles.textLayer, regularLabelStyle]}
+          accessible={false}
+          accessibilityElementsHidden
+          importantForAccessibility="no-hide-descendants"
+          {...(Platform.OS === 'web' ? ({ 'aria-hidden': true } as any) : null)}
+        >
+          <BodyText size="md" weight="regular" style={styles.textRegular}>
+            {children}
+          </BodyText>
+        </AnimatedView>
+        <AnimatedView
+          pointerEvents="none"
+          style={[styles.textLayer, selectedLabelStyle]}
+          accessible={false}
+          accessibilityElementsHidden
+          importantForAccessibility="no-hide-descendants"
+          {...(Platform.OS === 'web' ? ({ 'aria-hidden': true } as any) : null)}
+        >
+          <BodyText size="md" weight="semibold" style={styles.textSelected}>
+            {children}
+          </BodyText>
+        </AnimatedView>
+      </View>
+    </Pressable>
+  );
+};
+
+const SegmentedControlOption = createPressable({ Root: SegmentedControlOptionRoot });
+
+SegmentedControlOption.displayName = 'SegmentedControlOption';
+
+const styles = StyleSheet.create(theme => ({
+  option: {
+    minWidth: theme.components.segmentedControl.minWidth,
+    height: theme.components.segmentedControl.height,
+    borderRadius: theme.components.segmentedControl.borderRadius,
+    paddingHorizontal: theme.components.segmentedControl.paddingHorizontal,
+    paddingVertical: theme.components.segmentedControl.paddingVertical,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    zIndex: 1,
+    variants: {
+      size: {
+        sm: {
+          height: 28,
+          paddingHorizontal: theme.space[150],
+          paddingVertical: 0,
+        },
+        md: {
+          height: 44,
+          paddingHorizontal: theme.components.segmentedControl.paddingHorizontal,
+          paddingVertical: theme.components.segmentedControl.paddingVertical,
+        },
+      },
+      selected: {
+        true: {
+          backgroundColor: 'transparent',
+          _web: {
+            _active: {
+              backgroundColor: theme.color.interactive.brand.surface.strong.active,
+            },
+          },
+        },
+        false: {
+          _web: {
+            _hover: {
+              backgroundColor: theme.color.interactive.neutral.surface.subtle.hover,
+            },
+            _active: {
+              backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
+            },
+          },
+        },
+      },
+      active: {
+        true: {
+          backgroundColor: theme.color.interactive.neutral.surface.subtle.active,
+        },
+      },
+    },
+  },
+  labelWrap: {
+    position: 'relative',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  labelSizer: {
+    opacity: 0,
+  },
+  textLayer: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  textRegular: {
+    color: theme.color.text.primary,
+  },
+  textSelected: {
+    color: theme.color.text.inverted,
+    variants: {
+      disabled: {
+        true: {
+          opacity: 1,
+        },
+      },
+    },
+  },
+}));
+
+export default SegmentedControlOption;
