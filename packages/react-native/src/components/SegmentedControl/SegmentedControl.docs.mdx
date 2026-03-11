@@ -16,8 +16,10 @@ Each option is presented as an equal-priority segment in a single horizontal gro
 
 - [Playground](#playground)
 - [Usage](#usage)
-- [Sizes](#sizes)
 - [Props](#props)
+- [Examples](#examples)
+  - [Sizes](#sizes)
+  - [Icons](#icons)
 - [Accessibility](#accessibility)
 
 ## Playground
@@ -50,15 +52,6 @@ const Example = () => {
 };
 ```
 
-## Sizes
-
-Figma defines two size variants for Segmented Control:
-
-- `sm` maps to `SM-32`
-- `md` maps to `MD-48`
-
-<Canvas of={Stories.Sizes} />
-
 ## Props
 
 ### SegmentedControl
@@ -74,11 +67,45 @@ Figma defines two size variants for Segmented Control:
 
 ### SegmentedControlOption
 
-| Property   | Type        | Description                    | Default  |
-| ---------- | ----------- | ------------------------------ | -------- |
-| `value`    | `string`    | Unique value for this segment. | required |
-| `children` | `ReactNode` | Option label/content.          | required |
-| `disabled` | `boolean`   | Disables only this option.     | `false`  |
+| Property   | Type            | Description                    | Default  |
+| ---------- | --------------- | ------------------------------ | -------- |
+| `value`    | `string`        | Unique value for this segment. | required |
+| `children` | `ReactNode`     | Option label/content.          | required |
+| `icon`     | `ComponentType` | Optional leading icon.         | -        |
+| `disabled` | `boolean`       | Disables only this option.     | `false`  |
+
+## Examples
+
+### Sizes
+
+Figma defines two size variants for Segmented Control:
+
+- `sm` maps to `SM-32`
+- `md` maps to `MD-48`
+
+<Canvas of={Stories.Sizes} />
+
+```tsx
+<SegmentedControl size="sm">...</SegmentedControl>
+<SegmentedControl size="md">...</SegmentedControl>
+```
+
+### Icons
+
+SegmentedControlOption supports an optional leading icon.
+
+<Canvas of={Stories.WithIcons} />
+
+```tsx
+import { MobileSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+<SegmentedControl>
+  <SegmentedControlOption value="mobile" icon={MobileSmallIcon}>
+    Mobile
+  </SegmentedControlOption>
+  ...
+</SegmentedControl>;
+```
 
 ## Accessibility
 
