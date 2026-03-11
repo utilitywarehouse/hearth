@@ -27,8 +27,6 @@ import { opacityPropDefs } from '../../props/opacity.props';
 import type { ComponentRef } from 'react';
 import { alignSelfPropDefs } from '../../props/align-self.props';
 import { orderPropDefs } from '../../props/order.props';
-import { alignSelfPropDefs } from '../../props/align-self.props';
-import { orderPropDefs } from '../../props/order.props';
 
 const COMPONENT_NAME = 'Box';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
