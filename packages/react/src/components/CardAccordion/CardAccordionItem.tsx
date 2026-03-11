@@ -35,7 +35,7 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
     },
     ref
   ) => {
-    const { setCurrentStep, setPreviousSteps, getStep } = useCardAccordion();
+    const { setCurrentStep, setPreviousSteps, getStep, steps } = useCardAccordion();
     const step = getStep(value);
     const variant = step === 'current' ? 'emphasis' : 'subtle';
     const colorScheme = step === 'current' ? 'neutralStrong' : 'neutralSubtle';
@@ -75,7 +75,7 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
                     colorScheme="functional"
                     onClick={e => {
                       setCurrentStep(value);
-                      setPreviousSteps(steps => steps.slice(0, steps.indexOf(value) - 2) || []);
+                      setPreviousSteps(steps.slice(0, steps.indexOf(value)));
                       onEditClick?.(e);
                     }}
                   >

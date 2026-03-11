@@ -17,13 +17,17 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type CardAccordionElement = ComponentRef<'div'>;
 
 export const CardAccordion = forwardRef<CardAccordionElement, CardAccordionProps>((props, ref) => {
-  const { className, children, initialValue, ...restProps } = extractProps(props, marginPropDefs);
+  const { className, children, initialValue, onValueChange, ...restProps } = extractProps(
+    props,
+    marginPropDefs
+  );
 
   const accordionProps = {
     ...restProps,
     type: 'single',
     collapsible: false,
     defaultValue: initialValue,
+    onValueChange,
   } as ComponentPropsWithRef<typeof AccordionPrimitive.Root>;
 
   const steps = Children.map(children, child => {
@@ -39,7 +43,11 @@ export const CardAccordion = forwardRef<CardAccordionElement, CardAccordionProps
       className={cn(componentClassName, className)}
       {...accordionProps}
     >
-      <CardAccordionProvider initialValue={initialValue || ''} steps={steps}>
+      <CardAccordionProvider
+        initialValue={initialValue || ''}
+        steps={steps}
+        onValueChange={onValueChange}
+      >
         {children}
       </CardAccordionProvider>
     </AccordionPrimitive.Root>
