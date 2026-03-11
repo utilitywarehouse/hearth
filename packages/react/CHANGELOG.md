@@ -1,5 +1,39 @@
 # @utilitywarehouse/hearth-react
 
+## 0.25.4
+
+### Patch Changes
+
+- [#996](https://github.com/utilitywarehouse/hearth/pull/996) [`eb8ab7a`](https://github.com/utilitywarehouse/hearth/commit/eb8ab7a652b963b61b36b458843c40c32506d1dc) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `order` prop
+
+  ## Affected Components
+  - `Box`
+  - `Flex`
+  - `Grid`
+
+- [#997](https://github.com/utilitywarehouse/hearth/pull/997) [`13d30b6`](https://github.com/utilitywarehouse/hearth/commit/13d30b69dcd717f4c364d431fb9097bb06f360bc) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Modal description text alignment
+
+- [#1002](https://github.com/utilitywarehouse/hearth/pull/1002) [`7f05ed8`](https://github.com/utilitywarehouse/hearth/commit/7f05ed811e7faa0572f5964faaec07bb03aa7aac) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Broken layout on `Alert` when only children rendered as content
+
+- [#1001](https://github.com/utilitywarehouse/hearth/pull/1001) [`ddc21c0`](https://github.com/utilitywarehouse/hearth/commit/ddc21c06565e739be31bc2007ce6f1e656ad8bcf) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: incorrect casing for data-attribute on `Alert`
+
+- [#999](https://github.com/utilitywarehouse/hearth/pull/999) [`8093f0a`](https://github.com/utilitywarehouse/hearth/commit/8093f0aefca8b1677f80e48470569a6b0fc11ff8) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Set `pointer-events: auto` on `Combobox`
+
+  This fixes an issue when using `Combobox` with `Modal` where it would not be
+  possible to click on the `Combobox` options when the `Modal` is open. This is
+  because `Modal` sets `pointer-events: none` on all elements outside of the
+  `Modal` to prevent interaction with them, but this also affects the `Combobox`
+  options.
+
+- [#1000](https://github.com/utilitywarehouse/hearth/pull/1000) [`61d834a`](https://github.com/utilitywarehouse/hearth/commit/61d834a91959088dd187abc6a31d8e4655030f32) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `direction` prop to `SectionHeader`
+
+- [#995](https://github.com/utilitywarehouse/hearth/pull/995) [`f09ef6c`](https://github.com/utilitywarehouse/hearth/commit/f09ef6c165f312c958bfa1ce189b19c412c4c0c8) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `alignSelf` prop
+
+  ## Affected Components
+  - `Box`
+  - `Flex`
+  - `Grid`
+
 ## 0.25.3
 
 ### Patch Changes
