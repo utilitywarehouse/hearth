@@ -1,5 +1,47 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.27.1
+
+### Patch Changes
+
+- [#990](https://github.com/utilitywarehouse/hearth/pull/990) [`958e0e1`](https://github.com/utilitywarehouse/hearth/commit/958e0e1a9d5451d1e11fecadc69ae3c5ad9d42ca) Thanks [@declanelcocks](https://github.com/declanelcocks)! - 🐛 [FIX]: Fix `Modal` layout when `inNavModal` and `stickyFooter={false}`.
+
+  Corrects the container flex style for `inNavModal` modals with a non-sticky footer, where the UX was not great when scrolling.
+
+  **Components affected**:
+  - `Modal`
+
+  **Developer changes**:
+
+  No changes required.
+
+- [#992](https://github.com/utilitywarehouse/hearth/pull/992) [`2560b3d`](https://github.com/utilitywarehouse/hearth/commit/2560b3dcba7ed4981fad585628f96afd07d8de4f) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Add optional leading `icon` support to `SegmentedControlOption`.
+
+  This adds an optional `icon` prop to `SegmentedControlOption`, allowing icons to be displayed before option labels in segmented controls.
+
+  Docs and stories were updated to include icon usage examples.
+
+  **Components affected**:
+  - `SegmentedControlOption`
+
+  **Developer changes**:
+
+  No changes required for existing usage.
+
+  To use the new optional icon prop:
+
+  ```tsx
+  import { SegmentedControl, SegmentedControlOption } from '@utilitywarehouse/hearth-react-native';
+  import { ElectricitySmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+
+  <SegmentedControl defaultValue="energy">
+    <SegmentedControlOption value="energy" icon={ElectricitySmallIcon}>
+      Energy
+    </SegmentedControlOption>
+    <SegmentedControlOption value="broadband">Broadband</SegmentedControlOption>
+  </SegmentedControl>;
+  ```
+
 ## 0.27.0
 
 ### Minor Changes
