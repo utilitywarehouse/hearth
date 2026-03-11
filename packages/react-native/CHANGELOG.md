@@ -1,5 +1,45 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.27.0
+
+### Minor Changes
+
+- [#987](https://github.com/utilitywarehouse/hearth/pull/987) [`eb962d2`](https://github.com/utilitywarehouse/hearth/commit/eb962d2f33b63fa3aeda0b291fd41ace90d04c41) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `SegmentedControl` and `SegmentedControlOption` components.
+
+  This introduces a new segmented control component for switching between a small set of related options.
+  The component includes controlled and uncontrolled usage, size variants (`sm`, `md`), animated selected indicator movement, and improved accessibility semantics for screen readers.
+
+  **Components affected**:
+  - `SegmentedControl`
+  - `SegmentedControlOption`
+
+  **Developer changes**:
+
+  Import and compose the new components as follows:
+
+  ```tsx
+  import { SegmentedControl, SegmentedControlOption } from '@utilitywarehouse/hearth-react-native';
+
+  <SegmentedControl defaultValue="day" size="sm">
+    <SegmentedControlOption value="day">Day</SegmentedControlOption>
+    <SegmentedControlOption value="week">Week</SegmentedControlOption>
+    <SegmentedControlOption value="month">Month</SegmentedControlOption>
+  </SegmentedControl>;
+  ```
+
+### Patch Changes
+
+- [#989](https://github.com/utilitywarehouse/hearth/pull/989) [`c97122e`](https://github.com/utilitywarehouse/hearth/commit/c97122eb429ec4adef656fb245a9256a5619df61) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Ensure horizontal `Banner` fills available width when `onPress` is not provided.
+
+  Fixed a layout issue where a horizontal `Banner` without `onPress` could fail to stretch correctly within its parent container.
+
+  **Components affected**:
+  - `Banner`
+
+  **Developer changes**:
+
+  No changes required.
+
 ## 0.26.0
 
 ### Minor Changes
