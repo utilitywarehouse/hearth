@@ -21,6 +21,7 @@
     max-width: var(--available-width);
     /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Base UI specific custom property */
     transform-origin: var(--transform-origin);
+    pointer-events: auto;
 
     & :where(.h-ComboboxItem) {
       width: 100%;
