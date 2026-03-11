@@ -1,0 +1,17 @@
+@breakpoints {
+  .h-r-as-start {
+    align-self: start;
+  }
+
+  .h-r-as-center {
+    align-self: center;
+  }
+
+  .h-r-as-end {
+    align-self: end;
+  }
+
+  .h-r-as-stretch {
+    align-self: stretch;
+  }
+}

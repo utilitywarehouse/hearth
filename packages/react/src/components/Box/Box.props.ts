@@ -1,4 +1,5 @@
-import type { ComponentPropsWithRef } from 'react';
+import { ComponentPropsWithRef } from 'react';
+import { AlignSelfProps } from '../../props/align-self.props';
 import { BackgroundColorProps } from '../../props/background-color.props';
 import { BorderColorProps } from '../../props/border-color.props';
 import { BorderRadiusProps } from '../../props/border-radius.props';
@@ -29,6 +30,7 @@ export const boxPropDefs = {
 
 export interface CommonBoxProps
   extends
+    AlignSelfProps,
     BackgroundColorProps,
     BorderColorProps,
     BorderRadiusProps,
