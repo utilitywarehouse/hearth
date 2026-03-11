@@ -189,16 +189,14 @@ export type { AccordionContentProps } from './components/Accordion/AccordionCont
 
 export { CardAccordion } from './components/CardAccordion/CardAccordion';
 export type { CardAccordionProps } from './components/CardAccordion/CardAccordion.props';
+export { useCardAccordion } from './components/CardAccordion/CardAccordion.context';
 export { CardAccordionItem } from './components/CardAccordion/CardAccordionItem';
 export type { CardAccordionItemProps } from './components/CardAccordion/CardAccordionItem.props';
-export { CardAccordionTrigger } from './components/CardAccordion/CardAccordionTrigger';
-export type { CardAccordionTriggerProps } from './components/CardAccordion/CardAccordionTrigger.props';
-export { CardAccordionButton } from './components/CardAccordion/CardAccordionButton';
-export type { CardAccordionButtonProps } from './components/CardAccordion/CardAccordionButton.props';
-export { CardAccordionHeader } from './components/CardAccordion/CardAccordionHeader';
-export type { CardAccordionHeaderProps } from './components/CardAccordion/CardAccordionHeader.props';
-export { CardAccordionContent } from './components/CardAccordion/CardAccordionContent';
-export type { CardAccordionContentProps } from './components/CardAccordion/CardAccordionContent.props';
+export { CardAccordionItemFooter } from './components/CardAccordion/CardAccordionItemFooter';
+export { CardAccordionItemButton } from './components/CardAccordion/CardAccordionItemButton';
+export type { CardAccordionItemButtonProps } from './components/CardAccordion/CardAccordionItemButton.props';
+export { CardAccordionItemContent } from './components/CardAccordion/CardAccordionItemContent';
+export type { CardAccordionItemContentProps } from './components/CardAccordion/CardAccordionItemContent.props';
 
 export { Select } from './components/Select/Select';
 export type { SelectProps, SelectItemProps } from './components/Select/Select.props';

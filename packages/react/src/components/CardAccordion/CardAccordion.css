@@ -1,48 +1,31 @@
 .h-CardAccordion {
   display: flex;
   flex-direction: column;
-  gap: var(--h-space-250);
+  gap: var(--h-space-300);
 
   & :where(.h-CardAccordionItem) {
-    & :where(.h-CardAccordionHeader) {
-      width: 100%;
-      display: flex;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: var(--h-space-250);
 
     & :where(.h-CardAccordionItemHeader) {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: start;
     }
 
-    & :where(.h-CardAccordionItemDescription) {
-      padding-inline: var(--h-accordion-item-heading-padding-horizontal);
-      padding-top: var(--h-accordion-item-content-padding-top);
-      padding-bottom: var(--h-accordion-item-content-padding-bottom);
-      font-family: var(--h-font-family-body);
-      font-size: var(--h-body-text-md-font-size);
-      font-weight: var(--h-font-weight-regular);
-      line-height: var(--h-body-text-md-line-height);
-      color: var(--h-text-primary);
-    }
-  }
+    & :where(.h-CardAccordionItemTrigger) {
+      all: unset;
 
-  & :where(.h-CardAccordionTrigger) {
-    all: unset;
-    flex: 1;
-    cursor: pointer;
-    display: flex;
-    gap: var(--h-accordion-item-heading-gap);
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+      &[aria-disabled='true'][data-state='open'] {
+        opacity: 1;
+      }
 
-    &:where(:active) {
-      background-color: var(--h-interactive-neutral-surface-subtle-active);
-    }
-
-    &:where(:focus-visible) {
-      outline: 2px solid var(--h-focus-primary);
-      outline-offset: 1px;
+      &:where(:focus-visible) {
+        outline: 2px solid var(--h-focus-primary);
+        outline-offset: 1px;
+      }
     }
   }
 
@@ -56,12 +39,6 @@
 
   & :where(.h-CardAccordionContent[data-state='closed']) {
     animation: h-slide-up 300ms ease-out;
-  }
-
-  & :where(.h-CardAccordionContentText) {
-    padding-inline: var(--h-accordion-item-heading-padding-horizontal);
-    padding-top: var(--h-accordion-item-content-padding-top);
-    padding-bottom: var(--h-accordion-item-content-padding-bottom);
   }
 }
 

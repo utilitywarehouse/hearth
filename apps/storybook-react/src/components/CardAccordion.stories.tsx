@@ -2,14 +2,14 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   CardAccordion,
   CardAccordionItem,
-  CardAccordionContent,
-  CardAccordionButton,
+  CardAccordionItemFooter,
+  CardAccordionItemContent,
+  CardAccordionItemButton,
   BodyText,
   Flex,
   Box,
   HelperText,
 } from '@utilitywarehouse/hearth-react';
-import { useState } from 'react';
 
 const meta: Meta<typeof CardAccordion> = {
   title: 'Stories / CardAccordion',
@@ -27,35 +27,13 @@ export default meta;
 type Story = StoryObj<typeof CardAccordion>;
 
 export const Playground: Story = {
-  render: args => {
-    const [currentStep, setCurrentStep] = useState<string>('1a');
-    const [previousSteps, setPreviousSteps] = useState<Array<string>>([]);
-
-    const getStep = (value: string) => {
-      if (currentStep === value) {
-        return 'current';
-      }
-      if (previousSteps.includes(value)) {
-        return 'previous';
-      }
-      return 'future';
-    };
-
+  render: () => {
     return (
       <Box width="600px">
-        <CardAccordion
-          {...args}
-          value={currentStep}
-          onValueChange={(value: string) => console.log({ value })}
-        >
+        <CardAccordion initialValue="1a">
           <CardAccordionItem
             value="1a"
-            step={getStep('1a')}
-            heading="1a. Your home"
-            onEditClick={() => {
-              setCurrentStep('1a');
-              setPreviousSteps([]);
-            }}
+            title="1a. Your home"
             previousStepContent={
               <Flex direction="column" gap="50">
                 <HelperText>Your type of cover, address & policy start date.</HelperText>
@@ -63,53 +41,23 @@ export const Playground: Story = {
               </Flex>
             }
           >
-            <CardAccordionContent>
-              Content 1
-              <Flex gap="200">
-                <CardAccordionButton
-                  action="next"
-                  onClick={() => {
-                    setCurrentStep('1b');
-                    setPreviousSteps(['1a']);
-                  }}
-                />
-              </Flex>
-            </CardAccordionContent>
+            <CardAccordionItemContent>Content 1</CardAccordionItemContent>
+            <CardAccordionItemFooter>
+              <CardAccordionItemButton action="next" />
+            </CardAccordionItemFooter>
           </CardAccordionItem>
-          <CardAccordionItem
-            value="1b"
-            step={getStep('1b')}
-            heading="1b. About your property"
-            onEditClick={() => {
-              setCurrentStep('1b');
-              setPreviousSteps(prev => prev.slice(0, prev.indexOf('1b')));
-            }}
-          >
-            <CardAccordionContent>
-              Content 2
-              <Flex gap="200">
-                <CardAccordionButton
-                  action="previous"
-                  onClick={() => {
-                    setCurrentStep('1a');
-                    setPreviousSteps(prev => prev.slice(0, prev.indexOf('1b')));
-                  }}
-                />
-                <CardAccordionButton
-                  action="next"
-                  onClick={() => {
-                    setCurrentStep('1c');
-                    setPreviousSteps(prev => [...prev, '1b']);
-                  }}
-                />
-              </Flex>
-            </CardAccordionContent>
+          <CardAccordionItem value="1b" title="1b. About your property">
+            <CardAccordionItemContent>Content 2</CardAccordionItemContent>
+            <CardAccordionItemFooter>
+              <CardAccordionItemButton action="previous" />
+              <CardAccordionItemButton action="next" />
+            </CardAccordionItemFooter>
           </CardAccordionItem>
-          <CardAccordionItem value="1c" step={getStep('1c')} heading="1c. How your home was built">
-            <CardAccordionContent>Content 3</CardAccordionContent>
+          <CardAccordionItem value="1c" title="1c. How your home was built">
+            <CardAccordionItemContent>Content 3</CardAccordionItemContent>
           </CardAccordionItem>
-          <CardAccordionItem value="1d" step={getStep('1d')} heading="1d. Use of your home">
-            <CardAccordionContent>Content 4</CardAccordionContent>
+          <CardAccordionItem value="1d" title="1d. Use of your home">
+            <CardAccordionItemContent>Content 4</CardAccordionItemContent>
           </CardAccordionItem>
         </CardAccordion>
       </Box>

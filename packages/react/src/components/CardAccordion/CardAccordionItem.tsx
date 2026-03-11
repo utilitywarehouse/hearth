@@ -4,13 +4,16 @@ import { forwardRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { CardAccordionItemProps } from './CardAccordionItem.props';
-import { Accordion as CardAccordionPrimitive } from 'radix-ui';
+import { Accordion as AccordionPrimitive } from 'radix-ui';
 import type { ComponentRef } from 'react';
 import { Card } from '../Card/Card';
-import { SectionHeader } from '../SectionHeader/SectionHeader';
 import { Button } from '../Button/Button';
-import { useCardAccordion } from './CardAccordion.context';
+import { Flex } from '../Flex/Flex';
+import { Heading } from '../Heading/Heading';
+import { HelperText } from '../HelperText/HelperText';
+import { useIds } from '../../hooks/use-ids';
 import { CardAccordionItemProvider } from './CardAccordionItem.context';
+import { useCardAccordion } from './CardAccordion.context';
 
 const COMPONENT_NAME = 'CardAccordionItem';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -21,23 +24,26 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
   (
     {
       className,
-      heading = 'Card accordion',
-      headingElement = 'h2',
-      helperText,
+      title,
+      headingElement: HeadingElement = 'h3',
+      description,
       previousStepContent,
       children,
       value,
-      step,
       onEditClick,
       ...props
     },
     ref
   ) => {
+    const { setCurrentStep, setPreviousSteps, getStep } = useCardAccordion();
+    const step = getStep(value);
     const variant = step === 'current' ? 'emphasis' : 'subtle';
     const colorScheme = step === 'current' ? 'neutralStrong' : 'neutralSubtle';
 
+    const { labelId, helperTextId } = useIds({ prefix: 'card-accordion-item' });
+
     return (
-      <CardAccordionPrimitive.Item
+      <AccordionPrimitive.Item
         asChild
         ref={ref}
         className={cn(componentClassName, className)}
@@ -47,24 +53,42 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
         {...props}
       >
         <Card variant={variant} colorScheme={colorScheme} direction="column">
-          <CardAccordionPrimitive.Header asChild>
-            <SectionHeader
-              heading={heading}
-              headingElement={headingElement}
-              helperText={helperText}
-              trailingContent={
-                step === 'previous' ? (
-                  <Button size="sm" variant="ghost" colorScheme="functional" onClick={onEditClick}>
+          <CardAccordionItemProvider value={{ value }}>
+            <AccordionPrimitive.Header className={`${componentClassName}Header`} asChild>
+              <HeadingElement>
+                <AccordionPrimitive.Trigger
+                  className={`${componentClassName}Trigger`}
+                  aria-labelledby={labelId}
+                  aria-describedby={description ? helperTextId : undefined}
+                >
+                  <Flex direction="column">
+                    <Heading asChild size="md" id={labelId}>
+                      <div>{title}</div>
+                    </Heading>
+                    {description ? <HelperText id={helperTextId}>{description}</HelperText> : null}
+                  </Flex>
+                </AccordionPrimitive.Trigger>
+                {step === 'previous' ? (
+                  <Button
+                    size="sm"
+                    variant="ghost"
+                    colorScheme="functional"
+                    onClick={e => {
+                      setCurrentStep(value);
+                      setPreviousSteps(steps => steps.slice(0, steps.indexOf(value) - 2) || []);
+                      onEditClick?.(e);
+                    }}
+                  >
                     Edit
                   </Button>
-                ) : null
-              }
-            />
-          </CardAccordionPrimitive.Header>
-          {step === 'previous' && previousStepContent ? previousStepContent : null}
-          {step === 'current' ? children : null}
+                ) : null}
+              </HeadingElement>
+            </AccordionPrimitive.Header>
+            {step === 'previous' && previousStepContent ? previousStepContent : null}
+            {step === 'current' ? children : null}
+          </CardAccordionItemProvider>
         </Card>
-      </CardAccordionPrimitive.Item>
+      </AccordionPrimitive.Item>
     );
   }
 );

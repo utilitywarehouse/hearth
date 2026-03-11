@@ -1,6 +1,6 @@
 import { ButtonProps } from '../Button/Button.props';
 
-export interface CardAccordionButtonProps extends Omit<
+export interface CardAccordionItemButtonProps extends Omit<
   ButtonProps,
   'asChild' | 'variant' | 'colorScheme'
 > {
