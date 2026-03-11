@@ -2,6 +2,7 @@
   .h-r-as-start {
     /* Fallback for flexbox in older browsers */
     align-self: flex-start;
+
     /* Modern browsers will override with this */
     align-self: start;
   }
@@ -13,6 +14,7 @@
   .h-r-as-end {
     /* Fallback for flexbox in older browsers */
     align-self: flex-end;
+
     /* Modern browsers will override with this */
     align-self: end;
   }
