@@ -28,6 +28,7 @@ import { zIndexPropDefs } from '../../props/z-index.props';
 import { overflowPropDefs } from '../../props/overflow.props';
 import { opacityPropDefs } from '../../props/opacity.props';
 import { alignContentPropDefs } from '../../props/align-content.props';
+import { alignSelfPropDefs } from '../../props/align-self.props';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 
@@ -48,6 +49,7 @@ export const Flex = forwardRef<FlexElement, FlexProps>((props, ref) => {
     flexPropDefs,
     alignItemsPropDefs,
     alignContentPropDefs,
+    alignSelfPropDefs,
     backgroundColorPropDefs,
     borderColorPropDefs,
     borderRadiusPropDefs,

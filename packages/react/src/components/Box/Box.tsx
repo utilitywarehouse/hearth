@@ -25,6 +25,7 @@ import { zIndexPropDefs } from '../../props/z-index.props';
 import { overflowPropDefs } from '../../props/overflow.props';
 import { opacityPropDefs } from '../../props/opacity.props';
 import type { ComponentRef } from 'react';
+import { alignSelfPropDefs } from '../../props/align-self.props';
 
 const COMPONENT_NAME = 'Box';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -41,6 +42,7 @@ export const Box = forwardRef<BoxElement, BoxProps>((props, ref) => {
   } = extractProps(
     props,
     boxPropDefs,
+    alignSelfPropDefs,
     backgroundColorPropDefs,
     borderColorPropDefs,
     borderRadiusPropDefs,
