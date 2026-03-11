@@ -1,0 +1,6 @@
+/* stylelint-disable csstools/value-no-unknown-custom-properties */
+@breakpoints {
+  .h-r-order {
+    order: var(--h-r-order);
+  }
+}

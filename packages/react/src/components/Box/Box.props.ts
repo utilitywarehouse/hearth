@@ -14,6 +14,7 @@ import { OverflowProps } from '../../props/overflow.props';
 import { PaddingProps } from '../../props/padding.props';
 import { PositionProps } from '../../props/position.props';
 import { PropDef } from '../../props/prop-def';
+import { OrderProps } from '../../props/order.props';
 import { SizeProps } from '../../props/size.props';
 import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
@@ -41,6 +42,7 @@ export interface CommonBoxProps
     GridItemProps,
     MarginProps,
     OpacityProps,
+    OrderProps,
     OverflowProps,
     PaddingProps,
     PositionProps,

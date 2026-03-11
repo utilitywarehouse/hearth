@@ -13,6 +13,7 @@ import { GridItemProps } from '../../props/grid-item.props';
 import { JustifyContentProps } from '../../props/justify-content.props';
 import { MarginProps } from '../../props/margin.props';
 import { OpacityProps } from '../../props/opacity.props';
+import { OrderProps } from '../../props/order.props';
 import { OverflowProps } from '../../props/overflow.props';
 import { PaddingProps } from '../../props/padding.props';
 import { PositionProps } from '../../props/position.props';
@@ -56,6 +57,7 @@ export interface CommonFlexProps
     JustifyContentProps,
     MarginProps,
     OpacityProps,
+    OrderProps,
     OverflowProps,
     PaddingProps,
     Pick<SpacingProps, 'spacing'>,
