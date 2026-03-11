@@ -37,6 +37,24 @@ export const Playground: Story = {
   },
 };
 
+export const ResponsiveDirection: Story = {
+  args: { direction: { mobile: 'column', tablet: 'row' } },
+  render: args => {
+    return (
+      <Flex width="600px">
+        <SectionHeader
+          {...args}
+          trailingContent={
+            <Button size="sm" variant="outline" colorScheme="functional">
+              Mark all as attended
+            </Button>
+          }
+        />
+      </Flex>
+    );
+  },
+};
+
 export const WithBadge: Story = {
   render: args => {
     return (
