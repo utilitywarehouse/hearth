@@ -1,5 +1,6 @@
 import type { ComponentPropsWithRef, ReactNode } from 'react';
 import { MarginProps } from '../../props/margin.props';
+import { Responsive } from '../../types/responsive';
 
 export interface SectionHeaderProps
   extends Omit<ComponentPropsWithRef<'div'>, 'color'>, MarginProps {
@@ -27,4 +28,8 @@ export interface SectionHeaderProps
    * Text to display when the `validationStatus` is set.
    */
   validationText?: string;
+  /**
+   * Responsive direction of the section header content. By default, the content is laid out in a row.
+   */
+  direction?: Responsive<['row', 'column'][number]>;
 }

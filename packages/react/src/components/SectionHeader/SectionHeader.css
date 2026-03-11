@@ -1,22 +1,12 @@
 .h-SectionHeader {
   width: 100%;
-  display: grid;
-  grid-template-columns: auto max-content;
-  gap: var(--h-section-header-text-content-gap) var(--h-section-header-gap);
+  justify-content: space-between;
+  gap: var(--h-section-header-gap);
 
-  & :where(.h-Heading) {
-    grid-column: 1/2;
-    grid-row: 1/2;
-  }
-
-  & :where(.h-HelperText) {
-    grid-column: 1/2;
-    grid-row: 2/3;
-  }
-
-  & :where(.h-ValidationText) {
-    grid-column: 1/2;
-    grid-row: 3/4;
+  .h-SectionHeaderContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--h-section-header-text-content-gap);
   }
 
   & :where(.h-SectionHeaderTrailingContent) {
