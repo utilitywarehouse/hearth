@@ -140,7 +140,7 @@
       text-align: left;
 
       &:where([data-contains-image] &) {
-        text-align: left;
+        text-align: center;
       }
     }
   }
