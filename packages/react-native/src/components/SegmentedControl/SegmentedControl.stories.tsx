@@ -1,3 +1,8 @@
+import {
+  BroadbandSmallIcon,
+  ElectricitySmallIcon,
+  MobileSmallIcon,
+} from '@utilitywarehouse/hearth-react-native-icons';
 import { useState } from 'react';
 import { BodyText, Flex, SegmentedControl, SegmentedControlOption } from '../';
 
@@ -72,6 +77,22 @@ export const Disabled = {
       <SegmentedControlOption value="left">Left</SegmentedControlOption>
       <SegmentedControlOption value="center">Center</SegmentedControlOption>
       <SegmentedControlOption value="right">Right</SegmentedControlOption>
+    </SegmentedControl>
+  ),
+};
+
+export const WithIcons = {
+  render: () => (
+    <SegmentedControl defaultValue="energy" size="md">
+      <SegmentedControlOption value="energy" icon={ElectricitySmallIcon}>
+        Energy
+      </SegmentedControlOption>
+      <SegmentedControlOption value="broadband" icon={BroadbandSmallIcon}>
+        Broadband
+      </SegmentedControlOption>
+      <SegmentedControlOption value="mobile" icon={MobileSmallIcon}>
+        Mobile
+      </SegmentedControlOption>
     </SegmentedControl>
   ),
 };

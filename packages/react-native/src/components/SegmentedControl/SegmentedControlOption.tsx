@@ -10,6 +10,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { StyleSheet } from 'react-native-unistyles';
 import { BodyText } from '../BodyText';
+import { Icon } from '../Icon';
 import { useSegmentedControlContext } from './SegmentedControl.context';
 import type SegmentedControlOptionProps from './SegmentedControlOption.props';
 
@@ -18,6 +19,7 @@ const AnimatedView = Animated.createAnimatedComponent(View);
 const SegmentedControlOptionRoot = ({
   value,
   children,
+  icon,
   accessibilityLabel,
   disabled = false,
   style,
@@ -79,47 +81,50 @@ const SegmentedControlOptionRoot = ({
         : null)}
     >
       <View
-        style={styles.labelWrap}
+        style={styles.contentWrap}
         accessible={false}
         accessibilityElementsHidden
         importantForAccessibility="no-hide-descendants"
         {...(Platform.OS === 'web' ? ({ 'aria-hidden': true } as any) : null)}
       >
-        <BodyText
-          size="md"
-          weight="semibold"
-          style={styles.labelSizer}
-          accessible={false}
-          accessibilityElementsHidden
-          importantForAccessibility="no-hide-descendants"
-          {...(Platform.OS === 'web' ? ({ 'aria-hidden': true } as any) : null)}
-        >
-          {children}
-        </BodyText>
-        <AnimatedView
-          pointerEvents="none"
-          style={[styles.textLayer, regularLabelStyle]}
-          accessible={false}
-          accessibilityElementsHidden
-          importantForAccessibility="no-hide-descendants"
-          {...(Platform.OS === 'web' ? ({ 'aria-hidden': true } as any) : null)}
-        >
-          <BodyText size="md" weight="regular" style={styles.textRegular}>
+        {icon ? <Icon as={icon} size="sm" style={styles.icon} /> : null}
+        <View style={styles.labelWrap}>
+          <BodyText
+            size="md"
+            weight="semibold"
+            style={styles.labelSizer}
+            accessible={false}
+            accessibilityElementsHidden
+            importantForAccessibility="no-hide-descendants"
+            {...(Platform.OS === 'web' ? ({ 'aria-hidden': true } as any) : null)}
+          >
             {children}
           </BodyText>
-        </AnimatedView>
-        <AnimatedView
-          pointerEvents="none"
-          style={[styles.textLayer, selectedLabelStyle]}
-          accessible={false}
-          accessibilityElementsHidden
-          importantForAccessibility="no-hide-descendants"
-          {...(Platform.OS === 'web' ? ({ 'aria-hidden': true } as any) : null)}
-        >
-          <BodyText size="md" weight="semibold" style={styles.textSelected}>
-            {children}
-          </BodyText>
-        </AnimatedView>
+          <AnimatedView
+            pointerEvents="none"
+            style={[styles.textLayer, regularLabelStyle]}
+            accessible={false}
+            accessibilityElementsHidden
+            importantForAccessibility="no-hide-descendants"
+            {...(Platform.OS === 'web' ? ({ 'aria-hidden': true } as any) : null)}
+          >
+            <BodyText size="md" weight="regular" style={styles.textRegular}>
+              {children}
+            </BodyText>
+          </AnimatedView>
+          <AnimatedView
+            pointerEvents="none"
+            style={[styles.textLayer, selectedLabelStyle]}
+            accessible={false}
+            accessibilityElementsHidden
+            importantForAccessibility="no-hide-descendants"
+            {...(Platform.OS === 'web' ? ({ 'aria-hidden': true } as any) : null)}
+          >
+            <BodyText size="md" weight="semibold" style={styles.textSelected}>
+              {children}
+            </BodyText>
+          </AnimatedView>
+        </View>
       </View>
     </Pressable>
   );
@@ -136,6 +141,7 @@ const styles = StyleSheet.create(theme => ({
     borderRadius: theme.components.segmentedControl.borderRadius,
     paddingHorizontal: theme.components.segmentedControl.paddingHorizontal,
     paddingVertical: theme.components.segmentedControl.paddingVertical,
+    gap: theme.components.segmentedControl.gap,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',
@@ -180,6 +186,12 @@ const styles = StyleSheet.create(theme => ({
       },
     },
   },
+  contentWrap: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.components.segmentedControl.gap,
+  },
   labelWrap: {
     position: 'relative',
     alignItems: 'center',
@@ -194,6 +206,18 @@ const styles = StyleSheet.create(theme => ({
     right: 0,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  icon: {
+    variants: {
+      selected: {
+        true: {
+          color: theme.color.icon.inverted,
+        },
+        false: {
+          color: theme.color.icon.primary,
+        },
+      },
+    },
   },
   textRegular: {
     color: theme.color.text.primary,
