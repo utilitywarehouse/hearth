@@ -7,7 +7,6 @@ import {
   InlineLink,
   Strong,
 } from '@utilitywarehouse/hearth-react';
-import { useEffect, useState } from 'react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const colorSchemes = ['info', 'positive', 'danger', 'warning'] as const;
@@ -30,6 +29,7 @@ export const KitchenSink: Story = {
         <Alert colorScheme="positive" title="Success" text="Mobile number updated." />
         <Alert colorScheme="danger" title="Error" text="Email address already exists." />
         <Alert colorScheme="warning" title="Warning" text="Payment details needed." />
+        <Alert colorScheme="warning">hello</Alert>
       </Flex>
     );
   },
