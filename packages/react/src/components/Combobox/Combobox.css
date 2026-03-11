@@ -9,6 +9,8 @@
   border: var(--h-select-dropdown-border-width) solid var(--h-border-subtle);
   border-radius: var(--h-select-border-radius);
   color: var(--h-interactive-functional-foreground-subtle);
+  /* override for Radix modal pointer-events: none behavior */
+  pointer-events: auto;
 
   & :where(.h-ComboboxList) {
     display: flex;
@@ -21,7 +23,6 @@
     max-width: var(--available-width);
     /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Base UI specific custom property */
     transform-origin: var(--transform-origin);
-    pointer-events: auto;
 
     & :where(.h-ComboboxItem) {
       width: 100%;
