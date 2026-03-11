@@ -19,14 +19,31 @@ import {
   ListItemLink,
   Combobox,
 } from '@utilitywarehouse/hearth-react';
+// eslint-disable-next-line import/no-unresolved
 import { StyledBox } from '@/components/StyledBox';
 import { space, color, components, semantic } from '@utilitywarehouse/hearth-tokens/browser';
 import NextLink from 'next/link';
 import NextImage from 'next/image';
 import SpotHelpLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-help-light.svg';
+import Lottie from 'lottie-react';
+import { useEffect, useState } from 'react';
+import SpotProcessCompleteFunctional from '@utilitywarehouse/hearth-json-assets/lib/spot-process-complete-functional.json';
 
 export default function Home() {
   const { container } = components;
+
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    // Fetch the JSON from your CDN
+    fetch(
+      'https://cdn.bfldr.com/YUL5XOTG/at/9hqmq4rx3m2ff2frr3psmx5/Spot_Process-complete_Functional.json'
+    )
+      .then(res => res.json())
+      .then(data => setAnimationData(data))
+      .catch(err => console.error('Error loading animation:', err));
+  }, []);
+
   return (
     <>
       <Head>
@@ -36,7 +53,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HearthBox padding="200">Hearth</HearthBox>
-
       <Breadcrumbs margin="400">
         <BreadcrumbItem asChild>
           <NextLink href="/one">One</NextLink>
@@ -49,7 +65,6 @@ export default function Home() {
         </BreadcrumbItem>
         <BreadcrumbItem currentPage>Home</BreadcrumbItem>
       </Breadcrumbs>
-
       <List>
         <ListItem>
           <ListItemLink heading="Page One" asChild>
@@ -67,7 +82,6 @@ export default function Home() {
           </ListItemLink>
         </ListItem>
       </List>
-
       <StyledBox sx={{ border: '1px solid red', padding: '32px', display: 'flex' }}>
         Hearth styled with sx
       </StyledBox>
@@ -176,14 +190,24 @@ export default function Home() {
           <a href="https://www.uw.co.uk/energy/faqs">Energy FAQs</a>
         </Button>
       </Flex>
-
       <Flex marginBottom="1000" width="100%" justifyContent="center">
         <Combobox label="Fruits" items={['apple', 'banana', 'orange']}></Combobox>
       </Flex>
-
       <NextImage src={SpotHelpLight} alt="" width={200} height={200} />
       <NextImage src={SpotHelpLight} alt="" width={200} height={200} unoptimized />
       <img src={SpotHelpLight.src} alt="" width={200} height={200} />
+      <NextImage
+        src="https://cdn.bfldr.com/YUL5XOTG/at/pjbtphjjxxhn2qfkfch44qcf/UW_WFH_Lounge_032025_356.jpg?auto=webp&format=jpg"
+        alt=""
+        height={300}
+        width={200}
+      />
+      <div style={{ width: 300, height: 300 }}>
+        <Lottie animationData={animationData} loop={true} />
+      </div>
+      <div style={{ width: 300, height: 300 }}>
+        <Lottie animationData={SpotProcessCompleteFunctional} loop={true} />
+      </div>
     </>
   );
 }

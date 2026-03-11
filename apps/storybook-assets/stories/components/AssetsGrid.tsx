@@ -1,7 +1,8 @@
 import { BodyText, Button, Card, Flex, Grid } from '@utilitywarehouse/hearth-react';
 import { useCallback, useState } from 'react';
+import Lottie from 'lottie-react';
 
-type Asset = { name: string; src: string; path: string };
+type Asset = { name: string; src: any; path: string };
 
 const pascalToKebab = (str: string) =>
   str
@@ -22,7 +23,7 @@ export function AssetsGrid({ assets }: { assets: Asset[] }) {
 
   const onCopyImport = useCallback((name: string, path: string) => {
     navigator.clipboard.writeText(
-      `import ${name} from '@utilitywarehouse/hearth-svg-assets/lib/${path}';`
+      `import ${name} from '@utilitywarehouse/hearth-${path.split('.')[1]}-assets/lib/${path}';`
     );
     setCopied(name);
     setTimeout(() => setCopied(null), 2000);
@@ -37,43 +38,50 @@ export function AssetsGrid({ assets }: { assets: Asset[] }) {
     >
       <ul role="list">
         {assets.map(asset => (
-          <Card
-            key={asset.name}
-            as="li"
-            direction="column"
-            gap="200"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Flex direction="column" alignItems="center" flex="1" gap="150" style={{ padding: 16 }}>
-              <img
-                src={asset.src as unknown as string}
-                alt={asset.name}
-                style={{ maxWidth: 200, maxHeight: 140 }}
-              />
-              <BodyText as="span">
-                {copied === asset.name ? 'Copied Import...' : asset.name}
-              </BodyText>
-            </Flex>
-            <Flex
-              gap="100"
-              paddingBottom="100"
-              wrap="wrap"
+          <li>
+            <Card
+              key={asset.name}
+              direction="column"
+              gap="200"
               alignItems="center"
               justifyContent="center"
             >
-              <Button
-                size="sm"
-                onClick={() => onDownload(asset.name, asset.src as unknown as string)}
+              <Flex direction="column" alignItems="center" flex="1" gap="150" padding="200">
+                {asset.path.includes('.svg') ? (
+                  <img
+                    src={asset.src as unknown as string}
+                    alt=""
+                    style={{ maxWidth: 200, maxHeight: 140 }}
+                  />
+                ) : asset.path.includes('.json') ? (
+                  <div style={{ width: 180, height: 140 }}>
+                    <Lottie animationData={asset.src} loop={true} />
+                  </div>
+                ) : null}
+                <BodyText as="span">
+                  {copied === asset.name ? 'Copied Import...' : asset.name}
+                </BodyText>
+              </Flex>
+              <Flex
+                gap="100"
+                paddingBottom="100"
+                wrap="wrap"
+                alignItems="center"
+                justifyContent="center"
               >
-                Download
-              </Button>
+                <Button
+                  size="sm"
+                  onClick={() => onDownload(asset.name, asset.src as unknown as string)}
+                >
+                  Download
+                </Button>
 
-              <Button size="sm" onClick={() => onCopyImport(asset.name, asset.path)}>
-                Copy Import
-              </Button>
-            </Flex>
-          </Card>
+                <Button size="sm" onClick={() => onCopyImport(asset.name, asset.path)}>
+                  Copy Import
+                </Button>
+              </Flex>
+            </Card>
+          </li>
         ))}
       </ul>
     </Grid>

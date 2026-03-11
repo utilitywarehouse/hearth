@@ -93,6 +93,9 @@
     "generate:svg-assets": {
       "cache": false
     },
+    "generate:json-assets": {
+      "cache": false
+    },
     "generate:react": {
       "cache": false
     },
