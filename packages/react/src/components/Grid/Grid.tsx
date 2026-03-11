@@ -32,6 +32,7 @@ import { overflowPropDefs } from '../../props/overflow.props';
 import { opacityPropDefs } from '../../props/opacity.props';
 import { alignSelfPropDefs } from '../../props/align-self.props';
 import { orderPropDefs } from '../../props/order.props';
+import { alignSelfPropDefs } from '../../props/align-self.props';
 
 const COMPONENT_NAME = 'Grid';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
