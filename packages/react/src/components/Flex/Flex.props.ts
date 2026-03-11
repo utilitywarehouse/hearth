@@ -1,4 +1,5 @@
 import { AlignContentProps } from '../../props/align-content.props';
+import { AlignSelfProps } from '../../props/align-self.props';
 import { AlignItemsProps } from '../../props/align-items.props';
 import { BackgroundColorProps } from '../../props/background-color.props';
 import { BorderColorProps } from '../../props/border-color.props';
@@ -42,6 +43,7 @@ export interface CommonFlexProps
   extends
     AlignContentProps,
     AlignItemsProps,
+    AlignSelfProps,
     BackgroundColorProps,
     BorderColorProps,
     BorderRadiusProps,

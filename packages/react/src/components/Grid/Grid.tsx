@@ -30,6 +30,7 @@ import { borderWidthPropDefs } from '../../props/border-width.props';
 import { zIndexPropDefs } from '../../props/z-index.props';
 import { overflowPropDefs } from '../../props/overflow.props';
 import { opacityPropDefs } from '../../props/opacity.props';
+import { alignSelfPropDefs } from '../../props/align-self.props';
 
 const COMPONENT_NAME = 'Grid';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -49,6 +50,7 @@ export const Grid = forwardRef<GridElement, GridProps>((props, ref) => {
     gridPropDefs,
     alignContentPropDefs,
     alignItemsPropDefs,
+    alignSelfPropDefs,
     backgroundColorPropDefs,
     borderColorPropDefs,
     borderRadiusPropDefs,
