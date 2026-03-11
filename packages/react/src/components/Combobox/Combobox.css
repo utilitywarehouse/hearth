@@ -9,6 +9,7 @@
   border: var(--h-select-dropdown-border-width) solid var(--h-border-subtle);
   border-radius: var(--h-select-border-radius);
   color: var(--h-interactive-functional-foreground-subtle);
+
   /* override for Radix modal pointer-events: none behavior */
   pointer-events: auto;
 
