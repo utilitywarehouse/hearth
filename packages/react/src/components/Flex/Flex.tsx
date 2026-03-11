@@ -31,6 +31,7 @@ import { alignContentPropDefs } from '../../props/align-content.props';
 import { alignSelfPropDefs } from '../../props/align-self.props';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
+import { orderPropDefs } from '../../props/order.props';
 
 const COMPONENT_NAME = 'Flex';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -62,6 +63,7 @@ export const Flex = forwardRef<FlexElement, FlexProps>((props, ref) => {
     justifyContentPropDefs,
     marginPropDefs,
     opacityPropDefs,
+    orderPropDefs,
     overflowPropDefs,
     paddingPropDefs,
     positionPropDefs,

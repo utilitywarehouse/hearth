@@ -24,6 +24,7 @@ import { TextAlignProps } from '../../props/text-align.props';
 import { TextTransformProps } from '../../props/text-transform.props';
 import { ZIndexProps } from '../../props/z-index.props';
 import { Responsive, Union } from '../../types/responsive';
+import { OrderProps } from '../../props/order.props';
 
 const displayValues = ['none', 'inline-grid', 'grid'] as const;
 const columnsValues = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'] as const;
@@ -130,6 +131,7 @@ export interface CommonGridProps
     JustifyContentProps,
     MarginProps,
     OpacityProps,
+    OrderProps,
     OverflowProps,
     PaddingProps,
     PositionProps,

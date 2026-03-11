@@ -31,6 +31,7 @@ import { zIndexPropDefs } from '../../props/z-index.props';
 import { overflowPropDefs } from '../../props/overflow.props';
 import { opacityPropDefs } from '../../props/opacity.props';
 import { alignSelfPropDefs } from '../../props/align-self.props';
+import { orderPropDefs } from '../../props/order.props';
 
 const COMPONENT_NAME = 'Grid';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -63,6 +64,7 @@ export const Grid = forwardRef<GridElement, GridProps>((props, ref) => {
     justifyContentPropDefs,
     marginPropDefs,
     opacityPropDefs,
+    orderPropDefs,
     overflowPropDefs,
     paddingPropDefs,
     positionPropDefs,
