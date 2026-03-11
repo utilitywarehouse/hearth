@@ -14,6 +14,7 @@ import {
   List,
   ListItem,
   ListItemContent,
+  Combobox,
 } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof Modal> = {
@@ -53,6 +54,34 @@ export const Playground: Story = {
       </Modal>
     </ModalRoot>
   ),
+};
+
+export const WithCombobox: Story = {
+  render: args => {
+    const fruits = ['Apple', 'Banana', 'Orange'];
+    return (
+      <ModalRoot>
+        <ModalTrigger>
+          <Button>Open modal</Button>
+        </ModalTrigger>
+        <Modal {...args}>
+          <Combobox label="Combobox" items={fruits} />
+          <ModalFooter>
+            <ModalClose>
+              <Button variant="ghost" colorScheme="functional">
+                Cancel
+              </Button>
+            </ModalClose>
+            <ModalClose>
+              <Button variant="solid" colorScheme="highlight">
+                Primary
+              </Button>
+            </ModalClose>
+          </ModalFooter>
+        </Modal>
+      </ModalRoot>
+    );
+  },
 };
 
 export const DefaultOpen: Story = {
