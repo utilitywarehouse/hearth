@@ -7,7 +7,7 @@ A Storybook app to browse and download assets from `@utilitywarehouse/hearth-svg
 Run the following from the root to re-generate the asset lists and stories:
 
 ```console
-pnpm generate:storyook:assets
+pnpm generate:storybook:assets
 ```
 
 This will read `packages/svg-assets/manifest.json` and `packages/json-assets/manifest.json` and generate:
