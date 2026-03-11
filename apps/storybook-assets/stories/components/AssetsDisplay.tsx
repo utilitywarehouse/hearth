@@ -10,8 +10,9 @@ export const AssetsDisplay = () => {
 
   const assets = useMemo(() => {
     const q = query.trim().toLowerCase();
-    if (!q) return svgAssets;
-    return [...jsonAssets, ...svgAssets].filter(
+    const allAssets = [...jsonAssets, ...svgAssets];
+    if (!q) return allAssets;
+    return allAssets.filter(
       a => a.name.toLowerCase().includes(q) || a.path.toLowerCase().includes(q)
     );
   }, [query]);

@@ -27,7 +27,7 @@ import NextImage from 'next/image';
 import SpotHelpLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-help-light.svg';
 import Lottie from 'lottie-react';
 import { useEffect, useState } from 'react';
-import SpotProcessCompleteFunctional from '@utilitywarehouse/hearth-json-assets/lib/Spot_Process-complete_Functional.json';
+import SpotProcessCompleteFunctional from '@utilitywarehouse/hearth-json-assets/lib/spot-process-complete-functional.json';
 
 export default function Home() {
   const { container } = components;
