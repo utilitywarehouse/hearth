@@ -141,7 +141,6 @@ const styles = StyleSheet.create(theme => ({
     borderRadius: theme.components.segmentedControl.borderRadius,
     paddingHorizontal: theme.components.segmentedControl.paddingHorizontal,
     paddingVertical: theme.components.segmentedControl.paddingVertical,
-    gap: theme.components.segmentedControl.gap,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'transparent',

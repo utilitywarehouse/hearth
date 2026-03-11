@@ -19,10 +19,10 @@ To use the new optional icon prop:
 
 ```tsx
 import { SegmentedControl, SegmentedControlOption } from '@utilitywarehouse/hearth-react-native';
-import { ElectricityMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { ElectricitySmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 <SegmentedControl defaultValue="energy">
-  <SegmentedControlOption value="energy" icon={ElectricityMediumIcon}>
+  <SegmentedControlOption value="energy" icon={ElectricitySmallIcon}>
     Energy
   </SegmentedControlOption>
   <SegmentedControlOption value="broadband">Broadband</SegmentedControlOption>
