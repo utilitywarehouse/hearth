@@ -135,6 +135,14 @@
     &:where([data-contains-image] &) {
       align-items: center;
     }
+
+    & :where(.h-BodyText) {
+      text-align: left;
+
+      &:where([data-contains-image] &) {
+        text-align: left;
+      }
+    }
   }
 
   & :where(.h-ModalContent) {

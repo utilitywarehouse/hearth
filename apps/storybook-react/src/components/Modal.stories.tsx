@@ -57,6 +57,10 @@ export const Playground: Story = {
 
 export const DefaultOpen: Story = {
   parameters: { chromatic: { disableSnapshot: false, delay: 300 } },
+  args: {
+    heading: 'Before you go...',
+    description: 'Don’t forget, we offer the UK’s cheapest variable energy tariff available. Plus:',
+  },
   render: (args, context) => (
     <ModalRoot defaultOpen={context.viewMode === 'docs' ? undefined : true}>
       <ModalTrigger>
