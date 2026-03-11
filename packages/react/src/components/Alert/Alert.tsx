@@ -48,7 +48,7 @@ export const Alert = forwardRef<AlertElement, AlertProps>((props, ref) => {
       role="alert"
       aria-live="assertive"
       aria-atomic="true"
-      data-colorScheme={colorScheme}
+      data-colorscheme={colorScheme}
       {...alertProps}
     >
       <AlertIcon aria-hidden="true" />
