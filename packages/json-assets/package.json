@@ -6,7 +6,9 @@
     "clean:lib": "rm -rf lib",
     "generate": "pnpm clean:lib && node ./scripts/generate-json-assets.js"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "fs-extra": "^11.1.1"
+  },
   "files": [
     "lib"
   ]
