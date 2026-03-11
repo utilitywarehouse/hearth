@@ -53,14 +53,16 @@ export const Alert = forwardRef<AlertElement, AlertProps>((props, ref) => {
     >
       <AlertIcon aria-hidden="true" />
       <div className={`${componentClassName}Content`}>
-        <Flex direction="column">
-          {title ? (
-            <BodyText as="span" size="md" weight="semibold">
-              {title}
-            </BodyText>
-          ) : null}
-          {text ? <BodyText as="div">{text}</BodyText> : null}
-        </Flex>
+        {title || text ? (
+          <Flex direction="column">
+            {title ? (
+              <BodyText as="span" size="md" weight="semibold">
+                {title}
+              </BodyText>
+            ) : null}
+            {text ? <BodyText as="div">{text}</BodyText> : null}
+          </Flex>
+        ) : null}
         {children}
       </div>
       {onClose ? (

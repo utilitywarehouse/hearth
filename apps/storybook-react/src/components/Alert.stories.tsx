@@ -7,7 +7,6 @@ import {
   InlineLink,
   Strong,
 } from '@utilitywarehouse/hearth-react';
-import { useEffect, useState } from 'react';
 import { StoryGallery } from '../storybook-components/StoryGallery';
 
 const colorSchemes = ['info', 'positive', 'danger', 'warning'] as const;
