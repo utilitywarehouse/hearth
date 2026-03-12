@@ -9,9 +9,7 @@
     ".": "./js/index.js",
     "./browser": "./browser/index.js",
     "./browser/*": "./browser/*",
-    "./js": "./js/index.js",
     "./js/*": "./js/*",
-    "./css": "./css/index.css",
     "./css/*": "./css/*",
     "./index.css": "./index.css",
     "./*": "./*"
