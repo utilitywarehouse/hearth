@@ -1,8 +1,9 @@
-import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
-import { Platform, TextInput, View } from 'react-native';
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { TextInput, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { FormField } from '../FormField';
 import type { VerificationInputHandle, VerificationInputProps } from './VerificationInput.props';
+import { getNextIndexFromValueChange } from './VerificationInput.utils';
 import { VerificationInputSlot } from './VerificationInputSlot';
 
 const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputProps>(
@@ -49,12 +50,15 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
       }
     }, [length, value]);
 
-    const updateValue = (nextValue: string) => {
-      const trimmedValue = nextValue.slice(0, length);
-      latestValueRef.current = trimmedValue;
-      setDisplayValue(trimmedValue);
-      onChangeText?.(trimmedValue);
-    };
+    const updateValue = useCallback(
+      (nextValue: string) => {
+        const trimmedValue = nextValue.slice(0, length);
+        latestValueRef.current = trimmedValue;
+        setDisplayValue(trimmedValue);
+        onChangeText?.(trimmedValue);
+      },
+      [length, onChangeText]
+    );
 
     const setSelectionIndex = (index: number) => {
       const clampedIndex = Math.max(0, Math.min(index, length));
@@ -76,16 +80,6 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
       setFocusedIndex(Math.min(clampedIndex, length - 1));
     };
 
-    const findDiffIndex = (prevValue: string, nextValue: string) => {
-      const minLength = Math.min(prevValue.length, nextValue.length);
-      for (let i = 0; i < minLength; i += 1) {
-        if (prevValue[i] !== nextValue[i]) {
-          return i;
-        }
-      }
-      return minLength;
-    };
-
     const handleChangeText = (text: string) => {
       const prevValue = latestValueRef.current;
       const nextValue = text.slice(0, length);
@@ -94,14 +88,7 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
       const diff = nextLength - prevLength;
       const isBulkInsert = text.length > 1 && diff > 1;
       const shouldBlur = nextLength >= length;
-      let nextIndex = Math.max(
-        0,
-        Math.min(latestSelectionRef.current.start + (diff >= 0 ? 1 : diff), length)
-      );
-      if (Platform.OS === 'android') {
-        const editedIndex = findDiffIndex(prevValue, nextValue);
-        nextIndex = diff >= 0 ? Math.min(editedIndex + 1, length) : Math.max(editedIndex, 0);
-      }
+      const nextIndex = getNextIndexFromValueChange({ prevValue, nextValue, length });
       updateValue(nextValue);
       if (isBulkInsert) {
         setCaretIndex(Math.min(nextLength, length));
@@ -171,7 +158,7 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
           }
         },
       }),
-      [length, onChangeText]
+      [length, updateValue]
     );
 
     const slots = Array.from({ length }, (_, index) => index);
@@ -252,7 +239,6 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
             maxLength={length}
             caretHidden
             style={styles.hiddenInput}
-            pointerEvents="none"
           />
           {slots.map(index => {
             const char = displayValue[index] || '';
@@ -299,11 +285,12 @@ const styles = StyleSheet.create(theme => ({
     position: 'absolute',
     width: '100%',
     height: '100%',
+    pointerEvents: 'none',
     left: 0,
     top: 0,
     color: 'transparent',
     fontSize: 1,
-    opacity: 0.1,
+    opacity: 0.01,
   },
 }));
 

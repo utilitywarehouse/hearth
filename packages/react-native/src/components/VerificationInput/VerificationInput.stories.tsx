@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { InfoMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useRef, useState } from 'react';
+import { expect, userEvent, waitFor, within } from 'storybook/test';
 import { VerificationInput, type VerificationInputHandle } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { BodyText } from '../BodyText';
@@ -212,5 +213,37 @@ export const RefMethods: Story = {
         </VariantTitle>
       </Flex>
     );
+  },
+};
+
+export const FocusProgressionAfterEmptySlotSelection: Story = {
+  parameters: {
+    controls: { include: [] },
+  },
+  render: () => {
+    const [value, setValue] = useState('12');
+
+    return (
+      <Flex direction="column" spacing="sm" style={{ width: 400 }}>
+        <VerificationInput label="Verification Code" value={value} onChangeText={setValue} />
+      </Flex>
+    );
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByLabelText('Verification Code') as HTMLInputElement;
+
+    input.focus();
+
+    input.setSelectionRange(4, 4);
+    input.dispatchEvent(new Event('select', { bubbles: true }));
+
+    await userEvent.keyboard('3');
+
+    await waitFor(() => {
+      expect(input.value).toBe('123');
+      expect(input.selectionStart).toBe(3);
+      expect(input.selectionEnd).toBe(3);
+    });
   },
 };

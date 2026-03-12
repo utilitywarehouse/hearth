@@ -206,7 +206,7 @@ const SegmentedControl = ({
         {...remainingProps}
       >
         {hasIndicator ? (
-          <Indicator pointerEvents="none" style={[styles.indicator, indicatorStyle]} />
+          <Indicator style={[styles.indicator, styles.pointerEventsNone, indicatorStyle]} />
         ) : null}
         {children}
       </View>
@@ -251,6 +251,9 @@ const styles = StyleSheet.create(theme => ({
     top: 0,
     borderRadius: theme.components.segmentedControl.borderRadius,
     backgroundColor: theme.color.interactive.brand.surface.strong.default,
+  },
+  pointerEventsNone: {
+    pointerEvents: 'none',
   },
 }));
 

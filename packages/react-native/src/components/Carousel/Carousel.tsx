@@ -328,13 +328,17 @@ const Carousel = ({
             onScrollEndDrag={handleWebScrollEnd}
             ref={scrollViewRef as any}
             scrollEnabled={!disabled}
-            pointerEvents={disabled ? 'none' : 'auto'}
             scrollEventThrottle={16}
             showsHorizontalScrollIndicator={false}
             snapToInterval={itemWidth || width}
             snapToAlignment={centered ? 'center' : 'start'}
             decelerationRate="fast"
-            style={[styles.webContainer, webContainerStyles, itemsStyle]}
+            style={[
+              styles.webContainer,
+              webContainerStyles,
+              itemsStyle,
+              { pointerEvents: disabled ? 'none' : 'auto' },
+            ]}
             contentContainerStyle={[styles.webContentContainer, webContentContainerStyle]}
             {...props}
           >
