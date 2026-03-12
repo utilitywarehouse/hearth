@@ -1,4 +1,4 @@
-name: Build React Native
+name: Build And Test React Native
 on:
   pull_request:
     types: [opened, synchronize, reopened]
@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   checks:
-    name: Build
+    name: Build and Test
     runs-on: ubuntu-latest
     steps:
       - name: Harden the runner (Audit all outbound calls)
@@ -43,3 +43,7 @@ jobs:
         run: pnpm build:react-native
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
+      - name: Install Playwright Chromium
+        run: pnpm --dir packages/react-native exec playwright install --with-deps chromium
+      - name: Run React Native Storybook tests
+        run: pnpm --dir packages/react-native run test:storybook
