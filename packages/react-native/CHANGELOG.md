@@ -1,5 +1,20 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.27.2
+
+### Patch Changes
+
+- [#1003](https://github.com/utilitywarehouse/hearth/pull/1003) [`cdb95ea`](https://github.com/utilitywarehouse/hearth/commit/cdb95eabb279adaf348487ae3fb4a20e600e039e) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Correct `VerificationInput` focus progression after editing an empty slot
+
+  Fixed an issue where entering a value after selecting an empty verification slot could move focus to the wrong slot. Focus now moves to the slot immediately after the one that was actually updated.
+
+  **Components affected**:
+  - `VerificationInput`
+
+  **Developer changes**:
+
+  No changes required.
+
 ## 0.27.1
 
 ### Patch Changes
