@@ -401,14 +401,14 @@ const styles = StyleSheet.create((theme, rt) => ({
           paddingBottom:
             166 +
             rt.insets.bottom -
-            theme.components.bottomSheet.padding +
+            theme.components.modal.padding +
             theme.components.bottomSheet.padding,
         },
         false: {
           paddingBottom:
             102 +
             rt.insets.bottom -
-            theme.components.bottomSheet.padding +
+            theme.components.modal.padding +
             theme.components.bottomSheet.padding,
         },
       },
@@ -416,7 +416,7 @@ const styles = StyleSheet.create((theme, rt) => ({
         true: {
           paddingBottom:
             rt.insets.bottom +
-            theme.components.bottomSheet.padding +
+            theme.components.modal.padding +
             theme.components.bottomSheet.padding,
         },
       },
@@ -425,7 +425,7 @@ const styles = StyleSheet.create((theme, rt) => ({
         false: {
           paddingBottom:
             rt.insets.bottom +
-            theme.components.bottomSheet.padding +
+            theme.components.modal.padding +
             theme.components.bottomSheet.padding,
         },
       },
