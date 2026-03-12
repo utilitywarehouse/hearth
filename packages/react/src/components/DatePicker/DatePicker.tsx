@@ -16,6 +16,7 @@ import { mergeIds } from '../../helpers/merge-ids';
 import { Portal } from 'radix-ui';
 import { forwardRef, useState } from 'react';
 import type { ComponentRef, MouseEvent, KeyboardEvent } from 'react';
+import { isToday } from 'date-fns';
 
 const COMPONENT_NAME = 'DatePicker';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -124,6 +125,11 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
         }}
       />
     ),
+    // renderDayContents: (day: number, date: Date) => {
+    //   console.log({ day, date });
+    //   const isCurrentDay = isToday(date);
+    //   return <div>{isCurrentDay ? 'X' : day}</div>;
+    // },
   };
 
   const ariaProps = {
