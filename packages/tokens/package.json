@@ -8,7 +8,11 @@
   "exports": {
     ".": "./js/index.js",
     "./browser": "./browser/index.js",
-    "./index.css": "./index.css"
+    "./browser/*": "./browser/*.js",
+    "./js/*": "./js/*.js",
+    "./css/*": "./css/*",
+    "./index.css": "./index.css",
+    "./*": "./*"
   },
   "scripts": {
     "build:css": "postcss css/index.css --dir .",
