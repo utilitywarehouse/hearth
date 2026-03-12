@@ -132,6 +132,14 @@ const styles = StyleSheet.create(theme => ({
           paddingHorizontal: 0,
         },
       },
+      {
+        size: 'md',
+        paddingNone: true,
+        variant: 'ghost',
+        styles: {
+          paddingHorizontal: 0,
+        },
+      },
       // Variant Color Schemes
       // Emphasis
       // Emphasis Yellow

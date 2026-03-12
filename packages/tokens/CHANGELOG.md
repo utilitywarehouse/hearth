@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-tokens
 
+## 0.2.4
+
+### Patch Changes
+
+- [#1007](https://github.com/utilitywarehouse/hearth/pull/1007) [`ca97a43`](https://github.com/utilitywarehouse/hearth/commit/ca97a435c316498243d44dea42d6e2c6a3707c0c) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Add exports field to Hearth Tokens package.json
+
 ## 0.2.3
 
 ### Patch Changes
