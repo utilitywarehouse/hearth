@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react-native';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
 import { AddSmallIcon, ChevronRightSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Platform } from 'react-native';
@@ -92,7 +92,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-  render: ({ icon: _icon, children: _, ...args }) => {
+  render: ({ icon: _icon, children: _, ...args }: typeof meta.args) => {
     // @ts-expect-error - This is a playground
     const icon = _icon === 'none' ? undefined : Icons[_icon];
     return <Button {...args} icon={icon} />;
@@ -104,7 +104,7 @@ export const Variants: Story = {
     controls: { exclude: ['variant'] },
   },
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-  render: ({ icon: _icon, children: _, ...args }) => {
+  render: ({ icon: _icon, children: _, ...args }: typeof meta.args) => {
     // @ts-expect-error - This is a playground
     const icon = _icon === 'none' ? undefined : Icons[_icon];
     return (
@@ -123,17 +123,53 @@ export const Variants: Story = {
           {args.colorScheme !== 'highlight' && (
             <>
               <VariantTitle title="Outline" invert={args.inverted}>
-                {/* @ts-expect-error - story loop types don't match */}
                 <Button {...args} variant="outline" icon={icon} />
               </VariantTitle>
               <VariantTitle title="Ghost" invert={args.inverted}>
-                {/* @ts-expect-error - story loop types don't match */}
                 <Button {...args} variant="ghost" icon={icon} />
               </VariantTitle>
             </>
           )}
         </>
       </ButtonGroup>
+    );
+  },
+};
+
+export const PaddingNone: Story = {
+  parameters: {
+    controls: {
+      include: ['text', 'size', 'inverted', 'icon', 'iconPosition'],
+    },
+  },
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+  render: ({ icon: _icon, children: _, ...args }: typeof meta.args) => {
+    // @ts-expect-error - This is a playground
+    const icon = _icon === 'none' ? undefined : Icons[_icon];
+
+    return (
+      <Flex direction="column" spacing="lg">
+        <VariantTitle title="Default Padding" invert={args.inverted}>
+          <Flex direction="row" align="center" spacing="none">
+            <Box backgroundColor="brand" width="100" height="100" />
+            <Button
+              {...args}
+              colorScheme="functional"
+              variant="ghost"
+              icon={icon}
+              paddingNone={false}
+            />
+            <Box backgroundColor="brand" width="100" height="100" />
+          </Flex>
+        </VariantTitle>
+        <VariantTitle title="No Padding (paddingNone)" invert={args.inverted}>
+          <Flex direction="row" align="center" spacing="none">
+            <Box backgroundColor="brand" width="100" height="100" />
+            <Button {...args} colorScheme="functional" variant="ghost" icon={icon} paddingNone />
+            <Box backgroundColor="brand" width="100" height="100" />
+          </Flex>
+        </VariantTitle>
+      </Flex>
     );
   },
 };
@@ -145,7 +181,7 @@ export const KitchenSink: Story = {
   parameters: {
     controls: { include: ['text', 'size', 'inverted'] },
   },
-  render: ({ text, inverted, size }) => {
+  render: ({ text, inverted, size }: typeof meta.args) => {
     const schemes: Array<ColorScheme> = ['highlight', 'destructive', 'affirmative', 'functional'];
     const variants: Array<Variant> = ['emphasis', 'solid', 'outline', 'ghost'];
     return (
@@ -174,7 +210,7 @@ export const KitchenSink: Story = {
               .map(variant => (
                 <Box key={variant} mb="100">
                   <Box mb="100">
-                    <DetailText size="lg" color={inverted ? 'warmWhite50' : 'grey1000'}>
+                    <DetailText size="lg" inverted={inverted}>
                       {scheme} - {variant}
                     </DetailText>
                   </Box>
