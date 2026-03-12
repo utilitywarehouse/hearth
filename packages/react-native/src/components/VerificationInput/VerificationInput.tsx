@@ -239,7 +239,6 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
             maxLength={length}
             caretHidden
             style={styles.hiddenInput}
-            pointerEvents="none"
           />
           {slots.map(index => {
             const char = displayValue[index] || '';
@@ -286,6 +285,7 @@ const styles = StyleSheet.create(theme => ({
     position: 'absolute',
     width: '100%',
     height: '100%',
+    pointerEvents: 'none',
     left: 0,
     top: 0,
     color: 'transparent',

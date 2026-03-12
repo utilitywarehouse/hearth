@@ -43,7 +43,7 @@ jobs:
         run: pnpm build:react-native
         env:
           NODE_OPTIONS: '--max_old_space_size=4096'
-      - name: Install Playwright Chromium
+      - name: Install Playwright Chromium 🧪
         run: pnpm --dir packages/react-native exec playwright install --with-deps chromium
-      - name: Run React Native Storybook tests
+      - name: Run React Native Storybook tests ✅
         run: pnpm --dir packages/react-native run test:storybook

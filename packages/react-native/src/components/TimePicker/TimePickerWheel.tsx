@@ -46,8 +46,8 @@ const TimePickerWheel = ({ value, setValue = () => {}, items }: TimePickerWheelP
 
   const renderOverlay = useCallback(
     () => (
-      <View style={[styles.overlayContainer]} pointerEvents="none">
-        <View pointerEvents="none" style={[styles.fadeOverlay, { height: fadeHeight }]}>
+      <View style={[styles.overlayContainer, styles.pointerEventsNone]}>
+        <View style={[styles.fadeOverlay, styles.pointerEventsNone, { height: fadeHeight }]}>
           <Svg width="100%" height="100%" preserveAspectRatio="none">
             <Defs>
               <LinearGradient id={`${gradientId}-top`} x1="0" y1="0" x2="0" y2="1">
@@ -59,8 +59,12 @@ const TimePickerWheel = ({ value, setValue = () => {}, items }: TimePickerWheelP
           </Svg>
         </View>
         <View
-          pointerEvents="none"
-          style={[styles.fadeOverlay, styles.fadeOverlayBottom, { height: fadeHeight }]}
+          style={[
+            styles.fadeOverlay,
+            styles.fadeOverlayBottom,
+            styles.pointerEventsNone,
+            { height: fadeHeight },
+          ]}
         >
           <Svg width="100%" height="100%" preserveAspectRatio="none">
             <Defs>
@@ -148,6 +152,9 @@ const styles = StyleSheet.create(theme => ({
   fadeOverlayBottom: {
     top: undefined,
     bottom: 0,
+  },
+  pointerEventsNone: {
+    pointerEvents: 'none',
   },
 }));
 

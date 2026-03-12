@@ -1,5 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from '@storybook/react-native';
 import * as Icons from '@utilitywarehouse/hearth-react-native-icons';
+import { ComponentType } from 'react';
 import { IconContainer } from '.';
 import { VariantTitle } from '../../../docs/components';
 import { Box } from '../Box';
@@ -53,7 +54,9 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = { render: args => <IconContainer {...args} /> };
+export const Playground: Story = {
+  render: (args: typeof meta.args) => <IconContainer {...args} />,
+};
 
 export const Subtle: Story = {
   parameters: {
@@ -86,7 +89,7 @@ export const KitchenSink: Story = {
   parameters: {
     controls: { exclude: ['radiusNone', 'variant', 'color', 'size'] },
   },
-  render: ({ icon }) => {
+  render: ({ icon }: { icon: ComponentType }) => {
     const sizes: Array<'sm' | 'md' | 'lg'> = ['sm', 'md', 'lg'];
     const colors: Array<
       'pig' | 'energy' | 'broadband' | 'mobile' | 'insurance' | 'cashback' | 'highlight'
@@ -95,33 +98,35 @@ export const KitchenSink: Story = {
       <Flex direction="column" spacing="lg">
         {sizes.map(size => (
           <Box key={size} gap="300">
-            <VariantTitle title={`Size: ${size.toUpperCase()} / Subtle`}> </VariantTitle>
-            <Flex direction="row" wrap="wrap" spacing="md">
-              {colors.map(color => (
-                <IconContainer
-                  key={`${size}-subtle-${color}`}
-                  icon={icon}
-                  size={size}
-                  variant="subtle"
-                  color={color}
-                />
-              ))}
-            </Flex>
-            <VariantTitle title={`Size: ${size.toUpperCase()} / Emphasis`}> </VariantTitle>
-            <Flex direction="row" wrap="wrap" spacing="md">
-              {colors.map(
-                color =>
-                  color !== 'highlight' && (
-                    <IconContainer
-                      key={`${size}-emphasis-${color}`}
-                      icon={icon}
-                      size={size}
-                      variant="emphasis"
-                      color={color}
-                    />
-                  )
-              )}
-            </Flex>
+            <VariantTitle title={`Size: ${size.toUpperCase()} / Subtle`}>
+              <Flex direction="row" wrap="wrap" spacing="md">
+                {colors.map(color => (
+                  <IconContainer
+                    key={`${size}-subtle-${color}`}
+                    icon={icon}
+                    size={size}
+                    variant="subtle"
+                    color={color}
+                  />
+                ))}
+              </Flex>
+            </VariantTitle>
+            <VariantTitle title={`Size: ${size.toUpperCase()} / Emphasis`}>
+              <Flex direction="row" wrap="wrap" spacing="md">
+                {colors.map(
+                  color =>
+                    color !== 'highlight' && (
+                      <IconContainer
+                        key={`${size}-emphasis-${color}`}
+                        icon={icon}
+                        size={size}
+                        variant="emphasis"
+                        color={color}
+                      />
+                    )
+                )}
+              </Flex>
+            </VariantTitle>
           </Box>
         ))}
       </Flex>

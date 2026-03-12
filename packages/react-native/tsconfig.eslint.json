@@ -5,7 +5,8 @@
     "./src/**/*.stories.tsx",
     "./src/**/*.figma.tsx",
     "./.storybook/**/*",
-    "./docs/**/*"
+    "./docs/**/*",
+    "./vitest.unit.config.ts"
   ],
   "exclude": [
     "node_modules"

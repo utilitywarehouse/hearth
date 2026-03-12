@@ -101,8 +101,7 @@ const SegmentedControlOptionRoot = ({
             {children}
           </BodyText>
           <AnimatedView
-            pointerEvents="none"
-            style={[styles.textLayer, regularLabelStyle]}
+            style={[styles.textLayer, styles.pointerEventsNone, regularLabelStyle]}
             accessible={false}
             accessibilityElementsHidden
             importantForAccessibility="no-hide-descendants"
@@ -113,8 +112,7 @@ const SegmentedControlOptionRoot = ({
             </BodyText>
           </AnimatedView>
           <AnimatedView
-            pointerEvents="none"
-            style={[styles.textLayer, selectedLabelStyle]}
+            style={[styles.textLayer, styles.pointerEventsNone, selectedLabelStyle]}
             accessible={false}
             accessibilityElementsHidden
             importantForAccessibility="no-hide-descendants"
@@ -205,6 +203,9 @@ const styles = StyleSheet.create(theme => ({
     right: 0,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  pointerEventsNone: {
+    pointerEvents: 'none',
   },
   icon: {
     variants: {

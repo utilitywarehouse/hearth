@@ -85,7 +85,7 @@ export const ToastProvider: React.FC<ToastProviderProps> = ({
   return (
     <ToastContext.Provider value={{ addToast, removeToast }}>
       {children}
-      <View pointerEvents="box-none" style={styles.container as any}>
+      <View style={styles.container as any}>
         <View style={styles.stack as any}>
           {toasts.map(t => (
             <ToastItem
