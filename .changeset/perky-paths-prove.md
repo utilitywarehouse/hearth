@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react-native': patch
 ---
 
-testID fix for react-native list component
+🐛 [FIX]: testID for `List` component
