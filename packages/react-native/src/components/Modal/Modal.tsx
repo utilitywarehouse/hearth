@@ -7,7 +7,14 @@ import {
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
-import { AccessibilityInfo, Dimensions, Platform, ScrollView, View, findNodeHandle } from 'react-native';
+import {
+  AccessibilityInfo,
+  Dimensions,
+  Platform,
+  ScrollView,
+  View,
+  findNodeHandle,
+} from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -292,13 +299,23 @@ const Modal = ({
             </View>
           ) : null}
           {inNavModal && (
-            <InNavModalContainer style={{ flex: stickyFooter ? 1 : 0 }}>
+            <InNavModalContainer
+              style={{
+                flex: stickyFooter ? 1 : 0,
+                ...(scrollable ? { marginHorizontal: -1 } : {}),
+              }}
+              {...(scrollable ? { contentContainerStyle: { paddingHorizontal: 1 } } : {})}
+            >
               {children}
-              {!stickyFooter ? <View style={styles.inNavModalFooterContainer}>{footer}</View> : null}
+              {!stickyFooter ? (
+                <View style={styles.inNavModalFooterContainer}>{footer}</View>
+              ) : null}
             </InNavModalContainer>
           )}
           {!inNavModal && children}
-          {((!stickyFooter && !inNavModal) || (inNavModal && stickyFooter)) && !noButtons ? footer : null}
+          {((!stickyFooter && !inNavModal) || (inNavModal && stickyFooter)) && !noButtons
+            ? footer
+            : null}
         </View>
       )}
     </>
@@ -322,7 +339,7 @@ const Modal = ({
 
   return inNavModal ? (
     <View
-      onLayout={(e) => {
+      onLayout={e => {
         setInNavModalHeight(e.nativeEvent.layout.height);
       }}
       style={{
@@ -338,9 +355,7 @@ const Modal = ({
       <Animated.View
         style={[styles.inNavModalContainer, Platform.OS === 'android' && animatedInNavModalStyle]}
       >
-        <View style={styles.inNavModalContent}>
-          {content}
-        </View>
+        <View style={styles.inNavModalContent}>{content}</View>
       </Animated.View>
     </View>
   ) : (
@@ -386,14 +401,14 @@ const styles = StyleSheet.create((theme, rt) => ({
           paddingBottom:
             166 +
             rt.insets.bottom -
-            theme.components.modal.padding +
+            theme.components.bottomSheet.padding +
             theme.components.bottomSheet.padding,
         },
         false: {
           paddingBottom:
             102 +
             rt.insets.bottom -
-            theme.components.modal.padding +
+            theme.components.bottomSheet.padding +
             theme.components.bottomSheet.padding,
         },
       },
@@ -401,7 +416,7 @@ const styles = StyleSheet.create((theme, rt) => ({
         true: {
           paddingBottom:
             rt.insets.bottom +
-            theme.components.modal.padding +
+            theme.components.bottomSheet.padding +
             theme.components.bottomSheet.padding,
         },
       },
@@ -410,7 +425,7 @@ const styles = StyleSheet.create((theme, rt) => ({
         false: {
           paddingBottom:
             rt.insets.bottom +
-            theme.components.modal.padding +
+            theme.components.bottomSheet.padding +
             theme.components.bottomSheet.padding,
         },
       },
@@ -471,7 +486,7 @@ const styles = StyleSheet.create((theme, rt) => ({
     borderTopLeftRadius: theme.components.modal.borderRadius,
     borderTopRightRadius: theme.components.modal.borderRadius,
     backgroundColor: theme.color.surface.neutral.strong,
-    paddingBottom: theme.components.modal.padding + rt.insets.bottom,
+    paddingBottom: theme.components.bottomSheet.padding + rt.insets.bottom,
     variants: {
       background: {
         primary: {},
@@ -481,22 +496,22 @@ const styles = StyleSheet.create((theme, rt) => ({
       },
       fullscreen: {
         true: {
-          padding: theme.components.modal.padding,
+          padding: theme.components.bottomSheet.padding,
           paddingTop: rt.insets.top,
         },
         false: {
-          padding: theme.components.modal.padding,
-        }
-      }
+          padding: theme.components.bottomSheet.padding,
+        },
+      },
     },
   },
   inNavModalFooterContainer: {
-    paddingTop: theme.components.modal.padding,
+    paddingTop: theme.components.bottomSheet.padding,
   },
   androidContainer: {
     height: rt.insets.top + 18,
-    paddingLeft: theme.components.modal.padding,
-    paddingRight: theme.components.modal.padding,
+    paddingLeft: theme.components.bottomSheet.padding,
+    paddingRight: theme.components.bottomSheet.padding,
     justifyContent: 'flex-end',
   },
   pretendContent: {
