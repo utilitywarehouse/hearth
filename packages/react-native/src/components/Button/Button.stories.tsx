@@ -92,7 +92,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Playground: Story = {
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-  render: ({ icon: _icon, children: _, ...args }: typeof meta.args) => {
+  render: ({ icon: _icon, children: _, ...args }: StoryObj<typeof meta.args>) => {
     // @ts-expect-error - This is a playground
     const icon = _icon === 'none' ? undefined : Icons[_icon];
     return <Button {...args} icon={icon} />;
@@ -104,7 +104,7 @@ export const Variants: Story = {
     controls: { exclude: ['variant'] },
   },
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-  render: ({ icon: _icon, children: _, ...args }: typeof meta.args) => {
+  render: ({ icon: _icon, children: _, ...args }: StoryObj<typeof meta.args>) => {
     // @ts-expect-error - This is a playground
     const icon = _icon === 'none' ? undefined : Icons[_icon];
     return (
@@ -143,7 +143,7 @@ export const PaddingNone: Story = {
     },
   },
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-  render: ({ icon: _icon, children: _, ...args }: typeof meta.args) => {
+  render: ({ icon: _icon, children: _, ...args }: StoryObj<typeof meta.args>) => {
     // @ts-expect-error - This is a playground
     const icon = _icon === 'none' ? undefined : Icons[_icon];
 
@@ -181,7 +181,7 @@ export const KitchenSink: Story = {
   parameters: {
     controls: { include: ['text', 'size', 'inverted'] },
   },
-  render: ({ text, inverted, size }: typeof meta.args) => {
+  render: ({ text, inverted, size }: StoryObj<typeof meta.args>) => {
     const schemes: Array<ColorScheme> = ['highlight', 'destructive', 'affirmative', 'functional'];
     const variants: Array<Variant> = ['emphasis', 'solid', 'outline', 'ghost'];
     return (
