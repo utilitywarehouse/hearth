@@ -5,6 +5,15 @@
   "style": "./index.css",
   "main": "./js/index.js",
   "type": "module",
+  "exports": {
+    ".": "./js/index.js",
+    "./browser": "./browser/index.js",
+    "./browser/*": "./browser/*",
+    "./js/*": "./js/*",
+    "./css/*": "./css/*",
+    "./index.css": "./index.css",
+    "./*": "./*"
+  },
   "scripts": {
     "build:css": "postcss css/index.css --dir .",
     "build:js": "tsc --project ./tsconfig.json",
