@@ -15,9 +15,9 @@ The `Combobox` component lets people search and select from a list inside a bott
 
 - [Playground](#playground)
 - [Usage](#usage)
-- [Accessibility](#accessibility)
 - [Props](#props)
 - [Examples](#examples)
+- [Accessibility](#accessibility)
 
 ## Playground
 
@@ -68,25 +68,6 @@ const MyComponent = () => {
   );
 };
 ```
-
-## Accessibility
-
-The `Combobox` is implemented as a button that opens a bottom sheet. By default:
-
-- The trigger uses an accessible label derived from the `label` prop (and, where appropriate, the current value or `placeholder`) and is exposed with `accessibilityRole="button"`.
-- When the bottom sheet is open, the trigger reflects its state via `accessibilityState={{ expanded: true }}`; when the sheet is closed, it reports `expanded: false`. Screen readers should announce this state change as “expanded” / “collapsed”.
-- The clear control (shown when a value is selected and clearing is allowed) is exposed as a separate button with an accessibility label such as “Clear selection”, so that screen reader users understand its purpose.
-
-When you rely on the built‑in options list via the `options` prop, each option is rendered with appropriate roles and labels so that it can be discovered and activated with assistive technology.
-
-When you provide fully custom sheet content instead of using `ComboboxOption`:
-
-- Make sure interactive elements inside the sheet have the correct `accessibilityRole` (for example, `button` or `checkbox`) and meaningful `accessibilityLabel`s.
-- Ensure that the primary search field inside the sheet remains focusable and clearly labelled with `searchPlaceholder` or a custom accessible label.
-- Provide clear labelling or headings for grouped content, and ensure focus order inside the sheet is logical.
-- Keep a visible and accessible way to dismiss the sheet (for example, a close button with an appropriate accessibility label).
-
-These practices help ensure that the combobox remains understandable and operable for screen reader and keyboard users, regardless of whether you use the built‑in options list or custom content.
 
 ## Props
 
@@ -275,3 +256,22 @@ const MyComponent = () => {
   );
 };
 ```
+
+## Accessibility
+
+The `Combobox` is implemented as a button that opens a bottom sheet. By default:
+
+- The trigger uses an accessible label derived from the `label` prop (and, where appropriate, the current value or `placeholder`) and is exposed with `accessibilityRole="button"`.
+- When the bottom sheet is open, the trigger reflects its state via `accessibilityState={{ expanded: true }}`; when the sheet is closed, it reports `expanded: false`. Screen readers should announce this state change as “expanded” / “collapsed”.
+- The clear control (shown when a value is selected and clearing is allowed) is exposed as a separate button with an accessibility label such as “Clear selection”, so that screen reader users understand its purpose.
+
+When you rely on the built‑in options list via the `options` prop, each option is rendered with appropriate roles and labels so that it can be discovered and activated with assistive technology.
+
+When you provide fully custom sheet content instead of using `ComboboxOption`:
+
+- Make sure interactive elements inside the sheet have the correct `accessibilityRole` (for example, `button` or `checkbox`) and meaningful `accessibilityLabel`s.
+- Ensure that the primary search field inside the sheet remains focusable and clearly labelled with `searchPlaceholder` or a custom accessible label.
+- Provide clear labelling or headings for grouped content, and ensure focus order inside the sheet is logical.
+- Keep a visible and accessible way to dismiss the sheet (for example, a close button with an appropriate accessibility label).
+
+These practices help ensure that the combobox remains understandable and operable for screen reader and keyboard users, regardless of whether you use the built‑in options list or custom content.
