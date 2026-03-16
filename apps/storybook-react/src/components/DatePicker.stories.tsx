@@ -21,6 +21,7 @@ const meta: Meta<typeof DatePicker> = {
     helperText: { control: { type: 'text' } },
     validationText: { control: { type: 'text' } },
     validationStatus: { control: { type: 'radio' }, options: [undefined, 'valid', 'invalid'] },
+    disableTodayIndicator: { control: { type: 'boolean' } },
   },
   args: {
     disabled: false,
@@ -29,6 +30,7 @@ const meta: Meta<typeof DatePicker> = {
     label: 'Label',
     helperText: 'Helper text',
     validationText: 'Validation text',
+    disableTodayIndicator: false,
   },
 };
 

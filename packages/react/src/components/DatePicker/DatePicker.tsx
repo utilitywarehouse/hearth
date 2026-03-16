@@ -16,7 +16,6 @@ import { mergeIds } from '../../helpers/merge-ids';
 import { Portal } from 'radix-ui';
 import { forwardRef, useState } from 'react';
 import type { ComponentRef, MouseEvent, KeyboardEvent } from 'react';
-import { isToday } from 'date-fns';
 
 const COMPONENT_NAME = 'DatePicker';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -38,6 +37,7 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
     disabled,
     readOnly,
     required,
+    disableTodayIndicator,
     ...datePickerProps
   } = extractProps(props, marginPropDefs);
 
@@ -119,17 +119,13 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
     renderCustomHeader: (props: ReactDatePickerCustomHeaderProps) => (
       <DatePickerHeader
         {...props}
+        data-disable-today-indicator={disableTodayIndicator ? true : undefined}
         view={view}
         onClick={() => {
           setView(nextView[view]);
         }}
       />
     ),
-    // renderDayContents: (day: number, date: Date) => {
-    //   console.log({ day, date });
-    //   const isCurrentDay = isToday(date);
-    //   return <div>{isCurrentDay ? 'X' : day}</div>;
-    // },
   };
 
   const ariaProps = {
@@ -194,6 +190,7 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
     <FormField className={cn(componentClassName, className)} {...formFieldProps}>
       <DatePickerPrimitive
         {...reactDatePickerProps}
+        data-rob-test
         // @ts-expect-error having to be explicit about these types to ensure onChange type is correct
         selectsRange={false}
         // @ts-expect-error having to be explicit about these types to ensure onChange type is correct

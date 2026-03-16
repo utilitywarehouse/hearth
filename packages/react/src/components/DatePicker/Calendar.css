@@ -50,11 +50,8 @@
     background-color: var(--h-surface-brand-default);
   }
 
-  .react-datepicker__day--today,
-  .react-datepicker__month-text--today,
-  .react-datepicker__quarter-text--today,
-  .react-datepicker__year-text--today {
-    /* font-weight: var(--h-body-text-font-weight-semibold); */
+  &.h-DatePickerCalendar:not(:has([data-disable-today-indicator='true']))
+    .react-datepicker__day--today {
     position: relative;
 
     &::after {
