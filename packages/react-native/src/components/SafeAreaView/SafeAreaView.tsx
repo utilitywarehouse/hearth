@@ -15,42 +15,55 @@ const DEFAULT_EDGES: SafeAreaEdge[] = ['top', 'right', 'bottom', 'left'];
 const EMPTY_INSETS: EdgeInsets = { top: 0, right: 0, bottom: 0, left: 0 };
 const EDGE_EPSILON = 1;
 
-const getNumericStyleValue = (value: unknown) => {
-  return typeof value === 'number' ? value : 0;
+const getNumericStyleValue = (value: unknown): number | undefined => {
+  return typeof value === 'number' ? value : undefined;
 };
 
 const getStyleInsetValue = (
   style: ViewStyle | undefined,
   mode: SafeAreaViewProps['mode'],
   edge: SafeAreaEdge
-) => {
+): number | undefined => {
   const prefix = mode === 'margin' ? 'margin' : 'padding';
 
   if (!style) {
+    // No style specified at all; treat as zero inset for safe-area calculations.
     return 0;
   }
 
   if (edge === 'top') {
-    return getNumericStyleValue(
-      style[`${prefix}Top`] ?? style[`${prefix}Vertical`] ?? style[prefix] ?? 0
-    );
+    const raw =
+      style[`${prefix}Top`] ?? style[`${prefix}Vertical`] ?? style[prefix];
+    if (raw == null) {
+      return 0;
+    }
+    return getNumericStyleValue(raw);
   }
 
   if (edge === 'bottom') {
-    return getNumericStyleValue(
-      style[`${prefix}Bottom`] ?? style[`${prefix}Vertical`] ?? style[prefix] ?? 0
-    );
+    const raw =
+      style[`${prefix}Bottom`] ?? style[`${prefix}Vertical`] ?? style[prefix];
+    if (raw == null) {
+      return 0;
+    }
+    return getNumericStyleValue(raw);
   }
 
   if (edge === 'left') {
-    return getNumericStyleValue(
-      style[`${prefix}Left`] ?? style[`${prefix}Horizontal`] ?? style[prefix] ?? 0
-    );
+    const raw =
+      style[`${prefix}Left`] ?? style[`${prefix}Horizontal`] ?? style[prefix];
+    if (raw == null) {
+      return 0;
+    }
+    return getNumericStyleValue(raw);
   }
 
-  return getNumericStyleValue(
-    style[`${prefix}Right`] ?? style[`${prefix}Horizontal`] ?? style[prefix] ?? 0
-  );
+  const raw =
+    style[`${prefix}Right`] ?? style[`${prefix}Horizontal`] ?? style[prefix];
+  if (raw == null) {
+    return 0;
+  }
+  return getNumericStyleValue(raw);
 };
 
 const SafeAreaView = forwardRef<View, SafeAreaViewProps>(
