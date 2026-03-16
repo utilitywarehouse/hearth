@@ -37,6 +37,7 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
     disabled,
     readOnly,
     required,
+    disableTodayIndicator,
     ...datePickerProps
   } = extractProps(props, marginPropDefs);
 
@@ -122,6 +123,7 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
         onClick={() => {
           setView(nextView[view]);
         }}
+        disableTodayIndicator={disableTodayIndicator}
       />
     ),
   };
