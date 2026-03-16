@@ -1,0 +1,257 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import { BottomSheetFlatList, Box, Center, Combobox, ComboboxOption } from '../../';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Combobox.stories';
+
+<Meta title="Forms / Combobox" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=9359-2923&t=c7xg5X0N2EL0t87h-4" />
+
+# Combobox
+
+The `Combobox` component lets people search and select from a list inside a bottom sheet. It keeps the trigger text and the bottom sheet search input in sync, and can render either the built-in options list or fully custom sheet content.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Examples](#examples)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <Combobox
+      label="Country"
+      placeholder="Search for a country"
+      searchPlaceholder="Search for a country"
+      options={[
+        { label: 'United Kingdom', value: 'uk' },
+        { label: 'United States', value: 'us' },
+        { label: 'Canada', value: 'ca' },
+      ]}
+      value="uk"
+    />
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Combobox } from '@utilitywarehouse/hearth-react-native';
+import { useState } from 'react';
+
+const countries = [
+  { label: 'United Kingdom', value: 'uk' },
+  { label: 'United States', value: 'us' },
+  { label: 'Canada', value: 'ca' },
+];
+
+const MyComponent = () => {
+  const [value, setValue] = useState<string | null>(null);
+
+  return (
+    <Combobox
+      label="Country"
+      placeholder="Search for a country"
+      searchPlaceholder="Search for a country"
+      options={countries}
+      value={value}
+      onValueChange={setValue}
+    />
+  );
+};
+```
+
+## Props
+
+The `Combobox` component inherits all of the React Native [`View` props](https://reactnative.dev/docs/view).
+
+| Prop                 | Type                                | Default              | Description                                                                  |
+| -------------------- | ----------------------------------- | -------------------- | ---------------------------------------------------------------------------- |
+| `options`            | `ComboboxOptionItemProps[]`         | `[]`                 | Array of options for the built-in bottom sheet list.                         |
+| `value`              | `string \| null`                    | `-`                  | Currently selected value.                                                    |
+| `onValueChange`      | `(value: string \| null) => void`   | `-`                  | Callback when the selected value changes.                                    |
+| `inputValue`         | `string`                            | `-`                  | Controlled search value for the trigger and bottom sheet input.              |
+| `onInputValueChange` | `(value: string) => void`           | `-`                  | Callback when the search value changes.                                      |
+| `placeholder`        | `string`                            | `'Search'`           | Placeholder shown in the trigger when empty.                                 |
+| `searchPlaceholder`  | `string`                            | `'Search'`           | Placeholder shown in the bottom sheet search input.                          |
+| `menuHeading`        | `string`                            | `-`                  | Optional heading shown at the top of the bottom sheet.                       |
+| `children`           | `ReactNode \| (props) => ReactNode` | `-`                  | Custom bottom sheet content, or a render function for custom list rendering. |
+| `loading`            | `boolean`                           | `false`              | Displays a loading spinner in the trigger and sheet input.                   |
+| `noOptionsFoundText` | `string`                            | `'No options found'` | Empty state text for the built-in options list.                              |
+| `getValueLabel`      | `(value) => string`                 | `-`                  | Resolve a label for selected values that are not present in `options`.       |
+| `filterOption`       | `(option, search) => boolean`       | `-`                  | Override the default label and keyword filtering logic.                      |
+
+## Examples
+
+### Static Searchable List
+
+<Canvas of={Stories.StaticSearchableList} />
+
+```tsx
+import { Combobox } from '@utilitywarehouse/hearth-react-native';
+import { useState } from 'react';
+
+const countries = [
+  { label: 'United Kingdom', value: 'uk', keywords: ['britain', 'england'] },
+  { label: 'United States', value: 'us', keywords: ['america', 'usa'] },
+  { label: 'Canada', value: 'ca' },
+  { label: 'Australia', value: 'au' },
+  { label: 'France', value: 'fr' },
+];
+
+const MyComponent = () => {
+  const [value, setValue] = useState<string | null>(null);
+
+  return (
+    <Combobox
+      label="Country"
+      helperText="Search a fixed list of countries"
+      placeholder="Search for a country"
+      searchPlaceholder="Search for a country"
+      menuHeading="Choose a country"
+      options={countries}
+      value={value}
+      onValueChange={setValue}
+    />
+  );
+};
+```
+
+### Dynamic Items
+
+<Canvas of={Stories.DynamicItems} />
+
+```tsx
+import { Combobox } from '@utilitywarehouse/hearth-react-native';
+import { useEffect, useState } from 'react';
+
+const allProducts = [
+  { label: 'Broadband', value: 'broadband' },
+  { label: 'Energy', value: 'energy' },
+  { label: 'Mobile', value: 'mobile' },
+];
+
+const MyComponent = () => {
+  const [value, setValue] = useState<string | null>(null);
+  const [inputValue, setInputValue] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [options, setOptions] = useState(allProducts);
+
+  useEffect(() => {
+    setLoading(true);
+
+    const timeout = setTimeout(() => {
+      const query = inputValue.trim().toLowerCase();
+      setOptions(allProducts.filter(option => option.label.toLowerCase().includes(query)));
+      setLoading(false);
+    }, 300);
+
+    return () => clearTimeout(timeout);
+  }, [inputValue]);
+
+  return (
+    <Combobox
+      label="Products"
+      options={options}
+      value={value}
+      onValueChange={setValue}
+      inputValue={inputValue}
+      onInputValueChange={setInputValue}
+      loading={loading}
+      getValueLabel={selectedValue =>
+        allProducts.find(option => option.value === selectedValue)?.label ?? ''
+      }
+    />
+  );
+};
+```
+
+### Custom Bottom Sheet Flat List
+
+<Canvas of={Stories.CustomFlatList} />
+
+```tsx
+import {
+  BottomSheetFlatList,
+  Combobox,
+  ComboboxOption,
+} from '@utilitywarehouse/hearth-react-native';
+
+const cities = [
+  { label: 'London', value: 'london' },
+  { label: 'Liverpool', value: 'liverpool' },
+  { label: 'Leeds', value: 'leeds' },
+];
+
+const MyComponent = () => {
+  return (
+    <Combobox label="Cities" placeholder="Search a city">
+      {({ search }) => {
+        const query = search.trim().toLowerCase();
+        const filteredCities = cities.filter(option => option.label.toLowerCase().includes(query));
+
+        return (
+          <BottomSheetFlatList
+            data={filteredCities}
+            keyExtractor={item => item.value}
+            renderItem={({ item }) => <ComboboxOption label={item.label} value={item.value} />}
+          />
+        );
+      }}
+    </Combobox>
+  );
+};
+```
+
+### Inline Custom Content
+
+<UsageWrap>
+  <Center>
+    <Combobox label="Inline options" placeholder="Search for a country">
+      <Box>
+        <ComboboxOption label="United Kingdom" value="uk" />
+        <ComboboxOption label="United States" value="us" />
+        <ComboboxOption label="Canada" value="ca" />
+      </Box>
+    </Combobox>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Box, Combobox, ComboboxOption } from '@utilitywarehouse/hearth-react-native';
+import { useState } from 'react';
+
+const countries = [
+  { label: 'United Kingdom', value: 'uk' },
+  { label: 'United States', value: 'us' },
+  { label: 'Canada', value: 'ca' },
+];
+
+const MyComponent = () => {
+  const [value, setValue] = useState<string | null>(null);
+
+  return (
+    <Combobox
+      label="Inline options"
+      helperText="Compose your own sheet content using ComboboxOption"
+      placeholder="Search a country"
+      searchPlaceholder="Search a country"
+      value={value}
+      onValueChange={setValue}
+    >
+      <Box>
+        {countries.map(option => (
+          <ComboboxOption key={option.value} label={option.label} value={option.value} />
+        ))}
+      </Box>
+    </Combobox>
+  );
+};
+```

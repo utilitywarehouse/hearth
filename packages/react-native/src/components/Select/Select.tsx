@@ -16,6 +16,7 @@ import { Input } from '../Input';
 import { SelectContext } from './Select.context';
 import SelectProps, { SelectOptionItemProps } from './Select.props';
 import SelectOption from './SelectOption';
+import { SafeAreaView } from '../SafeAreaView';
 
 const Select = ({
   options = [],
@@ -179,34 +180,36 @@ const Select = ({
             close: closeBottomSheet,
           }}
         >
-          {menuHeading && (
-            <View style={styles.headingContainer}>
-              <DetailText size="lg">{menuHeading}</DetailText>
-            </View>
-          )}
-          {searchable && (
-            <View style={styles.searchContainer}>
-              <Input
-                placeholder={searchPlaceholder}
-                value={search}
-                inBottomSheet
-                onChangeText={setSearch}
-                type="search"
-              />
-            </View>
-          )}
+          <SafeAreaView edges={['top', 'bottom']} style={{ flex: 1 }}>
+            {menuHeading && (
+              <View style={styles.headingContainer}>
+                <DetailText size="lg">{menuHeading}</DetailText>
+              </View>
+            )}
+            {searchable && (
+              <View style={styles.searchContainer}>
+                <Input
+                  placeholder={searchPlaceholder}
+                  value={search}
+                  inBottomSheet
+                  onChangeText={setSearch}
+                  type="search"
+                />
+              </View>
+            )}
 
-          {children ? (
-            <BottomSheetScrollView>{children}</BottomSheetScrollView>
-          ) : (
-            <BottomSheetFlatList
-              data={filteredOptions}
-              keyExtractor={(option: any) => option.value}
-              renderItem={renderSelectOption}
-              ListEmptyComponent={renderEmptyComponent}
-              {...listProps}
-            />
-          )}
+            {children ? (
+              <BottomSheetScrollView>{children}</BottomSheetScrollView>
+            ) : (
+              <BottomSheetFlatList
+                data={filteredOptions}
+                keyExtractor={(option: any) => option.value}
+                renderItem={renderSelectOption}
+                ListEmptyComponent={renderEmptyComponent}
+                {...listProps}
+              />
+            )}
+          </SafeAreaView>
         </SelectContext.Provider>
       </BottomSheetModal>
     </View>

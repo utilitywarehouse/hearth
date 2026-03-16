@@ -6,15 +6,8 @@ import {
 } from '@gorhom/bottom-sheet';
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import { CloseMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
-import { useCallback, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
-import {
-  AccessibilityInfo,
-  Dimensions,
-  Platform,
-  ScrollView,
-  View,
-  findNodeHandle,
-} from 'react-native';
+import { useCallback, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
+import { AccessibilityInfo, Platform, ScrollView, View, findNodeHandle } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -29,6 +22,7 @@ import { BodyText } from '../BodyText';
 import { BottomSheetModal, BottomSheetScrollView } from '../BottomSheet';
 import { Button } from '../Button';
 import { Heading } from '../Heading';
+import { SafeAreaView } from '../SafeAreaView';
 import { Spinner } from '../Spinner';
 import { UnstyledIconButton } from '../UnstyledIconButton';
 import ModalProps from './Modal.props';
@@ -69,16 +63,6 @@ const Modal = ({
   const pretendContentTranslateY = useSharedValue(20);
   const isBrandBackground = background === 'brand';
 
-  const [inNavModalHeight, setInNavModalHeight] = useState<number>();
-
-  const isNavModalFullScreen = useMemo(() => {
-    if (!inNavModalHeight || !inNavModal) return false;
-
-    const screenHeight = Dimensions.get('window').height;
-
-    return inNavModalHeight >= screenHeight;
-  }, [inNavModalHeight, inNavModal]);
-
   const triggerCloseAnimation = useCallback(() => {
     if (Platform.OS === 'android' && inNavModal) {
       pretendContentTranslateY.value = withTiming(20, {
@@ -90,7 +74,7 @@ const Modal = ({
         easing: Easing.in(Easing.quad),
       });
     }
-  }, [Platform.OS, inNavModal, pretendContentTranslateY, backgroundOpacity]);
+  }, [inNavModal, pretendContentTranslateY, backgroundOpacity]);
 
   useImperativeHandle(ref, () => ({
     ...(bottomSheetModalRef.current as BottomSheetModal),
@@ -157,30 +141,30 @@ const Modal = ({
     props.onChange?.(index, position, type);
   };
 
-  const handleCloseButtonPress = () => {
+  const handleCloseButtonPress = useCallback(() => {
     bottomSheetModalRef.current?.dismiss();
     if (onPressCloseButton) {
       onPressCloseButton();
     }
-  };
+  }, [onPressCloseButton]);
 
-  const handlePrimaryButtonPress = () => {
+  const handlePrimaryButtonPress = useCallback(() => {
     if (onPressPrimaryButton) {
       onPressPrimaryButton();
     }
     if (closeOnPrimaryButtonPress) {
       bottomSheetModalRef.current?.dismiss();
     }
-  };
+  }, [closeOnPrimaryButtonPress, onPressPrimaryButton]);
 
-  const handleSecondaryButtonPress = () => {
+  const handleSecondaryButtonPress = useCallback(() => {
     if (onPressSecondaryButton) {
       onPressSecondaryButton();
     }
     if (closeOnSecondaryButtonPress) {
       bottomSheetModalRef.current?.dismiss();
     }
-  };
+  }, [closeOnSecondaryButtonPress, onPressSecondaryButton]);
 
   const noButtons = !onPressPrimaryButton && !onPressSecondaryButton;
 
@@ -191,34 +175,45 @@ const Modal = ({
     stickyFooter,
     showHandle: props.showHandle,
     background: isBrandBackground ? 'brand' : 'primary',
-    ...(inNavModal && {
-      fullscreen: isNavModalFullScreen,
-    }),
   });
 
-  const footer = (
-    <View style={styles.footer}>
-      {onPressPrimaryButton && primaryButtonText ? (
-        <Button
-          onPress={handlePrimaryButtonPress}
-          text={primaryButtonText}
-          inverted={isBrandBackground && inNavModal}
-          {...primaryButtonProps}
-          variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
-          colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
-        />
-      ) : null}
-      {onPressSecondaryButton && secondaryButtonText ? (
-        <Button
-          onPress={handleSecondaryButtonPress}
-          text={secondaryButtonText}
-          inverted={isBrandBackground && inNavModal}
-          {...secondaryButtonProps}
-          variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
-          colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
-        />
-      ) : null}
-    </View>
+  const footer = useMemo(
+    () => (
+      <View style={styles.footer}>
+        {onPressPrimaryButton && primaryButtonText ? (
+          <Button
+            onPress={handlePrimaryButtonPress}
+            text={primaryButtonText}
+            inverted={isBrandBackground && inNavModal}
+            {...primaryButtonProps}
+            variant={(primaryButtonProps?.variant as 'solid') ?? 'solid'}
+            colorScheme={(primaryButtonProps?.colorScheme as 'highlight') ?? 'highlight'}
+          />
+        ) : null}
+        {onPressSecondaryButton && secondaryButtonText ? (
+          <Button
+            onPress={handleSecondaryButtonPress}
+            text={secondaryButtonText}
+            inverted={isBrandBackground && inNavModal}
+            {...secondaryButtonProps}
+            variant={(secondaryButtonProps?.variant as 'outline') ?? 'outline'}
+            colorScheme={(secondaryButtonProps?.colorScheme as 'functional') ?? 'functional'}
+          />
+        ) : null}
+      </View>
+    ),
+    [
+      handlePrimaryButtonPress,
+      handleSecondaryButtonPress,
+      inNavModal,
+      isBrandBackground,
+      onPressPrimaryButton,
+      onPressSecondaryButton,
+      primaryButtonProps,
+      primaryButtonText,
+      secondaryButtonProps,
+      secondaryButtonText,
+    ]
   );
 
   const InNavModalContainer = scrollable ? ScrollView : View;
@@ -327,21 +322,11 @@ const Modal = ({
         <View style={styles.footerWrap}>{footer}</View>
       </BottomSheetFooter>
     ),
-    [
-      onPressPrimaryButton,
-      primaryButtonText,
-      onPressSecondaryButton,
-      secondaryButtonText,
-      primaryButtonProps,
-      secondaryButtonProps,
-    ]
+    [footer]
   );
 
   return inNavModal ? (
     <View
-      onLayout={e => {
-        setInNavModalHeight(e.nativeEvent.layout.height);
-      }}
       style={{
         flex: 1,
         backgroundColor: theme.color.background[isBrandBackground ? 'brand' : 'primary'],
@@ -355,7 +340,9 @@ const Modal = ({
       <Animated.View
         style={[styles.inNavModalContainer, Platform.OS === 'android' && animatedInNavModalStyle]}
       >
-        <View style={styles.inNavModalContent}>{content}</View>
+        <SafeAreaView edges={['top', 'bottom']} style={styles.inNavModalContent}>
+          {content}
+        </SafeAreaView>
       </Animated.View>
     </View>
   ) : (
@@ -486,21 +473,12 @@ const styles = StyleSheet.create((theme, rt) => ({
     borderTopLeftRadius: theme.components.modal.borderRadius,
     borderTopRightRadius: theme.components.modal.borderRadius,
     backgroundColor: theme.color.surface.neutral.strong,
-    paddingBottom: theme.components.bottomSheet.padding + rt.insets.bottom,
+    padding: theme.components.bottomSheet.padding,
     variants: {
       background: {
         primary: {},
         brand: {
           backgroundColor: theme.color.background.brand,
-        },
-      },
-      fullscreen: {
-        true: {
-          padding: theme.components.bottomSheet.padding,
-          paddingTop: rt.insets.top,
-        },
-        false: {
-          padding: theme.components.bottomSheet.padding,
         },
       },
     },
