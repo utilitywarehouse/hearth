@@ -285,6 +285,7 @@ const Combobox = ({
           accessibilityRole="button"
           accessibilityLabel={accessibilityLabel}
           accessibilityHint={accessibilityHint}
+          accessibilityState={{ expanded: isOpen, disabled: isDisabled || isReadonly }}
           style={({ pressed }) => [styles.trigger, (pressed || isOpen) && styles.triggerFocused]}
         >
           <View style={styles.leadingIconContainer}>
