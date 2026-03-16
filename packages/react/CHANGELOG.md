@@ -1,5 +1,14 @@
 # @utilitywarehouse/hearth-react
 
+## 0.25.5
+
+### Patch Changes
+
+- [#1004](https://github.com/utilitywarehouse/hearth/pull/1004) [`0585a9f`](https://github.com/utilitywarehouse/hearth/commit/0585a9f2a779692f60d1fc26bfa0fe235e5dacf6) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add today indicator
+
+  This change adds a visual indicator for the current day. It can be disabled
+  with the `disableTodayIndicator` prop.
+
 ## 0.25.4
 
 ### Patch Changes
