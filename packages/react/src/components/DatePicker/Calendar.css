@@ -52,8 +52,7 @@
     background-color: var(--h-surface-brand-default);
   }
 
-  &.h-DatePickerCalendar:not(:has([data-disable-today-indicator='true']))
-    .react-datepicker__day--today {
+  &.h-DatePickerCalendar:not(:has([data-disable-today-indicator])) .react-datepicker__day--today {
     position: relative;
 
     &::after {

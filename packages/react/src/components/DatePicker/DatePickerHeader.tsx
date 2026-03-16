@@ -28,7 +28,7 @@ export const DatePickerHeader = ({
   view,
   onClick,
   visibleYearsRange,
-  ...props
+  disableTodayIndicator,
 }: DatePickerHeaderProps) => {
   const MONTHS = [
     'January',
@@ -70,7 +70,7 @@ export const DatePickerHeader = ({
     <div
       className={componentClassName}
       data-monthyear-state={view === 'days' ? 'closed' : 'open'}
-      {...props}
+      data-disable-today-indicator={disableTodayIndicator ? '' : undefined}
     >
       <BodyText asChild size="md" weight="semibold">
         <button className={`${componentClassName}MonthButton`} onClick={onClick}>

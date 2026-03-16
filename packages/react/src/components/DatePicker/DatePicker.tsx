@@ -119,11 +119,11 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
     renderCustomHeader: (props: ReactDatePickerCustomHeaderProps) => (
       <DatePickerHeader
         {...props}
-        data-disable-today-indicator={disableTodayIndicator ? true : undefined}
         view={view}
         onClick={() => {
           setView(nextView[view]);
         }}
+        disableTodayIndicator={disableTodayIndicator}
       />
     ),
   };
