@@ -190,7 +190,6 @@ export const DatePicker = forwardRef<DatePickerElement, DatePickerProps>((props,
     <FormField className={cn(componentClassName, className)} {...formFieldProps}>
       <DatePickerPrimitive
         {...reactDatePickerProps}
-        data-rob-test
         // @ts-expect-error having to be explicit about these types to ensure onChange type is correct
         selectsRange={false}
         // @ts-expect-error having to be explicit about these types to ensure onChange type is correct
