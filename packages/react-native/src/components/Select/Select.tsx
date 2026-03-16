@@ -180,7 +180,7 @@ const Select = ({
             close: closeBottomSheet,
           }}
         >
-          <SafeAreaView edges={['top', 'bottom']} style={{ flex: 1 }}>
+          <SafeAreaView edges={['top']} style={{ flex: 1 }}>
             {menuHeading && (
               <View style={styles.headingContainer}>
                 <DetailText size="lg">{menuHeading}</DetailText>
