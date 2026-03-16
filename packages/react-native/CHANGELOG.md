@@ -1,5 +1,44 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.27.3
+
+### Patch Changes
+
+- [#1006](https://github.com/utilitywarehouse/hearth/pull/1006) [`1996112`](https://github.com/utilitywarehouse/hearth/commit/1996112864146e86972ef6b9b07a8be5a72b552f) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Make `paddingNone` remove horizontal padding for ghost buttons in `md` size
+
+  Fixed an issue where setting `paddingNone` on a ghost button did not remove horizontal padding when using `md` size. The prop now removes horizontal padding for both `sm` and `md` ghost buttons.
+
+  **Components affected**:
+  - `Button`
+
+  **Developer changes**:
+
+  No changes required.
+
+- [#1012](https://github.com/utilitywarehouse/hearth/pull/1012) [`4fda116`](https://github.com/utilitywarehouse/hearth/commit/4fda116c2a1bec383df7e630180ab57166ab9da4) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Prevent outlines from being clipped for scrollable children in `Modal`
+
+  Fixed an issue in in-nav modals where child components with outlines could be visually clipped at the horizontal edges when content was scrollable.
+
+  **Components affected**:
+  - `Modal`
+
+  **Developer changes**:
+
+  No changes required.
+
+- [#1012](https://github.com/utilitywarehouse/hearth/pull/1012) [`4fda116`](https://github.com/utilitywarehouse/hearth/commit/4fda116c2a1bec383df7e630180ab57166ab9da4) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Update horizontal padding values for scrollable in-nav `Modal` content
+
+  Adjusted horizontal padding behaviour in scrollable in-nav modals to preserve child outlines while keeping visual spacing consistent.
+
+  **Components affected**:
+  - `Modal`
+
+  **Developer changes**:
+
+  No changes required.
+
+- [#1009](https://github.com/utilitywarehouse/hearth/pull/1009) [`3d65ef2`](https://github.com/utilitywarehouse/hearth/commit/3d65ef2f8f7701b128a9c679f1910cd3d0f5c0c3) Thanks [@fillyD](https://github.com/fillyD)! - 🐛 [FIX]: testID for `List` component
+
 ## 0.27.2
 
 ### Patch Changes
