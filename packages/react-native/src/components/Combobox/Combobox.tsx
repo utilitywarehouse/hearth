@@ -154,11 +154,15 @@ const Combobox = ({
     [isInputControlled, onInputValueChange]
   );
 
-  const handleClose = useCallback((index: number) => {
-    if (index === -1) {
-      setIsOpen(false);
-    }
-  }, []);
+  const handleClose = useCallback(
+    (index: number) => {
+      if (index === -1) {
+        setIsOpen(false);
+        setSearch('');
+      }
+    },
+    [setSearch]
+  );
 
   const focusSearchInput = useCallback(() => {
     if (focusTimeoutRef.current) {
