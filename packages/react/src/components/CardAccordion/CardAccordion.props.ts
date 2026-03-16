@@ -16,7 +16,6 @@ export interface CardAccordionProps
       | 'collapsible'
     >,
     MarginProps {
-  value?: CardAccordionPrimitive.AccordionSingleProps['value'];
   initialValue?: CardAccordionPrimitive.AccordionSingleProps['defaultValue'];
   onValueChange?: CardAccordionPrimitive.AccordionSingleProps['onValueChange'];
   collapsible?: CardAccordionPrimitive.AccordionSingleProps['collapsible'];

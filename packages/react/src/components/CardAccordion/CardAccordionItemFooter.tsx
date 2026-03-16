@@ -21,7 +21,8 @@ export const CardAccordionItemFooter = forwardRef<
       className={cn(componentClassName, className)}
       {...props}
       spacing="sm"
-      direction={{ mobile: 'column-reverse', desktop: 'row' }}
+      direction={{ mobile: 'column-reverse', tablet: 'row' }}
+      alignItems={{ mobile: 'stretch', tablet: 'start' }}
     >
       {children}
     </Flex>
