@@ -310,13 +310,13 @@ const styles = StyleSheet.create((theme, rt) => ({
     borderTopRightRadius: theme.components.modal.borderRadius,
     backgroundColor: theme.color.surface.neutral.strong,
     gap: theme.components.modal.gap,
-    padding: theme.components.modal.padding,
+    padding: theme.components.bottomSheet.padding,
     paddingBottom: theme.components.modal.padding + rt.insets.bottom,
   },
   androidContainer: {
     height: rt.insets.top + 18,
-    paddingLeft: theme.components.modal.padding,
-    paddingRight: theme.components.modal.padding,
+    paddingLeft: theme.components.bottomSheet.padding,
+    paddingRight: theme.components.bottomSheet.padding,
     justifyContent: 'flex-end',
   },
   pretendContent: {

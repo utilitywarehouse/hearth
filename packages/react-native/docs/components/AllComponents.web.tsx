@@ -39,6 +39,7 @@ import {
   CarouselItem,
   Center,
   Checkbox,
+  Combobox,
   Container,
   CurrencyInput,
   DateInput,
@@ -139,6 +140,7 @@ const ComponentWrapper = ({
 };
 
 const AllComponents: React.FC = () => {
+  const [comboboxValue, setComboboxValue] = React.useState<string | null>('uk');
   const [selectValue, setSelectValue] = React.useState('1');
   const [toggleButtonValue, setToggleButtonValue] = React.useState('');
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -347,6 +349,24 @@ const AllComponents: React.FC = () => {
               <View>
                 <Checkbox label="I'm a Checkbox" value="" />
               </View>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Combobox" link="/?path=/docs/forms-combobox--docs">
+            <Center flex={1}>
+              <BottomSheetModalProvider>
+                <Combobox
+                  label="Search a country"
+                  placeholder="Search for a country"
+                  searchPlaceholder="Search for a country"
+                  options={[
+                    { label: 'United Kingdom', value: 'uk' },
+                    { label: 'United States', value: 'us' },
+                    { label: 'Canada', value: 'ca' },
+                  ]}
+                  value={comboboxValue}
+                  onValueChange={setComboboxValue}
+                />
+              </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Container" link="/?path=/docs/primitives-container--docs">
@@ -733,6 +753,7 @@ const AllComponents: React.FC = () => {
               </RadioCardGroup>
             </Center>
           </ComponentWrapper>
+
           <ComponentWrapper
             name="Section Header"
             link="/?path=/docs/components-section-header--docs"
