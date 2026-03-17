@@ -18,6 +18,10 @@ export const CardAccordionButton = forwardRef<CardAccordionButtonElement, CardAc
   ({ className, children, action, onClick, ...props }, ref) => {
     const { steps, setPreviousSteps, setCurrentStep, previousSteps } = useCardAccordion();
     const context = useCardAccordionItem();
+    if (!context) {
+      throw new Error('CardAccordionButton must be used within a CardAccordionItem.');
+    }
+
     if (action === 'next') {
       return (
         <Button
@@ -31,10 +35,12 @@ export const CardAccordionButton = forwardRef<CardAccordionButtonElement, CardAc
             if (onClick) {
               onClick(e);
             }
-            if (context?.value) {
-              setPreviousSteps(prev => [...prev, context.value]);
-              if (steps) {
-                setCurrentStep(steps[steps.indexOf(context.value) + 1] as string);
+            if (context?.value && steps) {
+              const currentIndex = steps.indexOf(context.value);
+              const hasNextStep = currentIndex !== -1 && currentIndex < steps.length - 1;
+              if (hasNextStep) {
+                setPreviousSteps((prev: string) => [...prev, context.value]);
+                setCurrentStep(steps[currentIndex + 1] as string);
               }
             }
           }}
@@ -56,8 +62,11 @@ export const CardAccordionButton = forwardRef<CardAccordionButtonElement, CardAc
           if (onClick) {
             onClick(e);
           }
-          setCurrentStep(previousSteps[previousSteps.length - 1] as string);
-          setPreviousSteps(prev => prev.slice(0, prev.indexOf(context?.value as string)));
+          if (previousSteps.length > 0) {
+            const lastStep = previousSteps[previousSteps.length - 1] as string;
+            setCurrentStep(lastStep);
+            setPreviousSteps((prev: string) => prev.slice(0, prev.indexOf(context.value)));
+          }
         }}
       >
         {children || 'Previous'}

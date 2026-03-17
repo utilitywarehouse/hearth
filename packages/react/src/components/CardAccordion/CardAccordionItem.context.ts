@@ -7,4 +7,10 @@ export const CardAccordionItemContext = createContext<CardAccordionItemContextVa
   undefined
 );
 export const CardAccordionItemProvider = CardAccordionItemContext.Provider;
-export const useCardAccordionItem = () => useContext(CardAccordionItemContext);
+export const useCardAccordionItem = (): CardAccordionItemContextValue => {
+  const context = useContext(CardAccordionItemContext);
+  if (!context) {
+    throw new Error('useCardAccordionItem must be used within a CardAccordionItemProvider');
+  }
+  return context;
+};

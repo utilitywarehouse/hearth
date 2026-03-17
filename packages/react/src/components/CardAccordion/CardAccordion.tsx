@@ -1,6 +1,6 @@
 'use client';
 
-import { Children, forwardRef, isValidElement, useState } from 'react';
+import { Children, forwardRef, isValidElement, useEffect, useState } from 'react';
 import { cn } from '../../helpers/cn';
 import type { ComponentPropsWithRef, ComponentRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -24,20 +24,51 @@ export const CardAccordion = forwardRef<CardAccordionElement, CardAccordionProps
 
   const [currentValue, setCurrentValue] = useState(value);
 
+  useEffect(() => {
+    // Keep internal state in sync when the controlled `value` prop changes.
+    if (value !== undefined) {
+      setCurrentValue(value);
+    }
+  }, [value]);
+
+  const handleValueChange = (newValue: string | undefined) => {
+    setCurrentValue(newValue);
+    if (onValueChange) {
+      onValueChange(newValue);
+    }
+  };
+
   const accordionProps = {
     ...restProps,
     type: 'single',
     collapsible: false,
     value: currentValue,
-    onValueChange,
+    onValueChange: handleValueChange,
   } as ComponentPropsWithRef<typeof AccordionPrimitive.Root>;
 
-  const steps = Children.map(children, child => {
-    if (isValidElement(child) && child.type === CardAccordionItem) {
-      return (child.props as { value?: string }).value;
+  const steps: Array<string> = (
+    Children.map(children, child => {
+      if (isValidElement(child) && child.type === CardAccordionItem) {
+        return (child.props as { value?: string }).value;
+      }
+      return null;
+    }) ?? []
+  ).filter(Boolean);
+
+  if (steps.length === 0) {
+    if (process.env.NODE_ENV !== 'production') {
+      // CardAccordionProvider assumes at least one step (steps[0]).
+      // Rendering CardAccordion without any CardAccordionItem children can cause runtime errors.
+      // This guard ensures we fail fast in development and avoid crashing in production.
+      // Make sure to pass at least one <CardAccordionItem value="..."> as a child of <CardAccordion>.
+      // eslint-disable-next-line no-console
+      console.error(
+        '[CardAccordion]: No CardAccordionItem children with a "value" prop were found. ' +
+          'CardAccordion requires at least one CardAccordionItem child.'
+      );
     }
     return null;
-  })?.filter(Boolean) as Array<string>;
+  }
 
   return (
     <AccordionPrimitive.Root
