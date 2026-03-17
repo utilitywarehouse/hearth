@@ -41,10 +41,16 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
     const variant = step === 'current' ? 'emphasis' : 'subtle';
     const colorScheme = step === 'current' ? 'neutralStrong' : 'neutralSubtle';
     const triggerRef = useRef<HTMLButtonElement>(null);
+    const hasMountedRef = useRef(false);
 
     const { labelId, helperTextId } = useIds({ prefix: 'card-accordion-item' });
 
     useEffect(() => {
+      if (!hasMountedRef.current) {
+        hasMountedRef.current = true;
+        return;
+      }
+
       if (step === 'current') {
         triggerRef.current?.focus();
       }

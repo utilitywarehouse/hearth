@@ -14,6 +14,7 @@ export interface CardAccordionProps
       | 'onValueChange'
       | 'value'
       | 'collapsible'
+      | 'disabled'
     >,
     MarginProps {
   value?: CardAccordionPrimitive.AccordionSingleProps['value'];

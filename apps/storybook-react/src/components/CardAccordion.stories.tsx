@@ -13,13 +13,6 @@ import {
 const meta: Meta<typeof CardAccordion> = {
   title: 'Stories / CardAccordion',
   component: CardAccordion,
-  argTypes: {
-    collapsible: { control: { type: 'boolean' } },
-    disabled: { control: { type: 'boolean' } },
-  },
-  args: {
-    collapsible: false,
-  },
 };
 
 export default meta;
