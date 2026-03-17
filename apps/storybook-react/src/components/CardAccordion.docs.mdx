@@ -6,14 +6,18 @@ import { Box, Flex, BodyText, Divider } from '@utilitywarehouse/hearth-react';
 
 # CardAccordion
 
-Use `CardAccordion` to allow users to expand or collapse individual content
-sections, providing a compact way to present a large amount of information
-while maintaining a clean and organised interface.
+`CardAccordion` breaks a form journey into multiple collapsible cards, allowing
+users to progress step-by-step on a single page while keeping previously
+completed steps visible and editable. Each card represents one logical step in
+the journey. As the user progresses, completed cards collapse into a summary
+view while the next card expands.
 
-- [CardAccordion type](#accordion-type)
-- [Collapsible](#collapsible)
-- [Value](#value)
-- [CardAccordion items](#accordion-items)
+- [Playground](#playground)
+- [Usage](#usage)
+- [Current content](#current-content)
+- [Summary content](#summary-content)
+- [Validation](#validation)
+- [Footer actions](#footer-actions)
 - [Heading levels](#heading-levels)
 - [Accessibility](#accessibility)
   - [Keyboard interactions](#keyboard-interactions)
@@ -24,96 +28,104 @@ while maintaining a clean and organised interface.
 <Canvas of={Stories.Playground} sourceState="shown" />
 <Controls of={Stories.Playground} />
 
-## CardAccordion type
+## Usage
 
-`CardAccordion` can be rendered as one of two types; `single` or `multiple`. The `type` prop is required.
+The steps in a `CardAccordion` are represented by `CardAccordionItem`
+components, and consist of 3 possible states: `previous`, `current`, and
+`future`.
 
-When `type` is set to `single`, only one item can be expanded at once.
+- `current` represents a completed step in the journey - The card is collapsed
+  and shows a summary of the user’s submitted information, helping users
+  quickly review what they have entered. An Edit button allows users to reopen
+  the step and update their answers if needed.
+- `previous` represents the active step the user is currently completing - The
+  card is expanded and contains the form inputs required for this stage of the
+  journey. A button group is provided to allow users to continue to the next
+  step or return to the previous step if needed.
+- `future` represents upcoming steps that have not yet been reached - These
+  cards are visible to give users an overview of what remains in the journey,
+  but they are inactive and cannot be interacted with until earlier steps are
+  completed.
 
-<Canvas of={Stories.Single} />
-
-When `type` is set to `multiple`, then multiple items can be expanded at once.
-
-<Canvas of={Stories.Multiple} />
-
-## Collapsible
-
-The `collapsible` prop can be used when the `type` is set to `single`. When
-`true` items can be collapsed, allowing all items to be closed at the same
-time.
-
-<Canvas of={Stories.Collapsible} />
-
-## Value
-
-The `value` prop differs depending on whether the `type` is set to `single` or
-`multiple`. This also affects the `defaultValue` and `onValueChange` props.
-
-When using a `single` type `CardAccordion`, the value is a `string`.
+Each `CardAccordion` component requires a `value` to be able to automatically
+determine the state of each item, as a user progresses through all the steps.
 
 ```tsx
-<CardAccordion
-  type="single"
-  defaultValue="item-1"
->
-{...}
-</CardAccordion>
-```
-
-When using a `multiple` type `CardAccordion`, the value is an array of `string` values.
-
-```tsx
-<CardAccordion
-  type="multiple"
-  defaultValue={["item-1", "item-2"]}
->
-{...}
-</CardAccordion>
-```
-
-## CardAccordion items
-
-The `CardAccordionItem` component, in tandem with `CardAccordionContent`, is intended
-to cover most use cases, and uses the header & trigger components internally.
-However if you need something more custom, you can use the internal subcomponents;
-`CardAccordionHeader` & `CardAccordionTrigger`, ensuring you wrap the trigger in a header component.
-
-```tsx
-<CardAccordion type="multiple" heading="Custom item headers">
-  <CardAccordionItem value='item-1'>
-    <CardAccordionHeader>
-      <CardAccordionTrigger>
-        <Flex width="100%" alignItems="center" justifyContent="between">
-          <BodyText weight="semibold">Custom Header</BodyText>
-          <Badge size="sm" colorScheme="positive">New</Badge>
-        </Flex>
-      </CardAccordionTrigger>
-    </CardAccordionHeader>
-    <CardAccordionContent>{...}</CardAccordionContent>
+<CardAccordion>
+  <CardAccordionItem value="step-1" title="Step 1: Personal details">
+    ...
+    </CardAccordionFooter>
+      </CardAccordionButton action="next" />
+    </CardAccordionFooter>
   </CardAccordionItem>
-  {...}
+  <CardAccordionItem value="step-2" title="Step 2: Address details">
+    ...
+    </CardAccordionFooter>
+      </CardAccordionButton action="previous" />
+      </CardAccordionButton action="next" />
+    </CardAccordionFooter>
+  </CardAccordionItem>
+  <CardAccordionItem value="step-3" title="Step 3: Payment details">
+    ...
+    </CardAccordionFooter>
+      </CardAccordionButton action="previous" />
+    </CardAccordionFooter>
+  </CardAccordionItem>
 </CardAccordion>
 ```
 
-<Canvas of={Stories.CustomItemHeader} />
+## Current content
+
+The main form content, visible when the item is in the `current` state, should
+be rendered as a child of `CardAccordionItem`.
+
+## Summary content
+
+When an item is in the `previous` state, you can render an alternative title
+and additional content using the `summaryTitle` & `summaryDescription` props.
+
+```tsx
+<CardAccordionItem
+  value="1a"
+  title="1a. Your new cover"
+  summaryTitle="1a. Your home"
+  summaryDescription={
+    <Flex direction="column" gap="50">
+      <HelperText>Your type of cover, address & policy start date.</HelperText>
+      <BodyText size="lg">31/08/2025</BodyText>
+    </Flex>
+  }
+>
+```
+
+## Validation
+
+It is up to you to ensure the current state has been validated before allowing
+the user to progress to the next step.
+
+## Footer actions
+
+You must include a `CardAccordionFooter` component within each
+`CardAccordionItem` to render the action buttons for each step. The
+`CardActionButton` component will be either a `next` or `previous` action, and
+can render a custom label if necessary.
+
+```tsx
+<CardAccordionFooter>
+  <CardActionButton action="previous">Back to 1a</CardActionButton>
+  <CardActionButton action="next" />
+</CardAccordionFooter>
+```
 
 ## Heading levels
 
-By default the `CardAccordion` heading renders an `h2` element, and each item
-renders an `h3` element. If this doesn't follow the structure of your page, you
-can use the `headingElement` prop on `CardAccordion` and `CardAccordionItem` to update
-these to an appropriate heading level.
-
-<Canvas of={Stories.HeadingElement} />
+By default the `CardAccordionItem` title renders an `h3` element. If this
+doesn't follow the structure of your page, you can use the `headingElement`
+prop to change these to an appropriate heading level.
 
 ## Accessibility
 
 Follows the [Accordion WAI-ARIA design pattern](https://www.w3.org/WAI/ARIA/apg/patterns/accordion).
-
-While `CardAccordion` is meant to present multiple disclosure items, if you have
-variable data that could return only a single item, then using a `CardAccordion` is
-still OK. If you know ahead of time you only need to show/hide a single item,
-then an alternative disclosure pattern should be used.
 
 ### Keyboard interactions
 
@@ -175,45 +187,24 @@ This component is based on the `div` element and supports the following common p
 
 - Margin
 
-| Name              | Type                                                            |
-| ----------------- | --------------------------------------------------------------- |
-| `heading`         | `string`                                                        |
-| `headingElement`  | `"h1" \| "h2" \| "h3" \| "h4"`                                  |
-| `helperText`      | `string`                                                        |
-| `trailingContent` | `ReactNode`                                                     |
-| `type`            | `"multiple" \| "single"`                                        |
-| `value`           | `"Array<string>" \| "string"`                                   |
-| `defaultValue`    | `"Array<string>" \| "string"`                                   |
-| `onValueChange`   | `"(value: Array<string>) => void" \| "(value: string) => void"` |
-| `collapsible`     | `boolean`                                                       |
-| `disabled`        | `boolean`                                                       |
+| Name            | Type                      |
+| --------------- | ------------------------- |
+| `value`         | `string`                  |
+| `onValueChange` | `(value: string) => void` |
 
 ### CardAccordionItem
 
-Used to render a collapsible accordion section.
+| Name                 | Type                                                   |
+| -------------------- | ------------------------------------------------------ |
+| `title`              | `string`                                               |
+| `description`        | `string`                                               |
+| `summaryTitle`       | `string`                                               |
+| `summaryDescription` | `ReactNode`                                            |
+| `headingElement`     | `"h1" \| "h2" \| "h3" \| "h4"`                         |
+| `onEditClick`        | `(event: React.MouseEvent<HTMLButtonElement>) => void` |
 
-| Name             | Type                           |
-| ---------------- | ------------------------------ |
-| `title`          | `string`                       |
-| `description`    | `string`                       |
-| `headingElement` | `"h1" \| "h2" \| "h3" \| "h4"` |
+### CardAccordionButton
 
-### CardAccordionContent
-
-Contains the collapsible content for an accordion item.
-
-### CardAccordionHeader
-
-Wraps a `CardAccordionTrigger`. Use the `as` prop to render the appropriate heading level for your page.
-
-This component is based on the `a` element.
-
-| Name | Type                           |
-| ---- | ------------------------------ |
-| `as` | `"h1" \| "h2" \| "h3" \| "h4"` |
-
-### CardAccordionTrigger
-
-Toggles the collapsed state of its associated item. It should be nested inside a `CardAccordionHeader`.
-
-This component is based on the `button` element.
+| Name     | Type                   |
+| -------- | ---------------------- |
+| `action` | `"previous" \| "next"` |

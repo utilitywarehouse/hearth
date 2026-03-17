@@ -32,8 +32,10 @@ export const CardAccordionButton = forwardRef<CardAccordionButtonElement, CardAc
               onClick(e);
             }
             if (context?.value) {
-              setPreviousSteps(steps => [...steps, context.value]);
-              setCurrentStep(steps[steps.indexOf(context.value) + 1] as string);
+              setPreviousSteps(prev => [...prev, context.value]);
+              if (steps) {
+                setCurrentStep(steps[steps.indexOf(context.value) + 1] as string);
+              }
             }
           }}
         >

@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef } from 'react';
+import { forwardRef, useEffect, useRef } from 'react';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { CardAccordionItemProps } from './CardAccordionItem.props';
@@ -27,8 +27,8 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
       title,
       description,
       headingElement: HeadingElement = 'h3',
-      previousStepTitle,
-      previousStepContent,
+      summaryTitle,
+      summaryDescription,
       children,
       value,
       onEditClick,
@@ -40,8 +40,15 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
     const step = getStep(value);
     const variant = step === 'current' ? 'emphasis' : 'subtle';
     const colorScheme = step === 'current' ? 'neutralStrong' : 'neutralSubtle';
+    const triggerRef = useRef<HTMLButtonElement>(null);
 
     const { labelId, helperTextId } = useIds({ prefix: 'card-accordion-item' });
+
+    useEffect(() => {
+      if (step === 'current') {
+        triggerRef.current?.focus();
+      }
+    }, [step]);
 
     return (
       <AccordionPrimitive.Item
@@ -58,14 +65,15 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
             <AccordionPrimitive.Header className={`${componentClassName}Header`} asChild>
               <HeadingElement>
                 <AccordionPrimitive.Trigger
+                  ref={triggerRef}
                   className={`${componentClassName}Trigger`}
                   aria-labelledby={labelId}
                   aria-describedby={description ? helperTextId : undefined}
                 >
                   <Flex direction="column">
-                    {step === 'previous' && Boolean(previousStepTitle) ? (
+                    {step === 'previous' && Boolean(summaryTitle) ? (
                       <Heading asChild size="md" id={labelId}>
-                        <div>{previousStepTitle}</div>
+                        <div>{summaryTitle}</div>
                       </Heading>
                     ) : (
                       <Heading asChild size="md" id={labelId}>
@@ -80,6 +88,7 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
                     size="sm"
                     variant="ghost"
                     colorScheme="functional"
+                    aria-describedby={labelId}
                     onClick={e => {
                       setCurrentStep(value);
                       if (steps) {
@@ -93,7 +102,7 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
                 ) : null}
               </HeadingElement>
             </AccordionPrimitive.Header>
-            {step === 'previous' && previousStepContent ? previousStepContent : null}
+            {step === 'previous' && summaryDescription ? summaryDescription : null}
             {step === 'current' ? (
               <AccordionPrimitive.Content className={`${componentClassName}Content`}>
                 {children}

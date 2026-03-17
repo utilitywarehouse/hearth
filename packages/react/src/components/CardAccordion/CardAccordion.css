@@ -27,5 +27,11 @@
         outline-offset: 1px;
       }
     }
+
+    & :where(.h-CardAccordionItemContent) {
+      display: flex;
+      flex-direction: column;
+      gap: var(--h-space-250);
+    }
   }
 }

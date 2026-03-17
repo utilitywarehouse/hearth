@@ -33,15 +33,15 @@ export const Playground: Story = {
           <CardAccordionItem
             value="1a"
             title="1a. Your new cover"
-            previousStepTitle="1a. Your home"
-            previousStepContent={
+            summaryTitle="1a. Your home"
+            summaryDescription={
               <Flex direction="column" gap="50">
                 <HelperText>Your type of cover, address & policy start date.</HelperText>
                 <BodyText size="lg">31/08/2025</BodyText>
               </Flex>
             }
           >
-            <Box height="300px">Content</Box>
+            <Box>Content</Box>
             <CardAccordionFooter>
               <CardAccordionButton action="next" />
             </CardAccordionFooter>
@@ -49,13 +49,13 @@ export const Playground: Story = {
           <CardAccordionItem
             value="1b"
             title="1b. About your property"
-            previousStepContent={
+            summaryDescription={
               <HelperText>
                 Details about your property type, ownership, and number of rooms.
               </HelperText>
             }
           >
-            <Box height="300px">Content</Box>
+            <Box>Content</Box>
             <CardAccordionFooter>
               <CardAccordionButton action="previous" />
               <CardAccordionButton action="next" />
@@ -64,11 +64,11 @@ export const Playground: Story = {
           <CardAccordionItem
             value="1c"
             title="1c. How your home was built"
-            previousStepContent={
+            summaryDescription={
               <HelperText>Summary of your home’s age and construction.</HelperText>
             }
           >
-            <Box height="300px">Content</Box>
+            <Box>Content</Box>
             <CardAccordionFooter>
               <CardAccordionButton action="previous" />
               <CardAccordionButton action="next" />
@@ -77,13 +77,13 @@ export const Playground: Story = {
           <CardAccordionItem
             value="1d"
             title="1d. Use of your home"
-            previousStepContent={
+            summaryDescription={
               <HelperText>
                 Details about who lives in your home and how the property is used.
               </HelperText>
             }
           >
-            <Box height="300px">Content</Box>
+            <Box>Content</Box>
             <CardAccordionFooter>
               <CardAccordionButton action="previous" />
               <CardAccordionButton action="next" />
