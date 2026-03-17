@@ -31,7 +31,7 @@ export const CardAccordion = forwardRef<CardAccordionElement, CardAccordionProps
     }
   }, [value]);
 
-  const handleValueChange = (newValue: string | undefined) => {
+  const handleValueChange = (newValue: string) => {
     setCurrentValue(newValue);
     if (onValueChange) {
       onValueChange(newValue);

@@ -36,7 +36,7 @@ export const CardAccordionButton = forwardRef<CardAccordionButtonElement, CardAc
               onClick(e);
             }
 
-            setPreviousSteps((prev: string) => [...prev, context.value]);
+            setPreviousSteps((prev: Array<string>) => [...prev, context.value]);
             if (steps) {
               const currentIndex = steps.indexOf(context.value);
               if (currentIndex >= 0 && currentIndex < steps.length - 1) {
@@ -65,7 +65,7 @@ export const CardAccordionButton = forwardRef<CardAccordionButtonElement, CardAc
           if (previousSteps.length > 0) {
             const lastStep = previousSteps[previousSteps.length - 1] as string;
             setCurrentStep(lastStep);
-            setPreviousSteps((prev: string) => prev.slice(0, prev.indexOf(context.value)));
+            setPreviousSteps((prev: Array<string>) => prev.slice(0, prev.indexOf(context.value)));
           }
         }}
       >
