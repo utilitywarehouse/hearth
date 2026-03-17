@@ -13,11 +13,13 @@ const TimelineItem = ({
   state = 'incomplete',
   style,
   variant = 'static',
+  accessibilityLabel: accessibilityLabelProp,
+  accessible: accessibleProp,
   ...rest
 }: TimelineItemProps) => {
   styles.useVariants({ position, state, variant });
 
-  const accessibilityLabel = [
+  const computedAccessibilityLabel = [
     label,
     helperText,
     variant === 'progress' ? `Step ${state}` : undefined,
@@ -29,6 +31,8 @@ const TimelineItem = ({
     <View
       style={[styles.item, style as ViewStyle]}
       {...rest}
+      accessible={accessibleProp ?? true}
+      accessibilityLabel={accessibilityLabelProp ?? computedAccessibilityLabel}
     >
       <View style={styles.indicatorColumn}>
         {(position === 'middle' || position === 'end') && <View style={styles.topConnector} />}
