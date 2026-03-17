@@ -1,0 +1,239 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import {
+  Box,
+  Center,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TablePagination,
+  TableRow,
+} from '../..';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Table.stories';
+
+<Meta title="Components / Table" />
+
+<BackToTopButton />
+
+<ViewFigmaButton url="https://www.figma.com/design/6NKZXZhFSExXrcbBgc6zTR/Hearth-Components---Tokens?node-id=6403-17515&t=pZwKJYFo1y1QRQD1-4" />
+
+# Table
+
+Table arranges structured data into rows and columns, with optional pagination beneath the rows. The React Native version uses horizontal scrolling automatically when the columns need more space than the viewport allows.
+
+- [Playground](#playground)
+- [Usage](#usage)
+- [Props](#props)
+- [Examples](#examples)
+
+## Playground
+
+<Canvas of={Stories.Playground} />
+
+<Controls of={Stories.Playground} />
+
+## Usage
+
+<UsageWrap>
+  <Center>
+    <Box style={{ width: 520, maxWidth: '100%' }}>
+      <Table container="subtle">
+        <TableHeader color="purple">
+          <TableHeaderCell>Name</TableHeaderCell>
+          <TableHeaderCell>Email</TableHeaderCell>
+          <TableHeaderCell>City</TableHeaderCell>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableHeaderCell row>Alex Morgan</TableHeaderCell>
+            <TableCell>alex@example.com</TableCell>
+            <TableCell>London</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </Box>
+  </Center>
+</UsageWrap>
+
+```tsx
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
+} from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => (
+  <Table container="subtle">
+    <TableHeader color="purple">
+      <TableHeaderCell>Name</TableHeaderCell>
+      <TableHeaderCell>Email</TableHeaderCell>
+      <TableHeaderCell>City</TableHeaderCell>
+    </TableHeader>
+    <TableBody>
+      <TableRow>
+        <TableHeaderCell row>Alex Morgan</TableHeaderCell>
+        <TableCell>alex@example.com</TableCell>
+        <TableCell>London</TableCell>
+      </TableRow>
+    </TableBody>
+  </Table>
+);
+```
+
+## Props
+
+### Table Props
+
+| Property       | Type                                              | Description                                                                                             | Default     |
+| -------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ----------- |
+| `container`    | `'none' \| 'subtle' \| 'emphasis'`                | Applies the List-style outer container wrapping.                                                        | `'none'`    |
+| `columnWidths` | `(number \| '${number}fr' \| { flex: number })[]` | Optional per-column sizing. Use numbers for fixed widths and `'2fr'`-style values for flexible columns. | `undefined` |
+| `pagination`   | `ReactNode`                                       | Optional pagination content rendered below the rows.                                                    | `undefined` |
+
+### TableHeader Props
+
+| Property | Type                  | Description                                       | Default    |
+| -------- | --------------------- | ------------------------------------------------- | ---------- |
+| `color`  | `'purple' \| 'white'` | Controls the header background and text contrast. | `'purple'` |
+
+### TableHeaderCell Props
+
+| Property          | Type        | Description                                                | Default     |
+| ----------------- | ----------- | ---------------------------------------------------------- | ----------- |
+| `row`             | `boolean`   | Uses body-row header styling for the first cell in a row.  | `false`     |
+| `trailingContent` | `ReactNode` | Optional content aligned to the trailing edge of the cell. | `undefined` |
+
+## Examples
+
+### Containers
+
+<Canvas of={Stories.Variants} />
+
+```tsx
+<Table container="subtle">
+  <TableHeader color="purple">
+    <TableHeaderCell>Name</TableHeaderCell>
+    <TableHeaderCell>Plan</TableHeaderCell>
+    <TableHeaderCell>Status</TableHeaderCell>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableHeaderCell row>Alex Morgan</TableHeaderCell>
+      <TableCell>Full Fibre 900</TableCell>
+      <TableCell>Active</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+### With pagination
+
+<Canvas of={Stories.WithPagination} />
+
+```tsx
+const [currentPage, setCurrentPage] = useState(1);
+
+<Table
+  container="subtle"
+  pagination={
+    <TablePagination currentPage={currentPage} onPageChange={setCurrentPage} totalPages={10} />
+  }
+>
+  <TableHeader color="purple">
+    <TableHeaderCell>Name</TableHeaderCell>
+    <TableHeaderCell>Email</TableHeaderCell>
+    <TableHeaderCell>City</TableHeaderCell>
+  </TableHeader>
+  <TableBody>{/* paged rows */}</TableBody>
+</Table>;
+```
+
+### Narrow viewport
+
+<Canvas of={Stories.NarrowViewport} />
+
+```tsx
+<Box style={{ width: 320 }}>
+  <Table container="subtle">
+    <TableHeader color="purple">
+      <TableHeaderCell>Account</TableHeaderCell>
+      <TableHeaderCell>Type</TableHeaderCell>
+      <TableHeaderCell>Monthly cost</TableHeaderCell>
+      <TableHeaderCell>Renewal</TableHeaderCell>
+    </TableHeader>
+    <TableBody>{/* rows */}</TableBody>
+  </Table>
+</Box>
+```
+
+### Configured column widths
+
+<Canvas of={Stories.ConfiguredColumnWidths} />
+
+```tsx
+<Table columnWidths={[180, '2fr', '1fr', 140]} container="subtle">
+  <TableHeader color="purple">
+    <TableHeaderCell>Name</TableHeaderCell>
+    <TableHeaderCell>Email</TableHeaderCell>
+    <TableHeaderCell>Plan</TableHeaderCell>
+    <TableHeaderCell>Status</TableHeaderCell>
+  </TableHeader>
+  <TableBody>{/* rows */}</TableBody>
+</Table>
+```
+
+### Custom sort function
+
+<Canvas of={Stories.WithCustomSortFunction} />
+
+```tsx
+const statusOrder = {
+  Active: 0,
+  Pending: 1,
+  Paused: 2,
+  Cancelled: 3,
+} as const;
+
+const sortRowsByStatus = (items, direction = 'asc') => {
+  const multiplier = direction === 'asc' ? 1 : -1;
+
+  return [...items].sort((left, right) => {
+    const statusDifference = (statusOrder[left.status] - statusOrder[right.status]) * multiplier;
+
+    if (statusDifference !== 0) {
+      return statusDifference;
+    }
+
+    return left.customer.localeCompare(right.customer) * multiplier;
+  });
+};
+
+const [direction, setDirection] = useState<'asc' | 'desc'>('asc');
+const sortedRows = sortRowsByStatus(rows, direction);
+
+<Table columnWidths={[180, '2fr', 120]} container="subtle">
+  <TableHeader color="purple">
+    <TableHeaderCell>Customer</TableHeaderCell>
+    <TableHeaderCell>Plan</TableHeaderCell>
+    <TableHeaderCell
+      trailingContent={
+        <UnstyledIconButton
+          accessibilityLabel="Sort by custom status order"
+          icon={ExpandSmallIcon}
+          inverted
+          onPress={() => setDirection(current => (current === 'asc' ? 'desc' : 'asc'))}
+          size="sm"
+        />
+      }
+    >
+      Status
+    </TableHeaderCell>
+  </TableHeader>
+  <TableBody>{/* sortedRows */}</TableBody>
+</Table>;
+```
