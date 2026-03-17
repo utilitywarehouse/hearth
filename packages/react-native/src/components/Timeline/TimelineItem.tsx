@@ -28,8 +28,6 @@ const TimelineItem = ({
   return (
     <View
       style={[styles.item, style as ViewStyle]}
-      accessible
-      accessibilityLabel={accessibilityLabel}
       {...rest}
     >
       <View style={styles.indicatorColumn}>
@@ -44,7 +42,11 @@ const TimelineItem = ({
         {(position === 'start' || position === 'middle') && <View style={styles.bottomConnector} />}
       </View>
       <View style={styles.content}>
-        <View style={styles.textContent}>
+        <View
+          style={styles.textContent}
+          accessible
+          accessibilityLabel={accessibilityLabel}
+        >
           <BodyText size="md" weight="semibold" style={styles.label}>
             {label}
           </BodyText>
