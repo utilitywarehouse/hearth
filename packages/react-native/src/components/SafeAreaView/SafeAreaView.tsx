@@ -15,15 +15,15 @@ const DEFAULT_EDGES: SafeAreaEdge[] = ['top', 'right', 'bottom', 'left'];
 const EMPTY_INSETS: EdgeInsets = { top: 0, right: 0, bottom: 0, left: 0 };
 const EDGE_EPSILON = 1;
 
-const getNumericStyleValue = (value: unknown): number | undefined => {
-  return typeof value === 'number' ? value : undefined;
+const getNumericStyleValue = (value: unknown): number => {
+  return typeof value === 'number' ? value : 0;
 };
 
 const getStyleInsetValue = (
   style: ViewStyle | undefined,
   mode: SafeAreaViewProps['mode'],
   edge: SafeAreaEdge
-): number | undefined => {
+): number => {
   const prefix = mode === 'margin' ? 'margin' : 'padding';
 
   if (!style) {
@@ -32,8 +32,7 @@ const getStyleInsetValue = (
   }
 
   if (edge === 'top') {
-    const raw =
-      style[`${prefix}Top`] ?? style[`${prefix}Vertical`] ?? style[prefix];
+    const raw = style[`${prefix}Top`] ?? style[`${prefix}Vertical`] ?? style[prefix];
     if (raw == null) {
       return 0;
     }
@@ -41,8 +40,7 @@ const getStyleInsetValue = (
   }
 
   if (edge === 'bottom') {
-    const raw =
-      style[`${prefix}Bottom`] ?? style[`${prefix}Vertical`] ?? style[prefix];
+    const raw = style[`${prefix}Bottom`] ?? style[`${prefix}Vertical`] ?? style[prefix];
     if (raw == null) {
       return 0;
     }
@@ -50,16 +48,14 @@ const getStyleInsetValue = (
   }
 
   if (edge === 'left') {
-    const raw =
-      style[`${prefix}Left`] ?? style[`${prefix}Horizontal`] ?? style[prefix];
+    const raw = style[`${prefix}Left`] ?? style[`${prefix}Horizontal`] ?? style[prefix];
     if (raw == null) {
       return 0;
     }
     return getNumericStyleValue(raw);
   }
 
-  const raw =
-    style[`${prefix}Right`] ?? style[`${prefix}Horizontal`] ?? style[prefix];
+  const raw = style[`${prefix}Right`] ?? style[`${prefix}Horizontal`] ?? style[prefix];
   if (raw == null) {
     return 0;
   }
