@@ -56,6 +56,7 @@ export * from './Switch';
 export * from './Tabs';
 export * from './Textarea';
 export * from './ThemedImage';
+export * from './Timeline';
 export * from './TimePicker';
 export * from './TimePickerInput';
 export * from './Toast';

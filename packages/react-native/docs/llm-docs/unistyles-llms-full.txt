@@ -16,6 +16,8 @@ Each configuration is optional but enables advanced features, which are explaine
 
 ### Themes (Optional)
 
+[Section titled “Themes (Optional)”](#themes-optional)
+
 `Themes` is a JavaScript object where the keys represent unique theme names, and the values are the corresponding theme definitions. For more details, refer to the [theming](/v3/guides/theming) guide.
 
 unistyles.ts
@@ -53,6 +55,8 @@ Unistyles supports any dynamic theme and doesn’t enforce a specific structure.
 
 ### Breakpoints (Optional)
 
+[Section titled “Breakpoints (Optional)”](#breakpoints-optional)
+
 `Breakpoints` is a JavaScript object where the keys are unique breakpoint names and the values are the corresponding breakpoint values (numbers). Be sure to register at least one breakpoint with a value of 0, as it’s required to simulate the cascading behavior of CSS media queries.
 
 unistyles.ts
@@ -69,6 +73,8 @@ const breakpoints = {
 ```
 
 ### Settings (Optional)
+
+[Section titled “Settings (Optional)”](#settings-optional)
 
 The `Settings` object has been simplified, and in the most recent version, it supports only four properties:
 
@@ -108,6 +114,8 @@ In the Unistyles 3.0 setting both `initialTheme` and `adaptiveThemes` will cause
 
 ### TypeScript Types (Optional)
 
+[Section titled “TypeScript Types (Optional)”](#typescript-types-optional)
+
 If your repository is using TypeScript, it is highly recommended to override the library types for optimal autocomplete and type safety regarding your themes and breakpoints:
 
 unistyles.ts
@@ -124,6 +132,8 @@ declare module 'react-native-unistyles' {
 ```
 
 ### Set configuration
+
+[Section titled “Set configuration”](#set-configuration)
 
 The final step in the configuration is to set all the options by calling the `StyleSheet.configure` function:
 
@@ -149,6 +159,8 @@ Don’t forget to import this config somewhere in your project, for example in `
 For expo router users, please refer to the [Expo Router guide](/v3/guides/expo-router).
 
 ### Full example
+
+[Section titled “Full example”](#full-example)
 
 unistyles.ts
 
@@ -216,7 +228,9 @@ We’ve made Unistyles incredibly easy to use. You no longer need the `useStyle`
 
 ### Prerequisites
 
-Unistyles 3.0 is tightly integrated with `Fabric` and the latest versions of React Native. Therefore, you must use the **New Architecture** and at least **React Native 0.78.0**. Additionally, Unistyles relies on `react-native-nitro-modules` and `react-native-edge-to-edge`.
+[Section titled “Prerequisites”](#prerequisites)
+
+Unistyles 3.0 is tightly integrated with `Fabric` and the latest versions of React Native. Therefore, you must use the **New Architecture** and at least **React Native 0.78.0**. Additionally, Unistyles relies on `react-native-nitro-modules`.
 
 Note
 
@@ -236,15 +250,26 @@ Since Unistyles relies on `Fabric`, it cannot run on the `Old Architecture` or o
 
 ### Installation
 
+[Section titled “Installation”](#installation)
+
 Install Unistyles and its dependencies
 
 ```shell
-yarn add react-native-unistyles react-native-nitro-modules react-native-edge-to-edge
+yarn add react-native-unistyles react-native-nitro-modules
 ```
 
 Caution
 
 To avoid unexpected behaviors always use a fixed version of `react-native-nitro-modules`. Check compatibility table [here](https://github.com/jpudysz/react-native-unistyles?tab=readme-ov-file#installation).
+
+react-native-edge-to-edge is optional since v3.1.0
+
+`react-native-edge-to-edge` is no longer a required dependency. We **strongly recommend** setting `edgeToEdgeEnabled=true` in your `android/gradle.properties` — it enforces translucent system bars on modals, disables legacy StatusBar hacks, and enables additional React Native core fixes.
+
+* **Expo SDK 54+**: Already enabled automatically
+* **Expo SDK 53 / Bare React Native**: Add `edgeToEdgeEnabled=true` to `android/gradle.properties`
+
+You can still install `react-native-edge-to-edge` alongside this property for ecosystem compatibility (e.g. `react-native-bootsplash`, `react-native-permissions`). Learn more [here](/v3/other/dependencies).
 
 Add babel plugin:
 
@@ -327,13 +352,15 @@ Finish installation based on your platform:
 
 ### As easy as React Native StyleSheet
 
+[Section titled “As easy as React Native StyleSheet”](#as-easy-as-react-native-stylesheet)
+
 Getting started with Unistyles couldn’t be easier. Simply replace React Native’s `StyleSheet` with the `StyleSheet` exported from Unistyles. From that moment, you’ll be using a `StyleSheet` with superpowers 🦸🏼‍♂️.
 
 Example.tsx
 
-```tsx
- import { StyleSheet } from 'react-native'
- import { StyleSheet } from 'react-native-unistyles'
+```diff
+ -import { StyleSheet } from 'react-native'
+ +import { StyleSheet } from 'react-native-unistyles'
 
 
 const MyComponent = () => {
@@ -372,6 +399,8 @@ To get the most out of Unistyles, it’s important to understand how it works an
 
 ### 1. StyleSheets
 
+[Section titled “1. StyleSheets”](#1-stylesheets)
+
 A typical app consists of many `StyleSheets`. A `StyleSheet` is a JavaScript object that holds one or many styles. Each style is associated with a native view. What’s more important is that each `StyleSheet` is unique, tailored to the needs of the view, or to a shared component.
 
 ![](/_astro/how-1.ClhanbTT.png)
@@ -379,6 +408,8 @@ A typical app consists of many `StyleSheets`. A `StyleSheet` is a JavaScript obj
 Your app’s StyleSheets
 
 ### 2. Babel plugin: dependencies
+
+[Section titled “2. Babel plugin: dependencies”](#2-babel-plugin-dependencies)
 
 Unistyles needs to understand your `StyleSheet` dependencies in order to update them only when necessary. This process begins when Babel transforms your app’s code. At this stage, the Unistyles Babel plugin scans your `StyleSheets` and determines the dependencies for each style:
 
@@ -402,6 +433,8 @@ const styles = StyleSheet.create((theme, rt) => ({
 
 ### 3. Babel plugin: component factory
 
+[Section titled “3. Babel plugin: component factory”](#3-babel-plugin-component-factory)
+
 As you already know, Unistyles has no components. This means your native view hierarchy remains exactly the same as in your original code. The Babel plugin processes your components through our component factory to borrow `refs` and bind the `ShadowNode` with `Unistyle`.
 
 You might be wondering, what is `Unistyle`? We refer to it as your `StyleSheet` style that has been parsed by the Unistyles compiler, and with the attached `C++` state.
@@ -416,6 +449,8 @@ Learn more on how the Babel plugin works [here](/v3/other/babel-plugin).
 
 ### 4. StyleSheet registry
 
+[Section titled “4. StyleSheet registry”](#4-stylesheet-registry)
+
 We don’t just extract metadata from your styles. We do the same for your `StyleSheet`. On the C++ side, we know exactly which `StyleSheet` is static, which depends on a `theme`, and which `Unistyles` it contains. At this point, your app’s `StyleSheets` are reconstructed on the C++ side and stored in native C++ `StyleSheets`, which contain the parsed `Unistyles`.
 
 ![](/_astro/how-3.C8JEACBb.png)
@@ -429,6 +464,8 @@ To make this process easier to visualize, imagine that the Unistyles engine is a
 Unistyles workflow
 
 ### 5. Reacting to events
+
+[Section titled “5. Reacting to events”](#5-reacting-to-events)
 
 When you access your `StyleSheet` styles in your component, you’ll get a regular JS object as expected. If your component re-renders, we simply return the same `Unistyle` that’s already parsed and stored in the cache.
 
@@ -449,6 +486,8 @@ Finding affected styles
 Affected styles are then re-computed to reflect the new state of your app.
 
 ### 6. Shadow Tree updates
+
+[Section titled “6. Shadow Tree updates”](#6-shadow-tree-updates)
 
 With the list of affected styles, we can now browse the `ShadowRegistry`, where we keep the bindings between `ShadowNode` and `Unistyles`. In other words, we know which `component` relies on which `style`. With all this information, we can translate the update into atomic `ShadowTree` instructions.
 
@@ -482,6 +521,8 @@ Unistyles is a cross-platform library that enables you to share up to 100% of yo
 
 ### Why should you use Unistyles?
 
+[Section titled “Why should you use Unistyles?”](#why-should-you-use-unistyles)
+
 * Guarantees no re-renders across the entire app (no hooks, no context—just pure JSI bindings)
 * Doesn’t pollute your native view hierarchy, you can use any component you want
 * Includes a cross-platform parser written in C++, ensuring consistent output across all platforms
@@ -502,58 +543,58 @@ The migration process is quite simple, but it can be tedious since you’ll need
 
    `UnistylesRegistry` can be easily replaced with `StyleSheet.configure` as it follows the same syntax. `Themes` and `Breakpoints` work exactly the same. For `Settings` we removed 4 out of 6 options:
 
-   ```tsx
-   import { UnistylesRegistry } from 'react-native-unistyles'
-   import { StyleSheet } from 'react-native-unistyles'
+   ```diff
+   -import { UnistylesRegistry } from 'react-native-unistyles'
+   +import { StyleSheet } from 'react-native-unistyles'
 
 
-    UnistylesRegistry.addConfig({
-       adaptiveThemes: false,
-       initialTheme: 'dark',
-       plugins: [...],
-       experimentalCSSMediaQueries: true,
-       windowResizeDebounceTimeMs: 100,
-       disableAnimatedInsets: true
-    })
+   - UnistylesRegistry.addConfig({
+   -    adaptiveThemes: false,
+   -    initialTheme: 'dark',
+   -    plugins: [...],
+   -    experimentalCSSMediaQueries: true,
+   -    windowResizeDebounceTimeMs: 100,
+   -    disableAnimatedInsets: true
+   - })
 
 
-    StyleSheet.configure({
-         settings: {
-             adaptiveThemes: false, // works exactly the same like in 2.0
-             initialTheme: 'dark', // works exactly the same like in 2.0
+   + StyleSheet.configure({
+   +      settings: {
+   +          adaptiveThemes: false, // works exactly the same like in 2.0
+   +          initialTheme: 'dark', // works exactly the same like in 2.0
              // plugins are removed, instead transform your styles with static functions
              // experimentalCSSMediaQueries: these options is also removed, and enabled by default with custom parser
              // windowResizeDebounceTimeMs: removed, there is no debouncing anymore. Styles are updated with CSS media queries
              // disableAnimatedInsets: removed, insets won't re-render your views
-        }
-    })
+   +     }
+   + })
    ```
 
 3. Import `StyleSheet` from `react-native-unistyles`:
 
-   ```tsx
-   import { createStyleSheet, useStyles } from 'react-native-unistyles'
-   import { StyleSheet } from 'react-native-unistyles'
+   ```diff
+   -import { createStyleSheet, useStyles } from 'react-native-unistyles'
+   +import { StyleSheet } from 'react-native-unistyles'
    ```
 
 4. Replace `createStyleSheet` with `StyleSheet.create`:
 
-   ```tsx
-   const stylesheet = createStyleSheet(theme => ({
-   const stylesheet = StyleSheet.create(theme => ({
+   ```diff
+   -const stylesheet = createStyleSheet(theme => ({
+   +const stylesheet = StyleSheet.create(theme => ({
    ```
 
 5. Remove all occurrences of `useStyles` hook:
 
-   ```tsx
-   const { styles } = useStyles(stylesheet)
+   ```diff
+   -const { styles } = useStyles(stylesheet)
    ```
 
 6. Rename your `stylesheet` to `styles`:
 
-   ```tsx
-   const stylesheet = StyleSheet.create(theme => ({
-   const styles = StyleSheet.create(theme => ({
+   ```diff
+   -const stylesheet = StyleSheet.create(theme => ({
+   +const styles = StyleSheet.create(theme => ({
    ```
 
 7. If you used `useInitialTheme`, remove it and set initial theme in `StyleSheet.configure`:
@@ -577,15 +618,15 @@ The migration process is quite simple, but it can be tedious since you’ll need
 
 8. If you need to access your `theme` in component, refactor it to use `withUnistyles`:
 
-   ```tsx
+   ```diff
    import { Button } from 'react-native'
-   import { useStyles } from 'react-native-unistyles'
-   import { withUnistyles } from 'react-native-unistyles'
+   -import { useStyles } from 'react-native-unistyles'
+   +import { withUnistyles } from 'react-native-unistyles'
 
 
-   const UniButton = withUnistyles(Button, theme => ({
+   +const UniButton = withUnistyles(Button, theme => ({
        color: theme.colors.primary
-   }))
+   +}))
 
 
    const MyButton = () => {
@@ -594,7 +635,7 @@ The migration process is quite simple, but it can be tedious since you’ll need
 
 
    const MyButton = () => {
-       const { theme } = useStyles(stylesheet)
+       -const { theme } = useStyles(stylesheet)
 
 
         return <Button color={theme.colors.primary} />
@@ -640,22 +681,22 @@ The migration process is quite simple, but it can be tedious since you’ll need
 
 11. If you used `UnistylesProvider`, remove it as it’s not available anymore:
 
-    ```tsx
-    import { UnistylesProvider } from 'react-native-unistyles'
+    ```diff
+    -import { UnistylesProvider } from 'react-native-unistyles'
 
 
-    <UnistylesProvider>
+    -<UnistylesProvider>
         <App />
-    </UnistylesProvider>
+    -</UnistylesProvider>
     ```
 
 12. If you want to move your component based on keyboard position, use `ime` inset:
 
-    ```tsx
+    ```diff
     const style = StyleSheet.create({
         container: {
           paddingBottom: rt.insets.bottom // bottom is no longer dynamic
-          paddingBottom: rt.insets.ime
+          +paddingBottom: rt.insets.ime
         }
     })
     ```
@@ -664,43 +705,43 @@ The migration process is quite simple, but it can be tedious since you’ll need
 
 14. Some `UnistylesRuntime` methods have been removed:
 
-    ```tsx
-    UnistylesRuntime.addPlugin(plugin) // Unistyles has no plugins anymore
-    UnistylesRuntime.removePlugin(plugin) // Unistyles has no plugins anymore
-    UnistylesRuntime.statusBar.setColor(color) // removed due to Android 15 deprecation
-    UnistylesRuntime.navigationBar.setColor(color) // removed due to Android 15 deprecation
+    ```diff
+    -UnistylesRuntime.addPlugin(plugin) // Unistyles has no plugins anymore
+    -UnistylesRuntime.removePlugin(plugin) // Unistyles has no plugins anymore
+    -UnistylesRuntime.statusBar.setColor(color) // removed due to Android 15 deprecation
+    -UnistylesRuntime.navigationBar.setColor(color) // removed due to Android 15 deprecation
     ```
 
 15. `UnistylesRuntime` methods that accepted `color` and `alpha` have been changed to accept `color` only. Each method supports **any** color that is respected by React Native:
 
-    ```tsx
-    UnistylesRuntime.setRootViewBackgroundColor(color, alpha) // no need for separate alpha
-    UnistylesRuntime.setRootViewBackgroundColor(color) // accepts any color
+    ```diff
+    -UnistylesRuntime.setRootViewBackgroundColor(color, alpha) // no need for separate alpha
+    +UnistylesRuntime.setRootViewBackgroundColor(color) // accepts any color
     ```
 
 16. `hairlineWidth` has been moved from `UnistylesRuntime` to `StyleSheet`. Use `StyleSheet.hairlineWidth` instead:
 
-    ```tsx
-    UnistylesRuntime.hairlineWidth // no longer available
-    StyleSheet.hairlineWidth // matches StyleSheet API
+    ```diff
+    -UnistylesRuntime.hairlineWidth // no longer available
+    +StyleSheet.hairlineWidth // matches StyleSheet API
     ```
 
 17. If your app used variants, move config to `styles.useVariants` instead:
 
-    ```tsx
-     import { useStyles } from 'react-native-unistyles'
-     import { StyleSheet } from 'react-native-unistyles'
+    ```diff
+     -import { useStyles } from 'react-native-unistyles'
+     +import { StyleSheet } from 'react-native-unistyles'
 
 
     const MyComponent = () => {
-       const { styles } = useStyles(stylesheet, {
+       -const { styles } = useStyles(stylesheet, {
            variant1: 'primary',
            variant2: 'secondary'
-       })
-       styles.useVariants({
+       -})
+       +styles.useVariants({
            variant1: 'primary',
            variant2: 'secondary'
-       })
+       +})
 
 
         return <View style={styles.container} />
@@ -790,6 +831,8 @@ Unistyles provides its own mocks to help you test your components. Follow this g
 
 ### Including Mocks
 
+[Section titled “Including Mocks”](#including-mocks)
+
 You don’t need to mock anything manually, as Unistyles supplies all necessary mocks for its core and for `NitroModules`. To use them, simply include `react-native-unistyles/mocks` in your `jest.setup.ts` file.
 
 package.json
@@ -806,6 +849,8 @@ package.json
 ```
 
 ### Include Unistyles Configuration
+
+[Section titled “Include Unistyles Configuration”](#include-unistyles-configuration)
 
 Each `StyleSheet` requires a configuration object passed to the `StyleSheet.configure` function. This is also true in the test environment. Extend the configuration from the previous step by including the file where you configure Unistyles.
 
@@ -829,9 +874,13 @@ You must include configuration file **after** the mocks as they provide all nece
 
 ### Babel Plugin
 
+[Section titled “Babel Plugin”](#babel-plugin)
+
 The Babel plugin is automatically disabled in the `jest` test environment or when `NODE_ENV === 'test'`.
 
 ### Understanding the role of mocks
+
+[Section titled “Understanding the role of mocks”](#understanding-the-role-of-mocks)
 
 Mocks contain basic logic to correctly execute Unistyles code. The Jest environment does not provide a `screen` (width and height), pixel ratio, or any other values from `UnistylesRuntime`.
 
@@ -849,6 +898,8 @@ This guide will explain when you should consider using Unistyles and when it’s
 
 ### When should you use Unistyles?
 
+[Section titled “When should you use Unistyles?”](#when-should-you-use-unistyles)
+
 Unistyles is recommended for projects that:
 
 * leverage the New Architecture and care about performance and memory usage
@@ -861,17 +912,23 @@ Unistyles is recommended for projects that:
 
 ### When is Unistyles not the best option?
 
+[Section titled “When is Unistyles not the best option?”](#when-is-unistyles-not-the-best-option)
+
 * You’re looking for a component library (Unistyles has no components, instead we encourage you to build your own design system specifically tailored to your project)
-* You use Tailwind on the web, as Unistyles has no native bindings to process `classNames` on the native side. Instead, we recommend using [Nativewind](https://www.nativewind.dev/)
+* You use Tailwind on the web, as Unistyles has no native bindings to process `classNames` on the native side. Instead, we recommend using [uniwind](https://uniwind.dev/)
 * You’re building a super simple app that doesn’t require theme changes or any advanced features. In this case, stick with React Native’s `StyleSheet` and consider updating to Unistyles 3.0 when it will be more efficient
 
 ### When you can’t use Unistyles 3.0?
+
+[Section titled “When you can’t use Unistyles 3.0?”](#when-you-cant-use-unistyles-30)
 
 * In Expo Go apps, as Unistyles is not (yet) selected by the Expo team
 * In apps that can’t update to the New Architecture. Instead, consider using [Unistyles 2.0](https://v2.unistyl.es/start/introduction/)
 * In apps that target unsupported platforms (eg. TV, Windows, macOS etc.), again consider using [Unistyles 2.0](https://v2.unistyl.es/start/introduction/)
 
 ### Other alternatives
+
+[Section titled “Other alternatives”](#other-alternatives)
 
 To find other alternatives, please check the latest [State of React Native survey](https://stateofreactnative.com/).
 
@@ -884,6 +941,8 @@ Unistyles 3.0 introduces a new `inset` called `ime`, which is automatically anim
 Unistyles dynamically recalculates your styles based on their dependencies. To learn more about how Unistyles re-calculates your styles, please refer to the [guide](/v3/start/how-unistyles-works).
 
 ### Usage
+
+[Section titled “Usage”](#usage)
 
 ```tsx
 import { TextInput, View } from 'react-native'
@@ -932,6 +991,8 @@ Unfortunately, you still need to install `react-native-web` in order to run your
 For this we recommend following the guidelines provided by [Expo](https://docs.expo.dev/workflow/web/).
 
 ## How to create custom web components
+
+[Section titled “How to create custom web components”](#how-to-create-custom-web-components)
 
 In order to create custom web components, you need to use `getWebProps` function. It takes a `StyleProp` and returns an object with `className` and `ref` properties.
 
@@ -1017,14 +1078,16 @@ If you’re creating multiplatform app, remember to create a native fallback for
 
 ### Modify main entry
 
+[Section titled “Modify main entry”](#modify-main-entry)
+
 Expo Router resolves routes differently than expected. Also, Unistyles 3.0 is parsing your `StyleSheets` as soon as you import file containing it. This combination may cause some issues. To prevent that you need to modify your main entry file:
 
 package.json
 
-```json
+```diff
 {
-   "main": "expo-router/entry"
-   "main": "index.ts"
+   -"main": "expo-router/entry"
+   +"main": "index.ts"
 }
 ```
 
@@ -1044,6 +1107,8 @@ The `unistyles.ts` file is where Unistyles is configured. For more details, refe
 With this setup, we will ensure that Unistyles is initialized before any other component.
 
 ### Expo Router Web - Static rendering
+
+[Section titled “Expo Router Web - Static rendering”](#expo-router-web---static-rendering)
 
 Caution
 
@@ -1070,11 +1135,11 @@ In this file, initialize Unistyles by importing the config file:
 
 +html.tsx
 
-```tsx
+```diff
 import React from 'react'
 import { ScrollViewStyleReset } from 'expo-router/html'
 import { type PropsWithChildren } from 'react'
- import '../unistyles' // <-- file that initializes Unistyles
+ +import '../unistyles' // <-- file that initializes Unistyles
 
 
 export default function Root({ children }: PropsWithChildren) {
@@ -1092,11 +1157,15 @@ While using Unistyles, it’s crucial to understand how styles need to be merged
 
 ### Introduction
 
+[Section titled “Introduction”](#introduction)
+
 In the early versions of Unistyles 3.0, we tried to solve this issue with a Babel plugin. However, it was too complex to maintain various edge cases (especially with `Pressable`), and developers frequently encountered many `Unistyles: Style is not bound!` errors.
 
 With the new approach, we shift the responsibility of merging styles to the user. In other words, the Babel plugin will no longer convert your style tags from objects to arrays.
 
 ### How to merge multiple styles
+
+[Section titled “How to merge multiple styles”](#how-to-merge-multiple-styles)
 
 Unistyles doesn’t provide any extra API for merging styles. Instead, we encourage you to use the `[]` syntax supported by React Native components.
 
@@ -1123,11 +1192,15 @@ It’s critical to ship Unistyles 3.0 apps without this warning, as it can cause
 
 ### Reanimated
 
+[Section titled “Reanimated”](#reanimated)
+
 In older versions of Reanimated, the `Animated` component was flattening your styles array, causing warnings and only allowing to pass a **single** unistyles to an `Animated` component ([original issue](https://github.com/jpudysz/react-native-unistyles/issues/512)).
 
 However, from `react-native-reanimated@3.17.2` or `react-native-reanimated@4.0.0-beta.3`, styles are no longer flattened.
 
 ### Spreading a single Unistyle
+
+[Section titled “Spreading a single Unistyle”](#spreading-a-single-unistyle)
 
 Another problematic case is spreading a single Unistyle and merging it, e.g., with inline styles:
 
@@ -1140,6 +1213,8 @@ Although we can restore the C++ state for `styles.container`, we cannot identify
 Also, keep in mind that restoring the C++ state takes unnecessary extra time, so it’s better to avoid it.
 
 ### Summary
+
+[Section titled “Summary”](#summary)
 
 * Use the `[]` syntax to merge styles
 * Avoid spreading Unistyles
@@ -1156,9 +1231,13 @@ React Compiler is a build-time tool that automatically optimizes your React app.
 
 ## With Expo
 
+[Section titled “With Expo”](#with-expo)
+
 For Expo projects, simply follow the [official Expo guide](https://docs.expo.dev/guides/react-compiler/). No additional configuration changes are necessary!
 
 ## With Bare React Native
+
+[Section titled “With Bare React Native”](#with-bare-react-native)
 
 For bare React Native projects, refer to the [official React guide](https://react.dev/learn/react-compiler#usage-with-babel) with one key adjustment:
 
@@ -1168,12 +1247,12 @@ Here’s a sample configuration for your `babel.config.js`:
 
 babel.config.js
 
-```js
+```diff
 module.exports = function () {
   return {
     plugins: [
       ['react-native-unistyles/plugin'], // Must run before react-compiler
-     'babel-plugin-react-compiler',
+     +'babel-plugin-react-compiler',
       // Add other plugins here
     ]
   }
@@ -1194,6 +1273,8 @@ Reanimated works the best with Unistyles in:
 * `react-native-reanimated@4.0.0-beta.3` and above
 
 ### Access theme in worklets
+
+[Section titled “Access theme in worklets”](#access-theme-in-worklets)
 
 Using the theme from `UnistylesRuntime.getTheme()` will not trigger worklet updates. Importing it from `useUnistyles` will cause a re-render.
 
@@ -1223,6 +1304,8 @@ Note
 `useAnimatedTheme` is a first-class `SharedValue`, so you can use it in worklets. It also triggers worklet updates if any change occurs and doesn’t cause re-renders.
 
 ### Animating variant colors
+
+[Section titled “Animating variant colors”](#animating-variant-colors)
 
 It’s possible to reuse Unistyles variant colors and animate them using the `useAnimatedStyle` hook.
 
@@ -1275,6 +1358,8 @@ const animatedStyle = useAnimatedStyle(() => {
 
 ### Merging styles
 
+[Section titled “Merging styles”](#merging-styles)
+
 When you want to use `Unistyles` styles in `Animated` components, never mix them with `Reanimated` styles:
 
 ```tsx
@@ -1295,7 +1380,7 @@ export const MyAnimatedComponent = () => {
 }
 
 
-const style = StyleSheet.create(theme => ({
+const styles = StyleSheet.create(theme => ({
     container: {
         flex: 1,
         justifyContent: 'center',
@@ -1326,7 +1411,7 @@ export const MyAnimatedComponent = () => {
 }
 
 
-const style = StyleSheet.create(theme => ({
+const styles = StyleSheet.create(theme => ({
     container: {
         flex: 1,
         justifyContent: 'center',
@@ -1345,6 +1430,8 @@ With this approach, both libraries will focus on updating own styles, which will
 Unistyles 3.0 is fully compatible with Next.js Server Side Rendering (SSR). We’re supporting both client and server components.
 
 ### Usage
+
+[Section titled “Usage”](#usage)
 
 * App router
 
@@ -1388,9 +1475,9 @@ Unistyles 3.0 is fully compatible with Next.js Server Side Rendering (SSR). We�
 
   layout.tsx
 
-  ```tsx
-   import '../unistyles'
-   import { Style } from '../Style'
+  ```diff
+   +import '../unistyles'
+   +import { Style } from '../Style'
 
 
   export default function RootLayout({
@@ -1401,9 +1488,9 @@ Unistyles 3.0 is fully compatible with Next.js Server Side Rendering (SSR). We�
   return (
       <html lang="en">
       <body>
-          <Style>
+          +<Style>
               {children}
-          </Style>
+          +</Style>
       </body>
       </html>
   );
@@ -1418,6 +1505,8 @@ Unistyles 3.0 is fully compatible with Next.js Server Side Rendering (SSR). We�
 
   ### Config (Optional)
 
+  [Section titled “Config (Optional)”](#config-optional)
+
   `useServerUnistyles` accepts an optional config object:
 
   * **`includeRNWStyles`** – a boolean that enables or disables injecting React Native Web default CSS styles. Defaults to `true`.
@@ -1428,41 +1517,43 @@ Unistyles 3.0 is fully compatible with Next.js Server Side Rendering (SSR). We�
 
   \_document.tsx
 
-  ```tsx
-  import { getServerUnistyles, resetServerUnistyles } from 'react-native-unistyles/server'
+  ```diff
+  +import { getServerUnistyles, resetServerUnistyles } from 'react-native-unistyles/server'
 
 
     export default class Document extends NextDocument {
-        static async getInitialProps({ renderPage }: DocumentContext) {
-            const page = await renderPage()
-            const styles = getServerUnistyles()
+        +static async getInitialProps({ renderPage }: DocumentContext) {
+            +const page = await renderPage()
+            +const styles = getServerUnistyles()
 
 
-            resetServerUnistyles()
+            +resetServerUnistyles()
 
 
-            return {
-                ...page,
-                styles
-            }
-        }
+            +return {
+                +...page,
+  +              styles
+  +          }
+  +      }
   ```
 
   And add the following use effect to your `_app.tsx`
 
   \_app.tsx
 
-  ```tsx
-   import { hydrateServerUnistyles } from 'react-native-unistyles/server'
+  ```diff
+   +import { hydrateServerUnistyles } from 'react-native-unistyles/server'
 
 
   {/* JSX of your component */}
-   useEffect(() => {
-       hydrateServerUnistyles()
-   }, [])
+   +useEffect(() => {
+       +hydrateServerUnistyles()
+  + }, [])
   ```
 
   ### Config (Optional)
+
+  [Section titled “Config (Optional)”](#config-optional-1)
 
   `getServerUnistyles` accepts an optional config object:
 
@@ -1470,7 +1561,11 @@ Unistyles 3.0 is fully compatible with Next.js Server Side Rendering (SSR). We�
 
 ## Troubleshooting
 
+[Section titled “Troubleshooting”](#troubleshooting)
+
 ### Hydration error
+
+[Section titled “Hydration error”](#hydration-error)
 
 If you’re not using adaptive themes, you might encounter hydration error on your root html element. This is because unistyles is adding a className to it based on the current theme.
 
@@ -1478,18 +1573,18 @@ To fix this simply add `suppressHydrationWarning` to your root html element.
 
 layout.tsx
 
-```tsx
-<html lang="en">
-<html lang="en" suppressHydrationWarning>
+```diff
+-<html lang="en">
++<html lang="en" suppressHydrationWarning>
 ```
 
 Or you can directly add the className to your root html element.
 
 layout.tsx
 
-```tsx
-<html lang="en">
-<html lang="en" className="dark">
+```diff
+-<html lang="en">
++<html lang="en" className="dark">
 ```
 
 # Theming
@@ -1505,6 +1600,8 @@ There is also no limit to the number of themes. You can even register dozens of 
 Theming is optional. If you don’t register themes with [StyleSheet.configure](/v3/start/configuration#themes-optional) the library will use an empty object by default.
 
 ### Create a theme
+
+[Section titled “Create a theme”](#create-a-theme)
 
 You can organize your themes however you want:
 
@@ -1570,6 +1667,8 @@ It’s not recommended to use themes with different shapes. Unistyles allows tha
 
 ### Select theme
 
+[Section titled “Select theme”](#select-theme)
+
 If you’ve registered more than one theme, Unistyles won’t know which one is the initial one. At this point, you have 3 options:
 
 * If you know the initial theme upfront, select it with `settings` from [StyleSheet.configure](/v3/start/configuration#settings-optional)
@@ -1603,6 +1702,8 @@ It’s not possible to use `async` functions with `initialTheme` option.
 
 ### Get the current theme
 
+[Section titled “Get the current theme”](#get-the-current-theme)
+
 To get the current theme you can access it in the `StyleSheet.create` function:
 
 ```tsx
@@ -1635,6 +1736,8 @@ Caution
 
 ### Get the current theme name
 
+[Section titled “Get the current theme name”](#get-the-current-theme-name)
+
 To get the current theme name, import `UnistylesRuntime`:
 
 ```tsx
@@ -1650,6 +1753,8 @@ export const UserTheme = () => (
 ```
 
 ### Adaptive themes
+
+[Section titled “Adaptive themes”](#adaptive-themes)
 
 Adaptive themes allow Unistyles to automatically manage the selection of your themes based on device color scheme settings. To enable this, you need to meet two conditions:
 
@@ -1685,6 +1790,8 @@ Setting initial theme and enabling adaptive themes at the same time will throw a
 
 ### Toggle adaptive themes during runtime
 
+[Section titled “Toggle adaptive themes during runtime”](#toggle-adaptive-themes-during-runtime)
+
 To toggle adaptive themes support at any point, use `UnistylesRuntime`:
 
 ```tsx
@@ -1704,6 +1811,8 @@ With adaptive themes disabled, you can now manually change the theme.
 
 ### Check if adaptive themes are enabled
 
+[Section titled “Check if adaptive themes are enabled”](#check-if-adaptive-themes-are-enabled)
+
 To check if adaptive themes are enabled, use `UnistylesRuntime` again:
 
 ```tsx
@@ -1719,6 +1828,8 @@ export const AdaptiveThemes = () => (
 ```
 
 ### Get device color scheme
+
+[Section titled “Get device color scheme”](#get-device-color-scheme)
 
 Check your device color preference with `UnistylesRuntime`:
 
@@ -1744,6 +1855,8 @@ If your app’s theme is not changing based on device settings, please refer to 
 
 ### Change theme
 
+[Section titled “Change theme”](#change-theme)
+
 To change the theme at any time, simply call `setTheme` function:
 
 ```tsx
@@ -1764,6 +1877,8 @@ Caution
 Calling this function with enabled adaptive themes will throw an error.
 
 ### Update theme during runtime
+
+[Section titled “Update theme during runtime”](#update-theme-during-runtime)
 
 Unistyles allows you to update your theme during runtime. This is useful if you want to show the user interface with default colors and later alter theme based on user preferences.
 
@@ -1791,6 +1906,8 @@ export const UpdateTheme = ({ selectedColors }) => (
 ```
 
 ### Update rootView background color during runtime
+
+[Section titled “Update rootView background color during runtime”](#update-rootview-background-color-during-runtime)
 
 You can also change dynamically the root view background color with `UnistylesRuntime`:
 
@@ -1825,11 +1942,15 @@ If you start working with Unistyles 3.0, it might be unclear why some views are 
 
 ### Problem 1: Babel
 
+[Section titled “Problem 1: Babel”](#problem-1-babel)
+
 To leverage ShadowTree updates and avoid unnecessary re-renders, Unistyles must process both `StyleSheets` and your components. By default, the Babel plugin looks for `react-native-unistyles` imports and always ignores the `node_modules` folder.
 
 If you separate `StyleSheets` from your components, it’s your responsibility to configure Babel to detect components that lack a Unistyles import. We’ve added plenty of options, so be sure to [check them out](/v3/other/babel-plugin##extra-configuration).
 
 ### Problem 2: Dependency detection
+
+[Section titled “Problem 2: Dependency detection”](#problem-2-dependency-detection)
 
 Unistyles will automatically detect all your dependencies for every `StyleSheet`, but there’s a chance you used custom syntax that isn’t covered by the plugin. If Babel fails to detect some style dependencies, they won’t be updated when necessary.
 
@@ -1859,9 +1980,13 @@ Then, restart the Metro server cache and check the console, where you’ll find 
 
 ### Problem 3: Non React Native components
 
+[Section titled “Problem 3: Non React Native components”](#problem-3-non-react-native-components)
+
 Unistyles can only update React Native components. If you’re using a third-party component, you’ll need to apply a different strategy. Follow our [decision algorithm](/v3/references/3rd-party-views) to help you choose the best approach.
 
 ### Problem 4: Web styles are not applied
+
+[Section titled “Problem 4: Web styles are not applied”](#problem-4-web-styles-are-not-applied)
 
 This issue indicates that the Babel plugin didn’t detect some of your components. Initially, it may seem like native styles are working correctly, but that’s not the case.
 
@@ -1937,6 +2062,8 @@ Breakpoints are user-defined key/value pairs that describe the boundaries of scr
 
 ### Register breakpoints
 
+[Section titled “Register breakpoints”](#register-breakpoints)
+
 To register your breakpoints, create an object with **any** keys:
 
 unistyles.ts
@@ -1981,9 +2108,11 @@ To learn more, follow the configuration [guide](/v3/start/configuration).
 
 ### How to use breakpoints?
 
+[Section titled “How to use breakpoints?”](#how-to-use-breakpoints)
+
 Any style can change based on breakpoints. To do this, change a `value` to an `object`:
 
-```tsx
+```diff
 const styles = StyleSheet.create(theme => ({
     container: {
         flex: 1,
@@ -1991,10 +2120,10 @@ const styles = StyleSheet.create(theme => ({
         alignItems: 'center',
         backgroundColor: theme.colors.background,
         backgroundColor: {
-            // your breakpoints
+            +// your breakpoints
             xs: theme.colors.background,
             sm: theme.colors.barbie
-        }
+        +}
     },
     text: {
         color: theme.colors.typography
@@ -2033,6 +2162,8 @@ Breakpoints are also available with [variants](/v3/references/variants/) and [co
 
 ### Built-in breakpoints `landscape` and `portrait`
 
+[Section titled “Built-in breakpoints landscape and portrait”](#built-in-breakpoints-landscape-and-portrait)
+
 Even if you don’t use custom breakpoints, you can still utilize Unistyles’ predefined breakpoints available on mobile devices: `portrait` and `landscape`.
 
 * `portrait` will resolve to your device’s width in portrait mode
@@ -2058,11 +2189,15 @@ const styles = StyleSheet.create(theme => ({
 
 ### Pixel/Point mode for native breakpoints
 
+[Section titled “Pixel/Point mode for native breakpoints”](#pixelpoint-mode-for-native-breakpoints)
+
 By default, Unistyles will use `pixels` for native breakpoints. This means that the breakpoints and [mq](/v3/references/media-queries) will be computed based on mobile screen pixels. You can change this behavior by setting `nativeBreakpointsMode` to `points` in your [configuration](/v3/start/configuration#settings-optional).
 
 If `nativeBreakpointsMode` is set to `points`, all breakpoints and `mq` will be computed based on mobile screen points (screen in pixels divided by pixel ratio).
 
 ### Show/Hide your components based on breakpoints
+
+[Section titled “Show/Hide your components based on breakpoints”](#showhide-your-components-based-on-breakpoints)
 
 In order to show or hide your components based on the screen size, you can leverage the `mq` utility and one of the two built-in components: `Display` and `Hide`.
 
@@ -2098,6 +2233,8 @@ export const CurrentBreakpoint = () => (
 
 ### Get registered breakpoints
 
+[Section titled “Get registered breakpoints”](#get-registered-breakpoints)
+
 Access your registered breakpoints object with `UnistylesRuntime`:
 
 ```tsx
@@ -2121,6 +2258,8 @@ You can extend your `StyleSheets` even further by using `compound variants`.
 Compound variants are a way of applying additional styles when certain conditions are met. This approach simplifies the management of complex styling by reducing redundancy and increasing the flexibility of your `StyleSheets`.
 
 ### Basic usage
+
+[Section titled “Basic usage”](#basic-usage)
 
 Let’s say you created a base `Typography` component with the following variants:
 
@@ -2167,6 +2306,8 @@ const styles = StyleSheet.create(theme => ({
 What if you’ve received a new requirement where the text should be underlined when `isBold` is `true` and `color` is `link`? This task could be challenging while using features like [dynamic functions](/v3/references/dynamic-functions/) as you would need to use `if` statements in your `StyleSheet`.
 
 ### Usage with Compound variants
+
+[Section titled “Usage with Compound variants”](#usage-with-compound-variants)
 
 With compound variants, it can be achieved in a more concise way:
 
@@ -2233,6 +2374,8 @@ It’s also possible to use these values to build responsive layouts based on na
 
 ### iOS
 
+[Section titled “iOS”](#ios)
+
 Unistyles’ implementation is based on [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/typography#Specifications) and the available values are:
 
 `xSmall`, `Small`, `Medium`, `Large`, `xLarge`, `xxLarge`, `xxxLarge`, `unspecified`
@@ -2242,6 +2385,8 @@ In addition to the above categories, you can also use the [Accessibility sizes](
 `accessibilityMedium`, `accessibilityLarge`, `accessibilityExtraLarge`, `accessibilityExtraExtraLarge`, `accessibilityExtraExtraExtraLarge`
 
 ### Android
+
+[Section titled “Android”](#android)
 
 There is no direct equivalent to the iOS content size category on Android. The implementation is based on [Font Scale](https://developer.android.com/reference/android/content/res/Configuration#fontScale), and the available values are:
 
@@ -2261,9 +2406,13 @@ Mapping is based on the following table:
 
 ### Web
 
+[Section titled “Web”](#web)
+
 There is no support for the content size category on the web. Reading the value will always resolve to `unspecified`.
 
 ### Usage
+
+[Section titled “Usage”](#usage)
 
 To get the current `contentSizeCategory`, you need to use `UnistylesRuntime`:
 
@@ -2296,6 +2445,8 @@ Unistyles provides rich metadata about your device dimensions. This is useful fo
 
 ### Accessing dimensions
 
+[Section titled “Accessing dimensions”](#accessing-dimensions)
+
 In order to start using the dimensions metadata, you need to import `UnistylesRuntime`:
 
 ```tsx
@@ -2303,6 +2454,8 @@ import { UnistylesRuntime } from 'react-native-unistyles'
 ```
 
 ### Screen dimensions
+
+[Section titled “Screen dimensions”](#screen-dimensions)
 
 The most basic dimensions are the screen dimensions. These are the dimensions of the screen that your app is running on. You can access them with the `screen` prop:
 
@@ -2315,6 +2468,8 @@ UnistylesRuntime.screen.height // eg. 760
 ```
 
 ### Status bar
+
+[Section titled “Status bar”](#status-bar)
 
 You can access status bar dimensions with the `statusBar` prop:
 
@@ -2330,6 +2485,8 @@ This prop may be useful for creating custom headers. In most of the cases status
 
 ### Navigation bar
 
+[Section titled “Navigation bar”](#navigation-bar)
+
 You can access navigation bar dimensions with `navigationBar` prop:
 
 ```tsx
@@ -2343,6 +2500,8 @@ UnistylesRuntime.navigationBar.height // eg. 24
 This prop may be useful for creating custom bottom bars. In most of the cases navigation bar height is equal to the bottom inset, but on some devices it may be different.
 
 ### Insets
+
+[Section titled “Insets”](#insets)
 
 Insets are the safe areas of the screen. They are used to avoid overlapping with system UI elements such as the status bar, navigation bar, and home indicator. You can access them with `insets` prop:
 
@@ -2379,6 +2538,8 @@ Unistyles automatically reacts when you hide or show status and navigation bars.
 
 ### Pixel ratio
 
+[Section titled “Pixel ratio”](#pixel-ratio)
+
 Device Pixel Ratio (DPR) is the ratio between physical pixels and device-independent pixels (DIPs) on a screen. It determines how many physical pixels are used to represent a single CSS pixel.
 
 Most likely, your phone pixel ratio ranges between 1.0 to 3.0 (retina).
@@ -2388,6 +2549,8 @@ UnistylesRuntime.pixelRatio // eg. 2.0
 ```
 
 ### Font scale
+
+[Section titled “Font scale”](#font-scale)
 
 Font scale is a ratio between the font size of the device and the default font size. It is used to adjust the size of text on the screen in companion with [content size category](/v3/references/content-size-category/).
 
@@ -2406,6 +2569,8 @@ However, this pattern was a bit tedious, as it required writing custom logic to 
 With Unistyles 3.0, preferred way of listening for breakpoint changes is with `Display` and `Hide` components.
 
 ### Display
+
+[Section titled “Display”](#display)
 
 The Display component helps you show its children based on `breakpoints` or `media queries`.
 
@@ -2451,6 +2616,8 @@ const Component = () => {
 
 ### Hide
 
+[Section titled “Hide”](#hide)
+
 On the opposite side, the `Hide` component helps you hide its children based on `breakpoints` or `media queries`. It works exactly the same way as the Display component.
 
 ```tsx
@@ -2488,9 +2655,11 @@ If you need to pass a value from JSX to your `stylesheet` you can do so using a 
 
 ### Usage
 
+[Section titled “Usage”](#usage)
+
 To use a dynamic function, change **any** stylesheet’s value from an `object` to a `function`:
 
-```tsx
+```diff
 const styles = StyleSheet.create(theme => ({
     container: {
     container: () => ({
@@ -2498,7 +2667,7 @@ const styles = StyleSheet.create(theme => ({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
-    }
+    -}
     })
 }))
 ```
@@ -2537,11 +2706,15 @@ Keep in mind that a dynamic function can accept only serializable arguments. The
 
 ### iOS
 
+[Section titled “iOS”](#ios)
+
 Unistyles uses native `SafeAreaInsets` API to handle insets on iOS. This API is stable and works the same across all iOS versions.
 
 Most likely, you’ll never receive incorrect inset values on iOS.
 
 ### Android
+
+[Section titled “Android”](#android)
 
 Unistyles uses `WindowsInsetsCompat` API to handle insets on Android. This API requires your app to have edge to edge layout enabled. In other words, it means that your `StatusBar` is always `translucent` and the app can draw behind the `NavigationBar`. A translucent status bar is also the default when you build your app with Expo. To leverage `WindowInsetsCompat`, Unistyles enables `edgeToEdge` layout by default.
 
@@ -2580,9 +2753,11 @@ Apps are edge-to-edge by default on devices running Android 15 if the app is tar
 
 [Learn more](https://developer.android.com/about/versions/15/behavior-changes-15)
 
-Caution
+Enable edgeToEdgeEnabled in gradle.properties
 
-Unistyles enables `edgeToEdge` by default, but sometimes other libraries might interfere with it. We decided to depend on `react-native-edge-to-edge` package, to help reduce these issues. Learn more [here](/v3/other/dependencies#react-native-edge-to-edge).
+We **strongly recommend** setting `edgeToEdgeEnabled=true` in your `android/gradle.properties`. Beyond enabling edge-to-edge layout, it enforces translucent system bars on modals, disables legacy StatusBar hacks, and enables additional React Native core fixes. **Expo SDK 54+** enables this automatically.
+
+Since v3.1.0, `react-native-edge-to-edge` is optional — you can still install it for ecosystem compatibility. Learn more [here](/v3/other/dependencies#react-native-edge-to-edge-optional-since-v310).
 
 # Media Queries
 
@@ -2592,9 +2767,11 @@ Media queries provide more power and allow you to style cross-platform apps with
 
 ### Basic usage
 
+[Section titled “Basic usage”](#basic-usage)
+
 To use media queries, you need to import the `mq` utility and convert your value to an `object`:
 
-```tsx
+```diff
 import { Stylesheet, mq } from 'react-native-unistyles'
 
 
@@ -2605,9 +2782,9 @@ const styles = Stylesheet.create(theme => ({
         alignItems: 'center'
         backgroundColor: theme.colors.background,
         backgroundColor: {
-            [mq.only.width(240, 380)]: theme.colors.background,
-            [mq.only.width(380)]: theme.colors.barbie
-       }
+            +[mq.only.width(240, 380)]: theme.colors.background,
+            +[mq.only.width(380)]: theme.colors.barbie
+       +}
     }
 }))
 ```
@@ -2615,6 +2792,8 @@ const styles = Stylesheet.create(theme => ({
 The `mq` utility provides Intellisense for quickly building your media queries.
 
 ### Advanced usage
+
+[Section titled “Advanced usage”](#advanced-usage)
 
 You can also combine `width` media queries with `height` media queries:
 
@@ -2678,6 +2857,8 @@ const styles = Stylesheet.create(theme => ({
 
 ### Reference
 
+[Section titled “Reference”](#reference)
+
 Available combinations
 
 ```shell
@@ -2712,6 +2893,8 @@ If you pass an invalid range to mq utility eg. (‘xl’, ‘sm’) or (500, 200
 
 ### Combining media queries with breakpoints
 
+[Section titled “Combining media queries with breakpoints”](#combining-media-queries-with-breakpoints)
+
 You can mix media queries with breakpoints, but media queries will always have higher priority:
 
 ```tsx
@@ -2733,6 +2916,8 @@ const styles = Stylesheet.create(theme => ({
 ```
 
 ### CSS Media Queries
+
+[Section titled “CSS Media Queries”](#css-media-queries)
 
 `Breakpoints` and `Media Queries` will be auto converted to Web CSS media queries. Learn more about [Web Media Queries](/v3/references/web-styles#how-it-works).
 
@@ -2776,6 +2961,8 @@ There are cases where you may want to render specific components or screens with
 To address this, Unistyles 3.0 introduces the concept of a `Scoped Theme`, which allows you to assign a fixed theme to a specific component or screen.
 
 ### Usage with named theme
+
+[Section titled “Usage with named theme”](#usage-with-named-theme)
 
 To use scoped theme, you need to import `ScopedTheme` component from `react-native-unistyles`:
 
@@ -2825,6 +3012,8 @@ You can also nest `ScopedTheme` components:
 
 ### Usage with inverted adaptive theme
 
+[Section titled “Usage with inverted adaptive theme”](#usage-with-inverted-adaptive-theme)
+
 You can also use `ScopedTheme` with the `invertedAdaptive` prop. This prop cannot be used together with a named `ScopedTheme`, as these options are mutually exclusive. The purpose of `invertedAdaptive` is to apply the opposite adaptive theme to the one that is currently active.
 
 In other words, if your app supports [adaptive themes](/v3/guides/theming#adaptive-themes) and you use `ScopedTheme` with the `invertedAdaptive` prop, it will apply:
@@ -2858,6 +3047,8 @@ You can also nest other `ScopedThemes` inside `ScopedTheme` with `invertedAdapti
 
 ### Reset
 
+[Section titled “Reset”](#reset)
+
 If you wrap multiple children in `ScopedTheme` you can disable scoped theme for some of them by using `reset` prop:
 
 ```tsx
@@ -2883,6 +3074,8 @@ If you wrap multiple children in `ScopedTheme` you can disable scoped theme for 
 ```
 
 ### Reading current scoped theme
+
+[Section titled “Reading current scoped theme”](#reading-current-scoped-theme)
 
 Information about the current `ScopedTheme` is temporary and only available during the component render phase.
 
@@ -2976,6 +3169,91 @@ const ScopedComponent = () => {
 </ScopedTheme>
 ```
 
+### Scoped Theme with Suspense
+
+[Section titled “Scoped Theme with Suspense”](#scoped-theme-with-suspense)
+
+When using `ScopedTheme` with React’s `Suspense`, there’s an important consideration about component placement due to how React handles suspension and re-rendering.
+
+React Suspense works by catching promises thrown by child components that are waiting for data. When this happens:
+
+1. React pauses rendering and shows the fallback content
+2. Components that successfully rendered before the suspension may be reused
+3. Parent components might not re-render when the suspended data becomes available
+
+This means if you place `ScopedTheme` above a component that suspends, the scoped theme might not be applied correctly when the component finally renders:
+
+```tsx
+// ❌ This won't work correctly
+<Suspense fallback={<Loading />}>
+    <ScopedTheme name="dark">
+        <SuspendedComponent /> {/* ScopedTheme already rendered before suspension */}
+    </ScopedTheme>
+</Suspense>
+```
+
+Unistyles ScopedTheme is only available during render phase, we decided to not use `React.Context` to keep the API performant and easy to use.
+
+To fix this issue, you can move the `ScopedTheme` inside the suspended component:
+
+```tsx
+// ✅ Place ScopedTheme inside the component that suspends
+const SuspendedComponent = () => {
+    const data = useSuspenseQuery(); // This throws a promise
+
+
+    return (
+        <ScopedTheme name="dark">
+            <View style={styles.container}>
+                <Text style={styles.text}>
+                    {data.title}
+                </Text>
+            </View>
+        </ScopedTheme>
+    );
+};
+
+
+<Suspense fallback={<Loading />}>
+    <SuspendedComponent />
+</Suspense>
+```
+
+The key is to ensure that `ScopedTheme` is rendered **after** the suspension occurs, so that when React re-renders the suspended component tree, the scoped theme context is properly established.
+
+This pattern ensures that your themed components will render with the correct theme once the suspended data becomes available.
+
+### Scoped Theme and Hot Module Reloading (HMR)
+
+[Section titled “Scoped Theme and Hot Module Reloading (HMR)”](#scoped-theme-and-hot-module-reloading-hmr)
+
+When working with `ScopedTheme` in development, you might notice that Hot Module Reloading doesn’t always update the theme when you make changes to child components. This is a limitation of Metro’s Fast Refresh system.
+
+Unlike Webpack, Metro’s Fast Refresh only re-runs code in the file you’re actively editing and its direct imports. It doesn’t have a global event system that can notify parent components when child modules change.
+
+Metro provides these HMR functions:
+
+```tsx
+module.hot.accept(fn)   // fires if *this* module is updated
+module.hot.dispose(fn)  // fires just before *this* module is replaced
+```
+
+However, **neither of these runs** when other modules change. This means that changes in child components won’t trigger a re-render of their parent `ScopedTheme`:
+
+```tsx
+<ScopedTheme name="light">
+    <ChildComponent /> {/* Changes in this file won't trigger ScopedTheme to update */}
+</ScopedTheme>
+```
+
+#### Why We Don’t Use React Context
+
+[Section titled “Why We Don’t Use React Context”](#why-we-dont-use-react-context)
+
+The “ideal” solution would be to use React Context for theme propagation, which would work seamlessly with HMR. However, we’ve chosen performance over convenience. Using React Context would introduce additional re-renders and overhead that could impact your app’s performance, especially in complex component trees.
+
+We prioritize keeping the API fast and lightweight, even if it means accepting some development-time limitations with HMR.
+
 # StyleSheet
 
 > Learn about StyleSheet in Unistyles 3.0
@@ -2983,6 +3261,8 @@ const ScopedComponent = () => {
 `StyleSheet` replaces the old `createStyleSheet` function and aims for 1:1 parity with the React Native API. When we say that Unistyles is a superset of StyleSheet, we mean it! That’s why we are taking it one step further!
 
 ### create
+
+[Section titled “create”](#create)
 
 The `create` function supports all styles that React Native’s StyleSheet does, and it also enables some superpowers 🦸🏼‍♂️. It can parse your `variants`, `compoundVariants` or `dynamic functions` (even if you haven’t configured Unistyles yet!).
 
@@ -3058,6 +3338,8 @@ Unistyles StyleSheet will automatically react and recalculate your styles if any
 
 #### Static StyleSheet
 
+[Section titled “Static StyleSheet”](#static-stylesheet)
+
 ```tsx
 import { StyleSheet } from 'react-native-unistyles'
 
@@ -3071,6 +3353,8 @@ const styles = StyleSheet.create({
 
 #### Themable StyleSheet
 
+[Section titled “Themable StyleSheet”](#themable-stylesheet)
+
 ```tsx
 import { StyleSheet } from 'react-native-unistyles'
 
@@ -3083,6 +3367,8 @@ const styles = StyleSheet.create(theme => ({
 ```
 
 #### Themable StyleSheet with `miniRuntime`
+
+[Section titled “Themable StyleSheet with miniRuntime”](#themable-stylesheet-with-miniruntime)
 
 ```tsx
 import { StyleSheet } from 'react-native-unistyles'
@@ -3100,6 +3386,8 @@ Learn more about `miniRuntime` [here](/v3/references/mini-runtime/).
 
 ### configure
 
+[Section titled “configure”](#configure)
+
 `StyleSheet.configure` is used to configure Unistyles. It accepts an object with the following properties:
 
 * `themes` your apps themes
@@ -3112,7 +3400,47 @@ The `configure` function **must** be called before you import any component that
 
 You can learn more about how to configure Unistyles [here](/v3/start/configuration).
 
+### addChangeListener Since v3.1.0
+
+[Section titled “addChangeListener ”](#addchangelistener)
+
+`StyleSheet.addChangeListener` is an advanced API for integrations, custom hooks, and animation helpers that need to react to runtime dependency updates.
+
+For regular styles, you do not need to use it manually. Unistyles already recalculates `StyleSheet.create` output whenever the relevant dependencies change.
+
+Signature:
+
+```ts
+addChangeListener(
+    onChanged: (dependencies: Array<UnistyleDependency>) => void
+): () => void
+```
+
+The callback receives one or more `UnistyleDependency` values describing what changed. The function returns an unsubscribe callback.
+
+```tsx
+import { useEffect } from 'react'
+import { StyleSheet, UnistyleDependency } from 'react-native-unistyles'
+
+
+useEffect(() => {
+    const dispose = StyleSheet.addChangeListener((dependencies) => {
+        if (
+            dependencies.includes(UnistyleDependency.Theme) ||
+            dependencies.includes(UnistyleDependency.Breakpoints)
+        ) {
+            // react to theme or breakpoint updates
+        }
+    })
+
+
+    return dispose
+}, [])
+```
+
 ### hairlineWidth
+
+[Section titled “hairlineWidth”](#hairlinewidth)
 
 `StyleSheet.hairlineWidth` is a static value representing the smallest value that can be drawn on your device. It’s helpful for borders or dividers.
 
@@ -3130,13 +3458,19 @@ const styles = StyleSheet.create(theme => ({
 
 ### compose
 
+[Section titled “compose”](#compose)
+
 Maps to React Native’s [compose function](https://reactnative.dev/docs/stylesheet#compose).
 
 ### flatten
 
+[Section titled “flatten”](#flatten)
+
 Maps to React Native’s [flatten function](https://reactnative.dev/docs/stylesheet#flatten).
 
 ### absoluteFillObject
+
+[Section titled “absoluteFillObject”](#absolutefillobject)
 
 Returns following object:
 
@@ -3151,6 +3485,8 @@ Returns following object:
 ```
 
 ### absoluteFill
+
+[Section titled “absoluteFill”](#absolutefill)
 
 Returns following object:
 
@@ -3172,6 +3508,8 @@ Unistyles Runtime is a powerful feature that allows you to access platform speci
 
 ### Usage
 
+[Section titled “Usage”](#usage)
+
 You can import `UnistylesRuntime` from `react-native-unistyles`:
 
 ```tsx
@@ -3181,6 +3519,8 @@ import { UnistylesRuntime } from 'react-native-unistyles'
 and use it anywhere in your code, even outside a React component.
 
 ### Available getters
+
+[Section titled “Available getters”](#available-getters)
 
 | Name                | Type                                                                      | Description                                                                         |
 | ------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
@@ -3203,6 +3543,8 @@ and use it anywhere in your code, even outside a React component.
 
 ## Setters
 
+[Section titled “Setters”](#setters)
+
 | Name                       | Type                                                                 | Description                                                                    |
 | -------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
 | setTheme                   | (themeName: string) => void                                          | Change the current theme                                                       |
@@ -3215,11 +3557,15 @@ and use it anywhere in your code, even outside a React component.
 
 ### Why `UnistylesRuntime` doesn’t re-render my component?
 
+[Section titled “Why UnistylesRuntime doesn’t re-render my component?”](#why-unistylesruntime-doesnt-re-render-my-component)
+
 You should think of `UnistylesRuntime` as a JavaScript object. It’s not a React hook, so it doesn’t re-render your component when eg. screen size or breakpoint changes. Instead it will return up to date value whenever you access it.
 
 If you’re looking for a way to get fresh values and re-render your component, please check [useUnistyles](/v3/references/use-unistyles) hook.
 
 ### How to re-render my stylesheets based on `UnistylesRuntime`?
+
+[Section titled “How to re-render my stylesheets based on UnistylesRuntime?”](#how-to-re-render-my-stylesheets-based-on-unistylesruntime)
 
 You can do that while accessing [miniRuntime](/v3/references/mini-runtime/) in your `StyleSheet`:
 
@@ -3259,6 +3605,8 @@ Follow our [decision algorithm](/v3/references/3rd-party-views) to learn when to
 
 ### When to use it?
 
+[Section titled “When to use it?”](#when-to-use-it)
+
 If you’re using `react-native`, or `react-native-reanimated` components, you should avoid this hook. Unistyles updates these views via the ShadowTree without causing **any re-renders**.
 
 Consider using this hook only if:
@@ -3269,6 +3617,8 @@ Consider using this hook only if:
 * some libraries like `react-navigation` warns you that only specific children are allowed, so `withUnistyles` is not an option
 
 ### How to use it?
+
+[Section titled “How to use it?”](#how-to-use-it)
 
 This is a standard hook that exposes `theme` and `rt` ([runtime](/v3/references/mini-runtime)) properties. You can import it from `react-native-unistyles`:
 
@@ -3311,6 +3661,8 @@ rt.insets // reading this value will automatically subscribe to insets changes
 
 ### Why isn’t it recommended?
 
+[Section titled “Why isn’t it recommended?”](#why-isnt-it-recommended)
+
 We encourage using `withUnistyles` instead because it ensures only a single component is re-rendered instead of multiple components or the entire app. If you use this hook in a root component, you lose all the benefits of ShadowTree updates and trigger full app re-renders on every change.
 
 Learn more about [How Unistyles works?](/v3/start/how-unistyles-works) to understand why this is not ideal.
@@ -3319,9 +3671,13 @@ Another advantage of `withUnistyles` is that it tracks style dependencies, ensur
 
 ### How to use it correctly?
 
+[Section titled “How to use it correctly?”](#how-to-use-it-correctly)
+
 If you must use this hook, follow these best practices:
 
 #### 1. Use it only for a single component
+
+[Section titled “1. Use it only for a single component”](#1-use-it-only-for-a-single-component)
 
 ```tsx
 import { useUnistyles } from 'react-native-unistyles'
@@ -3342,6 +3698,8 @@ const MyComponent = () => {
 Like `withUnistyles`, create a new component and use the hook there. Avoid using this hook in your root component or screen, as it will cause unnecessary re-renders for other components.
 
 #### 2. Use it with `react-navigation` components like `Stack` or `Tabs`
+
+[Section titled “2. Use it with react-navigation components like Stack or Tabs”](#2-use-it-with-react-navigation-components-like-stack-or-tabs)
 
 ```tsx
 import { Stack } from 'expo-router'
@@ -3369,11 +3727,17 @@ This is allowed because `react-navigation` does not re-render screens on style p
 
 #### 3. Migration from Unistyles 2.0
 
+[Section titled “3. Migration from Unistyles 2.0”](#3-migration-from-unistyles-20)
+
 If you’re migrating from version 2.0 to 3.0, you can use `useUnistyles` to access the theme and runtime in your components. This works similarly to the `useStyles` hook in 2.0. Once migration is complete, refactor your code to align with Unistyles 3.0 principles.
 
 ### Bad Practices
 
+[Section titled “Bad Practices”](#bad-practices)
+
 #### 1. Using it with complex components:
+
+[Section titled “1. Using it with complex components:”](#1-using-it-with-complex-components)
 
 ```tsx
 import { useUnistyles } from 'react-native-unistyles'
@@ -3404,6 +3768,8 @@ This will re-render multiple components unnecessarily. Instead move `Blurhash` t
 
 #### 2. Using it at the root level:
 
+[Section titled “2. Using it at the root level:”](#2-using-it-at-the-root-level)
+
 ```tsx
 import { useUnistyles } from 'react-native-unistyles'
 
@@ -3423,6 +3789,8 @@ const MyApp = () => {
 Using the hook at the root level eliminates all Unistyles benefits, causing your app to re-render unnecessarily.
 
 #### 3. Using it with `react-native` components:
+
+[Section titled “3. Using it with react-native components:”](#3-using-it-with-react-native-components)
 
 ```tsx
 import { useUnistyles } from 'react-native-unistyles'
@@ -3450,6 +3818,8 @@ This is a bad practice. Unistyles updates `react-native` components through the 
 Variants helps you to create a more flexible and reusable stylesheet eg. for your base components. You can mix them with other Unistyles features like [media queries](/v3/references/media-queries/) and [breakpoints](/v3/references/breakpoints/).
 
 ### Basic usage
+
+[Section titled “Basic usage”](#basic-usage)
 
 Variants are objects that can be nested in any style object:
 
@@ -3528,6 +3898,8 @@ const styles = StyleSheet.create(theme => ({
 
 ### Selecting variants
 
+[Section titled “Selecting variants”](#selecting-variants)
+
 With your named groups, you can now select any variant from your stylesheet using the `useVariants`:
 
 ```tsx
@@ -3553,6 +3925,8 @@ const styles = ...
 TypeScript will provide perfect autocompletion for your variants, ensuring accuracy!
 
 ### Selecting variants with boolean values
+
+[Section titled “Selecting variants with boolean values”](#selecting-variants-with-boolean-values)
 
 You can also use boolean values to select variants:
 
@@ -3614,6 +3988,8 @@ Boolean variants respects other rules, eg. `false` is not equal to `default`. To
 
 ### Default variant
 
+[Section titled “Default variant”](#default-variant)
+
 You can define a `default` variant that will be used when you don’t pass any variant to the `useVariants` hook:
 
 ```tsx
@@ -3638,6 +4014,8 @@ const styles = StyleSheet.create(theme => ({
 ```
 
 ### Options to select the variant
+
+[Section titled “Options to select the variant”](#options-to-select-the-variant)
 
 If you pass `undefined` or `empty object` Unsityles will try to find the `default` variant in your stylesheet:
 
@@ -3665,6 +4043,8 @@ styles.useVariants({
 ```
 
 ### Pass variants as component props
+
+[Section titled “Pass variants as component props”](#pass-variants-as-component-props)
 
 Variants were designed to be used as component props:
 
@@ -3694,6 +4074,8 @@ const Component: React.FunctionComponent = ({ color, size }) => {
 
 ### Infer TypeScript type for your variants
 
+[Section titled “Infer TypeScript type for your variants”](#infer-typescript-type-for-your-variants)
+
 Instead of using `enum` or `strings` with `|` , you can use `UnistylesVariants` to infer the type of your variants:
 
 ```tsx
@@ -3722,6 +4104,8 @@ const styles = ...
 ```
 
 ### Defining the same variant across multiple styles
+
+[Section titled “Defining the same variant across multiple styles”](#defining-the-same-variant-across-multiple-styles)
 
 It’s possible to define the same variant group across multiple styles:
 
@@ -3862,6 +4246,8 @@ Unistyles comes with some web-only features that are not available with React Na
 
 ### Web only styles
 
+[Section titled “Web only styles”](#web-only-styles)
+
 In Unistyles, you can use web-specific styles for your web app under the `_web` key.
 
 ```ts
@@ -3899,7 +4285,7 @@ const styles = StyleSheet.create({
 
 The `transform` property on the web should be a string:
 
-```ts
+```diff
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -3914,7 +4300,7 @@ const styles = StyleSheet.create({
 
 If you want to use React Native specific styles on web simply move them to the `style` level:
 
-```ts
+```diff
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -3931,6 +4317,8 @@ const styles = StyleSheet.create({
 You can also use variants, breakpoints, and other Unistyles features under the `_web` key!
 
 ### Pseudo elements
+
+[Section titled “Pseudo elements”](#pseudo-elements)
 
 Unistyles also introduces a way to use **any** pseudo-elements and selectors in your web styles.
 
@@ -3954,6 +4342,8 @@ As you can see, `:` and `::` have been replaced with `_` for easier usage.
 
 ### Injecting custom classNames
 
+[Section titled “Injecting custom classNames”](#injecting-custom-classnames)
+
 If you want to write some part of your app with plain CSS, you can add custom `classNames` to your styles:
 
 ```ts
@@ -3969,7 +4359,7 @@ const styles = StyleSheet.create({
 
 The `_classNames` key under the `_web` key will be injected into the DOM element as a `className`. You can pass a string or an array of strings into it:
 
-```ts
+```diff
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -3995,6 +4385,8 @@ const styles = StyleSheet.create({
 ```
 
 ### CSS Variables
+
+[Section titled “CSS Variables”](#css-variables)
 
 Unistyles 3.0 converts all your themes to CSS variables by default, eliminating heavy JS processing when changing the theme and allowing the CSS engine to take over.
 
@@ -4022,9 +4414,13 @@ After conversion, Unistyles will use CSS variable instead of string to reference
 
 ##### If you’re using `adaptiveThemes`
 
+[Section titled “If you’re using adaptiveThemes”](#if-youre-using-adaptivethemes)
+
 CSS variables will be placed under the `@media (prefers-color-scheme)` [query](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) ensuring that the app will automatically switch to the new theme.
 
 ##### If you’re not using `adaptiveThemes`
+
+[Section titled “If you’re not using adaptiveThemes”](#if-youre-not-using-adaptivethemes)
 
 Class of your html root element will be updated to match the new one.
 
@@ -4034,7 +4430,11 @@ It’s possible to [disable](/v3/start/configuration#settings-optional) this fea
 
 ### When to disable CSS variables?
 
+[Section titled “When to disable CSS variables?”](#when-to-disable-css-variables)
+
 ##### When you have different size variables / functions in your themes
+
+[Section titled “When you have different size variables / functions in your themes”](#when-you-have-different-size-variables--functions-in-your-themes)
 
 ```tsx
 // ❌ Not OK
@@ -4080,6 +4480,8 @@ const darkTheme = {
 
 ##### When you use conditions to style your components instead of relying on the same theme values
 
+[Section titled “When you use conditions to style your components instead of relying on the same theme values”](#when-you-use-conditions-to-style-your-components-instead-of-relying-on-the-same-theme-values)
+
 ```tsx
 // ❌ Not OK
 const styles = StyleSheet.create(theme => ({
@@ -4111,6 +4513,8 @@ If none of the above applies to you, you can use CSS variables to boost your app
 Unistyles Web is independent from React Native Web, utilizing a custom web parser that directly generates CSS from your `StyleSheet` definitions.
 
 ### How It Works
+
+[Section titled “How It Works”](#how-it-works)
 
 Unistyles web parser generates unique `classNames` for your styles and assigns them to corresponding DOM elements. This ensures that only the necessary styles are applied, avoiding redundancy. Additionally, media queries are automatically created based on your `breakpoints`, eliminating the need for recalculation on every resize.
 
@@ -4161,6 +4565,8 @@ Will produce the following CSS output:
 
 ### Updating Styles
 
+[Section titled “Updating Styles”](#updating-styles)
+
 When you change your app’s theme, Unistyles automatically updates your CSS without triggering any re-renders. This applies to dynamic functions and variants as well.
 
 For instance, if you define your styles dynamically:
@@ -4200,6 +4606,8 @@ The CSS will automatically update to:
 
 ### Limitations
 
+[Section titled “Limitations”](#limitations)
+
 Due to Unistyles custom parser, styles cannot be accessed directly as they would be with React Native Web. Passing styles to the `RNW` parser would modify them and generate unnecessary new classes.
 
 As a result, when you try to `console.log` the styles, there will be no output:
@@ -4218,6 +4626,8 @@ console.log(styles) // {}
 
 ### Web-Only Features
 
+[Section titled “Web-Only Features”](#web-only-features)
+
 Unistyles includes some features specific to the web. Learn more about them [here](/v3/references/web-only).
 
 # withUnistyles
@@ -4227,6 +4637,8 @@ Unistyles includes some features specific to the web. Learn more about them [her
 Before reading this guide, make sure that you understand [How Unistyles works](/v3/start/how-unistyles-works) and how [Babel plugin](/v3/other/babel-plugin) manipulates your code. Also read our [decision algorithm](/v3/references/3rd-party-views) to learn when to use this factory.
 
 ### Why do you need it?
+
+[Section titled “Why do you need it?”](#why-do-you-need-it)
 
 * Unistyles cannot retrieve `ShadowNode` from third-party components because they might not expose a native view via the ref prop
 
@@ -4284,6 +4696,8 @@ Caution
 
 ### Auto mapping for `style` and `contentContainerStyle` props
 
+[Section titled “Auto mapping for style and contentContainerStyle props”](#auto-mapping-for-style-and-contentcontainerstyle-props)
+
 If your component expects the `style` or `contentContainerStyle` prop, Unistyles will automatically handle the mapping under the hood. You just need to wrap your custom view in `withUnistyles`. We will also respect your style dependencies, so, for example, the `Blurhash` component will only re-render when the theme changes.
 
 ```ts
@@ -4317,6 +4731,8 @@ const styles = StyleSheet.create(theme => ({
 
 ### Mapping custom props to Unistyles styles
 
+[Section titled “Mapping custom props to Unistyles styles”](#mapping-custom-props-to-unistyles-styles)
+
 If you need to ensure your component updates but it doesn’t use `style` or `contentContainerStyle` props, you can use `mappings`:
 
 ```ts
@@ -4343,6 +4759,8 @@ const MyComponent = () => {
 TypeScript will autocomplete all your props, so there is no need to specify type manually.
 
 ### Custom mappings for external props
+
+[Section titled “Custom mappings for external props”](#custom-mappings-for-external-props)
 
 Sometimes, you might want to map your props based on a function or value that is only accessible within the component. For example, if you are using `FlashList` and want to modify the `numColumns` prop based on a condition. Using `mappings` in `withUnistyles` is not an option because it doesn’t allow referencing other props.
 
@@ -4419,6 +4837,8 @@ Components that use `uniProps` are also aware of your dependencies. In the examp
 
 ### Props resolution priority
 
+[Section titled “Props resolution priority”](#props-resolution-priority)
+
 We will respect your order of prop resolution, applying them with the following priority:
 
 1. Global mappings
@@ -4474,6 +4894,8 @@ Our golden rule is to never introduce any component that could pollute your nati
 Let’s discuss the responsibilities of the Babel plugin:
 
 ### 1. Detecting StyleSheet dependencies
+
+[Section titled “1. Detecting StyleSheet dependencies”](#1-detecting-stylesheet-dependencies)
 
 Each `StyleSheet` is different. One might rely on a `theme`, another on `miniRuntime`, and so on. The same applies to `styles`. Each style depends on different things. For example, you can wrap your app in a `View` that safeguards your app from rendering behind the notch or navigation bar. Another style might be used in your `Typography` component and provides text color based on the apps’ theme.
 
@@ -4534,9 +4956,13 @@ We put a lot of effort into making dependency detection as accurate as possible,
 
 ### 2. Attaching unique id to each StyleSheet
 
+[Section titled “2. Attaching unique id to each StyleSheet”](#2-attaching-unique-id-to-each-stylesheet)
+
 This helps us identify your `StyleSheet` while you’re developing your app and trigger multiple `hot-reloads`. Such identification is required to swap your `StyleSheet` with another one, ensuring that you get up-to-date values during reloads. This feature does not affect your app in production, as the bundle never reloads in that environment.
 
 ### 3. Component factory (borrowing ref)
+
+[Section titled “3. Component factory (borrowing ref)”](#3-component-factory-borrowing-ref)
 
 This is the most crucial part—without it, Unistyles won’t be able to update your views from C++. In the early versions of Unistyles 3.0, we tried solving this problem by using the `ref` prop, but it wasn’t reliable enough. Many developers use different style syntaxes, making it impossible to support all of them.
 
@@ -4617,6 +5043,8 @@ import { Image } from 'react-native-unistyles/components/native/Image'
 
 ### 4. Creating scopes for stateless variants
 
+[Section titled “4. Creating scopes for stateless variants”](#4-creating-scopes-for-stateless-variants)
+
 When you use variants, each time you call `useVariants`, a new scope is created. This scope contains a local copy of stylesheet that won’t affect other components. This feature is similar to time travel, allowing you to explore different states of your styles with different calls to `useVariants`.
 
 From your perspective, using variants is simple: you just need to call the `useVariants` hook:
@@ -4670,6 +5098,8 @@ By leveraging such scopes, we ensure support for any level of nesting!
 
 ### Extra configuration
 
+[Section titled “Extra configuration”](#extra-configuration)
+
 The Babel plugin comes with a few additional options to extend its usage.
 
 Caution
@@ -4677,6 +5107,8 @@ Caution
 By default babel plugin will look for any `react-native-unistyles` import to start processing your file. You can change this behaviour with options below:
 
 ### `root` (required)
+
+[Section titled “root (required)”](#root-required)
 
 All files within the specified root folder will be processed by the Babel plugin. If you need to process extra folders, use with `autoProcessPaths` option.
 
@@ -4699,6 +5131,8 @@ In that case:
 
 ### `autoProcessImports`
 
+[Section titled “autoProcessImports”](#autoprocessimports)
+
 This configuration should be used when you want to process files containing specific imports. It can be useful for monorepos that use Unistyles with absolute paths, such as `@codemask/styles`.
 
 ```js
@@ -4708,6 +5142,8 @@ This configuration should be used when you want to process files containing spec
 ```
 
 ### `autoRemapImports`
+
+[Section titled “autoRemapImports”](#autoremapimports)
 
 This is the most powerful option, but most likely, you won’t need to use it. It allows you to remap uncommon imports to Unistyles components.
 
@@ -4756,6 +5192,8 @@ If you use raw `react-native` imports within your code, Unistyles will auto map 
 
 ### `autoProcessPaths`
 
+[Section titled “autoProcessPaths”](#autoprocesspaths)
+
 This configuration is unrelated to the `root`, `autoProcessImports`, and `autoRemapImports` options and can be used alongside them. By default, the Babel plugin ignores `node_modules`. However, you can extend these paths to attempt converting 3rd components into Unistyles compatible ones. Within these paths, we will replace `react-native` imports with `react-native-unistyles` factories that borrow component refs. [Read more](/v3/other/babel-plugin#3-component-factory-borrowing-ref).
 
 Defaults to:
@@ -4766,13 +5204,19 @@ Defaults to:
 
 ### `debug`
 
+[Section titled “debug”](#debug)
+
 In order to list detected dependencies by the Babel plugin you can enable the `debug` flag. It will `console.log` name of the file and component with Unistyles dependencies.
 
 ### Usage with React Compiler
 
+[Section titled “Usage with React Compiler”](#usage-with-react-compiler)
+
 Check [this guide](/v3/guides/react-compiler) for more details.
 
 #### Usage in `babel.config.js`
+
+[Section titled “Usage in babel.config.js”](#usage-in-babelconfigjs)
 
 You can apply any of the options above as follows:
 
@@ -4810,9 +5254,11 @@ module.exports = function (api) {
 
 > Learn about Unistyles dependencies
 
-Unistyles 3.0 minimizes dependencies to keep your app as lightweight as possible. In the latest version, we’ve opted to include only two essential dependencies that are shaping the future of the React Native ecosystem.
+Unistyles 3.0 minimizes dependencies to keep your app as lightweight as possible. In the latest version, we’ve opted to include only the essential dependencies that are shaping the future of the React Native ecosystem.
 
 ### Nitro Modules
+
+[Section titled “Nitro Modules”](#nitro-modules)
 
 Developed by: [Marc Rousavy](https://github.com/mrousavy)
 
@@ -4826,15 +5272,29 @@ Developed by: [Marc Rousavy](https://github.com/mrousavy)
 
 We highly encourage you to give Nitro a star ⭐ or support Marc through sponsorship.
 
-### React Native Edge to Edge
+### React Native Edge to Edge (optional since v3.1.0)
+
+[Section titled “React Native Edge to Edge (optional since v3.1.0)”](#react-native-edge-to-edge-optional-since-v310)
 
 Developed by: [Mathieu Acthernoene](https://github.com/zoontek)
 
-[React Native Edge to Edge](https://github.com/zoontek/react-native-edge-to-edge) is a library aimed at unifying the handling of edge-to-edge layouts on Android. We fully support this initiative and have made it a dependency for Unistyles.
+[React Native Edge to Edge](https://github.com/zoontek/react-native-edge-to-edge) is a library aimed at unifying the handling of edge-to-edge layouts on Android.
 
-You likely won’t notice any changes, as Unistyles has enforced edge-to-edge layouts since version 2.8.0. However, other libraries that detect `react-native-edge-to-edge` can now reliably assume that this mode is enabled. Additionally, Mathieu’s initiative is supported by [Expo](https://docs.expo.dev/), which suggests it may become a standard in the future.
+Since v3.1.0, `react-native-edge-to-edge` is **optional** as a direct dependency. Unistyles enables edge-to-edge layout automatically on Android if `react-native-edge-to-edge` is not installed.
 
-If you use any of Mathieu’s libraries, such as `react-native-permissions` or `react-native-bootsplash`, we encourage you to give them a star ⭐ and support him through sponsorship.
+However, we **strongly recommend** enabling `edgeToEdgeEnabled` in your `gradle.properties`:
+
+android/gradle.properties
+
+```properties
+edgeToEdgeEnabled=true
+```
+
+This property does more than just enabling edge-to-edge layout — it enforces `statusBarTranslucent` / `navigationBarTranslucent` on modals, disables `backgroundColor` / `translucent` on `StatusBar`, and enables additional fixes in React Native core. **Expo SDK 54+** enables this automatically.
+
+You can still install `react-native-edge-to-edge` alongside this property if you use libraries that detect it for ecosystem-wide edge-to-edge detection (e.g. `react-native-bootsplash`, `react-native-permissions`).
+
+If you use any of Mathieu’s libraries, we encourage you to give them a star ⭐ and support him through sponsorship.
 
 # For library authors
 
@@ -4844,6 +5304,8 @@ Unistyles is highly extensible and can be used to build UI kits and various othe
 
 ## Using Unistyles in your library
 
+[Section titled “Using Unistyles in your library”](#using-unistyles-in-your-library)
+
 `StyleSheet.configure` **must** be invoked as soon as possible, before any user code references any `StyleSheet` from your library.
 
 You can then call `StyleSheet.configure` multiple times to override configurations. However, keep in mind that `StyleSheet.configure` makes a roundtrip to C++, which can add a few `ms` to your app’s startup time.
@@ -4852,13 +5314,19 @@ To manipulate your config without replacing it, use [UnistylesRuntime](/v3/refer
 
 ## Unistyles never re-renders
 
+[Section titled “Unistyles never re-renders”](#unistyles-never-re-renders)
+
 Unistyles’ C++ core ensures that your components never re-render. Instead, they are updated directly from C++ and `Shadow Tree`.
 
 ## No React Context - no additional setup
 
+[Section titled “No React Context - no additional setup”](#no-react-context---no-additional-setup)
+
 Unistyles does not use the React Context API. This means that users do not need to wrap their app with a `Provider`, reducing boilerplate code and making your library more user-friendly.
 
 ## New architecture only
+
+[Section titled “New architecture only”](#new-architecture-only)
 
 Unistyles won’t re-render your components unless you want to. While it requires enabling the New Architecture, we believe this trade-off is worthwhile, as more apps are expected to transition to the New Architecture in the coming months.
 
@@ -4867,6 +5335,8 @@ Note
 As of June 2nd, 2025, Old Architecture is [frozen](https://github.com/reactwg/react-native-new-architecture/discussions/290). It means it is the best time to rely on New Architecture.
 
 ## Minimum requirements
+
+[Section titled “Minimum requirements”](#minimum-requirements)
 
 Unistyles is compatible with:
 
@@ -4877,15 +5347,21 @@ Unistyles is compatible with:
 
 ## Out of the box support for Web
 
+[Section titled “Out of the box support for Web”](#out-of-the-box-support-for-web)
+
 Building a UI kit for both React Native and Web couldn’t be easier. Unistyles automatically manages your styles and converts them into CSS classes.
 
 ## Babel config
+
+[Section titled “Babel config”](#babel-config)
 
 Make sure to instruct your users to add [autoProcessPaths](/v3/other/babel-plugin#extra-configuration) babel option. It will whitelist your `ui-kit` and process your files even though there are in `node_modules` folder.
 
 You can also consider publishing your UI kit with babel transforms in place. Keep in mind that it could break [testing](/v3/start/testing) views with your components.
 
 ## Why to choose Unistyles?
+
+[Section titled “Why to choose Unistyles?”](#why-to-choose-unistyles)
 
 Unistyles offers a unique architecture unavailable in any other library. Fully compatible with the React Native StyleSheet API, it is easy to use and extend.
 
@@ -4909,21 +5385,29 @@ We’re so exited about Unistyles 3.0 core and can’t wait for the new possibil
 
 ### Why sponsor Unistyles?
 
+[Section titled “Why sponsor Unistyles?”](#why-sponsor-unistyles)
+
 * **Advancing Innovation**: Your sponsorship helps in the continuous innovation and improvement of Unistyles. This support is crucial for developing new features and maintaining the library
 * **Benefit for Developers and Companies**: Both individual developers and large companies that profit from using Unistyles stand to gain from its enhancements. Your support ensures that Unistyles remains a cutting-edge tool in your development arsenal
 * **Limited Free Time Challenge**: The development of innovative libraries like Unistyles is often constrained by the limited free time of creators. Sponsorship can provide the necessary resources for dedicated development time
 
 ### How to sponsor?
 
+[Section titled “How to sponsor?”](#how-to-sponsor)
+
 * **Github Sponsorship**: [link](https://github.com/sponsors/jpudysz)
 * **Ko-Fi**: [link](https://ko-fi.com/jpudysz)
 
 ### Free options
 
+[Section titled “Free options”](#free-options)
+
 * **Sharing Unistyles**: A free yet impactful way to support us is by sharing information about Unistyles within your network. Spreading the word helps increase our visibility and user base
 * **Shoutout**: Give us a shoutout on X or Reddit. Public endorsements and mentions can significantly boost our project’s presence and reach
 
 ### Other options
+
+[Section titled “Other options”](#other-options)
 
 Hire Codemask team
 
@@ -4943,21 +5427,31 @@ As a Codemask CTO I’m open to share my knowledge and expertise in the React Na
 
 ### Can I run Unistyles on Expo Go?
 
+[Section titled “Can I run Unistyles on Expo Go?”](#can-i-run-unistyles-on-expo-go)
+
 No, Unistyles includes custom native code, which means it does not support Expo Go.
 
 ### What happened to `macOS`, `windows`, `visionOS`, `tvOS` support?
+
+[Section titled “What happened to macOS, windows, visionOS, tvOS support?”](#what-happened-to-macos-windows-visionos-tvos-support)
 
 For now they’re not available. We’re seeking sponsors to help us add support, as they are rarely used by our customers.
 
 ### Can I run Unistyles on `Old Architecture`?
 
+[Section titled “Can I run Unistyles on Old Architecture?”](#can-i-run-unistyles-on-old-architecture)
+
 No, Unistyles is tightly integrated with `Fabric`. There are no plans to support `Old Architecture`.
 
 ### We are not ready to upgrade. What will happen with version `2.0`?
 
+[Section titled “We are not ready to upgrade. What will happen with version 2.0?”](#we-are-not-ready-to-upgrade-what-will-happen-with-version-20)
+
 We understand that some apps require more time to migrate to the `New Architecture`. We plan to support Unistyles 2.0 for a few more months or stable React Native versions.
 
 ### Adaptive mode doesn’t work for me
+
+[Section titled “Adaptive mode doesn’t work for me”](#adaptive-mode-doesnt-work-for-me)
 
 To enable adaptive mode, you need to register two themes named `light` and `dark` and set the `adaptiveThemes` flag to true within `StyleSheet.configure`.
 
@@ -4970,6 +5464,8 @@ If your app still doesn’t automatically switch themes, ensure that:
 * Your device supports dark mode
 
 ### ld.lld: error: Undefined symbols margelo::nitro::\*
+
+[Section titled “ld.lld: error: Undefined symbols margelo::nitro::\*”](#ldlld-error-undefined-symbols-margelonitro)
 
 This error occurs due to the strong caching mechanism in Android Studio. The cache can even survive the `expo prebuild --clean` command in Expo projects.
 
@@ -5010,24 +5506,26 @@ After cleaning up, your components folder should look like this:
 
 ### ThemedText
 
+[Section titled “ThemedText”](#themedtext)
+
 The default `ThemedText` component is a perfect candidate for a Unistyles refactor. It contains conditional style logic directly in the JSX - a pattern we can significantly improve.
 
 First, let’s swap the `StyleSheet` import and remove unnecessary `useThemeColor` hook.
 
 components/ThemedText.tsx
 
-```tsx
-import { StyleSheet, Text, type TextProps } from 'react-native';
-import { Text, type TextProps } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
-import { useThemeColor } from '@/hooks/useThemeColor';
+```diff
+-import { StyleSheet, Text, type TextProps } from 'react-native';
++import { Text, type TextProps } from 'react-native';
++import { StyleSheet } from 'react-native-unistyles';
+-import { useThemeColor } from '@/hooks/useThemeColor';
 ```
 
 The original component used the `useThemeColor` hook to get a color based on the current theme. We’ll replace this imperative logic with a dynamic function in our stylesheet. A dynamic function is a Unistyles feature that allows a style to accept arguments. Let’s create one called `textColor` to handle the `lightColor` and `darkColor` props.
 
 components/ThemedText.tsx
 
-```tsx
+```diff
 export function ThemedText({
   style,
   lightColor,
@@ -5035,14 +5533,14 @@ export function ThemedText({
   type = 'default',
   ...rest
 }: ThemedTextProps) {
- const color = useThemeColor({ light: lightColor, dark: darkColor });
+ -const color = useThemeColor({ light: lightColor, dark: darkColor });
 
 
   return (
     <Text
       style={[
-        { color },
-        styles.textColor(lightColor, darkColor),
+-        { color },
++        styles.textColor(lightColor, darkColor),
         type === 'default' ? styles.default : undefined,
         type === 'title' ? styles.title : undefined,
         type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
@@ -5061,9 +5559,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
   },
-  textColor: (lightColor?: string, darkColor?: string) => ({
-     // todo
-  }),
+  +textColor: (lightColor?: string, darkColor?: string) => ({
+     +// todo
+  +}),
   defaultSemiBold: {
     fontSize: 16,
     lineHeight: 24,
@@ -5104,7 +5602,7 @@ Let’s complete our dynamic function:
 
 components/ThemedText.tsx
 
-```tsx
+```diff
 export function ThemedText({
   style,
   lightColor,
@@ -5129,14 +5627,14 @@ export function ThemedText({
 }
 
 
- const styles = StyleSheet.create({
+ -const styles = StyleSheet.create({
  const styles = StyleSheet.create((theme, rt) => ({
   default: {
     fontSize: 16,
     lineHeight: 24,
   },
   textColor: (lightColor: string, darkColor: string) => ({
-    // todo
+    -// todo
     color: rt.colorScheme === 'dark' ? darkColor : lightColor,
   }),
   defaultSemiBold: {
@@ -5158,7 +5656,7 @@ export function ThemedText({
     fontSize: 16,
     color: '#0a7ea4',
   },
- })
+ -})
  }));
 ```
 
@@ -5166,7 +5664,7 @@ Next, let’s tackle the chain of conditional checks for the type prop. This is 
 
 components/ThemedText.tsx
 
-```tsx
+```diff
 export function ThemedText({
   style,
   lightColor,
@@ -5178,11 +5676,11 @@ export function ThemedText({
     <Text
       style={[
         styles.textColor(lightColor, darkColor),
-        type === 'default' ? styles.default : undefined,
-        type === 'title' ? styles.title : undefined,
-        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
-        type === 'subtitle' ? styles.subtitle : undefined,
-        type === 'link' ? styles.link : undefined,
+-        type === 'default' ? styles.default : undefined,
+-        type === 'title' ? styles.title : undefined,
+-        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
+-        type === 'subtitle' ? styles.subtitle : undefined,
+-        type === 'link' ? styles.link : undefined,
         style,
       ]}
       {...rest}
@@ -5195,7 +5693,7 @@ const styles = StyleSheet.create((theme, rt) => ({
   default: {
     fontSize: 16,
     lineHeight: 24,
-  },
+  -},
   textColor: (lightColor?: string, darkColor?: string) => ({
     color: rt.colorScheme === 'dark' ? darkColor : lightColor,
   }),
@@ -5203,27 +5701,27 @@ const styles = StyleSheet.create((theme, rt) => ({
     fontSize: 16,
     lineHeight: 24,
     fontWeight: '600',
-  },
+  -},
   title: {
     fontSize: 32,
     fontWeight: 'bold',
     lineHeight: 32,
-  },
+  -},
   subtitle: {
     fontSize: 20,
     fontWeight: 'bold',
-  },
+  -},
   link: {
     lineHeight: 30,
     fontSize: 16,
     color: '#0a7ea4',
-  },
+  -},
 }));
 ```
 
 components/ThemedText.tsx
 
-```tsx
+```diff
 export function ThemedText({
   style,
   lightColor,
@@ -5231,14 +5729,14 @@ export function ThemedText({
   type = 'default',
   ...rest
 }: ThemedTextProps) {
- styles.useVariants({ type })
++ styles.useVariants({ type })
 
 
   return (
     <Text
       style={[
         styles.textColor(lightColor, darkColor),
-        styles.textType,
++        styles.textType,
         style,
       ]}
       {...rest}
@@ -5254,29 +5752,29 @@ const styles = StyleSheet.create((theme, rt) => ({
             default: {
                 fontSize: 16,
                 lineHeight: 24,
-            },
+            +},
             defaultSemiBold: {
                 fontSize: 16,
                 lineHeight: 24,
                 fontWeight: '600',
-            },
+            +},
             title: {
                 fontSize: 32,
                 fontWeight: 'bold',
                 lineHeight: 32,
-            },
+            +},
             subtitle: {
                 fontSize: 20,
                 fontWeight: 'bold',
-            },
+            +},
             link: {
                 lineHeight: 30,
                 fontSize: 16,
                 color: '#0a7ea4',
-            },
-        }
-    }
-  },
+            +},
+        +}
+    +}
+  +},
   textColor: (lightColor?: string, darkColor?: string) => ({
     color: rt.colorScheme === 'dark' ? darkColor : lightColor,
   }),
@@ -5303,16 +5801,16 @@ Instead of specifying `type` prop manually, we can use `UnistylesVariants` gener
 
 components/ThemedText.tsx
 
-```tsx
- import { StyleSheet } from 'react-native-unistyles';
- import { StyleSheet, type UnistylesVariants } from 'react-native-unistyles';
+```diff
+ -import { StyleSheet } from 'react-native-unistyles';
+ +import { StyleSheet, type UnistylesVariants } from 'react-native-unistyles';
 
 
- export type ThemedTextProps = TextProps & {
- export type ThemedTextProps = TextProps & UnistylesVariants<typeof styles> & {
+ -export type ThemedTextProps = TextProps & {
+ +export type ThemedTextProps = TextProps & UnistylesVariants<typeof styles> & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
+-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
 };
 
 
@@ -5320,8 +5818,8 @@ export function ThemedText({
   style,
   lightColor,
   darkColor,
-  type = 'default',
-  type,
+  -type = 'default',
+  +type,
   ...rest
 }: ThemedTextProps) {
 ```
@@ -5332,29 +5830,29 @@ Let’s remove those props and use the theme object directly.
 
 components/ThemedText.tsx
 
-```tsx
+```diff
 import { Text, type TextProps } from 'react-native';
 import { StyleSheet, type UnistylesVariants } from 'react-native-unistyles';
 
 
- export type ThemedTextProps = TextProps & UnistylesVariants<typeof styles>
- export type ThemedTextProps = TextProps & UnistylesVariants<typeof styles> & {
-  lightColor?: string;
-  darkColor?: string;
- };
+ +export type ThemedTextProps = TextProps & UnistylesVariants<typeof styles>
+ -export type ThemedTextProps = TextProps & UnistylesVariants<typeof styles> & {
+-  lightColor?: string;
+-  darkColor?: string;
+- };
 
 
 export function ThemedText({
   style,
-  lightColor,
-  darkColor,
+  -lightColor,
+  -darkColor,
   ...rest
 }: ThemedTextProps) {
   return (
     <Text
       style={[
-        styles.textColor(lightColor, darkColor),
-        styles.textColor,
+-        styles.textColor(lightColor, darkColor),
++        styles.textColor,
         styles.textType,
         style,
       ]}
@@ -5364,14 +5862,14 @@ export function ThemedText({
 }
 
 
- const styles = StyleSheet.create(theme => ({
+ +const styles = StyleSheet.create(theme => ({
  const styles = StyleSheet.create((theme, rt) => ({
-  textColor: (lightColor?: string, darkColor?: string) => ({
+  -textColor: (lightColor?: string, darkColor?: string) => ({
     color: rt.colorScheme === 'dark' ? darkColor : lightColor,
-  }),
+  -}),
   textColor: {
     color: theme.colors.typography
-  },
+  +},
   textType: {
     variants: {
       type: {
@@ -5414,6 +5912,8 @@ Curious to learn more about variants? Check out the [variants guide](/v3/referen
 
 ### ThemedView - your turn!
 
+[Section titled “ThemedView - your turn!”](#themedview---your-turn)
+
 Now is the time to refactor the `ThemedView` component. This one is much simpler. Based on what you’ve learned, try refactoring it yourself to use the `theme.colors.background` property.
 
 Once you’re done, check your work against the solution below:
@@ -5441,6 +5941,8 @@ const styles = StyleSheet.create(theme => ({
 ```
 
 ### Constants and hooks
+
+[Section titled “Constants and hooks”](#constants-and-hooks)
 
 Lastly, we can remove the `constants` and `hooks` folders, as they are now redundant. Your final project structure should be clean and organized.
 
@@ -5497,6 +5999,8 @@ Before we start building our own features, let’s adapt the default Expo Router
 
 ### App folder
 
+[Section titled “App folder”](#app-folder)
+
 Let’s start with the root layout file for the entire application.
 
 * app/
@@ -5515,20 +6019,20 @@ Let’s remove the old theming logic:
 
 app/\_layout.tsx
 
-```tsx
-import React from 'react';
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+```diff
++import React from 'react';
+-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-reanimated';
 
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+-import { useColorScheme } from '@/hooks/useColorScheme';
 
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  -const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });
@@ -5541,15 +6045,15 @@ export default function RootLayout() {
 
 
   return (
-    <React.Fragment>
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    +<React.Fragment>
+    -<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>
       <StatusBar style="auto" />
-    </ThemeProvider>
-    </React.Fragment>
+    -</ThemeProvider>
+    +</React.Fragment>
   );
 }
 ```
@@ -5558,20 +6062,22 @@ Next, for the `+not_found.tsx` file, we only need to swap the `StyleSheet` impor
 
 app/+not\_found.tsx
 
-```tsx
-import { StyleSheet } from 'react-native-unistyles';
-import { StyleSheet } from 'react-native';
+```diff
++import { StyleSheet } from 'react-native-unistyles';
+-import { StyleSheet } from 'react-native';
 ```
 
 ### (tabs) folder
+
+[Section titled “(tabs) folder”](#tabs-folder)
 
 This folder contains the layout and screens for your `TabsNavigator`. For the `index.tsx` and `explore.tsx` files, the process is the same: we simply need to replace the standard `StyleSheet` import with the one from Unistyles.
 
 app/(tabs)/index.tsx
 
-```tsx
-import { Platform, StyleSheet } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
+```diff
+-import { Platform, StyleSheet } from 'react-native';
++import { StyleSheet } from 'react-native-unistyles';
 ```
 
 For the JSX, we won’t need all these boilerplate components, so we can keep it as simple as possible:
@@ -5656,47 +6162,47 @@ Let’s refactor tab layout to use our new theme:
 
 app/(tabs)/\_layout.tsx
 
-```tsx
+```diff
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform } from 'react-native';
+-import { Platform } from 'react-native';
 
 
- import { HapticTab } from '@/components/HapticTab';
+ -import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
- import TabBarBackground from '@/components/ui/TabBarBackground';
- import { Colors } from '@/constants/Colors';
- import { useColorScheme } from '@/hooks/useColorScheme';
- import { useUnistyles } from 'react-native-unistyles';
+ -import TabBarBackground from '@/components/ui/TabBarBackground';
+ -import { Colors } from '@/constants/Colors';
+ -import { useColorScheme } from '@/hooks/useColorScheme';
+ +import { useUnistyles } from 'react-native-unistyles';
 
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  const { theme } = useUnistyles();
+  -const colorScheme = useColorScheme();
+  +const { theme } = useUnistyles();
 
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        tabBarInactiveTintColor: theme.colors.tint,
-        tabBarActiveTintColor: theme.colors.activeTint,
-        sceneStyle: {
-          backgroundColor: theme.colors.background
-        },
-        tabBarStyle: {
-          backgroundColor: theme.colors.foreground
-        },
+-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
++        tabBarInactiveTintColor: theme.colors.tint,
++        tabBarActiveTintColor: theme.colors.activeTint,
++        sceneStyle: {
++          backgroundColor: theme.colors.background
++        },
++        tabBarStyle: {
++          backgroundColor: theme.colors.foreground
++        },
         headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
+-        tabBarButton: HapticTab,
+-        tabBarBackground: TabBarBackground,
+-        tabBarStyle: Platform.select({
+-          ios: {
+            -// Use a transparent background on iOS to show the blur effect
+-            position: 'absolute',
+-          },
+-          default: {},
+-        }),
       }}>
       <Tabs.Screen
         name="index"
@@ -5739,6 +6245,8 @@ In this final part, we’ll connect all the pieces together using a lightweight 
 
 ### Adding State Management with StanJS
 
+[Section titled “Adding State Management with StanJS”](#adding-state-management-with-stanjs)
+
 For managing the user’s accent preference across our app, we need a state management solution that’s both lightweight and efficient. After considering various options, we decided to use our in-house library called StanJS.
 
 Note
@@ -5748,6 +6256,8 @@ StanJS is a powerful yet simple state management library that works similarly to
 StanJS automatically generates setters for your state values and provides excellent TypeScript support. With just a few lines of code, we can add persistent state management that feels native to our Unistyles-powered app.
 
 ### Installation and Setup
+
+[Section titled “Installation and Setup”](#installation-and-setup)
 
 Let’s install StanJS along with MMKV for data persistence:
 
@@ -5764,6 +6274,8 @@ yarn expo prebuild --clean
 StanJS has built-in MMKV support that makes data persistence effortless.
 
 #### Create the Store
+
+[Section titled “Create the Store”](#create-the-store)
 
 First, let’s set up our store to manage the user’s preferred accent color:
 
@@ -5786,11 +6298,11 @@ Before we can use our store, we need to create the `Accents` type. Let’s add i
 
 unistyles.ts
 
-```tsx
+```diff
 // ... existing imports and theme definitions
 
 
- export type Accents = keyof typeof lightTheme['colors']['accents']
+ +export type Accents = keyof typeof lightTheme['colors']['accents']
 
 
 type AppBreakpoints = typeof breakpoints
@@ -5818,16 +6330,18 @@ export * from './store'
 
 ### Connecting the Accent Settings
 
+[Section titled “Connecting the Accent Settings”](#connecting-the-accent-settings)
+
 Now we need to update our accent settings screen to actually save the user’s choice to our store. Currently, it only updates local state that gets lost when the user navigates away.
 
 Let’s update the settings screen to use our StanJS store:
 
 app/settings/settings-accent.tsx
 
-```tsx
+```diff
 import { Button } from '@/components/Button'
 import { ThemedText } from '@/components/ThemedText'
- import { useStore } from '@/store'
+ +import { useStore } from '@/store'
 import { router } from 'expo-router'
 import React, { useState } from 'react'
 import { Pressable, ScrollView, View } from 'react-native'
@@ -5836,10 +6350,10 @@ import { StyleSheet, useUnistyles } from 'react-native-unistyles'
 
 export default function SettingsAccentScreen() {
     const { theme } = useUnistyles()
-    const { setPreferredAccent, preferredAccent } = useStore()
+    +const { setPreferredAccent, preferredAccent } = useStore()
     const allAccents = theme.colors.accents
-    const [selectedAccent, setSelectedAccent] = useState(preferredAccent)
-    const [selectedAccent, setSelectedAccent] = useState('banana')
+    +const [selectedAccent, setSelectedAccent] = useState(preferredAccent)
+    -const [selectedAccent, setSelectedAccent] = useState('banana')
 
 
     return (
@@ -5869,7 +6383,7 @@ export default function SettingsAccentScreen() {
                     label="Save"
                     accent={selectedAccent}
                     onPress={() => {
-                        setPreferredAccent(selectedAccent)
+                        +setPreferredAccent(selectedAccent)
                         router.back()
                     }}
                 />
@@ -5888,21 +6402,25 @@ The beautiful thing about this approach is that any other component that listens
 
 ### Making Components Dynamic
 
+[Section titled “Making Components Dynamic”](#making-components-dynamic)
+
 Now let’s update our components to respond to the user’s accent preference instead of using hardcoded values.
 
 #### Update Button Component
+
+[Section titled “Update Button Component”](#update-button-component)
 
 The Button component needs to use the store value as a fallback while still allowing accent overrides:
 
 components/Button.tsx
 
-```tsx
+```diff
 import { Pressable } from 'react-native'
 import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated'
 import { StyleSheet, UnistylesVariants } from 'react-native-unistyles'
 import { useAnimatedVariantColor } from 'react-native-unistyles/reanimated'
 import { ThemedText } from './ThemedText'
- import { useStore } from '@/store'
+ +import { useStore } from '@/store'
 
 
 interface ButtonProps extends UnistylesVariants<typeof style> {
@@ -5916,12 +6434,12 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     accent,
     onPress
 }) => {
-    const { preferredAccent } = useStore()
+    +const { preferredAccent } = useStore()
 
 
     style.useVariants({
         accent: accent ?? preferredAccent
-        accent: accent
+        -accent: accent
     })
 
 
@@ -5952,23 +6470,25 @@ This implementation is flexible - it uses the accent prop if provided (like in t
 
 #### Update PlayerControls Component
 
+[Section titled “Update PlayerControls Component”](#update-playercontrols-component)
+
 The PlayerControls component should always use the user’s preferred accent:
 
 components/PlayerControls.tsx
 
-```tsx
+```diff
 import { IconSymbol } from '@/components/ui/IconSymbol'
- import { useStore } from '@/store'
+ +import { useStore } from '@/store'
 import { Pressable, View } from 'react-native'
 import { StyleSheet } from 'react-native-unistyles'
 import { useUnistyles } from 'react-native-unistyles'
 
 
 export const PlayerControls = () => {
-    const { preferredAccent } = useStore()
+    +const { preferredAccent } = useStore()
     const { theme } = useUnistyles()
-    const accent = theme.colors.accents[preferredAccent]
-    const accent = theme.colors.accents['banana']
+    +const accent = theme.colors.accents[preferredAccent]
+    -const accent = theme.colors.accents['banana']
 
 
     return (
@@ -6002,7 +6522,7 @@ We need to remove one more `banana` from `[songId].tsx` screen when there is no 
 
 screens/player/\[songId].tsx
 
-```tsx
+```diff
 import { Button } from '@/components/Button'
 import { PlayerControls } from '@/components/PlayerControls'
 import { ThemedText } from '@/components/ThemedText'
@@ -6031,7 +6551,7 @@ export default function PlayerScreen() {
         </ThemedText>
         <Button
           label="Pick a song"
-          accent="banana"
+          -accent="banana"
           onPress={() => router.replace('/')}
         />
       </ThemedView>
@@ -6044,6 +6564,8 @@ export default function PlayerScreen() {
 
 ### Android
 
+[Section titled “Android”](#android)
+
 Now let’s test our app on Android to see if there are any platform-specific issues that need addressing.
 
 Running the app on Android, you’ll notice it works correctly overall, but there’s one issue - the TabBar icons are missing! This happens because our `IconSymbol` component uses iOS-specific SF Symbols that don’t exist on Android.
@@ -6052,23 +6574,23 @@ Let’s fix the icon mappings in our `IconSymbol` component:
 
 components/ui/IconSymbol.tsx
 
-```tsx
+```diff
 // ... existing imports and code
 
 
 const MAPPING = {
-  'house.fill': 'home',
-  'paperplane.fill': 'send',
-  'chevron.left.forwardslash.chevron.right': 'code',
-  'chevron.right': 'chevron-right',
-  'music.house': 'queue-music',
-  'play.circle': 'play-circle-outline',
-  'gear.circle': 'settings',
-  'backward.end.fill': 'first-page',
-  'backward.fill': 'fast-rewind',
-  'forward.fill': 'fast-forward',
-  'forward.end.fill': 'last-page',
-  'play.circle.fill': 'play-circle-filled'
+  -'house.fill': 'home',
+  -'paperplane.fill': 'send',
+  -'chevron.left.forwardslash.chevron.right': 'code',
+  -'chevron.right': 'chevron-right',
+  +'music.house': 'queue-music',
+  +'play.circle': 'play-circle-outline',
+  +'gear.circle': 'settings',
+  +'backward.end.fill': 'first-page',
+  +'backward.fill': 'fast-rewind',
+  +'forward.fill': 'fast-forward',
+  +'forward.end.fill': 'last-page',
+  +'play.circle.fill': 'play-circle-filled'
 } as IconMapping;
 
 
@@ -6084,6 +6606,8 @@ We could also improve the bottom navigation bar by properly configuring `react-n
 ![Android app](/_astro/tutorial-10.M6iz6PRk.jpg)![Android app](/_astro/tutorial-11.GOFOylbE.jpg)
 
 ### Web
+
+[Section titled “Web”](#web)
 
 When you try to run your app on the web, you will encounter a crash:
 
@@ -6141,6 +6665,8 @@ Before we wrap up this section, let’s explore how Unistyles handles responsive
 
 ### Breakpoints and Media Queries
 
+[Section titled “Breakpoints and Media Queries”](#breakpoints-and-media-queries)
+
 When your app needs to scale from a phone in your pocket to a large desktop monitor, you face new challenges. Unistyles provides powerful, built-in tools to help you create adaptive and responsive layouts with ease.
 
 The most direct way to create responsive styles is by using **breakpoint objects**. You can turn any style value into an object where the keys are your predefined breakpoint names (`xs`, `sm`, `md`, etc.) and the values are the styles for that specific breakpoint. This enables you to easily create responsive layouts, but only for the properties you need.
@@ -6149,7 +6675,7 @@ Let’s apply this to our `SongTile` component to make the album art larger on b
 
 components/SongTile.tsx
 
-```tsx
+```diff
 // ... JSX remains the same
 
 
@@ -6166,12 +6692,12 @@ const style = StyleSheet.create(theme => ({
              xs: 80,
              md: 120,
              lg: 200
-         },
+         +},
          height: {
              xs: 80,
              md: 120,
              lg: 200
-         },
+         +},
         borderRadius: theme.gap(2)
     },
     textContainer: {
@@ -6194,9 +6720,9 @@ Let’s modify our `PlayerScreen` to adopt a more traditional web layout on larg
 
 app/(tabs)/player/\[songId].tsx
 
-```tsx
- import { StyleSheet } from 'react-native-unistyles'
- import { mq, StyleSheet } from 'react-native-unistyles'
+```diff
+ -import { StyleSheet } from 'react-native-unistyles'
+ +import { mq, StyleSheet } from 'react-native-unistyles'
 
 
 // ... JSX remains the same
@@ -6213,8 +6739,8 @@ const styles = StyleSheet.create((theme, rt) => ({
         gap: theme.gap(2),
         alignItems: 'center',
         justifyContent: {
-            [mq.only.width(600)]: 'center'
-        },
+            +[mq.only.width(600)]: 'center'
+        +},
         marginTop: rt.insets.top + theme.gap(3),
       },
       image: {
@@ -6232,6 +6758,8 @@ Note
 Dive deeper into the `mq` utility and its helpers [here](/v3/references/media-queries).
 
 ### Web styling features
+
+[Section titled “Web styling features”](#web-styling-features)
 
 While Unistyles excels at universal styling, there are times you’ll want to leverage platform-specific features. On the web, this often means using CSS pseudo-selectors like `:hover` and `:active` for a more native web experience and better performance.
 
@@ -6261,7 +6789,7 @@ To do this, we’ll modify our container style and add a `_web` key. Inside this
 
 components/SettingTile.tsx
 
-```tsx
+```diff
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
@@ -6271,11 +6799,11 @@ const styles = StyleSheet.create({
         _web: {
             _hover: {
                 opacity: 0.75
-            },
+            +},
             _active: {
                 opacity: 0.5
-            }
-        }
+            +}
+        +}
     }
 })
 ```
@@ -6293,6 +6821,8 @@ Note
 Learn more about all the web-specific features [here](/v3/references/web-only).
 
 ### What We’ve Built Together
+
+[Section titled “What We’ve Built Together”](#what-weve-built-together)
 
 Congratulations! You’ve built a complete, cross-platform music application that demonstrates the full power of Unistyles 3.0. Let’s recap what we’ve accomplished:
 
@@ -6327,6 +6857,8 @@ Congratulations! You’ve built a complete, cross-platform music application tha
 
 ### Summary
 
+[Section titled “Summary”](#summary)
+
 You’ve just completed an incredible journey building a full-featured, cross-platform music application with Unistyles 3.0. From initial configuration to advanced theming and state management.
 
 But most importantly, you’ve learned to think in Unistyles. You understand when to use variants vs dynamic functions, how to leverage the runtime for device-aware styling, and how to build components that are both flexible and maintainable.
@@ -6353,6 +6885,8 @@ During this tutorial, we will cover most of the Unistyles features and best prac
 
 ### Create new project
 
+[Section titled “Create new project”](#create-new-project)
+
 First, let’s scaffold a new Expo project using the command line:
 
 ```bash
@@ -6363,8 +6897,10 @@ cd unistyles-tutorial
 Next, install Unistyles, its dependencies, and Reanimated:
 
 ```bash
-yarn add react-native-reanimated react-native-unistyles react-native-nitro-modules react-native-edge-to-edge
+yarn add react-native-reanimated react-native-unistyles react-native-nitro-modules
 ```
+
+> `react-native-edge-to-edge` is optional since v3.1.0 — Unistyles enables edge-to-edge automatically. See [dependencies](/v3/other/dependencies) for details.
 
 Tip
 
@@ -6378,6 +6914,8 @@ yarn expo prebuild --clean
 
 ### Configure Babel Plugins
 
+[Section titled “Configure Babel Plugins”](#configure-babel-plugins)
+
 Both `Unistyles` and `Reanimated` require a Babel plugin to work. Since a `babel.config.js` file isn’t created by default, we can generate it by running:
 
 ```bash
@@ -6386,17 +6924,17 @@ npx expo customize babel.config.js
 
 Now, add the `unistyles` and `reanimated` plugins to your `babel.config.js`:
 
-```ts
+```diff
 module.exports = function (api) {
   api.cache(true);
   return {
     presets: ['babel-preset-expo'],
-    plugins: [
-        ['react-native-unistyles/plugin', {
-            root: 'app'
-        }],
-        ['react-native-worklets/plugin']
-    ]
++    plugins: [
++        ['react-native-unistyles/plugin', {
++            root: 'app'
++        }],
++        ['react-native-reanimated/plugin']
++    ]
   };
 };
 ```
@@ -6407,14 +6945,16 @@ To learn more about the Unistyles Babel plugin and its configuration options, ch
 
 ### Modify app entry point
 
+[Section titled “Modify app entry point”](#modify-app-entry-point)
+
 To use features like themes and breakpoints, Unistyles must be configured before your application code runs. This ensures that all stylesheets are created with the correct theme and device context.
 
 First, update your `package.json`:
 
-```json
+```diff
 {
-   "main": "expo-router/entry"
-   "main": "index.ts"
+   -"main": "expo-router/entry"
+   +"main": "index.ts"
 }
 ```
 
@@ -6428,6 +6968,8 @@ import './unistyles'
 We’ll create the `unistyles.ts` file in the next step.
 
 ### Configure Unistyles
+
+[Section titled “Configure Unistyles”](#configure-unistyles)
 
 This is where the magic happens! Create a `unistyles.ts` file in your project’s root. Here, we’ll define our `themes`, `breakpoints`, and register them with Unistyles.
 
@@ -6540,6 +7082,8 @@ Time to build the modal screens for theme and accent selection. We’ll create i
 
 ### Create SettingOptionRadio Component
 
+[Section titled “Create SettingOptionRadio Component”](#create-settingoptionradio-component)
+
 Let’s start with a radio button component for selecting theme modes. This component brings together concepts we’ve covered in previous steps.
 
 Create `components/SettingOptionRadio.tsx`:
@@ -6629,14 +7173,16 @@ This component combines everything we’ve learned: `useVariants` for the radio 
 
 ### Basic Theme Settings Screen
 
+[Section titled “Basic Theme Settings Screen”](#basic-theme-settings-screen)
+
 Let’s add this component to the theme settings screen:
 
 app/settings/settings-theme.tsx
 
-```tsx
- import { ThemedText } from '@/components/ThemedText'
- import { SettingOptionRadio } from '@/components/SettingOptionRadio'
- import React from 'react'
+```diff
+ -import { ThemedText } from '@/components/ThemedText'
+ +import { SettingOptionRadio } from '@/components/SettingOptionRadio'
+ +import React from 'react'
 import { ScrollView } from 'react-native'
 import { StyleSheet } from 'react-native-unistyles'
 
@@ -6644,9 +7190,9 @@ import { StyleSheet } from 'react-native-unistyles'
 export default function SettingsThemeScreen() {
     return (
         <ScrollView contentContainerStyle={styles.container}>
-            <ThemedText type="title">
-                Change theme
-            </ThemedText>
+            -<ThemedText type="title">
+-                Change theme
+            -</ThemedText>
             <SettingOptionRadio
                 label="System"
                 isSelected={false}
@@ -6673,6 +7219,8 @@ const styles = StyleSheet.create(theme => ({
 ```
 
 ### Create ThemeColor Component
+
+[Section titled “Create ThemeColor Component”](#create-themecolor-component)
 
 Now let’s create a component called `ThemeColor` that will preview different themes.
 
@@ -6734,16 +7282,18 @@ Before proceeding further, notice that we used `keyof UnistylesTheme` (as label 
 
 ### Enhanced Theme Settings Screen
 
+[Section titled “Enhanced Theme Settings Screen”](#enhanced-theme-settings-screen)
+
 Let’s update the theme settings screen to include theme previews:
 
 app/settings/settings-theme.tsx
 
-```tsx
+```diff
 import { SettingOptionRadio } from '@/components/SettingOptionRadio'
- import { ThemeColor } from '@/components/ThemeColor'
+ +import { ThemeColor } from '@/components/ThemeColor'
 import React from 'react'
- import { ScrollView, View } from 'react-native'
- import { ScrollView } from 'react-native'
+ +import { ScrollView, View } from 'react-native'
+ -import { ScrollView } from 'react-native'
 import { StyleSheet } from 'react-native-unistyles'
 
 
@@ -6760,16 +7310,16 @@ export default function SettingsThemeScreen() {
             isSelected={false}
             onPress={() => {}}
         />
-       <View style={styles.row}>
-           <ThemeColor
-               label="light"
-               onPress={() => {}}
-           />
-           <ThemeColor
-               label="dark"
-               onPress={() => {}}
-           />
-       </View>
+       +<View style={styles.row}>
+           +<ThemeColor
+               +label="light"
+               +onPress={() => {}}
++           />
+           +<ThemeColor
+               +label="dark"
+               +onPress={() => {}}
++           />
+       +</View>
     </ScrollView>
   )
 }
@@ -6786,7 +7336,7 @@ const styles = StyleSheet.create(theme => ({
        justifyContent: 'center',
        flexDirection: 'row',
        gap: theme.gap(2)
-   }
+   +}
 }))
 ```
 
@@ -6800,64 +7350,66 @@ It seems that we need to also update `react-navigation` Header to use Unistyles 
 
 ### Complete Theme Settings Implementation
 
+[Section titled “Complete Theme Settings Implementation”](#complete-theme-settings-implementation)
+
 Now let’s add the full functionality using `UnistylesRuntime` and `useUnistyles`:
 
 app/settings/settings-theme.tsx
 
-```tsx
+```diff
 import { SettingOptionRadio } from '@/components/SettingOptionRadio'
 import { ThemeColor } from '@/components/ThemeColor'
 import React from 'react'
 import { ScrollView, View } from 'react-native'
- import { StyleSheet, UnistylesRuntime, useUnistyles } from 'react-native-unistyles'
- import { StyleSheet } from 'react-native-unistyles'
+ +import { StyleSheet, UnistylesRuntime, useUnistyles } from 'react-native-unistyles'
+ -import { StyleSheet } from 'react-native-unistyles'
 
 
 export default function SettingsThemeScreen() {
-  const { rt } = useUnistyles()
+  +const { rt } = useUnistyles()
 
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
         <SettingOptionRadio
             label="System"
-            isSelected={rt.hasAdaptiveThemes}
-            onPress={() => {
-              if (rt.hasAdaptiveThemes) {
-                return
-              }
+            +isSelected={rt.hasAdaptiveThemes}
+            +onPress={() => {
+              +if (rt.hasAdaptiveThemes) {
+                +return
++              }
 
 
-              UnistylesRuntime.setAdaptiveThemes(true)
-            }}
-            isSelected={false}
-            onPress={() => {}}
+              +UnistylesRuntime.setAdaptiveThemes(true)
++            }}
+            -isSelected={false}
+            -onPress={() => {}}
         />
         <SettingOptionRadio
             label="User"
-            isSelected={!rt.hasAdaptiveThemes}
-            onPress={() => {
-              if (rt.hasAdaptiveThemes) {
-                UnistylesRuntime.setAdaptiveThemes(false)
-              }
-            }}
-            isSelected={false}
-            onPress={() => {}}
+            +isSelected={!rt.hasAdaptiveThemes}
+            +onPress={() => {
+              +if (rt.hasAdaptiveThemes) {
+                +UnistylesRuntime.setAdaptiveThemes(false)
++              }
++            }}
+            -isSelected={false}
+            -onPress={() => {}}
         />
-        {!rt.hasAdaptiveThemes && (
+        +{!rt.hasAdaptiveThemes && (
             <View style={styles.row}>
                 <ThemeColor
                     label="light"
-                    onPress={() => UnistylesRuntime.setTheme('light')}
-                    onPress={() => {}}
+                    +onPress={() => UnistylesRuntime.setTheme('light')}
+                    -onPress={() => {}}
                 />
                 <ThemeColor
                     label="dark"
-                    onPress={() => UnistylesRuntime.setTheme('dark')}
-                    onPress={() => {}}
+                    +onPress={() => UnistylesRuntime.setTheme('dark')}
+                    -onPress={() => {}}
                 />
             </View>
-        )}
++        )}
     </ScrollView>
   )
 }
@@ -6875,11 +7427,13 @@ Try playing with different settings to see how the app adapts to your choices.
 
 ### Update navigation header colors
 
+[Section titled “Update navigation header colors”](#update-navigation-header-colors)
+
 As you probably noticed, navigation header colors are not updated when theme changes. Let’s fix that by updating `app/(tabs)/settings/_layout.tsx` file:
 
 app/(tabs)/settings/\_layout.tsx
 
-```tsx
+```diff
 import { Stack } from 'expo-router'
 import React from 'react'
 import { useUnistyles } from 'react-native-unistyles'
@@ -6892,12 +7446,12 @@ export default function SettingsLayout() {
     return (
         <Stack
             screenOptions={{
-                headerTitleStyle: {
-                    color: theme.colors.typography
-                },
-                headerStyle: {
-                    backgroundColor: theme.colors.background
-                },
++                headerTitleStyle: {
++                    color: theme.colors.typography
++                },
++                headerStyle: {
++                    backgroundColor: theme.colors.background
++                },
                 contentStyle: {
                     backgroundColor: theme.colors.background
                 }
@@ -6934,6 +7488,8 @@ export default function SettingsLayout() {
 That’s all for theme settings screen!
 
 ### Create Button Component
+
+[Section titled “Create Button Component”](#create-button-component)
 
 Now let’s learn something new. We will create an animated button component for the accent settings:
 
@@ -7013,11 +7569,11 @@ You should be familiar with all the patterns used here: variants, `UnistylesVari
 
 components/Button.tsx
 
-```tsx
+```diff
 import { Pressable } from 'react-native'
 import Animated, { useAnimatedStyle, withTiming } from 'react-native-reanimated'
 import { StyleSheet, UnistylesVariants } from 'react-native-unistyles'
- import { useAnimatedVariantColor } from 'react-native-unistyles/reanimated'
+ +import { useAnimatedVariantColor } from 'react-native-unistyles/reanimated'
 import { ThemedText } from './ThemedText'
 
 
@@ -7037,18 +7593,18 @@ export const Button: React.FunctionComponent<ButtonProps> = ({
     })
 
 
-    const color = useAnimatedVariantColor(style.buttonColor, 'backgroundColor')
-    const animatedStyle = useAnimatedStyle(() => ({
+    +const color = useAnimatedVariantColor(style.buttonColor, 'backgroundColor')
+    +const animatedStyle = useAnimatedStyle(() => ({
         backgroundColor: withTiming(color.value, {
             duration: 500
-        })
-    }))
+        +})
+    +}))
 
 
     return (
         <Pressable onPress={onPress}>
-            <Animated.View style={style.button}>
-            <Animated.View style={[animatedStyle, style.button]}>
+            -<Animated.View style={style.button}>
+            +<Animated.View style={[animatedStyle, style.button]}>
                 <ThemedText bold>
                     {label}
                 </ThemedText>
@@ -7074,6 +7630,8 @@ In the `<Animated.View>` component, we used the syntax `[animatedStyle, style.bu
 For a comprehensive explanation, please refer to our dedicated guide on [Merging styles](/v3/guides/merging-styles).
 
 ### Build the Accent Settings Modal
+
+[Section titled “Build the Accent Settings Modal”](#build-the-accent-settings-modal)
 
 Let’s create the final modal screen for accent selection and animate the accent selection:
 
@@ -7203,27 +7761,29 @@ Our application will feature three primary screens, with the Settings screen als
 
 ### PlaylistScreen
 
+[Section titled “PlaylistScreen”](#playlistscreen)
+
 First, let’s repurpose the existing `app/(tabs)/index.tsx` file to become our `PlaylistScreen`. This involves changing the component name from `HomeScreen` to `PlaylistScreen` and wrapping the content in a `ScrollView`:
 
 app/(tabs)/index.tsx
 
-```tsx
- import { ScrollView } from 'react-native';
+```diff
+ +import { ScrollView } from 'react-native';
 import { ThemedText } from '@/components/ThemedText'
 import { ThemedView } from '@/components/ThemedView'
 import { StyleSheet } from 'react-native-unistyles'
 
 
- export default function PlaylistScreen() {
- export default function HomeScreen() {
+ +export default function PlaylistScreen() {
+ -export default function HomeScreen() {
   return (
-      <ScrollView contentContainerStyle={styles.container}>
-      <ThemedView style={styles.container}>
+      +<ScrollView contentContainerStyle={styles.container}>
+      -<ThemedView style={styles.container}>
         <ThemedText type="title">
           Home Screen
         </ThemedText>
-      </ThemedView>
-      </ScrollView>
+      -</ThemedView>
+      +</ScrollView>
   );
 }
 
@@ -7241,7 +7801,7 @@ Next, let’s update the title and adjust the container styles. We’ll remove t
 
 app/(tabs)/index.tsx
 
-```tsx
+```diff
 import { ThemedText } from '@/components/ThemedText'
 import { ScrollView } from 'react-native'
 import { StyleSheet } from 'react-native-unistyles'
@@ -7251,8 +7811,8 @@ export default function PlaylistScreen() {
   return (
       <ScrollView contentContainerStyle={styles.container}>
         <ThemedText type="title">
-          Home Screen
-          Playlist
+-          Home Screen
++          Playlist
         </ThemedText>
       </ScrollView>
   );
@@ -7286,8 +7846,8 @@ Let’s use `rt.insets.top` to add a top margin to our container, pushing the co
 
 app/(tabs)/index.tsx
 
-```tsx
- const styles = StyleSheet.create((theme, rt) => ({
+```diff
+ +const styles = StyleSheet.create((theme, rt) => ({
  const styles = StyleSheet.create(theme => ({
   container: {
     flex: 1,
@@ -7300,8 +7860,8 @@ To give our content some breathing room, let’s also add horizontal padding usi
 
 app/(tabs)/index.tsx
 
-```tsx
- const styles = StyleSheet.create((theme, rt) => ({
+```diff
+ +const styles = StyleSheet.create((theme, rt) => ({
   container: {
     flex: 1,
     marginTop: rt.insets.top,
@@ -7311,6 +7871,8 @@ app/(tabs)/index.tsx
 ```
 
 ### PlayerScreen
+
+[Section titled “PlayerScreen”](#playerscreen)
 
 For the `PlayerScreen`, we’ll start by creating a new file structure and then use a modified version of our `PlaylistScreen` code.
 
@@ -7368,6 +7930,8 @@ Don’t worry about the TabBar icons and routing just yet - we’ll fix that soo
 
 ### SettingsScreen
 
+[Section titled “SettingsScreen”](#settingsscreen)
+
 The `SettingsScreen` is our final main screen. It will serve as a hub for navigating to the modal screens where users can change the app’s theme and accent color.
 
 First, set up the required files and folders:
@@ -7398,6 +7962,8 @@ First, set up the required files and folders:
 This is a standard Expo Router stack layout. Let’s add the code for each of these new files.
 
 #### 1. Configure the Stack Navigator (\_layout.tsx)
+
+[Section titled “1. Configure the Stack Navigator (\_layout.tsx)”](#1-configure-the-stack-navigator-_layouttsx)
 
 This file configures the stack navigator for the settings section, defining the main screen and the two modal screens.
 
@@ -7451,6 +8017,8 @@ export default function SettingsLayout() {
 
 #### 2. Create the Main Settings Screen (index.tsx)
 
+[Section titled “2. Create the Main Settings Screen (index.tsx)”](#2-create-the-main-settings-screen-indextsx)
+
 This is the main `SettingsScreen`. The code is almost identical to our other screens for now.
 
 app/settings/index.tsx
@@ -7482,6 +8050,8 @@ const styles = StyleSheet.create((theme, rt) => ({
 ```
 
 #### 3. Create the Modal Screens
+
+[Section titled “3. Create the Modal Screens”](#3-create-the-modal-screens)
 
 The modal screens for changing the theme and accent color are also simple placeholders. Notice the component names and titles are updated for each.
 
@@ -7545,11 +8115,13 @@ You should now be able to navigate to all three screens, each with a different t
 
 ### TabBar
 
+[Section titled “TabBar”](#tabbar)
+
 Currently, `TabBar` doesn’t reflect our new screen structure. Let’s update `app/(tabs)/_layout.tsx` to correctly register our routes and assign new icons.
 
 app/(tabs)/\_layout.tsx
 
-```tsx
+```diff
 import { IconSymbol } from '@/components/ui/IconSymbol'
 import { Tabs } from 'expo-router'
 import React from 'react'
@@ -7576,27 +8148,27 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          title: 'Playlist',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-          tabBarIcon: ({ color }) => <IconSymbol size={24} name="music.house" color={color} />,
+-          title: 'Home',
++          title: 'Playlist',
+          -tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          +tabBarIcon: ({ color }) => <IconSymbol size={24} name="music.house" color={color} />,
         }}
       />
+      +<Tabs.Screen
+        +name="player/[songId]"
+        +options={{
++          title: 'Player',
+          +tabBarIcon: ({ color }) => <IconSymbol size={24} name="play.circle" color={color} />,
++        }}
++      />
       <Tabs.Screen
-        name="player/[songId]"
+        -name="explore"
+        +name="settings"
         options={{
-          title: 'Player',
-          tabBarIcon: ({ color }) => <IconSymbol size={24} name="play.circle" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        name="settings"
-        options={{
-          title: 'Explore',
-          title: 'Settings',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-          tabBarIcon: ({ color }) => <IconSymbol size={24} name="gear.circle" color={color} />,
+-          title: 'Explore',
++          title: 'Settings',
+          -tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          +tabBarIcon: ({ color }) => <IconSymbol size={24} name="gear.circle" color={color} />,
         }}
       />
     </Tabs>
@@ -7626,11 +8198,15 @@ By the end of this part, you’ll have a functional music app that displays a li
 
 ### Setting Up Types and Mock Data
 
+[Section titled “Setting Up Types and Mock Data”](#setting-up-types-and-mock-data)
+
 Before we can build our screens, we need to establish the data structure for our songs. This step is crucial for maintaining type safety throughout our application and ensuring that our components receive the expected data format.
 
 Let’s start by creating the fundamental types that will power our music app.
 
 #### Create Song Types
+
+[Section titled “Create Song Types”](#create-song-types)
 
 First, we’ll define what a song looks like in our application. Each song needs essential information like title, genre, cover image, and duration.
 
@@ -7662,6 +8238,8 @@ export * from './song'
 ```
 
 #### Create Mock Playlist Data
+
+[Section titled “Create Mock Playlist Data”](#create-mock-playlist-data)
 
 For this tutorial, we’ll use a curated list of 20 fictional songs with diverse genres to showcase our app’s capabilities. In a real application, this data would come from an API or music service.
 
@@ -7831,6 +8409,8 @@ This gives us clean access to our mock data throughout the application with simp
 
 ### Building the Playlist Screen
 
+[Section titled “Building the Playlist Screen”](#building-the-playlist-screen)
+
 Now that we have our data structure in place, let’s transform the placeholder home screen into a proper playlist that displays our collection of songs. The playlist will serve as the main entry point where users can browse and select tracks.
 
 Currently, our home screen at `app/(tabs)/index.tsx` just displays a simple title. We need to replace this with a scrollable list of songs that users can interact with.
@@ -7839,63 +8419,63 @@ Let’s update the playlist screen to display our songs:
 
 app/(tabs)/index.tsx
 
-```tsx
- import { SongTile } from '@/components/SongTile'
+```diff
+ +import { SongTile } from '@/components/SongTile'
 import { ThemedText } from '@/components/ThemedText'
- import { playlist } from '@/mocks'
- import { router } from 'expo-router'
- import { ScrollView, View } from 'react-native'
- import { ScrollView } from 'react-native'
+ +import { playlist } from '@/mocks'
+ +import { router } from 'expo-router'
+ +import { ScrollView, View } from 'react-native'
+ -import { ScrollView } from 'react-native'
 import { StyleSheet } from 'react-native-unistyles'
 
 
 export default function PlaylistScreen() {
   return (
-     <View style={styles.container}>
-         <ScrollView contentContainerStyle={styles.contentContainer}>
-           <View style={styles.header}>
-             <ThemedText type="title">
-               Playlist
-             </ThemedText>
-           </View>
-           {playlist.map(song => (
-             <SongTile
-               song={song}
-               onPress={() => router.push(`/(tabs)/player/${song.id}`)}
-               key={song.id}
-             />
-           ))}
-       </ScrollView>
-     </View>
-     <ScrollView contentContainerStyle={styles.container}>
-       <ThemedText type="title">
-         Playlist
-       </ThemedText>
-     </ScrollView>
+     +<View style={styles.container}>
+         +<ScrollView contentContainerStyle={styles.contentContainer}>
+           +<View style={styles.header}>
+             +<ThemedText type="title">
++               Playlist
+             +</ThemedText>
+           +</View>
+           +{playlist.map(song => (
+             +<SongTile
+               +song={song}
+               +onPress={() => router.push(`/(tabs)/player/${song.id}`)}
+               +key={song.id}
++             />
++           ))}
+       +</ScrollView>
+     +</View>
+     -<ScrollView contentContainerStyle={styles.container}>
+       -<ThemedText type="title">
+-         Playlist
+       -</ThemedText>
+     -</ScrollView>
   );
 }
 
 
- const styles = StyleSheet.create((theme, rt) => ({
+ +const styles = StyleSheet.create((theme, rt) => ({
    container: {
      marginTop: rt.insets.top + theme.gap(3),
      backgroundColor: theme.colors.background
-   },
+   +},
    contentContainer: {
      gap: theme.gap(3),
      paddingHorizontal: theme.gap(2)
-   },
+   +},
    header: {
      paddingBottom: theme.gap(2)
-   }
- }));
- const styles = StyleSheet.create((theme, rt) => ({
+   +}
+ +}));
+ -const styles = StyleSheet.create((theme, rt) => ({
    container: {
      flex: 1,
      marginTop: rt.insets.top,
      paddingHorizontal: theme.gap(2)
-   },
- }));
+   -},
+ -}));
 ```
 
 Here’s what we’ve changed and why:
@@ -7911,6 +8491,8 @@ Here’s what we’ve changed and why:
 The key difference is that we’re now structuring our app to handle a list of data items, each with its own navigation destination.
 
 ### Creating the SongTile Component
+
+[Section titled “Creating the SongTile Component”](#creating-the-songtile-component)
 
 The `SongTile` component will be responsible for displaying individual song information in an attractive, tappable format. This component needs to show the song’s cover art, title, genre, and duration in a clean layout.
 
@@ -7979,101 +8561,103 @@ We now have a fully functional playlist screen that displays our 20 mock songs i
 
 ### Building the Player Screen
 
+[Section titled “Building the Player Screen”](#building-the-player-screen)
+
 The player screen needs to handle dynamic routing, where the song ID comes from the URL parameter. This screen will display detailed information about the selected song and provide playback controls.
 
 Let’s update our player screen at `app/(tabs)/player/[songId].tsx` to handle the dynamic song data:
 
 app/(tabs)/player/\[songId].tsx
 
-```tsx
- import { Button } from '@/components/Button'
- import { PlayerControls } from '@/components/PlayerControls'
+```diff
+ +import { Button } from '@/components/Button'
+ +import { PlayerControls } from '@/components/PlayerControls'
 import { ThemedText } from '@/components/ThemedText'
- import { ThemedView } from '@/components/ThemedView'
- import { playlist } from '@/mocks'
- import { router, useLocalSearchParams } from 'expo-router'
- import { Image, ScrollView } from 'react-native'
- import { ScrollView } from 'react-native'
+ +import { ThemedView } from '@/components/ThemedView'
+ +import { playlist } from '@/mocks'
+ +import { router, useLocalSearchParams } from 'expo-router'
+ +import { Image, ScrollView } from 'react-native'
+ -import { ScrollView } from 'react-native'
 import { StyleSheet } from 'react-native-unistyles'
 
 
 export default function PlayerScreen() {
-   const { songId } = useLocalSearchParams()
+   +const { songId } = useLocalSearchParams()
 
 
-   const song = playlist.find(song => song.id === Number(songId))
+   +const song = playlist.find(song => song.id === Number(songId))
 
 
-   if (!songId || !song) {
-     return (
-       <ThemedView style={[styles.centerContainer, styles.container]}>
-         <ThemedText type="title">
-           Looking for inspiration?
-         </ThemedText>
-         <ThemedText>
-           Pick a song from the playlist
-         </ThemedText>
-         <Button
-           label="Pick a song"
-           accent="banana"
-           onPress={() => router.replace('/')}
-         />
-       </ThemedView>
-     )
-   }
+   +if (!songId || !song) {
+     +return (
+       +<ThemedView style={[styles.centerContainer, styles.container]}>
+         +<ThemedText type="title">
++           Looking for inspiration?
+         +</ThemedText>
+         +<ThemedText>
++           Pick a song from the playlist
+         +</ThemedText>
+         +<Button
+           +label="Pick a song"
+           +accent="banana"
+           +onPress={() => router.replace('/')}
++         />
+       +</ThemedView>
++     )
++   }
 
 
   return (
-     <ScrollView contentContainerStyle={styles.container}>
-       <Image
-         source={{ uri: song.imageUrl }}
-         style={styles.image}
-       />
-       <ThemedText type="title">
-         {song.title}
-       </ThemedText>
-       <ThemedText dimmed type="subtitle">
-         {song.genre}
-       </ThemedText>
-       <ThemedText>
-         {song.duration}
-       </ThemedText>
-       <PlayerControls />
-     </ScrollView>
-     <ScrollView contentContainerStyle={styles.container}>
-       <ThemedText type="title">
-         Player
-       </ThemedText>
-     </ScrollView>
+     +<ScrollView contentContainerStyle={styles.container}>
+       +<Image
+         +source={{ uri: song.imageUrl }}
+         +style={styles.image}
++       />
+       +<ThemedText type="title">
+         +{song.title}
+       +</ThemedText>
+       +<ThemedText dimmed type="subtitle">
+         +{song.genre}
+       +</ThemedText>
+       +<ThemedText>
+         +{song.duration}
+       +</ThemedText>
+       +<PlayerControls />
+     +</ScrollView>
+     -<ScrollView contentContainerStyle={styles.container}>
+       -<ThemedText type="title">
+-         Player
+       -</ThemedText>
+     -</ScrollView>
   );
 }
 
 
- const styles = StyleSheet.create((theme, rt) => ({
+ +const styles = StyleSheet.create((theme, rt) => ({
    centerContainer: {
      flex: 1,
      justifyContent: 'center',
      alignItems: 'center'
-   },
+   +},
    container: {
      flex: 1,
      gap: theme.gap(2),
      alignItems: 'center',
      marginTop: rt.insets.top + theme.gap(3),
-   },
+   +},
    image: {
      width: 200,
      height: 200,
      borderRadius: theme.gap(2)
-   }
- }));
- const styles = StyleSheet.create((theme, rt) => ({
+   +}
+ +}));
+ -const styles = StyleSheet.create((theme, rt) => ({
    container: {
      flex: 1,
      marginTop: rt.insets.top,
      paddingHorizontal: theme.gap(2)
-   },
- }));
+   -},
+ -}));
 ```
 
 We use `useLocalSearchParams()` to extract the `songId` from the URL. This allows users to navigate directly to any song or bookmark specific tracks.
@@ -8083,6 +8667,8 @@ Notice the `Button` component uses the hardcoded “banana” accent. In the nex
 Our screen still needs one more component to be complete - the `PlayerControls`.
 
 ### Creating the PlayerControls Component
+
+[Section titled “Creating the PlayerControls Component”](#creating-the-playercontrols-component)
 
 The player controls provide the interface for music playback. While they won’t actually play music in this tutorial, they give users the familiar media controls they expect in a music app.
 
@@ -8160,6 +8746,8 @@ Our settings screen will feature interactive tiles that users can tap to modify 
 
 ### Create the SettingTile Component
 
+[Section titled “Create the SettingTile Component”](#create-the-settingtile-component)
+
 Let’s start by creating a reusable `SettingTile` component. This component will demonstrate one of Unistyles’ coolest features: zero-config integration with `Pressable` and `PressableStateCallbackType`.
 
 Create a new file `components/SettingTile.tsx`:
@@ -8223,13 +8811,15 @@ When you press the tile, the opacity changes from `1` to `0.75`, giving users im
 
 ### Enhance ThemedText with Variants
 
+[Section titled “Enhance ThemedText with Variants”](#enhance-themedtext-with-variants)
+
 You might have noticed we’re using `bold` and `dimmed` props on `ThemedText` that don’t exist yet. Let’s add them using Unistyles variants.
 
 Update your `ThemedText` component:
 
 components/ThemedText.tsx
 
-```tsx
+```diff
 import { Text, type TextProps } from 'react-native'
 import { StyleSheet, type UnistylesVariants } from 'react-native-unistyles'
 
@@ -8240,14 +8830,14 @@ export type ThemedTextProps = TextProps & UnistylesVariants<typeof styles>
 export function ThemedText({
   style,
   type,
-  bold,
-  dimmed,
+  +bold,
+  +dimmed,
   ...rest
 }: ThemedTextProps) {
   styles.useVariants({
     type,
-    bold,
-    dimmed
++    bold,
++    dimmed
   })
 
 
@@ -8292,13 +8882,13 @@ const styles = StyleSheet.create(theme => ({
       bold: {
         true: {
           fontWeight: 'bold',
-        }
-      },
+        +}
+      +},
       dimmed: {
         true: {
           color: theme.colors.tint
-        }
-      }
+        +}
+      +}
     }
   }
 }));
@@ -8310,72 +8900,76 @@ This pattern makes your components more readable and eliminates the need for mul
 
 ### Build the Settings Interface
 
+[Section titled “Build the Settings Interface”](#build-the-settings-interface)
+
 Now let’s implement the actual settings screen with our new `SettingTile` component.
 
 Update your `app/settings/index.tsx`:
 
 app/settings/index.tsx
 
-```tsx
- import { SettingTile } from '@/components/SettingTile'
+```diff
+ +import { SettingTile } from '@/components/SettingTile'
 import { ThemedText } from '@/components/ThemedText'
- import { ScrollView, View } from 'react-native'
- import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles'
- import { ScrollView } from 'react-native'
- import { StyleSheet } from 'react-native-unistyles'
+ +import { ScrollView, View } from 'react-native'
+ +import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles'
+ -import { ScrollView } from 'react-native'
+ -import { StyleSheet } from 'react-native-unistyles'
 
 
 export default function SettingsScreen() {
-   const systemTheme = UnistylesRuntime.hasAdaptiveThemes
+   +const systemTheme = UnistylesRuntime.hasAdaptiveThemes
 
 
     return (
-       <ScrollView contentContainerStyle={styles.container}>
-       <ScrollView contentContainerStyle={styles.scrollView}>
+       -<ScrollView contentContainerStyle={styles.container}>
+       +<ScrollView contentContainerStyle={styles.scrollView}>
             <ThemedText type="title">
-               Settings
-               Appearance
+-               Settings
++               Appearance
             </ThemedText>
-           <View style={styles.settingsContainer}>
-               <SettingTile
-                   settingName="Theme"
-                   selectedValue="Light"
-                   description={systemTheme ? 'System' : 'User'}
-                   onPress={() => {}}
-               />
-               <SettingTile
-                   settingName="App accent"
-                   selectedValue="Default"
-                   description="Primary app color"
-                   onPress={() => {}}
-               />
-           </View>
+           +<View style={styles.settingsContainer}>
+               +<SettingTile
+                   +settingName="Theme"
+                   +selectedValue="Light"
+                   +description={systemTheme ? 'System' : 'User'}
+                   +onPress={() => {}}
++               />
+               +<SettingTile
+                   +settingName="App accent"
+                   +selectedValue="Default"
+                   +description="Primary app color"
+                   +onPress={() => {}}
++               />
+           +</View>
         </ScrollView>
     );
 }
 
 
- const styles = StyleSheet.create((theme, rt) => ({
-     scrollView: {
-         marginTop: rt.insets.top + theme.gap(3),
-         backgroundColor: theme.colors.background,
-         paddingHorizontal: theme.gap(2)
-     },
-     settingsContainer: {
-         marginTop: theme.gap(4),
-         gap: theme.gap(4)
-     },
- }));
- const styles = StyleSheet.create((theme, rt) => ({
-     container: {
-         flex: 1,
-         marginTop: rt.insets.top,
-         paddingHorizontal: theme.gap(2)
-     },
- }));
++ const styles = StyleSheet.create((theme, rt) => ({
++     scrollView: {
++         marginTop: rt.insets.top + theme.gap(3),
++         backgroundColor: theme.colors.background,
++         paddingHorizontal: theme.gap(2)
++     },
++     settingsContainer: {
++         marginTop: theme.gap(4),
++         gap: theme.gap(4)
++     },
+ +}));
+- const styles = StyleSheet.create((theme, rt) => ({
+-     container: {
+-         flex: 1,
+-         marginTop: rt.insets.top,
+-         paddingHorizontal: theme.gap(2)
+-     },
+ -}));
 ```
 
 ### UnistylesRuntime vs rt Object
+
+[Section titled “UnistylesRuntime vs rt Object”](#unistylesruntime-vs-rt-object)
 
 Here’s where things get interesting. Notice we’re using `UnistylesRuntime.hasAdaptiveThemes` instead of accessing it through `rt`.
 
@@ -8404,6 +8998,8 @@ Learn more about `UnistylesRuntime` in the [dedicated guide](/v3/references/unis
 
 ### ScrollView Background Issue
 
+[Section titled “ScrollView Background Issue”](#scrollview-background-issue)
+
 Try switching between light and dark themes in your app. You’ll notice something odd - the `ScrollView` background color doesn’t update! This is because `contentContainerStyle` is not a regular style prop that Unistyles can automatically track.
 
 For such cases we created `withUnistyles` higher-order component (HOC) that allows you to wrap any component and automatically re-render it, depending on it’s dependencies.
@@ -8416,15 +9012,15 @@ In order to update background color of `ScrollView`, we need to wrap it with `wi
 
 app/settings/index.tsx
 
-```tsx
+```diff
 import { SettingTile } from '@/components/SettingTile'
 import { ThemedText } from '@/components/ThemedText'
 import { ScrollView, View } from 'react-native'
- import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles'
- import { StyleSheet, UnistylesRuntime, withUnistyles } from 'react-native-unistyles'
+ -import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles'
+ +import { StyleSheet, UnistylesRuntime, withUnistyles } from 'react-native-unistyles'
 
 
- const StyledScrollView = withUnistyles(ScrollView)
+ +const StyledScrollView = withUnistyles(ScrollView)
 
 
 export default function SettingsScreen() {
@@ -8432,8 +9028,8 @@ export default function SettingsScreen() {
 
 
     return (
-        <ScrollView contentContainerStyle={styles.scrollView}>
-        <StyledScrollView contentContainerStyle={styles.scrollView}>
+        -<ScrollView contentContainerStyle={styles.scrollView}>
+        +<StyledScrollView contentContainerStyle={styles.scrollView}>
             <ThemedText type="title">
                 Appearance
             </ThemedText>
@@ -8451,8 +9047,8 @@ export default function SettingsScreen() {
                     onPress={() => {}}
                 />
             </View>
-        </ScrollView>
-        </StyledScrollView>
+        -</ScrollView>
+        +</StyledScrollView>
     );
 }
 
@@ -8479,16 +9075,18 @@ Remember these key points about `withUnistyles`:
 
 ### Add Modal Navigation
 
+[Section titled “Add Modal Navigation”](#add-modal-navigation)
+
 Finally, let’s wire up the `onPress` callbacks to navigate to our modal screens:
 
 app/settings/index.tsx
 
-```tsx
+```diff
 import { SettingTile } from '@/components/SettingTile'
 import { ThemedText } from '@/components/ThemedText'
 import { ScrollView, View } from 'react-native'
 import { StyleSheet, UnistylesRuntime } from 'react-native-unistyles'
- import { router } from 'expo-router'
+ +import { router } from 'expo-router'
 
 
 const StyledScrollView = withUnistyles(ScrollView)
@@ -8508,15 +9106,15 @@ export default function SettingsScreen() {
                     settingName="Theme"
                     selectedValue="Light"
                     description={systemTheme ? "System" : 'User'}
-                   onPress={() => {}}
-                   onPress={() => router.push('/(tabs)/settings/settings-theme')}
+                   -onPress={() => {}}
+                   +onPress={() => router.push('/(tabs)/settings/settings-theme')}
                 />
                 <SettingTile
                     settingName="App accent"
                     selectedValue="Default"
                     description="Primary app color"
-                   onPress={() => {}}
-                   onPress={() => router.push('/(tabs)/settings/settings-accent')}
+                   -onPress={() => {}}
+                   +onPress={() => router.push('/(tabs)/settings/settings-accent')}
                 />
             </View>
         </StyledScrollView>
