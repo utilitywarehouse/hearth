@@ -95,6 +95,8 @@ import {
   TabsList,
   Textarea,
   ThemedImage,
+  Timeline,
+  TimelineItem,
   TimePicker,
   TimePickerInput,
   ToastItem,
@@ -407,29 +409,6 @@ const AllComponents: React.FC = () => {
             <Center flex={1} padding="200">
               <BottomSheetModalProvider>
                 <DatePickerInput placeholder="DD/MM/YYYY" />
-              </BottomSheetModalProvider>
-            </Center>
-          </ComponentWrapper>
-          <ComponentWrapper name="Time Picker" link="/?path=/docs/components-time-picker--docs">
-            <Center flex={1}>
-              <Button onPress={handleTimePickerOpenPress}>Open Time Picker</Button>
-              <BottomSheetModalProvider>
-                <TimePicker
-                  ref={timePickerRef}
-                  date={selectedTime}
-                  onChange={({ date }) => setSelectedTime(date)}
-                  onCancel={() => setSelectedTime(undefined)}
-                />
-              </BottomSheetModalProvider>
-            </Center>
-          </ComponentWrapper>
-          <ComponentWrapper
-            name="Time Picker Input"
-            link="/?path=/docs/forms-time-picker-input--docs"
-          >
-            <Center flex={1} padding="200">
-              <BottomSheetModalProvider>
-                <TimePickerInput placeholder="HH:mm" />
               </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
@@ -850,6 +829,38 @@ const AllComponents: React.FC = () => {
                 light={<SpotBillingLight width={160} height={160} />}
                 dark={<SpotBillingDark width={160} height={160} />}
               />
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Timeline" link="/?path=/docs/components-timeline--docs">
+            <Center flex={1} px="300">
+              <Timeline variant="progress">
+                <TimelineItem label="Order placed" helperText="Received" state="complete" />
+                <TimelineItem label="Checking details" helperText="In progress" state="active" />
+                <TimelineItem label="Service live" helperText="Pending" state="incomplete" />
+              </Timeline>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Time Picker" link="/?path=/docs/components-time-picker--docs">
+            <Center flex={1}>
+              <Button onPress={handleTimePickerOpenPress}>Open Time Picker</Button>
+              <BottomSheetModalProvider>
+                <TimePicker
+                  ref={timePickerRef}
+                  date={selectedTime}
+                  onChange={({ date }) => setSelectedTime(date)}
+                  onCancel={() => setSelectedTime(undefined)}
+                />
+              </BottomSheetModalProvider>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
+            name="Time Picker Input"
+            link="/?path=/docs/forms-time-picker-input--docs"
+          >
+            <Center flex={1} padding="200">
+              <BottomSheetModalProvider>
+                <TimePickerInput placeholder="HH:mm" />
+              </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Toast" link="/?path=/docs/components-toast--docs">
