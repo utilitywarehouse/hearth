@@ -1,29 +1,37 @@
-import { createContext, useContext, useState, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 
 export type CardAccordionContextValue = {
-  currentStep: string;
+  currentStep?: string;
   setCurrentStep: (step: string) => void;
   previousSteps: Array<string>;
   setPreviousSteps: React.Dispatch<React.SetStateAction<Array<string>>>;
   getStep: (value: string) => 'current' | 'previous' | 'future';
-  steps: Array<string>;
+  steps?: Array<string>;
+  isFirstStep: boolean;
+  isLastStep: boolean;
 };
 
 export const CardAccordionContext = createContext<CardAccordionContextValue | undefined>(undefined);
 
 export const CardAccordionProvider = ({
   children,
-  initialValue,
   steps,
   onValueChange,
+  setCurrentValue,
 }: {
   children: ReactNode;
-  initialValue: string;
   steps: Array<string>;
   onValueChange?: (value: string) => void;
+  setCurrentValue?: (value: string) => void;
 }) => {
-  const [currentStep, setCurrentStep] = useState<string>(initialValue);
+  const [currentStep, setCurrentStep] = useState<string | undefined>(steps[0]);
   const [previousSteps, setPreviousSteps] = useState<Array<string>>([]);
+
+  useEffect(() => {
+    if (currentStep) {
+      setCurrentValue?.(currentStep);
+    }
+  }, [currentStep, setCurrentValue]);
 
   const getStep = (value: string) => {
     if (currentStep === value) return 'current';
@@ -36,13 +44,18 @@ export const CardAccordionProvider = ({
     onValueChange?.(value);
   };
 
-  const value = {
+  const isFirstStep = currentStep === steps[0];
+  const isLastStep = currentStep === steps[steps.length - 1];
+
+  const value: CardAccordionContextValue = {
     currentStep,
     previousSteps,
     getStep,
     setCurrentStep: handleValueChange,
     setPreviousSteps,
     steps,
+    isFirstStep,
+    isLastStep,
   };
 
   return <CardAccordionContext.Provider value={value}>{children}</CardAccordionContext.Provider>;

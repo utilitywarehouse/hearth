@@ -1,6 +1,6 @@
 'use client';
 
-import { Children, forwardRef, isValidElement } from 'react';
+import { Children, forwardRef, isValidElement, useState } from 'react';
 import { cn } from '../../helpers/cn';
 import type { ComponentPropsWithRef, ComponentRef } from 'react';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
@@ -17,16 +17,18 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type CardAccordionElement = ComponentRef<'div'>;
 
 export const CardAccordion = forwardRef<CardAccordionElement, CardAccordionProps>((props, ref) => {
-  const { className, children, initialValue, onValueChange, ...restProps } = extractProps(
+  const { className, children, value, onValueChange, ...restProps } = extractProps(
     props,
     marginPropDefs
   );
+
+  const [currentValue, setCurrentValue] = useState(value);
 
   const accordionProps = {
     ...restProps,
     type: 'single',
     collapsible: false,
-    defaultValue: initialValue,
+    value: currentValue,
     onValueChange,
   } as ComponentPropsWithRef<typeof AccordionPrimitive.Root>;
 
@@ -44,9 +46,9 @@ export const CardAccordion = forwardRef<CardAccordionElement, CardAccordionProps
       {...accordionProps}
     >
       <CardAccordionProvider
-        initialValue={initialValue || ''}
         steps={steps}
         onValueChange={onValueChange}
+        setCurrentValue={setCurrentValue}
       >
         {children}
       </CardAccordionProvider>

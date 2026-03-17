@@ -6,12 +6,13 @@ export interface CardAccordionItemProps extends Omit<
   ComponentPropsWithRef<typeof CardAccordionPrimitive.Item>,
   'asChild'
 > {
+  previousStepTitle?: string;
+  previousStepContent?: ReactNode;
   title?: string;
   description?: string;
   /**
    * @default h3
    */
   headingElement?: 'h1' | 'h2' | 'h3' | 'h4';
-  previousStepContent?: ReactNode;
   onEditClick?: ButtonProps['onClick'];
 }

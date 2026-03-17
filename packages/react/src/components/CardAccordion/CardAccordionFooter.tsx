@@ -6,13 +6,13 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import type { ComponentPropsWithoutRef, ComponentRef } from 'react';
 import { Flex } from '../Flex/Flex';
 
-const COMPONENT_NAME = 'CardAccordionItemFooter';
+const COMPONENT_NAME = 'CardAccordionFooter';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-type CardAccordionItemFooterElement = ComponentRef<'div'>;
+type CardAccordionFooterElement = ComponentRef<'div'>;
 
-export const CardAccordionItemFooter = forwardRef<
-  CardAccordionItemFooterElement,
+export const CardAccordionFooter = forwardRef<
+  CardAccordionFooterElement,
   Omit<ComponentPropsWithoutRef<'div'>, 'color'>
 >(({ className, children, ...props }, ref) => {
   return (
@@ -29,4 +29,4 @@ export const CardAccordionItemFooter = forwardRef<
   );
 });
 
-CardAccordionItemFooter.displayName = COMPONENT_NAME;
+CardAccordionFooter.displayName = COMPONENT_NAME;

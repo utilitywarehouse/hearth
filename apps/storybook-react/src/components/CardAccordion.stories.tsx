@@ -2,15 +2,13 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   CardAccordion,
   CardAccordionItem,
-  CardAccordionItemFooter,
-  CardAccordionItemContent,
-  CardAccordionItemButton,
+  CardAccordionFooter,
+  CardAccordionButton,
   BodyText,
   Flex,
   Box,
   HelperText,
 } from '@utilitywarehouse/hearth-react';
-import { useEffect, useState } from 'react';
 
 const meta: Meta<typeof CardAccordion> = {
   title: 'Stories / CardAccordion',
@@ -29,13 +27,13 @@ type Story = StoryObj<typeof CardAccordion>;
 
 export const Playground: Story = {
   render: () => {
-    const [currentStep, setCurrentStep] = useState('1a');
     return (
       <Box width="600px">
-        <CardAccordion initialValue="1a" value={currentStep} onValueChange={setCurrentStep}>
+        <CardAccordion>
           <CardAccordionItem
             value="1a"
-            title={`1a. Your ${currentStep === '1a' ? 'new cover' : 'home'}`}
+            title="1a. Your new cover"
+            previousStepTitle="1a. Your home"
             previousStepContent={
               <Flex direction="column" gap="50">
                 <HelperText>Your type of cover, address & policy start date.</HelperText>
@@ -43,10 +41,10 @@ export const Playground: Story = {
               </Flex>
             }
           >
-            <CardAccordionItemContent>Content 1</CardAccordionItemContent>
-            <CardAccordionItemFooter>
-              <CardAccordionItemButton action="next" />
-            </CardAccordionItemFooter>
+            <Box height="300px">Content</Box>
+            <CardAccordionFooter>
+              <CardAccordionButton action="next" />
+            </CardAccordionFooter>
           </CardAccordionItem>
           <CardAccordionItem
             value="1b"
@@ -57,11 +55,11 @@ export const Playground: Story = {
               </HelperText>
             }
           >
-            <CardAccordionItemContent>Content 2</CardAccordionItemContent>
-            <CardAccordionItemFooter>
-              <CardAccordionItemButton action="previous" />
-              <CardAccordionItemButton action="next" />
-            </CardAccordionItemFooter>
+            <Box height="300px">Content</Box>
+            <CardAccordionFooter>
+              <CardAccordionButton action="previous" />
+              <CardAccordionButton action="next" />
+            </CardAccordionFooter>
           </CardAccordionItem>
           <CardAccordionItem
             value="1c"
@@ -70,11 +68,11 @@ export const Playground: Story = {
               <HelperText>Summary of your home’s age and construction.</HelperText>
             }
           >
-            <CardAccordionItemContent>Content 3</CardAccordionItemContent>
-            <CardAccordionItemFooter>
-              <CardAccordionItemButton action="previous" />
-              <CardAccordionItemButton action="next" />
-            </CardAccordionItemFooter>
+            <Box height="300px">Content</Box>
+            <CardAccordionFooter>
+              <CardAccordionButton action="previous" />
+              <CardAccordionButton action="next" />
+            </CardAccordionFooter>
           </CardAccordionItem>
           <CardAccordionItem
             value="1d"
@@ -85,11 +83,11 @@ export const Playground: Story = {
               </HelperText>
             }
           >
-            <CardAccordionItemContent>Content 4</CardAccordionItemContent>
-            <CardAccordionItemFooter>
-              <CardAccordionItemButton action="previous" />
-              <CardAccordionItemButton action="next" />
-            </CardAccordionItemFooter>
+            <Box height="300px">Content</Box>
+            <CardAccordionFooter>
+              <CardAccordionButton action="previous" />
+              <CardAccordionButton action="next" />
+            </CardAccordionFooter>
           </CardAccordionItem>
         </CardAccordion>
       </Box>

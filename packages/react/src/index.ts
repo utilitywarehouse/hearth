@@ -192,11 +192,9 @@ export type { CardAccordionProps } from './components/CardAccordion/CardAccordio
 export { useCardAccordion } from './components/CardAccordion/CardAccordion.context';
 export { CardAccordionItem } from './components/CardAccordion/CardAccordionItem';
 export type { CardAccordionItemProps } from './components/CardAccordion/CardAccordionItem.props';
-export { CardAccordionItemFooter } from './components/CardAccordion/CardAccordionItemFooter';
-export { CardAccordionItemButton } from './components/CardAccordion/CardAccordionItemButton';
-export type { CardAccordionItemButtonProps } from './components/CardAccordion/CardAccordionItemButton.props';
-export { CardAccordionItemContent } from './components/CardAccordion/CardAccordionItemContent';
-export type { CardAccordionItemContentProps } from './components/CardAccordion/CardAccordionItemContent.props';
+export { CardAccordionFooter } from './components/CardAccordion/CardAccordionFooter';
+export { CardAccordionButton } from './components/CardAccordion/CardAccordionButton';
+export type { CardAccordionButtonProps } from './components/CardAccordion/CardAccordionButton.props';
 
 export { Select } from './components/Select/Select';
 export type { SelectProps, SelectItemProps } from './components/Select/Select.props';

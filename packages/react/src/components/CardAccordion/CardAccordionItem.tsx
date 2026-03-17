@@ -25,8 +25,9 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
     {
       className,
       title,
-      headingElement: HeadingElement = 'h3',
       description,
+      headingElement: HeadingElement = 'h3',
+      previousStepTitle,
       previousStepContent,
       children,
       value,
@@ -62,9 +63,15 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
                   aria-describedby={description ? helperTextId : undefined}
                 >
                   <Flex direction="column">
-                    <Heading asChild size="md" id={labelId}>
-                      <div>{title}</div>
-                    </Heading>
+                    {step === 'previous' && Boolean(previousStepTitle) ? (
+                      <Heading asChild size="md" id={labelId}>
+                        <div>{previousStepTitle}</div>
+                      </Heading>
+                    ) : (
+                      <Heading asChild size="md" id={labelId}>
+                        <div>{title}</div>
+                      </Heading>
+                    )}
                     {description ? <HelperText id={helperTextId}>{description}</HelperText> : null}
                   </Flex>
                 </AccordionPrimitive.Trigger>
@@ -75,7 +82,9 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
                     colorScheme="functional"
                     onClick={e => {
                       setCurrentStep(value);
-                      setPreviousSteps(steps.slice(0, steps.indexOf(value)));
+                      if (steps) {
+                        setPreviousSteps(steps.slice(0, steps.indexOf(value)));
+                      }
                       onEditClick?.(e);
                     }}
                   >
@@ -85,7 +94,11 @@ export const CardAccordionItem = forwardRef<CardAccordionItemElement, CardAccord
               </HeadingElement>
             </AccordionPrimitive.Header>
             {step === 'previous' && previousStepContent ? previousStepContent : null}
-            {step === 'current' ? children : null}
+            {step === 'current' ? (
+              <AccordionPrimitive.Content className={`${componentClassName}Content`}>
+                {children}
+              </AccordionPrimitive.Content>
+            ) : null}
           </CardAccordionItemProvider>
         </Card>
       </AccordionPrimitive.Item>
