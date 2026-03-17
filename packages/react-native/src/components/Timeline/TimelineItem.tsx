@@ -19,6 +19,8 @@ const TimelineItem = ({
 }: TimelineItemProps) => {
   styles.useVariants({ position, state, variant });
 
+  const hasCustomContent = Boolean(children);
+
   const computedAccessibilityLabel = [
     label,
     helperText,
@@ -31,8 +33,12 @@ const TimelineItem = ({
     <View
       style={[styles.item, style as ViewStyle]}
       {...rest}
-      accessible={accessibleProp ?? true}
-      accessibilityLabel={accessibilityLabelProp ?? computedAccessibilityLabel}
+      accessible={accessibleProp ?? !hasCustomContent}
+      accessibilityLabel={
+        (accessibleProp ?? !hasCustomContent)
+          ? (accessibilityLabelProp ?? computedAccessibilityLabel)
+          : undefined
+      }
     >
       <View style={styles.indicatorColumn}>
         {(position === 'middle' || position === 'end') && <View style={styles.topConnector} />}
@@ -48,8 +54,10 @@ const TimelineItem = ({
       <View style={styles.content}>
         <View
           style={styles.textContent}
-          accessible
-          accessibilityLabel={accessibilityLabel}
+          accessible={hasCustomContent}
+          accessibilityLabel={
+            hasCustomContent ? (accessibilityLabelProp ?? computedAccessibilityLabel) : undefined
+          }
         >
           <BodyText size="md" weight="semibold" style={styles.label}>
             {label}
