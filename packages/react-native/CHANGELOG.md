@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.28.1
+
+### Patch Changes
+
+- [#1018](https://github.com/utilitywarehouse/hearth/pull/1018) [`1c5e02e`](https://github.com/utilitywarehouse/hearth/commit/1c5e02ea4b61329e7c55e52f9aa4ae44abc0da23) Thanks [@fillyD](https://github.com/fillyD)! - 🐛 [FIX]: Adds missing `testID` to `Select`, `SelectOption` and `VerificationInput` component
+
 ## 0.28.0
 
 ### Minor Changes
