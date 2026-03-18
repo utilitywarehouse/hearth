@@ -14,6 +14,7 @@ const SelectOption = ({
   selected,
   disabled,
   onPress,
+  testID,
 }: SelectOptionProps) => {
   const { selectedValue, onValueChange, close } = useSelectContext();
   const isSelected = selected !== undefined ? selected : selectedValue === value;
@@ -38,6 +39,7 @@ const SelectOption = ({
     <Pressable
       onPress={handlePress}
       disabled={disabled}
+      testID={testID}
       style={({ pressed }) => [styles.container, pressed && styles.pressed]}
     >
       {!!LeftIcon && (
