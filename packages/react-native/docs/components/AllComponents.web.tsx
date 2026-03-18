@@ -886,7 +886,7 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
 
-          <ComponentWrapper name="Unorderd List" link="utility-components-ul-ol-lists">
+          <ComponentWrapper name="Unordered List" link="utility-components-ul-ol-lists">
             <Center flex={1}>
               <UL>
                 <LI>
