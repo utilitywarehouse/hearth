@@ -189,7 +189,6 @@ export type { AccordionContentProps } from './components/Accordion/AccordionCont
 
 export { CardAccordion } from './components/CardAccordion/CardAccordion';
 export type { CardAccordionProps } from './components/CardAccordion/CardAccordion.props';
-export { useCardAccordion } from './components/CardAccordion/CardAccordion.context';
 export { CardAccordionItem } from './components/CardAccordion/CardAccordionItem';
 export type { CardAccordionItemProps } from './components/CardAccordion/CardAccordionItem.props';
 export { CardAccordionFooter } from './components/CardAccordion/CardAccordionFooter';
