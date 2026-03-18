@@ -1,5 +1,47 @@
 # @utilitywarehouse/hearth-react
 
+## 0.26.0
+
+### Minor Changes
+
+- [#993](https://github.com/utilitywarehouse/hearth/pull/993) [`2bb6ae7`](https://github.com/utilitywarehouse/hearth/commit/2bb6ae7a530762968aa0b2d82b43cc06134614c8) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `CardAccordion` component
+
+  `CardAccordion` breaks a form journey into multiple collapsible cards, allowing
+  users to progress step-by-step on a single page while keeping previously
+  completed steps visible and editable. Each card represents one logical step in
+  the journey. As the user progresses, completed cards collapse into a summary
+  view while the next card expands.
+
+  ```tsx
+  <CardAccordion>
+    <CardAccordionItem value="step-1" title="Step 1: Personal details">
+      ...
+      <CardAccordionFooter>
+        <CardAccordionButton action="next" />
+      </CardAccordionFooter>
+    </CardAccordionItem>
+    <CardAccordionItem value="step-2" title="Step 2: Address details">
+      ...
+      <CardAccordionFooter>
+        <CardAccordionButton action="previous" />
+        <CardAccordionButton action="next" />
+      </CardAccordionFooter>
+    </CardAccordionItem>
+    <CardAccordionItem value="step-3" title="Step 3: Payment details">
+      ...
+      <CardAccordionFooter>
+        <CardAccordionButton action="previous" />
+      </CardAccordionFooter>
+    </CardAccordionItem>
+  </CardAccordion>
+  ```
+
+### Patch Changes
+
+- [#1017](https://github.com/utilitywarehouse/hearth/pull/1017) [`747dd78`](https://github.com/utilitywarehouse/hearth/commit/747dd780862512aab53f7bdf89a8a389926f2e6a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Ensure `style` prop is passed to `DescriptionList`
+
+- [#1017](https://github.com/utilitywarehouse/hearth/pull/1017) [`747dd78`](https://github.com/utilitywarehouse/hearth/commit/747dd780862512aab53f7bdf89a8a389926f2e6a) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `width`, `minWidth`, and `maxWidth` props to `DescriptionList`
+
 ## 0.25.5
 
 ### Patch Changes
