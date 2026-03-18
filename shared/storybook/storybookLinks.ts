@@ -31,15 +31,62 @@ const parseQuery = (queryString: string) => {
   return query;
 };
 
-const getRefPrefixFromLocation = () => {
+// Storybook composition prefixes manager story ids with the ref id, for example
+// `react-native_components-alert--docs`. Sorting by descending length avoids partial
+// matches when one ref id is a prefix of another.
+const getKnownRefIds = () => {
   if (typeof window === 'undefined') {
-    return '';
+    return [] as Array<string>;
   }
-  const { location } = window.top ?? window;
-  const query = parseQuery(location.search);
+
+  const topWindow = window.top ?? window;
+  const refs = (topWindow as Window & { REFS?: Record<string, unknown> }).REFS ?? {};
+
+  return Object.keys(refs).sort((left, right) => right.length - left.length);
+};
+
+const getRefIdFromStoryId = (storyId: string) => {
+  if (!storyId) {
+    return null;
+  }
+
+  return getKnownRefIds().find(refId => storyId.startsWith(`${refId}_`)) ?? null;
+};
+
+// Ref previews render local story ids without the manager prefix, so we strip the
+// current ref id before emitting preview-side navigation events.
+const stripRefPrefix = (storyId: string, refId: string | null) => {
+  if (!storyId || !refId) {
+    return storyId;
+  }
+
+  const prefix = `${refId}_`;
+
+  if (!storyId.startsWith(prefix)) {
+    return storyId;
+  }
+
+  return storyId.slice(prefix.length);
+};
+
+const getCurrentRefId = () => {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
+  // Inside a composed iframe Storybook exposes `refId` in the query string; when
+  // running in the manager we infer it from the current `path` value instead.
+  const topWindow = window.top ?? window;
+  const query = parseQuery(topWindow.location.search);
+
+  if (query.refId) {
+    return query.refId;
+  }
+
   const path = query.path || '';
-  const match = path.match(/\/(?:docs|story)\/([a-z0-9-]+_)/i);
-  return match?.[1] ?? '';
+  const storyPath = path.match(/\/(?:docs|story)\/([^?#]+)/)?.[1] ?? '';
+
+  return getRefIdFromStoryId(storyPath);
 };
 
 const extractStoryId = (target: string) => {
@@ -58,12 +105,16 @@ const ensureDocsSuffix = (storyId: string, defaultToDocs: boolean) => {
   return `${storyId}--docs`;
 };
 
-const applyRefPrefix = (storyId: string) => {
-  const refPrefix = getRefPrefixFromLocation();
-  if (!refPrefix || storyId.startsWith(refPrefix)) {
-    return storyId;
+const getManagerStoryId = (rawStoryId: string) => {
+  const targetRefId = getRefIdFromStoryId(rawStoryId) ?? getCurrentRefId();
+
+  if (!targetRefId) {
+    return rawStoryId;
   }
-  return `${refPrefix}${storyId}`;
+
+  // The manager URL must use the ref-prefixed id so the left nav and selected story
+  // stay in sync across composed Storybooks.
+  return rawStoryId.startsWith(`${targetRefId}_`) ? rawStoryId : `${targetRefId}_${rawStoryId}`;
 };
 
 const getTargetMode = (target: string, defaultToDocs: boolean) => {
@@ -113,7 +164,7 @@ const updateManagerUrl = (storyId: string, mode: 'docs' | 'story') => {
     topWindow.history.pushState({}, '', url);
     topWindow.dispatchEvent(new PopStateEvent('popstate'));
   } catch {
-    // Ignore manager URL sync failures; Storybook channel update will still work.
+    // Ignore manager URL sync failures; preview-side navigation can still succeed.
   }
 };
 
@@ -142,9 +193,8 @@ export const getStoryHref = (target: string, options?: NavigateOptions) => {
   if (!target) {
     return '';
   }
-  const storyId = applyRefPrefix(
-    ensureDocsSuffix(extractStoryId(target), options?.defaultToDocs ?? false)
-  );
+  const rawStoryId = ensureDocsSuffix(extractStoryId(target), options?.defaultToDocs ?? false);
+  const storyId = getManagerStoryId(rawStoryId);
   const mode = getTargetMode(target, options?.defaultToDocs ?? false);
   return buildFallbackUrl(storyId, target, mode);
 };
@@ -153,9 +203,11 @@ export const navigateToStory = (target: string, options?: NavigateOptions) => {
   if (!target) {
     return;
   }
-  const storyId = applyRefPrefix(
-    ensureDocsSuffix(extractStoryId(target), options?.defaultToDocs ?? false)
-  );
+  const rawStoryId = ensureDocsSuffix(extractStoryId(target), options?.defaultToDocs ?? false);
+  const currentRefId = getCurrentRefId();
+  const targetRefId = getRefIdFromStoryId(rawStoryId);
+  const previewStoryId = stripRefPrefix(rawStoryId, currentRefId);
+  const storyId = getManagerStoryId(rawStoryId);
   const mode = getTargetMode(target, options?.defaultToDocs ?? false);
 
   const channel = (() => {
@@ -169,8 +221,20 @@ export const navigateToStory = (target: string, options?: NavigateOptions) => {
     );
   })();
 
-  if (channel && canResolveStoryId(storyId)) {
-    channel.emit('setCurrentStory', { storyId });
+  // Only drive navigation through the preview channel when the target resolves in the
+  // current preview. Cross-ref targets should update the manager URL and let Storybook
+  // swap to the correct composed iframe instead of sending an invalid local story id.
+  if (
+    channel &&
+    (!targetRefId || targetRefId === currentRefId) &&
+    canResolveStoryId(previewStoryId)
+  ) {
+    channel.emit('setCurrentStory', { storyId: previewStoryId });
+    updateManagerUrl(storyId, mode);
+    return;
+  }
+
+  if (channel) {
     updateManagerUrl(storyId, mode);
     return;
   }
