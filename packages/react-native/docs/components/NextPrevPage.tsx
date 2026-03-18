@@ -1,7 +1,7 @@
 import { ChevronLeftSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { StyleSheet, View } from 'react-native';
+import StorybookLink from '../../../../shared/storybook/StorybookLink';
 import { Card, CardPressHandler, Heading, Link } from '../../src';
-import { addReactNativePrefix } from '../heplers';
 
 type NextPrevPageProps = {
   nextLink?: string;
@@ -15,49 +15,33 @@ const NextPrevPage: React.FC<NextPrevPageProps> = ({
   nextTitle,
   prevLink,
   prevTitle,
-}) => {
-  const openLink = (link: string) => {
-    let target = link;
-    if (
-      typeof window !== 'undefined' &&
-      window.top?.location.href.includes('hearth.prod.uw.systems/?path=')
-    ) {
-      target = addReactNativePrefix(link);
-    }
-    if (window.top) {
-      window.top.location.href = target;
-    }
-  };
-  return (
-    <div className="sb-unstyled">
-      <View style={styles.container}>
-        {!!prevLink && (
-          <Card gap="100" alignItems="flex-start">
-            {!!prevTitle && <Heading size="sm">{prevTitle}</Heading>}
-            <CardPressHandler>
-              <Link
-                onPress={() => openLink(prevLink)}
-                iconPosition="left"
-                icon={ChevronLeftSmallIcon}
-              >
-                Prev Page
-              </Link>
-            </CardPressHandler>
-          </Card>
-        )}
-        <div />
-        {!!nextLink && (
-          <Card gap="100" alignItems="flex-start">
-            {!!nextTitle && <Heading size="sm">{nextTitle}</Heading>}
-            <CardPressHandler>
-              <Link onPress={() => openLink(nextLink)}>Next Page</Link>
-            </CardPressHandler>
-          </Card>
-        )}
-      </View>
-    </div>
-  );
-};
+}) => (
+  <div className="sb-unstyled">
+    <View style={styles.container}>
+      {!!prevLink && (
+        <Card gap="100" alignItems="flex-start">
+          {!!prevTitle && <Heading size="sm">{prevTitle}</Heading>}
+          <CardPressHandler>
+            <StorybookLink as={Link} to={prevLink} iconPosition="left" icon={ChevronLeftSmallIcon}>
+              Prev Page
+            </StorybookLink>
+          </CardPressHandler>
+        </Card>
+      )}
+      <div />
+      {!!nextLink && (
+        <Card gap="100" alignItems="flex-start">
+          {!!nextTitle && <Heading size="sm">{nextTitle}</Heading>}
+          <CardPressHandler>
+            <StorybookLink as={Link} to={nextLink}>
+              Next Page
+            </StorybookLink>
+          </CardPressHandler>
+        </Card>
+      )}
+    </View>
+  </div>
+);
 
 const styles = StyleSheet.create({
   container: {

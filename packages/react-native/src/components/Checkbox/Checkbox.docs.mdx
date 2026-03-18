@@ -10,6 +10,7 @@ import {
   CheckboxTile,
   FormField,
 } from '../../';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Checkbox.stories';
 
@@ -219,7 +220,7 @@ const MyComponent = () => {
 | `dark`    | `ImageSourcePropType` | The source of the image to display in dark mode (use instead of source)  |
 | `...rest` | `ImageProps`          | Additional props to pass to the underlying Image component               |
 
-For more details about the ThemedImage component used internally, refer to the [`ThemedImage` documentation](/docs/utility-components-themed-image--docs).
+For more details about the ThemedImage component used internally, refer to the <StorybookLink to="utility-components-themed-image">`ThemedImage` documentation</StorybookLink>.
 
 The `CheckboxImage` component is used to display an image next to the checkbox label. It inherits all the properties of React Native's `Image` component.
 

@@ -21,6 +21,7 @@ import SpotBillingLight from '@utilitywarehouse/hearth-svg-assets/lib/spot-billi
 import { color } from '@utilitywarehouse/hearth-tokens';
 import { Pressable, ScrollView, View, ViewProps } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
+import { navigateToStory } from '../../../../shared/storybook/storybookLinks';
 import {
   Accordion,
   AccordionItem,
@@ -114,7 +115,6 @@ import {
   useColorMode,
   VerificationInput,
 } from '../../src';
-import { addReactNativePrefix } from '../heplers';
 
 const ComponentWrapper = ({
   name,
@@ -126,16 +126,7 @@ const ComponentWrapper = ({
   children?: ViewProps['children'];
 }) => {
   const navigate = () => {
-    let target = link;
-    if (
-      typeof window !== 'undefined' &&
-      window.top?.location.href.includes('hearth.prod.uw.systems/?path=')
-    ) {
-      target = addReactNativePrefix(link);
-    }
-    if (window.top) {
-      window.top.location.href = target;
-    }
+    navigateToStory(link, { defaultToDocs: true });
   };
   return (
     <View style={styles.component}>
@@ -207,7 +198,7 @@ const AllComponents: React.FC = () => {
     <div className="sb-unstyled">
       <ScrollView contentContainerStyle={styles.container}>
         <Flex direction="row" wrap="wrap" spacing="md" style={styles.grid}>
-          <ComponentWrapper name="Accordion" link="/?path=/docs/components-accordion--docs">
+          <ComponentWrapper name="Accordion" link="components-accordion">
             <Center flex={1} p="200">
               <Accordion type="single">
                 <AccordionItem title="Accordion Item 1">
@@ -219,17 +210,17 @@ const AllComponents: React.FC = () => {
               </Accordion>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Alert" link="/?path=/docs/components-alert--docs">
+          <ComponentWrapper name="Alert" link="components-alert">
             <Center flex={1}>
               <Alert text="This is an alert" />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Avatar" link="/?path=/docs/components-avatar--docs">
+          <ComponentWrapper name="Avatar" link="components-avatar">
             <Center flex={1} gap="200">
               <Avatar name="John Doe" />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Badge" link="/?path=/docs/components-badge--docs">
+          <ComponentWrapper name="Badge" link="components-badge">
             <Center gap="200" flex={1}>
               <View>
                 <Badge>This is a badge</Badge>
@@ -239,7 +230,7 @@ const AllComponents: React.FC = () => {
               </View>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Banner" link="/?path=/docs/components-banner--docs">
+          <ComponentWrapper name="Banner" link="components-banner">
             <Center flex={1} p="200">
               <Banner
                 icon={ElectricityMediumIcon}
@@ -249,12 +240,12 @@ const AllComponents: React.FC = () => {
               />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Body Text" link="/?path=/docs/typography-body-text--docs">
+          <ComponentWrapper name="Body Text" link="typography-body-text">
             <Center flex={1}>
               <BodyText>This is some Body Text</BodyText>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Bottom Sheet" link="/?path=/docs/components-bottom-sheet--docs">
+          <ComponentWrapper name="Bottom Sheet" link="components-bottom-sheet">
             <Center flex={1}>
               <Button onPress={handleOpenPress}>Open Bottom Sheet</Button>
               <BottomSheet ref={bottomSheetRef} index={1}>
@@ -269,7 +260,7 @@ const AllComponents: React.FC = () => {
               </BottomSheet>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Box" link="/?path=/docs/primitives-box--docs">
+          <ComponentWrapper name="Box" link="primitives-box">
             <Center flex={1}>
               <Box backgroundColor={color.grey[900]} padding="300" width={200} height={100}>
                 <BodyText color={isDark ? 'primary' : 'inverted'} weight="semibold">
@@ -278,14 +269,14 @@ const AllComponents: React.FC = () => {
               </Box>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Button" link="/?path=/docs/components-button--docs">
+          <ComponentWrapper name="Button" link="components-button">
             <Center flex={1}>
               <Button colorScheme="highlight" variant="emphasis" onPress={() => null}>
                 Press me
               </Button>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Card" link="/?path=/docs/components-card--docs">
+          <ComponentWrapper name="Card" link="components-card">
             <Center flex={1}>
               <Card colorScheme="neutralStrong">
                 <Heading>I am a card</Heading>
@@ -293,7 +284,7 @@ const AllComponents: React.FC = () => {
               </Card>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Carousel" link="/?path=/docs/components-carousel--docs">
+          <ComponentWrapper name="Carousel" link="components-carousel">
             <Center flex={1}>
               <Carousel itemWidth={150} centered width={150}>
                 <CarouselItem>
@@ -344,7 +335,7 @@ const AllComponents: React.FC = () => {
               </Carousel>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Center" link="/?path=/docs/primitives-center--docs">
+          <ComponentWrapper name="Center" link="primitives-center">
             <Center flex={1}>
               <Center backgroundColor={color.red[400]} padding="300" width={200} height={100}>
                 <BodyText color={isDark ? 'primary' : 'inverted'} weight="semibold">
@@ -354,14 +345,14 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
 
-          <ComponentWrapper name="Checkbox" link="/?path=/docs/forms-checkbox--docs">
+          <ComponentWrapper name="Checkbox" link="forms-checkbox">
             <Center flex={1}>
               <View>
                 <Checkbox label="I'm a Checkbox" value="" />
               </View>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Combobox" link="/?path=/docs/forms-combobox--docs">
+          <ComponentWrapper name="Combobox" link="forms-combobox">
             <Center flex={1}>
               <BottomSheetModalProvider>
                 <Combobox
@@ -379,24 +370,24 @@ const AllComponents: React.FC = () => {
               </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Container" link="/?path=/docs/primitives-container--docs">
+          <ComponentWrapper name="Container" link="primitives-container">
             <Container spacing="md" backgroundColor="secondary">
               <Box h={20} bg={color.blue[300]} />
               <Box h={20} bg={color.blue[400]} />
               <Box h={20} bg={color.blue[500]} />
             </Container>
           </ComponentWrapper>
-          <ComponentWrapper name="Currency Input" link="/?path=/docs/forms-currency-input--docs">
+          <ComponentWrapper name="Currency Input" link="forms-currency-input">
             <Center flex={1} padding="200">
               <CurrencyInput />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Date Input" link="/?path=/docs/forms-date-input--docs">
+          <ComponentWrapper name="Date Input" link="forms-date-input">
             <Center flex={1} padding="200">
               <DateInput />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Date Picker" link="/?path=/docs/components-date-picker--docs">
+          <ComponentWrapper name="Date Picker" link="components-date-picker">
             <Center flex={1}>
               <Button onPress={handleDatePickerOpenPress}>Open Date Picker</Button>
               <BottomSheetModalProvider>
@@ -410,20 +401,14 @@ const AllComponents: React.FC = () => {
               </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper
-            name="Date Picker Input"
-            link="/?path=/docs/forms-date-picker-input--docs"
-          >
+          <ComponentWrapper name="Date Picker Input" link="forms-date-picker-input">
             <Center flex={1} padding="200">
               <BottomSheetModalProvider>
                 <DatePickerInput placeholder="DD/MM/YYYY" />
               </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper
-            name="Description List"
-            link="/?path=/docs/components-description-list--docs"
-          >
+          <ComponentWrapper name="Description List" link="components-description-list">
             <Center flex={1} padding="200">
               <DescriptionList>
                 <DescriptionListItem heading="This is a" description="Description list" />
@@ -431,13 +416,13 @@ const AllComponents: React.FC = () => {
               </DescriptionList>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Detail Text" link="/?path=/docs/typography-detail-text--docs">
+          <ComponentWrapper name="Detail Text" link="typography-detail-text">
             <Center flex={1}>
               <DetailText>This is some Detail Text</DetailText>
             </Center>
           </ComponentWrapper>
 
-          <ComponentWrapper name="Divider" link="/?path=/docs/components-divider--docs">
+          <ComponentWrapper name="Divider" link="components-divider">
             <Center flex={1} p="300">
               <BodyText>This text is divided</BodyText>
               <Divider spacing="sm" />
@@ -445,10 +430,7 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
 
-          <ComponentWrapper
-            name="Expandable"
-            link="/?path=/docs/utility-components-expandable--docs"
-          >
+          <ComponentWrapper name="Expandable" link="utility-components-expandable">
             <Center flex={1} p="200">
               <Box width={240} gap="100">
                 <Button onPress={() => setIsExpanded(!isExpanded)}>
@@ -463,10 +445,7 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
 
-          <ComponentWrapper
-            name="Expandable Card"
-            link="/?path=/docs/components-expandable-card--docs"
-          >
+          <ComponentWrapper name="Expandable Card" link="components-expandable-card">
             <Center flex={1} p="200">
               <ExpandableCard
                 heading="This is an"
@@ -483,7 +462,7 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
 
-          <ComponentWrapper name="Flex" link="/?path=/docs/primitives-flex--docs">
+          <ComponentWrapper name="Flex" link="primitives-flex">
             <Center flex={1}>
               <Flex direction="row" spacing="md">
                 <Box w={40} h={40} bg={color.blue[300]} />
@@ -493,7 +472,7 @@ const AllComponents: React.FC = () => {
               </Flex>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Form Field" link="/?path=/docs/forms-form-field--docs">
+          <ComponentWrapper name="Form Field" link="forms-form-field">
             <Center flex={1}>
               <FormField
                 validationStatus="invalid"
@@ -505,7 +484,7 @@ const AllComponents: React.FC = () => {
               </FormField>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Grid" link="/?path=/docs/primitives-grid--docs">
+          <ComponentWrapper name="Grid" link="primitives-grid">
             <Center flex={1}>
               <Box width={100}>
                 <Grid columns={2} spacing="md">
@@ -517,15 +496,12 @@ const AllComponents: React.FC = () => {
               </Box>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Heading" link="/?path=/docs/typography-heading--docs">
+          <ComponentWrapper name="Heading" link="typography-heading">
             <Center flex={1}>
               <Heading>This is a Heading</Heading>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper
-            name="Highlight Banner"
-            link="/?path=/docs/components-highlight-banner--docs"
-          >
+          <ComponentWrapper name="Highlight Banner" link="components-highlight-banner">
             <Center flex={1} p="200">
               <HighlightBanner
                 heading="Featured Content"
@@ -542,23 +518,17 @@ const AllComponents: React.FC = () => {
               />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper
-            name="Indicator Icon Button"
-            link="/?path=/docs/components-indicator-icon-button--docs"
-          >
+          <ComponentWrapper name="Indicator Icon Button" link="components-indicator-icon-button">
             <Center flex={1}>
               <IndicatorIconButton icon={BellMediumIcon} onPress={() => null} indicator={true} />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Icon Button" link="/?path=/docs/components-icon-button--docs">
+          <ComponentWrapper name="Icon Button" link="components-icon-button">
             <Center flex={1}>
               <IconButton icon={ChevronRightMediumIcon} size="md" onPress={() => null} />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper
-            name="Icon Container"
-            link="/?path=/docs/components-icon-container--docs"
-          >
+          <ComponentWrapper name="Icon Container" link="components-icon-container">
             <Center flex={1}>
               <Flex direction="row" spacing="sm">
                 <IconContainer
@@ -595,7 +565,7 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
 
-          <ComponentWrapper name="Icons" link="/?path=/docs/components-icons--docs">
+          <ComponentWrapper name="Icons" link="components-icons">
             <Center flex={1}>
               <Flex direction="row" spacing="lg">
                 <Icon as={ElectricityMediumIcon} color="energyBlue700" />
@@ -605,29 +575,26 @@ const AllComponents: React.FC = () => {
               </Flex>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper
-            name="Inline Link"
-            link="/?path=/docs/utility-components-inline-link--docs"
-          >
+          <ComponentWrapper name="Inline Link" link="utility-components-inline-link">
             <Center flex={1}>
               <InlineLink href="https://www.utilitywarehouse.co.uk" target="_blank">
                 This is an inline link
               </InlineLink>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Input" link="/?path=/docs/forms-input--docs">
+          <ComponentWrapper name="Input" link="forms-input">
             <Center flex={1}>
               <Input placeholder="This is an input" />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Link" link="/?path=/docs/components-link--docs">
+          <ComponentWrapper name="Link" link="components-link">
             <Center flex={1}>
               <Link href="https://www.utilitywarehouse.co.uk" target="_blank">
                 This is a link
               </Link>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="List" link="/?path=/docs/components-list--docs">
+          <ComponentWrapper name="List" link="components-list">
             <Center flex={1} p="300">
               <List>
                 <ListItem heading="List Item 1" onPress={() => console.log('item pressed')} />
@@ -635,7 +602,7 @@ const AllComponents: React.FC = () => {
               </List>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Menu" link="/?path=/docs/components-menu--docs">
+          <ComponentWrapper name="Menu" link="components-menu">
             <Center flex={1}>
               <BottomSheetModalProvider>
                 <MenuTrigger onPress={handleMenuOpenPress}>
@@ -658,7 +625,7 @@ const AllComponents: React.FC = () => {
               </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Modal" link="/?path=/docs/components-modal--docs">
+          <ComponentWrapper name="Modal" link="components-modal">
             <Center flex={1}>
               <Button onPress={handleModalOpenPress}>Open Modal</Button>
               <BottomSheetModalProvider>
@@ -673,10 +640,7 @@ const AllComponents: React.FC = () => {
               </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper
-            name="Ordered List"
-            link="/?path=/docs/utility-components-ul-ol-lists--docs"
-          >
+          <ComponentWrapper name="Ordered List" link="utility-components-ul-ol-lists">
             <Center flex={1}>
               <OL>
                 <LI>
@@ -688,7 +652,7 @@ const AllComponents: React.FC = () => {
               </OL>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Pagination" link="/?path=/docs/components-pagination--docs">
+          <ComponentWrapper name="Pagination" link="components-pagination">
             <Center flex={1} p="200">
               <Box style={{ width: 280 }}>
                 <Pagination
@@ -701,7 +665,7 @@ const AllComponents: React.FC = () => {
               </Box>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Pill Group" link="/?path=/docs/components-pill-group--docs">
+          <ComponentWrapper name="Pill Group" link="components-pill-group">
             <Center flex={1} p="200">
               <PillGroup
                 value={pillValue}
@@ -716,15 +680,12 @@ const AllComponents: React.FC = () => {
               </PillGroup>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Progress Bar" link="/?path=/docs/components-progress-bar--docs">
+          <ComponentWrapper name="Progress Bar" link="components-progress-bar">
             <Center flex={1} px="300">
               <ProgressBar value={58} label="Order progress" />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper
-            name="Progress Stepper"
-            link="/?path=/docs/components-progress-stepper--docs"
-          >
+          <ComponentWrapper name="Progress Stepper" link="components-progress-stepper">
             <Center flex={1} px="300">
               <ProgressStepper>
                 <ProgressStep id="customer-data" status="complete" />
@@ -734,7 +695,7 @@ const AllComponents: React.FC = () => {
               </ProgressStepper>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Radio" link="/?path=/docs/forms-radio--docs">
+          <ComponentWrapper name="Radio" link="forms-radio">
             <Center flex={1}>
               <RadioGroup>
                 <Radio label="I'm a Radio" value="1" />
@@ -742,7 +703,7 @@ const AllComponents: React.FC = () => {
               </RadioGroup>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Radio Card" link="/?path=/docs/components-radio-card--docs">
+          <ComponentWrapper name="Radio Card" link="components-radio-card">
             <Center flex={1}>
               <RadioCardGroup aria-label="Select Tariff" nativeID="RadioCard-group">
                 <RadioCard
@@ -754,10 +715,7 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
 
-          <ComponentWrapper
-            name="Section Header"
-            link="/?path=/docs/components-section-header--docs"
-          >
+          <ComponentWrapper name="Section Header" link="components-section-header">
             <Center flex={1} p="300">
               <SectionHeader
                 heading="Heading"
@@ -766,10 +724,7 @@ const AllComponents: React.FC = () => {
               />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper
-            name="Segmented Control"
-            link="/?path=/docs/components-segmented-control--docs"
-          >
+          <ComponentWrapper name="Segmented Control" link="components-segmented-control">
             <Center flex={1}>
               <SegmentedControl defaultValue="day" alignSelf="center">
                 <SegmentedControlOption value="day">Day</SegmentedControlOption>
@@ -778,7 +733,7 @@ const AllComponents: React.FC = () => {
               </SegmentedControl>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Select" link="/?path=/docs/forms-select--docs">
+          <ComponentWrapper name="Select" link="forms-select">
             <Center flex={1}>
               <BottomSheetModalProvider>
                 <Select
@@ -795,7 +750,7 @@ const AllComponents: React.FC = () => {
               </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Skeleton" link="/?path=/docs/components-skeleton--docs">
+          <ComponentWrapper name="Skeleton" link="components-skeleton">
             <Center flex={1}>
               <Flex direction="row" spacing="sm">
                 <Skeleton width={30} height={30} />
@@ -806,17 +761,17 @@ const AllComponents: React.FC = () => {
               </Flex>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Spinner" link="/?path=/docs/components-spinner--docs">
+          <ComponentWrapper name="Spinner" link="components-spinner">
             <Center flex={1}>
               <Spinner size="lg" />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Switch" link="/?path=/docs/components-switch--docs">
+          <ComponentWrapper name="Switch" link="components-switch">
             <Center flex={1}>
               <Switch value={switchEnabled} onValueChange={toggleSwitch} />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Table" link="/?path=/docs/components-table--docs">
+          <ComponentWrapper name="Table" link="components-table">
             <Center flex={1} px="300">
               <Box style={{ width: 360 }}>
                 <Table container="subtle">
@@ -846,7 +801,7 @@ const AllComponents: React.FC = () => {
               </Box>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Tabs" link="/?path=/docs/components-tabs--docs">
+          <ComponentWrapper name="Tabs" link="components-tabs">
             <Center flex={1}>
               <Tabs defaultValue="tab-1">
                 <TabsList>
@@ -866,15 +821,12 @@ const AllComponents: React.FC = () => {
               </Tabs>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Textarea" link="/?path=/docs/forms-textarea--docs">
+          <ComponentWrapper name="Textarea" link="forms-textarea">
             <Center flex={1}>
               <Textarea numberOfLines={3} placeholder="This is a textarea" />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper
-            name="Themed Image"
-            link="/?path=/docs/utility-components-themed-image--docs"
-          >
+          <ComponentWrapper name="Themed Image" link="utility-components-themed-image">
             <Center flex={1} p="300">
               <ThemedImage
                 light={<SpotBillingLight width={160} height={160} />}
@@ -882,7 +834,7 @@ const AllComponents: React.FC = () => {
               />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Timeline" link="/?path=/docs/components-timeline--docs">
+          <ComponentWrapper name="Timeline" link="components-timeline">
             <Center flex={1} px="300">
               <Timeline variant="progress">
                 <TimelineItem label="Order placed" helperText="Received" state="complete" />
@@ -891,7 +843,7 @@ const AllComponents: React.FC = () => {
               </Timeline>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Time Picker" link="/?path=/docs/components-time-picker--docs">
+          <ComponentWrapper name="Time Picker" link="components-time-picker">
             <Center flex={1}>
               <Button onPress={handleTimePickerOpenPress}>Open Time Picker</Button>
               <BottomSheetModalProvider>
@@ -904,17 +856,14 @@ const AllComponents: React.FC = () => {
               </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper
-            name="Time Picker Input"
-            link="/?path=/docs/forms-time-picker-input--docs"
-          >
+          <ComponentWrapper name="Time Picker Input" link="forms-time-picker-input">
             <Center flex={1} padding="200">
               <BottomSheetModalProvider>
                 <TimePickerInput placeholder="HH:mm" />
               </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper name="Toast" link="/?path=/docs/components-toast--docs">
+          <ComponentWrapper name="Toast" link="components-toast">
             <Center flex={1} p="200">
               <ToastItem
                 onClose={() => {}}
@@ -922,10 +871,7 @@ const AllComponents: React.FC = () => {
               />
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper
-            name="Toggle Button Card"
-            link="/?path=/docs/components-toggle-button-card--docs"
-          >
+          <ComponentWrapper name="Toggle Button Card" link="components-toggle-button-card">
             <Center flex={1}>
               <ToggleButtonCardGroup
                 aria-label="Select Tariff"
@@ -940,10 +886,7 @@ const AllComponents: React.FC = () => {
             </Center>
           </ComponentWrapper>
 
-          <ComponentWrapper
-            name="Unorderd List"
-            link="/?path=/docs/utility-components-ul-ol-lists--docs"
-          >
+          <ComponentWrapper name="Unorderd List" link="utility-components-ul-ol-lists">
             <Center flex={1}>
               <UL>
                 <LI>
@@ -955,10 +898,7 @@ const AllComponents: React.FC = () => {
               </UL>
             </Center>
           </ComponentWrapper>
-          <ComponentWrapper
-            name="Verification Input"
-            link="/?path=/docs/forms-verificationinput--docs"
-          >
+          <ComponentWrapper name="Verification Input" link="forms-verificationinput">
             <Center flex={1} padding="200">
               <VerificationInput onChangeText={() => {}} />
             </Center>

@@ -4,6 +4,249 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Changelog
 
+## 0.26.0
+
+### Minor Changes
+
+- [#993](https://github.com/utilitywarehouse/hearth/pull/993) [`2bb6ae7`](https://github.com/utilitywarehouse/hearth/commit/2bb6ae7a530762968aa0b2d82b43cc06134614c8) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `CardAccordion` component
+
+  `CardAccordion` breaks a form journey into multiple collapsible cards, allowing
+  users to progress step-by-step on a single page while keeping previously
+  completed steps visible and editable. Each card represents one logical step in
+  the journey. As the user progresses, completed cards collapse into a summary
+  view while the next card expands.
+
+  ```tsx
+  <CardAccordion>
+    <CardAccordionItem value="step-1" title="Step 1: Personal details">
+      ...
+      <CardAccordionFooter>
+        <CardAccordionButton action="next" />
+      </CardAccordionFooter>
+    </CardAccordionItem>
+    <CardAccordionItem value="step-2" title="Step 2: Address details">
+      ...
+      <CardAccordionFooter>
+        <CardAccordionButton action="previous" />
+        <CardAccordionButton action="next" />
+      </CardAccordionFooter>
+    </CardAccordionItem>
+    <CardAccordionItem value="step-3" title="Step 3: Payment details">
+      ...
+      <CardAccordionFooter>
+        <CardAccordionButton action="previous" />
+      </CardAccordionFooter>
+    </CardAccordionItem>
+  </CardAccordion>
+  ```
+
+### Patch Changes
+
+- [#1017](https://github.com/utilitywarehouse/hearth/pull/1017) [`747dd78`](https://github.com/utilitywarehouse/hearth/commit/747dd780862512aab53f7bdf89a8a389926f2e6a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Ensure `style` prop is passed to `DescriptionList`
+
+- [#1017](https://github.com/utilitywarehouse/hearth/pull/1017) [`747dd78`](https://github.com/utilitywarehouse/hearth/commit/747dd780862512aab53f7bdf89a8a389926f2e6a) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `width`, `minWidth`, and `maxWidth` props to `DescriptionList`
+
+## 0.25.5
+
+### Patch Changes
+
+- [#1004](https://github.com/utilitywarehouse/hearth/pull/1004) [`0585a9f`](https://github.com/utilitywarehouse/hearth/commit/0585a9f2a779692f60d1fc26bfa0fe235e5dacf6) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add today indicator
+
+  This change adds a visual indicator for the current day. It can be disabled
+  with the `disableTodayIndicator` prop.
+
+## 0.25.4
+
+### Patch Changes
+
+- [#996](https://github.com/utilitywarehouse/hearth/pull/996) [`eb8ab7a`](https://github.com/utilitywarehouse/hearth/commit/eb8ab7a652b963b61b36b458843c40c32506d1dc) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `order` prop
+
+  ## Affected Components
+  - `Box`
+  - `Flex`
+  - `Grid`
+
+- [#997](https://github.com/utilitywarehouse/hearth/pull/997) [`13d30b6`](https://github.com/utilitywarehouse/hearth/commit/13d30b69dcd717f4c364d431fb9097bb06f360bc) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Modal description text alignment
+
+- [#1002](https://github.com/utilitywarehouse/hearth/pull/1002) [`7f05ed8`](https://github.com/utilitywarehouse/hearth/commit/7f05ed811e7faa0572f5964faaec07bb03aa7aac) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Broken layout on `Alert` when only children rendered as content
+
+- [#1001](https://github.com/utilitywarehouse/hearth/pull/1001) [`ddc21c0`](https://github.com/utilitywarehouse/hearth/commit/ddc21c06565e739be31bc2007ce6f1e656ad8bcf) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: incorrect casing for data-attribute on `Alert`
+
+- [#999](https://github.com/utilitywarehouse/hearth/pull/999) [`8093f0a`](https://github.com/utilitywarehouse/hearth/commit/8093f0aefca8b1677f80e48470569a6b0fc11ff8) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Set `pointer-events: auto` on `Combobox`
+
+  This fixes an issue when using `Combobox` with `Modal` where it would not be
+  possible to click on the `Combobox` options when the `Modal` is open. This is
+  because `Modal` sets `pointer-events: none` on all elements outside of the
+  `Modal` to prevent interaction with them, but this also affects the `Combobox`
+  options.
+
+- [#1000](https://github.com/utilitywarehouse/hearth/pull/1000) [`61d834a`](https://github.com/utilitywarehouse/hearth/commit/61d834a91959088dd187abc6a31d8e4655030f32) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `direction` prop to `SectionHeader`
+
+- [#995](https://github.com/utilitywarehouse/hearth/pull/995) [`f09ef6c`](https://github.com/utilitywarehouse/hearth/commit/f09ef6c165f312c958bfa1ce189b19c412c4c0c8) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `alignSelf` prop
+
+  ## Affected Components
+  - `Box`
+  - `Flex`
+  - `Grid`
+
+## 0.25.3
+
+### Patch Changes
+
+- [#984](https://github.com/utilitywarehouse/hearth/pull/984) [`8973336`](https://github.com/utilitywarehouse/hearth/commit/89733367c0675953cf189b6986a4c4630fb4a309) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `asChild` prop to link based components for better integration with Next.js
+
+  ## Components affected
+  - `ListActionLink`
+  - `ToastActionLink`
+  - `ProgressStepLink`
+  - `CardActionLink`
+
+## 0.25.2
+
+### Patch Changes
+
+- [#976](https://github.com/utilitywarehouse/hearth/pull/976) [`548f925`](https://github.com/utilitywarehouse/hearth/commit/548f925463186ef2736570f9e23bb1228ac20373) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Reinstate `forwardRef` on all components
+
+## 0.25.1
+
+### Patch Changes
+
+- [#970](https://github.com/utilitywarehouse/hearth/pull/970) [`7829fdc`](https://github.com/utilitywarehouse/hearth/commit/7829fdc8c4accab0f5e25ae121ff457681f1c94c) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: `SectionHeader` margin props now applied to the container, not the heading.
+
+- [#972](https://github.com/utilitywarehouse/hearth/pull/972) [`9914d76`](https://github.com/utilitywarehouse/hearth/commit/9914d7617603777e2dd77823fec7e4c88dee956f) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Disabled button styles
+
+  This change ensures the following button components correctly apply disabled
+  styles when the `disabled` prop is set.
+
+  ## Components affected
+  - `CardActionButton`
+  - `ListActionButton`
+  - `ListItemButton`
+
+## 0.25.0
+
+### Minor Changes
+
+- [#964](https://github.com/utilitywarehouse/hearth/pull/964) [`c21e661`](https://github.com/utilitywarehouse/hearth/commit/c21e6610af597b9a252c64032a6ab116f084bfc1) Thanks [@robphoenix](https://github.com/robphoenix)! - 💔 [BREAKING VISUAL CHANGE]: `RadioTile` default layout change
+
+  This change updates the default layout for `RadioTile`, when used in a row, to
+  hug the content instead of filling the available space. This is a breaking
+  change as it may affect existing layouts where `RadioTile` was used in a row and
+  relied on the previous default behaviour of filling the available space. To
+  restore the previous behaviour, you can set the `flex` prop to `1` on each `RadioTile`:
+
+  ```diff
+   <RadioGroup direction="row" label="Numbers">
+  +  <RadioTile value="1" label="One" flex="1" />
+  +  <RadioTile value="2" label="Two" flex="1" />
+   </RadioGroup>
+  ```
+
+### Patch Changes
+
+- [#964](https://github.com/utilitywarehouse/hearth/pull/964) [`c21e661`](https://github.com/utilitywarehouse/hearth/commit/c21e6610af597b9a252c64032a6ab116f084bfc1) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add flex item props to `RadioTile` component
+
+  This change adds all the `flexItem` props to the `RadioTile` component to
+  support better layout control when using `RadioTile` within flex containers. The
+  following props have been added:
+  - `flex`
+  - `flexBasis`
+  - `flexGrow`
+  - `flexShrink`
+
+## 0.24.19
+
+### Patch Changes
+
+- [#960](https://github.com/utilitywarehouse/hearth/pull/960) [`fd1b98e`](https://github.com/utilitywarehouse/hearth/commit/fd1b98e1ef3a62ca8675b316854e00d4d5a2df93) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `paddingBottomNone` prop to `CardContent`
+
+- [#951](https://github.com/utilitywarehouse/hearth/pull/951) [`25698c1`](https://github.com/utilitywarehouse/hearth/commit/25698c112ed7f0f2b7c1f814481d00ca74561f4a) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Improve disabled `Link` styles
+
+  The `Link` styles were being displayed when `aria-disabled` was both false &
+  true. This change ensures that the correct styles are applied only when
+  `aria-disabled='true'`.
+
+- [#950](https://github.com/utilitywarehouse/hearth/pull/950) [`680d770`](https://github.com/utilitywarehouse/hearth/commit/680d7708bc85d57263837697eee01e33f574dd01) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Improve labelling of `List`
+
+  This change ensures that the `List` component is properly labelled for assistive
+  technologies, enhancing accessibility for users relying on screen readers.
+
+  This change also updates the documentation, removing `aria-label` props on list
+  items, as we are changing the guidance to not include them. This is because the
+  list items are already labelled by their content, and adding an `aria-label` can
+  create confusion for screen readers.
+
+- Updated dependencies [[`25698c1`](https://github.com/utilitywarehouse/hearth/commit/25698c112ed7f0f2b7c1f814481d00ca74561f4a)]:
+  - @utilitywarehouse/hearth-css-reset@0.1.4
+
+## 0.24.18
+
+### Patch Changes
+
+- [#945](https://github.com/utilitywarehouse/hearth/pull/945) [`34404fe`](https://github.com/utilitywarehouse/hearth/commit/34404feec4fda152f1670be5f6ac23bc442359b1) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Pass refs to `ListItem*` components
+
+  ## Components affected
+  - `ListItem`
+  - `ListItemContent`
+  - `ListItemButton`
+  - `ListItemLink`
+  - `BodyText`
+  - `Flex`
+
+- [#942](https://github.com/utilitywarehouse/hearth/pull/942) [`4228cf0`](https://github.com/utilitywarehouse/hearth/commit/4228cf0a34d257f6c3e0fb76b8bfdde37ebba694) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Add `loading` prop to `Combobox`
+
+- [#943](https://github.com/utilitywarehouse/hearth/pull/943) [`96c247b`](https://github.com/utilitywarehouse/hearth/commit/96c247bcc36f3190423a0c37f0d7f6ce7b436932) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Ensure refs are forwarded for `Link` & `BreadcrumbItem` components
+
+- [#945](https://github.com/utilitywarehouse/hearth/pull/945) [`34404fe`](https://github.com/utilitywarehouse/hearth/commit/34404feec4fda152f1670be5f6ac23bc442359b1) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Better support for custom `ListItem*` trailing content
+
+  ## Components affected
+  - `ListItemContent`
+  - `ListItemButton`
+  - `ListItemLink`
+
+- [#943](https://github.com/utilitywarehouse/hearth/pull/943) [`96c247b`](https://github.com/utilitywarehouse/hearth/commit/96c247bcc36f3190423a0c37f0d7f6ce7b436932) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Add missing `alignContent` prop defs to `Flex` component
+
+- [#946](https://github.com/utilitywarehouse/hearth/pull/946) [`acacada`](https://github.com/utilitywarehouse/hearth/commit/acacadae520b026179c5e982bfa4c3760ea0a29e) Thanks [@robphoenix](https://github.com/robphoenix)! - 🐛 [FIX]: Scroll area border radius
+
+  ## Components affected
+  - `Menu`
+  - `ComboBox`
+  - `Select`
+
+## 0.24.17
+
+### Patch Changes
+
+- [#928](https://github.com/utilitywarehouse/hearth/pull/928) [`54baa29`](https://github.com/utilitywarehouse/hearth/commit/54baa29a40a8dd109d455cc23c4ea9bdddc90ca1) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Change `List` items `helperText` type to `ReactNode`
+
+  **Components affected**:
+  - `ListItemContent`
+  - `ListItemLink`
+  - `ListItemButton`
+
+- [#931](https://github.com/utilitywarehouse/hearth/pull/931) [`6b1d4ba`](https://github.com/utilitywarehouse/hearth/commit/6b1d4bade5119f5a7e9ecce567f7d290ca313007) Thanks [@robphoenix](https://github.com/robphoenix)! - 💅 [ENHANCEMENT]: Include `modal` prop to change behaviour of `Menu` as needed
+
+  **Components affected**:
+  - `Menu`
+
+  This change adds a `modal` prop to `Menu` to allow users to change the behaviour
+  of the `Menu` when multiple `Menu` components are used together. When `modal` is
+  set to `false`, if a user has an open `Menu` and they click on a different
+  `MenuTrigger` the second `Menu` opens immediately, closing the first `Menu`
+  without the need for the user to click outside of the first `Menu` to close it.
+
+- [#929](https://github.com/utilitywarehouse/hearth/pull/929) [`2bfeeed`](https://github.com/utilitywarehouse/hearth/commit/2bfeeed64d1b670f31ec1d7da209acc09b492ada) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add props to `Modal` to control the ability to dismiss
+
+  **Components affected**:
+  - `Modal`
+
+  This change adds the `onPointerDownOutside`, `onEscapeKeyDown` & `onInteractOutside`
+  props to `Modal` to allow users to prevent the modal from closing when users
+  click outside of the modal or press the escape key.
+
+  These props are inherited from the underlying `Dialog.Content` component from
+  [Radix UI](https://www.radix-ui.com/primitives/docs/components/dialog#content).
+
 ## 0.24.16
 
 ### Patch Changes

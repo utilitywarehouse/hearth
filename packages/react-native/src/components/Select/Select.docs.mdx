@@ -1,6 +1,7 @@
 import { Canvas, Controls, Meta, Story } from '@storybook/addon-docs/blocks';
 import { UserSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import { Center, FormField, Select, SelectOption } from '../../';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
 import * as Stories from './Select.stories';
 
@@ -164,7 +165,7 @@ const MyComponent = () => {
 ### With `FormField`
 
 The `Select` component can be used with the `FormField` component for additional functionality like validation messages and helper text.
-For more information on the `FormField` component, view the [docs here](/docs/components-form-field--docs).
+For more information on the `FormField` component, view the <StorybookLink to="forms-form-field">`FormField` documentation</StorybookLink>.
 
 <Canvas of={Stories.WithValidationStatus} />
 

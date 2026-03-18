@@ -29,7 +29,7 @@ changelogContent = changelogContent.split('\n').slice(1).join('\n');
 
 // Create the MDX content with imports and components
 const mdxContent = `import { Meta } from '@storybook/addon-docs/blocks';
-import { BackToTopButton } from './components';
+import { BackToTopButton, NextPrevPage } from './components';
 
 <Meta title="Changelog" />
 <BackToTopButton />
@@ -39,6 +39,13 @@ import { BackToTopButton } from './components';
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
 ${changelogContent}
+
+<NextPrevPage
+  prevLink="getting-started"
+  prevTitle="Getting Started"
+  nextLink="styling"
+  nextTitle="Styling"
+/>
 `;
 
 // Write the new MDX file
