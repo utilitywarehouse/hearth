@@ -6,7 +6,7 @@ export interface CardAccordionItemProps extends Omit<
   ComponentPropsWithRef<typeof CardAccordionPrimitive.Item>,
   'asChild' | 'value'
 > {
-  value: CardAccordionPrimitive.AccordionSingleProps['value'];
+  value: string;
   title: string;
   description?: string;
   summaryTitle?: string;
