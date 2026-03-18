@@ -152,6 +152,10 @@ export interface SelectOptionProps {
    * Callback when this option is selected
    */
   onPress?: (value: string) => void;
+  /**
+   * Test ID for testing
+   */
+  testID?: string;
 }
 
 export default SelectProps;

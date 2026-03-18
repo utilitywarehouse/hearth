@@ -23,6 +23,7 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
       secureTextEntry = false,
       autoFocus = false,
       style,
+      testID,
       ...props
     },
     ref
@@ -239,6 +240,7 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
             maxLength={length}
             caretHidden
             style={styles.hiddenInput}
+            testID={testID}
           />
           {slots.map(index => {
             const char = displayValue[index] || '';
@@ -260,6 +262,7 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
                   inputRef.current?.focus();
                   setSelectionIndex(index);
                 }}
+                testID={testID ? `${testID}-${index}` : undefined}
               />
             );
           })}
