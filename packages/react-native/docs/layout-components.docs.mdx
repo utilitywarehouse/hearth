@@ -1,4 +1,5 @@
 import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks';
+import StorybookLink from '../../../shared/storybook/StorybookLink';
 import * as BoxStories from '../src/components/Box/Box.stories';
 import * as ContainerStories from '../src/components/Container/Container.stories';
 import * as FlexStories from '../src/components/Flex/Flex.stories';
@@ -28,6 +29,8 @@ apply design decisions coherently.
 size and colour to elements. It can be used to control behaviour of child
 elements within `Flex` and `Grid` containers.
 
+You can view the <StorybookLink to="primitives-box">`Box` docs here</StorybookLink>.
+
 ```tsx
 <Box
   padding="400"
@@ -46,6 +49,8 @@ elements within `Flex` and `Grid` containers.
 spacing using the design system's responsive layout tokens. It automatically applies
 appropriate margin and padding based on the current breakpoint, making it ideal for
 wrapping page content or major sections.
+
+You can view the <StorybookLink to="primitives-container">`Container` docs here</StorybookLink>.
 
 ```tsx
 <Container spacing="lg">
@@ -74,6 +79,8 @@ the convenience of the component:
 component is useful for defining layouts along an axis, and replaces the `HStack` and `VStack`
 component you may have used in other libraries.
 
+You can view the <StorybookLink to="primitives-flex">`Flex` docs here</StorybookLink>.
+
 ```tsx
 <Flex
   padding="400"
@@ -95,6 +102,8 @@ styling props, and to all the properties needed to build a grid layout.
 
 You can easily build responsive layouts using Design System defaults.
 
+You can view the <StorybookLink to="primitives-grid">`Grid` docs here</StorybookLink>.
+
 ```tsx
 <Grid columns={2} spacing="md">
   <Box>{...}</Box>
@@ -104,8 +113,8 @@ You can easily build responsive layouts using Design System defaults.
 ```
 
 <NextPrevPage
-  prevLink="/?path=/docs/hooks--docs"
+  prevLink="hooks"
   prevTitle="Hooks"
-  nextLink="/?path=/docs/all-components--docs"
+  nextLink="all-components"
   nextTitle="All Components"
 />
