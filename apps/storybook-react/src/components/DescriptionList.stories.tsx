@@ -6,6 +6,7 @@ import {
   Box,
   Link,
   Card,
+  Badge,
 } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof DescriptionList> = {
@@ -167,6 +168,18 @@ export const ContentWidth: Story = {
           />
         </DescriptionList>
       </Flex>
+    </Card>
+  ),
+};
+
+export const InsideCard: Story = {
+  render: args => (
+    <Card maxWidth="550px">
+      <DescriptionList {...args} trailingContent={<Badge size="sm">Badge</Badge>} width="100%">
+        <DescriptionListItem heading="Heading" description="Description" />
+        <DescriptionListItem heading="Heading" description="Description" />
+        <DescriptionListItem heading="Heading" description="Description" />
+      </DescriptionList>
     </Card>
   ),
 };

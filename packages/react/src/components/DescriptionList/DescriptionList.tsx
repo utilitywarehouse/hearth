@@ -10,6 +10,7 @@ import { SectionHeader } from '../SectionHeader/SectionHeader';
 import type { DescriptionListProps } from './DescriptionList.props';
 import { DescriptionListContext } from './DescriptionList.context';
 import { Flex } from '../Flex/Flex';
+import { Box } from '../Box/Box';
 
 const COMPONENT_NAME = 'DescriptionList';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -20,6 +21,7 @@ export const DescriptionList = forwardRef<DescriptionListElement, DescriptionLis
   (props, ref) => {
     const {
       className,
+      style,
       heading,
       headingElement,
       helperText,
@@ -28,8 +30,13 @@ export const DescriptionList = forwardRef<DescriptionListElement, DescriptionLis
       direction,
       validationText,
       validationStatus,
+      width,
+      maxWidth,
+      minWidth,
       ...listProps
     } = extractProps(props, marginPropDefs);
+
+    const containerProps = { style, width, maxWidth, minWidth };
 
     const sectionHeaderProps = {
       heading,
@@ -41,7 +48,7 @@ export const DescriptionList = forwardRef<DescriptionListElement, DescriptionLis
     };
 
     return (
-      <div className={cn(componentClassName, className)}>
+      <Box className={cn(componentClassName, className)} {...containerProps}>
         {heading ? <SectionHeader {...sectionHeaderProps} /> : null}
         <Flex asChild className={`${componentClassName}Container`} role="list">
           <dl ref={ref} role="list" {...listProps}>
@@ -50,7 +57,7 @@ export const DescriptionList = forwardRef<DescriptionListElement, DescriptionLis
             </DescriptionListContext.Provider>
           </dl>
         </Flex>
-      </div>
+      </Box>
     );
   }
 );
