@@ -8,6 +8,7 @@ import {
   ChevronRightMediumIcon,
   EditSmallIcon,
   ElectricityMediumIcon,
+  ExpandSmallIcon,
   InsuranceMediumIcon,
   MobileMediumIcon,
   ShareSmallIcon,
@@ -73,6 +74,7 @@ import {
   MenuTrigger,
   Modal,
   OL,
+  Pagination,
   Pill,
   PillGroup,
   ProgressBar,
@@ -90,6 +92,12 @@ import {
   Spinner,
   Switch,
   Tab,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
   TabPanel,
   Tabs,
   TabsList,
@@ -680,6 +688,19 @@ const AllComponents: React.FC = () => {
               </OL>
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper name="Pagination" link="/?path=/docs/components-pagination--docs">
+            <Center flex={1} p="200">
+              <Box style={{ width: 280 }}>
+                <Pagination
+                  currentPage={3}
+                  totalPages={10}
+                  onPageChange={() => {}}
+                  condensed
+                  hideSkipButtons
+                />
+              </Box>
+            </Center>
+          </ComponentWrapper>
           <ComponentWrapper name="Pill Group" link="/?path=/docs/components-pill-group--docs">
             <Center flex={1} p="200">
               <PillGroup
@@ -793,6 +814,36 @@ const AllComponents: React.FC = () => {
           <ComponentWrapper name="Switch" link="/?path=/docs/components-switch--docs">
             <Center flex={1}>
               <Switch value={switchEnabled} onValueChange={toggleSwitch} />
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Table" link="/?path=/docs/components-table--docs">
+            <Center flex={1} px="300">
+              <Box style={{ width: 360 }}>
+                <Table container="subtle">
+                  <TableHeader color="purple">
+                    <TableHeaderCell
+                      trailingContent={<Icon as={ExpandSmallIcon} color="#fcfbf2" />}
+                    >
+                      Name
+                    </TableHeaderCell>
+                    <TableHeaderCell
+                      trailingContent={<Icon as={ExpandSmallIcon} color="#fcfbf2" />}
+                    >
+                      Plan
+                    </TableHeaderCell>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <TableHeaderCell row>Alex Morgan</TableHeaderCell>
+                      <TableCell>Full Fibre 900</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableHeaderCell row>Priya Shah</TableHeaderCell>
+                      <TableCell>Energy Saver</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </Box>
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Tabs" link="/?path=/docs/components-tabs--docs">
