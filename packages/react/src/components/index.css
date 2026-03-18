@@ -1,11 +1,14 @@
 /* The order of these files will have an impact on the cascade so be cautious please */
 @import url('./Box/Box.css');
+@import url('./SkeletonBox/SkeletonBox.css');
 @import url('./Container/Container.css');
 @import url('./Flex/Flex.css');
 @import url('./Grid/Grid.css');
 @import url('./BodyText/BodyText.css');
+@import url('./SkeletonBodyText/SkeletonBodyText.css');
 @import url('./DetailText/DetailText.css');
 @import url('./Heading/Heading.css');
+@import url('./SkeletonHeading/SkeletonHeading.css');
 @import url('./Strong/Strong.css');
 @import url('./Em/Em.css');
 @import url('./Divider/Divider.css');

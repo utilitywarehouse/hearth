@@ -22,6 +22,8 @@ export { useComboboxFilter } from './hooks/use-combobox-filter';
  ********************/
 export { Box } from './components/Box/Box';
 export type { BoxProps } from './components/Box/Box.props';
+export { SkeletonBox } from './components/SkeletonBox/SkeletonBox';
+export type { SkeletonBoxProps } from './components/SkeletonBox/SkeletonBox.props';
 
 export { Container } from './components/Container/Container';
 export type { ContainerProps } from './components/Container/Container.props';
@@ -34,12 +36,16 @@ export type { GridProps } from './components/Grid/Grid.props';
 
 export { BodyText } from './components/BodyText/BodyText';
 export type { BodyTextProps } from './components/BodyText/BodyText.props';
+export { SkeletonBodyText } from './components/SkeletonBodyText/SkeletonBodyText';
+export type { SkeletonBodyTextProps } from './components/SkeletonBodyText/SkeletonBodyText.props';
 
 export { DetailText } from './components/DetailText/DetailText';
 export type { DetailTextProps } from './components/DetailText/DetailText.props';
 
 export { Heading } from './components/Heading/Heading';
 export type { HeadingProps } from './components/Heading/Heading.props';
+export { SkeletonHeading } from './components/SkeletonHeading/SkeletonHeading';
+export type { SkeletonHeadingProps } from './components/SkeletonHeading/SkeletonHeading.props';
 
 export { SectionHeader } from './components/SectionHeader/SectionHeader';
 export type { SectionHeaderProps } from './components/SectionHeader/SectionHeader.props';

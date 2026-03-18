@@ -1,0 +1,44 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+
+import * as Stories from './SkeletonBox.stories';
+
+<Meta title="Components / SkeletonBox" />
+
+# SkeletonBox
+
+Use `SkeletonBox` for non-text loading placeholders where the final layout is box-like, such as media, cards, tiles, and blocks.
+
+<Canvas of={Stories.CardPlaceholder} sourceState="none" />
+
+## Playground
+
+<Canvas of={Stories.Playground} sourceState="shown" />
+<Controls of={Stories.Playground} />
+
+## Usage
+
+`SkeletonBox` is based on `Box`, so it can take the same layout-oriented props for size, spacing, border radius, and positioning.
+
+```tsx
+<SkeletonBox width="160px" height="96px" borderRadius="sm" />
+```
+
+Use `SkeletonBox` when you need explicit control over shape and dimensions.
+
+<Canvas of={Stories.Blocks} />
+
+## API
+
+This component is based on `Box` and supports the same common props, including:
+
+- Padding
+- Margin
+- Position
+- Size
+- Border radius
+- Opacity
+
+| Prop      | Type              |
+| --------- | ----------------- |
+| `as`      | `"div" \| "span"` |
+| `asChild` | `boolean`         |

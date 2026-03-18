@@ -1,0 +1,8 @@
+.h-SkeletonHeading {
+  display: block;
+  width: 100%;
+  color: transparent;
+  border-radius: var(--h-border-radius-xs);
+  background-color: var(--h-skeleton-loading-color);
+  animation: h-skeleton-loading-opacity 1.2s ease-in-out infinite alternate;
+}
