@@ -262,6 +262,7 @@ const VerificationInput = forwardRef<VerificationInputHandle, VerificationInputP
                   inputRef.current?.focus();
                   setSelectionIndex(index);
                 }}
+                testID={testID ? `${testID}-${index}` : undefined}
               />
             );
           })}
