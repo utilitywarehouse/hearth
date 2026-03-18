@@ -1,11 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Flex, SkeletonBox } from '@utilitywarehouse/hearth-react';
+import { Flex, Skeleton, SkeletonBox } from '@utilitywarehouse/hearth-react';
 
 const meta: Meta<typeof SkeletonBox> = {
   title: 'Stories / SkeletonBox',
   component: SkeletonBox,
+  decorators: [
+    Story => (
+      <Flex width="100%" padding="500" backgroundColor="secondary" justifyContent="center">
+        <Skeleton>
+          <Story />
+        </Skeleton>
+      </Flex>
+    ),
+  ],
   argTypes: {
-    as: { options: ['div', 'span'], control: { type: 'radio' } },
     width: { control: { type: 'text' } },
     height: { control: { type: 'text' } },
     borderRadius: {
@@ -27,12 +35,16 @@ export const Playground: Story = {};
 
 export const Blocks: Story = {
   render: args => (
-    <Flex direction="column" gap="200">
+    <Flex direction="column" gap="200" width="420px">
       <SkeletonBox {...args} width="100%" height="24px" />
       <SkeletonBox {...args} width="100%" height="24px" />
       <SkeletonBox {...args} width="80%" height="24px" />
     </Flex>
   ),
+};
+
+export const Circle: Story = {
+  args: { borderRadius: 'full', width: '96px', height: '96px' },
 };
 
 export const CardPlaceholder: Story = {

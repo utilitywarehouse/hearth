@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Box, Flex, SkeletonHeading } from '@utilitywarehouse/hearth-react';
+import { Box, Flex, Skeleton, SkeletonHeading } from '@utilitywarehouse/hearth-react';
 
 const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
 
@@ -9,7 +9,9 @@ const meta: Meta<typeof SkeletonHeading> = {
   decorators: [
     Story => (
       <Flex width="100%" padding="500" backgroundColor="secondary" justifyContent="center">
-        <Story />
+        <Skeleton>
+          <Story />
+        </Skeleton>
       </Flex>
     ),
   ],

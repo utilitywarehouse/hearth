@@ -14,7 +14,7 @@ type SkeletonBoxElement = ComponentRef<'div'>;
 
 export const SkeletonBox = forwardRef<SkeletonBoxElement, SkeletonBoxProps>(
   ({ className, ...props }, ref) => {
-    return <Box ref={ref} aria-hidden className={cn(componentClassName, className)} {...props} />;
+    return <Box ref={ref} as="div" className={cn(componentClassName, className)} {...props} />;
   }
 );
 

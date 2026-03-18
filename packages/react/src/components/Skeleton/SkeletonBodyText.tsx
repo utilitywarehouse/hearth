@@ -23,17 +23,12 @@ export const SkeletonBodyText = forwardRef<SkeletonBodyTextElement, SkeletonBody
 
     if (lines === '1') {
       return (
-        <div
-          ref={ref}
-          className={cn(componentClassName, className)}
-          {...skeletonBodyTextProps}
-          aria-hidden
-        />
+        <div ref={ref} className={cn(componentClassName, className)} {...skeletonBodyTextProps} />
       );
     }
 
     return (
-      <Flex ref={ref} aria-hidden direction="column" gap="75">
+      <Flex ref={ref} direction="column" gap="75">
         {Array.from({ length: Number(lines) }, (_, index) => (
           <div
             key={index}

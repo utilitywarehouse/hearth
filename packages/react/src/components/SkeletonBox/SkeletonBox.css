@@ -1,4 +1,0 @@
-.h-SkeletonBox {
-  background-color: var(--h-skeleton-loading-color);
-  animation: h-skeleton-loading-opacity 1.2s ease-in-out infinite alternate;
-}

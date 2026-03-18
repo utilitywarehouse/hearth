@@ -66,6 +66,4 @@
 @import url('./DatePicker/Calendar.css');
 @import url('./Toast/Toast.css');
 @import url('./Combobox/Combobox.css');
-@import url('./SkeletonBox/SkeletonBox.css');
-@import url('./SkeletonBodyText/SkeletonBodyText.css');
-@import url('./SkeletonHeading/SkeletonHeading.css');
+@import url('./Skeleton/Skeleton.css');
