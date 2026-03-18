@@ -1,16 +1,22 @@
 .h-SkeletonBodyText {
   display: block;
-}
-
-.h-SkeletonBodyTextLine {
-  display: block;
   width: 100%;
   color: transparent;
   border-radius: var(--h-border-radius-xs);
   background-color: var(--h-skeleton-loading-color);
   animation: h-skeleton-loading-opacity 1.2s ease-in-out infinite alternate;
 
-  &:where(:not(:first-child)) {
-    margin-top: 0.5em;
+  @breakpoints {
+    &:where(.h-r-size-sm) {
+      height: var(--h-body-text-sm-line-height);
+    }
+
+    &:where(.h-r-size-md) {
+      height: var(--h-body-text-md-line-height);
+    }
+
+    &:where(.h-r-size-lg) {
+      height: var(--h-body-text-lg-line-height);
+    }
   }
 }

@@ -2,29 +2,46 @@
 
 import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
-import { BodyText } from '../BodyText/BodyText';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import type { SkeletonBodyTextProps } from './SkeletonBodyText.props';
+import { skeletonBodyTextPropDefs, type SkeletonBodyTextProps } from './SkeletonBodyText.props';
+import { extractProps } from '../../helpers/extract-props';
+import { Flex } from '../Flex/Flex';
 
 const COMPONENT_NAME = 'SkeletonBodyText';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
-const lineClassName = withGlobalPrefix('SkeletonBodyTextLine');
 
 type SkeletonBodyTextElement = ComponentRef<'div'>;
 
 export const SkeletonBodyText = forwardRef<SkeletonBodyTextElement, SkeletonBodyTextProps>(
-  ({ lines = 1, className, ...props }, ref) => {
-    const lineCount = Math.max(1, Math.floor(lines));
+  (props, ref) => {
+    const {
+      lines = '1',
+      className,
+      ...skeletonBodyTextProps
+    } = extractProps(props, skeletonBodyTextPropDefs);
+
+    if (lines === '1') {
+      return (
+        <div
+          ref={ref}
+          className={cn(componentClassName, className)}
+          {...skeletonBodyTextProps}
+          aria-hidden
+        />
+      );
+    }
 
     return (
-      <div ref={ref} className={componentClassName} aria-hidden>
-        {Array.from({ length: lineCount }, (_, index) => (
-          <BodyText key={index} as="span" className={cn(lineClassName, className)} {...props}>
-            {'\u00A0'}
-          </BodyText>
+      <Flex ref={ref} aria-hidden direction="column" gap="75">
+        {Array.from({ length: Number(lines) }, (_, index) => (
+          <div
+            key={index}
+            className={cn(componentClassName, className)}
+            {...skeletonBodyTextProps}
+          />
         ))}
-      </div>
+      </Flex>
     );
   }
 );

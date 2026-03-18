@@ -2,13 +2,3 @@
   background-color: var(--h-skeleton-loading-color);
   animation: h-skeleton-loading-opacity 1.2s ease-in-out infinite alternate;
 }
-
-@keyframes h-skeleton-loading-opacity {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0.4;
-  }
-}
