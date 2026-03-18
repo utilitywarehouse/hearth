@@ -110,10 +110,10 @@ const Select = ({
         disabled={item.disabled}
         leadingIcon={item.leadingIcon}
         trailingIcon={item.trailingIcon}
-        testID={testID ? `${testID}-option-${item.label}` : undefined} // ← restored
+        testID={testID ? `${testID}-option-${item.label}` : undefined}
       />
     ),
-    [testID] // ← added testID dependency
+    [testID]
   );
 
   const renderEmptyComponent = useCallback(
