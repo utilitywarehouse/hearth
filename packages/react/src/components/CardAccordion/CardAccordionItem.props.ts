@@ -4,8 +4,9 @@ import { ButtonProps } from '../Button/Button.props';
 
 export interface CardAccordionItemProps extends Omit<
   ComponentPropsWithRef<typeof CardAccordionPrimitive.Item>,
-  'asChild'
+  'asChild' | 'value'
 > {
+  value: CardAccordionPrimitive.AccordionSingleProps['value'];
   title: string;
   description?: string;
   summaryTitle?: string;

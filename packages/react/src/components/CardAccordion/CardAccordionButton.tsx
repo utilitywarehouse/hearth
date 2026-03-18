@@ -18,9 +18,6 @@ export const CardAccordionButton = forwardRef<CardAccordionButtonElement, CardAc
   ({ className, children, action, onClick, ...props }, ref) => {
     const { steps, setPreviousSteps, setCurrentStep, previousSteps } = useCardAccordion();
     const context = useCardAccordionItem();
-    if (!context) {
-      throw new Error('CardAccordionButton must be used within a CardAccordionItem.');
-    }
 
     if (action === 'next') {
       return (
@@ -31,6 +28,7 @@ export const CardAccordionButton = forwardRef<CardAccordionButtonElement, CardAc
           {...props}
           variant="solid"
           colorScheme="highlight"
+          data-action="next"
           onClick={e => {
             if (onClick) {
               onClick(e);
@@ -58,6 +56,7 @@ export const CardAccordionButton = forwardRef<CardAccordionButtonElement, CardAc
         {...props}
         variant="outline"
         colorScheme="functional"
+        data-action="previous"
         onClick={e => {
           if (onClick) {
             onClick(e);

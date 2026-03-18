@@ -34,7 +34,6 @@ export const Playground: Story = {
               </Flex>
             }
           >
-            <Box>Content</Box>
             <CardAccordionFooter>
               <CardAccordionButton action="next" />
             </CardAccordionFooter>
@@ -50,8 +49,8 @@ export const Playground: Story = {
           >
             <Box>Content</Box>
             <CardAccordionFooter>
-              <CardAccordionButton action="previous" />
               <CardAccordionButton action="next" />
+              <CardAccordionButton action="previous" />
             </CardAccordionFooter>
           </CardAccordionItem>
           <CardAccordionItem

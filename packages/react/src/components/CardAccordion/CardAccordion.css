@@ -34,5 +34,17 @@
       outline: 2px solid var(--h-focus-primary);
       outline-offset: 1px;
     }
+
+    & :where(.h-CardAccordionFooter) {
+      order: 1;
+
+      & :where(button[data-action='previous']) {
+        order: -1;
+      }
+
+      & :where(button[data-action='next']) {
+        order: 1;
+      }
+    }
   }
 }

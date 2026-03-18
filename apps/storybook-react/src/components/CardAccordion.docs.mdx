@@ -47,7 +47,7 @@ components, and consist of 3 possible states: `previous`, `current`, and
   but they are inactive and cannot be interacted with until earlier steps are
   completed.
 
-Each `CardAccordion` component requires a `value` to be able to automatically
+Each `CardAccordionItem` component requires a `value` to be able to automatically
 determine the state of each item, as a user progresses through all the steps.
 
 ```tsx
@@ -55,20 +55,20 @@ determine the state of each item, as a user progresses through all the steps.
   <CardAccordionItem value="step-1" title="Step 1: Personal details">
     ...
     <CardAccordionFooter>
-      </CardAccordionButton action="next" />
+      <CardAccordionButton action="next" />
     </CardAccordionFooter>
   </CardAccordionItem>
   <CardAccordionItem value="step-2" title="Step 2: Address details">
     ...
     <CardAccordionFooter>
-      </CardAccordionButton action="previous" />
-      </CardAccordionButton action="next" />
+      <CardAccordionButton action="previous" />
+      <CardAccordionButton action="next" />
     </CardAccordionFooter>
   </CardAccordionItem>
   <CardAccordionItem value="step-3" title="Step 3: Payment details">
     ...
     <CardAccordionFooter>
-      </CardAccordionButton action="previous" />
+      <CardAccordionButton action="previous" />
     </CardAccordionFooter>
   </CardAccordionItem>
 </CardAccordion>
