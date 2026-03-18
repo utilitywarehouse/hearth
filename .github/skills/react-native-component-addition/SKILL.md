@@ -40,6 +40,8 @@ Add additional files as needed (subcomponents, helpers, platform-specific varian
 6. **Docs**: Add <Component>.docs.mdx following the React Native component docs skill template.
 7. **Figma**: Add <Component>.figma.tsx with figma.connect and match props to design controls.
 8. **All Components**: Add the component to packages/react-native/docs/components/AllComponents.web.tsx with a minimal demo.
+9. **Tests**: Add any tests for components that have complex logic, split out into a Component.utils.ts file and test against that if necessary.
+Add storybook story tests for interaction behviour tests where necessary too.
 
 ## Checklist
 - Component folder with props, implementation, stories, docs, figma, and index exports
@@ -50,6 +52,6 @@ Add additional files as needed (subcomponents, helpers, platform-specific varian
 - All Components list updated
 
 ## Notes
-- Prefer StyleSheet variants for size, colorScheme, and state styling.
+- Prefer Unsityles StyleSheet variants for size, colorScheme, and state styling e.g `styles.useVariants({...variants})`.
 - Keep docs concise; use real props and default values.
 - If the component mirrors the React package, reuse prop names and behavior.

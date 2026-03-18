@@ -93,7 +93,8 @@ const MyComponent = () => (
 
 Add sections when they add value. Keep headings in title case.
 
-- `Examples` for multiple usage examples or variations, usually within the stories file but can be added directly in the docs if simpler
+- `Examples` for multiple usage examples or variations, usually within the stories file but can be added directly in the docs if simpler. 
+Make sure to include code blocks for each example. This is likely needed for most components.
 - `Color Schemes` or `Variants` for visual configuration
 - `Advanced Usage` when composing subcomponents (e.g. `BadgeIcon`, `BadgeText`), typically to show escaped API for advanced use cases
 - `Accessibility` when there are important considerations or features related to accessibility
@@ -115,3 +116,4 @@ Add sections when they add value. Keep headings in title case.
 - `Usage` section has both a live example and a code block
 - `Props` table covers all public props and defaults
 - Optional sections are only added when helpful
+- Order of sections should be in the standard pattern (Playground, Usage, Props, then optional sections)
