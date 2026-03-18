@@ -2,4 +2,4 @@
 '@utilitywarehouse/hearth-react-native': patch
 ---
 
-🐛 [FIX]: test id changes for react native
+🐛 [FIX]: Adds missing `testID` to `Select`, `SelectOption` and `VerificationInput` component
