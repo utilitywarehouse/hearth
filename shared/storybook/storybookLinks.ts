@@ -1,19 +1,3 @@
-type StorybookChannel = {
-  emit: (eventName: string, ...args: Array<unknown>) => void;
-};
-
-type StorybookWindow = Window & {
-  __STORYBOOK_ADDONS_CHANNEL__?: StorybookChannel;
-};
-
-type StorybookPreview = {
-  storyIdToEntry?: (storyId: string) => unknown;
-};
-
-type StorybookPreviewWindow = Window & {
-  __STORYBOOK_PREVIEW__?: StorybookPreview;
-};
-
 type NavigateOptions = {
   defaultToDocs?: boolean;
 };
@@ -51,22 +35,6 @@ const getRefIdFromStoryId = (storyId: string) => {
   }
 
   return getKnownRefIds().find(refId => storyId.startsWith(`${refId}_`)) ?? null;
-};
-
-// Ref previews render local story ids without the manager prefix, so we strip the
-// current ref id before emitting preview-side navigation events.
-const stripRefPrefix = (storyId: string, refId: string | null) => {
-  if (!storyId || !refId) {
-    return storyId;
-  }
-
-  const prefix = `${refId}_`;
-
-  if (!storyId.startsWith(prefix)) {
-    return storyId;
-  }
-
-  return storyId.slice(prefix.length);
 };
 
 const getCurrentRefId = () => {
@@ -168,27 +136,6 @@ const updateManagerUrl = (storyId: string, mode: 'docs' | 'story') => {
   }
 };
 
-const getPreview = () => {
-  if (typeof window === 'undefined') {
-    return null;
-  }
-  const currentWindow = window as StorybookPreviewWindow;
-  const topWindow = (window.top ?? window) as StorybookPreviewWindow;
-  return currentWindow.__STORYBOOK_PREVIEW__ ?? topWindow.__STORYBOOK_PREVIEW__ ?? null;
-};
-
-const canResolveStoryId = (storyId: string) => {
-  const preview = getPreview();
-  if (!preview || typeof preview.storyIdToEntry !== 'function') {
-    return true;
-  }
-  try {
-    return Boolean(preview.storyIdToEntry(storyId));
-  } catch {
-    return false;
-  }
-};
-
 export const getStoryHref = (target: string, options?: NavigateOptions) => {
   if (!target) {
     return '';
@@ -204,43 +151,11 @@ export const navigateToStory = (target: string, options?: NavigateOptions) => {
     return;
   }
   const rawStoryId = ensureDocsSuffix(extractStoryId(target), options?.defaultToDocs ?? false);
-  const currentRefId = getCurrentRefId();
-  const targetRefId = getRefIdFromStoryId(rawStoryId);
-  const previewStoryId = stripRefPrefix(rawStoryId, currentRefId);
   const storyId = getManagerStoryId(rawStoryId);
   const mode = getTargetMode(target, options?.defaultToDocs ?? false);
 
-  const channel = (() => {
-    if (typeof window === 'undefined') {
-      return null;
-    }
-    const currentWindow = window as StorybookWindow;
-    const topWindow = (window.top ?? window) as StorybookWindow;
-    return (
-      currentWindow.__STORYBOOK_ADDONS_CHANNEL__ ?? topWindow.__STORYBOOK_ADDONS_CHANNEL__ ?? null
-    );
-  })();
-
-  // Only drive navigation through the preview channel when the target resolves in the
-  // current preview. Cross-ref targets should update the manager URL and let Storybook
-  // swap to the correct composed iframe instead of sending an invalid local story id.
-  if (
-    channel &&
-    (!targetRefId || targetRefId === currentRefId) &&
-    canResolveStoryId(previewStoryId)
-  ) {
-    channel.emit('setCurrentStory', { storyId: previewStoryId });
-    updateManagerUrl(storyId, mode);
-    return;
-  }
-
-  if (channel) {
-    updateManagerUrl(storyId, mode);
-    return;
-  }
-
-  const fallbackUrl = buildFallbackUrl(storyId, target, mode);
-  if (fallbackUrl) {
-    (window.top ?? window).location.href = fallbackUrl;
-  }
+  // Always route through manager history updates so every Storybook link follows the
+  // same pushState-only path, regardless of whether it lives in the root preview or
+  // inside a composed ref iframe.
+  updateManagerUrl(storyId, mode);
 };

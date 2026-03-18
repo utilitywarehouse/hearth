@@ -7,7 +7,7 @@ import theme from '../../../shared/storybook/theme';
 const ROOT_PREVIEW_IFRAME_ID = 'storybook-preview-iframe';
 const ROOT_PREVIEW_FALLBACK_SRC = '/iframe.html?id=*&viewMode=story';
 
-const getInitialDeepLinkedRefId = (): string | null => {
+const getTargetRefId = (): string | null => {
   const path = new URLSearchParams(window.location.search).get('path');
 
   if (!path) {
@@ -30,8 +30,27 @@ const getInitialDeepLinkedRefId = (): string | null => {
   );
 };
 
+const rootPreviewPointsAtRefStory = (previewSrc: string, refId: string) => {
+  if (previewSrc.startsWith(`/${refId}/iframe.html`)) {
+    return true;
+  }
+
+  if (!previewSrc.startsWith('/iframe.html')) {
+    return false;
+  }
+
+  try {
+    const previewUrl = new URL(previewSrc, window.location.origin);
+    const storyId = previewUrl.searchParams.get('id');
+
+    return Boolean(storyId?.startsWith(`${refId}_`));
+  } catch {
+    return false;
+  }
+};
+
 const normalizeRootPreviewIframe = () => {
-  const refId = getInitialDeepLinkedRefId();
+  const refId = getTargetRefId();
 
   if (!refId) {
     return false;
@@ -45,7 +64,7 @@ const normalizeRootPreviewIframe = () => {
 
   const previewSrc = previewIframe.getAttribute('src');
 
-  if (!previewSrc || !previewSrc.startsWith(`/${refId}/iframe.html`)) {
+  if (!previewSrc || !rootPreviewPointsAtRefStory(previewSrc, refId)) {
     return false;
   }
 
@@ -56,19 +75,13 @@ const normalizeRootPreviewIframe = () => {
   return true;
 };
 
-const bootstrapComposedDeepLinkIframeFix = () => {
-  if (!getInitialDeepLinkedRefId()) {
-    return;
-  }
-
-  if (normalizeRootPreviewIframe()) {
-    return;
-  }
+const bootstrapComposedPreviewIframeFix = () => {
+  const tryNormalize = () => {
+    normalizeRootPreviewIframe();
+  };
 
   const observer = new MutationObserver(() => {
-    if (normalizeRootPreviewIframe()) {
-      observer.disconnect();
-    }
+    tryNormalize();
   });
 
   observer.observe(document.documentElement, {
@@ -78,14 +91,25 @@ const bootstrapComposedDeepLinkIframeFix = () => {
     attributeFilter: ['src'],
   });
 
-  window.addEventListener('load', () => {
-    if (normalizeRootPreviewIframe()) {
-      observer.disconnect();
-    }
-  });
+  window.addEventListener('load', tryNormalize);
+  window.addEventListener('popstate', tryNormalize);
+
+  const originalPushState = window.history.pushState.bind(window.history);
+  window.history.pushState = (...args) => {
+    originalPushState(...args);
+    tryNormalize();
+  };
+
+  const originalReplaceState = window.history.replaceState.bind(window.history);
+  window.history.replaceState = (...args) => {
+    originalReplaceState(...args);
+    tryNormalize();
+  };
+
+  tryNormalize();
 };
 
-bootstrapComposedDeepLinkIframeFix();
+bootstrapComposedPreviewIframeFix();
 
 addons.setConfig({
   theme,
