@@ -1,8 +1,7 @@
-import { ComponentPropsWithRef } from 'react';
-import { MarginProps } from '../../props/margin.props';
-import { PropDef } from '../../props/prop-def';
-import type { BodyTextProps } from '../BodyText/BodyText.props';
-import { Responsive } from '../../types/responsive';
+import type { ComponentPropsWithRef } from 'react';
+import type { MarginProps } from '../../props/margin.props';
+import type { PropDef } from '../../props/prop-def';
+import type { Responsive } from '../../types/responsive';
 
 const sizes = ['sm', 'md', 'lg'] as const;
 
@@ -13,7 +12,7 @@ export const skeletonBodyTextPropDefs = {
 };
 
 export interface SkeletonBodyTextProps
-  extends Omit<ComponentPropsWithRef<'div'>, 'children'>, Pick<BodyTextProps, 'size'>, MarginProps {
+  extends Omit<ComponentPropsWithRef<'div'>, 'children'>, MarginProps {
   /**
    * Set the size to match BodyText size.
    * @default md

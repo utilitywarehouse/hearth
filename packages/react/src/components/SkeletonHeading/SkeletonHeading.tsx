@@ -2,10 +2,10 @@
 
 import { forwardRef } from 'react';
 import type { ComponentRef } from 'react';
-import { Heading } from '../Heading/Heading';
 import { cn } from '../../helpers/cn';
 import { withGlobalPrefix } from '../../helpers/with-global-prefix';
-import type { SkeletonHeadingProps } from './SkeletonHeading.props';
+import { skeletonHeadingPropDefs, type SkeletonHeadingProps } from './SkeletonHeading.props';
+import { extractProps } from '../../helpers/extract-props';
 
 const COMPONENT_NAME = 'SkeletonHeading';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -13,11 +13,15 @@ const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 type SkeletonHeadingElement = ComponentRef<'h2'>;
 
 export const SkeletonHeading = forwardRef<SkeletonHeadingElement, SkeletonHeadingProps>(
-  ({ className, ...props }, ref) => {
+  (props, ref) => {
+    const { className, ...skeletonHeadingProps } = extractProps(props, skeletonHeadingPropDefs);
     return (
-      <Heading ref={ref} aria-hidden className={cn(componentClassName, className)} {...props}>
-        {'\u00A0'}
-      </Heading>
+      <div
+        ref={ref}
+        aria-hidden
+        className={cn(componentClassName, className)}
+        {...skeletonHeadingProps}
+      />
     );
   }
 );

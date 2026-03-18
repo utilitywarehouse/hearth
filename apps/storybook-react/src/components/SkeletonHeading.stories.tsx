@@ -6,8 +6,14 @@ const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
 const meta: Meta<typeof SkeletonHeading> = {
   title: 'Stories / SkeletonHeading',
   component: SkeletonHeading,
+  decorators: [
+    Story => (
+      <Flex width="100%" padding="500" backgroundColor="secondary" justifyContent="center">
+        <Story />
+      </Flex>
+    ),
+  ],
   argTypes: {
-    as: { options: ['h1', 'h2', 'h3', 'h4'], control: { type: 'radio' } },
     size: { options: sizes, control: { type: 'radio' } },
   },
   args: {
@@ -42,12 +48,8 @@ export const ContentBlock: Story = {
       <SkeletonHeading {...args} size="lg" />
       <Box width="100%">
         <Flex direction="column" gap="150">
-          <Box>
-            <SkeletonHeading {...args} as="h4" size="sm" />
-          </Box>
-          <Box>
-            <SkeletonHeading {...args} as="h4" size="sm" />
-          </Box>
+          <SkeletonHeading {...args} size="sm" />
+          <SkeletonHeading {...args} size="sm" />
         </Flex>
       </Box>
     </Flex>
