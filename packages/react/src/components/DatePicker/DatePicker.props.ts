@@ -16,6 +16,7 @@ export type DatePickerProps = Omit<
       date: Date | null,
       event?: MouseEvent<HTMLElement> | KeyboardEvent<HTMLElement>
     ) => void;
+    disableTodayIndicator?: boolean;
   };
 
 export type View = 'days' | 'months' | 'years';

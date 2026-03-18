@@ -61,7 +61,7 @@
   }
 
   & :where(svg) {
-    transition: transform 300ms;
+    transition: transform 200ms;
   }
 
   & :where(.h-AccordionTrigger[data-state='open'] > svg) {
@@ -73,11 +73,11 @@
   }
 
   & :where(.h-AccordionContent[data-state='open']) {
-    animation: h-slide-down 300ms ease-out;
+    animation: h-slide-down 200ms ease-out;
   }
 
   & :where(.h-AccordionContent[data-state='closed']) {
-    animation: h-slide-up 300ms ease-out;
+    animation: h-slide-up 200ms ease-out;
   }
 
   & :where(.h-AccordionContentText) {
@@ -87,24 +87,26 @@
   }
 }
 
-@keyframes h-slide-down {
-  from {
-    height: 0;
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes h-slide-down {
+    from {
+      height: 0;
+    }
+
+    to {
+      /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
+      height: var(--radix-accordion-content-height);
+    }
   }
 
-  to {
-    /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
-    height: var(--radix-accordion-content-height);
-  }
-}
+  @keyframes h-slide-up {
+    from {
+      /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
+      height: var(--radix-accordion-content-height);
+    }
 
-@keyframes h-slide-up {
-  from {
-    /* stylelint-disable-next-line custom-property-pattern, csstools/value-no-unknown-custom-properties -- Radix UI specific custom property */
-    height: var(--radix-accordion-content-height);
-  }
-
-  to {
-    height: 0;
+    to {
+      height: 0;
+    }
   }
 }

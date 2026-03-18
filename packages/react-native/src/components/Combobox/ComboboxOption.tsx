@@ -1,0 +1,100 @@
+import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
+import { Pressable, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
+import { BodyText } from '../BodyText';
+import { Icon } from '../Icon';
+import { useComboboxContext } from './Combobox.context';
+import { ComboboxOptionProps } from './Combobox.props';
+
+const ComboboxOption = ({
+  label,
+  value,
+  leadingIcon: LeftIcon,
+  trailingIcon: RightIcon,
+  selected,
+  disabled,
+  onPress,
+}: ComboboxOptionProps) => {
+  const { selectedValue, selectOption } = useComboboxContext();
+  const isSelected = selected !== undefined ? selected : selectedValue === value;
+
+  styles.useVariants({ disabled });
+
+  const handlePress = () => {
+    if (disabled) {
+      return;
+    }
+
+    if (onPress) {
+      onPress(value);
+      return;
+    }
+
+    selectOption({ label, value });
+  };
+
+  return (
+    <Pressable
+      onPress={handlePress}
+      disabled={disabled}
+      style={({ pressed }) => [styles.container, pressed && styles.pressed]}
+    >
+      {!!LeftIcon && (
+        <View>
+          <Icon as={LeftIcon} style={styles.icon} />
+        </View>
+      )}
+
+      <View style={styles.labelContainer}>
+        <BodyText>{label}</BodyText>
+      </View>
+
+      {isSelected && (
+        <View>
+          <Icon as={TickSmallIcon} style={styles.icon} />
+        </View>
+      )}
+      {!!RightIcon && !isSelected && (
+        <View>
+          <Icon as={RightIcon} style={styles.icon} />
+        </View>
+      )}
+    </Pressable>
+  );
+};
+
+const styles = StyleSheet.create(theme => ({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: theme.components.select.dropdown.item.gap,
+    borderRadius: theme.components.select.dropdown.item.borderRadius,
+    paddingVertical: theme.components.select.dropdown.item.padding,
+    paddingHorizontal: theme.components.select.dropdown.padding,
+    variants: {
+      disabled: {
+        true: {
+          opacity: theme.opacity.disabled,
+        },
+      },
+    },
+    _web: {
+      _hover: {
+        backgroundColor: theme.color.interactive.functional.surface.subtle.hover,
+      },
+    },
+  },
+  icon: {
+    color: theme.color.interactive.functional.foreground.subtle,
+  },
+  pressed: {
+    backgroundColor: theme.color.interactive.functional.surface.subtle.active,
+  },
+  labelContainer: {
+    flex: 1,
+  },
+}));
+
+ComboboxOption.displayName = 'ComboboxOption';
+
+export default ComboboxOption;

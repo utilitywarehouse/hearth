@@ -15,22 +15,21 @@ import type { View } from './DatePicker.props';
 const COMPONENT_NAME = 'DatePickerHeader';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
 
-export const DatePickerHeader = (props: DatePickerHeaderProps) => {
-  const {
-    date,
-    decreaseYear,
-    increaseYear,
-    decreaseMonth,
-    increaseMonth,
-    prevMonthButtonDisabled,
-    nextMonthButtonDisabled,
-    prevYearButtonDisabled,
-    nextYearButtonDisabled,
-    view,
-    onClick,
-    visibleYearsRange,
-  } = props;
-
+export const DatePickerHeader = ({
+  date,
+  decreaseYear,
+  increaseYear,
+  decreaseMonth,
+  increaseMonth,
+  prevMonthButtonDisabled,
+  nextMonthButtonDisabled,
+  prevYearButtonDisabled,
+  nextYearButtonDisabled,
+  view,
+  onClick,
+  visibleYearsRange,
+  disableTodayIndicator,
+}: DatePickerHeaderProps) => {
   const MONTHS = [
     'January',
     'February',
@@ -68,7 +67,11 @@ export const DatePickerHeader = (props: DatePickerHeaderProps) => {
   const nextLabel = `next ${view === 'days' ? 'month' : 'year'}`;
 
   return (
-    <div className={componentClassName} data-monthyear-state={view === 'days' ? 'closed' : 'open'}>
+    <div
+      className={componentClassName}
+      data-monthyear-state={view === 'days' ? 'closed' : 'open'}
+      data-disable-today-indicator={disableTodayIndicator ? '' : undefined}
+    >
       <BodyText asChild size="md" weight="semibold">
         <button className={`${componentClassName}MonthButton`} onClick={onClick}>
           {buttonText[view]}

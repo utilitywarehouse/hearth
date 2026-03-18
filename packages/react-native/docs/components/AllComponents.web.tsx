@@ -8,6 +8,7 @@ import {
   ChevronRightMediumIcon,
   EditSmallIcon,
   ElectricityMediumIcon,
+  ExpandSmallIcon,
   InsuranceMediumIcon,
   MobileMediumIcon,
   ShareSmallIcon,
@@ -39,6 +40,7 @@ import {
   CarouselItem,
   Center,
   Checkbox,
+  Combobox,
   Container,
   CurrencyInput,
   DateInput,
@@ -72,6 +74,7 @@ import {
   MenuTrigger,
   Modal,
   OL,
+  Pagination,
   Pill,
   PillGroup,
   ProgressBar,
@@ -89,11 +92,19 @@ import {
   Spinner,
   Switch,
   Tab,
+  Table,
+  TableBody,
+  TableCell,
+  TableHeader,
+  TableHeaderCell,
+  TableRow,
   TabPanel,
   Tabs,
   TabsList,
   Textarea,
   ThemedImage,
+  Timeline,
+  TimelineItem,
   TimePicker,
   TimePickerInput,
   ToastItem,
@@ -139,6 +150,7 @@ const ComponentWrapper = ({
 };
 
 const AllComponents: React.FC = () => {
+  const [comboboxValue, setComboboxValue] = React.useState<string | null>('uk');
   const [selectValue, setSelectValue] = React.useState('1');
   const [toggleButtonValue, setToggleButtonValue] = React.useState('');
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -349,6 +361,24 @@ const AllComponents: React.FC = () => {
               </View>
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper name="Combobox" link="/?path=/docs/forms-combobox--docs">
+            <Center flex={1}>
+              <BottomSheetModalProvider>
+                <Combobox
+                  label="Search a country"
+                  placeholder="Search for a country"
+                  searchPlaceholder="Search for a country"
+                  options={[
+                    { label: 'United Kingdom', value: 'uk' },
+                    { label: 'United States', value: 'us' },
+                    { label: 'Canada', value: 'ca' },
+                  ]}
+                  value={comboboxValue}
+                  onValueChange={setComboboxValue}
+                />
+              </BottomSheetModalProvider>
+            </Center>
+          </ComponentWrapper>
           <ComponentWrapper name="Container" link="/?path=/docs/primitives-container--docs">
             <Container spacing="md" backgroundColor="secondary">
               <Box h={20} bg={color.blue[300]} />
@@ -387,29 +417,6 @@ const AllComponents: React.FC = () => {
             <Center flex={1} padding="200">
               <BottomSheetModalProvider>
                 <DatePickerInput placeholder="DD/MM/YYYY" />
-              </BottomSheetModalProvider>
-            </Center>
-          </ComponentWrapper>
-          <ComponentWrapper name="Time Picker" link="/?path=/docs/components-time-picker--docs">
-            <Center flex={1}>
-              <Button onPress={handleTimePickerOpenPress}>Open Time Picker</Button>
-              <BottomSheetModalProvider>
-                <TimePicker
-                  ref={timePickerRef}
-                  date={selectedTime}
-                  onChange={({ date }) => setSelectedTime(date)}
-                  onCancel={() => setSelectedTime(undefined)}
-                />
-              </BottomSheetModalProvider>
-            </Center>
-          </ComponentWrapper>
-          <ComponentWrapper
-            name="Time Picker Input"
-            link="/?path=/docs/forms-time-picker-input--docs"
-          >
-            <Center flex={1} padding="200">
-              <BottomSheetModalProvider>
-                <TimePickerInput placeholder="HH:mm" />
               </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
@@ -681,6 +688,19 @@ const AllComponents: React.FC = () => {
               </OL>
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper name="Pagination" link="/?path=/docs/components-pagination--docs">
+            <Center flex={1} p="200">
+              <Box style={{ width: 280 }}>
+                <Pagination
+                  currentPage={3}
+                  totalPages={10}
+                  onPageChange={() => {}}
+                  condensed
+                  hideSkipButtons
+                />
+              </Box>
+            </Center>
+          </ComponentWrapper>
           <ComponentWrapper name="Pill Group" link="/?path=/docs/components-pill-group--docs">
             <Center flex={1} p="200">
               <PillGroup
@@ -733,6 +753,7 @@ const AllComponents: React.FC = () => {
               </RadioCardGroup>
             </Center>
           </ComponentWrapper>
+
           <ComponentWrapper
             name="Section Header"
             link="/?path=/docs/components-section-header--docs"
@@ -795,6 +816,36 @@ const AllComponents: React.FC = () => {
               <Switch value={switchEnabled} onValueChange={toggleSwitch} />
             </Center>
           </ComponentWrapper>
+          <ComponentWrapper name="Table" link="/?path=/docs/components-table--docs">
+            <Center flex={1} px="300">
+              <Box style={{ width: 360 }}>
+                <Table container="subtle">
+                  <TableHeader color="purple">
+                    <TableHeaderCell
+                      trailingContent={<Icon as={ExpandSmallIcon} color="#fcfbf2" />}
+                    >
+                      Name
+                    </TableHeaderCell>
+                    <TableHeaderCell
+                      trailingContent={<Icon as={ExpandSmallIcon} color="#fcfbf2" />}
+                    >
+                      Plan
+                    </TableHeaderCell>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <TableHeaderCell row>Alex Morgan</TableHeaderCell>
+                      <TableCell>Full Fibre 900</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableHeaderCell row>Priya Shah</TableHeaderCell>
+                      <TableCell>Energy Saver</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </Box>
+            </Center>
+          </ComponentWrapper>
           <ComponentWrapper name="Tabs" link="/?path=/docs/components-tabs--docs">
             <Center flex={1}>
               <Tabs defaultValue="tab-1">
@@ -829,6 +880,38 @@ const AllComponents: React.FC = () => {
                 light={<SpotBillingLight width={160} height={160} />}
                 dark={<SpotBillingDark width={160} height={160} />}
               />
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Timeline" link="/?path=/docs/components-timeline--docs">
+            <Center flex={1} px="300">
+              <Timeline variant="progress">
+                <TimelineItem label="Order placed" helperText="Received" state="complete" />
+                <TimelineItem label="Checking details" helperText="In progress" state="active" />
+                <TimelineItem label="Service live" helperText="Pending" state="incomplete" />
+              </Timeline>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper name="Time Picker" link="/?path=/docs/components-time-picker--docs">
+            <Center flex={1}>
+              <Button onPress={handleTimePickerOpenPress}>Open Time Picker</Button>
+              <BottomSheetModalProvider>
+                <TimePicker
+                  ref={timePickerRef}
+                  date={selectedTime}
+                  onChange={({ date }) => setSelectedTime(date)}
+                  onCancel={() => setSelectedTime(undefined)}
+                />
+              </BottomSheetModalProvider>
+            </Center>
+          </ComponentWrapper>
+          <ComponentWrapper
+            name="Time Picker Input"
+            link="/?path=/docs/forms-time-picker-input--docs"
+          >
+            <Center flex={1} padding="200">
+              <BottomSheetModalProvider>
+                <TimePickerInput placeholder="HH:mm" />
+              </BottomSheetModalProvider>
             </Center>
           </ComponentWrapper>
           <ComponentWrapper name="Toast" link="/?path=/docs/components-toast--docs">
