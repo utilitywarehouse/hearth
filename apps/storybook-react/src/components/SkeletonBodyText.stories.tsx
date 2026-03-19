@@ -9,9 +9,7 @@ const meta: Meta<typeof SkeletonBodyText> = {
   decorators: [
     Story => (
       <Flex width="100%" padding="500" backgroundColor="secondary" justifyContent="center">
-        <Skeleton>
-          <Story />
-        </Skeleton>
+        <Story />
       </Flex>
     ),
   ],
@@ -31,28 +29,32 @@ type Story = StoryObj<typeof SkeletonBodyText>;
 export const Playground: Story = {
   render: args => (
     <Box width="360px">
-      <SkeletonBodyText {...args} />
+      <Skeleton loadingTitle="playground story">
+        <SkeletonBodyText {...args} />
+      </Skeleton>
     </Box>
   ),
 };
 
 export const Sizes: Story = {
   render: args => (
-    <Flex direction="column" gap="300" width="360px">
-      {sizes.map(size => (
-        <SkeletonBodyText key={size} {...args} size={size} lines="3" />
-      ))}
-    </Flex>
+    <Skeleton loadingTitle="sizes story">
+      <Flex direction="column" gap="300" width="360px">
+        {sizes.map(size => (
+          <SkeletonBodyText key={size} {...args} size={size} lines="3" />
+        ))}
+      </Flex>
+    </Skeleton>
   ),
 };
 
 export const SingleLine: Story = {
-  args: {
-    lines: '1',
-  },
+  args: { lines: '1' },
   render: args => (
     <Box width="360px">
-      <SkeletonBodyText {...args} />
+      <Skeleton loadingTitle="single line story">
+        <SkeletonBodyText {...args} />
+      </Skeleton>
     </Box>
   ),
 };

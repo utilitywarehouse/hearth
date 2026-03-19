@@ -22,4 +22,16 @@ export interface SkeletonProps
     OrderProps,
     PositionProps,
     SizeProps,
-    ZIndexProps {}
+    ZIndexProps {
+  /*
+   * The `loadingTitle` prop is used to provide an accessible
+   * announcement for screen readers when the skeleton is loading.
+   * This should be a string that describes the content that is being loaded,
+   * such as "user profile" or "product details".
+   * This string will automatically be prefixed with "Loading" when announced,
+   * so users will hear something like "Loading user profile".
+   * This helps users who rely on assistive technologies understand
+   * what is happening on the page while the skeleton is displayed.
+   */
+  loadingTitle: string;
+}

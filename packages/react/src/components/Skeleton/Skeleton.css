@@ -1,5 +1,9 @@
 .h-Skeleton {
-  animation: h-skeleton-loading-opacity 1.2s ease-in-out infinite alternate;
+  cursor: progress;
+
+  @media (prefers-reduced-motion: no-preference) {
+    animation: h-skeleton-loading-opacity 1.2s ease-in-out infinite alternate;
+  }
 
   & :where(.h-SkeletonBox, .h-SkeletonBodyText, .h-SkeletonHeading) {
     background-color: var(--h-skeleton-loading-color);
@@ -66,6 +70,18 @@
       @media (--h-desktop) {
         height: var(--h-heading-2xl-line-height-desktop);
       }
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes h-skeleton-loading-opacity {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0.4;
     }
   }
 }

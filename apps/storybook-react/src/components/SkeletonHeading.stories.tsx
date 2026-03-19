@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, Flex, Skeleton, SkeletonHeading } from '@utilitywarehouse/hearth-react';
+import { skeleton } from '@utilitywarehouse/hearth-tokens/js/components/dark/index.js';
 
 const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
 
@@ -9,9 +10,7 @@ const meta: Meta<typeof SkeletonHeading> = {
   decorators: [
     Story => (
       <Flex width="100%" padding="500" backgroundColor="secondary" justifyContent="center">
-        <Skeleton>
-          <Story />
-        </Skeleton>
+        <Story />
       </Flex>
     ),
   ],
@@ -29,31 +28,37 @@ type Story = StoryObj<typeof SkeletonHeading>;
 export const Playground: Story = {
   render: args => (
     <Box width="360px">
-      <SkeletonHeading {...args} />
+      <Skeleton loadingTitle="playground story">
+        <SkeletonHeading {...args} />
+      </Skeleton>
     </Box>
   ),
 };
 
 export const Sizes: Story = {
   render: args => (
-    <Flex direction="column" gap="200" width="360px">
-      {sizes.map(size => (
-        <SkeletonHeading key={size} {...args} size={size} />
-      ))}
-    </Flex>
+    <Skeleton loadingTitle="sizes story">
+      <Flex direction="column" gap="200" width="360px">
+        {sizes.map(size => (
+          <SkeletonHeading key={size} {...args} size={size} />
+        ))}
+      </Flex>
+    </Skeleton>
   ),
 };
 
 export const ContentBlock: Story = {
   render: args => (
-    <Flex direction="column" gap="300" width="420px">
-      <SkeletonHeading {...args} size="lg" />
-      <Box width="100%">
-        <Flex direction="column" gap="150">
-          <SkeletonHeading {...args} size="sm" />
-          <SkeletonHeading {...args} size="sm" />
-        </Flex>
-      </Box>
-    </Flex>
+    <Skeleton loadingTitle="content block story">
+      <Flex direction="column" gap="300" width="420px">
+        <SkeletonHeading {...args} size="lg" />
+        <Box width="100%">
+          <Flex direction="column" gap="150">
+            <SkeletonHeading {...args} size="sm" />
+            <SkeletonHeading {...args} size="sm" />
+          </Flex>
+        </Box>
+      </Flex>
+    </Skeleton>
   ),
 };
