@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.28.3
+
+### Patch Changes
+
+- [#1028](https://github.com/utilitywarehouse/hearth/pull/1028) [`dccffe1`](https://github.com/utilitywarehouse/hearth/commit/dccffe16342b22e58078dfc0aadfe9a482bfcc74) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: The `Combobox` trigger outline so it is only shown when the control is focused.
+
 ## 0.28.2
 
 ### Patch Changes

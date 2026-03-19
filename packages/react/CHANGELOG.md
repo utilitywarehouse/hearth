@@ -1,5 +1,40 @@
 # @utilitywarehouse/hearth-react
 
+## 0.27.0
+
+### Minor Changes
+
+- [#1022](https://github.com/utilitywarehouse/hearth/pull/1022) [`8e25cde`](https://github.com/utilitywarehouse/hearth/commit/8e25cde3f25767d314b9b6a54122daed8f6cc037) Thanks [@robphoenix](https://github.com/robphoenix)! - 🌟 [FEATURE]: Add `Skeleton` components
+
+  This update introduces the `Skeleton` components, which provide a visual
+  placeholder for content that is loading. The `Skeleton` components include:
+  - `Skeleton`
+  - `SkeletonHeading`
+  - `SkeletonBox`
+  - `SkeletonBodyText`
+
+  These are each designed to mimic the appearance of their respective content
+  types while data is being fetched.
+
+  ```tsx
+  <div aria-busy={isLoading}>
+    {isLoading ? (
+      <Skeleton loadingTitle="storybook demo">
+        <Flex direction="column" gap="100">
+          <SkeletonHeading width="60%" />
+          <SkeletonBodyText width="80%" lines="3" />
+          <SkeletonBox width="100%" height="200px" />
+          <SkeletonBox width="64px" height="64px" borderRadius="full" />
+        </Flex>
+      </Skeleton>
+    ) : (
+
+      {...}
+
+    )}
+  </div>
+  ```
+
 ## 0.26.0
 
 ### Minor Changes
