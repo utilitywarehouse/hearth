@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.28.2
+
+### Patch Changes
+
+- [#1024](https://github.com/utilitywarehouse/hearth/pull/1024) [`23b6767`](https://github.com/utilitywarehouse/hearth/commit/23b67672b89198a483ddcef88f9c6207b684c4d9) Thanks [@fillyD](https://github.com/fillyD)! - 🐛 [FIX]: Adds missing `testID` to `Select` component
+
 ## 0.28.1
 
 ### Patch Changes
