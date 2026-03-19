@@ -7,6 +7,7 @@ import { withGlobalPrefix } from '../../helpers/with-global-prefix';
 import { skeletonBodyTextPropDefs, type SkeletonBodyTextProps } from './SkeletonBodyText.props';
 import { extractProps } from '../../helpers/extract-props';
 import { Flex } from '../Flex/Flex';
+import { Box } from '../Box/Box';
 
 const COMPONENT_NAME = 'SkeletonBodyText';
 const componentClassName = withGlobalPrefix(COMPONENT_NAME);
@@ -18,17 +19,46 @@ export const SkeletonBodyText = forwardRef<SkeletonBodyTextElement, SkeletonBody
     const {
       lines = '1',
       className,
+      margin,
+      marginTop,
+      marginRight,
+      marginBottom,
+      marginLeft,
+      marginX,
+      marginY,
+      width,
+      maxWidth,
+      minWidth,
       ...skeletonBodyTextProps
     } = extractProps(props, skeletonBodyTextPropDefs);
 
+    const styleProps = {
+      margin,
+      marginTop,
+      marginRight,
+      marginBottom,
+      marginLeft,
+      marginX,
+      marginY,
+      width,
+      maxWidth,
+      minWidth,
+    };
+
     if (lines === '1') {
       return (
-        <div ref={ref} className={cn(componentClassName, className)} {...skeletonBodyTextProps} />
+        <Box
+          as="div"
+          ref={ref}
+          className={cn(componentClassName, className)}
+          {...styleProps}
+          {...skeletonBodyTextProps}
+        />
       );
     }
 
     return (
-      <Flex ref={ref} direction="column" gap="75">
+      <Flex ref={ref} direction="column" gap="75" {...styleProps}>
         {Array.from({ length: Number(lines) }, (_, index) => (
           <div
             key={index}

@@ -1,7 +1,7 @@
 import { ComponentPropsWithRef } from 'react';
 import { PropDef } from '../../props/prop-def';
 import { MarginProps } from '../../props/margin.props';
-import { Responsive } from '../../types/responsive';
+import { SizeProps } from '../../props/size.props';
 
 const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
 
@@ -12,10 +12,13 @@ export const skeletonHeadingPropDefs = {
 };
 
 export interface SkeletonHeadingProps
-  extends Omit<ComponentPropsWithRef<'h2'>, 'children'>, MarginProps {
+  extends
+    Omit<ComponentPropsWithRef<'div'>, 'children'>,
+    MarginProps,
+    Pick<SizeProps, 'width' | 'maxWidth' | 'minWidth'> {
   /**
    * Set the size to match Heading size.
    * @default md
    */
-  size?: Responsive<(typeof sizes)[number]>;
+  size?: (typeof sizes)[number];
 }

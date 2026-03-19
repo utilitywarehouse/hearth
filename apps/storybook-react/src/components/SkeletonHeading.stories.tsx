@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Box, Flex, Skeleton, SkeletonHeading } from '@utilitywarehouse/hearth-react';
-import { skeleton } from '@utilitywarehouse/hearth-tokens/js/components/dark/index.js';
 
 const sizes = ['sm', 'md', 'lg', 'xl', '2xl'] as const;
 
