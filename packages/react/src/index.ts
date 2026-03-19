@@ -294,3 +294,12 @@ export { ComboboxItem } from './components/Combobox/ComboboxItem';
 export type { ComboboxItemProps } from './components/Combobox/ComboboxItem.props';
 export { ComboboxEmpty } from './components/Combobox/ComboboxEmpty';
 export type { ComboboxEmptyProps } from './components/Combobox/ComboboxEmpty.props';
+
+export { Skeleton } from './components/Skeleton/Skeleton';
+export type { SkeletonProps } from './components/Skeleton/Skeleton.props';
+export { SkeletonBox } from './components/Skeleton/SkeletonBox';
+export type { SkeletonBoxProps } from './components/Skeleton/SkeletonBox.props';
+export { SkeletonBodyText } from './components/Skeleton/SkeletonBodyText';
+export type { SkeletonBodyTextProps } from './components/Skeleton/SkeletonBodyText.props';
+export { SkeletonHeading } from './components/Skeleton/SkeletonHeading';
+export type { SkeletonHeadingProps } from './components/Skeleton/SkeletonHeading.props';

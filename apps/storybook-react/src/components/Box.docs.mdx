@@ -6,10 +6,7 @@ import * as Stories from './Box.stories';
 
 # Box
 
-## Playground
-
-<Canvas of={Stories.Playground} sourceState="shown" />
-<Controls of={Stories.Playground} />
+<Canvas of={Stories.Playground} sourceState="hide" />
 
 ## Alternatives
 
@@ -55,6 +52,7 @@ The `display` prop is responsive, you can use this to show or hide content respo
 
 This component is based on the `div` element and supports the following common props:
 
+- AlignSelf
 - Padding
 - Margin
 - Position
@@ -72,9 +70,8 @@ This component is based on the `div` element and supports the following common p
 - Opacity
 - Order
 
-| Prop        | Type                                                          |
-| ----------- | ------------------------------------------------------------- |
-| `as`        | `"div" \| "span"`                                             |
-| `asChild`   | `boolean`                                                     |
-| `display`   | `Responsive<"none" \| "inline" \| "inline-block" \| "block">` |
-| `alignSelf` | `Responsive<"start" \| "center" \| "end" \| "stretch">`       |
+| Prop      | Type                                                          |
+| --------- | ------------------------------------------------------------- |
+| `as`      | `"div" \| "span"`                                             |
+| `asChild` | `boolean`                                                     |
+| `display` | `Responsive<"none" \| "inline" \| "inline-block" \| "block">` |
