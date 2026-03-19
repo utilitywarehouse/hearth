@@ -9,6 +9,7 @@ import {
   CheckboxLabel,
   CheckboxTile,
   FormField,
+  Grid,
 } from '../../';
 import StorybookLink from '../../../../../shared/storybook/StorybookLink';
 import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
@@ -38,6 +39,7 @@ Whether you're building a simple form or a complex data collection system, the C
 - [Variants](#variants)
 - [Advanced Usage](#advanced-usage)
 - [Examples](#examples)
+  - [Grid Layout With Tiles](#grid-layout-with-tiles)
   - [`CheckboxTile` component](#checkboxtile-component)
   - [`CheckboxImage` component](#checkboximage-component)
   - [`CheckboxGroup` component](#checkboxgroup-component)
@@ -312,6 +314,44 @@ const MyComponent = () => {
 ```
 
 ## Examples
+
+### Grid Layout With Tiles
+
+Wrap tile checkboxes in a `Grid` when you want a multi-column layout inside a `CheckboxGroup`.
+
+<UsageWrap>
+  <Center>
+    <Box minWidth={400}>
+      <CheckboxGroup label="Which options helped?" type="tile">
+        <Grid columns={2} spacing="md">
+          <Checkbox label="Fast response" value="fast-response" />
+          <Checkbox label="Clear steps" value="clear-steps" />
+          <Checkbox label="Useful example" value="useful-example" />
+          <Checkbox label="Still investigating" value="still-investigating" />
+        </Grid>
+      </CheckboxGroup>
+    </Box>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Checkbox, CheckboxGroup, Grid } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [value, setValue] = React.useState(['fast-response']);
+
+  return (
+    <CheckboxGroup label="Which options helped?" type="tile" value={value} onChange={setValue}>
+      <Grid columns={2} spacing="md">
+        <Checkbox label="Fast response" value="fast-response" />
+        <Checkbox label="Clear steps" value="clear-steps" />
+        <Checkbox label="Useful example" value="useful-example" />
+        <Checkbox label="Still investigating" value="still-investigating" />
+      </Grid>
+    </CheckboxGroup>
+  );
+};
+```
 
 ### `CheckboxTile` component
 

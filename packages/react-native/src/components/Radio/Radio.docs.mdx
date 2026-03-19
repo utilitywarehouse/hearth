@@ -3,6 +3,7 @@ import { TickSmallIcon } from '@utilitywarehouse/hearth-react-native-icons';
 import {
   Box,
   Center,
+  Grid,
   Radio,
   RadioGroup,
   RadioIcon,
@@ -41,6 +42,7 @@ The Radio component presents users with predefined choices and enables them to s
 - [Variants](#variants)
 - [Advanced Usage](#advanced-usage)
 - [Examples](#examples)
+  - [Grid Layout With Tiles](#grid-layout-with-tiles)
   - [`RadioTile` component](#radiotile-component)
   - [`RadioImage` component](#radioimage-component)
   - [`RadioGroup` component](#radiogroup-component)
@@ -237,6 +239,44 @@ const AdvancedExample = () => {
 ```
 
 ## Examples
+
+### Grid Layout With Tiles
+
+Wrap tile radios in a `Grid` when you want a multi-column layout while keeping the `RadioGroup` label, helper text and validation messaging.
+
+<UsageWrap>
+  <Center>
+    <RadioGroup label="Did this solve your problem?" type="tile">
+      <Box minWidth={300}>
+        <Grid columns={2} spacing="md">
+          <Radio label="Yes" value="yes" />
+          <Radio label="No" value="no" />
+          <Radio label="Partly" value="partly" />
+          <Radio label="Not yet" value="not-yet" />
+        </Grid>
+      </Box>
+    </RadioGroup>
+  </Center>
+</UsageWrap>
+
+```tsx
+import { Grid, Radio, RadioGroup } from '@utilitywarehouse/hearth-react-native';
+
+const MyComponent = () => {
+  const [value, setValue] = React.useState('yes');
+
+  return (
+    <RadioGroup label="Did this solve your problem?" type="tile" value={value} onChange={setValue}>
+      <Grid columns={2} spacing="md">
+        <Radio label="Yes" value="yes" />
+        <Radio label="No" value="no" />
+        <Radio label="Partly" value="partly" />
+        <Radio label="Not yet" value="not-yet" />
+      </Grid>
+    </RadioGroup>
+  );
+};
+```
 
 ### `RadioTile` component
 
