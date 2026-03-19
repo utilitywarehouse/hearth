@@ -1,5 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { BackToTopButton, NextPrevPage } from './components';
+import { BodyText, Box, Card, Center, Heading } from '../src';
+import { BackToTopButton, InputShadowExample, NextPrevPage, UsageWrap } from './components';
 
 <Meta title="Guides / Adding Shadows" />
 <BackToTopButton />
@@ -15,9 +16,16 @@ You can add shadows to your components in Hearth React Native using the Unistyle
 
 Hearth provides a set of predefined shadow styles that you can easily apply to your components. These shadows are defined in the theme and can be accessed via the `theme.helpers.shadow` object.
 
+<UsageWrap>
+  <Center>
+    <InputShadowExample />
+  </Center>
+</UsageWrap>
+
 ```tsx
 import { View } from 'react-native';
 import { StyleSheet, Input } from '@utilitywarehouse/hearth-react-native';
+import { SearchMediumIcon } from '@utilitywarehouse/hearth-react-native-icons';
 
 const styles = StyleSheet.create(theme => ({
   input: {
@@ -27,12 +35,21 @@ const styles = StyleSheet.create(theme => ({
 
 const MyComponent = () => (
   <View>
-    <Input placeholder="Input with shadow" style={styles.input} />
+    <Input placeholder="Input with shadow" style={styles.input} leadingIcon={SearchMediumIcon} />
   </View>
 );
 ```
 
 ## Components with Shadow Props
+
+<UsageWrap>
+  <Center>
+    <Card shadowColor="brand" spacing="md">
+      <Heading size="md">Card with Shadow</Heading>
+      <BodyText>This card has a shadow color set to the brand color.</BodyText>
+    </Card>
+  </Center>
+</UsageWrap>
 
 Some Hearth components, like `Card`, allow you to specify shadow colors directly via props. You can use the `shadowColor` prop to set the shadow color based on the theme.
 
