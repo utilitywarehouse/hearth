@@ -478,36 +478,57 @@ import { useCallback, useEffect, useRef } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 
 import { BodyText, Heading, InlineLink, Modal } from '@utilitywarehouse/hearth-react-native';
+import type { NavigationAction } from '@react-navigation/native';
 
-export default function ModalScreen() {
+export default function ModalScreen({ onClose }: { onClose?: () => void }) {
   const modalRef = useRef<Modal>(null);
   const navigation = useNavigation();
   const isClosingRef = useRef(false);
 
-  const handleClose = useCallback(() => {
-    if (Platform.OS === 'ios') {
-      navigation.goBack();
-      return;
-    }
-    if (isClosingRef.current) return;
+  const handleClose = useCallback(
+    (action?: NavigationAction) => {
+      if (Platform.OS === 'ios') {
+        if (onClose) {
+          onClose();
+        } else {
+          navigation.goBack();
+        }
 
-    isClosingRef.current = true;
-    // Trigger our custom animation first
-    modalRef.current?.triggerCloseAnimation?.();
+        return;
+      }
 
-    // Delay the actual navigation to allow our animation to play
-    setTimeout(() => {
-      navigation.goBack();
-    }, 100); // Match Modal animation duration
-  }, [navigation]);
+      if (isClosingRef.current) {
+        return;
+      }
+
+      isClosingRef.current = true;
+      // Trigger our custom animation first
+      modalRef.current?.triggerCloseAnimation?.();
+
+      // Delay the actual navigation to allow our animation to play
+      setTimeout(() => {
+        if (onClose) {
+          onClose();
+        } else if (action) {
+          // Dispatch the original action (e.g. popToTop, replace, reset)
+          // so we don't override the caller's intended navigation behaviour
+          navigation.dispatch(action);
+        } else {
+          navigation.goBack();
+        }
+      }, 100); // Match Modal animation duration
+    },
+    [navigation, onClose]
+  );
 
   useEffect(() => {
     if (Platform.OS === 'android') {
       const unsubscribe = navigation.addListener('beforeRemove', e => {
         if (!isClosingRef.current) {
-          // Prevent default behavior
+          // Prevent default behavior of the navigation action so we can
+          // play the close animation before letting navigation proceed
           e.preventDefault();
-          handleClose();
+          handleClose(e.data.action);
         }
       });
 
