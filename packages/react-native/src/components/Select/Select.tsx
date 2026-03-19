@@ -203,13 +203,16 @@ const Select = ({
             )}
 
             {children ? (
-              <BottomSheetScrollView>{children}</BottomSheetScrollView>
+              <BottomSheetScrollView testID={testID ? `${testID}-options` : undefined}>
+                {children}
+              </BottomSheetScrollView>
             ) : (
               <BottomSheetFlatList
                 data={filteredOptions}
                 keyExtractor={(option: any) => option.value}
                 renderItem={renderSelectOption}
                 ListEmptyComponent={renderEmptyComponent}
+                testID={testID ? `${testID}-options` : undefined}
                 {...listProps}
               />
             )}
