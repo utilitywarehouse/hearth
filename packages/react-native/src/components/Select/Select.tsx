@@ -41,6 +41,7 @@ const Select = ({
   listProps,
   searchable = false,
   searchPlaceholder = 'Search',
+  testID,
   ...rest
 }: SelectProps) => {
   const formFieldContext = useFormFieldContext();
@@ -110,9 +111,10 @@ const Select = ({
         disabled={item.disabled}
         leadingIcon={item.leadingIcon}
         trailingIcon={item.trailingIcon}
+        testID={testID ? `${testID}-option-${item.label}` : undefined}
       />
     ),
-    []
+    [testID]
   );
 
   const renderEmptyComponent = useCallback(
@@ -141,6 +143,7 @@ const Select = ({
         <Pressable
           onPress={openBottomSheet}
           disabled={isDisabled || isReadonly}
+          testID={testID}
           style={({ pressed }) => [
             styles.selectContainer,
             styles.pressedContainer(pressed || isOpen),
@@ -194,18 +197,22 @@ const Select = ({
                   inBottomSheet
                   onChangeText={setSearch}
                   type="search"
+                  testID={testID ? `${testID}-search` : undefined}
                 />
               </View>
             )}
 
             {children ? (
-              <BottomSheetScrollView>{children}</BottomSheetScrollView>
+              <BottomSheetScrollView testID={testID ? `${testID}-options` : undefined}>
+                {children}
+              </BottomSheetScrollView>
             ) : (
               <BottomSheetFlatList
                 data={filteredOptions}
                 keyExtractor={(option: any) => option.value}
                 renderItem={renderSelectOption}
                 ListEmptyComponent={renderEmptyComponent}
+                testID={testID ? `${testID}-options` : undefined}
                 {...listProps}
               />
             )}

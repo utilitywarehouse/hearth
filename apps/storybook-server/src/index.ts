@@ -35,9 +35,23 @@ storybookAppsToServe.forEach(sbApp => {
   const appBaseDir = path.resolve(appsDir, sbApp.dirName); // Use resolve to handle '../'
   const appStaticDir = path.join(appBaseDir, 'storybook-static');
   const appIndex = path.join(appStaticDir, 'index.html');
+  const appStoriesIndex = path.join(appStaticDir, 'index.json');
+  const appProjectMetadata = path.join(appStaticDir, 'project.json');
   const routePath = `/${sbApp.name}`;
 
   if (fs.existsSync(appStaticDir)) {
+    if (fs.existsSync(appStoriesIndex)) {
+      app.get(`${routePath}/stories.json`, (_req, res) => {
+        res.sendFile(appStoriesIndex);
+      });
+    }
+
+    if (fs.existsSync(appProjectMetadata)) {
+      app.get(`${routePath}/metadata.json`, (_req, res) => {
+        res.sendFile(appProjectMetadata);
+      });
+    }
+
     app.use(routePath, express.static(appStaticDir)); // Serve static files for the app
     console.log(`Serving ${sbApp.name} from: ${appStaticDir} at ${routePath}`);
 

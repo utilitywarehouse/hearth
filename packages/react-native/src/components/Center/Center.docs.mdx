@@ -1,8 +1,9 @@
-import { Meta, Canvas, Story, Controls, Primary } from '@storybook/addon-docs/blocks';
-import * as Stories from './Center.stories';
-import { Center, Pressable, Box, BodyText } from '../..';
-import { UsageWrap, BackToTopButton, ViewFigmaButton } from '../../../docs/components';
+import { Canvas, Controls, Meta, Primary, Story } from '@storybook/addon-docs/blocks';
 import { color } from '@utilitywarehouse/hearth-tokens';
+import { BodyText, Box, Center, Pressable } from '../..';
+import StorybookLink from '../../../../../shared/storybook/StorybookLink';
+import { BackToTopButton, UsageWrap, ViewFigmaButton } from '../../../docs/components';
+import * as Stories from './Center.stories';
 
 <Meta title="Primitives / Center" />
 
@@ -38,4 +39,4 @@ const MyComponent = () => (
 
 ## Props
 
-The `Center` component extends the [`Box`](/docs/components-box--docs) component, so it has all the same props as [`Box`](/docs/components-box--docs).
+The `Center` component extends the <StorybookLink to="components-box">`Box`</StorybookLink> component, so it has all the same props as <StorybookLink to="components-box">`Box`</StorybookLink>.

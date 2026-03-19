@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/addon-docs/blocks';
-import { BackToTopButton } from './components';
+import { BackToTopButton, NextPrevPage } from './components';
 
 <Meta title="Changelog" />
 <BackToTopButton />
@@ -8,6 +8,176 @@ import { BackToTopButton } from './components';
 
 The changelog for the Hearth React Native library. Here you can find all the changes, improvements, and bug fixes for each version.
 
+
+## 0.28.1
+
+### Patch Changes
+
+- [#1018](https://github.com/utilitywarehouse/hearth/pull/1018) [`1c5e02e`](https://github.com/utilitywarehouse/hearth/commit/1c5e02ea4b61329e7c55e52f9aa4ae44abc0da23) Thanks [@fillyD](https://github.com/fillyD)! - 🐛 [FIX]: Adds missing `testID` to `Select`, `SelectOption` and `VerificationInput` component
+
+## 0.28.0
+
+### Minor Changes
+
+- [#1014](https://github.com/utilitywarehouse/hearth/pull/1014) [`c10ff82`](https://github.com/utilitywarehouse/hearth/commit/c10ff82243265217acd95f687d48d803b3c7a4bd) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `Combobox` and `SafeAreaView` to the React Native library
+
+  The React Native package now includes a `Combobox` component for searchable selection in a bottom sheet, plus a `SafeAreaView` primitive that applies Unistyles runtime insets only when a view actually overlaps a screen edge. `Combobox` supports the built-in options API for fixed lists, controlled search values for dynamic results, and custom bottom sheet content for cases where you need to bring your own `BottomSheetFlatList` or bespoke option layout. `Modal` now uses `SafeAreaView` in its full-screen navigation modal path so content like search inputs no longer sits behind the dynamic island on iOS.
+
+  **Components affected**:
+  - `Combobox`
+  - `ComboboxOption`
+  - `SafeAreaView`
+  - `Modal`
+
+  **Developer changes**:
+
+  Import the new components from `@utilitywarehouse/hearth-react-native` and choose the API that fits your layout. Use `options` for straightforward searchable lists, render custom sheet content when you need virtualised or dynamic results, and wrap full-screen content in `SafeAreaView` when it should only pick up edge insets if it actually touches that edge.
+
+- [`8e37595`](https://github.com/utilitywarehouse/hearth/commit/8e375958559357ce5c1703505fa7438887d9e18e) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `Pagination` component
+
+  The package now includes a `Pagination` component for moving between pages of content. It supports numbered pagination, a condensed layout for smaller spaces, optional skip buttons for jumping to the first and last page, and controlled page state so it can be wired into lists, tables, or other paged views.
+
+  **Components affected**:
+  - `Pagination`
+
+  **Developer changes**:
+
+  Import `Pagination` from `@utilitywarehouse/hearth-react-native` and control the current page in your screen or feature state.
+
+  ```tsx
+  import { useState } from 'react';
+  import { Pagination } from '@utilitywarehouse/hearth-react-native';
+
+  const MyComponent = () => {
+    const [page, setPage] = useState(1);
+
+    return <Pagination currentPage={page} onPageChange={setPage} totalPages={10} />;
+  };
+  ```
+
+- [`8e37595`](https://github.com/utilitywarehouse/hearth/commit/8e375958559357ce5c1703505fa7438887d9e18e) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Add `Table` component
+
+  The package now includes a composable `Table` API for presenting structured data with headers, rows, cells, optional card-style containers, horizontal scrolling for narrow viewports, configurable column widths, and pagination support through `TablePagination`. Header cells support trailing actions such as sort controls, and the API is split into smaller building blocks so layouts can be assembled to fit different datasets.
+
+  **Components affected**:
+  - `Table`
+  - `TableHeader`
+  - `TableHeaderCell`
+  - `TableBody`
+  - `TableRow`
+  - `TableCell`
+  - `TablePagination`
+
+  **Developer changes**:
+
+  Import the table primitives from `@utilitywarehouse/hearth-react-native` and compose them to match your data shape. Add `columnWidths` when you need fixed or weighted columns, and pass `pagination` when rows should be paged.
+
+  ```tsx
+  import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHeader,
+    TableHeaderCell,
+    TableRow,
+  } from '@utilitywarehouse/hearth-react-native';
+
+  const MyComponent = () => (
+    <Table columnWidths={[180, '2fr', '1fr']} container="subtle">
+      <TableHeader color="purple">
+        <TableHeaderCell>Name</TableHeaderCell>
+        <TableHeaderCell>Email</TableHeaderCell>
+        <TableHeaderCell>Status</TableHeaderCell>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableHeaderCell row>Alex Morgan</TableHeaderCell>
+          <TableCell>alex@example.com</TableCell>
+          <TableCell>Active</TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  );
+  ```
+
+- [#1016](https://github.com/utilitywarehouse/hearth/pull/1016) [`33baa9e`](https://github.com/utilitywarehouse/hearth/commit/33baa9e8edb091bbd1d17c9a3838352a7f1b87ea) Thanks [@jordmccord](https://github.com/jordmccord)! - 🌟 [FEATURE]: Adds `Timeline` and `TimelineItem`
+
+  The package now includes `Timeline` and `TimelineItem` components for showing a sequence of static stops or progress steps. The new API supports labelled items, optional helper text, progress states for complete or active steps, and custom content within an item when you need to show extra context or actions.
+
+  **Components affected**:
+  - `Timeline`
+  - `TimelineItem`
+
+  **Developer changes**:
+
+  Import `Timeline` and `TimelineItem` from `@utilitywarehouse/hearth-react-native`. Use `variant="static"` for simple ordered events, or `variant="progress"` with item `state` values to communicate step progress.
+
+  ```tsx
+  import { Timeline, TimelineItem } from '@utilitywarehouse/hearth-react-native';
+
+  const MyComponent = () => (
+    <Timeline variant="progress">
+      <TimelineItem label="Ordered" helperText="We have received your order" state="complete" />
+      <TimelineItem label="Packed" helperText="Your items are ready" state="complete" />
+      <TimelineItem label="Out for delivery" helperText="Arriving today" state="active" />
+      <TimelineItem label="Delivered" helperText="Pending" state="incomplete" />
+    </Timeline>
+  );
+  ```
+
+## 0.27.3
+
+### Patch Changes
+
+- [#1006](https://github.com/utilitywarehouse/hearth/pull/1006) [`1996112`](https://github.com/utilitywarehouse/hearth/commit/1996112864146e86972ef6b9b07a8be5a72b552f) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Make `paddingNone` remove horizontal padding for ghost buttons in `md` size
+
+  Fixed an issue where setting `paddingNone` on a ghost button did not remove horizontal padding when using `md` size. The prop now removes horizontal padding for both `sm` and `md` ghost buttons.
+
+  **Components affected**:
+  - `Button`
+
+  **Developer changes**:
+
+  No changes required.
+
+- [#1012](https://github.com/utilitywarehouse/hearth/pull/1012) [`4fda116`](https://github.com/utilitywarehouse/hearth/commit/4fda116c2a1bec383df7e630180ab57166ab9da4) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Prevent outlines from being clipped for scrollable children in `Modal`
+
+  Fixed an issue in in-nav modals where child components with outlines could be visually clipped at the horizontal edges when content was scrollable.
+
+  **Components affected**:
+  - `Modal`
+
+  **Developer changes**:
+
+  No changes required.
+
+- [#1012](https://github.com/utilitywarehouse/hearth/pull/1012) [`4fda116`](https://github.com/utilitywarehouse/hearth/commit/4fda116c2a1bec383df7e630180ab57166ab9da4) Thanks [@jordmccord](https://github.com/jordmccord)! - 💅 [ENHANCEMENT]: Update horizontal padding values for scrollable in-nav `Modal` content
+
+  Adjusted horizontal padding behaviour in scrollable in-nav modals to preserve child outlines while keeping visual spacing consistent.
+
+  **Components affected**:
+  - `Modal`
+
+  **Developer changes**:
+
+  No changes required.
+
+- [#1009](https://github.com/utilitywarehouse/hearth/pull/1009) [`3d65ef2`](https://github.com/utilitywarehouse/hearth/commit/3d65ef2f8f7701b128a9c679f1910cd3d0f5c0c3) Thanks [@fillyD](https://github.com/fillyD)! - 🐛 [FIX]: testID for `List` component
+
+## 0.27.2
+
+### Patch Changes
+
+- [#1003](https://github.com/utilitywarehouse/hearth/pull/1003) [`cdb95ea`](https://github.com/utilitywarehouse/hearth/commit/cdb95eabb279adaf348487ae3fb4a20e600e039e) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: Correct `VerificationInput` focus progression after editing an empty slot
+
+  Fixed an issue where entering a value after selecting an empty verification slot could move focus to the wrong slot. Focus now moves to the slot immediately after the one that was actually updated.
+
+  **Components affected**:
+  - `VerificationInput`
+
+  **Developer changes**:
+
+  No changes required.
 
 ## 0.27.1
 
@@ -1255,3 +1425,10 @@ The changelog for the Hearth React Native library. Here you can find all the cha
 
 - [`f6366c4`](https://github.com/utilitywarehouse/hearth/commit/f6366c4da2676c535dca90be570d6e6bae5a0349) Thanks [@jordmccord](https://github.com/jordmccord)! - Initial Release 🎉
 
+
+<NextPrevPage
+  prevLink="getting-started"
+  prevTitle="Getting Started"
+  nextLink="styling"
+  nextTitle="Styling"
+/>
