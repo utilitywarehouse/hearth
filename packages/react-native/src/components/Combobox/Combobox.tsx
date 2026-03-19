@@ -9,15 +9,14 @@ import { DetailText } from '../DetailText';
 import { FormField, useFormFieldContext } from '../FormField';
 import { Icon } from '../Icon';
 import { Input } from '../Input';
+import { SafeAreaView } from '../SafeAreaView';
 import { Spinner } from '../Spinner';
 import { UnstyledIconButton } from '../UnstyledIconButton';
-import { ComboboxContext } from './Combobox.context';
-import { ComboboxSelection } from './Combobox.context';
+import { ComboboxContext, ComboboxSelection } from './Combobox.context';
 import ComboboxProps, {
   ComboboxOptionItemProps,
   ComboboxRenderContentProps,
 } from './Combobox.props';
-import { SafeAreaView } from '../SafeAreaView';
 import ComboboxOption from './ComboboxOption';
 
 const DEFAULT_SNAP_POINTS = ['25%', '40%', '80%'];
@@ -376,9 +375,6 @@ const styles = StyleSheet.create(theme => ({
     borderRadius: theme.components.input.borderRadius,
     paddingHorizontal: theme.components.input.paddingHorizontal,
     gap: theme.components.input.gap,
-    outlineStyle: 'solid',
-    outlineWidth: theme.components.input.borderWidth,
-    outlineColor: theme.color.border.strong,
     variants: {
       disabled: {
         true: {
@@ -404,7 +400,9 @@ const styles = StyleSheet.create(theme => ({
     },
   },
   triggerFocused: {
-    outlineWidth: theme.components.input.borderWidthFocused,
+    outlineStyle: 'solid',
+    outlineWidth: theme.components.input.borderWidth,
+    outlineColor: theme.color.border.strong,
   },
   leadingIconContainer: {
     alignItems: 'center',
