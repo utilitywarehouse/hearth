@@ -478,8 +478,9 @@ import { useCallback, useEffect, useRef } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 
 import { BodyText, Heading, InlineLink, Modal } from '@utilitywarehouse/hearth-react-native';
+import type { NavigationAction } from '@react-navigation/native';
 
-export default function ModalScreen() {
+export default function ModalScreen({ onClose }: { onClose?: () => void }) {
   const modalRef = useRef<Modal>(null);
   const navigation = useNavigation();
   const isClosingRef = useRef(false);
