@@ -56,7 +56,7 @@ const CurrencyInput = ({
       invalidText={invalidText}
     >
       <InputSlot>
-        <DetailText size="4xl" style={styles.text} accessible={false}>
+        <DetailText size="3xl" style={styles.text} accessible={false}>
           £
         </DetailText>
       </InputSlot>
@@ -83,13 +83,13 @@ const styles = StyleSheet.create(theme => ({
     gap: theme.components.input.currency.gap,
   },
   text: {
-    ...(Platform.OS === 'ios' && { lineHeight: 46 }),
+    ...(Platform.OS === 'ios' && { lineHeight: 40 }),
     _web: {
       marginTop: 1,
     },
   },
   input: {
-    fontSize: theme.typography.mobile.detailText['4xl'].fontSize,
+    fontSize: theme.typography.mobile.detailText['3xl'].fontSize,
     fontFamily: theme.typography.mobile.detailText.fontFamily,
     fontWeight: `${theme.typography.mobile.detailText.fontWeight}`,
     paddingTop: 0,
