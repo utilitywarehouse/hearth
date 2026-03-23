@@ -1,20 +1,20 @@
 /* Don't edit this file directly, it was auto generated */
 import type { Meta, StoryObj } from '@storybook/react';
 import Lottie from 'lottie-react';
-import <%-asset.name%> from '@utilitywarehouse/hearth-json-assets/lib/<%-asset.filename%>';
+import SpotError from '@utilitywarehouse/hearth-json-assets/lib/spot-error-light.json';
 
 const meta: Meta = {
-  title: 'JSON / <%-asset.name%>',
+  title: 'JSON / SpotError',
 };
 
 export default meta;
 type Story = StoryObj;
 
-export const <%-asset.name%>Story: Story = {
-  name: '<%-asset.name%>',
+export const SpotErrorStory: Story = {
+  name: 'SpotError',
   render: () => (
     <div style={{ width: 180, height: 140 }}>
-      <Lottie animationData={<%-asset.name%>} loop={true} />
+      <Lottie animationData={SpotError} loop={true} />
     </div>
   ),
 };

@@ -54,9 +54,7 @@ export function AssetsGrid({ assets }: { assets: Asset[] }) {
                     style={{ maxWidth: 200, maxHeight: 140 }}
                   />
                 ) : asset.path.includes('.json') ? (
-                  <div style={{ width: 180, height: 140 }}>
-                    <Lottie animationData={asset.src} loop={true} />
-                  </div>
+                  <Lottie animationData={asset.src} loop={true} />
                 ) : null}
                 <BodyText as="span">
                   {copied === asset.name ? 'Copied Import...' : asset.name}

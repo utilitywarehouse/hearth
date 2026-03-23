@@ -1,20 +1,20 @@
 /* Don't edit this file directly, it was auto generated */
 import type { Meta, StoryObj } from '@storybook/react';
 import Lottie from 'lottie-react';
-import <%-asset.name%> from '@utilitywarehouse/hearth-json-assets/lib/<%-asset.filename%>';
+import UWLogoStandardPurple from '@utilitywarehouse/hearth-json-assets/lib/uw-logo-standard-purple-light.json';
 
 const meta: Meta = {
-  title: 'JSON / <%-asset.name%>',
+  title: 'JSON / UWLogoStandardPurple',
 };
 
 export default meta;
 type Story = StoryObj;
 
-export const <%-asset.name%>Story: Story = {
-  name: '<%-asset.name%>',
+export const UWLogoStandardPurpleStory: Story = {
+  name: 'UWLogoStandardPurple',
   render: () => (
     <div style={{ width: 180, height: 140 }}>
-      <Lottie animationData={<%-asset.name%>} loop={true} />
+      <Lottie animationData={UWLogoStandardPurple} loop={true} />
     </div>
   ),
 };

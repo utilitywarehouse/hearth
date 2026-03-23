@@ -82,8 +82,8 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
           branch: ${{ inputs.branchName }}
-          title: 'Generate updated assets packages'
-          commit-message: 'Generate updated assets packages'
+          title: 'Generate updated SVG assets packages'
+          commit-message: 'Generate updated SVG assets packages'
           delete-branch: true
           base: main
           body: ${{ steps.vars.outputs.pr_body }}

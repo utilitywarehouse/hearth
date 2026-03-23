@@ -1,7 +1,7 @@
 /* Don't edit this file directly, it was auto generated */
 import type { Meta, StoryObj } from '@storybook/react';
 import Lottie from 'lottie-react';
-import SpotProcessCompleteFunctional from '@utilitywarehouse/hearth-json-assets/lib/spot-process-complete-functional.json';
+import SpotProcessCompleteFunctional from '@utilitywarehouse/hearth-json-assets/lib/spot-process-complete-functional-light.json';
 
 const meta: Meta = {
   title: 'JSON / SpotProcessCompleteFunctional',

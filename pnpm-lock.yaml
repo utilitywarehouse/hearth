@@ -938,9 +938,18 @@ importers:
 
   packages/json-assets:
     devDependencies:
+      dotenv:
+        specifier: ^16.3.1
+        version: 16.6.1
       fs-extra:
         specifier: ^11.1.1
         version: 11.3.3
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.23
+      node-fetch:
+        specifier: ^2.7.0
+        version: 2.7.0
 
   packages/react:
     dependencies:
@@ -15228,7 +15237,7 @@ snapshots:
       '@segment/loosely-validate-event': 2.0.0
       fetch-retry: 4.1.1
       md5: 2.3.0
-      node-fetch: 2.6.7
+      node-fetch: 2.7.0
       remove-trailing-slash: 0.1.1
       uuid: 8.3.2
     transitivePeerDependencies:
