@@ -25,11 +25,17 @@ import Lottie from 'lottie-react';
 import SpotProcessCompleteFunctional from '@utilitywarehouse/hearth-json-assets/lib/spot-process-complete-functional.json';
 
 function Example() {
-  return <Lottie animationData={SpotProcessCompleteFunctional} loop={true} />;
+  return <Lottie animationData={SpotProcessCompleteFunctional} loop={false} />;
 }
 ```
 
 If you do not use `lottie-react`, you can pass the imported JSON object to any compatible animation player.
+
+## Accessibility
+
+When using these assets in an application, ensure that you do not set them to
+loop indefinitely, as this can cause issues for users with cognitive
+disabilities.
 
 ## Available Assets ({jsonAssets.length})
 
