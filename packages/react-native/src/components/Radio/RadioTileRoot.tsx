@@ -18,7 +18,7 @@ const styles = StyleSheet.create(theme => ({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignSelf: 'stretch',
-    gap: theme.components.radio.gap,
+    gap: theme.components.radio.tile.gap,
     padding: theme.components.radio.tile.padding,
     borderWidth: theme.components.radio.tile.borderWidth,
     borderColor: theme.color.border.strong,
