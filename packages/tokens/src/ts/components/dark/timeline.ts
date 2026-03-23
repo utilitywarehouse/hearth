@@ -14,8 +14,8 @@ export default {
   gap: 12,
   progress: {
     circle: {
-      height: 24,
-      width: 24,
+      height: 28,
+      width: 28,
     },
   },
   static: {

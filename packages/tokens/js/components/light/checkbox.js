@@ -10,7 +10,7 @@ export default {
       color: '#fcfbf2',
     },
   },
-  gap: 12,
+  gap: 8,
   group: {
     gap: 16,
     stack: {
@@ -24,7 +24,7 @@ export default {
     borderRadius: 8,
     borderWidth: 1,
     borderWidthSelected: 2,
-    gap: 12,
+    gap: 8,
     group: {
       gap: 6,
       heading: {
