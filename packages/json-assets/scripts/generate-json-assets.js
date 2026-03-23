@@ -2,7 +2,6 @@ const path = require('path');
 const fs = require('fs-extra');
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const fetch = require('node-fetch');
-const _ = require('lodash');
 
 require('dotenv').config();
 
