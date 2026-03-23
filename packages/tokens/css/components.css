@@ -101,7 +101,7 @@
   --h-checkbox-border-width: var(--h-border-width-2);
   --h-checkbox-checked-background-color: var(--h-color-grey-1000);
   --h-checkbox-checked-icon-color: var(--h-color-warm-white-50);
-  --h-checkbox-gap: var(--h-space-150);
+  --h-checkbox-gap: var(--h-space-100);
   --h-checkbox-group-gap: var(--h-space-200);
   --h-checkbox-group-stack-gap: var(--h-space-250);
   --h-checkbox-outline-color-active: var(--h-color-warm-white-300);
@@ -110,7 +110,7 @@
   --h-checkbox-tile-border-radius: var(--h-border-radius-md);
   --h-checkbox-tile-border-width: var(--h-border-width-1);
   --h-checkbox-tile-border-width-selected: var(--h-border-width-2);
-  --h-checkbox-tile-gap: var(--h-space-150);
+  --h-checkbox-tile-gap: var(--h-space-100);
   --h-checkbox-tile-group-gap: var(--h-space-75);
   --h-checkbox-tile-group-heading-gap: var(--h-space-25);
   --h-checkbox-tile-group-stack-gap: var(--h-space-150);
@@ -327,7 +327,7 @@
   --h-radio-border-radius: var(--h-border-radius-full);
   --h-radio-border-width: var(--h-border-width-2);
   --h-radio-checked-color: var(--h-color-grey-1000);
-  --h-radio-gap: var(--h-space-150);
+  --h-radio-gap: var(--h-space-100);
   --h-radio-group-gap: var(--h-space-200);
   --h-radio-group-stack-gap: var(--h-space-250);
   --h-radio-outline-color-active: var(--h-color-warm-white-300);

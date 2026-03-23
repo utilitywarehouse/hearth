@@ -7,7 +7,7 @@ export default {
   checked: {
     color: '#101010',
   },
-  gap: 12,
+  gap: 8,
   group: {
     gap: 16,
     stack: {
