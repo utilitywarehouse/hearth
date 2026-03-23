@@ -39,10 +39,6 @@ const transformers = {
 const LIB_DIR = path.resolve(__dirname, '..', 'lib');
 const MANIFEST_PATH = path.resolve(__dirname, '..', 'manifest.json');
 
-function normalizeFilename(fileName) {
-  return fileName.split('.')[0].toLowerCase().replace(/_/g, '-') + '-light.json';
-}
-
 /**
  * Fetch all assets from the Brandfolder collection, following pagination.
  * Includes attachments so we can get the download URLs.
