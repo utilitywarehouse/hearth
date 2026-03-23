@@ -2,8 +2,8 @@ import { useMemo } from 'react';
 import { StyleSheet } from 'react-native-unistyles';
 
 import { Pressable, ViewStyle } from 'react-native';
-import type RadioProps from './Radio.props';
 import { RadioContext } from './Radio.context';
+import type RadioProps from './Radio.props';
 import { useRadioGroupContext } from './RadioGroup.context';
 
 const RadioRoot = ({

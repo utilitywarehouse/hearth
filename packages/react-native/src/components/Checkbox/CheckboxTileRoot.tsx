@@ -18,7 +18,7 @@ const styles = StyleSheet.create(theme => ({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignSelf: 'stretch',
-    gap: theme.components.checkbox.gap,
+    gap: theme.components.checkbox.tile.gap,
     padding: theme.components.checkbox.tile.padding,
     borderWidth: theme.components.checkbox.tile.borderWidth,
     borderColor: theme.color.border.strong,

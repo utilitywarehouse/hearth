@@ -11,7 +11,7 @@ export default {
       color: '#101010',
     },
   },
-  gap: 8,
+  gap: 12,
   group: {
     gap: 16,
     stack: {
