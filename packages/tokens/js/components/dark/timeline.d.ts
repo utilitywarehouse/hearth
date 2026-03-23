@@ -13,8 +13,8 @@ declare const _default: {
   readonly gap: 12;
   readonly progress: {
     readonly circle: {
-      readonly height: 24;
-      readonly width: 24;
+      readonly height: 28;
+      readonly width: 28;
     };
   };
   readonly static: {

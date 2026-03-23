@@ -19,7 +19,7 @@ export const Spinner = forwardRef<SpinnerElement, SpinnerProps>(
       <div
         ref={ref}
         className={cn(componentClassName, className)}
-        data-currentColor={currentColor ? '' : undefined}
+        data-current-color={currentColor ? '' : undefined}
         {...spinnerProps}
       >
         <svg xmlns="http://www.w3.org/2000/svg">

@@ -52,7 +52,6 @@ const styles = StyleSheet.create(theme => ({
     minWidth: theme.components.pill.minWidth,
     gap: theme.components.pill.gap,
     paddingHorizontal: theme.components.pill.paddingHorizontal,
-    paddingVertical: theme.components.pill.paddingVertical,
     borderRadius: theme.components.pill.borderRadius,
     borderWidth: theme.components.pill.borderWidth,
     borderColor: theme.color.interactive.neutral.border.subtle,

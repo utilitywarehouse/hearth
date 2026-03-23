@@ -2589,11 +2589,11 @@
         "circle": {
           "height": {
             "type": "number",
-            "value": 24
+            "value": 28
           },
           "width": {
             "type": "number",
-            "value": 24
+            "value": 28
           }
         }
       },
@@ -3423,9 +3423,9 @@
         }
       },
       "gap": {
-        "alias": "{space.150}",
+        "alias": "{space.100}",
         "type": "number",
-        "value": 12
+        "value": 8
       },
       "group": {
         "gap": {
@@ -3472,9 +3472,9 @@
           "value": 2
         },
         "gap": {
-          "alias": "{space.150}",
+          "alias": "{space.100}",
           "type": "number",
-          "value": 12
+          "value": 8
         },
         "group": {
           "gap": {
@@ -4745,9 +4745,9 @@
         }
       },
       "gap": {
-        "alias": "{space.150}",
+        "alias": "{space.100}",
         "type": "number",
-        "value": 12
+        "value": 8
       },
       "group": {
         "gap": {
