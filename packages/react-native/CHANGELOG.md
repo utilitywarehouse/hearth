@@ -1,5 +1,11 @@
 # @utilitywarehouse/hearth-react-native
 
+## 0.28.5
+
+### Patch Changes
+
+- [#1045](https://github.com/utilitywarehouse/hearth/pull/1045) [`3778061`](https://github.com/utilitywarehouse/hearth/commit/37780613890221368edb74c0ce83b8bf3d03e5b3) Thanks [@jordmccord](https://github.com/jordmccord)! - 🐛 [FIX]: The `BannerIllustration` now stays centered in vertical banners and no longer inherits image border styling or horizontal stretching.
+
 ## 0.28.4
 
 ### Patch Changes
