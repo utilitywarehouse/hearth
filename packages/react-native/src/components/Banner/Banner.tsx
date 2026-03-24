@@ -237,9 +237,7 @@ const styles = StyleSheet.create(theme => ({
     gap: theme.space.lg,
     variants: {
       direction: {
-        horizontal: {
-          flex: 1,
-        },
+        horizontal: {},
         vertical: {},
       },
     },

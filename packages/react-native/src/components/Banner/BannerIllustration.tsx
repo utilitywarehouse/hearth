@@ -21,14 +21,14 @@ const BannerIllustration = (props: ImageProps | ThemedImageProps) => {
   );
 };
 
-const styles = StyleSheet.create(theme => ({
+const styles = StyleSheet.create({
   media: {
     flexShrink: 0,
     variants: {
       direction: {
         horizontal: {},
         vertical: {
-          alignSelf: 'flex-start',
+          alignSelf: 'center',
         },
       },
     },
@@ -38,16 +38,11 @@ const styles = StyleSheet.create(theme => ({
     variants: {
       direction: {
         horizontal: {},
-        vertical: {
-          width: '100%',
-        },
+        vertical: {},
       },
     },
   },
   image: {
-    borderRadius: theme.borderRadius.md,
-    borderColor: theme.color.border.strong,
-    borderWidth: theme.borderWidth[1],
     variants: {
       direction: {
         horizontal: { width: 160, height: 95 },
@@ -58,6 +53,6 @@ const styles = StyleSheet.create(theme => ({
       },
     },
   },
-}));
+});
 
 export default BannerIllustration;
